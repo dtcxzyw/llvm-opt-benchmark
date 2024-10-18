@@ -523,7 +523,7 @@ define hidden void @_ZN2cv4usac20MagsacWeightFunction6createERKNS_3PtrINS0_11Gam
   store i32 1, ptr %9, align 4, !noalias !19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac24MagsacWeightFunctionImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !19
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %10)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24MagsacWeightFunctionImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i
 
 .noexc:                                           ; preds = %6
@@ -561,7 +561,7 @@ define hidden void @_ZN2cv4usac20MagsacWeightFunction6createERKNS_3PtrINS0_11Gam
 .body.i:                                          ; preds = %24, %16, %.noexc
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #22, !noalias !19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %10) #22, !noalias !19
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24MagsacWeightFunctionImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i.body
 
 _ZSt10_ConstructIN2cv4usac24MagsacWeightFunctionImplEJRKNS0_3PtrINS1_11GammaValuesEEERKiRKdSB_SB_EEvPT_DpOT0_.exit.i.i: ; preds = %24
@@ -8432,7 +8432,7 @@ define linkonce_odr hidden void @_ZN2cv4usac24MagsacWeightFunctionImplD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4usac24MagsacWeightFunctionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

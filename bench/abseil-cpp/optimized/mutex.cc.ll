@@ -1457,7 +1457,7 @@ if.then:                                          ; preds = %land.lhs.true
 lor.lhs.false:                                    ; preds = %if.then
   %eval_.i.i = getelementptr inbounds i8, ptr %cond, i64 16
   %6 = load ptr, ptr %eval_.i.i, align 8
-  %call.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull %cond)
+  %call.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %cond)
   br i1 %call.i.i, label %return, label %if.end11
 
 if.end11:                                         ; preds = %lor.lhs.false, %land.lhs.true, %entry
@@ -1530,7 +1530,7 @@ if.end20:                                         ; preds = %if.then18, %_ZN4abs
 lor.rhs:                                          ; preds = %if.end20
   %eval_.i.i45 = getelementptr inbounds i8, ptr %cond, i64 16
   %11 = load ptr, ptr %eval_.i.i45, align 8
-  %call.i.i46 = call noundef zeroext i1 %11(ptr noundef nonnull %cond)
+  %call.i.i46 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %cond)
   br label %return
 
 return:                                           ; preds = %if.end20, %lor.rhs, %if.then, %lor.lhs.false
@@ -1544,7 +1544,7 @@ entry:
   %waitp = alloca %"struct.absl::SynchWaitParams", align 8
   %eval_.i = getelementptr inbounds i8, ptr %cond, i64 16
   %0 = load ptr, ptr %eval_.i, align 8
-  %call.i6 = tail call noundef zeroext i1 %0(ptr noundef nonnull %cond)
+  %call.i6 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %cond)
   br i1 %call.i6, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1607,7 +1607,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
 
 lor.end:                                          ; preds = %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
   %6 = load ptr, ptr %eval_.i, align 8
-  %call.i.i = call noundef zeroext i1 %6(ptr noundef nonnull %cond)
+  %call.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %cond)
   br i1 %call.i.i, label %return, label %lor.rhs10
 
 lor.rhs10:                                        ; preds = %lor.end
@@ -1644,11 +1644,11 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %entry
-  %call2.i248 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef %this)
+  %call2.i248 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp3.i = icmp eq ptr %call2.i248, null
   %name.i = getelementptr inbounds i8, ptr %call2.i248, i64 41
   %cond-lvalue.i = select i1 %cmp3.i, ptr @.str.35, ptr %name.i
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %cond-lvalue.i)
   unreachable
 
 invoke.cont:                                      ; preds = %entry
@@ -2049,7 +2049,7 @@ while.body:                                       ; preds = %if.end298, %while.b
 lor.lhs.false264:                                 ; preds = %while.body
   %eval_.i.i257 = getelementptr inbounds i8, ptr %49, i64 16
   %50 = load ptr, ptr %eval_.i.i257, align 8
-  %call.i.i258 = tail call noundef zeroext i1 %50(ptr noundef nonnull %49)
+  %call.i.i258 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %49)
   br i1 %call.i.i258, label %if.then269, label %if.end287
 
 if.then269:                                       ; preds = %lor.lhs.false264, %while.body
@@ -2550,7 +2550,7 @@ if.then30:                                        ; preds = %if.then21
 lor.lhs.false:                                    ; preds = %if.then30
   %eval_.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %eval_.i.i, align 8
-  %call.i.i239 = call noundef zeroext i1 %15(ptr noundef nonnull %14)
+  %call.i.i239 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %14)
   br i1 %call.i.i239, label %do.body219, label %if.end39
 
 if.end39:                                         ; preds = %lor.lhs.false
@@ -2640,7 +2640,7 @@ do.end116:                                        ; preds = %do.body107
 lor.lhs.false119:                                 ; preds = %do.end116
   %eval_.i.i247 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %eval_.i.i247, align 8
-  %call.i.i248 = call noundef zeroext i1 %32(ptr noundef nonnull %31)
+  %call.i.i248 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %31)
   br i1 %call.i.i248, label %do.body219, label %if.end126
 
 if.end126:                                        ; preds = %lor.lhs.false119
@@ -2919,7 +2919,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 _ZN4absl5Mutex11TryLockSlowEv.exit:               ; preds = %land.lhs.true.i, %if.end.i
   %.sink.i = phi i32 [ 1, %if.end.i ], [ 0, %land.lhs.true.i ]
   %retval.0.i = phi i1 [ false, %if.end.i ], [ true, %land.lhs.true.i ]
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %.sink.i)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %.sink.i)
   br label %return
 
 return:                                           ; preds = %if.then, %if.else, %_ZN4absl5Mutex11TryLockSlowEv.exit
@@ -3196,7 +3196,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 _ZN4absl5Mutex17ReaderTryLockSlowEv.exit:         ; preds = %land.lhs.true.i, %for.inc.i
   %.sink.i = phi i32 [ 2, %land.lhs.true.i ], [ 3, %for.inc.i ]
   %cmp.not34.i = phi i1 [ true, %land.lhs.true.i ], [ false, %for.inc.i ]
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %.sink.i)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %.sink.i)
   br label %return
 
 return:                                           ; preds = %if.end, %for.end, %_ZN4absl5Mutex17ReaderTryLockSlowEv.exit

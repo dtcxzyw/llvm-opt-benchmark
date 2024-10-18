@@ -288,12 +288,12 @@ if.end24:                                         ; preds = %land.lhs.true, %if.
 if.then.i:                                        ; preds = %if.end24
   %add.i = add i64 %8, 1
   %div27.i = lshr i64 %add.i, 1
-  %call.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef %keylen)
+  %call.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef range(i64 1, 0) %keylen)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call2.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %keylen, ptr noundef nonnull @.str, i32 noundef 456) #7
+  %call2.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef range(i64 1, 0) %keylen, ptr noundef nonnull @.str, i32 noundef 456) #7
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %return, label %if.end5.i
 
@@ -301,12 +301,12 @@ if.end5.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %8
   %idx.neg.i = sub nsw i64 0, %div27.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %call7.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef nonnull %6, ptr noundef %add.ptr6.i, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef nonnull %call2.i, i64 noundef %keylen)
+  %call7.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef nonnull %6, ptr noundef %add.ptr6.i, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef nonnull %call2.i, i64 noundef range(i64 1, 0) %keylen)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %for.body.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call2.i, i64 noundef %keylen, ptr noundef nonnull @.str, i32 noundef 461) #7
+  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call2.i, i64 noundef range(i64 1, 0) %keylen, ptr noundef nonnull @.str, i32 noundef 461) #7
   br label %return
 
 for.body.i:                                       ; preds = %if.end5.i, %for.body.i
@@ -322,11 +322,11 @@ for.body.i:                                       ; preds = %if.end5.i, %for.bod
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
-  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call2.i, i64 noundef %keylen, ptr noundef nonnull @.str, i32 noundef 466) #7
+  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call2.i, i64 noundef range(i64 1, 0) %keylen, ptr noundef nonnull @.str, i32 noundef 466) #7
   br label %return
 
 if.end15.i:                                       ; preds = %if.end24
-  %call16.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef %keylen)
+  %call16.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef range(i64 1, 0) %keylen)
   br label %return
 
 return:                                           ; preds = %if.end15.i, %for.end.i, %if.then9.i, %if.end.i, %if.then.i, %entry, %lor.lhs.false, %if.then22, %if.then13, %if.then10, %if.then7, %if.then4

@@ -332,7 +332,7 @@ define void @_ZN5faiss14IndexBinaryIVF5trainElPKh(ptr noundef nonnull align 8 de
 44:                                               ; preds = %33
   %45 = load i32, ptr %34, align 8
   %46 = sext i32 %45 to i64
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i64 noundef %46, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %5, i64 noundef %46, i32 noundef 1)
           to label %47 unwind label %58
 
 47:                                               ; preds = %44
@@ -455,7 +455,7 @@ _ZN5faiss20RandomRotationMatrixD2Ev.exit.i:       ; preds = %98, %_ZNSt6vectorIf
   br label %_ZN5faiss8IndexLSHD2Ev.exit
 
 _ZN5faiss8IndexLSHD2Ev.exit:                      ; preds = %_ZN5faiss20RandomRotationMatrixD2Ev.exit.i, %101
-  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #22
+  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %6) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %5, align 8
   %102 = load ptr, ptr %48, align 8
   %.not.i.i.i.i15 = icmp eq ptr %102, null
@@ -477,7 +477,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i16:                ; preds = %103, %_ZN5faiss8Ind
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i16, %106
-  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #22
+  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %4, align 8
   %107 = getelementptr inbounds i8, ptr %4, i64 88
   %108 = load ptr, ptr %107, align 8
@@ -6765,7 +6765,7 @@ _ZN5faiss20RandomRotationMatrixD2Ev.exit:         ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %_ZN5faiss20RandomRotationMatrixD2Ev.exit, %14
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -6793,7 +6793,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -25620,7 +25620,7 @@ _ZNSt10unique_ptrIN5faiss25BinaryInvertedListScannerESt14default_deleteIS1_EED2E
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %_ZNSt10unique_ptrIN5faiss25BinaryInvertedListScannerESt14default_deleteIS1_EED2Ev.exit, %183
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #22
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #22
   store ptr %15, ptr %23, align 8
   %184 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %16, ptr %184, align 8

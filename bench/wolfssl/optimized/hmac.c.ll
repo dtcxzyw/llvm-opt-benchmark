@@ -1195,7 +1195,7 @@ if.end42:                                         ; preds = %if.end36
   br i1 %cmp46.not, label %if.end49, label %while.end
 
 if.end49:                                         ; preds = %if.end42
-  %cond.i = call range(i32 0, 65) i32 @llvm.umin.i32(i32 %sub, i32 %switch.load)
+  %cond.i = call range(i32 0, 65) i32 @llvm.umin.i32(i32 %sub, i32 range(i32 0, 65) %switch.load)
   %idx.ext = zext i32 %outIdx.029 to i64
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %idx.ext
   %conv52 = zext nneg i32 %cond.i to i64

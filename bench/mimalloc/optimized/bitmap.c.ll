@@ -28,7 +28,7 @@ mi_bitmap_mask_.exit:                             ; preds = %if.end, %if.end.i, 
   %retval.0.i = phi i64 [ %sub.i, %if.end3.i ], [ -1, %if.end ], [ 0, %if.end.i ]
   %sub = sub i64 64, %count
   %not = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not, i1 true)
   %cmp2.not22 = icmp ugt i64 %1, %sub
   br i1 %cmp2.not22, label %return, label %while.cond.outer.split.lr.ph
 
@@ -128,7 +128,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.i.us:                                      ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
   %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
@@ -183,7 +183,7 @@ for.body.us27:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us35:                                    ; preds = %for.body.us27
   %not.i.us38 = xor i64 %5, -1
-  %6 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us38, i1 true)
+  %6 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us38, i1 true)
   %cmp2.not22.i.us39 = icmp ugt i64 %6, %sub.i
   br i1 %cmp2.not22.i.us39, label %for.inc.us42, label %while.cond.outer.split.lr.ph.i.us40
 
@@ -240,7 +240,7 @@ for.body.us50:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us58:                                    ; preds = %for.body.us50
   %not.i.us61 = xor i64 %12, -1
-  %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us61, i1 true)
+  %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us61, i1 true)
   %cmp2.not22.i.us62 = icmp ugt i64 %13, %sub.i
   br i1 %cmp2.not22.i.us62, label %for.inc.us85, label %while.cond.outer.split.i.us65.preheader
 
@@ -273,7 +273,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %17, -1
-  %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %18, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
@@ -356,7 +356,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.i.us:                                      ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
   %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
@@ -440,7 +440,7 @@ for.body.us40.us:                                 ; preds = %for.body.lr.ph.spli
 
 if.end.i.us48.us:                                 ; preds = %for.body.us40.us
   %not.i.us53.us = xor i64 %9, -1
-  %10 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us53.us, i1 true)
+  %10 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53.us, i1 true)
   %cmp2.not22.i.us54.us = icmp ugt i64 %10, %sub.i
   br i1 %cmp2.not22.i.us54.us, label %for.inc.us57.us, label %while.cond.outer.split.lr.ph.i.us55.us
 
@@ -494,7 +494,7 @@ for.body.us40:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us48:                                    ; preds = %for.body.us40
   %not.i.us53 = xor i64 %16, -1
-  %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us53, i1 true)
+  %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53, i1 true)
   %cmp2.not22.i.us54 = icmp ugt i64 %17, %sub.i
   br i1 %cmp2.not22.i.us54, label %for.inc.us57, label %while.cond.outer.split.lr.ph.i.us55
 
@@ -556,7 +556,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %23, -1
-  %24 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %24 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %24, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
@@ -822,7 +822,7 @@ if.then6:                                         ; preds = %for.body
 
 if.end.i:                                         ; preds = %if.then6
   %not.i = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
   %cmp2.not22.i = icmp samesign ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i, label %if.end10, label %while.cond.outer.split.lr.ph.i
 
@@ -896,7 +896,7 @@ if.then2.i:                                       ; preds = %if.end.i19
 
 if.end.i.i21:                                     ; preds = %if.then2.i
   %not.i.i = xor i64 %13, -1
-  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.i, i1 true)
+  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.i, i1 true)
   %cmp2.not22.i.i = icmp samesign ugt i64 %14, %sub.i
   br i1 %cmp2.not22.i.i, label %for.inc, label %while.cond.outer.split.lr.ph.i.i
 

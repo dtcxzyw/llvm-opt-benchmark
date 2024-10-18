@@ -200,7 +200,7 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   br i1 %.not.i.i.i.i, label %12, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit6"
 
 12:                                               ; preds = %7
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %5, i64 %9), !alias.scope !58, !noalias !62
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %5, i64 %9), !alias.scope !58, !noalias !62
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %13, label %14, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit6"
 
@@ -234,7 +234,7 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   br i1 %.not.i.i.i.i3, label %26, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit6"
 
 26:                                               ; preds = %21
-  %bcmp.i.i.i.i5 = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %19, i64 %23), !alias.scope !88, !noalias !92
+  %bcmp.i.i.i.i5 = tail call i32 @bcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %19, i64 %23), !alias.scope !88, !noalias !92
   %27 = icmp eq i32 %bcmp.i.i.i.i5, 0
   br label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit6"
 
@@ -274,7 +274,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br i1 %.not.i.i.i.i.i, label %12, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h6ae413154ecd2250E.llvm.9308725237535942637.exit"
 
 12:                                               ; preds = %7
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %5, i64 %9), !alias.scope !123, !noalias !127
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %5, i64 %9), !alias.scope !123, !noalias !127
   %13 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %13, label %14, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h6ae413154ecd2250E.llvm.9308725237535942637.exit"
 
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br i1 %.not.i.i.i.i3.i, label %26, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h6ae413154ecd2250E.llvm.9308725237535942637.exit"
 
 26:                                               ; preds = %21
-  %bcmp.i.i.i.i5.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %19, i64 %23), !alias.scope !153, !noalias !157
+  %bcmp.i.i.i.i5.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %19, i64 %23), !alias.scope !153, !noalias !157
   %27 = icmp eq i32 %bcmp.i.i.i.i5.i, 0
   br label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h6ae413154ecd2250E.llvm.9308725237535942637.exit"
 
@@ -342,7 +342,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOpti
   br i1 %.not.i.i, label %12, label %"_ZN89_$LT$influxdb_influxql_parser..identifier..Identifier$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fe1b0e0a1885537E.llvm.9308725237535942637.exit"
 
 12:                                               ; preds = %7
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %5, i64 %9), !alias.scope !169, !noalias !173
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %5, i64 %9), !alias.scope !169, !noalias !173
   %13 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN89_$LT$influxdb_influxql_parser..identifier..Identifier$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fe1b0e0a1885537E.llvm.9308725237535942637.exit"
 }
@@ -370,7 +370,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   br i1 %.not.i.i.i, label %12, label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17hb6a81684a454fc14E.llvm.9308725237535942637.exit"
 
 12:                                               ; preds = %7
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %5, i64 %9), !alias.scope !192, !noalias !196
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %5, i64 %9), !alias.scope !192, !noalias !196
   %13 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17hb6a81684a454fc14E.llvm.9308725237535942637.exit"
 
@@ -401,7 +401,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$influxdb_influxql_parser..identifie
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !alias.scope !200, !nonnull !10, !noundef !10
   %9 = load ptr, ptr %0, align 8, !alias.scope !197, !nonnull !10, !noundef !10
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %8, i64 %4), !alias.scope !203
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %8, i64 %4), !alias.scope !203
   %10 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf86c1ab06681b072E.exit"
 
@@ -419,7 +419,7 @@ define hidden void @"_ZN96_$LT$hashbrown..set..IntoIter$LT$K$C$A$GT$$u20$as$u20$
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62c2f3b314f95b4dE.llvm.15638356858648770541.exit.i": ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h7916484b362eb79bE.llvm.15638356858648770541"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6), !noalias !212
+  %7 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h7916484b362eb79bE.llvm.15638356858648770541"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6), !noalias !212
   %8 = load i64, ptr %3, align 8, !alias.scope !207, !noalias !212, !noundef !10
   %9 = add i64 %8, -1
   store i64 %9, ptr %3, align 8, !alias.scope !207, !noalias !212

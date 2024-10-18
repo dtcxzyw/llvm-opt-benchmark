@@ -107,7 +107,7 @@ define dso_local i32 @nghttp2_session_terminate_session(ptr noundef %0, i32 noun
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 952
   store i32 15, ptr %9, align 8
-  %10 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %1, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %10 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %1, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.not17.i = icmp eq i32 %10, 0
   br i1 %.not17.i, label %11, label %session_terminate_session.exit
 
@@ -133,7 +133,7 @@ define dso_local i32 @nghttp2_session_terminate_session2(ptr noundef %0, i32 nou
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 952
   store i32 15, ptr %8, align 8
-  %9 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %9 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.not17.i = icmp eq i32 %9, 0
   br i1 %.not17.i, label %10, label %session_terminate_session.exit
 
@@ -3249,7 +3249,7 @@ session_predicate_headers_send.exit.i:            ; preds = %nghttp2_session_is_
   br i1 %.not227.i, label %175, label %session_prep_frame.exit
 
 175:                                              ; preds = %173
-  %176 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef %33)
+  %176 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef nonnull %33)
   %.not228.i = icmp eq i32 %176, 0
   br i1 %.not228.i, label %177, label %session_prep_frame.exit
 
@@ -3376,7 +3376,7 @@ session_predicate_push_promise_send.exit.i:       ; preds = %228
   br i1 %.not215.i, label %240, label %session_prep_frame.exit
 
 240:                                              ; preds = %238
-  %241 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef %33)
+  %241 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef nonnull %33)
   %.not216.i = icmp eq i32 %241, 0
   br i1 %.not216.i, label %242, label %session_prep_frame.exit
 
@@ -3486,7 +3486,7 @@ session_predicate_window_update_send.exit.i:      ; preds = %state_reserved_loca
 
 292:                                              ; preds = %290
   %.val250.i = load ptr, ptr %6, align 8
-  %293 = tail call fastcc i32 @session_pack_extension(ptr noundef nonnull %0, ptr %.val250.i, ptr noundef %33)
+  %293 = tail call fastcc i32 @session_pack_extension(ptr noundef nonnull %0, ptr %.val250.i, ptr noundef nonnull %33)
   br label %session_prep_frame.exit
 
 294:                                              ; preds = %286
@@ -3696,7 +3696,7 @@ session_prep_frame.exit.thread204.backedge:       ; preds = %371, %377, %98, %89
 374:                                              ; preds = %371
   %375 = load i32, ptr %27, align 4
   store i32 15, ptr %28, align 8
-  %376 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %375, i32 noundef 2, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %376 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %375, i32 noundef 2, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.not17.i.i = icmp eq i32 %376, 0
   br i1 %.not17.i.i, label %377, label %nghttp2_session_terminate_session.exit
 
@@ -4911,7 +4911,7 @@ define internal fastcc range(i32 1, 0) i32 @session_inflate_handle_invalid_strea
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 2568
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -533, ptr noundef %11) #20
+  %12 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -533, -523) -533, ptr noundef %11) #20
   %.not14.i.i = icmp eq i32 %12, 0
   br i1 %.not14.i.i, label %session_handle_invalid_stream.exit.thread, label %session_handle_invalid_stream.exit.thread7
 
@@ -5230,7 +5230,7 @@ session_handle_invalid_connection.exit50.thread:  ; preds = %61, %70, %session_h
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %0, i64 2568
   %87 = load ptr, ptr %86, align 8
-  %88 = tail call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -533, ptr noundef %87) #20
+  %88 = tail call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -533, -523) -533, ptr noundef %87) #20
   %.not14.i.i.i = icmp eq i32 %88, 0
   br i1 %.not14.i.i.i, label %session_handle_invalid_stream.exit.thread.i, label %session_inflate_handle_invalid_stream.exit
 
@@ -7753,7 +7753,7 @@ state_reserved_remote.exit.thread.i:              ; preds = %state_reserved_remo
 155:                                              ; preds = %152
   %156 = getelementptr inbounds i8, ptr %0, i64 2568
   %157 = load ptr, ptr %156, align 8
-  %158 = tail call i32 %154(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -524, ptr noundef %157) #20
+  %158 = tail call i32 %154(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -533, -523) -524, ptr noundef %157) #20
   %.not14.i.i.i = icmp eq i32 %158, 0
   br i1 %.not14.i.i.i, label %159, label %session_on_connection_window_update_received.exit
 
@@ -8484,7 +8484,7 @@ adjust_recv_window_size.exit:                     ; preds = %2
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 952
   store i32 15, ptr %18, align 8
-  %19 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %17, i32 noundef 3, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %19 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %17, i32 noundef 3, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.not17.i.i = icmp eq i32 %19, 0
   br i1 %.not17.i.i, label %20, label %nghttp2_session_terminate_session.exit
 
@@ -9975,7 +9975,7 @@ nghttp2_session_get_stream.exit100.split.us.i:    ; preds = %nghttp2_session_get
   %.076.us.i = phi i64 [ %668, %667 ], [ %spec.store.select3, %nghttp2_session_get_stream.exit100.i ]
   %.075.us.i = phi ptr [ %669, %667 ], [ %.0726, %nghttp2_session_get_stream.exit100.i ]
   store i32 0, ptr %6, align 4
-  %659 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.us.i, i64 noundef %.076.us.i, i32 noundef %615) #20
+  %659 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.us.i, i64 noundef %.076.us.i, i32 noundef range(i32 0, 2) %615) #20
   %660 = trunc i64 %659 to i32
   %661 = icmp sgt i32 %660, -901
   br i1 %661, label %662, label %.loopexit.sink.split
@@ -10009,7 +10009,7 @@ nghttp2_session_get_stream.exit100.split.split.us.i: ; preds = %nghttp2_session_
   %.076.us132.i = phi i64 [ %682, %681 ], [ %spec.store.select3, %nghttp2_session_get_stream.exit100.split.i ]
   %.075.us133.i = phi ptr [ %683, %681 ], [ %.0726, %nghttp2_session_get_stream.exit100.split.i ]
   store i32 0, ptr %6, align 4
-  %673 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.us133.i, i64 noundef %.076.us132.i, i32 noundef %615) #20
+  %673 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.us133.i, i64 noundef %.076.us132.i, i32 noundef range(i32 0, 2) %615) #20
   %674 = trunc i64 %673 to i32
   %675 = icmp sgt i32 %674, -901
   br i1 %675, label %676, label %.loopexit.sink.split
@@ -10039,7 +10039,7 @@ nghttp2_session_get_stream.exit100.split.split.i: ; preds = %nghttp2_session_get
   %.076.i = phi i64 [ %715, %809 ], [ %spec.store.select3, %nghttp2_session_get_stream.exit100.split.i ]
   %.075.i = phi ptr [ %714, %809 ], [ %.0726, %nghttp2_session_get_stream.exit100.split.i ]
   store i32 0, ptr %6, align 4
-  %687 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.i, i64 noundef %.076.i, i32 noundef %615) #20
+  %687 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.i, i64 noundef %.076.i, i32 noundef range(i32 0, 2) %615) #20
   %688 = trunc i64 %687 to i32
   %689 = icmp sgt i32 %688, -901
   br i1 %689, label %690, label %.loopexit.sink.split
@@ -10078,7 +10078,7 @@ nghttp2_session_get_stream.exit100.split.split.i: ; preds = %nghttp2_session_get
 706:                                              ; preds = %703
   %707 = load i32, ptr %74, align 4
   store i32 15, ptr %30, align 8
-  %708 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %707, i32 noundef 9, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %708 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %707, i32 noundef 9, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.fr.i935 = freeze i32 %708
   %.not17.i.i.i936 = icmp eq i32 %.fr.i935, 0
   br i1 %.not17.i.i.i936, label %709, label %nghttp2_session_terminate_session.exit.i
@@ -11185,7 +11185,7 @@ thread-pre-split1070:                             ; preds = %1267, %1257
 
 session_call_on_extension_chunk_recv_callback.exit: ; preds = %1278
   %1280 = load ptr, ptr %36, align 8
-  %1281 = call i32 %1279(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.0726, i64 noundef %..i973, ptr noundef %1280) #20
+  %1281 = call i32 %1279(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.0726, i64 noundef range(i64 1, 0) %..i973, ptr noundef %1280) #20
   switch i32 %1281, label %nghttp2_session_want_read.exit.thread [
     i32 0, label %session_call_on_extension_chunk_recv_callback.exit.thread-pre-split1078_crit_edge
     i32 -535, label %1282
@@ -11981,7 +11981,7 @@ define internal fastcc i32 @session_handle_frame_size_error(ptr noundef %0) unna
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 952
   store i32 15, ptr %8, align 8
-  %9 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %7, i32 noundef 6, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %9 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %7, i32 noundef 6, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.not17.i.i = icmp eq i32 %9, 0
   br i1 %.not17.i.i, label %10, label %nghttp2_session_terminate_session.exit
 
@@ -14548,7 +14548,7 @@ define internal fastcc i32 @session_update_consumed_size(ptr noundef %0, ptr noc
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 952
   store i32 15, ptr %19, align 8
-  %20 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %18, i32 noundef 3, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %20 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %18, i32 noundef 3, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %.not17.i.i = icmp eq i32 %20, 0
   br i1 %.not17.i.i, label %21, label %nghttp2_session_terminate_session.exit
 

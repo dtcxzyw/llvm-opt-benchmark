@@ -45,13 +45,13 @@ define noundef nonnull ptr @_Z17ConstructCompiler11EShLanguagei(i32 noundef %0, 
   %9 = getelementptr inbounds i8, ptr %3, i64 28
   store i8 0, ptr %9, align 4
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV16TGenericCompiler, i64 16), ptr %3, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #7
   %10 = getelementptr inbounds i8, ptr %3, i64 64
   store i32 4, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #7
   %13 = getelementptr inbounds i8, ptr %3, i64 112
   store i32 4, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 120
@@ -90,8 +90,8 @@ define linkonce_odr void @_ZN16TGenericCompilerD2Ev(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV16TGenericCompiler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #7
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV13TShHandleBase, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -112,8 +112,8 @@ define linkonce_odr void @_ZN16TGenericCompilerD0Ev(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV16TGenericCompiler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #7
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV13TShHandleBase, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

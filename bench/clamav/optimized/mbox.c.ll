@@ -637,7 +637,7 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
   %133 = sub i64 %131, %132
   %..i.i = call i64 @llvm.umin.i64(i64 %133, i64 1001)
   %134 = load ptr, ptr %129, align 8
-  %135 = call ptr %134(ptr noundef %17, i64 noundef %132, i64 noundef %..i.i, i32 noundef 0) #19
+  %135 = call ptr %134(ptr noundef %17, i64 noundef %132, i64 noundef range(i64 0, 1002) %..i.i, i32 noundef 0) #19
   %.not.i101.i = icmp eq ptr %135, null
   br i1 %.not.i101.i, label %136, label %.preheader.i102.i
 
@@ -978,7 +978,7 @@ getMallocedBufferFromList.exit.i.i:               ; preds = %.preheader.i200.i.i
   br label %hitLineFoldCnt.exit.thread335.i.i
 
 haveTooManyEmailHeaders.exit.i.i:                 ; preds = %getMallocedBufferFromList.exit.i.i
-  %277 = call fastcc i32 @parseEmailHeader(ptr noundef nonnull %165, ptr noundef nonnull %254, ptr noundef %164, ptr noundef %1, ptr noundef %12)
+  %277 = call fastcc i32 @parseEmailHeader(ptr noundef nonnull %165, ptr noundef nonnull %254, ptr noundef %164, ptr noundef %1, ptr noundef nonnull %12)
   %278 = icmp slt i32 %277, 0
   %279 = load i8, ptr %12, align 1
   %280 = trunc i8 %279 to i1
@@ -1274,7 +1274,7 @@ count_quotes.exit.i.i:                            ; preds = %.lr.ph.i217.i.i
   br label %hitLineFoldCnt.exit.thread335.i.i
 
 haveTooManyEmailHeaders.exit220.i.i:              ; preds = %.critedge198.i.i
-  %420 = call fastcc i32 @parseEmailHeader(ptr noundef nonnull %165, ptr noundef nonnull %383, ptr noundef %164, ptr noundef %1, ptr noundef %12)
+  %420 = call fastcc i32 @parseEmailHeader(ptr noundef nonnull %165, ptr noundef nonnull %383, ptr noundef %164, ptr noundef %1, ptr noundef nonnull %12)
   %421 = load i8, ptr %12, align 1
   %422 = trunc i8 %421 to i1
   call void @free(ptr noundef %383) #19
@@ -1380,7 +1380,7 @@ doContinueMultipleEmptyOptions.exit.i.i:          ; preds = %446, %444, %442, %4
   %451 = sub i64 %449, %450
   %..i.i.i = call i64 @llvm.umin.i64(i64 %451, i64 1001)
   %452 = load ptr, ptr %174, align 8
-  %453 = call ptr %452(ptr noundef %17, i64 noundef %450, i64 noundef %..i.i.i, i32 noundef 0) #19
+  %453 = call ptr %452(ptr noundef %17, i64 noundef %450, i64 noundef range(i64 0, 1002) %..i.i.i, i32 noundef 0) #19
   %.not.i227.i.i = icmp eq ptr %453, null
   br i1 %.not.i227.i.i, label %454, label %.preheader.i228.i.i
 
@@ -4393,7 +4393,7 @@ strstrip.exit:                                    ; preds = %116, %switch.early.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i8 0, ptr %4, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.66, ptr noundef nonnull %102, ptr noundef nonnull %124) #19
-  %126 = call fastcc ptr @rfc822comments(ptr noundef %102, ptr noundef null)
+  %126 = call fastcc ptr @rfc822comments(ptr noundef nonnull %102, ptr noundef null)
   %.not.i39 = icmp eq ptr %126, null
   br i1 %.not.i39, label %129, label %127
 
@@ -4408,7 +4408,7 @@ strstrip.exit:                                    ; preds = %116, %switch.early.
 
 131:                                              ; preds = %129, %127
   %.099.i = phi i32 [ %128, %127 ], [ %130, %129 ]
-  %132 = call fastcc ptr @rfc822comments(ptr noundef %124, ptr noundef null)
+  %132 = call fastcc ptr @rfc822comments(ptr noundef nonnull %124, ptr noundef null)
   %.not114.i = icmp eq ptr %132, null
   %..i = select i1 %.not114.i, ptr %124, ptr %132
   switch i32 %.099.i, label %haveTooManyMIMEArguments.exit.thread.i [

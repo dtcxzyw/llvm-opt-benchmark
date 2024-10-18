@@ -3816,7 +3816,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
   %.1 = phi i32 [ 73, %60 ], [ %spec.select177, %64 ]
   %67 = getelementptr inbounds i8, ptr %53, i64 48
   %68 = zext nneg i8 %13 to i64
-  %69 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
+  %69 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %.1, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %f5eth_add_tls_element.exit, label %71
 
@@ -3828,7 +3828,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %67, align 8
-  %77 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.1, ptr noundef %76, i64 noundef %68) #7
+  %77 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %.1, ptr noundef %76, i64 noundef %68) #7
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %f5eth_add_tls_element.exit, label %79
 
@@ -3838,14 +3838,14 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type2(ptr nound
   %82 = tail call noalias ptr @wmem_realloc(ptr noundef %80, ptr noundef %81, i64 noundef %68) #7
   store ptr %82, ptr %67, align 8
   store i32 %14, ptr %72, align 8
-  %83 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %82, i32 noundef %.1, i64 noundef %68) #7
+  %83 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %82, i32 noundef range(i32 8, 330) %.1, i64 noundef %68) #7
   br label %f5eth_add_tls_element.exit
 
 f5eth_add_tls_element.exit:                       ; preds = %66, %75, %79
   %.not170 = phi i1 [ false, %79 ], [ true, %66 ], [ true, %75 ]
   %84 = add nuw nsw i32 %.1, 64
   %85 = getelementptr inbounds i8, ptr %53, i64 64
-  %86 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %84, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
+  %86 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %84, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %f5eth_add_tls_element.exit188, label %88
 
@@ -3857,7 +3857,7 @@ f5eth_add_tls_element.exit:                       ; preds = %66, %75, %79
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %85, align 8
-  %94 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %84, ptr noundef %93, i64 noundef %68) #7
+  %94 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %84, ptr noundef %93, i64 noundef %68) #7
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %f5eth_add_tls_element.exit188, label %96
 
@@ -3867,14 +3867,14 @@ f5eth_add_tls_element.exit:                       ; preds = %66, %75, %79
   %99 = tail call noalias ptr @wmem_realloc(ptr noundef %97, ptr noundef %98, i64 noundef %68) #7
   store ptr %99, ptr %85, align 8
   store i32 %14, ptr %89, align 8
-  %100 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %99, i32 noundef %84, i64 noundef %68) #7
+  %100 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %99, i32 noundef range(i32 8, 330) %84, i64 noundef %68) #7
   br label %f5eth_add_tls_element.exit188
 
 f5eth_add_tls_element.exit188:                    ; preds = %f5eth_add_tls_element.exit, %92, %96
   %.not171 = phi i1 [ false, %96 ], [ true, %f5eth_add_tls_element.exit ], [ true, %92 ]
   %101 = or disjoint i32 %.1, 128
   %102 = getelementptr inbounds i8, ptr %53, i64 80
-  %103 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %101, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
+  %103 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %101, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %f5eth_add_tls_element.exit190, label %105
 
@@ -3886,7 +3886,7 @@ f5eth_add_tls_element.exit188:                    ; preds = %f5eth_add_tls_eleme
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %102, align 8
-  %111 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %101, ptr noundef %110, i64 noundef %68) #7
+  %111 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %101, ptr noundef %110, i64 noundef %68) #7
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %f5eth_add_tls_element.exit190, label %113
 
@@ -3896,14 +3896,14 @@ f5eth_add_tls_element.exit188:                    ; preds = %f5eth_add_tls_eleme
   %116 = tail call noalias ptr @wmem_realloc(ptr noundef %114, ptr noundef %115, i64 noundef %68) #7
   store ptr %116, ptr %102, align 8
   store i32 %14, ptr %106, align 8
-  %117 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %116, i32 noundef %101, i64 noundef %68) #7
+  %117 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %116, i32 noundef range(i32 8, 330) %101, i64 noundef %68) #7
   br label %f5eth_add_tls_element.exit190
 
 f5eth_add_tls_element.exit190:                    ; preds = %f5eth_add_tls_element.exit188, %109, %113
   %.not168 = phi i1 [ false, %113 ], [ true, %f5eth_add_tls_element.exit188 ], [ true, %109 ]
   %118 = add nuw nsw i32 %.1, 192
   %119 = getelementptr inbounds i8, ptr %53, i64 96
-  %120 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %118, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
+  %120 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %118, ptr noundef nonnull @f5tls_zeros, i64 noundef %68) #7
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %f5eth_add_tls_element.exit192, label %122
 
@@ -3915,7 +3915,7 @@ f5eth_add_tls_element.exit190:                    ; preds = %f5eth_add_tls_eleme
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %119, align 8
-  %128 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %118, ptr noundef %127, i64 noundef %68) #7
+  %128 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %118, ptr noundef %127, i64 noundef %68) #7
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %f5eth_add_tls_element.exit192, label %130
 
@@ -3925,14 +3925,14 @@ f5eth_add_tls_element.exit190:                    ; preds = %f5eth_add_tls_eleme
   %133 = tail call noalias ptr @wmem_realloc(ptr noundef %131, ptr noundef %132, i64 noundef %68) #7
   store ptr %133, ptr %119, align 8
   store i32 %14, ptr %123, align 8
-  %134 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %133, i32 noundef %118, i64 noundef %68) #7
+  %134 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %133, i32 noundef range(i32 8, 330) %118, i64 noundef %68) #7
   br label %f5eth_add_tls_element.exit192
 
 f5eth_add_tls_element.exit192:                    ; preds = %f5eth_add_tls_element.exit190, %126, %130
   %.not169 = phi i1 [ false, %130 ], [ true, %f5eth_add_tls_element.exit190 ], [ true, %126 ]
   %135 = or disjoint i32 %.1, 256
   %136 = getelementptr inbounds i8, ptr %53, i64 16
-  %137 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %135, ptr noundef nonnull @f5tls_zeros, i64 noundef 32) #7
+  %137 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %135, ptr noundef nonnull @f5tls_zeros, i64 noundef 32) #7
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %f5eth_add_tls_element.exit194, label %139
 
@@ -3944,7 +3944,7 @@ f5eth_add_tls_element.exit192:                    ; preds = %f5eth_add_tls_eleme
 
 143:                                              ; preds = %139
   %144 = load ptr, ptr %136, align 8
-  %145 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %135, ptr noundef %144, i64 noundef 32) #7
+  %145 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef range(i32 8, 330) %135, ptr noundef %144, i64 noundef 32) #7
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %f5eth_add_tls_element.exit194, label %147
 
@@ -3954,7 +3954,7 @@ f5eth_add_tls_element.exit192:                    ; preds = %f5eth_add_tls_eleme
   %150 = tail call noalias ptr @wmem_realloc(ptr noundef %148, ptr noundef %149, i64 noundef 32) #7
   store ptr %150, ptr %136, align 8
   store i32 32, ptr %140, align 8
-  %151 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %150, i32 noundef %135, i64 noundef 32) #7
+  %151 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %150, i32 noundef range(i32 8, 330) %135, i64 noundef 32) #7
   br label %f5eth_add_tls_element.exit194
 
 f5eth_add_tls_element.exit194:                    ; preds = %f5eth_add_tls_element.exit192, %143, %147

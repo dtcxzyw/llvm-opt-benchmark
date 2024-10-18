@@ -1907,7 +1907,7 @@ Vec_WecStart.exit:                                ; preds = %2, %6
 
 33:                                               ; preds = %22
   %34 = shl nsw i32 %31, 1
-  %35 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 %21)
+  %35 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 range(i32 -2147483647, -2147483648) %21)
   %36 = load i32, ptr %4, align 8
   %.not.i.i23 = icmp slt i32 %36, %35
   br i1 %.not.i.i23, label %37, label %Vec_WecGrow.exit.i

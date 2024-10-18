@@ -1660,7 +1660,7 @@ define void @_ZThn40_N5faiss25IndexIVFAdditiveQuantizerD1Ev(ptr noundef %0) unna
 define void @_ZThn40_N5faiss25IndexIVFAdditiveQuantizerD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss25IndexIVFAdditiveQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(276) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(276) %2) #25
   ret void
 }
 
@@ -1682,7 +1682,7 @@ define void @_ZThn40_N5faiss25IndexIVFResidualQuantizerD1Ev(ptr noundef %0) unna
 define void @_ZThn40_N5faiss25IndexIVFResidualQuantizerD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss25IndexIVFResidualQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(712) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(712) %2) #25
   ret void
 }
 
@@ -1704,7 +1704,7 @@ define void @_ZThn40_N5faiss28IndexIVFLocalSearchQuantizerD1Ev(ptr noundef %0) u
 define void @_ZThn40_N5faiss28IndexIVFLocalSearchQuantizerD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss28IndexIVFLocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(680) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(680) %2) #25
   ret void
 }
 
@@ -1726,7 +1726,7 @@ define void @_ZThn40_N5faiss32IndexIVFProductResidualQuantizerD1Ev(ptr noundef %
 define void @_ZThn40_N5faiss32IndexIVFProductResidualQuantizerD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss32IndexIVFProductResidualQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(624) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(624) %2) #25
   ret void
 }
 
@@ -1748,7 +1748,7 @@ define void @_ZThn40_N5faiss35IndexIVFProductLocalSearchQuantizerD1Ev(ptr nounde
 define void @_ZThn40_N5faiss35IndexIVFProductLocalSearchQuantizerD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(624) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(624) %2) #25
   ret void
 }
 
@@ -3899,7 +3899,7 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2EPNS_5IndexEmmRKSt6vectorImSa
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 296), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %5)
+  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %5)
   %10 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 272
@@ -3925,7 +3925,7 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2EPNS_5IndexEmmRKSt6vectorImSa
 20:                                               ; preds = %7
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %21
 }
 
@@ -3937,7 +3937,7 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2Ev(ptr noundef nonnull align 
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0)
+  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 272
@@ -3953,7 +3953,7 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2Ev(ptr noundef nonnull align 
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %8
 }
 
@@ -4004,7 +4004,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 296), ptr %20, align 8
-  invoke void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
+  invoke void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
           to label %.noexc11 unwind label %36
 
 .noexc11:                                         ; preds = %.loopexit
@@ -4023,7 +4023,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
 25:                                               ; preds = %.noexc11
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) #10
   %.pre = load ptr, ptr %9, align 8
   br label %.body
 
@@ -4093,8 +4093,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %6, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #10
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   ret void
 }
 
@@ -4107,7 +4107,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2EPNS_5IndexEmmmmNS_10Metri
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 296), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
+  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
   %11 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 272
@@ -4133,7 +4133,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2EPNS_5IndexEmmmmNS_10Metri
 21:                                               ; preds = %8
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %22
 }
 
@@ -4145,7 +4145,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2Ev(ptr noundef nonnull ali
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0)
+  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 272
@@ -4161,7 +4161,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2Ev(ptr noundef nonnull ali
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %8
 }
 
@@ -4174,7 +4174,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerD2Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #10
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   ret void
 }
 
@@ -4187,7 +4187,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2EPNS_5IndexEmmmmmNS_10
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 296), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
+  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
   %12 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 272
@@ -4213,7 +4213,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2EPNS_5IndexEmmmmmNS_10
 22:                                               ; preds = %9
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %23
 }
 
@@ -4225,7 +4225,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2Ev(ptr noundef nonnull
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0)
+  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 272
@@ -4241,7 +4241,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2Ev(ptr noundef nonnull
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %8
 }
 
@@ -4254,7 +4254,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerD2Ev(ptr noundef nonnull
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #10
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   ret void
 }
 
@@ -4267,7 +4267,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2EPNS_5IndexEmmmmmNS
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 296), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
+  tail call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
   %12 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 272
@@ -4293,7 +4293,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2EPNS_5IndexEmmmmmNS
 22:                                               ; preds = %9
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %23
 }
 
@@ -4305,7 +4305,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2Ev(ptr noundef nonn
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0)
+  tail call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 272
@@ -4321,7 +4321,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2Ev(ptr noundef nonn
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   resume { ptr, i32 } %8
 }
 
@@ -4334,7 +4334,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerD2Ev(ptr noundef nonn
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 296), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #10
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #10
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #10
   ret void
 }
 

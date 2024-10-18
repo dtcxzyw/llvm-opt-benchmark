@@ -561,7 +561,7 @@ if.end.i28.i:                                     ; preds = %_ZNK3ue29CharReachc
 
 call1.i29.noexc.i:                                ; preds = %if.end.i28.i
   %repeatMax.val.i30.i = load i32, ptr %max, align 4, !noalias !32
-  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %ref.tmp.i, i32 noundef 12, i32 noundef %call1.i2940.i, i32 %repeatMax.val.i30.i)
+  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef 12, i32 noundef %call1.i2940.i, i32 %repeatMax.val.i30.i)
           to label %.noexc.i unwind label %lpad.i, !noalias !12
 
 .noexc.i:                                         ; preds = %call1.i29.noexc.i
@@ -690,7 +690,7 @@ if.end.i52.i:                                     ; preds = %if.then6.i
 
 call1.i53.noexc.i:                                ; preds = %if.end.i52.i
   %repeatMax.val.i54.i = load i32, ptr %max, align 4, !noalias !40
-  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %ref.tmp7.i, i32 noundef 13, i32 noundef %call1.i5370.i, i32 %repeatMax.val.i54.i)
+  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias nonnull align 8 %ref.tmp7.i, i32 noundef 13, i32 noundef %call1.i5370.i, i32 %repeatMax.val.i54.i)
           to label %.noexc71.i unwind label %lpad.i, !noalias !12
 
 .noexc71.i:                                       ; preds = %call1.i53.noexc.i
@@ -1618,7 +1618,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %repeat, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %repeat, i8 0, i64 32, i1 false)
   %bounds.i = getelementptr inbounds i8, ptr %repeat, i64 32
   store i32 2147483647, ptr %bounds.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %repeat, i64 36

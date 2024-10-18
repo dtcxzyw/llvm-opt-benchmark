@@ -216,7 +216,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -226,7 +226,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
   br label %eh.resume
 
 lpad:                                             ; preds = %call.i.noexc, %if.then
@@ -240,7 +240,7 @@ if.then2:                                         ; preds = %entry
           to label %call.i.noexc8 unwind label %lpad4
 
 call.i.noexc8:                                    ; preds = %if.then2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc10 unwind label %lpad4
 
 .noexc10:                                         ; preds = %call.i.noexc8
@@ -250,7 +250,7 @@ call.i.noexc8:                                    ; preds = %if.then2
 lpad.i7:                                          ; preds = %.noexc10
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
   br label %eh.resume
 
 lpad4:                                            ; preds = %call.i.noexc8, %if.then2
@@ -268,7 +268,7 @@ land.end:                                         ; preds = %entry
           to label %call.i.noexc16 unwind label %lpad9
 
 call.i.noexc16:                                   ; preds = %land.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %.noexc18 unwind label %lpad9
 
 .noexc18:                                         ; preds = %call.i.noexc16
@@ -278,7 +278,7 @@ call.i.noexc16:                                   ; preds = %land.end
 lpad.i15:                                         ; preds = %.noexc18
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
   br label %eh.resume
 
 lpad9:                                            ; preds = %call.i.noexc16, %land.end
@@ -311,7 +311,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA38_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #10
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA38_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(38) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA38_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(38) %args)
           to label %_ZN4pbrt12StringPrintfIJRA38_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -373,7 +373,7 @@ entry:
   %pixelMaterial = getelementptr inbounds i8, ptr %this, i64 288
   %displacementEdgeScale = getelementptr inbounds i8, ptr %this, i64 300
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJRKbS5_S5_S5_S5_S5_S5_S5_S5_S5_RKNS_25RenderingCoordinateSystemES3_RKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_S5_S5_RKN4pstd8optionalIiEESO_S5_S5_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 1 dereferenceable(1) %quiet, ptr noundef nonnull align 1 dereferenceable(1) %disablePixelJitter, ptr noundef nonnull align 1 dereferenceable(1) %disableWavelengthJitter, ptr noundef nonnull align 1 dereferenceable(1) %disableTextureFiltering, ptr noundef nonnull align 1 dereferenceable(1) %disableImageTextures, ptr noundef nonnull align 1 dereferenceable(1) %forceDiffuse, ptr noundef nonnull align 1 dereferenceable(1) %useGPU, ptr noundef nonnull align 1 dereferenceable(1) %wavefront, ptr noundef nonnull align 1 dereferenceable(1) %interactive, ptr noundef nonnull align 1 dereferenceable(1) %fullscreen, ptr noundef nonnull align 4 dereferenceable(4) %renderingSpace, ptr noundef nonnull align 4 dereferenceable(4) %nThreads, ptr noundef nonnull align 4 dereferenceable(4) %logLevel, ptr noundef nonnull align 8 dereferenceable(32) %logFile, ptr noundef nonnull align 1 dereferenceable(1) %logUtilization, ptr noundef nonnull align 1 dereferenceable(1) %writePartialImages, ptr noundef nonnull align 1 dereferenceable(1) %recordPixelStatistics, ptr noundef nonnull align 1 dereferenceable(1) %printStatistics, ptr noundef nonnull align 4 dereferenceable(5) %pixelSamples, ptr noundef nonnull align 4 dereferenceable(5) %gpuDevice, ptr noundef nonnull align 1 dereferenceable(1) %quickRender, ptr noundef nonnull align 1 dereferenceable(1) %upgrade, ptr noundef nonnull align 8 dereferenceable(32) %imageFile, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput, ptr noundef nonnull align 8 dereferenceable(32) %debugStart, ptr noundef nonnull align 8 dereferenceable(32) %displayServer, ptr noundef nonnull align 4 dereferenceable(17) %cropWindow, ptr noundef nonnull align 4 dereferenceable(17) %pixelBounds, ptr noundef nonnull align 4 dereferenceable(9) %pixelMaterial, ptr noundef nonnull align 4 dereferenceable(4) %displacementEdgeScale)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJRKbS5_S5_S5_S5_S5_S5_S5_S5_S5_RKNS_25RenderingCoordinateSystemES3_RKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_S5_S5_RKN4pstd8optionalIiEESO_S5_S5_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 1 dereferenceable(1) %quiet, ptr noundef nonnull align 1 dereferenceable(1) %disablePixelJitter, ptr noundef nonnull align 1 dereferenceable(1) %disableWavelengthJitter, ptr noundef nonnull align 1 dereferenceable(1) %disableTextureFiltering, ptr noundef nonnull align 1 dereferenceable(1) %disableImageTextures, ptr noundef nonnull align 1 dereferenceable(1) %forceDiffuse, ptr noundef nonnull align 1 dereferenceable(1) %useGPU, ptr noundef nonnull align 1 dereferenceable(1) %wavefront, ptr noundef nonnull align 1 dereferenceable(1) %interactive, ptr noundef nonnull align 1 dereferenceable(1) %fullscreen, ptr noundef nonnull align 4 dereferenceable(4) %renderingSpace, ptr noundef nonnull align 4 dereferenceable(4) %nThreads, ptr noundef nonnull align 4 dereferenceable(4) %logLevel, ptr noundef nonnull align 8 dereferenceable(32) %logFile, ptr noundef nonnull align 1 dereferenceable(1) %logUtilization, ptr noundef nonnull align 1 dereferenceable(1) %writePartialImages, ptr noundef nonnull align 1 dereferenceable(1) %recordPixelStatistics, ptr noundef nonnull align 1 dereferenceable(1) %printStatistics, ptr noundef nonnull align 4 dereferenceable(5) %pixelSamples, ptr noundef nonnull align 4 dereferenceable(5) %gpuDevice, ptr noundef nonnull align 1 dereferenceable(1) %quickRender, ptr noundef nonnull align 1 dereferenceable(1) %upgrade, ptr noundef nonnull align 8 dereferenceable(32) %imageFile, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput, ptr noundef nonnull align 8 dereferenceable(32) %debugStart, ptr noundef nonnull align 8 dereferenceable(32) %displayServer, ptr noundef nonnull align 4 dereferenceable(17) %cropWindow, ptr noundef nonnull align 4 dereferenceable(17) %pixelBounds, ptr noundef nonnull align 4 dereferenceable(9) %pixelMaterial, ptr noundef nonnull align 4 dereferenceable(4) %displacementEdgeScale)
           to label %_ZN4pbrt12StringPrintfIJRKiRKbS4_S4_S4_S4_S4_S4_S4_S4_S4_RKNS_25RenderingCoordinateSystemES2_RKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_S4_RKN4pstd8optionalIiEESN_S4_S4_SI_SI_SI_SI_SI_RKNSK_INS_7Bounds2IfEEEERKNSK_INSO_IiEEEERKNSK_INS_6Point2IiEEEERKfEEESG_PKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -2793,7 +2793,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJPKcRS2_EEEvNS_8LogLevelES
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #10
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %_ZN4pbrt12StringPrintfIJPKcRS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -3723,7 +3723,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #10
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA4_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA4_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(4) %args)
           to label %_ZN4pbrt12StringPrintfIJRA4_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -4892,7 +4892,7 @@ _ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %pMax.i.i = getelementptr inbounds i8, ptr %opt, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IfEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(8) %opt, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IfEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(16) %opt, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
           to label %_ZNK4pbrt7Bounds2IfE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i
@@ -5366,7 +5366,7 @@ _ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %pMax.i.i = getelementptr inbounds i8, ptr %opt, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IiEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(8) %opt, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IiEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(16) %opt, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
           to label %_ZNK4pbrt7Bounds2IiE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i

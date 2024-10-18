@@ -9599,7 +9599,7 @@ invoke.cont141.i.i:                               ; preds = %_ZN3ue211ue2_litera
   br i1 %cmp.i.i.i536, label %if.then.i.i.i558, label %if.end.i.i.i537
 
 if.then.i.i.i558:                                 ; preds = %invoke.cont141.i.i
-  %call2.i12.i.i559 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %lit.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
+  %call2.i12.i.i559 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(64) %lit.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
           to label %call2.i12.i.i.noexc unwind label %lpad138.i.i
 
 call2.i12.i.i.noexc:                              ; preds = %if.then.i.i.i558
@@ -9843,7 +9843,7 @@ if.then.i320.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.i.i.i570, label %if.then.i.i.i612, label %if.end.i.i.i571
 
 if.then.i.i.i612:                                 ; preds = %if.then.i320.i.i
-  %call2.i12.i.i614 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %532, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i568, i64 noundef 0)
+  %call2.i12.i.i614 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(64) %532, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i568, i64 noundef 0)
           to label %call2.i12.i.i.noexc613 unwind label %lpad146.i.i
 
 call2.i12.i.i.noexc613:                           ; preds = %if.then.i.i.i612
@@ -15245,7 +15245,7 @@ _ZNSt16allocator_traitsISaISt4pairIKPKN3ue28NGHolderESt6vectorINS1_12graph_detai
   br label %_ZNSt6vectorISt4pairIKPKN3ue28NGHolderES_INS1_12graph_detail15edge_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaISD_EEESaISG_EE9push_backERKSG_.exit.i
 
 if.else.i.i1503:                                  ; preds = %if.then.i1489
-  invoke void @_ZNSt6vectorISt4pairIKPKN3ue28NGHolderES_INS1_12graph_detail15edge_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaISD_EEESaISG_EE17_M_realloc_insertIJRKSG_EEEvN9__gnu_cxx17__normal_iteratorIPSG_SI_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %rightfixes.i, ptr %1197, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i1074)
+  invoke void @_ZNSt6vectorISt4pairIKPKN3ue28NGHolderES_INS1_12graph_detail15edge_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaISD_EEESaISG_EE17_M_realloc_insertIJRKSG_EEEvN9__gnu_cxx17__normal_iteratorIPSG_SI_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %rightfixes.i, ptr %1197, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i1074)
           to label %_ZNSt6vectorISt4pairIKPKN3ue28NGHolderES_INS1_12graph_detail15edge_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaISD_EEESaISG_EE9push_backERKSG_.exit.i unwind label %lpad10.i.loopexit
 
 _ZNSt6vectorISt4pairIKPKN3ue28NGHolderES_INS1_12graph_detail15edge_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaISD_EEESaISG_EE9push_backERKSG_.exit.i: ; preds = %if.else.i.i1503, %_ZNSt16allocator_traitsISaISt4pairIKPKN3ue28NGHolderESt6vectorINS1_12graph_detail15edge_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEESaISE_EEEEE9constructISH_JRKSH_EEEvRSI_PT_DpOT0_.exit.i.i
@@ -20798,7 +20798,7 @@ if.end126.i:                                      ; preds = %if.then123.i, %invo
           to label %call.i.noexc.i unwind label %lpad128.i, !noalias !725
 
 call.i.noexc.i:                                   ; preds = %if.end126.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i223.i, i8 0, i64 24, i1 false), !noalias !752
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call.i223.i, i8 0, i64 24, i1 false), !noalias !752
   %call5.i.i.i.i4.i.i10.i26 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
           to label %call5.i.i.i.i4.i.i10.i.noexc unwind label %lpad.i.i
 
@@ -24788,7 +24788,7 @@ if.end94.i:                                       ; preds = %invoke.cont91.i
   br i1 %cmp.i.i.i150, label %if.then.i.i.i160, label %if.end.i.i.i151
 
 if.then.i.i.i160:                                 ; preds = %if.end94.i
-  %call2.i12.i.i161 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
+  %call2.i12.i.i161 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(64) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
           to label %call2.i12.i.i.noexc unwind label %lpad96.i
 
 call2.i12.i.i.noexc:                              ; preds = %if.then.i.i.i160
@@ -32124,7 +32124,7 @@ invoke.cont46.i:                                  ; preds = %call12.i.noexc.i, %
 call.i.noexc.i:                                   ; preds = %invoke.cont46.i
   %agg.tmp.sroa.0.0.copyload.i.i440 = load ptr, ptr %v.i395, align 8, !noalias !1051
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i.i403, align 8, !noalias !1051
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i214.i, i8 0, i64 24, i1 false), !noalias !1051
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call.i214.i, i8 0, i64 24, i1 false), !noalias !1051
   %call5.i.i.i.i4.i.i10.i294 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
           to label %call5.i.i.i.i4.i.i10.i.noexc unwind label %lpad.i213.i
 
@@ -49051,7 +49051,7 @@ if.then.i.i.thread:                               ; preds = %lor.rhs.i.i
   br i1 %cmp.not.i6, label %if.then.i, label %if.then7.i.i
 
 if.then.i:                                        ; preds = %if.then.i.i.thread, %if.then.i.i
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i, i64 noundef 1, ptr %agg.tmp.sroa.0.0)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i, i64 noundef 1, ptr nonnull %agg.tmp.sroa.0.0)
           to label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i unwind label %lpad
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -55545,7 +55545,7 @@ lpad.i.loopexit.split-lp:                         ; preds = %if.then3.i.i.i.i.i.
 
 lpad.i:                                           ; preds = %lpad.i.loopexit.split-lp, %lpad.i.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
-  tail call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__cur.020.i.i.i.i) #22
+  tail call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %__cur.020.i.i.i.i) #22
   %10 = extractvalue { ptr, i32 } %lpad.phi, 0
   %11 = tail call ptr @__cxa_begin_catch(ptr %10) #22
   invoke void @_ZSt8_DestroyIPSt4pairISt10shared_ptrIN3ue28NGHolderEESt6vectorIS0_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_11RoseInGraphENS2_17RoseInVertexPropsENS2_15RoseInEdgePropsEEEEEjESaISE_EEEEvT_SJ_(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__cur.020.i.i.i.i)
@@ -60012,7 +60012,7 @@ lpad17:                                           ; preds = %invoke.cont19
 invoke.cont19:                                    ; preds = %_ZNSt16allocator_traitsISaIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_11RoseInGraphENS0_17RoseInVertexPropsENS0_15RoseInEdgePropsEEEEEEE8allocateERS9_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #22
+  tail call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #22
   %40 = extractvalue { ptr, i32 } %39, 0
   %41 = tail call ptr @__cxa_begin_catch(ptr %40) #22
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i47) #25

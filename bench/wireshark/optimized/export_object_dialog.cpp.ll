@@ -1947,7 +1947,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %35
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %33, align 8
-  %50 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %32, i64 %46, ptr %49, i32 noundef 1)
+  %50 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %32, i64 %46, ptr %49, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %51
 
 51:                                               ; preds = %48
@@ -2014,7 +2014,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %35, %66, %_ZN17QArr
   br i1 %.2, label %69, label %_ZN7QStringD2Ev.exit40
 
 69:                                               ; preds = %._crit_edge
-  call void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull %32, i32 noundef 0)
+  call void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %32, i32 noundef 0)
   %70 = getelementptr inbounds i8, ptr %0, i64 136
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 40
@@ -2034,7 +2034,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %35, %66, %_ZN17QArr
           to label %_ZN18ExportObjectDialog2trEPKcS1_i.exit unwind label %106
 
 _ZN18ExportObjectDialog2trEPKcS1_i.exit:          ; preds = %77
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false)
   %81 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 2, ptr %81, align 8
   %82 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %80)
@@ -2086,7 +2086,7 @@ _ZN9QComboBox8addItemsERK5QListI7QStringE.exit:   ; preds = %.noexc30
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %11, i64 16
   %97 = load i64, ptr %96, align 8
-  %98 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %32, i64 %97, ptr %95, i32 noundef 1)
+  %98 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %32, i64 %97, ptr %95, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit32 unwind label %99
 
 99:                                               ; preds = %_ZN9QComboBox8addItemsERK5QListI7QStringE.exit
@@ -2193,7 +2193,7 @@ define void @_ZN18ExportObjectDialog14modelRowsResetEv(ptr noundef nonnull align
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN18ExportObjectDialog16staticMetaObjectE, ptr noundef nonnull @.str.2, ptr noundef null, i32 noundef -1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %13, align 8
   %14 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
@@ -2379,7 +2379,7 @@ _ZNK11QModelIndex7siblingEii.exit10:              ; preds = %39, %40, %44
   br label %_ZNK11QModelIndex4dataEi.exit
 
 53:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !37
   %54 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %54, align 8, !alias.scope !37
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -2512,7 +2512,7 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %79, %_ZN17QArrayDat
   br label %_ZNK11QModelIndex4dataEi.exit26
 
 102:                                              ; preds = %_ZN7QStringD2Ev.exit16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false), !alias.scope !40
   %103 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 2, ptr %103, align 8, !alias.scope !40
   br label %_ZNK11QModelIndex4dataEi.exit26
@@ -2829,7 +2829,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN22ExportObjectProxyModelD2Ev.exit
 
 _ZN22ExportObjectProxyModelD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i, %38
-  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
+  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %29) #19
   tail call void @_ZN17ExportObjectModelD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
@@ -2865,7 +2865,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i5:   ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i5, %48
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #19
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #19
   ret void
 
 50:                                               ; preds = %9, %7
@@ -2911,7 +2911,7 @@ define void @_ZN18ExportObjectDialogD0Ev(ptr noundef nonnull align 8 dereference
 define void @_ZThn16_N18ExportObjectDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN18ExportObjectDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(328) %2) #20
   ret void
 }
 
@@ -3143,7 +3143,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN7QStringD2Ev.exi
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %1, i64 16
   %89 = load i64, ptr %88, align 8
-  %90 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %7, i64 %89, ptr %87, i32 noundef 1)
+  %90 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 %89, ptr %87, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %91
 
 91:                                               ; preds = %_ZN5QListI7QStringED2Ev.exit
@@ -3921,7 +3921,7 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %49, %50
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %34
 
 60:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false), !alias.scope !47
   %61 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 2, ptr %61, align 8, !alias.scope !47
   br label %_ZNK11QModelIndex4dataEi.exit

@@ -1650,7 +1650,7 @@ if.end:                                           ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %4 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call.i = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(48) %this)
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %6 = load ptr, ptr %m_data.i, align 8
@@ -3024,7 +3024,7 @@ entry:
   %cacheIDStream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %m_mutex = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #25
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #25
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -3120,7 +3120,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
 
 invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %cacheIDStream) #25
-  %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #25
+  %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #25
   ret void
 
 lpad18:                                           ; preds = %invoke.cont19, %invoke.cont17
@@ -3136,7 +3136,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad5
 
 ehcleanup36:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad ]
-  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #25
+  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #25
   resume { ptr, i32 } %.pn.pn
 }
 

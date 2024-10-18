@@ -90,7 +90,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfcfc9bfe43de6
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !7
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !noalias !7
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8, !alias.scope !17, !noalias !20, !noundef !7
   %8 = getelementptr inbounds i8, ptr %1, i64 28

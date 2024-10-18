@@ -125,7 +125,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeINS_6EnvmapEE16makeNewAt
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -152,12 +152,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeINS_6EnvmapEE4copyEv(pt
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_6EnvmapEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_6EnvmapEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_6EnvmapEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeINS_6EnvmapEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -363,7 +363,7 @@ entry:
   %vtable.i.i.i = load ptr, ptr %is, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %tmp, i32 noundef 1)
+  %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %tmp, i32 noundef 1)
   %1 = load i8, ptr %tmp, align 1
   %conv = zext i8 %1 to i32
   %_value = getelementptr inbounds i8, ptr %this, i64 8
@@ -374,7 +374,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214TypedAttributeINS_6EnvmapEE13copyValueFromERKNS_9AttributeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_6EnvmapEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_6EnvmapEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeINS_6EnvmapEE4castERKNS_9AttributeE.exit
 

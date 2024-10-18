@@ -3800,7 +3800,7 @@ get_alternative_expectfile.exit.thread79:         ; preds = %60, %65
 .split:                                           ; preds = %62
   store i8 0, ptr %64, align 1
   %66 = getelementptr i8, ptr %64, i64 1
-  %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %61, i64 noundef %58, ptr noundef nonnull @.str.238, ptr noundef nonnull %59, i32 noundef %.036102, ptr noundef %66) #23
+  %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %61, i64 noundef %58, ptr noundef nonnull @.str.238, ptr noundef nonnull %59, i32 noundef range(i32 -2147483648, 10) %.036102, ptr noundef %66) #23
   call void @free(ptr noundef nonnull %59) #23
   %68 = call noalias ptr @fopen(ptr noundef nonnull readonly %61, ptr noundef nonnull @.str.9)
   %.not.i51.not = icmp eq ptr %68, null

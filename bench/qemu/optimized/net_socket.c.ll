@@ -129,7 +129,7 @@ if.end44:                                         ; preds = %if.then38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %so_type.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %optlen.i)
   store i32 4, ptr %optlen.i, align 4
-  %call.i = call i32 @getsockopt(i32 noundef %call41, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %so_type.i, ptr noundef nonnull %optlen.i) #8
+  %call.i = call i32 @getsockopt(i32 noundef range(i32 0, -1) %call41, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %so_type.i, ptr noundef nonnull %optlen.i) #8
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -144,7 +144,7 @@ if.end.i:                                         ; preds = %if.end44
   br i1 %or.cond.i, label %if.then3.i, label %if.end48
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.net_socket_fd_check, ptr noundef nonnull @.str.9, i32 noundef %8, i32 noundef %call41) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.net_socket_fd_check, ptr noundef nonnull @.str.9, i32 noundef %8, i32 noundef range(i32 0, -1) %call41) #8
   br label %net_socket_fd_check.exit.thread
 
 net_socket_fd_check.exit.thread:                  ; preds = %if.then.i, %if.then3.i

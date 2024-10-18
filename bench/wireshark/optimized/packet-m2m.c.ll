@@ -355,7 +355,7 @@ switch.lookup:                                    ; preds = %53
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_m2m, i64 0, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %56 = load ptr, ptr %6, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %56, i32 noundef 25, ptr noundef null, ptr noundef nonnull %switch.load, i32 noundef %.0155183) #2
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %56, i32 noundef 25, ptr noundef null, ptr noundef nonnull %switch.load, i32 noundef range(i32 0, 256) %.0155183) #2
   br label %57
 
 57:                                               ; preds = %53, %switch.lookup
@@ -363,7 +363,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
-  %60 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %60 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef range(i32 1, 64001) %22) #2
   br label %74
 
 61:                                               ; preds = %57
@@ -371,7 +371,7 @@ switch.lookup:                                    ; preds = %53
   %63 = icmp eq i32 %.0156182, 3
   %not..i = xor i1 %63, true
   %64 = zext i1 %not..i to i32
-  %65 = call ptr @fragment_add_seq(ptr noundef nonnull @pdu_reassembly_table, ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %.0158181, ptr noundef null, i32 noundef %62, i32 noundef %22, i32 noundef %64, i32 noundef 0) #2
+  %65 = call ptr @fragment_add_seq(ptr noundef nonnull @pdu_reassembly_table, ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 0, 256) %.0158181, ptr noundef null, i32 noundef %62, i32 noundef range(i32 1, 64001) %22, i32 noundef %64, i32 noundef 0) #2
   %66 = icmp ne ptr %65, null
   %or.cond.i = and i1 %63, %66
   br i1 %or.cond.i, label %67, label %71
@@ -417,7 +417,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %.not.i164, label %86, label %83
 
 83:                                               ; preds = %81
-  %84 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %84 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef range(i32 1, 64001) %22) #2
   %85 = call i32 @call_dissector(ptr noundef nonnull %82, ptr noundef %84, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
@@ -441,7 +441,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %.not.i165, label %98, label %95
 
 95:                                               ; preds = %92
-  %96 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %96 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef range(i32 1, 64001) %22) #2
   %97 = call i32 @call_dissector(ptr noundef nonnull %94, ptr noundef %96, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
@@ -458,7 +458,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %.not.i166, label %106, label %103
 
 103:                                              ; preds = %100
-  %104 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %104 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef range(i32 1, 64001) %22) #2
   %105 = call i32 @call_dissector(ptr noundef nonnull %102, ptr noundef %104, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
@@ -499,7 +499,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %.not.i167, label %126, label %123
 
 123:                                              ; preds = %121
-  %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef range(i32 1, 64001) %22) #2
   %125 = call i32 @call_dissector(ptr noundef nonnull %122, ptr noundef %124, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
@@ -515,7 +515,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %.not.i168, label %133, label %130
 
 130:                                              ; preds = %128
-  %131 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %131 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef range(i32 1, 64001) %22) #2
   %132 = call i32 @call_dissector(ptr noundef nonnull %129, ptr noundef %131, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 

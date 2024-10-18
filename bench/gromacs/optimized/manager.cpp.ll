@@ -586,7 +586,7 @@ _ZNSt10shared_ptrIN3gmx16RestraintManager4ImplEED2Ev.exit: ; preds = %1, %20, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx16RestraintManager4Impl5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
+  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3
 
@@ -602,7 +602,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
           to label %4 unwind label %6
 
 4:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
+  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
   ret void
 
 6:                                                ; preds = %3, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -830,7 +830,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx16RestraintManager5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
   %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %4
 
@@ -853,7 +853,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %1
   unreachable
 
 _ZN3gmx16RestraintManager4Impl5clearEv.exit:      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
+  %8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx16RestraintManager4Impl20initializationMutex_E) #20
   ret void
 }
 

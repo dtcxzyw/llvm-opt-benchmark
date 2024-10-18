@@ -73,7 +73,7 @@ define hidden void @_ZN4llvm17DwarfCFIExceptionD0Ev(ptr noundef nonnull align 8 
   br label %_ZN4llvm17DwarfCFIExceptionD2Ev.exit
 
 _ZN4llvm17DwarfCFIExceptionD2Ev.exit:             ; preds = %1, %4
-  tail call void @_ZN4llvm10EHStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #9
+  tail call void @_ZN4llvm10EHStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #10
   ret void
 }

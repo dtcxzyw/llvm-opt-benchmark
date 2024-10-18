@@ -2364,7 +2364,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   br label %heap_getattr.exit
 
 67:                                               ; preds = %58
-  %68 = call fastcc i64 @fastgetattr(ptr noundef nonnull %29, i32 noundef %55, ptr noundef %56, ptr noundef %8)
+  %68 = call fastcc i64 @fastgetattr(ptr noundef nonnull %29, i32 noundef %55, ptr noundef %56, ptr noundef nonnull %8)
   br label %heap_getattr.exit
 
 69:                                               ; preds = %53
@@ -3027,7 +3027,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %43 = sext i16 %29 to i32
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %43) #12
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef range(i32 -32768, 32768) %43) #12
   tail call void @errfinish(ptr noundef nonnull @.str.11, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 

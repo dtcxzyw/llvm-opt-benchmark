@@ -1957,7 +1957,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %608 = load ptr, ptr %485, align 8
   %609 = load i64, ptr %487, align 8
   %610 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %608, i64 %609
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %106, ptr %608, ptr %610)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %106, ptr align 8 %608, ptr %610)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit unwind label %.loopexit191
 
 _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; preds = %607
@@ -2102,7 +2102,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   %663 = getelementptr inbounds i8, ptr %660, i64 304
   %664 = load i64, ptr %663, align 8
   %665 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %662, i64 %664
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %113, ptr %662, ptr %665)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %113, ptr align 8 %662, ptr %665)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173 unwind label %.loopexit191
 
 _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173: ; preds = %659
@@ -2324,7 +2324,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
   %735 = load ptr, ptr %532, align 8
   %736 = load i64, ptr %534, align 8
   %737 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %735, i64 %736
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %102, ptr %735, ptr %737)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %102, ptr align 8 %735, ptr %737)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175 unwind label %.loopexit191
 
 _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175: ; preds = %734
@@ -2427,7 +2427,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175:
   %773 = load ptr, ptr %548, align 8
   %774 = load i64, ptr %550, align 8
   %775 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %773, i64 %774
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %110, ptr %773, ptr %775)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %110, ptr align 8 %773, ptr %775)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177 unwind label %.loopexit191
 
 _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177: ; preds = %772
@@ -2570,7 +2570,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
   %826 = getelementptr inbounds i8, ptr %236, i64 24
   %827 = load i64, ptr %826, align 8
   %828 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %825, i64 %827
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %124, ptr %825, ptr %828)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdcb19f34d3979460E"(ptr nonnull sret([24 x i8]) align 8 %124, ptr align 8 %825, ptr %828)
           to label %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178 unwind label %.loopexit191
 
 _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178: ; preds = %823

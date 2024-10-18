@@ -5338,7 +5338,7 @@ if.then.i:                                        ; preds = %entry
   %conv = sext i32 %0 to i64
   %Data2 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Data2, align 8
-  tail call void @qsort(ptr noundef %1, i64 noundef %conv, i64 noundef 16, ptr noundef nonnull @_ZZN12ImGuiStorage14BuildSortByKeyEvEN10StaticFunc16PairComparerByIDEPKvS2_)
+  tail call void @qsort(ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 16, ptr noundef nonnull @_ZZN12ImGuiStorage14BuildSortByKeyEvEN10StaticFunc16PairComparerByIDEPKvS2_)
   br label %_ZL7ImQsortPvmmPFiPKvS1_E.exit
 
 _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %entry, %if.then.i
@@ -7102,7 +7102,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %if.end18, %_ZNK8ImV
   %arrayidx.i = getelementptr i8, ptr %5, i64 -1
   %narrow = add nuw i32 %call.i, 1
   %add22 = zext i32 %narrow to i64
-  %call.i12 = call i32 @vsnprintf(ptr noundef %arrayidx.i, i64 noundef %add22, ptr noundef readonly %fmt, ptr noundef nonnull %args_copy) #39
+  %call.i12 = call i32 @vsnprintf(ptr noundef nonnull %arrayidx.i, i64 noundef %add22, ptr noundef readonly %fmt, ptr noundef nonnull %args_copy) #39
   %cmp.i13 = icmp eq ptr %arrayidx.i, null
   br i1 %cmp.i13, label %return, label %if.end.i
 
@@ -11210,7 +11210,7 @@ invoke.cont82:                                    ; preds = %arrayctor.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Viewports, i8 0, i64 16, i1 false)
   %NavInitResult = getelementptr inbounds i8, ptr %this, i64 19256
   %SelectionUserData.i.i = getelementptr inbounds i8, ptr %this, i64 19296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %NavInitResult, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavInitResult, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %ColorStack, i8 0, i64 144, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i, align 8
   %DistAxial.i.i = getelementptr inbounds i8, ptr %this, i64 19312
@@ -11222,7 +11222,7 @@ invoke.cont82:                                    ; preds = %arrayctor.cont
   %NavScoringRect = getelementptr inbounds i8, ptr %this, i64 19348
   %NavMoveResultLocal = getelementptr inbounds i8, ptr %this, i64 19392
   %SelectionUserData.i.i26 = getelementptr inbounds i8, ptr %this, i64 19432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %NavMoveResultLocal, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocal, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %NavScoringRect, i8 0, i64 32, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i26, align 8
   %DistAxial.i.i27 = getelementptr inbounds i8, ptr %this, i64 19448
@@ -11233,7 +11233,7 @@ invoke.cont82:                                    ; preds = %arrayctor.cont
   store float 0x47EFFFFFE0000000, ptr %DistBox.i.i29, align 8
   %NavMoveResultLocalVisible = getelementptr inbounds i8, ptr %this, i64 19456
   %SelectionUserData.i.i30 = getelementptr inbounds i8, ptr %this, i64 19496
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %NavMoveResultLocalVisible, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocalVisible, i8 0, i64 36, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i30, align 8
   %DistAxial.i.i31 = getelementptr inbounds i8, ptr %this, i64 19512
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i.i31, align 8
@@ -11243,7 +11243,7 @@ invoke.cont82:                                    ; preds = %arrayctor.cont
   store float 0x47EFFFFFE0000000, ptr %DistBox.i.i33, align 8
   %NavMoveResultOther = getelementptr inbounds i8, ptr %this, i64 19520
   %SelectionUserData.i.i34 = getelementptr inbounds i8, ptr %this, i64 19560
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %NavMoveResultOther, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultOther, i8 0, i64 36, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i34, align 8
   %DistAxial.i.i35 = getelementptr inbounds i8, ptr %this, i64 19576
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i.i35, align 8
@@ -11253,7 +11253,7 @@ invoke.cont82:                                    ; preds = %arrayctor.cont
   store float 0x47EFFFFFE0000000, ptr %DistBox.i.i37, align 8
   %NavTabbingResultFirst = getelementptr inbounds i8, ptr %this, i64 19584
   %SelectionUserData.i.i38 = getelementptr inbounds i8, ptr %this, i64 19624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %NavTabbingResultFirst, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavTabbingResultFirst, i8 0, i64 36, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i38, align 8
   %DistAxial.i.i39 = getelementptr inbounds i8, ptr %this, i64 19640
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i.i39, align 8
@@ -11266,7 +11266,7 @@ invoke.cont82:                                    ; preds = %arrayctor.cont
   %DataType.i.i = getelementptr inbounds i8, ptr %this, i64 19752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %DataType.i.i, i8 0, i64 33, i1 false)
   %DataFrameCount.i.i = getelementptr inbounds i8, ptr %this, i64 19748
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %DragDropPayload, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %DragDropPayload, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %NavWindowingAccumDeltaPos, i8 0, i64 16, i1 false)
   store i32 -1, ptr %DataFrameCount.i.i, align 4
   %Delivery.i.i = getelementptr inbounds i8, ptr %this, i64 19786
@@ -11862,7 +11862,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i11, %if.
   br label %_ZN5ImGui8MemAllocEm.exit
 
 _ZN5ImGui8MemAllocEm.exit:                        ; preds = %_ZN5ImGui23LocalizeRegisterEntriesEPK13ImGuiLocEntryi.exit, %if.end.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %call.i, i8 0, i64 48, i1 false)
   %DrawDataP.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %CmdLists.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %CmdLists.i.i, i8 0, i64 40, i1 false)
@@ -12216,7 +12216,7 @@ for.body.i:                                       ; preds = %if.end17, %for.inc.
 if.then.i:                                        ; preds = %for.body.i
   %Callback.i = getelementptr inbounds i8, ptr %__begin1.09.i, i64 16
   %29 = load ptr, ptr %Callback.i, align 8
-  tail call void %29(ptr noundef %0, ptr noundef nonnull %__begin1.09.i)
+  tail call void %29(ptr noundef nonnull %0, ptr noundef nonnull %__begin1.09.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -14512,7 +14512,7 @@ _ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit: ; preds = %for.body.i
 _ZN5ImGui23SaveIniSettingsToMemoryEPm.exit:       ; preds = %_ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit, %_ZN8ImVectorIcE9push_backERKc.exit.i
   %9 = phi i32 [ %.pre, %_ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit ], [ %inc.i.i, %_ZN8ImVectorIcE9push_backERKc.exit.i ]
   %10 = load ptr, ptr %Data.i.i, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull readonly %ini_filename, ptr noundef nonnull readonly @.str.137)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull readonly %ini_filename, ptr noundef nonnull @.str.137)
   %tobool2.not = icmp eq ptr %call.i, null
   br i1 %tobool2.not, label %return, label %if.end4
 
@@ -27301,7 +27301,7 @@ _ZN5ImGui20NavMoveRequestSubmitEiiii.exit.i.i:    ; preds = %cond.false.i.i.i, %
   %InFlags.i.i.i.i = getelementptr inbounds i8, ptr %782, i64 19424
   store i32 0, ptr %InFlags.i.i.i.i, align 8
   %SelectionUserData.i.i.i.i = getelementptr inbounds i8, ptr %782, i64 19432
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocal.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocal.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i.i.i, align 8
   %DistAxial.i.i.i.i = getelementptr inbounds i8, ptr %782, i64 19448
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i.i.i.i, align 8
@@ -27313,7 +27313,7 @@ _ZN5ImGui20NavMoveRequestSubmitEiiii.exit.i.i:    ; preds = %cond.false.i.i.i, %
   %InFlags.i19.i.i.i = getelementptr inbounds i8, ptr %782, i64 19488
   store i32 0, ptr %InFlags.i19.i.i.i, align 8
   %SelectionUserData.i20.i.i.i = getelementptr inbounds i8, ptr %782, i64 19496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocalVisible.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocalVisible.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i20.i.i.i, align 8
   %DistAxial.i21.i.i.i = getelementptr inbounds i8, ptr %782, i64 19512
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i21.i.i.i, align 8
@@ -27325,7 +27325,7 @@ _ZN5ImGui20NavMoveRequestSubmitEiiii.exit.i.i:    ; preds = %cond.false.i.i.i, %
   %InFlags.i24.i.i.i = getelementptr inbounds i8, ptr %782, i64 19552
   store i32 0, ptr %InFlags.i24.i.i.i, align 8
   %SelectionUserData.i25.i.i.i = getelementptr inbounds i8, ptr %782, i64 19560
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultOther.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultOther.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i25.i.i.i, align 8
   %DistAxial.i26.i.i.i = getelementptr inbounds i8, ptr %782, i64 19576
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i26.i.i.i, align 8
@@ -27339,7 +27339,7 @@ _ZN5ImGui20NavMoveRequestSubmitEiiii.exit.i.i:    ; preds = %cond.false.i.i.i, %
   %InFlags.i29.i.i.i = getelementptr inbounds i8, ptr %782, i64 19616
   store i32 0, ptr %InFlags.i29.i.i.i, align 8
   %SelectionUserData.i30.i.i.i = getelementptr inbounds i8, ptr %782, i64 19624
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavTabbingResultFirst.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavTabbingResultFirst.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i30.i.i.i, align 8
   %DistAxial.i31.i.i.i = getelementptr inbounds i8, ptr %782, i64 19640
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i31.i.i.i, align 8
@@ -35361,7 +35361,7 @@ if.then36.i:                                      ; preds = %if.end33.i
   %shl10.i.i174.i = shl i32 %conv9.i.i173.i, 24
   %or11.i.i175.i = or i32 %or7.i.i169.i, %shl10.i.i174.i
   %648 = load ptr, ptr %DrawList, align 8
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %648, ptr noundef nonnull align 4 dereferenceable(8) %title_bar_rect847, ptr noundef nonnull align 4 dereferenceable(8) %538, i32 noundef %or11.i.i175.i, float noundef %602, i32 noundef 48)
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %648, ptr noundef nonnull align 4 dereferenceable(16) %title_bar_rect847, ptr noundef nonnull align 4 dereferenceable(8) %538, i32 noundef %or11.i.i175.i, float noundef %602, i32 noundef 48)
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then36.i, %if.end33.i
@@ -36903,7 +36903,7 @@ if.end.i144.i:                                    ; preds = %_ZN5ImGui19FindRend
   br i1 %tobool.i.i, label %if.then1.i146.i, label %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit
 
 if.then1.i146.i:                                  ; preds = %if.end.i144.i
-  call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef nonnull %layout_r.i, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.lcssa.i.ph.i.i)
+  call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef nonnull align 4 dereferenceable(8) %layout_r.i, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.lcssa.i.ph.i.i)
   br label %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit
 
 _ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit: ; preds = %if.end183.i, %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.i.i, %if.end.i144.i, %if.then1.i146.i
@@ -38419,7 +38419,7 @@ if.then45:                                        ; preds = %land.end.if.then45_
   %DataType.i.i = getelementptr inbounds i8, ptr %124, i64 19752
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %DataType.i.i, i8 0, i64 33, i1 false)
   %DataFrameCount.i.i = getelementptr inbounds i8, ptr %124, i64 19748
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %DragDropPayload.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %DragDropPayload.i, i8 0, i64 20, i1 false)
   store i32 -1, ptr %DataFrameCount.i.i, align 4
   %Delivery.i.i = getelementptr inbounds i8, ptr %124, i64 19786
   store i8 0, ptr %Delivery.i.i, align 2
@@ -38998,7 +38998,7 @@ entry:
   %DataType.i = getelementptr inbounds i8, ptr %0, i64 19752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %DataType.i, i8 0, i64 33, i1 false)
   %DataFrameCount.i = getelementptr inbounds i8, ptr %0, i64 19748
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %DragDropPayload, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %DragDropPayload, i8 0, i64 20, i1 false)
   store i32 -1, ptr %DataFrameCount.i, align 4
   %Delivery.i = getelementptr inbounds i8, ptr %0, i64 19786
   store i8 0, ptr %Delivery.i, align 2
@@ -39273,7 +39273,7 @@ if.then.i7:                                       ; preds = %if.then
   %conv = sext i32 %7 to i64
   %Data = getelementptr inbounds i8, ptr %window, i64 424
   %8 = load ptr, ptr %Data, align 8
-  tail call void @qsort(ptr noundef %8, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @_ZL19ChildWindowComparerPKvS0_)
+  tail call void @qsort(ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 8, ptr noundef nonnull @_ZL19ChildWindowComparerPKvS0_)
   br label %_ZL7ImQsortPvmmPFiPKvS1_E.exit
 
 _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %if.then, %if.then.i7
@@ -47286,7 +47286,7 @@ if.end4.i:                                        ; preds = %do.end.i, %if.end10
   %InFlags.i.i = getelementptr inbounds i8, ptr %13, i64 19424
   store i32 0, ptr %InFlags.i.i, align 8
   %SelectionUserData.i.i = getelementptr inbounds i8, ptr %13, i64 19432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocal.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocal.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i, align 8
   %DistAxial.i.i = getelementptr inbounds i8, ptr %13, i64 19448
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i.i, align 8
@@ -47298,7 +47298,7 @@ if.end4.i:                                        ; preds = %do.end.i, %if.end10
   %InFlags.i19.i = getelementptr inbounds i8, ptr %13, i64 19488
   store i32 0, ptr %InFlags.i19.i, align 8
   %SelectionUserData.i20.i = getelementptr inbounds i8, ptr %13, i64 19496
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocalVisible.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocalVisible.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i20.i, align 8
   %DistAxial.i21.i = getelementptr inbounds i8, ptr %13, i64 19512
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i21.i, align 8
@@ -47310,7 +47310,7 @@ if.end4.i:                                        ; preds = %do.end.i, %if.end10
   %InFlags.i24.i = getelementptr inbounds i8, ptr %13, i64 19552
   store i32 0, ptr %InFlags.i24.i, align 8
   %SelectionUserData.i25.i = getelementptr inbounds i8, ptr %13, i64 19560
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultOther.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultOther.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i25.i, align 8
   %DistAxial.i26.i = getelementptr inbounds i8, ptr %13, i64 19576
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i26.i, align 8
@@ -47324,7 +47324,7 @@ if.end4.i:                                        ; preds = %do.end.i, %if.end10
   %InFlags.i29.i = getelementptr inbounds i8, ptr %13, i64 19616
   store i32 0, ptr %InFlags.i29.i, align 8
   %SelectionUserData.i30.i = getelementptr inbounds i8, ptr %13, i64 19624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavTabbingResultFirst.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavTabbingResultFirst.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i30.i, align 8
   %DistAxial.i31.i = getelementptr inbounds i8, ptr %13, i64 19640
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i31.i, align 8
@@ -47445,7 +47445,7 @@ _ZN5ImGuiL23NavUpdateAnyRequestFlagEv.exit:       ; preds = %cond.false, %entry
   %InFlags.i = getelementptr inbounds i8, ptr %0, i64 19424
   store i32 0, ptr %InFlags.i, align 8
   %SelectionUserData.i = getelementptr inbounds i8, ptr %0, i64 19432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocal, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocal, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i, align 8
   %DistAxial.i = getelementptr inbounds i8, ptr %0, i64 19448
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i, align 8
@@ -47457,7 +47457,7 @@ _ZN5ImGuiL23NavUpdateAnyRequestFlagEv.exit:       ; preds = %cond.false, %entry
   %InFlags.i19 = getelementptr inbounds i8, ptr %0, i64 19488
   store i32 0, ptr %InFlags.i19, align 8
   %SelectionUserData.i20 = getelementptr inbounds i8, ptr %0, i64 19496
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocalVisible, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocalVisible, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i20, align 8
   %DistAxial.i21 = getelementptr inbounds i8, ptr %0, i64 19512
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i21, align 8
@@ -47469,7 +47469,7 @@ _ZN5ImGuiL23NavUpdateAnyRequestFlagEv.exit:       ; preds = %cond.false, %entry
   %InFlags.i24 = getelementptr inbounds i8, ptr %0, i64 19552
   store i32 0, ptr %InFlags.i24, align 8
   %SelectionUserData.i25 = getelementptr inbounds i8, ptr %0, i64 19560
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultOther, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultOther, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i25, align 8
   %DistAxial.i26 = getelementptr inbounds i8, ptr %0, i64 19576
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i26, align 8
@@ -47483,7 +47483,7 @@ _ZN5ImGuiL23NavUpdateAnyRequestFlagEv.exit:       ; preds = %cond.false, %entry
   %InFlags.i29 = getelementptr inbounds i8, ptr %0, i64 19616
   store i32 0, ptr %InFlags.i29, align 8
   %SelectionUserData.i30 = getelementptr inbounds i8, ptr %0, i64 19624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavTabbingResultFirst, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavTabbingResultFirst, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i30, align 8
   %DistAxial.i31 = getelementptr inbounds i8, ptr %0, i64 19640
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i31, align 8
@@ -47709,7 +47709,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %if.end4.i, %lor.lhs
   %InFlags.i.i = getelementptr inbounds i8, ptr %11, i64 19424
   store i32 0, ptr %InFlags.i.i, align 8
   %SelectionUserData.i.i = getelementptr inbounds i8, ptr %11, i64 19432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocal.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocal.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i.i, align 8
   %DistAxial.i.i = getelementptr inbounds i8, ptr %11, i64 19448
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i.i, align 8
@@ -47721,7 +47721,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %if.end4.i, %lor.lhs
   %InFlags.i19.i = getelementptr inbounds i8, ptr %11, i64 19488
   store i32 0, ptr %InFlags.i19.i, align 8
   %SelectionUserData.i20.i = getelementptr inbounds i8, ptr %11, i64 19496
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultLocalVisible.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultLocalVisible.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i20.i, align 8
   %DistAxial.i21.i = getelementptr inbounds i8, ptr %11, i64 19512
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i21.i, align 8
@@ -47733,7 +47733,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %if.end4.i, %lor.lhs
   %InFlags.i24.i = getelementptr inbounds i8, ptr %11, i64 19552
   store i32 0, ptr %InFlags.i24.i, align 8
   %SelectionUserData.i25.i = getelementptr inbounds i8, ptr %11, i64 19560
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavMoveResultOther.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavMoveResultOther.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i25.i, align 8
   %DistAxial.i26.i = getelementptr inbounds i8, ptr %11, i64 19576
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i26.i, align 8
@@ -47747,7 +47747,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %if.end4.i, %lor.lhs
   %InFlags.i29.i = getelementptr inbounds i8, ptr %11, i64 19616
   store i32 0, ptr %InFlags.i29.i, align 8
   %SelectionUserData.i30.i = getelementptr inbounds i8, ptr %11, i64 19624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NavTabbingResultFirst.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %NavTabbingResultFirst.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %SelectionUserData.i30.i, align 8
   %DistAxial.i31.i = getelementptr inbounds i8, ptr %11, i64 19640
   store float 0x47EFFFFFE0000000, ptr %DistAxial.i31.i, align 8
@@ -58130,7 +58130,7 @@ if.then74:                                        ; preds = %if.then72
   %DataType.i.i = getelementptr inbounds i8, ptr %34, i64 19752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %DataType.i.i, i8 0, i64 33, i1 false)
   %DataFrameCount.i.i = getelementptr inbounds i8, ptr %34, i64 19748
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %DragDropPayload.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %DragDropPayload.i, i8 0, i64 20, i1 false)
   store i32 -1, ptr %DataFrameCount.i.i, align 4
   %Delivery.i.i = getelementptr inbounds i8, ptr %34, i64 19786
   store i8 0, ptr %Delivery.i.i, align 2
@@ -58308,7 +58308,7 @@ if.then1:                                         ; preds = %if.end
   %DataType.i.i = getelementptr inbounds i8, ptr %3, i64 19752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %DataType.i.i, i8 0, i64 33, i1 false)
   %DataFrameCount.i.i = getelementptr inbounds i8, ptr %3, i64 19748
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %DragDropPayload.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %DragDropPayload.i, i8 0, i64 20, i1 false)
   store i32 -1, ptr %DataFrameCount.i.i, align 4
   %Delivery.i.i = getelementptr inbounds i8, ptr %3, i64 19786
   store i8 0, ptr %Delivery.i.i, align 2
@@ -59049,7 +59049,7 @@ if.then:                                          ; preds = %entry
   %DataType.i.i = getelementptr inbounds i8, ptr %0, i64 19752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %DataType.i.i, i8 0, i64 33, i1 false)
   %DataFrameCount.i.i = getelementptr inbounds i8, ptr %0, i64 19748
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %DragDropPayload.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %DragDropPayload.i, i8 0, i64 20, i1 false)
   store i32 -1, ptr %DataFrameCount.i.i, align 4
   store i8 0, ptr %Delivery, align 2
   %Preview.i.i = getelementptr inbounds i8, ptr %0, i64 19785
@@ -59347,7 +59347,7 @@ lor.lhs.false:                                    ; preds = %if.end, %if.end3
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull readonly %filename.addr.09, ptr noundef nonnull readonly @.str.130)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef nonnull readonly %filename.addr.09, ptr noundef nonnull @.str.130)
   %tobool8.not = icmp eq ptr %call.i, null
   br i1 %tobool8.not, label %return, label %if.end10
 
@@ -59716,7 +59716,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i44
   br i1 %tobool5.not.i, label %if.end10, label %if.end7.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %call.i.i = call noalias noundef ptr @fopen(ptr noundef nonnull readonly %47, ptr noundef nonnull readonly @.str.130)
+  %call.i.i = call noalias noundef ptr @fopen(ptr noundef nonnull readonly %47, ptr noundef nonnull @.str.130)
   %tobool8.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool8.not.i, label %if.end10, label %if.end10.i
 
@@ -64088,7 +64088,7 @@ for.end248:                                       ; preds = %for.inc247
 if.then.i741:                                     ; preds = %for.end248
   %conv250 = sext i32 %265 to i64
   %266 = load ptr, ptr %Data, align 8
-  call void @qsort(ptr noundef %266, i64 noundef %conv250, i64 noundef 8, ptr noundef nonnull @_ZZN5ImGui17ShowMetricsWindowEPbEN4Func26WindowComparerByBeginOrderEPKvS3_)
+  call void @qsort(ptr noundef %266, i64 noundef range(i64 -2147483648, 2147483648) %conv250, i64 noundef 8, ptr noundef nonnull @_ZZN5ImGui17ShowMetricsWindowEPbEN4Func26WindowComparerByBeginOrderEPKvS3_)
   %.pre2090 = load i32, ptr %WindowsTempSortBuffer, align 8
   br label %_ZL7ImQsortPvmmPFiPKvS1_E.exit
 
@@ -75497,7 +75497,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_Splitter.i = getelementptr inbounds i8, ptr %4, i64 168
-  tail call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i, ptr noundef nonnull %4)
+  tail call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i, ptr noundef nonnull align 8 dereferenceable(196) %4)
   %.pre = load ptr, ptr %DrawList, align 8
   br label %if.end
 

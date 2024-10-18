@@ -392,7 +392,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   %.0146 = trunc nuw nsw i64 %.0146.in to i32
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %.0146.in, i32 noundef 0) #10
+  %20 = tail call ptr %19(ptr noundef nonnull %0, i64 noundef 0, i64 noundef range(i64 0, 1029) %.0146.in, i32 noundef 0) #10
   %.not190 = icmp eq ptr %20, null
   br i1 %.not190, label %cli_compare_ftm_partition.exit.thread, label %21
 
@@ -655,7 +655,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   %121 = sub i64 %116, %120
   %spec.select203230 = call i64 @llvm.umin.i64(i64 %121, i64 1028)
   %122 = load ptr, ptr %18, align 8
-  %123 = call ptr %122(ptr noundef nonnull %0, i64 noundef %120, i64 noundef %spec.select203230, i32 noundef 0) #10
+  %123 = call ptr %122(ptr noundef nonnull %0, i64 noundef %120, i64 noundef range(i64 0, 1029) %spec.select203230, i32 noundef 0) #10
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %126
 

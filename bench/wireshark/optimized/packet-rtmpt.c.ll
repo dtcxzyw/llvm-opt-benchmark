@@ -2380,12 +2380,12 @@ thread-pre-split:                                 ; preds = %41, %49, %46
   %switch.selectcmp = icmp eq i8 %switch.and, 0
   %62 = zext i1 %switch.selectcmp to i32
   %63 = add nuw nsw i32 %36, %62
-  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63) #8
+  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 512) %63) #8
   %.not.i = icmp eq i32 %64, 0
   br i1 %.not.i, label %rtmpt_get_amf_txid.exit.thread, label %65
 
 65:                                               ; preds = %60
-  %66 = tail call fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %63, ptr noundef %2)
+  %66 = tail call fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef range(i32 0, 512) %63, ptr noundef %2)
   %67 = add i32 %66, -1
   %or.cond.not.i = icmp ult i32 %67, %64
   br i1 %or.cond.not.i, label %68, label %rtmpt_get_amf_txid.exit.thread
@@ -2488,7 +2488,7 @@ rtmpt_get_amf_txid.exit:                          ; preds = %72
   %116 = load i8, ptr %107, align 4
   %117 = zext i8 %116 to i32
   %118 = tail call ptr @val_to_str(i32 noundef %117, ptr noundef nonnull @rtmpt_opcode_vals, ptr noundef nonnull @.str.313) #8
-  %119 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0201.ph) #8
+  %119 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 0, 511) %.0201.ph) #8
   %120 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %115, ptr noundef nonnull @.str.319, ptr noundef %118, i32 noundef %119) #8
   br label %rtmpt_get_packet_desc.exit
 
@@ -2505,7 +2505,7 @@ rtmpt_get_amf_txid.exit:                          ; preds = %72
   %128 = load i8, ptr %107, align 4
   %129 = zext i8 %128 to i32
   %130 = tail call ptr @val_to_str(i32 noundef %129, ptr noundef nonnull @rtmpt_opcode_vals, ptr noundef nonnull @.str.313) #8
-  %131 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0201.ph) #8
+  %131 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 0, 511) %.0201.ph) #8
   %132 = add nuw nsw i32 %.0201.ph, 4
   %133 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %132) #8
   %134 = zext i8 %133 to i32
@@ -2522,7 +2522,7 @@ rtmpt_get_amf_txid.exit:                          ; preds = %72
   br i1 %or.cond5.i, label %rtmpt_get_packet_desc.exit, label %142
 
 142:                                              ; preds = %137
-  %143 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0201.ph) #8
+  %143 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 0, 511) %.0201.ph) #8
   %144 = zext i16 %143 to i32
   %145 = tail call ptr @try_val_to_str(i32 noundef %144, ptr noundef nonnull @rtmpt_ucm_vals) #8
   %146 = icmp eq ptr %145, null
@@ -3044,32 +3044,32 @@ rtmpt_get_packet_desc.exit.thread:                ; preds = %95, %104, %rtmpt_ge
 
 433:                                              ; preds = %428
   %434 = load i32, ptr @hf_rtmpt_scm_chunksize, align 4
-  %435 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %434, ptr noundef %0, i32 noundef %.0201232241, i32 noundef 4, i32 noundef 0) #8
+  %435 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %434, ptr noundef %0, i32 noundef range(i32 0, 511) %.0201232241, i32 noundef 4, i32 noundef 0) #8
   br label %dissect_rtmpt_body_scm.exit
 
 436:                                              ; preds = %428
   %437 = load i32, ptr @hf_rtmpt_scm_csid, align 4
-  %438 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %437, ptr noundef %0, i32 noundef %.0201232241, i32 noundef 4, i32 noundef 0) #8
+  %438 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %437, ptr noundef %0, i32 noundef range(i32 0, 511) %.0201232241, i32 noundef 4, i32 noundef 0) #8
   br label %dissect_rtmpt_body_scm.exit
 
 439:                                              ; preds = %428
   %440 = load i32, ptr @hf_rtmpt_scm_seq, align 4
-  %441 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %440, ptr noundef %0, i32 noundef %.0201232241, i32 noundef 4, i32 noundef 0) #8
+  %441 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %440, ptr noundef %0, i32 noundef range(i32 0, 511) %.0201232241, i32 noundef 4, i32 noundef 0) #8
   br label %dissect_rtmpt_body_scm.exit
 
 442:                                              ; preds = %428
   %443 = load i32, ptr @hf_rtmpt_ucm_eventtype, align 4
-  %444 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %443, ptr noundef %0, i32 noundef %.0201232241, i32 noundef 2, i32 noundef 0) #8
+  %444 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %443, ptr noundef %0, i32 noundef range(i32 0, 511) %.0201232241, i32 noundef 2, i32 noundef 0) #8
   br label %dissect_rtmpt_body_scm.exit
 
 445:                                              ; preds = %428
   %446 = load i32, ptr @hf_rtmpt_scm_was, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %446, ptr noundef %0, i32 noundef %.0201232241, i32 noundef 4, i32 noundef 0) #8
+  %447 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %446, ptr noundef %0, i32 noundef range(i32 0, 511) %.0201232241, i32 noundef 4, i32 noundef 0) #8
   br label %dissect_rtmpt_body_scm.exit
 
 448:                                              ; preds = %428
   %449 = load i32, ptr @hf_rtmpt_scm_was, align 4
-  %450 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %449, ptr noundef %0, i32 noundef %.0201232241, i32 noundef 4, i32 noundef 0) #8
+  %450 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %449, ptr noundef %0, i32 noundef range(i32 0, 511) %.0201232241, i32 noundef 4, i32 noundef 0) #8
   %451 = load i32, ptr @hf_rtmpt_scm_limittype, align 4
   %452 = add nuw nsw i32 %.0201232241, 4
   %453 = tail call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %451, ptr noundef %0, i32 noundef %452, i32 noundef 1, i32 noundef 0) #8

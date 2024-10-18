@@ -82,7 +82,7 @@ define internal void @loop_init(ptr nocapture noundef %0, ptr nocapture noundef 
 
 9:                                                ; preds = %3
   %10 = shl nuw nsw i64 %spec.store.select, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr readonly align 1 %1, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr readonly align 1 %1, i64 range(i64 0, 17179869181) %10, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %3, %9

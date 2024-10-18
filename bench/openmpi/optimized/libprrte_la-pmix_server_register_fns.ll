@@ -1201,7 +1201,7 @@ pmix_obj_new_tma.exit612:                         ; preds = %.lr.ph.i.i609, %494
 .lr.ph.i616:                                      ; preds = %566, %.lr.ph.i616
   %572 = phi ptr [ %574, %.lr.ph.i616 ], [ %571, %566 ]
   %.07.i617 = phi ptr [ %573, %.lr.ph.i616 ], [ %570, %566 ]
-  call void %572(ptr noundef %549) #11
+  call void %572(ptr noundef nonnull %549) #11
   %573 = getelementptr inbounds i8, ptr %.07.i617, i64 8
   %574 = load ptr, ptr %573, align 8
   %.not.i618 = icmp eq ptr %574, null
@@ -1692,7 +1692,7 @@ pmix_pointer_array_get_item.exit631:              ; preds = %pmix_pointer_array_
 .lr.ph.i635:                                      ; preds = %824, %.lr.ph.i635
   %830 = phi ptr [ %832, %.lr.ph.i635 ], [ %829, %824 ]
   %.07.i636 = phi ptr [ %831, %.lr.ph.i635 ], [ %828, %824 ]
-  call void %830(ptr noundef %807) #11
+  call void %830(ptr noundef nonnull %807) #11
   %831 = getelementptr inbounds i8, ptr %.07.i636, i64 8
   %832 = load ptr, ptr %831, align 8
   %.not.i637 = icmp eq ptr %832, null
@@ -2063,7 +2063,7 @@ pmix_obj_run_constructors.exit664:                ; preds = %.lr.ph.i661, %950
 .lr.ph.i668:                                      ; preds = %988, %.lr.ph.i668
   %994 = phi ptr [ %996, %.lr.ph.i668 ], [ %993, %988 ]
   %.07.i669 = phi ptr [ %995, %.lr.ph.i668 ], [ %992, %988 ]
-  call void %994(ptr noundef %971) #11
+  call void %994(ptr noundef nonnull %971) #11
   %995 = getelementptr inbounds i8, ptr %.07.i669, i64 8
   %996 = load ptr, ptr %995, align 8
   %.not.i670 = icmp eq ptr %996, null
@@ -2338,7 +2338,7 @@ define internal fastcc ptr @hwloc_get_next_obj_by_type(ptr noundef %0) unnamed_a
   br i1 %or.cond, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %2, i32 noundef 0) #16
+  %4 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %2, i32 noundef 0) #16
   br label %5
 
 5:                                                ; preds = %1, %3

@@ -2564,7 +2564,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit39:  ; preds = %1
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hdcb1f6f967b12175E.exit": ; preds = %17, %19
   %.sroa.0.0.i = phi i64 [ %18, %17 ], [ %20, %19 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !648
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb058c561c7c36f5E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb058c561c7c36f5E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %33 = getelementptr inbounds i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8, !range !657, !noalias !648, !noundef !4
   %35 = icmp eq i64 %34, 0
@@ -2605,7 +2605,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit39:  ; preds = %1
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hdcb1f6f967b12175E.exit43": ; preds = %27, %29
   %.sroa.0.0.i40 = phi i64 [ %28, %27 ], [ %30, %29 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !658
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb058c561c7c36f5E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb058c561c7c36f5E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   %47 = load i64, ptr %46, align 8, !range !657, !noalias !658, !noundef !4
   %48 = icmp eq i64 %47, 0

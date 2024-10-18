@@ -5006,7 +5006,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
 292:                                              ; preds = %291
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false), !noalias !33
   %293 = load ptr, ptr %104, align 8, !noalias !33
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %99, ptr align 8 %293, ptr nonnull align 8 %2, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %99, ptr align 8 %293, ptr nonnull align 8 %2, ptr nonnull align 8 %134)
           to label %297 unwind label %295, !noalias !33
 
 294:                                              ; preds = %299, %295
@@ -5205,7 +5205,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %350 unwind label %.loopexit.split-lp.i.i, !noalias !33
 
 350:                                              ; preds = %349
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %82, ptr align 8 %103, ptr align 8 %94, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.77, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %82, ptr align 8 %103, ptr align 8 %94, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.77, ptr nonnull align 8 %134)
           to label %353 unwind label %351, !noalias !33
 
 351:                                              ; preds = %350
@@ -5395,7 +5395,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %403 unwind label %368, !noalias !33
 
 403:                                              ; preds = %402
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %66, ptr align 8 %103, ptr align 8 %78, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.83, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %66, ptr align 8 %103, ptr align 8 %78, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.83, ptr nonnull align 8 %134)
           to label %406 unwind label %404, !noalias !33
 
 404:                                              ; preds = %403
@@ -5579,7 +5579,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
 
 452:                                              ; preds = %449, %436
   %453 = getelementptr inbounds i8, ptr %31, i64 128
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias align 8 %27, ptr nonnull align 8 %31, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias align 8 %27, ptr nonnull align 8 %31, ptr nonnull align 8 %134)
           to label %454 unwind label %442, !noalias !34
 
 454:                                              ; preds = %452
@@ -5972,11 +5972,11 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br i1 %567, label %568, label %569
 
 568:                                              ; preds = %565
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias align 8 %13, ptr align 8 %103, ptr align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.216, i64 11, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias align 8 %13, ptr nonnull align 8 %103, ptr align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.216, i64 11, ptr nonnull align 8 %134)
           to label %572 unwind label %570, !noalias !34
 
 569:                                              ; preds = %565
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %12, ptr align 8 %103, ptr align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %12, ptr nonnull align 8 %103, ptr align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 8 %134)
           to label %582 unwind label %570, !noalias !34
 
 570:                                              ; preds = %569, %568
@@ -6186,7 +6186,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %604 = getelementptr inbounds i8, ptr %.sroa.8.i.i, i64 360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %604, i64 64, i1 false), !noalias !33
   store i64 %.sroa.0121.0.copyload.i.i, ptr %65, align 8, !noalias !33
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias align 8 %61, ptr nonnull align 8 %2, ptr align 8 %103, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias align 8 %61, ptr nonnull align 8 %2, ptr align 8 %103, ptr nonnull align 8 %134)
           to label %611 unwind label %609, !noalias !33
 
 605:                                              ; preds = %602, %.thread136.i.i
@@ -6307,7 +6307,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit.i.i unwind label %624, !noalias !33
 
 _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit.i.i: ; preds = %633
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias align 8 %57, ptr align 8 %56, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias align 8 %57, ptr align 8 %56, ptr nonnull align 8 %134)
           to label %647 unwind label %645, !noalias !33
 
 645:                                              ; preds = %_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit.i.i
@@ -6832,7 +6832,7 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
   store i64 %.sroa.339.sroa.4.0.copyload.i, ptr %.sroa.339.sroa.0.sroa.4.0..sroa_idx, align 8, !noalias !27
   %.sroa.339.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 24
   store i64 %756, ptr %.sroa.339.sroa.3.0..sroa_idx, align 8, !noalias !27
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum17h59e07bf01530dac4E(ptr noalias align 8 %0, ptr align 8 %105, ptr nonnull align 8 %2, ptr align 8 %128, i1 zeroext %3, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum17h59e07bf01530dac4E(ptr noalias align 8 %0, ptr align 8 %105, ptr nonnull align 8 %2, ptr nonnull align 8 %128, i1 zeroext %3, ptr nonnull align 8 %134)
           to label %759 unwind label %.body22
 
 757:                                              ; preds = %.thread, %281
@@ -11070,7 +11070,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   br i1 %.not97.i, label %206, label %207
 
 206:                                              ; preds = %205
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias align 8 %139, ptr align 8 %3, ptr align 8 %173, ptr align 8 %170)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias align 8 %139, ptr nonnull align 8 %3, ptr align 8 %173, ptr align 8 %170)
           to label %211 unwind label %.loopexit.split-lp104.i, !noalias !66
 
 207:                                              ; preds = %205
@@ -11608,7 +11608,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %164, i64 32, i1 false), !noalias !66
   %355 = getelementptr inbounds i8, ptr %204, i64 16
   %356 = load i32, ptr %355, align 8, !noalias !66
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %162, ptr align 8 %173, ptr align 8 %208, i32 %356, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %162, ptr align 8 %173, ptr align 8 %208, i32 %356, ptr nonnull align 8 %3)
           to label %359 unwind label %.thread71.i, !noalias !66
 
 357:                                              ; preds = %.thread75.i, %364
@@ -12327,7 +12327,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   %505 = load ptr, ptr %494, align 8
   %506 = getelementptr inbounds i8, ptr %494, i64 8
   %507 = load i32, ptr %506, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %60, ptr align 8 %112, ptr nonnull align 8 %67, i32 %507, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %60, ptr nonnull align 8 %112, ptr nonnull align 8 %67, i32 %507, ptr nonnull align 8 %3)
           to label %511 unwind label %.thread.i.i, !noalias !72
 
 508:                                              ; preds = %617, %515
@@ -13031,7 +13031,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %.noexc79.i unwind label %675, !noalias !69
 
 .noexc79.i:                                       ; preds = %664
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %25, ptr align 8 %112, ptr align 8 %34, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.130, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %25, ptr nonnull align 8 %112, ptr align 8 %34, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.130, ptr nonnull align 8 %3)
           to label %667 unwind label %665, !noalias !75
 
 665:                                              ; preds = %.noexc79.i
@@ -13510,7 +13510,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %776 unwind label %688, !noalias !78
 
 776:                                              ; preds = %775
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %5, ptr align 8 %112, ptr align 8 %20, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.142, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %5, ptr nonnull align 8 %112, ptr align 8 %20, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.142, ptr nonnull align 8 %3)
           to label %779 unwind label %777, !noalias !78
 
 777:                                              ; preds = %776
@@ -13615,7 +13615,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   br label %792
 
 795:                                              ; preds = %789
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias align 8 %100, ptr align 8 %3, ptr align 8 %112, ptr align 8 %108)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias align 8 %100, ptr nonnull align 8 %3, ptr align 8 %112, ptr align 8 %108)
           to label %796 unwind label %793, !noalias !69
 
 796:                                              ; preds = %795

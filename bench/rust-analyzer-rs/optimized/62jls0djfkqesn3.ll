@@ -156,7 +156,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h164
   br i1 %21, label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17hc1edf0d5aee2b882E.exit", label %22
 
 22:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef %1, i64 noundef 1) #13
+  tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, i64 noundef 1) #13
   br label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17hc1edf0d5aee2b882E.exit"
 
 "_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17hc1edf0d5aee2b882E.exit": ; preds = %22, %18
@@ -174,7 +174,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h164
   br i1 %28, label %25, label %29
 
 29:                                               ; preds = %26
-  tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef %1, i64 noundef 1) #13
+  tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, i64 noundef 1) #13
   br label %25
 }
 

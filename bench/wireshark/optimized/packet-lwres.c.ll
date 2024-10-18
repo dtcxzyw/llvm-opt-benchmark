@@ -595,7 +595,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 255:                                              ; preds = %253
   %narrow.i.i.i = mul nuw nsw i32 %228, 6
   %256 = load i32, ptr @ett_a_rec, align 4
-  %257 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %236, ptr noundef %0, i32 noundef %231, i32 noundef %narrow.i.i.i, i32 noundef %256, ptr noundef null, ptr noundef nonnull @.str.146) #4
+  %257 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %236, ptr noundef %0, i32 noundef range(i32 47, 65583) %231, i32 noundef %narrow.i.i.i, i32 noundef %256, ptr noundef null, ptr noundef nonnull @.str.146) #4
   %.not.i.i.i = icmp eq i16 %227, 0
   br i1 %.not.i.i.i, label %dissect_noop.exit, label %.lr.ph.i.i.i
 
@@ -624,7 +624,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 
 272:                                              ; preds = %270
   %273 = load i32, ptr @ett_srv_rec, align 4
-  %274 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %236, ptr noundef %0, i32 noundef %231, i32 noundef %231, i32 noundef %273, ptr noundef null, ptr noundef nonnull @.str.147, i32 noundef %228) #4
+  %274 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %236, ptr noundef %0, i32 noundef range(i32 47, 65583) %231, i32 noundef range(i32 47, 65583) %231, i32 noundef %273, ptr noundef null, ptr noundef nonnull @.str.147, i32 noundef range(i32 0, 65536) %228) #4
   %.not.i44.i.i = icmp eq i16 %227, 0
   br i1 %.not.i44.i.i, label %dissect_srv_records.exit.i.i, label %.lr.ph.i45.i.i
 
@@ -684,7 +684,7 @@ dissect_srv_records.exit.i.i:                     ; preds = %276, %272, %270
 
 312:                                              ; preds = %310
   %313 = load i32, ptr @ett_mx_rec, align 4
-  %314 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %236, ptr noundef %0, i32 noundef %231, i32 noundef %231, i32 noundef %313, ptr noundef null, ptr noundef nonnull @.str.149, i32 noundef %228) #4
+  %314 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %236, ptr noundef %0, i32 noundef range(i32 47, 65583) %231, i32 noundef range(i32 47, 65583) %231, i32 noundef %313, ptr noundef null, ptr noundef nonnull @.str.149, i32 noundef range(i32 0, 65536) %228) #4
   %.not.i47.i.i = icmp eq i16 %227, 0
   br i1 %.not.i47.i.i, label %dissect_mx_records.exit.i.i, label %.lr.ph.i48.i.i
 
@@ -734,7 +734,7 @@ dissect_mx_records.exit.i.i:                      ; preds = %316, %312, %310
 
 342:                                              ; preds = %340
   %343 = load i32, ptr @ett_ns_rec, align 4
-  %344 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %236, ptr noundef %0, i32 noundef %231, i32 noundef %231, i32 noundef %343, ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef %228) #4
+  %344 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %236, ptr noundef %0, i32 noundef range(i32 47, 65583) %231, i32 noundef range(i32 47, 65583) %231, i32 noundef %343, ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef range(i32 0, 65536) %228) #4
   %.not.i50.i.i = icmp eq i16 %227, 0
   br i1 %.not.i50.i.i, label %dissect_ns_records.exit.i.i, label %.lr.ph.i51.i.i
 

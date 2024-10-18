@@ -549,7 +549,7 @@ define void @_ZThn64_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) un
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -558,7 +558,7 @@ define void @_ZThn1584_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1584
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -567,7 +567,7 @@ define void @_ZThn1592_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1592
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -576,7 +576,7 @@ define void @_ZThn1600_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1600
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -585,7 +585,7 @@ define void @_ZThn1608_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1608
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -594,7 +594,7 @@ define void @_ZThn1616_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1616
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -603,7 +603,7 @@ define void @_ZThn1624_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1624
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -612,7 +612,7 @@ define void @_ZThn1632_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1632
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -621,7 +621,7 @@ define void @_ZThn1672_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1672
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -630,7 +630,7 @@ define void @_ZThn1688_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1688
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -639,7 +639,7 @@ define void @_ZThn1696_N8proxygen21HTTPDownstreamSessionD0Ev(ptr noundef %this) 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1696
   tail call void @_ZN8proxygen21HTTPDownstreamSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(2504) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #24
   ret void
 }
 
@@ -1330,7 +1330,7 @@ invoke.cont113:                                   ; preds = %call.i.noexc
           to label %call.i.noexc20 unwind label %lpad118
 
 call.i.noexc20:                                   ; preds = %invoke.cont113
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp116, ptr noundef %call.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116, ptr noundef %call.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117)
           to label %.noexc unwind label %lpad118
 
 .noexc:                                           ; preds = %call.i.noexc20
@@ -1340,7 +1340,7 @@ call.i.noexc20:                                   ; preds = %invoke.cont113
 lpad.i:                                           ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #23
   br label %ehcleanup
 
 invoke.cont119:                                   ; preds = %.noexc
@@ -2230,7 +2230,7 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectionToken_)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %connectionToken_)
           to label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i unwind label %lpad.i
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i: ; preds = %invoke.cont.i
@@ -2246,7 +2246,7 @@ lpad.i:                                           ; preds = %invoke.cont.i
 
 if.then.i.i8.i:                                   ; preds = %lpad.i
   store i8 0, ptr %hasValue.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.result) #23
   br label %terminate.lpad.body
 
 invoke.cont:                                      ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i, %entry
@@ -2505,7 +2505,7 @@ _ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE9push_
   %waitingForReplaySafety_ = getelementptr inbounds i8, ptr %this, i64 2032
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 16
   store ptr %callback, ptr %_M_storage.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1, ptr noundef nonnull %waitingForReplaySafety_) #23
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(24) %waitingForReplaySafety_) #23
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 2048
   %3 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %3, 1
@@ -2579,7 +2579,7 @@ while.end.i:                                      ; preds = %if.end.i
 while.body.i.i.i.i:                               ; preds = %while.end.i, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i ], [ %.pre.i, %while.end.i ]
   %6 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #24
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #24
   %cmp.not.i.i.i.i = icmp eq ptr %6, %__to_destroy.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE6removeERKS4_.exit, label %while.body.i.i.i.i, !llvm.loop !15
 
@@ -2812,7 +2812,7 @@ _ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE9push_
   %waitingForReplaySafety_.i = getelementptr inbounds i8, ptr %this, i64 448
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1.i, i64 16
   store ptr %callback, ptr %_M_storage.i.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1.i, ptr noundef nonnull %waitingForReplaySafety_.i) #23
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(24) %waitingForReplaySafety_.i) #23
   %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %3 = load i64, ptr %_M_size.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %3, 1
@@ -2886,7 +2886,7 @@ while.end.i.i:                                    ; preds = %if.end.i.i
 while.body.i.i.i.i.i:                             ; preds = %while.end.i.i, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i.i ], [ %.pre.i.i, %while.end.i.i ]
   %6 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #24
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #24
   %cmp.not.i.i.i.i.i = icmp eq ptr %6, %__to_destroy.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8proxygen11HTTPSession28removeWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE.exit, label %while.body.i.i.i.i.i, !llvm.loop !15
 
@@ -3253,7 +3253,7 @@ entry:
 
 invoke.cont.i.i:                                  ; preds = %entry
   %connectionToken_.i = getelementptr inbounds i8, ptr %this, i64 -160
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectionToken_.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %connectionToken_.i)
           to label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i.i unwind label %lpad.i.i
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i.i: ; preds = %invoke.cont.i.i
@@ -3269,7 +3269,7 @@ lpad.i.i:                                         ; preds = %invoke.cont.i.i
 
 if.then.i.i8.i.i:                                 ; preds = %lpad.i.i
   store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.result) #23
   br label %terminate.lpad.body.i
 
 terminate.lpad.body.i:                            ; preds = %if.then.i.i8.i.i, %lpad.i.i

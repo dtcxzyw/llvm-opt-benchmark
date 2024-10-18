@@ -1450,7 +1450,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.else.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 16, i1 false)
   %term.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %term3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %m_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
@@ -1473,7 +1473,7 @@ for.body.i.i.preheader.i.i.i:                     ; preds = %if.end.i.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.preheader.i.i.i
   %__cur.021.i.i.i.i.i = phi ptr [ %__cur.0.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.017.i.i.i.i.i, %for.body.i.i.preheader.i.i.i ]
   %__prev.020.i.i.i.i.i = phi ptr [ %incdec.ptr4.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i, %for.body.i.i.preheader.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.021.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__prev.020.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.021.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__prev.020.i.i.i.i.i, i64 16, i1 false)
   %term.i.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i.i, i64 56
   %term3.i.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i.i, i64 16
   %m_manager.i.i.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i.i, i64 64
@@ -1494,7 +1494,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 _ZNSt17_Temporary_bufferIPN3euf12dependent_eqES1_EC2ES2_l.exit.i.i: ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i.i
   %__prev.0.lcssa.i.i.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %__prev.0.lcssa.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %__prev.0.lcssa.i.i.i.i.i, i64 16, i1 false)
   %term3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.0.lcssa.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %term3.i.i.i.i.i.i, align 8
   store ptr %15, ptr %term3.i.i.i.i.i.i.i, align 8
@@ -2048,7 +2048,7 @@ if.then141:                                       ; preds = %invoke.cont139
   %91 = load ptr, ptr %eqs, align 8
   %idxprom.i119 = zext i32 %j.0188 to i64
   %arrayidx.i120 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %91, i64 %idxprom.i119
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i120, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.0191, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i120, ptr noundef nonnull align 8 dereferenceable(40) %__begin1.0191, i64 16, i1 false)
   %term.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 16
   %term3.i = getelementptr inbounds i8, ptr %__begin1.0191, i64 16
   %92 = load ptr, ptr %term.i, align 8
@@ -2958,7 +2958,7 @@ _ZN6vectorIN3euf12dependent_eqELb1EjE4backEv.exit: ; preds = %if.then172, %if.en
   %retval.0.i.i = phi i64 [ %138, %if.end.i.i ], [ 4294967295, %if.then172 ]
   %arrayidx.i1.i = getelementptr inbounds %"struct.euf::dependent_eq", ptr %135, i64 %retval.0.i.i
   %arrayidx.i259 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %135, i64 %idxprom.i254
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i259, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i1.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i259, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i1.i, i64 16, i1 false)
   %term.i = getelementptr inbounds i8, ptr %arrayidx.i259, i64 16
   %term3.i = getelementptr inbounds i8, ptr %arrayidx.i1.i, i64 16
   %139 = load ptr, ptr %term.i, align 8
@@ -5169,7 +5169,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -5603,7 +5603,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN3euf12dependent_
   %__last.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__i.024, %for.body.preheader.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -40
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i, i64 16, i1 false)
   %term.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -24
   %term3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -24
   %5 = load ptr, ptr %term.i.i.i.i.i.i, align 8
@@ -5690,7 +5690,7 @@ if.else:                                          ; preds = %for.body
 while.body.i:                                     ; preds = %if.else, %_ZN3euf12dependent_eqaSEOS0_.exit.i
   %__last.addr.037.i = phi ptr [ %__next.038.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i ], [ %__i.024, %if.else ]
   %__next.038.i = getelementptr inbounds i8, ptr %__last.addr.037.i, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.037.i, ptr noundef nonnull align 8 dereferenceable(16) %__next.038.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__last.addr.037.i, ptr noundef nonnull align 8 dereferenceable(40) %__next.038.i, i64 16, i1 false)
   %term.i8.i = getelementptr inbounds i8, ptr %__last.addr.037.i, i64 16
   %term3.i9.i = getelementptr inbounds i8, ptr %__last.addr.037.i, i64 -24
   %19 = load ptr, ptr %term.i8.i, align 8
@@ -5788,7 +5788,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then4:                                         ; preds = %if.then3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.tr83, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.tr83, i64 16, i1 false)
   %term3.i.i.i = getelementptr inbounds i8, ptr %__first.tr83, i64 16
   %m_manager2.i.i.i.i = getelementptr inbounds i8, ptr %__first.tr83, i64 24
   %2 = load ptr, ptr %m_manager2.i.i.i.i, align 8
@@ -5796,7 +5796,7 @@ if.then4:                                         ; preds = %if.then3
   store ptr null, ptr %term3.i.i.i, align 8
   %dep4.i.i.i = getelementptr inbounds i8, ptr %__first.tr83, i64 32
   %4 = load ptr, ptr %dep4.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.tr83, ptr noundef nonnull align 8 dereferenceable(16) %__middle.tr84, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__first.tr83, ptr noundef nonnull align 8 dereferenceable(40) %__middle.tr84, i64 16, i1 false)
   %term3.i4.i.i = getelementptr inbounds i8, ptr %__middle.tr84, i64 16
   %5 = load ptr, ptr %term3.i4.i.i, align 8
   store ptr %5, ptr %term3.i.i.i, align 8
@@ -5804,7 +5804,7 @@ if.then4:                                         ; preds = %if.then3
   %dep.i5.i.i = getelementptr inbounds i8, ptr %__middle.tr84, i64 32
   %6 = load ptr, ptr %dep.i5.i.i, align 8
   store ptr %6, ptr %dep4.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__middle.tr84, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__middle.tr84, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   %7 = load ptr, ptr %term3.i4.i.i, align 8
   store ptr %3, ptr %term3.i4.i.i, align 8
   %tobool.not.i.i.i.i9.i.i = icmp eq ptr %7, null
@@ -5971,7 +5971,7 @@ for.body.i:                                       ; preds = %if.end3, %_ZSt9iter
   %__first2.addr.08.i = phi ptr [ %incdec.ptr1.i, %_ZSt9iter_swapIPN3euf12dependent_eqES2_EvT_T0_.exit.i ], [ %__middle, %if.end3 ]
   %__first1.addr.07.i = phi ptr [ %incdec.ptr.i, %_ZSt9iter_swapIPN3euf12dependent_eqES2_EvT_T0_.exit.i ], [ %__first, %if.end3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first1.addr.07.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first1.addr.07.i, i64 16, i1 false)
   %term3.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.07.i, i64 16
   %m_manager2.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.07.i, i64 24
   %0 = load ptr, ptr %m_manager2.i.i.i.i.i, align 8
@@ -5979,7 +5979,7 @@ for.body.i:                                       ; preds = %if.end3, %_ZSt9iter
   store ptr null, ptr %term3.i.i.i.i, align 8
   %dep4.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.07.i, i64 32
   %2 = load ptr, ptr %dep4.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first1.addr.07.i, ptr noundef nonnull align 8 dereferenceable(16) %__first2.addr.08.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__first1.addr.07.i, ptr noundef nonnull align 8 dereferenceable(40) %__first2.addr.08.i, i64 16, i1 false)
   %term3.i4.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.08.i, i64 16
   %3 = load ptr, ptr %term3.i4.i.i.i, align 8
   store ptr %3, ptr %term3.i.i.i.i, align 8
@@ -5987,7 +5987,7 @@ for.body.i:                                       ; preds = %if.end3, %_ZSt9iter
   %dep.i5.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.08.i, i64 32
   %4 = load ptr, ptr %dep.i5.i.i.i, align 8
   store ptr %4, ptr %dep4.i.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first2.addr.08.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__first2.addr.08.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   %5 = load ptr, ptr %term3.i4.i.i.i, align 8
   store ptr %1, ptr %term3.i4.i.i.i, align 8
   %tobool.not.i.i.i.i9.i.i.i = icmp eq ptr %5, null
@@ -6046,7 +6046,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %__q.061 = phi ptr [ %incdec.ptr22, %_ZSt9iter_swapIPN3euf12dependent_eqES2_EvT_T0_.exit ], [ %add.ptr18, %for.body.preheader ]
   %__p.160 = phi ptr [ %incdec.ptr, %_ZSt9iter_swapIPN3euf12dependent_eqES2_EvT_T0_.exit ], [ %__p.0, %for.body.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__p.160, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__p.160, i64 16, i1 false)
   %term3.i.i.i = getelementptr inbounds i8, ptr %__p.160, i64 16
   %m_manager2.i.i.i.i = getelementptr inbounds i8, ptr %__p.160, i64 24
   %9 = load ptr, ptr %m_manager2.i.i.i.i, align 8
@@ -6054,7 +6054,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr null, ptr %term3.i.i.i, align 8
   %dep4.i.i.i = getelementptr inbounds i8, ptr %__p.160, i64 32
   %11 = load ptr, ptr %dep4.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__p.160, ptr noundef nonnull align 8 dereferenceable(16) %__q.061, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__p.160, ptr noundef nonnull align 8 dereferenceable(40) %__q.061, i64 16, i1 false)
   %term3.i4.i.i = getelementptr inbounds i8, ptr %__q.061, i64 16
   %12 = load ptr, ptr %term3.i4.i.i, align 8
   store ptr %12, ptr %term3.i.i.i, align 8
@@ -6062,7 +6062,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %dep.i5.i.i = getelementptr inbounds i8, ptr %__q.061, i64 32
   %13 = load ptr, ptr %dep.i5.i.i, align 8
   store ptr %13, ptr %dep4.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__q.061, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__q.061, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   %14 = load ptr, ptr %term3.i4.i.i, align 8
   store ptr %10, ptr %term3.i4.i.i, align 8
   %tobool.not.i.i.i.i9.i.i = icmp eq ptr %14, null
@@ -6120,7 +6120,7 @@ for.body36:                                       ; preds = %if.else27, %_ZSt9it
   %incdec.ptr37 = getelementptr inbounds i8, ptr %__p.356, i64 -40
   %incdec.ptr38 = getelementptr inbounds i8, ptr %__q29.057, i64 -40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i27, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr37, i64 16, i1 false)
   %term3.i.i.i28 = getelementptr inbounds i8, ptr %__p.356, i64 -24
   %m_manager2.i.i.i.i29 = getelementptr inbounds i8, ptr %__p.356, i64 -16
   %18 = load ptr, ptr %m_manager2.i.i.i.i29, align 8
@@ -6128,7 +6128,7 @@ for.body36:                                       ; preds = %if.else27, %_ZSt9it
   store ptr null, ptr %term3.i.i.i28, align 8
   %dep4.i.i.i30 = getelementptr inbounds i8, ptr %__p.356, i64 -8
   %20 = load ptr, ptr %dep4.i.i.i30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr37, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr38, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr37, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr38, i64 16, i1 false)
   %term3.i4.i.i31 = getelementptr inbounds i8, ptr %__q29.057, i64 -24
   %21 = load ptr, ptr %term3.i4.i.i31, align 8
   store ptr %21, ptr %term3.i.i.i28, align 8
@@ -6136,7 +6136,7 @@ for.body36:                                       ; preds = %if.else27, %_ZSt9it
   %dep.i5.i.i32 = getelementptr inbounds i8, ptr %__q29.057, i64 -8
   %22 = load ptr, ptr %dep.i5.i.i32, align 8
   store ptr %22, ptr %dep4.i.i.i30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr38, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr38, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i27, i64 16, i1 false)
   %23 = load ptr, ptr %term3.i4.i.i31, align 8
   store ptr %19, ptr %term3.i4.i.i31, align 8
   %tobool.not.i.i.i.i9.i.i33 = icmp eq ptr %23, null
@@ -6241,7 +6241,7 @@ while.body.i17:                                   ; preds = %while.body, %while.
   %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %call.i, %while.body.i17 ]
   %__first.addr.0.lcssa.i21 = phi ptr [ %__first, %while.body ], [ %add.ptr2.i, %while.body.i17 ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div, %while.body ], [ %sub.ptr.div.i, %while.body.i17 ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.046, i64 %sub.ptr.div.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 461168601842738789) %__step_size.046, i64 %sub.ptr.div.lcssa.i)
   %add.ptr9.i = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.0.lcssa.i21, i64 %.sroa.speculated.i
   %call12.i = tail call fastcc noundef ptr @"_ZSt12__move_mergeIPN3euf12dependent_eqES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET0_T_SD_SD_SD_SC_T1_"(ptr noundef %__first.addr.0.lcssa.i21, ptr noundef %add.ptr9.i, ptr noundef %add.ptr9.i, ptr noundef %__last, ptr noundef %__result.addr.0.lcssa.i)
   %mul.i22 = shl nsw i64 %__step_size.046, 2
@@ -6264,7 +6264,7 @@ while.body.i28:                                   ; preds = %"_ZSt17__merge_sort
   %__result.addr.0.lcssa.i38 = phi ptr [ %__first, %"_ZSt17__merge_sort_loopIPN3euf12dependent_eqES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEEvT_SC_T0_T1_T2_.exit" ], [ %call.i33, %while.body.i28 ]
   %__first.addr.0.lcssa.i39 = phi ptr [ %__buffer, %"_ZSt17__merge_sort_loopIPN3euf12dependent_eqES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEEvT_SC_T0_T1_T2_.exit" ], [ %add.ptr2.i32, %while.body.i28 ]
   %sub.ptr.div.lcssa.i40 = phi i64 [ %sub.ptr.div21.i26, %"_ZSt17__merge_sort_loopIPN3euf12dependent_eqES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEEvT_SC_T0_T1_T2_.exit" ], [ %sub.ptr.div.i36, %while.body.i28 ]
-  %.sroa.speculated.i41 = tail call i64 @llvm.smin.i64(i64 %mul.i, i64 %sub.ptr.div.lcssa.i40)
+  %.sroa.speculated.i41 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 461168601842738789) %mul.i, i64 %sub.ptr.div.lcssa.i40)
   %add.ptr9.i42 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.0.lcssa.i39, i64 %.sroa.speculated.i41
   %call12.i43 = tail call fastcc noundef ptr @"_ZSt12__move_mergeIPN3euf12dependent_eqES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET0_T_SD_SD_SD_SC_T1_"(ptr noundef %__first.addr.0.lcssa.i39, ptr noundef %add.ptr9.i42, ptr noundef %add.ptr9.i42, ptr noundef nonnull %add.ptr, ptr noundef %__result.addr.0.lcssa.i38)
   %cmp = icmp slt i64 %mul.i22, %sub.ptr.div
@@ -6303,7 +6303,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__buffer, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__first.tr.lcssa, %for.body.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i, i64 16, i1 false)
   %term.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i, i64 16
   %term3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %term.i.i.i.i.i.i, align 8
@@ -6365,7 +6365,7 @@ while.body.i:                                     ; preds = %_ZSt4moveIPN3euf12d
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.038.i, ptr noundef nonnull align 8 dereferenceable(16) %__first2.addr.036.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.038.i, ptr noundef nonnull align 8 dereferenceable(40) %__first2.addr.036.i, i64 16, i1 false)
   %term3.i.i = getelementptr inbounds i8, ptr %__first2.addr.036.i, i64 16
   %9 = load ptr, ptr %term.i.i, align 8
   %10 = load ptr, ptr %term3.i.i, align 8
@@ -6405,7 +6405,7 @@ _ZN3euf12dependent_eqaSEOS0_.exit.i:              ; preds = %if.then2.i.i.i.i.i.
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.038.i, ptr noundef nonnull align 8 dereferenceable(16) %__first1.addr.037.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.038.i, ptr noundef nonnull align 8 dereferenceable(40) %__first1.addr.037.i, i64 16, i1 false)
   %term3.i15.i = getelementptr inbounds i8, ptr %__first1.addr.037.i, i64 16
   %16 = load ptr, ptr %term.i.i, align 8
   %17 = load ptr, ptr %term3.i15.i, align 8
@@ -6473,7 +6473,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i.i ], [ %__result.addr.0.lcssa.i222, %for.body.preheader.i.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i.i ], [ %__first1.addr.0.lcssa.i221, %for.body.preheader.i.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i.i, i64 16, i1 false)
   %term.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i.i, i64 16
   %term3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i, i64 16
   %24 = load ptr, ptr %term.i.i.i.i.i.i.i, align 8
@@ -6539,7 +6539,7 @@ for.body.i.i.i.i.i58:                             ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i59 = phi i64 [ %dec.i.i.i.i.i75, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i70 ], [ %sub.ptr.div11.i.i.i.i.i57, %for.body.preheader.i.i.i.i.i56 ]
   %__result.addr.09.i.i.i.i.i60 = phi ptr [ %incdec.ptr1.i.i.i.i.i74, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i70 ], [ %__buffer, %for.body.preheader.i.i.i.i.i56 ]
   %__first.addr.08.i.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i.i73, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i70 ], [ %__middle.tr201, %for.body.preheader.i.i.i.i.i56 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i61, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i61, i64 16, i1 false)
   %term.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i60, i64 16
   %term3.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i61, i64 16
   %31 = load ptr, ptr %term.i.i.i.i.i.i62, align 8
@@ -6604,7 +6604,7 @@ for.body.i.i.i.i.i.i104:                          ; preds = %_ZN3euf12dependent_
   %__last.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i105, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i.i115 ], [ %__result.addr.0.lcssa.i.i.i.i.i55, %for.body.preheader.i.i.i.i.i.i103 ]
   %incdec.ptr.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i.i, i64 -40
   %incdec.ptr1.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i.i, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i.i106, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i.i105, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i.i106, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i.i105, i64 16, i1 false)
   %term.i.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i.i, i64 -24
   %term3.i.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i.i, i64 -24
   %38 = load ptr, ptr %term.i.i.i.i.i.i.i107, align 8
@@ -6675,7 +6675,7 @@ while.body.i85:                                   ; preds = %while.body.i85.oute
   br i1 %cmp.i.i.i86, label %if.then6.i, label %if.else15.i
 
 if.then6.i:                                       ; preds = %while.body.i85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr7.i, ptr noundef nonnull align 8 dereferenceable(16) %__last1.addr.0.i.ph, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr7.i, ptr noundef nonnull align 8 dereferenceable(40) %__last1.addr.0.i.ph, i64 16, i1 false)
   %term3.i.i88 = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -24
   %47 = load ptr, ptr %term.i.i87, align 8
   %48 = load ptr, ptr %term3.i.i88, align 8
@@ -6732,7 +6732,7 @@ for.body.i.i.i.i.i28.i:                           ; preds = %_ZN3euf12dependent_
   %__last.addr.06.i.i.i.i.i31.i = phi ptr [ %incdec.ptr.i.i.i.i.i32.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i42.i ], [ %incdec.ptr11.i, %for.body.preheader.i.i.i.i.i26.i ]
   %incdec.ptr.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i31.i, i64 -40
   %incdec.ptr1.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i30.i, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i33.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i32.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i33.i, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i32.i, i64 16, i1 false)
   %term.i.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i30.i, i64 -24
   %term3.i.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i31.i, i64 -24
   %54 = load ptr, ptr %term.i.i.i.i.i.i34.i, align 8
@@ -6774,7 +6774,7 @@ _ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i42.i:  ; preds = %if.then2.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i46.i, label %for.body.i.i.i.i.i28.i, label %if.end27, !llvm.loop !30
 
 if.else15.i:                                      ; preds = %while.body.i85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr7.i, ptr noundef nonnull align 8 dereferenceable(16) %__last2.addr.0.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr7.i, ptr noundef nonnull align 8 dereferenceable(40) %__last2.addr.0.i, i64 16, i1 false)
   %term3.i51.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 16
   %61 = load ptr, ptr %term.i.i87, align 8
   %62 = load ptr, ptr %term3.i51.i, align 8
@@ -6946,7 +6946,7 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.067, ptr noundef nonnull align 8 dereferenceable(16) %__first2.addr.065, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.067, ptr noundef nonnull align 8 dereferenceable(40) %__first2.addr.065, i64 16, i1 false)
   %term3.i = getelementptr inbounds i8, ptr %__first2.addr.065, i64 16
   %3 = load ptr, ptr %term.i, align 8
   %4 = load ptr, ptr %term3.i, align 8
@@ -6986,7 +6986,7 @@ _ZN3euf12dependent_eqaSEOS0_.exit:                ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.067, ptr noundef nonnull align 8 dereferenceable(16) %__first1.addr.066, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.067, ptr noundef nonnull align 8 dereferenceable(40) %__first1.addr.066, i64 16, i1 false)
   %term3.i15 = getelementptr inbounds i8, ptr %__first1.addr.066, i64 16
   %10 = load ptr, ptr %term.i, align 8
   %11 = load ptr, ptr %term3.i15, align 8
@@ -7052,7 +7052,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__result.addr.0.lcssa, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__first1.addr.0.lcssa, %for.body.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i, i64 16, i1 false)
   %term.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i, i64 16
   %term3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %term.i.i.i.i.i.i, align 8
@@ -7111,7 +7111,7 @@ for.body.i.i.i.i.i35:                             ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i36 = phi i64 [ %dec.i.i.i.i.i52, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i47 ], [ %sub.ptr.div11.i.i.i.i.i34, %for.body.preheader.i.i.i.i.i33 ]
   %__result.addr.09.i.i.i.i.i37 = phi ptr [ %incdec.ptr1.i.i.i.i.i51, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i47 ], [ %__result.addr.0.lcssa.i.i.i.i.i, %for.body.preheader.i.i.i.i.i33 ]
   %__first.addr.08.i.i.i.i.i38 = phi ptr [ %incdec.ptr.i.i.i.i.i50, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i47 ], [ %__first2.addr.0.lcssa, %for.body.preheader.i.i.i.i.i33 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i38, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i38, i64 16, i1 false)
   %term.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i37, i64 16
   %term3.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i38, i64 16
   %25 = load ptr, ptr %term.i.i.i.i.i.i39, align 8
@@ -7186,7 +7186,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__buffer, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i ], [ %__middle, %for.body.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i, i64 16, i1 false)
   %term.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i, i64 16
   %term3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %term.i.i.i.i.i.i, align 8
@@ -7246,7 +7246,7 @@ for.body.i.i.i.i.i29:                             ; preds = %_ZN3euf12dependent_
   %__last.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i30, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i40 ], [ %__middle, %for.body.preheader.i.i.i.i.i28 ]
   %incdec.ptr.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -40
   %incdec.ptr1.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i30, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i30, i64 16, i1 false)
   %term.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -24
   %term3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -24
   %7 = load ptr, ptr %term.i.i.i.i.i.i32, align 8
@@ -7302,7 +7302,7 @@ for.body.i.i.i.i.i54:                             ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i55 = phi i64 [ %dec.i.i.i.i.i71, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i66 ], [ %sub.ptr.div11.i.i.i.i.i53, %for.body.preheader.i.i.i.i.i52 ]
   %__result.addr.09.i.i.i.i.i56 = phi ptr [ %incdec.ptr1.i.i.i.i.i70, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i66 ], [ %__first, %for.body.preheader.i.i.i.i.i52 ]
   %__first.addr.08.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i69, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i66 ], [ %__buffer, %for.body.preheader.i.i.i.i.i52 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i57, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i57, i64 16, i1 false)
   %term.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i56, i64 16
   %term3.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i57, i64 16
   %14 = load ptr, ptr %term.i.i.i.i.i.i58, align 8
@@ -7368,7 +7368,7 @@ for.body.i.i.i.i.i83:                             ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i84 = phi i64 [ %dec.i.i.i.i.i100, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i95 ], [ %sub.ptr.div11.i.i.i.i.i82, %for.body.preheader.i.i.i.i.i81 ]
   %__result.addr.09.i.i.i.i.i85 = phi ptr [ %incdec.ptr1.i.i.i.i.i99, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i95 ], [ %__buffer, %for.body.preheader.i.i.i.i.i81 ]
   %__first.addr.08.i.i.i.i.i86 = phi ptr [ %incdec.ptr.i.i.i.i.i98, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i95 ], [ %__first, %for.body.preheader.i.i.i.i.i81 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i86, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i86, i64 16, i1 false)
   %term.i.i.i.i.i.i87 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i85, i64 16
   %term3.i.i.i.i.i.i88 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i86, i64 16
   %21 = load ptr, ptr %term.i.i.i.i.i.i87, align 8
@@ -7426,7 +7426,7 @@ for.body.i.i.i.i.i112:                            ; preds = %_ZN3euf12dependent_
   %__n.010.i.i.i.i.i113 = phi i64 [ %dec.i.i.i.i.i129, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i124 ], [ %sub.ptr.div11.i.i.i.i.i111, %for.body.preheader.i.i.i.i.i110 ]
   %__result.addr.09.i.i.i.i.i114 = phi ptr [ %incdec.ptr1.i.i.i.i.i128, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i124 ], [ %__first, %for.body.preheader.i.i.i.i.i110 ]
   %__first.addr.08.i.i.i.i.i115 = phi ptr [ %incdec.ptr.i.i.i.i.i127, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i124 ], [ %__middle, %for.body.preheader.i.i.i.i.i110 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.09.i.i.i.i.i114, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i115, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.09.i.i.i.i.i114, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i.i115, i64 16, i1 false)
   %term.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i114, i64 16
   %term3.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i115, i64 16
   %28 = load ptr, ptr %term.i.i.i.i.i.i116, align 8
@@ -7486,7 +7486,7 @@ for.body.i.i.i.i.i141:                            ; preds = %_ZN3euf12dependent_
   %__last.addr.06.i.i.i.i.i144 = phi ptr [ %incdec.ptr.i.i.i.i.i145, %_ZN3euf12dependent_eqaSEOS0_.exit.i.i.i.i.i155 ], [ %__result.addr.0.lcssa.i.i.i.i.i80, %for.body.preheader.i.i.i.i.i139 ]
   %incdec.ptr.i.i.i.i.i145 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i144, i64 -40
   %incdec.ptr1.i.i.i.i.i146 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i143, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i146, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i145, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i146, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i145, i64 16, i1 false)
   %term.i.i.i.i.i.i147 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i143, i64 -24
   %term3.i.i.i.i.i.i148 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i144, i64 -24
   %35 = load ptr, ptr %term.i.i.i.i.i.i147, align 8

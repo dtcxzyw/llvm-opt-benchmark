@@ -165,7 +165,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %exitcond.not.i, label %66, label %14
 
 66:                                               ; preds = %64
-  %67 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 32)
+  %67 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 32)
   br label %68
 
 68:                                               ; preds = %68, %66
@@ -184,7 +184,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 76:                                               ; preds = %68
   %77 = getelementptr inbounds i8, ptr %3, i64 8
   %78 = load i32, ptr %77, align 8
-  %79 = tail call fastcc i32 @computeStep(i64 noundef %0, ptr noundef nonnull %67, i32 noundef %78)
+  %79 = tail call fastcc i32 @computeStep(i64 noundef range(i64 1, 0) %0, ptr noundef nonnull %67, i32 noundef %78)
   %80 = load i8, ptr @Verbose, align 1
   %.not.i = icmp eq i8 %80, 0
   br i1 %.not.i, label %84, label %81
@@ -218,7 +218,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 96:                                               ; preds = %88, %87
   %.sroa.5.0.i = phi i64 [ %94, %88 ], [ 0, %87 ]
   %.sroa.0.0.i = phi i64 [ %95, %88 ], [ 0, %87 ]
-  %97 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 32)
+  %97 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 32)
   %.sroa.0388.0.extract.trunc.i.i = trunc nuw i64 %.sroa.0.0.i to i32
   %.sroa.2389.0.extract.shift.i.i = lshr exact i64 %.sroa.5.0.i, 32
   %.sroa.2389.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2389.0.extract.shift.i.i to i32
@@ -641,7 +641,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 317:                                              ; preds = %317, %.lr.ph539.i.i
   %.0395537.i.i = phi ptr [ %316, %.lr.ph539.i.i ], [ %318, %317 ]
-  tail call fastcc void @fillEdge(ptr noundef %.0395537.i.i, i64 %.sroa.0186.0.insert.insert205.i.i, ptr noundef %117, i32 noundef %124, i32 noundef %129, i32 noundef %79, i1 noundef zeroext %116)
+  tail call fastcc void @fillEdge(ptr noundef %.0395537.i.i, i64 %.sroa.0186.0.insert.insert205.i.i, ptr noundef %117, i32 noundef %124, i32 noundef %129, i32 noundef range(i32 1, -2147483648) %79, i1 noundef zeroext %116)
   %318 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.0395537.i.i) #18
   %.not464.i.i = icmp eq ptr %318, null
   br i1 %.not464.i.i, label %.loopexit485.i.i, label %317
@@ -708,7 +708,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %353, label %355, label %354
 
 354:                                              ; preds = %339
-  tail call fastcc void @fillEdge(ptr noundef %.1396526.i.i, i64 %.sroa.0186.0.insert.insert209.i.i, ptr noundef %117, i32 noundef %124, i32 noundef %129, i32 noundef %79, i1 noundef zeroext %116)
+  tail call fastcc void @fillEdge(ptr noundef %.1396526.i.i, i64 %.sroa.0186.0.insert.insert209.i.i, ptr noundef %117, i32 noundef %124, i32 noundef %129, i32 noundef range(i32 1, -2147483648) %79, i1 noundef zeroext %116)
   br label %355
 
 355:                                              ; preds = %354, %339
@@ -920,7 +920,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 451:                                              ; preds = %451, %.lr.ph.i.i
   %.2397498.i.i = phi ptr [ %450, %.lr.ph.i.i ], [ %452, %451 ]
-  tail call fastcc void @fillEdge(ptr noundef %.2397498.i.i, i64 %.sroa.0186.0.insert.insert221.i.i, ptr noundef %117, i32 noundef %124, i32 noundef %129, i32 noundef %79, i1 noundef zeroext %116)
+  tail call fastcc void @fillEdge(ptr noundef %.2397498.i.i, i64 %.sroa.0186.0.insert.insert221.i.i, ptr noundef %117, i32 noundef %124, i32 noundef %129, i32 noundef range(i32 1, -2147483648) %79, i1 noundef zeroext %116)
   %452 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.2397498.i.i) #18
   %.not454.i.i = icmp eq ptr %452, null
   br i1 %.not454.i.i, label %._crit_edge500.i.i, label %451
@@ -997,7 +997,7 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
   br i1 %exitcond235.not.i, label %496, label %100
 
 496:                                              ; preds = %494
-  %497 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 8)
+  %497 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 8)
   br label %498
 
 498:                                              ; preds = %498, %496
@@ -1010,9 +1010,9 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
   br i1 %exitcond236.not.i, label %502, label %498
 
 502:                                              ; preds = %498
-  tail call void @qsort(ptr noundef nonnull %497, i64 noundef %0, i64 noundef 8, ptr noundef nonnull @cmpf) #18
+  tail call void @qsort(ptr noundef nonnull %497, i64 noundef range(i64 1, 0) %0, i64 noundef 8, ptr noundef nonnull @cmpf) #18
   %503 = tail call ptr @newPS() #18
-  %504 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 8)
+  %504 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 8)
   br i1 %.not203.i, label %.preheader212.i, label %.preheader216.i
 
 .preheader216.i:                                  ; preds = %502
@@ -1398,7 +1398,7 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 
   br i1 %74, label %75, label %gv_sort.exit
 
 75:                                               ; preds = %71
-  tail call void @qsort(ptr noundef nonnull %63, i64 noundef %0, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #18
+  tail call void @qsort(ptr noundef nonnull %63, i64 noundef range(i64 1, 0) %0, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #18
   br label %gv_sort.exit
 
 gv_sort.exit:                                     ; preds = %71, %75
@@ -1640,7 +1640,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call fastcc i32 @computeStep(i64 noundef %0, ptr noundef readonly %1, i32 noundef %10)
+  %11 = tail call fastcc i32 @computeStep(i64 noundef range(i64 1, 0) %0, ptr noundef readonly %1, i32 noundef %10)
   %12 = load i8, ptr @Verbose, align 1
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %16, label %13
@@ -1655,7 +1655,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   br i1 %17, label %polyRects.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 32)
+  %19 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 32)
   br label %20
 
 20:                                               ; preds = %20, %18
@@ -1671,7 +1671,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   br i1 %exitcond.not.i, label %26, label %20
 
 26:                                               ; preds = %20
-  %27 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 8)
+  %27 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 8)
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -1684,9 +1684,9 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   br i1 %exitcond71.not.i, label %32, label %28
 
 32:                                               ; preds = %28
-  tail call void @qsort(ptr noundef nonnull %27, i64 noundef %0, i64 noundef 8, ptr noundef nonnull @cmpf) #18
+  tail call void @qsort(ptr noundef nonnull %27, i64 noundef range(i64 1, 0) %0, i64 noundef 8, ptr noundef nonnull @cmpf) #18
   %33 = tail call ptr @newPS() #18
-  %34 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 8)
+  %34 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %0, i64 noundef 8)
   br label %35
 
 35:                                               ; preds = %35, %32
@@ -2475,7 +2475,7 @@ define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocap
   br i1 %.not, label %54, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @.str.2, i64 noundef 5) #22
+  %11 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #22
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %31
 
@@ -2539,7 +2539,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 31:                                               ; preds = %10
-  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(7) @.str.3, i64 noundef 6) #22
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %42
 
@@ -2562,7 +2562,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 42:                                               ; preds = %31
-  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(8) @.str.5) #22
+  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.5) #22
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46
 
@@ -2571,7 +2571,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @.str.6) #22
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.6) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -2580,7 +2580,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.7) #22
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #22
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
 

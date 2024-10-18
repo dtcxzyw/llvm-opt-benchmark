@@ -339,7 +339,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %20, %10
   %22 = load ptr, ptr %.0.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 304
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %0, ptr noundef %2) #11
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2) #11
   br label %_ZNK7oopDesc8print_onEP12outputStream.exit
 
 _ZNK7oopDesc8print_onEP12outputStream.exit:       ; preds = %5, %_ZNK7oopDesc5klassEv.exit.i
@@ -393,7 +393,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %20, %10
   %22 = load ptr, ptr %.0.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 304
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %0, ptr noundef nonnull %2) #11
+  call void %24(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %2) #11
   br label %_ZNK7oopDesc8print_onEP12outputStream.exit
 
 _ZNK7oopDesc8print_onEP12outputStream.exit:       ; preds = %5, %_ZNK7oopDesc5klassEv.exit.i
@@ -438,7 +438,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread.i: ; preds = %1
   br i1 %19, label %20, label %_ZNK7oopDesc5klassEv.exit.i
 
 20:                                               ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread.i, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
-  tail call void @_ZN16java_lang_String5printEP7oopDescP12outputStream(ptr noundef nonnull %0, ptr noundef %2) #11
+  tail call void @_ZN16java_lang_String5printEP7oopDescP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2) #11
   %21 = ptrtoint ptr %0 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.4, i64 noundef %21) #11
   br label %_ZNK7oopDesc14print_value_onEP12outputStream.exit
@@ -448,7 +448,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %_ZN16java_lang_Stri
   %22 = load ptr, ptr %.0.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 296
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %0, ptr noundef %2) #11
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2) #11
   br label %_ZNK7oopDesc14print_value_onEP12outputStream.exit
 
 _ZNK7oopDesc14print_value_onEP12outputStream.exit: ; preds = %20, %_ZNK7oopDesc5klassEv.exit.i
@@ -531,7 +531,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread.i: ; preds = %1
   br i1 %20, label %21, label %_ZNK7oopDesc5klassEv.exit.i
 
 21:                                               ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread.i, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
-  call void @_ZN16java_lang_String5printEP7oopDescP12outputStream(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
+  call void @_ZN16java_lang_String5printEP7oopDescP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3) #11
   %22 = ptrtoint ptr %0 to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4, i64 noundef %22) #11
   br label %_ZNK7oopDesc14print_value_onEP12outputStream.exit
@@ -541,7 +541,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %_ZN16java_lang_Stri
   %23 = load ptr, ptr %.0.i.i, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 296
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %0, ptr noundef nonnull %3) #11
+  call void %25(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3) #11
   br label %_ZNK7oopDesc14print_value_onEP12outputStream.exit
 
 _ZNK7oopDesc14print_value_onEP12outputStream.exit: ; preds = %21, %_ZNK7oopDesc5klassEv.exit.i

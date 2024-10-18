@@ -173,7 +173,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay16FindClosestPointERKNS
   %6 = alloca double, align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %10 = load double, ptr %9, align 8
@@ -241,7 +241,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %14 = load double, ptr %13, align 8
@@ -334,7 +334,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %14 = load double, ptr %13, align 8

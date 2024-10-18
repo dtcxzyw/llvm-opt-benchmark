@@ -416,7 +416,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %16
   br i1 %.not22.i, label %str_end_with_word.exit.thread.thread, label %28
 
 28:                                               ; preds = %17
-  %29 = tail call i32 @strncasecmp(ptr noundef readonly %21, ptr noundef nonnull readonly @.str, i64 noundef 4) #12
+  %29 = tail call i32 @strncasecmp(ptr noundef readonly %21, ptr noundef nonnull @.str, i64 noundef 4) #12
   %.not23.i = icmp eq i32 %29, 0
   br i1 %.not23.i, label %.preheader.i, label %str_end_with_word.exit.thread.thread
 
@@ -467,7 +467,7 @@ str_end_with_word.exit:                           ; preds = %32, %33
   br i1 %.not22.i146, label %str_end_with_word.exit157.thread.thread, label %54
 
 54:                                               ; preds = %45
-  %55 = tail call i32 @strncasecmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.1, i64 noundef 8) #12
+  %55 = tail call i32 @strncasecmp(ptr noundef readonly %47, ptr noundef nonnull @.str.1, i64 noundef 8) #12
   %.not23.i147 = icmp eq i32 %55, 0
   br i1 %.not23.i147, label %.preheader.i148, label %str_end_with_word.exit157.thread.thread
 
@@ -517,7 +517,7 @@ str_end_with_word.exit157.thread.thread:          ; preds = %str_end_with_word.e
   br i1 %.not22.i161, label %str_end_with_word.exit172.thread, label %79
 
 79:                                               ; preds = %str_end_with_word.exit157.thread.thread
-  %80 = tail call i32 @strncasecmp(ptr noundef readonly %72, ptr noundef nonnull readonly @.str.2, i64 noundef 8) #12
+  %80 = tail call i32 @strncasecmp(ptr noundef readonly %72, ptr noundef nonnull @.str.2, i64 noundef 8) #12
   %.not23.i162 = icmp eq i32 %80, 0
   br i1 %.not23.i162, label %.preheader.i163, label %str_end_with_word.exit172.thread
 
@@ -573,7 +573,7 @@ str_end_with_word.exit.thread.thread:             ; preds = %17, %28, %str_end_w
   br i1 %.not22.i176, label %.lr.ph.i, label %106
 
 106:                                              ; preds = %str_end_with_word.exit.thread.thread
-  %107 = tail call i32 @strncasecmp(ptr noundef readonly %99, ptr noundef nonnull readonly @.str.3, i64 noundef 3) #12
+  %107 = tail call i32 @strncasecmp(ptr noundef readonly %99, ptr noundef nonnull @.str.3, i64 noundef 3) #12
   %.not23.i177 = icmp eq i32 %107, 0
   br i1 %.not23.i177, label %.preheader.i178, label %.lr.ph.i
 
@@ -7337,7 +7337,7 @@ digit_span.exit272.thread:                        ; preds = %digit_span.exit272,
 155:                                              ; preds = %digit_span.exit272.thread
   %156 = add i64 %150, 8
   %157 = lshr i64 %156, 3
-  %158 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %6, i64 noundef %151, i64 noundef %157) #15
+  %158 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %6, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %151, i64 noundef %157) #15
   br label %159
 
 159:                                              ; preds = %155, %153
@@ -7466,7 +7466,7 @@ digit_span.exit300:                               ; preds = %194, %201
 207:                                              ; preds = %digit_span.exit300
   %208 = add i64 %.0.lcssa.i295, 8
   %209 = lshr i64 %208, 3
-  %210 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %6, i64 noundef %203, i64 noundef %209) #15
+  %210 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %6, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %203, i64 noundef %209) #15
   br label %211
 
 211:                                              ; preds = %207, %205
@@ -7572,7 +7572,7 @@ digit_span.exit322:                               ; preds = %241, %248
 254:                                              ; preds = %digit_span.exit322
   %255 = add i64 %.0.lcssa.i317, 8
   %256 = lshr i64 %255, 3
-  %257 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %6, i64 noundef %250, i64 noundef %256) #15
+  %257 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %6, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %250, i64 noundef %256) #15
   br label %258
 
 258:                                              ; preds = %254, %252

@@ -271,7 +271,7 @@ define void @_ZN7xgboost6common12ColumnMatrix11InitStorageERKNS_16GHistIndexMatr
   store i8 0, ptr %5, align 1
   call void @_ZN7xgboost6common22MakeFixedVecWithMallocINS0_10ColumnTypeEEENS0_15RefResourceViewIT_EEmRKS4_(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::RefResourceView.9") align 8 %4, i64 noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %31 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   %33 = getelementptr inbounds i8, ptr %4, i64 16
   %34 = load ptr, ptr %33, align 8
@@ -672,7 +672,7 @@ _ZNK7xgboost16GHistIndexMatrix16GetFeatureCountsEPm.exit: ; preds = %.loopexit.i
 
 195:                                              ; preds = %._crit_edge136
   %196 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false)
   %197 = getelementptr inbounds i8, ptr %0, i64 112
   %198 = getelementptr inbounds i8, ptr %10, i64 16
   %199 = load ptr, ptr %198, align 8
@@ -907,7 +907,7 @@ _ZN7xgboost6common15RefResourceViewImED2Ev.exit:  ; preds = %_ZN7xgboost6common1
           to label %309 unwind label %.loopexit.split-lp
 
 309:                                              ; preds = %300
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 16, i1 false)
   %310 = getelementptr inbounds i8, ptr %0, i64 16
   %311 = getelementptr inbounds i8, ptr %12, i64 16
   %312 = load ptr, ptr %311, align 8
@@ -1075,7 +1075,7 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit:  ; preds = %_ZN7xgboost6common1
 
 390:                                              ; preds = %386
   %391 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %391, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %391, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 16, i1 false)
   %392 = getelementptr inbounds i8, ptr %0, i64 80
   %393 = getelementptr inbounds i8, ptr %14, i64 16
   %394 = load ptr, ptr %393, align 8
@@ -1249,10 +1249,10 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %_ZN7xgboost6common1
 
 476:                                              ; preds = %_ZNK7xgboost6common13HistogramCuts4PtrsEv.exit
   %477 = getelementptr inbounds i8, ptr %0, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %477, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %477, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 16, i1 false)
   %478 = getelementptr inbounds i8, ptr %0, i64 184
   %479 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %478, ptr noundef nonnull align 8 dereferenceable(16) %479, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %478, ptr noundef nonnull align 8 dereferenceable(32) %479, i64 16, i1 false)
   %480 = getelementptr inbounds i8, ptr %0, i64 200
   %481 = getelementptr inbounds i8, ptr %16, i64 32
   %482 = load ptr, ptr %481, align 8
@@ -1455,7 +1455,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocINS0_10Colum
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i unwind label %14, !noalias !11
 
 14:                                               ; preds = %12
@@ -1812,7 +1812,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocImEENS0_15Re
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i unwind label %15, !noalias !14
 
 15:                                               ; preds = %13
@@ -2050,7 +2050,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocIhEENS0_15Re
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i unwind label %14, !noalias !17
 
 14:                                               ; preds = %12
@@ -2281,7 +2281,7 @@ define linkonce_odr void @_ZN7xgboost6common12ColumnMatrix16MissingIndicatorC2Em
           to label %12 unwind label %97
 
 12:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -2639,7 +2639,7 @@ _ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit: ; preds = %35, %44, 
           to label %49 unwind label %161
 
 49:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   %50 = getelementptr inbounds i8, ptr %1, i64 16
   %51 = getelementptr inbounds i8, ptr %4, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -2964,7 +2964,7 @@ _ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit: ; preds = %35, %44, 
           to label %49 unwind label %161
 
 49:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   %50 = getelementptr inbounds i8, ptr %1, i64 16
   %51 = getelementptr inbounds i8, ptr %4, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -3290,7 +3290,7 @@ _ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit: ; preds = %36, %45, 
           to label %50 unwind label %162
 
 50:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   %51 = getelementptr inbounds i8, ptr %1, i64 16
   %52 = getelementptr inbounds i8, ptr %4, i64 16
   %53 = load ptr, ptr %52, align 8
@@ -3616,7 +3616,7 @@ _ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit: ; preds = %36, %45, 
           to label %50 unwind label %162
 
 50:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   %51 = getelementptr inbounds i8, ptr %1, i64 16
   %52 = getelementptr inbounds i8, ptr %4, i64 16
   %53 = load ptr, ptr %52, align 8
@@ -3911,7 +3911,7 @@ define noundef i64 @_ZNK7xgboost6common12ColumnMatrix5WriteEPNS0_22AlignedFileWr
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %7, align 8
-  %10 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i64 noundef 8)
+  %10 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 8)
   %11 = load i64, ptr %7, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZN7xgboost6common8WriteVecINS0_15RefResourceViewIhEEEEmPNS0_22AlignedFileWriteStreamERKT_.exit, label %13
@@ -3930,7 +3930,7 @@ _ZN7xgboost6common8WriteVecINS0_15RefResourceViewIhEEEEmPNS0_22AlignedFileWriteS
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %6, align 8
-  %20 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i64 noundef 8)
+  %20 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 8)
   %21 = load i64, ptr %6, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZN7xgboost6common8WriteVecINS0_15RefResourceViewINS0_10ColumnTypeEEEEEmPNS0_22AlignedFileWriteStreamERKT_.exit, label %23
@@ -3950,7 +3950,7 @@ _ZN7xgboost6common8WriteVecINS0_15RefResourceViewINS0_10ColumnTypeEEEEEmPNS0_22A
   %29 = getelementptr inbounds i8, ptr %0, i64 72
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %5, align 8
-  %31 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i64 noundef 8)
+  %31 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 8)
   %32 = load i64, ptr %5, align 8
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZN7xgboost6common8WriteVecINS0_15RefResourceViewImEEEEmPNS0_22AlignedFileWriteStreamERKT_.exit, label %34
@@ -3971,7 +3971,7 @@ _ZN7xgboost6common8WriteVecINS0_15RefResourceViewImEEEEmPNS0_22AlignedFileWriteS
   %41 = getelementptr inbounds i8, ptr %0, i64 104
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %4, align 8
-  %43 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 8)
+  %43 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 8)
   %44 = load i64, ptr %4, align 8
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %_ZN7xgboost6common8WriteVecINS0_15RefResourceViewImEEEEmPNS0_22AlignedFileWriteStreamERKT_.exit18, label %46
@@ -3992,7 +3992,7 @@ _ZN7xgboost6common8WriteVecINS0_15RefResourceViewImEEEEmPNS0_22AlignedFileWriteS
   %53 = getelementptr inbounds i8, ptr %0, i64 192
   %54 = load i64, ptr %53, align 8
   store i64 %54, ptr %3, align 8
-  %55 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 8)
+  %55 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8)
   %56 = load i64, ptr %3, align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %_ZN7xgboost6common8WriteVecINS0_15RefResourceViewIjEEEEmPNS0_22AlignedFileWriteStreamERKT_.exit, label %58
@@ -4014,10 +4014,10 @@ _ZN7xgboost6common8WriteVecINS0_15RefResourceViewIjEEEEmPNS0_22AlignedFileWriteS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %68 = add i64 %67, %.0.i19
   %69 = getelementptr inbounds i8, ptr %0, i64 216
-  %70 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %69, i64 noundef 1)
+  %70 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %69, i64 noundef 1)
   %71 = add i64 %68, %70
   %72 = getelementptr inbounds i8, ptr %0, i64 217
-  %73 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %72, i64 noundef 1)
+  %73 = call noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %72, i64 noundef 1)
   %74 = add i64 %71, %73
   ret i64 %74
 }
@@ -4118,7 +4118,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc6 unwind label %32
 
 .noexc6:                                          ; preds = %.noexc
@@ -4128,7 +4128,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
 10:                                               ; preds = %.noexc6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
@@ -4154,7 +4154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %22 = getelementptr inbounds i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 9, ptr noundef nonnull @.str.9, i32 noundef %21, i32 noundef %23, i32 noundef %24) #8
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.9, i32 noundef %21, i32 noundef %23, i32 noundef %24) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %6)
@@ -4538,7 +4538,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc32 unwind label %53
 
 .noexc32:                                         ; preds = %.noexc
@@ -4555,7 +4555,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
 19:                                               ; preds = %21, %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   br label %.body
 
 21:                                               ; preds = %.noexc32
@@ -4613,13 +4613,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc33 unwind label %63
 
 .noexc33:                                         ; preds = %40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc34 unwind label %63
 
 42:                                               ; preds = %.noexc34
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   br label %.body35
 
 .noexc34:                                         ; preds = %.noexc33
@@ -4755,13 +4755,13 @@ _ZNSt10unique_ptrIcPFvPvEED2Ev.exit41:            ; preds = %73, %.critedge
           to label %.noexc42 unwind label %80
 
 .noexc42:                                         ; preds = %74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc43 unwind label %80
 
 76:                                               ; preds = %.noexc43
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body44
 
 .noexc43:                                         ; preds = %.noexc42
@@ -4874,7 +4874,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocIjEENS0_15Re
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i unwind label %15, !noalias !33
 
 15:                                               ; preds = %13
@@ -5623,7 +5623,7 @@ define linkonce_odr void @_ZN7xgboost6common14MallocResourceD0Ev(ptr noundef non
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZN7xgboost6common14MallocResourceD2Ev.exit unwind label %4
 
 4:                                                ; preds = %1

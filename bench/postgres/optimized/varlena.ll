@@ -1578,7 +1578,7 @@ define internal fastcc ptr @text_substring(i64 noundef %0, i32 noundef %1, i32 n
 
 46:                                               ; preds = %42
   %47 = sub nsw i32 %41, %6
-  %48 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %41, i32 %5)
+  %48 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %41, i32 range(i32 2, -2147483648) %5)
   %49 = extractvalue { i32, i1 } %48, 1
   %50 = extractvalue { i32, i1 } %48, 0
   %spec.select = select i1 %49, i32 -1, i32 %50
@@ -9635,7 +9635,7 @@ define internal fastcc noundef ptr @array_to_text_internal(ptr nocapture noundef
 96:                                               ; preds = %84
   %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
   call void @llvm.assume(i1 %97)
-  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %45) #19
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef range(i32 -32768, 32768) %45) #19
   call void @errfinish(ptr noundef nonnull @.str.42, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #19
   unreachable
 
@@ -11925,11 +11925,11 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
   ]
 
 274:                                              ; preds = %273
-  call fastcc void @text_format_append_string(ptr noundef %4, ptr noundef nonnull @.str.12, i32 noundef %.1140, i32 noundef %.0137)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i32 noundef %.1140, i32 noundef %.0137)
   br label %text_format_string_conversion.exit
 
 275:                                              ; preds = %273
-  call fastcc void @text_format_append_string(ptr noundef %4, ptr noundef nonnull @.str.51, i32 noundef %.1140, i32 noundef %.0137)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.51, i32 noundef %.1140, i32 noundef %.0137)
   br label %text_format_string_conversion.exit
 
 276:                                              ; preds = %273
@@ -11949,17 +11949,17 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
 
 282:                                              ; preds = %280
   %283 = call ptr @quote_identifier(ptr noundef %281) #19
-  call fastcc void @text_format_append_string(ptr noundef %4, ptr noundef %283, i32 noundef %.1140, i32 noundef %.0137)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %283, i32 noundef %.1140, i32 noundef %.0137)
   br label %287
 
 284:                                              ; preds = %280
   %285 = call ptr @quote_literal_cstr(ptr noundef %281) #19
-  call fastcc void @text_format_append_string(ptr noundef %4, ptr noundef %285, i32 noundef %.1140, i32 noundef %.0137)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %285, i32 noundef %.1140, i32 noundef %.0137)
   call void @pfree(ptr noundef %285) #19
   br label %287
 
 286:                                              ; preds = %280
-  call fastcc void @text_format_append_string(ptr noundef %4, ptr noundef %281, i32 noundef %.1140, i32 noundef %.0137)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %281, i32 noundef %.1140, i32 noundef %.0137)
   br label %287
 
 287:                                              ; preds = %286, %284, %282

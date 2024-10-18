@@ -850,7 +850,7 @@ st_add.exit32.i:                                  ; preds = %st_add.exit27.i
   br i1 %mul.ov.i.i, label %if.then.i33.i, label %st_mult.exit.i
 
 if.then.i33.i:                                    ; preds = %st_add.exit32.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, i64 noundef 72, i64 noundef %conv4.i) #11
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, i64 noundef 72, i64 noundef range(i64 -2147483648, 2147483648) %conv4.i) #11
   unreachable
 
 st_mult.exit.i:                                   ; preds = %st_add.exit32.i

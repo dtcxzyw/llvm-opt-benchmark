@@ -99,7 +99,7 @@ define hidden noundef double @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
   %.017.i.i = phi double [ %1, %4 ], [ %14, %10 ]
   %.016.i.i = phi i64 [ 0, %4 ], [ %15, %10 ]
   %11 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %.sroa.0.0.copyload, i64 %.016.i.i
-  %12 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %11), !noalias !59
+  %12 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %11), !noalias !59
   %13 = tail call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %12, double noundef %9), !noalias !59
   %14 = fadd double %.017.i.i, %13
   %15 = add nuw i64 %.016.i.i, 1
@@ -131,7 +131,7 @@ define hidden noundef double @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
   %.017.i = phi double [ %2, %8 ], [ %.0.i.i.i.i, %13 ]
   %.016.i = phi i64 [ 0, %8 ], [ %17, %13 ]
   %14 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %0, i64 %.016.i
-  %15 = call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14)
+  %15 = call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !60
   store double %.017.i, ptr %5, align 8, !noalias !60
@@ -238,7 +238,7 @@ define hidden noundef double @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
   %.017.i = phi double [ %1, %9 ], [ %19, %15 ]
   %.016.i = phi i64 [ 0, %9 ], [ %20, %15 ]
   %16 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %3, i64 %.016.i
-  %17 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16), !noalias !109
+  %17 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %16), !noalias !109
   %18 = tail call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %17, double noundef %14), !noalias !109
   %19 = fadd double %.017.i, %18
   %20 = add nuw i64 %.016.i, 1
@@ -374,13 +374,13 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h45eace807bf202b5E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #1 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f185c010ac701301f7e491ef2df4edbb.27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f185c010ac701301f7e491ef2df4edbb.27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17he7510854efefae20E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #1 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f185c010ac701301f7e491ef2df4edbb.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f185c010ac701301f7e491ef2df4edbb.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 
@@ -483,7 +483,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd73ecb458517f1a5E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
-  %49 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h41dd91a89b6577a0E.llvm.9766596450509262298"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %44, i64 noundef %42), !noalias !183
+  %49 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h41dd91a89b6577a0E.llvm.9766596450509262298"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %44, i64 noundef %42), !noalias !183
   %50 = extractvalue { i64, i64 } %49, 0
   %51 = extractvalue { i64, i64 } %49, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.9766596450509262298(i64 noundef %50, i64 %51), !noalias !183
@@ -511,7 +511,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5470cbc0af94078fE.exit.i"
 
 63:                                               ; preds = %.critedge.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha030359a23a92ce1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %60)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha030359a23a92ce1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %60)
   %.pre.i.i = load i64, ptr %59, align 8, !alias.scope !188
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5470cbc0af94078fE.exit.i"
 
@@ -540,7 +540,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd73ecb458517f1a5E.exit"
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h41dd91a89b6577a0E.llvm.9766596450509262298"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %2), !noalias !196
+  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h41dd91a89b6577a0E.llvm.9766596450509262298"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2), !noalias !196
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.9766596450509262298(i64 noundef %11, i64 %12), !noalias !196
@@ -686,7 +686,7 @@ _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
   store ptr inttoptr (i64 16 to ptr), ptr %3, align 8, !noalias !210
   %65 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %65, align 8, !noalias !210
-  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %64)
+  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef range(i64 1, 129) %64)
           to label %82 unwind label %66, !noalias !210
 
 66:                                               ; preds = %63
@@ -716,7 +716,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   %73 = load ptr, ptr %4, align 8, !noalias !210, !nonnull !4, !noundef !4
   %74 = load i64, ptr %85, align 8, !noalias !210, !noundef !4
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 %0, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %87, i1 false)
   %76 = load i64, ptr %85, align 8, !noalias !210, !noundef !4
   %77 = add i64 %76, %87
   store i64 %77, ptr %85, align 8, !noalias !210
@@ -817,7 +817,7 @@ define hidden noundef double @"_ZN78_$LT$typst..util..scalar..Scalar$u20$as$u20$
   %.017.i.i.i = phi double [ 0.000000e+00, %3 ], [ %13, %9 ]
   %.016.i.i.i = phi i64 [ 0, %3 ], [ %14, %9 ]
   %10 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %.sroa.0.sroa.0.0.copyload, i64 %.016.i.i.i
-  %11 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10), !noalias !239
+  %11 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %10), !noalias !239
   %12 = tail call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %11, double noundef %8), !noalias !239
   %13 = fadd double %.017.i.i.i, %12
   %14 = add nuw i64 %.016.i.i.i, 1
@@ -1063,7 +1063,7 @@ define hidden noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
   %.017 = phi double [ %2, %8 ], [ %.0.i.i.i, %13 ]
   %.016 = phi i64 [ 0, %8 ], [ %17, %13 ]
   %14 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %0, i64 %.016
-  %15 = call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14)
+  %15 = call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !310
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !310
   store double %.017, ptr %5, align 8, !noalias !310
@@ -1101,7 +1101,7 @@ define hidden noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
   %.017 = phi double [ %2, %7 ], [ %17, %13 ]
   %.016 = phi i64 [ 0, %7 ], [ %18, %13 ]
   %14 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %0, i64 %.016
-  %15 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14)
+  %15 = tail call noundef double @_ZN5typst6layout5frame5Frame6height17h618ab57f74087c67E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14)
   %16 = tail call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %15, double noundef %12)
   %17 = fadd double %.017, %16
   %18 = add nuw i64 %.016, 1

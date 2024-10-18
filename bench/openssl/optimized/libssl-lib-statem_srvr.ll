@@ -3400,7 +3400,7 @@ lor.lhs.false122:                                 ; preds = %land.lhs.true118
 
 if.then131:                                       ; preds = %lor.lhs.false122, %land.lhs.true118
   %38 = load i32, ptr %age_add_u, align 4
-  %call.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %38, ptr noundef %tick_nonce)
+  %call.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %38, ptr noundef nonnull %tick_nonce)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %err, label %if.end.i
 
@@ -3680,7 +3680,7 @@ if.end137.i:                                      ; preds = %lor.lhs.false130.i
 
 if.end141.i:                                      ; preds = %if.end137.i, %if.end100.i
   %iv_len.0.i = phi i32 [ %call101.i, %if.end100.i ], [ %call114.i, %if.end137.i ]
-  %call142.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %41, ptr noundef %tick_nonce)
+  %call142.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %41, ptr noundef nonnull %tick_nonce)
   %tobool143.not.i = icmp eq i32 %call142.i, 0
   br i1 %tobool143.not.i, label %construct_stateless_ticket.exit.thread93, label %if.end145.i
 
@@ -4348,7 +4348,7 @@ lor.lhs.false97:                                  ; preds = %if.end93
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false97
   %session_id98 = getelementptr inbounds i8, ptr %call40, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id98, ptr nonnull align 1 %add.ptr.i.i134, i64 %conv99, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id98, ptr nonnull align 1 %add.ptr.i.i134, i64 range(i64 0, 4294967296) %conv99, i1 false)
   %add.ptr.i.i140 = getelementptr inbounds i8, ptr %add.ptr.i.i134, i64 %conv99
   store ptr %add.ptr.i.i140, ptr %pkt, align 8
   %sub.i.i141 = sub nuw i64 %sub.i.i135, %conv99
@@ -4380,7 +4380,7 @@ lor.lhs.false123:                                 ; preds = %lor.lhs.false106
   %idx.ext = zext nneg i32 %cond to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr119 = getelementptr inbounds i8, ptr %session_id_len113, i64 %idx.neg
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr119, ptr nonnull align 1 %add.ptr.i.i140, i64 %idx.ext, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr119, ptr nonnull align 1 %add.ptr.i.i140, i64 range(i64 0, 4294967296) %idx.ext, i1 false)
   %extensions128 = getelementptr inbounds i8, ptr %call40, i64 624
   br label %if.end202.sink.split
 
@@ -4390,7 +4390,7 @@ if.else:                                          ; preds = %if.end76
 
 lor.lhs.false133:                                 ; preds = %if.else
   %random129 = getelementptr inbounds i8, ptr %call40, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %random129, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %random129, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i, i64 range(i64 0, 4294967296) 32, i1 false)
   %add.ptr.i.i161 = getelementptr inbounds i8, ptr %17, i64 34
   store ptr %add.ptr.i.i161, ptr %pkt, align 8
   %sub.i.i162 = add i64 %pkt.val.i.i89, -34

@@ -1993,7 +1993,7 @@ lor.lhs.false154.thread358:                       ; preds = %if.then49.i
   br label %if.else163
 
 _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit: ; preds = %if.end62.i
-  %call.i = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %37, i32 noundef %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0331)
+  %call.i = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %37, i32 noundef range(i32 -2147483648, 2090869760) %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0331)
   %cmp153 = icmp eq i32 %call.i, 2
   br i1 %cmp153, label %if.then158thread-pre-split, label %lor.lhs.false154
 
@@ -2177,7 +2177,7 @@ if.end62.i266:                                    ; preds = %land.lhs.true.i273,
   br i1 %cmp64.not.i268, label %for.inc213, label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit275
 
 _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit275: ; preds = %if.end62.i266
-  %call.i270 = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %59, i32 noundef %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0331)
+  %call.i270 = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %59, i32 noundef range(i32 -2147483648, 2090869760) %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0331)
   %cmp198 = icmp eq i32 %call.i270, 2
   br i1 %cmp198, label %if.then203, label %lor.lhs.false199
 
@@ -2423,7 +2423,7 @@ if.else334:                                       ; preds = %if.end298, %land.lh
   %conv345 = trunc i64 %sub344 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %targetChars.i)
   store ptr %target.3, ptr %targetChars.i, align 8
-  call void @ucnv_fromUWriteBytes_75(ptr noundef %0, ptr noundef nonnull %buffer, i32 noundef %inc276, ptr noundef nonnull %targetChars.i, ptr noundef %2, ptr noundef nonnull %offsets, i32 noundef %conv345, ptr noundef %err)
+  call void @ucnv_fromUWriteBytes_75(ptr noundef %0, ptr noundef nonnull %buffer, i32 noundef range(i32 -2147483647, -2147483648) %inc276, ptr noundef nonnull %targetChars.i, ptr noundef %2, ptr noundef nonnull %offsets, i32 noundef %conv345, ptr noundef %err)
   %77 = load ptr, ptr %targetChars.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %targetChars.i)
   %78 = load i32, ptr %err, align 4
@@ -2543,7 +2543,7 @@ if.end428:                                        ; preds = %if.end399, %if.then
   %sourceIndex373.0 = phi i32 [ %dec425, %if.then424 ], [ %dec, %lor.lhs.false416 ], [ %dec, %if.then407 ], [ -1, %if.end399 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %targetChars.i284)
   store ptr %target.2.ph, ptr %targetChars.i284, align 8
-  call void @ucnv_fromUWriteBytes_75(ptr noundef nonnull %0, ptr noundef nonnull %buffer, i32 noundef %outLen.5, ptr noundef nonnull %targetChars.i284, ptr noundef %2, ptr noundef nonnull %offsets, i32 noundef %sourceIndex373.0, ptr noundef nonnull %err)
+  call void @ucnv_fromUWriteBytes_75(ptr noundef nonnull %0, ptr noundef nonnull %buffer, i32 noundef range(i32 -2147483647, -2147483648) %outLen.5, ptr noundef nonnull %targetChars.i284, ptr noundef %2, ptr noundef nonnull %offsets, i32 noundef %sourceIndex373.0, ptr noundef nonnull %err)
   %89 = load ptr, ptr %targetChars.i284, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %targetChars.i284)
   br label %if.end430
@@ -3687,7 +3687,7 @@ if.end62.i:                                       ; preds = %if.else50.i
   br i1 %cmp64.not.i, label %if.end52.thread, label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit
 
 _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit: ; preds = %if.end62.i
-  %call.i = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %30, i32 noundef %conv22, ptr noundef nonnull %targetByteUnit, i8 noundef signext %18)
+  %call.i = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %30, i32 noundef range(i32 -2147483648, 2090869760) %conv22, ptr noundef nonnull %targetByteUnit, i8 noundef signext %18)
   %call.i.fr = freeze i32 %call.i
   %spec.select = call i32 @llvm.abs.i32(i32 %call.i.fr, i1 true)
   br label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread
@@ -4826,7 +4826,7 @@ if.end62.i:                                       ; preds = %land.lhs.true.i, %l
   br i1 %cmp64.not.i, label %for.inc, label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit
 
 _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit: ; preds = %if.end62.i
-  %call.i = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %28, i32 noundef %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0156)
+  %call.i = call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %28, i32 noundef range(i32 -2147483648, 2090869760) %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0156)
   %cmp144 = icmp eq i32 %call.i, 2
   br i1 %cmp144, label %if.then149, label %lor.lhs.false145
 
@@ -5010,7 +5010,7 @@ if.else258:                                       ; preds = %if.end224, %land.lh
   %conv269 = trunc i64 %sub268 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %targetChars.i)
   store ptr %target.3, ptr %targetChars.i, align 8
-  call void @ucnv_fromUWriteBytes_75(ptr noundef %0, ptr noundef nonnull %buffer, i32 noundef %len.1, ptr noundef nonnull %targetChars.i, ptr noundef %2, ptr noundef nonnull %offsets, i32 noundef %conv269, ptr noundef %err)
+  call void @ucnv_fromUWriteBytes_75(ptr noundef %0, ptr noundef nonnull %buffer, i32 noundef range(i32 -2147483647, -2147483648) %len.1, ptr noundef nonnull %targetChars.i, ptr noundef %2, ptr noundef nonnull %offsets, i32 noundef %conv269, ptr noundef %err)
   %45 = load ptr, ptr %targetChars.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %targetChars.i)
   %46 = load i32, ptr %err, align 4

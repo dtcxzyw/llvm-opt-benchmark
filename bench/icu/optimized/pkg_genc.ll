@@ -974,7 +974,7 @@ entry:
   %call69 = ptrtoint ptr %call to i64
   %call1 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #21
   %call168 = ptrtoint ptr %call1 to i64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFilenameBuilder)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFilenameBuilder)
   %len.i = getelementptr inbounds i8, ptr %outFilenameBuilder, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %outFilenameBuilder, align 8
@@ -983,7 +983,7 @@ entry:
   %agg.tmp96.sink71.sroa.gep1 = getelementptr inbounds i8, ptr %agg.tmp44, i64 8
   %agg.tmp37.sink70.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp37, i64 8
   %agg.tmp37.sink70.sroa.gep2 = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %entryNameBuilder)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %entryNameBuilder)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1035,7 +1035,7 @@ lpad5.loopexit.split-lp:                          ; preds = %invoke.cont45.invok
 lpad5:                                            ; preds = %lpad5.loopexit.split-lp, %lpad5.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp ]
   call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %status) #18
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %entryNameBuilder) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %entryNameBuilder) #18
   br label %ehcleanup133
 
 if.else:                                          ; preds = %land.lhs.true, %invoke.cont
@@ -1218,13 +1218,13 @@ invoke.cont127:                                   ; preds = %if.end124
 
 invoke.cont131:                                   ; preds = %invoke.cont127
   call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %status) #18
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %entryNameBuilder) #18
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFilenameBuilder) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %entryNameBuilder) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFilenameBuilder) #18
   ret void
 
 ehcleanup133:                                     ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad5 ], [ %6, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFilenameBuilder) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFilenameBuilder) #18
   resume { ptr, i32 } %.pn
 }
 

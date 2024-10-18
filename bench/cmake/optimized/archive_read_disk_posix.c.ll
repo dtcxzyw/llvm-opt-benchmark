@@ -807,7 +807,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open(ptr noundef %0, p
   %23 = tail call ptr @archive_string_ensure(ptr noundef nonnull %22, i64 noundef 31) #17
   %24 = getelementptr inbounds i8, ptr %18, i64 480
   store i8 %15, ptr %24, align 8
-  %25 = tail call fastcc ptr @tree_reopen(ptr noundef %18, ptr noundef %1, i32 noundef %21)
+  %25 = tail call fastcc ptr @tree_reopen(ptr noundef %18, ptr noundef %1, i32 noundef range(i32 0, 2) %21)
   br label %27
 
 26:                                               ; preds = %13
@@ -892,7 +892,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0,
   %34 = call ptr @archive_string_ensure(ptr noundef nonnull %33, i64 noundef 31) #17
   %35 = getelementptr inbounds i8, ptr %29, i64 480
   store i8 %26, ptr %35, align 8
-  %36 = call fastcc ptr @tree_reopen(ptr noundef %29, ptr noundef %16, i32 noundef %32)
+  %36 = call fastcc ptr @tree_reopen(ptr noundef %29, ptr noundef %16, i32 noundef range(i32 0, 2) %32)
   br label %38
 
 37:                                               ; preds = %24

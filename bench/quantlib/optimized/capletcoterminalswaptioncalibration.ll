@@ -5012,7 +5012,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN8QuantLib30CTSMMCapletOriginalCalibrationD2Ev.exit
 
 _ZN8QuantLib30CTSMMCapletOriginalCalibrationD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZN8QuantLib22CTSMMCapletCalibrationD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #23
+  tail call void @_ZN8QuantLib22CTSMMCapletCalibrationD2Ev(ptr noundef nonnull align 8 dereferenceable(450) %this) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 456) #26
   ret void
 }

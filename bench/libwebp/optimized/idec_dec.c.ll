@@ -96,7 +96,7 @@ define ptr @WebPIDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_un
 
 8:                                                ; preds = %3
   %9 = select i1 %5, ptr %4, ptr %2
-  %10 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %9, i32 noundef 521) #7
+  %10 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, ptr noundef nonnull %9, i32 noundef 521) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %20
 
@@ -543,7 +543,7 @@ NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %Chec
   %70 = getelementptr inbounds i8, ptr %67, i64 %69
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %71, %45
-  tail call fastcc void @DoRemap(ptr noundef %0, i64 noundef %72)
+  tail call fastcc void @DoRemap(ptr noundef nonnull %0, i64 noundef %72)
   %73 = tail call fastcc i32 @IDecode(ptr noundef %0)
   br label %CheckMemBufferMode.exit.thread
 
@@ -1403,7 +1403,7 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %20
-  tail call fastcc void @DoRemap(ptr noundef %0, i64 noundef %30)
+  tail call fastcc void @DoRemap(ptr noundef nonnull %0, i64 noundef %30)
   %31 = tail call fastcc i32 @IDecode(ptr noundef %0)
   br label %CheckMemBufferMode.exit.thread
 

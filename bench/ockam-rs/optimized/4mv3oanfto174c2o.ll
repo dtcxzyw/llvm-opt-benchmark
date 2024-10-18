@@ -1349,7 +1349,7 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit262: ; preds = %26
 307:                                              ; preds = %306
   %308 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #12
           to label %common.resume unwind label %309
 
 309:                                              ; preds = %307
@@ -1363,7 +1363,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i": ; preds = %306
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit": ; preds = %303, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i"
@@ -1527,7 +1527,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
 356:                                              ; preds = %355
   %357 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #12
           to label %common.resume unwind label %358
 
 358:                                              ; preds = %356
@@ -1537,7 +1537,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i285": ; preds = %355
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit": ; preds = %352, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i285"
@@ -1634,7 +1634,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
 383:                                              ; preds = %382
   %384 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #12
           to label %common.resume unwind label %385
 
 385:                                              ; preds = %383
@@ -1644,7 +1644,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i294": ; preds = %382
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit": ; preds = %379, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i294"
@@ -1741,7 +1741,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
 410:                                              ; preds = %409
   %411 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #12
           to label %common.resume unwind label %412
 
 412:                                              ; preds = %410
@@ -1751,7 +1751,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i303": ; preds = %409
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50)
   br label %"_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit": ; preds = %406, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i303"
@@ -1848,7 +1848,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
 437:                                              ; preds = %436
   %438 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #12
           to label %common.resume unwind label %439
 
 439:                                              ; preds = %437
@@ -1858,7 +1858,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i312": ; preds = %436
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit": ; preds = %433, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i312"
@@ -1955,7 +1955,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
 464:                                              ; preds = %463
   %465 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #12
           to label %common.resume unwind label %466
 
 466:                                              ; preds = %464
@@ -1965,7 +1965,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i321": ; preds = %463
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48)
   br label %"_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit": ; preds = %460, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i321"
@@ -2062,7 +2062,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
 491:                                              ; preds = %490
   %492 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %47) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #12
           to label %common.resume unwind label %493
 
 493:                                              ; preds = %491
@@ -2072,7 +2072,7 @@ common.resume:                                    ; preds = %491, %464, %437, %4
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i330": ; preds = %490
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %47)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit": ; preds = %487, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i330"
@@ -2110,17 +2110,17 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit": ; preds = %8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %2, ptr noundef nonnull readonly dereferenceable(6) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.27, i64 6), !alias.scope !553
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.27, i64 6), !alias.scope !553
   %27 = icmp eq i32 %bcmp.i, 0
   br i1 %27, label %107, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit170": ; preds = %8
-  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %2, ptr noundef nonnull readonly dereferenceable(3) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.28, i64 3), !alias.scope !557
+  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.28, i64 3), !alias.scope !557
   %28 = icmp eq i32 %bcmp.i169, 0
   br i1 %28, label %30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit174"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit174": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit170"
-  %bcmp.i173 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %2, ptr noundef nonnull readonly dereferenceable(3) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.29, i64 3), !alias.scope !561
+  %bcmp.i173 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.29, i64 3), !alias.scope !561
   %29 = icmp eq i32 %bcmp.i173, 0
   br i1 %29, label %33, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit178"
 
@@ -2131,7 +2131,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   br i1 %trunc.i4.i, label %105, label %98
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit178": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit174"
-  %bcmp.i177 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %2, ptr noundef nonnull readonly dereferenceable(3) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.30, i64 3), !alias.scope !568
+  %bcmp.i177 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.30, i64 3), !alias.scope !568
   %32 = icmp eq i32 %bcmp.i177, 0
   br i1 %32, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213.thread"
 
@@ -2146,7 +2146,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   br i1 %trunc.i.i, label %94, label %86
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit183": ; preds = %8
-  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %2, ptr noundef nonnull readonly dereferenceable(7) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.31, i64 7), !alias.scope !585
+  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %2, ptr noundef nonnull dereferenceable(7) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.31, i64 7), !alias.scope !585
   %37 = icmp eq i32 %bcmp.i182, 0
   br i1 %37, label %72, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit189"
 
@@ -2156,27 +2156,27 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   br i1 %trunc.i4.i184, label %85, label %76
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit189": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit183"
-  %bcmp.i188 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %2, ptr noundef nonnull readonly dereferenceable(7) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.32, i64 7), !alias.scope !592
+  %bcmp.i188 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %2, ptr noundef nonnull dereferenceable(7) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.32, i64 7), !alias.scope !592
   %40 = icmp eq i32 %bcmp.i188, 0
   br i1 %40, label %68, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit201"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit195": ; preds = %8
-  %bcmp.i194 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %2, ptr noundef nonnull readonly dereferenceable(4) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.33, i64 4), !alias.scope !596
+  %bcmp.i194 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.33, i64 4), !alias.scope !596
   %41 = icmp eq i32 %bcmp.i194, 0
   br i1 %41, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit201": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit189"
-  %bcmp.i200 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %2, ptr noundef nonnull readonly dereferenceable(7) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.34, i64 7), !alias.scope !600
+  %bcmp.i200 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %2, ptr noundef nonnull dereferenceable(7) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.34, i64 7), !alias.scope !600
   %42 = icmp eq i32 %bcmp.i200, 0
   br i1 %42, label %60, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit207": ; preds = %8
-  %bcmp.i206 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %2, ptr noundef nonnull readonly dereferenceable(5) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.35, i64 5), !alias.scope !604
+  %bcmp.i206 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) %2, ptr noundef nonnull dereferenceable(5) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.35, i64 5), !alias.scope !604
   %43 = icmp eq i32 %bcmp.i206, 0
   br i1 %43, label %56, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit"
-  %bcmp.i212 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %2, ptr noundef nonnull readonly dereferenceable(6) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.36, i64 6), !alias.scope !608
+  %bcmp.i212 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.36, i64 6), !alias.scope !608
   %44 = icmp eq i32 %bcmp.i212, 0
   br i1 %44, label %50, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit213.thread"
 
@@ -2522,7 +2522,7 @@ common.resume:                                    ; preds = %125, %51, %57, %61,
 125:                                              ; preds = %124
   %126 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #12
           to label %common.resume unwind label %127
 
 127:                                              ; preds = %125
@@ -2532,7 +2532,7 @@ common.resume:                                    ; preds = %125, %51, %57, %61,
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i": ; preds = %124
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit": ; preds = %121, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i"
@@ -2796,7 +2796,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
 106:                                              ; preds = %105
   %107 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #12
           to label %common.resume unwind label %108
 
 108:                                              ; preds = %106
@@ -2810,7 +2810,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i": ; preds = %105
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit": ; preds = %102, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i"
@@ -2831,7 +2831,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #12
           to label %common.resume unwind label %116
 
 116:                                              ; preds = %114
@@ -2841,7 +2841,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i348": ; preds = %113
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit349"
 
 118:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit382", %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit", %"_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit377", %"_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit", %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit372", %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit", %"_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit367", %"_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit", %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit362", %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit", %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit357", %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit", %154, %153, %142, %141, %131, %130, %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit349", %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Worker$GT$17hce4ac40460674094E.exit", %58
@@ -3043,7 +3043,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 175:                                              ; preds = %174
   %176 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #12
           to label %common.resume unwind label %177
 
 177:                                              ; preds = %175
@@ -3053,7 +3053,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i355": ; preds = %174
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit": ; preds = %171, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i355"
@@ -3074,7 +3074,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 183:                                              ; preds = %182
   %184 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #12
           to label %common.resume unwind label %185
 
 185:                                              ; preds = %183
@@ -3084,7 +3084,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i356": ; preds = %182
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit357"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..DnsAddr$GT$17h1a5d6f7a7a510372E.exit357": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i356", %179, %167
@@ -3168,7 +3168,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 207:                                              ; preds = %206
   %208 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #12
           to label %common.resume unwind label %209
 
 209:                                              ; preds = %207
@@ -3178,7 +3178,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i360": ; preds = %206
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit": ; preds = %203, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i360"
@@ -3199,7 +3199,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 215:                                              ; preds = %214
   %216 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #12
           to label %common.resume unwind label %217
 
 217:                                              ; preds = %215
@@ -3209,7 +3209,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i361": ; preds = %214
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit362"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Service$GT$17h3a679f69c8260492E.exit362": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i361", %211, %199
@@ -3293,7 +3293,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 239:                                              ; preds = %238
   %240 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #12
           to label %common.resume unwind label %241
 
 241:                                              ; preds = %239
@@ -3303,7 +3303,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i365": ; preds = %238
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51)
   br label %"_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit": ; preds = %235, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i365"
@@ -3324,7 +3324,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 247:                                              ; preds = %246
   %248 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #12
           to label %common.resume unwind label %249
 
 249:                                              ; preds = %247
@@ -3334,7 +3334,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i366": ; preds = %246
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51)
   br label %"_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit367"
 
 "_ZN4core3ptr49drop_in_place$LT$ockam_multiaddr..proto..Node$GT$17h6f8e59a8a273b62aE.exit367": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i366", %243, %231
@@ -3418,7 +3418,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 271:                                              ; preds = %270
   %272 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #12
           to label %common.resume unwind label %273
 
 273:                                              ; preds = %271
@@ -3428,7 +3428,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i370": ; preds = %270
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit": ; preds = %267, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i370"
@@ -3449,7 +3449,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 279:                                              ; preds = %278
   %280 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #12
           to label %common.resume unwind label %281
 
 281:                                              ; preds = %279
@@ -3459,7 +3459,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i371": ; preds = %278
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50)
   br label %"_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit372"
 
 "_ZN4core3ptr52drop_in_place$LT$ockam_multiaddr..proto..Project$GT$17had65721bc3484a6aE.exit372": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i371", %275, %263
@@ -3543,7 +3543,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 303:                                              ; preds = %302
   %304 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #12
           to label %common.resume unwind label %305
 
 305:                                              ; preds = %303
@@ -3553,7 +3553,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i375": ; preds = %302
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49)
   br label %"_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit": ; preds = %299, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i375"
@@ -3574,7 +3574,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 311:                                              ; preds = %310
   %312 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #12
           to label %common.resume unwind label %313
 
 313:                                              ; preds = %311
@@ -3584,7 +3584,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i376": ; preds = %310
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49)
   br label %"_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit377"
 
 "_ZN4core3ptr50drop_in_place$LT$ockam_multiaddr..proto..Space$GT$17h273fbee4f8907bd6E.exit377": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i376", %307, %295
@@ -3668,7 +3668,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 335:                                              ; preds = %334
   %336 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #12
           to label %common.resume unwind label %337
 
 337:                                              ; preds = %335
@@ -3678,7 +3678,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i380": ; preds = %334
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit": ; preds = %331, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i380"
@@ -3699,7 +3699,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
 343:                                              ; preds = %342
   %344 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48) #12
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h8006c9ae0a382f96E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #12
           to label %common.resume unwind label %345
 
 345:                                              ; preds = %343
@@ -3709,7 +3709,7 @@ common.resume:                                    ; preds = %343, %335, %311, %3
   unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i381": ; preds = %342
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc36f1a5eff7c2537E.llvm.11186069109554130561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48)
   br label %"_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit382"
 
 "_ZN4core3ptr51drop_in_place$LT$ockam_multiaddr..proto..Secure$GT$17h66281e999f5801aeE.exit382": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i381", %339, %327

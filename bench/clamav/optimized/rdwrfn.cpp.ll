@@ -260,7 +260,7 @@ define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 derefere
   unreachable
 
 _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #16
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr1) #16
   %11 = icmp eq i64 %.add, 328
   br i1 %11, label %12, label %2
 
@@ -298,7 +298,7 @@ _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
   unreachable
 
 _ZN9CryptData13KDF3CacheItemD2Ev.exit:            ; preds = %.noexc2.i5
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #16
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %16) #16
   %24 = icmp eq ptr %16, %0
   br i1 %24, label %25, label %14
 

@@ -7582,7 +7582,7 @@ define internal void @nas_emm_attach_req(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
   %10 = or disjoint i32 %6, 1
   %11 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0) #10
@@ -8372,7 +8372,7 @@ define internal void @nas_emm_trac_area_upd_req(ptr noundef %0, ptr noundef %1, 
   %7 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
   %10 = or disjoint i32 %6, 1
   %11 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0) #10
@@ -9047,7 +9047,7 @@ define internal void @nas_emm_ext_serv_req(ptr noundef %0, ptr noundef %1, ptr n
   %7 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
   %10 = or disjoint i32 %6, 1
   %11 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0) #10
@@ -9135,7 +9135,7 @@ define internal void @nas_emm_ctrl_plane_serv_req(ptr noundef %0, ptr noundef %1
   %7 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
   %10 = or disjoint i32 %6, 1
   %11 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0) #10
@@ -9400,7 +9400,7 @@ define internal void @nas_emm_auth_req(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #10
   %10 = or disjoint i32 %7, 4
   %11 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #10
+  %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef range(i32 0, -3) %10, i32 noundef 1, i32 noundef 0) #10
   %13 = or disjoint i32 %7, 5
   %14 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef 0) #10
@@ -9635,7 +9635,7 @@ define internal void @nas_emm_sec_mode_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %20 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #10
   %21 = or disjoint i32 %18, 4
   %22 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #10
+  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef range(i32 0, -3) %21, i32 noundef 1, i32 noundef 0) #10
   %24 = or disjoint i32 %18, 5
   %25 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %26 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 3, i32 noundef 0) #10
@@ -10174,7 +10174,7 @@ define internal fastcc void @nas_emm_detach_req_UL(ptr noundef %0, ptr noundef %
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #10
   %10 = shl i32 %3, 3
   %11 = load i32, ptr @hf_nas_eps_tsc, align 4
-  %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #10
+  %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef range(i32 0, -3) %10, i32 noundef 1, i32 noundef 0) #10
   %13 = or disjoint i32 %10, 1
   %14 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef 0) #10

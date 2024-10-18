@@ -1796,7 +1796,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN
   br label %_ZN2cv8tracking4impl20TrackerBoostingModelD2Ev.exit
 
 _ZN2cv8tracking4impl20TrackerBoostingModelD2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i, %8
-  tail call void @_ZN2cv6detail8tracking12TrackerModelD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #18
+  tail call void @_ZN2cv6detail8tracking12TrackerModelD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

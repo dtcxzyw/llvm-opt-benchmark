@@ -688,18 +688,18 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %36, label %96, label %97
 
 96:                                               ; preds = %95
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val112.i, i32 noundef 25, ptr noundef nonnull @.str.269, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val112.i, i32 noundef 25, ptr noundef nonnull @.str.269, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 97:                                               ; preds = %95
   br i1 %42, label %98, label %99
 
 98:                                               ; preds = %97
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val112.i, i32 noundef 25, ptr noundef nonnull @.str.270, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val112.i, i32 noundef 25, ptr noundef nonnull @.str.270, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 99:                                               ; preds = %97
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val112.i, i32 noundef 25, ptr noundef nonnull @.str.271, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val112.i, i32 noundef 25, ptr noundef nonnull @.str.271, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 100:                                              ; preds = %4
@@ -875,18 +875,18 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %101, label %158, label %159
 
 158:                                              ; preds = %157
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val148.i, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val148.i, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 159:                                              ; preds = %157
   br i1 %109, label %160, label %161
 
 160:                                              ; preds = %159
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val148.i, i32 noundef 25, ptr noundef nonnull @.str.289, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val148.i, i32 noundef 25, ptr noundef nonnull @.str.289, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 161:                                              ; preds = %159
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val148.i, i32 noundef 25, ptr noundef nonnull @.str.290, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val148.i, i32 noundef 25, ptr noundef nonnull @.str.290, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 162:                                              ; preds = %4
@@ -1079,18 +1079,18 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %163, label %284, label %285
 
 284:                                              ; preds = %283
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val67.i, i32 noundef 25, ptr noundef nonnull @.str.311, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val67.i, i32 noundef 25, ptr noundef nonnull @.str.311, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 285:                                              ; preds = %283
   br i1 %169, label %286, label %287
 
 286:                                              ; preds = %285
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val67.i, i32 noundef 25, ptr noundef nonnull @.str.312, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val67.i, i32 noundef 25, ptr noundef nonnull @.str.312, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 287:                                              ; preds = %285
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val67.i, i32 noundef 25, ptr noundef nonnull @.str.313, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val67.i, i32 noundef 25, ptr noundef nonnull @.str.313, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 288:                                              ; preds = %4
@@ -1099,7 +1099,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.325, ptr @.str.326
   %switch.selectcmp1.i = icmp eq i8 %25, 1
   %switch.select2.i = select i1 %switch.selectcmp1.i, ptr @.str.324, ptr %switch.select.i
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %289, i32 noundef 25, ptr noundef nonnull %switch.select2.i, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %289, i32 noundef 25, ptr noundef nonnull %switch.select2.i, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 290:                                              ; preds = %4
@@ -1108,7 +1108,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   %switch.select.i96 = select i1 %switch.selectcmp.i95, ptr @.str.328, ptr @.str.329
   %switch.selectcmp1.i97 = icmp eq i8 %25, 1
   %switch.select2.i98 = select i1 %switch.selectcmp1.i97, ptr @.str.327, ptr %switch.select.i96
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %291, i32 noundef 25, ptr noundef nonnull %switch.select2.i98, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %291, i32 noundef 25, ptr noundef nonnull %switch.select2.i98, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 292:                                              ; preds = %4
@@ -1118,7 +1118,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   %switch.select.i100 = select i1 %switch.selectcmp.i99, ptr @.str.331, ptr @.str.332
   %switch.selectcmp1.i101 = icmp eq i8 %25, 1
   %switch.select2.i102 = select i1 %switch.selectcmp1.i101, ptr @.str.330, ptr %switch.select.i100
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %294, i32 noundef 25, ptr noundef nonnull %switch.select2.i102, i32 noundef %293, i32 noundef %30) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %294, i32 noundef 25, ptr noundef nonnull %switch.select2.i102, i32 noundef range(i32 0, 16) %293, i32 noundef range(i32 0, 64) %30) #2
   br label %dissect_uci_core_pdu.exit
 
 dissect_uci_core_pdu.exit:                        ; preds = %229, %287, %286, %284, %282, %280, %275, %271, %175, %170, %165, %161, %160, %158, %156, %154, %152, %149, %147, %144, %142, %139, %137, %134, %132, %125, %119, %115, %110, %103, %99, %98, %96, %94, %91, %89, %86, %84, %81, %79, %56, %54, %49, %43, %38, %292, %290, %288

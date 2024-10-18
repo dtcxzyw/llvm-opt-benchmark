@@ -23,7 +23,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %call.i = tail call zeroext i16 @ucnv_io_countKnownConverters_75(ptr noundef nonnull %status)
+  %call.i = tail call zeroext i16 @ucnv_io_countKnownConverters_75(ptr noundef nonnull align 4 dereferenceable(4) %status)
   tail call void @ucln_common_registerCleanup_75(i32 noundef 25, ptr noundef nonnull @_ZN6icu_75L13uinit_cleanupEv)
   %2 = load i32, ptr %status, align 4
   store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L12gICUInitOnceE, i64 4), align 4

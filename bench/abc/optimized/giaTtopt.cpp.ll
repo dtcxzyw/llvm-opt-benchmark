@@ -362,7 +362,7 @@ _ZL14Abc_UtilStrsavPc.exit89:                     ; preds = %_ZL14Abc_UtilStrsav
   %56 = call ptr @Gia_ManCollectSuppNew(ptr noundef nonnull %0, i32 noundef %55, i32 noundef %2)
   %57 = getelementptr i8, ptr %56, i64 4
   %.val79 = load i32, ptr %57, align 4
-  call void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %5, i32 noundef %.val79, i32 noundef %2)
+  call void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8 dereferenceable(272) %5, i32 noundef %.val79, i32 noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ttopt13TruthTableReoE, i64 16), ptr %5, align 8
   store i8 0, ptr %41, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)

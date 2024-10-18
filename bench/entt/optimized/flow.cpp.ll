@@ -36534,7 +36534,7 @@ _ZNKSt6vectorISt4pairImjEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.ex
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt4pairImjEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImjEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
+  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImjEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed, i64 noundef %cond.i.i)
   %.pre13 = load i64, ptr %add.ptr2.i.i.i, align 8, !tbaa !20
   %.pre14 = load i32, ptr %value, align 4, !tbaa !21
   br label %invoke.cont.i

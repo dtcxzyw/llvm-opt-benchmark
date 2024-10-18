@@ -35,7 +35,7 @@ $_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_inser
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base9SampleMapC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef 0)
+  tail call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef 0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base9SampleMapE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %0, align 8
@@ -113,7 +113,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN4base9SampleMapD2Ev.exit:                      ; preds = %entry
-  tail call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
+  tail call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -334,7 +334,7 @@ call.i.noexc.i:                                   ; preds = %while.body.i.i
 lpad.i:                                           ; preds = %while.body.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #14
+  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call) #14
   tail call void @_ZdlPv(ptr noundef nonnull %call) #15
   resume { ptr, i32 } %4
 
@@ -492,7 +492,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base12_GLOBAL__N_117SampleMapIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

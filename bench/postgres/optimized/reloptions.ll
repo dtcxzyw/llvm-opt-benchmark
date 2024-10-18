@@ -1476,7 +1476,7 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noca
   %38 = sext i16 %24 to i32
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i32 noundef %38) #12
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i32 noundef range(i32 -32768, 32768) %38) #12
   tail call void @errfinish(ptr noundef nonnull @.str.44, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 

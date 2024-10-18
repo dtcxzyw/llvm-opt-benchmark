@@ -83,7 +83,7 @@ define void @_ZN5Ipopt13ZeroSymMatrixC2EPKNS_14SymMatrixSpaceE(ptr noundef nonnu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 48), ptr %4, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %_ZN5Ipopt12TaggedObjectC2Ev.exit.i.i unwind label %6
 
 6:                                                ; preds = %2
@@ -194,7 +194,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define void @_ZThn16_N5Ipopt13ZeroSymMatrixD0Ev(ptr noundef %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt13ZeroSymMatrixD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %2) #11
   ret void
 }
 
@@ -212,7 +212,7 @@ define void @_ZNK5Ipopt13ZeroSymMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr n
   %10 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
   br label %12
 
 12:                                               ; preds = %8, %7
@@ -235,7 +235,7 @@ define void @_ZNK5Ipopt13ZeroSymMatrix19TransMultVectorImplEdRKNS_6VectorEdRS1_(
   %10 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
   br label %12
 
 12:                                               ; preds = %8, %7
@@ -321,7 +321,7 @@ define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD1Ev(ptr noundef %0) unna
 define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD0Ev(ptr noundef %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt7SubjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
   ret void
 }
 

@@ -33,7 +33,7 @@ define noalias noundef ptr @Ssw_SemManStart(ptr noundef %0, i32 noundef %1, i32 
   %10 = sdiv i32 2097152, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = tail call range(i32 -2097152, -2147483648) i32 @llvm.smax.i32(i32 %10, i32 %12)
+  %13 = tail call range(i32 -2097152, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2097152, 2097153) %10, i32 %12)
   %14 = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %calloc, i64 12

@@ -128,7 +128,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load ptr, ptr %32, align 8
   store ptr %42, ptr %41, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %44 = load i64, ptr %35, align 8
   store i64 %44, ptr %43, align 8
@@ -882,7 +882,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimViewC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv()
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorC1ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorC1ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorC1ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimViewC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE.exit unwind label %5
@@ -890,7 +890,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimViewC2ERKNS_
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   resume { ptr, i32 } %6
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimViewC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE.exit: ; preds = %2
@@ -1362,7 +1362,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14c
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = load i64, ptr %33, align 8
@@ -1385,7 +1385,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14c
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %41 = load ptr, ptr %40, align 8, !alias.scope !11, !noalias !8
   store ptr %41, ptr %39, align 8, !alias.scope !8, !noalias !11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !8
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %44 = load i64, ptr %43, align 8, !alias.scope !11, !noalias !8
@@ -1416,7 +1416,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_it
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %54 = load ptr, ptr %53, align 8, !alias.scope !17, !noalias !14
   store ptr %54, ptr %52, align 8, !alias.scope !14, !noalias !17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   %57 = load i64, ptr %56, align 8, !alias.scope !17, !noalias !14
@@ -1477,7 +1477,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN32pxrInternal_v0_24__
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.020, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.020, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i, label %.noexc13, label %11
 

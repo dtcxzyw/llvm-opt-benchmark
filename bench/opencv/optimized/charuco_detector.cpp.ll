@@ -529,7 +529,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv5aruco13ArucoDetectorD2Ev.exit
 
 _ZN2cv5aruco13ArucoDetectorD2Ev.exit:             ; preds = %_ZN2cv3PtrINS_5aruco15CharucoDetector19CharucoDetectorImplEED2Ev.exit, %110, %123, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #26
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   ret void
 
 128:                                              ; preds = %9, %5
@@ -869,7 +869,7 @@ define void @_ZN2cv5aruco15CharucoDetector20setCharucoParametersERNS0_17CharucoP
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %1)
+  %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(197) %5, ptr noundef nonnull align 8 dereferenceable(197) %1)
   %7 = getelementptr inbounds i8, ptr %4, i64 112
   %8 = getelementptr inbounds i8, ptr %1, i64 96
   %9 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %8)
@@ -5885,7 +5885,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit
 
 _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -10186,7 +10186,7 @@ _ZNK2cv11_InputArray6getMatEi.exit68:             ; preds = %259, %262
 .body.i.i:                                        ; preds = %284
   %289 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #26
   br label %.body.i
 
 _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; preds = %284
@@ -10205,7 +10205,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; p
   br i1 %.not.i.i.i5.i, label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i, label %293
 
 293:                                              ; preds = %291
-  %294 = invoke noundef zeroext i1 %292(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef nonnull align 8 dereferenceable(16) %286, i32 noundef 3)
+  %294 = invoke noundef zeroext i1 %292(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %286, i32 noundef 3)
           to label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i unwind label %295
 
 295:                                              ; preds = %293
@@ -10216,13 +10216,13 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; p
   unreachable
 
 _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i: ; preds = %293, %291
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #26
   %298 = load ptr, ptr %280, align 8
   %.not.i.i6.i = icmp eq ptr %298, null
   br i1 %.not.i.i6.i, label %312, label %299
 
 299:                                              ; preds = %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i
-  %300 = invoke noundef zeroext i1 %298(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %300 = invoke noundef zeroext i1 %298(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %312 unwind label %301
 
 301:                                              ; preds = %299
@@ -10245,7 +10245,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i: ; preds = %293, %291
   br i1 %.not.i.i8.i, label %.body, label %307
 
 307:                                              ; preds = %.body.i
-  %308 = invoke noundef zeroext i1 %306(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %308 = invoke noundef zeroext i1 %306(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body unwind label %309
 
 309:                                              ; preds = %307
@@ -10263,7 +10263,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i: ; preds = %293, %291
   br i1 %.not.i.i72, label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit, label %314
 
 314:                                              ; preds = %312
-  %315 = invoke noundef zeroext i1 %313(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
+  %315 = invoke noundef zeroext i1 %313(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit unwind label %316
 
 316:                                              ; preds = %314
@@ -10407,7 +10407,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN2cv5S
   br i1 %.not.i.i77, label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit78, label %372
 
 372:                                              ; preds = %.body
-  %373 = invoke noundef zeroext i1 %371(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
+  %373 = invoke noundef zeroext i1 %371(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit78 unwind label %374
 
 374:                                              ; preds = %372
@@ -10624,7 +10624,7 @@ define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -10655,7 +10655,7 @@ define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD0Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -10666,7 +10666,7 @@ define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD0Ev(ptr n
   unreachable
 
 _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit:   ; preds = %1, %4
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -10686,7 +10686,7 @@ _ZNKSt8functionIFvRKN2cv5RangeEEEclES3_.exit:     ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(8) %1)
   ret void
 }
 
@@ -10935,7 +10935,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv5aruco15Char
   store i32 1, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5aruco15CharucoDetector19CharucoDetectorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %2)
+  call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(197) %4, ptr noundef nonnull align 8 dereferenceable(197) %2)
   %7 = getelementptr inbounds i8, ptr %4, i64 96
   %8 = getelementptr inbounds i8, ptr %2, i64 96
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %8)
@@ -10943,7 +10943,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv5aruco15Char
 
 common.resume.i.i:                                ; preds = %14, %9
   %common.resume.op.i.i = phi { ptr, i32 } [ %10, %9 ], [ %15, %14 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %4) #26
   resume { ptr, i32 } %common.resume.op.i.i
 
 9:                                                ; preds = %.noexc
@@ -10967,7 +10967,7 @@ _ZN2cv5aruco17CharucoParametersC2ERKS1_.exit.i.i: ; preds = %.noexc
 
 16:                                               ; preds = %_ZN2cv5aruco17CharucoParametersC2ERKS1_.exit.i.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %4) #26
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
   ret void
 }
@@ -11057,7 +11057,7 @@ define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetector19CharucoDetectorI
 
 _ZN2cv5aruco12CharucoBoardC2ERKS1_.exit:          ; preds = %4, %12, %15
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %2)
+  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(197) %17, ptr noundef nonnull align 8 dereferenceable(197) %2)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %_ZN2cv5aruco12CharucoBoardC2ERKS1_.exit
@@ -11069,7 +11069,7 @@ _ZN2cv5aruco12CharucoBoardC2ERKS1_.exit:          ; preds = %4, %12, %15
 20:                                               ; preds = %.noexc
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #26
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %17) #26
   br label %.body
 
 22:                                               ; preds = %.noexc
@@ -11197,11 +11197,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv5aruco13ArucoDetectorD2Ev.exit
 
 _ZN2cv5aruco13ArucoDetectorD2Ev.exit:             ; preds = %1, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #26
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #26
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #26
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %39) #26
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i.i1 = icmp eq ptr %42, null

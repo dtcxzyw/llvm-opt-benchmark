@@ -473,7 +473,7 @@ _ZNK2cv11_InputArray6getMatEi.exit70:             ; preds = %65, %68
           to label %173 unwind label %191
 
 173:                                              ; preds = %170
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(110) %11) #19
   %174 = load i32, ptr %138, align 8
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %138, align 8
@@ -522,7 +522,7 @@ _ZNK2cv11_InputArray6getMatEi.exit70:             ; preds = %65, %68
 191:                                              ; preds = %170, %92
   %192 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(110) %11) #19
   br label %232
 
 193:                                              ; preds = %180
@@ -1158,7 +1158,7 @@ define linkonce_odr hidden void @_ZN2cv27BackgroundSubtractorKNNImplD0Ev(ptr nou
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -1688,7 +1688,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv10KNNInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(110) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(110) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -2323,7 +2323,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv27Background
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #19
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %2) #19
   ret void
 }
 

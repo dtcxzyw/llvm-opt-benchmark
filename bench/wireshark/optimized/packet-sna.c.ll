@@ -2114,14 +2114,14 @@ default.unreachable:                              ; preds = %115
   br i1 %.not.i.i, label %.thread, label %121
 
 121:                                              ; preds = %118
-  %122 = tail call ptr @fragment_add_seq(ptr noundef nonnull @sna_reassembly_table, ptr noundef %0, i32 noundef 6, ptr noundef nonnull %1, i32 noundef %106, ptr noundef null, i32 noundef %.028.ph.i.i, i32 noundef %119, i32 noundef %.027.ph.i.i, i32 noundef 0) #5
+  %122 = tail call ptr @fragment_add_seq(ptr noundef nonnull @sna_reassembly_table, ptr noundef %0, i32 noundef 6, ptr noundef nonnull %1, i32 noundef range(i32 0, 65536) %106, ptr noundef null, i32 noundef %.028.ph.i.i, i32 noundef %119, i32 noundef %.027.ph.i.i, i32 noundef 0) #5
   %123 = icmp ne i8 %64, 1
   %124 = icmp ne ptr %122, null
   %or.cond.i.i = select i1 %123, i1 true, i1 %124
   br i1 %or.cond.i.i, label %127, label %125
 
 125:                                              ; preds = %121
-  %126 = tail call ptr @fragment_add_seq(ptr noundef nonnull @sna_reassembly_table, ptr noundef %0, i32 noundef 6, ptr noundef nonnull %1, i32 noundef %106, ptr noundef null, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
+  %126 = tail call ptr @fragment_add_seq(ptr noundef nonnull @sna_reassembly_table, ptr noundef %0, i32 noundef 6, ptr noundef nonnull %1, i32 noundef range(i32 0, 65536) %106, ptr noundef null, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   br label %127
 
 127:                                              ; preds = %125, %121
@@ -2504,7 +2504,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
 
 50:                                               ; preds = %.lr.ph.split.us
   %51 = zext i8 %49 to i32
-  tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %48, i32 noundef %51, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef 0)
+  tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %48, i32 noundef %51, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef range(i32 0, 2) 0)
   %52 = add nuw nsw i32 %51, 3
   %53 = and i32 %52, 508
   %54 = icmp samesign ugt i32 %53, %51
@@ -2533,7 +2533,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
 
 67:                                               ; preds = %.lr.ph.split
   %68 = zext i8 %66 to i32
-  tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %64, i32 noundef %68, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef %5)
+  tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %64, i32 noundef %68, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef range(i32 0, 2) %5)
   %69 = add nuw nsw i32 %68, 3
   %70 = and i32 %69, 508
   %71 = icmp samesign ugt i32 %70, %68

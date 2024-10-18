@@ -264,7 +264,7 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructISt
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad8
 
 .noexc:                                           ; preds = %invoke.cont7
@@ -1012,7 +1012,7 @@ entry:
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %this, align 8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %entry
@@ -1042,7 +1042,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #9
   br label %common.resume
 
 _ZN5arrow14PrimitiveArrayC2ERKSt10shared_ptrINS_9ArrayDataEE.exit: ; preds = %.noexc.i, %land.lhs.true.i.i.i, %if.then.i.i.i
@@ -1256,7 +1256,7 @@ entry:
   %raw_values_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %raw_values_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow20DayTimeIntervalArrayE, i64 16), ptr %this, align 8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -1418,7 +1418,7 @@ entry:
   %raw_values_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %raw_values_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow25MonthDayNanoIntervalArrayE, i64 16), ptr %this, align 8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry

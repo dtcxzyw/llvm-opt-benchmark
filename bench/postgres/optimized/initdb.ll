@@ -1096,12 +1096,12 @@ get_encoding_id.exit:                             ; preds = %150
 
 164:                                              ; preds = %163
   %165 = load i32, ptr @encodingid, align 4
-  %166 = call zeroext i1 @is_encoding_supported_by_icu(i32 noundef %165) #18
+  %166 = call zeroext i1 @is_encoding_supported_by_icu(i32 noundef range(i32 0, -1) %165) #18
   br i1 %166, label %check_icu_locale_encoding.exit.thread, label %167
 
 167:                                              ; preds = %164
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.155) #18
-  %168 = call ptr @pg_encoding_to_char_private(i32 noundef %165) #18
+  %168 = call ptr @pg_encoding_to_char_private(i32 noundef range(i32 0, -1) %165) #18
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef %168) #18
   %169 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.157, ptr noundef %169) #18
@@ -2273,7 +2273,7 @@ setup_config.exit:                                ; preds = %268
   %295 = call fastcc ptr @replace_token(ptr noundef nonnull %280, ptr noundef nonnull @.str.367, ptr noundef %294)
   %296 = load i32, ptr @encodingid, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %1)
-  %297 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.295, i32 noundef %296) #18
+  %297 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.295, i32 noundef range(i32 0, -1) %296) #18
   %298 = call ptr @pg_strdup(ptr noundef nonnull %1) #18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %1)
   %299 = call fastcc ptr @replace_token(ptr noundef nonnull %280, ptr noundef nonnull @.str.368, ptr noundef %298)
@@ -2737,7 +2737,7 @@ escape_quotes.exit.i33:                           ; preds = %setup_collation.exi
 
 setup_privileges.exit:                            ; preds = %505, %508
   %510 = load ptr, ptr @info_schema_file, align 8
-  call fastcc void @setup_run_file(ptr noundef %356, ptr noundef %510)
+  call fastcc void @setup_run_file(ptr noundef nonnull %356, ptr noundef %510)
   %511 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %356, ptr noundef nonnull @.str.401, ptr noundef nonnull @infoversion) #18
   %512 = icmp slt i32 %511, 0
   br i1 %512, label %516, label %513

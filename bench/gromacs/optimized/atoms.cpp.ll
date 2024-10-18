@@ -643,14 +643,14 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
   %8 = add nsw i32 %7, %1
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 249, ptr noundef %10, i64 noundef %9, i64 noundef 8)
+  %11 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 249, ptr noundef %10, i64 noundef range(i64 -2147483647, 2147483648) %9, i64 noundef 8)
   store ptr %11, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %0, align 8
   %14 = add nsw i32 %13, %1
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %12, align 8
-  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 250, ptr noundef %16, i64 noundef %15, i64 noundef 36)
+  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 250, ptr noundef %16, i64 noundef range(i64 -2147483647, 2147483648) %15, i64 noundef 36)
   store ptr %17, ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
@@ -661,7 +661,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
   %21 = load i32, ptr %0, align 8
   %22 = add nsw i32 %21, %1
   %23 = sext i32 %22 to i64
-  %24 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef 253, ptr noundef nonnull %19, i64 noundef %23, i64 noundef 52)
+  %24 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef 253, ptr noundef nonnull %19, i64 noundef range(i64 -2147483647, 2147483648) %23, i64 noundef 52)
   store ptr %24, ptr %18, align 8
   br label %25
 
@@ -675,7 +675,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
   %29 = load i32, ptr %0, align 8
   %30 = add nsw i32 %29, %1
   %31 = sext i32 %30 to i64
-  %32 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.6, i32 noundef 257, ptr noundef nonnull %27, i64 noundef %31, i64 noundef 8)
+  %32 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.6, i32 noundef 257, ptr noundef nonnull %27, i64 noundef range(i64 -2147483647, 2147483648) %31, i64 noundef 8)
   store ptr %32, ptr %26, align 8
   br label %33
 
@@ -689,7 +689,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
   %37 = load i32, ptr %0, align 8
   %38 = add nsw i32 %37, %1
   %39 = sext i32 %38 to i64
-  %40 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.6, i32 noundef 261, ptr noundef nonnull %35, i64 noundef %39, i64 noundef 8)
+  %40 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.6, i32 noundef 261, ptr noundef nonnull %35, i64 noundef range(i64 -2147483647, 2147483648) %39, i64 noundef 8)
   store ptr %40, ptr %34, align 8
   br label %.lr.ph.preheader
 
@@ -758,7 +758,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
   %68 = add nsw i32 %67, %2
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %65, align 8
-  %71 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 284, ptr noundef %70, i64 noundef %69, i64 noundef 32)
+  %71 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 284, ptr noundef %70, i64 noundef range(i64 -2147483647, 2147483648) %69, i64 noundef 32)
   store ptr %71, ptr %65, align 8
   %72 = load i32, ptr %66, align 8
   %73 = sext i32 %72 to i64
@@ -794,15 +794,15 @@ define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly %0, i32
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = sext i32 %1 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 297, i64 noundef %7, i64 noundef 8)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 297, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
   store ptr %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 300, i64 noundef %7, i64 noundef 32)
+  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 300, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 32)
   store ptr %11, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 301, i64 noundef %7, i64 noundef 36)
+  %13 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 301, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 36)
   store ptr %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = getelementptr inbounds i8, ptr %0, i64 68
@@ -811,7 +811,7 @@ define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly %0, i32
   br i1 %2, label %16, label %18
 
 16:                                               ; preds = %3
-  %17 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef 309, i64 noundef %7, i64 noundef 52)
+  %17 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef 309, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 52)
   br label %18
 
 18:                                               ; preds = %3, %16
@@ -857,15 +857,15 @@ define noundef ptr @_Z12copy_t_atomsPK7t_atoms(ptr nocapture noundef readonly %0
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = sext i32 %3 to i64
-  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 297, i64 noundef %10, i64 noundef 8)
+  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 297, i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef 8)
   store ptr %11, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 24
   %13 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 300, i64 noundef %10, i64 noundef 32)
+  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 300, i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef 32)
   store ptr %14, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 301, i64 noundef %10, i64 noundef 36)
+  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef 301, i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef 36)
   store ptr %16, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 64
   %18 = getelementptr inbounds i8, ptr %2, i64 68
@@ -874,7 +874,7 @@ define noundef ptr @_Z12copy_t_atomsPK7t_atoms(ptr nocapture noundef readonly %0
   br i1 %6, label %19, label %_Z12init_t_atomsP7t_atomsib.exit
 
 19:                                               ; preds = %1
-  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef 309, i64 noundef %10, i64 noundef 52)
+  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef 309, i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef 52)
   br label %_Z12init_t_atomsP7t_atomsib.exit
 
 _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
@@ -889,7 +889,7 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
 24:                                               ; preds = %_Z12init_t_atomsP7t_atomsib.exit
   %25 = load i32, ptr %0, align 8
   %26 = sext i32 %25 to i64
-  %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.6, i32 noundef 337, i64 noundef %26, i64 noundef 8)
+  %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.6, i32 noundef 337, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef 8)
   store ptr %27, ptr %12, align 8
   br label %28
 
@@ -903,7 +903,7 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
   %32 = getelementptr inbounds i8, ptr %2, i64 32
   %33 = load i32, ptr %0, align 8
   %34 = sext i32 %33 to i64
-  %35 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6, i32 noundef 341, i64 noundef %34, i64 noundef 8)
+  %35 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6, i32 noundef 341, i64 noundef range(i64 -2147483648, 2147483648) %34, i64 noundef 8)
   store ptr %35, ptr %32, align 8
   br label %36
 
@@ -1765,7 +1765,7 @@ define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr nocapture noundef %0, 
           to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc35 unwind label %71
 
 .noexc35:                                         ; preds = %.noexc
@@ -1791,7 +1791,7 @@ define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr nocapture noundef %0, 
 
 31:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body
 
 32:                                               ; preds = %.noexc35
@@ -1810,7 +1810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc36 unwind label %73
 
 .noexc36:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc37 unwind label %73
 
 .noexc37:                                         ; preds = %.noexc36
@@ -1836,7 +1836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 43:                                               ; preds = %.loopexit.split-lp42, %.loopexit41
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body38
 
 44:                                               ; preds = %.noexc37

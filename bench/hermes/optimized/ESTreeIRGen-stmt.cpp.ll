@@ -528,7 +528,7 @@ entry:
 _ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEE7emplaceIJPNS1_15FunctionContextEEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS8_.exit: ; preds = %entry
   %functionContext_.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %functionContext_.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %enterBlockScope, ptr noundef %3) #8
+  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(72) %enterBlockScope, ptr noundef %3) #8
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen29blockDeclarationInstantiationEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %BS) #8
   %currentIRScopeDesc_ = getelementptr inbounds i8, ptr %this, i64 160
@@ -561,7 +561,7 @@ for.end:                                          ; preds = %for.body, %if.end
 
 if.then.i.i.i.i:                                  ; preds = %for.end
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %enterBlockScope) #8
+  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %enterBlockScope) #8
   br label %_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit
 
 _ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit: ; preds = %for.end, %if.then.i.i.i.i
@@ -833,7 +833,7 @@ _ZN6hermes5irgen14SurroundingTryC2EPNS0_15FunctionContextEPNS_6ESTree4NodeEN4llv
   br i1 %tobool.not.i.i.i.i, label %"_ZZN6hermes5irgen11ESTreeIRGen17genForOfStatementEPNS_6ESTree18ForOfStatementNodeEENK3$_0clEv.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes5irgen14SurroundingTryC2EPNS0_15FunctionContextEPNS_6ESTree4NodeEN4llvh5SMLocESt8functionIFvS6_NS0_17ControlFlowChangeEPNS_10BasicBlockEEE.exit.i
-  %call.i.i.i6.i = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer4.i.i, i32 noundef 3) #8
+  %call.i.i.i6.i = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer4.i.i, i32 noundef 3) #8
   br label %"_ZZN6hermes5irgen11ESTreeIRGen17genForOfStatementEPNS_6ESTree18ForOfStatementNodeEENK3$_0clEv.exit"
 
 "_ZZN6hermes5irgen11ESTreeIRGen17genForOfStatementEPNS_6ESTree18ForOfStatementNodeEENK3$_0clEv.exit": ; preds = %_ZN6hermes5irgen14SurroundingTryC2EPNS0_15FunctionContextEPNS_6ESTree4NodeEN4llvh5SMLocESt8functionIFvS6_NS0_17ControlFlowChangeEPNS_10BasicBlockEEE.exit.i, %if.then.i.i.i.i
@@ -986,7 +986,7 @@ cleanup.cont:                                     ; preds = %_ZN4llvh11SmallVect
 
 _ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEE7emplaceIJPNS1_15FunctionContextEEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS8_.exit: ; preds = %cleanup.cont
   %11 = load ptr, ptr %functionContext_.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %enterBlockScope, ptr noundef %11) #8
+  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(72) %enterBlockScope, ptr noundef %11) #8
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen29blockDeclarationInstantiationEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %switchStmt) #8
   br label %if.end14
@@ -1116,7 +1116,7 @@ if.end80:                                         ; preds = %for.end, %if.then77
 
 if.then.i.i.i.i:                                  ; preds = %if.end80
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %enterBlockScope) #8
+  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %enterBlockScope) #8
   br label %_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit
 
 _ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit: ; preds = %if.end80, %if.then.i.i.i.i
@@ -2304,7 +2304,7 @@ entry:
 
 _ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEE7emplaceIJPNS1_15FunctionContextEEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS8_.exit: ; preds = %entry
   %9 = load ptr, ptr %functionContext_.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %enterBlockScope, ptr noundef %9) #8
+  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(72) %enterBlockScope, ptr noundef %9) #8
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen29blockDeclarationInstantiationEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %switchStmt) #8
   br label %if.end
@@ -2525,7 +2525,7 @@ _ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit: ; preds = %_ZN4llvh11Sma
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %enterBlockScope) #8
+  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %enterBlockScope) #8
   br label %_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit
 
 _ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit: ; preds = %_ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit, %if.then.i.i.i.i

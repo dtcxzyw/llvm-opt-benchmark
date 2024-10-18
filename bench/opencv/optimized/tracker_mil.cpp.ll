@@ -764,7 +764,7 @@ _ZN2cv3PtrINS_6detail8tracking7feature15CvHaarEvaluatorEEC2ERKS5_.exit.i: ; pred
 53:                                               ; preds = %51, %49
   %.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
   call void @_ZN2cv3PtrINS_6detail8tracking7feature15CvHaarEvaluatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #18
   br label %.body
 
 _ZN2cv6detail8tracking8internal16Parallel_computeC2ERNS_3PtrINS1_7feature15CvHaarEvaluatorEEERKSt6vectorINS_3MatESaISA_EERSA_.exit: ; preds = %47
@@ -5797,7 +5797,7 @@ define void @_ZN2cv10TrackerMIL6createERKNS0_6ParamsE(ptr dead_on_unwind noalias
   store i32 1, ptr %5, align 4, !noalias !124
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !124
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN2cv7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6)
           to label %_ZN2cv3PtrINS_8tracking4impl14TrackerMILImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !124
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i: ; preds = %2
@@ -5976,7 +5976,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv6detail8tracking8internal18TrackerFeatureHAARD2Ev.exit
 
 _ZN2cv6detail8tracking8internal18TrackerFeatureHAARD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

@@ -265,7 +265,7 @@ declare noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net16HpackInputStream15DecodeNextOctetEPh(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef writeonly %next_octet) local_unnamed_addr #3 align 2 {
 entry:
-  %call.i = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
   br i1 %call.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -280,7 +280,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i
-  %call5.i = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 0)
+  %call5.i = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 0)
   store i8 %call5.i, ptr %next_octet, align 1
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 1)
   %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
@@ -303,7 +303,7 @@ if.end13:
   %0 = load i64, ptr %bit_offset_, align 8
   store i64 0, ptr %bit_offset_, align 8
   store i32 0, ptr %I, align 4
-  %call.i.i = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i.i = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
   br i1 %call.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end13
@@ -317,8 +317,8 @@ if.end.i.i:                                       ; preds = %if.end13
   br i1 %cmp.not.i.i, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end.i.i
-  %call5.i.i = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 0)
-  tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 1)
+  %call5.i.i = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 0)
+  tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 1)
   %parsed_bytes_current_.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %parsed_bytes_current_.i, align 4
   %add.i = add i32 %2, 1
@@ -336,7 +336,7 @@ if.end20:                                         ; preds = %if.end.i.i
 
 while.body:                                       ; preds = %if.end20, %if.end48
   %shift.032 = phi i64 [ %add49, %if.end48 ], [ 0, %if.end20 ]
-  %call.i.i12 = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i.i12 = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
   br i1 %call.i.i12, label %if.then.i.i21, label %if.end.i.i13
 
 if.then.i.i21:                                    ; preds = %while.body
@@ -350,8 +350,8 @@ if.end.i.i13:                                     ; preds = %while.body
   br i1 %cmp.not.i.i15, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.end.i.i13
-  %call5.i.i18 = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 0)
-  tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 1)
+  %call5.i.i18 = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 0)
+  tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 1)
   %5 = load i32, ptr %parsed_bytes_current_.i, align 4
   %add.i20 = add i32 %5, 1
   store i32 %add.i20, ptr %parsed_bytes_current_.i, align 4

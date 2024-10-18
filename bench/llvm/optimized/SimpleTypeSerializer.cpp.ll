@@ -159,7 +159,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -172,7 +172,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -252,7 +252,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -457,7 +457,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -470,7 +470,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -550,7 +550,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -669,7 +669,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -682,7 +682,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -762,7 +762,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -881,7 +881,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -894,7 +894,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -974,7 +974,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -1093,7 +1093,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -1106,7 +1106,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -1186,7 +1186,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -1305,7 +1305,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -1318,7 +1318,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -1398,7 +1398,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -1517,7 +1517,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -1530,7 +1530,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -1610,7 +1610,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -1729,7 +1729,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -1742,7 +1742,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -1822,7 +1822,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -1941,7 +1941,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -1954,7 +1954,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -2034,7 +2034,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -2153,7 +2153,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2166,7 +2166,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -2246,7 +2246,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -2365,7 +2365,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2378,7 +2378,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -2458,7 +2458,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -2577,7 +2577,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2590,7 +2590,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -2670,7 +2670,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -2789,7 +2789,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2802,7 +2802,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -2882,7 +2882,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -3001,7 +3001,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3014,7 +3014,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -3094,7 +3094,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -3213,7 +3213,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3226,7 +3226,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -3306,7 +3306,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -3425,7 +3425,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3438,7 +3438,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -3518,7 +3518,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -3637,7 +3637,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3650,7 +3650,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -3730,7 +3730,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -3849,7 +3849,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -3862,7 +3862,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -3942,7 +3942,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -4061,7 +4061,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4074,7 +4074,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -4154,7 +4154,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -4273,7 +4273,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4286,7 +4286,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -4366,7 +4366,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -4485,7 +4485,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4498,7 +4498,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -4578,7 +4578,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -4697,7 +4697,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4710,7 +4710,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -4790,7 +4790,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -4909,7 +4909,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4922,7 +4922,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -5002,7 +5002,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -5121,7 +5121,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -5134,7 +5134,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -5214,7 +5214,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65
@@ -5333,7 +5333,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %21, i64 noundef 2) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -5346,7 +5346,7 @@ _ZN4llvm5ErrorD2Ev.exit11:
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i16 %25, ptr %26, align 2
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull %6, i64 4) #10
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nonnull align 1 dereferenceable(4) %6, i64 4) #10
   %27 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i)
@@ -5426,7 +5426,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %_ZL10ad
   %60 = load ptr, ptr %0, align 8
   %61 = load i64, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #10
   %63 = load ptr, ptr %20, align 8
   %64 = icmp eq ptr %63, %21
   br i1 %64, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit, label %65

@@ -127,7 +127,7 @@ define void @up_irqinitialize() local_unnamed_addr #0 {
   %24 = and i32 %23, -4096
   %25 = or disjoint i32 %24, 3328
   %26 = zext i32 %25 to i64
-  tail call void asm sideeffect "wrmsr", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 27, i64 %26, i64 0) #4, !srcloc !11
+  tail call void asm sideeffect "wrmsr", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 27, i64 range(i64 0, 4294967296) %26, i64 0) #4, !srcloc !11
   tail call void asm sideeffect "wrmsr", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2063, i64 511, i64 0) #4, !srcloc !11
   tail call void asm sideeffect "wrmsr", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2101, i64 65536, i64 0) #4, !srcloc !11
   tail call void asm sideeffect "wrmsr", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2102, i64 65536, i64 0) #4, !srcloc !11

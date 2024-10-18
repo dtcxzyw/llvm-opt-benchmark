@@ -1163,7 +1163,7 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
 .critedge.i:                                      ; preds = %204
   %234 = load i32, ptr @hf_tipc_msg_size, align 4
   %235 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %234, ptr noundef %.0262, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
-  tail call fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %.0262, ptr noundef %202, ptr noundef nonnull %1, i8 noundef zeroext %19, i32 noundef %20, i8 noundef zeroext %16)
+  tail call fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %.0262, ptr noundef %202, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %19, i32 noundef range(i32 0, 131072) %20, i8 noundef zeroext range(i8 0, 16) %16)
   br label %dissect_tipc_v2.exit
 
 236:                                              ; preds = %215
@@ -1278,7 +1278,7 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   %312 = sub nsw i32 %20, %212
   %313 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0262, i32 noundef %.1.i) #7
   %314 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %.0262, i32 noundef %.1.i, i32 noundef %312, i32 noundef %313) #7
-  call fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %314, ptr noundef nonnull %1, ptr noundef %.0143.i, i8 noundef zeroext %19)
+  call fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %314, ptr noundef nonnull %1, ptr noundef %.0143.i, i8 noundef zeroext range(i8 0, 16) %19)
   br label %dissect_tipc_v2.exit
 
 dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311

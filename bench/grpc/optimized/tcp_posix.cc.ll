@@ -454,7 +454,7 @@ lpad4.i:                                          ; preds = %entry
           cleanup
   %tb_list.i = getelementptr inbounds i8, ptr %call, i64 592
   %self_reservation.i = getelementptr inbounds i8, ptr %call, i64 568
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %tb_list.i) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %tb_list.i) #25
   tail call void @_ZN17grpc_event_engine12experimental15MemoryAllocator11ReservationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %self_reservation.i) #25
   tail call void @_ZN9grpc_core11MemoryOwnerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %memory_owner.i) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_address.i) #25
@@ -970,7 +970,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
   br label %cleanup.action
 
 if.else.i.i:                                      ; preds = %invoke.cont24
-  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12AssignStatusINS0_6StatusEEEvOT_(ptr noundef nonnull align 8 dereferenceable(40) %addr_uri, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12AssignStatusINS0_6StatusEEEvOT_(ptr noundef nonnull align 8 dereferenceable(40) %addr_uri, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp22)
           to label %cleanup.action unwind label %lpad25
 
 cleanup.action:                                   ; preds = %if.else.i.i, %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6AssignIS8_EEvOT_.exit.i.i
@@ -1541,13 +1541,13 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %this)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
   resume { ptr, i32 } %1
 
@@ -3140,7 +3140,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i, label %_ZL31UnrefMaybePutZerocopySendRecordPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEjPKc.exit
 
 if.then.i:                                        ; preds = %if.then2
-  tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %2)
+  tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(288) %2)
   %lock_.i.i = getelementptr inbounds i8, ptr %arg, i64 664
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %lock_.i.i)
   %free_send_records_.i.i.i = getelementptr inbounds i8, ptr %arg, i64 648
@@ -3888,7 +3888,7 @@ delete.notnull.i:                                 ; preds = %if.then.i.i.i.i, %i
   store ptr null, ptr %outgoing_buffer_arg.i, align 8
   %tcp_zerocopy_send_ctx.i.i = getelementptr inbounds i8, ptr %tcp, i64 640
   call void @_ZN9grpc_core18TcpZerocopySendCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(107) %tcp_zerocopy_send_ctx.i.i) #25
-  call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %tb_list.i) #25
+  call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %tb_list.i) #25
   %self_reservation.i.i = getelementptr inbounds i8, ptr %tcp, i64 568
   %14 = load ptr, ptr %self_reservation.i.i, align 8
   %cmp.i.i.not.i.i.i = icmp eq ptr %14, null
@@ -4350,7 +4350,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %add.ptr = getelementptr inbounds %"class.grpc_core::TcpZerocopySendRecord", ptr %3, i64 %indvars.iv
   %ref_.i = getelementptr inbounds i8, ptr %add.ptr, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref_.i, i8 0, i64 24, i1 false)
-  invoke void @grpc_slice_buffer_init(ptr noundef nonnull %add.ptr)
+  invoke void @grpc_slice_buffer_init(ptr noundef nonnull align 8 dereferenceable(288) %add.ptr)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %for.body
@@ -4943,7 +4943,7 @@ if.then11.i:                                      ; preds = %if.end.i56, %_ZN9gr
   %zerocopy_send_record.128.i = phi ptr [ %retval.0.i.i23.i, %if.end.i56 ], [ %retval.0.i.i.i, %_ZN9grpc_core18TcpZerocopySendCtx13GetSendRecordEv.exit.i ]
   %out_offset_.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.128.i, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out_offset_.i.i, i8 0, i64 16, i1 false)
-  invoke void @grpc_slice_buffer_swap(ptr noundef nonnull %buf, ptr noundef nonnull %zerocopy_send_record.128.i)
+  invoke void @grpc_slice_buffer_swap(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(288) %zerocopy_send_record.128.i)
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %if.then11.i
@@ -6329,7 +6329,7 @@ if.then:                                          ; preds = %if.then.sink.split,
   br i1 %cmp.i.i4, label %if.then.i5, label %if.end
 
 if.then.i5:                                       ; preds = %if.then
-  call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %record)
+  call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(288) %record)
   call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %lock_.i.i)
   %free_send_records_.i.i.i = getelementptr inbounds i8, ptr %tcp, i64 648
   %74 = load ptr, ptr %free_send_records_.i.i.i, align 8
@@ -7356,7 +7356,7 @@ _ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit.i: ; preds = %invoke
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZL31UnrefMaybePutZerocopySendRecordPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEjPKc.exit.i
 
 if.then.i.i:                                      ; preds = %_ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit.i
-  call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %26)
+  call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(288) %26)
   call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %lock_.i.i)
   %38 = load ptr, ptr %free_send_records_.i.i.i.i, align 8
   %39 = load i32, ptr %free_send_records_size_.i.i.i.i, align 4
@@ -7917,7 +7917,7 @@ _ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit: ; preds = %invoke.c
   br i1 %cmp.i, label %if.then.i, label %_ZN9grpc_core21TcpZerocopySendRecord5UnrefEv.exit
 
 if.then.i:                                        ; preds = %_ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit
-  tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %call.i)
+  tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(288) %call.i)
   br label %_ZN9grpc_core21TcpZerocopySendRecord5UnrefEv.exit
 
 _ZN9grpc_core21TcpZerocopySendRecord5UnrefEv.exit: ; preds = %_ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit, %if.then.i
@@ -8622,7 +8622,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i.i6, label %if.then.i7, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11EnsureNotOkEv.exit
 
 if.then.i7:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  tail call void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %this)
+  tail call void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %this)
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11EnsureNotOkEv.exit
 
 _ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11EnsureNotOkEv.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i7
@@ -8954,7 +8954,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp) #25
+  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #25
   br label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -9045,7 +9045,7 @@ lpad:                                             ; preds = %if.end.i, %_ZL19per
 
 if.then.i.i.i.i10:                                ; preds = %lpad
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp) #25
+  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #25
   br label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit11
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit11: ; preds = %lpad, %if.then.i.i.i.i10
@@ -9097,7 +9097,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN9grpc_core21TcpZerocopySendRecordD2Ev.exit ], [ 0, %for.cond.preheader ]
   %2 = load ptr, ptr %this, align 8
   %arrayidx = getelementptr inbounds %"class.grpc_core::TcpZerocopySendRecord", ptr %2, i64 %indvars.iv
-  invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull %arrayidx)
+  invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull align 8 dereferenceable(288) %arrayidx)
           to label %_ZN9grpc_core21TcpZerocopySendRecordD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %for.body

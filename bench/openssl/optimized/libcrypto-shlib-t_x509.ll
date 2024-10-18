@@ -1126,7 +1126,7 @@ if.then58:                                        ; preds = %sw.epilog, %sw.epil
 
 if.then.i:                                        ; preds = %if.then58
   %call.i = tail call ptr @X509_STORE_get1_all_certs(ptr noundef nonnull %call63) #3
-  tail call fastcc void @print_certs(ptr noundef %call3, ptr noundef %call.i)
+  tail call fastcc void @print_certs(ptr noundef nonnull %call3, ptr noundef %call.i)
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @X509_free) #3
   br label %if.end65
 

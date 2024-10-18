@@ -679,7 +679,7 @@ _ZN4ncnn5PReLUD2Ev.exit:                          ; preds = %1, %5, %12, %16, %1
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #11
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #11
   ret void
 }
 
@@ -732,7 +732,7 @@ _ZN4ncnn16PReLU_x86_avx512D2Ev.exit:              ; preds = %1, %5, %12, %16, %1
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #11
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #13
   ret void
 }

@@ -2305,7 +2305,7 @@ _ZNK6HandleclEv.exit30:                           ; preds = %_ZNK6HandleclEv.exi
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 44:                                               ; preds = %32
-  %45 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 8, i32 noundef 0) #18
+  %45 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %34, i64 noundef 8, i32 noundef 0) #18
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %44, %42
@@ -4445,7 +4445,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %3
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 25:                                               ; preds = %13
-  %26 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef 8, i32 noundef 0) #18
+  %26 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef 8, i32 noundef 0) #18
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %25, %23
@@ -4961,7 +4961,7 @@ _ZL19get_class_loader_byc.exit:                   ; preds = %36, %38
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 52:                                               ; preds = %41
-  %53 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef 8, i32 noundef 0) #18
+  %53 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %42, i64 noundef 8, i32 noundef 0) #18
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %52, %50
@@ -5009,7 +5009,7 @@ _ZL19get_class_loader_byc.exit26:                 ; preds = %56, %58
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i28
 
 72:                                               ; preds = %61
-  %73 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %62, i64 noundef 8, i32 noundef 0) #18
+  %73 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %62, i64 noundef 8, i32 noundef 0) #18
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i28
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i28: ; preds = %72, %70
@@ -5233,7 +5233,7 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %11, %21
   br i1 %.not52, label %_ZN12ResourceMarkD2Ev.exit, label %27
 
 27:                                               ; preds = %.critedge
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %28) #18
@@ -5526,7 +5526,7 @@ define hidden noundef i64 @_ZN22SystemDictionaryShared25estimate_size_for_archiv
   store ptr %3, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %2, ptr %1, align 8
-  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI22EstimateSizeForArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127116) %4, ptr nonnull %1)
+  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI22EstimateSizeForArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %5 = load i64, ptr %3, align 8
@@ -5670,7 +5670,7 @@ define hidden void @_ZN22SystemDictionaryShared16write_dictionaryEP23RunTimeShar
   store ptr %7, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %4, ptr %3, align 8
-  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127116) %13, ptr nonnull %3)
+  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %13, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %14 = select i1 %1, ptr @.str.54, ptr @.str.55
@@ -5712,7 +5712,7 @@ define hidden void @_ZN22SystemDictionaryShared16write_to_archiveEb(i1 noundef z
   store ptr %11, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %8, ptr %7, align 8
-  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127116) %17, ptr nonnull %7)
+  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %17, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %12, ptr noundef nonnull @.str.54) #18
@@ -5741,7 +5741,7 @@ define hidden void @_ZN22SystemDictionaryShared16write_to_archiveEb(i1 noundef z
   store ptr %6, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127116) %23, ptr nonnull %2)
+  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %23, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %18, ptr noundef nonnull @.str.55) #18
@@ -7681,7 +7681,7 @@ define linkonce_odr hidden void @_ZZNK24DumpTimeSharedClassTable24iterate_all_li
   %24 = sub nuw nsw i32 32, %23
   %25 = shl nuw i32 1, %24
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %19, i32 %25
-  tail call void @_ZN26GrowableArrayWithAllocatorIP13InstanceKlass13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP13InstanceKlass13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %10, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13InstanceKlass13GrowableArrayIS1_EE6appendERKS1_.exit.i.i
 
@@ -8301,7 +8301,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN33CopyLambdaProxyClassInfoToAr
   %25 = getelementptr inbounds i8, ptr %24, i64 336
   %26 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %25, i64 noundef 56) #18
   tail call void @_ZN27RunTimeLambdaProxyClassInfo4initER19LambdaProxyClassKeyR28DumpTimeLambdaProxyClassInfo(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #18
-  %27 = tail call noundef i32 @_ZNK19LambdaProxyClassKey4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %26) #18
+  %27 = tail call noundef i32 @_ZNK19LambdaProxyClassKey4hashEv(ptr noundef nonnull align 8 dereferenceable(56) %26) #18
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr noundef nonnull align 8 dereferenceable(1080) %29, ptr noundef nonnull %26) #18
@@ -8878,7 +8878,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   br i1 %47, label %_ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo.exit, label %48
 
 48:                                               ; preds = %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE3getERKS2_.exit.i
-  %49 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared24check_for_exclusion_implEP13InstanceKlass(ptr noundef %4) #21
+  %49 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared24check_for_exclusion_implEP13InstanceKlass(ptr noundef nonnull %4) #21
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %48

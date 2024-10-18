@@ -1813,7 +1813,7 @@ default.unreachable9:                             ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %20)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %20, ptr align 8 %1), !noalias !16
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %20, ptr nonnull align 8 %1), !noalias !16
   %24 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64 2, i64 2)
           to label %28 unwind label %26, !noalias !16
 
@@ -1867,7 +1867,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exi
 35:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %17, ptr align 8 %1), !noalias !19
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %17, ptr nonnull align 8 %1), !noalias !19
   %36 = getelementptr inbounds i8, ptr %1, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !19, !noundef !3
   %38 = icmp eq i64 %37, 1
@@ -1974,7 +1974,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %15)
-  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %15, ptr align 8 %22)
+  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %15, ptr nonnull align 8 %22)
           to label %.noexc unwind label %104
 
 .noexc:                                           ; preds = %66
@@ -2018,7 +2018,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11)
-  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %11, ptr align 8 %21)
+  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %11, ptr nonnull align 8 %21)
           to label %.noexc5 unwind label %109
 
 .noexc5:                                          ; preds = %76
@@ -2061,7 +2061,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %7, ptr align 8 %1), !noalias !28
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %7, ptr nonnull align 8 %1), !noalias !28
   %87 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %4, ptr nonnull align 8 %87)
           to label %91 unwind label %89, !noalias !28

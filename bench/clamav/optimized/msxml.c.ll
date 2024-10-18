@@ -98,7 +98,7 @@ define i32 @msxml_read_cb(ptr nocapture noundef %0, ptr nocapture noundef writeo
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %11, i64 104
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr %24(ptr noundef nonnull %11, i64 noundef %18, i64 noundef %spec.select.i, i32 noundef 0) #4
+  %25 = tail call ptr %24(ptr noundef nonnull %11, i64 noundef %18, i64 noundef range(i64 1, 131073) %spec.select.i, i32 noundef 0) #4
   %.not31.i = icmp eq ptr %25, null
   br i1 %.not31.i, label %26, label %msxml_read_cb_new_window.exit
 
@@ -167,7 +167,7 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
 51:                                               ; preds = %44
   %52 = getelementptr inbounds i8, ptr %40, i64 104
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr %53(ptr noundef nonnull %40, i64 noundef %46, i64 noundef %spec.select.i85, i32 noundef 0) #4
+  %54 = tail call ptr %53(ptr noundef nonnull %40, i64 noundef %46, i64 noundef range(i64 1, 131073) %spec.select.i85, i32 noundef 0) #4
   %.not31.i87 = icmp eq ptr %54, null
   br i1 %.not31.i87, label %msxml_read_cb_new_window.exit89, label %56
 

@@ -182,7 +182,7 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_23MergingTypeTab
   store ptr %2, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %14 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %14, i64 noundef 256) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %13, ptr noundef nonnull %14, i64 noundef 256) #14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 392
   store i8 0, ptr %15, align 8
   %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
@@ -196,7 +196,7 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_23MergingTypeTab
   store ptr %1, ptr %19, align 8, !noalias !4
   store i8 0, ptr %7, align 8, !noalias !4
   call fastcc void @_ZN12_GLOBAL__N_116TypeStreamMerger4doitERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(396) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %3)
-  %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %13) #14
   %21 = load ptr, ptr %13, align 8
   %22 = icmp eq ptr %21, %14
   br i1 %22, label %_ZN4llvm11SmallVectorIhLj256EED2Ev.exit.i, label %23
@@ -247,7 +247,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_23MergingTypeTable
   store ptr %4, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %16 = getelementptr inbounds i8, ptr %7, i64 128
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %16, i64 noundef 256) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull %16, i64 noundef 256) #14
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 392
   store i8 0, ptr %17, align 8
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
@@ -264,7 +264,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_23MergingTypeTable
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !7
   store i8 0, ptr %9, align 8, !noalias !7
   call fastcc void @_ZN12_GLOBAL__N_116TypeStreamMerger4doitERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(396) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %5)
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %15) #14
   %23 = load ptr, ptr %15, align 8
   %24 = icmp eq ptr %23, %16
   br i1 %24, label %_ZN4llvm11SmallVectorIhLj256EED2Ev.exit.i, label %25
@@ -318,7 +318,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_23MergingTy
   store ptr %3, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %16 = getelementptr inbounds i8, ptr %7, i64 128
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %16, i64 noundef 256) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull %16, i64 noundef 256) #14
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 392
   store i8 0, ptr %17, align 8
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
@@ -335,7 +335,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_23MergingTy
   call fastcc void @_ZN12_GLOBAL__N_116TypeStreamMerger4doitERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(396) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %4)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %22, i64 12, i1 false), !noalias !10
-  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %15) #14
   %24 = load ptr, ptr %15, align 8
   %25 = icmp eq ptr %24, %16
   br i1 %25, label %_ZN4llvm11SmallVectorIhLj256EED2Ev.exit.i, label %26
@@ -386,7 +386,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_22GlobalTyp
   store ptr %3, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = getelementptr inbounds i8, ptr %8, i64 128
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 256) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %16, ptr noundef nonnull %17, i64 noundef 256) #14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 392
   store i8 0, ptr %18, align 8
   %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
@@ -406,7 +406,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_22GlobalTyp
   call fastcc void @_ZN12_GLOBAL__N_116TypeStreamMerger4doitERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(396) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %4)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %25, i64 12, i1 false), !noalias !13
-  %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %16) #14
   %27 = load ptr, ptr %16, align 8
   %28 = icmp eq ptr %27, %17
   br i1 %28, label %_ZN4llvm11SmallVectorIhLj256EED2Ev.exit.i, label %29
@@ -457,7 +457,7 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_22GlobalTypeTabl
   store ptr %2, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = getelementptr inbounds i8, ptr %8, i64 128
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 256) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %16, ptr noundef nonnull %17, i64 noundef 256) #14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 392
   store i8 0, ptr %18, align 8
   %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
@@ -477,7 +477,7 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_22GlobalTypeTabl
   call fastcc void @_ZN12_GLOBAL__N_116TypeStreamMerger4doitERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(396) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %3)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %24, i64 12, i1 false), !noalias !16
-  %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %16) #14
   %26 = load ptr, ptr %16, align 8
   %27 = icmp eq ptr %26, %17
   br i1 %27, label %_ZN4llvm11SmallVectorIhLj256EED2Ev.exit.i, label %28
@@ -528,7 +528,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_22GlobalTypeTableB
   store ptr %4, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = getelementptr inbounds i8, ptr %8, i64 128
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 256) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %16, ptr noundef nonnull %17, i64 noundef 256) #14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 392
   store i8 0, ptr %18, align 8
   %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
@@ -548,7 +548,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_22GlobalTypeTableB
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !19
   store i8 1, ptr %10, align 8, !noalias !19
   call fastcc void @_ZN12_GLOBAL__N_116TypeStreamMerger4doitERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(396) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %5)
-  %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %16) #14
   %26 = load ptr, ptr %16, align 8
   %27 = icmp eq ptr %26, %17
   br i1 %27, label %_ZN4llvm11SmallVectorIhLj256EED2Ev.exit.i, label %28
@@ -1031,12 +1031,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %.critedge.i.i.i.i
-  %164 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %152, i64 noundef %140, i64 noundef %140, i8 0), !noalias !57
+  %164 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %152, i64 noundef range(i64 0, 4294967296) %140, i64 noundef range(i64 0, 4294967296) %140, i8 0), !noalias !57
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit.i.i.i.i
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit.i.i.i.i: ; preds = %.critedge.i.i.i.i.i.i.i.i, %162
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %156, %162 ], [ %164, %.critedge.i.i.i.i.i.i.i.i ]
-  %165 = call fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remapTypeERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEEENK3$_0clENS1_15MutableArrayRefIhEE"(ptr noundef nonnull readonly align 8 dereferenceable(24) %13, ptr nonnull %.0.i.i.i.i.i.i.i.i, i64 %140), !noalias !57
+  %165 = call fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remapTypeERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEEENK3$_0clENS1_15MutableArrayRefIhEE"(ptr noundef nonnull readonly align 8 dereferenceable(24) %13, ptr nonnull %.0.i.i.i.i.i.i.i.i, i64 range(i64 0, 4294967296) %140), !noalias !57
   %166 = extractvalue { ptr, i64 } %165, 0
   %167 = extractvalue { ptr, i64 } %165, 1
   %168 = icmp eq i64 %167, 0
@@ -1322,12 +1322,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #14
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #14
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #14
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
   ret void
 }
 
@@ -1383,7 +1383,7 @@ define internal fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remap
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 3
   %11 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %11, i64 noundef 4) #14
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %11, i64 noundef 4) #14
   %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %7, align 8
   call void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %4) #14
@@ -1498,7 +1498,7 @@ _ZN12_GLOBAL__N_116TypeStreamMerger14remapTypeIndexERN4llvm8codeview9TypeIndexE.
 .loopexit.i:                                      ; preds = %_ZN12_GLOBAL__N_116TypeStreamMerger14remapTypeIndexERN4llvm8codeview9TypeIndexE.exit.i, %40, %32, %57, %._crit_edge50.i, %3
   %.sroa.5.0.i = phi i64 [ %2, %._crit_edge50.i ], [ %.sroa.5.0.copyload.i, %3 ], [ %2, %57 ], [ 0, %32 ], [ 0, %40 ], [ 0, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapTypeIndexERN4llvm8codeview9TypeIndexE.exit.i ]
   %.sroa.041.0.i = phi ptr [ %1, %._crit_edge50.i ], [ %.sroa.041.0.copyload.i, %3 ], [ %1, %57 ], [ null, %32 ], [ null, %40 ], [ null, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapTypeIndexERN4llvm8codeview9TypeIndexE.exit.i ]
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
   %63 = load ptr, ptr %4, align 8
   %64 = icmp eq ptr %63, %11
   br i1 %64, label %_ZN12_GLOBAL__N_116TypeStreamMerger12remapIndicesERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEENS1_15MutableArrayRefIhEE.exit, label %65
@@ -1546,7 +1546,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %3, %8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(184) %4) #14
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 106
@@ -1555,7 +1555,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %3, %8
   store i8 0, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %22 = getelementptr inbounds i8, ptr %4, i64 128
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %22, i64 noundef 2) #14
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull %22, i64 noundef 2) #14
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %17, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -1577,7 +1577,7 @@ _ZN4llvm5ErrorD2Ev.exit21:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 .critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit21, %_ZN4llvm5ErrorD2Ev.exit, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %18, align 8
-  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #14
+  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %21) #14
   %28 = load ptr, ptr %21, align 8
   %29 = icmp eq ptr %28, %22
   br i1 %29, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit.i, label %30

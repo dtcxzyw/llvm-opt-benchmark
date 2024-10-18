@@ -1228,7 +1228,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_12DifferResultE(ptr dead_on
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %12
 
 .noexc3:                                          ; preds = %.noexc
@@ -1238,7 +1238,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_12DifferResultE(ptr dead_on
 10:                                               ; preds = %.noexc3
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc3
@@ -1284,7 +1284,7 @@ define dso_local void @_ZN4Luau4diffIPKNS_4TypeES3_EENSt7__cxx1112basic_stringIc
 
 9:                                                ; preds = %5
   store i8 0, ptr %6, align 8
-  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #11
+  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %4) #11
   br label %_ZN4Luau12DifferResultD2Ev.exit
 
 _ZN4Luau12DifferResultD2Ev.exit:                  ; preds = %5, %9
@@ -1300,7 +1300,7 @@ _ZN4Luau12DifferResultD2Ev.exit:                  ; preds = %5, %9
 
 15:                                               ; preds = %10
   store i8 0, ptr %12, align 8
-  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #11
+  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %4) #11
   br label %_ZN4Luau12DifferResultD2Ev.exit3
 
 _ZN4Luau12DifferResultD2Ev.exit3:                 ; preds = %10, %15
@@ -1324,7 +1324,7 @@ define dso_local void @_ZN4Luau4diffIRKNS_4TypeES3_EENSt7__cxx1112basic_stringIc
 
 9:                                                ; preds = %5
   store i8 0, ptr %6, align 8
-  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #11
+  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %4) #11
   br label %_ZN4Luau12DifferResultD2Ev.exit
 
 _ZN4Luau12DifferResultD2Ev.exit:                  ; preds = %5, %9
@@ -1340,7 +1340,7 @@ _ZN4Luau12DifferResultD2Ev.exit:                  ; preds = %5, %9
 
 15:                                               ; preds = %10
   store i8 0, ptr %12, align 8
-  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #11
+  call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %4) #11
   br label %_ZN4Luau12DifferResultD2Ev.exit3
 
 _ZN4Luau12DifferResultD2Ev.exit3:                 ; preds = %10, %15
@@ -1361,7 +1361,7 @@ define linkonce_odr dso_local void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull a
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 136
   store i8 0, ptr %4, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #11
   br label %_ZN4Luau16DiffPathNodeLeafD2Ev.exit
 
 _ZN4Luau16DiffPathNodeLeafD2Ev.exit:              ; preds = %1, %7
@@ -1373,7 +1373,7 @@ _ZN4Luau16DiffPathNodeLeafD2Ev.exit:              ; preds = %1, %7
 12:                                               ; preds = %_ZN4Luau16DiffPathNodeLeafD2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %9, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #11
   br label %_ZN4Luau16DiffPathNodeLeafD2Ev.exit1
 
 _ZN4Luau16DiffPathNodeLeafD2Ev.exit1:             ; preds = %_ZN4Luau16DiffPathNodeLeafD2Ev.exit, %12
@@ -1394,7 +1394,7 @@ _ZN4Luau16DiffPathNodeLeafD2Ev.exit1:             ; preds = %_ZN4Luau16DiffPathN
 21:                                               ; preds = %.lr.ph.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
   store i8 0, ptr %18, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #11
   br label %_ZSt8_DestroyIN4Luau12DiffPathNodeEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN4Luau12DiffPathNodeEEvPT_.exit.i.i.i.i.i: ; preds = %21, %.lr.ph.i.i.i.i.i

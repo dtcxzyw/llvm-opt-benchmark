@@ -679,8 +679,8 @@ Abc_TtCopy.exit67.i.us:                           ; preds = %.lr.ph.i56.i.us, %.
   br i1 %310, label %Abc_TtSwapVars.exit300.us, label %311
 
 311:                                              ; preds = %308
-  %spec.select.i274.us = call i32 @llvm.smax.i32(i32 %309, i32 %.017.i.i.us)
-  %spec.select117.i275.us = call i32 @llvm.smin.i32(i32 %309, i32 %.017.i.i.us)
+  %spec.select.i274.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %309, i32 range(i32 -2147483648, 14) %.017.i.i.us)
+  %spec.select117.i275.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %309, i32 range(i32 -2147483648, 14) %.017.i.i.us)
   %312 = icmp ult i32 %spec.select.i274.us, 6
   br i1 %312, label %369, label %313
 
@@ -868,8 +868,8 @@ Abc_TtExpand.exit.i.us:                           ; preds = %392, %Abc_TtCopy.ex
   br i1 %414, label %Abc_TtSwapVars.exit273.us, label %415
 
 415:                                              ; preds = %412
-  %spec.select.i247.us = call i32 @llvm.smax.i32(i32 %413, i32 %.017.i75.i.us)
-  %spec.select117.i248.us = call i32 @llvm.smin.i32(i32 %413, i32 %.017.i75.i.us)
+  %spec.select.i247.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %413, i32 range(i32 -2147483648, 14) %.017.i75.i.us)
+  %spec.select117.i248.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %413, i32 range(i32 -2147483648, 14) %.017.i75.i.us)
   %416 = icmp ult i32 %spec.select.i247.us, 6
   br i1 %416, label %473, label %417
 
@@ -1206,8 +1206,8 @@ Abc_TtHasVar.exit.i.i.us:                         ; preds = %559, %545
   br i1 %571, label %Abc_TtSwapVars.exit.us, label %572
 
 572:                                              ; preds = %567
-  %spec.select.i.us = call i32 @llvm.smax.i32(i32 %539, i32 %.033.i.i.us)
-  %spec.select117.i.us = call i32 @llvm.smin.i32(i32 %539, i32 %.033.i.i.us)
+  %spec.select.i.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %539, i32 range(i32 -2147483648, 14) %.033.i.i.us)
+  %spec.select117.i.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %539, i32 range(i32 -2147483648, 14) %.033.i.i.us)
   %573 = icmp slt i32 %spec.select.i.us, 6
   br i1 %573, label %.lr.ph.i244.us, label %574
 
@@ -2047,7 +2047,7 @@ Sbd_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
 Sbd_CutSetSortByCost.exit.i.us:                   ; preds = %972, %978, %986, %992, %995, %1000, %1008, %1014, %Sbd_CutSetLastCutContains.exit.i.us, %892
   %.0.i12.i.us = phi i32 [ %.0.i.i200.us, %Sbd_CutSetLastCutContains.exit.i.us ], [ %.1362.us, %892 ], [ %.0.i.i200.us, %1014 ], [ %.0.i.i200.us, %1008 ], [ %.0.i.i200.us, %1000 ], [ %.0.i.i200.us, %995 ], [ %.0.i.i200.us, %992 ], [ %.0.i.i200.us, %986 ], [ %.0.i.i200.us, %978 ], [ %.0.i.i200.us, %972 ]
   %1016 = add nsw i32 %.0.i12.i.us, 1
-  %1017 = call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %1016, i32 %85)
+  %1017 = call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %1016, i32 range(i32 -2147483648, 2147483647) %85)
   br label %Sbd_CutSetAddCut.exit.us
 
 Sbd_CutSetAddCut.exit.us:                         ; preds = %140, %.lr.ph134.i.us, %199, %232, %211, %221, %Sbd_CutSetSortByCost.exit.i.us, %Sbd_CutTreeLeaves.exit.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %98

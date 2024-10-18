@@ -575,7 +575,7 @@ _ZN6icu_753LSR14indexForRegionEPKc.exit:          ; preds = %if.then.i, %if.end.
   br i1 %cmp.i, label %if.end29, label %if.then
 
 if.then:                                          ; preds = %_ZN6icu_753LSR14indexForRegionEPKc.exit
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %langScript)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %langScript)
   %len.i = getelementptr inbounds i8, ptr %langScript, i64 56
   store i32 0, ptr %len.i, align 8
   %12 = load ptr, ptr %langScript, align 8
@@ -634,11 +634,11 @@ if.then24:                                        ; preds = %invoke.cont18
 lpad:                                             ; preds = %invoke.cont15, %invoke.cont5, %invoke.cont16, %invoke.cont12, %invoke.cont8, %invoke.cont6, %invoke.cont, %if.then
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %langScript) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %langScript) #13
   resume { ptr, i32 } %21
 
 if.end:                                           ; preds = %if.then24, %invoke.cont18
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %langScript) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %langScript) #13
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end, %_ZN6icu_753LSR14indexForRegionEPKc.exit
@@ -803,7 +803,7 @@ _ZN6icu_753LSR14indexForRegionEPKc.exit:          ; preds = %if.then.i, %if.end.
   br i1 %cmp.i, label %if.end34, label %if.then
 
 if.then:                                          ; preds = %_ZN6icu_753LSR14indexForRegionEPKc.exit
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %data)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %data)
   %len.i = getelementptr inbounds i8, ptr %data, i64 56
   store i32 0, ptr %len.i, align 8
   %13 = load ptr, ptr %data, align 8
@@ -854,11 +854,11 @@ if.then25:                                        ; preds = %invoke.cont19
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont5, %if.then, %invoke.cont17, %invoke.cont10, %invoke.cont
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %data) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %data) #13
   resume { ptr, i32 } %17
 
 if.end:                                           ; preds = %if.then25, %invoke.cont19
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %data) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %data) #13
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end, %_ZN6icu_753LSR14indexForRegionEPKc.exit

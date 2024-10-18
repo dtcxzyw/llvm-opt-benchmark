@@ -109,7 +109,7 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 15, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %11, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %11, ptr noundef nonnull align 1 dereferenceable(15) @.str, i64 15, i1 false)
   %12 = getelementptr inbounds i8, ptr %7, i64 39
   store i8 0, ptr %12, align 1
   %13 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #33

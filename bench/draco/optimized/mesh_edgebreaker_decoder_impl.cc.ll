@@ -614,7 +614,7 @@ define weak_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebreaker
   %39 = getelementptr inbounds i8, ptr %0, i64 504
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %40 = getelementptr inbounds i8, ptr %0, i64 528
-  invoke void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %40)
+  invoke void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %40)
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %1
@@ -3863,12 +3863,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco31MeshEdgebreakerTraversalDecod
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef nonnull align 8 dereferenceable(52) %0, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef nonnull align 8 dereferenceable(216) %0, i64 52, i1 false)
   %6 = call noundef zeroext i1 @_ZN5draco13DecoderBuffer16StartBitDecodingEbPm(ptr noundef nonnull align 8 dereferenceable(52) %5, i1 noundef zeroext true, ptr noundef nonnull %4)
   br i1 %6, label %7, label %_ZN5draco31MeshEdgebreakerTraversalDecoder22DecodeTraversalSymbolsEv.exit.thread
 
 7:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %5, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(52) %5, i64 52, i1 false)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -3894,12 +3894,12 @@ _ZN5draco31MeshEdgebreakerTraversalDecoder22DecodeTraversalSymbolsEv.exit.thread
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %0, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %21, ptr noundef nonnull align 8 dereferenceable(52) %0, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %21, ptr noundef nonnull align 8 dereferenceable(216) %0, i64 52, i1 false)
   %22 = call noundef zeroext i1 @_ZN5draco13DecoderBuffer16StartBitDecodingEbPm(ptr noundef nonnull align 8 dereferenceable(52) %21, i1 noundef zeroext true, ptr noundef nonnull %3)
   br i1 %22, label %23, label %_ZN5draco31MeshEdgebreakerTraversalDecoder16DecodeStartFacesEv.exit.thread
 
 23:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %21, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(52) %21, i64 52, i1 false)
   %24 = load i64, ptr %3, align 8
   %25 = load i64, ptr %9, align 8
   %26 = load i64, ptr %11, align 8
@@ -3919,7 +3919,7 @@ _ZN5draco31MeshEdgebreakerTraversalDecoder16DecodeStartFacesEv.exit.thread: ; pr
 
 _ZN5draco31MeshEdgebreakerTraversalDecoder16DecodeStartFacesEv.exit: ; preds = %15
   %30 = getelementptr inbounds i8, ptr %0, i64 112
-  %31 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %30, ptr noundef nonnull %0)
+  %31 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %30, ptr noundef nonnull align 8 dereferenceable(216) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %31, label %32, label %35
 
@@ -7917,7 +7917,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev.exit1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5draco41MeshEdgebreakerTraversalPredictiveDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0)
+  tail call void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   invoke void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2)
           to label %3 unwind label %7
@@ -10524,7 +10524,7 @@ define linkonce_odr void @_ZN5draco41MeshEdgebreakerTraversalPredictiveDecoder4I
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
-  tail call void @_ZN5draco13DecoderBuffer4InitEPKcmt(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %13, i64 noundef %24, i16 noundef zeroext %32)
+  tail call void @_ZN5draco13DecoderBuffer4InitEPKcmt(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %13, i64 noundef %24, i16 noundef zeroext %32)
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8
@@ -14584,7 +14584,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev.exit1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5draco38MeshEdgebreakerTraversalValenceDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0)
+  tail call void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   invoke void @_ZN5draco13DecoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2)
           to label %3 unwind label %7
@@ -17173,7 +17173,7 @@ define linkonce_odr void @_ZN5draco38MeshEdgebreakerTraversalValenceDecoder4Init
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
-  tail call void @_ZN5draco13DecoderBuffer4InitEPKcmt(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %13, i64 noundef %24, i16 noundef zeroext %32)
+  tail call void @_ZN5draco13DecoderBuffer4InitEPKcmt(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %13, i64 noundef %24, i16 noundef zeroext %32)
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8
@@ -17210,12 +17210,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco38MeshEdgebreakerTraversalValen
 23:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %24 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %24, ptr noundef nonnull align 8 dereferenceable(52) %0, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %24, ptr noundef nonnull align 8 dereferenceable(216) %0, i64 52, i1 false)
   %25 = call noundef zeroext i1 @_ZN5draco13DecoderBuffer16StartBitDecodingEbPm(ptr noundef nonnull align 8 dereferenceable(52) %24, i1 noundef zeroext true, ptr noundef nonnull %4)
   br i1 %25, label %26, label %_ZN5draco31MeshEdgebreakerTraversalDecoder22DecodeTraversalSymbolsEv.exit.thread
 
 26:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %24, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(52) %24, i64 52, i1 false)
   %27 = load i64, ptr %4, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
@@ -17244,12 +17244,12 @@ _ZN5draco31MeshEdgebreakerTraversalDecoder22DecodeTraversalSymbolsEv.exit: ; pre
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %40, ptr noundef nonnull align 8 dereferenceable(52) %0, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %40, ptr noundef nonnull align 8 dereferenceable(216) %0, i64 52, i1 false)
   %41 = call noundef zeroext i1 @_ZN5draco13DecoderBuffer16StartBitDecodingEbPm(ptr noundef nonnull align 8 dereferenceable(52) %40, i1 noundef zeroext true, ptr noundef nonnull %3)
   br i1 %41, label %42, label %_ZN5draco31MeshEdgebreakerTraversalDecoder16DecodeStartFacesEv.exit.thread
 
 42:                                               ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %40, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(52) %40, i64 52, i1 false)
   %43 = load i64, ptr %3, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
@@ -17271,7 +17271,7 @@ _ZN5draco31MeshEdgebreakerTraversalDecoder16DecodeStartFacesEv.exit.thread: ; pr
 
 _ZN5draco31MeshEdgebreakerTraversalDecoder16DecodeStartFacesEv.exit: ; preds = %35
   %51 = getelementptr inbounds i8, ptr %0, i64 112
-  %52 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %51, ptr noundef nonnull %0)
+  %52 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %51, ptr noundef nonnull align 8 dereferenceable(216) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %52, label %53, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -28443,7 +28443,7 @@ _ZNSt16allocator_traitsISaIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebre
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 40, i1 false)
   store ptr null, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
@@ -28560,7 +28560,7 @@ _ZNSt16allocator_traitsISaIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebre
   %74 = getelementptr inbounds i8, ptr %1, i64 256
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %73, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %68, i8 0, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %0, i64 264
   %77 = getelementptr inbounds i8, ptr %1, i64 264
   %78 = load ptr, ptr %77, align 8
@@ -29977,7 +29977,7 @@ _ZNSt16allocator_traitsISaIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebre
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 40, i1 false)
   store ptr null, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
@@ -30094,7 +30094,7 @@ _ZNSt16allocator_traitsISaIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebre
   %74 = getelementptr inbounds i8, ptr %1, i64 256
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %73, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %68, i8 0, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %0, i64 264
   %77 = getelementptr inbounds i8, ptr %1, i64 264
   %78 = load ptr, ptr %77, align 8
@@ -30370,7 +30370,7 @@ _ZNSt16allocator_traitsISaIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebre
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 40, i1 false)
   store ptr null, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
@@ -30487,7 +30487,7 @@ _ZNSt16allocator_traitsISaIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebre
   %74 = getelementptr inbounds i8, ptr %1, i64 256
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %73, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %68, i8 0, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %0, i64 264
   %77 = getelementptr inbounds i8, ptr %1, i64 264
   %78 = load ptr, ptr %77, align 8

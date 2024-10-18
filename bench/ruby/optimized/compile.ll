@@ -462,7 +462,7 @@ define internal noundef ptr @new_insn_body(ptr noundef %0, i32 noundef %1, i32 n
   call void @llvm.va_start.p0(ptr nonnull %6)
   %8 = zext nneg i32 %4 to i64
   %9 = load i64, ptr @rb_eRuntimeError, align 8
-  %10 = call i64 @rb_size_mul_or_raise(i64 noundef 8, i64 noundef %8, i64 noundef %9) #37
+  %10 = call i64 @rb_size_mul_or_raise(i64 noundef 8, i64 noundef range(i64 1, 4) %8, i64 noundef %9) #37
   %11 = load i64, ptr %0, align 8
   %12 = and i64 %11, 262144
   %.not.i.i.i = icmp eq i64 %12, 0
@@ -1328,7 +1328,7 @@ vm_ci_mid.exit101.i.i:                            ; preds = %302, %300
   br label %iseq_specialized_instruction.exit.i
 
 335:                                              ; preds = %vm_ci_mid.exit101.i.i
-  tail call fastcc void @insn_set_specialized_instruction(ptr noundef nonnull readonly %0, ptr noundef %.081.i, i32 noundef 78)
+  tail call fastcc void @insn_set_specialized_instruction(ptr noundef nonnull readonly %0, ptr noundef nonnull %.081.i, i32 noundef 78)
   br label %iseq_specialized_instruction.exit.i
 
 336:                                              ; preds = %vm_ci_mid.exit101.i.i
@@ -3004,7 +3004,7 @@ rb_array_const_ptr.exit.i:                        ; preds = %626, %621
   br i1 %634, label %635, label %.lr.ph.i22
 
 635:                                              ; preds = %633
-  call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.68, i32 noundef %632) #41
+  call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.68, i32 noundef range(i32 1, 0) %632) #41
   unreachable
 
 .lr.ph.i22:                                       ; preds = %633
@@ -3647,7 +3647,7 @@ new_label_body.exit.i:                            ; preds = %._crit_edge.i.i.i.i
   br i1 %148, label %iseq_compile_each.exit.i, label %149
 
 149:                                              ; preds = %new_label_body.exit.i
-  %150 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %147, i32 noundef 1) #43
+  %150 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %147, i32 noundef 1) #43
   br label %iseq_compile_each.exit.i
 
 iseq_compile_each.exit.i:                         ; preds = %149, %new_label_body.exit.i
@@ -4002,7 +4002,7 @@ get_nd_value.exit.i.i:                            ; preds = %.lr.ph95.i.i
   br label %311
 
 iseq_compile_each.exit.i.i:                       ; preds = %284
-  %310 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %3, ptr noundef %.192.i.i, i32 noundef 1) #43
+  %310 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %.192.i.i, i32 noundef 1) #43
   br label %311
 
 311:                                              ; preds = %iseq_compile_each.exit.i.i, %309, %308, %306, %304, %302, %300, %298, %296, %294, %292, %289, %284
@@ -4312,7 +4312,7 @@ iseq_calc_param_size.exit.i:                      ; preds = %462, %455, %451, %4
   br i1 %.not138.i, label %469, label %iseq_compile_each.exit169.i
 
 iseq_compile_each.exit169.i:                      ; preds = %iseq_calc_param_size.exit.i
-  %468 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %467, i32 noundef 1) #43
+  %468 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %467, i32 noundef 1) #43
   br label %469
 
 469:                                              ; preds = %iseq_compile_each.exit169.i, %iseq_calc_param_size.exit.i
@@ -4322,7 +4322,7 @@ iseq_compile_each.exit169.i:                      ; preds = %iseq_calc_param_siz
   br i1 %.not139.i, label %473, label %iseq_compile_each.exit171.i
 
 iseq_compile_each.exit171.i:                      ; preds = %469
-  %472 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %471, i32 noundef 1) #43
+  %472 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %471, i32 noundef 1) #43
   br label %473
 
 473:                                              ; preds = %iseq_compile_each.exit171.i, %469
@@ -4693,7 +4693,7 @@ iseq_compile_each.exit146.thread:                 ; preds = %642, %649
   br label %658
 
 iseq_compile_each.exit146:                        ; preds = %new_trace_body.exit
-  %657 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %640, i32 noundef 0) #43
+  %657 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %640, i32 noundef 0) #43
   %.not103 = icmp eq i32 %657, 0
   br i1 %.not103, label %1077, label %iseq_compile_each.exit146._crit_edge
 
@@ -5038,7 +5038,7 @@ iseq_compile_each.exit196.thread:                 ; preds = %816, %824
   br label %833
 
 iseq_compile_each.exit196:                        ; preds = %new_trace_body.exit192
-  %832 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %3, ptr noundef %814, i32 noundef 0) #43
+  %832 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %814, i32 noundef 0) #43
   %.not102 = icmp eq i32 %832, 0
   br i1 %.not102, label %1077, label %833
 
@@ -5263,7 +5263,7 @@ iseq_compile_each.exit230.thread:                 ; preds = %926, %933
   br label %ISEQ_COMPILE_DATA.exit233
 
 iseq_compile_each.exit230:                        ; preds = %new_trace_body.exit226
-  %941 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %3, ptr noundef %924, i32 noundef 0) #43
+  %941 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %924, i32 noundef 0) #43
   %.not101 = icmp eq i32 %941, 0
   br i1 %.not101, label %1077, label %ISEQ_COMPILE_DATA.exit233
 
@@ -5405,7 +5405,7 @@ iseq_compile_each.exit252.thread:                 ; preds = %995, %1003
   br label %1036
 
 iseq_compile_each.exit252:                        ; preds = %991
-  %1011 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %993, i32 noundef 0) #43
+  %1011 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %993, i32 noundef 0) #43
   %.not105 = icmp eq i32 %1011, 0
   br i1 %.not105, label %1077, label %1036
 
@@ -5446,7 +5446,7 @@ iseq_compile_each.exit256:                        ; preds = %1012
   %1022 = load ptr, ptr %1013, align 8
   %1023 = getelementptr inbounds i8, ptr %1022, i64 144
   store ptr @rb_iseq_shared_exc_local_tbl, ptr %1023, align 8
-  %1024 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1, i32 noundef 0) #43
+  %1024 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef 0) #43
   %.not100 = icmp eq i32 %1024, 0
   br i1 %.not100, label %1077, label %1036
 
@@ -5456,12 +5456,12 @@ iseq_compile_each.exit258:                        ; preds = %1012
   %1026 = load ptr, ptr %1013, align 8
   %1027 = getelementptr inbounds i8, ptr %1026, i64 144
   store ptr @rb_iseq_shared_exc_local_tbl, ptr %1027, align 8
-  %1028 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1, i32 noundef 1) #43
+  %1028 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef 1) #43
   %.not99 = icmp eq i32 %1028, 0
   br i1 %.not99, label %1077, label %1036
 
 iseq_compile_each.exit262:                        ; preds = %1012
-  %1029 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1, i32 noundef 0) #43
+  %1029 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef 0) #43
   %.not98 = icmp eq i32 %1029, 0
   br i1 %.not98, label %1077, label %1036
 
@@ -5993,7 +5993,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %6, i64 noundef 8) #39
+  %7 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef range(i64 0, 4294967296) %6, i64 noundef 8) #39
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 224
   store ptr %7, ptr %9, align 8
@@ -6295,7 +6295,7 @@ RB_SYMBOL_P.exit:                                 ; preds = %12
   %29 = add nsw i64 %.neg.i.i, 2
   %30 = and i64 %24, -4
   %31 = or i64 %29, %30
-  %32 = tail call noundef i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 61)
+  %32 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %31, i64 range(i64 1, 0) %31, i64 61)
   %33 = bitcast i64 %32 to double
   br label %rb_float_value_inline.exit
 
@@ -8228,7 +8228,7 @@ rb_num2int_inline.exit190.i:                      ; preds = %862, %860
   br i1 %884, label %885, label %.critedge.i.i
 
 885:                                              ; preds = %880
-  %886 = call i64 @rb_iseq_load(i64 noundef %843, i64 noundef %476, i64 noundef 4) #37
+  %886 = call i64 @rb_iseq_load(i64 noundef range(i64 5, 4) %843, i64 noundef %476, i64 noundef 4) #37
   br label %iseq_build_load_iseq.exit.i
 
 .critedge.i.i:                                    ; preds = %880
@@ -8886,7 +8886,7 @@ rb_obj_written.exit.i:                            ; preds = %rb_num2long_inline.
   store ptr null, ptr %665, align 8
   %1201 = call i32 @rb_st_foreach(ptr noundef %666, ptr noundef nonnull @validate_label, i64 noundef %476) #37
   call void @rb_st_free_table(ptr noundef %666) #37
-  %1202 = call fastcc i32 @iseq_setup(ptr noundef %0, ptr noundef %14)
+  %1202 = call fastcc i32 @iseq_setup(ptr noundef %0, ptr noundef nonnull %14)
   br label %iseq_build_from_ary_body.exit
 
 iseq_build_from_ary_body.exit:                    ; preds = %1199, %._crit_edge.i215
@@ -9704,7 +9704,7 @@ define hidden void @rb_ibf_load_iseq_complete(ptr noundef %0) local_unnamed_addr
 
 30:                                               ; preds = %1
   %31 = icmp eq i8 %27, 0
-  %32 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %28, i1 true)
+  %32 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %28, i1 true)
   %33 = add nuw nsw i32 %32, 1
   %34 = select i1 %31, i32 9, i32 %33
   %35 = add i32 %34, %20
@@ -9764,7 +9764,7 @@ ibf_load_small_value.exit611:                     ; preds = %.lr.ph.i606, %.thre
 
 65:                                               ; preds = %ibf_load_small_value.exit611
   %66 = icmp eq i8 %62, 0
-  %67 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %63, i1 true)
+  %67 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %63, i1 true)
   %68 = add nuw nsw i32 %67, 1
   %69 = select i1 %66, i32 9, i32 %68
   %70 = add i32 %69, %59
@@ -9820,7 +9820,7 @@ ibf_load_small_value.exit600:                     ; preds = %.lr.ph.i595, %.thre
 
 96:                                               ; preds = %ibf_load_small_value.exit600
   %97 = icmp eq i8 %93, 0
-  %98 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %94, i1 true)
+  %98 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %94, i1 true)
   %99 = add nuw nsw i32 %98, 1
   %100 = select i1 %97, i32 9, i32 %99
   %101 = add i32 %100, %90
@@ -9875,7 +9875,7 @@ ibf_load_small_value.exit589:                     ; preds = %.lr.ph.i584, %.thre
 
 126:                                              ; preds = %ibf_load_small_value.exit589
   %127 = icmp eq i8 %123, 0
-  %128 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %124, i1 true)
+  %128 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %124, i1 true)
   %129 = add nuw nsw i32 %128, 1
   %130 = select i1 %127, i32 9, i32 %129
   %131 = add i32 %130, %120
@@ -9904,7 +9904,7 @@ ibf_load_small_value.exit578:                     ; preds = %126, %.thread.i569
 
 143:                                              ; preds = %ibf_load_small_value.exit578
   %144 = icmp eq i8 %140, 0
-  %145 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %141, i1 true)
+  %145 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %141, i1 true)
   %146 = add nuw nsw i32 %145, 1
   %147 = select i1 %144, i32 9, i32 %146
   %148 = add i32 %147, %137
@@ -9960,7 +9960,7 @@ ibf_load_small_value.exit567:                     ; preds = %.lr.ph.i562, %.thre
 
 174:                                              ; preds = %ibf_load_small_value.exit567
   %175 = icmp eq i8 %171, 0
-  %176 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %172, i1 true)
+  %176 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %172, i1 true)
   %177 = add nuw nsw i32 %176, 1
   %178 = select i1 %175, i32 9, i32 %177
   %179 = add i32 %178, %168
@@ -10015,7 +10015,7 @@ ibf_load_small_value.exit556:                     ; preds = %.lr.ph.i551, %.thre
 
 204:                                              ; preds = %ibf_load_small_value.exit556
   %205 = icmp eq i8 %201, 0
-  %206 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %202, i1 true)
+  %206 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %202, i1 true)
   %207 = add nuw nsw i32 %206, 1
   %208 = select i1 %205, i32 9, i32 %207
   %209 = add i32 %208, %198
@@ -10070,7 +10070,7 @@ ibf_load_small_value.exit545:                     ; preds = %.lr.ph.i540, %.thre
 
 234:                                              ; preds = %ibf_load_small_value.exit545
   %235 = icmp eq i8 %231, 0
-  %236 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %232, i1 true)
+  %236 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %232, i1 true)
   %237 = add nuw nsw i32 %236, 1
   %238 = select i1 %235, i32 9, i32 %237
   %239 = add i32 %238, %228
@@ -10125,7 +10125,7 @@ ibf_load_small_value.exit534:                     ; preds = %.lr.ph.i529, %.thre
 
 264:                                              ; preds = %ibf_load_small_value.exit534
   %265 = icmp eq i8 %261, 0
-  %266 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %262, i1 true)
+  %266 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %262, i1 true)
   %267 = add nuw nsw i32 %266, 1
   %268 = select i1 %265, i32 9, i32 %267
   %269 = add i32 %268, %258
@@ -10180,7 +10180,7 @@ ibf_load_small_value.exit523:                     ; preds = %.lr.ph.i518, %.thre
 
 294:                                              ; preds = %ibf_load_small_value.exit523
   %295 = icmp eq i8 %291, 0
-  %296 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %292, i1 true)
+  %296 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %292, i1 true)
   %297 = add nuw nsw i32 %296, 1
   %298 = select i1 %295, i32 9, i32 %297
   %299 = add i32 %298, %288
@@ -10235,7 +10235,7 @@ ibf_load_small_value.exit512:                     ; preds = %.lr.ph.i507, %.thre
 
 324:                                              ; preds = %ibf_load_small_value.exit512
   %325 = icmp eq i8 %321, 0
-  %326 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %322, i1 true)
+  %326 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %322, i1 true)
   %327 = add nuw nsw i32 %326, 1
   %328 = select i1 %325, i32 9, i32 %327
   %329 = add i32 %328, %318
@@ -10290,7 +10290,7 @@ ibf_load_small_value.exit501:                     ; preds = %.lr.ph.i496, %.thre
 
 354:                                              ; preds = %ibf_load_small_value.exit501
   %355 = icmp eq i8 %351, 0
-  %356 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %352, i1 true)
+  %356 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %352, i1 true)
   %357 = add nuw nsw i32 %356, 1
   %358 = select i1 %355, i32 9, i32 %357
   %359 = add i32 %358, %348
@@ -10345,7 +10345,7 @@ ibf_load_small_value.exit490:                     ; preds = %.lr.ph.i485, %.thre
 
 384:                                              ; preds = %ibf_load_small_value.exit490
   %385 = icmp eq i8 %381, 0
-  %386 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %382, i1 true)
+  %386 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %382, i1 true)
   %387 = add nuw nsw i32 %386, 1
   %388 = select i1 %385, i32 9, i32 %387
   %389 = add i32 %388, %378
@@ -10400,7 +10400,7 @@ ibf_load_small_value.exit479:                     ; preds = %.lr.ph.i474, %.thre
 
 414:                                              ; preds = %ibf_load_small_value.exit479
   %415 = icmp eq i8 %411, 0
-  %416 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %412, i1 true)
+  %416 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %412, i1 true)
   %417 = add nuw nsw i32 %416, 1
   %418 = select i1 %415, i32 9, i32 %417
   %419 = add i32 %418, %408
@@ -10456,7 +10456,7 @@ ibf_load_small_value.exit468:                     ; preds = %.lr.ph.i463, %.thre
 
 445:                                              ; preds = %ibf_load_small_value.exit468
   %446 = icmp eq i8 %442, 0
-  %447 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %443, i1 true)
+  %447 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %443, i1 true)
   %448 = add nuw nsw i32 %447, 1
   %449 = select i1 %446, i32 9, i32 %448
   %450 = add i32 %449, %439
@@ -10512,7 +10512,7 @@ ibf_load_small_value.exit457:                     ; preds = %.lr.ph.i452, %.thre
 
 476:                                              ; preds = %ibf_load_small_value.exit457
   %477 = icmp eq i8 %473, 0
-  %478 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %474, i1 true)
+  %478 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %474, i1 true)
   %479 = add nuw nsw i32 %478, 1
   %480 = select i1 %477, i32 9, i32 %479
   %481 = add i32 %480, %470
@@ -10568,7 +10568,7 @@ ibf_load_small_value.exit446:                     ; preds = %.lr.ph.i441, %.thre
 
 507:                                              ; preds = %ibf_load_small_value.exit446
   %508 = icmp eq i8 %504, 0
-  %509 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %505, i1 true)
+  %509 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %505, i1 true)
   %510 = add nuw nsw i32 %509, 1
   %511 = select i1 %508, i32 9, i32 %510
   %512 = add i32 %511, %501
@@ -10624,7 +10624,7 @@ ibf_load_small_value.exit435:                     ; preds = %.lr.ph.i430, %.thre
 
 538:                                              ; preds = %ibf_load_small_value.exit435
   %539 = icmp eq i8 %535, 0
-  %540 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %536, i1 true)
+  %540 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %536, i1 true)
   %541 = add nuw nsw i32 %540, 1
   %542 = select i1 %539, i32 9, i32 %541
   %543 = add i32 %542, %532
@@ -10679,7 +10679,7 @@ ibf_load_small_value.exit424:                     ; preds = %.lr.ph.i419, %.thre
 
 568:                                              ; preds = %ibf_load_small_value.exit424
   %569 = icmp eq i8 %565, 0
-  %570 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %566, i1 true)
+  %570 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %566, i1 true)
   %571 = add nuw nsw i32 %570, 1
   %572 = select i1 %569, i32 9, i32 %571
   %573 = add i32 %572, %562
@@ -10734,7 +10734,7 @@ ibf_load_small_value.exit413:                     ; preds = %.lr.ph.i408, %.thre
 
 598:                                              ; preds = %ibf_load_small_value.exit413
   %599 = icmp eq i8 %595, 0
-  %600 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %596, i1 true)
+  %600 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %596, i1 true)
   %601 = add nuw nsw i32 %600, 1
   %602 = select i1 %599, i32 9, i32 %601
   %603 = add i32 %602, %592
@@ -10789,7 +10789,7 @@ ibf_load_small_value.exit402:                     ; preds = %.lr.ph.i397, %.thre
 
 628:                                              ; preds = %ibf_load_small_value.exit402
   %629 = icmp eq i8 %625, 0
-  %630 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %626, i1 true)
+  %630 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %626, i1 true)
   %631 = add nuw nsw i32 %630, 1
   %632 = select i1 %629, i32 9, i32 %631
   %633 = add i32 %632, %622
@@ -10844,7 +10844,7 @@ ibf_load_small_value.exit391:                     ; preds = %.lr.ph.i386, %.thre
 
 658:                                              ; preds = %ibf_load_small_value.exit391
   %659 = icmp eq i8 %655, 0
-  %660 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %656, i1 true)
+  %660 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %656, i1 true)
   %661 = add nuw nsw i32 %660, 1
   %662 = select i1 %659, i32 9, i32 %661
   %663 = add i32 %662, %652
@@ -10899,7 +10899,7 @@ ibf_load_small_value.exit380:                     ; preds = %.lr.ph.i375, %.thre
 
 688:                                              ; preds = %ibf_load_small_value.exit380
   %689 = icmp eq i8 %685, 0
-  %690 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %686, i1 true)
+  %690 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %686, i1 true)
   %691 = add nuw nsw i32 %690, 1
   %692 = select i1 %689, i32 9, i32 %691
   %693 = add i32 %692, %682
@@ -10954,7 +10954,7 @@ ibf_load_small_value.exit369:                     ; preds = %.lr.ph.i364, %.thre
 
 718:                                              ; preds = %ibf_load_small_value.exit369
   %719 = icmp eq i8 %715, 0
-  %720 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %716, i1 true)
+  %720 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %716, i1 true)
   %721 = add nuw nsw i32 %720, 1
   %722 = select i1 %719, i32 9, i32 %721
   %723 = add i32 %722, %712
@@ -11009,7 +11009,7 @@ ibf_load_small_value.exit358:                     ; preds = %.lr.ph.i353, %.thre
 
 748:                                              ; preds = %ibf_load_small_value.exit358
   %749 = icmp eq i8 %745, 0
-  %750 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %746, i1 true)
+  %750 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %746, i1 true)
   %751 = add nuw nsw i32 %750, 1
   %752 = select i1 %749, i32 9, i32 %751
   %753 = add i32 %752, %742
@@ -11064,7 +11064,7 @@ ibf_load_small_value.exit347:                     ; preds = %.lr.ph.i342, %.thre
 
 778:                                              ; preds = %ibf_load_small_value.exit347
   %779 = icmp eq i8 %775, 0
-  %780 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %776, i1 true)
+  %780 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %776, i1 true)
   %781 = add nuw nsw i32 %780, 1
   %782 = select i1 %779, i32 9, i32 %781
   %783 = add i32 %782, %772
@@ -11121,7 +11121,7 @@ ibf_load_small_value.exit336:                     ; preds = %.lr.ph.i331, %.thre
 
 810:                                              ; preds = %ibf_load_small_value.exit336
   %811 = icmp eq i8 %807, 0
-  %812 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %808, i1 true)
+  %812 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %808, i1 true)
   %813 = add nuw nsw i32 %812, 1
   %814 = select i1 %811, i32 9, i32 %813
   %815 = add i32 %814, %803
@@ -11176,7 +11176,7 @@ ibf_load_small_value.exit325:                     ; preds = %.lr.ph.i320, %.thre
 
 840:                                              ; preds = %ibf_load_small_value.exit325
   %841 = icmp eq i8 %837, 0
-  %842 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %838, i1 true)
+  %842 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %838, i1 true)
   %843 = add nuw nsw i32 %842, 1
   %844 = select i1 %841, i32 9, i32 %843
   %845 = add i32 %844, %834
@@ -11231,7 +11231,7 @@ ibf_load_small_value.exit314:                     ; preds = %.lr.ph.i309, %.thre
 
 870:                                              ; preds = %ibf_load_small_value.exit314
   %871 = icmp eq i8 %867, 0
-  %872 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %868, i1 true)
+  %872 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %868, i1 true)
   %873 = add nuw nsw i32 %872, 1
   %874 = select i1 %871, i32 9, i32 %873
   %875 = add i32 %874, %864
@@ -11286,7 +11286,7 @@ ibf_load_small_value.exit303:                     ; preds = %.lr.ph.i298, %.thre
 
 900:                                              ; preds = %ibf_load_small_value.exit303
   %901 = icmp eq i8 %897, 0
-  %902 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %898, i1 true)
+  %902 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %898, i1 true)
   %903 = add nuw nsw i32 %902, 1
   %904 = select i1 %901, i32 9, i32 %903
   %905 = add i32 %904, %894
@@ -11342,7 +11342,7 @@ ibf_load_small_value.exit292:                     ; preds = %.lr.ph.i287, %.thre
 
 931:                                              ; preds = %ibf_load_small_value.exit292
   %932 = icmp eq i8 %928, 0
-  %933 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %929, i1 true)
+  %933 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %929, i1 true)
   %934 = add nuw nsw i32 %933, 1
   %935 = select i1 %932, i32 9, i32 %934
   %936 = add i32 %935, %925
@@ -11403,7 +11403,7 @@ ibf_load_small_value.exit281:                     ; preds = %.lr.ph.i276, %.thre
 
 967:                                              ; preds = %ibf_load_small_value.exit281
   %968 = icmp eq i8 %964, 0
-  %969 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %965, i1 true)
+  %969 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %965, i1 true)
   %970 = add nuw nsw i32 %969, 1
   %971 = select i1 %968, i32 9, i32 %970
   %972 = add i32 %971, %961
@@ -11459,7 +11459,7 @@ ibf_load_small_value.exit270:                     ; preds = %.lr.ph.i265, %.thre
 
 998:                                              ; preds = %ibf_load_small_value.exit270
   %999 = icmp eq i8 %995, 0
-  %1000 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %996, i1 true)
+  %1000 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %996, i1 true)
   %1001 = add nuw nsw i32 %1000, 1
   %1002 = select i1 %999, i32 9, i32 %1001
   %1003 = add i32 %1002, %992
@@ -11514,7 +11514,7 @@ ibf_load_small_value.exit259:                     ; preds = %.lr.ph.i254, %.thre
 
 1028:                                             ; preds = %ibf_load_small_value.exit259
   %1029 = icmp eq i8 %1025, 0
-  %1030 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1026, i1 true)
+  %1030 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1026, i1 true)
   %1031 = add nuw nsw i32 %1030, 1
   %1032 = select i1 %1029, i32 9, i32 %1031
   %1033 = add i32 %1032, %1022
@@ -11569,7 +11569,7 @@ ibf_load_small_value.exit248:                     ; preds = %.lr.ph.i243, %.thre
 
 1058:                                             ; preds = %ibf_load_small_value.exit248
   %1059 = icmp eq i8 %1055, 0
-  %1060 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1056, i1 true)
+  %1060 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1056, i1 true)
   %1061 = add nuw nsw i32 %1060, 1
   %1062 = select i1 %1059, i32 9, i32 %1061
   %1063 = add i32 %1062, %1052
@@ -11625,7 +11625,7 @@ ibf_load_small_value.exit237:                     ; preds = %.lr.ph.i232, %.thre
 
 1089:                                             ; preds = %ibf_load_small_value.exit237
   %1090 = icmp eq i8 %1086, 0
-  %1091 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1087, i1 true)
+  %1091 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1087, i1 true)
   %1092 = add nuw nsw i32 %1091, 1
   %1093 = select i1 %1090, i32 9, i32 %1092
   %1094 = add i32 %1093, %1083
@@ -11682,7 +11682,7 @@ ibf_load_small_value.exit226:                     ; preds = %.lr.ph.i221, %.thre
 
 1121:                                             ; preds = %ibf_load_small_value.exit226
   %1122 = icmp eq i8 %1118, 0
-  %1123 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1119, i1 true)
+  %1123 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1119, i1 true)
   %1124 = add nuw nsw i32 %1123, 1
   %1125 = select i1 %1122, i32 9, i32 %1124
   %1126 = add i32 %1125, %1114
@@ -11737,7 +11737,7 @@ ibf_load_small_value.exit215:                     ; preds = %.lr.ph.i210, %.thre
 
 1151:                                             ; preds = %ibf_load_small_value.exit215
   %1152 = icmp eq i8 %1148, 0
-  %1153 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1149, i1 true)
+  %1153 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1149, i1 true)
   %1154 = add nuw nsw i32 %1153, 1
   %1155 = select i1 %1152, i32 9, i32 %1154
   %1156 = add i32 %1155, %1145
@@ -11792,7 +11792,7 @@ ibf_load_small_value.exit204:                     ; preds = %.lr.ph.i199, %.thre
 
 1181:                                             ; preds = %ibf_load_small_value.exit204
   %1182 = icmp eq i8 %1178, 0
-  %1183 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1179, i1 true)
+  %1183 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1179, i1 true)
   %1184 = add nuw nsw i32 %1183, 1
   %1185 = select i1 %1182, i32 9, i32 %1184
   %1186 = add i32 %1185, %1175
@@ -11847,7 +11847,7 @@ ibf_load_small_value.exit193:                     ; preds = %.lr.ph.i188, %.thre
 
 1211:                                             ; preds = %ibf_load_small_value.exit193
   %1212 = icmp eq i8 %1208, 0
-  %1213 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1209, i1 true)
+  %1213 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1209, i1 true)
   %1214 = add nuw nsw i32 %1213, 1
   %1215 = select i1 %1212, i32 9, i32 %1214
   %1216 = add i32 %1215, %1205
@@ -11902,7 +11902,7 @@ ibf_load_small_value.exit182:                     ; preds = %.lr.ph.i177, %.thre
 
 1241:                                             ; preds = %ibf_load_small_value.exit182
   %1242 = icmp eq i8 %1238, 0
-  %1243 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1239, i1 true)
+  %1243 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1239, i1 true)
   %1244 = add nuw nsw i32 %1243, 1
   %1245 = select i1 %1242, i32 9, i32 %1244
   %1246 = add i32 %1245, %1235
@@ -11959,7 +11959,7 @@ ibf_load_small_value.exit171:                     ; preds = %.lr.ph.i166, %.thre
 
 1273:                                             ; preds = %ibf_load_small_value.exit171
   %1274 = icmp eq i8 %1270, 0
-  %1275 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1271, i1 true)
+  %1275 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1271, i1 true)
   %1276 = add nuw nsw i32 %1275, 1
   %1277 = select i1 %1274, i32 9, i32 %1276
   %1278 = add i32 %1277, %1266
@@ -12014,7 +12014,7 @@ ibf_load_small_value.exit160:                     ; preds = %.lr.ph.i155, %.thre
 
 1303:                                             ; preds = %ibf_load_small_value.exit160
   %1304 = icmp eq i8 %1300, 0
-  %1305 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1301, i1 true)
+  %1305 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1301, i1 true)
   %1306 = add nuw nsw i32 %1305, 1
   %1307 = select i1 %1304, i32 9, i32 %1306
   %1308 = add i32 %1307, %1297
@@ -12069,7 +12069,7 @@ ibf_load_small_value.exit149:                     ; preds = %.lr.ph.i144, %.thre
 
 1333:                                             ; preds = %ibf_load_small_value.exit149
   %1334 = icmp eq i8 %1330, 0
-  %1335 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1331, i1 true)
+  %1335 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1331, i1 true)
   %1336 = add nuw nsw i32 %1335, 1
   %1337 = select i1 %1334, i32 9, i32 %1336
   %1338 = add i32 %1337, %1327
@@ -12345,7 +12345,7 @@ ibf_load_iseq_each.exit:                          ; preds = %1409, %1452
 
 1475:                                             ; preds = %.lr.ph.i104
   %1476 = icmp eq i8 %1472, 0
-  %1477 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1473, i1 true)
+  %1477 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1473, i1 true)
   %1478 = add nuw nsw i32 %1477, 1
   %1479 = select i1 %1476, i32 9, i32 %1478
   %1480 = add i32 %1479, %.095106.i
@@ -12423,7 +12423,7 @@ ibf_load_id.exit.i108:                            ; preds = %1507, %1504
 
 1516:                                             ; preds = %ibf_load_id.exit.i108
   %1517 = icmp eq i8 %1513, 0
-  %1518 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1514, i1 true)
+  %1518 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1514, i1 true)
   %1519 = add nuw nsw i32 %1518, 1
   %1520 = select i1 %1517, i32 9, i32 %1519
   %1521 = add i32 %1520, %1505
@@ -12485,7 +12485,7 @@ ibf_load_small_value.exit58.i:                    ; preds = %.lr.ph.i53.i, %.thr
 
 1553:                                             ; preds = %ibf_load_small_value.exit58.i
   %1554 = icmp eq i8 %1550, 0
-  %1555 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1551, i1 true)
+  %1555 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1551, i1 true)
   %1556 = add nuw nsw i32 %1555, 1
   %1557 = select i1 %1554, i32 9, i32 %1556
   %1558 = add i32 %1557, %1546
@@ -12542,7 +12542,7 @@ ibf_load_small_value.exit68.i:                    ; preds = %.lr.ph.i63.i, %.thr
 
 1585:                                             ; preds = %ibf_load_small_value.exit68.i
   %1586 = icmp eq i8 %1582, 0
-  %1587 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1583, i1 true)
+  %1587 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1583, i1 true)
   %1588 = add nuw nsw i32 %1587, 1
   %1589 = select i1 %1586, i32 9, i32 %1588
   %1590 = add i32 %1589, %1578
@@ -12616,7 +12616,7 @@ ibf_load_small_value.exit78.i:                    ; preds = %.lr.ph.i73.i, %.thr
 
 1625:                                             ; preds = %1618
   %1626 = icmp eq i8 %1622, 0
-  %1627 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1623, i1 true)
+  %1627 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1623, i1 true)
   %1628 = add nuw nsw i32 %1627, 1
   %1629 = select i1 %1626, i32 9, i32 %1628
   %1630 = add i32 %1629, %.2104.i
@@ -12750,7 +12750,7 @@ ibf_load_ci_entries.exit:                         ; preds = %1685, %ibf_load_ise
 
 1692:                                             ; preds = %ibf_load_ci_entries.exit
   %1693 = icmp eq i8 %1689, 0
-  %1694 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1690, i1 true)
+  %1694 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1690, i1 true)
   %1695 = add nuw nsw i32 %1694, 1
   %1696 = select i1 %1693, i32 9, i32 %1695
   %1697 = add i32 %1696, %1457
@@ -12822,7 +12822,7 @@ ibf_load_small_value.exit.i89:                    ; preds = %.lr.ph.i.i99, %.thr
 
 1729:                                             ; preds = %.lr.ph.i93
   %1730 = icmp eq i8 %1726, 0
-  %1731 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1727, i1 true)
+  %1731 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1727, i1 true)
   %1732 = add nuw nsw i32 %1731, 1
   %1733 = select i1 %1730, i32 9, i32 %1732
   %1734 = add i32 %1733, %.04447.i
@@ -12896,7 +12896,7 @@ ibf_load_id.exit.i94:                             ; preds = %1760, %ibf_load_sma
 
 1769:                                             ; preds = %ibf_load_id.exit.i94
   %1770 = icmp eq i8 %1766, 0
-  %1771 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1767, i1 true)
+  %1771 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1767, i1 true)
   %1772 = add nuw nsw i32 %1771, 1
   %1773 = select i1 %1770, i32 9, i32 %1772
   %1774 = add i32 %1773, %1758
@@ -13005,7 +13005,7 @@ ibf_load_param_opt_table.exit:                    ; preds = %ibf_load_outer_vari
   %1825 = load ptr, ptr %1824, align 8
   %1826 = load i32, ptr %1820, align 8
   %1827 = sext i32 %1826 to i64
-  %1828 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef %1827) #39
+  %1828 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %1827) #39
   %.not.i.i.i76 = icmp eq i32 %1826, 0
   br i1 %.not.i.i.i76, label %ibf_load_alloc.exit.i77, label %1829
 
@@ -13026,7 +13026,7 @@ ibf_load_alloc.exit.i77:                          ; preds = %1829, %1819
   %1839 = getelementptr inbounds i8, ptr %1820, i64 24
   %1840 = load ptr, ptr %1839, align 8
   %1841 = sext i32 %1838 to i64
-  %1842 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef %1841) #39
+  %1842 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %1841) #39
   %.not.i.i34.i = icmp eq i32 %1826, %1837
   br i1 %.not.i.i34.i, label %ibf_load_alloc.exit35.i, label %1843
 
@@ -13128,7 +13128,7 @@ ibf_load_insns_info_body.exit.thread:             ; preds = %ibf_load_param_keyw
 
 1877:                                             ; preds = %1871
   %1878 = icmp eq i8 %1874, 0
-  %1879 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1875, i1 true)
+  %1879 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1875, i1 true)
   %1880 = add nuw nsw i32 %1879, 1
   %1881 = select i1 %1878, i32 9, i32 %1880
   %1882 = add i32 %1881, %.03841.i
@@ -13188,7 +13188,7 @@ ibf_load_small_value.exit.i65:                    ; preds = %.lr.ph.i.i70, %.thr
 
 1911:                                             ; preds = %ibf_load_small_value.exit.i65
   %1912 = icmp eq i8 %1908, 0
-  %1913 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1909, i1 true)
+  %1913 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1909, i1 true)
   %1914 = add nuw nsw i32 %1913, 1
   %1915 = select i1 %1912, i32 9, i32 %1914
   %1916 = add i32 %1915, %1904
@@ -13245,7 +13245,7 @@ ibf_load_small_value.exit25.i:                    ; preds = %.lr.ph.i20.i, %.thr
 
 1942:                                             ; preds = %ibf_load_small_value.exit25.i
   %1943 = icmp eq i8 %1939, 0
-  %1944 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1940, i1 true)
+  %1944 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1940, i1 true)
   %1945 = add nuw nsw i32 %1944, 1
   %1946 = select i1 %1943, i32 9, i32 %1945
   %1947 = add i32 %1946, %1935
@@ -13318,7 +13318,7 @@ ibf_load_insns_info_body.exit:                    ; preds = %ibf_load_small_valu
 
 1977:                                             ; preds = %1971
   %1978 = icmp eq i8 %1974, 0
-  %1979 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %1975, i1 true)
+  %1979 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %1975, i1 true)
   %1980 = add nuw nsw i32 %1979, 1
   %1981 = select i1 %1978, i32 9, i32 %1980
   %1982 = add i32 %1981, %.01213.i
@@ -13381,7 +13381,7 @@ ibf_load_insns_info_positions.exit:               ; preds = %ibf_load_small_valu
 
 ibf_load_alloc.exit.i:                            ; preds = %ibf_load_insns_info_positions.exit
   %2009 = and i64 %.021.lcssa.i220, 2147483647
-  %2010 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef %2009) #39
+  %2010 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %2009) #39
   %2011 = shl nuw nsw i64 %2009, 3
   %2012 = load ptr, ptr %23, align 8
   %2013 = load ptr, ptr %2012, align 8
@@ -13421,7 +13421,7 @@ ibf_load_local_table.exit:                        ; preds = %ibf_load_id.exit.i4
   br i1 %2025, label %2026, label %.lr.ph
 
 2026:                                             ; preds = %2024
-  tail call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.68, i32 noundef %.021.lcssa.i308) #41
+  tail call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.68, i32 noundef range(i32 1, 0) %.021.lcssa.i308) #41
   unreachable
 
 .lr.ph:                                           ; preds = %2024
@@ -13450,7 +13450,7 @@ ibf_load_local_table.exit:                        ; preds = %ibf_load_id.exit.i4
 
 2041:                                             ; preds = %2034
   %2042 = icmp eq i8 %2038, 0
-  %2043 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2039, i1 true)
+  %2043 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2039, i1 true)
   %2044 = add nuw nsw i32 %2043, 1
   %2045 = select i1 %2042, i32 9, i32 %2044
   %2046 = add i32 %2045, %.0679898
@@ -13511,7 +13511,7 @@ ibf_load_small_value.exit.i29:                    ; preds = %.lr.ph.i.i35, %.thr
 
 2077:                                             ; preds = %ibf_load_small_value.exit.i29
   %2078 = icmp eq i8 %2074, 0
-  %2079 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2075, i1 true)
+  %2079 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2075, i1 true)
   %2080 = add nuw nsw i32 %2079, 1
   %2081 = select i1 %2078, i32 9, i32 %2080
   %2082 = add i32 %2081, %2071
@@ -13569,7 +13569,7 @@ ibf_load_small_value.exit45.i:                    ; preds = %.lr.ph.i40.i, %.thr
 
 2109:                                             ; preds = %ibf_load_small_value.exit45.i
   %2110 = icmp eq i8 %2106, 0
-  %2111 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2107, i1 true)
+  %2111 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2107, i1 true)
   %2112 = add nuw nsw i32 %2111, 1
   %2113 = select i1 %2110, i32 9, i32 %2112
   %2114 = add i32 %2113, %2101
@@ -13631,7 +13631,7 @@ ibf_load_small_value.exit55.i:                    ; preds = %.lr.ph.i50.i, %.thr
 
 2145:                                             ; preds = %ibf_load_small_value.exit55.i
   %2146 = icmp eq i8 %2142, 0
-  %2147 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2143, i1 true)
+  %2147 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2143, i1 true)
   %2148 = add nuw nsw i32 %2147, 1
   %2149 = select i1 %2146, i32 9, i32 %2148
   %2150 = add i32 %2149, %2137
@@ -13693,7 +13693,7 @@ ibf_load_small_value.exit65.i:                    ; preds = %.lr.ph.i60.i, %.thr
 
 2181:                                             ; preds = %ibf_load_small_value.exit65.i
   %2182 = icmp eq i8 %2178, 0
-  %2183 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2179, i1 true)
+  %2183 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2179, i1 true)
   %2184 = add nuw nsw i32 %2183, 1
   %2185 = select i1 %2182, i32 9, i32 %2184
   %2186 = add i32 %2185, %2173
@@ -13755,7 +13755,7 @@ ibf_load_small_value.exit75.i:                    ; preds = %.lr.ph.i70.i, %.thr
 
 2217:                                             ; preds = %ibf_load_small_value.exit75.i
   %2218 = icmp eq i8 %2214, 0
-  %2219 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2215, i1 true)
+  %2219 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2215, i1 true)
   %2220 = add nuw nsw i32 %2219, 1
   %2221 = select i1 %2218, i32 9, i32 %2220
   %2222 = add i32 %2221, %2209
@@ -13966,7 +13966,7 @@ ibf_load_catch_table.exit:                        ; preds = %ibf_load_iseq.exit.
 
 2328:                                             ; preds = %2321
   %2329 = icmp eq i8 %2325, 0
-  %2330 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2326, i1 true)
+  %2330 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2326, i1 true)
   %2331 = add nuw nsw i32 %2330, 1
   %2332 = select i1 %2329, i32 9, i32 %2331
   %2333 = add i32 %2332, %.0
@@ -14065,7 +14065,7 @@ ibf_load_small_value.exit.i:                      ; preds = %.lr.ph.i.i, %.threa
 
 2376:                                             ; preds = %2369
   %2377 = icmp eq i8 %2373, 0
-  %2378 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2374, i1 true)
+  %2378 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2374, i1 true)
   %2379 = add nuw nsw i32 %2378, 1
   %2380 = select i1 %2377, i32 9, i32 %2379
   %2381 = add i32 %2380, %.1
@@ -14149,7 +14149,7 @@ rb_obj_written.exit.i:                            ; preds = %ibf_load_small_valu
 
 2426:                                             ; preds = %2419
   %2427 = icmp eq i8 %2423, 0
-  %2428 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2424, i1 true)
+  %2428 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2424, i1 true)
   %2429 = add nuw nsw i32 %2428, 1
   %2430 = select i1 %2427, i32 9, i32 %2429
   %2431 = add i32 %2430, %.1
@@ -14260,7 +14260,7 @@ pinned_list_store.exit.i:                         ; preds = %2470
 
 2492:                                             ; preds = %2485
   %2493 = icmp eq i8 %2489, 0
-  %2494 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2490, i1 true)
+  %2494 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2490, i1 true)
   %2495 = add nuw nsw i32 %2494, 1
   %2496 = select i1 %2493, i32 9, i32 %2495
   %2497 = add i32 %2496, %.1
@@ -14427,7 +14427,7 @@ rb_obj_written.exit173.i:                         ; preds = %ibf_load_iseq.exit.
 
 2579:                                             ; preds = %2572
   %2580 = icmp eq i8 %2576, 0
-  %2581 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2577, i1 true)
+  %2581 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2577, i1 true)
   %2582 = add nuw nsw i32 %2581, 1
   %2583 = select i1 %2580, i32 9, i32 %2582
   %2584 = add i32 %2583, %.1
@@ -14564,7 +14564,7 @@ array_to_idlist.exit.i:                           ; preds = %RARRAY_AREF.exit.i.
 
 2659:                                             ; preds = %2652
   %2660 = icmp eq i8 %2656, 0
-  %2661 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2657, i1 true)
+  %2661 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2657, i1 true)
   %2662 = add nuw nsw i32 %2661, 1
   %2663 = select i1 %2660, i32 9, i32 %2662
   %2664 = add i32 %2663, %.1
@@ -14694,7 +14694,7 @@ ISEQ_IS_ENTRY_START.exit.i:                       ; preds = %ibf_load_small_valu
 
 2730:                                             ; preds = %2723
   %2731 = icmp eq i8 %2727, 0
-  %2732 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2728, i1 true)
+  %2732 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2728, i1 true)
   %2733 = add nuw nsw i32 %2732, 1
   %2734 = select i1 %2731, i32 9, i32 %2733
   %2735 = add i32 %2734, %.1
@@ -14777,7 +14777,7 @@ ibf_load_id.exit.i:                               ; preds = %2761, %ibf_load_sma
 
 2775:                                             ; preds = %2768
   %2776 = icmp eq i8 %2772, 0
-  %2777 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2773, i1 true)
+  %2777 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2773, i1 true)
   %2778 = add nuw nsw i32 %2777, 1
   %2779 = select i1 %2776, i32 9, i32 %2778
   %2780 = add i32 %2779, %.1
@@ -14838,7 +14838,7 @@ ibf_load_small_value.exit.i.i:                    ; preds = %.lr.ph.i.i.i, %.thr
 
 2811:                                             ; preds = %ibf_load_small_value.exit.i.i
   %2812 = icmp eq i8 %2808, 0
-  %2813 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2809, i1 true)
+  %2813 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2809, i1 true)
   %2814 = add nuw nsw i32 %2813, 1
   %2815 = select i1 %2812, i32 9, i32 %2814
   %2816 = add i32 %2815, %2805
@@ -14937,7 +14937,7 @@ ibf_load_builtin.exit.i:                          ; preds = %2845
 
 2867:                                             ; preds = %2860
   %2868 = icmp eq i8 %2864, 0
-  %2869 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %2865, i1 true)
+  %2869 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %2865, i1 true)
   %2870 = add nuw nsw i32 %2869, 1
   %2871 = select i1 %2868, i32 9, i32 %2870
   %2872 = add i32 %2871, %.1
@@ -19119,12 +19119,12 @@ parse_string_encoded.exit.i:                      ; preds = %1087, %1085, %1081
 
 1093:                                             ; preds = %parse_string_encoded.exit.i, %1074
   %.013.i = phi i64 [ %1092, %parse_string_encoded.exit.i ], [ %1075, %1074 ]
-  %1094 = call i64 @rb_hash_lookup(i64 noundef %.237445415, i64 noundef %.013.i) #37
+  %1094 = call i64 @rb_hash_lookup(i64 noundef range(i64 37, 36) %.237445415, i64 noundef %.013.i) #37
   %1095 = icmp eq i64 %1094, 4
   br i1 %1095, label %1096, label %pm_compile_case_node_dispatch.exitthread-pre-split
 
 1096:                                             ; preds = %1093
-  %1097 = call i64 @rb_hash_aset(i64 noundef %.237445415, i64 noundef %.013.i, i64 noundef %1067) #37
+  %1097 = call i64 @rb_hash_aset(i64 noundef range(i64 37, 36) %.237445415, i64 noundef %.013.i, i64 noundef %1067) #37
   br label %pm_compile_case_node_dispatch.exitthread-pre-split
 
 pm_compile_case_node_dispatch.exitthread-pre-split: ; preds = %1068, %1093, %1096
@@ -29954,7 +29954,7 @@ APPEND_LIST.exit4825:                             ; preds = %6985, %6988
   br i1 %.not3934, label %7126, label %7124
 
 7124:                                             ; preds = %7121
-  %7125 = call fastcc i32 @pm_setup_args_core(ptr noundef nonnull %7123, ptr noundef %45, i1 noundef zeroext false, ptr noundef %46, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4, ptr noundef nonnull byval(%struct.RNode) align 8 %10)
+  %7125 = call fastcc i32 @pm_setup_args_core(ptr noundef nonnull %7123, ptr noundef nonnull %45, i1 noundef zeroext false, ptr noundef nonnull %46, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4, ptr noundef nonnull byval(%struct.RNode) align 8 %10)
   %.pre = load i32, ptr %45, align 4
   %.pre5549 = load ptr, ptr %46, align 8
   br label %7126
@@ -38130,7 +38130,7 @@ APPEND_LIST.exit:                                 ; preds = %APPEND_LIST.exit118
   br i1 %.not36.i, label %719, label %718
 
 718:                                              ; preds = %715
-  call fastcc void @compile_named_capture_assign(ptr noundef %0, ptr noundef %1, ptr noundef %717)
+  call fastcc void @compile_named_capture_assign(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %717)
   br label %719
 
 719:                                              ; preds = %718, %715, %APPEND_LIST.exit
@@ -38796,7 +38796,7 @@ rb_obj_written.exit1152:                          ; preds = %1037, %1064
   br i1 %1127, label %rb_obj_written.exit1132, label %1829
 
 iseq_compile_each.exit:                           ; preds = %1120
-  %1128 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %1122, i32 noundef 0)
+  %1128 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1122, i32 noundef 0)
   %.not1030 = icmp eq i32 %1128, 0
   br i1 %.not1030, label %1829, label %1129
 
@@ -38877,7 +38877,7 @@ keyword_node_p.exit:                              ; preds = %1168
   br i1 %.not1022.not, label %iseq_compile_each.exit1216, label %keyword_node_p.exit.thread
 
 iseq_compile_each.exit1216:                       ; preds = %keyword_node_p.exit
-  %1176 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %1170, i32 noundef 0)
+  %1176 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1170, i32 noundef 0)
   %.not1025 = icmp eq i32 %1176, 0
   br i1 %.not1025, label %1829, label %1177
 
@@ -38960,7 +38960,7 @@ static_literal_node_p.exit.thread1195:            ; preds = %keyword_node_p.exit
   br label %rb_obj_written.exit1132
 
 iseq_compile_each.exit1220:                       ; preds = %keyword_node_p.exit.thread, %static_literal_node_p.exit
-  %1217 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %1170, i32 noundef 0)
+  %1217 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1170, i32 noundef 0)
   %.not1024 = icmp eq i32 %1217, 0
   br i1 %.not1024, label %1829, label %1218
 
@@ -39961,7 +39961,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %17
   br label %iseq_compile_each.exit.thread
 
 iseq_compile_each.exit:                           ; preds = %10
-  %33 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %15)
+  %33 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %15)
   %.not16 = icmp eq i32 %33, 0
   br i1 %.not16, label %.loopexit, label %iseq_compile_each.exit.thread
 
@@ -40009,7 +40009,7 @@ ISEQ_COMPILE_DATA.exit.i21:                       ; preds = %38
   br label %.critedge17
 
 iseq_compile_each.exit24:                         ; preds = %.critedge
-  %54 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %36, i32 noundef %3)
+  %54 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i32 noundef %3)
   %.not14 = icmp eq i32 %54, 0
   br i1 %.not14, label %.loopexit, label %.critedge17
 
@@ -40312,7 +40312,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %134
   br label %iseq_compile_each.exit.thread
 
 iseq_compile_each.exit:                           ; preds = %.thread123
-  %150 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %12, i32 noundef %3)
+  %150 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %12, i32 noundef %3)
   %.not71 = icmp eq i32 %150, 0
   br i1 %.not71, label %275, label %iseq_compile_each.exit.thread
 
@@ -40523,7 +40523,7 @@ ISEQ_COMPILE_DATA.exit.i114:                      ; preds = %239
   br label %iseq_compile_each.exit117.thread
 
 iseq_compile_each.exit117:                        ; preds = %232
-  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %13, i32 noundef %3)
+  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %13, i32 noundef %3)
   %.not76 = icmp eq i32 %255, 0
   br i1 %.not76, label %275, label %iseq_compile_each.exit117.thread
 
@@ -40628,7 +40628,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %33
 
 iseq_compile_each.exit:                           ; preds = %4
-  %32 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %5, ptr noundef %15, i32 noundef 0)
+  %32 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %15, i32 noundef 0)
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %.loopexit, label %33
 
@@ -41020,7 +41020,7 @@ ISEQ_COMPILE_DATA.exit.i178:                      ; preds = %214
   br label %iseq_compile_each.exit181.thread
 
 iseq_compile_each.exit181:                        ; preds = %new_label_body.exit173
-  %230 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %212, i32 noundef %3)
+  %230 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %212, i32 noundef %3)
   %.not138 = icmp eq i32 %230, 0
   br i1 %.not138, label %.loopexit, label %iseq_compile_each.exit181.thread
 
@@ -41113,7 +41113,7 @@ iseq_compile_each.exit189:                        ; preds = %264
   store ptr %276, ptr %279, align 8
   store ptr %276, ptr %11, align 8
   call fastcc void @add_trace_branch_coverage(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %263, i32 noundef %211, ptr noundef nonnull @.str.85, i64 noundef %36)
-  %280 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %263, i32 noundef %3)
+  %280 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %263, i32 noundef %3)
   %.not144 = icmp eq i32 %280, 0
   br i1 %.not144, label %.loopexit, label %281
 
@@ -41556,7 +41556,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %118
   br label %iseq_compile_each.exit.thread
 
 iseq_compile_each.exit:                           ; preds = %new_label_body.exit108
-  %134 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %116, i32 noundef %3)
+  %134 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %116, i32 noundef %3)
   %.not91 = icmp eq i32 %134, 0
   br i1 %.not91, label %.loopexit142, label %iseq_compile_each.exit.thread
 
@@ -41724,7 +41724,7 @@ iseq_compile_each.exit129:                        ; preds = %152, %152, %152
   %218 = getelementptr inbounds i8, ptr %216, i64 8
   store ptr %215, ptr %218, align 8
   store ptr %215, ptr %60, align 8
-  %219 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %147, i32 noundef 0)
+  %219 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %147, i32 noundef 0)
   %.not93 = icmp eq i32 %219, 0
   br i1 %.not93, label %.loopexit142, label %220
 
@@ -41807,7 +41807,7 @@ ISEQ_COMPILE_DATA.exit.i133:                      ; preds = %._crit_edge
 
 iseq_compile_each.exit136:                        ; preds = %61
   call fastcc void @add_trace_branch_coverage(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.085169, i32 noundef %.086168, ptr noundef nonnull @.str.85, i64 noundef %10)
-  %262 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.085169, i32 noundef %3)
+  %262 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.085169, i32 noundef %3)
   %.not89 = icmp eq i32 %262, 0
   br i1 %.not89, label %.loopexit142, label %iseq_compile_each.exit136.thread
 
@@ -42181,7 +42181,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %181
 
 iseq_compile_each.exit:                           ; preds = %153
-  %180 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %164, i32 noundef 0)
+  %180 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %164, i32 noundef 0)
   %.not249 = icmp eq i32 %180, 0
   br i1 %.not249, label %.loopexit, label %181
 
@@ -42384,7 +42384,7 @@ ISEQ_COMPILE_DATA.exit.i295:                      ; preds = %268
   br label %iseq_compile_each.exit298.thread
 
 iseq_compile_each.exit298:                        ; preds = %new_label_body.exit291
-  %284 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %266, i32 noundef %3)
+  %284 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %266, i32 noundef %3)
   %.not253 = icmp eq i32 %284, 0
   br i1 %.not253, label %.loopexit, label %iseq_compile_each.exit298.thread
 
@@ -42579,7 +42579,7 @@ iseq_compile_each.exit321:                        ; preds = %367
   store ptr %387, ptr %390, align 8
   store ptr %387, ptr %10, align 8
   call fastcc void @add_trace_branch_coverage(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %366, i32 noundef %265, ptr noundef nonnull @.str.85, i64 noundef %13)
-  %391 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %366, i32 noundef %3)
+  %391 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %366, i32 noundef %3)
   %.not262 = icmp eq i32 %391, 0
   br i1 %.not262, label %.loopexit, label %392
 
@@ -44109,7 +44109,7 @@ new_label_body.exit260:                           ; preds = %ISEQ_COMPILE_DATA.e
   br i1 %435, label %iseq_compile_each.exit.thread, label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %423
-  %436 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %434, i32 noundef 1)
+  %436 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %434, i32 noundef 1)
   %.not158 = icmp eq i32 %436, 0
   br i1 %.not158, label %654, label %iseq_compile_each.exit.thread
 
@@ -44753,7 +44753,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %129
 
 iseq_compile_each.exit:                           ; preds = %110
-  %128 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %112, i32 noundef 0)
+  %128 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %112, i32 noundef 0)
   %.not71 = icmp eq i32 %128, 0
   br i1 %.not71, label %327, label %129
 
@@ -44983,7 +44983,7 @@ iseq_compile_each.exit128.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %256
 
 iseq_compile_each.exit128:                        ; preds = %make_name_for_block.exit115
-  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %239, i32 noundef 0)
+  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %239, i32 noundef 0)
   %.not = icmp eq i32 %255, 0
   br i1 %.not, label %327, label %iseq_compile_each.exit128._crit_edge
 
@@ -45350,7 +45350,7 @@ iseq_compile_each.exit:                           ; preds = %ISEQ_COMPILE_DATA.e
   %96 = load i8, ptr %95, align 4
   %97 = and i8 %96, -16
   store i8 %97, ptr %95, align 4
-  %98 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %5, i32 noundef 0)
+  %98 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 0)
   %.not = icmp eq i32 %98, 0
   br i1 %.not, label %234, label %99
 
@@ -45847,7 +45847,7 @@ ISEQ_COMPILE_DATA.exit.i87:                       ; preds = %125
   br label %iseq_compile_each.exit.thread
 
 iseq_compile_each.exit:                           ; preds = %new_adjust_body.exit
-  %138 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %118, i32 noundef %123)
+  %138 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %118, i32 noundef %123)
   %.not62 = icmp eq i32 %138, 0
   br i1 %.not62, label %271, label %iseq_compile_each.exit.thread
 
@@ -46071,7 +46071,7 @@ iseq_compile_each.exit121.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %248
 
 iseq_compile_each.exit121:                        ; preds = %229
-  %247 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %231, i32 noundef 0)
+  %247 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %231, i32 noundef 0)
   %.not60 = icmp eq i32 %247, 0
   br i1 %.not60, label %271, label %248
 
@@ -46299,7 +46299,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %88
 
 iseq_compile_each.exit:                           ; preds = %new_label_body.exit
-  %87 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %71, i32 noundef 0)
+  %87 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %71, i32 noundef 0)
   %.not96 = icmp eq i32 %87, 0
   br i1 %.not96, label %470, label %88
 
@@ -46822,7 +46822,7 @@ iseq_compile_each.exit189.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %ISEQ_COMPILE_DATA.exit192
 
 iseq_compile_each.exit189:                        ; preds = %new_adjust_body.exit183
-  %335 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %319, i32 noundef 0)
+  %335 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %319, i32 noundef 0)
   %.not94 = icmp eq i32 %335, 0
   br i1 %.not94, label %470, label %ISEQ_COMPILE_DATA.exit192
 
@@ -47048,7 +47048,7 @@ iseq_compile_each.exit222.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %447
 
 iseq_compile_each.exit222:                        ; preds = %428
-  %446 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %430, i32 noundef 0)
+  %446 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %430, i32 noundef 0)
   %.not92 = icmp eq i32 %446, 0
   br i1 %.not92, label %470, label %447
 
@@ -48424,7 +48424,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %ISEQ_COMPILE_DATA.exit113
 
 iseq_compile_each.exit:                           ; preds = %new_label_body.exit103
-  %207 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %191, i32 noundef 0)
+  %207 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %191, i32 noundef 0)
   %.not = icmp eq i32 %207, 0
   br i1 %.not, label %340, label %ISEQ_COMPILE_DATA.exit113
 
@@ -48494,7 +48494,7 @@ iseq_compile_each.exit120.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %245
 
 iseq_compile_each.exit120:                        ; preds = %218
-  %244 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %228, i32 noundef 0)
+  %244 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %228, i32 noundef 0)
   %.not74 = icmp eq i32 %244, 0
   br i1 %.not74, label %340, label %245
 
@@ -48954,7 +48954,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %150
 
 iseq_compile_each.exit:                           ; preds = %iseq_add_getlocal.exit
-  %149 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %133, i32 noundef 0)
+  %149 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %133, i32 noundef 0)
   %.not104 = icmp eq i32 %149, 0
   br i1 %.not104, label %.loopexit154, label %150
 
@@ -49028,7 +49028,7 @@ iseq_compile_each.exit127:                        ; preds = %180, %187
   %195 = getelementptr inbounds i8, ptr %193, i64 8
   store ptr %192, ptr %195, align 8
   store ptr %192, ptr %7, align 8
-  %196 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %100, i32 noundef 0)
+  %196 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %100, i32 noundef 0)
   %.not100 = icmp eq i32 %196, 0
   br i1 %.not100, label %.loopexit154, label %.loopexit.sink.split
 
@@ -49251,7 +49251,7 @@ new_trace_body.exit:                              ; preds = %ISEQ_COMPILE_DATA.e
   br label %ISEQ_COMPILE_DATA.exit
 
 iseq_compile_each.exit148:                        ; preds = %310, %new_trace_body.exit
-  %321 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %306, i32 noundef 0)
+  %321 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %306, i32 noundef 0)
   %.not102 = icmp eq i32 %321, 0
   br i1 %.not102, label %.loopexit154, label %ISEQ_COMPILE_DATA.exit
 
@@ -49641,7 +49641,7 @@ new_label_body.exit102:                           ; preds = %ISEQ_COMPILE_DATA.e
   br i1 %179, label %.thread.thread, label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %new_label_body.exit102
-  %180 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %178, i32 noundef 1)
+  %180 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %178, i32 noundef 1)
   %.not = icmp eq i32 %180, 0
   br i1 %.not, label %326, label %181
 
@@ -49728,7 +49728,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %207
   br label %iseq_compile_each.exit107.thread
 
 iseq_compile_each.exit107:                        ; preds = %.thread.thread
-  %223 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %204, i32 noundef %205)
+  %223 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %204, i32 noundef %205)
   %.not74 = icmp eq i32 %223, 0
   br i1 %.not74, label %326, label %iseq_compile_each.exit107.iseq_compile_each.exit107.thread_crit_edge
 
@@ -50067,7 +50067,7 @@ get_nd_vid.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %46, label %iseq_compile_each.exit54, label %48
 
 48:                                               ; preds = %47
-  %49 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %45, i32 noundef 1)
+  %49 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %45, i32 noundef 1)
   br label %iseq_compile_each.exit54
 
 50:                                               ; preds = %43
@@ -50102,7 +50102,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %50
   br label %iseq_compile_each.exit54
 
 66:                                               ; preds = %50
-  %67 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %45, i32 noundef 0)
+  %67 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %45, i32 noundef 0)
   br label %iseq_compile_each.exit54
 
 iseq_compile_each.exit54:                         ; preds = %66, %61, %48, %47
@@ -50145,7 +50145,7 @@ compile_massign_opt.exit.thread:                  ; preds = %.lr.ph77, %31, %get
   br label %87
 
 compile_massign_opt.exit:                         ; preds = %76, %71
-  %86 = tail call fastcc i32 @compile_massign_opt_lhs(ptr noundef %0, ptr noundef %1, ptr noundef %18)
+  %86 = tail call fastcc i32 @compile_massign_opt_lhs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   br label %APPEND_LIST.exit50
 
@@ -50597,7 +50597,7 @@ define internal fastcc range(i32 0, 9) i32 @compile_cpath(ptr noundef nonnull %0
   br i1 %.not, label %22, label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %18
-  %21 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %1, ptr noundef %0, ptr noundef %20, i32 noundef 0)
+  %21 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %20, i32 noundef 0)
   br label %32
 
 22:                                               ; preds = %3, %18
@@ -50780,7 +50780,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %private_recv_p.exit
   br label %.sink.split
 
 48:                                               ; preds = %private_recv_p.exit.thread
-  %49 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef 0)
+  %49 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %34, i32 noundef 0)
   %.not404 = icmp eq i32 %49, 0
   br i1 %.not404, label %938, label %54
 
@@ -51195,7 +51195,7 @@ iseq_compile_each.exit449.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %274
 
 iseq_compile_each.exit449:                        ; preds = %new_label_body.exit441
-  %273 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %257, i32 noundef 0)
+  %273 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %257, i32 noundef 0)
   %.not415 = icmp eq i32 %273, 0
   br i1 %.not415, label %938, label %274
 
@@ -51725,7 +51725,7 @@ iseq_compile_each.exit468.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %623
 
 iseq_compile_each.exit468:                        ; preds = %603
-  %622 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %605, i32 noundef 0)
+  %622 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %605, i32 noundef 0)
   %.not408 = icmp eq i32 %622, 0
   br i1 %.not408, label %938, label %623
 
@@ -52450,7 +52450,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %private_recv_p.exit
   br label %.sink.split
 
 128:                                              ; preds = %private_recv_p.exit.thread
-  %129 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %115, i32 noundef 0)
+  %129 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %115, i32 noundef 0)
   %.not142 = icmp eq i32 %129, 0
   br i1 %.not142, label %398, label %134
 
@@ -52713,7 +52713,7 @@ iseq_compile_each.exit185.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %275
 
 iseq_compile_each.exit185:                        ; preds = %256
-  %274 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %258, i32 noundef 0)
+  %274 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %258, i32 noundef 0)
   %.not146 = icmp eq i32 %274, 0
   br i1 %.not146, label %398, label %275
 
@@ -52828,7 +52828,7 @@ iseq_compile_each.exit193.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %344
 
 iseq_compile_each.exit193:                        ; preds = %325
-  %343 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %327, i32 noundef 0)
+  %343 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %327, i32 noundef 0)
   %.not143 = icmp eq i32 %343, 0
   br i1 %.not143, label %398, label %344
 
@@ -52984,7 +52984,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %.sink.split
 
 iseq_compile_each.exit:                           ; preds = %19
-  %35 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef 0)
+  %35 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef 0)
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %380, label %42
 
@@ -53407,7 +53407,7 @@ iseq_compile_each.exit164.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %265
 
 iseq_compile_each.exit164:                        ; preds = %246
-  %264 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %248, i32 noundef 0)
+  %264 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %248, i32 noundef 0)
   %.not139 = icmp eq i32 %264, 0
   br i1 %.not139, label %380, label %265
 
@@ -53527,7 +53527,7 @@ iseq_compile_each.exit173.thread:                 ; preds = %ISEQ_COMPILE_DATA.e
   br label %335
 
 iseq_compile_each.exit173:                        ; preds = %315
-  %334 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %317, i32 noundef 0)
+  %334 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %317, i32 noundef 0)
   %.not134 = icmp eq i32 %334, 0
   br i1 %.not134, label %380, label %335
 
@@ -53969,7 +53969,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %190
 
 iseq_compile_each.exit:                           ; preds = %170
-  %189 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %172, i32 noundef 0)
+  %189 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %172, i32 noundef 0)
   %.not59 = icmp eq i32 %189, 0
   br i1 %.not59, label %260, label %190
 
@@ -54029,7 +54029,7 @@ iseq_compile_each.exit:                           ; preds = %170
   br i1 %221, label %iseq_compile_each.exit95.thread, label %222
 
 222:                                              ; preds = %.split
-  %223 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %220, i32 noundef %3)
+  %223 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %220, i32 noundef %3)
   br label %iseq_compile_each.exit95
 
 .split56:                                         ; preds = %202
@@ -54083,7 +54083,7 @@ ISEQ_COMPILE_DATA.exit.i99:                       ; preds = %.split56
   br label %iseq_compile_each.exit95.thread
 
 254:                                              ; preds = %.split56
-  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %237, i32 noundef 0)
+  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %237, i32 noundef 0)
   br label %iseq_compile_each.exit95
 
 iseq_compile_each.exit95:                         ; preds = %254, %222
@@ -54879,7 +54879,7 @@ get_nd_args.exit127:                              ; preds = %62, %.sink.split.i1
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %110
-  %114 = call fastcc i32 @compile_builtin_arg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.071.i, ptr noundef %4, i32 noundef %5)
+  %114 = call fastcc i32 @compile_builtin_arg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.071.i, ptr noundef %4, i32 noundef %5)
   br label %compile_builtin_function_call.exit
 
 115:                                              ; preds = %110
@@ -54971,7 +54971,7 @@ iseq_builtin_function_lookup.exit:                ; preds = %.lr.ph.i
 156:                                              ; preds = %iseq_builtin_function_lookup.exit
   store i32 0, ptr %9, align 4
   store ptr null, ptr %10, align 8
-  %157 = call fastcc i64 @setup_args(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %.071.i, ptr noundef %9, ptr noundef nonnull %10)
+  %157 = call fastcc i64 @setup_args(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %.071.i, ptr noundef %9, ptr noundef nonnull %10)
   %158 = call i64 @rb_fix2int(i64 noundef %157) #37
   %159 = trunc i64 %158 to i32
   %160 = getelementptr inbounds i8, ptr %89, i64 8
@@ -55353,7 +55353,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %356
 
 iseq_compile_each.exit:                           ; preds = %private_recv_p.exit.thread
-  %355 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %11, ptr noundef %339, i32 noundef 0)
+  %355 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %339, i32 noundef 0)
   %.not80 = icmp eq i32 %355, 0
   br i1 %.not80, label %446, label %356
 
@@ -56187,7 +56187,7 @@ define internal fastcc range(i32 -1, 2) i32 @compile_array(ptr noundef %0, ptr n
   br i1 %32, label %iseq_compile_each.exit, label %33
 
 33:                                               ; preds = %.preheader206
-  %34 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %31, i32 noundef %3)
+  %34 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %31, i32 noundef %3)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %.preheader206, %33
@@ -56520,7 +56520,7 @@ ISEQ_COMPILE_DATA.exit.i183:                      ; preds = %153
   br label %iseq_compile_each.exit186
 
 171:                                              ; preds = %153
-  %172 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %154, i32 noundef 0)
+  %172 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %154, i32 noundef 0)
   br label %iseq_compile_each.exit186
 
 iseq_compile_each.exit186:                        ; preds = %166, %171
@@ -56570,7 +56570,7 @@ ISEQ_COMPILE_DATA.exit.i190:                      ; preds = %keyword_node_p.exit
   br label %iseq_compile_each.exit193
 
 keyword_node_p.exit.thread.thread:                ; preds = %keyword_node_p.exit, %122, %keyword_node_p.exit.thread
-  %197 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %121, i32 noundef 0)
+  %197 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %121, i32 noundef 0)
   br label %iseq_compile_each.exit193
 
 iseq_compile_each.exit193:                        ; preds = %192, %keyword_node_p.exit.thread.thread
@@ -56703,7 +56703,7 @@ define internal fastcc range(i32 -1, 2) i32 @compile_hash(ptr noundef %0, ptr no
   br i1 %33, label %iseq_compile_each.exit, label %34
 
 34:                                               ; preds = %.preheader378
-  %35 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %32, i32 noundef %4)
+  %35 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %32, i32 noundef %4)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %.preheader378, %34
@@ -57162,7 +57162,7 @@ rb_obj_written.exit:                              ; preds = %.critedge
   br i1 %.not285, label %313, label %iseq_compile_each.exit321
 
 iseq_compile_each.exit321:                        ; preds = %.lr.ph408
-  %233 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %6, ptr noundef %232, i32 noundef 0)
+  %233 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %232, i32 noundef 0)
   %234 = getelementptr inbounds i8, ptr %.4407, i64 48
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 32
@@ -57199,7 +57199,7 @@ ISEQ_COMPILE_DATA.exit.i324:                      ; preds = %iseq_compile_each.e
   br label %iseq_compile_each.exit327
 
 254:                                              ; preds = %iseq_compile_each.exit321
-  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %6, ptr noundef %237, i32 noundef 0)
+  %255 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %237, i32 noundef 0)
   br label %iseq_compile_each.exit327
 
 iseq_compile_each.exit327:                        ; preds = %249, %254
@@ -57455,7 +57455,7 @@ APPEND_LIST.exit337:                              ; preds = %332, %350
   br i1 %or.cond7, label %iseq_compile_each.exit343, label %407
 
 iseq_compile_each.exit343:                        ; preds = %.critedge293
-  %406 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %373, i32 noundef 0)
+  %406 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %373, i32 noundef 0)
   br label %449
 
 407:                                              ; preds = %.critedge293
@@ -57482,7 +57482,7 @@ iseq_compile_each.exit343:                        ; preds = %.critedge293
   br i1 %or.cond9, label %iseq_compile_each.exit349, label %420
 
 iseq_compile_each.exit349:                        ; preds = %.thread374
-  %419 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %373, i32 noundef 0)
+  %419 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %373, i32 noundef 0)
   br label %449
 
 420:                                              ; preds = %.thread374
@@ -57519,7 +57519,7 @@ iseq_compile_each.exit356:                        ; preds = %435, %433
   %439 = getelementptr inbounds i8, ptr %437, i64 8
   store ptr %.sink481, ptr %439, align 8
   store ptr %.sink481, ptr %43, align 8
-  %440 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %373, i32 noundef 0)
+  %440 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %373, i32 noundef 0)
   %441 = load i64, ptr %2, align 8
   %442 = lshr i64 %441, 15
   %443 = trunc i64 %442 to i32
@@ -57932,7 +57932,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %140
 
 iseq_compile_each.exit:                           ; preds = %120
-  %139 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef 0)
+  %139 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0)
   %.not60 = icmp eq i32 %139, 0
   br i1 %.not60, label %279, label %140
 
@@ -58211,7 +58211,7 @@ can_add_ensure_iseq.exit:                         ; preds = %.preheader.i, %140
   %272 = lshr i64 %271, 15
   %273 = trunc i64 %272 to i32
   %274 = load i32, ptr %263, align 8
-  %275 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %273, i32 noundef %274, i32 noundef 39, i32 noundef 0, ptr noundef null)
+  %275 = tail call fastcc noundef ptr @new_insn_core(ptr noundef nonnull %0, i32 noundef %273, i32 noundef %274, i32 noundef 39, i32 noundef 0, ptr noundef null)
   %276 = load ptr, ptr %266, align 8
   %277 = getelementptr inbounds i8, ptr %275, i64 16
   store ptr %276, ptr %277, align 8
@@ -58695,7 +58695,7 @@ iseq_compile_each.exit.thread.thread:             ; preds = %ISEQ_COMPILE_DATA.e
   br label %24
 
 iseq_compile_each.exit:                           ; preds = %4
-  %23 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %23 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %iseq_compile_each.exit.thread.thread27, label %iseq_compile_each.exit.thread
 
@@ -59338,7 +59338,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %134
 
 iseq_compile_each.exit:                           ; preds = %104
-  %133 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %116, i32 noundef 0)
+  %133 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %116, i32 noundef 0)
   %.not39 = icmp eq i32 %133, 0
   br i1 %.not39, label %155, label %134
 
@@ -59639,7 +59639,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %68
   br label %iseq_compile_each.exit.thread.thread
 
 iseq_compile_each.exit:                           ; preds = %13, %22, %31, %40, %optimizable_range_item_p.exit.thread54, %optimizable_range_item_p.exit, %optimizable_range_item_p.exit40
-  %80 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %3)
+  %80 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   %.not33 = icmp eq i32 %80, 0
   br i1 %.not33, label %rb_obj_written.exit, label %iseq_compile_each.exit.thread
 
@@ -59695,12 +59695,12 @@ iseq_compile_each.exit50.thread.thread:           ; preds = %.thread69, %96
   br label %iseq_compile_each.exit50.thread.thread76
 
 iseq_compile_each.exit50:                         ; preds = %iseq_compile_each.exit.thread
-  %105 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %3)
+  %105 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %3)
   %.not34 = icmp eq i32 %105, 0
   br i1 %.not34, label %rb_obj_written.exit, label %iseq_compile_each.exit50.thread
 
 iseq_compile_each.exit50.thread74:                ; preds = %iseq_compile_each.exit.thread.thread
-  %106 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef 0)
+  %106 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef 0)
   %.not3475 = icmp eq i32 %106, 0
   br i1 %.not3475, label %rb_obj_written.exit, label %iseq_compile_each.exit50.thread.thread76
 
@@ -59899,7 +59899,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %103
 
 iseq_compile_each.exit:                           ; preds = %new_label_body.exit
-  %102 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %86, i32 noundef 0)
+  %102 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %86, i32 noundef 0)
   %.not = icmp eq i32 %102, 0
   br i1 %.not, label %206, label %103
 
@@ -60006,7 +60006,7 @@ iseq_compile_each.exit75.thread:                  ; preds = %ISEQ_COMPILE_DATA.e
   br label %167
 
 iseq_compile_each.exit75:                         ; preds = %145
-  %166 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %150, i32 noundef 0)
+  %166 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %150, i32 noundef 0)
   %.not68 = icmp eq i32 %166, 0
   br i1 %.not68, label %206, label %167
 
@@ -60730,7 +60730,7 @@ get_nd_value.exit:                                ; preds = %new_label_body.exit
   br i1 %112, label %iseq_compile_each.exit.thread, label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %74
-  %113 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %111, i32 noundef 1)
+  %113 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %111, i32 noundef 1)
   %.not = icmp eq i32 %113, 0
   br i1 %.not, label %117, label %iseq_compile_each.exit.thread
 
@@ -61003,7 +61003,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %private_recv_p.exit
   br label %.sink.split
 
 146:                                              ; preds = %private_recv_p.exit161.thread
-  %147 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %5, ptr noundef %132, i32 noundef 0)
+  %147 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %132, i32 noundef 0)
   %.not140 = icmp eq i32 %147, 0
   br i1 %.not140, label %336, label %151
 
@@ -61638,7 +61638,7 @@ new_label_body.exit108:                           ; preds = %ISEQ_COMPILE_DATA.e
   br label %.loopexit
 
 iseq_compile_each.exit:                           ; preds = %10, %10, %10, %10
-  %151 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %.084.ph347, ptr noundef %.083, i32 noundef 1)
+  %151 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %.084.ph347, ptr noundef nonnull %.083, i32 noundef 1)
   %.not89 = icmp eq i32 %151, 0
   br i1 %.not89, label %.loopexit, label %152
 
@@ -61679,7 +61679,7 @@ iseq_compile_each.exit111:                        ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %172 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %7, ptr %172, align 8
-  %173 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %7, ptr noundef %.083, i32 noundef 0)
+  %173 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %.083, i32 noundef 0)
   %.not92 = icmp eq i32 %173, 0
   br i1 %.not92, label %.loopexit, label %174
 
@@ -62520,7 +62520,7 @@ get_string_value.exit:                            ; preds = %26, %28
   br label %rb_obj_written.exit
 
 iseq_compile_each.exit:                           ; preds = %22
-  %45 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef 0)
+  %45 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i32 noundef 0)
   %.not40 = icmp eq i32 %45, 0
   br i1 %.not40, label %._crit_edge, label %rb_obj_written.exit
 
@@ -62639,7 +62639,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %42
 
 iseq_compile_each.exit:                           ; preds = %13
-  %41 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %24, i32 noundef 0)
+  %41 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %24, i32 noundef 0)
   %.not88 = icmp eq i32 %41, 0
   br i1 %.not88, label %168, label %42
 
@@ -62750,7 +62750,7 @@ iseq_compile_each.exit96.thread:                  ; preds = %ISEQ_COMPILE_DATA.e
   br label %110
 
 iseq_compile_each.exit96:                         ; preds = %80
-  %109 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %92, i32 noundef 0)
+  %109 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %92, i32 noundef 0)
   %.not85 = icmp eq i32 %109, 0
   br i1 %.not85, label %168, label %110
 
@@ -62793,7 +62793,7 @@ iseq_compile_each.exit103:                        ; preds = %5
   %136 = getelementptr inbounds i8, ptr %134, i64 8
   store ptr %132, ptr %136, align 8
   store ptr %132, ptr %133, align 8
-  %137 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %137 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0)
   %.not89 = icmp eq i32 %137, 0
   br i1 %.not89, label %168, label %138
 
@@ -63607,7 +63607,7 @@ new_label_body.exit1494:                          ; preds = %ISEQ_COMPILE_DATA.e
   %382 = load i8, ptr %381, align 4
   %383 = and i8 %382, -16
   store i8 %383, ptr %381, align 4
-  %384 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %338, ptr noundef nonnull %368, ptr noundef nonnull %73, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %309, i1 noundef zeroext false)
+  %384 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %338, ptr noundef nonnull %368, ptr noundef nonnull %73, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %309, i1 noundef zeroext false)
   %.not.i1259 = icmp eq i32 %384, 0
   br i1 %.not.i1259, label %iseq_compile_pattern_match.exit.thread, label %385
 
@@ -63970,7 +63970,7 @@ new_label_body.exit1507:                          ; preds = %ISEQ_COMPILE_DATA.e
   %607 = load i8, ptr %606, align 4
   %608 = and i8 %607, -16
   store i8 %608, ptr %606, align 4
-  %609 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %563, ptr noundef nonnull %593, ptr noundef nonnull %73, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %515, i1 noundef zeroext false)
+  %609 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %563, ptr noundef nonnull %593, ptr noundef nonnull %73, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %515, i1 noundef zeroext false)
   %.not.i1264 = icmp eq i32 %609, 0
   br i1 %.not.i1264, label %iseq_compile_pattern_match.exit.thread, label %610
 
@@ -64931,7 +64931,7 @@ new_label_body.exit1520:                          ; preds = %ISEQ_COMPILE_DATA.e
   %1166 = load i8, ptr %1165, align 4
   %1167 = and i8 %1166, -16
   store i8 %1167, ptr %1165, align 4
-  %1168 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1122, ptr noundef nonnull %1152, ptr noundef %985, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %1075, i1 noundef zeroext false)
+  %1168 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1122, ptr noundef nonnull %1152, ptr noundef %985, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %1075, i1 noundef zeroext false)
   %.not.i1332 = icmp eq i32 %1168, 0
   br i1 %.not.i1332, label %iseq_compile_pattern_match.exit.thread, label %1169
 
@@ -66390,7 +66390,7 @@ new_label_body.exit1533:                          ; preds = %ISEQ_COMPILE_DATA.e
   %2065 = load i8, ptr %2064, align 4
   %2066 = and i8 %2065, -16
   store i8 %2066, ptr %2064, align 4
-  %2067 = call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %1803, ptr noundef nonnull %2051, ptr noundef nonnull %1556, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %1796, i1 noundef zeroext false)
+  %2067 = call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %1803, ptr noundef nonnull %2051, ptr noundef nonnull %1556, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %1796, i1 noundef zeroext false)
   %.not.i1398 = icmp eq i32 %2067, 0
   br i1 %.not.i1398, label %iseq_compile_pattern_match.exit.thread, label %2068
 
@@ -66679,7 +66679,7 @@ APPEND_LIST.exit:                                 ; preds = %rb_long2int_inline.
   br label %.sink.split
 
 iseq_compile_each.exit:                           ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
-  %2251 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %2251 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
   %.not1174 = icmp eq i32 %2251, 0
   br i1 %.not1174, label %iseq_compile_pattern_match.exit.thread, label %2252
 
@@ -67065,7 +67065,7 @@ new_label_body.exit1546:                          ; preds = %ISEQ_COMPILE_DATA.e
   %2451 = load i8, ptr %2450, align 4
   %2452 = and i8 %2451, -16
   store i8 %2452, ptr %2450, align 4
-  %2453 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2405, ptr noundef nonnull %2436, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8)
+  %2453 = tail call fastcc i32 @iseq_compile_pattern_each(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2405, ptr noundef nonnull %2436, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8)
   %.not.i1425 = icmp eq i32 %2453, 0
   br i1 %.not.i1425, label %iseq_compile_pattern_match.exit.thread, label %2454
 
@@ -67111,7 +67111,7 @@ iseq_compile_each.exit1433.thread:                ; preds = %ISEQ_COMPILE_DATA.e
   br label %2477
 
 iseq_compile_each.exit1433:                       ; preds = %2454
-  %2476 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2460, i32 noundef 0)
+  %2476 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2460, i32 noundef 0)
   %.not1165 = icmp eq i32 %2476, 0
   br i1 %.not1165, label %iseq_compile_pattern_match.exit.thread, label %2477
 
@@ -67796,7 +67796,7 @@ iseq_compile_each.exit.thread:                    ; preds = %ISEQ_COMPILE_DATA.e
   br label %38
 
 iseq_compile_each.exit:                           ; preds = %9
-  %37 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %20, i32 noundef 0)
+  %37 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %20, i32 noundef 0)
   %.not29 = icmp eq i32 %37, 0
   br i1 %.not29, label %74, label %38
 
@@ -69556,7 +69556,7 @@ add_ensure_range.exit:                            ; preds = %136
   br i1 %157, label %iseq_compile_each.exit, label %158
 
 158:                                              ; preds = %add_ensure_range.exit
-  %159 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %1, ptr noundef %4, ptr noundef %156, i32 noundef 1)
+  %159 = call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %156, i32 noundef 1)
   %.pre = load ptr, ptr %11, align 8
   br label %iseq_compile_each.exit
 
@@ -69799,7 +69799,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %87
   br label %iseq_compile_each.exit
 
 106:                                              ; preds = %87
-  %107 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %2, ptr noundef %10, i32 noundef 0)
+  %107 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %10, i32 noundef 0)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %106, %100, %.loopexit
@@ -69890,7 +69890,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_massign_lhs(ptr noundef %0, 
   ]
 
 iseq_compile_each.exit:                           ; preds = %7
-  %15 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef 1)
+  %15 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
   %.not134 = icmp eq i32 %15, 0
   br i1 %.not134, label %APPEND_LIST.exit201, label %16
 
@@ -70529,7 +70529,7 @@ APPEND_LIST.exit:                                 ; preds = %302, %306
   br i1 %.not, label %iseq_compile_each.exit203, label %iseq_compile_each.exit235
 
 iseq_compile_each.exit203:                        ; preds = %324
-  %327 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef 1)
+  %327 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
   %.not131 = icmp eq i32 %327, 0
   br i1 %.not131, label %APPEND_LIST.exit201, label %328
 
@@ -70704,7 +70704,7 @@ iseq_compile_each.exit235:                        ; preds = %324, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %396 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %10, ptr %396, align 8
-  %397 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %10, ptr noundef %4, i32 noundef 1)
+  %397 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 1)
   %.not139 = icmp eq i32 %397, 0
   br i1 %.not139, label %APPEND_LIST.exit201, label %398
 
@@ -70810,7 +70810,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %14
   br label %iseq_compile_each.exit
 
 35:                                               ; preds = %14
-  %36 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %6, ptr noundef %17, i32 noundef 0)
+  %36 = call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %17, i32 noundef 0)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %30, %35
@@ -71008,7 +71008,7 @@ ISEQ_COMPILE_DATA.exit.i151:                      ; preds = %keyword_node_p.exit
   br label %iseq_compile_each.exit154
 
 keyword_node_p.exit156.thread.thread:             ; preds = %keyword_node_p.exit156, %21, %keyword_node_p.exit156.thread
-  %43 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %20, i32 noundef 0)
+  %43 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %20, i32 noundef 0)
   br label %iseq_compile_each.exit154
 
 iseq_compile_each.exit154:                        ; preds = %keyword_node_p.exit156.thread.thread, %38, %keyword_node_p.exit156
@@ -71138,7 +71138,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %55, %59, %RB_SYMBOL
   br i1 %100, label %iseq_compile_each.exit165, label %101
 
 101:                                              ; preds = %.split48.i
-  %102 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %97, i32 noundef 1)
+  %102 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %97, i32 noundef 1)
   br label %iseq_compile_each.exit165
 
 .split.i:                                         ; preds = %93
@@ -71207,7 +71207,7 @@ ISEQ_COMPILE_DATA.exit.i159:                      ; preds = %get_symbol_value.ex
   br label %iseq_compile_each.exit165
 
 137:                                              ; preds = %get_symbol_value.exit
-  %138 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %97, i32 noundef 0)
+  %138 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %97, i32 noundef 0)
   br label %iseq_compile_each.exit165
 
 iseq_compile_each.exit165:                        ; preds = %137, %132, %101, %.split48.i
@@ -71265,7 +71265,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %146
   br label %iseq_compile_each.exit
 
 167:                                              ; preds = %146
-  %168 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %148, i32 noundef 0)
+  %168 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %148, i32 noundef 0)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %161, %167
@@ -71381,7 +71381,7 @@ ISEQ_COMPILE_DATA.exit.i168:                      ; preds = %keyword_node_p.exit
   br label %iseq_compile_each.exit171
 
 keyword_node_p.exit173.thread.thread:             ; preds = %keyword_node_p.exit173, %205, %keyword_node_p.exit173.thread
-  %227 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %204, i32 noundef 0)
+  %227 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %204, i32 noundef 0)
   br label %iseq_compile_each.exit171
 
 iseq_compile_each.exit171:                        ; preds = %keyword_node_p.exit173.thread.thread, %222, %keyword_node_p.exit173
@@ -71417,7 +71417,7 @@ iseq_compile_each.exit171:                        ; preds = %keyword_node_p.exit
   br i1 %246, label %251, label %273
 
 .thread196:                                       ; preds = %189
-  %247 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %194, i32 noundef 0)
+  %247 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %194, i32 noundef 0)
   %248 = load ptr, ptr %190, align 8
   %.val120198 = load i64, ptr %248, align 8
   %249 = and i64 %.val120198, 32512
@@ -71557,7 +71557,7 @@ ISEQ_COMPILE_DATA.exit.i176:                      ; preds = %keyword_node_p.exit
   br label %iseq_compile_each.exit179
 
 keyword_node_p.exit181.thread.thread:             ; preds = %keyword_node_p.exit181, %298, %keyword_node_p.exit181.thread
-  %320 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %297, i32 noundef 0)
+  %320 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %297, i32 noundef 0)
   br label %iseq_compile_each.exit179
 
 iseq_compile_each.exit179:                        ; preds = %keyword_node_p.exit181.thread.thread, %315, %keyword_node_p.exit181
@@ -71575,7 +71575,7 @@ keyword_node_p.exit:                              ; preds = %283
   br i1 %.not109.not, label %.thread210, label %.thread207
 
 .thread207:                                       ; preds = %283, %keyword_node_p.exit
-  %326 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %288, i32 noundef 0)
+  %326 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef 0)
   %327 = load i64, ptr %2, align 8
   %328 = lshr i64 %327, 15
   %329 = trunc i64 %328 to i32
@@ -72475,7 +72475,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %188
   br label %iseq_compile_each.exit
 
 225:                                              ; preds = %188
-  %226 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %207, i32 noundef 0)
+  %226 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %207, i32 noundef 0)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %220, %225
@@ -74336,7 +74336,7 @@ new_label_body.exit90:                            ; preds = %ISEQ_COMPILE_DATA.e
   br i1 %144, label %iseq_compile_each.exit, label %145
 
 145:                                              ; preds = %140
-  %146 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %143, i32 noundef 1)
+  %146 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %143, i32 noundef 1)
   br label %iseq_compile_each.exit
 
 iseq_compile_each.exit:                           ; preds = %140, %145
@@ -74453,7 +74453,7 @@ ELEM_INSERT_PREV.exit:                            ; preds = %iseq_compile_each.e
   br i1 %214, label %iseq_compile_each.exit92, label %215
 
 215:                                              ; preds = %210
-  %216 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %213, i32 noundef 1)
+  %216 = tail call fastcc i32 @iseq_compile_each0(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %213, i32 noundef 1)
   br label %iseq_compile_each.exit92
 
 iseq_compile_each.exit92:                         ; preds = %210, %215
@@ -74636,7 +74636,7 @@ rb_obj_written.exit:                              ; preds = %36, %52
   br label %rb_obj_written.exit68
 
 iseq_compile_each.exit:                           ; preds = %62
-  %84 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %1, ptr noundef %64, i32 noundef 0)
+  %84 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 noundef 0)
   %.not66 = icmp eq i32 %84, 0
   br i1 %.not66, label %.loopexit, label %rb_obj_written.exit68
 
@@ -74887,7 +74887,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_const_prefix(ptr noundef %0,
   br label %95
 
 iseq_compile_each.exit:                           ; preds = %4
-  %94 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0)
+  %94 = tail call fastcc i32 @iseq_compile_each0(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 0)
   %.not43 = icmp eq i32 %94, 0
   br i1 %.not43, label %96, label %95
 
@@ -75324,7 +75324,7 @@ ibf_dump_object.exit166:                          ; preds = %.ibf_table_find_or_
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %ibf_dump_object.exit166
   %120 = zext i32 %118 to i64
-  %121 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %120, i64 noundef 8) #39
+  %121 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef range(i64 0, 4294967296) %120, i64 noundef 8) #39
   %122 = load ptr, ptr %74, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 224
   store ptr %121, ptr %123, align 8
@@ -80934,7 +80934,7 @@ define internal void @ibf_dump_object_float(ptr nocapture noundef readonly %0, i
   %8 = add nsw i64 %.neg.i.i, 2
   %9 = and i64 %1, -4
   %10 = or i64 %8, %9
-  %11 = tail call noundef i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 61)
+  %11 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %10, i64 range(i64 1, 0) %10, i64 61)
   %12 = bitcast i64 %11 to double
   br label %rb_float_value_inline.exit
 
@@ -82183,7 +82183,7 @@ ibf_load_object_object_header.exit:               ; preds = %17
 
 44:                                               ; preds = %38
   %45 = icmp eq i8 %41, 0
-  %46 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %42, i1 true)
+  %46 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %42, i1 true)
   %47 = add nuw nsw i32 %46, 1
   %48 = select i1 %45, i32 9, i32 %47
   %49 = add i32 %48, %30
@@ -82330,7 +82330,7 @@ define internal i64 @ibf_load_object_class(ptr nocapture noundef readonly %0, pt
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, 0
-  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %9, i1 true)
   %14 = add nuw nsw i32 %13, 1
   %15 = select i1 %12, i32 9, i32 %14
   %16 = add i32 %15, %2
@@ -82411,7 +82411,7 @@ define internal i64 @ibf_load_object_float(ptr nocapture noundef readonly %0, pt
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @rb_eIndexError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef %7) #41
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef range(i64 8, 4294967297) %7) #41
   unreachable
 
 ibf_load_check_offset.exit:                       ; preds = %3
@@ -82431,7 +82431,7 @@ ibf_load_check_offset.exit:                       ; preds = %3
   br i1 %.not7.i, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = tail call noundef i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 3)
+  %24 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %17, i64 range(i64 3458764513820540929, 3458764513820540928) %17, i64 3)
   %25 = and i64 %24, -4
   %26 = or disjoint i64 %25, 2
   br label %rb_float_new_inline.exit
@@ -82464,7 +82464,7 @@ define internal i64 @ibf_load_object_string(ptr noundef %0, ptr nocapture nounde
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, 0
-  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %9, i1 true)
   %14 = add nuw nsw i32 %13, 1
   %15 = select i1 %12, i32 9, i32 %14
   %16 = add i32 %15, %2
@@ -82526,7 +82526,7 @@ ibf_load_small_value.exit:                        ; preds = %.lr.ph.i, %.thread4
 
 48:                                               ; preds = %ibf_load_small_value.exit
   %49 = icmp eq i8 %45, 0
-  %50 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %46, i1 true)
+  %50 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %46, i1 true)
   %51 = add nuw nsw i32 %50, 1
   %52 = select i1 %49, i32 9, i32 %51
   %53 = add i32 %52, %41
@@ -82665,7 +82665,7 @@ ibf_load_byte.exit:                               ; preds = %3
 
 19:                                               ; preds = %ibf_load_byte.exit
   %20 = icmp eq i8 %16, 0
-  %21 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %17, i1 true)
+  %21 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %17, i1 true)
   %22 = add nuw nsw i32 %21, 1
   %23 = select i1 %20, i32 9, i32 %22
   %24 = add i32 %23, %10
@@ -82751,7 +82751,7 @@ define internal i64 @ibf_load_object_array(ptr noundef %0, ptr nocapture noundef
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, 0
-  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %9, i1 true)
   %14 = add nuw nsw i32 %13, 1
   %15 = select i1 %12, i32 9, i32 %14
   %16 = add i32 %15, %2
@@ -82833,7 +82833,7 @@ ibf_load_small_value.exit:                        ; preds = %.lr.ph.i, %.thread4
 
 55:                                               ; preds = %.lr.ph
   %56 = icmp eq i8 %52, 0
-  %57 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %53, i1 true)
+  %57 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %53, i1 true)
   %58 = add nuw nsw i32 %57, 1
   %59 = select i1 %56, i32 9, i32 %58
   %60 = add i32 %59, %.02729
@@ -82919,7 +82919,7 @@ define internal i64 @ibf_load_object_hash(ptr noundef %0, ptr nocapture noundef 
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, 0
-  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %9, i1 true)
   %14 = add nuw nsw i32 %13, 1
   %15 = select i1 %12, i32 9, i32 %14
   %16 = add i32 %15, %2
@@ -82988,7 +82988,7 @@ ibf_load_small_value.exit:                        ; preds = %.lr.ph.i, %.thread4
 
 49:                                               ; preds = %.lr.ph
   %50 = icmp eq i8 %46, 0
-  %51 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %47, i1 true)
+  %51 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %47, i1 true)
   %52 = add nuw nsw i32 %51, 1
   %53 = select i1 %50, i32 9, i32 %52
   %54 = add i32 %53, %.04447
@@ -83049,7 +83049,7 @@ ibf_load_small_value.exit31:                      ; preds = %.lr.ph.i26, %.threa
 
 85:                                               ; preds = %ibf_load_small_value.exit31
   %86 = icmp eq i8 %82, 0
-  %87 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %83, i1 true)
+  %87 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %83, i1 true)
   %88 = add nuw nsw i32 %87, 1
   %89 = select i1 %86, i32 9, i32 %88
   %90 = add i32 %89, %79
@@ -83145,7 +83145,7 @@ define internal i64 @ibf_load_object_struct(ptr noundef %0, ptr nocapture nounde
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @rb_eIndexError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef %7) #41
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef range(i64 8, 4294967297) %7) #41
   unreachable
 
 ibf_load_check_offset.exit:                       ; preds = %3
@@ -83200,7 +83200,7 @@ define internal i64 @ibf_load_object_bignum(ptr nocapture noundef readonly %0, p
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @rb_eIndexError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef %7) #41
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef range(i64 8, 4294967297) %7) #41
   unreachable
 
 ibf_load_check_offset.exit:                       ; preds = %3
@@ -83252,7 +83252,7 @@ define internal i64 @ibf_load_object_data(ptr nocapture noundef readonly %0, ptr
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @rb_eIndexError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef %7) #41
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef range(i64 8, 4294967297) %7) #41
   unreachable
 
 ibf_load_check_offset.exit:                       ; preds = %3
@@ -83291,7 +83291,7 @@ define internal i64 @ibf_load_object_complex_rational(ptr noundef %0, ptr nocapt
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @rb_eIndexError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef %7) #41
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.231, i64 noundef range(i64 8, 4294967297) %7) #41
   unreachable
 
 ibf_load_check_offset.exit:                       ; preds = %3
@@ -83355,7 +83355,7 @@ define internal i64 @ibf_load_object_symbol(ptr noundef %0, ptr nocapture readno
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %8, 0
-  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %9, i1 true)
+  %13 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %9, i1 true)
   %14 = add nuw nsw i32 %13, 1
   %15 = select i1 %12, i32 9, i32 %14
   %16 = add i32 %15, %2
@@ -83417,7 +83417,7 @@ ibf_load_small_value.exit:                        ; preds = %.lr.ph.i, %.thread4
 
 48:                                               ; preds = %ibf_load_small_value.exit
   %49 = icmp eq i8 %45, 0
-  %50 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 %46, i1 true)
+  %50 = tail call range(i32 0, 8) i32 @llvm.cttz.i32(i32 range(i32 1, 256) %46, i1 true)
   %51 = add nuw nsw i32 %50, 1
   %52 = select i1 %49, i32 9, i32 %51
   %53 = add i32 %52, %41
@@ -84449,7 +84449,7 @@ define internal fastcc i64 @pm_static_literal_value(ptr noundef %0, ptr noundef 
   br i1 %.not7.i.i, label %30, label %34
 
 30:                                               ; preds = %25
-  %31 = tail call noundef i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 3)
+  %31 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %24, i64 range(i64 3458764513820540929, 3458764513820540928) %24, i64 3)
   %32 = and i64 %31, -4
   %33 = or disjoint i64 %32, 2
   br label %parse_float.exit
@@ -84828,7 +84828,7 @@ define internal fastcc i64 @parse_float(double %.24.val) unnamed_addr #1 {
   br i1 %.not7.i, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 3)
+  %8 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %1, i64 range(i64 3458764513820540929, 3458764513820540928) %1, i64 3)
   %9 = and i64 %8, -4
   %10 = or disjoint i64 %9, 2
   br label %rb_float_new_inline.exit
@@ -84871,7 +84871,7 @@ define internal fastcc i64 @parse_imaginary(ptr nocapture readonly %.24.val) unn
   br i1 %.not7.i.i, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = tail call noundef i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 3)
+  %11 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %4, i64 range(i64 3458764513820540929, 3458764513820540928) %4, i64 3)
   %12 = and i64 %11, -4
   %13 = or disjoint i64 %12, 2
   br label %parse_float.exit

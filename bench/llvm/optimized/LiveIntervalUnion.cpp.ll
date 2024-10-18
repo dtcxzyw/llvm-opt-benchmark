@@ -95,7 +95,7 @@ $_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17LiveIntervalUnion5unifyERKNS_12LiveIntervalERKNS_9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::iterator", align 8
-  %5 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %5 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   br i1 %5, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iteratorD2Ev.exit, label %6
 
 6:                                                ; preds = %3
@@ -103,16 +103,16 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5unifyERKNS_12LiveIntervalERKN
   %8 = add i32 %7, 1
   store i32 %8, ptr %0, align 8
   %9 = load ptr, ptr %2, align 8
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   %11 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.07.0.copyload = load i64, ptr %9, align 8
   store ptr %12, ptr %4, align 8, !alias.scope !4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %14, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull %14, i64 noundef 4) #9
   call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator4findES1_(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 %.sroa.07.0.copyload)
-  %15 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %15 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   br i1 %15, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit: ; preds = %6, %26
@@ -137,7 +137,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 26:                                               ; preds = %22
   %.sroa.04.0.copyload = load i64, ptr %24, align 8
   call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator9advanceToES1_(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 %.sroa.04.0.copyload)
-  %27 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %27 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   br i1 %27, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, !llvm.loop !7
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread: ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, %26, %6
@@ -158,14 +158,14 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S4_(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 %.sroa.01.0.copyload, i64 %.sroa.0.0.copyload, ptr noundef nonnull %1)
   %31 = getelementptr inbounds i8, ptr %.134, i64 24
   %32 = load ptr, ptr %13, align 8
-  %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %34 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4
   %38 = load ptr, ptr %13, align 8
-  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %40 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -8
   %42 = load i32, ptr %41, align 8
@@ -188,7 +188,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iteratorppEv.exit, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %50 = load ptr, ptr %13, align 8
   %51 = icmp eq ptr %50, %14
   br i1 %51, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iteratorD2Ev.exit, label %52
@@ -219,7 +219,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #9
+  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %10) #9
   %13 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %11, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 196
@@ -237,7 +237,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 
 22:                                               ; preds = %9
   %23 = load ptr, ptr %10, align 8
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #9
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %10) #9
   %25 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %23, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4
@@ -255,7 +255,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator9advanceToES1_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   br i1 %4, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit: ; preds = %2
@@ -279,7 +279,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   br label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 16:                                               ; preds = %11
-  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %18 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %5, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -4
   %20 = load i32, ptr %19, align 4
@@ -324,7 +324,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit: ; preds = %32, %43, %16
   %.0.lcssa.i = phi i32 [ %20, %16 ], [ %.07.i, %32 ], [ %23, %43 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %47 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %45, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   store i32 %.0.lcssa.i, ptr %48, align 4
@@ -337,7 +337,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17LiveIntervalUnion7extractERKNS_12LiveIntervalERKNS_9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::iterator", align 8
-  %5 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %5 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   br i1 %5, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iteratorD2Ev.exit, label %6
 
 6:                                                ; preds = %3
@@ -345,14 +345,14 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion7extractERKNS_12LiveIntervalER
   %8 = add i32 %7, 1
   store i32 %8, ptr %0, align 8
   %9 = load ptr, ptr %2, align 8
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   %11 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
   store ptr %12, ptr %4, align 8, !alias.scope !11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %14, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull %14, i64 noundef 4) #9
   call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator4findES1_(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 %.sroa.02.0.copyload)
   br label %15
 
@@ -370,7 +370,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion7extractERKNS_12LiveIntervalER
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %13, align 8
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %23 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = load i32, ptr %24, align 4
@@ -420,7 +420,7 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveInterval
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator5eraseEv.exit
 
 _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator5eraseEv.exit: ; preds = %19, %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveIntervalELj8EE5eraseEjj.exit.i
-  %48 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %48 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   br i1 %48, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator5eraseEv.exit
@@ -433,12 +433,12 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   br i1 %54, label %55, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 55:                                               ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
-  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %57 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %49, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %13, align 8
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %62 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -4
   %64 = load i32, ptr %63, align 4
@@ -446,7 +446,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   %66 = getelementptr inbounds [8 x %"struct.std::pair"], ptr %59, i64 0, i64 %65
   %.sroa.01.0.copyload = load i64, ptr %66, align 8
   %67 = load ptr, ptr %2, align 8
-  %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   %69 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %67, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %70, align 8
@@ -471,7 +471,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 
 87:                                               ; preds = %55
   %88 = load ptr, ptr %2, align 8
-  %89 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %89 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   %90 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %88, i64 %89
   br label %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit
 
@@ -502,7 +502,7 @@ _ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.pr
   br label %15, !llvm.loop !16
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator5eraseEv.exit, %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
-  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
+  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #9
   %104 = load ptr, ptr %13, align 8
   %105 = icmp eq ptr %104, %14
   br i1 %105, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iteratorD2Ev.exit, label %106
@@ -553,7 +553,7 @@ define dso_local void @_ZNK4llvm17LiveIntervalUnion5printERNS_11raw_ostreamEPKNS
   store ptr %26, ptr %6, align 8, !alias.scope !17
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %28, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull %28, i64 noundef 4) #9
   %29 = load ptr, ptr %6, align 8, !alias.scope !17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 192
   %31 = load i32, ptr %30, align 8
@@ -574,7 +574,7 @@ define dso_local void @_ZNK4llvm17LiveIntervalUnion5printERNS_11raw_ostreamEPKNS
   br label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit: ; preds = %25, %37
-  %38 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %38 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   br i1 %38, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.lr.ph
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.lr.ph: ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit
@@ -594,7 +594,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   br i1 %48, label %61, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread: ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorppEv.exit, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %50 = load ptr, ptr %27, align 8
   %51 = icmp eq ptr %50, %28
   br i1 %51, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorD2Ev.exit, label %52
@@ -644,12 +644,12 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
 _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %68, %70
   %.0.i.i8 = phi ptr [ %69, %68 ], [ %1, %70 ]
   %73 = load ptr, ptr %27, align 8
-  %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %75 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %73, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 -16
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %27, align 8
-  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %80 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %78, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -4
   %82 = load i32, ptr %81, align 4
@@ -680,12 +680,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %68, %70
 _ZN4llvm11raw_ostreamlsEc.exit12:                 ; preds = %89, %91
   %.0.i11 = phi ptr [ %90, %89 ], [ %.0.i.i8, %91 ]
   %93 = load ptr, ptr %27, align 8
-  %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %95 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %93, i64 %94
   %96 = getelementptr inbounds i8, ptr %95, i64 -16
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %27, align 8
-  %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %100 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %98, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -4
   %102 = load i32, ptr %101, align 4
@@ -720,12 +720,12 @@ _ZN4llvm11raw_ostreamlsEc.exit12:                 ; preds = %89, %91
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %113, %115
   %.0.i.i14 = phi ptr [ %114, %113 ], [ %.0.i11, %115 ]
   %118 = load ptr, ptr %27, align 8
-  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %120 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %118, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 -16
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %27, align 8
-  %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %125 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %123, i64 %124
   %126 = getelementptr inbounds i8, ptr %125, i64 -4
   %127 = load i32, ptr %126, align 4
@@ -746,25 +746,25 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %113, %115
 
 _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit15
   %135 = load ptr, ptr %42, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14) #9
+  call void %135(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14) #9
   %136 = load ptr, ptr %41, align 8
   %.not.i.i.i17 = icmp eq ptr %136, null
   br i1 %.not.i.i.i17, label %_ZN4llvm9PrintableD2Ev.exit, label %137
 
 137:                                              ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit
-  %138 = call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #9
+  %138 = call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #9
   br label %_ZN4llvm9PrintableD2Ev.exit
 
 _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit, %137
   %139 = load ptr, ptr %27, align 8
-  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %141 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %139, i64 %140
   %142 = getelementptr inbounds i8, ptr %141, i64 -4
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4
   %145 = load ptr, ptr %27, align 8
-  %146 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %146 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   %147 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %145, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 -8
   %149 = load i32, ptr %148, align 8
@@ -783,7 +783,7 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %_ZN4llvmlsERNS_11ra
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorppEv.exit
 
 _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorppEv.exit: ; preds = %_ZN4llvm9PrintableD2Ev.exit, %151, %155
-  %156 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
+  %156 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #9
   br i1 %156, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, !llvm.loop !20
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %59, %57, %22, %20
@@ -805,7 +805,7 @@ define dso_local noundef ptr @_ZNK4llvm17LiveIntervalUnion10getOneVRegEv(ptr nou
   store ptr %7, ptr %2, align 8, !alias.scope !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %9, i64 noundef 4) #9
   %10 = load ptr, ptr %2, align 8, !alias.scope !21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load i32, ptr %11, align 8
@@ -826,7 +826,7 @@ define dso_local noundef ptr @_ZNK4llvm17LiveIntervalUnion10getOneVRegEv(ptr nou
   br label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit: ; preds = %6, %18
-  %19 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  %19 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #9
   br i1 %19, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit: ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit
@@ -839,12 +839,12 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   br i1 %25, label %26, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 26:                                               ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
-  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #9
   %28 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %20, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %8, align 8
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #9
   %33 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4
@@ -856,7 +856,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread: ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, %26
   %switch = phi ptr [ %39, %26 ], [ null, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit ], [ null, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE5beginEv.exit ]
-  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #9
   %41 = load ptr, ptr %8, align 8
   %42 = icmp eq ptr %41, %9
   br i1 %42, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorD2Ev.exit, label %43
@@ -874,7 +874,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
 define dso_local noundef zeroext i1 @_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
   %.idx4.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %4, i64 %.idx4.i
   %7 = ashr i64 %5, 2
@@ -973,7 +973,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit: ; preds = %10, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %30, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %41
   %.028.i.i.i.i = phi ptr [ %6, %41 ], [ %.029.lcssa.i.i.i.i, %30 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit14 ], [ %44, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKNS_12LiveIntervalELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.02946.i.i.i.i, %10 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   %48 = icmp ne ptr %.028.i.i.i.i, %47
   ret i1 %48
@@ -1009,7 +1009,7 @@ define dso_local noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterfer
   store i8 1, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #9
+  %21 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #9
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
@@ -1039,11 +1039,11 @@ define dso_local noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterfer
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #9
+  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %36) #9
   %39 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   br i1 %42, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.lr.ph
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.lr.ph: ; preds = %34
@@ -1065,12 +1065,12 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   %51 = phi ptr [ %207, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit21 ], [ %45, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit ]
   %.1 = phi ptr [ %.2, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit21 ], [ %.01437, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit ]
   %52 = load ptr, ptr %43, align 8
-  %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %54 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %51, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 -16
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %41, align 8
-  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %59 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %57, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %61 = load i32, ptr %60, align 4
@@ -1101,12 +1101,12 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   %82 = load ptr, ptr %43, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %41, align 8
-  %85 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %85 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %86 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %84, i64 %85
   %87 = getelementptr inbounds i8, ptr %86, i64 -16
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %41, align 8
-  %90 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %90 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %91 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %89, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 -4
   %93 = load i32, ptr %92, align 4
@@ -1135,12 +1135,12 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 
 113:                                              ; preds = %81
   %114 = load ptr, ptr %41, align 8
-  %115 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %115 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %116 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %114, i64 %115
   %117 = getelementptr inbounds i8, ptr %116, i64 -16
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %41, align 8
-  %120 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %120 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %121 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %119, i64 %120
   %122 = getelementptr inbounds i8, ptr %121, i64 -4
   %123 = load i32, ptr %122, align 4
@@ -1153,7 +1153,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 
 128:                                              ; preds = %113
   %129 = load ptr, ptr %7, align 8
-  %130 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
+  %130 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #9
   %.idx4.i.i = shl nsw i64 %130, 3
   %131 = getelementptr inbounds i8, ptr %129, i64 %.idx4.i.i
   %132 = ashr i64 %130, 2
@@ -1252,7 +1252,7 @@ _ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit
 _ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit: ; preds = %135, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit.loopexit.split.loop.exit, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit.loopexit.split.loop.exit46, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit.loopexit.split.loop.exit48, %155, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %166
   %.028.i.i.i.i.i = phi ptr [ %131, %166 ], [ %.029.lcssa.i.i.i.i.i, %155 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %167, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit.loopexit.split.loop.exit ], [ %168, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit.loopexit.split.loop.exit46 ], [ %169, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit.loopexit.split.loop.exit48 ], [ %.02946.i.i.i.i.i, %135 ]
   %170 = load ptr, ptr %7, align 8
-  %171 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
+  %171 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #9
   %172 = getelementptr inbounds ptr, ptr %170, i64 %171
   %.not24 = icmp eq ptr %.028.i.i.i.i.i, %172
   br i1 %.not24, label %173, label %188
@@ -1289,14 +1289,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_12LiveIntervalELb1EE9push_backES3_.exit: 
 188:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_12LiveIntervalELb1EE9push_backES3_.exit, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit, %113
   %.2 = phi ptr [ %.1, %_ZNK4llvm17LiveIntervalUnion5Query18isSeenInterferenceEPKNS_12LiveIntervalE.exit ], [ %127, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_12LiveIntervalELb1EE9push_backES3_.exit ], [ %.1, %113 ]
   %189 = load ptr, ptr %41, align 8
-  %190 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %190 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %191 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %189, i64 %190
   %192 = getelementptr inbounds i8, ptr %191, i64 -4
   %193 = load i32, ptr %192, align 4
   %194 = add i32 %193, 1
   store i32 %194, ptr %192, align 4
   %195 = load ptr, ptr %41, align 8
-  %196 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %196 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %197 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %195, i64 %196
   %198 = getelementptr inbounds i8, ptr %197, i64 -8
   %199 = load i32, ptr %198, align 8
@@ -1315,7 +1315,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_12LiveIntervalELb1EE9push_backES3_.exit: 
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorppEv.exit
 
 _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorppEv.exit: ; preds = %188, %201, %205
-  %206 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %206 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   br i1 %206, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit21.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit21
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit21: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorppEv.exit
@@ -1337,12 +1337,12 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   %215 = load ptr, ptr %35, align 8
   %216 = load ptr, ptr %43, align 8
   %217 = load ptr, ptr %41, align 8
-  %218 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %218 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %219 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %217, i64 %218
   %220 = getelementptr inbounds i8, ptr %219, i64 -16
   %221 = load ptr, ptr %220, align 8
   %222 = load ptr, ptr %41, align 8
-  %223 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %223 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %224 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %222, i64 %223
   %225 = getelementptr inbounds i8, ptr %224, i64 -4
   %226 = load i32, ptr %225, align 4
@@ -1350,7 +1350,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   %228 = getelementptr inbounds [8 x %"struct.std::pair"], ptr %221, i64 0, i64 %227
   %.sroa.02.0.copyload = load i64, ptr %228, align 8
   %229 = load ptr, ptr %215, align 8
-  %230 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %215) #9
+  %230 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %215) #9
   %231 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %229, i64 %230
   %232 = getelementptr inbounds i8, ptr %231, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %232, align 8
@@ -1375,7 +1375,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 
 249:                                              ; preds = %.critedge
   %250 = load ptr, ptr %215, align 8
-  %251 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %215) #9
+  %251 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %215) #9
   %252 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %250, i64 %251
   br label %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit
 
@@ -1403,12 +1403,12 @@ _ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.pr
 
 264:                                              ; preds = %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit
   %265 = load ptr, ptr %41, align 8
-  %266 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %266 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %267 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %265, i64 %266
   %268 = getelementptr inbounds i8, ptr %267, i64 -16
   %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %41, align 8
-  %271 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %271 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   %272 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %270, i64 %271
   %273 = getelementptr inbounds i8, ptr %272, i64 -4
   %274 = load i32, ptr %273, align 4
@@ -1442,7 +1442,7 @@ _ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.pr
   br label %.backedge
 
 .backedge:                                        ; preds = %294, %264
-  %296 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
+  %296 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #9
   br i1 %296, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, !llvm.loop !26
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread: ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit, %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit, %.backedge, %34
@@ -1514,7 +1514,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @_ZN4llvm15IntervalMapImpl4Path7setRootEPvjj(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull %.sink.i.i, i32 noundef %7, i32 noundef %.0.lcssa.i.i)
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #9
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %31) #9
   br i1 %32, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator8treeFindES1_.exit, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.i
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.i: ; preds = %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit.i
@@ -1605,7 +1605,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5Array4initERNS_18RecyclingAll
 14:                                               ; preds = %.lr.ph.i
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE10visitNodesEMS7_FvNS_15IntervalMapImpl7NodeRefEjE(ptr noundef nonnull align 8 dereferenceable(208) %15, i64 ptrtoint (ptr @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE10deleteNodeENS_15IntervalMapImpl7NodeRefEj to i64), i64 0)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %15, i8 0, i64 196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %15, i8 0, i64 196, i1 false)
   br label %_ZN4llvm17LiveIntervalUnionD2Ev.exit.i
 
 _ZN4llvm17LiveIntervalUnionD2Ev.exit.i:           ; preds = %14, %.lr.ph.i
@@ -1673,7 +1673,7 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %_ZN4llvm17LiveInter
   store i32 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 208
   store ptr %1, ptr %37, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %34, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %34, i8 0, i64 192, i1 false)
   %38 = add i32 %.09, 1
   %39 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %38, %39
@@ -1708,7 +1708,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5Array5clearEv(ptr nocapture n
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE10visitNodesEMS7_FvNS_15IntervalMapImpl7NodeRefEjE(ptr noundef nonnull align 8 dereferenceable(208) %11, i64 ptrtoint (ptr @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE10deleteNodeENS_15IntervalMapImpl7NodeRefEj to i64), i64 0)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %11, i8 0, i64 196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %11, i8 0, i64 196, i1 false)
   br label %_ZN4llvm17LiveIntervalUnionD2Ev.exit
 
 _ZN4llvm17LiveIntervalUnionD2Ev.exit:             ; preds = %.lr.ph, %10
@@ -1769,9 +1769,9 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %9, i64 noundef 4) #9
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %10, i64 noundef 4) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %12 = load i32, ptr %11, align 4
   %.not52 = icmp eq i32 %12, 0
@@ -2000,7 +2000,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   br i1 %.not42, label %._crit_edge70, label %.lr.ph69.split, !llvm.loop !35
 
 ._crit_edge70:                                    ; preds = %.lr.ph69.split, %.lr.ph69.split.us, %._crit_edge65
-  %101 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %101 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
   %102 = load ptr, ptr %5, align 8
   %103 = icmp eq ptr %102, %10
   br i1 %103, label %_ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit, label %104
@@ -2010,7 +2010,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   br label %_ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit: ; preds = %._crit_edge70, %104
-  %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
   %106 = load ptr, ptr %4, align 8
   %107 = icmp eq ptr %106, %9
   br i1 %107, label %_ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit50, label %108
@@ -2201,7 +2201,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15IntervalMapImpl4Path8fillLeftEj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, -1
   %6 = icmp ult i32 %5, %1
@@ -2212,7 +2212,7 @@ define linkonce_odr hidden void @_ZN4llvm15IntervalMapImpl4Path8fillLeftEj(ptr n
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN4llvm15IntervalMapImpl4Path4pushENS0_7NodeRefEj.exit
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %10 = add i64 %9, 4294967295
   %11 = and i64 %10, 4294967295
   %12 = load ptr, ptr %0, align 8
@@ -2223,14 +2223,14 @@ define linkonce_odr hidden void @_ZN4llvm15IntervalMapImpl4Path8fillLeftEj(ptr n
   %17 = zext i32 %15 to i64
   %18 = getelementptr inbounds %"class.llvm::IntervalMapImpl::NodeRef", ptr %16, i64 %17
   %.sroa.0.0.copyload = load i64, ptr %18, align 8
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %20 = add i64 %19, 1
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %.not.i.i.i.i = icmp ugt i64 %20, %21
   br i1 %.not.i.i.i.i, label %22, label %_ZN4llvm15IntervalMapImpl4Path4pushENS0_7NodeRefEj.exit
 
 22:                                               ; preds = %8
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %20, i64 noundef 16) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %7, i64 noundef %20, i64 noundef 16) #9
   br label %_ZN4llvm15IntervalMapImpl4Path4pushENS0_7NodeRefEj.exit
 
 _ZN4llvm15IntervalMapImpl4Path4pushENS0_7NodeRefEj.exit: ; preds = %8, %22
@@ -2239,15 +2239,15 @@ _ZN4llvm15IntervalMapImpl4Path4pushENS0_7NodeRefEj.exit: ; preds = %8, %22
   %24 = and i64 %.sroa.0.0.copyload, -64
   %25 = inttoptr i64 %24 to ptr
   %26 = load ptr, ptr %0, align 8
-  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %28 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %26, i64 %27
   store ptr %25, ptr %28, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %.sroa.2.8.insert.ext.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %30 = add i64 %29, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %30) #9
-  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %30) #9
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   %32 = trunc i64 %31 to i32
   %33 = add i32 %32, -1
   %34 = icmp ult i32 %33, %1
@@ -2326,7 +2326,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE9push_bac
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S4_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %6 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   br i1 %6, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %4
@@ -2342,7 +2342,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread: ; preds = %4, %_ZNK4llvm15I
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %15 = load i32, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   br i1 %16, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread.i, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.i
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.i:   ; preds = %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread
@@ -2367,7 +2367,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread.i: ; preds = %_ZNK4llvm15Int
 
 _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread.i, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.i, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
   %28 = phi ptr [ %.pre, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread.i ], [ %17, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.i ], [ %7, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit ]
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %30 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
@@ -2376,7 +2376,7 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
 
 34:                                               ; preds = %_ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit
   %35 = load ptr, ptr %5, align 8
-  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %37 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -16
   %39 = load ptr, ptr %38, align 8
@@ -2401,7 +2401,7 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
   br i1 %56, label %57, label %111
 
 57:                                               ; preds = %34
-  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %59 = trunc i64 %58 to i32
   %60 = add i32 %59, -1
   %61 = tail call i64 @_ZNK4llvm15IntervalMapImpl4Path14getLeftSiblingEj(ptr noundef nonnull align 8 dereferenceable(80) %5, i32 noundef %60) #9
@@ -2426,11 +2426,11 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %5, align 8
-  %75 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %75 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %76 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %74, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -16
   %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %79 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %80 = trunc i64 %79 to i32
   %81 = add i32 %80, -1
   tail call void @_ZN4llvm15IntervalMapImpl4Path8moveLeftEj(ptr noundef nonnull align 8 dereferenceable(80) %5, i32 noundef %81) #9
@@ -2463,7 +2463,7 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
   br i1 %or.cond, label %106, label %102
 
 102:                                              ; preds = %98
-  %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %104 = trunc i64 %103 to i32
   %105 = add i32 %104, -1
   store i64 %2, ptr %71, align 8
@@ -2484,23 +2484,23 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
 111:                                              ; preds = %109, %106, %70, %62, %34, %_ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit
   %.sroa.067.0 = phi i64 [ %108, %106 ], [ %1, %70 ], [ %1, %62 ], [ %1, %109 ], [ %1, %34 ], [ %1, %_ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit ]
   %112 = load ptr, ptr %5, align 8
-  %113 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %113 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %114 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %112, i64 %113
   %115 = getelementptr inbounds i8, ptr %114, i64 -8
   %116 = load i32, ptr %115, align 8
   %117 = load ptr, ptr %5, align 8
-  %118 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %118 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %119 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %117, i64 %118
   %120 = getelementptr inbounds i8, ptr %119, i64 -4
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, %116
   %123 = load ptr, ptr %5, align 8
-  %124 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %124 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %125 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %123, i64 %124
   %126 = getelementptr inbounds i8, ptr %125, i64 -16
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %5, align 8
-  %129 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %129 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %130 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %128, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -4
   %132 = tail call noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S5_(ptr noundef nonnull align 8 dereferenceable(192) %127, ptr noundef nonnull align 4 dereferenceable(4) %131, i32 noundef %116, i64 %.sroa.067.0, i64 %2, ptr noundef %3)
@@ -2508,32 +2508,32 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
   br i1 %133, label %134, label %165
 
 134:                                              ; preds = %111
-  %135 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %135 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %136 = trunc i64 %135 to i32
   %137 = add i32 %136, -1
   %138 = tail call noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator8overflowINS_15IntervalMapImpl8LeafNodeIS1_S4_Lj8ES6_EEEEbj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %137)
   %139 = load ptr, ptr %5, align 8
-  %140 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %140 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %141 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %139, i64 %140
   %142 = getelementptr inbounds i8, ptr %141, i64 -4
   %143 = load i32, ptr %142, align 4
   %144 = load ptr, ptr %5, align 8
-  %145 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %145 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %146 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %144, i64 %145
   %147 = getelementptr inbounds i8, ptr %146, i64 -8
   %148 = load i32, ptr %147, align 8
   %149 = icmp eq i32 %143, %148
   %150 = load ptr, ptr %5, align 8
-  %151 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %151 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %152 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %150, i64 %151
   %153 = getelementptr inbounds i8, ptr %152, i64 -16
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %5, align 8
-  %156 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %156 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %157 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %155, i64 %156
   %158 = getelementptr inbounds i8, ptr %157, i64 -4
   %159 = load ptr, ptr %5, align 8
-  %160 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %160 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %161 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %159, i64 %160
   %162 = getelementptr inbounds i8, ptr %161, i64 -8
   %163 = load i32, ptr %162, align 8
@@ -2543,7 +2543,7 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
 165:                                              ; preds = %134, %111
   %.048.in = phi i1 [ %149, %134 ], [ %122, %111 ]
   %.0 = phi i32 [ %164, %134 ], [ %132, %111 ]
-  %166 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %166 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %167 = trunc i64 %166 to i32
   %168 = add i32 %167, -1
   %169 = zext i32 %168 to i64
@@ -2575,7 +2575,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %165, %172
   br i1 %.048.in, label %186, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
 186:                                              ; preds = %_ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit
-  %187 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %187 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %188 = trunc i64 %187 to i32
   %189 = add i32 %188, -1
   %.not.i58 = icmp eq i32 %189, 0
@@ -2905,7 +2905,7 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveInterval
 61:                                               ; preds = %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveIntervalELj8EE4copyILj8EEEvRKNS1_IS4_S7_XT_EEEjjj.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 1, ptr %62, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 184, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %65
@@ -3001,12 +3001,12 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %7 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %5, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %12 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %10, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
   %14 = load i32, ptr %13, align 8
@@ -3030,7 +3030,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
   br i1 %.not, label %_ZNK4llvm15IntervalMapImpl4Path7atBeginEv.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %25 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   br i1 %25, label %_ZNK4llvm15IntervalMapImpl4Path7atBeginEv.exit, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %24
@@ -3043,7 +3043,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %24
   br i1 %31, label %32, label %_ZNK4llvm15IntervalMapImpl4Path7atBeginEv.exit
 
 32:                                               ; preds = %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
-  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %34 = and i64 %33, 4294967295
   %.not7.i = icmp eq i64 %34, 0
   %.pre50 = load ptr, ptr %4, align 8
@@ -3066,7 +3066,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %24
   br i1 %.not6.i, label %36, label %_ZNK4llvm15IntervalMapImpl4Path7atBeginEv.exit
 
 .loopexit:                                        ; preds = %36, %32
-  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %41 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %.pre50, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
   %43 = load ptr, ptr %42, align 8
@@ -3076,12 +3076,12 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %24
 
 45:                                               ; preds = %2
   %46 = load ptr, ptr %4, align 8
-  %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %48 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %46, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 -4
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %4, align 8
-  %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %53 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   %55 = load i32, ptr %54, align 8
@@ -3117,7 +3117,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %24
 
 _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveIntervalELj8EE5eraseEjj.exit: ; preds = %58, %45
   %72 = load ptr, ptr %4, align 8
-  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %74 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %72, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -8
   %76 = load i32, ptr %75, align 8
@@ -3151,7 +3151,7 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveInterval
 
 _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveIntervalELj8EE5eraseEjj.exit, %83
   %97 = load ptr, ptr %4, align 8
-  %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %99 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %97, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 -4
   %101 = load i32, ptr %100, align 4
@@ -3217,7 +3217,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
   br i1 %1, label %138, label %_ZNK4llvm15IntervalMapImpl4Path7atBeginEv.exit
 
 138:                                              ; preds = %137
-  %139 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %139 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %140 = and i64 %139, 4294967295
   %.not7.i31 = icmp eq i64 %140, 0
   %.pre = load ptr, ptr %4, align 8
@@ -3240,7 +3240,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
   br i1 %.not6.i34, label %142, label %_ZNK4llvm15IntervalMapImpl4Path7atBeginEv.exit
 
 .loopexit41:                                      ; preds = %142, %138
-  %146 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %146 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   %147 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %.pre, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 -16
   %149 = load ptr, ptr %148, align 8
@@ -3584,7 +3584,7 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj11EE5eraseEjj.ex
   br i1 %32, label %33, label %116
 
 33:                                               ; preds = %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj11EE5eraseEjj.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %3, i8 0, i64 196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 196, i1 false)
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 192
   %36 = load i32, ptr %35, align 8
@@ -3723,7 +3723,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
   br label %116
 
 116:                                              ; preds = %46, %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit, %_ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit, %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj11EE5eraseEjj.exit
-  %117 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  %117 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #9
   br i1 %117, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %116
@@ -4250,7 +4250,7 @@ _ZN4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_
 59:                                               ; preds = %52, %4
   %.051 = phi i32 [ 2, %52 ], [ %1, %4 ]
   %60 = add i32 %.051, -1
-  %61 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #9
+  %61 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %6) #9
   br i1 %61, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread.i, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.i
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.i:   ; preds = %59
@@ -5267,12 +5267,12 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE17adjustFrom
 define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator13treeAdvanceToES1_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %6 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %3, align 8
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %11 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %9, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i32, ptr %12, align 8
@@ -5301,12 +5301,12 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 
 33:                                               ; preds = %2
   %34 = load ptr, ptr %3, align 8
-  %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %36 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %3, align 8
-  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %41 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4
@@ -5333,17 +5333,17 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit: ; preds = %46
   %58 = load ptr, ptr %3, align 8
-  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %60 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %58, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -4
   store i32 %.0.i, ptr %61, align 4
   br label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 62:                                               ; preds = %2
-  %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %64 = add i64 %63, -1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %64) #9
-  %65 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(80) %3, i64 noundef %64) #9
+  %65 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %66 = and i64 %65, 4294967295
   %.not = icmp eq i64 %66, 1
   br i1 %.not, label %._crit_edge50, label %67
@@ -5356,7 +5356,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15I
   br label %164
 
 67:                                               ; preds = %62
-  %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %69 = trunc i64 %68 to i32
   %.042 = add i32 %69, -2
   %.not1343 = icmp eq i32 %.042, 0
@@ -5447,9 +5447,9 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj12ENS
 
 .lr.ph64:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.04563 = phi i32 [ %.0, %.lr.ph ], [ %.042, %.lr.ph.preheader ]
-  %127 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %127 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %128 = add i64 %127, -1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %128) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(80) %3, i64 noundef %128) #9
   %.0 = add i32 %.04563, -1
   %.not13 = icmp eq i32 %.0, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !61
@@ -5549,7 +5549,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS
   %.sink.idx.i = select i1 %.not.i27, i64 0, i64 8
   %.sink.i = getelementptr inbounds nuw i8, ptr %166, i64 %.sink.idx.i
   tail call void @_ZN4llvm15IntervalMapImpl4Path7setRootEPvjj(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.sink.i, i32 noundef %168, i32 noundef %.0.lcssa.i)
-  %187 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %187 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   br i1 %187, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit: ; preds = %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit
@@ -5572,7 +5572,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator12pathFillFindES1_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %5 = add i64 %4, 4294967295
   %6 = and i64 %5, 4294967295
   %7 = load ptr, ptr %3, align 8
@@ -5586,7 +5586,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %17 = load i32, ptr %16, align 8
-  %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #9
   %19 = trunc i64 %18 to i32
   %20 = sub i32 %17, %19
   %.not18 = icmp eq i32 %20, 0

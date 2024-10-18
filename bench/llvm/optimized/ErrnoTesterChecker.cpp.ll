@@ -187,7 +187,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   store ptr @_ZN12_GLOBAL__N_118ErrnoTesterChecker12evalSetErrnoERN5clang4ento14CheckerContextERKNS2_9CallEventE, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E9_M_invokeERKSt9_Any_dataS3_S6_, ptr %55, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(60) %3, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -256,7 +256,7 @@ _ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
   %85 = phi ptr [ @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i.thread.i.i ], [ %.pre.i.i, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %88 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2) #14
+  %88 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2) #14
   %89 = load ptr, ptr %55, align 8
   store ptr %89, ptr %86, align 8
   %90 = load ptr, ptr %56, align 8
@@ -276,7 +276,7 @@ _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEC2IPS7_vEEOT_.
   store ptr @_ZN12_GLOBAL__N_118ErrnoTesterChecker12evalGetErrnoERN5clang4ento14CheckerContextERKNS2_9CallEventE, ptr %8, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E9_M_invokeERKSt9_Any_dataS3_S6_, ptr %94, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %95, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %91, ptr noundef nonnull align 8 dereferenceable(60) %6, i64 16, i1 false)
   %96 = getelementptr inbounds i8, ptr %2, i64 112
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -345,7 +345,7 @@ _ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i12.i.i: ; preds = %.lr.ph.i.i.i.i.
   %124 = phi ptr [ @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i12.thread.i.i ], [ %.pre196.i.i, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i12.i.i ]
   %125 = getelementptr inbounds i8, ptr %2, i64 184
   %126 = getelementptr inbounds i8, ptr %2, i64 176
-  %127 = call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2) #14
+  %127 = call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2) #14
   %128 = load ptr, ptr %94, align 8
   store ptr %128, ptr %125, align 8
   %129 = load ptr, ptr %95, align 8
@@ -365,7 +365,7 @@ _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEC2IPS7_vEEOT_.
   store ptr @_ZN12_GLOBAL__N_118ErrnoTesterChecker19evalSetErrnoIfErrorERN5clang4ento14CheckerContextERKNS2_9CallEventE, ptr %11, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E9_M_invokeERKSt9_Any_dataS3_S6_, ptr %133, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %134, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %130, ptr noundef nonnull align 8 dereferenceable(60) %9, i64 16, i1 false)
   %135 = getelementptr inbounds i8, ptr %2, i64 208
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -434,7 +434,7 @@ _ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i27.i.i: ; preds = %.lr.ph.i.i.i.i.
   %163 = phi ptr [ @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i27.thread.i.i ], [ %.pre197.i.i, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i27.i.i ]
   %164 = getelementptr inbounds i8, ptr %2, i64 280
   %165 = getelementptr inbounds i8, ptr %2, i64 272
-  %166 = call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2) #14
+  %166 = call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 2) #14
   %167 = load ptr, ptr %133, align 8
   store ptr %167, ptr %164, align 8
   %168 = load ptr, ptr %134, align 8
@@ -454,7 +454,7 @@ _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEC2IPS7_vEEOT_.
   store ptr @_ZN12_GLOBAL__N_118ErrnoTesterChecker24evalSetErrnoIfErrorRangeERN5clang4ento14CheckerContextERKNS2_9CallEventE, ptr %14, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E9_M_invokeERKSt9_Any_dataS3_S6_, ptr %172, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %173, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %169, ptr noundef nonnull align 8 dereferenceable(60) %12, i64 16, i1 false)
   %174 = getelementptr inbounds i8, ptr %2, i64 304
   %175 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %176 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -523,7 +523,7 @@ _ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i42.i.i: ; preds = %.lr.ph.i.i.i.i.
   %202 = phi ptr [ @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i42.thread.i.i ], [ %.pre198.i.i, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i42.i.i ]
   %203 = getelementptr inbounds i8, ptr %2, i64 376
   %204 = getelementptr inbounds i8, ptr %2, i64 368
-  %205 = call noundef zeroext i1 %202(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 2) #14
+  %205 = call noundef zeroext i1 %202(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2) #14
   %206 = load ptr, ptr %172, align 8
   store ptr %206, ptr %203, align 8
   %207 = load ptr, ptr %173, align 8
@@ -543,7 +543,7 @@ _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEC2IPS7_vEEOT_.
   store ptr @_ZN12_GLOBAL__N_118ErrnoTesterChecker22evalSetErrnoCheckStateERN5clang4ento14CheckerContextERKNS2_9CallEventE, ptr %17, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E9_M_invokeERKSt9_Any_dataS3_S6_, ptr %211, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %212, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %208, ptr noundef nonnull align 8 dereferenceable(60) %15, i64 16, i1 false)
   %213 = getelementptr inbounds i8, ptr %2, i64 400
   %214 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -612,7 +612,7 @@ _ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i57.i.i: ; preds = %.lr.ph.i.i.i.i.
   %241 = phi ptr [ @_ZNSt17_Function_handlerIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i57.thread.i.i ], [ %.pre199.i.i, %_ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i57.i.i ]
   %242 = getelementptr inbounds i8, ptr %2, i64 472
   %243 = getelementptr inbounds i8, ptr %2, i64 464
-  %244 = call noundef zeroext i1 %241(ptr noundef nonnull align 8 dereferenceable(16) %240, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 2) #14
+  %244 = call noundef zeroext i1 %241(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 2) #14
   %245 = load ptr, ptr %211, align 8
   store ptr %245, ptr %242, align 8
   %246 = load ptr, ptr %212, align 8
@@ -634,7 +634,7 @@ _ZN5clang4ento18CallDescriptionMapISt8functionIFvRNS0_14CheckerContextERKNS0_9Ca
   %.012.i.i = phi ptr [ %286, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionESt8functionIFvRNS2_14CheckerContextERKNS2_9CallEventEEEEJRKSC_EEvPT_DpOT0_.exit.i.i ], [ %248, %_ZN5clang4ento18CallDescriptionMapISt8functionIFvRNS0_14CheckerContextERKNS0_9CallEventEEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES9_EE.exit.i.i ]
   %.0811.i.idx.i = phi i64 [ %.0811.i.add.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionESt8functionIFvRNS2_14CheckerContextERKNS2_9CallEventEEEEJRKSC_EEvPT_DpOT0_.exit.i.i ], [ 0, %_ZN5clang4ento18CallDescriptionMapISt8functionIFvRNS0_14CheckerContextERKNS0_9CallEventEEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES9_EE.exit.i.i ]
   %.0811.i.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.0811.i.idx.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.ptr.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0811.i.ptr.i, i64 16, i1 false)
   %252 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %253 = getelementptr inbounds nuw i8, ptr %.0811.i.ptr.i, i64 16
   %254 = getelementptr inbounds nuw i8, ptr %.0811.i.ptr.i, i64 24
@@ -700,7 +700,7 @@ _ZN5clang4ento15CallDescriptionC2ERKS1_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.
   %279 = getelementptr inbounds nuw i8, ptr %.0811.i.ptr.i, i64 64
   %280 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 88
   %281 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 80
-  %282 = call noundef zeroext i1 %277(ptr noundef nonnull align 8 dereferenceable(16) %275, ptr noundef nonnull align 8 dereferenceable(16) %279, i32 noundef 2) #14
+  %282 = call noundef zeroext i1 %277(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(32) %279, i32 noundef 2) #14
   %283 = getelementptr inbounds nuw i8, ptr %.0811.i.ptr.i, i64 88
   %284 = load ptr, ptr %283, align 8
   store ptr %284, ptr %280, align 8
@@ -728,7 +728,7 @@ _ZSt16__do_uninit_copyIPKSt4pairIN5clang4ento15CallDescriptionESt8functionIFvRNS
 
 292:                                              ; preds = %287
   %293 = getelementptr inbounds i8, ptr %288, i64 -32
-  %294 = call noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull align 8 dereferenceable(16) %293, i32 noundef 3) #14
+  %294 = call noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %293, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i.i: ; preds = %292, %287
@@ -774,7 +774,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionESt8functionIFvRNS1_14CheckerContextERKN
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i, label %310
 
 310:                                              ; preds = %308
-  %311 = call noundef zeroext i1 %309(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3) #14
+  %311 = call noundef zeroext i1 %309(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i: ; preds = %310, %308
@@ -814,7 +814,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit.i.i:     ; preds = %316, %_ZSt8_Destroy
   br i1 %.not.i.i64.i.i, label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit65.i.i, label %323
 
 323:                                              ; preds = %_ZN5clang4ento15CallDescriptionD2Ev.exit.i.i
-  %324 = call noundef zeroext i1 %322(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3) #14
+  %324 = call noundef zeroext i1 %322(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit65.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit65.i.i: ; preds = %323, %_ZN5clang4ento15CallDescriptionD2Ev.exit.i.i
@@ -854,7 +854,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit74.i.i:   ; preds = %329, %_ZSt8_Destroy
   br i1 %.not.i.i75.i.i, label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit76.i.i, label %336
 
 336:                                              ; preds = %_ZN5clang4ento15CallDescriptionD2Ev.exit74.i.i
-  %337 = call noundef zeroext i1 %335(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3) #14
+  %337 = call noundef zeroext i1 %335(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit76.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit76.i.i: ; preds = %336, %_ZN5clang4ento15CallDescriptionD2Ev.exit74.i.i
@@ -894,7 +894,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit85.i.i:   ; preds = %342, %_ZSt8_Destroy
   br i1 %.not.i.i86.i.i, label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit87.i.i, label %349
 
 349:                                              ; preds = %_ZN5clang4ento15CallDescriptionD2Ev.exit85.i.i
-  %350 = call noundef zeroext i1 %348(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3) #14
+  %350 = call noundef zeroext i1 %348(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit87.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit87.i.i: ; preds = %349, %_ZN5clang4ento15CallDescriptionD2Ev.exit85.i.i
@@ -934,7 +934,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit96.i.i:   ; preds = %355, %_ZSt8_Destroy
   br i1 %.not.i.i97.i.i, label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit98.i.i, label %362
 
 362:                                              ; preds = %_ZN5clang4ento15CallDescriptionD2Ev.exit96.i.i
-  %363 = call noundef zeroext i1 %361(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #14
+  %363 = call noundef zeroext i1 %361(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit98.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit98.i.i: ; preds = %362, %_ZN5clang4ento15CallDescriptionD2Ev.exit96.i.i
@@ -2022,7 +2022,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46: ; preds =
 
 78:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46
   store ptr %76, ptr %13, align 8, !alias.scope !16
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %76) #14, !noalias !16
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %76) #14, !noalias !16
   br label %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit
 
 79:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46
@@ -2031,7 +2031,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46: ; preds =
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 104
   %83 = load ptr, ptr %82, align 8, !noalias !16
   store ptr %76, ptr %7, align 8, !noalias !16
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %76) #14, !noalias !16
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %76) #14, !noalias !16
   call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %13, ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull %7, ptr %.fca.0.extract, i8 %.fca.1.extract, i1 noundef zeroext true) #14
   %84 = load ptr, ptr %7, align 8, !noalias !16
   %.not.i.i.i = icmp eq ptr %84, null
@@ -2423,7 +2423,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit68: ; preds =
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit68, %81
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
   %82 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %82, ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %82, ptr noundef nonnull align 1 dereferenceable(1) %17) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 78))
   %83 = call noundef ptr @_ZN5clang4ento14errno_modeling15getErrnoNoteTagERNS0_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -2541,7 +2541,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83: ; preds =
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit85: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83, %112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #14
   %113 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %19) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %19) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 85))
   %114 = call noundef ptr @_ZN5clang4ento14errno_modeling15getErrnoNoteTagERNS0_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(32) %18) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -2635,7 +2635,7 @@ define internal void @_ZN12_GLOBAL__N_118ErrnoTesterCheckerD2Ev(ptr noundef nonn
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
-  %10 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3) #14
+  %10 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
@@ -2695,7 +2695,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionESt8functionIFvRNS2_14Checke
   br label %_ZN5clang4ento18CallDescriptionMapISt8functionIFvRNS0_14CheckerContextERKNS0_9CallEventEEEED2Ev.exit
 
 _ZN5clang4ento18CallDescriptionMapISt8functionIFvRNS0_14CheckerContextERKNS0_9CallEventEEEED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionESt8functionIFvRNS2_14CheckerContextERKNS2_9CallEventEEEESC_EvT_SE_RSaIT0_E.exit.i.i, %25
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 
@@ -3007,7 +3007,7 @@ _ZNKSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEclES3_S6_.exi
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.i, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.i, i64 88
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %1) #14
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %1) #14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1

@@ -168,7 +168,7 @@ define dso_local void @_ZN5clang7CodeGen12CodeGenTypesD2Ev(ptr noundef nonnull a
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %14 = phi ptr [ %15, %.lr.ph ], [ %7, %1 ]
   call void @_ZN4llvm22FoldingSetIteratorImpl7advanceEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
-  call void @_ZdlPv(ptr noundef %14) #15
+  call void @_ZdlPv(ptr noundef nonnull %14) #15
   %15 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %15, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -209,7 +209,7 @@ _ZN4llvm11SmallPtrSetIPKN5clang7CodeGen14CGFunctionInfoELj4EED2Ev.exit: ; preds 
   %39 = shl nuw nsw i64 %38, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %35, i64 noundef %39, i64 noundef 8) #15
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14CGRecordLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14CGRecordLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(20) %40)
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i32, ptr %42, align 8
@@ -248,7 +248,7 @@ define dso_local void @_ZN5clang7CodeGen12CodeGenTypes17addRecordTypeNameEPKNS_1
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
   %8 = alloca %"struct.clang::PrintingPolicy", align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %9, i64 noundef 256) #15
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %6, ptr noundef nonnull %9, i64 noundef 256) #15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -260,7 +260,7 @@ define dso_local void @_ZN5clang7CodeGen12CodeGenTypes17addRecordTypeNameEPKNS_1
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %6, ptr %14, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   %15 = getelementptr inbounds i8, ptr %1, i64 72
   %16 = load i16, ptr %15, align 8
   %17 = lshr i16 %16, 13
@@ -445,8 +445,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit29:    ; preds = %103, %101, %_ZN4llv
   %107 = load ptr, ptr %106, align 8
   %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %106) #15
   call void @_ZN4llvm10StructType7setNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %107, i64 %108) #15
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
-  %109 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
+  %109 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %6) #15
   %110 = load ptr, ptr %6, align 8
   %111 = icmp eq ptr %110, %9
   br i1 %111, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %112
@@ -2755,7 +2755,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_10StructTypeENS_12DenseMa
   %70 = getelementptr inbounds i8, ptr %53, i64 104
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 96
-  %73 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %71)
+  %73 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %71)
   %74 = getelementptr inbounds nuw i8, ptr %53, i64 128
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -2776,7 +2776,7 @@ _ZNK5clang13CXXRecordDecl11bases_beginEv.exit.i:  ; preds = %80, %_ZNK5clang13La
   %.0.i.i.i = phi ptr [ %81, %80 ], [ %79, %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i ]
   %82 = load ptr, ptr %70, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 96
-  %84 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %82)
+  %84 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull %82)
   %85 = load ptr, ptr %74, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load i64, ptr %86, align 8
@@ -2796,7 +2796,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %.0.i.i.i.i = phi ptr [ %91, %90 ], [ %89, %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i.i ]
   %92 = load ptr, ptr %70, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 96
-  %94 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull %92)
+  %94 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull %92)
   %95 = load ptr, ptr %74, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i32, ptr %96, align 8
@@ -5603,7 +5603,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5
 38:                                               ; preds = %12
   %39 = zext i32 %8 to i64
   %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1040", ptr %14, i64 %39
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14CGRecordLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E18moveFromOldBucketsEPSG_SJ_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %14, ptr noundef nonnull %40)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14CGRecordLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E18moveFromOldBucketsEPSG_SJ_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %14, ptr noundef nonnull %40)
   %41 = shl nuw nsw i64 %39, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %14, i64 noundef %41, i64 noundef 8) #15
   %.pr.pre = load i32, ptr %7, align 8
@@ -5713,7 +5713,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14
 99:                                               ; preds = %75
   %100 = zext i32 %8 to i64
   %101 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1040", ptr %76, i64 %100
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14CGRecordLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E18moveFromOldBucketsEPSG_SJ_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %76, ptr noundef nonnull %101)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen14CGRecordLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E18moveFromOldBucketsEPSG_SJ_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %76, ptr noundef nonnull %101)
   %102 = shl nuw nsw i64 %100, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %76, i64 noundef %102, i64 noundef 8) #15
   %.pr32.pre = load i32, ptr %7, align 8

@@ -66,7 +66,7 @@ define void @_ZN8QuantLib8BiCGstabC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr noc
 entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %A, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !3
   store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !3
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %A, i64 16
@@ -76,7 +76,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, i64 16, i1 false), !tbaa.struct !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %A, i64 16, i1 false), !tbaa.struct !10
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !9
   store ptr %2, ptr %_M_manager.i.i, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -86,7 +86,7 @@ _ZNSt8functionIFN8QuantLib5ArrayERKS1_EEC2EOS5_.exit: ; preds = %entry, %if.then
   %M_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_invoker.i1 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_invoker2.i2 = getelementptr inbounds nuw i8, ptr %preConditioner, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %M_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %M_, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i2, align 8, !tbaa !3
   store ptr %3, ptr %_M_invoker.i1, align 8, !tbaa !3
   %_M_manager.i.i.i3 = getelementptr inbounds nuw i8, ptr %preConditioner, i64 16
@@ -96,7 +96,7 @@ _ZNSt8functionIFN8QuantLib5ArrayERKS1_EEC2EOS5_.exit: ; preds = %entry, %if.then
 
 if.then.i5:                                       ; preds = %_ZNSt8functionIFN8QuantLib5ArrayERKS1_EEC2EOS5_.exit
   %_M_manager.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %M_, ptr noundef nonnull align 8 dereferenceable(16) %preConditioner, i64 16, i1 false), !tbaa.struct !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %M_, ptr noundef nonnull align 8 dereferenceable(32) %preConditioner, i64 16, i1 false), !tbaa.struct !10
   %5 = load ptr, ptr %_M_manager.i.i.i3, align 8, !tbaa !9
   store ptr %5, ptr %_M_manager.i.i6, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i3, i8 0, i64 16, i1 false)
@@ -238,7 +238,7 @@ if.then.i79:                                      ; preds = %cond.end
 if.end.i:                                         ; preds = %cond.end
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !3, !noalias !29
-  invoke void %15(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x2)
+  invoke void %15(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %x2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
@@ -630,7 +630,7 @@ if.then.i.i.i.i.i.i143:                           ; preds = %if.then.i139
 
 if.end.i151:                                      ; preds = %if.end60
   %63 = load ptr, ptr %_M_invoker.i152, align 8, !tbaa !3, !noalias !42
-  invoke void %63(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(16) %M_, ptr noundef nonnull align 8 dereferenceable(16) %p)
+  invoke void %63(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(32) %M_, ptr noundef nonnull align 8 dereferenceable(16) %p)
           to label %if.end.i151.cond.end69_crit_edge unwind label %lpad64
 
 if.end.i151.cond.end69_crit_edge:                 ; preds = %if.end.i151
@@ -670,7 +670,7 @@ if.then.i166:                                     ; preds = %_ZN8QuantLib5ArrayD
 
 if.end.i164:                                      ; preds = %_ZN8QuantLib5ArrayD2Ev.exit161
   %69 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !3, !noalias !45
-  invoke void %69(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %pTld)
+  invoke void %69(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %pTld)
           to label %invoke.cont75 unwind label %lpad74.loopexit
 
 invoke.cont75:                                    ; preds = %if.end.i164
@@ -926,7 +926,7 @@ if.then.i.i.i.i.i.i242:                           ; preds = %if.then.i238
 
 if.end.i250:                                      ; preds = %if.end108
   %106 = load ptr, ptr %_M_invoker.i152, align 8, !tbaa !3, !noalias !54
-  invoke void %106(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(16) %M_, ptr noundef nonnull align 8 dereferenceable(16) %s)
+  invoke void %106(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %M_, ptr noundef nonnull align 8 dereferenceable(16) %s)
           to label %if.end.i250.cond.end118_crit_edge unwind label %lpad113
 
 if.end.i250.cond.end118_crit_edge:                ; preds = %if.end.i250
@@ -966,7 +966,7 @@ if.then.i265:                                     ; preds = %_ZN8QuantLib5ArrayD
 
 if.end.i263:                                      ; preds = %_ZN8QuantLib5ArrayD2Ev.exit260
   %112 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !3, !noalias !57
-  invoke void %112(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %sTld)
+  invoke void %112(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %sTld)
           to label %invoke.cont124 unwind label %lpad123.loopexit
 
 invoke.cont124:                                   ; preds = %if.end.i263

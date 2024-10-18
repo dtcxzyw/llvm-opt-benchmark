@@ -598,7 +598,7 @@ define hidden void @_ZN5regex8builders7Builder16build_one_string17hf82c4a9885309
 
 159:                                              ; preds = %155
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %149)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %149)
   br label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit"
 
 "_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8adfb7ce54ec849eE.exit", %153, %155, %159
@@ -1027,7 +1027,7 @@ define hidden void @_ZN5regex8builders7Builder15build_one_bytes17hfc277fc41c11dd
 
 159:                                              ; preds = %155
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %149)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %149)
   br label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit"
 
 "_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h645632aa8b308017E.exit", %153, %155, %159
@@ -1249,7 +1249,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
   %96 = getelementptr inbounds i8, ptr %1, i64 136
   %97 = load i64, ptr %96, align 8, !noundef !5
   %98 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %95, i64 %97
-  %99 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly %95, ptr noundef nonnull readonly %98, i64 noundef %97)
+  %99 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly align 8 %95, ptr noundef nonnull readonly %98, i64 noundef %97)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %91
 
 "_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit": ; preds = %93
@@ -1402,7 +1402,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
 
 140:                                              ; preds = %136
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %130)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %130)
   br label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit"
 
 "_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf5c9ca974664bb8eE.exit", %134, %136, %140
@@ -1624,7 +1624,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
   %96 = getelementptr inbounds i8, ptr %1, i64 136
   %97 = load i64, ptr %96, align 8, !noundef !5
   %98 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %95, i64 %97
-  %99 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly %95, ptr noundef nonnull readonly %98, i64 noundef %97)
+  %99 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly align 8 %95, ptr noundef nonnull readonly %98, i64 noundef %97)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %91
 
 "_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit": ; preds = %93
@@ -1777,7 +1777,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
 
 140:                                              ; preds = %136
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %130)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %130)
   br label %"_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit"
 
 "_ZN4core3ptr57drop_in_place$LT$regex_automata..meta..regex..Builder$GT$17h6fd063072deff9b8E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0aed0c9145250ee3E.exit", %134, %136, %140
@@ -2042,7 +2042,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builde
 
 90:                                               ; preds = %86
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %81)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81)
           to label %"_ZN4core3ptr56drop_in_place$LT$regex_automata..meta..regex..Config$GT$17hf45e85b22bded6d3E.exit" unwind label %91
 
 91:                                               ; preds = %90
@@ -2290,7 +2290,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builde
 
 88:                                               ; preds = %84
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %79)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79)
           to label %"_ZN4core3ptr56drop_in_place$LT$regex_automata..meta..regex..Config$GT$17hf45e85b22bded6d3E.exit" unwind label %89
 
 89:                                               ; preds = %88
@@ -2470,7 +2470,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builde
 
 88:                                               ; preds = %84
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %79)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcde998158a469e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79)
           to label %"_ZN4core3ptr56drop_in_place$LT$regex_automata..meta..regex..Config$GT$17hf45e85b22bded6d3E.exit" unwind label %89
 
 89:                                               ; preds = %88

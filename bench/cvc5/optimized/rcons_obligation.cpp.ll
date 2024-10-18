@@ -241,7 +241,7 @@ invoke.cont20:                                    ; preds = %_ZN4cvc58internal12
           to label %call.i.noexc unwind label %lpad26
 
 call.i.noexc:                                     ; preds = %invoke.cont20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24, ptr noundef %call.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef %call.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
           to label %.noexc22 unwind label %lpad26
 
 .noexc22:                                         ; preds = %call.i.noexc
@@ -251,7 +251,7 @@ call.i.noexc:                                     ; preds = %invoke.cont20
 lpad.i:                                           ; preds = %.noexc22
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #18
   br label %ehcleanup40
 
 invoke.cont27:                                    ; preds = %.noexc22
@@ -260,7 +260,7 @@ invoke.cont27:                                    ; preds = %.noexc22
           to label %call.i.noexc26 unwind label %lpad30
 
 call.i.noexc26:                                   ; preds = %invoke.cont27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef %call.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef %call.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
           to label %.noexc28 unwind label %lpad30
 
 .noexc28:                                         ; preds = %call.i.noexc26
@@ -270,7 +270,7 @@ call.i.noexc26:                                   ; preds = %invoke.cont27
 lpad.i25:                                         ; preds = %.noexc28
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #18
   br label %ehcleanup38
 
 invoke.cont31:                                    ; preds = %.noexc28
@@ -957,7 +957,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i342, label %invoke.cont107, label %for.cond.i.i, !llvm.loop !11
 
 if.end15.i.i:                                     ; preds = %invoke.cont105
-  %call2.i.i.i343 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %visited, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103)
+  %call2.i.i.i343 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %visited, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103)
           to label %call2.i.i.i.noexc unwind label %lpad106
 
 call2.i.i.i.noexc:                                ; preds = %if.end15.i.i
@@ -1433,7 +1433,7 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp4 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %out, i8 noundef signext 40)
-  call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ob, i1 noundef zeroext false)
+  call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %ob, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %scope.i.i)
   %vtable.i.i = load ptr, ptr %call, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24

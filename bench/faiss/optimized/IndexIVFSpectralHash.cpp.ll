@@ -2528,7 +2528,7 @@ define void @_ZThn40_N5faiss20IndexIVFSpectralHashD1Ev(ptr noundef %0) unnamed_a
 define void @_ZThn40_N5faiss20IndexIVFSpectralHashD0Ev(ptr noundef %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss20IndexIVFSpectralHashD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(312) %2) #24
   ret void
 }
 

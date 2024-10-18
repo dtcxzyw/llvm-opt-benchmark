@@ -299,7 +299,7 @@ sw.bb8:                                           ; preds = %if.then5
   br i1 %new.isnull, label %if.then13, label %new.notnull
 
 new.notnull:                                      ; preds = %sw.bb8
-  invoke void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479) %call9)
+  invoke void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %call9)
           to label %new.cont unwind label %lpad10
 
 new.cont:                                         ; preds = %new.notnull

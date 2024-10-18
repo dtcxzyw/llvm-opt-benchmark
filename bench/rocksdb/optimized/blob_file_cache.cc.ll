@@ -59,7 +59,7 @@ entry:
 arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 64, %entry ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
-  invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %arrayctor.cur.ptr.ptr.i, i1 noundef zeroext %tobool.i.i)
+  invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 64 dereferenceable(40) %arrayctor.cur.ptr.ptr.i, i1 noundef zeroext %tobool.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
@@ -77,7 +77,7 @@ arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestr
   %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ], [ %arrayctor.cur.idx.i, %lpad.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -64
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arraydestroy.elementPast.add.i
-  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element.ptr.i) #12
+  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 64 dereferenceable(40) %arraydestroy.element.ptr.i) #12
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 64
   br i1 %arraydestroy.done.i, label %arraydestroy.done2.i, label %arraydestroy.body.i
 
@@ -180,7 +180,7 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit: ; preds = %_ZN7roc
   store ptr %call.i.i.i, ptr %value_4.i, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -257,7 +257,7 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit56: ; preds = %invok
   store ptr %call.i.i.i3032, ptr %value_4.i46, align 8
   %state_.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i57, align 8, !alias.scope !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
   br label %cleanup49
 
 lpad:                                             ; preds = %if.then.i59, %if.then.i25, %if.end
@@ -460,7 +460,7 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit124: ; preds = %if.e
   %value_4.i114 = getelementptr inbounds i8, ptr %blob_file_reader, i64 16
   store ptr %ref.tmp43.sroa.8.0, ptr %value_4.i114, align 8
   store ptr null, ptr %state_.i69, align 8, !alias.scope !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
   br label %cleanup48
 
 cleanup48:                                        ; preds = %if.then.i78, %if.then33, %if.then.i63, %if.then23, %_ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit124

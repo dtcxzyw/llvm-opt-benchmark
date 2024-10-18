@@ -243,8 +243,8 @@ proto_item_set_hidden.exit:                       ; preds = %45, %42, %20
 
 51:                                               ; preds = %proto_item_set_hidden.exit
   %52 = load i32, ptr @hf_geneve_options, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %52, ptr noundef %0, i32 noundef 8, i32 noundef %22, i32 noundef 0) #2
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %53, ptr noundef nonnull @.str.75, i32 noundef %22) #2
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %52, ptr noundef %0, i32 noundef 8, i32 noundef range(i32 1, 253) %22, i32 noundef 0) #2
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %53, ptr noundef nonnull @.str.75, i32 noundef range(i32 1, 253) %22) #2
   %54 = load i32, ptr @ett_geneve_options, align 4
   %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #2
   %56 = getelementptr inbounds i8, ptr %1, i64 408
@@ -283,7 +283,7 @@ proto_item_set_hidden.exit:                       ; preds = %45, %42, %20
   %.not.i.i = icmp sgt i8 %60, -1
   %80 = select i1 %.not.i.i, ptr @.str.80, ptr @.str.79
   %81 = load i32, ptr @hf_geneve_option, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %81, ptr noundef %0, i32 noundef %.040.i, i32 noundef %65, i32 noundef 0) #2
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %81, ptr noundef %0, i32 noundef %.040.i, i32 noundef range(i32 4, 129) %65, i32 noundef 0) #2
   %83 = zext i16 %58 to i64
   %84 = shl nuw nsw i64 %83, 8
   %85 = zext i8 %60 to i64
@@ -355,7 +355,7 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %103, %100, %79
 
 proto_item_set_hidden.exit68.i.i:                 ; preds = %121, %118, %117, %116
   %125 = load i32, ptr @hf_geneve_option_length, align 4
-  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %125, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef %65) #2
+  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %125, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef range(i32 4, 129) %65) #2
   %127 = add i32 %.040.i, 4
   switch i64 %86, label %144 [
     i64 78337, label %128

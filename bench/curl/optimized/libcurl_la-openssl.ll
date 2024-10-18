@@ -1724,7 +1724,7 @@ if.then32.us:                                     ; preds = %for.body.us
 land.lhs.true39.us:                               ; preds = %if.then32.us
   %6 = load ptr, ptr %peer, align 8
   %7 = load ptr, ptr %dispname60, align 8
-  %call.i.us = call zeroext i1 @Curl_cert_hostcheck(ptr noundef %call33.us, i64 noundef %conv.us, ptr noundef %6, i64 noundef %call) #13
+  %call.i.us = call zeroext i1 @Curl_cert_hostcheck(ptr noundef %call33.us, i64 noundef range(i64 -2147483648, 2147483648) %conv.us, ptr noundef %6, i64 noundef %call) #13
   %or.cond.not.i.us = and i1 %tobool.not.i, %call.i.us
   br i1 %or.cond.not.i.us, label %land.lhs.true.i.us, label %for.inc.us
 

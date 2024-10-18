@@ -67,7 +67,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph46:                                         ; preds = %.preheader, %.critedge.thread54, %.loopexit
   %.02961 = phi i32 [ %17, %.loopexit ], [ 62, %.preheader ], [ -1, %.critedge.thread54 ]
-  %narrow.i = tail call i32 @llvm.usub.sat.i32(i32 6, i32 %.026.lcssa58)
+  %narrow.i = tail call i32 @llvm.usub.sat.i32(i32 6, i32 range(i32 1, 0) %.026.lcssa58)
   %.07.idx.i = zext nneg i32 %narrow.i to i64
   %.07.i = getelementptr inbounds i8, ptr %2, i64 %.07.idx.i
   br label %18

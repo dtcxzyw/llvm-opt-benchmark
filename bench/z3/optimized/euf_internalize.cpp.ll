@@ -4832,7 +4832,7 @@ define linkonce_odr hidden void @_ZN7pb_utilD2Ev(ptr noundef nonnull align 8 der
 entry:
   %m_k = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_k)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %m_k)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %entry
@@ -4901,7 +4901,7 @@ for.body.i.i.i.i.i.i4:                            ; preds = %_ZNK6vectorI8ration
   %__count.addr.07.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i6, %_ZSt8_DestroyI8rationalEvPT_.exit.i.i.i.i.i.i ], [ %9, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i5, %_ZSt8_DestroyI8rationalEvPT_.exit.i.i.i.i.i.i ], [ %8, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i.i.i ]
   %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i4
@@ -6094,7 +6094,7 @@ if.then.i.i.i8:                                   ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %vtable.i.i.i.i, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(96) %22) #21
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %22)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %22)
           to label %_ZN3refI5modelED2Ev.exit unwind label %terminate.lpad.i9
 
 terminate.lpad.i9:                                ; preds = %if.then.i.i.i8
@@ -6808,7 +6808,7 @@ _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN7svectorIjjED2Ev
   %143 = getelementptr inbounds i8, ptr %this, i64 928
   %m_qi_new_gen.i.i = getelementptr inbounds i8, ptr %this, i64 960
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i.i) #21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %143) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %143) #21
   %m_relevancy = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @_ZN3euf9relevancyD2Ev(ptr noundef nonnull align 8 dereferenceable(672) %m_relevancy) #21
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -6818,7 +6818,7 @@ _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN7svectorIjjED2Ev
 
 if.then.i.i171:                                   ; preds = %_ZN11trail_stackD2Ev.exit
   %m_on_clause = getelementptr inbounds i8, ptr %this, i64 104
-  %call.i.i = invoke noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(16) %m_on_clause, ptr noundef nonnull align 8 dereferenceable(16) %m_on_clause, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause, ptr noundef nonnull align 8 dereferenceable(32) %m_on_clause, i32 noundef 3)
           to label %_ZNSt8functionIFvPvP4exprjPKjjPKS2_EED2Ev.exit unwind label %terminate.lpad.i.i172
 
 terminate.lpad.i.i172:                            ; preds = %if.then.i.i171
@@ -6836,7 +6836,7 @@ _ZNSt8functionIFvPvP4exprjPKjjPKS2_EED2Ev.exit:   ; preds = %_ZN11trail_stackD2E
 
 if.then.i.i175:                                   ; preds = %_ZNSt8functionIFvPvP4exprjPKjjPKS2_EED2Ev.exit
   %m_mk_solver = getelementptr inbounds i8, ptr %this, i64 72
-  %call.i.i176 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %m_mk_solver, ptr noundef nonnull align 8 dereferenceable(16) %m_mk_solver, i32 noundef 3)
+  %call.i.i176 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(32) %m_mk_solver, ptr noundef nonnull align 8 dereferenceable(32) %m_mk_solver, i32 noundef 3)
           to label %_ZNSt8functionIFP6solvervEED2Ev.exit unwind label %terminate.lpad.i.i177
 
 terminate.lpad.i.i177:                            ; preds = %if.then.i.i175
@@ -7072,7 +7072,7 @@ define linkonce_odr hidden void @_ZThn32_N3euf6solverD0Ev(ptr noundef %this) unn
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN3euf6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(9136) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(9136) %0) #24
   ret void
 }
 
@@ -7101,7 +7101,7 @@ define linkonce_odr hidden void @_ZThn56_N3euf6solverD0Ev(ptr noundef %this) unn
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3euf6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(9136) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(9136) %0) #24
   ret void
 }
 
@@ -7120,7 +7120,7 @@ define linkonce_odr hidden void @_ZThn64_N3euf6solverD0Ev(ptr noundef %this) unn
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
   tail call void @_ZN3euf6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(9136) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(9136) %0) #24
   ret void
 }
 
@@ -7234,7 +7234,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -7882,7 +7882,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN3sat16clause_allocatorD2Ev.exit:               ; preds = %_ZN10ptr_vectorIN3sat6clauseEED2Ev.exit, %if.then.i.i.i.i.i
-  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %m_alloc) #21
+  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %m_alloc) #21
   %m_relevant_var_ids = getelementptr inbounds i8, ptr %this, i64 40
   %26 = load ptr, ptr %m_relevant_var_ids, align 8
   %tobool.not.i.i.i18 = icmp eq ptr %26, null

@@ -869,7 +869,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData12copyContentsEPKS0_PS0_(ptr noun
   unreachable
 
 _ZN3gmx25AbstractAnalysisArrayData14setColumnCountEi.exit: ; preds = %14
-  tail call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0, i32 noundef %15)
+  tail call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(94) %1, i32 noundef 0, i32 noundef %15)
   %19 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 0, ptr %19, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24

@@ -202,7 +202,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i32: ; preds = %81, %.n
   %90 = load ptr, ptr %89, align 8, !invariant.load !4, !noalias !24, !nonnull !4
   call void %90(ptr noalias nocapture noundef nonnull sret([1400 x i8]) align 8 dereferenceable(1400) %6, ptr noundef nonnull align 1 %86)
   %91 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25
-  %92 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #23, !noalias !25
+  %92 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 1400, i64 noundef 8) #23, !noalias !25
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %99
 
@@ -250,7 +250,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i32: ; preds = %81, %.n
   %109 = load ptr, ptr %108, align 8, !invariant.load !4, !noalias !33, !nonnull !4
   call void %109(ptr noalias nocapture noundef nonnull sret([1400 x i8]) align 8 dereferenceable(1400) %5, ptr noundef nonnull align 1 %105), !noalias !28
   %110 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !34
-  %111 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #23, !noalias !34
+  %111 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 1400, i64 noundef 8) #23, !noalias !34
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h749e60b2f9da4487E.exit"
 
@@ -380,7 +380,7 @@ define internal { ptr, ptr } @_ZN3git16hosting_provider18GitHostingProvider24com
   %13 = getelementptr inbounds i8, ptr %9, i64 44
   store i8 0, ptr %13, align 4
   %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !63
-  %15 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #23, !noalias !63
+  %15 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 48, i64 noundef 8) #23, !noalias !63
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha31e27cd5d225316E.exit"
 
@@ -609,7 +609,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %15, %13, 
   br i1 %28, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.12343268999733872074.exit.i.i.i.i, label %29
 
 29:                                               ; preds = %27
-  tail call void @_ZN4core4sync6atomic12atomic_store17h4bd6406a7eb43332E.llvm.12343268999733872074(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0), !noalias !89
+  tail call void @_ZN4core4sync6atomic12atomic_store17h4bd6406a7eb43332E.llvm.12343268999733872074(ptr noundef nonnull align 1 %21, i8 noundef 1, i8 noundef 0), !noalias !89
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.12343268999733872074.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.12343268999733872074.exit.i.i.i.i: ; preds = %29, %27, %23, %19
@@ -975,7 +975,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %3 = tail call noundef nonnull ptr @_ZN3git16hosting_provider26GitHostingProviderRegistry6global17hb176cafde7e96c26E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %0)
   store ptr %3, ptr %2, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #23
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 16, i64 noundef 8) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.invoke, label %13
 
@@ -1005,7 +1005,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
 15:                                               ; preds = %13
   %16 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %18 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #23
+  %18 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 16, i64 noundef 8) #23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.invoke, label %20
 
@@ -1020,7 +1020,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
 22:                                               ; preds = %20
   %23 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %25 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #23
+  %25 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 16, i64 noundef 8) #23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.invoke, label %27
 
@@ -1035,7 +1035,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
 29:                                               ; preds = %27
   %30 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %31 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %32 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #23
+  %32 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 16, i64 noundef 8) #23
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.invoke, label %34
 
@@ -1050,7 +1050,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
 36:                                               ; preds = %34
   %37 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %38 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %39 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #23
+  %39 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 16, i64 noundef 8) #23
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.invoke, label %41
 
@@ -1065,7 +1065,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
 43:                                               ; preds = %41
   %44 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %45 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %46 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #23
+  %46 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 1401) 16, i64 noundef 8) #23
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.invoke, label %48
 

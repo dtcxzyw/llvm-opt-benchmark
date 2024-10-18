@@ -3936,7 +3936,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %130, %1
 144:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
   %145 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #29
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %13) #29
   br label %.body
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryC2ERKS1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
@@ -4689,7 +4689,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i.i1 = icmp eq ptr %40, null
@@ -4744,7 +4744,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, %51, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %57
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #29
   ret void
 }
 
@@ -8173,7 +8173,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_125_PrimvarS
   %218 = inttoptr i64 %217 to ptr
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %220 = load ptr, ptr %219, align 8
-  invoke void %220(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %220(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %221
 
 221:                                              ; preds = %216
@@ -8739,7 +8739,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr 
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %12 unwind label %13
 
 12:                                               ; preds = %1, %7
@@ -8875,7 +8875,7 @@ define linkonce_odr noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %24
 
 24:                                               ; preds = %19
@@ -8921,7 +8921,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit: ; preds = %3, %8
@@ -8946,7 +8946,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !54
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !54
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !54
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !54
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !54
@@ -8998,7 +8998,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %3, %8
@@ -9023,7 +9023,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !60
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !60
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !60
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !60
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !60
@@ -9075,7 +9075,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; preds = %3, %8
@@ -9100,7 +9100,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !66
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !66
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !66
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !66
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !66
@@ -9152,7 +9152,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %3, %8
@@ -9177,7 +9177,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !72
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !72
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !72
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !72
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !72
@@ -9229,7 +9229,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %3, %8
@@ -9254,7 +9254,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !78
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !78
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !78
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !78
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !78
@@ -9306,7 +9306,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %3, %8
@@ -9331,7 +9331,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !84
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !84
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !84
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !84
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !84
@@ -9383,7 +9383,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %3, %8
@@ -9408,7 +9408,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !90
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !90
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !90
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !90
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !90
@@ -9460,7 +9460,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %3, %8
@@ -9485,7 +9485,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !96
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !96
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !96
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !96
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !96
@@ -9537,7 +9537,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %3, %8
@@ -9562,7 +9562,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !102
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !102
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !102
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !102
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !102
@@ -9614,7 +9614,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %3, %8
@@ -9639,7 +9639,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !108
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !108
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !108
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !108
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !108
@@ -9691,7 +9691,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %3, %8
@@ -9716,7 +9716,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !114
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !114
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !114
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !114
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !114
@@ -9768,7 +9768,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %3, %8
@@ -9793,7 +9793,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !120
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !120
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !120
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !120
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !120
@@ -9845,7 +9845,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit: ; preds = %3, %8
@@ -9870,7 +9870,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !126
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !126
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !126
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !126
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !126
@@ -9922,7 +9922,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit: ; preds = %3, %8
@@ -9947,7 +9947,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !132
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !132
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !132
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !132
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !132
@@ -9999,7 +9999,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4iEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4iEEEEERKT_v.exit: ; preds = %3, %8
@@ -10024,7 +10024,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !138
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !138
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !138
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !138
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !138
@@ -10076,7 +10076,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3iEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3iEEEEERKT_v.exit: ; preds = %3, %8
@@ -10101,7 +10101,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !144
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !144
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !144
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !144
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !144
@@ -10153,7 +10153,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2iEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2iEEEEERKT_v.exit: ; preds = %3, %8
@@ -10178,7 +10178,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !150
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !150
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !150
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !150
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !150
@@ -10230,7 +10230,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4hEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4hEEEEERKT_v.exit: ; preds = %3, %8
@@ -10255,7 +10255,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !156
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !156
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !156
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !156
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !156
@@ -10307,7 +10307,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3hEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3hEEEEERKT_v.exit: ; preds = %3, %8
@@ -10332,7 +10332,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !162
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !162
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !162
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !162
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !162
@@ -10384,7 +10384,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2hEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2hEEEEERKT_v.exit: ; preds = %3, %8
@@ -10409,7 +10409,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !168
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !168
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !168
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !168
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !168
@@ -10461,7 +10461,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4fEEEEERKT_v.exit: ; preds = %3, %8
@@ -10486,7 +10486,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !174
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !174
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !174
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !174
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !174
@@ -10538,7 +10538,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit: ; preds = %3, %8
@@ -10563,7 +10563,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !180
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !180
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !180
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !180
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !180
@@ -10615,7 +10615,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2fEEEEERKT_v.exit: ; preds = %3, %8
@@ -10640,7 +10640,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !186
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !186
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !186
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !186
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !186
@@ -10692,7 +10692,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4dEEEEERKT_v.exit: ; preds = %3, %8
@@ -10717,7 +10717,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !192
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !192
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !192
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !192
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !192
@@ -10769,7 +10769,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3dEEEEERKT_v.exit: ; preds = %3, %8
@@ -10794,7 +10794,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !198
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !198
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !198
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !198
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !198
@@ -10846,7 +10846,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2dEEEEERKT_v.exit: ; preds = %3, %8
@@ -10871,7 +10871,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !204
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !204
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !204
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !204
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !204
@@ -10923,7 +10923,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix4fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix4fEEEEERKT_v.exit: ; preds = %3, %8
@@ -10948,7 +10948,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !210
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !210
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !210
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !210
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !210
@@ -11000,7 +11000,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix3fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix3fEEEEERKT_v.exit: ; preds = %3, %8
@@ -11025,7 +11025,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !216
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !216
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !216
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !216
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !216
@@ -11077,7 +11077,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix2fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix2fEEEEERKT_v.exit: ; preds = %3, %8
@@ -11102,7 +11102,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !222
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !222
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !222
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !222
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !222
@@ -11154,7 +11154,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix4dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix4dEEEEERKT_v.exit: ; preds = %3, %8
@@ -11179,7 +11179,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !228
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !228
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !228
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !228
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !228
@@ -11231,7 +11231,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix3dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix3dEEEEERKT_v.exit: ; preds = %3, %8
@@ -11256,7 +11256,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !234
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !234
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !234
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !234
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !234
@@ -11308,7 +11308,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix2dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix2dEEEEERKT_v.exit: ; preds = %3, %8
@@ -11333,7 +11333,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !240
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !240
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !240
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !240
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !240
@@ -11385,7 +11385,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange3fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange3fEEEEERKT_v.exit: ; preds = %3, %8
@@ -11410,7 +11410,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !246
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !246
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !246
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !246
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !246
@@ -11462,7 +11462,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange3dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange3dEEEEERKT_v.exit: ; preds = %3, %8
@@ -11487,7 +11487,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !252
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !252
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !252
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !252
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !252
@@ -11539,7 +11539,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange2fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange2fEEEEERKT_v.exit: ; preds = %3, %8
@@ -11564,7 +11564,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !258
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !258
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !258
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !258
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !258
@@ -11616,7 +11616,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange2dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange2dEEEEERKT_v.exit: ; preds = %3, %8
@@ -11641,7 +11641,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !264
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !264
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !264
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !264
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !264
@@ -11693,7 +11693,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange1fEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange1fEEEEERKT_v.exit: ; preds = %3, %8
@@ -11718,7 +11718,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !270
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !270
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !270
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !270
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !270
@@ -11770,7 +11770,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange1dEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange1dEEEEERKT_v.exit: ; preds = %3, %8
@@ -11795,7 +11795,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !276
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !276
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !276
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !276
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !276
@@ -11847,7 +11847,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfIntervalEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfIntervalEEEEERKT_v.exit: ; preds = %3, %8
@@ -11872,7 +11872,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !282
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !282
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !282
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !282
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !282
@@ -11924,7 +11924,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8GfRect2iEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8GfRect2iEEEEERKT_v.exit: ; preds = %3, %8
@@ -11949,7 +11949,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !288
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !288
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !288
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !288
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !288
@@ -12001,7 +12001,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuathEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuathEEEEERKT_v.exit: ; preds = %3, %8
@@ -12026,7 +12026,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !294
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !294
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !294
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !294
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !294
@@ -12078,7 +12078,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatfEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatfEEEEERKT_v.exit: ; preds = %3, %8
@@ -12103,7 +12103,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !300
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !300
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !300
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !300
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !300
@@ -12155,7 +12155,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatdEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatdEEEEERKT_v.exit: ; preds = %3, %8
@@ -12180,7 +12180,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !306
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !306
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !306
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !306
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !306
@@ -12232,7 +12232,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12GfQuaternionEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12GfQuaternionEEEEERKT_v.exit: ; preds = %3, %8
@@ -12257,7 +12257,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !312
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !312
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !312
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !312
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !312
@@ -12309,7 +12309,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuathEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuathEEEEERKT_v.exit: ; preds = %3, %8
@@ -12334,7 +12334,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !318
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !318
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !318
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !318
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !318
@@ -12386,7 +12386,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuatfEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuatfEEEEERKT_v.exit: ; preds = %3, %8
@@ -12411,7 +12411,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !324
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !324
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !324
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !324
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !324
@@ -12463,7 +12463,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuatdEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuatdEEEEERKT_v.exit: ; preds = %3, %8
@@ -12488,7 +12488,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11G
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !330
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !330
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !330
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !330
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !330
@@ -12540,7 +12540,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIbEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIbEEEERKT_v.exit: ; preds = %3, %8
@@ -12565,7 +12565,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIbEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !336
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !336
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !336
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !336
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !336
@@ -12617,7 +12617,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIcEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIcEEEERKT_v.exit: ; preds = %3, %8
@@ -12642,7 +12642,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIcEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !342
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !342
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !342
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !342
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !342
@@ -12694,7 +12694,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIhEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIhEEEERKT_v.exit: ; preds = %3, %8
@@ -12719,7 +12719,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIhEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !348
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !348
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !348
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !348
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !348
@@ -12771,7 +12771,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIsEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIsEEEERKT_v.exit: ; preds = %3, %8
@@ -12796,7 +12796,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIsEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !354
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !354
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !354
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !354
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !354
@@ -12848,7 +12848,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayItEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayItEEEERKT_v.exit: ; preds = %3, %8
@@ -12873,7 +12873,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayItEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !360
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !360
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !360
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !360
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !360
@@ -12925,7 +12925,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIiEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIiEEEERKT_v.exit: ; preds = %3, %8
@@ -12950,7 +12950,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIiEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !366
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !366
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !366
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !366
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !366
@@ -13002,7 +13002,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIjEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIjEEEERKT_v.exit: ; preds = %3, %8
@@ -13027,7 +13027,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIjEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !372
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !372
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !372
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !372
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !372
@@ -13079,7 +13079,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIlEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIlEEEERKT_v.exit: ; preds = %3, %8
@@ -13104,7 +13104,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIlEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !378
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !378
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !378
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !378
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !378
@@ -13156,7 +13156,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayImEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayImEEEERKT_v.exit: ; preds = %3, %8
@@ -13181,7 +13181,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayImEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !384
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !384
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !384
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !384
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !384
@@ -13233,7 +13233,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIdEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIdEEEERKT_v.exit: ; preds = %3, %8
@@ -13258,7 +13258,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIdEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !390
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !390
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !390
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !390
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !390
@@ -13310,7 +13310,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIfEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIfEEEERKT_v.exit: ; preds = %3, %8
@@ -13335,7 +13335,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIfEEEER
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !396
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !396
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !396
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !396
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !396
@@ -13387,7 +13387,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8pxr_half4halfEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8pxr_half4halfEEEEERKT_v.exit: ; preds = %3, %8
@@ -13412,7 +13412,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8px
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !402
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !402
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !402
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !402
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !402
@@ -13464,7 +13464,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_v.exit: ; preds = %3, %8
@@ -13489,7 +13489,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !408
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !408
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !408
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !408
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !408
@@ -13541,7 +13541,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7TfTokenEEEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7TfTokenEEEEERKT_v.exit: ; preds = %3, %8
@@ -13566,7 +13566,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Tf
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !414
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !414
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !414
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !414
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !414
@@ -13618,7 +13618,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4iEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4iEEERKT_v.exit: ; preds = %3, %8
@@ -13643,7 +13643,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4iEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !420
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !420
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !420
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !420
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !420
@@ -13695,7 +13695,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3iEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3iEEERKT_v.exit: ; preds = %3, %8
@@ -13720,7 +13720,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3iEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !426
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !426
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !426
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !426
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !426
@@ -13772,7 +13772,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2iEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2iEEERKT_v.exit: ; preds = %3, %8
@@ -13797,7 +13797,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2iEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !432
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !432
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !432
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !432
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !432
@@ -13849,7 +13849,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4hEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4hEEERKT_v.exit: ; preds = %3, %8
@@ -13874,7 +13874,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4hEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !438
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !438
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !438
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !438
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !438
@@ -13926,7 +13926,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3hEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3hEEERKT_v.exit: ; preds = %3, %8
@@ -13951,7 +13951,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3hEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !444
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !444
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !444
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !444
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !444
@@ -14003,7 +14003,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2hEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2hEEERKT_v.exit: ; preds = %3, %8
@@ -14028,7 +14028,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2hEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !450
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !450
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !450
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !450
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !450
@@ -14080,7 +14080,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4fEEERKT_v.exit: ; preds = %3, %8
@@ -14105,7 +14105,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4fEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !456
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !456
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !456
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !456
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !456
@@ -14157,7 +14157,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3fEEERKT_v.exit: ; preds = %3, %8
@@ -14182,7 +14182,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3fEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !462
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !462
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !462
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !462
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !462
@@ -14234,7 +14234,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2fEEERKT_v.exit: ; preds = %3, %8
@@ -14259,7 +14259,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2fEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !468
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !468
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !468
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !468
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !468
@@ -14311,7 +14311,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4dEEERKT_v.exit: ; preds = %3, %8
@@ -14336,7 +14336,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4dEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !474
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !474
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !474
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !474
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !474
@@ -14388,7 +14388,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3dEEERKT_v.exit: ; preds = %3, %8
@@ -14413,7 +14413,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3dEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !480
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !480
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !480
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !480
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !480
@@ -14465,7 +14465,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2dEEERKT_v.exit: ; preds = %3, %8
@@ -14490,7 +14490,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2dEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !486
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !486
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !486
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !486
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !486
@@ -14542,7 +14542,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4fEEERKT_v.exit: ; preds = %3, %8
@@ -14567,7 +14567,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4fEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !492
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !492
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !492
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !492
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !492
@@ -14619,7 +14619,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3fEEERKT_v.exit: ; preds = %3, %8
@@ -14644,7 +14644,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3fEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !498
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !498
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !498
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !498
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !498
@@ -14696,7 +14696,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2fEEERKT_v.exit: ; preds = %3, %8
@@ -14721,7 +14721,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2fEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !504
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !504
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !504
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !504
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !504
@@ -14773,7 +14773,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4dEEERKT_v.exit: ; preds = %3, %8
@@ -14798,7 +14798,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4dEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !510
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !510
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !510
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !510
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !510
@@ -14850,7 +14850,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3dEEERKT_v.exit: ; preds = %3, %8
@@ -14875,7 +14875,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3dEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !516
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !516
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !516
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !516
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !516
@@ -14927,7 +14927,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2dEEERKT_v.exit: ; preds = %3, %8
@@ -14952,7 +14952,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2dEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !522
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !522
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !522
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !522
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !522
@@ -15004,7 +15004,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3fEEERKT_v.exit: ; preds = %3, %8
@@ -15029,7 +15029,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3fEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !528
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !528
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !528
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !528
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !528
@@ -15081,7 +15081,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3dEEERKT_v.exit: ; preds = %3, %8
@@ -15106,7 +15106,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3dEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !534
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !534
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !534
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !534
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !534
@@ -15158,7 +15158,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit: ; preds = %3, %8
@@ -15183,7 +15183,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !540
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !540
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !540
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !540
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !540
@@ -15235,7 +15235,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2dEEERKT_v.exit: ; preds = %3, %8
@@ -15260,7 +15260,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2dEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !546
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !546
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !546
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !546
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !546
@@ -15312,7 +15312,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1fEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1fEEERKT_v.exit: ; preds = %3, %8
@@ -15337,7 +15337,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1fEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !552
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !552
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !552
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !552
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !552
@@ -15389,7 +15389,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1dEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1dEEERKT_v.exit: ; preds = %3, %8
@@ -15414,7 +15414,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1dEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !558
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !558
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !558
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !558
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !558
@@ -15466,7 +15466,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfIntervalEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfIntervalEEERKT_v.exit: ; preds = %3, %8
@@ -15491,7 +15491,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfIntervalEEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !564
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !564
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !564
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !564
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !564
@@ -15543,7 +15543,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit: ; preds = %3, %8
@@ -15568,7 +15568,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !570
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !570
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !570
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !570
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !570
@@ -15620,7 +15620,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_v.exit: ; preds = %3, %8
@@ -15645,7 +15645,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !576
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !576
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !576
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !576
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !576
@@ -15697,7 +15697,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatfEEERKT_v.exit: ; preds = %3, %8
@@ -15722,7 +15722,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatfEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !582
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !582
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !582
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !582
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !582
@@ -15774,7 +15774,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatdEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatdEEERKT_v.exit: ; preds = %3, %8
@@ -15799,7 +15799,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatdEEERKT_
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !588
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !588
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !588
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !588
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !588
@@ -15851,7 +15851,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12GfQuaternionEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12GfQuaternionEEERKT_v.exit: ; preds = %3, %8
@@ -15876,7 +15876,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12GfQuaternionE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !594
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !594
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !594
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !594
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !594
@@ -15928,7 +15928,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuathEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuathEEERKT_v.exit: ; preds = %3, %8
@@ -15953,7 +15953,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuathEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !600
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !600
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !600
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !600
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !600
@@ -16005,7 +16005,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatfEEERKT_v.exit: ; preds = %3, %8
@@ -16030,7 +16030,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatfEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !606
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !606
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !606
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !606
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !606
@@ -16082,7 +16082,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatdEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatdEEERKT_v.exit: ; preds = %3, %8
@@ -16107,7 +16107,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatdEE
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !612
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !612
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !612
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !612
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !612
@@ -16159,7 +16159,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfFrustumEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfFrustumEEERKT_v.exit: ; preds = %3, %8
@@ -16184,7 +16184,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfFrustumEEERK
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !618
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !618
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !618
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !618
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !618
@@ -16236,7 +16236,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiIntervalEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiIntervalEEERKT_v.exit: ; preds = %3, %8
@@ -16261,7 +16261,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiInterv
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #29, !noalias !624
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29, !noalias !624
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #29, !noalias !624
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 72) #27, !noalias !624
   invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26, !noalias !624
@@ -16322,7 +16322,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisi
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #29
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #29, !noalias !630
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #29, !noalias !630
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #29, !noalias !630
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 72) #27, !noalias !630
   invoke void @__cxa_rethrow() #28
           to label %21 unwind label %15, !noalias !630
@@ -16504,7 +16504,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIbED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -16571,7 +16571,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit_crit_edge: ; preds = %20
@@ -16606,7 +16606,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread: ; pr
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -16984,7 +16984,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %42
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.3, i32 noundef 0)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.3, i32 noundef 0)
           to label %.noexc.i.i.i.i.i unwind label %83
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc
@@ -17340,7 +17340,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread1.i: ;
   %198 = inttoptr i64 %197 to ptr
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 168
   %200 = load ptr, ptr %199, align 8
-  %201 = invoke noundef ptr %200(ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %201 = invoke noundef ptr %200(ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit_crit_edge.i unwind label %192
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit_crit_edge.i: ; preds = %196
@@ -17368,7 +17368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i: ; 
   %209 = inttoptr i64 %208 to ptr
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %211 = load ptr, ptr %210, align 8
-  invoke void %211(ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %211(ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i unwind label %212
 
 212:                                              ; preds = %207
@@ -17555,7 +17555,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuath
   %292 = inttoptr i64 %291 to ptr
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 168
   %294 = load ptr, ptr %293, align 8, !noalias !641
-  %295 = invoke noundef ptr %294(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %295 = invoke noundef ptr %294(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuathEEEEERKT_v.exit.i unwind label %35
 
 296:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread27.i
@@ -17702,7 +17702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfRotationC2ERKNS_7GfVec3dEd.exit.i.i: ; 
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i, !noalias !647
 
 .noexc.i.i:                                       ; preds = %352
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %354, ptr noundef nonnull align 8 dereferenceable(40) %10)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %354, ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ApplyAngularVelocitiesINS_7GfQuathEEENS_7VtValueERKNS_7VtArrayIT_EERKNS4_INS_7GfVec3fEEEf.exit.i unwind label %355, !noalias !647
 
 355:                                              ; preds = %.noexc.i.i
@@ -17770,7 +17770,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatf
   %369 = inttoptr i64 %368 to ptr
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 168
   %371 = load ptr, ptr %370, align 8, !noalias !641
-  %372 = invoke noundef ptr %371(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %372 = invoke noundef ptr %371(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatfEEEEERKT_v.exit.i unwind label %35
 
 373:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatfEEEEEbv.exit.thread28.i
@@ -17916,7 +17916,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfRotationC2ERKNS_7GfVec3dEd.exit.i26.i: 
           to label %.noexc.i22.i unwind label %.loopexit.split-lp.i20.i, !noalias !652
 
 .noexc.i22.i:                                     ; preds = %428
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %430, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %430, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ApplyAngularVelocitiesINS_7GfQuatfEEENS_7VtValueERKNS_7VtArrayIT_EERKNS4_INS_7GfVec3fEEEf.exit.i unwind label %431, !noalias !652
 
 431:                                              ; preds = %.noexc.i22.i
@@ -17973,7 +17973,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ApplyAngularVelocitiesERKN
   %446 = inttoptr i64 %445 to ptr
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 168
   %448 = load ptr, ptr %447, align 8
-  %449 = invoke noundef ptr %448(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %449 = invoke noundef ptr %448(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit unwind label %35
 
 450:                                              ; preds = %440
@@ -18159,7 +18159,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
           to label %.noexc117 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc117:                                        ; preds = %.loopexit129
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %513, ptr noundef nonnull align 8 dereferenceable(40) %25)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %513, ptr noundef nonnull align 8 dereferenceable(40) %25)
           to label %516 unwind label %514
 
 514:                                              ; preds = %.noexc117
@@ -18202,7 +18202,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %528 = inttoptr i64 %527 to ptr
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 32
   %530 = load ptr, ptr %529, align 8
-  invoke void %530(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void %530(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %531
 
 531:                                              ; preds = %526
@@ -18760,7 +18760,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit: ; preds = %241, %242
   %249 = inttoptr i64 %248 to ptr
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 168
   %251 = load ptr, ptr %250, align 8
-  %252 = invoke noundef ptr %251(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %252 = invoke noundef ptr %251(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit unwind label %209
 
 253:                                              ; preds = %243
@@ -18792,7 +18792,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %265 = inttoptr i64 %264 to ptr
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 32
   %267 = load ptr, ptr %266, align 8
-  invoke void %267(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void %267(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %268
 
 268:                                              ; preds = %263
@@ -18821,7 +18821,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3f
   %277 = inttoptr i64 %276 to ptr
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 32
   %279 = load ptr, ptr %278, align 8
-  invoke void %279(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %279(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %284 unwind label %280
 
 280:                                              ; preds = %275
@@ -19385,7 +19385,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3f
   %160 = inttoptr i64 %159 to ptr
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 168
   %162 = load ptr, ptr %161, align 8
-  %163 = invoke noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %163 = invoke noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit.invoke unwind label %155
 
 164:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3fEEEEEbv.exit.thread31
@@ -19411,7 +19411,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %174 = inttoptr i64 %173 to ptr
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 32
   %176 = load ptr, ptr %175, align 8
-  invoke void %176(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void %176(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %177
 
 177:                                              ; preds = %172
@@ -19831,7 +19831,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERK
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %8, %14
@@ -19865,7 +19865,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %8, %14
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge unwind label %34
 
 ._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge: ; preds = %31
@@ -19903,7 +19903,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit: ; preds =
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
-  invoke void %49(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %49(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit unwind label %50
 
 50:                                               ; preds = %47
@@ -19932,7 +19932,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo8CopyInitERKNSt15aligned
 59:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo8CopyInitERKNSt15aligned_storageILm8ELm8EE4typeERS4_.exit
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit15 unwind label %62
 
 62:                                               ; preds = %59
@@ -20010,7 +20010,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 7:                                                ; preds = %3
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %2) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfQuathEEEEEED2Ev.exit
 
@@ -20074,7 +20074,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 6:                                                ; preds = %1
   %.pre.i.i = load ptr, ptr %0, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !671
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfQuathEEEEEJRKS5_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit.i.i unwind label %8, !noalias !671
 
 8:                                                ; preds = %6
@@ -20099,7 +20099,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
 
 17:                                               ; preds = %13
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 48) #27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfQuathEEEEEED2Ev.exit.i.i
 
@@ -20204,7 +20204,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7VtArrayINS_7GfQuathEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !674
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !674
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfQuathEEEvE19GetProxiedAsVtValueERKS4_.exit unwind label %6, !noalias !674
 
 6:                                                ; preds = %2
@@ -20388,7 +20388,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 7:                                                ; preds = %3
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %2) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfQuatfEEEEEED2Ev.exit
 
@@ -20452,7 +20452,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 6:                                                ; preds = %1
   %.pre.i.i = load ptr, ptr %0, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !678
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfQuatfEEEEEJRKS5_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit.i.i unwind label %8, !noalias !678
 
 8:                                                ; preds = %6
@@ -20477,7 +20477,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
 
 17:                                               ; preds = %13
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 48) #27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfQuatfEEEEEED2Ev.exit.i.i
 
@@ -20582,7 +20582,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7VtArrayINS_7GfQuatfEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !681
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !681
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfQuatfEEEvE19GetProxiedAsVtValueERKS4_.exit unwind label %6, !noalias !681
 
 6:                                                ; preds = %2
@@ -20756,7 +20756,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 7:                                                ; preds = %3
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %2) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfVec3fEEEEEED2Ev.exit
 
@@ -20820,7 +20820,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 6:                                                ; preds = %1
   %.pre.i.i = load ptr, ptr %0, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !685
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfVec3fEEEEEJRKS5_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit.i.i unwind label %8, !noalias !685
 
 8:                                                ; preds = %6
@@ -20845,7 +20845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
 
 17:                                               ; preds = %13
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 48) #27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfVec3fEEEEEED2Ev.exit.i.i
 
@@ -20950,7 +20950,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7VtArrayINS_7GfVec3fEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !688
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !688
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfVec3fEEEvE19GetProxiedAsVtValueERKS4_.exit unwind label %6, !noalias !688
 
 6:                                                ; preds = %2
@@ -21465,7 +21465,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i:
   %167 = inttoptr i64 %166 to ptr
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 168
   %169 = load ptr, ptr %168, align 8
-  %170 = invoke noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %170 = invoke noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %._crit_edge.i unwind label %188
 
 ._crit_edge.i:                                    ; preds = %165
@@ -21488,7 +21488,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i.i:
   %179 = inttoptr i64 %178 to ptr
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %181 = load ptr, ptr %180, align 8
-  invoke void %181(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void %181(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i unwind label %182
 
 182:                                              ; preds = %177
@@ -21642,7 +21642,7 @@ _ZNSt6vectorIfSaIfEE6insertEN9__gnu_cxx17__normal_iteratorIPKfS1_EEOf.exit: ; pr
   %248 = inttoptr i64 %247 to ptr
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %250 = load ptr, ptr %249, align 8
-  invoke void %250(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void %250(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %251
 
 251:                                              ; preds = %246
@@ -21805,7 +21805,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -21836,7 +21836,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIcED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -21903,7 +21903,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIcEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit_crit_edge: ; preds = %20
@@ -21937,7 +21937,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIcEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -21985,7 +21985,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -22016,7 +22016,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIhED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -22083,7 +22083,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIhEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit_crit_edge: ; preds = %20
@@ -22117,7 +22117,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIhEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -22165,7 +22165,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -22196,7 +22196,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIsED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -22263,7 +22263,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIsEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit_crit_edge: ; preds = %20
@@ -22297,7 +22297,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIsEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -22345,7 +22345,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -22376,7 +22376,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceItED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -22443,7 +22443,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingItEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit_crit_edge: ; preds = %20
@@ -22477,7 +22477,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingItEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -22525,7 +22525,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -22556,7 +22556,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIiED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -22623,7 +22623,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit_crit_edge: ; preds = %20
@@ -22657,7 +22657,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -22705,7 +22705,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -22736,7 +22736,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIjED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -22803,7 +22803,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIjEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit_crit_edge: ; preds = %20
@@ -22837,7 +22837,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIjEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -22885,7 +22885,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -22916,7 +22916,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIlED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -22983,7 +22983,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIlEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit_crit_edge: ; preds = %20
@@ -23017,7 +23017,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIlEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -23065,7 +23065,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -23096,7 +23096,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceImED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -23163,7 +23163,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingImEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit_crit_edge: ; preds = %20
@@ -23197,7 +23197,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingImEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -23245,7 +23245,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -23276,7 +23276,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIdED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -23343,7 +23343,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit_crit_edge: ; preds = %20
@@ -23377,7 +23377,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -23425,7 +23425,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -23456,7 +23456,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceIfED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -23523,7 +23523,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread9: ; p
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit_crit_edge: ; preds = %20
@@ -23557,7 +23557,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread: ; pr
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -23605,7 +23605,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -23636,7 +23636,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_8pxr_half4halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -23703,7 +23703,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8pxr_half4halfEEEbv.
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit_crit_edge unwind label %26
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit_crit_edge: ; preds = %20
@@ -23737,7 +23737,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8pxr_half4halfEEEbv.
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %37
 
 37:                                               ; preds = %32
@@ -23785,7 +23785,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -23816,7 +23816,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -23882,7 +23882,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exit.thread8
@@ -23918,7 +23918,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -23970,7 +23970,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -24001,7 +24001,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7TfTokenEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -24067,7 +24067,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit unwind label %33
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread9, %20
@@ -24111,7 +24111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZN32pxrI
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %43(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %44
 
 44:                                               ; preds = %39
@@ -24158,7 +24158,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -24189,7 +24189,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4iEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -24255,7 +24255,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4i
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4iEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4iEEEEEbv.exit.thread8
@@ -24291,7 +24291,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4i
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -24342,7 +24342,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -24373,7 +24373,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3iEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -24439,7 +24439,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3i
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3iEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3iEEEEEbv.exit.thread8
@@ -24475,7 +24475,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3i
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -24526,7 +24526,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -24557,7 +24557,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2iEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -24623,7 +24623,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2i
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2iEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2iEEEEEbv.exit.thread8
@@ -24659,7 +24659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2i
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -24710,7 +24710,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -24741,7 +24741,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4hEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -24807,7 +24807,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4h
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4hEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4hEEEEEbv.exit.thread8
@@ -24843,7 +24843,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4h
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -24894,7 +24894,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -24925,7 +24925,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3hEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -24991,7 +24991,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3h
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3hEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3hEEEEEbv.exit.thread8
@@ -25027,7 +25027,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3h
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -25078,7 +25078,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -25109,7 +25109,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2hEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -25175,7 +25175,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2h
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2hEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2hEEEEEbv.exit.thread8
@@ -25211,7 +25211,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2h
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -25262,7 +25262,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -25293,7 +25293,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -25359,7 +25359,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4f
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4fEEEEEbv.exit.thread8
@@ -25395,7 +25395,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4f
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -25446,7 +25446,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -25477,7 +25477,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -25543,7 +25543,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3f
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3fEEEEEbv.exit.thread8
@@ -25579,7 +25579,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3f
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -25626,7 +25626,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -25657,7 +25657,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -25723,7 +25723,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2f
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2fEEEEEbv.exit.thread8
@@ -25759,7 +25759,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2f
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -25810,7 +25810,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -25841,7 +25841,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec4dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -25907,7 +25907,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4d
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec4dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4dEEEEEbv.exit.thread8
@@ -25943,7 +25943,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec4d
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -25994,7 +25994,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -26025,7 +26025,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec3dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -26091,7 +26091,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3d
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3dEEEEEbv.exit.thread8
@@ -26127,7 +26127,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec3d
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -26178,7 +26178,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -26209,7 +26209,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfVec2dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -26275,7 +26275,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec2dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread8
@@ -26311,7 +26311,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -26362,7 +26362,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -26393,7 +26393,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix4fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -26459,7 +26459,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix4fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatrix4fEEEEEbv.exit.thread8
@@ -26495,7 +26495,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -26546,7 +26546,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -26577,7 +26577,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix3fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -26643,7 +26643,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix3fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatrix3fEEEEEbv.exit.thread8
@@ -26679,7 +26679,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -26730,7 +26730,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -26761,7 +26761,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix2fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -26827,7 +26827,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix2fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatrix2fEEEEEbv.exit.thread8
@@ -26863,7 +26863,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -26914,7 +26914,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -26945,7 +26945,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix4dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -27011,7 +27011,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix4dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatrix4dEEEEEbv.exit.thread8
@@ -27047,7 +27047,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -27098,7 +27098,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -27129,7 +27129,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix3dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -27195,7 +27195,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix3dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatrix3dEEEEEbv.exit.thread8
@@ -27231,7 +27231,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -27282,7 +27282,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -27313,7 +27313,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfMatrix2dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -27379,7 +27379,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfMatrix2dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatrix2dEEEEEbv.exit.thread8
@@ -27415,7 +27415,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfMatr
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -27466,7 +27466,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -27497,7 +27497,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange3fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -27563,7 +27563,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange3fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange3fEEEEEbv.exit.thread8
@@ -27599,7 +27599,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -27650,7 +27650,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -27681,7 +27681,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange3dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -27747,7 +27747,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange3dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange3dEEEEEbv.exit.thread8
@@ -27783,7 +27783,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -27834,7 +27834,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -27865,7 +27865,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange2fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -27931,7 +27931,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange2fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit.thread8
@@ -27967,7 +27967,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -28018,7 +28018,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -28049,7 +28049,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange2dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -28115,7 +28115,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange2dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2dEEEEEbv.exit.thread8
@@ -28151,7 +28151,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -28202,7 +28202,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -28233,7 +28233,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange1fEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -28299,7 +28299,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange1fEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange1fEEEEEbv.exit.thread8
@@ -28335,7 +28335,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -28386,7 +28386,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -28417,7 +28417,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_9GfRange1dEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -28483,7 +28483,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9GfRange1dEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange1dEEEEEbv.exit.thread8
@@ -28519,7 +28519,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -28570,7 +28570,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -28601,7 +28601,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_10GfIntervalEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -28667,7 +28667,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfInte
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_10GfIntervalEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfIntervalEEEEEbv.exit.thread8
@@ -28703,7 +28703,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_10GfInte
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -28754,7 +28754,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -28785,7 +28785,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_8GfRect2iEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -28851,7 +28851,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_8GfRect2
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8GfRect2iEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_8GfRect2iEEEEEbv.exit.thread8
@@ -28887,7 +28887,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_8GfRect2
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -28938,7 +28938,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -28969,7 +28969,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuathEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -29035,7 +29035,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuath
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuathEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread8
@@ -29071,7 +29071,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuath
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -29120,7 +29120,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -29151,7 +29151,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuatfEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -29217,7 +29217,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatf
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatfEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatfEEEEEbv.exit.thread8
@@ -29253,7 +29253,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatf
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -29302,7 +29302,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -29333,7 +29333,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7GfQuatdEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -29399,7 +29399,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatd
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfQuatdEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatdEEEEEbv.exit.thread8
@@ -29435,7 +29435,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatd
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -29486,7 +29486,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -29517,7 +29517,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_12GfQuaternionEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -29583,7 +29583,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_12GfQuat
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12GfQuaternionEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_12GfQuaternionEEEEEbv.exit.thread8
@@ -29619,7 +29619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_12GfQuat
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -29670,7 +29670,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -29701,7 +29701,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuathEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -29767,7 +29767,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDual
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuathEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDualQuathEEEEEbv.exit.thread8
@@ -29803,7 +29803,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDual
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -29854,7 +29854,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -29885,7 +29885,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuatfEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -29951,7 +29951,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDual
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuatfEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDualQuatfEEEEEbv.exit.thread8
@@ -29987,7 +29987,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDual
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -30038,7 +30038,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -30069,7 +30069,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_11GfDualQuatdEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -30135,7 +30135,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDual
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_11GfDualQuatdEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDualQuatdEEEEEbv.exit.thread8
@@ -30171,7 +30171,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_11GfDual
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -30222,7 +30222,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -30253,7 +30253,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -30319,7 +30319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIbEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread8
@@ -30355,7 +30355,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -30406,7 +30406,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -30437,7 +30437,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIcEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -30503,7 +30503,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIcEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIcEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIcEEEEbv.exit.thread8
@@ -30539,7 +30539,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIcEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -30590,7 +30590,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -30621,7 +30621,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -30687,7 +30687,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIhEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIhEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIhEEEEbv.exit.thread8
@@ -30723,7 +30723,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIhEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -30774,7 +30774,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -30805,7 +30805,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIsEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -30871,7 +30871,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIsEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIsEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIsEEEEbv.exit.thread8
@@ -30907,7 +30907,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIsEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -30958,7 +30958,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -30989,7 +30989,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayItEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -31055,7 +31055,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayItEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayItEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayItEEEEbv.exit.thread8
@@ -31091,7 +31091,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayItEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -31142,7 +31142,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -31173,7 +31173,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -31239,7 +31239,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIiEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIiEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIiEEEEbv.exit.thread8
@@ -31275,7 +31275,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIiEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -31326,7 +31326,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -31357,7 +31357,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIjEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -31423,7 +31423,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIjEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIjEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIjEEEEbv.exit.thread8
@@ -31459,7 +31459,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIjEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -31510,7 +31510,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -31541,7 +31541,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIlEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -31607,7 +31607,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIlEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit.thread8
@@ -31643,7 +31643,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -31694,7 +31694,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -31725,7 +31725,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayImEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -31791,7 +31791,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayImEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayImEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayImEEEEbv.exit.thread8
@@ -31827,7 +31827,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayImEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -31878,7 +31878,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -31909,7 +31909,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIdEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -31975,7 +31975,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIdEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread8
@@ -32011,7 +32011,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -32062,7 +32062,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -32093,7 +32093,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -32159,7 +32159,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exi
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIfEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.thread8
@@ -32195,7 +32195,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exi
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -32246,7 +32246,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -32277,7 +32277,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_8pxr_half4halfEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -32343,7 +32343,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_8pxr_hal
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_8pxr_half4halfEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_8pxr_half4halfEEEEEbv.exit.thread8
@@ -32379,7 +32379,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_8pxr_hal
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -32430,7 +32430,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -32461,7 +32461,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -32527,7 +32527,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx11
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread8
@@ -32563,7 +32563,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx11
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -32614,7 +32614,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -32645,7 +32645,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7VtArrayINS_7TfTokenEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -32711,7 +32711,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfToken
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7TfTokenEEEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfTokenEEEEEbv.exit.thread8
@@ -32747,7 +32747,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfToken
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -32798,7 +32798,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -32829,7 +32829,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4iEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -32896,7 +32896,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4iEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4iEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4iEEERKT_v.exit_crit_edge: ; preds = %20
@@ -32937,7 +32937,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4iEEEbv.exit.t
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -32988,7 +32988,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -33019,7 +33019,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3iEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -33086,7 +33086,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3iEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3iEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3iEEERKT_v.exit_crit_edge: ; preds = %20
@@ -33127,7 +33127,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3iEEEbv.exit.t
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -33178,7 +33178,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -33209,7 +33209,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2iEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -33276,7 +33276,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2iEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2iEEERKT_v.exit_crit_edge unwind label %26
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2iEEERKT_v.exit_crit_edge: ; preds = %20
@@ -33310,7 +33310,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2iEEEbv.exit.t
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %37
 
 37:                                               ; preds = %32
@@ -33358,7 +33358,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -33389,7 +33389,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4hEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -33456,7 +33456,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4hEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4hEEERKT_v.exit_crit_edge unwind label %26
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4hEEERKT_v.exit_crit_edge: ; preds = %20
@@ -33490,7 +33490,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4hEEEbv.exit.t
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %37
 
 37:                                               ; preds = %32
@@ -33538,7 +33538,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -33569,7 +33569,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3hEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -33636,7 +33636,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3hEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3hEEERKT_v.exit_crit_edge unwind label %26
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3hEEERKT_v.exit_crit_edge: ; preds = %20
@@ -33670,7 +33670,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3hEEEbv.exit.t
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %37
 
 37:                                               ; preds = %32
@@ -33718,7 +33718,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -33749,7 +33749,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2hEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -33816,7 +33816,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2hEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2hEEERKT_v.exit_crit_edge unwind label %26
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2hEEERKT_v.exit_crit_edge: ; preds = %20
@@ -33850,7 +33850,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2hEEEbv.exit.t
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %37
 
 37:                                               ; preds = %32
@@ -33898,7 +33898,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -33929,7 +33929,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -33996,7 +33996,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4fEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4fEEERKT_v.exit_crit_edge: ; preds = %20
@@ -34037,7 +34037,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.t
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -34088,7 +34088,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -34119,7 +34119,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -34186,7 +34186,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3fEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3fEEERKT_v.exit_crit_edge: ; preds = %20
@@ -34227,7 +34227,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.t
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -34278,7 +34278,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -34309,7 +34309,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -34376,7 +34376,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2fEEERKT_v.exit_crit_edge unwind label %26
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2fEEERKT_v.exit_crit_edge: ; preds = %20
@@ -34410,7 +34410,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.t
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %37
 
 37:                                               ; preds = %32
@@ -34458,7 +34458,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -34489,7 +34489,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec4dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -34555,7 +34555,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec4dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.thread8
@@ -34591,7 +34591,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4dEEEbv.exit.t
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -34638,7 +34638,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -34669,7 +34669,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec3dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -34735,7 +34735,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec3dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.thread8
@@ -34771,7 +34771,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3dEEEbv.exit.t
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -34818,7 +34818,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -34849,7 +34849,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfVec2dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -34916,7 +34916,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2dEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfVec2dEEERKT_v.exit_crit_edge: ; preds = %20
@@ -34957,7 +34957,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -35008,7 +35008,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -35039,7 +35039,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix4fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -35105,7 +35105,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4fEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4fEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4fEEEbv.exit.thread8
@@ -35141,7 +35141,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4fEEEbv.ex
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -35188,7 +35188,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -35219,7 +35219,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix3fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -35285,7 +35285,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3fEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3fEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3fEEEbv.exit.thread8
@@ -35321,7 +35321,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3fEEEbv.ex
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -35368,7 +35368,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -35399,7 +35399,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix2fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -35466,7 +35466,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2fEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2fEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2fEEERKT_v.exit_crit_edge: ; preds = %20
@@ -35507,7 +35507,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2fEEEbv.ex
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -35558,7 +35558,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -35589,7 +35589,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix4dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -35655,7 +35655,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix4dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread8
@@ -35691,7 +35691,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.ex
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -35738,7 +35738,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -35769,7 +35769,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix3dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -35835,7 +35835,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix3dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread8
@@ -35871,7 +35871,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.ex
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -35918,7 +35918,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -35949,7 +35949,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfMatrix2dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -36015,7 +36015,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfMatrix2dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread8
@@ -36051,7 +36051,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.ex
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -36098,7 +36098,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -36129,7 +36129,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange3fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -36195,7 +36195,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange3fEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3fEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange3fEEEbv.exit.thread8
@@ -36241,7 +36241,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange3fEEEbv.exit
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %45
 
 45:                                               ; preds = %40
@@ -36288,7 +36288,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -36319,7 +36319,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange3dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -36385,7 +36385,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange3dEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange3dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange3dEEEbv.exit.thread8
@@ -36431,7 +36431,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange3dEEEbv.exit
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %45
 
 45:                                               ; preds = %40
@@ -36478,7 +36478,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -36509,7 +36509,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange2fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -36576,7 +36576,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit_crit_edge: ; preds = %20
@@ -36617,7 +36617,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -36668,7 +36668,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -36699,7 +36699,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange2dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -36765,7 +36765,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2dEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2dEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2dEEEbv.exit.thread8
@@ -36807,7 +36807,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2dEEEbv.exit
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
-  invoke void %42(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %43
 
 43:                                               ; preds = %38
@@ -36854,7 +36854,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -36885,7 +36885,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange1fEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -36952,7 +36952,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange1fEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1fEEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1fEEERKT_v.exit_crit_edge: ; preds = %20
@@ -36986,7 +36986,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange1fEEEbv.exit
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -37034,7 +37034,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -37065,7 +37065,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfRange1dEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -37132,7 +37132,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange1dEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1dEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange1dEEERKT_v.exit_crit_edge: ; preds = %20
@@ -37173,7 +37173,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange1dEEEbv.exit
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -37224,7 +37224,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -37255,7 +37255,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_10GfIntervalEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -37321,7 +37321,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfIntervalEEEbv.ex
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_10GfIntervalEEERKT_v.exit unwind label %28
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfIntervalEEEbv.exit.thread8
@@ -37363,7 +37363,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfIntervalEEEbv.ex
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
-  invoke void %42(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %43
 
 43:                                               ; preds = %38
@@ -37410,7 +37410,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -37441,7 +37441,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_8GfRect2iEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -37508,7 +37508,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge unwind label %29
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge: ; preds = %20
@@ -37552,7 +37552,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -37605,7 +37605,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -37636,7 +37636,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuathEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -37703,7 +37703,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuathEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_v.exit_crit_edge unwind label %27
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuathEEERKT_v.exit_crit_edge: ; preds = %20
@@ -37737,7 +37737,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuathEEEbv.exit.t
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %38
 
 38:                                               ; preds = %33
@@ -37785,7 +37785,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -37816,7 +37816,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuatfEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -37883,7 +37883,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.t
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatfEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatfEEERKT_v.exit_crit_edge: ; preds = %20
@@ -37924,7 +37924,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.t
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -37975,7 +37975,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -38006,7 +38006,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_7GfQuatdEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -38073,7 +38073,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.t
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatdEEERKT_v.exit_crit_edge unwind label %29
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7GfQuatdEEERKT_v.exit_crit_edge: ; preds = %21
@@ -38110,7 +38110,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.t
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -38157,7 +38157,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -38188,7 +38188,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_12GfQuaternionEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -38255,7 +38255,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12GfQuaternionEEEbv.
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12GfQuaternionEEERKT_v.exit_crit_edge unwind label %29
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12GfQuaternionEEERKT_v.exit_crit_edge: ; preds = %21
@@ -38292,7 +38292,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12GfQuaternionEEEbv.
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -38339,7 +38339,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -38370,7 +38370,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuathEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -38437,7 +38437,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_11GfDualQuathEEEbv.e
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuathEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuathEEERKT_v.exit_crit_edge: ; preds = %20
@@ -38478,7 +38478,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_11GfDualQuathEEEbv.e
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
 39:                                               ; preds = %34
@@ -38529,7 +38529,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -38560,7 +38560,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuatfEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -38627,7 +38627,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_11GfDualQuatfEEEbv.e
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatfEEERKT_v.exit_crit_edge unwind label %29
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatfEEERKT_v.exit_crit_edge: ; preds = %21
@@ -38664,7 +38664,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_11GfDualQuatfEEEbv.e
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -38711,7 +38711,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -38742,7 +38742,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_11GfDualQuatdEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -38809,7 +38809,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_11GfDualQuatdEEEbv.e
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatdEEERKT_v.exit_crit_edge unwind label %29
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11GfDualQuatdEEERKT_v.exit_crit_edge: ; preds = %21
@@ -38846,7 +38846,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_11GfDualQuatdEEEbv.e
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
 
 40:                                               ; preds = %35
@@ -38893,7 +38893,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -38924,7 +38924,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_9GfFrustumEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -38990,7 +38990,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfFrustumEEEbv.exit
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfFrustumEEERKT_v.exit unwind label %46
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfFrustumEEEbv.exit.thread11
@@ -38999,7 +38999,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfFrustumEEEbv.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfFrustumEEERKT_v.exit: ; preds = %26, %20
   %.0.i.i = phi ptr [ %27, %26 ], [ %25, %20 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i, i64 24, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
@@ -39059,7 +39059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumC2ERKS0_.exit: ; preds = %.noexc9
   %54 = inttoptr i64 %53 to ptr
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
-  invoke void %56(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %56(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %57
 
 57:                                               ; preds = %52
@@ -39108,7 +39108,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -39139,7 +39139,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_Type
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_TypedValueDataSourceINS_15GfMultiIntervalEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -39206,7 +39206,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_15GfMultiIntervalEEE
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiIntervalEEERKT_v.exit unwind label %46
 
 27:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_15GfMultiIntervalEEEbv.exit.thread9
@@ -39294,7 +39294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15GfMultiIntervalC2ERKS0_.exit: ; preds = %
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void %60(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %61
 
 61:                                               ; preds = %56
@@ -39475,7 +39475,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -39506,7 +39506,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_Unty
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_UntypedValueDataSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
   ret void
 }
@@ -39546,7 +39546,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %7
 
@@ -39777,7 +39777,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %38, %30
 54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %36) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %36) #29
   resume { ptr, i32 } %55
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryC2ERKS1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
@@ -39811,7 +39811,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN32px
 .body:                                            ; preds = %.lr.ph
   %10 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %.014) #29
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %.014) #29
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #29
   %.not4.i.i = icmp eq ptr %2, %.014

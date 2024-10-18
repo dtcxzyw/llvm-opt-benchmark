@@ -5450,7 +5450,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr nocapture noundef r
   tail call void @kfree(ptr noundef %118) #17
   %199 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @usbfs_memory_usage_lock) #17
   %200 = load i64, ptr @usbfs_memory_usage, align 8
-  %201 = tail call i64 @llvm.usub.sat.i64(i64 %200, i64 %107)
+  %201 = tail call i64 @llvm.usub.sat.i64(i64 %200, i64 range(i64 184, 4294967480) %107)
   store i64 %201, ptr @usbfs_memory_usage, align 8
   br label %.thread.sink.split
 

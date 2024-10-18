@@ -794,7 +794,7 @@ oideq_by_value.exit.i.i.i:                        ; preds = %if.else.i.i.i.i.i, 
   %algop.0.val.i.i.i.i.i = load i64, ptr %66, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i.i, 32
   %..i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp4.i.i, i64 %..i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp4.i.i, i64 %..i.i.i.i.i.i)
   %retval.0.in.i.i.i.not.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
@@ -1227,7 +1227,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %143, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp74, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp74, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i
 

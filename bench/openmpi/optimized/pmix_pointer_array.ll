@@ -107,7 +107,7 @@ define range(i32 -29, 1) i32 @pmix_pointer_array_init(ptr noundef %0, i32 nounde
   br i1 %.not.i, label %pmix_tma_calloc.exit, label %pmix_tma_calloc.exit.thread
 
 pmix_tma_calloc.exit:                             ; preds = %7
-  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 8) #7
+  %18 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 288230376151711744) %17, i64 noundef 8) #7
   %19 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
@@ -116,7 +116,7 @@ pmix_tma_calloc.exit:                             ; preds = %7
 pmix_tma_calloc.exit.thread:                      ; preds = %7
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr %22(ptr noundef nonnull %8, i64 noundef %17, i64 noundef 8) #6
+  %23 = tail call ptr %22(ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 288230376151711744) %17, i64 noundef 8) #6
   %24 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
@@ -125,7 +125,7 @@ pmix_tma_calloc.exit.thread:                      ; preds = %7
 pmix_tma_calloc.exit34:                           ; preds = %pmix_tma_calloc.exit
   %26 = add nsw i64 %17, 63
   %27 = lshr i64 %26, 6
-  %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #7
+  %28 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 288230376151711744) %27, i64 noundef 8) #7
   %29 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
@@ -135,7 +135,7 @@ pmix_tma_calloc.exit34.thread:                    ; preds = %pmix_tma_calloc.exi
   %31 = add nsw i64 %17, 63
   %32 = lshr i64 %31, 6
   %33 = load ptr, ptr %21, align 8
-  %34 = tail call ptr %33(ptr noundef nonnull %8, i64 noundef %32, i64 noundef 8) #6
+  %34 = tail call ptr %33(ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 288230376151711744) %32, i64 noundef 8) #6
   %35 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %34, ptr %35, align 8
   %36 = icmp eq ptr %34, null
@@ -304,11 +304,11 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %3, ptr noundef %15, i64 noundef %17) #6
+  %21 = tail call ptr %20(ptr noundef nonnull %3, ptr noundef %15, i64 noundef range(i64 -17179869184, 17179869177) %17) #6
   br label %pmix_tma_realloc.exit
 
 22:                                               ; preds = %13
-  %23 = tail call ptr @realloc(ptr noundef %15, i64 noundef %17) #8
+  %23 = tail call ptr @realloc(ptr noundef %15, i64 noundef range(i64 -17179869184, 17179869177) %17) #8
   br label %pmix_tma_realloc.exit
 
 pmix_tma_realloc.exit:                            ; preds = %18, %22
@@ -367,11 +367,11 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %0, i64 72
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr %50(ptr noundef nonnull %3, ptr noundef %46, i64 noundef %47) #6
+  %51 = tail call ptr %50(ptr noundef nonnull %3, ptr noundef %46, i64 noundef range(i64 -17179869184, 17179869177) %47) #6
   br label %pmix_tma_realloc.exit55
 
 52:                                               ; preds = %44
-  %53 = tail call ptr @realloc(ptr noundef %46, i64 noundef %47) #8
+  %53 = tail call ptr @realloc(ptr noundef %46, i64 noundef range(i64 -17179869184, 17179869177) %47) #8
   br label %pmix_tma_realloc.exit55
 
 pmix_tma_realloc.exit55:                          ; preds = %48, %52

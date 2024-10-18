@@ -214,7 +214,7 @@ define linkonce_odr dso_local void @_ZNSt13unordered_setIN5vcpkg15TripletInstanc
   %.06.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZNSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
@@ -827,15 +827,15 @@ define dso_local void @_ZNK5vcpkg15TripletDatabase21get_triplet_file_pathENS_7Tr
 
 .lr.ph.i:                                         ; preds = %3, %"_ZZNK5vcpkg15TripletDatabase21get_triplet_file_pathENS_7TripletEENK3$_0clERKNS_11TripletFileE.exit.thread5.i"
   %.sroa.01.07.i = phi ptr [ %18, %"_ZZNK5vcpkg15TripletDatabase21get_triplet_file_pathENS_7TripletEENK3$_0clERKNS_11TripletFileE.exit.thread5.i" ], [ %.val, %3 ]
-  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.07.i) #21
+  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.01.07.i) #21
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   %11 = icmp eq i64 %9, %10
   br i1 %11, label %12, label %"_ZZNK5vcpkg15TripletDatabase21get_triplet_file_pathENS_7TripletEENK3$_0clERKNS_11TripletFileE.exit.thread5.i"
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.07.i) #21
+  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.01.07.i) #21
   %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.07.i) #21
+  %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.01.07.i) #21
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %"_ZN5vcpkg4Util7find_ifIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase21get_triplet_file_pathENS_7TripletEE3$_0EEDaOT_T0_.exit", label %"_ZZNK5vcpkg15TripletDatabase21get_triplet_file_pathENS_7TripletEENK3$_0clERKNS_11TripletFileE.exit.i"
 
@@ -869,7 +869,7 @@ define dso_local void @_ZNK5vcpkg15TripletDatabase21get_triplet_file_pathENS_7Tr
 24:                                               ; preds = %"_ZN5vcpkg4Util7find_ifIRKSt6vectorINS_11TripletFileESaIS3_EEZNKS_15TripletDatabase21get_triplet_file_pathENS_7TripletEE3$_0EEDaOT_T0_.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.0.lcssa.i.ph), !noalias !19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.01.0.lcssa.i.ph), !noalias !19
   %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12)
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i unwind label %26, !noalias !19
 
@@ -1000,7 +1000,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
   %.056.i.i.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i ], [ %43, %41 ]
   %.sroa.045.055.i.i.i.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i.i.i.i ], [ %42, %41 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.055.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.045.055.i.i.i.i.i.i) #21
   %23 = load ptr, ptr %10, align 8
   %24 = load i64, ptr %18, align 8
   %25 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %23, i64 %24, ptr %1, i64 %2) #21
@@ -1010,7 +1010,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(32) %27) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(64) %27) #21
   %28 = load ptr, ptr %9, align 8
   %29 = load i64, ptr %19, align 8
   %30 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %28, i64 %29, ptr %1, i64 %2) #21
@@ -1020,7 +1020,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %32) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(64) %32) #21
   %33 = load ptr, ptr %8, align 8
   %34 = load i64, ptr %20, align 8
   %35 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %33, i64 %34, ptr %1, i64 %2) #21
@@ -1030,7 +1030,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %.sroa.045.055.i.i.i.i.i.i, i64 192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %37) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %37) #21
   %38 = load ptr, ptr %7, align 8
   %39 = load i64, ptr %21, align 8
   %40 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %38, i64 %39, ptr %1, i64 %2) #21
@@ -1060,7 +1060,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 
 46:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.0.lcssa.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.045.0.lcssa.i.i.i.i.i.i) #21
   %47 = load ptr, ptr %6, align 8
   %48 = getelementptr inbounds i8, ptr %6, i64 8
   %49 = load i64, ptr %48, align 8
@@ -1075,7 +1075,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 53:                                               ; preds = %51, %._crit_edge.i.i.i.i.i.i
   %.sroa.045.1.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %52, %51 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.1.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.045.1.i.i.i.i.i.i) #21
   %54 = load ptr, ptr %5, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   %56 = load i64, ptr %55, align 8
@@ -1090,7 +1090,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg15TripletDatabase31is_valid_tripl
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i.i.i
   %.sroa.045.2.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %59, %58 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.2.i.i.i.i.i.i) #21
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.045.2.i.i.i.i.i.i) #21
   %61 = load ptr, ptr %4, align 8
   %62 = getelementptr inbounds i8, ptr %4, i64 8
   %63 = load i64, ptr %62, align 8
@@ -4263,9 +4263,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN5vcpkg15TripletIns
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
+  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   %8 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %6, i64 noundef %7, i64 noundef 3339675911)
           to label %_ZNSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPNS3_16_Hashtable_allocISaINS3_10_Hash_nodeIS1_Lb1EEEEEEDpOT_.exit unwind label %9
 
@@ -4307,15 +4307,15 @@ _ZNSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8e
 .lr.ph:                                           ; preds = %19, %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread23
   %.sroa.019.038 = phi ptr [ %.sroa.019.0, %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread23 ], [ %.sroa.019.036, %19 ]
   %24 = getelementptr inbounds i8, ptr %.sroa.019.038, i64 8
-  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  %26 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
+  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #21
+  %26 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   %27 = icmp eq i64 %25, %26
   br i1 %27, label %28, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread23
 
 28:                                               ; preds = %.lr.ph
-  %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
+  %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #21
+  %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
+  %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #21
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
 
@@ -4367,7 +4367,7 @@ _ZNKSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8
 
 _ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %28, %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, %_ZNKSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit
   %.sroa.022.0.ph = phi ptr [ %44, %_ZNKSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit ], [ %.sroa.019.038, %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.019.038, %28 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %_ZNSt10_HashtableIN5vcpkg15TripletInstanceES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -4491,7 +4491,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN5vcpkg15TripletInstanceES
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %6
 
@@ -4536,15 +4536,15 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableIN5vcpkg15TripletIn
   br i1 %14, label %15, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 15:                                               ; preds = %11
-  %16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  %16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #21
+  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 19:                                               ; preds = %15
-  %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
+  %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #21
+  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
+  %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #21
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread18, label %_ZNKSt8__detail15_Hashtable_baseIN5vcpkg15TripletInstanceES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
 

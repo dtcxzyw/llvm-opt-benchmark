@@ -5240,7 +5240,7 @@ define hidden void @_ZN2cv8tinyxml210XMLElementD0Ev(ptr noundef nonnull align 8 
   unreachable
 
 _ZN2cv8tinyxml210XMLElementD2Ev.exit:             ; preds = %15, %1
-  tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
+  tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -7523,7 +7523,7 @@ _ZN2cv8tinyxml27XMLNode14DeleteChildrenEv.exit.i: ; preds = %_ZN2cv8tinyxml27XML
 
 _ZN2cv8tinyxml211XMLDocument5ClearEv.exit:        ; preds = %_ZN2cv8tinyxml27XMLNode14DeleteChildrenEv.exit.i, %38
   store ptr null, ptr %35, align 8
-  %39 = tail call noalias noundef ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull readonly @.str.18)
+  %39 = tail call noalias noundef ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.18)
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %40, label %42
 
@@ -7773,7 +7773,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN2cv8tinyxml211XMLDocument8SaveFileEPKcb(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
-  %4 = tail call noalias noundef ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull readonly @.str.19)
+  %4 = tail call noalias noundef ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.19)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
 
@@ -10310,7 +10310,7 @@ define linkonce_odr hidden void @_ZN2cv8tinyxml27XMLTextD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8tinyxml27XMLTextD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
+  tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

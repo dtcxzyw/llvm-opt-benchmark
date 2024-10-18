@@ -114,7 +114,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7ZThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #4
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #4
   ret void
 }
 

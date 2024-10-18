@@ -538,7 +538,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp14.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %properties, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(192) %properties, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont64
@@ -630,7 +630,7 @@ ehcleanup18.i:                                    ; preds = %ehcleanup17.i, %lpa
 
 ehcleanup19.i:                                    ; preds = %ehcleanup18.i, %lpad3.i
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup18.i ], [ %30, %lpad3.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %properties) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(192) %properties) #14
   br label %ehcleanup113
 
 invoke.cont65:                                    ; preds = %invoke.cont13.i
@@ -655,11 +655,11 @@ invoke.cont65:                                    ; preds = %invoke.cont13.i
   br i1 %21, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont65
-  invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i34, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %properties)
+  invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i34, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(192) %properties)
           to label %.noexc unwind label %lpad67
 
 .noexc:                                           ; preds = %if.then.i
-  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %properties, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i34) #14
+  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(192) %properties, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i34) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i34) #14
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i35, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %m_knots.i)
           to label %.noexc45 unwind label %lpad67
@@ -691,11 +691,11 @@ if.then.i:                                        ; preds = %invoke.cont65
 if.else.i:                                        ; preds = %invoke.cont65
   %35 = load ptr, ptr %shaderCreator, align 8
   %call18.i = call noundef i32 @_ZN19OpenColorIO_v2_4dev16GpuShaderCreator20getNextResourceIndexEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #14
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr noalias align 8 %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) %properties, i32 noundef %call18.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr noalias align 8 %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(192) %properties, i32 noundef %call18.i)
           to label %.noexc50 unwind label %lpad67
 
 .noexc50:                                         ; preds = %if.else.i
-  %call22.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %properties, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #14
+  %call22.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(192) %properties, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #14
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr noalias align 8 %ref.tmp23.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) %m_knots.i, i32 noundef %call18.i)
           to label %.noexc51 unwind label %lpad67
@@ -830,7 +830,7 @@ invoke.cont.i76:                                  ; preds = %invoke.cont77
   store ptr %call.i.i2.i62.i, ptr %ref.tmp8.i73, align 8
   store ptr @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i61.i, align 8
   store ptr @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i60.i, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFivEERKS5_IFPKivEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i73, ptr noundef nonnull align 8 dereferenceable(32) %properties)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFivEERKS5_IFPKivEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i73, ptr noundef nonnull align 8 dereferenceable(192) %properties)
           to label %invoke.cont10.i79 unwind label %lpad9.i77
 
 invoke.cont10.i79:                                ; preds = %invoke.cont.i76
@@ -839,7 +839,7 @@ invoke.cont10.i79:                                ; preds = %invoke.cont.i76
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFPKivEED2Ev.exit.i, label %if.then.i.i.i80
 
 if.then.i.i.i80:                                  ; preds = %invoke.cont10.i79
-  %call.i.i.i = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8.i73, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8.i73, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i73, i32 noundef 3)
           to label %_ZNSt8functionIFPKivEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i80
@@ -855,7 +855,7 @@ _ZNSt8functionIFPKivEED2Ev.exit.i:                ; preds = %if.then.i.i.i80, %i
   br i1 %tobool.not.i.i65.i, label %_ZNSt8functionIFivEED2Ev.exit.i, label %if.then.i.i66.i
 
 if.then.i.i66.i:                                  ; preds = %_ZNSt8functionIFPKivEED2Ev.exit.i
-  %call.i.i67.i = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i, i32 noundef 3)
+  %call.i.i67.i = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i, i32 noundef 3)
           to label %_ZNSt8functionIFivEED2Ev.exit.i unwind label %terminate.lpad.i.i68.i
 
 terminate.lpad.i.i68.i:                           ; preds = %if.then.i.i66.i
@@ -910,7 +910,7 @@ invoke.cont18.i:                                  ; preds = %invoke.cont16.i
   br i1 %tobool.not.i.i76.i, label %_ZNSt8functionIFPKfvEED2Ev.exit.i, label %if.then.i.i77.i
 
 if.then.i.i77.i:                                  ; preds = %invoke.cont18.i
-  %call.i.i78.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.i, i32 noundef 3)
+  %call.i.i78.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, i32 noundef 3)
           to label %_ZNSt8functionIFPKfvEED2Ev.exit.i unwind label %terminate.lpad.i.i79.i
 
 terminate.lpad.i.i79.i:                           ; preds = %if.then.i.i77.i
@@ -926,7 +926,7 @@ _ZNSt8functionIFPKfvEED2Ev.exit.i:                ; preds = %if.then.i.i77.i, %i
   br i1 %tobool.not.i.i81.i, label %_ZNSt8functionIFivEED2Ev.exit85.i, label %if.then.i.i82.i
 
 if.then.i.i82.i:                                  ; preds = %_ZNSt8functionIFPKfvEED2Ev.exit.i
-  %call.i.i83.i = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i74, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i74, i32 noundef 3)
+  %call.i.i83.i = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i74, i32 noundef 3)
           to label %_ZNSt8functionIFivEED2Ev.exit85.i unwind label %terminate.lpad.i.i84.i
 
 terminate.lpad.i.i84.i:                           ; preds = %if.then.i.i82.i
@@ -968,7 +968,7 @@ invoke.cont26.i:                                  ; preds = %invoke.cont24.i
   br i1 %tobool.not.i.i94.i, label %_ZNSt8functionIFPKivEED2Ev.exit98.i, label %if.then.i.i95.i
 
 if.then.i.i95.i:                                  ; preds = %invoke.cont26.i
-  %call.i.i96.i = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i, i32 noundef 3)
+  %call.i.i96.i = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i, i32 noundef 3)
           to label %_ZNSt8functionIFPKivEED2Ev.exit98.i unwind label %terminate.lpad.i.i97.i
 
 terminate.lpad.i.i97.i:                           ; preds = %if.then.i.i95.i
@@ -984,7 +984,7 @@ _ZNSt8functionIFPKivEED2Ev.exit98.i:              ; preds = %if.then.i.i95.i, %i
   br i1 %tobool.not.i.i100.i, label %_ZNSt8functionIFivEED2Ev.exit104.i, label %if.then.i.i101.i
 
 if.then.i.i101.i:                                 ; preds = %_ZNSt8functionIFPKivEED2Ev.exit98.i
-  %call.i.i102.i = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i, i32 noundef 3)
+  %call.i.i102.i = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, i32 noundef 3)
           to label %_ZNSt8functionIFivEED2Ev.exit104.i unwind label %terminate.lpad.i.i103.i
 
 terminate.lpad.i.i103.i:                          ; preds = %if.then.i.i101.i
@@ -1039,7 +1039,7 @@ invoke.cont36.i:                                  ; preds = %invoke.cont34.i
   br i1 %tobool.not.i.i114.i, label %_ZNSt8functionIFPKfvEED2Ev.exit118.i, label %if.then.i.i115.i
 
 if.then.i.i115.i:                                 ; preds = %invoke.cont36.i
-  %call.i.i116.i = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30.i, i32 noundef 3)
+  %call.i.i116.i = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.i, i32 noundef 3)
           to label %_ZNSt8functionIFPKfvEED2Ev.exit118.i unwind label %terminate.lpad.i.i117.i
 
 terminate.lpad.i.i117.i:                          ; preds = %if.then.i.i115.i
@@ -1055,7 +1055,7 @@ _ZNSt8functionIFPKfvEED2Ev.exit118.i:             ; preds = %if.then.i.i115.i, %
   br i1 %tobool.not.i.i120.i, label %_ZNSt8functionIFivEED2Ev.exit124.i, label %if.then.i.i121.i
 
 if.then.i.i121.i:                                 ; preds = %_ZNSt8functionIFPKfvEED2Ev.exit118.i
-  %call.i.i122.i = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i, i32 noundef 3)
+  %call.i.i122.i = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, i32 noundef 3)
           to label %_ZNSt8functionIFivEED2Ev.exit124.i unwind label %terminate.lpad.i.i123.i
 
 terminate.lpad.i.i123.i:                          ; preds = %if.then.i.i121.i
@@ -1153,7 +1153,7 @@ invoke.cont41.i:                                  ; preds = %invoke.cont11.i.i, 
   br i1 %tobool.not.i.i130.i, label %invoke.cont78, label %if.then.i.i131.i
 
 if.then.i.i131.i:                                 ; preds = %invoke.cont41.i
-  %call.i.i132.i = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39.i, i32 noundef 3)
+  %call.i.i132.i = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.i, i32 noundef 3)
           to label %invoke.cont78 unwind label %terminate.lpad.i.i133.i
 
 terminate.lpad.i.i133.i:                          ; preds = %if.then.i.i131.i
@@ -1176,7 +1176,7 @@ lpad9.i77:                                        ; preds = %invoke.cont.i76
   br i1 %tobool.not.i.i135.i, label %ehcleanup.i78, label %if.then.i.i136.i
 
 if.then.i.i136.i:                                 ; preds = %lpad9.i77
-  %call.i.i137.i = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8.i73, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8.i73, i32 noundef 3)
+  %call.i.i137.i = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i73, i32 noundef 3)
           to label %ehcleanup.i78 unwind label %terminate.lpad.i.i138.i
 
 terminate.lpad.i.i138.i:                          ; preds = %if.then.i.i136.i
@@ -1194,7 +1194,7 @@ ehcleanup.i78:                                    ; preds = %if.then.i.i136.i, %
 if.then.i.i142.i:                                 ; preds = %ehcleanup.i78, %ehcleanup.thread.i
   %.pn9.i = phi { ptr, i32 } [ %88, %ehcleanup.thread.i ], [ %89, %ehcleanup.i78 ]
   %93 = phi ptr [ @_ZNSt17_Function_handlerIFivEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, %ehcleanup.thread.i ], [ %.pr.i, %ehcleanup.i78 ]
-  %call.i.i143.i = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i, i32 noundef 3)
+  %call.i.i143.i = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i, i32 noundef 3)
           to label %lpad76.body unwind label %terminate.lpad.i.i144.i
 
 terminate.lpad.i.i144.i:                          ; preds = %if.then.i.i142.i
@@ -1217,7 +1217,7 @@ lpad15.i81:                                       ; preds = %invoke.cont16.i, %i
   br i1 %tobool.not.i.i147.i, label %ehcleanup20.i, label %if.then.i.i148.i
 
 if.then.i.i148.i:                                 ; preds = %lpad15.i81
-  %call.i.i149.i = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.i, i32 noundef 3)
+  %call.i.i149.i = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, i32 noundef 3)
           to label %ehcleanup20.i unwind label %terminate.lpad.i.i150.i
 
 terminate.lpad.i.i150.i:                          ; preds = %if.then.i.i148.i
@@ -1235,7 +1235,7 @@ ehcleanup20.i:                                    ; preds = %if.then.i.i148.i, %
 if.then.i.i154.i:                                 ; preds = %ehcleanup20.i, %ehcleanup20.thread.i
   %.pn2213.i = phi { ptr, i32 } [ %96, %ehcleanup20.thread.i ], [ %97, %ehcleanup20.i ]
   %101 = phi ptr [ @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %ehcleanup20.thread.i ], [ %.pr10.i, %ehcleanup20.i ]
-  %call.i.i155.i = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i74, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i74, i32 noundef 3)
+  %call.i.i155.i = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i74, i32 noundef 3)
           to label %lpad76.body unwind label %terminate.lpad.i.i156.i
 
 terminate.lpad.i.i156.i:                          ; preds = %if.then.i.i154.i
@@ -1258,7 +1258,7 @@ lpad25.i:                                         ; preds = %invoke.cont24.i
   br i1 %tobool.not.i.i159.i, label %ehcleanup28.i, label %if.then.i.i160.i
 
 if.then.i.i160.i:                                 ; preds = %lpad25.i
-  %call.i.i161.i = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i, i32 noundef 3)
+  %call.i.i161.i = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i, i32 noundef 3)
           to label %ehcleanup28.i unwind label %terminate.lpad.i.i162.i
 
 terminate.lpad.i.i162.i:                          ; preds = %if.then.i.i160.i
@@ -1276,7 +1276,7 @@ ehcleanup28.i:                                    ; preds = %if.then.i.i160.i, %
 if.then.i.i166.i:                                 ; preds = %ehcleanup28.i, %ehcleanup28.thread.i
   %.pn2417.i = phi { ptr, i32 } [ %104, %ehcleanup28.thread.i ], [ %105, %ehcleanup28.i ]
   %109 = phi ptr [ @_ZNSt17_Function_handlerIFivEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, %ehcleanup28.thread.i ], [ %.pr14.i, %ehcleanup28.i ]
-  %call.i.i167.i = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i, i32 noundef 3)
+  %call.i.i167.i = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, i32 noundef 3)
           to label %lpad76.body unwind label %terminate.lpad.i.i168.i
 
 terminate.lpad.i.i168.i:                          ; preds = %if.then.i.i166.i
@@ -1299,7 +1299,7 @@ lpad33.i:                                         ; preds = %invoke.cont34.i, %i
   br i1 %tobool.not.i.i171.i, label %ehcleanup38.i, label %if.then.i.i172.i
 
 if.then.i.i172.i:                                 ; preds = %lpad33.i
-  %call.i.i173.i = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30.i, i32 noundef 3)
+  %call.i.i173.i = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.i, i32 noundef 3)
           to label %ehcleanup38.i unwind label %terminate.lpad.i.i174.i
 
 terminate.lpad.i.i174.i:                          ; preds = %if.then.i.i172.i
@@ -1317,7 +1317,7 @@ ehcleanup38.i:                                    ; preds = %if.then.i.i172.i, %
 if.then.i.i178.i:                                 ; preds = %ehcleanup38.i, %ehcleanup38.thread.i
   %.pn2621.i = phi { ptr, i32 } [ %112, %ehcleanup38.thread.i ], [ %113, %ehcleanup38.i ]
   %117 = phi ptr [ @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %ehcleanup38.thread.i ], [ %.pr18.i, %ehcleanup38.i ]
-  %call.i.i179.i = invoke noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i, i32 noundef 3)
+  %call.i.i179.i = invoke noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, i32 noundef 3)
           to label %lpad76.body unwind label %terminate.lpad.i.i180.i
 
 terminate.lpad.i.i180.i:                          ; preds = %if.then.i.i178.i
@@ -1339,7 +1339,7 @@ lpad40.body.i:                                    ; preds = %lpad40.i, %ehcleanu
   br i1 %tobool.not.i.i183.i, label %lpad76.body, label %if.then.i.i184.i
 
 if.then.i.i184.i:                                 ; preds = %lpad40.body.i
-  %call.i.i185.i = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39.i, i32 noundef 3)
+  %call.i.i185.i = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.i, i32 noundef 3)
           to label %lpad76.body unwind label %terminate.lpad.i.i186.i
 
 terminate.lpad.i.i186.i:                          ; preds = %if.then.i.i184.i
@@ -2539,7 +2539,7 @@ invoke.cont110:                                   ; preds = %invoke.cont107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_coefs.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_coefsOffsets.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_knots.i) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %properties) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(192) %properties) #14
   %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #14
   %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8

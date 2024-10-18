@@ -6561,7 +6561,7 @@ if.end.i18:                                       ; preds = %if.then.i, %if.end1
   br i1 %cmp5.i, label %if.then.i19, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i18
-  %call10.i = tail call ptr @PyLong_FromLong(i64 noundef %error_index.037) #8
+  %call10.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 0, 44) %error_index.037) #8
   %cmp11.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.i, label %if.then.i19, label %if.end14.i
 
@@ -7267,7 +7267,7 @@ while.end.i:                                      ; preds = %if.end17.i, %if.end
   %itself18.i = getelementptr inbounds i8, ptr %self, i64 16
   %12 = load ptr, ptr %itself18.i, align 8
   %conv.i = trunc i64 %.lcssa.i to i32
-  %call19.i = call i32 @PyExpat_XML_Parse(ptr noundef %12, ptr noundef %s.1.lcssa.i, i32 noundef %conv.i, i32 noundef %isfinal.0) #8
+  %call19.i = call i32 @PyExpat_XML_Parse(ptr noundef %12, ptr noundef %s.1.lcssa.i, i32 noundef %conv.i, i32 noundef range(i32 0, -2147483648) %isfinal.0) #8
   br label %done.i
 
 done.i:                                           ; preds = %while.body.i, %while.end.i

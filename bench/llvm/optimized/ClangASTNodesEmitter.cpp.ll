@@ -156,7 +156,7 @@ define dso_local void @_ZN5clang17EmitClangASTNodesERN4llvm12RecordKeeperERNS0_1
   %38 = getelementptr inbounds i8, ptr %20, i64 8
   %39 = getelementptr inbounds i8, ptr %20, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 24, i1 false)
   store ptr %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %38, ptr %40, align 8
@@ -171,7 +171,7 @@ define dso_local void @_ZN5clang17EmitClangASTNodesERN4llvm12RecordKeeperERNS0_1
   %.pre10.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %43 = getelementptr inbounds i8, ptr %20, i64 8
   %44 = getelementptr inbounds i8, ptr %20, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 24, i1 false)
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %43, ptr %45, align 8
@@ -193,7 +193,7 @@ _ZNSt3setIN5clang6tblgen7ASTNodeESt4lessIS2_ESaIS2_EEC2IN9__gnu_cxx17__normal_it
   %51 = phi ptr [ %39, %.thread.i ], [ %44, %42 ], [ %44, %.lr.ph.i.i.i ]
   %52 = phi ptr [ %38, %.thread.i ], [ %43, %42 ], [ %43, %.lr.ph.i.i.i ]
   %53 = load ptr, ptr %23, align 8
-  call void @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef %53)
+  call void @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(160) %21, ptr noundef %53)
   store ptr null, ptr %23, align 8
   store ptr %22, ptr %24, align 8
   store ptr %22, ptr %25, align 8
@@ -934,7 +934,7 @@ _ZN12_GLOBAL__N_120ClangASTNodesEmitter3runERN4llvm11raw_ostreamE.exit: ; preds 
   call void @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %442, ptr noundef %443)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #14
   %444 = load ptr, ptr %23, align 8
-  call void @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef %444)
+  call void @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(160) %21, ptr noundef %444)
   ret void
 }
 

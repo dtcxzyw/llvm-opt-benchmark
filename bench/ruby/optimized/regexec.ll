@@ -24,7 +24,7 @@ count_num_cache_opcodes.exit:
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   store i64 0, ptr %2, align 8
-  %4 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %1, ptr noundef %2)
+  %4 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %5 = load i64, ptr %2, align 8
   %6 = icmp ne i64 %5, -1
@@ -12633,7 +12633,7 @@ memoize_extended_match_cache_point.exit3323:      ; preds = %6557, %6553, %6532,
   %6585 = load ptr, ptr %0, align 8
   store ptr %6585, ptr %9, align 8
   store i64 0, ptr %116, align 8
-  %6586 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %9, ptr noundef %116)
+  %6586 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %9, ptr noundef nonnull %116)
   %6587 = icmp eq i64 %6586, 0
   br i1 %6587, label %6588, label %.thread3498.sink.split
 
@@ -12691,7 +12691,7 @@ count_num_cache_opcodes.exit.thread3493:          ; preds = %6588, %6591
   %6612 = load ptr, ptr %0, align 8
   store ptr %6612, ptr %8, align 8
   store i64 0, ptr %117, align 8
-  %6613 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %117)
+  %6613 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %117)
   %6614 = icmp eq i64 %6613, 0
   br i1 %6614, label %6615, label %6621
 

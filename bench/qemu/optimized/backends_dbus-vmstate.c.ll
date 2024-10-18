@@ -357,7 +357,7 @@ if.end59:                                         ; preds = %if.end50
   %call62 = call ptr @g_buffered_input_stream_peek_buffer(ptr noundef %call61, ptr noundef null) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i31 = call ptr @g_variant_new_fixed_array(ptr noundef nonnull @.str.31, ptr noundef %call62, i64 noundef %conv39, i64 noundef 1) #6
+  %call.i31 = call ptr @g_variant_new_fixed_array(ptr noundef nonnull @.str.31, ptr noundef %call62, i64 noundef range(i64 0, 1048577) %conv39, i64 noundef 1) #6
   %call2.i = call ptr (ptr, ...) @g_variant_new(ptr noundef nonnull @.str.33, ptr noundef %call.i31) #6
   %call3.i = call ptr @g_dbus_proxy_call_sync(ptr noundef nonnull %call33, ptr noundef nonnull @.str.32, ptr noundef %call2.i, i32 noundef 1, i32 noundef -1, ptr noundef null, ptr noundef nonnull %err.i) #6
   %tobool.not.i = icmp eq ptr %call3.i, null

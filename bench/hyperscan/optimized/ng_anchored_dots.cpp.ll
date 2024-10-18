@@ -1333,7 +1333,7 @@ _ZN3ue2L21reformAnchoredRepeatsERNS_8NGHolderEPNS_5depthES3_.exit: ; preds = %_Z
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i7, align 8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %start.i.i, align 8
   %agg.tmp.sroa.2.0.start.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 80
-  invoke fastcc void @_ZN3ue2L25collapseVariableDotRepeatERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERSt3setIS8_St4lessIS8_ESaIS8_EEPNS_5depthESG_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(48) %dead.i3, ptr noundef %startEnd)
+  invoke fastcc void @_ZN3ue2L25collapseVariableDotRepeatERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERSt3setIS8_St4lessIS8_ESaIS8_EEPNS_5depthESG_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(48) %dead.i3, ptr noundef nonnull %startEnd)
           to label %invoke.cont.i8 unwind label %lpad.i
 
 invoke.cont.i8:                                   ; preds = %_ZN3ue2L21reformAnchoredRepeatsERNS_8NGHolderEPNS_5depthES3_.exit
@@ -1365,7 +1365,7 @@ invoke.cont1.i:                                   ; preds = %if.end.i.i11
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i7, align 8
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %startDs.i.i, align 8
   %agg.tmp2.sroa.2.0.startDs.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 96
-  invoke fastcc void @_ZN3ue2L25collapseVariableDotRepeatERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERSt3setIS8_St4lessIS8_ESaIS8_EEPNS_5depthESG_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp2.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(48) %dead.i3, ptr noundef %startEnd)
+  invoke fastcc void @_ZN3ue2L25collapseVariableDotRepeatERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERSt3setIS8_St4lessIS8_ESaIS8_EEPNS_5depthESG_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp2.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(48) %dead.i3, ptr noundef nonnull %startEnd)
           to label %invoke.cont3.i13 unwind label %lpad.i
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont1.i
@@ -5579,7 +5579,7 @@ invoke.cont3:                                     ; preds = %entry
   %reports.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, ptr %reports.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64

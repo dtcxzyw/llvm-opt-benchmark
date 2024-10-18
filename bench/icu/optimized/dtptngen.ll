@@ -1584,13 +1584,13 @@ _ZN6icu_7512FormatParseraSERKS0_.exit:            ; preds = %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i, i64 64, i1 false)
   %original.i.i = getelementptr inbounds i8, ptr %5, i64 80
   %original4.i.i = getelementptr inbounds i8, ptr %6, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i, i64 16, i1 false)
   %lengths.i.i.i = getelementptr inbounds i8, ptr %5, i64 96
   %lengths6.i.i.i = getelementptr inbounds i8, ptr %6, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i = getelementptr inbounds i8, ptr %5, i64 112
   %baseOriginal5.i.i = getelementptr inbounds i8, ptr %6, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i, i64 16, i1 false)
   %lengths.i4.i.i = getelementptr inbounds i8, ptr %5, i64 128
   %lengths6.i5.i.i = getelementptr inbounds i8, ptr %6, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i, i64 16, i1 false)
@@ -1731,13 +1731,13 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i, i64 64, i1 false)
   %original.i = getelementptr inbounds i8, ptr %this, i64 80
   %original4.i = getelementptr inbounds i8, ptr %newSkeleton, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i, i64 16, i1 false)
   %lengths.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %lengths6.i.i = getelementptr inbounds i8, ptr %newSkeleton, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i, i64 16, i1 false)
   %baseOriginal.i = getelementptr inbounds i8, ptr %this, i64 112
   %baseOriginal5.i = getelementptr inbounds i8, ptr %newSkeleton, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i, i64 16, i1 false)
   %lengths.i4.i = getelementptr inbounds i8, ptr %this, i64 128
   %lengths6.i5.i = getelementptr inbounds i8, ptr %newSkeleton, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i, i64 16, i1 false)
@@ -1989,7 +1989,7 @@ if.end10:                                         ; preds = %if.end6
 
 while.cond:                                       ; preds = %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit, %if.end10
   %6 = load ptr, ptr %other, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %6, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp12.not = icmp eq ptr %call.i, null
   br i1 %cmp12.not, label %while.end, label %while.body
 
@@ -2013,7 +2013,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %9
 
 _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %while.body, %new.notnull.i
-  %call2.i = call noundef i32 @uhash_puti_75(ptr noundef %8, ptr noundef %call.i8, i32 noundef 1, ptr noundef nonnull %status)
+  %call2.i = call noundef i32 @uhash_puti_75(ptr noundef %8, ptr noundef %call.i8, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %status, align 4
   %cmp.i9 = icmp slt i32 %10, 1
   br i1 %cmp.i9, label %while.cond, label %while.end, !llvm.loop !11
@@ -2380,7 +2380,7 @@ if.end40:                                         ; preds = %if.then.i.i31, %_ZN
 land.lhs.true:                                    ; preds = %if.end40
   %original.i = getelementptr inbounds i8, ptr %16, i64 72
   %original2.i = getelementptr inbounds i8, ptr %17, i64 72
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %original.i, ptr noundef nonnull readonly dereferenceable(16) %original2.i, i64 16)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(32) %original.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %original2.i, i64 16)
   %cmp.i.i55 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i55, label %_ZNK6icu_7514SkeletonFieldseqERKS0_.exit.i, label %return
 
@@ -2394,7 +2394,7 @@ _ZNK6icu_7514SkeletonFieldseqERKS0_.exit.i:       ; preds = %land.lhs.true
 land.lhs.true.i:                                  ; preds = %_ZNK6icu_7514SkeletonFieldseqERKS0_.exit.i
   %baseOriginal.i = getelementptr inbounds i8, ptr %16, i64 104
   %baseOriginal3.i = getelementptr inbounds i8, ptr %17, i64 104
-  %bcmp.i3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %baseOriginal.i, ptr noundef nonnull readonly dereferenceable(16) %baseOriginal3.i, i64 16)
+  %bcmp.i3.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(32) %baseOriginal.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %baseOriginal3.i, i64 16)
   %cmp.i4.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp.i4.i, label %_ZNK6icu_7514SkeletonFieldseqERKS0_.exit10.i, label %return
 
@@ -2844,7 +2844,7 @@ invoke.cont3:                                     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %field, align 8
   %fUnion2.i29 = getelementptr inbounds i8, ptr %field, i64 8
   store i16 2, ptr %fUnion2.i29, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -2879,7 +2879,7 @@ lpad12:                                           ; preds = %if.end17
   br label %ehcleanup100
 
 if.end17:                                         ; preds = %invoke.cont11
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeToUse)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeToUse)
           to label %invoke.cont18 unwind label %lpad12
 
 invoke.cont18:                                    ; preds = %if.end17
@@ -3045,7 +3045,7 @@ lpad67:                                           ; preds = %invoke.cont81, %inv
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i64 16), ptr %availableFormatsSink, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %conflictingPattern.i) #34
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %availableFormatsSink) #34
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %availableFormatsSink) #34
   br label %ehcleanup
 
 if.end88:                                         ; preds = %invoke.cont82
@@ -3056,19 +3056,19 @@ if.end88:                                         ; preds = %invoke.cont82
 cleanup:                                          ; preds = %if.end88, %invoke.cont82
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i64 16), ptr %availableFormatsSink, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %conflictingPattern.i) #34
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %availableFormatsSink) #34
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %availableFormatsSink) #34
   br label %cleanup94
 
 cleanup94:                                        ; preds = %invoke.cont60, %cleanup
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %appendItemNamesSink) #34
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %appendItemNamesSink) #34
   br label %cleanup95
 
 cleanup95:                                        ; preds = %invoke.cont41, %cleanup94
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %appendItemFormatsSink) #34
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %appendItemFormatsSink) #34
   br label %cleanup97
 
 cleanup97:                                        ; preds = %invoke.cont20, %cleanup95
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeToUse) #34
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeToUse) #34
   br label %cleanup99
 
 cleanup99:                                        ; preds = %invoke.cont11, %cleanup97
@@ -3087,7 +3087,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup99, %if.then.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path) #34
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #34
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %field) #34
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %value) #34
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %rbPattern) #34
@@ -3098,17 +3098,17 @@ cleanup.cont:                                     ; preds = %entry, %_ZN6icu_752
 
 ehcleanup:                                        ; preds = %lpad67, %lpad55
   %.pn = phi { ptr, i32 } [ %34, %lpad67 ], [ %23, %lpad55 ]
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %appendItemNamesSink) #34
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %appendItemNamesSink) #34
   br label %ehcleanup96
 
 ehcleanup96:                                      ; preds = %ehcleanup, %lpad27
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %lpad27 ]
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %appendItemFormatsSink) #34
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %appendItemFormatsSink) #34
   br label %ehcleanup98
 
 ehcleanup98:                                      ; preds = %ehcleanup96, %lpad19
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup96 ], [ %9, %lpad19 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeToUse) #34
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeToUse) #34
   br label %ehcleanup100
 
 ehcleanup100:                                     ; preds = %ehcleanup98, %lpad12
@@ -3118,7 +3118,7 @@ ehcleanup100:                                     ; preds = %ehcleanup98, %lpad1
 
 ehcleanup102:                                     ; preds = %ehcleanup100, %lpad6
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup100 ], [ %5, %lpad6 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path) #34
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #34
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %ehcleanup102, %lpad4
@@ -3833,7 +3833,7 @@ entry:
   %langCountry = alloca %"class.icu_75::CharString", align 8
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp4 = alloca %"class.icu_75::StringPiece", align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %langCountry)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %langCountry)
   %len.i = getelementptr inbounds i8, ptr %langCountry, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %langCountry, align 8
@@ -3881,12 +3881,12 @@ if.then:                                          ; preds = %invoke.cont10
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont, %if.then, %invoke.cont6, %invoke.cont2, %invoke.cont1, %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %langCountry) #34
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %langCountry) #34
   resume { ptr, i32 } %10
 
 if.end:                                           ; preds = %if.then, %invoke.cont10
   %allowedFormats.0 = phi ptr [ %call11, %invoke.cont10 ], [ %call13, %if.then ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %langCountry) #34
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %langCountry) #34
   ret ptr %allowedFormats.0
 }
 
@@ -4298,12 +4298,12 @@ if.end151:                                        ; preds = %if.else, %if.then11
   %type.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type, i64 64, i1 false)
   %original.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original, i64 16, i1 false)
   %lengths.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %lengths6.i.i.i = getelementptr inbounds i8, ptr %skeletonResult, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal, i64 16, i1 false)
   %lengths.i4.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %lengths6.i5.i.i = getelementptr inbounds i8, ptr %skeletonResult, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i, i64 16, i1 false)
@@ -5364,7 +5364,7 @@ declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6icu_7524DateTimePatternGenerator21AppendItemFormatsSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #34
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #34
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -5379,7 +5379,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6icu_7524DateTimePatternGenerator19AppendItemNamesSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #34
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #34
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -5400,7 +5400,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i64 16), ptr %this, align 8
   %conflictingPattern.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %conflictingPattern.i) #34
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #34
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #34
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -5596,7 +5596,7 @@ new.notnull:                                      ; preds = %if.end3
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call4, i64 8
-  %call2.i.i4 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %err)
+  %call2.i.i4 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -6559,13 +6559,13 @@ if.then26.i:                                      ; preds = %if.then26.sink.spli
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i.i, i64 64, i1 false)
   %original.i.i.i = getelementptr inbounds i8, ptr %16, i64 80
   %original4.i.i.i = getelementptr inbounds i8, ptr %17, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i.i, i64 16, i1 false)
   %lengths.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 96
   %lengths6.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i.i = getelementptr inbounds i8, ptr %16, i64 112
   %baseOriginal5.i.i.i = getelementptr inbounds i8, ptr %17, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i.i, i64 16, i1 false)
   %lengths.i4.i.i.i = getelementptr inbounds i8, ptr %16, i64 128
   %lengths6.i5.i.i.i = getelementptr inbounds i8, ptr %17, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i.i, i64 16, i1 false)
@@ -6593,7 +6593,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 if.end.i:                                         ; preds = %invoke.cont10
   %original3.i = getelementptr inbounds i8, ptr %21, i64 80
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %original.i, ptr noundef nonnull readonly dereferenceable(16) %original3.i, i64 16)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(32) %original.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %original3.i, i64 16)
   %cmp.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i, label %invoke.cont12, label %for.body.i.preheader
 
@@ -6724,7 +6724,7 @@ do.body.i:                                        ; preds = %_ZNK6icu_7510Patter
   %skeleton7.i = getelementptr inbounds i8, ptr %curElem.0.i, i64 72
   %38 = load ptr, ptr %skeleton7.i, align 8
   %original.i38 = getelementptr inbounds i8, ptr %38, i64 72
-  %bcmp.i.i39 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %original.i38, ptr noundef nonnull readonly dereferenceable(16) %original.i, i64 16)
+  %bcmp.i.i39 = call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %original.i38, ptr noundef nonnull readonly align 1 dereferenceable(32) %original.i, i64 16)
   %cmp.i.i40 = icmp eq i32 %bcmp.i.i39, 0
   br i1 %cmp.i.i40, label %land.rhs.i.i42, label %if.end25.i
 
@@ -8206,7 +8206,7 @@ do.body.i:                                        ; preds = %do.body.preheader.i
   %skeleton7.i = getelementptr inbounds i8, ptr %curElem.0.i, i64 72
   %19 = load ptr, ptr %skeleton7.i, align 8
   %original.i = getelementptr inbounds i8, ptr %19, i64 72
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %original.i, ptr noundef nonnull readonly dereferenceable(16) %original9.i, i64 16)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %original.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %original9.i, i64 16)
   %cmp.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.end25.i
 
@@ -8493,7 +8493,7 @@ do.body.us:                                       ; preds = %do.body.preheader, 
   %skeleton11.us = getelementptr inbounds i8, ptr %curElem.0.us, i64 72
   %4 = load ptr, ptr %skeleton11.us, align 8
   %baseOriginal.us = getelementptr inbounds i8, ptr %4, i64 104
-  %bcmp.i13.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %baseOriginal.us, ptr noundef nonnull dereferenceable(16) %baseOriginal.i, i64 16)
+  %bcmp.i13.us = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %baseOriginal.us, ptr noundef nonnull align 1 dereferenceable(32) %baseOriginal.i, i64 16)
   %cmp.i14.us = icmp eq i32 %bcmp.i13.us, 0
   br i1 %cmp.i14.us, label %if.end16.us, label %if.end25.us
 
@@ -8514,7 +8514,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %skeleton7 = getelementptr inbounds i8, ptr %curElem.0, i64 72
   %6 = load ptr, ptr %skeleton7, align 8
   %original = getelementptr inbounds i8, ptr %6, i64 72
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %original, ptr noundef nonnull dereferenceable(16) %original9, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %original, ptr noundef nonnull align 1 dereferenceable(32) %original9, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %if.end25
 
@@ -9169,13 +9169,13 @@ if.then26:                                        ; preds = %if.then26.sink.spli
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i, i64 64, i1 false)
   %original.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %original4.i.i = getelementptr inbounds i8, ptr %11, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i, i64 16, i1 false)
   %lengths.i.i.i = getelementptr inbounds i8, ptr %10, i64 96
   %lengths6.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i = getelementptr inbounds i8, ptr %10, i64 112
   %baseOriginal5.i.i = getelementptr inbounds i8, ptr %11, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i, i64 16, i1 false)
   %lengths.i4.i.i = getelementptr inbounds i8, ptr %10, i64 128
   %lengths6.i5.i.i = getelementptr inbounds i8, ptr %11, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i, i64 16, i1 false)
@@ -9207,7 +9207,7 @@ entry:
 if.end:                                           ; preds = %entry
   %original = getelementptr inbounds i8, ptr %this, i64 80
   %original3 = getelementptr inbounds i8, ptr %other, i64 80
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %original, ptr noundef nonnull dereferenceable(16) %original3, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %original, ptr noundef nonnull align 1 dereferenceable(32) %original3, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %return
 
@@ -9397,7 +9397,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %2
 
 _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i
-  %call2.i = tail call noundef i32 @uhash_puti_75(ptr noundef %1, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull %err)
+  %call2.i = tail call noundef i32 @uhash_puti_75(ptr noundef %1, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %err)
   ret void
 }
 
@@ -9407,7 +9407,7 @@ entry:
   %fAvailableFormatKeyHash = getelementptr inbounds i8, ptr %this, i64 4688
   %0 = load ptr, ptr %fAvailableFormatKeyHash, align 8
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call noundef i32 @uhash_geti_75(ptr noundef %1, ptr noundef nonnull %key)
+  %call.i = tail call noundef i32 @uhash_geti_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %key)
   %cmp = icmp eq i32 %call.i, 1
   %conv = zext i1 %cmp to i8
   ret i8 %conv
@@ -9883,13 +9883,13 @@ if.then26.i:                                      ; preds = %if.then26.sink.spli
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i.i, i64 64, i1 false)
   %original.i.i.i = getelementptr inbounds i8, ptr %21, i64 80
   %original4.i.i.i = getelementptr inbounds i8, ptr %22, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i.i, i64 16, i1 false)
   %lengths.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 96
   %lengths6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
   %baseOriginal5.i.i.i = getelementptr inbounds i8, ptr %22, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i.i, i64 16, i1 false)
   %lengths.i4.i.i.i = getelementptr inbounds i8, ptr %21, i64 128
   %lengths6.i5.i.i.i = getelementptr inbounds i8, ptr %22, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i.i, i64 16, i1 false)
@@ -9968,7 +9968,7 @@ do.body.us.i:                                     ; preds = %_ZNK6icu_7510Patter
   %skeleton11.us.i = getelementptr inbounds i8, ptr %curElem.0.us.i, i64 72
   %33 = load ptr, ptr %skeleton11.us.i, align 8
   %baseOriginal.us.i = getelementptr inbounds i8, ptr %33, i64 104
-  %bcmp.i13.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %baseOriginal.us.i, ptr noundef nonnull readonly dereferenceable(16) %baseOriginal.i.i, i64 16)
+  %bcmp.i13.us.i = call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %baseOriginal.us.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %baseOriginal.i.i, i64 16)
   %cmp.i14.us.i = icmp eq i32 %bcmp.i13.us.i, 0
   br i1 %cmp.i14.us.i, label %if.end16.us.i, label %if.end25.us.i
 
@@ -10056,11 +10056,11 @@ if.else:                                          ; preds = %if.end38
   %type.i.i.i49 = getelementptr inbounds i8, ptr %42, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i.i49, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i.i50, i64 64, i1 false)
   %original.i.i.i51 = getelementptr inbounds i8, ptr %42, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i.i51, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i.i52, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i.i51, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i.i52, i64 16, i1 false)
   %lengths.i.i.i.i53 = getelementptr inbounds i8, ptr %42, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i.i53, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i.i54, i64 16, i1 false)
   %baseOriginal.i.i.i55 = getelementptr inbounds i8, ptr %42, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i.i55, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i.i56, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i.i55, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i.i56, i64 16, i1 false)
   %lengths.i4.i.i.i57 = getelementptr inbounds i8, ptr %42, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i.i57, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i.i58, i64 16, i1 false)
   %44 = load i8, ptr %addedDefaultDayPeriod.i.i.i59, align 8
@@ -10314,13 +10314,13 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i, i64 64, i1 false)
   %original.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %original4.i.i = getelementptr inbounds i8, ptr %other, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i, i64 16, i1 false)
   %lengths.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %lengths6.i.i.i = getelementptr inbounds i8, ptr %other, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %baseOriginal5.i.i = getelementptr inbounds i8, ptr %other, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i, i64 16, i1 false)
   %lengths.i4.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %lengths6.i5.i.i = getelementptr inbounds i8, ptr %other, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i, i64 16, i1 false)
@@ -10740,7 +10740,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7511PtnSkeleton6equalsERKS0_(
 entry:
   %original = getelementptr inbounds i8, ptr %this, i64 72
   %original2 = getelementptr inbounds i8, ptr %other, i64 72
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %original, ptr noundef nonnull dereferenceable(16) %original2, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %original, ptr noundef nonnull align 1 dereferenceable(32) %original2, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %_ZNK6icu_7514SkeletonFieldseqERKS0_.exit, label %land.end
 
@@ -10754,7 +10754,7 @@ _ZNK6icu_7514SkeletonFieldseqERKS0_.exit:         ; preds = %entry
 land.lhs.true:                                    ; preds = %_ZNK6icu_7514SkeletonFieldseqERKS0_.exit
   %baseOriginal = getelementptr inbounds i8, ptr %this, i64 104
   %baseOriginal3 = getelementptr inbounds i8, ptr %other, i64 104
-  %bcmp.i3 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %baseOriginal, ptr noundef nonnull dereferenceable(16) %baseOriginal3, i64 16)
+  %bcmp.i3 = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(32) %baseOriginal, ptr noundef nonnull align 1 dereferenceable(32) %baseOriginal3, i64 16)
   %cmp.i4 = icmp eq i32 %bcmp.i3, 0
   br i1 %cmp.i4, label %_ZNK6icu_7514SkeletonFieldseqERKS0_.exit10, label %land.end
 
@@ -10814,13 +10814,13 @@ invoke.cont:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i.i, i64 64, i1 false)
   %original.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %original4.i.i = getelementptr inbounds i8, ptr %other, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i.i, i64 16, i1 false)
   %lengths.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %lengths6.i.i.i = getelementptr inbounds i8, ptr %other, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i.i, i64 16, i1 false)
   %baseOriginal.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %baseOriginal5.i.i = getelementptr inbounds i8, ptr %other, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i.i, i64 16, i1 false)
   %lengths.i4.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %lengths6.i5.i.i = getelementptr inbounds i8, ptr %other, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i.i, i64 16, i1 false)
@@ -10961,13 +10961,13 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef nonnull align 8 dereferenceable(64) %type2, i64 64, i1 false)
   %original = getelementptr inbounds i8, ptr %this, i64 72
   %original4 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4, i64 16, i1 false)
   %lengths.i = getelementptr inbounds i8, ptr %this, i64 88
   %lengths6.i = getelementptr inbounds i8, ptr %other, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i, i64 16, i1 false)
   %baseOriginal = getelementptr inbounds i8, ptr %this, i64 104
   %baseOriginal5 = getelementptr inbounds i8, ptr %other, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5, i64 16, i1 false)
   %lengths.i4 = getelementptr inbounds i8, ptr %this, i64 120
   %lengths6.i5 = getelementptr inbounds i8, ptr %other, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5, i64 16, i1 false)
@@ -11438,12 +11438,12 @@ entry:
   %type2.i = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %type.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %type2.i, i64 64, i1 false)
   %original4.i = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original, ptr noundef nonnull readonly align 8 dereferenceable(16) %original4.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %original, ptr noundef nonnull readonly align 8 dereferenceable(32) %original4.i, i64 16, i1 false)
   %lengths.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %lengths6.i.i = getelementptr inbounds i8, ptr %other, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i.i, i64 16, i1 false)
   %baseOriginal5.i = getelementptr inbounds i8, ptr %other, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %baseOriginal, ptr noundef nonnull readonly align 8 dereferenceable(16) %baseOriginal5.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %baseOriginal, ptr noundef nonnull readonly align 8 dereferenceable(32) %baseOriginal5.i, i64 16, i1 false)
   %lengths.i4.i = getelementptr inbounds i8, ptr %this, i64 120
   %lengths6.i5.i = getelementptr inbounds i8, ptr %other, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lengths.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lengths6.i5.i, i64 16, i1 false)
@@ -12426,7 +12426,7 @@ entry:
   %fAvailableFormatKeyHash.i = getelementptr inbounds i8, ptr %1, i64 4688
   %2 = load ptr, ptr %fAvailableFormatKeyHash.i, align 8
   %3 = load ptr, ptr %2, align 8
-  %call.i.i4 = invoke noundef i32 @uhash_geti_75(ptr noundef %3, ptr noundef nonnull %formatKey)
+  %call.i.i4 = invoke noundef i32 @uhash_geti_75(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %formatKey)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -12453,7 +12453,7 @@ lpad.i.i:                                         ; preds = %new.notnull.i.i
   br label %ehcleanup
 
 _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit.i: ; preds = %new.notnull.i.i, %if.then
-  %call2.i.i6 = invoke noundef i32 @uhash_puti_75(ptr noundef %6, ptr noundef %call.i.i, i32 noundef 1, ptr noundef nonnull %errorCode)
+  %call2.i.i6 = invoke noundef i32 @uhash_puti_75(ptr noundef %6, ptr noundef %call.i.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit.i

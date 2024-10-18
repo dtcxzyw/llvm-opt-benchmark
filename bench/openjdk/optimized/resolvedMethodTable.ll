@@ -1031,7 +1031,7 @@ define hidden void @_ZN19ResolvedMethodTable4growEP10JavaThread(ptr noundef %0) 
 
 34:                                               ; preds = %.lr.ph, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit
   %35 = load i64, ptr %12, align 8
-  %36 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull %5) #13, !srcloc !11
+  %36 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull align 8 dereferenceable(24) %5) #13, !srcloc !11
   %37 = load i64, ptr %8, align 8
   %38 = icmp ult i64 %36, %37
   br i1 %38, label %39, label %._crit_edge
@@ -1244,7 +1244,7 @@ define hidden void @_ZN19ResolvedMethodTable18clean_dead_entriesEP10JavaThread(p
 
 39:                                               ; preds = %.lr.ph, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit
   %40 = load i64, ptr %14, align 8
-  %41 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %40, ptr nonnull %7) #13, !srcloc !11
+  %41 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %40, ptr nonnull align 8 dereferenceable(24) %7) #13, !srcloc !11
   %42 = load i64, ptr %10, align 8
   %43 = icmp ult i64 %41, %42
   br i1 %43, label %44, label %._crit_edge
@@ -3055,7 +3055,7 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
 
 59:                                               ; preds = %47
-  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 8, i32 noundef 0) #13
+  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %49, i64 noundef 8, i32 noundef 0) #13
   %.pre.i.i = ptrtoint ptr %60 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
 
@@ -3134,7 +3134,7 @@ define linkonce_odr hidden void @_ZN17ResolvedMethodGetclEP10WeakHandle(ptr noun
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 20:                                               ; preds = %7
-  %21 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef 8, i32 noundef 0) #13
+  %21 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef 8, i32 noundef 0) #13
   %.pre = ptrtoint ptr %21 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -3321,7 +3321,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #13, !srcloc !20
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !20
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
@@ -3849,7 +3849,7 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
 
 83:                                               ; preds = %71
-  %84 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %73, i64 noundef 8, i32 noundef 0) #13
+  %84 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %73, i64 noundef 8, i32 noundef 0) #13
   %.pre.i.i = ptrtoint ptr %84 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
 
@@ -3890,7 +3890,7 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25Re
   br i1 %.not.i48, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
-  %97 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr %49, ptr nonnull %.0.i) #13, !srcloc !20
+  %97 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr %49, ptr nonnull align 8 dereferenceable(8) %.0.i) #13, !srcloc !20
   %98 = icmp eq ptr %97, %49
   br i1 %98, label %99, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
@@ -4077,7 +4077,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylock
   %41 = inttoptr i64 %40 to ptr
   %42 = or disjoint i64 %40, 1
   %43 = inttoptr i64 %42 to ptr
-  %44 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %43, ptr %41, ptr nonnull %.0.i) #13, !srcloc !20
+  %44 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %43, ptr %41, ptr nonnull align 8 dereferenceable(8) %.0.i) #13, !srcloc !20
   %45 = icmp eq ptr %44, %41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store volatile i64 %9, ptr %4, align 8
@@ -4343,7 +4343,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylock
   %19 = inttoptr i64 %18 to ptr
   %20 = or disjoint i64 %18, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr %19, ptr nonnull %11) #13, !srcloc !20
+  %22 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr %19, ptr nonnull align 8 dereferenceable(8) %11) #13, !srcloc !20
   %23 = icmp eq ptr %22, %19
   br i1 %23, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread.i
 
@@ -4750,7 +4750,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylock
   %49 = inttoptr i64 %48 to ptr
   %50 = or disjoint i64 %48, 1
   %51 = inttoptr i64 %50 to ptr
-  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %51, ptr %49, ptr nonnull %24) #13, !srcloc !20
+  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %51, ptr %49, ptr nonnull align 8 dereferenceable(8) %24) #13, !srcloc !20
   %53 = icmp eq ptr %52, %49
   br i1 %53, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread.i
 

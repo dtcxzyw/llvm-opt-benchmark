@@ -72,7 +72,7 @@ define hidden void @_ZN4llvm13WasmException9endModuleEv(ptr nocapture noundef no
   %.0.idx16 = phi i64 [ 0, %10 ], [ %.0.add, %_ZN4llvm11SmallStringILj60EED2Ev.exit ]
   %.0.ptr = getelementptr inbounds i8, ptr %2, i64 %.0.idx16
   %21 = load ptr, ptr %.0.ptr, align 8
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %12, i64 noundef 60) #6
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull %12, i64 noundef 60) #6
   store i8 1, ptr %13, align 8
   store i8 1, ptr %14, align 1
   %22 = load i8, ptr %21, align 1
@@ -128,7 +128,7 @@ _ZN4llvm5TwineC2EPKc.exit13:                      ; preds = %32, %35
   br label %43
 
 43:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit13, %_ZN4llvm5TwineC2EPKc.exit
-  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(84) %3) #6
   %45 = load ptr, ptr %3, align 8
   %46 = icmp eq ptr %45, %12
   br i1 %46, label %_ZN4llvm11SmallStringILj60EED2Ev.exit, label %47

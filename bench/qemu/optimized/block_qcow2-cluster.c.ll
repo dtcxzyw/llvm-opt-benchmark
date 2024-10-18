@@ -427,10 +427,10 @@ if.then97:                                        ; preds = %do.body94
 do.end101:                                        ; preds = %do.body94, %if.then97
   %24 = phi ptr [ null, %do.body94 ], [ %.pre, %if.then97 ]
   %conv102 = trunc nuw nsw i64 %new_l1_size.0 to i32
-  %25 = tail call i32 @llvm.bswap.i32(i32 %conv102)
+  %25 = tail call i32 @llvm.bswap.i32(i32 range(i32 0, 4194305) %conv102)
   store i32 %25, ptr %data, align 4
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 4
-  %26 = tail call i64 @llvm.bswap.i64(i64 %call43)
+  %26 = tail call i64 @llvm.bswap.i64(i64 range(i64 0, -9223372036854775808) %call43)
   store i64 %26, ptr %add.ptr, align 4
   %call106 = call i32 @bdrv_pwrite_sync(ptr noundef %24, i64 noundef 36, i64 noundef 12, ptr noundef nonnull %data, i32 noundef 0) #13
   %cmp107 = icmp slt i32 %call106, 0
@@ -3375,7 +3375,7 @@ if.end.i:                                         ; preds = %while.body
   %6 = load i32, ptr %l2_index.i, align 4
   %sub.i21 = sub i32 %5, %6
   %conv.i22 = sext i32 %sub.i21 to i64
-  %cond.i = call i64 @llvm.umin.i64(i64 %nb_clusters.028, i64 %conv.i22)
+  %cond.i = call i64 @llvm.umin.i64(i64 range(i64 1, 0) %nb_clusters.028, i64 %conv.i22)
   %cmp3.i = icmp ult i64 %cond.i, 2147483648
   br i1 %cmp3.i, label %for.cond.preheader.i, label %if.else.i
 

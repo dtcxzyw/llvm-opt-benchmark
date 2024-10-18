@@ -1815,7 +1815,7 @@ ExecProcNode.exit.us:                             ; preds = %104, %102
   br i1 %119, label %slot_getsomeattrs.exit.i.i.us, label %ExecGetJunkAttribute.exit.us
 
 slot_getsomeattrs.exit.i.i.us:                    ; preds = %114
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %106, i32 noundef %116) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %106, i32 noundef range(i32 -32768, 32768) %116) #8
   br label %ExecGetJunkAttribute.exit.us
 
 ExecGetJunkAttribute.exit.us:                     ; preds = %slot_getsomeattrs.exit.i.i.us, %114
@@ -1897,7 +1897,7 @@ ExecProcNode.exit:                                ; preds = %141, %143
   br i1 %158, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %153
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %145, i32 noundef %155) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %145, i32 noundef range(i32 -32768, 32768) %155) #8
   br label %ExecGetJunkAttribute.exit
 
 ExecGetJunkAttribute.exit:                        ; preds = %153, %slot_getsomeattrs.exit.i.i
@@ -2018,7 +2018,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %153, %slot_getsomea
   br i1 %228, label %slot_getsomeattrs.exit.i.i130, label %ExecGetJunkAttribute.exit131
 
 slot_getsomeattrs.exit.i.i130:                    ; preds = %222
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %180, i32 noundef %225) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %180, i32 noundef range(i32 -32768, 32768) %225) #8
   br label %ExecGetJunkAttribute.exit131
 
 ExecGetJunkAttribute.exit131:                     ; preds = %222, %slot_getsomeattrs.exit.i.i130
@@ -2073,7 +2073,7 @@ ExecGetJunkAttribute.exit131:                     ; preds = %222, %slot_getsomea
   br i1 %258, label %slot_getsomeattrs.exit.i.i132, label %ExecGetJunkAttribute.exit133
 
 slot_getsomeattrs.exit.i.i132:                    ; preds = %254
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %180, i32 noundef %255) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %180, i32 noundef range(i32 -32768, 32768) %255) #8
   br label %ExecGetJunkAttribute.exit133
 
 ExecGetJunkAttribute.exit133:                     ; preds = %254, %slot_getsomeattrs.exit.i.i132
@@ -2968,7 +2968,7 @@ ExecQual.exit.i:                                  ; preds = %.lr.ph163.i
   store i16 %130, ptr %131, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   store ptr %82, ptr %39, align 8
-  %132 = call fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef %113, ptr noundef nonnull %10)
+  %132 = call fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef %113, ptr noundef nonnull %10)
   br i1 %132, label %136, label %133
 
 133:                                              ; preds = %106
@@ -2992,7 +2992,7 @@ ExecQual.exit.i:                                  ; preds = %.lr.ph163.i
   br i1 %143, label %thread-pre-split.i, label %.thread19
 
 144:                                              ; preds = %138, %136
-  %145 = call fastcc i32 @ExecUpdateAct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113, i1 noundef zeroext %4, ptr noundef %11)
+  %145 = call fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113, i1 noundef zeroext %4, ptr noundef %11)
   store i32 %145, ptr %10, align 4
   %146 = load i8, ptr %11, align 4
   %147 = trunc i8 %146 to i1
@@ -3015,7 +3015,7 @@ thread-pre-split.i:                               ; preds = %142
 
 154:                                              ; preds = %151
   %.val125.i = load i32, ptr %43, align 4
-  call fastcc void @ExecUpdateEpilogue(ptr noundef %0, i32 %.val125.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113)
+  call fastcc void @ExecUpdateEpilogue(ptr noundef nonnull %0, i32 %.val125.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113)
   %155 = load double, ptr %44, align 8
   %156 = fadd double %155, 1.000000e+00
   store double %156, ptr %44, align 8
@@ -3023,7 +3023,7 @@ thread-pre-split.i:                               ; preds = %142
 
 157:                                              ; preds = %105
   store ptr %82, ptr %39, align 8
-  %158 = call fastcc zeroext i1 @ExecDeletePrologue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %10)
+  %158 = call fastcc zeroext i1 @ExecDeletePrologue(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %10)
   br i1 %158, label %162, label %159
 
 159:                                              ; preds = %157
@@ -3212,7 +3212,7 @@ thread-pre-split132.i:                            ; preds = %ExecDeleteEpilogue.
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %246
   %251 = sext i16 %247 to i32
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %240, i32 noundef %251) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %240, i32 noundef range(i32 -32768, 32768) %251) #8
   br label %ExecGetJunkAttribute.exit.i
 
 ExecGetJunkAttribute.exit.i:                      ; preds = %slot_getsomeattrs.exit.i.i.i, %246
@@ -3400,7 +3400,7 @@ ExecQual.exit.i14:                                ; preds = %.lr.ph14.i
   store ptr %307, ptr %346, align 8
   %347 = getelementptr inbounds i8, ptr %288, i64 224
   %348 = load ptr, ptr %347, align 8
-  %349 = call fastcc ptr @ExecInsert(ptr noundef %0, ptr noundef %348, ptr noundef %327, i1 noundef zeroext %4, ptr noundef null, ptr noundef null)
+  %349 = call fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %348, ptr noundef %327, i1 noundef zeroext %4, ptr noundef null, ptr noundef null)
   %350 = getelementptr inbounds i8, ptr %288, i64 400
   %351 = load double, ptr %350, align 8
   %352 = fadd double %351, 1.000000e+00
@@ -4142,7 +4142,7 @@ ExecQual.exit:                                    ; preds = %ExecCheckTupleVisib
   %442 = load ptr, ptr %300, align 8
   %443 = getelementptr inbounds i8, ptr %442, i64 16
   %444 = load ptr, ptr %443, align 8
-  %445 = call fastcc ptr @ExecUpdate(ptr noundef %0, ptr noundef nonnull %.0187, ptr noundef nonnull %14, ptr noundef null, ptr noundef %444, i1 noundef zeroext %3)
+  %445 = call fastcc ptr @ExecUpdate(ptr noundef nonnull %0, ptr noundef nonnull %.0187, ptr noundef nonnull %14, ptr noundef null, ptr noundef %444, i1 noundef zeroext %3)
   %446 = getelementptr inbounds i8, ptr %317, i64 8
   %447 = load ptr, ptr %446, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 24
@@ -5577,7 +5577,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   br label %83
 
 83:                                               ; preds = %73, %69
-  %84 = call fastcc ptr @ExecDelete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %84 = call fastcc ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %85 = load i8, ptr %9, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %118, label %87
@@ -5656,7 +5656,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %100
 126:                                              ; preds = %120, %118
   %.050.i = phi ptr [ %125, %120 ], [ %.045, %118 ]
   %127 = load ptr, ptr %65, align 8
-  %128 = call fastcc ptr @ExecInsert(ptr noundef %0, ptr noundef %127, ptr noundef %.050.i, i1 noundef zeroext %5, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %128 = call fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %127, ptr noundef %.050.i, i1 noundef zeroext %5, ptr noundef nonnull %12, ptr noundef nonnull %13)
   store ptr %128, ptr %19, align 8
   %129 = getelementptr inbounds i8, ptr %51, i64 376
   %130 = load ptr, ptr %129, align 8

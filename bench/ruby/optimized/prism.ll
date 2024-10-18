@@ -3716,7 +3716,7 @@ peek.exit.i1858:                                  ; preds = %peek.exit.i1846
   %.val1744 = load ptr, ptr %26, align 8
   %.val1745 = load ptr, ptr %22, align 8
   %677 = getelementptr inbounds i8, ptr %0, i64 408
-  %678 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %677, ptr noundef %.val1744, ptr noundef %.val1745, i32 noundef 226) #27
+  %678 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %677, ptr noundef %.val1744, ptr noundef %.val1745, i32 noundef range(i32 224, 234) 226) #27
   %.val1717.pre = load i32, ptr %0, align 8
   br label %685
 
@@ -5078,7 +5078,7 @@ peek.exit.i2057:                                  ; preds = %1215
   %.val1746 = load ptr, ptr %26, align 8
   %.val1747 = load ptr, ptr %22, align 8
   %1235 = getelementptr inbounds i8, ptr %0, i64 408
-  %1236 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1235, ptr noundef %.val1746, ptr noundef %.val1747, i32 noundef 225) #27
+  %1236 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1235, ptr noundef %.val1746, ptr noundef %.val1747, i32 noundef range(i32 224, 234) 225) #27
   %.val1671.pre = load ptr, ptr %23, align 8
   %.val1672.pre = load ptr, ptr %22, align 8
   br label %1237
@@ -5254,7 +5254,7 @@ peek.exit.i2085:                                  ; preds = %peek.exit.i2079
   %.val1748 = load ptr, ptr %26, align 8
   %.val1749 = load ptr, ptr %22, align 8
   %1309 = getelementptr inbounds i8, ptr %0, i64 408
-  %1310 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1309, ptr noundef %.val1748, ptr noundef %.val1749, i32 noundef 224) #27
+  %1310 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1309, ptr noundef %.val1748, ptr noundef %.val1749, i32 noundef range(i32 224, 234) 224) #27
   br label %1311
 
 1311:                                             ; preds = %1301, %1308
@@ -5615,7 +5615,7 @@ peek.exit.i2157:                                  ; preds = %1445
   %.val1750 = load ptr, ptr %26, align 8
   %.val1751 = load ptr, ptr %22, align 8
   %1459 = getelementptr inbounds i8, ptr %0, i64 408
-  %1460 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1459, ptr noundef %.val1750, ptr noundef %.val1751, i32 noundef 227) #27
+  %1460 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1459, ptr noundef %.val1750, ptr noundef %.val1751, i32 noundef range(i32 224, 234) 227) #27
   call fastcc void @lex_mode_push_regexp(ptr noundef nonnull %0, i8 noundef zeroext 0, i8 noundef zeroext 47)
   store i32 140, ptr %10, align 8
   %1461 = load ptr, ptr %33, align 8
@@ -10090,7 +10090,7 @@ lex_numeric_prefix.exit.thread:                   ; preds = %20, %140, %pm_strsp
   br label %156
 
 lex_numeric_prefix.exit:                          ; preds = %20, %20, %20, %pm_strspn_decimal_number_validate.exit65.i
-  %153 = call fastcc i32 @lex_optional_float_suffix(ptr noundef nonnull %0, ptr noundef %8)
+  %153 = call fastcc i32 @lex_optional_float_suffix(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %154 = load ptr, ptr %10, align 8
   %155 = icmp eq i32 %153, 58
   %.val.i.pre66 = load ptr, ptr %12, align 8
@@ -11483,7 +11483,7 @@ peek.exit.thread:                                 ; preds = %match.exit, %peek_o
   br i1 %or.cond, label %104, label %match.exit358
 
 104:                                              ; preds = %peek.exit.thread
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.44, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.44, i64 8)
   %105 = icmp eq i32 %bcmp.i, 0
   br i1 %105, label %106, label %match.exit358
 
@@ -11599,7 +11599,7 @@ peek.exit374.thread:                              ; preds = %.critedge.peek.exit
   ]
 
 136:                                              ; preds = %135
-  %bcmp.i381 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.45, i64 2)
+  %bcmp.i381 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.45, i64 2)
   %137 = icmp eq i32 %bcmp.i381, 0
   br i1 %137, label %138, label %lex_keyword.exit386
 
@@ -11622,7 +11622,7 @@ peek.exit374.thread:                              ; preds = %.critedge.peek.exit
   br label %match.exit358
 
 lex_keyword.exit386:                              ; preds = %136
-  %bcmp.i387 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.46, i64 2)
+  %bcmp.i387 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.46, i64 2)
   %144 = icmp eq i32 %bcmp.i387, 0
   br i1 %144, label %145, label %lex_keyword.exit392
 
@@ -11646,7 +11646,7 @@ lex_keyword.exit386:                              ; preds = %136
   br label %match.exit358
 
 lex_keyword.exit392:                              ; preds = %lex_keyword.exit386
-  %bcmp.i393 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.47, i64 2)
+  %bcmp.i393 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.47, i64 2)
   %150 = icmp eq i32 %bcmp.i393, 0
   br i1 %150, label %151, label %lex_keyword.exit400
 
@@ -11666,7 +11666,7 @@ lex_keyword.exit392:                              ; preds = %lex_keyword.exit386
   br label %match.exit358
 
 lex_keyword.exit400:                              ; preds = %lex_keyword.exit392
-  %bcmp.i401 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.48, i64 2)
+  %bcmp.i401 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.48, i64 2)
   %155 = icmp eq i32 %bcmp.i401, 0
   br i1 %155, label %156, label %lex_keyword.exit408
 
@@ -11686,7 +11686,7 @@ lex_keyword.exit400:                              ; preds = %lex_keyword.exit392
   br label %match.exit358
 
 160:                                              ; preds = %135
-  %bcmp.i409 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.49, i64 3)
+  %bcmp.i409 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.49, i64 3)
   %161 = icmp eq i32 %bcmp.i409, 0
   br i1 %161, label %162, label %lex_keyword.exit416
 
@@ -11706,7 +11706,7 @@ lex_keyword.exit400:                              ; preds = %lex_keyword.exit392
   br label %match.exit358
 
 lex_keyword.exit416:                              ; preds = %160
-  %bcmp.i417 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.50, i64 3)
+  %bcmp.i417 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %166 = icmp eq i32 %bcmp.i417, 0
   br i1 %166, label %167, label %lex_keyword.exit424
 
@@ -11724,7 +11724,7 @@ lex_keyword.exit416:                              ; preds = %160
   br label %match.exit358
 
 lex_keyword.exit424:                              ; preds = %lex_keyword.exit416
-  %bcmp.i425 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.51, i64 3)
+  %bcmp.i425 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.51, i64 3)
   %170 = icmp eq i32 %bcmp.i425, 0
   br i1 %170, label %171, label %lex_keyword.exit432
 
@@ -11742,7 +11742,7 @@ lex_keyword.exit424:                              ; preds = %lex_keyword.exit416
   br label %match.exit358
 
 lex_keyword.exit432:                              ; preds = %lex_keyword.exit424
-  %bcmp.i433 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.52, i64 3)
+  %bcmp.i433 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.52, i64 3)
   %174 = icmp eq i32 %bcmp.i433, 0
   br i1 %174, label %175, label %lex_keyword.exit440
 
@@ -11760,7 +11760,7 @@ lex_keyword.exit432:                              ; preds = %lex_keyword.exit424
   br label %match.exit358
 
 lex_keyword.exit440:                              ; preds = %lex_keyword.exit432
-  %bcmp.i441 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.53, i64 3)
+  %bcmp.i441 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.53, i64 3)
   %178 = icmp eq i32 %bcmp.i441, 0
   br i1 %178, label %179, label %lex_keyword.exit448
 
@@ -11780,7 +11780,7 @@ lex_keyword.exit440:                              ; preds = %lex_keyword.exit432
   br label %match.exit358
 
 lex_keyword.exit448:                              ; preds = %lex_keyword.exit440
-  %bcmp.i449 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.54, i64 3)
+  %bcmp.i449 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.54, i64 3)
   %183 = icmp eq i32 %bcmp.i449, 0
   br i1 %183, label %184, label %lex_keyword.exit456
 
@@ -11798,7 +11798,7 @@ lex_keyword.exit448:                              ; preds = %lex_keyword.exit440
   br label %match.exit358
 
 lex_keyword.exit456:                              ; preds = %lex_keyword.exit448
-  %bcmp.i457 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.55, i64 3)
+  %bcmp.i457 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.55, i64 3)
   %187 = icmp eq i32 %bcmp.i457, 0
   br i1 %187, label %188, label %lex_keyword.exit408
 
@@ -11816,7 +11816,7 @@ lex_keyword.exit456:                              ; preds = %lex_keyword.exit448
   br label %match.exit358
 
 191:                                              ; preds = %135
-  %bcmp.i465 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.56, i64 4)
+  %bcmp.i465 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.56, i64 4)
   %192 = icmp eq i32 %bcmp.i465, 0
   br i1 %192, label %193, label %lex_keyword.exit472
 
@@ -11836,7 +11836,7 @@ lex_keyword.exit456:                              ; preds = %lex_keyword.exit448
   br label %match.exit358
 
 lex_keyword.exit472:                              ; preds = %191
-  %bcmp.i473 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.57, i64 4)
+  %bcmp.i473 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.57, i64 4)
   %197 = icmp eq i32 %bcmp.i473, 0
   br i1 %197, label %198, label %lex_keyword.exit480
 
@@ -11856,7 +11856,7 @@ lex_keyword.exit472:                              ; preds = %191
   br label %match.exit358
 
 lex_keyword.exit480:                              ; preds = %lex_keyword.exit472
-  %bcmp.i481 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.58, i64 4)
+  %bcmp.i481 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.58, i64 4)
   %202 = icmp eq i32 %bcmp.i481, 0
   br i1 %202, label %203, label %lex_keyword.exit488
 
@@ -11874,7 +11874,7 @@ lex_keyword.exit480:                              ; preds = %lex_keyword.exit472
   br label %match.exit358
 
 lex_keyword.exit488:                              ; preds = %lex_keyword.exit480
-  %bcmp.i489 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.59, i64 4)
+  %bcmp.i489 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.59, i64 4)
   %206 = icmp eq i32 %bcmp.i489, 0
   br i1 %206, label %207, label %lex_keyword.exit496
 
@@ -11892,7 +11892,7 @@ lex_keyword.exit488:                              ; preds = %lex_keyword.exit480
   br label %match.exit358
 
 lex_keyword.exit496:                              ; preds = %lex_keyword.exit488
-  %bcmp.i497 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.60, i64 4)
+  %bcmp.i497 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.60, i64 4)
   %210 = icmp eq i32 %bcmp.i497, 0
   br i1 %210, label %211, label %lex_keyword.exit504
 
@@ -11910,7 +11910,7 @@ lex_keyword.exit496:                              ; preds = %lex_keyword.exit488
   br label %match.exit358
 
 lex_keyword.exit504:                              ; preds = %lex_keyword.exit496
-  %bcmp.i505 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.61, i64 4)
+  %bcmp.i505 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.61, i64 4)
   %214 = icmp eq i32 %bcmp.i505, 0
   br i1 %214, label %215, label %lex_keyword.exit512
 
@@ -11930,7 +11930,7 @@ lex_keyword.exit504:                              ; preds = %lex_keyword.exit496
   br label %match.exit358
 
 lex_keyword.exit512:                              ; preds = %lex_keyword.exit504
-  %bcmp.i513 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.38, i64 4)
+  %bcmp.i513 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.38, i64 4)
   %219 = icmp eq i32 %bcmp.i513, 0
   br i1 %219, label %220, label %lex_keyword.exit520
 
@@ -11948,7 +11948,7 @@ lex_keyword.exit512:                              ; preds = %lex_keyword.exit504
   br label %match.exit358
 
 lex_keyword.exit520:                              ; preds = %lex_keyword.exit512
-  %bcmp.i521 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.62, i64 4)
+  %bcmp.i521 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.62, i64 4)
   %223 = icmp eq i32 %bcmp.i521, 0
   br i1 %223, label %224, label %lex_keyword.exit408
 
@@ -11968,7 +11968,7 @@ lex_keyword.exit520:                              ; preds = %lex_keyword.exit512
   br label %match.exit358
 
 228:                                              ; preds = %135
-  %bcmp.i529 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.63, i64 5)
+  %bcmp.i529 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.63, i64 5)
   %229 = icmp eq i32 %bcmp.i529, 0
   br i1 %229, label %230, label %lex_keyword.exit536
 
@@ -11986,7 +11986,7 @@ lex_keyword.exit520:                              ; preds = %lex_keyword.exit512
   br label %match.exit358
 
 lex_keyword.exit536:                              ; preds = %228
-  %bcmp.i537 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.33, i64 5)
+  %bcmp.i537 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
   %233 = icmp eq i32 %bcmp.i537, 0
   br i1 %233, label %234, label %lex_keyword.exit544
 
@@ -12006,7 +12006,7 @@ lex_keyword.exit536:                              ; preds = %228
   br label %match.exit358
 
 lex_keyword.exit544:                              ; preds = %lex_keyword.exit536
-  %bcmp.i545 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.64, i64 5)
+  %bcmp.i545 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.64, i64 5)
   %238 = icmp eq i32 %bcmp.i545, 0
   br i1 %238, label %239, label %lex_keyword.exit552
 
@@ -12024,7 +12024,7 @@ lex_keyword.exit544:                              ; preds = %lex_keyword.exit536
   br label %match.exit358
 
 lex_keyword.exit552:                              ; preds = %lex_keyword.exit544
-  %bcmp.i553 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.65, i64 5)
+  %bcmp.i553 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.65, i64 5)
   %242 = icmp eq i32 %bcmp.i553, 0
   br i1 %242, label %243, label %lex_keyword.exit560
 
@@ -12042,7 +12042,7 @@ lex_keyword.exit552:                              ; preds = %lex_keyword.exit544
   br label %match.exit358
 
 lex_keyword.exit560:                              ; preds = %lex_keyword.exit552
-  %bcmp.i561 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.66, i64 5)
+  %bcmp.i561 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.66, i64 5)
   %246 = icmp eq i32 %bcmp.i561, 0
   br i1 %246, label %247, label %lex_keyword.exit568
 
@@ -12060,7 +12060,7 @@ lex_keyword.exit560:                              ; preds = %lex_keyword.exit552
   br label %match.exit358
 
 lex_keyword.exit568:                              ; preds = %lex_keyword.exit560
-  %bcmp.i569 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.67, i64 5)
+  %bcmp.i569 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.67, i64 5)
   %250 = icmp eq i32 %bcmp.i569, 0
   br i1 %250, label %251, label %lex_keyword.exit576
 
@@ -12080,7 +12080,7 @@ lex_keyword.exit568:                              ; preds = %lex_keyword.exit560
   br label %match.exit358
 
 lex_keyword.exit576:                              ; preds = %lex_keyword.exit568
-  %bcmp.i577 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.39, i64 5)
+  %bcmp.i577 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.39, i64 5)
   %255 = icmp eq i32 %bcmp.i577, 0
   br i1 %255, label %256, label %lex_keyword.exit584
 
@@ -12098,7 +12098,7 @@ lex_keyword.exit576:                              ; preds = %lex_keyword.exit568
   br label %match.exit358
 
 lex_keyword.exit584:                              ; preds = %lex_keyword.exit576
-  %bcmp.i585 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.68, i64 5)
+  %bcmp.i585 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.68, i64 5)
   %259 = icmp eq i32 %bcmp.i585, 0
   br i1 %259, label %260, label %lex_keyword.exit592
 
@@ -12116,7 +12116,7 @@ lex_keyword.exit584:                              ; preds = %lex_keyword.exit576
   br label %match.exit358
 
 lex_keyword.exit592:                              ; preds = %lex_keyword.exit584
-  %bcmp.i593 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.69, i64 5)
+  %bcmp.i593 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.69, i64 5)
   %263 = icmp eq i32 %bcmp.i593, 0
   br i1 %263, label %264, label %lex_keyword.exit600
 
@@ -12134,7 +12134,7 @@ lex_keyword.exit592:                              ; preds = %lex_keyword.exit584
   br label %match.exit358
 
 lex_keyword.exit600:                              ; preds = %lex_keyword.exit592
-  %bcmp.i601 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.70, i64 5)
+  %bcmp.i601 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.70, i64 5)
   %267 = icmp eq i32 %bcmp.i601, 0
   br i1 %267, label %268, label %lex_keyword.exit608
 
@@ -12152,7 +12152,7 @@ lex_keyword.exit600:                              ; preds = %lex_keyword.exit592
   br label %match.exit358
 
 lex_keyword.exit608:                              ; preds = %lex_keyword.exit600
-  %bcmp.i609 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.71, i64 5)
+  %bcmp.i609 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.71, i64 5)
   %271 = icmp eq i32 %bcmp.i609, 0
   br i1 %271, label %272, label %lex_keyword.exit616
 
@@ -12176,7 +12176,7 @@ lex_keyword.exit608:                              ; preds = %lex_keyword.exit600
   br label %match.exit358
 
 lex_keyword.exit616:                              ; preds = %lex_keyword.exit608
-  %bcmp.i617 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.72, i64 5)
+  %bcmp.i617 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.72, i64 5)
   %277 = icmp eq i32 %bcmp.i617, 0
   br i1 %277, label %278, label %lex_keyword.exit624
 
@@ -12200,7 +12200,7 @@ lex_keyword.exit616:                              ; preds = %lex_keyword.exit608
   br label %match.exit358
 
 lex_keyword.exit624:                              ; preds = %lex_keyword.exit616
-  %bcmp.i625 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.73, i64 5)
+  %bcmp.i625 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.73, i64 5)
   %283 = icmp eq i32 %bcmp.i625, 0
   br i1 %283, label %284, label %lex_keyword.exit408
 
@@ -12218,7 +12218,7 @@ lex_keyword.exit624:                              ; preds = %lex_keyword.exit616
   br label %match.exit358
 
 287:                                              ; preds = %135
-  %bcmp.i633 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.74, i64 6)
+  %bcmp.i633 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.74, i64 6)
   %288 = icmp eq i32 %bcmp.i633, 0
   br i1 %288, label %289, label %lex_keyword.exit640
 
@@ -12238,7 +12238,7 @@ lex_keyword.exit624:                              ; preds = %lex_keyword.exit616
   br label %match.exit358
 
 lex_keyword.exit640:                              ; preds = %287
-  %bcmp.i641 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.75, i64 6)
+  %bcmp.i641 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.75, i64 6)
   %293 = icmp eq i32 %bcmp.i641, 0
   br i1 %293, label %294, label %lex_keyword.exit648
 
@@ -12258,7 +12258,7 @@ lex_keyword.exit640:                              ; preds = %287
   br label %match.exit358
 
 lex_keyword.exit648:                              ; preds = %lex_keyword.exit640
-  %bcmp.i649 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.76, i64 6)
+  %bcmp.i649 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.76, i64 6)
   %298 = icmp eq i32 %bcmp.i649, 0
   br i1 %298, label %299, label %lex_keyword.exit656
 
@@ -12280,7 +12280,7 @@ lex_keyword.exit648:                              ; preds = %lex_keyword.exit640
   br label %match.exit358
 
 lex_keyword.exit656:                              ; preds = %lex_keyword.exit648
-  %bcmp.i657 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.77, i64 6)
+  %bcmp.i657 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.77, i64 6)
   %303 = icmp eq i32 %bcmp.i657, 0
   br i1 %303, label %304, label %lex_keyword.exit664
 
@@ -12298,7 +12298,7 @@ lex_keyword.exit656:                              ; preds = %lex_keyword.exit648
   br label %match.exit358
 
 lex_keyword.exit664:                              ; preds = %lex_keyword.exit656
-  %bcmp.i665 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.78, i64 6)
+  %bcmp.i665 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.78, i64 6)
   %307 = icmp eq i32 %bcmp.i665, 0
   br i1 %307, label %308, label %lex_keyword.exit408
 
@@ -12322,7 +12322,7 @@ lex_keyword.exit664:                              ; preds = %lex_keyword.exit656
   br label %match.exit358
 
 313:                                              ; preds = %135
-  %bcmp.i673 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.79, i64 8)
+  %bcmp.i673 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.79, i64 8)
   %314 = icmp eq i32 %bcmp.i673, 0
   br i1 %314, label %315, label %lex_keyword.exit680
 
@@ -12340,7 +12340,7 @@ lex_keyword.exit664:                              ; preds = %lex_keyword.exit656
   br label %match.exit358
 
 lex_keyword.exit680:                              ; preds = %313
-  %bcmp.i681 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.80, i64 8)
+  %bcmp.i681 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.80, i64 8)
   %318 = icmp eq i32 %bcmp.i681, 0
   br i1 %318, label %319, label %lex_keyword.exit408
 
@@ -12358,7 +12358,7 @@ lex_keyword.exit680:                              ; preds = %313
   br label %match.exit358
 
 322:                                              ; preds = %135
-  %bcmp.i689 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %6, ptr noundef nonnull readonly dereferenceable(12) @.str.81, i64 12)
+  %bcmp.i689 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %6, ptr noundef nonnull dereferenceable(12) @.str.81, i64 12)
   %323 = icmp eq i32 %bcmp.i689, 0
   br i1 %323, label %324, label %lex_keyword.exit408
 
@@ -18572,7 +18572,7 @@ accept1.exit2049:                                 ; preds = %1282
 
 1314:                                             ; preds = %.lr.ph.i2054, %.lr.ph.i2054, %.lr.ph.i2054, %.lr.ph.i2054, %.lr.ph.i2054
   %1315 = getelementptr inbounds i8, ptr %0, i64 408
-  %1316 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1315, ptr noundef %.sroa.12515.0.copyload, ptr noundef %.sroa.32516.0.copyload, i32 noundef 229) #27
+  %1316 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %1315, ptr noundef %.sroa.12515.0.copyload, ptr noundef %.sroa.32516.0.copyload, i32 noundef range(i32 224, 234) 229) #27
   br label %context_def_p.exit2061
 
 context_def_p.exit2061:                           ; preds = %.lr.ph.i2054, %.lr.ph.i2054, %.lr.ph.i2054, %1312, %1308, %1314
@@ -20706,7 +20706,7 @@ accept1.exit.i2315:                               ; preds = %1896
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %2073 = call fastcc noalias nonnull ptr @pm_regular_expression_node_create_unescaped(ptr noundef readonly %65, ptr noundef readonly %66, ptr noundef nonnull readonly %2069, ptr noundef %5)
+  %2073 = call fastcc noalias nonnull ptr @pm_regular_expression_node_create_unescaped(ptr noundef nonnull readonly %65, ptr noundef nonnull readonly %66, ptr noundef nonnull readonly %2069, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.loopexit2708
 
@@ -28495,7 +28495,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %26 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 408
-  %28 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %27, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %28 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %27, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %5, %8, %pm_write_node_value.exit.i, %20, %24
@@ -28636,7 +28636,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %26 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 408
-  %28 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %27, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %28 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %27, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %5, %8, %pm_write_node_value.exit.i, %20, %24
@@ -33554,7 +33554,7 @@ pm_write_node_value.exit.i.i:                     ; preds = %tailrecurse.i.i.i, 
   %68 = getelementptr i8, ptr %0, i64 320
   %.val6.i.i = load ptr, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 408
-  %70 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %69, ptr noundef %.val.i.i, ptr noundef %.val6.i.i, i32 noundef 228) #27
+  %70 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %69, ptr noundef %.val.i.i, ptr noundef %.val6.i.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit.i
 
 pm_predicate_check.exit.i:                        ; preds = %50, %47, %tailrecurse.i.i.i, %66, %62, %pm_write_node_value.exit.i.i
@@ -34313,7 +34313,7 @@ pm_write_node_value.exit:                         ; preds = %tailrecurse.i, %pm_
   %25 = getelementptr i8, ptr %0, i64 320
   %.val6 = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 408
-  %27 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %26, ptr noundef %.val, ptr noundef %.val6, i32 noundef 228) #27
+  %27 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %26, ptr noundef %.val, ptr noundef %.val6, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_write_node_value.exit.thread
 
 pm_write_node_value.exit.thread:                  ; preds = %tailrecurse.i, %7, %4, %23, %19, %pm_write_node_value.exit
@@ -34625,7 +34625,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %32 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 408
-  %34 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %33, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %34 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %33, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %11, %14, %pm_write_node_value.exit.i, %26, %30
@@ -34739,7 +34739,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %32 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 408
-  %34 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %33, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %34 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %33, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %11, %14, %pm_write_node_value.exit.i, %26, %30
@@ -38527,7 +38527,7 @@ accept1.exit.i:                                   ; preds = %accept1.exit
 34:                                               ; preds = %8
   %35 = load ptr, ptr %6, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %5, ptr noundef %35, ptr noundef %36, i32 noundef %1) #27
+  %37 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %5, ptr noundef %35, ptr noundef %36, i32 noundef range(i32 1, 217) %1) #27
   %38 = load ptr, ptr %6, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
@@ -39582,7 +39582,7 @@ pm_constant_read_node_create.exit247:             ; preds = %234
   %249 = getelementptr inbounds i8, ptr %0, i64 320
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %0, i64 432
-  %252 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %251, ptr noundef %248, ptr noundef %250, i32 noundef %1) #27
+  %252 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %251, ptr noundef %248, ptr noundef %250, i32 noundef range(i32 1, 217) %1) #27
   %253 = load ptr, ptr %247, align 8
   %254 = load ptr, ptr %249, align 8
   %255 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
@@ -40758,7 +40758,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %29 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 408
-  %31 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %30, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %31 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %30, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %8, %11, %pm_write_node_value.exit.i, %23, %27
@@ -44137,7 +44137,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %33 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 408
-  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31
@@ -44243,7 +44243,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %33 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 408
-  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef 228) #27
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31
@@ -44356,7 +44356,7 @@ pm_write_node_value.exit.i:                       ; preds = %tailrecurse.i.i, %p
   %33 = getelementptr i8, ptr %0, i64 320
   %.val6.i = load ptr, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 408
-  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i28, ptr noundef %.val6.i, i32 noundef 228) #27
+  %35 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %34, ptr noundef %.val.i28, ptr noundef %.val6.i, i32 noundef range(i32 224, 234) 228) #27
   br label %pm_predicate_check.exit
 
 pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %12, %15, %pm_write_node_value.exit.i, %27, %31

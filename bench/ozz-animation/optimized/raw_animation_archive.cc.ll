@@ -154,13 +154,13 @@ _ZN3ozz2io8OArchivelsEf.exit:                     ; preds = %10, %16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation10JointTrackEEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %6, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation10JointTrackEEEE4SaveERNS0_8OArchiveEPKS9_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 1)
   br label %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %59 = getelementptr inbounds i8, ptr %11, i64 32
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %59, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef 1)
   %60 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %60, %2
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !5
@@ -256,9 +256,9 @@ _ZN3ozz2io8IArchiversERf.exit:                    ; preds = %30, %39
   %41 = phi float [ %38, %30 ], [ %40, %39 ]
   store float %41, ptr %22, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %21, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 1, i32 noundef 0)
   %42 = getelementptr inbounds i8, ptr %21, i64 32
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %42, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 noundef 1, i32 noundef 0)
   %43 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %43, %2
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !7
@@ -390,7 +390,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i.i.i34:           ; preds = %51, %.lr.ph.i.i.i.i
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %67 = getelementptr inbounds i8, ptr %47, i64 4
-  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %67, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %67, i64 noundef 1)
   %68 = add nuw nsw i64 %.08.i.i.i.i33, 1
   %exitcond.not.i.i.i.i35 = icmp eq i64 %68, %38
   br i1 %exitcond.not.i.i.i.i35, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRKT_.exit.i, label %.lr.ph.i.i.i.i32, !llvm.loop !8
@@ -475,7 +475,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i.i.i17:           ; preds = %101, %.lr.ph.i.i.i.
   %116 = call noundef i64 %115(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %117 = getelementptr inbounds i8, ptr %97, i64 4
-  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %117, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %117, i64 noundef 1)
   %118 = add nuw nsw i64 %.08.i.i.i.i16, 1
   %exitcond.not.i.i.i.i18 = icmp eq i64 %118, %88
   br i1 %exitcond.not.i.i.i.i18, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation11RotationKeyEEEEEvRKT_.exit.i, label %.lr.ph.i.i.i.i15, !llvm.loop !9
@@ -560,7 +560,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i.i.i:             ; preds = %151, %.lr.ph.i.i.i.
   %166 = call noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull %10, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %167 = getelementptr inbounds i8, ptr %147, i64 4
-  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %167, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %167, i64 noundef 1)
   %168 = add nuw nsw i64 %.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %168, %138
   br i1 %exitcond.not.i.i.i.i, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation8ScaleKeyEEEEEvRKT_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
@@ -739,7 +739,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %78)
   %79 = select i1 %77, i32 %.sroa.0.0.insert.insert.i.i.i, i32 %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation10JointTrackEEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, i64 noundef 1, i32 noundef %79)
+  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation10JointTrackEEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 1, i32 noundef %79)
   br label %80
 
 80:                                               ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit, %69
@@ -834,7 +834,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocat
   %43 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.014.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.010.014.i.i, i8 0, i64 24, i1 false)
   %45 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
   %46 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 24
   %47 = load ptr, ptr %46, align 8
@@ -1215,7 +1215,7 @@ _ZN3ozz2io8IArchiversERf.exit.i.i.i.i39:          ; preds = %105, %96
   store float %107, ptr %88, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %108 = getelementptr inbounds i8, ptr %88, i64 4
-  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %108, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %108, i64 noundef 1, i32 noundef 0)
   %109 = add nuw nsw i64 %.08.i.i.i.i38, 1
   %exitcond.not.i.i.i.i40 = icmp eq i64 %109, %30
   br i1 %exitcond.not.i.i.i.i40, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRT_.exit.i, label %.lr.ph.i.i.i.i37, !llvm.loop !17
@@ -1404,7 +1404,7 @@ _ZN3ozz2io8IArchiversERf.exit.i.i.i.i18:          ; preds = %195, %186
   store float %197, ptr %178, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %198 = getelementptr inbounds i8, ptr %178, i64 4
-  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %198, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %198, i64 noundef 1, i32 noundef 0)
   %199 = add nuw nsw i64 %.08.i.i.i.i17, 1
   %exitcond.not.i.i.i.i19 = icmp eq i64 %199, %120
   br i1 %exitcond.not.i.i.i.i19, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation11RotationKeyEEEEEvRT_.exit.i, label %.lr.ph.i.i.i.i16, !llvm.loop !19
@@ -1593,7 +1593,7 @@ _ZN3ozz2io8IArchiversERf.exit.i.i.i.i:            ; preds = %285, %276
   store float %287, ptr %268, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %288 = getelementptr inbounds i8, ptr %268, i64 4
-  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %288, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %288, i64 noundef 1, i32 noundef 0)
   %289 = add nuw nsw i64 %.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %289, %210
   br i1 %exitcond.not.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation8ScaleKeyEEEEEvRT_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !21

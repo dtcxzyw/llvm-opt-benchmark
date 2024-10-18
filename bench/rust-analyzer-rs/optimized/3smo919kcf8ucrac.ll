@@ -544,7 +544,7 @@ _ZN17crossbeam_channel7counter3new17h9dac218f4a116783E.exit: ; preds = %.noexc.i
 26:                                               ; preds = %25, %18
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %3)
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(640) %3)
           to label %common.resume unwind label %28, !noalias !48
 
 28:                                               ; preds = %26
@@ -1188,7 +1188,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !80
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %8)
           to label %.noexc.i unwind label %16
 
 .noexc.i:                                         ; preds = %7
@@ -1715,7 +1715,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h77a8401404f293
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !98
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !91, !noalias !98, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %7, 0

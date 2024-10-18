@@ -125,7 +125,7 @@ define void @_ZN21FilterExpressionFrameC2EP7QWidget(ptr noundef nonnull align 8 
 10:                                               ; preds = %7, %5, %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   resume { ptr, i32 } %11
 }
 
@@ -1185,7 +1185,7 @@ define void @_ZN21FilterExpressionFrameD2Ev(ptr noundef nonnull align 8 derefere
   br label %7
 
 7:                                                ; preds = %6, %1
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   ret void
 }
 
@@ -1210,7 +1210,7 @@ define void @_ZN21FilterExpressionFrameD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N21FilterExpressionFrameD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21FilterExpressionFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(68) %2) #13
   ret void
 }
 
@@ -1240,7 +1240,7 @@ define void @_ZN21FilterExpressionFrame13addExpressionE7QString(ptr noundef nonn
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 -1, ptr %19, align 8
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   br label %31
 
 20:                                               ; preds = %2
@@ -1698,7 +1698,7 @@ define void @_ZN21FilterExpressionFrame48on_filterExpressionPreferencesPushButto
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 -1, ptr %13, align 8
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   call void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, i32 noundef 263)
   invoke void @_ZN21FilterExpressionFrame21showPreferencesDialogE7QString(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %2)
           to label %14 unwind label %19
@@ -2113,7 +2113,7 @@ _ZN7QStringD2Ev.exit64:                           ; preds = %145, %_ZN17QArrayDa
           to label %154 unwind label %90
 
 154:                                              ; preds = %147
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE, ptr noundef nonnull %3)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit unwind label %90
 
 _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit: ; preds = %154
@@ -2138,7 +2138,7 @@ _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructib
           to label %166 unwind label %90
 
 166:                                              ; preds = %159
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE, ptr noundef nonnull %5)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %_ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit65 unwind label %90
 
 _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit65: ; preds = %166
@@ -2163,7 +2163,7 @@ _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructib
           to label %178 unwind label %90
 
 178:                                              ; preds = %171
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE, ptr noundef nonnull %7)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit66 unwind label %90
 
 _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit66: ; preds = %178
@@ -2238,7 +2238,7 @@ _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructib
 
 .noexc73:                                         ; preds = %.noexc72
   store i32 -1, ptr %105, align 8
-  invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
           to label %_ZN21FilterExpressionFrame21on_buttonBox_rejectedEv.exit unwind label %90
 
 _ZN21FilterExpressionFrame21on_buttonBox_rejectedEv.exit: ; preds = %.noexc73
@@ -2397,7 +2397,7 @@ define void @_ZN21FilterExpressionFrame13keyPressEventEP9QKeyEvent(ptr noundef n
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %25)
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 -1, ptr %26, align 8
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   br label %_ZN7QStringD2Ev.exit16
 
 27:                                               ; preds = %12, %12

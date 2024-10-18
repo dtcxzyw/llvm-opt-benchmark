@@ -272,7 +272,7 @@ define dso_local void @_ZN4llvm4User16allocHungoffUsesEjb(ptr noundef nonnull al
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.01214 = phi ptr [ %11, %.lr.ph ], [ %7, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %.01214, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.01214, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.01214, i8 0, i64 24, i1 false)
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %.01214, i64 32
   %.not = icmp eq ptr %11, %8
@@ -321,7 +321,7 @@ _ZN4llvm4User14getOperandListEv.exit:             ; preds = %8, %11
 .lr.ph.i:                                         ; preds = %_ZN4llvm4User14getOperandListEv.exit, %.lr.ph.i
   %.01214.i = phi ptr [ %23, %.lr.ph.i ], [ %19, %_ZN4llvm4User14getOperandListEv.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.01214.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.01214.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.01214.i, i8 0, i64 24, i1 false)
   store ptr %0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %.01214.i, i64 32
   %.not.i = icmp eq ptr %23, %20
@@ -537,7 +537,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm4UsernwEmj(i64 noundef %0, i32 nou
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.029 = phi ptr [ %14, %.lr.ph ], [ %6, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %.029, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.029, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.029, i8 0, i64 24, i1 false)
   store ptr %7, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %.029, i64 32
   %.not = icmp eq ptr %14, %7
@@ -575,7 +575,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm4UsernwEmjj(i64 noundef %0, i32 no
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.031 = phi ptr [ %24, %.lr.ph ], [ %14, %3 ]
   %23 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.031, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.031, i8 0, i64 24, i1 false)
   store ptr %15, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %.031, i64 32
   %.not29 = icmp eq ptr %24, %15

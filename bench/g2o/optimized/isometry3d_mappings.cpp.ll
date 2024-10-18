@@ -134,7 +134,7 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Quaternion", align 16
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -269,7 +269,7 @@ declare double @cos(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Quaternion", align 16
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %4 = load <2 x double>, ptr %3, align 16
   %5 = fmul <2 x double> %4, %4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -417,7 +417,7 @@ define void @_ZN3g2o8internal11toVectorMQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(p
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !12
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !12
   %14 = load <2 x double>, ptr %3, align 16, !noalias !12
   %15 = fmul <2 x double> %14, %14
   %16 = getelementptr inbounds i8, ptr %3, i64 16
@@ -491,7 +491,7 @@ define void @_ZN3g2o8internal10toVectorETERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !15
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !15
   %14 = getelementptr inbounds i8, ptr %3, i64 24
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = getelementptr inbounds i8, ptr %3, i64 16
@@ -554,7 +554,7 @@ define void @_ZN3g2o8internal10toVectorQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !18
   store i64 4, ptr %7, align 8, !alias.scope !18
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS6_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %8 = load <2 x double>, ptr %3, align 16
   %9 = fmul <2 x double> %8, %8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
@@ -951,7 +951,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %14 = load <2 x double>, ptr %13, align 16
   %15 = getelementptr inbounds i8, ptr %1, i64 112
   %16 = load double, ptr %15, align 16
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %3)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <2 x double> %14, ptr %17, align 16
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48

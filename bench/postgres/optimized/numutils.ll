@@ -1307,7 +1307,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nocapt
   %11 = phi ptr [ %6, %.thread.i ], [ %1, %7 ]
   %.017.i = phi i32 [ 1, %.thread.i ], [ 0, %7 ]
   %.01115.i = phi i32 [ %5, %.thread.i ], [ %3, %7 ]
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.01115.i, i1 true)
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.01115.i, i1 true)
   %13 = xor i32 %12, 31
   %14 = mul nuw nsw i32 %13, 1233
   %15 = add nuw nsw i32 %14, 1233
@@ -1422,7 +1422,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr nocapture nou
   %10 = phi ptr [ %5, %.thread ], [ %1, %6 ]
   %.017 = phi i32 [ 1, %.thread ], [ 0, %6 ]
   %.01115 = phi i32 [ %4, %.thread ], [ %0, %6 ]
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.01115, i1 true)
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.01115, i1 true)
   %12 = xor i32 %11, 31
   %13 = mul nuw nsw i32 %12, 1233
   %14 = add nuw nsw i32 %13, 1233
@@ -1539,7 +1539,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture 
   br label %71
 
 5:                                                ; preds = %2
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %0, i1 true)
   %7 = xor i32 %6, 31
   %8 = mul nuw nsw i32 %7, 1233
   %9 = add nuw nsw i32 %8, 1233
@@ -1651,7 +1651,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   br label %111
 
 5:                                                ; preds = %2
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %0, i1 true)
   %7 = trunc nuw nsw i64 %6 to i32
   %8 = xor i32 %7, 63
   %9 = mul nuw nsw i32 %8, 1233
@@ -1851,7 +1851,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 nou
   br label %pg_ultoa_n.exit
 
 15:                                               ; preds = %12
-  %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %1, i1 true)
   %17 = xor i32 %16, 31
   %18 = mul nuw nsw i32 %17, 1233
   %19 = add nuw nsw i32 %18, 1233
@@ -1991,7 +1991,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local
   br label %pg_ultoa_n.exit
 
 5:                                                ; preds = %2
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %1, i1 true)
   %7 = xor i32 %6, 31
   %8 = mul nuw nsw i32 %7, 1233
   %9 = add nuw nsw i32 %8, 1233

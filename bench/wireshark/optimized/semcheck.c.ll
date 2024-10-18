@@ -1490,7 +1490,7 @@ check_arithmetic_LHS_TIME.exit:                   ; preds = %35, %41, %45, %89, 
   ]
 
 110:                                              ; preds = %109
-  %111 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %31, i32 noundef %2)
+  %111 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %31, i32 noundef range(i32 26, 24) %2)
   %112 = call zeroext i1 @ftype_can_unary_minus(i32 noundef %111) #6
   br i1 %112, label %118, label %113
 
@@ -1541,7 +1541,7 @@ check_arithmetic_LHS_TIME.exit:                   ; preds = %35, %41, %45, %89, 
 133:                                              ; preds = %130, %129, %128, %127, %126, %109
   %.057.i = phi ptr [ @do_bitwise_and, %130 ], [ @do_modulo, %129 ], [ @do_division, %128 ], [ @do_multiplication, %127 ], [ @do_subtraction, %126 ], [ @do_addition, %109 ]
   %.056.i = phi ptr [ @ftype_can_bitwise_and, %130 ], [ @ftype_can_modulo, %129 ], [ @ftype_can_divide, %128 ], [ @ftype_can_multiply, %127 ], [ @ftype_can_subtract, %126 ], [ @ftype_can_add, %109 ]
-  %134 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %31, i32 noundef %2)
+  %134 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %31, i32 noundef range(i32 26, 24) %2)
   %135 = call zeroext i1 %.056.i(i32 noundef %134) #6
   br i1 %135, label %142, label %136
 
@@ -2715,7 +2715,7 @@ find_logical_ftype.exit48:                        ; preds = %24
   unreachable
 
 find_logical_ftype.exit49:                        ; preds = %31
-  %38 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %4, i32 noundef %32)
+  %38 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %4, i32 noundef range(i32 1, 0) %32)
   %39 = tail call zeroext i1 %2(i32 noundef %38) #6, !callees !12
   br i1 %39, label %46, label %40
 
@@ -3035,7 +3035,7 @@ find_logical_ftype.exit50:                        ; preds = %146
   unreachable
 
 174:                                              ; preds = %find_logical_ftype.exit50
-  %175 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %147)
+  %175 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef range(i32 1, 0) %147)
   %176 = tail call zeroext i1 %2(i32 noundef %175) #6, !callees !12
   br i1 %176, label %205, label %177
 
@@ -3049,7 +3049,7 @@ find_logical_ftype.exit50:                        ; preds = %146
   unreachable
 
 183:                                              ; preds = %find_logical_ftype.exit50
-  %184 = tail call i32 @check_function(ptr noundef %0, ptr noundef %5, i32 noundef %147)
+  %184 = tail call i32 @check_function(ptr noundef %0, ptr noundef %5, i32 noundef range(i32 1, 0) %147)
   %185 = tail call zeroext i1 %2(i32 noundef %184) #6, !callees !12
   br i1 %185, label %205, label %186
 
@@ -3063,7 +3063,7 @@ find_logical_ftype.exit50:                        ; preds = %146
   unreachable
 
 192:                                              ; preds = %find_logical_ftype.exit50
-  %193 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %5, i32 noundef %147)
+  %193 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %5, i32 noundef range(i32 1, 0) %147)
   %194 = tail call zeroext i1 %2(i32 noundef %193) #6, !callees !12
   br i1 %194, label %205, label %195
 

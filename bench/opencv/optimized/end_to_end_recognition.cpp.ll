@@ -3909,7 +3909,7 @@ define hidden void @_Z7er_drawRSt6vectorIN2cv3MatESaIS1_EERS_IS_INS0_4text6ERSta
   %40 = sext i32 %39 to i64
   %41 = load ptr, ptr %37, align 8
   %42 = getelementptr inbounds %"struct.cv::text::ERStat", ptr %41, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %42, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) %42, i64 80, i1 false)
   %43 = getelementptr inbounds i8, ptr %42, i64 80
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %20, align 8

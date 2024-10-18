@@ -131,7 +131,7 @@ define noundef ptr @_ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex(ptr
   br label %_ZNK11QModelIndex4dataEi.exit
 
 9:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false), !alias.scope !4
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %10, align 8, !alias.scope !4
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -191,7 +191,7 @@ define void @_ZNK18VoipCallsInfoModel4dataERK11QModelIndexi(ptr dead_on_unwind n
   br i1 %or.cond, label %34, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %33, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -210,12 +210,12 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
 40:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %39, ptr %5, align 8, !noalias !7
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %5)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZN7QStringD2Ev.exit
 
 41:                                               ; preds = %34
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %42 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %42, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1177,7 +1177,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i237:   ; preds = %355
   unreachable
 
 362:                                              ; preds = %43
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %363 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %363, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1840,7 +1840,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80:    ; preds = %115
   unreachable
 
 120:                                              ; preds = %18, %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %121 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %121, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -2310,7 +2310,7 @@ define noundef zeroext i1 @_ZNK24VoipCallsInfoSortedModel8lessThanERK11QModelInd
   br label %_ZNK11QModelIndex4dataEi.exit.i
 
 12:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !14
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %13, align 8, !alias.scope !14
   br label %_ZNK11QModelIndex4dataEi.exit.i
@@ -2348,7 +2348,7 @@ _ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex.exit: ; preds = %_ZNK11
   br label %_ZNK11QModelIndex4dataEi.exit.i19
 
 23:                                               ; preds = %_ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !17
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !17
   br label %_ZNK11QModelIndex4dataEi.exit.i19

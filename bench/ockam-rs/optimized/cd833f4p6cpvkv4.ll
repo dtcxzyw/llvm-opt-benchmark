@@ -259,7 +259,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %112, label %.noexc85, label %113
 
 113:                                              ; preds = %108
-  invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 %110)
+  invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 8 %110)
           to label %.noexc85 unwind label %.body.thread155
 
 .noexc85:                                         ; preds = %113, %108
@@ -758,7 +758,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %3, align 8, !noalias !97
-  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.6fd6031165620ee24e8dd613bf252bd5.13.llvm.12433807454083036098, i64 noundef 9, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14ea14d825d3b2e86d2abbaeab6cac4f.0.llvm.10539041272750872607)
+  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.6fd6031165620ee24e8dd613bf252bd5.13.llvm.12433807454083036098, i64 noundef 9, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14ea14d825d3b2e86d2abbaeab6cac4f.0.llvm.10539041272750872607)
           to label %"_ZN4core3ptr97drop_in_place$LT$tokio..sync..mpsc..error..SendError$LT$ockam_node..messages..NodeMessage$GT$$GT$17h69f472988a7f0c17E.exit.i" unwind label %9
 
 9:                                                ; preds = %8
@@ -818,7 +818,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(232) %0, i64 232, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %3, align 8, !noalias !102
-  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.6fd6031165620ee24e8dd613bf252bd5.13.llvm.12433807454083036098, i64 noundef 9, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14ea14d825d3b2e86d2abbaeab6cac4f.1.llvm.10539041272750872607)
+  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.6fd6031165620ee24e8dd613bf252bd5.13.llvm.12433807454083036098, i64 noundef 9, ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14ea14d825d3b2e86d2abbaeab6cac4f.1.llvm.10539041272750872607)
           to label %"_ZN4core3ptr121drop_in_place$LT$tokio..sync..mpsc..error..SendError$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17h80ac323198e1e219E.exit.i" unwind label %9
 
 9:                                                ; preds = %8
@@ -928,7 +928,7 @@ define internal { ptr, i64 } @_ZN4core5error5Error11description17hc48c57c0df84ed
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17hc1a1f626a8e98528E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -1049,7 +1049,7 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded15Permit$LT$T$GT$4send17h6626e28
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %6, i64 128
   %11 = atomicrmw add ptr %8, i64 1 acquire, align 8, !noalias !121
-  %12 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17he021ebbadace5f19E.llvm.13871804859092700850"(ptr noundef nonnull align 8 %10, i64 noundef %11)
+  %12 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17he021ebbadace5f19E.llvm.13871804859092700850"(ptr noundef nonnull align 128 %10, i64 noundef %11)
           to label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17ha20867a1b66477b6E.exit.i" unwind label %13, !noalias !121
 
 13:                                               ; preds = %9, %2
@@ -1116,7 +1116,7 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded15Permit$LT$T$GT$4send17hcd29fae
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %6, i64 128
   %11 = atomicrmw add ptr %8, i64 1 acquire, align 8, !noalias !127
-  %12 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17h9fb8cf7628485feaE.llvm.13871804859092700850"(ptr noundef nonnull align 8 %10, i64 noundef %11)
+  %12 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17h9fb8cf7628485feaE.llvm.13871804859092700850"(ptr noundef nonnull align 128 %10, i64 noundef %11)
           to label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hc153dd0d04e28be0E.exit.i" unwind label %13, !noalias !127
 
 13:                                               ; preds = %9, %2
@@ -1341,7 +1341,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17hc71daf8291e6a13aE(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h898ac381857c3ed8E.llvm.10142834908956157465"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h898ac381857c3ed8E.llvm.10142834908956157465"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr145drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$alloc..string..String$GT$$GT$$GT$$GT$17ha310a954fbca41ddE.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5

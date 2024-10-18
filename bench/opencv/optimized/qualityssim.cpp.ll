@@ -389,7 +389,7 @@ define void @_ZN2cv7quality11QualitySSIM6createERKNS_11_InputArrayE(ptr dead_on_
           to label %5 unwind label %.thread
 
 5:                                                ; preds = %2
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %4)
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %5
@@ -406,7 +406,7 @@ define void @_ZN2cv7quality11QualitySSIM6createERKNS_11_InputArrayE(ptr dead_on_
           cleanup
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality11QualitySSIME0_NS0_11QualityBaseE, i64 80), ptr %4, align 8
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %4) #14
   br label %.thread13
 
 _ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit: ; preds = %.noexc
@@ -461,7 +461,7 @@ _ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit: ; preds = %.noexc
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %31) #14
   %32 = getelementptr inbounds i8, ptr %3, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #14
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %3) #14
   ret void
 
 .thread:                                          ; preds = %2
@@ -535,7 +535,7 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayES4_RKNS_12_O
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
   %13 = getelementptr inbounds i8, ptr %7, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #14
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %7) #14
   %14 = getelementptr inbounds i8, ptr %6, i64 320
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #14
   %15 = getelementptr inbounds i8, ptr %6, i64 240
@@ -544,7 +544,7 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayES4_RKNS_12_O
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #14
   %17 = getelementptr inbounds i8, ptr %6, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #14
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %6) #14
   %18 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %19 unwind label %27
 
@@ -1183,7 +1183,7 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayE(ptr dead_on
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
   %12 = getelementptr inbounds i8, ptr %5, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %5) #14
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1306,7 +1306,7 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIMD1Ev(ptr noundef non
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
-  tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #14
+  tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %2) #14
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality11QualitySSIME0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #14
@@ -1326,11 +1326,11 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIMD0Ev(ptr noundef non
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
-  tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #14
+  tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %2) #14
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality11QualitySSIME0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #14
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -1340,7 +1340,7 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIM5clearEv(ptr noundef
   %2 = alloca %"class.cv::UMat", align 8
   %3 = alloca %"struct.cv::quality::QualitySSIM::_mat_data", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %3, i8 0, i64 400, i1 false)
-  call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %3, i32 noundef 0) #14
+  call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(400) %3, i32 noundef 0) #14
   %4 = getelementptr inbounds i8, ptr %3, i64 80
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef 0) #14
   %5 = getelementptr inbounds i8, ptr %3, i64 160
@@ -1350,7 +1350,7 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIM5clearEv(ptr noundef
   %7 = getelementptr inbounds i8, ptr %3, i64 320
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %7, i32 noundef 0) #14
   %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %9 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %3)
+  %9 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(400) %8, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %1
@@ -1378,7 +1378,7 @@ _ZN2cv7quality11QualitySSIM9_mat_dataaSEOS2_.exit: ; preds = %.noexc4
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %3) #14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef 0) #14
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1410,7 +1410,7 @@ _ZN2cv7quality11QualityBase5clearEv.exit:         ; preds = %_ZN2cv7quality11Qua
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv7quality11QualitySSIM5emptyEv(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
-  %3 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
+  %3 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(400) %2)
   br i1 %3, label %4, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
 4:                                                ; preds = %1

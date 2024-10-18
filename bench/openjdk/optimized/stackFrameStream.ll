@@ -45,7 +45,7 @@ define hidden void @_ZN16StackFrameStreamC2EP10JavaThreadbbb(ptr noundef nonnull
   %6 = alloca %class.frame, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24

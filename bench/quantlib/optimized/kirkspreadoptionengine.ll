@@ -539,7 +539,7 @@ lpad.i.i:                                         ; preds = %entry
           cleanup
   tail call void @_ZN8QuantLib6Option9argumentsD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %arguments_.i.i) #26
   tail call void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
-  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #26
+  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) #26
   br label %common.resume
 
 _ZN8QuantLib12SpreadOption6engineC2Ev.exit:       ; preds = %entry
@@ -1872,7 +1872,7 @@ cond.false.i139:                                  ; preds = %invoke.cont108
 
 invoke.cont110:                                   ; preds = %.noexc141, %invoke.cont108
   %66 = phi ptr [ %65, %invoke.cont108 ], [ %.pre.i140, %.noexc141 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %66, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %66, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate, i1 noundef zeroext false)
           to label %.noexc142 unwind label %lpad103
 
 .noexc142:                                        ; preds = %invoke.cont110
@@ -1880,7 +1880,7 @@ invoke.cont110:                                   ; preds = %.noexc141, %invoke.
           to label %.noexc143 unwind label %lpad103
 
 .noexc143:                                        ; preds = %.noexc142
-  %call.i144 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %66, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
+  %call.i144 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %66, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
           to label %call.i.noexc unwind label %lpad103
 
 call.i.noexc:                                     ; preds = %.noexc143
@@ -1927,7 +1927,7 @@ cond.false.i152:                                  ; preds = %invoke.cont120
 
 invoke.cont122:                                   ; preds = %.noexc154, %invoke.cont120
   %71 = phi ptr [ %70, %invoke.cont120 ], [ %.pre.i153, %.noexc154 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %71, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate, i1 noundef zeroext false)
           to label %.noexc158 unwind label %lpad115
 
 .noexc158:                                        ; preds = %invoke.cont122
@@ -1935,7 +1935,7 @@ invoke.cont122:                                   ; preds = %.noexc154, %invoke.
           to label %.noexc159 unwind label %lpad115
 
 .noexc159:                                        ; preds = %.noexc158
-  %call.i161 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
+  %call.i161 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %71, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
           to label %call.i.noexc160 unwind label %lpad115
 
 call.i.noexc160:                                  ; preds = %.noexc159
@@ -1982,7 +1982,7 @@ cond.false.i170:                                  ; preds = %invoke.cont132
 
 invoke.cont134:                                   ; preds = %.noexc172, %invoke.cont132
   %76 = phi ptr [ %75, %invoke.cont132 ], [ %.pre.i171, %.noexc172 ]
-  %call.i174 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
+  %call.i174 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %76, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
           to label %call.i.noexc173 unwind label %lpad127
 
 call.i.noexc173:                                  ; preds = %invoke.cont134
@@ -3615,7 +3615,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib22KirkSpreadOptionEngineD0Ev(ptr nou
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib22KirkSpreadOptionEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 336) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 noundef 336) #31
   ret void
 }
 
@@ -3623,7 +3623,7 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_6Option9argumentsENS_16MultiAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #14 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
   ret void
 }
 
@@ -4015,7 +4015,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %22 = phi ptr [ %21, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -4851,7 +4851,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib16MultiAssetOption7resultsD0Ev.exit:  ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 136) #31
   ret void
 }
 

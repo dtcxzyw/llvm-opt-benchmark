@@ -2150,7 +2150,7 @@ call.i.i.noexc:                                   ; preds = %lor.lhs.false.i.i90
   br i1 %call.i.i93, label %if.end.i, label %cleanup.sink.split
 
 if.end.i:                                         ; preds = %call.i.i.noexc
-  %call1.i9294 = invoke noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %39, i32 noundef 14, ptr noundef %arrayidx.i89, ptr noundef nonnull %zmq_fd_size)
+  %call1.i9294 = invoke noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %39, i32 noundef 14, ptr noundef nonnull %arrayidx.i89, ptr noundef nonnull %zmq_fd_size)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %if.end.i
@@ -2517,13 +2517,13 @@ do.end.thread:                                    ; preds = %entry
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
   %maxfd.i39 = getelementptr inbounds i8, ptr %agg.result, i64 768
   store i32 0, ptr %maxfd.i39, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %agg.result, i8 0, i64 384, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(772) %agg.result, i8 0, i64 384, i1 false)
   br label %for.body.lr.ph
 
 do.end:                                           ; preds = %entry
   %maxfd.i = getelementptr inbounds i8, ptr %agg.result, i64 768
   store i32 0, ptr %maxfd.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %agg.result, i8 0, i64 384, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(772) %agg.result, i8 0, i64 384, i1 false)
   %cmp2.not35 = icmp eq i32 %nitems_, 0
   br i1 %cmp2.not35, label %return, label %for.body.lr.ph
 

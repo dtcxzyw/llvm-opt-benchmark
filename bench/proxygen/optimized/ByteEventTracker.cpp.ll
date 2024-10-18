@@ -380,7 +380,7 @@ _ZNKSt8functionIFvRN8proxygen9ByteEventEEEclES2_.exit: ; preds = %if.end39
   %callback_40 = getelementptr inbounds i8, ptr %2, i64 24
   %_M_invoker.i = getelementptr inbounds i8, ptr %2, i64 48
   %12 = load ptr, ptr %_M_invoker.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %callback_40, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %callback_40, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZNKSt8functionIFvRN8proxygen9ByteEventEEEclES2_.exit, %if.end39
@@ -583,7 +583,7 @@ invoke.cont16:                                    ; preds = %cleanup.done
   br i1 %tobool.not.i.i.not.i, label %invoke.cont18, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont16
-  %call3.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -602,7 +602,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %terminate.lpad.body, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %terminate.lpad.body unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -622,7 +622,7 @@ invoke.cont19:                                    ; preds = %invoke.cont18
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %invoke.cont19
-  %call.i.i6 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
@@ -678,7 +678,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -697,7 +697,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -730,7 +730,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invok
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit
-  %call3.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 2)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i3
@@ -741,7 +741,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i3
   br i1 %tobool.not.i.i.i, label %lpad.body, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -760,7 +760,7 @@ invoke.cont:                                      ; preds = %if.then.i.i3
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
-  %call.i.i8 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -786,7 +786,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %if.then.
   br i1 %tobool.not.i.i12, label %common.resume, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad.body
-  %call.i.i14 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
@@ -858,7 +858,7 @@ invoke.cont16:                                    ; preds = %cleanup.done
   br i1 %tobool.not.i.i.not.i, label %invoke.cont18, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont16
-  %call3.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -877,7 +877,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %terminate.lpad.body, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %terminate.lpad.body unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -897,7 +897,7 @@ invoke.cont19:                                    ; preds = %invoke.cont18
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %invoke.cont19
-  %call.i.i6 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
@@ -1026,7 +1026,7 @@ cleanup.action:                                   ; preds = %invoke.cont33
   br i1 %tobool.not.i.i.i45, label %_ZN8proxygen9ByteEventD2Ev.exit, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %cleanup.action
-  %call.i.i.i48 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i48 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i49
 
 terminate.lpad.i.i.i49:                           ; preds = %if.then.i.i.i46
@@ -1042,7 +1042,7 @@ _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %cleanup.action, %if
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i50
 
 if.then.i.i50:                                    ; preds = %_ZN8proxygen9ByteEventD2Ev.exit
-  %call.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i50
@@ -1081,7 +1081,7 @@ cleanup.action47:                                 ; preds = %invoke.cont33
   br i1 %tobool.not.i.i52, label %cleanup.action54, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %cleanup.action47
-  %call.i.i54 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i54 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %cleanup.action54 unwind label %terminate.lpad.i.i55
 
 terminate.lpad.i.i55:                             ; preds = %if.then.i.i53
@@ -1108,7 +1108,7 @@ for.end:                                          ; preds = %cleanup.done51, %fo
   br i1 %tobool.not.i.i.not.i, label %invoke.cont68, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  %call3.i = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1127,7 +1127,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i59, label %cleanup.action76, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %lpad.i
-  %call.i.i61 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, i32 noundef 3)
+  %call.i.i61 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, i32 noundef 3)
           to label %cleanup.action76 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
@@ -1147,7 +1147,7 @@ invoke.cont72:                                    ; preds = %invoke.cont68
   br i1 %tobool.not.i.i65, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70, label %if.then.i.i66
 
 if.then.i.i66:                                    ; preds = %invoke.cont72
-  %call.i.i67 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, i32 noundef 3)
+  %call.i.i67 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70 unwind label %terminate.lpad.i.i68
 
 terminate.lpad.i.i68:                             ; preds = %if.then.i.i66
@@ -1181,7 +1181,7 @@ lpad71:                                           ; preds = %invoke.cont68
   br i1 %tobool.not.i.i72, label %cleanup.action76, label %if.then.i.i73
 
 if.then.i.i73:                                    ; preds = %lpad71
-  %call.i.i74 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp66, i32 noundef 3)
+  %call.i.i74 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp66, i32 noundef 3)
           to label %cleanup.action76 unwind label %terminate.lpad.i.i75
 
 terminate.lpad.i.i75:                             ; preds = %if.then.i.i73
@@ -1305,7 +1305,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %callback_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_, ptr noundef nonnull align 8 dereferenceable(32) %callback_, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1332,7 +1332,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1351,7 +1351,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1382,7 +1382,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invok
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i2
 
 if.then.i.i2:                                     ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit
-  %call3.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 2)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i2
@@ -1393,7 +1393,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i2
   br i1 %tobool.not.i.i.i, label %lpad.body, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -1412,7 +1412,7 @@ invoke.cont:                                      ; preds = %if.then.i.i2
   br i1 %tobool.not.i.i5, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %invoke.cont
-  %call.i.i7 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i7 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i8
 
 terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
@@ -1434,7 +1434,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %if.then.
   br i1 %tobool.not.i.i11, label %common.resume, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %lpad.body
-  %call.i.i13 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i13 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i14
 
 terminate.lpad.i.i14:                             ; preds = %if.then.i.i12
@@ -1461,7 +1461,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1480,7 +1480,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %cleanup.action, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %cleanup.action unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1513,7 +1513,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %invoke.cont3
-  %call.i.i5 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -1534,7 +1534,7 @@ lpad2:                                            ; preds = %invoke.cont
   br i1 %tobool.not.i.i9, label %cleanup.action, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad2
-  %call.i.i11 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %cleanup.action unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -1564,7 +1564,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1583,7 +1583,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %cleanup.action, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %cleanup.action unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1616,7 +1616,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %invoke.cont3
-  %call.i.i5 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -1637,7 +1637,7 @@ lpad2:                                            ; preds = %invoke.cont
   br i1 %tobool.not.i.i9, label %cleanup.action, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad2
-  %call.i.i11 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %cleanup.action unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -1776,7 +1776,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -1815,7 +1815,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
   %callback_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, i32 noundef 3)
           to label %_ZN8proxygen20TransactionByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -1862,7 +1862,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i

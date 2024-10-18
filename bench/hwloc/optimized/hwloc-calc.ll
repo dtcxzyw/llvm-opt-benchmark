@@ -581,37 +581,37 @@ sub_1.i:                                          ; preds = %sub_0.i
 101:                                              ; preds = %97
   %102 = getelementptr inbounds i8, ptr %.0225576, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.152, i64 noundef 3) #25
+  %104 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.152, i64 noundef 3) #25
   %.not.i.i = icmp eq i32 %104, 0
   br i1 %.not.i.i, label %hwloc_utils_parse_input_format.exit.i, label %105
 
 105:                                              ; preds = %101
-  %106 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.153, i64 noundef 1) #25
+  %106 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.153, i64 noundef 1) #25
   %.not9.i.i = icmp eq i32 %106, 0
   br i1 %.not9.i.i, label %hwloc_utils_parse_input_format.exit.i, label %107
 
 107:                                              ; preds = %105
-  %108 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.154, i64 noundef 1) #25
+  %108 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.154, i64 noundef 1) #25
   %.not10.i.i = icmp eq i32 %108, 0
   br i1 %.not10.i.i, label %hwloc_utils_parse_input_format.exit.i, label %109
 
 109:                                              ; preds = %107
-  %110 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.155, i64 noundef 5) #25
+  %110 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.155, i64 noundef 5) #25
   %.not11.i.i = icmp eq i32 %110, 0
   br i1 %.not11.i.i, label %hwloc_utils_parse_input_format.exit.i, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.156, i64 noundef 1) #25
+  %112 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.156, i64 noundef 1) #25
   %.not12.i.i = icmp eq i32 %112, 0
   br i1 %.not12.i.i, label %hwloc_utils_parse_input_format.exit.i, label %113
 
 113:                                              ; preds = %111
-  %114 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.157, i64 noundef 1) #25
+  %114 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.157, i64 noundef 1) #25
   %.not13.i.i = icmp eq i32 %114, 0
   br i1 %.not13.i.i, label %hwloc_utils_parse_input_format.exit.i, label %115
 
 115:                                              ; preds = %113
-  %116 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.158, i64 noundef 1) #25
+  %116 = tail call i32 @strncasecmp(ptr noundef readonly %103, ptr noundef nonnull @.str.158, i64 noundef 1) #25
   %.not14.i.i = icmp eq i32 %116, 0
   br i1 %.not14.i.i, label %hwloc_utils_parse_input_format.exit.i, label %117
 
@@ -2327,7 +2327,7 @@ hwloc_calc_parse_level_size.exit:                 ; preds = %41, %47
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %13)
   %58 = load ptr, ptr %0, align 8
   %59 = load i32, ptr %16, align 4
-  %60 = call fastcc i32 @hwloc_calc_parse_level(ptr noundef nonnull %0, ptr noundef %58, ptr noundef nonnull %.093, i64 noundef %.0.i, ptr noundef nonnull %13)
+  %60 = call fastcc i32 @hwloc_calc_parse_level(ptr noundef nonnull %0, ptr noundef %58, ptr noundef nonnull %.093, i64 noundef range(i64 1, 0) %.0.i, ptr noundef nonnull %13)
   %61 = icmp slt i32 %60, 0
   %.pre.i = load i32, ptr %13, align 8
   br i1 %61, label %62, label %73
@@ -2698,7 +2698,7 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %204
   %221 = call ptr @hwloc_topology_get_complete_cpuset(ptr noundef %58) #25
   %222 = call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %58) #25
   %223 = getelementptr inbounds i8, ptr %53, i64 1
-  %224 = call fastcc i32 @hwloc_calc_append_object_range(ptr noundef %0, ptr noundef %221, ptr noundef %222, ptr noundef %13, ptr noundef nonnull %223, ptr noundef readonly %14)
+  %224 = call fastcc i32 @hwloc_calc_append_object_range(ptr noundef nonnull %0, ptr noundef %221, ptr noundef %222, ptr noundef %13, ptr noundef nonnull %223, ptr noundef nonnull readonly %14)
   br label %hwloc_calc_process_location.exit
 
 hwloc_calc_process_location.exit.thread:          ; preds = %65, %63, %70, %68, %177, %.loopexit.i, %199, %hwloc_get_next_osdev.exit.thread.i, %216, %._crit_edge.i, %202
@@ -2734,7 +2734,7 @@ hwloc_calc_parse_level_size.exit.thread:          ; preds = %45, %52, %hwloc_cal
   %228 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.093, i32 noundef 44) #25
   %.not109 = icmp eq ptr %228, null
   %229 = select i1 %.not109, i64 7, i64 8
-  %230 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.093, ptr noundef nonnull readonly @.str.205, i64 noundef %229) #25
+  %230 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.093, ptr noundef nonnull @.str.205, i64 noundef range(i64 1, 9) %229) #25
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %236
 
@@ -2749,7 +2749,7 @@ hwloc_calc_parse_level_size.exit.thread:          ; preds = %45, %52, %hwloc_cal
   br i1 %.not109, label %237, label %.preheader
 
 237:                                              ; preds = %236
-  %238 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.096, ptr noundef nonnull readonly @.str.206, i64 noundef 2) #25
+  %238 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.096, ptr noundef nonnull @.str.206, i64 noundef 2) #25
   %.not112 = icmp eq i32 %238, 0
   br i1 %.not112, label %239, label %.loopexit
 
@@ -2773,7 +2773,7 @@ hwloc_calc_parse_level_size.exit.thread:          ; preds = %45, %52, %hwloc_cal
 .preheader:                                       ; preds = %236, %.thread
   %.197 = phi ptr [ %262, %.thread ], [ %.096, %236 ]
   %248 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.197, i32 noundef 44) #25
-  %249 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.197, ptr noundef nonnull readonly @.str.206, i64 noundef 2) #25
+  %249 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.197, ptr noundef nonnull @.str.206, i64 noundef 2) #25
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %251, label %254
 
@@ -2949,7 +2949,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr noundef 
   br i1 %.not41, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = call i32 @strncasecmp(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly @.str.235, i64 noundef 2) #25
+  %32 = call i32 @strncasecmp(ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.235, i64 noundef 2) #25
   %.not42 = icmp eq i32 %32, 0
   br i1 %.not42, label %33, label %35
 

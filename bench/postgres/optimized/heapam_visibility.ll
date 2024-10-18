@@ -1760,7 +1760,7 @@ TransactionIdInArray.exit.thread.i:               ; preds = %.thread.i
 
 TransactionIdInArray.exit.i:                      ; preds = %.thread.i
   %469 = sext i32 %468 to i64
-  %470 = call ptr @bsearch(ptr noundef nonnull %8, ptr noundef %466, i64 noundef %469, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
+  %470 = call ptr @bsearch(ptr noundef nonnull %8, ptr noundef %466, i64 noundef range(i64 -2147483648, 4294967296) %469, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
   %.not65.i51 = icmp eq ptr %470, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br i1 %.not65.i51, label %480, label %471
@@ -1819,7 +1819,7 @@ TransactionIdInArray.exit59.thread.i:             ; preds = %493
 
 TransactionIdInArray.exit59.i:                    ; preds = %493
   %498 = zext i32 %497 to i64
-  %499 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef %495, i64 noundef %498, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
+  %499 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef %495, i64 noundef range(i64 -2147483648, 4294967296) %498, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
   %.not66.i57 = icmp eq ptr %499, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br i1 %.not66.i57, label %HeapTupleSatisfiesHistoricMVCC.exit, label %500
@@ -1863,7 +1863,7 @@ TransactionIdInArray.exit61.thread.i:             ; preds = %512
 
 TransactionIdInArray.exit61.i:                    ; preds = %512
   %515 = sext i32 %514 to i64
-  %516 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef %513, i64 noundef %515, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
+  %516 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef %513, i64 noundef range(i64 -2147483648, 4294967296) %515, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
   %.not67.i54 = icmp eq ptr %516, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br i1 %.not67.i54, label %527, label %517
@@ -1924,7 +1924,7 @@ TransactionIdInArray.exit63.thread.i:             ; preds = %541
 
 TransactionIdInArray.exit63.i:                    ; preds = %541
   %546 = zext i32 %545 to i64
-  %547 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef %543, i64 noundef %546, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
+  %547 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef %543, i64 noundef range(i64 -2147483648, 4294967296) %546, i64 noundef 4, ptr noundef nonnull @xidComparator) #3
   %.fr.i = freeze ptr %547
   %.not68.i56 = icmp eq ptr %.fr.i, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

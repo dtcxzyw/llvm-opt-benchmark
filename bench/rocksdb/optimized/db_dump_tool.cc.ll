@@ -147,7 +147,7 @@ entry:
   %ref.tmp303 = alloca %"class.std::__cxx11::basic_string", align 8
   %state_.i = getelementptr inbounds i8, ptr %status, i64 8
   store ptr null, ptr %state_.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status, i8 0, i64 6, i1 false)
   store ptr null, ptr %dumpfile, align 8
   store i64 0, ptr %timesec, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abspath) #16
@@ -880,7 +880,7 @@ lpad150:                                          ; preds = %invoke.cont151, %in
 
 if.end155:                                        ; preds = %invoke.cont143
   %rate_limiter_priority.i = getelementptr inbounds i8, ptr %ref.tmp157, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp157, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %ref.tmp157, i8 0, i64 44, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %value_size_soft_limit.i = getelementptr inbounds i8, ptr %ref.tmp157, i64 48
   store i64 -1, ptr %value_size_soft_limit.i, align 8
@@ -916,7 +916,7 @@ invoke.cont162:                                   ; preds = %if.end155
 
 if.then.i.i.i:                                    ; preds = %invoke.cont162
   %table_filter.i = getelementptr inbounds i8, ptr %ref.tmp157, i64 120
-  %call.i.i.i = invoke noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %_ZN7rocksdb11ReadOptionsD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -1064,7 +1064,7 @@ lpad161:                                          ; preds = %if.end155
 
 if.then.i.i.i217:                                 ; preds = %lpad161
   %table_filter.i218 = getelementptr inbounds i8, ptr %ref.tmp157, i64 120
-  %call.i.i.i219 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i218, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i218, i32 noundef 3)
+  %call.i.i.i219 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i218, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i218, i32 noundef 3)
           to label %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i308 unwind label %terminate.lpad.i.i.i220
 
 terminate.lpad.i.i.i220:                          ; preds = %if.then.i.i.i217
@@ -1621,7 +1621,7 @@ entry:
   %ref.tmp335 = alloca %"struct.rocksdb::CompactRangeOptions", align 8
   %state_.i = getelementptr inbounds i8, ptr %status, i64 8
   store ptr null, ptr %state_.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status, i8 0, i64 6, i1 false)
   store ptr null, ptr %dumpfile, align 8
   store ptr @.str.20, ptr %slice, align 8
   %size_.i = getelementptr inbounds i8, ptr %slice, i64 8
@@ -2401,7 +2401,7 @@ cleanup.action314:                                ; preds = %ehcleanup312
   br label %ehcleanup349
 
 if.end316:                                        ; preds = %invoke.cont282
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp319, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp319, i8 0, i64 6, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 8
   store i64 0, ptr %protection_bytes_per_key.i, align 8
   %vtable321 = load ptr, ptr %56, align 8
@@ -2597,7 +2597,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

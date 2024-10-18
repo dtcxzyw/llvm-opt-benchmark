@@ -3767,7 +3767,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc79, %_ZNK2cv3
   %indvars.iv222.i = phi i64 [ 0, %.lr.ph187.split.us.preheader.i ], [ %indvars.iv.next223.i, %._crit_edge.us.i ]
   %172 = trunc i64 %indvars.iv222.i to i32
   %173 = sub i32 %172, %.0156
-  %174 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %173, i32 noundef %122, i32 noundef %113)
+  %174 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %173, i32 noundef %122, i32 noundef range(i32 1, -16) %113)
           to label %.lr.ph.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph187.split.us.i
@@ -3814,7 +3814,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc79, %_ZNK2cv3
   %indvars.iv232.i = phi i64 [ 0, %.lr.ph190.split.us.preheader.i ], [ %indvars.iv.next233.i, %._crit_edge.us193.i ]
   %187 = trunc i64 %indvars.iv232.i to i32
   %188 = add i32 %122, %187
-  %189 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %188, i32 noundef %122, i32 noundef %113)
+  %189 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %188, i32 noundef %122, i32 noundef range(i32 1, -16) %113)
           to label %.lr.ph.us192.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
 .lr.ph.us192.i:                                   ; preds = %.lr.ph190.split.us.i
@@ -3847,7 +3847,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc79, %_ZNK2cv3
 .lr.ph187.split.i:                                ; preds = %.lr.ph187.i, %200
   %.0157186.i = phi i32 [ %201, %200 ], [ 0, %.lr.ph187.i ]
   %198 = sub nsw i32 %.0157186.i, %.0156
-  %199 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %198, i32 noundef %122, i32 noundef %113)
+  %199 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %198, i32 noundef %122, i32 noundef range(i32 1, -16) %113)
           to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.i
 
 200:                                              ; preds = %.lr.ph187.split.i
@@ -3890,7 +3890,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc79, %_ZNK2cv3
 .lr.ph190.split.i:                                ; preds = %.lr.ph190.i, %207
   %.1158189.i = phi i32 [ %208, %207 ], [ 0, %.lr.ph190.i ]
   %205 = add nsw i32 %.1158189.i, %122
-  %206 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %205, i32 noundef %122, i32 noundef %113)
+  %206 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %205, i32 noundef %122, i32 noundef range(i32 1, -16) %113)
           to label %207 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.i
 
 207:                                              ; preds = %.lr.ph190.split.i
@@ -4054,7 +4054,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc79, %_ZNK2cv3
   %indvars.iv257.i = phi i64 [ 0, %.lr.ph211.i ], [ %indvars.iv.next258.i, %276 ]
   %273 = trunc i64 %indvars.iv257.i to i32
   %274 = sub i32 %273, %.0
-  %275 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %274, i32 noundef %123, i32 noundef %113)
+  %275 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %274, i32 noundef %123, i32 noundef range(i32 1, -16) %113)
           to label %276 unwind label %.loopexit.split-lp.loopexit.i
 
 276:                                              ; preds = %272
@@ -4073,7 +4073,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc79, %_ZNK2cv3
   %indvars.iv262.i = phi i64 [ 0, %.lr.ph213.i ], [ %indvars.iv.next263.i, %287 ]
   %284 = add nsw i64 %indvars.iv262.i, %271
   %285 = trunc nsw i64 %284 to i32
-  %286 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %285, i32 noundef %123, i32 noundef %113)
+  %286 = invoke noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %285, i32 noundef %123, i32 noundef range(i32 1, -16) %113)
           to label %287 unwind label %.loopexit.i
 
 287:                                              ; preds = %283

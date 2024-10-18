@@ -2009,7 +2009,7 @@ entry:
   %fPrefix.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPrefix.i.i) #18
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #18
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(146) %0) #18
   ret void
 }
 

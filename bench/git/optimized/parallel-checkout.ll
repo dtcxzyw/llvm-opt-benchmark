@@ -399,17 +399,17 @@ if.end30:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.end30
   %14 = load ptr, ptr %pc_item, align 8
   %oid2.i = getelementptr inbounds i8, ptr %14, i64 72
-  %call3.i = call i32 @stream_blob_to_fd(i32 noundef %call13, ptr noundef nonnull %oid2.i, ptr noundef nonnull %call.i18, i32 noundef 1) #16
+  %call3.i = call i32 @stream_blob_to_fd(i32 noundef range(i32 0, -2147483648) %call13, ptr noundef nonnull %oid2.i, ptr noundef nonnull %call.i18, i32 noundef 1) #16
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %close_and_clear.exit26, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %call.i.i = call i64 @lseek64(i32 noundef %call13, i64 noundef 0, i32 noundef 0) #16
+  %call.i.i = call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call13, i64 noundef 0, i32 noundef 0) #16
   %cmp.not.i.i = icmp eq i64 %call.i.i, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %reset_fd.exit.i
 
 if.end.i.i:                                       ; preds = %if.then5.i
-  %call3.i.i = call i32 @ftruncate64(i32 noundef %call13, i64 noundef 0) #16
+  %call3.i.i = call i32 @ftruncate64(i32 noundef range(i32 0, -2147483648) %call13, i64 noundef 0) #16
   %tobool.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool.not.i.i, label %if.end10.i, label %reset_fd.exit.i
 
@@ -454,7 +454,7 @@ if.then28.i:                                      ; preds = %if.end21.i
 if.end30.i:                                       ; preds = %if.then28.i, %if.end21.if.end30_crit_edge.i
   %20 = phi i64 [ %19, %if.then28.i ], [ %.pre.i, %if.end21.if.end30_crit_edge.i ]
   %blob.0.i = phi ptr [ %call29.i, %if.then28.i ], [ %call12.i, %if.end21.if.end30_crit_edge.i ]
-  %call31.i = call i64 @write_in_full(i32 noundef %call13, ptr noundef %blob.0.i, i64 noundef %20) #16
+  %call31.i = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %call13, ptr noundef %blob.0.i, i64 noundef %20) #16
   call void @free(ptr noundef %blob.0.i) #16
   %cmp.i = icmp slt i64 %call31.i, 0
   br i1 %cmp.i, label %if.then32.i, label %close_and_clear.exit26
@@ -860,7 +860,7 @@ if.else40.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i, label %if.then.i.i28, label %if.end.i.i
 
 if.then.i.i28:                                    ; preds = %if.else40.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 553, ptr noundef nonnull @.str.26, i32 noundef %call33.i, i32 noundef 16) #18
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 553, ptr noundef nonnull @.str.26, i32 noundef range(i32 1, -2147483648) %call33.i, i32 noundef 16) #18
   unreachable
 
 if.end.i.i:                                       ; preds = %if.else40.i
@@ -873,7 +873,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end6.i.i, label %if.then.i.i.i27
 
 if.then.i.i.i27:                                  ; preds = %if.then4.i.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 541, ptr noundef nonnull @.str.29, i32 noundef %call33.i, i32 noundef 160) #18
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 541, ptr noundef nonnull @.str.29, i32 noundef range(i32 1, -2147483648) %call33.i, i32 noundef 160) #18
   unreachable
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -881,7 +881,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i17.i.i, label %if.end6.i.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %if.else.i.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 541, ptr noundef nonnull @.str.29, i32 noundef %call33.i, i32 noundef 16) #18
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 541, ptr noundef nonnull @.str.29, i32 noundef range(i32 1, -2147483648) %call33.i, i32 noundef 16) #18
   unreachable
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then4.i.i

@@ -509,7 +509,7 @@ for.body6.us.i120:                                ; preds = %for.body6.us.i120, 
   %buffer.i.us.i131 = getelementptr inbounds i8, ptr %39, i64 40
   %40 = load ptr, ptr %buffer.i.us.i131, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i110)
-  tail call fastcc void @zrle_encode_tile16be(ptr noundef nonnull %vs, ptr noundef %40, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile16be(ptr noundef nonnull %vs, ptr noundef %40, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118, i32 noundef range(i32 0, 4) %zywrle_level.0)
   %add15.us.i132 = add i32 %tx.021.us.i, 64
   %cmp5.us.i133 = icmp slt i32 %add15.us.i132, %add4.i113
   br i1 %cmp5.us.i133, label %for.body6.us.i120, label %for.cond3.for.inc16_crit_edge.us.i134, !llvm.loop !16
@@ -561,7 +561,7 @@ for.body6.us.i150:                                ; preds = %for.body6.us.i150, 
   %buffer.i.us.i162 = getelementptr inbounds i8, ptr %45, i64 40
   %46 = load ptr, ptr %buffer.i.us.i162, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i137)
-  tail call fastcc void @zrle_encode_tile16le(ptr noundef nonnull %vs, ptr noundef %46, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile16le(ptr noundef nonnull %vs, ptr noundef %46, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148, i32 noundef range(i32 0, 4) %zywrle_level.0)
   %add15.us.i163 = add i32 %tx.021.us.i151, 64
   %cmp5.us.i164 = icmp slt i32 %add15.us.i163, %add4.i141
   br i1 %cmp5.us.i164, label %for.body6.us.i150, label %for.cond3.for.inc16_crit_edge.us.i165, !llvm.loop !18
@@ -616,7 +616,7 @@ for.body6.us.i181:                                ; preds = %for.body6.us.i181, 
   %buffer.i.us.i192 = getelementptr inbounds i8, ptr %52, i64 40
   %53 = load ptr, ptr %buffer.i.us.i192, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i168)
-  tail call fastcc void @zrle_encode_tile15be(ptr noundef nonnull %vs, ptr noundef %53, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile15be(ptr noundef nonnull %vs, ptr noundef %53, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179, i32 noundef range(i32 0, 4) %zywrle_level.0)
   %add15.us.i193 = add i32 %tx.021.us.i182, 64
   %cmp5.us.i194 = icmp slt i32 %add15.us.i193, %add4.i172
   br i1 %cmp5.us.i194, label %for.body6.us.i181, label %for.cond3.for.inc16_crit_edge.us.i195, !llvm.loop !20
@@ -668,7 +668,7 @@ for.body6.us.i211:                                ; preds = %for.body6.us.i211, 
   %buffer.i.us.i222 = getelementptr inbounds i8, ptr %59, i64 40
   %60 = load ptr, ptr %buffer.i.us.i222, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i198)
-  tail call fastcc void @zrle_encode_tile15le(ptr noundef nonnull %vs, ptr noundef %60, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile15le(ptr noundef nonnull %vs, ptr noundef %60, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209, i32 noundef range(i32 0, 4) %zywrle_level.0)
   %add15.us.i223 = add i32 %tx.021.us.i212, 64
   %cmp5.us.i224 = icmp slt i32 %add15.us.i223, %add4.i202
   br i1 %cmp5.us.i224, label %for.body6.us.i211, label %for.cond3.for.inc16_crit_edge.us.i225, !llvm.loop !22
@@ -785,7 +785,7 @@ for.body6.us.i241:                                ; preds = %for.body6.us.i241, 
   %buffer.i.us.i253 = getelementptr inbounds i8, ptr %73, i64 40
   %74 = load ptr, ptr %buffer.i.us.i253, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i228)
-  tail call fastcc void @zrle_encode_tile24abe(ptr noundef nonnull %vs, ptr noundef %74, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile24abe(ptr noundef nonnull %vs, ptr noundef %74, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239, i32 noundef range(i32 0, 4) %zywrle_level.0)
   %add15.us.i254 = add i32 %tx.021.us.i242, 64
   %cmp5.us.i255 = icmp slt i32 %add15.us.i254, %add4.i232
   br i1 %cmp5.us.i255, label %for.body6.us.i241, label %for.cond3.for.inc16_crit_edge.us.i256, !llvm.loop !24
@@ -837,7 +837,7 @@ for.body6.us.i272:                                ; preds = %for.body6.us.i272, 
   %buffer.i.us.i284 = getelementptr inbounds i8, ptr %79, i64 40
   %80 = load ptr, ptr %buffer.i.us.i284, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i259)
-  tail call fastcc void @zrle_encode_tile24ale(ptr noundef nonnull %vs, ptr noundef %80, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile24ale(ptr noundef nonnull %vs, ptr noundef %80, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270, i32 noundef range(i32 0, 4) %zywrle_level.0)
   %add15.us.i285 = add i32 %tx.021.us.i273, 64
   %cmp5.us.i286 = icmp slt i32 %add15.us.i285, %add4.i263
   br i1 %cmp5.us.i286, label %for.body6.us.i272, label %for.cond3.for.inc16_crit_edge.us.i287, !llvm.loop !26
@@ -1872,7 +1872,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_16be.exit.i, !llvm.loop !51
 
 zywrle_rgbyuv_16be.exit.i:                        ; preds = %while.end.i.i, %do.end.i
-  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
+  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef range(i32 1, 256) %zywrle_level.tr)
   %cmp276325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
@@ -2989,7 +2989,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_16le.exit.i, !llvm.loop !84
 
 zywrle_rgbyuv_16le.exit.i:                        ; preds = %while.end.i.i, %do.end.i
-  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
+  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef range(i32 1, 256) %zywrle_level.tr)
   %cmp276325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
@@ -3727,7 +3727,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_15be.exit.i, !llvm.loop !110
 
 zywrle_rgbyuv_15be.exit.i:                        ; preds = %while.end.i.i, %do.end.i
-  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
+  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef range(i32 1, 256) %zywrle_level.tr)
   %cmp279325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
@@ -4467,7 +4467,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_15le.exit.i, !llvm.loop !136
 
 zywrle_rgbyuv_15le.exit.i:                        ; preds = %while.end.i.i, %do.end.i
-  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
+  tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef range(i32 1, 256) %zywrle_level.tr)
   %cmp279325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 

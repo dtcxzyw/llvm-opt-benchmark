@@ -50,7 +50,7 @@ entry:
   %m_charSet = getelementptr inbounds i8, ptr %this, i64 20
   %m_readahead = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %m_mark, i8 0, i64 96, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_readahead) #15
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIcSaIcEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead, i64 noundef 0)
           to label %_ZNSt5dequeIcSaIcEEC2Ev.exit unwind label %lpad.i.i
@@ -62,7 +62,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i.i
 lpad.i.i:                                         ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_readahead) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead) #15
   br label %common.resume
 
 _ZNSt5dequeIcSaIcEEC2Ev.exit:                     ; preds = %entry
@@ -308,7 +308,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i: ; preds = %_ZNSt11_D
   br label %_ZNSt11_Deque_baseIcSaIcEED2Ev.exit
 
 _ZNSt11_Deque_baseIcSaIcEED2Ev.exit:              ; preds = %entry, %_ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
   ret void
 }
 
@@ -357,7 +357,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i.i: ; preds = %_ZNSt11
   br label %_ZNSt5dequeIcSaIcEED2Ev.exit
 
 _ZNSt5dequeIcSaIcEED2Ev.exit:                     ; preds = %delete.end, %_ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_readahead) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead) #15
   ret void
 }
 

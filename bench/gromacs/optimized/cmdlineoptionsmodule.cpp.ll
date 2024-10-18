@@ -199,7 +199,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.
 
 9:                                                ; preds = %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -237,7 +237,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.
 
 9:                                                ; preds = %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit.i
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleD2Ev.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -288,7 +288,7 @@ _ZNKSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_del
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !noalias !5
-  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %13 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
@@ -520,7 +520,7 @@ define internal void @_ZNK3gmx12_GLOBAL__N_124CommandLineOptionsModule9writeHelp
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !noalias !10
-  invoke void %17(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  invoke void %17(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS4_.exit unwind label %19
 
 _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %14
@@ -933,7 +933,7 @@ define linkonce_odr void @_ZN3gmx13formatAndJoinINS_12ArrayRefIterIKPKcEENS_17Id
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc15 unwind label %25
 
 .noexc15:                                         ; preds = %.noexc
@@ -959,7 +959,7 @@ define linkonce_odr void @_ZN3gmx13formatAndJoinINS_12ArrayRefIterIKPKcEENS_17Id
 
 16:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %.body
 
 17:                                               ; preds = %.noexc15
@@ -1238,7 +1238,7 @@ define linkonce_odr void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_t
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -1255,7 +1255,7 @@ define linkonce_odr void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_t
 9:                                                ; preds = %11, %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   br label %.body
 
 11:                                               ; preds = %.noexc3
@@ -1321,7 +1321,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 24
   %15 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
   store ptr %8, ptr %15, align 8
   %.not.i.i.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleC2EPKcS3_St8functionIFSt10unique_ptrINS_25ICommandLineOptionsModuleESt14default_deleteIS6_EEvEE.exit
@@ -1359,7 +1359,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.
   br i1 %.not.i.i.i, label %_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleD2Ev.exit, label %26
 
 26:                                               ; preds = %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit.i
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleD2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -1407,7 +1407,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 24
   %15 = getelementptr inbounds i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
   store ptr %8, ptr %15, align 8
   %.not.i.i.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleC2EPKcS3_St8functionIFSt10unique_ptrINS_25ICommandLineOptionsModuleESt14default_deleteIS6_EEvEE.exit

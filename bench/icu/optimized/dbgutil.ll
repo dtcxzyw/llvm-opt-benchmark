@@ -560,7 +560,7 @@ for.body13.i:                                     ; preds = %_ZL12_fieldString14
   %arrayidx17.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i)
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %call.i.i = call ptr @udbg_enumName(i32 noundef %1, i32 noundef %7)
+  %call.i.i = call ptr @udbg_enumName(i32 noundef range(i32 -2147483648, 6) %1, i32 noundef %7)
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 

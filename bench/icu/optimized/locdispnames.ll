@@ -605,7 +605,7 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then15.i.i, %if.end13.i.i
-  %call26.i.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %5, ptr noundef nonnull @_ZL11_kLanguages, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %call, i32 noundef %cond.i, ptr noundef %errorCode)
+  %call26.i.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %5, ptr noundef nonnull @_ZL11_kLanguages, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %call, i32 noundef %cond.i, ptr noundef nonnull %errorCode)
   %.pre = load i32, ptr %errorCode, align 4
   %10 = icmp sgt i32 %.pre, 0
   %11 = select i1 %10, i32 0, i32 %call26.i.i
@@ -691,7 +691,7 @@ if.then15.i.i54:                                  ; preds = %if.end13.i.i50
   br label %if.end22.i.i52
 
 if.end22.i.i52:                                   ; preds = %if.then15.i.i54, %if.end13.i.i50
-  %call26.i.i53 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %18, ptr noundef nonnull @_ZL11_kLanguages, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %call9, i32 noundef %cond.i34, ptr noundef %errorCode)
+  %call26.i.i53 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %18, ptr noundef nonnull @_ZL11_kLanguages, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %call9, i32 noundef %cond.i34, ptr noundef nonnull %errorCode)
   %.pre60 = load i32, ptr %errorCode, align 4
   %23 = icmp sgt i32 %.pre60, 0
   %24 = select i1 %23, i32 0, i32 %call26.i.i53
@@ -938,7 +938,7 @@ if.then15.i:                                      ; preds = %if.end13.i
   br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit
 
 if.end22.i:                                       ; preds = %if.end13.i
-  %call26.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL19_kScriptsStandAlone, ptr noundef null, ptr noundef nonnull %localeBuffer.i, ptr noundef nonnull %localeBuffer.i, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %err)
+  %call26.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL19_kScriptsStandAlone, ptr noundef null, ptr noundef nonnull %localeBuffer.i, ptr noundef nonnull %localeBuffer.i, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %err)
   br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit
 
 _ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit: ; preds = %if.then12.i, %if.then15.i, %if.end22.i
@@ -1151,7 +1151,7 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
   br label %uloc_getDisplayCountry_75.exit
 
 if.end22.i.i:                                     ; preds = %if.end13.i.i
-  %call26.i.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str.3, ptr noundef %5, ptr noundef nonnull @_ZL11_kCountries, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %call, i32 noundef %cond.i, ptr noundef %errorCode)
+  %call26.i.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str.3, ptr noundef %5, ptr noundef nonnull @_ZL11_kCountries, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %call, i32 noundef %cond.i, ptr noundef nonnull %errorCode)
   br label %uloc_getDisplayCountry_75.exit
 
 uloc_getDisplayCountry_75.exit:                   ; preds = %if.then5.i.i, %if.then12.i.i, %if.then15.i.i, %if.end22.i.i
@@ -1236,7 +1236,7 @@ if.then15.i.i54:                                  ; preds = %if.end13.i.i50
   br label %uloc_getDisplayCountry_75.exit58
 
 if.end22.i.i52:                                   ; preds = %if.end13.i.i50
-  %call26.i.i53 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str.3, ptr noundef %17, ptr noundef nonnull @_ZL11_kCountries, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %call9, i32 noundef %cond.i34, ptr noundef %errorCode)
+  %call26.i.i53 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str.3, ptr noundef %17, ptr noundef nonnull @_ZL11_kCountries, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %call9, i32 noundef %cond.i34, ptr noundef nonnull %errorCode)
   br label %uloc_getDisplayCountry_75.exit58
 
 uloc_getDisplayCountry_75.exit58:                 ; preds = %if.then5.i.i57, %if.then12.i.i56, %if.then15.i.i54, %if.end22.i.i52
@@ -1404,7 +1404,7 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
   br label %uloc_getDisplayVariant_75.exit
 
 if.end22.i.i:                                     ; preds = %if.end13.i.i
-  %call26.i.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %5, ptr noundef nonnull @_ZL10_kVariants, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %call, i32 noundef %cond.i, ptr noundef %errorCode)
+  %call26.i.i = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %5, ptr noundef nonnull @_ZL10_kVariants, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %call, i32 noundef %cond.i, ptr noundef nonnull %errorCode)
   br label %uloc_getDisplayVariant_75.exit
 
 uloc_getDisplayVariant_75.exit:                   ; preds = %if.then5.i.i, %if.then12.i.i, %if.then15.i.i, %if.end22.i.i
@@ -1489,7 +1489,7 @@ if.then15.i.i54:                                  ; preds = %if.end13.i.i50
   br label %uloc_getDisplayVariant_75.exit58
 
 if.end22.i.i52:                                   ; preds = %if.end13.i.i50
-  %call26.i.i53 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %17, ptr noundef nonnull @_ZL10_kVariants, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %call9, i32 noundef %cond.i34, ptr noundef %errorCode)
+  %call26.i.i53 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %17, ptr noundef nonnull @_ZL10_kVariants, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %localeBuffer.i.i35, ptr noundef nonnull %call9, i32 noundef %cond.i34, ptr noundef nonnull %errorCode)
   br label %uloc_getDisplayVariant_75.exit58
 
 uloc_getDisplayVariant_75.exit58:                 ; preds = %if.then5.i.i57, %if.then12.i.i56, %if.then15.i.i54, %if.end22.i.i52
@@ -1967,7 +1967,7 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then15.i.i, %if.end13.i.i
-  %call26.i.i158 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL11_kLanguages, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef %pErrorCode)
+  %call26.i.i158 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL11_kLanguages, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i, ptr noundef nonnull %localeBuffer.i.i, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87.sink.split:                         ; preds = %call7.i.i.noexc, %lor.lhs.false2.i.i
@@ -2035,11 +2035,11 @@ if.end13.i.i171:                                  ; preds = %call7.i.i.noexc177
   br i1 %cmp14.i.i172, label %if.then15.i.i174, label %if.end22.i.i173
 
 if.then15.i.i174:                                 ; preds = %if.end13.i.i171
-  %call20.i.i179 = invoke i32 @u_terminateUChars_75(ptr noundef %p.4, i32 noundef %cap.0, i32 noundef 0, ptr noundef nonnull %pErrorCode)
+  %call20.i.i179 = invoke i32 @u_terminateUChars_75(ptr noundef %p.4, i32 noundef range(i32 0, -2147483648) %cap.0, i32 noundef 0, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont97 unwind label %lpad86
 
 if.end22.i.i173:                                  ; preds = %if.end13.i.i171
-  %call26.i.i181 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL9_kScripts, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i159, ptr noundef nonnull %localeBuffer.i.i159, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef %pErrorCode)
+  %call26.i.i181 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL9_kScripts, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i159, ptr noundef nonnull %localeBuffer.i.i159, ptr noundef %p.4, i32 noundef range(i32 0, -2147483648) %cap.0, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont97 unwind label %lpad86
 
 invoke.cont97.sink.split:                         ; preds = %call7.i.i.noexc177, %if.end.i.i163
@@ -2085,7 +2085,7 @@ if.then15.i.i201:                                 ; preds = %if.end13.i.i198
           to label %invoke.cont100 unwind label %lpad86
 
 if.end22.i.i200:                                  ; preds = %if.end13.i.i198
-  %call26.i.i209 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str.3, ptr noundef %displayLocale, ptr noundef nonnull @_ZL11_kCountries, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i182, ptr noundef nonnull %localeBuffer.i.i182, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef %pErrorCode)
+  %call26.i.i209 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str.3, ptr noundef %displayLocale, ptr noundef nonnull @_ZL11_kCountries, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i182, ptr noundef nonnull %localeBuffer.i.i182, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont100 unwind label %lpad86
 
 invoke.cont100.sink.split:                        ; preds = %call7.i.i.noexc204, %lor.lhs.false2.i.i190
@@ -2131,7 +2131,7 @@ if.then15.i.i229:                                 ; preds = %if.end13.i.i226
           to label %invoke.cont103 unwind label %lpad86
 
 if.end22.i.i228:                                  ; preds = %if.end13.i.i226
-  %call26.i.i237 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL10_kVariants, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i210, ptr noundef nonnull %localeBuffer.i.i210, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef %pErrorCode)
+  %call26.i.i237 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL10_kVariants, ptr noundef null, ptr noundef nonnull %localeBuffer.i.i210, ptr noundef nonnull %localeBuffer.i.i210, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont103 unwind label %lpad86
 
 invoke.cont103.sink.split:                        ; preds = %call7.i.i.noexc232, %lor.lhs.false2.i.i218
@@ -2185,7 +2185,7 @@ if.then5.i:                                       ; preds = %lor.lhs.false2.i
   br label %invoke.cont116.thread
 
 if.end6.i:                                        ; preds = %lor.lhs.false2.i
-  %call7.i242 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL6_kKeys, ptr noundef null, ptr noundef nonnull %call112, ptr noundef nonnull %call112, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef %pErrorCode)
+  %call7.i242 = invoke fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL6_kKeys, ptr noundef null, ptr noundef nonnull %call112, ptr noundef nonnull %call112, ptr noundef %p.4, i32 noundef %cap.0, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont116 unwind label %lpad86
 
 invoke.cont116.thread:                            ; preds = %if.then5.i, %lor.lhs.false.i
@@ -2597,7 +2597,7 @@ if.then5:                                         ; preds = %lor.lhs.false2, %if
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false2
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %keywordValue)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %keywordValue)
   %len.i = getelementptr inbounds i8, ptr %keywordValue, i64 56
   store i32 0, ptr %len.i, align 8
   %1 = load ptr, ptr %keywordValue, align 8
@@ -2783,12 +2783,12 @@ if.else72:                                        ; preds = %invoke.cont9
 
 cleanup79:                                        ; preds = %if.then.i45, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit43, %if.else72
   %retval.2 = phi i32 [ %call78, %if.else72 ], [ %retval.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit43 ], [ %retval.1, %if.then.i45 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %keywordValue) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %keywordValue) #12
   br label %return
 
 ehcleanup80:                                      ; preds = %ehcleanup71, %lpad7, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup71 ], [ %4, %lpad ], [ %5, %lpad7 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %keywordValue) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %keywordValue) #12
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup79, %if.then5

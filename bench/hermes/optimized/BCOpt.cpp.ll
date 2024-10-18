@@ -75,7 +75,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %order, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i.i.i, i64 noundef 8) #10
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %order, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i.i.i, i64 noundef 8) #10
   %.pre13.pre.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre833.pre = load ptr, ptr %order, align 8
   br label %if.end.i.i
@@ -410,7 +410,7 @@ if.then48:                                        ; preds = %land.lhs.true44
   br i1 %cmp.not.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit, label %if.then.i.i65
 
 if.then.i.i65:                                    ; preds = %if.then48
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
 

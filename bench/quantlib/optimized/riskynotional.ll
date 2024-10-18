@@ -597,7 +597,7 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i.i.i
   %__cur.09.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.08.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
-  invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__cur.09.i.i.i)
+  invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %__cur.09.i.i.i)
           to label %for.inc.i.i.i unwind label %invoke.cont2.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -660,7 +660,7 @@ _ZNKSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
 for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i29
   %__cur.09.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i32, %for.inc.i.i.i29 ], [ %add.ptr, %_ZNKSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.08.i.i.i23 = phi i64 [ %dec.i.i.i31, %for.inc.i.i.i29 ], [ %__n, %_ZNKSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE12_M_check_lenEmPKc.exit ]
-  invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__cur.09.i.i.i22)
+  invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %__cur.09.i.i.i22)
           to label %for.inc.i.i.i29 unwind label %invoke.cont2.i.i.i24
 
 for.inc.i.i.i29:                                  ; preds = %for.body.i.i.i21

@@ -239,7 +239,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %call13.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call6.i, i32 noundef %i.0.i51) #7
   %value.i = getelementptr inbounds i8, ptr %call13.i, i64 16
   %3 = load ptr, ptr %value.i, align 8
-  %call14.i = call fastcc ptr @generate_v3(ptr noundef %3, ptr noundef nonnull %cnf, i32 noundef %add.i, ptr noundef %perr)
+  %call14.i = call fastcc ptr @generate_v3(ptr noundef %3, ptr noundef nonnull %cnf, i32 noundef %add.i, ptr noundef nonnull %perr)
   %tobool15.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool15.not.i, label %asn1_multi.exit, label %if.end17.i
 
@@ -451,7 +451,7 @@ if.else68.i:                                      ; preds = %sw.bb61.i
 if.end70.i:                                       ; preds = %if.then67.i, %sw.bb61.i
   %format.addr.0.i = phi i32 [ 4096, %if.then67.i ], [ 4097, %sw.bb61.i ]
   %value71.i = getelementptr inbounds i8, ptr %call.i38, i64 8
-  %call72.i = call i64 @ASN1_tag2bit(i32 noundef %0) #7
+  %call72.i = call i64 @ASN1_tag2bit(i32 noundef range(i32 18, 16) %0) #7
   %call73.i = call i32 @ASN1_mbstring_copy(ptr noundef nonnull %value71.i, ptr noundef nonnull %spec.store.select.i, i32 noundef -1, i32 noundef %format.addr.0.i, i64 noundef %call72.i) #7
   %cmp74.i = icmp slt i32 %call73.i, 1
   br i1 %cmp74.i, label %bad_str.i, label %sw.epilog.i

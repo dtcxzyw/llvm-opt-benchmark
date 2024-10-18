@@ -348,7 +348,7 @@ ip_dst_mtu_maybe_forward.exit:                    ; preds = %176, %183, %194, %1
   br i1 %232, label %ip_exceeds_mtu.exit, label %233
 
 233:                                              ; preds = %226
-  %234 = tail call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef %205) #5
+  %234 = tail call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef range(i32 0, 65536) %205) #5
   br i1 %234, label %._crit_edge, label %ip_exceeds_mtu.exit
 
 ._crit_edge:                                      ; preds = %233
@@ -406,7 +406,7 @@ ip_exceeds_mtu.exit:                              ; preds = %226, %233, %217
   %271 = ptrtoint ptr %.pre.i to i64
   %272 = sub i64 %270, %271
   %273 = trunc i64 %272 to i32
-  %274 = tail call i32 @llvm.usub.sat.i32(i32 %253, i32 %273)
+  %274 = tail call i32 @llvm.usub.sat.i32(i32 range(i32 16, 196608) %253, i32 %273)
   %275 = or i32 %274, %267
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %skb_cow.exit.thread, label %skb_cow.exit

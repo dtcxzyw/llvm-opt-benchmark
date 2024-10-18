@@ -336,7 +336,7 @@ define void @prte_rml_compute_routing_tree() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %44 = phi ptr [ %46, %.lr.ph.i ], [ %43, %38 ]
   %.07.i = phi ptr [ %45, %.lr.ph.i ], [ %42, %38 ]
-  tail call void %44(ptr noundef %21) #9
+  tail call void %44(ptr noundef nonnull %21) #9
   %45 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null

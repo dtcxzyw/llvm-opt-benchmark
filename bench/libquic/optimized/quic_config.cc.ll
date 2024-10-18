@@ -2027,7 +2027,7 @@ entry:
   %has_send_value_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %has_send_value_, align 8
   %send_value_ = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %send_value_, ptr noundef nonnull align 8 dereferenceable(24) %value)
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(26) %send_value_, ptr noundef nonnull align 8 dereferenceable(26) %value)
   %port_.i = getelementptr inbounds i8, ptr %value, i64 24
   %0 = load i16, ptr %port_.i, align 8
   %port_3.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2106,7 +2106,7 @@ entry:
   %has_receive_value_ = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %has_receive_value_, align 8
   %receive_value_ = getelementptr inbounds i8, ptr %this, i64 56
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %receive_value_, ptr noundef nonnull align 8 dereferenceable(24) %value)
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(26) %receive_value_, ptr noundef nonnull align 8 dereferenceable(26) %value)
   %port_.i = getelementptr inbounds i8, ptr %value, i64 24
   %0 = load i16, ptr %port_.i, align 8
   %port_3.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -2245,7 +2245,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   %has_receive_value_.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %has_receive_value_.i, align 8
   %receive_value_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %call.i.i.i5 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %receive_value_.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14)
+  %call.i.i.i5 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(26) %receive_value_.i, ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp14)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -3366,7 +3366,7 @@ entry:
   %has_send_value_.i = getelementptr inbounds i8, ptr %this, i64 520
   store i8 1, ptr %has_send_value_.i, align 8
   %send_value_.i = getelementptr inbounds i8, ptr %this, i64 488
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %send_value_.i, ptr noundef nonnull align 8 dereferenceable(24) %alternate_server_address)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(26) %send_value_.i, ptr noundef nonnull align 8 dereferenceable(26) %alternate_server_address)
   %port_.i.i = getelementptr inbounds i8, ptr %alternate_server_address, i64 24
   %0 = load i16, ptr %port_.i.i, align 8
   %port_3.i.i = getelementptr inbounds i8, ptr %this, i64 512

@@ -401,7 +401,7 @@ define internal fastcc void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryC2Ev()
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, align 8
   store i32 4096, ptr getelementptr inbounds (i8, ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 8), align 8
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 4112)) #12
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 4112)) #12
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -419,7 +419,7 @@ define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD2Ev(ptr noun
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 4112
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #12
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   ret void
 }
 
@@ -474,7 +474,7 @@ define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD0Ev(ptr noun
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr %this, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 4112
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_.i) #12
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -483,7 +483,7 @@ entry:
 define internal void @_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory8GenerateEm(ptr noalias sret(%"class.node::quic::CID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %this, i64 noundef %length_hint) unnamed_addr #4 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 4112
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   %pos_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_.i, align 8
   %conv.i = sext i32 %0 to i64
@@ -524,7 +524,7 @@ _ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit: ; pre
 define internal void @_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory12GenerateIntoEP10ngtcp2_cidm(ptr noundef nonnull align 8 dereferenceable(4152) %this, ptr noundef %cid, i64 noundef %length_hint) unnamed_addr #4 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 4112
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   %pos_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_.i, align 8
   %conv.i = sext i32 %0 to i64

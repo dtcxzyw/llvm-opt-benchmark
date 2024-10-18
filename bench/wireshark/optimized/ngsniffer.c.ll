@@ -628,7 +628,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_read(ptr nocapture noundef readon
   br label %33
 
 .lr.ph:                                           ; preds = %6, %38
-  %16 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %16 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef range(i32 0, 2) 0, ptr noundef %3, ptr noundef %4)
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %17, label %21
 
@@ -897,7 +897,7 @@ ng_file_seek_rand.exit:                           ; preds = %6
   br label %107
 
 98:                                               ; preds = %94
-  %99 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %99 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef range(i32 0, 2) 1, ptr noundef %4, ptr noundef %5)
   %.not.i.i = icmp eq i32 %99, 0
   br i1 %.not.i.i, label %100, label %104
 
@@ -1037,7 +1037,7 @@ define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr nocapture n
   br label %ng_read_bytes.exit.thread
 
 27:                                               ; preds = %23
-  %28 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %8, i32 noundef 14, i32 noundef %1, ptr noundef %5, ptr noundef %6)
+  %28 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %8, i32 noundef 14, i32 noundef range(i32 0, 2) %1, ptr noundef %5, ptr noundef %6)
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %29, label %ng_read_bytes.exit
 
@@ -1244,7 +1244,7 @@ default.unreachable:                              ; preds = %102
   br label %ng_read_bytes.exit.thread
 
 130:                                              ; preds = %126
-  %131 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %9, i32 noundef 48, i32 noundef %1, ptr noundef %5, ptr noundef %6)
+  %131 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %9, i32 noundef 48, i32 noundef range(i32 0, 2) %1, ptr noundef %5, ptr noundef %6)
   %.not.i131 = icmp eq i32 %131, 0
   br i1 %.not.i131, label %132, label %ng_read_bytes.exit133
 
@@ -1629,7 +1629,7 @@ set_pseudo_header_frame4.exit:                    ; preds = %163, %169, %173, %1
   br label %ng_read_bytes.exit.thread
 
 280:                                              ; preds = %276
-  %281 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %10, i32 noundef 34, i32 noundef %1, ptr noundef %5, ptr noundef %6)
+  %281 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %10, i32 noundef 34, i32 noundef range(i32 0, 2) %1, ptr noundef %5, ptr noundef %6)
   %.not.i137 = icmp eq i32 %281, 0
   br i1 %.not.i137, label %282, label %ng_read_bytes.exit139
 
@@ -1738,7 +1738,7 @@ set_metadata_frame2.exit:                         ; preds = %315, %ng_read_bytes
   %335 = getelementptr inbounds i8, ptr %4, i64 16
   %336 = load i64, ptr %335, align 8
   %337 = getelementptr i8, ptr %334, i64 %336
-  %338 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef %337, i32 noundef %318, i32 noundef %1, ptr noundef %5, ptr noundef %6)
+  %338 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef %337, i32 noundef %318, i32 noundef range(i32 0, 2) %1, ptr noundef %5, ptr noundef %6)
   %.not.i140 = icmp eq i32 %338, 0
   br i1 %.not.i140, label %339, label %ng_read_bytes.exit142
 

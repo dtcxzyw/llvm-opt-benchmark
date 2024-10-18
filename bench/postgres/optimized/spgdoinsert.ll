@@ -1053,7 +1053,7 @@ checkSplitConditions.exit.thread:                 ; preds = %393, %422, %checkSp
   %483 = sext i16 %470 to i32
   %484 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %484)
-  %485 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %483) #10
+  %485 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %483) #10
   call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -1155,7 +1155,7 @@ fetch_att.exit.i:                                 ; preds = %486, %480, %477, %4
   %533 = sext i16 %520 to i32
   %534 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %534)
-  %535 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %533) #10
+  %535 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %533) #10
   call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -1251,7 +1251,7 @@ fetch_att.exit502.i:                              ; preds = %536, %530, %527, %5
   %580 = sext i16 %567 to i32
   %581 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %581)
-  %582 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %580) #10
+  %582 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %580) #10
   call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 

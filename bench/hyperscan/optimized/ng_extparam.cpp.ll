@@ -525,13 +525,13 @@ if.end111:                                        ; preds = %_ZNK3ue25depthcvjEv
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i)
   %accept.i.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %accept.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm, ptr readonly %expr)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull align 8 dereferenceable(505) %rm, ptr nonnull readonly align 8 dereferenceable(49) %expr)
           to label %invoke.cont4.i.i unwind label %lpad3.i.i
 
 invoke.cont4.i.i:                                 ; preds = %if.end111
   %acceptEod.i.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp5.sroa.0.0.copyload.i.i = load ptr, ptr %acceptEod.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp5.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm, ptr readonly %expr)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp5.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull align 8 dereferenceable(505) %rm, ptr nonnull readonly align 8 dereferenceable(49) %expr)
           to label %invoke.cont7.i.i unwind label %lpad3.i.i
 
 invoke.cont7.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -2327,13 +2327,13 @@ if.end.i135:                                      ; preds = %_ZN3ue220has_proper
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i)
   %accept.i.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i3.i = load ptr, ptr %accept.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i3.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i3.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull align 8 dereferenceable(505) %rm)
           to label %invoke.cont5.i.i unwind label %lpad4.i.i
 
 invoke.cont5.i.i:                                 ; preds = %if.end.i135
   %acceptEod.i.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp6.sroa.0.0.copyload.i.i = load ptr, ptr %acceptEod.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull align 8 dereferenceable(505) %rm)
           to label %invoke.cont9.i.i unwind label %lpad4.i.i
 
 invoke.cont9.i.i:                                 ; preds = %invoke.cont5.i.i
@@ -4259,7 +4259,7 @@ if.then.thread.i:                                 ; preds = %lor.rhs.i
   br i1 %cmp.not.i.i.i13.i, label %if.then.i.i.i.i, label %if.then6.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.thread.i, %if.then.i
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %ref.tmp29)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %ref.tmp29)
           to label %for.inc unwind label %lpad17
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i
@@ -4356,13 +4356,13 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %34 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.sroa.0.0.copyload, i64 64
   store i64 %34, ptr %m_capacity4.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_reports, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_reports, i8 0, i64 24, i1 false)
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i18
   %35 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !289
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %35
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports9, ptr %30, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports9, ptr %30, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i.i
@@ -4418,7 +4418,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i
@@ -4708,7 +4708,7 @@ if.else.i.i.i.thread:                             ; preds = %if.then.thread
   br label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyISD_PSA_EEEEvSI_mT_.exit.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.143") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.143") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -5869,7 +5869,7 @@ if.then.thread.i:                                 ; preds = %lor.rhs.i
   br i1 %cmp.not.i.i.i13.i, label %if.then.i.i.i.i, label %if.then6.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.thread.i, %if.then.i14
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %ref.tmp28)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %ref.tmp28)
           to label %for.inc unwind label %lpad19
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i14
@@ -5966,13 +5966,13 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %31 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.sroa.0.0.copyload, i64 64
   store i64 %31, ptr %m_capacity4.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_reports, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_reports, i8 0, i64 24, i1 false)
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i17
   %32 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !412
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %27, i64 %32
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports9, ptr %27, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports9, ptr %27, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i.i
@@ -6107,13 +6107,13 @@ entry:
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
   %accept.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %accept.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %entry
   %acceptEod.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp6.sroa.0.0.copyload.i = load ptr, ptr %acceptEod.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
           to label %invoke.cont9.i unwind label %lpad4.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont5.i
@@ -6341,7 +6341,7 @@ if.else.i.i.i.thread:                             ; preds = %if.then.thread
   br label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_move_proxyISD_PSA_EEEEvSI_mT_.exit.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.143") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.143") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -6638,7 +6638,7 @@ if.then.thread.i:                                 ; preds = %lor.rhs.i
   br i1 %cmp.not.i.i.i13.i, label %if.then.i.i.i.i, label %if.then6.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.thread.i, %if.then.i14
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %ref.tmp28)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %ref.tmp28)
           to label %for.inc unwind label %lpad19
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i14
@@ -6735,13 +6735,13 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %29 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.sroa.0.0.copyload, i64 64
   store i64 %29, ptr %m_capacity4.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_reports, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_reports, i8 0, i64 24, i1 false)
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i17
   %30 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !455
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %25, i64 %30
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports9, ptr %25, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports9, ptr %25, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i.i
@@ -6814,7 +6814,7 @@ invoke.cont3:                                     ; preds = %entry
   %reports.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, ptr %reports.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
@@ -6992,13 +6992,13 @@ entry:
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
   %accept.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %accept.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %entry
   %acceptEod.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp6.sroa.0.0.copyload.i = load ptr, ptr %acceptEod.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
           to label %invoke.cont9.i unwind label %lpad4.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont5.i
@@ -7335,7 +7335,7 @@ if.then.thread.i:                                 ; preds = %lor.rhs.i
   br i1 %cmp.not.i.i.i13.i, label %if.then.i.i.i.i, label %if.then6.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.thread.i, %if.then.i14
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %ref.tmp28)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %ref.tmp28)
           to label %for.inc unwind label %lpad19
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i14
@@ -7432,13 +7432,13 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %29 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.sroa.0.0.copyload, i64 64
   store i64 %29, ptr %m_capacity4.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_reports, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_reports, i8 0, i64 24, i1 false)
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i17
   %30 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !509
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %25, i64 %30
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports9, ptr %25, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports9, ptr %25, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i.i
@@ -7687,7 +7687,7 @@ if.then.thread.i:                                 ; preds = %lor.rhs.i
   br i1 %cmp.not.i.i.i13.i, label %if.then.i.i.i.i, label %if.then6.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.thread.i, %if.then.i
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %ref.tmp28)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.161") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %new_reports, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %ref.tmp28)
           to label %for.inc unwind label %lpad19.loopexit
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i
@@ -7793,13 +7793,13 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %38 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.sroa.0.0.copyload, i64 64
   store i64 %38, ptr %m_capacity4.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_reports, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_reports, i8 0, i64 24, i1 false)
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i21
   %39 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !531
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %34, i64 %39
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports9, ptr %34, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports9, ptr %34, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i.i

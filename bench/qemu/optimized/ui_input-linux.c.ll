@@ -920,9 +920,9 @@ sw.bb40.i:                                        ; preds = %if.end.i22
 if.then43.i24:                                    ; preds = %sw.bb40.i
   %cmp45.i = icmp sgt i32 %60, 0
   %cond.i = select i1 %cmp45.i, i32 3, i32 4
-  tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %cond.i, i1 noundef zeroext true) #8
+  tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef range(i32 3, 5) %cond.i, i1 noundef zeroext true) #8
   tail call void @qemu_input_event_sync() #8
-  tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %cond.i, i1 noundef zeroext false) #8
+  tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef range(i32 3, 5) %cond.i, i1 noundef zeroext false) #8
   tail call void @qemu_input_event_sync() #8
   store i32 0, ptr %wheel41.i, align 4
   br label %if.end36

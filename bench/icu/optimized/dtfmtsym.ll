@@ -727,7 +727,7 @@ new.notnull:                                      ; preds = %if.end
 lpad.i:                                           ; preds = %new.notnull
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #17
+  call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(1296) %call2) #17
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #17
   resume { ptr, i32 } %2
 
@@ -838,7 +838,7 @@ if.end:                                           ; preds = %entry
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ]
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %ref.tmp) #17
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #17
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.end
@@ -853,7 +853,7 @@ _ZN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEC2ERKNS_6LocaleE.exit: 
 invoke.cont:                                      ; preds = %_ZN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEC2ERKNS_6LocaleE.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, i64 16), ptr %ref.tmp, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #17
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %ref.tmp) #17
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #17
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont
@@ -1141,7 +1141,7 @@ if.end:                                           ; preds = %entry
   %arrays.i = getelementptr inbounds i8, ptr %calendarSink, i64 8
   store ptr null, ptr %arrays.i, align 8
   %hashObj.i.i.i = getelementptr inbounds i8, ptr %calendarSink, i64 16
-  %call2.i.i13.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i13.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc.i unwind label %lpad.i
 
 call2.i.i.noexc.i:                                ; preds = %if.end
@@ -1168,7 +1168,7 @@ invoke.cont.i:                                    ; preds = %if.then5.i.i.i
 
 if.end.i.i16.i:                                   ; preds = %invoke.cont.i
   %hashObj.i.i17.i = getelementptr inbounds i8, ptr %calendarSink, i64 104
-  %call2.i.i21.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i17.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i21.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i17.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc20.i unwind label %lpad2.i
 
 call2.i.i.noexc20.i:                              ; preds = %if.end.i.i16.i
@@ -1196,7 +1196,7 @@ invoke.cont3.i:                                   ; preds = %if.then5.i.i19.i
 
 if.end.i.i26.i:                                   ; preds = %invoke.cont3.i
   %hashObj.i.i27.i = getelementptr inbounds i8, ptr %calendarSink, i64 192
-  %call2.i.i31.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i27.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i31.i = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i27.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc30.i unwind label %lpad4.i
 
 call2.i.i.noexc30.i:                              ; preds = %if.end.i.i26.i
@@ -1264,7 +1264,7 @@ common.resume:                                    ; preds = %ehcleanup887, %ehcl
 
 ehcleanup24.i:                                    ; preds = %ehcleanup23.i, %lpad.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup23.i ], [ %4, %lpad.i ]
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %calendarSink) #17
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink) #17
   br label %common.resume
 
 _ZN6icu_7512_GLOBAL__N_116CalendarDataSinkC2ER10UErrorCode.exit: ; preds = %invoke.cont7.i
@@ -1330,7 +1330,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeBuffer)
           to label %invoke.cont19 unwind label %lpad15.loopexit
 
 invoke.cont19:                                    ; preds = %while.body
@@ -1481,11 +1481,11 @@ lpad65:                                           ; preds = %if.then62
   br label %ehcleanup
 
 cleanup.thread:                                   ; preds = %invoke.cont47, %if.end52
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeBuffer) #17
   br label %while.end
 
 cleanup:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_116CalendarDataSink17visitAllResourcesEv.exit226, %invoke.cont57, %invoke.cont42
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeBuffer) #17
   %29 = load i16, ptr %fUnion.i, align 8
   %conv2.i2454 = and i16 %29, 1
   %tobool18.not = icmp eq i16 %conv2.i2454, 0
@@ -1493,11 +1493,11 @@ cleanup:                                          ; preds = %_ZN6icu_7512_GLOBAL
 
 ehcleanup:                                        ; preds = %lpad65, %lpad39, %lpad20
   %.pn = phi { ptr, i32 } [ %14, %lpad20 ], [ %20, %lpad39 ], [ %27, %lpad65 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeBuffer) #17
   br label %ehcleanup883
 
 while.end:                                        ; preds = %cleanup, %while.cond.preheader, %cleanup.thread
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path)
           to label %invoke.cont70 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont70:                                    ; preds = %while.end
@@ -1972,7 +1972,7 @@ if.then.i:                                        ; preds = %invoke.cont170
 
 .noexc343:                                        ; preds = %if.then.i
   %59 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i = invoke noundef ptr @uhash_get_75(ptr noundef %59, ptr noundef nonnull %keyUString.i)
+  %call.i6.i = invoke noundef ptr @uhash_get_75(ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i)
           to label %invoke.cont.i341 unwind label %lpad.i340
 
 invoke.cont.i341:                                 ; preds = %.noexc343
@@ -1981,14 +1981,14 @@ invoke.cont.i341:                                 ; preds = %.noexc343
 
 if.then3.i:                                       ; preds = %invoke.cont.i341
   %60 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i = invoke noundef i32 @uhash_geti_75(ptr noundef %60, ptr noundef nonnull %keyUString.i)
+  %call.i7.i = invoke noundef i32 @uhash_geti_75(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i)
           to label %invoke.cont4.i unwind label %lpad.i340
 
 invoke.cont4.i:                                   ; preds = %if.then3.i
   store i32 %call.i7.i, ptr %fShortYearNamesCount, align 8
   store ptr %call.i6.i, ptr %fShortYearNames, align 8
   %61 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i = invoke noundef ptr @uhash_remove_75(ptr noundef %61, ptr noundef nonnull %keyUString.i)
+  %call.i8.i = invoke noundef ptr @uhash_remove_75(ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i)
           to label %if.end.i unwind label %lpad.i340
 
 lpad.i340:                                        ; preds = %invoke.cont4.i, %if.then3.i, %.noexc343
@@ -2051,7 +2051,7 @@ if.then.i361:                                     ; preds = %invoke.cont175
 
 .noexc374:                                        ; preds = %if.then.i361
   %65 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i363 = invoke noundef ptr @uhash_get_75(ptr noundef %65, ptr noundef nonnull %keyUString.i359)
+  %call.i6.i363 = invoke noundef ptr @uhash_get_75(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i359)
           to label %invoke.cont.i365 unwind label %lpad.i364
 
 invoke.cont.i365:                                 ; preds = %.noexc374
@@ -2060,14 +2060,14 @@ invoke.cont.i365:                                 ; preds = %.noexc374
 
 if.then3.i367:                                    ; preds = %invoke.cont.i365
   %66 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i369 = invoke noundef i32 @uhash_geti_75(ptr noundef %66, ptr noundef nonnull %keyUString.i359)
+  %call.i7.i369 = invoke noundef i32 @uhash_geti_75(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i359)
           to label %invoke.cont4.i370 unwind label %lpad.i364
 
 invoke.cont4.i370:                                ; preds = %if.then3.i367
   store i32 %call.i7.i369, ptr %fShortZodiacNamesCount, align 8
   store ptr %call.i6.i363, ptr %fShortZodiacNames, align 8
   %67 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i371 = invoke noundef ptr @uhash_remove_75(ptr noundef %67, ptr noundef nonnull %keyUString.i359)
+  %call.i8.i371 = invoke noundef ptr @uhash_remove_75(ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i359)
           to label %if.end.i372 unwind label %lpad.i364
 
 lpad.i364:                                        ; preds = %invoke.cont4.i370, %if.then3.i367, %.noexc374
@@ -2776,7 +2776,7 @@ if.then.i508:                                     ; preds = %invoke.cont461
 
 .noexc521:                                        ; preds = %if.then.i508
   %140 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i510 = invoke noundef ptr @uhash_get_75(ptr noundef %140, ptr noundef nonnull %keyUString.i506)
+  %call.i6.i510 = invoke noundef ptr @uhash_get_75(ptr noundef %140, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i506)
           to label %invoke.cont.i512 unwind label %lpad.i511
 
 invoke.cont.i512:                                 ; preds = %.noexc521
@@ -2785,14 +2785,14 @@ invoke.cont.i512:                                 ; preds = %.noexc521
 
 if.then3.i514:                                    ; preds = %invoke.cont.i512
   %141 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i516 = invoke noundef i32 @uhash_geti_75(ptr noundef %141, ptr noundef nonnull %keyUString.i506)
+  %call.i7.i516 = invoke noundef i32 @uhash_geti_75(ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i506)
           to label %invoke.cont4.i517 unwind label %lpad.i511
 
 invoke.cont4.i517:                                ; preds = %if.then3.i514
   store i32 %call.i7.i516, ptr %fErasCount, align 8
   store ptr %call.i6.i510, ptr %fEras, align 8
   %142 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i518 = invoke noundef ptr @uhash_remove_75(ptr noundef %142, ptr noundef nonnull %keyUString.i506)
+  %call.i8.i518 = invoke noundef ptr @uhash_remove_75(ptr noundef %142, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i506)
           to label %if.end.i519 unwind label %lpad.i511
 
 lpad.i511:                                        ; preds = %invoke.cont4.i517, %if.then3.i514, %.noexc521
@@ -2841,7 +2841,7 @@ if.then.i534:                                     ; preds = %invoke.cont467
 
 .noexc547:                                        ; preds = %if.then.i534
   %147 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i536 = invoke noundef ptr @uhash_get_75(ptr noundef %147, ptr noundef nonnull %keyUString.i532)
+  %call.i6.i536 = invoke noundef ptr @uhash_get_75(ptr noundef %147, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i532)
           to label %invoke.cont.i538 unwind label %lpad.i537
 
 invoke.cont.i538:                                 ; preds = %.noexc547
@@ -2850,14 +2850,14 @@ invoke.cont.i538:                                 ; preds = %.noexc547
 
 if.then3.i540:                                    ; preds = %invoke.cont.i538
   %148 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i542 = invoke noundef i32 @uhash_geti_75(ptr noundef %148, ptr noundef nonnull %keyUString.i532)
+  %call.i7.i542 = invoke noundef i32 @uhash_geti_75(ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i532)
           to label %invoke.cont4.i543 unwind label %lpad.i537
 
 invoke.cont4.i543:                                ; preds = %if.then3.i540
   store i32 %call.i7.i542, ptr %fEraNamesCount, align 8
   store ptr %call.i6.i536, ptr %fEraNames, align 8
   %149 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i544 = invoke noundef ptr @uhash_remove_75(ptr noundef %149, ptr noundef nonnull %keyUString.i532)
+  %call.i8.i544 = invoke noundef ptr @uhash_remove_75(ptr noundef %149, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i532)
           to label %if.end.i545 unwind label %lpad.i537
 
 lpad.i537:                                        ; preds = %invoke.cont4.i543, %if.then3.i540, %.noexc547
@@ -2977,7 +2977,7 @@ if.then.i565:                                     ; preds = %invoke.cont480
 
 .noexc578:                                        ; preds = %if.then.i565
   %163 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i567 = invoke noundef ptr @uhash_get_75(ptr noundef %163, ptr noundef nonnull %keyUString.i563)
+  %call.i6.i567 = invoke noundef ptr @uhash_get_75(ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i563)
           to label %invoke.cont.i569 unwind label %lpad.i568
 
 invoke.cont.i569:                                 ; preds = %.noexc578
@@ -2986,14 +2986,14 @@ invoke.cont.i569:                                 ; preds = %.noexc578
 
 if.then3.i571:                                    ; preds = %invoke.cont.i569
   %164 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i573 = invoke noundef i32 @uhash_geti_75(ptr noundef %164, ptr noundef nonnull %keyUString.i563)
+  %call.i7.i573 = invoke noundef i32 @uhash_geti_75(ptr noundef %164, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i563)
           to label %invoke.cont4.i574 unwind label %lpad.i568
 
 invoke.cont4.i574:                                ; preds = %if.then3.i571
   store i32 %call.i7.i573, ptr %fNarrowErasCount, align 8
   store ptr %call.i6.i567, ptr %fNarrowEras, align 8
   %165 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i575 = invoke noundef ptr @uhash_remove_75(ptr noundef %165, ptr noundef nonnull %keyUString.i563)
+  %call.i8.i575 = invoke noundef ptr @uhash_remove_75(ptr noundef %165, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i563)
           to label %if.end.i576 unwind label %lpad.i568
 
 lpad.i568:                                        ; preds = %invoke.cont4.i574, %if.then3.i571, %.noexc578
@@ -3120,7 +3120,7 @@ if.then.i625:                                     ; preds = %invoke.cont493
 
 .noexc638:                                        ; preds = %if.then.i625
   %178 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i627 = invoke noundef ptr @uhash_get_75(ptr noundef %178, ptr noundef nonnull %keyUString.i623)
+  %call.i6.i627 = invoke noundef ptr @uhash_get_75(ptr noundef %178, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i623)
           to label %invoke.cont.i629 unwind label %lpad.i628
 
 invoke.cont.i629:                                 ; preds = %.noexc638
@@ -3129,14 +3129,14 @@ invoke.cont.i629:                                 ; preds = %.noexc638
 
 if.then3.i631:                                    ; preds = %invoke.cont.i629
   %179 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i633 = invoke noundef i32 @uhash_geti_75(ptr noundef %179, ptr noundef nonnull %keyUString.i623)
+  %call.i7.i633 = invoke noundef i32 @uhash_geti_75(ptr noundef %179, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i623)
           to label %invoke.cont4.i634 unwind label %lpad.i628
 
 invoke.cont4.i634:                                ; preds = %if.then3.i631
   store i32 %call.i7.i633, ptr %fMonthsCount, align 8
   store ptr %call.i6.i627, ptr %fMonths, align 8
   %180 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i635 = invoke noundef ptr @uhash_remove_75(ptr noundef %180, ptr noundef nonnull %keyUString.i623)
+  %call.i8.i635 = invoke noundef ptr @uhash_remove_75(ptr noundef %180, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i623)
           to label %if.end.i636 unwind label %lpad.i628
 
 lpad.i628:                                        ; preds = %invoke.cont4.i634, %if.then3.i631, %.noexc638
@@ -3191,7 +3191,7 @@ if.then.i655:                                     ; preds = %invoke.cont498
 
 .noexc668:                                        ; preds = %if.then.i655
   %184 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i657 = invoke noundef ptr @uhash_get_75(ptr noundef %184, ptr noundef nonnull %keyUString.i653)
+  %call.i6.i657 = invoke noundef ptr @uhash_get_75(ptr noundef %184, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i653)
           to label %invoke.cont.i659 unwind label %lpad.i658
 
 invoke.cont.i659:                                 ; preds = %.noexc668
@@ -3200,14 +3200,14 @@ invoke.cont.i659:                                 ; preds = %.noexc668
 
 if.then3.i661:                                    ; preds = %invoke.cont.i659
   %185 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i663 = invoke noundef i32 @uhash_geti_75(ptr noundef %185, ptr noundef nonnull %keyUString.i653)
+  %call.i7.i663 = invoke noundef i32 @uhash_geti_75(ptr noundef %185, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i653)
           to label %invoke.cont4.i664 unwind label %lpad.i658
 
 invoke.cont4.i664:                                ; preds = %if.then3.i661
   store i32 %call.i7.i663, ptr %fShortMonthsCount, align 8
   store ptr %call.i6.i657, ptr %fShortMonths, align 8
   %186 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i665 = invoke noundef ptr @uhash_remove_75(ptr noundef %186, ptr noundef nonnull %keyUString.i653)
+  %call.i8.i665 = invoke noundef ptr @uhash_remove_75(ptr noundef %186, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i653)
           to label %if.end.i666 unwind label %lpad.i658
 
 lpad.i658:                                        ; preds = %invoke.cont4.i664, %if.then3.i661, %.noexc668
@@ -3262,7 +3262,7 @@ if.then.i685:                                     ; preds = %invoke.cont503
 
 .noexc698:                                        ; preds = %if.then.i685
   %190 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i687 = invoke noundef ptr @uhash_get_75(ptr noundef %190, ptr noundef nonnull %keyUString.i683)
+  %call.i6.i687 = invoke noundef ptr @uhash_get_75(ptr noundef %190, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i683)
           to label %invoke.cont.i689 unwind label %lpad.i688
 
 invoke.cont.i689:                                 ; preds = %.noexc698
@@ -3271,14 +3271,14 @@ invoke.cont.i689:                                 ; preds = %.noexc698
 
 if.then3.i691:                                    ; preds = %invoke.cont.i689
   %191 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i693 = invoke noundef i32 @uhash_geti_75(ptr noundef %191, ptr noundef nonnull %keyUString.i683)
+  %call.i7.i693 = invoke noundef i32 @uhash_geti_75(ptr noundef %191, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i683)
           to label %invoke.cont4.i694 unwind label %lpad.i688
 
 invoke.cont4.i694:                                ; preds = %if.then3.i691
   store i32 %call.i7.i693, ptr %fStandaloneMonthsCount, align 8
   store ptr %call.i6.i687, ptr %fStandaloneMonths, align 8
   %192 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i695 = invoke noundef ptr @uhash_remove_75(ptr noundef %192, ptr noundef nonnull %keyUString.i683)
+  %call.i8.i695 = invoke noundef ptr @uhash_remove_75(ptr noundef %192, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i683)
           to label %if.end.i696 unwind label %lpad.i688
 
 lpad.i688:                                        ; preds = %invoke.cont4.i694, %if.then3.i691, %.noexc698
@@ -3405,7 +3405,7 @@ if.then.i745:                                     ; preds = %invoke.cont516
 
 .noexc758:                                        ; preds = %if.then.i745
   %205 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i747 = invoke noundef ptr @uhash_get_75(ptr noundef %205, ptr noundef nonnull %keyUString.i743)
+  %call.i6.i747 = invoke noundef ptr @uhash_get_75(ptr noundef %205, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i743)
           to label %invoke.cont.i749 unwind label %lpad.i748
 
 invoke.cont.i749:                                 ; preds = %.noexc758
@@ -3414,14 +3414,14 @@ invoke.cont.i749:                                 ; preds = %.noexc758
 
 if.then3.i751:                                    ; preds = %invoke.cont.i749
   %206 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i753 = invoke noundef i32 @uhash_geti_75(ptr noundef %206, ptr noundef nonnull %keyUString.i743)
+  %call.i7.i753 = invoke noundef i32 @uhash_geti_75(ptr noundef %206, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i743)
           to label %invoke.cont4.i754 unwind label %lpad.i748
 
 invoke.cont4.i754:                                ; preds = %if.then3.i751
   store i32 %call.i7.i753, ptr %fStandaloneShortMonthsCount, align 8
   store ptr %call.i6.i747, ptr %fStandaloneShortMonths, align 8
   %207 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i755 = invoke noundef ptr @uhash_remove_75(ptr noundef %207, ptr noundef nonnull %keyUString.i743)
+  %call.i8.i755 = invoke noundef ptr @uhash_remove_75(ptr noundef %207, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i743)
           to label %if.end.i756 unwind label %lpad.i748
 
 lpad.i748:                                        ; preds = %invoke.cont4.i754, %if.then3.i751, %.noexc758
@@ -3550,7 +3550,7 @@ if.then.i805:                                     ; preds = %invoke.cont529
 
 .noexc818:                                        ; preds = %if.then.i805
   %221 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i807 = invoke noundef ptr @uhash_get_75(ptr noundef %221, ptr noundef nonnull %keyUString.i803)
+  %call.i6.i807 = invoke noundef ptr @uhash_get_75(ptr noundef %221, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i803)
           to label %invoke.cont.i809 unwind label %lpad.i808
 
 invoke.cont.i809:                                 ; preds = %.noexc818
@@ -3559,14 +3559,14 @@ invoke.cont.i809:                                 ; preds = %.noexc818
 
 if.then3.i811:                                    ; preds = %invoke.cont.i809
   %222 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i813 = invoke noundef i32 @uhash_geti_75(ptr noundef %222, ptr noundef nonnull %keyUString.i803)
+  %call.i7.i813 = invoke noundef i32 @uhash_geti_75(ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i803)
           to label %invoke.cont4.i814 unwind label %lpad.i808
 
 invoke.cont4.i814:                                ; preds = %if.then3.i811
   store i32 %call.i7.i813, ptr %fNarrowMonthsCount, align 8
   store ptr %call.i6.i807, ptr %fNarrowMonths, align 8
   %223 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i815 = invoke noundef ptr @uhash_remove_75(ptr noundef %223, ptr noundef nonnull %keyUString.i803)
+  %call.i8.i815 = invoke noundef ptr @uhash_remove_75(ptr noundef %223, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i803)
           to label %if.end.i816 unwind label %lpad.i808
 
 lpad.i808:                                        ; preds = %invoke.cont4.i814, %if.then3.i811, %.noexc818
@@ -3620,7 +3620,7 @@ if.then.i835:                                     ; preds = %invoke.cont534
 
 .noexc848:                                        ; preds = %if.then.i835
   %226 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i837 = invoke noundef ptr @uhash_get_75(ptr noundef %226, ptr noundef nonnull %keyUString.i833)
+  %call.i6.i837 = invoke noundef ptr @uhash_get_75(ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i833)
           to label %invoke.cont.i839 unwind label %lpad.i838
 
 invoke.cont.i839:                                 ; preds = %.noexc848
@@ -3629,14 +3629,14 @@ invoke.cont.i839:                                 ; preds = %.noexc848
 
 if.then3.i841:                                    ; preds = %invoke.cont.i839
   %227 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i843 = invoke noundef i32 @uhash_geti_75(ptr noundef %227, ptr noundef nonnull %keyUString.i833)
+  %call.i7.i843 = invoke noundef i32 @uhash_geti_75(ptr noundef %227, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i833)
           to label %invoke.cont4.i844 unwind label %lpad.i838
 
 invoke.cont4.i844:                                ; preds = %if.then3.i841
   store i32 %call.i7.i843, ptr %fStandaloneNarrowMonthsCount, align 8
   store ptr %call.i6.i837, ptr %fStandaloneNarrowMonths, align 8
   %228 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i845 = invoke noundef ptr @uhash_remove_75(ptr noundef %228, ptr noundef nonnull %keyUString.i833)
+  %call.i8.i845 = invoke noundef ptr @uhash_remove_75(ptr noundef %228, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i833)
           to label %if.end.i846 unwind label %lpad.i838
 
 lpad.i838:                                        ; preds = %invoke.cont4.i844, %if.then3.i841, %.noexc848
@@ -3840,7 +3840,7 @@ if.then.i916:                                     ; preds = %invoke.cont576
 
 .noexc929:                                        ; preds = %if.then.i916
   %253 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i918 = invoke noundef ptr @uhash_get_75(ptr noundef %253, ptr noundef nonnull %keyUString.i914)
+  %call.i6.i918 = invoke noundef ptr @uhash_get_75(ptr noundef %253, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i914)
           to label %invoke.cont.i920 unwind label %lpad.i919
 
 invoke.cont.i920:                                 ; preds = %.noexc929
@@ -3849,14 +3849,14 @@ invoke.cont.i920:                                 ; preds = %.noexc929
 
 if.then3.i922:                                    ; preds = %invoke.cont.i920
   %254 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i924 = invoke noundef i32 @uhash_geti_75(ptr noundef %254, ptr noundef nonnull %keyUString.i914)
+  %call.i7.i924 = invoke noundef i32 @uhash_geti_75(ptr noundef %254, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i914)
           to label %invoke.cont4.i925 unwind label %lpad.i919
 
 invoke.cont4.i925:                                ; preds = %if.then3.i922
   store i32 %call.i7.i924, ptr %fAmPmsCount, align 8
   store ptr %call.i6.i918, ptr %fAmPms, align 8
   %255 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i926 = invoke noundef ptr @uhash_remove_75(ptr noundef %255, ptr noundef nonnull %keyUString.i914)
+  %call.i8.i926 = invoke noundef ptr @uhash_remove_75(ptr noundef %255, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i914)
           to label %invoke.cont578 unwind label %lpad.i919
 
 lpad.i919:                                        ; preds = %invoke.cont4.i925, %if.then3.i922, %.noexc929
@@ -3897,7 +3897,7 @@ if.then.i941:                                     ; preds = %invoke.cont585
 
 .noexc954:                                        ; preds = %if.then.i941
   %260 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i943 = invoke noundef ptr @uhash_get_75(ptr noundef %260, ptr noundef nonnull %keyUString.i939)
+  %call.i6.i943 = invoke noundef ptr @uhash_get_75(ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i939)
           to label %invoke.cont.i945 unwind label %lpad.i944
 
 invoke.cont.i945:                                 ; preds = %.noexc954
@@ -3906,14 +3906,14 @@ invoke.cont.i945:                                 ; preds = %.noexc954
 
 if.then3.i947:                                    ; preds = %invoke.cont.i945
   %261 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i949 = invoke noundef i32 @uhash_geti_75(ptr noundef %261, ptr noundef nonnull %keyUString.i939)
+  %call.i7.i949 = invoke noundef i32 @uhash_geti_75(ptr noundef %261, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i939)
           to label %invoke.cont4.i950 unwind label %lpad.i944
 
 invoke.cont4.i950:                                ; preds = %if.then3.i947
   store i32 %call.i7.i949, ptr %fAmPmsCount, align 8
   store ptr %call.i6.i943, ptr %fAmPms, align 8
   %262 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i951 = invoke noundef ptr @uhash_remove_75(ptr noundef %262, ptr noundef nonnull %keyUString.i939)
+  %call.i8.i951 = invoke noundef ptr @uhash_remove_75(ptr noundef %262, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i939)
           to label %if.end.i952 unwind label %lpad.i944
 
 lpad.i944:                                        ; preds = %invoke.cont4.i950, %if.then3.i947, %.noexc954
@@ -3960,7 +3960,7 @@ if.then.i964:                                     ; preds = %invoke.cont591
 
 .noexc977:                                        ; preds = %if.then.i964
   %266 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i966 = invoke noundef ptr @uhash_get_75(ptr noundef %266, ptr noundef nonnull %keyUString.i962)
+  %call.i6.i966 = invoke noundef ptr @uhash_get_75(ptr noundef %266, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i962)
           to label %invoke.cont.i968 unwind label %lpad.i967
 
 invoke.cont.i968:                                 ; preds = %.noexc977
@@ -3969,14 +3969,14 @@ invoke.cont.i968:                                 ; preds = %.noexc977
 
 if.then3.i970:                                    ; preds = %invoke.cont.i968
   %267 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i972 = invoke noundef i32 @uhash_geti_75(ptr noundef %267, ptr noundef nonnull %keyUString.i962)
+  %call.i7.i972 = invoke noundef i32 @uhash_geti_75(ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i962)
           to label %invoke.cont4.i973 unwind label %lpad.i967
 
 invoke.cont4.i973:                                ; preds = %if.then3.i970
   store i32 %call.i7.i972, ptr %fNarrowAmPmsCount, align 8
   store ptr %call.i6.i966, ptr %fNarrowAmPms, align 8
   %268 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i974 = invoke noundef ptr @uhash_remove_75(ptr noundef %268, ptr noundef nonnull %keyUString.i962)
+  %call.i8.i974 = invoke noundef ptr @uhash_remove_75(ptr noundef %268, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i962)
           to label %invoke.cont593 unwind label %lpad.i967
 
 lpad.i967:                                        ; preds = %invoke.cont4.i973, %if.then3.i970, %.noexc977
@@ -4017,7 +4017,7 @@ if.then.i989:                                     ; preds = %invoke.cont600
 
 .noexc1002:                                       ; preds = %if.then.i989
   %273 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i991 = invoke noundef ptr @uhash_get_75(ptr noundef %273, ptr noundef nonnull %keyUString.i987)
+  %call.i6.i991 = invoke noundef ptr @uhash_get_75(ptr noundef %273, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i987)
           to label %invoke.cont.i993 unwind label %lpad.i992
 
 invoke.cont.i993:                                 ; preds = %.noexc1002
@@ -4026,14 +4026,14 @@ invoke.cont.i993:                                 ; preds = %.noexc1002
 
 if.then3.i995:                                    ; preds = %invoke.cont.i993
   %274 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i997 = invoke noundef i32 @uhash_geti_75(ptr noundef %274, ptr noundef nonnull %keyUString.i987)
+  %call.i7.i997 = invoke noundef i32 @uhash_geti_75(ptr noundef %274, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i987)
           to label %invoke.cont4.i998 unwind label %lpad.i992
 
 invoke.cont4.i998:                                ; preds = %if.then3.i995
   store i32 %call.i7.i997, ptr %fNarrowAmPmsCount, align 8
   store ptr %call.i6.i991, ptr %fNarrowAmPms, align 8
   %275 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i999 = invoke noundef ptr @uhash_remove_75(ptr noundef %275, ptr noundef nonnull %keyUString.i987)
+  %call.i8.i999 = invoke noundef ptr @uhash_remove_75(ptr noundef %275, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i987)
           to label %if.end.i1000 unwind label %lpad.i992
 
 lpad.i992:                                        ; preds = %invoke.cont4.i998, %if.then3.i995, %.noexc1002
@@ -4162,7 +4162,7 @@ if.then.i1049:                                    ; preds = %invoke.cont614
 
 .noexc1062:                                       ; preds = %if.then.i1049
   %288 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i1051 = invoke noundef ptr @uhash_get_75(ptr noundef %288, ptr noundef nonnull %keyUString.i1047)
+  %call.i6.i1051 = invoke noundef ptr @uhash_get_75(ptr noundef %288, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1047)
           to label %invoke.cont.i1053 unwind label %lpad.i1052
 
 invoke.cont.i1053:                                ; preds = %.noexc1062
@@ -4171,14 +4171,14 @@ invoke.cont.i1053:                                ; preds = %.noexc1062
 
 if.then3.i1055:                                   ; preds = %invoke.cont.i1053
   %289 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i1057 = invoke noundef i32 @uhash_geti_75(ptr noundef %289, ptr noundef nonnull %keyUString.i1047)
+  %call.i7.i1057 = invoke noundef i32 @uhash_geti_75(ptr noundef %289, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1047)
           to label %invoke.cont4.i1058 unwind label %lpad.i1052
 
 invoke.cont4.i1058:                               ; preds = %if.then3.i1055
   store i32 %call.i7.i1057, ptr %fQuartersCount, align 8
   store ptr %call.i6.i1051, ptr %fQuarters, align 8
   %290 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i1059 = invoke noundef ptr @uhash_remove_75(ptr noundef %290, ptr noundef nonnull %keyUString.i1047)
+  %call.i8.i1059 = invoke noundef ptr @uhash_remove_75(ptr noundef %290, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1047)
           to label %if.end.i1060 unwind label %lpad.i1052
 
 lpad.i1052:                                       ; preds = %invoke.cont4.i1058, %if.then3.i1055, %.noexc1062
@@ -4233,7 +4233,7 @@ if.then.i1079:                                    ; preds = %invoke.cont619
 
 .noexc1092:                                       ; preds = %if.then.i1079
   %294 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i1081 = invoke noundef ptr @uhash_get_75(ptr noundef %294, ptr noundef nonnull %keyUString.i1077)
+  %call.i6.i1081 = invoke noundef ptr @uhash_get_75(ptr noundef %294, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1077)
           to label %invoke.cont.i1083 unwind label %lpad.i1082
 
 invoke.cont.i1083:                                ; preds = %.noexc1092
@@ -4242,14 +4242,14 @@ invoke.cont.i1083:                                ; preds = %.noexc1092
 
 if.then3.i1085:                                   ; preds = %invoke.cont.i1083
   %295 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i1087 = invoke noundef i32 @uhash_geti_75(ptr noundef %295, ptr noundef nonnull %keyUString.i1077)
+  %call.i7.i1087 = invoke noundef i32 @uhash_geti_75(ptr noundef %295, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1077)
           to label %invoke.cont4.i1088 unwind label %lpad.i1082
 
 invoke.cont4.i1088:                               ; preds = %if.then3.i1085
   store i32 %call.i7.i1087, ptr %fShortQuartersCount, align 8
   store ptr %call.i6.i1081, ptr %fShortQuarters, align 8
   %296 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i1089 = invoke noundef ptr @uhash_remove_75(ptr noundef %296, ptr noundef nonnull %keyUString.i1077)
+  %call.i8.i1089 = invoke noundef ptr @uhash_remove_75(ptr noundef %296, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1077)
           to label %if.end.i1090 unwind label %lpad.i1082
 
 lpad.i1082:                                       ; preds = %invoke.cont4.i1088, %if.then3.i1085, %.noexc1092
@@ -4376,7 +4376,7 @@ if.then.i1139:                                    ; preds = %invoke.cont632
 
 .noexc1152:                                       ; preds = %if.then.i1139
   %309 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i1141 = invoke noundef ptr @uhash_get_75(ptr noundef %309, ptr noundef nonnull %keyUString.i1137)
+  %call.i6.i1141 = invoke noundef ptr @uhash_get_75(ptr noundef %309, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1137)
           to label %invoke.cont.i1143 unwind label %lpad.i1142
 
 invoke.cont.i1143:                                ; preds = %.noexc1152
@@ -4385,14 +4385,14 @@ invoke.cont.i1143:                                ; preds = %.noexc1152
 
 if.then3.i1145:                                   ; preds = %invoke.cont.i1143
   %310 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i1147 = invoke noundef i32 @uhash_geti_75(ptr noundef %310, ptr noundef nonnull %keyUString.i1137)
+  %call.i7.i1147 = invoke noundef i32 @uhash_geti_75(ptr noundef %310, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1137)
           to label %invoke.cont4.i1148 unwind label %lpad.i1142
 
 invoke.cont4.i1148:                               ; preds = %if.then3.i1145
   store i32 %call.i7.i1147, ptr %fStandaloneQuartersCount, align 8
   store ptr %call.i6.i1141, ptr %fStandaloneQuarters, align 8
   %311 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i1149 = invoke noundef ptr @uhash_remove_75(ptr noundef %311, ptr noundef nonnull %keyUString.i1137)
+  %call.i8.i1149 = invoke noundef ptr @uhash_remove_75(ptr noundef %311, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1137)
           to label %if.end.i1150 unwind label %lpad.i1142
 
 lpad.i1142:                                       ; preds = %invoke.cont4.i1148, %if.then3.i1145, %.noexc1152
@@ -4519,7 +4519,7 @@ if.then.i1199:                                    ; preds = %invoke.cont645
 
 .noexc1212:                                       ; preds = %if.then.i1199
   %324 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i1201 = invoke noundef ptr @uhash_get_75(ptr noundef %324, ptr noundef nonnull %keyUString.i1197)
+  %call.i6.i1201 = invoke noundef ptr @uhash_get_75(ptr noundef %324, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1197)
           to label %invoke.cont.i1203 unwind label %lpad.i1202
 
 invoke.cont.i1203:                                ; preds = %.noexc1212
@@ -4528,14 +4528,14 @@ invoke.cont.i1203:                                ; preds = %.noexc1212
 
 if.then3.i1205:                                   ; preds = %invoke.cont.i1203
   %325 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i1207 = invoke noundef i32 @uhash_geti_75(ptr noundef %325, ptr noundef nonnull %keyUString.i1197)
+  %call.i7.i1207 = invoke noundef i32 @uhash_geti_75(ptr noundef %325, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1197)
           to label %invoke.cont4.i1208 unwind label %lpad.i1202
 
 invoke.cont4.i1208:                               ; preds = %if.then3.i1205
   store i32 %call.i7.i1207, ptr %fStandaloneShortQuartersCount, align 8
   store ptr %call.i6.i1201, ptr %fStandaloneShortQuarters, align 8
   %326 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i1209 = invoke noundef ptr @uhash_remove_75(ptr noundef %326, ptr noundef nonnull %keyUString.i1197)
+  %call.i8.i1209 = invoke noundef ptr @uhash_remove_75(ptr noundef %326, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1197)
           to label %if.end.i1210 unwind label %lpad.i1202
 
 lpad.i1202:                                       ; preds = %invoke.cont4.i1208, %if.then3.i1205, %.noexc1212
@@ -4662,7 +4662,7 @@ if.then.i1259:                                    ; preds = %invoke.cont658
 
 .noexc1272:                                       ; preds = %if.then.i1259
   %339 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i1261 = invoke noundef ptr @uhash_get_75(ptr noundef %339, ptr noundef nonnull %keyUString.i1257)
+  %call.i6.i1261 = invoke noundef ptr @uhash_get_75(ptr noundef %339, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1257)
           to label %invoke.cont.i1263 unwind label %lpad.i1262
 
 invoke.cont.i1263:                                ; preds = %.noexc1272
@@ -4671,14 +4671,14 @@ invoke.cont.i1263:                                ; preds = %.noexc1272
 
 if.then3.i1265:                                   ; preds = %invoke.cont.i1263
   %340 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i1267 = invoke noundef i32 @uhash_geti_75(ptr noundef %340, ptr noundef nonnull %keyUString.i1257)
+  %call.i7.i1267 = invoke noundef i32 @uhash_geti_75(ptr noundef %340, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1257)
           to label %invoke.cont4.i1268 unwind label %lpad.i1262
 
 invoke.cont4.i1268:                               ; preds = %if.then3.i1265
   store i32 %call.i7.i1267, ptr %fStandaloneNarrowQuartersCount, align 8
   store ptr %call.i6.i1261, ptr %fStandaloneNarrowQuarters, align 8
   %341 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i1269 = invoke noundef ptr @uhash_remove_75(ptr noundef %341, ptr noundef nonnull %keyUString.i1257)
+  %call.i8.i1269 = invoke noundef ptr @uhash_remove_75(ptr noundef %341, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1257)
           to label %if.end.i1270 unwind label %lpad.i1262
 
 lpad.i1262:                                       ; preds = %invoke.cont4.i1268, %if.then3.i1265, %.noexc1272
@@ -4733,7 +4733,7 @@ if.then.i1289:                                    ; preds = %invoke.cont663
 
 .noexc1302:                                       ; preds = %if.then.i1289
   %345 = load ptr, ptr %arrays.i, align 8
-  %call.i6.i1291 = invoke noundef ptr @uhash_get_75(ptr noundef %345, ptr noundef nonnull %keyUString.i1287)
+  %call.i6.i1291 = invoke noundef ptr @uhash_get_75(ptr noundef %345, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1287)
           to label %invoke.cont.i1293 unwind label %lpad.i1292
 
 invoke.cont.i1293:                                ; preds = %.noexc1302
@@ -4742,14 +4742,14 @@ invoke.cont.i1293:                                ; preds = %.noexc1302
 
 if.then3.i1295:                                   ; preds = %invoke.cont.i1293
   %346 = load ptr, ptr %arraySizes.i23812387, align 8
-  %call.i7.i1297 = invoke noundef i32 @uhash_geti_75(ptr noundef %346, ptr noundef nonnull %keyUString.i1287)
+  %call.i7.i1297 = invoke noundef i32 @uhash_geti_75(ptr noundef %346, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1287)
           to label %invoke.cont4.i1298 unwind label %lpad.i1292
 
 invoke.cont4.i1298:                               ; preds = %if.then3.i1295
   store i32 %call.i7.i1297, ptr %fNarrowQuartersCount, align 8
   store ptr %call.i6.i1291, ptr %fNarrowQuarters, align 8
   %347 = load ptr, ptr %arrays.i, align 8
-  %call.i8.i1299 = invoke noundef ptr @uhash_remove_75(ptr noundef %347, ptr noundef nonnull %keyUString.i1287)
+  %call.i8.i1299 = invoke noundef ptr @uhash_remove_75(ptr noundef %347, ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1287)
           to label %if.end.i1300 unwind label %lpad.i1292
 
 lpad.i1292:                                       ; preds = %invoke.cont4.i1298, %if.then3.i1295, %.noexc1302
@@ -7324,7 +7324,7 @@ invoke.cont879:                                   ; preds = %if.end878
 
 cleanup882:                                       ; preds = %invoke.cont34, %invoke.cont21, %invoke.cont879
   %calendarTypeBuffer.sink = phi ptr [ %path, %invoke.cont879 ], [ %calendarTypeBuffer, %invoke.cont21 ], [ %calendarTypeBuffer, %invoke.cont34 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer.sink) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeBuffer.sink) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %calendarType) #17
   br label %cleanup884
 
@@ -7337,7 +7337,7 @@ cleanup.cont886:                                  ; preds = %entry, %cleanup884
 
 ehcleanup881:                                     ; preds = %lpad71.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit, %delete.notnull.i415, %ehcleanup287, %lpad.i340, %lpad.i511, %lpad.i568, %lpad.i658, %lpad.i748, %lpad.i838, %lpad.i944, %lpad.i992, %lpad.i1082, %lpad.i1202, %lpad.i1292, %lpad.i1655, %lpad.i1717, %lpad.i1779, %lpad.i1841, %lpad.i1903, %lpad.i1965, %lpad.i2027, %lpad.i2089, %lpad.i2151, %lpad.i2213, %lpad.i2275, %lpad.i2337, %lpad.i2368, %lpad.i2306, %lpad.i2244, %lpad.i2182, %lpad.i2120, %lpad.i2058, %lpad.i1996, %lpad.i1934, %lpad.i1872, %lpad.i1810, %lpad.i1748, %lpad.i1686, %lpad.i1625, %lpad.i1262, %lpad.i1142, %lpad.i1052, %lpad.i967, %lpad.i919, %lpad.i808, %lpad.i688, %lpad.i628, %lpad.i537, %lpad.i364, %lpad873, %lpad676
   %.pn203 = phi { ptr, i32 } [ %606, %lpad873 ], [ %371, %lpad676 ], [ %62, %lpad.i340 ], [ %68, %lpad.i364 ], [ %143, %lpad.i511 ], [ %150, %lpad.i537 ], [ %166, %lpad.i568 ], [ %181, %lpad.i628 ], [ %187, %lpad.i658 ], [ %193, %lpad.i688 ], [ %208, %lpad.i748 ], [ %224, %lpad.i808 ], [ %229, %lpad.i838 ], [ %256, %lpad.i919 ], [ %263, %lpad.i944 ], [ %269, %lpad.i967 ], [ %276, %lpad.i992 ], [ %291, %lpad.i1052 ], [ %297, %lpad.i1082 ], [ %312, %lpad.i1142 ], [ %327, %lpad.i1202 ], [ %342, %lpad.i1262 ], [ %348, %lpad.i1292 ], [ %435, %lpad.i1625 ], [ %442, %lpad.i1655 ], [ %449, %lpad.i1686 ], [ %456, %lpad.i1717 ], [ %463, %lpad.i1748 ], [ %470, %lpad.i1779 ], [ %477, %lpad.i1810 ], [ %484, %lpad.i1841 ], [ %491, %lpad.i1872 ], [ %498, %lpad.i1903 ], [ %505, %lpad.i1934 ], [ %512, %lpad.i1965 ], [ %519, %lpad.i1996 ], [ %526, %lpad.i2027 ], [ %533, %lpad.i2058 ], [ %540, %lpad.i2089 ], [ %547, %lpad.i2120 ], [ %554, %lpad.i2151 ], [ %561, %lpad.i2182 ], [ %568, %lpad.i2213 ], [ %575, %lpad.i2244 ], [ %582, %lpad.i2275 ], [ %589, %lpad.i2306 ], [ %596, %lpad.i2337 ], [ %603, %lpad.i2368 ], [ %.pn201, %ehcleanup287 ], [ %.pn201, %delete.notnull.i415 ], [ %lpad.loopexit, %lpad71.loopexit ], [ %lpad.loopexit2462, %lpad71.loopexit.split-lp.loopexit ], [ %lpad.loopexit2466, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2468, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2471, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2473, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2476, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2478, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2481, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2483, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2486, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2488, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2491, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2494, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2497, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2499, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2502, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2504, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2507, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #17
   br label %ehcleanup883
 
 ehcleanup883:                                     ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %ehcleanup881, %ehcleanup
@@ -15078,7 +15078,7 @@ if.then:                                          ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %pathUString, ptr noundef %3, i32 noundef -1, i32 noundef 0)
   %maps = getelementptr inbounds i8, ptr %sink, i64 184
   %4 = load ptr, ptr %maps, align 8
-  %call.i9 = invoke noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull %pathUString)
+  %call.i9 = invoke noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %pathUString)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -15094,7 +15094,7 @@ invoke.cont7:                                     ; preds = %if.then4
   %5 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #17, !srcloc !4
   %6 = load ptr, ptr %call.i9, align 8
-  %call.i10 = invoke noundef ptr @uhash_get_75(ptr noundef %6, ptr noundef nonnull %leapLabel)
+  %call.i10 = invoke noundef ptr @uhash_get_75(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %leapLabel)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -15196,7 +15196,7 @@ if.end:                                           ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %pathUString, ptr noundef %path.0.val, i32 noundef -1, i32 noundef 0)
   %maps = getelementptr inbounds i8, ptr %sink, i64 184
   %1 = load ptr, ptr %maps, align 8
-  %call.i18 = invoke noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull %pathUString)
+  %call.i18 = invoke noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %pathUString)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.end
@@ -15260,7 +15260,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 invoke.cont18:                                    ; preds = %for.body
   %4 = load ptr, ptr %call.i18, align 8
-  %call.i19 = invoke noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull %dayPeriodKey)
+  %call.i19 = invoke noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %dayPeriodKey)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -15334,7 +15334,7 @@ if.then:                                          ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %keyUString, ptr noundef %key.0.val, i32 noundef -1, i32 noundef 0)
   %arrays = getelementptr inbounds i8, ptr %sink, i64 8
   %1 = load ptr, ptr %arrays, align 8
-  %call.i12 = invoke noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull %keyUString)
+  %call.i12 = invoke noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %keyUString)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
@@ -15344,7 +15344,7 @@ invoke.cont:                                      ; preds = %if.then
 if.then3:                                         ; preds = %invoke.cont
   %arraySizes = getelementptr inbounds i8, ptr %sink, i64 96
   %2 = load ptr, ptr %arraySizes, align 8
-  %call.i13 = invoke noundef i32 @uhash_geti_75(ptr noundef %2, ptr noundef nonnull %keyUString)
+  %call.i13 = invoke noundef i32 @uhash_geti_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %keyUString)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %if.then3
@@ -15876,7 +15876,7 @@ _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit88: ; preds = %invoke.cont
 
 if.then48:                                        ; preds = %if.end16
   %16 = load ptr, ptr %arrays119, align 8
-  %call.i89 = invoke noundef ptr @uhash_get_75(ptr noundef %16, ptr noundef nonnull %aliasRelativePath49)
+  %call.i89 = invoke noundef ptr @uhash_get_75(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(64) %aliasRelativePath49)
           to label %invoke.cont50 unwind label %lpad10
 
 invoke.cont50:                                    ; preds = %if.then48
@@ -15885,7 +15885,7 @@ invoke.cont50:                                    ; preds = %if.then48
 
 land.lhs.true:                                    ; preds = %invoke.cont50
   %17 = load ptr, ptr %maps, align 8
-  %call.i90 = invoke noundef ptr @uhash_get_75(ptr noundef %17, ptr noundef nonnull %aliasRelativePath49)
+  %call.i90 = invoke noundef ptr @uhash_get_75(ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(64) %aliasRelativePath49)
           to label %invoke.cont54 unwind label %lpad10
 
 invoke.cont54:                                    ; preds = %land.lhs.true
@@ -15996,7 +15996,7 @@ lor.lhs.false115:                                 ; preds = %lor.lhs.false
 
 if.then118:                                       ; preds = %lor.lhs.false115, %lor.lhs.false, %if.end110
   %28 = load ptr, ptr %arrays119, align 8
-  %call.i137 = invoke noundef ptr @uhash_get_75(ptr noundef %28, ptr noundef nonnull %keyUString)
+  %call.i137 = invoke noundef ptr @uhash_get_75(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(64) %keyUString)
           to label %invoke.cont120 unwind label %lpad10
 
 invoke.cont120:                                   ; preds = %if.then118
@@ -16076,7 +16076,7 @@ new.notnull.i:                                    ; preds = %invoke.cont155
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont155
-  %call2.i143 = invoke noundef ptr @uhash_put_75(ptr noundef %38, ptr noundef %call.i, ptr noundef %36, ptr noundef nonnull %errorCode)
+  %call2.i143 = invoke noundef ptr @uhash_put_75(ptr noundef %38, ptr noundef %call.i, ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont160 unwind label %lpad150
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -16096,7 +16096,7 @@ new.notnull.i146:                                 ; preds = %invoke.cont160
           to label %new.cont.i148 unwind label %lpad.i147
 
 new.cont.i148:                                    ; preds = %new.notnull.i146, %invoke.cont160
-  %call2.i149 = invoke noundef i32 @uhash_puti_75(ptr noundef %40, ptr noundef %call.i144, i32 noundef %30, ptr noundef nonnull %errorCode)
+  %call2.i149 = invoke noundef i32 @uhash_puti_75(ptr noundef %40, ptr noundef %call.i144, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit unwind label %lpad150
 
 lpad.i147:                                        ; preds = %new.notnull.i146
@@ -16189,7 +16189,7 @@ for.body208:                                      ; preds = %do.body, %if.end324
 
 invoke.cont210:                                   ; preds = %for.body208
   %45 = load ptr, ptr %arrays119, align 8
-  %call.i166167 = invoke noundef ptr @uhash_get_75(ptr noundef %45, ptr noundef nonnull %call.i164165)
+  %call.i166167 = invoke noundef ptr @uhash_get_75(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(64) %call.i164165)
           to label %invoke.cont213 unwind label %lpad.loopexit289
 
 invoke.cont213:                                   ; preds = %invoke.cont210
@@ -16203,7 +16203,7 @@ if.then216:                                       ; preds = %invoke.cont213
 
 invoke.cont218:                                   ; preds = %if.then216
   %46 = load ptr, ptr %arrays119, align 8
-  %call.i172173 = invoke noundef ptr @uhash_get_75(ptr noundef %46, ptr noundef nonnull %call.i169170)
+  %call.i172173 = invoke noundef ptr @uhash_get_75(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(64) %call.i169170)
           to label %invoke.cont221 unwind label %lpad.loopexit289
 
 invoke.cont221:                                   ; preds = %invoke.cont218
@@ -16212,7 +16212,7 @@ invoke.cont221:                                   ; preds = %invoke.cont218
 
 if.then224:                                       ; preds = %invoke.cont221
   %47 = load ptr, ptr %arraySizes, align 8
-  %call.i175176 = invoke noundef i32 @uhash_geti_75(ptr noundef %47, ptr noundef nonnull %call.i164165)
+  %call.i175176 = invoke noundef i32 @uhash_geti_75(ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(64) %call.i164165)
           to label %invoke.cont226 unwind label %lpad.loopexit289
 
 invoke.cont226:                                   ; preds = %if.then224
@@ -16303,7 +16303,7 @@ new.notnull.i190:                                 ; preds = %invoke.cont271
           to label %new.cont.i192 unwind label %lpad.i191
 
 new.cont.i192:                                    ; preds = %new.notnull.i190, %invoke.cont271
-  %call2.i193 = invoke noundef ptr @uhash_put_75(ptr noundef %56, ptr noundef %call.i188, ptr noundef %55, ptr noundef nonnull %errorCode)
+  %call2.i193 = invoke noundef ptr @uhash_put_75(ptr noundef %56, ptr noundef %call.i188, ptr noundef %55, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont275 unwind label %lpad268.loopexit.split-lp
 
 lpad.i191:                                        ; preds = %new.notnull.i190
@@ -16323,7 +16323,7 @@ new.notnull.i198:                                 ; preds = %invoke.cont275
           to label %new.cont.i200 unwind label %lpad.i199
 
 new.cont.i200:                                    ; preds = %new.notnull.i198, %invoke.cont275
-  %call2.i201 = invoke noundef i32 @uhash_puti_75(ptr noundef %58, ptr noundef %call.i196, i32 noundef %call.i175176, ptr noundef nonnull %errorCode)
+  %call2.i201 = invoke noundef i32 @uhash_puti_75(ptr noundef %58, ptr noundef %call.i196, i32 noundef %call.i175176, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup280 unwind label %lpad268.loopexit.split-lp
 
 lpad.i199:                                        ; preds = %new.notnull.i198
@@ -16380,7 +16380,7 @@ if.end284:                                        ; preds = %arraydestroy.done2.
 
 if.else289:                                       ; preds = %invoke.cont213
   %64 = load ptr, ptr %maps, align 8
-  %call.i218219 = invoke noundef ptr @uhash_get_75(ptr noundef %64, ptr noundef nonnull %call.i164165)
+  %call.i218219 = invoke noundef ptr @uhash_get_75(ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(64) %call.i164165)
           to label %invoke.cont291 unwind label %lpad.loopexit289
 
 invoke.cont291:                                   ; preds = %if.else289
@@ -16394,7 +16394,7 @@ if.then294:                                       ; preds = %invoke.cont291
 
 invoke.cont298:                                   ; preds = %if.then294
   %65 = load ptr, ptr %maps, align 8
-  %call.i224225 = invoke noundef ptr @uhash_get_75(ptr noundef %65, ptr noundef nonnull %call.i221222)
+  %call.i224225 = invoke noundef ptr @uhash_get_75(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(64) %call.i221222)
           to label %invoke.cont301 unwind label %lpad.loopexit289
 
 invoke.cont301:                                   ; preds = %invoke.cont298
@@ -16412,7 +16412,7 @@ new.notnull.i229:                                 ; preds = %if.then304
           to label %new.cont.i231 unwind label %lpad.i230
 
 new.cont.i231:                                    ; preds = %new.notnull.i229, %if.then304
-  %call2.i232 = invoke noundef ptr @uhash_put_75(ptr noundef %66, ptr noundef %call.i227, ptr noundef nonnull %call.i218219, ptr noundef nonnull %errorCode)
+  %call2.i232 = invoke noundef ptr @uhash_put_75(ptr noundef %66, ptr noundef %call.i227, ptr noundef nonnull %call.i218219, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end308 unwind label %lpad.loopexit289
 
 lpad.i230:                                        ; preds = %new.notnull.i229
@@ -16922,7 +16922,7 @@ new.notnull.i:                                    ; preds = %if.end25
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.end25
-  %call2.i86 = invoke noundef ptr @uhash_put_75(ptr noundef %10, ptr noundef %call.i, ptr noundef nonnull %call22, ptr noundef nonnull %errorCode)
+  %call2.i86 = invoke noundef ptr @uhash_put_75(ptr noundef %10, ptr noundef %call.i, ptr noundef nonnull %call22, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont26 unwind label %lpad
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -16990,7 +16990,7 @@ new.notnull.i96:                                  ; preds = %cleanup.done
           to label %new.cont.i98 unwind label %lpad.i97
 
 new.cont.i98:                                     ; preds = %new.notnull.i96, %cleanup.done
-  %call2.i99 = invoke noundef ptr @uhash_put_75(ptr noundef %19, ptr noundef %call.i94, ptr noundef %call43, ptr noundef nonnull %errorCode)
+  %call2.i99 = invoke noundef ptr @uhash_put_75(ptr noundef %19, ptr noundef %call.i94, ptr noundef %call43, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup241 unwind label %lpad58
 
 lpad.i97:                                         ; preds = %new.notnull.i96
@@ -17166,7 +17166,7 @@ if.else.i.i.i:                                    ; preds = %if.then4.i.i
 
 if.end125:                                        ; preds = %invoke.cont108, %invoke.cont112, %invoke.cont76
   %44 = load ptr, ptr %arrays, align 8
-  %call.i152153 = invoke noundef ptr @uhash_get_75(ptr noundef %44, ptr noundef nonnull %path)
+  %call.i152153 = invoke noundef ptr @uhash_get_75(ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(64) %path)
           to label %invoke.cont126 unwind label %lpad
 
 invoke.cont126:                                   ; preds = %if.end125
@@ -17175,7 +17175,7 @@ invoke.cont126:                                   ; preds = %if.end125
 
 lor.lhs.false129:                                 ; preds = %invoke.cont126
   %45 = load ptr, ptr %maps130, align 8
-  %call.i154155 = invoke noundef ptr @uhash_get_75(ptr noundef %45, ptr noundef nonnull %path)
+  %call.i154155 = invoke noundef ptr @uhash_get_75(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(64) %path)
           to label %invoke.cont131 unwind label %lpad
 
 invoke.cont131:                                   ; preds = %lor.lhs.false129
@@ -17582,7 +17582,7 @@ if.end.i.i:                                       ; preds = %new.notnull
   %cond-lvalue6.i = select i1 %tobool.not.i, ptr @uhash_compareUnicodeString_75, ptr @uhash_compareCaselessUnicodeString_75
   %uhash_hashCaselessUnicodeString_75.uhash_hashUnicodeString_75.i = select i1 %tobool.not.i, ptr @uhash_hashUnicodeString_75, ptr @uhash_hashCaselessUnicodeString_75
   %hashObj.i.i = getelementptr inbounds i8, ptr %call9, i64 8
-  %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull %uhash_hashCaselessUnicodeString_75.uhash_hashUnicodeString_75.i, ptr noundef nonnull %cond-lvalue6.i, ptr noundef null, ptr noundef nonnull %args1)
+  %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull %uhash_hashCaselessUnicodeString_75.uhash_hashUnicodeString_75.i, ptr noundef nonnull %cond-lvalue6.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %args1)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -17809,7 +17809,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_23SharedDateFormatSymbolsEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #17
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #17
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #17
   ret void
 }
@@ -17849,7 +17849,7 @@ new.notnull:                                      ; preds = %entry
 lpad.i:                                           ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %call) #17
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %call) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %1
 

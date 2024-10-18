@@ -137,7 +137,7 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionERKS
 
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %32
   %35 = load ptr, ptr %27, align 8
-  %36 = call noundef double %35(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %36 = call noundef double %35(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %37 = fadd double %15, %storemerge107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -152,7 +152,7 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %32
 
 _ZNKSt8functionIFddEEclEd.exit42:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit
   %40 = load ptr, ptr %29, align 8
-  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %42 = fsub double %storemerge107, %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -167,7 +167,7 @@ _ZNKSt8functionIFddEEclEd.exit42:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit44:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit42
   %45 = load ptr, ptr %29, align 8
-  %46 = call noundef double %45(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %46 = call noundef double %45(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %47 = fsub double %41, %46
   %48 = fdiv double %47, %30
@@ -183,7 +183,7 @@ _ZNKSt8functionIFddEEclEd.exit44:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit46:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit44
   %51 = load ptr, ptr %27, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store double %storemerge107, ptr %6, align 8
@@ -197,7 +197,7 @@ _ZNKSt8functionIFddEEclEd.exit46:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit48:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit46
   %55 = load ptr, ptr %27, align 8
-  %56 = call noundef double %55(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %56 = call noundef double %55(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store double %42, ptr %5, align 8
@@ -211,7 +211,7 @@ _ZNKSt8functionIFddEEclEd.exit48:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit50:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit48
   %59 = load ptr, ptr %27, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %storemerge107, ptr %4, align 8
@@ -228,7 +228,7 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
   %64 = fadd double %63, %60
   %65 = fdiv double %64, %31
   %66 = load ptr, ptr %29, align 8
-  %67 = call noundef double %66(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %67 = call noundef double %66(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %68 = call noundef double @llvm.fabs.f64(double %67)
   %69 = fmul double %68, 0x3CB0000000000000
@@ -267,7 +267,7 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
           to label %87 unwind label %.thread
 
 87:                                               ; preds = %85
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %88 unwind label %.thread81
 
 88:                                               ; preds = %87
@@ -312,7 +312,7 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
   %.0 = phi i1 [ false, %92 ], [ true, %90 ]
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
   br label %99
 
@@ -490,7 +490,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 
@@ -566,7 +566,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -680,7 +680,7 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
           to label %58 unwind label %.thread
 
 58:                                               ; preds = %54
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %59 unwind label %.thread76
 
 59:                                               ; preds = %58
@@ -725,7 +725,7 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
   %.0 = phi i1 [ false, %63 ], [ true, %61 ]
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
   br label %70
 
@@ -790,7 +790,7 @@ define noundef float @_ZN3gmx8internal49findSmallestQuotientOfFunctionAndSecondD
 
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %18
   %22 = load ptr, ptr %17, align 8
-  %23 = call noundef double %22(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %23 = call noundef double %22(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %.029, ptr %4, align 8
@@ -804,7 +804,7 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %18
 
 _ZNKSt8functionIFddEEclEd.exit17:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit
   %26 = load ptr, ptr %17, align 8
-  %27 = call noundef double %26(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %27 = call noundef double %26(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %28 = fadd double %.029, 0x3F20000000000000
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -819,7 +819,7 @@ _ZNKSt8functionIFddEEclEd.exit17:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit19:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit17
   %31 = load ptr, ptr %17, align 8
-  %32 = call noundef double %31(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %32 = call noundef double %31(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %33 = call noundef double @llvm.fabs.f64(double %27)
   %34 = fcmp olt double %33, 0x3C00000000000000
@@ -943,7 +943,7 @@ define noundef float @_ZN3gmx8internal48findSmallestQuotientOfFunctionAndThirdDe
 
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %20
   %24 = load ptr, ptr %19, align 8
-  %25 = call noundef double %24(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %25 = call noundef double %24(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %26 = fadd double %.041, 0xBF48406003B2AE5A
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -958,7 +958,7 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %20
 
 _ZNKSt8functionIFddEEclEd.exit23:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit
   %29 = load ptr, ptr %19, align 8
-  %30 = call noundef double %29(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %30 = call noundef double %29(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store double %.041, ptr %5, align 8
@@ -972,7 +972,7 @@ _ZNKSt8functionIFddEEclEd.exit23:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit25:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit23
   %33 = load ptr, ptr %19, align 8
-  %34 = call noundef double %33(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %34 = call noundef double %33(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %35 = fadd double %.041, 0x3F48406003B2AE5A
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -987,7 +987,7 @@ _ZNKSt8functionIFddEEclEd.exit25:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit27:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit25
   %38 = load ptr, ptr %19, align 8
-  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %40 = fadd double %.041, 0x3F58406003B2AE5A
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1002,7 +1002,7 @@ _ZNKSt8functionIFddEEclEd.exit27:                 ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit29:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit27
   %43 = load ptr, ptr %19, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %45 = call noundef double @llvm.fabs.f64(double %34)
   %46 = fcmp olt double %45, 0x3C00000000000000
@@ -1148,7 +1148,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %.045 = phi i1 [ false, %18 ], [ true, %16 ]
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #20
   br i1 %.045, label %23, label %98
@@ -1341,7 +1341,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -1358,7 +1358,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -1461,7 +1461,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 

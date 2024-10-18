@@ -271,7 +271,7 @@ call.i16.noexc:                                   ; preds = %if.then59
   store i64 %6, ptr %agg.tmp.i, align 8, !noalias !11
   store ptr null, ptr %input_copy, align 8, !noalias !11
   store ptr null, ptr %root, align 8, !noalias !11
-  invoke void @_ZN4base15DictionaryValueC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i1617)
+  invoke void @_ZN4base15DictionaryValueC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call.i1617)
           to label %.noexc.i unwind label %lpad.i, !noalias !11
 
 .noexc.i:                                         ; preds = %call.i16.noexc
@@ -279,14 +279,14 @@ call.i16.noexc:                                   ; preds = %if.then59
   %json_.i.i = getelementptr inbounds i8, ptr %call.i1617, i64 64
   store i64 %6, ptr %json_.i.i, align 8, !noalias !11
   store ptr null, ptr %agg.tmp.i, align 8, !noalias !11
-  invoke void @_ZN4base15DictionaryValue4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %call.i1617, ptr noundef nonnull %11)
+  invoke void @_ZN4base15DictionaryValue4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %call.i1617, ptr noundef nonnull %11)
           to label %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueESt14default_deleteIS3_EED2Ev.exit unwind label %lpad.i.i, !noalias !11
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %json_.i.i) #17, !noalias !11
-  call void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i1617) #17, !noalias !11
+  call void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call.i1617) #17, !noalias !11
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit6.i
 
 lpad.i:                                           ; preds = %call.i16.noexc
@@ -321,7 +321,7 @@ call.i25.noexc:                                   ; preds = %if.then66
   store i64 %6, ptr %agg.tmp.i24, align 8, !noalias !14
   store ptr null, ptr %input_copy, align 8, !noalias !14
   store ptr null, ptr %root, align 8, !noalias !14
-  invoke void @_ZN4base9ListValueC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %call.i2542)
+  invoke void @_ZN4base9ListValueC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call.i2542)
           to label %.noexc.i34 unwind label %lpad.i26, !noalias !14
 
 .noexc.i34:                                       ; preds = %call.i25.noexc
@@ -329,14 +329,14 @@ call.i25.noexc:                                   ; preds = %if.then66
   %json_.i.i35 = getelementptr inbounds i8, ptr %call.i2542, i64 40
   store i64 %6, ptr %json_.i.i35, align 8, !noalias !14
   store ptr null, ptr %agg.tmp.i24, align 8, !noalias !14
-  invoke void @_ZN4base9ListValue4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i2542, ptr noundef nonnull %11)
+  invoke void @_ZN4base9ListValue4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %call.i2542, ptr noundef nonnull %11)
           to label %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default_deleteIS3_EED2Ev.exit unwind label %lpad.i.i36, !noalias !14
 
 lpad.i.i36:                                       ; preds = %.noexc.i34
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %json_.i.i35) #17, !noalias !14
-  call void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %call.i2542) #17, !noalias !14
+  call void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call.i2542) #17, !noalias !14
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit6.i33
 
 lpad.i26:                                         ; preds = %call.i25.noexc
@@ -1845,7 +1845,7 @@ invoke.cont5:                                     ; preds = %if.end.i
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont5
-  invoke void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %call.i5, i32 noundef 4)
+  invoke void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(32) %call.i5, i32 noundef 4)
           to label %cleanup.thread unwind label %lpad.i, !noalias !28
 
 lpad.i:                                           ; preds = %call.i.noexc
@@ -3453,7 +3453,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %json_.i, align 8
-  tail call void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
+  tail call void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -3690,7 +3690,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %json_.i, align 8
-  tail call void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #17
+  tail call void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -3878,7 +3878,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base8internal12_GLOBAL__N_115JSONStringValueD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN4base5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) #17
+  tail call void @_ZN4base5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }

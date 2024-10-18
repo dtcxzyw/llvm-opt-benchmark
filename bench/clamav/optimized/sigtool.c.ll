@@ -1385,7 +1385,7 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr nocapture noundef nonnu
 
 106:                                              ; preds = %97
   call void @cl_debug() #25
-  %107 = call i32 @cli_genhash_pe(ptr noundef nonnull %5, i32 noundef %..i, i32 noundef %2, ptr noundef null) #25
+  %107 = call i32 @cli_genhash_pe(ptr noundef nonnull %5, i32 noundef %..i, i32 noundef range(i32 1, 4) %2, ptr noundef null) #25
   switch i32 %107, label %111 [
     i32 0, label %112
     i32 1, label %108
@@ -1732,7 +1732,7 @@ define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef nonnull %0) un
   br label %.thread93.i
 
 28:                                               ; preds = %24
-  %29 = tail call ptr @fmap(i32 noundef %5, i64 noundef 0, i64 noundef 0, ptr noundef null) #25
+  %29 = tail call ptr @fmap(i32 noundef range(i32 0, -1) %5, i64 noundef 0, i64 noundef 0, ptr noundef null) #25
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
@@ -4505,7 +4505,7 @@ dircopy.exit.thread:                              ; preds = %29, %27, %dircopy.e
   br i1 %.not.i60, label %53, label %removeTempDir.exit61
 
 53:                                               ; preds = %dircopy.exit.thread
-  %54 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %54 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   br label %removeTempDir.exit61
 
 removeTempDir.exit61:                             ; preds = %dircopy.exit.thread, %53
@@ -4526,7 +4526,7 @@ removeTempDir.exit61:                             ; preds = %dircopy.exit.thread
   br i1 %.not.i62, label %61, label %removeTempDir.exit63
 
 61:                                               ; preds = %57
-  %62 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %62 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   br label %removeTempDir.exit63
 
 removeTempDir.exit63:                             ; preds = %57, %61
@@ -4547,7 +4547,7 @@ removeTempDir.exit63:                             ; preds = %57, %61
   br i1 %.not.i64, label %70, label %removeTempDir.exit65
 
 70:                                               ; preds = %66
-  %71 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %71 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   br label %removeTempDir.exit65
 
 removeTempDir.exit65:                             ; preds = %66, %70
@@ -4568,7 +4568,7 @@ removeTempDir.exit65:                             ; preds = %66, %70
   br i1 %.not.i66, label %79, label %removeTempDir.exit67
 
 79:                                               ; preds = %75
-  %80 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %80 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   br label %removeTempDir.exit67
 
 removeTempDir.exit67:                             ; preds = %75, %79
@@ -4599,7 +4599,7 @@ removeTempDir.exit67:                             ; preds = %75, %79
   br i1 %.not.i68, label %93, label %removeTempDir.exit69
 
 93:                                               ; preds = %89
-  %94 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %94 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   br label %removeTempDir.exit69
 
 removeTempDir.exit69:                             ; preds = %89, %93
@@ -4626,7 +4626,7 @@ removeTempDir.exit69:                             ; preds = %89, %93
   br i1 %.not.i70, label %106, label %removeTempDir.exit71
 
 106:                                              ; preds = %102
-  %107 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %107 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   br label %removeTempDir.exit71
 
 removeTempDir.exit71:                             ; preds = %102, %106

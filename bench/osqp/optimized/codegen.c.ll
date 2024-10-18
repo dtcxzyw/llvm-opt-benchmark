@@ -555,7 +555,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %170 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.156, ptr noundef %1) #8
   %171 = getelementptr inbounds i8, ptr %165, i64 16
   %172 = load ptr, ptr %171, align 8
-  %173 = call fastcc i64 @write_OSQPMatrix(ptr noundef %13, ptr noundef %172, ptr noundef %6)
+  %173 = call fastcc i64 @write_OSQPMatrix(ptr noundef nonnull %13, ptr noundef %172, ptr noundef %6)
   %.not51.i.i.i = icmp eq i64 %173, 0
   br i1 %.not51.i.i.i, label %177, label %174
 
@@ -568,7 +568,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %178 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.157, ptr noundef %1) #8
   %179 = getelementptr inbounds i8, ptr %165, i64 24
   %180 = load ptr, ptr %179, align 8
-  %181 = call fastcc i64 @write_OSQPMatrix(ptr noundef %13, ptr noundef %180, ptr noundef %6)
+  %181 = call fastcc i64 @write_OSQPMatrix(ptr noundef nonnull %13, ptr noundef %180, ptr noundef %6)
   %.not52.i.i.i = icmp eq i64 %181, 0
   br i1 %.not52.i.i.i, label %185, label %182
 
@@ -581,7 +581,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %186 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.158, ptr noundef %1) #8
   %187 = getelementptr inbounds i8, ptr %165, i64 32
   %188 = load ptr, ptr %187, align 8
-  %189 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %188, ptr noundef %6)
+  %189 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %188, ptr noundef %6)
   %.not53.i.i.i = icmp eq i64 %189, 0
   br i1 %.not53.i.i.i, label %193, label %190
 
@@ -594,7 +594,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %194 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.159, ptr noundef %1) #8
   %195 = getelementptr inbounds i8, ptr %165, i64 40
   %196 = load ptr, ptr %195, align 8
-  %197 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %196, ptr noundef %6)
+  %197 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %196, ptr noundef %6)
   %.not54.i.i.i = icmp eq i64 %197, 0
   br i1 %.not54.i.i.i, label %201, label %198
 
@@ -607,7 +607,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %202 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.160, ptr noundef %1) #8
   %203 = getelementptr inbounds i8, ptr %165, i64 48
   %204 = load ptr, ptr %203, align 8
-  %205 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %204, ptr noundef %6)
+  %205 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %204, ptr noundef %6)
   %.not55.i.i.i = icmp eq i64 %205, 0
   br i1 %.not55.i.i.i, label %write_data.exit.thread.i.i, label %206
 
@@ -659,7 +659,7 @@ write_data.exit.i.i:                              ; preds = %206, %198, %190, %1
   %233 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.182, ptr noundef %1) #8
   %234 = getelementptr inbounds i8, ptr %223, i64 80
   %235 = load ptr, ptr %234, align 8
-  %236 = call fastcc i64 @write_csc(ptr noundef %13, ptr noundef %235, ptr noundef %5)
+  %236 = call fastcc i64 @write_csc(ptr noundef nonnull %13, ptr noundef %235, ptr noundef %5)
   %.not171.i.i.i = icmp eq i64 %236, 0
   br i1 %.not171.i.i.i, label %240, label %237
 
@@ -776,7 +776,7 @@ write_vecf.exit185.i.i.i:                         ; preds = %288, %._crit_edge.i
   %292 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.188, ptr noundef %1) #8
   %293 = getelementptr inbounds i8, ptr %223, i64 168
   %294 = load ptr, ptr %293, align 8
-  %295 = call fastcc i64 @write_csc(ptr noundef %13, ptr noundef %294, ptr noundef %5)
+  %295 = call fastcc i64 @write_csc(ptr noundef nonnull %13, ptr noundef %294, ptr noundef %5)
   %.not173.i.i.i = icmp eq i64 %295, 0
   br i1 %.not173.i.i.i, label %299, label %296
 
@@ -1075,7 +1075,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %462 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.85, ptr noundef %1) #8
   %463 = getelementptr inbounds i8, ptr %161, i64 24
   %464 = load ptr, ptr %463, align 8
-  %465 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %464, ptr noundef %7)
+  %465 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %464, ptr noundef %7)
   %.not265.i.i = icmp eq i64 %465, 0
   br i1 %.not265.i.i, label %469, label %466
 
@@ -1088,7 +1088,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %470 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.87, ptr noundef %1) #8
   %471 = getelementptr inbounds i8, ptr %161, i64 32
   %472 = load ptr, ptr %471, align 8
-  %473 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %472, ptr noundef %7)
+  %473 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %472, ptr noundef %7)
   %.not266.i.i = icmp eq i64 %473, 0
   br i1 %.not266.i.i, label %477, label %474
 
@@ -1105,7 +1105,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %480 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef %1) #8
   %481 = getelementptr inbounds i8, ptr %161, i64 40
   %482 = load ptr, ptr %481, align 8
-  %483 = call fastcc i64 @write_OSQPVectori(ptr noundef %13, ptr noundef %482, ptr noundef %7)
+  %483 = call fastcc i64 @write_OSQPVectori(ptr noundef nonnull %13, ptr noundef %482, ptr noundef %7)
   %.not267.i.i = icmp eq i64 %483, 0
   br i1 %.not267.i.i, label %487, label %484
 
@@ -1118,7 +1118,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %488 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.89, ptr noundef %1) #8
   %489 = getelementptr inbounds i8, ptr %161, i64 48
   %490 = load ptr, ptr %489, align 8
-  %491 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %490, ptr noundef %7)
+  %491 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %490, ptr noundef %7)
   %.not268.i.i = icmp eq i64 %491, 0
   br i1 %.not268.i.i, label %495, label %492
 
@@ -1131,7 +1131,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %496 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef %1) #8
   %497 = getelementptr inbounds i8, ptr %161, i64 56
   %498 = load ptr, ptr %497, align 8
-  %499 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %498, ptr noundef %7)
+  %499 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %498, ptr noundef %7)
   %.not269.i.i = icmp eq i64 %499, 0
   br i1 %.not269.i.i, label %503, label %500
 
@@ -1144,7 +1144,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %504 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef %1) #8
   %505 = getelementptr inbounds i8, ptr %161, i64 64
   %506 = load ptr, ptr %505, align 8
-  %507 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %506, ptr noundef %7)
+  %507 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %506, ptr noundef %7)
   %.not270.i.i = icmp eq i64 %507, 0
   br i1 %.not270.i.i, label %511, label %508
 
@@ -1239,7 +1239,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
 565:                                              ; preds = %561
   %566 = getelementptr inbounds i8, ptr %161, i64 200
   %567 = load ptr, ptr %566, align 8
-  %568 = call fastcc i64 @write_scaling(ptr noundef %13, ptr noundef %567, ptr noundef %1)
+  %568 = call fastcc i64 @write_scaling(ptr noundef nonnull %13, ptr noundef %567, ptr noundef %1)
   %.not272.i.i = icmp eq i64 %568, 0
   br i1 %.not272.i.i, label %569, label %write_workspace.exit.thread.i
 

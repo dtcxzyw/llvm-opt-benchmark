@@ -457,7 +457,7 @@ define void @_ZNK4LIEF3DEX5Class12package_nameB5cxx11Ev(ptr dead_on_unwind noali
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc
@@ -467,7 +467,7 @@ define void @_ZNK4LIEF3DEX5Class12package_nameB5cxx11Ev(ptr dead_on_unwind noali
 12:                                               ; preds = %.noexc4
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc4
@@ -794,7 +794,7 @@ define void @_ZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i, label %.body, label %9
 
 9:                                                ; preds = %.body.i
-  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %11
 
 11:                                               ; preds = %9
@@ -819,7 +819,7 @@ define void @_ZN4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i5, label %_ZNSt8functionIFbRKPN4LIEF3DEX6MethodEEED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRKPN4LIEF3DEX6MethodEEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %19
@@ -846,7 +846,7 @@ _ZNSt8functionIFbRKPN4LIEF3DEX6MethodEEED2Ev.exit: ; preds = %17, %19
   br i1 %.not.i.i7, label %.body, label %29
 
 29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %31
 
 31:                                               ; preds = %29
@@ -929,7 +929,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE9push_backERKS8_.exit:
 36:                                               ; preds = %.preheader.i
   %37 = load ptr, ptr %6, align 8
   %38 = load ptr, ptr %9, align 8
-  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX6MethodEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRSC_IS6_SaIS6_EES6_NS1_IPS6_SK_EEE4nextEvEUlRKSA_E_EEET_ST_ST_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull %0)
+  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX6MethodEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRSC_IS6_SaIS6_EES6_NS1_IPS6_SK_EEE4nextEvEUlRKSA_E_EEET_ST_ST_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull align 8 dereferenceable(56) %0)
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %36
@@ -978,7 +978,7 @@ define void @_ZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not.i.i, label %.body, label %9
 
 9:                                                ; preds = %.body.i
-  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %11
 
 11:                                               ; preds = %9
@@ -1003,7 +1003,7 @@ define void @_ZNK4LIEF3DEX5Class7methodsERKNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not.i.i5, label %_ZNSt8functionIFbRKPN4LIEF3DEX6MethodEEED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRKPN4LIEF3DEX6MethodEEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %19
@@ -1030,7 +1030,7 @@ _ZNSt8functionIFbRKPN4LIEF3DEX6MethodEEED2Ev.exit: ; preds = %17, %19
   br i1 %.not.i.i7, label %.body, label %29
 
 29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %31
 
 31:                                               ; preds = %29
@@ -1113,7 +1113,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE9push_backERKS8_.exit:
 36:                                               ; preds = %.preheader.i
   %37 = load ptr, ptr %6, align 8
   %38 = load ptr, ptr %9, align 8
-  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX6MethodEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRKSC_IS6_SaIS6_EES6_NS1_IPS7_SK_EEE4nextEvEUlRKSA_E_EEET_SU_SU_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull %0)
+  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX6MethodEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRKSC_IS6_SaIS6_EES6_NS1_IPS7_SK_EEE4nextEvEUlRKSA_E_EEET_SU_SU_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull align 8 dereferenceable(56) %0)
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %36
@@ -1162,7 +1162,7 @@ define void @_ZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not.i.i, label %.body, label %9
 
 9:                                                ; preds = %.body.i
-  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %11
 
 11:                                               ; preds = %9
@@ -1187,7 +1187,7 @@ define void @_ZN4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not.i.i5, label %_ZNSt8functionIFbRKPN4LIEF3DEX5FieldEEED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRKPN4LIEF3DEX5FieldEEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %19
@@ -1214,7 +1214,7 @@ _ZNSt8functionIFbRKPN4LIEF3DEX5FieldEEED2Ev.exit: ; preds = %17, %19
   br i1 %.not.i.i7, label %.body, label %29
 
 29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %31
 
 31:                                               ; preds = %29
@@ -1297,7 +1297,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE9push_backERKS8_.exit: 
 36:                                               ; preds = %.preheader.i
   %37 = load ptr, ptr %6, align 8
   %38 = load ptr, ptr %9, align 8
-  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX5FieldEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRSC_IS6_SaIS6_EES6_NS1_IPS6_SK_EEE4nextEvEUlRKSA_E_EEET_ST_ST_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull %0)
+  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX5FieldEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRSC_IS6_SaIS6_EES6_NS1_IPS6_SK_EEE4nextEvEUlRKSA_E_EEET_ST_ST_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull align 8 dereferenceable(56) %0)
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %36
@@ -1346,7 +1346,7 @@ define void @_ZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i, label %.body, label %9
 
 9:                                                ; preds = %.body.i
-  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %11
 
 11:                                               ; preds = %9
@@ -1371,7 +1371,7 @@ define void @_ZNK4LIEF3DEX5Class6fieldsERKNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i5, label %_ZNSt8functionIFbRKPN4LIEF3DEX5FieldEEED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRKPN4LIEF3DEX5FieldEEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %19
@@ -1398,7 +1398,7 @@ _ZNSt8functionIFbRKPN4LIEF3DEX5FieldEEED2Ev.exit: ; preds = %17, %19
   br i1 %.not.i.i7, label %.body, label %29
 
 29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %31
 
 31:                                               ; preds = %29
@@ -1481,7 +1481,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE9push_backERKS8_.exit: 
 36:                                               ; preds = %.preheader.i
   %37 = load ptr, ptr %6, align 8
   %38 = load ptr, ptr %9, align 8
-  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX5FieldEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRKSC_IS6_SaIS6_EES6_NS1_IPS7_SK_EEE4nextEvEUlRKSA_E_EEET_SU_SU_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull %0)
+  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKPN4LIEF3DEX5FieldEEESt6vectorISA_SaISA_EEEENS0_5__ops12_Iter_negateIZNS3_15filter_iteratorIRKSC_IS6_SaIS6_EES6_NS1_IPS7_SK_EEE4nextEvEUlRKSA_E_EEET_SU_SU_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull align 8 dereferenceable(56) %0)
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %36
@@ -2074,7 +2074,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX6Method
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFbRKPN4LIEF3DEX6MethodEEEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFbRKPN4LIEF3DEX6MethodEEEEvPT_.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %7
@@ -2151,7 +2151,7 @@ _ZNSt12_Vector_baseISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE11_M_allocateEm
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX6MethodEEEEE9constructIS8_JRKS8_EEEvRS9_PT_DpOT0_.exit, label %29
 
 29:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE11_M_allocateEm.exit
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %31 unwind label %35
 
 31:                                               ; preds = %29
@@ -2170,7 +2170,7 @@ _ZNSt12_Vector_baseISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE11_M_allocateEm
   br i1 %.not.i.i.i.i, label %65, label %38
 
 38:                                               ; preds = %35
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %65 unwind label %40
 
 40:                                               ; preds = %38
@@ -2191,7 +2191,7 @@ _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX6MethodEEEEE9constructIS8_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !20
   %45 = load ptr, ptr %44, align 8, !alias.scope !20, !noalias !17
   store ptr %45, ptr %43, align 8, !alias.scope !17, !noalias !20
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
@@ -2201,7 +2201,7 @@ _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX6MethodEEEEE9constructIS8_
 
 _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX6MethodEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !alias.scope !22
   store ptr %47, ptr %48, align 8, !alias.scope !17, !noalias !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !alias.scope !20, !noalias !17
   br label %_ZSt19__relocate_object_aISt8functionIFbRKPN4LIEF3DEX6MethodEEES8_SaIS8_EEvPT_PT0_RT1_.exit.i.i.i
@@ -2225,7 +2225,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE11_S_relocateEPS8_SB_S
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
   %53 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !24, !noalias !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !24, !noalias !27
   %54 = load ptr, ptr %53, align 8, !alias.scope !27, !noalias !24
   store ptr %54, ptr %52, align 8, !alias.scope !24, !noalias !27
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
@@ -2235,7 +2235,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX6MethodEEESaIS8_EE11_S_relocateEPS8_SB_S
 
 _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX6MethodEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i.i.i31: ; preds = %.lr.ph.i.i.i27
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i29, i64 16, i1 false), !alias.scope !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29, i64 16, i1 false), !alias.scope !29
   store ptr %56, ptr %57, align 8, !alias.scope !24, !noalias !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false), !alias.scope !27, !noalias !24
   br label %_ZSt19__relocate_object_aISt8functionIFbRKPN4LIEF3DEX6MethodEEES8_SaIS8_EEvPT_PT0_RT1_.exit.i.i.i32
@@ -2323,7 +2323,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit
@@ -2341,7 +2341,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit17
@@ -2359,7 +2359,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit19
@@ -2377,7 +2377,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit21
@@ -2416,7 +2416,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit23
@@ -2439,7 +2439,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit25
@@ -2462,7 +2462,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -2503,7 +2503,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit
@@ -2521,7 +2521,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit17
@@ -2539,7 +2539,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit19
@@ -2557,7 +2557,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit21
@@ -2596,7 +2596,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit23
@@ -2619,7 +2619,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit25
@@ -2642,7 +2642,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX6
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -2755,7 +2755,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit
@@ -2773,7 +2773,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit17
@@ -2791,7 +2791,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit19
@@ -2809,7 +2809,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit21
@@ -2848,7 +2848,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit23
@@ -2871,7 +2871,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit25
@@ -2894,7 +2894,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -2932,7 +2932,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit
@@ -2950,7 +2950,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit17
@@ -2968,7 +2968,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit19
@@ -2986,7 +2986,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit21
@@ -3025,7 +3025,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit23
@@ -3048,7 +3048,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX6MethodESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit25
@@ -3071,7 +3071,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -3173,7 +3173,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX5FieldE
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFbRKPN4LIEF3DEX5FieldEEEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFbRKPN4LIEF3DEX5FieldEEEEvPT_.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %7
@@ -3250,7 +3250,7 @@ _ZNSt12_Vector_baseISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE11_M_allocateEm.
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX5FieldEEEEE9constructIS8_JRKS8_EEEvRS9_PT_DpOT0_.exit, label %29
 
 29:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE11_M_allocateEm.exit
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %31 unwind label %35
 
 31:                                               ; preds = %29
@@ -3269,7 +3269,7 @@ _ZNSt12_Vector_baseISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE11_M_allocateEm.
   br i1 %.not.i.i.i.i, label %65, label %38
 
 38:                                               ; preds = %35
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %65 unwind label %40
 
 40:                                               ; preds = %38
@@ -3290,7 +3290,7 @@ _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX5FieldEEEEE9constructIS8_J
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
   %45 = load ptr, ptr %44, align 8, !alias.scope !38, !noalias !35
   store ptr %45, ptr %43, align 8, !alias.scope !35, !noalias !38
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
@@ -3300,7 +3300,7 @@ _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX5FieldEEEEE9constructIS8_J
 
 _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX5FieldEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !alias.scope !40
   store ptr %47, ptr %48, align 8, !alias.scope !35, !noalias !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !alias.scope !38, !noalias !35
   br label %_ZSt19__relocate_object_aISt8functionIFbRKPN4LIEF3DEX5FieldEEES8_SaIS8_EEvPT_PT0_RT1_.exit.i.i.i
@@ -3324,7 +3324,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE11_S_relocateEPS8_SB_SB
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
   %53 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !42, !noalias !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !42, !noalias !45
   %54 = load ptr, ptr %53, align 8, !alias.scope !45, !noalias !42
   store ptr %54, ptr %52, align 8, !alias.scope !42, !noalias !45
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
@@ -3334,7 +3334,7 @@ _ZNSt6vectorISt8functionIFbRKPN4LIEF3DEX5FieldEEESaIS8_EE11_S_relocateEPS8_SB_SB
 
 _ZNSt16allocator_traitsISaISt8functionIFbRKPN4LIEF3DEX5FieldEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i.i.i31: ; preds = %.lr.ph.i.i.i27
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i29, i64 16, i1 false), !alias.scope !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29, i64 16, i1 false), !alias.scope !47
   store ptr %56, ptr %57, align 8, !alias.scope !42, !noalias !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false), !alias.scope !45, !noalias !42
   br label %_ZSt19__relocate_object_aISt8functionIFbRKPN4LIEF3DEX5FieldEEES8_SaIS8_EEvPT_PT0_RT1_.exit.i.i.i32
@@ -3418,7 +3418,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit
@@ -3436,7 +3436,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit17
@@ -3454,7 +3454,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit19
@@ -3472,7 +3472,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit21
@@ -3511,7 +3511,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit23
@@ -3534,7 +3534,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEEC1ESA_St8functionIFbRKS7_EEEUlRKSJ_E_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit25
@@ -3557,7 +3557,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -3595,7 +3595,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit
@@ -3613,7 +3613,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit17
@@ -3631,7 +3631,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit19
@@ -3649,7 +3649,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit21
@@ -3688,7 +3688,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit23
@@ -3711,7 +3711,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPS7_S9_EEE4nextEvEUlRKSt8functionIFbRKS7_EEE_EclINSB_IPSJ_S4_ISJ_SaISJ_EEEEEEbT_.exit25
@@ -3734,7 +3734,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRSt6vectorIPNS2_3DEX5
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -3847,7 +3847,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit
@@ -3865,7 +3865,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit17
@@ -3883,7 +3883,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit19
@@ -3901,7 +3901,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit21
@@ -3940,7 +3940,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit23
@@ -3963,7 +3963,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEEC1ESB_St8functionIFbRSD_EEEUlRKSK_E_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit25
@@ -3986,7 +3986,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 
@@ -4024,7 +4024,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.051, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit
@@ -4042,7 +4042,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit17
@@ -4060,7 +4060,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit19
@@ -4078,7 +4078,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit21
@@ -4117,7 +4117,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit23
@@ -4140,7 +4140,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX5FieldESaIS7_EES7_NS_17__normal_iteratorIPKS7_S9_EEE4nextEvEUlRKSt8functionIFbRSD_EEE_EclINSC_IPSK_S4_ISK_SaISK_EEEEEEbT_.exit25
@@ -4163,7 +4163,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4LIEF15filter_iteratorIRKSt6vectorIPNS2_3DEX
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.sroa.037.2, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %spec.select = select i1 %80, ptr %1, ptr %.sroa.037.2
   br label %.loopexit
 

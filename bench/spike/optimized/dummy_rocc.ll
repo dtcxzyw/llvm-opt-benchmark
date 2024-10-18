@@ -155,7 +155,7 @@ define linkonce_odr void @_ZN12dummy_rocc_tD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12dummy_rocc_tD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN11extension_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @_ZN11extension_tD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -417,7 +417,7 @@ define internal void @_GLOBAL__sub_I_dummy_rocc.cc() #11 section ".text.startup"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN19register_dummy_roccC1EvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN19register_dummy_roccC1EvEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %3, align 8
   invoke void @_Z18register_extensionPKcSt8functionIFP11extension_tvEE(ptr noundef nonnull @.str, ptr noundef nonnull %1)
@@ -429,7 +429,7 @@ define internal void @_GLOBAL__sub_I_dummy_rocc.cc() #11 section ".text.startup"
   br i1 %.not.i.i.i.i, label %__cxx_global_var_init.1.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %__cxx_global_var_init.1.exit unwind label %9
 
 9:                                                ; preds = %7
@@ -447,7 +447,7 @@ define internal void @_GLOBAL__sub_I_dummy_rocc.cc() #11 section ".text.startup"
   br i1 %.not.i.i1.i.i, label %_ZNSt8functionIFP11extension_tvEED2Ev.exit2.i.i, label %15
 
 15:                                               ; preds = %12
-  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFP11extension_tvEED2Ev.exit2.i.i unwind label %17
 
 17:                                               ; preds = %15

@@ -397,7 +397,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceELN9__gnu_cxx12_Lock_polic
 define void @_ZN19OpenColorIO_v2_4dev10ColorSpaceC2ENS_18ReferenceSpaceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %referenceSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %call) #23
   %m_family.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_family.i) #23
   %m_equalityGroup.i = getelementptr inbounds i8, ptr %call, i64 64
@@ -2759,7 +2759,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   br i1 %or.cond, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %vars.sroa.0.0, ptr nonnull align 4 %2, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %vars.sroa.0.0, ptr nonnull align 4 %2, i64 %sub.ptr.sub.i.i, i1 false)
   br label %if.end
 
 lpad2:                                            ; preds = %sw.bb9.invoke, %invoke.cont15, %invoke.cont12, %sw.epilog, %if.end

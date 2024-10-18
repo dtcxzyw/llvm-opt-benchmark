@@ -252,7 +252,7 @@ _ZN9CGContext16reset_effect_stmERK6Effect.exit:   ; preds = %_ZN9CGContext18rese
           to label %78 unwind label %59
 
 78:                                               ; preds = %76
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %77, i32 noundef 2)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 2)
           to label %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit unwind label %80
 
 _ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %78
@@ -332,7 +332,7 @@ define dso_local noundef nonnull ptr @_ZNK17ExpressionFuncall5cloneEv(ptr nocapt
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 2)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %9 unwind label %11
 
 9:                                                ; preds = %1
@@ -398,7 +398,7 @@ define dso_local void @_ZN17ExpressionFuncallD0Ev(ptr noundef nonnull align 8 de
   br label %_ZN17ExpressionFuncallD2Ev.exit
 
 _ZN17ExpressionFuncallD2Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

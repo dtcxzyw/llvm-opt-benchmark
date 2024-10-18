@@ -268,7 +268,7 @@ lor.lhs.false.i:                                  ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp14.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp18.i)
   store i32 0, ptr %bufLen.i, align 4
-  %call1.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
+  %call1.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %2 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i)
   %3 = load i32, ptr @_ZL8tabCount, align 4
@@ -444,7 +444,7 @@ sw.bb2:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp10.i33)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp14.i34)
   store i32 0, ptr %bufLen.i31, align 4
-  %call.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
+  %call.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %25 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i30)
   %26 = load i32, ptr @_ZL8tabCount, align 4
@@ -513,7 +513,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i56:    ; preds = %if.else9.i.i.i78, %
   %fLength.i.i.i60 = getelementptr inbounds i8, ptr %res, i64 68
   %34 = load i32, ptr %fLength.i.i.i60, align 4
   %cond.i.i.i61 = select i1 %cmp.i.i.i.i58, i32 %34, i32 %shr.i.i.i.i59
-  %call4.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr null, i32 noundef 0, ptr noundef %bufLen.i31, ptr noundef %retval.0.i.i.i57, i32 noundef %cond.i.i.i61, ptr noundef %status)
+  %call4.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr null, i32 noundef 0, ptr noundef %bufLen.i31, ptr noundef %retval.0.i.i.i57, i32 noundef %cond.i.i.i61, ptr noundef nonnull %status)
   %35 = load i32, ptr %status, align 4
   %cmp.i.i62 = icmp slt i32 %35, 1
   br i1 %cmp.i.i62, label %if.end.i63, label %_ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit
@@ -620,7 +620,7 @@ sw.bb3:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp38.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i, i8 0, i64 256, i1 false)
   store i8 48, ptr %buf.i, align 16
-  %call.i82 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
+  %call.i82 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %fCount.i = getelementptr inbounds i8, ptr %res, i64 56
   %48 = load i64, ptr %fCount.i, align 8
   %cmp1.not.i = icmp eq i64 %48, 0
@@ -1192,7 +1192,7 @@ if.then58.i:                                      ; preds = %lor.lhs.false55.i, 
 
 if.end62.i:                                       ; preds = %if.then58.i, %lor.lhs.false55.i, %lor.lhs.false48.i, %lor.lhs.false45.i, %if.else42.i, %lor.lhs.false38.i, %if.else35.i, %lor.lhs.false31.i, %lor.lhs.false.i124, %if.end26.i
   %m_type.0.i = phi ptr [ @.str.73, %if.then58.i ], [ @.str.78, %lor.lhs.false55.i ], [ @.str.64, %lor.lhs.false31.i ], [ @.str.64, %lor.lhs.false.i124 ], [ @.str.64, %if.end26.i ], [ @.str.67, %lor.lhs.false38.i ], [ @.str.67, %if.else35.i ], [ @.str.71, %lor.lhs.false48.i ], [ @.str.71, %lor.lhs.false45.i ], [ @.str.71, %if.else42.i ]
-  %call63.i = call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %m_type.0.i, ptr noundef readonly %id, ptr noundef nonnull %status)
+  %call63.i = call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %m_type.0.i, ptr noundef readonly %id, ptr noundef nonnull %status)
   %129 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i116)
   %130 = load i32, ptr @_ZL8tabCount, align 4
@@ -1317,7 +1317,7 @@ _ZL10write_tabsP11_FileStream.exit60.i:           ; preds = %_ZL10write_tabsP11_
 invoke.cont78.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit60.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp76.i) #13
   %fComment.i144 = getelementptr inbounds i8, ptr %res, i64 40
-  call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef %fComment.i144, ptr noundef %status)
+  call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef %fComment.i144, ptr noundef nonnull %status)
   %145 = load i32, ptr @_ZL8tabCount, align 4
   %sub80.i = add nsw i32 %145, -1
   store i32 %sub80.i, ptr @_ZL8tabCount, align 4
@@ -1386,7 +1386,7 @@ lpad82.i:                                         ; preds = %_ZL10write_tabsP11_
 
 if.else85.i:                                      ; preds = %cond.end7.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %temp.i, i8 0, i64 256, i1 false)
-  %call86.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.78, ptr noundef readonly %id, ptr noundef nonnull %status)
+  %call86.i = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.78, ptr noundef readonly %id, ptr noundef nonnull %status)
   %155 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i71.i)
   %156 = load i32, ptr @_ZL8tabCount, align 4
@@ -1645,7 +1645,7 @@ _ZL10write_tabsP11_FileStream.exit101.i:          ; preds = %_ZL10write_tabsP11_
 invoke.cont136.i:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit101.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp134.i) #13
   %fComment138.i = getelementptr inbounds i8, ptr %res, i64 40
-  call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef %fComment138.i, ptr noundef %status)
+  call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef %fComment138.i, ptr noundef nonnull %status)
   %190 = load i32, ptr @_ZL8tabCount, align 4
   %sub139.i = add nsw i32 %190, -1
   store i32 %sub139.i, ptr @_ZL8tabCount, align 4
@@ -1728,7 +1728,7 @@ sw.bb5:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp8.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp12.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i146, i8 0, i64 256, i1 false)
-  %call.i148 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
+  %call.i148 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef readonly %id, ptr noundef nonnull %status)
   %198 = load ptr, ptr @_ZL3out, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i145)
   %199 = load i32, ptr @_ZL8tabCount, align 4
@@ -1784,7 +1784,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i165
 invoke.cont10.i:                                  ; preds = %invoke.cont6.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp8.i) #13
   %fComment.i168 = getelementptr inbounds i8, ptr %res, i64 40
-  call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef %fComment.i168, ptr noundef %status)
+  call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef %fComment.i168, ptr noundef nonnull %status)
   %206 = load i32, ptr @_ZL8tabCount, align 4
   %sub.i169 = add nsw i32 %206, -1
   store i32 %sub.i169, ptr @_ZL8tabCount, align 4
@@ -1855,7 +1855,7 @@ _ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_
 sw.bb6:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %c.i170)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i171)
-  %call.i172 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
+  %call.i172 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
   %fFirst.i = getelementptr inbounds i8, ptr %res, i64 64
   %current.0.i211 = load ptr, ptr %fFirst.i, align 8
   %cmp.not.i212 = icmp eq ptr %current.0.i211, null
@@ -1908,7 +1908,7 @@ _ZL15array_write_xmlP13ArrayResourcePKcS2_P10UErrorCode.exit: ; preds = %while.b
 
 if.end.i187:                                      ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i184)
-  %call1.i188 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.88, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
+  %call1.i188 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.88, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
   %tobool2.not.i = icmp eq i8 %isTopLevel, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 

@@ -126,7 +126,7 @@ define dso_local void @_ZN4llvm6Logger11writeHeaderESt8optionalINS_10TensorSpecE
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
-  %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
+  %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %3) #10
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 16
   %34 = icmp eq ptr %32, %33
@@ -143,7 +143,7 @@ _ZN4llvm4json7OStreamD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm4json7OStreamC2ERNS_11raw_ostreamEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef 16) #10
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %4, i64 noundef 16) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -232,7 +232,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %8, %9
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
-  %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
+  %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #10
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 16
   %27 = icmp eq ptr %25, %26
@@ -318,7 +318,7 @@ define dso_local void @_ZN4llvm6Logger16startObservationEv(ptr noundef nonnull a
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %27, %29
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %4) #10
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 16
   %35 = icmp eq ptr %33, %34
@@ -441,7 +441,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %28, %30
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit4
 
 _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %46, %48
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %4) #10
   %52 = load ptr, ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 16
   %54 = icmp eq ptr %52, %53
@@ -465,7 +465,7 @@ define dso_local void @_ZN4llvm6LoggerC2ESt10unique_ptrINS_11raw_ostreamESt14def
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt6vectorIN4llvm10TensorSpecESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(80) %3) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load i64, ptr %13, align 8
@@ -525,7 +525,7 @@ _ZN4llvm10TensorSpecC2ERKS0_.exit:                ; preds = %_ZNSt12_Vector_base
   store i8 %8, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 20, i1 false)
   store i32 16, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #10
@@ -537,7 +537,7 @@ _ZN4llvm10TensorSpecC2ERKS0_.exit:                ; preds = %_ZNSt12_Vector_base
   br i1 %48, label %49, label %_ZNSt8optionalIN4llvm10TensorSpecEEC2ERKS2_.exit
 
 49:                                               ; preds = %_ZN4llvm10TensorSpecC2ERKS0_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %5) #10
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %52 = load i64, ptr %51, align 8
@@ -615,7 +615,7 @@ _ZNSt8optionalIN4llvm10TensorSpecEEC2ERKS2_.exit: ; preds = %_ZN4llvm10TensorSpe
   br label %_ZNSt22_Optional_payload_baseIN4llvm10TensorSpecEE10_M_destroyEv.exit.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm10TensorSpecEE10_M_destroyEv.exit.i.i.i.i: ; preds = %82, %79
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #10
   br label %_ZNSt8optionalIN4llvm10TensorSpecEED2Ev.exit
 
 _ZNSt8optionalIN4llvm10TensorSpecEED2Ev.exit:     ; preds = %_ZNSt8optionalIN4llvm10TensorSpecEEC2ERKS2_.exit, %_ZNSt22_Optional_payload_baseIN4llvm10TensorSpecEE10_M_destroyEv.exit.i.i.i.i
@@ -663,7 +663,7 @@ _ZNSt12_Vector_baseIN4llvm10TensorSpecESaIS1_EEC2EmRKS2_.exit: ; preds = %2, %_Z
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN4llvm10TensorSpecESaIS1_EEC2EmRKS2_.exit, %_ZSt10_ConstructIN4llvm10TensorSpecEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
   %.010.i.i.i.i = phi ptr [ %50, %_ZSt10_ConstructIN4llvm10TensorSpecEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %14, %_ZNSt12_Vector_baseIN4llvm10TensorSpecESaIS1_EEC2EmRKS2_.exit ]
   %.sroa.04.09.i.i.i.i = phi ptr [ %49, %_ZSt10_ConstructIN4llvm10TensorSpecEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN4llvm10TensorSpecESaIS1_EEC2EmRKS2_.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i.i.i.i) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.04.09.i.i.i.i) #10
   %20 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i.i, i64 32
   %22 = load i64, ptr %21, align 8

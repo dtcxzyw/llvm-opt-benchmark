@@ -1417,7 +1417,7 @@ define dso_local void @_ZN4Luau12buildTypeMapERNS_12DenseHashMapIPNS_15AstExprFu
 
 28:                                               ; preds = %26
   call void @_ZdlPv(ptr noundef nonnull %27) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %28, %26
@@ -1428,7 +1428,7 @@ _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal
 
 31:                                               ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %30) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %31, %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
@@ -1476,7 +1476,7 @@ define linkonce_odr dso_local void @_ZN4Luau14TypeMapVisitorD2Ev(ptr noundef non
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %1, %4
@@ -1487,7 +1487,7 @@ _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %7
@@ -1513,7 +1513,7 @@ _ZNSt6vectorISt4pairIN4Luau7AstNameEPNS1_16AstStatTypeAliasEESaIS5_EED2Ev.exit: 
 
 18:                                               ; preds = %_ZNSt6vectorISt4pairIN4Luau7AstNameEPNS1_16AstStatTypeAliasEESaIS5_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %17) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN4Luau7AstNameEPNS1_16AstStatTypeAliasEESaIS5_EED2Ev.exit, %18
@@ -1530,7 +1530,7 @@ define linkonce_odr dso_local void @_ZN4Luau14TypeMapVisitorD0Ev(ptr noundef non
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %4, %1
@@ -1541,7 +1541,7 @@ _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %7, %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
@@ -3506,7 +3506,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
   br i1 %.not.i.old.i, label %_ZN4LuauL16isMatchingGlobalERKNS_12DenseHashMapINS_7AstNameENS_7Compile6GlobalESt4hashIS1_ESt8equal_toIS1_EEEPNS_7AstExprEPKc.exit.thread, label %_ZN4LuauL16isMatchingGlobalERKNS_12DenseHashMapINS_7AstNameENS_7Compile6GlobalESt4hashIS1_ESt8equal_toIS1_EEEPNS_7AstExprEPKc.exit
 
 _ZN4LuauL16isMatchingGlobalERKNS_12DenseHashMapINS_7AstNameENS_7Compile6GlobalESt4hashIS1_ESt8equal_toIS1_EEEPNS_7AstExprEPKc.exit: ; preds = %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.i, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread.i
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i, ptr noundef nonnull readonly dereferenceable(7) @.str.63) #17
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(7) @.str.63) #17
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %_ZN4LuauL16isMatchingGlobalERKNS_12DenseHashMapINS_7AstNameENS_7Compile6GlobalESt4hashIS1_ESt8equal_toIS1_EEEPNS_7AstExprEPKc.exit.thread
 

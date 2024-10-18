@@ -169,7 +169,7 @@ while.body36:                                     ; preds = %land.rhs28
 while.end39:                                      ; preds = %land.rhs28, %while.body36, %while.end23
   %len.3.lcssa = phi i32 [ %len.2.lcssa, %while.end23 ], [ 0, %while.body36 ], [ %len.3310, %land.rhs28 ]
   %ptr.2.lcssa = phi ptr [ %add.ptr24, %while.end23 ], [ %scevgep602, %while.body36 ], [ %ptr.2311, %land.rhs28 ]
-  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull readonly @.str.13, i64 noundef %idx.ext) #14
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull @.str.13, i64 noundef %idx.ext) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %match_word.exit, label %if.end42
 
@@ -192,7 +192,7 @@ while.cond8.preheader.lr.ph:                      ; preds = %while.cond8.prehead
 
 if.end42:                                         ; preds = %while.end39, %match_word.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull readonly @.str.26, i64 noundef %idx.ext) #14
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull @.str.26, i64 noundef %idx.ext) #14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %match_word.exit.i, label %if.end.i
 
@@ -274,7 +274,7 @@ if.then14.i:                                      ; preds = %land.lhs.true10.i
 if.end17.i:                                       ; preds = %land.lhs.true10.i, %land.lhs.true6.i, %if.then3.i, %land.lhs.true.i, %if.end.i
   %c.sroa.16.0 = phi i8 [ %conv.i46.i, %land.lhs.true10.i ], [ 0, %land.lhs.true6.i ], [ 0, %if.then3.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ]
   %c.sroa.15.0 = phi i8 [ %conv.i34.i, %land.lhs.true10.i ], [ %conv.i34.i, %land.lhs.true6.i ], [ 0, %if.then3.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ]
-  %call.i.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull readonly @.str.35, i64 noundef %idx.ext) #14
+  %call.i.i.i = tail call i32 @strncasecmp(ptr noundef readonly %ptr.1319, ptr noundef nonnull @.str.35, i64 noundef %idx.ext) #14
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %match_word.exit.i.i, label %if.end.i62.i
 
@@ -415,7 +415,7 @@ if.end55:                                         ; preds = %if.else49.i, %if.en
   br i1 %cmp.not.i.i, label %if.end.i69, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end55
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %ptr.1319, ptr noundef nonnull readonly dereferenceable(2) @.str.44, i64 2)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %ptr.1319, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
   %tobool.not.i.i68 = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i68, label %if.then.i74, label %if.end.i69
 
@@ -807,7 +807,7 @@ if.then12:                                        ; preds = %if.then9
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then12
-  %call.i = tail call i32 @isatty(i32 noundef %fd) #15
+  %call.i = tail call i32 @isatty(i32 noundef range(i32 1, -2147483648) %fd) #15
   store i32 %call.i, ptr %cond.i, align 4
   br label %if.end.i
 

@@ -81514,7 +81514,7 @@ _ZNKSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.ex
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImmEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
+  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImmEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed, i64 noundef %cond.i.i)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %cond.true.i.i, %_ZNKSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.exit.i
@@ -101841,7 +101841,7 @@ _ZNKSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.ex
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImmEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
+  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImmEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed, i64 noundef %cond.i.i)
   %.pre13 = load i64, ptr %add.ptr2.i.i.i, align 8, !tbaa !57
   br label %invoke.cont.i
 

@@ -138,7 +138,7 @@ if.end:                                           ; preds = %if.end.i
   call void @CRYPTO_free(ptr noundef nonnull %call6.i, ptr noundef nonnull @.str.1, i32 noundef 263) #5
   %6 = load i64, ptr %call5.i, align 1
   call void @CRYPTO_free(ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.1, i32 noundef 265) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %iv, ptr nonnull align 1 %call3.i, i64 %conv, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %iv, ptr nonnull align 1 %call3.i, i64 range(i64 -2147483648, 2147483648) %conv, i1 false)
   call void @CRYPTO_free(ptr noundef nonnull %call3.i, ptr noundef nonnull @.str.1, i32 noundef 267) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptlen.i)
   %call5 = call ptr @EVP_aes_128_gcm() #5

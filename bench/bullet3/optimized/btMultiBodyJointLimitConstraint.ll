@@ -116,7 +116,7 @@ declare void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN31btMultiBodyJointLimitConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #13
+  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN21btMultiBodyConstraintdlEPv.exit unwind label %terminate.lpad.i
 
@@ -414,7 +414,7 @@ sw.bb:                                            ; preds = %_ZN20btAlignedObjec
   %idxprom.i.i66 = sext i32 %39 to i64
   %m_cachedWorldTransform = getelementptr inbounds %struct.btMultibodyLink, ptr %40, i64 %idxprom.i.i66, i32 28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_cachedWorldTransform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %m_cachedWorldTransform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
@@ -486,7 +486,7 @@ sw.bb:                                            ; preds = %_ZN20btAlignedObjec
 sw.bb39:                                          ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
   %m_cachedWorldTransform45 = getelementptr inbounds i8, ptr %arrayidx.i.i64, i64 576
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i86)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_cachedWorldTransform45, ptr noundef nonnull align 4 dereferenceable(16) %retval.i86)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %m_cachedWorldTransform45, ptr noundef nonnull align 4 dereferenceable(16) %retval.i86)
   %.fca.0.load.i87 = load <2 x float>, ptr %retval.i86, align 8
   %.fca.1.load.i90 = load <2 x float>, ptr %.fca.1.gep.i89, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i86)

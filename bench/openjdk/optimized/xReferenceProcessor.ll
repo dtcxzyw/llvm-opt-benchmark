@@ -1587,7 +1587,7 @@ define hidden void @_ZN19XReferenceProcessor18process_referencesEv(ptr noundef n
   br label %_ZN10XStatTimerC2ERK10XStatPhase.exit
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
-  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull @.str.23) #12
+  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.23) #12
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23XReferenceProcessorTask, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %0, ptr %17, align 8

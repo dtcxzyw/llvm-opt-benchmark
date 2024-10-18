@@ -102,10 +102,10 @@ entry:
   store i8 0, ptr %m_is_shared.i, align 8
   %m_owners.i = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %m_owners.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(202) %this, i8 0, i64 48, i1 false)
   %call.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #17
   %call.i1.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i, i32 noundef 3) #17
-  %call1.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef nonnull %attr.i) #17
+  %call1.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef nonnull %attr.i) #17
   %call.i2.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i) #17
   %m_left_child.i = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_left_child.i, align 8
@@ -194,10 +194,10 @@ entry:
   store i8 0, ptr %m_is_shared.i, align 8
   %m_owners.i = getelementptr inbounds i8, ptr %call, i64 152
   store ptr null, ptr %m_owners.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(202) %call, i8 0, i64 48, i1 false)
   %call.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #17
   %call.i1.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i, i32 noundef 3) #17
-  %call1.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %call, ptr noundef nonnull %attr.i) #17
+  %call1.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(202) %call, ptr noundef nonnull %attr.i) #17
   %call.i2.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i) #17
   %m_left_child.i = getelementptr inbounds i8, ptr %call, i64 160
   store ptr null, ptr %m_left_child.i, align 8
@@ -459,7 +459,7 @@ if.then:                                          ; preds = %cond.end
   br i1 %tobool.not.i.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #17
+  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %2) #17
   %3 = load ptr, ptr %m_left_child.i, align 8
   %depth_est.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
   %4 = load i32, ptr %depth_est.i.i.i, align 8
@@ -495,7 +495,7 @@ if.else:                                          ; preds = %cond.end
   br i1 %tobool.not.i.i7, label %return, label %if.then.i8
 
 if.then.i8:                                       ; preds = %if.else
-  %call.i.i.i.i9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #17
+  %call.i.i.i.i9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %8) #17
   %9 = load ptr, ptr %m_right_child.i, align 8
   %depth_est.i.i.i10 = getelementptr inbounds i8, ptr %9, i64 168
   %10 = load i32, ptr %depth_est.i.i.i10, align 8
@@ -541,11 +541,11 @@ if.else7:                                         ; preds = %if.end
   ]
 
 if.then13:                                        ; preds = %if.else7, %if.else7
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %child.0) #17
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %child.0) #17
   br label %return
 
 if.else14:                                        ; preds = %if.else7
-  %call.i.i25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #17
+  %call.i.i25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %this) #17
   %call15 = call noundef ptr @_ZN4toku8treenode32find_node_with_overlapping_childERKNS_8keyrangeEPKNS1_10comparisonE(ptr noundef nonnull align 8 dereferenceable(202) %child.0, ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef nonnull %c)
   br label %return
 
@@ -565,7 +565,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %0) #17
   %1 = load ptr, ptr %m_left_child, align 8
   %depth_est.i.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %depth_est.i.i, align 8
@@ -608,7 +608,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %0) #17
   %1 = load ptr, ptr %m_right_child, align 8
   %depth_est.i.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %depth_est.i.i, align 8
@@ -664,7 +664,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #17
+  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %1) #17
   %2 = load ptr, ptr %m_left_child.i, align 8
   %depth_est.i.i.i = getelementptr inbounds i8, ptr %2, i64 168
   %3 = load i32, ptr %depth_est.i.i.i, align 8
@@ -699,10 +699,10 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %if.then, %_ZN4toku8
   store i8 0, ptr %m_is_shared.i.i, align 8
   %m_owners.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %m_owners.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(202) %call.i, i8 0, i64 48, i1 false)
   %call.i.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i) #17
   %call.i1.i.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i.i, i32 noundef 3) #17
-  %call1.i.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %call.i, ptr noundef nonnull %attr.i.i) #17
+  %call1.i.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(202) %call.i, ptr noundef nonnull %attr.i.i) #17
   %call.i2.i.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i) #17
   %m_left_child.i.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr null, ptr %m_left_child.i.i, align 8
@@ -741,7 +741,7 @@ if.else:                                          ; preds = %if.then.i
   %add.i.i8.i = add i32 %cond.i.i7.i, 1
   store i32 %add.i.i8.i, ptr %depth_est.i.i, align 8
   %call8 = tail call noundef zeroext i1 @_ZN4toku8treenode6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(202) %call2.i, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared)
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %call2.i) #17
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %call2.i) #17
   br label %common.ret79
 
 if.then11:                                        ; preds = %entry
@@ -751,7 +751,7 @@ if.then11:                                        ; preds = %entry
   br i1 %tobool.not.i.i23, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit67, label %if.then.i24
 
 if.then.i24:                                      ; preds = %if.then11
-  %call.i.i.i.i25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #17
+  %call.i.i.i.i25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %10) #17
   %11 = load ptr, ptr %m_right_child.i, align 8
   %depth_est.i.i.i26 = getelementptr inbounds i8, ptr %11, i64 168
   %12 = load i32, ptr %depth_est.i.i.i26, align 8
@@ -786,10 +786,10 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit67:      ; preds = %if.then11, %_ZN4tok
   store i8 0, ptr %m_is_shared.i.i47, align 8
   %m_owners.i.i48 = getelementptr inbounds i8, ptr %call.i42, i64 152
   store ptr null, ptr %m_owners.i.i48, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i42, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(202) %call.i42, i8 0, i64 48, i1 false)
   %call.i.i.i49 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i41) #17
   %call.i1.i.i50 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i.i41, i32 noundef 3) #17
-  %call1.i.i.i51 = call i32 @pthread_mutex_init(ptr noundef nonnull %call.i42, ptr noundef nonnull %attr.i.i41) #17
+  %call1.i.i.i51 = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(202) %call.i42, ptr noundef nonnull %attr.i.i41) #17
   %call.i2.i.i52 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i41) #17
   %m_left_child.i.i53 = getelementptr inbounds i8, ptr %call.i42, i64 160
   store ptr null, ptr %m_left_child.i.i53, align 8
@@ -824,7 +824,7 @@ if.else18:                                        ; preds = %if.then.i24
   %add.i.i8.i37 = add i32 %cond.i.i7.i36, 1
   store i32 %add.i.i8.i37, ptr %depth_est.i.i30, align 8
   %call20 = tail call noundef zeroext i1 @_ZN4toku8treenode6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(202) %call2.i31, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared)
-  %call.i.i68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %call2.i31) #17
+  %call.i.i68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %call2.i31) #17
   br label %common.ret79
 
 if.then24:                                        ; preds = %entry
@@ -858,7 +858,7 @@ if.then:                                          ; preds = %cond.false, %cond.t
   %.sink20 = phi ptr [ %0, %cond.true ], [ %1, %cond.false ]
   %.sink19.in = phi ptr [ %m_right_child, %cond.true ], [ %m_left_child, %cond.false ]
   %.sink = phi i64 [ 184, %cond.true ], [ 168, %cond.false ]
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.sink20) #17
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %.sink20) #17
   %.sink19 = load ptr, ptr %.sink19.in, align 8
   %depth_est.i.i = getelementptr inbounds i8, ptr %.sink19, i64 168
   %2 = load i32, ptr %depth_est.i.i, align 8
@@ -870,7 +870,7 @@ if.then:                                          ; preds = %cond.false, %cond.t
   store i32 %add.i.i, ptr %depth_est.i, align 8
   store ptr %this, ptr %parent, align 8
   %call3 = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %.sink19, i32 noundef %direction, ptr noundef nonnull %parent)
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink19) #17
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %.sink19) #17
   br label %common.ret21
 }
 
@@ -882,7 +882,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %0) #17
   %1 = load ptr, ptr %this, align 8
   %depth_est.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %depth_est.i, align 8
@@ -934,7 +934,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #17
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %this) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
@@ -983,7 +983,7 @@ if.end5:                                          ; preds = %entry
   br i1 %cmp, label %if.else22, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %if.end5
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %0) #17
   %8 = load ptr, ptr %m_left_child, align 8
   %depth_est.i.i = getelementptr inbounds i8, ptr %8, i64 168
   %9 = load i32, ptr %depth_est.i.i, align 8
@@ -1011,7 +1011,7 @@ if.else:                                          ; preds = %_ZN4toku8treenode9c
 if.else22:                                        ; preds = %if.end5
   %12 = xor i1 %cmp3, true
   tail call void @llvm.assume(i1 %12)
-  %call.i.i.i18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #17
+  %call.i.i.i18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %1) #17
   %13 = load ptr, ptr %m_right_child, align 8
   %depth_est.i.i19 = getelementptr inbounds i8, ptr %13, i64 168
   %14 = load i32, ptr %depth_est.i.i19, align 8
@@ -1039,7 +1039,7 @@ if.else34:                                        ; preds = %if.else22
 if.end38:                                         ; preds = %if.then31, %if.else34, %if.then16, %if.else
   %child.0 = phi ptr [ %8, %if.then16 ], [ %8, %if.else ], [ %13, %if.then31 ], [ %13, %if.else34 ]
   %replacement.0 = phi ptr [ %call.i, %if.then16 ], [ %call.i, %if.else ], [ %call.i26, %if.then31 ], [ %call.i26, %if.else34 ]
-  %call.i.i27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %child.0) #17
+  %call.i.i27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %child.0) #17
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %tmp_range.i)
   %m_range.i28 = getelementptr inbounds i8, ptr %replacement.0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %tmp_range.i, ptr noundef nonnull align 8 dereferenceable(88) %m_range.i28, i64 88, i1 false)
@@ -1298,7 +1298,7 @@ if.else:                                          ; preds = %land.lhs.true, %sw.
 sw.bb4:                                           ; preds = %entry
   %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load ptr, ptr %m_left_child, align 8, !nonnull !6, !noundef !6
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #17
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %10) #17
   %11 = load ptr, ptr %m_left_child, align 8
   %depth_est.i.i = getelementptr inbounds i8, ptr %11, i64 168
   %12 = load i32, ptr %depth_est.i.i, align 8
@@ -1318,7 +1318,7 @@ sw.bb4.split:                                     ; preds = %sw.bb4
   br label %return
 
 _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %sw.bb4
-  %call.i.i16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %call6) #17
+  %call.i.i16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %call6) #17
   store ptr %call6, ptr %m_left_child, align 8
   %depth_est.i.i18 = getelementptr inbounds i8, ptr %call6, i64 168
   %14 = load i32, ptr %depth_est.i.i18, align 8
@@ -1332,7 +1332,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %sw.bb4
 sw.bb9:                                           ; preds = %entry
   %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %16 = load ptr, ptr %m_right_child, align 8, !nonnull !6, !noundef !6
-  %call.i.i.i25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #17
+  %call.i.i.i25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %16) #17
   %17 = load ptr, ptr %m_right_child, align 8
   %depth_est.i.i26 = getelementptr inbounds i8, ptr %17, i64 168
   %18 = load i32, ptr %depth_est.i.i26, align 8
@@ -1352,7 +1352,7 @@ sw.bb9.split:                                     ; preds = %sw.bb9
   br label %return
 
 _ZN4toku8treenode9child_ptr3setEPS0_.exit43:      ; preds = %sw.bb9
-  %call.i.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %call11) #17
+  %call.i.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %call11) #17
   store ptr %call11, ptr %m_right_child, align 8
   %depth_est.i.i37 = getelementptr inbounds i8, ptr %call11, i64 168
   %20 = load i32, ptr %depth_est.i.i37, align 8
@@ -1423,7 +1423,7 @@ entry:
   br i1 %3, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit, label %if.else15
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %entry
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %0) #17
   %4 = load ptr, ptr %m_left_child.i, align 8
   %depth_est.i.i = getelementptr inbounds i8, ptr %4, i64 168
   %5 = load i32, ptr %depth_est.i.i, align 8
@@ -1442,7 +1442,7 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %entry
   br i1 %10, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit, label %if.else
 
 _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
-  %call.i.i.i35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #17
+  %call.i.i.i35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %7) #17
   %11 = load ptr, ptr %m_right_child.i, align 8
   %depth_est.i.i36 = getelementptr inbounds i8, ptr %11, i64 168
   %12 = load i32, ptr %depth_est.i.i36, align 8
@@ -1489,7 +1489,7 @@ if.else15:                                        ; preds = %entry
   br i1 %21, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit78, label %if.end42
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit78: ; preds = %if.else15
-  %call.i.i.i72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #17
+  %call.i.i.i72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %20) #17
   %22 = load ptr, ptr %m_right_child.i64, align 8
   %depth_est.i.i73 = getelementptr inbounds i8, ptr %22, i64 168
   %23 = load i32, ptr %depth_est.i.i73, align 8
@@ -1508,7 +1508,7 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit78: ; preds = %if.else15
   br i1 %28, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit102, label %if.else31
 
 _ZN4toku8treenode9child_ptr3setEPS0_.exit102:     ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit78
-  %call.i.i.i87 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %25) #17
+  %call.i.i.i87 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(202) %25) #17
   %29 = load ptr, ptr %m_left_child.i79, align 8
   %depth_est.i.i88 = getelementptr inbounds i8, ptr %29, i64 168
   %30 = load i32, ptr %depth_est.i.i88, align 8
@@ -1552,7 +1552,7 @@ if.end37:                                         ; preds = %_ZN4toku8treenode9c
   br i1 %cmp.not, label %if.end39, label %if.then38
 
 if.then38:                                        ; preds = %if.end37
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %child.0) #17
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %child.0) #17
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else31, %if.else, %if.then38, %if.end37
@@ -1561,7 +1561,7 @@ if.end39:                                         ; preds = %if.else31, %if.else
   br i1 %cmp40.not, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %if.end39
-  %call.i.i119 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #17
+  %call.i.i119 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %this) #17
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else15, %if.then41, %if.end39

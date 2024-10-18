@@ -731,8 +731,8 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %call9.i.i = call i64 @strspn(ptr noundef nonnull %add.ptr8.i.i, ptr noundef nonnull @.str.106) #19
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %call9.i.i
   store i8 0, ptr %add.ptr8.i.i, align 1
-  %call11.i.i = call fastcc i32 @get_terms(ptr noundef %terms)
-  %call12.i.i = call fastcc i32 @check_and_set_terms(ptr noundef %terms, ptr noundef nonnull %add.ptr6.i.i)
+  %call11.i.i = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
+  %call12.i.i = call fastcc i32 @check_and_set_terms(ptr noundef nonnull %terms, ptr noundef nonnull %add.ptr6.i.i)
   %tobool.not.i.i = icmp eq i32 %call12.i.i, 0
   br i1 %tobool.not.i.i, label %if.end14.i.i, label %process_replay_line.exit.i
 
@@ -747,7 +747,7 @@ if.then17.i.i:                                    ; preds = %if.end14.i.i
   %11 = load i64, ptr %nr.i.i, align 8
   %conv19.i.i = trunc i64 %11 to i32
   %12 = load ptr, ptr %argv.i.i, align 8
-  %call20.i.i = call fastcc i32 @bisect_start(ptr noundef %terms, i32 noundef %conv19.i.i, ptr noundef %12)
+  %call20.i.i = call fastcc i32 @bisect_start(ptr noundef nonnull %terms, i32 noundef %conv19.i.i, ptr noundef %12)
   call void @strvec_clear(ptr noundef nonnull %argv.i.i) #17
   br label %process_replay_line.exit.i
 
@@ -759,7 +759,7 @@ if.end21.i.i:                                     ; preds = %if.end14.i.i
   br i1 %tobool23.not.i.i, label %if.end26.i.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i
-  %call25.i.i = call fastcc i32 @bisect_write(ptr noundef nonnull %add.ptr6.i.i, ptr noundef nonnull %add.ptr10.i.i, ptr noundef %terms, i32 noundef 0)
+  %call25.i.i = call fastcc i32 @bisect_write(ptr noundef nonnull %add.ptr6.i.i, ptr noundef nonnull %add.ptr10.i.i, ptr noundef nonnull %terms, i32 noundef 0)
   br label %process_replay_line.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end21.i.i
@@ -781,7 +781,7 @@ cond.true.i.i:                                    ; preds = %if.then29.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.then29.i.i
   %cond.i.i = phi ptr [ %17, %cond.true.i.i ], [ null, %if.then29.i.i ]
-  %call38.i.i = call fastcc i32 @bisect_terms(ptr noundef %terms, ptr noundef %cond.i.i)
+  %call38.i.i = call fastcc i32 @bisect_terms(ptr noundef nonnull %terms, ptr noundef %cond.i.i)
   call void @strvec_clear(ptr noundef nonnull %argv30.i.i) #17
   br label %process_replay_line.exit.i
 
@@ -820,16 +820,16 @@ if.end18.critedge.i:                              ; preds = %while.cond.preheade
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end18.critedge.i, %while.end.i
-  %call.i9.i = call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
+  %call.i9.i = call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef null)
   %tobool.not.i10.i = icmp eq i32 %call.i9.i, 0
   br i1 %tobool.not.i10.i, label %if.end.i12.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end18.i
-  call fastcc void @bisect_print_status(ptr noundef %terms)
+  call fastcc void @bisect_print_status(ptr noundef nonnull %terms)
   br label %bisect_replay.exit
 
 if.end.i12.i:                                     ; preds = %if.end18.i
-  %call1.i.i = call fastcc i32 @bisect_next(ptr noundef %terms, ptr noundef null)
+  %call1.i.i = call fastcc i32 @bisect_next(ptr noundef nonnull %terms, ptr noundef null)
   br label %bisect_replay.exit
 
 bisect_replay.exit:                               ; preds = %_.exit.i, %if.end.i, %if.end7.i, %while.end.i, %if.then.i.i, %if.end.i12.i
@@ -924,7 +924,7 @@ bisect_skip.exit:                                 ; preds = %for.inc.i, %entry
   %2 = load i64, ptr %nr.i, align 8
   %conv.i = trunc i64 %2 to i32
   %3 = load ptr, ptr %argv_state.i, align 8
-  %call16.i = call fastcc i32 @bisect_state(ptr noundef %terms, i32 noundef %conv.i, ptr noundef %3)
+  %call16.i = call fastcc i32 @bisect_state(ptr noundef nonnull %terms, i32 noundef %conv.i, ptr noundef %3)
   call void @strvec_clear(ptr noundef nonnull %argv_state.i) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argv_state.i)
   call void @llvm.lifetime.end.p0(i64 3024, ptr nonnull %revs.i)
@@ -947,7 +947,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_bisect_run.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %call.i = call fastcc i32 @bisect_next_check(ptr noundef readonly %terms, ptr noundef null)
+  %call.i = call fastcc i32 @bisect_next_check(ptr noundef nonnull readonly %terms, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %bisect_visualize.exit
 
@@ -1090,7 +1090,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %command.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_state.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %call.i2 = call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
+  %call.i2 = call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef null)
   %tobool.not.i = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i, label %if.end6.i, label %bisect_run.exit
 
@@ -1300,7 +1300,7 @@ if.end53.i:                                       ; preds = %git_path_bisect_run
   %call54.i = call i32 @fflush(ptr noundef %18)
   %call55.i = call i32 @dup(i32 noundef 1) #17
   %call56.i = call i32 @dup2(i32 noundef %call46.i, i32 noundef 1) #17
-  %call57.i = call fastcc i32 @bisect_state(ptr noundef %terms, i32 noundef 1, ptr noundef nonnull %new_state.i)
+  %call57.i = call fastcc i32 @bisect_state(ptr noundef nonnull %terms, i32 noundef 1, ptr noundef nonnull %new_state.i)
   %19 = load ptr, ptr @stdout, align 8
   %call58.i = call i32 @fflush(ptr noundef %19)
   %call59.i = call i32 @dup2(i32 noundef %call55.i, i32 noundef 1) #17
@@ -2794,16 +2794,16 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %if.end237, label %return
 
 if.end237:                                        ; preds = %if.end4.i
-  %call.i139 = call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
+  %call.i139 = call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef null)
   %tobool.not.i140 = icmp eq i32 %call.i139, 0
   br i1 %tobool.not.i140, label %bisect_auto_next.exit, label %bisect_auto_next.exit.thread
 
 bisect_auto_next.exit.thread:                     ; preds = %if.end237
-  call fastcc void @bisect_print_status(ptr noundef %terms)
+  call fastcc void @bisect_print_status(ptr noundef nonnull %terms)
   br label %return
 
 bisect_auto_next.exit:                            ; preds = %if.end237
-  %call1.i = call fastcc i32 @bisect_next(ptr noundef %terms, ptr noundef null)
+  %call1.i = call fastcc i32 @bisect_next(ptr noundef nonnull %terms, ptr noundef null)
   switch i32 %call1.i, label %if.then241 [
     i32 -10, label %return
     i32 0, label %return
@@ -3468,7 +3468,7 @@ if.then.i6:                                       ; preds = %if.then10
 
 if.end.i:                                         ; preds = %if.then10
   %conv = zext i32 %2 to i64
-  %call.i4 = call ptr @ngettext(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, i64 noundef %conv) #17
+  %call.i4 = call ptr @ngettext(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, i64 noundef range(i64 1, 4294967296) %conv) #17
   %.pre = load i32, ptr %state, align 8
   br label %Q_.exit
 

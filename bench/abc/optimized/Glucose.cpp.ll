@@ -442,12 +442,12 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   %63 = getelementptr inbounds i8, ptr %0, i64 488
   %64 = getelementptr inbounds i8, ptr %0, i64 864
   %65 = getelementptr inbounds i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %63, i8 0, i64 48, i1 false)
   %66 = ptrtoint ptr %64 to i64
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 544
   %68 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, i8 0, i64 48, i1 false)
   store i64 %66, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 600
   %70 = getelementptr inbounds i8, ptr %0, i64 616
@@ -474,16 +474,16 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   %85 = getelementptr inbounds i8, ptr %0, i64 832
   %86 = getelementptr inbounds i8, ptr %0, i64 848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %85, i8 0, i64 52, i1 false)
-  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %64, i32 noundef 1048576)
+  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %64, i32 noundef 1048576)
           to label %87 unwind label %140
 
 87:                                               ; preds = %1
   %88 = getelementptr inbounds i8, ptr %0, i64 884
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds i8, ptr %0, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %89, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, i8 0, i64 41, i1 false)
   %90 = getelementptr inbounds i8, ptr %0, i64 960
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %90, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %90, i8 0, i64 41, i1 false)
   %91 = getelementptr inbounds i8, ptr %0, i64 1032
   %92 = getelementptr inbounds i8, ptr %0, i64 1048
   %93 = getelementptr inbounds i8, ptr %0, i64 1064
@@ -507,7 +507,7 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
   %105 = load double, ptr %17, align 8
   %106 = fptosi double %105 to i32
-  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %90, i32 noundef %106)
+  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %90, i32 noundef %106)
           to label %.noexc unwind label %142
 
 .noexc:                                           ; preds = %87
@@ -543,7 +543,7 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   store double %116, ptr %117, align 8
   %118 = load double, ptr %20, align 8
   %119 = fptosi double %118 to i32
-  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %89, i32 noundef %119)
+  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %89, i32 noundef %119)
           to label %.noexc20 unwind label %142
 
 .noexc20:                                         ; preds = %.loopexit88
@@ -1563,26 +1563,26 @@ define noundef i32 @_ZN5Gluco6Solver6newVarEbb(ptr noundef nonnull align 8 deref
   %11 = shl nsw i32 %9, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %12 = or disjoint i32 %11, 1
-  tail call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %12)
+  tail call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef %12)
   %13 = getelementptr inbounds i8, ptr %0, i64 504
   store i8 0, ptr %7, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %14 = add nsw i32 %11, 2
-  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %14)
+  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef %14)
   store i8 0, ptr %6, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %15 = getelementptr inbounds i8, ptr %0, i64 544
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %12)
+  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %15, i32 noundef %12)
   %16 = getelementptr inbounds i8, ptr %0, i64 560
   store i8 0, ptr %5, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %14)
+  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %15, i32 noundef %14)
   store i8 0, ptr %4, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -8317,7 +8317,7 @@ _ZN5Gluco6bqueueIjE4pushEj.exit51:                ; preds = %224, %236
   %282 = add i32 %261, 4
   %283 = load i32, ptr %50, align 8
   %284 = add i32 %283, %282
-  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %49, i32 noundef %284)
+  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %49, i32 noundef %284)
           to label %.noexc unwind label %.loopexit115.loopexit.split-lp
 
 .noexc:                                           ; preds = %281
@@ -10459,7 +10459,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
   %169 = load ptr, ptr %1, align 8
   %170 = zext i32 %157 to i64
   %171 = shl nuw nsw i64 %170, 2
-  %172 = tail call ptr @realloc(ptr noundef %169, i64 noundef %171) #31
+  %172 = tail call ptr @realloc(ptr noundef %169, i64 noundef range(i64 0, 17179869181) %171) #31
   %173 = icmp eq ptr %172, null
   br i1 %173, label %174, label %_ZN5GlucoL8xreallocEPvm.exit.i
 
@@ -10766,7 +10766,7 @@ _ZN5Gluco15ClauseAllocator5relocERjRS0_.exit:     ; preds = %140, %249, %286, %_
   %349 = load ptr, ptr %1, align 8
   %350 = zext i32 %337 to i64
   %351 = shl nuw nsw i64 %350, 2
-  %352 = tail call ptr @realloc(ptr noundef %349, i64 noundef %351) #31
+  %352 = tail call ptr @realloc(ptr noundef %349, i64 noundef range(i64 0, 17179869181) %351) #31
   %353 = icmp eq ptr %352, null
   br i1 %353, label %354, label %_ZN5GlucoL8xreallocEPvm.exit.i106
 
@@ -11292,8 +11292,8 @@ define void @_ZN5Gluco6Solver14garbageCollectEv(ptr noundef nonnull align 8 dere
   %6 = getelementptr inbounds i8, ptr %0, i64 880
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  call void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %8)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, i8 0, i64 20, i1 false)
+  call void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %2, i32 noundef %8)
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   store i8 0, ptr %9, align 4
   invoke void @_ZN5Gluco6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(21) %2)
@@ -11464,7 +11464,7 @@ _ZN5Gluco6bqueueIjE5clearEb.exit:                 ; preds = %_ZN5Gluco4HeapINS_6
   %51 = getelementptr inbounds i8, ptr %0, i64 160
   %52 = load double, ptr %51, align 8
   %53 = fptosi double %52 to i32
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %53)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %46, i32 noundef %53)
   store i32 0, ptr %49, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 992
   store i32 %53, ptr %54, align 8
@@ -11512,7 +11512,7 @@ _ZN5Gluco6bqueueIjE5clearEb.exit5:                ; preds = %_ZN5Gluco6bqueueIjE
   %69 = getelementptr inbounds i8, ptr %0, i64 168
   %70 = load double, ptr %69, align 8
   %71 = fptosi double %70 to i32
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef %71)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %64, i32 noundef %71)
   store i32 0, ptr %67, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 928
   store i32 %71, ptr %72, align 8
@@ -12432,7 +12432,7 @@ define linkonce_odr void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef n
   %17 = load ptr, ptr %0, align 8
   %18 = zext i32 %5 to i64
   %19 = shl nuw nsw i64 %18, 2
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #31
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef range(i64 0, 17179869181) %19) #31
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZN5GlucoL8xreallocEPvm.exit
 

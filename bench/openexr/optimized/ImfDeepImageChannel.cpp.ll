@@ -265,11 +265,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
+  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
   %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
+  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -845,11 +845,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedDeepImageChannelIfEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
+  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i64 16), ptr %this, align 8
   %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
+  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -1383,11 +1383,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedDeepImageChannelIjEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
+  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i64 16), ptr %this, align 8
   %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
+  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry

@@ -7603,7 +7603,7 @@ copy_address_wmem.exit94.i:                       ; preds = %143, %copy_address_
 
 168:                                              ; preds = %._crit_edge.i
   %169 = load i32, ptr @hf_cflow_padding, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %.086.lcssa.i, i32 noundef 0) #11
+  %170 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef range(i32 1, 5) %.086.lcssa.i, i32 noundef 0) #11
   br label %dissect_v9_v10_data_template.exit
 
 dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
@@ -7889,7 +7889,7 @@ copy_address_wmem.exit134.i:                      ; preds = %321, %copy_address_
 
 334:                                              ; preds = %._crit_edge.i54
   %335 = load i32, ptr @hf_cflow_padding, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef %.0116.lcssa.i, i32 noundef %.0119.lcssa.i, i32 noundef 0) #11
+  %336 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef %.0116.lcssa.i, i32 noundef range(i32 1, 5) %.0119.lcssa.i, i32 noundef 0) #11
   br label %337
 
 337:                                              ; preds = %334, %._crit_edge.i54
@@ -8080,13 +8080,13 @@ switch.lookup:                                    ; preds = %422
   br i1 %433, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !10
 
 434:                                              ; preds = %413
-  %435 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %409, i32 noundef %.059.i, ptr noundef readonly %381, ptr noundef nonnull readonly %4, i32 noundef 0)
+  %435 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %409, i32 noundef %.059.i, ptr noundef nonnull readonly %381, ptr noundef nonnull readonly %4, i32 noundef 0)
   %436 = add i32 %435, %.059.i
   br label %dissect_v9_v10_pdu.exit.i
 
 dissect_v9_v10_pdu.exit.i:                        ; preds = %430, %434, %413, %411, %405
   %.0.i.i = phi i32 [ %436, %434 ], [ %.059.i, %411 ], [ %.059.i, %405 ], [ %.059.i, %413 ], [ %.1.i.i.i, %430 ]
-  %437 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %409, i32 noundef %.0.i.i, ptr noundef readonly %381, ptr noundef nonnull readonly %4, i32 noundef 1)
+  %437 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %409, i32 noundef %.0.i.i, ptr noundef nonnull readonly %381, ptr noundef nonnull readonly %4, i32 noundef 1)
   %438 = load i32, ptr %5, align 4
   %439 = add i32 %438, 1
   store i32 %439, ptr %5, align 4
@@ -8114,7 +8114,7 @@ dissect_v9_v10_pdu.exit.i:                        ; preds = %430, %434, %413, %4
 448:                                              ; preds = %382, %349
   %449 = icmp eq i32 %344, 1
   %450 = select i1 %449, ptr @.str.4412, ptr @.str.4414
-  %451 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cflow_no_template_found, ptr noundef %0, i32 noundef %23, i32 noundef %344, ptr noundef nonnull @.str.4459, i32 noundef %344, ptr noundef nonnull %450) #11
+  %451 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cflow_no_template_found, ptr noundef %0, i32 noundef %23, i32 noundef range(i32 0, 65532) %344, ptr noundef nonnull @.str.4459, i32 noundef range(i32 0, 65532) %344, ptr noundef nonnull %450) #11
   br label %dissect_v9_v10_data.exit
 
 dissect_v9_v10_data.exit:                         ; preds = %._crit_edge.i63, %445, %448

@@ -2971,7 +2971,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.then.i.i.i26
 
 _.exit.i.i.i:                                     ; preds = %if.end3.i.i.i.i, %if.then.i.i.i26
   %retval.0.i13.i.i.i = phi ptr [ %call.i.i.i.i, %if.end3.i.i.i.i ], [ @.str.140, %if.then.i.i.i26 ]
-  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %s, ptr noundef nonnull %c.0.i.i129.i, ptr noundef %retval.0.i13.i.i.i)
+  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef nonnull %c.0.i.i129.i, ptr noundef %retval.0.i13.i.i.i)
   %hints.i.i.i = getelementptr inbounds i8, ptr %s, i64 808
   %162 = load i32, ptr %hints.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq i32 %162, 0
@@ -3004,7 +3004,7 @@ if.end3.i25.i.i.i:                                ; preds = %if.else.i.i.i39
 
 _.exit28.i.i.i:                                   ; preds = %if.end3.i25.i.i.i, %if.else.i.i.i39
   %retval.0.i27.i.i.i = phi ptr [ %call.i26.i.i.i, %if.end3.i25.i.i.i ], [ @.str.143, %if.else.i.i.i39 ]
-  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %s, ptr noundef nonnull %c.0.i.i129.i, ptr noundef %retval.0.i27.i.i.i)
+  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef nonnull %c.0.i.i129.i, ptr noundef %retval.0.i27.i.i.i)
   %hints7.i.i.i = getelementptr inbounds i8, ptr %s, i64 808
   %166 = load i32, ptr %hints7.i.i.i, align 8
   %tobool8.not.i.i.i = icmp eq i32 %166, 0
@@ -4103,7 +4103,7 @@ if.end.i14.i.i:                                   ; preds = %maxwidth.exit.i.i.i
   %call.i10.i.i.i = call i32 @want_color_fd(i32 noundef 1, i32 noundef %285) #19
   %tobool.not.i11.i.i.i = icmp eq i32 %call.i10.i.i.i, 0
   %c.0.i14.i.i.i = select i1 %tobool.not.i11.i.i.i, ptr @.str.29, ptr %color_palette.i.i
-  call void (ptr, ptr, ptr, ...) @status_printf(ptr noundef %s, ptr noundef nonnull %c.0.i14.i.i.i, ptr noundef nonnull @.str.195)
+  call void (ptr, ptr, ptr, ...) @status_printf(ptr noundef nonnull %s, ptr noundef nonnull %c.0.i14.i.i.i, ptr noundef nonnull @.str.195)
   %stagemask.i15.i.i = getelementptr inbounds i8, ptr %279, i64 8
   %286 = load i32, ptr %stagemask.i15.i.i, align 8
   switch i32 %286, label %sw.default.i.i.i.i [
@@ -4923,7 +4923,7 @@ if.then.i.i448.i:                                 ; preds = %if.then.i443.i
 
 if.end.i.i445.i:                                  ; preds = %if.then.i443.i
   %conv.i446.i = zext nneg i32 %381 to i64
-  %call.i3.i.i = call ptr @ngettext(ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, i64 noundef %conv.i446.i) #19
+  %call.i3.i.i = call ptr @ngettext(ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, i64 noundef range(i64 1, 0) %conv.i446.i) #19
   br label %Q_.exit.i.i
 
 Q_.exit.i.i:                                      ; preds = %if.end.i.i445.i, %if.then.i.i448.i
@@ -6771,7 +6771,7 @@ if.then.i:                                        ; preds = %if.else
   br label %Q_.exit
 
 if.end.i:                                         ; preds = %if.else
-  %call.i36 = call ptr @ngettext(ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, i64 noundef %4) #19
+  %call.i36 = call ptr @ngettext(ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, i64 noundef range(i64 1, 0) %4) #19
   %.pre = load i64, ptr %nr, align 8
   br label %Q_.exit
 
@@ -6843,7 +6843,7 @@ if.then.i54:                                      ; preds = %if.else35
   br label %Q_.exit57
 
 if.end.i51:                                       ; preds = %if.else35
-  %call.i52 = call ptr @ngettext(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, i64 noundef %12) #19
+  %call.i52 = call ptr @ngettext(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, i64 noundef range(i64 1, 0) %12) #19
   %.pre75 = load i64, ptr %nr30, align 8
   br label %Q_.exit57
 

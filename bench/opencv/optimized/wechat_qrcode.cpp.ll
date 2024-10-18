@@ -205,7 +205,7 @@ define void @_ZN2cv13wechat_qrcode12WeChatQRCodeC2ERKNSt7__cxx1112basic_stringIc
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode12WeChatQRCode4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !4
   %22 = getelementptr inbounds i8, ptr %18, i64 16
   %23 = getelementptr inbounds i8, ptr %18, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 32, i1 false), !noalias !4
   store float -1.000000e+00, ptr %23, align 4, !noalias !4
   store ptr %22, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
@@ -669,7 +669,7 @@ _ZNSt10shared_ptrIN2cv13wechat_qrcode11SSDDetectorEED2Ev.exit61: ; preds = %176,
   store i32 1, ptr %218, align 4, !noalias !12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode10SuperScaleESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %216, align 8, !noalias !12
   %219 = getelementptr inbounds i8, ptr %216, i64 16
-  invoke void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %219)
+  invoke void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %219)
           to label %221 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode10SuperScaleESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !12
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode10SuperScaleESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc62
@@ -2443,7 +2443,7 @@ _ZN5zxing3RefINS_6qrcode12QRCodeReaderEED2Ev.exit.i118: ; preds = %335, %330, %_
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN2cv13wechat_qrcode10DecoderMgrD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0149.1) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #19
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(201) %7) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   %349 = getelementptr inbounds i8, ptr %.sroa.0156.0243, i64 96
   %.not = icmp eq ptr %349, %19
@@ -2457,7 +2457,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit124:                 ; preds = %.body, %153
 350:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit124, %56, %54
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit124 ], [ %55, %54 ], [ %57, %56 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #19
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(201) %7) #19
   br label %351
 
 351:                                              ; preds = %350, %52
@@ -3094,7 +3094,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv13wechat_qrcode10SuperScaleESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #19
   ret void
 }
 

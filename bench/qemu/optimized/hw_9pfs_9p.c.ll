@@ -3640,13 +3640,13 @@ if.then8.i.i105:                                  ; preds = %if.then.i.i100
   %39 = load i64, ptr %tv_usec.i.i108, align 8
   %conv11.i.i109 = zext i16 %32 to i32
   %conv12.i.i110 = zext i8 %33 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i107, i64 noundef %38, i64 noundef %39, i32 noundef %conv11.i.i109, i32 noundef %conv12.i.i110, i64 noundef %size.0) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i107, i64 noundef %38, i64 noundef %39, i32 noundef %conv11.i.i109, i32 noundef %conv12.i.i110, i64 noundef range(i64 0, 2147483648) %size.0) #23
   br label %trace_v9fs_xattrwalk_return.exit
 
 if.else.i.i102:                                   ; preds = %if.then.i.i100
   %conv13.i.i103 = zext i16 %32 to i32
   %conv14.i.i104 = zext i8 %33 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv13.i.i103, i32 noundef %conv14.i.i104, i64 noundef %size.0) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv13.i.i103, i32 noundef %conv14.i.i104, i64 noundef range(i64 0, 2147483648) %size.0) #23
   br label %trace_v9fs_xattrwalk_return.exit
 
 trace_v9fs_xattrwalk_return.exit:                 ; preds = %if.end84, %land.lhs.true5.i.i97, %if.then8.i.i105, %if.else.i.i102
@@ -4044,13 +4044,13 @@ if.then8.i.i38:                                   ; preds = %if.then.i.i33
   %26 = load i64, ptr %tv_usec.i.i41, align 8
   %conv11.i.i42 = zext i16 %19 to i32
   %conv12.i.i43 = zext i8 %20 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i40, i64 noundef %25, i64 noundef %26, i32 noundef %conv11.i.i42, i32 noundef %conv12.i.i43, i32 noundef %call22, i64 noundef %add32) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i40, i64 noundef %25, i64 noundef %26, i32 noundef %conv11.i.i42, i32 noundef %conv12.i.i43, i32 noundef range(i32 0, -2147483648) %call22, i64 noundef range(i64 7, -9223372034707292154) %add32) #23
   br label %trace_v9fs_readdir_return.exit
 
 if.else.i.i35:                                    ; preds = %if.then.i.i33
   %conv13.i.i36 = zext i16 %19 to i32
   %conv14.i.i37 = zext i8 %20 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %conv13.i.i36, i32 noundef %conv14.i.i37, i32 noundef %call22, i64 noundef %add32) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %conv13.i.i36, i32 noundef %conv14.i.i37, i32 noundef range(i32 0, -2147483648) %call22, i64 noundef range(i64 7, -9223372034707292154) %add32) #23
   br label %trace_v9fs_readdir_return.exit
 
 trace_v9fs_readdir_return.exit:                   ; preds = %if.end30, %land.lhs.true5.i.i30, %if.then8.i.i38, %if.else.i.i35
@@ -7317,7 +7317,7 @@ if.then29:                                        ; preds = %if.end5
   call void @qemu_iovec_init_external(ptr noundef nonnull %elem.i, ptr noundef %21, i32 noundef %22) #23
   %23 = load i32, ptr %niov.i, align 4
   call void @qemu_iovec_init(ptr noundef nonnull %qiov_full, i32 noundef %23) #23
-  call void @qemu_iovec_concat(ptr noundef nonnull %qiov_full, ptr noundef nonnull %elem.i, i64 noundef 11, i64 noundef %conv31) #23
+  call void @qemu_iovec_concat(ptr noundef nonnull %qiov_full, ptr noundef nonnull %elem.i, i64 noundef 11, i64 noundef range(i64 0, 4294967296) %conv31) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elem.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %niov.i)
@@ -7419,7 +7419,7 @@ if.end12.i:                                       ; preds = %if.then72
   call void @qemu_iovec_init_external(ptr noundef nonnull %elem.i.i, ptr noundef %39, i32 noundef %40) #23
   %41 = load i32, ptr %niov.i.i, align 4
   call void @qemu_iovec_init(ptr noundef nonnull %qiov_full.i, i32 noundef %41) #23
-  call void @qemu_iovec_concat(ptr noundef nonnull %qiov_full.i, ptr noundef nonnull %elem.i.i, i64 noundef %add.i53, i64 noundef %read_count.1.i) #23
+  call void @qemu_iovec_concat(ptr noundef nonnull %qiov_full.i, ptr noundef nonnull %elem.i.i, i64 noundef range(i64 7, -9223372036854775801) %add.i53, i64 noundef range(i64 0, 4294967296) %read_count.1.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elem.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %niov.i.i)
@@ -7572,7 +7572,7 @@ if.end:                                           ; preds = %entry
   call void @qemu_iovec_init_external(ptr noundef nonnull %elem.i, ptr noundef %4, i32 noundef %5) #23
   %6 = load i32, ptr %niov.i, align 4
   call void @qemu_iovec_init(ptr noundef nonnull %qiov_full, i32 noundef %6) #23
-  call void @qemu_iovec_concat(ptr noundef nonnull %qiov_full, ptr noundef nonnull %elem.i, i64 noundef %add, i64 noundef %conv) #23
+  call void @qemu_iovec_concat(ptr noundef nonnull %qiov_full, ptr noundef nonnull %elem.i, i64 noundef range(i64 7, -9223372036854775801) %add, i64 noundef range(i64 0, 4294967296) %conv) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elem.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %niov.i)
@@ -7788,13 +7788,13 @@ if.then8.i.i54:                                   ; preds = %if.then.i.i49
   %47 = load i64, ptr %tv_usec.i.i57, align 8
   %conv11.i.i58 = zext i16 %40 to i32
   %conv12.i.i59 = zext i8 %41 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.155, i32 noundef %call10.i.i56, i64 noundef %46, i64 noundef %47, i32 noundef %conv11.i.i58, i32 noundef %conv12.i.i59, i32 noundef %add35, i64 noundef %add57) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.155, i32 noundef %call10.i.i56, i64 noundef %46, i64 noundef %47, i32 noundef %conv11.i.i58, i32 noundef %conv12.i.i59, i32 noundef %add35, i64 noundef range(i64 7, -9223372036854775801) %add57) #23
   br label %trace_v9fs_write_return.exit
 
 if.else.i.i51:                                    ; preds = %if.then.i.i49
   %conv13.i.i52 = zext i16 %40 to i32
   %conv14.i.i53 = zext i8 %41 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.156, i32 noundef %conv13.i.i52, i32 noundef %conv14.i.i53, i32 noundef %add35, i64 noundef %add57) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.156, i32 noundef %conv13.i.i52, i32 noundef %conv14.i.i53, i32 noundef %add35, i64 noundef range(i64 7, -9223372036854775801) %add57) #23
   br label %trace_v9fs_write_return.exit
 
 trace_v9fs_write_return.exit:                     ; preds = %if.end56, %land.lhs.true5.i.i46, %if.then8.i.i54, %if.else.i.i51
@@ -10255,14 +10255,14 @@ if.then8.i:                                       ; preds = %if.then.i
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
   %conv13.i = zext i8 %type to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i, i32 noundef %conv13.i, i32 noundef %version, i64 noundef %path, i32 noundef %err) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i, i32 noundef %conv13.i, i32 noundef %version, i64 noundef %path, i32 noundef range(i32 7, -2147483641) %err) #23
   br label %_nocheck__trace_v9fs_mkdir_return.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv14.i = zext i16 %tag to i32
   %conv15.i = zext i8 %id to i32
   %conv16.i = zext i8 %type to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %conv14.i, i32 noundef %conv15.i, i32 noundef %conv16.i, i32 noundef %version, i64 noundef %path, i32 noundef %err) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %conv14.i, i32 noundef %conv15.i, i32 noundef %conv16.i, i32 noundef %version, i64 noundef %path, i32 noundef range(i32 7, -2147483641) %err) #23
   br label %_nocheck__trace_v9fs_mkdir_return.exit
 
 _nocheck__trace_v9fs_mkdir_return.exit:           ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i

@@ -385,7 +385,7 @@ invoke.cont67:
   %watches = getelementptr inbounds i8, ptr %this, i64 416
   %ca = getelementptr inbounds i8, ptr %this, i64 704
   %deleted.i = getelementptr inbounds i8, ptr %this, i64 464
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %watches, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %watches, i8 0, i64 48, i1 false)
   %11 = ptrtoint ptr %ca to i64
   store i64 %11, ptr %deleted.i, align 8
   %assigns = getelementptr inbounds i8, ptr %this, i64 472
@@ -412,8 +412,8 @@ invoke.cont67:
   %frombool69 = zext i1 %lnot to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %heap.i, i8 0, i64 40, i1 false)
   store i8 %frombool69, ptr %remove_satisfied, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ca, i8 0, i64 20, i1 false)
-  invoke void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %ca, i32 noundef 1048576)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %ca, i8 0, i64 20, i1 false)
+  invoke void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %ca, i32 noundef 1048576)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont67
@@ -939,14 +939,14 @@ entry:
   %add.i = shl nsw i32 %0, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %add.i1 = or disjoint i32 %add.i, 1
-  tail call void @_ZN4cvc58internal7Minisat3vecINS2_INS1_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %watches, i32 noundef %add.i1)
+  tail call void @_ZN4cvc58internal7Minisat3vecINS2_INS1_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %watches, i32 noundef %add.i1)
   %dirty.i = getelementptr inbounds i8, ptr %this, i64 432
   store i8 0, ptr %ref.tmp.i, align 1
   call void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %dirty.i, i32 noundef %add.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i3)
   %add.i5 = add nsw i32 %add.i, 2
-  call void @_ZN4cvc58internal7Minisat3vecINS2_INS1_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %watches, i32 noundef %add.i5)
+  call void @_ZN4cvc58internal7Minisat3vecINS2_INS1_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %watches, i32 noundef %add.i5)
   store i8 0, ptr %ref.tmp.i3, align 1
   call void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %dirty.i, i32 noundef %add.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i3)
@@ -2318,7 +2318,7 @@ cond.true114:                                     ; preds = %invoke.cont107
           to label %invoke.cont131 unwind label %lpad109
 
 invoke.cont131:                                   ; preds = %cond.true114
-  %call.i386390 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i386390 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %call.i386.noexc unwind label %lpad109
 
 call.i386.noexc:                                  ; preds = %invoke.cont131
@@ -2336,7 +2336,7 @@ land.lhs.true.i:                                  ; preds = %call.i386.noexc
   br i1 %cmp.i.i.i.not.i.i, label %land.rhs.i389, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %land.lhs.true.i
-  %call2.i.i388391 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i.i388391 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %call2.i.i388.noexc unwind label %lpad109
 
 call2.i.i388.noexc:                               ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
@@ -2348,7 +2348,7 @@ call2.i.i388.noexc:                               ; preds = %_ZNK4cvc58internal7
   br i1 %cmp.i.not.i, label %land.rhs.i389, label %if.else135
 
 land.rhs.i389:                                    ; preds = %call2.i.i388.noexc, %land.lhs.true.i
-  %call3.i392 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call3.i392 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %invoke.cont132 unwind label %lpad109
 
 invoke.cont132:                                   ; preds = %land.rhs.i389
@@ -2526,7 +2526,7 @@ cond.true211:                                     ; preds = %if.then134, %_ZN4cv
   br i1 %cmp.i.i.i.not.i, label %if.end260, label %land.rhs.i598
 
 land.rhs.i598:                                    ; preds = %cond.true211
-  %call2.i601 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i601 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %invoke.cont230 unwind label %lpad109
 
 invoke.cont230:                                   ; preds = %land.rhs.i598
@@ -2553,7 +2553,7 @@ if.end260:                                        ; preds = %cond.true211, %cond
   %sz.i5.i = getelementptr inbounds i8, ptr %this, i64 712
   %40 = load i32, ptr %sz.i5.i, align 8
   %add.i6.i = add i32 %39, %40
-  invoke void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %ca261, i32 noundef %add.i6.i)
+  invoke void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %ca261, i32 noundef %add.i6.i)
           to label %.noexc713 unwind label %lpad109
 
 .noexc713:                                        ; preds = %if.end260
@@ -2750,7 +2750,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.i.not.i, label %land.rhs, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %land.lhs.true
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i = getelementptr inbounds i8, ptr %call2.i, i64 352
   %3 = load ptr, ptr %smt.i, align 8
   %proofMode.i = getelementptr inbounds i8, ptr %3, i64 120
@@ -3085,7 +3085,7 @@ if.end:                                           ; preds = %entry
   br i1 %removable, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %if.end
-  %call.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i = getelementptr inbounds i8, ptr %call.i, i64 352
   %3 = load ptr, ptr %smt.i, align 8
   %produceUnsatCores.i = getelementptr inbounds i8, ptr %3, i64 117
@@ -3100,7 +3100,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.not.i.i, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %land.lhs.true.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 352
   %6 = load ptr, ptr %smt.i.i, align 8
   %proofMode.i.i = getelementptr inbounds i8, ptr %6, i64 120
@@ -3109,7 +3109,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %land.lhs.true.i
   br i1 %cmp.i.not.i, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, label %cond.end
 
 _ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit: ; preds = %land.lhs.true.i, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %base.i = getelementptr inbounds i8, ptr %call3.i, i64 208
   %8 = load ptr, ptr %base.i, align 8
   %incrementalSolving.i = getelementptr inbounds i8, ptr %8, i64 137
@@ -3142,7 +3142,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %j.0513 = phi i32 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
   %falseLiteralsCount.0512 = phi i32 [ 0, %for.body.lr.ph ], [ %falseLiteralsCount.1, %for.inc ]
   %12 = phi i32 [ %clauseLevel.0.clauseLevel.promoted, %for.body.lr.ph ], [ %cond13, %for.inc ]
-  %call.i66 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i66 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i67 = getelementptr inbounds i8, ptr %call.i66, i64 352
   %13 = load ptr, ptr %smt.i67, align 8
   %produceUnsatCores.i68 = getelementptr inbounds i8, ptr %13, i64 117
@@ -3156,7 +3156,7 @@ land.lhs.true.i70:                                ; preds = %for.body
   br i1 %cmp.i.i.i.not.i.i72, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit83, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i73
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i73: ; preds = %land.lhs.true.i70
-  %call2.i.i74 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i.i74 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i.i75 = getelementptr inbounds i8, ptr %call2.i.i74, i64 352
   %16 = load ptr, ptr %smt.i.i75, align 8
   %proofMode.i.i76 = getelementptr inbounds i8, ptr %16, i64 120
@@ -3165,7 +3165,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i73: ; preds = %land.lhs.true
   br i1 %cmp.i.not.i77, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit83, label %cond.false7
 
 _ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit83: ; preds = %land.lhs.true.i70, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i73
-  %call3.i79 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call3.i79 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %base.i80 = getelementptr inbounds i8, ptr %call3.i79, i64 208
   %18 = load ptr, ptr %base.i80, align 8
   %incrementalSolving.i81 = getelementptr inbounds i8, ptr %18, i64 137
@@ -3259,7 +3259,7 @@ land.lhs.true66:                                  ; preds = %if.then63
   br i1 %cmp.i.i.i.not.i, label %land.lhs.true68, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %land.lhs.true66
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i115 = getelementptr inbounds i8, ptr %call2.i, i64 352
   %37 = load ptr, ptr %smt.i115, align 8
   %proofMode.i = getelementptr inbounds i8, ptr %37, i64 120
@@ -3501,7 +3501,7 @@ lor.lhs.false:                                    ; preds = %if.then153
   br i1 %cmp.i.i.i.not.i261, label %if.else171, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit267
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit267: ; preds = %lor.lhs.false
-  %call2.i263 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i263 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i264 = getelementptr inbounds i8, ptr %call2.i263, i64 352
   %82 = load ptr, ptr %smt.i264, align 8
   %proofMode.i265 = getelementptr inbounds i8, ptr %82, i64 120
@@ -3520,7 +3520,7 @@ if.then161:                                       ; preds = %if.then159
   br i1 %cmp.i.i.i.not.i269, label %if.end168, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit275
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit275: ; preds = %if.then161
-  %call2.i271 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i271 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i272 = getelementptr inbounds i8, ptr %call2.i271, i64 352
   %85 = load ptr, ptr %smt.i272, align 8
   %proofMode.i273 = getelementptr inbounds i8, ptr %85, i64 120
@@ -3621,7 +3621,7 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %lor.lhs.false.i.i29
   br i1 %cmp.i.i.i.not.i304, label %if.end267, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit310
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit310: ; preds = %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
-  %call2.i306 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i306 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i307 = getelementptr inbounds i8, ptr %call2.i306, i64 352
   %100 = load ptr, ptr %smt.i307, align 8
   %proofMode.i308 = getelementptr inbounds i8, ptr %100, i64 120
@@ -3686,7 +3686,7 @@ lor.lhs.false272.if.end288_crit_edge:             ; preds = %lor.lhs.false272
   br label %if.end288
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit412: ; preds = %lor.lhs.false272
-  %call2.i408 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i408 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i409 = getelementptr inbounds i8, ptr %call2.i408, i64 352
   %111 = load ptr, ptr %smt.i409, align 8
   %proofMode.i410 = getelementptr inbounds i8, ptr %111, i64 120
@@ -3708,7 +3708,7 @@ if.then277:                                       ; preds = %_ZNK4cvc58internal7
   br i1 %cmp.i.i.i.not.i415, label %if.end284, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit421
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit421: ; preds = %if.then277
-  %call2.i417 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i417 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i418 = getelementptr inbounds i8, ptr %call2.i417, i64 352
   %115 = load ptr, ptr %smt.i418, align 8
   %proofMode.i419 = getelementptr inbounds i8, ptr %115, i64 120
@@ -3809,7 +3809,7 @@ if.then355:                                       ; preds = %_ZN4cvc58internal7M
   br i1 %cmp.i.i.i.not.i470, label %if.end364, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit476
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit476: ; preds = %if.then355
-  %call2.i472 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i472 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i473 = getelementptr inbounds i8, ptr %call2.i472, i64 352
   %136 = load ptr, ptr %smt.i473, align 8
   %proofMode.i474 = getelementptr inbounds i8, ptr %136, i64 120
@@ -3918,7 +3918,7 @@ if.then369:                                       ; preds = %invoke.cont78.us.i,
   br i1 %cmp.i.i.i.not.i479, label %if.end391, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit485
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit485: ; preds = %if.then369
-  %call2.i481 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i481 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i482 = getelementptr inbounds i8, ptr %call2.i481, i64 352
   %148 = load ptr, ptr %smt.i482, align 8
   %proofMode.i483 = getelementptr inbounds i8, ptr %148, i64 120
@@ -4489,7 +4489,7 @@ if.then51:                                        ; preds = %land.rhs.i245
   br i1 %cmp.i.i.i.not.i, label %if.end84, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %if.then51
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i = getelementptr inbounds i8, ptr %call2.i, i64 352
   %9 = load ptr, ptr %smt.i, align 8
   %proofMode.i = getelementptr inbounds i8, ptr %9, i64 120
@@ -5234,7 +5234,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushEv.exit: ; preds = %lor.lhs.false.i
   br i1 %cmp.i.i.i.not.i, label %if.end, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushEv.exit
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i = getelementptr inbounds i8, ptr %call2.i, i64 352
   %11 = load ptr, ptr %smt.i, align 8
   %proofMode.i = getelementptr inbounds i8, ptr %11, i64 120
@@ -5577,7 +5577,7 @@ if.end174:                                        ; preds = %cond.end124.if.end1
   br i1 %or.cond1117, label %for.inc189, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit667
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit667: ; preds = %if.end174
-  %call2.i663 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i663 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i664 = getelementptr inbounds i8, ptr %call2.i663, i64 352
   %80 = load ptr, ptr %smt.i664, align 8
   %proofMode.i665 = getelementptr inbounds i8, ptr %80, i64 120
@@ -5625,7 +5625,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %or.cond1118, label %do.cond, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit691
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit691: ; preds = %while.end
-  %call2.i687 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i687 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i688 = getelementptr inbounds i8, ptr %call2.i687, i64 352
   %87 = load ptr, ptr %smt.i688, align 8
   %proofMode.i689 = getelementptr inbounds i8, ptr %87, i64 120
@@ -5757,7 +5757,7 @@ if.else353:                                       ; preds = %if.else344
   br i1 %cmp.i.i.i.not.i877, label %if.end378, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit883
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit883: ; preds = %if.else353
-  %call2.i879 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i879 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i880 = getelementptr inbounds i8, ptr %call2.i879, i64 352
   %111 = load ptr, ptr %smt.i880, align 8
   %proofMode.i881 = getelementptr inbounds i8, ptr %111, i64 120
@@ -6656,7 +6656,7 @@ if.then145:                                       ; preds = %for.body138
   br i1 %tobool, label %land.lhs.true, label %if.end164
 
 land.lhs.true:                                    ; preds = %if.then145
-  %call.i443 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i443 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i = getelementptr inbounds i8, ptr %call.i443, i64 352
   %30 = load ptr, ptr %smt.i, align 8
   %produceUnsatCores.i = getelementptr inbounds i8, ptr %30, i64 117
@@ -6670,7 +6670,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.not.i.i, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %land.lhs.true.i
-  %call2.i.i445 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i.i445 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i.i = getelementptr inbounds i8, ptr %call2.i.i445, i64 352
   %33 = load ptr, ptr %smt.i.i, align 8
   %proofMode.i.i = getelementptr inbounds i8, ptr %33, i64 120
@@ -6679,7 +6679,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %land.lhs.true.i
   br i1 %cmp.i.not.i, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, label %if.then148
 
 _ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit: ; preds = %land.lhs.true.i, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
-  %call3.i = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call3.i = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %base.i = getelementptr inbounds i8, ptr %call3.i, i64 208
   %35 = load ptr, ptr %base.i, align 8
   %incrementalSolving.i = getelementptr inbounds i8, ptr %35, i64 137
@@ -6720,7 +6720,7 @@ if.end164:                                        ; preds = %for.body153, %if.th
   br i1 %cmp.i.i.i.not.i, label %if.end245, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %if.end164
-  %call2.i = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i454 = getelementptr inbounds i8, ptr %call2.i, i64 352
   %42 = load ptr, ptr %smt.i454, align 8
   %proofMode.i = getelementptr inbounds i8, ptr %42, i64 120
@@ -6945,7 +6945,7 @@ cond.end328:                                      ; preds = %cond.end294.thread,
   br i1 %cmp.i.i.i.not.i966, label %for.inc368, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit972
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit972: ; preds = %cond.end328
-  %call2.i968 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i968 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i969 = getelementptr inbounds i8, ptr %call2.i968, i64 352
   %81 = load ptr, ptr %smt.i969, align 8
   %proofMode.i970 = getelementptr inbounds i8, ptr %81, i64 120
@@ -8887,7 +8887,7 @@ if.then7:                                         ; preds = %invoke.cont4
   br i1 %cmp.i.i.i.not.i, label %cleanup, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then7
-  %call2.i13 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i13 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %invoke.cont8 unwind label %ehcleanup324.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %land.rhs.i
@@ -8993,7 +8993,7 @@ invoke.cont33:                                    ; preds = %if.then30, %call124
   br i1 %cmp.i.i.i.not.i16, label %if.end137, label %land.rhs.i17
 
 land.rhs.i17:                                     ; preds = %invoke.cont33
-  %call2.i22 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i22 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %invoke.cont34 unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %land.rhs.i17
@@ -9011,7 +9011,7 @@ if.then36:                                        ; preds = %invoke.cont34
           to label %if.end137 unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 if.else45:                                        ; preds = %invoke.cont26
-  %call.i27 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i27 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %call.i.noexc unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.else45
@@ -9028,7 +9028,7 @@ land.lhs.true.i:                                  ; preds = %call.i.noexc
   br i1 %cmp.i.i.i.not.i.i, label %land.rhs.i26, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %land.lhs.true.i
-  %call2.i.i28 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i.i28 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %call2.i.i.noexc unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 call2.i.i.noexc:                                  ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
@@ -9040,7 +9040,7 @@ call2.i.i.noexc:                                  ; preds = %_ZNK4cvc58internal7
   br i1 %cmp.i.not.i, label %land.rhs.i26, label %invoke.cont47.thread
 
 land.rhs.i26:                                     ; preds = %call2.i.i.noexc, %land.lhs.true.i
-  %call3.i29 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call3.i29 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %invoke.cont47 unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont47:                                    ; preds = %land.rhs.i26
@@ -9059,7 +9059,7 @@ invoke.cont47.thread:                             ; preds = %call.i.noexc, %call
   %36 = add i32 %9, 3
   %37 = load i32, ptr %sz.i5.i, align 8
   %add.i6.i = add i32 %37, %36
-  invoke void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %ca46, i32 noundef %add.i6.i)
+  invoke void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %ca46, i32 noundef %add.i6.i)
           to label %.noexc33 unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 .noexc33:                                         ; preds = %invoke.cont47.thread
@@ -9273,7 +9273,7 @@ invoke.cont61:                                    ; preds = %invoke.cont56, %cal
   br i1 %cmp.i.i.i.not.i82, label %if.end137, label %land.rhs.i83
 
 land.rhs.i83:                                     ; preds = %invoke.cont61
-  %call2.i88 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i88 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
           to label %invoke.cont62 unwind label %ehcleanup324.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont62:                                    ; preds = %land.rhs.i83
@@ -11115,7 +11115,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %44 = load ptr, ptr %to, align 8
   %conv.i63 = zext i32 %42 to i64
   %mul.i = shl nuw nsw i64 %conv.i63, 2
-  %call.i.i = tail call ptr @realloc(ptr noundef %44, i64 noundef %mul.i) #33
+  %call.i.i = tail call ptr @realloc(ptr noundef %44, i64 noundef range(i64 0, 17179869181) %mul.i) #33
   %cmp.i.i64 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i64, label %land.lhs.true.i.i, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit.i
 
@@ -11554,8 +11554,8 @@ entry:
   %wasted_.i = getelementptr inbounds i8, ptr %this, i64 720
   %1 = load i32, ptr %wasted_.i, align 8
   %sub = sub i32 %0, %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %to, i8 0, i64 20, i1 false)
-  call void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %to, i32 noundef %sub)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %to, i8 0, i64 20, i1 false)
+  call void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %to, i32 noundef %sub)
   %extra_clause_field.i = getelementptr inbounds i8, ptr %to, i64 20
   store i8 0, ptr %extra_clause_field.i, align 4
   invoke void @_ZN4cvc58internal7Minisat6Solver8relocAllERNS1_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(21) %to)
@@ -11759,7 +11759,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %cond.end, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %smt.i = getelementptr inbounds i8, ptr %call2.i, i64 352
   %1 = load ptr, ptr %smt.i, align 8
   %proofMode.i = getelementptr inbounds i8, ptr %1, i64 120
@@ -12991,7 +12991,7 @@ while.end:                                        ; preds = %while.cond
   %3 = load ptr, ptr %this, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul) #33
+  %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef range(i64 0, 17179869181) %mul) #33
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit
 

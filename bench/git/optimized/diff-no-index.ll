@@ -225,13 +225,13 @@ if.end46.thread.i:                                ; preds = %if.end36.i
   br i1 %cmp4732.i, label %fixup_paths.exit, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end46.thread.i
-  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef %paths.sroa.3.0.paths.sroa.3.8.)
+  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef %paths.sroa.3.0.paths.sroa.3.8.)
   %buf.i = getelementptr inbounds i8, ptr %replacement, i64 16
   %16 = load ptr, ptr %buf.i, align 8
   br label %fixup_paths.exit
 
 if.else.i:                                        ; preds = %if.end46.i
-  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.3.0.paths.sroa.3.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.)
+  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.3.0.paths.sroa.3.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.)
   %buf58.i = getelementptr inbounds i8, ptr %replacement, i64 16
   %17 = load ptr, ptr %buf58.i, align 8
   br label %fixup_paths.exit

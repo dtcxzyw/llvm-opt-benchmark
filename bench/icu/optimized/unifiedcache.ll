@@ -271,7 +271,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %2 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -284,7 +284,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end4
   store i32 %count, ptr %fMaxUnused, align 4
   %fMaxPercentageOfInUse = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %percentageOfInUseItems, ptr %fMaxPercentageOfInUse, align 8
-  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #15
+  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %if.then3
@@ -295,7 +295,7 @@ return:                                           ; preds = %entry, %_ZNSt10lock
 define noundef i32 @_ZNK6icu_7512UnifiedCache11unusedCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -313,13 +313,13 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
   %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %fNumValuesInUse, align 8
   %sub = sub nsw i32 %call, %2
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   ret i32 %sub
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %3
 }
 
@@ -329,7 +329,7 @@ declare i32 @uhash_count_75(ptr noundef) local_unnamed_addr #5
 define noundef i64 @_ZNK6icu_7512UnifiedCache16autoEvictedCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -340,7 +340,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %fAutoEvictedCount = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %fAutoEvictedCount, align 8
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   ret i64 %1
 }
 
@@ -348,7 +348,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 define noundef i32 @_ZNK6icu_7512UnifiedCache8keyCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -363,13 +363,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   ret i32 %call
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %2
 }
 
@@ -377,7 +377,7 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
 define void @_ZNK6icu_7512UnifiedCache5flushEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %while.cond, label %if.then.i.i
 
@@ -396,11 +396,11 @@ invoke.cont:                                      ; preds = %while.cond
 lpad:                                             ; preds = %while.cond
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %1
 
 while.end:                                        ; preds = %invoke.cont
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   ret void
 }
 
@@ -569,7 +569,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK6icu_
 define void @_ZNK6icu_7512UnifiedCache24handleUnreferencedObjectEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -586,13 +586,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   ret void
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %2
 }
 
@@ -727,7 +727,7 @@ define void @_ZN6icu_7512UnifiedCacheD2Ev(ptr noundef nonnull align 8 dereferenc
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.cond.i, label %if.then.i.i.invoke
 
@@ -742,13 +742,13 @@ invoke.cont.i:                                    ; preds = %while.cond.i
 lpad.i:                                           ; preds = %while.cond.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   br label %terminate.lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont.i
-  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %2 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i.invoke
 
@@ -765,7 +765,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #15
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fHashtable, align 8
   invoke void @uhash_close_75(ptr noundef %4)
@@ -1029,7 +1029,7 @@ define void @_ZNK6icu_7512UnifiedCache18_putIfAbsentAndGetERKNS_12CacheKeyBaseER
 entry:
   %putError = alloca i32, align 4
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1142,7 +1142,7 @@ if.then2.i9.i:                                    ; preds = %if.then.i5.i
 lpad:                                             ; preds = %if.then.i.i33, %if.end7.i, %if.end.i, %if.end9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %21
 
 if.end.i:                                         ; preds = %invoke.cont
@@ -1188,7 +1188,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i
   %28 = load ptr, ptr %fHashtable, align 8
-  %call8.i23 = invoke ptr @uhash_put_75(ptr noundef %28, ptr noundef nonnull %call2.i22, ptr noundef nonnull %22, ptr noundef nonnull %putError)
+  %call8.i23 = invoke ptr @uhash_put_75(ptr noundef %28, ptr noundef nonnull %call2.i22, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(4) %putError)
           to label %call8.i.noexc unwind label %lpad
 
 call8.i.noexc:                                    ; preds = %if.end7.i
@@ -1276,7 +1276,7 @@ if.end9:                                          ; preds = %if.then11.i, %call8
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.then2.i9.i, %if.then.i5.i, %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, %if.end9
-  %call1.i.i.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   ret void
 }
 
@@ -1463,7 +1463,7 @@ entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
   store ptr %0, ptr %lock, align 8
   %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -1567,7 +1567,7 @@ if.else.i.i:                                      ; preds = %lpad
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #15
+  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #15
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i, %if.then3.i.i
@@ -1659,7 +1659,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i
   %31 = load ptr, ptr %fHashtable, align 8
-  %call8.i19 = invoke ptr @uhash_put_75(ptr noundef %31, ptr noundef nonnull %call2.i18, ptr noundef nonnull %25, ptr noundef nonnull %status)
+  %call8.i19 = invoke ptr @uhash_put_75(ptr noundef %31, ptr noundef nonnull %call2.i18, ptr noundef nonnull %25, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call8.i.noexc unwind label %lpad.loopexit.split-lp
 
 call8.i.noexc:                                    ; preds = %if.end7.i
@@ -1685,7 +1685,7 @@ if.else.i.i23:                                    ; preds = %cleanup
   br i1 %tobool2.not.i.i24, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27, label %if.then3.i.i25
 
 if.then3.i.i25:                                   ; preds = %if.else.i.i23
-  %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #15
+  %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %35) #15
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit27
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit27:          ; preds = %cleanup, %if.else.i.i23, %if.then3.i.i25

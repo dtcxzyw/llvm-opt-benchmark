@@ -256,7 +256,7 @@ define internal fastcc void @"_ZN174_$LT$$LT$alloc..collections..btree..map..Int
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %9 = load ptr, ptr %8, align 8, !alias.scope !31, !noalias !34, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8b4d8ae0bd6c1dd4E.exit" unwind label %11
 
 11:                                               ; preds = %5
@@ -366,7 +366,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$indexmap..map..IndexMap$LT$
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) #19
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -509,7 +509,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$indexmap..map..Ind
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #19
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0) #19
           to label %23 unwind label %21
 
 21:                                               ; preds = %19
@@ -522,7 +522,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$indexmap..map..Ind
   resume { ptr, i32 } %20
 
 "_ZN4core3ptr110drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hc64cbafbcfb1d3f9E.exit": ; preds = %1, %.noexc.i
-  tail call fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0)
+  tail call fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   ret void
 }
 
@@ -907,7 +907,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$serde_json..read..IoRead$LT
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr113drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$validator..types..ValidationErrorsKind$GT$$GT$17h2a4de7e55b632b14E.llvm.4482545766329047864"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
   ret void
 }
 
@@ -2130,7 +2130,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hc6532664b5fad72cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !927)
   %2 = load ptr, ptr %0, align 8, !alias.scope !927, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h60f35000c0fa78cbE.llvm.4482545766329047864"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h60f35000c0fa78cbE.llvm.4482545766329047864"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h2fabd8e30008da35E.llvm.4482545766329047864.exit" unwind label %3, !noalias !927
 
 3:                                                ; preds = %1
@@ -2964,7 +2964,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
   br i1 %47, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..SubschemaValidation$GT$$GT$$GT$17hc23487f37e36b235E.exit", label %48
 
 48:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h7c9e848c870d9e82E.llvm.4482545766329047864.exit"
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..SubschemaValidation$GT$$GT$17h87ac31267e548957E"(ptr noalias noundef align 8 dereferenceable(8) %45)
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..SubschemaValidation$GT$$GT$17h87ac31267e548957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..SubschemaValidation$GT$$GT$$GT$17hc23487f37e36b235E.exit" unwind label %127
 
 49:                                               ; preds = %44
@@ -3054,7 +3054,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$$GT$17h2659dbff9e0bf756E.exit"
 
 76:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..NumberValidation$GT$$GT$$GT$17h32a3828918a5949bE.exit"
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$17h18f3ca552657e02eE"(ptr noalias noundef align 8 dereferenceable(8) %64)
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$17h18f3ca552657e02eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit" unwind label %127
 
 "_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$$GT$17h2659dbff9e0bf756E.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h42a3cb474e0e6747E.exit.i", %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..NumberValidation$GT$$GT$$GT$17h32a3828918a5949bE.exit43"
@@ -3064,7 +3064,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
   br i1 %79, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit46", label %80
 
 80:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$$GT$17h2659dbff9e0bf756E.exit"
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$17h18f3ca552657e02eE"(ptr noalias noundef align 8 dereferenceable(8) %77)
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$17h18f3ca552657e02eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77)
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit46" unwind label %85
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..NumberValidation$GT$$GT$$GT$17h32a3828918a5949bE.exit", %76, %85
@@ -3075,7 +3075,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
   br i1 %83, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17hf3891c558bd9d748E.exit", label %84
 
 84:                                               ; preds = %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit"
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$17ha590f7d36bc9529dE"(ptr noalias noundef align 8 dereferenceable(8) %81)
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$17ha590f7d36bc9529dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %81)
           to label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17hf3891c558bd9d748E.exit" unwind label %127
 
 85:                                               ; preds = %80
@@ -3188,7 +3188,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
 123:                                              ; preds = %111
   %124 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #19
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0) #19
           to label %common.resume unwind label %125
 
 125:                                              ; preds = %123
@@ -3202,7 +3202,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr100drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h1c119d6be69ed11aE.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h7c135652bc33019eE.llvm.4482545766329047864.exit53", %.noexc.i.i
-  tail call fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0)
+  tail call fastcc void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hcdd084669653de27E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
   ret void
 
 127:                                              ; preds = %84, %76, %48, %38, %30, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h7c135652bc33019eE.llvm.4482545766329047864.exit51"
@@ -3431,7 +3431,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$validator..types..Validation
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit"
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9180e02f40fc90beE(ptr noalias noundef nonnull align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 56, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9180e02f40fc90beE(ptr noalias noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 56, i64 noundef 16)
   ret void
 }
 
@@ -3673,7 +3673,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$schemars..schema..ObjectVali
 37:                                               ; preds = %25
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #19
           to label %.body unwind label %39
 
 39:                                               ; preds = %37
@@ -3683,7 +3683,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$schemars..schema..ObjectVali
   unreachable
 
 "_ZN4core3ptr110drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$17h159b8755905a6fdcE.llvm.4482545766329047864.exit.i": ; preds = %.noexc19, %.loopexit26
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
           to label %"_ZN4core3ptr100drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$17h25b08bccbcac45a7E.llvm.4482545766329047864.exit" unwind label %42
 
 .body:                                            ; preds = %42, %37, %20
@@ -3734,7 +3734,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$schemars..schema..ObjectVali
 61:                                               ; preds = %49
   %62 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #19
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(72) %44) #19
           to label %.body9 unwind label %63
 
 63:                                               ; preds = %61
@@ -3744,7 +3744,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$schemars..schema..ObjectVali
   unreachable
 
 "_ZN4core3ptr110drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$17h159b8755905a6fdcE.llvm.4482545766329047864.exit.i8": ; preds = %.noexc20, %"_ZN4core3ptr100drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$17h25b08bccbcac45a7E.llvm.4482545766329047864.exit"
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44)
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$$GT$17h4543c1f7fbe44582E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(72) %44)
           to label %"_ZN4core3ptr100drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$17h25b08bccbcac45a7E.llvm.4482545766329047864.exit12" unwind label %69
 
 .body9:                                           ; preds = %69, %61, %.body
@@ -3866,7 +3866,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$schemars..schema..StringVali
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hb79cf8478bd74bb2E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
   ret void
 }
 
@@ -4576,7 +4576,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$validator..types..Valid
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i"
   %15 = getelementptr inbounds i8, ptr %5, i64 48
   %16 = getelementptr inbounds i8, ptr %5, i64 80
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9180e02f40fc90beE(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 56, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9180e02f40fc90beE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 56, i64 noundef 16)
           to label %"_ZN4core3ptr54drop_in_place$LT$validator..types..ValidationError$GT$17he35256ec2b17f6afE.llvm.4482545766329047864.exit" unwind label %20
 
 17:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$validator..types..ValidationError$GT$17he35256ec2b17f6afE.llvm.4482545766329047864.exit"
@@ -5077,7 +5077,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$sparse..index..posting_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h2fabd8e30008da35E.llvm.4482545766329047864"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h60f35000c0fa78cbE.llvm.4482545766329047864"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h60f35000c0fa78cbE.llvm.4482545766329047864"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h67124fabb107c1c6E.llvm.4482545766329047864.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h67124fabb107c1c6E.llvm.4482545766329047864.exit": ; preds = %1
@@ -5256,7 +5256,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$L
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h1c5225b34cfe138aE.llvm.4482545766329047864.exit"
 
 12:                                               ; preds = %1
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h8c0422e22da8dea0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h8c0422e22da8dea0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
           to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h1c5225b34cfe138aE.llvm.4482545766329047864.exit" unwind label %13
 
 13:                                               ; preds = %12
@@ -8096,7 +8096,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3140)
   %9 = load ptr, ptr %8, align 8, !alias.scope !3140, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2a37255c42830539E(ptr noalias noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 48, i64 noundef 16)
           to label %12 unwind label %.body
 
 .body:                                            ; preds = %5
@@ -8104,7 +8104,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
           cleanup
   %.val.i = load ptr, ptr %8, align 8, !alias.scope !3140, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef 48, i64 noundef 8) #18, !noalias !3140
-  invoke fastcc void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47378e5b06e12725E"(ptr noalias noundef align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47378e5b06e12725E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr234drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$usize$C$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$C$alloc..alloc..Global$GT$$GT$17h41abdb0116221414E.exit" unwind label %14
 
 ._crit_edge:                                      ; preds = %12, %1

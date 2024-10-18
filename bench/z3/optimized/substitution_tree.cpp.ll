@@ -4197,7 +4197,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i
   br i1 %cmp3.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i, %while.cond.i.i.i.i
-  tail call void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_subst.i16)
+  tail call void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(20) %m_subst.i16)
   %.pr.pre.i.i.i.i = load ptr, ptr %m_subst.i16, align 8
   br label %while.cond.i.i.i.i, !llvm.loop !38
 
@@ -4416,7 +4416,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i
   br i1 %cmp3.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i, %while.cond.i.i.i.i
-  tail call void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_subst.i16)
+  tail call void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(20) %m_subst.i16)
   %.pr.pre.i.i.i.i = load ptr, ptr %m_subst.i16, align 8
   br label %while.cond.i.i.i.i, !llvm.loop !38
 
@@ -4635,7 +4635,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i
   br i1 %cmp3.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i, %while.cond.i.i.i.i
-  tail call void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_subst.i16)
+  tail call void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(20) %m_subst.i16)
   %.pr.pre.i.i.i.i = load ptr, ptr %m_subst.i16, align 8
   br label %while.cond.i.i.i.i, !llvm.loop !38
 
@@ -5316,7 +5316,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -8372,7 +8372,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit.thread, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit
 
 _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit.thread: ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
   %second.i93 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i93, ptr noundef nonnull align 8 dereferenceable(16) %p2, i64 16, i1 false)
   br label %if.then.i22
@@ -8381,7 +8381,7 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   %.pr = load ptr, ptr %m_visit_todo, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %p2, i64 16, i1 false)
   %cmp.i = icmp eq ptr %.pr, null
@@ -9439,7 +9439,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit.thread, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit
 
 _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit.thread: ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
   %second.i93 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i93, ptr noundef nonnull align 8 dereferenceable(16) %p2, i64 16, i1 false)
   br label %if.then.i22
@@ -9448,7 +9448,7 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE5resetEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   %.pr = load ptr, ptr %m_visit_todo, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %p2, i64 16, i1 false)
   %cmp.i = icmp eq ptr %.pr, null

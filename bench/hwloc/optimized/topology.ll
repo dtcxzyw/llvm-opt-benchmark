@@ -479,8 +479,8 @@ hwloc__find_insert_memory_parent.exit:            ; preds = %hwloc__find_insert_
   br i1 %.not41, label %77, label %hwloc__find_insert_memory_parent.exit.thread
 
 77:                                               ; preds = %hwloc__find_insert_memory_parent.exit
-  tail call fastcc void @hwloc__free_object_contents(ptr noundef %2)
-  tail call void @free(ptr noundef %2) #33
+  tail call fastcc void @hwloc__free_object_contents(ptr noundef nonnull %2)
+  tail call void @free(ptr noundef nonnull %2) #33
   br label %413
 
 hwloc__find_insert_memory_parent.exit.thread:     ; preds = %75, %31, %hwloc__find_insert_memory_parent.exit, %6
@@ -1866,11 +1866,11 @@ define hidden range(i32 -1, 1) i32 @hwloc__tma_dup_infos(ptr noundef %0, ptr noc
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call ptr %9(ptr noundef nonnull %0, i64 noundef %7) #33
+  %10 = tail call ptr %9(ptr noundef nonnull %0, i64 noundef range(i64 0, 68719476721) %7) #33
   br label %hwloc_tma_malloc.exit.i
 
 11:                                               ; preds = %3
-  %12 = tail call noalias ptr @malloc(i64 noundef %7) #35
+  %12 = tail call noalias ptr @malloc(i64 noundef range(i64 0, 68719476721) %7) #35
   br label %hwloc_tma_malloc.exit.i
 
 hwloc_tma_malloc.exit.i:                          ; preds = %11, %8
@@ -1879,7 +1879,7 @@ hwloc_tma_malloc.exit.i:                          ; preds = %11, %8
   br i1 %.not.i, label %hwloc_tma_calloc.exit.thread, label %hwloc_tma_calloc.exit
 
 hwloc_tma_calloc.exit:                            ; preds = %hwloc_tma_malloc.exit.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i, i8 0, i64 range(i64 0, 68719476721) %7, i1 false)
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -2389,12 +2389,12 @@ hwloc_tma_malloc.exit.i:                          ; preds = %.lr.ph, %hwloc_tma_
   %114 = zext i32 %113 to i64
   %115 = shl nuw nsw i64 %114, 3
   %116 = load ptr, ptr %2, align 8
-  %117 = tail call ptr %116(ptr noundef nonnull %2, i64 noundef %115) #33
+  %117 = tail call ptr %116(ptr noundef nonnull %2, i64 noundef range(i64 0, 68719476721) %115) #33
   %.not.i = icmp eq ptr %117, null
   br i1 %.not.i, label %hwloc_tma_calloc.exit, label %118
 
 118:                                              ; preds = %hwloc_tma_malloc.exit.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %117, i8 0, i64 %115, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %117, i8 0, i64 range(i64 0, 68719476721) %115, i1 false)
   br label %hwloc_tma_calloc.exit
 
 hwloc_tma_calloc.exit:                            ; preds = %hwloc_tma_malloc.exit.i, %118
@@ -2426,12 +2426,12 @@ hwloc_tma_malloc.exit.i62:                        ; preds = %.preheader.split
   %130 = zext i32 %128 to i64
   %131 = shl nuw nsw i64 %130, 3
   %132 = load ptr, ptr %2, align 8
-  %133 = tail call ptr %132(ptr noundef nonnull %2, i64 noundef %131) #33
+  %133 = tail call ptr %132(ptr noundef nonnull %2, i64 noundef range(i64 0, 68719476721) %131) #33
   %.not.i64 = icmp eq ptr %133, null
   br i1 %.not.i64, label %hwloc_tma_calloc.exit65, label %134
 
 134:                                              ; preds = %hwloc_tma_malloc.exit.i62
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %133, i8 0, i64 %131, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %133, i8 0, i64 range(i64 0, 68719476721) %131, i1 false)
   br label %hwloc_tma_calloc.exit65
 
 hwloc_tma_calloc.exit65:                          ; preds = %hwloc_tma_malloc.exit.i62, %134
@@ -2549,7 +2549,7 @@ hwloc_tma_malloc.exit:                            ; preds = %4, %7
   %31 = zext i32 %1 to i64
   %32 = shl nuw nsw i64 %31, 3
   %33 = load ptr, ptr %2, align 8
-  %34 = tail call ptr %33(ptr noundef nonnull %2, i64 noundef %32) #33
+  %34 = tail call ptr %33(ptr noundef nonnull %2, i64 noundef range(i64 0, 68719476721) %32) #33
   br label %hwloc_tma_malloc.exit.i
 
 35:                                               ; preds = %9
@@ -2571,7 +2571,7 @@ hwloc_tma_malloc.exit:                            ; preds = %4, %7
   store i32 %1, ptr %45, align 8
   %46 = zext i32 %1 to i64
   %47 = shl nuw nsw i64 %46, 3
-  %48 = tail call noalias ptr @malloc(i64 noundef %47) #35
+  %48 = tail call noalias ptr @malloc(i64 noundef range(i64 0, 68719476721) %47) #35
   br label %hwloc_tma_malloc.exit.i
 
 hwloc_tma_malloc.exit.i:                          ; preds = %35, %16
@@ -2582,7 +2582,7 @@ hwloc_tma_malloc.exit.i:                          ; preds = %35, %16
   br i1 %.not.i55, label %hwloc_tma_calloc.exit, label %51
 
 51:                                               ; preds = %hwloc_tma_malloc.exit.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i, i8 0, i64 %49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i, i8 0, i64 range(i64 0, 68719476721) %49, i1 false)
   br label %hwloc_tma_calloc.exit
 
 hwloc_tma_calloc.exit:                            ; preds = %hwloc_tma_malloc.exit.i, %51
@@ -2595,11 +2595,11 @@ hwloc_tma_calloc.exit:                            ; preds = %hwloc_tma_malloc.ex
 
 56:                                               ; preds = %hwloc_tma_calloc.exit
   %57 = load ptr, ptr %2, align 8
-  %58 = tail call ptr %57(ptr noundef nonnull %2, i64 noundef %55) #33
+  %58 = tail call ptr %57(ptr noundef nonnull %2, i64 noundef range(i64 0, 68719476721) %55) #33
   br label %hwloc_tma_malloc.exit.i57
 
 59:                                               ; preds = %hwloc_tma_calloc.exit
-  %60 = tail call noalias ptr @malloc(i64 noundef %55) #35
+  %60 = tail call noalias ptr @malloc(i64 noundef range(i64 0, 68719476721) %55) #35
   br label %hwloc_tma_malloc.exit.i57
 
 hwloc_tma_malloc.exit.i57:                        ; preds = %59, %56
@@ -2608,7 +2608,7 @@ hwloc_tma_malloc.exit.i57:                        ; preds = %59, %56
   br i1 %.not.i59, label %hwloc_tma_calloc.exit60, label %61
 
 61:                                               ; preds = %hwloc_tma_malloc.exit.i57
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i58, i8 0, i64 %55, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i58, i8 0, i64 range(i64 0, 68719476721) %55, i1 false)
   br label %hwloc_tma_calloc.exit60
 
 hwloc_tma_calloc.exit60:                          ; preds = %hwloc_tma_malloc.exit.i57, %61
@@ -4022,7 +4022,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %.not.i.i, label %76, label %78
 
 76:                                               ; preds = %.lr.ph
-  %77 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %75, i32 noundef 0) #34
+  %77 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %75, i32 noundef 0) #34
   br label %hwloc_get_next_obj_by_type.exit
 
 78:                                               ; preds = %.lr.ph
@@ -4129,7 +4129,7 @@ hwloc_obj_cmp_sets.exit:                          ; preds = %107
 
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.07.i = phi ptr [ %.0.i115, %.lr.ph.i ], [ %.05.i, %116 ]
-  %118 = tail call i32 @hwloc_obj_add_other_obj_sets(ptr noundef %.077129, ptr noundef nonnull %.07.i)
+  %118 = tail call i32 @hwloc_obj_add_other_obj_sets(ptr noundef nonnull %.077129, ptr noundef nonnull %.07.i)
   %119 = getelementptr inbounds i8, ptr %.07.i, i64 88
   %.0.i115 = load ptr, ptr %119, align 8
   %.not.i116 = icmp eq ptr %.0.i115, null

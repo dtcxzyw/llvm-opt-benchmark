@@ -277,12 +277,12 @@ define dso_local i32 @uv__udp_bind(ptr nocapture noundef %0, ptr noundef %1, i32
   ]
 
 26:                                               ; preds = %24
-  %27 = call i32 @setsockopt(i32 noundef %.030, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %6, i32 noundef 4) #9
+  %27 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %.030, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %6, i32 noundef 4) #9
   %.not6.i = icmp eq i32 %27, 0
   br i1 %.not6.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
 28:                                               ; preds = %24
-  %29 = call i32 @setsockopt(i32 noundef %.030, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %6, i32 noundef 4) #9
+  %29 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %.030, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %6, i32 noundef 4) #9
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
@@ -2026,11 +2026,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr noc
   br i1 %.not.i.i, label %13, label %11
 
 11:                                               ; preds = %5
-  %12 = call i32 @setsockopt(i32 noundef %10, i32 noundef 41, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 4) #9
+  %12 = call i32 @setsockopt(i32 noundef %10, i32 noundef 41, i32 noundef range(i32 16, 20) 16, ptr noundef nonnull %3, i32 noundef 4) #9
   br label %15
 
 13:                                               ; preds = %5
-  %14 = call i32 @setsockopt(i32 noundef %10, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 4) #9
+  %14 = call i32 @setsockopt(i32 noundef %10, i32 noundef 0, i32 noundef range(i32 2, 35) 2, ptr noundef nonnull %3, i32 noundef 4) #9
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -2072,11 +2072,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_t
   br i1 %.not.i.i, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = call i32 @setsockopt(i32 noundef %9, i32 noundef 41, i32 noundef 18, ptr noundef nonnull %3, i32 noundef 4) #9
+  %11 = call i32 @setsockopt(i32 noundef %9, i32 noundef 41, i32 noundef range(i32 16, 20) 18, ptr noundef nonnull %3, i32 noundef 4) #9
   br label %14
 
 12:                                               ; preds = %4
-  %13 = call i32 @setsockopt(i32 noundef %9, i32 noundef 0, i32 noundef 33, ptr noundef nonnull %3, i32 noundef 4) #9
+  %13 = call i32 @setsockopt(i32 noundef %9, i32 noundef 0, i32 noundef range(i32 2, 35) 33, ptr noundef nonnull %3, i32 noundef 4) #9
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -2114,11 +2114,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_l
   br i1 %.not.i.i, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = call i32 @setsockopt(i32 noundef %9, i32 noundef 41, i32 noundef 19, ptr noundef nonnull %3, i32 noundef 4) #9
+  %11 = call i32 @setsockopt(i32 noundef %9, i32 noundef 41, i32 noundef range(i32 16, 20) 19, ptr noundef nonnull %3, i32 noundef 4) #9
   br label %14
 
 12:                                               ; preds = %4
-  %13 = call i32 @setsockopt(i32 noundef %9, i32 noundef 0, i32 noundef 34, ptr noundef nonnull %3, i32 noundef 4) #9
+  %13 = call i32 @setsockopt(i32 noundef %9, i32 noundef 0, i32 noundef range(i32 2, 35) 34, ptr noundef nonnull %3, i32 noundef 4) #9
   br label %14
 
 14:                                               ; preds = %12, %10

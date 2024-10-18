@@ -5377,7 +5377,7 @@ define linkonce_odr void @_ZNSt6vectorI20InstructionSpecifierSaIS0_EE17_M_defaul
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 12
   store i32 0, ptr %20, align 4
   %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.177) #16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.08.i.i.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.08.i.i.i, i8 0, i64 12, i1 false)
   %22 = add i64 %.057.i.i.i, -1
   %23 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 48
   %.not.i.i.i = icmp eq i64 %22, 0
@@ -5412,7 +5412,7 @@ _ZNKSt6vectorI20InstructionSpecifierSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = 
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 12
   store i32 0, ptr %33, align 4
   %34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.177) #16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.08.i.i.i26, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.08.i.i.i26, i8 0, i64 12, i1 false)
   %35 = add i64 %.057.i.i.i27, -1
   %36 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 48
   %.not.i.i.i28 = icmp eq i64 %35, 0
@@ -5425,7 +5425,7 @@ _ZSt27__uninitialized_default_n_aIP20InstructionSpecifiermS0_ET_S2_T0_RSaIT1_E.e
 .lr.ph.i.i.i31:                                   ; preds = %_ZSt27__uninitialized_default_n_aIP20InstructionSpecifiermS0_ET_S2_T0_RSaIT1_E.exit30, %.lr.ph.i.i.i31
   %.012.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i31 ], [ %30, %_ZSt27__uninitialized_default_n_aIP20InstructionSpecifiermS0_ET_S2_T0_RSaIT1_E.exit30 ]
   %.0911.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i31 ], [ %6, %_ZSt27__uninitialized_default_n_aIP20InstructionSpecifiermS0_ET_S2_T0_RSaIT1_E.exit30 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i, i64 16, i1 false), !alias.scope !45
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38) #16

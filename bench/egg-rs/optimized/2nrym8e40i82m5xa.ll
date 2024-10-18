@@ -191,7 +191,7 @@ define noundef i32 @"_ZN59_$LT$egg..Id$u20$as$u20$egg..language..LanguageChildre
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = load i32, ptr %.val, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !21
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h08f1bb7e97a2c174E.llvm.271183364187161643"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h08f1bb7e97a2c174E.llvm.271183364187161643"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !range !28, !noalias !21, !noundef !4
   %11 = icmp eq i64 %10, 0

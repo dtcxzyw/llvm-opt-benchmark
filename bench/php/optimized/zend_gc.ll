@@ -1535,7 +1535,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %495 = or disjoint i32 %494, 1073741824
   store i32 %495, ptr %489, align 4
   %496 = load ptr, ptr %483, align 8
-  call fastcc void @gc_scan(ptr noundef %496, ptr noundef %15)
+  call fastcc void @gc_scan(ptr noundef %496, ptr noundef nonnull %15)
   %.pre.i158 = load ptr, ptr @gc_globals, align 8
   br label %497
 
@@ -1570,7 +1570,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %513 = or disjoint i32 %512, 1073741824
   store i32 %513, ptr %507, align 4
   %514 = load ptr, ptr %501, align 8
-  call fastcc void @gc_scan(ptr noundef %514, ptr noundef %15)
+  call fastcc void @gc_scan(ptr noundef %514, ptr noundef nonnull %15)
   %.pre27.i = load ptr, ptr @gc_globals, align 8
   %.pre29.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %515

@@ -428,7 +428,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   %160 = getelementptr i8, ptr %.013.i.i73, i64 32775
   %161 = load i32, ptr @hf_wcp_compressed_data, align 4
   %162 = sub i32 %145, %.
-  %163 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %161, ptr noundef %0, i32 noundef %., i32 noundef %162, i32 noundef 0) #5
+  %163 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %161, ptr noundef %0, i32 noundef range(i32 1, 3) %., i32 noundef %162, i32 noundef 0) #5
   %164 = load i32, ptr @ett_wcp_comp_data, align 4
   %165 = call ptr @proto_item_add_subtree(ptr noundef %163, i32 noundef %164) #5
   %166 = icmp sgt i32 %162, 2048
@@ -440,7 +440,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
 
 169:                                              ; preds = %get_wcp_window_ptr.exit.i69
   %170 = sext i32 %162 to i64
-  %171 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %., i64 noundef %170) #5
+  %171 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef range(i32 1, 3) %., i64 noundef %170) #5
   %172 = load ptr, ptr %.013.i.i73, align 8
   %173 = icmp slt i32 %., %145
   br i1 %173, label %.lr.ph.i, label %._crit_edge.i

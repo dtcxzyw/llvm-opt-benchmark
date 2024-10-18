@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$$LP$alloc..string..String$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h034afc8ac396deb7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he39f46045b01645dE.llvm.4482545766329047864"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he39f46045b01645dE.llvm.4482545766329047864"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !13, !noalias !4, !noundef !14
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -552,7 +552,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i64 %110, ptr %95, align 8, !alias.scope !73, !noalias !70
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !70
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 24, i1 false)
   %112 = icmp eq i64 %.lcssa198, %96
   br i1 %112, label %116, label %.invoke.i.i
 
@@ -585,7 +585,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 123:                                              ; preds = %104, %100
   %eh.lpad-body.ph.i = phi { ptr, i32 } [ %105, %104 ], [ %101, %100 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2a8905a3d2d3ad19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #19
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2a8905a3d2d3ad19E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #19
           to label %.body unwind label %124
 
 124:                                              ; preds = %123
@@ -805,7 +805,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %217, label %218, label %219
 
 218:                                              ; preds = %204
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %216, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d78d6214710fcfd5af89293fcea183a.12) #18
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef range(i64 1, 65537) %216, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d78d6214710fcfd5af89293fcea183a.12) #18
           to label %.noexc.i.i41 unwind label %202, !noalias !104
 
 .noexc.i.i41:                                     ; preds = %218
@@ -965,7 +965,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i16 %279, ptr %108, align 2, !noalias !83
   %280 = getelementptr inbounds i8, ptr %97, i64 8
   %281 = getelementptr inbounds { [3 x i64] }, ptr %280, i64 %278
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 24, i1 false)
   %282 = add nuw nsw i64 %278, 1
   %283 = getelementptr inbounds ptr, ptr %109, i64 %282
   store ptr %.lcssa188, ptr %283, align 8, !noalias !83
@@ -1145,7 +1145,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN110_$LT$core..i
   %.val22.i.i = load i64, ptr %18, align 8, !noalias !153, !noundef !14
   %19 = sub i64 %.val20.i.i, %.val22.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val20.i.i, i64 %.val22.i.i)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val21.i.i, i64 %..i.i.i.i.i), !alias.scope !154, !noalias !153
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val21.i.i, i64 %..i.i.i.i.i), !alias.scope !154, !noalias !153
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -1216,7 +1216,7 @@ default.unreachable.i:                            ; preds = %"_ZN110_$LT$core..i
   %.val22.i = load i64, ptr %17, align 8, !noalias !161, !noundef !14
   %18 = sub i64 %.val20.i, %.val22.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val20.i, i64 %.val22.i)
-  %19 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val21.i, i64 %..i.i.i.i), !alias.scope !164, !noalias !161
+  %19 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val21.i, i64 %..i.i.i.i), !alias.scope !164, !noalias !161
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -1276,7 +1276,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val22 = load i64, ptr %18, align 8, !noundef !14
   %19 = sub i64 %.val20, %.val22
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %.val20, i64 %.val22)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val21, i64 %..i.i.i), !alias.scope !168
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val21, i64 %..i.i.i), !alias.scope !168
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i = select i1 %22, i64 %19, i64 %21

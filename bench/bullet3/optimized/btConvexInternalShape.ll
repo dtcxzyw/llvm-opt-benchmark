@@ -336,7 +336,7 @@ if.end19:                                         ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN32btConvexInternalAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
+  tail call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
   %m_localScaling.i = getelementptr inbounds i8, ptr %this, i64 32
   store float 1.000000e+00, ptr %m_localScaling.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 36
@@ -529,7 +529,7 @@ init.end.i:                                       ; preds = %init.i, %init.check
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
   %8 = load ptr, ptr %vfn.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions, ptr noundef nonnull %_supporting.i, i32 noundef 6)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull @_ZZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions, ptr noundef nonnull %_supporting.i, i32 noundef 6)
   %m_collisionMargin.i = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load float, ptr %m_collisionMargin.i, align 8
   %m_localAabbMax.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -761,7 +761,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32btConvexInternalAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #12
   ret void
 }
 

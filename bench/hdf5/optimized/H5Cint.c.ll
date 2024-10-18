@@ -1804,7 +1804,7 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
   %178 = trunc nuw nsw i64 %indvars.iv to i32
   %179 = load i64, ptr @H5E_CACHE_g, align 8
   %180 = load i64, ptr @H5E_CANTFLUSH_g, align 8
-  %181 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_invalidate_ring, i32 noundef 1518, i64 noundef %179, i64 noundef %180, ptr noundef nonnull @.str.35, i32 noundef %spec.select149.i, i32 noundef %.2126193.i, i32 noundef %178) #4
+  %181 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_invalidate_ring, i32 noundef 1518, i64 noundef %179, i64 noundef %180, ptr noundef nonnull @.str.35, i32 noundef %spec.select149.i, i32 noundef %.2126193.i, i32 noundef range(i32 -2147483648, 6) %178) #4
   br label %200
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader150.i

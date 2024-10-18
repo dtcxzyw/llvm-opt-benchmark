@@ -158,7 +158,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp8, label %cond.true, label %if.then11
 
 cond.true:                                        ; preds = %if.end6
-  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef %call7) #7
+  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef range(i32 0, -2147483648) %call7) #7
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, ptr noundef %call.i) #7
   %call2.i = tail call ptr @object_class_by_name(ptr noundef %call1.i) #7
   tail call void @g_free(ptr noundef %call1.i) #7
@@ -251,7 +251,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %got_one.09 = phi i8 [ 0, %entry ], [ %got_one.1, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %i.08 = phi i32 [ 0, %entry ], [ 1, %for.inc ]
-  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef %i.08) #7
+  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef range(i32 0, -2147483648) %i.08) #7
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, ptr noundef %call.i) #7
   %call2.i = tail call ptr @object_class_by_name(ptr noundef %call1.i) #7
   tail call void @g_free(ptr noundef %call1.i) #7
@@ -357,7 +357,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %tail.09 = phi ptr [ %head, %entry ], [ %tail.1, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %i.08 = phi i32 [ 0, %entry ], [ 1, %for.inc ]
-  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef %i.08) #7
+  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef range(i32 0, -2147483648) %i.08) #7
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, ptr noundef %call.i) #7
   %call2.i = tail call ptr @object_class_by_name(ptr noundef %call1.i) #7
   tail call void @g_free(ptr noundef %call1.i) #7

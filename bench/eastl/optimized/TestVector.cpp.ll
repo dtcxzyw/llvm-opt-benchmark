@@ -31933,7 +31933,7 @@ _ZN5eastl6vectorINS_10unique_ptrIiNS_14default_deleteIiEEEENS_9allocatorEED2Ev.e
   %mSecond.i.i.i.i6426 = getelementptr inbounds i8, ptr %v13149, i64 24
   %mSecond.i.i.i.i6428 = getelementptr inbounds i8, ptr %v23150, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %v13149, i8 0, i64 25, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v23150, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %v23150, i8 0, i64 24, i1 false)
   store i8 1, ptr %mSecond.i.i.i.i6428, align 8
   %call3157 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.274)
           to label %invoke.cont3156 unwind label %lpad3153
@@ -37292,9 +37292,9 @@ for.body.i.i.i:                                   ; preds = %_ZN5eastl10VectorBa
   %mpPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i, i64 8
   store ptr %retval.sroa.0.08.i.i.i, ptr %mpPrev.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %retval.sroa.0.08.i.i.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.07.i.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.08.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.07.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i.i.i.i.i, i64 16, i1 false)
   %6 = load ptr, ptr %retval.sroa.0.08.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, %first.sroa.0.07.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
@@ -38192,7 +38192,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl4listI10Te
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %12 = load ptr, ptr %first.addr.07.i.i.i.i, align 8
-  tail call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoAssignINS_12ListIteratorIS1_PKS1_RS6_EEEEvT_SA_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %result.addr.08.i.i.i.i, ptr %12, ptr nonnull %first.addr.07.i.i.i.i)
+  tail call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoAssignINS_12ListIteratorIS1_PKS1_RS6_EEEEvT_SA_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %result.addr.08.i.i.i.i, ptr %12, ptr nonnull align 8 dereferenceable(24) %first.addr.07.i.i.i.i)
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEEaSERKS3_.exit.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEEaSERKS3_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i, %for.body.i.i.i.i
@@ -38271,7 +38271,7 @@ for.body.i.i.i.i41:                               ; preds = %_ZN5eastl4listI10Te
 
 if.end.i.i.i.i.i46:                               ; preds = %for.body.i.i.i.i41
   %20 = load ptr, ptr %first.addr.07.i.i.i.i44, align 8
-  tail call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoAssignINS_12ListIteratorIS1_PKS1_RS6_EEEEvT_SA_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %result.addr.08.i.i.i.i43, ptr %20, ptr nonnull %first.addr.07.i.i.i.i44)
+  tail call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoAssignINS_12ListIteratorIS1_PKS1_RS6_EEEEvT_SA_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %result.addr.08.i.i.i.i43, ptr %20, ptr nonnull align 8 dereferenceable(24) %first.addr.07.i.i.i.i44)
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEEaSERKS3_.exit.i.i.i.i47
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEEaSERKS3_.exit.i.i.i.i47: ; preds = %if.end.i.i.i.i.i46, %for.body.i.i.i.i41
@@ -39657,7 +39657,7 @@ entry:
   %1 = load ptr, ptr %mpEnd.i, align 8
   %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %temp, i8 0, i64 24, i1 false)
   %2 = load i32, ptr %mSecond.i.i.i, align 8
   store i32 %2, ptr %mSecond.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 28

@@ -67,7 +67,7 @@ $_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_ato
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #10
-  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
           to label %3 unwind label %13
 
 3:                                                ; preds = %1
@@ -174,7 +174,7 @@ _ZNKSt14default_deleteIN3gmx21TrajectoryFrameWriterEEclEPS1_.exit.i.i: ; preds =
 
 _ZN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjD2Ev.exit: ; preds = %_ZN3gmx31OutputRequirementOptionDirectorD2Ev.exit.i, %_ZNKSt14default_deleteIN3gmx21TrajectoryFrameWriterEEclEPS1_.exit.i.i
   store ptr null, ptr %6, align 8
-  tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -206,7 +206,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_14FileNameOptionEEEPNT_8InfoTypeERKS3_.e
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %3)
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 12
@@ -238,7 +238,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_14FileNameOptionEEEPNT_8InfoTypeERKS3_.e
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %4)
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   call void @_ZN3gmx31OutputRequirementOptionDirector11initOptionsEPNS_17IOptionsContainerE(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull %1)
   store ptr @_ZZN3gmx15analysismodules12_GLOBAL__N_110ConvertTrj11initOptionsEPNS_17IOptionsContainerEPNS_26TrajectoryAnalysisSettingsEE4desc, ptr %5, align 8

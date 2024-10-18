@@ -1590,7 +1590,7 @@ Vec_StrGetI_ne.exit123:                           ; preds = %25
 
 .preheader224.preheader:                          ; preds = %Vec_StrGetI_ne.exit123
   %34 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %31, i32 8)
+  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 range(i32 1, -2147483648) %31, i32 8)
   %35 = getelementptr inbounds i8, ptr %34, i64 4
   store i32 0, ptr %35, align 4
   store i32 %spec.store.select.i, ptr %34, align 8
@@ -1735,7 +1735,7 @@ Vec_StrGetI_ne.exit153:                           ; preds = %79
 
 .preheader222.lr.ph:                              ; preds = %Vec_StrGetI_ne.exit153
   %90 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  %spec.store.select.i154 = tail call i32 @llvm.umax.i32(i32 %85, i32 8)
+  %spec.store.select.i154 = tail call i32 @llvm.umax.i32(i32 range(i32 1, -2147483648) %85, i32 8)
   %91 = getelementptr inbounds i8, ptr %90, i64 4
   store i32 0, ptr %91, align 4
   store i32 %spec.store.select.i154, ptr %90, align 8

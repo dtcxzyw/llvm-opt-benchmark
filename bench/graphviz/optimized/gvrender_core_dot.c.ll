@@ -3243,17 +3243,17 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %107 = phi ptr [ %98, %.lr.ph101 ], [ %117, %.backedge ]
   %.pn = phi ptr [ %97, %.lr.ph101 ], [ %108, %.backedge ]
   %108 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %109 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(7) @.str.42) #18
+  %109 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull dereferenceable(7) @.str.42) #18
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %.backedge, label %111
 
 111:                                              ; preds = %106
-  %112 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(5) @.str.43) #18
+  %112 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull dereferenceable(5) @.str.43) #18
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %.backedge, label %114
 
 114:                                              ; preds = %111
-  %115 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(13) @.str.44) #18
+  %115 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull dereferenceable(13) @.str.44) #18
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %.backedge, label %118
 

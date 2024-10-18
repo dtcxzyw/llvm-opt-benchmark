@@ -180,7 +180,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %96 = load double, ptr %95, align 8
   %97 = fmul double %93, %96
   %98 = call double @llvm.fmuladd.f64(double %94, double %91, double %97)
-  %99 = call fastcc i32 @computeSavings(ptr noundef readonly %0, ptr noundef %71, ptr noundef null, ptr noundef %20, ptr noundef %38)
+  %99 = call fastcc i32 @computeSavings(ptr noundef readonly %0, ptr noundef %71, ptr noundef null, ptr noundef nonnull %20, ptr noundef %38)
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %102
 
@@ -226,7 +226,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %127 = load double, ptr %62, align 8
   %128 = fsub double %127, %98
   store double %128, ptr %62, align 8
-  call fastcc void @updateRefs(ptr noundef readonly %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef %20, ptr noundef %38)
+  call fastcc void @updateRefs(ptr noundef readonly %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef nonnull %20, ptr noundef %38)
   br label %.backedge.i
 
 129:                                              ; preds = %110
@@ -608,7 +608,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %126, label %156, label %127
 
 127:                                              ; preds = %121
-  %128 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %95, ptr noundef null, ptr noundef %23, ptr noundef %41)
+  %128 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %95, ptr noundef null, ptr noundef nonnull %23, ptr noundef %41)
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %128, 0
   br i1 %130, label %131, label %156
@@ -642,7 +642,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %150, label %156, label %151
 
 151:                                              ; preds = %145
-  %152 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %93, ptr noundef null, ptr noundef %23, ptr noundef %41)
+  %152 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %93, ptr noundef null, ptr noundef nonnull %23, ptr noundef %41)
   %153 = add nsw i32 %152, 1
   %154 = icmp eq i32 %152, 0
   br i1 %154, label %155, label %156
@@ -704,7 +704,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %189, label %216, label %190
 
 190:                                              ; preds = %184
-  %191 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %93, ptr noundef null, ptr noundef %23, ptr noundef %41)
+  %191 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %93, ptr noundef null, ptr noundef nonnull %23, ptr noundef %41)
   %192 = add nsw i32 %191, 1
   %193 = icmp eq i32 %191, 0
   br i1 %193, label %194, label %216
@@ -737,7 +737,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %210, label %216, label %211
 
 211:                                              ; preds = %208
-  %212 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %95, ptr noundef null, ptr noundef %23, ptr noundef %41)
+  %212 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %95, ptr noundef null, ptr noundef nonnull %23, ptr noundef %41)
   %213 = add nsw i32 %212, 1
   %214 = icmp eq i32 %212, 0
   br i1 %214, label %215, label %216
@@ -796,7 +796,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %246 = load double, ptr %245, align 8
   %247 = fmul double %99, %246
   %248 = call double @llvm.fmuladd.f64(double %244, double %97, double %247)
-  %249 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.1.i, ptr noundef %23, ptr noundef %41)
+  %249 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.1.i, ptr noundef nonnull %23, ptr noundef %41)
   %.not285.i = icmp eq ptr %.1.i, null
   br i1 %.not285.i, label %262, label %250
 
@@ -870,15 +870,15 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   ]
 
 .thread.i:                                        ; preds = %282
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef nonnull %23, ptr noundef %41)
   br label %.backedge.i
 
 .thread306.i:                                     ; preds = %282
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %95, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %95, ptr noundef nonnull %23, ptr noundef %41)
   br label %.thread290.i
 
 .thread290.thread312.i:                           ; preds = %282
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.0247.i, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.0247.i, ptr noundef nonnull %23, ptr noundef %41)
   %290 = and i32 %.1253.i, -2
   %291 = icmp eq i32 %290, 4
   br i1 %291, label %371, label %.backedge.i
@@ -890,7 +890,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %294, label %.thread290.i, label %.thread293.i
 
 .thread290.thread.i.thread:                       ; preds = %282
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %93, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %93, ptr noundef nonnull %23, ptr noundef %41)
   %295 = load ptr, ptr %92, align 8
   %296 = load i32, ptr %295, align 8
   %297 = icmp eq i32 %296, 2147483647
@@ -1392,7 +1392,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %146, label %176, label %147
 
 147:                                              ; preds = %141
-  %148 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %115, ptr noundef null, ptr noundef %25, ptr noundef %58)
+  %148 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %115, ptr noundef null, ptr noundef nonnull %25, ptr noundef %58)
   %149 = add nsw i32 %148, 1
   %150 = icmp eq i32 %148, 0
   br i1 %150, label %151, label %176
@@ -1426,7 +1426,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %170, label %176, label %171
 
 171:                                              ; preds = %165
-  %172 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %113, ptr noundef null, ptr noundef %25, ptr noundef %58)
+  %172 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %113, ptr noundef null, ptr noundef nonnull %25, ptr noundef %58)
   %173 = add nsw i32 %172, 1
   %174 = icmp eq i32 %172, 0
   br i1 %174, label %175, label %176
@@ -1488,7 +1488,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %209, label %236, label %210
 
 210:                                              ; preds = %204
-  %211 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %113, ptr noundef null, ptr noundef %25, ptr noundef %58)
+  %211 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %113, ptr noundef null, ptr noundef nonnull %25, ptr noundef %58)
   %212 = add nsw i32 %211, 1
   %213 = icmp eq i32 %211, 0
   br i1 %213, label %214, label %236
@@ -1521,7 +1521,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %230, label %236, label %231
 
 231:                                              ; preds = %228
-  %232 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %115, ptr noundef null, ptr noundef %25, ptr noundef %58)
+  %232 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %115, ptr noundef null, ptr noundef nonnull %25, ptr noundef %58)
   %233 = add nsw i32 %232, 1
   %234 = icmp eq i32 %232, 0
   br i1 %234, label %235, label %236
@@ -1580,7 +1580,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %266 = load double, ptr %265, align 8
   %267 = fmul double %119, %266
   %268 = call double @llvm.fmuladd.f64(double %264, double %117, double %267)
-  %269 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.1.i, ptr noundef %25, ptr noundef %58)
+  %269 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.1.i, ptr noundef nonnull %25, ptr noundef %58)
   %.not298.i = icmp eq ptr %.1.i, null
   br i1 %.not298.i, label %282, label %270
 
@@ -1654,11 +1654,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 .thread.i:                                        ; preds = %302
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef null, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef null, ptr noundef nonnull %25, ptr noundef %58)
   br label %.backedge.i
 
 .thread319.i:                                     ; preds = %302
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %115, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %115, ptr noundef nonnull %25, ptr noundef %58)
   br label %.thread303.i
 
 .thread303.thread.i:                              ; preds = %290
@@ -1668,7 +1668,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %312, label %.thread303.i, label %.thread306.i
 
 .thread303.thread.i.thread:                       ; preds = %302
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %113, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %113, ptr noundef nonnull %25, ptr noundef %58)
   %313 = load ptr, ptr %112, align 8
   %314 = load i32, ptr %313, align 8
   %315 = icmp eq i32 %314, 2147483647
@@ -1784,7 +1784,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.backedge.i
 
 389:                                              ; preds = %302
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.0259.i, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.0259.i, ptr noundef nonnull %25, ptr noundef %58)
   %390 = and i32 %.1265.i, -2
   %391 = icmp eq i32 %390, 4
   br i1 %391, label %392, label %.backedge.i

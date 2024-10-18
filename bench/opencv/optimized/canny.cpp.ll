@@ -476,7 +476,7 @@ _ZNSt5dequeIPhSaIS0_EEC2Ev.exit:                  ; preds = %141
           to label %146 unwind label %197
 
 146:                                              ; preds = %144
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %20) #15
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv5CannyERKNS_11_InputArrayERKNS_12_OutputArrayEddibE29__cv_trace_location_region910)
           to label %147 unwind label %195
 
@@ -572,7 +572,7 @@ _ZNSt5dequeIPhSaIS0_EE8pop_backEv.exit:           ; preds = %166, %169
 197:                                              ; preds = %144
   %198 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %20) #15
   br label %320
 
 .loopexit:                                        ; preds = %192, %208, %219, %229, %239, %250, %259, %269
@@ -807,7 +807,7 @@ _ZN2cv9finalPassC2ERKNS_3MatERS1_.exit:           ; preds = %273
           to label %285 unwind label %317
 
 285:                                              ; preds = %282
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #15
   %286 = getelementptr inbounds i8, ptr %30, i64 8
   %287 = load i32, ptr %286, align 8
   %.not.i162 = icmp eq i32 %287, 0
@@ -903,7 +903,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit167:    ; preds = %310, %313
 
 .body:                                            ; preds = %279, %317
   %.pn105 = phi { ptr, i32 } [ %318, %317 ], [ %280, %279 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #15
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %30) #15
   br label %319
 
@@ -1546,7 +1546,7 @@ _ZNSt5dequeIPhSaIS0_EEC2Ev.exit:                  ; preds = %126
           to label %148 unwind label %195
 
 148:                                              ; preds = %146
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %22) #15
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv5CannyERKNS_11_InputArrayES2_RKNS_12_OutputArrayEddbE29__cv_trace_location_region982)
           to label %149 unwind label %142
 
@@ -1632,7 +1632,7 @@ _ZNSt5dequeIPhSaIS0_EE8pop_backEv.exit:           ; preds = %168, %171
 195:                                              ; preds = %146
   %196 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %22) #15
   br label %317
 
 .loopexit:                                        ; preds = %194, %206, %217, %227, %237, %248, %257, %267
@@ -1867,7 +1867,7 @@ _ZN2cv9finalPassC2ERKNS_3MatERS1_.exit:           ; preds = %271
           to label %283 unwind label %314
 
 283:                                              ; preds = %280
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
   %284 = getelementptr inbounds i8, ptr %32, i64 8
   %285 = load i32, ptr %284, align 8
   %.not.i136 = icmp eq i32 %285, 0
@@ -1963,7 +1963,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit141:    ; preds = %_ZNSt5dequeIPhSaIS0
 
 .body:                                            ; preds = %277, %314
   %.pn83 = phi { ptr, i32 } [ %315, %314 ], [ %278, %277 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #15
   br label %316
 
@@ -2430,7 +2430,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv13parallelCannyD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
@@ -3863,7 +3863,7 @@ _ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit253:    ; preds = %_ZNSt5dequeIPhSaIS0
 
 725:                                              ; preds = %._crit_edge417
   %726 = getelementptr inbounds i8, ptr %0, i64 72
-  %727 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %726) #15
+  %727 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %726) #15
   %.not.i.i271 = icmp eq i32 %727, 0
   br i1 %.not.i.i271, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %728
 
@@ -3929,13 +3929,13 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %725
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %760 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %726) #15
+  %760 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %726) #15
   br label %764
 
 761:                                              ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %762 = landingpad { ptr, i32 }
           cleanup
-  %763 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %726) #15
+  %763 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %726) #15
   br label %828
 
 764:                                              ; preds = %.noexc273, %._crit_edge417
@@ -7592,7 +7592,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv9finalPassD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

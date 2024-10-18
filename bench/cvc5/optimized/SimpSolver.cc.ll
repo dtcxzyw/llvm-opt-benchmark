@@ -332,7 +332,7 @@ invoke.cont47:                                    ; preds = %invoke.cont20, %lan
   %heap.i = getelementptr inbounds i8, ptr %this, i64 1008
   %subsumption_queue = getelementptr inbounds i8, ptr %this, i64 1040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %heap.i, i8 0, i64 48, i1 false)
-  invoke void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %subsumption_queue, i32 noundef 1)
+  invoke void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %subsumption_queue, i32 noundef 1)
           to label %if.end.i.i144 unwind label %lpad48
 
 if.end.i.i144:                                    ; preds = %invoke.cont47
@@ -586,7 +586,7 @@ invoke.cont80:                                    ; preds = %lor.lhs.false.i.i73
   store i32 0, ptr %arrayidx.i67, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i32 %storemerge165, 1
-  invoke void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %occurs, i32 noundef %add.i)
+  invoke void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %occurs, i32 noundef %add.i)
           to label %.noexc86 unwind label %lpad58.loopexit
 
 .noexc86:                                         ; preds = %invoke.cont80
@@ -1567,7 +1567,7 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit73: ; preds = %lor.lhs.false.i.i62
   %occurs = getelementptr inbounds i8, ptr %this, i64 928
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i32 %call, 1
-  tail call void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %occurs, i32 noundef %add.i)
+  tail call void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %occurs, i32 noundef %add.i)
   %dirty.i = getelementptr inbounds i8, ptr %this, i64 944
   store i8 0, ptr %ref.tmp.i, align 1
   call void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %dirty.i, i32 noundef %add.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
@@ -2335,7 +2335,7 @@ for.cond.preheader.i.i62:                         ; preds = %_ZN4cvc58internal7M
   br label %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
 
 _ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit:  ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit60, %for.cond.preheader.i.i62
-  tail call void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %subsumption_queue82, i32 noundef 1)
+  tail call void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %subsumption_queue82, i32 noundef 1)
   store i32 0, ptr %end.i, align 4
   store i32 0, ptr %first.i, align 8
   store i8 0, ptr %use_simplification, align 4
@@ -4231,7 +4231,7 @@ for.cond.preheader.i.i:                           ; preds = %if.then
   br label %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
 
 _ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit:  ; preds = %if.then, %for.cond.preheader.i.i
-  tail call void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %subsumption_queue, i32 noundef 1)
+  tail call void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %subsumption_queue, i32 noundef 1)
   store i32 0, ptr %end.i, align 4
   store i32 0, ptr %first.i, align 8
   %7 = load i32, ptr %sz.i, align 8
@@ -6516,8 +6516,8 @@ entry:
   %wasted_.i = getelementptr inbounds i8, ptr %this, i64 720
   %1 = load i32, ptr %wasted_.i, align 8
   %sub = sub i32 %0, %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %to, i8 0, i64 20, i1 false)
-  call void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %to, i32 noundef %sub)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %to, i8 0, i64 20, i1 false)
+  call void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %to, i32 noundef %sub)
   %extra_clause_field.i = getelementptr inbounds i8, ptr %to, i64 20
   store i8 0, ptr %extra_clause_field.i, align 4
   call void @_ZN4cvc58internal7Minisat10SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 dereferenceable(1108) %this)
@@ -7767,7 +7767,7 @@ while.end:                                        ; preds = %while.cond
   %3 = load ptr, ptr %this, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul) #29
+  %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef range(i64 0, 17179869181) %mul) #29
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit
 

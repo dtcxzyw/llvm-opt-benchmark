@@ -90,7 +90,7 @@ _ZN4llvm13ManagedStaticINSt7__cxx114listISt10unique_ptrIN5clang14ParsedAttrInfoE
   %16 = load i64, ptr %1, align 8
   store i64 %16, ptr %15, align 8
   store ptr null, ptr %1, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %.0.i2.i.i5) #5
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(24) %.0.i2.i.i5) #5
   %17 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i5, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1

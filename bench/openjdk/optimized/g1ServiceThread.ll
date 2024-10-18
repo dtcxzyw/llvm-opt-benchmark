@@ -549,7 +549,7 @@ define hidden void @_ZN15G1ServiceThread8run_taskEP13G1ServiceTask(ptr noundef n
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 4, ptr %23, align 8
-  call void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull %0) #15
+  call void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(1064) %0) #15
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #15
   br label %_ZN15G1ServiceThread22update_thread_cpu_timeEv.exit
 
@@ -686,7 +686,7 @@ define linkonce_odr hidden void @_ZN15G1ServiceThreadD2Ev(ptr noundef nonnull al
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #15
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
   ret void
 }
 
@@ -695,7 +695,7 @@ define linkonce_odr hidden void @_ZN15G1ServiceThreadD0Ev(ptr noundef nonnull al
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #15
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) #15
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #15
   ret void
 }

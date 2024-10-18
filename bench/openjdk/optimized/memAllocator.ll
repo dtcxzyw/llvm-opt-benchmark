@@ -192,7 +192,7 @@ _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, 
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %4, align 8
-  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %25) #10
+  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %25) #10
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit, label %29
@@ -216,7 +216,7 @@ _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, 
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 41:                                               ; preds = %29
-  %42 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef 8, i32 noundef 0) #10
+  %42 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %41, %39
@@ -275,7 +275,7 @@ _ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit: ; preds = %_ZNK12MemAllocat
   %66 = phi ptr [ %65, %64 ], [ null, %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit ]
   %67 = load ptr, ptr %44, align 8
   store ptr %66, ptr %67, align 8
-  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
+  call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #10
   %68 = getelementptr inbounds i8, ptr %0, i64 40
   %69 = load i8, ptr %68, align 8
   %70 = trunc i8 %69 to i1

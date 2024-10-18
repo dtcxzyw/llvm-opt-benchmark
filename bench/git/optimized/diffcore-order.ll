@@ -163,7 +163,7 @@ if.end34.us.us.i:                                 ; preds = %if.else.us.us.i, %f
   br i1 %cmp6.us.us.i, label %for.cond7.preheader.us.us.i, label %while.cond.while.end_crit_edge.us.i, !llvm.loop !8
 
 if.then.i.i:                                      ; preds = %if.then42.us.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 8, i64 noundef %conv43.us.i) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv43.us.i) #12
   unreachable
 
 for.inc47.i:                                      ; preds = %if.end3.i
@@ -264,7 +264,7 @@ for.end:                                          ; preds = %match_order.exit
 
 if.then.i:                                        ; preds = %prepare_order.exit, %for.end
   %conv = sext i32 %nr to i64
-  call void @qsort(ptr noundef %objs, i64 noundef %conv, i64 noundef 16, ptr noundef nonnull @compare_objs_order) #11
+  call void @qsort(ptr noundef %objs, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 16, ptr noundef nonnull @compare_objs_order) #11
   br label %return
 
 return:                                           ; preds = %if.then.i, %for.end, %entry
@@ -311,7 +311,7 @@ if.end:                                           ; preds = %entry
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef %conv) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %conv) #12
   unreachable
 
 st_mult.exit:                                     ; preds = %if.end

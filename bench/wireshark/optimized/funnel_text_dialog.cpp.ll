@@ -187,7 +187,7 @@ define void @_ZN16FunnelTextDialogC2EP7QWidgetRK7QString(ptr noundef nonnull ali
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QFont, align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
@@ -1099,7 +1099,7 @@ define void @_ZN16FunnelTextDialogD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16FunnelTextDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16FunnelTextDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   ret void
 }
 
@@ -1305,7 +1305,7 @@ _ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEED2Ev.exit.i: ; preds 
 
 _ZN5QHashIP7QObjectP12_funnel_bt_tE5clearEv.exit: ; preds = %._crit_edge, %71, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %75, %_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEED2Ev.exit.i
   store ptr null, ptr @_ZL29text_button_to_funnel_button_, align 8
-  %93 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %93 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null, ptr noundef null, ptr noundef null)
   tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }
@@ -3860,7 +3860,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEEC2Em.exit, label %27
@@ -4018,7 +4018,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -4505,7 +4505,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit31, label %30

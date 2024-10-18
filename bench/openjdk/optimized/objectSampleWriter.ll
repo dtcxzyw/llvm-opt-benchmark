@@ -646,9 +646,9 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObje
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
   %63 = load i64, ptr %62, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %12, i64 noundef %63)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %12, i64 noundef %63)
   %64 = ptrtoint ptr %61 to i64
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %12, i64 noundef %64)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %12, i64 noundef %64)
   %65 = load i8, ptr @UseCompressedClassPointers, align 1
   %66 = trunc i8 %65 to i1
   %67 = getelementptr inbounds i8, ptr %61, i64 8
@@ -707,13 +707,13 @@ _ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i: ; preds = %90, %81
 
 _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i: ; preds = %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i, %_ZNK7oopDesc5klassEv.exit.i.i.i.i.i
   %96 = phi i64 [ %95, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i ], [ 0, %_ZNK7oopDesc5klassEv.exit.i.i.i.i.i ]
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %12, i64 noundef %96)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %12, i64 noundef %96)
   call void @_ZN23ObjectSampleDescriptionC1EP7oopDesc(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull %61) #10
   %97 = call noundef ptr @_ZN23ObjectSampleDescription11descriptionEv(ptr noundef nonnull align 8 dereferenceable(128) %10) #10
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef %97)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(73) %12, ptr noundef %97)
   %98 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
   %99 = load i64, ptr %98, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %12, i64 noundef %99)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %12, i64 noundef %99)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %100 = load ptr, ptr %53, align 8
@@ -834,19 +834,19 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI13Referen
   %.val.i.i11 = load ptr, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %.val.i.i11, i64 32
   %155 = load i64, ptr %154, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %105, i64 noundef %155)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %105, i64 noundef %155)
   %156 = getelementptr inbounds i8, ptr %.val.i.i11, i64 8
   %157 = load i64, ptr %156, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %105, i64 noundef %157)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %105, i64 noundef %157)
   %158 = load i64, ptr %.val.i.i11, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %105, i64 noundef %158)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %105, i64 noundef %158)
   %159 = getelementptr inbounds i8, ptr %.val.i.i11, i64 16
   %160 = load i64, ptr %159, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %105, i64 noundef %160)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %105, i64 noundef %160)
   %161 = getelementptr inbounds i8, ptr %.val.i.i11, i64 24
   %162 = load i64, ptr %161, align 8
   %163 = trunc i64 %162 to i32
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %105, i32 noundef %163)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %105, i32 noundef %163)
   %indvars.iv.next.i.i12 = add nuw nsw i64 %indvars.iv.i.i10, 1
   %164 = load ptr, ptr %146, align 8
   %165 = load i32, ptr %164, align 4
@@ -966,12 +966,12 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI21ObjectS
   %.val.i.i30 = load ptr, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %.val.i.i30, i64 8
   %219 = load i64, ptr %218, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %169, i64 noundef %219)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %169, i64 noundef %219)
   %220 = load i32, ptr %.val.i.i30, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %169, i32 noundef %220)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %169, i32 noundef %220)
   %221 = getelementptr inbounds i8, ptr %.val.i.i30, i64 4
   %222 = load i32, ptr %221, align 4
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %169, i32 noundef %222)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %169, i32 noundef %222)
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i29, 1
   %223 = load ptr, ptr %210, align 8
   %224 = load i32, ptr %223, align 4
@@ -1301,7 +1301,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %372 = load ptr, ptr %371, align 8
   %373 = load ptr, ptr %372, align 8
   %374 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %373) #10
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %228, ptr noundef %374)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(73) %228, ptr noundef %374)
   %375 = getelementptr inbounds i8, ptr %372, i64 8
   %376 = load i16, ptr %375, align 8
   %377 = load ptr, ptr %234, align 8
@@ -1546,7 +1546,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   %.val.i.i62 = load ptr, ptr %480, align 8
   %481 = getelementptr inbounds i8, ptr %.val.i.i62, i64 24
   %482 = load i64, ptr %481, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %432, i64 noundef %482)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %432, i64 noundef %482)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   %483 = getelementptr inbounds i8, ptr %.val.i.i62, i64 8
   %484 = load ptr, ptr %483, align 8
@@ -1573,15 +1573,15 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
 _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i: ; preds = %491, %.lr.ph.i.i60
   %.0.i.i.i.i.i.i63 = phi ptr [ %493, %491 ], [ null, %.lr.ph.i.i60 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %432, ptr noundef %.0.i.i.i.i.i.i63)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(73) %432, ptr noundef %.0.i.i.i.i.i.i63)
   %494 = getelementptr inbounds i8, ptr %.val.i.i62, i64 16
   %495 = load i32, ptr %494, align 8
   %496 = zext i32 %495 to i64
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %432, i64 noundef %496)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %432, i64 noundef %496)
   %497 = getelementptr inbounds i8, ptr %.val.i.i62, i64 20
   %498 = load i32, ptr %497, align 4
   %499 = zext i32 %498 to i64
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %432, i64 noundef %499)
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(73) %432, i64 noundef %499)
   %indvars.iv.next.i.i64 = add nuw nsw i64 %indvars.iv.i.i61, 1
   %500 = load ptr, ptr %473, align 8
   %501 = load i32, ptr %500, align 4

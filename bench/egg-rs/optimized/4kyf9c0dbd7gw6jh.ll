@@ -343,7 +343,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hb59f0f5d
 
 28:                                               ; preds = %21
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %30 = tail call noalias noundef align 4 ptr @__rust_alloc(i64 noundef %19, i64 noundef 4) #15
+  %30 = tail call noalias noundef align 4 ptr @__rust_alloc(i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) 4) #15
   %31 = icmp eq ptr %30, null
   br i1 %31, label %46, label %36
 

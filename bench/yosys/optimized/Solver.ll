@@ -333,20 +333,20 @@ define void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(
   %41 = getelementptr inbounds i8, ptr %0, i64 344
   %42 = getelementptr inbounds i8, ptr %0, i64 360
   %43 = getelementptr inbounds i8, ptr %0, i64 384
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %43, i8 0, i64 16, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 408
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %44, i8 0, i64 16, i1 false)
   %45 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %45, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds i8, ptr %0, i64 456
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %46, i8 0, i64 16, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %47, i8 0, i64 16, i1 false)
   %48 = getelementptr inbounds i8, ptr %0, i64 504
   %49 = getelementptr inbounds i8, ptr %0, i64 680
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %48, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds i8, ptr %0, i64 528
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %50, i8 0, i64 16, i1 false)
   %51 = getelementptr inbounds i8, ptr %0, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   %52 = getelementptr inbounds i8, ptr %0, i64 568
@@ -355,7 +355,7 @@ define void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store i64 %53, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 576
   %55 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, i8 0, i64 32, i1 false)
   %56 = ptrtoint ptr %42 to i64
   store i64 %56, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 624
@@ -374,7 +374,7 @@ define void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store i8 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 676
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %64, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %49, i32 noundef 1048576)
+  invoke void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(25) %49, i32 noundef 1048576)
           to label %65 unwind label %71
 
 65:                                               ; preds = %1
@@ -1112,7 +1112,7 @@ define noundef i32 @_ZN7Minisat6Solver6newVarENS_5lboolEb(ptr noundef nonnull al
   %22 = getelementptr inbounds i8, ptr %0, i64 504
   %23 = shl nsw i32 %.0, 1
   %24 = or disjoint i32 %23, 1
-  tail call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %24)
+  tail call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %24)
   %25 = load ptr, ptr %22, align 8
   %26 = sext i32 %23 to i64
   %27 = getelementptr inbounds %"class.Minisat::vec.26", ptr %25, i64 %26
@@ -1129,10 +1129,10 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %30 = getelementptr inbounds i8, ptr %0, i64 528
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %30, i32 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %31 = add nsw i32 %23, 2
-  call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %31)
+  call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %31)
   %32 = load ptr, ptr %22, align 8
   %33 = sext i32 %24 to i64
   %34 = getelementptr inbounds %"class.Minisat::vec.26", ptr %32, i64 %33
@@ -1148,18 +1148,18 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22: ; preds = %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit, %.preheader.i.i19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %30, i32 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %37 = getelementptr inbounds i8, ptr %0, i64 384
   %.sroa.02.0.copyload = load i8, ptr @_ZN7MinisatL7l_UndefE, align 1
   %38 = add nsw i32 %.0, 1
-  call void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef %38)
+  call void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %37, i32 noundef %38)
   %39 = load ptr, ptr %37, align 8
   %40 = sext i32 %.0 to i64
   %41 = getelementptr inbounds %"class.Minisat::lbool", ptr %39, i64 %40
   store i8 %.sroa.02.0.copyload, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %0, i64 480
-  call void @_ZN7Minisat3vecINS_6Solver7VarDataEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef %38)
+  call void @_ZN7Minisat3vecINS_6Solver7VarDataEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %42, i32 noundef %38)
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %43, i64 %40
   store i64 4294967295, ptr %44, align 4
@@ -1185,27 +1185,27 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 59:                                               ; preds = %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22, %48
   %60 = phi double [ %58, %48 ], [ 0.000000e+00, %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 360
-  call void @_ZN7Minisat3vecIdiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %38)
+  call void @_ZN7Minisat3vecIdiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %61, i32 noundef %38)
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds double, ptr %62, i64 %40
   store double %60, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 744
-  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef %38)
+  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %64, i32 noundef %38)
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 %40
   store i8 0, ptr %66, align 1
   %67 = getelementptr inbounds i8, ptr %0, i64 408
-  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef %38)
+  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %67, i32 noundef %38)
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 %40
   store i8 1, ptr %69, align 1
   %70 = getelementptr inbounds i8, ptr %0, i64 432
-  call void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef %38)
+  call void @_ZN7Minisat3vecINS_5lboolEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %70, i32 noundef %38)
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds %"class.Minisat::lbool", ptr %71, i64 %40
   store i8 %1, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %0, i64 456
-  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef %38)
+  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %73, i32 noundef %38)
   %74 = getelementptr inbounds i8, ptr %0, i64 312
   %75 = getelementptr inbounds i8, ptr %0, i64 324
   %76 = load i32, ptr %75, align 4
@@ -4448,7 +4448,7 @@ define linkonce_odr void @_ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE6insertES1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 0, ptr %3, align 1
   %4 = add nsw i32 %1, 1
-  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
   %6 = sext i32 %1 to i64
@@ -5745,7 +5745,7 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit:          ; preds = %56, %.preheader.i
   %63 = add i32 %60, 2
   %64 = load i32, ptr %12, align 8
   %65 = add i32 %64, %63
-  invoke void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %65)
+  invoke void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(25) %11, i32 noundef %65)
           to label %.noexc unwind label %.loopexit87.loopexit.split-lp
 
 .noexc:                                           ; preds = %62
@@ -7888,7 +7888,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %114 = load ptr, ptr %1, align 8
   %115 = zext i32 %102 to i64
   %116 = shl nuw nsw i64 %115, 2
-  %117 = tail call ptr @realloc(ptr noundef %114, i64 noundef %116) #28
+  %117 = tail call ptr @realloc(ptr noundef %114, i64 noundef range(i64 0, 17179869181) %116) #28
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %_ZN7MinisatL8xreallocEPvm.exit.i
 
@@ -8243,8 +8243,8 @@ define void @_ZN7Minisat6Solver14garbageCollectEv(ptr nocapture noundef nonnull 
   %6 = getelementptr inbounds i8, ptr %0, i64 696
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  call void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %8)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %2, i8 0, i64 20, i1 false)
+  call void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(25) %2, i32 noundef %8)
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %9, align 8
   invoke void @_ZN7Minisat6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef nonnull align 8 dereferenceable(25) %2)
@@ -8881,7 +8881,7 @@ define linkonce_odr void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef
   %17 = load ptr, ptr %0, align 8
   %18 = zext i32 %5 to i64
   %19 = shl nuw nsw i64 %18, 2
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #28
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef range(i64 0, 17179869181) %19) #28
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZN7MinisatL8xreallocEPvm.exit
 
@@ -8911,7 +8911,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexD
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %5 = add nsw i32 %1, 1
-  call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(17) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8

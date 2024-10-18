@@ -143,7 +143,7 @@ get_txb_high.exit:                                ; preds = %get_txb_wide.exit, 
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds [5 x [13 x [3 x i16]]], ptr %11, i64 0, i64 %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %71 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef %69, i32 noundef 2) #5
+  %71 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef %69, i32 noundef range(i32 2, 12) 2) #5
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %73 = load i8, ptr %72, align 8
   %.not.i = icmp eq i8 %73, 0
@@ -260,7 +260,7 @@ aom_read_symbol_.exit:                            ; preds = %get_txb_high.exit, 
 143:                                              ; preds = %125
   %144 = getelementptr inbounds nuw i8, ptr %11, i64 966
   %145 = getelementptr inbounds [2 x [2 x [6 x i16]]], ptr %144, i64 0, i64 %141, i64 %142
-  %146 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %145, i32 noundef 5) #5
+  %146 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %145, i32 noundef range(i32 2, 12) 5) #5
   %147 = load i8, ptr %72, align 8
   %.not.i279 = icmp eq i8 %147, 0
   br i1 %.not.i279, label %aom_read_symbol_.exit288, label %148
@@ -322,7 +322,7 @@ update_cdf.exit.i286:                             ; preds = %176
 180:                                              ; preds = %125
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 1014
   %182 = getelementptr inbounds [2 x [2 x [7 x i16]]], ptr %181, i64 0, i64 %141, i64 %142
-  %183 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %182, i32 noundef 6) #5
+  %183 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %182, i32 noundef range(i32 2, 12) 6) #5
   %184 = load i8, ptr %72, align 8
   %.not.i289 = icmp eq i8 %184, 0
   br i1 %.not.i289, label %aom_read_symbol_.exit288, label %185
@@ -384,7 +384,7 @@ update_cdf.exit.i296:                             ; preds = %213
 217:                                              ; preds = %125
   %218 = getelementptr inbounds nuw i8, ptr %11, i64 1070
   %219 = getelementptr inbounds [2 x [2 x [8 x i16]]], ptr %218, i64 0, i64 %141, i64 %142
-  %220 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %219, i32 noundef 7) #5
+  %220 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %219, i32 noundef range(i32 2, 12) 7) #5
   %221 = load i8, ptr %72, align 8
   %.not.i299 = icmp eq i8 %221, 0
   br i1 %.not.i299, label %aom_read_symbol_.exit288, label %222
@@ -446,7 +446,7 @@ update_cdf.exit.i306:                             ; preds = %250
 254:                                              ; preds = %125
   %255 = getelementptr inbounds nuw i8, ptr %11, i64 1134
   %256 = getelementptr inbounds [2 x [2 x [9 x i16]]], ptr %255, i64 0, i64 %141, i64 %142
-  %257 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %256, i32 noundef 8) #5
+  %257 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %256, i32 noundef range(i32 2, 12) 8) #5
   %258 = load i8, ptr %72, align 8
   %.not.i309 = icmp eq i8 %258, 0
   br i1 %.not.i309, label %aom_read_symbol_.exit288, label %259
@@ -508,7 +508,7 @@ update_cdf.exit.i316:                             ; preds = %287
 291:                                              ; preds = %125
   %292 = getelementptr inbounds nuw i8, ptr %11, i64 1206
   %293 = getelementptr inbounds [2 x [2 x [10 x i16]]], ptr %292, i64 0, i64 %141, i64 %142
-  %294 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %293, i32 noundef 9) #5
+  %294 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %293, i32 noundef range(i32 2, 12) 9) #5
   %295 = load i8, ptr %72, align 8
   %.not.i319 = icmp eq i8 %295, 0
   br i1 %.not.i319, label %aom_read_symbol_.exit288, label %296
@@ -570,7 +570,7 @@ update_cdf.exit.i326:                             ; preds = %324
 328:                                              ; preds = %125
   %329 = getelementptr inbounds nuw i8, ptr %11, i64 1286
   %330 = getelementptr inbounds [2 x [2 x [11 x i16]]], ptr %329, i64 0, i64 %141, i64 %142
-  %331 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %330, i32 noundef 10) #5
+  %331 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %330, i32 noundef range(i32 2, 12) 10) #5
   %332 = load i8, ptr %72, align 8
   %.not.i329 = icmp eq i8 %332, 0
   br i1 %.not.i329, label %aom_read_symbol_.exit288, label %333
@@ -632,7 +632,7 @@ update_cdf.exit.i336:                             ; preds = %361
 365:                                              ; preds = %125
   %366 = getelementptr inbounds nuw i8, ptr %11, i64 1374
   %367 = getelementptr inbounds [2 x [2 x [12 x i16]]], ptr %366, i64 0, i64 %141, i64 %142
-  %368 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %367, i32 noundef 11) #5
+  %368 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %367, i32 noundef range(i32 2, 12) 11) #5
   %369 = load i8, ptr %72, align 8
   %.not.i339 = icmp eq i8 %369, 0
   br i1 %.not.i339, label %aom_read_symbol_.exit288, label %370
@@ -707,7 +707,7 @@ aom_read_symbol_.exit288:                         ; preds = %update_cdf.exit.i34
   %410 = zext i1 %29 to i64
   %411 = sext i32 %408 to i64
   %412 = getelementptr inbounds [5 x [2 x [9 x [3 x i16]]]], ptr %409, i64 0, i64 %66, i64 %410, i64 %411
-  %413 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %412, i32 noundef 2) #5
+  %413 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %412, i32 noundef range(i32 2, 12) 2) #5
   %414 = load i8, ptr %72, align 8
   %.not.i349 = icmp eq i8 %414, 0
   br i1 %.not.i349, label %aom_read_symbol_.exit358, label %415
@@ -830,7 +830,7 @@ get_lower_levels_ctx_eob.exit:                    ; preds = %465, %473, %476
   %478 = getelementptr inbounds nuw i8, ptr %11, i64 1470
   %479 = zext i1 %29 to i64
   %480 = getelementptr inbounds [5 x [2 x [4 x [4 x i16]]]], ptr %478, i64 0, i64 %66, i64 %479, i64 %.0.i
-  %481 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %480, i32 noundef 3) #5
+  %481 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %480, i32 noundef range(i32 2, 12) 3) #5
   %482 = load i8, ptr %72, align 8
   %.not.i360 = icmp eq i8 %482, 0
   br i1 %.not.i360, label %aom_read_symbol_.exit369, label %483
@@ -936,7 +936,7 @@ aom_read_symbol_.exit369:                         ; preds = %get_lower_levels_ct
 540:                                              ; preds = %aom_read_symbol_.exit379, %534
   %.0260418 = phi i32 [ 0, %534 ], [ %576, %aom_read_symbol_.exit379 ]
   %.1262417 = phi i32 [ %515, %534 ], [ %574, %aom_read_symbol_.exit379 ]
-  %541 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %538, i32 noundef 4) #5
+  %541 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %538, i32 noundef range(i32 2, 12) 4) #5
   %542 = load i8, ptr %72, align 8
   %.not.i370 = icmp eq i8 %542, 0
   br i1 %.not.i370, label %aom_read_symbol_.exit379, label %543
@@ -1083,7 +1083,7 @@ aom_read_symbol_.exit379:                         ; preds = %540, %update_cdf.ex
   %630 = sext i8 %629 to i64
   %631 = getelementptr [5 x i16], ptr %588, i64 %625
   %632 = getelementptr [5 x i16], ptr %631, i64 %630
-  %633 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef %632, i32 noundef 4) #5
+  %633 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef %632, i32 noundef range(i32 2, 12) 4) #5
   %634 = load i8, ptr %72, align 8
   %.not.i.i = icmp eq i8 %634, 0
   br i1 %.not.i.i, label %aom_read_symbol_.exit.i, label %635
@@ -1182,7 +1182,7 @@ aom_read_symbol_.exit.i:                          ; preds = %update_cdf.exit.i.i
 690:                                              ; preds = %aom_read_symbol_.exit48.i, %668
   %.02950.i = phi i32 [ 0, %668 ], [ %726, %aom_read_symbol_.exit48.i ]
   %.149.i = phi i32 [ %633, %668 ], [ %724, %aom_read_symbol_.exit48.i ]
-  %691 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %688, i32 noundef 4) #5
+  %691 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %688, i32 noundef range(i32 2, 12) 4) #5
   %692 = load i8, ptr %72, align 8
   %.not.i39.i = icmp eq i8 %692, 0
   br i1 %.not.i39.i, label %aom_read_symbol_.exit48.i, label %693
@@ -1305,7 +1305,7 @@ thread-pre-split:                                 ; preds = %.loopexit.i, %585, 
   %753 = load i32, ptr %732, align 4
   %754 = sext i32 %753 to i64
   %755 = getelementptr inbounds [2 x [3 x [3 x i16]]], ptr %733, i64 0, i64 %479, i64 %754
-  %756 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %755, i32 noundef 2) #5
+  %756 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %755, i32 noundef range(i32 2, 12) 2) #5
   %757 = load i8, ptr %72, align 8
   %.not.i381 = icmp eq i8 %757, 0
   br i1 %.not.i381, label %aom_read_symbol_.exit390, label %758
@@ -1441,7 +1441,7 @@ get_dqv.exit:                                     ; preds = %803, %815
   %826 = sub nsw i32 0, %825
   %.0 = select i1 %.not274, i32 %825, i32 %826
   %827 = icmp slt i32 %.0, %17
-  %828 = tail call i32 @llvm.smin.i32(i32 %.0, i32 %16)
+  %828 = tail call i32 @llvm.smin.i32(i32 range(i32 -16777215, 16777216) %.0, i32 range(i32 -2147483648, 2147483647) %16)
   %829 = select i1 %827, i32 %17, i32 %828
   %830 = sext i16 %738 to i64
   %831 = getelementptr inbounds i32, ptr %49, i64 %830
@@ -1776,7 +1776,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %.0 = phi i32 [ %132, %128 ], [ %127, %122 ], [ %121, %115 ], [ 0, %103 ], [ 0, %106 ]
   %134 = sext i32 %.0 to i64
   %135 = getelementptr inbounds [5 x i16], ptr %7, i64 %134
-  %136 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %14, ptr noundef %135, i32 noundef 4) #5
+  %136 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %14, ptr noundef %135, i32 noundef range(i32 2, 12) 4) #5
   %137 = load i8, ptr %25, align 8
   %.not.i = icmp eq i8 %137, 0
   br i1 %.not.i, label %aom_read_symbol_.exit, label %138
@@ -1937,7 +1937,7 @@ aom_read_symbol_.exit:                            ; preds = %133, %update_cdf.ex
 235:                                              ; preds = %aom_read_symbol_.exit159, %231
   %.0141161 = phi i32 [ 0, %231 ], [ %271, %aom_read_symbol_.exit159 ]
   %.1160 = phi i32 [ %136, %231 ], [ %269, %aom_read_symbol_.exit159 ]
-  %236 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %14, ptr noundef %233, i32 noundef 4) #5
+  %236 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %14, ptr noundef %233, i32 noundef range(i32 2, 12) 4) #5
   %237 = load i8, ptr %25, align 8
   %.not.i150 = icmp eq i8 %237, 0
   br i1 %.not.i150, label %aom_read_symbol_.exit159, label %238

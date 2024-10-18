@@ -12029,7 +12029,7 @@ tcp_zerocopy_vm_insert_batch.exit.thread:         ; preds = %447
 tcp_zerocopy_vm_insert_batch.exit:                ; preds = %447
   %460 = zext i32 %453 to i64
   %461 = getelementptr ptr, ptr %10, i64 %460
-  %462 = call fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef %261, ptr noundef %461, i64 noundef %451, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef %1, i32 noundef %271, i32 noundef %450)
+  %462 = call fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef nonnull %261, ptr noundef %461, i64 noundef %451, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef %1, i32 noundef range(i32 0, -4095) %271, i32 noundef %450)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   %463 = icmp eq i32 %462, 0
   br i1 %463, label %464, label %.thread57

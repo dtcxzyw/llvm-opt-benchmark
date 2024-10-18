@@ -64,7 +64,7 @@ define hidden void @_ZN5ceres8internal10CudaVectorC2EPNS0_11ContextImplEi(ptr no
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %6, align 8
   %7 = sext i32 %2 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %7)
@@ -264,7 +264,7 @@ define hidden void @_ZN5ceres8internal10CudaVectorC2EOS1_(ptr nocapture noundef 
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = getelementptr inbounds i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8

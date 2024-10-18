@@ -294,7 +294,7 @@ if.then87:                                        ; preds = %if.end84
   %version = getelementptr inbounds i8, ptr %rsa, i64 16
   store i32 1, ptr %version, align 8
   %sub = add nsw i32 %primes, -2
-  %call.i = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %sub) #3
+  %call.i = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef range(i32 1, 2147483646) %sub) #3
   %cmp89 = icmp eq ptr %call.i, null
   br i1 %cmp89, label %if.then376, label %if.end91
 
@@ -352,7 +352,7 @@ if.then122:                                       ; preds = %for.body117
 
 if.else124:                                       ; preds = %for.body117
   %sub125 = add nsw i32 %i.2252, -2
-  %call.i196 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef %sub125) #3
+  %call.i196 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef range(i32 -2147483648, 2147483645) %sub125) #3
   br label %if.end128
 
 if.end128:                                        ; preds = %for.body117, %if.then122, %if.else124
@@ -410,7 +410,7 @@ if.then145:                                       ; preds = %for.body139
 
 if.else147:                                       ; preds = %for.body139
   %sub148 = add nsw i32 %j.0237, -2
-  %call.i197 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef %sub148) #3
+  %call.i197 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef range(i32 -2147483648, 2147483645) %sub148) #3
   br label %if.end152
 
 if.end152:                                        ; preds = %for.body139, %if.then145, %if.else147
@@ -594,7 +594,7 @@ for.cond290:                                      ; preds = %if.end301
 for.body292:                                      ; preds = %for.body292.preheader, %for.cond290
   %i.4255 = phi i32 [ %inc308, %for.cond290 ], [ 2, %for.body292.preheader ]
   %sub293 = add nsw i32 %i.4255, -2
-  %call.i201 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef %sub293) #3
+  %call.i201 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef range(i32 -2147483648, 2147483645) %sub293) #3
   %d295 = getelementptr inbounds i8, ptr %call.i201, i64 8
   %34 = load ptr, ptr %d295, align 8
   %35 = load ptr, ptr %call.i201, align 8
@@ -657,7 +657,7 @@ for.cond335:                                      ; preds = %for.body337
 for.body337:                                      ; preds = %for.body337.preheader, %for.cond335
   %i.5257 = phi i32 [ %inc347, %for.cond335 ], [ 2, %for.body337.preheader ]
   %sub338 = add nsw i32 %i.5257, -2
-  %call.i202 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef %sub338) #3
+  %call.i202 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef range(i32 -2147483648, 2147483645) %sub338) #3
   %d340 = getelementptr inbounds i8, ptr %call.i202, i64 8
   %42 = load ptr, ptr %d340, align 8
   %call342 = tail call i32 @BN_div(ptr noundef null, ptr noundef %42, ptr noundef nonnull %call321, ptr noundef %42, ptr noundef nonnull %call11) #3
@@ -694,7 +694,7 @@ for.cond361:                                      ; preds = %for.body363
 for.body363:                                      ; preds = %for.body363.preheader, %for.cond361
   %i.6259 = phi i32 [ %inc373, %for.cond361 ], [ 2, %for.body363.preheader ]
   %sub364 = add nsw i32 %i.6259, -2
-  %call.i203 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef %sub364) #3
+  %call.i203 = tail call ptr @OPENSSL_sk_value(ptr noundef %prime_infos.0, i32 noundef range(i32 -2147483648, 2147483645) %sub364) #3
   %46 = load ptr, ptr %call.i203, align 8
   tail call void @BN_with_flags(ptr noundef nonnull %call350, ptr noundef %46, i32 noundef 4) #3
   %t = getelementptr inbounds i8, ptr %call.i203, i64 16

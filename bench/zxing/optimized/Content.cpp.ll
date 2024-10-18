@@ -72,13 +72,13 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE(ptr dead_on_unwind noal
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %12
 
 8:                                                ; preds = %.noexc2
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %.body
 
 .noexc2:                                          ; preds = %.noexc
@@ -418,7 +418,7 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit: ; preds = %3
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
-  tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKhS1_EEEEvNS4_IPhS1_EET_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %74, ptr %67, ptr %69)
+  tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKhS1_EEEEvNS4_IPhS1_EET_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr %74, ptr %67, ptr %69)
   %75 = load i8, ptr %6, align 1
   %76 = load i8, ptr %3, align 1
   %77 = or i8 %76, %75
@@ -950,7 +950,7 @@ define linkonce_odr void @_ZNK5ZXing19SymbologyIdentifier8toStringB5cxx11Eb(ptr 
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc18 unwind label %21
 
 .noexc18:                                         ; preds = %.noexc
@@ -960,7 +960,7 @@ define linkonce_odr void @_ZNK5ZXing19SymbologyIdentifier8toStringB5cxx11Eb(ptr 
 10:                                               ; preds = %.noexc18
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc18
@@ -1631,7 +1631,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %126 = load ptr, ptr %4, align 8
   %127 = load ptr, ptr %70, align 8
   %128 = load i32, ptr %71, align 8
-  %129 = invoke { ptr, i32 } @_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEET_S6_S6_T0_St26random_access_iterator_tag(ptr %126, i32 0, ptr %127, i32 %128, ptr nonnull %5)
+  %129 = invoke { ptr, i32 } @_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEET_S6_S6_T0_St26random_access_iterator_tag(ptr %126, i32 0, ptr %127, i32 %128, ptr nonnull align 1 dereferenceable(1) %5)
           to label %130 unwind label %.loopexit.split-lp
 
 130:                                              ; preds = %.loopexit18
@@ -1677,7 +1677,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %137, %139
 147:                                              ; preds = %130
   store i8 0, ptr %6, align 1
   %148 = load ptr, ptr %4, align 8
-  %149 = invoke { ptr, i32 } @_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEET_S6_S6_T0_St26random_access_iterator_tag(ptr %148, i32 0, ptr %133, i32 %134, ptr nonnull %6)
+  %149 = invoke { ptr, i32 } @_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEET_S6_S6_T0_St26random_access_iterator_tag(ptr %148, i32 0, ptr %133, i32 %134, ptr nonnull align 1 dereferenceable(1) %6)
           to label %150 unwind label %.loopexit.split-lp
 
 150:                                              ; preds = %147
@@ -1741,7 +1741,7 @@ define linkonce_odr void @_ZN5ZXing5ToHexB5cxx11ERKNS_9ByteArrayE(ptr dead_on_un
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc11 unwind label %32
 
 .noexc11:                                         ; preds = %.noexc
@@ -1751,7 +1751,7 @@ define linkonce_odr void @_ZN5ZXing5ToHexB5cxx11ERKNS_9ByteArrayE(ptr dead_on_un
 13:                                               ; preds = %.noexc11
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc11

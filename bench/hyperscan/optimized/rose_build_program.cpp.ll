@@ -21336,7 +21336,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i, label %if.end.i19
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i: ; preds = %if.then.i
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i, ptr noundef nonnull %andmask_u8.i, ptr noundef nonnull %cmpmask_u8.i)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i)
   %6 = load i8, ptr %andmask_u8.i, align 1
   %not.i.i = xor i8 %6, -1
   %conv2.i.i = zext i8 %not.i.i to i32
@@ -21384,7 +21384,7 @@ _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i: ; preds = %if.en
   br label %_ZN3ue2L12makeRoleByteERKSt6vectorINS_9LookEntryESaIS1_EERNS_11RoseProgramE.exit
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i: ; preds = %if.end.i19
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %andmask_u8.i, ptr noundef nonnull %cmpmask_u8.i)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i)
   %16 = load i8, ptr %andmask_u8.i, align 1
   %not.i17.i = xor i8 %16, -1
   %conv2.i18.i = zext i8 %not.i17.i to i32
@@ -21696,7 +21696,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %tobool.not.i.i71, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i98, label %if.end.i72
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i98: ; preds = %for.body.i
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i76, ptr noundef nonnull %andmask_u8.i70, ptr noundef nonnull %cmpmask_u8.i71)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i76, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i70, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i71)
   %59 = load i8, ptr %andmask_u8.i70, align 1
   %not.i.i99 = xor i8 %59, -1
   %conv2.i.i100 = zext i8 %not.i.i99 to i32
@@ -21741,7 +21741,7 @@ _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i77: ; preds = %if.
   br label %cleanup34.i
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i79: ; preds = %if.end.i72
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i70, ptr noundef nonnull %andmask_u8.i70, ptr noundef nonnull %cmpmask_u8.i71)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i70, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i70, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i71)
   %69 = load i8, ptr %andmask_u8.i70, align 1
   %not.i17.i80 = xor i8 %69, -1
   %conv2.i18.i81 = zext i8 %not.i17.i80 to i32
@@ -21950,7 +21950,7 @@ for.body.i108:                                    ; preds = %for.body.i108.prehe
   br i1 %tobool.not.i.i161, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i188, label %if.end.i162
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i188: ; preds = %for.body.i108
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i109, ptr noundef nonnull %andmask_u8.i96, ptr noundef nonnull %cmpmask_u8.i97)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i109, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i96, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i97)
   %94 = load i8, ptr %andmask_u8.i96, align 1
   %not.i.i189 = xor i8 %94, -1
   %conv2.i.i190 = zext i8 %not.i.i189 to i32
@@ -21995,7 +21995,7 @@ _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i167: ; preds = %if
   br label %_ZN3ue2L14makeRoleMask32ERKSt6vectorINS_9LookEntryESaIS1_EERNS_11RoseProgramE.exit
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i169: ; preds = %if.end.i162
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i160, ptr noundef nonnull %andmask_u8.i96, ptr noundef nonnull %cmpmask_u8.i97)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i160, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i96, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i97)
   %104 = load i8, ptr %andmask_u8.i96, align 1
   %not.i17.i170 = xor i8 %104, -1
   %conv2.i18.i171 = zext i8 %not.i17.i170 to i32
@@ -22221,7 +22221,7 @@ for.body.i152:                                    ; preds = %for.body.i152.prehe
   br i1 %tobool.not.i.i251, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i278, label %if.end.i252
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i278: ; preds = %for.body.i152
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i153, ptr noundef nonnull %andmask_u8.i141, ptr noundef nonnull %cmpmask_u8.i142)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %reach.i153, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i141, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i142)
   %135 = load i8, ptr %andmask_u8.i141, align 1
   %not.i.i279 = xor i8 %135, -1
   %conv2.i.i280 = zext i8 %not.i.i279 to i32
@@ -22266,7 +22266,7 @@ _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i257: ; preds = %if
   br label %_ZN3ue2L14makeRoleMask64ERKSt6vectorINS_9LookEntryESaIS1_EERNS_11RoseProgramERKNS_8target_tE.exit
 
 _ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i259: ; preds = %if.end.i252
-  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i250, ptr noundef nonnull %andmask_u8.i141, ptr noundef nonnull %cmpmask_u8.i142)
+  call void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i250, ptr noundef nonnull align 1 dereferenceable(1) %andmask_u8.i141, ptr noundef nonnull align 1 dereferenceable(1) %cmpmask_u8.i142)
   %145 = load i8, ptr %andmask_u8.i141, align 1
   %not.i17.i260 = xor i8 %145, -1
   %conv2.i18.i261 = zext i8 %not.i17.i260 to i32

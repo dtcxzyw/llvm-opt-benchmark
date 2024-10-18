@@ -558,7 +558,7 @@ define hidden ptr @hb_language_get_default() local_unnamed_addr #6 {
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %0
-  %5 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly @.str.3)
+  %5 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef @.str.3)
   %.not11.i = icmp eq ptr %5, null
   br i1 %.not11.i, label %hb_language_from_string.exit, label %6
 
@@ -1009,7 +1009,7 @@ _ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i: ; preds = %19, %28
   %.sink.i.i = phi i32 [ 1, %_ZL11parse_spacePPKcS0_.exit.i7.i.i ], [ 1, %32 ], [ %.sink.ph.i.i, %_ZL10parse_charPPKcS0_c.exit12.sink.split.i.i ], [ 1, %28 ], [ 1, %19 ]
   %35 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.sink.i.i, ptr %35, align 4
-  %36 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef %7, ptr noundef %15, ptr noundef %8)
+  %36 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %8)
   br i1 %36, label %37, label %_ZL17parse_one_featurePPKcS0_P12hb_feature_t.exit.thread
 
 37:                                               ; preds = %_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i
@@ -1625,7 +1625,7 @@ define hidden range(i32 0, 2) i32 @hb_variation_from_string(ptr noundef %0, i32 
   %.06 = phi i32 [ %10, %8 ], [ %1, %3 ]
   %12 = sext i32 %.06 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
-  %14 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef %5, ptr noundef %13, ptr noundef %6)
+  %14 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %6)
   br i1 %14, label %15, label %_ZL19parse_one_variationPPKcS0_P14hb_variation_t.exit.thread
 
 15:                                               ; preds = %11
@@ -1876,7 +1876,7 @@ _ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds
   br i1 %.not.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %19
 
 19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
-  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly %17)
+  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull readonly %17)
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %21
 
@@ -1933,7 +1933,7 @@ _ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds
   br i1 %.not.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %19
 
 19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
-  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly %17)
+  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull readonly %17)
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %21
 
@@ -3105,7 +3105,7 @@ define linkonce_odr hidden void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(p
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr @_hb_NullPool, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %10, align 8
@@ -3208,7 +3208,7 @@ define linkonce_odr hidden void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(p
 
 89:                                               ; preds = %83, %81
   %90 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr @_hb_NullPool, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %91, align 8
@@ -4870,11 +4870,11 @@ _ZN22contour_point_vector_tD2Ev.exit323:          ; preds = %_ZN11hb_vector_tI15
 705:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit323
   %706 = inttoptr i64 %704 to ptr
   %707 = getelementptr inbounds i8, ptr %706, i64 40
-  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %707, ptr noundef nonnull align 8 dereferenceable(40) %706)
+  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %707, ptr noundef nonnull align 8 dereferenceable(56) %706)
           to label %.noexc.i.i unwind label %711
 
 .noexc.i.i:                                       ; preds = %705
-  %708 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %706) #26
+  %708 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %706) #26
   call void @free(ptr noundef nonnull %706) #26
   store atomic i64 0, ptr %33 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
@@ -7758,11 +7758,11 @@ define linkonce_odr hidden void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 de
 4:                                                ; preds = %1
   %5 = inttoptr i64 %3 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(56) %5)
           to label %.noexc.i unwind label %11
 
 .noexc.i:                                         ; preds = %4
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %5) #26
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   tail call void @free(ptr noundef nonnull %5) #26
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i
@@ -8897,7 +8897,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #26
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -8917,7 +8917,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !87
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #26
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -8926,7 +8926,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #26
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !90
@@ -8945,7 +8945,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #26
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -10777,7 +10777,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT8HVARVVAR8sanitizeEP21hb_s
 43:                                               ; preds = %24
   %44 = zext i32 %41 to i64
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %45, ptr noundef nonnull %1)
+  %46 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %43

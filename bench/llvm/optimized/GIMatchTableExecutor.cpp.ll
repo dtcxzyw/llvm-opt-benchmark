@@ -80,7 +80,7 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilder
   %.08.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEESaIS7_EEC2EmRKS8_.exit.i ]
   %.057.i.i.i.i.i = phi i64 [ %11, %.lr.ph.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEESaIS7_EEC2EmRKS8_.exit.i ]
   %10 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i.i.i, ptr noundef nonnull %10, i64 noundef 4) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %.08.i.i.i.i.i, ptr noundef nonnull %10, i64 noundef 4) #9
   %11 = add nsw i64 %.057.i.i.i.i.i, -1
   %12 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 144
   %.not.i.i.i.i.i = icmp eq i64 %11, 0
@@ -92,12 +92,12 @@ _ZNSt6vectorIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4E
   store ptr %.0.lcssa.i.i.i.i.i, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 4) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %15, i64 noundef 4) #9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = getelementptr inbounds i8, ptr %0, i64 136
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %18, i64 noundef 4) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull %18, i64 noundef 4) #9
   ret void
 }
 

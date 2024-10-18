@@ -797,14 +797,14 @@ _ZL4vmaxPKii.exit430:                             ; preds = %.lr.ph.i424, %_ZL4v
 
 331:                                              ; preds = %306
   %332 = sext i32 %.sroa.speculated to i64
-  %333 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 436, i64 noundef %332, i64 noundef 8, i64 noundef 32)
-  %334 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 438, i64 noundef %332, i64 noundef 8, i64 noundef 32)
+  %333 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 436, i64 noundef range(i64 -2147483648, 2147483648) %332, i64 noundef 8, i64 noundef 32)
+  %334 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 438, i64 noundef range(i64 -2147483648, 2147483648) %332, i64 noundef 8, i64 noundef 32)
   %335 = icmp sgt i32 %9, 1
   br i1 %335, label %336, label %346
 
 336:                                              ; preds = %331
-  %337 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, i32 noundef 442, i64 noundef %332, i64 noundef 8, i64 noundef 32)
-  %338 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.4, i32 noundef 443, i64 noundef %332, i64 noundef 8, i64 noundef 32)
+  %337 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, i32 noundef 442, i64 noundef range(i64 -2147483648, 2147483648) %332, i64 noundef 8, i64 noundef 32)
+  %338 = call noundef ptr @_Z19save_calloc_alignedPKcS0_immm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.4, i32 noundef 443, i64 noundef range(i64 -2147483648, 2147483648) %332, i64 noundef 8, i64 noundef 32)
   br label %346
 
 339:                                              ; preds = %306

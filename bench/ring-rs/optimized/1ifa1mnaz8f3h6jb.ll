@@ -606,7 +606,7 @@ _ZN4ring4aead3aes21ctr32_encrypt_blocks_17hf4e05b9f637cdadfE.exit: ; preds = %31
   %33 = trunc nuw i64 %27 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !62
   %34 = getelementptr inbounds i8, ptr %1, i64 %3
-  tail call void @ring_core_0_17_8__aes_hw_ctr32_encrypt_blocks(ptr noundef nonnull %34, ptr noundef nonnull %1, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4), !callees !65
+  tail call void @ring_core_0_17_8__aes_hw_ctr32_encrypt_blocks(ptr noundef nonnull %34, ptr noundef nonnull align 1 %1, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4), !callees !65
   %35 = getelementptr inbounds i8, ptr %4, i64 12
   %36 = load i32, ptr %35, align 4, !alias.scope !66, !noalias !69, !noundef !4
   %37 = tail call i32 @llvm.bswap.i32(i32 %36)
@@ -634,7 +634,7 @@ _ZN4ring4aead3aes21ctr32_encrypt_blocks_17hf4e05b9f637cdadfE.exit10: ; preds = %
   %42 = trunc nuw i64 %27 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !73
   %43 = getelementptr inbounds i8, ptr %1, i64 %3
-  tail call void @ring_core_0_17_8__vpaes_ctr32_encrypt_blocks(ptr noundef nonnull %43, ptr noundef nonnull %1, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4), !callees !65
+  tail call void @ring_core_0_17_8__vpaes_ctr32_encrypt_blocks(ptr noundef nonnull %43, ptr noundef nonnull align 1 %1, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4), !callees !65
   %44 = getelementptr inbounds i8, ptr %4, i64 12
   %45 = load i32, ptr %44, align 4, !alias.scope !76, !noalias !79, !noundef !4
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
@@ -662,7 +662,7 @@ _ZN4ring4aead3aes21ctr32_encrypt_blocks_17hf4e05b9f637cdadfE.exit11: ; preds = %
   %51 = trunc nuw i64 %27 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !83
   %52 = getelementptr inbounds i8, ptr %1, i64 %3
-  tail call void @ring_core_0_17_8__aes_nohw_ctr32_encrypt_blocks(ptr noundef nonnull %52, ptr noundef nonnull %1, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4), !callees !65
+  tail call void @ring_core_0_17_8__aes_nohw_ctr32_encrypt_blocks(ptr noundef nonnull %52, ptr noundef nonnull align 1 %1, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4), !callees !65
   %53 = getelementptr inbounds i8, ptr %4, i64 12
   %54 = load i32, ptr %53, align 4, !alias.scope !86, !noalias !89, !noundef !4
   %55 = tail call i32 @llvm.bswap.i32(i32 %54)
@@ -730,17 +730,17 @@ default.unreachable:                              ; preds = %27, %15
   ]
 
 20:                                               ; preds = %15
-  %21 = call noundef i32 @ring_core_0_17_8__aes_hw_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef %19, ptr noalias noundef nonnull align 4 dereferenceable(244) %11), !noalias !94
+  %21 = call noundef i32 @ring_core_0_17_8__aes_hw_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef %19, ptr noalias noundef nonnull align 4 dereferenceable(244) %11), !noalias !94
   %.not28.i = icmp eq i32 %21, 0
   br i1 %.not28.i, label %27, label %26
 
 22:                                               ; preds = %15
-  %23 = call noundef i32 @ring_core_0_17_8__vpaes_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef %19, ptr noalias noundef nonnull align 4 dereferenceable(244) %11), !noalias !94
+  %23 = call noundef i32 @ring_core_0_17_8__vpaes_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef %19, ptr noalias noundef nonnull align 4 dereferenceable(244) %11), !noalias !94
   %.not27.i = icmp eq i32 %23, 0
   br i1 %.not27.i, label %27, label %26
 
 24:                                               ; preds = %15
-  %25 = call noundef i32 @ring_core_0_17_8__aes_nohw_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef %19, ptr noalias noundef nonnull align 4 dereferenceable(244) %11), !noalias !94
+  %25 = call noundef i32 @ring_core_0_17_8__aes_nohw_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef %19, ptr noalias noundef nonnull align 4 dereferenceable(244) %11), !noalias !94
   %.not26.i = icmp eq i32 %25, 0
   br i1 %.not26.i, label %27, label %26
 
@@ -1039,17 +1039,17 @@ _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %46,
   store ptr %.sroa.033.049, ptr %14, align 8, !noalias !137
   store i64 %69, ptr %65, align 8, !noalias !137
   store ptr %15, ptr %66, align 8, !noalias !137
-  call void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h19ce292a39cc6eb8E.llvm.2657819220133375221(ptr noalias noundef nonnull align 1 dereferenceable(16) %27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14)
+  call void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h19ce292a39cc6eb8E.llvm.2657819220133375221(ptr noalias noundef nonnull align 16 dereferenceable(288) %27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !137
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !134
   br label %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit
 
 81:                                               ; preds = %76
-  call void @ring_core_0_17_8__gcm_ghash_clmul(ptr noalias noundef nonnull align 1 dereferenceable(16) %27, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %62, ptr noundef nonnull readonly %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i)
+  call void @ring_core_0_17_8__gcm_ghash_clmul(ptr noalias noundef nonnull align 16 dereferenceable(288) %27, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %62, ptr noundef nonnull readonly align 1 %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i)
   br label %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit
 
 82:                                               ; preds = %76
-  call void @ring_core_0_17_8__gcm_ghash_avx(ptr noalias noundef nonnull align 1 dereferenceable(16) %27, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %62, ptr noundef nonnull readonly %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i)
+  call void @ring_core_0_17_8__gcm_ghash_avx(ptr noalias noundef nonnull align 16 dereferenceable(288) %27, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %62, ptr noundef nonnull readonly align 1 %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i)
   br label %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit
 
 _ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit: ; preds = %78, %81, %82
@@ -1058,7 +1058,7 @@ _ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit: ; preds = %78
 
 _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.thread"
   store <16 x i8> zeroinitializer, ptr %.sroa.0.i, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %.sroa.0.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %59, i64 %60, i1 false), !alias.scope !141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %.sroa.0.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %59, i64 range(i64 1, 0) %60, i1 false), !alias.scope !141
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)
@@ -1397,17 +1397,17 @@ _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %45,
   store ptr %81, ptr %10, align 8, !noalias !224
   store i64 %84, ptr %55, align 8, !noalias !224
   store ptr %11, ptr %56, align 8, !noalias !224
-  call void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h19ce292a39cc6eb8E.llvm.2657819220133375221(ptr noalias noundef nonnull align 1 dereferenceable(16) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
+  call void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h19ce292a39cc6eb8E.llvm.2657819220133375221(ptr noalias noundef nonnull align 16 dereferenceable(288) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !224
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !221
   br label %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit
 
 95:                                               ; preds = %90
-  call void @ring_core_0_17_8__gcm_ghash_clmul(ptr noalias noundef nonnull align 1 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %52, ptr noundef nonnull readonly %81, i64 noundef %spec.select100)
+  call void @ring_core_0_17_8__gcm_ghash_clmul(ptr noalias noundef nonnull align 16 dereferenceable(288) %23, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %52, ptr noundef nonnull readonly align 1 %81, i64 noundef %spec.select100)
   br label %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit
 
 96:                                               ; preds = %90
-  call void @ring_core_0_17_8__gcm_ghash_avx(ptr noalias noundef nonnull align 1 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %52, ptr noundef nonnull readonly %81, i64 noundef %spec.select100)
+  call void @ring_core_0_17_8__gcm_ghash_avx(ptr noalias noundef nonnull align 16 dereferenceable(288) %23, ptr noalias noundef nonnull readonly align 16 dereferenceable(256) %52, ptr noundef nonnull readonly align 1 %81, i64 noundef %spec.select100)
   br label %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit
 
 _ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit: ; preds = %92, %95, %96
@@ -1491,7 +1491,7 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   %16 = alloca [3 x i32], align 4
   %17 = alloca { [4 x i32] }, align 16
   %18 = alloca { [4 x i32] }, align 16
-  %19 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
+  %19 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
   %20 = icmp ult i8 %19, 4
   tail call void @llvm.assume(i1 %20)
   %.not.i = icmp eq i8 %19, 2
@@ -1537,7 +1537,7 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, i8 0, i64 32, i1 false), !noalias !273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !273
   store <4 x i32> %.sroa.0.12.vec.insert.i.i.i, ptr %13, align 16, !alias.scope !278, !noalias !281
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %14, ptr noundef nonnull %14, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13), !noalias !283
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %14, ptr noundef nonnull %14, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13), !noalias !283
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !273
   %30 = load <32 x i8>, ptr %14, align 1, !noalias !273
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !273
@@ -1579,11 +1579,11 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   %.sroa.0.8.vec.insert.i.i.i14 = insertelement <4 x i32> %.sroa.0.4.vec.insert.i.i.i13, i32 %36, i64 2
   %.sroa.0.12.vec.insert.i.i.i15 = insertelement <4 x i32> %.sroa.0.8.vec.insert.i.i.i14, i32 %38, i64 3
   store <4 x i32> %.sroa.0.12.vec.insert.i.i.i15, ptr %18, align 16, !alias.scope !300, !noalias !301
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %2, ptr noundef nonnull %2, i64 noundef 4, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %18)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %2, i64 noundef 4, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   store <4 x i32> %.sroa.0.0.vec.insert, ptr %17, align 16
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %32, ptr noundef nonnull %32, i64 noundef %33, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %17)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %32, ptr noundef nonnull align 1 %32, i64 noundef %33, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10), !noalias !302
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !302
@@ -1594,7 +1594,7 @@ define void @_ZN4ring4aead25chacha20_poly1305_openssh10SealingKey13seal_in_place
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %10, ptr noundef nonnull align 64 dereferenceable(512) %7, i64 512, i1 false), !noalias !302
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7), !noalias !302
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !302
-  call void @ring_core_0_17_8__CRYPTO_poly1305_update(ptr noalias noundef nonnull align 64 dereferenceable(512) %10, ptr noundef nonnull readonly %2, i64 noundef %3), !noalias !307
+  call void @ring_core_0_17_8__CRYPTO_poly1305_update(ptr noalias noundef nonnull align 64 dereferenceable(512) %10, ptr noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !307
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9), !noalias !302
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %9, ptr noundef nonnull align 64 dereferenceable(512) %10, i64 512, i1 false), !noalias !302
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !308
@@ -1679,7 +1679,7 @@ define i32 @_ZN4ring4aead25chacha20_poly1305_openssh10OpeningKey21decrypt_packet
   %.sroa.0.8.vec.insert.i.i.i = insertelement <4 x i32> %.sroa.0.4.vec.insert.i.i.i, i32 %11, i64 2
   %.sroa.0.12.vec.insert.i.i.i = insertelement <4 x i32> %.sroa.0.8.vec.insert.i.i.i, i32 %13, i64 3
   store <4 x i32> %.sroa.0.12.vec.insert.i.i.i, ptr %6, align 16, !alias.scope !355, !noalias !356
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef 4, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %6)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %7, ptr noundef nonnull align 1 %7, i64 noundef 4, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %6)
   %14 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret i32 %14
@@ -1734,11 +1734,11 @@ define { ptr, i64 } @_ZN4ring4aead25chacha20_poly1305_openssh10OpeningKey13open_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %13, i8 0, i64 32, i1 false), !noalias !368
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !368
   store <4 x i32> %.sroa.0.12.vec.insert.i.i.i, ptr %12, align 16, !alias.scope !373, !noalias !376
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %13, ptr noundef nonnull %13, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %12), !noalias !378
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %13, ptr noundef nonnull %13, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %12), !noalias !378
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !368
   %24 = load <32 x i8>, ptr %13, align 1, !noalias !368
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !368
-  %25 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2), !noalias !379
+  %25 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2), !noalias !379
   %26 = icmp ult i8 %25, 4
   call void @llvm.assume(i1 %26)
   %.not.i.i = icmp eq i8 %25, 2
@@ -1758,7 +1758,7 @@ _ZN4ring4aead25chacha20_poly1305_openssh6verify17h36cc129481f17224E.exit: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %10, ptr noundef nonnull align 64 dereferenceable(512) %7, i64 512, i1 false), !noalias !383
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7), !noalias !383
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !383
-  call void @ring_core_0_17_8__CRYPTO_poly1305_update(ptr noalias noundef nonnull align 64 dereferenceable(512) %10, ptr noundef nonnull readonly %2, i64 noundef %3), !noalias !388
+  call void @ring_core_0_17_8__CRYPTO_poly1305_update(ptr noalias noundef nonnull align 64 dereferenceable(512) %10, ptr noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !388
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9), !noalias !383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %9, ptr noundef nonnull align 64 dereferenceable(512) %10, i64 512, i1 false), !noalias !383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !389
@@ -1770,7 +1770,7 @@ _ZN4ring4aead25chacha20_poly1305_openssh6verify17h36cc129481f17224E.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10), !noalias !383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !379
   store <16 x i8> %.sroa.0.0.copyload.i, ptr %11, align 16, !noalias !379
-  %29 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %4, i64 noundef 16)
+  %29 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly align 1 %11, ptr noundef nonnull readonly align 1 dereferenceable(16) %4, i64 noundef 16)
   %.not = icmp eq i32 %29, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !379
   br i1 %.not, label %30, label %35
@@ -1788,7 +1788,7 @@ _ZN4ring4aead25chacha20_poly1305_openssh6verify17h36cc129481f17224E.exit: ; pred
   %34 = getelementptr inbounds i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   store <4 x i32> %.sroa.0.0.vec.insert, ptr %16, align 16
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %34, ptr noundef nonnull %34, i64 noundef %33, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %16)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 1 %34, i64 noundef %33, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   br label %35
 
@@ -1847,7 +1847,7 @@ define void @"_ZN139_$LT$ring..aead..quic..HeaderProtectionKey$u20$as$u20$core..
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %6), !noalias !407
   %17 = load ptr, ptr %10, align 8, !alias.scope !404, !noalias !410, !nonnull !4, !noundef !4
-  %18 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2), !noalias !407
+  %18 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2), !noalias !407
   %19 = icmp ult i8 %18, 4
   call void @llvm.assume(i1 %19)
   %.not.i.i = icmp eq i8 %18, 2
@@ -1932,7 +1932,7 @@ define void @_ZN4ring4aead4quic19HeaderProtectionKey3new17h1eddb546e65089f6E(ptr
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %7)
   %9 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %10 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
+  %10 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
   %11 = icmp ult i8 %10, 4
   tail call void @llvm.assume(i1 %11)
   %.not.i = icmp eq i8 %10, 2
@@ -2054,17 +2054,17 @@ default.unreachable:                              ; preds = %5
   ]
 
 9:                                                ; preds = %5
-  %10 = call noundef i32 @ring_core_0_17_8__aes_hw_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef 128, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !425
+  %10 = call noundef i32 @ring_core_0_17_8__aes_hw_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef 128, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !425
   %.not28.i = icmp eq i32 %10, 0
   br i1 %.not28.i, label %16, label %15
 
 11:                                               ; preds = %5
-  %12 = call noundef i32 @ring_core_0_17_8__vpaes_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef 128, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !425
+  %12 = call noundef i32 @ring_core_0_17_8__vpaes_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef 128, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !425
   %.not27.i = icmp eq i32 %12, 0
   br i1 %.not27.i, label %16, label %15
 
 13:                                               ; preds = %5
-  %14 = call noundef i32 @ring_core_0_17_8__aes_nohw_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef 128, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !425
+  %14 = call noundef i32 @ring_core_0_17_8__aes_nohw_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef 128, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !425
   %.not26.i = icmp eq i32 %14, 0
   br i1 %.not26.i, label %16, label %15
 
@@ -2118,17 +2118,17 @@ default.unreachable:                              ; preds = %5
   ]
 
 9:                                                ; preds = %5
-  %10 = call noundef i32 @ring_core_0_17_8__aes_hw_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef 256, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !430
+  %10 = call noundef i32 @ring_core_0_17_8__aes_hw_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef 256, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !430
   %.not28.i = icmp eq i32 %10, 0
   br i1 %.not28.i, label %16, label %15
 
 11:                                               ; preds = %5
-  %12 = call noundef i32 @ring_core_0_17_8__vpaes_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef 256, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !430
+  %12 = call noundef i32 @ring_core_0_17_8__vpaes_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef 256, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !430
   %.not27.i = icmp eq i32 %12, 0
   br i1 %.not27.i, label %16, label %15
 
 13:                                               ; preds = %5
-  %14 = call noundef i32 @ring_core_0_17_8__aes_nohw_set_encrypt_key(ptr noundef nonnull readonly %1, i32 noundef 256, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !430
+  %14 = call noundef i32 @ring_core_0_17_8__aes_nohw_set_encrypt_key(ptr noundef nonnull readonly align 1 %1, i32 noundef 256, ptr noalias noundef nonnull align 4 dereferenceable(244) %4), !noalias !430
   %.not26.i = icmp eq i32 %14, 0
   br i1 %.not26.i, label %16, label %15
 
@@ -2208,7 +2208,7 @@ define i40 @_ZN4ring4aead4quic17chacha20_new_mask17hc4295ec86d6d218bE(ptr noalia
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN123_$LT$$u5b$I$u3b$$u20$16$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$4_usize$GT$$GT$15array_split_map17h8c30995e6f7fd491E.llvm.6801758991666044160"(ptr noalias nocapture noundef nonnull sret([4 x i32]) align 4 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %1), !noalias !4
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %4, ptr noundef nonnull %4, i64 noundef 5, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %4, i64 noundef 5, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.sroa.0.0.copyload = load i40, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4)

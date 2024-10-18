@@ -2286,7 +2286,7 @@ sub_1169:                                         ; preds = %sub_0168
   %114 = tail call ptr @createPQExpBuffer() #14
   tail call void @buildShSecLabelQuery(ptr noundef nonnull @.str.82, i32 noundef %32, ptr noundef %114) #14
   %115 = load ptr, ptr %114, align 8
-  %116 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %115)
+  %116 = tail call fastcc ptr @executeQuery(ptr noundef nonnull %0, ptr noundef %115)
   tail call void @emitShSecLabels(ptr noundef nonnull %0, ptr noundef nonnull %116, ptr noundef nonnull %2, ptr noundef nonnull @.str.235, ptr noundef nonnull %33) #14
   tail call void @PQclear(ptr noundef nonnull %116) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %114) #14
@@ -2327,7 +2327,7 @@ sub_1169:                                         ; preds = %sub_0168
   tail call void @appendStringLiteralConn(ptr noundef %134, ptr noundef %133, ptr noundef nonnull %0) #14
   tail call void @appendPQExpBufferChar(ptr noundef %134, i8 noundef signext 41) #14
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %135)
+  %136 = tail call fastcc ptr @executeQuery(ptr noundef nonnull %0, ptr noundef %135)
   %137 = tail call i32 @PQntuples(ptr noundef nonnull %136) #14
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %139, label %142
@@ -3152,7 +3152,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   %48 = tail call ptr @createPQExpBuffer() #14
   tail call void @buildShSecLabelQuery(ptr noundef nonnull @.str.277, i32 noundef %14, ptr noundef %48) #14
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %49)
+  %50 = tail call fastcc ptr @executeQuery(ptr noundef nonnull %0, ptr noundef %49)
   tail call void @emitShSecLabels(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %11, ptr noundef nonnull @.str.274, ptr noundef %15) #14
   tail call void @PQclear(ptr noundef nonnull %50) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %48) #14

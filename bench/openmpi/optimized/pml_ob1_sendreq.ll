@@ -135,7 +135,7 @@ get_request_from_send_pending.exit:               ; preds = %opal_list_remove_fi
   br label %35
 
 35:                                               ; preds = %unlock_send_request.exit.i, %33
-  %36 = call i32 @mca_pml_ob1_send_request_schedule_once(ptr noundef %.0.i7.i)
+  %36 = call i32 @mca_pml_ob1_send_request_schedule_once(ptr noundef nonnull %.0.i7.i)
   %cond.i = icmp eq i32 %36, -2
   br i1 %cond.i, label %mca_pml_ob1_send_request_schedule_exclusive.exit, label %37
 
@@ -1834,7 +1834,7 @@ define range(i32 -2147483648, 1) i32 @mca_pml_ob1_send_request_start_prepare(ptr
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = call ptr %14(ptr noundef %12, ptr noundef %16, ptr noundef nonnull %10, i8 noundef zeroext -1, i64 noundef %spec.select, ptr noundef nonnull %4, i32 noundef 3) #9
+  %17 = call ptr %14(ptr noundef %12, ptr noundef %16, ptr noundef nonnull %10, i8 noundef zeroext -1, i64 noundef range(i64 14, 65) %spec.select, ptr noundef nonnull %4, i32 noundef 3) #9
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %mca_bml_base_prepare_src.exit.thread, label %18
 
@@ -2309,7 +2309,7 @@ define range(i32 -2147483648, 1) i32 @mca_pml_ob1_send_request_start_rndv(ptr no
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = call ptr %17(ptr noundef %15, ptr noundef %19, ptr noundef nonnull %13, i8 noundef zeroext -1, i64 noundef %spec.store.select, ptr noundef nonnull %5, i32 noundef 67) #9
+  %20 = call ptr %17(ptr noundef %15, ptr noundef %19, ptr noundef nonnull %13, i8 noundef zeroext -1, i64 noundef range(i64 14, 65) %spec.store.select, ptr noundef nonnull %5, i32 noundef 67) #9
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %mca_bml_base_prepare_src.exit.thread, label %mca_bml_base_prepare_src.exit.thread41
 

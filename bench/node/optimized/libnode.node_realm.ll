@@ -439,16 +439,16 @@ if.end.i400:
   store ptr %call2.i401, ptr %context_, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #19
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str, ptr noundef nonnull @.str)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   %origin.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin.i) #19
   %is_default.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   store i8 0, ptr %is_default.i, align 8
   call void @_ZN4node11Environment15AssignToContextEN2v85LocalINS1_7ContextEEEPNS_5RealmERKNS_11ContextInfoE(ptr noundef nonnull align 8 dereferenceable(2872) %env, ptr nonnull %context.coerce, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin.i) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #19
   ret void
@@ -4601,7 +4601,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
-  call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %cleanup_queue_, ptr noundef nonnull @.str.64)
+  call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %cleanup_queue_, ptr noundef nonnull @.str.64)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %if.else.i.i
@@ -5129,7 +5129,7 @@ entry:
   %ref.tmp1767 = alloca %"class.std::allocator.117", align 1
   %ref.tmp1795 = alloca %"struct.node::PropInfo", align 8
   %ref.tmp1797 = alloca %"class.std::allocator.117", align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 72, i1 false)
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
@@ -5217,7 +5217,7 @@ if.then:                                          ; preds = %_ZNSt6vectorINSt7__
   %call11.i2390 = tail call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %5) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #19
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 26))
   %id32 = getelementptr inbounds i8, ptr %ref.tmp30, i64 32
   store i32 0, ptr %id32, align 8
@@ -5231,7 +5231,7 @@ if.then:                                          ; preds = %_ZNSt6vectorINSt7__
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp30) #19
   %id.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %id32, i64 16, i1 false)
   %8 = load ptr, ptr %_M_finish.i.i185, align 8
@@ -5245,7 +5245,7 @@ if.else.i.i:                                      ; preds = %if.then
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp30) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #19
   br label %if.end
 
@@ -5262,7 +5262,7 @@ if.then43:                                        ; preds = %if.end
   %call11.i2382 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %10) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #19
   %call.i187 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55, ptr noundef %call.i187, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef %call.i187, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 27))
   %id58 = getelementptr inbounds i8, ptr %ref.tmp55, i64 32
   store i32 1, ptr %id58, align 8
@@ -5276,7 +5276,7 @@ if.then43:                                        ; preds = %if.end
   br i1 %cmp.not.i.i192, label %if.else.i.i197, label %if.then.i.i193
 
 if.then.i.i193:                                   ; preds = %if.then43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp55) #19
   %id.i.i.i.i.i194 = getelementptr inbounds i8, ptr %11, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i194, ptr noundef nonnull align 8 dereferenceable(16) %id58, i64 16, i1 false)
   %13 = load ptr, ptr %_M_finish.i.i190, align 8
@@ -5290,7 +5290,7 @@ if.else.i.i197:                                   ; preds = %if.then43
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit198
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit198: ; preds = %if.then.i.i193, %if.else.i.i197
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp55) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #19
   br label %if.end60
 
@@ -5307,7 +5307,7 @@ if.then73:                                        ; preds = %if.end60
   %call11.i2374 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %15) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #19
   %call.i199 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85, ptr noundef %call.i199, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85, ptr noundef %call.i199, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 31))
   %id88 = getelementptr inbounds i8, ptr %ref.tmp85, i64 32
   store i32 2, ptr %id88, align 8
@@ -5321,7 +5321,7 @@ if.then73:                                        ; preds = %if.end60
   br i1 %cmp.not.i.i204, label %if.else.i.i209, label %if.then.i.i205
 
 if.then.i.i205:                                   ; preds = %if.then73
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp85) #19
   %id.i.i.i.i.i206 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i206, ptr noundef nonnull align 8 dereferenceable(16) %id88, i64 16, i1 false)
   %18 = load ptr, ptr %_M_finish.i.i202, align 8
@@ -5335,7 +5335,7 @@ if.else.i.i209:                                   ; preds = %if.then73
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit210
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit210: ; preds = %if.then.i.i205, %if.else.i.i209
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp85) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #19
   br label %if.end90
 
@@ -5352,7 +5352,7 @@ if.then103:                                       ; preds = %if.end90
   %call11.i2462 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %20) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117) #19
   %call.i211 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115, ptr noundef %call.i211, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef %call.i211, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 19))
   %id118 = getelementptr inbounds i8, ptr %ref.tmp115, i64 32
   store i32 3, ptr %id118, align 8
@@ -5366,7 +5366,7 @@ if.then103:                                       ; preds = %if.end90
   br i1 %cmp.not.i.i216, label %if.else.i.i221, label %if.then.i.i217
 
 if.then.i.i217:                                   ; preds = %if.then103
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp115) #19
   %id.i.i.i.i.i218 = getelementptr inbounds i8, ptr %21, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i218, ptr noundef nonnull align 8 dereferenceable(16) %id118, i64 16, i1 false)
   %23 = load ptr, ptr %_M_finish.i.i214, align 8
@@ -5380,7 +5380,7 @@ if.else.i.i221:                                   ; preds = %if.then103
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit222
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit222: ; preds = %if.then.i.i217, %if.else.i.i221
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp115) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117) #19
   br label %if.end120
 
@@ -5397,7 +5397,7 @@ if.then133:                                       ; preds = %if.end120
   %call11.i2366 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %25) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #19
   %call.i223 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp145, ptr noundef %call.i223, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145, ptr noundef %call.i223, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 28))
   %id148 = getelementptr inbounds i8, ptr %ref.tmp145, i64 32
   store i32 4, ptr %id148, align 8
@@ -5411,7 +5411,7 @@ if.then133:                                       ; preds = %if.end120
   br i1 %cmp.not.i.i228, label %if.else.i.i233, label %if.then.i.i229
 
 if.then.i.i229:                                   ; preds = %if.then133
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp145) #19
   %id.i.i.i.i.i230 = getelementptr inbounds i8, ptr %26, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i230, ptr noundef nonnull align 8 dereferenceable(16) %id148, i64 16, i1 false)
   %28 = load ptr, ptr %_M_finish.i.i226, align 8
@@ -5425,7 +5425,7 @@ if.else.i.i233:                                   ; preds = %if.then133
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit234
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit234: ; preds = %if.then.i.i229, %if.else.i.i233
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp145) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #19
   br label %if.end150
 
@@ -5442,7 +5442,7 @@ if.then163:                                       ; preds = %if.end150
   %call11.i2358 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %30) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177) #19
   %call.i235 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp175, ptr noundef %call.i235, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175, ptr noundef %call.i235, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 25))
   %id178 = getelementptr inbounds i8, ptr %ref.tmp175, i64 32
   store i32 5, ptr %id178, align 8
@@ -5456,7 +5456,7 @@ if.then163:                                       ; preds = %if.end150
   br i1 %cmp.not.i.i240, label %if.else.i.i245, label %if.then.i.i241
 
 if.then.i.i241:                                   ; preds = %if.then163
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp175) #19
   %id.i.i.i.i.i242 = getelementptr inbounds i8, ptr %31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i242, ptr noundef nonnull align 8 dereferenceable(16) %id178, i64 16, i1 false)
   %33 = load ptr, ptr %_M_finish.i.i238, align 8
@@ -5470,7 +5470,7 @@ if.else.i.i245:                                   ; preds = %if.then163
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit246
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit246: ; preds = %if.then.i.i241, %if.else.i.i245
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp175) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177) #19
   br label %if.end180
 
@@ -5487,7 +5487,7 @@ if.then193:                                       ; preds = %if.end180
   %call11.i2350 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %35) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207) #19
   %call.i247 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp205, ptr noundef %call.i247, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205, ptr noundef %call.i247, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 36))
   %id208 = getelementptr inbounds i8, ptr %ref.tmp205, i64 32
   store i32 6, ptr %id208, align 8
@@ -5501,7 +5501,7 @@ if.then193:                                       ; preds = %if.end180
   br i1 %cmp.not.i.i252, label %if.else.i.i257, label %if.then.i.i253
 
 if.then.i.i253:                                   ; preds = %if.then193
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp205) #19
   %id.i.i.i.i.i254 = getelementptr inbounds i8, ptr %36, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i254, ptr noundef nonnull align 8 dereferenceable(16) %id208, i64 16, i1 false)
   %38 = load ptr, ptr %_M_finish.i.i250, align 8
@@ -5515,7 +5515,7 @@ if.else.i.i257:                                   ; preds = %if.then193
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit258
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit258: ; preds = %if.then.i.i253, %if.else.i.i257
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp205) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207) #19
   br label %if.end210
 
@@ -5532,7 +5532,7 @@ if.then223:                                       ; preds = %if.end210
   %call11.i2454 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %40) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #19
   %call.i259 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp235, ptr noundef %call.i259, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef %call.i259, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 23))
   %id238 = getelementptr inbounds i8, ptr %ref.tmp235, i64 32
   store i32 7, ptr %id238, align 8
@@ -5546,7 +5546,7 @@ if.then223:                                       ; preds = %if.end210
   br i1 %cmp.not.i.i264, label %if.else.i.i269, label %if.then.i.i265
 
 if.then.i.i265:                                   ; preds = %if.then223
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp235) #19
   %id.i.i.i.i.i266 = getelementptr inbounds i8, ptr %41, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i266, ptr noundef nonnull align 8 dereferenceable(16) %id238, i64 16, i1 false)
   %43 = load ptr, ptr %_M_finish.i.i262, align 8
@@ -5560,7 +5560,7 @@ if.else.i.i269:                                   ; preds = %if.then223
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit270
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit270: ; preds = %if.then.i.i265, %if.else.i.i269
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp235) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #19
   br label %if.end240
 
@@ -5577,7 +5577,7 @@ if.then253:                                       ; preds = %if.end240
   %call11.i2342 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %45) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267) #19
   %call.i271 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp265, ptr noundef %call.i271, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef %call.i271, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 29))
   %id268 = getelementptr inbounds i8, ptr %ref.tmp265, i64 32
   store i32 8, ptr %id268, align 8
@@ -5591,7 +5591,7 @@ if.then253:                                       ; preds = %if.end240
   br i1 %cmp.not.i.i276, label %if.else.i.i281, label %if.then.i.i277
 
 if.then.i.i277:                                   ; preds = %if.then253
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp265) #19
   %id.i.i.i.i.i278 = getelementptr inbounds i8, ptr %46, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i278, ptr noundef nonnull align 8 dereferenceable(16) %id268, i64 16, i1 false)
   %48 = load ptr, ptr %_M_finish.i.i274, align 8
@@ -5605,7 +5605,7 @@ if.else.i.i281:                                   ; preds = %if.then253
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit282
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit282: ; preds = %if.then.i.i277, %if.else.i.i281
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp265) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267) #19
   br label %if.end270
 
@@ -5622,7 +5622,7 @@ if.then283:                                       ; preds = %if.end270
   %call11.i2334 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %50) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297) #19
   %call.i283 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp295, ptr noundef %call.i283, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295, ptr noundef %call.i283, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 37))
   %id298 = getelementptr inbounds i8, ptr %ref.tmp295, i64 32
   store i32 9, ptr %id298, align 8
@@ -5636,7 +5636,7 @@ if.then283:                                       ; preds = %if.end270
   br i1 %cmp.not.i.i288, label %if.else.i.i293, label %if.then.i.i289
 
 if.then.i.i289:                                   ; preds = %if.then283
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp295) #19
   %id.i.i.i.i.i290 = getelementptr inbounds i8, ptr %51, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i290, ptr noundef nonnull align 8 dereferenceable(16) %id298, i64 16, i1 false)
   %53 = load ptr, ptr %_M_finish.i.i286, align 8
@@ -5650,7 +5650,7 @@ if.else.i.i293:                                   ; preds = %if.then283
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit294
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit294: ; preds = %if.then.i.i289, %if.else.i.i293
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp295) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp297) #19
   br label %if.end300
 
@@ -5667,7 +5667,7 @@ if.then313:                                       ; preds = %if.end300
   %call11.i2326 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %55) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327) #19
   %call.i295 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp325, ptr noundef %call.i295, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325, ptr noundef %call.i295, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 36))
   %id328 = getelementptr inbounds i8, ptr %ref.tmp325, i64 32
   store i32 10, ptr %id328, align 8
@@ -5681,7 +5681,7 @@ if.then313:                                       ; preds = %if.end300
   br i1 %cmp.not.i.i300, label %if.else.i.i305, label %if.then.i.i301
 
 if.then.i.i301:                                   ; preds = %if.then313
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp325) #19
   %id.i.i.i.i.i302 = getelementptr inbounds i8, ptr %56, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i302, ptr noundef nonnull align 8 dereferenceable(16) %id328, i64 16, i1 false)
   %58 = load ptr, ptr %_M_finish.i.i298, align 8
@@ -5695,7 +5695,7 @@ if.else.i.i305:                                   ; preds = %if.then313
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit306
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit306: ; preds = %if.then.i.i301, %if.else.i.i305
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp325) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327) #19
   br label %if.end330
 
@@ -5712,7 +5712,7 @@ if.then343:                                       ; preds = %if.end330
   %call11.i2318 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %60) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357) #19
   %call.i307 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp355) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp355, ptr noundef %call.i307, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp355, ptr noundef %call.i307, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp355, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 36))
   %id358 = getelementptr inbounds i8, ptr %ref.tmp355, i64 32
   store i32 11, ptr %id358, align 8
@@ -5726,7 +5726,7 @@ if.then343:                                       ; preds = %if.end330
   br i1 %cmp.not.i.i312, label %if.else.i.i317, label %if.then.i.i313
 
 if.then.i.i313:                                   ; preds = %if.then343
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp355) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp355) #19
   %id.i.i.i.i.i314 = getelementptr inbounds i8, ptr %61, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i314, ptr noundef nonnull align 8 dereferenceable(16) %id358, i64 16, i1 false)
   %63 = load ptr, ptr %_M_finish.i.i310, align 8
@@ -5740,7 +5740,7 @@ if.else.i.i317:                                   ; preds = %if.then343
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit318
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit318: ; preds = %if.then.i.i313, %if.else.i.i317
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp355) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp355) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357) #19
   br label %if.end360
 
@@ -5757,7 +5757,7 @@ if.then373:                                       ; preds = %if.end360
   %call11.i2310 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %65) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387) #19
   %call.i319 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp385) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp385, ptr noundef %call.i319, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp385, ptr noundef %call.i319, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp385, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 21))
   %id388 = getelementptr inbounds i8, ptr %ref.tmp385, i64 32
   store i32 12, ptr %id388, align 8
@@ -5771,7 +5771,7 @@ if.then373:                                       ; preds = %if.end360
   br i1 %cmp.not.i.i324, label %if.else.i.i329, label %if.then.i.i325
 
 if.then.i.i325:                                   ; preds = %if.then373
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp385) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp385) #19
   %id.i.i.i.i.i326 = getelementptr inbounds i8, ptr %66, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i326, ptr noundef nonnull align 8 dereferenceable(16) %id388, i64 16, i1 false)
   %68 = load ptr, ptr %_M_finish.i.i322, align 8
@@ -5785,7 +5785,7 @@ if.else.i.i329:                                   ; preds = %if.then373
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit330
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit330: ; preds = %if.then.i.i325, %if.else.i.i329
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp385) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp385) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp387) #19
   br label %if.end390
 
@@ -5802,7 +5802,7 @@ if.then403:                                       ; preds = %if.end390
   %call11.i2302 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %70) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417) #19
   %call.i331 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp415) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp415, ptr noundef %call.i331, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp415, ptr noundef %call.i331, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp415, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 35))
   %id418 = getelementptr inbounds i8, ptr %ref.tmp415, i64 32
   store i32 13, ptr %id418, align 8
@@ -5816,7 +5816,7 @@ if.then403:                                       ; preds = %if.end390
   br i1 %cmp.not.i.i336, label %if.else.i.i341, label %if.then.i.i337
 
 if.then.i.i337:                                   ; preds = %if.then403
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp415) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp415) #19
   %id.i.i.i.i.i338 = getelementptr inbounds i8, ptr %71, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i338, ptr noundef nonnull align 8 dereferenceable(16) %id418, i64 16, i1 false)
   %73 = load ptr, ptr %_M_finish.i.i334, align 8
@@ -5830,7 +5830,7 @@ if.else.i.i341:                                   ; preds = %if.then403
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit342
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit342: ; preds = %if.then.i.i337, %if.else.i.i341
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp415) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp415) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp417) #19
   br label %if.end420
 
@@ -5847,7 +5847,7 @@ if.then433:                                       ; preds = %if.end420
   %call11.i2294 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %75) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447) #19
   %call.i343 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp445) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp445, ptr noundef %call.i343, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp445, ptr noundef %call.i343, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp445, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 36))
   %id448 = getelementptr inbounds i8, ptr %ref.tmp445, i64 32
   store i32 14, ptr %id448, align 8
@@ -5861,7 +5861,7 @@ if.then433:                                       ; preds = %if.end420
   br i1 %cmp.not.i.i348, label %if.else.i.i353, label %if.then.i.i349
 
 if.then.i.i349:                                   ; preds = %if.then433
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp445) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp445) #19
   %id.i.i.i.i.i350 = getelementptr inbounds i8, ptr %76, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i350, ptr noundef nonnull align 8 dereferenceable(16) %id448, i64 16, i1 false)
   %78 = load ptr, ptr %_M_finish.i.i346, align 8
@@ -5875,7 +5875,7 @@ if.else.i.i353:                                   ; preds = %if.then433
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit354
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit354: ; preds = %if.then.i.i349, %if.else.i.i353
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp445) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp445) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447) #19
   br label %if.end450
 
@@ -5892,7 +5892,7 @@ if.then463:                                       ; preds = %if.end450
   %call11.i2286 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %80) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477) #19
   %call.i355 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp475, ptr noundef %call.i355, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475, ptr noundef %call.i355, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 27))
   %id478 = getelementptr inbounds i8, ptr %ref.tmp475, i64 32
   store i32 15, ptr %id478, align 8
@@ -5906,7 +5906,7 @@ if.then463:                                       ; preds = %if.end450
   br i1 %cmp.not.i.i360, label %if.else.i.i365, label %if.then.i.i361
 
 if.then.i.i361:                                   ; preds = %if.then463
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp475) #19
   %id.i.i.i.i.i362 = getelementptr inbounds i8, ptr %81, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i362, ptr noundef nonnull align 8 dereferenceable(16) %id478, i64 16, i1 false)
   %83 = load ptr, ptr %_M_finish.i.i358, align 8
@@ -5920,7 +5920,7 @@ if.else.i.i365:                                   ; preds = %if.then463
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit366
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit366: ; preds = %if.then.i.i361, %if.else.i.i365
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp475) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp475) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp477) #19
   br label %if.end480
 
@@ -5937,7 +5937,7 @@ if.then493:                                       ; preds = %if.end480
   %call11.i2278 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %85) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #19
   %call.i367 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp505) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp505, ptr noundef %call.i367, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp505, ptr noundef %call.i367, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp505, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 39))
   %id508 = getelementptr inbounds i8, ptr %ref.tmp505, i64 32
   store i32 16, ptr %id508, align 8
@@ -5951,7 +5951,7 @@ if.then493:                                       ; preds = %if.end480
   br i1 %cmp.not.i.i372, label %if.else.i.i377, label %if.then.i.i373
 
 if.then.i.i373:                                   ; preds = %if.then493
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp505) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp505) #19
   %id.i.i.i.i.i374 = getelementptr inbounds i8, ptr %86, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i374, ptr noundef nonnull align 8 dereferenceable(16) %id508, i64 16, i1 false)
   %88 = load ptr, ptr %_M_finish.i.i370, align 8
@@ -5965,7 +5965,7 @@ if.else.i.i377:                                   ; preds = %if.then493
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit378
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit378: ; preds = %if.then.i.i373, %if.else.i.i377
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp505) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp505) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #19
   br label %if.end510
 
@@ -5982,7 +5982,7 @@ if.then523:                                       ; preds = %if.end510
   %call11.i2270 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %90) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537) #19
   %call.i379 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp535, ptr noundef %call.i379, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535, ptr noundef %call.i379, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 43))
   %id538 = getelementptr inbounds i8, ptr %ref.tmp535, i64 32
   store i32 17, ptr %id538, align 8
@@ -5996,7 +5996,7 @@ if.then523:                                       ; preds = %if.end510
   br i1 %cmp.not.i.i384, label %if.else.i.i389, label %if.then.i.i385
 
 if.then.i.i385:                                   ; preds = %if.then523
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp535) #19
   %id.i.i.i.i.i386 = getelementptr inbounds i8, ptr %91, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i386, ptr noundef nonnull align 8 dereferenceable(16) %id538, i64 16, i1 false)
   %93 = load ptr, ptr %_M_finish.i.i382, align 8
@@ -6010,7 +6010,7 @@ if.else.i.i389:                                   ; preds = %if.then523
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit390
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit390: ; preds = %if.then.i.i385, %if.else.i.i389
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp535) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp537) #19
   br label %if.end540
 
@@ -6027,7 +6027,7 @@ if.then553:                                       ; preds = %if.end540
   %call11.i2262 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %95) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567) #19
   %call.i391 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp565) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp565, ptr noundef %call.i391, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp565, ptr noundef %call.i391, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp565, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 31))
   %id568 = getelementptr inbounds i8, ptr %ref.tmp565, i64 32
   store i32 18, ptr %id568, align 8
@@ -6041,7 +6041,7 @@ if.then553:                                       ; preds = %if.end540
   br i1 %cmp.not.i.i396, label %if.else.i.i401, label %if.then.i.i397
 
 if.then.i.i397:                                   ; preds = %if.then553
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp565) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp565) #19
   %id.i.i.i.i.i398 = getelementptr inbounds i8, ptr %96, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i398, ptr noundef nonnull align 8 dereferenceable(16) %id568, i64 16, i1 false)
   %98 = load ptr, ptr %_M_finish.i.i394, align 8
@@ -6055,7 +6055,7 @@ if.else.i.i401:                                   ; preds = %if.then553
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit402
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit402: ; preds = %if.then.i.i397, %if.else.i.i401
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp565) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp565) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567) #19
   br label %if.end570
 
@@ -6072,7 +6072,7 @@ if.then583:                                       ; preds = %if.end570
   %call11.i2254 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %100) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597) #19
   %call.i403 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp595) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp595, ptr noundef %call.i403, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp595, ptr noundef %call.i403, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp595, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 30))
   %id598 = getelementptr inbounds i8, ptr %ref.tmp595, i64 32
   store i32 19, ptr %id598, align 8
@@ -6086,7 +6086,7 @@ if.then583:                                       ; preds = %if.end570
   br i1 %cmp.not.i.i408, label %if.else.i.i413, label %if.then.i.i409
 
 if.then.i.i409:                                   ; preds = %if.then583
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp595) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp595) #19
   %id.i.i.i.i.i410 = getelementptr inbounds i8, ptr %101, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i410, ptr noundef nonnull align 8 dereferenceable(16) %id598, i64 16, i1 false)
   %103 = load ptr, ptr %_M_finish.i.i406, align 8
@@ -6100,7 +6100,7 @@ if.else.i.i413:                                   ; preds = %if.then583
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit414
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit414: ; preds = %if.then.i.i409, %if.else.i.i413
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp595) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp595) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp597) #19
   br label %if.end600
 
@@ -6117,7 +6117,7 @@ if.then613:                                       ; preds = %if.end600
   %call11.i2246 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %105) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627) #19
   %call.i415 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp625) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp625, ptr noundef %call.i415, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp625, ptr noundef %call.i415, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp625, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 36))
   %id628 = getelementptr inbounds i8, ptr %ref.tmp625, i64 32
   store i32 20, ptr %id628, align 8
@@ -6131,7 +6131,7 @@ if.then613:                                       ; preds = %if.end600
   br i1 %cmp.not.i.i420, label %if.else.i.i425, label %if.then.i.i421
 
 if.then.i.i421:                                   ; preds = %if.then613
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp625) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp625) #19
   %id.i.i.i.i.i422 = getelementptr inbounds i8, ptr %106, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i422, ptr noundef nonnull align 8 dereferenceable(16) %id628, i64 16, i1 false)
   %108 = load ptr, ptr %_M_finish.i.i418, align 8
@@ -6145,7 +6145,7 @@ if.else.i.i425:                                   ; preds = %if.then613
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit426
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit426: ; preds = %if.then.i.i421, %if.else.i.i425
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp625) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp625) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627) #19
   br label %if.end630
 
@@ -6162,7 +6162,7 @@ if.then643:                                       ; preds = %if.end630
   %call11.i2238 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %110) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657) #19
   %call.i427 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp655) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp655, ptr noundef %call.i427, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp655, ptr noundef %call.i427, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp655, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.25, i64 36))
   %id658 = getelementptr inbounds i8, ptr %ref.tmp655, i64 32
   store i32 21, ptr %id658, align 8
@@ -6176,7 +6176,7 @@ if.then643:                                       ; preds = %if.end630
   br i1 %cmp.not.i.i432, label %if.else.i.i437, label %if.then.i.i433
 
 if.then.i.i433:                                   ; preds = %if.then643
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp655) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp655) #19
   %id.i.i.i.i.i434 = getelementptr inbounds i8, ptr %111, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i434, ptr noundef nonnull align 8 dereferenceable(16) %id658, i64 16, i1 false)
   %113 = load ptr, ptr %_M_finish.i.i430, align 8
@@ -6190,7 +6190,7 @@ if.else.i.i437:                                   ; preds = %if.then643
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit438
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit438: ; preds = %if.then.i.i433, %if.else.i.i437
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp655) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp655) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp657) #19
   br label %if.end660
 
@@ -6207,7 +6207,7 @@ if.then673:                                       ; preds = %if.end660
   %call11.i2230 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %115) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687) #19
   %call.i439 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp685) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp685, ptr noundef %call.i439, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp685, ptr noundef %call.i439, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp685, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.26, i64 32))
   %id688 = getelementptr inbounds i8, ptr %ref.tmp685, i64 32
   store i32 22, ptr %id688, align 8
@@ -6221,7 +6221,7 @@ if.then673:                                       ; preds = %if.end660
   br i1 %cmp.not.i.i444, label %if.else.i.i449, label %if.then.i.i445
 
 if.then.i.i445:                                   ; preds = %if.then673
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp685) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp685) #19
   %id.i.i.i.i.i446 = getelementptr inbounds i8, ptr %116, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i446, ptr noundef nonnull align 8 dereferenceable(16) %id688, i64 16, i1 false)
   %118 = load ptr, ptr %_M_finish.i.i442, align 8
@@ -6235,7 +6235,7 @@ if.else.i.i449:                                   ; preds = %if.then673
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit450
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit450: ; preds = %if.then.i.i445, %if.else.i.i449
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp685) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp685) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687) #19
   br label %if.end690
 
@@ -6252,7 +6252,7 @@ if.then703:                                       ; preds = %if.end690
   %call11.i2222 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %120) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717) #19
   %call.i451 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp715) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp715, ptr noundef %call.i451, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp715, ptr noundef %call.i451, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp715, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 31))
   %id718 = getelementptr inbounds i8, ptr %ref.tmp715, i64 32
   store i32 23, ptr %id718, align 8
@@ -6266,7 +6266,7 @@ if.then703:                                       ; preds = %if.end690
   br i1 %cmp.not.i.i456, label %if.else.i.i461, label %if.then.i.i457
 
 if.then.i.i457:                                   ; preds = %if.then703
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp715) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp715) #19
   %id.i.i.i.i.i458 = getelementptr inbounds i8, ptr %121, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i458, ptr noundef nonnull align 8 dereferenceable(16) %id718, i64 16, i1 false)
   %123 = load ptr, ptr %_M_finish.i.i454, align 8
@@ -6280,7 +6280,7 @@ if.else.i.i461:                                   ; preds = %if.then703
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit462
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit462: ; preds = %if.then.i.i457, %if.else.i.i461
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp715) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp715) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp717) #19
   br label %if.end720
 
@@ -6297,7 +6297,7 @@ if.then733:                                       ; preds = %if.end720
   %call11.i2214 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %125) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747) #19
   %call.i463 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp745) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp745, ptr noundef %call.i463, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp745, ptr noundef %call.i463, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp745, ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 29))
   %id748 = getelementptr inbounds i8, ptr %ref.tmp745, i64 32
   store i32 24, ptr %id748, align 8
@@ -6311,7 +6311,7 @@ if.then733:                                       ; preds = %if.end720
   br i1 %cmp.not.i.i468, label %if.else.i.i473, label %if.then.i.i469
 
 if.then.i.i469:                                   ; preds = %if.then733
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp745) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp745) #19
   %id.i.i.i.i.i470 = getelementptr inbounds i8, ptr %126, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i470, ptr noundef nonnull align 8 dereferenceable(16) %id748, i64 16, i1 false)
   %128 = load ptr, ptr %_M_finish.i.i466, align 8
@@ -6325,7 +6325,7 @@ if.else.i.i473:                                   ; preds = %if.then733
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit474
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit474: ; preds = %if.then.i.i469, %if.else.i.i473
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp745) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp745) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747) #19
   br label %if.end750
 
@@ -6342,7 +6342,7 @@ if.then763:                                       ; preds = %if.end750
   %call11.i2206 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %130) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777) #19
   %call.i475 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp775, ptr noundef %call.i475, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775, ptr noundef %call.i475, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 33))
   %id778 = getelementptr inbounds i8, ptr %ref.tmp775, i64 32
   store i32 25, ptr %id778, align 8
@@ -6356,7 +6356,7 @@ if.then763:                                       ; preds = %if.end750
   br i1 %cmp.not.i.i480, label %if.else.i.i485, label %if.then.i.i481
 
 if.then.i.i481:                                   ; preds = %if.then763
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp775) #19
   %id.i.i.i.i.i482 = getelementptr inbounds i8, ptr %131, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i482, ptr noundef nonnull align 8 dereferenceable(16) %id778, i64 16, i1 false)
   %133 = load ptr, ptr %_M_finish.i.i478, align 8
@@ -6370,7 +6370,7 @@ if.else.i.i485:                                   ; preds = %if.then763
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit486
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit486: ; preds = %if.then.i.i481, %if.else.i.i485
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp775) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp777) #19
   br label %if.end780
 
@@ -6387,7 +6387,7 @@ if.then793:                                       ; preds = %if.end780
   %call11.i2198 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %135) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807) #19
   %call.i487 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp805) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp805, ptr noundef %call.i487, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp805, ptr noundef %call.i487, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp805, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.30, i64 33))
   %id808 = getelementptr inbounds i8, ptr %ref.tmp805, i64 32
   store i32 26, ptr %id808, align 8
@@ -6401,7 +6401,7 @@ if.then793:                                       ; preds = %if.end780
   br i1 %cmp.not.i.i492, label %if.else.i.i497, label %if.then.i.i493
 
 if.then.i.i493:                                   ; preds = %if.then793
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp805) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %136, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp805) #19
   %id.i.i.i.i.i494 = getelementptr inbounds i8, ptr %136, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i494, ptr noundef nonnull align 8 dereferenceable(16) %id808, i64 16, i1 false)
   %138 = load ptr, ptr %_M_finish.i.i490, align 8
@@ -6415,7 +6415,7 @@ if.else.i.i497:                                   ; preds = %if.then793
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit498
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit498: ; preds = %if.then.i.i493, %if.else.i.i497
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp805) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp805) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807) #19
   br label %if.end810
 
@@ -6432,7 +6432,7 @@ if.then823:                                       ; preds = %if.end810
   %call11.i2190 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %140) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837) #19
   %call.i499 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp835) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp835, ptr noundef %call.i499, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp835, ptr noundef %call.i499, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp835, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.31, i64 37))
   %id838 = getelementptr inbounds i8, ptr %ref.tmp835, i64 32
   store i32 27, ptr %id838, align 8
@@ -6446,7 +6446,7 @@ if.then823:                                       ; preds = %if.end810
   br i1 %cmp.not.i.i504, label %if.else.i.i509, label %if.then.i.i505
 
 if.then.i.i505:                                   ; preds = %if.then823
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp835) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %141, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp835) #19
   %id.i.i.i.i.i506 = getelementptr inbounds i8, ptr %141, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i506, ptr noundef nonnull align 8 dereferenceable(16) %id838, i64 16, i1 false)
   %143 = load ptr, ptr %_M_finish.i.i502, align 8
@@ -6460,7 +6460,7 @@ if.else.i.i509:                                   ; preds = %if.then823
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit510
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit510: ; preds = %if.then.i.i505, %if.else.i.i509
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp835) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp835) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp837) #19
   br label %if.end840
 
@@ -6477,7 +6477,7 @@ if.then853:                                       ; preds = %if.end840
   %call11.i2182 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %145) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867) #19
   %call.i511 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp865) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp865, ptr noundef %call.i511, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp865, ptr noundef %call.i511, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp865, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.32, i64 40))
   %id868 = getelementptr inbounds i8, ptr %ref.tmp865, i64 32
   store i32 28, ptr %id868, align 8
@@ -6491,7 +6491,7 @@ if.then853:                                       ; preds = %if.end840
   br i1 %cmp.not.i.i516, label %if.else.i.i521, label %if.then.i.i517
 
 if.then.i.i517:                                   ; preds = %if.then853
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp865) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %146, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp865) #19
   %id.i.i.i.i.i518 = getelementptr inbounds i8, ptr %146, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i518, ptr noundef nonnull align 8 dereferenceable(16) %id868, i64 16, i1 false)
   %148 = load ptr, ptr %_M_finish.i.i514, align 8
@@ -6505,7 +6505,7 @@ if.else.i.i521:                                   ; preds = %if.then853
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit522
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit522: ; preds = %if.then.i.i517, %if.else.i.i521
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp865) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp865) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867) #19
   br label %if.end870
 
@@ -6522,7 +6522,7 @@ if.then883:                                       ; preds = %if.end870
   %call11.i2174 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %150) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897) #19
   %call.i523 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp895, ptr noundef %call.i523, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895, ptr noundef %call.i523, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.33, i64 23))
   %id898 = getelementptr inbounds i8, ptr %ref.tmp895, i64 32
   store i32 29, ptr %id898, align 8
@@ -6536,7 +6536,7 @@ if.then883:                                       ; preds = %if.end870
   br i1 %cmp.not.i.i528, label %if.else.i.i533, label %if.then.i.i529
 
 if.then.i.i529:                                   ; preds = %if.then883
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %151, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp895) #19
   %id.i.i.i.i.i530 = getelementptr inbounds i8, ptr %151, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i530, ptr noundef nonnull align 8 dereferenceable(16) %id898, i64 16, i1 false)
   %153 = load ptr, ptr %_M_finish.i.i526, align 8
@@ -6550,7 +6550,7 @@ if.else.i.i533:                                   ; preds = %if.then883
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit534
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit534: ; preds = %if.then.i.i529, %if.else.i.i533
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp895) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp897) #19
   br label %if.end900
 
@@ -6567,7 +6567,7 @@ if.then913:                                       ; preds = %if.end900
   %call11.i2166 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %155) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927) #19
   %call.i535 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp925, ptr noundef %call.i535, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925, ptr noundef %call.i535, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 27))
   %id928 = getelementptr inbounds i8, ptr %ref.tmp925, i64 32
   store i32 30, ptr %id928, align 8
@@ -6581,7 +6581,7 @@ if.then913:                                       ; preds = %if.end900
   br i1 %cmp.not.i.i540, label %if.else.i.i545, label %if.then.i.i541
 
 if.then.i.i541:                                   ; preds = %if.then913
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp925) #19
   %id.i.i.i.i.i542 = getelementptr inbounds i8, ptr %156, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i542, ptr noundef nonnull align 8 dereferenceable(16) %id928, i64 16, i1 false)
   %158 = load ptr, ptr %_M_finish.i.i538, align 8
@@ -6595,7 +6595,7 @@ if.else.i.i545:                                   ; preds = %if.then913
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit546
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit546: ; preds = %if.then.i.i541, %if.else.i.i545
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp925) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927) #19
   br label %if.end930
 
@@ -6612,7 +6612,7 @@ if.then943:                                       ; preds = %if.end930
   %call11.i2158 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %160) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957) #19
   %call.i547 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp955) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp955, ptr noundef %call.i547, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp955, ptr noundef %call.i547, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp955, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 37))
   %id958 = getelementptr inbounds i8, ptr %ref.tmp955, i64 32
   store i32 31, ptr %id958, align 8
@@ -6626,7 +6626,7 @@ if.then943:                                       ; preds = %if.end930
   br i1 %cmp.not.i.i552, label %if.else.i.i557, label %if.then.i.i553
 
 if.then.i.i553:                                   ; preds = %if.then943
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp955) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %161, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp955) #19
   %id.i.i.i.i.i554 = getelementptr inbounds i8, ptr %161, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i554, ptr noundef nonnull align 8 dereferenceable(16) %id958, i64 16, i1 false)
   %163 = load ptr, ptr %_M_finish.i.i550, align 8
@@ -6640,7 +6640,7 @@ if.else.i.i557:                                   ; preds = %if.then943
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit558
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit558: ; preds = %if.then.i.i553, %if.else.i.i557
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp955) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp955) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp957) #19
   br label %if.end960
 
@@ -6657,7 +6657,7 @@ if.then973:                                       ; preds = %if.end960
   %call11.i2150 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %165) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987) #19
   %call.i559 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp985) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp985, ptr noundef %call.i559, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp985, ptr noundef %call.i559, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp985, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.36, i64 29))
   %id988 = getelementptr inbounds i8, ptr %ref.tmp985, i64 32
   store i32 32, ptr %id988, align 8
@@ -6671,7 +6671,7 @@ if.then973:                                       ; preds = %if.end960
   br i1 %cmp.not.i.i564, label %if.else.i.i569, label %if.then.i.i565
 
 if.then.i.i565:                                   ; preds = %if.then973
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp985) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %166, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp985) #19
   %id.i.i.i.i.i566 = getelementptr inbounds i8, ptr %166, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i566, ptr noundef nonnull align 8 dereferenceable(16) %id988, i64 16, i1 false)
   %168 = load ptr, ptr %_M_finish.i.i562, align 8
@@ -6685,7 +6685,7 @@ if.else.i.i569:                                   ; preds = %if.then973
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit570
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit570: ; preds = %if.then.i.i565, %if.else.i.i569
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp985) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp985) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987) #19
   br label %if.end990
 
@@ -6702,7 +6702,7 @@ if.then1003:                                      ; preds = %if.end990
   %call11.i2142 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %170) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017) #19
   %call.i571 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1015, ptr noundef %call.i571, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015, ptr noundef %call.i571, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.37, i64 28))
   %id1018 = getelementptr inbounds i8, ptr %ref.tmp1015, i64 32
   store i32 33, ptr %id1018, align 8
@@ -6716,7 +6716,7 @@ if.then1003:                                      ; preds = %if.end990
   br i1 %cmp.not.i.i576, label %if.else.i.i581, label %if.then.i.i577
 
 if.then.i.i577:                                   ; preds = %if.then1003
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %171, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1015) #19
   %id.i.i.i.i.i578 = getelementptr inbounds i8, ptr %171, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i578, ptr noundef nonnull align 8 dereferenceable(16) %id1018, i64 16, i1 false)
   %173 = load ptr, ptr %_M_finish.i.i574, align 8
@@ -6730,7 +6730,7 @@ if.else.i.i581:                                   ; preds = %if.then1003
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit582
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit582: ; preds = %if.then.i.i577, %if.else.i.i581
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1015) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1017) #19
   br label %if.end1020
 
@@ -6747,7 +6747,7 @@ if.then1033:                                      ; preds = %if.end1020
   %call11.i2134 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %175) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047) #19
   %call.i583 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1045) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1045, ptr noundef %call.i583, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1045, ptr noundef %call.i583, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1045, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 32))
   %id1048 = getelementptr inbounds i8, ptr %ref.tmp1045, i64 32
   store i32 34, ptr %id1048, align 8
@@ -6761,7 +6761,7 @@ if.then1033:                                      ; preds = %if.end1020
   br i1 %cmp.not.i.i588, label %if.else.i.i593, label %if.then.i.i589
 
 if.then.i.i589:                                   ; preds = %if.then1033
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1045) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %176, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1045) #19
   %id.i.i.i.i.i590 = getelementptr inbounds i8, ptr %176, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i590, ptr noundef nonnull align 8 dereferenceable(16) %id1048, i64 16, i1 false)
   %178 = load ptr, ptr %_M_finish.i.i586, align 8
@@ -6775,7 +6775,7 @@ if.else.i.i593:                                   ; preds = %if.then1033
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit594
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit594: ; preds = %if.then.i.i589, %if.else.i.i593
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1045) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1045) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047) #19
   br label %if.end1050
 
@@ -6792,7 +6792,7 @@ if.then1063:                                      ; preds = %if.end1050
   %call11.i2126 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %180) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077) #19
   %call.i595 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1075) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1075, ptr noundef %call.i595, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1075, ptr noundef %call.i595, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1075, ptr noundef nonnull @.str.39, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.39, i64 35))
   %id1078 = getelementptr inbounds i8, ptr %ref.tmp1075, i64 32
   store i32 35, ptr %id1078, align 8
@@ -6806,7 +6806,7 @@ if.then1063:                                      ; preds = %if.end1050
   br i1 %cmp.not.i.i600, label %if.else.i.i605, label %if.then.i.i601
 
 if.then.i.i601:                                   ; preds = %if.then1063
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1075) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %181, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1075) #19
   %id.i.i.i.i.i602 = getelementptr inbounds i8, ptr %181, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i602, ptr noundef nonnull align 8 dereferenceable(16) %id1078, i64 16, i1 false)
   %183 = load ptr, ptr %_M_finish.i.i598, align 8
@@ -6820,7 +6820,7 @@ if.else.i.i605:                                   ; preds = %if.then1063
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit606
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit606: ; preds = %if.then.i.i601, %if.else.i.i605
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1075) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1075) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1077) #19
   br label %if.end1080
 
@@ -6837,7 +6837,7 @@ if.then1093:                                      ; preds = %if.end1080
   %call11.i2446 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %185) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107) #19
   %call.i607 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1105) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1105, ptr noundef %call.i607, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1105, ptr noundef %call.i607, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1105, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.40, i64 12))
   %id1108 = getelementptr inbounds i8, ptr %ref.tmp1105, i64 32
   store i32 36, ptr %id1108, align 8
@@ -6851,7 +6851,7 @@ if.then1093:                                      ; preds = %if.end1080
   br i1 %cmp.not.i.i612, label %if.else.i.i617, label %if.then.i.i613
 
 if.then.i.i613:                                   ; preds = %if.then1093
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1105) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %186, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1105) #19
   %id.i.i.i.i.i614 = getelementptr inbounds i8, ptr %186, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i614, ptr noundef nonnull align 8 dereferenceable(16) %id1108, i64 16, i1 false)
   %188 = load ptr, ptr %_M_finish.i.i610, align 8
@@ -6865,7 +6865,7 @@ if.else.i.i617:                                   ; preds = %if.then1093
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit618
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit618: ; preds = %if.then.i.i613, %if.else.i.i617
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1105) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1105) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107) #19
   br label %if.end1110
 
@@ -6882,7 +6882,7 @@ if.then1123:                                      ; preds = %if.end1110
   %call11.i2118 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %190) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137) #19
   %call.i619 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1135) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1135, ptr noundef %call.i619, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1135, ptr noundef %call.i619, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1135, ptr noundef nonnull @.str.41, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.41, i64 22))
   %id1138 = getelementptr inbounds i8, ptr %ref.tmp1135, i64 32
   store i32 37, ptr %id1138, align 8
@@ -6896,7 +6896,7 @@ if.then1123:                                      ; preds = %if.end1110
   br i1 %cmp.not.i.i624, label %if.else.i.i629, label %if.then.i.i625
 
 if.then.i.i625:                                   ; preds = %if.then1123
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1135) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %191, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1135) #19
   %id.i.i.i.i.i626 = getelementptr inbounds i8, ptr %191, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i626, ptr noundef nonnull align 8 dereferenceable(16) %id1138, i64 16, i1 false)
   %193 = load ptr, ptr %_M_finish.i.i622, align 8
@@ -6910,7 +6910,7 @@ if.else.i.i629:                                   ; preds = %if.then1123
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit630
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit630: ; preds = %if.then.i.i625, %if.else.i.i629
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1135) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1135) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1137) #19
   br label %if.end1140
 
@@ -6927,7 +6927,7 @@ if.then1153:                                      ; preds = %if.end1140
   %call11.i2110 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %195) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167) #19
   %call.i631 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1165) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1165, ptr noundef %call.i631, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1165, ptr noundef %call.i631, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1165, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 26))
   %id1168 = getelementptr inbounds i8, ptr %ref.tmp1165, i64 32
   store i32 38, ptr %id1168, align 8
@@ -6941,7 +6941,7 @@ if.then1153:                                      ; preds = %if.end1140
   br i1 %cmp.not.i.i636, label %if.else.i.i641, label %if.then.i.i637
 
 if.then.i.i637:                                   ; preds = %if.then1153
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1165) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1165) #19
   %id.i.i.i.i.i638 = getelementptr inbounds i8, ptr %196, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i638, ptr noundef nonnull align 8 dereferenceable(16) %id1168, i64 16, i1 false)
   %198 = load ptr, ptr %_M_finish.i.i634, align 8
@@ -6955,7 +6955,7 @@ if.else.i.i641:                                   ; preds = %if.then1153
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit642
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit642: ; preds = %if.then.i.i637, %if.else.i.i641
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1165) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1165) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167) #19
   br label %if.end1170
 
@@ -6972,7 +6972,7 @@ if.then1183:                                      ; preds = %if.end1170
   %call11.i2102 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %200) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197) #19
   %call.i643 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1195) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1195, ptr noundef %call.i643, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1195, ptr noundef %call.i643, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1195, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.43, i64 28))
   %id1198 = getelementptr inbounds i8, ptr %ref.tmp1195, i64 32
   store i32 39, ptr %id1198, align 8
@@ -6986,7 +6986,7 @@ if.then1183:                                      ; preds = %if.end1170
   br i1 %cmp.not.i.i648, label %if.else.i.i653, label %if.then.i.i649
 
 if.then.i.i649:                                   ; preds = %if.then1183
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1195) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %201, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1195) #19
   %id.i.i.i.i.i650 = getelementptr inbounds i8, ptr %201, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i650, ptr noundef nonnull align 8 dereferenceable(16) %id1198, i64 16, i1 false)
   %203 = load ptr, ptr %_M_finish.i.i646, align 8
@@ -7000,7 +7000,7 @@ if.else.i.i653:                                   ; preds = %if.then1183
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit654
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit654: ; preds = %if.then.i.i649, %if.else.i.i653
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1195) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1195) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1197) #19
   br label %if.end1200
 
@@ -7017,7 +7017,7 @@ if.then1213:                                      ; preds = %if.end1200
   %call11.i2438 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %205) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227) #19
   %call.i655 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1225) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1225, ptr noundef %call.i655, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1225, ptr noundef %call.i655, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1225, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.44, i64 14))
   %id1228 = getelementptr inbounds i8, ptr %ref.tmp1225, i64 32
   store i32 40, ptr %id1228, align 8
@@ -7031,7 +7031,7 @@ if.then1213:                                      ; preds = %if.end1200
   br i1 %cmp.not.i.i660, label %if.else.i.i665, label %if.then.i.i661
 
 if.then.i.i661:                                   ; preds = %if.then1213
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1225) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %206, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1225) #19
   %id.i.i.i.i.i662 = getelementptr inbounds i8, ptr %206, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i662, ptr noundef nonnull align 8 dereferenceable(16) %id1228, i64 16, i1 false)
   %208 = load ptr, ptr %_M_finish.i.i658, align 8
@@ -7045,7 +7045,7 @@ if.else.i.i665:                                   ; preds = %if.then1213
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit666
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit666: ; preds = %if.then.i.i661, %if.else.i.i665
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1225) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1225) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227) #19
   br label %if.end1230
 
@@ -7062,7 +7062,7 @@ if.then1243:                                      ; preds = %if.end1230
   %call11.i2430 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %210) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1257) #19
   %call.i667 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1255) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1255, ptr noundef %call.i667, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1257) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1255, ptr noundef %call.i667, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1257) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1255, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 11))
   %id1258 = getelementptr inbounds i8, ptr %ref.tmp1255, i64 32
   store i32 41, ptr %id1258, align 8
@@ -7076,7 +7076,7 @@ if.then1243:                                      ; preds = %if.end1230
   br i1 %cmp.not.i.i672, label %if.else.i.i677, label %if.then.i.i673
 
 if.then.i.i673:                                   ; preds = %if.then1243
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1255) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %211, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1255) #19
   %id.i.i.i.i.i674 = getelementptr inbounds i8, ptr %211, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i674, ptr noundef nonnull align 8 dereferenceable(16) %id1258, i64 16, i1 false)
   %213 = load ptr, ptr %_M_finish.i.i670, align 8
@@ -7090,7 +7090,7 @@ if.else.i.i677:                                   ; preds = %if.then1243
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit678
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit678: ; preds = %if.then.i.i673, %if.else.i.i677
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1255) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1255) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1257) #19
   br label %if.end1260
 
@@ -7107,7 +7107,7 @@ if.then1273:                                      ; preds = %if.end1260
   %call11.i2422 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %215) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1287) #19
   %call.i679 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1285, ptr noundef %call.i679, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1287) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285, ptr noundef %call.i679, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1287) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.46, i64 37))
   %id1288 = getelementptr inbounds i8, ptr %ref.tmp1285, i64 32
   store i32 42, ptr %id1288, align 8
@@ -7121,7 +7121,7 @@ if.then1273:                                      ; preds = %if.end1260
   br i1 %cmp.not.i.i684, label %if.else.i.i689, label %if.then.i.i685
 
 if.then.i.i685:                                   ; preds = %if.then1273
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %216, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1285) #19
   %id.i.i.i.i.i686 = getelementptr inbounds i8, ptr %216, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i686, ptr noundef nonnull align 8 dereferenceable(16) %id1288, i64 16, i1 false)
   %218 = load ptr, ptr %_M_finish.i.i682, align 8
@@ -7135,7 +7135,7 @@ if.else.i.i689:                                   ; preds = %if.then1273
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit690
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit690: ; preds = %if.then.i.i685, %if.else.i.i689
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1285) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1287) #19
   br label %if.end1290
 
@@ -7152,7 +7152,7 @@ if.then1303:                                      ; preds = %if.end1290
   %call11.i2414 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %220) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1317) #19
   %call.i691 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1315) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1315, ptr noundef %call.i691, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1317) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1315, ptr noundef %call.i691, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1317) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1315, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 37))
   %id1318 = getelementptr inbounds i8, ptr %ref.tmp1315, i64 32
   store i32 43, ptr %id1318, align 8
@@ -7166,7 +7166,7 @@ if.then1303:                                      ; preds = %if.end1290
   br i1 %cmp.not.i.i696, label %if.else.i.i701, label %if.then.i.i697
 
 if.then.i.i697:                                   ; preds = %if.then1303
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %221, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1315) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %221, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1315) #19
   %id.i.i.i.i.i698 = getelementptr inbounds i8, ptr %221, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i698, ptr noundef nonnull align 8 dereferenceable(16) %id1318, i64 16, i1 false)
   %223 = load ptr, ptr %_M_finish.i.i694, align 8
@@ -7180,7 +7180,7 @@ if.else.i.i701:                                   ; preds = %if.then1303
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit702
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit702: ; preds = %if.then.i.i697, %if.else.i.i701
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1315) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1315) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1317) #19
   br label %if.end1320
 
@@ -7197,7 +7197,7 @@ if.then1333:                                      ; preds = %if.end1320
   %call11.i2406 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %225) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1347) #19
   %call.i703 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1345) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1345, ptr noundef %call.i703, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1347) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1345, ptr noundef %call.i703, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1347) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1345, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 42))
   %id1348 = getelementptr inbounds i8, ptr %ref.tmp1345, i64 32
   store i32 44, ptr %id1348, align 8
@@ -7211,7 +7211,7 @@ if.then1333:                                      ; preds = %if.end1320
   br i1 %cmp.not.i.i708, label %if.else.i.i713, label %if.then.i.i709
 
 if.then.i.i709:                                   ; preds = %if.then1333
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1345) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %226, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1345) #19
   %id.i.i.i.i.i710 = getelementptr inbounds i8, ptr %226, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i710, ptr noundef nonnull align 8 dereferenceable(16) %id1348, i64 16, i1 false)
   %228 = load ptr, ptr %_M_finish.i.i706, align 8
@@ -7225,7 +7225,7 @@ if.else.i.i713:                                   ; preds = %if.then1333
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit714
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit714: ; preds = %if.then.i.i709, %if.else.i.i713
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1345) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1345) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1347) #19
   br label %if.end1350
 
@@ -7242,7 +7242,7 @@ if.then1363:                                      ; preds = %if.end1350
   %call11.i2398 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %230) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1377) #19
   %call.i715 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1375) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1375, ptr noundef %call.i715, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1377) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1375, ptr noundef %call.i715, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1377) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1375, ptr noundef nonnull @.str.49, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.49, i64 42))
   %id1378 = getelementptr inbounds i8, ptr %ref.tmp1375, i64 32
   store i32 45, ptr %id1378, align 8
@@ -7256,7 +7256,7 @@ if.then1363:                                      ; preds = %if.end1350
   br i1 %cmp.not.i.i720, label %if.else.i.i725, label %if.then.i.i721
 
 if.then.i.i721:                                   ; preds = %if.then1363
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1375) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %231, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1375) #19
   %id.i.i.i.i.i722 = getelementptr inbounds i8, ptr %231, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i722, ptr noundef nonnull align 8 dereferenceable(16) %id1378, i64 16, i1 false)
   %233 = load ptr, ptr %_M_finish.i.i718, align 8
@@ -7270,7 +7270,7 @@ if.else.i.i725:                                   ; preds = %if.then1363
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit726
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit726: ; preds = %if.then.i.i721, %if.else.i.i725
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1375) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1375) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1377) #19
   br label %if.end1380
 
@@ -7287,7 +7287,7 @@ if.then1393:                                      ; preds = %if.end1380
   %call11.i2094 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %235) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1407) #19
   %call.i727 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1405, ptr noundef %call.i727, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1407) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405, ptr noundef %call.i727, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1407) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 20))
   %id1408 = getelementptr inbounds i8, ptr %ref.tmp1405, i64 32
   store i32 46, ptr %id1408, align 8
@@ -7301,7 +7301,7 @@ if.then1393:                                      ; preds = %if.end1380
   br i1 %cmp.not.i.i732, label %if.else.i.i737, label %if.then.i.i733
 
 if.then.i.i733:                                   ; preds = %if.then1393
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %236, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %236, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1405) #19
   %id.i.i.i.i.i734 = getelementptr inbounds i8, ptr %236, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i734, ptr noundef nonnull align 8 dereferenceable(16) %id1408, i64 16, i1 false)
   %238 = load ptr, ptr %_M_finish.i.i730, align 8
@@ -7315,7 +7315,7 @@ if.else.i.i737:                                   ; preds = %if.then1393
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit738
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit738: ; preds = %if.then.i.i733, %if.else.i.i737
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1405) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1407) #19
   br label %if.end1410
 
@@ -7332,7 +7332,7 @@ if.then1423:                                      ; preds = %if.end1410
   %call11.i2086 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %240) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1437) #19
   %call.i739 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1435) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1435, ptr noundef %call.i739, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1437) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1435, ptr noundef %call.i739, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1437) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1435, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 23))
   %id1438 = getelementptr inbounds i8, ptr %ref.tmp1435, i64 32
   store i32 47, ptr %id1438, align 8
@@ -7346,7 +7346,7 @@ if.then1423:                                      ; preds = %if.end1410
   br i1 %cmp.not.i.i744, label %if.else.i.i749, label %if.then.i.i745
 
 if.then.i.i745:                                   ; preds = %if.then1423
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1435) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %241, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1435) #19
   %id.i.i.i.i.i746 = getelementptr inbounds i8, ptr %241, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i746, ptr noundef nonnull align 8 dereferenceable(16) %id1438, i64 16, i1 false)
   %243 = load ptr, ptr %_M_finish.i.i742, align 8
@@ -7360,7 +7360,7 @@ if.else.i.i749:                                   ; preds = %if.then1423
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit750
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit750: ; preds = %if.then.i.i745, %if.else.i.i749
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1435) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1435) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1437) #19
   br label %if.end1440
 
@@ -7377,7 +7377,7 @@ if.then1453:                                      ; preds = %if.end1440
   %call11.i2078 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %245) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1467) #19
   %call.i751 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1465, ptr noundef %call.i751, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1467) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465, ptr noundef %call.i751, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1467) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.52, i64 27))
   %id1468 = getelementptr inbounds i8, ptr %ref.tmp1465, i64 32
   store i32 48, ptr %id1468, align 8
@@ -7391,7 +7391,7 @@ if.then1453:                                      ; preds = %if.end1440
   br i1 %cmp.not.i.i756, label %if.else.i.i761, label %if.then.i.i757
 
 if.then.i.i757:                                   ; preds = %if.then1453
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %246, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1465) #19
   %id.i.i.i.i.i758 = getelementptr inbounds i8, ptr %246, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i758, ptr noundef nonnull align 8 dereferenceable(16) %id1468, i64 16, i1 false)
   %248 = load ptr, ptr %_M_finish.i.i754, align 8
@@ -7405,7 +7405,7 @@ if.else.i.i761:                                   ; preds = %if.then1453
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit762
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit762: ; preds = %if.then.i.i757, %if.else.i.i761
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1465) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1467) #19
   br label %if.end1470
 
@@ -7422,7 +7422,7 @@ if.then1483:                                      ; preds = %if.end1470
   %call11.i2070 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %250) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1497) #19
   %call.i763 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1495) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1495, ptr noundef %call.i763, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1497) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1495, ptr noundef %call.i763, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1497) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1495, ptr noundef nonnull @.str.53, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.53, i64 29))
   %id1498 = getelementptr inbounds i8, ptr %ref.tmp1495, i64 32
   store i32 49, ptr %id1498, align 8
@@ -7436,7 +7436,7 @@ if.then1483:                                      ; preds = %if.end1470
   br i1 %cmp.not.i.i768, label %if.else.i.i773, label %if.then.i.i769
 
 if.then.i.i769:                                   ; preds = %if.then1483
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1495) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %251, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1495) #19
   %id.i.i.i.i.i770 = getelementptr inbounds i8, ptr %251, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i770, ptr noundef nonnull align 8 dereferenceable(16) %id1498, i64 16, i1 false)
   %253 = load ptr, ptr %_M_finish.i.i766, align 8
@@ -7450,7 +7450,7 @@ if.else.i.i773:                                   ; preds = %if.then1483
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit774
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit774: ; preds = %if.then.i.i769, %if.else.i.i773
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1495) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1495) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1497) #19
   br label %if.end1500
 
@@ -7467,7 +7467,7 @@ if.then1513:                                      ; preds = %if.end1500
   %call11.i2062 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %255) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1527) #19
   %call.i775 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1525) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1525, ptr noundef %call.i775, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1527) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1525, ptr noundef %call.i775, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1527) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1525, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 25))
   %id1528 = getelementptr inbounds i8, ptr %ref.tmp1525, i64 32
   store i32 50, ptr %id1528, align 8
@@ -7481,7 +7481,7 @@ if.then1513:                                      ; preds = %if.end1500
   br i1 %cmp.not.i.i780, label %if.else.i.i785, label %if.then.i.i781
 
 if.then.i.i781:                                   ; preds = %if.then1513
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1525) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %256, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1525) #19
   %id.i.i.i.i.i782 = getelementptr inbounds i8, ptr %256, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i782, ptr noundef nonnull align 8 dereferenceable(16) %id1528, i64 16, i1 false)
   %258 = load ptr, ptr %_M_finish.i.i778, align 8
@@ -7495,7 +7495,7 @@ if.else.i.i785:                                   ; preds = %if.then1513
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit786
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit786: ; preds = %if.then.i.i781, %if.else.i.i785
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1525) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1525) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1527) #19
   br label %if.end1530
 
@@ -7512,7 +7512,7 @@ if.then1543:                                      ; preds = %if.end1530
   %call11.i2054 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %260) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1557) #19
   %call.i787 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1555) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1555, ptr noundef %call.i787, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1557) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1555, ptr noundef %call.i787, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1557) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1555, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.55, i64 23))
   %id1558 = getelementptr inbounds i8, ptr %ref.tmp1555, i64 32
   store i32 51, ptr %id1558, align 8
@@ -7526,7 +7526,7 @@ if.then1543:                                      ; preds = %if.end1530
   br i1 %cmp.not.i.i792, label %if.else.i.i797, label %if.then.i.i793
 
 if.then.i.i793:                                   ; preds = %if.then1543
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1555) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %261, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1555) #19
   %id.i.i.i.i.i794 = getelementptr inbounds i8, ptr %261, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i794, ptr noundef nonnull align 8 dereferenceable(16) %id1558, i64 16, i1 false)
   %263 = load ptr, ptr %_M_finish.i.i790, align 8
@@ -7540,7 +7540,7 @@ if.else.i.i797:                                   ; preds = %if.then1543
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit798
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit798: ; preds = %if.then.i.i793, %if.else.i.i797
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1555) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1555) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1557) #19
   br label %if.end1560
 
@@ -7557,7 +7557,7 @@ if.then1573:                                      ; preds = %if.end1560
   %call11.i2046 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %265) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1587) #19
   %call.i799 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1585, ptr noundef %call.i799, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1587) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585, ptr noundef %call.i799, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1587) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585, ptr noundef nonnull @.str.56, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.56, i64 22))
   %id1588 = getelementptr inbounds i8, ptr %ref.tmp1585, i64 32
   store i32 52, ptr %id1588, align 8
@@ -7571,7 +7571,7 @@ if.then1573:                                      ; preds = %if.end1560
   br i1 %cmp.not.i.i804, label %if.else.i.i809, label %if.then.i.i805
 
 if.then.i.i805:                                   ; preds = %if.then1573
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %266, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1585) #19
   %id.i.i.i.i.i806 = getelementptr inbounds i8, ptr %266, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i806, ptr noundef nonnull align 8 dereferenceable(16) %id1588, i64 16, i1 false)
   %268 = load ptr, ptr %_M_finish.i.i802, align 8
@@ -7585,7 +7585,7 @@ if.else.i.i809:                                   ; preds = %if.then1573
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit810
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit810: ; preds = %if.then.i.i805, %if.else.i.i809
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1585) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1587) #19
   br label %if.end1590
 
@@ -7602,7 +7602,7 @@ if.then1603:                                      ; preds = %if.end1590
   %call11.i2038 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %270) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1617) #19
   %call.i811 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1615, ptr noundef %call.i811, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1617) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615, ptr noundef %call.i811, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1617) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615, ptr noundef nonnull @.str.57, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.57, i64 24))
   %id1618 = getelementptr inbounds i8, ptr %ref.tmp1615, i64 32
   store i32 53, ptr %id1618, align 8
@@ -7616,7 +7616,7 @@ if.then1603:                                      ; preds = %if.end1590
   br i1 %cmp.not.i.i816, label %if.else.i.i821, label %if.then.i.i817
 
 if.then.i.i817:                                   ; preds = %if.then1603
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %271, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1615) #19
   %id.i.i.i.i.i818 = getelementptr inbounds i8, ptr %271, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i818, ptr noundef nonnull align 8 dereferenceable(16) %id1618, i64 16, i1 false)
   %273 = load ptr, ptr %_M_finish.i.i814, align 8
@@ -7630,7 +7630,7 @@ if.else.i.i821:                                   ; preds = %if.then1603
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit822
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit822: ; preds = %if.then.i.i817, %if.else.i.i821
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1615) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1617) #19
   br label %if.end1620
 
@@ -7647,7 +7647,7 @@ if.then1633:                                      ; preds = %if.end1620
   %call11.i2030 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %275) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1647) #19
   %call.i823 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1645) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1645, ptr noundef %call.i823, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1647) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1645, ptr noundef %call.i823, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1647) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1645, ptr noundef nonnull @.str.58, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 29))
   %id1648 = getelementptr inbounds i8, ptr %ref.tmp1645, i64 32
   store i32 54, ptr %id1648, align 8
@@ -7661,7 +7661,7 @@ if.then1633:                                      ; preds = %if.end1620
   br i1 %cmp.not.i.i828, label %if.else.i.i833, label %if.then.i.i829
 
 if.then.i.i829:                                   ; preds = %if.then1633
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1645) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %276, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1645) #19
   %id.i.i.i.i.i830 = getelementptr inbounds i8, ptr %276, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i830, ptr noundef nonnull align 8 dereferenceable(16) %id1648, i64 16, i1 false)
   %278 = load ptr, ptr %_M_finish.i.i826, align 8
@@ -7675,7 +7675,7 @@ if.else.i.i833:                                   ; preds = %if.then1633
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit834
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit834: ; preds = %if.then.i.i829, %if.else.i.i833
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1645) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1645) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1647) #19
   br label %if.end1650
 
@@ -7692,7 +7692,7 @@ if.then1663:                                      ; preds = %if.end1650
   %call11.i2022 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %280) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1677) #19
   %call.i835 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1675) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1675, ptr noundef %call.i835, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1677) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1675, ptr noundef %call.i835, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1677) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1675, ptr noundef nonnull @.str.59, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 29))
   %id1678 = getelementptr inbounds i8, ptr %ref.tmp1675, i64 32
   store i32 55, ptr %id1678, align 8
@@ -7706,7 +7706,7 @@ if.then1663:                                      ; preds = %if.end1650
   br i1 %cmp.not.i.i840, label %if.else.i.i845, label %if.then.i.i841
 
 if.then.i.i841:                                   ; preds = %if.then1663
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1675) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %281, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1675) #19
   %id.i.i.i.i.i842 = getelementptr inbounds i8, ptr %281, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i842, ptr noundef nonnull align 8 dereferenceable(16) %id1678, i64 16, i1 false)
   %283 = load ptr, ptr %_M_finish.i.i838, align 8
@@ -7720,7 +7720,7 @@ if.else.i.i845:                                   ; preds = %if.then1663
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit846
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit846: ; preds = %if.then.i.i841, %if.else.i.i845
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1675) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1675) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1677) #19
   br label %if.end1680
 
@@ -7737,7 +7737,7 @@ if.then1693:                                      ; preds = %if.end1680
   %call11.i2014 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %285) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1707) #19
   %call.i847 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1705) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1705, ptr noundef %call.i847, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1707) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1705, ptr noundef %call.i847, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1707) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1705, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 24))
   %id1708 = getelementptr inbounds i8, ptr %ref.tmp1705, i64 32
   store i32 56, ptr %id1708, align 8
@@ -7751,7 +7751,7 @@ if.then1693:                                      ; preds = %if.end1680
   br i1 %cmp.not.i.i852, label %if.else.i.i857, label %if.then.i.i853
 
 if.then.i.i853:                                   ; preds = %if.then1693
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1705) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %286, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1705) #19
   %id.i.i.i.i.i854 = getelementptr inbounds i8, ptr %286, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i854, ptr noundef nonnull align 8 dereferenceable(16) %id1708, i64 16, i1 false)
   %288 = load ptr, ptr %_M_finish.i.i850, align 8
@@ -7765,7 +7765,7 @@ if.else.i.i857:                                   ; preds = %if.then1693
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit858
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit858: ; preds = %if.then.i.i853, %if.else.i.i857
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1705) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1705) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1707) #19
   br label %if.end1710
 
@@ -7782,7 +7782,7 @@ if.then1723:                                      ; preds = %if.end1710
   %call11.i2006 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %290) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1737) #19
   %call.i859 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1735) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1735, ptr noundef %call.i859, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1737) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1735, ptr noundef %call.i859, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1737) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1735, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 24))
   %id1738 = getelementptr inbounds i8, ptr %ref.tmp1735, i64 32
   store i32 57, ptr %id1738, align 8
@@ -7796,7 +7796,7 @@ if.then1723:                                      ; preds = %if.end1710
   br i1 %cmp.not.i.i864, label %if.else.i.i869, label %if.then.i.i865
 
 if.then.i.i865:                                   ; preds = %if.then1723
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1735) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %291, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1735) #19
   %id.i.i.i.i.i866 = getelementptr inbounds i8, ptr %291, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i866, ptr noundef nonnull align 8 dereferenceable(16) %id1738, i64 16, i1 false)
   %293 = load ptr, ptr %_M_finish.i.i862, align 8
@@ -7810,7 +7810,7 @@ if.else.i.i869:                                   ; preds = %if.then1723
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit870
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit870: ; preds = %if.then.i.i865, %if.else.i.i869
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1735) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1735) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1737) #19
   br label %if.end1740
 
@@ -7827,7 +7827,7 @@ if.then1753:                                      ; preds = %if.end1740
   %call11.i1998 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %295) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1767) #19
   %call.i871 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1765) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1765, ptr noundef %call.i871, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1767) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1765, ptr noundef %call.i871, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1767) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1765, ptr noundef nonnull @.str.62, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 31))
   %id1768 = getelementptr inbounds i8, ptr %ref.tmp1765, i64 32
   store i32 58, ptr %id1768, align 8
@@ -7841,7 +7841,7 @@ if.then1753:                                      ; preds = %if.end1740
   br i1 %cmp.not.i.i876, label %if.else.i.i881, label %if.then.i.i877
 
 if.then.i.i877:                                   ; preds = %if.then1753
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %296, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1765) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %296, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1765) #19
   %id.i.i.i.i.i878 = getelementptr inbounds i8, ptr %296, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i878, ptr noundef nonnull align 8 dereferenceable(16) %id1768, i64 16, i1 false)
   %298 = load ptr, ptr %_M_finish.i.i874, align 8
@@ -7855,7 +7855,7 @@ if.else.i.i881:                                   ; preds = %if.then1753
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit882
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit882: ; preds = %if.then.i.i877, %if.else.i.i881
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1765) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1765) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1767) #19
   br label %if.end1770
 
@@ -7872,7 +7872,7 @@ if.then1783:                                      ; preds = %if.end1770
   %call11.i = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call, i64 noundef %300) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1797) #19
   %call.i883 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1795) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1795, ptr noundef %call.i883, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1797) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1795, ptr noundef %call.i883, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1797) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1795, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 33))
   %id1798 = getelementptr inbounds i8, ptr %ref.tmp1795, i64 32
   store i32 59, ptr %id1798, align 8
@@ -7886,7 +7886,7 @@ if.then1783:                                      ; preds = %if.end1770
   br i1 %cmp.not.i.i888, label %if.else.i.i893, label %if.then.i.i889
 
 if.then.i.i889:                                   ; preds = %if.then1783
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %301, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1795) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %301, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1795) #19
   %id.i.i.i.i.i890 = getelementptr inbounds i8, ptr %301, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i890, ptr noundef nonnull align 8 dereferenceable(16) %id1798, i64 16, i1 false)
   %303 = load ptr, ptr %_M_finish.i.i886, align 8
@@ -7900,7 +7900,7 @@ if.else.i.i893:                                   ; preds = %if.then1783
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit894
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EE9push_backEOS1_.exit894: ; preds = %if.then.i.i889, %if.else.i.i893
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1795) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1795) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1797) #19
   br label %if.end1800
 
@@ -10677,7 +10677,7 @@ do.end7:                                          ; preds = %entry
   %env_.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %env_.i.i, align 8
   %builtin_loader_.i.i = getelementptr inbounds i8, ptr %4, i64 2736
-  %call10.i = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i, ptr %call2.i, ptr noundef nonnull @.str.148, ptr noundef nonnull %this) #19
+  %call10.i = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i, ptr %call2.i, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %cmp.i.i.i1 = icmp eq ptr %call10.i, null
   br i1 %cmp.i.i.i1, label %if.then.i, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit
 
@@ -13530,7 +13530,7 @@ entry:
   %env_.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %env_.i.i, align 8
   %builtin_loader_.i.i = getelementptr inbounds i8, ptr %3, i64 2736
-  %call10.i = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i, ptr %call2.i, ptr noundef nonnull @.str.164, ptr noundef nonnull %this) #19
+  %call10.i = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i, ptr %call2.i, ptr noundef nonnull @.str.164, ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %cmp.i.i.i = icmp eq ptr %call10.i, null
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit
 
@@ -13565,7 +13565,7 @@ if.then7:                                         ; preds = %if.end
   %call2.i11 = call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %9 = load ptr, ptr %env_.i.i, align 8
   %builtin_loader_.i.i13 = getelementptr inbounds i8, ptr %9, i64 2736
-  %call10.i14 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i13, ptr %call2.i11, ptr noundef nonnull @.str.165, ptr noundef nonnull %this) #19
+  %call10.i14 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i13, ptr %call2.i11, ptr noundef nonnull @.str.165, ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %cmp.i.i.i15 = icmp eq ptr %call10.i14, null
   br i1 %cmp.i.i.i15, label %if.then.i17, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit19
 
@@ -13592,7 +13592,7 @@ lor.rhs:                                          ; preds = %_ZN4node5Realm19Exe
   %call2.i24 = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %13 = load ptr, ptr %env_.i.i, align 8
   %builtin_loader_.i.i26 = getelementptr inbounds i8, ptr %13, i64 2736
-  %call10.i27 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i26, ptr %call2.i24, ptr noundef nonnull @.str.166, ptr noundef nonnull %this) #19
+  %call10.i27 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i26, ptr %call2.i24, ptr noundef nonnull @.str.166, ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %cmp.i.i.i28 = icmp eq ptr %call10.i27, null
   br i1 %cmp.i.i.i28, label %if.then.i30, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit32
 
@@ -13630,7 +13630,7 @@ if.end24:                                         ; preds = %_ZN4node5Realm19Exe
   %call2.i37 = call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %20 = load ptr, ptr %env_.i.i, align 8
   %builtin_loader_.i.i39 = getelementptr inbounds i8, ptr %20, i64 2736
-  %call10.i40 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i39, ptr %call2.i37, ptr noundef nonnull %cond, ptr noundef nonnull %this) #19
+  %call10.i40 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i39, ptr %call2.i37, ptr noundef nonnull %cond, ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %cmp.i.i.i41 = icmp eq ptr %call10.i40, null
   br i1 %cmp.i.i.i41, label %if.then.i43, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit45
 
@@ -13663,7 +13663,7 @@ if.end35:                                         ; preds = %_ZN4node5Realm19Exe
   %call2.i53 = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %26 = load ptr, ptr %env_.i.i, align 8
   %builtin_loader_.i.i55 = getelementptr inbounds i8, ptr %26, i64 2736
-  %call10.i56 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i55, ptr %call2.i53, ptr noundef nonnull %cond38, ptr noundef nonnull %this) #19
+  %call10.i56 = call ptr @_ZN4node8builtins13BuiltinLoader14CompileAndCallEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i.i55, ptr %call2.i53, ptr noundef nonnull %cond38, ptr noundef nonnull align 8 dereferenceable(872) %this) #19
   %cmp.i.i.i57 = icmp eq ptr %call10.i56, null
   br i1 %cmp.i.i.i57, label %if.then.i59, label %_ZN4node5Realm19ExecuteBootstrapperEPKc.exit61
 
@@ -14203,7 +14203,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -15203,7 +15203,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4nod
 _ZNSt12_Vector_baseIN4node8PropInfoESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4node8PropInfoESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4node8PropInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.node::PropInfo", ptr %cond.i10, i64 %sub.ptr.div.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, ptr noundef nonnull align 8 dereferenceable(48) %__args) #19
   %id.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %id3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %id3.i.i.i, i64 16, i1 false)
@@ -15213,11 +15213,11 @@ _ZNSt12_Vector_baseIN4node8PropInfoESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZN
 for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN4node8PropInfoESaIS1_EE11_M_allocateEm.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i10, %_ZNSt12_Vector_baseIN4node8PropInfoESaIS1_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4node8PropInfoESaIS1_EE11_M_allocateEm.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i) #19
   %id.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %id3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %id3.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !230
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i) #19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -15232,11 +15232,11 @@ _ZNSt6vectorIN4node8PropInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4node8PropInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i18, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorIN4node8PropInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN4node8PropInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i14) #19
   %id.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %id3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %id3.i.i.i.i.i.i.i16, i64 16, i1 false), !alias.scope !235
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i14) #19
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 48
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 48
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0

@@ -3262,7 +3262,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %cmp2.i, label %while.cond.i, label %if.end.i, !llvm.loop !23
 
 if.end.i:                                         ; preds = %while.body.i
-  call fastcc void @pp_cleanup(ptr noundef %pp, ptr noundef nonnull readonly %opts)
+  call fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr noundef nonnull readonly %opts)
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.68) #24
   unreachable
 

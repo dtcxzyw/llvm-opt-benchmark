@@ -794,7 +794,7 @@ clamp_value.exit.i.us.i:                          ; preds = %.lr.ph.i137.us.i, %
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %95, %90
-  %97 = call i64 @llvm.smin.i64(i64 %95, i64 %89)
+  %97 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %95, i64 range(i64 -9223372036854775808, 9223372036854775807) %89)
   %98 = select i1 %96, i64 %90, i64 %97
   %99 = trunc i64 %98 to i32
   store i32 %99, ptr %93, align 4
@@ -899,7 +899,7 @@ clamp_value.exit.i143.i:                          ; preds = %.lr.ph.i, %clamp_va
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %141, %90
-  %143 = call i64 @llvm.smin.i64(i64 %141, i64 %89)
+  %143 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %141, i64 range(i64 -9223372036854775808, 9223372036854775807) %89)
   %144 = select i1 %142, i64 %90, i64 %143
   %145 = trunc i64 %144 to i32
   store i32 %145, ptr %139, align 4
@@ -966,7 +966,7 @@ clamp_value.exit.i151.i:                          ; preds = %.lr.ph.i148.i, %cla
   %165 = load i32, ptr %164, align 4
   %166 = sext i32 %165 to i64
   %167 = icmp slt i64 %166, %133
-  %168 = call i64 @llvm.smin.i64(i64 %166, i64 %132)
+  %168 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %166, i64 range(i64 -9223372036854775808, 9223372036854775807) %132)
   %169 = select i1 %167, i64 %133, i64 %168
   %170 = trunc i64 %169 to i32
   store i32 %170, ptr %164, align 4

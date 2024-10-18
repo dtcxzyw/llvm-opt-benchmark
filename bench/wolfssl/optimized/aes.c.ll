@@ -4849,7 +4849,7 @@ if.then.i:                                        ; preds = %do.end8
 
 if.else.i:                                        ; preds = %do.end8
   %gcm.i = getelementptr inbounds i8, ptr %aes, i64 304
-  call void @GHASH(ptr noundef nonnull %gcm.i, ptr noundef null, i32 noundef 0, ptr noundef %iv, i32 noundef %ivSz, ptr noundef nonnull %counter.i, i32 noundef 16)
+  call void @GHASH(ptr noundef nonnull %gcm.i, ptr noundef null, i32 noundef 0, ptr noundef %iv, i32 noundef range(i32 1, 0) %ivSz, ptr noundef nonnull %counter.i, i32 noundef 16)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -4884,7 +4884,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 IncrementGcmCounter.exit.i:                       ; preds = %for.body.i.i
   %dec140.i = add nsw i32 %dec140.in.i, -1
-  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
+  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
   %cmp8.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.not.i, label %if.end11.i, label %AES_GCM_encrypt_C.exit
 
@@ -4976,7 +4976,7 @@ for.body.i31.i:                                   ; preds = %while.end.i, %for.b
   br i1 %or.cond.i39.i, label %for.body.i31.i, label %IncrementGcmCounter.exit40.i, !llvm.loop !22
 
 IncrementGcmCounter.exit40.i:                     ; preds = %for.body.i31.i
-  %call21.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
+  %call21.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
   %cmp22.not.i = icmp eq i32 %call21.i, 0
   br i1 %cmp22.not.i, label %if.end25.i, label %AES_GCM_encrypt_C.exit
 
@@ -5078,8 +5078,8 @@ if.end27.i:                                       ; preds = %for.body.i53.i, %if
 
 if.then29.i:                                      ; preds = %if.end27.i
   %gcm30.i = getelementptr inbounds i8, ptr %aes, i64 304
-  call void @GHASH(ptr noundef nonnull %gcm30.i, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %out, i32 noundef %sz, ptr noundef nonnull %authTag, i32 noundef %authTagSz)
-  %call33.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %initialCounter.i, ptr noundef %scratch.i)
+  call void @GHASH(ptr noundef nonnull %gcm30.i, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %out, i32 noundef %sz, ptr noundef nonnull %authTag, i32 noundef range(i32 12, 17) %authTagSz)
+  %call33.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %initialCounter.i, ptr noundef %scratch.i)
   %cmp34.not.i = icmp eq i32 %call33.i, 0
   br i1 %cmp34.not.i, label %if.end37.i, label %AES_GCM_encrypt_C.exit
 
@@ -5199,13 +5199,13 @@ if.then.i:                                        ; preds = %do.end
 
 if.else.i:                                        ; preds = %do.end
   %gcm.i = getelementptr inbounds i8, ptr %aes, i64 304
-  call void @GHASH(ptr noundef nonnull %gcm.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %iv, i32 noundef %ivSz, ptr noundef nonnull %counter.i, i32 noundef 16)
+  call void @GHASH(ptr noundef nonnull %gcm.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %iv, i32 noundef range(i32 1, 0) %ivSz, ptr noundef nonnull %counter.i, i32 noundef 16)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %gcm3.i = getelementptr inbounds i8, ptr %aes, i64 304
   call void @GHASH(ptr noundef nonnull %gcm3.i, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %in, i32 noundef %sz, ptr noundef nonnull %Tprime.i, i32 noundef 16)
-  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %counter.i, ptr noundef %EKY0.i)
+  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %counter.i, ptr noundef %EKY0.i)
   %cmp7.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.not.i, label %for.body.i.i.i, label %AES_GCM_decrypt_C.exit
 
@@ -5254,7 +5254,7 @@ for.body.i27.i:                                   ; preds = %for.body.i27.i, %fo
 
 IncrementGcmCounter.exit.i:                       ; preds = %for.body.i27.i
   %dec120.i = add nsw i32 %dec120.in.i, -1
-  %call16.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
+  %call16.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
   %cmp17.not.i = icmp eq i32 %call16.i, 0
   br i1 %cmp17.not.i, label %if.end20.i, label %AES_GCM_decrypt_C.exit
 
@@ -5346,7 +5346,7 @@ for.body.i56.i:                                   ; preds = %while.end.i, %for.b
   br i1 %or.cond.i64.i, label %for.body.i56.i, label %IncrementGcmCounter.exit65.i, !llvm.loop !22
 
 IncrementGcmCounter.exit65.i:                     ; preds = %for.body.i56.i
-  %call30.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
+  %call30.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %counter.i, ptr noundef %scratch.i)
   %cmp31.not.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.not.i, label %if.end34.i, label %AES_GCM_decrypt_C.exit
 
@@ -5653,7 +5653,7 @@ if.end.i:                                         ; preds = %if.then12, %if.then
 
 if.end15.i:                                       ; preds = %if.end.i
   %gcm.i = getelementptr inbounds i8, ptr %aes, i64 304
-  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %iv.i, ptr noundef %gcm.i)
+  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %iv.i, ptr noundef %gcm.i)
   %cmp16.i = icmp eq i32 %call12.i, 0
   br i1 %cmp16.i, label %lor.lhs.false2.i, label %wc_AesGcmSetKey.exit.thread
 
@@ -5790,7 +5790,7 @@ if.end.i:                                         ; preds = %if.then12, %if.then
 
 if.end15.i:                                       ; preds = %if.end.i
   %gcm.i = getelementptr inbounds i8, ptr %aes, i64 304
-  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef %iv.i, ptr noundef %gcm.i)
+  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef %iv.i, ptr noundef %gcm.i)
   %cmp16.i = icmp eq i32 %call12.i, 0
   br i1 %cmp16.i, label %if.then16, label %wc_AesGcmSetKey.exit.thread
 

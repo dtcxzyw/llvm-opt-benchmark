@@ -106,12 +106,12 @@ define hidden void @_ZN19ZWeakRootsProcessorC2EP8ZWorkers(ptr nocapture noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ZWeakRootsProcessor18process_weak_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ZProcessWeakRootsTask, align 8
-  call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull @.str) #7
+  call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(624) %2, ptr noundef nonnull @.str) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21ZProcessWeakRootsTask, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %3, i8 0, i64 568, i1 false)
-  call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %4, i32 5, ptr noundef nonnull %3)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %3, i8 0, i64 568, i1 false)
+  call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %4, i32 5, ptr noundef nonnull align 8 dereferenceable(584) %3)
   %5 = getelementptr inbounds i8, ptr %2, i64 608
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 616
@@ -129,16 +129,16 @@ define hidden void @_ZN19ZWeakRootsProcessor18process_weak_rootsEv(ptr nocapture
   %14 = getelementptr inbounds i8, ptr %2, i64 456
   %15 = getelementptr inbounds i8, ptr %2, i64 504
   %16 = getelementptr inbounds i8, ptr %2, i64 552
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #7
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %16) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %15) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %14) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %13) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %12) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %11) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %10) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %9) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %8) #7
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %4) #7
   ret void
 }
 
@@ -257,13 +257,13 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #7
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(440) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #7
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #7
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(392) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #7
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
@@ -290,13 +290,13 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #7
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(296) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #7
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #7
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #7
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
@@ -317,19 +317,19 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #7
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #7
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #7
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #7
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
   %19 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %17) #7
   %20 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #7
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext true) #7
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(49) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext true) #7
   store ptr %16, ptr %18, align 8
   store ptr %11, ptr %13, align 8
   store ptr %6, ptr %8, align 8

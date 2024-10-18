@@ -274,7 +274,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %50, %53
 102:                                              ; preds = %104, %99, %97, %80
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #12
   br label %137
 
 104:                                              ; preds = %95
@@ -284,7 +284,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %50, %53
 105:                                              ; preds = %104, %99
   %106 = load i8, ptr %10, align 1
   %107 = trunc i8 %106 to i1
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #12
   br i1 %107, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %105, %78
@@ -615,7 +615,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15LUTParallelBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

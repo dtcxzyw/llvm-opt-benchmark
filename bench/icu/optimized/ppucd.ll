@@ -1076,7 +1076,7 @@ if.end11:                                         ; preds = %if.end6
   store ptr %strchr.i43, ptr %fieldLimit.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %st.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %e.i)
-  %call.i = call i32 @u_parseCodePointRange(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %st.i, ptr noundef nonnull %e.i, ptr noundef nonnull %errorCode)
+  %call.i = call i32 @u_parseCodePointRange(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %st.i, ptr noundef nonnull %e.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %7 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp slt i32 %7, 1
   br i1 %cmp.i.i, label %if.end15, label %_ZN6icu_7512PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread
@@ -1158,7 +1158,7 @@ if.end34:                                         ; preds = %if.end27
 sw.bb36:                                          ; preds = %if.end15
   %defaultProps37 = getelementptr inbounds i8, ptr %this, i64 64
   %blockProps = getelementptr inbounds i8, ptr %this, i64 760
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %blockProps, ptr noundef nonnull align 8 dereferenceable(240) %defaultProps37, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %blockProps, ptr noundef nonnull align 8 dereferenceable(696) %defaultProps37, i64 240, i1 false)
   %cf.i = getelementptr inbounds i8, ptr %this, i64 1000
   %cf3.i = getelementptr inbounds i8, ptr %this, i64 304
   %call.i47 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %cf.i, ptr noundef nonnull align 8 dereferenceable(64) %cf3.i)
@@ -1220,7 +1220,7 @@ if.else66:                                        ; preds = %sw.bb42
 if.then74:                                        ; preds = %if.else66
   %defaultProps75 = getelementptr inbounds i8, ptr %this, i64 64
   %cpProps76 = getelementptr inbounds i8, ptr %this, i64 1456
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %cpProps76, ptr noundef nonnull align 8 dereferenceable(240) %defaultProps75, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %cpProps76, ptr noundef nonnull align 8 dereferenceable(696) %defaultProps75, i64 240, i1 false)
   %cf.i48 = getelementptr inbounds i8, ptr %this, i64 1696
   %cf3.i49 = getelementptr inbounds i8, ptr %this, i64 304
   %call.i50 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %cf.i48, ptr noundef nonnull align 8 dereferenceable(64) %cf3.i49)
@@ -1423,7 +1423,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PreparsedUCD13parsePropert
 entry:
   %pBuffer = alloca %"class.icu_75::CharString", align 8
   %end = alloca ptr, align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %pBuffer)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %pBuffer)
   %len.i = getelementptr inbounds i8, ptr %pBuffer, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %pBuffer, align 8
@@ -1457,7 +1457,7 @@ lpad.loopexit.split-lp:                           ; preds = %sw.bb165.invoke, %i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit120, %lpad.loopexit ], [ %lpad.loopexit.split-lp121, %lpad.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %pBuffer) #22
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %pBuffer) #22
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then
@@ -1851,7 +1851,7 @@ cleanup.sink.split:                               ; preds = %if.then3, %if.then4
 
 cleanup:                                          ; preds = %for.cond, %cleanup.sink.split, %if.end188, %if.then191, %if.else120
   %retval.0 = phi i8 [ 1, %if.else120 ], [ 1, %if.then191 ], [ 0, %if.end188 ], [ 0, %cleanup.sink.split ], [ 1, %for.cond ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %pBuffer) #22
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %pBuffer) #22
   ret i8 %retval.0
 }
 
@@ -1954,7 +1954,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200) %scx)
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %scString)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %scString)
   %len.i = getelementptr inbounds i8, ptr %scString, i64 56
   store i32 0, ptr %len.i, align 8
   %1 = load ptr, ptr %scString, align 8
@@ -1996,7 +1996,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit22, %lpad.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %scString) #22
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %scString) #22
   resume { ptr, i32 } %lpad.phi
 
 if.end15:                                         ; preds = %for.cond, %invoke.cont6
@@ -2065,7 +2065,7 @@ cleanup.sink.split:                               ; preds = %if.then19, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont6, %cleanup.sink.split, %invoke.cont41
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %scString) #22
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %scString) #22
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry, %cleanup
@@ -2124,7 +2124,7 @@ if.end9:                                          ; preds = %if.end3
   store ptr %strchr.i8, ptr %fieldLimit.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %st.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %e.i)
-  %call.i = call i32 @u_parseCodePointRange(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %st.i, ptr noundef nonnull %e.i, ptr noundef nonnull %errorCode)
+  %call.i = call i32 @u_parseCodePointRange(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %st.i, ptr noundef nonnull %e.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %6 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp slt i32 %6, 1
   br i1 %cmp.i.i, label %if.end.i11, label %if.then.i

@@ -638,7 +638,7 @@ define linkonce_odr void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19WiresharkPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -676,7 +676,7 @@ define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryD0Ev(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -700,13 +700,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14BoolPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14BoolPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -817,7 +817,7 @@ define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryD0Ev(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -835,13 +835,13 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16StringPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16StringPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1009,7 +1009,7 @@ define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryD0Ev(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1035,7 +1035,7 @@ define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryD0Ev(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1061,7 +1061,7 @@ define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryD0Ev(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1079,13 +1079,13 @@ define linkonce_odr noundef ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6cre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18PasswordPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18PasswordPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1119,7 +1119,7 @@ define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryD0Ev(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1137,13 +1137,13 @@ define linkonce_odr noundef ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QO
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14UIntPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14UIntPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1158,7 +1158,7 @@ define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryD0Ev(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1176,13 +1176,13 @@ define linkonce_odr noundef ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QO
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14EnumPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14EnumPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1538,7 +1538,7 @@ define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryD0Ev(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1556,13 +1556,13 @@ define linkonce_odr noundef ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15RangePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15RangePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1724,7 +1724,7 @@ define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD0Ev(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1750,7 +1750,7 @@ define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryD0Ev(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -1768,13 +1768,13 @@ define linkonce_odr noundef ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15ColorPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15ColorPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -2030,7 +2030,7 @@ define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD0Ev(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -2048,13 +2048,13 @@ define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactor
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18SaveFilePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18SaveFilePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -3435,7 +3435,7 @@ define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD0Ev(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -3453,13 +3453,13 @@ define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactor
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18OpenFilePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18OpenFilePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -3787,7 +3787,7 @@ define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD0Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -3805,13 +3805,13 @@ define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6creat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17DirNamePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17DirNamePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -4107,7 +4107,7 @@ define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryD0Ev(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
@@ -4125,13 +4125,13 @@ define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13UatPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13UatPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

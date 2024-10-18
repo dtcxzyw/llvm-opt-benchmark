@@ -27,12 +27,12 @@ define noundef ptr @_Z16global_stat_initPK10t_inputrec(ptr nocapture noundef rea
   %5 = getelementptr inbounds i8, ptr %0, i64 720
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 76, i64 noundef %7, i64 noundef 4)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 76, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 4)
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i32, ptr %5, align 8
   %11 = sext i32 %10 to i64
-  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 77, i64 noundef %11, i64 noundef 4)
+  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 77, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 4)
   store ptr %12, ptr %9, align 8
   ret ptr %2
 }

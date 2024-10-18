@@ -915,7 +915,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   store ptr %f, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call2, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(20) %m_q_f, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_q_f, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_qsets = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_qsets, align 8
@@ -1048,7 +1048,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   store ptr %f, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call2, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(20) %m_f2defs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_f2defs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_esets = getelementptr inbounds i8, ptr %this, i64 112
   %8 = load ptr, ptr %m_esets, align 8
@@ -1219,7 +1219,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   %xor6.i.i.i = xor i32 %sub4.i.i.i, %shl5.i.i.i
   %m_hash.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 %xor6.i.i.i, ptr %m_hash.i.i, align 8
-  call void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE5entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6insertEOSA_(ptr noundef nonnull align 8 dereferenceable(20) %m_q_f_def, ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE5entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6insertEOSA_(ptr noundef nonnull align 8 dereferenceable(24) %m_q_f_def, ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN17hint_macro_solver12insert_f2defEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %f, ptr noundef %def)
   %m_qsets = getelementptr inbounds i8, ptr %this, i64 80
@@ -6040,7 +6040,7 @@ _ZN17backtrackable_setI13obj_hashtableI10quantifierEPS1_10default_ehIS3_EE10push
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %f, ptr %ref.tmp.i, align 8
   store ptr %11, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_fs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_fs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call6 = call noundef zeroext i1 @_ZN17hint_macro_solver24update_satisfied_residueEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %f, ptr noundef %11)
   br i1 %call6, label %if.then7, label %if.end8
@@ -6187,7 +6187,7 @@ if.else44.i:                                      ; preds = %end_remove.i
   br i1 %or.cond.i58, label %if.then53.i, label %if.end.i
 
 if.then53.i:                                      ; preds = %if.else44.i
-  call void @_ZN14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE22remove_deleted_entriesEv(ptr noundef nonnull align 8 dereferenceable(20) %m_residue)
+  call void @_ZN14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE22remove_deleted_entriesEv(ptr noundef nonnull align 8 dereferenceable(40) %m_residue)
   br label %if.end.i
 
 if.else.i:                                        ; preds = %_ZN6vectorISt4pairIN17backtrackable_setI13obj_hashtableI10quantifierEPS3_10default_ehIS5_EE10trail_kindES5_ELb0EjE4backEv.exit.i
@@ -6201,7 +6201,7 @@ if.else.i:                                        ; preds = %_ZN6vectorISt4pairI
   br i1 %cmp.i38, label %if.then.i44, label %if.end.i39
 
 if.then.i44:                                      ; preds = %if.else.i
-  call void @_ZN14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(20) %m_residue)
+  call void @_ZN14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(40) %m_residue)
   %.pre.i45 = load i32, ptr %m_capacity.i37, align 8
   br label %if.end.i39
 
@@ -6335,7 +6335,7 @@ _ZN17backtrackable_setI13obj_hashtableI10quantifierEPS1_10default_ehIS3_EE9pop_s
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %f, ptr %ref.tmp.i.i, align 8
   store ptr null, ptr %m_value.i.i.i36, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_fs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_fs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.084, i64 8
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -8908,7 +8908,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %call4.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  call void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %3, ptr noundef %6)
+  call void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %3, ptr noundef %6)
   %9 = load ptr, ptr %m_q2info.i, align 8
   %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -9323,7 +9323,7 @@ call4.i.noexc:                                    ; preds = %.noexc49
   br i1 %call4.i50, label %if.end.i45, label %cleanup
 
 if.end.i45:                                       ; preds = %call4.i.noexc
-  invoke void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %f, ptr noundef nonnull %40)
+  invoke void @_ZN17base_macro_solver15set_else_interpEP9func_declP4expr(ptr noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %f, ptr noundef nonnull %40)
           to label %if.then42 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.then42:                                        ; preds = %if.end.i45
@@ -10699,7 +10699,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -11811,7 +11811,7 @@ land.lhs.true:                                    ; preds = %if.then9
   br i1 %13, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %land.lhs.true
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %curr.054, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %curr.054, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
   br label %return
 
 if.then17:                                        ; preds = %for.body
@@ -11826,7 +11826,7 @@ if.then18:                                        ; preds = %if.then17
 
 if.end21:                                         ; preds = %if.then17, %if.then18
   %new_entry.0 = phi ptr [ %del_entry.055, %if.then18 ], [ %curr.054, %if.then17 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %new_entry.0, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_entry.0, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
   %15 = load i32, ptr %m_size, align 4
   %inc = add i32 %15, 1
   store i32 %inc, ptr %m_size, align 4
@@ -11863,7 +11863,7 @@ land.lhs.true34:                                  ; preds = %if.then31
   br i1 %19, label %if.then37, label %for.inc54
 
 if.then37:                                        ; preds = %land.lhs.true34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %curr.157, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %curr.157, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
   br label %return
 
 if.then41:                                        ; preds = %for.body29
@@ -11878,7 +11878,7 @@ if.then44:                                        ; preds = %if.then41
 
 if.end48:                                         ; preds = %if.then41, %if.then44
   %new_entry42.0 = phi ptr [ %del_entry.258, %if.then44 ], [ %curr.157, %if.then41 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %new_entry42.0, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %new_entry42.0, ptr noundef nonnull align 8 dereferenceable(28) %e, i64 28, i1 false)
   %21 = load i32, ptr %m_size, align 4
   %inc50 = add i32 %21, 1
   store i32 %inc50, ptr %m_size, align 4

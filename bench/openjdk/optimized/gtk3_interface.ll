@@ -5723,7 +5723,7 @@ gtk3_get_widget.exit:                             ; preds = %61, %65, %68
   %71 = getelementptr inbounds i8, ptr %7, i64 24
   store double 1.000000e+00, ptr %71, align 8, !alias.scope !11
   %72 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !11
-  call void %72(ptr noundef %70, i32 noundef 0, ptr noundef nonnull %7) #19
+  call void %72(ptr noundef %70, i32 noundef 0, ptr noundef nonnull align 8 %7) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %.pre = load double, ptr %56, align 8
   br label %73
@@ -8228,7 +8228,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   store double 1.000000e+00, ptr %17, align 8, !alias.scope !18
   %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !18
-  call void %18(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7) #19
+  call void %18(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %7) #19
   call fastcc void @gtk3_style_shade(ptr noundef %7, ptr noundef %0, double noundef 1.300000e+00)
   br label %49
 
@@ -8237,7 +8237,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   %20 = getelementptr inbounds i8, ptr %8, i64 24
   store double 1.000000e+00, ptr %20, align 8, !alias.scope !21
   %21 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !21
-  call void %21(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8) #19
+  call void %21(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %8) #19
   call fastcc void @gtk3_style_shade(ptr noundef %8, ptr noundef %0, double noundef 0x3FE6666666666666)
   br label %49
 
@@ -8247,16 +8247,16 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   %23 = getelementptr inbounds i8, ptr %6, i64 24
   store double 1.000000e+00, ptr %23, align 8, !alias.scope !24, !noalias !27
   %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !30
-  call void %24(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #19, !noalias !27
-  call fastcc void @gtk3_style_shade(ptr noundef %6, ptr noundef %9, double noundef 1.300000e+00)
+  call void %24(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %6) #19, !noalias !27
+  call fastcc void @gtk3_style_shade(ptr noundef %6, ptr noundef nonnull align 8 %9, double noundef 1.300000e+00)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %25 = getelementptr inbounds i8, ptr %5, i64 24
   store double 1.000000e+00, ptr %25, align 8, !alias.scope !31, !noalias !34
   %26 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !37
-  call void %26(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5) #19, !noalias !34
-  call fastcc void @gtk3_style_shade(ptr noundef %5, ptr noundef %10, double noundef 0x3FE6666666666666)
+  call void %26(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %5) #19, !noalias !34
+  call fastcc void @gtk3_style_shade(ptr noundef %5, ptr noundef nonnull align 8 %10, double noundef 0x3FE6666666666666)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %27 = load double, ptr %9, align 8
   %28 = load double, ptr %10, align 8

@@ -370,7 +370,7 @@ define noundef i32 @_ZNK18InterfaceTreeModel11columnCountERK11QModelIndex(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK18InterfaceTreeModel4dataERK11QModelIndexi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QVariant) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #7 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %5, align 8
   ret void
@@ -728,7 +728,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90:    ; preds = %115
   br i1 %.not.i.i91, label %_ZN7QStringD2Ev.exit20.sink.split, label %_ZN7QStringD2Ev.exit20
 
 119:                                              ; preds = %18, %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %120 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %120, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -763,7 +763,7 @@ define void @_ZN18InterfaceTreeModel16getColumnContentEiii(ptr dead_on_unwind no
   %11 = getelementptr inbounds i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false), !alias.scope !10
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %13, align 8, !alias.scope !10
   ret void
@@ -919,7 +919,7 @@ declare void @_ZN18QAbstractItemModel13endResetModelEv(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK18InterfaceTreeModel19toolTipForInterfaceEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QVariant) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %4, align 8
   ret void

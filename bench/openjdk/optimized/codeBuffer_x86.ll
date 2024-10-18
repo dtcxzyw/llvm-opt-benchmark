@@ -48,7 +48,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z27emit_shared_stubs_to_interpI1
   br label %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit
 
 _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; preds = %6, %10
-  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %0) #3
+  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef %0) #3
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8

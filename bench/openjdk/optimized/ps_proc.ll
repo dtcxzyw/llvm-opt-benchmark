@@ -376,7 +376,7 @@ ptrace_continue.exit.i:                           ; preds = %ptrace_continue.exi
   br i1 %35, label %ptrace_waitpid.exit.thread, label %36
 
 36:                                               ; preds = %32
-  %37 = call i64 (i32, ...) @ptrace(i32 noundef 7, i32 noundef %0, ptr noundef null, i32 noundef %34) #16
+  %37 = call i64 (i32, ...) @ptrace(i32 noundef 7, i32 noundef %0, ptr noundef null, i32 noundef range(i32 0, 256) %34) #16
   %38 = icmp slt i64 %37, 0
   br i1 %38, label %39, label %ptrace_continue.exit.i.backedge
 

@@ -2595,7 +2595,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h8389ff067f6cf8d9E(ptr
   %.val.i = load ptr, ptr %.val4, align 8, !noalias !888, !nonnull !4, !align !887, !noundef !4
   %7 = tail call noundef nonnull align 8 ptr @"_ZN68_$LT$language..buffer..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17he187d0dc35a4faf6E"(ptr noundef nonnull align 8 %.val.i), !noalias !892
   %8 = tail call noundef align 8 dereferenceable(104) ptr @"_ZN56_$LT$text..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd6ee4ea7f831e6efE"(ptr noundef nonnull align 8 %7), !noalias !892
-  %9 = tail call noundef range(i8 -1, 2) i8 @_ZN4text6anchor6Anchor3cmp17h7c9c65fd411dc0a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %8), !range !896
+  %9 = tail call noundef range(i8 -1, 2) i8 @_ZN4text6anchor6Anchor3cmp17h7c9c65fd411dc0a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %8), !range !896
   %10 = icmp eq i8 %9, -1
   %.not21 = icmp eq i64 %1, 2
   br i1 %10, label %.preheader, label %.preheader11
@@ -2621,7 +2621,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h8389ff067f6cf8d9E(ptr
   %.val.i5 = load ptr, ptr %.val4, align 8, !noalias !897, !nonnull !4, !align !887, !noundef !4
   %12 = tail call noundef nonnull align 8 ptr @"_ZN68_$LT$language..buffer..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17he187d0dc35a4faf6E"(ptr noundef nonnull align 8 %.val.i5), !noalias !901
   %13 = tail call noundef align 8 dereferenceable(104) ptr @"_ZN56_$LT$text..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd6ee4ea7f831e6efE"(ptr noundef nonnull align 8 %12), !noalias !901
-  %14 = tail call noundef range(i8 -1, 2) i8 @_ZN4text6anchor6Anchor3cmp17h7c9c65fd411dc0a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %13), !range !896
+  %14 = tail call noundef range(i8 -1, 2) i8 @_ZN4text6anchor6Anchor3cmp17h7c9c65fd411dc0a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %gep, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %13), !range !896
   %15 = icmp eq i8 %14, -1
   br i1 %15, label %_ZN4core5slice4sort6shared17find_existing_run17h2eb37b8f6c0ae52fE.exit, label %16
 
@@ -2637,7 +2637,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h8389ff067f6cf8d9E(ptr
   %.val.i6 = load ptr, ptr %.val4, align 8, !noalias !905, !nonnull !4, !align !887, !noundef !4
   %19 = tail call noundef nonnull align 8 ptr @"_ZN68_$LT$language..buffer..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17he187d0dc35a4faf6E"(ptr noundef nonnull align 8 %.val.i6), !noalias !909
   %20 = tail call noundef align 8 dereferenceable(104) ptr @"_ZN56_$LT$text..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd6ee4ea7f831e6efE"(ptr noundef nonnull align 8 %19), !noalias !909
-  %21 = tail call noundef range(i8 -1, 2) i8 @_ZN4text6anchor6Anchor3cmp17h7c9c65fd411dc0a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep31, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %20), !range !896
+  %21 = tail call noundef range(i8 -1, 2) i8 @_ZN4text6anchor6Anchor3cmp17h7c9c65fd411dc0a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %gep31, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %20), !range !896
   %22 = icmp eq i8 %21, -1
   br i1 %22, label %23, label %_ZN4core5slice4sort6shared17find_existing_run17h2eb37b8f6c0ae52fE.exit
 
@@ -2927,7 +2927,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h9289f7b544d4f5c6E(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1046)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1049)
-  %21 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !range !1051
+  %21 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8), !range !1051
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h1324b7cb8249eee4E.exit"
 
@@ -3010,7 +3010,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h9289f7b544d4f5c6E(ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !1093)
   call void @llvm.experimental.noalias.scope.decl(metadata !1095)
   call void @llvm.experimental.noalias.scope.decl(metadata !1098)
-  %47 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6), !range !1051
+  %47 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !range !1051
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h1324b7cb8249eee4E.exit8"
 
@@ -3079,7 +3079,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h9289f7b544d4f5c6E(ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !1141)
   call void @llvm.experimental.noalias.scope.decl(metadata !1143)
   call void @llvm.experimental.noalias.scope.decl(metadata !1146)
-  %69 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !range !1051
+  %69 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !range !1051
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h1324b7cb8249eee4E.exit14"
 
@@ -10353,7 +10353,7 @@ define hidden void @"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT
   %6 = add i64 %5, %4
   store i64 %6, ptr %0, align 8, !alias.scope !2253, !noalias !2256
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call { i32, i32 } @_ZN4rope11TextSummary11lines_utf1617h4a96e08bd2a2c93eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !2258
+  %8 = tail call { i32, i32 } @_ZN4rope11TextSummary11lines_utf1617h4a96e08bd2a2c93eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !2258
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = extractvalue { i32, i32 } %8, 1
   tail call void @"_ZN77_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hc8f3c7511c76fbacE"(ptr noalias noundef nonnull align 4 dereferenceable(8) %7, i32 noundef %9, i32 noundef %10)
@@ -10387,7 +10387,7 @@ define hidden void @"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT
   %7 = load i32, ptr %6, align 4, !alias.scope !2271, !noalias !2274, !noundef !4
   tail call void @"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %5, i32 noundef %7), !noalias !2271
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = tail call { i32, i32 } @_ZN4rope11TextSummary11lines_utf1617h4a96e08bd2a2c93eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !2276
+  %9 = tail call { i32, i32 } @_ZN4rope11TextSummary11lines_utf1617h4a96e08bd2a2c93eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !2276
   %10 = extractvalue { i32, i32 } %9, 0
   %11 = extractvalue { i32, i32 } %9, 1
   tail call void @"_ZN77_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hc8f3c7511c76fbacE"(ptr noalias noundef nonnull align 4 dereferenceable(8) %8, i32 noundef %10, i32 noundef %11)
@@ -10414,7 +10414,7 @@ define hidden void @"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17hd87a540f281bb25bE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #1 {
-  %4 = tail call { i32, i32 } @_ZN4rope11TextSummary11lines_utf1617h4a96e08bd2a2c93eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !2289
+  %4 = tail call { i32, i32 } @_ZN4rope11TextSummary11lines_utf1617h4a96e08bd2a2c93eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !2289
   %5 = extractvalue { i32, i32 } %4, 0
   %6 = extractvalue { i32, i32 } %4, 1
   tail call void @"_ZN77_$LT$rope..point_utf16..PointUtf16$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hc8f3c7511c76fbacE"(ptr noalias noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %5, i32 noundef %6)
@@ -11293,7 +11293,7 @@ common.resume:                                    ; preds = %24, %18
   %28 = getelementptr inbounds i8, ptr %1, i64 456
   %29 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull readonly align 8 dereferenceable(32) %28, i64 32, i1 false), !alias.scope !2335
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %27, i64 32, i1 false), !alias.scope !2335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull readonly align 8 dereferenceable(64) %27, i64 32, i1 false), !alias.scope !2335
   %30 = getelementptr inbounds i8, ptr %1, i64 416
   %31 = load i8, ptr %30, align 8, !range !2339, !alias.scope !2340, !noalias !2343, !noundef !4
   %32 = icmp eq i8 %31, 2
@@ -11306,7 +11306,7 @@ common.resume:                                    ; preds = %24, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.32..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %35, i64 24, i1 false), !alias.scope !2345
   %.sroa.6.32..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 417
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.6.32..sroa_idx.i, i64 7, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %34, i64 32, i1 false), !alias.scope !2345
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %34, i64 32, i1 false), !alias.scope !2345
   br label %36
 
 36:                                               ; preds = %33, %26

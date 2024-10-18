@@ -182,7 +182,7 @@ if.end53:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not.i35, label %net_sim_send.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end53
-  %call2.i = call fastcc i32 @net_sim_process(ptr noundef %sim, i64 noundef 0)
+  %call2.i = call fastcc i32 @net_sim_process(ptr noundef nonnull %sim, i64 noundef 0)
   %cmp.i = icmp ne i32 %call2.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %call3.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @.str.24, i32 noundef %conv.i) #8
@@ -228,7 +228,7 @@ if.end58.i:                                       ; preds = %if.else.i, %if.then
   %on_data_sent.i = getelementptr inbounds i8, ptr %15, i64 64
   %16 = load ptr, ptr %on_data_sent.i, align 8
   %17 = load ptr, ptr %cc2.i, align 8
-  %call59.i = call i32 %16(ptr noundef %17, i64 noundef %cond54) #8
+  %call59.i = call i32 %16(ptr noundef %17, i64 noundef range(i64 30, 0) %cond54) #8
   %cmp60.i = icmp ne i32 %call59.i, 0
   %conv61.i = zext i1 %cmp60.i to i32
   %call62.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 187, ptr noundef nonnull @.str.25, i32 noundef %conv61.i) #8

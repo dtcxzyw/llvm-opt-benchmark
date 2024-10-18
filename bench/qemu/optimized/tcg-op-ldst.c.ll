@@ -336,7 +336,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end10.plugin_may
   %add.ptr.i = getelementptr i8, ptr %14, i64 %16
   %17 = ptrtoint ptr %add.ptr.i to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %.pre-phi, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %17, i64 noundef %.pre-phi, i64 noundef %conv5.i) #5
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i18, i32 noundef 1)
   %xor = xor i32 %memop.addr.0, %op.addr.3.i
   %and17 = and i32 %xor, 16
@@ -502,7 +502,7 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %9 = ptrtoint ptr %add.ptr.i to i64
   %10 = ptrtoint ptr %addr to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i) #5
   %11 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %11, i64 224
   %12 = load ptr, ptr %plugin_insn.i, align 8
@@ -710,7 +710,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end13, %if.then2
   %18 = ptrtoint ptr %addr to i64
   %conv5.i.i = zext i32 %oi.0 to i64
   %. = select i1 %cmp15, i32 137, i32 141
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %conv5.i.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %17, i64 noundef %18, i64 noundef %conv5.i.i) #5
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i22, i32 noundef 1)
   %xor = xor i32 %memop.addr.0, %op.addr.3.i
   %and19 = and i32 %xor, 16
@@ -887,7 +887,7 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %10 = ptrtoint ptr %addr to i64
   %conv5.i.i = zext i32 %oi.0 to i64
   %. = select i1 %cmp, i32 138, i32 142
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i.i) #5
   %11 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %11, i64 224
   %12 = load ptr, ptr %plugin_insn.i, align 8
@@ -1079,13 +1079,13 @@ if.then.i56:                                      ; preds = %if.end17
   %18 = ptrtoint ptr %add.ptr.i.i54 to i64
   %19 = ptrtoint ptr %addr to i64
   %conv.i57 = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i57) #5
+  tail call void @tcg_gen_op4(i32 noundef range(i32 135, 149) %., i64 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i57) #5
   br label %gen_ldst.exit
 
 if.else.i:                                        ; preds = %if.end17
   %20 = ptrtoint ptr %addr to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %20, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %17, i64 noundef %20, i64 noundef %conv5.i) #5
   br label %gen_ldst.exit
 
 gen_ldst.exit:                                    ; preds = %if.then.i56, %if.else.i
@@ -1192,7 +1192,7 @@ canonicalize_memop_i128_as_i64.exit:              ; preds = %sw.epilog.i, %land.
   %29 = ptrtoint ptr %add.ptr.i.i.i79 to i64
   %30 = ptrtoint ptr %addr to i64
   %conv5.i.i = zext i32 %or.i78 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %29, i64 noundef %30, i64 noundef %conv5.i.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 137, 143) %.46, i64 noundef %29, i64 noundef %30, i64 noundef %conv5.i.i) #5
   br i1 %tobool32.not, label %if.end54, label %if.then53
 
 if.then53:                                        ; preds = %canonicalize_memop_i128_as_i64.exit
@@ -1236,7 +1236,7 @@ if.end67:                                         ; preds = %if.else62, %if.then
   %40 = ptrtoint ptr %add.ptr.i.i.i84 to i64
   %41 = ptrtoint ptr %add.ptr.i.i81 to i64
   %conv5.i.i85 = zext i32 %or.i83 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %40, i64 noundef %41, i64 noundef %conv5.i.i85) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 137, 143) %.46, i64 noundef %40, i64 noundef %41, i64 noundef %conv5.i.i85) #5
   tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i81) #5
   br i1 %tobool32.not, label %if.end86, label %if.then72
 
@@ -1446,13 +1446,13 @@ if.then.i61:                                      ; preds = %if.end19
   %20 = ptrtoint ptr %add.ptr.i.i59 to i64
   %21 = ptrtoint ptr %addr to i64
   %conv.i62 = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %conv.i62) #5
+  tail call void @tcg_gen_op4(i32 noundef range(i32 135, 149) %., i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %conv.i62) #5
   br label %gen_ldst.exit
 
 if.else.i:                                        ; preds = %if.end19
   %22 = ptrtoint ptr %addr to i64
   %conv5.i = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %19, i64 noundef %22, i64 noundef %conv5.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %19, i64 noundef %22, i64 noundef %conv5.i) #5
   br label %gen_ldst.exit
 
 gen_ldst.exit:                                    ; preds = %if.then.i61, %if.else.i
@@ -1586,7 +1586,7 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   %36 = ptrtoint ptr %add.ptr.i.i.i84 to i64
   %37 = ptrtoint ptr %addr to i64
   %conv5.i.i = zext i32 %or.i83 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51116, i64 noundef %36, i64 noundef %37, i64 noundef %conv5.i.i) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 137, 143) %.51116, i64 noundef %36, i64 noundef %37, i64 noundef %conv5.i.i) #5
   %38 = load ptr, ptr %.pre-phi123, align 8
   %addr_type56 = getelementptr inbounds i8, ptr %38, i64 60
   %39 = load i32, ptr %addr_type56, align 4
@@ -1629,7 +1629,7 @@ if.then70:                                        ; preds = %if.end68
   %48 = ptrtoint ptr %add.ptr.i.i.i89 to i64
   %49 = ptrtoint ptr %add.ptr.i.i86 to i64
   %conv5.i.i90 = zext i32 %or.i88 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51116, i64 noundef %48, i64 noundef %49, i64 noundef %conv5.i.i90) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 137, 143) %.51116, i64 noundef %48, i64 noundef %49, i64 noundef %conv5.i.i90) #5
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %b.0) #5
   br label %if.end78
 
@@ -1641,7 +1641,7 @@ if.else74:                                        ; preds = %if.end68
   %51 = ptrtoint ptr %add.ptr.i.i.i93 to i64
   %52 = ptrtoint ptr %add.ptr.i.i86 to i64
   %conv5.i.i94 = zext i32 %or.i92 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51116, i64 noundef %51, i64 noundef %52, i64 noundef %conv5.i.i94) #5
+  tail call void @tcg_gen_op3(i32 noundef range(i32 137, 143) %.51116, i64 noundef %51, i64 noundef %52, i64 noundef %conv5.i.i94) #5
   br label %if.end78
 
 if.end78:                                         ; preds = %if.else74, %if.then70

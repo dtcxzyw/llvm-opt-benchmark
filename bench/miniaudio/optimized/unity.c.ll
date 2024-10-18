@@ -12776,7 +12776,7 @@ ma_zero_memory_default.exit.i.i.i203.i.i:         ; preds = %if.else.i.i196.i.i,
 
 ma_device__on_data_inner.exit215.i.i:             ; preds = %ma_zero_memory_default.exit.i.i.i203.i.i, %if.else.i.i196.i.i, %for.body.preheader.i.i214.i.i, %if.then.i.i210.i.i, %if.then141.i.i
   %156 = load ptr, ptr %onData.i115.i, align 8
-  call void %156(ptr noundef %pData, ptr noundef %150, ptr noundef %151, i32 noundef %148) #64
+  call void %156(ptr noundef nonnull %pData, ptr noundef %150, ptr noundef %151, i32 noundef %148) #64
   %157 = load i32, ptr %intermediaryBufferCap91.i.i, align 8
   store i32 %157, ptr %intermediaryBufferLen64.i.i, align 4
   store i32 0, ptr %intermediaryBufferLen.i.i, align 4
@@ -37416,6 +37416,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %pResampler, float noundef %ratioInOut) local_unnamed_addr #4 {
 entry:
+  %lpfConfig.i = alloca %struct.ma_lpf_config, align 8
   %cmp = icmp ne ptr %pResampler, null
   %cmp1 = fcmp ugt float %ratioInOut, 0.000000e+00
   %or.cond = and i1 %cmp, %cmp1
@@ -37425,14 +37426,94 @@ if.end3:                                          ; preds = %entry
   %mul = fmul float %ratioInOut, 1.000000e+06
   %conv4 = fptoui float %mul to i32
   %cmp5 = icmp eq i32 %conv4, 0
-  br i1 %cmp5, label %return, label %if.end8
+  br i1 %cmp5, label %return, label %if.end4.i
 
-if.end8:                                          ; preds = %if.end3
-  %call.i = tail call fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef nonnull %pResampler, ptr noundef null, ptr noundef null, i32 noundef %conv4, i32 noundef 1000000, i32 noundef 1)
+if.end4.i:                                        ; preds = %if.end3
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %lpfConfig.i)
+  %sampleRateOut5.i = getelementptr inbounds i8, ptr %pResampler, i64 12
+  %0 = load i32, ptr %sampleRateOut5.i, align 4
+  br label %if.else.i.i
+
+if.else.i.i:                                      ; preds = %if.else.i.i, %if.end4.i
+  %a.addr.i.045.i = phi i32 [ %conv4, %if.end4.i ], [ %b.addr.i.044.i, %if.else.i.i ]
+  %b.addr.i.044.i = phi i32 [ 1000000, %if.end4.i ], [ %rem.i.i, %if.else.i.i ]
+  %rem.i.i = urem i32 %a.addr.i.045.i, %b.addr.i.044.i
+  %cmp.i.i = icmp eq i32 %rem.i.i, 0
+  br i1 %cmp.i.i, label %ma_gcf_u32.exit.i, label %if.else.i.i
+
+ma_gcf_u32.exit.i:                                ; preds = %if.else.i.i
+  %sampleRateIn7.i = getelementptr inbounds i8, ptr %pResampler, i64 8
+  %div.i = udiv i32 %conv4, %b.addr.i.044.i
+  store i32 %div.i, ptr %sampleRateIn7.i, align 8
+  %div18.i = udiv i32 1000000, %b.addr.i.044.i
+  store i32 %div18.i, ptr %sampleRateOut5.i, align 4
+  %lpfOrder.i = getelementptr inbounds i8, ptr %pResampler, i64 16
+  %1 = load i32, ptr %lpfOrder.i, align 8
+  %cmp20.i = icmp ugt i32 %1, 8
+  br i1 %cmp20.i, label %ma_linear_resampler_set_rate_internal.exit, label %if.end22.i
+
+if.end22.i:                                       ; preds = %ma_gcf_u32.exit.i
+  %.div18.i = tail call i32 @llvm.umax.i32(i32 %div.i, i32 %div18.i)
+  %cond44.i = tail call i32 @llvm.umin.i32(i32 %div.i, i32 %div18.i)
+  %conv.i = uitofp nneg i32 %cond44.i to double
+  %mul.i = fmul double %conv.i, 5.000000e-01
+  %lpfNyquistFactor.i = getelementptr inbounds i8, ptr %pResampler, i64 24
+  %2 = load double, ptr %lpfNyquistFactor.i, align 8
+  %mul46.i = fmul double %mul.i, %2
+  %3 = load i32, ptr %pResampler, align 8
+  %channels.i = getelementptr inbounds i8, ptr %pResampler, i64 4
+  %4 = load i32, ptr %channels.i, align 4
+  store i32 %3, ptr %lpfConfig.i, align 8
+  %tmp.sroa.2.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 4
+  store i32 %4, ptr %tmp.sroa.2.0.lpfConfig.sroa_idx.i, align 4
+  %tmp.sroa.3.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 8
+  store i32 %.div18.i, ptr %tmp.sroa.3.0.lpfConfig.sroa_idx.i, align 8
+  %tmp.sroa.5.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 12
+  store i32 0, ptr %tmp.sroa.5.0.lpfConfig.sroa_idx.i, align 4
+  %tmp.sroa.543.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 16
+  store double %mul46.i, ptr %tmp.sroa.543.0.lpfConfig.sroa_idx.i, align 8
+  %tmp.sroa.6.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 24
+  store i32 %1, ptr %tmp.sroa.6.0.lpfConfig.sroa_idx.i, align 8
+  %tmp.sroa.7.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 28
+  store i32 0, ptr %tmp.sroa.7.0.lpfConfig.sroa_idx.i, align 4
+  %lpf.i = getelementptr inbounds i8, ptr %pResampler, i64 64
+  %call.i.i = call fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef nonnull %lpfConfig.i, ptr noundef null, ptr noundef nonnull %lpf.i, i32 noundef 0)
+  %cmp56.not.i = icmp eq i32 %call.i.i, 0
+  br i1 %cmp56.not.i, label %if.end59.i, label %ma_linear_resampler_set_rate_internal.exit
+
+if.end59.i:                                       ; preds = %if.end22.i
+  %5 = load i32, ptr %sampleRateIn7.i, align 8
+  %6 = load i32, ptr %sampleRateOut5.i, align 4
+  %div64.i = udiv i32 %5, %6
+  %inAdvanceInt.i = getelementptr inbounds i8, ptr %pResampler, i64 32
+  store i32 %div64.i, ptr %inAdvanceInt.i, align 8
+  %rem.i = urem i32 %5, %6
+  %inAdvanceFrac.i = getelementptr inbounds i8, ptr %pResampler, i64 36
+  store i32 %rem.i, ptr %inAdvanceFrac.i, align 4
+  %inTimeFrac.i.i = getelementptr inbounds i8, ptr %pResampler, i64 44
+  %7 = load i32, ptr %inTimeFrac.i.i, align 4
+  %div.i.i = udiv i32 %7, %0
+  %rem.i42.i = urem i32 %7, %0
+  %mul.i.i = mul i32 %div.i.i, %6
+  %mul2.i.i = mul i32 %rem.i42.i, %6
+  %div3.i.i = udiv i32 %mul2.i.i, %0
+  %add.i.i = add i32 %div3.i.i, %mul.i.i
+  %div6.i.i = udiv i32 %add.i.i, %6
+  %inTimeInt.i.i = getelementptr inbounds i8, ptr %pResampler, i64 40
+  %8 = load i32, ptr %inTimeInt.i.i, align 8
+  %add7.i.i = add i32 %8, %div6.i.i
+  store i32 %add7.i.i, ptr %inTimeInt.i.i, align 8
+  %rem11.i.i = urem i32 %add.i.i, %6
+  store i32 %rem11.i.i, ptr %inTimeFrac.i.i, align 4
+  br label %ma_linear_resampler_set_rate_internal.exit
+
+ma_linear_resampler_set_rate_internal.exit:       ; preds = %ma_gcf_u32.exit.i, %if.end22.i, %if.end59.i
+  %retval.0.i = phi i32 [ 0, %if.end59.i ], [ -2, %ma_gcf_u32.exit.i ], [ %call.i.i, %if.end22.i ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lpfConfig.i)
   br label %return
 
-return:                                           ; preds = %if.end3, %entry, %if.end8
-  %retval.0 = phi i32 [ %call.i, %if.end8 ], [ -2, %entry ], [ -2, %if.end3 ]
+return:                                           ; preds = %if.end3, %entry, %ma_linear_resampler_set_rate_internal.exit
+  %retval.0 = phi i32 [ %retval.0.i, %ma_linear_resampler_set_rate_internal.exit ], [ -2, %entry ], [ -2, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -52121,7 +52202,7 @@ if.end:                                           ; preds = %if.then2.i.i, %land
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -52220,7 +52301,7 @@ entry:
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_ex.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_wav_init_file_ex.exit, label %if.end.i
 
@@ -53465,7 +53546,7 @@ if.then34:                                        ; preds = %if.end11
   br i1 %cmp3.i, label %if.then.i, label %if.end.i43
 
 if.then.i:                                        ; preds = %if.then34
-  %call.i77 = tail call i64 @ma_dr_wav_read_pcm_frames(ptr noundef nonnull %pWav, i64 noundef %framesToRead.addr.0, ptr noundef nonnull %pBufferOut)
+  %call.i77 = tail call i64 @ma_dr_wav_read_pcm_frames(ptr noundef nonnull %pWav, i64 noundef range(i64 1, 0) %framesToRead.addr.0, ptr noundef nonnull %pBufferOut)
   br label %ma_dr_wav_read_pcm_frames_f32__ieee.exit
 
 if.end.i43:                                       ; preds = %if.then34
@@ -53886,7 +53967,7 @@ if.then15:                                        ; preds = %if.end11
   br i1 %cmp3.i, label %land.lhs.true.split.i, label %if.end.i
 
 land.lhs.true.split.i:                            ; preds = %if.then15
-  %call27.i = tail call i64 @ma_dr_wav_read_pcm_frames(ptr noundef nonnull %pWav, i64 noundef %framesToRead.addr.0, ptr noundef nonnull %pBufferOut)
+  %call27.i = tail call i64 @ma_dr_wav_read_pcm_frames(ptr noundef nonnull %pWav, i64 noundef range(i64 1, 0) %framesToRead.addr.0, ptr noundef nonnull %pBufferOut)
   br label %ma_dr_wav_read_pcm_frames_s16__pcm.exit
 
 if.end.i:                                         ; preds = %if.then15
@@ -54521,7 +54602,7 @@ if.then15:                                        ; preds = %if.end11
   br i1 %cmp3.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then15
-  %call.i = tail call i64 @ma_dr_wav_read_pcm_frames(ptr noundef nonnull %pWav, i64 noundef %framesToRead.addr.0, ptr noundef nonnull %pBufferOut)
+  %call.i = tail call i64 @ma_dr_wav_read_pcm_frames(ptr noundef nonnull %pWav, i64 noundef range(i64 1, 0) %framesToRead.addr.0, ptr noundef nonnull %pBufferOut)
   br label %ma_dr_wav_read_pcm_frames_s32__pcm.exit
 
 if.end.i:                                         ; preds = %if.then15
@@ -55762,7 +55843,7 @@ if.end:                                           ; preds = %if.then2.i.i, %land
   br i1 %cmp1.i.i, label %ma_dr_flac_open_file.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_flac_open_file.exit, label %if.end.i
 
@@ -55795,7 +55876,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFileName, ptr noundef nonnull readonly @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFileName, ptr noundef nonnull @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -56337,7 +56418,7 @@ for.cond.i.i:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond.i.i
-  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit [
     i32 0, label %if.end23.i
     i32 -100, label %for.cond.i.i
@@ -56412,7 +56493,7 @@ for.cond.i630:                                    ; preds = %while.body, %if.end
   br i1 %tobool.not.i, label %return, label %if.end.i631
 
 if.end.i631:                                      ; preds = %for.cond.i630
-  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i, label %return [
     i32 0, label %if.end87
     i32 -100, label %for.cond.i630
@@ -57549,7 +57630,7 @@ for.cond.i.i:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond.i.i
-  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit [
     i32 0, label %if.end23.i
     i32 -100, label %for.cond.i.i
@@ -57622,7 +57703,7 @@ for.cond.i615:                                    ; preds = %while.body, %if.end
   br i1 %tobool.not.i, label %return, label %if.end.i616
 
 if.end.i616:                                      ; preds = %for.cond.i615
-  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i, label %return [
     i32 0, label %if.end86
     i32 -100, label %for.cond.i615
@@ -58748,7 +58829,7 @@ for.cond.i.i:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond.i.i
-  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit [
     i32 0, label %if.end23.i
     i32 -100, label %for.cond.i.i
@@ -58822,7 +58903,7 @@ for.cond.i562:                                    ; preds = %while.body, %if.end
   br i1 %tobool.not.i, label %return, label %if.end.i563
 
 if.end.i563:                                      ; preds = %for.cond.i562
-  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i, label %return [
     i32 0, label %if.end85
     i32 -100, label %for.cond.i562
@@ -60211,7 +60292,7 @@ ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit.i: ; preds = %if.then
   br i1 %or.cond.i, label %if.then66.i, label %if.end72.i
 
 if.then66.i:                                      ; preds = %ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit.i
-  %call67.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call67.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   %cmp68.i = icmp eq i32 %call67.i, 0
   br i1 %cmp68.i, label %if.then70.i, label %if.else78
 
@@ -60224,7 +60305,7 @@ if.end72.i:                                       ; preds = %ma_dr_flac__get_pcm
   br i1 %cmp74.i, label %if.then76.i, label %if.else96.i
 
 if.then76.i:                                      ; preds = %if.end72.i
-  %call78.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call78.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call78.i, label %if.else78 [
     i32 0, label %if.then81.i
     i32 -100, label %for.cond52.backedge.i
@@ -60243,13 +60324,13 @@ if.then81.i:                                      ; preds = %if.then76.i
 if.end86.i:                                       ; preds = %if.then81.i
   %sub82.i = sub i64 %spec.select, %runningPCMFrameCount.0.ph117.i
   store i64 %runningPCMFrameCount.0.ph117.i, ptr %currentPCMFrame, align 8
-  %call88.i = tail call fastcc i64 @ma_dr_flac__seek_forward_by_pcm_frames(ptr noundef %pFlac, i64 noundef %sub82.i)
+  %call88.i = tail call fastcc i64 @ma_dr_flac__seek_forward_by_pcm_frames(ptr noundef nonnull %pFlac, i64 noundef %sub82.i)
   %cmp89.i = icmp eq i64 %call88.i, %sub82.i
   %conv90.i = zext i1 %cmp89.i to i32
   br label %if.end74
 
 if.else96.i:                                      ; preds = %if.end72.i
-  %call.i.i66 = tail call fastcc i32 @ma_dr_flac__seek_flac_frame(ptr noundef %pFlac)
+  %call.i.i66 = tail call fastcc i32 @ma_dr_flac__seek_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call.i.i66, label %if.else78 [
     i32 0, label %for.cond52.outer.loopexit.i
     i32 -100, label %for.cond52.backedge.i
@@ -60482,7 +60563,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6864
-  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %dr, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %dr, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end12
 
@@ -60645,7 +60726,7 @@ lor.lhs.false.i:                                  ; preds = %ma_dr_mp3_copy_allo
 if.end.i:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.thread.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i, %lor.lhs.false.thread.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i, %lor.lhs.false.i ]
   %pcmFrames.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp9.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
@@ -60843,7 +60924,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -60899,7 +60980,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %ma_dr_mp3_init.exit
 
@@ -61126,7 +61207,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %ma_dr_mp3_init.exit
 
@@ -61266,7 +61347,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6864
-  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %dr, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %dr, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end4
 
@@ -61439,7 +61520,7 @@ lor.lhs.false.i:                                  ; preds = %ma_dr_mp3_copy_allo
 if.end.i:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.thread.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i, %lor.lhs.false.thread.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i, %lor.lhs.false.i ]
   %pcmFrames.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp9.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
@@ -61627,7 +61708,7 @@ sw.bb8:                                           ; preds = %ma_mp3_get_data_for
 
 if.end.i:                                         ; preds = %sw.bb8
   %dr9 = getelementptr inbounds i8, ptr %pMP3, i64 112
-  %call.i = tail call fastcc i64 @ma_dr_mp3_read_pcm_frames_raw(ptr noundef %dr9, i64 noundef %frameCount, ptr noundef %pFramesOut)
+  %call.i = tail call fastcc i64 @ma_dr_mp3_read_pcm_frames_raw(ptr noundef nonnull %dr9, i64 noundef %frameCount, ptr noundef %pFramesOut)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end.i, %sw.bb
@@ -61818,7 +61899,7 @@ while.body.i:                                     ; preds = %while.body, %if.end
   br i1 %cmp28.i, label %ma_dr_mp3_read_pcm_frames_raw.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %while.body.i
-  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp32.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp32.not.i, label %ma_dr_mp3_read_pcm_frames_raw.exit, label %while.body.i, !llvm.loop !615
 
@@ -61995,7 +62076,7 @@ if.then.i.i:                                      ; preds = %if.end.i9, %if.then
   %conv.i.i = trunc nuw nsw i64 %seekPoint.sroa.0.028.i to i32
   %pUserData.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6696
   %11 = load ptr, ptr %pUserData.i.i.i, align 8
-  %call.i.i.i = tail call i32 %0(ptr noundef %11, i32 noundef %conv.i.i, i32 noundef 0) #64
+  %call.i.i.i = tail call i32 %0(ptr noundef %11, i32 noundef range(i32 0, -2147483648) %conv.i.i, i32 noundef 0) #64
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %return, label %if.end.i.i.i
 
@@ -62023,7 +62104,7 @@ if.then8.i.i:                                     ; preds = %if.end19.i.i, %whil
   %conv9.i.i = trunc nuw nsw i64 %sub18.i.lcssa.i to i32
   %13 = load ptr, ptr %onSeek, align 8
   %14 = load ptr, ptr %pUserData.i11.i.i, align 8
-  %call.i20.i.i = tail call i32 %13(ptr noundef %14, i32 noundef %conv9.i.i, i32 noundef 1) #64
+  %call.i20.i.i = tail call i32 %13(ptr noundef %14, i32 noundef range(i32 0, -2147483648) %conv9.i.i, i32 noundef 1) #64
   %tobool.not.i21.i.i = icmp eq i32 %call.i20.i.i, 0
   br i1 %tobool.not.i21.i.i, label %return, label %if.end19.thread.i.i
 
@@ -62085,7 +62166,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv = phi i32 [ %indvars.iv.next, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
   %cmp12.i = icmp eq i32 %sub.i, %indvars.iv
   %spec.select.i = select i1 %cmp12.i, ptr %pcmFrames.i, ptr null
-  %call16.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef %spec.select.i)
+  %call16.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef %spec.select.i)
   %cmp17.i = icmp eq i32 %call16.i, 0
   br i1 %cmp17.i, label %return, label %for.cond.i
 
@@ -62127,7 +62208,7 @@ while.body.us.i.i.i:                              ; preds = %if.end31.us.i.i.i, 
   br i1 %cmp28.us.i.i.i, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %if.end31.us.i.i.i
 
 if.end31.us.i.i.i:                                ; preds = %while.body.us.i.i.i
-  %call.i.us.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i)
+  %call.i.us.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i)
   %cmp32.not.us.i.i.i = icmp eq i32 %call.i.us.i.i.i, 0
   br i1 %cmp32.not.us.i.i.i, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %while.body.us.i.i.i, !llvm.loop !615
 
@@ -62208,7 +62289,7 @@ while.body.us.i.i.i28:                            ; preds = %if.end31.us.i.i.i41
   br i1 %cmp28.us.i.i.i40, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i44, label %if.end31.us.i.i.i41
 
 if.end31.us.i.i.i41:                              ; preds = %while.body.us.i.i.i28
-  %call.i.us.i.i.i42 = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i27)
+  %call.i.us.i.i.i42 = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i27)
   %cmp32.not.us.i.i.i43 = icmp eq i32 %call.i.us.i.i.i42, 0
   br i1 %cmp32.not.us.i.i.i43, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i44, label %while.body.us.i.i.i28, !llvm.loop !615
 
@@ -62892,7 +62973,7 @@ if.end.i.i:                                       ; preds = %if.then9
   %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %10 to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %backendConfig.i.i, align 8
-  %call2.i.i = call i32 %9(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i) #64
+  %call2.i.i = call i32 %9(ptr noundef null, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i) #64
   %cmp3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.end11.thread
 
@@ -62930,7 +63011,7 @@ if.end.i.i54:                                     ; preds = %if.then14
   %retval.sroa.0.0.insert.ext.i.i.i58 = zext i32 %15 to i64
   %retval.sroa.0.0.insert.insert.i.i.i59 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i57, %retval.sroa.0.0.insert.ext.i.i.i58
   store i64 %retval.sroa.0.0.insert.insert.i.i.i59, ptr %backendConfig.i.i51, align 8
-  %call2.i.i61 = call i32 %14(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i51, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i52) #64
+  %call2.i.i61 = call i32 %14(ptr noundef null, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i.i51, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i52) #64
   %cmp3.not.i.i62 = icmp eq i32 %call2.i.i61, 0
   br i1 %cmp3.not.i.i62, label %if.end5.i.i64, label %ma_decoder_init_flac_from_memory__internal.exit
 
@@ -62968,7 +63049,7 @@ if.end.i.i72:                                     ; preds = %if.then19
   %retval.sroa.0.0.insert.ext.i.i.i76 = zext i32 %20 to i64
   %retval.sroa.0.0.insert.insert.i.i.i77 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i75, %retval.sroa.0.0.insert.ext.i.i.i76
   store i64 %retval.sroa.0.0.insert.insert.i.i.i77, ptr %backendConfig.i.i69, align 8
-  %call2.i.i79 = call i32 %19(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i69, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i70) #64
+  %call2.i.i79 = call i32 %19(ptr noundef null, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i.i69, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i70) #64
   %cmp3.not.i.i80 = icmp eq i32 %call2.i.i79, 0
   br i1 %cmp3.not.i.i80, label %if.end5.i.i82, label %ma_decoder_init_mp3_from_memory__internal.exit
 
@@ -63037,7 +63118,7 @@ if.then6.i:                                       ; preds = %for.body.i
 
 if.end.i.i93:                                     ; preds = %if.then6.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i97, ptr %backendConfig.i.i87, align 8
-  %call2.i.i98 = call i32 %30(ptr noundef %26, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i87, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i88) #64
+  %call2.i.i98 = call i32 %30(ptr noundef %26, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i.i87, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i88) #64
   %cmp3.not.i.i99 = icmp eq i32 %call2.i.i98, 0
   br i1 %cmp3.not.i.i99, label %if.end30.thread, label %ma_decoder_init_from_memory__internal.exit.thread.i
 
@@ -63083,7 +63164,7 @@ if.end.i.i107:                                    ; preds = %if.then34
   %retval.sroa.0.0.insert.ext.i.i.i111 = zext i32 %33 to i64
   %retval.sroa.0.0.insert.insert.i.i.i112 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i110, %retval.sroa.0.0.insert.ext.i.i.i111
   store i64 %retval.sroa.0.0.insert.insert.i.i.i112, ptr %backendConfig.i.i104, align 8
-  %call2.i.i114 = call i32 %32(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i104, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i105) #64
+  %call2.i.i114 = call i32 %32(ptr noundef null, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i.i104, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i105) #64
   %cmp3.not.i.i115 = icmp eq i32 %call2.i.i114, 0
   br i1 %cmp3.not.i.i115, label %ma_decoder_init_wav_from_memory__internal.exit123, label %if.then38
 
@@ -63119,7 +63200,7 @@ if.end.i.i127:                                    ; preds = %if.then38
   %retval.sroa.0.0.insert.ext.i.i.i131 = zext i32 %38 to i64
   %retval.sroa.0.0.insert.insert.i.i.i132 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i130, %retval.sroa.0.0.insert.ext.i.i.i131
   store i64 %retval.sroa.0.0.insert.insert.i.i.i132, ptr %backendConfig.i.i124, align 8
-  %call2.i.i134 = call i32 %37(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i124, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i125) #64
+  %call2.i.i134 = call i32 %37(ptr noundef null, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i.i124, ptr noundef nonnull %allocationCallbacks.i.i, ptr noundef nonnull %pBackend.i.i125) #64
   %cmp3.not.i.i135 = icmp eq i32 %call2.i.i134, 0
   br i1 %cmp3.not.i.i135, label %ma_decoder_init_flac_from_memory__internal.exit143, label %if.then42
 
@@ -63207,7 +63288,7 @@ if.end.i:                                         ; preds = %entry
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %backendConfig.i, align 8
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pDecoder, i64 496
-  %call2.i = call i32 %0(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i, ptr noundef nonnull %allocationCallbacks.i, ptr noundef nonnull %pBackend.i) #64
+  %call2.i = call i32 %0(ptr noundef null, ptr noundef nonnull %pData, i64 noundef range(i64 1, 0) %dataSize, ptr noundef nonnull %backendConfig.i, ptr noundef nonnull %allocationCallbacks.i, ptr noundef nonnull %pBackend.i) #64
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %ma_decoder_init_from_memory__internal.exit
 
@@ -64259,7 +64340,7 @@ if.end8.i.i:                                      ; preds = %if.then7.i.i, %whil
 ma_path_extension_equal.exit:                     ; preds = %while.cond.i.i
   %cmp10.not.i.i = icmp eq ptr %lastOccurance.0.i.i, null
   %cond.i.i = select i1 %cmp10.not.i.i, ptr %extension.0.i.i, ptr %lastOccurance.0.i.i
-  %call2.i = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.169, ptr noundef nonnull %cond.i.i) #77
+  %call2.i = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %cond.i.i) #77
   %cmp3.i.not = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i.not, label %if.then39, label %while.cond.i.i.i156.preheader
 
@@ -64382,7 +64463,7 @@ if.end8.i.i172:                                   ; preds = %if.then7.i.i170, %w
 ma_path_extension_equal.exit184:                  ; preds = %while.cond.i.i167
   %cmp10.not.i.i178 = icmp eq ptr %lastOccurance.0.i.i169, null
   %cond.i.i179 = select i1 %cmp10.not.i.i178, ptr %extension.0.i.i168, ptr %lastOccurance.0.i.i169
-  %call2.i180 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.170, ptr noundef nonnull %cond.i.i179) #77
+  %call2.i180 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %cond.i.i179) #77
   %cmp3.i181.not = icmp eq i32 %call2.i180, 0
   br i1 %cmp3.i181.not, label %if.then50, label %while.cond.i.i.i206.preheader
 
@@ -64482,7 +64563,7 @@ if.end8.i.i222:                                   ; preds = %if.then7.i.i220, %w
 ma_path_extension_equal.exit234:                  ; preds = %while.cond.i.i217
   %cmp10.not.i.i228 = icmp eq ptr %lastOccurance.0.i.i219, null
   %cond.i.i229 = select i1 %cmp10.not.i.i228, ptr %extension.0.i.i218, ptr %lastOccurance.0.i.i219
-  %call2.i230 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.171, ptr noundef nonnull %cond.i.i229) #77
+  %call2.i230 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %cond.i.i229) #77
   %cmp3.i231.not = icmp eq i32 %call2.i230, 0
   br i1 %cmp3.i231.not, label %if.then61, label %if.then70.critedge
 
@@ -65713,7 +65794,7 @@ if.end8.i.i:                                      ; preds = %if.then7.i.i, %whil
 ma_path_extension_equal.exit:                     ; preds = %while.cond.i.i
   %cmp10.not.i.i = icmp eq ptr %lastOccurance.0.i.i, null
   %cond.i.i = select i1 %cmp10.not.i.i, ptr %extension.0.i.i, ptr %lastOccurance.0.i.i
-  %call2.i = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.169, ptr noundef nonnull %cond.i.i) #77
+  %call2.i = call i32 @strcasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %cond.i.i) #77
   %cmp3.i.not = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i.not, label %if.then30, label %while.cond.i.i.i130.preheader
 
@@ -65812,7 +65893,7 @@ if.end8.i.i146:                                   ; preds = %if.then7.i.i144, %w
 ma_path_extension_equal.exit158:                  ; preds = %while.cond.i.i141
   %cmp10.not.i.i152 = icmp eq ptr %lastOccurance.0.i.i143, null
   %cond.i.i153 = select i1 %cmp10.not.i.i152, ptr %extension.0.i.i142, ptr %lastOccurance.0.i.i143
-  %call2.i154 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.170, ptr noundef nonnull %cond.i.i153) #77
+  %call2.i154 = call i32 @strcasecmp(ptr noundef nonnull @.str.170, ptr noundef nonnull %cond.i.i153) #77
   %cmp3.i155.not = icmp eq i32 %call2.i154, 0
   br i1 %cmp3.i155.not, label %if.then37, label %while.cond.i.i.i180.preheader
 
@@ -65911,7 +65992,7 @@ if.end8.i.i196:                                   ; preds = %if.then7.i.i194, %w
 ma_path_extension_equal.exit208:                  ; preds = %while.cond.i.i191
   %cmp10.not.i.i202 = icmp eq ptr %lastOccurance.0.i.i193, null
   %cond.i.i203 = select i1 %cmp10.not.i.i202, ptr %extension.0.i.i192, ptr %lastOccurance.0.i.i193
-  %call2.i204 = call i32 @strcasecmp(ptr noundef nonnull readonly @.str.171, ptr noundef nonnull %cond.i.i203) #77
+  %call2.i204 = call i32 @strcasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %cond.i.i203) #77
   %cmp3.i205.not = icmp eq i32 %call2.i204, 0
   br i1 %cmp3.i205.not, label %if.then44, label %if.then50
 
@@ -72720,7 +72801,7 @@ while.body.lr.ph.i:                               ; preds = %if.end4
 
 while.body.i:                                     ; preds = %ma_resource_manager_data_buffer_node_free.exit.i, %while.body.lr.ph.i
   %6 = phi ptr [ %5, %while.body.lr.ph.i ], [ %23, %ma_resource_manager_data_buffer_node_free.exit.i ]
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %6)
+  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %6)
   %isDataOwnedByResourceManager.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %7 = load i32, ptr %isDataOwnedByResourceManager.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %7, 0
@@ -73681,7 +73762,7 @@ if.then.i19:                                      ; preds = %if.then16
   br label %return
 
 if.end17:                                         ; preds = %ma_resource_manager_post_job.exit
-  call fastcc void @ma_resource_manager_inline_notification_wait(ptr noundef %notification)
+  call fastcc void @ma_resource_manager_inline_notification_wait(ptr noundef nonnull %notification)
   %18 = load ptr, ptr %pResourceManager1.i, align 8
   %19 = getelementptr i8, ptr %18, i64 68
   %.val.i.i = load i32, ptr %19, align 4
@@ -74931,7 +75012,7 @@ if.end38.thread.i:                                ; preds = %if.end15.i.i.i, %if
   br i1 %cmp48.not.i, label %if.end51.i, label %if.then49.i
 
 if.end.i102.i:                                    ; preds = %if.then2.i.i88.i, %if.else34.i, %if.then2.i.i.i, %if.end.i.i
-  tail call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %call.i.i)
+  tail call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %call.i.i)
   %onFree.i.i = getelementptr inbounds i8, ptr %pResourceManager, i64 24
   %23 = load ptr, ptr %onFree.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %23, null
@@ -75202,7 +75283,7 @@ if.then4.i184.i:                                  ; preds = %if.end.i179.i
   br label %if.end.i187.i
 
 if.end.i187.i:                                    ; preds = %if.then4.i184.i, %if.end.i179.i, %ma_free.exit177.i, %if.then.i165.i, %if.then102.i
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %call.i.i)
+  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %call.i.i)
   %onFree.i190.i = getelementptr inbounds i8, ptr %pResourceManager, i64 24
   %55 = load ptr, ptr %onFree.i190.i, align 8
   %cmp3.not.i191.i = icmp eq ptr %55, null
@@ -76606,7 +76687,7 @@ if.end.i:                                         ; preds = %ma_resource_manager
   br label %ma_resource_manager_post_job.exit
 
 ma_resource_manager_post_job.exit:                ; preds = %ma_resource_manager_inline_notification_init.exit, %if.end.i
-  call fastcc void @ma_resource_manager_inline_notification_wait(ptr noundef %freeEvent)
+  call fastcc void @ma_resource_manager_inline_notification_wait(ptr noundef nonnull %freeEvent)
   %6 = load ptr, ptr %pResourceManager1.i, align 8
   %7 = getelementptr i8, ptr %6, i64 68
   %.val.i.i = load i32, ptr %7, align 4
@@ -83806,6 +83887,8 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 ; Function Attrs: nounwind uwtable
 define i32 @ma_engine_init(ptr noundef readonly %pConfig, ptr noundef %pEngine) local_unnamed_addr #38 {
 entry:
+  %heapLayout.i.i183 = alloca %struct.ma_node_heap_layout, align 8
+  %heapLayout.i.i = alloca %struct.ma_node_heap_layout, align 8
   %baseConfig.i = alloca %struct.ma_node_config, align 8
   %endpointConfig.i = alloca %struct.ma_node_config, align 8
   %nodeGraphConfig = alloca %struct.ma_node_graph_config, align 8
@@ -83823,9 +83906,9 @@ if.then2.i:                                       ; preds = %entry
   br i1 %cmp1.not, label %land.lhs.true7.i.thread, label %if.end3
 
 land.lhs.true7.i.thread:                          ; preds = %if.then2.i
-  %defaultVolumeSmoothTimeInPCMFrames5209 = getelementptr inbounds i8, ptr %pEngine, i64 1264
-  %allocationCallbacks212 = getelementptr inbounds i8, ptr %pEngine, i64 1208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defaultVolumeSmoothTimeInPCMFrames5209, i8 0, i64 24, i1 false)
+  %defaultVolumeSmoothTimeInPCMFrames5254 = getelementptr inbounds i8, ptr %pEngine, i64 1264
+  %allocationCallbacks257 = getelementptr inbounds i8, ptr %pEngine, i64 1208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defaultVolumeSmoothTimeInPCMFrames5254, i8 0, i64 24, i1 false)
   br label %if.then9.i
 
 if.end3:                                          ; preds = %if.then2.i
@@ -83901,25 +83984,25 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   br i1 %or.cond, label %if.then9.i, label %ma_allocation_callbacks_init_copy.exit
 
 if.then9.i:                                       ; preds = %land.lhs.true5.i, %land.lhs.true7.i.thread
-  %engineConfig.sroa.28.0217324346402 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.27.0220323347401 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.26.0223322348400 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.24.0226321349399 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.21.0229320350398 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.16.0232319351397 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.11.0235318352396 = phi i32 [ 1, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.9.0238317353395 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.8.0242316354394 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.7.0245315355393 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.6.0248314356392 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.5.0251313357391 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.4.0254312358390 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.0.0257311359389 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.37.0268308361388 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.38.0271307362387 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.42.0274306363386 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ]
-  %allocationCallbacks277305364385 = phi ptr [ %allocationCallbacks212, %land.lhs.true7.i.thread ], [ %allocationCallbacks, %land.lhs.true5.i ]
-  store ptr null, ptr %allocationCallbacks277305364385, align 8
+  %engineConfig.sroa.28.0262369391447 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.27.0265368392446 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.26.0268367393445 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.24.0271366394444 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.21.0274365395443 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.16.0277364396442 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.11.0280363397441 = phi i32 [ 1, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.9.0283362398440 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.8.0287361399439 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.7.0290360400438 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.6.0293359401437 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.5.0296358402436 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.4.0299357403435 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.0.0302356404434 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.37.0313353406433 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.38.0316352407432 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.42.0319351408431 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ]
+  %allocationCallbacks322350409430 = phi ptr [ %allocationCallbacks257, %land.lhs.true7.i.thread ], [ %allocationCallbacks, %land.lhs.true5.i ]
+  store ptr null, ptr %allocationCallbacks322350409430, align 8
   br label %ma_allocation_callbacks_init_copy.exit.sink.split
 
 if.else11.i:                                      ; preds = %if.end3
@@ -83928,8 +84011,8 @@ if.else11.i:                                      ; preds = %if.end3
 lor.lhs.false.i:                                  ; preds = %if.else11.i, %land.lhs.true.i
   %cmp15.i = icmp eq ptr %engineConfig.sroa.32.0.copyload, null
   %cmp18.i = icmp eq ptr %engineConfig.sroa.34.0.copyload, null
-  %or.cond411 = select i1 %cmp15.i, i1 %cmp18.i, i1 false
-  br i1 %or.cond411, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
+  %or.cond461 = select i1 %cmp15.i, i1 %cmp18.i, i1 false
+  br i1 %or.cond461, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %lor.lhs.false.i
   store ptr %engineConfig.sroa.30.0.copyload, ptr %allocationCallbacks, align 8
@@ -83939,24 +84022,24 @@ ma_allocation_callbacks_init_copy.exit.sink.split: ; preds = %if.else20.i, %if.t
   %ma__malloc_default.sink = phi ptr [ @ma__malloc_default, %if.then9.i ], [ %engineConfig.sroa.32.0.copyload, %if.else20.i ]
   %ma__realloc_default.sink = phi ptr [ @ma__realloc_default, %if.then9.i ], [ %engineConfig.sroa.34.0.copyload, %if.else20.i ]
   %ma__free_default.sink = phi ptr [ @ma__free_default, %if.then9.i ], [ %engineConfig.sroa.36.0.copyload, %if.else20.i ]
-  %allocationCallbacks275.ph = phi ptr [ %allocationCallbacks277305364385, %if.then9.i ], [ %allocationCallbacks, %if.else20.i ]
-  %engineConfig.sroa.42.0272.ph = phi ptr [ %engineConfig.sroa.42.0274306363386, %if.then9.i ], [ %engineConfig.sroa.42.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.38.0269.ph = phi i32 [ %engineConfig.sroa.38.0271307362387, %if.then9.i ], [ %engineConfig.sroa.38.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.37.0266.ph = phi i32 [ %engineConfig.sroa.37.0268308361388, %if.then9.i ], [ %engineConfig.sroa.37.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.0.0255.ph = phi ptr [ %engineConfig.sroa.0.0257311359389, %if.then9.i ], [ %engineConfig.sroa.0.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.4.0252.ph = phi ptr [ %engineConfig.sroa.4.0254312358390, %if.then9.i ], [ %engineConfig.sroa.4.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.5.0249.ph = phi ptr [ %engineConfig.sroa.5.0251313357391, %if.then9.i ], [ %engineConfig.sroa.5.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.6.0246.ph = phi ptr [ %engineConfig.sroa.6.0248314356392, %if.then9.i ], [ %engineConfig.sroa.6.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.7.0243.ph = phi ptr [ %engineConfig.sroa.7.0245315355393, %if.then9.i ], [ %engineConfig.sroa.7.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.8.0240.ph = phi ptr [ %engineConfig.sroa.8.0242316354394, %if.then9.i ], [ %engineConfig.sroa.8.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.9.0236.ph = phi ptr [ %engineConfig.sroa.9.0238317353395, %if.then9.i ], [ %engineConfig.sroa.9.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.11.0233.ph = phi i32 [ %engineConfig.sroa.11.0235318352396, %if.then9.i ], [ %engineConfig.sroa.11.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.16.0230.ph = phi i32 [ %engineConfig.sroa.16.0232319351397, %if.then9.i ], [ %engineConfig.sroa.16.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.21.0227.ph = phi i32 [ %engineConfig.sroa.21.0229320350398, %if.then9.i ], [ %engineConfig.sroa.21.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.24.0224.ph = phi i32 [ %engineConfig.sroa.24.0226321349399, %if.then9.i ], [ %engineConfig.sroa.24.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.26.0221.ph = phi i32 [ %engineConfig.sroa.26.0223322348400, %if.then9.i ], [ %engineConfig.sroa.26.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.27.0218.ph = phi i32 [ %engineConfig.sroa.27.0220323347401, %if.then9.i ], [ %engineConfig.sroa.27.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.28.0215.ph = phi i32 [ %engineConfig.sroa.28.0217324346402, %if.then9.i ], [ %engineConfig.sroa.28.0.copyload, %if.else20.i ]
+  %allocationCallbacks320.ph = phi ptr [ %allocationCallbacks322350409430, %if.then9.i ], [ %allocationCallbacks, %if.else20.i ]
+  %engineConfig.sroa.42.0317.ph = phi ptr [ %engineConfig.sroa.42.0319351408431, %if.then9.i ], [ %engineConfig.sroa.42.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.38.0314.ph = phi i32 [ %engineConfig.sroa.38.0316352407432, %if.then9.i ], [ %engineConfig.sroa.38.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.37.0311.ph = phi i32 [ %engineConfig.sroa.37.0313353406433, %if.then9.i ], [ %engineConfig.sroa.37.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.0.0300.ph = phi ptr [ %engineConfig.sroa.0.0302356404434, %if.then9.i ], [ %engineConfig.sroa.0.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.4.0297.ph = phi ptr [ %engineConfig.sroa.4.0299357403435, %if.then9.i ], [ %engineConfig.sroa.4.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.5.0294.ph = phi ptr [ %engineConfig.sroa.5.0296358402436, %if.then9.i ], [ %engineConfig.sroa.5.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.6.0291.ph = phi ptr [ %engineConfig.sroa.6.0293359401437, %if.then9.i ], [ %engineConfig.sroa.6.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.7.0288.ph = phi ptr [ %engineConfig.sroa.7.0290360400438, %if.then9.i ], [ %engineConfig.sroa.7.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.8.0285.ph = phi ptr [ %engineConfig.sroa.8.0287361399439, %if.then9.i ], [ %engineConfig.sroa.8.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.9.0281.ph = phi ptr [ %engineConfig.sroa.9.0283362398440, %if.then9.i ], [ %engineConfig.sroa.9.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.11.0278.ph = phi i32 [ %engineConfig.sroa.11.0280363397441, %if.then9.i ], [ %engineConfig.sroa.11.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.16.0275.ph = phi i32 [ %engineConfig.sroa.16.0277364396442, %if.then9.i ], [ %engineConfig.sroa.16.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.21.0272.ph = phi i32 [ %engineConfig.sroa.21.0274365395443, %if.then9.i ], [ %engineConfig.sroa.21.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.24.0269.ph = phi i32 [ %engineConfig.sroa.24.0271366394444, %if.then9.i ], [ %engineConfig.sroa.24.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.26.0266.ph = phi i32 [ %engineConfig.sroa.26.0268367393445, %if.then9.i ], [ %engineConfig.sroa.26.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.27.0263.ph = phi i32 [ %engineConfig.sroa.27.0265368392446, %if.then9.i ], [ %engineConfig.sroa.27.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.28.0260.ph = phi i32 [ %engineConfig.sroa.28.0262369391447, %if.then9.i ], [ %engineConfig.sroa.28.0.copyload, %if.else20.i ]
   %tmp10.sroa.2.0.pDst.sroa_idx.i = getelementptr inbounds i8, ptr %pEngine, i64 1216
   store ptr %ma__malloc_default.sink, ptr %tmp10.sroa.2.0.pDst.sroa_idx.i, align 8
   %tmp10.sroa.3.0.pDst.sroa_idx.i = getelementptr inbounds i8, ptr %pEngine, i64 1224
@@ -83966,35 +84049,35 @@ ma_allocation_callbacks_init_copy.exit.sink.split: ; preds = %if.else20.i, %if.t
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %ma_allocation_callbacks_init_copy.exit.sink.split, %lor.lhs.false.i, %land.lhs.true5.i, %if.else11.i
-  %allocationCallbacks275 = phi ptr [ %allocationCallbacks, %land.lhs.true5.i ], [ %allocationCallbacks, %if.else11.i ], [ %allocationCallbacks, %lor.lhs.false.i ], [ %allocationCallbacks275.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.42.0272 = phi ptr [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.42.0.copyload, %if.else11.i ], [ %engineConfig.sroa.42.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.42.0272.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.38.0269 = phi i32 [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.38.0.copyload, %if.else11.i ], [ %engineConfig.sroa.38.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.38.0269.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.37.0266 = phi i32 [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.37.0.copyload, %if.else11.i ], [ %engineConfig.sroa.37.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.37.0266.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.0.0255 = phi ptr [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.0.0.copyload, %if.else11.i ], [ %engineConfig.sroa.0.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.0.0255.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.4.0252 = phi ptr [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.4.0.copyload, %if.else11.i ], [ %engineConfig.sroa.4.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.4.0252.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.5.0249 = phi ptr [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.5.0.copyload, %if.else11.i ], [ %engineConfig.sroa.5.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.5.0249.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.6.0246 = phi ptr [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.6.0.copyload, %if.else11.i ], [ %engineConfig.sroa.6.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.6.0246.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.7.0243 = phi ptr [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.7.0.copyload, %if.else11.i ], [ %engineConfig.sroa.7.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.7.0243.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.8.0240 = phi ptr [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.8.0.copyload, %if.else11.i ], [ %engineConfig.sroa.8.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.8.0240.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.9.0236 = phi ptr [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.9.0.copyload, %if.else11.i ], [ %engineConfig.sroa.9.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.9.0236.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.11.0233 = phi i32 [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.11.0.copyload, %if.else11.i ], [ %engineConfig.sroa.11.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.11.0233.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.16.0230 = phi i32 [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.16.0.copyload, %if.else11.i ], [ %engineConfig.sroa.16.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.16.0230.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.21.0227 = phi i32 [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.21.0.copyload, %if.else11.i ], [ %engineConfig.sroa.21.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.21.0227.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.24.0224 = phi i32 [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.24.0.copyload, %if.else11.i ], [ %engineConfig.sroa.24.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.24.0224.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.26.0221 = phi i32 [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.26.0.copyload, %if.else11.i ], [ %engineConfig.sroa.26.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.26.0221.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.27.0218 = phi i32 [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.27.0.copyload, %if.else11.i ], [ %engineConfig.sroa.27.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.27.0218.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.28.0215 = phi i32 [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.28.0.copyload, %if.else11.i ], [ %engineConfig.sroa.28.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.28.0215.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %allocationCallbacks320 = phi ptr [ %allocationCallbacks, %land.lhs.true5.i ], [ %allocationCallbacks, %if.else11.i ], [ %allocationCallbacks, %lor.lhs.false.i ], [ %allocationCallbacks320.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.42.0317 = phi ptr [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.42.0.copyload, %if.else11.i ], [ %engineConfig.sroa.42.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.42.0317.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.38.0314 = phi i32 [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.38.0.copyload, %if.else11.i ], [ %engineConfig.sroa.38.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.38.0314.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.37.0311 = phi i32 [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.37.0.copyload, %if.else11.i ], [ %engineConfig.sroa.37.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.37.0311.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.0.0300 = phi ptr [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.0.0.copyload, %if.else11.i ], [ %engineConfig.sroa.0.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.0.0300.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.4.0297 = phi ptr [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.4.0.copyload, %if.else11.i ], [ %engineConfig.sroa.4.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.4.0297.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.5.0294 = phi ptr [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.5.0.copyload, %if.else11.i ], [ %engineConfig.sroa.5.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.5.0294.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.6.0291 = phi ptr [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.6.0.copyload, %if.else11.i ], [ %engineConfig.sroa.6.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.6.0291.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.7.0288 = phi ptr [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.7.0.copyload, %if.else11.i ], [ %engineConfig.sroa.7.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.7.0288.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.8.0285 = phi ptr [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.8.0.copyload, %if.else11.i ], [ %engineConfig.sroa.8.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.8.0285.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.9.0281 = phi ptr [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.9.0.copyload, %if.else11.i ], [ %engineConfig.sroa.9.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.9.0281.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.11.0278 = phi i32 [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.11.0.copyload, %if.else11.i ], [ %engineConfig.sroa.11.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.11.0278.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.16.0275 = phi i32 [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.16.0.copyload, %if.else11.i ], [ %engineConfig.sroa.16.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.16.0275.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.21.0272 = phi i32 [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.21.0.copyload, %if.else11.i ], [ %engineConfig.sroa.21.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.21.0272.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.24.0269 = phi i32 [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.24.0.copyload, %if.else11.i ], [ %engineConfig.sroa.24.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.24.0269.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.26.0266 = phi i32 [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.26.0.copyload, %if.else11.i ], [ %engineConfig.sroa.26.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.26.0266.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.27.0263 = phi i32 [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.27.0.copyload, %if.else11.i ], [ %engineConfig.sroa.27.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.27.0263.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.28.0260 = phi i32 [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.28.0.copyload, %if.else11.i ], [ %engineConfig.sroa.28.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.28.0260.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
   %pResourceManager9 = getelementptr inbounds i8, ptr %pEngine, i64 728
-  store ptr %engineConfig.sroa.0.0255, ptr %pResourceManager9, align 8
+  store ptr %engineConfig.sroa.0.0300, ptr %pResourceManager9, align 8
   %pDevice10 = getelementptr inbounds i8, ptr %pEngine, i64 736
-  store ptr %engineConfig.sroa.5.0249, ptr %pDevice10, align 8
-  %cmp12 = icmp eq ptr %engineConfig.sroa.5.0249, null
-  %cmp13 = icmp eq i32 %engineConfig.sroa.38.0269, 0
+  store ptr %engineConfig.sroa.5.0294, ptr %pDevice10, align 8
+  %cmp12 = icmp eq ptr %engineConfig.sroa.5.0294, null
+  %cmp13 = icmp eq i32 %engineConfig.sroa.38.0314, 0
   %or.cond1 = select i1 %cmp12, i1 %cmp13, i1 false
   br i1 %or.cond1, label %if.then14, label %if.end61
 
 if.then14:                                        ; preds = %ma_allocation_callbacks_init_copy.exit
-  %onMalloc.i88 = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 8
+  %onMalloc.i88 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
   %0 = load ptr, ptr %onMalloc.i88, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %ma_malloc.exit.thread, label %ma_malloc.exit
@@ -84004,7 +84087,7 @@ ma_malloc.exit.thread:                            ; preds = %if.then14
   br label %return
 
 ma_malloc.exit:                                   ; preds = %if.then14
-  %1 = load ptr, ptr %allocationCallbacks275, align 8
+  %1 = load ptr, ptr %allocationCallbacks320, align 8
   %call.i = tail call ptr %0(i64 noundef 3776, ptr noundef %1) #64
   store ptr %call.i, ptr %pDevice10, align 8
   %cmp19 = icmp eq ptr %call.i, null
@@ -84024,43 +84107,43 @@ if.end21:                                         ; preds = %ma_malloc.exit
   store i32 4, ptr %tmp22.sroa.4.0.deviceConfig.sroa_idx, align 8
   %tmp22.sroa.5.0.deviceConfig.sroa_idx = getelementptr inbounds i8, ptr %deviceConfig, i64 108
   store i32 0, ptr %tmp22.sroa.5.0.deviceConfig.sroa_idx, align 4
-  store ptr %engineConfig.sroa.6.0246, ptr %tmp22.sroa.6.0.deviceConfig.sroa_idx, align 8
+  store ptr %engineConfig.sroa.6.0291, ptr %tmp22.sroa.6.0.deviceConfig.sroa_idx, align 8
   %format = getelementptr inbounds i8, ptr %deviceConfig, i64 120
   store i32 5, ptr %format, align 8
   %channels25 = getelementptr inbounds i8, ptr %deviceConfig, i64 124
-  store i32 %engineConfig.sroa.16.0230, ptr %channels25, align 4
-  store i32 %engineConfig.sroa.21.0227, ptr %tmp22.sroa.3.0.deviceConfig.sroa_idx, align 4
-  %cmp27.not = icmp eq ptr %engineConfig.sroa.7.0243, null
-  %cond = select i1 %cmp27.not, ptr @ma_engine_data_callback_internal, ptr %engineConfig.sroa.7.0243
+  store i32 %engineConfig.sroa.16.0275, ptr %channels25, align 4
+  store i32 %engineConfig.sroa.21.0272, ptr %tmp22.sroa.3.0.deviceConfig.sroa_idx, align 4
+  %cmp27.not = icmp eq ptr %engineConfig.sroa.7.0288, null
+  %cond = select i1 %cmp27.not, ptr @ma_engine_data_callback_internal, ptr %engineConfig.sroa.7.0288
   %dataCallback29 = getelementptr inbounds i8, ptr %deviceConfig, i64 32
   store ptr %cond, ptr %dataCallback29, align 8
   %pUserData = getelementptr inbounds i8, ptr %deviceConfig, i64 56
   store ptr %pEngine, ptr %pUserData, align 8
   %notificationCallback30 = getelementptr inbounds i8, ptr %deviceConfig, i64 40
-  store ptr %engineConfig.sroa.8.0240, ptr %notificationCallback30, align 8
+  store ptr %engineConfig.sroa.8.0285, ptr %notificationCallback30, align 8
   %periodSizeInFrames31 = getelementptr inbounds i8, ptr %deviceConfig, i64 8
-  store i32 %engineConfig.sroa.24.0224, ptr %periodSizeInFrames31, align 8
+  store i32 %engineConfig.sroa.24.0269, ptr %periodSizeInFrames31, align 8
   %periodSizeInMilliseconds32 = getelementptr inbounds i8, ptr %deviceConfig, i64 12
-  store i32 %engineConfig.sroa.26.0221, ptr %periodSizeInMilliseconds32, align 4
+  store i32 %engineConfig.sroa.26.0266, ptr %periodSizeInMilliseconds32, align 4
   %noPreSilencedOutputBuffer = getelementptr inbounds i8, ptr %deviceConfig, i64 24
   store i8 1, ptr %noPreSilencedOutputBuffer, align 8
   %noClip = getelementptr inbounds i8, ptr %deviceConfig, i64 25
   store i8 1, ptr %noClip, align 1
-  %cmp33 = icmp eq ptr %engineConfig.sroa.4.0252, null
+  %cmp33 = icmp eq ptr %engineConfig.sroa.4.0297, null
   br i1 %cmp33, label %if.then34, label %if.else50
 
 if.then34:                                        ; preds = %if.end21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %contextConfig, i8 0, i64 232, i1 false), !alias.scope !763
   %allocationCallbacks35 = getelementptr inbounds i8, ptr %contextConfig, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks35, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks275, i64 32, i1 false)
-  store ptr %engineConfig.sroa.9.0236, ptr %contextConfig, align 8
-  %cmp39 = icmp eq ptr %engineConfig.sroa.9.0236, null
-  %cmp42 = icmp ne ptr %engineConfig.sroa.0.0255, null
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks35, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks320, i64 32, i1 false)
+  store ptr %engineConfig.sroa.9.0281, ptr %contextConfig, align 8
+  %cmp39 = icmp eq ptr %engineConfig.sroa.9.0281, null
+  %cmp42 = icmp ne ptr %engineConfig.sroa.0.0300, null
   %or.cond2 = select i1 %cmp39, i1 %cmp42, i1 false
   br i1 %or.cond2, label %ma_resource_manager_get_log.exit, label %if.end47
 
 ma_resource_manager_get_log.exit:                 ; preds = %if.then34
-  %pLog.i = getelementptr inbounds i8, ptr %engineConfig.sroa.0.0255, i64 32
+  %pLog.i = getelementptr inbounds i8, ptr %engineConfig.sroa.0.0300, i64 32
   %3 = load ptr, ptr %pLog.i, align 8
   store ptr %3, ptr %contextConfig, align 8
   br label %if.end47
@@ -84070,7 +84153,7 @@ if.end47:                                         ; preds = %ma_resource_manager
   br label %if.end54
 
 if.else50:                                        ; preds = %if.end21
-  %call53 = call i32 @ma_device_init(ptr noundef nonnull %engineConfig.sroa.4.0252, ptr noundef nonnull %deviceConfig, ptr noundef nonnull %call.i)
+  %call53 = call i32 @ma_device_init(ptr noundef nonnull %engineConfig.sroa.4.0297, ptr noundef nonnull %deviceConfig, ptr noundef nonnull %call.i)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else50, %if.end47
@@ -84084,13 +84167,13 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp.i92, label %ma_free.exit, label %if.end.i93
 
 if.end.i93:                                       ; preds = %if.then56
-  %onFree.i96 = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 24
+  %onFree.i96 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
   %5 = load ptr, ptr %onFree.i96, align 8
   %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %ma_free.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i93
-  %6 = load ptr, ptr %allocationCallbacks275, align 8
+  %6 = load ptr, ptr %allocationCallbacks320, align 8
   call void %5(ptr noundef nonnull %4, ptr noundef %6) #64
   br label %ma_free.exit
 
@@ -84105,7 +84188,7 @@ if.end60:                                         ; preds = %if.end54
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end60, %ma_allocation_callbacks_init_copy.exit
-  %7 = phi ptr [ %.pr, %if.end60 ], [ %engineConfig.sroa.5.0249, %ma_allocation_callbacks_init_copy.exit ]
+  %7 = phi ptr [ %.pr, %if.end60 ], [ %engineConfig.sroa.5.0294, %ma_allocation_callbacks_init_copy.exit ]
   %cmp63.not = icmp eq ptr %7, null
   br i1 %cmp63.not, label %if.end72, label %if.then64
 
@@ -84117,8 +84200,8 @@ if.then64:                                        ; preds = %if.end61
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then64, %if.end61
-  %engineConfig.sroa.21.1 = phi i32 [ %engineConfig.sroa.21.0227, %if.end61 ], [ %9, %if.then64 ]
-  %engineConfig.sroa.16.1 = phi i32 [ %engineConfig.sroa.16.0230, %if.end61 ], [ %8, %if.then64 ]
+  %engineConfig.sroa.21.1 = phi i32 [ %engineConfig.sroa.21.0272, %if.end61 ], [ %9, %if.then64 ]
+  %engineConfig.sroa.16.1 = phi i32 [ %engineConfig.sroa.16.0275, %if.end61 ], [ %8, %if.then64 ]
   %cmp74 = icmp eq i32 %engineConfig.sroa.16.1, 0
   %cmp76 = icmp eq i32 %engineConfig.sroa.21.1, 0
   %or.cond3 = select i1 %cmp74, i1 true, i1 %cmp76
@@ -84127,7 +84210,7 @@ if.end72:                                         ; preds = %if.then64, %if.end6
 if.end78:                                         ; preds = %if.end72
   %sampleRate80 = getelementptr inbounds i8, ptr %pEngine, i64 752
   store i32 %engineConfig.sroa.21.1, ptr %sampleRate80, align 8
-  %cmp82.not = icmp ne ptr %engineConfig.sroa.9.0236, null
+  %cmp82.not = icmp ne ptr %engineConfig.sroa.9.0281, null
   %brmerge = or i1 %cmp82.not, %cmp63.not
   br i1 %brmerge, label %if.then2.i.i, label %ma_device_get_context.exit.i
 
@@ -84142,13 +84225,13 @@ if.end.i2.i:                                      ; preds = %ma_device_get_conte
   br label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end78, %if.end.i2.i, %ma_device_get_context.exit.i
-  %engineConfig.sroa.9.0236.sink = phi ptr [ %engineConfig.sroa.9.0236, %if.end78 ], [ %11, %if.end.i2.i ], [ null, %ma_device_get_context.exit.i ]
+  %engineConfig.sroa.9.0281.sink = phi ptr [ %engineConfig.sroa.9.0281, %if.end78 ], [ %11, %if.end.i2.i ], [ null, %ma_device_get_context.exit.i ]
   %pLog85 = getelementptr inbounds i8, ptr %pEngine, i64 744
-  store ptr %engineConfig.sroa.9.0236.sink, ptr %pLog85, align 8
+  store ptr %engineConfig.sroa.9.0281.sink, ptr %pLog85, align 8
   %retval.sroa.0.0.insert.ext.i = zext i32 %engineConfig.sroa.16.1 to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 2061584302080
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %nodeGraphConfig, align 8
-  %conv10286 = call i32 @llvm.umin.i32(i32 %engineConfig.sroa.24.0224, i32 65535)
+  %conv10286 = call i32 @llvm.umin.i32(i32 %engineConfig.sroa.24.0269, i32 65535)
   %conv102 = trunc nuw i32 %conv10286 to i16
   %nodeCacheCapInFrames = getelementptr inbounds i8, ptr %nodeGraphConfig, i64 4
   store i16 %conv102, ptr %nodeCacheCapInFrames, align 4
@@ -84156,7 +84239,7 @@ if.then2.i.i:                                     ; preds = %if.end78, %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %endpointConfig.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(728) %pEngine, i8 0, i64 728, i1 false)
   %nodeCacheCapInFrames1.i = getelementptr inbounds i8, ptr %pEngine, i64 720
-  %cmp3.i98 = icmp eq i32 %engineConfig.sroa.24.0224, 0
+  %cmp3.i98 = icmp eq i32 %engineConfig.sroa.24.0269, 0
   %storemerge.i = select i1 %cmp3.i98, i16 480, i16 %conv102
   store i16 %storemerge.i, ptr %nodeCacheCapInFrames1.i, align 8
   %tmp.sroa.5.0.baseConfig.sroa_idx.i = getelementptr inbounds i8, ptr %baseConfig.i, i64 20
@@ -84170,11 +84253,57 @@ if.then2.i.i:                                     ; preds = %if.end78, %if.end.i
   store ptr @g_node_graph_node_vtable, ptr %baseConfig.i, align 8
   %pOutputChannels.i = getelementptr inbounds i8, ptr %baseConfig.i, i64 32
   store ptr %nodeGraphConfig, ptr %pOutputChannels.i, align 8
-  %call.i99 = call i32 @ma_node_init(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef nonnull %allocationCallbacks275, ptr noundef nonnull %pEngine)
-  %cmp8.not.i = icmp eq i32 %call.i99, 0
-  br i1 %cmp8.not.i, label %if.end11.i, label %ma_node_graph_init.exit.thread
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i183)
+  %call.i.i184 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef %heapLayout.i.i183)
+  %cmp1.not.i.i185 = icmp eq i32 %call.i.i184, 0
+  br i1 %cmp1.not.i.i185, label %if.end.i188, label %ma_node_get_heap_size.exit.i186
 
-if.end11.i:                                       ; preds = %if.then2.i.i
+ma_node_get_heap_size.exit.i186:                  ; preds = %if.then2.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i183)
+  br label %ma_node_graph_init.exit.thread
+
+if.end.i188:                                      ; preds = %if.then2.i.i
+  %12 = load i64, ptr %heapLayout.i.i183, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i183)
+  %cmp1.not.i189 = icmp eq i64 %12, 0
+  br i1 %cmp1.not.i189, label %if.end7.thread.i205, label %if.then2.i190
+
+if.then2.i190:                                    ; preds = %if.end.i188
+  %onMalloc.i.i191 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
+  %13 = load ptr, ptr %onMalloc.i.i191, align 8
+  %cmp1.not.i10.i192 = icmp eq ptr %13, null
+  br i1 %cmp1.not.i10.i192, label %ma_node_graph_init.exit.thread, label %if.then2.i.i193
+
+if.then2.i.i193:                                  ; preds = %if.then2.i190
+  %14 = load ptr, ptr %allocationCallbacks320, align 8
+  %call.i11.i194 = call ptr %13(i64 noundef %12, ptr noundef %14) #64
+  %cmp4.i195 = icmp eq ptr %call.i11.i194, null
+  br i1 %cmp4.i195, label %ma_node_graph_init.exit.thread, label %if.end7.i196
+
+if.end7.i196:                                     ; preds = %if.then2.i.i193
+  %call8.i197 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef nonnull %call.i11.i194, ptr noundef nonnull %pEngine)
+  %cmp9.not.i198 = icmp eq i32 %call8.i197, 0
+  br i1 %cmp9.not.i198, label %if.end11.i, label %if.end.i.i199
+
+if.end7.thread.i205:                              ; preds = %if.end.i188
+  %call822.i206 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef null, ptr noundef nonnull %pEngine)
+  %cmp9.not23.i207 = icmp eq i32 %call822.i206, 0
+  br i1 %cmp9.not23.i207, label %if.end11.i, label %ma_node_graph_init.exit.thread
+
+if.end.i.i199:                                    ; preds = %if.end7.i196
+  %onFree.i.i200 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
+  %15 = load ptr, ptr %onFree.i.i200, align 8
+  %cmp3.not.i.i201 = icmp eq ptr %15, null
+  br i1 %cmp3.not.i.i201, label %ma_node_graph_init.exit.thread, label %if.then4.i.i202
+
+if.then4.i.i202:                                  ; preds = %if.end.i.i199
+  %16 = load ptr, ptr %allocationCallbacks320, align 8
+  call void %15(ptr noundef nonnull %call.i11.i194, ptr noundef %16) #64
+  br label %ma_node_graph_init.exit.thread
+
+if.end11.i:                                       ; preds = %if.end7.thread.i205, %if.end7.i196
+  %_ownsHeap.i204 = getelementptr inbounds i8, ptr %pEngine, i64 352
+  store i32 1, ptr %_ownsHeap.i204, align 8
   %tmp12.sroa.5.0.endpointConfig.sroa_idx.i = getelementptr inbounds i8, ptr %endpointConfig.i, i64 20
   store i32 0, ptr %tmp12.sroa.5.0.endpointConfig.sroa_idx.i, align 4
   %tmp12.sroa.2.0.endpointConfig.sroa_idx.i = getelementptr inbounds i8, ptr %endpointConfig.i, i64 8
@@ -84189,24 +84318,71 @@ if.end11.i:                                       ; preds = %if.then2.i.i
   %pOutputChannels16.i = getelementptr inbounds i8, ptr %endpointConfig.i, i64 32
   store ptr %nodeGraphConfig, ptr %pOutputChannels16.i, align 8
   %endpoint.i = getelementptr inbounds i8, ptr %pEngine, i64 360
-  %call17.i = call i32 @ma_node_init(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef nonnull %allocationCallbacks275, ptr noundef nonnull %endpoint.i)
-  %cmp18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %cmp18.not.i, label %if.end108, label %if.then20.i
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i)
+  %call.i.i164 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef %heapLayout.i.i)
+  %cmp1.not.i.i165 = icmp eq i32 %call.i.i164, 0
+  br i1 %cmp1.not.i.i165, label %if.end.i167, label %ma_node_get_heap_size.exit.i
 
-if.then20.i:                                      ; preds = %if.end11.i
-  call void @ma_node_uninit(ptr noundef nonnull %pEngine, ptr noundef nonnull %allocationCallbacks275)
+ma_node_get_heap_size.exit.i:                     ; preds = %if.end11.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i)
+  br label %if.then20.i
+
+if.end.i167:                                      ; preds = %if.end11.i
+  %17 = load i64, ptr %heapLayout.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i)
+  %cmp1.not.i168 = icmp eq i64 %17, 0
+  br i1 %cmp1.not.i168, label %if.end7.thread.i182, label %if.then2.i169
+
+if.then2.i169:                                    ; preds = %if.end.i167
+  %onMalloc.i.i170 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
+  %18 = load ptr, ptr %onMalloc.i.i170, align 8
+  %cmp1.not.i10.i = icmp eq ptr %18, null
+  br i1 %cmp1.not.i10.i, label %if.then20.i, label %if.then2.i.i171
+
+if.then2.i.i171:                                  ; preds = %if.then2.i169
+  %19 = load ptr, ptr %allocationCallbacks320, align 8
+  %call.i11.i = call ptr %18(i64 noundef %17, ptr noundef %19) #64
+  %cmp4.i172 = icmp eq ptr %call.i11.i, null
+  br i1 %cmp4.i172, label %if.then20.i, label %if.end7.i173
+
+if.end7.i173:                                     ; preds = %if.then2.i.i171
+  %call8.i174 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef nonnull %call.i11.i, ptr noundef nonnull %endpoint.i)
+  %cmp9.not.i175 = icmp eq i32 %call8.i174, 0
+  br i1 %cmp9.not.i175, label %if.end108, label %if.end.i.i176
+
+if.end7.thread.i182:                              ; preds = %if.end.i167
+  %call822.i = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef null, ptr noundef nonnull %endpoint.i)
+  %cmp9.not23.i = icmp eq i32 %call822.i, 0
+  br i1 %cmp9.not23.i, label %if.end108, label %if.then20.i
+
+if.end.i.i176:                                    ; preds = %if.end7.i173
+  %onFree.i.i177 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
+  %20 = load ptr, ptr %onFree.i.i177, align 8
+  %cmp3.not.i.i178 = icmp eq ptr %20, null
+  br i1 %cmp3.not.i.i178, label %if.then20.i, label %if.then4.i.i179
+
+if.then4.i.i179:                                  ; preds = %if.end.i.i176
+  %21 = load ptr, ptr %allocationCallbacks320, align 8
+  call void %20(ptr noundef nonnull %call.i11.i, ptr noundef %21) #64
+  br label %if.then20.i
+
+if.then20.i:                                      ; preds = %ma_node_get_heap_size.exit.i, %if.then2.i.i171, %if.end.i.i176, %if.then4.i.i179, %if.then2.i169, %if.end7.thread.i182
+  %retval.0.i166.ph = phi i32 [ %call822.i, %if.end7.thread.i182 ], [ -4, %if.then2.i169 ], [ %call8.i174, %if.then4.i.i179 ], [ %call8.i174, %if.end.i.i176 ], [ -4, %if.then2.i.i171 ], [ %call.i.i164, %ma_node_get_heap_size.exit.i ]
+  call void @ma_node_uninit(ptr noundef nonnull %pEngine, ptr noundef nonnull %allocationCallbacks320)
   br label %ma_node_graph_init.exit.thread
 
-ma_node_graph_init.exit.thread:                   ; preds = %if.then20.i, %if.then2.i.i
-  %retval.0.i100.ph = phi i32 [ %call.i99, %if.then2.i.i ], [ %call17.i, %if.then20.i ]
+ma_node_graph_init.exit.thread:                   ; preds = %if.then20.i, %ma_node_get_heap_size.exit.i186, %if.then2.i.i193, %if.end.i.i199, %if.then4.i.i202, %if.then2.i190, %if.end7.thread.i205
+  %retval.0.i100.ph = phi i32 [ %retval.0.i166.ph, %if.then20.i ], [ %call822.i206, %if.end7.thread.i205 ], [ -4, %if.then2.i190 ], [ %call8.i197, %if.then4.i.i202 ], [ %call8.i197, %if.end.i.i199 ], [ -4, %if.then2.i.i193 ], [ %call.i.i184, %ma_node_get_heap_size.exit.i186 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %endpointConfig.i)
   br label %on_error_1
 
-if.end108:                                        ; preds = %if.end11.i
+if.end108:                                        ; preds = %if.end7.i173, %if.end7.thread.i182
+  %_ownsHeap.i181 = getelementptr inbounds i8, ptr %pEngine, i64 712
+  store i32 1, ptr %_ownsHeap.i181, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %endpointConfig.i)
-  %cmp115 = icmp ugt i32 %engineConfig.sroa.11.0233, 4
+  %cmp115 = icmp ugt i32 %engineConfig.sroa.11.0278, 4
   br i1 %cmp115, label %on_error_1, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end108
@@ -84221,27 +84397,27 @@ for.cond.preheader:                               ; preds = %if.end108
   %tmp122.sroa.10.0.listenerConfig.sroa_idx = getelementptr inbounds i8, ptr %listenerConfig, i64 44
   %listeners = getelementptr inbounds i8, ptr %pEngine, i64 760
   %pOutputBuses.i.i = getelementptr inbounds i8, ptr %pEngine, i64 440
-  %onMalloc.i.i = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 8
+  %onMalloc.i.i = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
   %listenerCount136 = getelementptr inbounds i8, ptr %pEngine, i64 756
-  %umax = call i32 @llvm.umax.i32(i32 %engineConfig.sroa.11.0233, i32 1)
+  %umax = call i32 @llvm.umax.i32(i32 %engineConfig.sroa.11.0278, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %if.end.i102
 
 if.end.i102:                                      ; preds = %for.cond.preheader, %if.end135
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %if.end135 ]
-  %12 = load i32, ptr %outputBusCount.i.i.i, align 4
-  %cmp1.not.i.not.i = icmp eq i32 %12, 0
+  %22 = load i32, ptr %outputBusCount.i.i.i, align 4
+  %cmp1.not.i.not.i = icmp eq i32 %22, 0
   br i1 %cmp1.not.i.not.i, label %ma_node_graph_get_channels.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i102
-  %13 = load ptr, ptr %pOutputBuses.i.i, align 8
-  %14 = getelementptr i8, ptr %13, i64 9
-  %arrayidx.val.i.i = load i8, ptr %14, align 1
-  %15 = zext i8 %arrayidx.val.i.i to i64
+  %23 = load ptr, ptr %pOutputBuses.i.i, align 8
+  %24 = getelementptr i8, ptr %23, i64 9
+  %arrayidx.val.i.i = load i8, ptr %24, align 1
+  %25 = zext i8 %arrayidx.val.i.i to i64
   br label %ma_node_graph_get_channels.exit
 
 ma_node_graph_get_channels.exit:                  ; preds = %if.end.i102, %if.end3.i.i
-  %retval.0.i103 = phi i64 [ %15, %if.end3.i.i ], [ 0, %if.end.i102 ]
+  %retval.0.i103 = phi i64 [ %25, %if.end3.i.i ], [ 0, %if.end.i102 ]
   store i64 %retval.0.i103, ptr %listenerConfig, align 8
   store ptr null, ptr %tmp122.sroa.3.0.listenerConfig.sroa_idx, align 8
   store i32 0, ptr %tmp122.sroa.4.0.listenerConfig.sroa_idx, align 8
@@ -84262,13 +84438,13 @@ if.end.i105:                                      ; preds = %ma_node_graph_get_c
   br i1 %cmp1.not.i107, label %if.end7.thread.i, label %if.then2.i108
 
 if.then2.i108:                                    ; preds = %if.end.i105
-  %16 = load ptr, ptr %onMalloc.i.i, align 8
-  %cmp1.not.i.i = icmp eq ptr %16, null
+  %26 = load ptr, ptr %onMalloc.i.i, align 8
+  %cmp1.not.i.i = icmp eq ptr %26, null
   br i1 %cmp1.not.i.i, label %on_error_2, label %if.then2.i.i109
 
 if.then2.i.i109:                                  ; preds = %if.then2.i108
-  %17 = load ptr, ptr %allocationCallbacks275, align 8
-  %call.i.i = call ptr %16(i64 noundef %and.i.i.i, ptr noundef %17) #64
+  %27 = load ptr, ptr %allocationCallbacks320, align 8
+  %call.i.i = call ptr %26(i64 noundef %and.i.i.i, ptr noundef %27) #64
   %cmp4.i110 = icmp eq ptr %call.i.i, null
   br i1 %cmp4.i110, label %on_error_2, label %if.end7.i
 
@@ -84283,21 +84459,21 @@ if.end7.thread.i:                                 ; preds = %if.end.i105
   br i1 %cmp9.not19.i, label %if.end135, label %on_error_2
 
 if.end.i.i:                                       ; preds = %if.end7.i
-  %onFree.i.i = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 24
-  %18 = load ptr, ptr %onFree.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %18, null
+  %onFree.i.i = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
+  %28 = load ptr, ptr %onFree.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %28, null
   br i1 %cmp3.not.i.i, label %on_error_2, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %19 = load ptr, ptr %allocationCallbacks275, align 8
-  call void %18(ptr noundef nonnull %call.i.i, ptr noundef %19) #64
+  %29 = load ptr, ptr %allocationCallbacks320, align 8
+  call void %28(ptr noundef nonnull %call.i.i, ptr noundef %29) #64
   br label %on_error_2
 
 if.end135:                                        ; preds = %if.end7.thread.i, %if.end7.i
   %_ownsHeap.i = getelementptr inbounds i8, ptr %arrayidx, i64 100
   store i32 1, ptr %_ownsHeap.i, align 4
-  %20 = load i32, ptr %listenerCount136, align 4
-  %add = add i32 %20, 1
+  %30 = load i32, ptr %listenerCount136, align 4
+  %add = add i32 %30, 1
   store i32 %add, ptr %listenerCount136, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -84305,27 +84481,27 @@ if.end135:                                        ; preds = %if.end7.thread.i, %
 
 for.end:                                          ; preds = %if.end135
   %gainSmoothTimeInFrames138 = getelementptr inbounds i8, ptr %pEngine, i64 1260
-  store i32 %engineConfig.sroa.27.0218, ptr %gainSmoothTimeInFrames138, align 4
-  %cmp140 = icmp eq i32 %engineConfig.sroa.27.0218, 0
+  store i32 %engineConfig.sroa.27.0263, ptr %gainSmoothTimeInFrames138, align 4
+  %cmp140 = icmp eq i32 %engineConfig.sroa.27.0263, 0
   br i1 %cmp140, label %ma_engine_get_sample_rate.exit, label %if.end150
 
 ma_engine_get_sample_rate.exit:                   ; preds = %for.end
-  %cmp144 = icmp eq i32 %engineConfig.sroa.28.0215, 0
-  %spec.store.select = select i1 %cmp144, i32 8, i32 %engineConfig.sroa.28.0215
-  %21 = load i32, ptr %sampleRate80, align 8
-  %mul = mul i32 %21, %spec.store.select
+  %cmp144 = icmp eq i32 %engineConfig.sroa.28.0260, 0
+  %spec.store.select = select i1 %cmp144, i32 8, i32 %engineConfig.sroa.28.0260
+  %31 = load i32, ptr %sampleRate80, align 8
+  %mul = mul i32 %31, %spec.store.select
   %div = udiv i32 %mul, 1000
   store i32 %div, ptr %gainSmoothTimeInFrames138, align 4
   br label %if.end150
 
 if.end150:                                        ; preds = %ma_engine_get_sample_rate.exit, %for.end
-  %22 = load ptr, ptr %pResourceManager9, align 8
-  %cmp152 = icmp eq ptr %22, null
+  %32 = load ptr, ptr %pResourceManager9, align 8
+  %cmp152 = icmp eq ptr %32, null
   br i1 %cmp152, label %if.then154, label %if.end176
 
 if.then154:                                       ; preds = %if.end150
-  %23 = load ptr, ptr %onMalloc.i.i, align 8
-  %cmp1.not.i117 = icmp eq ptr %23, null
+  %33 = load ptr, ptr %onMalloc.i.i, align 8
+  %cmp1.not.i117 = icmp eq ptr %33, null
   br i1 %cmp1.not.i117, label %ma_malloc.exit122.thread, label %ma_malloc.exit122
 
 ma_malloc.exit122.thread:                         ; preds = %if.then154
@@ -84333,8 +84509,8 @@ ma_malloc.exit122.thread:                         ; preds = %if.then154
   br label %on_error_2
 
 ma_malloc.exit122:                                ; preds = %if.then154
-  %24 = load ptr, ptr %allocationCallbacks275, align 8
-  %call.i119 = call ptr %23(i64 noundef 1096, ptr noundef %24) #64
+  %34 = load ptr, ptr %allocationCallbacks320, align 8
+  %call.i119 = call ptr %33(i64 noundef 1096, ptr noundef %34) #64
   store ptr %call.i119, ptr %pResourceManager9, align 8
   %cmp159 = icmp eq ptr %call.i119, null
   br i1 %cmp159, label %on_error_2, label %ma_engine_get_sample_rate.exit128
@@ -84350,20 +84526,20 @@ ma_engine_get_sample_rate.exit128:                ; preds = %ma_malloc.exit122
   store i32 1, ptr %tmp163.sroa.5.0.resourceManagerConfig.sroa_idx, align 4
   %tmp163.sroa.6.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 56
   store i64 0, ptr %tmp163.sroa.6.0.resourceManagerConfig.sroa_idx, align 8
-  %tmp163.sroa.6164.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 64
-  store i32 1024, ptr %tmp163.sroa.6164.0.resourceManagerConfig.sroa_idx, align 8
+  %tmp163.sroa.6209.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 64
+  store i32 1024, ptr %tmp163.sroa.6209.0.resourceManagerConfig.sroa_idx, align 8
   %tmp163.sroa.7.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 68
   store i32 0, ptr %tmp163.sroa.7.0.resourceManagerConfig.sroa_idx, align 4
   %pLog164 = getelementptr inbounds i8, ptr %pEngine, i64 744
-  %25 = load ptr, ptr %pLog164, align 8
+  %35 = load ptr, ptr %pLog164, align 8
   %pLog165 = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 32
-  store ptr %25, ptr %pLog165, align 8
+  store ptr %35, ptr %pLog165, align 8
   store i32 5, ptr %tmp163.sroa.2.0.resourceManagerConfig.sroa_idx, align 8
   store i32 0, ptr %tmp163.sroa.3.0.resourceManagerConfig.sroa_idx, align 4
-  %26 = load i32, ptr %sampleRate80, align 8
-  store i32 %26, ptr %tmp163.sroa.4.0.resourceManagerConfig.sroa_idx, align 8
-  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks275)
-  store ptr %engineConfig.sroa.42.0272, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
+  %36 = load i32, ptr %sampleRate80, align 8
+  store i32 %36, ptr %tmp163.sroa.4.0.resourceManagerConfig.sroa_idx, align 8
+  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks320)
+  store ptr %engineConfig.sroa.42.0317, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
   %call171 = call i32 @ma_resource_manager_init(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %call.i119)
   %cmp172.not = icmp eq i32 %call171, 0
   br i1 %cmp172.not, label %if.end175, label %on_error_3
@@ -84378,112 +84554,112 @@ if.end176:                                        ; preds = %if.end175, %if.end1
   store i32 0, ptr %inlinedSoundLock, align 4
   %pInlinedSoundHead = getelementptr inbounds i8, ptr %pEngine, i64 1248
   store ptr null, ptr %pInlinedSoundHead, align 8
-  %cmp177 = icmp eq i32 %engineConfig.sroa.37.0266, 0
+  %cmp177 = icmp eq i32 %engineConfig.sroa.37.0311, 0
   br i1 %cmp177, label %land.lhs.true179, label %return
 
 land.lhs.true179:                                 ; preds = %if.end176
-  %27 = load ptr, ptr %pDevice10, align 8
-  %cmp181.not = icmp eq ptr %27, null
+  %37 = load ptr, ptr %pDevice10, align 8
+  %cmp181.not = icmp eq ptr %37, null
   br i1 %cmp181.not, label %return, label %ma_engine_start.exit
 
 ma_engine_start.exit:                             ; preds = %land.lhs.true179
-  %call.i133 = call i32 @ma_device_start(ptr noundef nonnull %27)
+  %call.i133 = call i32 @ma_device_start(ptr noundef nonnull %37)
   %cmp185.not = icmp eq i32 %call.i133, 0
   br i1 %cmp185.not, label %return, label %on_error_3
 
 on_error_3:                                       ; preds = %ma_engine_start.exit, %ma_engine_get_sample_rate.exit128
   %result.3 = phi i32 [ %call171, %ma_engine_get_sample_rate.exit128 ], [ %call.i133, %ma_engine_start.exit ]
   %ownsResourceManager190 = getelementptr inbounds i8, ptr %pEngine, i64 1240
-  %28 = load i8, ptr %ownsResourceManager190, align 8
-  %tobool.not = icmp eq i8 %28, 0
+  %38 = load i8, ptr %ownsResourceManager190, align 8
+  %tobool.not = icmp eq i8 %38, 0
   br i1 %tobool.not, label %on_error_2, label %if.then191
 
 if.then191:                                       ; preds = %on_error_3
-  %29 = load ptr, ptr %pResourceManager9, align 8
-  %cmp.i135 = icmp eq ptr %29, null
+  %39 = load ptr, ptr %pResourceManager9, align 8
+  %cmp.i135 = icmp eq ptr %39, null
   br i1 %cmp.i135, label %on_error_2, label %if.end.i136
 
 if.end.i136:                                      ; preds = %if.then191
-  %onFree.i139 = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 24
-  %30 = load ptr, ptr %onFree.i139, align 8
-  %cmp3.not.i140 = icmp eq ptr %30, null
+  %onFree.i139 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
+  %40 = load ptr, ptr %onFree.i139, align 8
+  %cmp3.not.i140 = icmp eq ptr %40, null
   br i1 %cmp3.not.i140, label %on_error_2, label %if.then4.i141
 
 if.then4.i141:                                    ; preds = %if.end.i136
-  %31 = load ptr, ptr %allocationCallbacks275, align 8
-  call void %30(ptr noundef nonnull %29, ptr noundef %31) #64
+  %41 = load ptr, ptr %allocationCallbacks320, align 8
+  call void %40(ptr noundef nonnull %39, ptr noundef %41) #64
   br label %on_error_2
 
 on_error_2:                                       ; preds = %if.end7.thread.i, %if.then2.i108, %ma_node_graph_get_channels.exit, %if.then2.i.i109, %if.then4.i.i, %if.end.i.i, %if.then4.i141, %if.end.i136, %if.then191, %ma_malloc.exit122.thread, %ma_malloc.exit122, %on_error_3
   %result.2 = phi i32 [ %result.3, %on_error_3 ], [ -4, %ma_malloc.exit122 ], [ -4, %ma_malloc.exit122.thread ], [ %result.3, %if.then191 ], [ %result.3, %if.end.i136 ], [ %result.3, %if.then4.i141 ], [ %call8.i, %if.then4.i.i ], [ %call8.i, %if.end.i.i ], [ -4, %if.then2.i.i109 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %if.then2.i108 ], [ %call818.i, %if.end7.thread.i ]
-  %32 = load i32, ptr %listenerCount136, align 4
-  %cmp197413.not = icmp eq i32 %32, 0
-  br i1 %cmp197413.not, label %ma_node_graph_uninit.exit, label %for.body199.lr.ph
+  %42 = load i32, ptr %listenerCount136, align 4
+  %cmp197463.not = icmp eq i32 %42, 0
+  br i1 %cmp197463.not, label %ma_node_graph_uninit.exit, label %for.body199.lr.ph
 
 for.body199.lr.ph:                                ; preds = %on_error_2
-  %onFree.i.i150 = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 24
+  %onFree.i.i150 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
   br label %for.body199
 
 for.body199:                                      ; preds = %for.body199.lr.ph, %ma_spatializer_listener_uninit.exit
-  %33 = phi i32 [ %32, %for.body199.lr.ph ], [ %38, %ma_spatializer_listener_uninit.exit ]
-  %indvars.iv416 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next417, %ma_spatializer_listener_uninit.exit ]
-  %arrayidx202 = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv416
+  %43 = phi i32 [ %42, %for.body199.lr.ph ], [ %48, %ma_spatializer_listener_uninit.exit ]
+  %indvars.iv466 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next467, %ma_spatializer_listener_uninit.exit ]
+  %arrayidx202 = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv466
   %_ownsHeap.i145 = getelementptr inbounds i8, ptr %arrayidx202, i64 100
-  %34 = load i32, ptr %_ownsHeap.i145, align 4
-  %tobool.not.i = icmp eq i32 %34, 0
+  %44 = load i32, ptr %_ownsHeap.i145, align 4
+  %tobool.not.i = icmp eq i32 %44, 0
   br i1 %tobool.not.i, label %ma_spatializer_listener_uninit.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %for.body199
   %_pHeap.i = getelementptr inbounds i8, ptr %arrayidx202, i64 104
-  %35 = load ptr, ptr %_pHeap.i, align 8
-  %cmp.i.i146 = icmp eq ptr %35, null
+  %45 = load ptr, ptr %_pHeap.i, align 8
+  %cmp.i.i146 = icmp eq ptr %45, null
   br i1 %cmp.i.i146, label %ma_spatializer_listener_uninit.exit, label %if.end.i.i147
 
 if.end.i.i147:                                    ; preds = %if.then1.i
-  %36 = load ptr, ptr %onFree.i.i150, align 8
-  %cmp3.not.i.i151 = icmp eq ptr %36, null
+  %46 = load ptr, ptr %onFree.i.i150, align 8
+  %cmp3.not.i.i151 = icmp eq ptr %46, null
   br i1 %cmp3.not.i.i151, label %ma_spatializer_listener_uninit.exit, label %if.then4.i.i152
 
 if.then4.i.i152:                                  ; preds = %if.end.i.i147
-  %37 = load ptr, ptr %allocationCallbacks275, align 8
-  call void %36(ptr noundef nonnull %35, ptr noundef %37) #64
+  %47 = load ptr, ptr %allocationCallbacks320, align 8
+  call void %46(ptr noundef nonnull %45, ptr noundef %47) #64
   %.pre = load i32, ptr %listenerCount136, align 4
   br label %ma_spatializer_listener_uninit.exit
 
 ma_spatializer_listener_uninit.exit:              ; preds = %for.body199, %if.then1.i, %if.end.i.i147, %if.then4.i.i152
-  %38 = phi i32 [ %33, %for.body199 ], [ %33, %if.then1.i ], [ %33, %if.end.i.i147 ], [ %.pre, %if.then4.i.i152 ]
-  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
-  %39 = zext i32 %38 to i64
-  %cmp197 = icmp samesign ult i64 %indvars.iv.next417, %39
+  %48 = phi i32 [ %43, %for.body199 ], [ %43, %if.then1.i ], [ %43, %if.end.i.i147 ], [ %.pre, %if.then4.i.i152 ]
+  %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
+  %49 = zext i32 %48 to i64
+  %cmp197 = icmp samesign ult i64 %indvars.iv.next467, %49
   br i1 %cmp197, label %for.body199, label %ma_node_graph_uninit.exit, !llvm.loop !767
 
 ma_node_graph_uninit.exit:                        ; preds = %ma_spatializer_listener_uninit.exit, %on_error_2
-  call void @ma_node_uninit(ptr noundef nonnull %endpoint.i, ptr noundef nonnull %allocationCallbacks275)
+  call void @ma_node_uninit(ptr noundef nonnull %endpoint.i, ptr noundef nonnull %allocationCallbacks320)
   br label %on_error_1
 
 on_error_1:                                       ; preds = %ma_node_graph_init.exit.thread, %if.end108, %ma_node_graph_uninit.exit
   %result.1 = phi i32 [ %result.2, %ma_node_graph_uninit.exit ], [ -2, %if.end108 ], [ %retval.0.i100.ph, %ma_node_graph_init.exit.thread ]
   %ownsDevice209 = getelementptr inbounds i8, ptr %pEngine, i64 1241
-  %40 = load i8, ptr %ownsDevice209, align 1
-  %tobool210.not = icmp eq i8 %40, 0
+  %50 = load i8, ptr %ownsDevice209, align 1
+  %tobool210.not = icmp eq i8 %50, 0
   br i1 %tobool210.not, label %return, label %if.then211
 
 if.then211:                                       ; preds = %on_error_1
-  %41 = load ptr, ptr %pDevice10, align 8
-  call void @ma_device_uninit(ptr noundef %41)
-  %42 = load ptr, ptr %pDevice10, align 8
-  %cmp.i156 = icmp eq ptr %42, null
+  %51 = load ptr, ptr %pDevice10, align 8
+  call void @ma_device_uninit(ptr noundef %51)
+  %52 = load ptr, ptr %pDevice10, align 8
+  %cmp.i156 = icmp eq ptr %52, null
   br i1 %cmp.i156, label %return, label %if.end.i157
 
 if.end.i157:                                      ; preds = %if.then211
-  %onFree.i160 = getelementptr inbounds i8, ptr %allocationCallbacks275, i64 24
-  %43 = load ptr, ptr %onFree.i160, align 8
-  %cmp3.not.i161 = icmp eq ptr %43, null
+  %onFree.i160 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
+  %53 = load ptr, ptr %onFree.i160, align 8
+  %cmp3.not.i161 = icmp eq ptr %53, null
   br i1 %cmp3.not.i161, label %return, label %if.then4.i162
 
 if.then4.i162:                                    ; preds = %if.end.i157
-  %44 = load ptr, ptr %allocationCallbacks275, align 8
-  call void %43(ptr noundef nonnull %42, ptr noundef %44) #64
+  %54 = load ptr, ptr %allocationCallbacks320, align 8
+  call void %53(ptr noundef nonnull %52, ptr noundef %54) #64
   br label %return
 
 return:                                           ; preds = %if.then4.i162, %if.end.i157, %if.then211, %ma_malloc.exit.thread, %on_error_1, %if.end176, %land.lhs.true179, %ma_engine_start.exit, %if.end72, %ma_malloc.exit, %entry, %ma_free.exit
@@ -87416,7 +87592,7 @@ if.then2.i.i.i:                                   ; preds = %ma_sound_config_ini
 if.else.i:                                        ; preds = %if.then2.i.i.i
   %endCallback4.i = getelementptr inbounds i8, ptr %pSound, i64 920
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %endCallback4.i, i8 0, i64 16, i1 false)
-  %call10.i = call fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef nonnull %pEngine, ptr noundef readonly %config, ptr noundef nonnull %pSound)
+  %call10.i = call fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef nonnull %pEngine, ptr noundef nonnull readonly %config, ptr noundef nonnull %pSound)
   br label %ma_sound_init_ex.exit
 
 ma_sound_init_ex.exit:                            ; preds = %ma_sound_config_init_2.exit, %if.then2.i.i.i, %if.else.i
@@ -89692,7 +89868,7 @@ if.else.i.i:                                      ; preds = %if.then2.i.i
   %2 = load ptr, ptr %pEndCallbackUserData.i.i, align 8
   %pEndCallbackUserData5.i.i = getelementptr inbounds i8, ptr %pGroup, i64 928
   store ptr %2, ptr %pEndCallbackUserData5.i.i, align 8
-  %call10.i.i = call fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef nonnull %pEngine, ptr noundef readonly %soundConfig.i, ptr noundef nonnull %pGroup)
+  %call10.i.i = call fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef nonnull %pEngine, ptr noundef nonnull readonly %soundConfig.i, ptr noundef nonnull %pGroup)
   br label %ma_sound_group_init_ex.exit
 
 ma_sound_group_init_ex.exit:                      ; preds = %ma_sound_group_config_init_2.exit, %if.then2.i.i, %if.else.i.i
@@ -89735,7 +89911,7 @@ if.else.i:                                        ; preds = %if.then2.i.i.i
   %2 = load ptr, ptr %pEndCallbackUserData.i, align 8
   %pEndCallbackUserData5.i = getelementptr inbounds i8, ptr %pGroup, i64 928
   store ptr %2, ptr %pEndCallbackUserData5.i, align 8
-  %call10.i = call fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef nonnull %pEngine, ptr noundef readonly %soundConfig, ptr noundef nonnull %pGroup)
+  %call10.i = call fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef nonnull %pEngine, ptr noundef nonnull readonly %soundConfig, ptr noundef nonnull %pGroup)
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then2.i.i.i, %if.then2.i, %entry
@@ -92617,7 +92793,7 @@ if.end637:                                        ; preds = %if.else630, %if.the
   %commDataBytesToRead.0 = phi i64 [ 24, %if.then623 ], [ 18, %if.else630 ]
   %196 = load ptr, ptr %pWav, align 8
   %197 = load ptr, ptr %pUserData, align 8
-  %call.i762 = call i64 %196(ptr noundef %197, ptr noundef nonnull %commData, i64 noundef %commDataBytesToRead.0) #64
+  %call.i762 = call i64 %196(ptr noundef %197, ptr noundef nonnull %commData, i64 noundef range(i64 0, -602) %commDataBytesToRead.0) #64
   %add.i763 = add i64 %add41.i590, %call.i762
   store i64 %add.i763, ptr %cursor, align 8
   %cmp644.not = icmp eq i64 %call.i762, %commDataBytesToRead.0
@@ -94399,7 +94575,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -94545,7 +94721,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -94693,7 +94869,7 @@ entry:
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.484)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.484)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end.i
 
@@ -94713,7 +94889,7 @@ entry:
   br i1 %cmp1.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.484)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.484)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %ma_dr_wav_init_file_write__internal.exit, label %if.end.i
 
@@ -94741,7 +94917,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.484)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.484)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -97585,7 +97761,7 @@ if.end:                                           ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end
   %3 = load ptr, ptr %allocationCallbacks, align 8
-  %call.i = tail call ptr %2(i64 noundef %mul2, ptr noundef %3) #64
+  %call.i = tail call ptr %2(i64 noundef range(i64 0, 4294967296) %mul2, ptr noundef %3) #64
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 if.end4.i:                                        ; preds = %if.end
@@ -97596,7 +97772,7 @@ if.end4.i:                                        ; preds = %if.end
 
 if.then6.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr %allocationCallbacks, align 8
-  %call9.i = tail call ptr %4(ptr noundef null, i64 noundef %mul2, ptr noundef %5) #64
+  %call9.i = tail call ptr %4(ptr noundef null, i64 noundef range(i64 0, 4294967296) %mul2, ptr noundef %5) #64
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 ma_dr_wav__malloc_from_callbacks.exit:            ; preds = %if.then2.i, %if.then6.i
@@ -97783,7 +97959,7 @@ if.end:                                           ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end
   %3 = load ptr, ptr %allocationCallbacks, align 8
-  %call.i = tail call ptr %2(i64 noundef %mul2, ptr noundef %3) #64
+  %call.i = tail call ptr %2(i64 noundef range(i64 0, 4294967296) %mul2, ptr noundef %3) #64
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 if.end4.i:                                        ; preds = %if.end
@@ -97794,7 +97970,7 @@ if.end4.i:                                        ; preds = %if.end
 
 if.then6.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr %allocationCallbacks, align 8
-  %call9.i = tail call ptr %4(ptr noundef null, i64 noundef %mul2, ptr noundef %5) #64
+  %call9.i = tail call ptr %4(ptr noundef null, i64 noundef range(i64 0, 4294967296) %mul2, ptr noundef %5) #64
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 ma_dr_wav__malloc_from_callbacks.exit:            ; preds = %if.then2.i, %if.then6.i
@@ -97981,7 +98157,7 @@ if.end:                                           ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end
   %3 = load ptr, ptr %allocationCallbacks, align 8
-  %call.i = tail call ptr %2(i64 noundef %mul2, ptr noundef %3) #64
+  %call.i = tail call ptr %2(i64 noundef range(i64 0, 4294967296) %mul2, ptr noundef %3) #64
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 if.end4.i:                                        ; preds = %if.end
@@ -97992,7 +98168,7 @@ if.end4.i:                                        ; preds = %if.end
 
 if.then6.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr %allocationCallbacks, align 8
-  %call9.i = tail call ptr %4(ptr noundef null, i64 noundef %mul2, ptr noundef %5) #64
+  %call9.i = tail call ptr %4(ptr noundef null, i64 noundef range(i64 0, 4294967296) %mul2, ptr noundef %5) #64
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 ma_dr_wav__malloc_from_callbacks.exit:            ; preds = %if.then2.i, %if.then6.i
@@ -98093,7 +98269,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end6
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -98192,7 +98368,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end6
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -98291,7 +98467,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i.i, label %return, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end6
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %return, label %if.end.i.i
 
@@ -99142,7 +99318,7 @@ entry:
   br i1 %cmp1.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFileName, ptr noundef nonnull readonly @.str.176)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFileName, ptr noundef nonnull @.str.176)
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %return, label %if.end
 
@@ -99294,7 +99470,7 @@ for.end.i:                                        ; preds = %if.end20.i
   br i1 %or.cond6.i, label %if.then77.i, label %if.end79.i
 
 if.then77.i:                                      ; preds = %for.end.i
-  %call78.i = call fastcc i32 @ma_dr_flac__init_private__native(ptr noundef %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
+  %call78.i = call fastcc i32 @ma_dr_flac__init_private__native(ptr noundef nonnull %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
   br label %ma_dr_flac__init_private.exit
 
 if.end79.i:                                       ; preds = %for.end.i
@@ -99308,7 +99484,7 @@ if.end79.i:                                       ; preds = %for.end.i
   br i1 %or.cond9.i, label %if.then99.i, label %if.end101.i
 
 if.then99.i:                                      ; preds = %if.end79.i
-  %call100.i = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
+  %call100.i = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef nonnull %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
   br label %ma_dr_flac__init_private.exit
 
 if.end101.i:                                      ; preds = %if.end79.i
@@ -99321,11 +99497,11 @@ if.then103.i:                                     ; preds = %if.end101.i
   ]
 
 if.then106.i:                                     ; preds = %if.then103.i
-  %call107.i = call fastcc i32 @ma_dr_flac__init_private__native(ptr noundef %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
+  %call107.i = call fastcc i32 @ma_dr_flac__init_private__native(ptr noundef nonnull %init, ptr noundef %onRead, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef %conv.i)
   br label %ma_dr_flac__init_private.exit
 
 if.then111.i:                                     ; preds = %if.then103.i
-  %call112.i = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
+  %call112.i = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef nonnull %init, ptr noundef %onRead, ptr noundef %onSeek, ptr noundef %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD)
   br label %ma_dr_flac__init_private.exit
 
 ma_dr_flac__init_private.exit.thread:             ; preds = %if.end39.i, %if.then33.i, %if.end53.i, %ma_dr_flac__init_cpu_caps.exit, %if.then103.i, %if.end101.i, %if.end.i
@@ -100626,7 +100802,7 @@ for.cond.i:                                       ; preds = %while.body, %if.end
   br i1 %tobool.not.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond.i
-  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i, label %while.end [
     i32 0, label %if.end23
     i32 -100, label %for.cond.i
@@ -101052,7 +101228,7 @@ for.cond.i.i:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i.i14, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond.i.i
-  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit [
     i32 0, label %if.end23.i
     i32 -100, label %for.cond.i.i
@@ -101279,7 +101455,7 @@ for.cond.i.i:                                     ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i.i42, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond.i.i
-  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit [
     i32 0, label %if.end23.i
     i32 -100, label %for.cond.i.i
@@ -101336,7 +101512,7 @@ for.cond.i.i70:                                   ; preds = %while.body.i49, %if
   br i1 %tobool.not.i.i72, label %ma_dr_flac__seek_forward_by_pcm_frames.exit75, label %if.end.i.i73
 
 if.end.i.i73:                                     ; preds = %for.cond.i.i70
-  %call1.i.i74 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i74 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i74, label %ma_dr_flac__seek_forward_by_pcm_frames.exit75 [
     i32 0, label %if.end23.i59
     i32 -100, label %for.cond.i.i70
@@ -102478,7 +102654,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %return, label %if.end.i
 
@@ -102531,7 +102707,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %return, label %if.end.i
 
@@ -102584,7 +102760,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp1.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull readonly @.str.176)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %filename, ptr noundef nonnull @.str.176)
   %cmp7.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp7.i.i, label %return, label %if.end.i
 
@@ -104495,7 +104671,7 @@ if.then69:                                        ; preds = %ma_dr_mp3_bs_get_bi
 if.end70:                                         ; preds = %do.end.i
   %reserv.i = getelementptr inbounds i8, ptr %dec, i64 6144
   %164 = load i32, ptr %reserv.i, align 4
-  %main_data_begin..i = tail call i32 @llvm.smin.i32(i32 %164, i32 %main_data_begin.0.i)
+  %main_data_begin..i = tail call i32 @llvm.smin.i32(i32 %164, i32 range(i32 0, -2147483648) %main_data_begin.0.i)
   %sub4.i = sub nsw i32 %164, %main_data_begin.0.i
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %sub4.i, i32 0)
   %cond11.i = zext nneg i32 %narrow.i to i64
@@ -106059,7 +106235,7 @@ ma_dr_mp3_L3_antialias.exit.i:                    ; preds = %for.inc30.i.i
 
 if.then.i137.i:                                   ; preds = %ma_dr_mp3_L3_antialias.exit.i
   %350 = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv187.i
-  call fastcc void @ma_dr_mp3_L3_imdct36(ptr noundef %arrayidx77198.i, ptr noundef %arrayidx84.i, ptr noundef nonnull @ma_dr_mp3_L3_imdct_gr.g_mdct_window, i32 noundef %shl.i201)
+  call fastcc void @ma_dr_mp3_L3_imdct36(ptr noundef nonnull %arrayidx77198.i, ptr noundef %arrayidx84.i, ptr noundef nonnull @ma_dr_mp3_L3_imdct_gr.g_mdct_window, i32 noundef range(i32 0, 5) %shl.i201)
   %mul.i.i207 = mul nuw nsw i32 %shl.i201, 18
   %idx.ext.i138.i = zext nneg i32 %mul.i.i207 to i64
   %add.ptr.i139.i = getelementptr inbounds float, ptr %350, i64 %idx.ext.i138.i
@@ -107485,7 +107661,7 @@ for.body3:                                        ; preds = %for.end, %ma_dr_mp3
   %add.ptr26.i = getelementptr inbounds i8, ptr %add.ptr12, i64 496
   %add.ptr27.i = getelementptr inbounds i8, ptr %add.ptr12, i64 500
   tail call fastcc void @ma_dr_mp3d_synth_pair(ptr noundef %add.ptr24.i, i32 noundef %nch, ptr noundef %add.ptr27.i)
-  tail call fastcc void @ma_dr_mp3d_synth_pair(ptr noundef %add.ptr9, i32 noundef %nch, ptr noundef %add.ptr20.i)
+  tail call fastcc void @ma_dr_mp3d_synth_pair(ptr noundef nonnull %add.ptr9, i32 noundef %nch, ptr noundef %add.ptr20.i)
   %add.ptr31.i = getelementptr inbounds i16, ptr %add.ptr9, i64 %idx.ext23.i
   tail call fastcc void @ma_dr_mp3d_synth_pair(ptr noundef %add.ptr31.i, i32 noundef %nch, ptr noundef %add.ptr26.i)
   %invariant.gep.i = getelementptr inbounds i8, ptr %add.ptr12, i64 4096
@@ -108009,7 +108185,7 @@ while.body.us:                                    ; preds = %while.body.preheade
   br i1 %cmp28.us, label %while.end, label %if.end31.us
 
 if.end31.us:                                      ; preds = %while.body.us
-  %call.i.us = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i)
+  %call.i.us = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i)
   %cmp32.not.us = icmp eq i32 %call.i.us, 0
   br i1 %cmp32.not.us, label %while.end, label %while.body.us, !llvm.loop !615
 
@@ -108052,7 +108228,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp28, label %while.end, label %if.end31
 
 if.end31:                                         ; preds = %while.body
-  %call.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i)
+  %call.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i)
   %cmp32.not = icmp eq i32 %call.i, 0
   br i1 %cmp32.not, label %while.end, label %while.body, !llvm.loop !615
 
@@ -108826,7 +109002,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -109082,7 +109258,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -109186,7 +109362,7 @@ while.body.i:                                     ; preds = %for.cond, %if.end31
   br i1 %cmp28.i, label %ma_dr_mp3_read_pcm_frames_s16.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %while.body.i
-  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp32.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp32.not.i, label %ma_dr_mp3_read_pcm_frames_s16.exit, label %while.body.i, !llvm.loop !615
 
@@ -109395,7 +109571,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -109493,7 +109669,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -126370,7 +126546,7 @@ sw.bb8.i:                                         ; preds = %ma_mp3_get_data_for
 
 if.end.i.i:                                       ; preds = %sw.bb8.i
   %dr9.i = getelementptr inbounds i8, ptr %pDataSource, i64 112
-  %call.i.i = tail call fastcc i64 @ma_dr_mp3_read_pcm_frames_raw(ptr noundef %dr9.i, i64 noundef %frameCount, ptr noundef %pFramesOut)
+  %call.i.i = tail call fastcc i64 @ma_dr_mp3_read_pcm_frames_raw(ptr noundef nonnull %dr9.i, i64 noundef %frameCount, ptr noundef %pFramesOut)
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end.i.i, %sw.bb.i
@@ -127044,7 +127220,7 @@ if.end.i:                                         ; preds = %if.then8.i.i, %land
   br i1 %cmp1.i.i.i, label %if.end.i8, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull readonly @.str.176)
+  %call.i.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %pFilePath, ptr noundef nonnull @.str.176)
   %cmp7.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp7.i.i.i, label %if.end.i8, label %if.end.i.i
 
@@ -129537,7 +129713,7 @@ define internal void @ma_engine_node_process_pcm_frames__sound(ptr noundef %pNod
 entry:
   %format.i = alloca i32, align 4
   %channels.i = alloca i32, align 4
-  %sampleRate.i = alloca i32, align 4
+  %sampleRate.i45 = alloca i32, align 4
   %temp = alloca [4096 x i8], align 16
   %framesJustRead = alloca i64, align 8
   %frameCountIn = alloca i32, align 4
@@ -129605,47 +129781,105 @@ ma_node_set_time.exit:                            ; preds = %if.then3, %if.end.i
   br label %if.end8
 
 if.end8:                                          ; preds = %ma_node_set_time.exit, %if.end
-  tail call fastcc void @ma_engine_node_update_pitch_if_required(ptr noundef nonnull %pNode)
+  %pitch.i = getelementptr inbounds i8, ptr %pNode, i64 828
+  %12 = load atomic volatile i32, ptr %pitch.i acquire, align 4
+  %13 = bitcast i32 %12 to float
+  %oldPitch.i = getelementptr inbounds i8, ptr %pNode, i64 832
+  %14 = load float, ptr %oldPitch.i, align 8
+  %cmp.i42 = fcmp oeq float %14, %13
+  br i1 %cmp.i42, label %if.end.i44, label %if.end.thread.i
+
+if.end.i44:                                       ; preds = %if.end8
+  %oldDopplerPitch.i = getelementptr inbounds i8, ptr %pNode, i64 836
+  %15 = load float, ptr %oldDopplerPitch.i, align 4
+  %dopplerPitch.i = getelementptr inbounds i8, ptr %pNode, i64 680
+  %16 = load float, ptr %dopplerPitch.i, align 8
+  %cmp2.i = fcmp une float %15, %16
+  br i1 %cmp2.i, label %if.end7.thread.i, label %ma_engine_node_update_pitch_if_required.exit
+
+if.end.thread.i:                                  ; preds = %if.end8
+  store i32 %12, ptr %oldPitch.i, align 8
+  %oldDopplerPitch16.i = getelementptr inbounds i8, ptr %pNode, i64 836
+  %17 = load float, ptr %oldDopplerPitch16.i, align 4
+  %dopplerPitch17.i = getelementptr inbounds i8, ptr %pNode, i64 680
+  %18 = load float, ptr %dopplerPitch17.i, align 8
+  %cmp218.i = fcmp une float %17, %18
+  br i1 %cmp218.i, label %if.end7.thread.i, label %if.then8.i
+
+if.end7.thread.i:                                 ; preds = %if.end.thread.i, %if.end.i44
+  %19 = phi float [ %18, %if.end.thread.i ], [ %16, %if.end.i44 ]
+  %oldDopplerPitch19.i = phi ptr [ %oldDopplerPitch16.i, %if.end.thread.i ], [ %oldDopplerPitch.i, %if.end.i44 ]
+  %20 = phi float [ %13, %if.end.thread.i ], [ %14, %if.end.i44 ]
+  store float %19, ptr %oldDopplerPitch19.i, align 4
+  br label %if.then8.i
+
+if.then8.i:                                       ; preds = %if.end7.thread.i, %if.end.thread.i
+  %21 = phi float [ %20, %if.end7.thread.i ], [ %13, %if.end.thread.i ]
+  %22 = phi float [ %19, %if.end7.thread.i ], [ %17, %if.end.thread.i ]
+  %sampleRate.i = getelementptr inbounds i8, ptr %pNode, i64 368
+  %23 = load i32, ptr %sampleRate.i, align 8
+  %conv.i = uitofp i32 %23 to float
+  %pEngine.i = getelementptr inbounds i8, ptr %pNode, i64 360
+  %24 = load ptr, ptr %pEngine.i, align 8
+  %cmp.i.i = icmp eq ptr %24, null
+  br i1 %cmp.i.i, label %ma_engine_get_sample_rate.exit.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then8.i
+  %sampleRate.i.i = getelementptr inbounds i8, ptr %24, i64 752
+  %25 = load i32, ptr %sampleRate.i.i, align 8
+  %26 = uitofp i32 %25 to float
+  br label %ma_engine_get_sample_rate.exit.i
+
+ma_engine_get_sample_rate.exit.i:                 ; preds = %if.end.i.i, %if.then8.i
+  %retval.0.i.i = phi float [ %26, %if.end.i.i ], [ 0.000000e+00, %if.then8.i ]
+  %div.i = fdiv float %conv.i, %retval.0.i.i
+  %resampler.i = getelementptr inbounds i8, ptr %pNode, i64 424
+  %mul.i43 = fmul float %21, %div.i
+  %mul13.i = fmul float %22, %mul.i43
+  %call14.i = tail call i32 @ma_linear_resampler_set_rate_ratio(ptr noundef nonnull %resampler.i, float noundef %mul13.i)
+  br label %ma_engine_node_update_pitch_if_required.exit
+
+ma_engine_node_update_pitch_if_required.exit:     ; preds = %if.end.i44, %ma_engine_get_sample_rate.exit.i
   %pDataSource9 = getelementptr inbounds i8, ptr %pNode, i64 896
-  %12 = load ptr, ptr %pDataSource9, align 8
+  %27 = load ptr, ptr %pDataSource9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %format.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %channels.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sampleRate.i)
-  %cmp10.i = icmp eq ptr %12, null
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sampleRate.i45)
+  %cmp10.i = icmp eq ptr %27, null
   br i1 %cmp10.i, label %ma_data_source_get_data_format.exit.thread, label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.end8
-  %13 = load ptr, ptr %12, align 8
-  %onGetDataFormat.i = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load ptr, ptr %onGetDataFormat.i, align 8
-  %cmp13.i = icmp eq ptr %14, null
+if.end12.i:                                       ; preds = %ma_engine_node_update_pitch_if_required.exit
+  %28 = load ptr, ptr %27, align 8
+  %onGetDataFormat.i = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load ptr, ptr %onGetDataFormat.i, align 8
+  %cmp13.i = icmp eq ptr %29, null
   br i1 %cmp13.i, label %ma_data_source_get_data_format.exit.thread, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end12.i
-  %call.i45 = call i32 %14(ptr noundef nonnull %12, ptr noundef nonnull %format.i, ptr noundef nonnull %channels.i, ptr noundef nonnull %sampleRate.i, ptr noundef null, i64 noundef 0) #64
-  %cmp18.not.i = icmp eq i32 %call.i45, 0
+  %call.i49 = call i32 %29(ptr noundef nonnull %27, ptr noundef nonnull %format.i, ptr noundef nonnull %channels.i, ptr noundef nonnull %sampleRate.i45, ptr noundef null, i64 noundef 0) #64
+  %cmp18.not.i = icmp eq i32 %call.i49, 0
   br i1 %cmp18.not.i, label %if.then12, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %if.end8, %if.end12.i, %if.end15.i
+ma_data_source_get_data_format.exit.thread:       ; preds = %ma_engine_node_update_pitch_if_required.exit, %if.end12.i, %if.end15.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %format.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %channels.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sampleRate.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sampleRate.i45)
   br label %return
 
 if.then12:                                        ; preds = %if.end15.i
-  %15 = load i32, ptr %format.i, align 4
-  %16 = load i32, ptr %channels.i, align 4
+  %30 = load i32, ptr %format.i, align 4
+  %31 = load i32, ptr %channels.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %format.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %channels.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sampleRate.i)
-  %idxprom.i = zext i32 %15 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sampleRate.i45)
+  %idxprom.i = zext i32 %30 to i64
   %arrayidx.i = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i
-  %17 = load i32, ptr %arrayidx.i, align 4
-  %mul.i = mul i32 %17, %16
-  %18 = udiv i32 4096, %mul.i
-  %atEnd.i.i60 = getelementptr inbounds i8, ptr %pNode, i64 912
-  %cmp1571.not = icmp eq i32 %0, 0
-  br i1 %cmp1571.not, label %return, label %while.body.lr.ph
+  %32 = load i32, ptr %arrayidx.i, align 4
+  %mul.i = mul i32 %32, %31
+  %33 = udiv i32 4096, %mul.i
+  %atEnd.i.i69 = getelementptr inbounds i8, ptr %pNode, i64 912
+  %cmp1580.not = icmp eq i32 %0, 0
+  br i1 %cmp1580.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then12
   %isPitchDisabled.i.i = getelementptr inbounds i8, ptr %pNode, i64 840
@@ -129656,284 +129890,129 @@ while.body.lr.ph:                                 ; preds = %if.then12
   %sampleRateOut.i.i = getelementptr inbounds i8, ptr %pNode, i64 436
   %endCallback.i = getelementptr inbounds i8, ptr %pNode, i64 920
   %pEndCallbackUserData.i = getelementptr inbounds i8, ptr %pNode, i64 928
-  %pEngine.i = getelementptr inbounds i8, ptr %pNode, i64 360
-  %cmp37 = icmp eq i32 %15, 5
-  %conv.i53 = zext i32 %16 to i64
+  %pEngine.i54 = getelementptr inbounds i8, ptr %pNode, i64 360
+  %cmp37 = icmp eq i32 %30, 5
+  %conv.i62 = zext i32 %31 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
-  %totalFramesRead.172 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.body.backedge ]
-  %sub = sub nuw i32 %0, %totalFramesRead.172
-  %19 = load atomic i32, ptr %isPitchDisabled.i.i acquire, align 8
-  %tobool.not.i.not.i = icmp eq i32 %19, 0
+  %totalFramesRead.181 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.body.backedge ]
+  %sub = sub nuw i32 %0, %totalFramesRead.181
+  %34 = load atomic i32, ptr %isPitchDisabled.i.i acquire, align 8
+  %tobool.not.i.not.i = icmp eq i32 %34, 0
   br i1 %tobool.not.i.not.i, label %if.then.i, label %ma_engine_node_get_required_input_frame_count.exit
 
 if.then.i:                                        ; preds = %while.body
   %conv18 = zext i32 %sub to i64
-  %20 = load i32, ptr %inTimeInt.i.i, align 8
-  %conv.i.i = zext i32 %20 to i64
+  %35 = load i32, ptr %inTimeInt.i.i, align 8
+  %conv.i.i = zext i32 %35 to i64
   %sub.i.i = add nsw i64 %conv18, -1
-  %21 = load i32, ptr %inAdvanceInt.i.i, align 8
-  %conv7.i.i = zext i32 %21 to i64
+  %36 = load i32, ptr %inAdvanceInt.i.i, align 8
+  %conv7.i.i = zext i32 %36 to i64
   %mul.i.i = mul nuw i64 %sub.i.i, %conv7.i.i
   %add.i.i = add nuw i64 %mul.i.i, %conv.i.i
-  %22 = load i32, ptr %inTimeFrac.i.i, align 4
-  %conv8.i.i = zext i32 %22 to i64
-  %23 = load i32, ptr %inAdvanceFrac.i.i, align 4
-  %conv9.i.i = zext i32 %23 to i64
+  %37 = load i32, ptr %inTimeFrac.i.i, align 4
+  %conv8.i.i = zext i32 %37 to i64
+  %38 = load i32, ptr %inAdvanceFrac.i.i, align 4
+  %conv9.i.i = zext i32 %38 to i64
   %mul10.i.i = mul nuw i64 %sub.i.i, %conv9.i.i
   %add11.i.i = add nuw i64 %mul10.i.i, %conv8.i.i
-  %24 = load i32, ptr %sampleRateOut.i.i, align 4
-  %conv12.i.i = zext i32 %24 to i64
+  %39 = load i32, ptr %sampleRateOut.i.i, align 4
+  %conv12.i.i = zext i32 %39 to i64
   %div.i.i = udiv i64 %add11.i.i, %conv12.i.i
   %add13.i.i = add i64 %add.i.i, %div.i.i
-  %25 = trunc i64 %add13.i.i to i32
+  %40 = trunc i64 %add13.i.i to i32
   br label %ma_engine_node_get_required_input_frame_count.exit
 
 ma_engine_node_get_required_input_frame_count.exit: ; preds = %while.body, %if.then.i
-  %inputFrameCount.0.i = phi i32 [ %25, %if.then.i ], [ %sub, %while.body ]
-  %spec.select = call i32 @llvm.umin.i32(i32 %18, i32 %inputFrameCount.0.i)
-  %26 = load ptr, ptr %pDataSource9, align 8
+  %inputFrameCount.0.i = phi i32 [ %40, %if.then.i ], [ %sub, %while.body ]
+  %spec.select = call i32 @llvm.umin.i32(i32 %33, i32 %inputFrameCount.0.i)
+  %41 = load ptr, ptr %pDataSource9, align 8
   %conv26 = zext nneg i32 %spec.select to i64
-  %call27 = call i32 @ma_data_source_read_pcm_frames(ptr noundef %26, ptr noundef nonnull %temp, i64 noundef %conv26, ptr noundef nonnull %framesJustRead)
+  %call27 = call i32 @ma_data_source_read_pcm_frames(ptr noundef %41, ptr noundef nonnull %temp, i64 noundef %conv26, ptr noundef nonnull %framesJustRead)
   %cmp28 = icmp eq i32 %call27, -17
   br i1 %cmp28, label %if.then30, label %ma_sound_get_engine.exit
 
 if.then30:                                        ; preds = %ma_engine_node_get_required_input_frame_count.exit
-  %27 = atomicrmw xchg ptr %atEnd.i.i60, i32 1 seq_cst, align 8
-  %28 = load ptr, ptr %endCallback.i, align 8
-  %cmp.not.i = icmp eq ptr %28, null
+  %42 = atomicrmw xchg ptr %atEnd.i.i69, i32 1 seq_cst, align 8
+  %43 = load ptr, ptr %endCallback.i, align 8
+  %cmp.not.i = icmp eq ptr %43, null
   br i1 %cmp.not.i, label %ma_sound_get_engine.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then30
-  %29 = load ptr, ptr %pEndCallbackUserData.i, align 8
-  call void %28(ptr noundef %29, ptr noundef nonnull %pNode) #64
+  %44 = load ptr, ptr %pEndCallbackUserData.i, align 8
+  call void %43(ptr noundef %44, ptr noundef nonnull %pNode) #64
   br label %ma_sound_get_engine.exit
 
 ma_sound_get_engine.exit:                         ; preds = %if.then2.i, %if.then30, %ma_engine_node_get_required_input_frame_count.exit
-  %30 = load ptr, ptr %ppFramesOut, align 8
-  %conv32 = zext i32 %totalFramesRead.172 to i64
-  %31 = load ptr, ptr %pEngine.i, align 8
-  %cmp.i.i = icmp eq ptr %31, null
-  br i1 %cmp.i.i, label %ma_engine_get_channels.exit, label %if.end.i.i
+  %45 = load ptr, ptr %ppFramesOut, align 8
+  %conv32 = zext i32 %totalFramesRead.181 to i64
+  %46 = load ptr, ptr %pEngine.i54, align 8
+  %cmp.i.i56 = icmp eq ptr %46, null
+  br i1 %cmp.i.i56, label %ma_engine_get_channels.exit, label %if.end.i.i57
 
-if.end.i.i:                                       ; preds = %ma_sound_get_engine.exit
-  %outputBusCount.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 428
-  %32 = load i32, ptr %outputBusCount.i.i.i.i, align 4
-  %cmp1.not.i.not.i.i = icmp eq i32 %32, 0
+if.end.i.i57:                                     ; preds = %ma_sound_get_engine.exit
+  %outputBusCount.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 428
+  %47 = load i32, ptr %outputBusCount.i.i.i.i, align 4
+  %cmp1.not.i.not.i.i = icmp eq i32 %47, 0
   br i1 %cmp1.not.i.not.i.i, label %ma_engine_get_channels.exit, label %if.end3.i.i.i
 
-if.end3.i.i.i:                                    ; preds = %if.end.i.i
-  %pOutputBuses.i.i.i = getelementptr inbounds i8, ptr %31, i64 440
-  %33 = load ptr, ptr %pOutputBuses.i.i.i, align 8
-  %34 = getelementptr i8, ptr %33, i64 9
-  %arrayidx.val.i.i.i = load i8, ptr %34, align 1
+if.end3.i.i.i:                                    ; preds = %if.end.i.i57
+  %pOutputBuses.i.i.i = getelementptr inbounds i8, ptr %46, i64 440
+  %48 = load ptr, ptr %pOutputBuses.i.i.i, align 8
+  %49 = getelementptr i8, ptr %48, i64 9
+  %arrayidx.val.i.i.i = load i8, ptr %49, align 1
   %conv.i.i.i.i = zext i8 %arrayidx.val.i.i.i to i64
-  %35 = shl nuw nsw i64 %conv.i.i.i.i, 2
+  %50 = shl nuw nsw i64 %conv.i.i.i.i, 2
   br label %ma_engine_get_channels.exit
 
-ma_engine_get_channels.exit:                      ; preds = %ma_sound_get_engine.exit, %if.end.i.i, %if.end3.i.i.i
-  %retval.0.i.i = phi i64 [ 0, %ma_sound_get_engine.exit ], [ %35, %if.end3.i.i.i ], [ 0, %if.end.i.i ]
-  %mul.i52 = mul nuw nsw i64 %retval.0.i.i, %conv32
-  %add.ptr.i = getelementptr inbounds i8, ptr %30, i64 %mul.i52
+ma_engine_get_channels.exit:                      ; preds = %ma_sound_get_engine.exit, %if.end.i.i57, %if.end3.i.i.i
+  %retval.0.i.i58 = phi i64 [ 0, %ma_sound_get_engine.exit ], [ %50, %if.end3.i.i.i ], [ 0, %if.end.i.i57 ]
+  %mul.i61 = mul nuw nsw i64 %retval.0.i.i58, %conv32
+  %add.ptr.i = getelementptr inbounds i8, ptr %45, i64 %mul.i61
   store ptr %add.ptr.i, ptr %pRunningFramesOut, align 8
-  %36 = load i64, ptr %framesJustRead, align 8
-  %conv36 = trunc i64 %36 to i32
+  %51 = load i64, ptr %framesJustRead, align 8
+  %conv36 = trunc i64 %51 to i32
   store i32 %conv36, ptr %frameCountIn, align 4
   store i32 %sub, ptr %frameCountOut, align 4
   br i1 %cmp37, label %if.end46, label %if.else
 
 if.else:                                          ; preds = %ma_engine_get_channels.exit
-  %mul.i54 = mul i64 %36, %conv.i53
-  call void @ma_pcm_convert(ptr noundef nonnull %tempf32, i32 noundef 5, ptr noundef nonnull %temp, i32 noundef %15, i64 noundef %mul.i54, i32 noundef 0)
+  %mul.i63 = mul i64 %51, %conv.i62
+  call void @ma_pcm_convert(ptr noundef nonnull %tempf32, i32 noundef 5, ptr noundef nonnull %temp, i32 noundef %30, i64 noundef %mul.i63, i32 noundef 0)
   br label %if.end46
 
 if.end46:                                         ; preds = %ma_engine_get_channels.exit, %if.else
   %tempf32.sink = phi ptr [ %tempf32, %if.else ], [ %temp, %ma_engine_get_channels.exit ]
   store ptr %tempf32.sink, ptr %pRunningFramesIn, align 8
   call fastcc void @ma_engine_node_process_pcm_frames__general(ptr noundef nonnull %pNode, ptr noundef nonnull %pRunningFramesIn, ptr noundef nonnull %frameCountIn, ptr noundef nonnull %pRunningFramesOut, ptr noundef nonnull %frameCountOut)
-  %37 = load i32, ptr %frameCountOut, align 4
-  %add = add i32 %37, %totalFramesRead.172
+  %52 = load i32, ptr %frameCountOut, align 4
+  %add = add i32 %52, %totalFramesRead.181
   %cmp47.not = icmp eq i32 %call27, 0
-  br i1 %cmp47.not, label %if.end.i56, label %return
+  br i1 %cmp47.not, label %if.end.i65, label %return
 
-if.end.i56:                                       ; preds = %if.end46
-  %38 = load ptr, ptr %pDataSource9, align 8
-  %cmp1.i58 = icmp eq ptr %38, null
-  br i1 %cmp1.i58, label %while.cond.backedge, label %if.end3.i59
+if.end.i65:                                       ; preds = %if.end46
+  %53 = load ptr, ptr %pDataSource9, align 8
+  %cmp1.i67 = icmp eq ptr %53, null
+  br i1 %cmp1.i67, label %while.cond.backedge, label %if.end3.i68
 
-if.end3.i59:                                      ; preds = %if.end.i56
-  %39 = load atomic i32, ptr %atEnd.i.i60 seq_cst, align 8
-  %40 = icmp eq i32 %39, 0
+if.end3.i68:                                      ; preds = %if.end.i65
+  %54 = load atomic i32, ptr %atEnd.i.i69 seq_cst, align 8
+  %55 = icmp eq i32 %54, 0
   %cmp15 = icmp ult i32 %add, %0
-  %or.cond = select i1 %40, i1 %cmp15, i1 false
+  %or.cond = select i1 %55, i1 %cmp15, i1 false
   br i1 %or.cond, label %while.body.backedge, label %return
 
-while.cond.backedge:                              ; preds = %if.end.i56
+while.cond.backedge:                              ; preds = %if.end.i65
   %cmp15.old = icmp ult i32 %add, %0
   br i1 %cmp15.old, label %while.body.backedge, label %return
 
-while.body.backedge:                              ; preds = %while.cond.backedge, %if.end3.i59
+while.body.backedge:                              ; preds = %while.cond.backedge, %if.end3.i68
   br label %while.body, !llvm.loop !948
 
-return:                                           ; preds = %while.cond.backedge, %if.end3.i59, %if.end46, %if.then12, %ma_data_source_get_data_format.exit.thread, %ma_sound_stop.exit
-  %storemerge = phi i32 [ 0, %ma_sound_stop.exit ], [ 0, %ma_data_source_get_data_format.exit.thread ], [ 0, %if.then12 ], [ %add, %if.end46 ], [ %add, %if.end3.i59 ], [ %add, %while.cond.backedge ]
+return:                                           ; preds = %while.cond.backedge, %if.end3.i68, %if.end46, %if.then12, %ma_data_source_get_data_format.exit.thread, %ma_sound_stop.exit
+  %storemerge = phi i32 [ 0, %ma_sound_stop.exit ], [ 0, %ma_data_source_get_data_format.exit.thread ], [ 0, %if.then12 ], [ %add, %if.end46 ], [ %add, %if.end3.i68 ], [ %add, %while.cond.backedge ]
   store i32 %storemerge, ptr %pFrameCountOut, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_engine_node_update_pitch_if_required(ptr noundef %pEngineNode) unnamed_addr #4 {
-entry:
-  %lpfConfig.i = alloca %struct.ma_lpf_config, align 8
-  %pitch = getelementptr inbounds i8, ptr %pEngineNode, i64 828
-  %0 = load atomic volatile i32, ptr %pitch acquire, align 4
-  %1 = bitcast i32 %0 to float
-  %oldPitch = getelementptr inbounds i8, ptr %pEngineNode, i64 832
-  %2 = load float, ptr %oldPitch, align 8
-  %cmp = fcmp oeq float %2, %1
-  br i1 %cmp, label %if.end, label %if.end.thread
-
-if.end:                                           ; preds = %entry
-  %oldDopplerPitch = getelementptr inbounds i8, ptr %pEngineNode, i64 836
-  %3 = load float, ptr %oldDopplerPitch, align 4
-  %dopplerPitch = getelementptr inbounds i8, ptr %pEngineNode, i64 680
-  %4 = load float, ptr %dopplerPitch, align 8
-  %cmp2 = fcmp une float %3, %4
-  br i1 %cmp2, label %if.end7.thread, label %if.end15
-
-if.end.thread:                                    ; preds = %entry
-  store i32 %0, ptr %oldPitch, align 8
-  %oldDopplerPitch24 = getelementptr inbounds i8, ptr %pEngineNode, i64 836
-  %5 = load float, ptr %oldDopplerPitch24, align 4
-  %dopplerPitch25 = getelementptr inbounds i8, ptr %pEngineNode, i64 680
-  %6 = load float, ptr %dopplerPitch25, align 8
-  %cmp226 = fcmp une float %5, %6
-  br i1 %cmp226, label %if.end7.thread, label %if.then8
-
-if.end7.thread:                                   ; preds = %if.end.thread, %if.end
-  %7 = phi float [ %6, %if.end.thread ], [ %4, %if.end ]
-  %oldDopplerPitch27 = phi ptr [ %oldDopplerPitch24, %if.end.thread ], [ %oldDopplerPitch, %if.end ]
-  %8 = phi float [ %1, %if.end.thread ], [ %2, %if.end ]
-  store float %7, ptr %oldDopplerPitch27, align 4
-  br label %if.then8
-
-if.then8:                                         ; preds = %if.end.thread, %if.end7.thread
-  %9 = phi float [ %8, %if.end7.thread ], [ %1, %if.end.thread ]
-  %10 = phi float [ %7, %if.end7.thread ], [ %5, %if.end.thread ]
-  %sampleRate = getelementptr inbounds i8, ptr %pEngineNode, i64 368
-  %11 = load i32, ptr %sampleRate, align 8
-  %conv = uitofp i32 %11 to float
-  %pEngine = getelementptr inbounds i8, ptr %pEngineNode, i64 360
-  %12 = load ptr, ptr %pEngine, align 8
-  %cmp.i = icmp eq ptr %12, null
-  br i1 %cmp.i, label %ma_engine_get_sample_rate.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then8
-  %sampleRate.i = getelementptr inbounds i8, ptr %12, i64 752
-  %13 = load i32, ptr %sampleRate.i, align 8
-  %14 = uitofp i32 %13 to float
-  br label %ma_engine_get_sample_rate.exit
-
-ma_engine_get_sample_rate.exit:                   ; preds = %if.then8, %if.end.i
-  %retval.0.i = phi float [ %14, %if.end.i ], [ 0.000000e+00, %if.then8 ]
-  %div = fdiv float %conv, %retval.0.i
-  %resampler = getelementptr inbounds i8, ptr %pEngineNode, i64 424
-  %mul = fmul float %div, %9
-  %mul13 = fmul float %mul, %10
-  %cmp1.i = fcmp ugt float %mul13, 0.000000e+00
-  br i1 %cmp1.i, label %if.end3.i, label %if.end15
-
-if.end3.i:                                        ; preds = %ma_engine_get_sample_rate.exit
-  %mul.i = fmul float %mul13, 1.000000e+06
-  %conv4.i = fptoui float %mul.i to i32
-  %cmp5.i = icmp eq i32 %conv4.i, 0
-  br i1 %cmp5.i, label %if.end15, label %if.end4.i
-
-if.end4.i:                                        ; preds = %if.end3.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %lpfConfig.i)
-  %sampleRateOut5.i = getelementptr inbounds i8, ptr %pEngineNode, i64 436
-  %15 = load i32, ptr %sampleRateOut5.i, align 4
-  br label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %if.else.i.i, %if.end4.i
-  %a.addr.i.045.i = phi i32 [ %conv4.i, %if.end4.i ], [ %b.addr.i.044.i, %if.else.i.i ]
-  %b.addr.i.044.i = phi i32 [ 1000000, %if.end4.i ], [ %rem.i.i, %if.else.i.i ]
-  %rem.i.i = urem i32 %a.addr.i.045.i, %b.addr.i.044.i
-  %cmp.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp.i.i, label %ma_gcf_u32.exit.i, label %if.else.i.i
-
-ma_gcf_u32.exit.i:                                ; preds = %if.else.i.i
-  %sampleRateIn7.i = getelementptr inbounds i8, ptr %pEngineNode, i64 432
-  %div.i = udiv i32 %conv4.i, %b.addr.i.044.i
-  store i32 %div.i, ptr %sampleRateIn7.i, align 8
-  %div18.i = udiv i32 1000000, %b.addr.i.044.i
-  store i32 %div18.i, ptr %sampleRateOut5.i, align 4
-  %lpfOrder.i = getelementptr inbounds i8, ptr %pEngineNode, i64 440
-  %16 = load i32, ptr %lpfOrder.i, align 8
-  %cmp20.i = icmp ugt i32 %16, 8
-  br i1 %cmp20.i, label %ma_linear_resampler_set_rate_internal.exit, label %if.end22.i
-
-if.end22.i:                                       ; preds = %ma_gcf_u32.exit.i
-  %.div18.i = tail call i32 @llvm.umax.i32(i32 %div.i, i32 %div18.i)
-  %cond44.i = tail call i32 @llvm.umin.i32(i32 %div.i, i32 %div18.i)
-  %conv.i = uitofp nneg i32 %cond44.i to double
-  %mul.i19 = fmul double %conv.i, 5.000000e-01
-  %lpfNyquistFactor.i = getelementptr inbounds i8, ptr %pEngineNode, i64 448
-  %17 = load double, ptr %lpfNyquistFactor.i, align 8
-  %mul46.i = fmul double %mul.i19, %17
-  %18 = load i32, ptr %resampler, align 8
-  %channels.i = getelementptr inbounds i8, ptr %pEngineNode, i64 428
-  %19 = load i32, ptr %channels.i, align 4
-  store i32 %18, ptr %lpfConfig.i, align 8
-  %tmp.sroa.2.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 4
-  store i32 %19, ptr %tmp.sroa.2.0.lpfConfig.sroa_idx.i, align 4
-  %tmp.sroa.3.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 8
-  store i32 %.div18.i, ptr %tmp.sroa.3.0.lpfConfig.sroa_idx.i, align 8
-  %tmp.sroa.5.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 12
-  store i32 0, ptr %tmp.sroa.5.0.lpfConfig.sroa_idx.i, align 4
-  %tmp.sroa.543.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 16
-  store double %mul46.i, ptr %tmp.sroa.543.0.lpfConfig.sroa_idx.i, align 8
-  %tmp.sroa.6.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 24
-  store i32 %16, ptr %tmp.sroa.6.0.lpfConfig.sroa_idx.i, align 8
-  %tmp.sroa.7.0.lpfConfig.sroa_idx.i = getelementptr inbounds i8, ptr %lpfConfig.i, i64 28
-  store i32 0, ptr %tmp.sroa.7.0.lpfConfig.sroa_idx.i, align 4
-  %lpf.i = getelementptr inbounds i8, ptr %pEngineNode, i64 488
-  %call.i.i20 = call fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef nonnull %lpfConfig.i, ptr noundef null, ptr noundef nonnull %lpf.i, i32 noundef 0)
-  %cmp56.not.i = icmp eq i32 %call.i.i20, 0
-  br i1 %cmp56.not.i, label %if.end59.i, label %ma_linear_resampler_set_rate_internal.exit
-
-if.end59.i:                                       ; preds = %if.end22.i
-  %20 = load i32, ptr %sampleRateIn7.i, align 8
-  %21 = load i32, ptr %sampleRateOut5.i, align 4
-  %div64.i = udiv i32 %20, %21
-  %inAdvanceInt.i = getelementptr inbounds i8, ptr %pEngineNode, i64 456
-  store i32 %div64.i, ptr %inAdvanceInt.i, align 8
-  %rem.i = urem i32 %20, %21
-  %inAdvanceFrac.i = getelementptr inbounds i8, ptr %pEngineNode, i64 460
-  store i32 %rem.i, ptr %inAdvanceFrac.i, align 4
-  %inTimeFrac.i.i = getelementptr inbounds i8, ptr %pEngineNode, i64 468
-  %22 = load i32, ptr %inTimeFrac.i.i, align 4
-  %div.i.i = udiv i32 %22, %15
-  %rem.i42.i = urem i32 %22, %15
-  %mul.i.i = mul i32 %div.i.i, %21
-  %mul2.i.i = mul i32 %rem.i42.i, %21
-  %div3.i.i = udiv i32 %mul2.i.i, %15
-  %add.i.i = add i32 %div3.i.i, %mul.i.i
-  %div6.i.i = udiv i32 %add.i.i, %21
-  %inTimeInt.i.i = getelementptr inbounds i8, ptr %pEngineNode, i64 464
-  %23 = load i32, ptr %inTimeInt.i.i, align 8
-  %add7.i.i = add i32 %23, %div6.i.i
-  store i32 %add7.i.i, ptr %inTimeInt.i.i, align 8
-  %rem11.i.i = urem i32 %add.i.i, %21
-  store i32 %rem11.i.i, ptr %inTimeFrac.i.i, align 4
-  br label %ma_linear_resampler_set_rate_internal.exit
-
-ma_linear_resampler_set_rate_internal.exit:       ; preds = %ma_gcf_u32.exit.i, %if.end22.i, %if.end59.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lpfConfig.i)
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end, %ma_linear_resampler_set_rate_internal.exit, %if.end3.i, %ma_engine_get_sample_rate.exit
   ret void
 }
 
@@ -130410,52 +130489,168 @@ while.end:                                        ; preds = %if.end135, %while.c
 ; Function Attrs: nounwind uwtable
 define internal void @ma_engine_node_process_pcm_frames__group(ptr noundef %pNode, ptr nocapture noundef readonly %ppFramesIn, ptr nocapture noundef %pFrameCountIn, ptr nocapture noundef readonly %ppFramesOut, ptr nocapture noundef %pFrameCountOut) #4 {
 entry:
-  tail call fastcc void @ma_engine_node_update_pitch_if_required(ptr noundef %pNode)
-  tail call fastcc void @ma_engine_node_process_pcm_frames__general(ptr noundef %pNode, ptr noundef %ppFramesIn, ptr noundef %pFrameCountIn, ptr noundef %ppFramesOut, ptr noundef %pFrameCountOut)
+  %pitch.i = getelementptr inbounds i8, ptr %pNode, i64 828
+  %0 = load atomic volatile i32, ptr %pitch.i acquire, align 4
+  %1 = bitcast i32 %0 to float
+  %oldPitch.i = getelementptr inbounds i8, ptr %pNode, i64 832
+  %2 = load float, ptr %oldPitch.i, align 8
+  %cmp.i = fcmp oeq float %2, %1
+  br i1 %cmp.i, label %if.end.i, label %if.end.thread.i
+
+if.end.i:                                         ; preds = %entry
+  %oldDopplerPitch.i = getelementptr inbounds i8, ptr %pNode, i64 836
+  %3 = load float, ptr %oldDopplerPitch.i, align 4
+  %dopplerPitch.i = getelementptr inbounds i8, ptr %pNode, i64 680
+  %4 = load float, ptr %dopplerPitch.i, align 8
+  %cmp2.i = fcmp une float %3, %4
+  br i1 %cmp2.i, label %if.end7.thread.i, label %ma_engine_node_update_pitch_if_required.exit
+
+if.end.thread.i:                                  ; preds = %entry
+  store i32 %0, ptr %oldPitch.i, align 8
+  %oldDopplerPitch16.i = getelementptr inbounds i8, ptr %pNode, i64 836
+  %5 = load float, ptr %oldDopplerPitch16.i, align 4
+  %dopplerPitch17.i = getelementptr inbounds i8, ptr %pNode, i64 680
+  %6 = load float, ptr %dopplerPitch17.i, align 8
+  %cmp218.i = fcmp une float %5, %6
+  br i1 %cmp218.i, label %if.end7.thread.i, label %if.then8.i
+
+if.end7.thread.i:                                 ; preds = %if.end.thread.i, %if.end.i
+  %7 = phi float [ %6, %if.end.thread.i ], [ %4, %if.end.i ]
+  %oldDopplerPitch19.i = phi ptr [ %oldDopplerPitch16.i, %if.end.thread.i ], [ %oldDopplerPitch.i, %if.end.i ]
+  %8 = phi float [ %1, %if.end.thread.i ], [ %2, %if.end.i ]
+  store float %7, ptr %oldDopplerPitch19.i, align 4
+  br label %if.then8.i
+
+if.then8.i:                                       ; preds = %if.end7.thread.i, %if.end.thread.i
+  %9 = phi float [ %8, %if.end7.thread.i ], [ %1, %if.end.thread.i ]
+  %10 = phi float [ %7, %if.end7.thread.i ], [ %5, %if.end.thread.i ]
+  %sampleRate.i = getelementptr inbounds i8, ptr %pNode, i64 368
+  %11 = load i32, ptr %sampleRate.i, align 8
+  %conv.i = uitofp i32 %11 to float
+  %pEngine.i = getelementptr inbounds i8, ptr %pNode, i64 360
+  %12 = load ptr, ptr %pEngine.i, align 8
+  %cmp.i.i = icmp eq ptr %12, null
+  br i1 %cmp.i.i, label %ma_engine_get_sample_rate.exit.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then8.i
+  %sampleRate.i.i = getelementptr inbounds i8, ptr %12, i64 752
+  %13 = load i32, ptr %sampleRate.i.i, align 8
+  %14 = uitofp i32 %13 to float
+  br label %ma_engine_get_sample_rate.exit.i
+
+ma_engine_get_sample_rate.exit.i:                 ; preds = %if.end.i.i, %if.then8.i
+  %retval.0.i.i = phi float [ %14, %if.end.i.i ], [ 0.000000e+00, %if.then8.i ]
+  %div.i = fdiv float %conv.i, %retval.0.i.i
+  %resampler.i = getelementptr inbounds i8, ptr %pNode, i64 424
+  %mul.i = fmul float %9, %div.i
+  %mul13.i = fmul float %10, %mul.i
+  %call14.i = tail call i32 @ma_linear_resampler_set_rate_ratio(ptr noundef nonnull %resampler.i, float noundef %mul13.i)
+  br label %ma_engine_node_update_pitch_if_required.exit
+
+ma_engine_node_update_pitch_if_required.exit:     ; preds = %if.end.i, %ma_engine_get_sample_rate.exit.i
+  tail call fastcc void @ma_engine_node_process_pcm_frames__general(ptr noundef nonnull %pNode, ptr noundef %ppFramesIn, ptr noundef %pFrameCountIn, ptr noundef %ppFramesOut, ptr noundef %pFrameCountOut)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ma_engine_node_get_required_input_frame_count__group(ptr noundef %pNode, i32 noundef %outputFrameCount, ptr nocapture noundef writeonly %pInputFrameCount) #4 {
 entry:
-  tail call fastcc void @ma_engine_node_update_pitch_if_required(ptr noundef %pNode)
+  %pitch.i = getelementptr inbounds i8, ptr %pNode, i64 828
+  %0 = load atomic volatile i32, ptr %pitch.i acquire, align 4
+  %1 = bitcast i32 %0 to float
+  %oldPitch.i = getelementptr inbounds i8, ptr %pNode, i64 832
+  %2 = load float, ptr %oldPitch.i, align 8
+  %cmp.i = fcmp oeq float %2, %1
+  br i1 %cmp.i, label %if.end.i, label %if.end.thread.i
+
+if.end.i:                                         ; preds = %entry
+  %oldDopplerPitch.i = getelementptr inbounds i8, ptr %pNode, i64 836
+  %3 = load float, ptr %oldDopplerPitch.i, align 4
+  %dopplerPitch.i = getelementptr inbounds i8, ptr %pNode, i64 680
+  %4 = load float, ptr %dopplerPitch.i, align 8
+  %cmp2.i = fcmp une float %3, %4
+  br i1 %cmp2.i, label %if.end7.thread.i, label %ma_engine_node_update_pitch_if_required.exit
+
+if.end.thread.i:                                  ; preds = %entry
+  store i32 %0, ptr %oldPitch.i, align 8
+  %oldDopplerPitch16.i = getelementptr inbounds i8, ptr %pNode, i64 836
+  %5 = load float, ptr %oldDopplerPitch16.i, align 4
+  %dopplerPitch17.i = getelementptr inbounds i8, ptr %pNode, i64 680
+  %6 = load float, ptr %dopplerPitch17.i, align 8
+  %cmp218.i = fcmp une float %5, %6
+  br i1 %cmp218.i, label %if.end7.thread.i, label %if.then8.i
+
+if.end7.thread.i:                                 ; preds = %if.end.thread.i, %if.end.i
+  %7 = phi float [ %6, %if.end.thread.i ], [ %4, %if.end.i ]
+  %oldDopplerPitch19.i = phi ptr [ %oldDopplerPitch16.i, %if.end.thread.i ], [ %oldDopplerPitch.i, %if.end.i ]
+  %8 = phi float [ %1, %if.end.thread.i ], [ %2, %if.end.i ]
+  store float %7, ptr %oldDopplerPitch19.i, align 4
+  br label %if.then8.i
+
+if.then8.i:                                       ; preds = %if.end7.thread.i, %if.end.thread.i
+  %9 = phi float [ %8, %if.end7.thread.i ], [ %1, %if.end.thread.i ]
+  %10 = phi float [ %7, %if.end7.thread.i ], [ %5, %if.end.thread.i ]
+  %sampleRate.i = getelementptr inbounds i8, ptr %pNode, i64 368
+  %11 = load i32, ptr %sampleRate.i, align 8
+  %conv.i = uitofp i32 %11 to float
+  %pEngine.i = getelementptr inbounds i8, ptr %pNode, i64 360
+  %12 = load ptr, ptr %pEngine.i, align 8
+  %cmp.i.i = icmp eq ptr %12, null
+  br i1 %cmp.i.i, label %ma_engine_get_sample_rate.exit.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then8.i
+  %sampleRate.i.i = getelementptr inbounds i8, ptr %12, i64 752
+  %13 = load i32, ptr %sampleRate.i.i, align 8
+  %14 = uitofp i32 %13 to float
+  br label %ma_engine_get_sample_rate.exit.i
+
+ma_engine_get_sample_rate.exit.i:                 ; preds = %if.end.i.i, %if.then8.i
+  %retval.0.i.i = phi float [ %14, %if.end.i.i ], [ 0.000000e+00, %if.then8.i ]
+  %div.i = fdiv float %conv.i, %retval.0.i.i
+  %resampler.i = getelementptr inbounds i8, ptr %pNode, i64 424
+  %mul.i = fmul float %9, %div.i
+  %mul13.i = fmul float %10, %mul.i
+  %call14.i = tail call i32 @ma_linear_resampler_set_rate_ratio(ptr noundef nonnull %resampler.i, float noundef %mul13.i)
+  br label %ma_engine_node_update_pitch_if_required.exit
+
+ma_engine_node_update_pitch_if_required.exit:     ; preds = %if.end.i, %ma_engine_get_sample_rate.exit.i
   %conv = zext i32 %outputFrameCount to i64
   %isPitchDisabled.i.i = getelementptr inbounds i8, ptr %pNode, i64 840
-  %0 = load atomic i32, ptr %isPitchDisabled.i.i acquire, align 8
-  %tobool.not.i.not.i = icmp eq i32 %0, 0
+  %15 = load atomic i32, ptr %isPitchDisabled.i.i acquire, align 8
+  %tobool.not.i.not.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i.not.i, label %if.then.i, label %ma_engine_node_get_required_input_frame_count.exit
 
-if.then.i:                                        ; preds = %entry
+if.then.i:                                        ; preds = %ma_engine_node_update_pitch_if_required.exit
   %cmp4.i.i = icmp eq i32 %outputFrameCount, 0
   br i1 %cmp4.i.i, label %ma_engine_node_get_required_input_frame_count.exit, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then.i
   %inTimeInt.i.i = getelementptr inbounds i8, ptr %pNode, i64 464
-  %1 = load i32, ptr %inTimeInt.i.i, align 8
-  %conv.i.i = zext i32 %1 to i64
+  %16 = load i32, ptr %inTimeInt.i.i, align 8
+  %conv.i.i = zext i32 %16 to i64
   %sub.i.i = add nsw i64 %conv, -1
   %inAdvanceInt.i.i = getelementptr inbounds i8, ptr %pNode, i64 456
-  %2 = load i32, ptr %inAdvanceInt.i.i, align 8
-  %conv7.i.i = zext i32 %2 to i64
+  %17 = load i32, ptr %inAdvanceInt.i.i, align 8
+  %conv7.i.i = zext i32 %17 to i64
   %mul.i.i = mul nuw i64 %sub.i.i, %conv7.i.i
   %add.i.i = add nuw i64 %mul.i.i, %conv.i.i
   %inTimeFrac.i.i = getelementptr inbounds i8, ptr %pNode, i64 468
-  %3 = load i32, ptr %inTimeFrac.i.i, align 4
-  %conv8.i.i = zext i32 %3 to i64
+  %18 = load i32, ptr %inTimeFrac.i.i, align 4
+  %conv8.i.i = zext i32 %18 to i64
   %inAdvanceFrac.i.i = getelementptr inbounds i8, ptr %pNode, i64 460
-  %4 = load i32, ptr %inAdvanceFrac.i.i, align 4
-  %conv9.i.i = zext i32 %4 to i64
+  %19 = load i32, ptr %inAdvanceFrac.i.i, align 4
+  %conv9.i.i = zext i32 %19 to i64
   %mul10.i.i = mul nuw i64 %sub.i.i, %conv9.i.i
   %add11.i.i = add nuw i64 %mul10.i.i, %conv8.i.i
   %sampleRateOut.i.i = getelementptr inbounds i8, ptr %pNode, i64 436
-  %5 = load i32, ptr %sampleRateOut.i.i, align 4
-  %conv12.i.i = zext i32 %5 to i64
+  %20 = load i32, ptr %sampleRateOut.i.i, align 4
+  %conv12.i.i = zext i32 %20 to i64
   %div.i.i = udiv i64 %add11.i.i, %conv12.i.i
   %add13.i.i = add i64 %add.i.i, %div.i.i
   br label %ma_engine_node_get_required_input_frame_count.exit
 
-ma_engine_node_get_required_input_frame_count.exit: ; preds = %entry, %if.then.i, %if.end6.i.i
-  %inputFrameCount.0.i = phi i64 [ 0, %if.then.i ], [ %add13.i.i, %if.end6.i.i ], [ %conv, %entry ]
+ma_engine_node_get_required_input_frame_count.exit: ; preds = %ma_engine_node_update_pitch_if_required.exit, %if.then.i, %if.end6.i.i
+  %inputFrameCount.0.i = phi i64 [ 0, %if.then.i ], [ %add13.i.i, %if.end6.i.i ], [ %conv, %ma_engine_node_update_pitch_if_required.exit ]
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %inputFrameCount.0.i, i64 4294967295)
   %conv2 = trunc nuw i64 %spec.store.select to i32
   store i32 %conv2, ptr %pInputFrameCount, align 4
@@ -130940,7 +131135,7 @@ if.then103.i:                                     ; preds = %for.end.i
   %conv113.i = zext i32 %53 to i64
   %54 = load ptr, ptr %pParser, align 8
   %55 = load ptr, ptr %pReadSeekUserData2.i.i, align 8
-  %call3.i51.i = call i64 %54(ptr noundef %55, ptr noundef %52, i64 noundef %conv113.i) #64
+  %call3.i51.i = call i64 %54(ptr noundef %55, ptr noundef %52, i64 noundef range(i64 0, -602) %conv113.i) #64
   %add.i.i52.i = add i64 %call3.i51.i, %totalBytesRead.2.i
   br label %ma_dr_wav__read_smpl_to_metadata_obj.exit
 
@@ -132082,7 +132277,7 @@ if.then45:                                        ; preds = %ma_dr_wav_buffer_re
   store ptr %26, ptr %pCodingHistory, align 8
   %28 = load ptr, ptr %pParser, align 8
   %29 = load ptr, ptr %pReadSeekUserData2.i, align 8
-  %call3.i196 = call i64 %28(ptr noundef %29, ptr noundef %26, i64 noundef %sub) #64
+  %call3.i196 = call i64 %28(ptr noundef %29, ptr noundef %26, i64 noundef range(i64 0, -602) %sub) #64
   %add52 = add i64 %call3.i196, 602
   %30 = load ptr, ptr %pCodingHistory, align 8
   %31 = load i8, ptr %30, align 1
@@ -132149,7 +132344,7 @@ if.then6:                                         ; preds = %if.then
   store ptr %3, ptr %pString, align 8
   %4 = load ptr, ptr %pParser, align 8
   %5 = load ptr, ptr %pReadSeekUserData2.i, align 8
-  %call3.i13 = call i64 %4(ptr noundef %5, ptr noundef %3, i64 noundef %conv9) #64
+  %call3.i13 = call i64 %4(ptr noundef %5, ptr noundef %3, i64 noundef range(i64 0, -602) %conv9) #64
   %add.i.i14 = add i64 %call3.i13, 4
   br label %if.end20
 
@@ -132235,7 +132430,7 @@ if.then39:                                        ; preds = %if.then
   store ptr %12, ptr %pString, align 8
   %13 = load ptr, ptr %pParser, align 8
   %14 = load ptr, ptr %pReadSeekUserData2.i, align 8
-  %call3.i22 = call i64 %13(ptr noundef %14, ptr noundef %12, i64 noundef %conv42) #64
+  %call3.i22 = call i64 %13(ptr noundef %14, ptr noundef %12, i64 noundef range(i64 0, -602) %conv42) #64
   %add.i.i23 = add i64 %call3.i22, 20
   br label %if.end53
 
@@ -132294,7 +132489,7 @@ if.then7:                                         ; preds = %if.else
   %6 = load ptr, ptr %pParser, align 8
   %pReadSeekUserData2.i = getelementptr inbounds i8, ptr %pParser, i64 16
   %7 = load ptr, ptr %pReadSeekUserData2.i, align 8
-  %call3.i = tail call i64 %6(ptr noundef %7, ptr noundef %5, i64 noundef %chunkSize) #64
+  %call3.i = tail call i64 %6(ptr noundef %7, ptr noundef %5, i64 noundef range(i64 0, -602) %chunkSize) #64
   %cmp14 = icmp eq i64 %call3.i, %chunkSize
   br i1 %cmp14, label %if.then16, label %if.end28
 
@@ -132437,7 +132632,7 @@ if.else:                                          ; preds = %if.end7
   %20 = load ptr, ptr %pParser, align 8
   %pReadSeekUserData2.i = getelementptr inbounds i8, ptr %pParser, i64 16
   %21 = load ptr, ptr %pReadSeekUserData2.i, align 8
-  %call3.i = tail call i64 %20(ptr noundef %21, ptr noundef %18, i64 noundef %conv33) #64
+  %call3.i = tail call i64 %20(ptr noundef %21, ptr noundef %18, i64 noundef range(i64 0, -602) %conv33) #64
   %22 = load i32, ptr %dataSizeInBytes, align 8
   %conv37 = zext i32 %22 to i64
   %cmp38 = icmp eq i64 %call3.i, %conv37
@@ -134646,7 +134841,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = mul nuw nsw i64 %indvars.iv, %8
   %add.ptr = getelementptr inbounds i32, ptr %6, i64 %9
   %add.ptr.i = getelementptr inbounds %struct.ma_dr_flac_subframe, ptr %subframes, i64 %indvars.iv
-  %call.i = call fastcc i32 @ma_dr_flac__read_subframe_header(ptr noundef %bs, ptr noundef %add.ptr.i)
+  %call.i = call fastcc i32 @ma_dr_flac__read_subframe_header(ptr noundef nonnull %bs, ptr noundef %add.ptr.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -134706,7 +134901,7 @@ if.end32.i:                                       ; preds = %if.end27.i
 sw.bb.i:                                          ; preds = %if.end32.i
   %14 = load i16, ptr %blockSizeInPCMFrames, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sample.i.i)
-  %call.i.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef %sub.i112, ptr noundef nonnull %sample.i.i)
+  %call.i.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %sub.i112, ptr noundef nonnull %sample.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   %cmp3.not.i.i = icmp eq i16 %14, 0
   %or.cond72.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp3.not.i.i
@@ -134741,7 +134936,7 @@ for.body.preheader.i.i:                           ; preds = %sw.bb40.i
 
 for.body.i39.i:                                   ; preds = %if.end.i.i, %for.body.preheader.i.i
   %indvars.iv.i40.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i44.i, %if.end.i.i ]
-  %call.i41.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef %sub.i112, ptr noundef nonnull %sample.i36.i)
+  %call.i41.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %sub.i112, ptr noundef nonnull %sample.i36.i)
   %tobool.not.i42.i = icmp eq i32 %call.i41.i, 0
   br i1 %tobool.not.i42.i, label %ma_dr_flac__decode_samples__verbatim.exit.i, label %if.end.i.i
 
@@ -134773,7 +134968,7 @@ for.body.preheader.i48.i:                         ; preds = %sw.bb46.i
 
 for.body.i50.i:                                   ; preds = %if.end.i54.i, %for.body.preheader.i48.i
   %indvars.iv.i51.i = phi i64 [ 0, %for.body.preheader.i48.i ], [ %indvars.iv.next.i56.i, %if.end.i54.i ]
-  %call.i52.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef %sub.i112, ptr noundef nonnull %sample.i47.i)
+  %call.i52.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %sub.i112, ptr noundef nonnull %sample.i47.i)
   %tobool.not.i53.i = icmp eq i32 %call.i52.i, 0
   br i1 %tobool.not.i53.i, label %ma_dr_flac__decode_samples__fixed.exit.i, label %if.end.i54.i
 
@@ -134788,7 +134983,7 @@ if.end.i54.i:                                     ; preds = %for.body.i50.i
 for.end.i.i:                                      ; preds = %if.end.i54.i, %sw.bb46.i
   %idxprom3.i.pre-phi.i = phi i64 [ 0, %sw.bb46.i ], [ %wide.trip.count.i49.i, %if.end.i54.i ]
   %arrayidx4.i.i = getelementptr inbounds [5 x [4 x i32]], ptr @ma_dr_flac__decode_samples__fixed.lpcCoefficientsTable, i64 0, i64 %idxprom3.i.pre-phi.i
-  call fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef %bs, i32 noundef %sub.i112, i32 noundef %conv49.i, i32 noundef %conv.i.i, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %arrayidx4.i.i, ptr noundef %add.ptr)
+  call fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %sub.i112, i32 noundef range(i32 0, 65536) %conv49.i, i32 noundef %conv.i.i, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %arrayidx4.i.i, ptr noundef %add.ptr)
   br label %ma_dr_flac__decode_samples__fixed.exit.i
 
 ma_dr_flac__decode_samples__fixed.exit.i:         ; preds = %for.body.i50.i, %for.end.i.i
@@ -134811,7 +135006,7 @@ for.body.preheader.i60.i:                         ; preds = %sw.bb52.i
 
 for.body.i62.i:                                   ; preds = %if.end.i66.i, %for.body.preheader.i60.i
   %indvars.iv.i63.i = phi i64 [ 0, %for.body.preheader.i60.i ], [ %indvars.iv.next.i68.i, %if.end.i66.i ]
-  %call.i64.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef %sub.i112, ptr noundef nonnull %sample.i59.i)
+  %call.i64.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %sub.i112, ptr noundef nonnull %sample.i59.i)
   %tobool.not.i65.i = icmp eq i32 %call.i64.i, 0
   br i1 %tobool.not.i65.i, label %ma_dr_flac__decode_samples__lpc.exit.i, label %if.end.i66.i
 
@@ -134830,7 +135025,7 @@ for.end.i70.i:                                    ; preds = %if.end.i66.i, %sw.b
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end3.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end.i70.i
-  %call.i.i.i.i = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i.i.i = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %ma_dr_flac__decode_samples__lpc.exit.i, label %if.then.i.if.end3.i_crit_edge.i.i.i
 
@@ -134863,7 +135058,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
   %and26.i.i.i.i = and i64 %27, %not25.i.i.i.i
   %shr29.i.i.i.i = lshr i64 %and26.i.i.i.i, %conv6.i.i.i.i
   %conv30.i.i.i.i = trunc nuw nsw i64 %shr29.i.i.i.i to i32
-  %call31.i.i.i.i = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i.i.i = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i.i.i = icmp eq i32 %call31.i.i.i.i, 0
   br i1 %tobool32.i.not.i.i.i, label %ma_dr_flac__decode_samples__lpc.exit.i, label %if.end34.i.i.i.i
 
@@ -134901,7 +135096,7 @@ if.end6.i.i:                                      ; preds = %if.end42.i.i.i.i, %
 if.end11.i.i:                                     ; preds = %if.end6.i.i
   %add.i.i = add i32 %result.0.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i.i.i)
-  %call.i.i.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef 5, ptr noundef nonnull %result.i.i.i)
+  %call.i.i.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef 5, ptr noundef nonnull %result.i.i.i)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %ma_dr_flac__read_int8.exit.thread.i.i, label %ma_dr_flac__read_int8.exit.i.i
 
@@ -134933,13 +135128,13 @@ for.cond23.i.i:                                   ; preds = %for.body28.i.i
 for.body28.i.i:                                   ; preds = %for.cond23.i.i, %for.body28.lr.ph.i.i
   %indvars.iv36.i.i = phi i64 [ 0, %for.body28.lr.ph.i.i ], [ %indvars.iv.next37.i.i, %for.cond23.i.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %coefficients.i.i, i64 %indvars.iv36.i.i
-  %call32.i.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef %.pre.i.i, ptr noundef nonnull %add.ptr.i.i)
+  %call32.i.i = call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef %.pre.i.i, ptr noundef nonnull %add.ptr.i.i)
   %tobool33.not.i.i = icmp eq i32 %call32.i.i, 0
   br i1 %tobool33.not.i.i, label %ma_dr_flac__decode_samples__lpc.exit.i, label %for.cond23.i.i
 
 for.end38.i.i:                                    ; preds = %for.cond23.i.i, %if.end22.i.i
   %conv40.i.i = and i32 %31, 127
-  call fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef %bs, i32 noundef %sub.i112, i32 noundef %conv55.i, i32 noundef %conv1.le.i.i, i32 noundef %conv40.i.i, i32 noundef %.pre.i.i, ptr noundef nonnull %coefficients.i.i, ptr noundef %add.ptr)
+  call fastcc void @ma_dr_flac__decode_samples_with_residual(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %sub.i112, i32 noundef range(i32 0, 65536) %conv55.i, i32 noundef %conv1.le.i.i, i32 noundef %conv40.i.i, i32 noundef %.pre.i.i, ptr noundef nonnull %coefficients.i.i, ptr noundef %add.ptr)
   br label %ma_dr_flac__decode_samples__lpc.exit.i
 
 ma_dr_flac__decode_samples__lpc.exit.i:           ; preds = %for.body.i62.i, %for.body28.i.i, %for.end38.i.i, %ma_dr_flac__read_int8.exit.i.i, %ma_dr_flac__read_int8.exit.thread.i.i, %if.end6.i.i, %if.end34.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -134966,7 +135161,7 @@ if.then28:                                        ; preds = %for.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %if.then28
-  %call.i.i117 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs22)
+  %call.i.i117 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs22)
   %tobool.i.not.i = icmp eq i32 %call.i.i117, 0
   br i1 %tobool.i.not.i, label %return, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -134995,7 +135190,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %conv20.i.i = trunc nuw nsw i64 %sub.i.i to i32
   %sub21.i.i = sub nsw i32 %conv24, %conv20.i.i
   %cache22.i.i = getelementptr inbounds i8, ptr %pFlac, i64 4448
-  %call31.i.i = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs22)
+  %call31.i.i = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs22)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -135335,7 +135530,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %if.else.i, %sw.bb31
 
 if.then.i.i162:                                   ; preds = %if.then.i60, %ma_dr_flac_crc16_bytes.exit
   %.ph = phi i16 [ %crc.addr.i68.0, %ma_dr_flac_crc16_bytes.exit ], [ %xor6.i367, %if.then.i60 ]
-  %call.i.i163 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs22)
+  %call.i.i163 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs22)
   %tobool.i.not.i164 = icmp eq i32 %call.i.i163, 0
   br i1 %tobool.i.not.i164, label %return, label %if.then.i.if.end3.i_crit_edge.i165
 
@@ -135372,7 +135567,7 @@ if.else.i.i135:                                   ; preds = %if.end3.i.i120
   %and26.i.i141 = and i64 %79, %not25.i.i140
   %shr29.i.i142 = lshr i64 %and26.i.i141, %conv6.i.i121
   %conv30.i.i143 = trunc nuw nsw i64 %shr29.i.i142 to i32
-  %call31.i.i144 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs22)
+  %call31.i.i144 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs22)
   %tobool32.i.not.i145 = icmp eq i32 %call31.i.i144, 0
   br i1 %tobool32.i.not.i145, label %return, label %if.end34.i.i146
 
@@ -135430,7 +135625,7 @@ entry:
   %1 = sub i32 0, %0
   %2 = and i32 %1, 7
   %and.i788 = zext nneg i32 %2 to i64
-  %call.i402789 = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %and.i788)
+  %call.i402789 = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %and.i788)
   %tobool.not.i790 = icmp eq i32 %call.i402789, 0
   br i1 %tobool.not.i790, label %return, label %for.cond.preheader.i.lr.ph
 
@@ -135455,7 +135650,7 @@ for.cond.i:                                       ; preds = %for.cond.i.backedge
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end3.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.cond.i
-  %call.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %return, label %if.then.i.if.end3.i_crit_edge.i.i
 
@@ -135488,7 +135683,7 @@ if.else.i.i.i:                                    ; preds = %if.end3.i.i.i
   %and26.i.i.i = and i64 %6, %not25.i.i.i
   %shr29.i.i.i = lshr i64 %and26.i.i.i, %conv6.i.i.i
   %conv30.i.i.i = trunc nuw nsw i64 %shr29.i.i.i to i32
-  %call31.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i.i = icmp eq i32 %call31.i.i.i, 0
   br i1 %tobool32.i.not.i.i, label %return, label %if.end34.i.i.i
 
@@ -135529,7 +135724,7 @@ if.then7.i:                                       ; preds = %if.end4.i
   br i1 %cmp.i.i10.i, label %if.then.i.i53.i, label %if.end3.i.i11.i
 
 if.then.i.i53.i:                                  ; preds = %if.then7.i
-  %call.i.i54.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i54.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i55.i = icmp eq i32 %call.i.i54.i, 0
   br i1 %tobool.i.not.i55.i, label %return, label %if.then.i.if.end3.i_crit_edge.i56.i
 
@@ -135562,7 +135757,7 @@ if.else.i.i26.i:                                  ; preds = %if.end3.i.i11.i
   %and26.i.i32.i = and i64 %13, %not25.i.i31.i
   %shr29.i.i33.i = lshr i64 %and26.i.i32.i, %conv6.i.i12.i
   %conv30.i.i34.i = trunc nuw nsw i64 %shr29.i.i33.i to i32
-  %call31.i.i35.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i35.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i36.i = icmp eq i32 %call31.i.i35.i, 0
   br i1 %tobool32.i.not.i36.i, label %return, label %if.end34.i.i37.i
 
@@ -135602,7 +135797,7 @@ if.else.i404:                                     ; preds = %if.end11.i
   %18 = sub i32 0, %16
   %19 = and i32 %18, 7
   %and19.i = zext nneg i32 %19 to i64
-  %call20.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %and19.i)
+  %call20.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %and19.i)
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %return, label %for.cond.i.backedge
 
@@ -135611,7 +135806,7 @@ if.end:                                           ; preds = %if.end11.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end4
 
 if.then.i.i:                                      ; preds = %if.end
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.end3.i.i
 
@@ -135621,7 +135816,7 @@ if.end3.i.i:                                      ; preds = %if.then.i.i
   br i1 %cmp7.i.not.i, label %if.else.i.i, label %if.end4thread-pre-split
 
 if.else.i.i:                                      ; preds = %if.end3.i.i
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -135651,7 +135846,7 @@ for.cond.backedge:                                ; preds = %if.end4, %if.end19,
   %23 = sub i32 0, %22
   %24 = and i32 %23, 7
   %and.i = zext nneg i32 %24 to i64
-  %call.i402 = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %and.i)
+  %call.i402 = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %and.i)
   %tobool.not.i = icmp eq i32 %call.i402, 0
   br i1 %tobool.not.i, label %return, label %for.cond.i.backedge
 
@@ -135663,7 +135858,7 @@ if.end7:                                          ; preds = %if.end4
   br i1 %cmp.i.i407, label %if.then.i.i450, label %if.end13
 
 if.then.i.i450:                                   ; preds = %if.end7
-  %call.i.i451 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i451 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i452 = icmp eq i32 %call.i.i451, 0
   br i1 %tobool.i.not.i452, label %return, label %if.end3.i.i408
 
@@ -135673,7 +135868,7 @@ if.end3.i.i408:                                   ; preds = %if.then.i.i450
   br i1 %cmp7.i.not.i411, label %if.else.i.i423, label %if.end13thread-pre-split
 
 if.else.i.i423:                                   ; preds = %if.end3.i.i408
-  %call31.i.i432 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i432 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i433 = icmp eq i32 %call31.i.i432, 0
   br i1 %tobool32.i.not.i433, label %return, label %if.end34.i.i434
 
@@ -135703,7 +135898,7 @@ if.end13:                                         ; preds = %if.end13thread-pre-
   br i1 %cmp.i.i457, label %if.then.i.i500, label %if.end3.i.i458
 
 if.then.i.i500:                                   ; preds = %if.end13
-  %call.i.i501 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i501 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i502 = icmp eq i32 %call.i.i501, 0
   br i1 %tobool.i.not.i502, label %return, label %if.then.i.if.end3.i_crit_edge.i503
 
@@ -135736,7 +135931,7 @@ if.else.i.i473:                                   ; preds = %if.end3.i.i458
   %and26.i.i479 = and i64 %30, %not25.i.i478
   %shr29.i.i480 = lshr i64 %and26.i.i479, %conv6.i.i459
   %conv30.i.i481 = trunc nuw nsw i64 %shr29.i.i480 to i32
-  %call31.i.i482 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i482 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i483 = icmp eq i32 %call31.i.i482, 0
   br i1 %tobool32.i.not.i483, label %return, label %if.end34.i.i484
 
@@ -135786,7 +135981,7 @@ if.end24:                                         ; preds = %if.end19
   br i1 %cmp.i.i507, label %if.then.i.i550, label %if.end3.i.i508
 
 if.then.i.i550:                                   ; preds = %if.end24
-  %call.i.i551 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i551 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i552 = icmp eq i32 %call.i.i551, 0
   br i1 %tobool.i.not.i552, label %return, label %if.then.i.if.end3.i_crit_edge.i553
 
@@ -135819,7 +136014,7 @@ if.else.i.i523:                                   ; preds = %if.end3.i.i508
   %and26.i.i529 = and i64 %40, %not25.i.i528
   %shr29.i.i530 = lshr i64 %and26.i.i529, %conv6.i.i509
   %conv30.i.i531 = trunc nuw nsw i64 %shr29.i.i530 to i32
-  %call31.i.i532 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i532 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i533 = icmp eq i32 %call31.i.i532, 0
   br i1 %tobool32.i.not.i533, label %return, label %if.end34.i.i534
 
@@ -135864,7 +136059,7 @@ if.end30:                                         ; preds = %if.end42.i.i539, %i
   br i1 %cmp.i.i557, label %if.then.i.i600, label %if.end3.i.i558
 
 if.then.i.i600:                                   ; preds = %if.end30
-  %call.i.i601 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i601 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i602 = icmp eq i32 %call.i.i601, 0
   br i1 %tobool.i.not.i602, label %return, label %if.then.i.if.end3.i_crit_edge.i603
 
@@ -135897,7 +136092,7 @@ if.else.i.i573:                                   ; preds = %if.end3.i.i558
   %and26.i.i579 = and i64 %50, %not25.i.i578
   %shr29.i.i580 = lshr i64 %and26.i.i579, %conv6.i.i559
   %conv30.i.i581 = trunc nuw nsw i64 %shr29.i.i580 to i32
-  %call31.i.i582 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i582 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i583 = icmp eq i32 %call31.i.i582, 0
   br i1 %tobool32.i.not.i583, label %return, label %if.end34.i.i584
 
@@ -135946,7 +136141,7 @@ if.end41:                                         ; preds = %if.end36
   br i1 %cmp.i.i607, label %if.then.i.i650, label %if.end3.i.i608
 
 if.then.i.i650:                                   ; preds = %if.end41
-  %call.i.i651 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i651 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i652 = icmp eq i32 %call.i.i651, 0
   br i1 %tobool.i.not.i652, label %return, label %if.then.i.if.end3.i_crit_edge.i653
 
@@ -135979,7 +136174,7 @@ if.else.i.i623:                                   ; preds = %if.end3.i.i608
   %and26.i.i629 = and i64 %59, %not25.i.i628
   %shr29.i.i630 = lshr i64 %and26.i.i629, %conv6.i.i609
   %conv30.i.i631 = trunc nuw nsw i64 %shr29.i.i630 to i32
-  %call31.i.i632 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i632 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i633 = icmp eq i32 %call31.i.i632, 0
   br i1 %tobool32.i.not.i633, label %return, label %if.end34.i.i634
 
@@ -136029,7 +136224,7 @@ if.end55:                                         ; preds = %if.end47
   br i1 %cmp.i.i657, label %if.then.i.i700, label %if.end61
 
 if.then.i.i700:                                   ; preds = %if.end55
-  %call.i.i701 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i701 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i702 = icmp eq i32 %call.i.i701, 0
   br i1 %tobool.i.not.i702, label %return, label %if.end3.i.i658
 
@@ -136039,7 +136234,7 @@ if.end3.i.i658:                                   ; preds = %if.then.i.i700
   br i1 %cmp7.i.not.i661, label %if.else.i.i673, label %if.end61
 
 if.else.i.i673:                                   ; preds = %if.end3.i.i658
-  %call31.i.i682 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i682 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i683 = icmp eq i32 %call31.i.i682, 0
   br i1 %tobool32.i.not.i683, label %return, label %if.end34.i.i684
 
@@ -136471,7 +136666,7 @@ if.end228:                                        ; preds = %if.end210
   br i1 %cmp.i.i707, label %if.then.i.i750, label %if.end3.i.i708
 
 if.then.i.i750:                                   ; preds = %if.end228
-  %call.i.i751 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i751 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i752 = icmp eq i32 %call.i.i751, 0
   br i1 %tobool.i.not.i752, label %return, label %if.then.i.if.end3.i_crit_edge.i753
 
@@ -136504,7 +136699,7 @@ if.else.i.i723:                                   ; preds = %if.end3.i.i708
   %and26.i.i729 = and i64 %131, %not25.i.i728
   %shr29.i.i730 = lshr i64 %and26.i.i729, %conv6.i.i709
   %conv30.i.i731 = trunc nuw nsw i64 %shr29.i.i730 to i32
-  %call31.i.i732 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i732 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i733 = icmp eq i32 %call31.i.i732, 0
   br i1 %tobool32.i.not.i733, label %return, label %if.end34.i.i734
 
@@ -137438,7 +137633,7 @@ if.end16:                                         ; preds = %if.end.thread, %if.
   %conv17 = zext nneg i32 %pageBodySize.i.0.lcssa103108 to i64
   %42 = load ptr, ptr %oggbs, align 8
   %43 = load ptr, ptr %pUserData, align 8
-  %call.i32 = call i64 %42(ptr noundef %43, ptr noundef nonnull %pageData, i64 noundef %conv17) #64
+  %call.i32 = call i64 %42(ptr noundef %43, ptr noundef nonnull %pageData, i64 noundef range(i64 0, 65308) %conv17) #64
   %44 = load i64, ptr %currentBytePos, align 8
   %add.i33 = add i64 %44, %call.i32
   store i64 %add.i33, ptr %currentBytePos, align 8
@@ -137590,7 +137785,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -137626,7 +137821,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %and26.i.i = and i64 %3, %not25.i.i
   %shr29.i.i = lshr i64 %and26.i.i, %conv6.i.i
   %conv30.i.i = trunc nuw nsw i64 %shr29.i.i to i32
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -138249,7 +138444,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -138285,7 +138480,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %and26.i.i = and i64 %3, %not25.i.i
   %shr29.i.i = lshr exact i64 %and26.i.i, %conv6.i.i
   %conv30.i.i = trunc nuw nsw i64 %shr29.i.i to i32
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -138327,7 +138522,7 @@ if.end6:                                          ; preds = %ma_dr_flac__read_ui
   br i1 %cmp.i.i27, label %if.then.i.i70, label %if.end3.i.i28
 
 if.then.i.i70:                                    ; preds = %if.end6
-  %call.i.i71 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i71 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i72 = icmp eq i32 %call.i.i71, 0
   br i1 %tobool.i.not.i72, label %return, label %if.then.i.if.end3.i_crit_edge.i73
 
@@ -138363,7 +138558,7 @@ if.else.i.i43:                                    ; preds = %if.end3.i.i28
   %and26.i.i49 = and i64 %10, %not25.i.i48
   %shr29.i.i50 = lshr i64 %and26.i.i49, %conv6.i.i29
   %conv30.i.i51 = trunc nuw nsw i64 %shr29.i.i50 to i32
-  %call31.i.i52 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i52 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i53 = icmp eq i32 %call31.i.i52, 0
   br i1 %tobool32.i.not.i53, label %return, label %if.end34.i.i54
 
@@ -138443,7 +138638,7 @@ if.end20:                                         ; preds = %if.end15
   %arrayidx143.i.i = getelementptr inbounds i8, ptr %coefficients, i64 8
   %arrayidx148.i.i = getelementptr inbounds i8, ptr %coefficients, i64 4
   %sh_prom.i.i = zext nneg i32 %lpcShift to i64
-  %13 = tail call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 %lpcOrder, i1 true)
+  %13 = tail call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, 256) %lpcOrder, i1 true)
   %14 = sub nuw nsw i32 32, %13
   %spec.select.i = select i1 %cmp.i67.not209.i, i32 0, i32 %14
   %add1.i.i = add nsw i32 %add.i.i227, %spec.select.i
@@ -138463,7 +138658,7 @@ if.then29:                                        ; preds = %for.cond
   br i1 %cmp.i.i127, label %if.then.i.i120, label %if.end3.i.i78
 
 if.then.i.i120:                                   ; preds = %if.then29
-  %call.i.i121 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i121 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i122 = icmp eq i32 %call.i.i121, 0
   br i1 %tobool.i.not.i122, label %return, label %if.then.i.if.end3.i_crit_edge.i123
 
@@ -138496,7 +138691,7 @@ if.else.i.i93:                                    ; preds = %if.end3.i.i78
   %and26.i.i99 = and i64 %18, %not25.i.i98
   %shr29.i.i100 = lshr i64 %and26.i.i99, %conv6.i.i79
   %conv30.i.i101 = trunc nuw nsw i64 %shr29.i.i100 to i32
-  %call31.i.i102 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i102 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i103 = icmp eq i32 %call31.i.i102, 0
   br i1 %tobool32.i.not.i103, label %return, label %if.end34.i.i104
 
@@ -138536,7 +138731,7 @@ if.then42:                                        ; preds = %for.cond
   br i1 %cmp.i.i127, label %if.then.i.i170, label %if.end3.i.i128
 
 if.then.i.i170:                                   ; preds = %if.then42
-  %call.i.i171 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i171 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i172 = icmp eq i32 %call.i.i171, 0
   br i1 %tobool.i.not.i172, label %return, label %if.then.i.if.end3.i_crit_edge.i173
 
@@ -138569,7 +138764,7 @@ if.else.i.i143:                                   ; preds = %if.end3.i.i128
   %and26.i.i149 = and i64 %24, %not25.i.i148
   %shr29.i.i150 = lshr i64 %and26.i.i149, %conv6.i.i129
   %conv30.i.i151 = trunc nuw nsw i64 %shr29.i.i150 to i32
-  %call31.i.i152 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i152 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i153 = icmp eq i32 %call31.i.i152, 0
   br i1 %tobool32.i.not.i153, label %return, label %if.end34.i.i154
 
@@ -138612,7 +138807,7 @@ if.end53:                                         ; preds = %if.end46, %if.end33
   br i1 %cmp55.not, label %if.else62, label %if.then57
 
 if.then57:                                        ; preds = %if.end53
-  %call.i = tail call fastcc range(i32 0, 2) i32 @ma_dr_flac__decode_samples_with_residual__rice__scalar(ptr noundef %bs, i32 noundef %bitsPerSample, i32 noundef %samplesInPartition.0, i8 noundef zeroext %riceParam.0, i32 noundef %lpcOrder, i32 noundef %lpcShift, i32 noundef %lpcPrecision, ptr noundef %coefficients, ptr noundef %pDecodedSamples.addr.0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ma_dr_flac__decode_samples_with_residual__rice__scalar(ptr noundef nonnull %bs, i32 noundef range(i32 -30, 33) %bitsPerSample, i32 noundef %samplesInPartition.0, i8 noundef zeroext %riceParam.0, i32 noundef range(i32 0, 256) %lpcOrder, i32 noundef range(i32 -128, 128) %lpcShift, i32 noundef range(i32 0, 256) %lpcPrecision, ptr noundef %coefficients, ptr noundef %pDecodedSamples.addr.0)
   %tobool59.not = icmp eq i32 %call.i, 0
   %cmp74 = icmp eq i32 %partitionsRemaining.0, 1
   %or.cond = select i1 %tobool59.not, i1 true, i1 %cmp74
@@ -138624,7 +138819,7 @@ if.else62:                                        ; preds = %if.end46, %if.end33
   br i1 %cmp.i.i177, label %if.then.i.i220, label %if.end3.i.i178
 
 if.then.i.i220:                                   ; preds = %if.else62
-  %call.i.i221 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i221 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i222 = icmp eq i32 %call.i.i221, 0
   br i1 %tobool.i.not.i222, label %return, label %if.then.i.if.end3.i_crit_edge.i223
 
@@ -138657,7 +138852,7 @@ if.else.i.i193:                                   ; preds = %if.end3.i.i178
   %and26.i.i199 = and i64 %32, %not25.i.i198
   %shr29.i.i200 = lshr i64 %and26.i.i199, %conv6.i.i179
   %conv30.i.i201 = trunc nuw nsw i64 %shr29.i.i200 to i32
-  %call31.i.i202 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i202 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i203 = icmp eq i32 %call31.i.i202, 0
   br i1 %tobool32.i.not.i203, label %return, label %if.end34.i.i204
 
@@ -138703,7 +138898,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call.i228 = tail call fastcc i32 @ma_dr_flac__read_int32(ptr noundef %bs, i32 noundef %conv.i226, ptr noundef %arrayidx.i)
+  %call.i228 = tail call fastcc i32 @ma_dr_flac__read_int32(ptr noundef nonnull %bs, i32 noundef %conv.i226, ptr noundef %arrayidx.i)
   %tobool.not.i = icmp eq i32 %call.i228, 0
   br i1 %tobool.not.i, label %return, label %if.end5.i
 
@@ -139766,7 +139961,7 @@ ma_dr_flac__update_crc16.exit132.i.i:             ; preds = %ma_dr_flac_crc16_by
   br label %if.end43.i.i
 
 if.else29.i.i:                                    ; preds = %if.else.i.i2982
-  %call30.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call30.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call30.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.end.i.i
 
@@ -139998,7 +140193,7 @@ ma_dr_flac__update_crc16.exit.i.i:                ; preds = %ma_dr_flac_crc16_by
   br label %if.end75.i.i
 
 if.else68.i.i:                                    ; preds = %for.cond.i.i
-  %call69.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call69.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool70.i.not.i = icmp eq i32 %call69.i.i, 0
   br i1 %tobool70.i.not.i, label %return, label %if.end72.i.i
 
@@ -149213,7 +149408,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %if.then, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -149249,7 +149444,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %and26.i.i = and i64 %4, %not25.i.i
   %shr29.i.i = lshr i64 %and26.i.i, %conv6.i.i
   %conv30.i.i = trunc nuw nsw i64 %shr29.i.i to i32
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %if.then, label %if.end34.i.i
 
@@ -149350,7 +149545,7 @@ for.body:                                         ; preds = %if.end55, %if.end66
   br i1 %cmp.i.i66, label %if.then.i.i109, label %if.end3.i.i67
 
 if.then.i.i109:                                   ; preds = %for.body
-  %call.i.i110 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i110 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i111 = icmp eq i32 %call.i.i110, 0
   br i1 %tobool.i.not.i111, label %if.then65, label %if.then.i.if.end3.i_crit_edge.i112
 
@@ -149383,7 +149578,7 @@ if.else.i.i82:                                    ; preds = %if.end3.i.i67
   %and26.i.i88 = and i64 %12, %not25.i.i87
   %shr29.i.i89 = lshr i64 %and26.i.i88, %conv6.i.i68
   %conv30.i.i90 = trunc nuw nsw i64 %shr29.i.i89 to i32
-  %call31.i.i91 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i91 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i92 = icmp eq i32 %call31.i.i91, 0
   br i1 %tobool32.i.not.i92, label %if.then65, label %if.end34.i.i93
 
@@ -149483,7 +149678,7 @@ while.body:                                       ; preds = %if.else, %if.end
   br i1 %cmp.i15.i, label %if.then.i79.i, label %if.end3.i16.i
 
 if.then.i79.i:                                    ; preds = %while.body
-  %call.i80.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i80.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i81.not.i = icmp eq i32 %call.i80.i, 0
   br i1 %tobool.i81.not.i, label %return, label %if.then.i79.if.end3.i16_crit_edge.i
 
@@ -149508,7 +149703,7 @@ if.then9.i64.i:                                   ; preds = %if.end3.i16.i
 if.else.i22.i:                                    ; preds = %if.end3.i16.i
   %conv20.i26.i = trunc nuw nsw i64 %sub.i20.i to i32
   %sub21.i27.i = sub nuw nsw i32 32, %conv20.i26.i
-  %call31.i37.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i37.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i38.not.i = icmp eq i32 %call31.i37.i, 0
   br i1 %tobool32.i38.not.i, label %return, label %if.end34.i40.i
 
@@ -149535,7 +149730,7 @@ if.end.i:                                         ; preds = %if.end42.i46.i, %if
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -149560,7 +149755,7 @@ if.then9.i.i:                                     ; preds = %if.end3.i.i
 if.else.i.i:                                      ; preds = %if.end3.i.i
   %conv20.i.i = trunc nuw nsw i64 %sub.i.i to i32
   %sub21.i.i = sub nuw nsw i32 32, %conv20.i.i
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -149594,7 +149789,7 @@ while.body23:                                     ; preds = %while.cond20.prehea
   br i1 %cmp.i.i19, label %if.then.i.i59, label %if.end3.i.i20
 
 if.then.i.i59:                                    ; preds = %while.body23
-  %call.i.i60 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i60 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i61 = icmp eq i32 %call.i.i60, 0
   br i1 %tobool.i.not.i61, label %return, label %if.then.i.if.end3.i_crit_edge.i62
 
@@ -149619,7 +149814,7 @@ if.then9.i.i23:                                   ; preds = %if.end3.i.i20
 if.else.i.i32:                                    ; preds = %if.end3.i.i20
   %conv20.i.i33 = trunc nuw nsw i64 %sub.i.i22 to i32
   %sub21.i.i34 = sub nuw nsw i32 8, %conv20.i.i33
-  %call31.i.i41 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i41 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i42 = icmp eq i32 %call31.i.i41, 0
   br i1 %tobool32.i.not.i42, label %return, label %if.end34.i.i43
 
@@ -149658,7 +149853,7 @@ if.then33:                                        ; preds = %while.end30
   br i1 %cmp.i.i65, label %if.then.i.i108, label %if.end3.i.i66
 
 if.then.i.i108:                                   ; preds = %if.then33
-  %call.i.i109 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i109 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i110 = icmp eq i32 %call.i.i109, 0
   br i1 %tobool.i.not.i110, label %return, label %if.then.i.if.end3.i_crit_edge.i111
 
@@ -149684,7 +149879,7 @@ if.then9.i.i70:                                   ; preds = %if.end3.i.i66
 if.else.i.i81:                                    ; preds = %if.end3.i.i66
   %conv20.i.i82 = trunc nuw nsw i64 %sub.i.i68 to i32
   %sub21.i.i83 = sub nsw i32 %conv35, %conv20.i.i82
-  %call31.i.i90 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i90 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i91 = icmp eq i32 %call31.i.i90, 0
   br i1 %tobool32.i.not.i91, label %return, label %if.end34.i.i92
 
@@ -149793,7 +149988,7 @@ for.body.lr.ph:
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %add.ptr.i = getelementptr inbounds %struct.ma_dr_flac_subframe, ptr %subframes.i, i64 %indvars.iv
-  %call.i = tail call fastcc i32 @ma_dr_flac__read_subframe_header(ptr noundef %bs, ptr noundef %add.ptr.i)
+  %call.i = tail call fastcc i32 @ma_dr_flac__read_subframe_header(ptr noundef nonnull %bs, ptr noundef %add.ptr.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -149848,7 +150043,7 @@ if.end28.i:                                       ; preds = %if.end23.i
 
 sw.bb.i:                                          ; preds = %if.end28.i
   %conv32.i = zext nneg i32 %sub.i101 to i64
-  %call33.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %conv32.i)
+  %call33.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv32.i)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %return, label %for.inc
 
@@ -149857,7 +150052,7 @@ sw.bb37.i:                                        ; preds = %if.end28.i
   %conv39.i = zext i16 %7 to i32
   %mul.i = mul nuw nsw i32 %sub.i101, %conv39.i
   %conv40.i = zext nneg i32 %mul.i to i64
-  %call41.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %conv40.i)
+  %call41.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv40.i)
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %return, label %for.inc
 
@@ -149867,7 +150062,7 @@ sw.bb45.i:                                        ; preds = %if.end28.i
   %conv47.i = zext i8 %8 to i32
   %mul48.i = mul nuw nsw i32 %sub.i101, %conv47.i
   %conv49.i = zext nneg i32 %mul48.i to i64
-  %call50.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %conv49.i)
+  %call50.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv49.i)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %return, label %if.end53.i
 
@@ -149876,7 +150071,7 @@ if.end53.i:                                       ; preds = %sw.bb45.i
   %conv56.i = zext i16 %9 to i32
   %10 = load i8, ptr %lpcOrder.i, align 2
   %conv58.i = zext i8 %10 to i32
-  %call59.i = tail call fastcc i32 @ma_dr_flac__read_and_seek_residual(ptr noundef %bs, i32 noundef %conv56.i, i32 noundef %conv58.i)
+  %call59.i = tail call fastcc i32 @ma_dr_flac__read_and_seek_residual(ptr noundef nonnull %bs, i32 noundef %conv56.i, i32 noundef %conv58.i)
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %return, label %for.inc
 
@@ -149886,7 +150081,7 @@ sw.bb63.i:                                        ; preds = %if.end28.i
   %conv66.i = zext i8 %11 to i32
   %mul67.i = mul nuw nsw i32 %sub.i101, %conv66.i
   %conv68.i = zext nneg i32 %mul67.i to i64
-  %call69.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %conv68.i)
+  %call69.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv68.i)
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %return, label %if.end72.i
 
@@ -149896,7 +150091,7 @@ if.end72.i:                                       ; preds = %sw.bb63.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end3.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end72.i
-  %call.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %return, label %if.then.i.if.end3.i_crit_edge.i.i
 
@@ -149929,7 +150124,7 @@ if.else.i.i.i:                                    ; preds = %if.end3.i.i.i
   %and26.i.i.i = and i64 %15, %not25.i.i.i
   %shr29.i.i.i = lshr i64 %and26.i.i.i, %conv6.i.i.i
   %conv30.i.i.i = trunc nuw nsw i64 %shr29.i.i.i to i32
-  %call31.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i.i = icmp eq i32 %call31.i.i.i, 0
   br i1 %tobool32.i.not.i.i, label %return, label %if.end34.i.i.i
 
@@ -149971,7 +150166,7 @@ if.end81.i:                                       ; preds = %if.end76.i
   %conv87.i = zext i8 %add83.i to i64
   %mul88.i = mul nuw nsw i64 %conv86.i, %conv87.i
   %add89.i = add nuw nsw i64 %mul88.i, 5
-  %call91.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef %bs, i64 noundef %add89.i)
+  %call91.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %add89.i)
   %tobool92.not.i = icmp eq i32 %call91.i, 0
   br i1 %tobool92.not.i, label %return, label %if.end94.i
 
@@ -149980,7 +150175,7 @@ if.end94.i:                                       ; preds = %if.end81.i
   %conv97.i = zext i16 %19 to i32
   %20 = load i8, ptr %lpcOrder65.i, align 2
   %conv99.i = zext i8 %20 to i32
-  %call100.i = tail call fastcc i32 @ma_dr_flac__read_and_seek_residual(ptr noundef %bs, i32 noundef %conv97.i, i32 noundef %conv99.i)
+  %call100.i = tail call fastcc i32 @ma_dr_flac__read_and_seek_residual(ptr noundef nonnull %bs, i32 noundef %conv97.i, i32 noundef %conv99.i)
   %tobool101.not.i = icmp eq i32 %call100.i, 0
   br i1 %tobool101.not.i, label %return, label %for.inc
 
@@ -150320,7 +150515,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %if.else.i, %sw.bb31
 
 if.then.i.i:                                      ; preds = %if.then.i30, %ma_dr_flac_crc16_bytes.exit
   %.ph = phi i16 [ %crc.addr.i38.0, %ma_dr_flac_crc16_bytes.exit ], [ %xor6.i337, %if.then.i30 ]
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs4)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs4)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -150357,7 +150552,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %and26.i.i = and i64 %64, %not25.i.i
   %shr29.i.i = lshr i64 %and26.i.i, %conv6.i.i
   %conv30.i.i = trunc nuw nsw i64 %shr29.i.i to i32
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs4)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs4)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -150406,7 +150601,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %return, label %if.then.i.if.end3.i_crit_edge.i
 
@@ -150442,7 +150637,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %and26.i.i = and i64 %3, %not25.i.i
   %shr29.i.i = lshr exact i64 %and26.i.i, %conv6.i.i
   %conv30.i.i = trunc nuw nsw i64 %shr29.i.i to i32
-  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i = icmp eq i32 %call31.i.i, 0
   br i1 %tobool32.i.not.i, label %return, label %if.end34.i.i
 
@@ -150482,7 +150677,7 @@ if.end6:                                          ; preds = %ma_dr_flac__read_ui
   br i1 %cmp.i.i16, label %if.then.i.i59, label %if.end3.i.i17
 
 if.then.i.i59:                                    ; preds = %if.end6
-  %call.i.i60 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i60 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i61 = icmp eq i32 %call.i.i60, 0
   br i1 %tobool.i.not.i61, label %return, label %if.then.i.if.end3.i_crit_edge.i62
 
@@ -150518,7 +150713,7 @@ if.else.i.i32:                                    ; preds = %if.end3.i.i17
   %and26.i.i38 = and i64 %10, %not25.i.i37
   %shr29.i.i39 = lshr i64 %and26.i.i38, %conv6.i.i18
   %conv30.i.i40 = trunc nuw nsw i64 %shr29.i.i39 to i32
-  %call31.i.i41 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i41 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i42 = icmp eq i32 %call31.i.i41, 0
   br i1 %tobool32.i.not.i42, label %return, label %if.end34.i.i43
 
@@ -150581,7 +150776,7 @@ if.then29:                                        ; preds = %for.cond
   br i1 %cmp.i.i116, label %if.then.i.i109, label %if.end3.i.i67
 
 if.then.i.i109:                                   ; preds = %if.then29
-  %call.i.i110 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i110 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i111 = icmp eq i32 %call.i.i110, 0
   br i1 %tobool.i.not.i111, label %return, label %if.then.i.if.end3.i_crit_edge.i112
 
@@ -150614,7 +150809,7 @@ if.else.i.i82:                                    ; preds = %if.end3.i.i67
   %and26.i.i88 = and i64 %16, %not25.i.i87
   %shr29.i.i89 = lshr i64 %and26.i.i88, %conv6.i.i68
   %conv30.i.i90 = trunc nuw nsw i64 %shr29.i.i89 to i32
-  %call31.i.i91 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i91 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i92 = icmp eq i32 %call31.i.i91, 0
   br i1 %tobool32.i.not.i92, label %return, label %if.end34.i.i93
 
@@ -150654,7 +150849,7 @@ if.then42:                                        ; preds = %for.cond
   br i1 %cmp.i.i116, label %if.then.i.i159, label %if.end3.i.i117
 
 if.then.i.i159:                                   ; preds = %if.then42
-  %call.i.i160 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i160 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i161 = icmp eq i32 %call.i.i160, 0
   br i1 %tobool.i.not.i161, label %return, label %if.then.i.if.end3.i_crit_edge.i162
 
@@ -150687,7 +150882,7 @@ if.else.i.i132:                                   ; preds = %if.end3.i.i117
   %and26.i.i138 = and i64 %21, %not25.i.i137
   %shr29.i.i139 = lshr i64 %and26.i.i138, %conv6.i.i118
   %conv30.i.i140 = trunc nuw nsw i64 %shr29.i.i139 to i32
-  %call31.i.i141 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i141 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i142 = icmp eq i32 %call31.i.i141, 0
   br i1 %tobool32.i.not.i142, label %return, label %if.end34.i.i143
 
@@ -151021,7 +151216,7 @@ ma_dr_flac__update_crc16.exit112.i.i:             ; preds = %ma_dr_flac_crc16_by
   br label %if.end33.i.i
 
 if.else19.i.i:                                    ; preds = %if.else.i.i173
-  %call20.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call20.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i174 = icmp eq i32 %call20.i.i, 0
   br i1 %tobool.i.not.i174, label %return, label %if.end.i.i
 
@@ -151254,7 +151449,7 @@ ma_dr_flac__update_crc16.exit.i.i:                ; preds = %ma_dr_flac_crc16_by
   br label %if.end57.i.i
 
 if.else50.i.i:                                    ; preds = %for.cond.i.i
-  %call51.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call51.i.i = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool52.i.not.i = icmp eq i32 %call51.i.i, 0
   br i1 %tobool52.i.not.i, label %return, label %if.end54.i.i
 
@@ -151328,7 +151523,7 @@ if.else62:                                        ; preds = %if.end46, %if.end33
   br i1 %cmp.i.i176, label %if.then.i.i219, label %if.end3.i.i177
 
 if.then.i.i219:                                   ; preds = %if.else62
-  %call.i.i220 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call.i.i220 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool.i.not.i221 = icmp eq i32 %call.i.i220, 0
   br i1 %tobool.i.not.i221, label %return, label %if.then.i.if.end3.i_crit_edge.i222
 
@@ -151361,7 +151556,7 @@ if.else.i.i192:                                   ; preds = %if.end3.i.i177
   %and26.i.i198 = and i64 %95, %not25.i.i197
   %shr29.i.i199 = lshr i64 %and26.i.i198, %conv6.i.i178
   %conv30.i.i200 = trunc nuw nsw i64 %shr29.i.i199 to i32
-  %call31.i.i201 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef %bs)
+  %call31.i.i201 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %bs)
   %tobool32.i.not.i202 = icmp eq i32 %call31.i.i201, 0
   br i1 %tobool32.i.not.i202, label %return, label %if.end34.i.i203
 
@@ -151502,7 +151697,7 @@ for.cond.i.i.i:                                   ; preds = %while.body.i.i, %if
   br i1 %tobool.not.i.i.i, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.cond.i.i.i
-  %call1.i.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i.i, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit [
     i32 0, label %if.end23.i.i
     i32 -100, label %for.cond.i.i.i
@@ -151575,7 +151770,7 @@ for.cond.i.i.i94:                                 ; preds = %while.body.i.i71, %
   br i1 %tobool.not.i.i.i96, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit99, label %if.end.i.i.i97
 
 if.end.i.i.i97:                                   ; preds = %for.cond.i.i.i94
-  %call1.i.i.i98 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i.i98 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i.i98, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit99 [
     i32 0, label %if.end23.i.i81
     i32 -100, label %for.cond.i.i.i94
@@ -151667,7 +151862,7 @@ for.cond.i.i.i129:                                ; preds = %while.body.i.i106, 
   br i1 %tobool.not.i.i.i131, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit134, label %if.end.i.i.i132
 
 if.end.i.i.i132:                                  ; preds = %for.cond.i.i.i129
-  %call1.i.i.i133 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i.i.i133 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i.i.i133, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit134 [
     i32 0, label %if.end23.i.i116
     i32 -100, label %for.cond.i.i.i129
@@ -151919,7 +152114,7 @@ for.cond.i:                                       ; preds = %if.end.i, %if.else
   br i1 %tobool.not.i22, label %if.end11, label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond.i
-  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %pFlac)
+  %call1.i = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac)
   switch i32 %call1.i, label %if.end11 [
     i32 0, label %for.end
     i32 -100, label %for.cond.i

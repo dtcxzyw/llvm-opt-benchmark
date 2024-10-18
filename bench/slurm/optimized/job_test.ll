@@ -4948,7 +4948,7 @@ _socks_per_node.exit.i:                           ; preds = %75, %70, %56, %55
 _allocate.exit.i.i:                               ; preds = %173, %172, %161
   %storemerge.i.i.i = phi i32 [ %171, %161 ], [ %179, %173 ], [ 1, %172 ]
   store i32 %storemerge.i.i.i, ptr %19, align 4
-  %180 = call fastcc ptr @_allocate_sc(ptr noundef nonnull readonly %0, ptr noundef %160, ptr noundef %.0150.i.i, i32 noundef %104, ptr noundef %19, i1 noundef zeroext %.not.i.i.i, ptr noundef %158)
+  %180 = call fastcc ptr @_allocate_sc(ptr noundef nonnull readonly %0, ptr noundef %160, ptr noundef %.0150.i.i, i32 noundef %104, ptr noundef nonnull %19, i1 noundef zeroext %.not.i.i.i, ptr noundef %158)
   %181 = load ptr, ptr %20, align 8
   %.not175.i.i = icmp eq ptr %181, null
   br i1 %.not175.i.i, label %183, label %182

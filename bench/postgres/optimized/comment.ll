@@ -521,7 +521,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %56 = sext i16 %42 to i32
   %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   call void @llvm.assume(i1 %57)
-  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %56) #5
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %56) #5
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #5
   unreachable
 

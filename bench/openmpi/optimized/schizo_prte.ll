@@ -663,7 +663,7 @@ define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
   %.011.i.i = phi ptr [ %.0.i.i, %8 ], [ %.09.i.i, %1 ]
   %4 = getelementptr inbounds i8, ptr %.011.i.i, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(18) @.str.44) #12
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.44) #12
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 

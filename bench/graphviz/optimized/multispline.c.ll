@@ -83,7 +83,7 @@ define noundef ptr @mkRouter(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %3 = alloca %struct.item, align 8
   %4 = alloca %struct.item, align 8
   %5 = alloca %struct.item, align 8
-  %6 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #21
+  %6 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 56) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %gv_alloc.exit
 
@@ -393,7 +393,7 @@ mapSegToTri.exit:                                 ; preds = %122, %._crit_edge14
   store ptr %109, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %6, i64 40
   store i32 %138, ptr %140, align 8
-  %141 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
+  %141 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 32) #21
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %gv_alloc.exit.i
 
@@ -1319,7 +1319,7 @@ edgeToSeg.exit.i:                                 ; preds = %268, %281, %._crit_
   %.sroa.0158.0.extract.trunc168.i = trunc i64 %.sroa.0.0.i.i to i32
   %.sroa.12.0.extract.shift169.i = lshr i64 %.sroa.0.0.i.i, 32
   %.sroa.12.0.extract.trunc170.i = trunc nuw i64 %.sroa.12.0.extract.shift169.i to i32
-  %283 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %283 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %284 = icmp eq ptr %283, null
   br i1 %284, label %285, label %addTri.exit.i
 
@@ -1338,7 +1338,7 @@ addTri.exit.i:                                    ; preds = %edgeToSeg.exit.i
   %290 = getelementptr inbounds i8, ptr %256, i64 8
   store ptr %283, ptr %290, align 8
   store i32 %.sroa.0158.0.extract.trunc168.i, ptr %256, align 8
-  %291 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %291 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %addTri.exit227.i
 
@@ -1427,7 +1427,7 @@ edgeToSeg.exit234.i:                              ; preds = %308, %321, %300
 332:                                              ; preds = %edgeToSeg.exit234.i
   %333 = getelementptr i8, ptr %324, i64 -8
   %334 = load ptr, ptr %333, align 8
-  %335 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %335 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %336 = icmp eq ptr %335, null
   br i1 %336, label %337, label %addTri.exit235.i
 
@@ -1446,7 +1446,7 @@ addTri.exit235.i:                                 ; preds = %332
   store ptr %335, ptr %333, align 8
   %342 = getelementptr i8, ptr %329, i64 -8
   %343 = load ptr, ptr %342, align 8
-  %344 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %344 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %345 = icmp eq ptr %344, null
   br i1 %345, label %346, label %addTri.exit236.i
 
@@ -1463,7 +1463,7 @@ addTri.exit236.i:                                 ; preds = %addTri.exit235.i
   %350 = getelementptr inbounds i8, ptr %344, i64 8
   store ptr %343, ptr %350, align 8
   store ptr %344, ptr %342, align 8
-  %351 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %351 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %352 = icmp eq ptr %351, null
   br i1 %352, label %353, label %addTri.exit237.i
 
@@ -1492,7 +1492,7 @@ addTri.exit237.i:                                 ; preds = %addTri.exit236.i
 362:                                              ; preds = %360
   %363 = getelementptr i8, ptr %324, i64 -8
   %364 = load ptr, ptr %363, align 8
-  %365 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %365 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %366 = icmp eq ptr %365, null
   br i1 %366, label %367, label %addTri.exit238.i
 
@@ -1511,7 +1511,7 @@ addTri.exit238.i:                                 ; preds = %362
   store ptr %365, ptr %363, align 8
   %372 = getelementptr i8, ptr %329, i64 -8
   %373 = load ptr, ptr %372, align 8
-  %374 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %374 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %375 = icmp eq ptr %374, null
   br i1 %375, label %376, label %addTri.exit239.i
 
@@ -1528,7 +1528,7 @@ addTri.exit239.i:                                 ; preds = %addTri.exit238.i
   %380 = getelementptr inbounds i8, ptr %374, i64 8
   store ptr %373, ptr %380, align 8
   store ptr %374, ptr %372, align 8
-  %381 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %381 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %382 = icmp eq ptr %381, null
   br i1 %382, label %383, label %addTri.exit240.i
 
@@ -1554,7 +1554,7 @@ addTri.exit240.i:                                 ; preds = %addTri.exit239.i
   %391 = icmp eq i32 %326, %.sroa.12.0.extract.trunc.i
   %392 = getelementptr i8, ptr %324, i64 -8
   %393 = load ptr, ptr %392, align 8
-  %394 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %394 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %395 = icmp eq ptr %394, null
   br i1 %391, label %396, label %420
 
@@ -1576,7 +1576,7 @@ addTri.exit241.i:                                 ; preds = %396
   store ptr %394, ptr %392, align 8
   %402 = getelementptr i8, ptr %329, i64 -8
   %403 = load ptr, ptr %402, align 8
-  %404 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %404 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %405 = icmp eq ptr %404, null
   br i1 %405, label %406, label %addTri.exit242.i
 
@@ -1593,7 +1593,7 @@ addTri.exit242.i:                                 ; preds = %addTri.exit241.i
   %410 = getelementptr inbounds i8, ptr %404, i64 8
   store ptr %403, ptr %410, align 8
   store ptr %404, ptr %402, align 8
-  %411 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %411 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %412 = icmp eq ptr %411, null
   br i1 %412, label %413, label %addTri.exit243.i
 
@@ -1633,7 +1633,7 @@ addTri.exit244.i:                                 ; preds = %420
   store ptr %394, ptr %392, align 8
   %426 = getelementptr i8, ptr %329, i64 -8
   %427 = load ptr, ptr %426, align 8
-  %428 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %428 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %429 = icmp eq ptr %428, null
   br i1 %429, label %430, label %addTri.exit245.i
 
@@ -1650,7 +1650,7 @@ addTri.exit245.i:                                 ; preds = %addTri.exit244.i
   %434 = getelementptr inbounds i8, ptr %428, i64 8
   store ptr %427, ptr %434, align 8
   store ptr %428, ptr %426, align 8
-  %435 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %435 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %436 = icmp eq ptr %435, null
   br i1 %436, label %437, label %addTri.exit246.i
 
@@ -1692,7 +1692,7 @@ addTri.exit246.i:                                 ; preds = %addTri.exit245.i
   %452 = getelementptr %struct.side_t, ptr %256, i64 %451
   %453 = getelementptr i8, ptr %452, i64 -8
   %454 = load ptr, ptr %453, align 8
-  %455 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %455 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %456 = icmp eq ptr %455, null
   br i1 %456, label %457, label %addTri.exit247.i
 
@@ -1713,7 +1713,7 @@ addTri.exit247.i:                                 ; preds = %._crit_edge289.i
   %463 = load i32, ptr %460, align 8
   %464 = getelementptr inbounds i8, ptr %449, i64 8
   %465 = load ptr, ptr %464, align 8
-  %466 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %466 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 16) #21
   %467 = icmp eq ptr %466, null
   br i1 %467, label %468, label %addTri.exit248.i
 
@@ -1882,7 +1882,7 @@ mapTri.exit.i:                                    ; preds = %.lr.ph.i249.i, %.pr
   br i1 %exitcond329.not.i, label %535, label %.preheader.i
 
 535:                                              ; preds = %mapTri.exit.i
-  %536 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #21
+  %536 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 24) #21
   %537 = icmp eq ptr %536, null
   br i1 %537, label %538, label %mkPoly.exit
 
@@ -2847,7 +2847,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noalias noundef ptr @newItem(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
-  %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
+  %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 32) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 
@@ -3004,7 +3004,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noalias noundef ptr @newIpair(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
-  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #21
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 24) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 

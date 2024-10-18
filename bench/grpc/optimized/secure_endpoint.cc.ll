@@ -2164,7 +2164,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont5.i.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont7.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont7.i.i:                                 ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %invoke.cont5.i.i
@@ -2181,7 +2181,7 @@ if.then.i2.i.i:                                   ; preds = %invoke.cont7.i.i
 if.then.i.i4.i.i:                                 ; preds = %if.then.i2.i.i
   %destroyer_fn_.i.i5.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i5.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %invoke.cont10.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont10.i.i:                                ; preds = %if.then.i.i4.i.i, %if.then.i2.i.i, %invoke.cont7.i.i
@@ -3209,7 +3209,7 @@ if.then.i.i:                                      ; preds = %.noexc7
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %temp_read_slice.sroa.0.0.copyload.i, i64 8
   %16 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %16(ptr noundef nonnull %temp_read_slice.sroa.0.0.copyload.i)
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %temp_read_slice.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.i unwind label %lpad
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.then.i.i.i, %if.then.i.i, %.noexc7
@@ -3224,7 +3224,7 @@ if.then.i2.i:                                     ; preds = %_ZN9grpc_core11CSli
 if.then.i.i4.i:                                   ; preds = %if.then.i2.i
   %destroyer_fn_.i.i5.i = getelementptr inbounds i8, ptr %temp_write_slice.sroa.0.0.copyload.i, i64 8
   %18 = load ptr, ptr %destroyer_fn_.i.i5.i, align 8
-  invoke void %18(ptr noundef nonnull %temp_write_slice.sroa.0.0.copyload.i)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %temp_write_slice.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit6.i unwind label %lpad
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit6.i: ; preds = %if.then.i.i4.i, %if.then.i2.i, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.i
@@ -3247,7 +3247,7 @@ invoke.cont:                                      ; preds = %if.end11.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp) #18
+  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #18
   br label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -3338,7 +3338,7 @@ lpad:                                             ; preds = %if.end11.i, %if.the
 
 if.then.i.i.i.i15:                                ; preds = %lpad
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp) #18
+  call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #18
   br label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit16
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit16: ; preds = %lpad, %if.then.i.i.i.i15

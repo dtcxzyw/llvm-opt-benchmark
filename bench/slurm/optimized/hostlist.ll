@@ -371,7 +371,7 @@ define noundef ptr @hostlist_copy(ptr noundef %0) #0 {
   %19 = sext i32 %10 to i64
   store i32 %10, ptr %15, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 64
-  %21 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %20, i64 noundef %19, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
+  %21 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %20, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   br label %22
 
 22:                                               ; preds = %18, %7
@@ -1772,7 +1772,7 @@ define range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr n
   br i1 %115, label %_test_box.exit.thread, label %110
 
 _test_box.exit:                                   ; preds = %110
-  %116 = tail call fastcc zeroext i1 @_test_box_in_grid(i32 noundef 0, i32 noundef 0, i32 noundef %.0)
+  %116 = tail call fastcc zeroext i1 @_test_box_in_grid(i32 noundef 0, i32 noundef 0, i32 noundef range(i32 2, -2147483648) %.0)
   br i1 %116, label %138, label %_test_box.exit.thread
 
 _test_box.exit.thread:                            ; preds = %.preheader.i, %_test_box.exit
@@ -2838,7 +2838,7 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
   %187 = add nsw i32 %177, 16
   %188 = sext i32 %187 to i64
   store i32 %187, ptr %40, align 8
-  %189 = call ptr @slurm_xrecalloc(ptr noundef nonnull %17, i64 noundef %188, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
+  %189 = call ptr @slurm_xrecalloc(ptr noundef nonnull %17, i64 noundef range(i64 -2147483648, 2147483648) %188, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   %.pre147.i = load i8, ptr %171, align 4
   %.pre148.i = load ptr, ptr %166, align 8
   %190 = trunc i8 %.pre147.i to i1
@@ -2965,7 +2965,7 @@ hostlist_insert_range.exit.i:                     ; preds = %238, %._crit_edge.i
   %251 = add nsw i32 %245, 16
   %252 = sext i32 %251 to i64
   store i32 %251, ptr %40, align 8
-  %253 = call ptr @slurm_xrecalloc(ptr noundef nonnull %17, i64 noundef %252, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
+  %253 = call ptr @slurm_xrecalloc(ptr noundef nonnull %17, i64 noundef range(i64 -2147483648, 2147483648) %252, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   br label %254
 
 254:                                              ; preds = %250, %247
@@ -3547,7 +3547,7 @@ define i32 @hostset_insert(ptr nocapture noundef readonly %0, ptr noundef %1) #0
   %27 = sext i32 %26 to i64
   store i32 %26, ptr %20, align 8
   %28 = getelementptr inbounds i8, ptr %.val, i64 64
-  %29 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %28, i64 noundef %27, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
+  %29 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %28, i64 noundef range(i64 -2147483648, 2147483648) %27, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   br label %30
 
 30:                                               ; preds = %25, %16
@@ -4364,7 +4364,7 @@ define internal fastcc i32 @hostlist_push_range(ptr noundef %0, ptr nocapture no
   %22 = sext i32 %21 to i64
   store i32 %21, ptr %17, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 64
-  %24 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef %22, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
+  %24 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef range(i64 -2147483648, 2147483648) %22, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   %.pre = load i32, ptr %8, align 4
   br label %25
 
@@ -5158,7 +5158,7 @@ define internal fastcc void @hostlist_insert_range(ptr noundef %0, ptr nocapture
   %13 = sext i32 %12 to i64
   store i32 %12, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
-  %15 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %14, i64 noundef %13, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
+  %15 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %14, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   br label %16
 
 16:                                               ; preds = %11, %7
@@ -6415,7 +6415,7 @@ define internal fastcc range(i32 0, 2) i32 @hostset_find_host(ptr nocapture noun
 9:                                                ; preds = %2
   %10 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %11 = zext i16 %10 to i32
-  %12 = tail call fastcc ptr @hostname_create_dims(ptr noundef %1, i32 noundef %11)
+  %12 = tail call fastcc ptr @hostname_create_dims(ptr noundef nonnull %1, i32 noundef %11)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 52
   %15 = load i32, ptr %14, align 4

@@ -660,11 +660,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %cond.i, i32 noundef %conv) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %cond.i, i32 noundef range(i32 0, 4) %conv) #12
   br label %trace_exec_tb_exit.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %cond.i, i32 noundef %conv) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %cond.i, i32 noundef range(i32 0, 4) %conv) #12
   br label %trace_exec_tb_exit.exit
 
 trace_exec_tb_exit.exit:                          ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1573,7 +1573,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 
 trace_exec_tb.exit.i.i:                           ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end43.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %call.i.i = call fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr noundef %tb.0.i, ptr noundef %tb_exit.i)
+  %call.i.i = call fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr noundef %tb.0.i, ptr noundef nonnull %tb_exit.i)
   %81 = load i32, ptr %tb_exit.i, align 4
   %cmp.not.i49.i = icmp eq i32 %81, 3
   br i1 %cmp.not.i49.i, label %if.end.i51.i, label %while.cond1.i.backedge

@@ -96,7 +96,7 @@ define void @_ZN5Ipopt15TransposeMatrixC2EPKNS_20TransposeMatrixSpaceE(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 48), ptr %4, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(69) %0)
           to label %_ZN5Ipopt12TaggedObjectC2Ev.exit.i unwind label %6
 
 common.resume:                                    ; preds = %50, %6
@@ -504,7 +504,7 @@ define linkonce_odr void @_ZNK5Ipopt15TransposeMatrix18ComputeRowAMaxImplERNS_6V
   %8 = getelementptr inbounds i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(205) %1, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %1)
   br label %_ZNK5Ipopt6Matrix14ComputeColAMaxERNS_6VectorEb.exit
 
 _ZNK5Ipopt6Matrix14ComputeColAMaxERNS_6VectorEb.exit: ; preds = %3, %6
@@ -526,7 +526,7 @@ define linkonce_odr void @_ZNK5Ipopt15TransposeMatrix18ComputeColAMaxImplERNS_6V
   %8 = getelementptr inbounds i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(205) %1, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %1)
   br label %_ZNK5Ipopt6Matrix14ComputeRowAMaxERNS_6VectorEb.exit
 
 _ZNK5Ipopt6Matrix14ComputeRowAMaxERNS_6VectorEb.exit: ; preds = %3, %6
@@ -653,7 +653,7 @@ _ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit.i.i:     ; preds = %13, %5, %1
 
 _ZN5Ipopt15TransposeMatrixD0Ev.exit:              ; preds = %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit.i.i, %19, %27
   tail call void @_ZN5Ipopt7SubjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %2) #11
   ret void
 }
 
@@ -687,7 +687,7 @@ define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD1Ev(ptr noundef %0) unna
 define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt7SubjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
   ret void
 }
 

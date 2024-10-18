@@ -358,7 +358,7 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %96
   %110 = load i8, ptr %109, align 8
   %111 = and i8 %110, -2
   store i8 %111, ptr %109, align 8
-  call void @_ZN4llvm15ListeningSocketC1EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %18) #18
+  call void @_ZN4llvm15ListeningSocketC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(48) %18) #18
   call void @_ZN4llvm15ListeningSocketD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #18
   br label %_ZN4llvm8ExpectedIiED2Ev.exit
 
@@ -504,7 +504,7 @@ define dso_local void @_ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlS
   br i1 %.not.i.i, label %_ZNSt8functionIFivEED2Ev.exit, label %19
 
 19:                                               ; preds = %3
-  %20 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3) #18
+  %20 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #18
   br label %_ZNSt8functionIFivEED2Ev.exit
 
 _ZNSt8functionIFivEED2Ev.exit:                    ; preds = %3, %19
@@ -588,7 +588,7 @@ define internal fastcc { i32, ptr } @_ZL13manageTimeoutRKNSt6chrono8durationIlSt
 _ZNKSt8functionIFivEEclEv.exit:                   ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   store i32 %13, ptr %4, align 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i8, ptr %14, align 4
@@ -669,7 +669,7 @@ _ZSteqRKSt10error_codeRKSt15error_condition.exit: ; preds = %33
 
 _ZNKSt8functionIFivEEclEv.exit22:                 ; preds = %.critedge2
   %49 = load ptr, ptr %11, align 8
-  %50 = call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  %50 = call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %59, label %52
 
@@ -902,7 +902,7 @@ define dso_local noundef i64 @_ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8d
   br i1 %.not.i.i, label %_ZNSt8functionIFivEED2Ev.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #18
+  %17 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #18
   br label %_ZNSt8functionIFivEED2Ev.exit
 
 _ZNSt8functionIFivEED2Ev.exit:                    ; preds = %4, %16

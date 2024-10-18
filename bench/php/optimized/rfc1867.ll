@@ -710,19 +710,19 @@ multipart_buffer_headers.exit:                    ; preds = %212
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  %289 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %5, ptr noundef null) #21
+  %289 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull align 8 %5, ptr noundef null) #21
   %.not12.i = icmp eq ptr %289, null
   br i1 %.not12.i, label %php_mime_get_hdr_value.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %288, %292
   %.013.i = phi ptr [ %293, %292 ], [ %289, %288 ]
   %290 = load ptr, ptr %.013.i, align 8
-  %291 = call i32 @strcasecmp(ptr noundef %290, ptr noundef nonnull readonly @.str.7) #22
+  %291 = call i32 @strcasecmp(ptr noundef %290, ptr noundef nonnull @.str.7) #22
   %.not10.i = icmp eq i32 %291, 0
   br i1 %.not10.i, label %php_mime_get_hdr_value.exit, label %292
 
 292:                                              ; preds = %.lr.ph.i
-  %293 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull %5, ptr noundef null) #21
+  %293 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull align 8 %5, ptr noundef null) #21
   %.not.i542 = icmp eq ptr %293, null
   br i1 %.not.i542, label %php_mime_get_hdr_value.exit.thread, label %.lr.ph.i
 
@@ -1569,19 +1569,19 @@ register_http_post_files_variable.exit548:        ; preds = %627, %632
 634:                                              ; preds = %register_http_post_files_variable.exit548
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  %635 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %3, ptr noundef null) #21
+  %635 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull align 8 %3, ptr noundef null) #21
   %.not12.i549 = icmp eq ptr %635, null
   br i1 %.not12.i549, label %php_mime_get_hdr_value.exit555.thread, label %.lr.ph.i550
 
 .lr.ph.i550:                                      ; preds = %634, %638
   %.013.i551 = phi ptr [ %639, %638 ], [ %635, %634 ]
   %636 = load ptr, ptr %.013.i551, align 8
-  %637 = call i32 @strcasecmp(ptr noundef %636, ptr noundef nonnull readonly @.str.25) #22
+  %637 = call i32 @strcasecmp(ptr noundef %636, ptr noundef nonnull @.str.25) #22
   %.not10.i552 = icmp eq i32 %637, 0
   br i1 %.not10.i552, label %php_mime_get_hdr_value.exit555, label %638
 
 638:                                              ; preds = %.lr.ph.i550
-  %639 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull %3, ptr noundef null) #21
+  %639 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull align 8 %3, ptr noundef null) #21
   %.not.i553 = icmp eq ptr %639, null
   br i1 %.not.i553, label %php_mime_get_hdr_value.exit555.thread, label %.lr.ph.i550
 

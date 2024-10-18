@@ -666,7 +666,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 _ZNKSt8functionIFSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EERKS6_EEclES8_.exit.i: ; preds = %invoke.cont
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8, !noalias !24
-  invoke void %8(ptr nonnull sret(%"class.std::vector.73") align 8 %response, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %args)
+  invoke void %8(ptr nonnull sret(%"class.std::vector.73") align 8 %response, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %args)
           to label %cond.true39 unwind label %lpad33
 
 cond.true39:                                      ; preds = %_ZNKSt8functionIFSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EERKS6_EEclES8_.exit.i

@@ -67,7 +67,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %tobool.not.i.i.i, label %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %head.04, ptr noundef nonnull align 8 dereferenceable(16) %head.04, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(40) %head.04, ptr noundef nonnull align 8 dereferenceable(40) %head.04, i32 noundef 3)
           to label %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -95,7 +95,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %_M_invoker2.i.i = getelementptr inbounds i8, ptr %subscriber, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i.i, align 8
   store ptr %0, ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %subscriber, i64 16
@@ -105,7 +105,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %subscriber, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(32) %subscriber, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit
@@ -168,7 +168,7 @@ if.then.i:                                        ; preds = %for.body
 _ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit: ; preds = %for.body
   %_M_invoker.i = getelementptr inbounds i8, ptr %subscriber.04, i64 24
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(16) %subscriber.04, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr3.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.i)
+  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %subscriber.04, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr3.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr3.i)

@@ -37,13 +37,13 @@ define void @patchwork_layout(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef 8) #13
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
 11:                                               ; preds = %1
   %12 = icmp ne i32 %6, 0
-  %13 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
+  %13 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8) #15
   %14 = icmp eq ptr %13, null
   %or.cond3.i.i.i = and i1 %12, %14
   br i1 %or.cond3.i.i.i, label %15, label %gv_calloc.exit.i.i
@@ -64,13 +64,13 @@ gv_calloc.exit.i.i:                               ; preds = %11
 
 22:                                               ; preds = %gv_calloc.exit.i.i
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.5, i64 noundef %21, i64 noundef 8) #13
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.5, i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef 8) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
 25:                                               ; preds = %gv_calloc.exit.i.i
   %26 = icmp ne i32 %20, 0
-  %27 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #15
+  %27 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef 8) #15
   %28 = icmp eq ptr %27, null
   %or.cond3.i24.i.i = and i1 %26, %28
   br i1 %or.cond3.i24.i.i, label %29, label %gv_calloc.exit25.i.i
@@ -361,13 +361,13 @@ clist_append.exit26:                              ; preds = %._crit_edge.i.i20, 
   %62 = load ptr, ptr %3, align 8
   %63 = shl i64 %54, 3
   %64 = shl nuw i64 %.val, 3
-  %65 = call ptr @realloc(ptr noundef %62, i64 noundef %64) #17
+  %65 = call ptr @realloc(ptr noundef %62, i64 noundef range(i64 0, -7) %64) #17
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr @stderr, align 8
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.6, i64 noundef %64) #13
+  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.6, i64 noundef range(i64 0, -7) %64) #13
   call fastcc void @graphviz_exit() #14
   unreachable
 

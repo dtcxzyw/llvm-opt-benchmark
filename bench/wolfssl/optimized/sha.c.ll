@@ -80,7 +80,7 @@ AddLength.exit:                                   ; preds = %if.end10, %if.then.
 
 if.then13:                                        ; preds = %AddLength.exit
   %sub = sub nuw nsw i32 64, %0
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 %sub)
+  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 range(i32 65, 64) %sub)
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
   %conv = zext nneg i32 %cond.i to i64

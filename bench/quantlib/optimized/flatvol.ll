@@ -5354,7 +5354,7 @@ declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull al
 define void @_ZThn56_N8QuantLib14FlatVolFactory6updateEv(ptr noundef %this) unnamed_addr #13 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(232) %0)
   ret void
 }
 
@@ -5992,7 +5992,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %23 = phi ptr [ %22, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -6047,7 +6047,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib14FlatVolFactoryD0Ev(ptr noundef %th
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib14FlatVolFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 232) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef 232) #27
   ret void
 }
 

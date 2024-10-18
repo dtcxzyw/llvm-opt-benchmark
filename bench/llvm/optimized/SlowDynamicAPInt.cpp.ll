@@ -132,7 +132,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !4
   %8 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !4
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !4
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !4
@@ -201,7 +201,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !7
   %7 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !7
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !7
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8, !noalias !7
@@ -257,7 +257,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !10
   %8 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !10
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !10
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !10
@@ -326,7 +326,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !13
   %7 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !13
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !13
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8, !noalias !13
@@ -382,7 +382,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !16
   %8 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !16
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !16
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !16
@@ -451,7 +451,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !19
   %7 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !19
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !19
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8, !noalias !19
@@ -507,7 +507,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !22
   %8 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !22
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !22
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !22
@@ -576,7 +576,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !25
   %7 = ptrtoint ptr %4 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !25
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %7), !noalias !25
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8, !noalias !25
@@ -1148,7 +1148,7 @@ define dso_local void @_ZN4llvm6detailplERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !28
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !28
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !28
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !28
@@ -1225,7 +1225,7 @@ define dso_local void @_ZN4llvm6detailmiERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !31
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !31
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !31
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !31
@@ -1302,7 +1302,7 @@ define dso_local void @_ZN4llvm6detailmlERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !34
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !34
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !34
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !34
@@ -1379,7 +1379,7 @@ define dso_local void @_ZN4llvm6detaildvERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !37
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !37
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !37
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !37
@@ -1679,7 +1679,7 @@ define dso_local void @_ZN4llvm6detailplElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !40
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !40
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !40
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !40
@@ -1728,7 +1728,7 @@ define dso_local void @_ZN4llvm6detailmiElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !43
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !43
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !43
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !43
@@ -1777,7 +1777,7 @@ define dso_local void @_ZN4llvm6detailmlElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !46
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !46
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !46
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !46
@@ -1826,7 +1826,7 @@ define dso_local void @_ZN4llvm6detaildvElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !49
   %8 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !49
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %8), !noalias !49
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !49
@@ -2043,7 +2043,7 @@ _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %2, %8, %11
   br label %_ZN4llvm6detail16SlowDynamicAPIntC2ERKS1_.exit
 
 19:                                               ; preds = %12
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #9
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #9
   br label %_ZN4llvm6detail16SlowDynamicAPIntC2ERKS1_.exit
 
 20:                                               ; preds = %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit
@@ -2469,7 +2469,7 @@ _ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %13, %16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %18, align 8, !noalias !58
   %19 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %19), !noalias !58
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %19), !noalias !58
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8, !noalias !58
@@ -2637,7 +2637,7 @@ _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i: ; preds = %21, %18, %3
   br label %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit
 
 29:                                               ; preds = %22
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %1) #9
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1) #9
   br label %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit
 
 30:                                               ; preds = %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i
@@ -2681,7 +2681,7 @@ _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i2: ; preds = %38, %35, %_ZN4l
   br label %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3
 
 46:                                               ; preds = %39
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %2) #9
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #9
   br label %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3
 
 47:                                               ; preds = %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i2
@@ -2695,7 +2695,7 @@ _ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3: ; preds = %44, %46, %47
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %48, align 8, !noalias !67
   %49 = ptrtoint ptr %7 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %11, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %49), !noalias !67
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %49), !noalias !67
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(12) %6) #9
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %51 = load i32, ptr %50, align 8, !noalias !67
@@ -2721,7 +2721,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %_ZN4llvm6detail3abs
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %57, align 8, !noalias !70
   %58 = ptrtoint ptr %5 to i64
-  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %58), !noalias !70
+  call void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr nonnull @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_, i64 %58), !noalias !70
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #9
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %60 = load i32, ptr %59, align 8, !noalias !70
@@ -2826,7 +2826,7 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPInt5printERNS_11raw_ostrea
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm6detail16SlowDynamicAPInt4dumpEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #9
-  tail call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext true) #9
+  tail call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext true) #9
   ret void
 }
 

@@ -8664,7 +8664,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
 
 29:                                               ; preds = %24
   %30 = call i32 @tvb_reported_length(ptr noundef %0) #12
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #12
+  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 2, 11) %27) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %32 = zext i8 %31 to i32
   %33 = call ptr @try_val_to_str_idx_ext(i32 noundef %32, ptr noundef nonnull @nas_5gs_mm_msg_strings_ext, ptr noundef nonnull %6) #12
@@ -8681,7 +8681,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   call void @col_append_sep_str(ptr noundef %41, i32 noundef 25, ptr noundef null, ptr noundef nonnull %33) #12
-  %42 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %35, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #12
+  %42 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %35, ptr noundef %0, i32 noundef range(i32 2, 11) %27, i32 noundef 1, i32 noundef 0) #12
   %43 = add nuw nsw i32 %.sink1, 2
   %44 = and i64 %37, 2305843009213693951
   %45 = shl nuw i64 1, %44
@@ -8691,7 +8691,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
 
 47:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_nas_5gs_mm_unknown_msg_type, ptr noundef %0, i32 noundef %27, i32 noundef 1, ptr noundef nonnull @.str.1412, i32 noundef %32) #12
+  %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_nas_5gs_mm_unknown_msg_type, ptr noundef %0, i32 noundef range(i32 2, 11) %27, i32 noundef 1, ptr noundef nonnull @.str.1412, i32 noundef %32) #12
   br label %dissect_nas_5gs_mm_msg.exit
 
 49:                                               ; preds = %34
@@ -8712,7 +8712,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
 
 57:                                               ; preds = %24
   %58 = call i32 @tvb_reported_length(ptr noundef %0) #12
-  %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #12
+  %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 2, 11) %27) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %60 = zext i8 %59 to i32
   %61 = call ptr @try_val_to_str_idx_ext(i32 noundef %60, ptr noundef nonnull @nas_5gs_sm_msg_strings_ext, ptr noundef nonnull %5) #12
@@ -8729,7 +8729,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %68 = getelementptr inbounds i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   call void @col_append_sep_str(ptr noundef %69, i32 noundef 25, ptr noundef null, ptr noundef nonnull %61) #12
-  %70 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %63, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #12
+  %70 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %63, ptr noundef %0, i32 noundef range(i32 2, 11) %27, i32 noundef 1, i32 noundef 0) #12
   %71 = add nuw nsw i32 %.sink1, 2
   %72 = and i64 %65, 2305843009213693951
   %73 = icmp eq i64 %72, 27
@@ -8737,7 +8737,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
 
 74:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %75 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_nas_5gs_sm_unknown_msg_type, ptr noundef %0, i32 noundef %27, i32 noundef 1, ptr noundef nonnull @.str.1412, i32 noundef %60) #12
+  %75 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_nas_5gs_sm_unknown_msg_type, ptr noundef %0, i32 noundef range(i32 2, 11) %27, i32 noundef 1, ptr noundef nonnull @.str.1412, i32 noundef %60) #12
   br label %dissect_nas_5gs_mm_msg.exit
 
 76:                                               ; preds = %62

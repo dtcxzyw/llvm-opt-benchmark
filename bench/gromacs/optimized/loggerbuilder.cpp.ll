@@ -79,7 +79,7 @@ define linkonce_odr void @_ZN3gmx18LogTargetFormatterD0Ev(ptr noundef nonnull al
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -490,7 +490,7 @@ define void @_ZN3gmx13LoggerBuilder15addTargetStreamENS_8MDLogger8LogLevelEPNS_1
 .body:                                            ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   tail call void @_ZdlPv(ptr noundef nonnull %5) #13
   br label %84
 
@@ -1090,7 +1090,7 @@ _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit: ; preds = %_ZNSt10unique_
 
 104:                                              ; preds = %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit
   %105 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
-  invoke void @_ZN3gmx8MDLoggerC1EPPNS_10ILogTargetE(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull %3)
+  invoke void @_ZN3gmx8MDLoggerC1EPPNS_10ILogTargetE(ptr noundef nonnull align 8 dereferenceable(88) %105, ptr noundef nonnull %3)
           to label %_ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit unwind label %131
 
 _ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit: ; preds = %104
@@ -1215,7 +1215,7 @@ define linkonce_odr void @_ZN3gmx19LogTargetCollectionD0Ev(ptr noundef nonnull a
   br label %_ZN3gmx19LogTargetCollectionD2Ev.exit
 
 _ZN3gmx19LogTargetCollectionD2Ev.exit:            ; preds = %1, %4
-  tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

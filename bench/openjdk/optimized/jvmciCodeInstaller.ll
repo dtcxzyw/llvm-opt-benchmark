@@ -443,7 +443,7 @@ define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7get_oopEiP8JVMCIEnv(p
   %24 = shl nuw nsw i64 %22, %.7.i
   %25 = add nuw nsw i64 %23, %24
   %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull %12, i64 noundef %25) #11
+  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %25) #11
   br label %30
 
 28:                                               ; preds = %11, %9
@@ -2432,7 +2432,7 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %10, %36
   %60 = shl nuw nsw i64 %58, %.7.i.i
   %61 = add nuw nsw i64 %59, %60
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %63 = tail call noundef ptr %62(ptr noundef nonnull %48, i64 noundef %61) #11
+  %63 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %61) #11
   br label %_ZNK25HotSpotCompiledCodeStream7get_oopEiP8JVMCIEnv.exit
 
 64:                                               ; preds = %47
@@ -2535,7 +2535,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit:  ; preds = %72, %98
   %122 = shl nuw nsw i64 %120, %.7.i.i25
   %123 = add nuw nsw i64 %121, %122
   %124 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %125 = tail call noundef ptr %124(ptr noundef nonnull %110, i64 noundef %123) #11
+  %125 = tail call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %123) #11
   br label %_ZNK25HotSpotCompiledCodeStream7get_oopEiP8JVMCIEnv.exit26
 
 126:                                              ; preds = %109
@@ -2658,7 +2658,7 @@ _ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit:  ; preds = %134, %160
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 192:                                              ; preds = %178
-  %193 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %182, i64 noundef 8, i32 noundef 0) #11
+  %193 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %182, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %190, %192
@@ -5979,15 +5979,15 @@ _ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit: ; preds =
   %259 = getelementptr inbounds i8, ptr %17, i64 8
   %260 = getelementptr inbounds i8, ptr %17, i64 76
   store i32 0, ptr %260, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %259, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %259, i8 0, i64 66, i1 false)
   %261 = getelementptr inbounds i8, ptr %17, i64 96
   %262 = getelementptr inbounds i8, ptr %17, i64 164
   store i32 0, ptr %262, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %261, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %261, i8 0, i64 66, i1 false)
   %263 = getelementptr inbounds i8, ptr %17, i64 184
   %264 = getelementptr inbounds i8, ptr %17, i64 252
   store i32 0, ptr %264, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %263, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %263, i8 0, i64 66, i1 false)
   %265 = getelementptr inbounds i8, ptr %17, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %265, ptr noundef null, i1 noundef zeroext false) #11
   store ptr @.str.84, ptr %17, align 8
@@ -7697,16 +7697,16 @@ _ZNK6HandleclEv.exit:                             ; preds = %11, %13
   br i1 %.not.i, label %23, label %21
 
 21:                                               ; preds = %_ZNK6HandleclEv.exit
-  %22 = tail call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %20, ptr noundef %16, ptr noundef nonnull %18) #11
+  %22 = tail call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %20, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(88) %18) #11
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 23:                                               ; preds = %_ZNK6HandleclEv.exit
-  %24 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %18, ptr noundef %16) #11
+  %24 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef %16) #11
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 26:                                               ; preds = %23
-  %27 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %18, ptr noundef %16, i1 noundef zeroext true) #11
+  %27 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef %16, i1 noundef zeroext true) #11
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %21, %23, %26
@@ -9495,7 +9495,7 @@ declare void @_ZN13CodeInstaller22pd_relocate_JavaMethodER10CodeBufferR12methodH
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14MacroAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #11
+  tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) #11
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %0, align 8
   tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %0, align 8

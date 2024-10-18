@@ -554,7 +554,7 @@ entry:
   %brkNameStack = alloca %struct.UResourceBundle, align 8
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
   store i32 0, ptr %ext, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %actualLocale)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %actualLocale)
   %len.i = getelementptr inbounds i8, ptr %actualLocale, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %actualLocale, align 8
@@ -762,12 +762,12 @@ if.then98:                                        ; preds = %invoke.cont94
 
 cleanup:                                          ; preds = %if.end91, %if.then98, %invoke.cont94, %if.then53, %entry, %delete.notnull
   %retval.0 = phi ptr [ null, %delete.notnull ], [ null, %entry ], [ null, %if.then53 ], [ null, %invoke.cont94 ], [ null, %if.then98 ], [ %call56, %if.end91 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %actualLocale) #19
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %actualLocale) #19
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad60, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %10, %lpad60 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %actualLocale) #19
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %actualLocale) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -1255,7 +1255,7 @@ sw.bb2:                                           ; preds = %if.end
 sw.bb4:                                           ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %lb_lw, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false) #19
   store i32 0, ptr %kvStatus, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %value)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %value)
   %len.i = getelementptr inbounds i8, ptr %value, i64 56
   store i32 0, ptr %len.i, align 8
   %1 = load ptr, ptr %value, align 8
@@ -1433,12 +1433,12 @@ if.end63:                                         ; preds = %invoke.cont52, %inv
 
 invoke.cont65:                                    ; preds = %if.end63
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %valueSink) #19
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %value) #19
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %value) #19
   br label %sw.epilog
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %20, %lpad6 ], [ %19, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %value) #19
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %value) #19
   resume { ptr, i32 } %.pn
 
 sw.bb67:                                          ; preds = %if.end

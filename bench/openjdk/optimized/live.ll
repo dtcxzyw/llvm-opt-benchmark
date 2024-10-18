@@ -1441,7 +1441,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %121
   br i1 %.not.i.i, label %_ZN10Block_List4pushEP5Block.exit, label %138
 
 138:                                              ; preds = %133
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %135) #6
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %135) #6
   br label %_ZN10Block_List4pushEP5Block.exit
 
 _ZN10Block_List4pushEP5Block.exit:                ; preds = %133, %138
@@ -1561,7 +1561,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %55
   br i1 %.not.i.i, label %_ZN10Block_List4pushEP5Block.exit, label %71
 
 71:                                               ; preds = %66
-  tail call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %68) #6
+  tail call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %68) #6
   br label %_ZN10Block_List4pushEP5Block.exit
 
 _ZN10Block_List4pushEP5Block.exit:                ; preds = %66, %71

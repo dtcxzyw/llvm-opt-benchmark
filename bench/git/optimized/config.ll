@@ -747,7 +747,7 @@ default_user_config.exit:                         ; preds = %if.then240, %if.end
   %call3.i = call ptr @strbuf_detach(ptr noundef nonnull %buf.i, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   %call.i121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i) #19
-  %call1.i122 = call i64 @write_in_full(i32 noundef %call238, ptr noundef %call3.i, i64 noundef %call.i121) #16
+  %call1.i122 = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %call238, ptr noundef %call3.i, i64 noundef %call.i121) #16
   call void @free(ptr noundef %call3.i) #16
   %call243 = call i32 @close(i32 noundef %call238) #16
   br label %if.end251
@@ -1916,7 +1916,7 @@ if.then68:                                        ; preds = %if.then63
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then68
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.121, i64 noundef 24, i64 noundef %conv87) #18
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.121, i64 noundef 24, i64 noundef range(i64 -2147483648, 2147483648) %conv87) #18
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then68
@@ -2327,7 +2327,7 @@ if.then29:                                        ; preds = %do.body
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then29
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.121, i64 noundef 24, i64 noundef %conv) #18
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.121, i64 noundef 24, i64 noundef range(i64 -2147483648, 2147483648) %conv) #18
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then29

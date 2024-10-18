@@ -10390,7 +10390,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %827
   store ptr %580, ptr %583, align 8, !noalias !199
   store ptr %585, ptr %584, align 8, !noalias !199
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, i8 0, i64 16, i1 false), !noalias !199
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %16, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 0)
           to label %.noexc.i unwind label %849
 
 .noexc.i:                                         ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i

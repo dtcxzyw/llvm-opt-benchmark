@@ -52,7 +52,7 @@ define dso_local void @_ZN4llvm39initializeAArch64CompressJumpTablesPassERNS_12P
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL43InitializeAArch64CompressJumpTablesPassFlag, ptr noundef nonnull @__once_proxy) #13
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL43InitializeAArch64CompressJumpTablesPassFlag, ptr noundef nonnull @__once_proxy) #13
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -105,7 +105,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm35createAArch64CompressJumpTablesP
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_125AArch64CompressJumpTablesE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = getelementptr inbounds i8, ptr %3, i64 88
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 8) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 8) #13
   %10 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %10, ptr %2, align 8
@@ -117,7 +117,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm35createAArch64CompressJumpTablesP
   store ptr %1, ptr %12, align 8
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %13, align 8
-  %14 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL43InitializeAArch64CompressJumpTablesPassFlag, ptr noundef nonnull @__once_proxy) #13
+  %14 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL43InitializeAArch64CompressJumpTablesPassFlag, ptr noundef nonnull @__once_proxy) #13
   %.not.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_125AArch64CompressJumpTablesC2Ev.exit, label %15
 
@@ -152,7 +152,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_125
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_125AArch64CompressJumpTablesE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = getelementptr inbounds i8, ptr %3, i64 88
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 8) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 8) #13
   %10 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %10, ptr %2, align 8
@@ -164,7 +164,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_125
   store ptr %1, ptr %12, align 8
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %13, align 8
-  %14 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL43InitializeAArch64CompressJumpTablesPassFlag, ptr noundef nonnull @__once_proxy) #13
+  %14 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL43InitializeAArch64CompressJumpTablesPassFlag, ptr noundef nonnull @__once_proxy) #13
   %.not.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_125AArch64CompressJumpTablesC2Ev.exit, label %15
 
@@ -188,7 +188,7 @@ declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_a
 define internal void @_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_125AArch64CompressJumpTablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = icmp eq ptr %4, %5
@@ -199,7 +199,7 @@ define internal void @_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD2Ev(ptr nound
   br label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %1, %7
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   ret void
 }
 
@@ -207,7 +207,7 @@ _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %1, %7
 define internal void @_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_125AArch64CompressJumpTablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = icmp eq ptr %4, %5
@@ -218,7 +218,7 @@ define internal void @_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD0Ev(ptr nound
   br label %_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD2Ev.exit
 
 _ZN12_GLOBAL__N_125AArch64CompressJumpTablesD2Ev.exit: ; preds = %1, %7
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 120) #16
   ret void
 }

@@ -13815,7 +13815,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
   %253 = getelementptr inbounds i8, ptr %252, i64 %241
   store i8 0, ptr %253, align 1
   store ptr %235, ptr %207, align 8
-  %254 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE17_M_emplace_uniqueIJKSC_EEES8_ISt17_Rb_tree_iteratorISC_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %254 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE17_M_emplace_uniqueIJKSC_EEES8_ISt17_Rb_tree_iteratorISC_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(101) %6, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %255 = load ptr, ptr %205, align 8
   %256 = icmp eq ptr %255, %204
   br i1 %256, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZN7glslang17TSymbolTableLevel6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_7TSymbolE.exit
@@ -16145,7 +16145,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0) #18
@@ -16280,7 +16280,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   %24 = zext nneg i32 %.lobit to i64
@@ -21012,7 +21012,7 @@ define linkonce_odr void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVector
   %123 = load i8, ptr %122, align 1
   %124 = and i8 %123, 1
   store i8 %124, ptr %118, align 1
-  %125 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7glslang17TSmallArrayVectoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %119)
+  %125 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7glslang17TSmallArrayVectoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(22) %114, ptr noundef nonnull align 8 dereferenceable(22) %119)
   %126 = getelementptr inbounds i8, ptr %119, i64 20
   %127 = load i8, ptr %126, align 4
   %128 = and i8 %127, 1
@@ -21060,7 +21060,7 @@ define linkonce_odr void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVector
   %154 = getelementptr inbounds i8, ptr %148, i64 21
   %155 = and i8 %153, 1
   store i8 %155, ptr %154, align 1
-  %156 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7glslang17TSmallArrayVectoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %145)
+  %156 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7glslang17TSmallArrayVectoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(22) %148, ptr noundef nonnull align 8 dereferenceable(22) %145)
   %157 = getelementptr inbounds i8, ptr %145, i64 20
   %158 = load i8, ptr %157, align 4
   %159 = getelementptr inbounds i8, ptr %148, i64 20

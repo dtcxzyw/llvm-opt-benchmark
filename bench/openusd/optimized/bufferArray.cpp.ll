@@ -279,7 +279,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArray1
 8:                                                ; preds = %2
   %9 = add nuw i64 %4, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %10) #17
+  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #17
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %12
 
@@ -311,7 +311,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %8
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
+  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #17
   resume { ptr, i32 } %24
 
 _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE6resizeEm.exit: ; preds = %._ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE6resizeEm.exit_crit_edge, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -376,7 +376,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i, %49, %51
   store ptr %31, ptr %30, align 8
-  %55 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
+  %55 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #17
   %56 = load ptr, ptr %1, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 128
@@ -611,7 +611,7 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVeri
 define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArray13_SetRangeListERKSt6vectorISt10shared_ptrINS_18HdBufferArrayRangeEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #17
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %6
 
@@ -746,11 +746,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt10shared_ptrINS_1
 
 52:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #17
+  %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt10shared_ptrINS_18HdBufferArrayRangeEESaIS4_EELb0EEppEv.exit, %31
-  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #17
+  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   ret void
 }
 

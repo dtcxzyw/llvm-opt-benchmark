@@ -688,7 +688,7 @@ if.then262.i.i.i.i:                               ; preds = %sw.bb260.i.i.i.i
   %call270.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34)
   %data271.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %72 = load ptr, ptr @stdout, align 8
-  tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.i.i.i.i, i32 noundef %lnot.ext.i.i.i, ptr noundef %72) #9
+  tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.i.i.i.i, i32 noundef range(i32 0, 2) %lnot.ext.i.i.i, ptr noundef %72) #9
   %call278.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
   br label %if.end280.i.i.i.i
 
@@ -696,7 +696,7 @@ if.end280.critedge.i.i.i.i:                       ; preds = %sw.bb260.i.i.i.i
   %call270.c.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34)
   %data271.c.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
   %73 = load ptr, ptr @stdout, align 8
-  tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.c.i.i.i.i, i32 noundef %lnot.ext.i.i.i, ptr noundef %73) #9
+  tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.c.i.i.i.i, i32 noundef range(i32 0, 2) %lnot.ext.i.i.i, ptr noundef %73) #9
   br label %if.end280.i.i.i.i
 
 if.end280.i.i.i.i:                                ; preds = %if.end280.critedge.i.i.i.i, %if.then262.i.i.i.i
@@ -718,7 +718,7 @@ for.body288.us.i.i.i.i:                           ; preds = %for.body288.lr.ph.i
   %77 = load ptr, ptr %comments.i.i.i.i, align 8
   %arrayidx301.us.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %77, i64 %indvars.iv432.i.i.i.i
   %78 = load ptr, ptr @stdout, align 8
-  tail call void @write_vc_field(ptr noundef null, ptr noundef %arrayidx301.us.i.i.i.i, i32 noundef %lnot.ext.i.i.i, ptr noundef %78) #9
+  tail call void @write_vc_field(ptr noundef null, ptr noundef %arrayidx301.us.i.i.i.i, i32 noundef range(i32 0, 2) %lnot.ext.i.i.i, ptr noundef %78) #9
   %indvars.iv.next433.i.i.i.i = add nuw nsw i64 %indvars.iv432.i.i.i.i, 1
   %79 = load i32, ptr %num_comments.i.i.i.i, align 8
   %80 = zext i32 %79 to i64
@@ -751,7 +751,7 @@ for.body288.i.i.i.i:                              ; preds = %for.body288.lr.ph.s
   %87 = load ptr, ptr %comments.i.i.i.i, align 8
   %arrayidx301.i.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %87, i64 %indvars.iv426.i.i.i.i
   %88 = load ptr, ptr @stdout, align 8
-  tail call void @write_vc_field(ptr noundef null, ptr noundef %arrayidx301.i.i.i.i, i32 noundef %lnot.ext.i.i.i, ptr noundef %88) #9
+  tail call void @write_vc_field(ptr noundef null, ptr noundef %arrayidx301.i.i.i.i, i32 noundef range(i32 0, 2) %lnot.ext.i.i.i, ptr noundef %88) #9
   %indvars.iv.next427.i.i.i.i = add nuw nsw i64 %indvars.iv426.i.i.i.i, 1
   %89 = load i32, ptr %num_comments.i.i.i.i, align 8
   %90 = zext i32 %89 to i64
@@ -1267,7 +1267,7 @@ while.body.i.i.i:                                 ; preds = %for.end36.i.i.i, %i
   %add45.i.i.i = or disjoint i32 %add.i.i.i, %conv44.i.i.i
   %add46.i.i.i = add nuw nsw i32 %add45.i.i.i, 4
   %conv47.i.i.i = zext nneg i32 %add46.i.i.i to i64
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv47.i.i.i) #12
+  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 4, 16777220) %conv47.i.i.i) #12
   %cmp49.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp49.i.i.i, label %if.then51.i.i.i, label %if.end52.i.i.i
 

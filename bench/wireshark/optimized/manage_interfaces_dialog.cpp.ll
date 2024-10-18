@@ -124,7 +124,7 @@ define void @_ZN22ManageInterfacesDialogC2EP7QWidget(ptr noundef nonnull align 8
   %23 = alloca %"class.QMetaObject::Connection", align 8
   %24 = alloca %"class.QMetaObject::Connection", align 8
   %25 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
@@ -2693,7 +2693,7 @@ define void @_ZN22ManageInterfacesDialogD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22ManageInterfacesDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22ManageInterfacesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
   ret void
 }
 

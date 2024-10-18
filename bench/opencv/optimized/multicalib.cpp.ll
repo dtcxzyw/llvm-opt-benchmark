@@ -970,7 +970,7 @@ _ZN2cv3PtrINS_17DescriptorMatcherEEaSERKS2_.exit: ; preds = %_ZN2cv3PtrINS_9Feat
   br i1 %.not.i.i111, label %342, label %337
 
 337:                                              ; preds = %334
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %335, ptr noundef nonnull align 8 dereferenceable(96) %15) #20
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(100) %335, ptr noundef nonnull align 8 dereferenceable(100) %15) #20
   %338 = getelementptr inbounds i8, ptr %335, i64 96
   %339 = load i32, ptr %332, align 8
   store i32 %339, ptr %338, align 8
@@ -984,7 +984,7 @@ _ZN2cv3PtrINS_17DescriptorMatcherEEaSERKS2_.exit: ; preds = %_ZN2cv3PtrINS_9Feat
           to label %_ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backEOS3_.exit unwind label %346
 
 _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backEOS3_.exit: ; preds = %337, %342
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #20
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %15) #20
   %343 = add nuw nsw i32 %.0113, 1
   %344 = load i32, ptr %29, align 4
   %345 = icmp slt i32 %343, %344
@@ -1003,7 +1003,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backE
 346:                                              ; preds = %342
   %347 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #20
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %15) #20
   br label %348
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backEOS3_.exit, %_ZN2cv3PtrINS_17DescriptorMatcherEEaSERKS2_.exit
@@ -1181,7 +1181,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv10multicalib22MultiCameraCalib
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #20
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %.05.i.i.i) #20
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv10multicalib22MultiCameraCalibration6vertexES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !8
@@ -3128,7 +3128,7 @@ _ZN2cv10multicalib22MultiCameraCalibration4edgeC2EiiiNS_3MatE.exit: ; preds = %8
   br i1 %.not.i.i, label %824, label %820
 
 820:                                              ; preds = %_ZN2cv10multicalib22MultiCameraCalibration4edgeC2EiiiNS_3MatE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %818, ptr noundef nonnull align 8 dereferenceable(12) %62, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %818, ptr noundef nonnull align 8 dereferenceable(112) %62, i64 12, i1 false)
   %821 = getelementptr inbounds i8, ptr %818, i64 16
   call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %821, ptr noundef nonnull align 8 dereferenceable(96) %338) #20
   %822 = load ptr, ptr %341, align 8
@@ -3169,7 +3169,7 @@ _ZNKSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE12_M_check_l
 _ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %836, %_ZNKSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE12_M_check_lenEmPKc.exit.i
   %839 = phi ptr [ null, %_ZNKSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE12_M_check_lenEmPKc.exit.i ], [ %838, %836 ]
   %840 = getelementptr inbounds %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %839, i64 %831
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %840, ptr noundef nonnull align 8 dereferenceable(12) %62, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %840, ptr noundef nonnull align 8 dereferenceable(112) %62, i64 12, i1 false)
   %841 = getelementptr inbounds i8, ptr %840, i64 16
   call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %841, ptr noundef nonnull align 8 dereferenceable(96) %338) #20
   %.not10.i.i.i.i.i = icmp eq ptr %825, %818
@@ -3178,7 +3178,7 @@ _ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_M_a
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %845, %.lr.ph.i.i.i.i.i ], [ %839, %_ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %844, %.lr.ph.i.i.i.i.i ], [ %825, %_ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_M_allocateEm.exit.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !alias.scope !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %.0911.i.i.i.i.i, i64 12, i1 false), !alias.scope !28
   %842 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 16
   %843 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 16
   call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %842, ptr noundef nonnull align 8 dereferenceable(96) %843) #20
@@ -5228,7 +5228,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %175
   store ptr %247, ptr %250, align 8
   store ptr %252, ptr %251, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %252, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %279, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(12) %279, i64 noundef 0)
           to label %.noexc unwind label %314
 
 .noexc:                                           ; preds = %277
@@ -5734,8 +5734,8 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cv10multicalib22Multi
   br label %.body
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %._crit_edge
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #20
-  %26 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #20
+  %26 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(100) %3, ptr noundef nonnull align 8 dereferenceable(96) %4)
           to label %29 unwind label %27
 
 27:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
@@ -5753,7 +5753,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %._crit_edge
   br i1 %.not.i.i, label %39, label %34
 
 34:                                               ; preds = %29
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %3) #20
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(100) %31, ptr noundef nonnull align 8 dereferenceable(100) %3) #20
   %35 = getelementptr inbounds i8, ptr %31, i64 96
   %36 = load i32, ptr %30, align 8
   store i32 %36, ptr %35, align 8
@@ -5767,7 +5767,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %._crit_edge
           to label %_ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backEOS3_.exit unwind label %51
 
 _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backEOS3_.exit: ; preds = %34, %39
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #20
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   %40 = getelementptr inbounds i8, ptr %5, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #20
@@ -5792,7 +5792,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE9push_backE
 
 .body17:                                          ; preds = %27, %51
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %28, %27 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #20
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #20
   br label %.body
 
 .body:                                            ; preds = %24, %.body17
@@ -8372,7 +8372,7 @@ define noundef double @_ZN2cv10multicalib22MultiCameraCalibration19computeProjec
   store ptr %132, ptr %135, align 8
   store ptr %137, ptr %136, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %29, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %252, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %29, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(12) %252, i64 noundef 0)
           to label %.noexc unwind label %279
 
 .noexc:                                           ; preds = %241
@@ -8580,7 +8580,7 @@ define noundef double @_ZN2cv10multicalib22MultiCameraCalibration19computeProjec
   store ptr %148, ptr %151, align 8
   store ptr %153, ptr %152, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %19, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %304, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %19, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(12) %304, i64 noundef 0)
           to label %.noexc146 unwind label %279
 
 .noexc146:                                        ; preds = %300
@@ -11822,7 +11822,7 @@ _ZNSt16allocator_traitsISaIN2cv10multicalib22MultiCameraCalibration4edgeEEE8allo
 .lr.ph.i.i.i.i:                                   ; preds = %13, %_ZSt10_ConstructIN2cv10multicalib22MultiCameraCalibration4edgeEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
   %.014.i.i.i.i = phi ptr [ %23, %_ZSt10_ConstructIN2cv10multicalib22MultiCameraCalibration4edgeEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %14, %13 ]
   %.sroa.08.013.i.i.i.i = phi ptr [ %22, %_ZSt10_ConstructIN2cv10multicalib22MultiCameraCalibration4edgeEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %18, %13 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.08.013.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.08.013.i.i.i.i, i64 12, i1 false)
   %20 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 16
   %21 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 16
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %21)
@@ -12117,7 +12117,7 @@ define void @_ZN2cv10multicalib22MultiCameraCalibration17parameters2vectorERKSt6
   store ptr %51, ptr %54, align 8
   store ptr %56, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %76, i64 noundef 0)
+  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(12) %76, i64 noundef 0)
   store i64 0, ptr %58, align 8
   store i32 33619968, ptr %12, align 8
   store ptr %16, ptr %57, align 8
@@ -12179,7 +12179,7 @@ _ZN2cv3MatC2IfLi3EEERKNS_3VecIT_XT0_EEEb.exit:    ; preds = %74
   store ptr %63, ptr %66, align 8
   store ptr %68, ptr %67, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull %87, i64 noundef 0)
+  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 1, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(12) %87, i64 noundef 0)
   store i64 0, ptr %70, align 8
   store i32 33619968, ptr %8, align 8
   store ptr %20, ptr %69, align 8
@@ -13395,7 +13395,7 @@ _ZNKSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE12_M_check
 _ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %23, i64 %19
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %2) #20
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(100) %24, ptr noundef nonnull align 8 dereferenceable(100) %2) #20
   %25 = getelementptr inbounds i8, ptr %24, i64 96
   %26 = getelementptr inbounds i8, ptr %2, i64 96
   %27 = load i32, ptr %26, align 8
@@ -13408,12 +13408,12 @@ _ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE11_M
   %.0911.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #20
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(100) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(100) %.0911.i.i.i.i) #20
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 96
   %29 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 96
   %30 = load i32, ptr %29, align 8, !alias.scope !277, !noalias !274
   store i32 %30, ptr %28, align 8, !alias.scope !274, !noalias !277
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #20
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %.0911.i.i.i.i) #20
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 104
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 104
   %.not.i.i.i.i = icmp eq ptr %31, %1
@@ -13430,12 +13430,12 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE11_S_reloca
   %.0911.i.i.i.i19 = phi ptr [ %37, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #20
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(100) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(100) %.0911.i.i.i.i19) #20
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 96
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 96
   %36 = load i32, ptr %35, align 8, !alias.scope !283, !noalias !280
   store i32 %36, ptr %34, align 8, !alias.scope !280, !noalias !283
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #20
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %.0911.i.i.i.i19) #20
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 104
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 104
   %.not.i.i.i.i20 = icmp eq ptr %37, %5

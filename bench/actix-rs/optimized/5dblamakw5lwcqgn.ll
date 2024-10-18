@@ -1149,7 +1149,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %37 = lshr i64 %34, 10
   %38 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %37, i1 false)
   %39 = sub nuw nsw i64 64, %38
-  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %39, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr i8, ptr null, i64 %41
@@ -1433,7 +1433,7 @@ select.unfold:                                    ; preds = %55
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4), !noalias !239
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 88, i1 false), !noalias !240
   %119 = getelementptr inbounds i8, ptr %4, i64 40
   %120 = load ptr, ptr %119, align 8, !noalias !239, !align !9, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !241)

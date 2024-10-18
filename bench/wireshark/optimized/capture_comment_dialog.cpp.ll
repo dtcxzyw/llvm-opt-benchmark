@@ -1123,7 +1123,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %16
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #11
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #11
   ret void
 }
 
@@ -1148,7 +1148,7 @@ define void @_ZN20CaptureCommentDialogD0Ev(ptr noundef nonnull align 8 dereferen
 define void @_ZThn16_N20CaptureCommentDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN20CaptureCommentDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %2) #14
   ret void
 }
 
@@ -2055,7 +2055,7 @@ define linkonce_odr void @_ZThn16_N23CaptureCommentTabWidgetD1Ev(ptr noundef %0)
 define linkonce_odr void @_ZThn16_N23CaptureCommentTabWidgetD0Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN10QTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
   ret void
 }
 

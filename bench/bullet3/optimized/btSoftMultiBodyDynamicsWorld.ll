@@ -1049,7 +1049,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK20btAlignedObje
   br label %_ZN28btSoftMultiBodyDynamicsWorld14removeSoftBodyEP10btSoftBody.exit
 
 _ZN28btSoftMultiBodyDynamicsWorld14removeSoftBodyEP10btSoftBody.exit: ; preds = %for.inc.i.i.i, %if.then, %_ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i.i, %if.then.i.i.i
-  tail call void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %collisionObject)
+  tail call void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(1025) %this, ptr noundef nonnull %collisionObject)
   br label %if.end
 
 if.else:                                          ; preds = %entry

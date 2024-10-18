@@ -96,22 +96,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
   br i1 %22, label %23, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
 
 23:                                               ; preds = %20
-  %24 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %24 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %26 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
   br i1 %26, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %27
 
 27:                                               ; preds = %25, %23
-  %28 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %28 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
+  %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
   %.not.i = icmp eq i64 %28, %29
   br i1 %.not.i, label %30, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %5, align 8
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
   %33 = getelementptr inbounds %"class.llvm::PointerIntPair", ptr %31, i64 %32
   %34 = ptrtoint ptr %33 to i64
   %35 = ashr i64 %32, 2
@@ -121,22 +121,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
 .lr.ph.i.i.i.i.i.i:                               ; preds = %30, %47
   %.038.i.i.i.i.i.i = phi i64 [ %49, %47 ], [ %35, %30 ]
   %.02937.i.i.i.i.i.i = phi ptr [ %48, %47 ], [ %31, %30 ]
-  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef %.02937.i.i.i.i.i.i)
+  %37 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef %.02937.i.i.i.i.i.i)
   br i1 %37, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %38
 
 38:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %39 = getelementptr inbounds i8, ptr %.02937.i.i.i.i.i.i, i64 8
-  %40 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef nonnull %39)
+  %40 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %39)
   br i1 %40, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %.02937.i.i.i.i.i.i, i64 16
-  %43 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef nonnull %42)
+  %43 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %42)
   br i1 %43, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %.02937.i.i.i.i.i.i, i64 24
-  %46 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef nonnull %45)
+  %46 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %45)
   br i1 %46, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %47
 
 47:                                               ; preds = %44
@@ -161,7 +161,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
   ]
 
 52:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %53 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef %.029.lcssa.i.i.i.i.i.i)
+  %53 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef %.029.lcssa.i.i.i.i.i.i)
   br i1 %53, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %54
 
 54:                                               ; preds = %52
@@ -170,7 +170,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %55, %54 ]
-  %57 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef %.1.i.i.i.i.i.i)
+  %57 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef %.1.i.i.i.i.i.i)
   br i1 %57, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %58
 
 58:                                               ; preds = %56
@@ -179,7 +179,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %59, %58 ]
-  %61 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %6, ptr noundef %.2.i.i.i.i.i.i)
+  %61 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull align 8 dereferenceable(64) %6, ptr noundef %.2.i.i.i.i.i.i)
   br i1 %61, label %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKSE_E3$_0EEbOT_T0_.exit.i", label %62
 
 62:                                               ; preds = %60, %._crit_edge.i.i.i.i.i.i
@@ -198,7 +198,7 @@ _ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit: ; preds = %"_ZN4
 
 66:                                               ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
   store i8 0, ptr %21, align 8
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #7
   %68 = load ptr, ptr %6, align 8
   %69 = getelementptr inbounds i8, ptr %6, i64 16
   %70 = icmp eq ptr %68, %69
@@ -216,7 +216,7 @@ _ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEED2Ev.exit: ; preds = %71, %66
 
 74:                                               ; preds = %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEED2Ev.exit
   store i8 0, ptr %18, align 8
-  %75 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %75 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #7
   %76 = load ptr, ptr %5, align 8
   %77 = getelementptr inbounds i8, ptr %5, i64 16
   %78 = icmp eq ptr %76, %77
@@ -241,14 +241,14 @@ declare noundef ptr @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNea
 define internal fastcc void @_ZN12_GLOBAL__N_117ControlConditions24collectControlConditionsERKN4llvm10BasicBlockES4_RKNS1_13DominatorTreeERKNS1_17PostDominatorTreeEj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readnone align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef nonnull align 8 dereferenceable(148) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.(anonymous namespace)::ControlConditions", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 6) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %7, i64 noundef 6) #7
   %8 = icmp eq ptr %2, %1
   br i1 %8, label %9, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %10, i64 noundef 6) #7
-  %11 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %10, i64 noundef 6) #7
+  %11 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
   br i1 %11, label %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit, label %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %5, %.thread37
@@ -315,19 +315,19 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %5, %.thread37
 
 50:                                               ; preds = %.thread37
   %51 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %51, i64 noundef 6) #7
-  %52 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %51, i64 noundef 6) #7
+  %52 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
   br i1 %52, label %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit, label %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split
 
 _ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split: ; preds = %50, %9
-  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEEEaSEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEEEaSEOS9_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %6)
   br label %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit
 
 _ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit: ; preds = %46, %36, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split, %50, %9
   %.sink = phi i8 [ 1, %9 ], [ 1, %50 ], [ 1, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split ], [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ 0, %36 ], [ 0, %46 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %.sink, ptr %54, align 8
-  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
   %56 = load ptr, ptr %6, align 8
   %57 = icmp eq ptr %56, %7
   br i1 %57, label %_ZN12_GLOBAL__N_117ControlConditionsD2Ev.exit, label %58
@@ -1275,7 +1275,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23nonStrictlyPostDominateEPKNS_10Ba
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef 8) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %10, i64 noundef 8) #7
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %11, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1515,7 +1515,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_10BasicBlockELb1EE9push_backES3_.exit26: 
   br label %_ZN4llvm11SmallPtrSetIPKNS_10BasicBlockELj8EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPKNS_10BasicBlockELj8EED2Ev.exit: ; preds = %._crit_edge, %128
-  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #7
   %130 = load ptr, ptr %5, align 8
   %131 = icmp eq ptr %130, %10
   br i1 %131, label %_ZN4llvm11SmallVectorIPKNS_10BasicBlockELj8EED2Ev.exit, label %132
@@ -1540,7 +1540,7 @@ declare noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_10BasicBlockEE8getBlockEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions19addControlConditionEN4llvm14PointerIntPairIPNS1_5ValueELj1EbNS1_21PointerLikeTypeTraitsIS4_EENS1_18PointerIntPairInfoIS4_Lj1ES6_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %5 = getelementptr inbounds %"class.llvm::PointerIntPair", ptr %3, i64 %4
   %6 = ptrtoint ptr %5 to i64
   %7 = ashr i64 %4, 2
@@ -1907,7 +1907,7 @@ declare noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 n
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr nonnull %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %.0.val, align 8
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #7
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %.0.val) #7
   %4 = getelementptr inbounds %"class.llvm::PointerIntPair", ptr %2, i64 %3
   %5 = ptrtoint ptr %4 to i64
   %6 = ashr i64 %3, 2
@@ -2070,7 +2070,7 @@ define internal fastcc void @"_ZZL28collectInstructionsInBetweenRN4llvm11Instruc
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit
 
 31:                                               ; preds = %._crit_edge.i.i, %12
-  %32 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef %.0.i.i) #7, !noalias !36
+  %32 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %.0.i.i) #7, !noalias !36
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit
 
 33:                                               ; preds = %2
@@ -2129,7 +2129,7 @@ define internal fastcc void @"_ZZL28collectInstructionsInBetweenRN4llvm11Instruc
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i23
 
 61:                                               ; preds = %._crit_edge.i.i40, %38
-  %62 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef %46) #7, !noalias !42
+  %62 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %46) #7, !noalias !42
   %.pre.i20 = load ptr, ptr %1, align 8, !noalias !42
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i23
 

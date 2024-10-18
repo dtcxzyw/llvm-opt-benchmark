@@ -64,7 +64,7 @@ _ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i: ; preds = %15, %13, 
   br i1 %28, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.llvm.5800649057538698079.exit.i.i.i.i, label %29
 
 29:                                               ; preds = %27
-  tail call void @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic12atomic_storehECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0), !noalias !7
+  tail call void @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic12atomic_storehECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079(ptr noundef nonnull align 1 %21, i8 noundef 1, i8 noundef 0), !noalias !7
   br label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.llvm.5800649057538698079.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17he5a058c907639c42E.llvm.5800649057538698079.exit.i.i.i.i: ; preds = %29, %27, %23, %19

@@ -416,7 +416,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24GaussLegendreIntegrationEEptEv.exit: ; preds 
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFddEEC2ERKS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib24GaussLegendreIntegrationEEptEv.exit
-  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %f, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %f, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -435,7 +435,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -490,7 +490,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 
 _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i: ; preds = %for.body.i
   %22 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i.i.i4 = invoke noundef double %22(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
+  %call2.i.i.i4 = invoke noundef double %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
           to label %call2.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i
@@ -510,7 +510,7 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
   br i1 %tobool.not.i.i6, label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
-  %call.i.i8 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -542,7 +542,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i12, label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit17, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad
-  %call.i.i14 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit17 unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
@@ -735,7 +735,7 @@ _ZNK5boost10shared_ptrIN8QuantLib25GaussChebyshevIntegrationEEptEv.exit: ; preds
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFddEEC2ERKS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib25GaussChebyshevIntegrationEEptEv.exit
-  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %f, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %f, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -754,7 +754,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -809,7 +809,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 
 _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i: ; preds = %for.body.i
   %22 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i.i.i4 = invoke noundef double %22(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
+  %call2.i.i.i4 = invoke noundef double %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
           to label %call2.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i
@@ -829,7 +829,7 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
   br i1 %tobool.not.i.i6, label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
-  %call.i.i8 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -861,7 +861,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i12, label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit17, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad
-  %call.i.i14 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit17 unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
@@ -1054,7 +1054,7 @@ _ZNK5boost10shared_ptrIN8QuantLib28GaussChebyshev2ndIntegrationEEptEv.exit: ; pr
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFddEEC2ERKS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib28GaussChebyshev2ndIntegrationEEptEv.exit
-  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %f, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %f, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1073,7 +1073,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1128,7 +1128,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 
 _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i: ; preds = %for.body.i
   %22 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i.i.i4 = invoke noundef double %22(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
+  %call2.i.i.i4 = invoke noundef double %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
           to label %call2.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i
@@ -1148,7 +1148,7 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
   br i1 %tobool.not.i.i6, label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
-  %call.i.i8 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -1180,7 +1180,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i12, label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit17, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad
-  %call.i.i14 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit17 unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13

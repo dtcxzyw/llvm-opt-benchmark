@@ -531,7 +531,7 @@ for.end:                                          ; preds = %for.inc, %entry
 define hidden noundef ptr @_ZN6hermes2vm13RuntimeModule6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEEjOSt10shared_ptrINS_3hbc20BCProviderFromBufferEENS0_18RuntimeModuleFlagsEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %domain.coerce, i32 noundef %scriptID, ptr nocapture noundef nonnull align 8 dereferenceable(16) %bytecode, i8 %flags.coerce, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %sourceURL) local_unnamed_addr #0 align 2 {
 entry:
   %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %weakRefMutex_.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #17
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -545,7 +545,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %agg.tmp7.sroa.2.0.sourceURL.sroa_idx = getelementptr inbounds i8, ptr %sourceURL, i64 8
   %agg.tmp7.sroa.2.0.copyload = load i64, ptr %agg.tmp7.sroa.2.0.sourceURL.sroa_idx, align 8
   tail call void @_ZN6hermes2vm13RuntimeModuleC2ERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS0_18RuntimeModuleFlagsEN4llvh9StringRefEj(ptr noundef nonnull align 8 dereferenceable(192) %call5, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, i8 %flags.coerce, ptr %agg.tmp7.sroa.0.0.copyload, i64 %agg.tmp7.sroa.2.0.copyload, i32 noundef %scriptID)
-  %call1.i.i.i.i10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #17
+  %call1.i.i.i.i10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #17
   %crashMgr_.i = getelementptr inbounds i8, ptr %runtime, i64 9480
   %0 = load ptr, ptr %crashMgr_.i, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -598,7 +598,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN6hermes2vm13Runt
 _ZN6hermes2vm13RuntimeModule21initializeMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ]
   %11 = load ptr, ptr %runtime_.i.i, align 8
-  %call6.i.i = tail call noundef i32 @_ZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleE(ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %11, ptr noundef nonnull %call5) #17
+  %call6.i.i = tail call noundef i32 @_ZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleE(ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %11, ptr noundef nonnull align 8 dereferenceable(192) %call5) #17
   %cmp.i11.not = icmp eq i32 %call6.i.i, 0
   br i1 %cmp.i11.not, label %return, label %if.end
 
@@ -676,7 +676,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZN6hermes2vm13Runt
 _ZN6hermes2vm13RuntimeModule20importCJSModuleTableEv.exit: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi ptr [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %8 = load ptr, ptr %runtime_.i, align 8
-  %call6.i = tail call noundef i32 @_ZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleE(ptr %retval.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr noundef nonnull %this) #17
+  %call6.i = tail call noundef i32 @_ZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleE(ptr %retval.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr noundef nonnull align 8 dereferenceable(192) %this) #17
   %cmp = icmp ne i32 %call6.i, 0
   %. = zext i1 %cmp to i32
   ret i32 %.
@@ -688,7 +688,7 @@ entry:
   %runtimeModule.addr.i.i = alloca ptr, align 8
   %ref.tmp.i.i.i = alloca %"class.std::allocator.5", align 1
   %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %weakRefMutex_.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #17
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -699,7 +699,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call5 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call5, i8 0, i64 16, i1 false)
   %runtime_.i = getelementptr inbounds i8, ptr %call5, i64 16
   store ptr %runtime, ptr %runtime_.i, align 8
   %stringIDMap_.i = getelementptr inbounds i8, ptr %call5, i64 24
@@ -746,7 +746,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %runtimeModules_.i.i = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE9push_backERKS3_RNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(24) %runtimeModules_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %runtimeModule.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %runtimeModule.addr.i.i)
-  %call1.i.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #17
+  %call1.i.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #17
   ret ptr %call5
 }
 
@@ -2425,7 +2425,7 @@ if.then.i:                                        ; preds = %if.then
   %call.i = tail call { i32, ptr } @_ZN6hermes15make_error_codeENS_8OOMErrorE(i32 noundef 5) #17
   %2 = extractvalue { i32, ptr } %call.i, 0
   %3 = extractvalue { i32, ptr } %call.i, 1
-  tail call void @_ZN6hermes2vm6GCBase3oomESt10error_code(ptr noundef nonnull align 8 dereferenceable(741) %gc, i32 %2, ptr %3) #18
+  tail call void @_ZN6hermes2vm6GCBase3oomESt10error_code(ptr noundef nonnull align 8 dereferenceable(8152) %gc, i32 %2, ptr %3) #18
   unreachable
 
 _ZN6hermes14checkedMalloc2Emm.exit.i.i:           ; preds = %if.then

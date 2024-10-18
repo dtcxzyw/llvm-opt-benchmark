@@ -2824,7 +2824,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i.i.i18
   unreachable
 
 _ZN8QuantLib19StochasticProcess1DD2Ev.exit:       ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit, %if.then.i.i.i8, %.noexc.i.i.i15, %if.then.i.i.i.i.i18
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #25
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #25
   ret void
 }
 
@@ -2849,7 +2849,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib16HullWhiteProcessD0Ev(ptr noundef %
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib16HullWhiteProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef 192) #29
   ret void
 }
 
@@ -2978,7 +2978,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i.i.i18
   unreachable
 
 _ZN8QuantLib19StochasticProcess1DD2Ev.exit:       ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit, %if.then.i.i.i8, %.noexc.i.i.i15, %if.then.i.i.i.i.i18
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #25
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #25
   ret void
 }
 
@@ -3005,7 +3005,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib23HullWhiteForwardProcessD0Ev(ptr no
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib23HullWhiteForwardProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 200) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 noundef 200) #29
   ret void
 }
 
@@ -3439,7 +3439,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %15 = phi ptr [ %14, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %this)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i

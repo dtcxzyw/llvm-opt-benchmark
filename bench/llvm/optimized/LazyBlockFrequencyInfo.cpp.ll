@@ -47,7 +47,7 @@ define dso_local void @_ZN4llvm40initializeLazyBlockFrequencyInfoPassPassERNS_12
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL44InitializeLazyBlockFrequencyInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #10
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL44InitializeLazyBlockFrequencyInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #10
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -98,7 +98,7 @@ define dso_local void @_ZN4llvm26LazyBlockFrequencyInfoPassC2Ev(ptr noundef nonn
   store i32 2, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm26LazyBlockFrequencyInfoPassE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm18BlockFrequencyInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  tail call void @_ZN4llvm18BlockFrequencyInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -114,7 +114,7 @@ define dso_local void @_ZN4llvm26LazyBlockFrequencyInfoPassC2Ev(ptr noundef nonn
   store ptr %2, ptr %12, align 8
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %13, align 8
-  %14 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL44InitializeLazyBlockFrequencyInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #10
+  %14 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL44InitializeLazyBlockFrequencyInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #10
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %_ZN4llvm40initializeLazyBlockFrequencyInfoPassPassERNS_12PassRegistryE.exit, label %15
 
@@ -159,14 +159,14 @@ define dso_local void @_ZNK4llvm26LazyBlockFrequencyInfoPass5printERNS_11raw_ost
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %24 = load ptr, ptr %23, align 8
-  tail call void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef %24, ptr noundef null, ptr noundef null) #10
+  tail call void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(280) %14, ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef %24, ptr noundef null, ptr noundef null) #10
   store i8 1, ptr %15, align 8
   br label %_ZN4llvm12BPIPassTraitINS_29LazyBranchProbabilityInfoPassEE6getBPIEPS1_.exit.i.i
 
 _ZN4llvm12BPIPassTraitINS_29LazyBranchProbabilityInfoPassEE6getBPIEPS1_.exit.i.i: ; preds = %18, %8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
-  tail call void @_ZN4llvm18BlockFrequencyInfo9calculateERKNS_8FunctionERKNS_21BranchProbabilityInfoERKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef nonnull align 8 dereferenceable(144) %26) #10
+  tail call void @_ZN4llvm18BlockFrequencyInfo9calculateERKNS_8FunctionERKNS_21BranchProbabilityInfoERKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef nonnull align 8 dereferenceable(144) %26) #10
   store i8 1, ptr %5, align 8
   br label %_ZNK4llvm22LazyBlockFrequencyInfoINS_8FunctionENS_29LazyBranchProbabilityInfoPassENS_8LoopInfoENS_18BlockFrequencyInfoEE13getCalculatedEv.exit
 
@@ -192,7 +192,7 @@ declare void @_ZN4llvm29LazyBranchProbabilityInfoPass23getLazyBPIAnalysisUsageER
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm26LazyBlockFrequencyInfoPass13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm18BlockFrequencyInfo13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
+  tail call void @_ZN4llvm18BlockFrequencyInfo13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -290,7 +290,7 @@ define dso_local void @_ZN4llvm25initializeLazyBFIPassPassERNS_12PassRegistryE(p
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL44InitializeLazyBlockFrequencyInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #10
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL44InitializeLazyBlockFrequencyInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #10
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZN4llvm40initializeLazyBlockFrequencyInfoPassPassERNS_12PassRegistryE.exit, label %8
 
@@ -315,7 +315,7 @@ declare void @_ZN4llvm33initializeLoopInfoWrapperPassPassERNS_12PassRegistryE(pt
 define linkonce_odr hidden void @_ZN4llvm26LazyBlockFrequencyInfoPassD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm26LazyBlockFrequencyInfoPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
+  tail call void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #10
   ret void
 }
@@ -324,8 +324,8 @@ define linkonce_odr hidden void @_ZN4llvm26LazyBlockFrequencyInfoPassD2Ev(ptr no
 define linkonce_odr hidden void @_ZN4llvm26LazyBlockFrequencyInfoPassD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm26LazyBlockFrequencyInfoPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #10
+  tail call void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #13
   ret void
 }

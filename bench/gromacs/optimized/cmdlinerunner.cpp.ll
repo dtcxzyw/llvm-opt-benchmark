@@ -124,7 +124,7 @@ define noundef i32 @_ZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcR
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -143,7 +143,7 @@ define noundef i32 @_ZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcR
   br i1 %.not.i.i, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -172,7 +172,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i.not.i.i.i.i.i, label %47, label %29
 
 29:                                               ; preds = %.noexc
-  %30 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+  %30 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2)
           to label %31 unwind label %34
 
 31:                                               ; preds = %29
@@ -190,7 +190,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i.i.i.i.i, label %.body.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 3)
           to label %.body.i unwind label %39
 
 39:                                               ; preds = %37
@@ -207,7 +207,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i6, label %.body, label %42
 
 42:                                               ; preds = %.body.i
-  %43 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %.body unwind label %44
 
 44:                                               ; preds = %42
@@ -231,7 +231,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i8, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %52
 
 52:                                               ; preds = %50
-  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %54
 
 54:                                               ; preds = %52
@@ -247,7 +247,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit", label %58
 
 58:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
-  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit" unwind label %60
 
 60:                                               ; preds = %58
@@ -273,7 +273,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i10, label %.body, label %68
 
 68:                                               ; preds = %65
-  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %.body unwind label %70
 
 70:                                               ; preds = %68
@@ -290,7 +290,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i.i13, label %common.resume, label %74
 
 74:                                               ; preds = %.body
-  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %76
 
 76:                                               ; preds = %74
@@ -337,7 +337,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandL
 _ZNKSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEclEv.exit.i.i.i: ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.val, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !10
-  call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %.val), !noalias !15
+  call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.val), !noalias !15
   invoke void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner12createModuleESt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS2_EE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %3)
           to label %9 unwind label %14
 
@@ -409,7 +409,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3
   br i1 %.not.i.i.not.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS1_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEE3$_0E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i", label %13
 
 13:                                               ; preds = %7
-  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.val6, i32 noundef 2)
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i32 noundef 2)
           to label %15 unwind label %19
 
 15:                                               ; preds = %13
@@ -428,7 +428,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3
   br i1 %.not.i.i.i.i.i.i, label %.body.i.i.i, label %22
 
 22:                                               ; preds = %19
-  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body.i.i.i unwind label %24
 
 24:                                               ; preds = %22
@@ -458,7 +458,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3
   br i1 %.not.i.i.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit.i.i", label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %.val7.i, ptr noundef nonnull align 8 dereferenceable(16) %.val7.i, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %.val7.i, ptr noundef nonnull align 8 dereferenceable(32) %.val7.i, i32 noundef 3)
           to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit.i.i" unwind label %34
 
 34:                                               ; preds = %32
@@ -540,7 +540,7 @@ _ZNKSt14default_deleteIN3gmx24TrajectoryAnalysisModuleEEclEPS1_.exit.i.i: ; pred
 
 _ZNSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN3gmx24TrajectoryAnalysisModuleEEclEPS1_.exit.i.i, %18
   store ptr null, ptr %5, align 8
-  tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   resume { ptr, i32 } %.pn.pn.i
 
@@ -565,7 +565,7 @@ define void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %12 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %13 unwind label %17
 
 13:                                               ; preds = %11
@@ -584,7 +584,7 @@ define void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24
   br i1 %.not.i.i, label %common.resume, label %20
 
 20:                                               ; preds = %17
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %common.resume unwind label %22
 
 22:                                               ; preds = %20
@@ -613,7 +613,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i.not.i.i.i.i.i, label %48, label %30
 
 30:                                               ; preds = %.noexc
-  %31 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
+  %31 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2)
           to label %32 unwind label %35
 
 32:                                               ; preds = %30
@@ -631,7 +631,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i.i.i.i.i, label %.body.i, label %38
 
 38:                                               ; preds = %35
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %.body.i unwind label %40
 
 40:                                               ; preds = %38
@@ -648,7 +648,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i7, label %.body, label %43
 
 43:                                               ; preds = %.body.i
-  %44 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %.body unwind label %45
 
 45:                                               ; preds = %43
@@ -672,7 +672,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_delet
   br i1 %.not.i.i9, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %52
 
 52:                                               ; preds = %50
-  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %54
 
 54:                                               ; preds = %52
@@ -688,7 +688,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit", label %58
 
 58:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
-  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit" unwind label %60
 
 60:                                               ; preds = %58
@@ -714,7 +714,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i11, label %.body, label %68
 
 68:                                               ; preds = %65
-  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %.body unwind label %70
 
 70:                                               ; preds = %68
@@ -731,7 +731,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i.i14, label %common.resume, label %74
 
 74:                                               ; preds = %.body
-  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %common.resume unwind label %76
 
 76:                                               ; preds = %74
@@ -761,7 +761,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandL
 _ZNKSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEclEv.exit.i.i.i: ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.val, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !21
-  call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %.val), !noalias !26
+  call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.val), !noalias !26
   invoke void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner12createModuleESt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS2_EE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %3)
           to label %9 unwind label %14
 
@@ -833,7 +833,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3
   br i1 %.not.i.i.not.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS1_24CommandLineModuleManagerEPKcS6_RKSt8functionIFSt10unique_ptrINS1_24TrajectoryAnalysisModuleESt14default_deleteIS9_EEvEEE3$_0E15_M_init_functorIRKSH_EEvRSt9_Any_dataOT_.exit.i", label %13
 
 13:                                               ; preds = %7
-  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.val6, i32 noundef 2)
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i32 noundef 2)
           to label %15 unwind label %19
 
 15:                                               ; preds = %13
@@ -852,7 +852,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3
   br i1 %.not.i.i.i.i.i.i, label %.body.i.i.i, label %22
 
 22:                                               ; preds = %19
-  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body.i.i.i unwind label %24
 
 24:                                               ; preds = %22
@@ -882,7 +882,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3
   br i1 %.not.i.i.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit.i.i", label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %.val7.i, ptr noundef nonnull align 8 dereferenceable(16) %.val7.i, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %.val7.i, ptr noundef nonnull align 8 dereferenceable(32) %.val7.i, i32 noundef 3)
           to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit.i.i" unwind label %34
 
 34:                                               ; preds = %32
@@ -965,7 +965,7 @@ _ZNKSt14default_deleteIN3gmx24TrajectoryAnalysisModuleEEclEPS1_.exit.i.i: ; pred
 
 _ZN3gmx12_GLOBAL__N_112RunnerModuleD2Ev.exit:     ; preds = %1, %_ZNKSt14default_deleteIN3gmx24TrajectoryAnalysisModuleEEclEPS1_.exit.i.i
   store ptr null, ptr %5, align 8
-  tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

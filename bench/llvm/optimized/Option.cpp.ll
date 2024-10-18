@@ -1492,7 +1492,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %32, %36
   store i8 5, ptr %48, align 1, !alias.scope !37
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %8)
   %49 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %49, i64 noundef 256) #12
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %8, ptr noundef nonnull %49, i64 noundef 256) #12
   %50 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
@@ -1500,7 +1500,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %32, %36
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr %51, i64 %52) #12
-  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %8) #12
   %58 = load ptr, ptr %8, align 8
   %59 = icmp eq ptr %58, %49
   br i1 %59, label %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit, label %60

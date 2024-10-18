@@ -2481,7 +2481,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0c85992eca2f1d
   br i1 %6, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0bb2be5950f8adbaE.llvm.13640993958878838948.exit.i", label %7
 
 7:                                                ; preds = %1
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h233841fa4dadb3f3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h233841fa4dadb3f3E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0bb2be5950f8adbaE.llvm.13640993958878838948.exit.i" unwind label %8
 
 8:                                                ; preds = %7
@@ -2737,7 +2737,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5d7ef4dd353c5a
   %2 = alloca { ptr, ptr }, align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$aws_sdk_glue..config..Config$GT$17h5ec44d3f0cffdc4bE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(480) %4)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$aws_sdk_glue..config..Config$GT$17h5ec44d3f0cffdc4bE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(528) %4)
           to label %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_glue..client..Handle$GT$17he8b5566459802121E.exit" unwind label %5
 
 5:                                                ; preds = %1

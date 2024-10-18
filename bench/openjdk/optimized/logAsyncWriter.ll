@@ -291,11 +291,11 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 {
   %5 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 928
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #16
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   tail call void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3)
   %8 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 928
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #16
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #16
   ret void
 }
 
@@ -303,7 +303,7 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDec
 define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMessageBuffer8IteratorE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef byval(%"class.LogMessageBuffer::Iterator") align 8 %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 928
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #16
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
@@ -351,7 +351,7 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
 ._crit_edge:                                      ; preds = %14, %3
   %40 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 928
-  %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %41) #16
+  %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %41) #16
   ret void
 }
 
@@ -603,7 +603,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %4, i8 0, i64 140, i1 false)
   %26 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 928
-  %28 = call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #16
+  %28 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %27) #16
   %29 = load i8, ptr %6, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %._crit_edge, label %.lr.ph
@@ -736,7 +736,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   store i8 0, ptr %6, align 8
   %83 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 928
-  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %84) #16
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %84) #16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %86 = load ptr, ptr %8, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
@@ -942,7 +942,7 @@ define hidden void @_ZN14AsyncLogWriter5flushEv() local_unnamed_addr #4 align 2 
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds i8, ptr %1, i64 928
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #16
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
   %5 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1168
   %7 = load ptr, ptr %6, align 8
@@ -977,7 +977,7 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit: ; preds = %2, %13
   %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #16
   %25 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 928
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #16
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #16
   %28 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 896
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #16
@@ -991,7 +991,7 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit: ; preds = %2, %13
 define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 928
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #16
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   %6 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1168
   %8 = load ptr, ptr %7, align 8
@@ -1028,7 +1028,7 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef
   store ptr %20, ptr %9, align 8
   %28 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 928
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #16
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #16
   ret void
 }
 
@@ -1040,7 +1040,7 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterD2Ev(ptr nocapture noundef
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 928
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #16
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   %6 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1168
   %8 = load ptr, ptr %7, align 8
@@ -1075,7 +1075,7 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i: ; preds = %14, %3
   %25 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %24) #16
   %26 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 928
-  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #16
+  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %27) #16
   %29 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 896
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
@@ -1085,7 +1085,7 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i: ; preds = %14, %3
 _ZN14AsyncLogWriter5flushEv.exit:                 ; preds = %1, %_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i
   %31 = phi ptr [ null, %1 ], [ %.pre, %_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i ]
   %32 = getelementptr inbounds i8, ptr %31, i64 928
-  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %32) #16
+  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %32) #16
   %34 = getelementptr inbounds i8, ptr %31, i64 1168
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
@@ -1117,7 +1117,7 @@ _ZN14AsyncLogWriter5flushEv.exit:                 ; preds = %1, %_ZN14AsyncLogWr
   store ptr %48, ptr %40, align 8
   %49 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 928
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #16
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %50) #16
   ret void
 }
 
@@ -1192,7 +1192,7 @@ _ZN14AsyncLogWriterD2Ev.exit:                     ; preds = %._crit_edge.i.i.i
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #16
   %9 = getelementptr inbounds i8, ptr %0, i64 896
   tail call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  tail call void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) #16
+  tail call void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) #16
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #16
   ret void
 }

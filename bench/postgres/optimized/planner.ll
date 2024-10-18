@@ -9257,7 +9257,7 @@ make_grouping_rel.exit:                           ; preds = %413, %417, %419
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds i8, ptr %.0.i99, i64 264
   store ptr %432, ptr %433, align 8
-  call fastcc void @create_ordinary_grouping_paths(ptr noundef %0, ptr noundef nonnull %386, ptr noundef nonnull %.0.i99, ptr noundef %3, ptr noundef %4, ptr noundef %11, ptr noundef %12)
+  call fastcc void @create_ordinary_grouping_paths(ptr noundef %0, ptr noundef nonnull %386, ptr noundef nonnull %.0.i99, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %11, ptr noundef %12)
   %434 = load ptr, ptr %12, align 8
   %.not55.i = icmp eq ptr %434, null
   br i1 %.not55.i, label %437, label %435
@@ -9460,7 +9460,7 @@ make_ordered_path.exit.i95:                       ; preds = %514, %512
   br i1 %.not158.i, label %520, label %519
 
 519:                                              ; preds = %517
-  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %.0.i177.i, i1 noundef zeroext true, i1 noundef zeroext %471, ptr noundef readonly %4, ptr noundef %3, double noundef %465)
+  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %.0.i177.i, i1 noundef zeroext true, i1 noundef zeroext %471, ptr noundef readonly %4, ptr noundef nonnull %3, double noundef %465)
   br label %536
 
 520:                                              ; preds = %517
@@ -9651,7 +9651,7 @@ make_ordered_path.exit167.i:                      ; preds = %582, %580
   br i1 %.not149.i, label %610, label %609
 
 609:                                              ; preds = %606
-  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef %468, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef readonly %4, ptr noundef %3, double noundef %465)
+  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef %468, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef readonly %4, ptr noundef nonnull %3, double noundef %465)
   br label %616
 
 610:                                              ; preds = %606

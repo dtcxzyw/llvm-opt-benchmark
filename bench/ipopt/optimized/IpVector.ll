@@ -130,7 +130,7 @@ define void @_ZN5Ipopt6Vector17AddTwoVectorsImplEdRKS0_dS2_d(ptr noundef nonnull
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %54
 
 16:                                               ; preds = %8
@@ -146,7 +146,7 @@ define void @_ZN5Ipopt6Vector17AddTwoVectorsImplEdRKS0_dS2_d(ptr noundef nonnull
   %22 = getelementptr inbounds i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %54
 
 24:                                               ; preds = %18
@@ -168,7 +168,7 @@ define void @_ZN5Ipopt6Vector17AddTwoVectorsImplEdRKS0_dS2_d(ptr noundef nonnull
   %31 = getelementptr inbounds i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %2)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %54
 
 33:                                               ; preds = %27
@@ -182,7 +182,7 @@ define void @_ZN5Ipopt6Vector17AddTwoVectorsImplEdRKS0_dS2_d(ptr noundef nonnull
   %37 = getelementptr inbounds i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %54
 
 39:                                               ; preds = %6
@@ -202,7 +202,7 @@ define void @_ZN5Ipopt6Vector17AddTwoVectorsImplEdRKS0_dS2_d(ptr noundef nonnull
   %46 = getelementptr inbounds i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %2)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %48
 
 48:                                               ; preds = %44, %42
@@ -214,7 +214,7 @@ define void @_ZN5Ipopt6Vector17AddTwoVectorsImplEdRKS0_dS2_d(ptr noundef nonnull
   %52 = getelementptr inbounds i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %54
 
 54:                                               ; preds = %33, %48, %50, %12, %10, %29, %35, %20, %26, %24
@@ -553,7 +553,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit:      ; preds = %20, %15
           to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %19)
           to label %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit unwind label %47
 
 _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc
@@ -564,7 +564,7 @@ _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc
           to label %.noexc12 unwind label %47
 
 .noexc12:                                         ; preds = %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %19)
           to label %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit unwind label %47
 
 _ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit:   ; preds = %.noexc12
@@ -666,12 +666,12 @@ define void @_ZN5Ipopt6Vector21AddVectorQuotientImplEdRKS0_S2_d(ptr noundef nonn
   %9 = getelementptr inbounds i8, ptr %8, i64 192
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %2, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(205) %2, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(205) %0, ptr noundef nonnull align 8 dereferenceable(205) %3)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
 14:                                               ; preds = %5
@@ -703,7 +703,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit:      ; preds = %21, %14
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %25
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %20)
           to label %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit unwind label %.thread
 
 _ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit:   ; preds = %.noexc
@@ -714,7 +714,7 @@ _ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit:   ; preds = %.noexc
           to label %.noexc11 unwind label %.thread
 
 .noexc11:                                         ; preds = %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
           to label %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit unwind label %.thread
 
 _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc11
@@ -855,7 +855,7 @@ define linkonce_odr void @_ZN5Ipopt6VectorD2Ev(ptr noundef nonnull align 8 deref
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i ], [ %15, %._crit_edge.thread.i ]
   %16 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #12
   %.not.i.i.i.i = icmp eq ptr %16, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
@@ -965,7 +965,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED2Ev(ptr noundef nonnull al
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.thread, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %13, %._crit_edge.thread ]
   %14 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #12
   %.not.i.i.i = icmp eq ptr %14, %.lcssa13
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -1032,7 +1032,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED0Ev(ptr noundef nonnull al
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %13, %._crit_edge.thread.i ]
   %14 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #12
   %.not.i.i.i.i = icmp eq ptr %14, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 

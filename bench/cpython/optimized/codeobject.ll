@@ -7929,7 +7929,7 @@ if.then45.i:                                      ; preds = %if.end43.i
 if.end50.i:                                       ; preds = %if.then45.i, %if.end43.i
   %co_freevars.addr.0.i = phi ptr [ %co_freevars.0, %if.end43.i ], [ %call46.i, %if.then45.i ]
   %freevars.1.i = phi ptr [ null, %if.end43.i ], [ %call46.i, %if.then45.i ]
-  %call.i.i = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %co_argcount.0, i32 noundef %co_posonlyargcount.0, i32 noundef %co_kwonlyargcount.0, i32 noundef %co_nlocals.0, i32 noundef %co_stacksize.0, i32 noundef %co_flags.0, ptr noundef nonnull %co_code.addr.0.i, ptr noundef %co_consts.0, ptr noundef %co_names.0, ptr noundef nonnull %co_varnames.addr.0.i, ptr noundef nonnull %co_freevars.addr.0.i, ptr noundef nonnull %co_cellvars.addr.0.i, ptr noundef %co_filename.0, ptr noundef %co_name.0, ptr noundef %co_qualname.0, i32 noundef %co_firstlineno.0, ptr noundef %co_linetable.0, ptr noundef %co_exceptiontable.0)
+  %call.i.i = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %co_argcount.0, i32 noundef range(i32 0, -2147483648) %co_posonlyargcount.0, i32 noundef %co_kwonlyargcount.0, i32 noundef %co_nlocals.0, i32 noundef %co_stacksize.0, i32 noundef %co_flags.0, ptr noundef nonnull %co_code.addr.0.i, ptr noundef %co_consts.0, ptr noundef %co_names.0, ptr noundef nonnull %co_varnames.addr.0.i, ptr noundef nonnull %co_freevars.addr.0.i, ptr noundef nonnull %co_cellvars.addr.0.i, ptr noundef %co_filename.0, ptr noundef %co_name.0, ptr noundef %co_qualname.0, i32 noundef %co_firstlineno.0, ptr noundef %co_linetable.0, ptr noundef %co_exceptiontable.0)
   br label %error.i
 
 error.i:                                          ; preds = %if.end50.i, %if.then45.i, %if.then38.i, %if.then30.i
@@ -8553,7 +8553,7 @@ if.end33:                                         ; preds = %if.else31, %if.then
   br i1 %cmp34, label %if.then.i, label %if.end36
 
 if.end36:                                         ; preds = %if.end33
-  %call.i = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr noundef nonnull %call13, ptr noundef nonnull %call17, ptr noundef nonnull %ourfreevars.1, ptr noundef nonnull %ourcellvars.1, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable)
+  %call.i = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %argcount, i32 noundef range(i32 0, -2147483648) %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr noundef nonnull %call13, ptr noundef nonnull %call17, ptr noundef nonnull %ourfreevars.1, ptr noundef nonnull %ourcellvars.1, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable)
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end36, %if.end16, %if.end24, %if.end33

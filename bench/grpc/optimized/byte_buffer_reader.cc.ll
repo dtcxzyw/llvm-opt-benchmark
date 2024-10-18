@@ -341,7 +341,7 @@ if.then.i8:                                       ; preds = %while.body
 if.then.i.i10:                                    ; preds = %if.then.i8
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %31(ptr noundef nonnull %27)
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %do.body unwind label %lpad.loopexit
 
 do.body:                                          ; preds = %if.then.i8, %while.body, %if.then.i.i10

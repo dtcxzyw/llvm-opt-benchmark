@@ -948,7 +948,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %76
   %87 = load float, ptr %86, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %15)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(96) %15)
           to label %.noexc unwind label %147
 
 .noexc:                                           ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -1305,7 +1305,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %56
   %59 = load float, ptr %58, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %16)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %16)
           to label %.noexc unwind label %127
 
 .noexc:                                           ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -2805,13 +2805,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSERKS4_.exit57: ; preds = %_ZNSt6vectorIN2c
           to label %231 unwind label %232
 
 231:                                              ; preds = %._crit_edge94
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
   ret i1 true
 
 232:                                              ; preds = %._crit_edge94
   %233 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
   resume { ptr, i32 } %233
 }
 
@@ -2942,22 +2942,22 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImpl9writeTreeERSt14basic_ofstrea
   %48 = load ptr, ptr %2, align 8
   %49 = getelementptr inbounds %"struct.cv::face::tree_node", ptr %48, i64 %.026
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %49, i64 noundef 8)
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef 8)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 8
-  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %51, i64 noundef 8)
+  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %51, i64 noundef 8)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %.noexc
   %53 = getelementptr inbounds i8, ptr %49, i64 16
-  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %53, i64 noundef 4)
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %53, i64 noundef 4)
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %.noexc21
   store i32 0, ptr %5, align 4
-  %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i64 noundef 4)
+  %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %5, i64 noundef 4)
           to label %_ZN2cv4face18FacemarkKazemiImpl10writeSplitERSt14basic_ofstreamIcSt11char_traitsIcEERKNS0_6splitrE.exit unwind label %.loopexit
 
 _ZN2cv4face18FacemarkKazemiImpl10writeSplitERSt14basic_ofstreamIcSt11char_traitsIcEERKNS0_6splitrE.exit: ; preds = %.noexc22
@@ -3018,7 +3018,7 @@ _ZN2cv4face18FacemarkKazemiImpl10writeSplitERSt14basic_ofstreamIcSt11char_traits
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 3
   store i64 %78, ptr %4, align 8
-  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 8)
+  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %4, i64 noundef 8)
           to label %.noexc24 unwind label %.loopexit
 
 .noexc24:                                         ; preds = %69
@@ -3027,7 +3027,7 @@ _ZN2cv4face18FacemarkKazemiImpl10writeSplitERSt14basic_ofstreamIcSt11char_traits
   %82 = ptrtoint ptr %81 to i64
   %83 = ptrtoint ptr %80 to i64
   %84 = sub i64 %82, %83
-  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %80, i64 noundef %84)
+  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %80, i64 noundef %84)
           to label %_ZN2cv4face18FacemarkKazemiImpl9writeLeafERSt14basic_ofstreamIcSt11char_traitsIcEERKSt6vectorINS_6Point_IfEESaIS9_EE.exit unwind label %.loopexit
 
 _ZN2cv4face18FacemarkKazemiImpl9writeLeafERSt14basic_ofstreamIcSt11char_traitsIcEERKSt6vectorINS_6Point_IfEESaIS9_EE.exit: ; preds = %.noexc24
@@ -3273,7 +3273,7 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl9saveModelENSt7
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %97 to i64
   %102 = sub i64 %100, %101
-  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %97, i64 noundef %102)
+  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull %97, i64 noundef %102)
           to label %_ZN2cv4face18FacemarkKazemiImpl11writePixelsERSt14basic_ofstreamIcSt11char_traitsIcEEi.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN2cv4face18FacemarkKazemiImpl11writePixelsERSt14basic_ofstreamIcSt11char_traitsIcEEi.exit: ; preds = %.lr.ph
@@ -3460,7 +3460,7 @@ _ZNSt16allocator_traitsISaIN2cv4face9tree_nodeEEE8allocateERS3_m.exit.i.i.i.i.i.
 .lr.ph.i:                                         ; preds = %.noexc20, %.loopexit.i
   %.019.i = phi ptr [ %207, %.loopexit.i ], [ %.pr.i.i, %.noexc20 ]
   %.sroa.010.018.i = phi ptr [ %206, %.loopexit.i ], [ %183, %.noexc20 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.018.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.019.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.018.i, i64 24, i1 false)
   %185 = getelementptr inbounds i8, ptr %.019.i, i64 24
   %186 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 24
   %187 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 32
@@ -4287,7 +4287,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit68:   ; preds = %197, %195, %193
           to label %204 unwind label %235
 
 204:                                              ; preds = %._crit_edge
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   %205 = load ptr, ptr %11, align 8
   %206 = load ptr, ptr %118, align 8
   %.not128154 = icmp eq ptr %205, %206
@@ -4381,7 +4381,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %230, %232
 235:                                              ; preds = %._crit_edge
   %236 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit106
 
 .loopexit131:                                     ; preds = %_ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i
@@ -4899,7 +4899,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4face12getDiffShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -5007,7 +5007,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
 .lr.ph:                                           ; preds = %3, %.loopexit
   %.019 = phi ptr [ %26, %.loopexit ], [ %2, %3 ]
   %.sroa.010.018 = phi ptr [ %25, %.loopexit ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.018, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.019, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.018, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %.019, i64 24
   %5 = getelementptr inbounds i8, ptr %.sroa.010.018, i64 24
   %6 = getelementptr inbounds i8, ptr %.sroa.010.018, i64 32
@@ -5134,7 +5134,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv4face12getRelPixelsD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -5991,7 +5991,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv4face15training_sampleEmS2_ET_S4_T0_RSaIT
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %41 = load ptr, ptr %40, align 8, !alias.scope !92, !noalias !89
   store ptr %41, ptr %39, align 8, !alias.scope !89, !noalias !92
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !92, !noalias !89
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !92, !noalias !89
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %44 = load ptr, ptr %43, align 8, !alias.scope !92, !noalias !89

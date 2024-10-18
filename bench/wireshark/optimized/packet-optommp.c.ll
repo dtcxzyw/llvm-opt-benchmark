@@ -446,7 +446,7 @@ dissect_optommp_write_block_request.exit:         ; preds = %dissect_optommp_des
   %.0.i.i = phi i16 [ %89, %88 ], [ 0, %dissect_optommp_destination_offset_6.exit.i56 ]
   %92 = add nuw nsw i32 %85, 4
   store i32 %92, ptr %6, align 4
-  call fastcc void @dissect_optommp_data_block(ptr noundef %5, ptr noundef %46, ptr noundef %0, ptr noundef %6, i16 noundef zeroext %.0.i.i)
+  call fastcc void @dissect_optommp_data_block(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %0, ptr noundef nonnull %6, i16 noundef zeroext %.0.i.i)
   br label %dissect_optommp_write_quadlet_request.exit
 
 93:                                               ; preds = %dissect_optommp_dest_id.exit
@@ -599,7 +599,7 @@ dissect_optommp_rcode.exit.i94:                   ; preds = %146, %dissect_optom
 dissect_optommp_read_block_response.exit:         ; preds = %dissect_optommp_rcode.exit.i94, %150
   %.0.i.i97 = phi i16 [ %151, %150 ], [ 0, %dissect_optommp_rcode.exit.i94 ]
   store i32 16, ptr %6, align 4
-  call fastcc void @dissect_optommp_data_block(ptr noundef %5, ptr noundef %46, ptr noundef %0, ptr noundef %6, i16 noundef zeroext %.0.i.i97)
+  call fastcc void @dissect_optommp_data_block(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %0, ptr noundef nonnull %6, i16 noundef zeroext %.0.i.i97)
   br label %dissect_optommp_write_quadlet_request.exit
 
 dissect_optommp_write_quadlet_request.exit:       ; preds = %137, %dissect_optommp_rcode.exit.i, %123, %dissect_optommp_destination_offset_6.exit.i77, %108, %dissect_optommp_source_ID.exit.i65, %99, %dissect_optommp_source_ID.exit.i60, %73, %dissect_optommp_destination_offset_6.exit.i, %30, %dissect_optommp_read_block_response.exit, %dissect_optommp_write_block_request.exit, %dissect_optommp_dest_id.exit, %29

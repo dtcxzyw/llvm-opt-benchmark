@@ -548,8 +548,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hbffb8fe895f8846eE.exit: ; preds
 
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h00a9291e97f6ca4aE.exit.i"
 
@@ -1174,8 +1174,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hccb2f87a3c9b791cE.exit: ; preds
 
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1bcc4e1b6fb99162E.exit.i"
 
@@ -1826,8 +1826,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h5b385de49902e1c2E.exit: ; preds
 
 77:                                               ; preds = %74
   %78 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %78, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %78, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %79 = icmp ugt i64 %.0105, -11
   br i1 %79, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h214428ed146f9bb4E.exit.i"
 
@@ -2477,8 +2477,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h9ff16764c98a0f0bE.exit: ; preds
 
 72:                                               ; preds = %69
   %73 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %74 = icmp ugt i64 %.0105, -11
   br i1 %74, label %.invoke160, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h912592b189a2e846E.exit.i"
 
@@ -2978,11 +2978,11 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h9bef1cffcf63e
   br i1 %23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h3fe349d25cad0f6cE.exit", label %25, !prof !304
 
 24:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !301
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !301
   unreachable
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %spec.select, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !301
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %spec.select, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !301
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h3fe349d25cad0f6cE.exit": ; preds = %22
@@ -3035,11 +3035,11 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hcdd972968effa
   br i1 %23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9b36fd57f2e9ba1dE.exit", label %25, !prof !304
 
 24:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !307
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !307
   unreachable
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %spec.select, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !307
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %spec.select, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.47) #19, !noalias !307
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9b36fd57f2e9ba1dE.exit": ; preds = %22
@@ -3140,11 +3140,11 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br i1 %18, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h3fe349d25cad0f6cE.exit", label %32, !prof !304
 
 31:                                               ; preds = %27
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !312
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !312
   unreachable
 
 32:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.123.lcssa, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !312
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.123.lcssa, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !312
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h3fe349d25cad0f6cE.exit": ; preds = %30
@@ -3342,11 +3342,11 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br i1 %18, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9b36fd57f2e9ba1dE.exit", label %32, !prof !304
 
 31:                                               ; preds = %27
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !327
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !327
   unreachable
 
 32:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.123.lcssa, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !327
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.123.lcssa, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.56) #19, !noalias !327
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9b36fd57f2e9ba1dE.exit": ; preds = %30
@@ -3746,7 +3746,7 @@ _ZN4core5slice4sort12choose_pivot17hb5c93c13172dad72E.exit: ; preds = %"_ZN4core
   br i1 %110, label %.lr.ph.preheader.i, label %111, !prof !304
 
 111:                                              ; preds = %109
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.0.0.i, i64 noundef %.sroa.14.0114.lcssa133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.77) #19, !noalias !380
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.0.0.i, i64 noundef range(i64 21, 0) %.sroa.14.0114.lcssa133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.77) #19, !noalias !380
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %109
@@ -4032,7 +4032,7 @@ _ZN4core5slice4sort12choose_pivot17hb5c93c13172dad72E.exit: ; preds = %"_ZN4core
   br i1 %220, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h71e0286711e78ebcE.exit", label %221, !prof !304
 
 221:                                              ; preds = %.loopexit.i
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %219, i64 noundef %.sroa.14.0114.lcssa133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.81) #19, !noalias !387
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %219, i64 noundef range(i64 21, 0) %.sroa.14.0114.lcssa133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.81) #19, !noalias !387
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h71e0286711e78ebcE.exit": ; preds = %.loopexit.i
@@ -4506,7 +4506,7 @@ _ZN4core5slice4sort12choose_pivot17hbf4d060c15fa5f21E.exit: ; preds = %"_ZN4core
   br i1 %110, label %.lr.ph.preheader.i, label %111, !prof !304
 
 111:                                              ; preds = %109
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.0.0.i, i64 noundef %.sroa.14.0115.lcssa134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.77) #19, !noalias !444
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.0.0.i, i64 noundef range(i64 21, 0) %.sroa.14.0115.lcssa134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.77) #19, !noalias !444
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %109
@@ -4796,7 +4796,7 @@ _ZN4core5slice4sort12choose_pivot17hbf4d060c15fa5f21E.exit: ; preds = %"_ZN4core
   br i1 %219, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc27d60f54a0d57cbE.exit", label %220, !prof !304
 
 220:                                              ; preds = %.loopexit.i
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %218, i64 noundef %.sroa.14.0115.lcssa134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.81) #19, !noalias !451
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %218, i64 noundef range(i64 21, 0) %.sroa.14.0115.lcssa134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09e90edf43d250f664dd687a08bfc1c9.81) #19, !noalias !451
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc27d60f54a0d57cbE.exit": ; preds = %.loopexit.i
@@ -5434,7 +5434,7 @@ switch.lookup:
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %17
-  %28 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %23, i64 noundef %20), !noalias !521
+  %28 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %23, i64 noundef %20), !noalias !521
   %29 = extractvalue { i64, i64 } %28, 0
   %30 = extractvalue { i64, i64 } %28, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %29, i64 %30), !noalias !521
@@ -5455,7 +5455,7 @@ switch.lookup:
   br i1 %39, label %40, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit
 
 40:                                               ; preds = %31
-  %41 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %37, i64 noundef 1), !noalias !538
+  %41 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %37, i64 noundef 1), !noalias !538
   %42 = extractvalue { i64, i64 } %41, 0
   %43 = extractvalue { i64, i64 } %41, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %42, i64 %43), !noalias !538
@@ -5507,7 +5507,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread: ;
   br i1 %63, label %64, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit"
 
 64:                                               ; preds = %.split118
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %61), !noalias !551
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %61), !noalias !551
   %.pre.i.i = load i64, ptr %57, align 8, !alias.scope !548, !noalias !551
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit"
 
@@ -5542,7 +5542,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread: ;
   br i1 %81, label %82, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit
 
 82:                                               ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit"
-  %83 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %77, i64 noundef %78, i64 noundef 8), !noalias !568
+  %83 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %77, i64 noundef %78, i64 noundef 8), !noalias !568
   %84 = extractvalue { i64, i64 } %83, 0
   %85 = extractvalue { i64, i64 } %83, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %84, i64 %85), !noalias !568
@@ -5573,7 +5573,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit: ; preds = %
   br i1 %98, label %99, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
 
 99:                                               ; preds = %.split
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %96), !noalias !583
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %96), !noalias !583
   %.pre.i.i135 = load i64, ptr %57, align 8, !alias.scope !580, !noalias !583
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit136"
 
@@ -5612,7 +5612,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit: ; preds = %
   br i1 %117, label %118, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i
 
 118:                                              ; preds = %110
-  %119 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %113, i64 noundef %114, i64 noundef 4), !noalias !599
+  %119 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %113, i64 noundef %114, i64 noundef 4), !noalias !599
   %120 = extractvalue { i64, i64 } %119, 0
   %121 = extractvalue { i64, i64 } %119, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %120, i64 %121), !noalias !599
@@ -5662,7 +5662,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i: ; preds = %1
   br i1 %144, label %145, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
 
 145:                                              ; preds = %.split122
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %142), !noalias !614
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %142), !noalias !614
   %.pre.i.i141 = load i64, ptr %138, align 8, !alias.scope !611, !noalias !614
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
 
@@ -5697,7 +5697,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i: ; preds = %1
   br i1 %162, label %163, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153
 
 163:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit142"
-  %164 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %158, i64 noundef %159, i64 noundef 8), !noalias !630
+  %164 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %158, i64 noundef %159, i64 noundef 8), !noalias !630
   %165 = extractvalue { i64, i64 } %164, 0
   %166 = extractvalue { i64, i64 } %164, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %165, i64 %166), !noalias !630
@@ -5728,7 +5728,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153: ; preds 
   br i1 %179, label %180, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
 
 180:                                              ; preds = %.split120
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %177), !noalias !645
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9769a49065d80abaE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %177), !noalias !645
   %.pre.i.i147 = load i64, ptr %138, align 8, !alias.scope !642, !noalias !645
   br label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit148"
 
@@ -5767,7 +5767,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit153: ; preds 
   br i1 %198, label %199, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i156
 
 199:                                              ; preds = %191
-  %200 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %194, i64 noundef %195, i64 noundef 4), !noalias !661
+  %200 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %194, i64 noundef %195, i64 noundef 4), !noalias !661
   %201 = extractvalue { i64, i64 } %200, 0
   %202 = extractvalue { i64, i64 } %200, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %201, i64 %202), !noalias !661
@@ -5882,7 +5882,7 @@ define hidden void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %44
-  %52 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %40, i64 noundef 2), !noalias !686
+  %52 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %40, i64 noundef 2), !noalias !686
   %53 = extractvalue { i64, i64 } %52, 0
   %54 = extractvalue { i64, i64 } %52, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %53, i64 %54), !noalias !686
@@ -6925,7 +6925,7 @@ define internal fastcc i64 @"_ZN5gimli5write4line11LineProgram5write28_$u7b$$u7b
   br i1 %68, label %69, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit"
 
 69:                                               ; preds = %61
-  %70 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %63, i64 noundef %65, i64 noundef 16), !noalias !729
+  %70 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %65, i64 noundef 16), !noalias !729
   %71 = extractvalue { i64, i64 } %70, 0
   %72 = extractvalue { i64, i64 } %70, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %71, i64 %72), !noalias !729
@@ -6993,7 +6993,7 @@ define internal fastcc i64 @_ZN5gimli5write4line15LineInstruction5write17h602aad
   br i1 %19, label %20, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit
 
 20:                                               ; preds = %12
-  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %17, i64 noundef 1), !noalias !745
+  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %17, i64 noundef 1), !noalias !745
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %22, i64 %23), !noalias !745
@@ -7020,7 +7020,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit: ; preds = %12, 
   br i1 %35, label %36, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit583
 
 36:                                               ; preds = %30
-  %37 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %33, i64 noundef 1), !noalias !760
+  %37 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31, i64 noundef %33, i64 noundef 1), !noalias !760
   %38 = extractvalue { i64, i64 } %37, 0
   %39 = extractvalue { i64, i64 } %37, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %38, i64 %39), !noalias !760
@@ -7049,7 +7049,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit583: ; preds = %3
   br i1 %53, label %54, label %244
 
 54:                                               ; preds = %46
-  %55 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49, i64 noundef %51, i64 noundef 1), !noalias !775
+  %55 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %49, i64 noundef %51, i64 noundef 1), !noalias !775
   %56 = extractvalue { i64, i64 } %55, 0
   %57 = extractvalue { i64, i64 } %55, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %56, i64 %57), !noalias !775
@@ -7067,7 +7067,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit583: ; preds = %3
   br i1 %65, label %66, label %254
 
 66:                                               ; preds = %58
-  %67 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %61, i64 noundef %63, i64 noundef 1), !noalias !790
+  %67 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %63, i64 noundef 1), !noalias !790
   %68 = extractvalue { i64, i64 } %67, 0
   %69 = extractvalue { i64, i64 } %67, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %68, i64 %69), !noalias !790
@@ -7085,7 +7085,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit583: ; preds = %3
   br i1 %77, label %78, label %264
 
 78:                                               ; preds = %70
-  %79 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %73, i64 noundef %75, i64 noundef 1), !noalias !805
+  %79 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %73, i64 noundef %75, i64 noundef 1), !noalias !805
   %80 = extractvalue { i64, i64 } %79, 0
   %81 = extractvalue { i64, i64 } %79, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %80, i64 %81), !noalias !805
@@ -7103,7 +7103,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit583: ; preds = %3
   br i1 %89, label %90, label %274
 
 90:                                               ; preds = %82
-  %91 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %85, i64 noundef %87, i64 noundef 1), !noalias !820
+  %91 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %85, i64 noundef %87, i64 noundef 1), !noalias !820
   %92 = extractvalue { i64, i64 } %91, 0
   %93 = extractvalue { i64, i64 } %91, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %92, i64 %93), !noalias !820
@@ -7119,7 +7119,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit583: ; preds = %3
   br i1 %99, label %100, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit593
 
 100:                                              ; preds = %94
-  %101 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %95, i64 noundef %97, i64 noundef 1), !noalias !835
+  %101 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %95, i64 noundef %97, i64 noundef 1), !noalias !835
   %102 = extractvalue { i64, i64 } %101, 0
   %103 = extractvalue { i64, i64 } %101, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %102, i64 %103), !noalias !835
@@ -7146,7 +7146,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit593: ; preds = %9
   br i1 %115, label %116, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit595
 
 116:                                              ; preds = %110
-  %117 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %111, i64 noundef %113, i64 noundef 1), !noalias !850
+  %117 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %111, i64 noundef %113, i64 noundef 1), !noalias !850
   %118 = extractvalue { i64, i64 } %117, 0
   %119 = extractvalue { i64, i64 } %117, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %118, i64 %119), !noalias !850
@@ -7173,7 +7173,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit595: ; preds = %1
   br i1 %131, label %132, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit597
 
 132:                                              ; preds = %126
-  %133 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %127, i64 noundef %129, i64 noundef 1), !noalias !865
+  %133 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %127, i64 noundef %129, i64 noundef 1), !noalias !865
   %134 = extractvalue { i64, i64 } %133, 0
   %135 = extractvalue { i64, i64 } %133, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %134, i64 %135), !noalias !865
@@ -7200,7 +7200,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit597: ; preds = %1
   br i1 %147, label %148, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit599
 
 148:                                              ; preds = %142
-  %149 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %143, i64 noundef %145, i64 noundef 1), !noalias !880
+  %149 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %143, i64 noundef %145, i64 noundef 1), !noalias !880
   %150 = extractvalue { i64, i64 } %149, 0
   %151 = extractvalue { i64, i64 } %149, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %150, i64 %151), !noalias !880
@@ -7227,7 +7227,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit599: ; preds = %1
   br i1 %163, label %164, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601
 
 164:                                              ; preds = %158
-  %165 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %159, i64 noundef %161, i64 noundef 1), !noalias !895
+  %165 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %159, i64 noundef %161, i64 noundef 1), !noalias !895
   %166 = extractvalue { i64, i64 } %165, 0
   %167 = extractvalue { i64, i64 } %165, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %166, i64 %167), !noalias !895
@@ -7256,7 +7256,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
   br i1 %181, label %182, label %284
 
 182:                                              ; preds = %174
-  %183 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %177, i64 noundef %179, i64 noundef 1), !noalias !910
+  %183 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %177, i64 noundef %179, i64 noundef 1), !noalias !910
   %184 = extractvalue { i64, i64 } %183, 0
   %185 = extractvalue { i64, i64 } %183, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %184, i64 %185), !noalias !910
@@ -7272,7 +7272,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
   br i1 %191, label %192, label %294
 
 192:                                              ; preds = %186
-  %193 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %187, i64 noundef %189, i64 noundef 1), !noalias !925
+  %193 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %187, i64 noundef %189, i64 noundef 1), !noalias !925
   %194 = extractvalue { i64, i64 } %193, 0
   %195 = extractvalue { i64, i64 } %193, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %194, i64 %195), !noalias !925
@@ -7289,7 +7289,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
   br i1 %201, label %202, label %308
 
 202:                                              ; preds = %196
-  %203 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %197, i64 noundef %199, i64 noundef 1), !noalias !940
+  %203 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %197, i64 noundef %199, i64 noundef 1), !noalias !940
   %204 = extractvalue { i64, i64 } %203, 0
   %205 = extractvalue { i64, i64 } %203, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %204, i64 %205), !noalias !940
@@ -7374,7 +7374,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
   br i1 %237, label %238, label %328
 
 238:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h17d91b87b78ace60E.llvm.14258815958238736712.exit"
-  %239 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %233, i64 noundef %235, i64 noundef 1), !noalias !978
+  %239 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %233, i64 noundef %235, i64 noundef 1), !noalias !978
   %240 = extractvalue { i64, i64 } %239, 0
   %241 = extractvalue { i64, i64 } %239, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %240, i64 %241), !noalias !978
@@ -7601,7 +7601,7 @@ define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_sdat
   br i1 %18, label %19, label %_ZN5gimli5write6writer6Writer9write_u6417hfe89ea247b58262eE.exit
 
 19:                                               ; preds = %11
-  %20 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %15, i64 noundef 8), !noalias !996
+  %20 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %15, i64 noundef 8), !noalias !996
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = extractvalue { i64, i64 } %20, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %21, i64 %22), !noalias !996
@@ -7631,7 +7631,7 @@ _ZN5gimli5write6writer6Writer9write_u6417hfe89ea247b58262eE.exit: ; preds = %11,
   br i1 %36, label %37, label %_ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit
 
 37:                                               ; preds = %31
-  %38 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %34, i64 noundef 1), !noalias !1011
+  %38 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %34, i64 noundef 1), !noalias !1011
   %39 = extractvalue { i64, i64 } %38, 0
   %40 = extractvalue { i64, i64 } %38, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %39, i64 %40), !noalias !1011
@@ -7665,7 +7665,7 @@ _ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit: ; preds = %31, 
   br i1 %56, label %57, label %_ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit
 
 57:                                               ; preds = %48
-  %58 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %53, i64 noundef 2), !noalias !1029
+  %58 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %53, i64 noundef 2), !noalias !1029
   %59 = extractvalue { i64, i64 } %58, 0
   %60 = extractvalue { i64, i64 } %58, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %59, i64 %60), !noalias !1029
@@ -7698,7 +7698,7 @@ _ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit: ; preds = %48,
   br i1 %77, label %78, label %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit
 
 78:                                               ; preds = %69
-  %79 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %74, i64 noundef 4), !noalias !1047
+  %79 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %74, i64 noundef 4), !noalias !1047
   %80 = extractvalue { i64, i64 } %79, 0
   %81 = extractvalue { i64, i64 } %79, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %80, i64 %81), !noalias !1047
@@ -7762,7 +7762,7 @@ define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_sdat
   br i1 %19, label %20, label %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit
 
 20:                                               ; preds = %11
-  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %16, i64 noundef 8), !noalias !1065
+  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %16, i64 noundef 8), !noalias !1065
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %22, i64 %23), !noalias !1065
@@ -7793,7 +7793,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit: ; preds = %11,
   br i1 %38, label %39, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit
 
 39:                                               ; preds = %32
-  %40 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %36, i64 noundef 1), !noalias !1080
+  %40 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %36, i64 noundef 1), !noalias !1080
   %41 = extractvalue { i64, i64 } %40, 0
   %42 = extractvalue { i64, i64 } %40, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %41, i64 %42), !noalias !1080
@@ -7828,7 +7828,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit: ; preds = %32, 
   br i1 %59, label %60, label %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit
 
 60:                                               ; preds = %50
-  %61 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %54, i64 noundef %56, i64 noundef 2), !noalias !1098
+  %61 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %56, i64 noundef 2), !noalias !1098
   %62 = extractvalue { i64, i64 } %61, 0
   %63 = extractvalue { i64, i64 } %61, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %62, i64 %63), !noalias !1098
@@ -7862,7 +7862,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit: ; preds = %50,
   br i1 %81, label %82, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit
 
 82:                                               ; preds = %72
-  %83 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %76, i64 noundef %78, i64 noundef 4), !noalias !1116
+  %83 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %76, i64 noundef %78, i64 noundef 4), !noalias !1116
   %84 = extractvalue { i64, i64 } %83, 0
   %85 = extractvalue { i64, i64 } %83, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %84, i64 %85), !noalias !1116
@@ -7943,7 +7943,7 @@ define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_udat
   br i1 %15, label %16, label %_ZN5gimli5write6writer6Writer9write_u6417hfe89ea247b58262eE.exit
 
 16:                                               ; preds = %8
-  %17 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %12, i64 noundef 8), !noalias !1134
+  %17 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12, i64 noundef 8), !noalias !1134
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %18, i64 %19), !noalias !1134
@@ -7973,7 +7973,7 @@ _ZN5gimli5write6writer6Writer9write_u6417hfe89ea247b58262eE.exit: ; preds = %8, 
   br i1 %33, label %34, label %_ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit
 
 34:                                               ; preds = %28
-  %35 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %31, i64 noundef 1), !noalias !1149
+  %35 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %31, i64 noundef 1), !noalias !1149
   %36 = extractvalue { i64, i64 } %35, 0
   %37 = extractvalue { i64, i64 } %35, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %36, i64 %37), !noalias !1149
@@ -8007,7 +8007,7 @@ _ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit: ; preds = %28, 
   br i1 %53, label %54, label %_ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit
 
 54:                                               ; preds = %45
-  %55 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %50, i64 noundef 2), !noalias !1167
+  %55 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %50, i64 noundef 2), !noalias !1167
   %56 = extractvalue { i64, i64 } %55, 0
   %57 = extractvalue { i64, i64 } %55, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %56, i64 %57), !noalias !1167
@@ -8040,7 +8040,7 @@ _ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit: ; preds = %45,
   br i1 %74, label %75, label %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit
 
 75:                                               ; preds = %66
-  %76 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %71, i64 noundef 4), !noalias !1185
+  %76 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %71, i64 noundef 4), !noalias !1185
   %77 = extractvalue { i64, i64 } %76, 0
   %78 = extractvalue { i64, i64 } %76, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %77, i64 %78), !noalias !1185
@@ -8101,7 +8101,7 @@ define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_udat
   br i1 %16, label %17, label %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit
 
 17:                                               ; preds = %8
-  %18 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %13, i64 noundef 8), !noalias !1203
+  %18 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %13, i64 noundef 8), !noalias !1203
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %19, i64 %20), !noalias !1203
@@ -8132,7 +8132,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit: ; preds = %8, 
   br i1 %35, label %36, label %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit
 
 36:                                               ; preds = %29
-  %37 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %33, i64 noundef 1), !noalias !1218
+  %37 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31, i64 noundef %33, i64 noundef 1), !noalias !1218
   %38 = extractvalue { i64, i64 } %37, 0
   %39 = extractvalue { i64, i64 } %37, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %38, i64 %39), !noalias !1218
@@ -8167,7 +8167,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit: ; preds = %29, 
   br i1 %56, label %57, label %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit
 
 57:                                               ; preds = %47
-  %58 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51, i64 noundef %53, i64 noundef 2), !noalias !1236
+  %58 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %51, i64 noundef %53, i64 noundef 2), !noalias !1236
   %59 = extractvalue { i64, i64 } %58, 0
   %60 = extractvalue { i64, i64 } %58, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %59, i64 %60), !noalias !1236
@@ -8201,7 +8201,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit: ; preds = %47,
   br i1 %78, label %79, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit
 
 79:                                               ; preds = %69
-  %80 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %73, i64 noundef %75, i64 noundef 4), !noalias !1254
+  %80 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %73, i64 noundef %75, i64 noundef 4), !noalias !1254
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = extractvalue { i64, i64 } %80, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %81, i64 %82), !noalias !1254
@@ -8429,7 +8429,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817h4afea6
   br i1 %.not, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit", label %34
 
 34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
-  %35 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %31, i64 noundef %12), !noalias !1359
+  %35 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %31, i64 noundef %12), !noalias !1359
   %36 = extractvalue { i64, i64 } %35, 0
   %37 = extractvalue { i64, i64 } %35, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %36, i64 %37), !noalias !1359
@@ -8540,7 +8540,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817hb83e66
   br i1 %.not, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit", label %35
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
-  %36 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %32, i64 noundef %12), !noalias !1398
+  %36 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30, i64 noundef %32, i64 noundef %12), !noalias !1398
   %37 = extractvalue { i64, i64 } %36, 0
   %38 = extractvalue { i64, i64 } %36, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %37, i64 %38), !noalias !1398
@@ -8648,7 +8648,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h28306e
   br i1 %.not, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit", label %35
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
-  %36 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %32, i64 noundef %13), !noalias !1437
+  %36 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %32, i64 noundef %13), !noalias !1437
   %37 = extractvalue { i64, i64 } %36, 0
   %38 = extractvalue { i64, i64 } %36, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %37, i64 %38), !noalias !1437
@@ -8757,7 +8757,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h82bb31
   br i1 %.not, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit", label %36
 
 36:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
-  %37 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %33, i64 noundef %13), !noalias !1476
+  %37 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31, i64 noundef %33, i64 noundef %13), !noalias !1476
   %38 = extractvalue { i64, i64 } %37, 0
   %39 = extractvalue { i64, i64 } %37, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %38, i64 %39), !noalias !1476
@@ -9004,7 +9004,7 @@ define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17h9c7094
   br i1 %11, label %12, label %.split37
 
 12:                                               ; preds = %5
-  %13 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8, i64 noundef 4), !noalias !1584
+  %13 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %8, i64 noundef 4), !noalias !1584
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %14, i64 %15), !noalias !1584
@@ -9026,7 +9026,7 @@ define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17h9c7094
   br i1 %24, label %25, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit
 
 25:                                               ; preds = %.split37
-  %26 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %21, i64 noundef 8), !noalias !1603
+  %26 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %21, i64 noundef 8), !noalias !1603
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %27, i64 %28), !noalias !1603
@@ -9053,7 +9053,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit: ; preds = %
   br i1 %39, label %40, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38
 
 40:                                               ; preds = %.split
-  %41 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %36, i64 noundef %35, i64 noundef 4), !noalias !1620
+  %41 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36, i64 noundef %35, i64 noundef 4), !noalias !1620
   %42 = extractvalue { i64, i64 } %41, 0
   %43 = extractvalue { i64, i64 } %41, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %42, i64 %43), !noalias !1620
@@ -9093,7 +9093,7 @@ define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17hf0442d
   br i1 %9, label %11, label %.split37
 
 11:                                               ; preds = %10
-  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6, i64 noundef 4), !noalias !1624
+  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef 4), !noalias !1624
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %13, i64 %14), !noalias !1624
@@ -9115,7 +9115,7 @@ define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17hf0442d
   br i1 %23, label %24, label %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit
 
 24:                                               ; preds = %.split37
-  %25 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %20, i64 noundef 8), !noalias !1649
+  %25 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %20, i64 noundef 8), !noalias !1649
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = extractvalue { i64, i64 } %25, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %26, i64 %27), !noalias !1649
@@ -9133,7 +9133,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit: ; preds = %
   br i1 %9, label %31, label %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit38
 
 31:                                               ; preds = %.split
-  %32 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6, i64 noundef 4), !noalias !1653
+  %32 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef 4), !noalias !1653
   %33 = extractvalue { i64, i64 } %32, 0
   %34 = extractvalue { i64, i64 } %32, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %33, i64 %34), !noalias !1653
@@ -9205,7 +9205,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer21write_eh_pointer_data17h0f6183
   br i1 %20, label %21, label %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i
 
 21:                                               ; preds = %11
-  %22 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %17, i64 noundef 2), !noalias !1681
+  %22 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %17, i64 noundef 2), !noalias !1681
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %23, i64 %24), !noalias !1681
@@ -9243,7 +9243,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i: ; preds = %2
   br i1 %43, label %44, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i
 
 44:                                               ; preds = %34
-  %45 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %40, i64 noundef 4), !noalias !1701
+  %45 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %38, i64 noundef %40, i64 noundef 4), !noalias !1701
   %46 = extractvalue { i64, i64 } %45, 0
   %47 = extractvalue { i64, i64 } %45, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %46, i64 %47), !noalias !1701
@@ -9276,7 +9276,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i: ; preds = %4
   br i1 %64, label %65, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit22
 
 65:                                               ; preds = %56
-  %66 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %61, i64 noundef 8), !noalias !1721
+  %66 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %61, i64 noundef 8), !noalias !1721
   %67 = extractvalue { i64, i64 } %66, 0
   %68 = extractvalue { i64, i64 } %66, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %67, i64 %68), !noalias !1721
@@ -9319,7 +9319,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit22: ; preds =
   br i1 %90, label %91, label %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i25
 
 91:                                               ; preds = %81
-  %92 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %85, i64 noundef %87, i64 noundef 2), !noalias !1741
+  %92 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %85, i64 noundef %87, i64 noundef 2), !noalias !1741
   %93 = extractvalue { i64, i64 } %92, 0
   %94 = extractvalue { i64, i64 } %92, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %93, i64 %94), !noalias !1741
@@ -9358,7 +9358,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i25: ; preds = 
   br i1 %114, label %115, label %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i30
 
 115:                                              ; preds = %105
-  %116 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %109, i64 noundef %111, i64 noundef 4), !noalias !1761
+  %116 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %109, i64 noundef %111, i64 noundef 4), !noalias !1761
   %117 = extractvalue { i64, i64 } %116, 0
   %118 = extractvalue { i64, i64 } %116, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %117, i64 %118), !noalias !1761
@@ -9391,7 +9391,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i30: ; preds = 
   br i1 %135, label %136, label %_ZN5gimli5write6writer6Writer11write_sdata17hf8622d6f16dcc160E.exit37
 
 136:                                              ; preds = %127
-  %137 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %130, i64 noundef %132, i64 noundef 8), !noalias !1781
+  %137 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %130, i64 noundef %132, i64 noundef 8), !noalias !1781
   %138 = extractvalue { i64, i64 } %137, 0
   %139 = extractvalue { i64, i64 } %137, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %138, i64 %139), !noalias !1781
@@ -9461,7 +9461,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer21write_eh_pointer_data17h22a76a
   br i1 %19, label %20, label %_ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit.i
 
 20:                                               ; preds = %11
-  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %16, i64 noundef 2), !noalias !1801
+  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %16, i64 noundef 2), !noalias !1801
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %22, i64 %23), !noalias !1801
@@ -9498,7 +9498,7 @@ _ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit.i: ; preds = %2
   br i1 %41, label %42, label %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i
 
 42:                                               ; preds = %33
-  %43 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %38, i64 noundef 4), !noalias !1821
+  %43 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %38, i64 noundef 4), !noalias !1821
   %44 = extractvalue { i64, i64 } %43, 0
   %45 = extractvalue { i64, i64 } %43, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %44, i64 %45), !noalias !1821
@@ -9530,7 +9530,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i: ; preds = %4
   br i1 %61, label %62, label %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit22
 
 62:                                               ; preds = %54
-  %63 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %58, i64 noundef 8), !noalias !1841
+  %63 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %58, i64 noundef 8), !noalias !1841
   %64 = extractvalue { i64, i64 } %63, 0
   %65 = extractvalue { i64, i64 } %63, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %64, i64 %65), !noalias !1841
@@ -9572,7 +9572,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit22: ; preds =
   br i1 %86, label %87, label %_ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit.i25
 
 87:                                               ; preds = %78
-  %88 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %83, i64 noundef 2), !noalias !1861
+  %88 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %83, i64 noundef 2), !noalias !1861
   %89 = extractvalue { i64, i64 } %88, 0
   %90 = extractvalue { i64, i64 } %88, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %89, i64 %90), !noalias !1861
@@ -9610,7 +9610,7 @@ _ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit.i25: ; preds = 
   br i1 %109, label %110, label %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i30
 
 110:                                              ; preds = %101
-  %111 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %106, i64 noundef 4), !noalias !1881
+  %111 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %106, i64 noundef 4), !noalias !1881
   %112 = extractvalue { i64, i64 } %111, 0
   %113 = extractvalue { i64, i64 } %111, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %112, i64 %113), !noalias !1881
@@ -9642,7 +9642,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i30: ; preds = 
   br i1 %129, label %130, label %_ZN5gimli5write6writer6Writer11write_sdata17h7cb3037256cf9c0fE.exit37
 
 130:                                              ; preds = %122
-  %131 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %126, i64 noundef 8), !noalias !1901
+  %131 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %126, i64 noundef 8), !noalias !1901
   %132 = extractvalue { i64, i64 } %131, 0
   %133 = extractvalue { i64, i64 } %131, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %132, i64 %133), !noalias !1901
@@ -9769,7 +9769,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada
   br i1 %6, label %7, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit"
 
 7:                                                ; preds = %2
-  %8 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4, i64 noundef 1), !noalias !1986
+  %8 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %4, i64 noundef 1), !noalias !1986
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %9, i64 %10), !noalias !1986
@@ -9798,7 +9798,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer8write_u817hc32e236117ab
   br i1 %7, label %8, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit"
 
 8:                                                ; preds = %2
-  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %5, i64 noundef 1), !noalias !1999
+  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %5, i64 noundef 1), !noalias !1999
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %10, i64 %11), !noalias !1999
@@ -9830,7 +9830,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f
   br i1 %10, label %11, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit"
 
 11:                                               ; preds = %2
-  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7, i64 noundef 2), !noalias !2015
+  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7, i64 noundef 2), !noalias !2015
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %13, i64 %14), !noalias !2015
@@ -9864,7 +9864,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b
   br i1 %9, label %10, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6, i64 noundef 2), !noalias !2031
+  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i64 noundef 2), !noalias !2031
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %12, i64 %13), !noalias !2031
@@ -9899,7 +9899,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer9write_u3217h828145f091d
   br i1 %10, label %11, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit"
 
 11:                                               ; preds = %2
-  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7, i64 noundef 4), !noalias !2047
+  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7, i64 noundef 4), !noalias !2047
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %13, i64 %14), !noalias !2047
@@ -9933,7 +9933,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c
   br i1 %9, label %10, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6, i64 noundef 4), !noalias !2063
+  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i64 noundef 4), !noalias !2063
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %12, i64 %13), !noalias !2063
@@ -9968,7 +9968,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d4
   br i1 %10, label %11, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit"
 
 11:                                               ; preds = %2
-  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7, i64 noundef 8), !noalias !2079
+  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7, i64 noundef 8), !noalias !2079
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %13, i64 %14), !noalias !2079
@@ -10002,7 +10002,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer9write_u6417hfe89ea247b5
   br i1 %9, label %10, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6, i64 noundef 8), !noalias !2095
+  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd94b835d50c19d4dE.llvm.10139999343106789109"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i64 noundef 8), !noalias !2095
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10139999343106789109(i64 noundef %12, i64 %13), !noalias !2095

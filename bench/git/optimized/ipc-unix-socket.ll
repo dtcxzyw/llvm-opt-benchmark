@@ -727,7 +727,7 @@ if.else:                                          ; preds = %if.end7
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.else
-  %call.i13 = call i32 @close(i32 noundef %retval.0.i) #12
+  %call.i13 = call i32 @close(i32 noundef range(i32 0, -2147483648) %retval.0.i) #12
   br label %fifo_enqueue.exit
 
 if.end3.i:                                        ; preds = %if.else
@@ -883,7 +883,7 @@ if.end15.i:                                       ; preds = %if.end7.i
   br i1 %or.cond.not.i, label %if.end5, label %worker_thread__wait_for_io_start.exit
 
 worker_thread__wait_for_io_start.exit:            ; preds = %if.then.i, %if.then9.i, %if.end15.i
-  %call27.i = call i32 @close(i32 noundef %fd.1.i24) #12
+  %call27.i = call i32 @close(i32 noundef range(i32 0, -1) %fd.1.i24) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pollfd.i)
   br label %for.cond.backedge
 
@@ -895,7 +895,7 @@ if.end5:                                          ; preds = %if.end15.i
   store i32 0, ptr %reply_data.i, align 8
   store ptr %_worker_thread_data, ptr %worker_thread_data1.i, align 8
   store i32 %fd.1.i24, ptr %fd2.i, align 4
-  %call.i13 = call i64 @read_packetized_to_strbuf(i32 noundef %fd.1.i24, ptr noundef nonnull %buf.i, i32 noundef 9) #12
+  %call.i13 = call i64 @read_packetized_to_strbuf(i32 noundef range(i32 0, -1) %fd.1.i24, ptr noundef nonnull %buf.i, i32 noundef 9) #12
   %conv.i = trunc i64 %call.i13 to i32
   %cmp.i14 = icmp sgt i32 %conv.i, -1
   br i1 %cmp.i14, label %if.then.i16, label %worker_thread__do_io.exit

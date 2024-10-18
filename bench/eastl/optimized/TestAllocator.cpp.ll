@@ -423,7 +423,7 @@ for.end31.i:                                      ; preds = %for.body23.i
   store ptr %intList132.i, ptr %intList132.i, align 8
   %mpPrev.i.i.i46.i = getelementptr inbounds i8, ptr %intList132.i, i64 8
   store ptr %intList132.i, ptr %mpPrev.i.i.i46.i, align 8
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull %buffer119.i, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull %buffer119.i, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %_ZN5eastl29fixed_allocator_with_overflow4initEPvmmmm.exit.i unwind label %lpad35.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN5eastl29fixed_allocator_with_overflow4initEPvmmmm.exit.i: ; preds = %for.end31.i
@@ -552,7 +552,7 @@ _ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE5clearEv.exit.i: ; preds = %
   store ptr %intList162.i, ptr %intList162.i, align 8
   %mpPrev.i.i.i61.i = getelementptr inbounds i8, ptr %intList162.i, i64 8
   store ptr %intList162.i, ptr %mpPrev.i.i.i61.i, align 8
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull %buffer161.i, i64 noundef 4800, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull %buffer161.i, i64 noundef 4800, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %_ZN5eastl29fixed_allocator_with_overflow4initEPvmmmm.exit67.i unwind label %lpad66.loopexit.split-lp.i
 
 _ZN5eastl29fixed_allocator_with_overflow4initEPvmmmm.exit67.i: ; preds = %_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE5clearEv.exit.i
@@ -636,7 +636,7 @@ invoke.cont83.i:                                  ; preds = %for.end76.i
   store ptr %intList282.i, ptr %intList282.i, align 8
   %mpPrev.i.i.i84.i = getelementptr inbounds i8, ptr %intList282.i, i64 8
   store ptr %intList282.i, ptr %mpPrev.i.i.i84.i, align 8
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull %buffer281.i, i64 noundef 4800, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef nonnull %buffer281.i, i64 noundef 4800, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont87.i unwind label %lpad86.i
 
 invoke.cont87.i:                                  ; preds = %invoke.cont83.i
@@ -649,7 +649,7 @@ invoke.cont87.i:                                  ; preds = %invoke.cont83.i
   %mnNodeSize.i89.i = getelementptr inbounds i8, ptr %intList282.i, i64 72
   store i64 24, ptr %mnNodeSize.i89.i, align 8
   %71 = load ptr, ptr %intList162.i, align 8
-  invoke void @_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE8DoAssignINS_12ListIteratorIiPKiRS5_EEEEvT_S9_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(88) %intList282.i, ptr %71, ptr nonnull %intList162.i)
+  invoke void @_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE8DoAssignINS_12ListIteratorIiPKiRS5_EEEEvT_S9_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(88) %intList282.i, ptr %71, ptr nonnull align 8 dereferenceable(88) %intList162.i)
           to label %invoke.cont88.i unwind label %lpad86.i
 
 invoke.cont88.i:                                  ; preds = %invoke.cont87.i
@@ -1224,7 +1224,7 @@ invoke.cont16.i:                                  ; preds = %_ZN5eastleqIiNS_16a
 while.body.i.i.i.i33:                             ; preds = %invoke.cont16.i, %while.body.i.i.i.i33
   %p.04.i.i.i.i34 = phi ptr [ %159, %while.body.i.i.i.i33 ], [ %158, %invoke.cont16.i ]
   %159 = load ptr, ptr %p.04.i.i.i.i34, align 8
-  call void @free(ptr noundef %p.04.i.i.i.i34) #12
+  call void @free(ptr noundef nonnull %p.04.i.i.i.i34) #12
   %cmp.not.i.i.i.i35 = icmp eq ptr %159, %myList2.i13
   br i1 %cmp.not.i.i.i.i35, label %_ZN5eastl4listIiNS_16allocator_mallocEED2Ev.exit.i, label %while.body.i.i.i.i33, !llvm.loop !84
 
@@ -1236,7 +1236,7 @@ _ZN5eastl4listIiNS_16allocator_mallocEED2Ev.exit.i: ; preds = %while.body.i.i.i.
 while.body.i.i.i47.i:                             ; preds = %_ZN5eastl4listIiNS_16allocator_mallocEED2Ev.exit.i, %while.body.i.i.i47.i
   %p.04.i.i.i48.i = phi ptr [ %161, %while.body.i.i.i47.i ], [ %160, %_ZN5eastl4listIiNS_16allocator_mallocEED2Ev.exit.i ]
   %161 = load ptr, ptr %p.04.i.i.i48.i, align 8
-  call void @free(ptr noundef %p.04.i.i.i48.i) #12
+  call void @free(ptr noundef nonnull %p.04.i.i.i48.i) #12
   %cmp.not.i.i.i49.i = icmp eq ptr %161, %myList1.i12
   br i1 %cmp.not.i.i.i49.i, label %_ZL19TestAllocatorMallocv.exit, label %while.body.i.i.i47.i, !llvm.loop !84
 
@@ -1250,7 +1250,7 @@ lpad1.i:                                          ; preds = %_ZN5eastleqIiNS_16a
 while.body.i.i.i52.i:                             ; preds = %lpad1.i, %while.body.i.i.i52.i
   %p.04.i.i.i53.i = phi ptr [ %164, %while.body.i.i.i52.i ], [ %163, %lpad1.i ]
   %164 = load ptr, ptr %p.04.i.i.i53.i, align 8
-  call void @free(ptr noundef %p.04.i.i.i53.i) #12
+  call void @free(ptr noundef nonnull %p.04.i.i.i53.i) #12
   %cmp.not.i.i.i54.i = icmp eq ptr %164, %myList2.i13
   br i1 %cmp.not.i.i.i54.i, label %ehcleanup.i29, label %while.body.i.i.i52.i, !llvm.loop !84
 
@@ -1262,7 +1262,7 @@ ehcleanup.i29:                                    ; preds = %while.body.i.i.i52.
 while.body.i.i.i57.i:                             ; preds = %ehcleanup.i29, %while.body.i.i.i57.i
   %p.04.i.i.i58.i = phi ptr [ %166, %while.body.i.i.i57.i ], [ %165, %ehcleanup.i29 ]
   %166 = load ptr, ptr %p.04.i.i.i58.i, align 8
-  call void @free(ptr noundef %p.04.i.i.i58.i) #12
+  call void @free(ptr noundef nonnull %p.04.i.i.i58.i) #12
   %cmp.not.i.i.i59.i = icmp eq ptr %166, %myList1.i12
   br i1 %cmp.not.i.i.i59.i, label %common.resume, label %while.body.i.i.i57.i, !llvm.loop !84
 

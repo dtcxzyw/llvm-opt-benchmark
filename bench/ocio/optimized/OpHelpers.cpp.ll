@@ -242,7 +242,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
 
 if.end.i:                                         ; preds = %for.body
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i10 = invoke noundef float %3(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i10 = invoke noundef float %3(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %invoke.cont9 unwind label %lpad.loopexit
 
 invoke.cont9:                                     ; preds = %if.end.i
@@ -259,7 +259,7 @@ invoke.cont9:                                     ; preds = %if.end.i
 
 if.end.i14:                                       ; preds = %invoke.cont9
   %6 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i18 = invoke noundef float %6(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i11)
+  %call2.i18 = invoke noundef float %6(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i11)
           to label %invoke.cont16 unwind label %lpad.loopexit
 
 invoke.cont16:                                    ; preds = %if.end.i14
@@ -276,7 +276,7 @@ invoke.cont16:                                    ; preds = %if.end.i14
 
 if.end.i24:                                       ; preds = %invoke.cont16
   %10 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i28 = invoke noundef float %10(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i21)
+  %call2.i28 = invoke noundef float %10(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i21)
           to label %invoke.cont25 unwind label %lpad.loopexit
 
 invoke.cont25:                                    ; preds = %if.end.i24
@@ -548,7 +548,7 @@ if.then.i:                                        ; preds = %for.body
 
 if.end.i:                                         ; preds = %for.body
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %if.end.i
@@ -822,7 +822,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
 
 if.end.i:                                         ; preds = %if.end17
   %12 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i12 = invoke noundef float %12(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i12 = invoke noundef float %12(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %if.end.i
@@ -839,7 +839,7 @@ invoke.cont18:                                    ; preds = %if.end.i
 
 if.end.i16:                                       ; preds = %invoke.cont18
   %15 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i20 = invoke noundef float %15(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i13)
+  %call2.i20 = invoke noundef float %15(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i13)
           to label %invoke.cont21 unwind label %lpad.loopexit
 
 invoke.cont21:                                    ; preds = %if.end.i16
@@ -856,7 +856,7 @@ invoke.cont21:                                    ; preds = %if.end.i16
 
 if.end.i26:                                       ; preds = %invoke.cont21
   %19 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i30 = invoke noundef float %19(ptr noundef nonnull align 8 dereferenceable(16) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i23)
+  %call2.i30 = invoke noundef float %19(ptr noundef nonnull align 8 dereferenceable(32) %lutValueGenerator, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i23)
           to label %invoke.cont26 unwind label %lpad.loopexit
 
 invoke.cont26:                                    ; preds = %if.end.i26

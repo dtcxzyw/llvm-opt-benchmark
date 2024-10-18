@@ -472,11 +472,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %37 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %addr, ptr noundef %32, i32 noundef range(i32 0, 256) %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %addr, ptr noundef %32, i32 noundef range(i32 0, 256) %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_read.exit
 
 trace_ide_ioport_read.exit:                       ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -783,11 +783,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %addr, i32 noundef range(i32 0, 65536) %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_readw.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %addr, i32 noundef range(i32 0, 65536) %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_readw.exit
 
 trace_ide_data_readw.exit:                        ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1183,11 +1183,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %addr, i32 noundef range(i32 0, 256) %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_status_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %addr, i32 noundef range(i32 0, 256) %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_status_read.exit
 
 trace_ide_status_read.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7035,11 +7035,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %65 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %66 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %opaque, i64 noundef %sector_num.0, i32 noundef %46, ptr noundef %retval.0.i116) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %opaque, i64 noundef range(i64 -2147483648, 281477124194303) %sector_num.0, i32 noundef range(i32 1, 0) %46, ptr noundef %retval.0.i116) #17
   br label %trace_ide_dma_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef nonnull %opaque, i64 noundef %sector_num.0, i32 noundef %46, ptr noundef %retval.0.i116) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef nonnull %opaque, i64 noundef range(i64 -2147483648, 281477124194303) %sector_num.0, i32 noundef range(i32 1, 0) %46, ptr noundef %retval.0.i116) #17
   br label %trace_ide_dma_cb.exit
 
 trace_ide_dma_cb.exit:                            ; preds = %IDE_DMA_CMD_str.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7345,11 +7345,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i28
   %29 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i64 noundef range(i64 -2147483648, 281474976710656) %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i28
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i64 noundef range(i64 -2147483648, 281474976710656) %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_read.exit
 
 trace_ide_sector_read.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7764,11 +7764,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %25 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %26 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %25, i64 noundef %26, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %25, i64 noundef %26, i64 noundef range(i64 -2147483648, 281474976710656) %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i64 noundef range(i64 -2147483648, 281474976710656) %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_write.exit
 
 trace_ide_sector_write.exit:                      ; preds = %ide_get_sector.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -23,10 +23,10 @@ define void @closest_pairs2graph(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %9 = sext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %10 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 8)
-  %11 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 8)
-  %12 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 8)
-  %13 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 8)
+  %10 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 8)
+  %11 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 8)
+  %12 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 8)
+  %13 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 8)
   %.not131.i = icmp eq i32 %1, 0
   br i1 %.not131.i, label %gv_sort.exit.i, label %.lr.ph.i
 
@@ -47,7 +47,7 @@ define void @closest_pairs2graph(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %18, label %19, label %.lr.ph120.preheader.i
 
 19:                                               ; preds = %._crit_edge.i
-  tail call void @qsort(ptr noundef nonnull %12, i64 noundef %9, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #16
+  tail call void @qsort(ptr noundef nonnull %12, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #16
   br label %.lr.ph120.preheader.i
 
 gv_sort.exit.i:                                   ; preds = %4
@@ -75,7 +75,7 @@ gv_sort.exit.i:                                   ; preds = %4
 ._crit_edge121.i:                                 ; preds = %.lr.ph120.i, %gv_sort.exit.i
   %26 = phi i1 [ false, %gv_sort.exit.i ], [ %18, %.lr.ph120.i ]
   %27 = add nsw i64 %9, -1
-  %28 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
+  %28 = tail call i64 @llvm.usub.sat.i64(i64 range(i64 -2147483648, 2147483648) %9, i64 1)
   %29 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %7, i64 16
@@ -462,7 +462,7 @@ find_closest_pairs.exit:                          ; preds = %92, %.preheader.i, 
   tail call void @free(ptr noundef %.val.i) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %192 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 4)
+  %192 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 4)
   %193 = shl nuw i64 %.sroa.8.1, 1
   %194 = add i64 %193, %9
   %195 = tail call fastcc ptr @gv_calloc(i64 noundef %194, i64 noundef 4)
@@ -513,7 +513,7 @@ find_closest_pairs.exit:                          ; preds = %92, %.preheader.i, 
   br i1 %exitcond88.not.i, label %._crit_edge.i10, label %.lr.ph71.i
 
 ._crit_edge.i10:                                  ; preds = %.lr.ph71.i, %.preheader.i9
-  %210 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 40)
+  %210 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 40)
   store ptr %210, ptr %3, align 8
   br i1 %.not131.i, label %._crit_edge77.i, label %.lr.ph76.i
 
@@ -709,13 +709,13 @@ define internal fastcc void @insert(ptr nocapture noundef nonnull %0, ptr nocapt
   br label %gv_recalloc.exit
 
 20:                                               ; preds = %15
-  %21 = tail call ptr @realloc(ptr noundef %.pre40, i64 noundef %17) #20
+  %21 = tail call ptr @realloc(ptr noundef %.pre40, i64 noundef range(i64 0, -15) %17) #20
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.1, i64 noundef %17) #18
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.1, i64 noundef range(i64 0, -15) %17) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 

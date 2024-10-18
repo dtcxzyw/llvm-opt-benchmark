@@ -2247,7 +2247,7 @@ CopySendChar.exit:                                ; preds = %.lr.ph61, %71, %70
   %106 = add nsw i32 %105, -4
   %.val49 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %107 = call i32 @llvm.bswap.i32(i32 %106)
+  %107 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %106)
   store i32 %107, ptr %3, align 4
   call void @appendBinaryStringInfo(ptr noundef %.val49, ptr noundef nonnull %3, i32 noundef 4) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)

@@ -285,7 +285,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %112
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %11, i64 96
   store ptr %129, ptr %130, align 8
-  %131 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %11, ptr noundef %2, i64 noundef %121, ptr noundef %0) #4
+  %131 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %11, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %121, ptr noundef %0) #4
   %132 = getelementptr inbounds i8, ptr %11, i64 24
   %133 = load i64, ptr %132, align 8
   %134 = load i32, ptr %127, align 4

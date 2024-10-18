@@ -155,7 +155,7 @@ _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit: ; pred
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %7, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 -1, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %78, i8 -1, i64 24, i1 false)
   %79 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 2251799813685247, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 119
@@ -177,8 +177,8 @@ define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull a
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef 4) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, i64 noundef 4) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = getelementptr inbounds i8, ptr %2, i64 80
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 0) #10
@@ -257,8 +257,8 @@ define dso_local void @_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv(ptr n
   %2 = alloca %"class.clang::ento::PathDiagnosticConsumer::FilesMade", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef 4) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, i64 noundef 4) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = getelementptr inbounds i8, ptr %2, i64 80
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 0) #10

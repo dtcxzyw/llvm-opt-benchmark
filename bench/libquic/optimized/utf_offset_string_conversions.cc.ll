@@ -802,11 +802,11 @@ invoke.cont.i:                                    ; preds = %_ZSt8for_eachIN9__g
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4base25PrepareForUTF16Or32OutputINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvPKcmPT_(ptr noundef %call.i, i64 noundef %call2.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZN4base25PrepareForUTF16Or32OutputINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvPKcmPT_(ptr noundef %call.i, i64 noundef %call2.i, ptr noundef nonnull align 8 %agg.result)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %invoke.cont1.i
-  %call.i2.i = invoke noundef zeroext i1 @_ZN4base14ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_PSt6vectorINS_14OffsetAdjuster10AdjustmentESaISD_EE(ptr noundef %call.i, i64 noundef %call2.i, ptr noundef nonnull %agg.result, ptr noundef nonnull %adjustments)
+  %call.i2.i = invoke noundef zeroext i1 @_ZN4base14ConvertUnicodeIcNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbPKT_mPT0_PSt6vectorINS_14OffsetAdjuster10AdjustmentESaISD_EE(ptr noundef %call.i, i64 noundef %call2.i, ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull %adjustments)
           to label %lor.lhs.false.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc.i, %invoke.cont1.i, %invoke.cont.i, %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4base11LimitOffsetINS7_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEET0_T_SJ_SI_.exit

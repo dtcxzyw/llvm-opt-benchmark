@@ -3140,7 +3140,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBa
   resume { ptr, i32 } %58
 
 59:                                               ; preds = %22
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef 0, i64 noundef %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %10)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef 0, i64 noundef %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %10)
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_ComputeExtentImplIZNS_17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS5_E3$_0EEbS7_SB_OT_.exit"
 
 "_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_ComputeExtentImplIZNS_17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS5_E3$_0EEbS7_SB_OT_.exit": ; preds = %21, %49, %53, %59
@@ -4518,7 +4518,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   resume { ptr, i32 } %68
 
 69:                                               ; preds = %34
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased19ComputePointsAtTimeEPNS_7VtArrayINS_7GfVec3fEEERNS_9TfWeakPtrINS_8UsdStageEEENS_11UsdTimeCodeERKS3_SB_S9_SB_fENK3$_0clEmm"(ptr noundef nonnull readonly align 8 dereferenceable(40) %15, i64 noundef 0, i64 noundef %16)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased19ComputePointsAtTimeEPNS_7VtArrayINS_7GfVec3fEEERNS_9TfWeakPtrINS_8UsdStageEEENS_11UsdTimeCodeERKS3_SB_S9_SB_fENK3$_0clEmm"(ptr noundef nonnull readonly align 8 dereferenceable(40) %15, i64 noundef 0, i64 noundef range(i64 1, 0) %16)
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRKZNS_17UsdGeomPointBased19ComputePointsAtTimeEPNS_7VtArrayINS_7GfVec3fEEERNS_9TfWeakPtrINS_8UsdStageEEENS_11UsdTimeCodeERKS4_SC_SA_SC_fE3$_0EEvmOT_.exit"
 
 "_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRKZNS_17UsdGeomPointBased19ComputePointsAtTimeEPNS_7VtArrayINS_7GfVec3fEEERNS_9TfWeakPtrINS_8UsdStageEEENS_11UsdTimeCodeERKS4_SC_SA_SC_fE3$_0EEvmOT_.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEEptEv.exit, %59, %63, %69
@@ -5708,7 +5708,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__30
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = load ptr, ptr %18, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit.i unwind label %20
 
 20:                                               ; preds = %17
@@ -5752,7 +5752,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_InitINS_7TfTokenEEENSt9enable_ifI
 38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_InitINS_7TfTokenEEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERKS4_.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load ptr, ptr %39, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_7TfTokenEEENSt9enable_ifIXoontsr12_TypeInfoForIT_E4TypeE7IsLocalntsr12_TypeInfoForIS4_E4TypeE14HasTrivialCopyERS0_E4typeERKS4_.exit unwind label %41
 
 41:                                               ; preds = %38
@@ -5808,7 +5808,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.t
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread4, %16
@@ -8958,7 +8958,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.t
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread10, %16
@@ -9188,7 +9188,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15Uncheck
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %12 = load ptr, ptr %11, align 8, !noalias !43
-  invoke void %12(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void %12(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %8
@@ -9214,7 +9214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i: ; preds = %13, %.
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %27 unwind label %24
 
 24:                                               ; preds = %19
@@ -9242,7 +9242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i: ; preds = %13, %.
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %46 unwind label %37
 
 37:                                               ; preds = %32, %8
@@ -9292,7 +9292,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit unwind label %59
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %14, %8
@@ -9326,7 +9326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %14, %8
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge unwind label %34
 
 ._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge: ; preds = %31
@@ -9378,7 +9378,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo4MoveERNSt15aligned_stor
 53:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo4MoveERNSt15aligned_storageILm8ELm8EE4typeES5_.exit
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit unwind label %56
 
 56:                                               ; preds = %53
@@ -9451,12 +9451,12 @@ define internal noalias noundef ptr @"_ZN3tbb6detail2d112start_reduceINS1_13bloc
   br i1 %8, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %2
-  %9 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %9 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %10 = icmp eq i16 %7, %9
   br i1 %10, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %11
 
 11:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %12 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %12 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   br label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds = %2, %11, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -9467,7 +9467,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
 
 15:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
   store i64 1, ptr %13, align 8
-  %16 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %16 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i16, ptr %17, align 8
   %.not7.i = icmp eq i16 %16, %18
@@ -9625,7 +9625,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %107 = getelementptr inbounds nuw i8, ptr %76, i64 96
   store ptr %99, ptr %107, align 32
   %.val8.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %76, ptr noundef nonnull align 8 dereferenceable(128) %.val8.i.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(129) %76, ptr noundef nonnull align 8 dereferenceable(128) %.val8.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %108 = load i64, ptr %57, align 16
   %109 = load i64, ptr %56, align 64
@@ -9899,7 +9899,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %243 = getelementptr inbounds nuw i8, ptr %218, i64 96
   store ptr %235, ptr %243, align 32
   %.val9.i.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %218, ptr noundef nonnull align 8 dereferenceable(128) %.val9.i.i.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(129) %218, ptr noundef nonnull align 8 dereferenceable(128) %.val9.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %244 = add i8 %.promoted.i.pr100.i.i, -1
   store i8 %244, ptr %164, align 2
@@ -10328,12 +10328,12 @@ define internal noalias noundef ptr @"_ZN3tbb6detail2d112start_reduceINS1_13bloc
   br i1 %10, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %2
-  %11 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %11 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %12 = icmp eq i16 %9, %11
   br i1 %12, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %13
 
 13:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %14 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %14 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   br label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds = %2, %13, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -10344,7 +10344,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
 
 17:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
   store i64 1, ptr %15, align 8
-  %18 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %18 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i16, ptr %19, align 8
   %.not7.i = icmp eq i16 %18, %20
@@ -10502,7 +10502,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %109 = getelementptr inbounds nuw i8, ptr %78, i64 96
   store ptr %101, ptr %109, align 32
   %.val8.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %78, ptr noundef nonnull align 8 dereferenceable(128) %.val8.i.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(129) %78, ptr noundef nonnull align 8 dereferenceable(128) %.val8.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %110 = load i64, ptr %59, align 16
   %111 = load i64, ptr %58, align 64
@@ -10557,7 +10557,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %.val.i.i.i.i = load ptr, ptr %133, align 8
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i.i.i, i64 noundef %123, i64 noundef %124, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %134)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i.i.i, i64 noundef %123, i64 noundef %124, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %134)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %134, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_12start_reduceINS1_13blocked_rangeImEENS1_18lambda_reduce_bodyIS8_N32pxrInternal_v0_24__pxrReserved__9GfRange3dEZNSA_19WorkParallelReduceNIZNSA_17UsdGeomPointBased13ComputeExtentERKNSA_7VtArrayINSA_7GfVec3fEEERKNSA_10GfMatrix4dEPSG_E3$_0ZNSA_12_GLOBAL__N_118_ComputeExtentImplISN_EEbSI_SM_OT_EUlSB_SB_E_SB_EET1_RKST_mSR_OT0_mE13Work_Body_TBBSS_EEKNS1_16auto_partitionerEEES8_EEvRSQ_RSW_RNS1_14execution_dataE.exit"
@@ -10719,7 +10719,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %216 = getelementptr inbounds nuw i8, ptr %191, i64 96
   store ptr %208, ptr %216, align 32
   %.val9.i.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %191, ptr noundef nonnull align 8 dereferenceable(128) %.val9.i.i.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(129) %191, ptr noundef nonnull align 8 dereferenceable(128) %.val9.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %217 = add i8 %.promoted.i.pr51.i.i, -1
   store i8 %217, ptr %137, align 2
@@ -10758,7 +10758,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %.val13.i.i, i64 24
   %.val.i.i20.i.i = load ptr, ptr %236, align 8
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i20.i.i, i64 noundef %.val15.i.i, i64 noundef %.val14.i.i, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %237)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i20.i.i, i64 noundef %.val15.i.i, i64 noundef %.val14.i.i, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %237)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %238 = add i8 %.promoted.i.pr51.i.i, -1
@@ -11328,12 +11328,12 @@ define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
   br i1 %8, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %2
-  %9 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %9 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %10 = icmp eq i16 %7, %9
   br i1 %10, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %11
 
 11:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %12 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %12 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   br label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds = %2, %11, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -11344,7 +11344,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
 
 15:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
   store i64 1, ptr %13, align 8
-  %16 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %16 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i16, ptr %17, align 8
   %.not7.i = icmp eq i16 %16, %18
@@ -11457,7 +11457,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 96
   store ptr %72, ptr %78, align 32
   %.val.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %51, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %79 = load i64, ptr %32, align 16
   %80 = load i64, ptr %31, align 64
@@ -11659,7 +11659,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %178 = getelementptr inbounds nuw i8, ptr %157, i64 96
   store ptr %172, ptr %178, align 32
   %.val.i.i.i.i = load ptr, ptr %1, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %157, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %157, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %179 = add i8 %.promoted.i.pr50.i.i, -1
   store i8 %179, ptr %103, align 2
@@ -11768,7 +11768,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
 
 "_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRKZNS5_17UsdGeomPointBased19ComputePointsAtTimeEPNS5_7VtArrayINS5_7GfVec3fEEERNS5_9TfWeakPtrINS5_8UsdStageEEENS5_11UsdTimeCodeERKSA_SI_SG_SI_fE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %221, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRKZNS9_17UsdGeomPointBased19ComputePointsAtTimeEPNS9_7VtArrayINS9_7GfVec3fEEERNS9_9TfWeakPtrINS9_8UsdStageEEENS9_11UsdTimeCodeERKSE_SM_SK_SM_fE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEES8_EEvRSQ_RT0_RNS1_14execution_dataE.exit", %229, %232
   %235 = inttoptr i64 %213 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %235, ptr noundef nonnull %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %235, ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -11818,7 +11818,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
 
 "_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRKZNS5_17UsdGeomPointBased19ComputePointsAtTimeEPNS5_7VtArrayINS5_7GfVec3fEEERNS5_9TfWeakPtrINS5_8UsdStageEEENS5_11UsdTimeCodeERKSA_SI_SG_SI_fE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %14, %2, %22, %25
   %28 = inttoptr i64 %6 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 

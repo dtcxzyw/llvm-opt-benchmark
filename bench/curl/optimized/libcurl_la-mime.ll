@@ -1951,7 +1951,7 @@ if.end.i:                                         ; preds = %if.else.i
 readback_bytes.exit:                              ; preds = %if.then.i, %if.end.i
   %bytes.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr5.i, %if.end.i ]
   %sz.0.i = phi i64 [ %sub.i, %if.then.i ], [ %sub6.i, %if.end.i ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 %bufsize.addr.0120)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 range(i64 1, 0) %bufsize.addr.0120)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0122, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
   %10 = load i64, ptr %offset.i83, align 8
   %add.i = add i64 %10, %spec.select.i
@@ -1975,7 +1975,7 @@ sw.bb28:                                          ; preds = %while.body
 readback_bytes.exit79:                            ; preds = %sw.bb28
   %sub.i77 = sub nuw nsw i64 2, %call.i62
   %add.ptr.i78 = getelementptr inbounds i8, ptr @.str.41, i64 %call.i62
-  %spec.select.i74 = tail call i64 @llvm.umin.i64(i64 %sub.i77, i64 %bufsize.addr.0120)
+  %spec.select.i74 = tail call i64 @llvm.umin.i64(i64 %sub.i77, i64 range(i64 1, 0) %bufsize.addr.0120)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0122, ptr nonnull align 1 %add.ptr.i78, i64 %spec.select.i74, i1 false)
   %13 = load i64, ptr %offset.i83, align 8
   %add.i75 = add i64 %13, %spec.select.i74
@@ -2081,7 +2081,7 @@ if.then25.i:                                      ; preds = %if.end22.i
 if.end31.i:                                       ; preds = %if.end22.i
   %add.ptr35.i = getelementptr inbounds i8, ptr %buf.i, i64 %20
   %sub37.i = sub nuw nsw i64 256, %20
-  %call38.i = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef nonnull %add.ptr35.i, i64 noundef %sub37.i, ptr noundef %hasread)
+  %call38.i = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef nonnull %add.ptr35.i, i64 noundef %sub37.i, ptr noundef nonnull %hasread)
   switch i64 %call38.i, label %sw.default46.i [
     i64 0, label %for.cond.i84.outer167
     i64 268435456, label %sw.bb40.i
@@ -2293,7 +2293,7 @@ for.body.i16:                                     ; preds = %slist_size.exit, %f
   %size.011.i = phi i64 [ %size.1.i, %for.inc.i ], [ 0, %slist_size.exit ]
   %s.addr.09.i = phi ptr [ %12, %for.inc.i ], [ %9, %slist_size.exit ]
   %10 = load ptr, ptr %s.addr.09.i, align 8
-  %call.i.i = tail call i32 @curl_strnequal(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 12) #15
+  %call.i.i = tail call i32 @curl_strnequal(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef range(i64 0, 26) 12) #15
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   %.pre.i = load ptr, ptr %s.addr.09.i, align 8
   br i1 %tobool.not.i.i, label %if.then.i, label %land.lhs.true.i.i
@@ -2436,7 +2436,7 @@ if.then4:                                         ; preds = %if.end
 for.body.i:                                       ; preds = %if.then4, %match_header.exit.i
   %hdrlist.addr.05.i = phi ptr [ %8, %match_header.exit.i ], [ %3, %if.then4 ]
   %4 = load ptr, ptr %hdrlist.addr.05.i, align 8
-  %call.i.i = tail call i32 @curl_strnequal(ptr noundef %4, ptr noundef nonnull @.str, i64 noundef 12) #15
+  %call.i.i = tail call i32 @curl_strnequal(ptr noundef %4, ptr noundef nonnull @.str, i64 noundef range(i64 0, 26) 12) #15
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %match_header.exit.i, label %land.lhs.true.i.i
 
@@ -2657,7 +2657,7 @@ if.end45:                                         ; preds = %if.then.i145, %land
 for.body.i149:                                    ; preds = %if.end45, %match_header.exit.i156
   %hdrlist.addr.05.i150 = phi ptr [ %28, %match_header.exit.i156 ], [ %24, %if.end45 ]
   %25 = load ptr, ptr %hdrlist.addr.05.i150, align 8
-  %call.i.i151 = tail call i32 @curl_strnequal(ptr noundef %25, ptr noundef nonnull @.str.21, i64 noundef 19) #15
+  %call.i.i151 = tail call i32 @curl_strnequal(ptr noundef %25, ptr noundef nonnull @.str.21, i64 noundef range(i64 0, 26) 19) #15
   %tobool.not.i.i152 = icmp eq i32 %call.i.i151, 0
   br i1 %tobool.not.i.i152, label %match_header.exit.i156, label %land.lhs.true.i.i153
 
@@ -2782,7 +2782,7 @@ if.end133:                                        ; preds = %lor.lhs.false56, %i
 for.body.i170:                                    ; preds = %if.end133, %match_header.exit.i177
   %hdrlist.addr.05.i171 = phi ptr [ %39, %match_header.exit.i177 ], [ %35, %if.end133 ]
   %36 = load ptr, ptr %hdrlist.addr.05.i171, align 8
-  %call.i.i172 = tail call i32 @curl_strnequal(ptr noundef %36, ptr noundef nonnull @.str.29, i64 noundef 25) #15
+  %call.i.i172 = tail call i32 @curl_strnequal(ptr noundef %36, ptr noundef nonnull @.str.29, i64 noundef range(i64 0, 26) 25) #15
   %tobool.not.i.i173 = icmp eq i32 %call.i.i172, 0
   br i1 %tobool.not.i.i173, label %match_header.exit.i177, label %land.lhs.true.i.i174
 
@@ -3646,7 +3646,7 @@ sw.bb5.i:                                         ; preds = %while.body.i
 readback_bytes.exit77:                            ; preds = %sw.bb5.i
   %sub.i75 = sub nuw nsw i64 4, %call.i60
   %add.ptr.i76 = getelementptr inbounds i8, ptr @.str.42, i64 %call.i60
-  %spec.select.i72 = tail call i64 @llvm.umin.i64(i64 %sub.i75, i64 %nitems.addr.0.i88)
+  %spec.select.i72 = tail call i64 @llvm.umin.i64(i64 %sub.i75, i64 range(i64 1, 0) %nitems.addr.0.i88)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0.i90, ptr nonnull align 1 %add.ptr.i76, i64 %spec.select.i72, i1 false)
   %9 = load i64, ptr %offset.i25, align 8
   %add.i73 = add i64 %9, %spec.select.i72
@@ -3686,7 +3686,7 @@ if.end7.i48:                                      ; preds = %if.end.i45, %if.the
   %bytes.addr.0.i49 = phi ptr [ %add.ptr.i55, %if.then.i53 ], [ %add.ptr5.i46, %if.end.i45 ]
   %.pn = phi i64 [ 46, %if.then.i53 ], [ 48, %if.end.i45 ]
   %sz.0.i50 = sub nuw nsw i64 %.pn, %call.i30
-  %spec.select.i51 = tail call i64 @llvm.umin.i64(i64 %sz.0.i50, i64 %nitems.addr.0.i88)
+  %spec.select.i51 = tail call i64 @llvm.umin.i64(i64 %sz.0.i50, i64 range(i64 1, 0) %nitems.addr.0.i88)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0.i90, ptr nonnull align 1 %bytes.addr.0.i49, i64 %spec.select.i51, i1 false)
   %11 = load i64, ptr %offset.i25, align 8
   %add.i52 = add i64 %11, %spec.select.i51
@@ -3713,7 +3713,7 @@ if.end7.i:                                        ; preds = %if.end.i, %if.then.
   %bytes.addr.0.i = phi ptr [ %add.ptr.i37, %if.then.i35 ], [ %add.ptr5.i, %if.end.i ]
   %.pn86 = phi i64 [ 46, %if.then.i35 ], [ 50, %if.end.i ]
   %sz.0.i33 = sub nsw i64 %.pn86, %call.i30
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i33, i64 %nitems.addr.0.i88)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i33, i64 range(i64 1, 0) %nitems.addr.0.i88)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0.i90, ptr nonnull align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
   %12 = load i64, ptr %offset.i25, align 8
   %add.i34 = add i64 %12, %spec.select.i
@@ -3736,7 +3736,7 @@ if.then25.i:                                      ; preds = %sw.bb23.i
   br label %sw.epilog34.i
 
 if.end27.i:                                       ; preds = %sw.bb23.i
-  %call28.i = tail call fastcc i64 @readback_part(ptr noundef nonnull %5, ptr noundef %buffer.addr.0.i90, i64 noundef %nitems.addr.0.i88, ptr noundef %hasread)
+  %call28.i = tail call fastcc i64 @readback_part(ptr noundef nonnull %5, ptr noundef %buffer.addr.0.i90, i64 noundef %nitems.addr.0.i88, ptr noundef nonnull %hasread)
   switch i64 %call28.i, label %sw.epilog34.i [
     i64 268435456, label %sw.bb29.i
     i64 268435457, label %sw.bb29.i

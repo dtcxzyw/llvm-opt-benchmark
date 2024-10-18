@@ -222,7 +222,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i: ; preds = 
 while.body.i.i.i:                                 ; preds = %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %6, %while.body.i.i.i ], [ %5, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i ]
   %6 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #21
   %cmp.not.i.i.i = icmp eq ptr %6, %m_undefinedPairs.i
   br i1 %cmp.not.i.i.i, label %_ZN4YAML6detail9node_data9reset_mapEv.exit, label %while.body.i.i.i, !llvm.loop !5
 
@@ -284,7 +284,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit: ; preds = %e
 while.body.i.i:                                   ; preds = %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %3, %while.body.i.i ], [ %2, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit ]
   %3 = load ptr, ptr %__cur.05.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #21
   %cmp.not.i.i = icmp eq ptr %3, %m_undefinedPairs
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listISt4pairIPN4YAML6detail4nodeES5_ESaIS6_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !5
 
@@ -939,7 +939,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %invoke.cont
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc
@@ -960,7 +960,7 @@ lpad.i.i:                                         ; preds = %.noexc
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #20
   br label %lpad4.body
 
 invoke.cont5:                                     ; preds = %invoke.cont.i.i
@@ -1035,7 +1035,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i.i: ; preds 
 while.body.i.i.i.i:                               ; preds = %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i.i, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i ], [ %3, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i.i ]
   %4 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #21
   %cmp.not.i.i.i.i = icmp eq ptr %4, %m_undefinedPairs.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN4YAML6detail9node_data9reset_mapEv.exit.i, label %while.body.i.i.i.i, !llvm.loop !5
 
@@ -1105,7 +1105,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i: ; preds = 
 while.body.i.i.i:                                 ; preds = %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %4, %while.body.i.i.i ], [ %3, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i ]
   %4 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #21
   %cmp.not.i.i.i = icmp eq ptr %4, %m_undefinedPairs.i
   br i1 %cmp.not.i.i.i, label %_ZN4YAML6detail9node_data9reset_mapEv.exit, label %while.body.i.i.i, !llvm.loop !5
 
@@ -1155,7 +1155,7 @@ _ZN4YAML8ErrorMsg22BAD_SUBSCRIPT_WITH_KEYINS_6detail4nodeEEEKNSt7__cxx1112basic_
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN4YAML8ErrorMsg22BAD_SUBSCRIPT_WITH_KEYINS_6detail4nodeEEEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PNS_10disable_ifINS_10is_numericISB_EEvE4typeE.exit
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc
@@ -1176,7 +1176,7 @@ lpad.i.i:                                         ; preds = %.noexc
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #20
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i
@@ -1303,7 +1303,7 @@ if.then:                                          ; preds = %lor.lhs.false, %_ZN
   store ptr %key, ptr %_M_storage.i.i.i.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store ptr %value, ptr %second.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %m_undefinedPairs) #20
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_undefinedPairs) #20
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %11 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i6 = add i64 %11, 1
@@ -1389,7 +1389,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i.i: ; preds 
 while.body.i.i.i.i:                               ; preds = %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i.i, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i ], [ %3, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i.i ]
   %4 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #21
   %cmp.not.i.i.i.i = icmp eq ptr %4, %m_undefinedPairs.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN4YAML6detail9node_data9reset_mapEv.exit.i, label %while.body.i.i.i.i, !llvm.loop !5
 
@@ -1688,7 +1688,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i: ; preds = 
 while.body.i.i.i:                                 ; preds = %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %3, %while.body.i.i.i ], [ %2, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE5clearEv.exit.i ]
   %3 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #21
   %cmp.not.i.i.i = icmp eq ptr %3, %m_undefinedPairs.i
   br i1 %cmp.not.i.i.i, label %_ZN4YAML6detail9node_data9reset_mapEv.exit, label %while.body.i.i.i, !llvm.loop !5
 

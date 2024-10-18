@@ -40,7 +40,7 @@ define dso_local void @_ZN4llvm13ExtractGVPassC2ERSt6vectorIPNS_11GlobalValueESa
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 20, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 0) #8
@@ -559,8 +559,8 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit146:   ; preds = %_ZN4llvm11GlobalVal
 242:                                              ; preds = %237, %227
   %.0 = phi ptr [ %236, %227 ], [ %238, %237 ]
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull %.0) #8
-  call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %172) #8
-  call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %172) #8
+  call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(64) %172) #8
+  call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %172) #8
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %172) #8
   br label %243
 
@@ -712,7 +712,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit176:   ; preds = %_ZN4llvm11GlobalVal
   %317 = call noundef ptr @_ZN4llvm4UsernwEm(i64 noundef 136) #8
   call void @_ZN4llvm8FunctionC1EPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %317, ptr noundef %spec.select.i.i177, i32 noundef 0, i32 noundef %313, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull %2) #8
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %254, ptr noundef nonnull %317) #8
-  call void @_ZN4llvm12GlobalObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %254) #8
+  call void @_ZN4llvm12GlobalObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %254) #8
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %254) #8
   br label %318
 
@@ -901,7 +901,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11GlobalVa
 
 33:                                               ; preds = %22, %2
   %.sink.i.i.i.i = phi ptr [ %23, %22 ], [ null, %2 ]
-  %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11GlobalValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !10
+  %34 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11GlobalValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !10
   %35 = load ptr, ptr %1, align 8
   store ptr %35, ptr %34, align 8, !noalias !10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24

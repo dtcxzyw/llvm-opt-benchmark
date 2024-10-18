@@ -84,7 +84,7 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17h0dbc64fccf577ce9E(i64 no
   ret void
 
 8:                                                ; preds = %.lr.ph
-  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umin.i64(i64 %.0153, i64 %.0114151)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umin.i64(i64 range(i64 1, 0) %.0153, i64 range(i64 1, 0) %.0114151)
   %9 = icmp ult i64 %.0.sroa.speculated.i, 33
   br i1 %9, label %16, label %13
 
@@ -388,7 +388,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
   %.sroa.3.0.insert.shift.i.i.i = shl nuw nsw i64 %26, 32
   %.sroa.3.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, %.sroa.4.0.insert.shift.i.i.i
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.insert.i.i.i, %31
-  %35 = invoke { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h8e650f7d70b08aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17, i64 noundef %34, i64 %.sroa.0.0.insert.insert.i.i.i)
+  %35 = invoke { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h8e650f7d70b08aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, i64 noundef %34, i64 %.sroa.0.0.insert.insert.i.i.i)
           to label %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i unwind label %49
 
 _ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i: ; preds = %24, %18
@@ -488,7 +488,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
   br i1 %23, label %_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf40620a08875ccE.exit.i, label %24
 
 24:                                               ; preds = %19
-  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %18)
+  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %18)
           to label %_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf40620a08875ccE.exit.i unwind label %25, !noalias !69
 
 25:                                               ; preds = %24
@@ -572,7 +572,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
   br i1 %21, label %_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b14cdad8c40E.exit.i, label %22
 
 22:                                               ; preds = %18
-  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
+  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17)
           to label %_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b14cdad8c40E.exit.i unwind label %23, !noalias !95
 
 23:                                               ; preds = %22
@@ -927,7 +927,7 @@ define hidden void @"_ZN5salsa7runtime11local_state10LocalState46report_query_re
   %.sroa.3.0.insert.shift.i.i = shl nuw nsw i64 %19, 32
   %.sroa.3.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i, %.sroa.4.0.insert.shift.i.i
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.insert.i.i, %24
-  %28 = tail call { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h8e650f7d70b08aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %27, i64 %.sroa.0.0.insert.insert.i.i)
+  %28 = tail call { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h8e650f7d70b08aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8, i64 noundef %27, i64 %.sroa.0.0.insert.insert.i.i)
   br label %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit
 
 _ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit: ; preds = %9, %17
@@ -971,7 +971,7 @@ define hidden void @"_ZN5salsa7runtime11local_state10LocalState21report_untracke
   br i1 %12, label %_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b14cdad8c40E.exit, label %13
 
 13:                                               ; preds = %9
-  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
+  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
           to label %_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b14cdad8c40E.exit unwind label %14
 
 14:                                               ; preds = %13
@@ -1011,7 +1011,7 @@ define hidden void @"_ZN5salsa7runtime11local_state10LocalState21report_syntheti
   br i1 %14, label %_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf40620a08875ccE.exit, label %15
 
 15:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
+  invoke void @"_ZN4core3ptr96drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$17hdb5332a5fb62873fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
           to label %_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf40620a08875ccE.exit unwind label %16
 
 16:                                               ; preds = %15

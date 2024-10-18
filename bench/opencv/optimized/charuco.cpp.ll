@@ -94,7 +94,7 @@ define noundef i32 @_ZN2cv5aruco25interpolateCornersCharucoERKNS_11_InputArrayES
   %17 = alloca %"class.cv::_InputOutputArray", align 8
   %18 = alloca %"class.cv::_InputOutputArray", align 8
   %19 = alloca %"class.cv::Mat", align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(197) %10) #10
   %20 = getelementptr inbounds i8, ptr %10, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #10
   %21 = getelementptr inbounds i8, ptr %10, i64 192
@@ -368,9 +368,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %114, %127, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   %132 = trunc i64 %88 to i32
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #10
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #10
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %10) #10
   ret i32 %132
 
 133:                                              ; preds = %36, %33, %30, %28, %25, %9, %73, %38
@@ -415,7 +415,7 @@ _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %_ZNSt6vectorIN2cv3M
 146:                                              ; preds = %145, %137, %135, %133
   %.pn17.pn = phi { ptr, i32 } [ %.pn17, %145 ], [ %134, %133 ], [ %138, %137 ], [ %136, %135 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #10
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %10) #10
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -563,7 +563,7 @@ define void @_ZN2cv5aruco20detectCharucoDiamondERKNS_11_InputArrayES3_S3_fRKNS_1
   %19 = alloca %"class.cv::_InputOutputArray", align 8
   %20 = alloca %"class.cv::_InputOutputArray", align 8
   %21 = alloca %"class.cv::Mat", align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(197) %10) #10
   %22 = getelementptr inbounds i8, ptr %10, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #10
   %23 = getelementptr inbounds i8, ptr %10, i64 192
@@ -843,7 +843,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit
 
 _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %118, %131, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #10
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #10
   %136 = getelementptr inbounds i8, ptr %13, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i.i.i.i.i.i29 = icmp eq ptr %137, null
@@ -919,7 +919,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv5aruco12CharucoBoardD2Ev.exit:              ; preds = %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, %154, %167, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #10
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %10) #10
   ret void
 
 172:                                              ; preds = %38, %35, %32, %30, %27, %9, %44, %40
@@ -974,7 +974,7 @@ _ZN2cv5aruco12CharucoBoardD2Ev.exit:              ; preds = %_ZN2cv5aruco15Charu
 188:                                              ; preds = %187, %176, %174, %172
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %187 ], [ %173, %172 ], [ %177, %176 ], [ %175, %174 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #10
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %10) #10
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -1406,7 +1406,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit
 
 _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

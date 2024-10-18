@@ -258,9 +258,9 @@ define void @_ZN7Minisat10SimpSolverC2Ev(ptr noundef nonnull align 8 dereference
   %27 = getelementptr inbounds i8, ptr %0, i64 928
   %28 = getelementptr inbounds i8, ptr %0, i64 952
   %29 = getelementptr inbounds i8, ptr %0, i64 680
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %0, i64 976
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %0, i64 1000
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds i8, ptr %0, i64 1016
@@ -268,15 +268,15 @@ define void @_ZN7Minisat10SimpSolverC2Ev(ptr noundef nonnull align 8 dereference
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   store i64 %33, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 1024
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %34, i8 0, i64 16, i1 false)
   %35 = getelementptr inbounds i8, ptr %0, i64 1048
   %36 = getelementptr inbounds i8, ptr %0, i64 1088
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, i8 0, i64 32, i1 false)
   %37 = ptrtoint ptr %34 to i64
   store i64 %37, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 1096
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef 1)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 16, i1 false)
+  invoke void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef 1)
           to label %39 unwind label %62
 
 39:                                               ; preds = %1
@@ -875,13 +875,13 @@ define noundef i32 @_ZN7Minisat10SimpSolver6newVarENS_5lboolEb(ptr noundef nonnu
   %5 = tail call noundef i32 @_ZN7Minisat6Solver6newVarENS_5lboolEb(ptr noundef nonnull align 8 dereferenceable(857) %0, i8 %1, i1 noundef zeroext %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 1120
   %7 = add nsw i32 %5, 1
-  tail call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7)
+  tail call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %6, i32 noundef %7)
   %8 = load ptr, ptr %6, align 8
   %9 = sext i32 %5 to i64
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
   store i8 0, ptr %10, align 1
   %11 = getelementptr inbounds i8, ptr %0, i64 1160
-  tail call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %7)
+  tail call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %11, i32 noundef %7)
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %9
   store i8 0, ptr %13, align 1
@@ -894,19 +894,19 @@ define noundef i32 @_ZN7Minisat10SimpSolver6newVarENS_5lboolEb(ptr noundef nonnu
   %18 = getelementptr inbounds i8, ptr %0, i64 1024
   %19 = shl nsw i32 %5, 1
   %20 = or disjoint i32 %19, 1
-  tail call void @_ZN7Minisat3vecIiiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %20)
+  tail call void @_ZN7Minisat3vecIiiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %18, i32 noundef %20)
   %21 = load ptr, ptr %18, align 8
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   store i32 0, ptr %23, align 4
   %24 = add nsw i32 %19, 2
-  tail call void @_ZN7Minisat3vecIiiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %24)
+  tail call void @_ZN7Minisat3vecIiiE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %18, i32 noundef %24)
   %25 = load ptr, ptr %18, align 8
   %26 = sext i32 %20 to i64
   %27 = getelementptr inbounds i32, ptr %25, i64 %26
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %0, i64 952
-  tail call void @_ZN7Minisat3vecINS0_IjiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef %7)
+  tail call void @_ZN7Minisat3vecINS0_IjiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %28, i32 noundef %7)
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds %"class.Minisat::vec.2", ptr %29, i64 %9
   %31 = load ptr, ptr %30, align 8
@@ -922,10 +922,10 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
   %33 = getelementptr inbounds i8, ptr %0, i64 976
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN7Minisat3vecIciE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(17) %33, i32 noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %34 = getelementptr inbounds i8, ptr %0, i64 928
-  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef %7)
+  call void @_ZN7Minisat3vecIciE6growToEi(ptr noundef nonnull align 8 dereferenceable(17) %34, i32 noundef %7)
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 %9
   store i8 0, ptr %36, align 1
@@ -946,7 +946,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexD
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %5 = add nsw i32 %1, 1
-  call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(17) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -1865,7 +1865,7 @@ _ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit33
   br label %_ZN7Minisat5QueueIjE5clearEb.exit
 
 _ZN7Minisat5QueueIjE5clearEb.exit:                ; preds = %_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit33, %.preheader.i.i35
-  tail call void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %182, i32 noundef 1)
+  tail call void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %182, i32 noundef 1)
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 8
   store i8 0, ptr %5, align 4
@@ -3775,7 +3775,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver24backwardSubsumptionCheckEb(p
   br label %_ZN7Minisat5QueueIjE5clearEb.exit
 
 _ZN7Minisat5QueueIjE5clearEb.exit:                ; preds = %32, %.preheader.i.i
-  tail call void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 1)
+  tail call void @_ZN7Minisat3vecIjiE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1)
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 8
   %34 = load i32, ptr %8, align 8
@@ -5883,7 +5883,7 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
   %88 = load ptr, ptr %1, align 8
   %89 = zext i32 %76 to i64
   %90 = shl nuw nsw i64 %89, 2
-  %91 = tail call ptr @realloc(ptr noundef %88, i64 noundef %90) #27
+  %91 = tail call ptr @realloc(ptr noundef %88, i64 noundef range(i64 0, 17179869181) %90) #27
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %_ZN7MinisatL8xreallocEPvm.exit.i
 
@@ -6104,8 +6104,8 @@ define void @_ZN7Minisat10SimpSolver14garbageCollectEv(ptr noundef nonnull align
   %6 = getelementptr inbounds i8, ptr %0, i64 696
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  call void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %8)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %2, i8 0, i64 20, i1 false)
+  call void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(25) %2, i32 noundef %8)
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   %10 = getelementptr inbounds i8, ptr %0, i64 704
   %11 = load i8, ptr %10, align 8
@@ -6756,7 +6756,7 @@ define linkonce_odr void @_ZN7Minisat15RegionAllocatorIjE8capacityEj(ptr noundef
   %17 = load ptr, ptr %0, align 8
   %18 = zext i32 %5 to i64
   %19 = shl nuw nsw i64 %18, 2
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #27
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef range(i64 0, 17179869181) %19) #27
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZN7MinisatL8xreallocEPvm.exit
 
@@ -7034,7 +7034,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexD
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %5 = add nsw i32 %1, 1
-  call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @_ZN7Minisat3vecIiiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(17) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8

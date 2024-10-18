@@ -1174,7 +1174,7 @@ mkOverlapSet.exit:                                ; preds = %._crit_edge.i, %214
   %225 = getelementptr inbounds i8, ptr %.sroa.0.5.i104110, i64 16
   %226 = add i64 %.sroa.11.0.lcssa102.i103112, -1
   tail call void @qsort(ptr noundef nonnull %225, i64 noundef %226, i64 noundef 16, ptr noundef nonnull @sortf) #17
-  %227 = tail call fastcc ptr @gv_calloc(i64 noundef %.sroa.11.0.lcssa102.i103112, i64 noundef 16)
+  %227 = tail call fastcc ptr @gv_calloc(i64 noundef range(i64 1, 0) %.sroa.11.0.lcssa102.i103112, i64 noundef 16)
   %228 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i104110, i64 %226
   %229 = load double, ptr %228, align 8
   %230 = getelementptr inbounds %struct.pointf_s, ptr %227, i64 %226

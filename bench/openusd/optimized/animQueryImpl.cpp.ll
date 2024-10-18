@@ -164,7 +164,7 @@ common.resume:                                    ; preds = %280, %18
 
 18:                                               ; preds = %16, %14
   %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #14
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplC2Ev.exit: ; preds = %12
@@ -2120,7 +2120,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAni
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #14
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #14
   ret void
 }
 
@@ -2142,7 +2142,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAni
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #14
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #16
   ret void
 }

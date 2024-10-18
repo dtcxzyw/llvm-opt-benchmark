@@ -1713,9 +1713,9 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %top1, align 8
   %1 = icmp eq i32 %clear, 0
   %shr.neg.i.i.i.i = sext i1 %1 to i32
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #12, !srcloc !12
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %shr.neg.i.i.i.i) #12, !srcloc !12
   %not.i.i = xor i32 %shr.neg.i.i.i.i, -1
-  %3 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #12, !srcloc !12
+  %3 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %not.i.i) #12, !srcloc !12
   %and2.i.i = and i32 %3, 2
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [16 x i32], ptr %call, i64 0, i64 %idxprom

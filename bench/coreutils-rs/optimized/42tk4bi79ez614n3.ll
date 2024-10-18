@@ -150,7 +150,7 @@ define hidden void @_ZN8tempfile7Builder10tempdir_in17ha43c3a9e350c4b1dE(ptr noa
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %.thread unwind label %38
 
 _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
@@ -160,7 +160,7 @@ _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds i8, ptr %8, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !4
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h03eaba53e25aec39E.exit33" unwind label %.thread41
 
 .thread41:                                        ; preds = %_ZN3std4path4Path4join17h990aba3230c2e93eE.exit
@@ -206,7 +206,7 @@ _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
   br i1 %9, label %40, label %42
 
 42:                                               ; preds = %41
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %40
 
 .thread:                                          ; preds = %43, %19, %10
@@ -215,7 +215,7 @@ _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
 
 43:                                               ; preds = %.thread41, %10
   %lpad.thr_comm.split-lp44 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp43, %.thread41 ], [ %lpad.thr_comm.split-lp, %10 ]
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %.thread unwind label %38
 }
 

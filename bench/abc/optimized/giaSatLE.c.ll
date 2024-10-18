@@ -1340,7 +1340,7 @@ define range(i32 1, 1000000001) i32 @Sle_ManComputeDelayOne(ptr nocapture nounde
 
 Sle_ManComputeDelayCut.exit:                      ; preds = %15, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i32 [ 1, %15 ], [ %25, %._crit_edge.loopexit.i ]
-  %26 = tail call noundef i32 @llvm.smin.i32(i32 %.01722, i32 %.0.lcssa.i)
+  %26 = tail call noundef i32 @llvm.smin.i32(i32 %.01722, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i)
   %27 = add nuw nsw i32 %.023, 1
   %28 = add nuw nsw i32 %16, 1
   %29 = zext nneg i32 %28 to i64
@@ -1451,7 +1451,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 Sle_ManComputeDelayCut.exit.i:                    ; preds = %._crit_edge.loopexit.i.i, %29
   %.0.lcssa.i.i = phi i32 [ 1, %29 ], [ %39, %._crit_edge.loopexit.i.i ]
-  %40 = tail call noundef i32 @llvm.smin.i32(i32 %.01722.i, i32 %.0.lcssa.i.i)
+  %40 = tail call noundef i32 @llvm.smin.i32(i32 %.01722.i, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i.i)
   %41 = add nuw nsw i32 %.023.i, 1
   %42 = add nuw nsw i32 %30, 1
   %43 = zext nneg i32 %42 to i64

@@ -183,7 +183,7 @@ define void @_ZTv0_n24_N2cv8saliency30StaticSaliencySpectralResidualD1Ev(ptr nou
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   ret void
 }
 
@@ -191,7 +191,7 @@ define void @_ZTv0_n24_N2cv8saliency30StaticSaliencySpectralResidualD1Ev(ptr nou
 define void @_ZN2cv8saliency30StaticSaliencySpectralResidualD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
@@ -207,8 +207,8 @@ define void @_ZTv0_n24_N2cv8saliency30StaticSaliencySpectralResidualD0Ev(ptr nou
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #17
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   ret void
 }
 

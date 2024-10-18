@@ -250,9 +250,9 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %header, i64 128) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(128) %header, i64 128) #12
   %35 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %35, ptr noundef nonnull %header, i64 noundef 128) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %35, ptr noundef nonnull align 1 dereferenceable(128) %header, i64 noundef 128) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit: ; preds = %entry, %if.then.i.i
@@ -313,9 +313,9 @@ if.end:                                           ; preds = %for.body.i.i.i.i.i,
 
 if.then.i.i118:                                   ; preds = %if.end
   %outputHasher_.i.i119 = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i119, ptr nonnull %ref.tmp62, i64 20) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i119, ptr nonnull align 1 dereferenceable(20) %ref.tmp62, i64 20) #12
   %46 = load ptr, ptr %this, align 8
-  %call4.i.i120 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %46, ptr noundef nonnull %ref.tmp62, i64 noundef 20) #12
+  %call4.i.i120 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %46, ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp62, i64 noundef 20) #12
   %.pre = load i8, ptr %isLayout_.i.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit
 
@@ -388,9 +388,9 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %_ZN6he
   br i1 %tobool.i.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i.i, ptr nonnull %ref.tmp.i.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i.i, i64 1) #12
   %7 = load ptr, ptr %visitor, align 8
-  %call4.i.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %ref.tmp.i.i, i64 noundef 1) #12
+  %call4.i.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, i64 noundef 1) #12
   %.pre.i.i = load i64, ptr %loc_.i.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i
 
@@ -437,9 +437,9 @@ for.body.i.i23:                                   ; preds = %if.end.i.i19, %_ZN6
   br i1 %tobool.i.i.i.i25, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i29, label %if.then.i.i.i.i26
 
 if.then.i.i.i.i26:                                ; preds = %for.body.i.i23
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i.i22, ptr nonnull %ref.tmp.i.i15, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i.i22, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i.i15, i64 1) #12
   %17 = load ptr, ptr %visitor, align 8
-  %call4.i.i.i.i27 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull %ref.tmp.i.i15, i64 noundef 1) #12
+  %call4.i.i.i.i27 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i15, i64 noundef 1) #12
   %.pre.i.i28 = load i64, ptr %loc_.i.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i29
 
@@ -509,14 +509,14 @@ if.then9:                                         ; preds = %if.then
   store i64 %sub.ptr.sub.i.i.i, ptr %key.sroa.2.0.ref.tmp.sroa_idx, align 8
   store i32 %conv, ptr %second.i.i, align 8, !alias.scope !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !11
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !11
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !11
   %7 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !11
   br i1 %call.i.i.i, label %if.then14, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread: ; preds = %if.then9
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %7), !noalias !11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false), !noalias !11
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef %7), !noalias !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 16, i1 false), !noalias !11
   %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %8 = load i32, ptr %second.i.i, align 8, !noalias !11
   store i32 %8, ptr %second.i.i3.i.i, align 4, !noalias !11
@@ -609,9 +609,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %30 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_21, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -687,9 +687,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr nonnull %ref.tmp56, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp56, i64 1) #12
   %45 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %45, ptr noundef nonnull %ref.tmp56, i64 noundef 1) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56, i64 noundef 1) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit: ; preds = %while.body, %if.then.i.i
@@ -728,9 +728,9 @@ for.body.i38:                                     ; preds = %if.end.i34, %_ZN6he
   br i1 %tobool.i.i.i40, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44, label %if.then.i.i.i41
 
 if.then.i.i.i41:                                  ; preds = %for.body.i38
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr nonnull %ref.tmp.i30, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i30, i64 1) #12
   %54 = load ptr, ptr %this, align 8
-  %call4.i.i.i42 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %54, ptr noundef nonnull %ref.tmp.i30, i64 noundef 1) #12
+  %call4.i.i.i42 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i30, i64 noundef 1) #12
   %.pre.i43 = load i64, ptr %loc_21, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i44
 
@@ -824,9 +824,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %13 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -851,9 +851,9 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %header, i64 31) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(31) %header, i64 31) #12
   %17 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull %header, i64 noundef 31) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 1 dereferenceable(31) %header, i64 noundef 31) #12
   %.pre5 = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_14FunctionHeaderEEEvRKT_.exit
 
@@ -907,9 +907,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -941,9 +941,9 @@ if.then:                                          ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i.i:                                      ; preds = %if.then
   %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %empty, i64 28) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(28) %empty, i64 28) #12
   %14 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull %empty, i64 noundef 28) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 1 dereferenceable(28) %empty, i64 noundef 28) #12
   %.pre68 = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit
 
@@ -1002,9 +1002,9 @@ if.end:                                           ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i.i21:                                    ; preds = %if.end
   %outputHasher_.i.i22 = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i22, ptr nonnull %header, i64 28) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i22, ptr nonnull align 1 dereferenceable(28) %header, i64 28) #12
   %26 = load ptr, ptr %this, align 8
-  %call4.i.i23 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %26, ptr noundef nonnull %header, i64 noundef 28) #12
+  %call4.i.i23 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %26, ptr noundef nonnull align 1 dereferenceable(28) %header, i64 noundef 28) #12
   %.pre = load i64, ptr %loc_.i, align 8
   %.pre60 = load i8, ptr %isLayout_.i.i19, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26
@@ -1079,9 +1079,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %tobool.i.i40, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %for.body
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i42, ptr nonnull %__begin1.058, i64 12) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i42, ptr nonnull align 1 dereferenceable(12) %__begin1.058, i64 12) #12
   %45 = load ptr, ptr %this, align 8
-  %call4.i.i43 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %45, ptr noundef nonnull %__begin1.058, i64 noundef 12) #12
+  %call4.i.i43 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %45, ptr noundef nonnull align 1 dereferenceable(12) %__begin1.058, i64 noundef 12) #12
   %.pre64 = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit
 
@@ -1186,9 +1186,9 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %ref.tmp, i64 16) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(16) %ref.tmp, i64 16) #12
   %6 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull %ref.tmp, i64 noundef 16) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp, i64 noundef 16) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit: ; preds = %if.end, %if.then.i.i
@@ -1435,9 +1435,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -1472,9 +1472,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %__begin1.025, i64 4) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 4 dereferenceable(4) %__begin1.025, i64 4) #12
   %16 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull %__begin1.025, i64 noundef 4) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull align 4 dereferenceable(4) %__begin1.025, i64 noundef 4) #12
   %.pre = load i64, ptr %loc_.i, align 8
   %.pre26 = load i8, ptr %isLayout_.i.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit
@@ -1489,9 +1489,9 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit: ; preds = %for.bo
 
 if.then.i.i8:                                     ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit
   %second = getelementptr inbounds i8, ptr %__begin1.025, i64 4
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %second, i64 4) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 4 dereferenceable(4) %second, i64 4) #12
   %19 = load ptr, ptr %this, align 8
-  %call4.i.i10 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull %second, i64 noundef 4) #12
+  %call4.i.i10 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 4 dereferenceable(4) %second, i64 noundef 4) #12
   %.pre27 = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13
 
@@ -1568,9 +1568,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -1657,9 +1657,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %11 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -1689,9 +1689,9 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %header, i64 4) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(4) %header, i64 4) #12
   %17 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull %header, i64 noundef 4) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 1 dereferenceable(4) %header, i64 noundef 4) #12
   %.pre = load i64, ptr %loc_.i, align 8
   %.pre9 = load i8, ptr %isLayout_.i.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeaderEEEvRKT_.exit
@@ -1863,9 +1863,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %13 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -1887,9 +1887,9 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %debugOffsets_.i, i64 12) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 4 dereferenceable(12) %debugOffsets_.i, i64 12) #12
   %17 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull %debugOffsets_.i, i64 noundef 12) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 4 dereferenceable(12) %debugOffsets_.i, i64 noundef 12) #12
   %.pre = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_12DebugOffsetsEEEvRKT_.exit
 
@@ -1943,9 +1943,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -1999,9 +1999,9 @@ if.end.i5:                                        ; preds = %if.then.i, %for.bod
   br i1 %tobool.i.i.i6, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %if.end.i5
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i3, ptr nonnull %ref.tmp.i1, i64 16) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i3, ptr nonnull align 1 dereferenceable(16) %ref.tmp.i1, i64 16) #12
   %18 = load ptr, ptr %this, align 8
-  %call4.i.i.i8 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull %ref.tmp.i1, i64 noundef 16) #12
+  %call4.i.i.i8 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp.i1, i64 noundef 16) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i: ; preds = %if.then.i.i.i7, %if.end.i5
@@ -2054,9 +2054,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2136,9 +2136,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2219,9 +2219,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2285,9 +2285,9 @@ _ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit: ; preds 
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %small, i64 4) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(4) %small, i64 4) #12
   %20 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %20, ptr noundef nonnull %small, i64 noundef 4) #12
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %20, ptr noundef nonnull align 1 dereferenceable(4) %small, i64 noundef 4) #12
   %.pre = load i64, ptr %loc_.i, align 8
   %bf.load.i8.pre = load i32, ptr %small, align 4
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit
@@ -2348,9 +2348,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2501,9 +2501,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2583,9 +2583,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2665,9 +2665,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2747,9 +2747,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2829,9 +2829,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2911,9 +2911,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -2993,9 +2993,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -3075,9 +3075,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -3157,9 +3157,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 
@@ -3215,9 +3215,9 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN6herm
   br i1 %tobool.i.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull %ref.tmp.i, i64 1) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i.i, ptr nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 1) #12
   %9 = load ptr, ptr %this, align 8
-  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %ref.tmp.i, i64 noundef 1) #12
+  %call4.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, i64 noundef 1) #12
   %.pre.i = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i
 

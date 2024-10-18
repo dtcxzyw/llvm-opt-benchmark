@@ -184,7 +184,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #7
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #7
   ret void
 }
 
@@ -571,8 +571,8 @@ declare void @_ZN31ShenandoahConcurrentRootScannerD1Ev(ptr noundef nonnull align
 define linkonce_odr hidden void @_ZN33ShenandoahMarkConcurrentRootsTaskIL24ShenandoahGenerationType0EE4workEj(ptr noundef nonnull align 8 dereferenceable(584) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.ShenandoahConcurrentWorkerSession, align 8
   %4 = alloca %class.ShenandoahMarkRefsClosure, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %1) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 19, i1 false)
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1697), align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %_ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit, label %7
@@ -1123,8 +1123,8 @@ define linkonce_odr hidden void @_ZN31ShenandoahConcurrentMarkingTaskIL24Shenand
   %3 = alloca %class.ShenandoahConcurrentWorkerSession, align 8
   %4 = alloca %"class.StringDedup::Requests", align 8
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %1) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 19, i1 false)
   %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1697), align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %_ZN36ShenandoahSuspendibleThreadSetJoinerD2Ev.exit, label %8
@@ -1168,8 +1168,8 @@ define linkonce_odr hidden void @_ZN26ShenandoahFinalMarkingTaskIL24ShenandoahGe
   %6 = alloca %class.ShenandoahMarkRefsClosure, align 8
   %7 = alloca %class.ShenandoahSATBAndRemarkThreadsClosure, align 8
   %8 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %1) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %1) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 19, i1 false)
   %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit, label %11

@@ -389,7 +389,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %10 = load ptr, ptr %6, align 8, !noalias !49, !nonnull !4, !align !10, !noundef !4
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !49, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %12, ptr nonnull readonly %10, i64 %5), !alias.scope !50, !noalias !49
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %12, ptr nonnull readonly align 1 %10, i64 %5), !alias.scope !50, !noalias !49
   %13 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h6fcbedd2fef98ba9E.llvm.14302984612553896914.exit"
 
@@ -454,7 +454,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %15, %13, 
   br i1 %28, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8392816388146978635.exit.i.i.i.i, label %29
 
 29:                                               ; preds = %27
-  tail call void @_ZN4core4sync6atomic12atomic_store17h415a2bc52eba3676E.llvm.8392816388146978635(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0), !noalias !56
+  tail call void @_ZN4core4sync6atomic12atomic_store17h415a2bc52eba3676E.llvm.8392816388146978635(ptr noundef nonnull align 1 %21, i8 noundef 1, i8 noundef 0), !noalias !56
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8392816388146978635.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8392816388146978635.exit.i.i.i.i: ; preds = %29, %27, %23, %19
@@ -485,7 +485,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5ch
   %9 = load ptr, ptr %5, align 8, !noalias !66, !nonnull !4, !align !10, !noundef !4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !66, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %9, i64 %4), !alias.scope !69, !noalias !66
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !69, !noalias !66
   %12 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside28_$u7b$$u7b$closure$u7d$$u7d$17h1378cefc0345abd4E.llvm.14302984612553896914.exit"
 
@@ -589,7 +589,7 @@ define hidden noundef zeroext i1 @"_ZN16html_to_markdown15markdown_writer14Markd
   %9 = load ptr, ptr %5, align 8, !nonnull !4, !align !10, !noundef !4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %9, i64 %4), !alias.scope !88
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !88
   %12 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
 

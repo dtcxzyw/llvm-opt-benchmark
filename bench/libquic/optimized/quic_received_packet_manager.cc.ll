@@ -589,8 +589,8 @@ define dso_local void @_ZN3net25QuicReceivedPacketManagerC2EPNS_19QuicConnection
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 16), ptr %this, align 8
   %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %entropy_tracker_, i8 0, i64 80, i1 false)
-  tail call void @_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %entropy_tracker_, i64 noundef 0)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %entropy_tracker_, i8 0, i64 80, i1 false)
+  tail call void @_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(104) %entropy_tracker_, i64 noundef 0)
   %packets_entropy_hash_.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 0, ptr %packets_entropy_hash_.i, align 8
   %first_gap_.i = getelementptr inbounds i8, ptr %this, i64 96

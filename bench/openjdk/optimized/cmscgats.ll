@@ -402,7 +402,7 @@ AllocChunk.exit:                                  ; preds = %.thread, %31
 
 cmsIT8SetSheetType.exit:                          ; preds = %48, %50
   %.0.i.i44 = phi ptr [ %49, %48 ], [ %53, %50 ]
-  %54 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.0.i.i44, ptr noundef nonnull readonly dereferenceable(9) @.str.2, i64 noundef 1023) #17
+  %54 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.0.i.i44, ptr noundef nonnull dereferenceable(9) @.str.2, i64 noundef 1023) #17
   %55 = getelementptr inbounds i8, ptr %.0.i.i44, i64 1023
   store i8 0, ptr %55, align 1
   br label %56
@@ -3349,7 +3349,7 @@ ReadType.exit:                                    ; preds = %.preheader.i, %.pre
   br i1 %92, label %.lr.ph.i, label %SkipEOLN.exit
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.i
-  tail call fastcc void @InSymbol(ptr noundef %0)
+  tail call fastcc void @InSymbol(ptr noundef nonnull %0)
   %93 = load i32, ptr %90, align 8
   %94 = icmp eq i32 %93, 6
   br i1 %94, label %.lr.ph.i, label %SkipEOLN.exit, !llvm.loop !32
@@ -3397,7 +3397,7 @@ SkipEOLN.exit:                                    ; preds = %.lr.ph.i, %89
 
 GetTable.exit.i:                                  ; preds = %114, %113
   %.0.i.i = phi ptr [ %97, %113 ], [ %116, %114 ]
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %117 = load i32, ptr %90, align 8
   %.not.i.i.i = icmp eq i32 %117, 6
   br i1 %.not.i.i.i, label %Check.exit.i.i, label %Check.exit.thread.i.i
@@ -3408,7 +3408,7 @@ Check.exit.thread.i.i:                            ; preds = %GetTable.exit.i
   br label %CheckEOLN.exit.i.preheader
 
 Check.exit.i.i:                                   ; preds = %GetTable.exit.i, %Check.exit.i.i
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %.pr.i.i = load i32, ptr %90, align 8
   %118 = icmp eq i32 %.pr.i.i, 6
   br i1 %118, label %Check.exit.i.i, label %CheckEOLN.exit.i.preheader, !llvm.loop !33
@@ -3491,13 +3491,13 @@ GetTable.exit.i.i:                                ; preds = %126, %125
 
 SetDataFormat.exit.i:                             ; preds = %141, %139
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %149 = load i32, ptr %90, align 8
   %150 = icmp eq i32 %149, 6
   br i1 %150, label %.lr.ph.i.i, label %SkipEOLN.exit.i
 
 .lr.ph.i.i:                                       ; preds = %SetDataFormat.exit.i, %.lr.ph.i.i
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %151 = load i32, ptr %90, align 8
   %152 = icmp eq i32 %151, 6
   br i1 %152, label %.lr.ph.i.i, label %SkipEOLN.exit.i, !llvm.loop !32
@@ -3507,7 +3507,7 @@ SkipEOLN.exit.i:                                  ; preds = %.lr.ph.i.i, %SetDat
   br label %CheckEOLN.exit.i, !llvm.loop !34
 
 .lr.ph.i36.i:                                     ; preds = %CheckEOLN.exit.i, %.lr.ph.i36.i
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %154 = load i32, ptr %90, align 8
   %155 = icmp eq i32 %154, 6
   br i1 %155, label %.lr.ph.i36.i, label %SkipEOLN.exit37.i, !llvm.loop !32
@@ -3519,13 +3519,13 @@ SkipEOLN.exit37.i:                                ; preds = %CheckEOLN.exit.i, %
   br i1 %158, label %Skip.exit.i, label %SkipEOLN.exit39.i
 
 Skip.exit.i:                                      ; preds = %SkipEOLN.exit37.i
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %.pre53.i = load i32, ptr %90, align 8
   %159 = icmp eq i32 %.pre53.i, 6
   br i1 %159, label %.lr.ph.i38.i, label %SkipEOLN.exit39.i
 
 .lr.ph.i38.i:                                     ; preds = %Skip.exit.i, %.lr.ph.i38.i
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %160 = load i32, ptr %90, align 8
   %161 = icmp eq i32 %160, 6
   br i1 %161, label %.lr.ph.i38.i, label %SkipEOLN.exit39.i, !llvm.loop !32
@@ -3558,7 +3558,7 @@ SkipEOLN.exit39.i:                                ; preds = %.lr.ph.i38.i, %Skip
 
 GetTable.exit.i47:                                ; preds = %169, %168
   %.0.i.i48 = phi ptr [ %97, %168 ], [ %171, %169 ]
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %172 = load i32, ptr %90, align 8
   %.not.i.i.i49 = icmp eq i32 %172, 6
   br i1 %.not.i.i.i49, label %Check.exit.i.i58, label %Check.exit.thread.i.i50
@@ -3568,7 +3568,7 @@ Check.exit.thread.i.i50:                          ; preds = %GetTable.exit.i47
   br label %CheckEOLN.exit.i51
 
 Check.exit.i.i58:                                 ; preds = %GetTable.exit.i47, %Check.exit.i.i58
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %.pr.i.i59 = load i32, ptr %90, align 8
   %173 = icmp eq i32 %.pr.i.i59, 6
   br i1 %173, label %Check.exit.i.i58, label %CheckEOLN.exit.i51, !llvm.loop !33
@@ -3626,7 +3626,7 @@ CheckEOLN.exit.i51:                               ; preds = %Check.exit.i.i58, %
   br i1 %.not50.i, label %DataSection.exit.thread, label %197
 
 193:                                              ; preds = %182
-  %194 = call fastcc i32 @GetVal(ptr noundef %0, ptr noundef %5, i32 noundef 255, ptr noundef nonnull @.str.137)
+  %194 = call fastcc i32 @GetVal(ptr noundef nonnull %0, ptr noundef %5, i32 noundef 255, ptr noundef nonnull @.str.137)
   %.not52.i = icmp eq i32 %194, 0
   br i1 %.not52.i, label %DataSection.exit.thread, label %195
 
@@ -3637,13 +3637,13 @@ CheckEOLN.exit.i51:                               ; preds = %Check.exit.i.i58, %
 
 197:                                              ; preds = %195, %189, %185
   %198 = add nsw i32 %spec.select.i, 1
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %199 = load i32, ptr %90, align 8
   %200 = icmp eq i32 %199, 6
   br i1 %200, label %.lr.ph.i.i56, label %SkipEOLN.exit.i55
 
 .lr.ph.i.i56:                                     ; preds = %197, %.lr.ph.i.i56
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %201 = load i32, ptr %90, align 8
   %202 = icmp eq i32 %201, 6
   br i1 %202, label %.lr.ph.i.i56, label %SkipEOLN.exit.i55, !llvm.loop !32
@@ -3653,13 +3653,13 @@ SkipEOLN.exit.i55:                                ; preds = %.lr.ph.i.i56, %197
   br label %180, !llvm.loop !35
 
 Skip.exit.i54:                                    ; preds = %180
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %.pre67.i = load i32, ptr %90, align 8
   %204 = icmp eq i32 %.pre67.i, 6
   br i1 %204, label %.lr.ph.i59.i, label %SkipEOLN.exit60.i
 
 .lr.ph.i59.i:                                     ; preds = %Skip.exit.i54, %.lr.ph.i59.i
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %205 = load i32, ptr %90, align 8
   %206 = icmp eq i32 %205, 6
   br i1 %206, label %.lr.ph.i59.i, label %SkipEOLN.exit60.i, !llvm.loop !32
@@ -3854,7 +3854,7 @@ cmsIT8SetSheetType.exit71:                        ; preds = %280, %281
   br label %DataFormatSection.exit
 
 .lr.ph.i72:                                       ; preds = %108, %.lr.ph.i72
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %285 = load i32, ptr %90, align 8
   %286 = icmp eq i32 %285, 6
   br i1 %286, label %.lr.ph.i72, label %DataFormatSection.exit, !llvm.loop !32
@@ -3877,8 +3877,8 @@ cmsIT8SetSheetType.exit71:                        ; preds = %280, %281
   ]
 
 290:                                              ; preds = %288
-  call fastcc void @InSymbol(ptr noundef %0)
-  %291 = call fastcc i32 @GetVal(ptr noundef %0, ptr noundef %4, i32 noundef 1023, ptr noundef nonnull @.str.139)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
+  %291 = call fastcc i32 @GetVal(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1023, ptr noundef nonnull @.str.139)
   %.not76.i = icmp eq i32 %291, 0
   br i1 %.not76.i, label %HeaderSection.exit.thread, label %292
 
@@ -3888,8 +3888,8 @@ cmsIT8SetSheetType.exit71:                        ; preds = %280, %281
   br i1 %.not77.i, label %HeaderSection.exit.thread, label %thread-pre-split.i
 
 294:                                              ; preds = %288
-  call fastcc void @InSymbol(ptr noundef %0)
-  %295 = call fastcc i32 @GetVal(ptr noundef %0, ptr noundef %4, i32 noundef 1023, ptr noundef nonnull @.str.139)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
+  %295 = call fastcc i32 @GetVal(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1023, ptr noundef nonnull @.str.139)
   %.not74.i = icmp eq i32 %295, 0
   br i1 %.not74.i, label %HeaderSection.exit.thread, label %296
 
@@ -3940,8 +3940,8 @@ cmsIT8SetSheetType.exit71:                        ; preds = %280, %281
 
 IsAvailableOnList.exit.i:                         ; preds = %306, %.loopexit88.i
   %.082.i = phi ptr [ %313, %.loopexit88.i ], [ %.02130.i.i, %306 ]
-  call fastcc void @InSymbol(ptr noundef %0)
-  %315 = call fastcc i32 @GetVal(ptr noundef %0, ptr noundef %4, i32 noundef 1023, ptr noundef nonnull @.str.140)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
+  %315 = call fastcc i32 @GetVal(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 1023, ptr noundef nonnull @.str.140)
   %.not68.i = icmp eq i32 %315, 0
   br i1 %.not68.i, label %HeaderSection.exit.thread, label %316
 
@@ -4082,13 +4082,13 @@ GetTable.exit81.i:                                ; preds = %368, %367
   br label %HeaderSection.exit.thread
 
 thread-pre-split.i:                               ; preds = %GetTable.exit81.i, %GetTable.exit.i79, %296, %292
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %.pr.i80 = load i32, ptr %90, align 8
   %374 = icmp eq i32 %.pr.i80, 6
   br i1 %374, label %.lr.ph.i.i75, label %SkipEOLN.exit.i76
 
 .lr.ph.i.i75:                                     ; preds = %thread-pre-split.i, %.lr.ph.i.i75
-  call fastcc void @InSymbol(ptr noundef %0)
+  call fastcc void @InSymbol(ptr noundef nonnull %0)
   %375 = load i32, ptr %90, align 8
   %376 = icmp eq i32 %375, 6
   br i1 %376, label %.lr.ph.i.i75, label %SkipEOLN.exit.i76, !llvm.loop !32
@@ -6558,7 +6558,7 @@ define hidden ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef %0, ptr nocapt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const.ParseCube.domain_max, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @__const.ParseCube.check_0_1, i64 16, i1 false)
-  tail call fastcc void @InSymbol(ptr noundef %10)
+  tail call fastcc void @InSymbol(ptr noundef nonnull %10)
   %24 = getelementptr inbounds i8, ptr %10, i64 271360
   %25 = getelementptr inbounds i8, ptr %10, i64 271736
   %26 = getelementptr inbounds i8, ptr %10, i64 271376
@@ -6597,7 +6597,7 @@ define hidden ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef %0, ptr nocapt
   ]
 
 41:                                               ; preds = %39
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %42 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %42, 4
   br i1 %.not.i.i, label %Check.exit.i, label %.loopexit.sink.split.i
@@ -6611,7 +6611,7 @@ Check.exit.i:                                     ; preds = %41
   br label %ReadNumbers.exit.sink.split.i
 
 45:                                               ; preds = %39
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   br label %46
 
 46:                                               ; preds = %53, %45
@@ -6635,7 +6635,7 @@ Check.exit.i:                                     ; preds = %41
   %.sink.i.i = phi double [ %52, %51 ], [ %50, %48 ]
   %54 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i.i
   store double %.sink.i.i, ptr %54, align 8
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %55, label %46, !llvm.loop !57
@@ -6646,13 +6646,13 @@ Check.exit.i:                                     ; preds = %41
   br i1 %.not.i.i.i.i, label %Check.exit.i.i.i, label %.loopexit.sink.split.i
 
 Check.exit.i.i.i:                                 ; preds = %55, %Check.exit.i.i.i
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %.pr.i.i.i = load i32, ptr %24, align 8
   %57 = icmp eq i32 %.pr.i.i.i, 6
   br i1 %57, label %Check.exit.i.i.i, label %ReadNumbers.exit.i, !llvm.loop !33
 
 58:                                               ; preds = %39
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   br label %59
 
 59:                                               ; preds = %66, %58
@@ -6676,7 +6676,7 @@ Check.exit.i.i.i:                                 ; preds = %55, %Check.exit.i.i
   %.sink.i97.i = phi double [ %65, %64 ], [ %63, %61 ]
   %67 = getelementptr inbounds double, ptr %4, i64 %indvars.iv.i96.i
   store double %.sink.i97.i, ptr %67, align 8
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i96.i, 1
   %exitcond.not.i99.i = icmp eq i64 %indvars.iv.next.i98.i, 3
   br i1 %exitcond.not.i99.i, label %68, label %59, !llvm.loop !57
@@ -6687,13 +6687,13 @@ Check.exit.i.i.i:                                 ; preds = %55, %Check.exit.i.i
   br i1 %.not.i.i.i100.i, label %Check.exit.i.i104.i, label %.loopexit.sink.split.i
 
 Check.exit.i.i104.i:                              ; preds = %68, %Check.exit.i.i104.i
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %.pr.i.i105.i = load i32, ptr %24, align 8
   %70 = icmp eq i32 %.pr.i.i105.i, 6
   br i1 %70, label %Check.exit.i.i104.i, label %ReadNumbers.exit.i, !llvm.loop !33
 
 71:                                               ; preds = %39
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %72 = load i32, ptr %24, align 8
   %.not.i107.i = icmp eq i32 %72, 1
   br i1 %.not.i107.i, label %Check.exit111.i, label %.loopexit.sink.split.i
@@ -6703,7 +6703,7 @@ Check.exit111.i:                                  ; preds = %71
   br label %ReadNumbers.exit.sink.split.i
 
 74:                                               ; preds = %39
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %75 = load i32, ptr %24, align 8
   %.not.i112.i = icmp eq i32 %75, 1
   br i1 %.not.i112.i, label %Check.exit116.i, label %.loopexit.sink.split.i
@@ -6713,7 +6713,7 @@ Check.exit116.i:                                  ; preds = %74
   br label %ReadNumbers.exit.sink.split.i
 
 77:                                               ; preds = %39, %39
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   br label %78
 
 78:                                               ; preds = %85, %77
@@ -6737,7 +6737,7 @@ Check.exit116.i:                                  ; preds = %74
   %.sink.i118.i = phi double [ %84, %83 ], [ %82, %80 ]
   %86 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.i117.i
   store double %.sink.i118.i, ptr %86, align 8
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %indvars.iv.next.i119.i = add nuw nsw i64 %indvars.iv.i117.i, 1
   %exitcond.not.i120.i = icmp eq i64 %indvars.iv.next.i119.i, 2
   br i1 %exitcond.not.i120.i, label %87, label %78, !llvm.loop !57
@@ -6748,7 +6748,7 @@ Check.exit116.i:                                  ; preds = %74
   br i1 %.not.i.i.i121.i, label %Check.exit.i.i125.i, label %.loopexit.sink.split.i
 
 Check.exit.i.i125.i:                              ; preds = %87, %Check.exit.i.i125.i
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %.pr.i.i126.i = load i32, ptr %24, align 8
   %89 = icmp eq i32 %.pr.i.i126.i, 6
   br i1 %89, label %Check.exit.i.i125.i, label %ReadNumbers.exit127.i, !llvm.loop !33
@@ -6814,7 +6814,7 @@ ReadNumbers.exit127.i:                            ; preds = %Check.exit.i.i125.i
   %.sink.i129.i = phi double [ %120, %119 ], [ %118, %116 ]
   %122 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.i128.i
   store double %.sink.i129.i, ptr %122, align 8
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %indvars.iv.next.i130.i = add nuw nsw i64 %indvars.iv.i128.i, 1
   %exitcond.not.i131.i = icmp eq i64 %indvars.iv.next.i130.i, 3
   br i1 %exitcond.not.i131.i, label %123, label %114, !llvm.loop !57
@@ -6825,7 +6825,7 @@ ReadNumbers.exit127.i:                            ; preds = %Check.exit.i.i125.i
   br i1 %.not.i.i.i132.i, label %Check.exit.i.i136.i, label %.loopexit.sink.split.i
 
 Check.exit.i.i136.i:                              ; preds = %123, %Check.exit.i.i136.i
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %.pr.i.i137.i = load i32, ptr %24, align 8
   %125 = icmp eq i32 %.pr.i.i137.i, 6
   br i1 %125, label %Check.exit.i.i136.i, label %ReadNumbers.exit138.i, !llvm.loop !33
@@ -6927,7 +6927,7 @@ ReadNumbers.exit138.i:                            ; preds = %Check.exit.i.i136.i
   %.sink.i140.i = phi double [ %174, %173 ], [ %172, %170 ]
   %176 = getelementptr inbounds double, ptr %8, i64 %indvars.iv.i139.i
   store double %.sink.i140.i, ptr %176, align 8
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %indvars.iv.next.i141.i = add nuw nsw i64 %indvars.iv.i139.i, 1
   %exitcond.not.i142.i = icmp eq i64 %indvars.iv.next.i141.i, 3
   br i1 %exitcond.not.i142.i, label %177, label %168, !llvm.loop !57
@@ -6938,7 +6938,7 @@ ReadNumbers.exit138.i:                            ; preds = %Check.exit.i.i136.i
   br i1 %.not.i.i.i143.i, label %Check.exit.i.i147.i, label %.loopexit.sink.split.i
 
 Check.exit.i.i147.i:                              ; preds = %177, %Check.exit.i.i147.i
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   %.pr.i.i148.i = load i32, ptr %24, align 8
   %179 = icmp eq i32 %.pr.i.i148.i, 6
   br i1 %179, label %Check.exit.i.i147.i, label %ReadNumbers.exit149.i, !llvm.loop !33
@@ -6983,7 +6983,7 @@ ReadNumbers.exit149.i:                            ; preds = %Check.exit.i.i147.i
 ReadNumbers.exit.sink.split.i:                    ; preds = %Check.exit116.i, %Check.exit111.i, %Check.exit.i, %39
   %.181.ph.i = phi i32 [ %.080.i, %Check.exit.i ], [ %.080.i, %Check.exit111.i ], [ %76, %Check.exit116.i ], [ %.080.i, %39 ]
   %.1.ph.i = phi i32 [ %.079.i, %Check.exit.i ], [ %73, %Check.exit111.i ], [ %.079.i, %Check.exit116.i ], [ %.079.i, %39 ]
-  call fastcc void @InSymbol(ptr noundef %10)
+  call fastcc void @InSymbol(ptr noundef nonnull %10)
   br label %ReadNumbers.exit.i
 
 ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i, %Check.exit.i.i.i, %ReadNumbers.exit.sink.split.i, %198, %ReadNumbers.exit127.i

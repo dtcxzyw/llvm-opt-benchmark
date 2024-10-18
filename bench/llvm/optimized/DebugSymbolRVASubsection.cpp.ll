@@ -44,7 +44,7 @@ define dso_local void @_ZN4llvm8codeview27DebugSymbolRVASubsectionRefC2Ev(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -205,7 +205,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 2
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #10
   %52 = load ptr, ptr %0, align 8
@@ -694,7 +694,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview24DebugSymbolRVASubsectionD0Ev
   br label %_ZN4llvm8codeview24DebugSymbolRVASubsectionD2Ev.exit
 
 _ZN4llvm8codeview24DebugSymbolRVASubsectionD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
+  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #12
   ret void
 }
@@ -855,7 +855,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview27DebugSymbolRVASubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview27DebugSymbolRVASubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #12
   ret void
 }

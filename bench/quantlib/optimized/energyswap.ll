@@ -2168,7 +2168,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -2230,7 +2230,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib10EnergySwapD1Ev(ptr noundef nonnull align 8 dereferenceable(376) %2) #24
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 488) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(376) %2, i64 noundef 488) #27
   ret void
 }
 
@@ -2607,7 +2607,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8QuantLib6detail12simple_eventD0Ev.exit:       ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 72) #27
   ret void
 }
 
@@ -3031,7 +3031,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.noexc:                           ; preds = %if.then.i.i.i.i.i
@@ -3429,7 +3429,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 
 _ZN8QuantLib15EnergyCommodityD2Ev.exit:           ; preds = %_ZN8QuantLib8CalendarD2Ev.exit, %if.then.i.i.i.i36, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
   %56 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN8QuantLib9CommodityD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull %56) #24
+  tail call void @_ZN8QuantLib9CommodityD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %56) #24
   ret void
 }
 

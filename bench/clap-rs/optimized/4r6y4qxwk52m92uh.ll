@@ -320,7 +320,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg9is_escape17haa756d593069b7efE(
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !31, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %5, ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !32
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %5, ptr noundef nonnull dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !32
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit"
 
@@ -516,7 +516,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg7is_long17h0d06ccc45c5ff929E(pt
   br i1 %.not.i.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread", label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit"
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit": ; preds = %1
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull readonly dereferenceable(2) %2, i64 2), !alias.scope !55
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull readonly align 1 dereferenceable(2) %2, i64 2), !alias.scope !55
   %5 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %5, label %6, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
@@ -525,7 +525,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg7is_long17h0d06ccc45c5ff929E(pt
   br i1 %.not.i.i1, label %7, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
 7:                                                ; preds = %6
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %2, ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !65, !noalias !69
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %2, ptr noundef nonnull dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !65, !noalias !69
   %8 = icmp ne i32 %bcmp.i.i, 0
   br label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
@@ -571,7 +571,7 @@ define void @_ZN8clap_lex9ParsedArg8to_short17h5708d56a9045f7a7E(ptr noalias noc
 
 15:                                               ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !72
-  call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract), !noalias !79
+  call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef range(i64 1, 0) %.fca.1.extract), !noalias !79
   %16 = load i64, ptr %5, align 8, !range !42, !noalias !72, !noundef !4
   %trunc.i.i = trunc nuw i64 %16 to i1
   %17 = getelementptr inbounds i8, ptr %5, i64 8
@@ -659,7 +659,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg8is_short17h4f124932d060574aE(p
   br i1 %or.cond, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit.i.i4"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit.i.i4": ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit"
-  %bcmp.i.i.i5 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull readonly dereferenceable(2) %2, i64 2), !alias.scope !89
+  %bcmp.i.i.i5 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull readonly align 1 dereferenceable(2) %2, i64 2), !alias.scope !89
   %6 = icmp ne i32 %bcmp.i.i.i5, 0
   br label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 

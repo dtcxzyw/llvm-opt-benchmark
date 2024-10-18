@@ -64,7 +64,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -72,7 +72,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
   br label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit: ; preds = %if.end, %land.lhs.true.i.i, %if.then.i.i
@@ -207,7 +207,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -215,7 +215,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
   br label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -366,7 +366,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %invoke.cont36
 
 land.lhs.true.i.i:                                ; preds = %for.end
-  %call3.i.i22 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i22 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
           to label %call3.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call3.i.i.noexc:                                  ; preds = %land.lhs.true.i.i
@@ -377,7 +377,7 @@ if.then.i.i:                                      ; preds = %call3.i.i.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
           to label %invoke.cont36 unwind label %lpad.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %call3.i.i.noexc, %for.end, %if.then.i.i
@@ -448,7 +448,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -456,7 +456,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
   br label %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -506,7 +506,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %invoke.cont
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i1 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i1 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
           to label %call3.i.i.noexc unwind label %terminate.lpad
 
 call3.i.i.noexc:                                  ; preds = %land.lhs.true.i.i
@@ -517,7 +517,7 @@ if.then.i.i:                                      ; preds = %call3.i.i.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %call3.i.i.noexc, %entry, %if.then.i.i
@@ -564,7 +564,7 @@ invoke.cont2:                                     ; preds = %lor.lhs.false.i.i, 
   br i1 %tobool.not.i.i2, label %land.lhs.true.i.i3, label %invoke.cont4
 
 land.lhs.true.i.i3:                               ; preds = %invoke.cont2
-  %call3.i.i6 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i6 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
           to label %call3.i.i.noexc5 unwind label %terminate.lpad
 
 call3.i.i.noexc5:                                 ; preds = %land.lhs.true.i.i3
@@ -575,7 +575,7 @@ if.then.i.i4:                                     ; preds = %call3.i.i.noexc5
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %call3.i.i.noexc5, %invoke.cont2, %if.then.i.i4
@@ -591,7 +591,7 @@ if.then:                                          ; preds = %invoke.cont4
   br i1 %tobool.not.i.i9, label %land.lhs.true.i.i10, label %invoke.cont9
 
 land.lhs.true.i.i10:                              ; preds = %if.then
-  %call3.i.i13 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
+  %call3.i.i13 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE)
           to label %call3.i.i.noexc12 unwind label %terminate.lpad
 
 call3.i.i.noexc12:                                ; preds = %land.lhs.true.i.i10
@@ -602,7 +602,7 @@ if.then.i.i11:                                    ; preds = %call3.i.i.noexc12
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 48), align 8
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(56) @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE, ptr noundef null)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %call3.i.i.noexc12, %if.then, %if.then.i.i11

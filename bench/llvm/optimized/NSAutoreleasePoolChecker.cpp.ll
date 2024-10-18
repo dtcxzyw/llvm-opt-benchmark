@@ -128,7 +128,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %34, i8 0, i64 144, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124NSAutoreleasePoolCheckerE, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull %34, ptr nonnull @.str, i64 30, ptr nonnull @.str.1, i64 19, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull align 8 dereferenceable(144) %34, ptr nonnull @.str, i64 30, ptr nonnull @.str.1, i64 19, i1 noundef zeroext false)
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 136
   store i64 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -610,7 +610,7 @@ define internal void @_ZN12_GLOBAL__N_124NSAutoreleasePoolCheckerD2Ev(ptr nounde
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   ret void
 }
 
@@ -623,7 +623,7 @@ define internal void @_ZN12_GLOBAL__N_124NSAutoreleasePoolCheckerD0Ev(ptr nounde
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #16
   ret void
 }

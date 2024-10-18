@@ -703,27 +703,27 @@ sub_2:                                            ; preds = %sub_1
   br label %dissect_rf4ce_profile_cmd.exit
 
 65:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef %8, i8 noundef zeroext 3, i32 noundef %49)
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 3, i32 noundef range(i32 0, 2) %49)
   br label %dissect_rf4ce_profile_cmd.exit
 
 66:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef %8, i8 noundef zeroext 31, i32 noundef %49)
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 31, i32 noundef range(i32 0, 2) %49)
   br label %dissect_rf4ce_profile_cmd.exit
 
 67:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef %8, i8 noundef zeroext 27, i32 noundef %49)
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 27, i32 noundef range(i32 0, 2) %49)
   br label %dissect_rf4ce_profile_cmd.exit
 
 68:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef %8, i8 noundef zeroext 27, i32 noundef %49)
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 27, i32 noundef range(i32 0, 2) %49)
   br label %dissect_rf4ce_profile_cmd.exit
 
 69:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef %8, i8 noundef zeroext 3, i32 noundef %49)
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 3, i32 noundef range(i32 0, 2) %49)
   br label %dissect_rf4ce_profile_cmd.exit
 
 70:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef %8, i8 noundef zeroext 31, i32 noundef %49)
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 31, i32 noundef range(i32 0, 2) %49)
   br label %dissect_rf4ce_profile_cmd.exit
 
 71:                                               ; preds = %48
@@ -951,7 +951,7 @@ dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i: ; preds
   br label %179
 
 179:                                              ; preds = %179, %177
-  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %178, ptr noundef %8, i32 noundef 1)
+  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %178, ptr noundef nonnull %8, i32 noundef 1)
   %180 = load i32, ptr %8, align 4
   %181 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %180) #7
   %182 = icmp sgt i32 %181, 0
@@ -1238,7 +1238,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   br i1 %.not.i, label %139, label %138
 
 138:                                              ; preds = %115
-  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %120, ptr noundef %2, i32 noundef 0)
+  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %120, ptr noundef nonnull %2, i32 noundef 0)
   br label %139
 
 139:                                              ; preds = %138, %115, %104

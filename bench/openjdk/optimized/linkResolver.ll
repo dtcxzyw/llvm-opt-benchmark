@@ -629,7 +629,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit27:      ; preds = %33, %47
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 100:                                              ; preds = %88
-  %101 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %90, i64 noundef 8, i32 noundef 0) #11
+  %101 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %90, i64 noundef 8, i32 noundef 0) #11
   %.pre.i = ptrtoint ptr %101 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
@@ -690,7 +690,7 @@ define hidden void @_ZN8CallInfo24set_resolved_method_nameEP10JavaThread(ptr nou
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 21:                                               ; preds = %9
-  %22 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef 8, i32 noundef 0) #11
+  %22 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef 8, i32 noundef 0) #11
   %.pre = ptrtoint ptr %22 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -1243,7 +1243,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %39, %43, %47
   br i1 %.not70, label %66, label %60
 
 60:                                               ; preds = %58
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %61 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %61) #11
@@ -1397,7 +1397,7 @@ declare noundef ptr @_ZN16SystemDictionary28find_method_handle_intrinsicE13vmInt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9LogStreamC2ILN8LogLevel4typeE3ELN6LogTag4typeE86ELS4_0ELS4_0ELS4_0ELS4_0ELS4_0EEERK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false) #11
+  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #11
@@ -2012,7 +2012,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit57:      ; preds = %140, %_ZN26Growable
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 179:                                              ; preds = %167
-  %180 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %169, i64 noundef 8, i32 noundef 0) #11
+  %180 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %169, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %177, %179
@@ -2703,7 +2703,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %4
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 28:                                               ; preds = %16
-  %29 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef 8, i32 noundef 0) #11
+  %29 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %18, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %28, %26
@@ -2752,7 +2752,7 @@ _ZNK5Klass12class_loaderEv.exit24:                ; preds = %_ZN6HandleC2EP6Thre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i26
 
 57:                                               ; preds = %45
-  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef 8, i32 noundef 0) #11
+  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %47, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i26
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i26: ; preds = %57, %55
@@ -2884,7 +2884,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %5
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 27:                                               ; preds = %15
-  %28 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef 8, i32 noundef 0) #11
+  %28 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %27, %25
@@ -2926,7 +2926,7 @@ _ZNK5Klass12class_loaderEv.exit20:                ; preds = %_ZN6HandleC2EP6Thre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i22
 
 49:                                               ; preds = %37
-  %50 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %39, i64 noundef 8, i32 noundef 0) #11
+  %50 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %39, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i22
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i22: ; preds = %49, %47
@@ -6241,7 +6241,7 @@ define hidden void @_ZN12LinkResolver20resolve_invokehandleER8CallInfoRK18consta
   br i1 %or.cond.not.i.i, label %14, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
 
 14:                                               ; preds = %4
-  call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) %5) #11
+  call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   %.pre.i = load i8, ptr @UsePerfData, align 1
   br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
 
@@ -6342,7 +6342,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %25
   br i1 %61, label %62, label %_ZN19PerfTraceTimedEventD2Ev.exit
 
 62:                                               ; preds = %59
-  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %5) #11
+  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   %63 = load ptr, ptr %10, align 8
   %64 = load i64, ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 40
@@ -6375,7 +6375,7 @@ define hidden void @_ZN12LinkResolver21resolve_invokedynamicER8CallInfoRK18const
   br i1 %or.cond.not.i.i, label %15, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
 
 15:                                               ; preds = %4
-  call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) %5) #11
+  call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   %.pre.i = load i8, ptr @UsePerfData, align 1
   br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
 
@@ -6427,7 +6427,7 @@ _ZN19PerfTraceTimedEventC2EP15PerfLongCounterS1_.exit: ; preds = %_ZN13PerfTrace
   br i1 %.not13, label %45, label %42
 
 42:                                               ; preds = %40
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %43 = getelementptr inbounds i8, ptr %7, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %43) #11
@@ -6459,7 +6459,7 @@ _ZN19PerfTraceTimedEventC2EP15PerfLongCounterS1_.exit: ; preds = %_ZN13PerfTrace
   br i1 %53, label %54, label %_ZN19PerfTraceTimedEventD2Ev.exit
 
 54:                                               ; preds = %51
-  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %5) #11
+  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   %55 = load ptr, ptr %11, align 8
   %56 = load i64, ptr %5, align 8
   %57 = getelementptr inbounds i8, ptr %55, i64 40
@@ -6728,7 +6728,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %16, %_ZN26GrowableA
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 59:                                               ; preds = %47
-  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 8, i32 noundef 0) #11
+  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %49, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %59, %57

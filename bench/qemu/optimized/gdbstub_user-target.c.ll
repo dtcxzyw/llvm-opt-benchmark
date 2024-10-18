@@ -314,7 +314,7 @@ if.then12:                                        ; preds = %if.end
   br label %cleanup
 
 if.end14:                                         ; preds = %if.end
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef nonnull @.str.14, i64 noundef %call9) #9
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef nonnull @.str.14, i64 noundef range(i64 0, -9223372036854775808) %call9) #9
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %conv.i = trunc i64 %call9 to i32
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call, i32 noundef %conv.i) #9
@@ -372,7 +372,7 @@ if.then5:                                         ; preds = %if.end
   br label %cleanup
 
 if.end7:                                          ; preds = %if.end
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef nonnull @.str.14, i64 noundef %call3) #9
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %4, ptr noundef nonnull @.str.14, i64 noundef range(i64 0, -9223372036854775808) %call3) #9
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %conv.i2 = trunc i64 %call3 to i32
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call1, i32 noundef %conv.i2) #9

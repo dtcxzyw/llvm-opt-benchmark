@@ -270,7 +270,7 @@ define hidden void @_ZN16JvmtiTagMapTable5clearEv(ptr nocapture noundef nonnull 
   %9 = phi ptr [ %16, %.lr.ph.i ], [ %8, %5 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11) #11
   %12 = getelementptr inbounds i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %7, align 8
@@ -319,7 +319,7 @@ _ZN16JvmtiTagMapTable5clearEv.exit.thread:        ; preds = %1
   %10 = phi ptr [ %17, %.lr.ph.i.i ], [ %9, %6 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12) #11
   %13 = getelementptr inbounds i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %8, align 8
@@ -929,7 +929,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKey
   store ptr %41, ptr %.012.i.i, align 8
   %42 = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %43 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43) #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef %43) #11
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.pr.i) #11
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   %45 = load i32, ptr %44, align 8
@@ -1045,7 +1045,7 @@ _ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entr
 
 _ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i: ; preds = %.lr.ph.us.i
   %19 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %19) #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %19) #11
   %20 = getelementptr inbounds i8, ptr %12, i64 32
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %.0142.us.us.i, align 8
@@ -1198,7 +1198,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i: ; pred
   %88 = getelementptr inbounds i64, ptr %84, i64 %87
   store i64 %32, ptr %88, align 8
   %89 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %89) #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %89) #11
   %90 = getelementptr inbounds i8, ptr %29, i64 32
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %.0142.i, align 8
@@ -2618,7 +2618,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #11, !srcloc !22
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #11, !srcloc !22
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !23
 

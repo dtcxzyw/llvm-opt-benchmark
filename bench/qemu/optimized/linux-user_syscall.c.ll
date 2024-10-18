@@ -5469,7 +5469,7 @@ land.lhs.true752:                                 ; preds = %if.end750
   %tz.val = load i32, ptr %tz, align 4
   %109 = getelementptr inbounds i8, ptr %tz, i64 4
   %tz.val1798 = load i32, ptr %109, align 4
-  %call.i2208 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %arg2, i64 noundef 8, i1 noundef zeroext true) #27
+  %call.i2208 = tail call ptr @lock_user(i32 noundef 3, i64 noundef range(i64 1, 0) %arg2, i64 noundef 8, i1 noundef zeroext true) #27
   %tobool.not.i2209 = icmp eq ptr %call.i2208, null
   br i1 %tobool.not.i2209, label %return, label %copy_to_user_timezone.exit.thread
 
@@ -5503,7 +5503,7 @@ if.end767:                                        ; preds = %copy_from_user_time
   br i1 %tobool768.not, label %if.end774, label %if.then769
 
 if.then769:                                       ; preds = %if.end767
-  %call.i2218 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg2, i64 noundef 8, i1 noundef zeroext true) #27
+  %call.i2218 = tail call ptr @lock_user(i32 noundef 1, i64 noundef range(i64 1, 0) %arg2, i64 noundef 8, i1 noundef zeroext true) #27
   %tobool.not.i2219 = icmp eq ptr %call.i2218, null
   br i1 %tobool.not.i2219, label %return, label %copy_from_user_timezone.exit.thread
 
@@ -7350,7 +7350,7 @@ if.end1802:                                       ; preds = %sw.bb1798
   %conv1807 = trunc i64 %arg1 to i32
   %conv1808 = trunc nuw nsw i64 %spec.select1786 to i32
   %conv1809 = trunc i64 %arg4 to i32
-  %call.i2770 = call i64 (i64, ...) @syscall(i64 noundef 315, i32 noundef %conv1807, ptr noundef nonnull %scha, i32 noundef %conv1808, i32 noundef %conv1809) #27
+  %call.i2770 = call i64 (i64, ...) @syscall(i64 noundef 315, i32 noundef %conv1807, ptr noundef nonnull %scha, i32 noundef range(i32 0, 57) %conv1808, i32 noundef %conv1809) #27
   %sext3846 = shl i64 %call.i2770, 32
   %conv1811 = ashr exact i64 %sext3846, 32
   %cmp.i2772 = icmp eq i64 %sext3846, -4294967296
@@ -9165,7 +9165,7 @@ sw.bb2972:                                        ; preds = %entry
   br i1 %tobool2976.not, label %if.end2983, label %if.then2977
 
 if.then2977:                                      ; preds = %sw.bb2972
-  %call.i3345 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg4, i64 noundef 32, i1 noundef zeroext true) #27
+  %call.i3345 = tail call ptr @lock_user(i32 noundef 1, i64 noundef range(i64 1, 0) %arg4, i64 noundef 32, i1 noundef zeroext true) #27
   %tobool.not.i3346 = icmp eq ptr %call.i3345, null
   br i1 %tobool.not.i3346, label %return, label %copy_from_user_mq_attr.exit.thread
 
@@ -9395,7 +9395,7 @@ sw.bb3072:                                        ; preds = %entry
   br i1 %cmp3073.not, label %if.else3081, label %if.then3075
 
 if.then3075:                                      ; preds = %sw.bb3072
-  %call.i3444 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg2, i64 noundef 32, i1 noundef zeroext true) #27
+  %call.i3444 = tail call ptr @lock_user(i32 noundef 1, i64 noundef range(i64 1, 0) %arg2, i64 noundef 32, i1 noundef zeroext true) #27
   %tobool.not.i3445 = icmp eq ptr %call.i3444, null
   br i1 %tobool.not.i3445, label %copy_from_user_mq_attr.exit3458, label %do.body.i3446
 
@@ -9447,7 +9447,7 @@ if.end3090:                                       ; preds = %if.end3090.sink.spl
   br i1 %or.cond31, label %if.then3096, label %return
 
 if.then3096:                                      ; preds = %if.end3090
-  %call.i3473 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg3, i64 noundef 32, i1 noundef zeroext false) #27
+  %call.i3473 = call ptr @lock_user(i32 noundef 3, i64 noundef range(i64 1, 0) %arg3, i64 noundef 32, i1 noundef zeroext false) #27
   %tobool.not.i3474 = icmp eq ptr %call.i3473, null
   br i1 %tobool.not.i3474, label %return, label %do.body.i3475
 
@@ -9745,7 +9745,7 @@ if.end3300:                                       ; preds = %if.then3293.if.end3
   %opaque.i3538 = getelementptr inbounds i8, ptr %448, i64 624
   %449 = load ptr, ptr %opaque.i3538, align 16
   %signal_pending.i3539 = getelementptr inbounds i8, ptr %449, i64 9164
-  %call.i3540 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3539, i64 noundef 281, i32 noundef %conv3268, ptr noundef nonnull %call3286, i32 noundef %conv3269, i32 noundef %conv3270, ptr noundef %446, i64 noundef 8) #27
+  %call.i3540 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3539, i64 noundef 281, i32 noundef %conv3268, ptr noundef nonnull %call3286, i32 noundef range(i32 1, -2147483648) %conv3269, i32 noundef %conv3270, ptr noundef %446, i64 noundef 8) #27
   %sext3824 = shl i64 %call.i3540, 32
   %conv3302 = ashr exact i64 %sext3824, 32
   %cmp.i3542 = icmp eq i64 %sext3824, -4294967296
@@ -12273,7 +12273,7 @@ if.then.i:                                        ; preds = %entry
   %div.i.i = sdiv i32 %sub.i.i, 64
   %conv.i.i = sext i32 %div.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
-  %call.i.i = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg2, i64 noundef %mul.i.i, i1 noundef zeroext true) #27
+  %call.i.i = tail call ptr @lock_user(i32 noundef 1, i64 noundef range(i64 1, 0) %arg2, i64 noundef %mul.i.i, i1 noundef zeroext true) #27
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %return, label %for.body.preheader.i.i
 
@@ -12334,7 +12334,7 @@ if.then.i38:                                      ; preds = %if.end
   %div.i.i40 = sdiv i32 %sub.i.i39, 64
   %conv.i.i41 = sext i32 %div.i.i40 to i64
   %mul.i.i42 = shl nsw i64 %conv.i.i41, 3
-  %call.i.i43 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg3, i64 noundef %mul.i.i42, i1 noundef zeroext true) #27
+  %call.i.i43 = tail call ptr @lock_user(i32 noundef 1, i64 noundef range(i64 1, 0) %arg3, i64 noundef %mul.i.i42, i1 noundef zeroext true) #27
   %tobool.not.i.i44 = icmp eq ptr %call.i.i43, null
   br i1 %tobool.not.i.i44, label %return, label %for.body.preheader.i.i45
 
@@ -12395,7 +12395,7 @@ if.then.i78:                                      ; preds = %if.end5
   %div.i.i80 = sdiv i32 %sub.i.i79, 64
   %conv.i.i81 = sext i32 %div.i.i80 to i64
   %mul.i.i82 = shl nsw i64 %conv.i.i81, 3
-  %call.i.i83 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg4, i64 noundef %mul.i.i82, i1 noundef zeroext true) #27
+  %call.i.i83 = tail call ptr @lock_user(i32 noundef 1, i64 noundef range(i64 1, 0) %arg4, i64 noundef %mul.i.i82, i1 noundef zeroext true) #27
   %tobool.not.i.i84 = icmp eq ptr %call.i.i83, null
   br i1 %tobool.not.i.i84, label %return, label %for.body.preheader.i.i85
 
@@ -12696,7 +12696,7 @@ if.then10:                                        ; preds = %if.end
   %opaque.i = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque.i, align 16
   %signal_pending.i = getelementptr inbounds i8, ptr %2, i64 9164
-  %call.i = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 288, i32 noundef %fd, ptr noundef null, ptr noundef null, i32 noundef %host_flags.1) #27
+  %call.i = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 288, i32 noundef %fd, ptr noundef null, ptr noundef null, i32 noundef range(i32 0, 528384) %host_flags.1) #27
   %sext40 = shl i64 %call.i, 32
   %conv = ashr exact i64 %sext40, 32
   %cmp.i = icmp eq i64 %sext40, -4294967296
@@ -12744,7 +12744,7 @@ cond.false.i.i:                                   ; preds = %if.end24
   br i1 %6, label %access_ok.exit, label %return
 
 access_ok.exit:                                   ; preds = %cond.true.i.i, %cond.false.i.i
-  %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef %conv25, i32 noundef 3) #27
+  %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef range(i64 0, 2147483648) %conv25, i32 noundef 3) #27
   br i1 %call2.i.i, label %if.end28, label %return
 
 if.end28:                                         ; preds = %access_ok.exit
@@ -12755,7 +12755,7 @@ if.end28:                                         ; preds = %access_ok.exit
   %opaque.i25 = getelementptr inbounds i8, ptr %9, i64 624
   %10 = load ptr, ptr %opaque.i25, align 16
   %signal_pending.i26 = getelementptr inbounds i8, ptr %10, i64 9164
-  %call.i27 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i26, i64 noundef 288, i32 noundef %fd, ptr noundef nonnull %7, ptr noundef nonnull %ret_addrlen, i32 noundef %host_flags.1) #27
+  %call.i27 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i26, i64 noundef 288, i32 noundef %fd, ptr noundef nonnull %7, ptr noundef nonnull %ret_addrlen, i32 noundef range(i32 0, 528384) %host_flags.1) #27
   %sext = shl i64 %call.i27, 32
   %conv31 = ashr exact i64 %sext, 32
   %cmp.i29 = icmp eq i64 %sext, -4294967296
@@ -12843,7 +12843,7 @@ if.end2:                                          ; preds = %if.end
   %opaque.i = getelementptr inbounds i8, ptr %2, i64 624
   %3 = load ptr, ptr %opaque.i, align 16
   %signal_pending.i = getelementptr inbounds i8, ptr %3, i64 9164
-  %call.i = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 42, i32 noundef %sockfd, ptr noundef nonnull %0, i32 noundef %addrlen) #27
+  %call.i = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 42, i32 noundef %sockfd, ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %addrlen) #27
   %sext = shl i64 %call.i, 32
   %conv4 = ashr exact i64 %sext, 32
   %cmp.i = icmp eq i64 %sext, -4294967296
@@ -12899,7 +12899,7 @@ cond.false.i.i:                                   ; preds = %if.end6
   br i1 %2, label %access_ok.exit, label %return
 
 access_ok.exit:                                   ; preds = %cond.true.i.i, %cond.false.i.i
-  %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef %conv, i32 noundef 3) #27
+  %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef range(i64 0, 2147483648) %conv, i32 noundef 3) #27
   br i1 %call2.i.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %access_ok.exit
@@ -13014,7 +13014,7 @@ cond.false.i.i:                                   ; preds = %if.end6
   br i1 %2, label %access_ok.exit, label %return
 
 access_ok.exit:                                   ; preds = %cond.true.i.i, %cond.false.i.i
-  %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef %conv, i32 noundef 3) #27
+  %call2.i.i = tail call zeroext i1 @page_check_range(i64 noundef %target_addr, i64 noundef range(i64 0, 2147483648) %conv, i32 noundef 3) #27
   br i1 %call2.i.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %access_ok.exit
@@ -14045,7 +14045,7 @@ if.end18:                                         ; preds = %if.then14
   %opaque.i = getelementptr inbounds i8, ptr %14, i64 624
   %15 = load ptr, ptr %opaque.i, align 16
   %signal_pending.i = getelementptr inbounds i8, ptr %15, i64 9164
-  %call.i = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 44, i32 noundef %fd, ptr noundef %host_msg.0, i64 noundef %len, i32 noundef %flags, ptr noundef nonnull %12, i32 noundef %addrlen) #27
+  %call.i = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 44, i32 noundef %fd, ptr noundef %host_msg.0, i64 noundef %len, i32 noundef %flags, ptr noundef nonnull %12, i32 noundef range(i32 0, -2147483648) %addrlen) #27
   %cmp.i41 = icmp eq i64 %call.i, -1
   br i1 %cmp.i41, label %fail.sink.split, label %fail
 
@@ -14988,7 +14988,7 @@ if.end17:                                         ; preds = %do.body.i13, %for.c
   %opaque.i = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque.i, align 16
   %signal_pending.i = getelementptr inbounds i8, ptr %2, i64 9164
-  %call.i15 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 220, i32 noundef %semid, ptr noundef %call13, i32 noundef %nsops, ptr noundef %pts.0) #27
+  %call.i15 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 220, i32 noundef %semid, ptr noundef %call13, i32 noundef range(i32 0, 501) %nsops, ptr noundef %pts.0) #27
   %sext = shl i64 %call.i15, 32
   %conv19 = ashr exact i64 %sext, 32
   %cmp.i = icmp eq i64 %sext, -4294967296
@@ -15617,7 +15617,7 @@ if.end6:                                          ; preds = %if.end2
   %opaque.i = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque.i, align 16
   %signal_pending.i = getelementptr inbounds i8, ptr %2, i64 9164
-  %call.i = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 70, i32 noundef %msqid, ptr noundef nonnull %call3, i64 noundef %msgsz, i64 noundef %msgtyp, i32 noundef %msgflg) #27
+  %call.i = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 70, i32 noundef %msqid, ptr noundef nonnull %call3, i64 noundef range(i64 0, -9223372036854775808) %msgsz, i64 noundef %msgtyp, i32 noundef %msgflg) #27
   %sext = shl i64 %call.i, 32
   %conv = ashr exact i64 %sext, 32
   %cmp.i = icmp eq i64 %sext, -4294967296
@@ -15690,7 +15690,7 @@ if.end6:                                          ; preds = %if.end2
   %opaque.i = getelementptr inbounds i8, ptr %2, i64 624
   %3 = load ptr, ptr %opaque.i, align 16
   %signal_pending.i = getelementptr inbounds i8, ptr %3, i64 9164
-  %call.i = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 69, i32 noundef %msqid, ptr noundef nonnull %call3, i64 noundef %msgsz, i32 noundef %msgflg) #27
+  %call.i = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 69, i32 noundef %msqid, ptr noundef nonnull %call3, i64 noundef range(i64 0, -9223372036854775808) %msgsz, i32 noundef %msgflg) #27
   %sext = shl i64 %call.i, 32
   %conv = ashr exact i64 %sext, 32
   %cmp.i = icmp eq i64 %sext, -4294967296
@@ -19333,7 +19333,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end2.i
 
 if.end2.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %0, i8 0, i64 %mul, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %0, i8 0, i64 range(i64 0, -7) %mul, i1 false)
   %div17.i = and i64 %div, 2305843009213693951
   %sub.off = add i64 %arg3, 126
   %cmp321.not.i = icmp ult i64 %sub.off, 127

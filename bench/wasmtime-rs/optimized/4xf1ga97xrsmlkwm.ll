@@ -425,7 +425,7 @@ _ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %6, ptr nonnull align 8 %132), !noalias !13
-  invoke void @_ZN15wiggle_generate5names12builtin_type17hf0ae0e024bc5c15bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %5, i8 %134, i8 %136)
+  invoke void @_ZN15wiggle_generate5names12builtin_type17hf0ae0e024bc5c15bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %5, i8 range(i8 0, 11) %134, i8 %136)
           to label %140 unwind label %138, !noalias !13
 
 137:                                              ; preds = %141, %138

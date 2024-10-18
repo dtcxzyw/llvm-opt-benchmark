@@ -52,7 +52,7 @@ invoke.cont2:
   %m_pivotInB = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_pivotInB, ptr noundef nonnull align 4 dereferenceable(16) %pivotInB, i64 16, i1 false)
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(16) %frameInA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(48) %frameInA, i64 16, i1 false)
   %arrayidx6.i = getelementptr inbounds i8, ptr %frameInA, i64 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i, i64 16, i1 false)
@@ -60,7 +60,7 @@ invoke.cont2:
   %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %frameInB, i64 16, i1 false)
   %arrayidx6.i1 = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i2 = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i1, i64 16, i1 false)
@@ -173,7 +173,7 @@ invoke.cont2:
   %m_pivotInB = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_pivotInB, ptr noundef nonnull align 4 dereferenceable(16) %pivotInB, i64 16, i1 false)
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(16) %frameInA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(48) %frameInA, i64 16, i1 false)
   %arrayidx6.i = getelementptr inbounds i8, ptr %frameInA, i64 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i, i64 16, i1 false)
@@ -181,7 +181,7 @@ invoke.cont2:
   %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %frameInB, i64 16, i1 false)
   %arrayidx6.i1 = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i2 = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i1, i64 16, i1 false)
@@ -288,7 +288,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26btMultiBodyFixedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #13
+  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN21btMultiBodyConstraintdlEPv.exit unwind label %terminate.lpad.i
 
@@ -564,7 +564,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %m_solverBodyIdB = getelementptr inbounds i8, ptr %arrayidx.i, i64 188
   store i32 %9, ptr %m_solverBodyIdB, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pivotAworld, ptr noundef nonnull align 8 dereferenceable(16) %m_pivotInA, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %frameAworld, ptr noundef nonnull align 8 dereferenceable(16) %m_frameInA, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %frameAworld, ptr noundef nonnull align 8 dereferenceable(48) %m_frameInA, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx10.i, i64 16, i1 false)
   %10 = load ptr, ptr %m_rigidBodyA, align 8
@@ -721,14 +721,14 @@ if.then38:                                        ; preds = %if.else
   %70 = load ptr, ptr %m_bodyA, align 8
   %71 = load i32, ptr %m_linkA, align 8
   call void @_ZNK11btMultiBody17localFrameToWorldEiRK11btMatrix3x3(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(640) %70, i32 noundef %71, ptr noundef nonnull align 4 dereferenceable(48) %frameAworld)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %frameAworld, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp44, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %frameAworld, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp44, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i77, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i79, i64 16, i1 false)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else, %if.then38, %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pivotBworld, ptr noundef nonnull align 8 dereferenceable(16) %m_pivotInB, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %frameBworld, ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %frameBworld, ptr noundef nonnull align 8 dereferenceable(48) %m_frameInB, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i82, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i81, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i84, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx10.i83, i64 16, i1 false)
   %72 = load ptr, ptr %m_rigidBodyB, align 8
@@ -885,7 +885,7 @@ if.then71:                                        ; preds = %if.else69
   %132 = load ptr, ptr %m_bodyB, align 8
   %133 = load i32, ptr %m_linkB, align 4
   call void @_ZNK11btMultiBody17localFrameToWorldEiRK11btMatrix3x3(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(640) %132, i32 noundef %133, ptr noundef nonnull align 4 dereferenceable(48) %frameBworld)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %frameBworld, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp77, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %frameBworld, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp77, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i82, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i210, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i84, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i212, i64 16, i1 false)
   br label %if.end82
@@ -1247,7 +1247,7 @@ if.end31:                                         ; preds = %if.then24, %if.end2
 define linkonce_odr dso_local void @_ZN26btMultiBodyFixedConstraint11setFrameInBERK11btMatrix3x3(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 4 dereferenceable(48) %frameInB) unnamed_addr #5 comdat align 2 {
 entry:
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %frameInB, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)

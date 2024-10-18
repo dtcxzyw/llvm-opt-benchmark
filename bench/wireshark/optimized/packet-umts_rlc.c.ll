@@ -2149,8 +2149,8 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
   %230 = getelementptr inbounds i8, ptr %166, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = trunc i32 %223 to i16
-  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %231, i16 noundef zeroext %.0121152.i, i16 noundef zeroext %35, i16 noundef zeroext %164, i16 noundef zeroext %232, i32 noundef 1, ptr noundef %5)
-  %233 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %35, i16 noundef zeroext %164, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %231, i16 noundef zeroext %.0121152.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %164, i16 noundef zeroext %232, i32 noundef 1, ptr noundef %5)
+  %233 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %164, ptr noundef %5)
   br label %234
 
 234:                                              ; preds = %229, %._crit_edge165.i
@@ -2200,8 +2200,8 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds i8, ptr %166, i64 2
   %258 = load i16, ptr %257, align 2
-  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %256, i16 noundef zeroext %.0121152.i, i16 noundef zeroext %35, i16 noundef zeroext %164, i16 noundef zeroext %258, i32 noundef 1, ptr noundef %5)
-  %259 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %35, i16 noundef zeroext %164, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %256, i16 noundef zeroext %.0121152.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %164, i16 noundef zeroext %258, i32 noundef 1, ptr noundef %5)
+  %259 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %164, ptr noundef %5)
   br label %260
 
 260:                                              ; preds = %254, %241
@@ -2211,7 +2211,7 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
   br i1 %.not144.i, label %.thread.i, label %261
 
 261:                                              ; preds = %260
-  call fastcc void @rlc_call_subdissector(i32 noundef %0, ptr noundef nonnull %.1.i, ptr noundef %2, ptr noundef %3)
+  call fastcc void @rlc_call_subdissector(i32 noundef range(i32 3, 9) %0, ptr noundef nonnull %.1.i, ptr noundef %2, ptr noundef %3)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %261, %260, %252, %205, %199, %183, %176
@@ -2254,7 +2254,7 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
 278:                                              ; preds = %276
   %279 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %269) #14
   %280 = trunc i32 %279 to i16
-  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %.0121.lcssa.i, i16 noundef zeroext %35, i16 noundef zeroext %.lcssa.i, i16 noundef zeroext %280, i32 noundef 0, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %.0121.lcssa.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %.lcssa.i, i16 noundef zeroext %280, i32 noundef 0, ptr noundef %5)
   br i1 %.0118.lcssa.i, label %.thread151.i, label %284
 
 .thread151.i:                                     ; preds = %278
@@ -3399,7 +3399,7 @@ get_frags.exit:                                   ; preds = %142, %rlc_channel_c
   %250 = getelementptr inbounds i8, ptr %246, i64 32
   %251 = getelementptr inbounds i8, ptr %246, i64 40
   %252 = getelementptr inbounds i8, ptr %246, i64 4
-  %253 = call fastcc i32 @rlc_channel_assign(ptr noundef nonnull %252, i32 noundef %0, ptr noundef nonnull %2, ptr noundef %9)
+  %253 = call fastcc i32 @rlc_channel_assign(ptr noundef nonnull %252, i32 noundef range(i32 1, 3) %0, ptr noundef nonnull %2, ptr noundef %9)
   store i16 %7, ptr %250, align 8
   %254 = call ptr @wmem_file_scope() #14
   %255 = zext i16 %4 to i32

@@ -6418,7 +6418,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %pmix_pointer_array_
 .lr.ph.i169:                                      ; preds = %403, %.lr.ph.i169
   %409 = phi ptr [ %411, %.lr.ph.i169 ], [ %408, %403 ]
   %.07.i170 = phi ptr [ %410, %.lr.ph.i169 ], [ %407, %403 ]
-  call void %409(ptr noundef %386) #14
+  call void %409(ptr noundef nonnull %386) #14
   %410 = getelementptr inbounds i8, ptr %.07.i170, i64 8
   %411 = load ptr, ptr %410, align 8
   %.not.i171 = icmp eq ptr %411, null

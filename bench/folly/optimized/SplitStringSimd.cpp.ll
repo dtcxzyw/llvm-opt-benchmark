@@ -20767,7 +20767,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 1 %prev.i.0168, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %7, ptr align 1 %prev.i.0168, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
@@ -20900,7 +20900,7 @@ if.else.i.i.i17:                                  ; preds = %if.then.i.i14
   br i1 %cmp5.not.i.i.i18, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i20, label %if.then6.i.i.i19
 
 if.then6.i.i.i19:                                 ; preds = %if.else.i.i.i17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %prev.i.2172, i64 %sub.ptr.sub.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %18, ptr align 1 %prev.i.2172, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i20
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i20: ; preds = %if.then6.i.i.i19, %if.else.i.i.i17, %sw.bb4.i.i.i27, %if.then.i.i.i24
@@ -21051,7 +21051,7 @@ if.else.i.i.i50:                                  ; preds = %if.then.i.i47
   br i1 %cmp5.not.i.i.i51, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i53, label %if.then6.i.i.i52
 
 if.then6.i.i.i52:                                 ; preds = %if.else.i.i.i50
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 1 %prev.i.5183, i64 %sub.ptr.sub.i.i67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %31, ptr align 1 %prev.i.5183, i64 %sub.ptr.sub.i.i67, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i53
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i53: ; preds = %if.then6.i.i.i52, %if.else.i.i.i50, %sw.bb4.i.i.i60, %if.then.i.i.i57
@@ -21163,7 +21163,7 @@ if.else.i.i.i83:                                  ; preds = %if.then.i.i80
   br i1 %cmp5.not.i.i.i84, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i86, label %if.then6.i.i.i85
 
 if.then6.i.i.i85:                                 ; preds = %if.else.i.i.i83
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i6, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i86
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i86: ; preds = %if.then6.i.i.i85, %if.else.i.i.i83, %sw.bb4.i.i.i93, %if.then.i.i.i90
@@ -21299,7 +21299,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %add.ptr, ptr align 1 %3, i64 %4, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
@@ -21754,7 +21754,7 @@ sw.bb4.i.i.i:                                     ; preds = %sw.bb2.i.i.i, %if.t
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 1 %prev.i.0174, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %7, ptr align 1 %prev.i.0174, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
@@ -21890,7 +21890,7 @@ sw.bb4.i.i.i28:                                   ; preds = %sw.bb2.i.i.i29, %if
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i21
 
 if.then6.i.i.i20:                                 ; preds = %if.then.i.i15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %prev.i.2178, i64 %sub.ptr.sub.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %18, ptr align 1 %prev.i.2178, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i21
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i21: ; preds = %if.then6.i.i.i20, %sw.bb4.i.i.i28, %if.then.i.i.i25
@@ -22044,7 +22044,7 @@ sw.bb4.i.i.i61:                                   ; preds = %sw.bb2.i.i.i62, %if
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i54
 
 if.then6.i.i.i53:                                 ; preds = %if.then.i.i48
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 1 %prev.i.5189, i64 %sub.ptr.sub.i.i72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %31, ptr align 1 %prev.i.5189, i64 %sub.ptr.sub.i.i72, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i54
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i54: ; preds = %if.then6.i.i.i53, %sw.bb4.i.i.i61, %if.then.i.i.i58
@@ -22159,7 +22159,7 @@ sw.bb4.i.i.i94:                                   ; preds = %sw.bb2.i.i.i95, %if
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i87
 
 if.then6.i.i.i86:                                 ; preds = %if.then.i.i81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i8, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i87
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i87: ; preds = %if.then6.i.i.i86, %sw.bb4.i.i.i94, %if.then.i.i.i91
@@ -23749,7 +23749,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp5.not.i.i.i, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 1 %prev.i.0169, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %7, ptr align 1 %prev.i.0169, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
@@ -23882,7 +23882,7 @@ if.else.i.i.i13:                                  ; preds = %if.then.i.i10
   br i1 %cmp5.not.i.i.i14, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i16, label %if.then6.i.i.i15
 
 if.then6.i.i.i15:                                 ; preds = %if.else.i.i.i13
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %prev.i.2173, i64 %sub.ptr.sub.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %18, ptr align 1 %prev.i.2173, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i16
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i16: ; preds = %if.then6.i.i.i15, %if.else.i.i.i13, %sw.bb4.i.i.i23, %if.then.i.i.i20
@@ -24033,7 +24033,7 @@ if.else.i.i.i46:                                  ; preds = %if.then.i.i43
   br i1 %cmp5.not.i.i.i47, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i49, label %if.then6.i.i.i48
 
 if.then6.i.i.i48:                                 ; preds = %if.else.i.i.i46
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 1 %prev.i.5184, i64 %sub.ptr.sub.i.i67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %31, ptr align 1 %prev.i.5184, i64 %sub.ptr.sub.i.i67, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i49
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i49: ; preds = %if.then6.i.i.i48, %if.else.i.i.i46, %sw.bb4.i.i.i56, %if.then.i.i.i53
@@ -24145,7 +24145,7 @@ if.else.i.i.i79:                                  ; preds = %if.then.i.i76
   br i1 %cmp5.not.i.i.i80, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i82, label %if.then6.i.i.i81
 
 if.then6.i.i.i81:                                 ; preds = %if.else.i.i.i79
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i6, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i82
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i82: ; preds = %if.then6.i.i.i81, %if.else.i.i.i79, %sw.bb4.i.i.i89, %if.then.i.i.i86
@@ -24410,7 +24410,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i2
   br i1 %cmp5.not.i.i.i, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %20, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %19, ptr align 1 %20, i64 %21, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i3
@@ -24525,7 +24525,7 @@ if.else.i.i.i10:                                  ; preds = %if.then.i.i7
   br i1 %cmp5.not.i.i.i11, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i13, label %if.then6.i.i.i12
 
 if.then6.i.i.i12:                                 ; preds = %if.else.i.i.i10
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr31, ptr align 1 %31, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %add.ptr31, ptr align 1 %31, i64 %32, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i13
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i13: ; preds = %if.then6.i.i.i12, %if.else.i.i.i10, %sw.bb4.i.i.i20, %if.then.i.i.i17
@@ -24719,7 +24719,7 @@ sw.bb4.i.i.i:                                     ; preds = %sw.bb2.i.i.i, %if.t
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 1 %prev.i.0175, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %7, ptr align 1 %prev.i.0175, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
@@ -24855,7 +24855,7 @@ sw.bb4.i.i.i24:                                   ; preds = %sw.bb2.i.i.i25, %if
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i17
 
 if.then6.i.i.i16:                                 ; preds = %if.then.i.i11
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %prev.i.2179, i64 %sub.ptr.sub.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %18, ptr align 1 %prev.i.2179, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i17
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i17: ; preds = %if.then6.i.i.i16, %sw.bb4.i.i.i24, %if.then.i.i.i21
@@ -25009,7 +25009,7 @@ sw.bb4.i.i.i57:                                   ; preds = %sw.bb2.i.i.i58, %if
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i50
 
 if.then6.i.i.i49:                                 ; preds = %if.then.i.i44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 1 %prev.i.5190, i64 %sub.ptr.sub.i.i72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %31, ptr align 1 %prev.i.5190, i64 %sub.ptr.sub.i.i72, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i50
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i50: ; preds = %if.then6.i.i.i49, %sw.bb4.i.i.i57, %if.then.i.i.i54
@@ -25124,7 +25124,7 @@ sw.bb4.i.i.i90:                                   ; preds = %sw.bb2.i.i.i91, %if
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i83
 
 if.then6.i.i.i82:                                 ; preds = %if.then.i.i77
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %39, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i8, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i83
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i83: ; preds = %if.then6.i.i.i82, %sw.bb4.i.i.i90, %if.then.i.i.i87

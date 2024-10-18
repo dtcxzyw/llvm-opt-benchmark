@@ -2293,7 +2293,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon13printPCRelImmEPKNS_6MCIns
   call void @_ZNK4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 2) #5
   call void @_ZNK4llvm13MCInstPrinter9formatHexEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object") align 8 %7, ptr noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %spec.select) #5
   %37 = load ptr, ptr %6, align 8
-  %38 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  %38 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(24) %7) #5
   call void @_ZN4llvm13MCInstPrinter10WithMarkupD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #5
   br label %63
 
@@ -2316,7 +2316,7 @@ define dso_local void @_ZN4llvm20X86InstPrinterCommon13printPCRelImmEPKNS_6MCIns
 
 _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %45, %46
   %47 = load ptr, ptr %8, align 8
-  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(16) %9) #5
+  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(24) %9) #5
   call void @_ZN4llvm13MCInstPrinter10WithMarkupD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %8) #5
   br label %63
 
@@ -2340,7 +2340,7 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %45, %46
   %56 = load i64, ptr %10, align 8
   call void @_ZNK4llvm13MCInstPrinter9formatHexEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object") align 8 %12, ptr noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %56) #5
   %57 = load ptr, ptr %11, align 8
-  %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(16) %12) #5
+  %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(24) %12) #5
   call void @_ZN4llvm13MCInstPrinter10WithMarkupD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %11) #5
   br label %63
 

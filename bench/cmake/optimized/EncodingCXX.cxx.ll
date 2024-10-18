@@ -589,7 +589,7 @@ define dso_local void @_ZN5cmsys8Encoding6ToWideB5cxx11EPKc(ptr dead_on_unwind n
   br label %_ZNSt6vectorIwSaIwEED2Ev.exit
 
 _ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %22, %24
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   br label %25
 
 25:                                               ; preds = %6, %_ZNSt6vectorIwSaIwEED2Ev.exit
@@ -747,7 +747,7 @@ define dso_local void @_ZN5cmsys8Encoding8ToNarrowB5cxx11EPKw(ptr dead_on_unwind
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %22, %24
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   br label %25
 
 25:                                               ; preds = %6, %_ZNSt6vectorIcSaIcEED2Ev.exit
@@ -792,7 +792,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIwSaIwEEC2EmRKS0_(ptr noundef no
 
 _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #15
+  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
@@ -810,7 +810,7 @@ _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 10:                                               ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
@@ -853,7 +853,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIwSaIwEED2Ev(ptr noundef nonnull
   br label %_ZNSt12_Vector_baseIwSaIwEED2Ev.exit
 
 _ZNSt12_Vector_baseIwSaIwEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  tail call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   ret void
 }
 
@@ -877,7 +877,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef no
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -894,7 +894,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 9:                                                ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -937,7 +937,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   ret void
 }
 

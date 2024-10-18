@@ -930,12 +930,12 @@ define noundef zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %0, i1 noundef 
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, i64 noundef %25, i64 noundef 4) #17
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %25, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 30:                                               ; preds = %26
-  %31 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 4) #19
+  %31 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %25, i64 noundef 4) #19
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.lr.ph.preheader
 
@@ -947,7 +947,7 @@ define noundef zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %0, i1 noundef 
   unreachable
 
 gv_calloc.exit:                                   ; preds = %15
-  %37 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 4) #19
+  %37 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %25, i64 noundef 4) #19
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %30
@@ -1568,12 +1568,12 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str, i64 noundef %40, i64 noundef 4) #17
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %40, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 45:                                               ; preds = %41
-  %46 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #19
+  %46 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %40, i64 noundef 4) #19
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %.lr.ph.preheader
 
@@ -1585,7 +1585,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
   unreachable
 
 gv_calloc.exit:                                   ; preds = %35
-  %52 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #19
+  %52 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %40, i64 noundef 4) #19
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %45
@@ -2141,7 +2141,7 @@ gv_alloc.exit:                                    ; preds = %5
   br i1 %.not, label %.thread, label %18
 
 .thread:                                          ; preds = %14
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #19
   br label %gv_calloc.exit
 
 18:                                               ; preds = %14
@@ -2150,12 +2150,12 @@ gv_alloc.exit:                                    ; preds = %5
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef %16, i64 noundef 4) #17
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 22:                                               ; preds = %18
-  %23 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
+  %23 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #19
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %gv_calloc.exit
 
@@ -2188,7 +2188,7 @@ define internal fastcc noundef ptr @SparseMatrix_alloc(ptr noundef returned %0, 
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %6, align 8
   %cond = icmp eq i32 %4, 1
-  %7 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 4) #19
+  %7 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %5, i64 noundef 4) #19
   %8 = icmp eq ptr %7, null
   br i1 %cond, label %9, label %37
 
@@ -2205,7 +2205,7 @@ define internal fastcc noundef ptr @SparseMatrix_alloc(ptr noundef returned %0, 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %15, align 8
-  %16 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 4) #19
+  %16 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %5, i64 noundef 4) #19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %gv_calloc.exit24
 
@@ -2221,18 +2221,18 @@ gv_calloc.exit24:                                 ; preds = %14
   store ptr %16, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load i64, ptr %23, align 8
-  %mul.i25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 %24)
+  %mul.i25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -4294967296, 4294967295) %5, i64 %24)
   %mul.ov.i26 = extractvalue { i64, i1 } %mul.i25, 1
   br i1 %mul.ov.i26, label %25, label %28
 
 25:                                               ; preds = %gv_calloc.exit24
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef %24) #17
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %5, i64 noundef %24) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 28:                                               ; preds = %gv_calloc.exit24
-  %29 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef %24) #19
+  %29 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %5, i64 noundef %24) #19
   %30 = icmp ne i64 %24, 0
   %31 = icmp eq ptr %29, null
   %32 = and i1 %30, %31
@@ -2264,18 +2264,18 @@ gv_calloc.exit30:                                 ; preds = %37
   br i1 %.not, label %56, label %45
 
 45:                                               ; preds = %gv_calloc.exit30
-  %mul.i31 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 %44)
+  %mul.i31 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -4294967296, 4294967295) %5, i64 %44)
   %mul.ov.i32 = extractvalue { i64, i1 } %mul.i31, 1
   br i1 %mul.ov.i32, label %46, label %49
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr @stderr, align 8
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef %44) #17
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %5, i64 noundef %44) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 49:                                               ; preds = %45
-  %50 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef %44) #19
+  %50 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %5, i64 noundef %44) #19
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %.sink.split
 
@@ -3395,12 +3395,12 @@ define void @SparseMatrix_multiply_vector(ptr nocapture noundef readonly %0, ptr
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef %17, i64 noundef 8) #17
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %17, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 22:                                               ; preds = %18
-  %23 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 8) #19
+  %23 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %17, i64 noundef 8) #19
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %.lr.ph146.preheader
 
@@ -3472,12 +3472,12 @@ gv_calloc.exit:                                   ; preds = %15
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr @stderr, align 8
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str, i64 noundef %51, i64 noundef 8) #17
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %51, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 56:                                               ; preds = %52
-  %57 = tail call noalias ptr @calloc(i64 noundef %51, i64 noundef 8) #19
+  %57 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %51, i64 noundef 8) #19
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %.lr.ph150.preheader
 
@@ -3551,12 +3551,12 @@ gv_calloc.exit106:                                ; preds = %49
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr @stderr, align 8
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str, i64 noundef %83, i64 noundef 8) #17
+  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %83, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 88:                                               ; preds = %84
-  %89 = tail call noalias ptr @calloc(i64 noundef %83, i64 noundef 8) #19
+  %89 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %83, i64 noundef 8) #19
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %.lr.ph138.preheader
 
@@ -3629,12 +3629,12 @@ gv_calloc.exit110:                                ; preds = %81
 
 120:                                              ; preds = %119
   %121 = load ptr, ptr @stderr, align 8
-  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str, i64 noundef %118, i64 noundef 8) #17
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %118, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 123:                                              ; preds = %119
-  %124 = tail call noalias ptr @calloc(i64 noundef %118, i64 noundef 8) #19
+  %124 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %118, i64 noundef 8) #19
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %.lr.ph142.preheader
 
@@ -3690,7 +3690,7 @@ gv_calloc.exit114:                                ; preds = %116
 
 .loopexit126.sink.split:                          ; preds = %117, %82, %50, %16
   %.sink = phi i64 [ %17, %16 ], [ %51, %50 ], [ %83, %82 ], [ %118, %117 ]
-  %146 = tail call noalias ptr @calloc(i64 noundef %.sink, i64 noundef 8) #19
+  %146 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %.sink, i64 noundef 8) #19
   br label %.loopexit126
 
 .loopexit126:                                     ; preds = %.loopexit131, %.loopexit129, %.loopexit127, %.loopexit, %.loopexit126.sink.split, %gv_calloc.exit110, %gv_calloc.exit114, %gv_calloc.exit, %gv_calloc.exit106, %3
@@ -4763,12 +4763,12 @@ define noundef ptr @SparseMatrix_sum_repeat_entries(ptr noundef %0) local_unname
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef %10, i64 noundef 4) #17
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %10, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 15:                                               ; preds = %11
-  %16 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #19
+  %16 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %10, i64 noundef 4) #19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %.lr.ph.preheader
 
@@ -4780,7 +4780,7 @@ define noundef ptr @SparseMatrix_sum_repeat_entries(ptr noundef %0) local_unname
   unreachable
 
 gv_calloc.exit:                                   ; preds = %1
-  %22 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #19
+  %22 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %10, i64 noundef 4) #19
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %15
@@ -5195,22 +5195,22 @@ define noundef ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef returned 
   br i1 %.not51.i, label %.thread.i, label %36
 
 .thread.i:                                        ; preds = %34
-  %35 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef %26) #19
+  %35 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef %26) #19
   br label %gv_calloc.exit.i
 
 36:                                               ; preds = %34
-  %mul.i.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 %26)
+  %mul.i.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -4294967296, 4294967295) %14, i64 %26)
   %mul.ov.i.i = extractvalue { i64, i1 } %mul.i.i, 1
   br i1 %mul.ov.i.i, label %37, label %40
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, i64 noundef %14, i64 noundef %26) #17
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef %26) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 40:                                               ; preds = %36
-  %41 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef %26) #19
+  %41 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef %26) #19
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %gv_calloc.exit.i
 
@@ -5254,22 +5254,22 @@ gv_calloc.exit.i:                                 ; preds = %40, %.thread.i
   br i1 %.not50.i, label %.thread48.i, label %63
 
 .thread48.i:                                      ; preds = %61
-  %62 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef %53) #19
+  %62 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef %53) #19
   br label %gv_calloc.exit46.i
 
 63:                                               ; preds = %61
-  %mul.i44.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 %53)
+  %mul.i44.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -4294967296, 4294967295) %14, i64 %53)
   %mul.ov.i45.i = extractvalue { i64, i1 } %mul.i44.i, 1
   br i1 %mul.ov.i45.i, label %64, label %67
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str, i64 noundef %14, i64 noundef %53) #17
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef %53) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 67:                                               ; preds = %63
-  %68 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef %53) #19
+  %68 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef %53) #19
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %gv_calloc.exit46.i
 
@@ -5827,12 +5827,12 @@ SparseMatrix_delete.exit:                         ; preds = %6, %15
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str, i64 noundef %36, i64 noundef 8) #17
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %36, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 41:                                               ; preds = %37
-  %42 = tail call noalias ptr @calloc(i64 noundef %36, i64 noundef 8) #19
+  %42 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %36, i64 noundef 8) #19
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.lr.ph.preheader
 
@@ -5844,7 +5844,7 @@ SparseMatrix_delete.exit:                         ; preds = %6, %15
   unreachable
 
 gv_calloc.exit:                                   ; preds = %SparseMatrix_delete.exit
-  %48 = tail call noalias ptr @calloc(i64 noundef %36, i64 noundef 8) #19
+  %48 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %36, i64 noundef 8) #19
   %49 = getelementptr inbounds i8, ptr %33, i64 40
   store ptr %48, ptr %49, align 8
   br label %._crit_edge
@@ -6024,7 +6024,7 @@ define noalias noundef ptr @SparseMatrix_weakly_connected_components(ptr noundef
   br i1 %.not30, label %gv_calloc.exit.thread, label %16
 
 gv_calloc.exit.thread:                            ; preds = %12
-  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 4) #19
+  %15 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef 4) #19
   store i32 0, ptr %1, align 4
   br label %._crit_edge
 
@@ -6034,12 +6034,12 @@ gv_calloc.exit.thread:                            ; preds = %12
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef %14, i64 noundef 4) #17
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 20:                                               ; preds = %16
-  %21 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 4) #19
+  %21 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %14, i64 noundef 4) #19
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %gv_calloc.exit
 
@@ -6157,7 +6157,7 @@ define internal fastcc void @SparseMatrix_level_sets(ptr nocapture noundef reado
   br i1 %.not88, label %.thread, label %18
 
 .thread:                                          ; preds = %14
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #19
   br label %gv_calloc.exit
 
 18:                                               ; preds = %14
@@ -6166,12 +6166,12 @@ define internal fastcc void @SparseMatrix_level_sets(ptr nocapture noundef reado
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef %16, i64 noundef 4) #17
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 22:                                               ; preds = %18
-  %23 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
+  %23 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #19
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %gv_calloc.exit
 
@@ -6198,7 +6198,7 @@ gv_calloc.exit:                                   ; preds = %.thread, %22
   br i1 %.not89, label %.thread84, label %35
 
 .thread84:                                        ; preds = %32
-  %34 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 4) #19
+  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %33, i64 noundef 4) #19
   br label %gv_calloc.exit78
 
 35:                                               ; preds = %32
@@ -6207,12 +6207,12 @@ gv_calloc.exit:                                   ; preds = %.thread, %22
 
 36:                                               ; preds = %35
   %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, i64 noundef %33, i64 noundef 4) #17
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %33, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 39:                                               ; preds = %35
-  %40 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 4) #19
+  %40 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %33, i64 noundef 4) #19
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %gv_calloc.exit78
 
@@ -6244,12 +6244,12 @@ gv_calloc.exit78:                                 ; preds = %.thread84, %39
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str, i64 noundef %50, i64 noundef 4) #17
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %50, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 55:                                               ; preds = %51
-  %56 = tail call noalias ptr @calloc(i64 noundef %50, i64 noundef 4) #19
+  %56 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %50, i64 noundef 4) #19
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %.lr.ph.preheader
 
@@ -6261,7 +6261,7 @@ gv_calloc.exit78:                                 ; preds = %.thread84, %39
   unreachable
 
 gv_calloc.exit82:                                 ; preds = %49
-  %62 = tail call noalias ptr @calloc(i64 noundef %50, i64 noundef 4) #19
+  %62 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %50, i64 noundef 4) #19
   store ptr %62, ptr %5, align 8
   br label %.loopexit92
 
@@ -6429,7 +6429,7 @@ define void @SparseMatrix_decompose_to_supervariables(ptr nocapture noundef read
   br i1 %.not136.not, label %.thread, label %14
 
 .thread:                                          ; preds = %4
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %13 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   br label %25
 
 14:                                               ; preds = %4
@@ -6438,12 +6438,12 @@ define void @SparseMatrix_decompose_to_supervariables(ptr nocapture noundef read
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef %12, i64 noundef 4) #17
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 18:                                               ; preds = %14
-  %19 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %19 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -6458,7 +6458,7 @@ define void @SparseMatrix_decompose_to_supervariables(ptr nocapture noundef read
   %26 = phi ptr [ %13, %.thread ], [ %19, %18 ]
   %27 = add nuw nsw i32 %10, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 4) #19
+  %29 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %28, i64 noundef 4) #19
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %gv_calloc.exit118
 
@@ -6470,7 +6470,7 @@ define void @SparseMatrix_decompose_to_supervariables(ptr nocapture noundef read
   unreachable
 
 gv_calloc.exit118:                                ; preds = %25
-  %35 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %35 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   br i1 %.not136.not, label %._crit_edge.thread, label %36
 
 36:                                               ; preds = %gv_calloc.exit118
@@ -6485,7 +6485,7 @@ gv_calloc.exit118:                                ; preds = %25
   unreachable
 
 42:                                               ; preds = %36
-  %43 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %43 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %.lr.ph142.preheader
 
@@ -6497,7 +6497,7 @@ gv_calloc.exit118:                                ; preds = %25
   unreachable
 
 ._crit_edge.thread:                               ; preds = %gv_calloc.exit118
-  %49 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %49 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   %50 = getelementptr inbounds i8, ptr %29, i64 4
   store i32 %10, ptr %50, align 4
   br label %.preheader137
@@ -6716,7 +6716,7 @@ define noundef ptr @SparseMatrix_get_augmented(ptr nocapture noundef readonly %0
 10:                                               ; preds = %1
   %11 = shl nuw i32 %3, 1
   %12 = zext i32 %11 to i64
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %13 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %gv_calloc.exit
 
@@ -6728,7 +6728,7 @@ define noundef ptr @SparseMatrix_get_augmented(ptr nocapture noundef readonly %0
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
-  %19 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #19
+  %19 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %12, i64 noundef 4) #19
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %gv_calloc.exit87
 
@@ -6756,18 +6756,18 @@ gv_calloc.exit87:                                 ; preds = %gv_calloc.exit, %1
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27
-  %mul.i89 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %31)
+  %mul.i89 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -4294967296, 4294967295) %29, i64 %31)
   %mul.ov.i90 = extractvalue { i64, i1 } %mul.i89, 1
   br i1 %mul.ov.i90, label %34, label %37
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, i64 noundef %29, i64 noundef %31) #17
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %29, i64 noundef %31) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 37:                                               ; preds = %33, %27
-  %38 = tail call noalias ptr @calloc(i64 noundef %29, i64 noundef %31) #19
+  %38 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %29, i64 noundef %31) #19
   %39 = icmp ne i64 %31, 0
   %40 = icmp eq ptr %38, null
   %41 = and i1 %39, %40
@@ -6994,7 +6994,7 @@ define noundef ptr @SparseMatrix_get_submatrix(ptr nocapture noundef readonly %0
   br i1 %.not337, label %.thread, label %18
 
 .thread:                                          ; preds = %15
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #19
   br label %gv_calloc.exit
 
 18:                                               ; preds = %15
@@ -7003,12 +7003,12 @@ define noundef ptr @SparseMatrix_get_submatrix(ptr nocapture noundef readonly %0
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef %16, i64 noundef 4) #17
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 22:                                               ; preds = %18
-  %23 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
+  %23 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 4) #19
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %gv_calloc.exit
 
@@ -7026,7 +7026,7 @@ gv_calloc.exit:                                   ; preds = %.thread, %22
   br i1 %.not338, label %.thread306, label %32
 
 .thread306:                                       ; preds = %gv_calloc.exit
-  %31 = tail call noalias ptr @calloc(i64 noundef %30, i64 noundef 4) #19
+  %31 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %30, i64 noundef 4) #19
   br label %gv_calloc.exit260
 
 32:                                               ; preds = %gv_calloc.exit
@@ -7035,12 +7035,12 @@ gv_calloc.exit:                                   ; preds = %.thread, %22
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, i64 noundef %30, i64 noundef 4) #17
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %30, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 36:                                               ; preds = %32
-  %37 = tail call noalias ptr @calloc(i64 noundef %30, i64 noundef 4) #19
+  %37 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %30, i64 noundef 4) #19
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %gv_calloc.exit260
 
@@ -7233,12 +7233,12 @@ gv_calloc.exit260:                                ; preds = %.thread306, %36
 
 93:                                               ; preds = %92
   %94 = load ptr, ptr @stderr, align 8
-  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str, i64 noundef %91, i64 noundef 4) #17
+  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 96:                                               ; preds = %92
-  %97 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 4) #19
+  %97 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 4) #19
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %103
 
@@ -7250,7 +7250,7 @@ gv_calloc.exit260:                                ; preds = %.thread306, %36
   unreachable
 
 103:                                              ; preds = %96
-  %104 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 4) #19
+  %104 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 4) #19
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %113
 
@@ -7262,13 +7262,13 @@ gv_calloc.exit260:                                ; preds = %.thread306, %36
   unreachable
 
 .thread312:                                       ; preds = %88
-  %110 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 4) #19
-  %111 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 4) #19
-  %112 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 8) #19
+  %110 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 4) #19
+  %111 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 4) #19
+  %112 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 8) #19
   br label %gv_calloc.exit272
 
 113:                                              ; preds = %103
-  %114 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 8) #19
+  %114 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %91, i64 noundef 8) #19
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %gv_calloc.exit272
 
@@ -7359,12 +7359,12 @@ gv_calloc.exit272:                                ; preds = %.thread312, %113
 
 155:                                              ; preds = %154
   %156 = load ptr, ptr @stderr, align 8
-  %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str, i64 noundef %153, i64 noundef 4) #17
+  %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %153, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 158:                                              ; preds = %154
-  %159 = tail call noalias ptr @calloc(i64 noundef %153, i64 noundef 4) #19
+  %159 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %153, i64 noundef 4) #19
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %168
 
@@ -7376,13 +7376,13 @@ gv_calloc.exit272:                                ; preds = %.thread312, %113
   unreachable
 
 .thread491:                                       ; preds = %150
-  %165 = tail call noalias ptr @calloc(i64 noundef %153, i64 noundef 4) #19
-  %166 = tail call noalias ptr @calloc(i64 noundef %153, i64 noundef 4) #19
-  %167 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #19
+  %165 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %153, i64 noundef 4) #19
+  %166 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %153, i64 noundef 4) #19
+  %167 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) 0, i64 noundef 8) #19
   br label %gv_calloc.exit284.preheader
 
 168:                                              ; preds = %158
-  %169 = tail call noalias ptr @calloc(i64 noundef %153, i64 noundef 4) #19
+  %169 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %153, i64 noundef 4) #19
   %170 = icmp eq ptr %169, null
   br i1 %170, label %171, label %175
 
@@ -7395,7 +7395,7 @@ gv_calloc.exit272:                                ; preds = %.thread312, %113
 
 175:                                              ; preds = %168
   %176 = shl nuw nsw i64 %153, 1
-  %177 = tail call noalias ptr @calloc(i64 noundef %176, i64 noundef 8) #19
+  %177 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %176, i64 noundef 8) #19
   %178 = icmp eq ptr %177, null
   br i1 %178, label %182, label %gv_calloc.exit284.preheader
 
@@ -7496,12 +7496,12 @@ gv_calloc.exit284:                                ; preds = %220, %189, %.lr.ph4
 
 227:                                              ; preds = %226
   %228 = load ptr, ptr @stderr, align 8
-  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str, i64 noundef %225, i64 noundef 4) #17
+  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 230:                                              ; preds = %226
-  %231 = tail call noalias ptr @calloc(i64 noundef %225, i64 noundef 4) #19
+  %231 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #19
   %232 = icmp eq ptr %231, null
   br i1 %232, label %233, label %237
 
@@ -7513,7 +7513,7 @@ gv_calloc.exit284:                                ; preds = %220, %189, %.lr.ph4
   unreachable
 
 237:                                              ; preds = %230
-  %238 = tail call noalias ptr @calloc(i64 noundef %225, i64 noundef 4) #19
+  %238 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #19
   %239 = icmp eq ptr %238, null
   br i1 %239, label %240, label %247
 
@@ -7525,13 +7525,13 @@ gv_calloc.exit284:                                ; preds = %220, %189, %.lr.ph4
   unreachable
 
 .thread324:                                       ; preds = %222
-  %244 = tail call noalias ptr @calloc(i64 noundef %225, i64 noundef 4) #19
-  %245 = tail call noalias ptr @calloc(i64 noundef %225, i64 noundef 4) #19
-  %246 = tail call noalias ptr @calloc(i64 noundef %225, i64 noundef 4) #19
+  %244 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #19
+  %245 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #19
+  %246 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #19
   br label %gv_calloc.exit296
 
 247:                                              ; preds = %237
-  %248 = tail call noalias ptr @calloc(i64 noundef %225, i64 noundef 4) #19
+  %248 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %225, i64 noundef 4) #19
   %249 = icmp eq ptr %248, null
   br i1 %249, label %250, label %gv_calloc.exit296
 
@@ -7620,12 +7620,12 @@ gv_calloc.exit296:                                ; preds = %.thread324, %247
 
 287:                                              ; preds = %286
   %288 = load ptr, ptr @stderr, align 8
-  %289 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str, i64 noundef %285, i64 noundef 4) #17
+  %289 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %285, i64 noundef 4) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 290:                                              ; preds = %286
-  %291 = tail call noalias ptr @calloc(i64 noundef %285, i64 noundef 4) #19
+  %291 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %285, i64 noundef 4) #19
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %299
 
@@ -7637,12 +7637,12 @@ gv_calloc.exit296:                                ; preds = %.thread324, %247
   unreachable
 
 .thread328:                                       ; preds = %284
-  %297 = tail call noalias ptr @calloc(i64 noundef %285, i64 noundef 4) #19
-  %298 = tail call noalias ptr @calloc(i64 noundef %285, i64 noundef 4) #19
+  %297 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %285, i64 noundef 4) #19
+  %298 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %285, i64 noundef 4) #19
   br label %gv_calloc.exit304
 
 299:                                              ; preds = %290
-  %300 = tail call noalias ptr @calloc(i64 noundef %285, i64 noundef 4) #19
+  %300 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %285, i64 noundef 4) #19
   %301 = icmp eq ptr %300, null
   br i1 %301, label %302, label %gv_calloc.exit304
 
@@ -7762,12 +7762,12 @@ define noundef ptr @SparseMatrix_set_entries_to_real_one(ptr noundef returned %0
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8) #17
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef range(i64 -4294967296, 4294967295) %6, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 11:                                               ; preds = %7
-  %12 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
+  %12 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %6, i64 noundef 8) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.lr.ph.preheader
 
@@ -7779,7 +7779,7 @@ define noundef ptr @SparseMatrix_set_entries_to_real_one(ptr noundef returned %0
   unreachable
 
 gv_calloc.exit:                                   ; preds = %1
-  %18 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
+  %18 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %6, i64 noundef 8) #19
   store ptr %18, ptr %2, align 8
   br label %._crit_edge
 
@@ -7915,7 +7915,7 @@ define void @SparseMatrix_distance_matrix(ptr noundef %0, ptr nocapture noundef 
 15:                                               ; preds = %12
   %16 = zext nneg i32 %14 to i64
   %.not40 = icmp ne i32 %8, 0
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 8) #19
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %16, i64 noundef 8) #19
   %18 = icmp eq ptr %17, null
   %or.cond65 = and i1 %.not40, %18
   br i1 %or.cond65, label %19, label %gv_calloc.exit

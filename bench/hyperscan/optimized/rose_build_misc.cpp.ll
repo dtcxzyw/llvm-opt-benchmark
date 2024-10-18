@@ -2778,7 +2778,7 @@ for.inc.i:                                        ; preds = %if.else25.i, %if.th
   br i1 %cmp9.not.i, label %if.end41.i, label %for.body.i, !llvm.loop !149
 
 if.end41.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i, %if.else.i
-  %call45.i = tail call noundef i64 @_ZN3ue216maxStringOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr noundef nonnull align 8 dereferenceable(32) %call4, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i, i1 noundef zeroext %18)
+  %call45.i = tail call noundef i64 @_ZN3ue216maxStringOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %call4, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i, i1 noundef zeroext %18)
   br label %_ZN3ue210maxOverlapERKNS_11ue2_literalES2_j.exit
 
 _ZN3ue210maxOverlapERKNS_11ue2_literalES2_j.exit: ; preds = %if.then13.i, %if.else25.i, %if.then.i2, %if.end41.i

@@ -536,7 +536,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exi
   %32 = getelementptr inbounds i8, ptr %30, i64 16
   %33 = load ptr, ptr %21, align 8
   store ptr %33, ptr %32, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %10) #18
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   %34 = load i64, ptr %12, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %12, align 8
@@ -560,7 +560,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exi
   %41 = getelementptr inbounds i8, ptr %39, i64 16
   %42 = load ptr, ptr %40, align 8
   store ptr %42, ptr %41, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %5) #18
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(44) %5) #18
   %43 = load i64, ptr %37, align 8, !alias.scope !10
   %44 = add i64 %43, 1
   store i64 %44, ptr %37, align 8, !alias.scope !10
@@ -578,7 +578,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exi
 .lr.ph.i.i.i.i.i:                                 ; preds = %46, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i ], [ %48, %46 ]
   %49 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #17
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #17
   %.not.i.i.i.i.i = icmp eq ptr %49, %5
   br i1 %.not.i.i.i.i.i, label %.body, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
@@ -605,7 +605,7 @@ _ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17
 .lr.ph.i.i.i.i23:                                 ; preds = %.critedge, %.lr.ph.i.i.i.i23
   %.09.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i23 ], [ %53, %.critedge ]
   %54 = load ptr, ptr %.09.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #17
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #17
   %.not.i.i.i.i24 = icmp eq ptr %54, %5
   br i1 %.not.i.i.i.i24, label %_ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit, label %.lr.ph.i.i.i.i23, !llvm.loop !14
 
@@ -675,7 +675,7 @@ _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: 
 .lr.ph.i.i.i.i26:                                 ; preds = %73, %.lr.ph.i.i.i.i26
   %.09.i.i.i.i27 = phi ptr [ %76, %.lr.ph.i.i.i.i26 ], [ %75, %73 ]
   %76 = load ptr, ptr %.09.i.i.i.i27, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i27) #17
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i27) #17
   %.not.i.i.i.i28 = icmp eq ptr %76, %5
   br i1 %.not.i.i.i.i28, label %.body, label %.lr.ph.i.i.i.i26, !llvm.loop !14
 
@@ -752,7 +752,7 @@ define linkonce_odr void @_ZN10EditPluginD2Ev(ptr noundef nonnull align 8 derefe
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #17
   %.not.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
@@ -800,7 +800,7 @@ define linkonce_odr void @_ZNK10EditPlugin7actionsB5cxx11Ev(ptr dead_on_unwind n
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #18
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   %11 = load i64, ptr %5, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %5, align 8
@@ -818,7 +818,7 @@ define linkonce_odr void @_ZNK10EditPlugin7actionsB5cxx11Ev(ptr dead_on_unwind n
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %14 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #17
   %.not.i.i.i = icmp eq ptr %17, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !14
 

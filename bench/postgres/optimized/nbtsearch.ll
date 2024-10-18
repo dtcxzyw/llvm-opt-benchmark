@@ -536,7 +536,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   %83 = sext i16 %70 to i32
   %84 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %84)
-  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %83) #6
+  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %83) #6
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #6
   unreachable
 
@@ -545,7 +545,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   br label %index_getattr.exit
 
 88:                                               ; preds = %56
-  %89 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %53, ptr noundef nonnull %6) #6
+  %89 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef range(i32 -32768, 32768) %53, ptr noundef nonnull %6) #6
   br label %index_getattr.exit
 
 90:                                               ; preds = %50
@@ -561,7 +561,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   br i1 %.not.i21.i, label %index_getattr.exit.thread, label %99
 
 99:                                               ; preds = %90
-  %100 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %53, ptr noundef %6) #6
+  %100 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef range(i32 -32768, 32768) %53, ptr noundef %6) #6
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %71, %74, %77, %80, %86, %88, %99
@@ -1058,7 +1058,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   store i32 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %37, i64 88
   store i32 -1, ptr %42, align 8
-  %43 = call fastcc zeroext i1 @_bt_readnextpage(ptr noundef nonnull %0, i32 noundef %34, i32 noundef %1)
+  %43 = call fastcc zeroext i1 @_bt_readnextpage(ptr noundef nonnull %0, i32 noundef range(i32 1, -1) %34, i32 noundef %1)
   br i1 %43, label %44, label %_bt_parallel_readpage.exit
 
 44:                                               ; preds = %36

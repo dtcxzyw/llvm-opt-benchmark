@@ -96,7 +96,7 @@ define void @_Z22gmx_fatal_set_log_fileP8_IO_FILE(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z21gmx_set_error_handlerPFvPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEiE(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL11error_mutex) #16
+  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL11error_mutex) #16
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3
 
@@ -106,7 +106,7 @@ define void @_Z21gmx_set_error_handlerPFvPKcRKNSt7__cxx1112basic_stringIcSt11cha
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   store ptr %0, ptr @_ZL17gmx_error_handlerB5cxx11, align 8
-  %4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL11error_mutex) #16
+  %4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL11error_mutex) #16
   ret void
 }
 
@@ -129,8 +129,8 @@ define internal void @_ZL21default_error_handlerPKcRKNSt7__cxx1112basic_stringIc
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16, !noalias !5
-  %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16, !noalias !8
-  %12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16, !noalias !8
+  %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #16, !noalias !8
+  %12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #16, !noalias !8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %11, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %_ZNKSt10filesystem7__cxx114path6stringEv.exit unwind label %13
 
@@ -170,8 +170,8 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %10
   %23 = load ptr, ptr @stderr, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16, !noalias !11
-  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16, !noalias !14
-  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16, !noalias !14
+  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #16, !noalias !14
+  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #16, !noalias !14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %24, i64 noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %_ZNKSt10filesystem7__cxx114path6stringEv.exit12 unwind label %26
 
@@ -347,7 +347,7 @@ declare void @_ZN3gmx13formatStringVB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwi
 define internal fastcc void @_ZL18call_error_handlerPKcRKNSt10filesystem7__cxx114pathEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL11error_mutex) #16
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL11error_mutex) #16
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %8
 
@@ -394,7 +394,7 @@ _ZL12gmx_strerrorPKc.exit:                        ; preds = %15, %_ZNSt10lock_gu
           to label %.noexc14 unwind label %31
 
 .noexc14:                                         ; preds = %21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc15 unwind label %31
 
 .noexc15:                                         ; preds = %.noexc14
@@ -404,7 +404,7 @@ _ZL12gmx_strerrorPKc.exit:                        ; preds = %15, %_ZNSt10lock_gu
 .body.thread:                                     ; preds = %.noexc15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   br label %35
 
 24:                                               ; preds = %_ZL12gmx_strerrorPKc.exit
@@ -424,7 +424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %27
 
 27:                                               ; preds = %26, %25
-  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL11error_mutex) #16
+  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL11error_mutex) #16
   ret void
 
 29:                                               ; preds = %18
@@ -454,7 +454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 36:                                               ; preds = %.body, %35, %29
   %.pn.pn = phi { ptr, i32 } [ %.pn18, %35 ], [ %.pn, %.body ], [ %30, %29 ]
-  %37 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL11error_mutex) #16
+  %37 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL11error_mutex) #16
   resume { ptr, i32 } %.pn.pn
 }
 

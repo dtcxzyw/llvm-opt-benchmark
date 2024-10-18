@@ -388,7 +388,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %tmpStorage, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
   %.pre.i.i = load ptr, ptr %tmpStorage, align 8
   store i32 %cond, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader.i
@@ -1170,7 +1170,7 @@ if.then.i40.i:                                    ; preds = %if.end23.i
   br label %nrvo.skipdtor
 
 if.else.i7:                                       ; preds = %if.then.i1, %if.then9.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i, %if.then20.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i33.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
@@ -1685,7 +1685,7 @@ if.then.i35.i:                                    ; preds = %if.end23.i
   br label %nrvo.skipdtor
 
 if.else.i7:                                       ; preds = %if.then.i1, %if.then9.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i.i, %if.then20.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i28.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
@@ -2261,7 +2261,7 @@ if.then.i71.i:                                    ; preds = %if.end27.i
   br label %nrvo.skipdtor
 
 if.else.i:                                        ; preds = %if.then7.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE4peekEl.exit.i.i, %if.then13.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE4peekEl.exit.i23.i, %if.then21.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE4peekEl.exit.i59.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
@@ -2407,7 +2407,7 @@ nrvo.skipdtor.i:                                  ; preds = %delete.notnull.i.i,
 
 if.then.i.i.i.i.i:                                ; preds = %nrvo.skipdtor.i
   store i8 0, ptr %_M_engaged.i.i.i, align 8, !noalias !28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits.i) #17, !noalias !28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %bigintDigits.i) #17, !noalias !28
   br label %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.then.i.i.i.i.i
@@ -2596,7 +2596,7 @@ nrvo.skipdtor.i:                                  ; preds = %delete.notnull.i.i,
 
 if.then.i.i.i.i.i:                                ; preds = %nrvo.skipdtor.i
   store i8 0, ptr %_M_engaged.i.i.i, align 8, !noalias !35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits.i) #17, !noalias !35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %bigintDigits.i) #17, !noalias !35
   br label %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.then.i.i.i.i.i
@@ -2785,7 +2785,7 @@ nrvo.skipdtor.i:                                  ; preds = %delete.notnull.i.i,
 
 if.then.i.i.i.i.i:                                ; preds = %nrvo.skipdtor.i
   store i8 0, ptr %_M_engaged.i.i.i, align 8, !noalias !41
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits.i) #17, !noalias !41
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %bigintDigits.i) #17, !noalias !41
   br label %_ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_116parsedBigIntFromINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalISt6vectorIhSaIhEEET0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.then.i.i.i.i.i
@@ -2925,7 +2925,7 @@ _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes
 if.then:                                          ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   br label %return
@@ -3262,7 +3262,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %if.end
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
   %.pre.i.i = load ptr, ptr %tmp, align 8
   store i32 %div1.i, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader.i
@@ -4867,7 +4867,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit28: ; preds = %_ZN6h
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %3
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %tmpStorage, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
   %.pre.i.i = load ptr, ptr %tmpStorage, align 8
   store i32 %add, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader.i
@@ -5297,7 +5297,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit32: ; preds = %_ZN6h
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit32
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %tmpStorage, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i, i64 noundef 8) #17
   %.pre.i.i = load ptr, ptr %tmpStorage, align 8
   store i32 %add42, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader.i
@@ -6343,7 +6343,7 @@ entry:
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpBuffers, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i, align 4
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpBuffers, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 3072, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %tmpBuffers, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 3072, i64 noundef 8) #17
   %.pre.i.i = load ptr, ptr %tmpBuffers, align 8
   store i32 3072, ptr %Size.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24576) %.pre.i.i, i8 0, i64 24576, i1 false)

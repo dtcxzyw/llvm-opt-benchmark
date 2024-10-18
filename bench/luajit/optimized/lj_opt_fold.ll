@@ -3478,14 +3478,14 @@ if.then3.i:                                       ; preds = %if.then
   br label %simplify_intmul_k.exit
 
 if.else7.i:                                       ; preds = %if.then
-  %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 range(i32 0, -2147483648) %0)
   %cmp8.i = icmp samesign ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
   %o.i = getelementptr inbounds i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
-  %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %0, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16
@@ -3529,14 +3529,14 @@ if.then3.i:                                       ; preds = %if.then
   br label %simplify_intmul_k.exit
 
 if.else7.i:                                       ; preds = %if.then
-  %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %conv)
+  %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 range(i32 0, -2147483648) %conv)
   %cmp8.i = icmp samesign ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
   %o.i = getelementptr inbounds i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
-  %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %conv, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16

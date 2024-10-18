@@ -7145,7 +7145,7 @@ define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr nocapture nounde
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %10 = getelementptr inbounds double, ptr %2, i64 %indvars.iv.i
   %11 = load double, ptr %10, align 8
-  %12 = tail call double @SUNRpowerI(double noundef %11, i32 noundef %9) #16
+  %12 = tail call double @SUNRpowerI(double noundef %11, i32 noundef range(i32 -2147483648, 999) %9) #16
   %13 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.i
   store double %12, ptr %13, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7203,7 +7203,7 @@ define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr nocapture nounde
   %indvars.iv.i101.us = phi i64 [ 0, %.preheader.preheader.i98.us ], [ %indvars.iv.next.i102.us, %.preheader.i100.us ]
   %34 = getelementptr inbounds double, ptr %2, i64 %indvars.iv.i101.us
   %35 = load double, ptr %34, align 8
-  %36 = tail call double @SUNRpowerI(double noundef %35, i32 noundef %31) #16
+  %36 = tail call double @SUNRpowerI(double noundef %35, i32 noundef range(i32 -2147483648, 999) %31) #16
   %37 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.i101.us
   store double %36, ptr %37, align 8
   %indvars.iv.next.i102.us = add nuw nsw i64 %indvars.iv.i101.us, 1

@@ -157,7 +157,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edg
   br i1 %63, label %64, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
 
 64:                                               ; preds = %56
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9280b10f99ee8b4bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %51)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9280b10f99ee8b4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %51)
   %.pre.i = load i64, ptr %5, align 8, !alias.scope !18
   %.pre41 = load ptr, ptr %4, align 8, !alias.scope !18
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
@@ -318,7 +318,7 @@ _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds 
   br i1 %56, label %57, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit"
 
 57:                                               ; preds = %49
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h63eda31a4f58299aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %32)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h63eda31a4f58299aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %32)
   %.pre.i = load i64, ptr %5, align 8, !alias.scope !34
   %.pre = load ptr, ptr %4, align 8, !alias.scope !34
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit"

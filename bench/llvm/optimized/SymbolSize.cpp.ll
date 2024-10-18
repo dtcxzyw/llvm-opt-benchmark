@@ -218,7 +218,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit: ; p
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  call void %71(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %lhsv.i.i.i.i76 = load i64, ptr %4, align 8
   %.not.i.i.i.i78.not = icmp eq i64 %lhsv.i.i.i.i76, %.sroa.6316.0
   br i1 %.not.i.i.i.i78.not, label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EED2Ev.exit, label %35
@@ -336,7 +336,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit110: 
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void %112(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %lhsv.i.i.i.i92 = load i64, ptr %6, align 8
   %.not.i.i.i.i94.not = icmp eq i64 %lhsv.i.i.i.i92, %.sroa.0.0.copyload.i87
   br i1 %.not.i.i.i.i94.not, label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EED2Ev.exit, label %79
@@ -460,7 +460,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit141: 
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 24
   %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void %163(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %lhsv.i.i.i.i124 = load i64, ptr %7, align 8
   %.not.i.i.i.i126.not = icmp eq i64 %lhsv.i.i.i.i124, %125
   br i1 %.not.i.i.i.i126.not, label %_ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EED2Ev.exit, label %129
@@ -642,7 +642,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %_ZNSt6vectorIN4llvm
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 24
   %223 = load ptr, ptr %222, align 8
-  call void %223(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  call void %223(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   %lhsv.i.i.i.i146 = load i64, ptr %8, align 8
   %.not.i.i.i.i148.not = icmp eq i64 %lhsv.i.i.i.i146, %169
   br i1 %.not.i.i.i.i148.not, label %._crit_edge.loopexit, label %171, !llvm.loop !32
@@ -824,7 +824,7 @@ _ZNSt6vectorIN4llvm6object8SymEntryESaIS2_EE9push_backEOS2_.exit197: ; preds = %
   %299 = load ptr, ptr %298, align 8
   %300 = getelementptr inbounds i8, ptr %299, i64 136
   %301 = load ptr, ptr %300, align 8
-  call void %301(ptr noundef nonnull align 8 dereferenceable(48) %298, ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void %301(ptr noundef nonnull align 8 dereferenceable(48) %298, ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   %302 = load ptr, ptr %237, align 8
   %303 = icmp ne ptr %302, %236
   %lhsv.i.i.i.i174 = load i64, ptr %11, align 8

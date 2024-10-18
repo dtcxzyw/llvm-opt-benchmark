@@ -1430,7 +1430,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit42: ; preds = %_ZN5ro
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !165
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3e50d475714fff52E.llvm.5962488337460620365"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3e50d475714fff52E.llvm.5962488337460620365"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %85 = getelementptr inbounds i8, ptr %4, i64 8
   %86 = load i64, ptr %85, align 8, !range !174, !noalias !165, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %86, 0

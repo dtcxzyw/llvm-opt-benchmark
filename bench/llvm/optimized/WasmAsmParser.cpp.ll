@@ -74,7 +74,7 @@ $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm19createWasmAsmParserEv() local_unnamed_addr #0 {
   %1 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
-  tail call void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %1) #13
+  tail call void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113WasmAsmParserE, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -96,7 +96,7 @@ define internal void @_ZN12_GLOBAL__N_113WasmAsmParserD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113WasmAsmParserD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm20MCAsmParserExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #13
+  tail call void @_ZN4llvm20MCAsmParserExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #14
   ret void
 }
@@ -118,52 +118,52 @@ define internal void @_ZN12_GLOBAL__N_113WasmAsmParser10InitializeERN4llvm11MCAs
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr nonnull @.str, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveTextES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr nonnull @.str, i64 5, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveTextES5_S6_EEEEbPS0_S5_S6_) #13
   %15 = load ptr, ptr %10, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(34) %15, ptr nonnull @.str.1, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveDataES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(34) %15, ptr nonnull @.str.1, i64 5, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveDataES5_S6_EEEEbPS0_S5_S6_) #13
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(34) %19, ptr nonnull @.str.2, i64 8, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseSectionDirectiveES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(34) %19, ptr nonnull @.str.2, i64 8, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseSectionDirectiveES5_S6_EEEEbPS0_S5_S6_) #13
   %23 = load ptr, ptr %10, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(34) %23, ptr nonnull @.str.3, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveSizeES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(34) %23, ptr nonnull @.str.3, i64 5, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveSizeES5_S6_EEEEbPS0_S5_S6_) #13
   %27 = load ptr, ptr %10, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr nonnull @.str.4, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveTypeES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr nonnull @.str.4, i64 5, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveTypeES5_S6_EEEEbPS0_S5_S6_) #13
   %31 = load ptr, ptr %10, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(34) %31, ptr nonnull @.str.5, i64 6, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_19ParseDirectiveIdentES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(34) %31, ptr nonnull @.str.5, i64 6, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_19ParseDirectiveIdentES5_S6_EEEEbPS0_S5_S6_) #13
   %35 = load ptr, ptr %10, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(34) %35, ptr nonnull @.str.6, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(34) %35, ptr nonnull @.str.6, i64 5, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
   %39 = load ptr, ptr %10, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(34) %39, ptr nonnull @.str.7, i64 6, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(34) %39, ptr nonnull @.str.7, i64 6, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
   %43 = load ptr, ptr %10, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(34) %43, ptr nonnull @.str.8, i64 9, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(34) %43, ptr nonnull @.str.8, i64 9, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
   %47 = load ptr, ptr %10, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(34) %47, ptr nonnull @.str.9, i64 7, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(34) %47, ptr nonnull @.str.9, i64 7, ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_113WasmAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29ParseDirectiveSymbolAttributeES5_S6_EEEEbPS0_S5_S6_) #13
   ret void
 }
 
@@ -636,7 +636,7 @@ _ZN12_GLOBAL__N_113WasmAsmParser6isNextEN4llvm8AsmToken9TokenKindE.exit.thread: 
 _ZN12_GLOBAL__N_113WasmAsmParser6isNextEN4llvm8AsmToken9TokenKindE.exit: ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.26, i64 9))
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %2) #13, !noalias !12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %18) #13
@@ -950,7 +950,7 @@ define linkonce_odr hidden void @_ZN4llvm9utohexstrB5cxx11Embj(ptr dead_on_unwin
   %.1.lcssa = phi ptr [ %.013, %11 ], [ %20, %.lr.ph.split.us ], [ %26, %.lr.ph.split ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %30, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %7)

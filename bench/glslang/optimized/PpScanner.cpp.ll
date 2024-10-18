@@ -1096,7 +1096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2I
   %492 = load ptr, ptr %449, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %493 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %493, ptr noundef nonnull align 1 dereferenceable(1) %7) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %493, ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %494 = icmp eq ptr %492, null
   br i1 %494, label %495, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -1330,7 +1330,7 @@ define noundef range(i32 -2147483648, 163) i32 @_ZN7glslang10TPpContext12tString
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   store i64 0, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1065) %1, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 25
@@ -4224,7 +4224,7 @@ _ZN7glslang10TPpContext11peekPastingEv.exit:      ; preds = %_ZN7glslang10TPpCon
 33:                                               ; preds = %_ZN7glslang10TPpContext11peekPastingEv.exit
   store i8 0, ptr %11, align 8
   store i64 0, ptr %12, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1065) %4, i8 0, i64 20, i1 false)
   store i8 0, ptr %13, align 8
   store i8 0, ptr %14, align 1
   %34 = call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %4)

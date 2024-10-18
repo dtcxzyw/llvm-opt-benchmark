@@ -463,7 +463,7 @@ if.then7:                                         ; preds = %for.body
   br i1 %tobool.not.i43, label %if.then.i, label %for.body.i44
 
 if.then.i:                                        ; preds = %if.then7
-  call fastcc void @print_one_push_report(ptr noundef %ref.077, ptr noundef %dest, i32 noundef %n.176, ptr noundef null, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.077, ptr noundef %dest, i32 noundef %n.176, ptr noundef null, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %7)
   br label %print_one_push_status.exit
 
 for.body.i44:                                     ; preds = %if.then7, %for.body.i44
@@ -471,7 +471,7 @@ for.body.i44:                                     ; preds = %if.then7, %for.body
   %report.011.i = phi ptr [ %11, %for.body.i44 ], [ %10, %if.then7 ]
   %inc.i = add nuw nsw i32 %n.012.i, 1
   %add.i = add nsw i32 %n.012.i, %n.176
-  call fastcc void @print_one_push_report(ptr noundef %ref.077, ptr noundef %dest, i32 noundef %add.i, ptr noundef nonnull %report.011.i, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.077, ptr noundef %dest, i32 noundef %add.i, ptr noundef nonnull %report.011.i, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %7)
   %next.i = getelementptr inbounds i8, ptr %report.011.i, i64 32
   %11 = load ptr, ptr %next.i, align 8
   %tobool3.not.i = icmp eq ptr %11, null
@@ -511,7 +511,7 @@ if.then16:                                        ; preds = %for.body13
   br i1 %tobool.not.i48, label %if.then.i58, label %for.body.i49
 
 if.then.i58:                                      ; preds = %if.then16
-  call fastcc void @print_one_push_report(ptr noundef %ref.181, ptr noundef %dest, i32 noundef %n.380, ptr noundef null, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.181, ptr noundef %dest, i32 noundef %n.380, ptr noundef null, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %7)
   br label %print_one_push_status.exit60
 
 for.body.i49:                                     ; preds = %if.then16, %for.body.i49
@@ -519,7 +519,7 @@ for.body.i49:                                     ; preds = %if.then16, %for.bod
   %report.011.i51 = phi ptr [ %15, %for.body.i49 ], [ %14, %if.then16 ]
   %inc.i52 = add nuw nsw i32 %n.012.i50, 1
   %add.i53 = add nsw i32 %n.012.i50, %n.380
-  call fastcc void @print_one_push_report(ptr noundef %ref.181, ptr noundef %dest, i32 noundef %add.i53, ptr noundef nonnull %report.011.i51, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.181, ptr noundef %dest, i32 noundef %add.i53, ptr noundef nonnull %report.011.i51, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %7)
   %next.i55 = getelementptr inbounds i8, ptr %report.011.i51, i64 32
   %15 = load ptr, ptr %next.i55, align 8
   %tobool3.not.i56 = icmp eq ptr %15, null
@@ -559,7 +559,7 @@ if.then33:                                        ; preds = %for.body25
   br i1 %tobool.not.i62, label %if.then.i72, label %for.body.i63
 
 if.then.i72:                                      ; preds = %if.then33
-  call fastcc void @print_one_push_report(ptr noundef %ref.286, ptr noundef %dest, i32 noundef %n.585, ptr noundef null, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.286, ptr noundef %dest, i32 noundef %n.585, ptr noundef null, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %7)
   br label %print_one_push_status.exit74
 
 for.body.i63:                                     ; preds = %if.then33, %for.body.i63
@@ -567,7 +567,7 @@ for.body.i63:                                     ; preds = %if.then33, %for.bod
   %report.011.i65 = phi ptr [ %19, %for.body.i63 ], [ %18, %if.then33 ]
   %inc.i66 = add nuw nsw i32 %n.012.i64, 1
   %add.i67 = add nsw i32 %n.012.i64, %n.585
-  call fastcc void @print_one_push_report(ptr noundef %ref.286, ptr noundef %dest, i32 noundef %add.i67, ptr noundef nonnull %report.011.i65, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.286, ptr noundef %dest, i32 noundef %add.i67, ptr noundef nonnull %report.011.i65, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %7)
   %next.i69 = getelementptr inbounds i8, ptr %report.011.i65, i64 32
   %19 = load ptr, ptr %next.i69, align 8
   %tobool3.not.i70 = icmp eq ptr %19, null
@@ -2443,7 +2443,7 @@ if.then9:                                         ; preds = %do.body
   br i1 %cmp.i, label %if.then.i26, label %st_mult.exit
 
 if.then.i26:                                      ; preds = %if.then9
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.122, i64 noundef 8, i64 noundef %conv) #23
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.122, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv) #23
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then9
@@ -3008,7 +3008,7 @@ if.end36.i:                                       ; preds = %if.else35.i, %land.
   br i1 %tobool41.not.i, label %if.else43.i, label %if.then42.i
 
 if.then42.i:                                      ; preds = %if.end36.i
-  tail call fastcc void @print_ref_status(i8 noundef signext 45, ptr noundef nonnull @.str.62, ptr noundef %ref, ptr noundef null, ptr noundef null, ptr noundef %report, i32 noundef %porcelain, i32 noundef %summary_width)
+  tail call fastcc void @print_ref_status(i8 noundef signext 45, ptr noundef nonnull @.str.62, ptr noundef nonnull %ref, ptr noundef null, ptr noundef null, ptr noundef %report, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %summary_width)
   br label %print_ok_ref_status.exit
 
 if.else43.i:                                      ; preds = %if.end36.i
@@ -3054,7 +3054,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   %cond50.i = phi ptr [ %cond.i, %cond.false.i ], [ @.str.64, %if.then45.i ]
   %peer_ref.i = getelementptr inbounds i8, ptr %ref, i64 168
   %29 = load ptr, ptr %peer_ref.i, align 8
-  tail call fastcc void @print_ref_status(i8 noundef signext 42, ptr noundef nonnull %cond50.i, ptr noundef %ref, ptr noundef %29, ptr noundef null, ptr noundef %report, i32 noundef %porcelain, i32 noundef %summary_width)
+  tail call fastcc void @print_ref_status(i8 noundef signext 42, ptr noundef nonnull %cond50.i, ptr noundef nonnull %ref, ptr noundef %29, ptr noundef null, ptr noundef %report, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %summary_width)
   br label %print_ok_ref_status.exit
 
 if.else51.i:                                      ; preds = %is_null_oid.exit.i
@@ -3080,7 +3080,7 @@ if.end55.i:                                       ; preds = %if.else54.i, %if.th
   %32 = load ptr, ptr %buf.i, align 8
   %peer_ref56.i = getelementptr inbounds i8, ptr %ref, i64 168
   %33 = load ptr, ptr %peer_ref56.i, align 8
-  call fastcc void @print_ref_status(i8 noundef signext %type.0.i, ptr noundef %32, ptr noundef %ref, ptr noundef %33, ptr noundef %msg.0.i, ptr noundef %report, i32 noundef %porcelain, i32 noundef %summary_width)
+  call fastcc void @print_ref_status(i8 noundef signext %type.0.i, ptr noundef %32, ptr noundef nonnull %ref, ptr noundef %33, ptr noundef %msg.0.i, ptr noundef %report, i32 noundef %porcelain, i32 noundef range(i32 -2147483645, -2147483648) %summary_width)
   call void @strbuf_release(ptr noundef nonnull %quickref.i) #20
   br label %print_ok_ref_status.exit
 

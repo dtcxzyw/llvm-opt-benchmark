@@ -344,7 +344,7 @@ define void @_ZN3gmx25AnalysisDataAverageModule12dataFinishedEv(ptr noundef nonn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit ]
-  %28 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %28 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = mul nsw i32 %28, %29
   %31 = add nsw i32 %30, %23
@@ -400,7 +400,7 @@ _ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit: ; preds = %.lr.ph, %45
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %.118 = phi i32 [ %81, %.lr.ph19 ], [ %.0.lcssa, %.lr.ph19.preheader ]
-  %70 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %70 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %71 = mul nsw i32 %70, %.118
   %72 = add nsw i32 %71, %27
   %73 = sext i32 %72 to i64
@@ -442,7 +442,7 @@ define void @_ZThn96_N3gmx25AnalysisDataAverageModuleD1Ev(ptr noundef %0) unname
 define void @_ZThn96_N3gmx25AnalysisDataAverageModuleD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   tail call void @_ZN3gmx25AnalysisDataAverageModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   ret void
 }
 
@@ -789,7 +789,7 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModuleD1Ev(ptr noundef %0) u
 define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModuleD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx30AnalysisDataFrameAverageModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   ret void
 }
 
@@ -811,7 +811,7 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  %7 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %7 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %_ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE.exit
 
@@ -841,7 +841,7 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23
   store i64 %25, ptr %23, align 8
   store i8 1, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %26 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
   br i1 %28, label %12, label %_ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE.exit, !llvm.loop !12
@@ -1149,7 +1149,7 @@ _ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0
   %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %37 = load ptr, ptr %36, align 8, !alias.scope !18, !noalias !15
   store ptr %37, ptr %35, align 8, !alias.scope !15, !noalias !18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !15
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
   %40 = load i8, ptr %39, align 8, !alias.scope !18, !noalias !15
@@ -1208,7 +1208,7 @@ define noundef float @_ZNK3gmx25AnalysisDataAverageModule7averageEii(ptr noundef
   %spec.select = select i1 %8, i32 %2, i32 %1
   %spec.select5 = select i1 %8, i32 %1, i32 %2
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %11 = mul nsw i32 %spec.select5, %10
   %12 = add nsw i32 %11, %spec.select
   %13 = sext i32 %12 to i64
@@ -1228,7 +1228,7 @@ define noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(
   %spec.select = select i1 %8, i32 %2, i32 %1
   %spec.select5 = select i1 %8, i32 %1, i32 %2
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %11 = mul nsw i32 %spec.select5, %10
   %12 = add nsw i32 %11, %spec.select
   %13 = sext i32 %12 to i64
@@ -1268,7 +1268,7 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModuleC2Ev(ptr noundef nonnull ali
 
 4:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  invoke void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %5 unwind label %10
 
 5:                                                ; preds = %4
@@ -1326,7 +1326,7 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModuleD2Ev(ptr noundef nonnull ali
   br label %_ZNKSt14default_deleteIN3gmx30AnalysisDataFrameAverageModule4ImplEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3gmx30AnalysisDataFrameAverageModule4ImplEEclEPS2_.exit.i: ; preds = %8, %5
-  tail call void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  tail call void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   tail call void @_ZdlPv(ptr noundef nonnull %4) #19
   br label %_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EED2Ev.exit
 

@@ -87,7 +87,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %7, align 8
-  %33 = call ptr %32(ptr noundef nonnull %6, i64 noundef %.0126, i64 noundef %spec.select223, i32 noundef 0) #4
+  %33 = call ptr %32(ptr noundef nonnull %6, i64 noundef %.0126, i64 noundef range(i64 1, 2049) %spec.select223, i32 noundef 0) #4
   %.not203 = icmp eq ptr %33, null
   br i1 %.not203, label %.loopexit227, label %34
 
@@ -135,7 +135,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %7, align 8
-  %50 = call ptr %49(ptr noundef nonnull %6, i64 noundef %.2255, i64 noundef %spec.select216224, i32 noundef 0) #4
+  %50 = call ptr %49(ptr noundef nonnull %6, i64 noundef %.2255, i64 noundef range(i64 1, 2049) %spec.select216224, i32 noundef 0) #4
   %.not213 = icmp eq ptr %50, null
   br i1 %.not213, label %.loopexit227, label %51
 
@@ -192,7 +192,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %7, align 8
-  %77 = call ptr %76(ptr noundef nonnull %6, i64 noundef %.2255, i64 noundef %spec.select218225, i32 noundef 0) #4
+  %77 = call ptr %76(ptr noundef nonnull %6, i64 noundef %.2255, i64 noundef range(i64 1, 2049) %spec.select218225, i32 noundef 0) #4
   %.not206 = icmp eq ptr %77, null
   br i1 %.not206, label %.loopexit227, label %78
 
@@ -223,7 +223,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %7, align 8
-  %92 = call ptr %91(ptr noundef nonnull %6, i64 noundef %.6, i64 noundef %spec.select219226, i32 noundef 0) #4
+  %92 = call ptr %91(ptr noundef nonnull %6, i64 noundef %.6, i64 noundef range(i64 1, 2049) %spec.select219226, i32 noundef 0) #4
   %.not208 = icmp eq ptr %92, null
   br i1 %.not208, label %.loopexit227, label %93
 

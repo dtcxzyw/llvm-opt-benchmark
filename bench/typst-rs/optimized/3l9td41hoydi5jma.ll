@@ -29,7 +29,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$std..thread..Inner$GT$17hbb5
   br i1 %8, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17hb670496886792f22E.llvm.7582899215610987004.exit", label %9
 
 9:                                                ; preds = %5
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %7, i64 noundef 1) #11, !noalias !20
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %7, i64 noundef 1) #11, !noalias !20
   br label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17hb670496886792f22E.llvm.7582899215610987004.exit"
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17hb670496886792f22E.llvm.7582899215610987004.exit": ; preds = %1, %5, %9
@@ -67,7 +67,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$G
   br i1 %5, label %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h4db29e28feab1135E.llvm.7582899215610987004.exit1", label %6
 
 6:                                                ; preds = %1
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %4, i64 noundef 1) #11, !noalias !41
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %4, i64 noundef 1) #11, !noalias !41
   br label %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h4db29e28feab1135E.llvm.7582899215610987004.exit1"
 
 "_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h4db29e28feab1135E.llvm.7582899215610987004.exit1": ; preds = %1, %6
@@ -84,7 +84,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !alias.scope !42, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %3, i64 noundef 1) #11, !noalias !42
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, 0) %3, i64 noundef 1) #11, !noalias !42
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43e0e98939b4a353E.llvm.7582899215610987004.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43e0e98939b4a353E.llvm.7582899215610987004.exit": ; preds = %1, %5
@@ -128,7 +128,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$allo
   br i1 %7, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h0613fbdcee8797deE.llvm.7582899215610987004.exit", label %8
 
 8:                                                ; preds = %4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 1) #11, !noalias !60
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %6, i64 noundef 1) #11, !noalias !60
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h0613fbdcee8797deE.llvm.7582899215610987004.exit"
 }
 
@@ -252,7 +252,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %3, i64 noundef 1) #11
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, 0) %3, i64 noundef 1) #11
   br label %7
 
 7:                                                ; preds = %1, %5

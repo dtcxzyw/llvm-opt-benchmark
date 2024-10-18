@@ -346,7 +346,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

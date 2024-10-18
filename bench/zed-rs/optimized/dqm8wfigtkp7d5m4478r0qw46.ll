@@ -115,7 +115,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hd68b4870feeeea86
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %2, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !27
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !28
-  %14 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #18, !noalias !28
+  %14 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 8, 25) 24, i64 noundef range(i64 4, 9) 8) #18, !noalias !28
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h4f9642a92a2093d3E.exit"
 
@@ -208,7 +208,7 @@ define hidden { ptr, ptr } @"_ZN48_$LT$T$u20$as$u20$http..extensions..AnyClone$G
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i32, ptr %2, align 8, !range !35, !noundef !8
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #18
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 8, 25) 16, i64 noundef range(i64 4, 9) 8) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.exit
 
@@ -231,7 +231,7 @@ define hidden { ptr, ptr } @"_ZN48_$LT$T$u20$as$u20$http..extensions..AnyClone$G
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %.val1 = load i32, ptr %2, align 4
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %4 = tail call noalias noundef align 4 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 4) #18
+  %4 = tail call noalias noundef align 4 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef range(i64 8, 25) 8, i64 noundef range(i64 4, 9) 4) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.exit
 
@@ -467,7 +467,7 @@ define void @"_ZN98_$LT$http_client..async_body..AsyncBody$u20$as$u20$core..conv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @"_ZN103_$LT$http_client..async_body..AsyncBody$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h41acb3051b9c551bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !67
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !69, !noalias !64
   ret void

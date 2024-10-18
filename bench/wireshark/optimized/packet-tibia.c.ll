@@ -1846,7 +1846,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   br i1 %137, label %171, label %701
 
 171:                                              ; preds = %170
-  %172 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #13
+  %172 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 2, 7) %.1) #13
   %173 = load i32, ptr @show_acc_info, align 4
   %.not.i409 = icmp eq i32 %173, 0
   br i1 %.not.i409, label %proto_item_set_generated.exit.i, label %174
@@ -1865,7 +1865,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 
 180:                                              ; preds = %177
   %181 = load i32, ptr @hf_tibia_session_key_convo, align 4
-  %182 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %181, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull %179) #13
+  %182 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %181, ptr noundef %0, i32 noundef range(i32 2, 7) %.1, i32 noundef 0, ptr noundef nonnull %179) #13
   %.not.i.i = icmp eq ptr %182, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %183
 
@@ -1883,7 +1883,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 
 189:                                              ; preds = %186
   %190 = load i32, ptr @hf_tibia_acc_name_convo, align 4
-  %191 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %190, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull %188) #13
+  %191 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %190, ptr noundef %0, i32 noundef range(i32 2, 7) %.1, i32 noundef 0, ptr noundef nonnull %188) #13
   %.not.i128.i = icmp eq ptr %191, null
   br i1 %.not.i128.i, label %proto_item_set_generated.exit130.i, label %192
 
@@ -1908,7 +1908,7 @@ proto_item_set_generated.exit130.i:               ; preds = %195, %192, %189, %1
 
 201:                                              ; preds = %proto_item_set_generated.exit130.i
   %202 = load i32, ptr @hf_tibia_acc_pass_convo, align 4
-  %203 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %202, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull %200) #13
+  %203 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %202, ptr noundef %0, i32 noundef range(i32 2, 7) %.1, i32 noundef 0, ptr noundef nonnull %200) #13
   %.not.i131.i = icmp eq ptr %203, null
   br i1 %.not.i131.i, label %proto_item_set_generated.exit.i, label %204
 
@@ -1939,7 +1939,7 @@ proto_item_set_generated.exit.i:                  ; preds = %proto_item_set_gene
 
 214:                                              ; preds = %211
   %215 = load i32, ptr @hf_tibia_char_name_convo, align 4
-  %216 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %215, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull %213) #13
+  %216 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %215, ptr noundef %0, i32 noundef range(i32 2, 7) %.1, i32 noundef 0, ptr noundef nonnull %213) #13
   %.not.i134.i = icmp eq ptr %216, null
   br i1 %.not.i134.i, label %proto_item_set_generated.exit136.i, label %217
 
@@ -2027,7 +2027,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
 
 257:                                              ; preds = %224
   %258 = load i32, ptr @hf_tibia_undecoded_xtea_data, align 4
-  %259 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %258, ptr noundef %0, i32 noundef %.1, i32 noundef %172, i32 noundef 0) #13
+  %259 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %258, ptr noundef %0, i32 noundef range(i32 2, 7) %.1, i32 noundef %172, i32 noundef 0) #13
   br label %dissect_game_packet.exit
 
 260:                                              ; preds = %._crit_edge.i, %proto_item_set_generated.exit136.i

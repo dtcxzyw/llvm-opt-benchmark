@@ -112,7 +112,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE13SpcSpOpusInfoD2Ev(ptr noundef nonn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #6
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
   ret void
 }
 
@@ -123,7 +123,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE13SpcSpOpusInfoD0Ev(ptr noundef nonn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #6
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
   tail call void @_ZdlPv(ptr noundef nonnull %0) #7
   ret void
 }
@@ -131,7 +131,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE13SpcSpOpusInfoD0Ev(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4LIEF2PE13SpcSpOpusInfo5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #8
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %2
@@ -164,7 +164,7 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE13SpcSpOpusInfo5cloneEv(ptr dead_on
 
 16:                                               ; preds = %14, %12
   %.pn.i = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #6
   br label %.body
 
 _ZN4LIEF2PE13SpcSpOpusInfoC2ERKS1_.exit:          ; preds = %9

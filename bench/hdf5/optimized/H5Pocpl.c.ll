@@ -956,7 +956,7 @@ define range(i32 -1, 1) i32 @H5Pset_filter(i64 noundef %0, i32 noundef %1, i32 n
 
 52:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %53 = tail call i32 @H5Z_filter_avail(i32 noundef %1) #9
+  %53 = tail call i32 @H5Z_filter_avail(i32 noundef range(i32 0, 65536) %1) #9
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %59
 
@@ -978,7 +978,7 @@ define range(i32 -1, 1) i32 @H5Pset_filter(i64 noundef %0, i32 noundef %1, i32 n
   br label %80
 
 66:                                               ; preds = %59
-  %67 = call i32 @H5Z_append(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #9
+  %67 = call i32 @H5Z_append(ptr noundef nonnull %6, i32 noundef range(i32 0, 65536) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #9
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 

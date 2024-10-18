@@ -925,7 +925,7 @@ invoke.cont86:                                    ; preds = %if.then.i7.i, %_ZN1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i119)
   store ptr %95, ptr %args.i119, align 16
   store ptr %96, ptr %arrayinit.element.i120, align 8
-  %call.i121 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %93, ptr noundef %f, i32 noundef 2, ptr noundef nonnull %args.i119)
+  %call.i121 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %93, ptr noundef nonnull %f, i32 noundef 2, ptr noundef nonnull %args.i119)
           to label %invoke.cont93 unwind label %lpad.loopexit
 
 invoke.cont93:                                    ; preds = %invoke.cont86
@@ -993,7 +993,7 @@ if.else110:                                       ; preds = %if.then103
   store ptr %numeral.0, ptr %args.i132, align 16
   %arrayinit.element.i133 = getelementptr inbounds i8, ptr %args.i132, i64 8
   store ptr %106, ptr %arrayinit.element.i133, align 8
-  %call.i134 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %104, ptr noundef %f, i32 noundef 2, ptr noundef nonnull %args.i132)
+  %call.i134 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %104, ptr noundef nonnull %f, i32 noundef 2, ptr noundef nonnull %args.i132)
           to label %invoke.cont114 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont114:                                   ; preds = %if.else110
@@ -2054,7 +2054,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19maximize_bv_sharingD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN19maximize_ac_sharingD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #20
+  tail call void @_ZN19maximize_ac_sharingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2180,7 +2180,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

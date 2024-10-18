@@ -325,7 +325,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %10, ptr %100, align 8, !alias.scope !12, !noalias !15
   %101 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 1, ptr %101, align 8, !alias.scope !12, !noalias !15
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %37, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %11)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %11)
           to label %.noexc123 unwind label %111
 
 .noexc123:                                        ; preds = %.noexc122
@@ -819,7 +819,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit143
   store ptr %5, ptr %249, align 8, !alias.scope !30, !noalias !33
   %250 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 1, ptr %250, align 8, !alias.scope !30, !noalias !33
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %37, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %6)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %6)
           to label %.noexc176 unwind label %111
 
 .noexc176:                                        ; preds = %240
@@ -1042,7 +1042,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %11, ptr %88, align 8, !alias.scope !39, !noalias !42
   %89 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 1, ptr %89, align 8, !alias.scope !39, !noalias !42
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %12)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %12)
           to label %.noexc45 unwind label %100
 
 .noexc45:                                         ; preds = %.noexc44
@@ -1227,7 +1227,7 @@ _ZN2h25proto7streams6buffer5Deque9push_back17hf14df871de39c062E.exit: ; preds = 
   store ptr %7, ptr %142, align 8, !alias.scope !69, !noalias !72
   %143 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 1, ptr %143, align 8, !alias.scope !69, !noalias !72
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %8)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %8)
           to label %.noexc62 unwind label %100
 
 .noexc62:                                         ; preds = %133
@@ -2819,7 +2819,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %9, ptr %62, align 8, !alias.scope !86, !noalias !89
   %63 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 1, ptr %63, align 8, !alias.scope !86, !noalias !89
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
           to label %.noexc29 unwind label %66
 
 .noexc29:                                         ; preds = %.noexc28
@@ -2913,7 +2913,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc29, %5
   store ptr %6, ptr %94, align 8, !alias.scope !99, !noalias !102
   %95 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 1, ptr %95, align 8, !alias.scope !99, !noalias !102
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %7)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %7)
           to label %.noexc37 unwind label %97
 
 .noexc37:                                         ; preds = %85
@@ -3140,7 +3140,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %9, ptr %62, align 8, !alias.scope !140, !noalias !143
   %63 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 1, ptr %63, align 8, !alias.scope !140, !noalias !143
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
           to label %.noexc29 unwind label %66
 
 .noexc29:                                         ; preds = %.noexc28
@@ -3234,7 +3234,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc29, %5
   store ptr %6, ptr %94, align 8, !alias.scope !153, !noalias !156
   %95 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 1, ptr %95, align 8, !alias.scope !153, !noalias !156
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %7)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %7)
           to label %.noexc37 unwind label %97
 
 .noexc37:                                         ; preds = %85
@@ -3860,7 +3860,7 @@ _ZN2h25proto7streams6buffer5Deque10push_front17h3b10b3cf5da5edacE.exit.i: ; pred
 201:                                              ; preds = %175
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$h2..frame..Frame$GT$17hd7795df2ac82d51fE"(ptr noalias noundef align 8 dereferenceable(296) %10) #13
+  invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$h2..frame..Frame$GT$17hd7795df2ac82d51fE"(ptr noalias noundef nonnull align 8 dereferenceable(296) %10) #13
           to label %.thread unwind label %202, !noalias !232
 
 202:                                              ; preds = %201
@@ -4354,7 +4354,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %13, ptr %86, align 8, !alias.scope !271, !noalias !274
   %87 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 1, ptr %87, align 8, !alias.scope !271, !noalias !274
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %14)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %14)
           to label %.noexc50 unwind label %95
 
 .noexc50:                                         ; preds = %.noexc49
@@ -4488,7 +4488,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc50, %7
   store ptr %10, ptr %122, align 8, !alias.scope !284, !noalias !287
   %123 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 1, ptr %123, align 8, !alias.scope !284, !noalias !287
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %11)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %11)
           to label %.noexc67 unwind label %95
 
 .noexc67:                                         ; preds = %113
@@ -4560,7 +4560,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc50, %7
   store ptr %7, ptr %147, align 8, !alias.scope !297, !noalias !300
   %148 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 1, ptr %148, align 8, !alias.scope !297, !noalias !300
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %8)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %8)
           to label %.noexc71 unwind label %95
 
 .noexc71:                                         ; preds = %138
@@ -4911,7 +4911,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %34, ptr %205, align 8, !alias.scope !314, !noalias !317
   %206 = getelementptr inbounds i8, ptr %35, i64 24
   store i64 1, ptr %206, align 8, !alias.scope !314, !noalias !317
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %161, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %35)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %161, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %35)
           to label %.noexc619 unwind label %211
 
 .noexc619:                                        ; preds = %.noexc618
@@ -5265,7 +5265,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc619, %
   store ptr %28, ptr %328, align 8, !alias.scope !327, !noalias !330
   %329 = getelementptr inbounds i8, ptr %29, i64 24
   store i64 1, ptr %329, align 8, !alias.scope !327, !noalias !330
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %161, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %29)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %161, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %29)
           to label %.noexc672 unwind label %211
 
 .noexc672:                                        ; preds = %319
@@ -5465,7 +5465,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit676
   store ptr null, ptr %224, align 8, !alias.scope !336, !noalias !339
   store ptr %31, ptr %225, align 8, !alias.scope !336, !noalias !339
   store i64 1, ptr %226, align 8, !alias.scope !336, !noalias !339
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %155, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %32)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %155, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %32)
           to label %.noexc627 unwind label %.loopexit1537
 
 .noexc627:                                        ; preds = %.noexc626
@@ -6610,11 +6610,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit743
   br label %661
 
 705:                                              ; preds = %661
-  %.0.sroa.speculated.i = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %662, i64 %4)
+  %.0.sroa.speculated.i = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %662, i64 range(i64 0, 4294967296) %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %87)
   %narrow = call i32 @llvm.smax.i32(i32 %663, i32 0)
   %.0507 = zext nneg i32 %narrow to i64
-  %.0.sroa.speculated.i836 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %.0.sroa.speculated.i, i64 %.0507)
+  %.0.sroa.speculated.i836 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %.0.sroa.speculated.i, i64 range(i64 0, 4294967296) %.0507)
   %706 = trunc nuw nsw i64 %.0.sroa.speculated.i836 to i32
   store i32 %706, ptr %87, align 4
   %.not537 = icmp eq i64 %.0.sroa.speculated.i836, 0
@@ -7540,7 +7540,7 @@ _ZN2h25proto7streams6buffer5Deque10push_front17h3b10b3cf5da5edacE.exit913: ; pre
   store ptr null, ptr %298, align 8, !alias.scope !398, !noalias !401
   store ptr %13, ptr %299, align 8, !alias.scope !398, !noalias !401
   store i64 1, ptr %300, align 8, !alias.scope !398, !noalias !401
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %155, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %14)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %155, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %14)
           to label %.noexc917 unwind label %.loopexit1537
 
 .noexc917:                                        ; preds = %997
@@ -7989,7 +7989,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit922
   store ptr %8, ptr %1165, align 8, !alias.scope !436, !noalias !439
   %1166 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 1, ptr %1166, align 8, !alias.scope !436, !noalias !439
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %155, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %9)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %155, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %9)
           to label %.noexc946 unwind label %.loopexit.split-lp1538
 
 .noexc946:                                        ; preds = %1156
@@ -8341,7 +8341,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %16, ptr %148, align 8, !alias.scope !455, !noalias !458
   %149 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 1, ptr %149, align 8, !alias.scope !455, !noalias !458
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %50, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %17)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %50, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %17)
           to label %.noexc205 unwind label %160
 
 .noexc205:                                        ; preds = %.noexc204
@@ -9175,7 +9175,7 @@ _ZN2h25proto7streams6buffer5Deque9push_back17hf14df871de39c062E.exit: ; preds = 
   store ptr %8, ptr %431, align 8, !alias.scope !491, !noalias !494
   %432 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 1, ptr %432, align 8, !alias.scope !491, !noalias !494
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %50, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %9)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %50, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %9)
           to label %.noexc302 unwind label %160
 
 .noexc302:                                        ; preds = %422
@@ -9256,7 +9256,7 @@ define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$h2..frame..Frame$L
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %15)
           to label %"_ZN4core3ptr48drop_in_place$LT$h2..frame..headers..Headers$GT$17hbe8c61a8d2f37eecE.exit" unwind label %16
 
 16:                                               ; preds = %14
@@ -9283,7 +9283,7 @@ common.resume:                                    ; preds = %24, %16
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %23)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %23)
           to label %"_ZN4core3ptr52drop_in_place$LT$h2..frame..headers..PushPromise$GT$17h1f58debe190bc5e4E.exit" unwind label %24
 
 24:                                               ; preds = %22
@@ -9377,7 +9377,7 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$h2..frame..Frame$GT
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %15)
           to label %"_ZN4core3ptr48drop_in_place$LT$h2..frame..headers..Headers$GT$17hbe8c61a8d2f37eecE.exit" unwind label %16
 
 16:                                               ; preds = %14
@@ -9404,7 +9404,7 @@ common.resume:                                    ; preds = %24, %16
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %23)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hdfa1c79104ef4780E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %23)
           to label %"_ZN4core3ptr52drop_in_place$LT$h2..frame..headers..PushPromise$GT$17h1f58debe190bc5e4E.exit" unwind label %24
 
 24:                                               ; preds = %22
@@ -9455,7 +9455,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !alias.scope !553, !noundef !5
-  %9 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h7c40bd7df84d6d6fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %8)
+  %9 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h7c40bd7df84d6d6fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %8)
           to label %.noexc2 unwind label %25
 
 .noexc2:                                          ; preds = %1, %6
@@ -9492,7 +9492,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store ptr %3, ptr %23, align 8, !alias.scope !556, !noalias !559
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %24, align 8, !alias.scope !556, !noalias !559
-  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.78, i64 noundef 13, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
+  invoke fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.78, i64 noundef 13, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
           to label %.noexc4 unwind label %25
 
 .noexc4:                                          ; preds = %.noexc3
@@ -9603,7 +9603,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Ente
   store ptr %2, ptr %23, align 8, !alias.scope !588, !noalias !591
   %24 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 1, ptr %24, align 8, !alias.scope !588, !noalias !591
-  call fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef readonly align 8 dereferenceable(40) %.0.val, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %3)
+  call fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.val, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !587
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !587
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !587

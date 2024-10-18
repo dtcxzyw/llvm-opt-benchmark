@@ -147,7 +147,7 @@ common.resume.i:                                  ; preds = %35, %26
   br i1 %33, label %34, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h94e5a6efd3a4b14eE.exit"
 
 34:                                               ; preds = %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h05965aa785a5b514E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.48.0.copyload, i64 noundef %31)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h05965aa785a5b514E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.48.0.copyload, i64 noundef %31)
           to label %._crit_edge.i.i unwind label %35, !noalias !17
 
 ._crit_edge.i.i:                                  ; preds = %34
@@ -157,7 +157,7 @@ common.resume.i:                                  ; preds = %35, %26
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$17haadd2373fee37f31E"(ptr noalias noundef align 16 dereferenceable(48) %4) #16
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$17haadd2373fee37f31E"(ptr noalias noundef nonnull align 16 dereferenceable(48) %4) #16
           to label %common.resume.i unwind label %37, !noalias !6
 
 37:                                               ; preds = %35
@@ -304,7 +304,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br i1 %34, label %35, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17ha92e6c55368ed3aeE.exit"
 
 35:                                               ; preds = %7
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0efc957f39cca241E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.48.0.copyload, i64 noundef %32), !noalias !44
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0efc957f39cca241E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.48.0.copyload, i64 noundef %32), !noalias !44
   %.pre.i.i = load i64, ptr %10, align 8, !alias.scope !41, !noalias !44
   br label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17ha92e6c55368ed3aeE.exit"
 
@@ -482,7 +482,7 @@ common.resume.i:                                  ; preds = %41, %26, %21
   br i1 %39, label %40, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17he446f10c524000d5E.exit"
 
 40:                                               ; preds = %"_ZN9typst_svg11SVGRenderer19render_bitmap_glyph28_$u7b$$u7b$closure$u7d$$u7d$17h53021dd622184095E.exit.i"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf804b2518c828571E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.48.0.copyload, i64 noundef %37)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf804b2518c828571E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.48.0.copyload, i64 noundef %37)
           to label %._crit_edge.i.i unwind label %41, !noalias !77
 
 ._crit_edge.i.i:                                  ; preds = %40
@@ -492,7 +492,7 @@ common.resume.i:                                  ; preds = %41, %26, %21
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %6) #16
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %6) #16
           to label %common.resume.i unwind label %43, !noalias !59
 
 43:                                               ; preds = %41
@@ -593,7 +593,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br i1 %13, label %14, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h5765c6e9346938a2E.exit"
 
 14:                                               ; preds = %7
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3356ab5ba5e6fff9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.48.0.copyload, i64 noundef %10), !noalias !99
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3356ab5ba5e6fff9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.48.0.copyload, i64 noundef %10), !noalias !99
   %.pre.i.i = load i64, ptr %9, align 8, !alias.scope !96, !noalias !99
   br label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h5765c6e9346938a2E.exit"
 
@@ -699,7 +699,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br i1 %16, label %17, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17hb93b26295bf980e6E.exit"
 
 17:                                               ; preds = %8
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbed2bb3932252399E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.47.0.copyload, i64 noundef %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbed2bb3932252399E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.47.0.copyload, i64 noundef %14)
           to label %._crit_edge.i.i unwind label %18, !noalias !123
 
 ._crit_edge.i.i:                                  ; preds = %17
@@ -820,7 +820,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %5
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf804b2518c828571E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.411.0.copyload, i64 noundef %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf804b2518c828571E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.411.0.copyload, i64 noundef %8)
           to label %._crit_edge.i.i unwind label %14, !noalias !154
 
 ._crit_edge.i.i:                                  ; preds = %13
@@ -830,7 +830,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %3) #16
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %3) #16
           to label %.body unwind label %16, !noalias !147
 
 16:                                               ; preds = %14
@@ -960,7 +960,7 @@ switch.lookup:                                    ; preds = %2
   br i1 %13, label %14, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17heea239dd265c56ceE.exit"
 
 14:                                               ; preds = %switch.lookup
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25784e7fa5e08f7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.48.0.copyload, i64 noundef %9), !noalias !194
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25784e7fa5e08f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.48.0.copyload, i64 noundef %9), !noalias !194
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !191, !noalias !194
   br label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17heea239dd265c56ceE.exit"
 
@@ -1150,7 +1150,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %"_ZN9typst_svg11SVGRenderer16render_svg_glyph28_$u7b$$u7b$closure$u7d$$u7d$17h1d0e6d042c585c69E.exit.i"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf804b2518c828571E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.411.0.copyload, i64 noundef %44)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf804b2518c828571E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.411.0.copyload, i64 noundef %44)
           to label %._crit_edge.i.i unwind label %48, !noalias !227
 
 ._crit_edge.i.i:                                  ; preds = %47
@@ -1160,7 +1160,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 48:                                               ; preds = %47
   %49 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %7) #16
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %7) #16
           to label %.body unwind label %50, !noalias !209
 
 50:                                               ; preds = %48
@@ -1297,7 +1297,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br i1 %19, label %20, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h7e7ca7d7082bb980E.exit"
 
 20:                                               ; preds = %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h4dd560e1c39cdf70E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.47.0.copyload, i64 noundef %17)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h4dd560e1c39cdf70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.47.0.copyload, i64 noundef %17)
           to label %._crit_edge.i.i unwind label %21, !noalias !253
 
 ._crit_edge.i.i:                                  ; preds = %20
@@ -1496,7 +1496,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef double @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17ha7324f236354f200E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 {
-  %3 = tail call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
+  %3 = tail call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %1)
   ret double %3
 }
 
@@ -2420,7 +2420,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %18, label %19, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17heea239dd265c56ceE.exit.i"
 
 19:                                               ; preds = %switch.lookup
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25784e7fa5e08f7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %15), !noalias !537
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25784e7fa5e08f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15), !noalias !537
   %.pre.i.i.i = load i64, ptr %14, align 8, !alias.scope !534, !noalias !537
   br label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17heea239dd265c56ceE.exit.i"
 
@@ -2766,7 +2766,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with17hdb7faee
   br i1 %18, label %19, label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h5765c6e9346938a2E.exit.i"
 
 19:                                               ; preds = %12
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3356ab5ba5e6fff9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %16), !noalias !571
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3356ab5ba5e6fff9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %16), !noalias !571
   %.pre.i.i.i = load i64, ptr %15, align 8, !alias.scope !568, !noalias !571
   br label %"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h5765c6e9346938a2E.exit.i"
 

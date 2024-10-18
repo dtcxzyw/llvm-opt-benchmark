@@ -115,7 +115,7 @@ invoke.cont:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(3176) %rsb, i32 noundef %0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_impulseFactorMatrix, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactorMatrix, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
@@ -1024,7 +1024,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
 invoke.cont:
   %ref.tmp36 = alloca %class.btMatrix3x3, align 4
   %ref.tmp44 = alloca %class.btMatrix3x3, align 4
-  tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
+  tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull align 8 dereferenceable(848) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
   store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_rsb.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %rsb, ptr %m_rsb.i, align 8
@@ -1167,7 +1167,7 @@ if.end25:                                         ; preds = %if.else18, %if.then
 if.then35:                                        ; preds = %if.end25
   call void %29(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(3176) %27, i32 noundef %28)
   %m_impulseFactor = getelementptr inbounds i8, ptr %this, i64 292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_impulseFactor, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp36, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp36, i64 16, i1 false)
   %arrayidx5.i19 = getelementptr inbounds i8, ptr %ref.tmp36, i64 16
   %arrayidx7.i20 = getelementptr inbounds i8, ptr %this, i64 308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i20, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i19, i64 16, i1 false)
@@ -1848,7 +1848,7 @@ entry:
 define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody26DeformableFaceRigidContactERK19btContactSolverInfofb(ptr noundef nonnull align 8 dereferenceable(449) %this, ptr noundef %rsb, ptr noundef nonnull align 8 dereferenceable(904) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt, i1 noundef zeroext %useStrainLimiting) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %useStrainLimiting to i8
-  tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
+  tail call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull align 8 dereferenceable(848) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal)
   store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %this, align 8
   %m_rsb.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %rsb, ptr %m_rsb.i, align 8

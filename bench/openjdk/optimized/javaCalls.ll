@@ -1616,7 +1616,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %3
   unreachable
 
 _ZN16SignatureChekker11check_valueEb.exit.i:      ; preds = %37, %_Z17is_reference_type9BasicTypeb.exit
-  call void @_ZN17SignatureIterator16do_parameters_onI16SignatureChekkerEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %4)
+  call void @_ZN17SignatureIterator16do_parameters_onI16SignatureChekkerEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %41 = load i8, ptr %34, align 4
   %42 = icmp eq i8 %spec.select, %41
   br i1 %42, label %_ZN16SignatureChekkerC2EP6Symbol9BasicTypebPhPl.exit, label %43

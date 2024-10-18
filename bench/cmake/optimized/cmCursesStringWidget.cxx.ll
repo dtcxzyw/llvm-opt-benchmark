@@ -290,7 +290,7 @@ thread-pre-split:                                 ; preds = %33
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  call void %51(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
   br i1 %.not96, label %56, label %52
 
@@ -491,7 +491,7 @@ define linkonce_odr dso_local void @_ZN20cmCursesStringWidgetD0Ev(ptr noundef no
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #8
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   ret void
 }

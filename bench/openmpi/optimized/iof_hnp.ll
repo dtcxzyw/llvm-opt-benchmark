@@ -320,20 +320,20 @@ pmix_obj_new_tma.exit107:                         ; preds = %.lr.ph.i.i104, %76,
   store i16 2, ptr %98, align 4
   %99 = getelementptr inbounds i8, ptr %72, i64 152
   store i32 %2, ptr %99, align 8
-  %100 = tail call zeroext i1 @pmix_fd_is_regular(i32 noundef %2) #11
+  %100 = tail call zeroext i1 @pmix_fd_is_regular(i32 noundef range(i32 0, -2147483648) %2) #11
   br i1 %100, label %prte_iof_base_fd_always_ready.exit, label %101
 
 101:                                              ; preds = %92
-  %102 = tail call zeroext i1 @pmix_fd_is_chardev(i32 noundef %2) #11
+  %102 = tail call zeroext i1 @pmix_fd_is_chardev(i32 noundef range(i32 0, -2147483648) %2) #11
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %101
-  %104 = tail call i32 @isatty(i32 noundef %2) #11
+  %104 = tail call i32 @isatty(i32 noundef range(i32 0, -2147483648) %2) #11
   %.not.i108 = icmp eq i32 %104, 0
   br i1 %.not.i108, label %prte_iof_base_fd_always_ready.exit, label %105
 
 105:                                              ; preds = %103, %101
-  %106 = tail call zeroext i1 @pmix_fd_is_blkdev(i32 noundef %2) #11
+  %106 = tail call zeroext i1 @pmix_fd_is_blkdev(i32 noundef range(i32 0, -2147483648) %2) #11
   %107 = zext i1 %106 to i8
   br label %prte_iof_base_fd_always_ready.exit
 
@@ -446,20 +446,20 @@ pmix_obj_new_tma.exit115:                         ; preds = %.lr.ph.i.i112, %139
   store i16 4, ptr %161, align 4
   %162 = getelementptr inbounds i8, ptr %135, i64 152
   store i32 %2, ptr %162, align 8
-  %163 = tail call zeroext i1 @pmix_fd_is_regular(i32 noundef %2) #11
+  %163 = tail call zeroext i1 @pmix_fd_is_regular(i32 noundef range(i32 0, -2147483648) %2) #11
   br i1 %163, label %prte_iof_base_fd_always_ready.exit117, label %164
 
 164:                                              ; preds = %155
-  %165 = tail call zeroext i1 @pmix_fd_is_chardev(i32 noundef %2) #11
+  %165 = tail call zeroext i1 @pmix_fd_is_chardev(i32 noundef range(i32 0, -2147483648) %2) #11
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %164
-  %167 = tail call i32 @isatty(i32 noundef %2) #11
+  %167 = tail call i32 @isatty(i32 noundef range(i32 0, -2147483648) %2) #11
   %.not.i116 = icmp eq i32 %167, 0
   br i1 %.not.i116, label %prte_iof_base_fd_always_ready.exit117, label %168
 
 168:                                              ; preds = %166, %164
-  %169 = tail call zeroext i1 @pmix_fd_is_blkdev(i32 noundef %2) #11
+  %169 = tail call zeroext i1 @pmix_fd_is_blkdev(i32 noundef range(i32 0, -2147483648) %2) #11
   %170 = zext i1 %169 to i8
   br label %prte_iof_base_fd_always_ready.exit117
 
@@ -753,20 +753,20 @@ pmix_obj_new_tma.exit53:                          ; preds = %.lr.ph.i.i50, %66, 
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 176
   store i32 %2, ptr %86, align 8
-  %87 = tail call zeroext i1 @pmix_fd_is_regular(i32 noundef %2) #11
+  %87 = tail call zeroext i1 @pmix_fd_is_regular(i32 noundef range(i32 0, -2147483648) %2) #11
   br i1 %87, label %prte_iof_base_fd_always_ready.exit, label %88
 
 88:                                               ; preds = %83
-  %89 = tail call zeroext i1 @pmix_fd_is_chardev(i32 noundef %2) #11
+  %89 = tail call zeroext i1 @pmix_fd_is_chardev(i32 noundef range(i32 0, -2147483648) %2) #11
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @isatty(i32 noundef %2) #11
+  %91 = tail call i32 @isatty(i32 noundef range(i32 0, -2147483648) %2) #11
   %.not.i54 = icmp eq i32 %91, 0
   br i1 %.not.i54, label %prte_iof_base_fd_always_ready.exit, label %92
 
 92:                                               ; preds = %90, %88
-  %93 = tail call zeroext i1 @pmix_fd_is_blkdev(i32 noundef %2) #11
+  %93 = tail call zeroext i1 @pmix_fd_is_blkdev(i32 noundef range(i32 0, -2147483648) %2) #11
   %94 = zext i1 %93 to i8
   br label %prte_iof_base_fd_always_ready.exit
 

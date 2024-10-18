@@ -1289,7 +1289,7 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   br i1 %.not.not, label %24, label %59
 
 24:                                               ; preds = %23
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.046) #5
+  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %.046) #5
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %handle_message_connect.exit
 
@@ -1297,7 +1297,7 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   %28 = load ptr, ptr %11, align 8
   call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.270) #5
   %29 = load i32, ptr @hf_alljoyn_connect_byte_value, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef %.046, i32 noundef 1, i32 noundef 0) #5
+  %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef range(i32 0, -2147483648) %.046, i32 noundef 1, i32 noundef 0) #5
   %31 = add nuw nsw i32 %.046, 1
   br label %handle_message_connect.exit
 
@@ -1581,7 +1581,7 @@ handle_message_header_expected_byte.exit.i.i.i:   ; preds = %176, %175
 
 handle_message_header_expected_byte.exit54.i.i.i: ; preds = %188, %187
   %190 = add i32 %.014.i.i, 4
-  %191 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %180, i32 noundef %switch.select4.i.i, i32 noundef %190, ptr noundef %167, i32 noundef %spec.select.i.i.i, i8 noundef zeroext %181, i8 noundef zeroext %162, ptr noundef %7, ptr noundef %8, i32 noundef %.014.i.i)
+  %191 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %180, i32 noundef range(i32 195948558, 195948557) %switch.select4.i.i, i32 noundef %190, ptr noundef %167, i32 noundef %spec.select.i.i.i, i8 noundef zeroext %181, i8 noundef zeroext %162, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.014.i.i)
   %reass.sub = sub i32 %191, %.014.i.i
   %192 = add i32 %reass.sub, 7
   %193 = and i32 %192, -8
@@ -1657,7 +1657,7 @@ handle_message_header_fields.exit.i:              ; preds = %._crit_edge.loopexi
   store i8 %222, ptr %6, align 1
   %225 = call i32 @tvb_reported_length(ptr noundef %0) #5
   %226 = load i32, ptr @hf_alljoyn_mess_body_parameters, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %226, ptr noundef %0, i32 noundef %213, i32 noundef %87, i32 noundef 0) #5
+  %227 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %226, ptr noundef %0, i32 noundef %213, i32 noundef range(i32 1, -2147483648) %87, i32 noundef 0) #5
   %228 = load i32, ptr @ett_alljoyn_mess_body_parameters, align 4
   %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228) #5
   %230 = add i32 %213, %87
@@ -1673,7 +1673,7 @@ handle_message_header_fields.exit.i:              ; preds = %._crit_edge.loopexi
   br i1 %.not.i154.i, label %handle_message_body_parameters.exit.i, label %234
 
 234:                                              ; preds = %.lr.ph.i153.i
-  %235 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %switch.select4.i.i, i32 noundef %.030.i.i, ptr noundef %229, i32 noundef 0, i8 noundef zeroext %233, i8 noundef zeroext 0, ptr noundef %5, ptr noundef %6, i32 noundef %213)
+  %235 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef range(i32 195948558, 195948557) %switch.select4.i.i, i32 noundef %.030.i.i, ptr noundef %229, i32 noundef 0, i8 noundef zeroext %233, i8 noundef zeroext 0, ptr noundef %5, ptr noundef %6, i32 noundef %213)
   %236 = icmp slt i32 %235, %spec.select.i.i
   %237 = load i8, ptr %6, align 1
   %238 = icmp ne i8 %237, 0
@@ -2463,7 +2463,7 @@ add_padding_item.exit455:                         ; preds = %403, %409, %412, %4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %438, ptr noundef nonnull @.str.289, i32 noundef 32) #5
   %442 = load i8, ptr %439, align 1
   %443 = load ptr, ptr @g_ascii_table, align 8
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %441, i32 1)
+  %umax.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 256) %441, i32 1)
   br label %444
 
 444:                                              ; preds = %457, %437

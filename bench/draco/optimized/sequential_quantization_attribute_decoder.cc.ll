@@ -224,7 +224,7 @@ _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default
   br i1 %.not.i.i.i, label %_ZN5draco33SequentialIntegerAttributeDecoderD2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i
-  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12)
+  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %12)
   br label %_ZN5draco33SequentialIntegerAttributeDecoderD2Ev.exit
 
 _ZN5draco33SequentialIntegerAttributeDecoderD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i, %13
@@ -269,7 +269,7 @@ _ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default
   br i1 %.not.i.i.i.i, label %_ZN5draco38SequentialQuantizationAttributeDecoderD2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i.i
-  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12)
+  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %12)
   br label %_ZN5draco38SequentialQuantizationAttributeDecoderD2Ev.exit
 
 _ZN5draco38SequentialQuantizationAttributeDecoderD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedDecoderInterfaceIiiEESt14default_deleteIS2_EED2Ev.exit.i.i, %13

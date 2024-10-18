@@ -1545,7 +1545,7 @@ multirange_get_bounds_offset.exit:                ; preds = %5, %multirange_get_
 68:                                               ; preds = %56
   %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %69)
-  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %55) #11
+  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef range(i32 -32768, 32768) %55) #11
   tail call void @errfinish(ptr noundef nonnull @.str.26, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -1705,7 +1705,7 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
 145:                                              ; preds = %133
   %146 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %146)
-  %147 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %130) #11
+  %147 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef range(i32 -32768, 32768) %130) #11
   tail call void @errfinish(ptr noundef nonnull @.str.26, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -6615,7 +6615,7 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
 
 78:                                               ; preds = %69, %71
   %.036 = phi i32 [ %77, %71 ], [ 0, %69 ]
-  %79 = tail call i32 @hash_bytes_uint32(i32 noundef %60) #11
+  %79 = tail call i32 @hash_bytes_uint32(i32 noundef range(i32 0, 256) %60) #11
   %80 = xor i32 %79, %.037
   %81 = tail call noundef i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 1)
   %82 = xor i32 %81, %.036
@@ -6775,7 +6775,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 
 78:                                               ; preds = %70, %72
   %.041 = phi i64 [ %77, %72 ], [ 0, %70 ]
-  %79 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %62, i64 noundef %9) #11
+  %79 = tail call i64 @hash_bytes_uint32_extended(i32 noundef range(i32 0, 256) %62, i64 noundef %9) #11
   %80 = xor i64 %79, %.042
   %81 = shl i64 %80, 1
   %82 = and i64 %81, -4294967298

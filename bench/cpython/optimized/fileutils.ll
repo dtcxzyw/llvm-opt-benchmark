@@ -1257,7 +1257,7 @@ if.end6:                                          ; preds = %if.then3
   br i1 %tobool.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %call.i41 = tail call i64 @mbstowcs(ptr noundef nonnull %call7, ptr noundef %arg, i64 noundef %add) #16
+  %call.i41 = tail call i64 @mbstowcs(ptr noundef nonnull %call7, ptr noundef %arg, i64 noundef range(i64 0, 2305843009213693952) %add) #16
   %0 = add i64 %call.i41, -1
   %1 = icmp ult i64 %0, -2
   br i1 %1, label %for.body.i, label %_Py_mbstowcs.exit
@@ -1318,7 +1318,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %out.060.us = phi ptr [ %incdec.ptr45.us, %if.end44.us ], [ %call25, %while.body.lr.ph ]
   %in.059.us = phi ptr [ %add.ptr.us, %if.end44.us ], [ %arg, %while.body.lr.ph ]
   %argsize.058.us = phi i64 [ %sub.us, %if.end44.us ], [ %add20, %while.body.lr.ph ]
-  %call.i43.us = call i64 @mbrtowc(ptr noundef %out.060.us, ptr noundef %in.059.us, i64 noundef %argsize.058.us, ptr noundef nonnull %mbs) #16
+  %call.i43.us = call i64 @mbrtowc(ptr noundef %out.060.us, ptr noundef %in.059.us, i64 noundef range(i64 1, 0) %argsize.058.us, ptr noundef nonnull %mbs) #16
   %4 = add i64 %call.i43.us, -1
   %or.cond1.i.us = icmp ult i64 %4, -3
   br i1 %or.cond1.i.us, label %if.then.i.us, label %_Py_mbrtowc.exit.us
@@ -1349,7 +1349,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %out.060 = phi ptr [ %out.0.be, %while.cond.backedge ], [ %call25, %while.body.lr.ph ]
   %in.059 = phi ptr [ %in.0.be, %while.cond.backedge ], [ %arg, %while.body.lr.ph ]
   %argsize.058 = phi i64 [ %argsize.0.be, %while.cond.backedge ], [ %add20, %while.body.lr.ph ]
-  %call.i43 = call i64 @mbrtowc(ptr noundef %out.060, ptr noundef %in.059, i64 noundef %argsize.058, ptr noundef nonnull %mbs) #16
+  %call.i43 = call i64 @mbrtowc(ptr noundef %out.060, ptr noundef %in.059, i64 noundef range(i64 1, 0) %argsize.058, ptr noundef nonnull %mbs) #16
   %7 = add i64 %call.i43, -1
   %or.cond1.i = icmp ult i64 %7, -3
   br i1 %or.cond1.i, label %if.then.i, label %_Py_mbrtowc.exit

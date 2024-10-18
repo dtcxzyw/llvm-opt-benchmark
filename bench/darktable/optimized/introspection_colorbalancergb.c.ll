@@ -3729,7 +3729,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
 
 282:                                              ; preds = %141
   %283 = load i32, ptr %140, align 64, !tbaa !149
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull readonly %138, ptr noundef nonnull readonly %139, i32 noundef %283)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly %138, ptr noundef nonnull readonly %139, i32 noundef %283)
   br label %_YchToRGB.exit
 
 284:                                              ; preds = %141
@@ -4102,7 +4102,7 @@ define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly 
 
 197:                                              ; preds = %104
   %198 = load i32, ptr %102, align 64, !tbaa !149
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull readonly %100, ptr noundef nonnull readonly %101, i32 noundef %198)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly %100, ptr noundef nonnull readonly %101, i32 noundef %198)
   br label %_YchToRGB.exit
 
 199:                                              ; preds = %104

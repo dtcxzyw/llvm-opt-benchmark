@@ -719,7 +719,7 @@ _ZN5faissL14init_hypercubeEiiiPKfPf.exit:         ; preds = %._crit_edge76.threa
 
 245:                                              ; preds = %241, %_ZN5faissL14init_hypercubeEiiiPKfPf.exit
   %246 = load i64, ptr %20, align 8
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %6, i64 noundef %246, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef %246, i32 noundef 1)
           to label %247 unwind label %.loopexit
 
 247:                                              ; preds = %245
@@ -761,7 +761,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %259, %249
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %261
-  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #18
+  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %5, align 8
   %262 = load ptr, ptr %51, align 8
   %.not.i.i.i.i60 = icmp eq ptr %262, null
@@ -833,7 +833,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %.body, %110
 
 285:                                              ; preds = %281, %270
   %286 = load i64, ptr %271, align 8
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 noundef %286, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef %286, i32 noundef 1)
           to label %287 unwind label %283
 
 287:                                              ; preds = %285
@@ -904,7 +904,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i69:                ; preds = %311, %._crit_edge
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit71
 
 _ZN5faiss11IndexFlatL2D2Ev.exit71:                ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i69, %314
-  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #18
+  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %7, align 8
   %315 = getelementptr inbounds i8, ptr %7, i64 88
   %316 = load ptr, ptr %315, align 8
@@ -1601,7 +1601,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #18
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #18
   ret void
 }
 
@@ -3739,13 +3739,13 @@ define void @_ZNK5faiss16ProductQuantizer6searchEPKfmPKhmPNS_9HeapArrayINS_4CMax
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %49
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMaxIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined, ptr nonnull %15, ptr nonnull %9, ptr nonnull %16, ptr nonnull %17, ptr nonnull %12, ptr nonnull %14, ptr nonnull %13, ptr nonnull %8, ptr nonnull %0, ptr nonnull %10, ptr nonnull %11)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMaxIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined, ptr nonnull %15, ptr nonnull %9, ptr nonnull %16, ptr nonnull %17, ptr nonnull %12, ptr nonnull %14, ptr nonnull %13, ptr nonnull %8, ptr nonnull align 8 dereferenceable(208) %0, ptr nonnull %10, ptr nonnull %11)
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 61:                                               ; preds = %49
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %52)
   store i32 %52, ptr %18, align 4
-  call void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMaxIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %15, ptr %9, ptr %16, ptr %17, ptr %12, ptr %14, ptr %13, ptr %8, ptr %0, ptr %10, ptr %11) #18
+  call void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMaxIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %15, ptr %9, ptr %16, ptr %17, ptr %12, ptr %14, ptr %13, ptr %8, ptr nonnull align 8 dereferenceable(208) %0, ptr %10, ptr %11) #18
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %52)
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
@@ -5399,13 +5399,13 @@ define void @_ZNK5faiss16ProductQuantizer9search_ipEPKfmPKhmPNS_9HeapArrayINS_4C
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %49
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMinIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined, ptr nonnull %15, ptr nonnull %9, ptr nonnull %16, ptr nonnull %17, ptr nonnull %12, ptr nonnull %14, ptr nonnull %13, ptr nonnull %8, ptr nonnull %0, ptr nonnull %10, ptr nonnull %11)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMinIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined, ptr nonnull %15, ptr nonnull %9, ptr nonnull %16, ptr nonnull %17, ptr nonnull %12, ptr nonnull %14, ptr nonnull %13, ptr nonnull %8, ptr nonnull align 8 dereferenceable(208) %0, ptr nonnull %10, ptr nonnull %11)
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 61:                                               ; preds = %49
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %52)
   store i32 %52, ptr %18, align 4
-  call void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMinIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %15, ptr %9, ptr %16, ptr %17, ptr %12, ptr %14, ptr %13, ptr %8, ptr %0, ptr %10, ptr %11) #18
+  call void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMinIflEEEEvRKNS_16ProductQuantizerEmPKfPKhmPNS_9HeapArrayIT_EEb.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %15, ptr %9, ptr %16, ptr %17, ptr %12, ptr %14, ptr %13, ptr %8, ptr nonnull align 8 dereferenceable(208) %0, ptr %10, ptr %11) #18
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %52)
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 

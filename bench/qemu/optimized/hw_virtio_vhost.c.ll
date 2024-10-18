@@ -379,11 +379,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %dev, i32 noundef 1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %dev, i32 noundef range(i32 1, 5) 1) #19
   br label %trace_vhost_iotlb_miss.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef %dev, i32 noundef 1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef %dev, i32 noundef range(i32 1, 5) 1) #19
   br label %trace_vhost_iotlb_miss.exit
 
 trace_vhost_iotlb_miss.exit:                      ; preds = %rcu_read_auto_lock.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -460,11 +460,11 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i33
   %18 = load i64, ptr %_now.i.i26, align 8
   %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
   %19 = load i64, ptr %tv_usec.i.i39, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i38, i64 noundef %18, i64 noundef %19, ptr noundef nonnull %dev, i32 noundef 3) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i38, i64 noundef %18, i64 noundef %19, ptr noundef nonnull %dev, i32 noundef range(i32 1, 5) 3) #19
   br label %trace_vhost_iotlb_miss.exit40
 
 if.else.i.i35:                                    ; preds = %if.then.i.i33
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull %dev, i32 noundef 3) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull %dev, i32 noundef range(i32 1, 5) 3) #19
   br label %trace_vhost_iotlb_miss.exit40
 
 trace_vhost_iotlb_miss.exit40:                    ; preds = %if.then30, %land.lhs.true5.i.i30, %if.then8.i.i36, %if.else.i.i35
@@ -513,11 +513,11 @@ if.then8.i.i51:                                   ; preds = %if.then.i.i48
   %25 = load i64, ptr %_now.i.i41, align 8
   %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %26 = load i64, ptr %tv_usec.i.i54, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i53, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %dev, i32 noundef 4) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i53, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %dev, i32 noundef range(i32 1, 5) 4) #19
   br label %trace_vhost_iotlb_miss.exit55
 
 if.else.i.i50:                                    ; preds = %if.then.i.i48
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull %dev, i32 noundef 4) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull %dev, i32 noundef range(i32 1, 5) 4) #19
   br label %trace_vhost_iotlb_miss.exit55
 
 trace_vhost_iotlb_miss.exit55:                    ; preds = %if.then37, %land.lhs.true5.i.i45, %if.then8.i.i51, %if.else.i.i50
@@ -552,11 +552,11 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i63
   %31 = load i64, ptr %_now.i.i56, align 8
   %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
   %32 = load i64, ptr %tv_usec.i.i69, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i68, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %dev, i32 noundef 2) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i68, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %dev, i32 noundef range(i32 1, 5) 2) #19
   br label %trace_vhost_iotlb_miss.exit70
 
 if.else.i.i65:                                    ; preds = %if.then.i.i63
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull %dev, i32 noundef 2) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull %dev, i32 noundef range(i32 1, 5) 2) #19
   br label %trace_vhost_iotlb_miss.exit70
 
 trace_vhost_iotlb_miss.exit70:                    ; preds = %if.end39, %land.lhs.true5.i.i60, %if.then8.i.i66, %if.else.i.i65
@@ -2229,7 +2229,7 @@ land.rhs.i.i85:                                   ; preds = %if.then95
 
 vhost_dev_log_is_shared.exit.i:                   ; preds = %land.rhs.i.i85, %if.then95
   %82 = phi i1 [ false, %if.then95 ], [ %call.i.i86, %land.rhs.i.i85 ]
-  %call1.i = tail call fastcc ptr @vhost_log_get(i64 noundef %add96, i1 noundef zeroext %82)
+  %call1.i = tail call fastcc ptr @vhost_log_get(i64 noundef range(i64 0, 70368744177835) %add96, i1 noundef zeroext %82)
   %log2.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %83 = load ptr, ptr %log2.i, align 8
   %84 = ptrtoint ptr %83 to i64
@@ -2290,7 +2290,7 @@ land.rhs.i.i91:                                   ; preds = %if.then115
 
 vhost_dev_log_is_shared.exit.i93:                 ; preds = %land.rhs.i.i91, %if.then115
   %93 = phi i1 [ false, %if.then115 ], [ %call.i.i92, %land.rhs.i.i91 ]
-  %call1.i94 = tail call fastcc ptr @vhost_log_get(i64 noundef %log_size.0.lcssa.i110, i1 noundef zeroext %93)
+  %call1.i94 = tail call fastcc ptr @vhost_log_get(i64 noundef range(i64 0, 70368744177835) %log_size.0.lcssa.i110, i1 noundef zeroext %93)
   %log2.i95 = getelementptr inbounds i8, ptr %call1.i94, i64 16
   %94 = load ptr, ptr %log2.i95, align 8
   %95 = ptrtoint ptr %94 to i64
@@ -2390,11 +2390,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %9 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef 1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef range(i32 1, 4) 1) #19
   br label %trace_vhost_reject_section.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %4, i32 noundef 1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %4, i32 noundef range(i32 1, 4) 1) #19
   br label %trace_vhost_reject_section.exit.i
 
 trace_vhost_reject_section.exit.i:                ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then5.i
@@ -2488,11 +2488,11 @@ if.then8.i.i35.i:                                 ; preds = %if.then.i.i32.i
   %27 = load i64, ptr %_now.i.i25.i, align 8
   %tv_usec.i.i38.i = getelementptr inbounds i8, ptr %_now.i.i25.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i38.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i37.i, i64 noundef %27, i64 noundef %28, ptr noundef %22, i32 noundef 3) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i37.i, i64 noundef %27, i64 noundef %28, ptr noundef %22, i32 noundef range(i32 1, 4) 3) #19
   br label %trace_vhost_reject_section.exit39.i
 
 if.else.i.i34.i:                                  ; preds = %if.then.i.i32.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %22, i32 noundef 3) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %22, i32 noundef range(i32 1, 4) 3) #19
   br label %trace_vhost_reject_section.exit39.i
 
 trace_vhost_reject_section.exit39.i:              ; preds = %if.else.i.i34.i, %if.then8.i.i35.i, %land.lhs.true5.i.i29.i, %if.else.i
@@ -3612,7 +3612,7 @@ if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fd.i)
   store ptr null, ptr %err.i, align 8
   store i32 -1, ptr %fd.i, align 4
-  %call.i = call ptr @qemu_memfd_alloc(ptr noundef nonnull @.str.96, i64 noundef %call, i32 noundef 7, ptr noundef nonnull %fd.i, ptr noundef nonnull %err.i) #19
+  %call.i = call ptr @qemu_memfd_alloc(ptr noundef nonnull @.str.96, i64 noundef range(i64 1, 0) %call, i32 noundef 7, ptr noundef nonnull %fd.i, ptr noundef nonnull %err.i) #19
   %1 = load ptr, ptr %err.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %land.lhs.true.i.i, label %vhost_dev_resize_inflight.exit.thread
@@ -5300,11 +5300,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i32 noundef %d) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i32 noundef range(i32 1, 4) %d) #19
   br label %_nocheck__trace_vhost_reject_section.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %name, i32 noundef %d) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %name, i32 noundef range(i32 1, 4) %d) #19
   br label %_nocheck__trace_vhost_reject_section.exit
 
 _nocheck__trace_vhost_reject_section.exit:        ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -5644,7 +5644,7 @@ while.end:                                        ; preds = %for.body
 
 while.body31:                                     ; preds = %while.end, %while.body31
   %log24.026 = phi i64 [ %and, %while.body31 ], [ %4, %while.end ]
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %log24.026, i1 true)
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %log24.026, i1 true)
   %mul32 = shl nuw nsw i64 %5, 12
   %add33 = or disjoint i64 %mul32, %addr.028
   %6 = load i64, ptr %offset_within_address_space, align 8
@@ -5797,7 +5797,7 @@ land.rhs.i.i:                                     ; preds = %vhost_get_log_size.
 
 vhost_dev_log_is_shared.exit.i:                   ; preds = %land.rhs.i.i, %vhost_get_log_size.exit
   %18 = phi i1 [ false, %vhost_get_log_size.exit ], [ %call.i.i, %land.rhs.i.i ]
-  %call1.i = tail call fastcc ptr @vhost_log_get(i64 noundef %log_size.0.lcssa.i, i1 noundef zeroext %18)
+  %call1.i = tail call fastcc ptr @vhost_log_get(i64 noundef range(i64 0, 70368744177835) %log_size.0.lcssa.i, i1 noundef zeroext %18)
   %log2.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %19 = load ptr, ptr %log2.i, align 8
   %20 = ptrtoint ptr %19 to i64

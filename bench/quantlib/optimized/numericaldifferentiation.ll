@@ -75,7 +75,7 @@ invoke.cont:                                      ; preds = %entry
   %f_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %f, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %f_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f_, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !9
   store ptr %2, ptr %_M_invoker.i, align 8, !tbaa !9
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16
@@ -85,7 +85,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %invoke.cont
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %f_, ptr noundef nonnull align 8 dereferenceable(16) %f, i64 16, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f_, ptr noundef nonnull align 8 dereferenceable(32) %f, i64 16, i1 false), !tbaa.struct !13
   %4 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !12
   store ptr %4, ptr %_M_manager.i.i, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -1152,7 +1152,7 @@ invoke.cont:                                      ; preds = %_ZN8QuantLib12_GLOB
   %f_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %f, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %f_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f_, i8 0, i64 24, i1 false)
   %71 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !9
   store ptr %71, ptr %_M_invoker.i, align 8, !tbaa !9
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16
@@ -1162,7 +1162,7 @@ invoke.cont:                                      ; preds = %_ZN8QuantLib12_GLOB
 
 if.then.i1:                                       ; preds = %invoke.cont
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %f_, ptr noundef nonnull align 8 dereferenceable(16) %f, i64 16, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f_, ptr noundef nonnull align 8 dereferenceable(32) %f, i64 16, i1 false), !tbaa.struct !13
   %73 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !12
   store ptr %73, ptr %_M_manager.i.i, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)

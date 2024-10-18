@@ -591,7 +591,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIlS
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %10
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #17
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #17
   ret void
 }
 
@@ -2161,7 +2161,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %11, %_ZNSt6vectorIl
   br label %_ZN5faiss11IndexFlat1DD2Ev.exit
 
 _ZN5faiss11IndexFlat1DD2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %14
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #17
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #17
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i1 = icmp eq ptr %16, null

@@ -2663,7 +2663,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %75, %73
   br i1 %77, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %78
 
 78:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %57, i32 noundef %59, i32 noundef %4) #14
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %57, i32 noundef %59, i32 noundef %4) #14
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %78
@@ -2701,7 +2701,7 @@ _ZN22CompilationResourceObjnwEm.exit.i45:         ; preds = %96, %94
   br i1 %98, label %_ZN10ValueStack4copyENS_4KindEi.exit47, label %99
 
 99:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i45
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i46, ptr noundef nonnull %57, i32 noundef %80, i32 noundef %4) #14
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(81) %57, i32 noundef %80, i32 noundef %4) #14
   br label %_ZN10ValueStack4copyENS_4KindEi.exit47
 
 _ZN10ValueStack4copyENS_4KindEi.exit47:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i45, %99
@@ -3554,7 +3554,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %31, %29
   br i1 %33, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %34
 
 34:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %1, i32 noundef 8, i32 noundef %14) #14
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %1, i32 noundef 8, i32 noundef %14) #14
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %34

@@ -9282,7 +9282,7 @@ for.end.i:                                        ; preds = %for.body3.i
   br i1 %exitcond12.not.i, label %crc32_init.exit, label %for.body.i, !llvm.loop !7
 
 crc32_init.exit:                                  ; preds = %for.end.i
-  %call.i880 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
+  %call.i880 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %cmp303.not = icmp eq i32 %call.i880, 5
   br i1 %cmp303.not, label %for.body311, label %if.then305
@@ -9595,7 +9595,7 @@ if.then.i900:                                     ; preds = %if.end505
   br label %setup_temp_free.exit
 
 if.end.i901:                                      ; preds = %if.end505
-  tail call void @free(ptr noundef %lengths.0) #36
+  tail call void @free(ptr noundef nonnull %lengths.0) #36
   br label %setup_temp_free.exit
 
 setup_temp_free.exit:                             ; preds = %if.then.i900, %if.end.i901
@@ -10199,7 +10199,7 @@ if.then.i989:                                     ; preds = %skip
   br label %for.inc901
 
 if.end.i994:                                      ; preds = %skip
-  tail call void @free(ptr noundef %call709) #36
+  tail call void @free(ptr noundef nonnull %call709) #36
   br label %for.inc901
 
 for.inc901:                                       ; preds = %if.end.i994, %if.then.i989, %if.end664

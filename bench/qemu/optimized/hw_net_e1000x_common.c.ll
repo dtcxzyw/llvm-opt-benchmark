@@ -387,7 +387,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %conv14.i.i = zext i8 %4 to i32
   %conv15.i.i = zext i8 %5 to i32
   %conv16.i.i = zext i8 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %div, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef range(i32 -1073741824, 1073741824) %div, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #11
   br label %trace_e1000x_rx_flt_ucast_match.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -397,7 +397,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %conv20.i.i = zext i8 %4 to i32
   %conv21.i.i = zext i8 %5 to i32
   %conv22.i.i = zext i8 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %div, i32 noundef %conv17.i.i, i32 noundef %conv18.i.i, i32 noundef %conv19.i.i, i32 noundef %conv20.i.i, i32 noundef %conv21.i.i, i32 noundef %conv22.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef range(i32 -1073741824, 1073741824) %div, i32 noundef %conv17.i.i, i32 noundef %conv18.i.i, i32 noundef %conv19.i.i, i32 noundef %conv20.i.i, i32 noundef %conv21.i.i, i32 noundef %conv22.i.i) #11
   br label %trace_e1000x_rx_flt_ucast_match.exit
 
 trace_e1000x_rx_flt_ucast_match.exit:             ; preds = %if.then37, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -514,7 +514,7 @@ if.then8.i.i83:                                   ; preds = %if.then.i.i74
   %conv12.i.i88 = zext i8 %28 to i32
   %conv13.i.i89 = zext i8 %29 to i32
   %conv14.i.i90 = zext i8 %30 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i85, i64 noundef %35, i64 noundef %36, i32 noundef %conv11.i.i87, i32 noundef %conv12.i.i88, i32 noundef %conv13.i.i89, i32 noundef %conv14.i.i90, i32 noundef %conv83, i32 noundef %conv80, i32 noundef %and76, i32 noundef %shr86, i32 noundef %26) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i85, i64 noundef %35, i64 noundef %36, i32 noundef %conv11.i.i87, i32 noundef %conv12.i.i88, i32 noundef %conv13.i.i89, i32 noundef %conv14.i.i90, i32 noundef %conv83, i32 noundef %conv80, i32 noundef range(i32 0, 4) %and76, i32 noundef range(i32 0, 128) %shr86, i32 noundef %26) #11
   br label %trace_e1000x_rx_flt_inexact_mismatch.exit
 
 if.else.i.i76:                                    ; preds = %if.then.i.i74
@@ -522,7 +522,7 @@ if.else.i.i76:                                    ; preds = %if.then.i.i74
   %conv18.i.i78 = zext i8 %28 to i32
   %conv19.i.i79 = zext i8 %29 to i32
   %conv20.i.i80 = zext i8 %30 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %conv17.i.i77, i32 noundef %conv18.i.i78, i32 noundef %conv19.i.i79, i32 noundef %conv20.i.i80, i32 noundef %conv83, i32 noundef %conv80, i32 noundef %and76, i32 noundef %shr86, i32 noundef %26) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %conv17.i.i77, i32 noundef %conv18.i.i78, i32 noundef %conv19.i.i79, i32 noundef %conv20.i.i80, i32 noundef %conv83, i32 noundef %conv80, i32 noundef range(i32 0, 4) %and76, i32 noundef range(i32 0, 128) %shr86, i32 noundef %26) #11
   br label %trace_e1000x_rx_flt_inexact_mismatch.exit
 
 trace_e1000x_rx_flt_inexact_mismatch.exit:        ; preds = %if.end94, %land.lhs.true5.i.i71, %if.then8.i.i83, %if.else.i.i76

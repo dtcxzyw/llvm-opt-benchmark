@@ -114,7 +114,7 @@ entry:
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -162,7 +162,7 @@ entry:
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2ERKS9_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %hashFunction, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %hashFunction, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -179,7 +179,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -196,9 +196,9 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2ERK
   %7 = phi ptr [ null, %entry ], [ %1, %invoke.cont.i.i ]
   %8 = phi ptr [ null, %entry ], [ %2, %invoke.cont.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, i64 16), align 8
   store ptr %9, ptr %_M_manager.i.i.i, align 8
@@ -210,7 +210,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2ERK
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEaSERKS9_.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2ERKS9_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEaSERKS9_.exit unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
@@ -237,9 +237,9 @@ entry:
   store i64 0, ptr %0, align 8
   store ptr @_ZN19OpenColorIO_v2_4dev8Platform21CreateFileContentHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_hashFunctionB5cxx11E, i64 16), align 8
   store ptr %1, ptr %_M_manager.i.i.i, align 8
@@ -251,7 +251,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS7_EEEE5valueERS9_E4typeEOSE_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS7_EEEE5valueERS9_E4typeEOSE_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -275,7 +275,7 @@ entry:
   %ref.tmp30 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp34 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp35 = alloca %"class.std::shared_ptr.3", align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
@@ -372,7 +372,7 @@ lpad1:                                            ; preds = %if.then.i, %if.else
 lpad1.body:                                       ; preds = %lpad7.i.i.i.i.i, %lpad1
   %fileHashResultPtr.sroa.9.4 = phi ptr [ %fileHashResultPtr.sroa.9.0, %lpad1 ], [ %call5.i.i.i3.i.i.i.i21, %lpad7.i.i.i.i.i ]
   %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad1 ], [ %18, %lpad7.i.i.i.i.i ]
-  %call1.i.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
+  %call1.i.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
   br label %ehcleanup54
 
 if.else:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114FileHashResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont
@@ -446,7 +446,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__c
 
 call5.i.i.i.i.i.i.i.noexc:                        ; preds = %if.then.i
   %_M_storage.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i67, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i6.i, ptr noundef nonnull align 8 dereferenceable(32) %filename)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i6.i, ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %invoke.cont.i.i unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %call5.i.i.i.i.i.i.i.noexc
@@ -877,7 +877,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114FileHashResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114FileHashResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i13.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i6.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i6.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i67) #25
   br label %invoke.cont11
 
@@ -985,9 +985,9 @@ if.end9.i.i.i92:                                  ; preds = %if.end8.sink.split.
 if.end:                                           ; preds = %if.end9.i.i.i92, %invoke.cont11, %if.then, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %fileHashResultPtr.sroa.9.1 = phi ptr [ null, %if.then ], [ %5, %if.else.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i ], [ %call5.i.i.i3.i.i.i.i21, %invoke.cont11 ], [ %call5.i.i.i3.i.i.i.i21, %if.end9.i.i.i92 ]
   %fileHashResultPtr.sroa.0.0 = phi ptr [ %4, %if.then ], [ %4, %if.else.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i ], [ %_M_impl.i.i.i.i.i.i, %invoke.cont11 ], [ %_M_impl.i.i.i.i.i.i, %if.end9.i.i.i92 ]
-  %call1.i.i.i114 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
+  %call1.i.i.i114 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
-  %call1.i.i.i115 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %fileHashResultPtr.sroa.0.0) #22
+  %call1.i.i.i115 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %fileHashResultPtr.sroa.0.0) #22
   %tobool.not.i.i116 = icmp eq i32 %call1.i.i.i115, 0
   br i1 %tobool.not.i.i116, label %invoke.cont17, label %if.then.i.i117
 
@@ -1247,7 +1247,7 @@ if.end46:                                         ; preds = %invoke.cont44, %inv
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %if.end46
-  %call1.i.i.i188 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %fileHashResultPtr.sroa.0.0) #22
+  %call1.i.i.i188 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %fileHashResultPtr.sroa.0.0) #22
   %cmp.not.i.i.i189 = icmp eq ptr %fileHashResultPtr.sroa.9.1, null
   br i1 %cmp.not.i.i.i189, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114FileHashResultEED2Ev.exit219, label %if.then.i.i.i190
 
@@ -1329,7 +1329,7 @@ lpad49:                                           ; preds = %if.end46
 
 ehcleanup52:                                      ; preds = %lpad49, %ehcleanup, %lpad23
   %.pn6 = phi { ptr, i32 } [ %124, %lpad49 ], [ %.pn, %ehcleanup ], [ %98, %lpad23 ]
-  %call1.i.i.i220 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %fileHashResultPtr.sroa.0.0) #22
+  %call1.i.i.i220 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %fileHashResultPtr.sroa.0.0) #22
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %ehcleanup52, %lpad16
@@ -1545,7 +1545,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev15ClearPathCachesEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1570,7 +1570,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN19
   store ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 32), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 40), align 8
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125g_fastFileHashCache_mutexE) #22
   ret void
 }
 
@@ -1592,7 +1592,7 @@ invoke.cont:                                      ; preds = %entry
 if.then:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %current_dir.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %current_dir.i) #22, !noalias !13
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %current_dir.i) #22, !noalias !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %current_dir.i, i8 0, i64 24, i1 false), !noalias !13
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %current_dir.i, i64 8
   %call5.i.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znwm(i64 noundef 4096) #24
@@ -1748,7 +1748,7 @@ ehcleanup.i:                                      ; preds = %lpad8.i, %lpad.loop
   br label %ehcleanup
 
 invoke.cont2:                                     ; preds = %if.then.i.i.i60.i, %invoke.cont9.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %current_dir.i) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %current_dir.i) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %current_dir.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   invoke void @_ZN8pystring2os4path4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %p)
@@ -2370,7 +2370,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114FileHashResultEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %while.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #25
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
@@ -2400,7 +2400,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #22
   ret void
 }
 

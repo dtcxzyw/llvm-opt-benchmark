@@ -1969,7 +1969,7 @@ rb_check_arity.exit:                              ; preds = %rand_start.exit
   br i1 %.not7.i, label %40, label %44
 
 40:                                               ; preds = %35
-  %41 = call noundef i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 3)
+  %41 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %34, i64 range(i64 3458764513820540929, 3458764513820540928) %34, i64 3)
   %42 = and i64 %41, -4
   %43 = or disjoint i64 %42, 2
   br label %rb_float_new_inline.exit
@@ -2897,7 +2897,7 @@ define internal i64 @rand_random_number(i32 noundef %0, ptr nocapture noundef re
   br i1 %.not7.i.i, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = tail call noundef i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 3)
+  %15 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 3)
   %16 = and i64 %15, -4
   %17 = or disjoint i64 %16, 2
   br label %rand_random.exit
@@ -2948,7 +2948,7 @@ define internal fastcc noundef i64 @rand_init(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %7
-  tail call void @ruby_malloc_size_overflow(i64 noundef %spec.store.select, i64 noundef 4) #24
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %spec.store.select, i64 noundef 4) #24
   unreachable
 
 .thread:                                          ; preds = %7
@@ -3429,7 +3429,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %18, %RB_FLOAT_TYPE_
   %67 = add nsw i64 %.neg.i.i, 2
   %68 = and i64 %60, -4
   %69 = or i64 %67, %68
-  %70 = call noundef i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 61)
+  %70 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %69, i64 range(i64 1, 0) %69, i64 61)
   %71 = bitcast i64 %70 to double
   br label %rb_float_value_inline.exit
 
@@ -3465,7 +3465,7 @@ rb_float_value_inline.exit:                       ; preds = %66, %72
   %85 = add nsw i64 %.neg.i.i.i, 2
   %86 = and i64 %80, -4
   %87 = or i64 %85, %86
-  %88 = call noundef i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 61)
+  %88 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %87, i64 range(i64 1, 0) %87, i64 61)
   %89 = bitcast i64 %88 to double
   br label %rb_float_value_inline.exit.i
 
@@ -3501,7 +3501,7 @@ float_value.exit:                                 ; preds = %rb_float_value_inli
   %103 = add nsw i64 %.neg.i.i.i53, 2
   %104 = and i64 %98, -4
   %105 = or i64 %103, %104
-  %106 = call noundef i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 61)
+  %106 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %105, i64 range(i64 1, 0) %105, i64 61)
   %107 = bitcast i64 %106 to double
   br label %rb_float_value_inline.exit.i50
 
@@ -3564,7 +3564,7 @@ float_value.exit54:                               ; preds = %rb_float_value_inli
   br i1 %.not7.i, label %136, label %140
 
 136:                                              ; preds = %131
-  %137 = call noundef i64 @llvm.fshl.i64(i64 %130, i64 %130, i64 3)
+  %137 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %130, i64 range(i64 3458764513820540929, 3458764513820540928) %130, i64 3)
   %138 = and i64 %137, -4
   %139 = or disjoint i64 %138, 2
   br label %rb_float_new_inline.exit
@@ -3592,7 +3592,7 @@ float_value.exit54:                               ; preds = %rb_float_value_inli
   br i1 %.not7.i57, label %152, label %156
 
 152:                                              ; preds = %147
-  %153 = call noundef i64 @llvm.fshl.i64(i64 %146, i64 %146, i64 3)
+  %153 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %146, i64 range(i64 3458764513820540929, 3458764513820540928) %146, i64 3)
   %154 = and i64 %153, -4
   %155 = or disjoint i64 %154, 2
   br label %.loopexit.sink.split
@@ -3707,7 +3707,7 @@ rb_type.exit.thread100.rb_type.exit.thread_crit_edge: ; preds = %rb_type.exit.th
   %202 = add nsw i64 %.neg.i.i66, 2
   %203 = and i64 %164, -4
   %204 = or i64 %202, %203
-  %205 = call noundef i64 @llvm.fshl.i64(i64 %204, i64 %204, i64 61)
+  %205 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %204, i64 range(i64 1, 0) %204, i64 61)
   %206 = bitcast i64 %205 to double
   br label %rb_float_value_inline.exit67
 
@@ -3732,7 +3732,7 @@ rb_float_value_inline.exit67:                     ; preds = %200, %201, %207
   %215 = add nsw i64 %.neg.i.i70, 2
   %216 = and i64 %195, -4
   %217 = or i64 %215, %216
-  %218 = call noundef i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 61)
+  %218 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %217, i64 range(i64 1, 0) %217, i64 61)
   %219 = bitcast i64 %218 to double
   br label %rb_float_value_inline.exit71
 
@@ -3758,7 +3758,7 @@ rb_float_value_inline.exit71:                     ; preds = %213, %214, %220
   br i1 %.not7.i73, label %231, label %235
 
 231:                                              ; preds = %226
-  %232 = call noundef i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 3)
+  %232 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %225, i64 range(i64 3458764513820540929, 3458764513820540928) %225, i64 3)
   %233 = and i64 %232, -4
   %234 = or disjoint i64 %233, 2
   br label %rb_float_new_inline.exit
@@ -3906,7 +3906,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   br i1 %.not33, label %6, label %37
 
 6:                                                ; preds = %5
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -4611686018427387904, -9223372036854775808) %2, i1 true)
   %narrow = sub nuw nsw i64 64, %7
   %8 = icmp ult i64 %2, 4294967296
   %9 = select i1 %8, i32 4, i32 8
@@ -4079,7 +4079,7 @@ define internal fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef
   br i1 %14, label %15, label %rb_alloc_tmp_buffer2.exit
 
 15:                                               ; preds = %13
-  call void @ruby_malloc_size_overflow(i64 noundef %8, i64 noundef 4) #24
+  call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %8, i64 noundef 4) #24
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %13
@@ -4214,7 +4214,7 @@ define internal fastcc i64 @limited_big_rand(ptr nocapture noundef readonly %0, 
   br i1 %12, label %13, label %rb_alloc_tmp_buffer2.exit
 
 13:                                               ; preds = %11
-  tail call void @ruby_malloc_size_overflow(i64 noundef %6, i64 noundef 4) #24
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %6, i64 noundef 4) #24
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %11
@@ -4386,7 +4386,7 @@ rb_check_arity.exit:                              ; preds = %4
   br i1 %.not7.i, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = tail call noundef i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 3)
+  %16 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %9, i64 range(i64 3458764513820540929, 3458764513820540928) %9, i64 3)
   %17 = and i64 %16, -4
   %18 = or disjoint i64 %17, 2
   br label %rb_float_new_inline.exit
@@ -4451,7 +4451,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %26, %RB_FLOAT_TYPE_
   %49 = add nsw i64 %.neg.i.i.i, 2
   %50 = and i64 %42, -4
   %51 = or i64 %49, %50
-  %52 = tail call noundef i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 61)
+  %52 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %51, i64 range(i64 1, 0) %51, i64 61)
   %53 = bitcast i64 %52 to double
   br label %rb_float_value_inline.exit.i
 
@@ -4494,7 +4494,7 @@ float_value.exit.thread:                          ; preds = %47, %float_value.ex
   br i1 %.not7.i28, label %71, label %75
 
 71:                                               ; preds = %66
-  %72 = tail call noundef i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 3)
+  %72 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %65, i64 range(i64 3458764513820540929, 3458764513820540928) %65, i64 3)
   %73 = and i64 %72, -4
   %74 = or disjoint i64 %73, 2
   br label %rb_float_new_inline.exit

@@ -157,7 +157,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN9pymeshlab17FunctionParameterEEEED2Ev.
 
 _ZNSt7__cxx114listIN9pymeshlab17FunctionParameterESaIS2_EE9push_backERKS2_.exit: ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6) #13
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1

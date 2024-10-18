@@ -193622,7 +193622,7 @@ define internal fastcc i64 @zend_check_string_offset(ptr noundef %0, i32 noundef
   %30 = load ptr, ptr @zend_known_strings, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 216
   %32 = load ptr, ptr %31, align 8
-  call void @zend_illegal_container_offset(ptr noundef %32, ptr noundef nonnull %.025, i32 noundef %1) #27
+  call void @zend_illegal_container_offset(ptr noundef %32, ptr noundef nonnull %.025, i32 noundef range(i32 0, 6) %1) #27
   br label %57
 
 33:                                               ; preds = %6
@@ -193660,7 +193660,7 @@ _zval_undefined_op2.exit:                         ; preds = %6, %6, %6, %6, %36,
   %54 = load ptr, ptr @zend_known_strings, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 216
   %56 = load ptr, ptr %55, align 8
-  tail call void @zend_illegal_container_offset(ptr noundef %56, ptr noundef nonnull %.025, i32 noundef %1) #27
+  tail call void @zend_illegal_container_offset(ptr noundef %56, ptr noundef nonnull %.025, i32 noundef range(i32 0, 6) %1) #27
   br label %57
 
 57:                                               ; preds = %_zval_undefined_op2.exit, %53, %.critedge, %28, %9

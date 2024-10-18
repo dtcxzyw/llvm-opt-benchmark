@@ -9835,7 +9835,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %198 = getelementptr inbounds i8, ptr %4, i64 64
   %199 = load ptr, ptr %198, align 8
   %200 = add i32 %165, -8
-  %201 = tail call fastcc i32 @Load_SBit_Png(ptr noundef %195, i32 noundef 0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef %197, ptr noundef %199, i32 noundef %200, i8 noundef zeroext 1, i8 noundef zeroext %106)
+  %201 = tail call fastcc i32 @Load_SBit_Png(ptr noundef %195, i32 noundef 0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef %197, ptr noundef %199, i32 noundef %200, i8 noundef zeroext 1, i8 noundef zeroext range(i8 0, 2) %106)
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #27
   %.not116.i = icmp eq i32 %201, 0
   br i1 %.not116.i, label %202, label %tt_face_load_sbix_image.exit
@@ -13454,7 +13454,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %183 = load i8, ptr %182, align 1
   %184 = zext i8 %183 to i64
   %185 = or disjoint i64 %181, %184
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %185, i32 noundef 1, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %185, i32 noundef 1, ptr noundef %7)
   %186 = load i32, ptr %7, align 16
   %187 = load i16, ptr %157, align 2
   %188 = trunc i32 %186 to i16
@@ -13492,7 +13492,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br label %read_paint.exit
 
 209:                                              ; preds = %81
-  %210 = call fastcc zeroext i8 @get_child_table_pointer(ptr noundef %10, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
+  %210 = call fastcc zeroext i8 @get_child_table_pointer(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
   %.not383.i = icmp eq i8 %210, 0
   br i1 %.not383.i, label %read_paint.exit, label %211
 
@@ -13509,7 +13509,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %.0340.i = phi i8 [ 0, %211 ], [ 1, %214 ]
   %217 = load ptr, ptr %6, align 8
   %218 = getelementptr inbounds i8, ptr %3, i64 8
-  %219 = tail call fastcc zeroext i8 @read_color_line(ptr noundef %10, ptr noundef %217, ptr noundef nonnull %218, i8 noundef zeroext %.0340.i)
+  %219 = tail call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %217, ptr noundef nonnull %218, i8 noundef zeroext %.0340.i)
   %.not391.i = icmp eq i8 %219, 0
   br i1 %.not391.i, label %read_paint.exit, label %220
 
@@ -13633,7 +13633,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i64
   %323 = or disjoint i64 %319, %322
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %323, i32 noundef 6, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %323, i32 noundef 6, ptr noundef %7)
   %324 = load i32, ptr %7, align 16
   %325 = sext i32 %324 to i64
   %326 = shl nsw i64 %325, 16
@@ -13693,7 +13693,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %.1341.i = phi i8 [ 0, %360 ], [ 1, %362 ]
   %365 = load ptr, ptr %6, align 8
   %366 = getelementptr inbounds i8, ptr %3, i64 8
-  %367 = tail call fastcc zeroext i8 @read_color_line(ptr noundef %10, ptr noundef %365, ptr noundef nonnull %366, i8 noundef zeroext %.1341.i)
+  %367 = tail call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %365, ptr noundef nonnull %366, i8 noundef zeroext %.1341.i)
   %.not389.i = icmp eq i8 %367, 0
   br i1 %.not389.i, label %read_paint.exit, label %368
 
@@ -13821,7 +13821,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %473 = load i8, ptr %472, align 1
   %474 = zext i8 %473 to i64
   %475 = or disjoint i64 %471, %474
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %475, i32 noundef 6, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %475, i32 noundef 6, ptr noundef %7)
   %476 = load i32, ptr %7, align 16
   %477 = sext i32 %476 to i64
   %478 = shl nsw i64 %477, 16
@@ -13887,7 +13887,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %.2.i = phi i8 [ 0, %512 ], [ 1, %514 ]
   %516 = load ptr, ptr %6, align 8
   %517 = getelementptr inbounds i8, ptr %3, i64 8
-  %518 = tail call fastcc zeroext i8 @read_color_line(ptr noundef %10, ptr noundef %516, ptr noundef nonnull %517, i8 noundef zeroext %.2.i)
+  %518 = tail call fastcc zeroext i8 @read_color_line(ptr noundef nonnull %10, ptr noundef %516, ptr noundef nonnull %517, i8 noundef zeroext %.2.i)
   %.not387.i = icmp eq i8 %518, 0
   br i1 %.not387.i, label %read_paint.exit, label %519
 
@@ -13987,7 +13987,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %598 = load i8, ptr %597, align 1
   %599 = zext i8 %598 to i64
   %600 = or disjoint i64 %596, %599
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %600, i32 noundef 4, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %600, i32 noundef 4, ptr noundef %7)
   %601 = load i32, ptr %7, align 16
   %602 = sext i32 %601 to i64
   %603 = shl nsw i64 %602, 16
@@ -14058,7 +14058,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   store ptr %648, ptr %649, align 8
   %650 = getelementptr inbounds i8, ptr %3, i64 16
   store i8 0, ptr %650, align 8
-  %651 = call fastcc zeroext i8 @get_child_table_pointer(ptr noundef %10, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
+  %651 = call fastcc zeroext i8 @get_child_table_pointer(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
   %.not386.i = icmp eq i8 %651, 0
   br i1 %.not386.i, label %read_paint.exit, label %652
 
@@ -14238,7 +14238,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %809 = load i8, ptr %808, align 1
   %810 = zext i8 %809 to i64
   %811 = or disjoint i64 %807, %810
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %811, i32 noundef 6, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %811, i32 noundef 6, ptr noundef %7)
   %812 = load i32, ptr %7, align 16
   %813 = sext i32 %812 to i64
   %814 = load i64, ptr %682, align 8
@@ -14358,7 +14358,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %903 = load i8, ptr %902, align 1
   %904 = zext i8 %903 to i64
   %905 = or disjoint i64 %901, %904
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %905, i32 noundef 2, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %905, i32 noundef 2, ptr noundef %7)
   %906 = load i32, ptr %7, align 16
   %907 = sext i32 %906 to i64
   %908 = shl nsw i64 %907, 16
@@ -14548,7 +14548,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br i1 %1033, label %1034, label %1046
 
 1034:                                             ; preds = %1014
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 2, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1032, i32 noundef 2, ptr noundef %7)
   %1035 = load i32, ptr %7, align 16
   %1036 = sext i32 %1035 to i64
   %1037 = shl nsw i64 %1036, 2
@@ -14571,7 +14571,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br i1 %1048, label %1049, label %1075
 
 1049:                                             ; preds = %1046
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 4, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1032, i32 noundef 4, ptr noundef %7)
   %1050 = load i32, ptr %7, align 16
   %1051 = sext i32 %1050 to i64
   %1052 = shl nsw i64 %1051, 2
@@ -14610,7 +14610,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br i1 %1077, label %1078, label %1086
 
 1078:                                             ; preds = %1075
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 1, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1032, i32 noundef 1, ptr noundef %7)
   %1079 = load i32, ptr %7, align 16
   %1080 = sext i32 %1079 to i64
   %1081 = shl nsw i64 %1080, 2
@@ -14629,7 +14629,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br i1 %1088, label %1089, label %1111
 
 1089:                                             ; preds = %1086
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1032, i32 noundef 3, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1032, i32 noundef 3, ptr noundef %7)
   %1090 = load i32, ptr %7, align 16
   %1091 = sext i32 %1090 to i64
   %1092 = shl nsw i64 %1091, 2
@@ -14801,7 +14801,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %1202 = load i8, ptr %1201, align 1
   %1203 = zext i8 %1202 to i64
   %1204 = or disjoint i64 %1200, %1203
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1204, i32 noundef %.1.i, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1204, i32 noundef %.1.i, ptr noundef %7)
   %1205 = load i32, ptr %7, align 16
   %1206 = sext i32 %1205 to i64
   %1207 = shl nsw i64 %1206, 2
@@ -14968,7 +14968,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br i1 %1326, label %1327, label %1339
 
 1327:                                             ; preds = %1308
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1325, i32 noundef 2, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1325, i32 noundef 2, ptr noundef %7)
   %1328 = load i32, ptr %7, align 16
   %1329 = sext i32 %1328 to i64
   %1330 = shl nsw i64 %1329, 2
@@ -14991,7 +14991,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   br i1 %1341, label %1342, label %1368
 
 1342:                                             ; preds = %1339
-  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %1325, i32 noundef 4, ptr noundef %7)
+  call fastcc void @get_deltas_for_var_index_base(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %1325, i32 noundef 4, ptr noundef %7)
   %1343 = load i32, ptr %7, align 16
   %1344 = sext i32 %1343 to i64
   %1345 = shl nsw i64 %1344, 2
@@ -15057,7 +15057,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr
   %1387 = zext nneg i8 %1384 to i32
   %1388 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %1387, ptr %1388, align 8
-  %1389 = call fastcc zeroext i8 @get_child_table_pointer(ptr noundef %10, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
+  %1389 = call fastcc zeroext i8 @get_child_table_pointer(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
   %.not384.i = icmp eq i8 %1389, 0
   br i1 %.not384.i, label %read_paint.exit, label %1390
 
@@ -17498,12 +17498,12 @@ write_buf.exit:                                   ; preds = %143, %149
   %474 = sub i64 %473, %.0252423
   %475 = getelementptr inbounds i64, ptr %213, i64 %indvars.iv443.i
   store i64 %474, ptr %475, align 8
-  %476 = call fastcc i32 @write_buf(ptr noundef %17, ptr noundef %6, ptr noundef %18, ptr noundef %.3293.i, i64 noundef %472, ptr noundef %7)
+  %476 = call fastcc i32 @write_buf(ptr noundef %17, ptr noundef nonnull %6, ptr noundef %18, ptr noundef %.3293.i, i64 noundef %472, ptr noundef %7)
   %.not360.i = icmp eq i32 %476, 0
   br i1 %.not360.i, label %477, label %.loopexit.i
 
 477:                                              ; preds = %471
-  %478 = call fastcc i32 @pad4(ptr noundef %17, ptr noundef %6, ptr noundef %18, ptr noundef %7)
+  %478 = call fastcc i32 @pad4(ptr noundef %17, ptr noundef nonnull %6, ptr noundef %18, ptr noundef %7)
   %.not361.i = icmp eq i32 %478, 0
   br i1 %.not361.i, label %479, label %.loopexit.i
 
@@ -17540,7 +17540,7 @@ write_buf.exit:                                   ; preds = %143, %149
   %495 = load i64, ptr %494, align 8
   %496 = getelementptr inbounds i64, ptr %213, i64 %168
   store i64 %495, ptr %496, align 8
-  %497 = call fastcc i32 @store_loca(ptr noundef %213, i64 noundef %212, i16 noundef zeroext %165, ptr noundef %31, ptr noundef %17, ptr noundef %6, ptr noundef %18, ptr noundef %7)
+  %497 = call fastcc i32 @store_loca(ptr noundef %213, i64 noundef %212, i16 noundef zeroext %165, ptr noundef nonnull %31, ptr noundef %17, ptr noundef nonnull %6, ptr noundef %18, ptr noundef %7)
   %.not317.i = icmp eq i32 %497, 0
   br i1 %.not317.i, label %498, label %.loopexit.i
 
@@ -17980,7 +17980,7 @@ get_x_mins.exit:                                  ; preds = %571, %551, %546
 
 656:                                              ; preds = %647
   %657 = call fastcc i64 @compute_ULong_sum(ptr noundef %635, i64 noundef %634)
-  %658 = call fastcc i32 @write_buf(ptr noundef %13, ptr noundef %6, ptr noundef %14, ptr noundef %635, i64 noundef %634, ptr noundef %7)
+  %658 = call fastcc i32 @write_buf(ptr noundef %13, ptr noundef nonnull %6, ptr noundef %14, ptr noundef %635, i64 noundef %634, ptr noundef %7)
   %.not109.i = icmp eq i32 %658, 0
   br i1 %.not109.i, label %reconstruct_hmtx.exit, label %.loopexit.i172
 

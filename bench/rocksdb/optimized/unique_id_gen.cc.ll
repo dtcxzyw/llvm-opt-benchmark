@@ -103,7 +103,7 @@ invoke.cont.i5.i.i:                               ; preds = %for.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %call.i, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 472
   %6 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %6(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull %et2.i.i, i64 noundef 64)
+  call void %6(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(96) %et2.i.i, i64 noundef 64)
   %state_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %state_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -355,7 +355,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -365,7 +365,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #2
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #2
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc

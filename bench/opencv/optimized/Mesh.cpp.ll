@@ -279,13 +279,13 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %_ZNSt6vectorIN2cv7P
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %31, ptr %32, align 4
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #13
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(521) %3) #13
   ret void
 
 33:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #13
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(521) %3) #13
   resume { ptr, i32 } %34
 }
 

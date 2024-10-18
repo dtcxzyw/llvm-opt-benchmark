@@ -553,7 +553,7 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h6
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %4
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7c50608058504cb5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %17)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7c50608058504cb5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %17)
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %20
@@ -596,7 +596,7 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h6
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %31
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0e71902c3695d97aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %29)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0e71902c3695d97aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %29)
           to label %._crit_edge.i unwind label %37, !noalias !58
 
 ._crit_edge.i:                                    ; preds = %36
@@ -611,7 +611,7 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h6
 
 40:                                               ; preds = %37
   %41 = shl nsw i64 %33, 5
-  call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %41, i64 noundef 8) #24
+  call void @__rust_dealloc(ptr noundef nonnull align 8 %32, i64 noundef range(i64 1, 0) %41, i64 noundef 8) #24
   br label %.thread47.thread
 
 42:                                               ; preds = %31, %._crit_edge.i
@@ -1040,7 +1040,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$
   %.val3.sink = phi i64 [ %.val1, %4 ], [ %.val3, %7 ]
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef %.val3.sink, i64 noundef 1) #24
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef range(i64 1, 0) %.val3.sink, i64 noundef 1) #24
   br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hbac3ed97a0602907E.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hbac3ed97a0602907E.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hbac3ed97a0602907E.exit.sink.split", %7, %4, %1
@@ -1105,7 +1105,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$L
   %15 = shl nsw i64 %.8.val, 5
   %16 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %15, i64 noundef 8) #24
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %15, i64 noundef 8) #24
   resume { ptr, i32 } %9
 
 "_ZN4core3ptr40drop_in_place$LT$$u5b$mbe..Rule$u5d$$GT$17h87378d4f4182f806E.exit": ; preds = %1
@@ -1116,7 +1116,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$L
   %19 = shl nsw i64 %.8.val, 5
   %20 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %20)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %19, i64 noundef 8) #24
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %19, i64 noundef 8) #24
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67adb5d0a929b142E.exit4"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67adb5d0a929b142E.exit4": ; preds = %"_ZN4core3ptr40drop_in_place$LT$$u5b$mbe..Rule$u5d$$GT$17h87378d4f4182f806E.exit", %18
@@ -2122,7 +2122,7 @@ define void @_ZN3mbe16DeclarativeMacro8from_err17h5b4db1b86874b231E(ptr noalias 
 .body:                                            ; preds = %6
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$17h8c8bf4a64ae9e1feE"(ptr noalias noundef align 8 dereferenceable(24) %1) #22
+  tail call fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$17h8c8bf4a64ae9e1feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #22
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$LT$$u5b$mbe..Rule$u5d$$GT$$GT$17h2830c952ca9a4670E"(ptr nonnull inttoptr (i64 8 to ptr), i64 0) #22
           to label %13 unwind label %11
 

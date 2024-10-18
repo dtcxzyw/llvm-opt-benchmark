@@ -6970,7 +6970,7 @@ PyByteArray_AS_STRING.exit47.i.i.i:               ; preds = %if.then.i44.i.i.i, 
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else17.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %PyByteArray_AS_STRING.exit47.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i46.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i46.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %sub13.i.i.i = add nsw i64 %count.0.i.i.i, -1
   %result_s.056.i.i.i = getelementptr i8, ptr %retval.0.i46.i.i.i, i64 %new.val12
   %cmp1457.i.i.i = icmp sgt i64 %count.0.i.i.i, 1
@@ -6984,7 +6984,7 @@ for.body.i.i.i:                                   ; preds = %if.then12.i.i.i, %f
   %16 = load i8, ptr %self_s.058.i.i.i, align 1
   %incdec.ptr15.i.i.i = getelementptr i8, ptr %result_s.060.i.i.i, i64 1
   store i8 %16, ptr %result_s.060.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr15.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr15.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %inc.i.i.i = add nuw nsw i64 %i.059.i.i.i, 1
   %result_s.0.i.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %new.val12
   %exitcond65.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub13.i.i.i
@@ -7132,7 +7132,7 @@ PyByteArray_AS_STRING.exit.i69.i.i:               ; preds = %if.else22.i.i
 
 stringlib_count.exit.i.i.i:                       ; preds = %PyByteArray_AS_STRING.exit.i69.i.i, %if.else22.i.i
   %retval.0.i38.i.i.i = phi ptr [ %25, %PyByteArray_AS_STRING.exit.i69.i.i ], [ @_PyByteArray_empty_string, %if.else22.i.i ]
-  %call.i.i71.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i38.i.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef %maxcount.addr.0.i.i, i32 noundef 0)
+  %call.i.i71.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i38.i.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef range(i64 1, -9223372036854775808) %maxcount.addr.0.i.i, i32 noundef 0)
   %.call.i.i.i.i = call i64 @llvm.smax.i64(i64 %call.i.i71.i.i, i64 0)
   %cmp.i.i.i = icmp slt i64 %call.i.i71.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i72.i.i
@@ -7183,7 +7183,7 @@ while.body.i78.i.i:                               ; preds = %if.end13.i.i.i, %wh
   %result_s.045.i81.i.i = phi ptr [ %add.ptr21.i86.i.i, %if.end13.i.i.i ], [ %retval.0.i33.i.i.i, %while.body.preheader.i.i.i ]
   %sub.ptr.rhs.cast.i82.i.i = ptrtoint ptr %start.046.i80.i.i to i64
   %sub.ptr.sub.i83.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i82.i.i
-  %call.i35.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.046.i80.i.i, i64 noundef %sub.ptr.sub.i83.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i35.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.046.i80.i.i, i64 noundef %sub.ptr.sub.i83.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   %cmp11.i84.i.i = icmp eq i64 %call.i35.i.i.i, -1
   br i1 %cmp11.i84.i.i, label %while.end.i89.i.i, label %if.end13.i.i.i
 
@@ -7294,7 +7294,7 @@ if.then.i.i114.i.i:                               ; preds = %if.else32.i.i
 
 PyByteArray_AS_STRING.exit.i116.i.i:              ; preds = %if.then.i.i114.i.i, %if.else32.i.i
   %retval.0.i.i117.i.i = phi ptr [ %33, %if.then.i.i114.i.i ], [ @_PyByteArray_empty_string, %if.else32.i.i ]
-  %call.i.i118.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i.i117.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i.i118.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i.i117.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   %cmp.i119.i.i = icmp eq i64 %call.i.i118.i.i, -1
   br i1 %cmp.i119.i.i, label %if.then.i135.i.i, label %if.end.i120.i.i
 
@@ -7333,7 +7333,7 @@ PyByteArray_AS_STRING.exit32.i.i.i:               ; preds = %if.then.i29.i.i.i, 
   %retval.0.i31.i.i.i = phi ptr [ %36, %if.then.i29.i.i.i ], [ @_PyByteArray_empty_string, %if.end7.i123.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i31.i.i.i, ptr align 1 %retval.0.i.i117.i.i, i64 %self.val.i.i, i1 false)
   %add.ptr.i124.i.i = getelementptr i8, ptr %retval.0.i31.i.i.i, i64 %call.i.i118.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i124.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %old.val11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i124.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 2, 0) %old.val11, i1 false)
   %add.ptr10.i.i.i = getelementptr i8, ptr %retval.0.i31.i.i.i, i64 %self.val.i.i
   %sub.ptr.lhs.cast.i125.i.i = ptrtoint ptr %add.ptr10.i.i.i to i64
   %cmp1135.i.i.i = icmp samesign ugt i64 %maxcount.addr.0.i.i, 1
@@ -7348,14 +7348,14 @@ while.body.i128.i.i:                              ; preds = %if.end15.i.i.i, %wh
   %start.036.i.i.i = phi ptr [ %add.ptr17.i.i.i, %if.end15.i.i.i ], [ %add.ptr9.i.i.i, %while.body.preheader.i127.i.i ]
   %sub.ptr.rhs.cast.i130.i.i = ptrtoint ptr %start.036.i.i.i to i64
   %sub.ptr.sub.i131.i.i = sub i64 %sub.ptr.lhs.cast.i125.i.i, %sub.ptr.rhs.cast.i130.i.i
-  %call.i33.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.036.i.i.i, i64 noundef %sub.ptr.sub.i131.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i33.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.036.i.i.i, i64 noundef %sub.ptr.sub.i131.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   %cmp13.i.i.i = icmp eq i64 %call.i33.i.i.i, -1
   br i1 %cmp13.i.i.i, label %exit, label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %while.body.i128.i.i
   %dec37.i132.i.i = add nsw i64 %dec37.in.i129.i.i, -1
   %add.ptr16.i.i.i = getelementptr i8, ptr %start.036.i.i.i, i64 %call.i33.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %old.val11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 2, 0) %old.val11, i1 false)
   %add.i133.i.i = add i64 %call.i33.i.i.i, %old.val11
   %add.ptr17.i.i.i = getelementptr i8, ptr %start.036.i.i.i, i64 %add.i133.i.i
   %cmp11.i134.i.i = icmp sgt i64 %dec37.in.i129.i.i, 2
@@ -7463,7 +7463,7 @@ if.else.i.i.i:                                    ; preds = %if.end19.i.i.i
 if.end34.i.i.i:                                   ; preds = %if.else.i.i.i, %if.end19.i.i.i
   %add.ptr31.sink.i.i.i = phi ptr [ %add.ptr31.i.i.i, %if.else.i.i.i ], [ %result_s.060.i167.i.i, %if.end19.i.i.i ]
   %start.0.pn.i.i.i = phi ptr [ %call15.i.i.i, %if.else.i.i.i ], [ %start.061.i.i.i, %if.end19.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr31.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr31.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %start.1.i.i.i = getelementptr i8, ptr %start.0.pn.i.i.i, i64 1
   %result_s.1.i170.i.i = getelementptr i8, ptr %add.ptr31.sink.i.i.i, i64 %new.val12
   %cmp14.i.i.i = icmp sgt i64 %dec62.in.i.i.i, 1
@@ -7492,7 +7492,7 @@ PyByteArray_AS_STRING.exit.i181.i.i:              ; preds = %if.else39.i.i
 
 stringlib_count.exit.i184.i.i:                    ; preds = %PyByteArray_AS_STRING.exit.i181.i.i, %if.else39.i.i
   %retval.0.i55.i.i.i = phi ptr [ %43, %PyByteArray_AS_STRING.exit.i181.i.i ], [ @_PyByteArray_empty_string, %if.else39.i.i ]
-  %call.i.i185.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i55.i.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef %maxcount.addr.0.i.i, i32 noundef 0)
+  %call.i.i185.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i55.i.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef range(i64 1, -9223372036854775808) %maxcount.addr.0.i.i, i32 noundef 0)
   %.call.i.i186.i.i = call i64 @llvm.smax.i64(i64 %call.i.i185.i.i, i64 0)
   %cmp.i187.i.i = icmp slt i64 %call.i.i185.i.i, 1
   br i1 %cmp.i187.i.i, label %if.then.i214.i.i, label %if.end.i188.i.i
@@ -7556,7 +7556,7 @@ while.body.i200.i.i:                              ; preds = %if.end33.i.i.i, %Py
   %dec64.i.i.i = add nsw i64 %dec64.in.i.i.i, -1
   %sub.ptr.rhs.cast.i201.i.i = ptrtoint ptr %start.063.i.i.i to i64
   %sub.ptr.sub.i202.i.i = sub i64 %sub.ptr.lhs.cast.i199.i.i, %sub.ptr.rhs.cast.i201.i.i
-  %call.i52.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.063.i.i.i, i64 noundef %sub.ptr.sub.i202.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i52.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.063.i.i.i, i64 noundef %sub.ptr.sub.i202.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   switch i64 %call.i52.i.i.i, label %if.else.i212.i.i [
     i64 -1, label %while.end.i208.i.i
     i64 0, label %if.end33.i.i.i
@@ -7571,7 +7571,7 @@ if.else.i212.i.i:                                 ; preds = %while.body.i200.i.i
 if.end33.i.i.i:                                   ; preds = %if.else.i212.i.i, %while.body.i200.i.i
   %add.ptr30.sink.i.i.i = phi ptr [ %add.ptr30.i.i.i, %if.else.i212.i.i ], [ %result_s.062.i.i.i, %while.body.i200.i.i ]
   %start.0.pn.i203.i.i = phi ptr [ %add.ptr19.i.i.i, %if.else.i212.i.i ], [ %start.063.i.i.i, %while.body.i200.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %start.1.i204.i.i = getelementptr i8, ptr %start.0.pn.i203.i.i, i64 %old.val11
   %result_s.1.i205.i.i = getelementptr i8, ptr %add.ptr30.sink.i.i.i, i64 %new.val12
   %cmp14.i206.i.i = icmp ugt i64 %dec64.in.i.i.i, 1
@@ -11105,7 +11105,7 @@ if.then63:                                        ; preds = %if.end55.us
 
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
-  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef %m, ptr noundef %p.i)
+  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef range(i64 6, -9223372036854775808) %m, ptr noundef %p.i)
   %call.i = call fastcc i64 @stringlib__two_way(ptr noundef readonly %add.ptr71, i64 noundef %sub72, ptr noundef %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
@@ -11116,7 +11116,7 @@ if.then66:                                        ; preds = %if.then63
 if.else:                                          ; preds = %if.then63
   %sub73 = sub i64 %maxcount, %count.086.us
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i69)
-  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef %m, ptr noundef %p.i69)
+  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef range(i64 6, -9223372036854775808) %m, ptr noundef %p.i69)
   %call8.i = call fastcc i64 @stringlib__two_way(ptr noundef %add.ptr71, i64 noundef %sub72, ptr noundef %p.i69)
   %cmp9.i = icmp eq i64 %call8.i, -1
   br i1 %cmp9.i, label %stringlib__two_way_count.exit, label %if.end.i

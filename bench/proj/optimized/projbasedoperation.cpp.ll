@@ -389,7 +389,7 @@ define hidden void @_ZTv0_n24_N5osgeo4proj9operation18PROJBasedOperationD0Ev(ptr
   tail call void @_ZN5osgeo4proj9operation18PROJBasedOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %5, ptr noundef nonnull @_ZTTN5osgeo4proj9operation18PROJBasedOperationE) #16
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(65) %5) #17
   ret void
 }
 
@@ -403,7 +403,7 @@ define hidden void @_ZTvn16_n24_N5osgeo4proj9operation18PROJBasedOperationD0Ev(p
   tail call void @_ZN5osgeo4proj9operation18PROJBasedOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation18PROJBasedOperationE) #16
   %7 = getelementptr inbounds i8, ptr %6, i64 72
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(65) %6) #17
   ret void
 }
 
@@ -417,7 +417,7 @@ define hidden void @_ZTvn24_n24_N5osgeo4proj9operation18PROJBasedOperationD0Ev(p
   tail call void @_ZN5osgeo4proj9operation18PROJBasedOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation18PROJBasedOperationE) #16
   %7 = getelementptr inbounds i8, ptr %6, i64 72
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(65) %6) #17
   ret void
 }
 
@@ -431,7 +431,7 @@ define hidden void @_ZTvn48_n24_N5osgeo4proj9operation18PROJBasedOperationD0Ev(p
   tail call void @_ZN5osgeo4proj9operation18PROJBasedOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation18PROJBasedOperationE) #16
   %7 = getelementptr inbounds i8, ptr %6, i64 72
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(65) %6) #17
   ret void
 }
 
@@ -445,7 +445,7 @@ define hidden void @_ZTvn56_n24_N5osgeo4proj9operation18PROJBasedOperationD0Ev(p
   tail call void @_ZN5osgeo4proj9operation18PROJBasedOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation18PROJBasedOperationE) #16
   %7 = getelementptr inbounds i8, ptr %6, i64 72
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(65) %6) #17
   ret void
 }
 
@@ -1358,7 +1358,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj9operation18PROJBasedOperation14n
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation18PROJBasedOperationE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr noundef nonnull align 8 dereferenceable(65) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation18PROJBasedOperationE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %7 unwind label %5
 
 5:                                                ; preds = %.noexc
@@ -6971,7 +6971,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN5osgeo4proj9operation15G
 .lr.ph.i:                                         ; preds = %2, %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit.i
   %.02127.i = phi ptr [ %.021.i, %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit.i ], [ %.02125.i, %2 ]
   %6 = getelementptr inbounds i8, ptr %.02127.i, i64 32
-  %7 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(131) %1, ptr noundef nonnull align 8 dereferenceable(131) %6)
           to label %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit.i unwind label %8
 
 8:                                                ; preds = %.lr.ph.i
@@ -7007,7 +7007,7 @@ _ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit.i: ; preds
   %.020.lcssa33.i = phi ptr [ %.020.lcssa32.i, %15 ], [ %.02127.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %16, %15 ], [ %.02127.i, %._crit_edge.i ]
   %18 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 32
-  %19 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %19 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(131) %18, ptr noundef nonnull align 8 dereferenceable(131) %1)
           to label %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit5.i unwind label %20
 
 20:                                               ; preds = %17
@@ -7045,7 +7045,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDescr
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %2, i64 32
-  %10 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(131) %3, ptr noundef nonnull align 8 dereferenceable(131) %9)
           to label %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit unwind label %11
 
 11:                                               ; preds = %8

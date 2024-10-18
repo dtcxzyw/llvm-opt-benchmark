@@ -303,11 +303,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %conv2, i64 noundef %addr) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef range(i64 0, 4294967296) %conv2, i64 noundef %addr) #6
   br label %trace_sifive_pwm_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %conv2, i64 noundef %addr) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef range(i64 0, 4294967296) %conv2, i64 noundef %addr) #6
   br label %trace_sifive_pwm_write.exit
 
 trace_sifive_pwm_write.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -870,11 +870,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %num) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 4) %num) #6
   br label %trace_sifive_pwm_interrupt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %num) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef range(i32 0, 4) %num) #6
   br label %trace_sifive_pwm_interrupt.exit
 
 trace_sifive_pwm_interrupt.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

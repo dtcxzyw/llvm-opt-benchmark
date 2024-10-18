@@ -605,10 +605,10 @@ entry:
   store i32 0, ptr %m_current, align 4
   %m_status = getelementptr inbounds i8, ptr %this, i64 480
   store i32 0, ptr %m_status, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %shapearg, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %this, ptr noundef nonnull align 16 dereferenceable(129) %shapearg, i64 16, i1 false)
   %m_toshape1.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_toshape13.i = getelementptr inbounds i8, ptr %shapearg, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_toshape1.i, ptr noundef nonnull align 16 dereferenceable(16) %m_toshape13.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %m_toshape1.i, ptr noundef nonnull align 16 dereferenceable(48) %m_toshape13.i, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %shapearg, i64 32
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -617,7 +617,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   %m_toshape0.i = getelementptr inbounds i8, ptr %this, i64 64
   %m_toshape04.i = getelementptr inbounds i8, ptr %shapearg, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_toshape0.i, ptr noundef nonnull align 16 dereferenceable(16) %m_toshape04.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %m_toshape0.i, ptr noundef nonnull align 16 dereferenceable(64) %m_toshape04.i, i64 16, i1 false)
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %shapearg, i64 80
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
@@ -1899,7 +1899,7 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   %retval.sroa.3.12.vec.insert.i.i.i8.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i.i.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i7.i, ptr %ref.tmp4.i.i, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i8.i, ptr %53, align 8
-  %call8.i.i = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(129) %gjk, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(25) %63)
+  %call8.i.i = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %gjk, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(25) %63)
   %83 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 0
   %84 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 1
   %85 = fsub <2 x float> %retval.sroa.0.0.i.pn.i.i.i, %83
@@ -2414,7 +2414,7 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i7.i, ptr %ref.tmp4.i.i, align 16
   %32 = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i8.i, ptr %32, align 8
-  %call8.i.i = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(129) %this, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(25) %12)
+  %call8.i.i = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(25) %12)
   %33 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 0
   %34 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 1
   %35 = fsub <2 x float> %retval.sroa.0.0.i.pn.i.i.i, %33

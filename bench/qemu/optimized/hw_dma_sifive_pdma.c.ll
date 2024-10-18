@@ -541,11 +541,11 @@ if.end57.i:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool60.not.i, label %if.end62.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.end57.i
-  tail call fastcc void @sifive_pdma_run(ptr noundef nonnull %opaque, i32 noundef %conv)
+  tail call fastcc void @sifive_pdma_run(ptr noundef nonnull %opaque, i32 noundef range(i32 0, 4) %conv)
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then61.i, %if.end57.i
-  tail call fastcc void @sifive_pdma_update_irq(ptr noundef nonnull %opaque, i32 noundef %conv)
+  tail call fastcc void @sifive_pdma_update_irq(ptr noundef nonnull %opaque, i32 noundef range(i32 0, 4) %conv)
   br label %sw.epilog
 
 sw.bb63.i:                                        ; preds = %sw.bb6
@@ -712,9 +712,9 @@ if.end13:                                         ; preds = %if.end
 for.body:                                         ; preds = %if.end13, %for.body
   %8 = phi i64 [ %add, %for.body ], [ %2, %if.end13 ]
   %n.084 = phi i32 [ %inc, %for.body ], [ 0, %if.end13 ]
-  call void @cpu_physical_memory_rw(i64 noundef %8, ptr noundef nonnull %buf, i64 noundef %conv, i1 noundef zeroext false) #4
+  call void @cpu_physical_memory_rw(i64 noundef %8, ptr noundef nonnull %buf, i64 noundef range(i64 1, 32769) %conv, i1 noundef zeroext false) #4
   %9 = load i64, ptr %exec_dst, align 8
-  call void @cpu_physical_memory_rw(i64 noundef %9, ptr noundef nonnull %buf, i64 noundef %conv, i1 noundef zeroext true) #4
+  call void @cpu_physical_memory_rw(i64 noundef %9, ptr noundef nonnull %buf, i64 noundef range(i64 1, 32769) %conv, i1 noundef zeroext true) #4
   %10 = load i64, ptr %exec_src, align 8
   %add = add i64 %10, %conv
   store i64 %add, ptr %exec_src, align 8
@@ -737,9 +737,9 @@ for.end:                                          ; preds = %for.body, %if.end13
   br i1 %tobool77.not, label %if.end109, label %if.then78
 
 if.then78:                                        ; preds = %for.end
-  call void @cpu_physical_memory_rw(i64 noundef %13, ptr noundef nonnull %buf, i64 noundef %14, i1 noundef zeroext false) #4
+  call void @cpu_physical_memory_rw(i64 noundef %13, ptr noundef nonnull %buf, i64 noundef range(i64 1, 32769) %14, i1 noundef zeroext false) #4
   %15 = load i64, ptr %exec_dst, align 8
-  call void @cpu_physical_memory_rw(i64 noundef %15, ptr noundef nonnull %buf, i64 noundef %14, i1 noundef zeroext true) #4
+  call void @cpu_physical_memory_rw(i64 noundef %15, ptr noundef nonnull %buf, i64 noundef range(i64 1, 32769) %14, i1 noundef zeroext true) #4
   %16 = load i64, ptr %exec_src, align 8
   %add96 = add i64 %16, %14
   store i64 %add96, ptr %exec_src, align 8

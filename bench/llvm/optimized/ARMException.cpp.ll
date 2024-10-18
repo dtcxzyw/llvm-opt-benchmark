@@ -54,7 +54,7 @@ declare hidden void @_ZN4llvm10EHStreamerD2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvm12ARMExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm10EHStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5
+  tail call void @_ZN4llvm10EHStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) #5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #6
   ret void
 }

@@ -1641,7 +1641,7 @@ invoke.cont3:                                     ; preds = %entry
   %modMiddle = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %modMiddle, align 8
   %helpers = getelementptr inbounds i8, ptr %this, i64 216
-  invoke void @_ZN6icu_756number4impl18ScientificModifierC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %helpers)
+  invoke void @_ZN6icu_756number4impl18ScientificModifierC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %helpers)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont3
@@ -1670,9 +1670,9 @@ lpad6.i:                                          ; preds = %.noexc
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %helpers) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier.i) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier.i) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %helpers) #14
   br label %ehcleanup12
 
 invoke.cont6:                                     ; preds = %.noexc
@@ -1774,16 +1774,16 @@ _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier.i) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier.i) #14
   %multiplier.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #14
   %emptyStrongModifier.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier.i) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier.i) #14
   %emptyWeakModifier.i = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %helpers) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier.i) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %helpers) #14
   %currencyAsDecimal.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i) #14
   ret void
@@ -3493,7 +3493,7 @@ invoke.cont:
   %fMixedUnitData = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %fMixedUnitData, align 8
   %fNumberFormatter = getelementptr inbounds i8, ptr %this, i64 48
-  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %fNumberFormatter)
+  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %fNumberFormatter)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -3602,7 +3602,7 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %arraydestroy.element.ptr, align 8
   %fCompiledPattern.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %arraydestroy.element.ptr) #14
   %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 16
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -3779,16 +3779,16 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier, align 8
   %fCompiledPattern.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier) #14
   %multiplier = getelementptr inbounds i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier, align 8
   %fMultiplier.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i) #14
   %emptyStrongModifier = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier) #14
   %emptyWeakModifier = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier) #14
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
   ret void
 }
 
@@ -3835,7 +3835,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl13EmptyModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }

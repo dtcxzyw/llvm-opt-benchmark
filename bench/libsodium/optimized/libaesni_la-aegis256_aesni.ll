@@ -478,7 +478,7 @@ if.then36:                                        ; preds = %if.end31.thread267,
   %63 = sub nuw nsw i64 16, %rem32250286
   %64 = getelementptr i8, ptr %pad.i, i64 %rem32250286
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 %rem32250286, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 range(i64 1, 16) %rem32250286, i1 false)
   %65 = load <2 x i64>, ptr %pad.i, align 16
   %and.i.i64 = and <2 x i64> %state.sroa.34.3246290, %state.sroa.53.3245291
   %66 = xor <2 x i64> %and.i.i64, %65
@@ -487,7 +487,7 @@ if.then36:                                        ; preds = %if.end31.thread267,
   %xor.i.i65 = xor <2 x i64> %68, %state.sroa.15.3247289
   store <2 x i64> %xor.i.i65, ptr %pad.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 %rem32250286, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 range(i64 1, 16) %rem32250286, i1 false)
   %69 = load <2 x i64>, ptr %pad.i, align 16
   %70 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.3244292, <2 x i64> %state.sroa.93.3243293)
   %71 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.3245291, <2 x i64> %state.sroa.73.3244292)
@@ -513,7 +513,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %76 = sub nuw nsw i64 16, %rem32250259
   %77 = getelementptr i8, ptr %pad.i67, i64 %rem32250259
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %77, i8 0, i64 %76, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i67, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 %rem32250259, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i67, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 range(i64 1, 16) %rem32250259, i1 false)
   %78 = load <2 x i64>, ptr %pad.i67, align 16
   %and.i.i76 = and <2 x i64> %state.sroa.34.3246263, %state.sroa.53.3245264
   %79 = xor <2 x i64> %and.i.i76, %78

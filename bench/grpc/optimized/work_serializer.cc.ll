@@ -188,13 +188,13 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds i8, ptr %callback, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %callback)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %callback)
   %3 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZNSt8functionIFvvEEaSEDn.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %call.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %callback, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 3)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i9
@@ -224,7 +224,7 @@ if.else:                                          ; preds = %entry
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread:          ; preds = %if.else
   %_M_invoker.i.i20 = getelementptr inbounds i8, ptr %call8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call8, i8 0, i64 32, i1 false)
   store ptr %7, ptr %_M_invoker.i.i20, align 8
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
@@ -321,13 +321,13 @@ while.end.us:                                     ; preds = %while.cond27.us
 _ZNKSt8functionIFvvEEclEv.exit.us:                ; preds = %while.end.us
   %_M_invoker.i.us = getelementptr inbounds i8, ptr %call28.us, i64 32
   %10 = load ptr, ptr %_M_invoker.i.us, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %callback.us)
+  call void %10(ptr noundef nonnull align 8 dereferenceable(32) %callback.us)
   %11 = load ptr, ptr %_M_manager.i.i.us, align 8
   %tobool.not.i.i.i.us = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.us, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperD2Ev.exit.us, label %if.then.i.i.i.us
 
 if.then.i.i.i.us:                                 ; preds = %_ZNKSt8functionIFvvEEclEv.exit.us
-  %call.i.i.i.us = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %callback.us, ptr noundef nonnull align 8 dereferenceable(16) %callback.us, i32 noundef 3)
+  %call.i.i.i.us = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %callback.us, ptr noundef nonnull align 8 dereferenceable(32) %callback.us, i32 noundef 3)
           to label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperD2Ev.exit.us unwind label %terminate.lpad.i.i.i.split.us
 
 _ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperD2Ev.exit.us: ; preds = %if.then.i.i.i.us, %_ZNKSt8functionIFvvEEclEv.exit.us
@@ -469,13 +469,13 @@ if.then.i:                                        ; preds = %while.end, %while.e
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %while.end
   %_M_invoker.i = getelementptr inbounds i8, ptr %call28, i64 32
   %35 = load ptr, ptr %_M_invoker.i, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %callback)
+  call void %35(ptr noundef nonnull align 8 dereferenceable(32) %callback)
   %36 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %call.i.i.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %callback, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 3)
           to label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperD2Ev.exit unwind label %terminate.lpad.i.i.i.split
 
 terminate.lpad.i.i.i.split:                       ; preds = %if.then.i.i.i
@@ -524,7 +524,7 @@ entry:
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread:          ; preds = %entry
   %_M_invoker.i.i11 = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 32, i1 false)
   store ptr %0, ptr %_M_invoker.i.i11, align 8
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
@@ -744,7 +744,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -878,7 +878,7 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt16allocator_tr
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i17, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i21, label %if.then.i.i.i.i.i.i.i.i.i18
 
 if.then.i.i.i.i.i.i.i.i.i18:                      ; preds = %for.body.i.i.i.i12
-  %call.i.i.i.i.i.i.i.i.i19 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i15, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i.i19 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i15, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i21 unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i20
 
 terminate.lpad.i.i.i.i.i.i.i.i.i20:               ; preds = %if.then.i.i.i.i.i.i.i.i.i18
@@ -1001,13 +1001,13 @@ if.then.i.i:                                      ; preds = %do.end
   br i1 %tobool.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i:  ; preds = %if.then.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink3.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sink3.i.i.i, i8 0, i64 24, i1 false)
   br label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i
 
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i: ; preds = %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %.sink3.i.i.i, i64 16
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback, i64 16, i1 false)
   store ptr %9, ptr %_M_manager.i.i.i1.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i
 
@@ -1058,13 +1058,13 @@ if.then.i.i9:                                     ; preds = %if.else
   br i1 %tobool.not.i.i.not.i.i.i.i.i15, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i21, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i16
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i21: ; preds = %if.then.i.i9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i12, i8 0, i64 24, i1 false)
   br label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i18
 
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i16: ; preds = %if.then.i.i9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i14, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1.i.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i12, i64 16
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %callback, i64 16, i1 false)
   store ptr %18, ptr %_M_manager.i.i.i1.i.i.i.i17, align 8
   br label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i18
 
@@ -1252,7 +1252,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %arrayidx.i = getelementptr i8, ptr %22, i64 -32
   %_M_invoker.i = getelementptr i8, ptr %22, i64 -8
   %24 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i)
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %if.end.i
@@ -1270,7 +1270,7 @@ invoke.cont7:                                     ; preds = %if.end.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont7
   %add.ptr.i = getelementptr i8, ptr %27, i64 -32
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i32 noundef 3)
           to label %if.then.i.i.i.i.i.invoke.cont5_crit_edge.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.invoke.cont5_crit_edge.i:       ; preds = %if.then.i.i.i.i.i.i
@@ -1358,7 +1358,7 @@ while.body.i.i.i:                                 ; preds = %sw.bb.i, %while.bod
 
 delete.notnull.i:                                 ; preds = %call.i.noexc17
   call void @_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #26
-  call void @_ZdlPv(ptr noundef nonnull %this) #25
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %this) #25
   br label %cleanup
 
 default.unreachable:                              ; preds = %call.i.noexc17
@@ -1746,7 +1746,7 @@ _ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWo
   %mu_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
   %incoming_ = getelementptr inbounds i8, ptr %this, i64 112
-  invoke void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE4SwapEPS8_(ptr noundef nonnull align 8 dereferenceable(40) %processing_, ptr noundef nonnull %incoming_)
+  invoke void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE4SwapEPS8_(ptr noundef nonnull align 8 dereferenceable(40) %processing_, ptr noundef nonnull align 8 dereferenceable(40) %incoming_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
@@ -1927,7 +1927,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -1937,7 +1937,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit
@@ -1956,7 +1956,7 @@ invoke.cont:                                      ; preds = %_ZNSt8functionIFvvE
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1978,7 +1978,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvvE
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -1999,7 +1999,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -2009,7 +2009,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit
@@ -2028,7 +2028,7 @@ invoke.cont:                                      ; preds = %_ZNSt8functionIFvvE
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2050,7 +2050,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvvE
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -2133,7 +2133,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2ERKS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -2152,7 +2152,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2176,7 +2176,7 @@ invoke.cont:                                      ; preds = %_ZNSt8functionIFvvE
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %invoke.cont
-  %call.i.i4 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i4 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i5
 
 terminate.lpad.i.i5:                              ; preds = %if.then.i.i3
@@ -2197,7 +2197,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvvE
   br i1 %tobool.not.i.i8, label %common.resume, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %lpad
-  %call.i.i10 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i10 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
@@ -2227,7 +2227,7 @@ define linkonce_odr void @_ZThn8_N9grpc_core14WorkSerializer25DispatchingWorkSer
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %0) #25
   ret void
 }
 
@@ -2531,13 +2531,13 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i:      ; preds = %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i8 0, i64 24, i1 false)
   br label %invoke.cont15
 
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i: ; preds = %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %args, i64 16, i1 false)
   store ptr %5, ptr %_M_manager.i.i.i1.i.i, align 8
   br label %invoke.cont15
 
@@ -2553,7 +2553,7 @@ for.body.i:                                       ; preds = %invoke.cont15, %for
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %call5.i.i.i.i5, i64 %i.07.i
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
@@ -2563,7 +2563,7 @@ for.body.i:                                       ; preds = %invoke.cont15, %for
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %move_values.sroa.0.0, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.inc.i
@@ -2584,7 +2584,7 @@ for.body.i7:                                      ; preds = %for.inc.i, %_ZNSt16
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i9
 
 if.then.i.i.i.i.i.i9:                             ; preds = %for.body.i7
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i8, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i8, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i8, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i8, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i9
@@ -2684,7 +2684,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %construct_data.040, i64 %i.07.i
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
@@ -2694,7 +2694,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %move_values.sroa.0.0, i64 16, i1 false)
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -2716,7 +2716,7 @@ for.body.i17:                                     ; preds = %for.inc.i, %_ZNSt16
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i19:                            ; preds = %for.body.i17
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i18, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i18, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i18, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i19
@@ -2805,7 +2805,7 @@ for.body.i:                                       ; preds = %invoke.cont17, %for
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %data_.i, i64 %i.07.i
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
@@ -2815,7 +2815,7 @@ for.body.i:                                       ; preds = %invoke.cont17, %for
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %move_values.sroa.0.0, i64 16, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -2846,7 +2846,7 @@ for.body.i24:                                     ; preds = %for.body.i24.prehea
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i26:                            ; preds = %for.body.i24
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i25, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i25, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i26
@@ -2923,7 +2923,7 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %add.ptr8, i64 %i.07.i
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
@@ -2933,7 +2933,7 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %move_values.sroa.0.0, i64 16, i1 false)
   %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -2955,7 +2955,7 @@ for.body.i12:                                     ; preds = %for.inc.i, %_ZNSt16
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i14
 
 if.then.i.i.i.i.i.i14:                            ; preds = %for.body.i12
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i13, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i13, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i13, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i13, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i14
@@ -2999,7 +2999,7 @@ _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 16
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
@@ -3007,7 +3007,7 @@ _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__b, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %.pre22 = load ptr, ptr %_M_invoker2.i.i, align 8
@@ -3017,9 +3017,9 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %if.then.i.i.i, %_ZN
   %5 = phi ptr [ %.pre22, %if.then.i.i.i ], [ %2, %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_.exit ]
   %6 = phi ptr [ %.pre, %if.then.i.i.i ], [ null, %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__a, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__a, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__a, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__a, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %6, ptr %_M_manager.i.i.i3, align 8
@@ -3030,7 +3030,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %if.then.i.i.i, %_ZN
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i
-  %call.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i32 noundef 3)
           to label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -3044,7 +3044,7 @@ _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i5)
   %_M_invoker.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i.i5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i5, i8 0, i64 24, i1 false)
   %tobool.not.i.i.not.i.i.i9 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i.i9, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i11, label %if.then.i.i.i10
 
@@ -3054,9 +3054,9 @@ if.then.i.i.i10:                                  ; preds = %_ZN9grpc_core14Work
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.i.i11:           ; preds = %if.then.i.i.i10, %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %__b, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %__b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__b, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i4)
   %_M_manager.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i.i5, i64 16
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
@@ -3069,7 +3069,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i11:           ; preds = %if.then.i.i.i10, %_
   br i1 %tobool.not.i.i.i.i15, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperD2Ev.exit, label %if.then.i.i.i.i16
 
 if.then.i.i.i.i16:                                ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i11
-  %call.i.i.i.i17 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, i32 noundef 3)
+  %call.i.i.i.i17 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i5, i32 noundef 3)
           to label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperD2Ev.exit unwind label %terminate.lpad.i.i.i.i18
 
 terminate.lpad.i.i.i.i18:                         ; preds = %if.then.i.i.i.i16

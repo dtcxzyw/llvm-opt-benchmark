@@ -285,7 +285,7 @@ _ZN16MutableNUMASpace9LGRPSpaceD2Ev.exit:         ; preds = %21, %25
 
 34:                                               ; preds = %._crit_edge
   store i32 0, ptr %.lcssa, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa)
   br label %35
 
 35:                                               ; preds = %34, %._crit_edge

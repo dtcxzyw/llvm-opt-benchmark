@@ -327,7 +327,7 @@ define void @_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -337,7 +337,7 @@ define void @_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   %15 = load ptr, ptr %11, align 8
   store ptr %15, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -395,7 +395,7 @@ _ZNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_M_allocateEm.ex
   %24 = getelementptr inbounds %"class.std::function", ptr %23, i64 %19
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 16
@@ -405,7 +405,7 @@ _ZNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_M_allocateEm.ex
 
 30:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_M_allocateEm.exit
   %31 = getelementptr inbounds i8, ptr %24, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   store ptr %29, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
@@ -421,7 +421,7 @@ _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !5, !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !5, !noalias !8
   %34 = load ptr, ptr %33, align 8, !alias.scope !8, !noalias !5
   store ptr %34, ptr %32, align 8, !alias.scope !5, !noalias !8
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
@@ -431,7 +431,7 @@ _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4
 
 _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !alias.scope !10
   store ptr %36, ptr %37, align 8, !alias.scope !5, !noalias !8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !8, !noalias !5
   br label %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i
@@ -455,7 +455,7 @@ _ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_R
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !13, !noalias !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !13, !noalias !16
   %43 = load ptr, ptr %42, align 8, !alias.scope !16, !noalias !13
   store ptr %43, ptr %41, align 8, !alias.scope !13, !noalias !16
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
@@ -465,7 +465,7 @@ _ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_R
 
 _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !18
   store ptr %45, ptr %46, align 8, !alias.scope !13, !noalias !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !alias.scope !16, !noalias !13
   br label %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -607,10 +607,10 @@ _ZNSt10shared_ptrIN3gmx19StopConditionSignalEEC2ERKS2_.exit: ; preds = %33, %36
 
 _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit.thread: ; preds = %40
   %48 = getelementptr inbounds i8, ptr %45, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_0E9_M_invokeERKSt9_Any_data", ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %45, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 16, i1 false)
   %50 = load ptr, ptr %38, align 8
   store ptr %50, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
@@ -629,7 +629,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   br i1 %.not.i.i20, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingEN3$_0D2Ev.exit", label %54
 
 54:                                               ; preds = %_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit
-  %55 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingEN3$_0D2Ev.exit" unwind label %56
 
 56:                                               ; preds = %54
@@ -725,7 +725,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i24, label %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit25, label %99
 
 99:                                               ; preds = %96
-  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit25 unwind label %101
 
 101:                                              ; preds = %99
@@ -813,7 +813,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   %127 = getelementptr inbounds i8, ptr %125, i64 24
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_1E9_M_invokeERKSt9_Any_data", ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %125, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
   %129 = load ptr, ptr %44, align 8
@@ -831,7 +831,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   br i1 %.not.i.i34, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingEN3$_1D2Ev.exit", label %132
 
 132:                                              ; preds = %_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit33
-  %133 = invoke noundef zeroext i1 %.pre59(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %133 = invoke noundef zeroext i1 %.pre59(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingEN3$_1D2Ev.exit" unwind label %134
 
 134:                                              ; preds = %132
@@ -927,7 +927,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i48, label %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit49, label %177
 
 177:                                              ; preds = %174
-  %178 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %178 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %_ZNSt8functionIFN3gmx10StopSignalEvEED2Ev.exit49 unwind label %179
 
 179:                                              ; preds = %177
@@ -1337,7 +1337,7 @@ _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE8allocateERS5_m.e
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i, label %36
 
 36:                                               ; preds = %.lr.ph.i.i.i.i
-  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i unwind label %38
 
 38:                                               ; preds = %36
@@ -1830,7 +1830,7 @@ define linkonce_odr void @_ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_E
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %7
@@ -1879,7 +1879,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br i1 %.not.i.i.not.i.i, label %_ZSt10_ConstructISt8functionIFN3gmx10StopSignalEvEEJRKS4_EEvPT_DpOT0_.exit, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.014, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.013, i32 noundef 2)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.014, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.013, i32 noundef 2)
           to label %10 unwind label %14
 
 10:                                               ; preds = %8
@@ -1898,7 +1898,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br i1 %.not.i.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %.014, ptr noundef nonnull align 8 dereferenceable(16) %.014, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %.014, ptr noundef nonnull align 8 dereferenceable(32) %.014, i32 noundef 3)
           to label %.body unwind label %19
 
 19:                                               ; preds = %17
@@ -1961,7 +1961,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEEEvT_S
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i, label %5
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %.05.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %.05.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i unwind label %7
 
 7:                                                ; preds = %5

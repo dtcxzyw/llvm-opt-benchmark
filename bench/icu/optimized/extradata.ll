@@ -88,7 +88,7 @@ invoke.cont15:                                    ; preds = %invoke.cont5
   store ptr null, ptr %previousNoNoMappingsCompYes, align 8
   store i32 0, ptr %status.i, align 4
   %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 544
-  %call2.i.i17 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i)
+  %call2.i.i17 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.i.noexc unwind label %lpad16
 
 call2.i.i.noexc:                                  ; preds = %invoke.cont15
@@ -108,7 +108,7 @@ invoke.cont17:                                    ; preds = %call2.i.i.noexc, %i
   store ptr null, ptr %previousNoNoMappingsCompBoundaryBefore, align 8
   store i32 0, ptr %status.i19, align 4
   %hashObj.i.i20 = getelementptr inbounds i8, ptr %this, i64 632
-  %call2.i.i24 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i20, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i19)
+  %call2.i.i24 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i20, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i19)
           to label %call2.i.i.noexc23 unwind label %lpad18
 
 call2.i.i.noexc23:                                ; preds = %invoke.cont17
@@ -128,7 +128,7 @@ invoke.cont19:                                    ; preds = %call2.i.i.noexc23, 
   store ptr null, ptr %previousNoNoMappingsCompNoMaybeCC, align 8
   store i32 0, ptr %status.i28, align 4
   %hashObj.i.i29 = getelementptr inbounds i8, ptr %this, i64 720
-  %call2.i.i33 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i29, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i28)
+  %call2.i.i33 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i29, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i28)
           to label %call2.i.i.noexc32 unwind label %lpad20
 
 call2.i.i.noexc32:                                ; preds = %invoke.cont19
@@ -148,7 +148,7 @@ invoke.cont21:                                    ; preds = %call2.i.i.noexc32, 
   store ptr null, ptr %previousNoNoMappingsEmpty, align 8
   store i32 0, ptr %status.i37, align 4
   %hashObj.i.i38 = getelementptr inbounds i8, ptr %this, i64 808
-  %call2.i.i42 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i38, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i37)
+  %call2.i.i42 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i38, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i37)
           to label %call2.i.i.noexc41 unwind label %lpad22
 
 call2.i.i.noexc41:                                ; preds = %invoke.cont21
@@ -482,7 +482,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store i8 0, ptr %found, align 1
   %0 = load ptr, ptr %previousMappings, align 8
-  %call.i6 = invoke noundef i32 @uhash_getiAndFound_75(ptr noundef %0, ptr noundef nonnull %newMapping, ptr noundef nonnull %found)
+  %call.i6 = invoke noundef i32 @uhash_getiAndFound_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %newMapping, ptr noundef nonnull align 1 dereferenceable(1) %found)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -531,7 +531,7 @@ new.notnull.i:                                    ; preds = %invoke.cont8
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont8
-  %call2.i8 = invoke noundef i32 @uhash_putiAllowZero_75(ptr noundef %9, ptr noundef %call.i, i32 noundef %add, ptr noundef nonnull %errorCode.i.i)
+  %call2.i8 = invoke noundef i32 @uhash_putiAllowZero_75(ptr noundef %9, ptr noundef %call.i, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %invoke.cont12 unwind label %lpad9
 
 lpad.i:                                           ; preds = %new.notnull.i

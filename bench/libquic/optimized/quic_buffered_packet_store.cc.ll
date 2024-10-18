@@ -236,14 +236,14 @@ _ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i.i.i.i: ; preds 
 _ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %entry, %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i.i.i.i
   %server_address = getelementptr inbounds i8, ptr %this, i64 8
   %server_address3 = getelementptr inbounds i8, ptr %other, i64 8
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %server_address, ptr noundef nonnull align 8 dereferenceable(24) %server_address3)
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(26) %server_address, ptr noundef nonnull align 8 dereferenceable(26) %server_address3)
   %port_.i = getelementptr inbounds i8, ptr %other, i64 32
   %3 = load i16, ptr %port_.i, align 8
   %port_3.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 %3, ptr %port_3.i, align 8
   %client_address = getelementptr inbounds i8, ptr %this, i64 40
   %client_address5 = getelementptr inbounds i8, ptr %other, i64 40
-  %call.i.i3 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %client_address, ptr noundef nonnull align 8 dereferenceable(24) %client_address5)
+  %call.i.i3 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(26) %client_address, ptr noundef nonnull align 8 dereferenceable(26) %client_address5)
   %port_.i4 = getelementptr inbounds i8, ptr %other, i64 64
   %4 = load i16, ptr %port_.i4, align 8
   %port_3.i5 = getelementptr inbounds i8, ptr %this, i64 64
@@ -580,7 +580,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffer
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #19
   %cmp.not.i.i.i = icmp eq ptr %1, %list_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !7
 
@@ -629,7 +629,7 @@ entry:
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #19
   %cmp.not.i.i.i.i = icmp eq ptr %1, %list_.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listISt4pairImbESaIS2_EED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !9
 
@@ -1357,7 +1357,7 @@ lpad88:                                           ; preds = %call6.i.noexc, %if.
   br label %eh.resume
 
 if.else93:                                        ; preds = %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit
-  invoke void @_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9_M_insertIJS3_EEEvSt14_List_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %second, ptr nonnull %second, ptr noundef nonnull align 8 dereferenceable(72) %new_entry)
+  invoke void @_ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EE9_M_insertIJS3_EEEvSt14_List_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %second, ptr nonnull align 8 dereferenceable(24) %second, ptr noundef nonnull align 8 dereferenceable(72) %new_entry)
           to label %if.end96 unwind label %lpad88
 
 if.end96:                                         ; preds = %if.else93, %invoke.cont91
@@ -1579,7 +1579,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffer
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #19
   %cmp.not.i.i.i = icmp eq ptr %15, %node_donor
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !7
 
@@ -1953,7 +1953,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffer
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit, label %while.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i, %if.end
-  tail call void @_ZdlPv(ptr noundef %11) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #19
   %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %18 = load i64, ptr %add.ptr.i, align 8
@@ -2356,7 +2356,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffer
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit, label %while.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit
-  call void @_ZdlPv(ptr noundef %position.coerce) #19
+  call void @_ZdlPv(ptr noundef nonnull %position.coerce) #19
   ret ptr %25
 
 lpad:                                             ; preds = %cond.false
@@ -2436,7 +2436,7 @@ if.end:                                           ; preds = %for.cond.i.i.i.i, %
   %sub.i.i.i = add i64 %12, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
-  tail call void @_ZdlPv(ptr noundef %11) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #19
   %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %14 = load i64, ptr %add.ptr.i, align 8
@@ -2711,7 +2711,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImbEESt4hashImESt8equal_toImESaI
   %sub.i.i.i = add i64 %26, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %position.coerce) #18
-  call void @_ZdlPv(ptr noundef %position.coerce) #19
+  call void @_ZdlPv(ptr noundef nonnull %position.coerce) #19
   ret ptr %25
 
 lpad:                                             ; preds = %cond.false
@@ -2995,7 +2995,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffer
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i, label %while.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net23QuicBufferedPacketStore14BufferedPacketEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i, %while.body.i.i
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #19
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEESaIS5_EED2Ev.exit, label %while.body.i.i, !llvm.loop !7
 
@@ -3436,7 +3436,7 @@ if.end:                                           ; preds = %lor.lhs.false.i.i.i
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %pair, i64 16, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %list_) #18
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %list_) #18
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %13 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %13, 1

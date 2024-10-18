@@ -95,7 +95,7 @@ new.notnull.i:                                    ; preds = %if.end.i3
   %cpTrie.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %stringTries.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1.i, i8 0, i64 64, i1 false)
-  %call.i.i4.i = invoke ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo, ptr noundef nonnull %call1.i, ptr noundef nonnull %errorCode)
+  %call.i.i4.i = invoke ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo, ptr noundef nonnull align 8 dereferenceable(64) %call1.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call.i.i.noexc.i unwind label %lpad.i
 
 call.i.i.noexc.i:                                 ; preds = %new.notnull.i
@@ -123,7 +123,7 @@ if.end6.i.i.i:                                    ; preds = %call4.i.i.noexc.i
   %idx.ext.i.i.i = zext nneg i32 %4 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call4.i.i5.i, i64 %idx.ext.i.i.i
   %sub.i.i.i = sub nsw i32 %5, %4
-  %call10.i.i6.i = invoke ptr @ucptrie_openFromBinary_75(i32 noundef 0, i32 noundef 2, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %sub.i.i.i, ptr noundef null, ptr noundef nonnull %errorCode)
+  %call10.i.i6.i = invoke ptr @ucptrie_openFromBinary_75(i32 noundef 0, i32 noundef 2, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %sub.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call10.i.i.noexc.i unwind label %lpad.i
 
 call10.i.i.noexc.i:                               ; preds = %if.end6.i.i.i

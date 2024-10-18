@@ -220,7 +220,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   br i1 %68, label %69, label %.loopexit.i.i
 
 69:                                               ; preds = %66
-  %70 = call fastcc i32 @score_timezone(ptr noundef nonnull %64, ptr noundef %7)
+  %70 = call fastcc i32 @score_timezone(ptr noundef nonnull %64, ptr noundef nonnull %7)
   %71 = load i32, ptr %7, align 8
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %check_system_link_file.exit.i, label %..loopexit_crit_edge.i.i

@@ -110,7 +110,7 @@ if.end26:                                         ; preds = %_ZN6icu_7517double_
 
 if.then.i:                                        ; preds = %if.end26
   call void @_ZN6icu_7517double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i64 noundef %significand.0)
-  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef %exponent.0)
+  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef range(i32 0, -2147483648) %exponent.0)
   call void @_ZN6icu_7517double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i16 noundef zeroext 10, i32 noundef %conv1.i)
   br i1 %7, label %if.then.i.i, label %_ZN6icu_7517double_conversionL24InitialScaledStartValuesEmibibPNS0_6BignumES2_S2_S2_.exit
 
@@ -118,9 +118,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i32 noundef 1)
   call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 1)
   call void @_ZN6icu_7517double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, i16 noundef zeroext 1)
-  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, i32 noundef %exponent.0)
+  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, i32 noundef range(i32 0, -2147483648) %exponent.0)
   call void @_ZN6icu_7517double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i16 noundef zeroext 1)
-  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef %exponent.0)
+  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef range(i32 0, -2147483648) %exponent.0)
   br label %if.end7.i
 
 if.else.i:                                        ; preds = %if.end26
@@ -129,7 +129,7 @@ if.else.i:                                        ; preds = %if.end26
 
 if.then3.i:                                       ; preds = %if.else.i
   call void @_ZN6icu_7517double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i64 noundef %significand.0)
-  call void @_ZN6icu_7517double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i16 noundef zeroext 10, i32 noundef %conv1.i)
+  call void @_ZN6icu_7517double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i16 noundef zeroext 10, i32 noundef range(i32 0, -2147483648) %conv1.i)
   %sub.i.i = sub nsw i32 0, %exponent.0
   call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i32 noundef %sub.i.i)
   br i1 %7, label %if.then.i23.i, label %_ZN6icu_7517double_conversionL24InitialScaledStartValuesEmibibPNS0_6BignumES2_S2_S2_.exit
@@ -405,7 +405,7 @@ if.else8.i:                                       ; preds = %if.then4.i
 
 if.else9.i:                                       ; preds = %if.else.i63
   %add.i65 = add nsw i32 %24, %requested_digits
-  call fastcc void @_ZN6icu_7517double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %add.i65, ptr noundef nonnull %decimal_point, ptr noundef %numerator, ptr noundef %denominator, ptr %buffer.coerce0, ptr noundef %length)
+  call fastcc void @_ZN6icu_7517double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %add.i65, ptr noundef nonnull %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr %buffer.coerce0, ptr noundef %length)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %_ZN6icu_7517double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit

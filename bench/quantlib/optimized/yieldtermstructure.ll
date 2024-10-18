@@ -3503,9 +3503,9 @@ ehcleanup36:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %do.body
-  %call.i = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d1)
+  %call.i = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call2.i = tail call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %call.i, i1 noundef zeroext %extrapolate)
-  %call.i38 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d2)
+  %call.i38 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call2.i39 = tail call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %call.i38, i1 noundef zeroext %extrapolate)
   %div44 = fdiv double %call2.i, %call2.i39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp45) #25

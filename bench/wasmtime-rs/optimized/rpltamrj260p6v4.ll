@@ -715,7 +715,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.15
 define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$$LP$cranelift_codegen..machinst..buffer..MachLabel$C$alloc..boxed..Box$LT$alloc..vec..Vec$LT$cranelift_codegen..machinst..buffer..MachLabel$GT$$GT$$RP$$GT$17h95f24f7f2227c0bfE"(ptr nonnull %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !23
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd73b11b29c6f5f1cE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.8.val)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd73b11b29c6f5f1cE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.8.val)
           to label %.noexc.i unwind label %10
 
 .noexc.i:                                         ; preds = %0
@@ -829,7 +829,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Optio
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !42
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h10baf2092f12284fE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h10baf2092f12284fE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !30, !noalias !42, !noundef !4
   %.not.i.i.i = icmp eq i64 %8, 0
@@ -951,7 +951,7 @@ common.resume:                                    ; preds = %104, %62, %19
 32:                                               ; preds = %1
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !76
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52fd66877ec0ebd2E.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52fd66877ec0ebd2E.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33)
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   %35 = load i64, ptr %34, align 8, !range !30, !noalias !76, !noundef !4
   %.not.i.i.i = icmp eq i64 %35, 0
@@ -975,7 +975,7 @@ common.resume:                                    ; preds = %104, %62, %19
 42:                                               ; preds = %1
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !83
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4099dd40cbca01b1E.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4099dd40cbca01b1E.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43)
   %44 = getelementptr inbounds i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !30, !noalias !83, !noundef !4
   %.not.i.i.i12 = icmp eq i64 %45, 0
@@ -1000,7 +1000,7 @@ common.resume:                                    ; preds = %104, %62, %19
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %.val7 = load ptr, ptr %53, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !90
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd73b11b29c6f5f1cE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd73b11b29c6f5f1cE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val7)
           to label %.noexc.i unwind label %62
 
 .noexc.i:                                         ; preds = %52
@@ -1442,7 +1442,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$L
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %0
-  %7 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7494e2ee0086fb45E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ccb8bbd7296c103e264204178ad661d4.66.llvm.16803308262639080379)
+  %7 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7494e2ee0086fb45E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ccb8bbd7296c103e264204178ad661d4.66.llvm.16803308262639080379)
           to label %"_ZN4core3ptr70drop_in_place$LT$cranelift_codegen..isa..x64..inst..ReturnCallInfo$GT$17h1e4c275b99fa6f3cE.exit" unwind label %22
 
 8:                                                ; preds = %0
@@ -1456,7 +1456,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$L
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %11, ptr %13, align 8, !noalias !163
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !164
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1965842708f40647E.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1965842708f40647E.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %.noexc2 unwind label %22
 
 .noexc2:                                          ; preds = %8
@@ -1610,7 +1610,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1), !noalias !192
   %15 = getelementptr inbounds i8, ptr %1, i64 64
   store i64 0, ptr %15, align 8, !alias.scope !198, !noalias !192
-  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h6d5bf1149c6f9d70E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly %.sink5.i.i.i.i, ptr noundef nonnull readonly %14)
+  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h6d5bf1149c6f9d70E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly align 4 %.sink5.i.i.i.i, ptr noundef nonnull readonly %14)
           to label %20 unwind label %16, !noalias !201
 
 16:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h14d2b58306378b80E.exit"
@@ -1816,7 +1816,7 @@ define internal fastcc noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Bo
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2), !noalias !244
   %16 = getelementptr inbounds i8, ptr %2, i64 64
   store i64 0, ptr %16, align 8, !alias.scope !250, !noalias !244
-  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h6d5bf1149c6f9d70E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull readonly %.sink5.i.i.i.i, ptr noundef nonnull readonly %15)
+  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h6d5bf1149c6f9d70E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull readonly align 4 %.sink5.i.i.i.i, ptr noundef nonnull readonly %15)
           to label %21 unwind label %17, !noalias !253
 
 17:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h9db6aef970365a6dE.exit"
@@ -1851,7 +1851,7 @@ define internal fastcc noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Bo
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1), !noalias !262
   %30 = getelementptr inbounds i8, ptr %1, i64 64
   store i64 0, ptr %30, align 8, !alias.scope !268, !noalias !262
-  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h7fb1898a6c054731E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly %.sink5.i.i2.i.i, ptr noundef nonnull readonly %29)
+  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h7fb1898a6c054731E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly align 4 %.sink5.i.i2.i.i, ptr noundef nonnull readonly %29)
           to label %37 unwind label %31, !noalias !271
 
 31:                                               ; preds = %21
@@ -1882,7 +1882,7 @@ define internal fastcc noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Bo
   %41 = load i8, ptr %40, align 4, !range !273, !alias.scope !272, !noalias !231, !noundef !4
   %.sroa.0.32..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %.sroa.0.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %.0.val, i64 32, i1 false), !alias.scope !274
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull readonly align 16 dereferenceable(192) %.0.val, i64 32, i1 false), !alias.scope !274
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %4, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.0.i, i64 176, i1 false), !noalias !228
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 176
@@ -14237,7 +14237,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_bits_u1617h09a63857fec0eb89E.exit": ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_operand_size_bits17hc8e5f6d57b311ad3E.exit, %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
   %.0.i.i = phi i16 [ %111, %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i ], [ 0, %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_operand_size_bits17hc8e5f6d57b311ad3E.exit ]
-  %112 = tail call noundef i8 @_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E(i16 noundef %.0.i.i, i16 noundef %.0.i23), !range !416
+  %112 = tail call noundef i8 @_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E(i16 noundef %.0.i.i, i16 noundef range(i16 8, 65) %.0.i23), !range !416
   %113 = icmp eq i8 %112, 5
   br i1 %113, label %114, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit"
 
@@ -14253,11 +14253,11 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
   br i1 %trunc.i, label %117, label %115
 
 115:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit"
-  %116 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_movsx17hdffa598b85316c0aE(ptr nonnull %.val15, i8 %112, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %116 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_movsx17hdffa598b85316c0aE(ptr nonnull %.val15, i8 %112, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code18constructor_extend17h4d9c588f14331727E.exit
 
 117:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit"
-  %118 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_movzx17h5d9f82753ceb06f6E(ptr nonnull %.val15, i8 %112, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %118 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_movzx17h5d9f82753ceb06f6E(ptr nonnull %.val15, i8 %112, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code18constructor_extend17h4d9c588f14331727E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code18constructor_extend17h4d9c588f14331727E.exit: ; preds = %115, %117
@@ -14455,11 +14455,11 @@ default.unreachable:                              ; preds = %8
   br i1 %.not.i, label %19, label %21
 
 19:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14reg_to_gpr_mem17h8448d82b7e8ba7b3E.exit"
-  %20 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.0.val, i8 45, ptr noalias noundef readonly align 4 dereferenceable(16) %3, i8 2)
+  %20 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.0.val, i8 45, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, i8 2)
   br label %"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit"
 
 21:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14reg_to_gpr_mem17h8448d82b7e8ba7b3E.exit"
-  %22 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.0.val, i8 -80, ptr noalias noundef readonly align 4 dereferenceable(16) %3, i8 2)
+  %22 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.0.val, i8 -80, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, i8 2)
   br label %"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit"
 
 "_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit": ; preds = %19, %21
@@ -14936,11 +14936,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic
   br i1 %.not.i, label %129, label %131
 
 129:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic_amode_to_xmm_mem17hff079f5f7cddfc8dE.exit
-  %130 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %130 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 131:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic_amode_to_xmm_mem17hff079f5f7cddfc8dE.exit
-  %132 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %132 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit: ; preds = %129, %131
@@ -20656,11 +20656,11 @@ default.unreachable:                              ; preds = %115, %101, %74, %58
   br i1 %.not.i, label %67, label %69
 
 67:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14reg_to_gpr_mem17h8448d82b7e8ba7b3E.exit"
-  %68 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.val10, i8 45, ptr noalias noundef readonly align 4 dereferenceable(16) %15, i8 2)
+  %68 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.val10, i8 45, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %15, i8 2)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E.exit
 
 69:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14reg_to_gpr_mem17h8448d82b7e8ba7b3E.exit"
-  %70 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.val10, i8 -80, ptr noalias noundef readonly align 4 dereferenceable(16) %15, i8 2)
+  %70 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.val10, i8 -80, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %15, i8 2)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E.exit: ; preds = %67, %69
@@ -20676,7 +20676,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_
   store i8 6, ptr %9, align 4, !alias.scope !2408, !noalias !2405
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %72, ptr %.sroa.41.0..sroa_idx.i.i.i, align 4, !alias.scope !2408, !noalias !2405
-  %73 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_xorps17h85d80bad9ab0f1d5E(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %72, ptr noalias noundef readonly align 4 dereferenceable(16) %9)
+  %73 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_xorps17h85d80bad9ab0f1d5E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %72, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2405
   br label %54
 
@@ -20714,11 +20714,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_
   br i1 %.not.i19, label %83, label %85
 
 83:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14reg_to_gpr_mem17h8448d82b7e8ba7b3E.exit18"
-  %84 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.val12, i8 51, ptr noalias noundef readonly align 4 dereferenceable(16) %14, i8 3)
+  %84 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.val12, i8 51, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14, i8 3)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
 
 85:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14reg_to_gpr_mem17h8448d82b7e8ba7b3E.exit18"
-  %86 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.val12, i8 -79, ptr noalias noundef readonly align 4 dereferenceable(16) %14, i8 3)
+  %86 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.val12, i8 -79, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14, i8 3)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit: ; preds = %83, %85
@@ -20734,7 +20734,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_
   store i8 6, ptr %8, align 4, !alias.scope !2431, !noalias !2428
   %.sroa.41.0..sroa_idx.i.i.i22 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %88, ptr %.sroa.41.0..sroa_idx.i.i.i22, align 4, !alias.scope !2431, !noalias !2428
-  %89 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_xorpd17h1d6d7d44b32af0baE(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %88, ptr noalias noundef readonly align 4 dereferenceable(16) %8)
+  %89 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_xorpd17h1d6d7d44b32af0baE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %88, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !2428
   br label %54
 
@@ -20922,7 +20922,7 @@ switch.lookup62:                                  ; preds = %"_ZN17cranelift_cod
   store i8 6, ptr %5, align 4, !alias.scope !2457, !noalias !2454
   %.sroa.41.0..sroa_idx.i.i.i50 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %139, ptr %.sroa.41.0..sroa_idx.i.i.i50, align 4, !alias.scope !2457, !noalias !2454
-  %140 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_xor_vector17h3e9bfb90902ae243E(ptr noalias noundef align 8 dereferenceable(16) %0, i16 noundef %1, i32 noundef %139, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %140 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_xor_vector17h3e9bfb90902ae243E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i16 noundef %1, i32 noundef %139, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2454
   br label %54
 }
@@ -41856,7 +41856,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pcmpe
 
 35:                                               ; preds = %28
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !5966, !noalias !5969, !nonnull !4, !align !17, !noundef !4
-  %36 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %11, i8 noundef -79), !noalias !5966
+  %36 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %11, i8 noundef -79), !noalias !5966
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit: ; preds = %33, %35
@@ -42771,11 +42771,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pcmpg
   br i1 %.not.i29, label %138, label %140
 
 138:                                              ; preds = %126
-  %139 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val1, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %25)
+  %139 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val1, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %25)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 140:                                              ; preds = %126
-  %141 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val1, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %25)
+  %141 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val1, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %25)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit: ; preds = %138, %140
@@ -42813,7 +42813,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdq
 
 150:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
   %.val2.i35 = load ptr, ptr %0, align 8, !alias.scope !6200, !noalias !6203, !nonnull !4, !align !17, !noundef !4
-  %151 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i35, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %22, i8 noundef -96), !noalias !6200
+  %151 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i35, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %22, i8 noundef -96), !noalias !6200
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit: ; preds = %148, %150
@@ -42840,7 +42840,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 157:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
   %.val2.i41 = load ptr, ptr %0, align 8, !alias.scope !6216, !noalias !6219, !nonnull !4, !align !17, !noundef !4
-  %158 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i41, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %21, i8 noundef -11), !noalias !6216
+  %158 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i41, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %21, i8 noundef -11), !noalias !6216
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit44
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit44: ; preds = %155, %157
@@ -42872,7 +42872,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 165:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit44
   %.val2.i49 = load ptr, ptr %0, align 8, !alias.scope !6237, !noalias !6240, !nonnull !4, !align !17, !noundef !4
-  %166 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i49, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %19, i8 noundef -11), !noalias !6237
+  %166 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i49, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %19, i8 noundef -11), !noalias !6237
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit52
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit52: ; preds = %163, %165
@@ -48852,11 +48852,11 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %.not.i, label %18, label %20
 
 18:                                               ; preds = %12
-  %19 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.0.val, i8 45, ptr noalias noundef readonly align 4 dereferenceable(16) %6, i8 2)
+  %19 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.0.val, i8 45, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %6, i8 2)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E.exit
 
 20:                                               ; preds = %12
-  %21 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.0.val, i8 -80, ptr noalias noundef readonly align 4 dereferenceable(16) %6, i8 2)
+  %21 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.0.val, i8 -80, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %6, i8 2)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E.exit: ; preds = %18, %20
@@ -48880,11 +48880,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_
   br i1 %.not.i5, label %28, label %30
 
 28:                                               ; preds = %22
-  %29 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.0.val, i8 51, ptr noalias noundef readonly align 4 dereferenceable(16) %5, i8 3)
+  %29 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.0.val, i8 51, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5, i8 3)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
 
 30:                                               ; preds = %22
-  %31 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.0.val, i8 -79, ptr noalias noundef readonly align 4 dereferenceable(16) %5, i8 3)
+  %31 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.0.val, i8 -79, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5, i8 3)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit: ; preds = %28, %30
@@ -57177,7 +57177,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   store i8 6, ptr %753, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %752)
   call fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE"(ptr noalias nocapture noundef align 4 dereferenceable(16) %752, ptr noalias noundef readonly align 4 dereferenceable(16) %753)
-  %3124 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef align 8 dereferenceable(16) %1, i32 noundef %3121, ptr noalias noundef readonly align 4 dereferenceable(16) %752)
+  %3124 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %3121, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %752)
   %.sroa.01.0.insert.ext.i.i4733 = zext i32 %3124 to i64
   %.sroa.01.0.insert.insert.i.i4734 = or disjoint i64 %.sroa.01.0.insert.ext.i.i4733, 36028779839094784
   %3125 = getelementptr inbounds i8, ptr %0, i64 8
@@ -57341,7 +57341,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_ushr_i8x16_mask17h30128683f19871eaE(ptr noalias nocapture noundef align 4 dereferenceable(16) %742, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 4 dereferenceable(16) %744)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %741)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic_amode_to_xmm_mem17hff079f5f7cddfc8dE(ptr noalias nocapture noundef align 4 dereferenceable(16) %741, ptr noalias noundef readonly align 4 dereferenceable(16) %742)
-  %3169 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef align 8 dereferenceable(16) %1, i32 noundef %3168, ptr noalias noundef readonly align 4 dereferenceable(16) %741)
+  %3169 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %3168, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %741)
   %.sroa.01.0.insert.ext.i.i4750 = zext i32 %3169 to i64
   %.sroa.01.0.insert.insert.i.i4751 = or disjoint i64 %.sroa.01.0.insert.ext.i.i4750, 36028779839094784
   %3170 = getelementptr inbounds i8, ptr %0, i64 8
@@ -64662,7 +64662,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %.sroa.10.0..sroa_idx.i5661 = getelementptr inbounds i8, ptr %446, i64 8
   store i32 %5746, ptr %.sroa.10.0..sroa_idx.i5661, align 4, !alias.scope !8961, !noalias !8967
   %.val3831 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %5749 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_mov64_mr17h230a2db5ee92cdceE(ptr nonnull %.val3831, ptr noalias noundef readonly align 4 dereferenceable(16) %446)
+  %5749 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_mov64_mr17h230a2db5ee92cdceE(ptr nonnull %.val3831, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %446)
   %.sroa.01.0.insert.ext.i5666 = zext i32 %5749 to i64
   %.sroa.01.0.insert.insert.i5667 = or disjoint i64 %.sroa.01.0.insert.ext.i5666, 36028779839094784
   %5750 = getelementptr inbounds i8, ptr %0, i64 8
@@ -72754,7 +72754,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %.val2624 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %8446 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2624, i32 noundef %.sroa.47.0.copyload)
   %8447 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %8446)
-  %8448 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef align 8 dereferenceable(16) %1, i32 noundef %8446, ptr noalias noundef readonly align 4 dereferenceable(16) %128)
+  %8448 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %8446, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %128)
   %.val2625 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %8449 = call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2625, i32 noundef %.sroa.47.0.copyload)
   %8450 = call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %8449)
@@ -72763,7 +72763,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i6447 = getelementptr inbounds i8, ptr %127, i64 4
   store i32 4, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i6447, align 4, !alias.scope !10037
   %8451 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlw17hb23cf26962b39c20E(ptr noalias noundef align 8 dereferenceable(16) %1, i32 noundef %8449, ptr noalias noundef readonly align 4 dereferenceable(16) %127)
-  %8452 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef align 8 dereferenceable(16) %1, i32 noundef %8451, ptr noalias noundef readonly align 4 dereferenceable(16) %128)
+  %8452 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pand17ha712c4af54eaecfaE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %8451, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %128)
   %.val3225 = load ptr, ptr %1, align 8
   %8453 = call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18emit_u128_le_const17hfc6661d94c0c92a2E"(ptr %.val3225, i128 noundef 5332549880331286302540478971893580032)
   %.val3942 = load ptr, ptr %1, align 8
@@ -75751,7 +75751,7 @@ default.unreachable:                              ; preds = %136, %129, %"_ZN17c
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !10489
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd73b11b29c6f5f1cE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd73b11b29c6f5f1cE.llvm.16803308262639080379"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %58)
           to label %.noexc.i.i unwind label %171
 
 .noexc.i.i:                                       ; preds = %"_ZN4core3ptr92drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ProducesFlags$GT$17h726e6ba2fcd755eaE.exit"
@@ -76658,7 +76658,7 @@ default.unreachable:                              ; preds = %64, %52, %"_ZN17cra
 .noexc240:                                        ; preds = %.noexc239
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !10595
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !10599
-  invoke void @"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u20$as$u20$core..clone..Clone$GT$5clone17h7b61c442f7102161E.llvm.14502953478370073462"(ptr noalias nocapture noundef nonnull sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
+  invoke void @"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u20$as$u20$core..clone..Clone$GT$5clone17h7b61c442f7102161E.llvm.14502953478370073462"(ptr noalias nocapture noundef nonnull sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %9)
           to label %.noexc241 unwind label %86
 
 .noexc241:                                        ; preds = %.noexc240
@@ -77802,7 +77802,7 @@ default.unreachable:                              ; preds = %14
 
 31:                                               ; preds = %3
   %.val3 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %32 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_mov64_mr17h230a2db5ee92cdceE(ptr nonnull %.val3, ptr noalias noundef readonly align 4 dereferenceable(16) %2)
+  %32 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_mov64_mr17h230a2db5ee92cdceE(ptr nonnull %.val3, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %33 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %32, ptr %33, align 4
@@ -78427,7 +78427,7 @@ default.unreachable:                              ; preds = %14
 
 31:                                               ; preds = %3
   %.val3 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %32 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_mov64_mr17h230a2db5ee92cdceE(ptr nonnull %.val3, ptr noalias noundef readonly align 4 dereferenceable(16) %2)
+  %32 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_mov64_mr17h230a2db5ee92cdceE(ptr nonnull %.val3, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %33 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %32, ptr %33, align 4
@@ -79543,7 +79543,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 40:                                               ; preds = %33
   %.val1.i = load ptr, ptr %0, align 8, !alias.scope !10958, !noalias !10961, !nonnull !4, !align !17, !noundef !4
-  %41 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i, i8 120, i32 noundef %1, ptr noalias noundef readonly align 4 dereferenceable(16) %28), !noalias !10958
+  %41 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i, i8 120, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %28), !noalias !10958
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit: ; preds = %38, %40
@@ -79570,7 +79570,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad
 
 47:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit
   %.val2.i4 = load ptr, ptr %0, align 8, !alias.scope !10974, !noalias !10977, !nonnull !4, !align !17, !noundef !4
-  %48 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i4, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %27, i8 noundef -19), !noalias !10974
+  %48 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i4, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %27, i8 noundef -19), !noalias !10974
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit: ; preds = %45, %47
@@ -79597,7 +79597,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 54:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
   %.val1.i10 = load ptr, ptr %0, align 8, !alias.scope !10988, !noalias !10991, !nonnull !4, !align !17, !noundef !4
-  %55 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i10, i8 20, i32 noundef %1, ptr noalias noundef readonly align 4 dereferenceable(16) %26), !noalias !10988
+  %55 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i10, i8 20, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %26), !noalias !10988
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit: ; preds = %52, %54
@@ -79624,7 +79624,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq
 
 61:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit
   %.val2.i16 = load ptr, ptr %0, align 8, !alias.scope !11004, !noalias !11007, !nonnull !4, !align !17, !noundef !4
-  %62 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i16, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %25, i8 noundef -24), !noalias !11004
+  %62 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i16, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %25, i8 noundef -24), !noalias !11004
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit19
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit19: ; preds = %59, %61
@@ -79664,7 +79664,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 70:                                               ; preds = %64
   %.val2.i24 = load ptr, ptr %0, align 8, !alias.scope !11025, !noalias !11028, !nonnull !4, !align !17, !noundef !4
-  %71 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i24, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %23, i8 noundef -19), !noalias !11025
+  %71 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i24, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %23, i8 noundef -19), !noalias !11025
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit27
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit27: ; preds = %68, %70
@@ -79691,7 +79691,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 77:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit27
   %.val1.i31 = load ptr, ptr %0, align 8, !alias.scope !11039, !noalias !11042, !nonnull !4, !align !17, !noundef !4
-  %78 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i31, i8 120, i32 noundef %1, ptr noalias noundef readonly align 4 dereferenceable(16) %22), !noalias !11039
+  %78 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i31, i8 120, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %22), !noalias !11039
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit34
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit34: ; preds = %75, %77
@@ -79718,7 +79718,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad
 
 84:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit34
   %.val2.i38 = load ptr, ptr %0, align 8, !alias.scope !11055, !noalias !11058, !nonnull !4, !align !17, !noundef !4
-  %85 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i38, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %21, i8 noundef -19), !noalias !11055
+  %85 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i38, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %21, i8 noundef -19), !noalias !11055
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit41
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit41: ; preds = %82, %84
@@ -79761,7 +79761,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 94:                                               ; preds = %88
   %.val1.i46 = load ptr, ptr %0, align 8, !alias.scope !11074, !noalias !11077, !nonnull !4, !align !17, !noundef !4
-  %95 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i46, i8 120, i32 noundef %1, ptr noalias noundef readonly align 4 dereferenceable(16) %19), !noalias !11074
+  %95 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i46, i8 120, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %19), !noalias !11074
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit49
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit49: ; preds = %92, %94
@@ -79788,7 +79788,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad
 
 101:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit49
   %.val2.i53 = load ptr, ptr %0, align 8, !alias.scope !11090, !noalias !11093, !nonnull !4, !align !17, !noundef !4
-  %102 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i53, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %18, i8 noundef -19), !noalias !11090
+  %102 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i53, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %18, i8 noundef -19), !noalias !11090
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit56
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit56: ; preds = %99, %101
@@ -79816,7 +79816,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
 
 109:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit56
   %.val1.i60 = load ptr, ptr %0, align 8, !alias.scope !11104, !noalias !11107, !nonnull !4, !align !17, !noundef !4
-  %110 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i60, i8 120, i32 noundef %1, ptr noalias noundef readonly align 4 dereferenceable(16) %17), !noalias !11104
+  %110 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i60, i8 120, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %17), !noalias !11104
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit63
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit63: ; preds = %107, %109
@@ -79843,7 +79843,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad
 
 116:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit63
   %.val2.i67 = load ptr, ptr %0, align 8, !alias.scope !11120, !noalias !11123, !nonnull !4, !align !17, !noundef !4
-  %117 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i67, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %16, i8 noundef -19), !noalias !11120
+  %117 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i67, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %16, i8 noundef -19), !noalias !11120
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit70
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit70: ; preds = %114, %116
@@ -79886,11 +79886,11 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %.not.i, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.val2, i8 51, ptr noalias noundef readonly align 4 dereferenceable(16) %12, i8 3)
+  %18 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_gpr_to_xmm17h681592f8b9b694edE(ptr nonnull %.val2, i8 51, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %12, i8 3)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
 
 19:                                               ; preds = %3
-  %20 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.val2, i8 -79, ptr noalias noundef readonly align 4 dereferenceable(16) %12, i8 3)
+  %20 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_gpr_to_xmm_vex17h42bd726e52a81b25E(ptr nonnull %.val2, i8 -79, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %12, i8 3)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit: ; preds = %17, %19
@@ -79922,11 +79922,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_
   br i1 %.not.i18.i, label %30, label %32
 
 30:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
-  %31 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val2, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %31 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val2, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high_bit_mask17h2f527d41b5667ed5E.exit
 
 32:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E.exit
-  %33 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val2, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %33 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val2, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high_bit_mask17h2f527d41b5667ed5E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high_bit_mask17h2f527d41b5667ed5E.exit: ; preds = %30, %32
@@ -79954,7 +79954,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high
 
 39:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high_bit_mask17h2f527d41b5667ed5E.exit
   %.val1.i = load ptr, ptr %0, align 8, !alias.scope !11169, !noalias !11172, !nonnull !4, !align !17, !noundef !4
-  %40 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i, i8 20, i32 noundef %.0.i19.i, ptr noalias noundef readonly align 4 dereferenceable(16) %11), !noalias !11169
+  %40 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i, i8 20, i32 noundef %.0.i19.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %11), !noalias !11169
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit: ; preds = %37, %39
@@ -79981,7 +79981,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq
 
 46:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit
   %.val1.i11 = load ptr, ptr %0, align 8, !alias.scope !11185, !noalias !11188, !nonnull !4, !align !17, !noundef !4
-  %47 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i11, i8 20, i32 noundef %1, ptr noalias noundef readonly align 4 dereferenceable(16) %10), !noalias !11185
+  %47 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i11, i8 20, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10), !noalias !11185
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit14
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrlq17h057271ca85935b2cE.exit14: ; preds = %44, %46
@@ -80582,12 +80582,12 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
   %81 = getelementptr inbounds i8, ptr %13, i64 368
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !11285
   store i32 %.sroa.94.0.copyload, ptr %2, align 4, !noalias !11288
-  %82 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !11285
+  %82 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %81, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !11285
   %.not.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i.i, label %86, label %83
 
 83:                                               ; preds = %80
-  %84 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !11285
+  %84 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %81, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !11285
   %85 = icmp eq ptr %84, null
   br i1 %85, label %87, label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17get_constant_data17hb3a0725de0691e78E.exit.i"
 
@@ -81189,11 +81189,11 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %.not.i, label %28, label %30
 
 28:                                               ; preds = %15
-  %29 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %9)
+  %29 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 30:                                               ; preds = %15
-  %31 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %9)
+  %31 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit: ; preds = %28, %30
@@ -81234,11 +81234,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdq
   br i1 %.not.i12, label %45, label %47
 
 45:                                               ; preds = %32
-  %46 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %8)
+  %46 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit14
 
 47:                                               ; preds = %32
-  %48 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %8)
+  %48 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit14
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit14: ; preds = %45, %47
@@ -81279,11 +81279,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdq
   br i1 %.not.i18, label %62, label %64
 
 62:                                               ; preds = %49
-  %63 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %63 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.0.val, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit20
 
 64:                                               ; preds = %49
-  %65 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %65 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.0.val, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit20
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit20: ; preds = %62, %64
@@ -81577,12 +81577,12 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_cmove_or_
   store i64 %.sroa.01.0.insert.insert.i.i.i.i, ptr %91, align 8, !alias.scope !11484, !noalias !11477
   %92 = getelementptr inbounds i8, ptr %10, i64 120
   store i8 107, ptr %92, align 8, !alias.scope !11484, !noalias !11477
-  invoke fastcc void @"_ZN110_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ConsumesFlags$u20$as$u20$core..clone..Clone$GT$5clone17h16b2d2a870689ac2E"(ptr noalias nocapture noundef align 8 dereferenceable(168) %14, ptr noalias noundef readonly align 8 dereferenceable(168) %10)
+  invoke fastcc void @"_ZN110_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ConsumesFlags$u20$as$u20$core..clone..Clone$GT$5clone17h16b2d2a870689ac2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %14, ptr noalias noundef readonly align 8 dereferenceable(168) %10)
           to label %251 unwind label %249
 
 93:                                               ; preds = %26, %26, %26, %26, %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !11477
-  call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_put_in_gpr_mem17he362d1565d61fc34E(ptr noalias nocapture noundef align 4 dereferenceable(16) %12, ptr noalias noundef align 8 dereferenceable(16) %1, i32 noundef %4), !noalias !11472
+  call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_put_in_gpr_mem17he362d1565d61fc34E(ptr noalias nocapture noundef align 4 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %4), !noalias !11472
   %.val61.i = load ptr, ptr %1, align 8, !alias.scope !11475, !noalias !11472, !nonnull !4, !align !17, !noundef !4
   %94 = tail call i64 @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17put_value_in_regs17he62aeb47960f57c6E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %.val61.i, i32 noundef %5), !noalias !11472
   %95 = and i64 %94, 4294967295
@@ -81824,7 +81824,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_cmove_or1
   store i64 %.sroa.01.0.insert.insert.i.i.i86.i, ptr %163, align 8, !alias.scope !11488, !noalias !11495
   %164 = getelementptr inbounds i8, ptr %11, i64 120
   store i8 107, ptr %164, align 8, !alias.scope !11488, !noalias !11495
-  invoke fastcc void @"_ZN110_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ConsumesFlags$u20$as$u20$core..clone..Clone$GT$5clone17h16b2d2a870689ac2E"(ptr noalias nocapture noundef align 8 dereferenceable(168) %14, ptr noalias noundef readonly align 8 dereferenceable(168) %11)
+  invoke fastcc void @"_ZN110_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ConsumesFlags$u20$as$u20$core..clone..Clone$GT$5clone17h16b2d2a870689ac2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %14, ptr noalias noundef readonly align 8 dereferenceable(168) %11)
           to label %248 unwind label %246
 
 .thread71.i:                                      ; preds = %26
@@ -84084,7 +84084,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_x64_vfmad
   %.sink.i = phi i8 [ 3, %165 ], [ 2, %164 ], [ 1, %163 ], [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E.exit56" ]
   %166 = icmp ne ptr %.val22, null
   tail call void @llvm.assume(i1 %166)
-  %167 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmr_vex317h15e6e843a0b26624E(ptr nonnull %.val22, i8 %.sink.i, i32 noundef %.sroa.04.0.extract.trunc.i.i48, i32 noundef %.sroa.04.0.extract.trunc.i.i53, ptr noalias noundef readonly align 4 dereferenceable(16) %14)
+  %167 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmr_vex317h15e6e843a0b26624E(ptr nonnull %.val22, i8 %.sink.i, i32 noundef %.sroa.04.0.extract.trunc.i.i48, i32 noundef %.sroa.04.0.extract.trunc.i.i53, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %168
@@ -84551,7 +84551,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_vfnma
   %.sink.i = phi i8 [ 11, %165 ], [ 10, %164 ], [ 9, %163 ], [ 8, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E.exit56" ]
   %166 = icmp ne ptr %.val22, null
   tail call void @llvm.assume(i1 %166)
-  %167 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmr_vex317h15e6e843a0b26624E(ptr nonnull %.val22, i8 %.sink.i, i32 noundef %.sroa.04.0.extract.trunc.i.i48, i32 noundef %.sroa.04.0.extract.trunc.i.i53, ptr noalias noundef readonly align 4 dereferenceable(16) %14)
+  %167 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmr_vex317h15e6e843a0b26624E(ptr nonnull %.val22, i8 %.sink.i, i32 noundef %.sroa.04.0.extract.trunc.i.i48, i32 noundef %.sroa.04.0.extract.trunc.i.i53, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %168
@@ -84994,7 +84994,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 28:                                               ; preds = %20
   %.val1.i = load ptr, ptr %0, align 8, !alias.scope !11893, !noalias !11896, !nonnull !4, !align !17, !noundef !4
-  %29 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i, i8 119, i32 noundef %21, ptr noalias noundef readonly align 4 dereferenceable(16) %13), !noalias !11893
+  %29 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i, i8 119, i32 noundef %21, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13), !noalias !11893
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psraw17h70c2dc1d55e17296E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psraw17h70c2dc1d55e17296E.exit: ; preds = %26, %28
@@ -85032,7 +85032,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psraw
 
 38:                                               ; preds = %30
   %.val1.i5 = load ptr, ptr %0, align 8, !alias.scope !11912, !noalias !11915, !nonnull !4, !align !17, !noundef !4
-  %39 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i5, i8 120, i32 noundef %31, ptr noalias noundef readonly align 4 dereferenceable(16) %11), !noalias !11912
+  %39 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_xmm_rmir_vex17hc4ae6587ff8a91bfE(ptr nonnull %.val1.i5, i8 120, i32 noundef %31, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %11), !noalias !11912
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad17hf6f8fcf35fdcc713E.exit: ; preds = %36, %38
@@ -85049,7 +85049,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_psrad
   store i8 6, ptr %5, align 4, !alias.scope !11926, !noalias !11923
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %41, ptr %.sroa.41.0..sroa_idx.i.i.i, align 4, !alias.scope !11926, !noalias !11923
-  %42 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %41, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %42 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %41, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !11923
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store i8 6, ptr %10, align 4, !alias.scope !11931
@@ -85108,7 +85108,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   store i8 6, ptr %7, align 4, !alias.scope !11950, !noalias !11947
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %18, ptr %.sroa.41.0..sroa_idx.i.i.i, align 4, !alias.scope !11950, !noalias !11947
-  %19 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %18, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %19 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !11947
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i8 6, ptr %11, align 4, !alias.scope !11955
@@ -85126,7 +85126,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   store i8 6, ptr %6, align 4, !alias.scope !11963, !noalias !11960
   %.sroa.41.0..sroa_idx.i.i.i2 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %22, ptr %.sroa.41.0..sroa_idx.i.i.i2, align 4, !alias.scope !11963, !noalias !11960
-  %23 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %22, ptr noalias noundef readonly align 4 dereferenceable(16) %6)
+  %23 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %22, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !11960
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store i8 6, ptr %10, align 4, !alias.scope !11968
@@ -85144,7 +85144,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   store i8 6, ptr %5, align 4, !alias.scope !11976, !noalias !11973
   %.sroa.41.0..sroa_idx.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %26, ptr %.sroa.41.0..sroa_idx.i.i.i5, align 4, !alias.scope !11976, !noalias !11973
-  %27 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_xorps17h85d80bad9ab0f1d5E(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %26, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %27 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_xorps17h85d80bad9ab0f1d5E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !11973
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store i8 6, ptr %9, align 4, !alias.scope !11981
@@ -85183,7 +85183,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   store i8 6, ptr %7, align 4, !alias.scope !11989, !noalias !11986
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %18, ptr %.sroa.41.0..sroa_idx.i.i.i, align 4, !alias.scope !11989, !noalias !11986
-  %19 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %18, ptr noalias noundef readonly align 4 dereferenceable(16) %7)
+  %19 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_pxor17h4decdd9b59c90a7fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !11986
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   store i8 6, ptr %17, align 4, !alias.scope !11994
@@ -85229,11 +85229,11 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %.not.i, label %34, label %36
 
 34:                                               ; preds = %2
-  %35 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val1, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %15)
+  %35 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val1, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %15)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 36:                                               ; preds = %2
-  %37 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val1, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %15)
+  %37 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val1, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %15)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit: ; preds = %34, %36
@@ -85280,7 +85280,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdq
 
 47:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !12044, !noalias !12047, !nonnull !4, !align !17, !noundef !4
-  %48 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i, i8 -98, ptr noalias noundef readonly align 4 dereferenceable(16) %10, i8 noundef 8), !noalias !12044
+  %48 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i, i8 -98, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10, i8 noundef 8), !noalias !12044
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshuflw17hdb1a488b8caa6e99E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshuflw17hdb1a488b8caa6e99E.exit: ; preds = %45, %47
@@ -85307,7 +85307,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshuf
 
 54:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshuflw17hdb1a488b8caa6e99E.exit
   %.val2.i15 = load ptr, ptr %0, align 8, !alias.scope !12060, !noalias !12063, !nonnull !4, !align !17, !noundef !4
-  %55 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i15, i8 -97, ptr noalias noundef readonly align 4 dereferenceable(16) %9, i8 noundef 8), !noalias !12060
+  %55 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i15, i8 -97, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9, i8 noundef 8), !noalias !12060
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshufhw17hd4b5a4c95103f43eE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshufhw17hd4b5a4c95103f43eE.exit: ; preds = %52, %54
@@ -85334,7 +85334,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshuf
 
 61:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pshufhw17hd4b5a4c95103f43eE.exit
   %.val2.i21 = load ptr, ptr %0, align 8, !alias.scope !12076, !noalias !12079, !nonnull !4, !align !17, !noundef !4
-  %62 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i21, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %8, i8 noundef 8), !noalias !12076
+  %62 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i21, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8, i8 noundef 8), !noalias !12076
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit: ; preds = %59, %61
@@ -85566,7 +85566,7 @@ _ZN17cranelift_codegen3isa3x644inst4args6XmmMem3new17h8dfe84e327816be3E.exit.i: 
   br i1 %.not.i, label %104, label %140
 
 104:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE.exit"
-  %105 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_put_xmm_mem_in_xmm17hf691b53327e8527bE(ptr %.val3.i, ptr nonnull %.val3, i16 noundef 123, ptr noalias noundef readonly align 4 dereferenceable(16) %40), !noalias !12127
+  %105 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_put_xmm_mem_in_xmm17hf691b53327e8527bE(ptr %.val3.i, ptr nonnull %.val3, i16 noundef 123, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %40), !noalias !12127
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !12135
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12138)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !12141
@@ -85670,7 +85670,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_to_xm
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundss17h6256092f32073889E.exit
 
 140:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE.exit"
-  %141 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val3.i, i8 -69, ptr noalias noundef readonly align 4 dereferenceable(16) %40, i8 noundef %.0.val), !noalias !12127
+  %141 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val3.i, i8 -69, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %40, i8 noundef %.0.val), !noalias !12127
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundss17h6256092f32073889E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundss17h6256092f32073889E.exit: ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_to_xmm_mem_aligned17h0661ec5f1161aa97E.exit.i, %140
@@ -85831,7 +85831,7 @@ _ZN17cranelift_codegen3isa3x644inst4args6XmmMem3new17h8dfe84e327816be3E.exit.i34
   br i1 %.not.i38, label %191, label %227
 
 191:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE.exit36"
-  %192 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_put_xmm_mem_in_xmm17hf691b53327e8527bE(ptr %.val3.i39, ptr nonnull %.val2, i16 noundef 124, ptr noalias noundef readonly align 4 dereferenceable(16) %38), !noalias !12180
+  %192 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_put_xmm_mem_in_xmm17hf691b53327e8527bE(ptr %.val3.i39, ptr nonnull %.val2, i16 noundef 124, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %38), !noalias !12180
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !12188
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12191)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !12194
@@ -85935,7 +85935,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_to_xm
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundsd17h34dc8ebee3885a76E.exit
 
 227:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE.exit36"
-  %228 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val3.i39, i8 -68, ptr noalias noundef readonly align 4 dereferenceable(16) %38, i8 noundef %.0.val), !noalias !12180
+  %228 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val3.i39, i8 -68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %38, i8 noundef %.0.val), !noalias !12180
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundsd17h34dc8ebee3885a76E.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundsd17h34dc8ebee3885a76E.exit: ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_to_xmm_mem_aligned17h0661ec5f1161aa97E.exit.i42, %227
@@ -86100,7 +86100,7 @@ _ZN17cranelift_codegen3isa3x644inst4args6XmmMem3new17h8dfe84e327816be3E.exit.i83
 
 279:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE.exit85"
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !12233, !noalias !12243, !nonnull !4, !align !17, !noundef !4
-  %280 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i, i8 -112, ptr noalias noundef readonly align 4 dereferenceable(16) %36, i8 noundef %.0.val), !noalias !12233
+  %280 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i, i8 -112, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %36, i8 noundef %.0.val), !noalias !12233
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundps17hbc16b658da476b0aE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundps17hbc16b658da476b0aE.exit: ; preds = %277, %279
@@ -86175,7 +86175,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xm
 
 295:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xmm_mem17h7115b19c9b25703aE.exit
   %.val2.i98 = load ptr, ptr %0, align 8, !alias.scope !12247, !noalias !12250, !nonnull !4, !align !17, !noundef !4
-  %296 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i98, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %34, i8 noundef 1), !noalias !12247
+  %296 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i98, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %34, i8 noundef 1), !noalias !12247
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit: ; preds = %293, %295
@@ -86211,7 +86211,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshuf
   store i8 6, ptr %16, align 4, !alias.scope !12266, !noalias !12258
   %.sroa.41.0..sroa_idx.i.i15.i = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %283, ptr %.sroa.41.0..sroa_idx.i.i15.i, align 4, !alias.scope !12266, !noalias !12258
-  %305 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_movlhps17h7d6043d6fedfc735E(ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %297, ptr noalias noundef readonly align 4 dereferenceable(16) %16)
+  %305 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_movlhps17h7d6043d6fedfc735E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %297, ptr noalias noundef readonly align 4 dereferenceable(16) %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !12258
   store i8 6, ptr %15, align 4, !alias.scope !12271, !noalias !12258
   %.sroa.41.0..sroa_idx.i.i16.i = getelementptr inbounds i8, ptr %15, i64 4
@@ -86257,7 +86257,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xm
 
 314:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xmm_mem17h7115b19c9b25703aE.exit109
   %.val2.i112 = load ptr, ptr %0, align 8, !alias.scope !12284, !noalias !12287, !nonnull !4, !align !17, !noundef !4
-  %315 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i112, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %33, i8 noundef 2), !noalias !12284
+  %315 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i112, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %33, i8 noundef 2), !noalias !12284
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit115
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit115: ; preds = %312, %314
@@ -86338,7 +86338,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xm
 
 333:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xmm_mem17h7115b19c9b25703aE.exit126
   %.val2.i129 = load ptr, ptr %0, align 8, !alias.scope !12321, !noalias !12324, !nonnull !4, !align !17, !noundef !4
-  %334 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i129, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %32, i8 noundef 3), !noalias !12321
+  %334 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i129, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %32, i8 noundef 3), !noalias !12321
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit132
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit132: ; preds = %331, %333
@@ -86530,7 +86530,7 @@ _ZN17cranelift_codegen3isa3x644inst4args6XmmMem3new17h8dfe84e327816be3E.exit.i15
 
 391:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18reg_mem_to_xmm_mem17hab4072b5a21cc37eE.exit160"
   %.val2.i163 = load ptr, ptr %0, align 8, !alias.scope !12375, !noalias !12385, !nonnull !4, !align !17, !noundef !4
-  %392 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i163, i8 -111, ptr noalias noundef readonly align 4 dereferenceable(16) %31, i8 noundef %.0.val), !noalias !12375
+  %392 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i163, i8 -111, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %31, i8 noundef %.0.val), !noalias !12375
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundpd17he3985f38424c9c4bE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_roundpd17he3985f38424c9c4bE.exit: ; preds = %389, %391
@@ -86605,7 +86605,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xm
 
 407:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_reg_to_xmm_mem17h7115b19c9b25703aE.exit173
   %.val2.i176 = load ptr, ptr %0, align 8, !alias.scope !12389, !noalias !12392, !nonnull !4, !align !17, !noundef !4
-  %408 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i176, i8 -96, ptr noalias noundef readonly align 4 dereferenceable(16) %29, i8 noundef 14), !noalias !12389
+  %408 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_xmm_unary_rm_r_imm_vex17h26ca18483601c246E(ptr nonnull %.val2.i176, i8 -96, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %29, i8 noundef 14), !noalias !12389
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit179
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pshufd17h95b2f53433882d7aE.exit179: ; preds = %405, %407
@@ -87276,11 +87276,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic
   br i1 %.not.i, label %100, label %102
 
 100:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic_amode_to_xmm_mem17hff079f5f7cddfc8dE.exit
-  %101 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val1, i8 47, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %101 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code36constructor_xmm_unary_rm_r_unaligned17h7af3bbcda3b23060E(ptr nonnull %.val1, i8 47, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 102:                                              ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic_amode_to_xmm_mem17hff079f5f7cddfc8dE.exit
-  %103 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val1, i8 -91, ptr noalias noundef readonly align 4 dereferenceable(16) %5)
+  %103 = call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_xmm_unary_rm_r_vex17h89d8e51cf049e9abE(ptr nonnull %.val1, i8 -91, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %5)
   br label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit
 
 _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE.exit: ; preds = %100, %102
@@ -91805,12 +91805,12 @@ define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isl
   %6 = getelementptr inbounds i8, ptr %5, i64 368
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !12660
   store i32 %0, ptr %2, align 4, !noalias !12663
-  %7 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12660
+  %7 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12660
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %11, label %8
 
 8:                                                ; preds = %1
-  %9 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12660
+  %9 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12660
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17get_constant_data17hb3a0725de0691e78E.exit"
 
@@ -91879,12 +91879,12 @@ define internal fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle25
   %7 = getelementptr inbounds i8, ptr %6, i64 368
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !12678
   store i32 %0, ptr %2, align 4, !noalias !12681
-  %8 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12678
+  %8 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12678
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %12, label %9
 
 9:                                                ; preds = %1
-  %10 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12678
+  %10 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6613934b08b7357cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2), !noalias !12678
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17get_constant_data17hb3a0725de0691e78E.exit"
 

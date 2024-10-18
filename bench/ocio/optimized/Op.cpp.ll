@@ -1178,7 +1178,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.std::shared_ptr.9") align 8 %opData, ptr noundef nonnull align 8 dereferenceable(168) %0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ops, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %ops, i8 0, i64 24, i1 false)
   %m_metadata.i = getelementptr inbounds i8, ptr %ops, i64 24
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i)
           to label %invoke.cont unwind label %lpad.i
@@ -1186,7 +1186,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ops) #24
+  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %ops) #24
   br label %ehcleanup52
 
 invoke.cont:                                      ; preds = %entry
@@ -5524,7 +5524,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %v) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %this, i8 0, i64 24, i1 false)
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i)
           to label %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit unwind label %lpad.i
@@ -5536,7 +5536,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #24
+  tail call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #24
   br label %common.resume
 
 _ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit:    ; preds = %entry
@@ -5544,7 +5544,7 @@ _ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit:    ; preds = %entry
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit
-  %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %v)
+  %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %v)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
@@ -5942,7 +5942,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %other, i8 0, i64 24, i1 false)
   %m_metadata.i.i = getelementptr inbounds i8, ptr %other, i64 24
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i.i)
           to label %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit.i unwind label %lpad.i.i
@@ -5954,7 +5954,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad.i, 
 lpad.i.i:                                         ; preds = %if.else
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %other) #24
+  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %other) #24
   br label %common.resume
 
 _ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit.i:  ; preds = %if.else
@@ -5962,7 +5962,7 @@ _ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit.i:  ; preds = %if.else
   br i1 %cmp.not.i.i, label %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2ERKS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit.i
-  %call.i2.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %other, ptr noundef nonnull align 8 dereferenceable(24) %v)
+  %call.i2.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(144) %other, ptr noundef nonnull align 8 dereferenceable(144) %v)
           to label %call.i.noexc.i unwind label %lpad.i
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
@@ -6687,7 +6687,7 @@ lpad:                                             ; preds = %for.end
 define hidden void @_ZNK19OpenColorIO_v2_4dev10OpRcPtrVec5cloneEv(ptr noalias sret(%"class.OpenColorIO_v2_4dev::OpRcPtrVec") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.15", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, i8 0, i64 24, i1 false)
   %m_metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i)
           to label %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit unwind label %lpad.i
@@ -6699,7 +6699,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #24
+  tail call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.result) #24
   br label %common.resume
 
 _ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit:    ; preds = %entry
@@ -6762,7 +6762,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEEE9construc
   br label %invoke.cont8
 
 if.else.i.i:                                      ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, ptr %5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, %if.else.i.i
@@ -6949,7 +6949,7 @@ entry:
   %op = alloca %"class.std::shared_ptr.39", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.15", align 8
   %data = alloca %"class.std::shared_ptr.31", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, i8 0, i64 24, i1 false)
   %m_metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i)
           to label %_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit unwind label %lpad.i
@@ -6961,7 +6961,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #24
+  tail call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.result) #24
   br label %common.resume
 
 _ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev.exit:    ; preds = %entry
@@ -7063,7 +7063,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEEE9construc
   br label %invoke.cont14
 
 if.else.i.i:                                      ; preds = %invoke.cont12
-  invoke void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, ptr %11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, %if.else.i.i

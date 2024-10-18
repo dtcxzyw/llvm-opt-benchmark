@@ -143,7 +143,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_ghash_processBlocksEv(pt
   %30 = load ptr, ptr %6, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #6
+  call void %32(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5) #6
   %33 = getelementptr inbounds i8, ptr %5, i64 40
   %34 = getelementptr inbounds i8, ptr %6, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
@@ -195,7 +195,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_ghash_processBlocksEv(pt
   %56 = load ptr, ptr %10, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(40) %9) #6
+  call void %58(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %9) #6
   %59 = getelementptr inbounds i8, ptr %9, i64 40
   %60 = getelementptr inbounds i8, ptr %10, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
@@ -560,7 +560,7 @@ define hidden void @_ZN13StubGenerator9avx_ghashE8RegisterS0_S0_S0_(ptr noundef 
   %86 = load ptr, ptr %19, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #6
+  call void %88(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %18) #6
   %89 = getelementptr inbounds i8, ptr %18, i64 40
   %90 = getelementptr inbounds i8, ptr %19, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false)
@@ -624,7 +624,7 @@ define hidden void @_ZN13StubGenerator9avx_ghashE8RegisterS0_S0_S0_(ptr noundef 
   %118 = load ptr, ptr %23, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #6
+  call void %120(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %22) #6
   %121 = getelementptr inbounds i8, ptr %22, i64 40
   %122 = getelementptr inbounds i8, ptr %23, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false)
@@ -896,10 +896,10 @@ define hidden void @_ZN13StubGenerator9avx_ghashE8RegisterS0_S0_S0_(ptr noundef 
   %247 = getelementptr inbounds i8, ptr %33, i64 40
   store i32 0, ptr %247, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %33, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %33, i64 21, i1 false)
   %248 = getelementptr inbounds i8, ptr %6, i64 24
   %249 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(20) %245, ptr noundef nonnull align 8 dereferenceable(40) %248) #6
+  call void %249(ptr noundef nonnull align 8 dereferenceable(40) %245, ptr noundef nonnull align 8 dereferenceable(40) %248) #6
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %239, i32 %3, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   %250 = load ptr, ptr %69, align 8
@@ -934,7 +934,7 @@ define hidden void @_ZN13StubGenerator9avx_ghashE8RegisterS0_S0_S0_(ptr noundef 
   %264 = load ptr, ptr %36, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 16
   %266 = load ptr, ptr %265, align 8
-  call void %266(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #6
+  call void %266(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %35) #6
   %267 = getelementptr inbounds i8, ptr %35, i64 40
   %268 = getelementptr inbounds i8, ptr %36, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %267, ptr noundef nonnull align 8 dereferenceable(16) %268, i64 16, i1 false)
@@ -1179,7 +1179,7 @@ define hidden void @_ZN13StubGenerator22generateHtbl_one_blockE8RegisterS0_(ptr 
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #6
+  call void %25(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5) #6
   %26 = getelementptr inbounds i8, ptr %5, i64 40
   %27 = getelementptr inbounds i8, ptr %6, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
@@ -1193,7 +1193,7 @@ define hidden void @_ZN13StubGenerator22generateHtbl_one_blockE8RegisterS0_(ptr 
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #6
+  call void %33(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %7) #6
   %34 = getelementptr inbounds i8, ptr %7, i64 40
   %35 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
@@ -1211,7 +1211,7 @@ define hidden void @_ZN13StubGenerator22generateHtbl_one_blockE8RegisterS0_(ptr 
   %41 = load ptr, ptr %10, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(40) %9) #6
+  call void %43(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %9) #6
   %44 = getelementptr inbounds i8, ptr %9, i64 40
   %45 = getelementptr inbounds i8, ptr %10, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)

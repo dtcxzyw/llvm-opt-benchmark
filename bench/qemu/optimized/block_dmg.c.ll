@@ -224,7 +224,7 @@ if.end20:                                         ; preds = %dmg_find_koly_offse
   %add = add nuw i64 %add48.i, 24
   %bs.val = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i71)
-  %call.i72 = call i32 @bdrv_pread(ptr noundef %bs.val, i64 noundef %add, i64 noundef 8, ptr noundef nonnull %buffer.i71, i32 noundef 0) #11
+  %call.i72 = call i32 @bdrv_pread(ptr noundef %bs.val, i64 noundef range(i64 24, -9223372036854775316) %add, i64 noundef 8, ptr noundef nonnull %buffer.i71, i32 noundef 0) #11
   %cmp.i73 = icmp slt i32 %call.i72, 0
   br i1 %cmp.i73, label %read_uint64.exit.thread, label %if.else26
 
@@ -244,7 +244,7 @@ if.end32:                                         ; preds = %if.else26
   %add33 = add nuw i64 %add48.i, 40
   %bs.val66 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i75)
-  %call.i76 = call i32 @bdrv_pread(ptr noundef %bs.val66, i64 noundef %add33, i64 noundef 8, ptr noundef nonnull %buffer.i75, i32 noundef 0) #11
+  %call.i76 = call i32 @bdrv_pread(ptr noundef %bs.val66, i64 noundef range(i64 24, -9223372036854775316) %add33, i64 noundef 8, ptr noundef nonnull %buffer.i75, i32 noundef 0) #11
   %cmp.i77 = icmp slt i32 %call.i76, 0
   br i1 %cmp.i77, label %read_uint64.exit80.thread, label %if.end38
 
@@ -259,7 +259,7 @@ if.end38:                                         ; preds = %if.end32
   %add39 = add nuw i64 %add48.i, 48
   %bs.val67 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i81)
-  %call.i82 = call i32 @bdrv_pread(ptr noundef %bs.val67, i64 noundef %add39, i64 noundef 8, ptr noundef nonnull %buffer.i81, i32 noundef 0) #11
+  %call.i82 = call i32 @bdrv_pread(ptr noundef %bs.val67, i64 noundef range(i64 24, -9223372036854775316) %add39, i64 noundef 8, ptr noundef nonnull %buffer.i81, i32 noundef 0) #11
   %cmp.i83 = icmp slt i32 %call.i82, 0
   br i1 %cmp.i83, label %read_uint64.exit86.thread, label %if.end44
 
@@ -281,7 +281,7 @@ if.end50:                                         ; preds = %if.end44
   %add51 = add nuw i64 %add48.i, 216
   %bs.val68 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i87)
-  %call.i88 = call i32 @bdrv_pread(ptr noundef %bs.val68, i64 noundef %add51, i64 noundef 8, ptr noundef nonnull %buffer.i87, i32 noundef 0) #11
+  %call.i88 = call i32 @bdrv_pread(ptr noundef %bs.val68, i64 noundef range(i64 24, -9223372036854775316) %add51, i64 noundef 8, ptr noundef nonnull %buffer.i87, i32 noundef 0) #11
   %cmp.i89 = icmp slt i32 %call.i88, 0
   br i1 %cmp.i89, label %read_uint64.exit92.thread, label %if.end56
 
@@ -296,7 +296,7 @@ if.end56:                                         ; preds = %if.end50
   %add57 = add nuw i64 %add48.i, 224
   %bs.val69 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i93)
-  %call.i94 = call i32 @bdrv_pread(ptr noundef %bs.val69, i64 noundef %add57, i64 noundef 8, ptr noundef nonnull %buffer.i93, i32 noundef 0) #11
+  %call.i94 = call i32 @bdrv_pread(ptr noundef %bs.val69, i64 noundef range(i64 24, -9223372036854775316) %add57, i64 noundef 8, ptr noundef nonnull %buffer.i93, i32 noundef 0) #11
   %cmp.i95 = icmp slt i32 %call.i94, 0
   br i1 %cmp.i95, label %read_uint64.exit98.thread, label %if.end62
 
@@ -318,7 +318,7 @@ if.end70:                                         ; preds = %if.end62
   %add71 = add nuw i64 %add48.i, 492
   %bs.val70 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i99)
-  %call.i100 = call i32 @bdrv_pread(ptr noundef %bs.val70, i64 noundef %add71, i64 noundef 8, ptr noundef nonnull %buffer.i99, i32 noundef 0) #11
+  %call.i100 = call i32 @bdrv_pread(ptr noundef %bs.val70, i64 noundef range(i64 24, -9223372036854775316) %add71, i64 noundef 8, ptr noundef nonnull %buffer.i99, i32 noundef 0) #11
   %cmp.i101 = icmp slt i32 %call.i100, 0
   br i1 %cmp.i101, label %read_uint64.exit104.thread, label %if.end76
 

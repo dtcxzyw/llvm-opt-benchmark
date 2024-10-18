@@ -2326,7 +2326,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %invoke.cont24 unwind label %lpad19
 
 invoke.cont24:                                    ; preds = %invoke.cont18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements_no_scheme, ptr noundef nonnull align 8 dereferenceable(64) %replacements, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %replacements_no_scheme, ptr noundef nonnull align 8 dereferenceable(136) %replacements, i64 64, i1 false)
   %components_.i62 = getelementptr inbounds i8, ptr %replacements_no_scheme, i64 64
   invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %components_.i62, ptr noundef nonnull align 8 dereferenceable(72) %components_.i)
           to label %invoke.cont26 unwind label %lpad19
@@ -2725,7 +2725,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %invoke.cont23 unwind label %lpad18
 
 invoke.cont23:                                    ; preds = %invoke.cont17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements_no_scheme, ptr noundef nonnull align 8 dereferenceable(64) %replacements, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %replacements_no_scheme, ptr noundef nonnull align 8 dereferenceable(136) %replacements, i64 64, i1 false)
   %components_.i62 = getelementptr inbounds i8, ptr %replacements_no_scheme, i64 64
   invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %components_.i62, ptr noundef nonnull align 8 dereferenceable(72) %components_.i)
           to label %invoke.cont25 unwind label %lpad18

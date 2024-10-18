@@ -28,7 +28,7 @@ define void @_ZN8WasmEdge4LLVM4DataC2Ev(ptr noundef nonnull align 8 dereferencea
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, i8 0, i64 72, i1 false)
   store ptr %11, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 1, ptr %12, align 8
@@ -134,7 +134,7 @@ define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferen
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 72, i1 false)
   store ptr %7, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 1, ptr %8, align 8

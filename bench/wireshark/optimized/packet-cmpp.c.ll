@@ -799,9 +799,9 @@ define internal fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 nou
   %38 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %37, ptr noundef %1, i32 noundef %31, i32 noundef 3, i32 noundef %34) #3
   %39 = load i32, ptr @hf_msg_id_sequence_id, align 4
   %40 = add nuw nsw i32 %3, 6
-  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %40) #3
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef range(i32 18, 96) %40) #3
   %42 = zext i16 %41 to i32
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %39, ptr noundef %1, i32 noundef %40, i32 noundef 2, i32 noundef %42) #3
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 18, 96) %40, i32 noundef 2, i32 noundef %42) #3
   ret void
 }
 

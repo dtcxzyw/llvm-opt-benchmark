@@ -153,7 +153,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp, i64 6, i1 false)
   %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
@@ -310,7 +310,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp, i64 6, i1 false)
   %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
@@ -419,7 +419,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp, i64 6, i1 false)
   %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
@@ -528,7 +528,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #18
   %strip_nonfunctional_codegen.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store i8 0, ptr %strip_nonfunctional_codegen.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %name_resolver, ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp, i64 6, i1 false)
   %annotation_list_file.i.i = getelementptr inbounds i8, ptr %name_resolver, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i)
           to label %.noexc unwind label %lpad
@@ -649,7 +649,7 @@ lpad:                                             ; preds = %if.else, %if.end, %
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %options, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %options, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %options, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -738,7 +738,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden void @_ZN6google8protobuf8compiler4java15FileJavaPackageB5cxx11EPKNS0_14FileDescriptorENS2_7OptionsE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %file, ptr noundef %options) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %options, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %options, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %options, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)

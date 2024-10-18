@@ -310,7 +310,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc7 unwind label %45
 
 .noexc7:                                          ; preds = %.noexc
@@ -327,7 +327,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 25:                                               ; preds = %27, %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 27:                                               ; preds = %.noexc7
@@ -668,7 +668,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #19
   ret void
 }
@@ -680,7 +680,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
@@ -697,7 +697,7 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #19
   ret void
 }
@@ -713,9 +713,9 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #19
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %5) #26
   ret void
 }
 
@@ -924,7 +924,7 @@ define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tuple
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPiEDnEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }

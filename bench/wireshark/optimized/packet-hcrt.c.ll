@@ -315,7 +315,7 @@ dissect_hcrt_header.exit.i:                       ; preds = %70, %81
   %90 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %38) #2
   %91 = add i32 %.049, 4
   %92 = load i32, ptr @hf_hcrt_body, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef %.0.i, i32 noundef 0) #2
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef range(i32 0, 32769) %.0.i, i32 noundef 0) #2
   %94 = load i32, ptr @ett_hcrt_body, align 4
   %95 = tail call ptr @proto_item_add_subtree(ptr noundef %93, i32 noundef %94) #2
   switch i32 %47, label %default.unreachable [
@@ -327,7 +327,7 @@ dissect_hcrt_header.exit.i:                       ; preds = %70, %81
 
 96:                                               ; preds = %dissect_hcrt_header.exit.i
   %97 = load i32, ptr @hf_hcrt_command_nop, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %97, ptr noundef %0, i32 noundef %91, i32 noundef %.0.i, i32 noundef 0) #2
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %97, ptr noundef %0, i32 noundef %91, i32 noundef range(i32 0, 32769) %.0.i, i32 noundef 0) #2
   br label %dissect_hcrt_message.exit
 
 99:                                               ; preds = %dissect_hcrt_header.exit.i
@@ -385,7 +385,7 @@ dissect_hcrt_header.exit.i:                       ; preds = %70, %81
 
 126:                                              ; preds = %125
   %127 = load i32, ptr @hf_hcrt_command_nop, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %127, ptr noundef %0, i32 noundef %91, i32 noundef %.0.i, i32 noundef 0) #2
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %127, ptr noundef %0, i32 noundef %91, i32 noundef range(i32 0, 32769) %.0.i, i32 noundef 0) #2
   br label %dissect_hcrt_message.exit
 
 dissect_hcrt_message.exit:                        ; preds = %.lr.ph.i.i, %.lr.ph52.i.i, %96, %101, %109, %119, %122, %125, %126

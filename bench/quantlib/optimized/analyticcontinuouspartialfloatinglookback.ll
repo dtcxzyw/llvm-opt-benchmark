@@ -2615,7 +2615,7 @@ _ZNK8QuantLib47AnalyticContinuousPartialFloatingLookbackEngine12residualTimeEv.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #27
   %minmax.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %9 = load double, ptr %minmax.i, align 8, !tbaa !79
-  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %3, double noundef %call4.i, i1 noundef zeroext false)
+  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %3, double noundef %call4.i, i1 noundef zeroext false)
   call void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68) %3, double noundef %9, i1 noundef zeroext false)
   %vtable.i4 = load ptr, ptr %3, align 8, !tbaa !35
   %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 112
@@ -3625,7 +3625,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib47AnalyticContinuousPartialFloatingLookbackEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 440) #32
   ret void
 }
@@ -3765,7 +3765,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib47AnalyticContinuousPartialFloatingLookbackEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #27
   ret void
 }
 
@@ -3814,8 +3814,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib47AnalyticContinuousPartialFloatingLookbackEngineD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 440) #32
+  tail call void @_ZN8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(440) %0, i64 noundef 440) #32
   ret void
 }
 
@@ -3823,7 +3823,7 @@ _ZN8QuantLib47AnalyticContinuousPartialFloatingLookbackEngineD0Ev.exit: ; preds 
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_39ContinuousPartialFloatingLookbackOption9argumentsENS_14OneAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
   ret void
 }
 
@@ -4123,7 +4123,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8QuantLib32ContinuousFloatingLookbackOption9argumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arguments_, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib39ContinuousPartialFloatingLookbackOption9argumentsE, i64 8)) #27
+  tail call void @_ZN8QuantLib32ContinuousFloatingLookbackOption9argumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arguments_, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib39ContinuousPartialFloatingLookbackOption9argumentsE, i64 8)) #27
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %entry
@@ -4310,7 +4310,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %24 = phi ptr [ %23, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -4822,7 +4822,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 
@@ -4928,7 +4928,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 

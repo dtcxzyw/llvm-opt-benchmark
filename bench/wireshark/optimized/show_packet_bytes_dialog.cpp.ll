@@ -2532,7 +2532,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41:    ; preds = %49
 
 _ZN7QStringD2Ev.exit43:                           ; preds = %49, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41, %52
   %54 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
-  invoke void @_ZN9QTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull %1)
+  invoke void @_ZN9QTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(42) %54, ptr noundef nonnull %1)
           to label %55 unwind label %259
 
 55:                                               ; preds = %_ZN7QStringD2Ev.exit43
@@ -2959,7 +2959,7 @@ _ZN7QStringD2Ev.exit121:                          ; preds = %197, %_ZN17QArrayDa
   %203 = load ptr, ptr %196, align 8
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %202, ptr noundef %203, i32 noundef 0, i32 0)
   %204 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
-  invoke void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %204, ptr noundef nonnull %1)
+  invoke void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(41) %204, ptr noundef nonnull %1)
           to label %205 unwind label %363
 
 205:                                              ; preds = %_ZN7QStringD2Ev.exit121
@@ -4354,7 +4354,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %27
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #22
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #22
   ret void
 }
 
@@ -4379,7 +4379,7 @@ define void @_ZN21ShowPacketBytesDialogD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N21ShowPacketBytesDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21ShowPacketBytesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(264) %2) #23
   ret void
 }
 

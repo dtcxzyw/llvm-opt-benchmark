@@ -55,7 +55,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventListC2Ev(ptr nound
   store float 1.000000e+00, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %2) #12
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %2) #12
   %16 = load i64, ptr %4, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %4, align 8
@@ -158,7 +158,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList6AppendEOS0_(p
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %4, ptr noundef nonnull %3) #12
+  tail call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48

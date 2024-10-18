@@ -774,7 +774,7 @@ entry:
   %m_table = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %n, ptr %ref.tmp.i, align 8
-  %call.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(52) %m_table, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  %call.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(56) %m_table, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %cmp = icmp eq ptr %call.i, null
   %call.i3 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef 16)
@@ -788,7 +788,7 @@ if.then:                                          ; preds = %entry
   store ptr %n, ptr %ref.tmp.i4, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 8
   store ptr %call.i3, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(52) %m_table, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i4)
+  call void @_ZN14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(56) %m_table, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i4)
   br label %if.end
 
@@ -812,7 +812,7 @@ entry:
   %m_table = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %n, ptr %ref.tmp.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(52) %m_table, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  %call.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(56) %m_table, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %tobool.i.not = icmp eq ptr %call.i.i, null
   br i1 %tobool.i.not, label %_ZNK9table2mapI17default_map_entryIPN3smt5enodeEP4listIS3_EENS1_15almost_cg_table7cg_hashENS8_5cg_eqEE4findERKS3_RS6_.exit, label %if.then.i
@@ -843,7 +843,7 @@ declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S6_E(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %e, align 8
-  %call.i.i = tail call noundef i32 @_ZNK3smt15almost_cg_table7cg_hashclEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  %call.i.i = tail call noundef i32 @_ZNK3smt15almost_cg_table7cg_hashclEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %0)
   %m_capacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %1, -1
@@ -1119,7 +1119,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %3 = phi i32 [ %.pre, %if.then ], [ %2, %entry ]
   %4 = load ptr, ptr %e, align 8
-  %call.i.i = tail call noundef i32 @_ZNK3smt15almost_cg_table7cg_hashclEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4)
+  %call.i.i = tail call noundef i32 @_ZNK3smt15almost_cg_table7cg_hashclEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %4)
   %sub = add i32 %3, -1
   %and = and i32 %sub, %call.i.i
   %m_table = getelementptr inbounds i8, ptr %this, i64 32

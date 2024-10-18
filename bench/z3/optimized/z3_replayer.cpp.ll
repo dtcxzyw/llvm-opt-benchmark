@@ -204,7 +204,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -214,7 +214,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %cleanup.action
 
 invoke.cont:                                      ; preds = %.noexc
@@ -273,7 +273,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -848,7 +848,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %while.body
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -858,7 +858,7 @@ call.i.noexc:                                     ; preds = %while.body
 lpad.i:                                           ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #23
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1984,7 +1984,7 @@ _ZN11z3_replayer3imp10skip_blankEv.exit315:       ; preds = %while.body.i310
   store i64 %148, ptr %ref.tmp.i316, align 8
   %149 = load ptr, ptr %m_result, align 8
   store ptr %149, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i316)
+  call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i316)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i316)
   br label %while.body.backedge
 
@@ -2045,7 +2045,7 @@ _ZN11z3_replayer3imp10skip_blankEv.exit339:       ; preds = %while.body.i334
   store i64 %158, ptr %ref.tmp.i342, align 8
   %159 = load ptr, ptr %157, align 8
   store ptr %159, ptr %m_value.i.i343, align 8
-  call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i342)
+  call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i342)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i342)
   br label %while.body.backedge
 
@@ -2139,7 +2139,7 @@ _ZN11z3_replayer3imp10skip_blankEv.exit380:       ; preds = %while.body.i375
   store i64 %175, ptr %ref.tmp.i383, align 8
   %176 = load ptr, ptr %arrayidx.i382, align 8
   store ptr %176, ptr %m_value.i.i384, align 8
-  call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i383)
+  call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i383)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i383)
   br label %while.body.backedge
 

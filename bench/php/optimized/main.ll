@@ -3452,7 +3452,7 @@ define range(i32 -1, 1) i32 @php_handle_auth_data(ptr noundef %0) local_unnamed_
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 6
   %9 = add i64 %3, -6
-  %10 = tail call ptr @php_base64_decode_ex(ptr noundef nonnull %8, i64 noundef %9, i1 noundef zeroext false) #29
+  %10 = tail call ptr @php_base64_decode_ex(ptr noundef nonnull %8, i64 noundef range(i64 -5, -6) %9, i1 noundef zeroext false) #29
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %29, label %11
 

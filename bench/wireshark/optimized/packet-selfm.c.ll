@@ -958,7 +958,7 @@ define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond, label %27, label %52
 
 27:                                               ; preds = %21
-  %28 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %5) #4
+  %28 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 3, -2147483648) %5) #4
   %29 = getelementptr inbounds i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %5 to i64

@@ -531,7 +531,7 @@ CostManagerInitFreeList.exit.i.i:                 ; preds = %207
 222:                                              ; preds = %216
   %223 = trunc i64 %indvars.iv.i.i to i32
   %224 = add i32 %223, -1
-  %225 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %224, i1 true)
+  %225 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 511, 2147483647) %224, i1 true)
   %226 = sub nuw nsw i32 30, %225
   %227 = lshr i32 %224, %226
   %228 = and i32 %227, 1
@@ -851,7 +851,7 @@ AddSingleLiteralWithCostModel.exit124.i:          ; preds = %374, %370
 
 386:                                              ; preds = %378
   %387 = add nsw i32 %379, -1
-  %388 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %387, i1 true)
+  %388 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 511, 2147483647) %387, i1 true)
   %389 = sub nuw nsw i32 30, %388
   %390 = lshr i32 %387, %389
   %391 = and i32 %390, 1

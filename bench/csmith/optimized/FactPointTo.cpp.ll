@@ -504,7 +504,7 @@ declare noundef i32 @_Z26find_field_variable_in_setRKSt6vectorIPK8VariableSaIS2_
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8VariableRKSt6vectorIS2_SaIS2_EE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1)
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %2
@@ -558,7 +558,7 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i: ; preds 
 22:                                               ; preds = %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   br label %.body
 
 24:                                               ; preds = %18, %.noexc4.i.thread
@@ -2354,7 +2354,7 @@ define dso_local noundef nonnull ptr @_ZNK11FactPointTo5cloneEv(ptr nocapture no
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef 1)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 1)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %1
@@ -2409,7 +2409,7 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i: ; preds 
 24:                                               ; preds = %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #24
   br label %.body
 
 26:                                               ; preds = %20, %.noexc4.i.thread
@@ -2507,7 +2507,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8Variable(ptr noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef 1)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 1)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
@@ -2522,7 +2522,7 @@ define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8Variable(ptr
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #24
   br label %.body
 
 7:                                                ; preds = %.noexc
@@ -2618,7 +2618,7 @@ _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %14, %_ZNSt6vectorIP
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8VariableS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %2
@@ -2633,7 +2633,7 @@ define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8VariableS2_(
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   br label %.body
 
 8:                                                ; preds = %.noexc
@@ -2882,7 +2882,7 @@ define dso_local void @_ZN11FactPointToD0Ev(ptr noundef nonnull align 8 derefere
   br label %_ZN11FactPointToD2Ev.exit
 
 _ZN11FactPointToD2Ev.exit:                        ; preds = %1, %4
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #24
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2932,7 +2932,7 @@ declare noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN11FactPointTo12is_valid_ptrEPK8VariableRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.FactPointTo, align 8
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11FactPointTo, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8
@@ -2948,7 +2948,7 @@ common.resume:                                    ; preds = %45, %_ZNSt6vectorIP
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   br label %common.resume
 
 _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %2
@@ -3034,7 +3034,7 @@ _ZNK11FactPointTo7is_nullEv.exit:                 ; preds = %30, %35, %41, %13
   br label %_ZN11FactPointToD2Ev.exit
 
 _ZN11FactPointToD2Ev.exit:                        ; preds = %_ZNK11FactPointTo7is_nullEv.exit, %44
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   ret i1 %42
 
 45:                                               ; preds = %37, %_ZNK11FactPointTo7is_nullEv.exit.thread, %14, %_ZN11FactPointToC2EPK8Variable.exit
@@ -3146,7 +3146,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11FactPointTo22opportunistic_va
   %11 = getelementptr inbounds i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11FactPointTo, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %13, ptr %14, align 8
@@ -3162,7 +3162,7 @@ common.resume:                                    ; preds = %25, %_ZNSt6vectorIP
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %9
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #24
   br label %common.resume
 
 _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %9
@@ -3266,7 +3266,7 @@ _ZNK11FactPointTo7is_nullEv.exit.thread:          ; preds = %40, %30, %49
   br label %_ZN11FactPointToD2Ev.exit
 
 _ZN11FactPointToD2Ev.exit:                        ; preds = %.thread, %59
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #24
   br label %60
 
 60:                                               ; preds = %3, %_ZN11FactPointToD2Ev.exit
@@ -3281,7 +3281,7 @@ declare noundef zeroext i1 @_Z12rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN11FactPointTo15is_dangling_ptrEPK8VariableRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.FactPointTo, align 8
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11FactPointTo, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8
@@ -3297,7 +3297,7 @@ common.resume:                                    ; preds = %27, %_ZNSt6vectorIP
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   br label %common.resume
 
 _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %2
@@ -3346,7 +3346,7 @@ _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %2
   br label %_ZN11FactPointToD2Ev.exit
 
 _ZN11FactPointToD2Ev.exit:                        ; preds = %23, %26
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   ret i1 %24
 
 27:                                               ; preds = %14, %19, %_ZN11FactPointToC2EPK8Variable.exit
@@ -3405,7 +3405,7 @@ _ZNK8Variable10is_pointerEv.exit:                 ; preds = %14
   br i1 %31, label %.noexc, label %64
 
 .noexc:                                           ; preds = %30
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 1)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11FactPointTo, i64 16), ptr %5, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.038, ptr %32, align 8
@@ -3417,7 +3417,7 @@ _ZNK8Variable10is_pointerEv.exit:                 ; preds = %14
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %.noexc
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #24
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit61
 
 36:                                               ; preds = %.noexc
@@ -3509,7 +3509,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit:    ; preds = %42, %_ZSt4copyIN9__
   br label %_ZN11FactPointToD2Ev.exit
 
 _ZN11FactPointToD2Ev.exit:                        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit, %63
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #24
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 64:                                               ; preds = %30
@@ -4489,7 +4489,7 @@ define dso_local void @_ZN11FactPointTo26merge_pointees_of_pointersERKSt6vectorI
   br label %.body
 
 25:                                               ; preds = %12
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 1)
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %25
@@ -4502,7 +4502,7 @@ define dso_local void @_ZN11FactPointTo26merge_pointees_of_pointersERKSt6vectorI
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %.noexc
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #24
   br label %.body
 
 28:                                               ; preds = %.noexc
@@ -4572,7 +4572,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %.noexc
   br label %_ZN11FactPointToD2Ev.exit
 
 _ZN11FactPointToD2Ev.exit:                        ; preds = %.loopexit, %52
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #24
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #24
   %.pre = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8
   %.pre31 = load ptr, ptr @_ZN11FactPointTo11garbage_ptrE, align 8
   %.pre33 = load ptr, ptr @_ZN11FactPointTo7tbd_ptrE, align 8

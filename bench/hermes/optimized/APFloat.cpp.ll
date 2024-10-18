@@ -1681,7 +1681,7 @@ if.then29:                                        ; preds = %if.end27
   %retval.0.i.i36 = select i1 %cmp.i.i34, ptr %24, ptr %significand.i.i.i
   %sub.i.i.i37 = add i32 %22, 64
   %div1.i.i.i38 = lshr i32 %sub.i.i.i37, 6
-  %call.i.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i36, i32 noundef %div1.i.i.i38) #26
+  %call.i.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i36, i32 noundef range(i32 0, 67108864) %div1.i.i.i38) #26
   %cmp.not.i.i.i = icmp ugt i32 %spec.select, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit.thread
 
@@ -1707,13 +1707,13 @@ if.end7.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 _ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i, %if.end7.i.i.i
   %spec.store.select.i = phi i32 [ 1, %if.end7.i.i.i ], [ 3, %if.end.i.i.i ], [ 3, %land.lhs.true.i.i.i ]
   %retval.0.i.i.i39 = phi i32 [ 1, %if.end7.i.i.i ], [ 2, %if.end.i.i.i ], [ 3, %land.lhs.true.i.i.i ]
-  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i36, i32 noundef %div1.i.i.i38, i32 noundef %spec.select) #26
+  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i36, i32 noundef range(i32 0, 67108864) %div1.i.i.i38, i32 noundef %spec.select) #26
   %cmp.not.i = icmp eq i32 %lost_fraction, 0
   %spec.select100 = select i1 %cmp.not.i, i32 %retval.0.i.i.i39, i32 %spec.store.select.i
   br label %_ZN4llvhL20combineLostFractionsENS_12lostFractionES0_.exit
 
 _ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit.thread: ; preds = %if.then29
-  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i36, i32 noundef %div1.i.i.i38, i32 noundef %spec.select) #26
+  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i36, i32 noundef range(i32 0, 67108864) %div1.i.i.i38, i32 noundef %spec.select) #26
   %cmp.not.i84 = icmp ne i32 %lost_fraction, 0
   %spec.select99 = zext i1 %cmp.not.i84 to i32
   br label %_ZN4llvhL20combineLostFractionsENS_12lostFractionES0_.exit
@@ -1861,8 +1861,8 @@ if.end70:                                         ; preds = %if.then58
   %retval.0.i.i66 = select i1 %cmp.i.i64, ptr %47, ptr %significand.i.i.i
   %sub.i.i.i67 = add i32 %45, 64
   %div1.i.i.i68 = lshr i32 %sub.i.i.i67, 6
-  %call.i.i.i69 = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i66, i32 noundef %div1.i.i.i68) #26
-  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i66, i32 noundef %div1.i.i.i68, i32 noundef 1) #26
+  %call.i.i.i69 = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i66, i32 noundef range(i32 0, 67108864) %div1.i.i.i68) #26
+  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i66, i32 noundef range(i32 0, 67108864) %div1.i.i.i68, i32 noundef 1) #26
   br label %return
 
 if.end73:                                         ; preds = %sw.bb3.i, %land.lhs.true.i42, %if.end43, %if.then7.i, %sw.bb11.i, %sw.bb16.i, %if.end51, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
@@ -2250,8 +2250,8 @@ if.end41:                                         ; preds = %if.end33, %if.then3
   %retval.0.i.i42 = select i1 %cmp.i.i40, ptr %22, ptr %significand.i.i41
   %sub.i.i.i = add i32 %20, 64
   %div1.i.i.i = lshr i32 %sub.i.i.i, 6
-  %call.i.i.i = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i42, i32 noundef %div1.i.i.i) #26
-  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i42, i32 noundef %div1.i.i.i, i32 noundef 1) #26
+  %call.i.i.i = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i42, i32 noundef range(i32 0, 67108864) %div1.i.i.i) #26
+  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i42, i32 noundef range(i32 0, 67108864) %div1.i.i.i, i32 noundef 1) #26
   %call45 = call noundef i32 @_ZN4llvh6detail9IEEEFloat24addOrSubtractSignificandERKS1_b(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %extendedAddend, i1 noundef zeroext false)
   br i1 %cmp36, label %if.then47, label %if.end50
 
@@ -2296,7 +2296,7 @@ if.then62:                                        ; preds = %if.end55
   %sub63 = sub nuw i32 %omsb.0, %1
   %sub.i44 = add i32 %omsb.0, 63
   %div1.i45 = lshr i32 %sub.i44, 6
-  %call.i.i = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef nonnull %fullSignificand.0, i32 noundef %div1.i45) #26
+  %call.i.i = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef nonnull %fullSignificand.0, i32 noundef range(i32 0, 67108864) %div1.i45) #26
   %cmp.not.i.i = icmp ugt i32 %sub63, %call.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4llvhL10shiftRightEPmjj.exit.thread
 
@@ -2322,13 +2322,13 @@ if.end7.i.i:                                      ; preds = %land.lhs.true.i.i, 
 _ZN4llvhL10shiftRightEPmjj.exit:                  ; preds = %if.end.i.i, %land.lhs.true.i.i, %if.end7.i.i
   %spec.store.select.i = phi i32 [ 1, %if.end7.i.i ], [ 3, %if.end.i.i ], [ 3, %land.lhs.true.i.i ]
   %retval.0.i.i46 = phi i32 [ 1, %if.end7.i.i ], [ 2, %if.end.i.i ], [ 3, %land.lhs.true.i.i ]
-  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef nonnull %fullSignificand.0, i32 noundef %div1.i45, i32 noundef %sub63) #26
+  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef nonnull %fullSignificand.0, i32 noundef range(i32 0, 67108864) %div1.i45, i32 noundef %sub63) #26
   %cmp.not.i = icmp eq i32 %lost_fraction.0, 0
   %spec.select53 = select i1 %cmp.not.i, i32 %retval.0.i.i46, i32 %spec.store.select.i
   br label %_ZN4llvhL20combineLostFractionsENS_12lostFractionES0_.exit
 
 _ZN4llvhL10shiftRightEPmjj.exit.thread:           ; preds = %if.then62
-  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef nonnull %fullSignificand.0, i32 noundef %div1.i45, i32 noundef %sub63) #26
+  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef nonnull %fullSignificand.0, i32 noundef range(i32 0, 67108864) %div1.i45, i32 noundef %sub63) #26
   %cmp.not.i49 = icmp ne i32 %lost_fraction.0, 0
   %spec.select = zext i1 %cmp.not.i49 to i32
   br label %_ZN4llvhL20combineLostFractionsENS_12lostFractionES0_.exit
@@ -2464,7 +2464,7 @@ if.then52:                                        ; preds = %land.lhs.true44
   %20 = load ptr, ptr %significand.i46, align 8
   %retval.0.i47 = select i1 %cmp.i45, ptr %20, ptr %significand.i46
   %sub54 = sub nsw i32 0, %shift.097
-  %call.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i47, i32 noundef %div1.i.i) #26
+  %call.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i47, i32 noundef range(i32 0, 67108864) %div1.i.i) #26
   %cmp.not.i.i = icmp ult i32 %call.i.i, %sub54
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4llvhL10shiftRightEPmjj.exit
 
@@ -2489,7 +2489,7 @@ if.end7.i.i:                                      ; preds = %land.lhs.true.i.i, 
 
 _ZN4llvhL10shiftRightEPmjj.exit:                  ; preds = %if.then52, %if.end.i.i, %land.lhs.true.i.i, %if.end7.i.i
   %retval.0.i.i = phi i32 [ 1, %if.end7.i.i ], [ 0, %if.then52 ], [ 2, %if.end.i.i ], [ 3, %land.lhs.true.i.i ]
-  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i47, i32 noundef %div1.i.i, i32 noundef %sub54) #26
+  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i47, i32 noundef range(i32 0, 67108864) %div1.i.i, i32 noundef %sub54) #26
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true44, %if.end, %_ZN4llvhL10shiftRightEPmjj.exit, %if.end42
@@ -2690,7 +2690,7 @@ entry:
   %retval.0.i = select i1 %cmp.i, ptr %5, ptr %significand.i
   %sub.i.i = add i32 %3, 64
   %div1.i.i = lshr i32 %sub.i.i, 6
-  %call.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i, i32 noundef %div1.i.i) #26
+  %call.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i, i32 noundef range(i32 0, 67108864) %div1.i.i) #26
   %cmp.not.i.i = icmp ugt i32 %bits, %call.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4llvhL10shiftRightEPmjj.exit
 
@@ -2715,7 +2715,7 @@ if.end7.i.i:                                      ; preds = %land.lhs.true.i.i, 
 
 _ZN4llvhL10shiftRightEPmjj.exit:                  ; preds = %entry, %if.end.i.i, %land.lhs.true.i.i, %if.end7.i.i
   %retval.0.i.i = phi i32 [ 1, %if.end7.i.i ], [ 0, %entry ], [ 2, %if.end.i.i ], [ 3, %land.lhs.true.i.i ]
-  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i, i32 noundef %div1.i.i, i32 noundef %bits) #26
+  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i, i32 noundef range(i32 0, 67108864) %div1.i.i, i32 noundef %bits) #26
   ret i32 %retval.0.i.i
 }
 
@@ -2799,7 +2799,7 @@ if.then20:                                        ; preds = %if.else
   %retval.0.i.i = select i1 %cmp.i.i, ptr %19, ptr %significand.i.i
   %sub.i.i.i20 = add i32 %17, 64
   %div1.i.i.i21 = lshr i32 %sub.i.i.i20, 6
-  %call.i.i.i = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i, i32 noundef %div1.i.i.i21) #26
+  %call.i.i.i = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i, i32 noundef range(i32 0, 67108864) %div1.i.i.i21) #26
   %cmp.not.i.i.i = icmp ugt i32 %sub21, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end27.thread176
 
@@ -2824,7 +2824,7 @@ if.end7.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 if.end27.thread176:                               ; preds = %if.end7.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i, %if.then20
   %retval.0.i.i.i22 = phi i32 [ 1, %if.end7.i.i.i ], [ 0, %if.then20 ], [ 2, %if.end.i.i.i ], [ 3, %land.lhs.true.i.i.i ]
-  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i, i32 noundef %div1.i.i.i21, i32 noundef %sub21) #26
+  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i, i32 noundef range(i32 0, 67108864) %div1.i.i.i21, i32 noundef %sub21) #26
   %21 = load ptr, ptr %this, align 8
   %precision.i.i = getelementptr inbounds i8, ptr %21, i64 4
   %22 = load i32, ptr %precision.i.i, align 4
@@ -2857,7 +2857,7 @@ if.else23:                                        ; preds = %if.else
   %retval.0.i.i36 = select i1 %cmp.i.i34, ptr %31, ptr %significand.i.i35
   %sub.i.i.i37 = add i32 %29, 64
   %div1.i.i.i38 = lshr i32 %sub.i.i.i37, 6
-  %call.i.i.i39 = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i36, i32 noundef %div1.i.i.i38) #26
+  %call.i.i.i39 = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i36, i32 noundef range(i32 0, 67108864) %div1.i.i.i38) #26
   %cmp.not.i.i.i40 = icmp ult i32 %call.i.i.i39, %sub25
   br i1 %cmp.not.i.i.i40, label %if.end.i.i.i42, label %if.end27.thread
 
@@ -2882,7 +2882,7 @@ if.end7.i.i.i52:                                  ; preds = %land.lhs.true.i.i.i
 
 if.end27.thread:                                  ; preds = %if.end7.i.i.i52, %land.lhs.true.i.i.i48, %if.end.i.i.i42, %if.else23
   %retval.0.i.i.i41 = phi i32 [ 1, %if.end7.i.i.i52 ], [ 0, %if.else23 ], [ 2, %if.end.i.i.i42 ], [ 3, %land.lhs.true.i.i.i48 ]
-  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i36, i32 noundef %div1.i.i.i38, i32 noundef %sub25) #26
+  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i36, i32 noundef range(i32 0, 67108864) %div1.i.i.i38, i32 noundef %sub25) #26
   %33 = load ptr, ptr %temp_rhs, align 8
   %precision.i.i55 = getelementptr inbounds i8, ptr %33, i64 4
   %34 = load i32, ptr %precision.i.i55, align 4
@@ -3019,7 +3019,7 @@ if.then57:                                        ; preds = %if.else55
   %retval.0.i.i102 = select i1 %cmp.i.i100, ptr %71, ptr %significand.i.i101
   %sub.i.i.i103 = add i32 %69, 64
   %div1.i.i.i104 = lshr i32 %sub.i.i.i103, 6
-  %call.i.i.i105 = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i102, i32 noundef %div1.i.i.i104) #26
+  %call.i.i.i105 = call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i102, i32 noundef range(i32 0, 67108864) %div1.i.i.i104) #26
   %cmp.not.i.i.i106 = icmp ugt i32 %sub, %call.i.i.i105
   br i1 %cmp.not.i.i.i106, label %if.end.i.i.i108, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit119
 
@@ -3044,7 +3044,7 @@ if.end7.i.i.i118:                                 ; preds = %land.lhs.true.i.i.i
 
 _ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit119: ; preds = %if.then57, %if.end.i.i.i108, %land.lhs.true.i.i.i114, %if.end7.i.i.i118
   %retval.0.i.i.i107 = phi i32 [ 1, %if.end7.i.i.i118 ], [ 0, %if.then57 ], [ 2, %if.end.i.i.i108 ], [ 3, %land.lhs.true.i.i.i114 ]
-  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i102, i32 noundef %div1.i.i.i104, i32 noundef %sub) #26
+  call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i102, i32 noundef range(i32 0, 67108864) %div1.i.i.i104, i32 noundef %sub) #26
   %72 = load ptr, ptr %this, align 8
   %precision.i.i.i120 = getelementptr inbounds i8, ptr %72, i64 4
   %73 = load i32, ptr %precision.i.i.i120, align 4
@@ -3094,7 +3094,7 @@ if.else61:                                        ; preds = %if.else55
   %retval.0.i.i143 = select i1 %cmp.i.i141, ptr %88, ptr %significand.i.i142
   %sub.i.i.i144 = add i32 %86, 64
   %div1.i.i.i145 = lshr i32 %sub.i.i.i144, 6
-  %call.i.i.i146 = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i143, i32 noundef %div1.i.i.i145) #26
+  %call.i.i.i146 = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i.i143, i32 noundef range(i32 0, 67108864) %div1.i.i.i145) #26
   %cmp.not.i.i.i147 = icmp ult i32 %call.i.i.i146, %sub62
   br i1 %cmp.not.i.i.i147, label %if.end.i.i.i149, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit160
 
@@ -3119,7 +3119,7 @@ if.end7.i.i.i159:                                 ; preds = %land.lhs.true.i.i.i
 
 _ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit160: ; preds = %if.else61, %if.end.i.i.i149, %land.lhs.true.i.i.i155, %if.end7.i.i.i159
   %retval.0.i.i.i148 = phi i32 [ 1, %if.end7.i.i.i159 ], [ 0, %if.else61 ], [ 2, %if.end.i.i.i149 ], [ 3, %land.lhs.true.i.i.i155 ]
-  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i143, i32 noundef %div1.i.i.i145, i32 noundef %sub62) #26
+  tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i143, i32 noundef range(i32 0, 67108864) %div1.i.i.i145, i32 noundef %sub62) #26
   %89 = load ptr, ptr %this, align 8
   %precision.i.i.i161 = getelementptr inbounds i8, ptr %89, i64 4
   %90 = load i32, ptr %precision.i.i.i161, align 4
@@ -9950,7 +9950,7 @@ _ZN4llvh6detail12_GLOBAL__N_16appendERNS_15SmallVectorImplIcEENS_9StringRefE.exi
   %conv.i9.i.i118.pre-phi = phi i64 [ %conv.i5.i.i113, %_ZN4llvh9StringRefC2EPKc.exit265 ], [ %.pre621, %if.end.i.thread.i122 ]
   %7 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %7, i64 %conv.i9.i.i118.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i119, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i119, ptr noundef nonnull align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
   %.pre.i.i120 = load i32, ptr %Size.i.i.i112, align 8
   %conv.i12.i.i121 = add i32 %.pre.i.i120, 3
   store i32 %conv.i12.i.i121, ptr %Size.i.i.i112, align 8
@@ -10016,7 +10016,7 @@ _ZN4llvh6detail12_GLOBAL__N_16appendERNS_15SmallVectorImplIcEENS_9StringRefE.exi
   %conv.i9.i.i138.pre-phi = phi i64 [ %conv.i5.i.i133, %_ZN4llvh9StringRefC2EPKc.exit275 ], [ %.pre622, %if.end.i.thread.i142 ]
   %16 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i139 = getelementptr inbounds i8, ptr %16, i64 %conv.i9.i.i138.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i.i139, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i.i139, ptr noundef nonnull align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
   %.pre.i.i140 = load i32, ptr %Size.i.i.i132, align 8
   %conv.i12.i.i141 = add i32 %.pre.i.i140, 6
   store i32 %conv.i12.i.i141, ptr %Size.i.i.i132, align 8
@@ -10038,7 +10038,7 @@ _ZN4llvh6detail12_GLOBAL__N_16appendERNS_15SmallVectorImplIcEENS_9StringRefE.exi
   %conv.i9.i.i155.pre-phi = phi i64 [ %conv.i5.i.i133, %_ZN4llvh9StringRefC2EPKc.exit285 ], [ %.pre623, %if.end.i.thread.i159 ]
   %17 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i156 = getelementptr inbounds i8, ptr %17, i64 %conv.i9.i.i155.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i156, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.11, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i156, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false)
   %.pre.i.i157 = load i32, ptr %Size.i.i.i132, align 8
   %conv.i12.i.i158 = add i32 %.pre.i.i157, 3
   store i32 %conv.i12.i.i158, ptr %Size.i.i.i132, align 8
@@ -11651,7 +11651,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh7APFloatC2ENS_6detail9IEEEFloatERKNS_12fltSemanticsE.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i26, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -11720,7 +11720,7 @@ delete.notnull.i.i:                               ; preds = %if.then.i.i
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U) #26
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit
 
 _ZN4llvh7APFloat7StorageD2Ev.exit:                ; preds = %delete.notnull.i.i, %if.then.i.i, %if.then.i, %if.end.i
@@ -12717,7 +12717,7 @@ land.lhs.true5.i:                                 ; preds = %if.then
   br i1 %cmp.i8.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %land.lhs.true5.i
-  %call8.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull align 8 dereferenceable(16) %U2.i)
+  %call8.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(24) %U2.i)
   br label %_ZN4llvh7APFloat7StorageaSERKS1_.exit
 
 if.else9.i:                                       ; preds = %land.lhs.true5.i
@@ -12746,7 +12746,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i
 
 if.end.i.i:                                       ; preds = %if.else9.i
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i:              ; preds = %if.end.i.i, %delete.notnull.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i
@@ -12809,7 +12809,7 @@ delete.notnull.i.i.i.i25:                         ; preds = %if.then.i.i.i.i22
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i21
 
 if.end.i.i29:                                     ; preds = %if.else9.i27
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i7) #26
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i7) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i21
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i21:            ; preds = %if.end.i.i29, %delete.notnull.i.i.i.i25, %if.then.i.i.i.i22, %if.then.i.i18
@@ -12887,7 +12887,7 @@ land.lhs.true5.i:                                 ; preds = %entry
   br i1 %cmp.i8.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %land.lhs.true5.i
-  %call8.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U, ptr noundef nonnull align 8 dereferenceable(16) %U2)
+  %call8.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U, ptr noundef nonnull align 8 dereferenceable(24) %U2)
   br label %_ZN4llvh7APFloat7StorageaSERKS1_.exit
 
 if.else9.i:                                       ; preds = %land.lhs.true5.i
@@ -12916,7 +12916,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i
 
 if.end.i.i:                                       ; preds = %if.else9.i
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U) #26
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i:              ; preds = %if.end.i.i, %delete.notnull.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i
@@ -12971,7 +12971,7 @@ delete.notnull.i.i:                               ; preds = %if.then.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit.i
 
 if.end.i.i.i:                                     ; preds = %arraydestroy.body.i
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i.i) #26
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit.i
 
 _ZN4llvh7APFloatD2Ev.exit.i:                      ; preds = %delete.notnull.i.i, %if.then.i.i, %if.then.i.i.i, %if.end.i.i.i
@@ -13143,7 +13143,7 @@ land.lhs.true5.i.i:                               ; preds = %_ZNK4llvh7APFloat20
   br i1 %cmp.i8.i.i, label %if.then7.i.i, label %if.else9.i.i
 
 if.then7.i.i:                                     ; preds = %land.lhs.true5.i.i
-  %call8.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull align 8 dereferenceable(16) %U2.i80)
+  %call8.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(24) %U2.i80)
   br label %_ZN4llvh7APFloataSERKS0_.exit
 
 if.else9.i.i:                                     ; preds = %land.lhs.true5.i.i
@@ -13171,7 +13171,7 @@ delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else9.i.i
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i.i:            ; preds = %if.end.i.i.i, %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i
@@ -13469,7 +13469,7 @@ land.lhs.true5.i.i183:                            ; preds = %if.end30
   br i1 %cmp.i.not.i.i.i.i153, label %if.then7.i.i187, label %if.else9.i.i184
 
 if.then7.i.i187:                                  ; preds = %land.lhs.true5.i.i183
-  %call8.i.i188 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U.i161, ptr noundef nonnull align 8 dereferenceable(16) %U.i)
+  %call8.i.i188 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i161, ptr noundef nonnull align 8 dereferenceable(24) %U.i)
   br label %_ZN4llvh7APFloataSERKS0_.exit189
 
 if.else9.i.i184:                                  ; preds = %land.lhs.true5.i.i183
@@ -13498,7 +13498,7 @@ delete.notnull.i.i.i.i.i182:                      ; preds = %if.then.i.i.i.i.i17
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i178
 
 if.end.i.i.i186:                                  ; preds = %if.else9.i.i184
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i161) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i161) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i178
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i.i178:         ; preds = %if.end.i.i.i186, %delete.notnull.i.i.i.i.i182, %if.then.i.i.i.i.i179, %if.then.i.i.i175
@@ -13581,7 +13581,7 @@ land.lhs.true5.i.i224:                            ; preds = %if.then37
   br i1 %cmp.i8.i.i210, label %if.then7.i.i228, label %if.else9.i.i225
 
 if.then7.i.i228:                                  ; preds = %land.lhs.true5.i.i224
-  %call8.i.i229 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U.i207, ptr noundef nonnull align 8 dereferenceable(16) %U2.i)
+  %call8.i.i229 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i207, ptr noundef nonnull align 8 dereferenceable(24) %U2.i)
   br label %_ZN4llvh7APFloataSERKS0_.exit230
 
 if.else9.i.i225:                                  ; preds = %land.lhs.true5.i.i224
@@ -13610,7 +13610,7 @@ delete.notnull.i.i.i.i.i223:                      ; preds = %if.then.i.i.i.i.i22
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i219
 
 if.end.i.i.i227:                                  ; preds = %if.else9.i.i225
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i207) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i207) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i219
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i.i219:         ; preds = %if.end.i.i.i227, %delete.notnull.i.i.i.i.i223, %if.then.i.i.i.i.i220, %if.then.i.i.i216
@@ -13796,7 +13796,7 @@ land.lhs.true5.i.i293:                            ; preds = %if.else53
   br i1 %cmp.i8.i.i279, label %if.then7.i.i297, label %if.else9.i.i294
 
 if.then7.i.i297:                                  ; preds = %land.lhs.true5.i.i293
-  %call8.i.i298 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U.i207, ptr noundef nonnull align 8 dereferenceable(16) %U2.i277)
+  %call8.i.i298 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i207, ptr noundef nonnull align 8 dereferenceable(24) %U2.i277)
   br label %_ZN4llvh7APFloataSERKS0_.exit299
 
 if.else9.i.i294:                                  ; preds = %land.lhs.true5.i.i293
@@ -13825,7 +13825,7 @@ delete.notnull.i.i.i.i.i292:                      ; preds = %if.then.i.i.i.i.i28
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i288
 
 if.end.i.i.i296:                                  ; preds = %if.else9.i.i294
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i207) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i207) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i288
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i.i288:         ; preds = %if.end.i.i.i296, %delete.notnull.i.i.i.i.i292, %if.then.i.i.i.i.i289, %if.then.i.i.i285
@@ -14017,7 +14017,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i350
   br label %cleanup124
 
 if.end.i.i:                                       ; preds = %if.end69
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i190) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i190) #26
   br label %cleanup124
 
 if.else70:                                        ; preds = %_ZN4llvh7APFloat3addERKS0_NS_11APFloatBase12roundingModeE.exit
@@ -14429,7 +14429,7 @@ land.lhs.true5.i.i494:                            ; preds = %if.end94
   br i1 %cmp.i8.i.i480, label %if.then7.i.i498, label %if.else9.i.i495
 
 if.then7.i.i498:                                  ; preds = %land.lhs.true5.i.i494
-  %call8.i.i499 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %U.i472, ptr noundef nonnull align 8 dereferenceable(16) %U.i)
+  %call8.i.i499 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i472, ptr noundef nonnull align 8 dereferenceable(24) %U.i)
   br label %_ZN4llvh7APFloataSERKS0_.exit500
 
 if.else9.i.i495:                                  ; preds = %land.lhs.true5.i.i494
@@ -14458,7 +14458,7 @@ delete.notnull.i.i.i.i.i493:                      ; preds = %if.then.i.i.i.i.i49
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i489
 
 if.end.i.i.i497:                                  ; preds = %if.else9.i.i495
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i472) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i472) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit.i.i489
 
 _ZN4llvh7APFloat7StorageD2Ev.exit.i.i489:         ; preds = %if.end.i.i.i497, %delete.notnull.i.i.i.i.i493, %if.then.i.i.i.i.i490, %if.then.i.i.i486
@@ -14677,7 +14677,7 @@ delete.notnull.i.i.i569:                          ; preds = %if.then.i.i.i566
   br label %_ZN4llvh7APFloatD2Ev.exit571
 
 if.end.i.i570:                                    ; preds = %cleanup
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i367) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i367) #26
   br label %_ZN4llvh7APFloatD2Ev.exit571
 
 _ZN4llvh7APFloatD2Ev.exit571:                     ; preds = %if.then.i.i563, %if.then.i.i.i566, %delete.notnull.i.i.i569, %if.end.i.i570
@@ -14703,7 +14703,7 @@ delete.notnull.i.i.i580:                          ; preds = %if.then.i.i.i577
   br label %cleanup124
 
 if.end.i.i581:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit571
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i351) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i351) #26
   br label %cleanup124
 
 cleanup124:                                       ; preds = %if.end.i.i581, %delete.notnull.i.i.i580, %if.then.i.i.i577, %if.then.i.i574, %if.end.i.i, %delete.notnull.i.i.i, %if.then.i.i.i350, %if.then.i.i347, %if.then24, %if.then4
@@ -14729,7 +14729,7 @@ delete.notnull.i.i.i591:                          ; preds = %if.then.i.i.i588
   br label %_ZN4llvh7APFloatD2Ev.exit593
 
 if.end.i.i592:                                    ; preds = %cleanup124
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit593
 
 _ZN4llvh7APFloatD2Ev.exit593:                     ; preds = %if.then.i.i585, %if.then.i.i.i588, %delete.notnull.i.i.i591, %if.end.i.i592
@@ -15053,7 +15053,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %if.end39
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i128) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i128) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -15079,7 +15079,7 @@ delete.notnull.i.i.i139:                          ; preds = %if.then.i.i.i136
   br label %_ZN4llvh7APFloatD2Ev.exit141
 
 if.end.i.i140:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i125) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i125) #26
   br label %_ZN4llvh7APFloatD2Ev.exit141
 
 _ZN4llvh7APFloatD2Ev.exit141:                     ; preds = %if.then.i.i133, %if.then.i.i.i136, %delete.notnull.i.i.i139, %if.end.i.i140
@@ -15105,7 +15105,7 @@ delete.notnull.i.i.i150:                          ; preds = %if.then.i.i.i147
   br label %_ZN4llvh7APFloatD2Ev.exit152
 
 if.end.i.i151:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit141
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i122) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i122) #26
   br label %_ZN4llvh7APFloatD2Ev.exit152
 
 _ZN4llvh7APFloatD2Ev.exit152:                     ; preds = %if.then.i.i144, %if.then.i.i.i147, %delete.notnull.i.i.i150, %if.end.i.i151
@@ -15131,7 +15131,7 @@ delete.notnull.i.i.i161:                          ; preds = %if.then.i.i.i158
   br label %return
 
 if.end.i.i162:                                    ; preds = %_ZN4llvh7APFloatD2Ev.exit152
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %return
 
 return:                                           ; preds = %if.end.i.i162, %delete.notnull.i.i.i161, %if.then.i.i.i158, %if.then.i.i155, %if.then37, %if.then32, %if.then27, %if.then15, %if.then10, %if.then5, %if.then
@@ -15637,7 +15637,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh7APFloat6divideERKS0_NS_11APFloatBase12roundingModeE.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i1) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i1) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -15724,7 +15724,7 @@ delete.notnull.i.i.i32:                           ; preds = %if.then.i.i.i29
   br label %_ZN4llvh7APFloatD2Ev.exit34
 
 if.end.i.i33:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit23
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit34
 
 _ZN4llvh7APFloatD2Ev.exit34:                      ; preds = %if.then.i.i26, %if.then.i.i.i29, %delete.notnull.i.i.i32, %if.end.i.i33
@@ -15876,7 +15876,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh7APFloat9remainderERKS0_.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i1) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i1) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -15963,7 +15963,7 @@ delete.notnull.i.i.i32:                           ; preds = %if.then.i.i.i29
   br label %_ZN4llvh7APFloatD2Ev.exit34
 
 if.end.i.i33:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit23
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit34
 
 _ZN4llvh7APFloatD2Ev.exit34:                      ; preds = %if.then.i.i26, %if.then.i.i.i29, %delete.notnull.i.i.i32, %if.end.i.i33
@@ -16036,7 +16036,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh7APFloat3modERKS0_.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i1) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i1) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -16123,7 +16123,7 @@ delete.notnull.i.i.i32:                           ; preds = %if.then.i.i.i29
   br label %_ZN4llvh7APFloatD2Ev.exit34
 
 if.end.i.i33:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit23
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit34
 
 _ZN4llvh7APFloatD2Ev.exit34:                      ; preds = %if.then.i.i26, %if.then.i.i.i29, %delete.notnull.i.i.i32, %if.end.i.i33
@@ -16201,7 +16201,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh7APFloat16fusedMultiplyAddERKS0_S2_NS_11APFloatBase12roundingModeE.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i2) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i2) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -16242,7 +16242,7 @@ delete.notnull.i.i.i21:                           ; preds = %if.then.i.i.i18
   br label %_ZN4llvh7APFloatD2Ev.exit23
 
 if.end.i.i22:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit12
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i1) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i1) #26
   br label %_ZN4llvh7APFloatD2Ev.exit23
 
 _ZN4llvh7APFloatD2Ev.exit23:                      ; preds = %if.then.i.i15, %if.then.i.i.i18, %delete.notnull.i.i.i21, %if.end.i.i22
@@ -16329,7 +16329,7 @@ delete.notnull.i.i.i52:                           ; preds = %if.then.i.i.i49
   br label %_ZN4llvh7APFloatD2Ev.exit54
 
 if.end.i.i53:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit43
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit54
 
 _ZN4llvh7APFloatD2Ev.exit54:                      ; preds = %if.then.i.i46, %if.then.i.i.i49, %delete.notnull.i.i.i52, %if.end.i.i53
@@ -16443,7 +16443,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit13
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -16734,7 +16734,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh5APIntD2Ev.exit.cont
 
 if.end.i.i:                                       ; preds = %entry.cont
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh5APIntD2Ev.exit.cont
 
 _ZN4llvh5APIntD2Ev.exit.cont:                     ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -16770,7 +16770,7 @@ delete.notnull.i.i.i17:                           ; preds = %if.then.i.i.i14
   br label %_ZN4llvh5APIntD2Ev.exit25
 
 if.end.i.i18:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit.cont
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i4) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i4) #26
   br label %_ZN4llvh5APIntD2Ev.exit25
 
 _ZN4llvh5APIntD2Ev.exit25:                        ; preds = %if.end.i.i18, %delete.notnull.i.i.i17, %if.then.i.i.i14, %if.then.i.i11
@@ -16865,7 +16865,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh5APIntD2Ev.exit
 
 if.end.i.i:                                       ; preds = %entry.cont
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh5APIntD2Ev.exit
 
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.end.i.i, %delete.notnull.i.i.i, %if.then.i.i.i, %if.then.i.i
@@ -17357,7 +17357,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -17541,7 +17541,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit13
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -17630,7 +17630,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZNK4llvh7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -17792,7 +17792,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -17880,7 +17880,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -17968,7 +17968,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -18091,7 +18091,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZNK4llvh7APFloat18convertToHexStringEPcjbNS_11APFloatBase12roundingModeE.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -18253,7 +18253,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %cleanup.done
 
 if.end.i.i:                                       ; preds = %cleanup.action
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U9.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U9.i) #26
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %if.end.i3, %if.end.i, %entry, %_ZNK4llvh7APFloat10isDenormalEv.exit12, %_ZNK4llvh7APFloat10isDenormalEv.exit, %if.end.i.i, %delete.notnull.i.i.i, %if.then.i.i.i, %if.then.i.i
@@ -18576,7 +18576,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZNK4llvh7APFloat8toStringERNS_15SmallVectorImplIcEEjjb.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -18676,7 +18676,7 @@ if.end.i18:                                       ; preds = %_ZNK4llvh7APFloat15
 
 _ZNK4llvh7APFloat14bitcastToAPIntEv.exit:         ; preds = %if.then.i17, %if.end.i18
   %U.i19 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %U.i19, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp4)
+  call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i19, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp4)
   %U.i20 = getelementptr inbounds i8, ptr %inv, i64 8
   %call.i21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i20, ptr noundef nonnull align 8 dereferenceable(24) %U.i19)
   %5 = load ptr, ptr %U.i19, align 8
@@ -18701,7 +18701,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZNK4llvh7APFloat14bitcastToAPIntEv.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i19) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i19) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -18741,7 +18741,7 @@ delete.notnull.i.i.i40:                           ; preds = %if.then.i.i.i37
   br label %cleanup
 
 if.end.i.i41:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit31
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i4) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i4) #26
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i41, %delete.notnull.i.i.i40, %if.then.i.i.i37, %if.then.i.i34, %if.end.i, %if.then.i2
@@ -18768,7 +18768,7 @@ delete.notnull.i.i.i51:                           ; preds = %if.then.i.i.i48
   br label %_ZN4llvh7APFloatD2Ev.exit53
 
 if.end.i.i52:                                     ; preds = %cleanup
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit53
 
 _ZN4llvh7APFloatD2Ev.exit53:                      ; preds = %if.then.i.i45, %if.then.i.i.i48, %delete.notnull.i.i.i51, %if.end.i.i52
@@ -18879,7 +18879,7 @@ delete.notnull.i.i.i15:                           ; preds = %if.then.i.i.i12
   br label %_ZN4llvh7APFloatD2Ev.exit17
 
 if.end.i.i16:                                     ; preds = %_ZN4llvh7APFloatD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i3) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i3) #26
   br label %_ZN4llvh7APFloatD2Ev.exit17
 
 _ZN4llvh7APFloatD2Ev.exit17:                      ; preds = %if.then.i.i9, %if.then.i.i.i12, %delete.notnull.i.i.i15, %if.end.i.i16
@@ -18904,7 +18904,7 @@ delete.notnull.i.i.i26:                           ; preds = %if.then.i.i.i23
   br label %_ZN4llvh7APFloatD2Ev.exit28
 
 if.end.i.i27:                                     ; preds = %_ZN4llvh7APFloatD2Ev.exit17
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U2.i.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U2.i.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit28
 
 _ZN4llvh7APFloatD2Ev.exit28:                      ; preds = %if.then.i.i20, %if.then.i.i.i23, %delete.notnull.i.i.i26, %if.end.i.i27
@@ -18930,7 +18930,7 @@ delete.notnull.i.i.i37:                           ; preds = %if.then.i.i.i34
   br label %_ZN4llvh7APFloatD2Ev.exit39
 
 if.end.i.i38:                                     ; preds = %_ZN4llvh7APFloatD2Ev.exit28
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i) #26
   br label %_ZN4llvh7APFloatD2Ev.exit39
 
 _ZN4llvh7APFloatD2Ev.exit39:                      ; preds = %if.then.i.i31, %if.then.i.i.i34, %delete.notnull.i.i.i37, %if.end.i.i38
@@ -19151,7 +19151,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %if.then
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U2.i8) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U2.i8) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
@@ -19177,7 +19177,7 @@ delete.notnull.i.i.i18:                           ; preds = %if.then.i.i.i15
   br label %if.end
 
 if.end.i.i19:                                     ; preds = %_ZN4llvh7APFloatD2Ev.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i5) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i5) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i19, %delete.notnull.i.i.i18, %if.then.i.i.i15, %if.then.i.i12, %entry
@@ -19487,7 +19487,7 @@ _ZN4llvh7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %land.lhs.tr
   %call14 = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat7convertERKNS_12fltSemanticsENS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL24semPPCDoubleDoubleLegacyE, i32 noundef %RM, ptr noundef %losesInfo)
   call void @_ZNK4llvh6detail9IEEEFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(24) %U.i)
   %U.i18 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %U.i18, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp15)
+  call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i18, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp15)
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(24) %U.i18)
   %1 = load ptr, ptr %U.i18, align 8
   %cmp.i.not.i = icmp eq ptr %1, @_ZN4llvhL18semPPCDoubleDoubleE
@@ -19511,7 +19511,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i22:                                     ; preds = %_ZN4llvh7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i18) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i18) #26
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i21, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i22
@@ -19580,7 +19580,7 @@ delete.notnull.i.i.i48:                           ; preds = %if.then.i.i.i45
   br label %return
 
 if.end.i.i49:                                     ; preds = %if.end18
-  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i33) #26
+  call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i33) #26
   br label %return
 
 return:                                           ; preds = %if.then.i.i42, %if.then.i.i.i45, %delete.notnull.i.i.i48, %if.end.i.i49, %delete.notnull.i, %if.then.i, %_ZN4llvh7APFloatD2Ev.exit, %if.then5, %if.then
@@ -19999,7 +19999,7 @@ if.else.i.i78:                                    ; preds = %if.else
 
 _ZN4llvh5APInt15getAllOnesValueEj.exit85:         ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i79, %if.else.i.i78
   %U.i86 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %U.i86, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp9)
+  call void @_ZN4llvh6detail13DoubleAPFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i86, ptr noundef nonnull align 4 dereferenceable(12) @_ZN4llvhL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp9)
   %30 = load i32, ptr %BitWidth.i.i76, align 8
   %cmp.i.i.i88 = icmp ult i32 %30, 65
   %31 = load ptr, ptr %ref.tmp9, align 8
@@ -20133,7 +20133,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i.i.thread, label %if.end.i.i
 
 if.end.i.i.thread:                                ; preds = %entry
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %parts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %div1.i.i, i64 noundef 8) #26
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %parts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %div1.i.i, i64 noundef 8) #26
   %.pre.i = load ptr, ptr %parts, align 8
   store i32 %conv1.i.i, ptr %Size.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader
@@ -20332,7 +20332,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit
 
 if.end.i:                                         ; preds = %if.else9
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #26
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #26
   br label %_ZN4llvh7APFloat7StorageD2Ev.exit
 
 _ZN4llvh7APFloat7StorageD2Ev.exit:                ; preds = %if.then.i9, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i

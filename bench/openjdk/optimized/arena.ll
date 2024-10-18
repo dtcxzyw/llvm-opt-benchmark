@@ -316,7 +316,7 @@ define hidden void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 d
 20:                                               ; preds = %4
   %21 = zext i8 %1 to i64
   %22 = getelementptr inbounds [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %21, i32 1
-  %23 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %22) #11, !srcloc !9
+  %23 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %22) #11, !srcloc !9
   br label %_ZN10MemTracker16record_new_arenaE8MEMFLAGS.exit
 
 _ZN10MemTracker16record_new_arenaE8MEMFLAGS.exit: ; preds = %4, %20
@@ -365,7 +365,7 @@ _ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i: ; preds = %29, %25
   br i1 %49, label %50, label %_ZN5Arena17set_size_in_bytesEm.exit
 
 50:                                               ; preds = %45
-  tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %26, ptr noundef nonnull %0) #11
+  tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(48) %0) #11
   br label %_ZN5Arena17set_size_in_bytesEm.exit
 
 _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %_ZN10MemTracker16record_new_arenaE8MEMFLAGS.exit, %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, %42, %45, %50
@@ -438,7 +438,7 @@ define hidden void @_ZN5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(48
   %5 = load i8, ptr %0, align 8
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %6, i32 1
-  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %7) #11, !srcloc !9
+  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %7) #11, !srcloc !9
   br label %_ZN10MemTracker17record_arena_freeE8MEMFLAGS.exit
 
 _ZN10MemTracker17record_arena_freeE8MEMFLAGS.exit: ; preds = %1, %4
@@ -495,7 +495,7 @@ _ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i: ; preds = %10, %6
   br i1 %30, label %31, label %_ZN5Arena17set_size_in_bytesEm.exit
 
 31:                                               ; preds = %26
-  tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %7, ptr noundef nonnull %0) #11
+  tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(48) %0) #11
   br label %_ZN5Arena17set_size_in_bytesEm.exit
 
 _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %1, %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, %23, %26, %31
@@ -594,7 +594,7 @@ _ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i.i: ; preds = %51, %4
   br i1 %70, label %71, label %_ZN5Arena5resetEv.exit
 
 71:                                               ; preds = %66
-  call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %48, ptr noundef nonnull %0) #11
+  call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(48) %0) #11
   br label %_ZN5Arena5resetEv.exit
 
 _ZN5Arena5resetEv.exit:                           ; preds = %_ZN5Chunk4chopEPS_.exit, %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i.i, %63, %66, %71
@@ -773,7 +773,7 @@ _ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i: ; preds = %63, %50
   br i1 %83, label %84, label %_ZN5Arena17set_size_in_bytesEm.exit
 
 84:                                               ; preds = %79
-  tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %6, ptr noundef nonnull %0) #11
+  tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %0) #11
   br label %_ZN5Arena17set_size_in_bytesEm.exit
 
 _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, %76, %79, %84

@@ -289,7 +289,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
   %.sroa.03.0 = phi i32 [ 2, %46 ], [ 0, %35 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %50 = getelementptr inbounds { i8, i8 }, ptr %40, i64 %42
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr %40, ptr %50)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 1 %40, ptr %50)
           to label %51 unwind label %17
 
 51:                                               ; preds = %49
@@ -309,7 +309,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
 58:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %59 = getelementptr inbounds { i8, i8 }, ptr %36, i64 %38
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr %36, ptr %59)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr align 1 %36, ptr %59)
           to label %60 unwind label %17
 
 60:                                               ; preds = %58
@@ -364,7 +364,7 @@ define hidden i32 @_ZN13logos_codegen5graph4rope4Rope9remainder17ha6df45cde71fab
   %14 = extractvalue { ptr, i64 } %11, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %15 = getelementptr inbounds { i8, i8 }, ptr %13, i64 %14
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr %13, ptr %15)
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 1 %13, ptr %15)
           to label %16 unwind label %.thread9
 
 16:                                               ; preds = %12

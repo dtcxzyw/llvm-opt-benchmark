@@ -673,7 +673,7 @@ define hidden void @_ZN13ThreadIdTable4growEP10JavaThread(ptr noundef %0) local_
 
 34:                                               ; preds = %.lr.ph, %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE16BucketsOperation4contEP6Thread.exit
   %35 = load i64, ptr %12, align 8
-  %36 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull %5) #12, !srcloc !14
+  %36 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull align 8 dereferenceable(24) %5) #12, !srcloc !14
   %37 = load i64, ptr %8, align 8
   %38 = icmp ult i64 %36, %37
   br i1 %38, label %39, label %._crit_edge
@@ -1291,7 +1291,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket7trylockEv.exi
   %20 = inttoptr i64 %19 to ptr
   %21 = or disjoint i64 %19, 1
   %22 = inttoptr i64 %21 to ptr
-  %23 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr %20, ptr nonnull %12) #12, !srcloc !18
+  %23 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr %20, ptr nonnull align 8 dereferenceable(8) %12) #12, !srcloc !18
   %24 = icmp eq ptr %23, %20
   br i1 %24, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket7trylockEv.exit.thread.i
 
@@ -1584,7 +1584,7 @@ _ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadId
   br i1 %.not.i48, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
 _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadIdTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
-  %66 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %50, ptr nonnull %.0.i) #12, !srcloc !18
+  %66 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %50, ptr nonnull align 8 dereferenceable(8) %.0.i) #12, !srcloc !18
   %67 = icmp eq ptr %66, %50
   br i1 %67, label %68, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
@@ -1750,7 +1750,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket7trylockEv.exi
   %41 = inttoptr i64 %40 to ptr
   %42 = or disjoint i64 %40, 1
   %43 = inttoptr i64 %42 to ptr
-  %44 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %43, ptr %41, ptr nonnull %.0.i) #12, !srcloc !18
+  %44 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %43, ptr %41, ptr nonnull align 8 dereferenceable(8) %.0.i) #12, !srcloc !18
   %45 = icmp eq ptr %44, %41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   store volatile i64 %9, ptr %4, align 8

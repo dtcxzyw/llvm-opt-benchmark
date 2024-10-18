@@ -886,12 +886,12 @@ proto_item_set_generated.exit522:                 ; preds = %proto_item_set_gene
   %146 = load i32, ptr @hf_lbtru_hdr_res, align 4
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %146, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
   %148 = load i32, ptr @hf_lbtru_nak, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %148, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0) #4
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %148, ptr noundef %0, i32 noundef range(i32 2, 5) 4, i32 noundef -1, i32 noundef 0) #4
   %150 = load i32, ptr @ett_lbtru_nak, align 4
   %151 = tail call ptr @proto_item_add_subtree(ptr noundef %149, i32 noundef %150) #4
-  %152 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
+  %152 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 2, 5) 4) #4
   %153 = load i32, ptr @hf_lbtru_nak_num, align 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %153, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %153, ptr noundef %0, i32 noundef range(i32 2, 5) 4, i32 noundef 2, i32 noundef 0) #4
   %155 = load i32, ptr @hf_lbtru_nak_format, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %155, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
   %157 = load i32, ptr @lbtru_expert_separate_naks, align 4
@@ -912,7 +912,7 @@ proto_item_set_generated.exit522:                 ; preds = %proto_item_set_gene
   %166 = getelementptr inbounds i8, ptr %88, i64 32
   store ptr %165, ptr %166, align 8
   %167 = load i32, ptr @hf_lbtru_nak_list, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %167, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %167, ptr noundef %0, i32 noundef range(i32 6, 9) 8, i32 noundef -1, i32 noundef 0) #4
   %169 = load i32, ptr @ett_lbtru_nak_list, align 4
   %170 = tail call ptr @proto_item_add_subtree(ptr noundef %168, i32 noundef %169) #4
   %.not26.i.i = icmp eq i16 %152, 0
@@ -956,13 +956,13 @@ dissect_lbtru_nak.exit:                           ; preds = %178, %160
   %186 = load i32, ptr @hf_lbtru_hdr_res, align 4
   %187 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %186, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
   %188 = load i32, ptr @hf_lbtru_ncf, align 4
-  %189 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %188, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0) #4
+  %189 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %188, ptr noundef %0, i32 noundef range(i32 2, 5) 4, i32 noundef -1, i32 noundef 0) #4
   %190 = load i32, ptr @ett_lbtru_ncf, align 4
   %191 = tail call ptr @proto_item_add_subtree(ptr noundef %189, i32 noundef %190) #4
   %192 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #4
   %193 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #4
   %194 = load i32, ptr @hf_lbtru_ncf_trail_sqn, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %194, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %194, ptr noundef %0, i32 noundef range(i32 2, 5) 4, i32 noundef 4, i32 noundef 0) #4
   %196 = load i32, ptr @hf_lbtru_ncf_num, align 4
   %197 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %196, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #4
   %198 = load i32, ptr @hf_lbtru_ncf_reserved, align 4
@@ -994,7 +994,7 @@ dissect_lbtru_nak.exit:                           ; preds = %178, %160
   %216 = getelementptr inbounds i8, ptr %88, i64 32
   store ptr %215, ptr %216, align 8
   %217 = load i32, ptr @hf_lbtru_ncf_list, align 4
-  %218 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %217, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0) #4
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %217, ptr noundef %0, i32 noundef range(i32 10, 13) 12, i32 noundef -1, i32 noundef 0) #4
   %219 = load i32, ptr @ett_lbtru_ncf_list, align 4
   %220 = tail call ptr @proto_item_add_subtree(ptr noundef %218, i32 noundef %219) #4
   %.not27.i.i = icmp eq i16 %193, 0
@@ -1012,7 +1012,7 @@ dissect_lbtru_nak.exit:                           ; preds = %178, %160
   br i1 %.not.i.i528, label %229, label %226
 
 226:                                              ; preds = %.lr.ph.i.i526
-  %227 = tail call ptr @val_to_str(i32 noundef %206, ptr noundef nonnull @lbtru_ncf_reason, ptr noundef nonnull @.str.228) #4
+  %227 = tail call ptr @val_to_str(i32 noundef range(i32 0, 16) %206, ptr noundef nonnull @lbtru_ncf_reason, ptr noundef nonnull @.str.228) #4
   %228 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %224, ptr noundef nonnull @ei_lbtru_analysis_ncf_ncf, ptr noundef nonnull @.str.249, i32 noundef %222, ptr noundef %227) #4
   br label %229
 
@@ -1038,13 +1038,13 @@ dissect_lbtru_ncf.exit:                           ; preds = %229, %._crit_edge.i
   %236 = load i32, ptr @hf_lbtru_hdr_res, align 4
   %237 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %236, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
   %238 = load i32, ptr @hf_lbtru_ack, align 4
-  %239 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %238, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %238, ptr noundef %0, i32 noundef range(i32 2, 5) 4, i32 noundef 4, i32 noundef 0) #4
   %240 = load i32, ptr @ett_lbtru_ack, align 4
   %241 = tail call ptr @proto_item_add_subtree(ptr noundef %239, i32 noundef %240) #4
   %242 = load i32, ptr @hf_lbtru_ack_sqn, align 4
-  %243 = tail call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %242, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %242, ptr noundef %0, i32 noundef range(i32 2, 5) 4, i32 noundef 4, i32 noundef 0) #4
   %244 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %243, ptr noundef nonnull @ei_lbtru_analysis_ack) #4
-  %245 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #4
+  %245 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 2, 5) 4) #4
   %246 = getelementptr inbounds i8, ptr %88, i64 16
   store i32 %245, ptr %246, align 8
   br label %265
@@ -1450,7 +1450,7 @@ lbtru_client_transport_add.exit:                  ; preds = %lbtru_client_transp
 
 464:                                              ; preds = %460
   %465 = load ptr, ptr %462, align 8
-  %466 = call ptr @lbm_transport_frame_add(ptr noundef %465, i8 noundef zeroext %55, i32 noundef %461, i32 noundef %.0445650686, i32 noundef %.1444654684) #4
+  %466 = call ptr @lbm_transport_frame_add(ptr noundef %465, i8 noundef zeroext range(i8 0, 16) %55, i32 noundef %461, i32 noundef %.0445650686, i32 noundef range(i32 0, 2) %.1444654684) #4
   %467 = getelementptr inbounds i8, ptr %.051.i, i64 48
   %468 = load ptr, ptr %467, align 8
   %.not135.i = icmp eq ptr %468, null

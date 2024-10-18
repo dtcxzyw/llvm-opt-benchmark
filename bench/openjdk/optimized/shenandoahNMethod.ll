@@ -119,7 +119,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #15
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #15
   ret void
 }
 
@@ -874,7 +874,7 @@ define hidden void @_ZN22ShenandoahNMethodTableD2Ev(ptr nocapture noundef nonnul
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %8) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZN21ShenandoahNMethodList7releaseEv.exit
 
 _ZN21ShenandoahNMethodList7releaseEv.exit:        ; preds = %1, %7
@@ -1112,7 +1112,7 @@ _ZN21ShenandoahNMethodList8transferEPS_i.exit.i:  ; preds = %_ZN21ShenandoahNMet
 30:                                               ; preds = %_ZN21ShenandoahNMethodList8transferEPS_i.exit.i
   %31 = load ptr, ptr %26, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %31) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %26) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(16) %26) #15
   br label %_ZN22ShenandoahNMethodTable7rebuildEi.exit
 
 _ZN22ShenandoahNMethodTable7rebuildEi.exit:       ; preds = %_ZN21ShenandoahNMethodList8transferEPS_i.exit.i, %30
@@ -1460,7 +1460,7 @@ _ZN21ShenandoahNMethodList8transferEPS_i.exit:    ; preds = %_ZN21ShenandoahNMet
 23:                                               ; preds = %_ZN21ShenandoahNMethodList8transferEPS_i.exit
   %24 = load ptr, ptr %19, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %24) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %19) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
   br label %_ZN21ShenandoahNMethodList7releaseEv.exit
 
 _ZN21ShenandoahNMethodList7releaseEv.exit:        ; preds = %_ZN21ShenandoahNMethodList8transferEPS_i.exit, %23
@@ -1541,7 +1541,7 @@ define hidden void @_ZN22ShenandoahNMethodTable16finish_iterationEP30ShenandoahN
 13:                                               ; preds = %7
   %14 = load ptr, ptr %9, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %14) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %9) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
   br label %_ZN30ShenandoahNMethodTableSnapshotD2Ev.exit
 
 _ZN30ShenandoahNMethodTableSnapshotD2Ev.exit:     ; preds = %7, %13
@@ -1631,7 +1631,7 @@ define hidden void @_ZN30ShenandoahNMethodTableSnapshotD2Ev(ptr nocapture nounde
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %8) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZN21ShenandoahNMethodList7releaseEv.exit
 
 _ZN21ShenandoahNMethodList7releaseEv.exit:        ; preds = %1, %7
@@ -1889,7 +1889,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 17:                                               ; preds = %11
   %18 = load ptr, ptr %13, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %18) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %13) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(16) %13) #15
   br label %_ZN30ShenandoahNMethodTableSnapshotD2Ev.exit.i
 
 _ZN30ShenandoahNMethodTableSnapshotD2Ev.exit.i:   ; preds = %17, %11

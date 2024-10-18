@@ -843,7 +843,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   ]
 
 92:                                               ; preds = %87
-  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
+  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
   br label %127
 
 94:                                               ; preds = %87
@@ -1262,7 +1262,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br i1 %.not138, label %._crit_edge, label %.lr.ph
 
 .thread149:                                       ; preds = %15
-  %24 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %9) #6
+  %24 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef range(i32 0, 65536) %9) #6
   %25 = load i32, ptr @hf_mausb_mgmt_ep_des_size, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #6
   %27 = add i16 %3, 1
@@ -1295,17 +1295,17 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %.1128.us.us = phi i16 [ %77, %.lr.ph.split.us.split.us ], [ %.0121, %.lr.ph.split.us ]
   %38 = zext i16 %.1128.us.us to i32
   %39 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648) #6
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648) #6
   %41 = load i32, ptr @ett_mausb_ep_handle, align 4
   %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #6
   %43 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %1, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648) #6
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648) #6
   %45 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %1, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648) #6
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648) #6
   %47 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %1, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648) #6
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648) #6
   %49 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %1, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648) #6
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648) #6
   %51 = add i16 %.1128.us.us, 2
   %52 = load i32, ptr @hf_mausb_ep_handle_resp_dir, align 4
   %53 = zext i16 %51 to i32
@@ -1431,17 +1431,17 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %.1128 = phi i16 [ %134, %.lr.ph.split ], [ %.0121, %.lr.ph ]
   %121 = zext i16 %.1128 to i32
   %122 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %122, ptr noundef %1, i32 noundef %121, i32 noundef 2, i32 noundef -2147483648) #6
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %122, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %121, i32 noundef 2, i32 noundef -2147483648) #6
   %124 = load i32, ptr @ett_mausb_ep_handle, align 4
   %125 = tail call ptr @proto_item_add_subtree(ptr noundef %123, i32 noundef %124) #6
   %126 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %1, i32 noundef %121, i32 noundef 2, i32 noundef -2147483648) #6
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %121, i32 noundef 2, i32 noundef -2147483648) #6
   %128 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %128, ptr noundef %1, i32 noundef %121, i32 noundef 2, i32 noundef -2147483648) #6
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %128, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %121, i32 noundef 2, i32 noundef -2147483648) #6
   %130 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %130, ptr noundef %1, i32 noundef %121, i32 noundef 2, i32 noundef -2147483648) #6
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %130, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %121, i32 noundef 2, i32 noundef -2147483648) #6
   %132 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %132, ptr noundef %1, i32 noundef %121, i32 noundef 2, i32 noundef -2147483648) #6
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %132, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %121, i32 noundef 2, i32 noundef -2147483648) #6
   %134 = add i16 %.1128, %37
   %135 = add nuw nsw i32 %.0129, 1
   %exitcond.not = icmp eq i32 %135, %23
@@ -1498,17 +1498,17 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr n
   %26 = load i32, ptr @ett_clear_transfers_block, align 4
   %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #6
   %28 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648) #6
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648) #6
   %30 = load i32, ptr @ett_mausb_ep_handle, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #6
   %32 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648) #6
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648) #6
   %34 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648) #6
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648) #6
   %36 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648) #6
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648) #6
   %38 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648) #6
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648) #6
   %40 = add i16 %.128, 2
   %41 = load i32, ptr @hf_mausb_stream_id, align 4
   %42 = sext i16 %40 to i32
@@ -1562,17 +1562,17 @@ dissect_clear_transfers_block.exit:               ; preds = %46, %53
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 {
   %5 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648) #6
   %7 = load i32, ptr @ett_mausb_ep_handle, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #6
   %9 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #6
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648) #6
   %11 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #6
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648) #6
   %13 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #6
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648) #6
   %15 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #6
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648) #6
   %17 = add nuw nsw i32 %2, 2
   %18 = load i32, ptr @hf_mausb_stream_id, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 2, i32 noundef -2147483648) #6

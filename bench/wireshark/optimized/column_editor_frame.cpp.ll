@@ -290,7 +290,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %.loopexit, %.loopex
 
 71:                                               ; preds = %_ZN7QStringD2Ev.exit26, %45
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit26 ], [ %46, %45 ]
-  call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
+  call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -1288,7 +1288,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2:     ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit4
 
 _ZN7QStringD2Ev.exit4:                            ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2, %16
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   ret void
 }
 
@@ -1313,7 +1313,7 @@ define void @_ZN17ColumnEditorFrameD0Ev(ptr noundef nonnull align 8 dereferencea
 define void @_ZThn16_N17ColumnEditorFrameD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN17ColumnEditorFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %2) #13
   ret void
 }
 
@@ -2272,7 +2272,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %105
 127:                                              ; preds = %126, %1
   %.sroa.0.0 = phi ptr [ %.sroa.0.2, %126 ], [ null, %1 ]
   store i32 -1, ptr %8, align 8
-  invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
           to label %_ZN17ColumnEditorFrame21on_buttonBox_rejectedEv.exit unwind label %91
 
 _ZN17ColumnEditorFrame21on_buttonBox_rejectedEv.exit: ; preds = %127
@@ -2353,7 +2353,7 @@ define void @_ZN17ColumnEditorFrame13keyPressEventEP9QKeyEvent(ptr noundef nonnu
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 -1, ptr %15, align 8
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br label %_ZN7QStringD2Ev.exit12
 
 16:                                               ; preds = %11, %11

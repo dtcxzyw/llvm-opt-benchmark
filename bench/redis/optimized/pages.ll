@@ -582,7 +582,7 @@ if.end10:                                         ; preds = %madvise_MADV_DONTNE
   br i1 %cmp.i7, label %os_overcommits_proc.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end10
-  %call.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i6, ptr noundef nonnull %buf.i, i64 noundef 1) #8
+  %call.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i6, ptr noundef nonnull %buf.i, i64 noundef 1) #8
   %call3.i8 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i6) #8
   %cmp4.i9 = icmp slt i64 %call.i.i, 1
   br i1 %cmp4.i9, label %os_overcommits_proc.exit.thread, label %os_overcommits_proc.exit
@@ -615,7 +615,7 @@ if.end14:                                         ; preds = %os_overcommits_proc
   br i1 %cmp.i13, label %label_error.i, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.end14
-  %call.i.i15 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i12, ptr noundef nonnull %buf.i10, i64 noundef 24) #8
+  %call.i.i15 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i12, ptr noundef nonnull %buf.i10, i64 noundef 24) #8
   %call3.i16 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i12) #8
   %cmp4.i17 = icmp slt i64 %call.i.i15, 0
   br i1 %cmp4.i17, label %label_error.i, label %if.end7.i18

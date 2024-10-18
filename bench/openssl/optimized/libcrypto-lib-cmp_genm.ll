@@ -105,7 +105,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   %cond8.i.i = select i1 %cmp6.i.i, ptr @.str.14, ptr @.str.15
   %call.i.i.i = call ptr @X509_get_subject_name(ptr noundef %call3.i) #4
   %call1.i.i.i = call ptr @X509_NAME_oneline(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 0) #4
-  %call2.i.i.i = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef %cond.i.i, ptr noundef %ctx, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, ptr noundef %call1.i.i.i, ptr noundef nonnull %cond8.i.i) #4
+  %call2.i.i.i = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef range(i32 3, 5) %cond.i.i, ptr noundef %ctx, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, ptr noundef %call1.i.i.i, ptr noundef nonnull %cond8.i.i) #4
   call void @CRYPTO_free(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str, i32 noundef 31) #4
   br label %land.lhs.true.i.i
 
@@ -117,7 +117,7 @@ land.lhs.true.i.i:                                ; preds = %if.then.i.i, %for.b
 if.then21.i.i:                                    ; preds = %land.lhs.true.i.i
   %call.i14.i.i = call ptr @X509_get_subject_name(ptr noundef %call3.i) #4
   %call1.i15.i.i = call ptr @X509_NAME_oneline(ptr noundef %call.i14.i.i, ptr noundef null, i32 noundef 0) #4
-  %call2.i17.i.i = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef %cond.i.i, ptr noundef %ctx, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, ptr noundef %call1.i15.i.i, ptr noundef nonnull @.str.17) #4
+  %call2.i17.i.i = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef range(i32 3, 5) %cond.i.i, ptr noundef %ctx, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, ptr noundef %call1.i15.i.i, ptr noundef nonnull @.str.17) #4
   call void @CRYPTO_free(ptr noundef %call1.i15.i.i, ptr noundef nonnull @.str, i32 noundef 31) #4
   br label %ossl_X509_check.exit.i
 

@@ -161,7 +161,7 @@ _ZN9metaspace15ChunkHeaderPool21allocate_chunk_headerEv.exit: ; preds = %_ZN9met
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %.0.i, i64 32
   %37 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %37, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, i8 0, i64 18, i1 false)
   %38 = getelementptr inbounds i8, ptr %.0.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 32, i1 false)
   store ptr %1, ptr %36, align 8
@@ -285,7 +285,7 @@ _ZN9metaspace15ChunkHeaderPool21allocate_chunk_headerEv.exit: ; preds = %_ZN9met
   %70 = getelementptr inbounds ptr, ptr %65, i64 %69
   %71 = getelementptr inbounds i8, ptr %.0.i, i64 32
   %72 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %72, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %72, i8 0, i64 18, i1 false)
   %73 = getelementptr inbounds i8, ptr %.0.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %73, i8 0, i64 32, i1 false)
   store ptr %64, ptr %71, align 8

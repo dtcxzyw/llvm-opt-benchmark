@@ -985,7 +985,7 @@ for.body.i.i85:                                   ; preds = %for.body.i.i85, %if
 init_genrand.exit.i:                              ; preds = %for.body.i.i85
   %index.i.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i, align 8
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %cond, i64 624)
+  %cond.i = tail call i64 @llvm.umax.i64(i64 range(i64 1, 576460752303423489) %cond, i64 624)
   %arrayidx11.i91 = getelementptr i8, ptr %self, i64 2512
   br label %for.body.i
 

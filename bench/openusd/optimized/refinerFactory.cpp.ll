@@ -1816,7 +1816,7 @@ _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrRese
   %.04.lcssa.i.i.i = phi i32 [ 1, %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE15setNumBaseFacesERNS1_15TopologyRefinerEi.exit.preheader.i.i.i ], [ %729, %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE15setNumBaseFacesERNS1_15TopologyRefinerEi.exit._crit_edge.loopexit.i.i.i ]
   %.val23.i.i.i = load ptr, ptr %690, align 8
   %.val23.val.i.i.i = load ptr, ptr %.val23.i.i.i, align 8
-  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level14resizeVerticesEi(ptr noundef nonnull align 8 dereferenceable(480) %.val23.val.i.i.i, i32 noundef %.04.lcssa.i.i.i)
+  invoke void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level14resizeVerticesEi(ptr noundef nonnull align 8 dereferenceable(480) %.val23.val.i.i.i, i32 noundef range(i32 -2147483647, -2147483648) %.04.lcssa.i.i.i)
           to label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE18setNumBaseVerticesERNS1_15TopologyRefinerEi.exit.i.i.i unwind label %725
 
 _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE18setNumBaseVerticesERNS1_15TopologyRefinerEi.exit.i.i.i: ; preds = %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE15setNumBaseFacesERNS1_15TopologyRefinerEi.exit._crit_edge.i.i.i
@@ -2078,7 +2078,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i19.i.i: ; preds = %832
 
 _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE23assignComponentTopologyERNS1_15TopologyRefinerERKS5_.exit.i.i: ; preds = %839, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i19.i.i
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %19)
-  %843 = invoke noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBase34prepareComponentTopologyAssignmentERNS1_15TopologyRefinerEbPFvNS0_3Vtr8internal5Level13TopologyErrorEPKcPKvESC_(ptr noundef nonnull align 8 dereferenceable(120) %679, i1 noundef zeroext false, ptr noundef nonnull @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE28reportInvalidTopologyAdapterENS0_3Vtr8internal5Level13TopologyErrorEPKcPKS5_, ptr noundef nonnull %27)
+  %843 = invoke noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBase34prepareComponentTopologyAssignmentERNS1_15TopologyRefinerEbPFvNS0_3Vtr8internal5Level13TopologyErrorEPKcPKvESC_(ptr noundef nonnull align 8 dereferenceable(120) %679, i1 noundef zeroext false, ptr noundef nonnull @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE28reportInvalidTopologyAdapterENS0_3Vtr8internal5Level13TopologyErrorEPKcPKS5_, ptr noundef nonnull align 8 dereferenceable(24) %27)
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc35:                                         ; preds = %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ConverterEE23assignComponentTopologyERNS1_15TopologyRefinerERKS5_.exit.i.i
@@ -2745,7 +2745,7 @@ _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryIN32pxrInternal_v0_24__pxrRese
   %.val.val.i46.i.i = load ptr, ptr %.val.i45.i.i, align 8
   %.val.val.val.i47.i.i = load i32, ptr %.val.val.i46.i.i, align 8
   %1094 = sext i32 %.val.val.val.i47.i.i to i64
-  %1095 = invoke noundef i32 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17createFVarChannelEiRKNS0_3Sdc7OptionsE(ptr noundef nonnull align 8 dereferenceable(480) %.val.val.i46.i.i, i32 noundef %.050.lcssa.i.i.i, ptr noundef nonnull align 1 dereferenceable(4) %1079)
+  %1095 = invoke noundef i32 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level17createFVarChannelEiRKNS0_3Sdc7OptionsE(ptr noundef nonnull align 8 dereferenceable(480) %.val.val.i46.i.i, i32 noundef range(i32 -2147483647, -2147483648) %.050.lcssa.i.i.i, ptr noundef nonnull align 1 dereferenceable(4) %1079)
           to label %.noexc41 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc41:                                         ; preds = %._crit_edge.i44.i.i

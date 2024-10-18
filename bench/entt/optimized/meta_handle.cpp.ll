@@ -1329,7 +1329,7 @@ land.rhs18.i162:                                  ; preds = %land.rhs.i151
   br i1 %tobool.not.i.i164, label %land.rhs18.i201.critedge, label %cond.true.i.i.i177
 
 cond.true.i.i.i177:                               ; preds = %land.rhs18.i162
-  %call.i.i.i178 = invoke noundef ptr %77(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %handle, ptr noundef null)
+  %call.i.i.i178 = invoke noundef ptr %77(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(168) %handle, ptr noundef null)
           to label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i180 unwind label %terminate.lpad.i.i.i179
 
 terminate.lpad.i.i.i179:                          ; preds = %cond.true.i.i.i177
@@ -1340,7 +1340,7 @@ terminate.lpad.i.i.i179:                          ; preds = %cond.true.i.i.i177
   unreachable
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i180: ; preds = %cond.true.i.i.i177
-  %call5.i.i182 = invoke noundef ptr %77(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(33) %handle, ptr noundef %call.i.i.i178)
+  %call5.i.i182 = invoke noundef ptr %77(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(168) %handle, ptr noundef %call.i.i.i178)
           to label %_ZNK4entt8meta_anyeqERKS0_.exit186 unwind label %terminate.lpad.i.i183
 
 terminate.lpad.i.i183:                            ; preds = %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i180
@@ -1526,7 +1526,7 @@ land.rhs18.i201:                                  ; preds = %land.rhs18.i201.cri
   br i1 %tobool.not.i.i203, label %cleanup.cont195, label %cond.true.i.i.i216
 
 cond.true.i.i.i216:                               ; preds = %land.rhs18.i201
-  %call.i.i.i217 = invoke noundef ptr %102(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %handle, ptr noundef null)
+  %call.i.i.i217 = invoke noundef ptr %102(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(168) %handle, ptr noundef null)
           to label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i219 unwind label %terminate.lpad.i.i.i218
 
 terminate.lpad.i.i.i218:                          ; preds = %cond.true.i.i.i216
@@ -1537,7 +1537,7 @@ terminate.lpad.i.i.i218:                          ; preds = %cond.true.i.i.i216
   unreachable
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i219: ; preds = %cond.true.i.i.i216
-  %call5.i.i221 = invoke noundef ptr %102(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(33) %handle, ptr noundef %call.i.i.i217)
+  %call5.i.i221 = invoke noundef ptr %102(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(168) %handle, ptr noundef %call.i.i.i217)
           to label %_ZNK4entt8meta_anyeqERKS0_.exit225 unwind label %terminate.lpad.i.i222
 
 terminate.lpad.i.i222:                            ; preds = %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i219

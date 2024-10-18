@@ -410,7 +410,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReader9readArrayINS_8code
   %.sroa.5 = alloca { ptr, i64, %"class.std::optional" }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %3) #14
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
@@ -1064,8 +1064,8 @@ define dso_local void @_ZN4llvm8codeview24DebugChecksumsSubsectionC2ERNS0_26Debu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 4) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 16, i1 false)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 4) #14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 0) #14
@@ -1320,7 +1320,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.
   store i8 %17, ptr %10, align 4
   %18 = load i32, ptr %.sroa.026.037, align 8
   store i32 %18, ptr %4, align 4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %4, i64 6) #14
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(6) %4, i64 6) #14
   %19 = load ptr, ptr %0, align 8
   %.not33 = icmp eq ptr %19, null
   br i1 %.not33, label %20, label %.loopexit
@@ -1477,7 +1477,7 @@ _ZN4llvm8codeview24DebugChecksumsSubsectionD2Ev.exit: ; preds = %1, %4
   %15 = zext i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %12, i64 noundef %16, i64 noundef 4) #14
-  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 176) #17
   ret void
 }
@@ -1628,7 +1628,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   br label %_ZN4llvm11SmallVectorISt4pairIPvmELj0EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairIPvmELj0EED2Ev.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, %28
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %32 = icmp eq ptr %30, %31

@@ -64,7 +64,7 @@ entry:
   %sEnd = alloca ptr, align 8
   %nBuf = alloca [32 x i8], align 16
   %nBuf105 = alloca [32 x i8], align 16
-  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull %dalloc, i32 noundef 1200) #7
+  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull align 8 dereferenceable(1208) %dalloc, i32 noundef 1200) #7
   %dalloc_.i = getelementptr inbounds i8, ptr %dalloc, i64 1200
   store ptr %call.i, ptr %dalloc_.i, align 8
   %0 = fcmp uno double %m, 0.000000e+00

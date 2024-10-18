@@ -337,7 +337,7 @@ define linkonce_odr hidden void @_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceR
 
 8:                                                ; preds = %.preheader10
   %9 = load ptr, ptr %6, align 8
-  %10 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9, ptr nonnull %6, ptr nonnull %2) #16, !srcloc !7
+  %10 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9, ptr nonnull %6, ptr nonnull align 8 dereferenceable(8) %2) #16, !srcloc !7
   %.not.i = icmp eq ptr %10, %6
   br i1 %.not.i, label %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit, label %.preheader10.backedge
 
@@ -372,7 +372,7 @@ _ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit: ; preds = 
 
 22:                                               ; preds = %.preheader8
   %23 = load ptr, ptr %20, align 8
-  %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23, ptr nonnull %20, ptr nonnull %4) #16, !srcloc !7
+  %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23, ptr nonnull %20, ptr nonnull align 8 dereferenceable(8) %4) #16, !srcloc !7
   %.not.i1 = icmp eq ptr %24, %20
   br i1 %.not.i1, label %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit2, label %.preheader8.backedge
 
@@ -400,7 +400,7 @@ _ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit2: ; preds =
 
 34:                                               ; preds = %.preheader
   %35 = load ptr, ptr %32, align 8
-  %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr nonnull %32, ptr nonnull %18) #16, !srcloc !7
+  %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr nonnull %32, ptr nonnull align 8 dereferenceable(8) %18) #16, !srcloc !7
   %.not.i3 = icmp eq ptr %36, %32
   br i1 %.not.i3, label %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit4, label %.preheader.backedge
 
@@ -556,7 +556,7 @@ _ZL21align_allocation_sizemm.exit.i.i:            ; preds = %.preheader.i.i.i
   %59 = load volatile ptr, ptr %57, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   store ptr %59, ptr %49, align 8
-  %60 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %49, ptr %59, ptr nonnull %57) #16, !srcloc !7
+  %60 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %49, ptr %59, ptr nonnull align 8 dereferenceable(8) %57) #16, !srcloc !7
   %.not.i.i9 = icmp eq ptr %60, %59
   br i1 %.not.i.i9, label %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit, label %58, !llvm.loop !13
 
@@ -684,7 +684,7 @@ _Z31mspace_acquire_lease_with_retryI14JfrMemorySpaceI13JfrStringPool18JfrMspaceR
   %37 = load volatile ptr, ptr %35, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   store ptr %37, ptr %31, align 8
-  %38 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %31, ptr %37, ptr nonnull %35) #16, !srcloc !7
+  %38 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %31, ptr %37, ptr nonnull align 8 dereferenceable(8) %35) #16, !srcloc !7
   %.not.i.i.i = icmp eq ptr %38, %37
   br i1 %.not.i.i.i, label %_Z44mspace_allocate_transient_lease_to_live_listI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_P6Threadb.exit, label %36, !llvm.loop !13
 
@@ -995,7 +995,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %43 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %44 = sext i32 %43 to i64
   %45 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %46 = tail call noundef ptr %45(ptr noundef nonnull %42, i64 noundef %44) #16
+  %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %44) #16
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread, label %_ZN16java_lang_String6lengthEP7oopDesc.exit
 
@@ -1087,7 +1087,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %95 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %96 = sext i32 %95 to i64
   %97 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %98 = tail call noundef ptr %97(ptr noundef nonnull %42, i64 noundef %96) #16
+  %98 = tail call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %96) #16
   %99 = getelementptr inbounds i8, ptr %0, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i15 = icmp eq ptr %100, null
@@ -1417,7 +1417,7 @@ define hidden noundef i64 @_ZN13JfrStringPool5writeEv(ptr nocapture noundef nonn
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %16, align 8
-  %29 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25, ptr nonnull %.07.i, ptr nonnull %28) #16, !srcloc !7
+  %29 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25, ptr nonnull %.07.i, ptr nonnull align 8 dereferenceable(8) %28) #16, !srcloc !7
   %30 = icmp eq ptr %29, %.07.i
   br i1 %30, label %_ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit.i.i, label %.preheader
 
@@ -1438,7 +1438,7 @@ define hidden noundef i64 @_ZN13JfrStringPool5writeEv(ptr nocapture noundef nonn
 _ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit.i.i: ; preds = %33, %27, %21
   %.sink.i.i.i = phi ptr [ %.1.i.i.i.i, %33 ], [ null, %27 ], [ %.07.i, %21 ]
   store ptr %.sink.i.i.i, ptr %17, align 8
-  %34 = call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull %.07.i)
+  %34 = call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %.07.i)
   %.not.old.i = icmp ne ptr %19, null
   %or.cond9.not.i = select i1 %34, i1 %.not.old.i, i1 false
   br i1 %or.cond9.not.i, label %.lr.ph.i, label %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE7iterateI18CompositeOperationI11ExclusiveOpI12StringPoolOpI22UnBufferedWriteToChunkEE21ReleaseWithExcisionOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrievalS2_S2_Lb1EES2_E21CompositeOperationAndEEEvRT_.exit, !llvm.loop !18
@@ -1542,7 +1542,7 @@ define hidden noundef i64 @_ZN13JfrStringPool5clearEv(ptr nocapture noundef nonn
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %13, align 8
-  %26 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22, ptr nonnull %.07.i, ptr nonnull %25) #16, !srcloc !7
+  %26 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22, ptr nonnull %.07.i, ptr nonnull align 8 dereferenceable(8) %25) #16, !srcloc !7
   %27 = icmp eq ptr %26, %.07.i
   br i1 %27, label %_ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit.i.i, label %.preheader
 
@@ -1563,7 +1563,7 @@ define hidden noundef i64 @_ZN13JfrStringPool5clearEv(ptr nocapture noundef nonn
 _ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit.i.i: ; preds = %30, %24, %18
   %.sink.i.i.i = phi ptr [ %.1.i.i.i.i, %30 ], [ null, %24 ], [ %.07.i, %18 ]
   store ptr %.sink.i.i.i, ptr %14, align 8
-  %31 = call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull %.07.i)
+  %31 = call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %.07.i)
   %.not.old.i = icmp ne ptr %16, null
   %or.cond9.not.i = select i1 %31, i1 %.not.old.i, i1 false
   br i1 %or.cond9.not.i, label %.lr.ph.i, label %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE7iterateI18CompositeOperationI11ExclusiveOpI12StringPoolOpI23StringPoolDiscarderStubEE21ReleaseWithExcisionOpI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrievalS2_S2_Lb1EES2_E21CompositeOperationAndEEEvRT_.exit, !llvm.loop !20
@@ -3322,7 +3322,7 @@ _ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit: ; preds 
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %18
   store i64 %23, ptr %21, align 8
-  %24 = tail call noundef zeroext i1 @_ZN22UnBufferedWriteToChunkI19JfrStringPoolBufferE5writeEPS0_PKhm(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %1, ptr noundef %9, i64 noundef %16)
+  %24 = tail call noundef zeroext i1 @_ZN22UnBufferedWriteToChunkI19JfrStringPoolBufferE5writeEPS0_PKhm(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull %1, ptr noundef %9, i64 noundef %16)
   %25 = getelementptr inbounds i8, ptr %9, i64 %16
   tail call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %25) #16
   br label %_ZN14MutexedWriteOpI12StringPoolOpI22UnBufferedWriteToChunkEE7processEP19JfrStringPoolBuffer.exit
@@ -3520,7 +3520,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI13
   %24 = load volatile ptr, ptr %22, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   store ptr %24, ptr %1, align 8
-  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr %24, ptr nonnull %22) #16, !srcloc !7
+  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr %24, ptr nonnull align 8 dereferenceable(8) %22) #16, !srcloc !7
   %.not.i.i.i = icmp eq ptr %25, %24
   br i1 %.not.i.i.i, label %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE3addEPS0_.exit.i.i, label %23, !llvm.loop !13
 

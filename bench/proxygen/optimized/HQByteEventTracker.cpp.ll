@@ -236,7 +236,7 @@ entry:
 sw.bb4:                                           ; preds = %entry
   %call5 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
-  invoke void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %call5, i64 noundef %bf.lshr.i, i32 noundef %bf.cast, ptr noundef %call, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(80) %call5, i64 noundef %bf.lshr.i, i32 noundef range(i32 0, 8) %bf.cast, ptr noundef %call, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb4
@@ -249,7 +249,7 @@ invoke.cont:                                      ; preds = %sw.bb4
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -288,7 +288,7 @@ lpad:                                             ; preds = %sw.bb4
   br i1 %tobool.not.i.i18, label %eh.resume, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %lpad
-  %call.i.i20 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i20 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %eh.resume unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %if.then.i.i19
@@ -304,7 +304,7 @@ if.end:                                           ; preds = %delete.notnull, %_Z
   %15 = trunc i64 %bf.load18 to i32
   %bf.cast20 = and i32 %15, 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, i8 0, i64 32, i1 false)
-  invoke void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %call16, i64 noundef %bf.lshr.i, i32 noundef %bf.cast20, ptr noundef %call, ptr noundef nonnull %agg.tmp21)
+  invoke void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(80) %call16, i64 noundef %bf.lshr.i, i32 noundef range(i32 0, 8) %bf.cast20, ptr noundef %call, ptr noundef nonnull %agg.tmp21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %if.end
@@ -317,7 +317,7 @@ invoke.cont23:                                    ; preds = %if.end
   br i1 %tobool.not.i.i25, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit29, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %invoke.cont23
-  %call.i.i27 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, i32 noundef 3)
+  %call.i.i27 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit29 unwind label %terminate.lpad.i.i28
 
 terminate.lpad.i.i28:                             ; preds = %if.then.i.i26
@@ -354,7 +354,7 @@ lpad22:                                           ; preds = %if.end
   br i1 %tobool.not.i.i32, label %eh.resume, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %lpad22
-  %call.i.i34 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, i32 noundef 3)
+  %call.i.i34 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, i32 noundef 3)
           to label %eh.resume unwind label %terminate.lpad.i.i35
 
 terminate.lpad.i.i35:                             ; preds = %if.then.i.i33
@@ -392,7 +392,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen18HQByteEventTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #18
+  tail call void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -471,7 +471,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -490,7 +490,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -523,7 +523,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invok
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit
-  %call3.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 2)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i3
@@ -534,7 +534,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i3
   br i1 %tobool.not.i.i.i, label %lpad.body, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -553,7 +553,7 @@ invoke.cont:                                      ; preds = %if.then.i.i3
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
-  %call.i.i8 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -579,7 +579,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %if.then.
   br i1 %tobool.not.i.i12, label %common.resume, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad.body
-  %call.i.i14 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
@@ -614,7 +614,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
   %callback_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, i32 noundef 3)
           to label %_ZN8proxygen20TransactionByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -653,7 +653,7 @@ invoke.cont.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
   %callback_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i.i, i32 noundef 3)
           to label %_ZN12_GLOBAL__N_120HQTransportByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
@@ -750,7 +750,7 @@ invoke.cont.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
   %callback_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  %call.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i.i, i32 noundef 3)
           to label %_ZN12_GLOBAL__N_120HQTransportByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
@@ -790,7 +790,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
   %callback_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i.i.i, i32 noundef 3)
           to label %_ZN12_GLOBAL__N_120HQTransportByteEventD0Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
@@ -808,7 +808,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN12_GLOBAL__N_120HQTransportByteEventD0Ev.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %0) #19
   ret void
 }
 
@@ -836,11 +836,11 @@ if.then.i:                                        ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.then.i
-  tail call void @_ZN8proxygen15HTTPTransaction26onEgressTrackedByteEventTXERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull align 8 dereferenceable(64) %0)
+  tail call void @_ZN8proxygen15HTTPTransaction26onEgressTrackedByteEventTXERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %_ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE.exit
 
 sw.bb3.i:                                         ; preds = %if.then.i
-  tail call void @_ZN8proxygen15HTTPTransaction27onEgressTrackedByteEventAckERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull align 8 dereferenceable(64) %0)
+  tail call void @_ZN8proxygen15HTTPTransaction27onEgressTrackedByteEventAckERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %_ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE.exit
 
 _ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE.exit: ; preds = %entry, %if.then.i, %sw.bb.i, %sw.bb3.i
@@ -949,7 +949,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -988,7 +988,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
   %callback_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, i32 noundef 3)
           to label %_ZN8proxygen20TransactionByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -1021,7 +1021,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %callback_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_, ptr noundef nonnull align 8 dereferenceable(32) %callback_, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1046,7 +1046,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i

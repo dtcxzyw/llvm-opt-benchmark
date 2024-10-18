@@ -785,7 +785,7 @@ define internal noundef zeroext i1 @_ZL15decompose_indicPK31hb_ot_shape_normaliz
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 136
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef i32 %9(ptr noundef nonnull %7, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %11)
+  %12 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %11)
   %13 = icmp ne i32 %12, 0
   br label %14
 
@@ -802,7 +802,7 @@ define internal noundef zeroext i1 @_ZL13compose_indicPK31hb_ot_shape_normalize_
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i32 %8(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %10)
+  %11 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %1, ptr noundef %10)
   %12 = icmp ult i32 %11, 32
   br i1 %12, label %13, label %.critedge
 
@@ -812,7 +812,7 @@ define internal noundef zeroext i1 @_ZL13compose_indicPK31hb_ot_shape_normalize_
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i32 %16(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %18)
+  %19 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(216) %14, i32 noundef %1, ptr noundef %18)
   %20 = shl nuw i32 1, %19
   %21 = and i32 %20, 7168
   %22 = icmp eq i32 %21, 0
@@ -841,7 +841,7 @@ define internal noundef zeroext i1 @_ZL13compose_indicPK31hb_ot_shape_normalize_
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %27, i64 128
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 %32(ptr noundef nonnull %27, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %34)
+  %35 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(216) %27, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %34)
   %36 = icmp ne i32 %35, 0
   br label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
 
@@ -1022,7 +1022,7 @@ define internal noundef zeroext i1 @_ZL24initial_reordering_indicPK18hb_ot_shape
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit.i.i:   ; preds = %35, %26
   %38 = phi ptr [ %37, %35 ], [ null, %26 ]
-  %39 = call noundef i32 %30(ptr noundef nonnull %1, ptr noundef %32, i32 noundef %25, ptr noundef nonnull %14, ptr noundef %38)
+  %39 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %32, i32 noundef %25, ptr noundef nonnull %14, ptr noundef %38)
   %.not3.i.i = icmp eq i32 %39, 0
   %.pre.i.i = load i32, ptr %14, align 4
   %spec.select.i.i = select i1 %.not3.i.i, i32 0, i32 %.pre.i.i

@@ -571,7 +571,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !9
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %5, ptr %3, align 8, !noalias !9
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.43, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.44, i64 noundef 5, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.45, ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.46, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.47)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.43, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.44, i64 noundef 5, ptr noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.45, ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.46, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.47)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !9
   ret i1 %6
 }
@@ -837,7 +837,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Resu
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h14b04710b69360ecE.llvm.10377456559187600216.exit.i.i": ; preds = %18, %10, %5
   %.pn.i.i = phi { ptr, i32 } [ %19, %18 ], [ %6, %10 ], [ %6, %5 ]
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #36
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #36
           to label %22 unwind label %20
 
 18:                                               ; preds = %16
@@ -855,7 +855,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Resu
   resume { ptr, i32 } %.pn.i.i
 
 "_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h1e751f2a320b3835E.exit": ; preds = %12, %16
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   br label %29
 
 23:                                               ; preds = %1
@@ -1420,7 +1420,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr40drop
 define hidden void @"_ZN4core3ptr240drop_in_place$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf9f0c55771753121E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !247
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !247, !noundef !5
   %.not.i.i.i = icmp eq i64 %4, 0
@@ -1446,7 +1446,7 @@ define hidden void @"_ZN4core3ptr240drop_in_place$LT$$LT$wasmtime_wasi..preview1
 define hidden void @"_ZN4core3ptr241drop_in_place$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a8e5c87a25acb0cE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !255
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !255, !noundef !5
   %.not.i.i.i = icmp eq i64 %4, 0
@@ -1488,7 +1488,7 @@ define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesy
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !262
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -1553,7 +1553,7 @@ define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesy
 "_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$cap_std..fs..dir..Dir$GT$$GT$17h5d6de91feb71149fE.llvm.6128706887224790261.exit4": ; preds = %19, %24
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !285
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8, !range !254, !noalias !285, !noundef !5
   %.not.i.i.i.i5 = icmp eq i64 %30, 0
@@ -1588,7 +1588,7 @@ define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !294
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !294, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1614,7 +1614,7 @@ define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !303
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !303, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1640,7 +1640,7 @@ define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !312
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !312, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1667,7 +1667,7 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesy
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !321
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -1732,7 +1732,7 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesy
 "_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$cap_std..fs..dir..Dir$GT$$GT$17h5d6de91feb71149fE.llvm.6128706887224790261.exit4": ; preds = %19, %24
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !344
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8, !range !254, !noalias !344, !noundef !5
   %.not.i.i.i.i5 = icmp eq i64 %30, 0
@@ -1768,7 +1768,7 @@ define hidden void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesy
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !353
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -1799,7 +1799,7 @@ define hidden void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesy
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !353
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !362
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !254, !noalias !362, !noundef !5
   %.not.i.i.i.i1 = icmp eq i64 %18, 0
@@ -1834,7 +1834,7 @@ define hidden void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !371
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !371, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1860,7 +1860,7 @@ define hidden void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !380
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !380, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1886,7 +1886,7 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !389
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !389, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1912,7 +1912,7 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !398
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !398, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1938,7 +1938,7 @@ define hidden void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4037a673203753aE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !407
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !407, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1964,7 +1964,7 @@ define hidden void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !416
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !416, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -1990,7 +1990,7 @@ define hidden void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesy
 define hidden void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !425
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !254, !noalias !425, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -2140,7 +2140,7 @@ define hidden void @"_ZN4core3ptr340drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr386drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h40113064890a8dcfE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !479
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -2318,7 +2318,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 define hidden void @"_ZN4core3ptr421drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb4b5088696fb0680E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !540
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -2584,7 +2584,7 @@ define hidden void @"_ZN4core3ptr438drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr439drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e145a895a8ed17cE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !626
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -2652,7 +2652,7 @@ define hidden void @"_ZN4core3ptr439drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr439drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7e42e9282efbe404E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !651
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -2799,7 +2799,7 @@ define hidden void @"_ZN4core3ptr440drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr441drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfe3f4b0814a112feE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !712
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -2867,7 +2867,7 @@ define hidden void @"_ZN4core3ptr441drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr446drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h98ee68b4749562a0E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !737
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -2935,7 +2935,7 @@ define hidden void @"_ZN4core3ptr446drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr446drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h795094a0f8723391E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !762
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -3003,7 +3003,7 @@ define hidden void @"_ZN4core3ptr446drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr448drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0a1d9d5226a87a70E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !787
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -3089,7 +3089,7 @@ define hidden void @"_ZN4core3ptr461drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr464drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1e3b876e1dffbdb3E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !819
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -3157,7 +3157,7 @@ define hidden void @"_ZN4core3ptr464drop_in_place$LT$wasmtime_wasi..filesystem..
 define hidden void @"_ZN4core3ptr464drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30ca1db787c033f3E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !844
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -3248,7 +3248,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$LP$u8$C$u8$C$u8$C$u8$RP$$
 define hidden void @"_ZN4core3ptr473drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h132cccb061476391E.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !876
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -3324,7 +3324,7 @@ define hidden void @"_ZN4core3ptr481drop_in_place$LT$wasmtime_wasi..runtime..spa
 
 5:                                                ; preds = %1
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %"_ZN4core3ptr309drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b4e39b2c2e97d6eE.llvm.6128706887224790261.exit"
 
 "_ZN4core3ptr309drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b4e39b2c2e97d6eE.llvm.6128706887224790261.exit": ; preds = %1, %5
@@ -3454,7 +3454,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp.
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h2637dcb6f9c3f11aE.llvm.10377456559187600216.exit.i.i": ; preds = %36, %28, %23
   %.pn.i.i = phi { ptr, i32 } [ %37, %36 ], [ %24, %28 ], [ %24, %23 ]
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #36
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #36
           to label %.body unwind label %38
 
 36:                                               ; preds = %34
@@ -3469,7 +3469,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp.
   unreachable
 
 "_ZN4core3ptr101drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h3498b35fe0960b05E.llvm.10377456559187600216.exit.i": ; preds = %34, %30
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr59drop_in_place$LT$tokio..net..tcp..listener..TcpListener$GT$17h27fc59c5b8b2e37aE.exit" unwind label %58
 
 40:                                               ; preds = %1
@@ -3535,7 +3535,7 @@ common.resume:                                    ; preds = %63, %.body, %46
   br i1 %62, label %common.resume, label %63
 
 63:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %60)
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60)
           to label %common.resume unwind label %68
 
 "_ZN4core3ptr59drop_in_place$LT$tokio..net..tcp..listener..TcpListener$GT$17h27fc59c5b8b2e37aE.exit": ; preds = %"_ZN4core3ptr101drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h3498b35fe0960b05E.llvm.10377456559187600216.exit.i"
@@ -3545,7 +3545,7 @@ common.resume:                                    ; preds = %63, %.body, %46
   br i1 %66, label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit", label %67
 
 67:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$tokio..net..tcp..listener..TcpListener$GT$17h27fc59c5b8b2e37aE.exit"
-  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %64)
+  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit"
 
 68:                                               ; preds = %63
@@ -3628,7 +3628,7 @@ define hidden void @"_ZN4core3ptr544drop_in_place$LT$wasmtime_wasi..runtime..spa
 
 5:                                                ; preds = %1
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   br label %"_ZN4core3ptr406drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb2f031168f4b1a2fE.llvm.6128706887224790261.exit"
 
 "_ZN4core3ptr406drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb2f031168f4b1a2fE.llvm.6128706887224790261.exit": ; preds = %1, %5
@@ -3647,7 +3647,7 @@ define hidden void @"_ZN4core3ptr546drop_in_place$LT$wasmtime_wasi..runtime..spa
 
 5:                                                ; preds = %1
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   br label %"_ZN4core3ptr408drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h01b081c9f9fecf3aE.llvm.6128706887224790261.exit"
 
 "_ZN4core3ptr408drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h01b081c9f9fecf3aE.llvm.6128706887224790261.exit": ; preds = %1, %5
@@ -3666,7 +3666,7 @@ define hidden void @"_ZN4core3ptr547drop_in_place$LT$wasmtime_wasi..runtime..spa
 
 5:                                                ; preds = %1
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   br label %"_ZN4core3ptr409drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11013b6c84728a18E.llvm.6128706887224790261.exit"
 
 "_ZN4core3ptr409drop_in_place$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11013b6c84728a18E.llvm.6128706887224790261.exit": ; preds = %1, %5
@@ -3722,7 +3722,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stre
   br i1 %16, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecaf0b840a5db8c0E.exit.i", label %17
 
 17:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %12, i64 noundef %14) #37
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #37
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecaf0b840a5db8c0E.exit.i"
 
 18:                                               ; preds = %6
@@ -3738,7 +3738,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stre
   br i1 %25, label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_wasi..stream..HostInputStream$GT$$GT$17h0052c4e6060778ddE.exit", label %26
 
 26:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %21, i64 noundef %23) #37
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef range(i64 1, -9223372036854775807) %23) #37
   br label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_wasi..stream..HostInputStream$GT$$GT$17h0052c4e6060778ddE.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecaf0b840a5db8c0E.exit.i": ; preds = %17, %8
@@ -3756,7 +3756,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stre
 
 31:                                               ; preds = %27
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.10377456559187600216(i8 noundef 2), !noalias !1131
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   br label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_wasi..stream..HostInputStream$GT$$GT$17h0052c4e6060778ddE.exit"
 
 "_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_wasi..stream..HostInputStream$GT$$GT$17h0052c4e6060778ddE.exit": ; preds = %31, %27, %26, %18
@@ -3765,7 +3765,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stre
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde65d0c186214b2aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
           to label %9 unwind label %2
 
 2:                                                ; preds = %1
@@ -3813,7 +3813,7 @@ define internal fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..run
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3937af7d80263da2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
           to label %9 unwind label %2
 
 2:                                                ; preds = %1
@@ -3861,7 +3861,7 @@ define internal fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..run
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr575drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58981c1910e6966eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  invoke void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %9 unwind label %2
 
 2:                                                ; preds = %1
@@ -3979,7 +3979,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..De
 define hidden void @"_ZN4core3ptr614drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc11e62e123f191fE.llvm.6128706887224790261"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1216
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -4456,7 +4456,7 @@ common.ret:                                       ; preds = %4, %"_ZN4core3ptr55
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h14b04710b69360ecE.llvm.10377456559187600216.exit.i.i": ; preds = %22, %14, %9
   %.pn.i.i = phi { ptr, i32 } [ %23, %22 ], [ %10, %14 ], [ %10, %9 ]
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #36
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #36
           to label %26 unwind label %24
 
 22:                                               ; preds = %20
@@ -4474,7 +4474,7 @@ common.ret:                                       ; preds = %4, %"_ZN4core3ptr55
   resume { ptr, i32 } %.pn.i.i
 
 "_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h1e751f2a320b3835E.exit": ; preds = %16, %20
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   br label %common.ret
 }
 
@@ -5694,7 +5694,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   br i1 %6, label %7, label %40
 
 7:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd9f113c41b54ad63E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd9f113c41b54ad63E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %4)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %7
@@ -6262,7 +6262,7 @@ common.ret:                                       ; preds = %133, %36
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h14b04710b69360ecE.llvm.10377456559187600216.exit.i.i.i": ; preds = %116, %108, %103
   %.pn.i.i.i = phi { ptr, i32 } [ %117, %116 ], [ %104, %108 ], [ %104, %103 ]
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78) #36
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %78) #36
           to label %.body.i unwind label %118, !noalias !1497
 
 116:                                              ; preds = %114
@@ -6277,7 +6277,7 @@ common.ret:                                       ; preds = %133, %36
   unreachable
 
 "_ZN4core3ptr97drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h224da6717c429093E.llvm.10377456559187600216.exit.i.i": ; preds = %114, %110
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17h8bd01ca1a0495ebaE.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(32) %78)
           to label %.thread42 unwind label %121, !noalias !1497
 
 120:                                              ; preds = %95, %92, %80
@@ -7870,7 +7870,7 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 
@@ -8510,7 +8510,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9hashbrown11r
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc7344213f9e39058E.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc7344213f9e39058E.llvm.10377456559187600216"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %"_ZN4core3ptr271drop_in_place$LT$$LP$u32$C$$LP$fn$LP$$RF$mut$u20$dyn$u20$core..any..Any$RP$$u20$.$GT$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$RP$$GT$17h32d62b334296803eE.llvm.862030130881490728.exit.i" unwind label %14
 
 14:                                               ; preds = %11
@@ -11739,7 +11739,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 42:                                               ; preds = %38
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr481drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75f971edd7b34868E.llvm.6128706887224790261.exit" unwind label %36
 }
 
@@ -12794,7 +12794,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 39:                                               ; preds = %36
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %"_ZN4core3ptr546drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc53303dcef9d1ebbE.llvm.6128706887224790261.exit" unwind label %34
 }
 
@@ -12940,7 +12940,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 42:                                               ; preds = %38
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he905d745121077b5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he905d745121077b5E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
           to label %"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7da2aa31d55c29e4E.exit" unwind label %36
 }
 
@@ -13623,7 +13623,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 42:                                               ; preds = %38
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr544drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h477c1b4c9411d30aE.llvm.6128706887224790261.exit" unwind label %36
 }
 
@@ -14705,7 +14705,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 42:                                               ; preds = %38
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05d3addcc7a794faE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
           to label %"_ZN4core3ptr547drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4d3521a4b7f1ce49E.llvm.6128706887224790261.exit" unwind label %36
 }
 
@@ -15900,7 +15900,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket3new17h001b7dc7b398b048E(ptr noalia
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
-  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i8 %5)
+  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, i8 %5)
           to label %13 unwind label %11
 
 9:                                                ; preds = %2
@@ -15962,7 +15962,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket3new17h001b7dc7b398b048E(ptr noalia
           to label %28 unwind label %11, !noalias !3075
 
 28:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i"
-  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i8 %5)
+  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, i8 %5)
           to label %31 unwind label %29
 
 29:                                               ; preds = %28
@@ -16623,7 +16623,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
 72:                                               ; preds = %71
   %73 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$tokio..net..tcp..socket..TcpSocket..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4f208f70cf6ddd9cE"(ptr noundef nonnull align 8 %5) #36
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$tokio..net..tcp..socket..TcpSocket..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4f208f70cf6ddd9cE"(ptr noundef nonnull align 8 dereferenceable(96) %5) #36
           to label %.body unwind label %74
 
 74:                                               ; preds = %72
@@ -17332,7 +17332,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
 
 15:                                               ; preds = %12
   %.val.i = load i32, ptr %9, align 8, !alias.scope !3252, !noalias !3257, !noundef !5
-  invoke void @_ZN5tokio3net3tcp6socket9TcpSocket6listen17h9ce0793781f211daE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, i32 noundef %.sroa.6.0.copyload, i32 noundef %.val.i)
+  invoke void @_ZN5tokio3net3tcp6socket9TcpSocket6listen17h9ce0793781f211daE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, i32 noundef range(i32 0, -1) %.sroa.6.0.copyload, i32 noundef %.val.i)
           to label %"_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen28_$u7b$$u7b$closure$u7d$$u7d$17hfdd697ea7d67e51fE.exit.i" unwind label %18
 
 16:                                               ; preds = %12
@@ -17397,7 +17397,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
 
 32:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i"
   %.val4.i = load i32, ptr %9, align 8, !alias.scope !3252, !noalias !3257, !noundef !5
-  invoke void @_ZN5tokio3net3tcp6socket9TcpSocket6listen17h9ce0793781f211daE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, i32 noundef %.sroa.6.0.copyload, i32 noundef %.val4.i)
+  invoke void @_ZN5tokio3net3tcp6socket9TcpSocket6listen17h9ce0793781f211daE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, i32 noundef range(i32 0, -1) %.sroa.6.0.copyload, i32 noundef %.val4.i)
           to label %"_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen28_$u7b$$u7b$closure$u7d$$u7d$17hfdd697ea7d67e51fE.exit10.i" unwind label %33
 
 33:                                               ; preds = %32
@@ -17422,7 +17422,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
 
 37:                                               ; preds = %11, %10
   %.pn219.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %11 ], [ %.pn.i, %10 ]
-  %38 = invoke noundef i32 @close(i32 noundef %.sroa.6.0.copyload)
+  %38 = invoke noundef i32 @close(i32 noundef range(i32 0, -1) %.sroa.6.0.copyload)
           to label %.body unwind label %35, !noalias !3255
 
 39:                                               ; preds = %.noexc.i, %.noexc7.i, %28, %24, %"_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen28_$u7b$$u7b$closure$u7d$$u7d$17hfdd697ea7d67e51fE.exit.i"
@@ -17996,7 +17996,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket13local_address17hc7dd2f3c5330312bE
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3352
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3352
   br label %23
 
 13:                                               ; preds = %6
@@ -18232,7 +18232,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket18keep_alive_enabled17hf69113576865
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3369
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3369
   br label %.noexc
 
 15:                                               ; preds = %2
@@ -18256,7 +18256,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket18keep_alive_enabled17hf69113576865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3372
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 9 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !srcloc !3375
+  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 9 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
   %.not.i.i.i.not = icmp eq ptr %25, null
   br i1 %.not.i.i.i.not, label %26, label %.noexc24
@@ -18342,7 +18342,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket22set_keep_alive_enabled17hf
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3379
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3379
   br label %18
 
 12:                                               ; preds = %2
@@ -18418,7 +18418,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket20keep_alive_idle_time17h152338cb8b
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3388
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3388
   br label %.noexc
 
 15:                                               ; preds = %2
@@ -18442,7 +18442,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket20keep_alive_idle_time17h152338cb8b
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3391
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 4 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !noalias !3397, !srcloc !3375
+  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 4 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !noalias !3397, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
   %.not.i.i.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.not.i.i, label %26, label %.noexc13
@@ -18525,7 +18525,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket24set_keep_alive_idle_time17
   unreachable
 
 11:                                               ; preds = %3
-  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3401
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3401
   br label %20
 
 13:                                               ; preds = %3
@@ -18621,7 +18621,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19keep_alive_interval17h7e7da89f099
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3412
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3412
   br label %.noexc
 
 15:                                               ; preds = %2
@@ -18645,7 +18645,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19keep_alive_interval17h7e7da89f099
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3415
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 5 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !noalias !3421, !srcloc !3375
+  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 5 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !noalias !3421, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
   %.not.i.i.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.not.i.i, label %26, label %.noexc13
@@ -18728,7 +18728,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_keep_alive_interval17h
   unreachable
 
 11:                                               ; preds = %3
-  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3425
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3425
   br label %19
 
 13:                                               ; preds = %3
@@ -18824,7 +18824,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16keep_alive_count17h058114c2176fa4
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3436
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3436
   br label %.noexc
 
 15:                                               ; preds = %2
@@ -18848,7 +18848,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16keep_alive_count17h058114c2176fa4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3439
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !srcloc !3375
+  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
   %.not.i.i.i.not = icmp eq ptr %25, null
   br i1 %.not.i.i.i.not, label %26, label %.noexc24
@@ -18932,7 +18932,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_keep_alive_count17h950
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3445
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3445
   br label %18
 
 12:                                               ; preds = %2
@@ -19017,7 +19017,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   unreachable
 
 17:                                               ; preds = %2
-  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3456
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3456
   br label %25
 
 19:                                               ; preds = %2
@@ -19051,7 +19051,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !3459
   store i32 4, ptr %10, align 4, !noalias !3459
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !3459
-  %33 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr null, ptr nonnull inttoptr (i64 2 to ptr), ptr nonnull %9, ptr nonnull %10) #37, !srcloc !3375
+  %33 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr null, ptr nonnull inttoptr (i64 2 to ptr), ptr nonnull align 4 dereferenceable(4) %9, ptr nonnull align 4 dereferenceable(4) %10) #37, !srcloc !3375
   %34 = extractvalue { ptr, i32, i32 } %33, 0
   %.not.i.i.i.not.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.not.i, label %35, label %_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i
@@ -19100,7 +19100,7 @@ _ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i: ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3464
   store i32 4, ptr %6, align 4, !noalias !3464
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3464
-  %45 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr nonnull inttoptr (i64 41 to ptr), ptr nonnull inttoptr (i64 16 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !srcloc !3375
+  %45 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr nonnull inttoptr (i64 41 to ptr), ptr nonnull inttoptr (i64 16 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !srcloc !3375
   %46 = extractvalue { ptr, i32, i32 } %45, 0
   %.not.i.i.i.not = icmp eq ptr %46, null
   br i1 %.not.i.i.i.not, label %47, label %.noexc50
@@ -19206,7 +19206,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13set_hop_limit17h6b5b5da77f
   unreachable
 
 11:                                               ; preds = %2
-  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3470
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3470
   br label %20
 
 13:                                               ; preds = %2
@@ -19317,7 +19317,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19receive_buffer_size17h65874498138
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3486
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3486
   br label %.noexc
 
 15:                                               ; preds = %2
@@ -19341,7 +19341,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19receive_buffer_size17h65874498138
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3489
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 8 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !noalias !3496, !srcloc !3375
+  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 8 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !noalias !3496, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
   %.not.i.i.i.not.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.not.i, label %26, label %.noexc20
@@ -19427,7 +19427,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_receive_buffer_size17h
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3500
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3500
   br label %19
 
 12:                                               ; preds = %2
@@ -19515,7 +19515,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16send_buffer_size17h1f259a0f55ae15
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3511
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !range !1450, !noalias !3511
   br label %.noexc
 
 15:                                               ; preds = %2
@@ -19539,7 +19539,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16send_buffer_size17h1f259a0f55ae15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3514
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 7 to ptr), ptr nonnull %5, ptr nonnull %6) #37, !noalias !3521, !srcloc !3375
+  %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 7 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !noalias !3521, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
   %.not.i.i.i.not.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.not.i, label %26, label %.noexc20
@@ -19625,7 +19625,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_send_buffer_size17h53f
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3525
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !range !1450, !noalias !3525
   br label %19
 
 12:                                               ; preds = %2
@@ -19944,7 +19944,7 @@ define { i64, ptr } @"_ZN94_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
 84:                                               ; preds = %76
   %lpad.thr_comm.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$17he29ac82760629bb9E.llvm.3320867604257097217"(ptr noundef nonnull align 8 %11) #36
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$17he29ac82760629bb9E.llvm.3320867604257097217"(ptr noundef nonnull align 8 dereferenceable(168) %11) #36
           to label %.body.i.i unwind label %85, !noalias !3575
 
 85:                                               ; preds = %84
@@ -20065,7 +20065,7 @@ define { i64, ptr } @"_ZN94_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
 113:                                              ; preds = %105
   %lpad.thr_comm.split-lp.i.i11.i.i = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$17he29ac82760629bb9E.llvm.3320867604257097217"(ptr noundef nonnull align 8 %7) #36
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$17he29ac82760629bb9E.llvm.3320867604257097217"(ptr noundef nonnull align 8 dereferenceable(168) %7) #36
           to label %.body18.i.i unwind label %114, !noalias !3613
 
 114:                                              ; preds = %113
@@ -20102,7 +20102,7 @@ define { i64, ptr } @"_ZN94_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
 
 121:                                              ; preds = %72, %71
   %.pn326.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i, %72 ], [ %.pn.i.i, %71 ]
-  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$wasmtime_wasi..runtime..spawn$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11d45561b6b36d53E"(ptr noundef nonnull align 8 %14) #36
+  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$wasmtime_wasi..runtime..spawn$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11d45561b6b36d53E"(ptr noundef nonnull align 8 dereferenceable(168) %14) #36
           to label %.body unwind label %119, !noalias !3559
 
 .noexc18:                                         ; preds = %.noexc19, %.noexc, %101, %97, %92
@@ -21109,7 +21109,7 @@ common.ret:                                       ; preds = %8, %8, %8, %8, %8, 
   br i1 %63, label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$$GT$17h9b76248b16c9b75fE.exit", label %64
 
 64:                                               ; preds = %59
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %61)
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61)
           to label %"._ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$$GT$17h9b76248b16c9b75fE.exit_crit_edge" unwind label %66
 
 "._ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$$GT$17h9b76248b16c9b75fE.exit_crit_edge": ; preds = %64
@@ -21573,7 +21573,7 @@ define { ptr, ptr } @"_ZN84_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$was
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr140drop_in_place$LT$$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wasi..poll..Subscribe$GT$..ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06e3a86820fd34a2E"(ptr noundef nonnull align 8 %2) #36
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wasi..poll..Subscribe$GT$..ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06e3a86820fd34a2E"(ptr noundef nonnull align 8 dereferenceable(136) %2) #36
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -21692,7 +21692,7 @@ common.ret:                                       ; preds = %"_ZN5tokio3net3tcp6
   %30 = phi ptr [ %19, %18 ], [ %23, %21 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3835
   %31 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %31, ptr noalias noundef align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %31, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %34 unwind label %32
 
 32:                                               ; preds = %28
@@ -21858,7 +21858,7 @@ define { ptr, ptr } @"_ZN85_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr141drop_in_place$LT$$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wasmtime_wasi..poll..Subscribe$GT$..ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b9ba6a65a0d44a8E.llvm.6128706887224790261"(ptr noundef nonnull align 8 %2) #36
+  invoke void @"_ZN4core3ptr141drop_in_place$LT$$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wasmtime_wasi..poll..Subscribe$GT$..ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b9ba6a65a0d44a8E.llvm.6128706887224790261"(ptr noundef nonnull align 8 dereferenceable(144) %2) #36
           to label %12 unwind label %10
 
 10:                                               ; preds = %8

@@ -1353,7 +1353,7 @@ RB_FLOAT_TYPE_P.exit.i:                           ; preds = %43
   %54 = add nsw i64 %.neg.i.i.i, 2
   %55 = and i64 %36, -4
   %56 = or i64 %54, %55
-  %57 = tail call noundef i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 61)
+  %57 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %56, i64 range(i64 1, 0) %56, i64 61)
   %58 = bitcast i64 %57 to double
   br label %rb_float_value_inline.exit.i
 
@@ -2437,7 +2437,7 @@ define internal i64 @lazy_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2
 lazy_to_enum_i.exit:                              ; preds = %3, %17
   %19 = phi ptr [ %18, %17 ], [ %16, %3 ]
   store i64 36, ptr %19, align 8
-  %20 = tail call fastcc i64 @enumerator_init(i64 noundef %11, i64 noundef %2, i64 noundef %.1, i32 noundef %.0, ptr noundef %.012, ptr noundef null, i64 noundef 4, i32 noundef %9)
+  %20 = tail call fastcc i64 @enumerator_init(i64 noundef %11, i64 noundef %2, i64 noundef %.1, i32 noundef range(i32 -2147483648, 2147483647) %.0, ptr noundef %.012, ptr noundef null, i64 noundef 4, i32 noundef %9)
   %21 = tail call i32 @rb_block_given_p() #17
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %rb_obj_write.exit, label %22
@@ -4422,7 +4422,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
   br i1 %.not7.i, label %172, label %176
 
 172:                                              ; preds = %167
-  %173 = tail call noundef i64 @llvm.fshl.i64(i64 %166, i64 %166, i64 3)
+  %173 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %166, i64 range(i64 3458764513820540929, 3458764513820540928) %166, i64 3)
   %174 = and i64 %173, -4
   %175 = or disjoint i64 %174, 2
   br label %rb_float_new_inline.exit
@@ -4462,7 +4462,7 @@ rb_float_new_inline.exit:                         ; preds = %172, %176, %178
   br i1 %.not7.i175, label %192, label %196
 
 192:                                              ; preds = %187
-  %193 = tail call noundef i64 @llvm.fshl.i64(i64 %186, i64 %186, i64 3)
+  %193 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %186, i64 range(i64 3458764513820540929, 3458764513820540928) %186, i64 3)
   %194 = and i64 %193, -4
   %195 = or disjoint i64 %194, 2
   br label %rb_float_new_inline.exit177
@@ -4530,7 +4530,7 @@ rb_float_new_inline.exit177:                      ; preds = %192, %196, %198
   br i1 %.not7.i179, label %225, label %229
 
 225:                                              ; preds = %220
-  %226 = tail call noundef i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 3)
+  %226 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %219, i64 range(i64 3458764513820540929, 3458764513820540928) %219, i64 3)
   %227 = and i64 %226, -4
   %228 = or disjoint i64 %227, 2
   br label %rb_float_new_inline.exit181
@@ -5977,7 +5977,7 @@ RB_SYMBOL_P.exit.i:                               ; preds = %11
   br i1 %16, label %Check_Type.exit, label %RB_SYMBOL_P.exit.thread27.i
 
 RB_SYMBOL_P.exit.thread27.i:                      ; preds = %RB_SYMBOL_P.exit.i, %11
-  tail call void @rb_unexpected_type(i64 noundef %7, i32 noundef 20) #19
+  tail call void @rb_unexpected_type(i64 noundef range(i64 1, 0) %7, i32 noundef 20) #19
   unreachable
 
 Check_Type.exit:                                  ; preds = %8, %RB_SYMBOL_P.exit.i
@@ -6387,12 +6387,12 @@ rb_long2int_inline.exit:                          ; preds = %12
   br i1 %24, label %25, label %rb_alloc_tmp_buffer2.exit
 
 25:                                               ; preds = %23
-  tail call void @ruby_malloc_size_overflow(i64 noundef %18, i64 noundef 8) #18
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 8) #18
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %23
   %26 = ashr exact i64 %sext, 29
-  %27 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %7, i64 noundef %26, i64 noundef %18) #23
+  %27 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %7, i64 noundef %26, i64 noundef range(i64 -2147483648, 2147483648) %18) #23
   br label %28
 
 28:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %20
@@ -6404,7 +6404,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %23
 rbimpl_size_mul_or_raise.exit:                    ; preds = %28
   %31 = getelementptr i8, ptr %29, i64 8
   %32 = shl nuw nsw i64 %13, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %3, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %3, i64 range(i64 -4611686016279904256, 4611686018427387905) %32, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %28
@@ -8644,7 +8644,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %24, label %25, label %rbimpl_size_mul_or_raise.exit
 
 25:                                               ; preds = %RARRAY_LENINT.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.0.i.i) #18
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %.0.i.i) #18
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %RARRAY_LENINT.exit

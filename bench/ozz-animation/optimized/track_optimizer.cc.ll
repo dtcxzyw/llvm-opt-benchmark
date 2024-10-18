@@ -208,7 +208,7 @@ _ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cxx
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
-  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %1)
   br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i
 
 52:                                               ; preds = %39
@@ -921,7 +921,7 @@ _ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %39
-  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %1)
   br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 51:                                               ; preds = %39
@@ -1652,7 +1652,7 @@ _ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
-  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %1)
   br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 52:                                               ; preds = %39
@@ -2400,7 +2400,7 @@ _ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
-  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %1)
   br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 52:                                               ; preds = %39
@@ -3167,7 +3167,7 @@ _ZN3ozz9animation7offline18RawQuaternionTrackD2Ev.exit.i: ; preds = %34, %_ZNSt7
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %42
-  %54 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %54 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %1)
   br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 55:                                               ; preds = %42

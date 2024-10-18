@@ -92,7 +92,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZN3gmx9SansDebyeD2Ev.exit
 
 _ZN3gmx9SansDebyeD2Ev.exit:                       ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %7
-  tail call void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #13
+  tail call void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -230,7 +230,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit12:                  ; preds = %41, %43
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit12, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %44, %_ZNSt6vectorIdSaIdEED2Ev.exit12 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i) #13
   %46 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 120
   %.not.i.i.i.i = icmp eq ptr %46, %45
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
@@ -406,7 +406,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i) #13
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !5

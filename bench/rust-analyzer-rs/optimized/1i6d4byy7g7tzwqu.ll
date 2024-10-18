@@ -58,7 +58,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h0
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17hd37b8de8452d164fE.llvm.4549847536712129555.exit"
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h230d80ce19508266E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h230d80ce19508266E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$17h06b00244248a9c64E.llvm.499084329766792615.exit.i.i" unwind label %18, !noalias !5
 
 18:                                               ; preds = %17
@@ -126,7 +126,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h8
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17hc9a7639b0a80695eE.llvm.4549847536712129555.exit"
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he46da164a6d71f8bE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he46da164a6d71f8bE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs..loader..Message$GT$$GT$17h2a984d9a184922d4E.llvm.499084329766792615.exit.i.i" unwind label %18, !noalias !14
 
 18:                                               ; preds = %17
@@ -199,7 +199,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17h8
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17hfd3a127316df85fcE.llvm.4549847536712129555.exit"
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$17h80cf6587de0a6ba5E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$17h80cf6587de0a6ba5E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr159drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$$GT$$GT$17h4d23fc5e4ecb0cbeE.llvm.4549847536712129555.exit" unwind label %22, !noalias !23
 
 22:                                               ; preds = %21
@@ -286,7 +286,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17ha
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17hfa2510478022589eE.llvm.4549847536712129555.exit"
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$17hc6933fc2bd90c50cE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$17hc6933fc2bd90c50cE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$$GT$$GT$17h23eab0f74604520cE.llvm.4549847536712129555.exit" unwind label %22, !noalias !41
 
 22:                                               ; preds = %21
@@ -373,7 +373,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %"_ZN87_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h9358777e05500bb2E.llvm.4549847536712129555.exit"
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$17h80cf6587de0a6ba5E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$17h80cf6587de0a6ba5E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr159drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$$GT$$GT$17h4d23fc5e4ecb0cbeE.llvm.4549847536712129555.exit" unwind label %22, !noalias !59
 
 22:                                               ; preds = %21
@@ -454,7 +454,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %"_ZN87_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h17a554383f54383eE.llvm.4549847536712129555.exit"
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he46da164a6d71f8bE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he46da164a6d71f8bE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs..loader..Message$GT$$GT$17h2a984d9a184922d4E.llvm.499084329766792615.exit.i.i" unwind label %17, !noalias !77
 
 17:                                               ; preds = %16
@@ -739,7 +739,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h6acf31723ed801a0E(ptr no
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr157drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$$GT$$GT$17h7ab902c10991e4cdE.llvm.4549847536712129555"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h230d80ce19508266E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h230d80ce19508266E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$17h06b00244248a9c64E.llvm.499084329766792615.exit.i" unwind label %3
 
 3:                                                ; preds = %1
@@ -796,7 +796,7 @@ define hidden void @"_ZN4core3ptr157drop_in_place$LT$alloc..boxed..Box$LT$crossb
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$$GT$$GT$17h23eab0f74604520cE.llvm.4549847536712129555"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$17hc6933fc2bd90c50cE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$17hc6933fc2bd90c50cE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr133drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$$GT$17h7fe3a1b693002eadE.exit" unwind label %3
 
 "_ZN4core3ptr133drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs_notify..Message$GT$$GT$$GT$17h7fe3a1b693002eadE.exit": ; preds = %1
@@ -813,7 +813,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$crossb
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..list..Channel$LT$vfs..loader..Message$GT$$GT$$GT$$GT$17h89dbc96bb0ebd245E.llvm.4549847536712129555"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he46da164a6d71f8bE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he46da164a6d71f8bE.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs..loader..Message$GT$$GT$17h2a984d9a184922d4E.llvm.499084329766792615.exit.i" unwind label %3
 
 3:                                                ; preds = %1
@@ -870,7 +870,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$crossb
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr159drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$$GT$$GT$17h4d23fc5e4ecb0cbeE.llvm.4549847536712129555"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$17h80cf6587de0a6ba5E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$17h80cf6587de0a6ba5E.llvm.499084329766792615"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr134drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$$GT$17hcf1805d042c3f9e0E.exit" unwind label %3
 
 "_ZN4core3ptr134drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$vfs..loader..Message$GT$$GT$$GT$17hcf1805d042c3f9e0E.exit": ; preds = %1

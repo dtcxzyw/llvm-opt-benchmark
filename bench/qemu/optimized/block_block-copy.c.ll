@@ -2078,11 +2078,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call) #14
   br label %trace_block_copy_write_zeroes_fail.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call) #14
   br label %trace_block_copy_write_zeroes_fail.exit
 
 trace_block_copy_write_zeroes_fail.exit:          ; preds = %if.then40, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2130,11 +2130,11 @@ if.then8.i.i76:                                   ; preds = %if.then.i.i73
   %19 = load i64, ptr %_now.i.i66, align 8
   %tv_usec.i.i79 = getelementptr inbounds i8, ptr %_now.i.i66, i64 8
   %20 = load i64, ptr %tv_usec.i.i79, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i78, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call45) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i78, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call45) #14
   br label %trace_block_copy_copy_range_fail.exit
 
 if.else.i.i75:                                    ; preds = %if.then.i.i73
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call45) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call45) #14
   br label %trace_block_copy_copy_range_fail.exit
 
 trace_block_copy_copy_range_fail.exit:            ; preds = %if.end48, %land.lhs.true5.i.i70, %if.then8.i.i76, %if.else.i.i75
@@ -2189,11 +2189,11 @@ if.then8.i.i90:                                   ; preds = %if.then.i.i87
   %29 = load i64, ptr %_now.i.i80, align 8
   %tv_usec.i.i93 = getelementptr inbounds i8, ptr %_now.i.i80, i64 8
   %30 = load i64, ptr %tv_usec.i.i93, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i92, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i92, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call.i) #14
   br label %trace_block_copy_read_fail.exit
 
 if.else.i.i89:                                    ; preds = %if.then.i.i87
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call.i) #14
   br label %trace_block_copy_read_fail.exit
 
 trace_block_copy_read_fail.exit:                  ; preds = %if.then55, %land.lhs.true5.i.i84, %if.then8.i.i90, %if.else.i.i89
@@ -2247,11 +2247,11 @@ if.then8.i.i109:                                  ; preds = %if.then.i.i106
   %38 = load i64, ptr %_now.i.i99, align 8
   %tv_usec.i.i112 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
   %39 = load i64, ptr %tv_usec.i.i112, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i111, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i98) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i111, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call.i98) #14
   br label %trace_block_copy_write_fail.exit
 
 if.else.i.i108:                                   ; preds = %if.then.i.i106
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i98) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef nonnull %s, i64 noundef range(i64 0, -9223372036854775808) %offset, i32 noundef range(i32 -2147483648, 0) %call.i98) #14
   br label %trace_block_copy_write_fail.exit
 
 trace_block_copy_write_fail.exit:                 ; preds = %if.then61, %land.lhs.true5.i.i103, %if.then8.i.i109, %if.else.i.i108

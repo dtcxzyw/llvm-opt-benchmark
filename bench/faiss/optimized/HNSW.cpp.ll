@@ -2962,10 +2962,10 @@ define void @_ZN5faiss4HNSW23add_links_starting_fromERNS_16DistanceComputerEiifi
   %9 = alloca %"class.std::priority_queue", align 8
   %10 = alloca %"struct.faiss::HNSW::NodeDistFarther", align 4
   %11 = alloca %"class.std::priority_queue.33", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %11, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %9, i8 0, i64 24, i1 false)
   store float %4, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %3, ptr %12, align 4
@@ -3929,7 +3929,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_120shrink_neighbor_listERNS_1
   br i1 %14, label %_ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit28, label %15
 
 15:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not63 = icmp eq ptr %7, %8
   br i1 %.not63, label %._crit_edge, label %.lr.ph
@@ -4422,7 +4422,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_18add_linkERNS_4HNSWERNS_16Di
   br label %_ZNSt14priority_queueIN5faiss4HNSW14NodeDistCloserESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit43
 
 36:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %6, i8 0, i64 24, i1 false)
   %37 = sext i32 %3 to i64
   %38 = load ptr, ptr %1, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 24
@@ -5066,7 +5066,7 @@ define void @_ZNK5faiss4HNSW6searchERNS_16DistanceComputerERNS_13ResultHandlerIN
   br i1 %25, label %_ZN5faiss12VisitedTable7advanceEv.exit, label %26
 
 26:                                               ; preds = %6
-  %27 = tail call ptr @__dynamic_cast(ptr nonnull readonly %3, ptr nonnull @_ZTIN5faiss13ResultHandlerINS_4CMaxIflEEEE, ptr nonnull @_ZTIN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0) #17
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(12) %3, ptr nonnull @_ZTIN5faiss13ResultHandlerINS_4CMaxIflEEEE, ptr nonnull @_ZTIN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0) #17
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_128extract_k_from_ResultHandlerERNS_13ResultHandlerINS_4CMaxIflEEEE.exit, label %28
 
@@ -5291,8 +5291,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %111, %108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store i32 %.sroa.speculated, ptr %10, align 4, !noalias !83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %16, i8 0, i64 24, i1 false), !alias.scope !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %11, i8 0, i64 24, i1 false), !noalias !83
   invoke void @_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EE4pushERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
           to label %118 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
@@ -8720,7 +8720,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19Sing
 define void @_ZNK5faiss4HNSW14search_level_0ERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEElPKiPKfiRNS_9HNSWStatsERNS_12VisitedTableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5149) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %8) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::HNSW::MinimaxHeap", align 8
   %11 = alloca %"struct.faiss::HNSW::MinimaxHeap", align 8
-  %12 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN5faiss13ResultHandlerINS_4CMaxIflEEEE, ptr nonnull @_ZTIN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0) #17
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(12) %2, ptr nonnull @_ZTIN5faiss13ResultHandlerINS_4CMaxIflEEEE, ptr nonnull @_ZTIN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerE, i64 0) #17
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_128extract_k_from_ResultHandlerERNS_13ResultHandlerINS_4CMaxIflEEEE.exit, label %13
 

@@ -2736,7 +2736,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 .noexc33:                                         ; preds = %.noexc32
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  %43 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %43 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %42, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc34 unwind label %35
 
 .noexc34:                                         ; preds = %.noexc33
@@ -2806,7 +2806,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEKNS_17UsdU
 .noexc43:                                         ; preds = %.noexc42
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %61 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %61 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %60, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc44 unwind label %35
 
 .noexc44:                                         ; preds = %.noexc43
@@ -3215,7 +3215,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 .noexc33:                                         ; preds = %.noexc32
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  %43 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %43 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %42, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc34 unwind label %35
 
 .noexc34:                                         ; preds = %.noexc33
@@ -3285,7 +3285,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEKNS_17UsdU
 .noexc43:                                         ; preds = %.noexc42
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %61 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %61 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %60, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc44 unwind label %35
 
 .noexc44:                                         ; preds = %.noexc43
@@ -3507,7 +3507,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdUsdFileFormat32_GetUnderl
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castIKNS_9TfWeakPtrIKNS_13Usd_CrateDataEEES1_KNS_15SdfAbstractDataEEET_RKNS_15TfWeakPtrFacadeIT0_T1_EE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.78") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castIKNS_9TfWeakPtrIKNS_13Usd_CrateDataEEES1_KNS_15SdfAbstractDataEEET_RKNS_15TfWeakPtrFacadeIT0_T1_EE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.78") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc unwind label %138
 
 .noexc:                                           ; preds = %2
@@ -3631,7 +3631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_GetFileFormatERKNS_7TfTokenE.exit.i: ; 
   br label %109
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_13Usd_CrateDataEED2Ev.exit.thread.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_13Usd_CrateDataEED2Ev.exit.i, %19, %.noexc
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castIKNS_9TfWeakPtrIKNS_7SdfDataEEES1_KNS_15SdfAbstractDataEEET_RKNS_15TfWeakPtrFacadeIT0_T1_EE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.80") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castIKNS_9TfWeakPtrIKNS_7SdfDataEEES1_KNS_15SdfAbstractDataEEET_RKNS_15TfWeakPtrFacadeIT0_T1_EE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.80") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc6 unwind label %138
 
 .noexc6:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_13Usd_CrateDataEED2Ev.exit.thread.i
@@ -5708,7 +5708,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage
   %3 = alloca %"class.std::thread::id", align 8
   %4 = tail call i64 @pthread_self() #22
   store i64 %4, ptr %3, align 8
-  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 3339675911)
+  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit unwind label %6
 
 6:                                                ; preds = %2

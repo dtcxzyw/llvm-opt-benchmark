@@ -1319,7 +1319,7 @@ define internal fastcc void @_edit_crontab(ptr noundef nonnull %0) unnamed_addr 
   unreachable
 
 88:                                               ; preds = %78
-  %89 = call i64 @lseek(i32 noundef %79, i64 noundef 0, i32 noundef 0) #17
+  %89 = call i64 @lseek(i32 noundef range(i32 0, -2147483648) %79, i64 noundef 0, i32 noundef 0) #17
   %90 = icmp slt i64 %89, 0
   br i1 %90, label %91, label %_load_script_from_fd.exit
 
@@ -1328,7 +1328,7 @@ define internal fastcc void @_edit_crontab(ptr noundef nonnull %0) unnamed_addr 
   unreachable
 
 _load_script_from_fd.exit:                        ; preds = %88
-  %92 = call fastcc ptr @_read_fd(i32 noundef %79)
+  %92 = call fastcc ptr @_read_fd(i32 noundef range(i32 0, -2147483648) %79)
   store ptr %92, ptr %0, align 8
   %93 = call i32 @close(i32 noundef %79) #17
   %94 = load ptr, ptr %3, align 8

@@ -83,7 +83,7 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %2 = load ptr, ptr @_ZZN6hermes2vm16TimeLimitMonitor11getOrCreateEvE9singleton, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #13
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -216,7 +216,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN6hermes2vm16TimeLimitMonitorEED2Ev.exit: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %if.then.i.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !10
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm16TimeLimitMonitorESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr nonnull %__a.i)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm16TimeLimitMonitorESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr nonnull %__a.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %21 = load ptr, ptr @_ZZN6hermes2vm16TimeLimitMonitor11getOrCreateEvE9singleton, align 8
   %weakMonitor3 = getelementptr inbounds i8, ptr %21, i64 40
@@ -281,7 +281,7 @@ _ZNSt8weak_ptrIN6hermes2vm16TimeLimitMonitorEEaSIS2_EENSt9enable_ifIXsr13is_assi
   br label %cleanup9
 
 cleanup9:                                         ; preds = %_ZNKSt8weak_ptrIN6hermes2vm16TimeLimitMonitorEE4lockEv.exit, %_ZNSt8weak_ptrIN6hermes2vm16TimeLimitMonitorEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit
-  %call1.i.i.i18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
+  %call1.i.i.i18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
@@ -360,7 +360,7 @@ entry:
   tail call void @_ZN6hermes8oscompat15set_thread_nameEPKc(ptr noundef nonnull @.str) #13
   store ptr %this, ptr %lockGuard, align 8
   %_M_owns.i = getelementptr inbounds i8, ptr %lockGuard, i64 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #13
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -479,7 +479,7 @@ if.then16:                                        ; preds = %for.end
   store i64 %div.i.i.i.i.i, ptr %__ts.i.i, align 8
   store i64 %sub.i.i.i.i, ptr %tv_nsec.i.i, align 8
   %10 = load ptr, ptr %lockGuard, align 8
-  %call2.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull %timerLoopCond_, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %__ts.i.i) #13
+  %call2.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %timerLoopCond_, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %__ts.i.i) #13
   %call14.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
   br label %if.end20
@@ -504,7 +504,7 @@ if.else.i.i:                                      ; preds = %_ZNSt11unique_lockI
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #13
+  %call1.i.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #13
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %while.end, %if.else.i.i, %if.then3.i.i
@@ -514,7 +514,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %while.end, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm16TimeLimitMonitorD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) unnamed_addr #0 align 2 {
 entry:
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #13
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
 
@@ -525,7 +525,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %enabled_ = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %enabled_, align 8
-  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #13
+  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %timerLoopCond_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %timerLoopCond_) #13
   %timerThread_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -558,7 +558,7 @@ declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN6hermes2vm16TimeLimitMonitor12watchRuntimeERNS0_7RuntimeENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 %timeout.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp7 = alloca ptr, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #13
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -633,7 +633,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointI
   %add.i.i = add nsw i64 %call, %mul.i.i.i.i.i
   %second.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 %add.i.i, ptr %second.i, align 8
-  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #13
+  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %timerLoopCond_ = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %timerLoopCond_) #13
   ret void
@@ -645,7 +645,7 @@ declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm16TimeLimitMonitor14unwatchRuntimeERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #13
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -706,7 +706,7 @@ if.end.i:                                         ; preds = %if.end13.i.i.i, %if
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5eraseERKS5_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5eraseERKS5_.exit: ; preds = %if.end9.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %if.end.i
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #13
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   ret void
 }
 
@@ -741,7 +741,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   %timerThread_.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 56
   %timerLoopCond_.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_M_impl.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %_M_impl.i.i, i8 0, i64 48, i1 false)
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %timerLoopCond_.i.i.i.i) #13
   %watchedRuntimes_.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %watchedRuntimes_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -852,7 +852,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm16TimeLimitMonitorEFvvEPS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }

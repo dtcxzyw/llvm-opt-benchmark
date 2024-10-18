@@ -724,7 +724,7 @@ if.then.i.i14.i:                                  ; preds = %_ZN5boost10shared_p
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEEE8allocateERS7_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %solverDesc_) #28
+  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %solverDesc_) #28
   br label %ehcleanup18
 
 invoke.cont:                                      ; preds = %if.then.i.i14.i, %_ZN5boost10shared_ptrIN8QuantLib25FdmStepConditionCompositeEEC2ERKS3_.exit.i
@@ -1454,7 +1454,7 @@ if.then.i.i14.i:                                  ; preds = %_ZN5boost10shared_p
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEEE8allocateERS7_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %solverDesc_) #28
+  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %solverDesc_) #28
   br label %ehcleanup13
 
 invoke.cont4:                                     ; preds = %if.then.i.i14.i, %_ZN5boost10shared_ptrIN8QuantLib25FdmStepConditionCompositeEEC2ERKS3_.exit.i
@@ -2425,7 +2425,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(176) %this)
   %solver_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load ptr, ptr %solver_.i, align 8, !tbaa !88
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -2444,7 +2444,7 @@ _ZNK8QuantLib19FdmSimple2dBSSolver7valueAtEdd.exit: ; preds = %entry, %cond.fals
   %vtable.i5 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i6 = getelementptr inbounds i8, ptr %vtable.i5, i64 24
   %3 = load ptr, ptr %vfn.i6, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(176) %this)
   %4 = load ptr, ptr %solver_.i, align 8, !tbaa !88
   %cmp.not.i.i8 = icmp eq ptr %4, null
   br i1 %cmp.not.i.i8, label %cond.false.i.i12, label %_ZNK8QuantLib19FdmSimple2dBSSolver7valueAtEdd.exit14, !prof !66
@@ -2473,7 +2473,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(176) %this)
   %solver_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load ptr, ptr %solver_.i, align 8, !tbaa !88
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -2493,7 +2493,7 @@ _ZNK8QuantLib19FdmSimple2dBSSolver7valueAtEdd.exit: ; preds = %entry, %cond.fals
   %vtable.i8 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i9 = getelementptr inbounds i8, ptr %vtable.i8, i64 24
   %3 = load ptr, ptr %vfn.i9, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(176) %this)
   %4 = load ptr, ptr %solver_.i, align 8, !tbaa !88
   %cmp.not.i.i11 = icmp eq ptr %4, null
   br i1 %cmp.not.i.i11, label %cond.false.i.i15, label %_ZNK8QuantLib19FdmSimple2dBSSolver7valueAtEdd.exit17, !prof !66
@@ -2511,7 +2511,7 @@ _ZNK8QuantLib19FdmSimple2dBSSolver7valueAtEdd.exit17: ; preds = %_ZNK8QuantLib19
   %vtable.i18 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 24
   %6 = load ptr, ptr %vfn.i19, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(176) %this)
   %7 = load ptr, ptr %solver_.i, align 8, !tbaa !88
   %cmp.not.i.i21 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i21, label %cond.false.i.i25, label %_ZNK8QuantLib19FdmSimple2dBSSolver7valueAtEdd.exit27, !prof !66
@@ -2843,7 +2843,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %19 = phi ptr [ %18, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull %add.ptr6.i)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr6.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -2904,7 +2904,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib19FdmSimple2dBSSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(176) %2, i64 noundef 288) #32
   ret void
 }
 

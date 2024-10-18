@@ -76,7 +76,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 1, ptr %17, align 8, !noalias !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !10
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc8b3d457c99cf50dE.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !7
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc8b3d457c99cf50dE.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !7
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8, !range !17, !noalias !10, !noundef !18
   %.not.i.i.i.i.i = icmp eq i64 %19, 0
@@ -115,7 +115,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   %35 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 1, ptr %35, align 8, !noalias !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !22
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc8b3d457c99cf50dE.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !noalias !7
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc8b3d457c99cf50dE.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !noalias !7
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %37 = load i64, ptr %36, align 8, !range !17, !noalias !22, !noundef !18
   %.not.i.i.i.i4.i = icmp eq i64 %37, 0
@@ -673,7 +673,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14try_sub
 40:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !53
   %41 = add nsw i64 %37, -1
-  call fastcc void @_ZN4futf8classify17h37de7dca78372bccE(ptr noalias nocapture noundef align 8 dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %37, i64 noundef %41)
+  call fastcc void @_ZN4futf8classify17h37de7dca78372bccE(ptr noalias nocapture noundef align 8 dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef range(i64 0, 4294967296) %37, i64 noundef %41)
   %42 = load i16, ptr %6, align 8, !range !56, !noalias !53, !noundef !18
   %.not.i = icmp eq i16 %42, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !53
@@ -681,7 +681,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14try_sub
 
 "_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_subseq17hb6b12263383b83e7E.exit": ; preds = %40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !53
-  call fastcc void @_ZN4futf8classify17h37de7dca78372bccE(ptr noalias nocapture noundef align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %37, i64 noundef 0)
+  call fastcc void @_ZN4futf8classify17h37de7dca78372bccE(ptr noalias nocapture noundef align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef range(i64 0, 4294967296) %37, i64 noundef 0)
   %43 = load i16, ptr %5, align 8, !range !56, !noalias !53, !noundef !18
   %44 = icmp eq i16 %43, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !53
@@ -776,7 +776,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14try_sub
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   %..i.i = select i1 %39, i64 15, i64 %37
   store i64 0, ptr %.sroa.4.i.i, align 8, !noalias !67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull readonly align 1 %85, i64 %37, i1 false), !noalias !71
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull readonly align 1 %85, i64 range(i64 0, 9) %37, i1 false), !noalias !71
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$17unsafe_subtendril17h875c2e05ac04f3a3E.exit"
@@ -893,7 +893,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_by
   %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   store i32 0, ptr %.sroa.411.0..sroa_idx.i.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 %.sroa.4.0.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 range(i64 0, 4294967296) %.sroa.4.0.i.i.i, i1 false)
   %54 = ptrtoint ptr %51 to i64
   %.sroa.4.0.insert.shift.i.i.i = shl nuw i64 %46, 32
   %.sroa.05.0.insert.insert.i.i.i = or disjoint i64 %.sroa.4.0.insert.shift.i.i.i, %.sroa.4.0.i.i.i
@@ -980,7 +980,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %88 = add nuw nsw i64 %87, 15
   %89 = lshr i64 %88, 4
   %90 = add nuw nsw i64 %89, 1
-  %91 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h15c5e1416694c67aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0, i64 noundef %90)
+  %91 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h15c5e1416694c67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %90)
           to label %.noexc.i.i unwind label %77, !noalias !92
 
 .noexc.i.i:                                       ; preds = %79
@@ -1100,7 +1100,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %135 = icmp eq i32 %17, 0
   %..i = select i1 %135, i64 15, i64 %134
   store i64 0, ptr %.sroa.4.i, align 8, !noalias !98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i, ptr nonnull readonly align 8 %5, i64 %134, i1 false), !noalias !102
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i, ptr nonnull readonly align 8 %5, i64 range(i64 0, 9) %134, i1 false), !noalias !102
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i = load i64, ptr %.sroa.4.i, align 8, !noalias !98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i)
   %136 = getelementptr inbounds i8, ptr %0, i64 12

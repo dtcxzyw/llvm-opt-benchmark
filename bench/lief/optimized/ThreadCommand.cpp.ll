@@ -989,7 +989,7 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6spdlog7details10backtracer9push_backERKNS0_7log_msgE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.spdlog::details::log_msg_buffer", align 8
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1017,13 +1017,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 _ZN6spdlog7details14log_msg_bufferD2Ev.exit:      ; preds = %6, %11
   %12 = getelementptr inbounds i8, ptr %3, i64 378
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #17
-  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #17
+  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   ret void
 
 14:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #17
+  %16 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   resume { ptr, i32 } %15
 }
 
@@ -1039,7 +1039,7 @@ define linkonce_odr hidden void @_ZN6spdlog7details10circular_qINS0_14log_msg_bu
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds %"class.spdlog::details::log_msg_buffer", ptr %8, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %9, ptr noundef nonnull align 8 dereferenceable(384) %1, i64 96, i1 false)
   %10 = getelementptr inbounds i8, ptr %9, i64 96
   %11 = getelementptr inbounds i8, ptr %9, i64 104
   %12 = load ptr, ptr %11, align 8
@@ -1085,7 +1085,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %10, align 8
   %31 = load ptr, ptr %30, align 8
-  invoke void %31(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %18)
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(288) %10, i64 noundef %18)
           to label %.noexc.i.i unwind label %32
 
 .noexc.i.i:                                       ; preds = %29

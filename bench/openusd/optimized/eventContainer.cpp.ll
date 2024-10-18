@@ -133,7 +133,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2EOS0_(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   store i64 512, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #8
   %7 = getelementptr inbounds i8, ptr %6, i64 32

@@ -299,7 +299,7 @@ _ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.ex
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull %1) #10
+  %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 8 dereferenceable(72) %1) #10
   br i1 %46, label %.preheader.i, label %_ZN9Relocator19handle_code_changesEv.exit
 
 .preheader.i:                                     ; preds = %.lr.ph12.i
@@ -1429,7 +1429,7 @@ define hidden void @_ZN9Relocator20adjust_line_no_tableEii(ptr noundef nonnull a
 24:                                               ; preds = %19, %15
   %.0 = phi ptr [ %23, %19 ], [ %17, %15 ]
   call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef %.0) #10
-  call void @_ZN21CompressedWriteStreamC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 64) #10
+  call void @_ZN21CompressedWriteStreamC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 64) #10
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 20
@@ -1481,7 +1481,7 @@ define hidden void @_ZN9Relocator20adjust_line_no_tableEii(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN21CompressedWriteStream10write_byteEa.exit.i.i, label %54
 
 54:                                               ; preds = %50
-  call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
+  call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   %.pre.i.i.i.i = load i32, ptr %30, align 8
   br label %_ZN21CompressedWriteStream10write_byteEa.exit.i.i
 
@@ -1512,7 +1512,7 @@ _ZN31CompressedLineNumberWriteStream10write_pairEii.exit: ; preds = %32, %_ZN21C
   br i1 %.not.i.i.i, label %_ZN31CompressedLineNumberWriteStream16write_terminatorEv.exit, label %66
 
 66:                                               ; preds = %._crit_edge
-  call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
+  call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   %.pre.i.i.i = load i32, ptr %62, align 8
   br label %_ZN31CompressedLineNumberWriteStream16write_terminatorEv.exit
 

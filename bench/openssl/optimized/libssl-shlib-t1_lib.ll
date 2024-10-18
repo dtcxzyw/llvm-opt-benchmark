@@ -7208,11 +7208,11 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef %or, i32 noundef %secbits.0.i, i32 noundef 0, ptr noundef %x) #15
+  %call3.i = tail call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef range(i32 393232, 0) %or, i32 noundef %secbits.0.i, i32 noundef 0, ptr noundef %x) #15
   br label %ssl_security_cert_key.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %call4.i = tail call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef %or, i32 noundef %secbits.0.i, i32 noundef 0, ptr noundef %x) #15
+  %call4.i = tail call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef range(i32 393232, 0) %or, i32 noundef %secbits.0.i, i32 noundef 0, ptr noundef %x) #15
   br label %ssl_security_cert_key.exit
 
 ssl_security_cert_key.exit:                       ; preds = %if.then2.i, %if.else.i
@@ -7234,11 +7234,11 @@ if.end.i14:                                       ; preds = %if.then.i12, %if.el
   br i1 %cmp.not.i16, label %if.else.i20, label %if.then2.i17
 
 if.then2.i17:                                     ; preds = %if.end.i14
-  %call3.i18 = tail call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef %or6, i32 noundef %secbits.0.i15, i32 noundef 0, ptr noundef %x) #15
+  %call3.i18 = tail call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef range(i32 393232, 0) %or6, i32 noundef %secbits.0.i15, i32 noundef 0, ptr noundef %x) #15
   br label %ssl_security_cert_key.exit22
 
 if.else.i20:                                      ; preds = %if.end.i14
-  %call4.i21 = tail call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef %or6, i32 noundef %secbits.0.i15, i32 noundef 0, ptr noundef %x) #15
+  %call4.i21 = tail call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef range(i32 393232, 0) %or6, i32 noundef %secbits.0.i15, i32 noundef 0, ptr noundef %x) #15
   br label %ssl_security_cert_key.exit22
 
 ssl_security_cert_key.exit22:                     ; preds = %if.then2.i17, %if.else.i20
@@ -7288,11 +7288,11 @@ if.end6.i:                                        ; preds = %if.then5.i, %if.end
   br i1 %cmp7.not.i, label %if.else.i29, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %call9.i = call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef %or12, i32 noundef %3, i32 noundef %2, ptr noundef %x) #15
+  %call9.i = call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef range(i32 393234, 0) %or12, i32 noundef %3, i32 noundef %2, ptr noundef %x) #15
   br label %ssl_security_cert_sig.exit
 
 if.else.i29:                                      ; preds = %if.end6.i
-  %call10.i = call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef %or12, i32 noundef %3, i32 noundef %2, ptr noundef %x) #15
+  %call10.i = call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef range(i32 393234, 0) %or12, i32 noundef %3, i32 noundef %2, ptr noundef %x) #15
   br label %ssl_security_cert_sig.exit
 
 ssl_security_cert_sig.exit:                       ; preds = %if.then8.i, %if.else.i29

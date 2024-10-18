@@ -244,7 +244,7 @@ if.end.i:                                         ; preds = %if.else.i, %land.rh
 
 if.else5.i:                                       ; preds = %if.end.i
   %add7.i = fadd double %leapMonth.0.i, %start.0.i
-  %2 = call i32 @llvm.smin.i32(i32 %imonth.0, i32 7)
+  %2 = call i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %imonth.0, i32 7)
   %3 = mul i32 %2, 31
   %mul.i = add i32 %3, -62
   %conv12.i = sitofp i32 %mul.i to double

@@ -214,11 +214,11 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end2
-  %call.i = call ptr @d2i_DHxparams(ptr noundef null, ptr noundef nonnull %pm, i64 noundef %conv) #4
+  %call.i = call ptr @d2i_DHxparams(ptr noundef null, ptr noundef nonnull %pm, i64 noundef range(i64 -2147483648, 2147483648) %conv) #4
   br label %d2i_dhp.exit
 
 if.else.i:                                        ; preds = %if.end2
-  %call1.i = call ptr @d2i_DHparams(ptr noundef null, ptr noundef nonnull %pm, i64 noundef %conv) #4
+  %call1.i = call ptr @d2i_DHparams(ptr noundef null, ptr noundef nonnull %pm, i64 noundef range(i64 -2147483648, 2147483648) %conv) #4
   br label %d2i_dhp.exit
 
 d2i_dhp.exit:                                     ; preds = %if.then.i, %if.else.i
@@ -551,11 +551,11 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @d2i_DHxparams(ptr noundef null, ptr noundef %pder, i64 noundef %conv) #4
+  %call.i = tail call ptr @d2i_DHxparams(ptr noundef null, ptr noundef %pder, i64 noundef range(i64 -2147483648, 2147483648) %conv) #4
   br label %d2i_dhp.exit
 
 if.else.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @d2i_DHparams(ptr noundef null, ptr noundef %pder, i64 noundef %conv) #4
+  %call1.i = tail call ptr @d2i_DHparams(ptr noundef null, ptr noundef %pder, i64 noundef range(i64 -2147483648, 2147483648) %conv) #4
   br label %d2i_dhp.exit
 
 d2i_dhp.exit:                                     ; preds = %if.then.i, %if.else.i

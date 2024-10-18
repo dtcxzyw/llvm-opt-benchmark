@@ -1407,7 +1407,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.noexc109
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp164.sroa.0.0.copyload.i, i64 72
   %129 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !109
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %128, i64 %129
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i.i, ptr noundef %128, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i.i, ptr noundef %128, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc110 unwind label %lpad36.loopexit
 
 .noexc110:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1476,7 +1476,7 @@ if.then.i.i.i.i.i.i.i.i.i.i367.i:                 ; preds = %.noexc117
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i370.i = getelementptr inbounds i8, ptr %agg.tmp188.sroa.0.0.copyload.i, i64 72
   %135 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i370.i, align 8, !noalias !116
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i371.i = getelementptr inbounds i32, ptr %134, i64 %135
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i368.i, ptr noundef %134, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i371.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i368.i, ptr noundef %134, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i371.i, ptr noundef null)
           to label %.noexc118 unwind label %lpad36.loopexit
 
 .noexc118:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i367.i
@@ -1581,7 +1581,7 @@ if.then.i.i.i.i.i.i.i.i.i.i387.i:                 ; preds = %.noexc120
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i390.i = getelementptr inbounds i8, ptr %agg.tmp213.sroa.0.0.copyload.i, i64 72
   %146 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i390.i, align 8, !noalias !128
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i391.i = getelementptr inbounds i32, ptr %145, i64 %146
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i388.i, ptr noundef %145, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i391.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i388.i, ptr noundef %145, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i391.i, ptr noundef null)
           to label %.noexc121 unwind label %lpad36.loopexit
 
 .noexc121:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i387.i
@@ -1758,7 +1758,7 @@ if.then.i.i.i.i.i.i.i.i.i.i454.i:                 ; preds = %.noexc128
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i457.i = getelementptr inbounds i8, ptr %agg.tmp304.sroa.0.0.copyload.i, i64 72
   %173 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i457.i, align 8, !noalias !141
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i458.i = getelementptr inbounds i32, ptr %172, i64 %173
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i455.i, ptr noundef %172, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i458.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i455.i, ptr noundef %172, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i458.i, ptr noundef null)
           to label %.noexc129 unwind label %lpad36.loopexit
 
 .noexc129:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i454.i
@@ -1827,7 +1827,7 @@ if.then.i.i.i.i.i.i.i.i.i.i483.i:                 ; preds = %.noexc136
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i486.i = getelementptr inbounds i8, ptr %agg.tmp328.sroa.0.0.copyload.i, i64 72
   %179 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i486.i, align 8, !noalias !148
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i487.i = getelementptr inbounds i32, ptr %178, i64 %179
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i484.i, ptr noundef %178, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i487.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i484.i, ptr noundef %178, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i487.i, ptr noundef null)
           to label %.noexc137 unwind label %lpad36.loopexit
 
 .noexc137:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i483.i
@@ -1924,7 +1924,7 @@ if.then.i.i.i.i.i.i.i.i.i.i535.i:                 ; preds = %.noexc139
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i538.i = getelementptr inbounds i8, ptr %agg.tmp354.sroa.0.0.copyload.i, i64 72
   %188 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i538.i, align 8, !noalias !160
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i539.i = getelementptr inbounds i32, ptr %187, i64 %188
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i536.i, ptr noundef %187, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i539.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i536.i, ptr noundef %187, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i539.i, ptr noundef null)
           to label %.noexc140 unwind label %lpad36.loopexit
 
 .noexc140:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i535.i
@@ -2236,7 +2236,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -2875,7 +2875,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN3ue29CharReachC2
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 72
   %10 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !288
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 %10
-  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i, ptr noundef %9, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i, ptr noundef %9, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
   %agg.tmp8.sroa.0.0.copyload.i.i.pre = load ptr, ptr %tmp, align 8, !alias.scope !288
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit
 
@@ -2945,7 +2945,7 @@ if.then.i.i.i.i.i.i.i.i.i.i118:                   ; preds = %_ZN3ue28add_edgeINS
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 72
   %23 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i121, align 8, !noalias !295
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i122 = getelementptr inbounds i32, ptr %22, i64 %23
-  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %tops.i.i.i119, ptr noundef %22, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i122, ptr noundef null)
+  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %tops.i.i.i119, ptr noundef %22, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i122, ptr noundef null)
   %agg.tmp8.sroa.0.0.copyload.i.i125.pre = load ptr, ptr %tmp62, align 8, !alias.scope !295
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit127
 
@@ -3194,7 +3194,7 @@ if.then.thread:                                   ; preds = %lor.rhs
   br i1 %cmp.not.i.i.i13, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -3764,7 +3764,7 @@ if.then.thread:                                   ; preds = %lor.rhs
   br i1 %cmp.not.i.i.i13, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -4418,7 +4418,7 @@ invoke.cont3:                                     ; preds = %entry
   %reports.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, ptr %reports.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64

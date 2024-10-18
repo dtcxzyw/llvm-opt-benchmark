@@ -18320,7 +18320,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %162, %181
   %208 = add i32 %198, 3
   store i32 %208, ptr %6, align 4
   %209 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %205, ptr noundef %6, i32 noundef %209)
+  call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %205, ptr noundef nonnull %6, i32 noundef %209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %210 = add i32 %.010.i83, 1
   %211 = load i32, ptr %6, align 4

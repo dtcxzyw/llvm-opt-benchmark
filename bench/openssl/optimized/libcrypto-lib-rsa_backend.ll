@@ -868,7 +868,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i98, 
   br i1 %cmp57, label %if.then58, label %if.end94
 
 if.then58:                                        ; preds = %land.lhs.true
-  %call.i105 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call.i104) #4
+  %call.i105 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef range(i32 1, -2147483648) %call.i104) #4
   %prime_infos60 = getelementptr inbounds i8, ptr %call1, i64 136
   store ptr %call.i105, ptr %prime_infos60, align 8
   %cmp62 = icmp eq ptr %call.i105, null
@@ -884,7 +884,7 @@ if.end69:                                         ; preds = %for.body
   %15 = load ptr, ptr %prime_infos60, align 8
   %call.i106 = tail call i32 @OPENSSL_sk_push(ptr noundef %15, ptr noundef nonnull %call66) #4
   %16 = load ptr, ptr %prime_infos, align 8
-  %call.i107 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %i.0160) #4
+  %call.i107 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef range(i32 -2147483648, 2147483647) %i.0160) #4
   %17 = load ptr, ptr %call.i107, align 8
   %cmp.not.i108 = icmp eq ptr %17, null
   br i1 %cmp.not.i108, label %if.end78, label %land.lhs.true.i109

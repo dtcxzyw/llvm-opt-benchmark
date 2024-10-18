@@ -1044,7 +1044,7 @@ define linkonce_odr hidden void @_ZN4ncnn9Pooling1DD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn9Pooling1DD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #10
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #12
   ret void
 }

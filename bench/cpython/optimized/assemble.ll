@@ -486,7 +486,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.then.i25.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %if.end4.i.i.i
   %isize.addr.09.i.i.i = phi i32 [ %sub.i.i40.i, %if.end4.i.i.i ], [ %size.056.i.i, %while.cond.preheader.i.i.i ]
-  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef 8)
+  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef 8)
   %cmp2.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.i, label %if.end9, label %if.end4.i.i.i
 
@@ -497,7 +497,7 @@ if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
 
 assemble_emit_location.exit.i.i:                  ; preds = %if.end4.i.i.i, %while.cond.preheader.i.i.i
   %isize.addr.0.lcssa.i.i.i = phi i32 [ %size.056.i.i, %while.cond.preheader.i.i.i ], [ %sub.i.i40.i, %if.end4.i.i.i ]
-  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i)
+  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i)
   %cmp2.i.i = icmp slt i32 %call5.i.i.i, 0
   br i1 %cmp2.i.i, label %if.end9, label %assemble_emit_location.exit.if.end_crit_edge.i.i
 
@@ -545,7 +545,7 @@ while.cond.preheader.i20.i.i:                     ; preds = %for.end.i.i
 
 while.body.i26.i.i:                               ; preds = %while.cond.preheader.i20.i.i, %if.end4.i30.i.i
   %isize.addr.09.i27.i.i = phi i32 [ %sub.i31.i.i, %if.end4.i30.i.i ], [ %add.i37.i, %while.cond.preheader.i20.i.i ]
-  %call.i28.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef 8)
+  %call.i28.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef 8)
   %cmp2.i29.i.i = icmp slt i32 %call.i28.i.i, 0
   br i1 %cmp2.i29.i.i, label %if.end9, label %if.end4.i30.i.i
 
@@ -556,7 +556,7 @@ if.end4.i30.i.i:                                  ; preds = %while.body.i26.i.i
 
 assemble_emit_location.exit33.i.i:                ; preds = %if.end4.i30.i.i, %while.cond.preheader.i20.i.i
   %isize.addr.0.lcssa.i23.i.i = phi i32 [ %add.i37.i, %while.cond.preheader.i20.i.i ], [ %sub.i31.i.i, %if.end4.i30.i.i ]
-  %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i)
+  %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i)
   %call5.i24.fr.i.i = freeze i32 %call5.i24.i.i
   %cmp8.i39.i = icmp slt i32 %call5.i24.fr.i.i, 0
   br i1 %cmp8.i39.i, label %if.end9, label %assemble_emit_location.exit33.i.if.end9_crit_edge.i
@@ -594,7 +594,7 @@ if.then6.i.i:                                     ; preds = %if.then.i47.i
   %idxprom9.i.i = zext nneg i32 %handler.sroa.0.028.i.i to i64
   %i_offset.i.i = getelementptr %struct._PyCompile_Instruction, ptr %66, i64 %idxprom9.i.i, i32 5
   %68 = load i32, ptr %i_offset.i.i, align 4
-  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start.030.i.i, i32 noundef %ioffset.031.i.i, i32 noundef %68, i32 %handler.sroa.4.027.i.i, i32 %handler.sroa.7.026.i.i)
+  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.030.i.i, i32 noundef %ioffset.031.i.i, i32 noundef %68, i32 %handler.sroa.4.027.i.i, i32 %handler.sroa.7.026.i.i)
   %cmp11.i68.i = icmp slt i32 %call.i67.i, 0
   br i1 %cmp11.i68.i, label %if.end9, label %if.then6.if.end13_crit_edge.i.i
 
@@ -650,7 +650,7 @@ if.then19.i.i:                                    ; preds = %for.end.i66.i
   %idxprom23.i.i = zext nneg i32 %handler.sroa.0.1.i.i to i64
   %i_offset25.i.i = getelementptr %struct._PyCompile_Instruction, ptr %73, i64 %idxprom23.i.i, i32 5
   %74 = load i32, ptr %i_offset25.i.i, align 4
-  %call26.i.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start.1.i.i, i32 noundef %add.i63.i, i32 noundef %74, i32 %handler.sroa.4.1.i.i, i32 %handler.sroa.7.1.i.i)
+  %call26.i.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.1.i.i, i32 noundef %add.i63.i, i32 noundef %74, i32 %handler.sroa.4.1.i.i, i32 %handler.sroa.7.1.i.i)
   %cmp27.i.i = icmp slt i32 %call26.i.i, 0
   br i1 %cmp27.i.i, label %if.end9, label %if.end13.i
 

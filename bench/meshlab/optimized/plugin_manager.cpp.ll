@@ -742,7 +742,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %11
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %6)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %_ZN4QMapI7QStringP7QActionED2Ev.exit unwind label %11
 
 11:                                               ; preds = %.noexc1.i, %.noexc.i, %9
@@ -801,7 +801,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %11
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %6)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit unwind label %11
 
 11:                                               ; preds = %.noexc1.i, %.noexc.i, %9
@@ -846,7 +846,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i1:   ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i4 unwind label %23
 
 .noexc1.i4:                                       ; preds = %.noexc.i3, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i1
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit9 unwind label %23
 
 23:                                               ; preds = %.noexc1.i4, %.noexc.i3, %21
@@ -891,7 +891,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i10:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i13 unwind label %35
 
 .noexc1.i13:                                      ; preds = %.noexc.i12, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i10
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %30)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit18 unwind label %35
 
 35:                                               ; preds = %.noexc1.i13, %.noexc.i12, %33
@@ -936,7 +936,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i19:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i22 unwind label %47
 
 .noexc1.i22:                                      ; preds = %.noexc.i21, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i19
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %42)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %42)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit27 unwind label %47
 
 47:                                               ; preds = %.noexc1.i22, %.noexc.i21, %45
@@ -981,7 +981,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i28:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i31 unwind label %59
 
 .noexc1.i31:                                      ; preds = %.noexc.i30, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i28
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %54)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %54)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit36 unwind label %59
 
 59:                                               ; preds = %.noexc1.i31, %.noexc.i30, %57
@@ -1026,7 +1026,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i37:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i40 unwind label %71
 
 .noexc1.i40:                                      ; preds = %.noexc.i39, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i37
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %66)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %66)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit45 unwind label %71
 
 71:                                               ; preds = %.noexc1.i40, %.noexc.i39, %69
@@ -1338,7 +1338,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i.i unwind label %36
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %31)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %31)
           to label %_ZN4QMapI7QStringP7QActionED2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %.noexc1.i.i, %.noexc.i.i, %34
@@ -1654,7 +1654,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %41, %_ZN9QtPrivate8
   %87 = getelementptr inbounds i8, ptr %14, i64 32
   %88 = load i8, ptr %87, align 8
   %89 = trunc i8 %88 to i1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %14) #28
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %86
@@ -1707,7 +1707,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %41, %_ZN9QtPrivate8
 
 104:                                              ; preds = %100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18) #28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %18) #28
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, i64 noundef 6)
           to label %105 unwind label %123
 
@@ -2233,7 +2233,7 @@ define void @_ZN13PluginManager17checkFilterPluginEP12FilterPlugin(ptr noundef %
 .lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %33, %32 ]
   %34 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #27
   %.not.i.i.i = icmp eq ptr %34, %2
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !20
 
@@ -2776,7 +2776,7 @@ _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit:    ; preds = %.lr.ph.i.i.i, %32
 .lr.ph.i.i.i116:                                  ; preds = %219, %.lr.ph.i.i.i116
   %.09.i.i.i117 = phi ptr [ %221, %.lr.ph.i.i.i116 ], [ %220, %219 ]
   %221 = load ptr, ptr %.09.i.i.i117, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i117) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i117) #27
   %.not.i.i.i118 = icmp eq ptr %221, %2
   br i1 %.not.i.i.i118, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit119, label %.lr.ph.i.i.i116, !llvm.loop !20
 
@@ -2879,7 +2879,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
@@ -6567,7 +6567,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i66:  ; preds = %_ZN9QtPrivate8RefCo
   %250 = load ptr, ptr %.09.i.i.i74, align 8
   %251 = getelementptr inbounds i8, ptr %.09.i.i.i74, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #28
-  call void @_ZdlPv(ptr noundef %.09.i.i.i74) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i74) #27
   %.not.i.i.i75 = icmp eq ptr %250, %12
   br i1 %.not.i.i.i75, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit76, label %.lr.ph.i.i.i73, !llvm.loop !45
 
@@ -7744,7 +7744,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i53:  ; preds = %_ZN9QtPrivate8RefCo
   %250 = load ptr, ptr %.09.i.i.i61, align 8
   %251 = getelementptr inbounds i8, ptr %.09.i.i.i61, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #28
-  call void @_ZdlPv(ptr noundef %.09.i.i.i61) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i61) #27
   %.not.i.i.i62 = icmp eq ptr %250, %10
   br i1 %.not.i.i.i62, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit63, label %.lr.ph.i.i.i60, !llvm.loop !45
 
@@ -8613,7 +8613,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i66:  ; preds = %_ZN9QtPrivate8RefCo
   %250 = load ptr, ptr %.09.i.i.i74, align 8
   %251 = getelementptr inbounds i8, ptr %.09.i.i.i74, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #28
-  call void @_ZdlPv(ptr noundef %.09.i.i.i74) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i74) #27
   %.not.i.i.i75 = icmp eq ptr %250, %12
   br i1 %.not.i.i.i75, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit76, label %.lr.ph.i.i.i73, !llvm.loop !45
 
@@ -9621,7 +9621,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i66:  ; preds = %_ZN9QtPrivate8RefCo
   %250 = load ptr, ptr %.09.i.i.i74, align 8
   %251 = getelementptr inbounds i8, ptr %.09.i.i.i74, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #28
-  call void @_ZdlPv(ptr noundef %.09.i.i.i74) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i74) #27
   %.not.i.i.i75 = icmp eq ptr %250, %12
   br i1 %.not.i.i.i75, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit76, label %.lr.ph.i.i.i73, !llvm.loop !45
 
@@ -10604,7 +10604,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i53:  ; preds = %_ZN9QtPrivate8RefCo
   %250 = load ptr, ptr %.09.i.i.i61, align 8
   %251 = getelementptr inbounds i8, ptr %.09.i.i.i61, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #28
-  call void @_ZdlPv(ptr noundef %.09.i.i.i61) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i61) #27
   %.not.i.i.i62 = icmp eq ptr %250, %10
   br i1 %.not.i.i.i62, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit63, label %.lr.ph.i.i.i60, !llvm.loop !45
 

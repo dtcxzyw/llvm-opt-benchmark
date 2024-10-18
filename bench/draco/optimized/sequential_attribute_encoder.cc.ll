@@ -171,7 +171,7 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder12EncodeValuesER
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %50, ptr noundef nonnull %9, ptr noundef nonnull %15)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr %50, ptr noundef nonnull %9, ptr noundef nonnull %15)
           to label %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 ._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge: ; preds = %44
@@ -391,7 +391,7 @@ define linkonce_odr void @_ZN5draco26SequentialAttributeEncoderD2Ev(ptr noundef 
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
+  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
   br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %4
@@ -418,7 +418,7 @@ define linkonce_odr void @_ZN5draco26SequentialAttributeEncoderD0Ev(ptr noundef 
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
+  tail call void @_ZNKSt14default_deleteIN5draco14PointAttributeEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
   br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %4, %1

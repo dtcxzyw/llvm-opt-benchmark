@@ -107,7 +107,7 @@ define hidden void @_ZN17DumpTimeClassInfoD2Ev(ptr nocapture noundef nonnull rea
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo20DTVerifierConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo20DTVerifierConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit
 
 _ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit: ; preds = %4, %8
@@ -126,7 +126,7 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit: ; pred
 
 16:                                               ; preds = %12
   store i32 0, ptr %10, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIc13GrowableArrayIcEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  tail call void @_ZN26GrowableArrayWithAllocatorIc13GrowableArrayIcEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   br label %_ZN13GrowableArrayIcED2Ev.exit
 
 _ZN13GrowableArrayIcED2Ev.exit:                   ; preds = %12, %16
@@ -148,7 +148,7 @@ _ZN13GrowableArrayIcED2Ev.exit:                   ; preds = %12, %16
 
 24:                                               ; preds = %20
   store i32 0, ptr %19, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
   br label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit
 
 _ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit: ; preds = %20, %24
@@ -1144,7 +1144,7 @@ define hidden void @_ZN24DumpTimeSharedClassTable13update_countsEv(ptr noundef n
   store ptr %4, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateIZNKSG_11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSJ_24iterate_all_live_classesI20CountClassByCategoryEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SN_E_EEvS9_EUlRS2_SN_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127116) %0, ptr nonnull %2)
+  call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE7iterateIZNKSG_11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSJ_24iterate_all_live_classesI20CountClassByCategoryEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SN_E_EEvS9_EUlRS2_SN_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %0, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

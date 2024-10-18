@@ -142,7 +142,7 @@ $_ZTISt15_Sp_counted_ptrIPN3gmx22AnalysisDataPlotModuleELN9__gnu_cxx12_Lock_poli
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
-  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %1
@@ -158,7 +158,7 @@ define void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind no
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 80
   store i64 0, ptr %7, align 8
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5, ptr noundef nonnull @_ZN3gmx15analysismodules10GyrateInfo4nameE)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %5, ptr noundef nonnull @_ZN3gmx15analysismodules10GyrateInfo4nameE)
           to label %_ZN3gmx15analysismodules12_GLOBAL__N_16GyrateC2Ev.exit unwind label %10
 
 8:                                                ; preds = %.noexc
@@ -175,7 +175,7 @@ define void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind no
 12:                                               ; preds = %10, %8
   %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   br label %.body
 
 _ZN3gmx15analysismodules12_GLOBAL__N_16GyrateC2Ev.exit: ; preds = %6
@@ -237,7 +237,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_16GyrateD0Ev(ptr noun
   tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
@@ -285,7 +285,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   %23 = load ptr, ptr %1, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %26 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %4)
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 12
@@ -309,7 +309,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %5)
   %41 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 12
@@ -334,7 +334,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %6)
   call void @_ZN3gmx26TrajectoryAnalysisSettings8setFlagsEm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 16)
   call void @_ZN3gmx26TrajectoryAnalysisSettings6setPBCEb(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true)
   ret void

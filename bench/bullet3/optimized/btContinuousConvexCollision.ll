@@ -131,7 +131,7 @@ invoke.cont15:                                    ; preds = %entry
   call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_iiffP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, float noundef %call7, float noundef %call11, ptr noundef %9, ptr noundef %10)
   %m_maximumDistanceSquared.i = getelementptr inbounds i8, ptr %input, i64 128
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %transA, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %transA, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %transA, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -142,7 +142,7 @@ invoke.cont15:                                    ; preds = %entry
   %m_origin3.i = getelementptr inbounds i8, ptr %input, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %transB, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %transB, i64 16, i1 false)
   %arrayidx5.i.i12 = getelementptr inbounds i8, ptr %transB, i64 16
   %arrayidx7.i.i13 = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i13, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i12, i64 16, i1 false)
@@ -794,7 +794,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul36 = fmul float %mul35, 5.000000e-01
   %call.i43 = tail call noundef float @cosf(float noundef %mul36) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -913,7 +913,7 @@ if.then47:                                        ; preds = %_ZN12btQuaternion13
   br label %if.end50
 
 if.else48:                                        ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(16) %curTrans, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(48) %curTrans, i64 16, i1 false)
   %arrayidx5.i.i58 = getelementptr inbounds i8, ptr %curTrans, i64 16
   %arrayidx7.i.i59 = getelementptr inbounds i8, ptr %predictedTransform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i58, i64 16, i1 false)
@@ -942,7 +942,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27btContinuousConvexCollisionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

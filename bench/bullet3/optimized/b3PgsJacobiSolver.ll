@@ -4024,7 +4024,7 @@ _ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3Iner
   %arrayidx.i.i153 = getelementptr inbounds %struct.b3SolverConstraint, ptr %52, i64 %idxprom.i.i152
   %m_frictionIndex.i154 = getelementptr inbounds i8, ptr %arrayidx.i.i153, i64 140
   store i32 %18, ptr %m_frictionIndex.i154, align 4
-  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i153, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_normalWorldOnB, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nonnull readnone align 16 poison, ptr nonnull readnone align 16 poison, ptr readnone poison, ptr readnone poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i153, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_normalWorldOnB, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nonnull readnone align 16 poison, ptr nonnull readnone align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %53 = load float, ptr %arrayidx.i162, align 8
   %54 = call noundef float @llvm.fabs.f32(float %53)
   %cmp.i163 = fcmp ogt float %54, 0x3FE6A09E60000000
@@ -4111,7 +4111,7 @@ _ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3Iner
   %arrayidx.i.i178 = getelementptr inbounds %struct.b3SolverConstraint, ptr %69, i64 %idxprom.i.i177
   %m_frictionIndex.i179 = getelementptr inbounds i8, ptr %arrayidx.i.i178, i64 140
   store i32 %18, ptr %m_frictionIndex.i179, align 4
-  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i178, ptr noundef nonnull readonly align 16 dereferenceable(16) %axis0, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nonnull readnone align 16 poison, ptr nonnull readnone align 16 poison, ptr readnone poison, ptr readnone poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i178, ptr noundef nonnull readonly align 16 dereferenceable(16) %axis0, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nonnull readnone align 16 poison, ptr nonnull readnone align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %if.end42
 
 if.end42:                                         ; preds = %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit186, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
@@ -4150,7 +4150,7 @@ if.end50.sink.split:                              ; preds = %if.end50.sink.split
   %arrayidx.i.i = getelementptr inbounds %struct.b3SolverConstraint, ptr %74, i64 %idxprom.i.i
   %m_frictionIndex.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 140
   store i32 %18, ptr %m_frictionIndex.i, align 4
-  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %relAngVel.sink, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nonnull readnone align 16 poison, ptr nonnull readnone align 16 poison, ptr readnone poison, ptr readnone poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %relAngVel.sink, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nonnull readnone align 16 poison, ptr nonnull readnone align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %if.then28, %if.end42, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139
@@ -4252,7 +4252,7 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   %arrayidx.i.i253 = getelementptr inbounds %struct.b3SolverConstraint, ptr %96, i64 %idxprom.i.i252
   %m_frictionIndex.i254 = getelementptr inbounds i8, ptr %arrayidx.i.i253, i64 140
   store i32 %18, ptr %m_frictionIndex.i254, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i253, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr readnone poison, ptr readnone poison, float noundef %.pre377, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i253, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre377, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %.pre378 = load i32, ptr %m_size.i121, align 4
   br label %if.end87
 
@@ -4279,7 +4279,7 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   %arrayidx.i.i266 = getelementptr inbounds %struct.b3SolverConstraint, ptr %100, i64 %idxprom.i.i265
   %m_frictionIndex.i267 = getelementptr inbounds i8, ptr %arrayidx.i.i266, i64 140
   store i32 %18, ptr %m_frictionIndex.i267, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i266, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr readnone poison, ptr readnone poison, float noundef %.pre377, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i266, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre377, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %for.inc
 
 if.else90:                                        ; preds = %if.then52
@@ -4356,7 +4356,7 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   %arrayidx.i.i314 = getelementptr inbounds %struct.b3SolverConstraint, ptr %106, i64 %idxprom.i.i313
   %m_frictionIndex.i315 = getelementptr inbounds i8, ptr %arrayidx.i.i314, i64 140
   store i32 %18, ptr %m_frictionIndex.i315, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i314, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr readnone poison, ptr readnone poison, float noundef %.pre, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i314, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %.pre375 = load i32, ptr %m_size.i121, align 4
   br label %if.end100
 
@@ -4383,7 +4383,7 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   %arrayidx.i.i329 = getelementptr inbounds %struct.b3SolverConstraint, ptr %110, i64 %idxprom.i.i328
   %m_frictionIndex.i330 = getelementptr inbounds i8, ptr %arrayidx.i.i329, i64 140
   store i32 %18, ptr %m_frictionIndex.i330, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i329, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr readnone poison, ptr readnone poison, float noundef %.pre, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i329, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %111 = load i32, ptr %m_solverMode, align 4
   %112 = and i32 %111, 80
   %or.cond105.not = icmp eq i32 %112, 80
@@ -4419,7 +4419,7 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   %arrayidx.i.i344 = getelementptr inbounds %struct.b3SolverConstraint, ptr %119, i64 %idxprom.i.i343
   %m_frictionIndex.i345 = getelementptr inbounds i8, ptr %arrayidx.i.i344, i64 140
   store i32 %18, ptr %m_frictionIndex.i345, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i344, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr readnone poison, ptr readnone poison, float noundef %113, float noundef %114, float noundef %115)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i344, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %113, float noundef %114, float noundef %115)
   %120 = load i32, ptr %m_solverMode, align 4
   %and118 = and i32 %120, 16
   %tobool119.not = icmp eq i32 %and118, 0
@@ -4450,7 +4450,7 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   %arrayidx.i.i359 = getelementptr inbounds %struct.b3SolverConstraint, ptr %126, i64 %idxprom.i.i358
   %m_frictionIndex.i360 = getelementptr inbounds i8, ptr %arrayidx.i.i359, i64 140
   store i32 %18, ptr %m_frictionIndex.i360, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i359, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr readnone poison, ptr readnone poison, float noundef %113, float noundef %121, float noundef %122)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i359, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %113, float noundef %121, float noundef %122)
   br label %if.end123
 
 if.end123:                                        ; preds = %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit367, %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit352
@@ -7468,7 +7468,7 @@ invoke.cont202:                                   ; preds = %if.end193
   %115 = load ptr, ptr %m_data.i224, align 8
   %arrayidx.i288 = getelementptr inbounds %struct.b3SolverBody, ptr %115, i64 %indvars.iv391
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  invoke void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i288, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
+  invoke void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i288, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
           to label %invoke.cont208 unwind label %lpad142
 
 invoke.cont208:                                   ; preds = %invoke.cont202
@@ -7845,7 +7845,7 @@ if.then27:                                        ; preds = %if.then.if.then27_c
   %21 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %21, align 8
   call void @_ZN15b3TransformUtil18integrateTransformERK11b3TransformRK9b3Vector3S5_fRS0_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %m_pushVelocity, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, float noundef %timeStep, ptr noundef nonnull align 16 dereferenceable(64) %newTransform)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %newTransform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(64) %newTransform, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %newTransform, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -7974,7 +7974,7 @@ if.end30:                                         ; preds = %if.else, %if.then9
   %mul36 = fmul float %mul35, 5.000000e-01
   %call.i39 = tail call noundef float @cosf(float noundef %mul36) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %curTrans, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
+  call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %curTrans, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 16
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -8308,7 +8308,7 @@ for.inc.i:                                        ; preds = %for.inc.i, %for.inc
   %arrayidx.i = getelementptr inbounds %struct.b3SolverBody, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %struct.b3SolverBody, ptr %2, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(228) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(228) %arrayidx3.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 16
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)

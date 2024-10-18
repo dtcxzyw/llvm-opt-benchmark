@@ -169,7 +169,7 @@ define hidden void @_ZN16EpsilonArguments21initialize_alignmentsEv(ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16EpsilonArguments11create_heapEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 480, i8 noundef zeroext 5, i32 noundef 0) #5
-  tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #5
+  tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %2) #5
   store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV11EpsilonHeap, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 120
   tail call void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191) %3, ptr noundef nonnull @.str.6) #5

@@ -59,7 +59,7 @@ invoke.cont:                                      ; preds = %entry
   %terminal_.i = getelementptr inbounds i8, ptr %call3, i64 80
   store i8 1, ptr %terminal_.i, align 8
   %0 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %0(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #8
+  call void %0(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2) #8
   %call8 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 0, ptr noundef nonnull @_ZN9grpc_core13ClientChannel28kFilterVtableWithoutPromisesE, ptr nonnull @.str, i32 48)
   store ptr @_ZN9grpc_core12_GLOBAL__N_141IsEverythingBelowClientChannelPromiseSafeERKNS_11ChannelArgsE, ptr %agg.tmp9, align 16
   %invoker_.i.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp9, i64 24
@@ -73,21 +73,21 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %terminal_.i9 = getelementptr inbounds i8, ptr %call12, i64 80
   store i8 1, ptr %terminal_.i9, align 8
   %1 = load ptr, ptr %manager_.i.i.i.i.i.i8, align 16
-  call void %1(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp9, ptr noundef nonnull %agg.tmp9) #8
+  call void %1(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp9, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp9) #8
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %3(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #8
+  call void %3(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2) #8
   br label %eh.resume
 
 lpad10:                                           ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load ptr, ptr %manager_.i.i.i.i.i.i8, align 16
-  call void %5(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp9, ptr noundef nonnull %agg.tmp9) #8
+  call void %5(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp9, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp9) #8
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad10, %lpad

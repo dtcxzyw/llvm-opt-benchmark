@@ -51,7 +51,7 @@ $_ZTIN6icu_758numparse4impl18CompositionMatcherE = comdat any
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SeriesMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %backup = alloca %"class.icu_75::numparse::impl::ParsedNumber", align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %backup, ptr noundef nonnull align 8 dereferenceable(66) %result)
+  call void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %backup, ptr noundef nonnull align 8 dereferenceable(216) %result)
   %charEnd.i = getelementptr inbounds i8, ptr %backup, i64 72
   %charEnd3.i = getelementptr inbounds i8, ptr %result, i64 72
   %0 = load i64, ptr %charEnd3.i, align 8
@@ -84,7 +84,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad6.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad6.i ], [ %1, %lpad.i ]
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %backup) #12
+  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %backup) #12
   br label %common.resume
 
 _ZN6icu_758numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %invoke.cont.i
@@ -222,7 +222,7 @@ if.else51:                                        ; preds = %if.else47
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %if.else51
-  %call.i29 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %result, ptr noundef nonnull align 8 dereferenceable(66) %backup)
+  %call.i29 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 8 dereferenceable(216) %backup)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %invoke.cont52
@@ -244,7 +244,7 @@ cleanup:                                          ; preds = %invoke.cont6, %_ZN6
   %retval.0.in = phi i1 [ %maybeMore.1, %_ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit ], [ %maybeMore.0, %invoke.cont6 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i) #12
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix.i) #12
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %backup) #12
+  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %backup) #12
   ret i1 %retval.0.in
 }
 
@@ -489,7 +489,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }

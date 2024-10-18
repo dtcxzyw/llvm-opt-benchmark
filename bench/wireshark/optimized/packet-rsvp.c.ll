@@ -5181,7 +5181,7 @@ proto_item_set_hidden.exit.i468:                  ; preds = %660, %657, %652
   br i1 %665, label %666, label %668
 
 666:                                              ; preds = %664
-  %667 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %135, ptr noundef %1, ptr noundef nonnull @ei_rsvp_invalid_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1663, i32 noundef %94) #10
+  %667 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %135, ptr noundef %1, ptr noundef nonnull @ei_rsvp_invalid_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1663, i32 noundef range(i32 4, 65536) %94) #10
   br label %dissect_rsvp_flowspec.exit
 
 668:                                              ; preds = %664
@@ -5208,7 +5208,7 @@ proto_item_set_hidden.exit.i468:                  ; preds = %660, %657, %652
   br i1 %678, label %679, label %681
 
 679:                                              ; preds = %.lr.ph298.i
-  %680 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %135, ptr noundef %1, ptr noundef nonnull @ei_rsvp_invalid_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1665, i32 noundef %94) #10
+  %680 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %135, ptr noundef %1, ptr noundef nonnull @ei_rsvp_invalid_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1665, i32 noundef range(i32 4, 65536) %94) #10
   br label %dissect_rsvp_flowspec.exit
 
 681:                                              ; preds = %.lr.ph298.i
@@ -6361,7 +6361,7 @@ proto_item_set_hidden.exit.i512:                  ; preds = %1452, %1449, %1445
 
 1459:                                             ; preds = %proto_item_set_hidden.exit.i512
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1446, ptr noundef nonnull @.str.1716) #10
-  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %1446, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %1458, i32 noundef %94, i32 noundef 20)
+  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %1446, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %1458, i32 noundef range(i32 4, 65536) %94, i32 noundef 20)
   br label %dissect_rsvp_hop.exit
 
 1460:                                             ; preds = %proto_item_set_hidden.exit.i512
@@ -6399,7 +6399,7 @@ proto_item_set_hidden.exit.i516:                  ; preds = %1471, %1468, %1464
 
 1477:                                             ; preds = %proto_item_set_hidden.exit.i516
   %1478 = add i32 %.0700, 4
-  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %1465, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %1478, i32 noundef %94, i32 noundef 21)
+  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %1465, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %1478, i32 noundef range(i32 4, 65536) %94, i32 noundef 21)
   br label %dissect_rsvp_hop.exit
 
 1479:                                             ; preds = %proto_item_set_hidden.exit.i516
@@ -6438,7 +6438,7 @@ proto_item_set_hidden.exit.i520:                  ; preds = %1491, %1488, %1484
 
 1497:                                             ; preds = %proto_item_set_hidden.exit.i520
   %1498 = add i32 %.0700, 4
-  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %1485, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %1498, i32 noundef %94, i32 noundef 232)
+  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %1485, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %1498, i32 noundef range(i32 4, 65536) %94, i32 noundef 232)
   br label %dissect_rsvp_hop.exit
 
 1499:                                             ; preds = %proto_item_set_hidden.exit.i520
@@ -8675,7 +8675,7 @@ proto_item_set_hidden.exit.i611:                  ; preds = %2895, %2892, %2888
   br i1 %or.cond3.i, label %2905, label %2907
 
 2905:                                             ; preds = %2902, %2899
-  %2906 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %135, ptr noundef %1, ptr noundef nonnull @ei_rsvp_invalid_length, ptr noundef %0, i32 noundef %.0700, i32 noundef %94, ptr noundef nonnull @.str.1904) #10
+  %2906 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %135, ptr noundef %1, ptr noundef nonnull @ei_rsvp_invalid_length, ptr noundef %0, i32 noundef %.0700, i32 noundef range(i32 4, 65536) %94, ptr noundef nonnull @.str.1904) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2889, ptr noundef nonnull @.str.1054) #10
   br label %dissect_rsvp_hop.exit
 
@@ -9019,7 +9019,7 @@ proto_item_set_hidden.exit29.i:                   ; preds = %3084, %3081, %proto
 
 3103:                                             ; preds = %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141
   %3104 = load i32, ptr getelementptr inbounds (i8, ptr @hf_rsvp_filter, i64 428), align 4
-  %3105 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3104, ptr noundef %0, i32 noundef %.0700, i32 noundef %94, i32 noundef 0) #10
+  %3105 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3104, ptr noundef %0, i32 noundef %.0700, i32 noundef range(i32 4, 65536) %94, i32 noundef 0) #10
   %.not.i.i635 = icmp eq ptr %3105, null
   br i1 %.not.i.i635, label %proto_item_set_hidden.exit.i637, label %3106
 
@@ -9096,7 +9096,7 @@ proto_item_set_hidden.exit.i640:                  ; preds = %3138, %3135, %3131
 
 3144:                                             ; preds = %proto_item_set_hidden.exit.i640
   %3145 = add i32 %.0700, 4
-  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %3132, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %3145, i32 noundef %94, i32 noundef 200)
+  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %3132, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %3145, i32 noundef range(i32 4, 65536) %94, i32 noundef 200)
   br label %dissect_rsvp_hop.exit
 
 3146:                                             ; preds = %proto_item_set_hidden.exit.i640
@@ -9135,7 +9135,7 @@ proto_item_set_hidden.exit.i644:                  ; preds = %3158, %3155, %3151
 
 3164:                                             ; preds = %proto_item_set_hidden.exit.i644
   %3165 = add i32 %.0700, 4
-  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %3152, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %3165, i32 noundef %94, i32 noundef 201)
+  call fastcc void @dissect_rsvp_ro_subobjects(ptr noundef %3152, ptr noundef %1, ptr noundef %135, ptr noundef %0, i32 noundef %3165, i32 noundef range(i32 4, 65536) %94, i32 noundef 201)
   br label %dissect_rsvp_hop.exit
 
 3166:                                             ; preds = %proto_item_set_hidden.exit.i644
@@ -9171,7 +9171,7 @@ proto_item_set_hidden.exit.i644:                  ; preds = %3158, %3155, %3151
 
 3186:                                             ; preds = %141
   %3187 = load i32, ptr getelementptr inbounds (i8, ptr @hf_rsvp_filter, i64 444), align 4
-  %3188 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3187, ptr noundef %0, i32 noundef %.0700, i32 noundef %94, i32 noundef 0) #10
+  %3188 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3187, ptr noundef %0, i32 noundef %.0700, i32 noundef range(i32 4, 65536) %94, i32 noundef 0) #10
   %.not.i.i647 = icmp eq ptr %3188, null
   br i1 %.not.i.i647, label %proto_item_set_hidden.exit.i649, label %3189
 
@@ -9288,7 +9288,7 @@ proto_item_set_hidden.exit89.i:                   ; preds = %3201, %3198, %proto
 
 3242:                                             ; preds = %3241
   %3243 = load i32, ptr @hf_rsvp_juniper_unknown, align 4
-  %3244 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3243, ptr noundef %0, i32 noundef %3207, i32 noundef %94, i32 noundef 0) #10
+  %3244 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %3243, ptr noundef %0, i32 noundef %3207, i32 noundef range(i32 4, 65536) %94, i32 noundef 0) #10
   br label %dissect_rsvp_hop.exit
 
 3245:                                             ; preds = %141

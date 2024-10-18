@@ -787,8 +787,8 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
 
 73:                                               ; preds = %71
   call void @_cmsMAT3per(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %10) #7
-  %74 = call fastcc double @CHAD2Temp(ptr noundef readonly %18)
-  %75 = call fastcc double @CHAD2Temp(ptr noundef %19)
+  %74 = call fastcc double @CHAD2Temp(ptr noundef nonnull readonly %18)
+  %75 = call fastcc double @CHAD2Temp(ptr noundef nonnull %19)
   %76 = fcmp olt double %74, 0.000000e+00
   %77 = fcmp olt double %75, 0.000000e+00
   %or.cond.i = select i1 %76, i1 true, i1 %77

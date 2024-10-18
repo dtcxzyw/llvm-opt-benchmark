@@ -627,7 +627,7 @@ getMagicHeaderName.exit.i.i:                      ; preds = %83, %82, %81, %80, 
   %136 = zext i32 %133 to i64
   %137 = getelementptr inbounds i8, ptr %134, i64 104
   %138 = load ptr, ptr %137, align 8
-  %139 = tail call ptr %138(ptr noundef %134, i64 noundef %135, i64 noundef %136, i32 noundef 0) #11
+  %139 = tail call ptr %138(ptr noundef %134, i64 noundef %135, i64 noundef range(i64 0, 4294967296) %136, i32 noundef 0) #11
   %.not69.i.i = icmp eq ptr %139, null
   br i1 %.not69.i.i, label %140, label %141
 
@@ -1094,7 +1094,7 @@ getMagicHeaderName.exit.i.i154:                   ; preds = %277, %276, %275, %2
   %309 = zext i32 %.0123.i.i to i64
   %310 = getelementptr inbounds i8, ptr %307, i64 104
   %311 = load ptr, ptr %310, align 8
-  %312 = call ptr %311(ptr noundef %307, i64 noundef %308, i64 noundef %309, i32 noundef 0) #11
+  %312 = call ptr %311(ptr noundef %307, i64 noundef %308, i64 noundef range(i64 0, 4294967296) %309, i32 noundef 0) #11
   %.not162.i.i = icmp eq ptr %312, null
   br i1 %.not162.i.i, label %313, label %314
 
@@ -1241,7 +1241,7 @@ getMagicHeaderName.exit.i.i154:                   ; preds = %277, %276, %275, %2
   %373 = zext i32 %.0123.i.i to i64
   %374 = getelementptr inbounds i8, ptr %371, i64 104
   %375 = load ptr, ptr %374, align 8
-  %376 = call ptr %375(ptr noundef %371, i64 noundef %372, i64 noundef %373, i32 noundef 0) #11
+  %376 = call ptr %375(ptr noundef %371, i64 noundef %372, i64 noundef range(i64 0, 4294967296) %373, i32 noundef 0) #11
   %.not159.i.i = icmp eq ptr %376, null
   br i1 %.not159.i.i, label %377, label %378
 
@@ -1304,7 +1304,7 @@ getMagicHeaderName.exit.i.i154:                   ; preds = %277, %276, %275, %2
   %403 = zext i32 %400 to i64
   %404 = getelementptr inbounds i8, ptr %401, i64 104
   %405 = load ptr, ptr %404, align 8
-  %406 = call ptr %405(ptr noundef %401, i64 noundef %402, i64 noundef %403, i32 noundef 0) #11
+  %406 = call ptr %405(ptr noundef %401, i64 noundef %402, i64 noundef range(i64 0, 4294967296) %403, i32 noundef 0) #11
   %.not157.i.i = icmp eq ptr %406, null
   br i1 %.not157.i.i, label %407, label %408
 
@@ -1601,7 +1601,7 @@ egg_parse_file_headers.exit:                      ; preds = %468, %211, %207, %.
   %533 = zext i32 %532 to i64
   %534 = getelementptr inbounds i8, ptr %531, i64 104
   %535 = load ptr, ptr %534, align 8
-  %536 = call ptr %535(ptr noundef %531, i64 noundef %530, i64 noundef %533, i32 noundef 0) #11
+  %536 = call ptr %535(ptr noundef %531, i64 noundef %530, i64 noundef range(i64 0, 4294967296) %533, i32 noundef 0) #11
   %.not63.i = icmp eq ptr %536, null
   br i1 %.not63.i, label %537, label %540
 
@@ -1812,7 +1812,7 @@ getMagicHeaderName.exit:                          ; preds = %590, %592, %593, %5
   %629 = zext i32 %.0111 to i64
   %630 = getelementptr inbounds i8, ptr %627, i64 104
   %631 = load ptr, ptr %630, align 8
-  %632 = call ptr %631(ptr noundef %627, i64 noundef %628, i64 noundef %629, i32 noundef 0) #11
+  %632 = call ptr %631(ptr noundef %627, i64 noundef %628, i64 noundef range(i64 0, 4294967296) %629, i32 noundef 0) #11
   %.not143 = icmp eq ptr %632, null
   br i1 %.not143, label %633, label %634
 

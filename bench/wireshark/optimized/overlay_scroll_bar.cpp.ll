@@ -503,7 +503,7 @@ define void @_ZN16OverlayScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16OverlayScrollBarD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16OverlayScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(196) %2) #12
   ret void
 }
 
@@ -700,13 +700,13 @@ define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef nonnull ali
           to label %27 unwind label %28
 
 27:                                               ; preds = %22
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #10
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #10
   ret { i64, i64 } %26
 
 28:                                               ; preds = %22, %6, %1
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #10
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #10
   resume { ptr, i32 } %29
 }
 
@@ -1198,7 +1198,7 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 424
   %25 = load ptr, ptr %24, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull %7)
           to label %26 unwind label %46
 
 26:                                               ; preds = %22
@@ -1239,11 +1239,11 @@ common.resume:                                    ; preds = %112, %46
 46:                                               ; preds = %41, %26, %22
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #10
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #10
   br label %common.resume
 
 _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #10
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #10
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   %48 = extractvalue { i64, i64 } %45, 0
   %49 = extractvalue { i64, i64 } %45, 1

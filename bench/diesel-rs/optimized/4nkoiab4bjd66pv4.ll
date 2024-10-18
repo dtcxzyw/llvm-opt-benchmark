@@ -203,7 +203,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit: ; preds = %.lr.ph.
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit": ; preds = %57
   %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !9
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %66, ptr nonnull readonly align 1 %13, i64 %15), !alias.scope !9
   %67 = icmp eq i32 %bcmp.i, 0
   br i1 %67, label %.split88.us, label %61
 
@@ -302,7 +302,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %23, ptr %11, align 8
   %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %29 = call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #15
+  %29 = call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef range(i64 8, 97) 8, i64 noundef 8) #15
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %116
 
@@ -412,7 +412,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr %43, ptr %12, align 8
   %58 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %59 = call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #15
+  %59 = call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef range(i64 8, 97) 8, i64 noundef 8) #15
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %106
 
@@ -461,7 +461,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   store i8 %.sroa.6.1, ptr %.sroa.2.0..sroa_idx, align 8
   %74 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !63
-  %75 = call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #15, !noalias !63
+  %75 = call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef range(i64 8, 97) 96, i64 noundef 8) #15, !noalias !63
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %93
 
@@ -497,7 +497,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit47": ; preds = %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !66
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %84 = getelementptr inbounds i8, ptr %6, i64 8
   %85 = load i64, ptr %84, align 8, !range !75, !noalias !66, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %85, 0
@@ -536,7 +536,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit54": ; preds = %93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !98
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %97 = getelementptr inbounds i8, ptr %5, i64 8
   %98 = load i64, ptr %97, align 8, !range !75, !noalias !98, !noundef !4
   %.not.i.i.i.i55 = icmp eq i64 %98, 0
@@ -576,7 +576,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit58": ; preds = %106, %116
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !118
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %110 = getelementptr inbounds i8, ptr %4, i64 8
   %111 = load i64, ptr %110, align 8, !range !75, !noalias !118, !noundef !4
   %.not.i.i.i.i59 = icmp eq i64 %111, 0
@@ -652,7 +652,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5f76d840efc20b13E.exit: ; preds = %13
 
 21:                                               ; preds = %19, %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !127
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd92a7c6fbf836a8dE.llvm.10063921922768059169"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8, !range !75, !noalias !127, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %23, 0
@@ -774,7 +774,7 @@ _ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit: ; preds = %16
 28:                                               ; preds = %.lr.ph.i.i.i
   %29 = getelementptr i8, ptr %25, i64 8
   %.val.i.i.i = load ptr, ptr %29, align 8, !noalias !174, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %.val.i.i.i, ptr noundef nonnull readonly dereferenceable(6) @anon.71d6d886e3ba52f29ea01b33547ae021.28, i64 6), !alias.scope !179, !noalias !174
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %.val.i.i.i, ptr noundef nonnull dereferenceable(6) @anon.71d6d886e3ba52f29ea01b33547ae021.28, i64 6), !alias.scope !179, !noalias !174
   %30 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he64917a8c0b3902cE.exit.i.i", label %"_ZN20migrations_internals29valid_sql_migration_directory28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4b4852cee1adcb49E.exit.backedge.i.i.i"
 
@@ -922,7 +922,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
 31:                                               ; preds = %52, %25
   %.0.i = phi i64 [ 0, %25 ], [ %44, %52 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !213
-  invoke fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h223bede9091b2f39E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef align 8 dereferenceable(48) %5)
+  invoke fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h223bede9091b2f39E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
           to label %.noexc.i unwind label %33, !noalias !212
 
 .noexc.i:                                         ; preds = %31
@@ -946,7 +946,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   br i1 %40, label %41, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h1e8341c147104a88E.exit"
 
 41:                                               ; preds = %35
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4702e43155e45c3fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %37, i64 noundef %36)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4702e43155e45c3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %37, i64 noundef %36)
           to label %.noexc14.i unwind label %29, !noalias !212
 
 .noexc14.i:                                       ; preds = %41
@@ -966,7 +966,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %42
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4702e43155e45c3fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %47, i64 noundef %46)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4702e43155e45c3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %47, i64 noundef %46)
           to label %.noexc16.i unwind label %33, !noalias !212
 
 .noexc16.i:                                       ; preds = %51

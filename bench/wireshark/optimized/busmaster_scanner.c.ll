@@ -1280,7 +1280,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   %716 = getelementptr i8, ptr %714, i64 %715
   %717 = load ptr, ptr %0, align 8
   %718 = load ptr, ptr %717, align 8
-  %719 = tail call i32 @file_read(ptr noundef %716, i32 noundef %712, ptr noundef %718) #23
+  %719 = tail call i32 @file_read(ptr noundef %716, i32 noundef range(i32 1, -2147483648) %712, ptr noundef %718) #23
   %720 = icmp slt i32 %719, 0
   br i1 %720, label %721, label %busmaster_yyinput.exit.i
 

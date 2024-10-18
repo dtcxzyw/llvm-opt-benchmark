@@ -370,7 +370,7 @@ define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr nocapture nounde
 
 15:                                               ; preds = %13
   %16 = sub nuw i64 %12, %10
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %16)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %4, i64 %16)
   %17 = getelementptr inbounds i8, ptr %8, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %8, i64 noundef %10, i64 noundef %spec.select.i, i32 noundef 0) #6

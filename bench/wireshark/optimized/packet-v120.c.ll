@@ -221,7 +221,7 @@ define internal i32 @dissect_v120(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not64, label %101, label %57
 
 57:                                               ; preds = %19
-  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #2
+  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 3, 5) %55) #2
   %.not.i = icmp sgt i8 %58, -1
   br i1 %.not.i, label %74, label %59
 

@@ -3386,9 +3386,9 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
 
 718:                                              ; preds = %302
   %719 = load i32, ptr @ett_rtp_midi_sysex_edu, align 4
-  %720 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %307, i32 noundef %308, i32 noundef %719, ptr noundef null, ptr noundef nonnull @.str.1617) #2
+  %720 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef %719, ptr noundef null, ptr noundef nonnull @.str.1617) #2
   %721 = load i32, ptr @hf_rtp_midi_edu_data, align 4
-  %722 = tail call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %721, ptr noundef %0, i32 noundef %307, i32 noundef %308, i32 noundef 0) #2
+  %722 = tail call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %721, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef 0) #2
   br label %decode_sysex_common_nrt.exit.thread.i
 
 723:                                              ; preds = %302
@@ -3402,16 +3402,16 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
   %729 = add i32 %.0140.i, 3
   %730 = add i32 %.1.i175, -4
   %731 = load i32, ptr @ett_rtp_midi_sysex_manu, align 4
-  %732 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %729, i32 noundef %730, i32 noundef %731, ptr noundef null, ptr noundef nonnull @.str.424) #2
+  %732 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %729, i32 noundef range(i32 1, 2147483647) %730, i32 noundef %731, ptr noundef null, ptr noundef nonnull @.str.424) #2
   %733 = load i32, ptr @hf_rtp_midi_manu_data, align 4
-  %734 = tail call ptr @proto_tree_add_item(ptr noundef %732, i32 noundef %733, ptr noundef %0, i32 noundef %729, i32 noundef %730, i32 noundef 0) #2
+  %734 = tail call ptr @proto_tree_add_item(ptr noundef %732, i32 noundef %733, ptr noundef %0, i32 noundef %729, i32 noundef range(i32 1, 2147483647) %730, i32 noundef 0) #2
   br label %decode_sysex_common_nrt.exit.thread.i
 
 735:                                              ; preds = %302
   %736 = load i32, ptr @ett_rtp_midi_sysex_manu, align 4
-  %737 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %307, i32 noundef %308, i32 noundef %736, ptr noundef null, ptr noundef nonnull @.str.424) #2
+  %737 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef %736, ptr noundef null, ptr noundef nonnull @.str.424) #2
   %738 = load i32, ptr @hf_rtp_midi_manu_data, align 4
-  %739 = tail call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %738, ptr noundef %0, i32 noundef %307, i32 noundef %308, i32 noundef 0) #2
+  %739 = tail call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %738, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef 0) #2
   br label %decode_sysex_common_nrt.exit.thread.i
 
 decode_sysex_common_nrt.exit.i:                   ; preds = %713, %decode_sysex_common_rt_mtc.exit.thread.i.i

@@ -594,7 +594,7 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %103
   br i1 %.not46.i, label %165, label %168
 
 165:                                              ; preds = %162
-  %166 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %145, ptr noundef nonnull byval(%struct.boxf) align 8 %9, ptr noundef %8)
+  %166 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %145, ptr noundef nonnull byval(%struct.boxf) align 8 %9, ptr noundef %8)
   %167 = icmp eq i32 %166, 0
   br label %168
 
@@ -718,7 +718,7 @@ mkPts.exit88:                                     ; preds = %._crit_edge.i83, %1
   ]
 
 218:                                              ; preds = %213
-  call fastcc void @emit_html_tbl(ptr noundef %0, ptr noundef %217, ptr noundef %2)
+  call fastcc void @emit_html_tbl(ptr noundef %0, ptr noundef %217, ptr noundef nonnull %2)
   br label %233
 
 219:                                              ; preds = %213
@@ -762,7 +762,7 @@ emit_html_img.exit:                               ; preds = %219, %228
   br label %233
 
 232:                                              ; preds = %213
-  call fastcc void @emit_html_txt(ptr noundef %0, ptr noundef %217, ptr noundef %2)
+  call fastcc void @emit_html_txt(ptr noundef %0, ptr noundef %217, ptr noundef nonnull %2)
   br label %233
 
 233:                                              ; preds = %232, %emit_html_img.exit, %218, %168
@@ -782,7 +782,7 @@ emit_html_img.exit:                               ; preds = %219, %228
   br i1 %.not52.i, label %emit_html_cell.exit, label %239
 
 239:                                              ; preds = %236
-  %240 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %145, ptr noundef nonnull byval(%struct.boxf) align 8 %9, ptr noundef %8)
+  %240 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %145, ptr noundef nonnull byval(%struct.boxf) align 8 %9, ptr noundef %8)
   %.not53.i = icmp eq i32 %240, 0
   br i1 %.not53.i, label %emit_html_cell.exit, label %241
 
@@ -1879,7 +1879,7 @@ gv_strdup.exit:                                   ; preds = %42
   %64 = getelementptr inbounds i8, ptr %63, i64 56
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @agnameof(ptr noundef %65) #22
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef %66)
+  call fastcc void @agxbput(ptr noundef nonnull %5, ptr noundef %66)
   %67 = load i32, ptr %0, align 8
   %68 = and i32 %67, 3
   %69 = icmp eq i32 %68, 2
@@ -1888,7 +1888,7 @@ gv_strdup.exit:                                   ; preds = %42
   %72 = getelementptr inbounds i8, ptr %71, i64 56
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr @agnameof(ptr noundef %73) #22
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef %74)
+  call fastcc void @agxbput(ptr noundef nonnull %5, ptr noundef %74)
   %75 = load i32, ptr %0, align 8
   %76 = and i32 %75, 3
   %77 = icmp eq i32 %76, 2
@@ -1903,11 +1903,11 @@ gv_strdup.exit:                                   ; preds = %42
 
 .sink.split.i:                                    ; preds = %59, %57, %55
   %.str.13.sink.i = phi ptr [ %58, %57 ], [ %56, %55 ], [ %.str.14..str.13.i, %59 ]
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef %.str.13.sink.i)
+  call fastcc void @agxbput(ptr noundef nonnull %5, ptr noundef %.str.13.sink.i)
   br label %nameOf.exit
 
 nameOf.exit:                                      ; preds = %52, %.sink.split.i
-  %83 = call fastcc ptr @agxbuse(ptr noundef %5)
+  %83 = call fastcc ptr @agxbuse(ptr noundef nonnull %5)
   %84 = call noalias ptr @strdup(ptr noundef readonly %83) #22
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %gv_strdup.exit63
@@ -2106,7 +2106,7 @@ getPenColor.exit:                                 ; preds = %121, %119, %gv_strd
 188:                                              ; preds = %183
   %189 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %189) #22
-  %190 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.3) #22
+  %190 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #22
   %191 = icmp eq ptr %190, null
   br i1 %191, label %192, label %gv_strdup.exit72
 
@@ -2371,7 +2371,7 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %95, align 8
-  %100 = tail call fastcc i32 @size_html_tbl(ptr noundef %0, ptr noundef %99, ptr noundef nonnull %71, ptr noundef %3)
+  %100 = tail call fastcc i32 @size_html_tbl(ptr noundef %0, ptr noundef %99, ptr noundef nonnull %71, ptr noundef nonnull %3)
   br label %126
 
 101:                                              ; preds = %94
@@ -2419,7 +2419,7 @@ size_html_img.exit.i:                             ; preds = %112, %109
   %123 = getelementptr inbounds i8, ptr %122, i64 168
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %95, align 8
-  tail call fastcc void @size_html_txt(ptr noundef %124, ptr noundef %125, ptr noundef %3)
+  tail call fastcc void @size_html_txt(ptr noundef %124, ptr noundef %125, ptr noundef nonnull %3)
   br label %126
 
 126:                                              ; preds = %121, %size_html_img.exit.i, %98
@@ -2529,7 +2529,7 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
 
 .lr.ph.i:                                         ; preds = %176, %.lr.ph.preheader.i
   %.02738.i = phi i32 [ %177, %176 ], [ %174, %.lr.ph.preheader.i ]
-  %175 = tail call i32 @isInPS(ptr noundef %39, i32 noundef %.02738.i, i32 noundef %68) #22
+  %175 = tail call i32 @isInPS(ptr noundef %39, i32 noundef %.02738.i, i32 noundef range(i32 0, 65536) %68) #22
   %.not33.i = icmp eq i32 %175, 0
   br i1 %.not33.i, label %176, label %.critedge.i
 
@@ -3677,7 +3677,7 @@ gv_strdup.exit141:                                ; preds = %190
   ]
 
 256:                                              ; preds = %234
-  tail call fastcc void @pos_html_tbl(ptr noundef %255, ptr noundef nonnull byval(%struct.boxf) align 8 %4, i32 noundef %182)
+  tail call fastcc void @pos_html_tbl(ptr noundef %255, ptr noundef nonnull byval(%struct.boxf) align 8 %4, i32 noundef range(i32 0, 16) %182)
   br label %pos_html_cell.exit
 
 257:                                              ; preds = %234

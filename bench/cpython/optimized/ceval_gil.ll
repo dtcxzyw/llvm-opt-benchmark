@@ -1156,7 +1156,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load i64, ptr %2, align 8
   %spec.select = call i64 @llvm.umax.i64(i64 %5, i64 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %abs_timeout.i)
-  call void @_PyThread_cond_after(i64 noundef %spec.select, ptr noundef nonnull %abs_timeout.i) #15
+  call void @_PyThread_cond_after(i64 noundef range(i64 1, 0) %spec.select, ptr noundef nonnull %abs_timeout.i) #15
   %call.i = call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond12, ptr noundef nonnull %mutex, ptr noundef nonnull %abs_timeout.i) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_timeout.i)
   switch i32 %call.i, label %if.then16 [

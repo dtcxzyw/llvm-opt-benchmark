@@ -860,7 +860,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %5
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #11
@@ -910,7 +910,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18Reference
   br i1 %10, label %58, label %11
 
 11:                                               ; preds = %3
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #11
@@ -932,7 +932,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18Reference
   br i1 %.not, label %57, label %22
 
 22:                                               ; preds = %11
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #11
@@ -972,14 +972,14 @@ _ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferencePr
   %39 = add i32 %2, 1
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %5, ptr noundef %41, ptr noundef nonnull @.str.39, i32 noundef %39)
+  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %5, ptr noundef %41, ptr noundef nonnull @.str.39, i32 noundef %39)
   br label %.thread
 
 42:                                               ; preds = %_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj.exit
   %43 = add i32 %2, 1
   %44 = getelementptr inbounds i8, ptr %0, i64 32
   %45 = load ptr, ptr %44, align 8
-  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %5, ptr noundef %45, ptr noundef nonnull @.str.40, i32 noundef %43)
+  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %5, ptr noundef %45, ptr noundef nonnull @.str.40, i32 noundef %43)
   br label %.thread
 
 46:                                               ; preds = %_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj.exit
@@ -991,13 +991,13 @@ _ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferencePr
 48:                                               ; preds = %_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj.exit
   %49 = add i32 %2, 1
   %50 = load ptr, ptr %0, align 8
-  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %5, ptr noundef %50, ptr noundef nonnull @.str.37, i32 noundef %49)
+  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %5, ptr noundef %50, ptr noundef nonnull @.str.37, i32 noundef %49)
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
-  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %5, ptr noundef %52, ptr noundef nonnull @.str.38, i32 noundef %49)
+  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %5, ptr noundef %52, ptr noundef nonnull @.str.38, i32 noundef %49)
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %5, ptr noundef %54, ptr noundef nonnull @.str.39, i32 noundef %49)
+  call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull @.str.39, i32 noundef %49)
   %55 = getelementptr inbounds i8, ptr %0, i64 88
   %56 = load ptr, ptr %55, align 8
   call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %5, ptr noundef %56, ptr noundef nonnull @.str.36, i32 noundef %49)
@@ -1023,7 +1023,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_referenceE13Refere
   br i1 %.not, label %41, label %6
 
 6:                                                ; preds = %3
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #11
@@ -1141,7 +1141,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogS
   br i1 %.not, label %25, label %15
 
 15:                                               ; preds = %13
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #11
@@ -1151,7 +1151,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogS
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %6, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.13, ptr noundef %9) #11
-  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %2, ptr noundef nonnull %6) #11
+  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull %6) #11
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #11
   br label %25
 

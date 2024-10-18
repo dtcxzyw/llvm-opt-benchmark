@@ -75,7 +75,7 @@ _ZNSt6vectorISt10unique_ptrI8t_nblistSt14default_deleteIS1_EESaIS4_EED2Ev.exit: 
 
 17:                                               ; preds = %.lr.ph.i.i.i.i2
   %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 144
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull %16) #6
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %16) #6
   br label %_ZNSt6vectorI12nbnxn_excl_tN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt6vectorI12nbnxn_excl_tN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev.exit.i.i.i.i.i.i: ; preds = %17, %.lr.ph.i.i.i.i2
@@ -86,7 +86,7 @@ _ZNSt6vectorI12nbnxn_excl_tN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev
 
 21:                                               ; preds = %_ZNSt6vectorI12nbnxn_excl_tN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev.exit.i.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 112
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull %20) #6
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %20) #6
   br label %_ZN18PackedJClusterListD2Ev.exit.i.i.i.i.i.i
 
 _ZN18PackedJClusterListD2Ev.exit.i.i.i.i.i.i:     ; preds = %21, %_ZNSt6vectorI12nbnxn_excl_tN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev.exit.i.i.i.i.i.i
@@ -97,7 +97,7 @@ _ZN18PackedJClusterListD2Ev.exit.i.i.i.i.i.i:     ; preds = %21, %_ZNSt6vectorI1
 
 25:                                               ; preds = %_ZN18PackedJClusterListD2Ev.exit.i.i.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 80
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull %24) #6
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %24) #6
   br label %_ZSt8_DestroyI16NbnxnPairlistGpuEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyI16NbnxnPairlistGpuEvPT_.exit.i.i.i.i: ; preds = %25, %_ZN18PackedJClusterListD2Ev.exit.i.i.i.i.i.i
@@ -141,7 +141,7 @@ define linkonce_odr void @_ZNSt6vectorI16NbnxnPairlistCpuSaIS0_EED2Ev(ptr nounde
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrI20NbnxnPairlistCpuWorkSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  tail call void @_ZNKSt14default_deleteI20NbnxnPairlistCpuWorkEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteI20NbnxnPairlistCpuWorkEclEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZNSt10unique_ptrI20NbnxnPairlistCpuWorkSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i
 
 _ZNSt10unique_ptrI20NbnxnPairlistCpuWorkSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i
@@ -303,7 +303,7 @@ define linkonce_odr void @_ZNSt10unique_ptrI20NbnxnPairlistGpuWorkSt14default_de
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 216
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %5) #6
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %5) #6
   br label %_ZNSt6vectorI9nbnxn_sciN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev.exit.i.i
 
 _ZNSt6vectorI9nbnxn_sciN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEED2Ev.exit.i.i: ; preds = %6, %3

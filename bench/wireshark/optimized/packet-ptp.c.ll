@@ -2457,9 +2457,9 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 55:                                               ; preds = %54
-  %56 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %44, i32 noundef 1)
+  %56 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %44, i32 noundef 1)
   %57 = add i16 %44, -1
-  %58 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %57, i32 noundef 0)
+  %58 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %57, i32 noundef 0)
   %59 = getelementptr inbounds i8, ptr %56, i64 152
   store ptr %58, ptr %59, align 8
   store i8 0, ptr %56, align 8
@@ -2497,9 +2497,9 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   br label %135
 
 79:                                               ; preds = %54
-  %80 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %44, i32 noundef 1)
+  %80 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %44, i32 noundef 1)
   %81 = add i16 %44, -1
-  %82 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %81, i32 noundef 0)
+  %82 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 0, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %81, i32 noundef 0)
   %83 = getelementptr inbounds i8, ptr %80, i64 152
   store ptr %82, ptr %83, align 8
   store i8 0, ptr %80, align 8
@@ -2523,9 +2523,9 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   br label %135
 
 96:                                               ; preds = %54
-  %97 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %44, i32 noundef 1)
+  %97 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %44, i32 noundef 1)
   %98 = add i16 %44, -1
-  %99 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %98, i32 noundef 0)
+  %99 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %42, i16 noundef zeroext %43, i16 noundef zeroext %98, i32 noundef 0)
   %100 = getelementptr inbounds i8, ptr %97, i64 152
   store ptr %99, ptr %100, align 8
   store i8 2, ptr %97, align 8
@@ -2539,9 +2539,9 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   br label %135
 
 106:                                              ; preds = %54
-  %107 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %44, i32 noundef 1)
+  %107 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %44, i32 noundef 1)
   %108 = add i16 %44, -1
-  %109 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %108, i32 noundef 0)
+  %109 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %108, i32 noundef 0)
   %110 = getelementptr inbounds i8, ptr %107, i64 152
   store ptr %109, ptr %110, align 8
   store i8 2, ptr %107, align 8
@@ -2566,9 +2566,9 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   br label %135
 
 123:                                              ; preds = %54
-  %124 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %44, i32 noundef 1)
+  %124 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %44, i32 noundef 1)
   %125 = add i16 %44, -1
-  %126 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext %37, i8 noundef zeroext %39, i8 noundef zeroext %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %125, i32 noundef 0)
+  %126 = tail call fastcc ptr @get_frame_info_and_opt_create(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 16) %37, i8 noundef zeroext range(i8 0, -15) %39, i8 noundef zeroext range(i8 0, -15) %25, i8 noundef zeroext %41, i8 noundef zeroext 2, i8 noundef zeroext %40, i64 noundef %.0, i16 noundef zeroext %.01397, i16 noundef zeroext %125, i32 noundef 0)
   %127 = getelementptr inbounds i8, ptr %124, i64 152
   store ptr %126, ptr %127, align 8
   store i8 2, ptr %124, align 8

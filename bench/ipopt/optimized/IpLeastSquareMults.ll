@@ -708,7 +708,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit103:   ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc unwind label %501
 
 .noexc:                                           ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit103
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %230)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %230)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %501
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc
@@ -739,7 +739,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit110:   ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc111 unwind label %503
 
 .noexc111:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit110
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %243)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %243)
           to label %_ZN5Ipopt6Vector3SetEd.exit113 unwind label %503
 
 _ZN5Ipopt6Vector3SetEd.exit113:                   ; preds = %.noexc111
@@ -1795,7 +1795,7 @@ define linkonce_odr void @_ZN5Ipopt22LeastSquareMultipliersD0Ev(ptr noundef nonn
   br label %_ZN5Ipopt22LeastSquareMultipliersD2Ev.exit
 
 _ZN5Ipopt22LeastSquareMultipliersD2Ev.exit:       ; preds = %1, %4, %12
-  tail call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #9
+  tail call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

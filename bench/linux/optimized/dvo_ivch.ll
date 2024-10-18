@@ -278,7 +278,7 @@ ivch_read.exit3:                                  ; preds = %85, %88, %91
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %109, i64 852
   %123 = load i32, ptr %21, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef %107, ptr noundef %122, i32 noundef %123) #8
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %107, ptr noundef %122, i32 noundef %123) #8
   br label %ivch_read.exit4
 
 ivch_read.exit4:                                  ; preds = %115, %118, %121

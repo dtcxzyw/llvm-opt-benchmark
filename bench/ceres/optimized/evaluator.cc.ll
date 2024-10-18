@@ -806,7 +806,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 168
@@ -991,7 +991,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %83, %85
   br i1 %.not.i20, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21, label %87
 
 87:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %86)
+  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %86)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %87
@@ -1096,7 +1096,7 @@ _ZSt11make_uniqueIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePrep
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %12)
+  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %12)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_19DenseJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit: ; preds = %20, %22
@@ -1317,7 +1317,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc46 unwind label %45
 
 .noexc46:                                         ; preds = %.noexc
@@ -1327,7 +1327,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
 23:                                               ; preds = %.noexc46
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc46
@@ -1352,7 +1352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc48 unwind label %49
 
 .noexc48:                                         ; preds = %27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %.noexc49 unwind label %49
 
 .noexc49:                                         ; preds = %.noexc48
@@ -1363,7 +1363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 35:                                               ; preds = %.noexc49
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
   br label %.body50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52: ; preds = %.noexc49
@@ -1621,7 +1621,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %154 = load ptr, ptr %129, align 8
   %155 = getelementptr inbounds %"struct.ceres::internal::ProgramEvaluator<ceres::internal::ScratchEvaluatePreparer, ceres::internal::DenseJacobianWriter>::EvaluateScratch", ptr %154, i64 %indvars.iv67, i32 2
   %156 = load ptr, ptr %155, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(17) %19, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %20, ptr noundef nonnull align 8 dereferenceable(19) %19, i64 17, i1 false)
   store ptr %156, ptr %132, align 8
   store i64 %151, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @_ZN5ceres8internal14ParallelAssignIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEENS2_13CwiseBinaryOpINS2_8internal13scalar_sum_opIddEEKS8_SD_EEEEvPNS0_11ContextImplEiRT_RKT0_(ptr noundef %152, i32 noundef %153, ptr noundef nonnull align 8 dereferenceable(19) %19, ptr noundef nonnull align 8 dereferenceable(49) %20)
@@ -2202,7 +2202,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #25
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
@@ -2433,7 +2433,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal20ScopedExecutionTimerD2Ev(pt
 
 6:                                                ; preds = %1
   %7 = load double, ptr %0, align 8
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #26
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %3) #26
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %9
 
@@ -2452,7 +2452,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %6
 12:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #26
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %3) #26
   br label %.body
 
 15:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -2464,7 +2464,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %6
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #26
+  %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %3) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   ret void
 
@@ -3785,7 +3785,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_19DenseJacobianWriterENS0_21NullJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_19DenseJacobianWriterENS0_21NullJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -3808,7 +3808,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -4330,7 +4330,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -4426,7 +4426,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -5425,7 +5425,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEENS3_13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKS9_SE_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSH_iiiOSI_iENKUlSJ_E_clIST_EEDaSJ_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEENS3_13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKS9_SE_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSH_iiiOSI_iENKUlSJ_E_clIST_EEDaSJ_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -5448,7 +5448,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -5895,7 +5895,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -5991,7 +5991,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -6614,7 +6614,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -6699,7 +6699,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %7) #25
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_Auto_nodeD2Ev.exit
 
@@ -7036,7 +7036,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #26
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %6
 
@@ -7067,7 +7067,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE13_M_clone_nodeILb0ENSH_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESM_RT0_.exit unwind label %8
 
 8:                                                ; preds = %4
@@ -7159,7 +7159,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 .noexc:                                           ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %.038, i64 32
   %35 = getelementptr inbounds i8, ptr %33, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %34)
           to label %46 unwind label %36
 
 36:                                               ; preds = %.noexc
@@ -7267,7 +7267,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 168
@@ -7452,7 +7452,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %83, %85
   br i1 %.not.i20, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21, label %87
 
 87:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %86)
+  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %86)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %87
@@ -7508,7 +7508,7 @@ _ZSt11make_uniqueIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePrep
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %12)
+  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %12)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_27CompressedRowJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit: ; preds = %20, %22
@@ -7694,7 +7694,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc46 unwind label %45
 
 .noexc46:                                         ; preds = %.noexc
@@ -7704,7 +7704,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
 23:                                               ; preds = %.noexc46
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc46
@@ -7729,7 +7729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc48 unwind label %49
 
 .noexc48:                                         ; preds = %27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %.noexc49 unwind label %49
 
 .noexc49:                                         ; preds = %.noexc48
@@ -7740,7 +7740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 35:                                               ; preds = %.noexc49
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
   br label %.body50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52: ; preds = %.noexc49
@@ -7998,7 +7998,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %154 = load ptr, ptr %129, align 8
   %155 = getelementptr inbounds %"struct.ceres::internal::ProgramEvaluator<ceres::internal::ScratchEvaluatePreparer, ceres::internal::CompressedRowJacobianWriter>::EvaluateScratch", ptr %154, i64 %indvars.iv67, i32 2
   %156 = load ptr, ptr %155, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(17) %19, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %20, ptr noundef nonnull align 8 dereferenceable(19) %19, i64 17, i1 false)
   store ptr %156, ptr %132, align 8
   store i64 %151, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @_ZN5ceres8internal14ParallelAssignIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEENS2_13CwiseBinaryOpINS2_8internal13scalar_sum_opIddEEKS8_SD_EEEEvPNS0_11ContextImplEiRT_RKT0_(ptr noundef %152, i32 noundef %153, ptr noundef nonnull align 8 dereferenceable(19) %19, ptr noundef nonnull align 8 dereferenceable(49) %20)
@@ -9106,7 +9106,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_27CompressedRowJacobianWriterENS0_21NullJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -9129,7 +9129,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -9502,7 +9502,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -9598,7 +9598,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -10098,7 +10098,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal21BlockEvaluatePreparerESt14default_deleteIS
   %16 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 %14, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %17, i8 0, i64 40, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 264
@@ -10288,7 +10288,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %86, %88
   br i1 %.not.i22, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit23, label %90
 
 90:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %89)
+  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %89)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit23
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit23: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %90
@@ -10395,7 +10395,7 @@ _ZSt11make_uniqueIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePrepar
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %12)
+  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %12)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_21BlockEvaluatePreparerENS1_19BlockJacobianWriterENS1_21NullJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit: ; preds = %20, %22
@@ -10627,7 +10627,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc46 unwind label %45
 
 .noexc46:                                         ; preds = %.noexc
@@ -10637,7 +10637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
 23:                                               ; preds = %.noexc46
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc46
@@ -10662,7 +10662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc48 unwind label %49
 
 .noexc48:                                         ; preds = %27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %.noexc49 unwind label %49
 
 .noexc49:                                         ; preds = %.noexc48
@@ -10673,7 +10673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 35:                                               ; preds = %.noexc49
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
   br label %.body50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52: ; preds = %.noexc49
@@ -10931,7 +10931,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %154 = load ptr, ptr %129, align 8
   %155 = getelementptr inbounds %"struct.ceres::internal::ProgramEvaluator<ceres::internal::BlockEvaluatePreparer, ceres::internal::BlockJacobianWriter>::EvaluateScratch", ptr %154, i64 %indvars.iv67, i32 2
   %156 = load ptr, ptr %155, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(17) %19, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %20, ptr noundef nonnull align 8 dereferenceable(19) %19, i64 17, i1 false)
   store ptr %156, ptr %132, align 8
   store i64 %151, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @_ZN5ceres8internal14ParallelAssignIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEENS2_13CwiseBinaryOpINS2_8internal13scalar_sum_opIddEEKS8_SD_EEEEvPNS0_11ContextImplEiRT_RKT0_(ptr noundef %152, i32 noundef %153, ptr noundef nonnull align 8 dereferenceable(19) %19, ptr noundef nonnull align 8 dereferenceable(49) %20)
@@ -12024,7 +12024,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_21BlockEvaluateP
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_21BlockEvaluatePreparerENS0_19BlockJacobianWriterENS0_21NullJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_21BlockEvaluatePreparerENS0_19BlockJacobianWriterENS0_21NullJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -12047,7 +12047,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_21BlockEvaluateP
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -12420,7 +12420,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_21BlockEvaluateP
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -12516,7 +12516,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -13014,7 +13014,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 168
@@ -13199,7 +13199,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %83, %85
   br i1 %.not.i20, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21, label %87
 
 87:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %86)
+  call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %86)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit21: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %87
@@ -13257,7 +13257,7 @@ _ZSt11make_uniqueIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePrep
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit, label %22
 
 22:                                               ; preds = %20
-  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %12)
+  tail call void @_ZNKSt14default_deleteIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %12)
   br label %_ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N5ceres8internal16ProgramEvaluatorINS1_23ScratchEvaluatePreparerENS1_34DynamicCompressedRowJacobianWriterENS1_37DynamicCompressedRowJacobianFinalizerEE15EvaluateScratchESt14default_deleteIS8_EED2Ev.exit: ; preds = %20, %22
@@ -13443,7 +13443,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc46 unwind label %45
 
 .noexc46:                                         ; preds = %.noexc
@@ -13453,7 +13453,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal16ProgramEvalua
 23:                                               ; preds = %.noexc46
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc46
@@ -13478,7 +13478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc48 unwind label %49
 
 .noexc48:                                         ; preds = %27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %.noexc49 unwind label %49
 
 .noexc49:                                         ; preds = %.noexc48
@@ -13489,7 +13489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 35:                                               ; preds = %.noexc49
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
   br label %.body50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52: ; preds = %.noexc49
@@ -13747,7 +13747,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %154 = load ptr, ptr %129, align 8
   %155 = getelementptr inbounds %"struct.ceres::internal::ProgramEvaluator<ceres::internal::ScratchEvaluatePreparer, ceres::internal::DynamicCompressedRowJacobianWriter, ceres::internal::DynamicCompressedRowJacobianFinalizer>::EvaluateScratch", ptr %154, i64 %indvars.iv68, i32 2
   %156 = load ptr, ptr %155, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(17) %19, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %20, ptr noundef nonnull align 8 dereferenceable(19) %19, i64 17, i1 false)
   store ptr %156, ptr %132, align 8
   store i64 %151, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @_ZN5ceres8internal14ParallelAssignIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEENS2_13CwiseBinaryOpINS2_8internal13scalar_sum_opIddEEKS8_SD_EEEEvPNS0_11ContextImplEiRT_RKT0_(ptr noundef %152, i32 noundef %153, ptr noundef nonnull align 8 dereferenceable(19) %19, ptr noundef nonnull align 8 dereferenceable(49) %20)
@@ -14866,7 +14866,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_34DynamicCompressedRowJacobianWriterENS0_37DynamicCompressedRowJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluatePreparerENS0_34DynamicCompressedRowJacobianWriterENS0_37DynamicCompressedRowJacobianFinalizerEE8EvaluateERKNS0_9Evaluator15EvaluateOptionsEPKdPdSD_SD_PNS0_12SparseMatrixEEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSJ_E_clISM_EEDaSL_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -14889,7 +14889,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -15262,7 +15262,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_16ProgramEvaluatorINS0_23ScratchEvaluat
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -15358,7 +15358,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106

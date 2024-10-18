@@ -463,7 +463,7 @@ _ZNK6Symbol11starts_withEPKc.exit.thread:         ; preds = %17, %_ZNK6Symbol11s
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 48:                                               ; preds = %36
-  %49 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %38, i64 noundef 8, i32 noundef 0) #7
+  %49 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %38, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %48, %46
@@ -520,7 +520,7 @@ _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10Ja
   br label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
 
 75:                                               ; preds = %63
-  %76 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %65, i64 noundef 8, i32 noundef 0) #7
+  %76 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %65, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %54
@@ -564,7 +564,7 @@ _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10Ja
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29
 
 94:                                               ; preds = %82
-  %95 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %84, i64 noundef 8, i32 noundef 0) #7
+  %95 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29: ; preds = %94, %92
@@ -593,7 +593,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain23get_shared_jar_manifestEiP1
   %12 = shl nsw i64 %10, %.7.i.i
   %13 = add nsw i64 %11, %12
   %14 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull %5, i64 noundef %13) #7
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %13) #7
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %42
 
@@ -651,7 +651,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %33, %35
   %51 = shl nsw i64 %10, %.7.i.i12
   %52 = add nsw i64 %50, %51
   %53 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %54 = tail call noundef ptr %53(ptr noundef nonnull %45, i64 noundef %52) #7
+  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %45, i64 noundef %52) #7
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZNK20SharedClassPathEntry13manifest_sizeEv.exit.thread, label %56
 
@@ -674,7 +674,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %33, %35
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 68:                                               ; preds = %56
-  %69 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef 8, i32 noundef 0) #7
+  %69 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %58, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %68, %66
@@ -704,7 +704,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain18get_shared_jar_urlEiP10Java
   %13 = shl nsw i64 %11, %.7.i.i
   %14 = add nsw i64 %12, %13
   %15 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull %6, i64 noundef %14) #7
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %14) #7
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %39
 
@@ -753,7 +753,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain18get_shared_jar_urlEiP10Java
   %48 = shl nsw i64 %11, %.7.i.i12
   %49 = add nsw i64 %47, %48
   %50 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %51 = call noundef ptr %50(ptr noundef nonnull %42, i64 noundef %49) #7
+  %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %49) #7
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %53
 
@@ -776,7 +776,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain18get_shared_jar_urlEiP10Java
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 65:                                               ; preds = %53
-  %66 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %55, i64 noundef 8, i32 noundef 0) #7
+  %66 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %55, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %65, %63
@@ -861,7 +861,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain28get_shared_protection_domai
   %15 = shl nsw i64 %13, %.7.i.i
   %16 = add nsw i64 %14, %15
   %17 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %18 = tail call noundef ptr %17(ptr noundef nonnull %8, i64 noundef %16) #7
+  %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %16) #7
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %56
 
@@ -910,7 +910,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain28get_shared_protection_domai
   br label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
 
 47:                                               ; preds = %35
-  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %37, i64 noundef 8, i32 noundef 0) #7
+  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %37, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread: ; preds = %20, %26
@@ -955,7 +955,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN19CDSProtectionD
   %65 = shl nsw i64 %13, %.7.i.i9
   %66 = add nsw i64 %64, %65
   %67 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %68 = call noundef ptr %67(ptr noundef nonnull %59, i64 noundef %66) #7
+  %68 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %66) #7
   %69 = icmp eq ptr %68, null
   br i1 %69, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %70
 
@@ -978,7 +978,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN19CDSProtectionD
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 82:                                               ; preds = %70
-  %83 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %72, i64 noundef 8, i32 noundef 0) #7
+  %83 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %72, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %82, %80
@@ -1158,7 +1158,7 @@ define hidden ptr @_ZN19CDSProtectionDomain19create_jar_manifestEPKcmP10JavaThre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 22:                                               ; preds = %10
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 8, i32 noundef 0) #7
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %22, %20
@@ -1216,7 +1216,7 @@ _ZNK9OopHandle7resolveEv.exit:
   %10 = shl nsw i64 %8, %.7.i
   %11 = add nsw i64 %9, %10
   %12 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull %3, i64 noundef %11) #7
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %11) #7
   ret ptr %13
 }
 
@@ -1237,7 +1237,7 @@ _ZNK9OopHandle7resolveEv.exit:
   %10 = shl nsw i64 %8, %.7.i
   %11 = add nsw i64 %9, %10
   %12 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull %3, i64 noundef %11) #7
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %11) #7
   ret ptr %13
 }
 
@@ -1289,7 +1289,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain38get_protection_domain_from_
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 31:                                               ; preds = %19
-  %32 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef 8, i32 noundef 0) #7
+  %32 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %21, i64 noundef 8, i32 noundef 0) #7
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %31, %29
@@ -1323,7 +1323,7 @@ _ZNK9OopHandle7resolveEv.exit:
   %10 = shl nsw i64 %8, %.7.i
   %11 = add nsw i64 %9, %10
   %12 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull %3, i64 noundef %11) #7
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %11) #7
   ret ptr %13
 }
 

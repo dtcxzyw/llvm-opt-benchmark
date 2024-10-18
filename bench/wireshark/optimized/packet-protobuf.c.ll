@@ -1630,7 +1630,7 @@ define internal fastcc void @dissect_protobuf_message(ptr noundef %0, i32 nounde
   %.026.i = phi i32 [ %67, %65 ], [ %2, %44 ]
   %.01625.i = phi i32 [ %66, %65 ], [ %1, %44 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  %46 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.01625.i, i32 noundef %.026.i, ptr noundef nonnull %23, i32 noundef 2) #11
+  %46 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.01625.i, i32 noundef range(i32 1, 0) %.026.i, ptr noundef nonnull %23, i32 noundef 2) #11
   %47 = icmp ne i32 %46, 0
   %.not.i.i = icmp ult i32 %46, %.026.i
   %or.cond.i.i = and i1 %47, %.not.i.i
@@ -2328,7 +2328,7 @@ dissect_packed_repeated_field_values.exit:        ; preds = %301, %325, %336, %.
 .thread253:                                       ; preds = %282, %284
   %338 = load ptr, ptr %19, align 8
   %339 = load i64, ptr %18, align 8
-  call fastcc void @protobuf_dissect_field_value(ptr noundef %272, ptr noundef %0, i32 noundef %.2, i32 noundef %.0164.i, ptr noundef %3, ptr noundef %338, i32 noundef %.0162.i, i64 noundef %339, ptr noundef nonnull @.str.166, ptr noundef nonnull %.0229, i32 noundef %7, ptr noundef %.0123242)
+  call fastcc void @protobuf_dissect_field_value(ptr noundef %272, ptr noundef %0, i32 noundef %.2, i32 noundef %.0164.i, ptr noundef %3, ptr noundef %338, i32 noundef %.0162.i, i64 noundef %339, ptr noundef nonnull @.str.166, ptr noundef nonnull %.0229, i32 noundef range(i32 0, 2) %7, ptr noundef %.0123242)
   br label %protobuf_try_dissect_field_value_on_multi_types.exit192
 
 340:                                              ; preds = %268

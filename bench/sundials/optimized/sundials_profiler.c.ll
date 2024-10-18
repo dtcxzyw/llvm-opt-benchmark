@@ -936,7 +936,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %.lr.ph.i.i.preheader
   %23 = load ptr, ptr %20, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(20) @.str.1) #20
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(20) @.str.1) #20
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %.thread, label %25
 

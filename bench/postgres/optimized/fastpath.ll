@@ -510,7 +510,7 @@ parse_fcall_arguments.exit:                       ; preds = %192, %135
   %235 = add nsw i32 %234, -4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %236 = call i32 @llvm.bswap.i32(i32 %235)
+  %236 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %235)
   %237 = load ptr, ptr %2, align 8, !alias.scope !12
   %238 = getelementptr inbounds i8, ptr %2, i64 8
   %239 = load i32, ptr %238, align 8, !alias.scope !12

@@ -2199,11 +2199,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, i64 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, i64 noundef range(i64 0, 4294967296) %conv) #10
   br label %trace_vfio_quirk_ati_3c3_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %0, i64 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %0, i64 noundef range(i64 0, 4294967296) %conv) #10
   br label %trace_vfio_quirk_ati_3c3_read.exit
 
 trace_vfio_quirk_ati_3c3_read.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2458,11 +2458,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef %conv7, i32 noundef %size, i64 noundef %conv9) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef %conv7, i32 noundef %size, i64 noundef range(i64 0, 4294967296) %conv9) #10
   br label %trace_vfio_quirk_nvidia_3d0_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, ptr noundef %4, i32 noundef %conv7, i32 noundef %size, i64 noundef %conv9) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, ptr noundef %4, i32 noundef %conv7, i32 noundef %size, i64 noundef range(i64 0, 4294967296) %conv9) #10
   br label %trace_vfio_quirk_nvidia_3d0_read.exit
 
 trace_vfio_quirk_nvidia_3d0_read.exit:            ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2770,11 +2770,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, ptr noundef %call4, i64 noundef %conv3) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, ptr noundef %call4, i64 noundef range(i64 0, 4294967296) %conv3) #10
   br label %trace_vfio_quirk_generic_window_data_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %5, ptr noundef %call4, i64 noundef %conv3) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %5, ptr noundef %call4, i64 noundef range(i64 0, 4294967296) %conv3) #10
   br label %trace_vfio_quirk_generic_window_data_read.exit
 
 trace_vfio_quirk_generic_window_data_read.exit:   ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2907,11 +2907,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, ptr noundef %call5, i64 noundef %addr, i64 noundef %conv4) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, ptr noundef %call5, i64 noundef %addr, i64 noundef range(i64 0, 4294967296) %conv4) #10
   br label %trace_vfio_quirk_generic_mirror_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef %3, ptr noundef %call5, i64 noundef %addr, i64 noundef %conv4) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef %3, ptr noundef %call5, i64 noundef %addr, i64 noundef range(i64 0, 4294967296) %conv4) #10
   br label %trace_vfio_quirk_generic_mirror_read.exit
 
 trace_vfio_quirk_generic_mirror_read.exit:        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3418,13 +3418,13 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %15 = load i64, ptr %tv_usec.i.i, align 8
   %16 = and i8 %9, 1
   %conv12.i.i = zext nneg i8 %16 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %call39, i64 noundef %addr, i32 noundef %size, i64 noundef %data, i32 noundef %conv12.i.i) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %call39, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, i32 noundef %conv12.i.i) #10
   br label %trace_vfio_ioeventfd_init.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %tobool41.mask = and i8 %9, 1
   %conv14.i.i = zext nneg i8 %tobool41.mask to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef %call39, i64 noundef %addr, i32 noundef %size, i64 noundef %data, i32 noundef %conv14.i.i) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef %call39, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, i32 noundef %conv14.i.i) #10
   br label %trace_vfio_ioeventfd_init.exit
 
 trace_vfio_ioeventfd_init.exit:                   ; preds = %if.end33, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3562,11 +3562,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3, i64 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #10
   br label %trace_vfio_quirk_rtl8168_fake_latch.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, ptr noundef %3, i64 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #10
   br label %trace_vfio_quirk_rtl8168_fake_latch.exit
 
 trace_vfio_quirk_rtl8168_fake_latch.exit:         ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3638,11 +3638,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3, i32 noundef %conv12, i64 noundef %conv11) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3, i32 noundef %conv12, i64 noundef range(i64 0, 4294967296) %conv11) #10
   br label %trace_vfio_quirk_rtl8168_msix_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, ptr noundef %3, i32 noundef %conv12, i64 noundef %conv11) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, ptr noundef %3, i32 noundef %conv12, i64 noundef range(i64 0, 4294967296) %conv11) #10
   br label %trace_vfio_quirk_rtl8168_msix_write.exit
 
 trace_vfio_quirk_rtl8168_msix_write.exit:         ; preds = %if.then8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

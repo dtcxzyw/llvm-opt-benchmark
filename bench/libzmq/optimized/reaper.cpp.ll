@@ -223,7 +223,7 @@ define void @_ZThn24_N3zmq8reaper_tD0Ev(ptr noundef %this) unnamed_addr #7 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN3zmq8reaper_tD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(240) %0) #16
   ret void
 }
 

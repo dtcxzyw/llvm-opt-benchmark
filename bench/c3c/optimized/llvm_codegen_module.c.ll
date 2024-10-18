@@ -363,7 +363,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %186 = call i32 @type_size(ptr noundef %184) #6
   %187 = shl i32 %186, 3
   %188 = call ptr @LLVMIntTypeInContext(ptr noundef %185, i32 noundef %187) #6
-  %189 = call ptr @LLVMConstInt(ptr noundef %188, i64 noundef %183, i32 noundef 0) #6
+  %189 = call ptr @LLVMConstInt(ptr noundef %188, i64 noundef range(i64 1, 5) %183, i32 noundef 0) #6
   %190 = call ptr @LLVMValueAsMetadata(ptr noundef %189) #6
   %191 = load ptr, ptr %22, align 8
   call void @LLVMAddModuleFlag(ptr noundef %191, i32 noundef 1, ptr noundef nonnull @.str.5, i64 noundef 13, ptr noundef %190) #6
@@ -378,7 +378,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %198 = call i32 @type_size(ptr noundef %196) #6
   %199 = shl i32 %198, 3
   %200 = call ptr @LLVMIntTypeInContext(ptr noundef %197, i32 noundef %199) #6
-  %201 = call ptr @LLVMConstInt(ptr noundef %200, i64 noundef %195, i32 noundef 0) #6
+  %201 = call ptr @LLVMConstInt(ptr noundef %200, i64 noundef range(i64 1, 5) %195, i32 noundef 0) #6
   %202 = call ptr @LLVMValueAsMetadata(ptr noundef %201) #6
   %203 = load ptr, ptr %22, align 8
   call void @LLVMAddModuleFlag(ptr noundef %203, i32 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef %202) #6

@@ -101,7 +101,7 @@ define hidden void @av1_idct4(ptr noundef %0, ptr noundef %1, i8 noundef signext
   %83 = sub nsw i64 0, %81
   %84 = sext i32 %73 to i64
   %85 = icmp slt i64 %84, %83
-  %86 = call i64 @llvm.smin.i64(i64 %84, i64 %82)
+  %86 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %84, i64 range(i64 -9223372036854775808, 9223372036854775807) %82)
   %87 = select i1 %85, i64 %83, i64 %86
   %88 = trunc i64 %87 to i32
   br label %clamp_value.exit
@@ -125,7 +125,7 @@ clamp_value.exit:                                 ; preds = %4, %77
   %100 = sub nsw i64 0, %98
   %101 = sext i32 %91 to i64
   %102 = icmp slt i64 %101, %100
-  %103 = call i64 @llvm.smin.i64(i64 %101, i64 %99)
+  %103 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %101, i64 range(i64 -9223372036854775808, 9223372036854775807) %99)
   %104 = select i1 %102, i64 %100, i64 %103
   %105 = trunc i64 %104 to i32
   br label %clamp_value.exit69
@@ -147,7 +147,7 @@ clamp_value.exit69:                               ; preds = %clamp_value.exit, %
   %115 = sub nsw i64 0, %113
   %116 = sext i32 %106 to i64
   %117 = icmp slt i64 %116, %115
-  %118 = call i64 @llvm.smin.i64(i64 %116, i64 %114)
+  %118 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %116, i64 range(i64 -9223372036854775808, 9223372036854775807) %114)
   %119 = select i1 %117, i64 %115, i64 %118
   %120 = trunc i64 %119 to i32
   br label %clamp_value.exit71
@@ -169,7 +169,7 @@ clamp_value.exit71:                               ; preds = %clamp_value.exit69,
   %130 = sub nsw i64 0, %128
   %131 = sext i32 %121 to i64
   %132 = icmp slt i64 %131, %130
-  %133 = call i64 @llvm.smin.i64(i64 %131, i64 %129)
+  %133 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %131, i64 range(i64 -9223372036854775808, 9223372036854775807) %129)
   %134 = select i1 %132, i64 %130, i64 %133
   %135 = trunc i64 %134 to i32
   br label %clamp_value.exit73
@@ -356,7 +356,7 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef %1, i8 noundef signext
   %150 = sub nsw i64 0, %148
   %151 = sext i32 %140 to i64
   %152 = icmp slt i64 %151, %150
-  %153 = call i64 @llvm.smin.i64(i64 %151, i64 %149)
+  %153 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %151, i64 range(i64 -9223372036854775808, 9223372036854775807) %149)
   %154 = select i1 %152, i64 %150, i64 %153
   %155 = trunc i64 %154 to i32
   br label %clamp_value.exit
@@ -378,7 +378,7 @@ clamp_value.exit:                                 ; preds = %4, %144
   %165 = sub nsw i64 0, %163
   %166 = sext i32 %156 to i64
   %167 = icmp slt i64 %166, %165
-  %168 = call i64 @llvm.smin.i64(i64 %166, i64 %164)
+  %168 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %166, i64 range(i64 -9223372036854775808, 9223372036854775807) %164)
   %169 = select i1 %167, i64 %165, i64 %168
   %170 = trunc i64 %169 to i32
   br label %clamp_value.exit199
@@ -402,7 +402,7 @@ clamp_value.exit199:                              ; preds = %clamp_value.exit, %
   %182 = sub nsw i64 0, %180
   %183 = sext i32 %173 to i64
   %184 = icmp slt i64 %183, %182
-  %185 = call i64 @llvm.smin.i64(i64 %183, i64 %181)
+  %185 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %183, i64 range(i64 -9223372036854775808, 9223372036854775807) %181)
   %186 = select i1 %184, i64 %182, i64 %185
   %187 = trunc i64 %186 to i32
   br label %clamp_value.exit201
@@ -424,7 +424,7 @@ clamp_value.exit201:                              ; preds = %clamp_value.exit199
   %197 = sub nsw i64 0, %195
   %198 = sext i32 %188 to i64
   %199 = icmp slt i64 %198, %197
-  %200 = call i64 @llvm.smin.i64(i64 %198, i64 %196)
+  %200 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %198, i64 range(i64 -9223372036854775808, 9223372036854775807) %196)
   %201 = select i1 %199, i64 %197, i64 %200
   %202 = trunc i64 %201 to i32
   br label %clamp_value.exit203
@@ -459,7 +459,7 @@ clamp_value.exit209.thread:                       ; preds = %clamp_value.exit203
   %221 = sub nsw i64 0, %219
   %222 = sext i32 %206 to i64
   %223 = icmp slt i64 %222, %221
-  %224 = call i64 @llvm.smin.i64(i64 %222, i64 %220)
+  %224 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %222, i64 range(i64 -9223372036854775808, 9223372036854775807) %220)
   %225 = select i1 %223, i64 %221, i64 %224
   %226 = trunc i64 %225 to i32
   %227 = load i32, ptr %13, align 4
@@ -467,19 +467,19 @@ clamp_value.exit209.thread:                       ; preds = %clamp_value.exit203
   %229 = add nsw i32 %228, %227
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %230, %221
-  %232 = call i64 @llvm.smin.i64(i64 %230, i64 %220)
+  %232 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %230, i64 range(i64 -9223372036854775808, 9223372036854775807) %220)
   %233 = select i1 %231, i64 %221, i64 %232
   %234 = trunc i64 %233 to i32
   %235 = sub nsw i32 %227, %228
   %236 = sext i32 %235 to i64
   %237 = icmp slt i64 %236, %221
-  %238 = call i64 @llvm.smin.i64(i64 %236, i64 %220)
+  %238 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %236, i64 range(i64 -9223372036854775808, 9223372036854775807) %220)
   %239 = select i1 %237, i64 %221, i64 %238
   %240 = trunc i64 %239 to i32
   %241 = sub nsw i32 %204, %205
   %242 = sext i32 %241 to i64
   %243 = icmp slt i64 %242, %221
-  %244 = call i64 @llvm.smin.i64(i64 %242, i64 %220)
+  %244 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %242, i64 range(i64 -9223372036854775808, 9223372036854775807) %220)
   %245 = select i1 %243, i64 %221, i64 %244
   %246 = trunc i64 %245 to i32
   br label %clamp_value.exit211
@@ -532,7 +532,7 @@ clamp_value.exit211:                              ; preds = %clamp_value.exit209
   %276 = sub nsw i64 0, %274
   %277 = sext i32 %266 to i64
   %278 = icmp slt i64 %277, %276
-  %279 = call i64 @llvm.smin.i64(i64 %277, i64 %275)
+  %279 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %277, i64 range(i64 -9223372036854775808, 9223372036854775807) %275)
   %280 = select i1 %278, i64 %276, i64 %279
   %281 = trunc i64 %280 to i32
   br label %clamp_value.exit213
@@ -556,7 +556,7 @@ clamp_value.exit213:                              ; preds = %clamp_value.exit211
   %293 = sub nsw i64 0, %291
   %294 = sext i32 %284 to i64
   %295 = icmp slt i64 %294, %293
-  %296 = call i64 @llvm.smin.i64(i64 %294, i64 %292)
+  %296 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %294, i64 range(i64 -9223372036854775808, 9223372036854775807) %292)
   %297 = select i1 %295, i64 %293, i64 %296
   %298 = trunc i64 %297 to i32
   br label %clamp_value.exit215
@@ -580,7 +580,7 @@ clamp_value.exit215:                              ; preds = %clamp_value.exit213
   %310 = sub nsw i64 0, %308
   %311 = sext i32 %301 to i64
   %312 = icmp slt i64 %311, %310
-  %313 = call i64 @llvm.smin.i64(i64 %311, i64 %309)
+  %313 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %311, i64 range(i64 -9223372036854775808, 9223372036854775807) %309)
   %314 = select i1 %312, i64 %310, i64 %313
   %315 = trunc i64 %314 to i32
   br label %clamp_value.exit217
@@ -604,7 +604,7 @@ clamp_value.exit217:                              ; preds = %clamp_value.exit215
   %327 = sub nsw i64 0, %325
   %328 = sext i32 %318 to i64
   %329 = icmp slt i64 %328, %327
-  %330 = call i64 @llvm.smin.i64(i64 %328, i64 %326)
+  %330 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %328, i64 range(i64 -9223372036854775808, 9223372036854775807) %326)
   %331 = select i1 %329, i64 %327, i64 %330
   %332 = trunc i64 %331 to i32
   br label %clamp_value.exit219
@@ -626,7 +626,7 @@ clamp_value.exit219:                              ; preds = %clamp_value.exit217
   %342 = sub nsw i64 0, %340
   %343 = sext i32 %333 to i64
   %344 = icmp slt i64 %343, %342
-  %345 = call i64 @llvm.smin.i64(i64 %343, i64 %341)
+  %345 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %343, i64 range(i64 -9223372036854775808, 9223372036854775807) %341)
   %346 = select i1 %344, i64 %342, i64 %345
   %347 = trunc i64 %346 to i32
   br label %clamp_value.exit221
@@ -648,7 +648,7 @@ clamp_value.exit221:                              ; preds = %clamp_value.exit219
   %357 = sub nsw i64 0, %355
   %358 = sext i32 %348 to i64
   %359 = icmp slt i64 %358, %357
-  %360 = call i64 @llvm.smin.i64(i64 %358, i64 %356)
+  %360 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %358, i64 range(i64 -9223372036854775808, 9223372036854775807) %356)
   %361 = select i1 %359, i64 %357, i64 %360
   %362 = trunc i64 %361 to i32
   br label %clamp_value.exit223
@@ -670,7 +670,7 @@ clamp_value.exit223:                              ; preds = %clamp_value.exit221
   %372 = sub nsw i64 0, %370
   %373 = sext i32 %363 to i64
   %374 = icmp slt i64 %373, %372
-  %375 = call i64 @llvm.smin.i64(i64 %373, i64 %371)
+  %375 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %373, i64 range(i64 -9223372036854775808, 9223372036854775807) %371)
   %376 = select i1 %374, i64 %372, i64 %375
   %377 = trunc i64 %376 to i32
   br label %clamp_value.exit225
@@ -692,7 +692,7 @@ clamp_value.exit225:                              ; preds = %clamp_value.exit223
   %387 = sub nsw i64 0, %385
   %388 = sext i32 %378 to i64
   %389 = icmp slt i64 %388, %387
-  %390 = call i64 @llvm.smin.i64(i64 %388, i64 %386)
+  %390 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %388, i64 range(i64 -9223372036854775808, 9223372036854775807) %386)
   %391 = select i1 %389, i64 %387, i64 %390
   %392 = trunc i64 %391 to i32
   br label %clamp_value.exit227
@@ -988,7 +988,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef %1, i8 noundef signex
   %241 = sub nsw i64 0, %239
   %242 = sext i32 %231 to i64
   %243 = icmp slt i64 %242, %241
-  %244 = call i64 @llvm.smin.i64(i64 %242, i64 %240)
+  %244 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %242, i64 range(i64 -9223372036854775808, 9223372036854775807) %240)
   %245 = select i1 %243, i64 %241, i64 %244
   %246 = trunc i64 %245 to i32
   br label %clamp_value.exit
@@ -1010,7 +1010,7 @@ clamp_value.exit:                                 ; preds = %4, %235
   %256 = sub nsw i64 0, %254
   %257 = sext i32 %247 to i64
   %258 = icmp slt i64 %257, %256
-  %259 = call i64 @llvm.smin.i64(i64 %257, i64 %255)
+  %259 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %257, i64 range(i64 -9223372036854775808, 9223372036854775807) %255)
   %260 = select i1 %258, i64 %256, i64 %259
   %261 = trunc i64 %260 to i32
   br label %clamp_value.exit517
@@ -1034,7 +1034,7 @@ clamp_value.exit517:                              ; preds = %clamp_value.exit, %
   %273 = sub nsw i64 0, %271
   %274 = sext i32 %264 to i64
   %275 = icmp slt i64 %274, %273
-  %276 = call i64 @llvm.smin.i64(i64 %274, i64 %272)
+  %276 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %274, i64 range(i64 -9223372036854775808, 9223372036854775807) %272)
   %277 = select i1 %275, i64 %273, i64 %276
   %278 = trunc i64 %277 to i32
   br label %clamp_value.exit519
@@ -1056,7 +1056,7 @@ clamp_value.exit519:                              ; preds = %clamp_value.exit517
   %288 = sub nsw i64 0, %286
   %289 = sext i32 %279 to i64
   %290 = icmp slt i64 %289, %288
-  %291 = call i64 @llvm.smin.i64(i64 %289, i64 %287)
+  %291 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %289, i64 range(i64 -9223372036854775808, 9223372036854775807) %287)
   %292 = select i1 %290, i64 %288, i64 %291
   %293 = trunc i64 %292 to i32
   br label %clamp_value.exit521
@@ -1080,7 +1080,7 @@ clamp_value.exit521:                              ; preds = %clamp_value.exit519
   %305 = sub nsw i64 0, %303
   %306 = sext i32 %296 to i64
   %307 = icmp slt i64 %306, %305
-  %308 = call i64 @llvm.smin.i64(i64 %306, i64 %304)
+  %308 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %306, i64 range(i64 -9223372036854775808, 9223372036854775807) %304)
   %309 = select i1 %307, i64 %305, i64 %308
   %310 = trunc i64 %309 to i32
   br label %clamp_value.exit523
@@ -1102,7 +1102,7 @@ clamp_value.exit523:                              ; preds = %clamp_value.exit521
   %320 = sub nsw i64 0, %318
   %321 = sext i32 %311 to i64
   %322 = icmp slt i64 %321, %320
-  %323 = call i64 @llvm.smin.i64(i64 %321, i64 %319)
+  %323 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %321, i64 range(i64 -9223372036854775808, 9223372036854775807) %319)
   %324 = select i1 %322, i64 %320, i64 %323
   %325 = trunc i64 %324 to i32
   br label %clamp_value.exit525
@@ -1126,7 +1126,7 @@ clamp_value.exit525:                              ; preds = %clamp_value.exit523
   %337 = sub nsw i64 0, %335
   %338 = sext i32 %328 to i64
   %339 = icmp slt i64 %338, %337
-  %340 = call i64 @llvm.smin.i64(i64 %338, i64 %336)
+  %340 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %338, i64 range(i64 -9223372036854775808, 9223372036854775807) %336)
   %341 = select i1 %339, i64 %337, i64 %340
   %342 = trunc i64 %341 to i32
   br label %clamp_value.exit527
@@ -1148,7 +1148,7 @@ clamp_value.exit527:                              ; preds = %clamp_value.exit525
   %352 = sub nsw i64 0, %350
   %353 = sext i32 %343 to i64
   %354 = icmp slt i64 %353, %352
-  %355 = call i64 @llvm.smin.i64(i64 %353, i64 %351)
+  %355 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %353, i64 range(i64 -9223372036854775808, 9223372036854775807) %351)
   %356 = select i1 %354, i64 %352, i64 %355
   %357 = trunc i64 %356 to i32
   br label %clamp_value.exit529
@@ -1228,13 +1228,13 @@ clamp_value.exit535.thread:                       ; preds = %clamp_value.exit529
   %417 = sub nsw i64 0, %415
   %418 = sext i32 %402 to i64
   %419 = icmp slt i64 %418, %417
-  %420 = call i64 @llvm.smin.i64(i64 %418, i64 %416)
+  %420 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %418, i64 range(i64 -9223372036854775808, 9223372036854775807) %416)
   %421 = select i1 %419, i64 %417, i64 %420
   %422 = trunc i64 %421 to i32
   %423 = sub nsw i32 %400, %401
   %424 = sext i32 %423 to i64
   %425 = icmp slt i64 %424, %417
-  %426 = call i64 @llvm.smin.i64(i64 %424, i64 %416)
+  %426 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %424, i64 range(i64 -9223372036854775808, 9223372036854775807) %416)
   %427 = select i1 %425, i64 %417, i64 %426
   %428 = trunc i64 %427 to i32
   %429 = load i32, ptr %28, align 4
@@ -1242,13 +1242,13 @@ clamp_value.exit535.thread:                       ; preds = %clamp_value.exit529
   %431 = sub nsw i32 %430, %429
   %432 = sext i32 %431 to i64
   %433 = icmp slt i64 %432, %417
-  %434 = call i64 @llvm.smin.i64(i64 %432, i64 %416)
+  %434 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %432, i64 range(i64 -9223372036854775808, 9223372036854775807) %416)
   %435 = select i1 %433, i64 %417, i64 %434
   %436 = trunc i64 %435 to i32
   %437 = add nsw i32 %430, %429
   %438 = sext i32 %437 to i64
   %439 = icmp slt i64 %438, %417
-  %440 = call i64 @llvm.smin.i64(i64 %438, i64 %416)
+  %440 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %438, i64 range(i64 -9223372036854775808, 9223372036854775807) %416)
   %441 = select i1 %439, i64 %417, i64 %440
   %442 = trunc i64 %441 to i32
   br label %clamp_value.exit537
@@ -1329,7 +1329,7 @@ clamp_value.exit537:                              ; preds = %clamp_value.exit535
   %496 = sub nsw i64 0, %494
   %497 = sext i32 %486 to i64
   %498 = icmp slt i64 %497, %496
-  %499 = call i64 @llvm.smin.i64(i64 %497, i64 %495)
+  %499 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %497, i64 range(i64 -9223372036854775808, 9223372036854775807) %495)
   %500 = select i1 %498, i64 %496, i64 %499
   %501 = trunc i64 %500 to i32
   br label %clamp_value.exit539
@@ -1353,7 +1353,7 @@ clamp_value.exit539:                              ; preds = %clamp_value.exit537
   %513 = sub nsw i64 0, %511
   %514 = sext i32 %504 to i64
   %515 = icmp slt i64 %514, %513
-  %516 = call i64 @llvm.smin.i64(i64 %514, i64 %512)
+  %516 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %514, i64 range(i64 -9223372036854775808, 9223372036854775807) %512)
   %517 = select i1 %515, i64 %513, i64 %516
   %518 = trunc i64 %517 to i32
   br label %clamp_value.exit541
@@ -1375,7 +1375,7 @@ clamp_value.exit541:                              ; preds = %clamp_value.exit539
   %528 = sub nsw i64 0, %526
   %529 = sext i32 %519 to i64
   %530 = icmp slt i64 %529, %528
-  %531 = call i64 @llvm.smin.i64(i64 %529, i64 %527)
+  %531 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %529, i64 range(i64 -9223372036854775808, 9223372036854775807) %527)
   %532 = select i1 %530, i64 %528, i64 %531
   %533 = trunc i64 %532 to i32
   br label %clamp_value.exit543
@@ -1397,7 +1397,7 @@ clamp_value.exit543:                              ; preds = %clamp_value.exit541
   %543 = sub nsw i64 0, %541
   %544 = sext i32 %534 to i64
   %545 = icmp slt i64 %544, %543
-  %546 = call i64 @llvm.smin.i64(i64 %544, i64 %542)
+  %546 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %544, i64 range(i64 -9223372036854775808, 9223372036854775807) %542)
   %547 = select i1 %545, i64 %543, i64 %546
   %548 = trunc i64 %547 to i32
   br label %clamp_value.exit545
@@ -1442,7 +1442,7 @@ clamp_value.exit545:                              ; preds = %clamp_value.exit543
   %577 = sub nsw i64 0, %575
   %578 = sext i32 %568 to i64
   %579 = icmp slt i64 %578, %577
-  %580 = call i64 @llvm.smin.i64(i64 %578, i64 %576)
+  %580 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %578, i64 range(i64 -9223372036854775808, 9223372036854775807) %576)
   %581 = select i1 %579, i64 %577, i64 %580
   %582 = trunc i64 %581 to i32
   br label %clamp_value.exit547
@@ -1466,7 +1466,7 @@ clamp_value.exit547:                              ; preds = %clamp_value.exit545
   %594 = sub nsw i64 0, %592
   %595 = sext i32 %585 to i64
   %596 = icmp slt i64 %595, %594
-  %597 = call i64 @llvm.smin.i64(i64 %595, i64 %593)
+  %597 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %595, i64 range(i64 -9223372036854775808, 9223372036854775807) %593)
   %598 = select i1 %596, i64 %594, i64 %597
   %599 = trunc i64 %598 to i32
   br label %clamp_value.exit549
@@ -1488,7 +1488,7 @@ clamp_value.exit549:                              ; preds = %clamp_value.exit547
   %609 = sub nsw i64 0, %607
   %610 = sext i32 %600 to i64
   %611 = icmp slt i64 %610, %609
-  %612 = call i64 @llvm.smin.i64(i64 %610, i64 %608)
+  %612 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %610, i64 range(i64 -9223372036854775808, 9223372036854775807) %608)
   %613 = select i1 %611, i64 %609, i64 %612
   %614 = trunc i64 %613 to i32
   br label %clamp_value.exit551
@@ -1510,7 +1510,7 @@ clamp_value.exit551:                              ; preds = %clamp_value.exit549
   %624 = sub nsw i64 0, %622
   %625 = sext i32 %615 to i64
   %626 = icmp slt i64 %625, %624
-  %627 = call i64 @llvm.smin.i64(i64 %625, i64 %623)
+  %627 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %625, i64 range(i64 -9223372036854775808, 9223372036854775807) %623)
   %628 = select i1 %626, i64 %624, i64 %627
   %629 = trunc i64 %628 to i32
   br label %clamp_value.exit553
@@ -1534,7 +1534,7 @@ clamp_value.exit553:                              ; preds = %clamp_value.exit551
   %641 = sub nsw i64 0, %639
   %642 = sext i32 %632 to i64
   %643 = icmp slt i64 %642, %641
-  %644 = call i64 @llvm.smin.i64(i64 %642, i64 %640)
+  %644 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %642, i64 range(i64 -9223372036854775808, 9223372036854775807) %640)
   %645 = select i1 %643, i64 %641, i64 %644
   %646 = trunc i64 %645 to i32
   br label %clamp_value.exit555
@@ -1558,7 +1558,7 @@ clamp_value.exit555:                              ; preds = %clamp_value.exit553
   %658 = sub nsw i64 0, %656
   %659 = sext i32 %649 to i64
   %660 = icmp slt i64 %659, %658
-  %661 = call i64 @llvm.smin.i64(i64 %659, i64 %657)
+  %661 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %659, i64 range(i64 -9223372036854775808, 9223372036854775807) %657)
   %662 = select i1 %660, i64 %658, i64 %661
   %663 = trunc i64 %662 to i32
   br label %clamp_value.exit557
@@ -1580,7 +1580,7 @@ clamp_value.exit557:                              ; preds = %clamp_value.exit555
   %673 = sub nsw i64 0, %671
   %674 = sext i32 %664 to i64
   %675 = icmp slt i64 %674, %673
-  %676 = call i64 @llvm.smin.i64(i64 %674, i64 %672)
+  %676 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %674, i64 range(i64 -9223372036854775808, 9223372036854775807) %672)
   %677 = select i1 %675, i64 %673, i64 %676
   %678 = trunc i64 %677 to i32
   br label %clamp_value.exit559
@@ -1602,7 +1602,7 @@ clamp_value.exit559:                              ; preds = %clamp_value.exit557
   %688 = sub nsw i64 0, %686
   %689 = sext i32 %679 to i64
   %690 = icmp slt i64 %689, %688
-  %691 = call i64 @llvm.smin.i64(i64 %689, i64 %687)
+  %691 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %689, i64 range(i64 -9223372036854775808, 9223372036854775807) %687)
   %692 = select i1 %690, i64 %688, i64 %691
   %693 = trunc i64 %692 to i32
   br label %clamp_value.exit561
@@ -1650,7 +1650,7 @@ clamp_value.exit575.thread:                       ; preds = %clamp_value.exit561
   %720 = sub nsw i64 0, %718
   %721 = sext i32 %697 to i64
   %722 = icmp slt i64 %721, %720
-  %723 = call i64 @llvm.smin.i64(i64 %721, i64 %719)
+  %723 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %721, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %724 = select i1 %722, i64 %720, i64 %723
   %725 = trunc i64 %724 to i32
   store i32 %725, ptr %5, align 16
@@ -1659,7 +1659,7 @@ clamp_value.exit575.thread:                       ; preds = %clamp_value.exit561
   %728 = add nsw i32 %727, %726
   %729 = sext i32 %728 to i64
   %730 = icmp slt i64 %729, %720
-  %731 = call i64 @llvm.smin.i64(i64 %729, i64 %719)
+  %731 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %729, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %732 = select i1 %730, i64 %720, i64 %731
   %733 = trunc i64 %732 to i32
   store i32 %733, ptr %60, align 4
@@ -1668,7 +1668,7 @@ clamp_value.exit575.thread:                       ; preds = %clamp_value.exit561
   %736 = add nsw i32 %735, %734
   %737 = sext i32 %736 to i64
   %738 = icmp slt i64 %737, %720
-  %739 = call i64 @llvm.smin.i64(i64 %737, i64 %719)
+  %739 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %737, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %740 = select i1 %738, i64 %720, i64 %739
   %741 = trunc i64 %740 to i32
   store i32 %741, ptr %62, align 8
@@ -1677,33 +1677,33 @@ clamp_value.exit575.thread:                       ; preds = %clamp_value.exit561
   %744 = add nsw i32 %743, %742
   %745 = sext i32 %744 to i64
   %746 = icmp slt i64 %745, %720
-  %747 = call i64 @llvm.smin.i64(i64 %745, i64 %719)
+  %747 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %745, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %748 = select i1 %746, i64 %720, i64 %747
   %749 = trunc i64 %748 to i32
   store i32 %749, ptr %64, align 4
   %750 = sub nsw i32 %742, %743
   %751 = sext i32 %750 to i64
   %752 = icmp slt i64 %751, %720
-  %753 = call i64 @llvm.smin.i64(i64 %751, i64 %719)
+  %753 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %751, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %754 = select i1 %752, i64 %720, i64 %753
   %755 = trunc i64 %754 to i32
   store i32 %755, ptr %66, align 16
   %756 = sub nsw i32 %734, %735
   %757 = sext i32 %756 to i64
   %758 = icmp slt i64 %757, %720
-  %759 = call i64 @llvm.smin.i64(i64 %757, i64 %719)
+  %759 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %757, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %760 = select i1 %758, i64 %720, i64 %759
   %761 = trunc i64 %760 to i32
   %762 = sub nsw i32 %726, %727
   %763 = sext i32 %762 to i64
   %764 = icmp slt i64 %763, %720
-  %765 = call i64 @llvm.smin.i64(i64 %763, i64 %719)
+  %765 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %763, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %766 = select i1 %764, i64 %720, i64 %765
   %767 = trunc i64 %766 to i32
   %768 = sub nsw i32 %695, %696
   %769 = sext i32 %768 to i64
   %770 = icmp slt i64 %769, %720
-  %771 = call i64 @llvm.smin.i64(i64 %769, i64 %719)
+  %771 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %769, i64 range(i64 -9223372036854775808, 9223372036854775807) %719)
   %772 = select i1 %770, i64 %720, i64 %771
   %773 = trunc i64 %772 to i32
   br label %clamp_value.exit577
@@ -1775,7 +1775,7 @@ clamp_value.exit577:                              ; preds = %clamp_value.exit575
   %820 = sub nsw i64 0, %818
   %821 = sext i32 %810 to i64
   %822 = icmp slt i64 %821, %820
-  %823 = call i64 @llvm.smin.i64(i64 %821, i64 %819)
+  %823 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %821, i64 range(i64 -9223372036854775808, 9223372036854775807) %819)
   %824 = select i1 %822, i64 %820, i64 %823
   %825 = trunc i64 %824 to i32
   br label %clamp_value.exit579
@@ -1799,7 +1799,7 @@ clamp_value.exit579:                              ; preds = %clamp_value.exit577
   %837 = sub nsw i64 0, %835
   %838 = sext i32 %828 to i64
   %839 = icmp slt i64 %838, %837
-  %840 = call i64 @llvm.smin.i64(i64 %838, i64 %836)
+  %840 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %838, i64 range(i64 -9223372036854775808, 9223372036854775807) %836)
   %841 = select i1 %839, i64 %837, i64 %840
   %842 = trunc i64 %841 to i32
   br label %clamp_value.exit581
@@ -1823,7 +1823,7 @@ clamp_value.exit581:                              ; preds = %clamp_value.exit579
   %854 = sub nsw i64 0, %852
   %855 = sext i32 %845 to i64
   %856 = icmp slt i64 %855, %854
-  %857 = call i64 @llvm.smin.i64(i64 %855, i64 %853)
+  %857 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %855, i64 range(i64 -9223372036854775808, 9223372036854775807) %853)
   %858 = select i1 %856, i64 %854, i64 %857
   %859 = trunc i64 %858 to i32
   br label %clamp_value.exit583
@@ -1847,7 +1847,7 @@ clamp_value.exit583:                              ; preds = %clamp_value.exit581
   %871 = sub nsw i64 0, %869
   %872 = sext i32 %862 to i64
   %873 = icmp slt i64 %872, %871
-  %874 = call i64 @llvm.smin.i64(i64 %872, i64 %870)
+  %874 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %872, i64 range(i64 -9223372036854775808, 9223372036854775807) %870)
   %875 = select i1 %873, i64 %871, i64 %874
   %876 = trunc i64 %875 to i32
   br label %clamp_value.exit585
@@ -1871,7 +1871,7 @@ clamp_value.exit585:                              ; preds = %clamp_value.exit583
   %888 = sub nsw i64 0, %886
   %889 = sext i32 %879 to i64
   %890 = icmp slt i64 %889, %888
-  %891 = call i64 @llvm.smin.i64(i64 %889, i64 %887)
+  %891 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %889, i64 range(i64 -9223372036854775808, 9223372036854775807) %887)
   %892 = select i1 %890, i64 %888, i64 %891
   %893 = trunc i64 %892 to i32
   br label %clamp_value.exit587
@@ -1895,7 +1895,7 @@ clamp_value.exit587:                              ; preds = %clamp_value.exit585
   %905 = sub nsw i64 0, %903
   %906 = sext i32 %896 to i64
   %907 = icmp slt i64 %906, %905
-  %908 = call i64 @llvm.smin.i64(i64 %906, i64 %904)
+  %908 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %906, i64 range(i64 -9223372036854775808, 9223372036854775807) %904)
   %909 = select i1 %907, i64 %905, i64 %908
   %910 = trunc i64 %909 to i32
   br label %clamp_value.exit589
@@ -1919,7 +1919,7 @@ clamp_value.exit589:                              ; preds = %clamp_value.exit587
   %922 = sub nsw i64 0, %920
   %923 = sext i32 %913 to i64
   %924 = icmp slt i64 %923, %922
-  %925 = call i64 @llvm.smin.i64(i64 %923, i64 %921)
+  %925 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %923, i64 range(i64 -9223372036854775808, 9223372036854775807) %921)
   %926 = select i1 %924, i64 %922, i64 %925
   %927 = trunc i64 %926 to i32
   br label %clamp_value.exit591
@@ -1943,7 +1943,7 @@ clamp_value.exit591:                              ; preds = %clamp_value.exit589
   %939 = sub nsw i64 0, %937
   %940 = sext i32 %930 to i64
   %941 = icmp slt i64 %940, %939
-  %942 = call i64 @llvm.smin.i64(i64 %940, i64 %938)
+  %942 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %940, i64 range(i64 -9223372036854775808, 9223372036854775807) %938)
   %943 = select i1 %941, i64 %939, i64 %942
   %944 = trunc i64 %943 to i32
   br label %clamp_value.exit593
@@ -1965,7 +1965,7 @@ clamp_value.exit593:                              ; preds = %clamp_value.exit591
   %954 = sub nsw i64 0, %952
   %955 = sext i32 %945 to i64
   %956 = icmp slt i64 %955, %954
-  %957 = call i64 @llvm.smin.i64(i64 %955, i64 %953)
+  %957 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %955, i64 range(i64 -9223372036854775808, 9223372036854775807) %953)
   %958 = select i1 %956, i64 %954, i64 %957
   %959 = trunc i64 %958 to i32
   br label %clamp_value.exit595
@@ -1987,7 +1987,7 @@ clamp_value.exit595:                              ; preds = %clamp_value.exit593
   %969 = sub nsw i64 0, %967
   %970 = sext i32 %960 to i64
   %971 = icmp slt i64 %970, %969
-  %972 = call i64 @llvm.smin.i64(i64 %970, i64 %968)
+  %972 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %970, i64 range(i64 -9223372036854775808, 9223372036854775807) %968)
   %973 = select i1 %971, i64 %969, i64 %972
   %974 = trunc i64 %973 to i32
   br label %clamp_value.exit597
@@ -2009,7 +2009,7 @@ clamp_value.exit597:                              ; preds = %clamp_value.exit595
   %984 = sub nsw i64 0, %982
   %985 = sext i32 %975 to i64
   %986 = icmp slt i64 %985, %984
-  %987 = call i64 @llvm.smin.i64(i64 %985, i64 %983)
+  %987 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %985, i64 range(i64 -9223372036854775808, 9223372036854775807) %983)
   %988 = select i1 %986, i64 %984, i64 %987
   %989 = trunc i64 %988 to i32
   br label %clamp_value.exit599
@@ -2031,7 +2031,7 @@ clamp_value.exit599:                              ; preds = %clamp_value.exit597
   %999 = sub nsw i64 0, %997
   %1000 = sext i32 %990 to i64
   %1001 = icmp slt i64 %1000, %999
-  %1002 = call i64 @llvm.smin.i64(i64 %1000, i64 %998)
+  %1002 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1000, i64 range(i64 -9223372036854775808, 9223372036854775807) %998)
   %1003 = select i1 %1001, i64 %999, i64 %1002
   %1004 = trunc i64 %1003 to i32
   br label %clamp_value.exit601
@@ -2053,7 +2053,7 @@ clamp_value.exit601:                              ; preds = %clamp_value.exit599
   %1014 = sub nsw i64 0, %1012
   %1015 = sext i32 %1005 to i64
   %1016 = icmp slt i64 %1015, %1014
-  %1017 = call i64 @llvm.smin.i64(i64 %1015, i64 %1013)
+  %1017 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1015, i64 range(i64 -9223372036854775808, 9223372036854775807) %1013)
   %1018 = select i1 %1016, i64 %1014, i64 %1017
   %1019 = trunc i64 %1018 to i32
   br label %clamp_value.exit603
@@ -2075,7 +2075,7 @@ clamp_value.exit603:                              ; preds = %clamp_value.exit601
   %1029 = sub nsw i64 0, %1027
   %1030 = sext i32 %1020 to i64
   %1031 = icmp slt i64 %1030, %1029
-  %1032 = call i64 @llvm.smin.i64(i64 %1030, i64 %1028)
+  %1032 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1030, i64 range(i64 -9223372036854775808, 9223372036854775807) %1028)
   %1033 = select i1 %1031, i64 %1029, i64 %1032
   %1034 = trunc i64 %1033 to i32
   br label %clamp_value.exit605
@@ -2097,7 +2097,7 @@ clamp_value.exit605:                              ; preds = %clamp_value.exit603
   %1044 = sub nsw i64 0, %1042
   %1045 = sext i32 %1035 to i64
   %1046 = icmp slt i64 %1045, %1044
-  %1047 = call i64 @llvm.smin.i64(i64 %1045, i64 %1043)
+  %1047 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1045, i64 range(i64 -9223372036854775808, 9223372036854775807) %1043)
   %1048 = select i1 %1046, i64 %1044, i64 %1047
   %1049 = trunc i64 %1048 to i32
   br label %clamp_value.exit607
@@ -2119,7 +2119,7 @@ clamp_value.exit607:                              ; preds = %clamp_value.exit605
   %1059 = sub nsw i64 0, %1057
   %1060 = sext i32 %1050 to i64
   %1061 = icmp slt i64 %1060, %1059
-  %1062 = call i64 @llvm.smin.i64(i64 %1060, i64 %1058)
+  %1062 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1060, i64 range(i64 -9223372036854775808, 9223372036854775807) %1058)
   %1063 = select i1 %1061, i64 %1059, i64 %1062
   %1064 = trunc i64 %1063 to i32
   br label %clamp_value.exit609
@@ -2669,7 +2669,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef %1, i8 noundef signex
   %455 = sub nsw i64 0, %453
   %456 = sext i32 %445 to i64
   %457 = icmp slt i64 %456, %455
-  %458 = call i64 @llvm.smin.i64(i64 %456, i64 %454)
+  %458 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %456, i64 range(i64 -9223372036854775808, 9223372036854775807) %454)
   %459 = select i1 %457, i64 %455, i64 %458
   %460 = trunc i64 %459 to i32
   br label %clamp_value.exit
@@ -2691,7 +2691,7 @@ clamp_value.exit:                                 ; preds = %4, %449
   %470 = sub nsw i64 0, %468
   %471 = sext i32 %461 to i64
   %472 = icmp slt i64 %471, %470
-  %473 = call i64 @llvm.smin.i64(i64 %471, i64 %469)
+  %473 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %471, i64 range(i64 -9223372036854775808, 9223372036854775807) %469)
   %474 = select i1 %472, i64 %470, i64 %473
   %475 = trunc i64 %474 to i32
   br label %clamp_value.exit1283
@@ -2715,7 +2715,7 @@ clamp_value.exit1283:                             ; preds = %clamp_value.exit, %
   %487 = sub nsw i64 0, %485
   %488 = sext i32 %478 to i64
   %489 = icmp slt i64 %488, %487
-  %490 = call i64 @llvm.smin.i64(i64 %488, i64 %486)
+  %490 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %488, i64 range(i64 -9223372036854775808, 9223372036854775807) %486)
   %491 = select i1 %489, i64 %487, i64 %490
   %492 = trunc i64 %491 to i32
   br label %clamp_value.exit1285
@@ -2737,7 +2737,7 @@ clamp_value.exit1285:                             ; preds = %clamp_value.exit128
   %502 = sub nsw i64 0, %500
   %503 = sext i32 %493 to i64
   %504 = icmp slt i64 %503, %502
-  %505 = call i64 @llvm.smin.i64(i64 %503, i64 %501)
+  %505 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %503, i64 range(i64 -9223372036854775808, 9223372036854775807) %501)
   %506 = select i1 %504, i64 %502, i64 %505
   %507 = trunc i64 %506 to i32
   br label %clamp_value.exit1287
@@ -2761,7 +2761,7 @@ clamp_value.exit1287:                             ; preds = %clamp_value.exit128
   %519 = sub nsw i64 0, %517
   %520 = sext i32 %510 to i64
   %521 = icmp slt i64 %520, %519
-  %522 = call i64 @llvm.smin.i64(i64 %520, i64 %518)
+  %522 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %520, i64 range(i64 -9223372036854775808, 9223372036854775807) %518)
   %523 = select i1 %521, i64 %519, i64 %522
   %524 = trunc i64 %523 to i32
   br label %clamp_value.exit1289
@@ -2783,7 +2783,7 @@ clamp_value.exit1289:                             ; preds = %clamp_value.exit128
   %534 = sub nsw i64 0, %532
   %535 = sext i32 %525 to i64
   %536 = icmp slt i64 %535, %534
-  %537 = call i64 @llvm.smin.i64(i64 %535, i64 %533)
+  %537 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %535, i64 range(i64 -9223372036854775808, 9223372036854775807) %533)
   %538 = select i1 %536, i64 %534, i64 %537
   %539 = trunc i64 %538 to i32
   br label %clamp_value.exit1291
@@ -2807,7 +2807,7 @@ clamp_value.exit1291:                             ; preds = %clamp_value.exit128
   %551 = sub nsw i64 0, %549
   %552 = sext i32 %542 to i64
   %553 = icmp slt i64 %552, %551
-  %554 = call i64 @llvm.smin.i64(i64 %552, i64 %550)
+  %554 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %552, i64 range(i64 -9223372036854775808, 9223372036854775807) %550)
   %555 = select i1 %553, i64 %551, i64 %554
   %556 = trunc i64 %555 to i32
   br label %clamp_value.exit1293
@@ -2829,7 +2829,7 @@ clamp_value.exit1293:                             ; preds = %clamp_value.exit129
   %566 = sub nsw i64 0, %564
   %567 = sext i32 %557 to i64
   %568 = icmp slt i64 %567, %566
-  %569 = call i64 @llvm.smin.i64(i64 %567, i64 %565)
+  %569 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %567, i64 range(i64 -9223372036854775808, 9223372036854775807) %565)
   %570 = select i1 %568, i64 %566, i64 %569
   %571 = trunc i64 %570 to i32
   br label %clamp_value.exit1295
@@ -2853,7 +2853,7 @@ clamp_value.exit1295:                             ; preds = %clamp_value.exit129
   %583 = sub nsw i64 0, %581
   %584 = sext i32 %574 to i64
   %585 = icmp slt i64 %584, %583
-  %586 = call i64 @llvm.smin.i64(i64 %584, i64 %582)
+  %586 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %584, i64 range(i64 -9223372036854775808, 9223372036854775807) %582)
   %587 = select i1 %585, i64 %583, i64 %586
   %588 = trunc i64 %587 to i32
   br label %clamp_value.exit1297
@@ -2875,7 +2875,7 @@ clamp_value.exit1297:                             ; preds = %clamp_value.exit129
   %598 = sub nsw i64 0, %596
   %599 = sext i32 %589 to i64
   %600 = icmp slt i64 %599, %598
-  %601 = call i64 @llvm.smin.i64(i64 %599, i64 %597)
+  %601 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %599, i64 range(i64 -9223372036854775808, 9223372036854775807) %597)
   %602 = select i1 %600, i64 %598, i64 %601
   %603 = trunc i64 %602 to i32
   br label %clamp_value.exit1299
@@ -2899,7 +2899,7 @@ clamp_value.exit1299:                             ; preds = %clamp_value.exit129
   %615 = sub nsw i64 0, %613
   %616 = sext i32 %606 to i64
   %617 = icmp slt i64 %616, %615
-  %618 = call i64 @llvm.smin.i64(i64 %616, i64 %614)
+  %618 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %616, i64 range(i64 -9223372036854775808, 9223372036854775807) %614)
   %619 = select i1 %617, i64 %615, i64 %618
   %620 = trunc i64 %619 to i32
   br label %clamp_value.exit1301
@@ -2921,7 +2921,7 @@ clamp_value.exit1301:                             ; preds = %clamp_value.exit129
   %630 = sub nsw i64 0, %628
   %631 = sext i32 %621 to i64
   %632 = icmp slt i64 %631, %630
-  %633 = call i64 @llvm.smin.i64(i64 %631, i64 %629)
+  %633 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %631, i64 range(i64 -9223372036854775808, 9223372036854775807) %629)
   %634 = select i1 %632, i64 %630, i64 %633
   %635 = trunc i64 %634 to i32
   br label %clamp_value.exit1303
@@ -2945,7 +2945,7 @@ clamp_value.exit1303:                             ; preds = %clamp_value.exit130
   %647 = sub nsw i64 0, %645
   %648 = sext i32 %638 to i64
   %649 = icmp slt i64 %648, %647
-  %650 = call i64 @llvm.smin.i64(i64 %648, i64 %646)
+  %650 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %648, i64 range(i64 -9223372036854775808, 9223372036854775807) %646)
   %651 = select i1 %649, i64 %647, i64 %650
   %652 = trunc i64 %651 to i32
   br label %clamp_value.exit1305
@@ -2967,7 +2967,7 @@ clamp_value.exit1305:                             ; preds = %clamp_value.exit130
   %662 = sub nsw i64 0, %660
   %663 = sext i32 %653 to i64
   %664 = icmp slt i64 %663, %662
-  %665 = call i64 @llvm.smin.i64(i64 %663, i64 %661)
+  %665 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %663, i64 range(i64 -9223372036854775808, 9223372036854775807) %661)
   %666 = select i1 %664, i64 %662, i64 %665
   %667 = trunc i64 %666 to i32
   br label %clamp_value.exit1307
@@ -2991,7 +2991,7 @@ clamp_value.exit1307:                             ; preds = %clamp_value.exit130
   %679 = sub nsw i64 0, %677
   %680 = sext i32 %670 to i64
   %681 = icmp slt i64 %680, %679
-  %682 = call i64 @llvm.smin.i64(i64 %680, i64 %678)
+  %682 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %680, i64 range(i64 -9223372036854775808, 9223372036854775807) %678)
   %683 = select i1 %681, i64 %679, i64 %682
   %684 = trunc i64 %683 to i32
   br label %clamp_value.exit1309
@@ -3013,7 +3013,7 @@ clamp_value.exit1309:                             ; preds = %clamp_value.exit130
   %694 = sub nsw i64 0, %692
   %695 = sext i32 %685 to i64
   %696 = icmp slt i64 %695, %694
-  %697 = call i64 @llvm.smin.i64(i64 %695, i64 %693)
+  %697 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %695, i64 range(i64 -9223372036854775808, 9223372036854775807) %693)
   %698 = select i1 %696, i64 %694, i64 %697
   %699 = trunc i64 %698 to i32
   br label %clamp_value.exit1311
@@ -3119,14 +3119,14 @@ clamp_value.exit1325.thread:                      ; preds = %clamp_value.exit131
   %776 = sub nsw i64 0, %774
   %777 = sext i32 %753 to i64
   %778 = icmp slt i64 %777, %776
-  %779 = call i64 @llvm.smin.i64(i64 %777, i64 %775)
+  %779 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %777, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %780 = select i1 %778, i64 %776, i64 %779
   %781 = trunc i64 %780 to i32
   store i32 %781, ptr %122, align 16
   %782 = sub nsw i32 %751, %752
   %783 = sext i32 %782 to i64
   %784 = icmp slt i64 %783, %776
-  %785 = call i64 @llvm.smin.i64(i64 %783, i64 %775)
+  %785 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %783, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %786 = select i1 %784, i64 %776, i64 %785
   %787 = trunc i64 %786 to i32
   store i32 %787, ptr %124, align 4
@@ -3135,14 +3135,14 @@ clamp_value.exit1325.thread:                      ; preds = %clamp_value.exit131
   %790 = sub nsw i32 %789, %788
   %791 = sext i32 %790 to i64
   %792 = icmp slt i64 %791, %776
-  %793 = call i64 @llvm.smin.i64(i64 %791, i64 %775)
+  %793 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %791, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %794 = select i1 %792, i64 %776, i64 %793
   %795 = trunc i64 %794 to i32
   store i32 %795, ptr %126, align 8
   %796 = add nsw i32 %789, %788
   %797 = sext i32 %796 to i64
   %798 = icmp slt i64 %797, %776
-  %799 = call i64 @llvm.smin.i64(i64 %797, i64 %775)
+  %799 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %797, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %800 = select i1 %798, i64 %776, i64 %799
   %801 = trunc i64 %800 to i32
   store i32 %801, ptr %128, align 4
@@ -3151,14 +3151,14 @@ clamp_value.exit1325.thread:                      ; preds = %clamp_value.exit131
   %804 = add nsw i32 %803, %802
   %805 = sext i32 %804 to i64
   %806 = icmp slt i64 %805, %776
-  %807 = call i64 @llvm.smin.i64(i64 %805, i64 %775)
+  %807 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %805, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %808 = select i1 %806, i64 %776, i64 %807
   %809 = trunc i64 %808 to i32
   store i32 %809, ptr %130, align 16
   %810 = sub nsw i32 %802, %803
   %811 = sext i32 %810 to i64
   %812 = icmp slt i64 %811, %776
-  %813 = call i64 @llvm.smin.i64(i64 %811, i64 %775)
+  %813 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %811, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %814 = select i1 %812, i64 %776, i64 %813
   %815 = trunc i64 %814 to i32
   %816 = load i32, ptr %52, align 4
@@ -3166,13 +3166,13 @@ clamp_value.exit1325.thread:                      ; preds = %clamp_value.exit131
   %818 = sub nsw i32 %817, %816
   %819 = sext i32 %818 to i64
   %820 = icmp slt i64 %819, %776
-  %821 = call i64 @llvm.smin.i64(i64 %819, i64 %775)
+  %821 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %819, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %822 = select i1 %820, i64 %776, i64 %821
   %823 = trunc i64 %822 to i32
   %824 = add nsw i32 %817, %816
   %825 = sext i32 %824 to i64
   %826 = icmp slt i64 %825, %776
-  %827 = call i64 @llvm.smin.i64(i64 %825, i64 %775)
+  %827 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %825, i64 range(i64 -9223372036854775808, 9223372036854775807) %775)
   %828 = select i1 %826, i64 %776, i64 %827
   %829 = trunc i64 %828 to i32
   br label %clamp_value.exit1327
@@ -3345,7 +3345,7 @@ clamp_value.exit1327:                             ; preds = %clamp_value.exit132
   %965 = sub nsw i64 0, %963
   %966 = sext i32 %955 to i64
   %967 = icmp slt i64 %966, %965
-  %968 = call i64 @llvm.smin.i64(i64 %966, i64 %964)
+  %968 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %966, i64 range(i64 -9223372036854775808, 9223372036854775807) %964)
   %969 = select i1 %967, i64 %965, i64 %968
   %970 = trunc i64 %969 to i32
   br label %clamp_value.exit1329
@@ -3367,7 +3367,7 @@ clamp_value.exit1329:                             ; preds = %clamp_value.exit132
   %980 = sub nsw i64 0, %978
   %981 = sext i32 %971 to i64
   %982 = icmp slt i64 %981, %980
-  %983 = call i64 @llvm.smin.i64(i64 %981, i64 %979)
+  %983 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %981, i64 range(i64 -9223372036854775808, 9223372036854775807) %979)
   %984 = select i1 %982, i64 %980, i64 %983
   %985 = trunc i64 %984 to i32
   br label %clamp_value.exit1331
@@ -3391,7 +3391,7 @@ clamp_value.exit1331:                             ; preds = %clamp_value.exit132
   %997 = sub nsw i64 0, %995
   %998 = sext i32 %988 to i64
   %999 = icmp slt i64 %998, %997
-  %1000 = call i64 @llvm.smin.i64(i64 %998, i64 %996)
+  %1000 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %998, i64 range(i64 -9223372036854775808, 9223372036854775807) %996)
   %1001 = select i1 %999, i64 %997, i64 %1000
   %1002 = trunc i64 %1001 to i32
   br label %clamp_value.exit1333
@@ -3413,7 +3413,7 @@ clamp_value.exit1333:                             ; preds = %clamp_value.exit133
   %1012 = sub nsw i64 0, %1010
   %1013 = sext i32 %1003 to i64
   %1014 = icmp slt i64 %1013, %1012
-  %1015 = call i64 @llvm.smin.i64(i64 %1013, i64 %1011)
+  %1015 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1013, i64 range(i64 -9223372036854775808, 9223372036854775807) %1011)
   %1016 = select i1 %1014, i64 %1012, i64 %1015
   %1017 = trunc i64 %1016 to i32
   br label %clamp_value.exit1335
@@ -3486,7 +3486,7 @@ clamp_value.exit1335:                             ; preds = %clamp_value.exit133
   %1070 = sub nsw i64 0, %1068
   %1071 = sext i32 %1061 to i64
   %1072 = icmp slt i64 %1071, %1070
-  %1073 = call i64 @llvm.smin.i64(i64 %1071, i64 %1069)
+  %1073 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1071, i64 range(i64 -9223372036854775808, 9223372036854775807) %1069)
   %1074 = select i1 %1072, i64 %1070, i64 %1073
   %1075 = trunc i64 %1074 to i32
   br label %clamp_value.exit1337
@@ -3510,7 +3510,7 @@ clamp_value.exit1337:                             ; preds = %clamp_value.exit133
   %1087 = sub nsw i64 0, %1085
   %1088 = sext i32 %1078 to i64
   %1089 = icmp slt i64 %1088, %1087
-  %1090 = call i64 @llvm.smin.i64(i64 %1088, i64 %1086)
+  %1090 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1088, i64 range(i64 -9223372036854775808, 9223372036854775807) %1086)
   %1091 = select i1 %1089, i64 %1087, i64 %1090
   %1092 = trunc i64 %1091 to i32
   br label %clamp_value.exit1339
@@ -3532,7 +3532,7 @@ clamp_value.exit1339:                             ; preds = %clamp_value.exit133
   %1102 = sub nsw i64 0, %1100
   %1103 = sext i32 %1093 to i64
   %1104 = icmp slt i64 %1103, %1102
-  %1105 = call i64 @llvm.smin.i64(i64 %1103, i64 %1101)
+  %1105 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1103, i64 range(i64 -9223372036854775808, 9223372036854775807) %1101)
   %1106 = select i1 %1104, i64 %1102, i64 %1105
   %1107 = trunc i64 %1106 to i32
   br label %clamp_value.exit1341
@@ -3554,7 +3554,7 @@ clamp_value.exit1341:                             ; preds = %clamp_value.exit133
   %1117 = sub nsw i64 0, %1115
   %1118 = sext i32 %1108 to i64
   %1119 = icmp slt i64 %1118, %1117
-  %1120 = call i64 @llvm.smin.i64(i64 %1118, i64 %1116)
+  %1120 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1118, i64 range(i64 -9223372036854775808, 9223372036854775807) %1116)
   %1121 = select i1 %1119, i64 %1117, i64 %1120
   %1122 = trunc i64 %1121 to i32
   br label %clamp_value.exit1343
@@ -3578,7 +3578,7 @@ clamp_value.exit1343:                             ; preds = %clamp_value.exit134
   %1134 = sub nsw i64 0, %1132
   %1135 = sext i32 %1125 to i64
   %1136 = icmp slt i64 %1135, %1134
-  %1137 = call i64 @llvm.smin.i64(i64 %1135, i64 %1133)
+  %1137 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1135, i64 range(i64 -9223372036854775808, 9223372036854775807) %1133)
   %1138 = select i1 %1136, i64 %1134, i64 %1137
   %1139 = trunc i64 %1138 to i32
   br label %clamp_value.exit1345
@@ -3602,7 +3602,7 @@ clamp_value.exit1345:                             ; preds = %clamp_value.exit134
   %1151 = sub nsw i64 0, %1149
   %1152 = sext i32 %1142 to i64
   %1153 = icmp slt i64 %1152, %1151
-  %1154 = call i64 @llvm.smin.i64(i64 %1152, i64 %1150)
+  %1154 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1152, i64 range(i64 -9223372036854775808, 9223372036854775807) %1150)
   %1155 = select i1 %1153, i64 %1151, i64 %1154
   %1156 = trunc i64 %1155 to i32
   br label %clamp_value.exit1347
@@ -3624,7 +3624,7 @@ clamp_value.exit1347:                             ; preds = %clamp_value.exit134
   %1166 = sub nsw i64 0, %1164
   %1167 = sext i32 %1157 to i64
   %1168 = icmp slt i64 %1167, %1166
-  %1169 = call i64 @llvm.smin.i64(i64 %1167, i64 %1165)
+  %1169 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1167, i64 range(i64 -9223372036854775808, 9223372036854775807) %1165)
   %1170 = select i1 %1168, i64 %1166, i64 %1169
   %1171 = trunc i64 %1170 to i32
   br label %clamp_value.exit1349
@@ -3646,7 +3646,7 @@ clamp_value.exit1349:                             ; preds = %clamp_value.exit134
   %1181 = sub nsw i64 0, %1179
   %1182 = sext i32 %1172 to i64
   %1183 = icmp slt i64 %1182, %1181
-  %1184 = call i64 @llvm.smin.i64(i64 %1182, i64 %1180)
+  %1184 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1182, i64 range(i64 -9223372036854775808, 9223372036854775807) %1180)
   %1185 = select i1 %1183, i64 %1181, i64 %1184
   %1186 = trunc i64 %1185 to i32
   br label %clamp_value.exit1351
@@ -3670,7 +3670,7 @@ clamp_value.exit1351:                             ; preds = %clamp_value.exit134
   %1198 = sub nsw i64 0, %1196
   %1199 = sext i32 %1189 to i64
   %1200 = icmp slt i64 %1199, %1198
-  %1201 = call i64 @llvm.smin.i64(i64 %1199, i64 %1197)
+  %1201 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1199, i64 range(i64 -9223372036854775808, 9223372036854775807) %1197)
   %1202 = select i1 %1200, i64 %1198, i64 %1201
   %1203 = trunc i64 %1202 to i32
   br label %clamp_value.exit1353
@@ -3694,7 +3694,7 @@ clamp_value.exit1353:                             ; preds = %clamp_value.exit135
   %1215 = sub nsw i64 0, %1213
   %1216 = sext i32 %1206 to i64
   %1217 = icmp slt i64 %1216, %1215
-  %1218 = call i64 @llvm.smin.i64(i64 %1216, i64 %1214)
+  %1218 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1216, i64 range(i64 -9223372036854775808, 9223372036854775807) %1214)
   %1219 = select i1 %1217, i64 %1215, i64 %1218
   %1220 = trunc i64 %1219 to i32
   br label %clamp_value.exit1355
@@ -3716,7 +3716,7 @@ clamp_value.exit1355:                             ; preds = %clamp_value.exit135
   %1230 = sub nsw i64 0, %1228
   %1231 = sext i32 %1221 to i64
   %1232 = icmp slt i64 %1231, %1230
-  %1233 = call i64 @llvm.smin.i64(i64 %1231, i64 %1229)
+  %1233 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1231, i64 range(i64 -9223372036854775808, 9223372036854775807) %1229)
   %1234 = select i1 %1232, i64 %1230, i64 %1233
   %1235 = trunc i64 %1234 to i32
   br label %clamp_value.exit1357
@@ -3738,7 +3738,7 @@ clamp_value.exit1357:                             ; preds = %clamp_value.exit135
   %1245 = sub nsw i64 0, %1243
   %1246 = sext i32 %1236 to i64
   %1247 = icmp slt i64 %1246, %1245
-  %1248 = call i64 @llvm.smin.i64(i64 %1246, i64 %1244)
+  %1248 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1246, i64 range(i64 -9223372036854775808, 9223372036854775807) %1244)
   %1249 = select i1 %1247, i64 %1245, i64 %1248
   %1250 = trunc i64 %1249 to i32
   br label %clamp_value.exit1359
@@ -3762,7 +3762,7 @@ clamp_value.exit1359:                             ; preds = %clamp_value.exit135
   %1262 = sub nsw i64 0, %1260
   %1263 = sext i32 %1253 to i64
   %1264 = icmp slt i64 %1263, %1262
-  %1265 = call i64 @llvm.smin.i64(i64 %1263, i64 %1261)
+  %1265 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1263, i64 range(i64 -9223372036854775808, 9223372036854775807) %1261)
   %1266 = select i1 %1264, i64 %1262, i64 %1265
   %1267 = trunc i64 %1266 to i32
   br label %clamp_value.exit1361
@@ -3786,7 +3786,7 @@ clamp_value.exit1361:                             ; preds = %clamp_value.exit135
   %1279 = sub nsw i64 0, %1277
   %1280 = sext i32 %1270 to i64
   %1281 = icmp slt i64 %1280, %1279
-  %1282 = call i64 @llvm.smin.i64(i64 %1280, i64 %1278)
+  %1282 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1280, i64 range(i64 -9223372036854775808, 9223372036854775807) %1278)
   %1283 = select i1 %1281, i64 %1279, i64 %1282
   %1284 = trunc i64 %1283 to i32
   br label %clamp_value.exit1363
@@ -3808,7 +3808,7 @@ clamp_value.exit1363:                             ; preds = %clamp_value.exit136
   %1294 = sub nsw i64 0, %1292
   %1295 = sext i32 %1285 to i64
   %1296 = icmp slt i64 %1295, %1294
-  %1297 = call i64 @llvm.smin.i64(i64 %1295, i64 %1293)
+  %1297 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1295, i64 range(i64 -9223372036854775808, 9223372036854775807) %1293)
   %1298 = select i1 %1296, i64 %1294, i64 %1297
   %1299 = trunc i64 %1298 to i32
   br label %clamp_value.exit1365
@@ -3830,7 +3830,7 @@ clamp_value.exit1365:                             ; preds = %clamp_value.exit136
   %1309 = sub nsw i64 0, %1307
   %1310 = sext i32 %1300 to i64
   %1311 = icmp slt i64 %1310, %1309
-  %1312 = call i64 @llvm.smin.i64(i64 %1310, i64 %1308)
+  %1312 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1310, i64 range(i64 -9223372036854775808, 9223372036854775807) %1308)
   %1313 = select i1 %1311, i64 %1309, i64 %1312
   %1314 = trunc i64 %1313 to i32
   br label %clamp_value.exit1367
@@ -3865,7 +3865,7 @@ clamp_value.exit1373.thread:                      ; preds = %clamp_value.exit136
   %1333 = sub nsw i64 0, %1331
   %1334 = sext i32 %1318 to i64
   %1335 = icmp slt i64 %1334, %1333
-  %1336 = call i64 @llvm.smin.i64(i64 %1334, i64 %1332)
+  %1336 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1334, i64 range(i64 -9223372036854775808, 9223372036854775807) %1332)
   %1337 = select i1 %1335, i64 %1333, i64 %1336
   %1338 = trunc i64 %1337 to i32
   %1339 = load i32, ptr %13, align 4
@@ -3873,19 +3873,19 @@ clamp_value.exit1373.thread:                      ; preds = %clamp_value.exit136
   %1341 = add nsw i32 %1340, %1339
   %1342 = sext i32 %1341 to i64
   %1343 = icmp slt i64 %1342, %1333
-  %1344 = call i64 @llvm.smin.i64(i64 %1342, i64 %1332)
+  %1344 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1342, i64 range(i64 -9223372036854775808, 9223372036854775807) %1332)
   %1345 = select i1 %1343, i64 %1333, i64 %1344
   %1346 = trunc i64 %1345 to i32
   %1347 = sub nsw i32 %1339, %1340
   %1348 = sext i32 %1347 to i64
   %1349 = icmp slt i64 %1348, %1333
-  %1350 = call i64 @llvm.smin.i64(i64 %1348, i64 %1332)
+  %1350 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1348, i64 range(i64 -9223372036854775808, 9223372036854775807) %1332)
   %1351 = select i1 %1349, i64 %1333, i64 %1350
   %1352 = trunc i64 %1351 to i32
   %1353 = sub nsw i32 %1316, %1317
   %1354 = sext i32 %1353 to i64
   %1355 = icmp slt i64 %1354, %1333
-  %1356 = call i64 @llvm.smin.i64(i64 %1354, i64 %1332)
+  %1356 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1354, i64 range(i64 -9223372036854775808, 9223372036854775807) %1332)
   %1357 = select i1 %1355, i64 %1333, i64 %1356
   %1358 = trunc i64 %1357 to i32
   br label %clamp_value.exit1375
@@ -3955,7 +3955,7 @@ clamp_value.exit1389.thread:                      ; preds = %clamp_value.exit137
   %1398 = sub nsw i64 0, %1396
   %1399 = sext i32 %1378 to i64
   %1400 = icmp slt i64 %1399, %1398
-  %1401 = call i64 @llvm.smin.i64(i64 %1399, i64 %1397)
+  %1401 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1399, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1402 = select i1 %1400, i64 %1398, i64 %1401
   %1403 = trunc i64 %1402 to i32
   store i32 %1403, ptr %122, align 16
@@ -3964,21 +3964,21 @@ clamp_value.exit1389.thread:                      ; preds = %clamp_value.exit137
   %1406 = add nsw i32 %1405, %1404
   %1407 = sext i32 %1406 to i64
   %1408 = icmp slt i64 %1407, %1398
-  %1409 = call i64 @llvm.smin.i64(i64 %1407, i64 %1397)
+  %1409 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1407, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1410 = select i1 %1408, i64 %1398, i64 %1409
   %1411 = trunc i64 %1410 to i32
   store i32 %1411, ptr %124, align 4
   %1412 = sub nsw i32 %1404, %1405
   %1413 = sext i32 %1412 to i64
   %1414 = icmp slt i64 %1413, %1398
-  %1415 = call i64 @llvm.smin.i64(i64 %1413, i64 %1397)
+  %1415 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1413, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1416 = select i1 %1414, i64 %1398, i64 %1415
   %1417 = trunc i64 %1416 to i32
   store i32 %1417, ptr %126, align 8
   %1418 = sub nsw i32 %1376, %1377
   %1419 = sext i32 %1418 to i64
   %1420 = icmp slt i64 %1419, %1398
-  %1421 = call i64 @llvm.smin.i64(i64 %1419, i64 %1397)
+  %1421 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1419, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1422 = select i1 %1420, i64 %1398, i64 %1421
   %1423 = trunc i64 %1422 to i32
   store i32 %1423, ptr %128, align 4
@@ -3987,7 +3987,7 @@ clamp_value.exit1389.thread:                      ; preds = %clamp_value.exit137
   %1426 = sub nsw i32 %1425, %1424
   %1427 = sext i32 %1426 to i64
   %1428 = icmp slt i64 %1427, %1398
-  %1429 = call i64 @llvm.smin.i64(i64 %1427, i64 %1397)
+  %1429 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1427, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1430 = select i1 %1428, i64 %1398, i64 %1429
   %1431 = trunc i64 %1430 to i32
   store i32 %1431, ptr %130, align 16
@@ -3996,19 +3996,19 @@ clamp_value.exit1389.thread:                      ; preds = %clamp_value.exit137
   %1434 = sub nsw i32 %1433, %1432
   %1435 = sext i32 %1434 to i64
   %1436 = icmp slt i64 %1435, %1398
-  %1437 = call i64 @llvm.smin.i64(i64 %1435, i64 %1397)
+  %1437 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1435, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1438 = select i1 %1436, i64 %1398, i64 %1437
   %1439 = trunc i64 %1438 to i32
   %1440 = add nsw i32 %1433, %1432
   %1441 = sext i32 %1440 to i64
   %1442 = icmp slt i64 %1441, %1398
-  %1443 = call i64 @llvm.smin.i64(i64 %1441, i64 %1397)
+  %1443 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1441, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1444 = select i1 %1442, i64 %1398, i64 %1443
   %1445 = trunc i64 %1444 to i32
   %1446 = add nsw i32 %1425, %1424
   %1447 = sext i32 %1446 to i64
   %1448 = icmp slt i64 %1447, %1398
-  %1449 = call i64 @llvm.smin.i64(i64 %1447, i64 %1397)
+  %1449 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1447, i64 range(i64 -9223372036854775808, 9223372036854775807) %1397)
   %1450 = select i1 %1448, i64 %1398, i64 %1449
   %1451 = trunc i64 %1450 to i32
   br label %clamp_value.exit1391
@@ -4134,7 +4134,7 @@ clamp_value.exit1391:                             ; preds = %clamp_value.exit138
   %1544 = sub nsw i64 0, %1542
   %1545 = sext i32 %1534 to i64
   %1546 = icmp slt i64 %1545, %1544
-  %1547 = call i64 @llvm.smin.i64(i64 %1545, i64 %1543)
+  %1547 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1545, i64 range(i64 -9223372036854775808, 9223372036854775807) %1543)
   %1548 = select i1 %1546, i64 %1544, i64 %1547
   %1549 = trunc i64 %1548 to i32
   br label %clamp_value.exit1393
@@ -4158,7 +4158,7 @@ clamp_value.exit1393:                             ; preds = %clamp_value.exit139
   %1561 = sub nsw i64 0, %1559
   %1562 = sext i32 %1552 to i64
   %1563 = icmp slt i64 %1562, %1561
-  %1564 = call i64 @llvm.smin.i64(i64 %1562, i64 %1560)
+  %1564 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1562, i64 range(i64 -9223372036854775808, 9223372036854775807) %1560)
   %1565 = select i1 %1563, i64 %1561, i64 %1564
   %1566 = trunc i64 %1565 to i32
   br label %clamp_value.exit1395
@@ -4182,7 +4182,7 @@ clamp_value.exit1395:                             ; preds = %clamp_value.exit139
   %1578 = sub nsw i64 0, %1576
   %1579 = sext i32 %1569 to i64
   %1580 = icmp slt i64 %1579, %1578
-  %1581 = call i64 @llvm.smin.i64(i64 %1579, i64 %1577)
+  %1581 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1579, i64 range(i64 -9223372036854775808, 9223372036854775807) %1577)
   %1582 = select i1 %1580, i64 %1578, i64 %1581
   %1583 = trunc i64 %1582 to i32
   br label %clamp_value.exit1397
@@ -4206,7 +4206,7 @@ clamp_value.exit1397:                             ; preds = %clamp_value.exit139
   %1595 = sub nsw i64 0, %1593
   %1596 = sext i32 %1586 to i64
   %1597 = icmp slt i64 %1596, %1595
-  %1598 = call i64 @llvm.smin.i64(i64 %1596, i64 %1594)
+  %1598 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1596, i64 range(i64 -9223372036854775808, 9223372036854775807) %1594)
   %1599 = select i1 %1597, i64 %1595, i64 %1598
   %1600 = trunc i64 %1599 to i32
   br label %clamp_value.exit1399
@@ -4228,7 +4228,7 @@ clamp_value.exit1399:                             ; preds = %clamp_value.exit139
   %1610 = sub nsw i64 0, %1608
   %1611 = sext i32 %1601 to i64
   %1612 = icmp slt i64 %1611, %1610
-  %1613 = call i64 @llvm.smin.i64(i64 %1611, i64 %1609)
+  %1613 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1611, i64 range(i64 -9223372036854775808, 9223372036854775807) %1609)
   %1614 = select i1 %1612, i64 %1610, i64 %1613
   %1615 = trunc i64 %1614 to i32
   br label %clamp_value.exit1401
@@ -4250,7 +4250,7 @@ clamp_value.exit1401:                             ; preds = %clamp_value.exit139
   %1625 = sub nsw i64 0, %1623
   %1626 = sext i32 %1616 to i64
   %1627 = icmp slt i64 %1626, %1625
-  %1628 = call i64 @llvm.smin.i64(i64 %1626, i64 %1624)
+  %1628 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1626, i64 range(i64 -9223372036854775808, 9223372036854775807) %1624)
   %1629 = select i1 %1627, i64 %1625, i64 %1628
   %1630 = trunc i64 %1629 to i32
   br label %clamp_value.exit1403
@@ -4272,7 +4272,7 @@ clamp_value.exit1403:                             ; preds = %clamp_value.exit140
   %1640 = sub nsw i64 0, %1638
   %1641 = sext i32 %1631 to i64
   %1642 = icmp slt i64 %1641, %1640
-  %1643 = call i64 @llvm.smin.i64(i64 %1641, i64 %1639)
+  %1643 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1641, i64 range(i64 -9223372036854775808, 9223372036854775807) %1639)
   %1644 = select i1 %1642, i64 %1640, i64 %1643
   %1645 = trunc i64 %1644 to i32
   br label %clamp_value.exit1405
@@ -4294,7 +4294,7 @@ clamp_value.exit1405:                             ; preds = %clamp_value.exit140
   %1655 = sub nsw i64 0, %1653
   %1656 = sext i32 %1646 to i64
   %1657 = icmp slt i64 %1656, %1655
-  %1658 = call i64 @llvm.smin.i64(i64 %1656, i64 %1654)
+  %1658 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1656, i64 range(i64 -9223372036854775808, 9223372036854775807) %1654)
   %1659 = select i1 %1657, i64 %1655, i64 %1658
   %1660 = trunc i64 %1659 to i32
   br label %clamp_value.exit1407
@@ -4360,7 +4360,7 @@ clamp_value.exit1407:                             ; preds = %clamp_value.exit140
   %1706 = sub nsw i64 0, %1704
   %1707 = sext i32 %1697 to i64
   %1708 = icmp slt i64 %1707, %1706
-  %1709 = call i64 @llvm.smin.i64(i64 %1707, i64 %1705)
+  %1709 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1707, i64 range(i64 -9223372036854775808, 9223372036854775807) %1705)
   %1710 = select i1 %1708, i64 %1706, i64 %1709
   %1711 = trunc i64 %1710 to i32
   br label %clamp_value.exit1409
@@ -4384,7 +4384,7 @@ clamp_value.exit1409:                             ; preds = %clamp_value.exit140
   %1723 = sub nsw i64 0, %1721
   %1724 = sext i32 %1714 to i64
   %1725 = icmp slt i64 %1724, %1723
-  %1726 = call i64 @llvm.smin.i64(i64 %1724, i64 %1722)
+  %1726 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1724, i64 range(i64 -9223372036854775808, 9223372036854775807) %1722)
   %1727 = select i1 %1725, i64 %1723, i64 %1726
   %1728 = trunc i64 %1727 to i32
   br label %clamp_value.exit1411
@@ -4408,7 +4408,7 @@ clamp_value.exit1411:                             ; preds = %clamp_value.exit140
   %1740 = sub nsw i64 0, %1738
   %1741 = sext i32 %1731 to i64
   %1742 = icmp slt i64 %1741, %1740
-  %1743 = call i64 @llvm.smin.i64(i64 %1741, i64 %1739)
+  %1743 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1741, i64 range(i64 -9223372036854775808, 9223372036854775807) %1739)
   %1744 = select i1 %1742, i64 %1740, i64 %1743
   %1745 = trunc i64 %1744 to i32
   br label %clamp_value.exit1413
@@ -4432,7 +4432,7 @@ clamp_value.exit1413:                             ; preds = %clamp_value.exit141
   %1757 = sub nsw i64 0, %1755
   %1758 = sext i32 %1748 to i64
   %1759 = icmp slt i64 %1758, %1757
-  %1760 = call i64 @llvm.smin.i64(i64 %1758, i64 %1756)
+  %1760 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1758, i64 range(i64 -9223372036854775808, 9223372036854775807) %1756)
   %1761 = select i1 %1759, i64 %1757, i64 %1760
   %1762 = trunc i64 %1761 to i32
   br label %clamp_value.exit1415
@@ -4454,7 +4454,7 @@ clamp_value.exit1415:                             ; preds = %clamp_value.exit141
   %1772 = sub nsw i64 0, %1770
   %1773 = sext i32 %1763 to i64
   %1774 = icmp slt i64 %1773, %1772
-  %1775 = call i64 @llvm.smin.i64(i64 %1773, i64 %1771)
+  %1775 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1773, i64 range(i64 -9223372036854775808, 9223372036854775807) %1771)
   %1776 = select i1 %1774, i64 %1772, i64 %1775
   %1777 = trunc i64 %1776 to i32
   br label %clamp_value.exit1417
@@ -4476,7 +4476,7 @@ clamp_value.exit1417:                             ; preds = %clamp_value.exit141
   %1787 = sub nsw i64 0, %1785
   %1788 = sext i32 %1778 to i64
   %1789 = icmp slt i64 %1788, %1787
-  %1790 = call i64 @llvm.smin.i64(i64 %1788, i64 %1786)
+  %1790 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1788, i64 range(i64 -9223372036854775808, 9223372036854775807) %1786)
   %1791 = select i1 %1789, i64 %1787, i64 %1790
   %1792 = trunc i64 %1791 to i32
   br label %clamp_value.exit1419
@@ -4498,7 +4498,7 @@ clamp_value.exit1419:                             ; preds = %clamp_value.exit141
   %1802 = sub nsw i64 0, %1800
   %1803 = sext i32 %1793 to i64
   %1804 = icmp slt i64 %1803, %1802
-  %1805 = call i64 @llvm.smin.i64(i64 %1803, i64 %1801)
+  %1805 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1803, i64 range(i64 -9223372036854775808, 9223372036854775807) %1801)
   %1806 = select i1 %1804, i64 %1802, i64 %1805
   %1807 = trunc i64 %1806 to i32
   br label %clamp_value.exit1421
@@ -4520,7 +4520,7 @@ clamp_value.exit1421:                             ; preds = %clamp_value.exit141
   %1817 = sub nsw i64 0, %1815
   %1818 = sext i32 %1808 to i64
   %1819 = icmp slt i64 %1818, %1817
-  %1820 = call i64 @llvm.smin.i64(i64 %1818, i64 %1816)
+  %1820 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1818, i64 range(i64 -9223372036854775808, 9223372036854775807) %1816)
   %1821 = select i1 %1819, i64 %1817, i64 %1820
   %1822 = trunc i64 %1821 to i32
   br label %clamp_value.exit1423
@@ -4544,7 +4544,7 @@ clamp_value.exit1423:                             ; preds = %clamp_value.exit142
   %1834 = sub nsw i64 0, %1832
   %1835 = sext i32 %1825 to i64
   %1836 = icmp slt i64 %1835, %1834
-  %1837 = call i64 @llvm.smin.i64(i64 %1835, i64 %1833)
+  %1837 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1835, i64 range(i64 -9223372036854775808, 9223372036854775807) %1833)
   %1838 = select i1 %1836, i64 %1834, i64 %1837
   %1839 = trunc i64 %1838 to i32
   br label %clamp_value.exit1425
@@ -4568,7 +4568,7 @@ clamp_value.exit1425:                             ; preds = %clamp_value.exit142
   %1851 = sub nsw i64 0, %1849
   %1852 = sext i32 %1842 to i64
   %1853 = icmp slt i64 %1852, %1851
-  %1854 = call i64 @llvm.smin.i64(i64 %1852, i64 %1850)
+  %1854 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1852, i64 range(i64 -9223372036854775808, 9223372036854775807) %1850)
   %1855 = select i1 %1853, i64 %1851, i64 %1854
   %1856 = trunc i64 %1855 to i32
   br label %clamp_value.exit1427
@@ -4592,7 +4592,7 @@ clamp_value.exit1427:                             ; preds = %clamp_value.exit142
   %1868 = sub nsw i64 0, %1866
   %1869 = sext i32 %1859 to i64
   %1870 = icmp slt i64 %1869, %1868
-  %1871 = call i64 @llvm.smin.i64(i64 %1869, i64 %1867)
+  %1871 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1869, i64 range(i64 -9223372036854775808, 9223372036854775807) %1867)
   %1872 = select i1 %1870, i64 %1868, i64 %1871
   %1873 = trunc i64 %1872 to i32
   br label %clamp_value.exit1429
@@ -4616,7 +4616,7 @@ clamp_value.exit1429:                             ; preds = %clamp_value.exit142
   %1885 = sub nsw i64 0, %1883
   %1886 = sext i32 %1876 to i64
   %1887 = icmp slt i64 %1886, %1885
-  %1888 = call i64 @llvm.smin.i64(i64 %1886, i64 %1884)
+  %1888 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1886, i64 range(i64 -9223372036854775808, 9223372036854775807) %1884)
   %1889 = select i1 %1887, i64 %1885, i64 %1888
   %1890 = trunc i64 %1889 to i32
   br label %clamp_value.exit1431
@@ -4638,7 +4638,7 @@ clamp_value.exit1431:                             ; preds = %clamp_value.exit142
   %1900 = sub nsw i64 0, %1898
   %1901 = sext i32 %1891 to i64
   %1902 = icmp slt i64 %1901, %1900
-  %1903 = call i64 @llvm.smin.i64(i64 %1901, i64 %1899)
+  %1903 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1901, i64 range(i64 -9223372036854775808, 9223372036854775807) %1899)
   %1904 = select i1 %1902, i64 %1900, i64 %1903
   %1905 = trunc i64 %1904 to i32
   br label %clamp_value.exit1433
@@ -4660,7 +4660,7 @@ clamp_value.exit1433:                             ; preds = %clamp_value.exit143
   %1915 = sub nsw i64 0, %1913
   %1916 = sext i32 %1906 to i64
   %1917 = icmp slt i64 %1916, %1915
-  %1918 = call i64 @llvm.smin.i64(i64 %1916, i64 %1914)
+  %1918 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1916, i64 range(i64 -9223372036854775808, 9223372036854775807) %1914)
   %1919 = select i1 %1917, i64 %1915, i64 %1918
   %1920 = trunc i64 %1919 to i32
   br label %clamp_value.exit1435
@@ -4682,7 +4682,7 @@ clamp_value.exit1435:                             ; preds = %clamp_value.exit143
   %1930 = sub nsw i64 0, %1928
   %1931 = sext i32 %1921 to i64
   %1932 = icmp slt i64 %1931, %1930
-  %1933 = call i64 @llvm.smin.i64(i64 %1931, i64 %1929)
+  %1933 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1931, i64 range(i64 -9223372036854775808, 9223372036854775807) %1929)
   %1934 = select i1 %1932, i64 %1930, i64 %1933
   %1935 = trunc i64 %1934 to i32
   br label %clamp_value.exit1437
@@ -4704,7 +4704,7 @@ clamp_value.exit1437:                             ; preds = %clamp_value.exit143
   %1945 = sub nsw i64 0, %1943
   %1946 = sext i32 %1936 to i64
   %1947 = icmp slt i64 %1946, %1945
-  %1948 = call i64 @llvm.smin.i64(i64 %1946, i64 %1944)
+  %1948 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1946, i64 range(i64 -9223372036854775808, 9223372036854775807) %1944)
   %1949 = select i1 %1947, i64 %1945, i64 %1948
   %1950 = trunc i64 %1949 to i32
   br label %clamp_value.exit1439
@@ -4743,7 +4743,7 @@ clamp_value.exit1445.thread:                      ; preds = %clamp_value.exit143
   %1973 = sub nsw i64 0, %1971
   %1974 = sext i32 %1954 to i64
   %1975 = icmp slt i64 %1974, %1973
-  %1976 = call i64 @llvm.smin.i64(i64 %1974, i64 %1972)
+  %1976 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1974, i64 range(i64 -9223372036854775808, 9223372036854775807) %1972)
   %1977 = select i1 %1975, i64 %1973, i64 %1976
   %1978 = trunc i64 %1977 to i32
   %1979 = load i32, ptr %13, align 4
@@ -4751,7 +4751,7 @@ clamp_value.exit1445.thread:                      ; preds = %clamp_value.exit143
   %1981 = add nsw i32 %1980, %1979
   %1982 = sext i32 %1981 to i64
   %1983 = icmp slt i64 %1982, %1973
-  %1984 = call i64 @llvm.smin.i64(i64 %1982, i64 %1972)
+  %1984 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1982, i64 range(i64 -9223372036854775808, 9223372036854775807) %1972)
   %1985 = select i1 %1983, i64 %1973, i64 %1984
   %1986 = trunc i64 %1985 to i32
   %1987 = load i32, ptr %16, align 4
@@ -4759,7 +4759,7 @@ clamp_value.exit1445.thread:                      ; preds = %clamp_value.exit143
   %1989 = add nsw i32 %1988, %1987
   %1990 = sext i32 %1989 to i64
   %1991 = icmp slt i64 %1990, %1973
-  %1992 = call i64 @llvm.smin.i64(i64 %1990, i64 %1972)
+  %1992 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1990, i64 range(i64 -9223372036854775808, 9223372036854775807) %1972)
   %1993 = select i1 %1991, i64 %1973, i64 %1992
   %1994 = trunc i64 %1993 to i32
   %1995 = load i32, ptr %19, align 4
@@ -4767,7 +4767,7 @@ clamp_value.exit1445.thread:                      ; preds = %clamp_value.exit143
   %1997 = add nsw i32 %1996, %1995
   %1998 = sext i32 %1997 to i64
   %1999 = icmp slt i64 %1998, %1973
-  %2000 = call i64 @llvm.smin.i64(i64 %1998, i64 %1972)
+  %2000 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1998, i64 range(i64 -9223372036854775808, 9223372036854775807) %1972)
   %2001 = select i1 %1999, i64 %1973, i64 %2000
   %2002 = trunc i64 %2001 to i32
   br label %clamp_value.exit1447
@@ -4832,7 +4832,7 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2035 = sub nsw i64 0, %2033
   %2036 = sext i32 %2011 to i64
   %2037 = icmp slt i64 %2036, %2035
-  %2038 = call i64 @llvm.smin.i64(i64 %2036, i64 %2034)
+  %2038 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2036, i64 range(i64 -9223372036854775808, 9223372036854775807) %2034)
   %2039 = select i1 %2037, i64 %2035, i64 %2038
   %2040 = trunc i64 %2039 to i32
   store i32 %2040, ptr %114, align 16
@@ -4841,7 +4841,7 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2043 = add nsw i32 %2041, %2042
   %2044 = sext i32 %2043 to i64
   %2045 = icmp slt i64 %2044, %2035
-  %2046 = call i64 @llvm.smin.i64(i64 %2044, i64 %2034)
+  %2046 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2044, i64 range(i64 -9223372036854775808, 9223372036854775807) %2034)
   %2047 = select i1 %2045, i64 %2035, i64 %2046
   %2048 = trunc i64 %2047 to i32
   store i32 %2048, ptr %116, align 4
@@ -4856,7 +4856,7 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2057 = sub nsw i64 0, %2055
   %2058 = sext i32 %2051 to i64
   %2059 = icmp slt i64 %2058, %2057
-  %2060 = call i64 @llvm.smin.i64(i64 %2058, i64 %2056)
+  %2060 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2058, i64 range(i64 -9223372036854775808, 9223372036854775807) %2056)
   %2061 = select i1 %2059, i64 %2057, i64 %2060
   %2062 = trunc i64 %2061 to i32
   store i32 %2062, ptr %118, align 8
@@ -4865,7 +4865,7 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2065 = add nsw i32 %2063, %2064
   %2066 = sext i32 %2065 to i64
   %2067 = icmp slt i64 %2066, %2057
-  %2068 = call i64 @llvm.smin.i64(i64 %2066, i64 %2056)
+  %2068 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2066, i64 range(i64 -9223372036854775808, 9223372036854775807) %2056)
   %2069 = select i1 %2067, i64 %2057, i64 %2068
   %2070 = trunc i64 %2069 to i32
   store i32 %2070, ptr %120, align 4
@@ -4878,14 +4878,14 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2077 = sub nsw i64 0, %2075
   %2078 = sext i32 %2071 to i64
   %2079 = icmp slt i64 %2078, %2077
-  %2080 = call i64 @llvm.smin.i64(i64 %2078, i64 %2076)
+  %2080 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2078, i64 range(i64 -9223372036854775808, 9223372036854775807) %2076)
   %2081 = select i1 %2079, i64 %2077, i64 %2080
   %2082 = trunc i64 %2081 to i32
   store i32 %2082, ptr %122, align 16
   %2083 = sub nsw i32 %2049, %2050
   %2084 = sext i32 %2083 to i64
   %2085 = icmp slt i64 %2084, %2077
-  %2086 = call i64 @llvm.smin.i64(i64 %2084, i64 %2076)
+  %2086 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2084, i64 range(i64 -9223372036854775808, 9223372036854775807) %2076)
   %2087 = select i1 %2085, i64 %2077, i64 %2086
   %2088 = trunc i64 %2087 to i32
   store i32 %2088, ptr %124, align 4
@@ -4898,14 +4898,14 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2095 = sub nsw i64 0, %2093
   %2096 = sext i32 %2089 to i64
   %2097 = icmp slt i64 %2096, %2095
-  %2098 = call i64 @llvm.smin.i64(i64 %2096, i64 %2094)
+  %2098 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2096, i64 range(i64 -9223372036854775808, 9223372036854775807) %2094)
   %2099 = select i1 %2097, i64 %2095, i64 %2098
   %2100 = trunc i64 %2099 to i32
   store i32 %2100, ptr %126, align 8
   %2101 = sub nsw i32 %2009, %2010
   %2102 = sext i32 %2101 to i64
   %2103 = icmp slt i64 %2102, %2095
-  %2104 = call i64 @llvm.smin.i64(i64 %2102, i64 %2094)
+  %2104 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2102, i64 range(i64 -9223372036854775808, 9223372036854775807) %2094)
   %2105 = select i1 %2103, i64 %2095, i64 %2104
   %2106 = trunc i64 %2105 to i32
   store i32 %2106, ptr %128, align 4
@@ -4918,14 +4918,14 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2113 = sub nsw i64 0, %2111
   %2114 = sext i32 %2107 to i64
   %2115 = icmp slt i64 %2114, %2113
-  %2116 = call i64 @llvm.smin.i64(i64 %2114, i64 %2112)
+  %2116 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2114, i64 range(i64 -9223372036854775808, 9223372036854775807) %2112)
   %2117 = select i1 %2115, i64 %2113, i64 %2116
   %2118 = trunc i64 %2117 to i32
   store i32 %2118, ptr %130, align 16
   %2119 = sub nsw i32 %2006, %2005
   %2120 = sext i32 %2119 to i64
   %2121 = icmp slt i64 %2120, %2113
-  %2122 = call i64 @llvm.smin.i64(i64 %2120, i64 %2112)
+  %2122 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2120, i64 range(i64 -9223372036854775808, 9223372036854775807) %2112)
   %2123 = select i1 %2121, i64 %2113, i64 %2122
   %2124 = trunc i64 %2123 to i32
   store i32 %2124, ptr %132, align 4
@@ -4938,14 +4938,14 @@ clamp_value.exit1469.thread:                      ; preds = %clamp_value.exit144
   %2131 = sub nsw i64 0, %2129
   %2132 = sext i32 %2125 to i64
   %2133 = icmp slt i64 %2132, %2131
-  %2134 = call i64 @llvm.smin.i64(i64 %2132, i64 %2130)
+  %2134 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2132, i64 range(i64 -9223372036854775808, 9223372036854775807) %2130)
   %2135 = select i1 %2133, i64 %2131, i64 %2134
   %2136 = trunc i64 %2135 to i32
   store i32 %2136, ptr %134, align 8
   %2137 = sub nsw i32 %1952, %1953
   %2138 = sext i32 %2137 to i64
   %2139 = icmp slt i64 %2138, %2131
-  %2140 = call i64 @llvm.smin.i64(i64 %2138, i64 %2130)
+  %2140 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2138, i64 range(i64 -9223372036854775808, 9223372036854775807) %2130)
   %2141 = select i1 %2139, i64 %2131, i64 %2140
   %2142 = trunc i64 %2141 to i32
   br label %clamp_value.exit1471
@@ -5059,7 +5059,7 @@ clamp_value.exit1471:                             ; preds = %clamp_value.exit146
   %2227 = sub nsw i64 0, %2225
   %2228 = sext i32 %2217 to i64
   %2229 = icmp slt i64 %2228, %2227
-  %2230 = call i64 @llvm.smin.i64(i64 %2228, i64 %2226)
+  %2230 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2228, i64 range(i64 -9223372036854775808, 9223372036854775807) %2226)
   %2231 = select i1 %2229, i64 %2227, i64 %2230
   %2232 = trunc i64 %2231 to i32
   br label %clamp_value.exit1473
@@ -5083,7 +5083,7 @@ clamp_value.exit1473:                             ; preds = %clamp_value.exit147
   %2244 = sub nsw i64 0, %2242
   %2245 = sext i32 %2235 to i64
   %2246 = icmp slt i64 %2245, %2244
-  %2247 = call i64 @llvm.smin.i64(i64 %2245, i64 %2243)
+  %2247 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2245, i64 range(i64 -9223372036854775808, 9223372036854775807) %2243)
   %2248 = select i1 %2246, i64 %2244, i64 %2247
   %2249 = trunc i64 %2248 to i32
   br label %clamp_value.exit1475
@@ -5107,7 +5107,7 @@ clamp_value.exit1475:                             ; preds = %clamp_value.exit147
   %2261 = sub nsw i64 0, %2259
   %2262 = sext i32 %2252 to i64
   %2263 = icmp slt i64 %2262, %2261
-  %2264 = call i64 @llvm.smin.i64(i64 %2262, i64 %2260)
+  %2264 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2262, i64 range(i64 -9223372036854775808, 9223372036854775807) %2260)
   %2265 = select i1 %2263, i64 %2261, i64 %2264
   %2266 = trunc i64 %2265 to i32
   br label %clamp_value.exit1477
@@ -5131,7 +5131,7 @@ clamp_value.exit1477:                             ; preds = %clamp_value.exit147
   %2278 = sub nsw i64 0, %2276
   %2279 = sext i32 %2269 to i64
   %2280 = icmp slt i64 %2279, %2278
-  %2281 = call i64 @llvm.smin.i64(i64 %2279, i64 %2277)
+  %2281 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2279, i64 range(i64 -9223372036854775808, 9223372036854775807) %2277)
   %2282 = select i1 %2280, i64 %2278, i64 %2281
   %2283 = trunc i64 %2282 to i32
   br label %clamp_value.exit1479
@@ -5155,7 +5155,7 @@ clamp_value.exit1479:                             ; preds = %clamp_value.exit147
   %2295 = sub nsw i64 0, %2293
   %2296 = sext i32 %2286 to i64
   %2297 = icmp slt i64 %2296, %2295
-  %2298 = call i64 @llvm.smin.i64(i64 %2296, i64 %2294)
+  %2298 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2296, i64 range(i64 -9223372036854775808, 9223372036854775807) %2294)
   %2299 = select i1 %2297, i64 %2295, i64 %2298
   %2300 = trunc i64 %2299 to i32
   br label %clamp_value.exit1481
@@ -5179,7 +5179,7 @@ clamp_value.exit1481:                             ; preds = %clamp_value.exit147
   %2312 = sub nsw i64 0, %2310
   %2313 = sext i32 %2303 to i64
   %2314 = icmp slt i64 %2313, %2312
-  %2315 = call i64 @llvm.smin.i64(i64 %2313, i64 %2311)
+  %2315 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2313, i64 range(i64 -9223372036854775808, 9223372036854775807) %2311)
   %2316 = select i1 %2314, i64 %2312, i64 %2315
   %2317 = trunc i64 %2316 to i32
   br label %clamp_value.exit1483
@@ -5203,7 +5203,7 @@ clamp_value.exit1483:                             ; preds = %clamp_value.exit148
   %2329 = sub nsw i64 0, %2327
   %2330 = sext i32 %2320 to i64
   %2331 = icmp slt i64 %2330, %2329
-  %2332 = call i64 @llvm.smin.i64(i64 %2330, i64 %2328)
+  %2332 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2330, i64 range(i64 -9223372036854775808, 9223372036854775807) %2328)
   %2333 = select i1 %2331, i64 %2329, i64 %2332
   %2334 = trunc i64 %2333 to i32
   br label %clamp_value.exit1485
@@ -5227,7 +5227,7 @@ clamp_value.exit1485:                             ; preds = %clamp_value.exit148
   %2346 = sub nsw i64 0, %2344
   %2347 = sext i32 %2337 to i64
   %2348 = icmp slt i64 %2347, %2346
-  %2349 = call i64 @llvm.smin.i64(i64 %2347, i64 %2345)
+  %2349 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2347, i64 range(i64 -9223372036854775808, 9223372036854775807) %2345)
   %2350 = select i1 %2348, i64 %2346, i64 %2349
   %2351 = trunc i64 %2350 to i32
   br label %clamp_value.exit1487
@@ -5251,7 +5251,7 @@ clamp_value.exit1487:                             ; preds = %clamp_value.exit148
   %2363 = sub nsw i64 0, %2361
   %2364 = sext i32 %2354 to i64
   %2365 = icmp slt i64 %2364, %2363
-  %2366 = call i64 @llvm.smin.i64(i64 %2364, i64 %2362)
+  %2366 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2364, i64 range(i64 -9223372036854775808, 9223372036854775807) %2362)
   %2367 = select i1 %2365, i64 %2363, i64 %2366
   %2368 = trunc i64 %2367 to i32
   br label %clamp_value.exit1489
@@ -5275,7 +5275,7 @@ clamp_value.exit1489:                             ; preds = %clamp_value.exit148
   %2380 = sub nsw i64 0, %2378
   %2381 = sext i32 %2371 to i64
   %2382 = icmp slt i64 %2381, %2380
-  %2383 = call i64 @llvm.smin.i64(i64 %2381, i64 %2379)
+  %2383 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2381, i64 range(i64 -9223372036854775808, 9223372036854775807) %2379)
   %2384 = select i1 %2382, i64 %2380, i64 %2383
   %2385 = trunc i64 %2384 to i32
   br label %clamp_value.exit1491
@@ -5299,7 +5299,7 @@ clamp_value.exit1491:                             ; preds = %clamp_value.exit148
   %2397 = sub nsw i64 0, %2395
   %2398 = sext i32 %2388 to i64
   %2399 = icmp slt i64 %2398, %2397
-  %2400 = call i64 @llvm.smin.i64(i64 %2398, i64 %2396)
+  %2400 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2398, i64 range(i64 -9223372036854775808, 9223372036854775807) %2396)
   %2401 = select i1 %2399, i64 %2397, i64 %2400
   %2402 = trunc i64 %2401 to i32
   br label %clamp_value.exit1493
@@ -5323,7 +5323,7 @@ clamp_value.exit1493:                             ; preds = %clamp_value.exit149
   %2414 = sub nsw i64 0, %2412
   %2415 = sext i32 %2405 to i64
   %2416 = icmp slt i64 %2415, %2414
-  %2417 = call i64 @llvm.smin.i64(i64 %2415, i64 %2413)
+  %2417 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2415, i64 range(i64 -9223372036854775808, 9223372036854775807) %2413)
   %2418 = select i1 %2416, i64 %2414, i64 %2417
   %2419 = trunc i64 %2418 to i32
   br label %clamp_value.exit1495
@@ -5347,7 +5347,7 @@ clamp_value.exit1495:                             ; preds = %clamp_value.exit149
   %2431 = sub nsw i64 0, %2429
   %2432 = sext i32 %2422 to i64
   %2433 = icmp slt i64 %2432, %2431
-  %2434 = call i64 @llvm.smin.i64(i64 %2432, i64 %2430)
+  %2434 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2432, i64 range(i64 -9223372036854775808, 9223372036854775807) %2430)
   %2435 = select i1 %2433, i64 %2431, i64 %2434
   %2436 = trunc i64 %2435 to i32
   br label %clamp_value.exit1497
@@ -5371,7 +5371,7 @@ clamp_value.exit1497:                             ; preds = %clamp_value.exit149
   %2448 = sub nsw i64 0, %2446
   %2449 = sext i32 %2439 to i64
   %2450 = icmp slt i64 %2449, %2448
-  %2451 = call i64 @llvm.smin.i64(i64 %2449, i64 %2447)
+  %2451 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2449, i64 range(i64 -9223372036854775808, 9223372036854775807) %2447)
   %2452 = select i1 %2450, i64 %2448, i64 %2451
   %2453 = trunc i64 %2452 to i32
   br label %clamp_value.exit1499
@@ -5395,7 +5395,7 @@ clamp_value.exit1499:                             ; preds = %clamp_value.exit149
   %2465 = sub nsw i64 0, %2463
   %2466 = sext i32 %2456 to i64
   %2467 = icmp slt i64 %2466, %2465
-  %2468 = call i64 @llvm.smin.i64(i64 %2466, i64 %2464)
+  %2468 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2466, i64 range(i64 -9223372036854775808, 9223372036854775807) %2464)
   %2469 = select i1 %2467, i64 %2465, i64 %2468
   %2470 = trunc i64 %2469 to i32
   br label %clamp_value.exit1501
@@ -5419,7 +5419,7 @@ clamp_value.exit1501:                             ; preds = %clamp_value.exit149
   %2482 = sub nsw i64 0, %2480
   %2483 = sext i32 %2473 to i64
   %2484 = icmp slt i64 %2483, %2482
-  %2485 = call i64 @llvm.smin.i64(i64 %2483, i64 %2481)
+  %2485 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2483, i64 range(i64 -9223372036854775808, 9223372036854775807) %2481)
   %2486 = select i1 %2484, i64 %2482, i64 %2485
   %2487 = trunc i64 %2486 to i32
   br label %clamp_value.exit1503
@@ -5441,7 +5441,7 @@ clamp_value.exit1503:                             ; preds = %clamp_value.exit150
   %2497 = sub nsw i64 0, %2495
   %2498 = sext i32 %2488 to i64
   %2499 = icmp slt i64 %2498, %2497
-  %2500 = call i64 @llvm.smin.i64(i64 %2498, i64 %2496)
+  %2500 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2498, i64 range(i64 -9223372036854775808, 9223372036854775807) %2496)
   %2501 = select i1 %2499, i64 %2497, i64 %2500
   %2502 = trunc i64 %2501 to i32
   br label %clamp_value.exit1505
@@ -5463,7 +5463,7 @@ clamp_value.exit1505:                             ; preds = %clamp_value.exit150
   %2512 = sub nsw i64 0, %2510
   %2513 = sext i32 %2503 to i64
   %2514 = icmp slt i64 %2513, %2512
-  %2515 = call i64 @llvm.smin.i64(i64 %2513, i64 %2511)
+  %2515 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2513, i64 range(i64 -9223372036854775808, 9223372036854775807) %2511)
   %2516 = select i1 %2514, i64 %2512, i64 %2515
   %2517 = trunc i64 %2516 to i32
   br label %clamp_value.exit1507
@@ -5485,7 +5485,7 @@ clamp_value.exit1507:                             ; preds = %clamp_value.exit150
   %2527 = sub nsw i64 0, %2525
   %2528 = sext i32 %2518 to i64
   %2529 = icmp slt i64 %2528, %2527
-  %2530 = call i64 @llvm.smin.i64(i64 %2528, i64 %2526)
+  %2530 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2528, i64 range(i64 -9223372036854775808, 9223372036854775807) %2526)
   %2531 = select i1 %2529, i64 %2527, i64 %2530
   %2532 = trunc i64 %2531 to i32
   br label %clamp_value.exit1509
@@ -5507,7 +5507,7 @@ clamp_value.exit1509:                             ; preds = %clamp_value.exit150
   %2542 = sub nsw i64 0, %2540
   %2543 = sext i32 %2533 to i64
   %2544 = icmp slt i64 %2543, %2542
-  %2545 = call i64 @llvm.smin.i64(i64 %2543, i64 %2541)
+  %2545 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2543, i64 range(i64 -9223372036854775808, 9223372036854775807) %2541)
   %2546 = select i1 %2544, i64 %2542, i64 %2545
   %2547 = trunc i64 %2546 to i32
   br label %clamp_value.exit1511
@@ -5529,7 +5529,7 @@ clamp_value.exit1511:                             ; preds = %clamp_value.exit150
   %2557 = sub nsw i64 0, %2555
   %2558 = sext i32 %2548 to i64
   %2559 = icmp slt i64 %2558, %2557
-  %2560 = call i64 @llvm.smin.i64(i64 %2558, i64 %2556)
+  %2560 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2558, i64 range(i64 -9223372036854775808, 9223372036854775807) %2556)
   %2561 = select i1 %2559, i64 %2557, i64 %2560
   %2562 = trunc i64 %2561 to i32
   br label %clamp_value.exit1513
@@ -5551,7 +5551,7 @@ clamp_value.exit1513:                             ; preds = %clamp_value.exit151
   %2572 = sub nsw i64 0, %2570
   %2573 = sext i32 %2563 to i64
   %2574 = icmp slt i64 %2573, %2572
-  %2575 = call i64 @llvm.smin.i64(i64 %2573, i64 %2571)
+  %2575 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2573, i64 range(i64 -9223372036854775808, 9223372036854775807) %2571)
   %2576 = select i1 %2574, i64 %2572, i64 %2575
   %2577 = trunc i64 %2576 to i32
   br label %clamp_value.exit1515
@@ -5573,7 +5573,7 @@ clamp_value.exit1515:                             ; preds = %clamp_value.exit151
   %2587 = sub nsw i64 0, %2585
   %2588 = sext i32 %2578 to i64
   %2589 = icmp slt i64 %2588, %2587
-  %2590 = call i64 @llvm.smin.i64(i64 %2588, i64 %2586)
+  %2590 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2588, i64 range(i64 -9223372036854775808, 9223372036854775807) %2586)
   %2591 = select i1 %2589, i64 %2587, i64 %2590
   %2592 = trunc i64 %2591 to i32
   br label %clamp_value.exit1517
@@ -5595,7 +5595,7 @@ clamp_value.exit1517:                             ; preds = %clamp_value.exit151
   %2602 = sub nsw i64 0, %2600
   %2603 = sext i32 %2593 to i64
   %2604 = icmp slt i64 %2603, %2602
-  %2605 = call i64 @llvm.smin.i64(i64 %2603, i64 %2601)
+  %2605 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2603, i64 range(i64 -9223372036854775808, 9223372036854775807) %2601)
   %2606 = select i1 %2604, i64 %2602, i64 %2605
   %2607 = trunc i64 %2606 to i32
   br label %clamp_value.exit1519
@@ -5617,7 +5617,7 @@ clamp_value.exit1519:                             ; preds = %clamp_value.exit151
   %2617 = sub nsw i64 0, %2615
   %2618 = sext i32 %2608 to i64
   %2619 = icmp slt i64 %2618, %2617
-  %2620 = call i64 @llvm.smin.i64(i64 %2618, i64 %2616)
+  %2620 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2618, i64 range(i64 -9223372036854775808, 9223372036854775807) %2616)
   %2621 = select i1 %2619, i64 %2617, i64 %2620
   %2622 = trunc i64 %2621 to i32
   br label %clamp_value.exit1521
@@ -5639,7 +5639,7 @@ clamp_value.exit1521:                             ; preds = %clamp_value.exit151
   %2632 = sub nsw i64 0, %2630
   %2633 = sext i32 %2623 to i64
   %2634 = icmp slt i64 %2633, %2632
-  %2635 = call i64 @llvm.smin.i64(i64 %2633, i64 %2631)
+  %2635 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2633, i64 range(i64 -9223372036854775808, 9223372036854775807) %2631)
   %2636 = select i1 %2634, i64 %2632, i64 %2635
   %2637 = trunc i64 %2636 to i32
   br label %clamp_value.exit1523
@@ -5661,7 +5661,7 @@ clamp_value.exit1523:                             ; preds = %clamp_value.exit152
   %2647 = sub nsw i64 0, %2645
   %2648 = sext i32 %2638 to i64
   %2649 = icmp slt i64 %2648, %2647
-  %2650 = call i64 @llvm.smin.i64(i64 %2648, i64 %2646)
+  %2650 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2648, i64 range(i64 -9223372036854775808, 9223372036854775807) %2646)
   %2651 = select i1 %2649, i64 %2647, i64 %2650
   %2652 = trunc i64 %2651 to i32
   br label %clamp_value.exit1525
@@ -5683,7 +5683,7 @@ clamp_value.exit1525:                             ; preds = %clamp_value.exit152
   %2662 = sub nsw i64 0, %2660
   %2663 = sext i32 %2653 to i64
   %2664 = icmp slt i64 %2663, %2662
-  %2665 = call i64 @llvm.smin.i64(i64 %2663, i64 %2661)
+  %2665 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2663, i64 range(i64 -9223372036854775808, 9223372036854775807) %2661)
   %2666 = select i1 %2664, i64 %2662, i64 %2665
   %2667 = trunc i64 %2666 to i32
   br label %clamp_value.exit1527
@@ -5705,7 +5705,7 @@ clamp_value.exit1527:                             ; preds = %clamp_value.exit152
   %2677 = sub nsw i64 0, %2675
   %2678 = sext i32 %2668 to i64
   %2679 = icmp slt i64 %2678, %2677
-  %2680 = call i64 @llvm.smin.i64(i64 %2678, i64 %2676)
+  %2680 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2678, i64 range(i64 -9223372036854775808, 9223372036854775807) %2676)
   %2681 = select i1 %2679, i64 %2677, i64 %2680
   %2682 = trunc i64 %2681 to i32
   br label %clamp_value.exit1529
@@ -5727,7 +5727,7 @@ clamp_value.exit1529:                             ; preds = %clamp_value.exit152
   %2692 = sub nsw i64 0, %2690
   %2693 = sext i32 %2683 to i64
   %2694 = icmp slt i64 %2693, %2692
-  %2695 = call i64 @llvm.smin.i64(i64 %2693, i64 %2691)
+  %2695 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2693, i64 range(i64 -9223372036854775808, 9223372036854775807) %2691)
   %2696 = select i1 %2694, i64 %2692, i64 %2695
   %2697 = trunc i64 %2696 to i32
   br label %clamp_value.exit1531
@@ -5749,7 +5749,7 @@ clamp_value.exit1531:                             ; preds = %clamp_value.exit152
   %2707 = sub nsw i64 0, %2705
   %2708 = sext i32 %2698 to i64
   %2709 = icmp slt i64 %2708, %2707
-  %2710 = call i64 @llvm.smin.i64(i64 %2708, i64 %2706)
+  %2710 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2708, i64 range(i64 -9223372036854775808, 9223372036854775807) %2706)
   %2711 = select i1 %2709, i64 %2707, i64 %2710
   %2712 = trunc i64 %2711 to i32
   br label %clamp_value.exit1533
@@ -5771,7 +5771,7 @@ clamp_value.exit1533:                             ; preds = %clamp_value.exit153
   %2722 = sub nsw i64 0, %2720
   %2723 = sext i32 %2713 to i64
   %2724 = icmp slt i64 %2723, %2722
-  %2725 = call i64 @llvm.smin.i64(i64 %2723, i64 %2721)
+  %2725 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2723, i64 range(i64 -9223372036854775808, 9223372036854775807) %2721)
   %2726 = select i1 %2724, i64 %2722, i64 %2725
   %2727 = trunc i64 %2726 to i32
   br label %clamp_value.exit1535
@@ -6036,7 +6036,7 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef %1, i8 noundef signex
   %151 = sub nsw i64 0, %149
   %152 = sext i32 %141 to i64
   %153 = icmp slt i64 %152, %151
-  %154 = call i64 @llvm.smin.i64(i64 %152, i64 %150)
+  %154 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %152, i64 range(i64 -9223372036854775808, 9223372036854775807) %150)
   %155 = select i1 %153, i64 %151, i64 %154
   %156 = trunc i64 %155 to i32
   br label %clamp_value.exit
@@ -6060,7 +6060,7 @@ clamp_value.exit:                                 ; preds = %4, %145
   %168 = sub nsw i64 0, %166
   %169 = sext i32 %159 to i64
   %170 = icmp slt i64 %169, %168
-  %171 = call i64 @llvm.smin.i64(i64 %169, i64 %167)
+  %171 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %169, i64 range(i64 -9223372036854775808, 9223372036854775807) %167)
   %172 = select i1 %170, i64 %168, i64 %171
   %173 = trunc i64 %172 to i32
   br label %clamp_value.exit268
@@ -6084,7 +6084,7 @@ clamp_value.exit268:                              ; preds = %clamp_value.exit, %
   %185 = sub nsw i64 0, %183
   %186 = sext i32 %176 to i64
   %187 = icmp slt i64 %186, %185
-  %188 = call i64 @llvm.smin.i64(i64 %186, i64 %184)
+  %188 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %186, i64 range(i64 -9223372036854775808, 9223372036854775807) %184)
   %189 = select i1 %187, i64 %185, i64 %188
   %190 = trunc i64 %189 to i32
   br label %clamp_value.exit270
@@ -6108,7 +6108,7 @@ clamp_value.exit270:                              ; preds = %clamp_value.exit268
   %202 = sub nsw i64 0, %200
   %203 = sext i32 %193 to i64
   %204 = icmp slt i64 %203, %202
-  %205 = call i64 @llvm.smin.i64(i64 %203, i64 %201)
+  %205 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %203, i64 range(i64 -9223372036854775808, 9223372036854775807) %201)
   %206 = select i1 %204, i64 %202, i64 %205
   %207 = trunc i64 %206 to i32
   br label %clamp_value.exit272
@@ -6130,7 +6130,7 @@ clamp_value.exit272:                              ; preds = %clamp_value.exit270
   %217 = sub nsw i64 0, %215
   %218 = sext i32 %208 to i64
   %219 = icmp slt i64 %218, %217
-  %220 = call i64 @llvm.smin.i64(i64 %218, i64 %216)
+  %220 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %218, i64 range(i64 -9223372036854775808, 9223372036854775807) %216)
   %221 = select i1 %219, i64 %217, i64 %220
   %222 = trunc i64 %221 to i32
   br label %clamp_value.exit274
@@ -6152,7 +6152,7 @@ clamp_value.exit274:                              ; preds = %clamp_value.exit272
   %232 = sub nsw i64 0, %230
   %233 = sext i32 %223 to i64
   %234 = icmp slt i64 %233, %232
-  %235 = call i64 @llvm.smin.i64(i64 %233, i64 %231)
+  %235 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %233, i64 range(i64 -9223372036854775808, 9223372036854775807) %231)
   %236 = select i1 %234, i64 %232, i64 %235
   %237 = trunc i64 %236 to i32
   br label %clamp_value.exit276
@@ -6174,7 +6174,7 @@ clamp_value.exit276:                              ; preds = %clamp_value.exit274
   %247 = sub nsw i64 0, %245
   %248 = sext i32 %238 to i64
   %249 = icmp slt i64 %248, %247
-  %250 = call i64 @llvm.smin.i64(i64 %248, i64 %246)
+  %250 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %248, i64 range(i64 -9223372036854775808, 9223372036854775807) %246)
   %251 = select i1 %249, i64 %247, i64 %250
   %252 = trunc i64 %251 to i32
   br label %clamp_value.exit278
@@ -6196,7 +6196,7 @@ clamp_value.exit278:                              ; preds = %clamp_value.exit276
   %262 = sub nsw i64 0, %260
   %263 = sext i32 %253 to i64
   %264 = icmp slt i64 %263, %262
-  %265 = call i64 @llvm.smin.i64(i64 %263, i64 %261)
+  %265 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %263, i64 range(i64 -9223372036854775808, 9223372036854775807) %261)
   %266 = select i1 %264, i64 %262, i64 %265
   %267 = trunc i64 %266 to i32
   br label %clamp_value.exit280
@@ -6280,7 +6280,7 @@ clamp_value.exit280:                              ; preds = %clamp_value.exit278
   %329 = sub nsw i64 0, %327
   %330 = sext i32 %319 to i64
   %331 = icmp slt i64 %330, %329
-  %332 = call i64 @llvm.smin.i64(i64 %330, i64 %328)
+  %332 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %330, i64 range(i64 -9223372036854775808, 9223372036854775807) %328)
   %333 = select i1 %331, i64 %329, i64 %332
   %334 = trunc i64 %333 to i32
   br label %clamp_value.exit282
@@ -6304,7 +6304,7 @@ clamp_value.exit282:                              ; preds = %clamp_value.exit280
   %346 = sub nsw i64 0, %344
   %347 = sext i32 %337 to i64
   %348 = icmp slt i64 %347, %346
-  %349 = call i64 @llvm.smin.i64(i64 %347, i64 %345)
+  %349 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %347, i64 range(i64 -9223372036854775808, 9223372036854775807) %345)
   %350 = select i1 %348, i64 %346, i64 %349
   %351 = trunc i64 %350 to i32
   br label %clamp_value.exit284
@@ -6326,7 +6326,7 @@ clamp_value.exit284:                              ; preds = %clamp_value.exit282
   %361 = sub nsw i64 0, %359
   %362 = sext i32 %352 to i64
   %363 = icmp slt i64 %362, %361
-  %364 = call i64 @llvm.smin.i64(i64 %362, i64 %360)
+  %364 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %362, i64 range(i64 -9223372036854775808, 9223372036854775807) %360)
   %365 = select i1 %363, i64 %361, i64 %364
   %366 = trunc i64 %365 to i32
   br label %clamp_value.exit286
@@ -6348,7 +6348,7 @@ clamp_value.exit286:                              ; preds = %clamp_value.exit284
   %376 = sub nsw i64 0, %374
   %377 = sext i32 %367 to i64
   %378 = icmp slt i64 %377, %376
-  %379 = call i64 @llvm.smin.i64(i64 %377, i64 %375)
+  %379 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %377, i64 range(i64 -9223372036854775808, 9223372036854775807) %375)
   %380 = select i1 %378, i64 %376, i64 %379
   %381 = trunc i64 %380 to i32
   br label %clamp_value.exit288
@@ -6372,7 +6372,7 @@ clamp_value.exit288:                              ; preds = %clamp_value.exit286
   %393 = sub nsw i64 0, %391
   %394 = sext i32 %384 to i64
   %395 = icmp slt i64 %394, %393
-  %396 = call i64 @llvm.smin.i64(i64 %394, i64 %392)
+  %396 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %394, i64 range(i64 -9223372036854775808, 9223372036854775807) %392)
   %397 = select i1 %395, i64 %393, i64 %396
   %398 = trunc i64 %397 to i32
   br label %clamp_value.exit290
@@ -6396,7 +6396,7 @@ clamp_value.exit290:                              ; preds = %clamp_value.exit288
   %410 = sub nsw i64 0, %408
   %411 = sext i32 %401 to i64
   %412 = icmp slt i64 %411, %410
-  %413 = call i64 @llvm.smin.i64(i64 %411, i64 %409)
+  %413 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %411, i64 range(i64 -9223372036854775808, 9223372036854775807) %409)
   %414 = select i1 %412, i64 %410, i64 %413
   %415 = trunc i64 %414 to i32
   br label %clamp_value.exit292
@@ -6418,7 +6418,7 @@ clamp_value.exit292:                              ; preds = %clamp_value.exit290
   %425 = sub nsw i64 0, %423
   %426 = sext i32 %416 to i64
   %427 = icmp slt i64 %426, %425
-  %428 = call i64 @llvm.smin.i64(i64 %426, i64 %424)
+  %428 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %426, i64 range(i64 -9223372036854775808, 9223372036854775807) %424)
   %429 = select i1 %427, i64 %425, i64 %428
   %430 = trunc i64 %429 to i32
   br label %clamp_value.exit294
@@ -6440,7 +6440,7 @@ clamp_value.exit294:                              ; preds = %clamp_value.exit292
   %440 = sub nsw i64 0, %438
   %441 = sext i32 %431 to i64
   %442 = icmp slt i64 %441, %440
-  %443 = call i64 @llvm.smin.i64(i64 %441, i64 %439)
+  %443 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %441, i64 range(i64 -9223372036854775808, 9223372036854775807) %439)
   %444 = select i1 %442, i64 %440, i64 %443
   %445 = trunc i64 %444 to i32
   br label %clamp_value.exit296
@@ -6832,7 +6832,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef %1, i8 noundef signe
   %275 = sub nsw i64 0, %273
   %276 = sext i32 %265 to i64
   %277 = icmp slt i64 %276, %275
-  %278 = call i64 @llvm.smin.i64(i64 %276, i64 %274)
+  %278 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %276, i64 range(i64 -9223372036854775808, 9223372036854775807) %274)
   %279 = select i1 %277, i64 %275, i64 %278
   %280 = trunc i64 %279 to i32
   br label %clamp_value.exit
@@ -6856,7 +6856,7 @@ clamp_value.exit:                                 ; preds = %4, %269
   %292 = sub nsw i64 0, %290
   %293 = sext i32 %283 to i64
   %294 = icmp slt i64 %293, %292
-  %295 = call i64 @llvm.smin.i64(i64 %293, i64 %291)
+  %295 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %293, i64 range(i64 -9223372036854775808, 9223372036854775807) %291)
   %296 = select i1 %294, i64 %292, i64 %295
   %297 = trunc i64 %296 to i32
   br label %clamp_value.exit650
@@ -6880,7 +6880,7 @@ clamp_value.exit650:                              ; preds = %clamp_value.exit, %
   %309 = sub nsw i64 0, %307
   %310 = sext i32 %300 to i64
   %311 = icmp slt i64 %310, %309
-  %312 = call i64 @llvm.smin.i64(i64 %310, i64 %308)
+  %312 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %310, i64 range(i64 -9223372036854775808, 9223372036854775807) %308)
   %313 = select i1 %311, i64 %309, i64 %312
   %314 = trunc i64 %313 to i32
   br label %clamp_value.exit652
@@ -6904,7 +6904,7 @@ clamp_value.exit652:                              ; preds = %clamp_value.exit650
   %326 = sub nsw i64 0, %324
   %327 = sext i32 %317 to i64
   %328 = icmp slt i64 %327, %326
-  %329 = call i64 @llvm.smin.i64(i64 %327, i64 %325)
+  %329 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %327, i64 range(i64 -9223372036854775808, 9223372036854775807) %325)
   %330 = select i1 %328, i64 %326, i64 %329
   %331 = trunc i64 %330 to i32
   br label %clamp_value.exit654
@@ -6928,7 +6928,7 @@ clamp_value.exit654:                              ; preds = %clamp_value.exit652
   %343 = sub nsw i64 0, %341
   %344 = sext i32 %334 to i64
   %345 = icmp slt i64 %344, %343
-  %346 = call i64 @llvm.smin.i64(i64 %344, i64 %342)
+  %346 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %344, i64 range(i64 -9223372036854775808, 9223372036854775807) %342)
   %347 = select i1 %345, i64 %343, i64 %346
   %348 = trunc i64 %347 to i32
   br label %clamp_value.exit656
@@ -6952,7 +6952,7 @@ clamp_value.exit656:                              ; preds = %clamp_value.exit654
   %360 = sub nsw i64 0, %358
   %361 = sext i32 %351 to i64
   %362 = icmp slt i64 %361, %360
-  %363 = call i64 @llvm.smin.i64(i64 %361, i64 %359)
+  %363 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %361, i64 range(i64 -9223372036854775808, 9223372036854775807) %359)
   %364 = select i1 %362, i64 %360, i64 %363
   %365 = trunc i64 %364 to i32
   br label %clamp_value.exit658
@@ -6976,7 +6976,7 @@ clamp_value.exit658:                              ; preds = %clamp_value.exit656
   %377 = sub nsw i64 0, %375
   %378 = sext i32 %368 to i64
   %379 = icmp slt i64 %378, %377
-  %380 = call i64 @llvm.smin.i64(i64 %378, i64 %376)
+  %380 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %378, i64 range(i64 -9223372036854775808, 9223372036854775807) %376)
   %381 = select i1 %379, i64 %377, i64 %380
   %382 = trunc i64 %381 to i32
   br label %clamp_value.exit660
@@ -7000,7 +7000,7 @@ clamp_value.exit660:                              ; preds = %clamp_value.exit658
   %394 = sub nsw i64 0, %392
   %395 = sext i32 %385 to i64
   %396 = icmp slt i64 %395, %394
-  %397 = call i64 @llvm.smin.i64(i64 %395, i64 %393)
+  %397 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %395, i64 range(i64 -9223372036854775808, 9223372036854775807) %393)
   %398 = select i1 %396, i64 %394, i64 %397
   %399 = trunc i64 %398 to i32
   br label %clamp_value.exit662
@@ -7022,7 +7022,7 @@ clamp_value.exit662:                              ; preds = %clamp_value.exit660
   %409 = sub nsw i64 0, %407
   %410 = sext i32 %400 to i64
   %411 = icmp slt i64 %410, %409
-  %412 = call i64 @llvm.smin.i64(i64 %410, i64 %408)
+  %412 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %410, i64 range(i64 -9223372036854775808, 9223372036854775807) %408)
   %413 = select i1 %411, i64 %409, i64 %412
   %414 = trunc i64 %413 to i32
   br label %clamp_value.exit664
@@ -7044,7 +7044,7 @@ clamp_value.exit664:                              ; preds = %clamp_value.exit662
   %424 = sub nsw i64 0, %422
   %425 = sext i32 %415 to i64
   %426 = icmp slt i64 %425, %424
-  %427 = call i64 @llvm.smin.i64(i64 %425, i64 %423)
+  %427 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %425, i64 range(i64 -9223372036854775808, 9223372036854775807) %423)
   %428 = select i1 %426, i64 %424, i64 %427
   %429 = trunc i64 %428 to i32
   br label %clamp_value.exit666
@@ -7066,7 +7066,7 @@ clamp_value.exit666:                              ; preds = %clamp_value.exit664
   %439 = sub nsw i64 0, %437
   %440 = sext i32 %430 to i64
   %441 = icmp slt i64 %440, %439
-  %442 = call i64 @llvm.smin.i64(i64 %440, i64 %438)
+  %442 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %440, i64 range(i64 -9223372036854775808, 9223372036854775807) %438)
   %443 = select i1 %441, i64 %439, i64 %442
   %444 = trunc i64 %443 to i32
   br label %clamp_value.exit668
@@ -7088,7 +7088,7 @@ clamp_value.exit668:                              ; preds = %clamp_value.exit666
   %454 = sub nsw i64 0, %452
   %455 = sext i32 %445 to i64
   %456 = icmp slt i64 %455, %454
-  %457 = call i64 @llvm.smin.i64(i64 %455, i64 %453)
+  %457 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %455, i64 range(i64 -9223372036854775808, 9223372036854775807) %453)
   %458 = select i1 %456, i64 %454, i64 %457
   %459 = trunc i64 %458 to i32
   br label %clamp_value.exit670
@@ -7110,7 +7110,7 @@ clamp_value.exit670:                              ; preds = %clamp_value.exit668
   %469 = sub nsw i64 0, %467
   %470 = sext i32 %460 to i64
   %471 = icmp slt i64 %470, %469
-  %472 = call i64 @llvm.smin.i64(i64 %470, i64 %468)
+  %472 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %470, i64 range(i64 -9223372036854775808, 9223372036854775807) %468)
   %473 = select i1 %471, i64 %469, i64 %472
   %474 = trunc i64 %473 to i32
   br label %clamp_value.exit672
@@ -7132,7 +7132,7 @@ clamp_value.exit672:                              ; preds = %clamp_value.exit670
   %484 = sub nsw i64 0, %482
   %485 = sext i32 %475 to i64
   %486 = icmp slt i64 %485, %484
-  %487 = call i64 @llvm.smin.i64(i64 %485, i64 %483)
+  %487 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %485, i64 range(i64 -9223372036854775808, 9223372036854775807) %483)
   %488 = select i1 %486, i64 %484, i64 %487
   %489 = trunc i64 %488 to i32
   br label %clamp_value.exit674
@@ -7154,7 +7154,7 @@ clamp_value.exit674:                              ; preds = %clamp_value.exit672
   %499 = sub nsw i64 0, %497
   %500 = sext i32 %490 to i64
   %501 = icmp slt i64 %500, %499
-  %502 = call i64 @llvm.smin.i64(i64 %500, i64 %498)
+  %502 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %500, i64 range(i64 -9223372036854775808, 9223372036854775807) %498)
   %503 = select i1 %501, i64 %499, i64 %502
   %504 = trunc i64 %503 to i32
   br label %clamp_value.exit676
@@ -7176,7 +7176,7 @@ clamp_value.exit676:                              ; preds = %clamp_value.exit674
   %514 = sub nsw i64 0, %512
   %515 = sext i32 %505 to i64
   %516 = icmp slt i64 %515, %514
-  %517 = call i64 @llvm.smin.i64(i64 %515, i64 %513)
+  %517 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %515, i64 range(i64 -9223372036854775808, 9223372036854775807) %513)
   %518 = select i1 %516, i64 %514, i64 %517
   %519 = trunc i64 %518 to i32
   br label %clamp_value.exit678
@@ -7314,7 +7314,7 @@ clamp_value.exit678:                              ; preds = %clamp_value.exit676
   %627 = sub nsw i64 0, %625
   %628 = sext i32 %617 to i64
   %629 = icmp slt i64 %628, %627
-  %630 = call i64 @llvm.smin.i64(i64 %628, i64 %626)
+  %630 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %628, i64 range(i64 -9223372036854775808, 9223372036854775807) %626)
   %631 = select i1 %629, i64 %627, i64 %630
   %632 = trunc i64 %631 to i32
   br label %clamp_value.exit680
@@ -7338,7 +7338,7 @@ clamp_value.exit680:                              ; preds = %clamp_value.exit678
   %644 = sub nsw i64 0, %642
   %645 = sext i32 %635 to i64
   %646 = icmp slt i64 %645, %644
-  %647 = call i64 @llvm.smin.i64(i64 %645, i64 %643)
+  %647 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %645, i64 range(i64 -9223372036854775808, 9223372036854775807) %643)
   %648 = select i1 %646, i64 %644, i64 %647
   %649 = trunc i64 %648 to i32
   br label %clamp_value.exit682
@@ -7362,7 +7362,7 @@ clamp_value.exit682:                              ; preds = %clamp_value.exit680
   %661 = sub nsw i64 0, %659
   %662 = sext i32 %652 to i64
   %663 = icmp slt i64 %662, %661
-  %664 = call i64 @llvm.smin.i64(i64 %662, i64 %660)
+  %664 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %662, i64 range(i64 -9223372036854775808, 9223372036854775807) %660)
   %665 = select i1 %663, i64 %661, i64 %664
   %666 = trunc i64 %665 to i32
   br label %clamp_value.exit684
@@ -7386,7 +7386,7 @@ clamp_value.exit684:                              ; preds = %clamp_value.exit682
   %678 = sub nsw i64 0, %676
   %679 = sext i32 %669 to i64
   %680 = icmp slt i64 %679, %678
-  %681 = call i64 @llvm.smin.i64(i64 %679, i64 %677)
+  %681 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %679, i64 range(i64 -9223372036854775808, 9223372036854775807) %677)
   %682 = select i1 %680, i64 %678, i64 %681
   %683 = trunc i64 %682 to i32
   br label %clamp_value.exit686
@@ -7408,7 +7408,7 @@ clamp_value.exit686:                              ; preds = %clamp_value.exit684
   %693 = sub nsw i64 0, %691
   %694 = sext i32 %684 to i64
   %695 = icmp slt i64 %694, %693
-  %696 = call i64 @llvm.smin.i64(i64 %694, i64 %692)
+  %696 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %694, i64 range(i64 -9223372036854775808, 9223372036854775807) %692)
   %697 = select i1 %695, i64 %693, i64 %696
   %698 = trunc i64 %697 to i32
   br label %clamp_value.exit688
@@ -7430,7 +7430,7 @@ clamp_value.exit688:                              ; preds = %clamp_value.exit686
   %708 = sub nsw i64 0, %706
   %709 = sext i32 %699 to i64
   %710 = icmp slt i64 %709, %708
-  %711 = call i64 @llvm.smin.i64(i64 %709, i64 %707)
+  %711 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %709, i64 range(i64 -9223372036854775808, 9223372036854775807) %707)
   %712 = select i1 %710, i64 %708, i64 %711
   %713 = trunc i64 %712 to i32
   br label %clamp_value.exit690
@@ -7452,7 +7452,7 @@ clamp_value.exit690:                              ; preds = %clamp_value.exit688
   %723 = sub nsw i64 0, %721
   %724 = sext i32 %714 to i64
   %725 = icmp slt i64 %724, %723
-  %726 = call i64 @llvm.smin.i64(i64 %724, i64 %722)
+  %726 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %724, i64 range(i64 -9223372036854775808, 9223372036854775807) %722)
   %727 = select i1 %725, i64 %723, i64 %726
   %728 = trunc i64 %727 to i32
   br label %clamp_value.exit692
@@ -7474,7 +7474,7 @@ clamp_value.exit692:                              ; preds = %clamp_value.exit690
   %738 = sub nsw i64 0, %736
   %739 = sext i32 %729 to i64
   %740 = icmp slt i64 %739, %738
-  %741 = call i64 @llvm.smin.i64(i64 %739, i64 %737)
+  %741 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %739, i64 range(i64 -9223372036854775808, 9223372036854775807) %737)
   %742 = select i1 %740, i64 %738, i64 %741
   %743 = trunc i64 %742 to i32
   br label %clamp_value.exit694
@@ -7498,7 +7498,7 @@ clamp_value.exit694:                              ; preds = %clamp_value.exit692
   %755 = sub nsw i64 0, %753
   %756 = sext i32 %746 to i64
   %757 = icmp slt i64 %756, %755
-  %758 = call i64 @llvm.smin.i64(i64 %756, i64 %754)
+  %758 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %756, i64 range(i64 -9223372036854775808, 9223372036854775807) %754)
   %759 = select i1 %757, i64 %755, i64 %758
   %760 = trunc i64 %759 to i32
   br label %clamp_value.exit696
@@ -7522,7 +7522,7 @@ clamp_value.exit696:                              ; preds = %clamp_value.exit694
   %772 = sub nsw i64 0, %770
   %773 = sext i32 %763 to i64
   %774 = icmp slt i64 %773, %772
-  %775 = call i64 @llvm.smin.i64(i64 %773, i64 %771)
+  %775 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %773, i64 range(i64 -9223372036854775808, 9223372036854775807) %771)
   %776 = select i1 %774, i64 %772, i64 %775
   %777 = trunc i64 %776 to i32
   br label %clamp_value.exit698
@@ -7546,7 +7546,7 @@ clamp_value.exit698:                              ; preds = %clamp_value.exit696
   %789 = sub nsw i64 0, %787
   %790 = sext i32 %780 to i64
   %791 = icmp slt i64 %790, %789
-  %792 = call i64 @llvm.smin.i64(i64 %790, i64 %788)
+  %792 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %790, i64 range(i64 -9223372036854775808, 9223372036854775807) %788)
   %793 = select i1 %791, i64 %789, i64 %792
   %794 = trunc i64 %793 to i32
   br label %clamp_value.exit700
@@ -7570,7 +7570,7 @@ clamp_value.exit700:                              ; preds = %clamp_value.exit698
   %806 = sub nsw i64 0, %804
   %807 = sext i32 %797 to i64
   %808 = icmp slt i64 %807, %806
-  %809 = call i64 @llvm.smin.i64(i64 %807, i64 %805)
+  %809 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %807, i64 range(i64 -9223372036854775808, 9223372036854775807) %805)
   %810 = select i1 %808, i64 %806, i64 %809
   %811 = trunc i64 %810 to i32
   br label %clamp_value.exit702
@@ -7592,7 +7592,7 @@ clamp_value.exit702:                              ; preds = %clamp_value.exit700
   %821 = sub nsw i64 0, %819
   %822 = sext i32 %812 to i64
   %823 = icmp slt i64 %822, %821
-  %824 = call i64 @llvm.smin.i64(i64 %822, i64 %820)
+  %824 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %822, i64 range(i64 -9223372036854775808, 9223372036854775807) %820)
   %825 = select i1 %823, i64 %821, i64 %824
   %826 = trunc i64 %825 to i32
   br label %clamp_value.exit704
@@ -7614,7 +7614,7 @@ clamp_value.exit704:                              ; preds = %clamp_value.exit702
   %836 = sub nsw i64 0, %834
   %837 = sext i32 %827 to i64
   %838 = icmp slt i64 %837, %836
-  %839 = call i64 @llvm.smin.i64(i64 %837, i64 %835)
+  %839 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %837, i64 range(i64 -9223372036854775808, 9223372036854775807) %835)
   %840 = select i1 %838, i64 %836, i64 %839
   %841 = trunc i64 %840 to i32
   br label %clamp_value.exit706
@@ -7636,7 +7636,7 @@ clamp_value.exit706:                              ; preds = %clamp_value.exit704
   %851 = sub nsw i64 0, %849
   %852 = sext i32 %842 to i64
   %853 = icmp slt i64 %852, %851
-  %854 = call i64 @llvm.smin.i64(i64 %852, i64 %850)
+  %854 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %852, i64 range(i64 -9223372036854775808, 9223372036854775807) %850)
   %855 = select i1 %853, i64 %851, i64 %854
   %856 = trunc i64 %855 to i32
   br label %clamp_value.exit708
@@ -7658,7 +7658,7 @@ clamp_value.exit708:                              ; preds = %clamp_value.exit706
   %866 = sub nsw i64 0, %864
   %867 = sext i32 %857 to i64
   %868 = icmp slt i64 %867, %866
-  %869 = call i64 @llvm.smin.i64(i64 %867, i64 %865)
+  %869 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %867, i64 range(i64 -9223372036854775808, 9223372036854775807) %865)
   %870 = select i1 %868, i64 %866, i64 %869
   %871 = trunc i64 %870 to i32
   br label %clamp_value.exit710
@@ -7790,7 +7790,7 @@ clamp_value.exit710:                              ; preds = %clamp_value.exit708
   %973 = sub nsw i64 0, %971
   %974 = sext i32 %963 to i64
   %975 = icmp slt i64 %974, %973
-  %976 = call i64 @llvm.smin.i64(i64 %974, i64 %972)
+  %976 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %974, i64 range(i64 -9223372036854775808, 9223372036854775807) %972)
   %977 = select i1 %975, i64 %973, i64 %976
   %978 = trunc i64 %977 to i32
   br label %clamp_value.exit712
@@ -7814,7 +7814,7 @@ clamp_value.exit712:                              ; preds = %clamp_value.exit710
   %990 = sub nsw i64 0, %988
   %991 = sext i32 %981 to i64
   %992 = icmp slt i64 %991, %990
-  %993 = call i64 @llvm.smin.i64(i64 %991, i64 %989)
+  %993 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %991, i64 range(i64 -9223372036854775808, 9223372036854775807) %989)
   %994 = select i1 %992, i64 %990, i64 %993
   %995 = trunc i64 %994 to i32
   br label %clamp_value.exit714
@@ -7836,7 +7836,7 @@ clamp_value.exit714:                              ; preds = %clamp_value.exit712
   %1005 = sub nsw i64 0, %1003
   %1006 = sext i32 %996 to i64
   %1007 = icmp slt i64 %1006, %1005
-  %1008 = call i64 @llvm.smin.i64(i64 %1006, i64 %1004)
+  %1008 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1006, i64 range(i64 -9223372036854775808, 9223372036854775807) %1004)
   %1009 = select i1 %1007, i64 %1005, i64 %1008
   %1010 = trunc i64 %1009 to i32
   br label %clamp_value.exit716
@@ -7858,7 +7858,7 @@ clamp_value.exit716:                              ; preds = %clamp_value.exit714
   %1020 = sub nsw i64 0, %1018
   %1021 = sext i32 %1011 to i64
   %1022 = icmp slt i64 %1021, %1020
-  %1023 = call i64 @llvm.smin.i64(i64 %1021, i64 %1019)
+  %1023 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1021, i64 range(i64 -9223372036854775808, 9223372036854775807) %1019)
   %1024 = select i1 %1022, i64 %1020, i64 %1023
   %1025 = trunc i64 %1024 to i32
   br label %clamp_value.exit718
@@ -7882,7 +7882,7 @@ clamp_value.exit718:                              ; preds = %clamp_value.exit716
   %1037 = sub nsw i64 0, %1035
   %1038 = sext i32 %1028 to i64
   %1039 = icmp slt i64 %1038, %1037
-  %1040 = call i64 @llvm.smin.i64(i64 %1038, i64 %1036)
+  %1040 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1038, i64 range(i64 -9223372036854775808, 9223372036854775807) %1036)
   %1041 = select i1 %1039, i64 %1037, i64 %1040
   %1042 = trunc i64 %1041 to i32
   br label %clamp_value.exit720
@@ -7906,7 +7906,7 @@ clamp_value.exit720:                              ; preds = %clamp_value.exit718
   %1054 = sub nsw i64 0, %1052
   %1055 = sext i32 %1045 to i64
   %1056 = icmp slt i64 %1055, %1054
-  %1057 = call i64 @llvm.smin.i64(i64 %1055, i64 %1053)
+  %1057 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1055, i64 range(i64 -9223372036854775808, 9223372036854775807) %1053)
   %1058 = select i1 %1056, i64 %1054, i64 %1057
   %1059 = trunc i64 %1058 to i32
   br label %clamp_value.exit722
@@ -7928,7 +7928,7 @@ clamp_value.exit722:                              ; preds = %clamp_value.exit720
   %1069 = sub nsw i64 0, %1067
   %1070 = sext i32 %1060 to i64
   %1071 = icmp slt i64 %1070, %1069
-  %1072 = call i64 @llvm.smin.i64(i64 %1070, i64 %1068)
+  %1072 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1070, i64 range(i64 -9223372036854775808, 9223372036854775807) %1068)
   %1073 = select i1 %1071, i64 %1069, i64 %1072
   %1074 = trunc i64 %1073 to i32
   br label %clamp_value.exit724
@@ -7950,7 +7950,7 @@ clamp_value.exit724:                              ; preds = %clamp_value.exit722
   %1084 = sub nsw i64 0, %1082
   %1085 = sext i32 %1075 to i64
   %1086 = icmp slt i64 %1085, %1084
-  %1087 = call i64 @llvm.smin.i64(i64 %1085, i64 %1083)
+  %1087 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1085, i64 range(i64 -9223372036854775808, 9223372036854775807) %1083)
   %1088 = select i1 %1086, i64 %1084, i64 %1087
   %1089 = trunc i64 %1088 to i32
   br label %clamp_value.exit726
@@ -7974,7 +7974,7 @@ clamp_value.exit726:                              ; preds = %clamp_value.exit724
   %1101 = sub nsw i64 0, %1099
   %1102 = sext i32 %1092 to i64
   %1103 = icmp slt i64 %1102, %1101
-  %1104 = call i64 @llvm.smin.i64(i64 %1102, i64 %1100)
+  %1104 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1102, i64 range(i64 -9223372036854775808, 9223372036854775807) %1100)
   %1105 = select i1 %1103, i64 %1101, i64 %1104
   %1106 = trunc i64 %1105 to i32
   br label %clamp_value.exit728
@@ -7998,7 +7998,7 @@ clamp_value.exit728:                              ; preds = %clamp_value.exit726
   %1118 = sub nsw i64 0, %1116
   %1119 = sext i32 %1109 to i64
   %1120 = icmp slt i64 %1119, %1118
-  %1121 = call i64 @llvm.smin.i64(i64 %1119, i64 %1117)
+  %1121 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1119, i64 range(i64 -9223372036854775808, 9223372036854775807) %1117)
   %1122 = select i1 %1120, i64 %1118, i64 %1121
   %1123 = trunc i64 %1122 to i32
   br label %clamp_value.exit730
@@ -8020,7 +8020,7 @@ clamp_value.exit730:                              ; preds = %clamp_value.exit728
   %1133 = sub nsw i64 0, %1131
   %1134 = sext i32 %1124 to i64
   %1135 = icmp slt i64 %1134, %1133
-  %1136 = call i64 @llvm.smin.i64(i64 %1134, i64 %1132)
+  %1136 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1134, i64 range(i64 -9223372036854775808, 9223372036854775807) %1132)
   %1137 = select i1 %1135, i64 %1133, i64 %1136
   %1138 = trunc i64 %1137 to i32
   br label %clamp_value.exit732
@@ -8042,7 +8042,7 @@ clamp_value.exit732:                              ; preds = %clamp_value.exit730
   %1148 = sub nsw i64 0, %1146
   %1149 = sext i32 %1139 to i64
   %1150 = icmp slt i64 %1149, %1148
-  %1151 = call i64 @llvm.smin.i64(i64 %1149, i64 %1147)
+  %1151 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1149, i64 range(i64 -9223372036854775808, 9223372036854775807) %1147)
   %1152 = select i1 %1150, i64 %1148, i64 %1151
   %1153 = trunc i64 %1152 to i32
   br label %clamp_value.exit734
@@ -8066,7 +8066,7 @@ clamp_value.exit734:                              ; preds = %clamp_value.exit732
   %1165 = sub nsw i64 0, %1163
   %1166 = sext i32 %1156 to i64
   %1167 = icmp slt i64 %1166, %1165
-  %1168 = call i64 @llvm.smin.i64(i64 %1166, i64 %1164)
+  %1168 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1166, i64 range(i64 -9223372036854775808, 9223372036854775807) %1164)
   %1169 = select i1 %1167, i64 %1165, i64 %1168
   %1170 = trunc i64 %1169 to i32
   br label %clamp_value.exit736
@@ -8090,7 +8090,7 @@ clamp_value.exit736:                              ; preds = %clamp_value.exit734
   %1182 = sub nsw i64 0, %1180
   %1183 = sext i32 %1173 to i64
   %1184 = icmp slt i64 %1183, %1182
-  %1185 = call i64 @llvm.smin.i64(i64 %1183, i64 %1181)
+  %1185 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1183, i64 range(i64 -9223372036854775808, 9223372036854775807) %1181)
   %1186 = select i1 %1184, i64 %1182, i64 %1185
   %1187 = trunc i64 %1186 to i32
   br label %clamp_value.exit738
@@ -8112,7 +8112,7 @@ clamp_value.exit738:                              ; preds = %clamp_value.exit736
   %1197 = sub nsw i64 0, %1195
   %1198 = sext i32 %1188 to i64
   %1199 = icmp slt i64 %1198, %1197
-  %1200 = call i64 @llvm.smin.i64(i64 %1198, i64 %1196)
+  %1200 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1198, i64 range(i64 -9223372036854775808, 9223372036854775807) %1196)
   %1201 = select i1 %1199, i64 %1197, i64 %1200
   %1202 = trunc i64 %1201 to i32
   br label %clamp_value.exit740
@@ -8134,7 +8134,7 @@ clamp_value.exit740:                              ; preds = %clamp_value.exit738
   %1212 = sub nsw i64 0, %1210
   %1213 = sext i32 %1203 to i64
   %1214 = icmp slt i64 %1213, %1212
-  %1215 = call i64 @llvm.smin.i64(i64 %1213, i64 %1211)
+  %1215 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1213, i64 range(i64 -9223372036854775808, 9223372036854775807) %1211)
   %1216 = select i1 %1214, i64 %1212, i64 %1215
   %1217 = trunc i64 %1216 to i32
   br label %clamp_value.exit742
@@ -9408,7 +9408,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef %1, i8 noundef signex
   %883 = sub nsw i64 0, %881
   %884 = sext i32 %873 to i64
   %885 = icmp slt i64 %884, %883
-  %886 = call i64 @llvm.smin.i64(i64 %884, i64 %882)
+  %886 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %884, i64 range(i64 -9223372036854775808, 9223372036854775807) %882)
   %887 = select i1 %885, i64 %883, i64 %886
   %888 = trunc i64 %887 to i32
   br label %clamp_value.exit
@@ -9430,7 +9430,7 @@ clamp_value.exit:                                 ; preds = %4, %877
   %898 = sub nsw i64 0, %896
   %899 = sext i32 %889 to i64
   %900 = icmp slt i64 %899, %898
-  %901 = call i64 @llvm.smin.i64(i64 %899, i64 %897)
+  %901 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %899, i64 range(i64 -9223372036854775808, 9223372036854775807) %897)
   %902 = select i1 %900, i64 %898, i64 %901
   %903 = trunc i64 %902 to i32
   br label %clamp_value.exit3089
@@ -9454,7 +9454,7 @@ clamp_value.exit3089:                             ; preds = %clamp_value.exit, %
   %915 = sub nsw i64 0, %913
   %916 = sext i32 %906 to i64
   %917 = icmp slt i64 %916, %915
-  %918 = call i64 @llvm.smin.i64(i64 %916, i64 %914)
+  %918 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %916, i64 range(i64 -9223372036854775808, 9223372036854775807) %914)
   %919 = select i1 %917, i64 %915, i64 %918
   %920 = trunc i64 %919 to i32
   br label %clamp_value.exit3091
@@ -9476,7 +9476,7 @@ clamp_value.exit3091:                             ; preds = %clamp_value.exit308
   %930 = sub nsw i64 0, %928
   %931 = sext i32 %921 to i64
   %932 = icmp slt i64 %931, %930
-  %933 = call i64 @llvm.smin.i64(i64 %931, i64 %929)
+  %933 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %931, i64 range(i64 -9223372036854775808, 9223372036854775807) %929)
   %934 = select i1 %932, i64 %930, i64 %933
   %935 = trunc i64 %934 to i32
   br label %clamp_value.exit3093
@@ -9500,7 +9500,7 @@ clamp_value.exit3093:                             ; preds = %clamp_value.exit309
   %947 = sub nsw i64 0, %945
   %948 = sext i32 %938 to i64
   %949 = icmp slt i64 %948, %947
-  %950 = call i64 @llvm.smin.i64(i64 %948, i64 %946)
+  %950 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %948, i64 range(i64 -9223372036854775808, 9223372036854775807) %946)
   %951 = select i1 %949, i64 %947, i64 %950
   %952 = trunc i64 %951 to i32
   br label %clamp_value.exit3095
@@ -9522,7 +9522,7 @@ clamp_value.exit3095:                             ; preds = %clamp_value.exit309
   %962 = sub nsw i64 0, %960
   %963 = sext i32 %953 to i64
   %964 = icmp slt i64 %963, %962
-  %965 = call i64 @llvm.smin.i64(i64 %963, i64 %961)
+  %965 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %963, i64 range(i64 -9223372036854775808, 9223372036854775807) %961)
   %966 = select i1 %964, i64 %962, i64 %965
   %967 = trunc i64 %966 to i32
   br label %clamp_value.exit3097
@@ -9546,7 +9546,7 @@ clamp_value.exit3097:                             ; preds = %clamp_value.exit309
   %979 = sub nsw i64 0, %977
   %980 = sext i32 %970 to i64
   %981 = icmp slt i64 %980, %979
-  %982 = call i64 @llvm.smin.i64(i64 %980, i64 %978)
+  %982 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %980, i64 range(i64 -9223372036854775808, 9223372036854775807) %978)
   %983 = select i1 %981, i64 %979, i64 %982
   %984 = trunc i64 %983 to i32
   br label %clamp_value.exit3099
@@ -9568,7 +9568,7 @@ clamp_value.exit3099:                             ; preds = %clamp_value.exit309
   %994 = sub nsw i64 0, %992
   %995 = sext i32 %985 to i64
   %996 = icmp slt i64 %995, %994
-  %997 = call i64 @llvm.smin.i64(i64 %995, i64 %993)
+  %997 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %995, i64 range(i64 -9223372036854775808, 9223372036854775807) %993)
   %998 = select i1 %996, i64 %994, i64 %997
   %999 = trunc i64 %998 to i32
   br label %clamp_value.exit3101
@@ -9592,7 +9592,7 @@ clamp_value.exit3101:                             ; preds = %clamp_value.exit309
   %1011 = sub nsw i64 0, %1009
   %1012 = sext i32 %1002 to i64
   %1013 = icmp slt i64 %1012, %1011
-  %1014 = call i64 @llvm.smin.i64(i64 %1012, i64 %1010)
+  %1014 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1012, i64 range(i64 -9223372036854775808, 9223372036854775807) %1010)
   %1015 = select i1 %1013, i64 %1011, i64 %1014
   %1016 = trunc i64 %1015 to i32
   br label %clamp_value.exit3103
@@ -9614,7 +9614,7 @@ clamp_value.exit3103:                             ; preds = %clamp_value.exit310
   %1026 = sub nsw i64 0, %1024
   %1027 = sext i32 %1017 to i64
   %1028 = icmp slt i64 %1027, %1026
-  %1029 = call i64 @llvm.smin.i64(i64 %1027, i64 %1025)
+  %1029 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1027, i64 range(i64 -9223372036854775808, 9223372036854775807) %1025)
   %1030 = select i1 %1028, i64 %1026, i64 %1029
   %1031 = trunc i64 %1030 to i32
   br label %clamp_value.exit3105
@@ -9638,7 +9638,7 @@ clamp_value.exit3105:                             ; preds = %clamp_value.exit310
   %1043 = sub nsw i64 0, %1041
   %1044 = sext i32 %1034 to i64
   %1045 = icmp slt i64 %1044, %1043
-  %1046 = call i64 @llvm.smin.i64(i64 %1044, i64 %1042)
+  %1046 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1044, i64 range(i64 -9223372036854775808, 9223372036854775807) %1042)
   %1047 = select i1 %1045, i64 %1043, i64 %1046
   %1048 = trunc i64 %1047 to i32
   br label %clamp_value.exit3107
@@ -9660,7 +9660,7 @@ clamp_value.exit3107:                             ; preds = %clamp_value.exit310
   %1058 = sub nsw i64 0, %1056
   %1059 = sext i32 %1049 to i64
   %1060 = icmp slt i64 %1059, %1058
-  %1061 = call i64 @llvm.smin.i64(i64 %1059, i64 %1057)
+  %1061 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1059, i64 range(i64 -9223372036854775808, 9223372036854775807) %1057)
   %1062 = select i1 %1060, i64 %1058, i64 %1061
   %1063 = trunc i64 %1062 to i32
   br label %clamp_value.exit3109
@@ -9684,7 +9684,7 @@ clamp_value.exit3109:                             ; preds = %clamp_value.exit310
   %1075 = sub nsw i64 0, %1073
   %1076 = sext i32 %1066 to i64
   %1077 = icmp slt i64 %1076, %1075
-  %1078 = call i64 @llvm.smin.i64(i64 %1076, i64 %1074)
+  %1078 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1076, i64 range(i64 -9223372036854775808, 9223372036854775807) %1074)
   %1079 = select i1 %1077, i64 %1075, i64 %1078
   %1080 = trunc i64 %1079 to i32
   br label %clamp_value.exit3111
@@ -9706,7 +9706,7 @@ clamp_value.exit3111:                             ; preds = %clamp_value.exit310
   %1090 = sub nsw i64 0, %1088
   %1091 = sext i32 %1081 to i64
   %1092 = icmp slt i64 %1091, %1090
-  %1093 = call i64 @llvm.smin.i64(i64 %1091, i64 %1089)
+  %1093 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1091, i64 range(i64 -9223372036854775808, 9223372036854775807) %1089)
   %1094 = select i1 %1092, i64 %1090, i64 %1093
   %1095 = trunc i64 %1094 to i32
   br label %clamp_value.exit3113
@@ -9730,7 +9730,7 @@ clamp_value.exit3113:                             ; preds = %clamp_value.exit311
   %1107 = sub nsw i64 0, %1105
   %1108 = sext i32 %1098 to i64
   %1109 = icmp slt i64 %1108, %1107
-  %1110 = call i64 @llvm.smin.i64(i64 %1108, i64 %1106)
+  %1110 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1108, i64 range(i64 -9223372036854775808, 9223372036854775807) %1106)
   %1111 = select i1 %1109, i64 %1107, i64 %1110
   %1112 = trunc i64 %1111 to i32
   br label %clamp_value.exit3115
@@ -9752,7 +9752,7 @@ clamp_value.exit3115:                             ; preds = %clamp_value.exit311
   %1122 = sub nsw i64 0, %1120
   %1123 = sext i32 %1113 to i64
   %1124 = icmp slt i64 %1123, %1122
-  %1125 = call i64 @llvm.smin.i64(i64 %1123, i64 %1121)
+  %1125 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1123, i64 range(i64 -9223372036854775808, 9223372036854775807) %1121)
   %1126 = select i1 %1124, i64 %1122, i64 %1125
   %1127 = trunc i64 %1126 to i32
   br label %clamp_value.exit3117
@@ -9776,7 +9776,7 @@ clamp_value.exit3117:                             ; preds = %clamp_value.exit311
   %1139 = sub nsw i64 0, %1137
   %1140 = sext i32 %1130 to i64
   %1141 = icmp slt i64 %1140, %1139
-  %1142 = call i64 @llvm.smin.i64(i64 %1140, i64 %1138)
+  %1142 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1140, i64 range(i64 -9223372036854775808, 9223372036854775807) %1138)
   %1143 = select i1 %1141, i64 %1139, i64 %1142
   %1144 = trunc i64 %1143 to i32
   br label %clamp_value.exit3119
@@ -9798,7 +9798,7 @@ clamp_value.exit3119:                             ; preds = %clamp_value.exit311
   %1154 = sub nsw i64 0, %1152
   %1155 = sext i32 %1145 to i64
   %1156 = icmp slt i64 %1155, %1154
-  %1157 = call i64 @llvm.smin.i64(i64 %1155, i64 %1153)
+  %1157 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1155, i64 range(i64 -9223372036854775808, 9223372036854775807) %1153)
   %1158 = select i1 %1156, i64 %1154, i64 %1157
   %1159 = trunc i64 %1158 to i32
   br label %clamp_value.exit3121
@@ -9822,7 +9822,7 @@ clamp_value.exit3121:                             ; preds = %clamp_value.exit311
   %1171 = sub nsw i64 0, %1169
   %1172 = sext i32 %1162 to i64
   %1173 = icmp slt i64 %1172, %1171
-  %1174 = call i64 @llvm.smin.i64(i64 %1172, i64 %1170)
+  %1174 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1172, i64 range(i64 -9223372036854775808, 9223372036854775807) %1170)
   %1175 = select i1 %1173, i64 %1171, i64 %1174
   %1176 = trunc i64 %1175 to i32
   br label %clamp_value.exit3123
@@ -9844,7 +9844,7 @@ clamp_value.exit3123:                             ; preds = %clamp_value.exit312
   %1186 = sub nsw i64 0, %1184
   %1187 = sext i32 %1177 to i64
   %1188 = icmp slt i64 %1187, %1186
-  %1189 = call i64 @llvm.smin.i64(i64 %1187, i64 %1185)
+  %1189 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1187, i64 range(i64 -9223372036854775808, 9223372036854775807) %1185)
   %1190 = select i1 %1188, i64 %1186, i64 %1189
   %1191 = trunc i64 %1190 to i32
   br label %clamp_value.exit3125
@@ -9868,7 +9868,7 @@ clamp_value.exit3125:                             ; preds = %clamp_value.exit312
   %1203 = sub nsw i64 0, %1201
   %1204 = sext i32 %1194 to i64
   %1205 = icmp slt i64 %1204, %1203
-  %1206 = call i64 @llvm.smin.i64(i64 %1204, i64 %1202)
+  %1206 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1204, i64 range(i64 -9223372036854775808, 9223372036854775807) %1202)
   %1207 = select i1 %1205, i64 %1203, i64 %1206
   %1208 = trunc i64 %1207 to i32
   br label %clamp_value.exit3127
@@ -9890,7 +9890,7 @@ clamp_value.exit3127:                             ; preds = %clamp_value.exit312
   %1218 = sub nsw i64 0, %1216
   %1219 = sext i32 %1209 to i64
   %1220 = icmp slt i64 %1219, %1218
-  %1221 = call i64 @llvm.smin.i64(i64 %1219, i64 %1217)
+  %1221 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1219, i64 range(i64 -9223372036854775808, 9223372036854775807) %1217)
   %1222 = select i1 %1220, i64 %1218, i64 %1221
   %1223 = trunc i64 %1222 to i32
   br label %clamp_value.exit3129
@@ -9914,7 +9914,7 @@ clamp_value.exit3129:                             ; preds = %clamp_value.exit312
   %1235 = sub nsw i64 0, %1233
   %1236 = sext i32 %1226 to i64
   %1237 = icmp slt i64 %1236, %1235
-  %1238 = call i64 @llvm.smin.i64(i64 %1236, i64 %1234)
+  %1238 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1236, i64 range(i64 -9223372036854775808, 9223372036854775807) %1234)
   %1239 = select i1 %1237, i64 %1235, i64 %1238
   %1240 = trunc i64 %1239 to i32
   br label %clamp_value.exit3131
@@ -9936,7 +9936,7 @@ clamp_value.exit3131:                             ; preds = %clamp_value.exit312
   %1250 = sub nsw i64 0, %1248
   %1251 = sext i32 %1241 to i64
   %1252 = icmp slt i64 %1251, %1250
-  %1253 = call i64 @llvm.smin.i64(i64 %1251, i64 %1249)
+  %1253 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1251, i64 range(i64 -9223372036854775808, 9223372036854775807) %1249)
   %1254 = select i1 %1252, i64 %1250, i64 %1253
   %1255 = trunc i64 %1254 to i32
   br label %clamp_value.exit3133
@@ -9960,7 +9960,7 @@ clamp_value.exit3133:                             ; preds = %clamp_value.exit313
   %1267 = sub nsw i64 0, %1265
   %1268 = sext i32 %1258 to i64
   %1269 = icmp slt i64 %1268, %1267
-  %1270 = call i64 @llvm.smin.i64(i64 %1268, i64 %1266)
+  %1270 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1268, i64 range(i64 -9223372036854775808, 9223372036854775807) %1266)
   %1271 = select i1 %1269, i64 %1267, i64 %1270
   %1272 = trunc i64 %1271 to i32
   br label %clamp_value.exit3135
@@ -9982,7 +9982,7 @@ clamp_value.exit3135:                             ; preds = %clamp_value.exit313
   %1282 = sub nsw i64 0, %1280
   %1283 = sext i32 %1273 to i64
   %1284 = icmp slt i64 %1283, %1282
-  %1285 = call i64 @llvm.smin.i64(i64 %1283, i64 %1281)
+  %1285 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1283, i64 range(i64 -9223372036854775808, 9223372036854775807) %1281)
   %1286 = select i1 %1284, i64 %1282, i64 %1285
   %1287 = trunc i64 %1286 to i32
   br label %clamp_value.exit3137
@@ -10006,7 +10006,7 @@ clamp_value.exit3137:                             ; preds = %clamp_value.exit313
   %1299 = sub nsw i64 0, %1297
   %1300 = sext i32 %1290 to i64
   %1301 = icmp slt i64 %1300, %1299
-  %1302 = call i64 @llvm.smin.i64(i64 %1300, i64 %1298)
+  %1302 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1300, i64 range(i64 -9223372036854775808, 9223372036854775807) %1298)
   %1303 = select i1 %1301, i64 %1299, i64 %1302
   %1304 = trunc i64 %1303 to i32
   br label %clamp_value.exit3139
@@ -10028,7 +10028,7 @@ clamp_value.exit3139:                             ; preds = %clamp_value.exit313
   %1314 = sub nsw i64 0, %1312
   %1315 = sext i32 %1305 to i64
   %1316 = icmp slt i64 %1315, %1314
-  %1317 = call i64 @llvm.smin.i64(i64 %1315, i64 %1313)
+  %1317 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1315, i64 range(i64 -9223372036854775808, 9223372036854775807) %1313)
   %1318 = select i1 %1316, i64 %1314, i64 %1317
   %1319 = trunc i64 %1318 to i32
   br label %clamp_value.exit3141
@@ -10052,7 +10052,7 @@ clamp_value.exit3141:                             ; preds = %clamp_value.exit313
   %1331 = sub nsw i64 0, %1329
   %1332 = sext i32 %1322 to i64
   %1333 = icmp slt i64 %1332, %1331
-  %1334 = call i64 @llvm.smin.i64(i64 %1332, i64 %1330)
+  %1334 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1332, i64 range(i64 -9223372036854775808, 9223372036854775807) %1330)
   %1335 = select i1 %1333, i64 %1331, i64 %1334
   %1336 = trunc i64 %1335 to i32
   br label %clamp_value.exit3143
@@ -10074,7 +10074,7 @@ clamp_value.exit3143:                             ; preds = %clamp_value.exit314
   %1346 = sub nsw i64 0, %1344
   %1347 = sext i32 %1337 to i64
   %1348 = icmp slt i64 %1347, %1346
-  %1349 = call i64 @llvm.smin.i64(i64 %1347, i64 %1345)
+  %1349 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1347, i64 range(i64 -9223372036854775808, 9223372036854775807) %1345)
   %1350 = select i1 %1348, i64 %1346, i64 %1349
   %1351 = trunc i64 %1350 to i32
   br label %clamp_value.exit3145
@@ -10098,7 +10098,7 @@ clamp_value.exit3145:                             ; preds = %clamp_value.exit314
   %1363 = sub nsw i64 0, %1361
   %1364 = sext i32 %1354 to i64
   %1365 = icmp slt i64 %1364, %1363
-  %1366 = call i64 @llvm.smin.i64(i64 %1364, i64 %1362)
+  %1366 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1364, i64 range(i64 -9223372036854775808, 9223372036854775807) %1362)
   %1367 = select i1 %1365, i64 %1363, i64 %1366
   %1368 = trunc i64 %1367 to i32
   br label %clamp_value.exit3147
@@ -10120,7 +10120,7 @@ clamp_value.exit3147:                             ; preds = %clamp_value.exit314
   %1378 = sub nsw i64 0, %1376
   %1379 = sext i32 %1369 to i64
   %1380 = icmp slt i64 %1379, %1378
-  %1381 = call i64 @llvm.smin.i64(i64 %1379, i64 %1377)
+  %1381 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1379, i64 range(i64 -9223372036854775808, 9223372036854775807) %1377)
   %1382 = select i1 %1380, i64 %1378, i64 %1381
   %1383 = trunc i64 %1382 to i32
   br label %clamp_value.exit3149
@@ -10309,14 +10309,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1526 = sub nsw i64 0, %1524
   %1527 = sext i32 %1487 to i64
   %1528 = icmp slt i64 %1527, %1526
-  %1529 = call i64 @llvm.smin.i64(i64 %1527, i64 %1525)
+  %1529 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1527, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1530 = select i1 %1528, i64 %1526, i64 %1529
   %1531 = trunc i64 %1530 to i32
   store i32 %1531, ptr %234, align 16
   %1532 = sub nsw i32 %1485, %1486
   %1533 = sext i32 %1532 to i64
   %1534 = icmp slt i64 %1533, %1526
-  %1535 = call i64 @llvm.smin.i64(i64 %1533, i64 %1525)
+  %1535 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1533, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1536 = select i1 %1534, i64 %1526, i64 %1535
   %1537 = trunc i64 %1536 to i32
   store i32 %1537, ptr %236, align 4
@@ -10325,14 +10325,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1540 = sub nsw i32 %1539, %1538
   %1541 = sext i32 %1540 to i64
   %1542 = icmp slt i64 %1541, %1526
-  %1543 = call i64 @llvm.smin.i64(i64 %1541, i64 %1525)
+  %1543 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1541, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1544 = select i1 %1542, i64 %1526, i64 %1543
   %1545 = trunc i64 %1544 to i32
   store i32 %1545, ptr %238, align 8
   %1546 = add nsw i32 %1539, %1538
   %1547 = sext i32 %1546 to i64
   %1548 = icmp slt i64 %1547, %1526
-  %1549 = call i64 @llvm.smin.i64(i64 %1547, i64 %1525)
+  %1549 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1547, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1550 = select i1 %1548, i64 %1526, i64 %1549
   %1551 = trunc i64 %1550 to i32
   store i32 %1551, ptr %240, align 4
@@ -10341,14 +10341,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1554 = add nsw i32 %1553, %1552
   %1555 = sext i32 %1554 to i64
   %1556 = icmp slt i64 %1555, %1526
-  %1557 = call i64 @llvm.smin.i64(i64 %1555, i64 %1525)
+  %1557 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1555, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1558 = select i1 %1556, i64 %1526, i64 %1557
   %1559 = trunc i64 %1558 to i32
   store i32 %1559, ptr %242, align 16
   %1560 = sub nsw i32 %1552, %1553
   %1561 = sext i32 %1560 to i64
   %1562 = icmp slt i64 %1561, %1526
-  %1563 = call i64 @llvm.smin.i64(i64 %1561, i64 %1525)
+  %1563 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1561, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1564 = select i1 %1562, i64 %1526, i64 %1563
   %1565 = trunc i64 %1564 to i32
   store i32 %1565, ptr %244, align 4
@@ -10357,14 +10357,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1568 = sub nsw i32 %1567, %1566
   %1569 = sext i32 %1568 to i64
   %1570 = icmp slt i64 %1569, %1526
-  %1571 = call i64 @llvm.smin.i64(i64 %1569, i64 %1525)
+  %1571 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1569, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1572 = select i1 %1570, i64 %1526, i64 %1571
   %1573 = trunc i64 %1572 to i32
   store i32 %1573, ptr %246, align 8
   %1574 = add nsw i32 %1567, %1566
   %1575 = sext i32 %1574 to i64
   %1576 = icmp slt i64 %1575, %1526
-  %1577 = call i64 @llvm.smin.i64(i64 %1575, i64 %1525)
+  %1577 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1575, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1578 = select i1 %1576, i64 %1526, i64 %1577
   %1579 = trunc i64 %1578 to i32
   store i32 %1579, ptr %248, align 4
@@ -10373,14 +10373,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1582 = add nsw i32 %1581, %1580
   %1583 = sext i32 %1582 to i64
   %1584 = icmp slt i64 %1583, %1526
-  %1585 = call i64 @llvm.smin.i64(i64 %1583, i64 %1525)
+  %1585 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1583, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1586 = select i1 %1584, i64 %1526, i64 %1585
   %1587 = trunc i64 %1586 to i32
   store i32 %1587, ptr %250, align 16
   %1588 = sub nsw i32 %1580, %1581
   %1589 = sext i32 %1588 to i64
   %1590 = icmp slt i64 %1589, %1526
-  %1591 = call i64 @llvm.smin.i64(i64 %1589, i64 %1525)
+  %1591 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1589, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1592 = select i1 %1590, i64 %1526, i64 %1591
   %1593 = trunc i64 %1592 to i32
   store i32 %1593, ptr %252, align 4
@@ -10389,14 +10389,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1596 = sub nsw i32 %1595, %1594
   %1597 = sext i32 %1596 to i64
   %1598 = icmp slt i64 %1597, %1526
-  %1599 = call i64 @llvm.smin.i64(i64 %1597, i64 %1525)
+  %1599 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1597, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1600 = select i1 %1598, i64 %1526, i64 %1599
   %1601 = trunc i64 %1600 to i32
   store i32 %1601, ptr %254, align 8
   %1602 = add nsw i32 %1595, %1594
   %1603 = sext i32 %1602 to i64
   %1604 = icmp slt i64 %1603, %1526
-  %1605 = call i64 @llvm.smin.i64(i64 %1603, i64 %1525)
+  %1605 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1603, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1606 = select i1 %1604, i64 %1526, i64 %1605
   %1607 = trunc i64 %1606 to i32
   store i32 %1607, ptr %256, align 4
@@ -10405,14 +10405,14 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1610 = add nsw i32 %1609, %1608
   %1611 = sext i32 %1610 to i64
   %1612 = icmp slt i64 %1611, %1526
-  %1613 = call i64 @llvm.smin.i64(i64 %1611, i64 %1525)
+  %1613 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1611, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1614 = select i1 %1612, i64 %1526, i64 %1613
   %1615 = trunc i64 %1614 to i32
   store i32 %1615, ptr %258, align 16
   %1616 = sub nsw i32 %1608, %1609
   %1617 = sext i32 %1616 to i64
   %1618 = icmp slt i64 %1617, %1526
-  %1619 = call i64 @llvm.smin.i64(i64 %1617, i64 %1525)
+  %1619 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1617, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1620 = select i1 %1618, i64 %1526, i64 %1619
   %1621 = trunc i64 %1620 to i32
   store i32 %1621, ptr %260, align 4
@@ -10421,13 +10421,13 @@ clamp_value.exit3179.thread:                      ; preds = %clamp_value.exit314
   %1624 = sub nsw i32 %1623, %1622
   %1625 = sext i32 %1624 to i64
   %1626 = icmp slt i64 %1625, %1526
-  %1627 = call i64 @llvm.smin.i64(i64 %1625, i64 %1525)
+  %1627 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1625, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1628 = select i1 %1626, i64 %1526, i64 %1627
   %1629 = trunc i64 %1628 to i32
   %1630 = add nsw i32 %1623, %1622
   %1631 = sext i32 %1630 to i64
   %1632 = icmp slt i64 %1631, %1526
-  %1633 = call i64 @llvm.smin.i64(i64 %1631, i64 %1525)
+  %1633 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1631, i64 range(i64 -9223372036854775808, 9223372036854775807) %1525)
   %1634 = select i1 %1632, i64 %1526, i64 %1633
   %1635 = trunc i64 %1634 to i32
   br label %clamp_value.exit3181
@@ -10709,7 +10709,7 @@ clamp_value.exit3181:                             ; preds = %clamp_value.exit317
   %1862 = sub nsw i64 0, %1860
   %1863 = sext i32 %1852 to i64
   %1864 = icmp slt i64 %1863, %1862
-  %1865 = call i64 @llvm.smin.i64(i64 %1863, i64 %1861)
+  %1865 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1863, i64 range(i64 -9223372036854775808, 9223372036854775807) %1861)
   %1866 = select i1 %1864, i64 %1862, i64 %1865
   %1867 = trunc i64 %1866 to i32
   br label %clamp_value.exit3183
@@ -10731,7 +10731,7 @@ clamp_value.exit3183:                             ; preds = %clamp_value.exit318
   %1877 = sub nsw i64 0, %1875
   %1878 = sext i32 %1868 to i64
   %1879 = icmp slt i64 %1878, %1877
-  %1880 = call i64 @llvm.smin.i64(i64 %1878, i64 %1876)
+  %1880 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1878, i64 range(i64 -9223372036854775808, 9223372036854775807) %1876)
   %1881 = select i1 %1879, i64 %1877, i64 %1880
   %1882 = trunc i64 %1881 to i32
   br label %clamp_value.exit3185
@@ -10755,7 +10755,7 @@ clamp_value.exit3185:                             ; preds = %clamp_value.exit318
   %1894 = sub nsw i64 0, %1892
   %1895 = sext i32 %1885 to i64
   %1896 = icmp slt i64 %1895, %1894
-  %1897 = call i64 @llvm.smin.i64(i64 %1895, i64 %1893)
+  %1897 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1895, i64 range(i64 -9223372036854775808, 9223372036854775807) %1893)
   %1898 = select i1 %1896, i64 %1894, i64 %1897
   %1899 = trunc i64 %1898 to i32
   br label %clamp_value.exit3187
@@ -10777,7 +10777,7 @@ clamp_value.exit3187:                             ; preds = %clamp_value.exit318
   %1909 = sub nsw i64 0, %1907
   %1910 = sext i32 %1900 to i64
   %1911 = icmp slt i64 %1910, %1909
-  %1912 = call i64 @llvm.smin.i64(i64 %1910, i64 %1908)
+  %1912 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1910, i64 range(i64 -9223372036854775808, 9223372036854775807) %1908)
   %1913 = select i1 %1911, i64 %1909, i64 %1912
   %1914 = trunc i64 %1913 to i32
   br label %clamp_value.exit3189
@@ -10801,7 +10801,7 @@ clamp_value.exit3189:                             ; preds = %clamp_value.exit318
   %1926 = sub nsw i64 0, %1924
   %1927 = sext i32 %1917 to i64
   %1928 = icmp slt i64 %1927, %1926
-  %1929 = call i64 @llvm.smin.i64(i64 %1927, i64 %1925)
+  %1929 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1927, i64 range(i64 -9223372036854775808, 9223372036854775807) %1925)
   %1930 = select i1 %1928, i64 %1926, i64 %1929
   %1931 = trunc i64 %1930 to i32
   br label %clamp_value.exit3191
@@ -10823,7 +10823,7 @@ clamp_value.exit3191:                             ; preds = %clamp_value.exit318
   %1941 = sub nsw i64 0, %1939
   %1942 = sext i32 %1932 to i64
   %1943 = icmp slt i64 %1942, %1941
-  %1944 = call i64 @llvm.smin.i64(i64 %1942, i64 %1940)
+  %1944 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1942, i64 range(i64 -9223372036854775808, 9223372036854775807) %1940)
   %1945 = select i1 %1943, i64 %1941, i64 %1944
   %1946 = trunc i64 %1945 to i32
   br label %clamp_value.exit3193
@@ -10847,7 +10847,7 @@ clamp_value.exit3193:                             ; preds = %clamp_value.exit319
   %1958 = sub nsw i64 0, %1956
   %1959 = sext i32 %1949 to i64
   %1960 = icmp slt i64 %1959, %1958
-  %1961 = call i64 @llvm.smin.i64(i64 %1959, i64 %1957)
+  %1961 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1959, i64 range(i64 -9223372036854775808, 9223372036854775807) %1957)
   %1962 = select i1 %1960, i64 %1958, i64 %1961
   %1963 = trunc i64 %1962 to i32
   br label %clamp_value.exit3195
@@ -10869,7 +10869,7 @@ clamp_value.exit3195:                             ; preds = %clamp_value.exit319
   %1973 = sub nsw i64 0, %1971
   %1974 = sext i32 %1964 to i64
   %1975 = icmp slt i64 %1974, %1973
-  %1976 = call i64 @llvm.smin.i64(i64 %1974, i64 %1972)
+  %1976 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %1974, i64 range(i64 -9223372036854775808, 9223372036854775807) %1972)
   %1977 = select i1 %1975, i64 %1973, i64 %1976
   %1978 = trunc i64 %1977 to i32
   br label %clamp_value.exit3197
@@ -10991,7 +10991,7 @@ clamp_value.exit3197:                             ; preds = %clamp_value.exit319
   %2072 = sub nsw i64 0, %2070
   %2073 = sext i32 %2063 to i64
   %2074 = icmp slt i64 %2073, %2072
-  %2075 = call i64 @llvm.smin.i64(i64 %2073, i64 %2071)
+  %2075 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2073, i64 range(i64 -9223372036854775808, 9223372036854775807) %2071)
   %2076 = select i1 %2074, i64 %2072, i64 %2075
   %2077 = trunc i64 %2076 to i32
   br label %clamp_value.exit3199
@@ -11015,7 +11015,7 @@ clamp_value.exit3199:                             ; preds = %clamp_value.exit319
   %2089 = sub nsw i64 0, %2087
   %2090 = sext i32 %2080 to i64
   %2091 = icmp slt i64 %2090, %2089
-  %2092 = call i64 @llvm.smin.i64(i64 %2090, i64 %2088)
+  %2092 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2090, i64 range(i64 -9223372036854775808, 9223372036854775807) %2088)
   %2093 = select i1 %2091, i64 %2089, i64 %2092
   %2094 = trunc i64 %2093 to i32
   br label %clamp_value.exit3201
@@ -11037,7 +11037,7 @@ clamp_value.exit3201:                             ; preds = %clamp_value.exit319
   %2104 = sub nsw i64 0, %2102
   %2105 = sext i32 %2095 to i64
   %2106 = icmp slt i64 %2105, %2104
-  %2107 = call i64 @llvm.smin.i64(i64 %2105, i64 %2103)
+  %2107 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2105, i64 range(i64 -9223372036854775808, 9223372036854775807) %2103)
   %2108 = select i1 %2106, i64 %2104, i64 %2107
   %2109 = trunc i64 %2108 to i32
   br label %clamp_value.exit3203
@@ -11059,7 +11059,7 @@ clamp_value.exit3203:                             ; preds = %clamp_value.exit320
   %2119 = sub nsw i64 0, %2117
   %2120 = sext i32 %2110 to i64
   %2121 = icmp slt i64 %2120, %2119
-  %2122 = call i64 @llvm.smin.i64(i64 %2120, i64 %2118)
+  %2122 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2120, i64 range(i64 -9223372036854775808, 9223372036854775807) %2118)
   %2123 = select i1 %2121, i64 %2119, i64 %2122
   %2124 = trunc i64 %2123 to i32
   br label %clamp_value.exit3205
@@ -11083,7 +11083,7 @@ clamp_value.exit3205:                             ; preds = %clamp_value.exit320
   %2136 = sub nsw i64 0, %2134
   %2137 = sext i32 %2127 to i64
   %2138 = icmp slt i64 %2137, %2136
-  %2139 = call i64 @llvm.smin.i64(i64 %2137, i64 %2135)
+  %2139 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2137, i64 range(i64 -9223372036854775808, 9223372036854775807) %2135)
   %2140 = select i1 %2138, i64 %2136, i64 %2139
   %2141 = trunc i64 %2140 to i32
   br label %clamp_value.exit3207
@@ -11107,7 +11107,7 @@ clamp_value.exit3207:                             ; preds = %clamp_value.exit320
   %2153 = sub nsw i64 0, %2151
   %2154 = sext i32 %2144 to i64
   %2155 = icmp slt i64 %2154, %2153
-  %2156 = call i64 @llvm.smin.i64(i64 %2154, i64 %2152)
+  %2156 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2154, i64 range(i64 -9223372036854775808, 9223372036854775807) %2152)
   %2157 = select i1 %2155, i64 %2153, i64 %2156
   %2158 = trunc i64 %2157 to i32
   br label %clamp_value.exit3209
@@ -11129,7 +11129,7 @@ clamp_value.exit3209:                             ; preds = %clamp_value.exit320
   %2168 = sub nsw i64 0, %2166
   %2169 = sext i32 %2159 to i64
   %2170 = icmp slt i64 %2169, %2168
-  %2171 = call i64 @llvm.smin.i64(i64 %2169, i64 %2167)
+  %2171 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2169, i64 range(i64 -9223372036854775808, 9223372036854775807) %2167)
   %2172 = select i1 %2170, i64 %2168, i64 %2171
   %2173 = trunc i64 %2172 to i32
   br label %clamp_value.exit3211
@@ -11151,7 +11151,7 @@ clamp_value.exit3211:                             ; preds = %clamp_value.exit320
   %2183 = sub nsw i64 0, %2181
   %2184 = sext i32 %2174 to i64
   %2185 = icmp slt i64 %2184, %2183
-  %2186 = call i64 @llvm.smin.i64(i64 %2184, i64 %2182)
+  %2186 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2184, i64 range(i64 -9223372036854775808, 9223372036854775807) %2182)
   %2187 = select i1 %2185, i64 %2183, i64 %2186
   %2188 = trunc i64 %2187 to i32
   br label %clamp_value.exit3213
@@ -11175,7 +11175,7 @@ clamp_value.exit3213:                             ; preds = %clamp_value.exit321
   %2200 = sub nsw i64 0, %2198
   %2201 = sext i32 %2191 to i64
   %2202 = icmp slt i64 %2201, %2200
-  %2203 = call i64 @llvm.smin.i64(i64 %2201, i64 %2199)
+  %2203 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2201, i64 range(i64 -9223372036854775808, 9223372036854775807) %2199)
   %2204 = select i1 %2202, i64 %2200, i64 %2203
   %2205 = trunc i64 %2204 to i32
   br label %clamp_value.exit3215
@@ -11199,7 +11199,7 @@ clamp_value.exit3215:                             ; preds = %clamp_value.exit321
   %2217 = sub nsw i64 0, %2215
   %2218 = sext i32 %2208 to i64
   %2219 = icmp slt i64 %2218, %2217
-  %2220 = call i64 @llvm.smin.i64(i64 %2218, i64 %2216)
+  %2220 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2218, i64 range(i64 -9223372036854775808, 9223372036854775807) %2216)
   %2221 = select i1 %2219, i64 %2217, i64 %2220
   %2222 = trunc i64 %2221 to i32
   br label %clamp_value.exit3217
@@ -11221,7 +11221,7 @@ clamp_value.exit3217:                             ; preds = %clamp_value.exit321
   %2232 = sub nsw i64 0, %2230
   %2233 = sext i32 %2223 to i64
   %2234 = icmp slt i64 %2233, %2232
-  %2235 = call i64 @llvm.smin.i64(i64 %2233, i64 %2231)
+  %2235 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2233, i64 range(i64 -9223372036854775808, 9223372036854775807) %2231)
   %2236 = select i1 %2234, i64 %2232, i64 %2235
   %2237 = trunc i64 %2236 to i32
   br label %clamp_value.exit3219
@@ -11243,7 +11243,7 @@ clamp_value.exit3219:                             ; preds = %clamp_value.exit321
   %2247 = sub nsw i64 0, %2245
   %2248 = sext i32 %2238 to i64
   %2249 = icmp slt i64 %2248, %2247
-  %2250 = call i64 @llvm.smin.i64(i64 %2248, i64 %2246)
+  %2250 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2248, i64 range(i64 -9223372036854775808, 9223372036854775807) %2246)
   %2251 = select i1 %2249, i64 %2247, i64 %2250
   %2252 = trunc i64 %2251 to i32
   br label %clamp_value.exit3221
@@ -11267,7 +11267,7 @@ clamp_value.exit3221:                             ; preds = %clamp_value.exit321
   %2264 = sub nsw i64 0, %2262
   %2265 = sext i32 %2255 to i64
   %2266 = icmp slt i64 %2265, %2264
-  %2267 = call i64 @llvm.smin.i64(i64 %2265, i64 %2263)
+  %2267 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2265, i64 range(i64 -9223372036854775808, 9223372036854775807) %2263)
   %2268 = select i1 %2266, i64 %2264, i64 %2267
   %2269 = trunc i64 %2268 to i32
   br label %clamp_value.exit3223
@@ -11291,7 +11291,7 @@ clamp_value.exit3223:                             ; preds = %clamp_value.exit322
   %2281 = sub nsw i64 0, %2279
   %2282 = sext i32 %2272 to i64
   %2283 = icmp slt i64 %2282, %2281
-  %2284 = call i64 @llvm.smin.i64(i64 %2282, i64 %2280)
+  %2284 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2282, i64 range(i64 -9223372036854775808, 9223372036854775807) %2280)
   %2285 = select i1 %2283, i64 %2281, i64 %2284
   %2286 = trunc i64 %2285 to i32
   br label %clamp_value.exit3225
@@ -11313,7 +11313,7 @@ clamp_value.exit3225:                             ; preds = %clamp_value.exit322
   %2296 = sub nsw i64 0, %2294
   %2297 = sext i32 %2287 to i64
   %2298 = icmp slt i64 %2297, %2296
-  %2299 = call i64 @llvm.smin.i64(i64 %2297, i64 %2295)
+  %2299 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2297, i64 range(i64 -9223372036854775808, 9223372036854775807) %2295)
   %2300 = select i1 %2298, i64 %2296, i64 %2299
   %2301 = trunc i64 %2300 to i32
   br label %clamp_value.exit3227
@@ -11335,7 +11335,7 @@ clamp_value.exit3227:                             ; preds = %clamp_value.exit322
   %2311 = sub nsw i64 0, %2309
   %2312 = sext i32 %2302 to i64
   %2313 = icmp slt i64 %2312, %2311
-  %2314 = call i64 @llvm.smin.i64(i64 %2312, i64 %2310)
+  %2314 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2312, i64 range(i64 -9223372036854775808, 9223372036854775807) %2310)
   %2315 = select i1 %2313, i64 %2311, i64 %2314
   %2316 = trunc i64 %2315 to i32
   br label %clamp_value.exit3229
@@ -11359,7 +11359,7 @@ clamp_value.exit3229:                             ; preds = %clamp_value.exit322
   %2328 = sub nsw i64 0, %2326
   %2329 = sext i32 %2319 to i64
   %2330 = icmp slt i64 %2329, %2328
-  %2331 = call i64 @llvm.smin.i64(i64 %2329, i64 %2327)
+  %2331 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2329, i64 range(i64 -9223372036854775808, 9223372036854775807) %2327)
   %2332 = select i1 %2330, i64 %2328, i64 %2331
   %2333 = trunc i64 %2332 to i32
   br label %clamp_value.exit3231
@@ -11383,7 +11383,7 @@ clamp_value.exit3231:                             ; preds = %clamp_value.exit322
   %2345 = sub nsw i64 0, %2343
   %2346 = sext i32 %2336 to i64
   %2347 = icmp slt i64 %2346, %2345
-  %2348 = call i64 @llvm.smin.i64(i64 %2346, i64 %2344)
+  %2348 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2346, i64 range(i64 -9223372036854775808, 9223372036854775807) %2344)
   %2349 = select i1 %2347, i64 %2345, i64 %2348
   %2350 = trunc i64 %2349 to i32
   br label %clamp_value.exit3233
@@ -11405,7 +11405,7 @@ clamp_value.exit3233:                             ; preds = %clamp_value.exit323
   %2360 = sub nsw i64 0, %2358
   %2361 = sext i32 %2351 to i64
   %2362 = icmp slt i64 %2361, %2360
-  %2363 = call i64 @llvm.smin.i64(i64 %2361, i64 %2359)
+  %2363 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2361, i64 range(i64 -9223372036854775808, 9223372036854775807) %2359)
   %2364 = select i1 %2362, i64 %2360, i64 %2363
   %2365 = trunc i64 %2364 to i32
   br label %clamp_value.exit3235
@@ -11427,7 +11427,7 @@ clamp_value.exit3235:                             ; preds = %clamp_value.exit323
   %2375 = sub nsw i64 0, %2373
   %2376 = sext i32 %2366 to i64
   %2377 = icmp slt i64 %2376, %2375
-  %2378 = call i64 @llvm.smin.i64(i64 %2376, i64 %2374)
+  %2378 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2376, i64 range(i64 -9223372036854775808, 9223372036854775807) %2374)
   %2379 = select i1 %2377, i64 %2375, i64 %2378
   %2380 = trunc i64 %2379 to i32
   br label %clamp_value.exit3237
@@ -11451,7 +11451,7 @@ clamp_value.exit3237:                             ; preds = %clamp_value.exit323
   %2392 = sub nsw i64 0, %2390
   %2393 = sext i32 %2383 to i64
   %2394 = icmp slt i64 %2393, %2392
-  %2395 = call i64 @llvm.smin.i64(i64 %2393, i64 %2391)
+  %2395 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2393, i64 range(i64 -9223372036854775808, 9223372036854775807) %2391)
   %2396 = select i1 %2394, i64 %2392, i64 %2395
   %2397 = trunc i64 %2396 to i32
   br label %clamp_value.exit3239
@@ -11475,7 +11475,7 @@ clamp_value.exit3239:                             ; preds = %clamp_value.exit323
   %2409 = sub nsw i64 0, %2407
   %2410 = sext i32 %2400 to i64
   %2411 = icmp slt i64 %2410, %2409
-  %2412 = call i64 @llvm.smin.i64(i64 %2410, i64 %2408)
+  %2412 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2410, i64 range(i64 -9223372036854775808, 9223372036854775807) %2408)
   %2413 = select i1 %2411, i64 %2409, i64 %2412
   %2414 = trunc i64 %2413 to i32
   br label %clamp_value.exit3241
@@ -11497,7 +11497,7 @@ clamp_value.exit3241:                             ; preds = %clamp_value.exit323
   %2424 = sub nsw i64 0, %2422
   %2425 = sext i32 %2415 to i64
   %2426 = icmp slt i64 %2425, %2424
-  %2427 = call i64 @llvm.smin.i64(i64 %2425, i64 %2423)
+  %2427 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2425, i64 range(i64 -9223372036854775808, 9223372036854775807) %2423)
   %2428 = select i1 %2426, i64 %2424, i64 %2427
   %2429 = trunc i64 %2428 to i32
   br label %clamp_value.exit3243
@@ -11519,7 +11519,7 @@ clamp_value.exit3243:                             ; preds = %clamp_value.exit324
   %2439 = sub nsw i64 0, %2437
   %2440 = sext i32 %2430 to i64
   %2441 = icmp slt i64 %2440, %2439
-  %2442 = call i64 @llvm.smin.i64(i64 %2440, i64 %2438)
+  %2442 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2440, i64 range(i64 -9223372036854775808, 9223372036854775807) %2438)
   %2443 = select i1 %2441, i64 %2439, i64 %2442
   %2444 = trunc i64 %2443 to i32
   br label %clamp_value.exit3245
@@ -11543,7 +11543,7 @@ clamp_value.exit3245:                             ; preds = %clamp_value.exit324
   %2456 = sub nsw i64 0, %2454
   %2457 = sext i32 %2447 to i64
   %2458 = icmp slt i64 %2457, %2456
-  %2459 = call i64 @llvm.smin.i64(i64 %2457, i64 %2455)
+  %2459 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2457, i64 range(i64 -9223372036854775808, 9223372036854775807) %2455)
   %2460 = select i1 %2458, i64 %2456, i64 %2459
   %2461 = trunc i64 %2460 to i32
   br label %clamp_value.exit3247
@@ -11567,7 +11567,7 @@ clamp_value.exit3247:                             ; preds = %clamp_value.exit324
   %2473 = sub nsw i64 0, %2471
   %2474 = sext i32 %2464 to i64
   %2475 = icmp slt i64 %2474, %2473
-  %2476 = call i64 @llvm.smin.i64(i64 %2474, i64 %2472)
+  %2476 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2474, i64 range(i64 -9223372036854775808, 9223372036854775807) %2472)
   %2477 = select i1 %2475, i64 %2473, i64 %2476
   %2478 = trunc i64 %2477 to i32
   br label %clamp_value.exit3249
@@ -11589,7 +11589,7 @@ clamp_value.exit3249:                             ; preds = %clamp_value.exit324
   %2488 = sub nsw i64 0, %2486
   %2489 = sext i32 %2479 to i64
   %2490 = icmp slt i64 %2489, %2488
-  %2491 = call i64 @llvm.smin.i64(i64 %2489, i64 %2487)
+  %2491 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2489, i64 range(i64 -9223372036854775808, 9223372036854775807) %2487)
   %2492 = select i1 %2490, i64 %2488, i64 %2491
   %2493 = trunc i64 %2492 to i32
   br label %clamp_value.exit3251
@@ -11611,7 +11611,7 @@ clamp_value.exit3251:                             ; preds = %clamp_value.exit324
   %2503 = sub nsw i64 0, %2501
   %2504 = sext i32 %2494 to i64
   %2505 = icmp slt i64 %2504, %2503
-  %2506 = call i64 @llvm.smin.i64(i64 %2504, i64 %2502)
+  %2506 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2504, i64 range(i64 -9223372036854775808, 9223372036854775807) %2502)
   %2507 = select i1 %2505, i64 %2503, i64 %2506
   %2508 = trunc i64 %2507 to i32
   br label %clamp_value.exit3253
@@ -11635,7 +11635,7 @@ clamp_value.exit3253:                             ; preds = %clamp_value.exit325
   %2520 = sub nsw i64 0, %2518
   %2521 = sext i32 %2511 to i64
   %2522 = icmp slt i64 %2521, %2520
-  %2523 = call i64 @llvm.smin.i64(i64 %2521, i64 %2519)
+  %2523 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2521, i64 range(i64 -9223372036854775808, 9223372036854775807) %2519)
   %2524 = select i1 %2522, i64 %2520, i64 %2523
   %2525 = trunc i64 %2524 to i32
   br label %clamp_value.exit3255
@@ -11659,7 +11659,7 @@ clamp_value.exit3255:                             ; preds = %clamp_value.exit325
   %2537 = sub nsw i64 0, %2535
   %2538 = sext i32 %2528 to i64
   %2539 = icmp slt i64 %2538, %2537
-  %2540 = call i64 @llvm.smin.i64(i64 %2538, i64 %2536)
+  %2540 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2538, i64 range(i64 -9223372036854775808, 9223372036854775807) %2536)
   %2541 = select i1 %2539, i64 %2537, i64 %2540
   %2542 = trunc i64 %2541 to i32
   br label %clamp_value.exit3257
@@ -11681,7 +11681,7 @@ clamp_value.exit3257:                             ; preds = %clamp_value.exit325
   %2552 = sub nsw i64 0, %2550
   %2553 = sext i32 %2543 to i64
   %2554 = icmp slt i64 %2553, %2552
-  %2555 = call i64 @llvm.smin.i64(i64 %2553, i64 %2551)
+  %2555 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2553, i64 range(i64 -9223372036854775808, 9223372036854775807) %2551)
   %2556 = select i1 %2554, i64 %2552, i64 %2555
   %2557 = trunc i64 %2556 to i32
   br label %clamp_value.exit3259
@@ -11703,7 +11703,7 @@ clamp_value.exit3259:                             ; preds = %clamp_value.exit325
   %2567 = sub nsw i64 0, %2565
   %2568 = sext i32 %2558 to i64
   %2569 = icmp slt i64 %2568, %2567
-  %2570 = call i64 @llvm.smin.i64(i64 %2568, i64 %2566)
+  %2570 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2568, i64 range(i64 -9223372036854775808, 9223372036854775807) %2566)
   %2571 = select i1 %2569, i64 %2567, i64 %2570
   %2572 = trunc i64 %2571 to i32
   br label %clamp_value.exit3261
@@ -11786,14 +11786,14 @@ clamp_value.exit3267.thread:                      ; preds = %clamp_value.exit326
   %2632 = sub nsw i64 0, %2630
   %2633 = sext i32 %2617 to i64
   %2634 = icmp slt i64 %2633, %2632
-  %2635 = call i64 @llvm.smin.i64(i64 %2633, i64 %2631)
+  %2635 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2633, i64 range(i64 -9223372036854775808, 9223372036854775807) %2631)
   %2636 = select i1 %2634, i64 %2632, i64 %2635
   %2637 = trunc i64 %2636 to i32
   store i32 %2637, ptr %210, align 16
   %2638 = sub nsw i32 %2615, %2616
   %2639 = sext i32 %2638 to i64
   %2640 = icmp slt i64 %2639, %2632
-  %2641 = call i64 @llvm.smin.i64(i64 %2639, i64 %2631)
+  %2641 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2639, i64 range(i64 -9223372036854775808, 9223372036854775807) %2631)
   %2642 = select i1 %2640, i64 %2632, i64 %2641
   %2643 = trunc i64 %2642 to i32
   store i32 %2643, ptr %212, align 4
@@ -11808,14 +11808,14 @@ clamp_value.exit3267.thread:                      ; preds = %clamp_value.exit326
   %2652 = sub nsw i64 0, %2650
   %2653 = sext i32 %2646 to i64
   %2654 = icmp slt i64 %2653, %2652
-  %2655 = call i64 @llvm.smin.i64(i64 %2653, i64 %2651)
+  %2655 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2653, i64 range(i64 -9223372036854775808, 9223372036854775807) %2651)
   %2656 = select i1 %2654, i64 %2652, i64 %2655
   %2657 = trunc i64 %2656 to i32
   store i32 %2657, ptr %214, align 8
   %2658 = add nsw i32 %2645, %2644
   %2659 = sext i32 %2658 to i64
   %2660 = icmp slt i64 %2659, %2652
-  %2661 = call i64 @llvm.smin.i64(i64 %2659, i64 %2651)
+  %2661 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2659, i64 range(i64 -9223372036854775808, 9223372036854775807) %2651)
   %2662 = select i1 %2660, i64 %2652, i64 %2661
   %2663 = trunc i64 %2662 to i32
   br label %clamp_value.exit3269
@@ -11933,7 +11933,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2743 = sub nsw i64 0, %2741
   %2744 = sext i32 %2707 to i64
   %2745 = icmp slt i64 %2744, %2743
-  %2746 = call i64 @llvm.smin.i64(i64 %2744, i64 %2742)
+  %2746 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2744, i64 range(i64 -9223372036854775808, 9223372036854775807) %2742)
   %2747 = select i1 %2745, i64 %2743, i64 %2746
   %2748 = trunc i64 %2747 to i32
   store i32 %2748, ptr %234, align 16
@@ -11942,7 +11942,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2751 = add nsw i32 %2749, %2750
   %2752 = sext i32 %2751 to i64
   %2753 = icmp slt i64 %2752, %2743
-  %2754 = call i64 @llvm.smin.i64(i64 %2752, i64 %2742)
+  %2754 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2752, i64 range(i64 -9223372036854775808, 9223372036854775807) %2742)
   %2755 = select i1 %2753, i64 %2743, i64 %2754
   %2756 = trunc i64 %2755 to i32
   store i32 %2756, ptr %236, align 4
@@ -11955,14 +11955,14 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2763 = sub nsw i64 0, %2761
   %2764 = sext i32 %2757 to i64
   %2765 = icmp slt i64 %2764, %2763
-  %2766 = call i64 @llvm.smin.i64(i64 %2764, i64 %2762)
+  %2766 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2764, i64 range(i64 -9223372036854775808, 9223372036854775807) %2762)
   %2767 = select i1 %2765, i64 %2763, i64 %2766
   %2768 = trunc i64 %2767 to i32
   store i32 %2768, ptr %238, align 8
   %2769 = sub nsw i32 %2705, %2706
   %2770 = sext i32 %2769 to i64
   %2771 = icmp slt i64 %2770, %2763
-  %2772 = call i64 @llvm.smin.i64(i64 %2770, i64 %2762)
+  %2772 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2770, i64 range(i64 -9223372036854775808, 9223372036854775807) %2762)
   %2773 = select i1 %2771, i64 %2763, i64 %2772
   %2774 = trunc i64 %2773 to i32
   store i32 %2774, ptr %240, align 4
@@ -11977,7 +11977,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2783 = sub nsw i64 0, %2781
   %2784 = sext i32 %2777 to i64
   %2785 = icmp slt i64 %2784, %2783
-  %2786 = call i64 @llvm.smin.i64(i64 %2784, i64 %2782)
+  %2786 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2784, i64 range(i64 -9223372036854775808, 9223372036854775807) %2782)
   %2787 = select i1 %2785, i64 %2783, i64 %2786
   %2788 = trunc i64 %2787 to i32
   store i32 %2788, ptr %242, align 16
@@ -11986,7 +11986,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2791 = sub nsw i32 %2789, %2790
   %2792 = sext i32 %2791 to i64
   %2793 = icmp slt i64 %2792, %2783
-  %2794 = call i64 @llvm.smin.i64(i64 %2792, i64 %2782)
+  %2794 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2792, i64 range(i64 -9223372036854775808, 9223372036854775807) %2782)
   %2795 = select i1 %2793, i64 %2783, i64 %2794
   %2796 = trunc i64 %2795 to i32
   store i32 %2796, ptr %244, align 4
@@ -11999,14 +11999,14 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2803 = sub nsw i64 0, %2801
   %2804 = sext i32 %2797 to i64
   %2805 = icmp slt i64 %2804, %2803
-  %2806 = call i64 @llvm.smin.i64(i64 %2804, i64 %2802)
+  %2806 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2804, i64 range(i64 -9223372036854775808, 9223372036854775807) %2802)
   %2807 = select i1 %2805, i64 %2803, i64 %2806
   %2808 = trunc i64 %2807 to i32
   store i32 %2808, ptr %246, align 8
   %2809 = add nsw i32 %2776, %2775
   %2810 = sext i32 %2809 to i64
   %2811 = icmp slt i64 %2810, %2803
-  %2812 = call i64 @llvm.smin.i64(i64 %2810, i64 %2802)
+  %2812 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2810, i64 range(i64 -9223372036854775808, 9223372036854775807) %2802)
   %2813 = select i1 %2811, i64 %2803, i64 %2812
   %2814 = trunc i64 %2813 to i32
   store i32 %2814, ptr %248, align 4
@@ -12021,7 +12021,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2823 = sub nsw i64 0, %2821
   %2824 = sext i32 %2817 to i64
   %2825 = icmp slt i64 %2824, %2823
-  %2826 = call i64 @llvm.smin.i64(i64 %2824, i64 %2822)
+  %2826 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2824, i64 range(i64 -9223372036854775808, 9223372036854775807) %2822)
   %2827 = select i1 %2825, i64 %2823, i64 %2826
   %2828 = trunc i64 %2827 to i32
   store i32 %2828, ptr %250, align 16
@@ -12030,7 +12030,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2831 = add nsw i32 %2829, %2830
   %2832 = sext i32 %2831 to i64
   %2833 = icmp slt i64 %2832, %2823
-  %2834 = call i64 @llvm.smin.i64(i64 %2832, i64 %2822)
+  %2834 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2832, i64 range(i64 -9223372036854775808, 9223372036854775807) %2822)
   %2835 = select i1 %2833, i64 %2823, i64 %2834
   %2836 = trunc i64 %2835 to i32
   store i32 %2836, ptr %252, align 4
@@ -12043,14 +12043,14 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2843 = sub nsw i64 0, %2841
   %2844 = sext i32 %2837 to i64
   %2845 = icmp slt i64 %2844, %2843
-  %2846 = call i64 @llvm.smin.i64(i64 %2844, i64 %2842)
+  %2846 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2844, i64 range(i64 -9223372036854775808, 9223372036854775807) %2842)
   %2847 = select i1 %2845, i64 %2843, i64 %2846
   %2848 = trunc i64 %2847 to i32
   store i32 %2848, ptr %254, align 8
   %2849 = sub nsw i32 %2815, %2816
   %2850 = sext i32 %2849 to i64
   %2851 = icmp slt i64 %2850, %2843
-  %2852 = call i64 @llvm.smin.i64(i64 %2850, i64 %2842)
+  %2852 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2850, i64 range(i64 -9223372036854775808, 9223372036854775807) %2842)
   %2853 = select i1 %2851, i64 %2843, i64 %2852
   %2854 = trunc i64 %2853 to i32
   store i32 %2854, ptr %256, align 4
@@ -12065,7 +12065,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2863 = sub nsw i64 0, %2861
   %2864 = sext i32 %2857 to i64
   %2865 = icmp slt i64 %2864, %2863
-  %2866 = call i64 @llvm.smin.i64(i64 %2864, i64 %2862)
+  %2866 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2864, i64 range(i64 -9223372036854775808, 9223372036854775807) %2862)
   %2867 = select i1 %2865, i64 %2863, i64 %2866
   %2868 = trunc i64 %2867 to i32
   store i32 %2868, ptr %258, align 16
@@ -12074,7 +12074,7 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2871 = sub nsw i32 %2869, %2870
   %2872 = sext i32 %2871 to i64
   %2873 = icmp slt i64 %2872, %2863
-  %2874 = call i64 @llvm.smin.i64(i64 %2872, i64 %2862)
+  %2874 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2872, i64 range(i64 -9223372036854775808, 9223372036854775807) %2862)
   %2875 = select i1 %2873, i64 %2863, i64 %2874
   %2876 = trunc i64 %2875 to i32
   store i32 %2876, ptr %260, align 4
@@ -12087,14 +12087,14 @@ clamp_value.exit3299.thread:                      ; preds = %clamp_value.exit326
   %2883 = sub nsw i64 0, %2881
   %2884 = sext i32 %2877 to i64
   %2885 = icmp slt i64 %2884, %2883
-  %2886 = call i64 @llvm.smin.i64(i64 %2884, i64 %2882)
+  %2886 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2884, i64 range(i64 -9223372036854775808, 9223372036854775807) %2882)
   %2887 = select i1 %2885, i64 %2883, i64 %2886
   %2888 = trunc i64 %2887 to i32
   store i32 %2888, ptr %262, align 8
   %2889 = add nsw i32 %2856, %2855
   %2890 = sext i32 %2889 to i64
   %2891 = icmp slt i64 %2890, %2883
-  %2892 = call i64 @llvm.smin.i64(i64 %2890, i64 %2882)
+  %2892 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %2890, i64 range(i64 -9223372036854775808, 9223372036854775807) %2882)
   %2893 = select i1 %2891, i64 %2883, i64 %2892
   %2894 = trunc i64 %2893 to i32
   br label %clamp_value.exit3301
@@ -12321,7 +12321,7 @@ clamp_value.exit3301:                             ; preds = %clamp_value.exit329
   %3076 = sub nsw i64 0, %3074
   %3077 = sext i32 %3066 to i64
   %3078 = icmp slt i64 %3077, %3076
-  %3079 = call i64 @llvm.smin.i64(i64 %3077, i64 %3075)
+  %3079 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3077, i64 range(i64 -9223372036854775808, 9223372036854775807) %3075)
   %3080 = select i1 %3078, i64 %3076, i64 %3079
   %3081 = trunc i64 %3080 to i32
   br label %clamp_value.exit3303
@@ -12345,7 +12345,7 @@ clamp_value.exit3303:                             ; preds = %clamp_value.exit330
   %3093 = sub nsw i64 0, %3091
   %3094 = sext i32 %3084 to i64
   %3095 = icmp slt i64 %3094, %3093
-  %3096 = call i64 @llvm.smin.i64(i64 %3094, i64 %3092)
+  %3096 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3094, i64 range(i64 -9223372036854775808, 9223372036854775807) %3092)
   %3097 = select i1 %3095, i64 %3093, i64 %3096
   %3098 = trunc i64 %3097 to i32
   br label %clamp_value.exit3305
@@ -12367,7 +12367,7 @@ clamp_value.exit3305:                             ; preds = %clamp_value.exit330
   %3108 = sub nsw i64 0, %3106
   %3109 = sext i32 %3099 to i64
   %3110 = icmp slt i64 %3109, %3108
-  %3111 = call i64 @llvm.smin.i64(i64 %3109, i64 %3107)
+  %3111 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3109, i64 range(i64 -9223372036854775808, 9223372036854775807) %3107)
   %3112 = select i1 %3110, i64 %3108, i64 %3111
   %3113 = trunc i64 %3112 to i32
   br label %clamp_value.exit3307
@@ -12389,7 +12389,7 @@ clamp_value.exit3307:                             ; preds = %clamp_value.exit330
   %3123 = sub nsw i64 0, %3121
   %3124 = sext i32 %3114 to i64
   %3125 = icmp slt i64 %3124, %3123
-  %3126 = call i64 @llvm.smin.i64(i64 %3124, i64 %3122)
+  %3126 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3124, i64 range(i64 -9223372036854775808, 9223372036854775807) %3122)
   %3127 = select i1 %3125, i64 %3123, i64 %3126
   %3128 = trunc i64 %3127 to i32
   br label %clamp_value.exit3309
@@ -12435,7 +12435,7 @@ clamp_value.exit3309:                             ; preds = %clamp_value.exit330
   %3158 = sub nsw i64 0, %3156
   %3159 = sext i32 %3149 to i64
   %3160 = icmp slt i64 %3159, %3158
-  %3161 = call i64 @llvm.smin.i64(i64 %3159, i64 %3157)
+  %3161 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3159, i64 range(i64 -9223372036854775808, 9223372036854775807) %3157)
   %3162 = select i1 %3160, i64 %3158, i64 %3161
   %3163 = trunc i64 %3162 to i32
   br label %clamp_value.exit3311
@@ -12459,7 +12459,7 @@ clamp_value.exit3311:                             ; preds = %clamp_value.exit330
   %3175 = sub nsw i64 0, %3173
   %3176 = sext i32 %3166 to i64
   %3177 = icmp slt i64 %3176, %3175
-  %3178 = call i64 @llvm.smin.i64(i64 %3176, i64 %3174)
+  %3178 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3176, i64 range(i64 -9223372036854775808, 9223372036854775807) %3174)
   %3179 = select i1 %3177, i64 %3175, i64 %3178
   %3180 = trunc i64 %3179 to i32
   br label %clamp_value.exit3313
@@ -12481,7 +12481,7 @@ clamp_value.exit3313:                             ; preds = %clamp_value.exit331
   %3190 = sub nsw i64 0, %3188
   %3191 = sext i32 %3181 to i64
   %3192 = icmp slt i64 %3191, %3190
-  %3193 = call i64 @llvm.smin.i64(i64 %3191, i64 %3189)
+  %3193 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3191, i64 range(i64 -9223372036854775808, 9223372036854775807) %3189)
   %3194 = select i1 %3192, i64 %3190, i64 %3193
   %3195 = trunc i64 %3194 to i32
   br label %clamp_value.exit3315
@@ -12503,7 +12503,7 @@ clamp_value.exit3315:                             ; preds = %clamp_value.exit331
   %3205 = sub nsw i64 0, %3203
   %3206 = sext i32 %3196 to i64
   %3207 = icmp slt i64 %3206, %3205
-  %3208 = call i64 @llvm.smin.i64(i64 %3206, i64 %3204)
+  %3208 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3206, i64 range(i64 -9223372036854775808, 9223372036854775807) %3204)
   %3209 = select i1 %3207, i64 %3205, i64 %3208
   %3210 = trunc i64 %3209 to i32
   br label %clamp_value.exit3317
@@ -12527,7 +12527,7 @@ clamp_value.exit3317:                             ; preds = %clamp_value.exit331
   %3222 = sub nsw i64 0, %3220
   %3223 = sext i32 %3213 to i64
   %3224 = icmp slt i64 %3223, %3222
-  %3225 = call i64 @llvm.smin.i64(i64 %3223, i64 %3221)
+  %3225 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3223, i64 range(i64 -9223372036854775808, 9223372036854775807) %3221)
   %3226 = select i1 %3224, i64 %3222, i64 %3225
   %3227 = trunc i64 %3226 to i32
   br label %clamp_value.exit3319
@@ -12551,7 +12551,7 @@ clamp_value.exit3319:                             ; preds = %clamp_value.exit331
   %3239 = sub nsw i64 0, %3237
   %3240 = sext i32 %3230 to i64
   %3241 = icmp slt i64 %3240, %3239
-  %3242 = call i64 @llvm.smin.i64(i64 %3240, i64 %3238)
+  %3242 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3240, i64 range(i64 -9223372036854775808, 9223372036854775807) %3238)
   %3243 = select i1 %3241, i64 %3239, i64 %3242
   %3244 = trunc i64 %3243 to i32
   br label %clamp_value.exit3321
@@ -12573,7 +12573,7 @@ clamp_value.exit3321:                             ; preds = %clamp_value.exit331
   %3254 = sub nsw i64 0, %3252
   %3255 = sext i32 %3245 to i64
   %3256 = icmp slt i64 %3255, %3254
-  %3257 = call i64 @llvm.smin.i64(i64 %3255, i64 %3253)
+  %3257 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3255, i64 range(i64 -9223372036854775808, 9223372036854775807) %3253)
   %3258 = select i1 %3256, i64 %3254, i64 %3257
   %3259 = trunc i64 %3258 to i32
   br label %clamp_value.exit3323
@@ -12595,7 +12595,7 @@ clamp_value.exit3323:                             ; preds = %clamp_value.exit332
   %3269 = sub nsw i64 0, %3267
   %3270 = sext i32 %3260 to i64
   %3271 = icmp slt i64 %3270, %3269
-  %3272 = call i64 @llvm.smin.i64(i64 %3270, i64 %3268)
+  %3272 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3270, i64 range(i64 -9223372036854775808, 9223372036854775807) %3268)
   %3273 = select i1 %3271, i64 %3269, i64 %3272
   %3274 = trunc i64 %3273 to i32
   br label %clamp_value.exit3325
@@ -12715,7 +12715,7 @@ clamp_value.exit3325:                             ; preds = %clamp_value.exit332
   %3366 = sub nsw i64 0, %3364
   %3367 = sext i32 %3357 to i64
   %3368 = icmp slt i64 %3367, %3366
-  %3369 = call i64 @llvm.smin.i64(i64 %3367, i64 %3365)
+  %3369 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3367, i64 range(i64 -9223372036854775808, 9223372036854775807) %3365)
   %3370 = select i1 %3368, i64 %3366, i64 %3369
   %3371 = trunc i64 %3370 to i32
   br label %clamp_value.exit3327
@@ -12739,7 +12739,7 @@ clamp_value.exit3327:                             ; preds = %clamp_value.exit332
   %3383 = sub nsw i64 0, %3381
   %3384 = sext i32 %3374 to i64
   %3385 = icmp slt i64 %3384, %3383
-  %3386 = call i64 @llvm.smin.i64(i64 %3384, i64 %3382)
+  %3386 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3384, i64 range(i64 -9223372036854775808, 9223372036854775807) %3382)
   %3387 = select i1 %3385, i64 %3383, i64 %3386
   %3388 = trunc i64 %3387 to i32
   br label %clamp_value.exit3329
@@ -12763,7 +12763,7 @@ clamp_value.exit3329:                             ; preds = %clamp_value.exit332
   %3400 = sub nsw i64 0, %3398
   %3401 = sext i32 %3391 to i64
   %3402 = icmp slt i64 %3401, %3400
-  %3403 = call i64 @llvm.smin.i64(i64 %3401, i64 %3399)
+  %3403 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3401, i64 range(i64 -9223372036854775808, 9223372036854775807) %3399)
   %3404 = select i1 %3402, i64 %3400, i64 %3403
   %3405 = trunc i64 %3404 to i32
   br label %clamp_value.exit3331
@@ -12787,7 +12787,7 @@ clamp_value.exit3331:                             ; preds = %clamp_value.exit332
   %3417 = sub nsw i64 0, %3415
   %3418 = sext i32 %3408 to i64
   %3419 = icmp slt i64 %3418, %3417
-  %3420 = call i64 @llvm.smin.i64(i64 %3418, i64 %3416)
+  %3420 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3418, i64 range(i64 -9223372036854775808, 9223372036854775807) %3416)
   %3421 = select i1 %3419, i64 %3417, i64 %3420
   %3422 = trunc i64 %3421 to i32
   br label %clamp_value.exit3333
@@ -12809,7 +12809,7 @@ clamp_value.exit3333:                             ; preds = %clamp_value.exit333
   %3432 = sub nsw i64 0, %3430
   %3433 = sext i32 %3423 to i64
   %3434 = icmp slt i64 %3433, %3432
-  %3435 = call i64 @llvm.smin.i64(i64 %3433, i64 %3431)
+  %3435 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3433, i64 range(i64 -9223372036854775808, 9223372036854775807) %3431)
   %3436 = select i1 %3434, i64 %3432, i64 %3435
   %3437 = trunc i64 %3436 to i32
   br label %clamp_value.exit3335
@@ -12831,7 +12831,7 @@ clamp_value.exit3335:                             ; preds = %clamp_value.exit333
   %3447 = sub nsw i64 0, %3445
   %3448 = sext i32 %3438 to i64
   %3449 = icmp slt i64 %3448, %3447
-  %3450 = call i64 @llvm.smin.i64(i64 %3448, i64 %3446)
+  %3450 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3448, i64 range(i64 -9223372036854775808, 9223372036854775807) %3446)
   %3451 = select i1 %3449, i64 %3447, i64 %3450
   %3452 = trunc i64 %3451 to i32
   br label %clamp_value.exit3337
@@ -12853,7 +12853,7 @@ clamp_value.exit3337:                             ; preds = %clamp_value.exit333
   %3462 = sub nsw i64 0, %3460
   %3463 = sext i32 %3453 to i64
   %3464 = icmp slt i64 %3463, %3462
-  %3465 = call i64 @llvm.smin.i64(i64 %3463, i64 %3461)
+  %3465 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3463, i64 range(i64 -9223372036854775808, 9223372036854775807) %3461)
   %3466 = select i1 %3464, i64 %3462, i64 %3465
   %3467 = trunc i64 %3466 to i32
   br label %clamp_value.exit3339
@@ -12875,7 +12875,7 @@ clamp_value.exit3339:                             ; preds = %clamp_value.exit333
   %3477 = sub nsw i64 0, %3475
   %3478 = sext i32 %3468 to i64
   %3479 = icmp slt i64 %3478, %3477
-  %3480 = call i64 @llvm.smin.i64(i64 %3478, i64 %3476)
+  %3480 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3478, i64 range(i64 -9223372036854775808, 9223372036854775807) %3476)
   %3481 = select i1 %3479, i64 %3477, i64 %3480
   %3482 = trunc i64 %3481 to i32
   br label %clamp_value.exit3341
@@ -12899,7 +12899,7 @@ clamp_value.exit3341:                             ; preds = %clamp_value.exit333
   %3494 = sub nsw i64 0, %3492
   %3495 = sext i32 %3485 to i64
   %3496 = icmp slt i64 %3495, %3494
-  %3497 = call i64 @llvm.smin.i64(i64 %3495, i64 %3493)
+  %3497 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3495, i64 range(i64 -9223372036854775808, 9223372036854775807) %3493)
   %3498 = select i1 %3496, i64 %3494, i64 %3497
   %3499 = trunc i64 %3498 to i32
   br label %clamp_value.exit3343
@@ -12923,7 +12923,7 @@ clamp_value.exit3343:                             ; preds = %clamp_value.exit334
   %3511 = sub nsw i64 0, %3509
   %3512 = sext i32 %3502 to i64
   %3513 = icmp slt i64 %3512, %3511
-  %3514 = call i64 @llvm.smin.i64(i64 %3512, i64 %3510)
+  %3514 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3512, i64 range(i64 -9223372036854775808, 9223372036854775807) %3510)
   %3515 = select i1 %3513, i64 %3511, i64 %3514
   %3516 = trunc i64 %3515 to i32
   br label %clamp_value.exit3345
@@ -12947,7 +12947,7 @@ clamp_value.exit3345:                             ; preds = %clamp_value.exit334
   %3528 = sub nsw i64 0, %3526
   %3529 = sext i32 %3519 to i64
   %3530 = icmp slt i64 %3529, %3528
-  %3531 = call i64 @llvm.smin.i64(i64 %3529, i64 %3527)
+  %3531 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3529, i64 range(i64 -9223372036854775808, 9223372036854775807) %3527)
   %3532 = select i1 %3530, i64 %3528, i64 %3531
   %3533 = trunc i64 %3532 to i32
   br label %clamp_value.exit3347
@@ -12971,7 +12971,7 @@ clamp_value.exit3347:                             ; preds = %clamp_value.exit334
   %3545 = sub nsw i64 0, %3543
   %3546 = sext i32 %3536 to i64
   %3547 = icmp slt i64 %3546, %3545
-  %3548 = call i64 @llvm.smin.i64(i64 %3546, i64 %3544)
+  %3548 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3546, i64 range(i64 -9223372036854775808, 9223372036854775807) %3544)
   %3549 = select i1 %3547, i64 %3545, i64 %3548
   %3550 = trunc i64 %3549 to i32
   br label %clamp_value.exit3349
@@ -12993,7 +12993,7 @@ clamp_value.exit3349:                             ; preds = %clamp_value.exit334
   %3560 = sub nsw i64 0, %3558
   %3561 = sext i32 %3551 to i64
   %3562 = icmp slt i64 %3561, %3560
-  %3563 = call i64 @llvm.smin.i64(i64 %3561, i64 %3559)
+  %3563 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3561, i64 range(i64 -9223372036854775808, 9223372036854775807) %3559)
   %3564 = select i1 %3562, i64 %3560, i64 %3563
   %3565 = trunc i64 %3564 to i32
   br label %clamp_value.exit3351
@@ -13015,7 +13015,7 @@ clamp_value.exit3351:                             ; preds = %clamp_value.exit334
   %3575 = sub nsw i64 0, %3573
   %3576 = sext i32 %3566 to i64
   %3577 = icmp slt i64 %3576, %3575
-  %3578 = call i64 @llvm.smin.i64(i64 %3576, i64 %3574)
+  %3578 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3576, i64 range(i64 -9223372036854775808, 9223372036854775807) %3574)
   %3579 = select i1 %3577, i64 %3575, i64 %3578
   %3580 = trunc i64 %3579 to i32
   br label %clamp_value.exit3353
@@ -13037,7 +13037,7 @@ clamp_value.exit3353:                             ; preds = %clamp_value.exit335
   %3590 = sub nsw i64 0, %3588
   %3591 = sext i32 %3581 to i64
   %3592 = icmp slt i64 %3591, %3590
-  %3593 = call i64 @llvm.smin.i64(i64 %3591, i64 %3589)
+  %3593 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3591, i64 range(i64 -9223372036854775808, 9223372036854775807) %3589)
   %3594 = select i1 %3592, i64 %3590, i64 %3593
   %3595 = trunc i64 %3594 to i32
   br label %clamp_value.exit3355
@@ -13059,7 +13059,7 @@ clamp_value.exit3355:                             ; preds = %clamp_value.exit335
   %3605 = sub nsw i64 0, %3603
   %3606 = sext i32 %3596 to i64
   %3607 = icmp slt i64 %3606, %3605
-  %3608 = call i64 @llvm.smin.i64(i64 %3606, i64 %3604)
+  %3608 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3606, i64 range(i64 -9223372036854775808, 9223372036854775807) %3604)
   %3609 = select i1 %3607, i64 %3605, i64 %3608
   %3610 = trunc i64 %3609 to i32
   br label %clamp_value.exit3357
@@ -13083,7 +13083,7 @@ clamp_value.exit3357:                             ; preds = %clamp_value.exit335
   %3622 = sub nsw i64 0, %3620
   %3623 = sext i32 %3613 to i64
   %3624 = icmp slt i64 %3623, %3622
-  %3625 = call i64 @llvm.smin.i64(i64 %3623, i64 %3621)
+  %3625 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3623, i64 range(i64 -9223372036854775808, 9223372036854775807) %3621)
   %3626 = select i1 %3624, i64 %3622, i64 %3625
   %3627 = trunc i64 %3626 to i32
   br label %clamp_value.exit3359
@@ -13107,7 +13107,7 @@ clamp_value.exit3359:                             ; preds = %clamp_value.exit335
   %3639 = sub nsw i64 0, %3637
   %3640 = sext i32 %3630 to i64
   %3641 = icmp slt i64 %3640, %3639
-  %3642 = call i64 @llvm.smin.i64(i64 %3640, i64 %3638)
+  %3642 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3640, i64 range(i64 -9223372036854775808, 9223372036854775807) %3638)
   %3643 = select i1 %3641, i64 %3639, i64 %3642
   %3644 = trunc i64 %3643 to i32
   br label %clamp_value.exit3361
@@ -13131,7 +13131,7 @@ clamp_value.exit3361:                             ; preds = %clamp_value.exit335
   %3656 = sub nsw i64 0, %3654
   %3657 = sext i32 %3647 to i64
   %3658 = icmp slt i64 %3657, %3656
-  %3659 = call i64 @llvm.smin.i64(i64 %3657, i64 %3655)
+  %3659 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3657, i64 range(i64 -9223372036854775808, 9223372036854775807) %3655)
   %3660 = select i1 %3658, i64 %3656, i64 %3659
   %3661 = trunc i64 %3660 to i32
   br label %clamp_value.exit3363
@@ -13155,7 +13155,7 @@ clamp_value.exit3363:                             ; preds = %clamp_value.exit336
   %3673 = sub nsw i64 0, %3671
   %3674 = sext i32 %3664 to i64
   %3675 = icmp slt i64 %3674, %3673
-  %3676 = call i64 @llvm.smin.i64(i64 %3674, i64 %3672)
+  %3676 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3674, i64 range(i64 -9223372036854775808, 9223372036854775807) %3672)
   %3677 = select i1 %3675, i64 %3673, i64 %3676
   %3678 = trunc i64 %3677 to i32
   br label %clamp_value.exit3365
@@ -13177,7 +13177,7 @@ clamp_value.exit3365:                             ; preds = %clamp_value.exit336
   %3688 = sub nsw i64 0, %3686
   %3689 = sext i32 %3679 to i64
   %3690 = icmp slt i64 %3689, %3688
-  %3691 = call i64 @llvm.smin.i64(i64 %3689, i64 %3687)
+  %3691 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3689, i64 range(i64 -9223372036854775808, 9223372036854775807) %3687)
   %3692 = select i1 %3690, i64 %3688, i64 %3691
   %3693 = trunc i64 %3692 to i32
   br label %clamp_value.exit3367
@@ -13199,7 +13199,7 @@ clamp_value.exit3367:                             ; preds = %clamp_value.exit336
   %3703 = sub nsw i64 0, %3701
   %3704 = sext i32 %3694 to i64
   %3705 = icmp slt i64 %3704, %3703
-  %3706 = call i64 @llvm.smin.i64(i64 %3704, i64 %3702)
+  %3706 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3704, i64 range(i64 -9223372036854775808, 9223372036854775807) %3702)
   %3707 = select i1 %3705, i64 %3703, i64 %3706
   %3708 = trunc i64 %3707 to i32
   br label %clamp_value.exit3369
@@ -13221,7 +13221,7 @@ clamp_value.exit3369:                             ; preds = %clamp_value.exit336
   %3718 = sub nsw i64 0, %3716
   %3719 = sext i32 %3709 to i64
   %3720 = icmp slt i64 %3719, %3718
-  %3721 = call i64 @llvm.smin.i64(i64 %3719, i64 %3717)
+  %3721 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3719, i64 range(i64 -9223372036854775808, 9223372036854775807) %3717)
   %3722 = select i1 %3720, i64 %3718, i64 %3721
   %3723 = trunc i64 %3722 to i32
   br label %clamp_value.exit3371
@@ -13243,7 +13243,7 @@ clamp_value.exit3371:                             ; preds = %clamp_value.exit336
   %3733 = sub nsw i64 0, %3731
   %3734 = sext i32 %3724 to i64
   %3735 = icmp slt i64 %3734, %3733
-  %3736 = call i64 @llvm.smin.i64(i64 %3734, i64 %3732)
+  %3736 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3734, i64 range(i64 -9223372036854775808, 9223372036854775807) %3732)
   %3737 = select i1 %3735, i64 %3733, i64 %3736
   %3738 = trunc i64 %3737 to i32
   br label %clamp_value.exit3373
@@ -13267,7 +13267,7 @@ clamp_value.exit3373:                             ; preds = %clamp_value.exit337
   %3750 = sub nsw i64 0, %3748
   %3751 = sext i32 %3741 to i64
   %3752 = icmp slt i64 %3751, %3750
-  %3753 = call i64 @llvm.smin.i64(i64 %3751, i64 %3749)
+  %3753 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3751, i64 range(i64 -9223372036854775808, 9223372036854775807) %3749)
   %3754 = select i1 %3752, i64 %3750, i64 %3753
   %3755 = trunc i64 %3754 to i32
   br label %clamp_value.exit3375
@@ -13291,7 +13291,7 @@ clamp_value.exit3375:                             ; preds = %clamp_value.exit337
   %3767 = sub nsw i64 0, %3765
   %3768 = sext i32 %3758 to i64
   %3769 = icmp slt i64 %3768, %3767
-  %3770 = call i64 @llvm.smin.i64(i64 %3768, i64 %3766)
+  %3770 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3768, i64 range(i64 -9223372036854775808, 9223372036854775807) %3766)
   %3771 = select i1 %3769, i64 %3767, i64 %3770
   %3772 = trunc i64 %3771 to i32
   br label %clamp_value.exit3377
@@ -13315,7 +13315,7 @@ clamp_value.exit3377:                             ; preds = %clamp_value.exit337
   %3784 = sub nsw i64 0, %3782
   %3785 = sext i32 %3775 to i64
   %3786 = icmp slt i64 %3785, %3784
-  %3787 = call i64 @llvm.smin.i64(i64 %3785, i64 %3783)
+  %3787 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3785, i64 range(i64 -9223372036854775808, 9223372036854775807) %3783)
   %3788 = select i1 %3786, i64 %3784, i64 %3787
   %3789 = trunc i64 %3788 to i32
   br label %clamp_value.exit3379
@@ -13339,7 +13339,7 @@ clamp_value.exit3379:                             ; preds = %clamp_value.exit337
   %3801 = sub nsw i64 0, %3799
   %3802 = sext i32 %3792 to i64
   %3803 = icmp slt i64 %3802, %3801
-  %3804 = call i64 @llvm.smin.i64(i64 %3802, i64 %3800)
+  %3804 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3802, i64 range(i64 -9223372036854775808, 9223372036854775807) %3800)
   %3805 = select i1 %3803, i64 %3801, i64 %3804
   %3806 = trunc i64 %3805 to i32
   br label %clamp_value.exit3381
@@ -13361,7 +13361,7 @@ clamp_value.exit3381:                             ; preds = %clamp_value.exit337
   %3816 = sub nsw i64 0, %3814
   %3817 = sext i32 %3807 to i64
   %3818 = icmp slt i64 %3817, %3816
-  %3819 = call i64 @llvm.smin.i64(i64 %3817, i64 %3815)
+  %3819 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3817, i64 range(i64 -9223372036854775808, 9223372036854775807) %3815)
   %3820 = select i1 %3818, i64 %3816, i64 %3819
   %3821 = trunc i64 %3820 to i32
   br label %clamp_value.exit3383
@@ -13383,7 +13383,7 @@ clamp_value.exit3383:                             ; preds = %clamp_value.exit338
   %3831 = sub nsw i64 0, %3829
   %3832 = sext i32 %3822 to i64
   %3833 = icmp slt i64 %3832, %3831
-  %3834 = call i64 @llvm.smin.i64(i64 %3832, i64 %3830)
+  %3834 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3832, i64 range(i64 -9223372036854775808, 9223372036854775807) %3830)
   %3835 = select i1 %3833, i64 %3831, i64 %3834
   %3836 = trunc i64 %3835 to i32
   br label %clamp_value.exit3385
@@ -13405,7 +13405,7 @@ clamp_value.exit3385:                             ; preds = %clamp_value.exit338
   %3846 = sub nsw i64 0, %3844
   %3847 = sext i32 %3837 to i64
   %3848 = icmp slt i64 %3847, %3846
-  %3849 = call i64 @llvm.smin.i64(i64 %3847, i64 %3845)
+  %3849 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3847, i64 range(i64 -9223372036854775808, 9223372036854775807) %3845)
   %3850 = select i1 %3848, i64 %3846, i64 %3849
   %3851 = trunc i64 %3850 to i32
   br label %clamp_value.exit3387
@@ -13427,7 +13427,7 @@ clamp_value.exit3387:                             ; preds = %clamp_value.exit338
   %3861 = sub nsw i64 0, %3859
   %3862 = sext i32 %3852 to i64
   %3863 = icmp slt i64 %3862, %3861
-  %3864 = call i64 @llvm.smin.i64(i64 %3862, i64 %3860)
+  %3864 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3862, i64 range(i64 -9223372036854775808, 9223372036854775807) %3860)
   %3865 = select i1 %3863, i64 %3861, i64 %3864
   %3866 = trunc i64 %3865 to i32
   br label %clamp_value.exit3389
@@ -13477,7 +13477,7 @@ clamp_value.exit3403.thread:                      ; preds = %clamp_value.exit338
   %3893 = sub nsw i64 0, %3891
   %3894 = sext i32 %3870 to i64
   %3895 = icmp slt i64 %3894, %3893
-  %3896 = call i64 @llvm.smin.i64(i64 %3894, i64 %3892)
+  %3896 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3894, i64 range(i64 -9223372036854775808, 9223372036854775807) %3892)
   %3897 = select i1 %3895, i64 %3893, i64 %3896
   %3898 = trunc i64 %3897 to i32
   store i32 %3898, ptr %5, align 16
@@ -13486,7 +13486,7 @@ clamp_value.exit3403.thread:                      ; preds = %clamp_value.exit338
   %3901 = add nsw i32 %3899, %3900
   %3902 = sext i32 %3901 to i64
   %3903 = icmp slt i64 %3902, %3893
-  %3904 = call i64 @llvm.smin.i64(i64 %3902, i64 %3892)
+  %3904 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3902, i64 range(i64 -9223372036854775808, 9223372036854775807) %3892)
   %3905 = select i1 %3903, i64 %3893, i64 %3904
   %3906 = trunc i64 %3905 to i32
   store i32 %3906, ptr %204, align 4
@@ -13501,7 +13501,7 @@ clamp_value.exit3403.thread:                      ; preds = %clamp_value.exit338
   %3915 = sub nsw i64 0, %3913
   %3916 = sext i32 %3909 to i64
   %3917 = icmp slt i64 %3916, %3915
-  %3918 = call i64 @llvm.smin.i64(i64 %3916, i64 %3914)
+  %3918 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3916, i64 range(i64 -9223372036854775808, 9223372036854775807) %3914)
   %3919 = select i1 %3917, i64 %3915, i64 %3918
   %3920 = trunc i64 %3919 to i32
   store i32 %3920, ptr %206, align 8
@@ -13510,7 +13510,7 @@ clamp_value.exit3403.thread:                      ; preds = %clamp_value.exit338
   %3923 = add nsw i32 %3921, %3922
   %3924 = sext i32 %3923 to i64
   %3925 = icmp slt i64 %3924, %3915
-  %3926 = call i64 @llvm.smin.i64(i64 %3924, i64 %3914)
+  %3926 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3924, i64 range(i64 -9223372036854775808, 9223372036854775807) %3914)
   %3927 = select i1 %3925, i64 %3915, i64 %3926
   %3928 = trunc i64 %3927 to i32
   store i32 %3928, ptr %208, align 4
@@ -13523,14 +13523,14 @@ clamp_value.exit3403.thread:                      ; preds = %clamp_value.exit338
   %3935 = sub nsw i64 0, %3933
   %3936 = sext i32 %3929 to i64
   %3937 = icmp slt i64 %3936, %3935
-  %3938 = call i64 @llvm.smin.i64(i64 %3936, i64 %3934)
+  %3938 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3936, i64 range(i64 -9223372036854775808, 9223372036854775807) %3934)
   %3939 = select i1 %3937, i64 %3935, i64 %3938
   %3940 = trunc i64 %3939 to i32
   store i32 %3940, ptr %210, align 16
   %3941 = sub nsw i32 %3907, %3908
   %3942 = sext i32 %3941 to i64
   %3943 = icmp slt i64 %3942, %3935
-  %3944 = call i64 @llvm.smin.i64(i64 %3942, i64 %3934)
+  %3944 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3942, i64 range(i64 -9223372036854775808, 9223372036854775807) %3934)
   %3945 = select i1 %3943, i64 %3935, i64 %3944
   %3946 = trunc i64 %3945 to i32
   store i32 %3946, ptr %212, align 4
@@ -13543,14 +13543,14 @@ clamp_value.exit3403.thread:                      ; preds = %clamp_value.exit338
   %3953 = sub nsw i64 0, %3951
   %3954 = sext i32 %3947 to i64
   %3955 = icmp slt i64 %3954, %3953
-  %3956 = call i64 @llvm.smin.i64(i64 %3954, i64 %3952)
+  %3956 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3954, i64 range(i64 -9223372036854775808, 9223372036854775807) %3952)
   %3957 = select i1 %3955, i64 %3953, i64 %3956
   %3958 = trunc i64 %3957 to i32
   store i32 %3958, ptr %214, align 8
   %3959 = sub nsw i32 %3868, %3869
   %3960 = sext i32 %3959 to i64
   %3961 = icmp slt i64 %3960, %3953
-  %3962 = call i64 @llvm.smin.i64(i64 %3960, i64 %3952)
+  %3962 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %3960, i64 range(i64 -9223372036854775808, 9223372036854775807) %3952)
   %3963 = select i1 %3961, i64 %3953, i64 %3962
   %3964 = trunc i64 %3963 to i32
   br label %clamp_value.exit3405
@@ -13663,7 +13663,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4039 = sub nsw i64 0, %4037
   %4040 = sext i32 %4003 to i64
   %4041 = icmp slt i64 %4040, %4039
-  %4042 = call i64 @llvm.smin.i64(i64 %4040, i64 %4038)
+  %4042 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4040, i64 range(i64 -9223372036854775808, 9223372036854775807) %4038)
   %4043 = select i1 %4041, i64 %4039, i64 %4042
   %4044 = trunc i64 %4043 to i32
   store i32 %4044, ptr %234, align 16
@@ -13672,7 +13672,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4047 = add nsw i32 %4045, %4046
   %4048 = sext i32 %4047 to i64
   %4049 = icmp slt i64 %4048, %4039
-  %4050 = call i64 @llvm.smin.i64(i64 %4048, i64 %4038)
+  %4050 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4048, i64 range(i64 -9223372036854775808, 9223372036854775807) %4038)
   %4051 = select i1 %4049, i64 %4039, i64 %4050
   %4052 = trunc i64 %4051 to i32
   store i32 %4052, ptr %236, align 4
@@ -13687,7 +13687,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4061 = sub nsw i64 0, %4059
   %4062 = sext i32 %4055 to i64
   %4063 = icmp slt i64 %4062, %4061
-  %4064 = call i64 @llvm.smin.i64(i64 %4062, i64 %4060)
+  %4064 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4062, i64 range(i64 -9223372036854775808, 9223372036854775807) %4060)
   %4065 = select i1 %4063, i64 %4061, i64 %4064
   %4066 = trunc i64 %4065 to i32
   store i32 %4066, ptr %238, align 8
@@ -13696,7 +13696,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4069 = add nsw i32 %4067, %4068
   %4070 = sext i32 %4069 to i64
   %4071 = icmp slt i64 %4070, %4061
-  %4072 = call i64 @llvm.smin.i64(i64 %4070, i64 %4060)
+  %4072 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4070, i64 range(i64 -9223372036854775808, 9223372036854775807) %4060)
   %4073 = select i1 %4071, i64 %4061, i64 %4072
   %4074 = trunc i64 %4073 to i32
   store i32 %4074, ptr %240, align 4
@@ -13709,14 +13709,14 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4081 = sub nsw i64 0, %4079
   %4082 = sext i32 %4075 to i64
   %4083 = icmp slt i64 %4082, %4081
-  %4084 = call i64 @llvm.smin.i64(i64 %4082, i64 %4080)
+  %4084 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4082, i64 range(i64 -9223372036854775808, 9223372036854775807) %4080)
   %4085 = select i1 %4083, i64 %4081, i64 %4084
   %4086 = trunc i64 %4085 to i32
   store i32 %4086, ptr %242, align 16
   %4087 = sub nsw i32 %4053, %4054
   %4088 = sext i32 %4087 to i64
   %4089 = icmp slt i64 %4088, %4081
-  %4090 = call i64 @llvm.smin.i64(i64 %4088, i64 %4080)
+  %4090 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4088, i64 range(i64 -9223372036854775808, 9223372036854775807) %4080)
   %4091 = select i1 %4089, i64 %4081, i64 %4090
   %4092 = trunc i64 %4091 to i32
   store i32 %4092, ptr %244, align 4
@@ -13729,14 +13729,14 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4099 = sub nsw i64 0, %4097
   %4100 = sext i32 %4093 to i64
   %4101 = icmp slt i64 %4100, %4099
-  %4102 = call i64 @llvm.smin.i64(i64 %4100, i64 %4098)
+  %4102 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4100, i64 range(i64 -9223372036854775808, 9223372036854775807) %4098)
   %4103 = select i1 %4101, i64 %4099, i64 %4102
   %4104 = trunc i64 %4103 to i32
   store i32 %4104, ptr %246, align 8
   %4105 = sub nsw i32 %4001, %4002
   %4106 = sext i32 %4105 to i64
   %4107 = icmp slt i64 %4106, %4099
-  %4108 = call i64 @llvm.smin.i64(i64 %4106, i64 %4098)
+  %4108 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4106, i64 range(i64 -9223372036854775808, 9223372036854775807) %4098)
   %4109 = select i1 %4107, i64 %4099, i64 %4108
   %4110 = trunc i64 %4109 to i32
   store i32 %4110, ptr %248, align 4
@@ -13751,7 +13751,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4119 = sub nsw i64 0, %4117
   %4120 = sext i32 %4113 to i64
   %4121 = icmp slt i64 %4120, %4119
-  %4122 = call i64 @llvm.smin.i64(i64 %4120, i64 %4118)
+  %4122 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4120, i64 range(i64 -9223372036854775808, 9223372036854775807) %4118)
   %4123 = select i1 %4121, i64 %4119, i64 %4122
   %4124 = trunc i64 %4123 to i32
   store i32 %4124, ptr %250, align 16
@@ -13760,7 +13760,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4127 = sub nsw i32 %4125, %4126
   %4128 = sext i32 %4127 to i64
   %4129 = icmp slt i64 %4128, %4119
-  %4130 = call i64 @llvm.smin.i64(i64 %4128, i64 %4118)
+  %4130 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4128, i64 range(i64 -9223372036854775808, 9223372036854775807) %4118)
   %4131 = select i1 %4129, i64 %4119, i64 %4130
   %4132 = trunc i64 %4131 to i32
   store i32 %4132, ptr %252, align 4
@@ -13775,7 +13775,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4141 = sub nsw i64 0, %4139
   %4142 = sext i32 %4135 to i64
   %4143 = icmp slt i64 %4142, %4141
-  %4144 = call i64 @llvm.smin.i64(i64 %4142, i64 %4140)
+  %4144 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4142, i64 range(i64 -9223372036854775808, 9223372036854775807) %4140)
   %4145 = select i1 %4143, i64 %4141, i64 %4144
   %4146 = trunc i64 %4145 to i32
   store i32 %4146, ptr %254, align 8
@@ -13784,7 +13784,7 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4149 = sub nsw i32 %4147, %4148
   %4150 = sext i32 %4149 to i64
   %4151 = icmp slt i64 %4150, %4141
-  %4152 = call i64 @llvm.smin.i64(i64 %4150, i64 %4140)
+  %4152 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4150, i64 range(i64 -9223372036854775808, 9223372036854775807) %4140)
   %4153 = select i1 %4151, i64 %4141, i64 %4152
   %4154 = trunc i64 %4153 to i32
   store i32 %4154, ptr %256, align 4
@@ -13797,14 +13797,14 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4161 = sub nsw i64 0, %4159
   %4162 = sext i32 %4155 to i64
   %4163 = icmp slt i64 %4162, %4161
-  %4164 = call i64 @llvm.smin.i64(i64 %4162, i64 %4160)
+  %4164 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4162, i64 range(i64 -9223372036854775808, 9223372036854775807) %4160)
   %4165 = select i1 %4163, i64 %4161, i64 %4164
   %4166 = trunc i64 %4165 to i32
   store i32 %4166, ptr %258, align 16
   %4167 = add nsw i32 %4134, %4133
   %4168 = sext i32 %4167 to i64
   %4169 = icmp slt i64 %4168, %4161
-  %4170 = call i64 @llvm.smin.i64(i64 %4168, i64 %4160)
+  %4170 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4168, i64 range(i64 -9223372036854775808, 9223372036854775807) %4160)
   %4171 = select i1 %4169, i64 %4161, i64 %4170
   %4172 = trunc i64 %4171 to i32
   store i32 %4172, ptr %260, align 4
@@ -13817,14 +13817,14 @@ clamp_value.exit3435.thread:                      ; preds = %clamp_value.exit340
   %4179 = sub nsw i64 0, %4177
   %4180 = sext i32 %4173 to i64
   %4181 = icmp slt i64 %4180, %4179
-  %4182 = call i64 @llvm.smin.i64(i64 %4180, i64 %4178)
+  %4182 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4180, i64 range(i64 -9223372036854775808, 9223372036854775807) %4178)
   %4183 = select i1 %4181, i64 %4179, i64 %4182
   %4184 = trunc i64 %4183 to i32
   store i32 %4184, ptr %262, align 8
   %4185 = add nsw i32 %4112, %4111
   %4186 = sext i32 %4185 to i64
   %4187 = icmp slt i64 %4186, %4179
-  %4188 = call i64 @llvm.smin.i64(i64 %4186, i64 %4178)
+  %4188 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4186, i64 range(i64 -9223372036854775808, 9223372036854775807) %4178)
   %4189 = select i1 %4187, i64 %4179, i64 %4188
   %4190 = trunc i64 %4189 to i32
   br label %clamp_value.exit3437
@@ -14051,7 +14051,7 @@ clamp_value.exit3437:                             ; preds = %clamp_value.exit343
   %4372 = sub nsw i64 0, %4370
   %4373 = sext i32 %4362 to i64
   %4374 = icmp slt i64 %4373, %4372
-  %4375 = call i64 @llvm.smin.i64(i64 %4373, i64 %4371)
+  %4375 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4373, i64 range(i64 -9223372036854775808, 9223372036854775807) %4371)
   %4376 = select i1 %4374, i64 %4372, i64 %4375
   %4377 = trunc i64 %4376 to i32
   br label %clamp_value.exit3439
@@ -14075,7 +14075,7 @@ clamp_value.exit3439:                             ; preds = %clamp_value.exit343
   %4389 = sub nsw i64 0, %4387
   %4390 = sext i32 %4380 to i64
   %4391 = icmp slt i64 %4390, %4389
-  %4392 = call i64 @llvm.smin.i64(i64 %4390, i64 %4388)
+  %4392 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4390, i64 range(i64 -9223372036854775808, 9223372036854775807) %4388)
   %4393 = select i1 %4391, i64 %4389, i64 %4392
   %4394 = trunc i64 %4393 to i32
   br label %clamp_value.exit3441
@@ -14099,7 +14099,7 @@ clamp_value.exit3441:                             ; preds = %clamp_value.exit343
   %4406 = sub nsw i64 0, %4404
   %4407 = sext i32 %4397 to i64
   %4408 = icmp slt i64 %4407, %4406
-  %4409 = call i64 @llvm.smin.i64(i64 %4407, i64 %4405)
+  %4409 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4407, i64 range(i64 -9223372036854775808, 9223372036854775807) %4405)
   %4410 = select i1 %4408, i64 %4406, i64 %4409
   %4411 = trunc i64 %4410 to i32
   br label %clamp_value.exit3443
@@ -14123,7 +14123,7 @@ clamp_value.exit3443:                             ; preds = %clamp_value.exit344
   %4423 = sub nsw i64 0, %4421
   %4424 = sext i32 %4414 to i64
   %4425 = icmp slt i64 %4424, %4423
-  %4426 = call i64 @llvm.smin.i64(i64 %4424, i64 %4422)
+  %4426 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4424, i64 range(i64 -9223372036854775808, 9223372036854775807) %4422)
   %4427 = select i1 %4425, i64 %4423, i64 %4426
   %4428 = trunc i64 %4427 to i32
   br label %clamp_value.exit3445
@@ -14147,7 +14147,7 @@ clamp_value.exit3445:                             ; preds = %clamp_value.exit344
   %4440 = sub nsw i64 0, %4438
   %4441 = sext i32 %4431 to i64
   %4442 = icmp slt i64 %4441, %4440
-  %4443 = call i64 @llvm.smin.i64(i64 %4441, i64 %4439)
+  %4443 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4441, i64 range(i64 -9223372036854775808, 9223372036854775807) %4439)
   %4444 = select i1 %4442, i64 %4440, i64 %4443
   %4445 = trunc i64 %4444 to i32
   br label %clamp_value.exit3447
@@ -14171,7 +14171,7 @@ clamp_value.exit3447:                             ; preds = %clamp_value.exit344
   %4457 = sub nsw i64 0, %4455
   %4458 = sext i32 %4448 to i64
   %4459 = icmp slt i64 %4458, %4457
-  %4460 = call i64 @llvm.smin.i64(i64 %4458, i64 %4456)
+  %4460 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4458, i64 range(i64 -9223372036854775808, 9223372036854775807) %4456)
   %4461 = select i1 %4459, i64 %4457, i64 %4460
   %4462 = trunc i64 %4461 to i32
   br label %clamp_value.exit3449
@@ -14195,7 +14195,7 @@ clamp_value.exit3449:                             ; preds = %clamp_value.exit344
   %4474 = sub nsw i64 0, %4472
   %4475 = sext i32 %4465 to i64
   %4476 = icmp slt i64 %4475, %4474
-  %4477 = call i64 @llvm.smin.i64(i64 %4475, i64 %4473)
+  %4477 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4475, i64 range(i64 -9223372036854775808, 9223372036854775807) %4473)
   %4478 = select i1 %4476, i64 %4474, i64 %4477
   %4479 = trunc i64 %4478 to i32
   br label %clamp_value.exit3451
@@ -14219,7 +14219,7 @@ clamp_value.exit3451:                             ; preds = %clamp_value.exit344
   %4491 = sub nsw i64 0, %4489
   %4492 = sext i32 %4482 to i64
   %4493 = icmp slt i64 %4492, %4491
-  %4494 = call i64 @llvm.smin.i64(i64 %4492, i64 %4490)
+  %4494 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4492, i64 range(i64 -9223372036854775808, 9223372036854775807) %4490)
   %4495 = select i1 %4493, i64 %4491, i64 %4494
   %4496 = trunc i64 %4495 to i32
   br label %clamp_value.exit3453
@@ -14241,7 +14241,7 @@ clamp_value.exit3453:                             ; preds = %clamp_value.exit345
   %4506 = sub nsw i64 0, %4504
   %4507 = sext i32 %4497 to i64
   %4508 = icmp slt i64 %4507, %4506
-  %4509 = call i64 @llvm.smin.i64(i64 %4507, i64 %4505)
+  %4509 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4507, i64 range(i64 -9223372036854775808, 9223372036854775807) %4505)
   %4510 = select i1 %4508, i64 %4506, i64 %4509
   %4511 = trunc i64 %4510 to i32
   br label %clamp_value.exit3455
@@ -14263,7 +14263,7 @@ clamp_value.exit3455:                             ; preds = %clamp_value.exit345
   %4521 = sub nsw i64 0, %4519
   %4522 = sext i32 %4512 to i64
   %4523 = icmp slt i64 %4522, %4521
-  %4524 = call i64 @llvm.smin.i64(i64 %4522, i64 %4520)
+  %4524 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4522, i64 range(i64 -9223372036854775808, 9223372036854775807) %4520)
   %4525 = select i1 %4523, i64 %4521, i64 %4524
   %4526 = trunc i64 %4525 to i32
   br label %clamp_value.exit3457
@@ -14285,7 +14285,7 @@ clamp_value.exit3457:                             ; preds = %clamp_value.exit345
   %4536 = sub nsw i64 0, %4534
   %4537 = sext i32 %4527 to i64
   %4538 = icmp slt i64 %4537, %4536
-  %4539 = call i64 @llvm.smin.i64(i64 %4537, i64 %4535)
+  %4539 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4537, i64 range(i64 -9223372036854775808, 9223372036854775807) %4535)
   %4540 = select i1 %4538, i64 %4536, i64 %4539
   %4541 = trunc i64 %4540 to i32
   br label %clamp_value.exit3459
@@ -14307,7 +14307,7 @@ clamp_value.exit3459:                             ; preds = %clamp_value.exit345
   %4551 = sub nsw i64 0, %4549
   %4552 = sext i32 %4542 to i64
   %4553 = icmp slt i64 %4552, %4551
-  %4554 = call i64 @llvm.smin.i64(i64 %4552, i64 %4550)
+  %4554 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4552, i64 range(i64 -9223372036854775808, 9223372036854775807) %4550)
   %4555 = select i1 %4553, i64 %4551, i64 %4554
   %4556 = trunc i64 %4555 to i32
   br label %clamp_value.exit3461
@@ -14329,7 +14329,7 @@ clamp_value.exit3461:                             ; preds = %clamp_value.exit345
   %4566 = sub nsw i64 0, %4564
   %4567 = sext i32 %4557 to i64
   %4568 = icmp slt i64 %4567, %4566
-  %4569 = call i64 @llvm.smin.i64(i64 %4567, i64 %4565)
+  %4569 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4567, i64 range(i64 -9223372036854775808, 9223372036854775807) %4565)
   %4570 = select i1 %4568, i64 %4566, i64 %4569
   %4571 = trunc i64 %4570 to i32
   br label %clamp_value.exit3463
@@ -14351,7 +14351,7 @@ clamp_value.exit3463:                             ; preds = %clamp_value.exit346
   %4581 = sub nsw i64 0, %4579
   %4582 = sext i32 %4572 to i64
   %4583 = icmp slt i64 %4582, %4581
-  %4584 = call i64 @llvm.smin.i64(i64 %4582, i64 %4580)
+  %4584 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4582, i64 range(i64 -9223372036854775808, 9223372036854775807) %4580)
   %4585 = select i1 %4583, i64 %4581, i64 %4584
   %4586 = trunc i64 %4585 to i32
   br label %clamp_value.exit3465
@@ -14373,7 +14373,7 @@ clamp_value.exit3465:                             ; preds = %clamp_value.exit346
   %4596 = sub nsw i64 0, %4594
   %4597 = sext i32 %4587 to i64
   %4598 = icmp slt i64 %4597, %4596
-  %4599 = call i64 @llvm.smin.i64(i64 %4597, i64 %4595)
+  %4599 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4597, i64 range(i64 -9223372036854775808, 9223372036854775807) %4595)
   %4600 = select i1 %4598, i64 %4596, i64 %4599
   %4601 = trunc i64 %4600 to i32
   br label %clamp_value.exit3467
@@ -14395,7 +14395,7 @@ clamp_value.exit3467:                             ; preds = %clamp_value.exit346
   %4611 = sub nsw i64 0, %4609
   %4612 = sext i32 %4602 to i64
   %4613 = icmp slt i64 %4612, %4611
-  %4614 = call i64 @llvm.smin.i64(i64 %4612, i64 %4610)
+  %4614 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4612, i64 range(i64 -9223372036854775808, 9223372036854775807) %4610)
   %4615 = select i1 %4613, i64 %4611, i64 %4614
   %4616 = trunc i64 %4615 to i32
   br label %clamp_value.exit3469
@@ -14507,7 +14507,7 @@ clamp_value.exit3469:                             ; preds = %clamp_value.exit346
   %4700 = sub nsw i64 0, %4698
   %4701 = sext i32 %4691 to i64
   %4702 = icmp slt i64 %4701, %4700
-  %4703 = call i64 @llvm.smin.i64(i64 %4701, i64 %4699)
+  %4703 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4701, i64 range(i64 -9223372036854775808, 9223372036854775807) %4699)
   %4704 = select i1 %4702, i64 %4700, i64 %4703
   %4705 = trunc i64 %4704 to i32
   br label %clamp_value.exit3471
@@ -14531,7 +14531,7 @@ clamp_value.exit3471:                             ; preds = %clamp_value.exit346
   %4717 = sub nsw i64 0, %4715
   %4718 = sext i32 %4708 to i64
   %4719 = icmp slt i64 %4718, %4717
-  %4720 = call i64 @llvm.smin.i64(i64 %4718, i64 %4716)
+  %4720 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4718, i64 range(i64 -9223372036854775808, 9223372036854775807) %4716)
   %4721 = select i1 %4719, i64 %4717, i64 %4720
   %4722 = trunc i64 %4721 to i32
   br label %clamp_value.exit3473
@@ -14555,7 +14555,7 @@ clamp_value.exit3473:                             ; preds = %clamp_value.exit347
   %4734 = sub nsw i64 0, %4732
   %4735 = sext i32 %4725 to i64
   %4736 = icmp slt i64 %4735, %4734
-  %4737 = call i64 @llvm.smin.i64(i64 %4735, i64 %4733)
+  %4737 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4735, i64 range(i64 -9223372036854775808, 9223372036854775807) %4733)
   %4738 = select i1 %4736, i64 %4734, i64 %4737
   %4739 = trunc i64 %4738 to i32
   br label %clamp_value.exit3475
@@ -14579,7 +14579,7 @@ clamp_value.exit3475:                             ; preds = %clamp_value.exit347
   %4751 = sub nsw i64 0, %4749
   %4752 = sext i32 %4742 to i64
   %4753 = icmp slt i64 %4752, %4751
-  %4754 = call i64 @llvm.smin.i64(i64 %4752, i64 %4750)
+  %4754 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4752, i64 range(i64 -9223372036854775808, 9223372036854775807) %4750)
   %4755 = select i1 %4753, i64 %4751, i64 %4754
   %4756 = trunc i64 %4755 to i32
   br label %clamp_value.exit3477
@@ -14603,7 +14603,7 @@ clamp_value.exit3477:                             ; preds = %clamp_value.exit347
   %4768 = sub nsw i64 0, %4766
   %4769 = sext i32 %4759 to i64
   %4770 = icmp slt i64 %4769, %4768
-  %4771 = call i64 @llvm.smin.i64(i64 %4769, i64 %4767)
+  %4771 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4769, i64 range(i64 -9223372036854775808, 9223372036854775807) %4767)
   %4772 = select i1 %4770, i64 %4768, i64 %4771
   %4773 = trunc i64 %4772 to i32
   br label %clamp_value.exit3479
@@ -14627,7 +14627,7 @@ clamp_value.exit3479:                             ; preds = %clamp_value.exit347
   %4785 = sub nsw i64 0, %4783
   %4786 = sext i32 %4776 to i64
   %4787 = icmp slt i64 %4786, %4785
-  %4788 = call i64 @llvm.smin.i64(i64 %4786, i64 %4784)
+  %4788 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4786, i64 range(i64 -9223372036854775808, 9223372036854775807) %4784)
   %4789 = select i1 %4787, i64 %4785, i64 %4788
   %4790 = trunc i64 %4789 to i32
   br label %clamp_value.exit3481
@@ -14651,7 +14651,7 @@ clamp_value.exit3481:                             ; preds = %clamp_value.exit347
   %4802 = sub nsw i64 0, %4800
   %4803 = sext i32 %4793 to i64
   %4804 = icmp slt i64 %4803, %4802
-  %4805 = call i64 @llvm.smin.i64(i64 %4803, i64 %4801)
+  %4805 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4803, i64 range(i64 -9223372036854775808, 9223372036854775807) %4801)
   %4806 = select i1 %4804, i64 %4802, i64 %4805
   %4807 = trunc i64 %4806 to i32
   br label %clamp_value.exit3483
@@ -14675,7 +14675,7 @@ clamp_value.exit3483:                             ; preds = %clamp_value.exit348
   %4819 = sub nsw i64 0, %4817
   %4820 = sext i32 %4810 to i64
   %4821 = icmp slt i64 %4820, %4819
-  %4822 = call i64 @llvm.smin.i64(i64 %4820, i64 %4818)
+  %4822 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4820, i64 range(i64 -9223372036854775808, 9223372036854775807) %4818)
   %4823 = select i1 %4821, i64 %4819, i64 %4822
   %4824 = trunc i64 %4823 to i32
   br label %clamp_value.exit3485
@@ -14697,7 +14697,7 @@ clamp_value.exit3485:                             ; preds = %clamp_value.exit348
   %4834 = sub nsw i64 0, %4832
   %4835 = sext i32 %4825 to i64
   %4836 = icmp slt i64 %4835, %4834
-  %4837 = call i64 @llvm.smin.i64(i64 %4835, i64 %4833)
+  %4837 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4835, i64 range(i64 -9223372036854775808, 9223372036854775807) %4833)
   %4838 = select i1 %4836, i64 %4834, i64 %4837
   %4839 = trunc i64 %4838 to i32
   br label %clamp_value.exit3487
@@ -14719,7 +14719,7 @@ clamp_value.exit3487:                             ; preds = %clamp_value.exit348
   %4849 = sub nsw i64 0, %4847
   %4850 = sext i32 %4840 to i64
   %4851 = icmp slt i64 %4850, %4849
-  %4852 = call i64 @llvm.smin.i64(i64 %4850, i64 %4848)
+  %4852 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4850, i64 range(i64 -9223372036854775808, 9223372036854775807) %4848)
   %4853 = select i1 %4851, i64 %4849, i64 %4852
   %4854 = trunc i64 %4853 to i32
   br label %clamp_value.exit3489
@@ -14741,7 +14741,7 @@ clamp_value.exit3489:                             ; preds = %clamp_value.exit348
   %4864 = sub nsw i64 0, %4862
   %4865 = sext i32 %4855 to i64
   %4866 = icmp slt i64 %4865, %4864
-  %4867 = call i64 @llvm.smin.i64(i64 %4865, i64 %4863)
+  %4867 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4865, i64 range(i64 -9223372036854775808, 9223372036854775807) %4863)
   %4868 = select i1 %4866, i64 %4864, i64 %4867
   %4869 = trunc i64 %4868 to i32
   br label %clamp_value.exit3491
@@ -14763,7 +14763,7 @@ clamp_value.exit3491:                             ; preds = %clamp_value.exit348
   %4879 = sub nsw i64 0, %4877
   %4880 = sext i32 %4870 to i64
   %4881 = icmp slt i64 %4880, %4879
-  %4882 = call i64 @llvm.smin.i64(i64 %4880, i64 %4878)
+  %4882 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4880, i64 range(i64 -9223372036854775808, 9223372036854775807) %4878)
   %4883 = select i1 %4881, i64 %4879, i64 %4882
   %4884 = trunc i64 %4883 to i32
   br label %clamp_value.exit3493
@@ -14785,7 +14785,7 @@ clamp_value.exit3493:                             ; preds = %clamp_value.exit349
   %4894 = sub nsw i64 0, %4892
   %4895 = sext i32 %4885 to i64
   %4896 = icmp slt i64 %4895, %4894
-  %4897 = call i64 @llvm.smin.i64(i64 %4895, i64 %4893)
+  %4897 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4895, i64 range(i64 -9223372036854775808, 9223372036854775807) %4893)
   %4898 = select i1 %4896, i64 %4894, i64 %4897
   %4899 = trunc i64 %4898 to i32
   br label %clamp_value.exit3495
@@ -14807,7 +14807,7 @@ clamp_value.exit3495:                             ; preds = %clamp_value.exit349
   %4909 = sub nsw i64 0, %4907
   %4910 = sext i32 %4900 to i64
   %4911 = icmp slt i64 %4910, %4909
-  %4912 = call i64 @llvm.smin.i64(i64 %4910, i64 %4908)
+  %4912 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4910, i64 range(i64 -9223372036854775808, 9223372036854775807) %4908)
   %4913 = select i1 %4911, i64 %4909, i64 %4912
   %4914 = trunc i64 %4913 to i32
   br label %clamp_value.exit3497
@@ -14829,7 +14829,7 @@ clamp_value.exit3497:                             ; preds = %clamp_value.exit349
   %4924 = sub nsw i64 0, %4922
   %4925 = sext i32 %4915 to i64
   %4926 = icmp slt i64 %4925, %4924
-  %4927 = call i64 @llvm.smin.i64(i64 %4925, i64 %4923)
+  %4927 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4925, i64 range(i64 -9223372036854775808, 9223372036854775807) %4923)
   %4928 = select i1 %4926, i64 %4924, i64 %4927
   %4929 = trunc i64 %4928 to i32
   br label %clamp_value.exit3499
@@ -14851,7 +14851,7 @@ clamp_value.exit3499:                             ; preds = %clamp_value.exit349
   %4939 = sub nsw i64 0, %4937
   %4940 = sext i32 %4930 to i64
   %4941 = icmp slt i64 %4940, %4939
-  %4942 = call i64 @llvm.smin.i64(i64 %4940, i64 %4938)
+  %4942 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4940, i64 range(i64 -9223372036854775808, 9223372036854775807) %4938)
   %4943 = select i1 %4941, i64 %4939, i64 %4942
   %4944 = trunc i64 %4943 to i32
   br label %clamp_value.exit3501
@@ -14875,7 +14875,7 @@ clamp_value.exit3501:                             ; preds = %clamp_value.exit349
   %4956 = sub nsw i64 0, %4954
   %4957 = sext i32 %4947 to i64
   %4958 = icmp slt i64 %4957, %4956
-  %4959 = call i64 @llvm.smin.i64(i64 %4957, i64 %4955)
+  %4959 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4957, i64 range(i64 -9223372036854775808, 9223372036854775807) %4955)
   %4960 = select i1 %4958, i64 %4956, i64 %4959
   %4961 = trunc i64 %4960 to i32
   br label %clamp_value.exit3503
@@ -14899,7 +14899,7 @@ clamp_value.exit3503:                             ; preds = %clamp_value.exit350
   %4973 = sub nsw i64 0, %4971
   %4974 = sext i32 %4964 to i64
   %4975 = icmp slt i64 %4974, %4973
-  %4976 = call i64 @llvm.smin.i64(i64 %4974, i64 %4972)
+  %4976 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4974, i64 range(i64 -9223372036854775808, 9223372036854775807) %4972)
   %4977 = select i1 %4975, i64 %4973, i64 %4976
   %4978 = trunc i64 %4977 to i32
   br label %clamp_value.exit3505
@@ -14923,7 +14923,7 @@ clamp_value.exit3505:                             ; preds = %clamp_value.exit350
   %4990 = sub nsw i64 0, %4988
   %4991 = sext i32 %4981 to i64
   %4992 = icmp slt i64 %4991, %4990
-  %4993 = call i64 @llvm.smin.i64(i64 %4991, i64 %4989)
+  %4993 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %4991, i64 range(i64 -9223372036854775808, 9223372036854775807) %4989)
   %4994 = select i1 %4992, i64 %4990, i64 %4993
   %4995 = trunc i64 %4994 to i32
   br label %clamp_value.exit3507
@@ -14947,7 +14947,7 @@ clamp_value.exit3507:                             ; preds = %clamp_value.exit350
   %5007 = sub nsw i64 0, %5005
   %5008 = sext i32 %4998 to i64
   %5009 = icmp slt i64 %5008, %5007
-  %5010 = call i64 @llvm.smin.i64(i64 %5008, i64 %5006)
+  %5010 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5008, i64 range(i64 -9223372036854775808, 9223372036854775807) %5006)
   %5011 = select i1 %5009, i64 %5007, i64 %5010
   %5012 = trunc i64 %5011 to i32
   br label %clamp_value.exit3509
@@ -14971,7 +14971,7 @@ clamp_value.exit3509:                             ; preds = %clamp_value.exit350
   %5024 = sub nsw i64 0, %5022
   %5025 = sext i32 %5015 to i64
   %5026 = icmp slt i64 %5025, %5024
-  %5027 = call i64 @llvm.smin.i64(i64 %5025, i64 %5023)
+  %5027 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5025, i64 range(i64 -9223372036854775808, 9223372036854775807) %5023)
   %5028 = select i1 %5026, i64 %5024, i64 %5027
   %5029 = trunc i64 %5028 to i32
   br label %clamp_value.exit3511
@@ -14995,7 +14995,7 @@ clamp_value.exit3511:                             ; preds = %clamp_value.exit350
   %5041 = sub nsw i64 0, %5039
   %5042 = sext i32 %5032 to i64
   %5043 = icmp slt i64 %5042, %5041
-  %5044 = call i64 @llvm.smin.i64(i64 %5042, i64 %5040)
+  %5044 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5042, i64 range(i64 -9223372036854775808, 9223372036854775807) %5040)
   %5045 = select i1 %5043, i64 %5041, i64 %5044
   %5046 = trunc i64 %5045 to i32
   br label %clamp_value.exit3513
@@ -15019,7 +15019,7 @@ clamp_value.exit3513:                             ; preds = %clamp_value.exit351
   %5058 = sub nsw i64 0, %5056
   %5059 = sext i32 %5049 to i64
   %5060 = icmp slt i64 %5059, %5058
-  %5061 = call i64 @llvm.smin.i64(i64 %5059, i64 %5057)
+  %5061 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5059, i64 range(i64 -9223372036854775808, 9223372036854775807) %5057)
   %5062 = select i1 %5060, i64 %5058, i64 %5061
   %5063 = trunc i64 %5062 to i32
   br label %clamp_value.exit3515
@@ -15043,7 +15043,7 @@ clamp_value.exit3515:                             ; preds = %clamp_value.exit351
   %5075 = sub nsw i64 0, %5073
   %5076 = sext i32 %5066 to i64
   %5077 = icmp slt i64 %5076, %5075
-  %5078 = call i64 @llvm.smin.i64(i64 %5076, i64 %5074)
+  %5078 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5076, i64 range(i64 -9223372036854775808, 9223372036854775807) %5074)
   %5079 = select i1 %5077, i64 %5075, i64 %5078
   %5080 = trunc i64 %5079 to i32
   br label %clamp_value.exit3517
@@ -15065,7 +15065,7 @@ clamp_value.exit3517:                             ; preds = %clamp_value.exit351
   %5090 = sub nsw i64 0, %5088
   %5091 = sext i32 %5081 to i64
   %5092 = icmp slt i64 %5091, %5090
-  %5093 = call i64 @llvm.smin.i64(i64 %5091, i64 %5089)
+  %5093 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5091, i64 range(i64 -9223372036854775808, 9223372036854775807) %5089)
   %5094 = select i1 %5092, i64 %5090, i64 %5093
   %5095 = trunc i64 %5094 to i32
   br label %clamp_value.exit3519
@@ -15087,7 +15087,7 @@ clamp_value.exit3519:                             ; preds = %clamp_value.exit351
   %5105 = sub nsw i64 0, %5103
   %5106 = sext i32 %5096 to i64
   %5107 = icmp slt i64 %5106, %5105
-  %5108 = call i64 @llvm.smin.i64(i64 %5106, i64 %5104)
+  %5108 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5106, i64 range(i64 -9223372036854775808, 9223372036854775807) %5104)
   %5109 = select i1 %5107, i64 %5105, i64 %5108
   %5110 = trunc i64 %5109 to i32
   br label %clamp_value.exit3521
@@ -15109,7 +15109,7 @@ clamp_value.exit3521:                             ; preds = %clamp_value.exit351
   %5120 = sub nsw i64 0, %5118
   %5121 = sext i32 %5111 to i64
   %5122 = icmp slt i64 %5121, %5120
-  %5123 = call i64 @llvm.smin.i64(i64 %5121, i64 %5119)
+  %5123 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5121, i64 range(i64 -9223372036854775808, 9223372036854775807) %5119)
   %5124 = select i1 %5122, i64 %5120, i64 %5123
   %5125 = trunc i64 %5124 to i32
   br label %clamp_value.exit3523
@@ -15131,7 +15131,7 @@ clamp_value.exit3523:                             ; preds = %clamp_value.exit352
   %5135 = sub nsw i64 0, %5133
   %5136 = sext i32 %5126 to i64
   %5137 = icmp slt i64 %5136, %5135
-  %5138 = call i64 @llvm.smin.i64(i64 %5136, i64 %5134)
+  %5138 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5136, i64 range(i64 -9223372036854775808, 9223372036854775807) %5134)
   %5139 = select i1 %5137, i64 %5135, i64 %5138
   %5140 = trunc i64 %5139 to i32
   br label %clamp_value.exit3525
@@ -15153,7 +15153,7 @@ clamp_value.exit3525:                             ; preds = %clamp_value.exit352
   %5150 = sub nsw i64 0, %5148
   %5151 = sext i32 %5141 to i64
   %5152 = icmp slt i64 %5151, %5150
-  %5153 = call i64 @llvm.smin.i64(i64 %5151, i64 %5149)
+  %5153 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5151, i64 range(i64 -9223372036854775808, 9223372036854775807) %5149)
   %5154 = select i1 %5152, i64 %5150, i64 %5153
   %5155 = trunc i64 %5154 to i32
   br label %clamp_value.exit3527
@@ -15175,7 +15175,7 @@ clamp_value.exit3527:                             ; preds = %clamp_value.exit352
   %5165 = sub nsw i64 0, %5163
   %5166 = sext i32 %5156 to i64
   %5167 = icmp slt i64 %5166, %5165
-  %5168 = call i64 @llvm.smin.i64(i64 %5166, i64 %5164)
+  %5168 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5166, i64 range(i64 -9223372036854775808, 9223372036854775807) %5164)
   %5169 = select i1 %5167, i64 %5165, i64 %5168
   %5170 = trunc i64 %5169 to i32
   br label %clamp_value.exit3529
@@ -15197,7 +15197,7 @@ clamp_value.exit3529:                             ; preds = %clamp_value.exit352
   %5180 = sub nsw i64 0, %5178
   %5181 = sext i32 %5171 to i64
   %5182 = icmp slt i64 %5181, %5180
-  %5183 = call i64 @llvm.smin.i64(i64 %5181, i64 %5179)
+  %5183 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5181, i64 range(i64 -9223372036854775808, 9223372036854775807) %5179)
   %5184 = select i1 %5182, i64 %5180, i64 %5183
   %5185 = trunc i64 %5184 to i32
   br label %clamp_value.exit3531
@@ -15219,7 +15219,7 @@ clamp_value.exit3531:                             ; preds = %clamp_value.exit352
   %5195 = sub nsw i64 0, %5193
   %5196 = sext i32 %5186 to i64
   %5197 = icmp slt i64 %5196, %5195
-  %5198 = call i64 @llvm.smin.i64(i64 %5196, i64 %5194)
+  %5198 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5196, i64 range(i64 -9223372036854775808, 9223372036854775807) %5194)
   %5199 = select i1 %5197, i64 %5195, i64 %5198
   %5200 = trunc i64 %5199 to i32
   br label %clamp_value.exit3533
@@ -15341,7 +15341,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5275 = sub nsw i64 0, %5273
   %5276 = sext i32 %5204 to i64
   %5277 = icmp slt i64 %5276, %5275
-  %5278 = call i64 @llvm.smin.i64(i64 %5276, i64 %5274)
+  %5278 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5276, i64 range(i64 -9223372036854775808, 9223372036854775807) %5274)
   %5279 = select i1 %5277, i64 %5275, i64 %5278
   %5280 = trunc i64 %5279 to i32
   store i32 %5280, ptr %5, align 16
@@ -15350,7 +15350,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5283 = add nsw i32 %5281, %5282
   %5284 = sext i32 %5283 to i64
   %5285 = icmp slt i64 %5284, %5275
-  %5286 = call i64 @llvm.smin.i64(i64 %5284, i64 %5274)
+  %5286 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5284, i64 range(i64 -9223372036854775808, 9223372036854775807) %5274)
   %5287 = select i1 %5285, i64 %5275, i64 %5286
   %5288 = trunc i64 %5287 to i32
   store i32 %5288, ptr %204, align 4
@@ -15365,7 +15365,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5297 = sub nsw i64 0, %5295
   %5298 = sext i32 %5291 to i64
   %5299 = icmp slt i64 %5298, %5297
-  %5300 = call i64 @llvm.smin.i64(i64 %5298, i64 %5296)
+  %5300 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5298, i64 range(i64 -9223372036854775808, 9223372036854775807) %5296)
   %5301 = select i1 %5299, i64 %5297, i64 %5300
   %5302 = trunc i64 %5301 to i32
   store i32 %5302, ptr %206, align 8
@@ -15374,7 +15374,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5305 = add nsw i32 %5303, %5304
   %5306 = sext i32 %5305 to i64
   %5307 = icmp slt i64 %5306, %5297
-  %5308 = call i64 @llvm.smin.i64(i64 %5306, i64 %5296)
+  %5308 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5306, i64 range(i64 -9223372036854775808, 9223372036854775807) %5296)
   %5309 = select i1 %5307, i64 %5297, i64 %5308
   %5310 = trunc i64 %5309 to i32
   store i32 %5310, ptr %208, align 4
@@ -15389,7 +15389,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5319 = sub nsw i64 0, %5317
   %5320 = sext i32 %5313 to i64
   %5321 = icmp slt i64 %5320, %5319
-  %5322 = call i64 @llvm.smin.i64(i64 %5320, i64 %5318)
+  %5322 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5320, i64 range(i64 -9223372036854775808, 9223372036854775807) %5318)
   %5323 = select i1 %5321, i64 %5319, i64 %5322
   %5324 = trunc i64 %5323 to i32
   store i32 %5324, ptr %210, align 16
@@ -15398,7 +15398,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5327 = add nsw i32 %5325, %5326
   %5328 = sext i32 %5327 to i64
   %5329 = icmp slt i64 %5328, %5319
-  %5330 = call i64 @llvm.smin.i64(i64 %5328, i64 %5318)
+  %5330 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5328, i64 range(i64 -9223372036854775808, 9223372036854775807) %5318)
   %5331 = select i1 %5329, i64 %5319, i64 %5330
   %5332 = trunc i64 %5331 to i32
   store i32 %5332, ptr %212, align 4
@@ -15413,7 +15413,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5341 = sub nsw i64 0, %5339
   %5342 = sext i32 %5335 to i64
   %5343 = icmp slt i64 %5342, %5341
-  %5344 = call i64 @llvm.smin.i64(i64 %5342, i64 %5340)
+  %5344 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5342, i64 range(i64 -9223372036854775808, 9223372036854775807) %5340)
   %5345 = select i1 %5343, i64 %5341, i64 %5344
   %5346 = trunc i64 %5345 to i32
   store i32 %5346, ptr %214, align 8
@@ -15422,7 +15422,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5349 = add nsw i32 %5347, %5348
   %5350 = sext i32 %5349 to i64
   %5351 = icmp slt i64 %5350, %5341
-  %5352 = call i64 @llvm.smin.i64(i64 %5350, i64 %5340)
+  %5352 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5350, i64 range(i64 -9223372036854775808, 9223372036854775807) %5340)
   %5353 = select i1 %5351, i64 %5341, i64 %5352
   %5354 = trunc i64 %5353 to i32
   store i32 %5354, ptr %216, align 4
@@ -15437,7 +15437,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5363 = sub nsw i64 0, %5361
   %5364 = sext i32 %5357 to i64
   %5365 = icmp slt i64 %5364, %5363
-  %5366 = call i64 @llvm.smin.i64(i64 %5364, i64 %5362)
+  %5366 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5364, i64 range(i64 -9223372036854775808, 9223372036854775807) %5362)
   %5367 = select i1 %5365, i64 %5363, i64 %5366
   %5368 = trunc i64 %5367 to i32
   store i32 %5368, ptr %218, align 16
@@ -15446,7 +15446,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5371 = add nsw i32 %5369, %5370
   %5372 = sext i32 %5371 to i64
   %5373 = icmp slt i64 %5372, %5363
-  %5374 = call i64 @llvm.smin.i64(i64 %5372, i64 %5362)
+  %5374 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5372, i64 range(i64 -9223372036854775808, 9223372036854775807) %5362)
   %5375 = select i1 %5373, i64 %5363, i64 %5374
   %5376 = trunc i64 %5375 to i32
   store i32 %5376, ptr %220, align 4
@@ -15461,7 +15461,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5385 = sub nsw i64 0, %5383
   %5386 = sext i32 %5379 to i64
   %5387 = icmp slt i64 %5386, %5385
-  %5388 = call i64 @llvm.smin.i64(i64 %5386, i64 %5384)
+  %5388 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5386, i64 range(i64 -9223372036854775808, 9223372036854775807) %5384)
   %5389 = select i1 %5387, i64 %5385, i64 %5388
   %5390 = trunc i64 %5389 to i32
   store i32 %5390, ptr %222, align 8
@@ -15470,7 +15470,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5393 = add nsw i32 %5391, %5392
   %5394 = sext i32 %5393 to i64
   %5395 = icmp slt i64 %5394, %5385
-  %5396 = call i64 @llvm.smin.i64(i64 %5394, i64 %5384)
+  %5396 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5394, i64 range(i64 -9223372036854775808, 9223372036854775807) %5384)
   %5397 = select i1 %5395, i64 %5385, i64 %5396
   %5398 = trunc i64 %5397 to i32
   store i32 %5398, ptr %224, align 4
@@ -15485,7 +15485,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5407 = sub nsw i64 0, %5405
   %5408 = sext i32 %5401 to i64
   %5409 = icmp slt i64 %5408, %5407
-  %5410 = call i64 @llvm.smin.i64(i64 %5408, i64 %5406)
+  %5410 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5408, i64 range(i64 -9223372036854775808, 9223372036854775807) %5406)
   %5411 = select i1 %5409, i64 %5407, i64 %5410
   %5412 = trunc i64 %5411 to i32
   store i32 %5412, ptr %226, align 16
@@ -15494,7 +15494,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5415 = add nsw i32 %5413, %5414
   %5416 = sext i32 %5415 to i64
   %5417 = icmp slt i64 %5416, %5407
-  %5418 = call i64 @llvm.smin.i64(i64 %5416, i64 %5406)
+  %5418 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5416, i64 range(i64 -9223372036854775808, 9223372036854775807) %5406)
   %5419 = select i1 %5417, i64 %5407, i64 %5418
   %5420 = trunc i64 %5419 to i32
   store i32 %5420, ptr %228, align 4
@@ -15509,7 +15509,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5429 = sub nsw i64 0, %5427
   %5430 = sext i32 %5423 to i64
   %5431 = icmp slt i64 %5430, %5429
-  %5432 = call i64 @llvm.smin.i64(i64 %5430, i64 %5428)
+  %5432 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5430, i64 range(i64 -9223372036854775808, 9223372036854775807) %5428)
   %5433 = select i1 %5431, i64 %5429, i64 %5432
   %5434 = trunc i64 %5433 to i32
   store i32 %5434, ptr %230, align 8
@@ -15518,7 +15518,7 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5437 = add nsw i32 %5435, %5436
   %5438 = sext i32 %5437 to i64
   %5439 = icmp slt i64 %5438, %5429
-  %5440 = call i64 @llvm.smin.i64(i64 %5438, i64 %5428)
+  %5440 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5438, i64 range(i64 -9223372036854775808, 9223372036854775807) %5428)
   %5441 = select i1 %5439, i64 %5429, i64 %5440
   %5442 = trunc i64 %5441 to i32
   store i32 %5442, ptr %232, align 4
@@ -15531,14 +15531,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5449 = sub nsw i64 0, %5447
   %5450 = sext i32 %5443 to i64
   %5451 = icmp slt i64 %5450, %5449
-  %5452 = call i64 @llvm.smin.i64(i64 %5450, i64 %5448)
+  %5452 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5450, i64 range(i64 -9223372036854775808, 9223372036854775807) %5448)
   %5453 = select i1 %5451, i64 %5449, i64 %5452
   %5454 = trunc i64 %5453 to i32
   store i32 %5454, ptr %234, align 16
   %5455 = sub nsw i32 %5421, %5422
   %5456 = sext i32 %5455 to i64
   %5457 = icmp slt i64 %5456, %5449
-  %5458 = call i64 @llvm.smin.i64(i64 %5456, i64 %5448)
+  %5458 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5456, i64 range(i64 -9223372036854775808, 9223372036854775807) %5448)
   %5459 = select i1 %5457, i64 %5449, i64 %5458
   %5460 = trunc i64 %5459 to i32
   store i32 %5460, ptr %236, align 4
@@ -15551,14 +15551,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5467 = sub nsw i64 0, %5465
   %5468 = sext i32 %5461 to i64
   %5469 = icmp slt i64 %5468, %5467
-  %5470 = call i64 @llvm.smin.i64(i64 %5468, i64 %5466)
+  %5470 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5468, i64 range(i64 -9223372036854775808, 9223372036854775807) %5466)
   %5471 = select i1 %5469, i64 %5467, i64 %5470
   %5472 = trunc i64 %5471 to i32
   store i32 %5472, ptr %238, align 8
   %5473 = sub nsw i32 %5399, %5400
   %5474 = sext i32 %5473 to i64
   %5475 = icmp slt i64 %5474, %5467
-  %5476 = call i64 @llvm.smin.i64(i64 %5474, i64 %5466)
+  %5476 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5474, i64 range(i64 -9223372036854775808, 9223372036854775807) %5466)
   %5477 = select i1 %5475, i64 %5467, i64 %5476
   %5478 = trunc i64 %5477 to i32
   store i32 %5478, ptr %240, align 4
@@ -15571,14 +15571,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5485 = sub nsw i64 0, %5483
   %5486 = sext i32 %5479 to i64
   %5487 = icmp slt i64 %5486, %5485
-  %5488 = call i64 @llvm.smin.i64(i64 %5486, i64 %5484)
+  %5488 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5486, i64 range(i64 -9223372036854775808, 9223372036854775807) %5484)
   %5489 = select i1 %5487, i64 %5485, i64 %5488
   %5490 = trunc i64 %5489 to i32
   store i32 %5490, ptr %242, align 16
   %5491 = sub nsw i32 %5377, %5378
   %5492 = sext i32 %5491 to i64
   %5493 = icmp slt i64 %5492, %5485
-  %5494 = call i64 @llvm.smin.i64(i64 %5492, i64 %5484)
+  %5494 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5492, i64 range(i64 -9223372036854775808, 9223372036854775807) %5484)
   %5495 = select i1 %5493, i64 %5485, i64 %5494
   %5496 = trunc i64 %5495 to i32
   store i32 %5496, ptr %244, align 4
@@ -15591,14 +15591,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5503 = sub nsw i64 0, %5501
   %5504 = sext i32 %5497 to i64
   %5505 = icmp slt i64 %5504, %5503
-  %5506 = call i64 @llvm.smin.i64(i64 %5504, i64 %5502)
+  %5506 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5504, i64 range(i64 -9223372036854775808, 9223372036854775807) %5502)
   %5507 = select i1 %5505, i64 %5503, i64 %5506
   %5508 = trunc i64 %5507 to i32
   store i32 %5508, ptr %246, align 8
   %5509 = sub nsw i32 %5355, %5356
   %5510 = sext i32 %5509 to i64
   %5511 = icmp slt i64 %5510, %5503
-  %5512 = call i64 @llvm.smin.i64(i64 %5510, i64 %5502)
+  %5512 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5510, i64 range(i64 -9223372036854775808, 9223372036854775807) %5502)
   %5513 = select i1 %5511, i64 %5503, i64 %5512
   %5514 = trunc i64 %5513 to i32
   store i32 %5514, ptr %248, align 4
@@ -15611,14 +15611,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5521 = sub nsw i64 0, %5519
   %5522 = sext i32 %5515 to i64
   %5523 = icmp slt i64 %5522, %5521
-  %5524 = call i64 @llvm.smin.i64(i64 %5522, i64 %5520)
+  %5524 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5522, i64 range(i64 -9223372036854775808, 9223372036854775807) %5520)
   %5525 = select i1 %5523, i64 %5521, i64 %5524
   %5526 = trunc i64 %5525 to i32
   store i32 %5526, ptr %250, align 16
   %5527 = sub nsw i32 %5333, %5334
   %5528 = sext i32 %5527 to i64
   %5529 = icmp slt i64 %5528, %5521
-  %5530 = call i64 @llvm.smin.i64(i64 %5528, i64 %5520)
+  %5530 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5528, i64 range(i64 -9223372036854775808, 9223372036854775807) %5520)
   %5531 = select i1 %5529, i64 %5521, i64 %5530
   %5532 = trunc i64 %5531 to i32
   store i32 %5532, ptr %252, align 4
@@ -15631,14 +15631,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5539 = sub nsw i64 0, %5537
   %5540 = sext i32 %5533 to i64
   %5541 = icmp slt i64 %5540, %5539
-  %5542 = call i64 @llvm.smin.i64(i64 %5540, i64 %5538)
+  %5542 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5540, i64 range(i64 -9223372036854775808, 9223372036854775807) %5538)
   %5543 = select i1 %5541, i64 %5539, i64 %5542
   %5544 = trunc i64 %5543 to i32
   store i32 %5544, ptr %254, align 8
   %5545 = sub nsw i32 %5311, %5312
   %5546 = sext i32 %5545 to i64
   %5547 = icmp slt i64 %5546, %5539
-  %5548 = call i64 @llvm.smin.i64(i64 %5546, i64 %5538)
+  %5548 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5546, i64 range(i64 -9223372036854775808, 9223372036854775807) %5538)
   %5549 = select i1 %5547, i64 %5539, i64 %5548
   %5550 = trunc i64 %5549 to i32
   store i32 %5550, ptr %256, align 4
@@ -15651,14 +15651,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5557 = sub nsw i64 0, %5555
   %5558 = sext i32 %5551 to i64
   %5559 = icmp slt i64 %5558, %5557
-  %5560 = call i64 @llvm.smin.i64(i64 %5558, i64 %5556)
+  %5560 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5558, i64 range(i64 -9223372036854775808, 9223372036854775807) %5556)
   %5561 = select i1 %5559, i64 %5557, i64 %5560
   %5562 = trunc i64 %5561 to i32
   store i32 %5562, ptr %258, align 16
   %5563 = sub nsw i32 %5289, %5290
   %5564 = sext i32 %5563 to i64
   %5565 = icmp slt i64 %5564, %5557
-  %5566 = call i64 @llvm.smin.i64(i64 %5564, i64 %5556)
+  %5566 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5564, i64 range(i64 -9223372036854775808, 9223372036854775807) %5556)
   %5567 = select i1 %5565, i64 %5557, i64 %5566
   %5568 = trunc i64 %5567 to i32
   store i32 %5568, ptr %260, align 4
@@ -15671,14 +15671,14 @@ clamp_value.exit3595.thread:                      ; preds = %clamp_value.exit353
   %5575 = sub nsw i64 0, %5573
   %5576 = sext i32 %5569 to i64
   %5577 = icmp slt i64 %5576, %5575
-  %5578 = call i64 @llvm.smin.i64(i64 %5576, i64 %5574)
+  %5578 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5576, i64 range(i64 -9223372036854775808, 9223372036854775807) %5574)
   %5579 = select i1 %5577, i64 %5575, i64 %5578
   %5580 = trunc i64 %5579 to i32
   store i32 %5580, ptr %262, align 8
   %5581 = sub nsw i32 %5202, %5203
   %5582 = sext i32 %5581 to i64
   %5583 = icmp slt i64 %5582, %5575
-  %5584 = call i64 @llvm.smin.i64(i64 %5582, i64 %5574)
+  %5584 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5582, i64 range(i64 -9223372036854775808, 9223372036854775807) %5574)
   %5585 = select i1 %5583, i64 %5575, i64 %5584
   %5586 = trunc i64 %5585 to i32
   br label %clamp_value.exit3597
@@ -15893,7 +15893,7 @@ clamp_value.exit3597:                             ; preds = %clamp_value.exit359
   %5756 = sub nsw i64 0, %5754
   %5757 = sext i32 %5746 to i64
   %5758 = icmp slt i64 %5757, %5756
-  %5759 = call i64 @llvm.smin.i64(i64 %5757, i64 %5755)
+  %5759 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5757, i64 range(i64 -9223372036854775808, 9223372036854775807) %5755)
   %5760 = select i1 %5758, i64 %5756, i64 %5759
   %5761 = trunc i64 %5760 to i32
   br label %clamp_value.exit3599
@@ -15917,7 +15917,7 @@ clamp_value.exit3599:                             ; preds = %clamp_value.exit359
   %5773 = sub nsw i64 0, %5771
   %5774 = sext i32 %5764 to i64
   %5775 = icmp slt i64 %5774, %5773
-  %5776 = call i64 @llvm.smin.i64(i64 %5774, i64 %5772)
+  %5776 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5774, i64 range(i64 -9223372036854775808, 9223372036854775807) %5772)
   %5777 = select i1 %5775, i64 %5773, i64 %5776
   %5778 = trunc i64 %5777 to i32
   br label %clamp_value.exit3601
@@ -15941,7 +15941,7 @@ clamp_value.exit3601:                             ; preds = %clamp_value.exit359
   %5790 = sub nsw i64 0, %5788
   %5791 = sext i32 %5781 to i64
   %5792 = icmp slt i64 %5791, %5790
-  %5793 = call i64 @llvm.smin.i64(i64 %5791, i64 %5789)
+  %5793 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5791, i64 range(i64 -9223372036854775808, 9223372036854775807) %5789)
   %5794 = select i1 %5792, i64 %5790, i64 %5793
   %5795 = trunc i64 %5794 to i32
   br label %clamp_value.exit3603
@@ -15965,7 +15965,7 @@ clamp_value.exit3603:                             ; preds = %clamp_value.exit360
   %5807 = sub nsw i64 0, %5805
   %5808 = sext i32 %5798 to i64
   %5809 = icmp slt i64 %5808, %5807
-  %5810 = call i64 @llvm.smin.i64(i64 %5808, i64 %5806)
+  %5810 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5808, i64 range(i64 -9223372036854775808, 9223372036854775807) %5806)
   %5811 = select i1 %5809, i64 %5807, i64 %5810
   %5812 = trunc i64 %5811 to i32
   br label %clamp_value.exit3605
@@ -15989,7 +15989,7 @@ clamp_value.exit3605:                             ; preds = %clamp_value.exit360
   %5824 = sub nsw i64 0, %5822
   %5825 = sext i32 %5815 to i64
   %5826 = icmp slt i64 %5825, %5824
-  %5827 = call i64 @llvm.smin.i64(i64 %5825, i64 %5823)
+  %5827 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5825, i64 range(i64 -9223372036854775808, 9223372036854775807) %5823)
   %5828 = select i1 %5826, i64 %5824, i64 %5827
   %5829 = trunc i64 %5828 to i32
   br label %clamp_value.exit3607
@@ -16013,7 +16013,7 @@ clamp_value.exit3607:                             ; preds = %clamp_value.exit360
   %5841 = sub nsw i64 0, %5839
   %5842 = sext i32 %5832 to i64
   %5843 = icmp slt i64 %5842, %5841
-  %5844 = call i64 @llvm.smin.i64(i64 %5842, i64 %5840)
+  %5844 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5842, i64 range(i64 -9223372036854775808, 9223372036854775807) %5840)
   %5845 = select i1 %5843, i64 %5841, i64 %5844
   %5846 = trunc i64 %5845 to i32
   br label %clamp_value.exit3609
@@ -16037,7 +16037,7 @@ clamp_value.exit3609:                             ; preds = %clamp_value.exit360
   %5858 = sub nsw i64 0, %5856
   %5859 = sext i32 %5849 to i64
   %5860 = icmp slt i64 %5859, %5858
-  %5861 = call i64 @llvm.smin.i64(i64 %5859, i64 %5857)
+  %5861 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5859, i64 range(i64 -9223372036854775808, 9223372036854775807) %5857)
   %5862 = select i1 %5860, i64 %5858, i64 %5861
   %5863 = trunc i64 %5862 to i32
   br label %clamp_value.exit3611
@@ -16061,7 +16061,7 @@ clamp_value.exit3611:                             ; preds = %clamp_value.exit360
   %5875 = sub nsw i64 0, %5873
   %5876 = sext i32 %5866 to i64
   %5877 = icmp slt i64 %5876, %5875
-  %5878 = call i64 @llvm.smin.i64(i64 %5876, i64 %5874)
+  %5878 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5876, i64 range(i64 -9223372036854775808, 9223372036854775807) %5874)
   %5879 = select i1 %5877, i64 %5875, i64 %5878
   %5880 = trunc i64 %5879 to i32
   br label %clamp_value.exit3613
@@ -16085,7 +16085,7 @@ clamp_value.exit3613:                             ; preds = %clamp_value.exit361
   %5892 = sub nsw i64 0, %5890
   %5893 = sext i32 %5883 to i64
   %5894 = icmp slt i64 %5893, %5892
-  %5895 = call i64 @llvm.smin.i64(i64 %5893, i64 %5891)
+  %5895 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5893, i64 range(i64 -9223372036854775808, 9223372036854775807) %5891)
   %5896 = select i1 %5894, i64 %5892, i64 %5895
   %5897 = trunc i64 %5896 to i32
   br label %clamp_value.exit3615
@@ -16109,7 +16109,7 @@ clamp_value.exit3615:                             ; preds = %clamp_value.exit361
   %5909 = sub nsw i64 0, %5907
   %5910 = sext i32 %5900 to i64
   %5911 = icmp slt i64 %5910, %5909
-  %5912 = call i64 @llvm.smin.i64(i64 %5910, i64 %5908)
+  %5912 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5910, i64 range(i64 -9223372036854775808, 9223372036854775807) %5908)
   %5913 = select i1 %5911, i64 %5909, i64 %5912
   %5914 = trunc i64 %5913 to i32
   br label %clamp_value.exit3617
@@ -16133,7 +16133,7 @@ clamp_value.exit3617:                             ; preds = %clamp_value.exit361
   %5926 = sub nsw i64 0, %5924
   %5927 = sext i32 %5917 to i64
   %5928 = icmp slt i64 %5927, %5926
-  %5929 = call i64 @llvm.smin.i64(i64 %5927, i64 %5925)
+  %5929 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5927, i64 range(i64 -9223372036854775808, 9223372036854775807) %5925)
   %5930 = select i1 %5928, i64 %5926, i64 %5929
   %5931 = trunc i64 %5930 to i32
   br label %clamp_value.exit3619
@@ -16157,7 +16157,7 @@ clamp_value.exit3619:                             ; preds = %clamp_value.exit361
   %5943 = sub nsw i64 0, %5941
   %5944 = sext i32 %5934 to i64
   %5945 = icmp slt i64 %5944, %5943
-  %5946 = call i64 @llvm.smin.i64(i64 %5944, i64 %5942)
+  %5946 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5944, i64 range(i64 -9223372036854775808, 9223372036854775807) %5942)
   %5947 = select i1 %5945, i64 %5943, i64 %5946
   %5948 = trunc i64 %5947 to i32
   br label %clamp_value.exit3621
@@ -16181,7 +16181,7 @@ clamp_value.exit3621:                             ; preds = %clamp_value.exit361
   %5960 = sub nsw i64 0, %5958
   %5961 = sext i32 %5951 to i64
   %5962 = icmp slt i64 %5961, %5960
-  %5963 = call i64 @llvm.smin.i64(i64 %5961, i64 %5959)
+  %5963 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5961, i64 range(i64 -9223372036854775808, 9223372036854775807) %5959)
   %5964 = select i1 %5962, i64 %5960, i64 %5963
   %5965 = trunc i64 %5964 to i32
   br label %clamp_value.exit3623
@@ -16205,7 +16205,7 @@ clamp_value.exit3623:                             ; preds = %clamp_value.exit362
   %5977 = sub nsw i64 0, %5975
   %5978 = sext i32 %5968 to i64
   %5979 = icmp slt i64 %5978, %5977
-  %5980 = call i64 @llvm.smin.i64(i64 %5978, i64 %5976)
+  %5980 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5978, i64 range(i64 -9223372036854775808, 9223372036854775807) %5976)
   %5981 = select i1 %5979, i64 %5977, i64 %5980
   %5982 = trunc i64 %5981 to i32
   br label %clamp_value.exit3625
@@ -16229,7 +16229,7 @@ clamp_value.exit3625:                             ; preds = %clamp_value.exit362
   %5994 = sub nsw i64 0, %5992
   %5995 = sext i32 %5985 to i64
   %5996 = icmp slt i64 %5995, %5994
-  %5997 = call i64 @llvm.smin.i64(i64 %5995, i64 %5993)
+  %5997 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %5995, i64 range(i64 -9223372036854775808, 9223372036854775807) %5993)
   %5998 = select i1 %5996, i64 %5994, i64 %5997
   %5999 = trunc i64 %5998 to i32
   br label %clamp_value.exit3627
@@ -16253,7 +16253,7 @@ clamp_value.exit3627:                             ; preds = %clamp_value.exit362
   %6011 = sub nsw i64 0, %6009
   %6012 = sext i32 %6002 to i64
   %6013 = icmp slt i64 %6012, %6011
-  %6014 = call i64 @llvm.smin.i64(i64 %6012, i64 %6010)
+  %6014 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6012, i64 range(i64 -9223372036854775808, 9223372036854775807) %6010)
   %6015 = select i1 %6013, i64 %6011, i64 %6014
   %6016 = trunc i64 %6015 to i32
   br label %clamp_value.exit3629
@@ -16277,7 +16277,7 @@ clamp_value.exit3629:                             ; preds = %clamp_value.exit362
   %6028 = sub nsw i64 0, %6026
   %6029 = sext i32 %6019 to i64
   %6030 = icmp slt i64 %6029, %6028
-  %6031 = call i64 @llvm.smin.i64(i64 %6029, i64 %6027)
+  %6031 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6029, i64 range(i64 -9223372036854775808, 9223372036854775807) %6027)
   %6032 = select i1 %6030, i64 %6028, i64 %6031
   %6033 = trunc i64 %6032 to i32
   br label %clamp_value.exit3631
@@ -16301,7 +16301,7 @@ clamp_value.exit3631:                             ; preds = %clamp_value.exit362
   %6045 = sub nsw i64 0, %6043
   %6046 = sext i32 %6036 to i64
   %6047 = icmp slt i64 %6046, %6045
-  %6048 = call i64 @llvm.smin.i64(i64 %6046, i64 %6044)
+  %6048 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6046, i64 range(i64 -9223372036854775808, 9223372036854775807) %6044)
   %6049 = select i1 %6047, i64 %6045, i64 %6048
   %6050 = trunc i64 %6049 to i32
   br label %clamp_value.exit3633
@@ -16325,7 +16325,7 @@ clamp_value.exit3633:                             ; preds = %clamp_value.exit363
   %6062 = sub nsw i64 0, %6060
   %6063 = sext i32 %6053 to i64
   %6064 = icmp slt i64 %6063, %6062
-  %6065 = call i64 @llvm.smin.i64(i64 %6063, i64 %6061)
+  %6065 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6063, i64 range(i64 -9223372036854775808, 9223372036854775807) %6061)
   %6066 = select i1 %6064, i64 %6062, i64 %6065
   %6067 = trunc i64 %6066 to i32
   br label %clamp_value.exit3635
@@ -16349,7 +16349,7 @@ clamp_value.exit3635:                             ; preds = %clamp_value.exit363
   %6079 = sub nsw i64 0, %6077
   %6080 = sext i32 %6070 to i64
   %6081 = icmp slt i64 %6080, %6079
-  %6082 = call i64 @llvm.smin.i64(i64 %6080, i64 %6078)
+  %6082 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6080, i64 range(i64 -9223372036854775808, 9223372036854775807) %6078)
   %6083 = select i1 %6081, i64 %6079, i64 %6082
   %6084 = trunc i64 %6083 to i32
   br label %clamp_value.exit3637
@@ -16373,7 +16373,7 @@ clamp_value.exit3637:                             ; preds = %clamp_value.exit363
   %6096 = sub nsw i64 0, %6094
   %6097 = sext i32 %6087 to i64
   %6098 = icmp slt i64 %6097, %6096
-  %6099 = call i64 @llvm.smin.i64(i64 %6097, i64 %6095)
+  %6099 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6097, i64 range(i64 -9223372036854775808, 9223372036854775807) %6095)
   %6100 = select i1 %6098, i64 %6096, i64 %6099
   %6101 = trunc i64 %6100 to i32
   br label %clamp_value.exit3639
@@ -16397,7 +16397,7 @@ clamp_value.exit3639:                             ; preds = %clamp_value.exit363
   %6113 = sub nsw i64 0, %6111
   %6114 = sext i32 %6104 to i64
   %6115 = icmp slt i64 %6114, %6113
-  %6116 = call i64 @llvm.smin.i64(i64 %6114, i64 %6112)
+  %6116 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6114, i64 range(i64 -9223372036854775808, 9223372036854775807) %6112)
   %6117 = select i1 %6115, i64 %6113, i64 %6116
   %6118 = trunc i64 %6117 to i32
   br label %clamp_value.exit3641
@@ -16421,7 +16421,7 @@ clamp_value.exit3641:                             ; preds = %clamp_value.exit363
   %6130 = sub nsw i64 0, %6128
   %6131 = sext i32 %6121 to i64
   %6132 = icmp slt i64 %6131, %6130
-  %6133 = call i64 @llvm.smin.i64(i64 %6131, i64 %6129)
+  %6133 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6131, i64 range(i64 -9223372036854775808, 9223372036854775807) %6129)
   %6134 = select i1 %6132, i64 %6130, i64 %6133
   %6135 = trunc i64 %6134 to i32
   br label %clamp_value.exit3643
@@ -16445,7 +16445,7 @@ clamp_value.exit3643:                             ; preds = %clamp_value.exit364
   %6147 = sub nsw i64 0, %6145
   %6148 = sext i32 %6138 to i64
   %6149 = icmp slt i64 %6148, %6147
-  %6150 = call i64 @llvm.smin.i64(i64 %6148, i64 %6146)
+  %6150 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6148, i64 range(i64 -9223372036854775808, 9223372036854775807) %6146)
   %6151 = select i1 %6149, i64 %6147, i64 %6150
   %6152 = trunc i64 %6151 to i32
   br label %clamp_value.exit3645
@@ -16469,7 +16469,7 @@ clamp_value.exit3645:                             ; preds = %clamp_value.exit364
   %6164 = sub nsw i64 0, %6162
   %6165 = sext i32 %6155 to i64
   %6166 = icmp slt i64 %6165, %6164
-  %6167 = call i64 @llvm.smin.i64(i64 %6165, i64 %6163)
+  %6167 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6165, i64 range(i64 -9223372036854775808, 9223372036854775807) %6163)
   %6168 = select i1 %6166, i64 %6164, i64 %6167
   %6169 = trunc i64 %6168 to i32
   br label %clamp_value.exit3647
@@ -16493,7 +16493,7 @@ clamp_value.exit3647:                             ; preds = %clamp_value.exit364
   %6181 = sub nsw i64 0, %6179
   %6182 = sext i32 %6172 to i64
   %6183 = icmp slt i64 %6182, %6181
-  %6184 = call i64 @llvm.smin.i64(i64 %6182, i64 %6180)
+  %6184 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6182, i64 range(i64 -9223372036854775808, 9223372036854775807) %6180)
   %6185 = select i1 %6183, i64 %6181, i64 %6184
   %6186 = trunc i64 %6185 to i32
   br label %clamp_value.exit3649
@@ -16517,7 +16517,7 @@ clamp_value.exit3649:                             ; preds = %clamp_value.exit364
   %6198 = sub nsw i64 0, %6196
   %6199 = sext i32 %6189 to i64
   %6200 = icmp slt i64 %6199, %6198
-  %6201 = call i64 @llvm.smin.i64(i64 %6199, i64 %6197)
+  %6201 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6199, i64 range(i64 -9223372036854775808, 9223372036854775807) %6197)
   %6202 = select i1 %6200, i64 %6198, i64 %6201
   %6203 = trunc i64 %6202 to i32
   br label %clamp_value.exit3651
@@ -16541,7 +16541,7 @@ clamp_value.exit3651:                             ; preds = %clamp_value.exit364
   %6215 = sub nsw i64 0, %6213
   %6216 = sext i32 %6206 to i64
   %6217 = icmp slt i64 %6216, %6215
-  %6218 = call i64 @llvm.smin.i64(i64 %6216, i64 %6214)
+  %6218 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6216, i64 range(i64 -9223372036854775808, 9223372036854775807) %6214)
   %6219 = select i1 %6217, i64 %6215, i64 %6218
   %6220 = trunc i64 %6219 to i32
   br label %clamp_value.exit3653
@@ -16565,7 +16565,7 @@ clamp_value.exit3653:                             ; preds = %clamp_value.exit365
   %6232 = sub nsw i64 0, %6230
   %6233 = sext i32 %6223 to i64
   %6234 = icmp slt i64 %6233, %6232
-  %6235 = call i64 @llvm.smin.i64(i64 %6233, i64 %6231)
+  %6235 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6233, i64 range(i64 -9223372036854775808, 9223372036854775807) %6231)
   %6236 = select i1 %6234, i64 %6232, i64 %6235
   %6237 = trunc i64 %6236 to i32
   br label %clamp_value.exit3655
@@ -16589,7 +16589,7 @@ clamp_value.exit3655:                             ; preds = %clamp_value.exit365
   %6249 = sub nsw i64 0, %6247
   %6250 = sext i32 %6240 to i64
   %6251 = icmp slt i64 %6250, %6249
-  %6252 = call i64 @llvm.smin.i64(i64 %6250, i64 %6248)
+  %6252 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6250, i64 range(i64 -9223372036854775808, 9223372036854775807) %6248)
   %6253 = select i1 %6251, i64 %6249, i64 %6252
   %6254 = trunc i64 %6253 to i32
   br label %clamp_value.exit3657
@@ -16613,7 +16613,7 @@ clamp_value.exit3657:                             ; preds = %clamp_value.exit365
   %6266 = sub nsw i64 0, %6264
   %6267 = sext i32 %6257 to i64
   %6268 = icmp slt i64 %6267, %6266
-  %6269 = call i64 @llvm.smin.i64(i64 %6267, i64 %6265)
+  %6269 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6267, i64 range(i64 -9223372036854775808, 9223372036854775807) %6265)
   %6270 = select i1 %6268, i64 %6266, i64 %6269
   %6271 = trunc i64 %6270 to i32
   br label %clamp_value.exit3659
@@ -16637,7 +16637,7 @@ clamp_value.exit3659:                             ; preds = %clamp_value.exit365
   %6283 = sub nsw i64 0, %6281
   %6284 = sext i32 %6274 to i64
   %6285 = icmp slt i64 %6284, %6283
-  %6286 = call i64 @llvm.smin.i64(i64 %6284, i64 %6282)
+  %6286 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6284, i64 range(i64 -9223372036854775808, 9223372036854775807) %6282)
   %6287 = select i1 %6285, i64 %6283, i64 %6286
   %6288 = trunc i64 %6287 to i32
   br label %clamp_value.exit3661
@@ -16659,7 +16659,7 @@ clamp_value.exit3661:                             ; preds = %clamp_value.exit365
   %6298 = sub nsw i64 0, %6296
   %6299 = sext i32 %6289 to i64
   %6300 = icmp slt i64 %6299, %6298
-  %6301 = call i64 @llvm.smin.i64(i64 %6299, i64 %6297)
+  %6301 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6299, i64 range(i64 -9223372036854775808, 9223372036854775807) %6297)
   %6302 = select i1 %6300, i64 %6298, i64 %6301
   %6303 = trunc i64 %6302 to i32
   br label %clamp_value.exit3663
@@ -16681,7 +16681,7 @@ clamp_value.exit3663:                             ; preds = %clamp_value.exit366
   %6313 = sub nsw i64 0, %6311
   %6314 = sext i32 %6304 to i64
   %6315 = icmp slt i64 %6314, %6313
-  %6316 = call i64 @llvm.smin.i64(i64 %6314, i64 %6312)
+  %6316 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6314, i64 range(i64 -9223372036854775808, 9223372036854775807) %6312)
   %6317 = select i1 %6315, i64 %6313, i64 %6316
   %6318 = trunc i64 %6317 to i32
   br label %clamp_value.exit3665
@@ -16703,7 +16703,7 @@ clamp_value.exit3665:                             ; preds = %clamp_value.exit366
   %6328 = sub nsw i64 0, %6326
   %6329 = sext i32 %6319 to i64
   %6330 = icmp slt i64 %6329, %6328
-  %6331 = call i64 @llvm.smin.i64(i64 %6329, i64 %6327)
+  %6331 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6329, i64 range(i64 -9223372036854775808, 9223372036854775807) %6327)
   %6332 = select i1 %6330, i64 %6328, i64 %6331
   %6333 = trunc i64 %6332 to i32
   br label %clamp_value.exit3667
@@ -16725,7 +16725,7 @@ clamp_value.exit3667:                             ; preds = %clamp_value.exit366
   %6343 = sub nsw i64 0, %6341
   %6344 = sext i32 %6334 to i64
   %6345 = icmp slt i64 %6344, %6343
-  %6346 = call i64 @llvm.smin.i64(i64 %6344, i64 %6342)
+  %6346 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6344, i64 range(i64 -9223372036854775808, 9223372036854775807) %6342)
   %6347 = select i1 %6345, i64 %6343, i64 %6346
   %6348 = trunc i64 %6347 to i32
   br label %clamp_value.exit3669
@@ -16747,7 +16747,7 @@ clamp_value.exit3669:                             ; preds = %clamp_value.exit366
   %6358 = sub nsw i64 0, %6356
   %6359 = sext i32 %6349 to i64
   %6360 = icmp slt i64 %6359, %6358
-  %6361 = call i64 @llvm.smin.i64(i64 %6359, i64 %6357)
+  %6361 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6359, i64 range(i64 -9223372036854775808, 9223372036854775807) %6357)
   %6362 = select i1 %6360, i64 %6358, i64 %6361
   %6363 = trunc i64 %6362 to i32
   br label %clamp_value.exit3671
@@ -16769,7 +16769,7 @@ clamp_value.exit3671:                             ; preds = %clamp_value.exit366
   %6373 = sub nsw i64 0, %6371
   %6374 = sext i32 %6364 to i64
   %6375 = icmp slt i64 %6374, %6373
-  %6376 = call i64 @llvm.smin.i64(i64 %6374, i64 %6372)
+  %6376 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6374, i64 range(i64 -9223372036854775808, 9223372036854775807) %6372)
   %6377 = select i1 %6375, i64 %6373, i64 %6376
   %6378 = trunc i64 %6377 to i32
   br label %clamp_value.exit3673
@@ -16791,7 +16791,7 @@ clamp_value.exit3673:                             ; preds = %clamp_value.exit367
   %6388 = sub nsw i64 0, %6386
   %6389 = sext i32 %6379 to i64
   %6390 = icmp slt i64 %6389, %6388
-  %6391 = call i64 @llvm.smin.i64(i64 %6389, i64 %6387)
+  %6391 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6389, i64 range(i64 -9223372036854775808, 9223372036854775807) %6387)
   %6392 = select i1 %6390, i64 %6388, i64 %6391
   %6393 = trunc i64 %6392 to i32
   br label %clamp_value.exit3675
@@ -16813,7 +16813,7 @@ clamp_value.exit3675:                             ; preds = %clamp_value.exit367
   %6403 = sub nsw i64 0, %6401
   %6404 = sext i32 %6394 to i64
   %6405 = icmp slt i64 %6404, %6403
-  %6406 = call i64 @llvm.smin.i64(i64 %6404, i64 %6402)
+  %6406 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6404, i64 range(i64 -9223372036854775808, 9223372036854775807) %6402)
   %6407 = select i1 %6405, i64 %6403, i64 %6406
   %6408 = trunc i64 %6407 to i32
   br label %clamp_value.exit3677
@@ -16835,7 +16835,7 @@ clamp_value.exit3677:                             ; preds = %clamp_value.exit367
   %6418 = sub nsw i64 0, %6416
   %6419 = sext i32 %6409 to i64
   %6420 = icmp slt i64 %6419, %6418
-  %6421 = call i64 @llvm.smin.i64(i64 %6419, i64 %6417)
+  %6421 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6419, i64 range(i64 -9223372036854775808, 9223372036854775807) %6417)
   %6422 = select i1 %6420, i64 %6418, i64 %6421
   %6423 = trunc i64 %6422 to i32
   br label %clamp_value.exit3679
@@ -16857,7 +16857,7 @@ clamp_value.exit3679:                             ; preds = %clamp_value.exit367
   %6433 = sub nsw i64 0, %6431
   %6434 = sext i32 %6424 to i64
   %6435 = icmp slt i64 %6434, %6433
-  %6436 = call i64 @llvm.smin.i64(i64 %6434, i64 %6432)
+  %6436 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6434, i64 range(i64 -9223372036854775808, 9223372036854775807) %6432)
   %6437 = select i1 %6435, i64 %6433, i64 %6436
   %6438 = trunc i64 %6437 to i32
   br label %clamp_value.exit3681
@@ -16879,7 +16879,7 @@ clamp_value.exit3681:                             ; preds = %clamp_value.exit367
   %6448 = sub nsw i64 0, %6446
   %6449 = sext i32 %6439 to i64
   %6450 = icmp slt i64 %6449, %6448
-  %6451 = call i64 @llvm.smin.i64(i64 %6449, i64 %6447)
+  %6451 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6449, i64 range(i64 -9223372036854775808, 9223372036854775807) %6447)
   %6452 = select i1 %6450, i64 %6448, i64 %6451
   %6453 = trunc i64 %6452 to i32
   br label %clamp_value.exit3683
@@ -16901,7 +16901,7 @@ clamp_value.exit3683:                             ; preds = %clamp_value.exit368
   %6463 = sub nsw i64 0, %6461
   %6464 = sext i32 %6454 to i64
   %6465 = icmp slt i64 %6464, %6463
-  %6466 = call i64 @llvm.smin.i64(i64 %6464, i64 %6462)
+  %6466 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6464, i64 range(i64 -9223372036854775808, 9223372036854775807) %6462)
   %6467 = select i1 %6465, i64 %6463, i64 %6466
   %6468 = trunc i64 %6467 to i32
   br label %clamp_value.exit3685
@@ -16923,7 +16923,7 @@ clamp_value.exit3685:                             ; preds = %clamp_value.exit368
   %6478 = sub nsw i64 0, %6476
   %6479 = sext i32 %6469 to i64
   %6480 = icmp slt i64 %6479, %6478
-  %6481 = call i64 @llvm.smin.i64(i64 %6479, i64 %6477)
+  %6481 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6479, i64 range(i64 -9223372036854775808, 9223372036854775807) %6477)
   %6482 = select i1 %6480, i64 %6478, i64 %6481
   %6483 = trunc i64 %6482 to i32
   br label %clamp_value.exit3687
@@ -16945,7 +16945,7 @@ clamp_value.exit3687:                             ; preds = %clamp_value.exit368
   %6493 = sub nsw i64 0, %6491
   %6494 = sext i32 %6484 to i64
   %6495 = icmp slt i64 %6494, %6493
-  %6496 = call i64 @llvm.smin.i64(i64 %6494, i64 %6492)
+  %6496 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6494, i64 range(i64 -9223372036854775808, 9223372036854775807) %6492)
   %6497 = select i1 %6495, i64 %6493, i64 %6496
   %6498 = trunc i64 %6497 to i32
   br label %clamp_value.exit3689
@@ -16967,7 +16967,7 @@ clamp_value.exit3689:                             ; preds = %clamp_value.exit368
   %6508 = sub nsw i64 0, %6506
   %6509 = sext i32 %6499 to i64
   %6510 = icmp slt i64 %6509, %6508
-  %6511 = call i64 @llvm.smin.i64(i64 %6509, i64 %6507)
+  %6511 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6509, i64 range(i64 -9223372036854775808, 9223372036854775807) %6507)
   %6512 = select i1 %6510, i64 %6508, i64 %6511
   %6513 = trunc i64 %6512 to i32
   br label %clamp_value.exit3691
@@ -16989,7 +16989,7 @@ clamp_value.exit3691:                             ; preds = %clamp_value.exit368
   %6523 = sub nsw i64 0, %6521
   %6524 = sext i32 %6514 to i64
   %6525 = icmp slt i64 %6524, %6523
-  %6526 = call i64 @llvm.smin.i64(i64 %6524, i64 %6522)
+  %6526 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6524, i64 range(i64 -9223372036854775808, 9223372036854775807) %6522)
   %6527 = select i1 %6525, i64 %6523, i64 %6526
   %6528 = trunc i64 %6527 to i32
   br label %clamp_value.exit3693
@@ -17011,7 +17011,7 @@ clamp_value.exit3693:                             ; preds = %clamp_value.exit369
   %6538 = sub nsw i64 0, %6536
   %6539 = sext i32 %6529 to i64
   %6540 = icmp slt i64 %6539, %6538
-  %6541 = call i64 @llvm.smin.i64(i64 %6539, i64 %6537)
+  %6541 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6539, i64 range(i64 -9223372036854775808, 9223372036854775807) %6537)
   %6542 = select i1 %6540, i64 %6538, i64 %6541
   %6543 = trunc i64 %6542 to i32
   br label %clamp_value.exit3695
@@ -17033,7 +17033,7 @@ clamp_value.exit3695:                             ; preds = %clamp_value.exit369
   %6553 = sub nsw i64 0, %6551
   %6554 = sext i32 %6544 to i64
   %6555 = icmp slt i64 %6554, %6553
-  %6556 = call i64 @llvm.smin.i64(i64 %6554, i64 %6552)
+  %6556 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6554, i64 range(i64 -9223372036854775808, 9223372036854775807) %6552)
   %6557 = select i1 %6555, i64 %6553, i64 %6556
   %6558 = trunc i64 %6557 to i32
   br label %clamp_value.exit3697
@@ -17055,7 +17055,7 @@ clamp_value.exit3697:                             ; preds = %clamp_value.exit369
   %6568 = sub nsw i64 0, %6566
   %6569 = sext i32 %6559 to i64
   %6570 = icmp slt i64 %6569, %6568
-  %6571 = call i64 @llvm.smin.i64(i64 %6569, i64 %6567)
+  %6571 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6569, i64 range(i64 -9223372036854775808, 9223372036854775807) %6567)
   %6572 = select i1 %6570, i64 %6568, i64 %6571
   %6573 = trunc i64 %6572 to i32
   br label %clamp_value.exit3699
@@ -17077,7 +17077,7 @@ clamp_value.exit3699:                             ; preds = %clamp_value.exit369
   %6583 = sub nsw i64 0, %6581
   %6584 = sext i32 %6574 to i64
   %6585 = icmp slt i64 %6584, %6583
-  %6586 = call i64 @llvm.smin.i64(i64 %6584, i64 %6582)
+  %6586 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6584, i64 range(i64 -9223372036854775808, 9223372036854775807) %6582)
   %6587 = select i1 %6585, i64 %6583, i64 %6586
   %6588 = trunc i64 %6587 to i32
   br label %clamp_value.exit3701
@@ -17099,7 +17099,7 @@ clamp_value.exit3701:                             ; preds = %clamp_value.exit369
   %6598 = sub nsw i64 0, %6596
   %6599 = sext i32 %6589 to i64
   %6600 = icmp slt i64 %6599, %6598
-  %6601 = call i64 @llvm.smin.i64(i64 %6599, i64 %6597)
+  %6601 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6599, i64 range(i64 -9223372036854775808, 9223372036854775807) %6597)
   %6602 = select i1 %6600, i64 %6598, i64 %6601
   %6603 = trunc i64 %6602 to i32
   br label %clamp_value.exit3703
@@ -17121,7 +17121,7 @@ clamp_value.exit3703:                             ; preds = %clamp_value.exit370
   %6613 = sub nsw i64 0, %6611
   %6614 = sext i32 %6604 to i64
   %6615 = icmp slt i64 %6614, %6613
-  %6616 = call i64 @llvm.smin.i64(i64 %6614, i64 %6612)
+  %6616 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6614, i64 range(i64 -9223372036854775808, 9223372036854775807) %6612)
   %6617 = select i1 %6615, i64 %6613, i64 %6616
   %6618 = trunc i64 %6617 to i32
   br label %clamp_value.exit3705
@@ -17143,7 +17143,7 @@ clamp_value.exit3705:                             ; preds = %clamp_value.exit370
   %6628 = sub nsw i64 0, %6626
   %6629 = sext i32 %6619 to i64
   %6630 = icmp slt i64 %6629, %6628
-  %6631 = call i64 @llvm.smin.i64(i64 %6629, i64 %6627)
+  %6631 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6629, i64 range(i64 -9223372036854775808, 9223372036854775807) %6627)
   %6632 = select i1 %6630, i64 %6628, i64 %6631
   %6633 = trunc i64 %6632 to i32
   br label %clamp_value.exit3707
@@ -17165,7 +17165,7 @@ clamp_value.exit3707:                             ; preds = %clamp_value.exit370
   %6643 = sub nsw i64 0, %6641
   %6644 = sext i32 %6634 to i64
   %6645 = icmp slt i64 %6644, %6643
-  %6646 = call i64 @llvm.smin.i64(i64 %6644, i64 %6642)
+  %6646 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6644, i64 range(i64 -9223372036854775808, 9223372036854775807) %6642)
   %6647 = select i1 %6645, i64 %6643, i64 %6646
   %6648 = trunc i64 %6647 to i32
   br label %clamp_value.exit3709
@@ -17187,7 +17187,7 @@ clamp_value.exit3709:                             ; preds = %clamp_value.exit370
   %6658 = sub nsw i64 0, %6656
   %6659 = sext i32 %6649 to i64
   %6660 = icmp slt i64 %6659, %6658
-  %6661 = call i64 @llvm.smin.i64(i64 %6659, i64 %6657)
+  %6661 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6659, i64 range(i64 -9223372036854775808, 9223372036854775807) %6657)
   %6662 = select i1 %6660, i64 %6658, i64 %6661
   %6663 = trunc i64 %6662 to i32
   br label %clamp_value.exit3711
@@ -17209,7 +17209,7 @@ clamp_value.exit3711:                             ; preds = %clamp_value.exit370
   %6673 = sub nsw i64 0, %6671
   %6674 = sext i32 %6664 to i64
   %6675 = icmp slt i64 %6674, %6673
-  %6676 = call i64 @llvm.smin.i64(i64 %6674, i64 %6672)
+  %6676 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6674, i64 range(i64 -9223372036854775808, 9223372036854775807) %6672)
   %6677 = select i1 %6675, i64 %6673, i64 %6676
   %6678 = trunc i64 %6677 to i32
   br label %clamp_value.exit3713
@@ -17231,7 +17231,7 @@ clamp_value.exit3713:                             ; preds = %clamp_value.exit371
   %6688 = sub nsw i64 0, %6686
   %6689 = sext i32 %6679 to i64
   %6690 = icmp slt i64 %6689, %6688
-  %6691 = call i64 @llvm.smin.i64(i64 %6689, i64 %6687)
+  %6691 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6689, i64 range(i64 -9223372036854775808, 9223372036854775807) %6687)
   %6692 = select i1 %6690, i64 %6688, i64 %6691
   %6693 = trunc i64 %6692 to i32
   br label %clamp_value.exit3715
@@ -17253,7 +17253,7 @@ clamp_value.exit3715:                             ; preds = %clamp_value.exit371
   %6703 = sub nsw i64 0, %6701
   %6704 = sext i32 %6694 to i64
   %6705 = icmp slt i64 %6704, %6703
-  %6706 = call i64 @llvm.smin.i64(i64 %6704, i64 %6702)
+  %6706 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6704, i64 range(i64 -9223372036854775808, 9223372036854775807) %6702)
   %6707 = select i1 %6705, i64 %6703, i64 %6706
   %6708 = trunc i64 %6707 to i32
   br label %clamp_value.exit3717
@@ -17275,7 +17275,7 @@ clamp_value.exit3717:                             ; preds = %clamp_value.exit371
   %6718 = sub nsw i64 0, %6716
   %6719 = sext i32 %6709 to i64
   %6720 = icmp slt i64 %6719, %6718
-  %6721 = call i64 @llvm.smin.i64(i64 %6719, i64 %6717)
+  %6721 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6719, i64 range(i64 -9223372036854775808, 9223372036854775807) %6717)
   %6722 = select i1 %6720, i64 %6718, i64 %6721
   %6723 = trunc i64 %6722 to i32
   br label %clamp_value.exit3719
@@ -17297,7 +17297,7 @@ clamp_value.exit3719:                             ; preds = %clamp_value.exit371
   %6733 = sub nsw i64 0, %6731
   %6734 = sext i32 %6724 to i64
   %6735 = icmp slt i64 %6734, %6733
-  %6736 = call i64 @llvm.smin.i64(i64 %6734, i64 %6732)
+  %6736 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6734, i64 range(i64 -9223372036854775808, 9223372036854775807) %6732)
   %6737 = select i1 %6735, i64 %6733, i64 %6736
   %6738 = trunc i64 %6737 to i32
   br label %clamp_value.exit3721
@@ -17319,7 +17319,7 @@ clamp_value.exit3721:                             ; preds = %clamp_value.exit371
   %6748 = sub nsw i64 0, %6746
   %6749 = sext i32 %6739 to i64
   %6750 = icmp slt i64 %6749, %6748
-  %6751 = call i64 @llvm.smin.i64(i64 %6749, i64 %6747)
+  %6751 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6749, i64 range(i64 -9223372036854775808, 9223372036854775807) %6747)
   %6752 = select i1 %6750, i64 %6748, i64 %6751
   %6753 = trunc i64 %6752 to i32
   br label %clamp_value.exit3723
@@ -17341,7 +17341,7 @@ clamp_value.exit3723:                             ; preds = %clamp_value.exit372
   %6763 = sub nsw i64 0, %6761
   %6764 = sext i32 %6754 to i64
   %6765 = icmp slt i64 %6764, %6763
-  %6766 = call i64 @llvm.smin.i64(i64 %6764, i64 %6762)
+  %6766 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %6764, i64 range(i64 -9223372036854775808, 9223372036854775807) %6762)
   %6767 = select i1 %6765, i64 %6763, i64 %6766
   %6768 = trunc i64 %6767 to i32
   br label %clamp_value.exit3725

@@ -400,7 +400,7 @@ invoke.cont9:                                     ; preds = %invoke.cont.i.i30, 
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 346)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 346)
           to label %.noexc unwind label %lpad10
 
 .noexc:                                           ; preds = %invoke.cont11
@@ -419,7 +419,7 @@ invoke.cont13:                                    ; preds = %.noexc
   %13 = load ptr, ptr %ref.tmp12, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i36, ptr noundef nonnull %call, i32 noundef 339)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i36, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 339)
           to label %.noexc38 unwind label %lpad16
 
 .noexc38:                                         ; preds = %invoke.cont13
@@ -1845,7 +1845,7 @@ invoke.cont54:                                    ; preds = %if.else.i.i.i348, %
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call46, i32 noundef 5)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call46, i32 noundef 5)
           to label %.noexc360 unwind label %lpad57
 
 .noexc360:                                        ; preds = %invoke.cont54
@@ -3632,7 +3632,7 @@ invoke.cont35:                                    ; preds = %if.else.i.i.i466, %
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call23, i32 noundef 309)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call23, i32 noundef 309)
           to label %.noexc478 unwind label %lpad38
 
 .noexc478:                                        ; preds = %invoke.cont35
@@ -4473,7 +4473,7 @@ if.then13.i.i.i783:                               ; preds = %if.else.i.i.i781
 invoke.cont104:                                   ; preds = %if.else.i.i.i781, %if.then.i.i.i785, %if.then13.i.i.i783
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i793)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i794)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i793, ptr noundef nonnull %call101, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i793, ptr noundef nonnull align 8 dereferenceable(3360) %call101, i32 noundef 305)
           to label %.noexc799 unwind label %lpad107
 
 .noexc799:                                        ; preds = %invoke.cont104
@@ -4580,7 +4580,7 @@ if.then13.i.i.i831:                               ; preds = %if.else.i.i.i829
 invoke.cont116:                                   ; preds = %if.else.i.i.i829, %if.then.i.i.i833, %if.then13.i.i.i831
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i841)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i842)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i841, ptr noundef nonnull %call113, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i841, ptr noundef nonnull align 8 dereferenceable(3360) %call113, i32 noundef 305)
           to label %.noexc849 unwind label %lpad119
 
 .noexc849:                                        ; preds = %invoke.cont116
@@ -8032,7 +8032,7 @@ invoke.cont1024:                                  ; preds = %if.then1022
           to label %invoke.cont1026 unwind label %lpad1025
 
 invoke.cont1026:                                  ; preds = %invoke.cont1024
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp1023)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1023)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont1026
@@ -8109,7 +8109,7 @@ invoke.cont1078:                                  ; preds = %invoke.cont1075
 lpad1025:                                         ; preds = %invoke.cont1024
   %489 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp1023)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1023)
           to label %ehcleanup1184 unwind label %terminate.lpad.i.i1761
 
 terminate.lpad.i.i1761:                           ; preds = %lpad1025
@@ -10042,7 +10042,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont1668, %i
   %670 = load ptr, ptr %pfx0, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2212)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2213)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2212, ptr noundef nonnull %call23, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2212, ptr noundef nonnull align 8 dereferenceable(3360) %call23, i32 noundef 305)
           to label %.noexc2220 unwind label %lpad1673
 
 .noexc2220:                                       ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
@@ -10076,7 +10076,7 @@ invoke.cont1674:                                  ; preds = %invoke.cont3.i2218
   %673 = load ptr, ptr %pfx1, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2223)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2224)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2223, ptr noundef nonnull %call23, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2223, ptr noundef nonnull align 8 dereferenceable(3360) %call23, i32 noundef 305)
           to label %.noexc2231 unwind label %lpad1679
 
 .noexc2231:                                       ; preds = %invoke.cont1674
@@ -10413,7 +10413,7 @@ invoke.cont1747:                                  ; preds = %invoke.cont1745
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2370)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2371)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i2372)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2370, ptr noundef nonnull %call23, i32 noundef 19)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2370, ptr noundef nonnull align 8 dereferenceable(3360) %call23, i32 noundef 19)
           to label %.noexc2382 unwind label %lpad1750
 
 .noexc2382:                                       ; preds = %invoke.cont1747
@@ -13496,7 +13496,7 @@ if.then13.i.i.i665:                               ; preds = %if.else.i.i.i663
 invoke.cont71:                                    ; preds = %if.else.i.i.i663, %if.then.i.i.i667, %if.then13.i.i.i665
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call68, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call68, i32 noundef 305)
           to label %.noexc675 unwind label %lpad74
 
 .noexc675:                                        ; preds = %invoke.cont71
@@ -15202,7 +15202,7 @@ invoke.cont293:                                   ; preds = %if.else.i.i.i1274, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1286)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1287)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1286, ptr noundef nonnull %call, i32 noundef 309)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1286, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 309)
           to label %.noexc1292 unwind label %lpad296
 
 .noexc1292:                                       ; preds = %invoke.cont293
@@ -16527,7 +16527,7 @@ invoke.cont538:                                   ; preds = %if.else.i.i.i1673, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1685)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1686)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i1687)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1685, ptr noundef nonnull %call526, i32 noundef 309)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1685, ptr noundef nonnull align 8 dereferenceable(3360) %call526, i32 noundef 309)
           to label %.noexc1697 unwind label %lpad541
 
 .noexc1697:                                       ; preds = %invoke.cont538
@@ -17812,7 +17812,7 @@ invoke.cont699:                                   ; preds = %if.else.i.i.i2220, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2232)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2233)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i2234)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2232, ptr noundef nonnull %call, i32 noundef 5)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2232, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 5)
           to label %.noexc2244 unwind label %lpad702
 
 .noexc2244:                                       ; preds = %invoke.cont699
@@ -18021,7 +18021,7 @@ if.else715:                                       ; preds = %for.body683
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2283)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2284)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i2285)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2283, ptr noundef nonnull %call, i32 noundef 5)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2283, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 5)
           to label %.noexc2295 unwind label %lpad723
 
 .noexc2295:                                       ; preds = %if.else715
@@ -18314,7 +18314,7 @@ if.then13.i.i.i2343:                              ; preds = %if.else.i.i.i2341
 invoke.cont794:                                   ; preds = %if.else.i.i.i2341, %if.then.i.i.i2345, %if.then13.i.i.i2343
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2353)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2354)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2353, ptr noundef nonnull %call791, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2353, ptr noundef nonnull align 8 dereferenceable(3360) %call791, i32 noundef 305)
           to label %.noexc2361 unwind label %lpad797
 
 .noexc2361:                                       ; preds = %invoke.cont794
@@ -18421,7 +18421,7 @@ if.then13.i.i.i2395:                              ; preds = %if.else.i.i.i2393
 invoke.cont806:                                   ; preds = %if.else.i.i.i2393, %if.then.i.i.i2397, %if.then13.i.i.i2395
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2405)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2406)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2405, ptr noundef nonnull %call803, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2405, ptr noundef nonnull align 8 dereferenceable(3360) %call803, i32 noundef 305)
           to label %.noexc2413 unwind label %lpad809
 
 .noexc2413:                                       ; preds = %invoke.cont806
@@ -21423,7 +21423,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 5)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 5)
   store ptr %0, ptr %agg.tmp.i, align 8, !noalias !270
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !270
@@ -21727,21 +21727,21 @@ entry:
   %ref.tmp = alloca %class.__gmp_expr.122, align 8
   %ref.tmp2 = alloca %class.__gmp_expr.122, align 8
   %conv.i = sext i32 %n to i64
-  call void @__gmpz_init_set_si(ptr noundef nonnull %ref.tmp, i64 noundef %conv.i)
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp2, i64 noundef 1)
+  call void @__gmpz_init_set_si(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef %conv.i)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
   %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
-  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %.noexc
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont4
@@ -21752,7 +21752,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont4
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit9 unwind label %terminate.lpad.i8
 
 terminate.lpad.i8:                                ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
@@ -21763,7 +21763,7 @@ terminate.lpad.i8:                                ; preds = %_ZN10__gmp_exprIA1_
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit9:  ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit9
@@ -21777,7 +21777,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %.noexc, %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %ehcleanup unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %lpad3
@@ -21789,7 +21789,7 @@ terminate.lpad.i11:                               ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad3 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %eh.resume unwind label %terminate.lpad.i13
 
 terminate.lpad.i13:                               ; preds = %ehcleanup
@@ -21802,7 +21802,7 @@ terminate.lpad.i13:                               ; preds = %ehcleanup
 lpad6:                                            ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit9
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %eh.resume unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %lpad6
@@ -22254,7 +22254,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp7)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont16
@@ -22442,7 +22442,7 @@ lpad11:                                           ; preds = %invoke.cont12, %_ZN
 lpad15:                                           ; preds = %invoke.cont14
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp7)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
           to label %eh.resume.sink.split unwind label %terminate.lpad.i.i191
 
 terminate.lpad.i.i191:                            ; preds = %lpad15
@@ -22759,7 +22759,7 @@ terminate.lpad.i315:                              ; preds = %if.then13.i.i314
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit316: ; preds = %invoke.cont60, %if.then.i.i308, %if.then13.i.i314
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp47)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %_ZN4cvc58internal8RationalD2Ev.exit318 unwind label %terminate.lpad.i.i317
 
 terminate.lpad.i.i317:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit316
@@ -22829,7 +22829,7 @@ lpad59:                                           ; preds = %if.else.i.i303, %if
 
 ehcleanup62:                                      ; preds = %lpad59, %lpad57
   %.pn49 = phi { ptr, i32 } [ %71, %lpad59 ], [ %70, %lpad57 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp47)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %ehcleanup63 unwind label %terminate.lpad.i.i330
 
 terminate.lpad.i.i330:                            ; preds = %ehcleanup62
@@ -22894,7 +22894,7 @@ if.then13.i.i.i351:                               ; preds = %if.else.i.i.i349
 invoke.cont71:                                    ; preds = %if.else.i.i.i349, %if.then.i.i.i353, %if.then13.i.i.i351
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call68, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call68, i32 noundef 305)
           to label %.noexc361 unwind label %lpad74
 
 .noexc361:                                        ; preds = %invoke.cont71
@@ -23047,7 +23047,7 @@ for.end:                                          ; preds = %invoke.cont36
 
 invoke.cont82:                                    ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i407)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i407, ptr noundef nonnull %call83, i32 noundef 36)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i407, ptr noundef nonnull align 8 dereferenceable(3360) %call83, i32 noundef 36)
           to label %.noexc409 unwind label %lpad35.loopexit.split-lp
 
 .noexc409:                                        ; preds = %invoke.cont82
@@ -23434,7 +23434,7 @@ if.then13.i.i.i538:                               ; preds = %if.else.i.i.i536
 invoke.cont107:                                   ; preds = %if.else.i.i.i536, %if.then.i.i.i540, %if.then13.i.i.i538
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i548)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i549)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i548, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i548, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc556 unwind label %lpad110
 
 .noexc556:                                        ; preds = %invoke.cont107
@@ -23606,7 +23606,7 @@ if.then13.i.i.i631:                               ; preds = %if.else.i.i.i629
 invoke.cont121:                                   ; preds = %if.else.i.i.i629, %if.then.i.i.i633, %if.then13.i.i.i631
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i641)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i642)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i641, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i641, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc649 unwind label %lpad124
 
 .noexc649:                                        ; preds = %invoke.cont121
@@ -23896,7 +23896,7 @@ if.then13.i.i.i778:                               ; preds = %if.else.i.i.i776
 invoke.cont147:                                   ; preds = %if.else.i.i.i776, %if.then.i.i.i780, %if.then13.i.i.i778
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i788)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i789)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i788, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i788, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc796 unwind label %lpad150
 
 .noexc796:                                        ; preds = %invoke.cont147
@@ -24383,7 +24383,7 @@ if.then13.i.i.i959:                               ; preds = %if.else.i.i.i957
 invoke.cont188:                                   ; preds = %if.else.i.i.i957, %if.then.i.i.i961, %if.then13.i.i.i959
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i969)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i970)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i969, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i969, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc977 unwind label %lpad191
 
 .noexc977:                                        ; preds = %invoke.cont188
@@ -24646,7 +24646,7 @@ if.then212:                                       ; preds = %if.else174, %if.els
           to label %invoke.cont216 unwind label %lpad215
 
 invoke.cont216:                                   ; preds = %if.then212
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp214)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214)
           to label %_ZN4cvc58internal8RationalD2Ev.exit1071 unwind label %terminate.lpad.i.i1070
 
 terminate.lpad.i.i1070:                           ; preds = %invoke.cont216
@@ -24798,7 +24798,7 @@ terminate.lpad.i1136:                             ; preds = %if.then13.i.i1135
 lpad215:                                          ; preds = %if.then212
   %257 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp214)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214)
           to label %eh.resume unwind label %terminate.lpad.i.i1138
 
 terminate.lpad.i.i1138:                           ; preds = %lpad215
@@ -24876,21 +24876,21 @@ define linkonce_odr hidden void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonn
 entry:
   %ref.tmp = alloca %class.__gmp_expr.122, align 8
   %ref.tmp2 = alloca %class.__gmp_expr.122, align 8
-  call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef %n)
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp2, i64 noundef 1)
+  call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef %n)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
   %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
-  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %.noexc
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont4
@@ -24901,7 +24901,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont4
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7 unwind label %terminate.lpad.i6
 
 terminate.lpad.i6:                                ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
@@ -24912,7 +24912,7 @@ terminate.lpad.i6:                                ; preds = %_ZN10__gmp_exprIA1_
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7:  ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7
@@ -24926,7 +24926,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %.noexc, %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %ehcleanup unwind label %terminate.lpad.i9
 
 terminate.lpad.i9:                                ; preds = %lpad3
@@ -24938,7 +24938,7 @@ terminate.lpad.i9:                                ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad3 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %eh.resume unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %ehcleanup
@@ -24951,7 +24951,7 @@ terminate.lpad.i11:                               ; preds = %ehcleanup
 lpad6:                                            ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %eh.resume unwind label %terminate.lpad.i13
 
 terminate.lpad.i13:                               ; preds = %lpad6
@@ -27579,7 +27579,7 @@ entry:
   %agg.tmp7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 346), !noalias !363
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 346), !noalias !363
   invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(116) %nb.i)
           to label %_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tE.exit unwind label %lpad.i
 
@@ -27599,7 +27599,7 @@ _ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tE.exit: ; preds = %entry
   %1 = load ptr, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i5, ptr noundef nonnull %call, i32 noundef 339)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i5, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 339)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tE.exit
@@ -28607,7 +28607,7 @@ if.else95:                                        ; preds = %cleanup.done87.if.e
 
 if.then99:                                        ; preds = %if.else95
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 344)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 344)
           to label %.noexc297 unwind label %lpad38.loopexit.split-lp
 
 .noexc297:                                        ; preds = %if.then99
@@ -28965,7 +28965,7 @@ if.then13.i.i435:                                 ; preds = %if.else.i.i433
 
 cond.false134:                                    ; preds = %if.else127
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i444)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i444, ptr noundef nonnull %call, i32 noundef 335)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i444, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 335)
           to label %.noexc446 unwind label %lpad11
 
 .noexc446:                                        ; preds = %cond.false134
@@ -29680,7 +29680,7 @@ invoke.cont211:                                   ; preds = %invoke.cont209
   %169 = load ptr, ptr %ref.tmp207, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i801)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i801, ptr noundef nonnull %call, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i801, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 334)
           to label %.noexc804 unwind label %lpad214
 
 .noexc804:                                        ; preds = %invoke.cont211
@@ -31776,7 +31776,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -31793,7 +31793,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -32551,7 +32551,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
   %47 = load ptr, ptr %ref.tmp91, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 334)
           to label %.noexc261 unwind label %lpad98
 
 .noexc261:                                        ; preds = %invoke.cont95
@@ -32962,7 +32962,7 @@ invoke.cont139:                                   ; preds = %if.else.i.i398, %if
 if.then145:                                       ; preds = %invoke.cont139
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i413)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i414)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i413, ptr noundef nonnull %call, i32 noundef 339)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i413, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 339)
           to label %.noexc421 unwind label %lpad149
 
 .noexc421:                                        ; preds = %if.then145
@@ -35342,7 +35342,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i925, label %for.inc343, label %for.cond.i.i, !llvm.loop !484
 
 if.end15.i.i:                                     ; preds = %lor.rhs
-  %call2.i.i.i927 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %toRemove, ptr noundef nonnull align 8 dereferenceable(8) %__begin5213.sroa.0.01907)
+  %call2.i.i.i927 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %toRemove, ptr noundef nonnull align 8 dereferenceable(8) %__begin5213.sroa.0.01907)
           to label %call2.i.i.i.noexc926 unwind label %lpad247
 
 call2.i.i.i.noexc926:                             ; preds = %if.end15.i.i
@@ -35469,7 +35469,7 @@ cond.true313:                                     ; preds = %invoke.cont281
 
 if.then326:                                       ; preds = %cond.true313
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call7, i32 noundef 344)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call7, i32 noundef 344)
           to label %.noexc1071 unwind label %lpad224.loopexit.split-lp.loopexit.split-lp
 
 .noexc1071:                                       ; preds = %if.then326
@@ -35726,7 +35726,7 @@ for.body.i.i1179:                                 ; preds = %for.cond.i.i1175
   br i1 %cmp.i.i.i.i.i1181, label %for.inc380, label %for.cond.i.i1175, !llvm.loop !484
 
 if.end15.i.i1151:                                 ; preds = %for.body364
-  %call2.i.i.i1183 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %toRemove, ptr noundef nonnull align 8 dereferenceable(8) %__begin5356.sroa.0.01911)
+  %call2.i.i.i1183 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %toRemove, ptr noundef nonnull align 8 dereferenceable(8) %__begin5356.sroa.0.01911)
           to label %call2.i.i.i.noexc1182 unwind label %lpad367
 
 call2.i.i.i.noexc1182:                            ; preds = %if.end15.i.i1151
@@ -36166,7 +36166,7 @@ invoke.cont438:                                   ; preds = %invoke.cont.i.i1309
 
 if.then440:                                       ; preds = %invoke.cont438
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1311)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1311, ptr noundef nonnull %call7, i32 noundef 344)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1311, ptr noundef nonnull align 8 dereferenceable(3360) %call7, i32 noundef 344)
           to label %.noexc1314 unwind label %lpad442
 
 .noexc1314:                                       ; preds = %if.then440
@@ -36300,7 +36300,7 @@ lpad444:                                          ; preds = %if.then13.i4.i, %if
 
 if.else448:                                       ; preds = %invoke.cont438
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1348)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1348, ptr noundef nonnull %call7, i32 noundef 346)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1348, ptr noundef nonnull align 8 dereferenceable(3360) %call7, i32 noundef 346)
           to label %.noexc1351 unwind label %lpad442
 
 .noexc1351:                                       ; preds = %if.else448
@@ -36319,7 +36319,7 @@ invoke.cont452:                                   ; preds = %.noexc1351
   %255 = load ptr, ptr %ref.tmp451, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1355)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1355, ptr noundef nonnull %call7, i32 noundef 339)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1355, ptr noundef nonnull align 8 dereferenceable(3360) %call7, i32 noundef 339)
           to label %.noexc1358 unwind label %lpad455
 
 .noexc1358:                                       ; preds = %invoke.cont452
@@ -37662,7 +37662,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 if.then:                                          ; preds = %invoke.cont11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nvec, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call12, i32 noundef 344)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 344)
           to label %invoke.cont.i unwind label %lpad14
 
 invoke.cont.i:                                    ; preds = %if.then
@@ -37926,7 +37926,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   %31 = load ptr, ptr %ref.tmp31, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i137)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i137, ptr noundef nonnull %call12, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i137, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 334)
           to label %.noexc139 unwind label %lpad38
 
 .noexc139:                                        ; preds = %invoke.cont35
@@ -38456,7 +38456,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   %81 = load ptr, ptr %ref.tmp78, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i311)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i312)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i311, ptr noundef nonnull %call12, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i311, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 334)
           to label %.noexc319 unwind label %lpad87
 
 .noexc319:                                        ; preds = %invoke.cont82
@@ -38530,7 +38530,7 @@ if.then13.i.i333:                                 ; preds = %if.else.i.i331
 
 cond.false93:                                     ; preds = %cond.false
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i343)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i343, ptr noundef nonnull %call12, i32 noundef 335)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i343, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 335)
           to label %.noexc359 unwind label %lpad87.thread
 
 .noexc359:                                        ; preds = %cond.false93
@@ -38983,7 +38983,7 @@ ehcleanup137:                                     ; preds = %lpad133, %lpad131
 
 for.end141:                                       ; preds = %for.inc139, %for.cond123.preheader
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i544)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i544, ptr noundef nonnull %call12, i32 noundef 336)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i544, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 336)
           to label %.noexc560 unwind label %lpad126.loopexit.split-lp
 
 .noexc560:                                        ; preds = %for.end141
@@ -39564,7 +39564,7 @@ invoke.cont8:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 350)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 350)
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %invoke.cont8
@@ -39845,7 +39845,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %ref.tmp3, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 334)
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %invoke.cont
@@ -39896,7 +39896,7 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i11, ptr noundef nonnull %call, i32 noundef 336)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i11, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 336)
           to label %.noexc17 unwind label %lpad14
 
 .noexc17:                                         ; preds = %invoke.cont13
@@ -40254,7 +40254,7 @@ entry:
   %3 = load ptr, ptr %arrayidx.i.i19, align 8, !noalias !527
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 339)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 339)
   store ptr %3, ptr %agg.tmp.i, align 8, !noalias !530
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !530
@@ -40286,7 +40286,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3.i
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i21, ptr noundef nonnull %call, i32 noundef 335)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i21, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 335)
           to label %.noexc27 unwind label %lpad8
 
 .noexc27:                                         ; preds = %invoke.cont5
@@ -40578,7 +40578,7 @@ entry:
   %3 = load ptr, ptr %arrayidx.i.i19, align 8, !noalias !539
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 343)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 343)
   store ptr %3, ptr %agg.tmp.i, align 8, !noalias !542
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !542
@@ -40610,7 +40610,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3.i
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i21, ptr noundef nonnull %call, i32 noundef 337)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i21, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 337)
           to label %.noexc27 unwind label %lpad8
 
 .noexc27:                                         ; preds = %invoke.cont5
@@ -41021,7 +41021,7 @@ if.then32:                                        ; preds = %for.end
   %15 = load ptr, ptr %arrayidx.i.i87, align 8, !noalias !564
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call22, i32 noundef 334)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call22, i32 noundef 334)
   store ptr %15, ptr %agg.tmp.i, align 8, !noalias !567
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !567
@@ -41221,7 +41221,7 @@ if.end47:                                         ; preds = %for.end
 
 if.then51:                                        ; preds = %if.end47
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i147)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i147, ptr noundef nonnull %call22, i32 noundef 344), !noalias !570
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i147, ptr noundef nonnull align 8 dereferenceable(3360) %call22, i32 noundef 344), !noalias !570
   invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %retNode52, ptr noundef nonnull align 8 dereferenceable(116) %nb.i147)
           to label %_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tE.exit unwind label %lpad.i148
 
@@ -42218,7 +42218,7 @@ invoke.cont70:                                    ; preds = %if.then68
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp69)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont72
@@ -42232,7 +42232,7 @@ _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont72
   %61 = load ptr, ptr %x, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc339 unwind label %lpad79
 
 .noexc339:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
@@ -42462,7 +42462,7 @@ terminate.lpad.i423:                              ; preds = %if.then13.i.i422
 lpad71:                                           ; preds = %invoke.cont70
   %86 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp69)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
           to label %ehcleanup1111 unwind label %terminate.lpad.i.i425
 
 terminate.lpad.i.i425:                            ; preds = %lpad71
@@ -42693,7 +42693,7 @@ invoke.cont176:                                   ; preds = %if.then173
           to label %invoke.cont178 unwind label %lpad177
 
 invoke.cont178:                                   ; preds = %invoke.cont176
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp175)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175)
           to label %_ZN4cvc58internal8RationalD2Ev.exit440 unwind label %terminate.lpad.i.i439
 
 terminate.lpad.i.i439:                            ; preds = %invoke.cont178
@@ -42773,7 +42773,7 @@ invoke.cont194:                                   ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i455)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i456)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i455, ptr noundef nonnull %call, i32 noundef 304)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i455, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 304)
           to label %.noexc461 unwind label %lpad203
 
 .noexc461:                                        ; preds = %invoke.cont194
@@ -42892,7 +42892,7 @@ lpad170:                                          ; preds = %if.then173, %invoke
 lpad177:                                          ; preds = %invoke.cont176
   %127 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp175)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175)
           to label %ehcleanup233 unwind label %terminate.lpad.i.i485
 
 terminate.lpad.i.i485:                            ; preds = %lpad177
@@ -43403,7 +43403,7 @@ invoke.cont296:                                   ; preds = %if.then294
           to label %invoke.cont298 unwind label %lpad297
 
 invoke.cont298:                                   ; preds = %invoke.cont296
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp295)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295)
           to label %_ZN4cvc58internal8RationalD2Ev.exit677 unwind label %terminate.lpad.i.i676
 
 terminate.lpad.i.i676:                            ; preds = %invoke.cont298
@@ -43430,7 +43430,7 @@ invoke.cont307:                                   ; preds = %invoke.cont305
           to label %invoke.cont309 unwind label %lpad308
 
 invoke.cont309:                                   ; preds = %invoke.cont307
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp300)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp300)
           to label %_ZN4cvc58internal8RationalD2Ev.exit679 unwind label %terminate.lpad.i.i678
 
 terminate.lpad.i.i678:                            ; preds = %invoke.cont309
@@ -43484,7 +43484,7 @@ invoke.cont340:                                   ; preds = %invoke.cont338
 lpad297:                                          ; preds = %invoke.cont296
   %173 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp295)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp295)
           to label %ehcleanup1111 unwind label %terminate.lpad.i.i680
 
 terminate.lpad.i.i680:                            ; preds = %lpad297
@@ -43507,7 +43507,7 @@ lpad304:                                          ; preds = %invoke.cont305, %in
 lpad308:                                          ; preds = %invoke.cont307
   %178 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp300)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp300)
           to label %ehcleanup311 unwind label %terminate.lpad.i.i682
 
 terminate.lpad.i.i682:                            ; preds = %lpad308
@@ -44024,7 +44024,7 @@ invoke.cont427:                                   ; preds = %if.then425
           to label %invoke.cont429 unwind label %lpad428
 
 invoke.cont429:                                   ; preds = %invoke.cont427
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp426)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp426)
           to label %_ZN4cvc58internal8RationalD2Ev.exit866 unwind label %terminate.lpad.i.i865
 
 terminate.lpad.i.i865:                            ; preds = %invoke.cont429
@@ -44068,7 +44068,7 @@ invoke.cont456:                                   ; preds = %invoke.cont454
 lpad428:                                          ; preds = %invoke.cont427
   %225 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp426)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp426)
           to label %ehcleanup501 unwind label %terminate.lpad.i.i867
 
 terminate.lpad.i.i867:                            ; preds = %lpad428
@@ -44274,7 +44274,7 @@ invoke.cont526:                                   ; preds = %if.else.i.i.i910, %
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i922)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i923)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i924)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i922, ptr noundef nonnull %call520, i32 noundef 304)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i922, ptr noundef nonnull align 8 dereferenceable(3360) %call520, i32 noundef 304)
           to label %.noexc934 unwind label %lpad529
 
 .noexc934:                                        ; preds = %invoke.cont526
@@ -44460,7 +44460,7 @@ invoke.cont541:                                   ; preds = %for.end539
   %cmp545 = icmp eq i16 %bf.clear.i966, 337
   %cond546 = select i1 %cmp545, i32 19, i32 21
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i968)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i968, ptr noundef nonnull %call542, i32 noundef %cond546)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i968, ptr noundef nonnull align 8 dereferenceable(3360) %call542, i32 noundef %cond546)
           to label %.noexc971 unwind label %lpad513.loopexit.split-lp
 
 .noexc971:                                        ; preds = %invoke.cont541
@@ -45695,7 +45695,7 @@ invoke.cont816:                                   ; preds = %invoke.cont814
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1433)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1434)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i1435)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1433, ptr noundef nonnull %call, i32 noundef 304)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1433, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 304)
           to label %.noexc1445 unwind label %lpad822
 
 .noexc1445:                                       ; preds = %invoke.cont816
@@ -46404,7 +46404,7 @@ invoke.cont1047:                                  ; preds = %for.body1045
 if.then1049:                                      ; preds = %invoke.cont1047
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1620)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1621)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1620, ptr noundef nonnull %call, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1620, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 334)
           to label %.noexc1628 unwind label %lpad1053
 
 .noexc1628:                                       ; preds = %if.then1049
@@ -46909,21 +46909,21 @@ entry:
   %ref.tmp = alloca %class.__gmp_expr.122, align 8
   %ref.tmp2 = alloca %class.__gmp_expr.122, align 8
   %conv.i = zext i32 %n to i64
-  call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef %conv.i)
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp2, i64 noundef 1)
+  call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef %conv.i)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
   %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
-  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %.noexc
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont4
@@ -46934,7 +46934,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont4
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7 unwind label %terminate.lpad.i6
 
 terminate.lpad.i6:                                ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
@@ -46945,7 +46945,7 @@ terminate.lpad.i6:                                ; preds = %_ZN10__gmp_exprIA1_
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7:  ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7
@@ -46959,7 +46959,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %.noexc, %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %ehcleanup unwind label %terminate.lpad.i9
 
 terminate.lpad.i9:                                ; preds = %lpad3
@@ -46971,7 +46971,7 @@ terminate.lpad.i9:                                ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad3 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %eh.resume unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %ehcleanup
@@ -46984,7 +46984,7 @@ terminate.lpad.i11:                               ; preds = %ehcleanup
 lpad6:                                            ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %eh.resume unwind label %terminate.lpad.i13
 
 terminate.lpad.i13:                               ; preds = %lpad6
@@ -47049,7 +47049,7 @@ cond.false:                                       ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call3, i32 noundef 18)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call3, i32 noundef 18)
   store ptr %3, ptr %agg.tmp.i, align 8, !noalias !628
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !628
@@ -50264,7 +50264,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
@@ -50594,7 +50594,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit116: ; preds = %_ZN4cvc58internal1
 lpad:                                             ; preds = %entry
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %eh.resume unwind label %terminate.lpad.i.i117
 
 terminate.lpad.i.i117:                            ; preds = %lpad
@@ -51470,7 +51470,7 @@ invoke.cont42:                                    ; preds = %if.else.i.i.i408, %
           to label %invoke.cont46 unwind label %lpad43
 
 invoke.cont46:                                    ; preds = %invoke.cont42
-  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull %rMaxInt, ptr noundef nonnull %call.i420) #28
+  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt, ptr noundef nonnull align 8 dereferenceable(32) %call.i420) #28
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %bf.load.i.i421 = load i64, ptr %52, align 8
   %54 = and i64 %bf.load.i.i421, 1152920405095219200
@@ -52074,7 +52074,7 @@ invoke.cont96:                                    ; preds = %if.else.i.i.i638, %
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %invoke.cont96
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ref.tmp94, ptr noundef nonnull %call.i650)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(32) %call.i650)
           to label %invoke.cont100 unwind label %lpad97
 
 invoke.cont100:                                   ; preds = %invoke.cont98
@@ -52082,7 +52082,7 @@ invoke.cont100:                                   ; preds = %invoke.cont98
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont100
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp94)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp94)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont102
@@ -52227,7 +52227,7 @@ lpad97:                                           ; preds = %invoke.cont98, %inv
 lpad101:                                          ; preds = %invoke.cont100
   %129 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp94)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp94)
           to label %ehcleanup105 unwind label %terminate.lpad.i.i704
 
 terminate.lpad.i.i704:                            ; preds = %lpad101
@@ -52290,7 +52290,7 @@ invoke.cont139:                                   ; preds = %if.end137
           to label %invoke.cont143 unwind label %lpad140
 
 invoke.cont143:                                   ; preds = %invoke.cont139
-  %call.i.i.i.i708 = call i32 @__gmpq_cmp(ptr noundef nonnull %rMaxInt, ptr noundef nonnull %call.i706) #28
+  %call.i.i.i.i708 = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt, ptr noundef nonnull align 8 dereferenceable(32) %call.i706) #28
   %cmp.i.i.i.i709 = icmp slt i32 %call.i.i.i.i708, 0
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp138) #23
   br i1 %cmp.i.i.i.i709, label %if.then146, label %if.else171
@@ -52445,7 +52445,7 @@ invoke.cont202:                                   ; preds = %if.else199
           to label %invoke.cont204 unwind label %lpad203
 
 invoke.cont204:                                   ; preds = %invoke.cont202
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ref.tmp200, ptr noundef nonnull %call.i717)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %call.i717)
           to label %invoke.cont206 unwind label %lpad203
 
 invoke.cont206:                                   ; preds = %invoke.cont204
@@ -52453,7 +52453,7 @@ invoke.cont206:                                   ; preds = %invoke.cont204
           to label %invoke.cont208 unwind label %lpad207
 
 invoke.cont208:                                   ; preds = %invoke.cont206
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp200)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit722 unwind label %terminate.lpad.i.i721
 
 terminate.lpad.i.i721:                            ; preds = %invoke.cont208
@@ -52512,7 +52512,7 @@ lpad203:                                          ; preds = %invoke.cont204, %in
 lpad207:                                          ; preds = %invoke.cont206
   %156 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp200)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200)
           to label %ehcleanup211 unwind label %terminate.lpad.i.i723
 
 terminate.lpad.i.i723:                            ; preds = %lpad207
@@ -52628,7 +52628,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont265, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then13.i.i618, %if.then.i.i612, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit609, %if.then13.i.i502, %if.then.i.i496, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit493
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i725
 
 terminate.lpad.i.i725:                            ; preds = %cleanup
@@ -52666,7 +52666,7 @@ terminate.lpad.i735:                              ; preds = %if.then13.i.i734
 
 ehcleanup271:                                     ; preds = %ehcleanup270, %lpad257, %ehcleanup250, %lpad237, %lpad228, %lpad218, %ehcleanup211, %ehcleanup198, %lpad185, %lpad174, %ehcleanup170, %lpad157, %lpad149, %lpad140, %ehcleanup134, %lpad121, %lpad111, %ehcleanup105, %ehcleanup92, %lpad79, %lpad69, %ehcleanup66, %lpad53, %lpad43, %lpad41
   %.pn158.pn.pn = phi { ptr, i32 } [ %.pn158.pn, %ehcleanup66 ], [ %80, %lpad53 ], [ %78, %lpad41 ], [ %.pn155.pn, %ehcleanup92 ], [ %110, %lpad79 ], [ %.pn152.pn, %ehcleanup134 ], [ %133, %lpad121 ], [ %.pn149.pn, %ehcleanup170 ], [ %140, %lpad157 ], [ %139, %lpad149 ], [ %.pn146.pn, %ehcleanup198 ], [ %147, %lpad185 ], [ %.pn143.pn, %ehcleanup250 ], [ %161, %lpad237 ], [ %160, %lpad228 ], [ %.pn140.pn, %ehcleanup270 ], [ %165, %lpad257 ], [ %159, %lpad218 ], [ %.pn138, %ehcleanup211 ], [ %146, %lpad174 ], [ %138, %lpad140 ], [ %132, %lpad111 ], [ %.pn136, %ehcleanup105 ], [ %109, %lpad69 ], [ %79, %lpad43 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %eh.resume.sink.split unwind label %terminate.lpad.i.i737
 
 terminate.lpad.i.i737:                            ; preds = %ehcleanup271
@@ -52682,7 +52682,7 @@ if.end275:                                        ; preds = %_ZN4cvc58internal12
           to label %invoke.cont278 unwind label %lpad277
 
 invoke.cont278:                                   ; preds = %if.end275
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp276)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp276)
           to label %_ZN4cvc58internal8RationalD2Ev.exit740 unwind label %terminate.lpad.i.i739
 
 terminate.lpad.i.i739:                            ; preds = %invoke.cont278
@@ -53003,7 +53003,7 @@ terminate.lpad.i879:                              ; preds = %if.then13.i.i878
 lpad277:                                          ; preds = %if.end275
   %209 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp276)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp276)
           to label %eh.resume unwind label %terminate.lpad.i.i881
 
 terminate.lpad.i.i881:                            ; preds = %lpad277
@@ -55835,7 +55835,7 @@ if.then13.i.i.i1909:                              ; preds = %if.else.i.i.i1907
 invoke.cont670:                                   ; preds = %if.else.i.i.i1907, %if.then.i.i.i1911, %if.then13.i.i.i1909
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc1919 unwind label %lpad673
 
 .noexc1919:                                       ; preds = %invoke.cont670
@@ -56014,7 +56014,7 @@ invoke.cont691:                                   ; preds = %if.else.i.i.i1991, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2003)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2004)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2003, ptr noundef nonnull %call, i32 noundef 36)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2003, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 36)
           to label %.noexc2009 unwind label %lpad694
 
 .noexc2009:                                       ; preds = %invoke.cont691
@@ -56509,7 +56509,7 @@ if.else757:                                       ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2157)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2158)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i2159)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2157, ptr noundef nonnull %call, i32 noundef 39)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2157, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 39)
           to label %.noexc2169 unwind label %lpad766
 
 .noexc2169:                                       ; preds = %if.else757
@@ -58857,7 +58857,7 @@ invoke.cont29:                                    ; preds = %if.else.i.i.i204, %
           to label %invoke.cont33 unwind label %lpad30
 
 invoke.cont33:                                    ; preds = %invoke.cont29
-  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull %rMaxInt, ptr noundef nonnull %call.i216) #28
+  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt, ptr noundef nonnull align 8 dereferenceable(32) %call.i216) #28
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %bf.load.i.i217 = load i64, ptr %34, align 8
   %36 = and i64 %bf.load.i.i217, 1152920405095219200
@@ -59295,7 +59295,7 @@ invoke.cont68:                                    ; preds = %if.else.i.i.i391, %
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %invoke.cont68
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ref.tmp66, ptr noundef nonnull %call.i403)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %call.i403)
           to label %invoke.cont72 unwind label %lpad69
 
 invoke.cont72:                                    ; preds = %invoke.cont70
@@ -59303,7 +59303,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
           to label %invoke.cont74 unwind label %lpad73
 
 invoke.cont74:                                    ; preds = %invoke.cont72
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp66)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont74
@@ -59370,7 +59370,7 @@ lpad69:                                           ; preds = %invoke.cont70, %inv
 lpad73:                                           ; preds = %invoke.cont72
   %84 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp66)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66)
           to label %ehcleanup77 unwind label %terminate.lpad.i.i417
 
 terminate.lpad.i.i417:                            ; preds = %lpad73
@@ -59491,7 +59491,7 @@ ehcleanup127:                                     ; preds = %ehcleanup126, %lpad
   br label %ehcleanup129
 
 cleanup:                                          ; preds = %invoke.cont99
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %if.end131 unwind label %terminate.lpad.i.i419
 
 terminate.lpad.i.i419:                            ; preds = %cleanup
@@ -59503,7 +59503,7 @@ terminate.lpad.i.i419:                            ; preds = %cleanup
 
 ehcleanup129:                                     ; preds = %lpad108, %lpad112, %ehcleanup127, %lpad98, %ehcleanup94, %lpad80, %ehcleanup77, %ehcleanup63, %lpad48, %ehcleanup45, %lpad30, %lpad28
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %ehcleanup45 ], [ %50, %lpad28 ], [ %.pn20, %ehcleanup63 ], [ %.pn18, %ehcleanup94 ], [ %.pn15.pn, %ehcleanup127 ], [ %92, %lpad98 ], [ %87, %lpad80 ], [ %.pn, %ehcleanup77 ], [ %71, %lpad48 ], [ %51, %lpad30 ], [ %94, %lpad112 ], [ %93, %lpad108 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %ehcleanup368 unwind label %terminate.lpad.i.i420
 
 terminate.lpad.i.i420:                            ; preds = %ehcleanup129
@@ -59526,7 +59526,7 @@ invoke.cont135:                                   ; preds = %invoke.cont132
           to label %invoke.cont137 unwind label %lpad136
 
 invoke.cont137:                                   ; preds = %invoke.cont135
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp134)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134)
           to label %_ZN4cvc58internal8RationalD2Ev.exit423 unwind label %terminate.lpad.i.i422
 
 terminate.lpad.i.i422:                            ; preds = %invoke.cont137
@@ -59540,7 +59540,7 @@ _ZN4cvc58internal8RationalD2Ev.exit423:           ; preds = %invoke.cont137
   %104 = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call133, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call133, i32 noundef 305)
           to label %.noexc424 unwind label %lpad142
 
 .noexc424:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit423
@@ -59974,7 +59974,7 @@ terminate.lpad.i605:                              ; preds = %if.then13.i.i604
 lpad136:                                          ; preds = %invoke.cont135
   %146 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp134)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134)
           to label %ehcleanup368 unwind label %terminate.lpad.i.i607
 
 terminate.lpad.i.i607:                            ; preds = %lpad136
@@ -60147,7 +60147,7 @@ if.then207:                                       ; preds = %invoke.cont205, %in
   %166 = load ptr, ptr %x, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i638)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i639)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i638, ptr noundef nonnull %call133, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i638, ptr noundef nonnull align 8 dereferenceable(3360) %call133, i32 noundef 305)
           to label %.noexc646 unwind label %lpad210
 
 .noexc646:                                        ; preds = %if.then207
@@ -60717,7 +60717,7 @@ if.then278:                                       ; preds = %cleanup.done273
   %233 = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i804)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i805)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i804, ptr noundef nonnull %call133, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i804, ptr noundef nonnull align 8 dereferenceable(3360) %call133, i32 noundef 305)
           to label %.noexc812 unwind label %lpad283
 
 .noexc812:                                        ; preds = %if.then278
@@ -60762,7 +60762,7 @@ invoke.cont298:                                   ; preds = %invoke.cont296
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i815)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i816)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i815, ptr noundef nonnull %call133, i32 noundef 36)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i815, ptr noundef nonnull align 8 dereferenceable(3360) %call133, i32 noundef 36)
           to label %.noexc821 unwind label %lpad301
 
 .noexc821:                                        ; preds = %invoke.cont298
@@ -60808,7 +60808,7 @@ invoke.cont302:                                   ; preds = %invoke.cont7.i
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i823)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i824)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i825)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i823, ptr noundef nonnull %call133, i32 noundef 39)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i823, ptr noundef nonnull align 8 dereferenceable(3360) %call133, i32 noundef 39)
           to label %.noexc835 unwind label %lpad305
 
 .noexc835:                                        ; preds = %invoke.cont302
@@ -60904,7 +60904,7 @@ terminate.lpad.i860:                              ; preds = %if.then13.i.i859
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit861: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit849, %if.then.i.i852, %if.then13.i.i859
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp294)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294)
           to label %_ZN4cvc58internal8RationalD2Ev.exit863 unwind label %terminate.lpad.i.i862
 
 terminate.lpad.i.i862:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit861
@@ -60998,7 +60998,7 @@ invoke.cont332:                                   ; preds = %invoke.cont322
   %265 = load ptr, ptr %ref.tmp318, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i905)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i906)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i905, ptr noundef nonnull %call133, i32 noundef 328)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i905, ptr noundef nonnull align 8 dereferenceable(3360) %call133, i32 noundef 328)
           to label %.noexc913 unwind label %lpad335
 
 .noexc913:                                        ; preds = %invoke.cont332
@@ -61290,7 +61290,7 @@ ehcleanup309:                                     ; preds = %lpad301, %ehcleanup
 
 ehcleanup311:                                     ; preds = %ehcleanup309, %lpad297
   %.pn33.pn = phi { ptr, i32 } [ %.pn33, %ehcleanup309 ], [ %296, %lpad297 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp294)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294)
           to label %ehcleanup312 unwind label %terminate.lpad.i.i1018
 
 terminate.lpad.i.i1018:                           ; preds = %ehcleanup311
@@ -61573,7 +61573,7 @@ cleanup367.critedge.sink.split:                   ; preds = %invoke.cont90, %inv
   br label %cleanup367.critedge
 
 cleanup367.critedge:                              ; preds = %cleanup367.critedge.sink.split, %if.then13.i.i371, %if.then.i.i365, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit362, %if.then13.i.i277, %if.then.i.i271, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit268
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %cleanup367 unwind label %terminate.lpad.i.i1105
 
 terminate.lpad.i.i1105:                           ; preds = %cleanup367.critedge
@@ -62034,7 +62034,7 @@ if.then:                                          ; preds = %_ZN4cvc58internal12
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.then
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp13)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont15
@@ -62202,7 +62202,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 lpad14:                                           ; preds = %if.then
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp13)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %eh.resume unwind label %terminate.lpad.i.i256
 
 terminate.lpad.i.i256:                            ; preds = %lpad14
@@ -62608,7 +62608,7 @@ invoke.cont74:                                    ; preds = %if.else.i.i.i433, %
           to label %invoke.cont78 unwind label %lpad75
 
 invoke.cont78:                                    ; preds = %invoke.cont74
-  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull %rMaxInt, ptr noundef nonnull %call.i445) #28
+  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt, ptr noundef nonnull align 8 dereferenceable(32) %call.i445) #28
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %bf.load.i.i447 = load i64, ptr %70, align 8
   %72 = and i64 %bf.load.i.i447, 1152920405095219200
@@ -62725,7 +62725,7 @@ invoke.cont91:                                    ; preds = %if.then88
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %invoke.cont91
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp90)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90)
           to label %_ZN4cvc58internal8RationalD2Ev.exit499 unwind label %terminate.lpad.i.i498
 
 terminate.lpad.i.i498:                            ; preds = %invoke.cont93
@@ -62927,7 +62927,7 @@ lpad84:                                           ; preds = %invoke.cont83
 lpad92:                                           ; preds = %invoke.cont91
   %106 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp90)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90)
           to label %ehcleanup183 unwind label %terminate.lpad.i.i563
 
 terminate.lpad.i.i563:                            ; preds = %lpad92
@@ -63085,7 +63085,7 @@ invoke.cont114:                                   ; preds = %if.else.i.i.i626, %
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %invoke.cont114
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ref.tmp111, ptr noundef nonnull %call.i638)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) %call.i638)
           to label %invoke.cont118 unwind label %lpad115
 
 invoke.cont118:                                   ; preds = %invoke.cont116
@@ -63093,7 +63093,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont118
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp111)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i641
 
 terminate.lpad.i.i641:                            ; preds = %invoke.cont120
@@ -63150,7 +63150,7 @@ invoke.cont138:                                   ; preds = %if.then135
           to label %invoke.cont140 unwind label %lpad139
 
 invoke.cont140:                                   ; preds = %invoke.cont138
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp136)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136)
           to label %_ZN4cvc58internal8RationalD2Ev.exit654 unwind label %terminate.lpad.i.i653
 
 terminate.lpad.i.i653:                            ; preds = %invoke.cont140
@@ -63317,7 +63317,7 @@ lpad115:                                          ; preds = %invoke.cont116, %in
 lpad119:                                          ; preds = %invoke.cont118
   %145 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp111)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp111)
           to label %ehcleanup123 unwind label %terminate.lpad.i.i718
 
 terminate.lpad.i.i718:                            ; preds = %lpad119
@@ -63340,7 +63340,7 @@ lpad129:                                          ; preds = %_ZN4cvc58internal12
 lpad139:                                          ; preds = %invoke.cont138
   %149 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp136)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136)
           to label %ehcleanup176 unwind label %terminate.lpad.i.i720
 
 terminate.lpad.i.i720:                            ; preds = %lpad139
@@ -63395,7 +63395,7 @@ invoke.cont159:                                   ; preds = %if.then156
           to label %invoke.cont161 unwind label %lpad160
 
 invoke.cont161:                                   ; preds = %invoke.cont159
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp158)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158)
           to label %_ZN4cvc58internal8RationalD2Ev.exit723 unwind label %terminate.lpad.i.i722
 
 terminate.lpad.i.i722:                            ; preds = %invoke.cont161
@@ -63547,7 +63547,7 @@ terminate.lpad.i785:                              ; preds = %if.then13.i.i784
 lpad160:                                          ; preds = %invoke.cont159
   %173 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp158)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158)
           to label %ehcleanup176 unwind label %terminate.lpad.i.i787
 
 terminate.lpad.i.i787:                            ; preds = %lpad160
@@ -63698,7 +63698,7 @@ terminate.lpad.i831:                              ; preds = %if.then13.i.i830
   unreachable
 
 cleanup180:                                       ; preds = %if.then13.i.i808, %if.then.i.i802, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit799, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit497
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %if.end184 unwind label %terminate.lpad.i.i833
 
 terminate.lpad.i.i833:                            ; preds = %cleanup180
@@ -63710,7 +63710,7 @@ terminate.lpad.i.i833:                            ; preds = %cleanup180
 
 ehcleanup183:                                     ; preds = %lpad92, %ehcleanup178, %ehcleanup105, %lpad84, %lpad75, %lpad73
   %.pn50.pn.pn = phi { ptr, i32 } [ %.pn50.pn, %ehcleanup105 ], [ %103, %lpad73 ], [ %105, %lpad84 ], [ %.pn45.pn.pn.pn, %ehcleanup178 ], [ %104, %lpad75 ], [ %106, %lpad92 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %ehcleanup1062 unwind label %terminate.lpad.i.i835
 
 terminate.lpad.i.i835:                            ; preds = %ehcleanup183
@@ -64033,7 +64033,7 @@ invoke.cont214:                                   ; preds = %if.then212
           to label %invoke.cont216 unwind label %lpad215
 
 invoke.cont216:                                   ; preds = %invoke.cont214
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp213)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp213)
           to label %_ZN4cvc58internal8RationalD2Ev.exit1005 unwind label %terminate.lpad.i.i1004
 
 terminate.lpad.i.i1004:                           ; preds = %invoke.cont216
@@ -64203,7 +64203,7 @@ lpad205:                                          ; preds = %invoke.cont204
 lpad215:                                          ; preds = %invoke.cont214
   %240 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp213)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp213)
           to label %ehcleanup1062 unwind label %terminate.lpad.i.i1069
 
 terminate.lpad.i.i1069:                           ; preds = %lpad215
@@ -64327,7 +64327,7 @@ invoke.cont241:                                   ; preds = %if.then238
           to label %invoke.cont243 unwind label %lpad242
 
 invoke.cont243:                                   ; preds = %invoke.cont241
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp240)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp240)
           to label %_ZN4cvc58internal8RationalD2Ev.exit1112 unwind label %terminate.lpad.i.i1111
 
 terminate.lpad.i.i1111:                           ; preds = %invoke.cont243
@@ -64485,7 +64485,7 @@ lpad234:                                          ; preds = %invoke.cont233
 lpad242:                                          ; preds = %invoke.cont241
   %270 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp240)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp240)
           to label %ehcleanup1062 unwind label %terminate.lpad.i.i1176
 
 terminate.lpad.i.i1176:                           ; preds = %lpad242
@@ -65027,7 +65027,7 @@ if.then13.i.i.i1387:                              ; preds = %if.else.i.i.i1385
 invoke.cont309:                                   ; preds = %if.else.i.i.i1385, %if.then.i.i.i1389, %if.then13.i.i.i1387
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc1397 unwind label %lpad312
 
 .noexc1397:                                       ; preds = %invoke.cont309
@@ -65130,7 +65130,7 @@ if.then13.i.i.i1428:                              ; preds = %if.else.i.i.i1426
 invoke.cont319:                                   ; preds = %if.else.i.i.i1426, %if.then.i.i.i1430, %if.then13.i.i.i1428
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1438)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1439)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1438, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1438, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc1446 unwind label %lpad322
 
 .noexc1446:                                       ; preds = %invoke.cont319
@@ -65235,7 +65235,7 @@ invoke.cont332:                                   ; preds = %if.else.i.i.i1477, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1489)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1490)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1489, ptr noundef nonnull %call, i32 noundef 39)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1489, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 39)
           to label %.noexc1495 unwind label %lpad335
 
 .noexc1495:                                       ; preds = %invoke.cont332
@@ -66025,7 +66025,7 @@ invoke.cont413:                                   ; preds = %if.then410
           to label %invoke.cont415 unwind label %lpad414
 
 invoke.cont415:                                   ; preds = %invoke.cont413
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp412)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp412)
           to label %_ZN4cvc58internal8RationalD2Ev.exit1813 unwind label %terminate.lpad.i.i1812
 
 terminate.lpad.i.i1812:                           ; preds = %invoke.cont415
@@ -66193,7 +66193,7 @@ ehcleanup409:                                     ; preds = %lpad405, %lpad403
 lpad414:                                          ; preds = %invoke.cont413
   %438 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp412)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp412)
           to label %ehcleanup1056 unwind label %terminate.lpad.i.i1877
 
 terminate.lpad.i.i1877:                           ; preds = %lpad414
@@ -67745,7 +67745,7 @@ invoke.cont841:                                   ; preds = %if.else838
           to label %invoke.cont843 unwind label %lpad842
 
 invoke.cont843:                                   ; preds = %invoke.cont841
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp840)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp840)
           to label %_ZN4cvc58internal8RationalD2Ev.exit2633 unwind label %terminate.lpad.i.i2632
 
 terminate.lpad.i.i2632:                           ; preds = %invoke.cont843
@@ -67897,7 +67897,7 @@ terminate.lpad.i2695:                             ; preds = %if.then13.i.i2694
 lpad842:                                          ; preds = %invoke.cont841
   %611 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp840)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp840)
           to label %ehcleanup1050 unwind label %terminate.lpad.i.i2697
 
 terminate.lpad.i.i2697:                           ; preds = %lpad842
@@ -68974,7 +68974,7 @@ ehcleanup1060:                                    ; preds = %ehcleanup1058, %lpa
   br label %ehcleanup1062
 
 cleanup1061.critedge:                             ; preds = %if.then13.i.i830, %if.then.i.i824, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit821, %if.then13.i.i560, %if.then.i.i554, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit551
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %cleanup1061 unwind label %terminate.lpad.i.i2986
 
 terminate.lpad.i.i2986:                           ; preds = %cleanup1061.critedge
@@ -69259,7 +69259,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont7
@@ -69273,7 +69273,7 @@ _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont7
   %11 = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc94 unwind label %lpad10
 
 .noexc94:                                         ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
@@ -69548,7 +69548,7 @@ invoke.cont43:                                    ; preds = %if.then
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp42)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42)
           to label %_ZN4cvc58internal8RationalD2Ev.exit184 unwind label %terminate.lpad.i.i183
 
 terminate.lpad.i.i183:                            ; preds = %invoke.cont45
@@ -69715,7 +69715,7 @@ lpad4:                                            ; preds = %invoke.cont3
 lpad6:                                            ; preds = %invoke.cont5
   %58 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %ehcleanup212 unwind label %terminate.lpad.i.i248
 
 terminate.lpad.i.i248:                            ; preds = %lpad6
@@ -69774,7 +69774,7 @@ ehcleanup41:                                      ; preds = %ehcleanup40, %lpad1
 lpad44:                                           ; preds = %invoke.cont43
   %67 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp42)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42)
           to label %ehcleanup208 unwind label %terminate.lpad.i.i250
 
 terminate.lpad.i.i250:                            ; preds = %lpad44
@@ -69838,7 +69838,7 @@ if.then69:                                        ; preds = %invoke.cont67
           to label %invoke.cont70 unwind label %lpad13
 
 invoke.cont70:                                    ; preds = %if.then69
-  invoke void @__gmpz_init_set(ptr noundef nonnull %nrat, ptr noundef nonnull %call.i252253)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %nrat, ptr noundef nonnull align 8 dereferenceable(32) %call.i252253)
           to label %.noexc256 unwind label %lpad13
 
 .noexc256:                                        ; preds = %invoke.cont70
@@ -69848,13 +69848,13 @@ invoke.cont70:                                    ; preds = %if.then69
           to label %.noexc257 unwind label %lpad13
 
 .noexc257:                                        ; preds = %.noexc256
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %nrat)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %nrat)
           to label %invoke.cont72 unwind label %lpad.i254
 
 lpad.i254:                                        ; preds = %.noexc257
   %74 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %nrat)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %nrat)
           to label %ehcleanup208 unwind label %terminate.lpad.i.i255
 
 terminate.lpad.i.i255:                            ; preds = %lpad.i254
@@ -69873,7 +69873,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %invoke.cont78 unwind label %lpad73
 
 invoke.cont78:                                    ; preds = %invoke.cont74
-  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull %rMaxInt, ptr noundef nonnull %nrat) #28
+  %call.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt, ptr noundef nonnull align 8 dereferenceable(32) %nrat) #28
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then80, label %if.end97
 
@@ -69886,7 +69886,7 @@ invoke.cont82:                                    ; preds = %if.then80
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont82
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp81)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81)
           to label %_ZN4cvc58internal8RationalD2Ev.exit261 unwind label %terminate.lpad.i.i259
 
 terminate.lpad.i.i259:                            ; preds = %invoke.cont84
@@ -70053,7 +70053,7 @@ lpad77:                                           ; preds = %_ZN4cvc58internal7I
 lpad83:                                           ; preds = %invoke.cont82
   %96 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp81)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81)
           to label %ehcleanup142 unwind label %terminate.lpad.i.i325
 
 terminate.lpad.i.i325:                            ; preds = %lpad83
@@ -70090,7 +70090,7 @@ ehcleanup96:                                      ; preds = %ehcleanup95, %lpad8
   br label %ehcleanup142
 
 if.end97:                                         ; preds = %invoke.cont78
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ref.tmp98, ptr noundef nonnull %nrat)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) %nrat)
           to label %invoke.cont99 unwind label %lpad77
 
 invoke.cont99:                                    ; preds = %if.end97
@@ -70098,7 +70098,7 @@ invoke.cont99:                                    ; preds = %if.end97
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %invoke.cont99
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp98)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i329
 
 terminate.lpad.i.i329:                            ; preds = %invoke.cont101
@@ -70255,7 +70255,7 @@ invoke.cont126:                                   ; preds = %_ZN4cvc58internal12
           to label %invoke.cont128 unwind label %lpad127
 
 invoke.cont128:                                   ; preds = %invoke.cont126
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp123)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp123)
           to label %_ZN4cvc58internal8RationalD2Ev.exit386 unwind label %terminate.lpad.i.i384
 
 terminate.lpad.i.i384:                            ; preds = %invoke.cont128
@@ -70434,7 +70434,7 @@ terminate.lpad.i459:                              ; preds = %if.then13.i.i458
 lpad100:                                          ; preds = %invoke.cont99
   %136 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp98)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98)
           to label %ehcleanup142 unwind label %terminate.lpad.i.i461
 
 terminate.lpad.i.i461:                            ; preds = %lpad100
@@ -70479,7 +70479,7 @@ ehcleanup121:                                     ; preds = %lpad117, %lpad115
 lpad127:                                          ; preds = %invoke.cont126
   %144 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp123)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp123)
           to label %ehcleanup141 unwind label %terminate.lpad.i.i466
 
 terminate.lpad.i.i466:                            ; preds = %lpad127
@@ -70521,7 +70521,7 @@ ehcleanup141:                                     ; preds = %lpad127, %ehcleanup
   br label %ehcleanup142
 
 cleanup:                                          ; preds = %if.then13.i.i458, %if.then.i.i452, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit449, %if.then13.i.i322, %if.then.i.i316, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit313
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %_ZN4cvc58internal8RationalD2Ev.exit471 unwind label %terminate.lpad.i.i469
 
 terminate.lpad.i.i469:                            ; preds = %cleanup
@@ -70532,7 +70532,7 @@ terminate.lpad.i.i469:                            ; preds = %cleanup
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit471:           ; preds = %cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %nrat)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %nrat)
           to label %cleanup207 unwind label %terminate.lpad.i.i472
 
 terminate.lpad.i.i472:                            ; preds = %_ZN4cvc58internal8RationalD2Ev.exit471
@@ -70544,7 +70544,7 @@ terminate.lpad.i.i472:                            ; preds = %_ZN4cvc58internal8R
 
 ehcleanup142:                                     ; preds = %if.then.i.i.i.i464, %lpad108, %lpad100, %lpad83, %ehcleanup141, %ehcleanup96, %lpad77
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup96 ], [ %95, %lpad77 ], [ %.pn21.pn.pn, %ehcleanup141 ], [ %96, %lpad83 ], [ %136, %lpad100 ], [ %139, %lpad108 ], [ %139, %if.then.i.i.i.i464 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %rMaxInt)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %rMaxInt)
           to label %ehcleanup144 unwind label %terminate.lpad.i.i475
 
 terminate.lpad.i.i475:                            ; preds = %ehcleanup142
@@ -70556,7 +70556,7 @@ terminate.lpad.i.i475:                            ; preds = %ehcleanup142
 
 ehcleanup144:                                     ; preds = %ehcleanup142, %lpad73
   %.pn25.pn.pn.pn = phi { ptr, i32 } [ %94, %lpad73 ], [ %.pn25.pn.pn, %ehcleanup142 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %nrat)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %nrat)
           to label %ehcleanup208 unwind label %terminate.lpad.i.i478
 
 terminate.lpad.i.i478:                            ; preds = %ehcleanup144
@@ -71809,7 +71809,7 @@ invoke.cont28:                                    ; preds = %if.else.i.i.i376, %
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 303)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 303)
           to label %.noexc388 unwind label %lpad31
 
 .noexc388:                                        ; preds = %invoke.cont28
@@ -73592,7 +73592,7 @@ if.then13.i.i.i1028:                              ; preds = %if.else.i.i.i1026
 invoke.cont206:                                   ; preds = %if.else.i.i.i1026, %if.then.i.i.i1030, %if.then13.i.i.i1028
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1038)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1039)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1038, ptr noundef nonnull %call203, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1038, ptr noundef nonnull align 8 dereferenceable(3360) %call203, i32 noundef 305)
           to label %.noexc1044 unwind label %lpad209
 
 .noexc1044:                                       ; preds = %invoke.cont206
@@ -73699,7 +73699,7 @@ if.then13.i.i.i1077:                              ; preds = %if.else.i.i.i1075
 invoke.cont218:                                   ; preds = %if.else.i.i.i1075, %if.then.i.i.i1079, %if.then13.i.i.i1077
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1087)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1088)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1087, ptr noundef nonnull %call215, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1087, ptr noundef nonnull align 8 dereferenceable(3360) %call215, i32 noundef 305)
           to label %.noexc1095 unwind label %lpad221
 
 .noexc1095:                                       ; preds = %invoke.cont218
@@ -74258,7 +74258,7 @@ invoke.cont265:                                   ; preds = %if.else.i.i.i1317, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1329)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1330)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i1331)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1329, ptr noundef nonnull %call, i32 noundef 5)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1329, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 5)
           to label %.noexc1341 unwind label %lpad271
 
 .noexc1341:                                       ; preds = %invoke.cont265
@@ -74977,7 +74977,7 @@ invoke.cont389:                                   ; preds = %if.else.i.i.i1558, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1570)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1571)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i1572)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1570, ptr noundef nonnull %call, i32 noundef 309)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i1570, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 309)
           to label %.noexc1582 unwind label %lpad392
 
 .noexc1582:                                       ; preds = %invoke.cont389
@@ -77127,7 +77127,7 @@ invoke.cont903:                                   ; preds = %invoke.cont901
   %580 = load ptr, ptr %ref.tmp899, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2178)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2179)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2178, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2178, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc2186 unwind label %lpad906
 
 .noexc2186:                                       ; preds = %invoke.cont903
@@ -77260,7 +77260,7 @@ invoke.cont917:                                   ; preds = %if.else.i.i.i2230, 
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2242)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2243)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i2244)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2242, ptr noundef nonnull %call, i32 noundef 36)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2242, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 36)
           to label %.noexc2254 unwind label %lpad920
 
 .noexc2254:                                       ; preds = %invoke.cont917
@@ -77336,7 +77336,7 @@ invoke.cont927:                                   ; preds = %_ZN4cvc58internal12
           to label %invoke.cont929 unwind label %lpad928
 
 invoke.cont929:                                   ; preds = %invoke.cont927
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp925)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont929
@@ -77355,7 +77355,7 @@ invoke.cont933:                                   ; preds = %_ZN4cvc58internal8R
           to label %invoke.cont935 unwind label %lpad934
 
 invoke.cont935:                                   ; preds = %invoke.cont933
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp931)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp931)
           to label %_ZN4cvc58internal8RationalD2Ev.exit2270 unwind label %terminate.lpad.i.i2269
 
 terminate.lpad.i.i2269:                           ; preds = %invoke.cont935
@@ -77412,7 +77412,7 @@ if.then13.i.i.i2290:                              ; preds = %if.else.i.i.i2288
 invoke.cont940:                                   ; preds = %if.else.i.i.i2288, %if.then.i.i.i2292, %if.then13.i.i.i2290
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2300)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2301)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2300, ptr noundef nonnull %call, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2300, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
           to label %.noexc2308 unwind label %lpad943
 
 .noexc2308:                                       ; preds = %invoke.cont940
@@ -77474,7 +77474,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2322: ; preds = %invoke.cont944, %
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i2323)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2324)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i2325)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2323, ptr noundef nonnull %call, i32 noundef 36)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i2323, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 36)
           to label %.noexc2335 unwind label %lpad953
 
 .noexc2335:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2322
@@ -77784,7 +77784,7 @@ lpad926:                                          ; preds = %_ZN4cvc58internal12
 lpad928:                                          ; preds = %invoke.cont927
   %647 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp925)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp925)
           to label %ehcleanup1071 unwind label %terminate.lpad.i.i2392
 
 terminate.lpad.i.i2392:                           ; preds = %lpad928
@@ -77802,7 +77802,7 @@ lpad932:                                          ; preds = %_ZN4cvc58internal8R
 lpad934:                                          ; preds = %invoke.cont933
   %651 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp931)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp931)
           to label %ehcleanup1069 unwind label %terminate.lpad.i.i2394
 
 terminate.lpad.i.i2394:                           ; preds = %lpad934
@@ -84530,7 +84530,7 @@ if.then83:                                        ; preds = %invoke.cont80
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 303)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 303)
           to label %.noexc271 unwind label %lpad90
 
 .noexc271:                                        ; preds = %if.then83
@@ -85144,7 +85144,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont17, %if.
   %16 = load ptr, ptr %emp, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 334)
           to label %.noexc87 unwind label %lpad27
 
 .noexc87:                                         ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
@@ -85179,7 +85179,7 @@ invoke.cont28:                                    ; preds = %invoke.cont3.i
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i88)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i89)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i88, ptr noundef nonnull %call, i32 noundef 338)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i88, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 338)
           to label %.noexc94 unwind label %lpad31
 
 .noexc94:                                         ; preds = %invoke.cont28
@@ -86751,7 +86751,7 @@ if.then13.i.i.i80:                                ; preds = %if.else.i.i.i78
 invoke.cont26:                                    ; preds = %if.else.i.i.i78, %if.then.i.i.i82, %if.then13.i.i.i80
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 328)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 328)
           to label %.noexc88 unwind label %lpad31
 
 .noexc88:                                         ; preds = %invoke.cont26
@@ -86938,7 +86938,7 @@ while.body.i.i:                                   ; preds = %for.end, %.noexc117
 
 invoke.cont48:                                    ; preds = %.noexc117, %for.end
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i118)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i118, ptr noundef nonnull %call, i32 noundef 303)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i118, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 303)
           to label %.noexc120 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
 .noexc120:                                        ; preds = %invoke.cont48
@@ -89400,7 +89400,7 @@ invoke.cont191:                                   ; preds = %if.else.i.i.i725, %
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call182, i32 noundef 309)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call182, i32 noundef 309)
           to label %.noexc737 unwind label %lpad194
 
 .noexc737:                                        ; preds = %invoke.cont191
@@ -89753,7 +89753,7 @@ if.then13.i.i.i853:                               ; preds = %if.else.i.i.i851
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit860: ; preds = %if.then.i.i.i855, %if.else.i.i.i851, %if.then13.i.i.i853
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i861)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i862)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i861, ptr noundef nonnull %call216, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i861, ptr noundef nonnull align 8 dereferenceable(3360) %call216, i32 noundef 305)
           to label %.noexc867 unwind label %lpad221
 
 .noexc867:                                        ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit860
@@ -89860,7 +89860,7 @@ if.then13.i.i.i899:                               ; preds = %if.else.i.i.i897
 invoke.cont230:                                   ; preds = %if.else.i.i.i897, %if.then.i.i.i901, %if.then13.i.i.i899
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i909)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i910)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i909, ptr noundef nonnull %call227, i32 noundef 305)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i909, ptr noundef nonnull align 8 dereferenceable(3360) %call227, i32 noundef 305)
           to label %.noexc917 unwind label %lpad233
 
 .noexc917:                                        ; preds = %invoke.cont230
@@ -90043,7 +90043,7 @@ terminate.lpad.i969:                              ; preds = %if.then13.i.i968
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit970: ; preds = %invoke.cont250, %if.then.i.i962, %if.then13.i.i968
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp245)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp245)
           to label %if.end271 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit970
@@ -90091,7 +90091,7 @@ lpad249:                                          ; preds = %if.then13.i4.i949, 
 
 ehcleanup253:                                     ; preds = %lpad249, %lpad247
   %.pn20 = phi { ptr, i32 } [ %233, %lpad249 ], [ %232, %lpad247 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp245)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp245)
           to label %ehcleanup337 unwind label %terminate.lpad.i.i971
 
 terminate.lpad.i.i971:                            ; preds = %ehcleanup253
@@ -90111,7 +90111,7 @@ invoke.cont256:                                   ; preds = %if.else254
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i973)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i974)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i975)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i973, ptr noundef nonnull %call257, i32 noundef 39)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i973, ptr noundef nonnull align 8 dereferenceable(3360) %call257, i32 noundef 39)
           to label %.noexc985 unwind label %lpad263
 
 .noexc985:                                        ; preds = %invoke.cont256
@@ -91800,7 +91800,7 @@ if.then14:                                        ; preds = %invoke.cont12
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %if.then14
-  invoke void @__gmpz_init_set(ptr noundef nonnull %posInt, ptr noundef nonnull %call.i41)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %posInt, ptr noundef nonnull align 8 dereferenceable(32) %call.i41)
           to label %invoke.cont17 unwind label %lpad2
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -91811,7 +91811,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   br i1 %call20, label %if.else.i.i.i45, label %if.end45.critedge
 
 if.else.i.i.i45:                                  ; preds = %invoke.cont19
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp, i64 noundef %call9)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef %call9)
           to label %invoke.cont21 unwind label %lpad18
 
 invoke.cont21:                                    ; preds = %if.else.i.i.i45
@@ -91819,7 +91819,7 @@ invoke.cont21:                                    ; preds = %if.else.i.i.i45
           to label %cleanup.action unwind label %lpad22
 
 cleanup.action:                                   ; preds = %invoke.cont21
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %cleanup.done unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %cleanup.action
@@ -91983,7 +91983,7 @@ terminate.lpad.i93:                               ; preds = %if.then13.i.i92
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit94: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83, %if.then.i.i86, %if.then13.i.i92
-  invoke void @__gmpz_clear(ptr noundef nonnull %posInt)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %posInt)
           to label %cleanup122 unwind label %terminate.lpad.i.i95
 
 terminate.lpad.i.i95:                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit94
@@ -92016,7 +92016,7 @@ lpad18:                                           ; preds = %if.else.i.i.i45, %i
 lpad22:                                           ; preds = %invoke.cont21
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %ehcleanup44 unwind label %terminate.lpad.i.i97
 
 terminate.lpad.i.i97:                             ; preds = %lpad22
@@ -92059,7 +92059,7 @@ ehcleanup43:                                      ; preds = %ehcleanup, %lpad36
 
 ehcleanup44:                                      ; preds = %lpad22, %ehcleanup43, %lpad33, %lpad18
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup43 ], [ %36, %lpad33 ], [ %32, %lpad18 ], [ %33, %lpad22 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %posInt)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %posInt)
           to label %ehcleanup123 unwind label %terminate.lpad.i.i99
 
 terminate.lpad.i.i99:                             ; preds = %ehcleanup44
@@ -92070,7 +92070,7 @@ terminate.lpad.i.i99:                             ; preds = %ehcleanup44
   unreachable
 
 if.end45.critedge:                                ; preds = %invoke.cont19, %cleanup.done
-  invoke void @__gmpz_clear(ptr noundef nonnull %posInt)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %posInt)
           to label %if.end45 unwind label %terminate.lpad.i.i101
 
 terminate.lpad.i.i101:                            ; preds = %if.end45.critedge
@@ -92146,7 +92146,7 @@ invoke.cont57:                                    ; preds = %invoke.cont53
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp56)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i115
 
 terminate.lpad.i.i115:                            ; preds = %invoke.cont59
@@ -92304,7 +92304,7 @@ lpad48:                                           ; preds = %land.rhs.i
 lpad58:                                           ; preds = %invoke.cont57
   %68 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp56)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56)
           to label %ehcleanup123 unwind label %terminate.lpad.i.i179
 
 terminate.lpad.i.i179:                            ; preds = %lpad58
@@ -93289,7 +93289,7 @@ invoke.cont47:                                    ; preds = %invoke.cont43
   %32 = load ptr, ptr %ref.tmp41, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 18)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 18)
           to label %.noexc159 unwind label %lpad50
 
 .noexc159:                                        ; preds = %invoke.cont47
@@ -93598,7 +93598,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal12
 
 if.then68:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i250)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i250, ptr noundef nonnull %call, i32 noundef %bf.cast.i)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i250, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef %bf.cast.i)
           to label %.noexc252 unwind label %lpad.loopexit.split-lp
 
 .noexc252:                                        ; preds = %if.then68
@@ -93904,7 +93904,7 @@ invoke.cont102:                                   ; preds = %_ZNK4cvc58internal1
   %97 = load ptr, ptr %ref.tmp97, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i367)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i368)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i367, ptr noundef nonnull %call, i32 noundef 18)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i367, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 18)
           to label %.noexc375 unwind label %lpad105
 
 .noexc375:                                        ; preds = %invoke.cont102
@@ -94445,7 +94445,7 @@ entry:
   %1 = load ptr, ptr %n, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 305)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 305)
   store ptr %1, ptr %agg.tmp.i, align 8, !noalias !1264
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !1264
@@ -94783,7 +94783,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 335)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 335)
   store ptr %0, ptr %agg.tmp.i, align 8, !noalias !1267
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !1267
@@ -95076,21 +95076,21 @@ define linkonce_odr hidden void @_ZN4cvc58internal8RationalC2El(ptr noundef nonn
 entry:
   %ref.tmp = alloca %class.__gmp_expr.122, align 8
   %ref.tmp2 = alloca %class.__gmp_expr.122, align 8
-  call void @__gmpz_init_set_si(ptr noundef nonnull %ref.tmp, i64 noundef %n)
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp2, i64 noundef 1)
+  call void @__gmpz_init_set_si(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef %n)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
   %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
-  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %.noexc
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont4
@@ -95101,7 +95101,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont4
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit8 unwind label %terminate.lpad.i7
 
 terminate.lpad.i7:                                ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
@@ -95112,7 +95112,7 @@ terminate.lpad.i7:                                ; preds = %_ZN10__gmp_exprIA1_
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit8:  ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit8
@@ -95126,7 +95126,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %.noexc, %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp2)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %ehcleanup unwind label %terminate.lpad.i10
 
 terminate.lpad.i10:                               ; preds = %lpad3
@@ -95138,7 +95138,7 @@ terminate.lpad.i10:                               ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad3 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %eh.resume unwind label %terminate.lpad.i12
 
 terminate.lpad.i12:                               ; preds = %ehcleanup
@@ -95151,7 +95151,7 @@ terminate.lpad.i12:                               ; preds = %ehcleanup
 lpad6:                                            ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit8
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %eh.resume unwind label %terminate.lpad.i14
 
 terminate.lpad.i14:                               ; preds = %lpad6
@@ -96093,7 +96093,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ratLen, ptr noundef nonnull %call.i33)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %ratLen, ptr noundef nonnull align 8 dereferenceable(32) %call.i33)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont2
@@ -96103,13 +96103,13 @@ invoke.cont2:                                     ; preds = %if.then
           to label %.noexc34 unwind label %lpad
 
 .noexc34:                                         ; preds = %.noexc
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %ratLen)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %ratLen)
           to label %invoke.cont4 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc34
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ratLen)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ratLen)
           to label %ehcleanup178 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad.i
@@ -96120,7 +96120,7 @@ terminate.lpad.i.i:                               ; preds = %lpad.i
   unreachable
 
 invoke.cont4:                                     ; preds = %.noexc34
-  invoke void @__gmpz_init_set(ptr noundef nonnull %intLen, ptr noundef nonnull %ratLen)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %intLen, ptr noundef nonnull align 8 dereferenceable(32) %ratLen)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -96151,7 +96151,7 @@ if.then12:                                        ; preds = %invoke.cont10
           to label %call.i.noexc unwind label %lpad16
 
 call.i.noexc:                                     ; preds = %if.then12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %call.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef %call.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
           to label %.noexc40 unwind label %lpad16
 
 .noexc40:                                         ; preds = %call.i.noexc
@@ -96161,11 +96161,11 @@ call.i.noexc:                                     ; preds = %if.then12
 lpad.i38:                                         ; preds = %.noexc40
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #23
   br label %ehcleanup26
 
 invoke.cont17:                                    ; preds = %.noexc40
-  invoke void @_ZN4cvc58internal6String10toInternalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.std::vector.98") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i1 noundef zeroext false)
+  invoke void @_ZN4cvc58internal6String10toInternalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.std::vector.98") align 8 dereferenceable(24) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i1 noundef zeroext false)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -96324,7 +96324,7 @@ ehcleanup26:                                      ; preds = %lpad16, %lpad.i38, 
 
 if.end:                                           ; preds = %invoke.cont8, %_ZN4cvc58internal6StringD2Ev.exit, %invoke.cont10
   %29 = phi ptr [ %3, %invoke.cont8 ], [ %15, %_ZN4cvc58internal6StringD2Ev.exit ], [ %3, %invoke.cont10 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %intLen)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %intLen)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i58
 
 terminate.lpad.i.i58:                             ; preds = %if.end
@@ -96335,7 +96335,7 @@ terminate.lpad.i.i58:                             ; preds = %if.end
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %if.end
-  invoke void @__gmpq_clear(ptr noundef nonnull %ratLen)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ratLen)
           to label %if.end175 unwind label %terminate.lpad.i.i59
 
 terminate.lpad.i.i59:                             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
@@ -96347,7 +96347,7 @@ terminate.lpad.i.i59:                             ; preds = %_ZN4cvc58internal7I
 
 ehcleanup27:                                      ; preds = %ehcleanup26, %lpad7
   %.pn25.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn, %ehcleanup26 ], [ %23, %lpad7 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %intLen)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %intLen)
           to label %ehcleanup28 unwind label %terminate.lpad.i.i61
 
 terminate.lpad.i.i61:                             ; preds = %ehcleanup27
@@ -96359,7 +96359,7 @@ terminate.lpad.i.i61:                             ; preds = %ehcleanup27
 
 ehcleanup28:                                      ; preds = %ehcleanup27, %lpad5
   %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %lpad5 ], [ %.pn25.pn.pn.pn, %ehcleanup27 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %ratLen)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ratLen)
           to label %ehcleanup178 unwind label %terminate.lpad.i.i63
 
 terminate.lpad.i.i63:                             ; preds = %ehcleanup28
@@ -97128,7 +97128,7 @@ invoke.cont102:                                   ; preds = %if.else.i.i.i305, %
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %invoke.cont102
-  invoke void @__gmpz_init_set(ptr noundef nonnull %ratReps, ptr noundef nonnull %call.i319)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %ratReps, ptr noundef nonnull align 8 dereferenceable(32) %call.i319)
           to label %.noexc327 unwind label %lpad103
 
 .noexc327:                                        ; preds = %invoke.cont104
@@ -97138,13 +97138,13 @@ invoke.cont104:                                   ; preds = %invoke.cont102
           to label %.noexc328 unwind label %lpad103
 
 .noexc328:                                        ; preds = %.noexc327
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %ratReps)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %ratReps)
           to label %invoke.cont106 unwind label %lpad.i323
 
 lpad.i323:                                        ; preds = %.noexc328
   %105 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %ratReps)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ratReps)
           to label %lpad103.body unwind label %terminate.lpad.i.i324
 
 terminate.lpad.i.i324:                            ; preds = %lpad.i323
@@ -97181,7 +97181,7 @@ terminate.lpad.i341:                              ; preds = %if.then13.i.i340
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit342: ; preds = %invoke.cont106, %if.then.i.i333, %if.then13.i.i340
-  invoke void @__gmpz_init_set(ptr noundef nonnull %intReps, ptr noundef nonnull %ratReps)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %intReps, ptr noundef nonnull align 8 dereferenceable(32) %ratReps)
           to label %invoke.cont109 unwind label %lpad108
 
 invoke.cont109:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit342
@@ -97718,7 +97718,7 @@ terminate.lpad.i550:                              ; preds = %if.then13.i.i549
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit551: ; preds = %cleanup153, %if.then.i.i542, %if.then13.i.i549
-  invoke void @__gmpz_clear(ptr noundef nonnull %intReps)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %intReps)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit553 unwind label %terminate.lpad.i.i552
 
 terminate.lpad.i.i552:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit551
@@ -97729,7 +97729,7 @@ terminate.lpad.i.i552:                            ; preds = %_ZN4cvc58internal12
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit553:            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit551
-  invoke void @__gmpq_clear(ptr noundef nonnull %ratReps)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ratReps)
           to label %_ZN4cvc58internal8RationalD2Ev.exit556 unwind label %terminate.lpad.i.i554
 
 terminate.lpad.i.i554:                            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit553
@@ -97769,7 +97769,7 @@ ehcleanup154:                                     ; preds = %lpad120, %lpad.i.i4
 
 ehcleanup156:                                     ; preds = %ehcleanup154, %ehcleanup119, %lpad111
   %.pn13.pn = phi { ptr, i32 } [ %.pn13, %ehcleanup154 ], [ %.pn, %ehcleanup119 ], [ %133, %lpad111 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %intReps)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %intReps)
           to label %ehcleanup160 unwind label %terminate.lpad.i.i557
 
 terminate.lpad.i.i557:                            ; preds = %ehcleanup156
@@ -97781,7 +97781,7 @@ terminate.lpad.i.i557:                            ; preds = %ehcleanup156
 
 ehcleanup160:                                     ; preds = %ehcleanup156, %lpad108
   %.pn13.pn.pn = phi { ptr, i32 } [ %132, %lpad108 ], [ %.pn13.pn, %ehcleanup156 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %ratReps)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %ratReps)
           to label %ehcleanup178 unwind label %terminate.lpad.i.i559
 
 terminate.lpad.i.i559:                            ; preds = %ehcleanup160
@@ -102093,7 +102093,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !1345
 
 if.end15.i.i:                                     ; preds = %entry
-  %call2.i.i.i13 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb0EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
+  %call2.i.i.i13 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb0EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %cache, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %call2.i.i.i13, %3
@@ -102303,7 +102303,7 @@ if.then13.i.i26:                                  ; preds = %if.else.i.i24
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit33: ; preds = %if.then.i.i28, %if.else.i.i24, %if.then13.i.i26
   %28 = load ptr, ptr %this, align 8
   store ptr %28, ptr %ref.tmp30, align 8
-  %call.i34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_S4_ESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30)
+  %call.i34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_S4_ESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit33
@@ -102341,7 +102341,7 @@ if.else:                                          ; preds = %for.end.i.i.i, %inv
 
 if.then39:                                        ; preds = %if.else
   store ptr %32, ptr %ref.tmp40, align 8
-  %call.i38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_S4_ESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp40)
+  %call.i38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_S4_ESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp40)
   %33 = load ptr, ptr %call.i38, align 8
   %34 = load ptr, ptr %this, align 8
   %cmp.not.i40 = icmp eq ptr %33, %34
@@ -102639,7 +102639,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal12
 invoke.cont108:                                   ; preds = %for.end
   %64 = load ptr, ptr %this, align 8
   store ptr %64, ptr %ref.tmp109, align 8
-  %call.i116 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_S4_ESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp109)
+  %call.i116 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_S4_ESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp109)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont108

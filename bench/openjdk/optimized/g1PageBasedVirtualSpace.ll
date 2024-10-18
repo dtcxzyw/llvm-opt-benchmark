@@ -69,7 +69,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpaceC2E13ReservedSpacemm(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i8 5, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 5, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80

@@ -259,7 +259,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h389adfcf1551b2bdE.llvm.14431222
 _ZN3std4sync6poison4Flag5guard17h178120b98dbef79dE.llvm.5441949568091396765.exit.i.i: ; preds = %.noexc6.i, %.noexc5.i
   %.0.i.i.i.i = phi i8 [ %79, %.noexc6.i ], [ 0, %.noexc5.i ]
   %80 = getelementptr inbounds i8, ptr %.fca.1.extract.i.i, i64 20
-  %81 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h7310f244617e5aa8E.llvm.5441949568091396765(ptr noundef nonnull %80, i8 noundef 0)
+  %81 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h7310f244617e5aa8E.llvm.5441949568091396765(ptr noundef nonnull align 1 %80, i8 noundef 0)
           to label %82 unwind label %71
 
 82:                                               ; preds = %_ZN3std4sync6poison4Flag5guard17h178120b98dbef79dE.llvm.5441949568091396765.exit.i.i
@@ -609,7 +609,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h389adfcf1551b2bdE.llvm.14431222
 _ZN3std4sync6poison4Flag5guard17h178120b98dbef79dE.llvm.5441949568091396765.exit.i: ; preds = %.noexc5, %.noexc4
   %66 = phi i8 [ %65, %.noexc5 ], [ 0, %.noexc4 ]
   %67 = getelementptr inbounds i8, ptr %49, i64 20
-  %68 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h7310f244617e5aa8E.llvm.5441949568091396765(ptr noundef nonnull %67, i8 noundef 0)
+  %68 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h7310f244617e5aa8E.llvm.5441949568091396765(ptr noundef nonnull align 1 %67, i8 noundef 0)
           to label %69 unwind label %57
 
 69:                                               ; preds = %_ZN3std4sync6poison4Flag5guard17h178120b98dbef79dE.llvm.5441949568091396765.exit.i

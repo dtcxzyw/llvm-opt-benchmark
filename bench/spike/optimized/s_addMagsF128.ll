@@ -147,7 +147,7 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %.093 = phi i64 [ %9, %30 ], [ %.194, %57 ]
   %.0 = phi i64 [ 0, %30 ], [ %.1, %57 ]
   %67 = lshr i64 %.sroa.620.0, 1
-  %68 = call i64 @llvm.fshl.i64(i64 %.sroa.620.0, i64 %.sroa.017.0, i64 63)
+  %68 = call i64 @llvm.fshl.i64(i64 range(i64 562949953421312, 0) %.sroa.620.0, i64 %.sroa.017.0, i64 63)
   %69 = shl i64 %.sroa.017.0, 63
   %70 = icmp ne i64 %.0, 0
   %71 = zext i1 %70 to i64

@@ -1786,7 +1786,7 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   %78 = sext i16 %64 to i32
   %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %79)
-  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %78) #8
+  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %78) #8
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 

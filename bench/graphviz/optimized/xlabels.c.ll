@@ -38,13 +38,13 @@ define range(i32 -2147483648, 2) i32 @placeLabels(ptr noundef %0, i64 noundef %1
   %16 = alloca %struct.best_p_s, align 8
   %17 = alloca %struct.best_p_s, align 8
   %18 = alloca %struct.best_p_s, align 8
-  %19 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #15
+  %19 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 48, 57) 56) #15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %gv_alloc.exit.i
 
 21:                                               ; preds = %5
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.2, i64 noundef 56) #16
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.2, i64 noundef range(i64 48, 57) 56) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
@@ -109,13 +109,13 @@ xlnew.exit:                                       ; preds = %30
 
 52:                                               ; preds = %49, %.lr.ph.i.i
   %.02325.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %50, %49 ]
-  %53 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #15
+  %53 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 48, 57) 48) #15
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %gv_alloc.exit.i.i
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr @stderr, align 8
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.2, i64 noundef 48) #16
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.2, i64 noundef range(i64 48, 57) 48) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 

@@ -247,7 +247,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i14, 
   %d_reqTerms = getelementptr inbounds i8, ptr %this, i64 64
   %d_isActive = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_node_count.i.i.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_isActive, ptr noundef %c)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(41) %d_isActive, ptr noundef %c)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
@@ -265,13 +265,13 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i14, 
   br i1 %cmp.i.i.i, label %invoke.cont3, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_isActive)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(41) %d_isActive)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %.noexc, %if.then.i.i
   store i8 1, ptr %d_data.i, align 8
   %d_maybeConflict = getelementptr inbounds i8, ptr %this, i64 136
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_maybeConflict, ptr noundef %c)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(41) %d_maybeConflict, ptr noundef %c)
           to label %.noexc26 unwind label %lpad5
 
 .noexc26:                                         ; preds = %invoke.cont3
@@ -289,13 +289,13 @@ invoke.cont3:                                     ; preds = %.noexc, %if.then.i.
   br i1 %cmp.i.i.i23, label %invoke.cont6, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %.noexc26
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_maybeConflict)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(41) %d_maybeConflict)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %.noexc26, %if.then.i.i24
   store i8 1, ptr %d_data.i19, align 8
   %d_unassignedVars = getelementptr inbounds i8, ptr %this, i64 184
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_unassignedVars, ptr noundef %c)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %d_unassignedVars, ptr noundef %c)
           to label %.noexc35 unwind label %lpad8
 
 .noexc35:                                         ; preds = %invoke.cont6
@@ -313,13 +313,13 @@ invoke.cont6:                                     ; preds = %.noexc26, %if.then.
   br i1 %cmp.i.i.i33, label %invoke.cont9, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %.noexc35
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_unassignedVars)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_unassignedVars)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %.noexc35, %if.then.i.i34
   store i64 0, ptr %d_data.i29, align 8
   %d_failReq = getelementptr inbounds i8, ptr %this, i64 232
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_failReq, ptr noundef %c)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %d_failReq, ptr noundef %c)
           to label %.noexc38 unwind label %lpad10
 
 .noexc38:                                         ; preds = %invoke.cont9
@@ -779,7 +779,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %do.cond, label %for.cond.i.i, !llvm.loop !7
 
 if.end15.i.i:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
-  %call2.i.i.i225 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb0EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %processed, ptr noundef nonnull align 8 dereferenceable(8) %cur)
+  %call2.i.i.i225 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb0EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %processed, ptr noundef nonnull align 8 dereferenceable(8) %cur)
           to label %call2.i.i.i.noexc unwind label %lpad38.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %if.end15.i.i
@@ -909,7 +909,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
 
 if.then.i.i.i:                                    ; preds = %invoke.cont64
   %d_unassignedVars = getelementptr inbounds i8, ptr %this, i64 184
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_unassignedVars)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_unassignedVars)
           to label %cond.true71 unwind label %lpad63
 
 cond.true71:                                      ; preds = %if.then.i.i.i, %invoke.cont64
@@ -1303,7 +1303,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %d_unassignedVars = getelementptr inbounds i8, ptr %this, i64 184
-  tail call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_unassignedVars)
+  tail call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_unassignedVars)
   br label %_ZN4cvc57context3CDOImEaSERKm.exit
 
 _ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %entry, %if.then.i.i.i
@@ -1336,7 +1336,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %d_isActive = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_isActive)
+  tail call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(41) %d_isActive)
   br label %_ZN4cvc57context3CDOIbEaSERKb.exit
 
 _ZN4cvc57context3CDOIbEaSERKb.exit:               ; preds = %entry, %if.then.i.i.i
@@ -1361,7 +1361,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %d_maybeConflict = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_maybeConflict)
+  tail call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(41) %d_maybeConflict)
   br label %_ZN4cvc57context3CDOIbEaSERKb.exit
 
 _ZN4cvc57context3CDOIbEaSERKb.exit:               ; preds = %entry, %if.then.i.i.i
@@ -1423,7 +1423,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %if.then.i
 
 if.then.i.i9:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %d_failReq = getelementptr inbounds i8, ptr %this, i64 232
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_failReq)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_failReq)
           to label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i unwind label %lpad
 
 _ZN4cvc57context10ContextObj11makeCurrentEv.exit.i: ; preds = %if.then.i.i9, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
@@ -1624,7 +1624,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIbED0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %this)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry
@@ -1737,7 +1737,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry
@@ -1932,7 +1932,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb1EEEEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry

@@ -71,7 +71,7 @@ define void @_ZN12PairlistSets19dispatchPruneKernelEN3gmx19InteractionLocalityEP
   %25 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
   store i32 %25, ptr %9, align 4
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %19, i32 %25)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %9, ptr nonnull %.0.i, ptr nonnull %7, ptr nonnull %6, ptr nonnull %8)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %9, ptr nonnull align 8 dereferenceable(128) %.0.i, ptr nonnull %7, ptr nonnull %6, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -306,7 +306,7 @@ define void @_ZNK18nonbonded_verlet_t22dispatchPruneKernelCpuEN3gmx19Interaction
   %27 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
   store i32 %27, ptr %8, align 4
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %21, i32 %27)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %8, ptr nonnull %.0.i.i, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %8, ptr nonnull align 8 dereferenceable(128) %.0.i.i, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

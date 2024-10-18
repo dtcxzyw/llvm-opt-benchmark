@@ -2184,7 +2184,7 @@ define internal fastcc noundef i64 @compress_out(ptr noundef %0, ptr noundef %1,
 
 compression_code.exit:                            ; preds = %.backedge
   %35 = load ptr, ptr %29, align 8
-  %36 = tail call i32 %35(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %3) #18
+  %36 = tail call i32 %35(ptr noundef %0, ptr noundef nonnull %26, i32 noundef range(i32 0, 2) %3) #18
   %37 = icmp ne i32 %36, 1
   %or.cond5 = icmp ugt i32 %36, 1
   br i1 %or.cond5, label %.loopexit72, label %compression_code.exit.thread

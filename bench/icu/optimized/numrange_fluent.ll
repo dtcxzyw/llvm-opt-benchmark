@@ -680,7 +680,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -713,7 +713,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -741,7 +741,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -772,7 +772,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -803,7 +803,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -834,7 +834,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -862,7 +862,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -890,7 +890,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -921,7 +921,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -952,7 +952,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -980,7 +980,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1008,7 +1008,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1585,9 +1585,9 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 define void @_ZN6icu_756number20NumberRangeFormatter4withEv(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %formatter1.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter1.i.i.i)
+  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i)
   %formatter2.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 488
-  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter2.i.i.i)
+  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -1626,9 +1626,9 @@ define void @_ZN6icu_756number20NumberRangeFormatter10withLocaleERKNS_6LocaleE(p
 entry:
   %ref.tmp = alloca %"class.icu_75::number::UnlocalizedNumberRangeFormatter", align 8
   %formatter1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter1.i.i.i.i)
+  call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i.i)
   %formatter2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 488
-  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter2.i.i.i.i)
+  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -1663,17 +1663,17 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad2.i.i.i.i, %lpa
   br label %common.resume
 
 _ZN6icu_756number20NumberRangeFormatter4withEv.exit: ; preds = %invoke.cont.i.i.i.i
-  invoke void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_4impl15RangeMacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(217) %locale)
+  invoke void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_4impl15RangeMacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1209) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_756number20NumberRangeFormatter4withEv.exit
-  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp) #11
+  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %ref.tmp) #11
   ret void
 
 lpad:                                             ; preds = %_ZN6icu_756number20NumberRangeFormatter4withEv.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp) #11
+  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1209) %ref.tmp) #11
   br label %common.resume
 }
 
@@ -2189,9 +2189,9 @@ delete.end:                                       ; preds = %_ZN6icu_756number4i
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_4impl15RangeMacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %macros, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter1.i.i)
+  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i)
   %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter2.i.i)
+  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
@@ -2272,9 +2272,9 @@ lpad:                                             ; preds = %call.i.noexc5, %inv
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EONS0_4impl15RangeMacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %macros, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter1.i.i)
+  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i)
   %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %formatter2.i.i)
+  invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
@@ -2362,7 +2362,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %call2, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(452) %call2, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -2389,7 +2389,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #11
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %call2) #11
   br label %lpad.body
 
 if.then3:                                         ; preds = %if.end
@@ -2972,16 +2972,16 @@ _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #11
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier.i) #11
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier.i) #11
   %multiplier.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #11
   %emptyStrongModifier.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier.i) #11
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier.i) #11
   %emptyWeakModifier.i = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier.i) #11
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %helpers) #11
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier.i) #11
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %helpers) #11
   %currencyAsDecimal.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i) #11
   ret void

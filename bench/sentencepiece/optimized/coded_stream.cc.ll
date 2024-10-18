@@ -4258,7 +4258,7 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputSt
 define void @_ZN6google8protobuf2io17CodedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %4 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %3)
+  %4 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %3)
           to label %5 unwind label %6
 
 5:                                                ; preds = %1

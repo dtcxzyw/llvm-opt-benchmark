@@ -173,7 +173,7 @@ if.end.i.i:
   tail call void @llvm.assume(i1 %new.isnull)
   store ptr null, ptr %call, align 8
   %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %call2.i.i2 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i2 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -219,7 +219,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %call2.i.i3 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i3 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -285,7 +285,7 @@ new.notnull.i:                                    ; preds = %new.cont
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %new.cont
-  %call2.i10 = invoke noundef ptr @uhash_put_75(ptr noundef %3, ptr noundef %call.i, ptr noundef %call5, ptr noundef nonnull %status)
+  %call2.i10 = invoke noundef ptr @uhash_put_75(ptr noundef %3, ptr noundef %call.i, ptr noundef %call5, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont7 unwind label %lpad6
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -337,7 +337,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %call2.i.i3 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i3 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -412,7 +412,7 @@ new.notnull.i:                                    ; preds = %new.cont
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %new.cont
-  %call2.i14 = invoke noundef ptr @uhash_put_75(ptr noundef %4, ptr noundef %call.i, ptr noundef %call8, ptr noundef nonnull %status)
+  %call2.i14 = invoke noundef ptr @uhash_put_75(ptr noundef %4, ptr noundef %call.i, ptr noundef %call8, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont10 unwind label %lpad9
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -486,7 +486,7 @@ if.end:                                           ; preds = %entry
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %2 = load ptr, ptr %1, align 8
-  %call.i3 = invoke noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %hashKey)
+  %call.i3 = invoke noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %hashKey)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end

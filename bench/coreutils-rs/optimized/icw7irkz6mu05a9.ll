@@ -249,7 +249,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i": ; preds = %2
   %10 = load ptr, ptr %7, align 8, !noalias !20, !nonnull !7, !align !21, !noundef !7
   %11 = load ptr, ptr %4, align 8, !noalias !20, !nonnull !7, !align !21, !noundef !7
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %10, ptr nonnull readonly %11, i64 %9), !alias.scope !22, !noalias !20
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %10, ptr nonnull readonly align 1 %11, i64 %9), !alias.scope !22, !noalias !20
   %12 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN6uucore8features14backup_control12match_method28_$u7b$$u7b$closure$u7d$$u7d$17h1c29687ce64da8c6E.llvm.10636417934730499693.exit"
 
@@ -289,7 +289,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$std..env..VarError$
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !30
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !29, !noalias !30, !noundef !7
   %.not.i.i.i.i.i = icmp eq i64 %8, 0
@@ -333,7 +333,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !41
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !29, !noalias !41, !noundef !7
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -373,7 +373,7 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$uucore..features..backup_c
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !51
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %8
@@ -396,7 +396,7 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$uucore..features..backup_c
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !60
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
           to label %.noexc3 unwind label %44
 
 .noexc3:                                          ; preds = %18
@@ -427,7 +427,7 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$uucore..features..backup_c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !51
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !69
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
   %33 = getelementptr inbounds i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8, !range !29, !noalias !69, !noundef !7
   %.not.i.i.i.i5 = icmp eq i64 %34, 0
@@ -469,7 +469,7 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$uucore..features..backup_c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !60
   %48 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !78
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48)
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8, !range !29, !noalias !78, !noundef !7
   %.not.i.i.i.i7 = icmp eq i64 %50, 0
@@ -503,7 +503,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !87
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !29, !noalias !87, !noundef !7
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -536,7 +536,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Resul
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !97
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !29, !noalias !97, !noundef !7
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -565,7 +565,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Resul
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !109
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8, !range !29, !noalias !109, !noundef !7
   %.not.i.i.i.i.i.i = icmp eq i64 %21, 0
@@ -638,7 +638,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c88681
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !129
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %23, !noalias !127
 
 .noexc.i:                                         ; preds = %14
@@ -678,7 +678,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c88681
 
 29:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3dba47ae4e770a26E.exit.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !142
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
           to label %.noexc6.i unwind label %40, !noalias !127
 
 .noexc6.i:                                        ; preds = %29
@@ -722,7 +722,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c88681
 
 45:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3dba47ae4e770a26E.exit7.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !155
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
           to label %.noexc10.i unwind label %56, !noalias !127
 
 .noexc10.i:                                       ; preds = %45
@@ -766,7 +766,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2c88681
 
 61:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3dba47ae4e770a26E.exit11.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !168
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !127
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %58), !noalias !127
   %62 = getelementptr inbounds i8, ptr %3, i64 8
   %63 = load i64, ptr %62, align 8, !range !29, !noalias !168, !noundef !7
   %.not.i.i.i.i.i12.i = icmp eq i64 %63, 0
@@ -911,7 +911,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
-  %49 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ba945736aac8f85E.llvm.669419052865298855"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %44, i64 noundef %42), !noalias !188
+  %49 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ba945736aac8f85E.llvm.669419052865298855"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %44, i64 noundef %42), !noalias !188
   %50 = extractvalue { i64, i64 } %49, 0
   %51 = extractvalue { i64, i64 } %49, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.669419052865298855(i64 noundef %50, i64 %51), !noalias !188
@@ -939,7 +939,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i"
 
 63:                                               ; preds = %.critedge.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1149e635e1e9583dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %60)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1149e635e1e9583dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %60)
   %.pre.i.i = load i64, ptr %59, align 8, !alias.scope !193
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2c1d642b199a88c4E.exit.i"
 
@@ -968,7 +968,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit"
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ba945736aac8f85E.llvm.669419052865298855"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %2), !noalias !201
+  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ba945736aac8f85E.llvm.669419052865298855"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2), !noalias !201
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.669419052865298855(i64 noundef %11, i64 %12), !noalias !201
@@ -1220,7 +1220,7 @@ define void @_ZN6uucore8features14backup_control23determine_backup_suffix17h2746
   %7 = alloca { ptr, i64 }, align 8
   %8 = alloca { { i64, [2 x i64] } }, align 8
   %9 = alloca { i64, [3 x i64] }, align 8
-  %10 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hdd45a4a5fb8d000aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.d450f6a42a9daedbc28febb0f35e56a3.53.llvm.16954148956069160696, i64 noundef 16), !noalias !240
+  %10 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hdd45a4a5fb8d000aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.d450f6a42a9daedbc28febb0f35e56a3.53.llvm.16954148956069160696, i64 noundef 16), !noalias !240
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit.thread, label %12
 
@@ -1325,7 +1325,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit: ; 
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$std..env..VarError$GT$17he01f8b83254c1064E"(ptr noalias noundef align 8 dereferenceable(24) %8) #21
+  invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$std..env..VarError$GT$17he01f8b83254c1064E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #21
           to label %67 unwind label %65, !noalias !270
 
 50:                                               ; preds = %46
@@ -1346,7 +1346,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit: ; 
 
 56:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !280
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8), !noalias !270
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !270
   %57 = getelementptr inbounds i8, ptr %3, i64 8
   %58 = load i64, ptr %57, align 8, !range !29, !noalias !280, !noundef !7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %58, 0
@@ -1407,7 +1407,7 @@ define void @_ZN6uucore8features14backup_control21determine_backup_mode17haa756f
   br i1 %17, label %58, label %56
 
 18:                                               ; preds = %2
-  %19 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hdd45a4a5fb8d000aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.d450f6a42a9daedbc28febb0f35e56a3.51.llvm.16954148956069160696, i64 noundef 16), !noalias !291
+  %19 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hdd45a4a5fb8d000aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.d450f6a42a9daedbc28febb0f35e56a3.51.llvm.16954148956069160696, i64 noundef 16), !noalias !291
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit.thread, label %21
 
@@ -1529,7 +1529,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit: ; 
 
 68:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !320
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %68
@@ -1597,7 +1597,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit: ; 
 
 94:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !336
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %91)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %91)
   %95 = getelementptr inbounds i8, ptr %5, i64 8
   %96 = load i64, ptr %95, align 8, !range !29, !noalias !336, !noundef !7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %96, 0
@@ -1644,7 +1644,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit: ; 
 
 112:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !347
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %.noexc24 unwind label %124
 
 .noexc24:                                         ; preds = %112
@@ -1702,7 +1702,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hae01d2608f09c8beE.exit: ; 
 
 135:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !363
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %132)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132)
   %136 = getelementptr inbounds i8, ptr %3, i64 8
   %137 = load i64, ptr %136, align 8, !range !29, !noalias !363, !noundef !7
   %.not.i.i.i.i.i.i.i26 = icmp eq i64 %137, 0
@@ -1785,7 +1785,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
   unreachable
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit": ; preds = %19
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %23, ptr noundef nonnull readonly dereferenceable(6) @anon.760280bf321f50b9070dd398863d3d36.28, i64 6), !alias.scope !374
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %23, ptr noundef nonnull dereferenceable(6) @anon.760280bf321f50b9070dd398863d3d36.28, i64 6), !alias.scope !374
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
@@ -1796,12 +1796,12 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
   br label %45
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit70": ; preds = %19
-  %bcmp.i69 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %23, ptr noundef nonnull readonly dereferenceable(5) @anon.760280bf321f50b9070dd398863d3d36.29, i64 5), !alias.scope !378
+  %bcmp.i69 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) %23, ptr noundef nonnull dereferenceable(5) @anon.760280bf321f50b9070dd398863d3d36.29, i64 5), !alias.scope !378
   %32 = icmp eq i32 %bcmp.i69, 0
   br i1 %32, label %30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit74": ; preds = %19
-  %bcmp.i73 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %23, ptr noundef nonnull readonly dereferenceable(8) @anon.760280bf321f50b9070dd398863d3d36.30, i64 8), !alias.scope !382
+  %bcmp.i73 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) %23, ptr noundef nonnull dereferenceable(8) @anon.760280bf321f50b9070dd398863d3d36.30, i64 8), !alias.scope !382
   %33 = icmp eq i32 %bcmp.i73, 0
   br i1 %33, label %34, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit82"
 
@@ -1817,7 +1817,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
   br i1 %36, label %34, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit82": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit74"
-  %bcmp.i81 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %23, ptr noundef nonnull readonly dereferenceable(8) @anon.760280bf321f50b9070dd398863d3d36.32, i64 8), !alias.scope !386
+  %bcmp.i81 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) %23, ptr noundef nonnull dereferenceable(8) @anon.760280bf321f50b9070dd398863d3d36.32, i64 8), !alias.scope !386
   %37 = icmp eq i32 %bcmp.i81, 0
   br i1 %37, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
@@ -1828,17 +1828,17 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
   br label %45
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit86": ; preds = %19
-  %bcmp.i85 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %23, ptr noundef nonnull readonly dereferenceable(3) @anon.760280bf321f50b9070dd398863d3d36.33, i64 3), !alias.scope !390
+  %bcmp.i85 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %23, ptr noundef nonnull dereferenceable(3) @anon.760280bf321f50b9070dd398863d3d36.33, i64 3), !alias.scope !390
   %40 = icmp eq i32 %bcmp.i85, 0
   br i1 %40, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit90.thread.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit90.thread.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit86"
-  %bcmp.i93 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %23, ptr noundef nonnull readonly dereferenceable(3) @anon.760280bf321f50b9070dd398863d3d36.35, i64 3), !alias.scope !394
+  %bcmp.i93 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %23, ptr noundef nonnull dereferenceable(3) @anon.760280bf321f50b9070dd398863d3d36.35, i64 3), !alias.scope !394
   %41 = icmp eq i32 %bcmp.i93, 0
   br i1 %41, label %43, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit90": ; preds = %19
-  %bcmp.i89 = call i32 @bcmp(ptr nonnull readonly %23, ptr nonnull readonly @anon.760280bf321f50b9070dd398863d3d36.34, i64 %25), !alias.scope !398
+  %bcmp.i89 = call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull @anon.760280bf321f50b9070dd398863d3d36.34, i64 %25), !alias.scope !398
   %42 = icmp eq i32 %bcmp.i89, 0
   br i1 %42, label %43, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
@@ -1854,7 +1854,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
 
 45:                                               ; preds = %83, %108, %30, %34, %38, %43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !402
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb056af351bb32359E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb056af351bb32359E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %46 = getelementptr inbounds i8, ptr %6, i64 8
   %47 = load i64, ptr %46, align 8, !range !29, !noalias !402, !noundef !7
   %.not.i.i.i = icmp eq i64 %47, 0
@@ -2052,7 +2052,7 @@ define hidden noundef zeroext i1 @"_ZN6uucore8features14backup_control12match_me
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i": ; preds = %2
   %9 = load ptr, ptr %6, align 8, !nonnull !7, !align !21, !noundef !7
   %10 = load ptr, ptr %3, align 8, !nonnull !7, !align !21, !noundef !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %10, i64 %8), !alias.scope !415
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %10, i64 %8), !alias.scope !415
   %11 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h165af7b72922323fE.exit"
 
@@ -2141,7 +2141,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %23
 
 29:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !443
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %.noexc9.i unwind label %38, !noalias !427
 
 .noexc9.i:                                        ; preds = %29
@@ -2216,17 +2216,17 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %23
 
 54:                                               ; preds = %52, %.noexc11.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !464
-  invoke fastcc void @_ZN6uucore8features14backup_control18simple_backup_path17hddc5d299766cf26bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  invoke fastcc void @_ZN6uucore8features14backup_control18simple_backup_path17hddc5d299766cf26bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
           to label %56 unwind label %46
 
 55:                                               ; preds = %.noexc10.i
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %9), !noalias !452
-  invoke fastcc void @_ZN6uucore8features14backup_control20numbered_backup_path17h8e80fd9106296870E(ptr noalias nocapture noundef align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  invoke fastcc void @_ZN6uucore8features14backup_control20numbered_backup_path17h8e80fd9106296870E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %56 unwind label %46, !noalias !475
 
 56:                                               ; preds = %55, %54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !476
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !427
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15), !noalias !427
   %57 = getelementptr inbounds i8, ptr %7, i64 8
   %58 = load i64, ptr %57, align 8, !range !29, !noalias !476, !noundef !7
   %.not.i.i.i.i.i = icmp eq i64 %58, 0
@@ -2313,7 +2313,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control18simple_backup_
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE.exit"
-  %26 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ba945736aac8f85E.llvm.669419052865298855"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %21, i64 noundef %4)
+  %26 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ba945736aac8f85E.llvm.669419052865298855"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %21, i64 noundef %4)
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %25
@@ -2421,7 +2421,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %26
 
 30:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !523
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc12 unwind label %37
 
 .noexc12:                                         ; preds = %30
@@ -2507,7 +2507,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %26
 51:                                               ; preds = %.noexc13
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7), !noalias !532
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !554
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
   %52 = load i64, ptr %22, align 8, !range !29, !noalias !554, !noundef !7
   %.not.i.i.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h117d672ecc4c51a2E.exit", label %53
@@ -2530,7 +2530,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %26
 
 58:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !563
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
   %59 = getelementptr inbounds i8, ptr %4, i64 8
   %60 = load i64, ptr %59, align 8, !range !29, !noalias !563, !noundef !7
   %.not.i.i.i.i16 = icmp eq i64 %60, 0
@@ -2634,7 +2634,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %23
 
 29:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !587
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc9 unwind label %38
 
 .noexc9:                                          ; preds = %29
@@ -2681,14 +2681,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %23
   %.val6 = load ptr, ptr %43, align 8, !nonnull !7, !noundef !7
   %44 = getelementptr inbounds i8, ptr %15, i64 8
   %.val = load ptr, ptr %44, align 8, !alias.scope !596, !nonnull !7, !noundef !7
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val6, i64 %.val5), !alias.scope !599
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val6, i64 %.val5), !alias.scope !599
   %45 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN5alloc6string109_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17h992896daa70ffd68E.exit"
 
 "_ZN5alloc6string109_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17h992896daa70ffd68E.exit": ; preds = %42, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit"
   %.0.i.i = phi i1 [ %45, %42 ], [ false, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h564029634248b57fE.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !603
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc10 unwind label %19
 
 .noexc10:                                         ; preds = %"_ZN5alloc6string109_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17h992896daa70ffd68E.exit"
@@ -2718,7 +2718,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %23
 
 57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !615
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   %58 = getelementptr inbounds i8, ptr %7, i64 8
   %59 = load i64, ptr %58, align 8, !range !29, !noalias !615, !noundef !7
   %.not.i.i.i.i.i11 = icmp eq i64 %59, 0
@@ -2814,7 +2814,7 @@ define hidden void @"_ZN6uucore8features5fsext12read_fs_list28_$u7b$$u7b$closure
 
 25:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdea37f46c76e9bc5E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !624
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0cca580dc6ba0aeE.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0cca580dc6ba0aeE.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %25
@@ -2838,7 +2838,7 @@ define hidden void @"_ZN6uucore8features5fsext12read_fs_list28_$u7b$$u7b$closure
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !624
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !631
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = load i64, ptr %35, align 8, !range !29, !noalias !631, !noundef !7
   %.not.i.i.i.i = icmp eq i64 %36, 0
@@ -3099,7 +3099,7 @@ define internal fastcc void @_ZN6uucore8features5perms10wrap_chown17h5f4c762ae45
   br i1 %184, label %.thread, label %185
 
 185:                                              ; preds = %182
-  tail call void @__rust_dealloc(ptr noundef nonnull %175, i64 noundef %177, i64 noundef 1) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %175, i64 noundef range(i64 1, 0) %177, i64 noundef 1) #20
   br label %.thread
 
 186:                                              ; preds = %180, %178
@@ -3118,7 +3118,7 @@ define internal fastcc void @_ZN6uucore8features5perms10wrap_chown17h5f4c762ae45
   br i1 %191, label %_ZN6uucore8features5perms5chown17h438c8a95e2fb4898E.exit, label %192
 
 192:                                              ; preds = %190
-  tail call void @__rust_dealloc(ptr noundef nonnull %175, i64 noundef %177, i64 noundef 1) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %175, i64 noundef range(i64 1, 0) %177, i64 noundef 1) #20
   br label %_ZN6uucore8features5perms5chown17h438c8a95e2fb4898E.exit
 
 193:                                              ; preds = %188
@@ -3237,7 +3237,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %214
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %159)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %93), !noalias !672
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %163)
           to label %.noexc187 unwind label %232
 
 .noexc187:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
@@ -3814,7 +3814,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %214
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %361
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %76), !noalias !775
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75), !noalias !787
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %140)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140)
           to label %.noexc228 unwind label %381
 
 .noexc228:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226
@@ -3844,7 +3844,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %361
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75), !noalias !787
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %140)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74), !noalias !796
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %142)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %142)
           to label %.noexc231 unwind label %393
 
 .noexc231:                                        ; preds = %383
@@ -3878,7 +3878,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %361
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74), !noalias !796
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %142)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %73), !noalias !805
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %143)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %143)
           to label %.noexc234 unwind label %405
 
 .noexc234:                                        ; preds = %395
@@ -3912,7 +3912,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %361
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73), !noalias !805
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %143)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72), !noalias !814
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %145)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %145)
           to label %.noexc237 unwind label %417
 
 .noexc237:                                        ; preds = %407
@@ -3955,7 +3955,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %361
 
 420:                                              ; preds = %519, %419
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71), !noalias !823
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %163)
           to label %.noexc240 unwind label %520
 
 .noexc240:                                        ; preds = %420
@@ -4240,7 +4240,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %361
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit268: ; preds = %489
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %62), !noalias !884
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61), !noalias !896
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %151)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %151)
           to label %.noexc270 unwind label %505
 
 .noexc270:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit268
@@ -4270,7 +4270,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit268: ; preds = %489
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61), !noalias !896
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %151)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60), !noalias !905
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %152)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152)
           to label %.noexc273 unwind label %517
 
 .noexc273:                                        ; preds = %507
@@ -4646,7 +4646,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit268: ; preds = %489
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit300: ; preds = %595
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51), !noalias !961
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50), !noalias !973
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %113)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113)
           to label %.noexc302 unwind label %609
 
 .noexc302:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit300
@@ -4676,7 +4676,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit300: ; preds = %595
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50), !noalias !973
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %113)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49), !noalias !982
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %115)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %115)
           to label %.noexc305 unwind label %621
 
 .noexc305:                                        ; preds = %611
@@ -4717,7 +4717,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit300: ; preds = %595
 
 624:                                              ; preds = %659, %623
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48), !noalias !991
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %163)
           to label %.noexc308 unwind label %660
 
 .noexc308:                                        ; preds = %624
@@ -4812,7 +4812,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit300: ; preds = %595
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit321: ; preds = %645
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46), !noalias !1026
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45), !noalias !1038
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %119)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %119)
           to label %.noexc323 unwind label %657
 
 .noexc323:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit321
@@ -5400,7 +5400,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit321: ; preds = %645
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377: ; preds = %788
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28), !noalias !1141
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !1153
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %123)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123)
           to label %.noexc379 unwind label %806
 
 .noexc379:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377
@@ -5430,7 +5430,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377: ; preds = %788
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !1153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %123)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !1162
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %125)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %125)
           to label %.noexc382 unwind label %818
 
 .noexc382:                                        ; preds = %808
@@ -5464,7 +5464,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377: ; preds = %788
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !1162
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %125)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !1171
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126)
           to label %.noexc385 unwind label %830
 
 .noexc385:                                        ; preds = %820
@@ -5498,7 +5498,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377: ; preds = %788
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !1171
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !1180
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %128)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %128)
           to label %.noexc388 unwind label %842
 
 .noexc388:                                        ; preds = %832
@@ -5541,7 +5541,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377: ; preds = %788
 
 845:                                              ; preds = %940, %844
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !1189
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %163)
           to label %.noexc391 unwind label %941
 
 .noexc391:                                        ; preds = %845
@@ -5816,7 +5816,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit377: ; preds = %788
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit422: ; preds = %912
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !1250
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !1262
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %134)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %134)
           to label %.noexc424 unwind label %926
 
 .noexc424:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit422
@@ -5846,7 +5846,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit422: ; preds = %912
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !1262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %134)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1271
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %135)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135)
           to label %.noexc427 unwind label %938
 
 .noexc427:                                        ; preds = %928
@@ -5982,7 +5982,7 @@ define internal fastcc noundef zeroext i1 @_ZN6uucore8features5perms7is_root17h0
   br i1 %43, label %.critedge, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb6e8d0d2cc57a50eE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit69": ; preds = %42
-  %bcmp.i68 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %38, ptr noundef nonnull readonly dereferenceable(2) @anon.760280bf321f50b9070dd398863d3d36.88, i64 2), !alias.scope !1280
+  %bcmp.i68 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %38, ptr noundef nonnull dereferenceable(2) @anon.760280bf321f50b9070dd398863d3d36.88, i64 2), !alias.scope !1280
   %44 = icmp eq i32 %bcmp.i68, 0
   br i1 %44, label %.critedge, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb6e8d0d2cc57a50eE.exit"
 
@@ -6029,7 +6029,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42, %"_ZN4core5slic
   %53 = load ptr, ptr %52, align 8, !nonnull !7, !noundef !7
   %54 = sub nuw i64 %40, %50
   %55 = getelementptr inbounds i8, ptr %38, i64 %54
-  %bcmp.i.i73 = call i32 @bcmp(ptr nonnull readonly %53, ptr nonnull readonly %55, i64 %50), !alias.scope !1297
+  %bcmp.i.i73 = call i32 @bcmp(ptr nonnull readonly align 1 %53, ptr nonnull readonly align 1 %55, i64 %50), !alias.scope !1297
   %56 = icmp eq i32 %bcmp.i.i73, 0
   br i1 %56, label %64, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb6e8d0d2cc57a50eE.exit75.thread"
 
@@ -6076,7 +6076,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42, %"_ZN4core5slic
   %66 = load ptr, ptr %65, align 8, !nonnull !7, !noundef !7
   %67 = sub nuw i64 %40, %63
   %68 = getelementptr inbounds i8, ptr %38, i64 %67
-  %bcmp.i.i77 = call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %68, i64 %63), !alias.scope !1310
+  %bcmp.i.i77 = call i32 @bcmp(ptr nonnull readonly align 1 %66, ptr nonnull readonly align 1 %68, i64 %63), !alias.scope !1310
   %69 = icmp eq i32 %bcmp.i.i77, 0
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h117d672ecc4c51a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -6138,7 +6138,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42, %"_ZN4core5slic
 
 88:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1330
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
           to label %.noexc unwind label %76
 
 .noexc:                                           ; preds = %88
@@ -6169,7 +6169,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42, %"_ZN4core5slic
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1330
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1317
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
   %101 = getelementptr inbounds i8, ptr %7, i64 8
   %102 = load i64, ptr %101, align 8, !range !29, !noalias !1317, !noundef !7
   %.not.i.i.i.i.i.i84 = icmp eq i64 %102, 0
@@ -6360,7 +6360,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42, %"_ZN4core5slic
 170:                                              ; preds = %165
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1367
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
           to label %.noexc93 unwind label %76
 
 .noexc93:                                         ; preds = %170
@@ -6384,7 +6384,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42, %"_ZN4core5slic
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1367
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1380
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
   %179 = getelementptr inbounds i8, ptr %5, i64 8
   %180 = load i64, ptr %179, align 8, !range !29, !noalias !1380, !noundef !7
   %.not.i.i.i.i.i.i95 = icmp eq i64 %180, 0
@@ -6757,7 +6757,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.i: ; p
 
 _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread39.i: ; preds = %_ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.i, %233, %231
   %.sroa.5.0.i = select i1 %trunc.i, i32 %.sroa.0.sroa.5.0.copyload.i, i32 undef
-  call fastcc void @_ZN6uucore8features5perms13ChownExecutor35print_verbose_ownership_retained_as17h26755c329f388049E(ptr noalias noundef readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i, i32 noundef %.sroa.0.sroa.4.0.copyload.i, i32 noundef %83, i32 %.sroa.5.0.i), !noalias !1413
+  call fastcc void @_ZN6uucore8features5perms13ChownExecutor35print_verbose_ownership_retained_as17h26755c329f388049E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i, i32 noundef %.sroa.0.sroa.4.0.copyload.i, i32 noundef %83, i32 %.sroa.5.0.i), !noalias !1413
   br label %240
 
 _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread.i: ; preds = %_ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.i, %233, %231, %230
@@ -6792,7 +6792,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 
 247:                                              ; preds = %262, %241
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !1419
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %53), !noalias !1418
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53), !noalias !1418
   %248 = load i64, ptr %106, align 8, !range !29, !noalias !1419, !noundef !7
   %.not.i.i.i.i.i = icmp eq i64 %248, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h117d672ecc4c51a2E.exit.i", label %249
@@ -6876,7 +6876,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 
 268:                                              ; preds = %283, %244
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !1440
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47), !noalias !1418
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47), !noalias !1418
   %269 = load i64, ptr %119, align 8, !range !29, !noalias !1440, !noundef !7
   %.not.i.i.i.i32.i = icmp eq i64 %269, 0
   br i1 %.not.i.i.i.i32.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h117d672ecc4c51a2E.exit33.i", label %270
@@ -7113,7 +7113,7 @@ _ZN7walkdir7WalkDir3new17hd0cd3a9b3297754bE.exit.i.i: ; preds = %287
 
 328:                                              ; preds = %327
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1475
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %37)
           to label %.noexc86.i.i unwind label %.loopexit.split-lp.i.i, !noalias !1461
 
 .noexc86.i.i:                                     ; preds = %328
@@ -7137,7 +7137,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.i.i: ;
 
 _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread117.i.i: ; preds = %_ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.i.i, %322, %320
   %.sroa.520.0.i.i = select i1 %trunc.i, i32 %.sroa.017.sroa.5.0.copyload.i.i, i32 undef
-  invoke fastcc void @_ZN6uucore8features5perms13ChownExecutor35print_verbose_ownership_retained_as17h26755c329f388049E(ptr noalias noundef readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %298, i64 noundef %299, i32 noundef %.sroa.017.sroa.4.0.copyload.i.i, i32 noundef %83, i32 %.sroa.520.0.i.i)
+  invoke fastcc void @_ZN6uucore8features5perms13ChownExecutor35print_verbose_ownership_retained_as17h26755c329f388049E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %298, i64 noundef %299, i32 noundef %.sroa.017.sroa.4.0.copyload.i.i, i32 noundef %83, i32 %.sroa.520.0.i.i)
           to label %336 unwind label %310, !noalias !1490
 
 _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread.i.i: ; preds = %_ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.i.i, %322, %320, %319
@@ -7148,7 +7148,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 336:                                              ; preds = %402, %_ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread117.i.i
   %.2.i.i = phi i32 [ 1, %402 ], [ %.1.i.i, %_ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread117.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1491
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %37)
           to label %.noexc88.i.i unwind label %.loopexit.i.i, !noalias !1461
 
 .noexc88.i.i:                                     ; preds = %336
@@ -7196,7 +7196,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 
 351:                                              ; preds = %366, %345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1506
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %.noexc91.i.i unwind label %368, !noalias !1461
 
 .noexc91.i.i:                                     ; preds = %351
@@ -7276,7 +7276,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 371:                                              ; preds = %398, %370
   %.4.i.i = phi i32 [ 1, %398 ], [ 0, %370 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1527
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %37)
           to label %.noexc93.i.i unwind label %.loopexit.i.i, !noalias !1461
 
 .noexc93.i.i:                                     ; preds = %371
@@ -7309,7 +7309,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 
 382:                                              ; preds = %397, %348
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1542
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc98.i.i unwind label %368, !noalias !1461
 
 .noexc98.i.i:                                     ; preds = %382
@@ -7414,7 +7414,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 
 404:                                              ; preds = %425, %405
   %.pn.i.i = phi { ptr, i32 } [ %406, %405 ], [ %426, %425 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull align 8 dereferenceable(64) %36)
           to label %"_ZN4core3ptr42drop_in_place$LT$walkdir..error..Error$GT$17h16ab009c40932180E.exit.i.i" unwind label %378, !noalias !1461
 
 405:                                              ; preds = %442, %437, %428, %419, %418, %411, %409, %407
@@ -7510,7 +7510,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
 428:                                              ; preds = %427
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32), !noalias !1461
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1575
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
           to label %.noexc106.i.i unwind label %405, !noalias !1461
 
 .noexc106.i.i:                                    ; preds = %428
@@ -7536,7 +7536,7 @@ _ZN6uucore8features5perms13ChownExecutor7matched17h813e4bc1a7272bb7E.exit.thread
   br label %436
 
 436:                                              ; preds = %443, %435
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull align 8 dereferenceable(64) %36)
           to label %"_ZN4core3ptr42drop_in_place$LT$walkdir..error..Error$GT$17h16ab009c40932180E.exit109.i.i" unwind label %.loopexit.i.i, !noalias !1461
 
 437:                                              ; preds = %409
@@ -7832,7 +7832,7 @@ _ZN3std2fs8metadata17h95ed0caf15896eb0E.exit:     ; preds = %25, %30
 74:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1649
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %74
@@ -8104,7 +8104,7 @@ common.resume:                                    ; preds = %.body.i66, %.body.i
 103:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !1691
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37)
   %104 = getelementptr inbounds i8, ptr %23, i64 8
   %105 = load i64, ptr %104, align 8, !range !29, !noalias !1691, !noundef !7
   %.not.i.i.i.i = icmp eq i64 %105, 0
@@ -8399,7 +8399,7 @@ common.resume:                                    ; preds = %.body.i66, %.body.i
 183:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !1754
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
           to label %.noexc60 unwind label %143
 
 .noexc60:                                         ; preds = %183
@@ -8423,7 +8423,7 @@ common.resume:                                    ; preds = %.body.i66, %.body.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !1754
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !1763
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
   %193 = getelementptr inbounds i8, ptr %13, i64 8
   %194 = load i64, ptr %193, align 8, !range !29, !noalias !1763, !noundef !7
   %.not.i.i.i.i62 = icmp eq i64 %194, 0
@@ -8564,7 +8564,7 @@ common.resume:                                    ; preds = %.body.i66, %.body.i
 234:                                              ; preds = %226
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1800
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33)
   %235 = getelementptr inbounds i8, ptr %8, i64 8
   %236 = load i64, ptr %235, align 8, !range !29, !noalias !1800, !noundef !7
   %.not.i.i.i.i69 = icmp eq i64 %236, 0
@@ -8689,7 +8689,7 @@ define { i64, i64 } @_ZN6uucore4mods5posix13posix_version17haf722a593985472dE() 
 11:                                               ; preds = %.thread
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1810
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %13 = getelementptr inbounds i8, ptr %3, i64 8
   %14 = load i64, ptr %13, align 8, !range !29, !noalias !1810, !noundef !7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %14, 0
@@ -8735,7 +8735,7 @@ define { i64, i64 } @_ZN6uucore4mods5posix13posix_version17haf722a593985472dE() 
   %30 = load i64, ptr %29, align 8, !noalias !1825
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1825
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !1828
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8, !range !29, !noalias !1828, !noundef !7
   %.not.i.i.i.i.i7 = icmp eq i64 %32, 0

@@ -730,7 +730,7 @@ define i32 @unpack_slurmdbd_msg(ptr noundef %0, i16 noundef zeroext %1, ptr noun
   br i1 %66, label %67, label %_unpack_cond_msg.exit
 
 67:                                               ; preds = %63
-  tail call void @slurmdbd_free_cond_msg(ptr noundef %64, i32 noundef %47) #5
+  tail call void @slurmdbd_free_cond_msg(ptr noundef %64, i32 noundef range(i32 0, 65536) %47) #5
   store ptr null, ptr %46, align 8
   br label %_unpack_cond_msg.exit
 

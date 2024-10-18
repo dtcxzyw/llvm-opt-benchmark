@@ -54,7 +54,7 @@ define internal fastcc void @"_ZN4core3ptr284drop_in_place$LT$hashbrown..scopegu
   %27 = getelementptr inbounds i8, ptr %.val2.i, i64 %26
   %28 = icmp ne i64 %.val1.i, 0
   tail call void @llvm.assume(i1 %28)
-  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %23, i64 noundef %.val1.i) #24, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %23, i64 noundef range(i64 0, -9223372036854775807) %.val1.i) #24, !noalias !4
   br label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61144f76fac17c49E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61144f76fac17c49E.exit": ; preds = %1, %4
@@ -261,7 +261,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 24:                                               ; preds = %15
   %25 = add nuw i64 %.sroa.05.0.i, 1
-  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %13, i64 %25)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %13, i64 range(i64 1, -2305843009213693957) %25)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !19
   call fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17hbdde7bb8de828931E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, i64 noundef 16, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext %4)
@@ -354,7 +354,7 @@ _ZN4core10intrinsics10typed_swap17h54f84bb71b663d01E.exit: ; preds = %.preheader
   %62 = getelementptr inbounds i8, ptr %.val2.i.i, i64 %61
   %63 = icmp ne i64 %.val1.i.i, 0
   tail call void @llvm.assume(i1 %63)
-  tail call void @__rust_dealloc(ptr noundef nonnull %62, i64 noundef %58, i64 noundef %.val1.i.i) #24, !noalias !28
+  tail call void @__rust_dealloc(ptr noundef nonnull %62, i64 noundef %58, i64 noundef range(i64 0, -9223372036854775807) %.val1.i.i) #24, !noalias !28
   br label %"_ZN4core3ptr284drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$$C$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..prepare_resize..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd9f379552fb2c839E.exit"
 
 "_ZN4core3ptr284drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$$C$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..prepare_resize..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd9f379552fb2c839E.exit": ; preds = %_ZN4core10intrinsics10typed_swap17h54f84bb71b663d01E.exit, %41
@@ -839,7 +839,7 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   %39 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %39)
   %40 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !65
-  %41 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %37, i64 noundef %1) #24, !noalias !65
+  %41 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %37, i64 noundef range(i64 1, 0) %1) #24, !noalias !65
   %42 = icmp eq ptr %41, null
   br i1 %42, label %48, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$17new_uninitialized17ha3c3a20af0a7350fE.exit"
 

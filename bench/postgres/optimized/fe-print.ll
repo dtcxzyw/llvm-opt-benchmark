@@ -454,8 +454,8 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 201:                                              ; preds = %.lr.ph334, %273
   %indvars.iv360 = phi i64 [ 0, %.lr.ph334 ], [ %indvars.iv.next361, %273 ]
   %202 = trunc nuw nsw i64 %indvars.iv360 to i32
-  %203 = call i32 @PQgetlength(ptr noundef %1, i32 noundef %.0208336, i32 noundef %202) #13
-  %204 = call ptr @PQgetvalue(ptr noundef %1, i32 noundef %.0208336, i32 noundef %202) #13
+  %203 = call i32 @PQgetlength(ptr noundef %1, i32 noundef %.0208336, i32 noundef range(i32 -2147483648, 2147483647) %202) #13
+  %204 = call ptr @PQgetvalue(ptr noundef %1, i32 noundef %.0208336, i32 noundef range(i32 -2147483648, 2147483647) %202) #13
   %205 = icmp sgt i32 %203, 0
   %206 = icmp ne ptr %204, null
   %or.cond.i = select i1 %205, i1 %206, i1 false

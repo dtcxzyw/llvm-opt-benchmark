@@ -403,13 +403,13 @@ entry:
   %_M_invoker.i.i4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlS4_S6_S7_mE_E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i.i4.i.i.i, align 8, !noalias !13
   %_M_manager.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 16, i1 false), !noalias !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i64 16, i1 false), !noalias !13
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlS4_S6_S7_mE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %_M_manager.i.i.i6.i.i.i, align 8, !noalias !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !13
   %vtable.i.i.i.i = load ptr, ptr %call.i, align 8, !noalias !13
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 480
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !13
-  invoke void %7(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %getTimes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %getTimesID.i.i.i, i32 noundef 0, ptr noundef nonnull %agg.tmp.i.i.i.i)
+  invoke void %7(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %getTimes.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %getTimesID.i.i.i, i32 noundef 0, ptr noundef nonnull %agg.tmp.i.i.i.i)
           to label %invoke.cont.i8.i.i.i unwind label %lpad.i7.i.i.i, !noalias !4
 
 invoke.cont.i8.i.i.i:                             ; preds = %.noexc.i.i
@@ -418,7 +418,7 @@ invoke.cont.i8.i.i.i:                             ; preds = %.noexc.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont5.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i8.i.i.i
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, i32 noundef 3)
           to label %invoke.cont5.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
@@ -436,7 +436,7 @@ lpad.i7.i.i.i:                                    ; preds = %.noexc.i.i
   br i1 %tobool.not.i.i3.i.i.i.i, label %lpad4.body.i.i.i, label %if.then.i.i4.i.i.i.i
 
 if.then.i.i4.i.i.i.i:                             ; preds = %lpad.i7.i.i.i
-  %call.i.i5.i.i.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
+  %call.i.i5.i.i.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, i32 noundef 3)
           to label %lpad4.body.i.i.i unwind label %terminate.lpad.i.i6.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i6.i.i.i.i:                      ; preds = %if.then.i.i4.i.i.i.i
@@ -453,7 +453,7 @@ invoke.cont5.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i11.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i, label %if.then.i.i12.i.i.i
 
 if.then.i.i12.i.i.i:                              ; preds = %invoke.cont5.i.i.i
-  %call.i.i13.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3)
+  %call.i.i13.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i unwind label %terminate.lpad.i.i14.i.i.i, !noalias !4
 
 terminate.lpad.i.i14.i.i.i:                       ; preds = %if.then.i.i12.i.i.i
@@ -468,14 +468,14 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i: 
   %vtable.i16.i.i.i = load ptr, ptr %call.i, align 8, !noalias !4
   %vfn.i17.i.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i.i, i64 256
   %18 = load ptr, ptr %vfn.i17.i.i.i, align 8, !noalias !4
-  invoke void %18(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i)
+  invoke void %18(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i)
           to label %invoke.cont7.i.i.i unwind label %lpad6.i.i.i, !noalias !4
 
 invoke.cont7.i.i.i:                               ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i
   %19 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4
   store ptr %19, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
-  invoke void @_ZNK8facebook3jsi6Object11setPropertyIRNS0_8FunctionEEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %jsiTimerInternalObject.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %getTimes.i.i.i)
+  invoke void @_ZNK8facebook3jsi6Object11setPropertyIRNS0_8FunctionEEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %jsiTimerInternalObject.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %getTimes.i.i.i)
           to label %invoke.cont9.i.i.i unwind label %lpad8.i.i.i, !noalias !4
 
 invoke.cont9.i.i.i:                               ; preds = %invoke.cont7.i.i.i
@@ -490,7 +490,7 @@ invoke.cont9.i.i.i:                               ; preds = %invoke.cont7.i.i.i
           to label %.noexc.i.i.i unwind label %lpad8.i.i.i, !noalias !4
 
 .noexc.i.i.i:                                     ; preds = %invoke.cont9.i.i.i
-  invoke void @_ZNK8facebook3jsi6Object19getPropertyAsObjectERNS0_7RuntimeEPKc(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %objectClass.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i18.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.6)
+  invoke void @_ZNK8facebook3jsi6Object19getPropertyAsObjectERNS0_7RuntimeEPKc(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %objectClass.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i18.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.6)
           to label %invoke.cont.i22.i.i.i unwind label %lpad.i21.i.i.i, !noalias !4
 
 invoke.cont.i22.i.i.i:                            ; preds = %.noexc.i.i.i
@@ -604,26 +604,26 @@ invoke.cont10.i.i.i:                              ; preds = %if.then.i.i3.i.i.i.
   %vtable.i.i28.i.i.i = load ptr, ptr %call.i, align 8, !noalias !4
   %vfn.i.i29.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i28.i.i.i, i64 256
   %42 = load ptr, ptr %vfn.i.i29.i.i.i, align 8, !noalias !4
-  invoke void %42(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i)
+  invoke void %42(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i)
           to label %.noexc40.i.i.i unwind label %lpad8.i.i.i, !noalias !4
 
 .noexc40.i.i.i:                                   ; preds = %invoke.cont10.i.i.i
-  invoke void @_ZNK8facebook3jsi6Object11setPropertyIRS1_EEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %jsiTimerInternalObject.i.i.i)
+  invoke void @_ZNK8facebook3jsi6Object11setPropertyIRS1_EEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %jsiTimerInternalObject.i.i.i)
           to label %invoke.cont.i31.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont.i31.i.i.i:                            ; preds = %.noexc40.i.i.i
   store i8 0, ptr %ref.tmp.i27.i.i.i, align 1, !noalias !4
-  invoke void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i27.i.i.i)
+  invoke void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i27.i.i.i)
           to label %invoke.cont2.i.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont2.i.i.i.i:                             ; preds = %invoke.cont.i31.i.i.i
   store i8 0, ptr %ref.tmp3.i.i.i.i, align 1, !noalias !4
-  invoke void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i)
+  invoke void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i)
           to label %invoke.cont4.i32.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont4.i32.i.i.i:                           ; preds = %invoke.cont2.i.i.i.i
   store i8 0, ptr %ref.tmp5.i.i.i.i, align 1, !noalias !4
-  invoke void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i)
+  invoke void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i)
           to label %invoke.cont6.i.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont6.i.i.i.i:                             ; preds = %invoke.cont4.i32.i.i.i
@@ -635,11 +635,11 @@ invoke.cont6.i.i.i.i:                             ; preds = %invoke.cont4.i32.i.
           to label %invoke.cont10.i.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont10.i.i.i.i:                            ; preds = %invoke.cont6.i.i.i.i
-  invoke void @_ZNK8facebook3jsi6Object19getPropertyAsObjectERNS0_7RuntimeEPKc(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.6)
+  invoke void @_ZNK8facebook3jsi6Object19getPropertyAsObjectERNS0_7RuntimeEPKc(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.6)
           to label %invoke.cont12.i.i.i.i unwind label %lpad11.i.i.i.i, !noalias !4
 
 invoke.cont12.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i.i
-  invoke void @_ZNK8facebook3jsi6Object21getPropertyAsFunctionERNS0_7RuntimeEPKc(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %ref.tmp7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.14)
+  invoke void @_ZNK8facebook3jsi6Object21getPropertyAsFunctionERNS0_7RuntimeEPKc(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %ref.tmp7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull @.str.14)
           to label %invoke.cont14.i.i.i.i unwind label %lpad13.i.i.i.i, !noalias !4
 
 invoke.cont14.i.i.i.i:                            ; preds = %invoke.cont12.i.i.i.i
@@ -651,7 +651,7 @@ invoke.cont14.i.i.i.i:                            ; preds = %invoke.cont12.i.i.i
           to label %invoke.cont17.i.i.i.i unwind label %lpad16.i.i.i.i, !noalias !4
 
 invoke.cont17.i.i.i.i:                            ; preds = %invoke.cont14.i.i.i.i
-  invoke void @_ZNK8facebook3jsi8Function4callIJNS0_6ObjectERPKcRS3_EEENS0_5ValueERNS0_7RuntimeEDpOT_(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %agg.tmp.ensured.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %name.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i)
+  invoke void @_ZNK8facebook3jsi8Function4callIJNS0_6ObjectERPKcRS3_EEENS0_5ValueERNS0_7RuntimeEDpOT_(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %agg.tmp.ensured.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %name.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %desc.i.i.i.i)
           to label %invoke.cont19.i.i.i.i unwind label %lpad18.i.i.i.i, !noalias !4
 
 invoke.cont19.i.i.i.i:                            ; preds = %invoke.cont17.i.i.i.i
@@ -913,7 +913,7 @@ _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i:         ; preds = %if.then.i.i.i48.i.i
   br i1 %tobool.not.i.i53.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i, label %if.then.i.i54.i.i.i
 
 if.then.i.i54.i.i.i:                              ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i
-  %call.i.i55.i.i.i = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, i32 noundef 3)
+  %call.i.i55.i.i.i = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %getTimesHandler.i.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i unwind label %terminate.lpad.i.i56.i.i.i, !noalias !4
 
 terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
@@ -947,7 +947,7 @@ lpad4.body.i.i.i:                                 ; preds = %if.then.i.i4.i.i.i.
   br i1 %tobool.not.i.i64.i.i.i, label %ehcleanup12.i.i.i, label %if.then.i.i65.i.i.i
 
 if.then.i.i65.i.i.i:                              ; preds = %lpad4.body.i.i.i
-  %call.i.i66.i.i.i = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3)
+  %call.i.i66.i.i.i = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i32 noundef 3)
           to label %ehcleanup12.i.i.i unwind label %terminate.lpad.i.i67.i.i.i, !noalias !4
 
 terminate.lpad.i.i67.i.i.i:                       ; preds = %if.then.i.i65.i.i.i
@@ -1012,7 +1012,7 @@ ehcleanup12.i.i.i:                                ; preds = %if.then.i.i.i76.i.i
   br i1 %tobool.not.i.i82.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i, label %if.then.i.i83.i.i.i
 
 if.then.i.i83.i.i.i:                              ; preds = %ehcleanup12.i.i.i
-  %call.i.i84.i.i.i = invoke noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, i32 noundef 3)
+  %call.i.i84.i.i.i = invoke noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(32) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %getTimesHandler.i.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i unwind label %terminate.lpad.i.i85.i.i.i, !noalias !4
 
 terminate.lpad.i.i85.i.i.i:                       ; preds = %if.then.i.i83.i.i.i
@@ -1060,7 +1060,7 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i: ; preds = %lp
 
 _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i, %lpad.body.i.i
   store ptr null, ptr %runtime_.i.i, align 8, !noalias !4
-  call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #22, !noalias !4
+  call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %call.i) #22, !noalias !4
   call void @_ZdlPv(ptr noundef nonnull %call.i) #23, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -1105,7 +1105,7 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i
   store ptr null, ptr %runtime_, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #22
   ret void
 }
 
@@ -1126,7 +1126,7 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i: ; preds = %entr
 
 _ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i
   store ptr null, ptr %runtime_.i, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2111,7 +2111,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   %tobool.not.i.i = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %tobool.not.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i)
-  %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef 0)
+  %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %call, i32 noundef 0)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -2143,7 +2143,7 @@ _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %invoke.cont.i.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i, %invoke.cont.i.i.i, %entry
   %8 = load ptr, ptr %_M_manager.i.i, align 8
-  %call5.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %__ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef 1)
+  %call5.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %__ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %call, i32 noundef 1)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -2659,7 +2659,7 @@ entry:
   %0 = load ptr, ptr %plain_.i, align 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %func, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %func, i64 16
@@ -2670,11 +2670,11 @@ entry:
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i: ; preds = %entry
   %_M_manager.i.i.i.i40 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %plainHF_.i7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %plainHF_.i7.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i7.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
 
 _ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i: ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %func, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %plainHF_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -2700,7 +2700,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZN8facebook6hermes
   store ptr %this, ptr %call.i.i2.i4, align 8
   %plainHF_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4, i64 8
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %plainHF_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %1, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -2709,7 +2709,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZN8facebook6hermes
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.noexc
   %plainHF_3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_3.i.i.i.i.i, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i
@@ -2723,7 +2723,7 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i: ;
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS0_6hermes12_GLOBAL__N_117TimedHostFunctionEE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i.i, align 8, !noalias !43
   %_M_manager.i.i.i8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i64 16, i1 false), !noalias !43
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS0_6hermes12_GLOBAL__N_117TimedHostFunctionEE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i.i8, align 8, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i3, i8 0, i64 16, i1 false), !noalias !43
   %vtable.i = load ptr, ptr %0, align 8, !noalias !43
@@ -2742,7 +2742,7 @@ invoke.cont6.thread:                              ; preds = %invoke.cont.i
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %invoke.cont6 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -2760,7 +2760,7 @@ lpad.i:                                           ; preds = %_ZNSt8functionIFN8f
   br i1 %tobool.not.i.i3.i, label %ehcleanup, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %lpad5.body unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -2777,7 +2777,7 @@ invoke.cont6:                                     ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %invoke.cont6
-  %call.i.i = invoke noundef zeroext i1 %.pre38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %.pre38(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i10
@@ -2794,7 +2794,7 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit: ; pred
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
   %plainHF_.i.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %call.i.i.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i12, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i12, i32 noundef 3)
           to label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -2810,7 +2810,7 @@ _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit: ; preds = %_ZNSt8
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit18, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit
-  %call.i.i16 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i32 noundef 3)
+  %call.i.i16 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit18 unwind label %terminate.lpad.i.i17
 
 terminate.lpad.i.i17:                             ; preds = %if.then.i.i15
@@ -2834,7 +2834,7 @@ lpad5.body:                                       ; preds = %if.then.i.i4.i
   br i1 %tobool.not.i.i20, label %ehcleanup, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %lpad5.body
-  %call.i.i22 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i22 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i23
 
 terminate.lpad.i.i23:                             ; preds = %if.then.i.i21
@@ -2853,7 +2853,7 @@ ehcleanup:                                        ; preds = %lpad.i, %if.then.i.
 
 if.then.i.i.i.i27:                                ; preds = %ehcleanup
   %plainHF_.i.i28 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %call.i.i.i.i29 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i28, i32 noundef 3)
+  %call.i.i.i.i29 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i28, i32 noundef 3)
           to label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit31 unwind label %terminate.lpad.i.i.i.i30
 
 terminate.lpad.i.i.i.i30:                         ; preds = %if.then.i.i.i.i27
@@ -2869,7 +2869,7 @@ _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit31: ; preds = %ehcl
   br i1 %tobool.not.i.i33, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit37, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit31
-  %call.i.i35 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i32 noundef 3)
+  %call.i.i35 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit37 unwind label %terminate.lpad.i.i36
 
 terminate.lpad.i.i36:                             ; preds = %if.then.i.i34
@@ -3255,7 +3255,7 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %2, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -3265,7 +3265,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i64 16, i1 false)
   store ptr %3, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit
@@ -3284,7 +3284,7 @@ invoke.cont:                                      ; preds = %_ZNSt8functionIFvmN
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3306,7 +3306,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvmN
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -3466,7 +3466,7 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i: ; preds = %entr
 _ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i
   %2 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr null, ptr %runtime_.i, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #22
   ret void
 }
 
@@ -3488,8 +3488,8 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i: ; preds = %en
 _ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD0Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i
   %2 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr null, ptr %runtime_.i.i, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(112) %2) #23
   ret void
 }
 
@@ -3568,7 +3568,7 @@ entry:
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %_M_invoker2.i.i = getelementptr inbounds i8, ptr %callback, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_invoker2.i.i, align 8
   store ptr %2, ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -3578,7 +3578,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %callback, i64 16, i1 false)
   store ptr %3, ptr %_M_manager.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit.i
@@ -3597,7 +3597,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt8functionIFvmN
   br i1 %tobool.not.i.i.i, label %_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E34startTrackingHeapObjectStackTracesESt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaISC_EEEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E34startTrackingHeapObjectStackTracesESt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaISC_EEEE.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -3616,7 +3616,7 @@ lpad.i:                                           ; preds = %_ZNSt8functionIFvmN
   br i1 %tobool.not.i.i3.i, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7.i, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7.i unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -4014,7 +4014,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit
 
 _ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -4130,7 +4130,7 @@ sw.bb4:                                           ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb4
   %plainHF_3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %call3.i.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i, i32 noundef 2)
+  %call3.i.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_3.i.i.i, i32 noundef 2)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -4149,7 +4149,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %lpad.body.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lpad.i.i.i.i
-  %call.i.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i, i32 noundef 3)
           to label %lpad.body.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
@@ -4180,7 +4180,7 @@ delete.notnull.i:                                 ; preds = %sw.bb6
 
 if.then.i.i.i.i5:                                 ; preds = %delete.notnull.i
   %plainHF_.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i, i32 noundef 3)
           to label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i5
@@ -5296,7 +5296,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #22
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i) #22
   ret void
 }
 
@@ -5417,7 +5417,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit
 
 _ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   ret void
 }
 
@@ -5499,7 +5499,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook6hermes12_GLOBAL__N_115TimedHostObjectD2Ev.exit
 
 _ZN8facebook6hermes12_GLOBAL__N_115TimedHostObjectD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -6040,7 +6040,7 @@ _ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.ex
   %plainHF_.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %6 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !noalias !187
-  invoke void %6(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i.i)
+  invoke void %6(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i
@@ -6142,7 +6142,7 @@ sw.bb4.i:                                         ; preds = %sw.default
 
 if.then.i.i.i.i.i.i:                              ; preds = %sw.bb4.i
   %plainHF_3.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 8
-  %call3.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i.i.i, i32 noundef 2)
+  %call3.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_3.i.i.i.i.i, i32 noundef 2)
           to label %invoke.cont.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
@@ -6161,7 +6161,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %lpad.body.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %lpad.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, i32 noundef 3)
           to label %lpad.body.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -6196,7 +6196,7 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
 
 if.then.i.i.i.i.i6.i:                             ; preds = %delete.notnull.i.i
   %plainHF_.i.i.i.i = getelementptr inbounds i8, ptr %__dest.val.i, i64 8
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i, i32 noundef 3)
           to label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i6.i

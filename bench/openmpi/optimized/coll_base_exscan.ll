@@ -365,7 +365,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %44, %50
   br label %ompi_coll_base_sendrecv.exit
 
 67:                                               ; preds = %63
-  %68 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %.087161, i64 noundef %14, ptr noundef %3, i32 noundef %61, i32 noundef -18, ptr noundef nonnull %.085162, i64 noundef %14, ptr noundef %3, i32 noundef %61, i32 noundef -18, ptr noundef %5, ptr noundef null) #5
+  %68 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %.087161, i64 noundef range(i64 -2147483648, 2147483648) %14, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %61, i32 noundef -18, ptr noundef nonnull %.085162, i64 noundef range(i64 -2147483648, 2147483648) %14, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %61, i32 noundef -18, ptr noundef %5, ptr noundef null) #5
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %65, %67

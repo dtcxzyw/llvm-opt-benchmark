@@ -1136,7 +1136,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
 
 176:                                              ; preds = %72, %72
   %177 = load i32, ptr @hf_om2k_unknown_val, align 4
-  %178 = call ptr @val_to_str_ext(i32 noundef %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
+  %178 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %179 = load ptr, ptr %63, align 8
   %180 = call ptr @tvb_bytes_to_str(ptr noundef %179, ptr noundef %0, i32 noundef %73, i32 noundef 2) #5
   %181 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %177, ptr noundef %0, i32 noundef %73, i32 noundef 2, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %178, ptr noundef %180) #5
@@ -1179,14 +1179,14 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %208 = load i32, ptr @hf_om2k_unknown_val, align 4
   %209 = call ptr @val_to_str_ext(i32 noundef 30, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %210 = load ptr, ptr %63, align 8
-  %211 = call ptr @tvb_bytes_to_str(ptr noundef %210, ptr noundef %0, i32 noundef %205, i32 noundef %207) #5
-  %212 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %208, ptr noundef %0, i32 noundef %205, i32 noundef %207, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %209, ptr noundef %211) #5
+  %211 = call ptr @tvb_bytes_to_str(ptr noundef %210, ptr noundef %0, i32 noundef %205, i32 noundef range(i32 0, 256) %207) #5
+  %212 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %208, ptr noundef %0, i32 noundef %205, i32 noundef range(i32 0, 256) %207, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %209, ptr noundef %211) #5
   %213 = add i32 %205, %207
   br label %dissect_om2k_con_list.exit.i
 
 214:                                              ; preds = %72, %72
   %215 = load i32, ptr @hf_om2k_unknown_val, align 4
-  %216 = call ptr @val_to_str_ext(i32 noundef %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
+  %216 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %217 = load ptr, ptr %63, align 8
   %218 = call ptr @tvb_bytes_to_str(ptr noundef %217, ptr noundef %0, i32 noundef %73, i32 noundef 2) #5
   %219 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %215, ptr noundef %0, i32 noundef %73, i32 noundef 2, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %216, ptr noundef %218) #5
@@ -1207,7 +1207,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
 
 229:                                              ; preds = %72, %72, %72, %72
   %230 = load i32, ptr @hf_om2k_unknown_val, align 4
-  %231 = call ptr @val_to_str_ext(i32 noundef %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
+  %231 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %232 = load ptr, ptr %63, align 8
   %233 = call ptr @tvb_bytes_to_str(ptr noundef %232, ptr noundef %0, i32 noundef %73, i32 noundef 6) #5
   %234 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %230, ptr noundef %0, i32 noundef %73, i32 noundef 6, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %231, ptr noundef %233) #5
@@ -1360,10 +1360,10 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %338 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %73) #5
   %339 = zext i8 %338 to i32
   %340 = load i32, ptr @hf_om2k_unknown_val, align 4
-  %341 = call ptr @val_to_str_ext(i32 noundef %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
+  %341 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %342 = load ptr, ptr %63, align 8
-  %343 = call ptr @tvb_bytes_to_str(ptr noundef %342, ptr noundef %0, i32 noundef %337, i32 noundef %339) #5
-  %344 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %340, ptr noundef %0, i32 noundef %337, i32 noundef %339, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %341, ptr noundef %343) #5
+  %343 = call ptr @tvb_bytes_to_str(ptr noundef %342, ptr noundef %0, i32 noundef %337, i32 noundef range(i32 0, 256) %339) #5
+  %344 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %340, ptr noundef %0, i32 noundef %337, i32 noundef range(i32 0, 256) %339, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %341, ptr noundef %343) #5
   %345 = add i32 %337, %339
   br label %dissect_om2k_con_list.exit.i
 
@@ -1462,10 +1462,10 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %414 = zext i8 %413 to i32
   %415 = zext i16 %410 to i32
   %416 = load i32, ptr @hf_om2k_unknown_val, align 4
-  %417 = call ptr @val_to_str_ext(i32 noundef %415, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
+  %417 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %415, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %418 = load ptr, ptr %63, align 8
-  %419 = call ptr @tvb_bytes_to_str(ptr noundef %418, ptr noundef %0, i32 noundef %412, i32 noundef %414) #5
-  %420 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %416, ptr noundef %0, i32 noundef %412, i32 noundef %414, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %417, ptr noundef %419) #5
+  %419 = call ptr @tvb_bytes_to_str(ptr noundef %418, ptr noundef %0, i32 noundef %412, i32 noundef range(i32 0, 256) %414) #5
+  %420 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %416, ptr noundef %0, i32 noundef %412, i32 noundef range(i32 0, 256) %414, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %417, ptr noundef %419) #5
   %421 = add i32 %412, %414
   %422 = icmp slt i32 %421, %402
   br i1 %422, label %.lr.ph.i390.i, label %dissect_om2k_con_list.exit.i, !llvm.loop !8
@@ -1676,10 +1676,10 @@ dissect_tss_mo_state.exit.i:                      ; preds = %.preheader.i
   %555 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %73) #5
   %556 = zext i8 %555 to i32
   %557 = load i32, ptr @hf_om2k_unknown_val, align 4
-  %558 = call ptr @val_to_str_ext(i32 noundef %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
+  %558 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %75, ptr noundef nonnull @om2k_attr_vals_ext, ptr noundef nonnull @.str.482) #5
   %559 = load ptr, ptr %63, align 8
-  %560 = call ptr @tvb_bytes_to_str(ptr noundef %559, ptr noundef %0, i32 noundef %554, i32 noundef %556) #5
-  %561 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %557, ptr noundef %0, i32 noundef %554, i32 noundef %556, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %558, ptr noundef %560) #5
+  %560 = call ptr @tvb_bytes_to_str(ptr noundef %559, ptr noundef %0, i32 noundef %554, i32 noundef range(i32 0, 256) %556) #5
+  %561 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %557, ptr noundef %0, i32 noundef %554, i32 noundef range(i32 0, 256) %556, ptr noundef null, ptr noundef nonnull @.str.496, ptr noundef %558, ptr noundef %560) #5
   %562 = add i32 %554, %556
   br label %dissect_om2k_con_list.exit.i
 

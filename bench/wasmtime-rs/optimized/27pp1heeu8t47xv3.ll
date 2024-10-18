@@ -70,7 +70,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05f6b3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 %3, ptr align 8 %1)
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  %8 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h26724435d75fdf23E(ptr nonnull align 8 %3, ptr nonnull %4, ptr nonnull %7)
+  %8 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h26724435d75fdf23E(ptr nonnull align 8 %3, ptr nonnull align 1 %4, ptr nonnull %7)
   %9 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr align 8 %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %9
@@ -93,7 +93,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc305e9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 %3, ptr align 8 %1)
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h26724435d75fdf23E(ptr nonnull align 8 %3, ptr nonnull %5, ptr nonnull %8)
+  %9 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h26724435d75fdf23E(ptr nonnull align 8 %3, ptr nonnull align 1 %5, ptr nonnull %8)
   %10 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr align 8 %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %10
@@ -1067,7 +1067,7 @@ default.unreachable32:                            ; preds = %35, %3
   %121 = getelementptr inbounds i8, ptr %120, i64 16
   store ptr %121, ptr %109, align 8
   store i64 44, ptr %4, align 8
-  call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr align 8 %0, ptr nonnull align 8 %4)
+  call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   %122 = call { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbf562a55c124adfcE"(ptr nonnull align 8 %12)

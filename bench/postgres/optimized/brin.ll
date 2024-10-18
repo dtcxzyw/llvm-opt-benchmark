@@ -327,7 +327,7 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %116 = and i8 %114, 1
   %117 = call ptr @palloc0(i64 noundef 56) #10
   call void @EnterParallelMode() #10
-  %118 = call ptr @CreateParallelContext(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef %110) #10
+  %118 = call ptr @CreateParallelContext(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef range(i32 1, -2147483648) %110) #10
   %119 = add nuw i32 %110, 1
   br i1 %115, label %120, label %123
 

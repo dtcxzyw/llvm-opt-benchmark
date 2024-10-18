@@ -1667,7 +1667,7 @@ if.then.i:                                        ; preds = %if.end22
   br label %unescape.exit
 
 if.end.i:                                         ; preds = %if.end22
-  %call1.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %dec, ptr noundef nonnull @.str.27, i32 noundef 264) #11
+  %call1.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef range(i64 0, -1) %dec, ptr noundef nonnull @.str.27, i32 noundef 264) #11
   %call2.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 264, ptr noundef nonnull @.str.65, ptr noundef %call1.i) #11
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %unescape.exit, label %for.cond.preheader.i

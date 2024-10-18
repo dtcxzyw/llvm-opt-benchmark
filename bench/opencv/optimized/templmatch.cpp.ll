@@ -5724,7 +5724,7 @@ define internal fastcc void @_ZN2cvmiIdLi4ELi1EEENS_7MatExprERKNS_3MatERKNS_4Mat
   %13 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %13, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 4, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %2, i64 noundef 0)
+  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 4, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %15, align 8

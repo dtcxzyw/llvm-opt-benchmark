@@ -192,7 +192,7 @@ define dso_local void @_ZN4llvm12IntEqClasses10uncompressEv(ptr noundef nonnull 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %6, i64 noundef 8) #5
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %6, i64 noundef 8) #5
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
   %8 = and i64 %7, 4294967295
   %.not89 = icmp eq i64 %8, 0
@@ -253,7 +253,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %24, %29
 
 ._crit_edge:                                      ; preds = %35, %5
   store i32 0, ptr %3, align 8
-  %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #5
+  %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #5
   %37 = load ptr, ptr %2, align 8
   %38 = icmp eq ptr %37, %6
   br i1 %38, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %39

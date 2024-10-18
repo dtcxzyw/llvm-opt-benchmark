@@ -2030,7 +2030,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTok
   %.047.i.i = phi ptr [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE14const_accessor7releaseEv.exit.i ], [ %.3.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit86.i.i ]
   %.044.i.i = phi i64 [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE14const_accessor7releaseEv.exit.i ], [ %.246.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit86.i.i ]
   %24 = and i64 %.05.i.i, %16
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12, i64 noundef %24)
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(569) %12, i64 noundef %24)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %23
@@ -2651,7 +2651,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTok
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %282 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5), !noalias !33
-  call void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceable(2) %5, ptr noundef nonnull %282) #15, !noalias !38
+  call void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceable(2) %5, ptr noundef nonnull align 8 dereferenceable(16) %282) #15, !noalias !38
   %283 = load ptr, ptr %282, align 8, !noalias !38
   %284 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 32
   %285 = load ptr, ptr %284, align 8, !noalias !38
@@ -3856,7 +3856,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 59:                                               ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit42.i.i, %52
   %.048.i.i = phi i64 [ %58, %52 ], [ %.249.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit42.i.i ]
   %60 = and i64 %.048.i.i, %57
-  call fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %60)
+  call fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(569) %6, i64 noundef %60)
   br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit40.i.i.outer
 
 _ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit40.i.i.outer: ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS6_16HdDataSourceBaseEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit40.i.i.outer.backedge, %59
@@ -7894,7 +7894,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %20
   %notmask.i = shl nsw i64 -1, %31
   %32 = xor i64 %notmask.i, -1
   %33 = and i64 %2, %32
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %1, i64 noundef %33)
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(569) %1, i64 noundef %33)
           to label %.noexc7 unwind label %102
 
 .noexc7:                                          ; preds = %29

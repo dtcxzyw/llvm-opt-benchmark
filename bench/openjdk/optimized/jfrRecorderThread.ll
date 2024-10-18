@@ -75,7 +75,7 @@ define hidden noundef zeroext i1 @_ZN17JfrRecorderThread5startEP20JfrCheckpointM
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 31:                                               ; preds = %19
-  %32 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef 8, i32 noundef 0) #4
+  %32 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %21, i64 noundef 8, i32 noundef 0) #4
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %31, %29

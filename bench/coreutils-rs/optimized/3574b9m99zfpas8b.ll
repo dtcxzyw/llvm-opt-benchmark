@@ -58,7 +58,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg11value_names17h172cc0fe764
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9620d1d72c404b67E.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 344
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !8
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8cca0a62c27c8a6dE.llvm.11599604617220858543"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8cca0a62c27c8a6dE.llvm.11599604617220858543"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9620d1d72c404b67E.exit"
@@ -858,17 +858,17 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN68_$LT$uu_nl..NumberFormat$u20$as$u
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit20.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit": ; preds = %1
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %5, ptr noundef nonnull readonly dereferenceable(2) @anon.9b4b1614df22ae4ac9e39e8bf0261157.11.llvm.3587212932611608926, i64 2), !alias.scope !158
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %5, ptr noundef nonnull dereferenceable(2) @anon.9b4b1614df22ae4ac9e39e8bf0261157.11.llvm.3587212932611608926, i64 2), !alias.scope !158
   %8 = icmp eq i32 %bcmp.i, 0
   br i1 %8, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit16"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit16": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit"
-  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %5, ptr noundef nonnull readonly dereferenceable(2) @anon.9b4b1614df22ae4ac9e39e8bf0261157.12.llvm.3587212932611608926, i64 2), !alias.scope !162
+  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %5, ptr noundef nonnull dereferenceable(2) @anon.9b4b1614df22ae4ac9e39e8bf0261157.12.llvm.3587212932611608926, i64 2), !alias.scope !162
   %9 = icmp eq i32 %bcmp.i15, 0
   br i1 %9, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit20"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit20": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit16"
-  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %5, ptr noundef nonnull readonly dereferenceable(2) @anon.9b4b1614df22ae4ac9e39e8bf0261157.13.llvm.3587212932611608926, i64 2), !alias.scope !166
+  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %5, ptr noundef nonnull dereferenceable(2) @anon.9b4b1614df22ae4ac9e39e8bf0261157.13.llvm.3587212932611608926, i64 2), !alias.scope !166
   %10 = icmp eq i32 %bcmp.i19, 0
   br i1 %10, label %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit20.thread"
 

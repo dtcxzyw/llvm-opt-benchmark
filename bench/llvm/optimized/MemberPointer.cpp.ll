@@ -41,7 +41,7 @@ define dso_local void @_ZNK5clang6interp13MemberPointer9toPointerERKNS0_7Context
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %10, %3
-  tail call void @_ZN5clang6interp7PointerC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) #4
+  tail call void @_ZN5clang6interp7PointerC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %17, align 8
   br label %175
@@ -188,7 +188,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %75, %81
   %99 = load ptr, ptr %63, align 8, !noalias !5
   %100 = zext i32 %98 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %99, i32 noundef %98, i64 noundef %100) #4
-  call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %5) #4
+  call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(52) %5) #4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %101, align 8
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #4
@@ -309,7 +309,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit57:          ; preds = %.lr.ph, %146
   %171 = load ptr, ptr %170, align 8
   %172 = zext i32 %.0 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %7, ptr noundef %171, i32 noundef %.0, i64 noundef %172) #4
-  call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %7) #4
+  call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(52) %7) #4
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %173, align 8
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #4

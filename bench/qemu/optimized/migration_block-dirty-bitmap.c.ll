@@ -1098,11 +1098,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %conv) #11
   br label %trace_dirty_bitmap_save_iterate.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 2) %conv) #11
   br label %trace_dirty_bitmap_save_iterate.exit
 
 trace_dirty_bitmap_save_iterate.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1349,11 +1349,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = call i32 @qemu_get_thread_id() #11
   %14 = load i64, ptr %_now.i.i.i, align 8
   %15 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv15.i.i) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i, i64 noundef %14, i64 noundef %15, i32 noundef range(i32 0, 256) %conv15.i.i) #11
   br label %trace_dirty_bitmap_load_header.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv15.i.i) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef range(i32 0, 256) %conv15.i.i) #11
   br label %trace_dirty_bitmap_load_header.exit.i
 
 trace_dirty_bitmap_load_header.exit.i:            ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %qemu_get_bitmap_flags.exit.i
@@ -1819,11 +1819,11 @@ if.then8.i.i.i88:                                 ; preds = %if.then.i.i.i85
   %call10.i.i.i90 = call i32 @qemu_get_thread_id() #11
   %72 = load i64, ptr %_now.i.i.i67, align 8
   %73 = load i64, ptr %tv_usec.i.i.i91, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i.i90, i64 noundef %72, i64 noundef %73, i64 noundef %shr.i, i32 noundef %call1.i69) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i.i90, i64 noundef %72, i64 noundef %73, i64 noundef range(i64 0, 36028797018963968) %shr.i, i32 noundef %call1.i69) #11
   br label %trace_dirty_bitmap_load_bits_enter.exit.i
 
 if.else.i.i.i87:                                  ; preds = %if.then.i.i.i85
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i64 noundef %shr.i, i32 noundef %call1.i69) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i64 noundef range(i64 0, 36028797018963968) %shr.i, i32 noundef %call1.i69) #11
   br label %trace_dirty_bitmap_load_bits_enter.exit.i
 
 trace_dirty_bitmap_load_bits_enter.exit.i:        ; preds = %if.else.i.i.i87, %if.then8.i.i.i88, %land.lhs.true5.i.i.i82, %if.then31
@@ -2451,11 +2451,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i.i.i, align 8
   %11 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i.i, i64 noundef %10, i64 noundef %11, i32 noundef 64, i64 noundef %2, i32 noundef %conv.i, i64 noundef %div27.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i.i, i64 noundef %10, i64 noundef %11, i32 noundef range(i32 64, 67) 64, i64 noundef %2, i32 noundef %conv.i, i64 noundef range(i64 0, -31) %div27.i.i) #11
   br label %trace_send_bitmap_bits.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef 64, i64 noundef %2, i32 noundef %conv.i, i64 noundef %div27.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef range(i32 64, 67) 64, i64 noundef %2, i32 noundef %conv.i, i64 noundef range(i64 0, -31) %div27.i.i) #11
   br label %trace_send_bitmap_bits.exit.i.i
 
 trace_send_bitmap_bits.exit.i.i:                  ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %entry.split.i.i
@@ -2488,11 +2488,11 @@ if.then8.i.i38.i.i:                               ; preds = %if.then.i.i35.i.i
   %call10.i.i40.i.i = tail call i32 @qemu_get_thread_id() #11
   %16 = load i64, ptr %_now.i.i28.i.i, align 8
   %17 = load i64, ptr %tv_usec.i.i41.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i40.i.i, i64 noundef %16, i64 noundef %17, i32 noundef 66, i64 noundef %2, i32 noundef %conv.i, i64 noundef %div27.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i40.i.i, i64 noundef %16, i64 noundef %17, i32 noundef range(i32 64, 67) 66, i64 noundef %2, i32 noundef %conv.i, i64 noundef range(i64 0, -31) %div27.i.i) #11
   br label %trace_send_bitmap_bits.exit42.i.i
 
 if.else.i.i37.i.i:                                ; preds = %if.then.i.i35.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef 66, i64 noundef %2, i32 noundef %conv.i, i64 noundef %div27.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef range(i32 64, 67) 66, i64 noundef %2, i32 noundef %conv.i, i64 noundef range(i64 0, -31) %div27.i.i) #11
   br label %trace_send_bitmap_bits.exit42.i.i
 
 trace_send_bitmap_bits.exit42.i.i:                ; preds = %if.else.i.i37.i.i, %if.then8.i.i38.i.i, %land.lhs.true5.i.i32.i.i, %if.then.i.i

@@ -293,7 +293,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIiSaIiE
 
 64:                                               ; preds = %34
   %65 = zext i1 %57 to i32
-  %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %1, i64 noundef %45, i32 noundef %65)
+  %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %45, i32 noundef %65)
   %67 = tail call noundef i32 @_ZN5faiss4HNSW17prepare_level_tabEmb(ptr noundef nonnull align 8 dereferenceable(5149) %59, i64 noundef %1, i1 noundef zeroext %57)
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %67)
   br label %69
@@ -685,7 +685,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %.lr.ph161.i, %.preh
   br i1 %205, label %.lr.ph165.i, label %._crit_edge166.i, !llvm.loop !10
 
 ._crit_edge166.i:                                 ; preds = %195, %185
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 11, ptr nonnull @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_15IndexBinaryHNSWEmmPKhbb.omp_outlined, ptr nonnull %7, ptr nonnull %0, ptr nonnull %6, ptr nonnull %11, ptr nonnull %13, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4, ptr nonnull %59, ptr nonnull %12, ptr nonnull %8)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 11, ptr nonnull @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_15IndexBinaryHNSWEmmPKhbb.omp_outlined, ptr nonnull %7, ptr nonnull align 8 dereferenceable(5200) %0, ptr nonnull %6, ptr nonnull %11, ptr nonnull %13, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4, ptr nonnull %59, ptr nonnull %12, ptr nonnull %8)
   %206 = load i32, ptr %13, align 4
   store i32 %206, ptr %11, align 4
   %207 = load i32, ptr %12, align 4
@@ -1283,7 +1283,7 @@ define internal void @_ZNK5faiss15IndexBinaryHNSW6searchElPKhlPiPlPKNS_16SearchP
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i.i, label %26, label %.noexc3.i
 
@@ -2204,7 +2204,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_15IndexBina
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %14, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i.i.i, label %30, label %.noexc3.i
 

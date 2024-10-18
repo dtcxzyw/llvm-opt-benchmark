@@ -858,7 +858,7 @@ define hidden void @_ZN14TimePartitionsD2Ev(ptr nocapture noundef nonnull align 
 
 8:                                                ; preds = %4
   store i32 0, ptr %2, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN13GrowableArrayI7GCPhaseED2Ev.exit
 
 _ZN13GrowableArrayI7GCPhaseED2Ev.exit:            ; preds = %4, %8

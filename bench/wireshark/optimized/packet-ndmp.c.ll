@@ -3513,7 +3513,7 @@ define internal fastcc i32 @dissect_execute_cdb_request(ptr noundef %0, i32 noun
 
 get_itl_nexus.exit.i:                             ; preds = %95, %.thread40.i.thread
   %.0.i.i = phi ptr [ %97, %95 ], [ %94, %.thread40.i.thread ]
-  tail call void @dissect_scsi_cdb(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %89, i32 noundef %4, ptr noundef nonnull %88, ptr noundef nonnull %.0.i.i) #7
+  tail call void @dissect_scsi_cdb(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %89, i32 noundef range(i32 1, 9) %4, ptr noundef nonnull %88, ptr noundef nonnull %.0.i.i) #7
   br label %.thread.i
 
 .thread.i:                                        ; preds = %get_itl_nexus.exit.i, %.thread40.i, %34, %24

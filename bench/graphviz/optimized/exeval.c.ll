@@ -3424,7 +3424,7 @@ agxblen.exit.i:                                   ; preds = %60
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %agxblen.exit.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %61)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %61)
   %.val.i25.pre.i = load i8, ptr %63, align 1
   %.not.i26.i = icmp eq i8 %.val.i25.pre.i, -1
   br i1 %.not.i26.i, label %72, label %.thread
@@ -3494,7 +3494,7 @@ agxblen.exit.i79.us:                              ; preds = %.lr.ph.split.us
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %agxblen.exit.i79.us
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %87)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %87)
   %.val.i25.pre.i84.us = load i8, ptr %83, align 1
   br label %95
 
@@ -3551,7 +3551,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %agxblen.exit.i79
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %113)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %113)
   %.val.i25.pre.i84 = load i8, ptr %83, align 1
   br label %121
 
@@ -3610,7 +3610,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %agxblen.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %137)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %137)
   %.val.i25.pre.i.i = load i8, ptr %.phi.trans.insert, align 1
   br label %147
 
@@ -3655,7 +3655,7 @@ agxbput.exit:                                     ; preds = %.loopexit, %148, %1
   br i1 %.not.i.i90, label %168, label %167
 
 167:                                              ; preds = %agxbput.exit
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %161, align 1
   br label %168
 
@@ -4937,7 +4937,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %agxblen.exit.i
-  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef %31)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %31)
   %.val.i25.pre.i = load i8, ptr %6, align 1
   br label %41
 
@@ -4991,7 +4991,7 @@ agxbsizeof.exit.i25:                              ; preds = %57, %agxblen.exit.i
   br i1 %.not.i, label %61, label %60
 
 60:                                               ; preds = %agxbsizeof.exit.i25
-  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %6, align 1
   br label %61
 
@@ -5040,7 +5040,7 @@ agxbsizeof.exit.i29:                              ; preds = %75, %agxblen.exit.i
   br i1 %.not.i32, label %79, label %78
 
 78:                                               ; preds = %agxbsizeof.exit.i29
-  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
   %.val.i15.pre.i33 = load i8, ptr %6, align 1
   br label %79
 
@@ -5554,7 +5554,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   br i1 %.not152, label %.sink.split218, label %194
 
 194:                                              ; preds = %190
-  %195 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 10)
+  %195 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.sroa.10.0, i64 10)
   %196 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.33, i64 noundef %195) #28
   %.not.i.i.i = icmp eq i32 %196, 0
   %197 = icmp eq i64 %.sroa.10.0, 10
@@ -5608,7 +5608,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   br i1 %.not159, label %.sink.split218, label %.lr.ph197
 
 219:                                              ; preds = %194
-  %220 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 6)
+  %220 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.sroa.10.0, i64 6)
   %221 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.34, i64 noundef %220) #28
   %.not.i.i.i168 = icmp eq i32 %221, 0
   %222 = icmp eq i64 %.sroa.10.0, 6
@@ -5654,7 +5654,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   br i1 %.not157, label %.sink.split218, label %.lr.ph194
 
 239:                                              ; preds = %219
-  %240 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 5)
+  %240 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.sroa.10.0, i64 5)
   %241 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.35, i64 noundef %240) #28
   %.not.i.i.i170 = icmp eq i32 %241, 0
   %242 = icmp eq i64 %.sroa.10.0, 5
@@ -5811,7 +5811,7 @@ define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture nonnull readonly
   %.not.i = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %.not.i)
   %4 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
+  %5 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %1, i64 %4)
   %6 = tail call i32 @strncmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %2, i64 noundef %5) #28
   %.not.i.i = icmp eq i32 %6, 0
   %7 = icmp eq i64 %1, %4

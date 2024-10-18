@@ -520,7 +520,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %45
   %48 = phi ptr [ %.pre.i8, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %28, %45 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %48, i64 noundef 8, i64 noundef 8) #12
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %48, i64 noundef 8, i64 noundef 8) #12
   br label %_ZN7QVectorIP7XMLNodeED2Ev.exit
 
 _ZN7QVectorIP7XMLNodeED2Ev.exit:                  ; preds = %45, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i

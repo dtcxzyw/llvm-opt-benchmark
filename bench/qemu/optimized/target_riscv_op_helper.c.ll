@@ -184,7 +184,7 @@ entry:
   %not = sub nsw i32 0, %conv
   %conv2 = sext i32 %not to i64
   %and = and i64 %address, %conv2
-  %call.i = tail call ptr @probe_access(ptr noundef %env, i64 noundef %and, i32 noundef %conv, i32 noundef 1, i32 noundef %call1, i64 noundef %2) #9
+  %call.i = tail call ptr @probe_access(ptr noundef %env, i64 noundef %and, i32 noundef range(i32 0, 65536) %conv, i32 noundef 1, i32 noundef %call1, i64 noundef %2) #9
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
@@ -239,7 +239,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %check_zicbom_access.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = call ptr @probe_access(ptr noundef nonnull %env, i64 noundef %and.i, i32 noundef %conv.i, i32 noundef 1, i32 noundef %call1.i, i64 noundef %1) #9
+  %call.i.i = call ptr @probe_access(ptr noundef nonnull %env, i64 noundef %and.i, i32 noundef range(i32 0, 65536) %conv.i, i32 noundef 1, i32 noundef %call1.i, i64 noundef %1) #9
   br label %check_zicbom_access.exit
 
 check_zicbom_access.exit:                         ; preds = %entry, %if.end.i
@@ -266,7 +266,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %check_zicbom_access.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = call ptr @probe_access(ptr noundef nonnull %env, i64 noundef %and.i, i32 noundef %conv.i, i32 noundef 1, i32 noundef %call1.i, i64 noundef %1) #9
+  %call.i.i = call ptr @probe_access(ptr noundef nonnull %env, i64 noundef %and.i, i32 noundef range(i32 0, 65536) %conv.i, i32 noundef 1, i32 noundef %call1.i, i64 noundef %1) #9
   br label %check_zicbom_access.exit
 
 check_zicbom_access.exit:                         ; preds = %entry, %if.end.i

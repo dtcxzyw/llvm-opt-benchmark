@@ -2317,7 +2317,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   br label %vnc_client_to_server.exit
 
 610:                                              ; preds = %482
-  %611 = call fastcc i32 @vnc_mirrorlink(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %487)
+  %611 = call fastcc i32 @vnc_mirrorlink(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %487)
   br label %vnc_client_to_server.exit
 
 612:                                              ; preds = %482
@@ -2327,7 +2327,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   br label %vnc_client_to_server.exit
 
 614:                                              ; preds = %482
-  %615 = call fastcc i32 @vnc_fence(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %487)
+  %615 = call fastcc i32 @vnc_fence(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %487)
   br label %vnc_client_to_server.exit
 
 616:                                              ; preds = %482
@@ -3042,7 +3042,7 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
 
 1056:                                             ; preds = %1004
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1020, ptr noundef nonnull @.str.853) #4
-  %1057 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef %6, ptr noundef %694)
+  %1057 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %694)
   %.not107.i.i.i = icmp eq i32 %1057, 0
   br i1 %.not107.i.i.i, label %vnc_raw_encoding.exit.i.i, label %vnc_server_framebuffer_update.exit.i
 
@@ -3164,7 +3164,7 @@ process_tight_rect_filter_palette.exit.thread.i.i.i: ; preds = %1112, %1091, %10
   br label %.critedge.sink.split.i.i.i
 
 1134:                                             ; preds = %process_tight_rect_filter_palette.exit.thread.i.i.i
-  %1135 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef %6, ptr noundef %694)
+  %1135 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %694)
   %.not106.i.i.i = icmp eq i32 %1135, 0
   br i1 %.not106.i.i.i, label %vnc_raw_encoding.exit.i.i, label %vnc_server_framebuffer_update.exit.i
 
@@ -3219,7 +3219,7 @@ vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1140
   %1164 = add i32 %1163, %1151
   store i32 %1164, ptr %6, align 4
   %1165 = load i32, ptr @hf_vnc_cursor_encoding_bitmask, align 4
-  %1166 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1165, ptr noundef %0, i32 noundef %1164, i32 noundef %1154, i32 noundef 0) #4
+  %1166 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1165, ptr noundef %0, i32 noundef %1164, i32 noundef range(i32 0, 536862721) %1154, i32 noundef 0) #4
   %1167 = load i32, ptr %6, align 4
   %1168 = add i32 %1167, %1154
   store i32 %1168, ptr %6, align 4
@@ -3256,7 +3256,7 @@ vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1140
   %1192 = add i32 %1191, %1178
   store i32 %1192, ptr %6, align 4
   %1193 = load i32, ptr @hf_vnc_cursor_encoding_bitmask, align 4
-  %1194 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1193, ptr noundef %0, i32 noundef %1192, i32 noundef %1178, i32 noundef 0) #4
+  %1194 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1193, ptr noundef %0, i32 noundef %1192, i32 noundef range(i32 0, 536862721) %1178, i32 noundef 0) #4
   %1195 = load i32, ptr %6, align 4
   %1196 = add i32 %1195, %1178
   store i32 %1196, ptr %6, align 4
@@ -3697,7 +3697,7 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1360, %.lr.ph.i174.
   br label %vnc_server_framebuffer_update.exit.i
 
 1472:                                             ; preds = %621
-  %1473 = call fastcc i32 @vnc_mirrorlink(ptr noundef %0, ptr noundef %1, ptr noundef %6, ptr noundef %628)
+  %1473 = call fastcc i32 @vnc_mirrorlink(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %628)
   br label %vnc_server_framebuffer_update.exit.i
 
 1474:                                             ; preds = %621
@@ -3709,7 +3709,7 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1360, %.lr.ph.i174.
   br label %vnc_server_framebuffer_update.exit.i
 
 1478:                                             ; preds = %621
-  %1479 = call fastcc i32 @vnc_fence(ptr noundef %0, ptr noundef %1, ptr noundef %6, ptr noundef %628)
+  %1479 = call fastcc i32 @vnc_fence(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %628)
   br label %vnc_server_framebuffer_update.exit.i
 
 1480:                                             ; preds = %621

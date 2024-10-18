@@ -1342,7 +1342,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIK
   %29 = call ptr @__dynamic_cast(ptr nonnull %28, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev12CDLTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev16CDLTransformImplE, i64 0) #19
   %m_data.i32 = getelementptr inbounds i8, ptr %29, i64 40
   %30 = load ptr, ptr %cdlData, align 8
-  %call.i33 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i32, ptr noundef nonnull align 8 dereferenceable(168) %30)
+  %call.i33 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i32, ptr noundef nonnull align 8 dereferenceable(256) %30)
           to label %invoke.cont12 unwind label %lpad11
 
 lpad6:                                            ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit

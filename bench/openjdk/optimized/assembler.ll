@@ -91,7 +91,7 @@ define hidden noundef ptr @_ZN17AbstractAssembler12start_a_stubEi(ptr nocapture 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %6, i64 264
   %19 = load ptr, ptr %18, align 8
-  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %19, ptr noundef nonnull %7, i32 noundef %1) #11
+  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %19, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef %1) #11
   %20 = getelementptr inbounds i8, ptr %6, i64 280
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -148,7 +148,7 @@ define hidden noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr nocaptur
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %7, i64 88
   %25 = load ptr, ptr %24, align 8
-  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %25, ptr noundef nonnull %8, i32 noundef %16) #11
+  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %25, ptr noundef nonnull align 8 dereferenceable(88) %8, i32 noundef %16) #11
   %26 = getelementptr inbounds i8, ptr %7, i64 280
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null

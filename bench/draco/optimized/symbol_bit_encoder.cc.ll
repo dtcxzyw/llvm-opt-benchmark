@@ -130,7 +130,7 @@ define void @_ZN5draco16SymbolBitEncoder11EndEncodingEPNS_13EncoderBufferE(ptr n
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %23, ptr noundef nonnull %3, ptr noundef nonnull %18)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %23, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %18)
   %.pre = load ptr, ptr %0, align 8
   %.pre3 = load ptr, ptr %4, align 8
   %.pre4 = ptrtoint ptr %.pre3 to i64

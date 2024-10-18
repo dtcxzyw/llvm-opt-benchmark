@@ -559,7 +559,7 @@ _ZN13CompileReplay10can_replayEv.exit:            ; preds = %21
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 47:                                               ; preds = %35
-  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %37, i64 noundef 8, i32 noundef 0) #17
+  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %37, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %45, %47
@@ -829,7 +829,7 @@ _ZN13CompileReplay10can_replayEv.exit.thread:     ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 53:                                               ; preds = %41
-  %54 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %43, i64 noundef 8, i32 noundef 0) #17
+  %54 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %43, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %51, %53
@@ -1065,7 +1065,7 @@ define linkonce_odr hidden void @_ZN13CompileReplayC2EPKcP10JavaThread(ptr nound
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 36:                                               ; preds = %24
-  %37 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef 8, i32 noundef 0) #17
+  %37 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %26, i64 noundef 8, i32 noundef 0) #17
   %.pre = ptrtoint ptr %37 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -2335,7 +2335,7 @@ define hidden void @_ZN8ciReplay10initializeEP8ciMethod(ptr nocapture noundef %0
   br i1 %36, label %37, label %_ZN6Method19get_method_countersEP6Thread.exit
 
 37:                                               ; preds = %25
-  %38 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef %26, ptr noundef nonnull %18) #17
+  %38 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(88) %18) #17
   %.pre.i = load ptr, ptr %34, align 8
   br label %_ZN6Method19get_method_countersEP6Thread.exit
 
@@ -2680,7 +2680,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %76 = load i32, ptr %27, align 8
   %77 = sext i32 %76 to i64
   %78 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %79 = call noundef ptr %78(ptr noundef nonnull %0, i64 noundef %77) #17
+  %79 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %77) #17
   br label %.loopexit
 
 80:                                               ; preds = %65, %.lr.ph
@@ -3668,7 +3668,7 @@ _ZN13CompileReplay9had_errorEv.exit75.thread:     ; preds = %_ZN13CompileReplay9
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 24
   %224 = load ptr, ptr %223, align 8
-  %225 = call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %224, ptr noundef nonnull %16, i32 noundef %52, i32 noundef %.0.i57, i1 noundef zeroext true) #17
+  %225 = call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %224, ptr noundef nonnull align 8 dereferenceable(88) %16, i32 noundef %52, i32 noundef %.0.i57, i1 noundef zeroext true) #17
   br label %229
 
 226:                                              ; preds = %218
@@ -4758,7 +4758,7 @@ sub_1:                                            ; preds = %sub_0
   %.sroa.1.0.copyload.i139 = load i32, ptr %.sroa.1.0..sroa_idx.i138, align 8
   %157 = sext i32 %.sroa.1.0.copyload.i139 to i64
   %158 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %158(ptr noundef nonnull %71, i64 noundef %157, ptr noundef %.0124) #17
+  call void %158(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef %157, ptr noundef %.0124) #17
   br label %270
 
 sub_0213:                                         ; preds = %_ZNK5Klass11java_mirrorEv.exit
@@ -4957,7 +4957,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %251, %253
   %255 = phi ptr [ %254, %253 ], [ null, %251 ]
   %256 = sext i32 %.sroa.1.0.copyload.i157 to i64
   %257 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %257(ptr noundef nonnull %71, i64 noundef %256, ptr noundef %255) #17
+  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef %256, ptr noundef %255) #17
   br label %270
 
 258:                                              ; preds = %.tail240.thread
@@ -4986,7 +4986,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %251, %253
   %.sroa.1.0.copyload.i159 = load i32, ptr %.sroa.1.0..sroa_idx.i158, align 8
   %268 = sext i32 %.sroa.1.0.copyload.i159 to i64
   %269 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %269(ptr noundef nonnull %71, i64 noundef %268, ptr noundef %.0) #17
+  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef %268, ptr noundef %.0) #17
   br label %270
 
 .thread340:                                       ; preds = %.thread339, %258
@@ -5545,7 +5545,7 @@ define linkonce_odr hidden void @_ZN13CompileReplay21process_instanceKlassEP10Ja
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 35:                                               ; preds = %23
-  %36 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef 8, i32 noundef 0) #17
+  %36 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 8, i32 noundef 0) #17
   %.pre = ptrtoint ptr %36 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -7170,7 +7170,7 @@ _ZN13CompileReplay9parse_intEPKc.exit153:         ; preds = %390, %_ZN13CompileR
   %415 = shl nsw i64 %413, %.7.i
   %416 = add nsw i64 %414, %415
   %417 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %418 = call noundef ptr %417(ptr noundef nonnull %370, i64 noundef %416) #17
+  %418 = call noundef ptr %417(ptr noundef nonnull align 8 dereferenceable(16) %370, i64 noundef %416) #17
   br label %419
 
 419:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit, %410
@@ -7266,7 +7266,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12ConstantPool28resolved_reference_f
   %18 = shl nuw nsw i64 %16, %.7.i
   %19 = add nuw nsw i64 %17, %18
   %20 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull %3, i64 noundef %19) #17
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %19) #17
   ret ptr %21
 }
 
@@ -10093,7 +10093,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 24:                                               ; preds = %10
-  %25 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef 8, i32 noundef 0) #17
+  %25 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %24, %22

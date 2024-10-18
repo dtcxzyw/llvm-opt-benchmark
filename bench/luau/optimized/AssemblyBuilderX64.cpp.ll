@@ -336,7 +336,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2EbNS1_6ABIX64E(
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 176
   %15 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 24, i1 false)
   store i64 -1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 216
   store i8 0, ptr %16, align 8
@@ -379,7 +379,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2EbNS1_6ABIX64E(
 
 38:                                               ; preds = %35
   tail call void @_ZdlPv(ptr noundef nonnull %37) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit
 
 _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit: ; preds = %38, %35
@@ -389,7 +389,7 @@ _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit: ; preds = %38, %35
 
 40:                                               ; preds = %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %39) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEED2Ev.exit
 
 _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %40, %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit
@@ -584,7 +584,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D2Ev(ptr noundef 
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit
 
 _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit: ; preds = %1, %4
@@ -595,7 +595,7 @@ _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit: ; preds = %1, %4
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEED2Ev.exit
 
 _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEED2Ev.exit, %7
@@ -6254,7 +6254,7 @@ _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = shl i64 %39, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %40)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %40)
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %41, i64 %39, i1 false)
@@ -6330,7 +6330,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %_ZN4L
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %76, !llvm.loop !17
 
 .loopexit.i.i:                                    ; preds = %82, %80, %68, %66
-  tail call void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(30) %59)
+  tail call void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(32) %59)
   %.pre.i = load i64, ptr %62, align 8
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
 
@@ -6485,7 +6485,7 @@ _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEE4findERKm.exit.thread: ; preds
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = shl i64 %38, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %39)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %39)
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %40, i64 %38, i1 false)
@@ -6559,7 +6559,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %_ZN4L
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %74, !llvm.loop !18
 
 .loopexit.i.i:                                    ; preds = %80, %78, %67, %65
-  tail call void @_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %58)
+  tail call void @_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %58)
   %.pre.i = load i64, ptr %61, align 8
   br label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE14rehash_if_fullERS4_.exit.i
 
@@ -6684,7 +6684,7 @@ _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = shl i64 %40, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %41)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %41)
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %42, i64 %40, i1 false)
@@ -6760,7 +6760,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %_ZN4L
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %77, !llvm.loop !17
 
 .loopexit.i.i:                                    ; preds = %83, %81, %69, %67
-  tail call void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(30) %60)
+  tail call void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(32) %60)
   %.pre.i = load i64, ptr %63, align 8
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
 
@@ -6882,7 +6882,7 @@ _ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEE4findERKm.exit.thread: ; preds
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = shl i64 %39, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %40)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %40)
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %41, i64 %39, i1 false)
@@ -6956,7 +6956,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %_ZN4L
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %75, !llvm.loop !18
 
 .loopexit.i.i:                                    ; preds = %81, %79, %68, %66
-  tail call void @_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %59)
+  tail call void @_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %59)
   %.pre.i = load i64, ptr %62, align 8
   br label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE14rehash_if_fullERS4_.exit.i
 
@@ -7030,7 +7030,7 @@ define dso_local range(i64 352354305, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuil
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = shl i64 %15, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %16)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %15, i1 false)
@@ -7087,7 +7087,7 @@ define dso_local range(i64 352354305, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuil
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = shl i64 %15, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %16)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %15, i1 false)
@@ -7144,7 +7144,7 @@ define dso_local range(i64 352354305, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuil
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = shl i64 %13, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %14)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %15, i64 %13, i1 false)
@@ -7193,7 +7193,7 @@ define dso_local range(i64 268468225, 0) i64 @_ZN4Luau7CodeGen3X6418AssemblyBuil
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = shl i64 %14, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %15)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 noundef %15)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %16, i64 %14, i1 false)

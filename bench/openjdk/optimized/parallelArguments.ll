@@ -263,7 +263,7 @@ define hidden noundef i64 @_ZN17ParallelArguments24heap_reserved_size_bytesEv() 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN17ParallelArguments11create_heapEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 264, i8 noundef zeroext 5, i32 noundef 0) #6
-  tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #6
+  tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #6
   store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV20ParallelScavengeHeap, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 104
   %4 = getelementptr inbounds i8, ptr %2, i64 144

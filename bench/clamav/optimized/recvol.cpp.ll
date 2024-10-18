@@ -1557,7 +1557,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i406:     ; preds = %393
           to label %416 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 416:                                              ; preds = %._crit_edge630
-  invoke void @_ZN7RSCoder4InitEi(ptr noundef nonnull align 4 dereferenceable(11273) %415, i32 noundef %.0260.ph495)
+  invoke void @_ZN7RSCoder4InitEi(ptr noundef nonnull align 8 dereferenceable(11332) %415, i32 noundef %.0260.ph495)
           to label %.critedge324.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .critedge324.preheader:                           ; preds = %416
@@ -1712,7 +1712,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i406:     ; preds = %393
 
 ._crit_edge.i:                                    ; preds = %471, %.preheader.i
   %475 = load ptr, ptr %424, align 8
-  %476 = invoke noundef zeroext i1 @_ZN7RSCoder6DecodeEPhiPii(ptr noundef nonnull align 4 dereferenceable(11273) %415, ptr noundef nonnull %5, i32 noundef %467, ptr noundef %475, i32 noundef %466)
+  %476 = invoke noundef zeroext i1 @_ZN7RSCoder6DecodeEPhiPii(ptr noundef nonnull align 8 dereferenceable(11332) %415, ptr noundef nonnull %5, i32 noundef %467, ptr noundef %475, i32 noundef %466)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %._crit_edge.i

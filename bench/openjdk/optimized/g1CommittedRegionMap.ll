@@ -54,11 +54,11 @@ define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr nocapture noundef nonnull wr
 define hidden void @_ZN20G1CommittedRegionMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20G1CommittedRegionMap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 5, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 5, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56

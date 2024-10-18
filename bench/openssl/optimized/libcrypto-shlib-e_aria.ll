@@ -287,11 +287,11 @@ if.then:                                          ; preds = %while.end
   br i1 %tobool.not.i13, label %if.else.i15, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then
-  tail call void @CRYPTO_cbc128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  tail call void @CRYPTO_cbc128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
   br label %if.end
 
 if.else.i15:                                      ; preds = %if.then
-  tail call void @CRYPTO_cbc128_decrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  tail call void @CRYPTO_cbc128_decrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i15, %if.then.i14, %while.end
@@ -349,7 +349,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef range(i64 0, 1073741825) %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.023, %chunk.124
@@ -409,7 +409,7 @@ if.then:                                          ; preds = %while.end
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
-  call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
   br label %if.end
@@ -498,11 +498,11 @@ if.then:                                          ; preds = %while.end
   br i1 %tobool.not.i13, label %if.else.i15, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then
-  tail call void @CRYPTO_cbc128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  tail call void @CRYPTO_cbc128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
   br label %if.end
 
 if.else.i15:                                      ; preds = %if.then
-  tail call void @CRYPTO_cbc128_decrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  tail call void @CRYPTO_cbc128_decrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i15, %if.then.i14, %while.end
@@ -530,7 +530,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef range(i64 0, 1073741825) %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.023, %chunk.124
@@ -584,7 +584,7 @@ if.then:                                          ; preds = %while.end
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
-  call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
   br label %if.end
@@ -671,11 +671,11 @@ if.then:                                          ; preds = %while.end
   br i1 %tobool.not.i13, label %if.else.i15, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then
-  tail call void @CRYPTO_cbc128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  tail call void @CRYPTO_cbc128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
   br label %if.end
 
 if.else.i15:                                      ; preds = %if.then
-  tail call void @CRYPTO_cbc128_decrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  tail call void @CRYPTO_cbc128_decrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, ptr noundef nonnull @ossl_aria_encrypt) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i15, %if.then.i14, %while.end
@@ -703,7 +703,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef range(i64 0, 1073741825) %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.023, %chunk.124
@@ -757,7 +757,7 @@ if.then:                                          ; preds = %while.end
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
-  call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef range(i64 1, 1073741825) %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
   br label %if.end
@@ -820,7 +820,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond = select i1 %tobool3.not, i64 %mul, i64 %chunk.127
   %call4 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call5 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef range(i64 0, 1073741825) %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call6 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.026, %chunk.127
@@ -863,7 +863,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond = select i1 %tobool3.not, i64 %mul, i64 %chunk.127
   %call4 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call5 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef range(i64 0, 1073741825) %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call6 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.026, %chunk.127
@@ -902,7 +902,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond = select i1 %tobool3.not, i64 %mul, i64 %chunk.127
   %call4 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call5 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef range(i64 0, 1073741825) %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call6 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.026, %chunk.127
@@ -937,7 +937,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef range(i64 0, 1073741825) %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.023, %chunk.124
@@ -974,7 +974,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef range(i64 0, 1073741825) %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.023, %chunk.124
@@ -1009,7 +1009,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
-  call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
+  call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef range(i64 0, 1073741825) %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
   %sub = sub nuw i64 %inl.addr.023, %chunk.124

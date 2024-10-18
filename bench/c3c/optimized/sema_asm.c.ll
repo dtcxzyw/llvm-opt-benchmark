@@ -283,7 +283,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   ]
 
 69:                                               ; preds = %60
-  %70 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %65)
+  %70 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 71776119061217280, i32 0, ptr noundef nonnull %65)
   br i1 %70, label %71, label %sema_check_asm_arg_reg.exit
 
 71:                                               ; preds = %69
@@ -321,7 +321,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br label %100
 
 87:                                               ; preds = %60
-  %88 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %65)
+  %88 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 71776119061217280, i32 0, ptr noundef nonnull %65)
   br i1 %88, label %89, label %sema_check_asm_arg_reg.exit
 
 89:                                               ; preds = %87
@@ -365,7 +365,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   ]
 
 110:                                              ; preds = %106
-  %111 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %105)
+  %111 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 71776119061217280, i32 0, ptr noundef nonnull %105)
   br i1 %111, label %112, label %sema_check_asm_arg_reg.exit
 
 112:                                              ; preds = %110
@@ -403,7 +403,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br label %140
 
 128:                                              ; preds = %106
-  %129 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %105)
+  %129 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 71776119061217280, i32 0, ptr noundef nonnull %105)
   br i1 %129, label %130, label %sema_check_asm_arg_reg.exit
 
 130:                                              ; preds = %128

@@ -589,7 +589,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 }
 
@@ -1359,7 +1359,7 @@ for.body:                                         ; preds = %while.end, %for.bod
   %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 16
   %15 = load ptr, ptr %vfn.i4, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(40) %14) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %14) #22
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.09, i64 8
   %cmp.i2.not = icmp eq ptr %incdec.ptr.i, %13
   br i1 %cmp.i2.not, label %for.end.loopexit, label %for.body

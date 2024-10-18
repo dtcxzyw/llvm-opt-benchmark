@@ -492,7 +492,7 @@ define hidden void @_ZTv0_n24_N2cv4face18FacemarkKazemiImplD0Ev(ptr noundef %0) 
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN2cv4face18FacemarkKazemiImplD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %5) #24
   ret void
 }
 
@@ -621,7 +621,7 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImplC2ERKNS0_14FacemarkKazemi6Par
   store float 0.000000e+00, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 64, i1 false)
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   %32 = getelementptr inbounds i8, ptr %2, i64 64
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
@@ -685,7 +685,7 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImplC1ERKNS0_14FacemarkKazemi6Par
   store float 0.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %20, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 64, i1 false)
   %21 = getelementptr inbounds i8, ptr %0, i64 72
   %22 = getelementptr inbounds i8, ptr %1, i64 64
   %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)

@@ -122,7 +122,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %3 = load ptr, ptr %d_smt6.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
-  %call7.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call7.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i)
   %4 = load i32, ptr %d_pendingPops.i, align 8
   %dec.i = add i32 %4, -1
@@ -146,13 +146,13 @@ while.body:                                       ; preds = %_ZN4cvc58internal3s
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
-  %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context5poptoEj(ptr noundef nonnull align 8 dereferenceable(48) %call.i, i32 noundef 0)
-  %call2.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context5poptoEj(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, i32 noundef 0)
-  %call.i1 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i1 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %call.i1)
-  %call2.i2 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i2 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %call2.i2)
   ret void
 }
@@ -312,7 +312,7 @@ lpad32:                                           ; preds = %invoke.cont37, %inv
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4cvc58internal3smt14ContextManager11internalPopEb.exit
-  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   %base.i = getelementptr inbounds i8, ptr %call5.i, i64 208
   %10 = load ptr, ptr %base.i, align 8
   %incrementalSolving.i = getelementptr inbounds i8, ptr %10, i64 137
@@ -345,7 +345,7 @@ if.end.i7.i:                                      ; preds = %if.then.i10.i, %if.
 while.body.i.i:                                   ; preds = %if.end.i7.i, %while.body.i.i
   %16 = load ptr, ptr %d_smt.i.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %16)
-  %call7.i8.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call7.i8.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8.i)
   %17 = load i32, ptr %d_pendingPops.i, align 8
   %dec.i.i = add i32 %17, -1
@@ -430,7 +430,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i7
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %3 = load ptr, ptr %d_smt6.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
-  %call7.i8 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call7.i8 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8)
   %4 = load i32, ptr %d_pendingPops.i, align 8
   %dec.i = add i32 %4, -1
@@ -469,7 +469,7 @@ entry:
   br i1 %hasAssumptions, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   %base.i = getelementptr inbounds i8, ptr %call5.i, i64 208
   %0 = load ptr, ptr %base.i, align 8
   %incrementalSolving.i = getelementptr inbounds i8, ptr %0, i64 137
@@ -535,7 +535,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i7
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %6 = load ptr, ptr %d_smt6.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
-  %call7.i8 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call7.i8 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8)
   %7 = load i32, ptr %d_pendingPops.i, align 8
   %dec.i = add i32 %7, -1
@@ -552,9 +552,9 @@ define hidden void @_ZN4cvc58internal3smt14ContextManager5setupEPNS1_9SmtDriverE
 entry:
   %d_smt = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %smt, ptr %d_smt, align 8
-  %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %call.i)
-  %call2.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %call2.i)
   ret void
 }
@@ -587,7 +587,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %3 = load ptr, ptr %d_smt6.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
-  %call7.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call7.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i)
   %4 = load i32, ptr %d_pendingPops.i, align 8
   %dec.i = add i32 %4, -1
@@ -615,7 +615,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   %base.i = getelementptr inbounds i8, ptr %call5.i, i64 208
   %7 = load ptr, ptr %base.i, align 8
   %incrementalSolving.i = getelementptr inbounds i8, ptr %7, i64 137
@@ -648,7 +648,7 @@ if.end.i7.i:                                      ; preds = %if.then.i10.i, %if.
 while.body.i.i:                                   ; preds = %if.end.i7.i, %while.body.i.i
   %13 = load ptr, ptr %d_smt.i.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull align 8 dereferenceable(200) %13)
-  %call7.i8.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call7.i8.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %call7.i8.i)
   %14 = load i32, ptr %d_pendingPops.i, align 8
   %dec.i.i = add i32 %14, -1
@@ -678,9 +678,9 @@ declare noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager7cleanupEv(ptr noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context5poptoEj(ptr noundef nonnull align 8 dereferenceable(48) %call.i, i32 noundef 0)
-  %call2.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %call2.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(61) %this)
   tail call void @_ZN4cvc57context7Context5poptoEj(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, i32 noundef 0)
   ret void
 }
@@ -792,7 +792,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #18
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
   ret void
 }
 
@@ -894,7 +894,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %d_msg, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -911,7 +911,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_msg) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #18
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -942,7 +942,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #18
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }

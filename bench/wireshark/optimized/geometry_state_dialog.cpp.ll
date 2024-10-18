@@ -278,7 +278,7 @@ define void @_ZN19GeometryStateDialog17saveSplitterStateEPK9QSplitter(ptr nounde
 
 8:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9QSplitter16staticMetaObjectE, i32 1)
+  %9 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9QSplitter16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %14
 
 _ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %8
@@ -474,7 +474,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define void @_ZThn16_N19GeometryStateDialogD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19GeometryStateDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
   ret void
 }
 
@@ -823,7 +823,7 @@ define void @_ZN19GeometryStateDialog17loadSplitterStateEP9QSplitter(ptr noundef
 
 8:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9QSplitter16staticMetaObjectE, i32 1)
+  %9 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9QSplitter16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %14
 
 _ZNK7QObject9findChildIP9QSplitterEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %8

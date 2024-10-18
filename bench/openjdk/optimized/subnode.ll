@@ -6005,7 +6005,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %100, %102
   br i1 %104, label %.sink.split, label %105
 
 105:                                              ; preds = %_ZN4NodenwEm.exit33
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i32, ptr noundef null, ptr noundef %85) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i32, ptr noundef null, ptr noundef %85) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %.0.i.i.i32, align 8
   %106 = getelementptr inbounds i8, ptr %.0.i.i.i32, i64 52
   store i32 4, ptr %106, align 4
@@ -6067,7 +6067,7 @@ _ZN4NodenwEm.exit:                                ; preds = %18, %20
   %28 = getelementptr inbounds i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
   %30 = xor i32 %29, 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null, ptr noundef %27) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i, ptr noundef null, ptr noundef %27) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
   store i32 %30, ptr %31, align 4
@@ -6281,7 +6281,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
   %25 = getelementptr inbounds i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(20) %23) #10
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 1) #10
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 1) #10
   %28 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
@@ -6468,7 +6468,7 @@ define hidden noundef ptr @_ZN8BoolNode5IdealEP8PhaseGVNb(ptr nocapture noundef 
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i32
   %86 = add nsw i32 %85, -48
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %78, ptr noundef null, ptr noundef %77) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef null, ptr noundef %77) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %78, align 8
   %87 = getelementptr inbounds i8, ptr %78, i64 52
   store i32 %86, ptr %87, align 4
@@ -6573,7 +6573,7 @@ _ZN8BoolNode25is_counted_loop_exit_testEv.exit:   ; preds = %.lr.ph.i, %42, %32
   %149 = load i32, ptr %148, align 4
   %150 = xor i32 %149, 4
   %151 = select i1 %147, i32 %149, i32 %150
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %139, ptr noundef null, ptr noundef %145) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %139, ptr noundef null, ptr noundef %145) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %139, align 8
   %152 = getelementptr inbounds i8, ptr %139, i64 52
   store i32 %151, ptr %152, align 4
@@ -6689,7 +6689,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 221:                                              ; preds = %215
   %222 = load i32, ptr %30, align 4
   %223 = xor i32 %222, 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %219, ptr noundef null, ptr noundef %218) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %219, ptr noundef null, ptr noundef %218) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %219, align 8
   %224 = getelementptr inbounds i8, ptr %219, i64 52
   store i32 %223, ptr %224, align 4
@@ -6809,7 +6809,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 297:                                              ; preds = %291
   %298 = load i32, ptr %30, align 4
   %299 = xor i32 %298, 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %295, ptr noundef null, ptr noundef %294) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %295, ptr noundef null, ptr noundef %294) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %295, align 8
   %300 = getelementptr inbounds i8, ptr %295, i64 52
   store i32 %299, ptr %300, align 4
@@ -6897,7 +6897,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 
 350:                                              ; preds = %344
   %351 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %348, ptr noundef null, ptr noundef %347) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %348, ptr noundef null, ptr noundef %347) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %348, align 8
   %352 = getelementptr inbounds i8, ptr %348, i64 52
   store i32 %351, ptr %352, align 4
@@ -6963,7 +6963,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 
 390:                                              ; preds = %384
   %391 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %388, ptr noundef null, ptr noundef %387) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %388, ptr noundef null, ptr noundef %387) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %388, align 8
   %392 = getelementptr inbounds i8, ptr %388, i64 52
   store i32 %391, ptr %392, align 4
@@ -7056,7 +7056,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
 
 443:                                              ; preds = %437
   %444 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %441, ptr noundef null, ptr noundef %440) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %441, ptr noundef null, ptr noundef %440) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %441, align 8
   %445 = getelementptr inbounds i8, ptr %441, i64 52
   store i32 %444, ptr %445, align 4
@@ -7122,7 +7122,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
 
 483:                                              ; preds = %477
   %484 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %481, ptr noundef null, ptr noundef %480) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %481, ptr noundef null, ptr noundef %480) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %481, align 8
   %485 = getelementptr inbounds i8, ptr %481, i64 52
   store i32 %484, ptr %485, align 4
@@ -7218,7 +7218,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit444:        ; preds = %.lr.ph.i441, %.lr.p
 545:                                              ; preds = %539
   %546 = load i32, ptr %30, align 4
   %547 = xor i32 %546, 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %543, ptr noundef null, ptr noundef %542) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %543, ptr noundef null, ptr noundef %542) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %543, align 8
   %548 = getelementptr inbounds i8, ptr %543, i64 52
   store i32 %547, ptr %548, align 4
@@ -7374,7 +7374,7 @@ _ZNK4Node12find_int_conEi.exit453.thread:         ; preds = %567, %561, %554, %.
   br i1 %633, label %1009, label %634
 
 634:                                              ; preds = %628
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %632, ptr noundef null, ptr noundef %631) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %632, ptr noundef null, ptr noundef %631) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %632, align 8
   %635 = getelementptr inbounds i8, ptr %632, i64 52
   store i32 1, ptr %635, align 4
@@ -7445,7 +7445,7 @@ thread-pre-split496:                              ; preds = %642, %640
 
 662:                                              ; preds = %659
   %663 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %1, i32 noundef 0) #10
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %660, ptr noundef null, ptr noundef %26, ptr noundef %663) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %660, ptr noundef null, ptr noundef nonnull %26, ptr noundef %663) #10
   %664 = getelementptr inbounds i8, ptr %660, i64 44
   store i32 192, ptr %664, align 4
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %660, align 8
@@ -7465,7 +7465,7 @@ thread-pre-split496:                              ; preds = %642, %640
   %674 = icmp eq i32 %672, 5
   %spec.select.i463 = or i1 %673, %674
   %675 = select i1 %spec.select.i463, i32 0, i32 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %669, ptr noundef null, ptr noundef %668) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %669, ptr noundef null, ptr noundef %668) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %669, align 8
   %676 = getelementptr inbounds i8, ptr %669, i64 52
   store i32 %675, ptr %676, align 4
@@ -7506,7 +7506,7 @@ thread-pre-split496:                              ; preds = %642, %640
   br i1 %691, label %694, label %692
 
 692:                                              ; preds = %689
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %690, ptr noundef null, ptr noundef %26, ptr noundef nonnull %28) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %690, ptr noundef null, ptr noundef nonnull %26, ptr noundef nonnull %28) #10
   %693 = getelementptr inbounds i8, ptr %690, i64 44
   store i32 192, ptr %693, align 4
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpUNode, i64 16), ptr %690, align 8
@@ -7521,7 +7521,7 @@ thread-pre-split496:                              ; preds = %642, %640
   br i1 %699, label %1009, label %700
 
 700:                                              ; preds = %694
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %698, ptr noundef null, ptr noundef %697) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %698, ptr noundef null, ptr noundef %697) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %698, align 8
   %701 = getelementptr inbounds i8, ptr %698, i64 52
   store i32 5, ptr %701, align 4
@@ -7535,7 +7535,7 @@ thread-pre-split496:                              ; preds = %642, %640
   br i1 %705, label %708, label %706
 
 706:                                              ; preds = %703
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %704, ptr noundef null, ptr noundef %26, ptr noundef nonnull %28) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %704, ptr noundef null, ptr noundef nonnull %26, ptr noundef nonnull %28) #10
   %707 = getelementptr inbounds i8, ptr %704, i64 44
   store i32 192, ptr %707, align 4
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpUNode, i64 16), ptr %704, align 8
@@ -7550,7 +7550,7 @@ thread-pre-split496:                              ; preds = %642, %640
   br i1 %713, label %1009, label %714
 
 714:                                              ; preds = %708
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %712, ptr noundef null, ptr noundef %711) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %712, ptr noundef null, ptr noundef %711) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %712, align 8
   %715 = getelementptr inbounds i8, ptr %712, i64 52
   store i32 1, ptr %715, align 4
@@ -7606,7 +7606,7 @@ thread-pre-split496:                              ; preds = %642, %640
   %744 = load ptr, ptr %725, align 8
   %745 = getelementptr inbounds i8, ptr %744, i64 8
   %746 = load ptr, ptr %745, align 8
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %740, ptr noundef null, ptr noundef %746, ptr noundef %28) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %740, ptr noundef null, ptr noundef %746, ptr noundef nonnull %28) #10
   br label %.sink.split
 
 747:                                              ; preds = %724
@@ -7639,7 +7639,7 @@ thread-pre-split496:                              ; preds = %642, %640
 
 762:                                              ; preds = %755
   %763 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %760, ptr noundef null, ptr noundef %759) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %760, ptr noundef null, ptr noundef %759) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %760, align 8
   %764 = getelementptr inbounds i8, ptr %760, i64 52
   store i32 %763, ptr %764, align 4
@@ -7700,7 +7700,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
 
 794:                                              ; preds = %788
   %795 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %792, ptr noundef null, ptr noundef %791) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %792, ptr noundef null, ptr noundef %791) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %792, align 8
   %796 = getelementptr inbounds i8, ptr %792, i64 52
   store i32 %795, ptr %796, align 4
@@ -7805,7 +7805,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
 
 855:                                              ; preds = %849
   %856 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %853, ptr noundef null, ptr noundef %852) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %853, ptr noundef null, ptr noundef %852) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %853, align 8
   %857 = getelementptr inbounds i8, ptr %853, i64 52
   store i32 %856, ptr %857, align 4
@@ -7889,7 +7889,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
   br i1 %906, label %909, label %907
 
 907:                                              ; preds = %904
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %905, ptr noundef null, ptr noundef %880, ptr noundef %28) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %905, ptr noundef null, ptr noundef %880, ptr noundef nonnull %28) #10
   %908 = getelementptr inbounds i8, ptr %905, i64 44
   store i32 192, ptr %908, align 4
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %905, align 8
@@ -7905,7 +7905,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
 
 915:                                              ; preds = %909
   %916 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %913, ptr noundef null, ptr noundef %912) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %913, ptr noundef null, ptr noundef %912) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %913, align 8
   %917 = getelementptr inbounds i8, ptr %913, i64 52
   store i32 %916, ptr %917, align 4
@@ -7949,7 +7949,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
   br i1 %945, label %948, label %946
 
 946:                                              ; preds = %943
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %944, ptr noundef null, ptr noundef nonnull %876, ptr noundef %28) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %944, ptr noundef null, ptr noundef nonnull %876, ptr noundef nonnull %28) #10
   %947 = getelementptr inbounds i8, ptr %944, i64 44
   store i32 192, ptr %947, align 4
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %944, align 8
@@ -7965,7 +7965,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
 
 954:                                              ; preds = %948
   %955 = load i32, ptr %30, align 4
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %952, ptr noundef null, ptr noundef %951) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %952, ptr noundef null, ptr noundef %951) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %952, align 8
   %956 = getelementptr inbounds i8, ptr %952, i64 52
   store i32 %955, ptr %956, align 4
@@ -8018,7 +8018,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
   %989 = load ptr, ptr %962, align 8
   %990 = getelementptr inbounds i8, ptr %989, i64 16
   %991 = load ptr, ptr %990, align 8
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %986, ptr noundef null, ptr noundef %991, ptr noundef %28) #10
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %986, ptr noundef null, ptr noundef %991, ptr noundef nonnull %28) #10
   %992 = getelementptr inbounds i8, ptr %986, i64 44
   store i32 192, ptr %992, align 4
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %986, align 8
@@ -8039,7 +8039,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
   %1003 = load i8, ptr %1002, align 1
   %1004 = sext i8 %1003 to i32
   %1005 = add nsw i32 %1004, -48
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %997, ptr noundef null, ptr noundef %996) #10
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %997, ptr noundef null, ptr noundef %996) #10
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %997, align 8
   %1006 = getelementptr inbounds i8, ptr %997, i64 52
   store i32 %1005, ptr %1006, align 4

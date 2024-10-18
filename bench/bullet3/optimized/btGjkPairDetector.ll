@@ -169,7 +169,7 @@ entry:
   %arrayidx5.i = getelementptr inbounds i8, ptr %normalInB, i64 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %normalInB, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %normalInB, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %localTransA, ptr noundef nonnull align 4 dereferenceable(16) %input, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %localTransA, ptr noundef nonnull align 4 dereferenceable(64) %input, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %input, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %localTransA, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -180,7 +180,7 @@ entry:
   %m_origin3.i = getelementptr inbounds i8, ptr %input, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %localTransB, ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %localTransB, ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, i64 16, i1 false)
   %arrayidx6.i.i63 = getelementptr inbounds i8, ptr %input, i64 80
   %arrayidx8.i.i64 = getelementptr inbounds i8, ptr %localTransB, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i64, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i63, i64 16, i1 false)
@@ -852,7 +852,7 @@ if.end72.i.i:                                     ; preds = %if.end72.sink.split
   br label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
 
 _ZL11btDoSimplexP9btSimplexP9btVector3.exit:      ; preds = %if.end38, %if.end72.i.i
-  %call5.i = call fastcc noundef i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef %simplex1, ptr noundef %dir)
+  %call5.i = call fastcc noundef i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %simplex1, ptr noundef nonnull %dir)
   switch i32 %call5.i, label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit.if.end48_crit_edge [
     i32 1, label %for.end
     i32 -1, label %for.end.loopexit911

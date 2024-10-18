@@ -5828,7 +5828,7 @@ if.else.i.thread.i310:                            ; preds = %if.then.thread.i307
   br label %.noexc.i336.i
 
 if.then.i.i300:                                   ; preds = %if.then.thread.i307, %if.then.i276
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.269") align 8 %agg.tmp12.i258, ptr noundef nonnull align 8 dereferenceable(24) %vertices.i327.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i259, i64 noundef 1, ptr nonnull %agg.tmp.sroa.0.0.i.i335.i)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.269") align 8 %agg.tmp12.i258, ptr noundef nonnull align 8 dereferenceable(40) %vertices.i327.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i259, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i335.i)
           to label %.noexc.i336.i unwind label %lpad99.i.i
 
 if.then7.i.i.i279:                                ; preds = %if.then.i276

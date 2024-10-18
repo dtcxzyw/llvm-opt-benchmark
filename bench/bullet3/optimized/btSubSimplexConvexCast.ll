@@ -557,7 +557,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22btSubsimplexConvexCastD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

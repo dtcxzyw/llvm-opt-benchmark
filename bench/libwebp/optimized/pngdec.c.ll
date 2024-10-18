@@ -672,7 +672,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %30 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #17
+  %31 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %30) #17
   %32 = icmp eq ptr %31, null
   br i1 %32, label %HexStringToBytes.exit.thread, label %.preheader.i
 

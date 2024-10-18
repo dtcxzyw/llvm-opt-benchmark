@@ -513,7 +513,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -866,7 +866,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -1133,7 +1133,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -1400,7 +1400,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -1667,7 +1667,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -1934,7 +1934,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -2201,7 +2201,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -2468,7 +2468,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -2735,7 +2735,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -3002,7 +3002,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -3269,7 +3269,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -3536,7 +3536,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -3803,7 +3803,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -4070,7 +4070,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -4337,7 +4337,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -4604,7 +4604,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -4871,7 +4871,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -5138,7 +5138,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -5405,7 +5405,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -5672,7 +5672,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -5939,7 +5939,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -6206,7 +6206,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -6473,7 +6473,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -6740,7 +6740,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -7007,7 +7007,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -7274,7 +7274,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -7541,7 +7541,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -7808,7 +7808,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -8075,7 +8075,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -8342,7 +8342,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -8609,7 +8609,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -8876,7 +8876,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -9143,7 +9143,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -9410,7 +9410,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -9677,7 +9677,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -9944,7 +9944,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -10211,7 +10211,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -10478,7 +10478,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -10745,7 +10745,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -11012,7 +11012,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -11279,7 +11279,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -11546,7 +11546,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -11813,7 +11813,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -12080,7 +12080,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -12347,7 +12347,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -12614,7 +12614,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -12881,7 +12881,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -13148,7 +13148,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -13415,7 +13415,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -13682,7 +13682,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -13949,7 +13949,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -14216,7 +14216,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -14483,7 +14483,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -14750,7 +14750,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -15017,7 +15017,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -15284,7 +15284,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -15551,7 +15551,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -15818,7 +15818,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -16085,7 +16085,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -16352,7 +16352,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -16619,7 +16619,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -16886,7 +16886,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -17153,7 +17153,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -17420,7 +17420,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -17687,7 +17687,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -17954,7 +17954,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -18274,7 +18274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %13,
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, %31, %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %41, i8 0, i64 40, i1 false)
   store i64 -1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %43, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -18771,7 +18771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %14,
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, %32, %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %42, i8 0, i64 40, i1 false)
   store i64 -1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %44, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -19238,7 +19238,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery13CreateQue
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %47 = load ptr, ptr %22, align 8
   store ptr %47, ptr %46, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %21, i8 0, i64 16, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %49 = load ptr, ptr %23, align 8
   store ptr %49, ptr %48, align 8
@@ -19367,7 +19367,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %38 = load ptr, ptr %37, align 8, !alias.scope !12, !noalias !9
   store ptr %38, ptr %36, align 8, !alias.scope !9, !noalias !12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false), !alias.scope !12, !noalias !9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %34, i8 0, i64 16, i1 false), !alias.scope !12, !noalias !9
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %41 = load ptr, ptr %40, align 8, !alias.scope !12, !noalias !9
@@ -20328,7 +20328,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %12, double noundef 0.000000e+00, double noundef 1.000000e+00)
@@ -21401,7 +21401,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %41, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %39, i8 0, i64 16, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %46 = load ptr, ptr %45, align 8
@@ -21470,7 +21470,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %81 = load ptr, ptr %80, align 8, !alias.scope !33, !noalias !30
   store ptr %81, ptr %79, align 8, !alias.scope !30, !noalias !33
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false), !alias.scope !33, !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %77, i8 0, i64 16, i1 false), !alias.scope !33, !noalias !30
   %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %84 = load ptr, ptr %83, align 8, !alias.scope !33, !noalias !30
@@ -21548,7 +21548,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1_EE11_S
   %121 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %122 = load ptr, ptr %121, align 8, !alias.scope !39, !noalias !36
   store ptr %122, ptr %120, align 8, !alias.scope !36, !noalias !39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false), !alias.scope !39, !noalias !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %118, i8 0, i64 16, i1 false), !alias.scope !39, !noalias !36
   %123 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
   %124 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %125 = load ptr, ptr %124, align 8, !alias.scope !39, !noalias !36

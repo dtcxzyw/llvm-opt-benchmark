@@ -1771,7 +1771,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, label %if.then.i.i2.i.i
 
 if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull %retval.0.i.i.i.i, i32 %retval.sroa.0.0.i.i) #8
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i.i, i32 %retval.sroa.0.0.i.i) #8
   br label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit
 
 _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
@@ -2911,7 +2911,7 @@ cleanup:                                          ; preds = %if.end67, %if.end77
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
   %gcScope_.i = getelementptr inbounds i8, ptr %sm, i64 16
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #8
-  call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sm) #8
+  call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %sm) #8
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %if.end, %cleanup, %if.then59, %if.then
@@ -9609,7 +9609,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, label %if.then.i.i2.i.i
 
 if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i.i, i32 %retval.sroa.0.0.i123) #8
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i.i, i32 %retval.sroa.0.0.i123) #8
   br label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit
 
 _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
@@ -9639,7 +9639,7 @@ for.end121:                                       ; preds = %for.inc119
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
   %gcScope_.i = getelementptr inbounds i8, ptr %sm, i64 16
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #8
-  call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sm) #8
+  call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %sm) #8
   br i1 %cmp129.not, label %cleanup178, label %for.body136
 
 for.cond134:                                      ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
@@ -13002,7 +13002,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %gcScope_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #8
-  tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }

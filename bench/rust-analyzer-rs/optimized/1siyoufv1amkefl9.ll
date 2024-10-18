@@ -131,7 +131,7 @@ define void @"_ZN87_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..TryFrom$LT$c
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit" unwind label %12
 
 10:                                               ; preds = %2
@@ -197,7 +197,7 @@ define void @"_ZN86_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..TryFrom$LT$s
 18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h130f8f476473915dE.exit" unwind label %20
 
 20:                                               ; preds = %18
@@ -231,7 +231,7 @@ define void @"_ZN75_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..TryFrom$LT$$
 10:                                               ; preds = %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i" unwind label %13, !noalias !21
 
 "_ZN87_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..TryFrom$LT$camino..Utf8PathBuf$GT$$GT$8try_from17h324f0f150bbade8fE.exit": ; preds = %3
@@ -267,7 +267,7 @@ define void @_ZN5paths10AbsPathBuf6assert17h519df9bb217da459E(ptr noalias nocapt
 9:                                                ; preds = %2
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i" unwind label %12, !noalias !30
 
 11:                                               ; preds = %2
@@ -317,7 +317,7 @@ define internal fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit" unwind label %12
 
 11:                                               ; preds = %1
@@ -368,7 +368,7 @@ define void @_ZN5paths10AbsPathBuf11assert_utf817h2ea6b6aeba9ff29aE(ptr noalias 
 16:                                               ; preds = %9
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i.i" unwind label %19, !noalias !48
 
 18:                                               ; preds = %9
@@ -427,7 +427,7 @@ define internal fastcc void @"_ZN5paths10AbsPathBuf11assert_utf828_$u7b$$u7b$clo
 15:                                               ; preds = %1
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h130f8f476473915dE.exit" unwind label %18
 
 17:                                               ; preds = %1
@@ -660,7 +660,7 @@ define void @_ZN5paths7AbsPath9normalize17h54d05f3dece16b61E(ptr noalias nocaptu
 
 31:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i" unwind label %59, !noalias !62
 
 thread-pre-split.i:                               ; preds = %29
@@ -770,7 +770,7 @@ define void @_ZN5paths7AbsPath11to_path_buf17hfca015abd9efb4a4E(ptr noalias noca
 11:                                               ; preds = %3
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %common.resume unwind label %14, !noalias !76
 
 13:                                               ; preds = %3
@@ -799,7 +799,7 @@ common.resume:                                    ; preds = %17, %11
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %common.resume unwind label %20
 
 19:                                               ; preds = %16
@@ -978,7 +978,7 @@ define void @"_ZN87_$LT$paths..RelPathBuf$u20$as$u20$core..convert..TryFrom$LT$c
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit" unwind label %12
 
 10:                                               ; preds = %2
@@ -1023,7 +1023,7 @@ define void @"_ZN75_$LT$paths..RelPathBuf$u20$as$u20$core..convert..TryFrom$LT$$
 10:                                               ; preds = %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i" unwind label %13, !noalias !97
 
 "_ZN87_$LT$paths..RelPathBuf$u20$as$u20$core..convert..TryFrom$LT$camino..Utf8PathBuf$GT$$GT$8try_from17h4ed31ec41ac8f35fE.exit": ; preds = %3
@@ -1097,7 +1097,7 @@ define void @_ZN5paths7RelPath11to_path_buf17h5f48c296ed870a30E(ptr noalias noca
 11:                                               ; preds = %3
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %common.resume unwind label %14, !noalias !103
 
 13:                                               ; preds = %3
@@ -1126,7 +1126,7 @@ common.resume:                                    ; preds = %17, %11
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %common.resume unwind label %20
 
 19:                                               ; preds = %16

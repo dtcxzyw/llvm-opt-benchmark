@@ -153,7 +153,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #11
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #11
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
@@ -171,7 +171,7 @@ _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKbEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #11
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -198,7 +198,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #11
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #11
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
@@ -216,7 +216,7 @@ _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKjEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #11
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -305,7 +305,7 @@ define dso_local void @_ZN4llvm20LoopUnrollAndJamPass3runERNS_8LoopNestERNS_15An
 _ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %55 = getelementptr inbounds i8, ptr %20, i64 88
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %55, i64 noundef 4) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull %55, i64 noundef 4) #11
   call void @_ZN4llvm21appendLoopsToWorklistIRNS_8ArrayRefIPNS_4LoopEEEEEvOT_RNS_21SmallPriorityWorklistIS3_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(120) %20) #11
   %56 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #11
   br i1 %56, label %._crit_edge.i, label %.lr.ph.i
@@ -385,10 +385,10 @@ _ZNK4llvm4Loop7getNameEv.exit.i:                  ; preds = %91, %87, %80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @_ZN4llvm26gatherUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterEiSt8optionalIjESE_SD_IbESF_SF_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::TargetTransformInfo::UnrollingPreferences") align 4 %8, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %47, i64 0, i64 0, i16 0, i16 0, i16 0, i64 0) #11
-  %100 = call i64 @_ZN4llvm24gatherPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoESt8optionalIbES8_b(ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(8) %44, i16 0, i16 0, i1 noundef zeroext false) #11
+  call void @_ZN4llvm26gatherUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterEiSt8optionalIjESE_SD_IbESF_SF_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::TargetTransformInfo::UnrollingPreferences") align 4 %8, ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %47, i64 0, i64 0, i16 0, i16 0, i16 0, i64 0) #11
+  %100 = call i64 @_ZN4llvm24gatherPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoESt8optionalIbES8_b(ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(8) %44, i16 0, i16 0, i1 noundef zeroext false) #11
   store i64 %100, ptr %9, align 8
-  %101 = call noundef i32 @_ZN4llvm29hasUnrollAndJamTransformationEPKNS_4LoopE(ptr noundef %85) #11
+  %101 = call noundef i32 @_ZN4llvm29hasUnrollAndJamTransformationEPKNS_4LoopE(ptr noundef nonnull %85) #11
   %102 = and i32 %101, 2
   %.not88.i.i = icmp eq i32 %102, 0
   br i1 %.not88.i.i, label %103, label %_ZL21tryToUnrollAndJamLoopPN4llvm4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERNS_14DependenceInfoERNS_25OptimizationRemarkEmitterEi.exit.thread.i
@@ -436,11 +436,11 @@ _ZNK4llvm4Loop7getNameEv.exit.i:                  ; preds = %91, %87, %80
   br i1 %or.cond.not.i.i, label %120, label %_ZL21tryToUnrollAndJamLoopPN4llvm4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERNS_14DependenceInfoERNS_25OptimizationRemarkEmitterEi.exit.thread.i
 
 120:                                              ; preds = %115
-  %121 = call fastcc noundef zeroext i1 @_ZL18hasAnyUnrollPragmaPKN4llvm4LoopENS_9StringRefE(ptr noundef %85, ptr nonnull @.str.12, i64 17)
+  %121 = call fastcc noundef zeroext i1 @_ZL18hasAnyUnrollPragmaPKN4llvm4LoopENS_9StringRefE(ptr noundef nonnull %85, ptr nonnull @.str.12, i64 17)
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %120
-  %123 = call fastcc noundef zeroext i1 @_ZL18hasAnyUnrollPragmaPKN4llvm4LoopENS_9StringRefE(ptr noundef %85, ptr nonnull @.str.13, i64 25)
+  %123 = call fastcc noundef zeroext i1 @_ZL18hasAnyUnrollPragmaPKN4llvm4LoopENS_9StringRefE(ptr noundef nonnull %85, ptr nonnull @.str.13, i64 25)
   br i1 %123, label %124, label %_ZL21tryToUnrollAndJamLoopPN4llvm4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERNS_14DependenceInfoERNS_25OptimizationRemarkEmitterEi.exit.thread.i
 
 124:                                              ; preds = %122, %120
@@ -453,7 +453,7 @@ _ZNK4llvm4Loop7getNameEv.exit.i:                  ; preds = %91, %87, %80
   store i32 32, ptr %62, align 8
   store i32 0, ptr %63, align 4
   store i32 0, ptr %64, align 8
-  call void @_ZN4llvm11CodeMetrics22collectEphemeralValuesEPKNS_4LoopEPNS_15AssumptionCacheERNS_15SmallPtrSetImplIPKNS_5ValueEEE(ptr noundef nonnull %85, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(28) %10) #11
+  call void @_ZN4llvm11CodeMetrics22collectEphemeralValuesEPKNS_4LoopEPNS_15AssumptionCacheERNS_15SmallPtrSetImplIPKNS_5ValueEEE(ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(185) %46, ptr noundef nonnull align 8 dereferenceable(28) %10) #11
   %127 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE11getSubLoopsEv(ptr noundef nonnull align 8 dereferenceable(152) %85) #11
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %128, align 8
@@ -516,7 +516,7 @@ _ZNK4llvm4Loop7getNameEv.exit.i:                  ; preds = %91, %87, %80
   %167 = trunc i64 %166 to i32
   %168 = select i1 %165, i32 %167, i32 undef
   store i8 0, ptr %7, align 1
-  %169 = call noundef zeroext i1 @_ZN4llvm18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjbjRKNS_19UnrollCostEstimatorERNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesERb(ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(124) %40, ptr noundef nonnull %41, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %24, i32 noundef %161, i32 noundef 0, i1 noundef zeroext false, i32 noundef %162, ptr noundef nonnull align 8 dereferenceable(29) %12, ptr noundef nonnull align 4 dereferenceable(61) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %169 = call noundef zeroext i1 @_ZN4llvm18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjbjRKNS_19UnrollCostEstimatorERNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesERb(ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(124) %40, ptr noundef nonnull align 8 dereferenceable(144) %41, ptr noundef nonnull align 8 dereferenceable(185) %46, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %161, i32 noundef 0, i1 noundef zeroext false, i32 noundef %162, ptr noundef nonnull align 8 dereferenceable(29) %12, ptr noundef nonnull align 4 dereferenceable(61) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
   br i1 %169, label %_ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjRKNS_19UnrollCostEstimatorEjjRNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesE.exit.thread.i, label %170
 
 170:                                              ; preds = %158
@@ -822,7 +822,7 @@ _ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13Do
   store ptr null, ptr %14, align 8
   %320 = load i8, ptr %76, align 2
   %321 = trunc i8 %320 to i1
-  %322 = call noundef i32 @_ZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_(ptr noundef nonnull %85, i32 noundef %319, i32 noundef %161, i32 noundef %162, i1 noundef zeroext %321, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %40, ptr noundef nonnull %46, ptr noundef nonnull %44, ptr noundef nonnull %24, ptr noundef nonnull %14) #11
+  %322 = call noundef i32 @_ZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_(ptr noundef nonnull %85, i32 noundef %319, i32 noundef %161, i32 noundef %162, i1 noundef zeroext %321, ptr noundef nonnull align 8 dereferenceable(144) %41, ptr noundef nonnull align 8 dereferenceable(1392) %42, ptr noundef nonnull align 8 dereferenceable(124) %40, ptr noundef nonnull align 8 dereferenceable(185) %46, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %14) #11
   %323 = load ptr, ptr %14, align 8
   %.not91.i.i = icmp eq ptr %323, null
   br i1 %.not91.i.i, label %331, label %324
@@ -940,7 +940,7 @@ _ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit.i: ; preds
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit.i, %_ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit.i
   %.0.lcssa.i = phi i1 [ false, %_ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit.i ], [ %360, %_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit.i ]
-  %362 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #11
+  %362 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %54) #11
   %363 = load ptr, ptr %54, align 8
   %364 = icmp eq ptr %363, %55
   br i1 %364, label %_ZN4llvm11SmallVectorIPNS_4LoopELj4EED2Ev.exit.i.i.i, label %365
@@ -1407,7 +1407,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
@@ -1654,7 +1654,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit: ; preds = %20, %8,
   br label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
 
 48:                                               ; preds = %36
-  %49 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE) #11
+  %49 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE) #11
   %.not.i.i.i = icmp eq ptr %49, null
   %.pre.i.i = load ptr, ptr %33, align 8
   %.pre4.i.i = load ptr, ptr %0, align 8
@@ -1749,10 +1749,10 @@ define internal void @_GLOBAL__sub_I_LoopUnrollAndJamPass.cpp() #8 section ".tex
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17AllowUnrollAndJam, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17AllowUnrollAndJam) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 160), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17AllowUnrollAndJam, ptr nonnull @.str, i64 20) #11
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL17AllowUnrollAndJam, ptr nonnull align 1 dereferenceable(21) @.str, i64 20) #11
   %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL17AllowUnrollAndJam, i64 10), align 2
   %4 = and i16 %3, -97
   %5 = or disjoint i16 %4, 32
@@ -1768,10 +1768,10 @@ define internal void @_GLOBAL__sub_I_LoopUnrollAndJamPass.cpp() #8 section ".tex
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL17UnrollAndJamCount, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17UnrollAndJamCount) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 160), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17UnrollAndJamCount, ptr nonnull @.str.3, i64 20) #11
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL17UnrollAndJamCount, ptr nonnull align 1 dereferenceable(21) @.str.3, i64 20) #11
   %7 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL17UnrollAndJamCount, i64 10), align 2
   %8 = and i16 %7, -97
   %9 = or disjoint i16 %8, 32
@@ -1787,10 +1787,10 @@ define internal void @_GLOBAL__sub_I_LoopUnrollAndJamPass.cpp() #8 section ".tex
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL21UnrollAndJamThreshold, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL21UnrollAndJamThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL21UnrollAndJamThreshold) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UnrollAndJamThreshold, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL21UnrollAndJamThreshold, i64 160), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL21UnrollAndJamThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UnrollAndJamThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UnrollAndJamThreshold, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL21UnrollAndJamThreshold, ptr nonnull @.str.6, i64 24) #11
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL21UnrollAndJamThreshold, ptr nonnull align 1 dereferenceable(25) @.str.6, i64 24) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 60, ptr %2, align 4
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE15setInitialValueERKj(ptr noundef nonnull align 8 dereferenceable(192) @_ZL21UnrollAndJamThreshold, ptr noundef nonnull align 4 dereferenceable(4) %2) #11
@@ -1810,10 +1810,10 @@ define internal void @_GLOBAL__sub_I_LoopUnrollAndJamPass.cpp() #8 section ".tex
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL27PragmaUnrollAndJamThreshold, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL27PragmaUnrollAndJamThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL27PragmaUnrollAndJamThreshold) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27PragmaUnrollAndJamThreshold, i64 152), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL27PragmaUnrollAndJamThreshold, i64 160), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL27PragmaUnrollAndJamThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL27PragmaUnrollAndJamThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL27PragmaUnrollAndJamThreshold, i64 176), align 8
-  call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL27PragmaUnrollAndJamThreshold, ptr nonnull @.str.9, i64 31) #11
+  call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL27PragmaUnrollAndJamThreshold, ptr nonnull align 1 dereferenceable(32) @.str.9, i64 31) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 1024, ptr %1, align 4
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE15setInitialValueERKj(ptr noundef nonnull align 8 dereferenceable(192) @_ZL27PragmaUnrollAndJamThreshold, ptr noundef nonnull align 4 dereferenceable(4) %1) #11

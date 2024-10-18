@@ -103,7 +103,7 @@ if.end.i:                                         ; preds = %if.end25
 
 if.end3.i:                                        ; preds = %if.end.i
   %count.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 400
-  %call4.i = call i32 @HIST_count_simple(ptr noundef nonnull %count.i, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29) #14
+  %call4.i = call i32 @HIST_count_simple(ptr noundef nonnull %count.i, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %huffWeight28, i64 noundef range(i64 0, 256) %conv29) #14
   %cmp5.i = icmp eq i32 %maxSymbolValue, %call4.i
   %cmp9.i = icmp eq i32 %call4.i, 1
   %or.cond = or i1 %cmp5.i, %cmp9.i
@@ -111,17 +111,17 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end12.i:                                       ; preds = %if.end3.i
   %7 = load i32, ptr %maxSymbolValue.i, align 4
-  %call13.i = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %conv29, i32 noundef %7) #14
+  %call13.i = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef range(i64 0, 256) %conv29, i32 noundef %7) #14
   %norm.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 452
   %8 = load i32, ptr %maxSymbolValue.i, align 4
-  %call17.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call13.i, ptr noundef nonnull %count.i, i64 noundef %conv29, i32 noundef %8, i32 noundef 0) #14
+  %call17.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call13.i, ptr noundef nonnull %count.i, i64 noundef range(i64 0, 256) %conv29, i32 noundef %8, i32 noundef 0) #14
   %cmp.i.i = icmp ult i64 %call17.i, -119
   br i1 %cmp.i.i, label %do.end22.i, label %HUF_compressWeights.exit.thread
 
 do.end22.i:                                       ; preds = %if.end12.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr26 to i64
   %9 = load i32, ptr %maxSymbolValue.i, align 4
-  %call25.i = call i64 @FSE_writeNCount(ptr noundef nonnull %add.ptr26, i64 noundef %sub27, ptr noundef nonnull %norm.i, i32 noundef %9, i32 noundef %call13.i) #14
+  %call25.i = call i64 @FSE_writeNCount(ptr noundef nonnull %add.ptr26, i64 noundef range(i64 0, -1) %sub27, ptr noundef nonnull %norm.i, i32 noundef %9, i32 noundef %call13.i) #14
   %cmp.i34.i = icmp ult i64 %call25.i, -119
   br i1 %cmp.i34.i, label %do.end31.i, label %HUF_compressWeights.exit.thread
 
@@ -135,7 +135,7 @@ do.end31.i:                                       ; preds = %do.end22.i
 
 do.end46.i:                                       ; preds = %do.end31.i
   %gepdiff.i = sub nsw i64 %sub27, %call25.i
-  %call52.i = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %add.ptr32.i, i64 noundef %gepdiff.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29, ptr noundef %add.ptr.i.i) #14
+  %call52.i = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %add.ptr32.i, i64 noundef %gepdiff.i, ptr noundef nonnull %huffWeight28, i64 noundef range(i64 0, 256) %conv29, ptr noundef %add.ptr.i.i) #14
   %cmp.i38.i = icmp ult i64 %call52.i, -119
   br i1 %cmp.i38.i, label %do.end58.i, label %HUF_compressWeights.exit.thread
 

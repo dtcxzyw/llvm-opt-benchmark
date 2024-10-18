@@ -1037,7 +1037,7 @@ define hidden void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4
 
 4:                                                ; preds = %3
   %5 = add i32 %.09.i, 1
-  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.09.i, ptr nonnull %0) #17, !srcloc !15
+  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.09.i, ptr nonnull align 4 dereferenceable(8) %0) #17, !srcloc !15
   %7 = icmp eq i32 %6, %.09.i
   br i1 %7, label %9, label %3, !llvm.loop !16
 
@@ -1135,7 +1135,7 @@ define hidden void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr no
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #17
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #17
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #17

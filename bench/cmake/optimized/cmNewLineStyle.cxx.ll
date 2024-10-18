@@ -141,7 +141,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %12
 
 .noexc4:                                          ; preds = %.noexc
@@ -151,7 +151,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
 10:                                               ; preds = %.noexc4
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body
 
 12:                                               ; preds = %.noexc, %8
@@ -165,7 +165,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
           to label %.noexc5 unwind label %18
 
 .noexc5:                                          ; preds = %14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc6 unwind label %18
 
 .noexc6:                                          ; preds = %.noexc5
@@ -175,7 +175,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
 16:                                               ; preds = %.noexc6
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body
 
 18:                                               ; preds = %.noexc5, %14
@@ -189,7 +189,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
           to label %.noexc10 unwind label %24
 
 .noexc10:                                         ; preds = %20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc11 unwind label %24
 
 .noexc11:                                         ; preds = %.noexc10
@@ -199,7 +199,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
 22:                                               ; preds = %.noexc11
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body
 
 24:                                               ; preds = %.noexc10, %20
@@ -213,7 +213,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
           to label %.noexc15 unwind label %30
 
 .noexc15:                                         ; preds = %26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc16 unwind label %30
 
 .noexc16:                                         ; preds = %.noexc15
@@ -223,7 +223,7 @@ define dso_local void @_ZNK14cmNewLineStyle13GetCharactersB5cxx11Ev(ptr dead_on_
 28:                                               ; preds = %.noexc16
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body
 
 30:                                               ; preds = %.noexc15, %26

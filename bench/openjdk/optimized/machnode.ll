@@ -363,7 +363,7 @@ define hidden noundef i32 @_ZNK8MachNode4sizeEP13PhaseRegAlloc(ptr noundef nonnu
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2288
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef i32 @_ZN11PhaseOutput17scratch_emit_sizeEPK4Node(ptr noundef nonnull align 8 dereferenceable(700) %6, ptr noundef nonnull %0) #13
+  %7 = tail call noundef i32 @_ZN11PhaseOutput17scratch_emit_sizeEPK4Node(ptr noundef nonnull align 8 dereferenceable(700) %6, ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   ret i32 %7
 }
 
@@ -1693,7 +1693,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17MachSafePoi
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 184
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(52) %0) #13
+  %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   %.not24.i = icmp eq i32 %.017.lcssa.i, %73
   br i1 %.not24.i, label %_ZNK8MachNode10in_RegMaskEj.exit, label %74
 

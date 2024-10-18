@@ -191,7 +191,7 @@ common.resume:                                    ; preds = %ehcleanup113, %lpad
 lpad.i:                                           ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %agg.result) #14
+  tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   br label %common.resume
 
 _ZN9btVectorXIfEC2Ei.exit:                        ; preds = %for.body8.i.i, %entry
@@ -203,7 +203,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %_ZN9btVectorXIfEC2E
   %7 = load ptr, ptr %m_data.i.i.i, align 8
   %conv.i.i = sext i32 %mul to i64
   %8 = shl nuw nsw i64 %conv.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %7, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %7, i8 0, i64 %8, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_Z9btSetZeroIfEvPT_i.exit.i, %_ZN9btVectorXIfEC2Ei.exit
@@ -258,7 +258,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i:                    ; preds = %.noexc
   %11 = load ptr, ptr %m_data.i.i.i49, align 8
   %conv.i.i.i = sext i32 %10 to i64
   %12 = shl nuw nsw i64 %conv.i.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %12, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %11, i8 0, i64 %12, i1 false)
   br label %_ZN9btMatrixXIfE7setZeroEv.exit.i
 
 _ZN9btMatrixXIfE7setZeroEv.exit.i:                ; preds = %_Z9btSetZeroIfEvPT_i.exit.i.i, %.noexc

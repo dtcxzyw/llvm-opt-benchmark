@@ -1118,7 +1118,7 @@ _ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit: ; preds = %46
 
 53:                                               ; preds = %_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit
   %54 = getelementptr inbounds i8, ptr %48, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %54, ptr noundef nonnull dereferenceable(32) %14, i64 32)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32)
   %55 = icmp eq i32 %bcmp.i, 0
   br i1 %55, label %_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit35.thread, label %.lr.ph
 
@@ -1256,7 +1256,7 @@ define hidden void @_ZN22MemSummaryDiffReporter11report_diffEv(ptr nocapture nou
   %13 = getelementptr inbounds i8, ptr %11, i64 1800
   %14 = load volatile i64, ptr %13, align 8
   %15 = load volatile i64, ptr %12, align 8
-  %16 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) %11) #7
+  %16 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(2676) %11) #7
   %17 = getelementptr inbounds i8, ptr %11, i64 1824
   br label %18
 
@@ -1279,7 +1279,7 @@ _ZNK11MemBaseline21total_reserved_memoryEv.exit:  ; preds = %18
   %27 = getelementptr inbounds i8, ptr %25, i64 1800
   %28 = load volatile i64, ptr %27, align 8
   %29 = load volatile i64, ptr %26, align 8
-  %30 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) %25) #7
+  %30 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(2676) %25) #7
   %31 = getelementptr inbounds i8, ptr %25, i64 1832
   br label %32
 
@@ -1304,7 +1304,7 @@ _ZNK11MemBaseline22total_committed_memoryEv.exit: ; preds = %32
   %42 = getelementptr inbounds i8, ptr %40, i64 1800
   %43 = load volatile i64, ptr %42, align 8
   %44 = load volatile i64, ptr %41, align 8
-  %45 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) %40) #7
+  %45 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(2676) %40) #7
   %46 = getelementptr inbounds i8, ptr %40, i64 1824
   br label %47
 
@@ -1328,7 +1328,7 @@ _ZNK11MemBaseline21total_reserved_memoryEv.exit39: ; preds = %47
   %57 = getelementptr inbounds i8, ptr %55, i64 1800
   %58 = load volatile i64, ptr %57, align 8
   %59 = load volatile i64, ptr %56, align 8
-  %60 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) %55) #7
+  %60 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(2676) %55) #7
   %61 = getelementptr inbounds i8, ptr %55, i64 1832
   br label %62
 
@@ -2309,7 +2309,7 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
 
 40:                                               ; preds = %27
-  %41 = tail call noundef i32 @memcmp(ptr noundef nonnull dereferenceable(32) %.01433, ptr noundef nonnull dereferenceable(32) %.034, i64 noundef 32) #8
+  %41 = tail call noundef i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(32) %.01433, ptr noundef nonnull align 8 dereferenceable(32) %.034, i64 noundef 32) #8
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %54
 
@@ -2495,7 +2495,7 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
 40:                                               ; preds = %27
-  %41 = tail call noundef i32 @memcmp(ptr noundef nonnull dereferenceable(32) %.01842, ptr noundef nonnull dereferenceable(32) %.043, i64 noundef 32) #8
+  %41 = tail call noundef i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(32) %.01842, ptr noundef nonnull align 8 dereferenceable(32) %.043, i64 noundef 32) #8
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %54
 

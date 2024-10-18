@@ -885,11 +885,11 @@ if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %call10.i.i.i.i.i = call i32 @qemu_get_thread_id() #13
   %31 = load i64, ptr %_now.i.i.i.i.i, align 8
   %32 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i.i.i.i, i64 noundef %31, i64 noundef %32, i32 noundef %and.i.i.i.i, i32 noundef %conv.i.i.i, i32 noundef %23) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i.i.i.i, i64 noundef %31, i64 noundef %32, i32 noundef range(i32 0, 16384) %and.i.i.i.i, i32 noundef %conv.i.i.i, i32 noundef %23) #13
   br label %trace_virtio_scsi_tmf_req.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %and.i.i.i.i, i32 noundef %conv.i.i.i, i32 noundef %23) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 16384) %and.i.i.i.i, i32 noundef %conv.i.i.i, i32 noundef %23) #13
   br label %trace_virtio_scsi_tmf_req.exit.i.i.i
 
 trace_virtio_scsi_tmf_req.exit.i.i.i:             ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %virtio_scsi_ctx_check.exit.i.i.i
@@ -1104,11 +1104,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i45.i.i
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #13
   %59 = load i64, ptr %_now.i.i.i.i, align 8
   %60 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i.i.i, i64 noundef %59, i64 noundef %60, i32 noundef %and.i.i.i, i32 noundef %52) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i.i.i, i64 noundef %59, i64 noundef %60, i32 noundef range(i32 0, 16384) %and.i.i.i, i32 noundef %52) #13
   br label %trace_virtio_scsi_an_req.exit.i.i
 
 if.else.i.i46.i.i:                                ; preds = %if.then.i.i45.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %and.i.i.i, i32 noundef %52) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef range(i32 0, 16384) %and.i.i.i, i32 noundef %52) #13
   br label %trace_virtio_scsi_an_req.exit.i.i
 
 trace_virtio_scsi_an_req.exit.i.i:                ; preds = %if.else.i.i46.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.else16.i.i
@@ -1177,11 +1177,11 @@ if.then8.i.i62.i.i:                               ; preds = %if.then.i.i59.i.i
   %call10.i.i64.i.i = call i32 @qemu_get_thread_id() #13
   %69 = load i64, ptr %_now.i.i52.i.i, align 8
   %70 = load i64, ptr %tv_usec.i.i65.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i64.i.i, i64 noundef %69, i64 noundef %70, i32 noundef %and.i51.i.i, i32 noundef %conv.i3.i, i32 noundef %conv41.i.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i64.i.i, i64 noundef %69, i64 noundef %70, i32 noundef range(i32 0, 16384) %and.i51.i.i, i32 noundef %conv.i3.i, i32 noundef range(i32 0, 256) %conv41.i.i) #13
   br label %trace_virtio_scsi_tmf_resp.exit.i.i
 
 if.else.i.i61.i.i:                                ; preds = %if.then.i.i59.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %and.i51.i.i, i32 noundef %conv.i3.i, i32 noundef %conv41.i.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef range(i32 0, 16384) %and.i51.i.i, i32 noundef %conv.i3.i, i32 noundef range(i32 0, 256) %conv41.i.i) #13
   br label %trace_virtio_scsi_tmf_resp.exit.i.i
 
 trace_virtio_scsi_tmf_resp.exit.i.i:              ; preds = %if.else.i.i61.i.i, %if.then8.i.i62.i.i, %land.lhs.true5.i.i56.i.i, %if.then33.i.i
@@ -1229,11 +1229,11 @@ if.then8.i.i81.i.i:                               ; preds = %if.then.i.i78.i.i
   %call10.i.i83.i.i = call i32 @qemu_get_thread_id() #13
   %78 = load i64, ptr %_now.i.i71.i.i, align 8
   %79 = load i64, ptr %tv_usec.i.i84.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i83.i.i, i64 noundef %78, i64 noundef %79, i32 noundef %and.i70.i.i, i32 noundef %conv55.i.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i83.i.i, i64 noundef %78, i64 noundef %79, i32 noundef range(i32 0, 16384) %and.i70.i.i, i32 noundef range(i32 0, 256) %conv55.i.i) #13
   br label %trace_virtio_scsi_an_resp.exit.i.i
 
 if.else.i.i80.i.i:                                ; preds = %if.then.i.i78.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %and.i70.i.i, i32 noundef %conv55.i.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef range(i32 0, 16384) %and.i70.i.i, i32 noundef range(i32 0, 256) %conv55.i.i) #13
   br label %trace_virtio_scsi_an_resp.exit.i.i
 
 trace_virtio_scsi_an_resp.exit.i.i:               ; preds = %if.else.i.i80.i.i, %if.then8.i.i81.i.i, %land.lhs.true5.i.i75.i.i, %if.then48.i.i
@@ -1463,12 +1463,12 @@ if.then8.i.i.i88.i:                               ; preds = %if.then.i.i.i84.i
   %15 = load i64, ptr %_now.i.i.i64.i, align 8
   %16 = load i64, ptr %tv_usec.i.i.i91.i, align 8
   %conv11.i.i.i92.i = zext i8 %10 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i90.i, i64 noundef %15, i64 noundef %16, i32 noundef %and.i.i71.i, i32 noundef %conv.i73.i, i32 noundef 9, i32 noundef %conv11.i.i.i92.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i90.i, i64 noundef %15, i64 noundef %16, i32 noundef range(i32 0, 16384) %and.i.i71.i, i32 noundef %conv.i73.i, i32 noundef range(i32 0, 256) 9, i32 noundef %conv11.i.i.i92.i) #13
   br label %virtio_scsi_complete_cmd_req.exit93.i
 
 if.else.i.i.i86.i:                                ; preds = %if.then.i.i.i84.i
   %conv12.i.i.i87.i = zext i8 %10 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and.i.i71.i, i32 noundef %conv.i73.i, i32 noundef 9, i32 noundef %conv12.i.i.i87.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef range(i32 0, 16384) %and.i.i71.i, i32 noundef %conv.i73.i, i32 noundef range(i32 0, 256) 9, i32 noundef %conv12.i.i.i87.i) #13
   br label %virtio_scsi_complete_cmd_req.exit93.i
 
 virtio_scsi_complete_cmd_req.exit93.i:            ; preds = %if.else.i.i.i86.i, %if.then8.i.i.i88.i, %land.lhs.true5.i.i.i81.i, %if.then9.i.i
@@ -1567,12 +1567,12 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %34 = load i64, ptr %_now.i.i.i.i, align 8
   %35 = load i64, ptr %tv_usec.i.i.i.i, align 8
   %conv11.i.i.i.i = zext i8 %29 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i.i, i64 noundef %34, i64 noundef %35, i32 noundef %and.i.i.i, i32 noundef %conv13.i.i, i32 noundef %conv11.i.i.i.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i.i, i64 noundef %34, i64 noundef %35, i32 noundef range(i32 0, 16384) %and.i.i.i, i32 noundef %conv13.i.i, i32 noundef %conv11.i.i.i.i) #13
   br label %trace_virtio_scsi_cmd_req.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %conv12.i.i.i.i = zext i8 %29 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %and.i.i.i, i32 noundef %conv13.i.i, i32 noundef %conv12.i.i.i.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef range(i32 0, 16384) %and.i.i.i, i32 noundef %conv13.i.i, i32 noundef %conv12.i.i.i.i) #13
   br label %trace_virtio_scsi_cmd_req.exit.i.i
 
 trace_virtio_scsi_cmd_req.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i32.i
@@ -1645,12 +1645,12 @@ if.then8.i.i.i59.i:                               ; preds = %if.then.i.i.i55.i
   %44 = load i64, ptr %_now.i.i.i40.i, align 8
   %45 = load i64, ptr %tv_usec.i.i.i62.i, align 8
   %conv11.i.i.i63.i = zext i8 %39 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i61.i, i64 noundef %44, i64 noundef %45, i32 noundef %and.i.i45.i, i32 noundef %conv.i47.i, i32 noundef 3, i32 noundef %conv11.i.i.i63.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i61.i, i64 noundef %44, i64 noundef %45, i32 noundef range(i32 0, 16384) %and.i.i45.i, i32 noundef %conv.i47.i, i32 noundef range(i32 0, 256) 3, i32 noundef %conv11.i.i.i63.i) #13
   br label %virtio_scsi_complete_cmd_req.exit.i
 
 if.else.i.i.i57.i:                                ; preds = %if.then.i.i.i55.i
   %conv12.i.i.i58.i = zext i8 %39 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and.i.i45.i, i32 noundef %conv.i47.i, i32 noundef 3, i32 noundef %conv12.i.i.i58.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef range(i32 0, 16384) %and.i.i45.i, i32 noundef %conv.i47.i, i32 noundef range(i32 0, 256) 3, i32 noundef %conv12.i.i.i58.i) #13
   br label %virtio_scsi_complete_cmd_req.exit.i
 
 virtio_scsi_complete_cmd_req.exit.i:              ; preds = %if.else.i.i.i57.i, %if.then8.i.i.i59.i, %land.lhs.true5.i.i.i52.i, %if.then19.i.i
@@ -1932,7 +1932,7 @@ entry:
   %req2 = getelementptr inbounds i8, ptr %req, i64 212
   %1 = load i32, ptr %out_num, align 4
   %2 = load ptr, ptr %out_sg, align 8
-  %call.i = tail call i64 @iov_to_buf_full(ptr noundef %2, i32 noundef %1, i64 noundef 0, ptr noundef nonnull %req2, i64 noundef %conv) #13
+  %call.i = tail call i64 @iov_to_buf_full(ptr noundef %2, i32 noundef %1, i64 noundef 0, ptr noundef nonnull %req2, i64 noundef range(i64 0, 4294967296) %conv) #13
   %cmp = icmp ult i64 %call.i, %conv
   br i1 %cmp, label %return, label %if.end
 
@@ -2257,11 +2257,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %and.i, i32 noundef %conv, i32 noundef %conv4) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef range(i32 0, 16384) %and.i, i32 noundef %conv, i32 noundef range(i32 0, 256) %conv4) #13
   br label %trace_virtio_scsi_tmf_resp.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %and.i, i32 noundef %conv, i32 noundef %conv4) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef range(i32 0, 16384) %and.i, i32 noundef %conv, i32 noundef range(i32 0, 256) %conv4) #13
   br label %trace_virtio_scsi_tmf_resp.exit
 
 trace_virtio_scsi_tmf_resp.exit:                  ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2733,11 +2733,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef 0, i32 noundef -2147483648, i32 noundef %1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef range(i32 0, 16384) 0, i32 noundef -2147483648, i32 noundef %1) #13
   br label %trace_virtio_scsi_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef 0, i32 noundef -2147483648, i32 noundef %1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef range(i32 0, 16384) 0, i32 noundef -2147483648, i32 noundef %1) #13
   br label %trace_virtio_scsi_event.exit
 
 trace_virtio_scsi_event.exit:                     ; preds = %if.end16.split, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2800,11 +2800,11 @@ if.then8.i.i54:                                   ; preds = %if.then.i.i51
   %27 = load i64, ptr %_now.i.i44, align 8
   %tv_usec.i.i57 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
   %28 = load i64, ptr %tv_usec.i.i57, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i56, i64 noundef %27, i64 noundef %28, i32 noundef %and.i43, i32 noundef %event.0, i32 noundef %1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i56, i64 noundef %27, i64 noundef %28, i32 noundef range(i32 0, 16384) %and.i43, i32 noundef %event.0, i32 noundef %1) #13
   br label %trace_virtio_scsi_event.exit58
 
 if.else.i.i53:                                    ; preds = %if.then.i.i51
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %and.i43, i32 noundef %event.0, i32 noundef %1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef range(i32 0, 16384) %and.i43, i32 noundef %event.0, i32 noundef %1) #13
   br label %trace_virtio_scsi_event.exit58
 
 trace_virtio_scsi_event.exit58:                   ; preds = %if.end35, %land.lhs.true5.i.i48, %if.then8.i.i54, %if.else.i.i53
@@ -2874,12 +2874,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %4 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %and.i, i32 noundef %conv, i32 noundef %conv3, i32 noundef %conv11.i.i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef range(i32 0, 16384) %and.i, i32 noundef %conv, i32 noundef range(i32 0, 256) %conv3, i32 noundef %conv11.i.i) #13
   br label %trace_virtio_scsi_cmd_resp.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %4 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and.i, i32 noundef %conv, i32 noundef %conv3, i32 noundef %conv12.i.i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef range(i32 0, 16384) %and.i, i32 noundef %conv, i32 noundef range(i32 0, 256) %conv3, i32 noundef %conv12.i.i) #13
   br label %trace_virtio_scsi_cmd_resp.exit
 
 trace_virtio_scsi_cmd_resp.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

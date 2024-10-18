@@ -1656,7 +1656,7 @@ _ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit: ; preds = %_ZNK7rocksdb13
 define void @_ZN7rocksdb13HistogramImpl5ClearEv(ptr noundef nonnull align 8 dereferenceable(968) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 928
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1697,7 +1697,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !8
 
 invoke.cont:                                      ; preds = %for.body.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #22
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #22
   ret void
 }
 
@@ -1816,7 +1816,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 928
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_.i) #22
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #22
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1897,7 +1897,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp20.i.i, label %for.body.i.i, label %_ZN7rocksdb13HistogramImpl5MergeERKS0_.exit, !llvm.loop !11
 
 _ZN7rocksdb13HistogramImpl5MergeERKS0_.exit:      ; preds = %for.body.i.i, %while.end13.i.i
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_.i) #22
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #22
   br label %if.end
 
 if.end:                                           ; preds = %_ZN7rocksdb13HistogramImpl5MergeERKS0_.exit, %entry
@@ -1911,7 +1911,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 928
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1992,7 +1992,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp20.i, label %for.body.i, label %invoke.cont, !llvm.loop !11
 
 invoke.cont:                                      ; preds = %for.body.i, %while.end13.i
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #22
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #22
   ret void
 }
 

@@ -268,7 +268,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %16, %_ZNSt6vectorIc
 define dso_local void @_ZN4llvm3pdb14NamedStreamMapC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm3pdb20NamedStreamMapTraitsC1ERNS0_14NamedStreamMapE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(120) %0) #18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8
@@ -285,9 +285,9 @@ define dso_local void @_ZN4llvm3pdb14NamedStreamMapC2Ev(ptr noundef nonnull alig
   store i64 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %7, ptr %10, align 8
-  tail call void @_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 1)
+  tail call void @_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef 1)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   ret void
 }
@@ -773,7 +773,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   store i32 %24, ptr %25, align 4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %5, i64 8) #18
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(8) %5, i64 8) #18
   %26 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit36, label %.loopexit
@@ -877,7 +877,7 @@ _ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31p
 
 _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit.thread
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %72, i64 4) #18
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(4) %72, i64 4) #18
   %73 = load ptr, ptr %0, align 8
   %.not51 = icmp eq ptr %73, null
   br i1 %.not51, label %74, label %.loopexit
@@ -1390,7 +1390,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %102, %_ZNK4llvm15Sp
 define dso_local void @_ZNK4llvm3pdb14NamedStreamMap7entriesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::pdb::HashTableIterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 16, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2102,12 +2102,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #18
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #18
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #18
   ret void
 }
 
@@ -3860,7 +3860,7 @@ _ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %155, %.lr.ph.i.i.i.i.i ], [ %.pre.i10.i19, %_ZSt4swapIN4llvm15SparseBitVectorILj128EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit21 ]
   %155 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i, i64 noundef 40) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i.i, i64 noundef 40) #21
   %.not.i.i.i.i.i = icmp eq ptr %155, %36
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !107
 
@@ -3872,7 +3872,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.09.i.i.i.i3.i = phi ptr [ %157, %.lr.ph.i.i.i.i2.i ], [ %156, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i ]
   %157 = load ptr, ptr %.09.i.i.i.i3.i, align 8
-  call void @_ZdlPvm(ptr noundef %.09.i.i.i.i3.i, i64 noundef 40) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i3.i, i64 noundef 40) #21
   %.not.i.i.i.i4.i = icmp eq ptr %157, %32
   br i1 %.not.i.i.i.i4.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !107
 

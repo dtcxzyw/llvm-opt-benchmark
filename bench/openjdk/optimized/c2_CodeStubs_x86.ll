@@ -60,7 +60,7 @@ define hidden void @_ZN19C2SafepointPollStub4emitER17C2_MacroAssembler(ptr nound
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(40) %5) #5
+  call void %30(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5) #5
   %31 = getelementptr inbounds i8, ptr %5, i64 40
   %32 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
@@ -86,7 +86,7 @@ define hidden void @_ZN19C2SafepointPollStub4emitER17C2_MacroAssembler(ptr nound
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(40) %7) #5
+  call void %43(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7) #5
   %44 = getelementptr inbounds i8, ptr %7, i64 40
   %45 = getelementptr inbounds i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
@@ -121,7 +121,7 @@ define hidden void @_ZN18C2EntryBarrierStub4emitER17C2_MacroAssembler(ptr nounde
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(40) %3) #5
+  call void %9(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %3) #5
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   %11 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
@@ -203,10 +203,10 @@ define hidden void @_ZN27C2FastUnlockLightweightStub4emitER17C2_MacroAssembler(p
   %35 = getelementptr inbounds i8, ptr %8, i64 40
   store i32 0, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   %37 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(40) %36) #5
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %36) #5
   call void @_ZN14MacroAssembler10incrementqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %38 = getelementptr inbounds i8, ptr %0, i64 48
@@ -240,9 +240,9 @@ define hidden void @_ZN27C2FastUnlockLightweightStub4emitER17C2_MacroAssembler(p
   %51 = getelementptr inbounds i8, ptr %10, i64 40
   store i32 0, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 8 dereferenceable(21) %10, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 21, i1 false)
   %52 = getelementptr inbounds i8, ptr %4, i64 24
-  call void %37(ptr noundef nonnull align 8 dereferenceable(20) %49, ptr noundef nonnull align 8 dereferenceable(40) %52) #5
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %52) #5
   call void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str, i32 noundef 117) #5
@@ -301,9 +301,9 @@ define hidden void @_ZN27C2FastUnlockLightweightStub4emitER17C2_MacroAssembler(p
   %76 = getelementptr inbounds i8, ptr %13, i64 40
   store i32 0, ptr %76, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 8 dereferenceable(21) %13, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %77 = getelementptr inbounds i8, ptr %3, i64 24
-  call void %37(ptr noundef nonnull align 8 dereferenceable(20) %74, ptr noundef nonnull align 8 dereferenceable(40) %77) #5
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %77) #5
   call void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %3, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull @.str, i32 noundef 129) #5

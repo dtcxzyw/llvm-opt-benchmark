@@ -3507,7 +3507,7 @@ if.end27.i:                                       ; preds = %if.end11.i
   br i1 %tobool29.not.i, label %if.end37.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end27.i
-  %call31.i = call fastcc ptr @_PyBytes_FromBuffer(ptr noundef %retval.0.i279)
+  %call31.i = call fastcc ptr @_PyBytes_FromBuffer(ptr noundef nonnull %retval.0.i279)
   %cmp32.i = icmp eq ptr %call31.i, null
   br i1 %cmp32.i, label %format_obj.exit.thread, label %if.end34.i
 
@@ -4927,7 +4927,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %sub = add i64 %len_haystack, -1
-  %call.i = tail call fastcc i64 @fastsearch(ptr noundef %haystack, i64 noundef %sub, ptr noundef %needle, i64 noundef %len_needle, i64 noundef -1, i32 noundef 1)
+  %call.i = tail call fastcc i64 @fastsearch(ptr noundef %haystack, i64 noundef %sub, ptr noundef %needle, i64 noundef range(i64 1, 0) %len_needle, i64 noundef -1, i32 noundef 1)
   %cmp15.i = icmp slt i64 %call.i, 0
   %add.i = select i1 %cmp15.i, i64 0, i64 %offset
   %pos.0.i = add i64 %add.i, %call.i
@@ -8482,7 +8482,7 @@ if.then63:                                        ; preds = %if.end55.us
 
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
-  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef %m, ptr noundef %p.i)
+  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef range(i64 6, -9223372036854775808) %m, ptr noundef %p.i)
   %call.i = call fastcc i64 @stringlib__two_way(ptr noundef readonly %add.ptr71, i64 noundef %sub72, ptr noundef %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
@@ -8493,7 +8493,7 @@ if.then66:                                        ; preds = %if.then63
 if.else:                                          ; preds = %if.then63
   %sub73 = sub i64 %maxcount, %count.086.us
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i69)
-  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef %m, ptr noundef %p.i69)
+  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef range(i64 6, -9223372036854775808) %m, ptr noundef %p.i69)
   %call8.i = call fastcc i64 @stringlib__two_way(ptr noundef %add.ptr71, i64 noundef %sub72, ptr noundef %p.i69)
   %cmp9.i = icmp eq i64 %call8.i, -1
   br i1 %cmp9.i, label %stringlib__two_way_count.exit, label %if.end.i
@@ -10982,7 +10982,7 @@ if.end8.i.i.i:                                    ; preds = %if.end3.i.i.i
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.else17.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end8.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ob_sval.i42.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ob_sval.i42.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %sub13.i.i.i = add nsw i64 %count.0.i.i.i, -1
   %result_s.051.i.i.i = getelementptr i8, ptr %ob_sval.i42.i.i.i, i64 %new.val12
   %cmp1452.i.i.i = icmp sgt i64 %count.0.i.i.i, 1
@@ -10996,7 +10996,7 @@ for.body.i.i.i:                                   ; preds = %if.then12.i.i.i, %f
   %16 = load i8, ptr %self_s.053.i.i.i, align 1
   %incdec.ptr15.i.i.i = getelementptr i8, ptr %result_s.055.i.i.i, i64 1
   store i8 %16, ptr %result_s.055.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr15.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr15.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %inc.i.i.i = add nuw nsw i64 %i.054.i.i.i, 1
   %result_s.0.i.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %new.val12
   %exitcond60.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub13.i.i.i
@@ -11138,7 +11138,7 @@ if.else22.i.i:                                    ; preds = %if.then18.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i94.i.i, label %stringlib_count.exit.i.i.i
 
 stringlib_count.exit.i.i.i:                       ; preds = %if.else22.i.i
-  %call.i.i79.i.i = call fastcc i64 @fastsearch(ptr noundef nonnull %ob_sval.i.i78.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef %maxcount.addr.0.i.i, i32 noundef 0)
+  %call.i.i79.i.i = call fastcc i64 @fastsearch(ptr noundef nonnull %ob_sval.i.i78.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef range(i64 1, -9223372036854775808) %maxcount.addr.0.i.i, i32 noundef 0)
   %.call.i.i.i.i = call i64 @llvm.smax.i64(i64 %call.i.i79.i.i, i64 0)
   %cmp.i.i.i = icmp slt i64 %call.i.i79.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i94.i.i, label %if.end.i80.i.i
@@ -11183,7 +11183,7 @@ while.body.i85.i.i:                               ; preds = %if.end13.i.i.i, %wh
   %result_s.035.i.i.i = phi ptr [ %add.ptr21.i89.i.i, %if.end13.i.i.i ], [ %ob_sval.i29.i.i.i, %while.body.preheader.i.i.i ]
   %sub.ptr.rhs.cast.i86.i.i = ptrtoint ptr %start.036.i.i.i to i64
   %sub.ptr.sub.i87.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i86.i.i
-  %call.i30.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.036.i.i.i, i64 noundef %sub.ptr.sub.i87.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i30.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.036.i.i.i, i64 noundef %sub.ptr.sub.i87.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   %cmp11.i88.i.i = icmp eq i64 %call.i30.i.i.i, -1
   br i1 %cmp11.i88.i.i, label %while.end.i92.i.i, label %if.end13.i.i.i
 
@@ -11284,7 +11284,7 @@ if.end22.i.i.i:                                   ; preds = %while.body.i115.i.i
 
 if.else32.i.i:                                    ; preds = %if.then26.i.i
   %ob_sval.i.i126.i.i = getelementptr inbounds i8, ptr %self, i64 32
-  %call.i.i128.i.i = call fastcc i64 @fastsearch(ptr noundef nonnull %ob_sval.i.i126.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i.i128.i.i = call fastcc i64 @fastsearch(ptr noundef nonnull %ob_sval.i.i126.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   %cmp.i129.i.i = icmp eq i64 %call.i.i128.i.i, -1
   br i1 %cmp.i129.i.i, label %if.then.i143.i.i, label %if.end.i130.i.i
 
@@ -11318,7 +11318,7 @@ if.end7.i133.i.i:                                 ; preds = %if.end.i130.i.i
   %ob_sval.i27.i.i.i = getelementptr inbounds i8, ptr %call4.i131.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ob_sval.i27.i.i.i, ptr nonnull align 1 %ob_sval.i.i126.i.i, i64 %self.val.i.i, i1 false)
   %add.ptr.i134.i.i = getelementptr i8, ptr %ob_sval.i27.i.i.i, i64 %call.i.i128.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i134.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %old.val11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i134.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 2, 0) %old.val11, i1 false)
   %add.ptr10.i.i.i = getelementptr i8, ptr %ob_sval.i27.i.i.i, i64 %self.val.i.i
   %sub.ptr.lhs.cast.i135.i.i = ptrtoint ptr %add.ptr10.i.i.i to i64
   %cmp1131.i.i.i = icmp samesign ugt i64 %maxcount.addr.0.i.i, 1
@@ -11333,14 +11333,14 @@ while.body.i138.i.i:                              ; preds = %if.end15.i.i.i, %wh
   %start.032.i.i.i = phi ptr [ %add.ptr17.i.i.i, %if.end15.i.i.i ], [ %add.ptr9.i.i.i, %while.body.preheader.i137.i.i ]
   %sub.ptr.rhs.cast.i139.i.i = ptrtoint ptr %start.032.i.i.i to i64
   %sub.ptr.sub.i140.i.i = sub i64 %sub.ptr.lhs.cast.i135.i.i, %sub.ptr.rhs.cast.i139.i.i
-  %call.i28.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.032.i.i.i, i64 noundef %sub.ptr.sub.i140.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i28.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.032.i.i.i, i64 noundef %sub.ptr.sub.i140.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   %cmp13.i.i.i = icmp eq i64 %call.i28.i.i.i, -1
   br i1 %cmp13.i.i.i, label %exit, label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %while.body.i138.i.i
   %dec33.i.i.i = add nsw i64 %dec33.in.i.i.i, -1
   %add.ptr16.i.i.i = getelementptr i8, ptr %start.032.i.i.i, i64 %call.i28.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %old.val11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr16.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 2, 0) %old.val11, i1 false)
   %add.i141.i.i = add i64 %call.i28.i.i.i, %old.val11
   %add.ptr17.i.i.i = getelementptr i8, ptr %start.032.i.i.i, i64 %add.i141.i.i
   %cmp11.i142.i.i = icmp sgt i64 %dec33.in.i.i.i, 2
@@ -11447,7 +11447,7 @@ if.else.i.i.i:                                    ; preds = %if.end19.i.i.i
 if.end34.i.i.i:                                   ; preds = %if.else.i.i.i, %if.end19.i.i.i
   %add.ptr31.sink.i.i.i = phi ptr [ %add.ptr31.i.i.i, %if.else.i.i.i ], [ %result_s.044.i.i.i, %if.end19.i.i.i ]
   %start.0.pn.i.i.i = phi ptr [ %call15.i.i.i, %if.else.i.i.i ], [ %start.045.i.i.i, %if.end19.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr31.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr31.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %start.1.i.i.i = getelementptr i8, ptr %start.0.pn.i.i.i, i64 1
   %result_s.1.i183.i.i = getelementptr i8, ptr %add.ptr31.sink.i.i.i, i64 %new.val12
   %cmp14.i.i.i = icmp sgt i64 %dec46.in.i.i.i, 1
@@ -11471,7 +11471,7 @@ if.else39.i.i:                                    ; preds = %if.end34.i.i
   br i1 %cmp.i.i200.i.i, label %if.then.i231.i.i, label %stringlib_count.exit.i201.i.i
 
 stringlib_count.exit.i201.i.i:                    ; preds = %if.else39.i.i
-  %call.i.i202.i.i = call fastcc i64 @fastsearch(ptr noundef nonnull %ob_sval.i.i198.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef %maxcount.addr.0.i.i, i32 noundef 0)
+  %call.i.i202.i.i = call fastcc i64 @fastsearch(ptr noundef nonnull %ob_sval.i.i198.i.i, i64 noundef %self.val.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef range(i64 1, -9223372036854775808) %maxcount.addr.0.i.i, i32 noundef 0)
   %.call.i.i203.i.i = call i64 @llvm.smax.i64(i64 %call.i.i202.i.i, i64 0)
   %cmp.i204.i.i = icmp slt i64 %call.i.i202.i.i, 1
   br i1 %cmp.i204.i.i, label %if.then.i231.i.i, label %if.end.i205.i.i
@@ -11529,7 +11529,7 @@ while.body.i217.i.i:                              ; preds = %if.end33.i.i.i, %if
   %dec54.i.i.i = add nsw i64 %dec54.in.i.i.i, -1
   %sub.ptr.rhs.cast.i218.i.i = ptrtoint ptr %start.053.i.i.i to i64
   %sub.ptr.sub.i219.i.i = sub i64 %sub.ptr.lhs.cast.i216.i.i, %sub.ptr.rhs.cast.i218.i.i
-  %call.i47.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.053.i.i.i, i64 noundef %sub.ptr.sub.i219.i.i, ptr noundef %old.val, i64 noundef %old.val11, i64 noundef -1, i32 noundef 1)
+  %call.i47.i.i.i = call fastcc i64 @fastsearch(ptr noundef %start.053.i.i.i, i64 noundef %sub.ptr.sub.i219.i.i, ptr noundef %old.val, i64 noundef range(i64 2, 0) %old.val11, i64 noundef -1, i32 noundef 1)
   switch i64 %call.i47.i.i.i, label %if.else.i229.i.i [
     i64 -1, label %while.end.i225.i.i
     i64 0, label %if.end33.i.i.i
@@ -11544,7 +11544,7 @@ if.else.i229.i.i:                                 ; preds = %while.body.i217.i.i
 if.end33.i.i.i:                                   ; preds = %if.else.i229.i.i, %while.body.i217.i.i
   %add.ptr30.sink.i.i.i = phi ptr [ %add.ptr30.i.i.i, %if.else.i229.i.i ], [ %result_s.052.i.i.i, %while.body.i217.i.i ]
   %start.0.pn.i220.i.i = phi ptr [ %add.ptr19.i.i.i, %if.else.i229.i.i ], [ %start.053.i.i.i, %while.body.i217.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 %new.val12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %start.1.i221.i.i = getelementptr i8, ptr %start.0.pn.i220.i.i, i64 %old.val11
   %result_s.1.i222.i.i = getelementptr i8, ptr %add.ptr30.sink.i.i.i, i64 %new.val12
   %cmp14.i223.i.i = icmp ugt i64 %dec54.in.i.i.i, 1

@@ -56,7 +56,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.LightGBM::PredictionEarlyStopInstance") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %4, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -704,7 +704,7 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !10
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %8, align 8, !alias.scope !10
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %7, align 8, !alias.scope !10
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -758,7 +758,7 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
   tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.7, ptr noundef %33)
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %35 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !19
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %35, align 8, !alias.scope !19
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %34, align 8, !alias.scope !19
   %36 = getelementptr inbounds i8, ptr %0, i64 32

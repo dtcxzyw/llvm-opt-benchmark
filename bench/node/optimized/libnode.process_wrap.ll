@@ -426,9 +426,9 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111ProcessWrapE, i64 16), ptr %call6, align 8
   %process_.i = getelementptr inbounds i8, ptr %call6, i64 88
-  tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %process_.i, i32 noundef 25) #17
+  tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(224) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %process_.i, i32 noundef 25) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111ProcessWrapE, i64 16), ptr %call6, align 8
-  tail call void @_ZN4node10HandleWrap19MarkAsUninitializedEv(ptr noundef nonnull align 8 dereferenceable(88) %call6) #17
+  tail call void @_ZN4node10HandleWrap19MarkAsUninitializedEv(ptr noundef nonnull align 8 dereferenceable(224) %call6) #17
   ret void
 }
 
@@ -1603,7 +1603,7 @@ entry:
   store ptr %2, ptr %0, align 8
   store ptr %handle_wrap_queue_.i, ptr %handle_wrap_queue_.i, align 8
   store ptr %handle_wrap_queue_.i, ptr %next_.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #17
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #17
   ret void
 }
 
@@ -1621,7 +1621,7 @@ entry:
   store ptr %2, ptr %0, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %handle_wrap_queue_.i.i, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #17
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }

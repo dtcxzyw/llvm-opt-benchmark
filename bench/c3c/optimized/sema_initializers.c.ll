@@ -951,7 +951,7 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 104
   %115 = load ptr, ptr %114, align 8
-  %116 = call fastcc ptr @sema_resolve_element_for_name(ptr noundef %0, ptr noundef %115, ptr noundef %5, ptr noundef %6)
+  %116 = call fastcc ptr @sema_resolve_element_for_name(ptr noundef %0, ptr noundef %115, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not73.i.i.i = icmp eq ptr %116, null
   br i1 %.not73.i.i.i, label %sema_find_type_of_element.exit.thread.i.i, label %117
 

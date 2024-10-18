@@ -28178,7 +28178,7 @@ numberOfBitSet.exit31:                            ; preds = %63
 
 83:                                               ; preds = %81
   %84 = add i32 %.01554, 4
-  %85 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %84, i32 noundef %1) #10
+  %85 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %84, i32 noundef range(i32 0, -2147483647) %1) #10
   %86 = lshr i16 %85, 2
   %87 = and i16 %85, 3
   %.not.i.i = icmp ne i16 %87, 0
@@ -28212,7 +28212,7 @@ numberOfBitSet.exit31:                            ; preds = %63
   %99 = icmp eq i8 %95, 8
   %100 = icmp eq i8 %95, 16
   %101 = add i32 %.01554, 20
-  %102 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %101, i32 noundef %1) #10
+  %102 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %101, i32 noundef range(i32 0, -2147483647) %1) #10
   %103 = select i1 %100, i32 1, i32 2
   %104 = select i1 %99, i32 0, i32 %103
   %105 = shl i32 %102, %104
@@ -28253,7 +28253,7 @@ numberOfBitSet.exit31:                            ; preds = %63
 
 126:                                              ; preds = %124
   %127 = add i32 %.01554, 8
-  %128 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %127, i32 noundef %1) #10
+  %128 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %127, i32 noundef range(i32 0, -2147483647) %1) #10
   %129 = lshr i16 %128, 2
   %130 = and i16 %128, 3
   %.not.i141.i = icmp ne i16 %130, 0
@@ -28277,7 +28277,7 @@ numberOfBitSet.exit31:                            ; preds = %63
 
 140:                                              ; preds = %138
   %141 = add i32 %.01554, 6
-  %142 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %141, i32 noundef %1) #10
+  %142 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %141, i32 noundef range(i32 0, -2147483647) %1) #10
   %143 = lshr i16 %142, 2
   %144 = and i16 %142, 3
   %.not.i143.i = icmp ne i16 %144, 0
@@ -28302,7 +28302,7 @@ numberOfBitSet.exit31:                            ; preds = %63
   %154 = shl nuw nsw i32 %7, 2
   %155 = add nsw i32 %154, -8
   %156 = add i32 %.01554, 4
-  %157 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %156, i32 noundef %1) #10
+  %157 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %156, i32 noundef range(i32 0, -2147483647) %1) #10
   %158 = zext i16 %157 to i32
   %159 = icmp samesign ult i32 %155, %158
   br i1 %159, label %consistentWithOrder.exit.thread45, label %.preheader.i
@@ -28395,7 +28395,7 @@ numberOfBitSet.exit24:                            ; preds = %178
 
 198:                                              ; preds = %196
   %199 = add i32 %.01554, 10
-  %200 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %199, i32 noundef %1) #10
+  %200 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %199, i32 noundef range(i32 0, -2147483647) %1) #10
   %201 = lshr i16 %200, 2
   %202 = and i16 %200, 3
   %.not.i145.i = icmp ne i16 %202, 0
@@ -28486,7 +28486,7 @@ numberOfBitSet.exit24:                            ; preds = %178
 
 249:                                              ; preds = %247
   %250 = add i32 %.01554, 12
-  %251 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %250, i32 noundef %1) #10
+  %251 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %250, i32 noundef range(i32 0, -2147483647) %1) #10
   %252 = lshr i16 %251, 2
   %253 = and i16 %251, 3
   %.not.i147.i = icmp ne i16 %253, 0
@@ -28562,7 +28562,7 @@ numberOfBitSet.exit:                              ; preds = %276
 
 296:                                              ; preds = %294
   %297 = add i32 %.01554, 8
-  %298 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %297, i32 noundef %1) #10
+  %298 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %297, i32 noundef range(i32 0, -2147483647) %1) #10
   %299 = zext i16 %298 to i32
   %300 = add nuw nsw i32 %299, 3
   %301 = icmp eq i32 %300, %7
@@ -41888,7 +41888,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %252 = add i32 %251, 4
   store i32 %252, ptr %2, align 4
   %253 = load i32, ptr @hf_x11_glx_render_Bitmap_bitmap, align 4
-  %254 = tail call i32 @llvm.umax.i32(i32 %35, i32 45)
+  %254 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 45)
   %spec.store.select.i.i1847 = add nsw i32 %254, -44
   %255 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %253, ptr noundef %0, i32 noundef %252, i32 noundef %spec.store.select.i.i1847, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -43709,7 +43709,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1301 = add i32 %1300, 4
   store i32 %1301, ptr %2, align 4
   %1302 = load i32, ptr @hf_x11_glx_render_PolygonStipple_mask, align 4
-  %1303 = tail call i32 @llvm.umax.i32(i32 %35, i32 21)
+  %1303 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 21)
   %spec.store.select.i.i2199 = add nsw i32 %1303, -20
   %1304 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1302, ptr noundef %0, i32 noundef %1301, i32 noundef %spec.store.select.i.i2199, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -43917,7 +43917,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1445 = add i32 %1444, 4
   store i32 %1445, ptr %2, align 4
   %1446 = load i32, ptr @hf_x11_glx_render_TexImage1D_pixels, align 4
-  %1447 = tail call i32 @llvm.umax.i32(i32 %35, i32 49)
+  %1447 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 49)
   %spec.store.select.i.i2216 = add nsw i32 %1447, -48
   %1448 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1446, ptr noundef %0, i32 noundef %1445, i32 noundef %spec.store.select.i.i2216, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -43999,7 +43999,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1509 = add i32 %1508, 4
   store i32 %1509, ptr %2, align 4
   %1510 = load i32, ptr @hf_x11_glx_render_TexImage2D_pixels, align 4
-  %1511 = tail call i32 @llvm.umax.i32(i32 %35, i32 53)
+  %1511 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 53)
   %spec.store.select.i.i2217 = add nsw i32 %1511, -52
   %1512 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1510, ptr noundef %0, i32 noundef %1509, i32 noundef %spec.store.select.i.i2217, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -45154,7 +45154,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2279 = add i32 %2278, 4
   store i32 %2279, ptr %2, align 4
   %2280 = load i32, ptr @hf_x11_glx_render_DrawPixels_pixels, align 4
-  %2281 = tail call i32 @llvm.umax.i32(i32 %35, i32 37)
+  %2281 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 37)
   %spec.store.select.i.i2324 = add nsw i32 %2281, -36
   %2282 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2280, ptr noundef %0, i32 noundef %2279, i32 noundef %spec.store.select.i.i2324, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -45526,7 +45526,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2541 = add i32 %2540, 4
   store i32 %2541, ptr %2, align 4
   %2542 = load i32, ptr @hf_x11_glx_render_ColorSubTable_data, align 4
-  %2543 = tail call i32 @llvm.umax.i32(i32 %35, i32 41)
+  %2543 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
   %spec.store.select.i.i2345 = add nsw i32 %2543, -40
   %2544 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2542, ptr noundef %0, i32 noundef %2541, i32 noundef %spec.store.select.i.i2345, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -46422,7 +46422,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3149 = add i32 %3148, 4
   store i32 %3149, ptr %2, align 4
   %3150 = load i32, ptr @hf_x11_glx_render_ColorTable_table, align 4
-  %3151 = tail call i32 @llvm.umax.i32(i32 %35, i32 41)
+  %3151 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
   %spec.store.select.i.i2445 = add nsw i32 %3151, -40
   %3152 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3150, ptr noundef %0, i32 noundef %3149, i32 noundef %spec.store.select.i.i2445, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -46615,7 +46615,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3284 = add i32 %3283, 4
   store i32 %3284, ptr %2, align 4
   %3285 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_pixels, align 4
-  %3286 = tail call i32 @llvm.umax.i32(i32 %35, i32 61)
+  %3286 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 61)
   %spec.store.select.i.i2462 = add nsw i32 %3286, -60
   %3287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3285, ptr noundef %0, i32 noundef %3284, i32 noundef %spec.store.select.i.i2462, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -46722,7 +46722,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3368 = add i32 %3367, 4
   store i32 %3368, ptr %2, align 4
   %3369 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_pixels, align 4
-  %3370 = tail call i32 @llvm.umax.i32(i32 %35, i32 73)
+  %3370 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 73)
   %spec.store.select.i.i2463 = add nsw i32 %3370, -72
   %3371 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3369, ptr noundef %0, i32 noundef %3368, i32 noundef %spec.store.select.i.i2463, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -46991,7 +46991,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3547 = add i32 %3546, 4
   store i32 %3547, ptr %2, align 4
   %3548 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_pixels, align 4
-  %3549 = tail call i32 @llvm.umax.i32(i32 %35, i32 49)
+  %3549 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 49)
   %spec.store.select.i.i2491 = add nsw i32 %3549, -48
   %3550 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3548, ptr noundef %0, i32 noundef %3547, i32 noundef %spec.store.select.i.i2491, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -47078,7 +47078,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3615 = add i32 %3614, 4
   store i32 %3615, ptr %2, align 4
   %3616 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_pixels, align 4
-  %3617 = tail call i32 @llvm.umax.i32(i32 %35, i32 57)
+  %3617 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 57)
   %spec.store.select.i.i2492 = add nsw i32 %3617, -56
   %3618 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3616, ptr noundef %0, i32 noundef %3615, i32 noundef %spec.store.select.i.i2492, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -47145,7 +47145,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3667 = add i32 %3666, 4
   store i32 %3667, ptr %2, align 4
   %3668 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_image, align 4
-  %3669 = tail call i32 @llvm.umax.i32(i32 %35, i32 41)
+  %3669 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
   %spec.store.select.i.i2493 = add nsw i32 %3669, -40
   %3670 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3668, ptr noundef %0, i32 noundef %3667, i32 noundef %spec.store.select.i.i2493, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -47217,7 +47217,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3723 = add i32 %3722, 4
   store i32 %3723, ptr %2, align 4
   %3724 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_image, align 4
-  %3725 = tail call i32 @llvm.umax.i32(i32 %35, i32 45)
+  %3725 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 45)
   %spec.store.select.i.i2494 = add nsw i32 %3725, -44
   %3726 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3724, ptr noundef %0, i32 noundef %3723, i32 noundef %spec.store.select.i.i2494, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -47415,7 +47415,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3859 = add i32 %3858, 4
   store i32 %3859, ptr %2, align 4
   %3860 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_row, align 4
-  %3861 = tail call i32 @llvm.umax.i32(i32 %35, i32 25)
+  %3861 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 25)
   %spec.store.select.i.i2511 = add nsw i32 %3861, -24
   %3862 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3860, ptr noundef %0, i32 noundef %3859, i32 noundef %spec.store.select.i.i2511, i32 noundef %4) #10
   %3863 = load i32, ptr %2, align 4
@@ -47552,7 +47552,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3963 = add i32 %3962, 4
   store i32 %3963, ptr %2, align 4
   %3964 = load i32, ptr @hf_x11_glx_render_TexImage3D_pixels, align 4
-  %3965 = tail call i32 @llvm.umax.i32(i32 %35, i32 57)
+  %3965 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 57)
   %spec.store.select.i.i2512 = add nsw i32 %3965, -56
   %3966 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3964, ptr noundef %0, i32 noundef %3963, i32 noundef %spec.store.select.i.i2512, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -47649,7 +47649,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %4039 = add i32 %4038, 4
   store i32 %4039, ptr %2, align 4
   %4040 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_pixels, align 4
-  %4041 = tail call i32 @llvm.umax.i32(i32 %35, i32 65)
+  %4041 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 65)
   %spec.store.select.i.i2513 = add nsw i32 %4041, -64
   %4042 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4040, ptr noundef %0, i32 noundef %4039, i32 noundef %spec.store.select.i.i2513, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
@@ -77376,7 +77376,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %906 = add i32 %905, 4
   store i32 %906, ptr %2, align 4
   %907 = sext i32 %901 to i64
-  %908 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %907)
+  %908 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %907)
   %909 = trunc nuw nsw i64 %908 to i32
   call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %909)
   br label %xkbSelectEvents.exit
@@ -77814,7 +77814,7 @@ listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %118
   %1200 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames, align 4
   %1201 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames_item, align 4
   %1202 = sext i32 %1057 to i64
-  %1203 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1202)
+  %1203 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %1202)
   %1204 = trunc nuw nsw i64 %1203 to i32
   %1205 = load i32, ptr %2, align 4
   %1206 = shl nuw nsw i32 %1204, 2
@@ -79317,11 +79317,11 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %11 = add i32 %10, 8
   %12 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %11, i32 noundef %3) #10
   %13 = sext i32 %9 to i64
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %13)
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = shl nuw nsw i32 %15, 2
   %17 = sext i32 %12 to i64
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %17)
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = mul nuw nsw i32 %19, 12
   %21 = add nuw nsw i32 %16, 20
@@ -79361,7 +79361,7 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %51 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_names, align 4
   %52 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_names_item, align 4
   %53 = sext i32 %31 to i64
-  %54 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %53)
+  %54 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %53)
   %55 = trunc nuw nsw i64 %54 to i32
   %56 = shl nuw nsw i32 %55, 2
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef %56, i32 noundef %3) #10
@@ -79387,7 +79387,7 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %65 = sext i32 %37 to i64
-  %66 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %65)
+  %66 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %65)
   %67 = trunc nuw nsw i64 %66 to i32
   tail call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %25, i32 noundef %3, i32 noundef %67)
   %68 = add nuw nsw i32 %.053, 1
@@ -81057,7 +81057,7 @@ define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture nou
   %43 = add i32 %42, 15
   store i32 %43, ptr %2, align 4
   %44 = sext i32 %26 to i64
-  %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
+  %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %44)
   %46 = trunc nuw nsw i64 %45 to i32
   tail call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %46)
   ret void
@@ -81487,7 +81487,7 @@ listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listO
   %198 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames, align 4
   %199 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames_item, align 4
   %200 = sext i32 %73 to i64
-  %201 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %200)
+  %201 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %200)
   %202 = trunc nuw nsw i64 %201 to i32
   %203 = load i32, ptr %2, align 4
   %204 = shl nuw nsw i32 %202, 2
@@ -82636,7 +82636,7 @@ listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listO
   %571 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames, align 4
   %572 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames_item, align 4
   %573 = sext i32 %446 to i64
-  %574 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %573)
+  %574 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %573)
   %575 = trunc nuw nsw i64 %574 to i32
   %576 = load i32, ptr %2, align 4
   %577 = shl nuw nsw i32 %575, 2

@@ -1682,7 +1682,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit30: ;
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 248
   %52 = load ptr, ptr %51, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 24, i1 false)
   %53 = load ptr, ptr %44, align 8
   %54 = getelementptr inbounds i8, ptr %7, i64 192
   %55 = load i64, ptr %54, align 8
@@ -1690,7 +1690,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit30: ;
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %7, i64 208
   %59 = load ptr, ptr %58, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 24, i1 false)
   %60 = getelementptr inbounds i8, ptr %8, i64 8
   %61 = getelementptr inbounds i8, ptr %8, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
@@ -1843,7 +1843,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %121, %_ZNSt6vectorI
 
 128:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %127) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %71, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %128, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
@@ -1853,7 +1853,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ;
 
 130:                                              ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %129) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3.i
 
 _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3.i: ; preds = %130, %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
@@ -1864,7 +1864,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3.i: 
 
 132:                                              ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3.i
   call void @_ZdlPv(ptr noundef nonnull %131) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 16, i1 false)
   br label %_ZN4Luau19MutatingGeneralizerD2Ev.exit
 
 _ZN4Luau19MutatingGeneralizerD2Ev.exit:           ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3.i, %132
@@ -3355,7 +3355,7 @@ define linkonce_odr dso_local void @_ZN4Luau10TypeCacherD2Ev(ptr noundef nonnull
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %1, %4
@@ -3366,7 +3366,7 @@ _ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_E
 
 7:                                                ; preds = %_ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %7
@@ -3378,7 +3378,7 @@ _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.ex
 
 10:                                               ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %9) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau15TypeOnceVisitorD2Ev.exit
 
 _ZN4Luau15TypeOnceVisitorD2Ev.exit:               ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %10
@@ -3425,7 +3425,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 
 20:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %19) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %20
@@ -3436,7 +3436,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; p
 
 23:                                               ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %22) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3
 
 _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3: ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %23
@@ -3448,7 +3448,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3: ; 
 
 26:                                               ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3
   tail call void @_ZdlPv(ptr noundef nonnull %25) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 16, i1 false)
   br label %_ZN4Luau15TypeOnceVisitorD2Ev.exit
 
 _ZN4Luau15TypeOnceVisitorD2Ev.exit:               ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit3, %26
@@ -3465,7 +3465,7 @@ define linkonce_odr dso_local void @_ZN4Luau16FreeTypeSearcherD2Ev(ptr noundef n
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %1, %4
@@ -3476,7 +3476,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; p
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit2
 
 _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit2: ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %7
@@ -3487,7 +3487,7 @@ _ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit2: ; 
 
 10:                                               ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit2
   tail call void @_ZdlPv(ptr noundef nonnull %9) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit2, %10
@@ -3498,7 +3498,7 @@ _ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; pr
 
 13:                                               ; preds = %_ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %12) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit5
 
 _ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit5: ; preds = %_ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %13
@@ -4387,7 +4387,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher16se
 
 .loopexit.i.i:                                    ; preds = %52, %50, %.thread, %.thread89
   %55 = phi ptr [ %35, %.thread89 ], [ %14, %.thread ], [ %14, %50 ], [ %14, %52 ]
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %6)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %.pre.i = load i64, ptr %55, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i
 
@@ -4526,7 +4526,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
 
 .loopexit.i.i14:                                  ; preds = %126, %124, %.thread93, %.thread96
   %129 = phi ptr [ %109, %.thread96 ], [ %88, %.thread93 ], [ %88, %124 ], [ %88, %126 ]
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %80)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %80)
   %.pre.i15 = load i64, ptr %129, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i16
 
@@ -4704,7 +4704,7 @@ _ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2
 
 .loopexit.i.i44:                                  ; preds = %221, %219, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit32.thread.thread, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit32.thread.thread103
   %224 = phi ptr [ %204, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit32.thread.thread103 ], [ %162, %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit32.thread.thread ], [ %162, %219 ], [ %162, %221 ]
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %154)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %154)
   %.pre.i45 = load i64, ptr %224, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i46
 
@@ -4797,7 +4797,7 @@ _ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE6insertERKS2_.e
   br i1 %.not.i.i.i61, label %.loopexit.i.i62, label %264, !llvm.loop !8
 
 .loopexit.i.i62:                                  ; preds = %270, %268, %257, %255
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %248)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %248)
   %.pre.i63 = load i64, ptr %251, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i64
 
@@ -6305,7 +6305,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %.noex
 
 194:                                              ; preds = %192
   call void @_ZdlPv(ptr noundef nonnull %193) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 195:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
@@ -6317,7 +6317,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %.noex
 
 198:                                              ; preds = %195
   call void @_ZdlPv(ptr noundef nonnull %197) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit77.thread
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %194, %192, %182
@@ -6428,7 +6428,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit85.thread: ; preds = %.no
 
 251:                                              ; preds = %249
   call void @_ZdlPv(ptr noundef nonnull %250) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit87
 
 252:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit85.thread
@@ -6440,7 +6440,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit85.thread: ; preds = %.no
 
 255:                                              ; preds = %252
   call void @_ZdlPv(ptr noundef nonnull %254) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit77.thread
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit87: ; preds = %251, %249, %239
@@ -7400,7 +7400,7 @@ define linkonce_odr dso_local void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12
 
 .loopexit.i.i:                                    ; preds = %53, %51, %.thread, %.thread162
   %56 = phi ptr [ %36, %.thread162 ], [ %15, %.thread ], [ %15, %51 ], [ %15, %53 ]
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %0)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i = load i64, ptr %56, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
@@ -7608,7 +7608,7 @@ _ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findE
   br i1 %.not.i.i.i68, label %.loopexit.i.i69, label %149, !llvm.loop !7
 
 .loopexit.i.i69:                                  ; preds = %155, %153, %.thread171, %.thread174
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %0)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i70 = load i64, ptr %57, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i71
 
@@ -7846,7 +7846,7 @@ _ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findE
   br i1 %.not.i.i.i101, label %.loopexit.i.i102, label %256, !llvm.loop !7
 
 .loopexit.i.i102:                                 ; preds = %262, %260, %.thread189, %.thread192
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %0)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i103 = load i64, ptr %57, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i104
 
@@ -8162,7 +8162,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
   br label %_ZN4Luau13MetatableTypeD2Ev.exit
 
 _ZN4Luau13MetatableTypeD2Ev.exit:                 ; preds = %1, %5
@@ -8226,7 +8226,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
   br i1 %.not.i.i.i, label %_ZN4Luau8LazyTypeD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 3)
           to label %_ZN4Luau8LazyTypeD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -8313,7 +8313,7 @@ define linkonce_odr dso_local void @_ZN4Luau12FunctionTypeD2Ev(ptr noundef nonnu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 264
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFbN4Luau24MagicFunctionCallContextEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -8331,7 +8331,7 @@ _ZNSt8functionIFbN4Luau24MagicFunctionCallContextEEED2Ev.exit: ; preds = %1, %4
 
 12:                                               ; preds = %_ZNSt8functionIFbN4Luau24MagicFunctionCallContextEEED2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 232
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFSt8optionalIN4Luau13WithPredicateIPKNS1_11TypePackVarEEEERNS1_11TypeCheckerERKSt10shared_ptrINS1_5ScopeEERKNS1_11AstExprCallES6_EED2Ev.exit unwind label %15
 
 15:                                               ; preds = %12
@@ -8391,7 +8391,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 37:                                               ; preds = %.lr.ph.i.i.i.i3
   store i8 0, ptr %34, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i4) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i4) #17
   br label %_ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i.i.i: ; preds = %37, %.lr.ph.i.i.i.i3
@@ -8462,7 +8462,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 
 69:                                               ; preds = %65
   store i8 0, ptr %66, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #17
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit
 
 _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %65, %69
@@ -8544,7 +8544,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 34:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
   %35 = getelementptr inbounds i8, ptr %0, i64 136
   store i8 0, ptr %31, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #17
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %34
@@ -8556,7 +8556,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 39:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %36, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #17
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit3
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit3: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %39
@@ -8606,7 +8606,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 168
   store i8 0, ptr %3, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i: ; preds = %6, %2
@@ -8646,7 +8646,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %20 = getelementptr inbounds i8, ptr %1, i64 32
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(208) %20) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 240) #18
   ret void
 }
@@ -9082,7 +9082,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
 
 .loopexit.i.i:                                    ; preds = %48, %46, %.thread, %.thread12
   %51 = phi ptr [ %31, %.thread12 ], [ %10, %.thread ], [ %10, %46 ], [ %10, %48 ]
-  tail call void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %0)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i = load i64, ptr %51, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
 
@@ -9527,7 +9527,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %52, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %58, %56, %41, %39
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %35, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -9630,7 +9630,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -9733,7 +9733,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -10206,7 +10206,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit54: ; preds = %.loopexit94,
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %225, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %231, %229, %214, %212
-  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %35)
+  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %35)
   %.pre.i.i = load i64, ptr %209, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -10303,7 +10303,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %.not.i.i.i.i66, label %.loopexit.i.i.i67, label %278, !llvm.loop !7
 
 .loopexit.i.i.i67:                                ; preds = %284, %282, %267, %265
-  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %258)
+  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %258)
   %.pre.i.i68 = load i64, ptr %261, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i69
 
@@ -10530,7 +10530,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit45: ; preds = %79
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %97, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %103, %101, %90
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %31)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %31)
   %.pre.i.i = load i64, ptr %71, align 8
   %.pre = load ptr, ptr %31, align 8
   %.pre129 = load ptr, ptr %67, align 8
@@ -10873,7 +10873,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70.thread114: ; preds = %25
   br i1 %.not.i.i.i.i75, label %.loopexit.i.i.i76, label %279, !llvm.loop !7
 
 .loopexit.i.i.i76:                                ; preds = %285, %283, %268, %266
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %31)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %31)
   %.pre.i.i77 = load i64, ptr %263, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i78
 
@@ -10970,7 +10970,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %.not.i.i.i.i92, label %.loopexit.i.i.i93, label %332, !llvm.loop !7
 
 .loopexit.i.i.i93:                                ; preds = %338, %336, %321, %319
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %312)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %312)
   %.pre.i.i94 = load i64, ptr %315, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i95
 
@@ -11073,7 +11073,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -11176,7 +11176,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -11279,7 +11279,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -11382,7 +11382,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -11634,7 +11634,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit23: ; preds = %77, %82, %62
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %102, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %108, %106, %92, %91
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %61, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -11730,7 +11730,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %.not.i.i.i.i29, label %.loopexit.i.i.i30, label %153, !llvm.loop !7
 
 .loopexit.i.i.i30:                                ; preds = %159, %157, %142, %140
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %134)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %134)
   %.pre.i.i31 = load i64, ptr %136, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32
 
@@ -11982,7 +11982,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit23: ; preds = %77, %82, %62
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %102, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %108, %106, %92, %91
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %61, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -12078,7 +12078,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %.not.i.i.i.i29, label %.loopexit.i.i.i30, label %153, !llvm.loop !7
 
 .loopexit.i.i.i30:                                ; preds = %159, %157, %142, %140
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %134)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %134)
   %.pre.i.i31 = load i64, ptr %136, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32
 
@@ -12180,7 +12180,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %24, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %30, %28, %13, %11
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %7, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -12282,7 +12282,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %24, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %30, %28, %13, %11
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %7, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -12385,7 +12385,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %25, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %31, %29, %14, %12
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %5)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -12605,7 +12605,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit17: ; preds = %74
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %92, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %98, %96, %85
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %31)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %31)
   %.pre.i.i = load i64, ptr %66, align 8
   %.pre = load ptr, ptr %31, align 8
   %.pre46 = load ptr, ptr %62, align 8
@@ -12703,7 +12703,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %.not.i.i.i.i23, label %.loopexit.i.i.i24, label %141, !llvm.loop !7
 
 .loopexit.i.i.i24:                                ; preds = %147, %145, %130, %128
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %121)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %121)
   %.pre.i.i25 = load i64, ptr %124, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i26
 
@@ -13021,7 +13021,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit: ; preds = %118, %
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %142, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %148, %146, %131, %129
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %31)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %31)
   %.pre.i.i = load i64, ptr %125, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -13118,7 +13118,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %.not.i.i.i.i39, label %.loopexit.i.i.i40, label %195, !llvm.loop !7
 
 .loopexit.i.i.i40:                                ; preds = %201, %199, %184, %182
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %175)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %175)
   %.pre.i.i41 = load i64, ptr %178, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i42
 
@@ -13220,7 +13220,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %24, !llvm.loop !29
 
 .loopexit.i.i.i:                                  ; preds = %30, %28, %13, %11
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %7, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -13409,7 +13409,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit: ; preds = %49
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %76, !llvm.loop !29
 
 .loopexit.i.i.i:                                  ; preds = %82, %80, %65, %63
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %59, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -13511,7 +13511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %24, !llvm.loop !29
 
 .loopexit.i.i.i:                                  ; preds = %30, %28, %13, %11
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %7, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -13613,7 +13613,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %24, !llvm.loop !29
 
 .loopexit.i.i.i:                                  ; preds = %30, %28, %13, %11
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %4)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.pre.i.i = load i64, ptr %7, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
 
@@ -13799,7 +13799,7 @@ define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionC2Ev(ptr no
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %12
 
 .noexc4:                                          ; preds = %.noexc
@@ -13809,7 +13809,7 @@ define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionC2Ev(ptr no
 5:                                                ; preds = %.noexc4
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc4
@@ -13821,7 +13821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body5:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body
 
@@ -13859,13 +13859,13 @@ define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionD2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
   br label %_ZN4Luau21InternalCompilerErrorD2Ev.exit
 
 _ZN4Luau21InternalCompilerErrorD2Ev.exit:         ; preds = %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #17
   ret void
 }
 
@@ -13889,13 +13889,13 @@ define linkonce_odr dso_local void @_ZN4Luau23RecursionLimitExceptionD0Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
   br label %_ZN4Luau23RecursionLimitExceptionD2Ev.exit
 
 _ZN4Luau23RecursionLimitExceptionD2Ev.exit:       ; preds = %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #18
   ret void
 }

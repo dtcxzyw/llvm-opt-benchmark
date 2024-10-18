@@ -177,7 +177,7 @@ default.unreachable:                              ; preds = %14
   br i1 %18, label %.noexc, label %.thread70
 
 .noexc:                                           ; preds = %17
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %11, i64 noundef %.sroa.4.058, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.abc5958ecb543d3232d5f4291e576c66.6) #21
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef range(i64 1, 0) %11, i64 noundef range(i64 1, 0) %.sroa.4.058, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.abc5958ecb543d3232d5f4291e576c66.6) #21
   unreachable
 
 .loopexit:                                        ; preds = %33, %27, %22, %16, %38, %12, %3
@@ -293,7 +293,7 @@ default.unreachable:                              ; preds = %11
   br i1 %22, label %.noexc6, label %23
 
 .noexc6:                                          ; preds = %17
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc7ffbb786c84c317E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %19, i64 noundef %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc7ffbb786c84c317E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19, i64 noundef %9)
   %.pre.i = load i64, ptr %18, align 8, !alias.scope !25
   br label %23
 

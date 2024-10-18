@@ -3173,14 +3173,14 @@ for.cond.i.i:                                     ; preds = %call.i.i.i.i.noexc,
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
-  %call.i.i.i.i9 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i)
+  %call.i.i.i.i9 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %for.body.i.i
   br i1 %call.i.i.i.i9, label %if.end, label %for.cond.i.i, !llvm.loop !157
 
 if.end15.i.i:                                     ; preds = %_ZN5boost10shared_ptrIN8QuantLib9SwapIndexEEC2ERKS3_.exit
-  %call2.i.i.i10 = invoke noundef i64 @_ZNK8QuantLib15Gaussian1dModel19CachedSwapKeyHasherclERKNS0_13CachedSwapKeyE(ptr noundef nonnull align 1 dereferenceable(1) %swapCache_, ptr noundef nonnull align 8 dereferenceable(32) %k)
+  %call2.i.i.i10 = invoke noundef i64 @_ZNK8QuantLib15Gaussian1dModel19CachedSwapKeyHasherclERKNS0_13CachedSwapKeyE(ptr noundef nonnull align 8 dereferenceable(56) %swapCache_, ptr noundef nonnull align 8 dereferenceable(32) %k)
           to label %call2.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call2.i.i.i.noexc:                                ; preds = %if.end15.i.i
@@ -3208,7 +3208,7 @@ for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS3_N5boost10shared_ptrINS1_11VanillaSwapEEEENS_10_Select1stESt8equal_toIS3_ENS2_19CachedSwapKeyHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i.i.i: ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i.i.i, i64 8
-  %call.i.i.i.i.i.i.i11 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i)
+  %call.i.i.i.i.i.i.i11 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i.i.i)
           to label %call.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %_ZNKSt8__detail15_Hashtable_baseIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS3_N5boost10shared_ptrINS1_11VanillaSwapEEEENS_10_Select1stESt8equal_toIS3_ENS2_19CachedSwapKeyHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i.i.i
@@ -7044,7 +7044,7 @@ for.cond:                                         ; preds = %invoke.cont, %if.th
 
 for.body:                                         ; preds = %for.cond
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
-  %call.i.i12 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12)
+  %call.i.i12 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr12)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -7089,7 +7089,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
 
 _ZNKSt8__detail15_Hashtable_baseIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS3_N5boost10shared_ptrINS1_11VanillaSwapEEEENS_10_Select1stESt8equal_toIS3_ENS2_19CachedSwapKeyHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %__p.0.i.i, i64 8
-  %call.i.i.i.i.i16 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i15)
+  %call.i.i.i.i.i16 = invoke noundef zeroext i1 @_ZNK8QuantLib15Gaussian1dModel13CachedSwapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i15)
           to label %call.i.i.i.i.i.noexc unwind label %lpad30
 
 call.i.i.i.i.i.noexc:                             ; preds = %_ZNKSt8__detail15_Hashtable_baseIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS3_N5boost10shared_ptrINS1_11VanillaSwapEEEENS_10_Select1stESt8equal_toIS3_ENS2_19CachedSwapKeyHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i
@@ -8397,7 +8397,7 @@ if.then.i.i:                                      ; preds = %cast.end.i
   br label %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
 
 _ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i: ; preds = %if.then.i.i, %cast.end.i
-  %call3.i4 = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull %add.ptr)
+  %call3.i4 = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
@@ -8882,7 +8882,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %12 = phi ptr [ %11, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -8944,7 +8944,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib6HandleINS_18YieldTermStructureEE4Li
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib6HandleINS_18YieldTermStructureEE4LinkD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(129) %0, i64 noundef 136) #31
   ret void
 }
 
@@ -8952,7 +8952,7 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib6HandleINS_18YieldTermStructureEE4Link6updateEv(ptr noundef %this) unnamed_addr #24 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(129) %0)
   ret void
 }
 
@@ -10209,7 +10209,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6detail22CubicInterpolationImplIPdS2_ED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit7.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
   store ptr null, ptr %tmp_.i, align 8, !tbaa !18
-  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #29
+  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 368) #31
   ret void
 }
@@ -15599,7 +15599,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib6detail22CubicInterpolationImplIPdS2_ED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit7.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -152
   store ptr null, ptr %tmp_.i, align 8, !tbaa !18
-  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #29
+  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %5) #29
   ret void
 }
 
@@ -15650,8 +15650,8 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib6detail22CubicInterpolationImplIPdS2_ED0Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit7.i.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -152
   store ptr null, ptr %tmp_.i.i, align 8, !tbaa !18
-  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 368) #31
+  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %5) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(368) %5, i64 noundef 368) #31
   ret void
 }
 
@@ -17365,7 +17365,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6detail22CubicInterpolationImplIPdS2_ED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit7.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
   store ptr null, ptr %tmp_.i, align 8, !tbaa !18
-  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %x) #29
+  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %x) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %x, i64 noundef 368) #31
   br label %delete.end
 
@@ -17438,7 +17438,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6detail22CubicInterpolationImplIPdS2_ED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit7.i.i
   store ptr null, ptr %tmp_.i.i, align 8, !tbaa !18
-  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #29
+  tail call void @_ZN8QuantLib6detail17CoefficientHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 368) #31
   br label %_ZN5boost14checked_deleteIN8QuantLib6detail22CubicInterpolationImplIPdS4_EEEEvPT_.exit
 

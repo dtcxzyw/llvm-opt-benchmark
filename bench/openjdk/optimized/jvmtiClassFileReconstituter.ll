@@ -1776,7 +1776,7 @@ define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter25line_number
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodHandlePh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.BytecodeStream, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8

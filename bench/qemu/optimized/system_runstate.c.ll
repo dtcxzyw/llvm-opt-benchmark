@@ -131,11 +131,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 16) %0, ptr noundef %call, i32 noundef range(i32 0, 16) %new_state, ptr noundef %call1) #14
   br label %trace_runstate_set.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef range(i32 0, 16) %0, ptr noundef %call, i32 noundef range(i32 0, 16) %new_state, ptr noundef %call1) #14
   br label %trace_runstate_set.exit
 
 trace_runstate_set.exit:                          ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -487,11 +487,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %conv, i32 noundef %state, ptr noundef %call) #14
   br label %trace_vm_state_notify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 2) %conv, i32 noundef %state, ptr noundef %call) #14
   br label %trace_vm_state_notify.exit
 
 trace_vm_state_notify.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1173,7 +1173,7 @@ qemu_kill_report.exit.i:                          ; preds = %if.end.i.i, %if.the
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cause.addr.i.i)
   store i32 %0, ptr %cause.addr.i.i, align 4
   %cmp.i.i.i = icmp ugt i32 %0, 5
-  call void @qapi_event_send_shutdown(i1 noundef zeroext %cmp.i.i.i, i32 noundef %0) #14
+  call void @qapi_event_send_shutdown(i1 noundef zeroext %cmp.i.i.i, i32 noundef range(i32 1, 0) %0) #14
   call void @notifier_list_notify(ptr noundef nonnull @shutdown_notifiers, ptr noundef nonnull %cause.addr.i.i) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cause.addr.i.i)
   %5 = load i32, ptr @shutdown_action, align 4

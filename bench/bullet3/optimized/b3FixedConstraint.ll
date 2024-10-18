@@ -65,7 +65,7 @@ invoke.cont:
   %m_pivotInB6 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_pivotInB6, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i3, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  invoke void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %frameInA, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
+  invoke void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %frameInA, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont
@@ -74,7 +74,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i4)
-  invoke void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %frameInB, ptr noundef nonnull align 16 dereferenceable(16) %retval.i4)
+  invoke void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %frameInB, ptr noundef nonnull align 16 dereferenceable(16) %retval.i4)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont8

@@ -733,7 +733,7 @@ trace_pflash_read_unknown_state.exit.i:           ; preds = %if.else.i.i.i, %if.
   br label %sw.bb.i
 
 sw.bb.i:                                          ; preds = %trace_pflash_read_unknown_state.exit.i, %if.else
-  %call.i = tail call fastcc i32 @pflash_data_read(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %len, i32 noundef %and)
+  %call.i = tail call fastcc i32 @pflash_data_read(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %len, i32 noundef range(i32 0, 2) %and)
   br label %sw.epilog135.i
 
 sw.bb3.i:                                         ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
@@ -1686,7 +1686,7 @@ trace_pflash_write.exit137.i:                     ; preds = %if.else.i.i132.i, %
   br i1 %tobool60.i, label %if.else63.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %trace_pflash_write.exit137.i
-  tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef %and)
+  tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef range(i32 0, 2) %and)
   %blk.i.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %50 = load ptr, ptr %blk.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %50, null
@@ -1874,7 +1874,7 @@ sw.bb147.i:                                       ; preds = %sw.bb144.i
   br i1 %tobool149.i, label %if.else151.i, label %if.then150.i
 
 if.then150.i:                                     ; preds = %sw.bb147.i
-  tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef %and)
+  tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef range(i32 0, 2) %and)
   %status157.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %.pre.i = load i8, ptr %status157.phi.trans.insert.i, align 1
   br label %if.end156.i

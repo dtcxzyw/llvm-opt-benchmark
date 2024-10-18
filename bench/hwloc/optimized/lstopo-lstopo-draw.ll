@@ -1741,7 +1741,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef %0, ptr noundef nonnull %46, i32 noundef %49, i32 noundef %15, ptr noundef nonnull %6) #25
+  call void %52(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %49, i32 noundef %15, ptr noundef nonnull %6) #25
   %53 = getelementptr inbounds i8, ptr %0, i64 948
   %54 = load float, ptr %53, align 4
   %55 = load i32, ptr %6, align 4
@@ -1934,7 +1934,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   br i1 %.not.i.i.i, label %156, label %158
 
 156:                                              ; preds = %.lr.ph284
-  %157 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %153, i32 noundef %155, i32 noundef 0) #23
+  %157 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %153, i32 noundef range(i32 0, -2) %155, i32 noundef 0) #23
   br label %hwloc_get_next_obj_by_type.exit.i
 
 158:                                              ; preds = %.lr.ph284
@@ -1977,7 +1977,7 @@ hwloc_get_next_obj_by_type.exit.i:                ; preds = %161, %156
   br i1 %.not.i.i36.i, label %172, label %174
 
 172:                                              ; preds = %.lr.ph45.i
-  %173 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %153, i32 noundef %171, i32 noundef 0) #23
+  %173 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %153, i32 noundef range(i32 0, -2) %171, i32 noundef 0) #23
   br label %hwloc_get_next_obj_by_type.exit39.i
 
 174:                                              ; preds = %.lr.ph45.i

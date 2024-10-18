@@ -104,7 +104,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   br i1 %.not35.i.i, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.backedge, %36
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull %0, ptr nonnull %7, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
           to label %46 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %._crit_edge
@@ -262,7 +262,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   br i1 %.not35.i.i, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.backedge, %36
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull %0, ptr nonnull %7, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
           to label %46 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %._crit_edge
@@ -420,7 +420,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   br i1 %.not35.i.i, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.backedge, %36
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull %0, ptr nonnull %7, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
           to label %46 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %._crit_edge

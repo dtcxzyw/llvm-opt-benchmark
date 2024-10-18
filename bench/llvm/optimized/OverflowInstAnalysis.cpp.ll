@@ -104,7 +104,7 @@ _ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit.i.i: ; preds = %22
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %1, i64 -64
   %43 = load ptr, ptr %42, align 8
-  %44 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE10match_implINS_5ValueEEEbPT_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %43)
+  %44 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE10match_implINS_5ValueEEEbPT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %43)
   %45 = load ptr, ptr %10, align 8
   %.not.i.i.i.i13 = icmp ne ptr %45, null
   %or.cond.not.i.i.i.i14 = select i1 %44, i1 %.not.i.i.i.i13, i1 false
@@ -125,7 +125,7 @@ _ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5
 
 _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i: ; preds = %49, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit.i.i.i
   %50 = phi ptr [ null, %49 ], [ %48, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit.i.i.i ]
-  %51 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE10match_implINS_5ValueEEEbPT_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %50)
+  %51 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE10match_implINS_5ValueEEEbPT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %50)
   %52 = load ptr, ptr %10, align 8
   %.not.i9.i.i.i = icmp ne ptr %52, null
   %or.cond.not.i10.i.i.i = select i1 %51, i1 %.not.i9.i.i.i, i1 false

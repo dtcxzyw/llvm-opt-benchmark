@@ -3981,7 +3981,7 @@ define hidden void @_ZN5clang7targets17addCygMingDefinesERKNS_11LangOptionsERNS_
   %39 = load ptr, ptr %.0.ptr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
   %40 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %39) #18
@@ -4628,7 +4628,7 @@ _ZNSt10unique_ptrIN5clang7targets13AVRTargetInfoESt14default_deleteIS2_EED2Ev.ex
 
 _ZNSt10unique_ptrIN5clang7targets13BPFTargetInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %3, %3
   %218 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19, !noalias !93
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %218, ptr noundef nonnull align 8 dereferenceable(56) %1) #18, !noalias !93
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(490) %218, ptr noundef nonnull align 8 dereferenceable(56) %1) #18, !noalias !93
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets13BPFTargetInfoE, i64 16), ptr %218, align 8, !noalias !93
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 489
   store i8 0, ptr %219, align 1, !noalias !93
@@ -4655,7 +4655,7 @@ _ZNSt10unique_ptrIN5clang7targets13BPFTargetInfoESt14default_deleteIS2_EED2Ev.ex
   %230 = load i32, ptr %140, align 8, !noalias !93
   %231 = icmp eq i32 %230, 9
   %.str.108..str.109.i.i = select i1 %231, ptr @.str.108, ptr @.str.109
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %218, ptr nonnull %.str.108..str.109.i.i, i64 41, ptr noundef nonnull @.str.59) #18, !noalias !93
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(490) %218, ptr nonnull %.str.108..str.109.i.i, i64 41, ptr noundef nonnull @.str.59) #18, !noalias !93
   %232 = getelementptr inbounds nuw i8, ptr %218, i64 286
   store i8 64, ptr %232, align 2, !noalias !93
   %233 = getelementptr inbounds nuw i8, ptr %218, i64 287
@@ -5960,7 +5960,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15XCoreTargetI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15LinuxTargetInfoINS1_17HexagonTargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(565) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17HexagonTargetInfoE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -5968,7 +5968,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15LinuxTargetI
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %7, i8 0, i64 5, i1 false)
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.62, i64 149, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(565) %4, ptr nonnull @.str.62, i64 149, ptr noundef nonnull @.str.59) #18
   %8 = getelementptr inbounds i8, ptr %4, i64 136
   store i32 6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 144
@@ -6031,7 +6031,7 @@ _ZN5clang7targets15LinuxTargetInfoINS0_17HexagonTargetInfoEEC2ERKN4llvm6TripleER
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17HexagonTargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.37") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(565) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17HexagonTargetInfoE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -6039,7 +6039,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17HexagonTarge
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %7, i8 0, i64 5, i1 false)
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.62, i64 149, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(565) %4, ptr nonnull @.str.62, i64 149, ptr noundef nonnull @.str.59) #18
   %8 = getelementptr inbounds i8, ptr %4, i64 136
   store i32 6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 144
@@ -6073,9 +6073,9 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17HexagonTarge
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15LanaiTargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.45") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15LanaiTargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.79, i64 35, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.79, i64 35, ptr noundef nonnull @.str.59) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 336
   store i8 4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
@@ -6667,11 +6667,11 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets14NaClTargetIn
   ]
 
 23:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(624) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_15ARMleTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 24:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(624) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_15ARMleTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 _ZN5clang7targets14NaClTargetInfoINS0_15ARMleTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit: ; preds = %3, %23, %24
@@ -6783,11 +6783,11 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets14NaClTargetIn
   ]
 
 23:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(624) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_15ARMbeTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 24:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(624) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_15ARMbeTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 _ZN5clang7targets14NaClTargetInfoINS0_15ARMbeTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit: ; preds = %3, %23, %24
@@ -6798,7 +6798,7 @@ _ZN5clang7targets14NaClTargetInfoINS0_15ARMbeTargetInfoEEC2ERKN4llvm6TripleERKNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets13AVRTargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.333") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(580) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets13AVRTargetInfoE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -6863,7 +6863,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets13AVRTargetInf
   store i32 8, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %4, i64 176
   store i32 1, ptr %36, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.107, i64 53, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(580) %4, ptr nonnull @.str.107, i64 53, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -7090,11 +7090,11 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets14NaClTargetIn
   ]
 
 23:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(584) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_20NaClMips32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 24:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(584) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_20NaClMips32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 _ZN5clang7targets14NaClTargetInfoINS0_20NaClMips32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit: ; preds = %3, %23, %24
@@ -7438,7 +7438,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets16PS3PPUTarget
   store i32 9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 136
   store i32 6, ptr %11, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.390, i64 32, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr nonnull @.str.390, i64 32, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -7582,7 +7582,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets18AIXPPC64Targ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17RISCV32TargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.589") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -7629,7 +7629,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17RISCV32Targe
   store i32 5, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 136
   store i32 6, ptr %28, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %4, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -7637,7 +7637,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17RISCV32Targe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17FuchsiaTargetInfoINS1_17RISCV64TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.621") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -7690,7 +7690,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17FuchsiaTarge
   store i32 7, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %4, i64 140
   store i32 7, ptr %31, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %4, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17FuchsiaTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %4, align 8
   store i32 6, ptr %19, align 4
   store ptr @.str.81, ptr %23, align 8
@@ -7703,7 +7703,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17FuchsiaTarge
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17RISCV64TargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.653") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -7756,7 +7756,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17RISCV64Targe
   store i32 7, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %4, i64 140
   store i32 7, ptr %31, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %4, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -7764,13 +7764,13 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17RISCV64Targe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15LinuxTargetInfoINS1_17SparcV8TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.661") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -7827,13 +7827,13 @@ _ZN5clang7targets15LinuxTargetInfoINS0_17SparcV8TargetInfoEEC2ERKN4llvm6TripleER
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SolarisTargetInfoINS1_17SparcV8TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.669") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -7882,13 +7882,13 @@ _ZN5clang7targets17SolarisTargetInfoINS0_17SparcV8TargetInfoEEC2ERKN4llvm6Triple
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets16NetBSDTargetInfoINS1_17SparcV8TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.677") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -7931,13 +7931,13 @@ _ZN5clang7targets16NetBSDTargetInfoINS0_17SparcV8TargetInfoEEC2ERKN4llvm6TripleE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15RTEMSTargetInfoINS1_17SparcV8TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.685") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -7966,13 +7966,13 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15RTEMSTargetI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SparcV8TargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.693") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -8000,13 +8000,13 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SparcV8Targe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15RTEMSTargetInfoINS1_19SparcV8elTargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.709") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -8028,7 +8028,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15RTEMSTargetI
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 287
   store i8 %.sink5.i.i.i.i, ptr %17, align 1
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets19SparcV8elTargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.420, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.420, i64 36, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets15RTEMSTargetInfoINS0_19SparcV8elTargetInfoEEE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -8037,13 +8037,13 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15RTEMSTargetI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets19SparcV8elTargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.717") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -2
@@ -8065,7 +8065,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets19SparcV8elTar
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 287
   store i8 %.sink5.i.i, ptr %17, align 1
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets19SparcV8elTargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.420, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.420, i64 36, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -8073,13 +8073,13 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets19SparcV8elTar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15LinuxTargetInfoINS1_17SparcV9TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.725") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV9TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %4, i64 9
   store i8 64, ptr %8, align 1
@@ -8145,13 +8145,13 @@ _ZN5clang7targets15LinuxTargetInfoINS0_17SparcV9TargetInfoEEC2ERKN4llvm6TripleER
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SolarisTargetInfoINS1_17SparcV9TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.733") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV9TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %4, i64 9
   store i8 64, ptr %8, align 1
@@ -8205,13 +8205,13 @@ _ZN5clang7targets17SolarisTargetInfoINS0_17SparcV9TargetInfoEEC2ERKN4llvm6Triple
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets16NetBSDTargetInfoINS1_17SparcV9TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.741") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV9TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %4, i64 9
   store i8 64, ptr %8, align 1
@@ -8263,13 +8263,13 @@ _ZN5clang7targets16NetBSDTargetInfoINS0_17SparcV9TargetInfoEEC2ERKN4llvm6TripleE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17OpenBSDTargetInfoINS1_17SparcV9TargetInfoEEEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.749") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV9TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %4, i64 9
   store i8 64, ptr %8, align 1
@@ -8337,13 +8337,13 @@ _ZN5clang7targets17OpenBSDTargetInfoINS0_17SparcV9TargetInfoEEC2ERKN4llvm6Triple
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SparcV9TargetInfoEJRKN4llvm6TripleERKNS0_13TargetOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.765") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 comdat {
   %4 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #19
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 489
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 492
   store i32 0, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV9TargetInfoE, i64 16), ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %4, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %4, i64 9
   store i8 64, ptr %8, align 1
@@ -8545,7 +8545,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets20DarwinI386Ta
   store i16 128, ptr %8, align 2
   %9 = getelementptr inbounds i8, ptr %5, i64 68
   store i32 256, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -8566,12 +8566,12 @@ _ZN5clang7targets20DarwinI386TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE.
   store i32 8, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 148
   store i32 7, ptr %20, align 4
-  call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %5, ptr nonnull @.str.449, i64 87, ptr noundef nonnull @.str.13) #18
+  call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %5, ptr nonnull @.str.449, i64 87, ptr noundef nonnull @.str.13) #18
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %22 = load i32, ptr %21, align 8
   %23 = or i32 %22, 1
   store i32 %23, ptr %21, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   store ptr %5, ptr %0, align 8
   ret void
@@ -8845,7 +8845,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets22CygwinX86_32
   store i8 64, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %4, i64 21
   store i8 64, ptr %7, align 1
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.477, i64 89, ptr noundef nonnull @.str.13) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr nonnull @.str.477, i64 89, ptr noundef nonnull @.str.13) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -8965,11 +8965,11 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets14NaClTargetIn
   ]
 
 23:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_16X86_32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 24:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_16X86_32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 _ZN5clang7targets14NaClTargetInfoINS0_16X86_32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit: ; preds = %3, %23, %24
@@ -8989,7 +8989,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets19MCUX86_32Tar
   %7 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #20
   %8 = getelementptr inbounds i8, ptr %4, i64 112
   store ptr %7, ptr %8, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.489, i64 88, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr nonnull @.str.489, i64 88, ptr noundef nonnull @.str.59) #18
   %9 = getelementptr inbounds i8, ptr %4, i64 156
   store i32 6, ptr %9, align 4
   store ptr %4, ptr %0, align 8
@@ -9005,7 +9005,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets22DarwinX86_64
   store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22DarwinX86_64TargetInfoE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 168
   store i32 9, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -9024,8 +9024,8 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets22DarwinX86_64
   br label %_ZN5clang7targets22DarwinX86_64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 _ZN5clang7targets22DarwinX86_64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit: ; preds = %3, %11
-  call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %5, ptr nonnull @.str.495, i64 79, ptr noundef nonnull @.str.13) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %5, ptr nonnull @.str.495, i64 79, ptr noundef nonnull @.str.13) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   store ptr %5, ptr %0, align 8
   ret void
@@ -9468,11 +9468,11 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets14NaClTargetIn
   ]
 
 23:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr nonnull @.str.104, i64 76, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_16X86_64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 24:                                               ; preds = %3
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr nonnull @.str.105, i64 79, ptr noundef nonnull @.str.59) #18
   br label %_ZN5clang7targets14NaClTargetInfoINS0_16X86_64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit
 
 _ZN5clang7targets14NaClTargetInfoINS0_16X86_64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE.exit: ; preds = %3, %23, %24
@@ -9541,7 +9541,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets16SPIR32Target
   store i32 5, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 5, ptr %9, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.512, i64 93, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nonnull @.str.512, i64 93, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9561,7 +9561,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets16SPIR64Target
   store i32 7, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 7, ptr %9, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.513, i64 85, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nonnull @.str.513, i64 85, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9577,7 +9577,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets15SPIRVTargetI
   store i8 64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 136
   store i32 6, ptr %7, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.513, i64 85, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nonnull @.str.513, i64 85, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9597,7 +9597,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SPIRV32Targe
   store i32 5, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 5, ptr %9, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.512, i64 93, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nonnull @.str.512, i64 93, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9617,7 +9617,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets23SPIRV64AMDGC
   store i32 7, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 7, ptr %9, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.514, i64 91, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nonnull @.str.514, i64 91, ptr noundef nonnull @.str.59) #18
   %10 = getelementptr inbounds i8, ptr %4, i64 17
   store i8 16, ptr %10, align 1
   %11 = getelementptr inbounds i8, ptr %4, i64 16
@@ -9657,7 +9657,7 @@ _ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i.i.i.i.i: ; preds = %3
 
 _ZNKSt14default_deleteIN5clang7targets23SPIRV64AMDGCNTargetInfoEEclEPS2_.exit: ; preds = %3, %_ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i.i.i.i.i
   store ptr null, ptr %4, align 8
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %2) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %2) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #21
   br label %9
 
@@ -9681,7 +9681,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5clang7targets17SPIRV64Targe
   store i32 7, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 144
   store i32 7, ptr %9, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %4, ptr nonnull @.str.513, i64 85, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nonnull @.str.513, i64 85, ptr noundef nonnull @.str.59) #18
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10093,7 +10093,7 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit:       ; preds = %.lr.ph.i.i.i.i.i, %
   store i32 0, ptr %48, align 8, !noalias !216
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %49, i64 %50)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %8, ptr %49, i64 %50)
   %51 = load i8, ptr %37, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
@@ -10322,7 +10322,7 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit49:     ; preds = %.lr.ph.i.i.i.i.i46,
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 64
   %155 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %154) #18
   %156 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %154) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr %155, i64 %156)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr %155, i64 %156)
   %157 = load i8, ptr %141, align 8
   %158 = trunc i8 %157 to i1
   br i1 %158, label %159, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i50
@@ -10375,7 +10375,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit55:          ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i50, %165, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i54
   %178 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %178, i64 noundef 32) #18
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %10, ptr noundef nonnull %178, i64 noundef 32) #18
   %179 = load ptr, ptr %7, align 8
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 456
@@ -10422,12 +10422,12 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit55:          ; preds = %_ZN5clang17Diagnost
 _ZN5clang17DiagnosticsEngine6ReportEj.exit61:     ; preds = %.lr.ph.i.i.i.i.i58, %184
   store i32 0, ptr %152, align 8, !noalias !232
   %195 = load ptr, ptr %10, align 8, !noalias !233
-  %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #18, !noalias !233
+  %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %10) #18, !noalias !233
   %197 = getelementptr inbounds %"class.llvm::StringRef", ptr %195, i64 %196
   call void @_ZN4llvm6detail9join_implIPNS_9StringRefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SA_S2_St20forward_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef %195, ptr noundef %197, ptr nonnull @.str.14, i64 2)
   %198 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %199 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr %198, i64 %199)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %11, ptr %198, i64 %199)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %200 = load i8, ptr %187, align 8
   %201 = trunc i8 %200 to i1
@@ -10480,7 +10480,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit67
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit67:          ; preds = %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i66, %208, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i62, %_ZN5clang17DiagnosticBuilderD2Ev.exit55
-  %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #18
+  %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %10) #18
   %222 = load ptr, ptr %10, align 8
   %223 = icmp eq ptr %222, %178
   br i1 %223, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %224
@@ -10556,7 +10556,7 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit73:     ; preds = %.lr.ph.i.i.i.i.i70,
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 96
   %260 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %259) #18
   %261 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %259) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr %260, i64 %261)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %13, ptr %260, i64 %261)
   %262 = load i8, ptr %246, align 8
   %263 = trunc i8 %262 to i1
   br i1 %263, label %264, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i74
@@ -10609,7 +10609,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit79:          ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i74, %270, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i78
   %283 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %283, i64 noundef 32) #18
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef nonnull %283, i64 noundef 32) #18
   %284 = load ptr, ptr %7, align 8
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 464
@@ -10656,12 +10656,12 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit79:          ; preds = %_ZN5clang17Diagnost
 _ZN5clang17DiagnosticsEngine6ReportEj.exit85:     ; preds = %.lr.ph.i.i.i.i.i82, %289
   store i32 0, ptr %257, align 8, !noalias !249
   %300 = load ptr, ptr %14, align 8, !noalias !250
-  %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #18, !noalias !250
+  %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %14) #18, !noalias !250
   %302 = getelementptr inbounds %"class.llvm::StringRef", ptr %300, i64 %301
   call void @_ZN4llvm6detail9join_implIPNS_9StringRefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SA_S2_St20forward_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef %300, ptr noundef %302, ptr nonnull @.str.14, i64 2)
   %303 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   %304 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %303, i64 %304)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %15, ptr %303, i64 %304)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   %305 = load i8, ptr %292, align 8
   %306 = trunc i8 %305 to i1
@@ -10714,7 +10714,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit91
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit91:          ; preds = %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i90, %313, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i86, %_ZN5clang17DiagnosticBuilderD2Ev.exit79
-  %326 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #18
+  %326 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %14) #18
   %327 = load ptr, ptr %14, align 8
   %328 = icmp eq ptr %327, %283
   br i1 %328, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %329
@@ -10788,7 +10788,7 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit98:     ; preds = %.lr.ph.i.i.i.i.i95,
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 160
   %363 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %362) #18
   %364 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %362) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr %363, i64 %364)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %17, ptr %363, i64 %364)
   %365 = load i8, ptr %349, align 8
   %366 = trunc i8 %365 to i1
   br i1 %366, label %367, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i99
@@ -10906,7 +10906,7 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit110:    ; preds = %.lr.ph.i.i.i.i.i107
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 128
   %421 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %420) #18
   %422 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %420) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr %421, i64 %422)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %18, ptr %421, i64 %422)
   %423 = load i8, ptr %407, align 8
   %424 = trunc i8 %423 to i1
   br i1 %424, label %425, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i111
@@ -11281,7 +11281,7 @@ _ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   %579 = load ptr, ptr %7, align 8
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 400
   %581 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8optionalIN4llvm6TripleEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(64) %580, ptr noundef nonnull align 8 dereferenceable(56) %21) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #18
   br label %582
 
 582:                                              ; preds = %574, %558
@@ -11313,7 +11313,7 @@ _ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i: ; preds = %_ZN5clang
 _ZNSt10unique_ptrIN5clang10TargetInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %_ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i
   %.0143 = phi ptr [ %589, %_ZN5clang17DiagnosticBuilderD2Ev.exit.thread ], [ null, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ null, %_ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i ]
   store ptr null, ptr %7, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   ret ptr %.0143
 }
 
@@ -11336,12 +11336,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNS
   br i1 %5, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %11
 
 10:                                               ; preds = %2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   store i8 1, ptr %3, align 8
   br label %11
@@ -11473,7 +11473,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang10TargetInfo20validateOpenCLTarge
 _ZN5clang17DiagnosticsEngine6ReportEj.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i, %34
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 912
   store i32 0, ptr %52, align 8, !noalias !283
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str.26, i64 22)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr nonnull @.str.26, i64 22)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 32
@@ -11512,7 +11512,7 @@ _ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit.i: ; preds = %_ZNK5clang19Stre
   call void @_ZNK4llvm12VersionTuple11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 4 dereferenceable(16) %6) #18
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %76 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %75, i64 %76)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr %75, i64 %76)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %77 = load i8, ptr %41, align 8
   %78 = trunc i8 %77 to i1
@@ -11906,7 +11906,7 @@ define internal fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS
 _ZN5clang17DiagnosticsEngine6ReportEj.exit:       ; preds = %.lr.ph.i.i.i.i.i, %20
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 912
   store i32 0, ptr %40, align 8, !noalias !290
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %1, i64 %2)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr %1, i64 %2)
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load i64, ptr %42, align 8
@@ -11947,7 +11947,7 @@ _ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit: ; preds = %_ZN5clang17Diagnos
   call void @_ZNK4llvm12VersionTuple11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 4 dereferenceable(16) %6) #18
   %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %65, i64 %66)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr %65, i64 %66)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %67 = load i8, ptr %29, align 8
   %68 = trunc i8 %67 to i1
@@ -12031,7 +12031,7 @@ declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticE
 define linkonce_odr hidden void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #18
   %.not4.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i, label %.lr.ph.i.preheader.i
 
@@ -12059,7 +12059,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_
 
 _ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %12) #18
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 432
   %16 = icmp eq ptr %14, %15
@@ -12172,10 +12172,10 @@ define linkonce_odr hidden noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStor
 _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %10 = getelementptr inbounds i8, ptr %6, i64 432
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 8) #18
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull %10, i64 noundef 8) #18
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %12 = getelementptr inbounds i8, ptr %6, i64 544
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %12, i64 noundef 6) #18
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) %11, ptr noundef nonnull %12, i64 noundef 6) #18
   br label %29
 
 13:                                               ; preds = %1
@@ -12383,7 +12383,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17Hexago
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   ret void
 }
 
@@ -12394,7 +12394,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17Hexago
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 568) #21
   ret void
 }
@@ -12767,14 +12767,14 @@ define linkonce_odr hidden void @_ZNK5clang10TargetInfo17convertConstraintB5cxx1
 9:                                                ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 1))
   br label %13
 
 11:                                               ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i8 noundef signext %7) #18
   br label %13
 
@@ -13836,7 +13836,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -13845,7 +13845,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14067,7 +14067,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14076,7 +14076,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14176,7 +14176,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_19AArch6
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14185,7 +14185,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_19AArch6
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14236,7 +14236,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19AArch6
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14245,7 +14245,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19AArch6
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14414,7 +14414,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_19AArch64
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14423,7 +14423,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_19AArch64
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14653,7 +14653,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_19AArch
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14662,7 +14662,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_19AArch
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14748,7 +14748,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14757,7 +14757,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14859,7 +14859,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14868,7 +14868,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -14982,7 +14982,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -14991,7 +14991,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_19AArc
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -15091,7 +15091,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19AArch6
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -15100,7 +15100,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19AArch6
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -15269,7 +15269,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_19AArch
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -15278,7 +15278,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_19AArch
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -15370,7 +15370,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15ARMleT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -15381,7 +15381,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15ARMleT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -15662,7 +15662,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_15ARMleTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -15673,7 +15673,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_15ARMleTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -15905,7 +15905,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_15ARMl
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -15916,7 +15916,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_15ARMl
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16015,7 +16015,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15ARMle
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16026,7 +16026,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15ARMle
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16114,7 +16114,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_15ARMl
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16125,7 +16125,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_15ARMl
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16223,7 +16223,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_15ARMleT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16234,7 +16234,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_15ARMleT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16286,7 +16286,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_15ARMleT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16297,7 +16297,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_15ARMleT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16353,7 +16353,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_15ARMleTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16364,7 +16364,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_15ARMleTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16450,7 +16450,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15ARMbeT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16461,7 +16461,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15ARMbeT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16647,7 +16647,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15ARMbe
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16658,7 +16658,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15ARMbe
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16746,7 +16746,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_15ARMbeT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16757,7 +16757,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_15ARMbeT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16809,7 +16809,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_15ARMbeTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -16820,7 +16820,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_15ARMbeTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -16901,7 +16901,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_14MipsTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -16912,7 +16912,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_14MipsTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -17063,7 +17063,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets14MipsTargetInfo17convertCons
 16:                                               ; preds = %12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 1))
   %18 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
@@ -17722,7 +17722,7 @@ _ZNK5clang7targets14MipsTargetInfo16getDefaultFPModeEv.exit: ; preds = %_ZNK5cla
   store i32 2, ptr %44, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %158 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %158, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %158, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.133, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.133, i64 5))
   %159 = load ptr, ptr %46, align 8
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18035,7 +18035,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_14MipsTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -18046,7 +18046,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_14MipsTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -18098,7 +18098,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_14Mips
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -18109,7 +18109,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_14Mips
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -18208,7 +18208,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_14MipsT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -18219,7 +18219,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_14MipsT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -18331,7 +18331,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14MipsTargetInfoC2ERKN4llvm6Tr
 19:                                               ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.111, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 3))
   br label %29
 
@@ -18344,14 +18344,14 @@ define linkonce_odr hidden void @_ZN5clang7targets14MipsTargetInfoC2ERKN4llvm6Tr
 25:                                               ; preds = %21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %26 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.112, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 3))
   br label %29
 
 27:                                               ; preds = %21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
   %28 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %9) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.113, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 3))
   br label %29
 
@@ -18385,7 +18385,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_14MipsTar
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -18396,7 +18396,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_14MipsTar
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -18628,7 +18628,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_20NaClMip
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -18639,7 +18639,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_20NaClMip
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -18731,7 +18731,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_14Mips
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   ret void
 }
 
@@ -18742,7 +18742,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_14Mips
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -18835,13 +18835,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17OpenBSDTargetInfoINS0_14Mip
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_14M68kTargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_14M68kTargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 504) #21
   ret void
 }
@@ -19079,13 +19079,13 @@ declare hidden void @_ZNK5clang7targets14M68kTargetInfo16getTargetDefinesERKNS_1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_14M68kTargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_14M68kTargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 504) #21
   ret void
 }
@@ -19175,7 +19175,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15PPC32T
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -19186,7 +19186,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15PPC32T
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -19418,7 +19418,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets13PPCTargetInfo17convertConst
 12:                                               ; preds = %3, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 1))
   %14 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
@@ -19759,7 +19759,7 @@ declare hidden noundef zeroext i1 @_ZNK5clang7targets13PPCTargetInfo10hasFeature
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets13PPCTargetInfo19supportsCpuSupportsEv(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.llvm::Triple", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -19794,7 +19794,7 @@ _ZNK4llvm6Triple13isOSVersionLTEjjj.exit:         ; preds = %1, %_ZNK4llvm6Tripl
 
 16:                                               ; preds = %1, %_ZNK4llvm6Triple9isOSGlibcEv.exit.thread, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, %_ZNK4llvm6Triple9isOSGlibcEv.exit
   %17 = phi i1 [ true, %_ZNK4llvm6Triple9isOSGlibcEv.exit ], [ false, %_ZNK4llvm6Triple9isOSGlibcEv.exit.thread ], [ %.0.i, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit ], [ false, %1 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   ret i1 %17
 }
 
@@ -19802,7 +19802,7 @@ _ZNK4llvm6Triple13isOSVersionLTEjjj.exit:         ; preds = %1, %_ZNK4llvm6Tripl
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets13PPCTargetInfo13supportsCpuIsEv(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.llvm::Triple", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -19837,7 +19837,7 @@ _ZNK4llvm6Triple13isOSVersionLTEjjj.exit:         ; preds = %1, %_ZNK4llvm6Tripl
 
 16:                                               ; preds = %1, %_ZNK4llvm6Triple9isOSGlibcEv.exit.thread, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, %_ZNK4llvm6Triple9isOSGlibcEv.exit
   %17 = phi i1 [ true, %_ZNK4llvm6Triple9isOSGlibcEv.exit ], [ false, %_ZNK4llvm6Triple9isOSGlibcEv.exit.thread ], [ %.0.i, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit ], [ false, %1 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   ret i1 %17
 }
 
@@ -20036,7 +20036,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15PPC32TargetInfoD2Ev(ptr noun
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -20047,7 +20047,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15PPC32TargetInfoD0Ev(ptr noun
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -20064,7 +20064,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_15PPC3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -20075,7 +20075,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_15PPC3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -20174,7 +20174,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15PPC32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -20185,7 +20185,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15PPC32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -20273,7 +20273,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_15PPC3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -20284,7 +20284,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_15PPC3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -20382,7 +20382,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_15PPC32T
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -20393,7 +20393,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_15PPC32T
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -20445,7 +20445,7 @@ define linkonce_odr hidden void @_ZN5clang7targets18AIXPPC32TargetInfoD2Ev(ptr n
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -20456,7 +20456,7 @@ define linkonce_odr hidden void @_ZN5clang7targets18AIXPPC32TargetInfoD0Ev(ptr n
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -20927,7 +20927,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit56:        ; preds = %161, %139, %113, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15PPC32TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets13PPCTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %4, align 4
@@ -21042,7 +21042,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15PPC64T
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21053,7 +21053,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_15PPC64T
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -21298,7 +21298,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15PPC64TargetInfoD2Ev(ptr noun
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21309,7 +21309,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15PPC64TargetInfoD0Ev(ptr noun
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -21321,7 +21321,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16PS3PPUTargetInfoINS0_15PPC64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21332,7 +21332,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16PS3PPUTargetInfoINS0_15PPC64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -21414,7 +21414,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_15PPC6
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21425,7 +21425,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_15PPC6
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -21524,7 +21524,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15PPC64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21535,7 +21535,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_15PPC64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -21623,7 +21623,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_15PPC6
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21634,7 +21634,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_15PPC6
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -21732,7 +21732,7 @@ define linkonce_odr hidden void @_ZN5clang7targets18AIXPPC64TargetInfoD2Ev(ptr n
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -21743,7 +21743,7 @@ define linkonce_odr hidden void @_ZN5clang7targets18AIXPPC64TargetInfoD0Ev(ptr n
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -22210,7 +22210,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit56:        ; preds = %161, %139, %113, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15PPC64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets13PPCTargetInfoE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %5, align 4
@@ -22400,7 +22400,7 @@ declare hidden void @_ZN5clang7targets16AMDGPUTargetInfoC1ERKN4llvm6TripleERKNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17RISCV32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -22447,7 +22447,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17RISCV
   store i32 5, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 6, ptr %27, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets16NetBSDTargetInfoINS0_17RISCV32TargetInfoEEE, i64 16), ptr %0, align 8
   store ptr @.str.81, ptr %22, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -22487,7 +22487,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV32TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -22513,7 +22513,7 @@ _ZN5clang7targets16NetBSDTargetInfoINS0_17RISCV32TargetInfoEED2Ev.exit: ; preds 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -22810,7 +22810,7 @@ _ZN5clang7targets15RISCVTargetInfoD2Ev.exit:      ; preds = %1, %_ZNKSt14default
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -22836,7 +22836,7 @@ _ZN5clang7targets17RISCV32TargetInfoD2Ev.exit:    ; preds = %1, %_ZNKSt14default
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -22859,7 +22859,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #21
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !304
@@ -22872,7 +22872,7 @@ declare noundef zeroext i1 @_ZNK4llvm12RISCVISAInfo12hasExtensionENS_9StringRefE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17RISCV32TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -22919,7 +22919,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17RISCV3
   store i32 5, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 6, ptr %27, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets15LinuxTargetInfoINS0_17RISCV32TargetInfoEEE, i64 16), ptr %0, align 8
   store i32 6, ptr %18, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -22972,7 +22972,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV32TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -22998,7 +22998,7 @@ _ZN5clang7targets15LinuxTargetInfoINS0_17RISCV32TargetInfoEED2Ev.exit: ; preds =
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -23164,7 +23164,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets15LinuxTargetInfoINS0_17RISCV
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_17RISCV64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -23217,7 +23217,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_17RISC
   store i32 7, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 7, ptr %30, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17FreeBSDTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
@@ -23277,7 +23277,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -23303,7 +23303,7 @@ _ZN5clang7targets17FreeBSDTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -23483,7 +23483,7 @@ _ZN5clang7targets15RISCVTargetInfoD2Ev.exit:      ; preds = %1, %_ZNKSt14default
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -23509,14 +23509,14 @@ _ZN5clang7targets17RISCV64TargetInfoD2Ev.exit:    ; preds = %1, %_ZNKSt14default
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17RISCV64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -23569,7 +23569,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17RISCV
   store i32 7, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 7, ptr %30, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets16NetBSDTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %0, align 8
   store ptr @.str.81, ptr %22, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23609,7 +23609,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -23635,7 +23635,7 @@ _ZN5clang7targets16NetBSDTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -23718,7 +23718,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets16NetBSDTargetInfoINS0_17RISC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_17RISCV64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -23771,7 +23771,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_17RISC
   store i32 7, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 7, ptr %30, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17OpenBSDTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %0, align 8
   store i32 5, ptr %18, align 4
   store i32 5, ptr %17, align 8
@@ -23831,7 +23831,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -23857,7 +23857,7 @@ _ZN5clang7targets17OpenBSDTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -23970,7 +23970,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -23996,7 +23996,7 @@ _ZN5clang7targets17FuchsiaTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -24093,7 +24093,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets17FuchsiaTargetInfoINS0_17RIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_17RISCV64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -24146,7 +24146,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_17RISCV6
   store i32 7, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 7, ptr %30, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets15HaikuTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 8, ptr %31, align 8
@@ -24193,7 +24193,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -24219,7 +24219,7 @@ _ZN5clang7targets15HaikuTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds =
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -24267,7 +24267,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets15HaikuTargetInfoINS0_17RISCV
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17RISCV64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -24320,7 +24320,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17RISCV6
   store i32 7, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 7, ptr %30, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets15LinuxTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %0, align 8
   store i32 6, ptr %18, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -24373,7 +24373,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -24399,7 +24399,7 @@ _ZN5clang7targets15LinuxTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds =
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -24565,7 +24565,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets15LinuxTargetInfoINS0_17RISCV
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_17RISCV64TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets15RISCVTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
@@ -24618,7 +24618,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14OHOSTargetInfoINS0_17RISCV64
   store i32 7, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 7, ptr %30, align 4
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(570) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets14OHOSTargetInfoINS0_17RISCV64TargetInfoEEE, i64 16), ptr %0, align 8
   store i32 6, ptr %18, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -24658,7 +24658,7 @@ _ZN5clang7targets12OSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   ret void
 }
 
@@ -24684,7 +24684,7 @@ _ZN5clang7targets14OHOSTargetInfoINS0_17RISCV64TargetInfoEED2Ev.exit: ; preds = 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(570) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #21
   ret void
 }
@@ -24911,13 +24911,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets14OHOSTargetInfoINS0_17RISCV6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17SparcV8TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17SparcV8TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -25008,7 +25008,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang7targets15SparcTargetInf
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIA12_KcEEET_SI_SI_T0_St26random_access_iterator_tag(ptr %4, ptr %6, ptr nonnull @.str.123)
+  %7 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIA12_KcEEET_SI_SI_T0_St26random_access_iterator_tag(ptr %4, ptr %6, ptr nonnull align 1 dereferenceable(12) @.str.123)
   %8 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %7, %8
   br i1 %.not, label %11, label %9
@@ -25295,13 +25295,13 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cx
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_17SparcV8TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_17SparcV8TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -25498,13 +25498,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17SolarisTargetInfoINS0_17Spa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17SparcV8TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17SparcV8TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -25587,13 +25587,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets16NetBSDTargetInfoINS0_17Spar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_17SparcV8TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_17SparcV8TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -25640,13 +25640,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets15RTEMSTargetInfoINS0_17Sparc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19SparcV8elTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 489
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %5, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV8TargetInfoE, i64 16), ptr %0, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr nonnull @.str.408, i64 36, ptr noundef nonnull @.str.59) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -2
@@ -25668,7 +25668,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19SparcV
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 287
   store i8 %.sink5.i.i.i, ptr %16, align 1
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets19SparcV8elTargetInfoE, i64 16), ptr %0, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.420, i64 36, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr nonnull @.str.420, i64 36, ptr noundef nonnull @.str.59) #18
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets15LinuxTargetInfoINS0_19SparcV8elTargetInfoEEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 6, ptr %17, align 4
@@ -25703,13 +25703,13 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19SparcV
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19SparcV8elTargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_19SparcV8elTargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -25886,26 +25886,26 @@ define linkonce_odr hidden void @_ZNK5clang7targets15LinuxTargetInfoINS0_19Sparc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19SparcV8elTargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19SparcV8elTargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_19SparcV8elTargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15RTEMSTargetInfoINS0_19SparcV8elTargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -25952,13 +25952,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets15RTEMSTargetInfoINS0_19Sparc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17SparcV9TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17SparcV9TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -26172,13 +26172,13 @@ declare hidden void @_ZNK5clang7targets17SparcV9TargetInfo16getTargetDefinesERKN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_17SparcV9TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_17SparcV9TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -26375,13 +26375,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17SolarisTargetInfoINS0_17Spa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17SparcV9TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_17SparcV9TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -26464,13 +26464,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets16NetBSDTargetInfoINS0_17Spar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_17SparcV9TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17OpenBSDTargetInfoINS0_17SparcV9TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -26563,13 +26563,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17OpenBSDTargetInfoINS0_17Spa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_17SparcV9TargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 489
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %5, align 4
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SparcV9TargetInfoE, i64 16), ptr %0, align 8
-  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
+  tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr nonnull @.str.421, i64 24, ptr noundef nonnull @.str.59) #18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 64, ptr %7, align 1
@@ -26639,13 +26639,13 @@ define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_17Spar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_17SparcV9TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_17SparcV9TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 496) #21
   ret void
 }
@@ -26742,7 +26742,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17System
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SystemZTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #18
   ret void
 }
 
@@ -26751,7 +26751,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_17System
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SystemZTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #21
   ret void
 }
@@ -26820,7 +26820,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets17SystemZTargetInfo17convertC
 11:                                               ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.426, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.426, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   br label %32
@@ -26835,7 +26835,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets17SystemZTargetInfo17convertC
 16:                                               ; preds = %13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 1))
   %18 = load ptr, ptr %2, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27339,7 +27339,7 @@ define linkonce_odr hidden void @_ZN5clang7targets13ZOSTargetInfoINS0_17SystemZT
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SystemZTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #18
   ret void
 }
 
@@ -27348,7 +27348,7 @@ define linkonce_odr hidden void @_ZN5clang7targets13ZOSTargetInfoINS0_17SystemZT
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets17SystemZTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #21
   ret void
 }
@@ -27582,7 +27582,7 @@ define linkonce_odr hidden void @_ZN5clang7targets17SystemZTargetInfoC2ERKN4llvm
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.422, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.422, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -27745,13 +27745,13 @@ define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_16X86_3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20DarwinI386TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20DarwinI386TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28400,13 +28400,13 @@ declare noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28431,13 +28431,13 @@ declare void @_ZN5clang7targets16getDarwinDefinesERNS_12MacroBuilderERKNS_11Lang
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28603,26 +28603,26 @@ define linkonce_odr hidden void @_ZNK5clang7targets15LinuxTargetInfoINS0_16X86_3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23AndroidX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23AndroidX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22DragonFlyBSDTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22DragonFlyBSDTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28709,13 +28709,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets22DragonFlyBSDTargetInfoINS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20NetBSDI386TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20NetBSDI386TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28798,13 +28798,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets16NetBSDTargetInfoINS0_16X86_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21OpenBSDI386TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21OpenBSDI386TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28897,13 +28897,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17OpenBSDTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -28997,13 +28997,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17FreeBSDTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29100,13 +29100,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17FuchsiaTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets18KFreeBSDTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets18KFreeBSDTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29190,13 +29190,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets18KFreeBSDTargetInfoINS0_16X8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29393,13 +29393,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17SolarisTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22CygwinX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22CygwinX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29521,7 +29521,7 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit: ; preds = %15, %22
   %.str.481..str.482 = select i1 %27, ptr @.str.481, ptr @.str.482
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %28 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %29 = select i1 %27, ptr getelementptr inbounds (i8, ptr @.str.481, i64 5), ptr getelementptr inbounds (i8, ptr @.str.482, i64 5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %.str.481..str.482, ptr noundef nonnull %29)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
@@ -29538,13 +29538,13 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit: ; preds = %15, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21MinGWX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21MinGWX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29581,13 +29581,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17WindowsTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23WindowsX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23WindowsX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29596,13 +29596,13 @@ declare void @_ZN5clang7targets17addWindowsDefinesERKN4llvm6TripleERKNS_11LangOp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets25MicrosoftX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets25MicrosoftX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29633,13 +29633,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets25MicrosoftX86_32TargetInfo16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21HaikuX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21HaikuX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29711,13 +29711,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets15HaikuTargetInfoINS0_16X86_3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21RTEMSX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21RTEMSX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29756,13 +29756,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets21RTEMSX86_32TargetInfo16getT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29833,13 +29833,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets14NaClTargetInfoINS0_16X86_32
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19MCUX86_32TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19MCUX86_32TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -29890,13 +29890,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets19MCUX86_32Targ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14HurdTargetInfoINS0_16X86_32TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14HurdTargetInfoINS0_16X86_32TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -30006,7 +30006,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets14HurdTargetInfoINS0_16X86_32
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16X86_32TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -30177,13 +30177,13 @@ define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_16X86_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22DarwinX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22DarwinX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -30434,26 +30434,26 @@ define linkonce_odr hidden void @_ZNK5clang7targets16DarwinTargetInfoINS0_16X86_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -30619,26 +30619,26 @@ define linkonce_odr hidden void @_ZNK5clang7targets15LinuxTargetInfoINS0_16X86_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23AndroidX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23AndroidX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20OHOSX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20OHOSX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -30865,13 +30865,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets14OHOSTargetInfoINS0_16X86_64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22DragonFlyBSDTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22DragonFlyBSDTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -30958,13 +30958,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets22DragonFlyBSDTargetInfoINS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16NetBSDTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31047,13 +31047,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets16NetBSDTargetInfoINS0_16X86_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23OpenBSDX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23OpenBSDX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31146,13 +31146,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17OpenBSDTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FreeBSDTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31246,13 +31246,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17FreeBSDTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17FuchsiaTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31349,13 +31349,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17FuchsiaTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets18KFreeBSDTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets18KFreeBSDTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31439,13 +31439,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets18KFreeBSDTargetInfoINS0_16X8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17SolarisTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31642,13 +31642,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17SolarisTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22CygwinX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22CygwinX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31724,13 +31724,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets22CygwinX86_64TargetInfo16get
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21MinGWX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets21MinGWX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31764,13 +31764,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets17WindowsTargetInfoINS0_16X86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets25MicrosoftX86_64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets25MicrosoftX86_64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31819,13 +31819,13 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang7targets25MicrosoftX86_64Targe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15HaikuTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31873,13 +31873,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets15HaikuTargetInfoINS0_16X86_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14NaClTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -31950,13 +31950,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets14NaClTargetInfoINS0_16X86_64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15PS4OSTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15PS4OSTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -32078,13 +32078,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets14PSOSTargetInfoINS0_16X86_64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15PS5OSTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets15PS5OSTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -32110,13 +32110,13 @@ define linkonce_odr hidden void @_ZNK5clang7targets15PS5OSTargetInfoINS0_16X86_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14HurdTargetInfoINS0_16X86_64TargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets14HurdTargetInfoINS0_16X86_64TargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 616) #21
   ret void
 }
@@ -32226,7 +32226,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets14HurdTargetInfoINS0_16X86_64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16X86_64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -32407,7 +32407,7 @@ _ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i: ; preds = %_ZNSt10un
 
 _ZNSt10unique_ptrIN5clang10TargetInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %24, %_ZNSt10unique_ptrIN5clang10TargetInfoESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN5clang10TargetInfoEEclEPS1_.exit.i
   store ptr null, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 10
   %37 = load i8, ptr %36, align 2
@@ -32554,7 +32554,7 @@ _ZNK5clang10TargetInfo11getNewAlignEv.exit:       ; preds = %_ZNSt10unique_ptrIN
   br label %142
 
 142:                                              ; preds = %3, %3, %3, %3, %3, %3, %_ZNK5clang10TargetInfo11getNewAlignEv.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   ret void
 }
 
@@ -32708,7 +32708,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14WASITargetInfoINS0_23WebAsse
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   ret void
 }
 
@@ -32717,7 +32717,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14WASITargetInfoINS0_23WebAsse
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #21
   ret void
 }
@@ -32963,7 +32963,7 @@ define linkonce_odr hidden void @_ZN5clang7targets23WebAssemblyOSTargetInfoINS0_
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   ret void
 }
 
@@ -32972,7 +32972,7 @@ define linkonce_odr hidden void @_ZN5clang7targets23WebAssemblyOSTargetInfoINS0_
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #21
   ret void
 }
@@ -33042,7 +33042,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets23WebAssemblyOSTargetInfoINS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23WebAssembly32TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -33106,7 +33106,7 @@ define linkonce_odr hidden void @_ZN5clang7targets20EmscriptenTargetInfoINS0_23W
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   ret void
 }
 
@@ -33115,7 +33115,7 @@ define linkonce_odr hidden void @_ZN5clang7targets20EmscriptenTargetInfoINS0_23W
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #21
   ret void
 }
@@ -33236,7 +33236,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14WASITargetInfoINS0_23WebAsse
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   ret void
 }
 
@@ -33245,7 +33245,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14WASITargetInfoINS0_23WebAsse
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #21
   ret void
 }
@@ -33354,7 +33354,7 @@ define linkonce_odr hidden void @_ZN5clang7targets23WebAssemblyOSTargetInfoINS0_
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   ret void
 }
 
@@ -33363,7 +33363,7 @@ define linkonce_odr hidden void @_ZN5clang7targets23WebAssemblyOSTargetInfoINS0_
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #21
   ret void
 }
@@ -33433,7 +33433,7 @@ define linkonce_odr hidden void @_ZNK5clang7targets23WebAssemblyOSTargetInfoINS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23WebAssembly64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -33505,7 +33505,7 @@ define linkonce_odr hidden void @_ZN5clang7targets20EmscriptenTargetInfoINS0_23W
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   ret void
 }
 
@@ -33514,7 +33514,7 @@ define linkonce_odr hidden void @_ZN5clang7targets20EmscriptenTargetInfoINS0_23W
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets21WebAssemblyTargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #21
   ret void
 }
@@ -33637,7 +33637,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_24Render
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   ret void
 }
 
@@ -33648,7 +33648,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_24Render
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #21
   ret void
 }
@@ -33832,7 +33832,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_24Render
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   ret void
 }
 
@@ -33841,7 +33841,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_24Render
   store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #21
   ret void
 }
@@ -34355,7 +34355,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_14CSKYTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(578) %0) #18
   ret void
 }
 
@@ -34366,7 +34366,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_14CSKYTa
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(578) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #21
   ret void
 }
@@ -34657,7 +34657,7 @@ define linkonce_odr hidden void @_ZN5clang7targets14CSKYTargetInfoC2ERKN4llvm6Tr
   tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.651, i64 94, ptr noundef nonnull @.str.59) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.652, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.652, i64 5))
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 504
@@ -34675,7 +34675,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_21LoongA
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   ret void
 }
 
@@ -34686,7 +34686,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_21LoongA
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 568) #21
   ret void
 }
@@ -34976,7 +34976,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch32TargetInfoD2Ev(pt
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   ret void
 }
 
@@ -34987,7 +34987,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch32TargetInfoD0Ev(pt
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 568) #21
   ret void
 }
@@ -34998,7 +34998,7 @@ declare hidden void @_ZNK5clang7targets19LoongArchTargetInfo16getTargetDefinesER
 define linkonce_odr hidden void @_ZN5clang7targets21LoongArch32TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(565) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(565) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets19LoongArchTargetInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -35031,7 +35031,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch32TargetInfoC2ERKN4
   tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.396, i64 29, ptr noundef nonnull @.str.59) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.402, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.402, i64 6))
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 504
@@ -35049,7 +35049,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_21LoongA
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   ret void
 }
 
@@ -35060,7 +35060,7 @@ define linkonce_odr hidden void @_ZN5clang7targets15LinuxTargetInfoINS0_21LoongA
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 568) #21
   ret void
 }
@@ -35277,7 +35277,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch64TargetInfoD2Ev(pt
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   ret void
 }
 
@@ -35288,7 +35288,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch64TargetInfoD0Ev(pt
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #18
+  tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(565) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 568) #21
   ret void
 }
@@ -35297,7 +35297,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch64TargetInfoD0Ev(pt
 define linkonce_odr hidden void @_ZN5clang7targets21LoongArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(565) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
-  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
+  tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(565) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   store ptr getelementptr inbounds inrange(-16, 968) (i8, ptr @_ZTVN5clang7targets19LoongArchTargetInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -35340,7 +35340,7 @@ define linkonce_odr hidden void @_ZN5clang7targets21LoongArch64TargetInfoC2ERKN4
   tail call void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr nonnull @.str.109, i64 41, ptr noundef nonnull @.str.59) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %26 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.407, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.407, i64 5))
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 504
@@ -35475,7 +35475,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5c
 _ZN5clang17DiagnosticsEngine6ReportEj.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i, %19
   %37 = getelementptr inbounds nuw i8, ptr %.8.val, i64 912
   store i32 0, ptr %37, align 8, !noalias !318
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 %4)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %2, ptr %3, i64 %4)
   %38 = load i8, ptr %26, align 8
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i

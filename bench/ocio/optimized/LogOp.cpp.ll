@@ -1768,7 +1768,7 @@ invoke.cont11:                                    ; preds = %if.then10
   %30 = load ptr, ptr %logTransform, align 8, !nonnull !27, !noundef !27
   %31 = call ptr @__dynamic_cast(ptr nonnull %30, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18LogCameraTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev22LogCameraTransformImplE, i64 0) #19
   %m_data.i34 = getelementptr inbounds i8, ptr %31, i64 8
-  %call.i35 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i34, ptr noundef nonnull align 8 dereferenceable(168) %29)
+  %call.i35 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(252) %m_data.i34, ptr noundef nonnull align 8 dereferenceable(252) %29)
           to label %call.i.noexc unwind label %lpad15
 
 call.i.noexc:                                     ; preds = %invoke.cont11
@@ -1982,7 +1982,7 @@ invoke.cont24:                                    ; preds = %if.then22
   %61 = load ptr, ptr %logTransform23, align 8, !nonnull !27, !noundef !27
   %62 = call ptr @__dynamic_cast(ptr nonnull %61, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev12LogTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev16LogTransformImplE, i64 0) #19
   %m_data.i108 = getelementptr inbounds i8, ptr %62, i64 8
-  %call.i118 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i108, ptr noundef nonnull align 8 dereferenceable(168) %29)
+  %call.i118 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(252) %m_data.i108, ptr noundef nonnull align 8 dereferenceable(252) %29)
           to label %call.i.noexc117 unwind label %lpad32
 
 call.i.noexc117:                                  ; preds = %invoke.cont24
@@ -2184,7 +2184,7 @@ invoke.cont41:                                    ; preds = %if.else39
   %91 = load ptr, ptr %logTransform40, align 8, !nonnull !27, !noundef !27
   %92 = call ptr @__dynamic_cast(ptr nonnull %91, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18LogAffineTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev22LogAffineTransformImplE, i64 0) #19
   %m_data.i197 = getelementptr inbounds i8, ptr %92, i64 8
-  %call.i207 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i197, ptr noundef nonnull align 8 dereferenceable(168) %29)
+  %call.i207 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(252) %m_data.i197, ptr noundef nonnull align 8 dereferenceable(252) %29)
           to label %call.i.noexc206 unwind label %lpad49
 
 call.i.noexc206:                                  ; preds = %invoke.cont41

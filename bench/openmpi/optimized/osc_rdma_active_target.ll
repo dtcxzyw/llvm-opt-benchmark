@@ -360,7 +360,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %127, %125
 148:                                              ; preds = %.thread.i.i
   %149 = getelementptr inbounds i8, ptr %147, i64 248
   %150 = load ptr, ptr %149, align 8
-  %151 = call i32 %150(ptr noundef %147, ptr noundef %107, ptr noundef %142, i64 noundef %95, ptr noundef %144, ptr noundef %108, i64 noundef 0, i64 noundef %98, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %110, ptr noundef null) #13
+  %151 = call i32 %150(ptr noundef %147, ptr noundef %107, ptr noundef %142, i64 noundef %95, ptr noundef %144, ptr noundef %108, i64 noundef 0, i64 noundef range(i64 -2147483647, 2147483649) %98, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %110, ptr noundef null) #13
   br label %ompi_osc_rdma_btl_atomic_cswap.exit.i.i
 
 152:                                              ; preds = %.thread.i.i
@@ -368,7 +368,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %127, %125
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 88
   %156 = load ptr, ptr %155, align 8
-  %157 = call i32 %156(ptr noundef %154, ptr noundef %107, ptr noundef %142, i64 noundef %95, ptr noundef %144, ptr noundef %108, i64 noundef 0, i64 noundef %98, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %110, ptr noundef null) #13
+  %157 = call i32 %156(ptr noundef %154, ptr noundef %107, ptr noundef %142, i64 noundef %95, ptr noundef %144, ptr noundef %108, i64 noundef 0, i64 noundef range(i64 -2147483647, 2147483649) %98, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %110, ptr noundef null) #13
   br label %ompi_osc_rdma_btl_atomic_cswap.exit.i.i
 
 ompi_osc_rdma_btl_atomic_cswap.exit.i.i:          ; preds = %152, %148, %139
@@ -2691,7 +2691,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 256
   %72 = load ptr, ptr %71, align 8
-  %73 = call ptr %72(ptr noundef %70, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %66, i64 noundef %68, i32 noundef 15) #13
+  %73 = call ptr %72(ptr noundef %70, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %66, i64 noundef range(i64 0, 4294967296) %68, i32 noundef 15) #13
   store ptr %73, ptr %57, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %_ompi_osc_rdma_register.exit, label %_ompi_osc_rdma_register.exit.thread

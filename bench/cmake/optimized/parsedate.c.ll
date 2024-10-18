@@ -157,7 +157,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2233, ptr noundef %37, i64 noundef %.0123) #7
+  %41 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2233, ptr noundef %37, i64 noundef range(i64 13, 12) %.0123) #7
   %.not.i190 = icmp eq i32 %41, 0
   br i1 %.not.i190, label %42, label %.thread259
 
@@ -205,7 +205,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %.preheader.i193
-  %55 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2233, ptr noundef nonnull %.01116.i, i64 noundef %.0123) #7
+  %55 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2233, ptr noundef nonnull %.01116.i, i64 noundef range(i64 13, 12) %.0123) #7
   %.not.i196 = icmp eq i32 %55, 0
   br i1 %.not.i196, label %56, label %checktz.exit
 

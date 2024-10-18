@@ -4828,7 +4828,7 @@ slide_vartime.exit74:                             ; preds = %for.inc73.i36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %t, ptr noundef nonnull %q.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   %T.i75 = getelementptr inbounds i8, ptr %t, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %A2, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
@@ -6794,7 +6794,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %t2, ptr noundef nonnull %q.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t2, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   %T.i27 = getelementptr inbounds i8, ptr %t2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull readonly %t2, ptr noundef nonnull readonly %T.i27)
@@ -6969,7 +6969,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i143, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i28, i64 40, i1 false)
   %Z.i.i145 = getelementptr inbounds i8, ptr %q.i142, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i145, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %t4, ptr noundef nonnull %q.i142)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t4, ptr noundef nonnull %q.i142)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i142)
   %T.i147 = getelementptr inbounds i8, ptr %t4, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p4, ptr noundef nonnull readonly %t4, ptr noundef nonnull readonly %T.i147)
@@ -7144,7 +7144,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i266, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i84, i64 40, i1 false)
   %Z.i.i268 = getelementptr inbounds i8, ptr %q.i265, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i268, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %t6, ptr noundef nonnull %q.i265)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t6, ptr noundef nonnull %q.i265)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i265)
   %T.i270 = getelementptr inbounds i8, ptr %t6, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p6, ptr noundef nonnull readonly %t6, ptr noundef nonnull readonly %T.i270)
@@ -7319,7 +7319,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i389, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i148, i64 40, i1 false)
   %Z.i.i391 = getelementptr inbounds i8, ptr %q.i388, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i391, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %t8, ptr noundef nonnull %q.i388)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t8, ptr noundef nonnull %q.i388)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i388)
   %T.i393 = getelementptr inbounds i8, ptr %t8, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p8, ptr noundef nonnull readonly %t8, ptr noundef nonnull readonly %T.i393)
@@ -7752,7 +7752,7 @@ for.end54:                                        ; preds = %for.body49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %r, ptr noundef nonnull %q.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
   %Y.i33 = getelementptr inbounds i8, ptr %s, i64 40
@@ -8707,7 +8707,7 @@ entry:
   %Z.i.i.i.i = getelementptr inbounds i8, ptr %q.i.i.i, i64 80
   %Z7.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i.i.i.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %p1p1.i.i, ptr noundef nonnull %q.i.i.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %q.i.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i.i)
   %T.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_10.i, ptr noundef nonnull readonly %p1p1.i.i, ptr noundef nonnull readonly %T.i.i.i)
@@ -8734,7 +8734,7 @@ entry:
   %Z.i.i.i23.i = getelementptr inbounds i8, ptr %q.i.i19.i, i64 80
   %Z7.i.i.i24.i = getelementptr inbounds i8, ptr %_1000.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i23.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i.i.i24.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %p1p1.i20.i, ptr noundef nonnull %q.i.i19.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %q.i.i19.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i19.i)
   %T.i.i25.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_10000.i, ptr noundef nonnull readonly %p1p1.i20.i, ptr noundef nonnull readonly %T.i.i25.i)
@@ -8754,7 +8754,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i33.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i.i26.i, i64 40, i1 false)
   %Z.i.i.i35.i = getelementptr inbounds i8, ptr %q.i.i31.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i35.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i.i29.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %p1p1.i32.i, ptr noundef nonnull %q.i.i31.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %q.i.i31.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i31.i)
   %T.i.i37.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_100000.i, ptr noundef nonnull readonly %p1p1.i32.i, ptr noundef nonnull readonly %T.i.i37.i)
@@ -8775,7 +8775,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i45.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i.i38.i, i64 40, i1 false)
   %Z.i.i.i47.i = getelementptr inbounds i8, ptr %q.i.i43.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i47.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i.i41.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %p1p1.i44.i, ptr noundef nonnull %q.i.i43.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %q.i.i43.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i43.i)
   %T.i.i49.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_1000000.i, ptr noundef nonnull readonly %p1p1.i44.i, ptr noundef nonnull readonly %T.i.i49.i)
@@ -8801,21 +8801,21 @@ entry:
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11101101.i, ptr noundef nonnull %_110.i, ptr noundef nonnull %_11100111.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11110101.i, ptr noundef nonnull %_1000.i, ptr noundef nonnull %_11101101.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %pl, ptr noundef nonnull %_1011.i, ptr noundef nonnull %_11110101.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 126, ptr noundef %_1010011.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 9, ptr noundef %_10.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 126, ptr noundef %_1010011.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 9, ptr noundef %_10.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %pl, ptr noundef nonnull %pl, ptr noundef nonnull %_11110101.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 7, ptr noundef %_1100111.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 9, ptr noundef %_11110101.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 11, ptr noundef %_10111101.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 8, ptr noundef %_11100111.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 9, ptr noundef %_1101011.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 6, ptr noundef %_1011.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 14, ptr noundef %_10010011.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 10, ptr noundef %_1100011.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 9, ptr noundef %_10010111.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 10, ptr noundef %_11110101.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 8, ptr noundef %_11010011.i)
-  call fastcc void @ge25519_p3_dbladd(ptr noundef %pl, i32 noundef 8, ptr noundef %_11101101.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 7, ptr noundef %_1100111.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 9, ptr noundef %_11110101.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 11, ptr noundef %_10111101.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 8, ptr noundef %_11100111.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 9, ptr noundef %_1101011.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 6, ptr noundef %_1011.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 14, ptr noundef %_10010011.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 10, ptr noundef %_1100011.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 9, ptr noundef %_10010111.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 10, ptr noundef %_11110101.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 8, ptr noundef %_11010011.i)
+  call fastcc void @ge25519_p3_dbladd(ptr noundef nonnull %pl, i32 noundef 8, ptr noundef %_11101101.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %_10.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %_11.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %_100.i)
@@ -12571,7 +12571,7 @@ entry:
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   %Z7.i.i = getelementptr inbounds i8, ptr %p3, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef %p1, ptr noundef nonnull %q.i)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   %T.i = getelementptr inbounds i8, ptr %p1, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %T.i)
@@ -15162,7 +15162,7 @@ if.end:                                           ; preds = %ristretto255_is_can
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
   %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
-  %27 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %h, ptr nonnull %negf.i.i, i32 %and.i.i251) #10, !srcloc !13
+  %27 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %h, ptr nonnull %negf.i.i, i32 range(i32 0, 2) %and.i.i251) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %u1, ptr noundef nonnull %Y)
   %Z = getelementptr inbounds i8, ptr %h, i64 80
@@ -15857,7 +15857,7 @@ entry:
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
   %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
-  %53 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x, ptr nonnull %negf.i.i, i32 %and.i.i) #10, !srcloc !13
+  %53 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x, ptr nonnull %negf.i.i, i32 range(i32 0, 2) %and.i.i) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
   %or23 = or i32 %call.i203, %call.i
   ret i32 %or23
@@ -16224,7 +16224,7 @@ entry:
   store i64 %sub27.i.i.i, ptr %arrayidx34.i.i.i, align 8
   %arrayidx35.i.i.i = getelementptr inbounds i8, ptr %negf.i, i64 32
   store i64 %sub30.i.i.i, ptr %arrayidx35.i.i.i, align 16
-  %35 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %y_, ptr nonnull %negf.i, i32 %and.i27) #10, !srcloc !13
+  %35 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %y_, ptr nonnull %negf.i, i32 range(i32 0, 2) %and.i27) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i)
   %36 = load i64, ptr %y_, align 16
   %37 = load i64, ptr %arrayidx1.i.i.i, align 8
@@ -16359,7 +16359,7 @@ entry:
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
   %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
-  %52 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %s_, ptr nonnull %negf.i.i, i32 %and.i.i) #10, !srcloc !13
+  %52 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %s_, ptr nonnull %negf.i.i, i32 range(i32 0, 2) %and.i.i) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
   call void @_sodium_fe25519_tobytes(ptr noundef %s, ptr noundef nonnull %s_)
   ret void
@@ -16708,7 +16708,7 @@ entry:
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
   %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
-  %21 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %s_prime, ptr nonnull %negf.i.i, i32 %and.i.i30) #10, !srcloc !13
+  %21 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %s_prime, ptr nonnull %negf.i.i, i32 range(i32 0, 2) %and.i.i30) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
   %22 = load i64, ptr %s_prime, align 16
   %23 = load i64, ptr %arrayidx2.i.i285, align 8

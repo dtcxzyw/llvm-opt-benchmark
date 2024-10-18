@@ -1159,7 +1159,7 @@ if.end9:                                          ; preds = %if.end7
   %add = add nuw nsw i64 %mul, 24
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3368), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
-  %call.i = tail call ptr %3(ptr noundef %4, i64 noundef %add) #13
+  %call.i = tail call ptr %3(ptr noundef %4, i64 noundef range(i64 12, 25769803777) %add) #13
   store ptr %call.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3472), align 8
   %cmp12 = icmp eq ptr %call.i, null
   br i1 %cmp12, label %if.then14, label %if.end16
@@ -2006,7 +2006,7 @@ if.else:                                          ; preds = %traceback_hash.exit
   %add = add nuw nsw i64 %37, 12
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3368), align 8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), align 8
-  %call.i22 = tail call ptr %38(ptr noundef %39, i64 noundef %add) #13
+  %call.i22 = tail call ptr %38(ptr noundef %39, i64 noundef range(i64 12, 25769803777) %add) #13
   %cmp12 = icmp eq ptr %call.i22, null
   br i1 %cmp12, label %return, label %if.end15
 

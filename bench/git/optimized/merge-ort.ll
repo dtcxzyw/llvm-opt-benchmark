@@ -844,7 +844,7 @@ for.end79.i:                                      ; preds = %for.end79.i.loopexi
 if.then.i.i:                                      ; preds = %for.end79.i
   %conv82.i = zext i32 %31 to i64
   %32 = load ptr, ptr %15, align 8
-  call void @qsort(ptr noundef %32, i64 noundef %conv82.i, i64 noundef 8, ptr noundef nonnull @cmp_cache_name_compare) #18
+  call void @qsort(ptr noundef %32, i64 noundef range(i64 0, 4294967296) %conv82.i, i64 noundef 8, ptr noundef nonnull @cmp_cache_name_compare) #18
   br label %record_conflicted_index_entries.exit
 
 record_conflicted_index_entries.exit:             ; preds = %for.end79.i, %if.then.i.i
@@ -3688,7 +3688,7 @@ if.else.i.i135:                                   ; preds = %if.end13.i.i
   %311 = load ptr, ptr %hash_algo.i.i136, align 8
   %rawsz.i.i = getelementptr inbounds i8, ptr %311, i64 16
   %312 = load i64, ptr %rawsz.i.i, align 8
-  %call33.i.i = call fastcc i32 @write_tree(ptr noundef %call15.i.i, ptr noundef %dir_metadata.i, i32 noundef %conv20.i.i, i64 noundef %312)
+  %call33.i.i = call fastcc i32 @write_tree(ptr noundef %call15.i.i, ptr noundef nonnull %dir_metadata.i, i32 noundef %conv20.i.i, i64 noundef %312)
   %313 = icmp slt i32 %call33.i.i, 0
   br label %if.end38.i57.i
 
@@ -5325,7 +5325,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp.i.i185, label %if.then.i.i, label %traverse_path_len.exit
 
 if.then.i.i:                                      ; preds = %while.end
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.55, i64 noundef %info.val, i64 noundef %conv84) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.55, i64 noundef %info.val, i64 noundef range(i64 -2147483648, 2147483648) %conv84) #17
   unreachable
 
 traverse_path_len.exit:                           ; preds = %while.end
@@ -5783,7 +5783,7 @@ if.end200:                                        ; preds = %land.lhs.true177.if
   br i1 %cmp.i, label %if.then.i275, label %st_add.exit
 
 if.then.i275:                                     ; preds = %if.end200
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.55, i64 noundef %81, i64 noundef %conv214) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.55, i64 noundef %81, i64 noundef range(i64 -2147483648, 2147483648) %conv214) #17
   unreachable
 
 st_add.exit:                                      ; preds = %if.end200
@@ -8853,7 +8853,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %versions, align 8
   %conv = zext i32 %offset to i64
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %conv
-  tail call void @qsort(ptr noundef %add.ptr, i64 noundef %conv4, i64 noundef 16, ptr noundef nonnull @tree_entry_order) #18
+  tail call void @qsort(ptr noundef %add.ptr, i64 noundef range(i64 0, 4294967296) %conv4, i64 noundef 16, ptr noundef nonnull @tree_entry_order) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %entry

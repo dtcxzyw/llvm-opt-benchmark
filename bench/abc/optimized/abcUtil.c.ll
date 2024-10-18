@@ -7923,7 +7923,7 @@ define noundef ptr @Abc_NtkAddBuffsInt(ptr noundef %0, i32 noundef %1, i32 nound
   %55 = lshr i32 %54, 12
   %56 = add nsw i32 %55, -1
   %57 = lshr i32 %46, 12
-  %58 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %56, i32 %57)
+  %58 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %56, i32 range(i32 0, 536870913) %57)
   %59 = shl i32 %58, 12
   %60 = and i32 %46, 4095
   %61 = or disjoint i32 %59, %60

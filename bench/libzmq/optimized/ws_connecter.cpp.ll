@@ -137,7 +137,7 @@ define void @_ZThn1448_N3zmq14ws_connecter_tD0Ev(ptr noundef %this) unnamed_addr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq14ws_connecter_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1560) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #15
   ret void
 }
 
@@ -324,14 +324,14 @@ define void @_ZN3zmq14ws_connecter_t13create_engineEiRKNSt7__cxx1112basic_string
 entry:
   %endpoint_pair = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
   %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_pair, ptr noundef nonnull align 8 dereferenceable(32) %local_address_)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(68) %endpoint_pair, ptr noundef nonnull align 8 dereferenceable(32) %local_address_)
   %remote3.i = getelementptr inbounds i8, ptr %endpoint_pair, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %remote3.i, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
           to label %_ZN3zmq19endpoint_uri_pair_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_15endpoint_type_tE.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %.pn, %ehcleanup ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_pair) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %endpoint_pair) #13
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -429,7 +429,7 @@ invoke.cont30:                                    ; preds = %invoke.cont29
 
 invoke.cont31:                                    ; preds = %invoke.cont30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote3.i) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_pair) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %endpoint_pair) #13
   ret void
 
 ehcleanup:                                        ; preds = %lpad10, %lpad, %lpad22
@@ -563,13 +563,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_connect_timer_started.i = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %_connect_timer_started.i, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t9rm_handleEv(ptr noundef nonnull align 8 dereferenceable(1544) %0)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %0)
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %0)
+  tail call void @_ZN3zmq23stream_connecter_base_t9rm_handleEv(ptr noundef nonnull align 8 dereferenceable(1560) %0)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1560) %0)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1560) %0)
   br label %_ZN3zmq14ws_connecter_t11timer_eventEi.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1544) %0, i32 noundef %id_)
+  tail call void @_ZN3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %id_)
   br label %_ZN3zmq14ws_connecter_t11timer_eventEi.exit
 
 _ZN3zmq14ws_connecter_t11timer_eventEi.exit:      ; preds = %if.then.i, %if.else.i
@@ -622,7 +622,7 @@ invoke.cont:                                      ; preds = %if.then6
 invoke.cont14:                                    ; preds = %invoke.cont
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #13
   %connect_timeout.i = getelementptr inbounds i8, ptr %this, i64 340
   %4 = load i32, ptr %connect_timeout.i, align 4
   %cmp.i = icmp sgt i32 %4, 0
@@ -639,7 +639,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
           cleanup
   %remote.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i2) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #13
   resume { ptr, i32 } %5
 
 if.else15:                                        ; preds = %land.lhs.true

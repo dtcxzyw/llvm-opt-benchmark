@@ -151,7 +151,7 @@ define void @_ZN6JipoptC2EP7JNIEnv_P8_jobjectiiiii(ptr nocapture noundef nonnull
   %28 = load ptr, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 248
   %30 = load ptr, ptr %29, align 8
-  %31 = invoke noundef ptr %30(ptr noundef nonnull %26, ptr noundef %27)
+  %31 = invoke noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %27)
           to label %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit unwind label %125
 
 _ZN7JNIEnv_14GetObjectClassEP8_jobject.exit:      ; preds = %21
@@ -159,7 +159,7 @@ _ZN7JNIEnv_14GetObjectClassEP8_jobject.exit:      ; preds = %21
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 264
   %35 = load ptr, ptr %34, align 8
-  %36 = invoke noundef ptr %35(ptr noundef nonnull %32, ptr noundef %31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
+  %36 = invoke noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit:    ; preds = %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit
@@ -169,7 +169,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit:    ; preds = %_ZN7JNIEnv_14GetObj
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 264
   %41 = load ptr, ptr %40, align 8
-  %42 = invoke noundef ptr %41(ptr noundef nonnull %38, ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  %42 = invoke noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit
@@ -179,7 +179,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38:  ; preds = %_ZN7JNIEnv_11GetMet
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 264
   %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef ptr %47(ptr noundef nonnull %44, ptr noundef %31, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
+  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %31, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38
@@ -189,7 +189,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39:  ; preds = %_ZN7JNIEnv_11GetMet
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 264
   %53 = load ptr, ptr %52, align 8
-  %54 = invoke noundef ptr %53(ptr noundef nonnull %50, ptr noundef %31, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5)
+  %54 = invoke noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %31, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39
@@ -199,7 +199,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40:  ; preds = %_ZN7JNIEnv_11GetMet
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 264
   %59 = load ptr, ptr %58, align 8
-  %60 = invoke noundef ptr %59(ptr noundef nonnull %56, ptr noundef %31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  %60 = invoke noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40
@@ -209,7 +209,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41:  ; preds = %_ZN7JNIEnv_11GetMet
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 264
   %65 = load ptr, ptr %64, align 8
-  %66 = invoke noundef ptr %65(ptr noundef nonnull %62, ptr noundef %31, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %66 = invoke noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %31, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41
@@ -219,7 +219,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42:  ; preds = %_ZN7JNIEnv_11GetMet
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
-  %72 = invoke noundef ptr %71(ptr noundef nonnull %68, ptr noundef %31, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  %72 = invoke noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %31, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42
@@ -229,7 +229,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43:  ; preds = %_ZN7JNIEnv_11GetMet
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 264
   %77 = load ptr, ptr %76, align 8
-  %78 = invoke noundef ptr %77(ptr noundef nonnull %74, ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
+  %78 = invoke noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43
@@ -239,7 +239,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44:  ; preds = %_ZN7JNIEnv_11GetMet
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 264
   %83 = load ptr, ptr %82, align 8
-  %84 = invoke noundef ptr %83(ptr noundef nonnull %80, ptr noundef %31, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
+  %84 = invoke noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef %31, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44
@@ -249,7 +249,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45:  ; preds = %_ZN7JNIEnv_11GetMet
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 264
   %89 = load ptr, ptr %88, align 8
-  %90 = invoke noundef ptr %89(ptr noundef nonnull %86, ptr noundef %31, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
+  %90 = invoke noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %31, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45
@@ -259,7 +259,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46:  ; preds = %_ZN7JNIEnv_11GetMet
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 264
   %95 = load ptr, ptr %94, align 8
-  %96 = invoke noundef ptr %95(ptr noundef nonnull %92, ptr noundef %31, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+  %96 = invoke noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %31, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
           to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46
@@ -391,22 +391,22 @@ define noundef zeroext i1 @_ZN6Jipopt15get_bounds_infoEiPdS0_iS0_S0_(ptr nocaptu
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 1456
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull %9, i32 noundef %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %1)
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 1456
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef ptr %17(ptr noundef nonnull %14, i32 noundef %1)
+  %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1)
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 1456
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull %19, i32 noundef %4)
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %4)
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 1456
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr %27(ptr noundef nonnull %24, i32 noundef %4)
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %4)
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
@@ -421,22 +421,22 @@ define noundef zeroext i1 @_ZN6Jipopt15get_bounds_infoEiPdS0_iS0_S0_(ptr nocaptu
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1648
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %36, ptr noundef %13, i32 noundef 0, i32 noundef %1, ptr noundef %2)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %13, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   %40 = load ptr, ptr %8, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 1648
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull %40, ptr noundef %18, i32 noundef 0, i32 noundef %1, ptr noundef %3)
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %18, i32 noundef 0, i32 noundef %1, ptr noundef %3)
   %44 = load ptr, ptr %8, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 1648
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull %44, ptr noundef %23, i32 noundef 0, i32 noundef %4, ptr noundef %5)
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %23, i32 noundef 0, i32 noundef %4, ptr noundef %5)
   %48 = load ptr, ptr %8, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 1648
   %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull %48, ptr noundef %28, i32 noundef 0, i32 noundef %4, ptr noundef %6)
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %28, i32 noundef 0, i32 noundef %4, ptr noundef %6)
   br label %52
 
 52:                                               ; preds = %7, %35
@@ -486,7 +486,7 @@ define noundef zeroext i1 @_ZN6Jipopt18get_starting_pointEibPdbS0_S0_ibS0_(ptr n
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 1648
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull %31, ptr noundef %12, i32 noundef 0, i32 noundef %1, ptr noundef %3)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %12, i32 noundef 0, i32 noundef %1, ptr noundef %3)
   br label %35
 
 35:                                               ; preds = %30, %29
@@ -497,12 +497,12 @@ define noundef zeroext i1 @_ZN6Jipopt18get_starting_pointEibPdbS0_S0_ibS0_(ptr n
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 1648
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull %37, ptr noundef %14, i32 noundef 0, i32 noundef %1, ptr noundef %5)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %14, i32 noundef 0, i32 noundef %1, ptr noundef %5)
   %41 = load ptr, ptr %19, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 1648
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull %41, ptr noundef %16, i32 noundef 0, i32 noundef %1, ptr noundef %6)
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %16, i32 noundef 0, i32 noundef %1, ptr noundef %6)
   br label %45
 
 45:                                               ; preds = %36, %35
@@ -513,7 +513,7 @@ define noundef zeroext i1 @_ZN6Jipopt18get_starting_pointEibPdbS0_S0_ibS0_(ptr n
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 1648
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull %47, ptr noundef %18, i32 noundef 0, i32 noundef %7, ptr noundef %9)
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %18, i32 noundef 0, i32 noundef %7, ptr noundef %9)
   br label %51
 
 51:                                               ; preds = %45, %46, %10
@@ -532,7 +532,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_fEiPKdbRd(ptr nocapture noundef nonnu
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 1712
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %8, ptr noundef %10, i32 noundef 0, i32 noundef %1, ptr noundef %2)
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   br label %14
 
 14:                                               ; preds = %6, %5
@@ -557,7 +557,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_fEiPKdbRd(ptr nocapture noundef nonnu
   %30 = load ptr, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1648
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %28, ptr noundef %29, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %29, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   br label %33
 
 33:                                               ; preds = %14, %27
@@ -576,7 +576,7 @@ define noundef zeroext i1 @_ZN6Jipopt11eval_grad_fEiPKdbPd(ptr nocapture noundef
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 1712
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %8, ptr noundef %10, i32 noundef 0, i32 noundef %1, ptr noundef %2)
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   br label %14
 
 14:                                               ; preds = %6, %5
@@ -601,7 +601,7 @@ define noundef zeroext i1 @_ZN6Jipopt11eval_grad_fEiPKdbPd(ptr nocapture noundef
   %30 = load ptr, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1648
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %28, ptr noundef %29, i32 noundef 0, i32 noundef %1, ptr noundef %4)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %29, i32 noundef 0, i32 noundef %1, ptr noundef %4)
   br label %33
 
 33:                                               ; preds = %14, %27
@@ -620,7 +620,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_gEiPKdbiPd(ptr nocapture noundef nonn
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 1712
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull %9, ptr noundef %11, i32 noundef 0, i32 noundef %1, ptr noundef %2)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   br label %15
 
 15:                                               ; preds = %7, %6
@@ -645,7 +645,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_gEiPKdbiPd(ptr nocapture noundef nonn
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 1648
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull %29, ptr noundef %30, i32 noundef 0, i32 noundef %4, ptr noundef %5)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30, i32 noundef 0, i32 noundef %4, ptr noundef %5)
   br label %34
 
 34:                                               ; preds = %15, %28
@@ -666,7 +666,7 @@ define noundef zeroext i1 @_ZN6Jipopt10eval_jac_gEiPKdbiiPiS2_Pd(ptr nocapture n
   %16 = load ptr, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 1712
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull %13, ptr noundef %15, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %15, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
   br label %19
 
 19:                                               ; preds = %11, %9
@@ -681,12 +681,12 @@ define noundef zeroext i1 @_ZN6Jipopt10eval_jac_gEiPKdbiiPiS2_Pd(ptr nocapture n
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 1432
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr %27(ptr noundef nonnull %24, i32 noundef %5)
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %5)
   %29 = load ptr, ptr %23, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1432
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull %29, i32 noundef %5)
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef %5)
   br label %34
 
 34:                                               ; preds = %22, %19
@@ -718,7 +718,7 @@ define noundef zeroext i1 @_ZN6Jipopt10eval_jac_gEiPKdbiiPiS2_Pd(ptr nocapture n
   %53 = load ptr, ptr %51, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 1648
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull %51, ptr noundef %52, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %8)
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %52, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %8)
   br label %56
 
 56:                                               ; preds = %50, %49
@@ -729,12 +729,12 @@ define noundef zeroext i1 @_ZN6Jipopt10eval_jac_gEiPKdbiiPiS2_Pd(ptr nocapture n
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 1624
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull %58, ptr noundef %.034, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %6)
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %.034, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %6)
   %62 = load ptr, ptr %35, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 1624
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull %62, ptr noundef %.033, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %7)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %.033, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %7)
   br label %66
 
 66:                                               ; preds = %56, %57, %34
@@ -755,7 +755,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture n
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 1712
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull %16, ptr noundef %18, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %18, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
   br label %22
 
 22:                                               ; preds = %14, %12
@@ -771,7 +771,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture n
   %29 = load ptr, ptr %26, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 1712
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull %26, ptr noundef %28, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %6)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %28, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %6)
   br label %32
 
 32:                                               ; preds = %24, %22
@@ -786,12 +786,12 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture n
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 1432
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr %40(ptr noundef nonnull %37, i32 noundef %8)
+  %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef %8)
   %42 = load ptr, ptr %36, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 1432
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef ptr %45(ptr noundef nonnull %42, i32 noundef %8)
+  %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef %8)
   br label %47
 
 47:                                               ; preds = %35, %32
@@ -826,7 +826,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture n
   %69 = load ptr, ptr %67, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 1648
   %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull %67, ptr noundef %68, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %11)
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %68, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %11)
   br label %72
 
 72:                                               ; preds = %66, %65
@@ -837,12 +837,12 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture n
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 1624
   %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull %74, ptr noundef %.042, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %9)
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %.042, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %9)
   %78 = load ptr, ptr %48, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 1624
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull %78, ptr noundef %.043, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %10)
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %.043, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %10)
   br label %82
 
 82:                                               ; preds = %72, %73, %47
@@ -864,7 +864,7 @@ define void @_ZN6Jipopt17finalize_solutionEN5Ipopt12SolverReturnEiPKdS3_S3_iS3_S
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 1712
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull %16, ptr noundef %18, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %3)
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %18, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %3)
   br label %22
 
 22:                                               ; preds = %14, %12
@@ -879,7 +879,7 @@ define void @_ZN6Jipopt17finalize_solutionEN5Ipopt12SolverReturnEiPKdS3_S3_iS3_S
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 1712
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull %25, ptr noundef %27, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %4)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %27, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %4)
   br label %31
 
 31:                                               ; preds = %23, %22
@@ -894,7 +894,7 @@ define void @_ZN6Jipopt17finalize_solutionEN5Ipopt12SolverReturnEiPKdS3_S3_iS3_S
   %37 = load ptr, ptr %34, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1712
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %34, ptr noundef %36, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %5)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %36, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %5)
   br label %40
 
 40:                                               ; preds = %32, %31
@@ -909,7 +909,7 @@ define void @_ZN6Jipopt17finalize_solutionEN5Ipopt12SolverReturnEiPKdS3_S3_iS3_S
   %46 = load ptr, ptr %43, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1712
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull %43, ptr noundef %45, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %7)
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %45, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %7)
   br label %49
 
 49:                                               ; preds = %41, %40
@@ -924,7 +924,7 @@ define void @_ZN6Jipopt17finalize_solutionEN5Ipopt12SolverReturnEiPKdS3_S3_iS3_S
   %55 = load ptr, ptr %52, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 1712
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull %52, ptr noundef %54, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %8)
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef %54, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %8)
   br label %58
 
 58:                                               ; preds = %50, %49
@@ -935,7 +935,7 @@ define void @_ZN6Jipopt17finalize_solutionEN5Ipopt12SolverReturnEiPKdS3_S3_iS3_S
   %63 = load ptr, ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 1648
   %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull %60, ptr noundef %62, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %13)
+  call void %65(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %62, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %13)
   ret void
 }
 
@@ -965,22 +965,22 @@ define noundef zeroext i1 @_ZN6Jipopt22get_scaling_parametersERdRbiPdS1_iS2_(ptr
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1456
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef ptr %16(ptr noundef nonnull %13, i32 noundef 1)
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 1)
   %18 = load ptr, ptr %12, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 1456
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull %18, i32 noundef %3)
+  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %3)
   %23 = load ptr, ptr %12, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 1456
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull %23, i32 noundef %6)
+  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %6)
   %28 = load ptr, ptr %12, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 1400
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr %31(ptr noundef nonnull %28, i32 noundef 2)
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef 2)
   %33 = load ptr, ptr %12, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
@@ -991,12 +991,12 @@ define noundef zeroext i1 @_ZN6Jipopt22get_scaling_parametersERdRbiPdS1_iS2_(ptr
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 1464
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr %42(ptr noundef nonnull %39, ptr noundef %32, ptr noundef null)
+  %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %32, ptr noundef null)
   %44 = load ptr, ptr %12, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 1648
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull %44, ptr noundef %17, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %1)
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %17, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %1)
   %48 = load i8, ptr %43, align 1
   %.not26 = icmp eq i8 %48, 0
   br i1 %.not26, label %54, label %49
@@ -1006,7 +1006,7 @@ define noundef zeroext i1 @_ZN6Jipopt22get_scaling_parametersERdRbiPdS1_iS2_(ptr
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 1648
   %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull %50, ptr noundef %22, i32 noundef 0, i32 noundef %3, ptr noundef %4)
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %22, i32 noundef 0, i32 noundef %3, ptr noundef %4)
   br label %54
 
 54:                                               ; preds = %11, %49
@@ -1022,7 +1022,7 @@ define noundef zeroext i1 @_ZN6Jipopt22get_scaling_parametersERdRbiPdS1_iS2_(ptr
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 1648
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull %58, ptr noundef %27, i32 noundef 0, i32 noundef %3, ptr noundef %7)
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %27, i32 noundef 0, i32 noundef %3, ptr noundef %7)
   br label %62
 
 62:                                               ; preds = %54, %57
@@ -1032,7 +1032,7 @@ define noundef zeroext i1 @_ZN6Jipopt22get_scaling_parametersERdRbiPdS1_iS2_(ptr
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 1528
   %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull %63, ptr noundef %32, ptr noundef nonnull %43, i32 noundef 0)
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %32, ptr noundef nonnull %43, i32 noundef 0)
   br label %67
 
 67:                                               ; preds = %8, %62
@@ -1086,7 +1086,7 @@ define noundef zeroext i1 @_ZN6Jipopt31get_list_of_nonlinear_variablesEiPi(ptr n
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 1432
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull %8, i32 noundef %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1)
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -1105,7 +1105,7 @@ define noundef zeroext i1 @_ZN6Jipopt31get_list_of_nonlinear_variablesEiPi(ptr n
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1624
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %21, ptr noundef %12, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %12, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
   br label %25
 
 25:                                               ; preds = %19, %20, %6, %3
@@ -1322,7 +1322,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrIterate(ptr nound
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 1712
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %6, ptr noundef %.0)
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %6, ptr noundef %.0)
   br label %60
 
 60:                                               ; preds = %56, %55
@@ -1332,7 +1332,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrIterate(ptr nound
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 1712
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %6, ptr noundef %.060)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %6, ptr noundef %.060)
   br label %65
 
 65:                                               ; preds = %61, %60
@@ -1342,7 +1342,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrIterate(ptr nound
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 1712
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %6, ptr noundef %.059)
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %6, ptr noundef %.059)
   br label %70
 
 70:                                               ; preds = %66, %65
@@ -1352,7 +1352,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrIterate(ptr nound
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 1712
   %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 0, i32 noundef %10, ptr noundef %.058)
+  tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %11, i32 noundef 0, i32 noundef %10, ptr noundef %.058)
   br label %75
 
 75:                                               ; preds = %71, %70
@@ -1362,7 +1362,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrIterate(ptr nound
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 1712
   %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %10, ptr noundef %.057)
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %10, ptr noundef %.057)
   br label %80
 
 80:                                               ; preds = %75, %76, %52
@@ -1526,7 +1526,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 1712
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %6, ptr noundef %.0)
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %6, ptr noundef %.0)
   br label %76
 
 76:                                               ; preds = %72, %71
@@ -1536,7 +1536,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 1712
   %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %6, ptr noundef %.080)
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %6, ptr noundef %.080)
   br label %81
 
 81:                                               ; preds = %77, %76
@@ -1546,7 +1546,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %83 = load ptr, ptr %0, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 1712
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %6, ptr noundef %.079)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %6, ptr noundef %.079)
   br label %86
 
 86:                                               ; preds = %82, %81
@@ -1556,7 +1556,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 1712
   %90 = load ptr, ptr %89, align 8
-  tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %6, ptr noundef %.078)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %6, ptr noundef %.078)
   br label %91
 
 91:                                               ; preds = %87, %86
@@ -1566,7 +1566,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 1712
   %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 0, i32 noundef %6, ptr noundef %.077)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %11, i32 noundef 0, i32 noundef %6, ptr noundef %.077)
   br label %96
 
 96:                                               ; preds = %92, %91
@@ -1576,7 +1576,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 1712
   %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 0, i32 noundef %12, ptr noundef %.076)
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %13, i32 noundef 0, i32 noundef %12, ptr noundef %.076)
   br label %101
 
 101:                                              ; preds = %97, %96
@@ -1586,7 +1586,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
   %103 = load ptr, ptr %0, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 1712
   %105 = load ptr, ptr %104, align 8
-  tail call void %105(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 0, i32 noundef %12, ptr noundef %.075)
+  tail call void %105(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i32 noundef 0, i32 noundef %12, ptr noundef %.075)
   br label %106
 
 106:                                              ; preds = %101, %102, %68
@@ -1729,13 +1729,13 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_AddIpoptIntOption(ptr no
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 1352
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null)
+  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef null)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc15 unwind label %50
 
 .noexc15:                                         ; preds = %.noexc
@@ -1752,7 +1752,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_AddIpoptIntOption(ptr no
 19:                                               ; preds = %21, %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body
 
 21:                                               ; preds = %.noexc15
@@ -1803,7 +1803,7 @@ _ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit:   ; preds = %35, %37, %42
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1360
   %48 = load ptr, ptr %47, align 8
-  invoke void %48(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %14)
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull %14)
           to label %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit unwind label %52
 
 _ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit
@@ -1877,13 +1877,13 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_AddIpoptNumOption(ptr no
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 1352
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null)
+  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef null)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc15 unwind label %50
 
 .noexc15:                                         ; preds = %.noexc
@@ -1900,7 +1900,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_AddIpoptNumOption(ptr no
 19:                                               ; preds = %21, %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body
 
 21:                                               ; preds = %.noexc15
@@ -1951,7 +1951,7 @@ _ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit:   ; preds = %35, %37, %42
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1360
   %48 = load ptr, ptr %47, align 8
-  invoke void %48(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %14)
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull %14)
           to label %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit unwind label %52
 
 _ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit
@@ -2018,13 +2018,13 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_AddIpoptStrOption(ptr no
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 1352
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null)
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef null)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   %17 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc24 unwind label %46
 
 .noexc24:                                         ; preds = %.noexc
@@ -2041,7 +2041,7 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_AddIpoptStrOption(ptr no
 21:                                               ; preds = %23, %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body
 
 23:                                               ; preds = %.noexc24
@@ -2055,7 +2055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 1352
   %28 = load ptr, ptr %27, align 8
-  %29 = invoke noundef ptr %28(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null)
+  %29 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef null)
           to label %_ZN7JNIEnv_17GetStringUTFCharsEP8_jstringPh.exit unwind label %48
 
 _ZN7JNIEnv_17GetStringUTFCharsEP8_jstringPh.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2064,7 +2064,7 @@ _ZN7JNIEnv_17GetStringUTFCharsEP8_jstringPh.exit: ; preds = %_ZNSt7__cxx1112basi
           to label %.noexc26 unwind label %50
 
 .noexc26:                                         ; preds = %_ZN7JNIEnv_17GetStringUTFCharsEP8_jstringPh.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc27 unwind label %50
 
 .noexc27:                                         ; preds = %.noexc26
@@ -2081,7 +2081,7 @@ _ZN7JNIEnv_17GetStringUTFCharsEP8_jstringPh.exit: ; preds = %_ZNSt7__cxx1112basi
 34:                                               ; preds = %36, %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   br label %.body28
 
 36:                                               ; preds = %.noexc27
@@ -2192,14 +2192,14 @@ _ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit:   ; preds = %74, %76, %81
   %85 = load ptr, ptr %0, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 1360
   %87 = load ptr, ptr %86, align 8
-  invoke void %87(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %16)
+  invoke void %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull %16)
           to label %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit unwind label %52
 
 _ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 1360
   %90 = load ptr, ptr %89, align 8
-  invoke void %90(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %29)
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull %29)
           to label %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit33 unwind label %52
 
 _ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit33: ; preds = %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit

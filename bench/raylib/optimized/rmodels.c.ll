@@ -1150,9 +1150,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 184:                                              ; preds = %181, %181
   store ptr %182, ptr %5, align 8
-  %185 = call fastcc float @parseFloat(ptr noundef %5)
-  %186 = call fastcc float @parseFloat(ptr noundef %5)
-  %187 = call fastcc float @parseFloat(ptr noundef %5)
+  %185 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %186 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %187 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 188:                                              ; preds = %178
@@ -1165,9 +1165,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 191:                                              ; preds = %188, %188
   store ptr %189, ptr %5, align 8
-  %192 = call fastcc float @parseFloat(ptr noundef %5)
-  %193 = call fastcc float @parseFloat(ptr noundef %5)
-  %194 = call fastcc float @parseFloat(ptr noundef %5)
+  %192 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %193 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %194 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 195:                                              ; preds = %178
@@ -1180,9 +1180,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 198:                                              ; preds = %195, %195
   store ptr %196, ptr %5, align 8
-  %199 = call fastcc float @parseFloat(ptr noundef %5)
-  %200 = call fastcc float @parseFloat(ptr noundef %5)
-  %201 = call fastcc float @parseFloat(ptr noundef %5)
+  %199 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %200 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %201 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 202:                                              ; preds = %178
@@ -1195,9 +1195,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 205:                                              ; preds = %202, %202
   store ptr %203, ptr %5, align 8
-  %206 = call fastcc float @parseFloat(ptr noundef %5)
-  %207 = call fastcc float @parseFloat(ptr noundef %5)
-  %208 = call fastcc float @parseFloat(ptr noundef %5)
+  %206 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %207 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %208 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 209:                                              ; preds = %177
@@ -1231,9 +1231,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 220:                                              ; preds = %217, %217
   store ptr %218, ptr %5, align 8
-  %221 = call fastcc float @parseFloat(ptr noundef %5)
-  %222 = call fastcc float @parseFloat(ptr noundef %5)
-  %223 = call fastcc float @parseFloat(ptr noundef %5)
+  %221 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %222 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %223 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 224:                                              ; preds = %209
@@ -2117,9 +2117,9 @@ skip_space.exit.i:                                ; preds = %94
 .thread485:                                       ; preds = %98, %98
   %101 = getelementptr inbounds i8, ptr %95, i64 2
   store ptr %101, ptr %10, align 8
-  %102 = call fastcc float @parseFloat(ptr noundef %10)
-  %103 = call fastcc float @parseFloat(ptr noundef %10)
-  %104 = call fastcc float @parseFloat(ptr noundef %10)
+  %102 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %103 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %104 = call fastcc float @parseFloat(ptr noundef nonnull %10)
   store float %102, ptr %84, align 8
   %105 = getelementptr inbounds i8, ptr %84, i64 4
   store float %103, ptr %105, align 4
@@ -2144,9 +2144,9 @@ skip_space.exit.i:                                ; preds = %94
 .thread486:                                       ; preds = %107, %107
   %110 = getelementptr inbounds i8, ptr %95, i64 3
   store ptr %110, ptr %10, align 8
-  %111 = call fastcc float @parseFloat(ptr noundef %10)
-  %112 = call fastcc float @parseFloat(ptr noundef %10)
-  %113 = call fastcc float @parseFloat(ptr noundef %10)
+  %111 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %112 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %113 = call fastcc float @parseFloat(ptr noundef nonnull %10)
   %114 = getelementptr inbounds i8, ptr %84, i64 12
   store float %111, ptr %114, align 4
   %115 = getelementptr inbounds i8, ptr %84, i64 16
@@ -2172,8 +2172,8 @@ skip_space.exit.i:                                ; preds = %94
 .thread487:                                       ; preds = %117, %117
   %120 = getelementptr inbounds i8, ptr %95, i64 3
   store ptr %120, ptr %10, align 8
-  %121 = call fastcc float @parseFloat(ptr noundef %10)
-  %122 = call fastcc float @parseFloat(ptr noundef %10)
+  %121 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %122 = call fastcc float @parseFloat(ptr noundef nonnull %10)
   %123 = getelementptr inbounds i8, ptr %84, i64 24
   store float %121, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %84, i64 28
@@ -12129,7 +12129,7 @@ define hidden ptr @_m3dstbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef 
   %9 = alloca [4 x i8], align 1
   %10 = alloca %struct._m3dstbi__zbuf, align 8
   %11 = sext i32 %2 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #55
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %11) #55
   %13 = icmp eq ptr %12, null
   br i1 %13, label %696, label %14
 
@@ -14806,7 +14806,7 @@ _m3dstbi__getn.exit.i.i:                          ; preds = %330
   %360 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %spec.select1003.i.i, ptr %360, align 4
   %361 = load i32, ptr %9, align 4
-  %362 = call fastcc i32 @_m3dstbi__create_png_image(ptr noundef %10, ptr noundef nonnull %352, i32 noundef %361, i32 noundef %spec.select1003.i.i, i32 noundef %31, i32 noundef %.0200.i.i, i32 noundef %.0202.i.i)
+  %362 = call fastcc i32 @_m3dstbi__create_png_image(ptr noundef nonnull %10, ptr noundef nonnull %352, i32 noundef %361, i32 noundef %spec.select1003.i.i, i32 noundef %31, i32 noundef %.0200.i.i, i32 noundef %.0202.i.i)
   %.not217.i.i = icmp eq i32 %362, 0
   br i1 %.not217.i.i, label %_m3dstbi__parse_png_file.exit.thread.i, label %363
 
@@ -14843,7 +14843,7 @@ _m3dstbi__getn.exit.i.i:                          ; preds = %330
   %373 = zext i8 %.0186.i.i to i32
   store i32 %373, ptr %18, align 8
   store i32 %373, ptr %360, align 4
-  %374 = call fastcc i32 @_m3dstbi__expand_png_palette(ptr noundef %10, ptr noundef %6, i32 noundef %373)
+  %374 = call fastcc i32 @_m3dstbi__expand_png_palette(ptr noundef nonnull %10, ptr noundef %6, i32 noundef %373)
   %.not219.i.i = icmp eq i32 %374, 0
   br i1 %.not219.i.i, label %_m3dstbi__parse_png_file.exit.thread.i, label %403
 
@@ -45377,7 +45377,7 @@ define internal fastcc i32 @cgltf_parse_json_root(ptr noundef nonnull readonly %
 
 cgltf_json_strcmp.exit:                           ; preds = %119
   %126 = getelementptr inbounds i8, ptr %2, i64 %123
-  %127 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %126, ptr noundef nonnull readonly dereferenceable(6) @.str.121, i64 noundef 5) #50
+  %127 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %126, ptr noundef nonnull dereferenceable(6) @.str.121, i64 noundef 5) #50
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %cgltf_json_strcmp.exit629
 
@@ -45426,7 +45426,7 @@ cgltf_json_strcmp.exit:                           ; preds = %119
 
 cgltf_json_strcmp.exit.i:                         ; preds = %146
   %152 = getelementptr inbounds i8, ptr %2, i64 %150
-  %153 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(10) @.str.144, i64 noundef 9) #50
+  %153 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull dereferenceable(10) @.str.144, i64 noundef 9) #50
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %cgltf_json_strcmp.exit77.i
 
@@ -45470,7 +45470,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %146
   br label %cgltf_parse_json_string.exit.thread121.i
 
 cgltf_json_strcmp.exit77.i:                       ; preds = %cgltf_json_strcmp.exit.i
-  %180 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(10) @.str.145, i64 noundef 9) #50
+  %180 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull dereferenceable(10) @.str.145, i64 noundef 9) #50
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45515,7 +45515,7 @@ cgltf_json_strcmp.exit77.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit86.i:                       ; preds = %146
   %207 = getelementptr inbounds i8, ptr %2, i64 %150
-  %208 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull readonly dereferenceable(8) @.str.146, i64 noundef 7) #50
+  %208 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull dereferenceable(8) @.str.146, i64 noundef 7) #50
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45560,7 +45560,7 @@ cgltf_json_strcmp.exit86.i:                       ; preds = %146
 
 cgltf_json_strcmp.exit95.i:                       ; preds = %146
   %235 = getelementptr inbounds i8, ptr %2, i64 %150
-  %236 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %235, ptr noundef nonnull readonly dereferenceable(11) @.str.147, i64 noundef 10) #50
+  %236 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %235, ptr noundef nonnull dereferenceable(11) @.str.147, i64 noundef 10) #50
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %cgltf_json_strcmp.exit109.i
 
@@ -45605,7 +45605,7 @@ cgltf_json_strcmp.exit95.i:                       ; preds = %146
 
 cgltf_json_strcmp.exit104.i:                      ; preds = %146
   %263 = getelementptr inbounds i8, ptr %2, i64 %150
-  %264 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %263, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %264 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %263, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %266, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45676,7 +45676,7 @@ cgltf_json_strcmp.exit104.i:                      ; preds = %146
   br i1 %302, label %288, label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit109.i:                      ; preds = %cgltf_json_strcmp.exit95.i
-  %303 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %235, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %303 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %235, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %305, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45739,7 +45739,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %313, %310
   store i64 %330, ptr %103, align 8
   %331 = load ptr, ptr %104, align 8
   %332 = getelementptr inbounds %struct.cgltf_extension, ptr %331, i64 %329
-  %333 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %2, ptr noundef %332)
+  %333 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %2, ptr noundef %332)
   %334 = icmp slt i32 %333, 0
   %335 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %335, %312
@@ -45817,7 +45817,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %119
 
 cgltf_json_strcmp.exit267:                        ; preds = %cgltf_json_strcmp.exit.thread
   %360 = getelementptr inbounds i8, ptr %2, i64 %123
-  %361 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %360, ptr noundef nonnull readonly dereferenceable(7) @.str.122, i64 noundef 6) #50
+  %361 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %360, ptr noundef nonnull dereferenceable(7) @.str.122, i64 noundef 6) #50
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %363, label %cgltf_json_strcmp.exit494
 
@@ -45924,7 +45924,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %377
 
 cgltf_json_strcmp.exit.i.i:                       ; preds = %412
   %418 = getelementptr inbounds i8, ptr %2, i64 %416
-  %419 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %418, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %419 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %418, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %420 = icmp eq i32 %419, 0
   br i1 %420, label %421, label %cgltf_json_strcmp.exit165.thread.i.i
 
@@ -45969,7 +45969,7 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %412
 
 cgltf_json_strcmp.exit127.i.i:                    ; preds = %412
   %446 = getelementptr inbounds i8, ptr %2, i64 %416
-  %447 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %446, ptr noundef nonnull readonly dereferenceable(11) @.str.149, i64 noundef 10) #50
+  %447 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %446, ptr noundef nonnull dereferenceable(11) @.str.149, i64 noundef 10) #50
   %448 = icmp eq i32 %447, 0
   br i1 %448, label %449, label %cgltf_json_strcmp.exit165.i.i
 
@@ -46090,7 +46090,7 @@ cgltf_parse_json_array.exit.i.i:                  ; preds = %463
 
 cgltf_json_strcmp.exit.i.i.i:                     ; preds = %508
   %514 = getelementptr inbounds i8, ptr %2, i64 %512
-  %515 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %514, ptr noundef nonnull readonly dereferenceable(5) @.str.152, i64 noundef 4) #50
+  %515 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %514, ptr noundef nonnull dereferenceable(5) @.str.152, i64 noundef 4) #50
   %516 = icmp eq i32 %515, 0
   br i1 %516, label %517, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -46126,7 +46126,7 @@ cgltf_json_to_int.exit.i.i.i:                     ; preds = %522, %517
 
 cgltf_json_strcmp.exit150.i.i.i:                  ; preds = %508
   %533 = getelementptr inbounds i8, ptr %2, i64 %512
-  %534 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %533, ptr noundef nonnull readonly dereferenceable(8) @.str.153, i64 noundef 7) #50
+  %534 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %533, ptr noundef nonnull dereferenceable(8) @.str.153, i64 noundef 7) #50
   %535 = icmp eq i32 %534, 0
   br i1 %535, label %536, label %cgltf_json_strcmp.exit167.i.i.i
 
@@ -46165,7 +46165,7 @@ cgltf_json_to_int.exit154.i.i.i:                  ; preds = %541, %536
 
 cgltf_json_strcmp.exit157.i.i.i:                  ; preds = %508
   %555 = getelementptr inbounds i8, ptr %2, i64 %512
-  %556 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %555, ptr noundef nonnull readonly dereferenceable(9) @.str.154, i64 noundef 8) #50
+  %556 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %555, ptr noundef nonnull dereferenceable(9) @.str.154, i64 noundef 8) #50
   %557 = icmp eq i32 %556, 0
   br i1 %557, label %558, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -46204,17 +46204,17 @@ cgltf_json_to_int.exit161.i.i.i:                  ; preds = %563, %558
 
 cgltf_json_strcmp.exit164.i.i.i:                  ; preds = %508
   %577 = getelementptr inbounds i8, ptr %2, i64 %512
-  %578 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %577, ptr noundef nonnull readonly dereferenceable(11) @.str.155, i64 noundef 10) #50
+  %578 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %577, ptr noundef nonnull dereferenceable(11) @.str.155, i64 noundef 10) #50
   %579 = icmp eq i32 %578, 0
   br i1 %579, label %580, label %cgltf_json_strcmp.exit177.i.i.i
 
 580:                                              ; preds = %cgltf_json_strcmp.exit164.i.i.i
   %581 = add nuw nsw i32 %.0136259.i.i.i, 1
-  %582 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %581, ptr noundef readonly %2, ptr noundef nonnull %496, ptr noundef nonnull %497)
+  %582 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %581, ptr noundef readonly %2, ptr noundef nonnull %496, ptr noundef nonnull %497)
   br label %cgltf_parse_json_extras.exit.i.i.i
 
 cgltf_json_strcmp.exit167.i.i.i:                  ; preds = %cgltf_json_strcmp.exit150.i.i.i
-  %583 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %533, ptr noundef nonnull readonly dereferenceable(8) @.str.156, i64 noundef 7) #50
+  %583 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %533, ptr noundef nonnull dereferenceable(8) @.str.156, i64 noundef 7) #50
   %584 = icmp eq i32 %583, 0
   br i1 %584, label %585, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -46271,13 +46271,13 @@ cgltf_parse_json_array.exit.i.i.i:                ; preds = %599
   %609 = load ptr, ptr %494, align 8
   %610 = getelementptr inbounds %struct.cgltf_morph_target, ptr %609, i64 %.0134256.i.i.i
   %611 = getelementptr inbounds i8, ptr %610, i64 8
-  %612 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.2255.i.i.i, ptr noundef readonly %2, ptr noundef %610, ptr noundef nonnull %611)
+  %612 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2255.i.i.i, ptr noundef readonly %2, ptr noundef %610, ptr noundef nonnull %611)
   %613 = icmp slt i32 %612, 0
   br i1 %613, label %cgltf_parse_json_asset.exit.thread, label %605
 
 cgltf_json_strcmp.exit172.i.i.i:                  ; preds = %508
   %614 = getelementptr inbounds i8, ptr %2, i64 %512
-  %615 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %614, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %615 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %614, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %617, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -46348,7 +46348,7 @@ cgltf_json_strcmp.exit172.i.i.i:                  ; preds = %508
   br i1 %653, label %639, label %cgltf_parse_json_extras.exit.i.i.i
 
 cgltf_json_strcmp.exit177.i.i.i:                  ; preds = %cgltf_json_strcmp.exit164.i.i.i
-  %654 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %577, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %654 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %577, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %655 = icmp eq i32 %654, 0
   br i1 %655, label %656, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -46420,7 +46420,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %666, %663
 
 cgltf_json_strcmp.exit182.i.i.i:                  ; preds = %681
   %687 = getelementptr inbounds i8, ptr %2, i64 %685
-  %688 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %687, ptr noundef nonnull readonly dereferenceable(27) @.str.157, i64 noundef 26) #50
+  %688 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %687, ptr noundef nonnull dereferenceable(27) @.str.157, i64 noundef 26) #50
   %689 = icmp eq i32 %688, 0
   br i1 %689, label %690, label %cgltf_json_strcmp.exit190.thread.i.i.i
 
@@ -46466,17 +46466,17 @@ cgltf_json_strcmp.exit182.i.i.i:                  ; preds = %681
 
 cgltf_json_strcmp.exit.i.i.i.i:                   ; preds = %707
   %714 = getelementptr inbounds i8, ptr %2, i64 %711
-  %715 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %714, ptr noundef nonnull readonly dereferenceable(11) @.str.155, i64 noundef 10) #50
+  %715 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %714, ptr noundef nonnull dereferenceable(11) @.str.155, i64 noundef 10) #50
   %716 = icmp eq i32 %715, 0
   br i1 %716, label %717, label %cgltf_json_strcmp.exit40.i.i.i.i
 
 717:                                              ; preds = %cgltf_json_strcmp.exit.i.i.i.i
   %718 = add nuw nsw i32 %.03650.i.i.i.i, 1
-  %719 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %718, ptr noundef readonly %2, ptr noundef nonnull %489, ptr noundef nonnull %490)
+  %719 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %718, ptr noundef readonly %2, ptr noundef nonnull %489, ptr noundef nonnull %490)
   br label %cgltf_skip_json.exit.i.i.i.i
 
 cgltf_json_strcmp.exit40.i.i.i.i:                 ; preds = %cgltf_json_strcmp.exit.i.i.i.i
-  %720 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %714, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %720 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %714, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
   %721 = icmp eq i32 %720, 0
   br i1 %721, label %722, label %cgltf_json_strcmp.exit40.thread.i.i.i.i
 
@@ -46564,7 +46564,7 @@ cgltf_skip_json.exit.i.i.i.i:                     ; preds = %756, %717
 
 cgltf_json_strcmp.exit190.i.i.i:                  ; preds = %681
   %762 = getelementptr inbounds i8, ptr %2, i64 %685
-  %763 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %762, ptr noundef nonnull readonly dereferenceable(23) @.str.140, i64 noundef 22) #50
+  %763 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %762, ptr noundef nonnull dereferenceable(23) @.str.140, i64 noundef 22) #50
   %764 = icmp eq i32 %763, 0
   br i1 %764, label %765, label %cgltf_json_strcmp.exit190.thread.i.i.i
 
@@ -46610,7 +46610,7 @@ cgltf_json_strcmp.exit190.i.i.i:                  ; preds = %681
 
 cgltf_json_strcmp.exit.i201.i.i.i:                ; preds = %782
   %789 = getelementptr inbounds i8, ptr %2, i64 %786
-  %790 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %789, ptr noundef nonnull readonly dereferenceable(9) @.str.166, i64 noundef 8) #50
+  %790 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %789, ptr noundef nonnull dereferenceable(9) @.str.166, i64 noundef 8) #50
   %791 = icmp eq i32 %790, 0
   br i1 %791, label %792, label %cgltf_json_strcmp.exit.thread.i.i.i.i
 
@@ -46622,7 +46622,7 @@ cgltf_json_strcmp.exit.i201.i.i.i:                ; preds = %782
 794:                                              ; preds = %792
   store i64 0, ptr %64, align 8
   %795 = add nuw nsw i32 %.03746.i.i.i.i, 1
-  %796 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef null, ptr noundef %64)
+  %796 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef null, ptr noundef %64)
   %797 = icmp slt i32 %796, 0
   br i1 %797, label %cgltf_parse_json_material_mappings.exit.i.i.i, label %798
 
@@ -46648,7 +46648,7 @@ cgltf_calloc.exit.i.i.i.i:                        ; preds = %805, %800, %798
   %.0.i42.i204.i.i.i = phi ptr [ %804, %805 ], [ null, %798 ], [ null, %800 ]
   store ptr %.0.i42.i204.i.i.i, ptr %485, align 8
   store i64 0, ptr %64, align 8
-  %806 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef %.0.i42.i204.i.i.i, ptr noundef %64)
+  %806 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef %.0.i42.i204.i.i.i, ptr noundef %64)
   br label %cgltf_skip_json.exit.i198.i.i.i
 
 cgltf_json_strcmp.exit.thread.i.i.i.i:            ; preds = %cgltf_json_strcmp.exit.i201.i.i.i, %782
@@ -46708,7 +46708,7 @@ cgltf_json_strcmp.exit190.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   %829 = add i64 %828, 1
   store i64 %829, ptr %484, align 8
   %830 = getelementptr inbounds %struct.cgltf_extension, ptr %827, i64 %828
-  %831 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.3253.i.i.i, ptr noundef readonly %2, ptr noundef %830)
+  %831 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.3253.i.i.i, ptr noundef readonly %2, ptr noundef %830)
   br label %cgltf_parse_json_draco_mesh_compression.exit.i.i.i
 
 cgltf_parse_json_draco_mesh_compression.exit.i.i.i: ; preds = %760, %cgltf_json_strcmp.exit190.thread.i.i.i, %cgltf_parse_json_material_mappings.exit.i.i.i
@@ -46778,7 +46778,7 @@ cgltf_parse_json_primitive.exit.i.i:              ; preds = %cgltf_parse_json_ex
 
 cgltf_json_strcmp.exit134.i.i:                    ; preds = %412
   %855 = getelementptr inbounds i8, ptr %2, i64 %416
-  %856 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %855, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #50
+  %856 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %855, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #50
   %857 = icmp eq i32 %856, 0
   br i1 %857, label %858, label %cgltf_json_strcmp.exit165.thread.i.i
 
@@ -46873,7 +46873,7 @@ cgltf_json_to_float.exit.i.i.i:                   ; preds = %.lr.ph.i144.i.i
 
 cgltf_json_strcmp.exit150.i.i:                    ; preds = %412
   %897 = getelementptr inbounds i8, ptr %2, i64 %416
-  %898 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %897, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %898 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %897, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %899 = icmp eq i32 %898, 0
   br i1 %899, label %900, label %cgltf_json_strcmp.exit165.thread.i.i
 
@@ -46929,7 +46929,7 @@ cgltf_json_strcmp.exit150.i.i:                    ; preds = %412
 
 cgltf_json_strcmp.exit153.i.i:                    ; preds = %924
   %931 = getelementptr inbounds i8, ptr %2, i64 %928
-  %932 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %931, ptr noundef nonnull readonly dereferenceable(12) @.str.151, i64 noundef 11) #50
+  %932 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %931, ptr noundef nonnull dereferenceable(12) @.str.151, i64 noundef 11) #50
   %933 = icmp eq i32 %932, 0
   br i1 %933, label %934, label %cgltf_json_strcmp.exit153.thread.i.i
 
@@ -46942,7 +46942,7 @@ cgltf_json_strcmp.exit153.i.i:                    ; preds = %924
   br i1 %939, label %940, label %cgltf_json_strcmp.exit153.thread.i.i
 
 940:                                              ; preds = %934
-  %941 = call fastcc i32 @cgltf_parse_json_string_array(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %935, ptr noundef readonly %2, ptr noundef nonnull %398, ptr noundef nonnull %399)
+  %941 = call fastcc i32 @cgltf_parse_json_string_array(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %935, ptr noundef readonly %2, ptr noundef nonnull %398, ptr noundef nonnull %399)
   br label %cgltf_skip_json.exit.i.i
 
 cgltf_json_strcmp.exit153.thread.i.i:             ; preds = %934, %cgltf_json_strcmp.exit153.i.i, %924
@@ -47025,7 +47025,7 @@ cgltf_skip_json.exit.i.i:                         ; preds = %957, %940
   br i1 %977, label %963, label %cgltf_parse_json_string.exit.i.i
 
 cgltf_json_strcmp.exit165.i.i:                    ; preds = %cgltf_json_strcmp.exit127.i.i
-  %978 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %446, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %978 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %446, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %979 = icmp eq i32 %978, 0
   br i1 %979, label %980, label %cgltf_json_strcmp.exit165.thread.i.i
 
@@ -47088,7 +47088,7 @@ cgltf_calloc.exit.thread.i172.i.i:                ; preds = %988, %985
   store i64 %1005, ptr %394, align 8
   %1006 = load ptr, ptr %395, align 8
   %1007 = getelementptr inbounds %struct.cgltf_extension, ptr %1006, i64 %1004
-  %1008 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %2, ptr noundef %1007)
+  %1008 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %2, ptr noundef %1007)
   %1009 = icmp slt i32 %1008, 0
   %1010 = add nuw nsw i32 %.03138.i.i.i, 1
   %exitcond.not.i171.i.i = icmp eq i32 %1010, %987
@@ -47165,7 +47165,7 @@ cgltf_parse_json_mesh.exit.thread28.i:            ; preds = %cgltf_parse_json_me
 
 cgltf_json_strcmp.exit283:                        ; preds = %cgltf_json_strcmp.exit.thread
   %1036 = getelementptr inbounds i8, ptr %2, i64 %123
-  %1037 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1036, ptr noundef nonnull readonly dereferenceable(10) @.str.123, i64 noundef 9) #50
+  %1037 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1036, ptr noundef nonnull dereferenceable(10) @.str.123, i64 noundef 9) #50
   %1038 = icmp eq i32 %1037, 0
   br i1 %1038, label %1039, label %cgltf_json_strcmp.exit433
 
@@ -47286,7 +47286,7 @@ cgltf_parse_json_array.exit.i289:                 ; preds = %1053
 
 cgltf_json_strcmp.exit.i.i330:                    ; preds = %1100
   %1106 = getelementptr inbounds i8, ptr %2, i64 %1104
-  %1107 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1106, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %1107 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1106, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %1108 = icmp eq i32 %1107, 0
   br i1 %1108, label %1109, label %cgltf_json_strcmp.exit192.i.i
 
@@ -47331,7 +47331,7 @@ cgltf_json_strcmp.exit.i.i330:                    ; preds = %1100
 
 cgltf_json_strcmp.exit167.i.i:                    ; preds = %1100
   %1134 = getelementptr inbounds i8, ptr %2, i64 %1104
-  %1135 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %1135 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
   %1136 = icmp eq i32 %1135, 0
   br i1 %1136, label %1137, label %cgltf_json_strcmp.exit172.i.i
 
@@ -47369,7 +47369,7 @@ cgltf_json_to_int.exit.i.i:                       ; preds = %1142, %1137
   br label %cgltf_parse_json_string.exit.i.i295
 
 cgltf_json_strcmp.exit172.i.i:                    ; preds = %cgltf_json_strcmp.exit167.i.i
-  %1156 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1156 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1157 = icmp eq i32 %1156, 0
   br i1 %1157, label %1158, label %cgltf_json_strcmp.exit182.i.i
 
@@ -47405,7 +47405,7 @@ cgltf_json_to_size.exit.i.i:                      ; preds = %1163, %1158
 
 cgltf_json_strcmp.exit178.i.i:                    ; preds = %1100
   %1174 = getelementptr inbounds i8, ptr %2, i64 %1104
-  %1175 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1174, ptr noundef nonnull readonly dereferenceable(14) @.str.168, i64 noundef 13) #50
+  %1175 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1174, ptr noundef nonnull dereferenceable(14) @.str.168, i64 noundef 13) #50
   %1176 = icmp eq i32 %1175, 0
   br i1 %1176, label %1177, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -47452,7 +47452,7 @@ cgltf_json_to_component_type.exit.i.i:            ; preds = %cgltf_json_to_int.e
   br label %cgltf_parse_json_string.exit.i.i295
 
 cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.exit172.i.i
-  %1194 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull readonly dereferenceable(11) @.str.169, i64 noundef 10) #50
+  %1194 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull dereferenceable(11) @.str.169, i64 noundef 10) #50
   %1195 = icmp eq i32 %1194, 0
   br i1 %1195, label %1196, label %cgltf_json_strcmp.exit244.i.i
 
@@ -47483,7 +47483,7 @@ cgltf_json_to_bool.exit.i.i:                      ; preds = %1204, %1196
 
 cgltf_json_strcmp.exit185.i.i:                    ; preds = %1100
   %1210 = getelementptr inbounds i8, ptr %2, i64 %1104
-  %1211 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1210, ptr noundef nonnull readonly dereferenceable(6) @.str.170, i64 noundef 5) #50
+  %1211 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1210, ptr noundef nonnull dereferenceable(6) @.str.170, i64 noundef 5) #50
   %1212 = icmp eq i32 %1211, 0
   br i1 %1212, label %1213, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -47519,7 +47519,7 @@ cgltf_json_to_int.exit189.i.i:                    ; preds = %1218, %1213
   br label %cgltf_parse_json_string.exit.i.i295
 
 cgltf_json_strcmp.exit192.i.i:                    ; preds = %cgltf_json_strcmp.exit.i.i330
-  %1230 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1106, ptr noundef nonnull readonly dereferenceable(5) @.str.171, i64 noundef 4) #50
+  %1230 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1106, ptr noundef nonnull dereferenceable(5) @.str.171, i64 noundef 4) #50
   %1231 = icmp eq i32 %1230, 0
   br i1 %1231, label %1232, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -47544,38 +47544,38 @@ cgltf_json_strcmp.exit192.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit195.i.i:                    ; preds = %1237
   %1243 = getelementptr inbounds i8, ptr %2, i64 %1241
-  %1244 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1243, ptr noundef nonnull readonly dereferenceable(7) @.str.172, i64 noundef 6) #50
+  %1244 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1243, ptr noundef nonnull dereferenceable(7) @.str.172, i64 noundef 6) #50
   %1245 = icmp eq i32 %1244, 0
   br i1 %1245, label %.sink.split.i.i, label %cgltf_json_strcmp.exit.thread.i
 
 cgltf_json_strcmp.exit198.i.i:                    ; preds = %1237
   %1246 = getelementptr inbounds i8, ptr %2, i64 %1241
-  %1247 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull readonly dereferenceable(5) @.str.173, i64 noundef 4) #50
+  %1247 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull dereferenceable(5) @.str.173, i64 noundef 4) #50
   %1248 = icmp eq i32 %1247, 0
   br i1 %1248, label %.sink.split.i.i, label %cgltf_json_strcmp.exit201.i.i
 
 cgltf_json_strcmp.exit201.i.i:                    ; preds = %cgltf_json_strcmp.exit198.i.i
-  %1249 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull readonly dereferenceable(5) @.str.174, i64 noundef 4) #50
+  %1249 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull dereferenceable(5) @.str.174, i64 noundef 4) #50
   %1250 = icmp eq i32 %1249, 0
   br i1 %1250, label %.sink.split.i.i, label %cgltf_json_strcmp.exit204.i.i
 
 cgltf_json_strcmp.exit204.i.i:                    ; preds = %cgltf_json_strcmp.exit201.i.i
-  %1251 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull readonly dereferenceable(5) @.str.175, i64 noundef 4) #50
+  %1251 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull dereferenceable(5) @.str.175, i64 noundef 4) #50
   %1252 = icmp eq i32 %1251, 0
   br i1 %1252, label %.sink.split.i.i, label %cgltf_json_strcmp.exit49.i
 
 cgltf_json_strcmp.exit49.i:                       ; preds = %cgltf_json_strcmp.exit204.i.i
-  %1253 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull readonly dereferenceable(5) @.str.176, i64 noundef 4) #50
+  %1253 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull dereferenceable(5) @.str.176, i64 noundef 4) #50
   %1254 = icmp eq i32 %1253, 0
   br i1 %1254, label %.sink.split.i.i, label %cgltf_json_strcmp.exit46.i
 
 cgltf_json_strcmp.exit46.i:                       ; preds = %cgltf_json_strcmp.exit49.i
-  %1255 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull readonly dereferenceable(5) @.str.177, i64 noundef 4) #50
+  %1255 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull dereferenceable(5) @.str.177, i64 noundef 4) #50
   %1256 = icmp eq i32 %1255, 0
   br i1 %1256, label %.sink.split.i.i, label %cgltf_json_strcmp.exit.i331
 
 cgltf_json_strcmp.exit.i331:                      ; preds = %cgltf_json_strcmp.exit46.i
-  %1257 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull readonly dereferenceable(5) @.str.178, i64 noundef 4) #50
+  %1257 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1246, ptr noundef nonnull dereferenceable(5) @.str.178, i64 noundef 4) #50
   %1258 = icmp eq i32 %1257, 0
   br i1 %1258, label %.sink.split.i.i, label %cgltf_json_strcmp.exit.thread.i
 
@@ -47722,7 +47722,7 @@ cgltf_json_to_float.exit.i225.i.i:                ; preds = %.lr.ph.i221.i.i
 
 cgltf_json_strcmp.exit233.i.i:                    ; preds = %1100
   %1314 = getelementptr inbounds i8, ptr %2, i64 %1104
-  %1315 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1314, ptr noundef nonnull readonly dereferenceable(7) @.str.181, i64 noundef 6) #50
+  %1315 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1314, ptr noundef nonnull dereferenceable(7) @.str.181, i64 noundef 6) #50
   %1316 = icmp eq i32 %1315, 0
   br i1 %1316, label %1317, label %cgltf_json_strcmp.exit241.i.i
 
@@ -47771,7 +47771,7 @@ cgltf_json_strcmp.exit233.i.i:                    ; preds = %1100
 
 cgltf_json_strcmp.exit.i.i.i308:                  ; preds = %1334
   %1340 = getelementptr inbounds i8, ptr %2, i64 %1338
-  %1341 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1340, ptr noundef nonnull readonly dereferenceable(6) @.str.170, i64 noundef 5) #50
+  %1341 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1340, ptr noundef nonnull dereferenceable(6) @.str.170, i64 noundef 5) #50
   %1342 = icmp eq i32 %1341, 0
   br i1 %1342, label %1343, label %cgltf_json_strcmp.exit144.thread.i.i.i
 
@@ -47808,7 +47808,7 @@ cgltf_json_to_int.exit.i237.i.i:                  ; preds = %1348, %1343
 
 cgltf_json_strcmp.exit124.i.i.i:                  ; preds = %1334
   %1360 = getelementptr inbounds i8, ptr %2, i64 %1338
-  %1361 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1360, ptr noundef nonnull readonly dereferenceable(8) @.str.153, i64 noundef 7) #50
+  %1361 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1360, ptr noundef nonnull dereferenceable(8) @.str.153, i64 noundef 7) #50
   %1362 = icmp eq i32 %1361, 0
   br i1 %1362, label %1363, label %cgltf_json_strcmp.exit144.thread.i.i.i
 
@@ -47855,7 +47855,7 @@ cgltf_json_strcmp.exit124.i.i.i:                  ; preds = %1334
 
 cgltf_json_strcmp.exit127.i.i.i:                  ; preds = %1380
   %1386 = getelementptr inbounds i8, ptr %2, i64 %1384
-  %1387 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1386, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %1387 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1386, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
   %1388 = icmp eq i32 %1387, 0
   br i1 %1388, label %1389, label %cgltf_json_strcmp.exit134.i.i.i
 
@@ -47893,7 +47893,7 @@ cgltf_json_to_int.exit131.i.i.i:                  ; preds = %1394, %1389
   br label %cgltf_skip_json.exit.thread.i.i.i
 
 cgltf_json_strcmp.exit134.i.i.i:                  ; preds = %cgltf_json_strcmp.exit127.i.i.i
-  %1408 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1386, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1408 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1386, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1409 = icmp eq i32 %1408, 0
   br i1 %1409, label %1410, label %cgltf_json_strcmp.exit140.thread.i.i.i
 
@@ -47929,7 +47929,7 @@ cgltf_json_to_size.exit.i.i.i:                    ; preds = %1415, %1410
 
 cgltf_json_strcmp.exit140.i.i.i:                  ; preds = %1380
   %1426 = getelementptr inbounds i8, ptr %2, i64 %1384
-  %1427 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1426, ptr noundef nonnull readonly dereferenceable(14) @.str.168, i64 noundef 13) #50
+  %1427 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1426, ptr noundef nonnull dereferenceable(14) @.str.168, i64 noundef 13) #50
   %1428 = icmp eq i32 %1427, 0
   br i1 %1428, label %1429, label %cgltf_json_strcmp.exit140.thread.i.i.i
 
@@ -48025,7 +48025,7 @@ cgltf_skip_json.exit.thread.i.i.i:                ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit144.i.i.i:                  ; preds = %1334
   %1466 = getelementptr inbounds i8, ptr %2, i64 %1338
-  %1467 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1466, ptr noundef nonnull readonly dereferenceable(7) @.str.183, i64 noundef 6) #50
+  %1467 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1466, ptr noundef nonnull dereferenceable(7) @.str.183, i64 noundef 6) #50
   %1468 = icmp eq i32 %1467, 0
   br i1 %1468, label %1469, label %cgltf_json_strcmp.exit144.thread.i.i.i
 
@@ -48070,7 +48070,7 @@ cgltf_json_strcmp.exit144.i.i.i:                  ; preds = %1334
 
 cgltf_json_strcmp.exit147.i.i.i:                  ; preds = %1486
   %1493 = getelementptr inbounds i8, ptr %2, i64 %1490
-  %1494 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1493, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %1494 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1493, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
   %1495 = icmp eq i32 %1494, 0
   br i1 %1495, label %1496, label %cgltf_json_strcmp.exit154.i.i.i
 
@@ -48108,7 +48108,7 @@ cgltf_json_to_int.exit151.i.i.i:                  ; preds = %1501, %1496
   br label %cgltf_skip_json.exit164.thread.i.i.i
 
 cgltf_json_strcmp.exit154.i.i.i:                  ; preds = %cgltf_json_strcmp.exit147.i.i.i
-  %1515 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1493, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1515 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1493, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1516 = icmp eq i32 %1515, 0
   br i1 %1516, label %1517, label %cgltf_json_strcmp.exit154.thread.i.i.i
 
@@ -48240,7 +48240,7 @@ cgltf_skip_json.exit170.thread.i.i.i:             ; preds = %cgltf_skip_json.exi
   br i1 %exitcond235.not.i.i.i, label %cgltf_parse_json_string.exit.i.i295, label %.lr.ph213.i.i.i
 
 cgltf_json_strcmp.exit241.i.i:                    ; preds = %cgltf_json_strcmp.exit233.i.i
-  %1573 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1314, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %1573 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1314, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %1574 = icmp eq i32 %1573, 0
   br i1 %1574, label %1575, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -48311,7 +48311,7 @@ cgltf_json_strcmp.exit241.i.i:                    ; preds = %cgltf_json_strcmp.e
   br i1 %1611, label %1597, label %cgltf_parse_json_string.exit.i.i295
 
 cgltf_json_strcmp.exit244.i.i:                    ; preds = %cgltf_json_strcmp.exit182.i.i
-  %1612 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %1612 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1134, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %1613 = icmp eq i32 %1612, 0
   br i1 %1613, label %1614, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -48374,7 +48374,7 @@ cgltf_calloc.exit.thread.i.i329:                  ; preds = %1622, %1619
   store i64 %1639, ptr %1070, align 8
   %1640 = load ptr, ptr %1071, align 8
   %1641 = getelementptr inbounds %struct.cgltf_extension, ptr %1640, i64 %1638
-  %1642 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i326, ptr noundef readonly %2, ptr noundef %1641)
+  %1642 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i326, ptr noundef readonly %2, ptr noundef %1641)
   %1643 = icmp slt i32 %1642, 0
   %1644 = add nuw nsw i32 %.03138.i.i327, 1
   %exitcond.not.i35.i = icmp eq i32 %1644, %1621
@@ -48455,7 +48455,7 @@ cgltf_parse_json_accessor.exit.thread59.i:        ; preds = %cgltf_parse_json_ac
 
 cgltf_json_strcmp.exit337:                        ; preds = %cgltf_json_strcmp.exit.thread
   %1671 = getelementptr inbounds i8, ptr %2, i64 %123
-  %1672 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1671, ptr noundef nonnull readonly dereferenceable(12) @.str.124, i64 noundef 11) #50
+  %1672 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1671, ptr noundef nonnull dereferenceable(12) @.str.124, i64 noundef 11) #50
   %1673 = icmp eq i32 %1672, 0
   br i1 %1673, label %1674, label %cgltf_json_strcmp.exit684.thread
 
@@ -48569,7 +48569,7 @@ cgltf_parse_json_array.exit.i343:                 ; preds = %1688
 
 cgltf_json_strcmp.exit.i.i382:                    ; preds = %1731
   %1737 = getelementptr inbounds i8, ptr %2, i64 %1735
-  %1738 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1737, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %1738 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1737, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %1739 = icmp eq i32 %1738, 0
   br i1 %1739, label %1740, label %cgltf_json_strcmp.exit171.thread.i.i
 
@@ -48614,7 +48614,7 @@ cgltf_json_strcmp.exit.i.i382:                    ; preds = %1731
 
 cgltf_json_strcmp.exit134.i.i374:                 ; preds = %1731
   %1765 = getelementptr inbounds i8, ptr %2, i64 %1735
-  %1766 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1765, ptr noundef nonnull readonly dereferenceable(7) @.str.184, i64 noundef 6) #50
+  %1766 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1765, ptr noundef nonnull dereferenceable(7) @.str.184, i64 noundef 6) #50
   %1767 = icmp eq i32 %1766, 0
   br i1 %1767, label %1768, label %cgltf_json_strcmp.exit159.i.i
 
@@ -48653,7 +48653,7 @@ cgltf_json_to_int.exit.i.i380:                    ; preds = %1773, %1768
 
 cgltf_json_strcmp.exit139.i.i:                    ; preds = %1731
   %1787 = getelementptr inbounds i8, ptr %2, i64 %1735
-  %1788 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1788 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1789 = icmp eq i32 %1788, 0
   br i1 %1789, label %1790, label %cgltf_json_strcmp.exit145.i.i
 
@@ -48688,7 +48688,7 @@ cgltf_json_to_size.exit.i.i373:                   ; preds = %1795, %1790
   br label %cgltf_parse_json_string.exit.i.i351
 
 cgltf_json_strcmp.exit145.i.i:                    ; preds = %cgltf_json_strcmp.exit139.i.i
-  %1806 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull readonly dereferenceable(11) @.str.185, i64 noundef 10) #50
+  %1806 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull dereferenceable(11) @.str.185, i64 noundef 10) #50
   %1807 = icmp eq i32 %1806, 0
   br i1 %1807, label %1808, label %cgltf_json_strcmp.exit152.i.i
 
@@ -48723,7 +48723,7 @@ cgltf_json_to_size.exit149.i.i:                   ; preds = %1813, %1808
   br label %cgltf_parse_json_string.exit.i.i351
 
 cgltf_json_strcmp.exit152.i.i:                    ; preds = %cgltf_json_strcmp.exit145.i.i
-  %1824 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull readonly dereferenceable(11) @.str.186, i64 noundef 10) #50
+  %1824 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull dereferenceable(11) @.str.186, i64 noundef 10) #50
   %1825 = icmp eq i32 %1824, 0
   br i1 %1825, label %1826, label %cgltf_json_strcmp.exit171.i.i
 
@@ -48758,7 +48758,7 @@ cgltf_json_to_size.exit156.i.i:                   ; preds = %1831, %1826
   br label %cgltf_parse_json_string.exit.i.i351
 
 cgltf_json_strcmp.exit159.i.i:                    ; preds = %cgltf_json_strcmp.exit134.i.i374
-  %1842 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1765, ptr noundef nonnull readonly dereferenceable(7) @.str.187, i64 noundef 6) #50
+  %1842 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1765, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #50
   %1843 = icmp eq i32 %1842, 0
   br i1 %1843, label %1844, label %cgltf_json_strcmp.exit166.i.i
 
@@ -48802,7 +48802,7 @@ cgltf_json_to_int.exit163.i.i:                    ; preds = %1844
   br label %cgltf_parse_json_string.exit.i.i351
 
 cgltf_json_strcmp.exit166.i.i:                    ; preds = %cgltf_json_strcmp.exit159.i.i
-  %1861 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1765, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %1861 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1765, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %1862 = icmp eq i32 %1861, 0
   br i1 %1862, label %1863, label %cgltf_json_strcmp.exit171.thread.i.i
 
@@ -48873,7 +48873,7 @@ cgltf_json_strcmp.exit166.i.i:                    ; preds = %cgltf_json_strcmp.e
   br i1 %1899, label %1885, label %cgltf_parse_json_string.exit.i.i351
 
 cgltf_json_strcmp.exit171.i.i:                    ; preds = %cgltf_json_strcmp.exit152.i.i
-  %1900 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %1900 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1787, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %1901 = icmp eq i32 %1900, 0
   br i1 %1901, label %1902, label %cgltf_json_strcmp.exit171.thread.i.i
 
@@ -48943,7 +48943,7 @@ cgltf_calloc.exit.thread.i.i372:                  ; preds = %1912, %1909
 
 cgltf_json_strcmp.exit176.i.i:                    ; preds = %1927
   %1934 = getelementptr inbounds i8, ptr %2, i64 %1931
-  %1935 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1934, ptr noundef nonnull readonly dereferenceable(24) @.str.188, i64 noundef 23) #50
+  %1935 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1934, ptr noundef nonnull dereferenceable(24) @.str.188, i64 noundef 23) #50
   %1936 = icmp eq i32 %1935, 0
   br i1 %1936, label %1937, label %cgltf_json_strcmp.exit176.thread.i.i
 
@@ -48993,7 +48993,7 @@ cgltf_json_strcmp.exit176.i.i:                    ; preds = %1927
 
 cgltf_json_strcmp.exit.i.i.i369:                  ; preds = %1954
   %1960 = getelementptr inbounds i8, ptr %2, i64 %1958
-  %1961 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1960, ptr noundef nonnull readonly dereferenceable(7) @.str.184, i64 noundef 6) #50
+  %1961 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1960, ptr noundef nonnull dereferenceable(7) @.str.184, i64 noundef 6) #50
   %1962 = icmp eq i32 %1961, 0
   br i1 %1962, label %1963, label %cgltf_json_strcmp.exit146.i.i.i
 
@@ -49032,7 +49032,7 @@ cgltf_json_to_int.exit.i.i.i370:                  ; preds = %1968, %1963
 
 cgltf_json_strcmp.exit107.i.i.i:                  ; preds = %1954
   %1982 = getelementptr inbounds i8, ptr %2, i64 %1958
-  %1983 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1982, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1983 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1982, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1984 = icmp eq i32 %1983, 0
   br i1 %1984, label %1985, label %cgltf_json_strcmp.exit113.i.i.i
 
@@ -49067,7 +49067,7 @@ cgltf_json_to_size.exit.i.i.i368:                 ; preds = %1990, %1985
   br label %cgltf_skip_json.exit.thread.i.i.i359
 
 cgltf_json_strcmp.exit113.i.i.i:                  ; preds = %cgltf_json_strcmp.exit107.i.i.i
-  %2001 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1982, ptr noundef nonnull readonly dereferenceable(11) @.str.185, i64 noundef 10) #50
+  %2001 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1982, ptr noundef nonnull dereferenceable(11) @.str.185, i64 noundef 10) #50
   %2002 = icmp eq i32 %2001, 0
   br i1 %2002, label %2003, label %cgltf_json_strcmp.exit120.i.i.i
 
@@ -49102,7 +49102,7 @@ cgltf_json_to_size.exit117.i.i.i:                 ; preds = %2008, %2003
   br label %cgltf_skip_json.exit.thread.i.i.i359
 
 cgltf_json_strcmp.exit120.i.i.i:                  ; preds = %cgltf_json_strcmp.exit113.i.i.i
-  %2019 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1982, ptr noundef nonnull readonly dereferenceable(11) @.str.186, i64 noundef 10) #50
+  %2019 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1982, ptr noundef nonnull dereferenceable(11) @.str.186, i64 noundef 10) #50
   %2020 = icmp eq i32 %2019, 0
   br i1 %2020, label %2021, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -49138,7 +49138,7 @@ cgltf_json_to_size.exit124.i.i.i:                 ; preds = %2026, %2021
 
 cgltf_json_strcmp.exit127.i.i.i363:               ; preds = %1954
   %2037 = getelementptr inbounds i8, ptr %2, i64 %1958
-  %2038 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2037, ptr noundef nonnull readonly dereferenceable(6) @.str.170, i64 noundef 5) #50
+  %2038 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2037, ptr noundef nonnull dereferenceable(6) @.str.170, i64 noundef 5) #50
   %2039 = icmp eq i32 %2038, 0
   br i1 %2039, label %2040, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -49175,7 +49175,7 @@ cgltf_json_to_int.exit131.i.i.i365:               ; preds = %2045, %2040
 
 cgltf_json_strcmp.exit134.i.i.i357:               ; preds = %1954
   %2057 = getelementptr inbounds i8, ptr %2, i64 %1958
-  %2058 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2057, ptr noundef nonnull readonly dereferenceable(5) @.str.152, i64 noundef 4) #50
+  %2058 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2057, ptr noundef nonnull dereferenceable(5) @.str.152, i64 noundef 4) #50
   %2059 = icmp eq i32 %2058, 0
   br i1 %2059, label %2060, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -49201,19 +49201,19 @@ cgltf_json_strcmp.exit134.i.i.i357:               ; preds = %1954
 
 cgltf_json_strcmp.exit137.i.i.i:                  ; preds = %2065
   %2071 = getelementptr inbounds i8, ptr %2, i64 %2069
-  %2072 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2071, ptr noundef nonnull readonly dereferenceable(11) @.str.189, i64 noundef 10) #50
+  %2072 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2071, ptr noundef nonnull dereferenceable(11) @.str.189, i64 noundef 10) #50
   %2073 = icmp eq i32 %2072, 0
   br i1 %2073, label %cgltf_json_strcmp.exit143.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit143.thread.i.i.i
 
 cgltf_json_strcmp.exit140.i.i.i362:               ; preds = %2065
   %2074 = getelementptr inbounds i8, ptr %2, i64 %2069
-  %2075 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2074, ptr noundef nonnull readonly dereferenceable(10) @.str.190, i64 noundef 9) #50
+  %2075 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2074, ptr noundef nonnull dereferenceable(10) @.str.190, i64 noundef 9) #50
   %2076 = icmp eq i32 %2075, 0
   br i1 %2076, label %cgltf_json_strcmp.exit143.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit143.thread.i.i.i
 
 cgltf_json_strcmp.exit143.i.i.i:                  ; preds = %2065
   %2077 = getelementptr inbounds i8, ptr %2, i64 %2069
-  %2078 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2077, ptr noundef nonnull readonly dereferenceable(8) @.str.191, i64 noundef 7) #50
+  %2078 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2077, ptr noundef nonnull dereferenceable(8) @.str.191, i64 noundef 7) #50
   %2079 = icmp eq i32 %2078, 0
   br i1 %2079, label %cgltf_json_strcmp.exit143.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit143.thread.i.i.i
 
@@ -49227,7 +49227,7 @@ cgltf_json_strcmp.exit143.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %cgltf_skip_json.exit.thread.i.i.i359
 
 cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %cgltf_json_strcmp.exit.i.i.i369
-  %2081 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1960, ptr noundef nonnull readonly dereferenceable(7) @.str.192, i64 noundef 6) #50
+  %2081 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1960, ptr noundef nonnull dereferenceable(7) @.str.192, i64 noundef 6) #50
   %2082 = icmp eq i32 %2081, 0
   br i1 %2082, label %2083, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -49253,24 +49253,24 @@ cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit149.i.i.i:                  ; preds = %2088
   %2094 = getelementptr inbounds i8, ptr %2, i64 %2092
-  %2095 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2094, ptr noundef nonnull readonly dereferenceable(5) @.str.193, i64 noundef 4) #50
+  %2095 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2094, ptr noundef nonnull dereferenceable(5) @.str.193, i64 noundef 4) #50
   %2096 = icmp eq i32 %2095, 0
   br i1 %2096, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit158.thread.i.i.i
 
 cgltf_json_strcmp.exit152.i.i.i:                  ; preds = %2088
   %2097 = getelementptr inbounds i8, ptr %2, i64 %2092
-  %2098 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2097, ptr noundef nonnull readonly dereferenceable(11) @.str.194, i64 noundef 10) #50
+  %2098 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2097, ptr noundef nonnull dereferenceable(11) @.str.194, i64 noundef 10) #50
   %2099 = icmp eq i32 %2098, 0
   br i1 %2099, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit155.i.i.i
 
 cgltf_json_strcmp.exit155.i.i.i:                  ; preds = %cgltf_json_strcmp.exit152.i.i.i
-  %2100 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2097, ptr noundef nonnull readonly dereferenceable(11) @.str.195, i64 noundef 10) #50
+  %2100 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2097, ptr noundef nonnull dereferenceable(11) @.str.195, i64 noundef 10) #50
   %2101 = icmp eq i32 %2100, 0
   br i1 %2101, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit158.thread.i.i.i
 
 cgltf_json_strcmp.exit158.i.i.i:                  ; preds = %2088
   %2102 = getelementptr inbounds i8, ptr %2, i64 %2092
-  %2103 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2102, ptr noundef nonnull readonly dereferenceable(12) @.str.196, i64 noundef 11) #50
+  %2103 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2102, ptr noundef nonnull dereferenceable(12) @.str.196, i64 noundef 11) #50
   %2104 = icmp eq i32 %2103, 0
   br i1 %2104, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit158.thread.i.i.i
 
@@ -49337,7 +49337,7 @@ cgltf_json_strcmp.exit176.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %2128 = add i64 %2127, 1
   store i64 %2128, ptr %1706, align 8
   %2129 = getelementptr inbounds %struct.cgltf_extension, ptr %2126, i64 %2127
-  %2130 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.2229.i.i, ptr noundef readonly %2, ptr noundef %2129)
+  %2130 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2229.i.i, ptr noundef readonly %2, ptr noundef %2129)
   br label %cgltf_parse_json_meshopt_compression.exit.i.i
 
 cgltf_parse_json_meshopt_compression.exit.i.i:    ; preds = %cgltf_skip_json.exit.thread.i.i.i359, %cgltf_json_strcmp.exit176.thread.i.i
@@ -49417,7 +49417,7 @@ cgltf_parse_json_buffer_view.exit.thread29.i:     ; preds = %cgltf_parse_json_bu
 
 cgltf_json_strcmp.exit389:                        ; preds = %cgltf_json_strcmp.exit.thread
   %2157 = getelementptr inbounds i8, ptr %2, i64 %123
-  %2158 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2157, ptr noundef nonnull readonly dereferenceable(8) @.str.125, i64 noundef 7) #50
+  %2158 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2157, ptr noundef nonnull dereferenceable(8) @.str.125, i64 noundef 7) #50
   %2159 = icmp eq i32 %2158, 0
   br i1 %2159, label %2160, label %cgltf_json_strcmp.exit681
 
@@ -49521,7 +49521,7 @@ cgltf_parse_json_array.exit.i395:                 ; preds = %2174
 
 cgltf_json_strcmp.exit.i.i427:                    ; preds = %2206
   %2212 = getelementptr inbounds i8, ptr %2, i64 %2210
-  %2213 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2212, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %2213 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2212, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %2214 = icmp eq i32 %2213, 0
   br i1 %2214, label %2215, label %cgltf_json_strcmp.exit85.thread.i.i
 
@@ -49566,7 +49566,7 @@ cgltf_json_strcmp.exit.i.i427:                    ; preds = %2206
 
 cgltf_json_strcmp.exit66.i.i:                     ; preds = %2206
   %2240 = getelementptr inbounds i8, ptr %2, i64 %2210
-  %2241 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2240, ptr noundef nonnull readonly dereferenceable(11) @.str.185, i64 noundef 10) #50
+  %2241 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2240, ptr noundef nonnull dereferenceable(11) @.str.185, i64 noundef 10) #50
   %2242 = icmp eq i32 %2241, 0
   br i1 %2242, label %2243, label %cgltf_json_strcmp.exit85.i.i
 
@@ -49659,7 +49659,7 @@ cgltf_json_strcmp.exit71.tail.i.i:                ; preds = %sub_1.i.i413
 
 cgltf_json_strcmp.exit80.i.i:                     ; preds = %2206
   %2291 = getelementptr inbounds i8, ptr %2, i64 %2210
-  %2292 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2291, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %2292 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2291, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %2293 = icmp eq i32 %2292, 0
   br i1 %2293, label %2294, label %cgltf_json_strcmp.exit85.thread.i.i
 
@@ -49730,7 +49730,7 @@ cgltf_json_strcmp.exit80.i.i:                     ; preds = %2206
   br i1 %2330, label %2316, label %cgltf_parse_json_string.exit.i.i404
 
 cgltf_json_strcmp.exit85.i.i:                     ; preds = %cgltf_json_strcmp.exit66.i.i
-  %2331 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2240, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %2331 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2240, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %2332 = icmp eq i32 %2331, 0
   br i1 %2332, label %2333, label %cgltf_json_strcmp.exit85.thread.i.i
 
@@ -49793,7 +49793,7 @@ cgltf_calloc.exit.thread.i.i.i424:                ; preds = %2341, %2338
   store i64 %2358, ptr %2191, align 8
   %2359 = load ptr, ptr %2192, align 8
   %2360 = getelementptr inbounds %struct.cgltf_extension, ptr %2359, i64 %2357
-  %2361 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i419, ptr noundef readonly %2, ptr noundef %2360)
+  %2361 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i419, ptr noundef readonly %2, ptr noundef %2360)
   %2362 = icmp slt i32 %2361, 0
   %2363 = add nuw nsw i32 %.03138.i.i.i420, 1
   %exitcond.not.i.i.i422 = icmp eq i32 %2363, %2340
@@ -49866,7 +49866,7 @@ cgltf_parse_json_buffer.exit.thread28.i:          ; preds = %cgltf_parse_json_bu
 
 cgltf_json_strcmp.exit433:                        ; preds = %cgltf_json_strcmp.exit283
   %2388 = getelementptr inbounds i8, ptr %2, i64 %123
-  %2389 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2388, ptr noundef nonnull readonly dereferenceable(10) @.str.126, i64 noundef 9) #50
+  %2389 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2388, ptr noundef nonnull dereferenceable(10) @.str.126, i64 noundef 9) #50
   %2390 = icmp eq i32 %2389, 0
   br i1 %2390, label %2391, label %cgltf_json_strcmp.exit684.thread
 
@@ -50085,7 +50085,7 @@ cgltf_parse_json_string.exit.thread.i.i:          ; preds = %2821, %cgltf_parse_
 
 cgltf_json_strcmp.exit.i.i488:                    ; preds = %2500
   %2506 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2506, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %2507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2506, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %2508 = icmp eq i32 %2507, 0
   br i1 %2508, label %2509, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50130,7 +50130,7 @@ cgltf_json_strcmp.exit.i.i488:                    ; preds = %2500
 
 cgltf_json_strcmp.exit266.i.i:                    ; preds = %2500
   %2534 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2535 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2534, ptr noundef nonnull readonly dereferenceable(21) @.str.198, i64 noundef 20) #50
+  %2535 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2534, ptr noundef nonnull dereferenceable(21) @.str.198, i64 noundef 20) #50
   %2536 = icmp eq i32 %2535, 0
   br i1 %2536, label %2537, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50180,7 +50180,7 @@ cgltf_json_strcmp.exit266.i.i:                    ; preds = %2500
 
 cgltf_json_strcmp.exit.i.i.i485:                  ; preds = %2554
   %2560 = getelementptr inbounds i8, ptr %2, i64 %2558
-  %2561 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2560, ptr noundef nonnull readonly dereferenceable(15) @.str.220, i64 noundef 14) #50
+  %2561 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2560, ptr noundef nonnull dereferenceable(15) @.str.220, i64 noundef 14) #50
   %2562 = icmp eq i32 %2561, 0
   br i1 %2562, label %2563, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
@@ -50217,7 +50217,7 @@ cgltf_json_to_float.exit.i.i.i486:                ; preds = %2568, %2563
 
 cgltf_json_strcmp.exit65.i.i.i:                   ; preds = %2554
   %2580 = getelementptr inbounds i8, ptr %2, i64 %2558
-  %2581 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2580, ptr noundef nonnull readonly dereferenceable(16) @.str.221, i64 noundef 15) #50
+  %2581 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2580, ptr noundef nonnull dereferenceable(16) @.str.221, i64 noundef 15) #50
   %2582 = icmp eq i32 %2581, 0
   br i1 %2582, label %2583, label %cgltf_json_strcmp.exit72.i.i.i
 
@@ -50253,7 +50253,7 @@ cgltf_json_to_float.exit69.i.i.i:                 ; preds = %2588, %2583
   br label %cgltf_parse_json_float_array.exit.thread8.i.i.i
 
 cgltf_json_strcmp.exit72.i.i.i:                   ; preds = %cgltf_json_strcmp.exit65.i.i.i
-  %2600 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2580, ptr noundef nonnull readonly dereferenceable(16) @.str.222, i64 noundef 15) #50
+  %2600 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2580, ptr noundef nonnull dereferenceable(16) @.str.222, i64 noundef 15) #50
   %2601 = icmp eq i32 %2600, 0
   br i1 %2601, label %2602, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
@@ -50308,24 +50308,24 @@ cgltf_json_to_float.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i480
 
 cgltf_json_strcmp.exit76.i.i.i:                   ; preds = %2554
   %2624 = getelementptr inbounds i8, ptr %2, i64 %2558
-  %2625 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2624, ptr noundef nonnull readonly dereferenceable(17) @.str.223, i64 noundef 16) #50
+  %2625 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2624, ptr noundef nonnull dereferenceable(17) @.str.223, i64 noundef 16) #50
   %2626 = icmp eq i32 %2625, 0
   br i1 %2626, label %2627, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
 2627:                                             ; preds = %cgltf_json_strcmp.exit76.i.i.i
   %2628 = add nuw nsw i32 %.05914.i.i.i, 1
-  %2629 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2628, ptr noundef readonly %2, ptr noundef nonnull %2432)
+  %2629 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2628, ptr noundef readonly %2, ptr noundef nonnull %2432)
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit79.i.i.i:                   ; preds = %2554
   %2630 = getelementptr inbounds i8, ptr %2, i64 %2558
-  %2631 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2630, ptr noundef nonnull readonly dereferenceable(25) @.str.224, i64 noundef 24) #50
+  %2631 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2630, ptr noundef nonnull dereferenceable(25) @.str.224, i64 noundef 24) #50
   %2632 = icmp eq i32 %2631, 0
   br i1 %2632, label %2633, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
 2633:                                             ; preds = %cgltf_json_strcmp.exit79.i.i.i
   %2634 = add nuw nsw i32 %.05914.i.i.i, 1
-  %2635 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2634, ptr noundef readonly %2, ptr noundef nonnull %2473)
+  %2635 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2634, ptr noundef readonly %2, ptr noundef nonnull %2473)
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit79.thread.i.i.i:            ; preds = %cgltf_json_strcmp.exit79.i.i.i, %cgltf_json_strcmp.exit76.i.i.i, %cgltf_json_strcmp.exit72.i.i.i, %cgltf_json_strcmp.exit.i.i.i485, %2554
@@ -50383,7 +50383,7 @@ cgltf_parse_json_float_array.exit.thread8.i.i.i:  ; preds = %cgltf_parse_json_fl
 
 cgltf_json_strcmp.exit273.i.i:                    ; preds = %2500
   %2657 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2658 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2657, ptr noundef nonnull readonly dereferenceable(15) @.str.199, i64 noundef 14) #50
+  %2658 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2657, ptr noundef nonnull dereferenceable(15) @.str.199, i64 noundef 14) #50
   %2659 = icmp eq i32 %2658, 0
   br i1 %2659, label %2660, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50438,40 +50438,40 @@ cgltf_json_to_float.exit.i278.i.i:                ; preds = %.lr.ph.i275.i.i
 
 cgltf_json_strcmp.exit284.i.i:                    ; preds = %2500
   %2682 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2683 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2682, ptr noundef nonnull readonly dereferenceable(14) @.str.200, i64 noundef 13) #50
+  %2683 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2682, ptr noundef nonnull dereferenceable(14) @.str.200, i64 noundef 13) #50
   %2684 = icmp eq i32 %2683, 0
   br i1 %2684, label %2685, label %cgltf_json_strcmp.exit322.thread.i.i
 
 2685:                                             ; preds = %cgltf_json_strcmp.exit284.i.i
   %2686 = add nuw nsw i32 %.0243433.i.i, 1
-  %2687 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2686, ptr noundef readonly %2, ptr noundef nonnull %2470)
+  %2687 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2686, ptr noundef readonly %2, ptr noundef nonnull %2470)
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit287.i.i:                    ; preds = %2500
   %2688 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2689 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2688, ptr noundef nonnull readonly dereferenceable(17) @.str.201, i64 noundef 16) #50
+  %2689 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2688, ptr noundef nonnull dereferenceable(17) @.str.201, i64 noundef 16) #50
   %2690 = icmp eq i32 %2689, 0
   br i1 %2690, label %2691, label %cgltf_json_strcmp.exit322.thread.i.i
 
 2691:                                             ; preds = %cgltf_json_strcmp.exit287.i.i
   %2692 = add nuw nsw i32 %.0243433.i.i, 1
-  %2693 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2692, ptr noundef readonly %2, ptr noundef nonnull %2469)
+  %2693 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2692, ptr noundef readonly %2, ptr noundef nonnull %2469)
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit290.i.i:                    ; preds = %2500
   %2694 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2695 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2694, ptr noundef nonnull readonly dereferenceable(16) @.str.202, i64 noundef 15) #50
+  %2695 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2694, ptr noundef nonnull dereferenceable(16) @.str.202, i64 noundef 15) #50
   %2696 = icmp eq i32 %2695, 0
   br i1 %2696, label %2697, label %cgltf_json_strcmp.exit322.thread.i.i
 
 2697:                                             ; preds = %cgltf_json_strcmp.exit290.i.i
   %2698 = add nuw nsw i32 %.0243433.i.i, 1
-  %2699 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2698, ptr noundef readonly %2, ptr noundef nonnull %2468)
+  %2699 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2698, ptr noundef readonly %2, ptr noundef nonnull %2468)
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit293.i.i:                    ; preds = %2500
   %2700 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2701 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2700, ptr noundef nonnull readonly dereferenceable(10) @.str.203, i64 noundef 9) #50
+  %2701 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2700, ptr noundef nonnull dereferenceable(10) @.str.203, i64 noundef 9) #50
   %2702 = icmp eq i32 %2701, 0
   br i1 %2702, label %2703, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50497,19 +50497,19 @@ cgltf_json_strcmp.exit293.i.i:                    ; preds = %2500
 
 cgltf_json_strcmp.exit296.i.i:                    ; preds = %2708
   %2714 = getelementptr inbounds i8, ptr %2, i64 %2712
-  %2715 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2714, ptr noundef nonnull readonly dereferenceable(7) @.str.204, i64 noundef 6) #50
+  %2715 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2714, ptr noundef nonnull dereferenceable(7) @.str.204, i64 noundef 6) #50
   %2716 = icmp eq i32 %2715, 0
   br i1 %2716, label %cgltf_json_strcmp.exit302.thread.sink.split.i.i, label %cgltf_json_strcmp.exit302.thread.i.i
 
 cgltf_json_strcmp.exit299.i.i:                    ; preds = %2708
   %2717 = getelementptr inbounds i8, ptr %2, i64 %2712
-  %2718 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2717, ptr noundef nonnull readonly dereferenceable(5) @.str.205, i64 noundef 4) #50
+  %2718 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2717, ptr noundef nonnull dereferenceable(5) @.str.205, i64 noundef 4) #50
   %2719 = icmp eq i32 %2718, 0
   br i1 %2719, label %cgltf_json_strcmp.exit302.thread.sink.split.i.i, label %cgltf_json_strcmp.exit302.thread.i.i
 
 cgltf_json_strcmp.exit302.i.i:                    ; preds = %2708
   %2720 = getelementptr inbounds i8, ptr %2, i64 %2712
-  %2721 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2720, ptr noundef nonnull readonly dereferenceable(6) @.str.206, i64 noundef 5) #50
+  %2721 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2720, ptr noundef nonnull dereferenceable(6) @.str.206, i64 noundef 5) #50
   %2722 = icmp eq i32 %2721, 0
   br i1 %2722, label %cgltf_json_strcmp.exit302.thread.sink.split.i.i, label %cgltf_json_strcmp.exit302.thread.i.i
 
@@ -50524,7 +50524,7 @@ cgltf_json_strcmp.exit302.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit305.i.i:                    ; preds = %2500
   %2724 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2725 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2724, ptr noundef nonnull readonly dereferenceable(12) @.str.207, i64 noundef 11) #50
+  %2725 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2724, ptr noundef nonnull dereferenceable(12) @.str.207, i64 noundef 11) #50
   %2726 = icmp eq i32 %2725, 0
   br i1 %2726, label %2727, label %cgltf_json_strcmp.exit310.i.i
 
@@ -50560,7 +50560,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %2732, %2727
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit310.i.i:                    ; preds = %cgltf_json_strcmp.exit305.i.i
-  %2744 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2724, ptr noundef nonnull readonly dereferenceable(12) @.str.208, i64 noundef 11) #50
+  %2744 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2724, ptr noundef nonnull dereferenceable(12) @.str.208, i64 noundef 11) #50
   %2745 = icmp eq i32 %2744, 0
   br i1 %2745, label %2746, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50591,7 +50591,7 @@ cgltf_json_to_bool.exit.i.i467:                   ; preds = %2754, %2746
 
 cgltf_json_strcmp.exit313.i.i:                    ; preds = %2500
   %2760 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2761 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2760, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %2761 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2760, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %2762 = icmp eq i32 %2761, 0
   br i1 %2762, label %2763, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50663,7 +50663,7 @@ cgltf_json_strcmp.exit313.i.i:                    ; preds = %2500
 
 cgltf_json_strcmp.exit322.i.i:                    ; preds = %2500
   %2800 = getelementptr inbounds i8, ptr %2, i64 %2504
-  %2801 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2800, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %2801 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2800, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %2802 = icmp eq i32 %2801, 0
   br i1 %2802, label %2803, label %cgltf_json_strcmp.exit322.thread.i.i
 
@@ -50744,7 +50744,7 @@ cgltf_calloc.exit.thread.i.i464:                  ; preds = %2813, %2810
 
 cgltf_json_strcmp.exit327.i.i:                    ; preds = %2830
   %2838 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %2839 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2838, ptr noundef nonnull readonly dereferenceable(36) @.str.209, i64 noundef 35) #50
+  %2839 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2838, ptr noundef nonnull dereferenceable(36) @.str.209, i64 noundef 35) #50
   %2840 = icmp eq i32 %2839, 0
   br i1 %2840, label %2841, label %cgltf_json_strcmp.exit362.thread.i.i
 
@@ -50794,7 +50794,7 @@ cgltf_json_strcmp.exit327.i.i:                    ; preds = %2830
 
 cgltf_json_strcmp.exit.i338.i.i:                  ; preds = %2858
   %2864 = getelementptr inbounds i8, ptr %2, i64 %2862
-  %2865 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2864, ptr noundef nonnull readonly dereferenceable(14) @.str.232, i64 noundef 13) #50
+  %2865 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2864, ptr noundef nonnull dereferenceable(14) @.str.232, i64 noundef 13) #50
   %2866 = icmp eq i32 %2865, 0
   br i1 %2866, label %2867, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
@@ -50849,7 +50849,7 @@ cgltf_json_to_float.exit.i.i345.i.i:              ; preds = %.lr.ph.i.i342.i.i
 
 cgltf_json_strcmp.exit62.i.i.i:                   ; preds = %2858
   %2889 = getelementptr inbounds i8, ptr %2, i64 %2862
-  %2890 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2889, ptr noundef nonnull readonly dereferenceable(15) @.str.233, i64 noundef 14) #50
+  %2890 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2889, ptr noundef nonnull dereferenceable(15) @.str.233, i64 noundef 14) #50
   %2891 = icmp eq i32 %2890, 0
   br i1 %2891, label %2892, label %cgltf_json_strcmp.exit85.i.i.i
 
@@ -50904,7 +50904,7 @@ cgltf_json_to_float.exit.i72.i.i.i:               ; preds = %.lr.ph.i68.i.i.i
 
 cgltf_json_strcmp.exit80.i.i.i:                   ; preds = %2858
   %2914 = getelementptr inbounds i8, ptr %2, i64 %2862
-  %2915 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2914, ptr noundef nonnull readonly dereferenceable(17) @.str.234, i64 noundef 16) #50
+  %2915 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2914, ptr noundef nonnull dereferenceable(17) @.str.234, i64 noundef 16) #50
   %2916 = icmp eq i32 %2915, 0
   br i1 %2916, label %2917, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
@@ -50940,24 +50940,24 @@ cgltf_parse_json_float_array.exit.thread7.i.i.i:  ; preds = %2922, %2917
   br label %2966
 
 cgltf_json_strcmp.exit85.i.i.i:                   ; preds = %cgltf_json_strcmp.exit62.i.i.i
-  %2934 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2889, ptr noundef nonnull readonly dereferenceable(15) @.str.235, i64 noundef 14) #50
+  %2934 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2889, ptr noundef nonnull dereferenceable(15) @.str.235, i64 noundef 14) #50
   %2935 = icmp eq i32 %2934, 0
   br i1 %2935, label %2936, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
 2936:                                             ; preds = %cgltf_json_strcmp.exit85.i.i.i
   %2937 = add nuw nsw i32 %.05715.i.i.i, 1
-  %2938 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2937, ptr noundef readonly %2, ptr noundef nonnull %2433)
+  %2938 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2937, ptr noundef readonly %2, ptr noundef nonnull %2433)
   br label %cgltf_parse_json_float_array.exit.i332.i.i
 
 cgltf_json_strcmp.exit88.i.i.i:                   ; preds = %2858
   %2939 = getelementptr inbounds i8, ptr %2, i64 %2862
-  %2940 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2939, ptr noundef nonnull readonly dereferenceable(26) @.str.236, i64 noundef 25) #50
+  %2940 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2939, ptr noundef nonnull dereferenceable(26) @.str.236, i64 noundef 25) #50
   %2941 = icmp eq i32 %2940, 0
   br i1 %2941, label %2942, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
 2942:                                             ; preds = %cgltf_json_strcmp.exit88.i.i.i
   %2943 = add nuw nsw i32 %.05715.i.i.i, 1
-  %2944 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2943, ptr noundef readonly %2, ptr noundef nonnull %2462)
+  %2944 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2943, ptr noundef readonly %2, ptr noundef nonnull %2462)
   br label %cgltf_parse_json_float_array.exit.i332.i.i
 
 cgltf_json_strcmp.exit88.thread.i.i.i:            ; preds = %cgltf_json_strcmp.exit88.i.i.i, %cgltf_json_strcmp.exit85.i.i.i, %cgltf_json_strcmp.exit80.i.i.i, %cgltf_json_strcmp.exit.i338.i.i, %2858
@@ -51019,7 +51019,7 @@ cgltf_parse_json_float_array.exit.i332.i.i:       ; preds = %2960, %cgltf_parse_
 
 cgltf_json_strcmp.exit352.i.i:                    ; preds = %2830
   %2968 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %2969 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2968, ptr noundef nonnull readonly dereferenceable(20) @.str.210, i64 noundef 19) #50
+  %2969 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2968, ptr noundef nonnull dereferenceable(20) @.str.210, i64 noundef 19) #50
   %2970 = icmp eq i32 %2969, 0
   br i1 %2970, label %2971, label %cgltf_json_strcmp.exit362.thread.i.i
 
@@ -51064,7 +51064,7 @@ cgltf_json_strcmp.exit352.i.i:                    ; preds = %2830
 
 cgltf_json_strcmp.exit359.i.i:                    ; preds = %2830
   %2990 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %2991 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2990, ptr noundef nonnull readonly dereferenceable(24) @.str.211, i64 noundef 23) #50
+  %2991 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2990, ptr noundef nonnull dereferenceable(24) @.str.211, i64 noundef 23) #50
   %2992 = icmp eq i32 %2991, 0
   br i1 %2992, label %2993, label %cgltf_json_strcmp.exit362.thread.i.i
 
@@ -51115,7 +51115,7 @@ cgltf_json_strcmp.exit359.i.i:                    ; preds = %2830
 
 cgltf_json_strcmp.exit.i185.i:                    ; preds = %3010
   %3016 = getelementptr inbounds i8, ptr %2, i64 %3014
-  %3017 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3016, ptr noundef nonnull readonly dereferenceable(16) @.str.237, i64 noundef 15) #50
+  %3017 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3016, ptr noundef nonnull dereferenceable(16) @.str.237, i64 noundef 15) #50
   %3018 = icmp eq i32 %3017, 0
   br i1 %3018, label %3019, label %cgltf_json_strcmp.exit79.thread.i.i
 
@@ -51152,7 +51152,7 @@ cgltf_json_to_float.exit.i186.i:                  ; preds = %3024, %3019
 
 cgltf_json_strcmp.exit66.i.i459:                  ; preds = %3010
   %3036 = getelementptr inbounds i8, ptr %2, i64 %3014
-  %3037 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3036, ptr noundef nonnull readonly dereferenceable(25) @.str.238, i64 noundef 24) #50
+  %3037 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3036, ptr noundef nonnull dereferenceable(25) @.str.238, i64 noundef 24) #50
   %3038 = icmp eq i32 %3037, 0
   br i1 %3038, label %3039, label %cgltf_json_strcmp.exit79.thread.i.i
 
@@ -51189,19 +51189,19 @@ cgltf_json_to_float.exit70.i.i:                   ; preds = %3044, %3039
 
 cgltf_json_strcmp.exit73.i.i:                     ; preds = %3010
   %3056 = getelementptr inbounds i8, ptr %2, i64 %3014
-  %3057 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3056, ptr noundef nonnull readonly dereferenceable(17) @.str.239, i64 noundef 16) #50
+  %3057 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3056, ptr noundef nonnull dereferenceable(17) @.str.239, i64 noundef 16) #50
   %3058 = icmp eq i32 %3057, 0
   br i1 %3058, label %cgltf_skip_json.exit.sink.split.i184.i, label %cgltf_json_strcmp.exit79.thread.i.i
 
 cgltf_json_strcmp.exit76.i.i:                     ; preds = %3010
   %3059 = getelementptr inbounds i8, ptr %2, i64 %3014
-  %3060 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3059, ptr noundef nonnull readonly dereferenceable(26) @.str.240, i64 noundef 25) #50
+  %3060 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3059, ptr noundef nonnull dereferenceable(26) @.str.240, i64 noundef 25) #50
   %3061 = icmp eq i32 %3060, 0
   br i1 %3061, label %cgltf_skip_json.exit.sink.split.i184.i, label %cgltf_json_strcmp.exit79.thread.i.i
 
 cgltf_json_strcmp.exit79.i175.i:                  ; preds = %3010
   %3062 = getelementptr inbounds i8, ptr %2, i64 %3014
-  %3063 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3062, ptr noundef nonnull readonly dereferenceable(23) @.str.241, i64 noundef 22) #50
+  %3063 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3062, ptr noundef nonnull dereferenceable(23) @.str.241, i64 noundef 22) #50
   %3064 = icmp eq i32 %3063, 0
   br i1 %3064, label %cgltf_skip_json.exit.sink.split.i184.i, label %cgltf_json_strcmp.exit79.thread.i.i
 
@@ -51246,7 +51246,7 @@ cgltf_json_strcmp.exit79.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 cgltf_skip_json.exit.sink.split.i184.i:           ; preds = %cgltf_json_strcmp.exit79.i175.i, %cgltf_json_strcmp.exit76.i.i, %cgltf_json_strcmp.exit73.i.i
   %.sink21.i.i = phi ptr [ %2459, %cgltf_json_strcmp.exit73.i.i ], [ %2475, %cgltf_json_strcmp.exit76.i.i ], [ %2474, %cgltf_json_strcmp.exit79.i175.i ]
   %3083 = add nuw nsw i32 %.06011.i.i, 1
-  %3084 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3083, ptr noundef readonly %2, ptr noundef nonnull %.sink21.i.i)
+  %3084 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3083, ptr noundef readonly %2, ptr noundef nonnull %.sink21.i.i)
   br label %cgltf_skip_json.exit.i180.i
 
 cgltf_skip_json.exit.i180.i:                      ; preds = %3080, %cgltf_skip_json.exit.sink.split.i184.i
@@ -51262,7 +51262,7 @@ cgltf_skip_json.exit.thread.i182.i:               ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit362.i.i:                    ; preds = %2830
   %3087 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3088 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3087, ptr noundef nonnull readonly dereferenceable(18) @.str.212, i64 noundef 17) #50
+  %3088 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3087, ptr noundef nonnull dereferenceable(18) @.str.212, i64 noundef 17) #50
   %3089 = icmp eq i32 %3088, 0
   br i1 %3089, label %3090, label %cgltf_json_strcmp.exit362.thread.i.i
 
@@ -51417,7 +51417,7 @@ cgltf_json_strcmp.exit362.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit152.i:                      ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3159 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3160 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3159, ptr noundef nonnull readonly dereferenceable(23) @.str.213, i64 noundef 22) #50
+  %3160 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3159, ptr noundef nonnull dereferenceable(23) @.str.213, i64 noundef 22) #50
   %3161 = icmp eq i32 %3160, 0
   br i1 %3161, label %3162, label %cgltf_json_strcmp.exit.thread.i451
 
@@ -51479,7 +51479,7 @@ cgltf_fill_float_array.exit.preheader.i.i:        ; preds = %3170
 
 cgltf_json_strcmp.exit.i147.i:                    ; preds = %3181
   %3187 = getelementptr inbounds i8, ptr %2, i64 %3185
-  %3188 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3187, ptr noundef nonnull readonly dereferenceable(15) @.str.233, i64 noundef 14) #50
+  %3188 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3187, ptr noundef nonnull dereferenceable(15) @.str.233, i64 noundef 14) #50
   %3189 = icmp eq i32 %3188, 0
   br i1 %3189, label %3190, label %cgltf_json_strcmp.exit68.thread.i.i
 
@@ -51516,7 +51516,7 @@ cgltf_json_to_float.exit.i148.i:                  ; preds = %3195, %3190
 
 cgltf_json_strcmp.exit58.i135.i:                  ; preds = %3181
   %3207 = getelementptr inbounds i8, ptr %2, i64 %3185
-  %3208 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3207, ptr noundef nonnull readonly dereferenceable(20) @.str.243, i64 noundef 19) #50
+  %3208 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3207, ptr noundef nonnull dereferenceable(20) @.str.243, i64 noundef 19) #50
   %3209 = icmp eq i32 %3208, 0
   br i1 %3209, label %3210, label %cgltf_json_strcmp.exit68.thread.i.i
 
@@ -51571,24 +51571,24 @@ cgltf_json_to_float.exit.i.i143.i:                ; preds = %.lr.ph.i.i140.i
 
 cgltf_json_strcmp.exit65.i.i:                     ; preds = %3181
   %3232 = getelementptr inbounds i8, ptr %2, i64 %3185
-  %3233 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3232, ptr noundef nonnull readonly dereferenceable(16) @.str.244, i64 noundef 15) #50
+  %3233 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3232, ptr noundef nonnull dereferenceable(16) @.str.244, i64 noundef 15) #50
   %3234 = icmp eq i32 %3233, 0
   br i1 %3234, label %3235, label %cgltf_json_strcmp.exit68.thread.i.i
 
 3235:                                             ; preds = %cgltf_json_strcmp.exit65.i.i
   %3236 = add nuw nsw i32 %.0529.i.i, 1
-  %3237 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3236, ptr noundef readonly %2, ptr noundef nonnull %2455)
+  %3237 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3236, ptr noundef readonly %2, ptr noundef nonnull %2455)
   br label %cgltf_parse_json_float_array.exit.i132.i
 
 cgltf_json_strcmp.exit68.i.i:                     ; preds = %3181
   %3238 = getelementptr inbounds i8, ptr %2, i64 %3185
-  %3239 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3238, ptr noundef nonnull readonly dereferenceable(21) @.str.245, i64 noundef 20) #50
+  %3239 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3238, ptr noundef nonnull dereferenceable(21) @.str.245, i64 noundef 20) #50
   %3240 = icmp eq i32 %3239, 0
   br i1 %3240, label %3241, label %cgltf_json_strcmp.exit68.thread.i.i
 
 3241:                                             ; preds = %cgltf_json_strcmp.exit68.i.i
   %3242 = add nuw nsw i32 %.0529.i.i, 1
-  %3243 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3242, ptr noundef readonly %2, ptr noundef nonnull %2490)
+  %3243 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3242, ptr noundef readonly %2, ptr noundef nonnull %2490)
   br label %cgltf_parse_json_float_array.exit.i132.i
 
 cgltf_json_strcmp.exit68.thread.i.i:              ; preds = %cgltf_json_strcmp.exit68.i.i, %cgltf_json_strcmp.exit65.i.i, %cgltf_json_strcmp.exit58.i135.i, %cgltf_json_strcmp.exit.i147.i, %3181
@@ -51643,7 +51643,7 @@ cgltf_parse_json_float_array.exit.i132.i:         ; preds = %3259, %cgltf_parse_
 
 cgltf_json_strcmp.exit122.i:                      ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3265 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3266 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3265, ptr noundef nonnull readonly dereferenceable(27) @.str.214, i64 noundef 26) #50
+  %3266 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3265, ptr noundef nonnull dereferenceable(27) @.str.214, i64 noundef 26) #50
   %3267 = icmp eq i32 %3266, 0
   br i1 %3267, label %3268, label %cgltf_json_strcmp.exit.thread.i451
 
@@ -51691,7 +51691,7 @@ cgltf_json_strcmp.exit122.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i118.i:                    ; preds = %3285
   %3291 = getelementptr inbounds i8, ptr %2, i64 %3289
-  %3292 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3291, ptr noundef nonnull readonly dereferenceable(19) @.str.246, i64 noundef 18) #50
+  %3292 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3291, ptr noundef nonnull dereferenceable(19) @.str.246, i64 noundef 18) #50
   %3293 = icmp eq i32 %3292, 0
   br i1 %3293, label %3294, label %cgltf_json_strcmp.exit41.thread.i.i
 
@@ -51728,13 +51728,13 @@ cgltf_skip_json.exit.thread4.i.i:                 ; preds = %3299, %3294
 
 cgltf_json_strcmp.exit41.i.i:                     ; preds = %3285
   %3311 = getelementptr inbounds i8, ptr %2, i64 %3289
-  %3312 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3311, ptr noundef nonnull readonly dereferenceable(20) @.str.247, i64 noundef 19) #50
+  %3312 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3311, ptr noundef nonnull dereferenceable(20) @.str.247, i64 noundef 19) #50
   %3313 = icmp eq i32 %3312, 0
   br i1 %3313, label %3314, label %cgltf_json_strcmp.exit41.thread.i.i
 
 3314:                                             ; preds = %cgltf_json_strcmp.exit41.i.i
   %3315 = add nuw nsw i32 %.0358.i.i, 1
-  %3316 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3315, ptr noundef readonly %2, ptr noundef nonnull %2453)
+  %3316 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3315, ptr noundef readonly %2, ptr noundef nonnull %2453)
   br label %cgltf_skip_json.exit.i115.i
 
 cgltf_json_strcmp.exit41.thread.i.i:              ; preds = %cgltf_json_strcmp.exit41.i.i, %cgltf_json_strcmp.exit.i118.i, %3285
@@ -51788,7 +51788,7 @@ cgltf_skip_json.exit.i115.i:                      ; preds = %3332, %3314
 
 cgltf_json_strcmp.exit107.i:                      ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3338 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3339 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3338, ptr noundef nonnull readonly dereferenceable(21) @.str.215, i64 noundef 20) #50
+  %3339 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3338, ptr noundef nonnull dereferenceable(21) @.str.215, i64 noundef 20) #50
   %3340 = icmp eq i32 %3339, 0
   br i1 %3340, label %3341, label %cgltf_json_strcmp.exit.thread.i451
 
@@ -51837,7 +51837,7 @@ cgltf_json_strcmp.exit107.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i102.i:                    ; preds = %3358
   %3364 = getelementptr inbounds i8, ptr %2, i64 %3362
-  %3365 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3364, ptr noundef nonnull readonly dereferenceable(16) @.str.248, i64 noundef 15) #50
+  %3365 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3364, ptr noundef nonnull dereferenceable(16) @.str.248, i64 noundef 15) #50
   %3366 = icmp eq i32 %3365, 0
   br i1 %3366, label %3367, label %cgltf_json_strcmp.exit64.thread.i.i
 
@@ -51874,17 +51874,17 @@ cgltf_json_to_float.exit.i103.i:                  ; preds = %3372, %3367
 
 cgltf_json_strcmp.exit57.i.i:                     ; preds = %3358
   %3384 = getelementptr inbounds i8, ptr %2, i64 %3362
-  %3385 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3384, ptr noundef nonnull readonly dereferenceable(17) @.str.249, i64 noundef 16) #50
+  %3385 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3384, ptr noundef nonnull dereferenceable(17) @.str.249, i64 noundef 16) #50
   %3386 = icmp eq i32 %3385, 0
   br i1 %3386, label %3387, label %cgltf_json_strcmp.exit60.i.i
 
 3387:                                             ; preds = %cgltf_json_strcmp.exit57.i.i
   %3388 = add nuw nsw i32 %.05113.i.i, 1
-  %3389 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3388, ptr noundef readonly %2, ptr noundef nonnull %2434)
+  %3389 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3388, ptr noundef readonly %2, ptr noundef nonnull %2434)
   br label %cgltf_parse_json_float_array.exit.i86.i
 
 cgltf_json_strcmp.exit60.i.i:                     ; preds = %cgltf_json_strcmp.exit57.i.i
-  %3390 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3384, ptr noundef nonnull readonly dereferenceable(17) @.str.250, i64 noundef 16) #50
+  %3390 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3384, ptr noundef nonnull dereferenceable(17) @.str.250, i64 noundef 16) #50
   %3391 = icmp eq i32 %3390, 0
   br i1 %3391, label %3392, label %cgltf_json_strcmp.exit64.thread.i.i
 
@@ -51939,7 +51939,7 @@ cgltf_json_to_float.exit.i.i96.i:                 ; preds = %.lr.ph.i.i92.i
 
 cgltf_json_strcmp.exit64.i.i:                     ; preds = %3358
   %3414 = getelementptr inbounds i8, ptr %2, i64 %3362
-  %3415 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3414, ptr noundef nonnull readonly dereferenceable(20) @.str.251, i64 noundef 19) #50
+  %3415 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3414, ptr noundef nonnull dereferenceable(20) @.str.251, i64 noundef 19) #50
   %3416 = icmp eq i32 %3415, 0
   br i1 %3416, label %3417, label %cgltf_json_strcmp.exit64.thread.i.i
 
@@ -52029,7 +52029,7 @@ cgltf_parse_json_float_array.exit.thread7.i.i:    ; preds = %cgltf_parse_json_fl
 
 cgltf_json_strcmp.exit81.i:                       ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3455 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3456 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3455, ptr noundef nonnull readonly dereferenceable(20) @.str.216, i64 noundef 19) #50
+  %3456 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3455, ptr noundef nonnull dereferenceable(20) @.str.216, i64 noundef 19) #50
   %3457 = icmp eq i32 %3456, 0
   br i1 %3457, label %3458, label %cgltf_json_strcmp.exit.thread.i451
 
@@ -52079,7 +52079,7 @@ cgltf_json_strcmp.exit81.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i66.i:                     ; preds = %3475
   %3481 = getelementptr inbounds i8, ptr %2, i64 %3479
-  %3482 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3481, ptr noundef nonnull readonly dereferenceable(17) @.str.252, i64 noundef 16) #50
+  %3482 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3481, ptr noundef nonnull dereferenceable(17) @.str.252, i64 noundef 16) #50
   %3483 = icmp eq i32 %3482, 0
   br i1 %3483, label %3484, label %cgltf_json_strcmp.exit63.thread.i.i
 
@@ -52134,18 +52134,18 @@ cgltf_json_to_float.exit.i.i74.i:                 ; preds = %.lr.ph.i.i70.i
 
 cgltf_json_strcmp.exit55.i.i:                     ; preds = %3475
   %3506 = getelementptr inbounds i8, ptr %2, i64 %3479
-  %3507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3506, ptr noundef nonnull readonly dereferenceable(18) @.str.253, i64 noundef 17) #50
+  %3507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3506, ptr noundef nonnull dereferenceable(18) @.str.253, i64 noundef 17) #50
   %3508 = icmp eq i32 %3507, 0
   br i1 %3508, label %3509, label %cgltf_json_strcmp.exit63.thread.i.i
 
 3509:                                             ; preds = %cgltf_json_strcmp.exit55.i.i
   %3510 = add nuw nsw i32 %.05012.i.i, 1
-  %3511 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3510, ptr noundef readonly %2, ptr noundef nonnull %2450)
+  %3511 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3510, ptr noundef readonly %2, ptr noundef nonnull %2450)
   br label %cgltf_parse_json_float_array.exit.i.i
 
 cgltf_json_strcmp.exit58.i.i:                     ; preds = %3475
   %3512 = getelementptr inbounds i8, ptr %2, i64 %3479
-  %3513 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3512, ptr noundef nonnull readonly dereferenceable(21) @.str.254, i64 noundef 20) #50
+  %3513 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3512, ptr noundef nonnull dereferenceable(21) @.str.254, i64 noundef 20) #50
   %3514 = icmp eq i32 %3513, 0
   br i1 %3514, label %3515, label %cgltf_json_strcmp.exit63.thread.i.i
 
@@ -52182,13 +52182,13 @@ cgltf_parse_json_float_array.exit.thread6.i.i:    ; preds = %3520, %3515
 
 cgltf_json_strcmp.exit63.i.i:                     ; preds = %3475
   %3532 = getelementptr inbounds i8, ptr %2, i64 %3479
-  %3533 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3532, ptr noundef nonnull readonly dereferenceable(22) @.str.255, i64 noundef 21) #50
+  %3533 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3532, ptr noundef nonnull dereferenceable(22) @.str.255, i64 noundef 21) #50
   %3534 = icmp eq i32 %3533, 0
   br i1 %3534, label %3535, label %cgltf_json_strcmp.exit63.thread.i.i
 
 3535:                                             ; preds = %cgltf_json_strcmp.exit63.i.i
   %3536 = add nuw nsw i32 %.05012.i.i, 1
-  %3537 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3536, ptr noundef readonly %2, ptr noundef nonnull %2483)
+  %3537 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3536, ptr noundef readonly %2, ptr noundef nonnull %2483)
   br label %cgltf_parse_json_float_array.exit.i.i
 
 cgltf_json_strcmp.exit63.thread.i.i:              ; preds = %cgltf_json_strcmp.exit63.i.i, %cgltf_json_strcmp.exit58.i.i, %cgltf_json_strcmp.exit55.i.i, %cgltf_json_strcmp.exit.i66.i, %3475
@@ -52246,7 +52246,7 @@ cgltf_parse_json_float_array.exit.i.i:            ; preds = %3553, %cgltf_parse_
 
 cgltf_json_strcmp.exit56.i:                       ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3560 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3561 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3560, ptr noundef nonnull readonly dereferenceable(32) @.str.217, i64 noundef 31) #50
+  %3561 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3560, ptr noundef nonnull dereferenceable(32) @.str.217, i64 noundef 31) #50
   %3562 = icmp eq i32 %3561, 0
   br i1 %3562, label %3563, label %cgltf_json_strcmp.exit.thread.i451
 
@@ -52293,7 +52293,7 @@ cgltf_json_strcmp.exit56.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i52.i:                     ; preds = %3580
   %3587 = getelementptr inbounds i8, ptr %2, i64 %3584
-  %3588 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3587, ptr noundef nonnull readonly dereferenceable(17) @.str.256, i64 noundef 16) #50
+  %3588 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3587, ptr noundef nonnull dereferenceable(17) @.str.256, i64 noundef 16) #50
   %3589 = icmp eq i32 %3588, 0
   br i1 %3589, label %3590, label %cgltf_json_strcmp.exit.thread.i.i
 
@@ -52378,7 +52378,7 @@ cgltf_skip_json.exit.i50.i:                       ; preds = %3622
 
 cgltf_json_strcmp.exit42.i:                       ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3628 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3629 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3628, ptr noundef nonnull readonly dereferenceable(26) @.str.218, i64 noundef 25) #50
+  %3629 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3628, ptr noundef nonnull dereferenceable(26) @.str.218, i64 noundef 25) #50
   %3630 = icmp eq i32 %3629, 0
   br i1 %3630, label %3631, label %cgltf_json_strcmp.exit.thread.i451
 
@@ -52431,7 +52431,7 @@ cgltf_json_strcmp.exit42.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i37.i:                     ; preds = %3648
   %3654 = getelementptr inbounds i8, ptr %2, i64 %3652
-  %3655 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3654, ptr noundef nonnull readonly dereferenceable(18) @.str.257, i64 noundef 17) #50
+  %3655 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3654, ptr noundef nonnull dereferenceable(18) @.str.257, i64 noundef 17) #50
   %3656 = icmp eq i32 %3655, 0
   br i1 %3656, label %3657, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -52468,13 +52468,13 @@ cgltf_json_to_float.exit.i38.i:                   ; preds = %3662, %3657
 
 cgltf_json_strcmp.exit79.i.i:                     ; preds = %3648
   %3674 = getelementptr inbounds i8, ptr %2, i64 %3652
-  %3675 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3674, ptr noundef nonnull readonly dereferenceable(19) @.str.258, i64 noundef 18) #50
+  %3675 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3674, ptr noundef nonnull dereferenceable(19) @.str.258, i64 noundef 18) #50
   %3676 = icmp eq i32 %3675, 0
   br i1 %3676, label %cgltf_skip_json.exit.sink.split.i.i, label %cgltf_json_strcmp.exit103.thread.i.i
 
 cgltf_json_strcmp.exit82.i.i:                     ; preds = %3648
   %3677 = getelementptr inbounds i8, ptr %2, i64 %3652
-  %3678 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3677, ptr noundef nonnull readonly dereferenceable(15) @.str.259, i64 noundef 14) #50
+  %3678 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3677, ptr noundef nonnull dereferenceable(15) @.str.259, i64 noundef 14) #50
   %3679 = icmp eq i32 %3678, 0
   br i1 %3679, label %3680, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -52511,7 +52511,7 @@ cgltf_json_to_float.exit86.i.i:                   ; preds = %3685, %3680
 
 cgltf_json_strcmp.exit89.i.i:                     ; preds = %3648
   %3697 = getelementptr inbounds i8, ptr %2, i64 %3652
-  %3698 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3697, ptr noundef nonnull readonly dereferenceable(28) @.str.260, i64 noundef 27) #50
+  %3698 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3697, ptr noundef nonnull dereferenceable(28) @.str.260, i64 noundef 27) #50
   %3699 = icmp eq i32 %3698, 0
   br i1 %3699, label %3700, label %cgltf_json_strcmp.exit96.i.i
 
@@ -52547,7 +52547,7 @@ cgltf_json_to_float.exit93.i.i:                   ; preds = %3705, %3700
   br label %cgltf_skip_json.exit.thread.i.i
 
 cgltf_json_strcmp.exit96.i.i:                     ; preds = %cgltf_json_strcmp.exit89.i.i
-  %3717 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3697, ptr noundef nonnull readonly dereferenceable(28) @.str.261, i64 noundef 27) #50
+  %3717 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3697, ptr noundef nonnull dereferenceable(28) @.str.261, i64 noundef 27) #50
   %3718 = icmp eq i32 %3717, 0
   br i1 %3718, label %3719, label %cgltf_json_strcmp.exit103.i.i
 
@@ -52583,7 +52583,7 @@ cgltf_json_to_float.exit100.i.i:                  ; preds = %3724, %3719
   br label %cgltf_skip_json.exit.thread.i.i
 
 cgltf_json_strcmp.exit103.i.i:                    ; preds = %cgltf_json_strcmp.exit96.i.i
-  %3736 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3697, ptr noundef nonnull readonly dereferenceable(28) @.str.262, i64 noundef 27) #50
+  %3736 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3697, ptr noundef nonnull dereferenceable(28) @.str.262, i64 noundef 27) #50
   %3737 = icmp eq i32 %3736, 0
   br i1 %3737, label %cgltf_skip_json.exit.sink.split.i.i, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -52628,7 +52628,7 @@ cgltf_json_strcmp.exit103.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 cgltf_skip_json.exit.sink.split.i.i:              ; preds = %cgltf_json_strcmp.exit103.i.i, %cgltf_json_strcmp.exit79.i.i
   %.sink22.i.i = phi ptr [ %2482, %cgltf_json_strcmp.exit79.i.i ], [ %2481, %cgltf_json_strcmp.exit103.i.i ]
   %3756 = add nuw nsw i32 %.07312.i.i, 1
-  %3757 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3756, ptr noundef readonly %2, ptr noundef nonnull %.sink22.i.i)
+  %3757 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3756, ptr noundef readonly %2, ptr noundef nonnull %.sink22.i.i)
   br label %cgltf_skip_json.exit.i.i454
 
 cgltf_skip_json.exit.i.i454:                      ; preds = %3753, %cgltf_skip_json.exit.sink.split.i.i
@@ -52644,14 +52644,14 @@ cgltf_skip_json.exit.thread.i.i:                  ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit.i450:                      ; preds = %cgltf_json_strcmp.exit362.thread.i.i
   %3760 = getelementptr inbounds i8, ptr %2, i64 %2834
-  %3761 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3760, ptr noundef nonnull readonly dereferenceable(25) @.str.219, i64 noundef 24) #50
+  %3761 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3760, ptr noundef nonnull dereferenceable(25) @.str.219, i64 noundef 24) #50
   %3762 = icmp eq i32 %3761, 0
   br i1 %3762, label %3763, label %cgltf_json_strcmp.exit.thread.i451
 
 3763:                                             ; preds = %cgltf_json_strcmp.exit.i450
   store i32 1, ptr %2443, align 8
   %3764 = add nuw nsw i32 %.2431.i.i, 1
-  %3765 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef %1, i32 noundef %3764, ptr noundef readonly %2, ptr noundef nonnull %2444)
+  %3765 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %1, i32 noundef %3764, ptr noundef readonly %2, ptr noundef nonnull %2444)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
 cgltf_json_strcmp.exit.thread.i451:               ; preds = %cgltf_json_strcmp.exit.i450, %cgltf_json_strcmp.exit42.i, %cgltf_json_strcmp.exit56.i, %cgltf_json_strcmp.exit81.i, %cgltf_json_strcmp.exit107.i, %cgltf_json_strcmp.exit122.i, %cgltf_json_strcmp.exit152.i, %cgltf_json_strcmp.exit362.thread.i.i
@@ -52660,7 +52660,7 @@ cgltf_json_strcmp.exit.thread.i451:               ; preds = %cgltf_json_strcmp.e
   %3768 = add i64 %3767, 1
   store i64 %3768, ptr %2442, align 8
   %3769 = getelementptr inbounds %struct.cgltf_extension, ptr %3766, i64 %3767
-  %3770 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef %1, i32 noundef %.2431.i.i, ptr noundef readonly %2, ptr noundef %3769)
+  %3770 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %.2431.i.i, ptr noundef readonly %2, ptr noundef %3769)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
 cgltf_parse_json_pbr_specular_glossiness.exit.i.i: ; preds = %3157, %cgltf_skip_json.exit.thread.i182.i, %2987, %2966, %cgltf_skip_json.exit.thread.i.i, %3626, %3558, %cgltf_parse_json_float_array.exit.thread7.i.i, %3336, %cgltf_parse_json_float_array.exit.i132.i, %cgltf_json_strcmp.exit.thread.i451, %3763, %3636, %3568, %3463, %3346, %3273, %cgltf_fill_float_array.exit.preheader.i.i, %3095, %2998, %2846
@@ -52728,7 +52728,7 @@ cgltf_parse_json_material.exit.thread198.i:       ; preds = %cgltf_parse_json_st
 
 cgltf_json_strcmp.exit494:                        ; preds = %cgltf_json_strcmp.exit267
   %3796 = getelementptr inbounds i8, ptr %2, i64 %123
-  %3797 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3796, ptr noundef nonnull readonly dereferenceable(7) @.str.127, i64 noundef 6) #50
+  %3797 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3796, ptr noundef nonnull dereferenceable(7) @.str.127, i64 noundef 6) #50
   %3798 = icmp eq i32 %3797, 0
   br i1 %3798, label %3799, label %cgltf_json_strcmp.exit681.thread
 
@@ -52891,7 +52891,7 @@ cgltf_json_strcmp.exit.tail.i.i539:               ; preds = %sub_1.i.i537
 
 cgltf_json_strcmp.exit74.i.i:                     ; preds = %3846
   %3884 = getelementptr inbounds i8, ptr %2, i64 %3850
-  %3885 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3884, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %3885 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3884, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
   %3886 = icmp eq i32 %3885, 0
   br i1 %3886, label %3887, label %cgltf_json_strcmp.exit102.i.i
 
@@ -52930,7 +52930,7 @@ cgltf_json_to_int.exit.i.i533:                    ; preds = %3892, %3887
 
 cgltf_json_strcmp.exit79.i.i520:                  ; preds = %3846
   %3906 = getelementptr inbounds i8, ptr %2, i64 %3850
-  %3907 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3906, ptr noundef nonnull readonly dereferenceable(9) @.str.266, i64 noundef 8) #50
+  %3907 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3906, ptr noundef nonnull dereferenceable(9) @.str.266, i64 noundef 8) #50
   %3908 = icmp eq i32 %3907, 0
   br i1 %3908, label %3909, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -52975,7 +52975,7 @@ cgltf_json_strcmp.exit79.i.i520:                  ; preds = %3846
 
 cgltf_json_strcmp.exit88.i.i:                     ; preds = %3846
   %3934 = getelementptr inbounds i8, ptr %2, i64 %3850
-  %3935 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3934, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %3935 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3934, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %3936 = icmp eq i32 %3935, 0
   br i1 %3936, label %3937, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -53020,7 +53020,7 @@ cgltf_json_strcmp.exit88.i.i:                     ; preds = %3846
 
 cgltf_json_strcmp.exit97.i.i:                     ; preds = %3846
   %3962 = getelementptr inbounds i8, ptr %2, i64 %3850
-  %3963 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3962, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %3963 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3962, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %3964 = icmp eq i32 %3963, 0
   br i1 %3964, label %3965, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -53091,7 +53091,7 @@ cgltf_json_strcmp.exit97.i.i:                     ; preds = %3846
   br i1 %4001, label %3987, label %cgltf_parse_json_string.exit.i.i511
 
 cgltf_json_strcmp.exit102.i.i:                    ; preds = %cgltf_json_strcmp.exit74.i.i
-  %4002 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3884, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4002 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3884, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4003 = icmp eq i32 %4002, 0
   br i1 %4003, label %4004, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -53154,7 +53154,7 @@ cgltf_calloc.exit.thread.i.i.i531:                ; preds = %4012, %4009
   store i64 %4029, ptr %3830, align 8
   %4030 = load ptr, ptr %3831, align 8
   %4031 = getelementptr inbounds %struct.cgltf_extension, ptr %4030, i64 %4028
-  %4032 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i526, ptr noundef readonly %2, ptr noundef %4031)
+  %4032 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i526, ptr noundef readonly %2, ptr noundef %4031)
   %4033 = icmp slt i32 %4032, 0
   %4034 = add nuw nsw i32 %.03138.i.i.i527, 1
   %exitcond.not.i.i.i529 = icmp eq i32 %4034, %4011
@@ -53227,7 +53227,7 @@ cgltf_parse_json_image.exit.thread28.i:           ; preds = %cgltf_parse_json_im
 
 cgltf_json_strcmp.exit545:                        ; preds = %cgltf_json_strcmp.exit.thread
   %4059 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4060 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4059, ptr noundef nonnull readonly dereferenceable(9) @.str.128, i64 noundef 8) #50
+  %4060 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4059, ptr noundef nonnull dereferenceable(9) @.str.128, i64 noundef 8) #50
   %4061 = icmp eq i32 %4060, 0
   br i1 %4061, label %4062, label %cgltf_json_strcmp.exit584
 
@@ -53333,7 +53333,7 @@ cgltf_parse_json_array.exit.i551:                 ; preds = %4076
 
 cgltf_json_strcmp.exit.i.i578:                    ; preds = %4110
   %4116 = getelementptr inbounds i8, ptr %2, i64 %4114
-  %4117 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4116, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %4117 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4116, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %4118 = icmp eq i32 %4117, 0
   br i1 %4118, label %4119, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -53378,7 +53378,7 @@ cgltf_json_strcmp.exit.i.i578:                    ; preds = %4110
 
 cgltf_json_strcmp.exit126.i.i:                    ; preds = %4110
   %4144 = getelementptr inbounds i8, ptr %2, i64 %4114
-  %4145 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4144, ptr noundef nonnull readonly dereferenceable(8) @.str.267, i64 noundef 7) #50
+  %4145 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4144, ptr noundef nonnull dereferenceable(8) @.str.267, i64 noundef 7) #50
   %4146 = icmp eq i32 %4145, 0
   br i1 %4146, label %4147, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -53417,7 +53417,7 @@ cgltf_json_to_int.exit.i.i576:                    ; preds = %4152, %4147
 
 cgltf_json_strcmp.exit131.i.i:                    ; preds = %4110
   %4166 = getelementptr inbounds i8, ptr %2, i64 %4114
-  %4167 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4166, ptr noundef nonnull readonly dereferenceable(7) @.str.268, i64 noundef 6) #50
+  %4167 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4166, ptr noundef nonnull dereferenceable(7) @.str.268, i64 noundef 6) #50
   %4168 = icmp eq i32 %4167, 0
   br i1 %4168, label %4169, label %cgltf_json_strcmp.exit138.i.i
 
@@ -53455,7 +53455,7 @@ cgltf_json_to_int.exit135.i.i:                    ; preds = %4174, %4169
   br label %cgltf_parse_json_string.exit.i.i557
 
 cgltf_json_strcmp.exit138.i.i:                    ; preds = %cgltf_json_strcmp.exit131.i.i
-  %4188 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4166, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %4188 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4166, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %4189 = icmp eq i32 %4188, 0
   br i1 %4189, label %4190, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -53527,7 +53527,7 @@ cgltf_json_strcmp.exit138.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit143.i.i:                    ; preds = %4110
   %4227 = getelementptr inbounds i8, ptr %2, i64 %4114
-  %4228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4227, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4227, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4229 = icmp eq i32 %4228, 0
   br i1 %4229, label %4230, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -53597,7 +53597,7 @@ cgltf_calloc.exit.thread.i.i570:                  ; preds = %4240, %4237
 
 cgltf_json_strcmp.exit148.i.i:                    ; preds = %4255
   %4262 = getelementptr inbounds i8, ptr %2, i64 %4259
-  %4263 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4262, ptr noundef nonnull readonly dereferenceable(19) @.str.269, i64 noundef 18) #50
+  %4263 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4262, ptr noundef nonnull dereferenceable(19) @.str.269, i64 noundef 18) #50
   %4264 = icmp eq i32 %4263, 0
   br i1 %4264, label %4265, label %cgltf_json_strcmp.exit148.thread.i.i
 
@@ -53643,7 +53643,7 @@ cgltf_json_strcmp.exit148.i.i:                    ; preds = %4255
 
 cgltf_json_strcmp.exit151.i.i:                    ; preds = %4282
   %4289 = getelementptr inbounds i8, ptr %2, i64 %4286
-  %4290 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4289, ptr noundef nonnull readonly dereferenceable(7) @.str.268, i64 noundef 6) #50
+  %4290 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4289, ptr noundef nonnull dereferenceable(7) @.str.268, i64 noundef 6) #50
   %4291 = icmp eq i32 %4290, 0
   br i1 %4291, label %4292, label %cgltf_json_strcmp.exit151.thread.i.i
 
@@ -53734,7 +53734,7 @@ cgltf_json_strcmp.exit148.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %4334 = add i64 %4333, 1
   store i64 %4334, ptr %4094, align 8
   %4335 = getelementptr inbounds %struct.cgltf_extension, ptr %4332, i64 %4333
-  %4336 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.2204.i.i, ptr noundef readonly %2, ptr noundef %4335)
+  %4336 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2204.i.i, ptr noundef readonly %2, ptr noundef %4335)
   %4337 = icmp slt i32 %4336, 0
   br i1 %4337, label %cgltf_parse_json_asset.exit.thread, label %.thread.i.i561
 
@@ -53810,7 +53810,7 @@ cgltf_parse_json_texture.exit.thread29.i:         ; preds = %cgltf_parse_json_te
 
 cgltf_json_strcmp.exit584:                        ; preds = %cgltf_json_strcmp.exit545
   %4363 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4364 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4363, ptr noundef nonnull readonly dereferenceable(9) @.str.129, i64 noundef 8) #50
+  %4364 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4363, ptr noundef nonnull dereferenceable(9) @.str.129, i64 noundef 8) #50
   %4365 = icmp eq i32 %4364, 0
   br i1 %4365, label %4366, label %cgltf_json_strcmp.exit684.thread
 
@@ -53918,7 +53918,7 @@ cgltf_parse_json_array.exit.i590:                 ; preds = %4380
 
 cgltf_json_strcmp.exit.i.i622:                    ; preds = %4413
   %4419 = getelementptr inbounds i8, ptr %2, i64 %4417
-  %4420 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4419, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %4420 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4419, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %4421 = icmp eq i32 %4420, 0
   br i1 %4421, label %4422, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -53963,7 +53963,7 @@ cgltf_json_strcmp.exit.i.i622:                    ; preds = %4413
 
 cgltf_json_strcmp.exit87.i.i:                     ; preds = %4413
   %4447 = getelementptr inbounds i8, ptr %2, i64 %4417
-  %4448 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4447, ptr noundef nonnull readonly dereferenceable(10) @.str.270, i64 noundef 9) #50
+  %4448 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4447, ptr noundef nonnull dereferenceable(10) @.str.270, i64 noundef 9) #50
   %4449 = icmp eq i32 %4448, 0
   br i1 %4449, label %4450, label %cgltf_json_strcmp.exit92.i.i
 
@@ -53998,7 +53998,7 @@ cgltf_json_to_int.exit.i.i620:                    ; preds = %4455, %4450
   br label %cgltf_parse_json_string.exit.thread131.i.i
 
 cgltf_json_strcmp.exit92.i.i:                     ; preds = %cgltf_json_strcmp.exit87.i.i
-  %4466 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4447, ptr noundef nonnull readonly dereferenceable(10) @.str.271, i64 noundef 9) #50
+  %4466 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4447, ptr noundef nonnull dereferenceable(10) @.str.271, i64 noundef 9) #50
   %4467 = icmp eq i32 %4466, 0
   br i1 %4467, label %4468, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -54034,7 +54034,7 @@ cgltf_json_to_int.exit96.i.i:                     ; preds = %4473, %4468
 
 cgltf_json_strcmp.exit99.i.i:                     ; preds = %4413
   %4484 = getelementptr inbounds i8, ptr %2, i64 %4417
-  %4485 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4484, ptr noundef nonnull readonly dereferenceable(6) @.str.272, i64 noundef 5) #50
+  %4485 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4484, ptr noundef nonnull dereferenceable(6) @.str.272, i64 noundef 5) #50
   %4486 = icmp eq i32 %4485, 0
   br i1 %4486, label %4487, label %cgltf_json_strcmp.exit106.i.i
 
@@ -54069,7 +54069,7 @@ cgltf_json_to_int.exit103.i.i:                    ; preds = %4492, %4487
   br label %cgltf_parse_json_string.exit.thread131.i.i
 
 cgltf_json_strcmp.exit106.i.i:                    ; preds = %cgltf_json_strcmp.exit99.i.i
-  %4503 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4484, ptr noundef nonnull readonly dereferenceable(6) @.str.273, i64 noundef 5) #50
+  %4503 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4484, ptr noundef nonnull dereferenceable(6) @.str.273, i64 noundef 5) #50
   %4504 = icmp eq i32 %4503, 0
   br i1 %4504, label %4505, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -54105,7 +54105,7 @@ cgltf_json_to_int.exit110.i.i:                    ; preds = %4510, %4505
 
 cgltf_json_strcmp.exit113.i.i:                    ; preds = %4413
   %4521 = getelementptr inbounds i8, ptr %2, i64 %4417
-  %4522 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4521, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %4522 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4521, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %4523 = icmp eq i32 %4522, 0
   br i1 %4523, label %4524, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -54177,7 +54177,7 @@ cgltf_json_strcmp.exit113.i.i:                    ; preds = %4413
 
 cgltf_json_strcmp.exit118.i.i:                    ; preds = %4413
   %4561 = getelementptr inbounds i8, ptr %2, i64 %4417
-  %4562 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4561, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4562 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4561, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4563 = icmp eq i32 %4562, 0
   br i1 %4563, label %4564, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -54240,7 +54240,7 @@ cgltf_calloc.exit.thread.i.i.i614:                ; preds = %4572, %4569
   store i64 %4589, ptr %4398, align 8
   %4590 = load ptr, ptr %4399, align 8
   %4591 = getelementptr inbounds %struct.cgltf_extension, ptr %4590, i64 %4588
-  %4592 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i609, ptr noundef readonly %2, ptr noundef %4591)
+  %4592 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i609, ptr noundef readonly %2, ptr noundef %4591)
   %4593 = icmp slt i32 %4592, 0
   %4594 = add nuw nsw i32 %.03138.i.i.i610, 1
   %exitcond.not.i.i.i612 = icmp eq i32 %4594, %4571
@@ -54309,7 +54309,7 @@ cgltf_parse_json_sampler.exit.thread28.i:         ; preds = %cgltf_parse_json_sa
 
 cgltf_json_strcmp.exit629:                        ; preds = %cgltf_json_strcmp.exit
   %4619 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4620 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4619, ptr noundef nonnull readonly dereferenceable(6) @.str.130, i64 noundef 5) #50
+  %4620 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4619, ptr noundef nonnull dereferenceable(6) @.str.130, i64 noundef 5) #50
   %4621 = icmp eq i32 %4620, 0
   br i1 %4621, label %4622, label %cgltf_json_strcmp.exit681.thread
 
@@ -54416,7 +54416,7 @@ cgltf_parse_json_array.exit.i635:                 ; preds = %4636
 
 cgltf_json_strcmp.exit.i.i675:                    ; preds = %4670
   %4676 = getelementptr inbounds i8, ptr %2, i64 %4674
-  %4677 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4676, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %4677 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4676, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %4678 = icmp eq i32 %4677, 0
   br i1 %4678, label %4679, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54461,7 +54461,7 @@ cgltf_json_strcmp.exit.i.i675:                    ; preds = %4670
 
 cgltf_json_strcmp.exit96.i.i658:                  ; preds = %4670
   %4704 = getelementptr inbounds i8, ptr %2, i64 %4674
-  %4705 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4704, ptr noundef nonnull readonly dereferenceable(7) @.str.274, i64 noundef 6) #50
+  %4705 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4704, ptr noundef nonnull dereferenceable(7) @.str.274, i64 noundef 6) #50
   %4706 = icmp eq i32 %4705, 0
   br i1 %4706, label %4707, label %cgltf_json_strcmp.exit117.i.i
 
@@ -54550,7 +54550,7 @@ cgltf_json_to_int.exit.i.i671:                    ; preds = %4730, %.lr.ph.i.i66
 
 cgltf_json_strcmp.exit103.i.i657:                 ; preds = %4670
   %4748 = getelementptr inbounds i8, ptr %2, i64 %4674
-  %4749 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4748, ptr noundef nonnull readonly dereferenceable(9) @.str.275, i64 noundef 8) #50
+  %4749 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4748, ptr noundef nonnull dereferenceable(9) @.str.275, i64 noundef 8) #50
   %4750 = icmp eq i32 %4749, 0
   br i1 %4750, label %4751, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54585,7 +54585,7 @@ cgltf_json_to_int.exit107.i.i:                    ; preds = %4751
 
 cgltf_json_strcmp.exit110.i.i:                    ; preds = %4670
   %4769 = getelementptr inbounds i8, ptr %2, i64 %4674
-  %4770 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4769, ptr noundef nonnull readonly dereferenceable(20) @.str.276, i64 noundef 19) #50
+  %4770 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4769, ptr noundef nonnull dereferenceable(20) @.str.276, i64 noundef 19) #50
   %4771 = icmp eq i32 %4770, 0
   br i1 %4771, label %4772, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54619,7 +54619,7 @@ cgltf_json_to_int.exit114.i.i:                    ; preds = %4772
   br label %cgltf_parse_json_string.exit.thread137.i.i
 
 cgltf_json_strcmp.exit117.i.i:                    ; preds = %cgltf_json_strcmp.exit96.i.i658
-  %4790 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4704, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %4790 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4704, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %4791 = icmp eq i32 %4790, 0
   br i1 %4791, label %4792, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54691,7 +54691,7 @@ cgltf_json_strcmp.exit117.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit122.i.i:                    ; preds = %4670
   %4829 = getelementptr inbounds i8, ptr %2, i64 %4674
-  %4830 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4829, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4830 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4829, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4831 = icmp eq i32 %4830, 0
   br i1 %4831, label %4832, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54754,7 +54754,7 @@ cgltf_calloc.exit.thread.i.i.i656:                ; preds = %4840, %4837
   store i64 %4857, ptr %4653, align 8
   %4858 = load ptr, ptr %4654, align 8
   %4859 = getelementptr inbounds %struct.cgltf_extension, ptr %4858, i64 %4856
-  %4860 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i651, ptr noundef readonly %2, ptr noundef %4859)
+  %4860 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i651, ptr noundef readonly %2, ptr noundef %4859)
   %4861 = icmp slt i32 %4860, 0
   %4862 = add nuw nsw i32 %.03138.i.i.i652, 1
   %exitcond.not.i.i.i654 = icmp eq i32 %4862, %4839
@@ -54831,7 +54831,7 @@ cgltf_parse_json_skin.exit.thread28.i:            ; preds = %cgltf_parse_json_sk
 
 cgltf_json_strcmp.exit681:                        ; preds = %cgltf_json_strcmp.exit389
   %4888 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4889 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4888, ptr noundef nonnull readonly dereferenceable(8) @.str.131, i64 noundef 7) #50
+  %4889 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4888, ptr noundef nonnull dereferenceable(8) @.str.131, i64 noundef 7) #50
   %4890 = icmp eq i32 %4889, 0
   br i1 %4890, label %4891, label %cgltf_json_strcmp.exit681.thread
 
@@ -54845,7 +54845,7 @@ cgltf_json_strcmp.exit681.thread:                 ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit684:                        ; preds = %cgltf_json_strcmp.exit681.thread
   %4894 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4895 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4894, ptr noundef nonnull readonly dereferenceable(6) @.str.132, i64 noundef 5) #50
+  %4895 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4894, ptr noundef nonnull dereferenceable(6) @.str.132, i64 noundef 5) #50
   %4896 = icmp eq i32 %4895, 0
   br i1 %4896, label %4897, label %cgltf_json_strcmp.exit684.thread
 
@@ -55281,7 +55281,7 @@ cgltf_parse_json_array.exit:                      ; preds = %28
 
 cgltf_json_strcmp.exit.i:                         ; preds = %70
   %76 = getelementptr inbounds i8, ptr %3, i64 %74
-  %77 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %76, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %77 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %76, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %cgltf_json_strcmp.exit284.thread.i
 
@@ -55326,7 +55326,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %70
 
 cgltf_json_strcmp.exit191.i:                      ; preds = %70
   %104 = getelementptr inbounds i8, ptr %3, i64 %74
-  %105 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %104, ptr noundef nonnull readonly dereferenceable(12) @.str.277, i64 noundef 11) #50
+  %105 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %104, ptr noundef nonnull dereferenceable(12) @.str.277, i64 noundef 11) #50
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %cgltf_json_strcmp.exit284.thread.i
 
@@ -55381,7 +55381,7 @@ cgltf_json_strcmp.exit191.i:                      ; preds = %70
 
 cgltf_json_strcmp.exit194.i:                      ; preds = %126
   %132 = getelementptr inbounds i8, ptr %3, i64 %130
-  %133 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(12) @.str.278, i64 noundef 11) #50
+  %133 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %132, ptr noundef nonnull dereferenceable(12) @.str.278, i64 noundef 11) #50
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55419,7 +55419,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %140, %135
 
 cgltf_json_strcmp.exit199.i:                      ; preds = %126
   %152 = getelementptr inbounds i8, ptr %3, i64 %130
-  %153 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(5) @.str.279, i64 noundef 4) #50
+  %153 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull dereferenceable(5) @.str.279, i64 noundef 4) #50
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %cgltf_json_strcmp.exit206.i
 
@@ -55455,7 +55455,7 @@ cgltf_json_to_float.exit203.i:                    ; preds = %160, %155
   br label %cgltf_parse_json_extras.exit.thread303.i
 
 cgltf_json_strcmp.exit206.i:                      ; preds = %cgltf_json_strcmp.exit199.i
-  %172 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(5) @.str.280, i64 noundef 4) #50
+  %172 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull dereferenceable(5) @.str.280, i64 noundef 4) #50
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55493,7 +55493,7 @@ cgltf_json_to_float.exit210.i:                    ; preds = %179, %174
 
 cgltf_json_strcmp.exit213.i:                      ; preds = %126
   %191 = getelementptr inbounds i8, ptr %3, i64 %130
-  %192 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %191, ptr noundef nonnull readonly dereferenceable(6) @.str.281, i64 noundef 5) #50
+  %192 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %191, ptr noundef nonnull dereferenceable(6) @.str.281, i64 noundef 5) #50
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55530,7 +55530,7 @@ cgltf_json_to_float.exit217.i:                    ; preds = %199, %194
 
 cgltf_json_strcmp.exit220.i:                      ; preds = %126
   %211 = getelementptr inbounds i8, ptr %3, i64 %130
-  %212 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %211, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %212 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %211, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %214, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55651,7 +55651,7 @@ cgltf_parse_json_extras.exit.thread303.i:         ; preds = %cgltf_parse_json_ex
 
 cgltf_json_strcmp.exit225.i:                      ; preds = %70
   %271 = getelementptr inbounds i8, ptr %3, i64 %74
-  %272 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %271, ptr noundef nonnull readonly dereferenceable(13) @.str.282, i64 noundef 12) #50
+  %272 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %271, ptr noundef nonnull dereferenceable(13) @.str.282, i64 noundef 12) #50
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %cgltf_json_strcmp.exit284.thread.i
 
@@ -55705,7 +55705,7 @@ cgltf_json_strcmp.exit225.i:                      ; preds = %70
 
 cgltf_json_strcmp.exit228.i:                      ; preds = %293
   %299 = getelementptr inbounds i8, ptr %3, i64 %297
-  %300 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %299, ptr noundef nonnull readonly dereferenceable(5) @.str.283, i64 noundef 4) #50
+  %300 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %299, ptr noundef nonnull dereferenceable(5) @.str.283, i64 noundef 4) #50
   %301 = icmp eq i32 %300, 0
   br i1 %301, label %302, label %cgltf_json_strcmp.exit235.i
 
@@ -55741,7 +55741,7 @@ cgltf_json_to_float.exit232.i:                    ; preds = %307, %302
   br label %cgltf_parse_json_extras.exit264.thread315.i
 
 cgltf_json_strcmp.exit235.i:                      ; preds = %cgltf_json_strcmp.exit228.i
-  %319 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %299, ptr noundef nonnull readonly dereferenceable(5) @.str.284, i64 noundef 4) #50
+  %319 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %299, ptr noundef nonnull dereferenceable(5) @.str.284, i64 noundef 4) #50
   %320 = icmp eq i32 %319, 0
   br i1 %320, label %321, label %cgltf_json_strcmp.exit242.i
 
@@ -55777,7 +55777,7 @@ cgltf_json_to_float.exit239.i:                    ; preds = %326, %321
   br label %cgltf_parse_json_extras.exit264.thread315.i
 
 cgltf_json_strcmp.exit242.i:                      ; preds = %cgltf_json_strcmp.exit235.i
-  %338 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %299, ptr noundef nonnull readonly dereferenceable(5) @.str.280, i64 noundef 4) #50
+  %338 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %299, ptr noundef nonnull dereferenceable(5) @.str.280, i64 noundef 4) #50
   %339 = icmp eq i32 %338, 0
   br i1 %339, label %340, label %cgltf_json_strcmp.exit256.thread.i
 
@@ -55814,7 +55814,7 @@ cgltf_json_to_float.exit246.i:                    ; preds = %345, %340
 
 cgltf_json_strcmp.exit249.i:                      ; preds = %293
   %357 = getelementptr inbounds i8, ptr %3, i64 %297
-  %358 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %357, ptr noundef nonnull readonly dereferenceable(6) @.str.281, i64 noundef 5) #50
+  %358 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %357, ptr noundef nonnull dereferenceable(6) @.str.281, i64 noundef 5) #50
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %360, label %cgltf_json_strcmp.exit256.thread.i
 
@@ -55851,7 +55851,7 @@ cgltf_json_to_float.exit253.i:                    ; preds = %365, %360
 
 cgltf_json_strcmp.exit256.i:                      ; preds = %293
   %377 = getelementptr inbounds i8, ptr %3, i64 %297
-  %378 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %377, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %378 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %377, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %380, label %cgltf_json_strcmp.exit256.thread.i
 
@@ -55972,7 +55972,7 @@ cgltf_parse_json_extras.exit264.thread315.i:      ; preds = %cgltf_parse_json_ex
 
 cgltf_json_strcmp.exit273.i:                      ; preds = %70
   %437 = getelementptr inbounds i8, ptr %3, i64 %74
-  %438 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %437, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %438 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %437, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %439 = icmp eq i32 %438, 0
   br i1 %439, label %440, label %cgltf_json_strcmp.exit284.thread.i
 
@@ -56044,7 +56044,7 @@ cgltf_json_strcmp.exit273.i:                      ; preds = %70
 
 cgltf_json_strcmp.exit284.i:                      ; preds = %70
   %477 = getelementptr inbounds i8, ptr %3, i64 %74
-  %478 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %477, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %478 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %477, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %479 = icmp eq i32 %478, 0
   br i1 %479, label %480, label %cgltf_json_strcmp.exit284.thread.i
 
@@ -56107,7 +56107,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %488, %485
   store i64 %505, ptr %47, align 8
   %506 = load ptr, ptr %48, align 8
   %507 = getelementptr inbounds %struct.cgltf_extension, ptr %506, i64 %504
-  %508 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %507)
+  %508 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %507)
   %509 = icmp slt i32 %508, 0
   %510 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %510, %487
@@ -56334,7 +56334,7 @@ cgltf_parse_json_array.exit:                      ; preds = %30
 
 cgltf_json_strcmp.exit.i:                         ; preds = %87
   %93 = getelementptr inbounds i8, ptr %3, i64 %91
-  %94 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %94 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %cgltf_json_strcmp.exit243.i
 
@@ -56379,7 +56379,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %87
 
 cgltf_json_strcmp.exit236.i:                      ; preds = %87
   %121 = getelementptr inbounds i8, ptr %3, i64 %91
-  %122 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(9) @.str.285, i64 noundef 8) #50
+  %122 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(9) @.str.285, i64 noundef 8) #50
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %cgltf_json_strcmp.exit269.i
 
@@ -56467,7 +56467,7 @@ cgltf_json_to_int.exit.i:                         ; preds = %147, %.lr.ph392.i
   br i1 %164, label %.lr.ph392.i, label %cgltf_parse_json_string.exit.loopexit.i
 
 cgltf_json_strcmp.exit243.i:                      ; preds = %cgltf_json_strcmp.exit.i
-  %165 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull readonly dereferenceable(5) @.str.286, i64 noundef 4) #50
+  %165 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(5) @.str.286, i64 noundef 4) #50
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %cgltf_json_strcmp.exit250.i
 
@@ -56501,7 +56501,7 @@ cgltf_json_to_int.exit247.i:                      ; preds = %167
   br label %cgltf_parse_json_string.exit.thread358.i
 
 cgltf_json_strcmp.exit250.i:                      ; preds = %cgltf_json_strcmp.exit243.i
-  %185 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull readonly dereferenceable(5) @.str.287, i64 noundef 4) #50
+  %185 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(5) @.str.287, i64 noundef 4) #50
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %187, label %cgltf_json_strcmp.exit49.thread
 
@@ -56536,7 +56536,7 @@ cgltf_json_to_int.exit254.i:                      ; preds = %187
 
 cgltf_json_strcmp.exit257.i:                      ; preds = %87
   %205 = getelementptr inbounds i8, ptr %3, i64 %91
-  %206 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %205, ptr noundef nonnull readonly dereferenceable(7) @.str.288, i64 noundef 6) #50
+  %206 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %205, ptr noundef nonnull dereferenceable(7) @.str.288, i64 noundef 6) #50
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %208, label %cgltf_json_strcmp.exit305.i
 
@@ -56571,7 +56571,7 @@ cgltf_json_to_int.exit261.i:                      ; preds = %208
 
 cgltf_json_strcmp.exit264.i:                      ; preds = %87
   %226 = getelementptr inbounds i8, ptr %3, i64 %91
-  %227 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %226, ptr noundef nonnull readonly dereferenceable(12) @.str.289, i64 noundef 11) #50
+  %227 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %226, ptr noundef nonnull dereferenceable(12) @.str.289, i64 noundef 11) #50
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %cgltf_json_strcmp.exit49.thread
 
@@ -56626,7 +56626,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i.i, label %cgltf_parse_json_string.exit.loopexit447.i, label %.lr.ph.i.i
 
 cgltf_json_strcmp.exit269.i:                      ; preds = %cgltf_json_strcmp.exit236.i
-  %251 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(9) @.str.231, i64 noundef 8) #50
+  %251 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(9) @.str.231, i64 noundef 8) #50
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %cgltf_json_strcmp.exit49.thread
 
@@ -56682,7 +56682,7 @@ cgltf_json_to_float.exit.i279.i:                  ; preds = %.lr.ph.i275.i
 
 cgltf_json_strcmp.exit287.i:                      ; preds = %87
   %275 = getelementptr inbounds i8, ptr %3, i64 %91
-  %276 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %275, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %276 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %275, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %278, label %cgltf_json_strcmp.exit49.thread
 
@@ -56737,7 +56737,7 @@ cgltf_json_to_float.exit.i297.i:                  ; preds = %.lr.ph.i293.i
   br i1 %exitcond.not.i301.i, label %cgltf_parse_json_string.exit.loopexit451.i, label %.lr.ph.i293.i
 
 cgltf_json_strcmp.exit305.i:                      ; preds = %cgltf_json_strcmp.exit257.i
-  %300 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %205, ptr noundef nonnull readonly dereferenceable(7) @.str.290, i64 noundef 6) #50
+  %300 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %205, ptr noundef nonnull dereferenceable(7) @.str.290, i64 noundef 6) #50
   %301 = icmp eq i32 %300, 0
   br i1 %301, label %302, label %cgltf_json_strcmp.exit326.i
 
@@ -56793,7 +56793,7 @@ cgltf_json_to_float.exit.i315.i:                  ; preds = %.lr.ph.i311.i
 
 cgltf_json_strcmp.exit323.i:                      ; preds = %87
   %324 = getelementptr inbounds i8, ptr %3, i64 %91
-  %325 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %324, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #50
+  %325 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %324, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #50
   %326 = icmp eq i32 %325, 0
   br i1 %326, label %327, label %cgltf_json_strcmp.exit49.thread
 
@@ -56887,7 +56887,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %.lr.ph.i58
   br i1 %exitcond.not.i62, label %cgltf_parse_json_string.exit.i.loopexit145, label %.lr.ph.i58
 
 cgltf_json_strcmp.exit326.i:                      ; preds = %cgltf_json_strcmp.exit305.i
-  %366 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %205, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %366 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %205, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %368, label %cgltf_json_strcmp.exit49.thread
 
@@ -56959,7 +56959,7 @@ cgltf_json_strcmp.exit326.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit49:                         ; preds = %87
   %405 = getelementptr inbounds i8, ptr %3, i64 %91
-  %406 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %405, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %406 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %405, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %407 = icmp eq i32 %406, 0
   br i1 %407, label %408, label %cgltf_json_strcmp.exit49.thread
 
@@ -57031,7 +57031,7 @@ cgltf_calloc.exit.thread.i:                       ; preds = %418, %415
 
 cgltf_json_strcmp.exit46:                         ; preds = %433
   %439 = getelementptr inbounds i8, ptr %3, i64 %437
-  %440 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %439, ptr noundef nonnull readonly dereferenceable(20) @.str.138, i64 noundef 19) #50
+  %440 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %439, ptr noundef nonnull dereferenceable(20) @.str.138, i64 noundef 19) #50
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %442, label %cgltf_json_strcmp.exit.thread
 
@@ -57076,7 +57076,7 @@ cgltf_json_strcmp.exit46:                         ; preds = %433
 
 cgltf_json_strcmp.exit331.i:                      ; preds = %459
   %466 = getelementptr inbounds i8, ptr %3, i64 %463
-  %467 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %466, ptr noundef nonnull readonly dereferenceable(6) @.str.291, i64 noundef 5) #50
+  %467 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %466, ptr noundef nonnull dereferenceable(6) @.str.291, i64 noundef 5) #50
   %468 = icmp eq i32 %467, 0
   br i1 %468, label %469, label %cgltf_json_strcmp.exit331.thread.i
 
@@ -57158,7 +57158,7 @@ cgltf_skip_json.exit.i:                           ; preds = %500
 
 cgltf_json_strcmp.exit:                           ; preds = %433
   %506 = getelementptr inbounds i8, ptr %3, i64 %437
-  %507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %506, ptr noundef nonnull readonly dereferenceable(24) @.str.292, i64 noundef 23) #50
+  %507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %506, ptr noundef nonnull dereferenceable(24) @.str.292, i64 noundef 23) #50
   %508 = icmp eq i32 %507, 0
   br i1 %508, label %509, label %cgltf_json_strcmp.exit.thread
 
@@ -57204,13 +57204,13 @@ cgltf_json_strcmp.exit:                           ; preds = %433
 
 cgltf_json_strcmp.exit.i39:                       ; preds = %526
   %533 = getelementptr inbounds i8, ptr %3, i64 %530
-  %534 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %533, ptr noundef nonnull readonly dereferenceable(11) @.str.155, i64 noundef 10) #50
+  %534 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %533, ptr noundef nonnull dereferenceable(11) @.str.155, i64 noundef 10) #50
   %535 = icmp eq i32 %534, 0
   br i1 %535, label %536, label %cgltf_json_strcmp.exit.thread.i
 
 536:                                              ; preds = %cgltf_json_strcmp.exit.i39
   %537 = add nuw nsw i32 %.02732.i, 1
-  %538 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %537, ptr noundef readonly %3, ptr noundef nonnull %61, ptr noundef nonnull %78)
+  %538 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %537, ptr noundef readonly %3, ptr noundef nonnull %61, ptr noundef nonnull %78)
   br label %cgltf_skip_json.exit.i36
 
 cgltf_json_strcmp.exit.thread.i:                  ; preds = %cgltf_json_strcmp.exit.i39, %526
@@ -57265,7 +57265,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %433, %cgltf_json_st
   %561 = add i64 %560, 1
   store i64 %561, ptr %59, align 8
   %562 = getelementptr inbounds %struct.cgltf_extension, ptr %559, i64 %560
-  %563 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.3386.i, ptr noundef readonly %3, ptr noundef %562)
+  %563 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.3386.i, ptr noundef readonly %3, ptr noundef %562)
   br label %cgltf_parse_json_mesh_gpu_instancing.exit
 
 cgltf_parse_json_mesh_gpu_instancing.exit:        ; preds = %cgltf_skip_json.exit.i36, %514, %cgltf_json_strcmp.exit.thread
@@ -57473,7 +57473,7 @@ cgltf_parse_json_array.exit:                      ; preds = %21
 
 cgltf_json_strcmp.exit.i:                         ; preds = %55
   %61 = getelementptr inbounds i8, ptr %3, i64 %59
-  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57518,7 +57518,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %55
 
 cgltf_json_strcmp.exit72.i:                       ; preds = %55
   %89 = getelementptr inbounds i8, ptr %3, i64 %59
-  %90 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %89, ptr noundef nonnull readonly dereferenceable(6) @.str.132, i64 noundef 5) #50
+  %90 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %89, ptr noundef nonnull dereferenceable(6) @.str.132, i64 noundef 5) #50
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57607,7 +57607,7 @@ cgltf_json_to_int.exit.i:                         ; preds = %115, %.lr.ph.i
 
 cgltf_json_strcmp.exit79.i:                       ; preds = %55
   %133 = getelementptr inbounds i8, ptr %3, i64 %59
-  %134 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %133, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %134 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %133, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57679,7 +57679,7 @@ cgltf_json_strcmp.exit79.i:                       ; preds = %55
 
 cgltf_json_strcmp.exit84.i:                       ; preds = %55
   %173 = getelementptr inbounds i8, ptr %3, i64 %59
-  %174 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %174 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57742,7 +57742,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %184, %181
   store i64 %201, ptr %40, align 8
   %202 = load ptr, ptr %41, align 8
   %203 = getelementptr inbounds %struct.cgltf_extension, ptr %202, i64 %200
-  %204 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %203)
+  %204 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %203)
   %205 = icmp slt i32 %204, 0
   %206 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %206, %183
@@ -57958,7 +57958,7 @@ cgltf_parse_json_array.exit:                      ; preds = %24
 
 cgltf_json_strcmp.exit.i:                         ; preds = %60
   %66 = getelementptr inbounds i8, ptr %3, i64 %64
-  %67 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %67 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %cgltf_json_strcmp.exit157.thread.i
 
@@ -58003,7 +58003,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %60
 
 cgltf_json_strcmp.exit103.i:                      ; preds = %60
   %94 = getelementptr inbounds i8, ptr %3, i64 %64
-  %95 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %94, ptr noundef nonnull readonly dereferenceable(9) @.str.129, i64 noundef 8) #50
+  %95 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %94, ptr noundef nonnull dereferenceable(9) @.str.129, i64 noundef 8) #50
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %cgltf_json_strcmp.exit109.i
 
@@ -58112,7 +58112,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %111
 
 cgltf_json_strcmp.exit.i.i:                       ; preds = %146
   %152 = getelementptr inbounds i8, ptr %3, i64 %150
-  %153 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(6) @.str.294, i64 noundef 5) #50
+  %153 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %152, ptr noundef nonnull dereferenceable(6) @.str.294, i64 noundef 5) #50
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -58151,7 +58151,7 @@ cgltf_json_to_int.exit.i.i:                       ; preds = %160, %155
 
 cgltf_json_strcmp.exit76.i.i:                     ; preds = %146
   %174 = getelementptr inbounds i8, ptr %3, i64 %150
-  %175 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(7) @.str.295, i64 noundef 6) #50
+  %175 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(7) @.str.295, i64 noundef 6) #50
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %cgltf_json_strcmp.exit95.i.i
 
@@ -58190,7 +58190,7 @@ cgltf_json_to_int.exit80.i.i:                     ; preds = %182, %177
 
 cgltf_json_strcmp.exit83.i.i:                     ; preds = %146
   %196 = getelementptr inbounds i8, ptr %3, i64 %150
-  %197 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %196, ptr noundef nonnull readonly dereferenceable(14) @.str.296, i64 noundef 13) #50
+  %197 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %196, ptr noundef nonnull dereferenceable(14) @.str.296, i64 noundef 13) #50
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %199, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -58216,19 +58216,19 @@ cgltf_json_strcmp.exit83.i.i:                     ; preds = %146
 
 cgltf_json_strcmp.exit86.i.i:                     ; preds = %204
   %210 = getelementptr inbounds i8, ptr %3, i64 %208
-  %211 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %210, ptr noundef nonnull readonly dereferenceable(7) @.str.297, i64 noundef 6) #50
+  %211 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %210, ptr noundef nonnull dereferenceable(7) @.str.297, i64 noundef 6) #50
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %cgltf_json_strcmp.exit92.thread.sink.split.i.i, label %cgltf_json_strcmp.exit92.thread.i.i
 
 cgltf_json_strcmp.exit89.i.i:                     ; preds = %204
   %213 = getelementptr inbounds i8, ptr %3, i64 %208
-  %214 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %213, ptr noundef nonnull readonly dereferenceable(5) @.str.298, i64 noundef 4) #50
+  %214 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %213, ptr noundef nonnull dereferenceable(5) @.str.298, i64 noundef 4) #50
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %cgltf_json_strcmp.exit92.thread.sink.split.i.i, label %cgltf_json_strcmp.exit92.thread.i.i
 
 cgltf_json_strcmp.exit92.i.i:                     ; preds = %204
   %216 = getelementptr inbounds i8, ptr %3, i64 %208
-  %217 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %216, ptr noundef nonnull readonly dereferenceable(12) @.str.299, i64 noundef 11) #50
+  %217 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %216, ptr noundef nonnull dereferenceable(12) @.str.299, i64 noundef 11) #50
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %cgltf_json_strcmp.exit92.thread.sink.split.i.i, label %cgltf_json_strcmp.exit92.thread.i.i
 
@@ -58242,7 +58242,7 @@ cgltf_json_strcmp.exit92.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %cgltf_parse_json_extras.exit.thread117.i.i
 
 cgltf_json_strcmp.exit95.i.i:                     ; preds = %cgltf_json_strcmp.exit76.i.i
-  %220 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %220 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -58314,7 +58314,7 @@ cgltf_json_strcmp.exit95.i.i:                     ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit100.i.i:                    ; preds = %146
   %259 = getelementptr inbounds i8, ptr %3, i64 %150
-  %260 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %259, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %260 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %259, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %261 = icmp eq i32 %260, 0
   br i1 %261, label %262, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -58377,7 +58377,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %270, %267
   store i64 %287, ptr %131, align 8
   %288 = load ptr, ptr %132, align 8
   %289 = getelementptr inbounds %struct.cgltf_extension, ptr %288, i64 %286
-  %290 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %3, ptr noundef %289)
+  %290 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %3, ptr noundef %289)
   %291 = icmp slt i32 %290, 0
   %292 = add nuw nsw i32 %.03138.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %292, %269
@@ -58439,7 +58439,7 @@ cgltf_parse_json_animation_sampler.exit.i:        ; preds = %cgltf_parse_json_ex
   br i1 %313, label %cgltf_parse_json_array.exit.thread, label %117
 
 cgltf_json_strcmp.exit109.i:                      ; preds = %cgltf_json_strcmp.exit103.i
-  %314 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %94, ptr noundef nonnull readonly dereferenceable(9) @.str.293, i64 noundef 8) #50
+  %314 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %94, ptr noundef nonnull dereferenceable(9) @.str.293, i64 noundef 8) #50
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %316, label %cgltf_json_strcmp.exit157.thread.i
 
@@ -58550,7 +58550,7 @@ cgltf_parse_json_array.exit116.i:                 ; preds = %330
 
 cgltf_json_strcmp.exit.i143.i:                    ; preds = %366
   %372 = getelementptr inbounds i8, ptr %3, i64 %370
-  %373 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %372, ptr noundef nonnull readonly dereferenceable(8) @.str.267, i64 noundef 7) #50
+  %373 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %372, ptr noundef nonnull dereferenceable(8) @.str.267, i64 noundef 7) #50
   %374 = icmp eq i32 %373, 0
   br i1 %374, label %375, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -58589,7 +58589,7 @@ cgltf_json_to_int.exit.i144.i:                    ; preds = %380, %375
 
 cgltf_json_strcmp.exit103.i.i:                    ; preds = %366
   %394 = getelementptr inbounds i8, ptr %3, i64 %370
-  %395 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %394, ptr noundef nonnull readonly dereferenceable(7) @.str.187, i64 noundef 6) #50
+  %395 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %394, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #50
   %396 = icmp eq i32 %395, 0
   br i1 %396, label %397, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -58637,7 +58637,7 @@ cgltf_json_strcmp.exit103.i.i:                    ; preds = %366
 
 cgltf_json_strcmp.exit106.i.i:                    ; preds = %414
   %420 = getelementptr inbounds i8, ptr %3, i64 %418
-  %421 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %420, ptr noundef nonnull readonly dereferenceable(5) @.str.300, i64 noundef 4) #50
+  %421 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %420, ptr noundef nonnull dereferenceable(5) @.str.300, i64 noundef 4) #50
   %422 = icmp eq i32 %421, 0
   br i1 %422, label %423, label %cgltf_json_strcmp.exit113.i.i
 
@@ -58675,7 +58675,7 @@ cgltf_json_to_int.exit110.i.i:                    ; preds = %428, %423
   br label %cgltf_parse_json_extras.exit.thread160.i.i
 
 cgltf_json_strcmp.exit113.i.i:                    ; preds = %cgltf_json_strcmp.exit106.i.i
-  %442 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %420, ptr noundef nonnull readonly dereferenceable(5) @.str.301, i64 noundef 4) #50
+  %442 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %420, ptr noundef nonnull dereferenceable(5) @.str.301, i64 noundef 4) #50
   %443 = icmp eq i32 %442, 0
   br i1 %443, label %444, label %cgltf_json_strcmp.exit133.thread.i.i
 
@@ -58702,25 +58702,25 @@ cgltf_json_strcmp.exit113.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit116.i.i:                    ; preds = %449
   %455 = getelementptr inbounds i8, ptr %3, i64 %453
-  %456 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %455, ptr noundef nonnull readonly dereferenceable(12) @.str.289, i64 noundef 11) #50
+  %456 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %455, ptr noundef nonnull dereferenceable(12) @.str.289, i64 noundef 11) #50
   %457 = icmp eq i32 %456, 0
   br i1 %457, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
 cgltf_json_strcmp.exit119.i.i:                    ; preds = %449
   %458 = getelementptr inbounds i8, ptr %3, i64 %453
-  %459 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %458, ptr noundef nonnull readonly dereferenceable(9) @.str.231, i64 noundef 8) #50
+  %459 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %458, ptr noundef nonnull dereferenceable(9) @.str.231, i64 noundef 8) #50
   %460 = icmp eq i32 %459, 0
   br i1 %460, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
 cgltf_json_strcmp.exit122.i.i:                    ; preds = %449
   %461 = getelementptr inbounds i8, ptr %3, i64 %453
-  %462 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %461, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %462 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %461, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
   %463 = icmp eq i32 %462, 0
   br i1 %463, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
 cgltf_json_strcmp.exit125.i.i:                    ; preds = %449
   %464 = getelementptr inbounds i8, ptr %3, i64 %453
-  %465 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %464, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #50
+  %465 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %464, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #50
   %466 = icmp eq i32 %465, 0
   br i1 %466, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
@@ -58735,7 +58735,7 @@ cgltf_json_strcmp.exit125.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit128.i.i:                    ; preds = %414
   %468 = getelementptr inbounds i8, ptr %3, i64 %418
-  %469 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %468, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %469 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %468, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %cgltf_json_strcmp.exit133.thread.i.i
 
@@ -58807,7 +58807,7 @@ cgltf_json_strcmp.exit128.i.i:                    ; preds = %414
 
 cgltf_json_strcmp.exit133.i.i:                    ; preds = %414
   %508 = getelementptr inbounds i8, ptr %3, i64 %418
-  %509 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %508, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %509 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %508, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %511, label %cgltf_json_strcmp.exit133.thread.i.i
 
@@ -58870,7 +58870,7 @@ cgltf_calloc.exit.thread.i.i136.i:                ; preds = %519, %516
   store i64 %536, ptr %351, align 8
   %537 = load ptr, ptr %352, align 8
   %538 = getelementptr inbounds %struct.cgltf_extension, ptr %537, i64 %535
-  %539 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i131.i, ptr noundef readonly %3, ptr noundef %538)
+  %539 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i131.i, ptr noundef readonly %3, ptr noundef %538)
   %540 = icmp slt i32 %539, 0
   %541 = add nuw nsw i32 %.03138.i.i132.i, 1
   %exitcond.not.i.i134.i = icmp eq i32 %541, %518
@@ -58982,7 +58982,7 @@ cgltf_parse_json_animation_channel.exit.i:        ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit148.i:                      ; preds = %60
   %583 = getelementptr inbounds i8, ptr %3, i64 %64
-  %584 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %583, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %584 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %583, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %585 = icmp eq i32 %584, 0
   br i1 %585, label %586, label %cgltf_json_strcmp.exit157.thread.i
 
@@ -59054,7 +59054,7 @@ cgltf_json_strcmp.exit148.i:                      ; preds = %60
 
 cgltf_json_strcmp.exit157.i:                      ; preds = %60
   %623 = getelementptr inbounds i8, ptr %3, i64 %64
-  %624 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %623, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %624 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %623, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %625 = icmp eq i32 %624, 0
   br i1 %625, label %626, label %cgltf_json_strcmp.exit157.thread.i
 
@@ -59117,7 +59117,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %634, %631
   store i64 %651, ptr %43, align 8
   %652 = load ptr, ptr %44, align 8
   %653 = getelementptr inbounds %struct.cgltf_extension, ptr %652, i64 %650
-  %654 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %653)
+  %654 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %653)
   %655 = icmp slt i32 %654, 0
   %656 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i163.i = icmp eq i32 %656, %633
@@ -59386,7 +59386,7 @@ cgltf_parse_json_array.exit:                      ; preds = %25
 
 cgltf_json_strcmp.exit.i:                         ; preds = %62
   %68 = getelementptr inbounds i8, ptr %3, i64 %66
-  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %cgltf_json_strcmp.exit139.i
 
@@ -59431,7 +59431,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %62
 
 cgltf_json_strcmp.exit129.i:                      ; preds = %62
   %96 = getelementptr inbounds i8, ptr %3, i64 %66
-  %97 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(6) @.str.302, i64 noundef 5) #50
+  %97 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %96, ptr noundef nonnull dereferenceable(6) @.str.302, i64 noundef 5) #50
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %cgltf_json_strcmp.exit151.thread267.i
 
@@ -59486,7 +59486,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
 
 cgltf_json_strcmp.exit134.i:                      ; preds = %62
   %121 = getelementptr inbounds i8, ptr %3, i64 %66
-  %122 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(10) @.str.303, i64 noundef 9) #50
+  %122 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(10) @.str.303, i64 noundef 9) #50
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59522,7 +59522,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %129, %124
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit139.i:                      ; preds = %cgltf_json_strcmp.exit.i
-  %141 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(5) @.str.171, i64 noundef 4) #50
+  %141 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.171, i64 noundef 4) #50
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %cgltf_json_strcmp.exit158.i
 
@@ -59548,19 +59548,19 @@ cgltf_json_strcmp.exit139.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit142.i:                      ; preds = %148
   %154 = getelementptr inbounds i8, ptr %3, i64 %152
-  %155 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %154, ptr noundef nonnull readonly dereferenceable(12) @.str.304, i64 noundef 11) #50
+  %155 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %154, ptr noundef nonnull dereferenceable(12) @.str.304, i64 noundef 11) #50
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %cgltf_json_strcmp.exit148.thread.sink.split.i, label %cgltf_json_strcmp.exit148.thread.i
 
 cgltf_json_strcmp.exit145.i:                      ; preds = %148
   %157 = getelementptr inbounds i8, ptr %3, i64 %152
-  %158 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %157, ptr noundef nonnull readonly dereferenceable(6) @.str.305, i64 noundef 5) #50
+  %158 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %157, ptr noundef nonnull dereferenceable(6) @.str.305, i64 noundef 5) #50
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %cgltf_json_strcmp.exit148.thread.sink.split.i, label %cgltf_json_strcmp.exit148.thread.i
 
 cgltf_json_strcmp.exit148.i:                      ; preds = %148
   %160 = getelementptr inbounds i8, ptr %3, i64 %152
-  %161 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %160, ptr noundef nonnull readonly dereferenceable(5) @.str.306, i64 noundef 4) #50
+  %161 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %160, ptr noundef nonnull dereferenceable(5) @.str.306, i64 noundef 4) #50
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %cgltf_json_strcmp.exit148.thread.sink.split.i, label %cgltf_json_strcmp.exit148.thread.i
 
@@ -59574,7 +59574,7 @@ cgltf_json_strcmp.exit148.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit151.thread267.i:            ; preds = %cgltf_json_strcmp.exit129.i
-  %164 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(6) @.str.307, i64 noundef 5) #50
+  %164 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %96, ptr noundef nonnull dereferenceable(6) @.str.307, i64 noundef 5) #50
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59610,7 +59610,7 @@ cgltf_json_to_float.exit155.i:                    ; preds = %171, %166
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit158.i:                      ; preds = %cgltf_json_strcmp.exit139.i
-  %183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(5) @.str.306, i64 noundef 4) #50
+  %183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.306, i64 noundef 4) #50
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59655,7 +59655,7 @@ cgltf_json_strcmp.exit158.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit161.i:                      ; preds = %202
   %209 = getelementptr inbounds i8, ptr %3, i64 %206
-  %210 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %209, ptr noundef nonnull readonly dereferenceable(15) @.str.308, i64 noundef 14) #50
+  %210 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %209, ptr noundef nonnull dereferenceable(15) @.str.308, i64 noundef 14) #50
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %212, label %cgltf_json_strcmp.exit168.i
 
@@ -59691,7 +59691,7 @@ cgltf_json_to_float.exit165.i:                    ; preds = %217, %212
   br label %cgltf_skip_json.exit.thread.i
 
 cgltf_json_strcmp.exit168.i:                      ; preds = %cgltf_json_strcmp.exit161.i
-  %229 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %209, ptr noundef nonnull readonly dereferenceable(15) @.str.309, i64 noundef 14) #50
+  %229 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %209, ptr noundef nonnull dereferenceable(15) @.str.309, i64 noundef 14) #50
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %231, label %cgltf_json_strcmp.exit168.thread.i
 
@@ -59776,7 +59776,7 @@ cgltf_skip_json.exit.thread.i:                    ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit177.i:                      ; preds = %62
   %268 = getelementptr inbounds i8, ptr %3, i64 %66
-  %269 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %268, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %269 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %268, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %271, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -60056,7 +60056,7 @@ cgltf_parse_json_array.exit:                      ; preds = %20
 
 cgltf_json_strcmp.exit.i:                         ; preds = %50
   %56 = getelementptr inbounds i8, ptr %3, i64 %54
-  %57 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %57 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %56, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %cgltf_json_strcmp.exit40.thread.i
 
@@ -60101,7 +60101,7 @@ cgltf_parse_json_string.exit.thread46.i:          ; preds = %66
 
 cgltf_json_strcmp.exit40.i:                       ; preds = %50
   %83 = getelementptr inbounds i8, ptr %3, i64 %54
-  %84 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %84 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %83, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %cgltf_json_strcmp.exit40.thread.i
 
@@ -60737,7 +60737,7 @@ define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr nocapture
 
 cgltf_json_strcmp.exit:                           ; preds = %37
   %43 = getelementptr inbounds i8, ptr %3, i64 %41
-  %44 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull readonly dereferenceable(9) @.str.154, i64 noundef 8) #50
+  %44 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull dereferenceable(9) @.str.154, i64 noundef 8) #50
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %cgltf_json_strcmp.exit102
 
@@ -60772,7 +60772,7 @@ cgltf_json_to_int.exit:                           ; preds = %46, %51
 
 cgltf_json_strcmp.exit102:                        ; preds = %cgltf_json_strcmp.exit
   %62 = getelementptr inbounds i8, ptr %3, i64 %41
-  %63 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(9) @.str.141, i64 noundef 8) #50
+  %63 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %62, ptr noundef nonnull dereferenceable(9) @.str.141, i64 noundef 8) #50
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %cgltf_json_strcmp.exit105.thread
 
@@ -60822,7 +60822,7 @@ cgltf_json_strcmp.exit102:                        ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit105:                        ; preds = %37
   %87 = getelementptr inbounds i8, ptr %3, i64 %41
-  %88 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %88 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %87, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %cgltf_json_strcmp.exit105.thread
 
@@ -61158,7 +61158,7 @@ cgltf_skip_json.exit129.thread:                   ; preds = %140, %cgltf_skip_js
 
 cgltf_json_strcmp.exit:                           ; preds = %40
   %46 = getelementptr inbounds i8, ptr %2, i64 %44
-  %47 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(6) @.str.225, i64 noundef 5) #50
+  %47 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull dereferenceable(6) @.str.225, i64 noundef 5) #50
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %cgltf_json_strcmp.exit100
 
@@ -61197,7 +61197,7 @@ cgltf_json_to_int.exit:                           ; preds = %49, %54
 
 cgltf_json_strcmp.exit93:                         ; preds = %40
   %68 = getelementptr inbounds i8, ptr %2, i64 %44
-  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(9) @.str.226, i64 noundef 8) #50
+  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(9) @.str.226, i64 noundef 8) #50
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %cgltf_json_strcmp.exit106
 
@@ -61233,7 +61233,7 @@ cgltf_json_to_int.exit97:                         ; preds = %71, %76
 
 cgltf_json_strcmp.exit100:                        ; preds = %cgltf_json_strcmp.exit
   %87 = getelementptr inbounds i8, ptr %2, i64 %44
-  %88 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %88 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %87, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %cgltf_json_strcmp.exit113.thread
 
@@ -61270,7 +61270,7 @@ cgltf_json_to_float.exit:                         ; preds = %90, %95
 
 cgltf_json_strcmp.exit106:                        ; preds = %cgltf_json_strcmp.exit93
   %107 = getelementptr inbounds i8, ptr %2, i64 %44
-  %108 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(9) @.str.228, i64 noundef 8) #50
+  %108 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull dereferenceable(9) @.str.228, i64 noundef 8) #50
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %cgltf_json_strcmp.exit113.thread
 
@@ -61307,7 +61307,7 @@ cgltf_json_to_float.exit110:                      ; preds = %110, %115
 
 cgltf_json_strcmp.exit113:                        ; preds = %40
   %127 = getelementptr inbounds i8, ptr %2, i64 %44
-  %128 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %127, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %128 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %127, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %cgltf_json_strcmp.exit113.thread
 
@@ -61357,7 +61357,7 @@ cgltf_json_strcmp.exit113:                        ; preds = %40
 
 cgltf_json_strcmp.exit116:                        ; preds = %149
   %156 = getelementptr inbounds i8, ptr %2, i64 %153
-  %157 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %156, ptr noundef nonnull readonly dereferenceable(22) @.str.229, i64 noundef 21) #50
+  %157 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %156, ptr noundef nonnull dereferenceable(22) @.str.229, i64 noundef 21) #50
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %cgltf_json_strcmp.exit116.thread
 
@@ -61406,7 +61406,7 @@ cgltf_json_strcmp.exit116:                        ; preds = %149
 
 cgltf_json_strcmp.exit.i:                         ; preds = %176
   %182 = getelementptr inbounds i8, ptr %2, i64 %180
-  %183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %182, ptr noundef nonnull readonly dereferenceable(7) @.str.230, i64 noundef 6) #50
+  %183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %182, ptr noundef nonnull dereferenceable(7) @.str.230, i64 noundef 6) #50
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %cgltf_json_strcmp.exit79.thread.i
 
@@ -61461,7 +61461,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
 
 cgltf_json_strcmp.exit56.i:                       ; preds = %176
   %207 = getelementptr inbounds i8, ptr %2, i64 %180
-  %208 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull readonly dereferenceable(9) @.str.231, i64 noundef 8) #50
+  %208 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull dereferenceable(9) @.str.231, i64 noundef 8) #50
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %cgltf_json_strcmp.exit79.i
 
@@ -61498,7 +61498,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %215, %210
 
 cgltf_json_strcmp.exit61.i:                       ; preds = %176
   %227 = getelementptr inbounds i8, ptr %2, i64 %180
-  %228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %227, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %227, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %230, label %cgltf_json_strcmp.exit79.thread.i
 
@@ -61552,7 +61552,7 @@ cgltf_json_to_float.exit.i71.i:                   ; preds = %.lr.ph.i67.i
   br i1 %exitcond.not.i75.i, label %cgltf_parse_json_float_array.exit.loopexit115.i, label %.lr.ph.i67.i
 
 cgltf_json_strcmp.exit79.i:                       ; preds = %cgltf_json_strcmp.exit56.i
-  %252 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull readonly dereferenceable(9) @.str.226, i64 noundef 8) #50
+  %252 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull dereferenceable(9) @.str.226, i64 noundef 8) #50
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %cgltf_json_strcmp.exit79.thread.i
 
@@ -61785,7 +61785,7 @@ define internal fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %0, 
 
 cgltf_json_strcmp.exit:                           ; preds = %25
   %31 = getelementptr inbounds i8, ptr %2, i64 %29
-  %32 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(19) @.str.263, i64 noundef 18) #50
+  %32 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull dereferenceable(19) @.str.263, i64 noundef 18) #50
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %cgltf_json_strcmp.exit50
 
@@ -61822,7 +61822,7 @@ cgltf_json_to_float.exit:                         ; preds = %34, %39
 
 cgltf_json_strcmp.exit50:                         ; preds = %cgltf_json_strcmp.exit
   %51 = getelementptr inbounds i8, ptr %2, i64 %29
-  %52 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(19) @.str.264, i64 noundef 18) #50
+  %52 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull dereferenceable(19) @.str.264, i64 noundef 18) #50
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %cgltf_json_strcmp.exit57.thread
 
@@ -61859,7 +61859,7 @@ cgltf_json_to_float.exit54:                       ; preds = %54, %59
 
 cgltf_json_strcmp.exit57:                         ; preds = %25
   %71 = getelementptr inbounds i8, ptr %2, i64 %29
-  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(18) @.str.265, i64 noundef 17) #50
+  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %71, ptr noundef nonnull dereferenceable(18) @.str.265, i64 noundef 17) #50
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %cgltf_json_strcmp.exit57.thread
 
@@ -62135,7 +62135,7 @@ _m3dstbi__mul2sizes_valid.exit12.i.i:             ; preds = %24
 _m3dstbi__mad3sizes_valid.exit.i:                 ; preds = %_m3dstbi__mul2sizes_valid.exit12.i.i, %24
   %27 = mul nsw i32 %22, %10
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #55
+  %29 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %28) #55
   br label %_m3dstbi__malloc_mad3.exit
 
 _m3dstbi__malloc_mad3.exit:                       ; preds = %17, %_m3dstbi__mul2sizes_valid.exit.i.i, %_m3dstbi__mul2sizes_valid.exit.thread15.i.i, %_m3dstbi__mul2sizes_valid.exit12.i.i, %_m3dstbi__mad3sizes_valid.exit.i
@@ -62424,7 +62424,7 @@ _m3dstbi__mul2sizes_valid.exit.i.i:               ; preds = %12
 _m3dstbi__malloc_mad2.exit:                       ; preds = %12, %_m3dstbi__mul2sizes_valid.exit.i.i
   %15 = mul nsw i32 %8, %2
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #55
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %16) #55
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_m3dstbi__malloc_mad2.exit.thread, label %19
 
@@ -62566,7 +62566,7 @@ _m3dstbi__malloc_mad3.exit.thread:                ; preds = %_m3dstbi__mul2sizes
 _m3dstbi__malloc_mad3.exit:                       ; preds = %24, %_m3dstbi__mul2sizes_valid.exit12.i.i
   %28 = mul nsw i32 %16, %22
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #55
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %29) #55
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   %.not = icmp eq ptr %30, null

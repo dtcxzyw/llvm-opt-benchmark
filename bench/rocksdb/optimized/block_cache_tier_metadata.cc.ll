@@ -170,7 +170,7 @@ if.end.i:                                         ; preds = %for.cond.i.i
 if.then:                                          ; preds = %if.end.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i15, i64 16
   store ptr %t, ptr %_M_storage.i.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i15, ptr noundef nonnull %arrayidx.i.i) #13
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i) #13
   %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %9 = load i64, ptr %_M_size.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %9, 1
@@ -282,7 +282,7 @@ invoke.cont:                                      ; preds = %entry
 while.body.i.i.i.i:                               ; preds = %invoke.cont, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i ], [ %1, %invoke.cont ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #15
   %cmp.not.i.i.i.i = icmp eq ptr %2, %block_infos_.i
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb14BlockCacheFileD2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !6
 
@@ -399,7 +399,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #15
   %cmp.not.i.i.i = icmp eq ptr %1, %block_infos_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
@@ -439,7 +439,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvPN7rocksdb14BlockCacheFileEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb14BlockCacheFileEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -460,7 +460,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvPN7rocksdb14BlockCacheFileEEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb14BlockCacheFileEEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -592,7 +592,7 @@ if.end.i:                                         ; preds = %invoke.cont18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   store ptr %call12, ptr %__args.addr.i, align 8
   %17 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %fn, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit unwind label %lpad
 
 _ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit: ; preds = %if.end.i
@@ -796,7 +796,7 @@ for.end.i:                                        ; preds = %for.end.i.loopexit,
 while.body.i.i.i:                                 ; preds = %for.end.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %23, %while.body.i.i.i ], [ %22, %for.end.i ]
   %23 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #15
   %cmp.not.i.i.i = icmp eq ptr %23, %arrayidx.i9.i
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !8
 
@@ -858,7 +858,7 @@ for.body9.i:                                      ; preds = %for.body.i6, %"_ZZN
   br i1 %isnull.i.i27, label %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit", label %delete.notnull.i.i28
 
 delete.notnull.i.i28:                             ; preds = %for.body9.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %33) #13
   tail call void @_ZdlPv(ptr noundef nonnull %33) #15
   br label %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit"
 
@@ -883,7 +883,7 @@ for.end.i18:                                      ; preds = %for.end.i18.loopexi
 while.body.i.i.i20:                               ; preds = %for.end.i18, %while.body.i.i.i20
   %__cur.05.i.i.i21 = phi ptr [ %36, %while.body.i.i.i20 ], [ %34, %for.end.i18 ]
   %36 = load ptr, ptr %__cur.05.i.i.i21, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i21) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i21) #15
   %cmp.not.i.i.i22 = icmp eq ptr %36, %arrayidx.i7.i
   br i1 %cmp.not.i.i.i22, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i, label %while.body.i.i.i20, !llvm.loop !6
 
@@ -920,7 +920,7 @@ entry:
   %binfo = alloca %"class.std::unique_ptr.37", align 8
   %ref.tmp = alloca ptr, align 8
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
-  invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %call, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
+  invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 dereferenceable(44) %call, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -948,7 +948,7 @@ lpad3:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 _ZNKSt14default_deleteIN7rocksdb9BlockInfoEEclEPS1_.exit.i: ; preds = %invoke.cont4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %call) #13
   call void @_ZdlPv(ptr noundef nonnull %call) #15
   br label %_ZNSt10unique_ptrIN7rocksdb9BlockInfoESt14default_deleteIS1_EED2Ev.exit
 
@@ -1042,7 +1042,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN7rocksdb9BlockInfoEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN7rocksdb9BlockInfoEEclEPS1_.exit: ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   br label %if.end
 
@@ -1058,7 +1058,7 @@ entry:
   %block = alloca ptr, align 8
   %rlock = alloca ptr, align 8
   %ref.tmp2 = alloca ptr, align 8
-  call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %lookup_key, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
+  call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 dereferenceable(44) %lookup_key, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
   %lba_.i = getelementptr inbounds i8, ptr %lookup_key, i64 32
   store i32 0, ptr %lba_.i, align 8
   %ref.tmp.sroa.2.0.lba_.i.sroa_idx = getelementptr inbounds i8, ptr %lookup_key, i64 36
@@ -1077,7 +1077,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lookup_key) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %lookup_key) #13
   resume { ptr, i32 } %0
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1103,7 +1103,7 @@ terminate.lpad.i:                                 ; preds = %if.end5
   unreachable
 
 cleanup:                                          ; preds = %if.end5, %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lookup_key) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %lookup_key) #13
   ret i1 %call
 }
 
@@ -1164,7 +1164,7 @@ entry:
   %lookup_key = alloca %"struct.rocksdb::BlockInfo", align 8
   %binfo = alloca ptr, align 8
   %ref.tmp2 = alloca ptr, align 8
-  call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %lookup_key, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
+  call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 dereferenceable(44) %lookup_key, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
   %lba_.i = getelementptr inbounds i8, ptr %lookup_key, i64 32
   store i32 0, ptr %lba_.i, align 8
   %ref.tmp.sroa.2.0.lba_.i.sroa_idx = getelementptr inbounds i8, ptr %lookup_key, i64 36
@@ -1179,13 +1179,13 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %binfo, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lookup_key) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %lookup_key) #13
   ret ptr %0
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lookup_key) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %lookup_key) #13
   resume { ptr, i32 } %1
 }
 
@@ -1282,7 +1282,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %isnull, label %for.inc, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %1) #13
   call void @_ZdlPv(ptr noundef nonnull %1) #15
   br label %for.inc
 
@@ -1303,7 +1303,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %3, %while.body.i.i ], [ %2, %for.end ]
   %3 = load ptr, ptr %__cur.05.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #15
   %cmp.not.i.i = icmp eq ptr %3, %block_infos_.i
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !6
 
@@ -1375,7 +1375,7 @@ arraydestroy.body.i.i6.i:                         ; preds = %_ZN7rocksdb9HashTab
 while.body.i.i.i.i.i.i.i:                         ; preds = %arraydestroy.body.i.i6.i, %while.body.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i = phi ptr [ %7, %while.body.i.i.i.i.i.i.i ], [ %6, %arraydestroy.body.i.i6.i ]
   %7 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i) #15
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, %arraydestroy.element.i.i8.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE6BucketD2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !6
 
@@ -1500,7 +1500,7 @@ arraydestroy.body.i.i6:                           ; preds = %_ZN7rocksdb9HashTab
 while.body.i.i.i.i.i.i:                           ; preds = %arraydestroy.body.i.i6, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %7, %while.body.i.i.i.i.i.i ], [ %6, %arraydestroy.body.i.i6 ]
   %7 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #15
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, %arraydestroy.element.i.i8
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE6BucketD2Ev.exit.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !6
 
@@ -1627,7 +1627,7 @@ arraydestroy.body.i.i6.i:                         ; preds = %_ZN7rocksdb9HashTab
 while.body.i.i.i.i.i.i.i:                         ; preds = %arraydestroy.body.i.i6.i, %while.body.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i = phi ptr [ %14, %while.body.i.i.i.i.i.i.i ], [ %13, %arraydestroy.body.i.i6.i ]
   %14 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i) #15
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %14, %arraydestroy.element.i.i8.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS3_19BlockCacheFileEqualEE6BucketD2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !8
 
@@ -1701,7 +1701,7 @@ arraydestroy.body.i.i6.i:                         ; preds = %_ZN7rocksdb9HashTab
 while.body.i.i.i.i.i.i.i:                         ; preds = %arraydestroy.body.i.i6.i, %while.body.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i = phi ptr [ %7, %while.body.i.i.i.i.i.i.i ], [ %6, %arraydestroy.body.i.i6.i ]
   %7 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i) #15
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, %arraydestroy.element.i.i8.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE6BucketD2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !6
 
@@ -1856,7 +1856,7 @@ arraydestroy.body.i.i6:                           ; preds = %_ZN7rocksdb9HashTab
 while.body.i.i.i.i.i.i:                           ; preds = %arraydestroy.body.i.i6, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %7, %while.body.i.i.i.i.i.i ], [ %6, %arraydestroy.body.i.i6 ]
   %7 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #15
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, %arraydestroy.element.i.i8
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS3_19BlockCacheFileEqualEE6BucketD2Ev.exit.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !8
 
@@ -1930,7 +1930,7 @@ arraydestroy.body.i.i6.i:                         ; preds = %_ZN7rocksdb9HashTab
 while.body.i.i.i.i.i.i.i:                         ; preds = %arraydestroy.body.i.i6.i, %while.body.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i = phi ptr [ %7, %while.body.i.i.i.i.i.i.i ], [ %6, %arraydestroy.body.i.i6.i ]
   %7 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i) #15
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, %arraydestroy.element.i.i8.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS3_19BlockCacheFileEqualEE6BucketD2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !8
 
@@ -2301,7 +2301,7 @@ if.end:                                           ; preds = %for.inc.i, %entry, 
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %t, align 8
   store ptr %2, ptr %_M_storage.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %bucket) #13
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %bucket) #13
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %bucket, i64 16
   %3 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %3, 1

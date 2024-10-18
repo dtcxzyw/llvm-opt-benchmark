@@ -795,7 +795,7 @@ if.then36:                                        ; preds = %if.end31.thread303,
   %127 = sub nuw nsw i64 16, %rem32298310
   %128 = getelementptr i8, ptr %pad.i, i64 %rem32298310
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, i8 0, i64 %127, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 %rem32298310, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 range(i64 1, 16) %rem32298310, i1 false)
   %in.val.i.i = load i64, ptr %pad.i, align 16
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %pad.i, i64 8
   %add.ptr3.val.i.i = load i64, ptr %add.ptr3.i.i, align 8
@@ -842,7 +842,7 @@ if.then36:                                        ; preds = %if.end31.thread303,
   %add.ptr3.i35.i = getelementptr inbounds i8, ptr %pad.i, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i.i74, ptr %add.ptr3.i35.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, i8 0, i64 %127, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 %rem32298310, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 range(i64 1, 16) %rem32298310, i1 false)
   %in.val.i36.i = load i64, ptr %pad.i, align 16
   %add.ptr3.val.i38.i = load i64, ptr %add.ptr3.i.i, align 8
   %call.i165 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %132, i64 %134, i64 %129, i64 %131) #5
@@ -891,7 +891,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %165 = sub nuw nsw i64 16, %rem32298301
   %166 = getelementptr i8, ptr %pad.i76, i64 %rem32298301
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %166, i8 0, i64 %165, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i76, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 %rem32298301, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i76, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 range(i64 1, 16) %rem32298301, i1 false)
   %in.val.i.i77 = load i64, ptr %pad.i76, align 16
   %add.ptr3.i.i78 = getelementptr inbounds i8, ptr %pad.i76, i64 8
   %add.ptr3.val.i.i79 = load i64, ptr %add.ptr3.i.i78, align 8

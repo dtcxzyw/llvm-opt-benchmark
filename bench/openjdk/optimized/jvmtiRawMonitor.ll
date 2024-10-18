@@ -162,7 +162,7 @@ _ZN20ThreadToNativeFromVMD2Ev.exit:               ; preds = %_ZN18SafepointMecha
 
 35:                                               ; preds = %31
   store i32 0, ptr %29, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMonitor13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMonitor13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %29)
   br label %_ZN13GrowableArrayIP15JvmtiRawMonitorED2Ev.exit.i
 
 _ZN13GrowableArrayIP15JvmtiRawMonitorED2Ev.exit.i: ; preds = %35, %31

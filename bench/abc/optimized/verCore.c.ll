@@ -263,7 +263,7 @@ Ver_ParseStart.exit:                              ; preds = %9, %10
 
 79:                                               ; preds = %58
   %80 = load ptr, ptr %50, align 8
-  %81 = tail call ptr @Ver_ParseGetName(ptr noundef %.0.i) #19
+  %81 = tail call ptr @Ver_ParseGetName(ptr noundef nonnull %.0.i) #19
   %82 = load ptr, ptr %57, align 8
   %83 = tail call ptr @Abc_DesFindModelByName(ptr noundef %82, ptr noundef %81) #19
   %.not.i.i28.i = icmp eq ptr %83, null
@@ -324,7 +324,7 @@ Ver_ParseFindOrCreateNetwork.exit.i.i:            ; preds = %84, %79
   br label %Ver_ParseInternal.exit
 
 .preheader174.i.i:                                ; preds = %Ver_ParseFindOrCreateNetwork.exit.i.i, %116
-  %114 = tail call ptr @Ver_ParseGetName(ptr noundef %.0.i) #19
+  %114 = tail call ptr @Ver_ParseGetName(ptr noundef nonnull %.0.i) #19
   %115 = icmp eq ptr %114, null
   br i1 %115, label %Ver_ParseInternal.exit, label %116
 
@@ -334,7 +334,7 @@ Ver_ParseFindOrCreateNetwork.exit.i.i:            ; preds = %84, %79
   br i1 %118, label %.preheader174.i.i, label %119, !llvm.loop !4
 
 119:                                              ; preds = %116
-  %120 = tail call i32 @Ver_ParseSkipComments(ptr noundef %.0.i) #19
+  %120 = tail call i32 @Ver_ParseSkipComments(ptr noundef nonnull %.0.i) #19
   %.not131.i.i = icmp eq i32 %120, 0
   br i1 %.not131.i.i, label %Ver_ParseInternal.exit, label %121
 
@@ -716,8 +716,8 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   br i1 %289, label %.critedge.i.i, label %Ver_ParseModule.exit.i, !llvm.loop !7
 
 Ver_ParseModule.exit.i:                           ; preds = %.critedge.i.i, %.critedge.preheader.i.i, %253, %242
-  tail call fastcc void @Ver_ParseRemoveSuffixTable(ptr noundef %.0.i)
-  %290 = tail call ptr @Ver_ParseGetName(ptr noundef %.0.i) #19
+  tail call fastcc void @Ver_ParseRemoveSuffixTable(ptr noundef nonnull %.0.i)
+  %290 = tail call ptr @Ver_ParseGetName(ptr noundef nonnull %.0.i) #19
   %291 = icmp eq ptr %290, null
   br i1 %291, label %._crit_edge.i, label %58
 
@@ -725,7 +725,7 @@ Ver_ParseModule.exit.i:                           ; preds = %.critedge.i.i, %.cr
   %292 = load ptr, ptr %54, align 8
   tail call void @Extra_ProgressBarStop(ptr noundef %292) #19
   store ptr null, ptr %54, align 8
-  %293 = tail call i32 @Ver_ParseConnectDefBoxes(ptr noundef %.0.i)
+  %293 = tail call i32 @Ver_ParseConnectDefBoxes(ptr noundef nonnull %.0.i)
   %294 = icmp samesign ult i32 %293, 2
   br i1 %294, label %Ver_ParseAttachBoxes.exit.i, label %295
 
@@ -967,12 +967,12 @@ Ver_ParseGetNondrivenBundle.exit.thread.i.i:      ; preds = %.critedge2.us.i.i.i
   br i1 %exitcond82.not.i.i, label %.outer.split.us.i.i, label %.outer.split.i.i, !llvm.loop !16
 
 .critedge.i37.i:                                  ; preds = %.critedge4.i.us.us.i.i.i
-  %380 = tail call i32 @Ver_ParseDriveFormal(ptr noundef %.0.i, ptr noundef %321, ptr noundef nonnull %337)
+  %380 = tail call i32 @Ver_ParseDriveFormal(ptr noundef nonnull %.0.i, ptr noundef %321, ptr noundef nonnull %337)
   %.not48.i.i = icmp eq i32 %380, 0
   br i1 %.not48.i.i, label %Ver_ParseInternal.exit, label %318, !llvm.loop !16
 
 .split.i.i:                                       ; preds = %318, %.outer.split.us.i.i
-  %381 = tail call i32 @Ver_ParseDriveInputs(ptr noundef %.0.i, ptr noundef %296)
+  %381 = tail call i32 @Ver_ParseDriveInputs(ptr noundef nonnull %.0.i, ptr noundef %296)
   %.not.i30.i = icmp eq i32 %381, 0
   br i1 %.not.i30.i, label %Ver_ParseInternal.exit, label %.preheader.i31.i
 

@@ -489,7 +489,7 @@ define hidden void @_ZN18CompilerDirectivesD2Ev(ptr nocapture noundef nonnull re
   %.06.i = phi ptr [ %7, %.lr.ph.i ], [ %5, %4 ]
   %6 = getelementptr inbounds i8, ptr %.06.i, i64 40
   %7 = load ptr, ptr %6, align 8
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i) #14
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #14
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
@@ -541,7 +541,7 @@ _ZN12DirectiveSetD2Ev.exit:                       ; preds = %14, %18
   %.06.i11 = phi ptr [ %29, %.lr.ph.i10 ], [ %27, %26 ]
   %28 = getelementptr inbounds i8, ptr %.06.i11, i64 40
   %29 = load ptr, ptr %28, align 8
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i11) #14
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i11) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i11) #14
   %.not.i12 = icmp eq ptr %29, null
   br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i10, !llvm.loop !9
@@ -588,7 +588,7 @@ _ZN12DirectiveSetD2Ev.exit14:                     ; preds = %36, %40
   %.016 = phi ptr [ %49, %.lr.ph ], [ %47, %45 ]
   %48 = getelementptr inbounds i8, ptr %.016, i64 32
   %49 = load ptr, ptr %48, align 8
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.016) #14
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.016) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.016) #14
   %.not8 = icmp eq ptr %49, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -622,7 +622,7 @@ define hidden void @_ZN18CompilerDirectives5printEP12outputStream(ptr nocapture 
 10:                                               ; preds = %9, %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5) #14
   %11 = load ptr, ptr %3, align 8
-  tail call void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %1) #14
+  tail call void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %1) #14
   %12 = load ptr, ptr %3, align 8
   %.0.in21 = getelementptr inbounds i8, ptr %12, i64 32
   %.022 = load ptr, ptr %.0.in21, align 8
@@ -632,7 +632,7 @@ define hidden void @_ZN18CompilerDirectives5printEP12outputStream(ptr nocapture 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.024 = phi ptr [ %.0, %.lr.ph ], [ %.022, %10 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6) #14
-  tail call void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %.024, ptr noundef nonnull %1) #14
+  tail call void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef nonnull align 8 dereferenceable(40) %.024, ptr noundef nonnull %1) #14
   %.0.in = getelementptr inbounds i8, ptr %.024, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
   %.not18 = icmp eq ptr %.0, null
@@ -1382,7 +1382,7 @@ define hidden void @_ZN12DirectiveSetD2Ev(ptr noundef nonnull align 8 dereferenc
   %.06 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
   %3 = getelementptr inbounds i8, ptr %.06, i64 40
   %4 = load ptr, ptr %3, align 8
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06) #14
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06) #14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -3732,7 +3732,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %.06.i = phi ptr [ %10, %.lr.ph.i ], [ %8, %7 ]
   %9 = getelementptr inbounds i8, ptr %.06.i, i64 40
   %10 = load ptr, ptr %9, align 8
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i) #14
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #14
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9

@@ -591,7 +591,7 @@ define void @_ZN11ShaderUtils17linkShaderProgramEj(i32 noundef %0) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8AlignSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %2, i8 0, i64 56, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = getelementptr inbounds i8, ptr %0, i64 92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 56, i1 false)
@@ -621,7 +621,7 @@ define void @_ZN8AlignSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   store float -1.000000e+00, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 188
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %15, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %15, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 244
   %17 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 56, i1 false)
@@ -1644,7 +1644,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
-  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %42, float noundef %46, float noundef %47)
+  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %42, float noundef %46, float noundef %47)
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
@@ -2264,7 +2264,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
-  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %19, float noundef %50, float noundef %51)
+  tail call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %19, float noundef %50, float noundef %51)
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPushMatrix()
   tail call void @glLoadIdentity()
@@ -2623,7 +2623,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %164, float noundef %194, float noundef %195)
+  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %164, float noundef %194, float noundef %195)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
@@ -2981,7 +2981,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %303, float noundef %333, float noundef %334)
+  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %303, float noundef %333, float noundef %334)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
@@ -3599,7 +3599,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
           to label %.noexc70 unwind label %.loopexit.split-lp
 
 .noexc70:                                         ; preds = %.noexc69
-  invoke void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %1, float noundef %56, float noundef %57)
+  invoke void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(132) %1, float noundef %56, float noundef %57)
           to label %.noexc71 unwind label %.loopexit.split-lp
 
 .noexc71:                                         ; preds = %.noexc70

@@ -68,7 +68,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval11FreeVarInfoC2EPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %c) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %c)
+  tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef %c)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i64 16), ptr %this, align 8
   %d_list.i = getelementptr inbounds i8, ptr %this, i64 40
   %d_callCleanup.i = getelementptr inbounds i8, ptr %this, i64 72

@@ -463,7 +463,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow20TensorShapeProto_Dim14_Intern
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
-  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %18, i32 noundef %10)
+  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %18, i32 noundef %10)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -1429,7 +1429,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow16TensorShapeProto14_InternalPa
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %16
-  %29 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %21, i32 noundef %13)
+  %29 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %21, i32 noundef %13)
   %30 = extractvalue { ptr, i8 } %29, 0
   %31 = extractvalue { ptr, i8 } %29, 1
   %32 = trunc i8 %31 to i1
@@ -1835,7 +1835,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow16TensorShapeProto12ByteSizeLo
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN17opencv_tensorflow20TensorShapeProto_DimEEEmRKT_.exit: ; preds = %32, %35
   %.1.i.i = phi i64 [ %42, %35 ], [ %.0.i.i, %32 ]
   %43 = getelementptr inbounds i8, ptr %9, i64 32
-  %44 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %.1.i.i, ptr noundef nonnull %43)
+  %44 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %9, i64 noundef %.1.i.i, ptr noundef nonnull %43)
   %45 = trunc i64 %44 to i32
   %46 = or i32 %45, 1
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)

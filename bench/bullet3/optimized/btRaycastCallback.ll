@@ -338,7 +338,7 @@ invoke.cont10:
   %m_triangleToWorld = getelementptr inbounds i8, ptr %this, i64 144
   %m_convexShape = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %convexShape, ptr %m_convexShape, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convexShapeFrom, ptr noundef nonnull align 4 dereferenceable(16) %convexShapeFrom, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_convexShapeFrom, ptr noundef nonnull align 4 dereferenceable(64) %convexShapeFrom, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %convexShapeFrom, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -348,7 +348,7 @@ invoke.cont10:
   %m_origin.i = getelementptr inbounds i8, ptr %convexShapeFrom, i64 48
   %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convexShapeTo, ptr noundef nonnull align 4 dereferenceable(16) %convexShapeTo, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_convexShapeTo, ptr noundef nonnull align 4 dereferenceable(64) %convexShapeTo, i64 16, i1 false)
   %arrayidx5.i.i1 = getelementptr inbounds i8, ptr %convexShapeTo, i64 16
   %arrayidx7.i.i2 = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i1, i64 16, i1 false)
@@ -358,7 +358,7 @@ invoke.cont10:
   %m_origin.i5 = getelementptr inbounds i8, ptr %convexShapeTo, i64 48
   %m_origin3.i6 = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i6, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i5, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_triangleToWorld, ptr noundef nonnull align 4 dereferenceable(16) %triangleToWorld, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_triangleToWorld, ptr noundef nonnull align 4 dereferenceable(64) %triangleToWorld, i64 16, i1 false)
   %arrayidx5.i.i7 = getelementptr inbounds i8, ptr %triangleToWorld, i64 16
   %arrayidx7.i.i8 = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i7, i64 16, i1 false)
@@ -392,7 +392,7 @@ invoke.cont4:
   %castResult = alloca %"struct.btConvexCast::CastResult", align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %triangle, i64 16
   %arrayidx3 = getelementptr inbounds i8, ptr %triangle, i64 32
-  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangleShape)
+  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %triangleShape)
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangleShape, align 8
   %m_vertices1.ptr.i = getelementptr inbounds i8, ptr %triangleShape, i64 80
   %m_shapeType.i = getelementptr inbounds i8, ptr %triangleShape, i64 8
@@ -483,17 +483,17 @@ lpad6:                                            ; preds = %invoke.cont4
 lpad12:                                           ; preds = %invoke.cont21, %invoke.cont9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %convexCaster) #14
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster) #14
   br label %ehcleanup30
 
 if.end28:                                         ; preds = %if.then, %invoke.cont21, %if.then16, %invoke.cont13
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %convexCaster) #14
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangleShape) #14
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster) #14
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %triangleShape) #14
   ret void
 
 ehcleanup30:                                      ; preds = %lpad6, %lpad12
   %.pn.pn.pn = phi { ptr, i32 } [ %12, %lpad12 ], [ %11, %lpad6 ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangleShape) #14
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %triangleShape) #14
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -563,7 +563,7 @@ declare void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btTriangleShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #14
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #14
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN15btTriangleShapedlEPv.exit unwind label %terminate.lpad.i
 

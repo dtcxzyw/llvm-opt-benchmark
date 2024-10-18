@@ -4521,7 +4521,7 @@ for.cond15.preheader.i:                           ; preds = %if.end293
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
   %conv17.i = and i32 %i249.0.in193, 65535
   %56 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 dereferenceable(30) %doubleValue, i64 %56, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end293
@@ -5904,7 +5904,7 @@ for.cond15.preheader.i:                           ; preds = %if.end293
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
   %conv17.i = and i32 %i249.0.in222, 65535
   %46 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 dereferenceable(30) %doubleValue, i64 %46, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end293
@@ -7252,7 +7252,7 @@ for.cond15.preheader.i:                           ; preds = %if.end278
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
   %conv17.i = and i32 %i234.0.in214, 65535
   %40 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 dereferenceable(30) %doubleValue, i64 %40, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end278

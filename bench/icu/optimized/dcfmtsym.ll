@@ -899,7 +899,7 @@ for.body.i.preheader:                             ; preds = %if.end110, %invoke.
   br label %for.body.i
 
 if.then78:                                        ; preds = %invoke.cont75
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path)
           to label %invoke.cont80 unwind label %lpad79.loopexit.split-lp
 
 invoke.cont80:                                    ; preds = %if.then78
@@ -974,7 +974,7 @@ lpad79.loopexit.split-lp:                         ; preds = %if.then115, %if.the
 lpad81:                                           ; preds = %invoke.cont94, %invoke.cont88, %invoke.cont82, %invoke.cont95, %invoke.cont91, %invoke.cont89, %invoke.cont85, %invoke.cont83, %invoke.cont80
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #16
   br label %ehcleanup188
 
 if.else104:                                       ; preds = %invoke.cont101
@@ -982,11 +982,11 @@ if.else104:                                       ; preds = %invoke.cont101
   br i1 %cmp.i72, label %if.end110, label %cleanup
 
 if.end110:                                        ; preds = %if.else104, %if.then103
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #16
   br label %for.body.i.preheader
 
 cleanup:                                          ; preds = %if.else104
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #16
   br label %cleanup187
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1185,7 +1185,7 @@ eh.resume.i:                                      ; preds = %lpad11.i, %lpad.i
 invoke.cont177:                                   ; preds = %invoke.cont12.i, %invoke.cont176
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp8.i)
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencySink) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(18) %currencySink) #16
   %cmp.not.i = icmp eq ptr %call169, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i101
 
@@ -1221,12 +1221,12 @@ lpad173.loopexit.split-lp.loopexit.split-lp:      ; preds = %invoke.cont170
 
 lpad173.body:                                     ; preds = %lpad173.loopexit, %lpad173.loopexit.split-lp.loopexit.split-lp, %lpad173.loopexit.split-lp.loopexit, %eh.resume.i
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %lpad.loopexit, %lpad173.loopexit ], [ %lpad.loopexit127, %lpad173.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %lpad173.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencySink) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(18) %currencySink) #16
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencyResource) #16
   br label %ehcleanup186
 
 cleanup187:                                       ; preds = %invoke.cont118, %cleanup, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %sink) #16
   br label %cleanup189
 
 cleanup189:                                       ; preds = %if.then55, %if.then57, %cleanup187
@@ -1280,7 +1280,7 @@ ehcleanup186:                                     ; preds = %lpad173.body, %lpad
 
 ehcleanup188:                                     ; preds = %lpad79.loopexit, %lpad79.loopexit.split-lp, %ehcleanup186, %lpad81
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup186 ], [ %26, %lpad81 ], [ %lpad.loopexit130, %lpad79.loopexit ], [ %lpad.loopexit.split-lp, %lpad79.loopexit.split-lp ]
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %sink) #16
   br label %ehcleanup190
 
 ehcleanup190:                                     ; preds = %ehcleanup188, %lpad51
@@ -2976,7 +2976,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -3203,7 +3203,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_119CurrencySpacingSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(18) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(18) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
   ret void
 }

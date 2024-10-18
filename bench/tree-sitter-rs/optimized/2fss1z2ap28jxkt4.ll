@@ -392,7 +392,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %10, 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h8b76fb0442ab3542E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e17db0bde2b09c2a5a4cfd1e957e427e.18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e17db0bde2b09c2a5a4cfd1e957e427e.18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 
@@ -659,7 +659,7 @@ define hidden void @_ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef47
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hb781c818bd00aba3E.exit"
 
 8:                                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hd2940a7f0f399b71E.exit"
-  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h0ace9602c4e9105eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1)
+  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h0ace9602c4e9105eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = tail call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2450e8d63b9eda23E.llvm.7642019239991580563"(i64 noundef %10, i64 %11)
@@ -697,7 +697,7 @@ define hidden void @_ZN16tree_sitter_tags5c_lib16shrink_and_clear17he04b91259f54
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h3e7edf6af9e77a80E.exit"
 
 8:                                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17heb88c32d0191cb65E.exit"
-  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h3dd427e263ac922eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1)
+  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h3dd427e263ac922eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = tail call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2450e8d63b9eda23E.llvm.7642019239991580563"(i64 noundef %10, i64 %11)

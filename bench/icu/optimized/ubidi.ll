@@ -5610,7 +5610,7 @@ if.end29.i:                                       ; preds = %if.then16.i, %land.
   %arrayidx36.i = getelementptr inbounds i8, ptr %23, i64 %idxprom2
   store i8 %newProp.0.i, ptr %arrayidx36.i, align 1
   %24 = load i32, ptr %arrayidx2.i, align 4
-  tail call fastcc void @_ZL6fixN0cP11BracketDataiih(ptr noundef %bd, i32 noundef %13, i32 noundef %24, i8 noundef zeroext %newProp.0.i)
+  tail call fastcc void @_ZL6fixN0cP11BracketDataiih(ptr noundef nonnull %bd, i32 noundef range(i32 0, 65535) %13, i32 noundef %24, i8 noundef zeroext %newProp.0.i)
   br i1 %stable.0.shrunk.i, label %if.then39.i, label %if.else56.i
 
 if.then39.i:                                      ; preds = %if.end29.i

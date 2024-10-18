@@ -574,7 +574,7 @@ dissect_spdy_flags.exit:                          ; preds = %dissect_spdy_flags.
 104:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.136, i32 noundef %.097, i32 noundef %93) #7
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.136, i32 noundef range(i32 0, -2147483648) %.097, i32 noundef %93) #7
   %105 = load i32, ptr @hf_spdy_data, align 4
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %105, ptr noundef %0, i32 noundef 8, i32 noundef %93, i32 noundef 0) #7
   %107 = getelementptr i8, ptr %.0.i, i64 24
@@ -583,7 +583,7 @@ dissect_spdy_flags.exit:                          ; preds = %dissect_spdy_flags.
   br i1 %108, label %spdy_get_num_data_frames.exit.i, label %spdy_get_stream_info.exit.i.i
 
 spdy_get_stream_info.exit.i.i:                    ; preds = %104
-  %109 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val.i, i32 noundef %.097) #7
+  %109 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val.i, i32 noundef range(i32 0, -2147483648) %.097) #7
   %110 = icmp eq ptr %109, null
   br i1 %110, label %spdy_get_num_data_frames.exit.i, label %111
 
@@ -633,7 +633,7 @@ spdy_get_num_data_frames.exit.i:                  ; preds = %111, %spdy_get_stre
   br i1 %138, label %spdy_add_data_chunk.exit.i, label %spdy_get_stream_info.exit.i156.i
 
 spdy_get_stream_info.exit.i156.i:                 ; preds = %132
-  %139 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val153.i, i32 noundef %.097) #7
+  %139 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val153.i, i32 noundef range(i32 0, -2147483648) %.097) #7
   %.not.i.i = icmp eq ptr %139, null
   br i1 %.not.i.i, label %spdy_add_data_chunk.exit.i, label %140
 
@@ -660,7 +660,7 @@ spdy_get_stream_info.exit.i156.i:                 ; preds = %132
   br i1 %151, label %spdy_add_data_chunk.exit.i, label %spdy_get_stream_info.exit.i157.i
 
 spdy_get_stream_info.exit.i157.i:                 ; preds = %150
-  %152 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val154.i, i32 noundef %.097) #7
+  %152 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val154.i, i32 noundef range(i32 0, -2147483648) %.097) #7
   %.not.i158.i = icmp eq ptr %152, null
   br i1 %.not.i158.i, label %spdy_add_data_chunk.exit.i, label %153
 
@@ -695,7 +695,7 @@ spdy_add_data_chunk.exit.i:                       ; preds = %157, %153, %spdy_ge
   br i1 %162, label %dissect_spdy_data_payload.exit, label %spdy_get_stream_info.exit.i159.i
 
 spdy_get_stream_info.exit.i159.i:                 ; preds = %161
-  %163 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val155.i, i32 noundef %.097) #7
+  %163 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val155.i, i32 noundef range(i32 0, -2147483648) %.097) #7
   %164 = icmp eq ptr %163, null
   br i1 %164, label %dissect_spdy_data_payload.exit, label %165
 
@@ -1145,7 +1145,7 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
   %.0178.i = load ptr, ptr %.0178.in.i, align 8
   %374 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %375 = load i64, ptr %374, align 8
-  %376 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0166.i115, i32 noundef %338) #7
+  %376 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 12, 19) %.0166.i115, i32 noundef %338) #7
   %377 = getelementptr inbounds i8, ptr %1, i64 408
   %378 = load ptr, ptr %377, align 8
   %379 = tail call noalias ptr @wmem_alloc(ptr noundef %378, i64 noundef 16384) #7
@@ -1499,7 +1499,7 @@ spdy_save_stream_info.exit.i:                     ; preds = %529, %spdy_parse_co
   %541 = getelementptr inbounds i8, ptr %533, i64 40
   store ptr null, ptr %541, align 8
   %542 = load ptr, ptr %526, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %542, i32 noundef %314, ptr noundef nonnull %533) #7
+  tail call void @wmem_tree_insert32(ptr noundef %542, i32 noundef range(i32 0, -2147483648) %314, ptr noundef nonnull %533) #7
   %.pre = load i32, ptr %94, align 4
   %.pre151 = add i32 %.pre, 8
   br label %dissect_spdy_header_payload.exit

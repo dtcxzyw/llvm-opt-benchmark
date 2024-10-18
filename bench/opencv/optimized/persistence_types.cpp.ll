@@ -1191,11 +1191,11 @@ _ZNSt6vectorIPKN2cv9SparseMat4NodeESaIS4_EEC2EmRKS5_.exit: ; preds = %_ZN2cvlsER
   %122 = phi i64 [ 1, %.noexc97 ], [ %114, %_ZSt6fill_nIPPKN2cv9SparseMat4NodeEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ 0, %_ZNSt6vectorIPKN2cv9SparseMat4NodeESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit95 ]
   %.sroa.0116.0 = phi ptr [ %117, %.noexc97 ], [ %117, %_ZSt6fill_nIPPKN2cv9SparseMat4NodeEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPKN2cv9SparseMat4NodeESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ], [ null, %_ZN2cvlsERNS_11FileStorageEPKc.exit95 ]
   %.0.i.i.i.i.i = phi ptr [ %118, %.noexc97 ], [ %120, %_ZSt6fill_nIPPKN2cv9SparseMat4NodeEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPKN2cv9SparseMat4NodeESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ], [ null, %_ZN2cvlsERNS_11FileStorageEPKc.exit95 ]
-  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull %2)
+  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNK2cv9SparseMat5beginEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNK2cv9SparseMat5beginEv.exit:                   ; preds = %_ZNSt6vectorIPKN2cv9SparseMat4NodeESaIS4_EEC2EmRKS5_.exit
-  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull %2)
+  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc99:                                         ; preds = %_ZNK2cv9SparseMat5beginEv.exit
@@ -2428,7 +2428,7 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_8KeyPointERKS3_(ptr noundef nonnull 
   call void @_ZNK2cv8FileNode5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNodeIterator") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
-  call void @_ZN2cv4readERKNS_8FileNodeERff(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %1, float noundef 0.000000e+00)
+  call void @_ZN2cv4readERKNS_8FileNodeERff(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(28) %1, float noundef 0.000000e+00)
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %16 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2496,7 +2496,7 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_6DMatchERKS3_(ptr noundef nonnull al
   call void @_ZNK2cv8FileNode5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNodeIterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
-  call void @_ZN2cv4readERKNS_8FileNodeERii(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef 0)
+  call void @_ZN2cv4readERKNS_8FileNodeERii(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef 0)
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %13 = getelementptr inbounds i8, ptr %1, i64 4

@@ -285,7 +285,7 @@ getFile.exit:                                     ; preds = %58
   br i1 %or.cond.i, label %nameOf.exit, label %94
 
 94:                                               ; preds = %.preheader
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr nonnull poison, ptr noundef nonnull %91, i32 noundef %.1)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, ptr noundef nonnull %91, i32 noundef %.1)
   %.val.i.i.i.i = load i8, ptr %51, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   br i1 %.not.i.i.i.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.i.i.thread
@@ -665,7 +665,7 @@ get_xml_attr.exit.thread:                         ; preds = %33, %get_xml_attr.e
 .lr.ph.i68:                                       ; preds = %get_xml_attr.exit.thread, %43
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %43 ], [ 0, %get_xml_attr.exit.thread ]
   %40 = phi ptr [ %45, %43 ], [ %18, %get_xml_attr.exit.thread ]
-  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.19, ptr noundef nonnull dereferenceable(1) %40) #22
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.19, ptr noundef nonnull dereferenceable(1) %40) #22
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %get_xml_attr.exit73, label %43
 
@@ -883,7 +883,7 @@ pushString.exit84:                                ; preds = %121
 .lr.ph.i86:                                       ; preds = %133, %138
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %138 ], [ 0, %133 ]
   %135 = phi ptr [ %140, %138 ], [ %134, %133 ]
-  %136 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.27, ptr noundef nonnull dereferenceable(1) %135) #22
+  %136 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.27, ptr noundef nonnull dereferenceable(1) %135) #22
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %get_xml_attr.exit91, label %138
 
@@ -908,7 +908,7 @@ get_xml_attr.exit91.thread:                       ; preds = %138, %get_xml_attr.
 .lr.ph.i93:                                       ; preds = %get_xml_attr.exit91.thread, %148
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %148 ], [ 0, %get_xml_attr.exit91.thread ]
   %145 = phi ptr [ %150, %148 ], [ %134, %get_xml_attr.exit91.thread ]
-  %146 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %145) #22
+  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %145) #22
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %get_xml_attr.exit98, label %148
 
@@ -1323,7 +1323,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

@@ -1011,7 +1011,7 @@ define internal noundef i32 @dissect_btavrcp(ptr noundef %0, ptr noundef %1, ptr
   %144 = add nuw nsw i32 %.0.i, 10
   %145 = load i32, ptr @hf_btavrcp_attribute_list, align 4
   %146 = shl nuw nsw i32 %143, 2
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef %146, i32 noundef 0) #4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %145, ptr noundef %0, i32 noundef range(i32 9, 20) %144, i32 noundef %146, i32 noundef 0) #4
   %148 = load i32, ptr @ett_btavrcp_attribute_list, align 4
   %149 = tail call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148) #4
   %.not.i.i = icmp eq i8 %142, 0
@@ -1700,7 +1700,7 @@ dissect_item_media_element.exit.i:                ; preds = %639, %604, %602, %5
   %689 = add nuw nsw i32 %.0.i, 12
   %690 = load i32, ptr @hf_btavrcp_attribute_list, align 4
   %691 = shl nuw nsw i32 %686, 2
-  %692 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %690, ptr noundef %0, i32 noundef %689, i32 noundef %691, i32 noundef 0) #4
+  %692 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %690, ptr noundef %0, i32 noundef range(i32 9, 20) %689, i32 noundef %691, i32 noundef 0) #4
   %693 = load i32, ptr @ett_btavrcp_attribute_list, align 4
   %694 = tail call ptr @proto_item_add_subtree(ptr noundef %692, i32 noundef %693) #4
   %.not.i267.i = icmp eq i8 %685, 0

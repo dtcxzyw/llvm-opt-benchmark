@@ -208,7 +208,7 @@ define dso_local void @_ZN4llvm11compression10decompressENS_20DebugCompressionTy
   br i1 %switch.i, label %24, label %10
 
 10:                                               ; preds = %6
-  %11 = call i32 @uncompress(ptr noundef %4, ptr noundef nonnull %9, ptr noundef %2, i64 noundef %3) #7, !noalias !4
+  %11 = call i32 @uncompress(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %2, i64 noundef %3) #7, !noalias !4
   switch i32 %11, label %15 [
     i32 0, label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit
     i32 -4, label %16
@@ -425,7 +425,7 @@ define dso_local void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEERN
 _ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit: ; preds = %5, %.sink.split.i.i
   %19 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %20 = call i32 @uncompress(ptr noundef %19, ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2) #7, !noalias !36
+  %20 = call i32 @uncompress(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %2) #7, !noalias !36
   switch i32 %20, label %24 [
     i32 0, label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit
     i32 -4, label %25

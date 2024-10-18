@@ -788,7 +788,7 @@ remove_option.exit.i.i:                           ; preds = %191, %192, %175
   br label %remove_option.exit.i67.i
 
 remove_option.exit.i67.i:                         ; preds = %228, %229, %213
-  %234 = call fastcc i32 @add_option(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %210, i64 noundef %214)
+  %234 = call fastcc i32 @add_option(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %210, i64 noundef %214)
   %.not.i68.i = icmp eq i32 %234, 0
   br i1 %.not.i68.i, label %208, label %.loopexit.i
 

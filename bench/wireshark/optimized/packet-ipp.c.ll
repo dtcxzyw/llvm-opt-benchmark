@@ -1574,7 +1574,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
   %588 = call ptr @wmem_packet_scope() #8
   %589 = add i32 %.0125209.i, 5
   %590 = add i32 %589, %167
-  %591 = call ptr @tvb_bytes_to_str(ptr noundef %588, ptr noundef %0, i32 noundef %590, i32 noundef %175) #8
+  %591 = call ptr @tvb_bytes_to_str(ptr noundef %588, ptr noundef %0, i32 noundef %590, i32 noundef range(i32 0, 65536) %175) #8
   br label %592
 
 592:                                              ; preds = %587, %._crit_edge.i.i
@@ -1619,7 +1619,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 604:                                              ; preds = %595
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
   %605 = load i32, ptr @hf_ipp_name, align 4
-  %606 = call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %605, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef %167, i32 noundef 0) #8
+  %606 = call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %605, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef range(i32 0, 65536) %167, i32 noundef 0) #8
   br label %607
 
 607:                                              ; preds = %604, %.thread187.i
@@ -1637,7 +1637,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 609:                                              ; preds = %607
   %610 = load i32, ptr @hf_ipp_octetstring_value, align 4
-  %611 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %610, ptr noundef %0, i32 noundef %608, i32 noundef %175, i32 noundef 0) #8
+  %611 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %610, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_octetstring_value.exit.i
 
 612:                                              ; preds = %607
@@ -1684,7 +1684,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 649:                                              ; preds = %612
   %650 = load i32, ptr @hf_ipp_datetime_value, align 4
-  %651 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %650, ptr noundef %0, i32 noundef %608, i32 noundef %175, i32 noundef 0) #8
+  %651 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %650, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_octetstring_value.exit.i
 
 652:                                              ; preds = %607
@@ -1707,7 +1707,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 666:                                              ; preds = %652
   %667 = load i32, ptr @hf_ipp_resolution_value, align 4
-  %668 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %667, ptr noundef %0, i32 noundef %608, i32 noundef %175, i32 noundef 0) #8
+  %668 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %667, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_octetstring_value.exit.i
 
 669:                                              ; preds = %607
@@ -1724,7 +1724,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 677:                                              ; preds = %669
   %678 = load i32, ptr @hf_ipp_rangeofinteger_value, align 4
-  %679 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %678, ptr noundef %0, i32 noundef %608, i32 noundef %175, i32 noundef 0) #8
+  %679 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %678, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_octetstring_value.exit.i
 
 680:                                              ; preds = %607, %607
@@ -1762,7 +1762,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
   %704 = call ptr @tvb_format_text(ptr noundef %699, ptr noundef %0, i32 noundef %703, i32 noundef %690) #8
   %705 = call ptr @wmem_packet_scope() #8
   %706 = call ptr @tvb_format_text(ptr noundef %705, ptr noundef %0, i32 noundef %701, i32 noundef %684) #8
-  %707 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.6186190.i, i32 noundef %698, ptr noundef %0, i32 noundef %608, i32 noundef %175, ptr noundef null, ptr noundef nonnull @.str.362, ptr noundef %153, ptr noundef %704, ptr noundef %706) #8
+  %707 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.6186190.i, i32 noundef %698, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, ptr noundef null, ptr noundef nonnull @.str.362, ptr noundef %153, ptr noundef %704, ptr noundef %706) #8
   br label %add_octetstring_value.exit.i
 
 708:                                              ; preds = %688, %682, %680
@@ -1771,12 +1771,12 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 710:                                              ; preds = %708
   %711 = load i32, ptr @hf_ipp_namewithlanguage_value, align 4
-  %712 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %711, ptr noundef %0, i32 noundef %608, i32 noundef %175, i32 noundef 0) #8
+  %712 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %711, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_octetstring_value.exit.i
 
 713:                                              ; preds = %708
   %714 = load i32, ptr @hf_ipp_textwithlanguage_value, align 4
-  %715 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %714, ptr noundef %0, i32 noundef %608, i32 noundef %175, i32 noundef 0) #8
+  %715 = call ptr @proto_tree_add_item(ptr noundef %.6186190.i, i32 noundef %714, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_octetstring_value.exit.i
 
 716:                                              ; preds = %607
@@ -1789,7 +1789,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 722:                                              ; preds = %607
   %723 = load i32, ptr @hf_ipp_octetstring_value, align 4
-  %724 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.6186190.i, i32 noundef %723, ptr noundef %0, i32 noundef %608, i32 noundef %175, ptr noundef null, ptr noundef nonnull @.str.347, ptr noundef %153, i32 noundef %175) #8
+  %724 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.6186190.i, i32 noundef %723, ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, 65536) %175, ptr noundef null, ptr noundef nonnull @.str.347, ptr noundef %153, i32 noundef range(i32 0, 65536) %175) #8
   br label %add_octetstring_value.exit.i
 
 add_octetstring_value.exit.i:                     ; preds = %722, %716, %713, %710, %694, %677, %671, %666, %654, %649, %614, %609
@@ -1809,12 +1809,12 @@ add_octetstring_value.exit.i:                     ; preds = %722, %716, %713, %7
 
 727:                                              ; preds = %.split134.i
   %728 = load i32, ptr @hf_ipp_memberattrname, align 4
-  %729 = call ptr @proto_tree_add_item(ptr noundef %spec.select148182.i, i32 noundef %728, ptr noundef %0, i32 noundef %726, i32 noundef %175, i32 noundef 0) #8
+  %729 = call ptr @proto_tree_add_item(ptr noundef %spec.select148182.i, i32 noundef %728, ptr noundef %0, i32 noundef %726, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_charstring_value.exit.i
 
 730:                                              ; preds = %.split134.i
   %731 = load i32, ptr @hf_ipp_charstring_value, align 4
-  %732 = call ptr @proto_tree_add_item(ptr noundef %spec.select148182.i, i32 noundef %731, ptr noundef %0, i32 noundef %726, i32 noundef %175, i32 noundef 0) #8
+  %732 = call ptr @proto_tree_add_item(ptr noundef %spec.select148182.i, i32 noundef %731, ptr noundef %0, i32 noundef %726, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   %strcmpload.i.i = load i8, ptr %153, align 1
   %733 = icmp eq i8 %strcmpload.i.i, 0
   br i1 %733, label %734, label %735
@@ -1943,17 +1943,17 @@ add_octetstring_value.exit.i:                     ; preds = %722, %716, %713, %7
   %804 = add i32 %.0125209.i, 5
   %805 = add i32 %804, %167
   %806 = load i32, ptr @hf_ipp_name, align 4
-  %807 = call ptr @proto_tree_add_item(ptr noundef %803, i32 noundef %806, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef %167, i32 noundef 0) #8
+  %807 = call ptr @proto_tree_add_item(ptr noundef %803, i32 noundef %806, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef range(i32 0, 65536) %167, i32 noundef 0) #8
   br i1 %176, label %808, label %811
 
 808:                                              ; preds = %798
   %809 = load i32, ptr @hf_ipp_memberattrname, align 4
-  %810 = call ptr @proto_tree_add_item(ptr noundef %803, i32 noundef %809, ptr noundef %0, i32 noundef %805, i32 noundef %175, i32 noundef 0) #8
+  %810 = call ptr @proto_tree_add_item(ptr noundef %803, i32 noundef %809, ptr noundef %0, i32 noundef %805, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   br label %add_charstring_value.exit.i
 
 811:                                              ; preds = %798
   %812 = load i32, ptr @hf_ipp_charstring_value, align 4
-  %813 = call ptr @proto_tree_add_item(ptr noundef %803, i32 noundef %812, ptr noundef %0, i32 noundef %805, i32 noundef %175, i32 noundef 0) #8
+  %813 = call ptr @proto_tree_add_item(ptr noundef %803, i32 noundef %812, ptr noundef %0, i32 noundef %805, i32 noundef range(i32 0, 65536) %175, i32 noundef 0) #8
   %strcmpload.i173.i = load i8, ptr %153, align 1
   %814 = icmp eq i8 %strcmpload.i173.i, 0
   br i1 %814, label %815, label %816

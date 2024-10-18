@@ -262,16 +262,16 @@ define hidden void @_ZN20DebugInfoWriteStream12write_handleEP8_jobject(ptr nound
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %1, ptr noundef nonnull %6) #11
+  %10 = tail call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(88) %6) #11
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 11:                                               ; preds = %2
-  %12 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef %1) #11
+  %12 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %1) #11
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 14:                                               ; preds = %11
-  %15 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef %1, i1 noundef zeroext true) #11
+  %15 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %1, i1 noundef zeroext true) #11
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %9, %11, %14
@@ -1396,7 +1396,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.ex
   %116 = sext i32 %112 to i64
   %117 = getelementptr inbounds ptr, ptr %115, i64 %116
   store ptr %83, ptr %117, align 8
-  tail call void @_ZN16ObjectMergeValue11read_objectEP19DebugInfoReadStream(ptr noundef nonnull align 8 dereferenceable(112) %83, ptr noundef nonnull %0)
+  tail call void @_ZN16ObjectMergeValue11read_objectEP19DebugInfoReadStream(ptr noundef nonnull align 8 dereferenceable(112) %83, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %_ZN19DebugInfoReadStream17get_cached_objectEv.exit
 
 118:                                              ; preds = %_ZN20CompressedReadStream8read_intEv.exit
@@ -1612,7 +1612,7 @@ define hidden void @_ZN11ObjectValue9set_valueEP7oopDesc(ptr nocapture noundef n
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 18:                                               ; preds = %4
-  %19 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef 8, i32 noundef 0) #11
+  %19 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef 8, i32 noundef 0) #11
   %.pre = ptrtoint ptr %19 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -2877,7 +2877,7 @@ _ZN19DebugInfoReadStream8read_oopEv.exit:         ; preds = %2, %.preheader.i.i.
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 52:                                               ; preds = %40
-  %53 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef 8, i32 noundef 0) #11
+  %53 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %42, i64 noundef 8, i32 noundef 0) #11
   %.pre = ptrtoint ptr %53 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 

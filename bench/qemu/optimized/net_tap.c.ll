@@ -939,7 +939,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end.i
-  %call.i = call i32 @tap_open(ptr noundef nonnull %ifname, i32 noundef 128, ptr noundef nonnull %vnet_hdr, i32 noundef %vnet_hdr_required.0.i, i32 noundef %conv, ptr noundef %errp) #15
+  %call.i = call i32 @tap_open(ptr noundef nonnull %ifname, i32 noundef 128, ptr noundef nonnull %vnet_hdr, i32 noundef %vnet_hdr_required.0.i, i32 noundef range(i32 0, 2) %conv, ptr noundef %errp) #15
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %land.rhs.i, label %do.end.i
 

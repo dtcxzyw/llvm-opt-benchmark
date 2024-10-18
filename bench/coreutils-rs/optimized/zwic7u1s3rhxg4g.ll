@@ -56,7 +56,7 @@ define hidden void @_ZN3std4path7PathBuf4push17hbd3df9812cdd3d20E(ptr noalias no
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !8
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h128f125934f4fbe1E.llvm.9586570785940372809"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h128f125934f4fbe1E.llvm.9586570785940372809"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8, !range !19, !noalias !8, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
@@ -118,7 +118,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !20, !nonnull !4, !align !26, !noundef !4
-  %18 = call noundef i32 @stat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !27
+  %18 = call noundef i32 @stat(ptr noundef nonnull readonly align 1 %17, ptr noundef nonnull align 8 dereferenceable(144) %2), !noalias !27
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -164,7 +164,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !28, !nonnull !4, !align !26, !noundef !4
-  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !33
+  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly align 1 %17, ptr noundef nonnull align 8 dereferenceable(144) %2), !noalias !33
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -199,7 +199,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.134 = phi i64 [ %9, %6 ], [ %.033.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !34
   store i64 %.134, ptr %3, align 8, !noalias !34
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !34
   ret void
 
@@ -336,7 +336,7 @@ define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i.i, 3
   br i1 %12, label %13, label %15
 

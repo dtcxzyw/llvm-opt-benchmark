@@ -824,7 +824,7 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17hfd0b4b8b47e514f2E.exit: ; p
   br i1 %19, label %.body, label %20
 
 20:                                               ; preds = %12
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %15, i64 noundef %17) #19
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %15, i64 noundef range(i64 0, -9223372036854775807) %17) #19
   br label %.body
 
 21:                                               ; preds = %9
@@ -838,7 +838,7 @@ _ZN10rayon_core8registry12WorkerThread10wait_until17hfd0b4b8b47e514f2E.exit: ; p
   br i1 %27, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h93e5c1defc8d1675E.exit", label %28
 
 28:                                               ; preds = %21
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %23, i64 noundef %25) #19
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %23, i64 noundef range(i64 0, -9223372036854775807) %25) #19
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h93e5c1defc8d1675E.exit"
 
 .body:                                            ; preds = %12, %20
@@ -874,7 +874,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.37079381
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.3707938170552112821.exit, %10
   %.0.i.i.i = phi i8 [ %13, %10 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.3707938170552112821.exit ]
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h5793edc2db4770a0E.llvm.4364434838112105284(ptr noundef nonnull %14, i8 noundef 0), !noalias !21
+  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h5793edc2db4770a0E.llvm.4364434838112105284(ptr noundef nonnull align 1 %14, i8 noundef 0), !noalias !21
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit", label %16
 
@@ -1024,7 +1024,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.37079381
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.3707938170552112821.exit, %10
   %.0.i.i.i = phi i8 [ %13, %10 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.3707938170552112821.exit ]
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h5793edc2db4770a0E.llvm.4364434838112105284(ptr noundef nonnull %14, i8 noundef 0), !noalias !45
+  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h5793edc2db4770a0E.llvm.4364434838112105284(ptr noundef nonnull align 1 %14, i8 noundef 0), !noalias !45
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit", label %16
 

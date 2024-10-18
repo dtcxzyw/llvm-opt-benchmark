@@ -582,7 +582,7 @@ define internal fastcc { ptr, i64 } @"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfaf48543b858755eE.exit.i.i": ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !163
-  %9 = invoke { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef 1, i64 noundef %6)
+  %9 = invoke { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef range(i64 1, 0) 1, i64 noundef %6)
           to label %.noexc2 unwind label %24
 
 .noexc2:                                          ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfaf48543b858755eE.exit.i.i"
@@ -603,7 +603,7 @@ define internal fastcc { ptr, i64 } @"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$
   %19 = add i64 %10, -1
   %20 = icmp sgt i64 %19, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %11, i64 noundef %10) #20, !noalias !163
+  %21 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %11, i64 noundef %10) #20, !noalias !163
   br label %"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$18allocate_for_slice28_$u7b$$u7b$closure$u7d$$u7d$17h2864c5ba74031af8E.exit.i.i.i"
 
 "_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$18allocate_for_slice28_$u7b$$u7b$closure$u7d$$u7d$17h2864c5ba74031af8E.exit.i.i.i": ; preds = %17, %13

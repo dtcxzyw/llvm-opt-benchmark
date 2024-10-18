@@ -2965,7 +2965,7 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   %.0.i6884.us = phi i64 [ %109, %126 ], [ %98, %.lr.ph ]
   %.183.us = phi i64 [ %108, %126 ], [ 0, %.lr.ph ]
   store i64 0, ptr %18, align 8
-  %106 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %0, i64 noundef %.0.i6884.us, ptr noundef %17, i32 noundef %105, i32 noundef %4, ptr noundef %18)
+  %106 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6884.us, ptr noundef %17, i32 noundef %105, i32 noundef range(i32 0, 2) %4, ptr noundef %18)
   %107 = load i64, ptr %18, align 8
   %108 = add nsw i64 %107, %.183.us
   %109 = sub nsw i64 %.0.i6884.us, %107
@@ -3009,7 +3009,7 @@ ossl_asn1_tag.exit.us:                            ; preds = %117, %115
   %.0.i6884 = phi i64 [ %132, %.lr.ph.split ], [ %99, %.lr.ph ]
   %.183 = phi i64 [ %131, %.lr.ph.split ], [ 0, %.lr.ph ]
   store i64 0, ptr %18, align 8
-  %129 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %0, i64 noundef %.0.i6884, ptr noundef %17, i32 noundef %105, i32 noundef %4, ptr noundef %18)
+  %129 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6884, ptr noundef %17, i32 noundef %105, i32 noundef range(i32 0, 2) %4, ptr noundef %18)
   %130 = load i64, ptr %18, align 8
   %131 = add nsw i64 %130, %.183
   %132 = sub nsw i64 %.0.i6884, %130

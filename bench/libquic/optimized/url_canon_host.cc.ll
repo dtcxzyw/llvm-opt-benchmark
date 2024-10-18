@@ -489,7 +489,7 @@ _ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i:      ; preds = %lor.lhs.false15.i.i
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %lor.lhs.false15.i.i, %if.end.i.i, %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %if.then.i
-  tail call void @_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef signext 37, ptr noundef %output)
+  tail call void @_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef signext 37, ptr noundef nonnull %output)
   br label %for.inc.i25
 
 if.end3.i:                                        ; preds = %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i, %for.body.i22
@@ -511,11 +511,11 @@ if.then5.i:                                       ; preds = %if.end3.i
   ]
 
 if.then8.i:                                       ; preds = %if.then5.i
-  tail call void @_ZN3url17AppendEscapedCharIjcEEvT_PNS_12CanonOutputTIT0_EE(i32 noundef %source.sroa.0.0.insert.insert.i, ptr noundef %output)
+  tail call void @_ZN3url17AppendEscapedCharIjcEEvT_PNS_12CanonOutputTIT0_EE(i32 noundef %source.sroa.0.0.insert.insert.i, ptr noundef nonnull %output)
   br label %for.inc.i25
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void @_ZN3url17AppendEscapedCharIjcEEvT_PNS_12CanonOutputTIT0_EE(i32 noundef %source.sroa.0.0.insert.insert.i, ptr noundef %output)
+  tail call void @_ZN3url17AppendEscapedCharIjcEEvT_PNS_12CanonOutputTIT0_EE(i32 noundef %source.sroa.0.0.insert.insert.i, ptr noundef nonnull %output)
   br label %for.inc.i25
 
 if.else12.i:                                      ; preds = %if.then5.i

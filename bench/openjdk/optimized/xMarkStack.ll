@@ -214,7 +214,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE3popERS2_.exit.thread: ; preds = %8
   br label %15
 
 _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE3popERS2_.exit: ; preds = %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %9, i8 0, i64 16, i1 false)
   store ptr null, ptr %0, align 8
   br label %15
 
@@ -241,7 +241,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us: ; preds = %.lr.p
   br label %6
 
 6:                                                ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 16, i1 false)
   store ptr %2, ptr %0, align 8
   br label %10
 
@@ -298,7 +298,7 @@ _ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.us: ; pr
   br i1 %23, label %.loopexit, label %24
 
 _ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread15.us: ; preds = %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %17, i8 0, i64 16, i1 false)
   store ptr null, ptr %0, align 8
   store ptr %17, ptr %3, align 8
   br label %24
@@ -333,7 +333,7 @@ _ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.us: ; preds = %24
   %40 = and i64 %36, 4294967295
   %41 = or disjoint i64 %39, %40
   %42 = inttoptr i64 %41 to ptr
-  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42, ptr %.0.i.i.us, ptr nonnull %2) #9, !srcloc !9
+  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42, ptr %.0.i.i.us, ptr nonnull align 64 dereferenceable(72) %2) #9, !srcloc !9
   %44 = icmp eq ptr %43, %.0.i.i.us
   br i1 %44, label %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit.loopexit.us, label %.split.i.i.us, !llvm.loop !10
 
@@ -368,7 +368,7 @@ _ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread: 
   br i1 %.not.i, label %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread15, label %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit
 
 _ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread15: ; preds = %52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %53, i8 0, i64 16, i1 false)
   store ptr null, ptr %0, align 8
   store ptr %53, ptr %3, align 8
   br label %60
@@ -423,7 +423,7 @@ _ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit: ; preds = %60
   %79 = and i64 %75, 4294967295
   %80 = or disjoint i64 %78, %79
   %81 = inttoptr i64 %80 to ptr
-  %82 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %81, ptr %.0.i4.i, ptr nonnull %8) #9, !srcloc !9
+  %82 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %81, ptr %.0.i4.i, ptr nonnull align 8 dereferenceable(8) %8) #9, !srcloc !9
   %83 = icmp eq ptr %82, %.0.i4.i
   br i1 %83, label %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit.loopexit17, label %.split.i3.i, !llvm.loop !10
 
@@ -477,7 +477,7 @@ define hidden noundef zeroext i1 @_ZN22XMarkThreadLocalStacks8pop_slowEP19XMarkS
   %31 = and i64 %25, 4294967295
   %32 = or disjoint i64 %.0.i.i.i, %31
   %33 = inttoptr i64 %32 to ptr
-  %34 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33, ptr %.08.i.i, ptr nonnull %7) #9, !srcloc !9
+  %34 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33, ptr %.08.i.i, ptr nonnull align 8 dereferenceable(8) %7) #9, !srcloc !9
   %35 = icmp eq ptr %34, %.08.i.i
   br i1 %35, label %_ZN11XMarkStripe11steal_stackEv.exit.thread, label %12, !llvm.loop !12
 
@@ -511,7 +511,7 @@ define hidden noundef zeroext i1 @_ZN22XMarkThreadLocalStacks8pop_slowEP19XMarkS
   %57 = and i64 %51, 4294967295
   %58 = or disjoint i64 %.0.i.i6.i, %57
   %59 = inttoptr i64 %58 to ptr
-  %60 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59, ptr %.08.i5.i, ptr nonnull %2) #9, !srcloc !9
+  %60 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59, ptr %.08.i5.i, ptr nonnull align 64 dereferenceable(72) %2) #9, !srcloc !9
   %61 = icmp eq ptr %60, %.08.i5.i
   br i1 %61, label %_ZN11XMarkStripe11steal_stackEv.exit.thread, label %38, !llvm.loop !12
 
@@ -554,7 +554,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
   br label %70
 
 70:                                               ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i, %_ZN6XStackI15XMarkStackEntryLm254EE3popERS0_.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.1, i8 0, i64 16, i1 false)
   store ptr %.1, ptr %0, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 
@@ -616,7 +616,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
   br label %19
 
 19:                                               ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i, %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, i8 0, i64 16, i1 false)
   store ptr %11, ptr %0, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 
@@ -652,7 +652,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %38 = and i64 %34, 4294967295
   %39 = or disjoint i64 %37, %38
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40, ptr %.0.i.i, ptr nonnull %9) #9, !srcloc !9
+  %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40, ptr %.0.i.i, ptr nonnull align 64 dereferenceable(72) %9) #9, !srcloc !9
   %42 = icmp eq ptr %41, %.0.i.i
   br i1 %42, label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit, label %.split.i.i, !llvm.loop !10
 

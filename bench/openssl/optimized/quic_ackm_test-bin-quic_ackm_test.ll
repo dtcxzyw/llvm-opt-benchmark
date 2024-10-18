@@ -260,7 +260,7 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
 
 if.then31.i:                                      ; preds = %for.end.i
   %12 = load ptr, ptr %h.i, align 8
-  %call33.i = call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %12, i32 noundef %rem4) #9
+  %call33.i = call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %12, i32 noundef range(i32 -2, 3) %rem4) #9
   %call34.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 385, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef %call33.i, i32 noundef 1) #9
   %tobool35.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool35.not.i, label %err.i, label %for.cond38.preheader.i
@@ -318,7 +318,7 @@ if.then64.i:                                      ; preds = %if.else.i
   store i64 %22, ptr %num_ack_ranges66.i, align 8
   %23 = load ptr, ptr %h.i, align 8
   %24 = load i64, ptr @fake_time.0, align 8
-  %call68.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %23, ptr noundef nonnull %ack.i, i32 noundef %rem4, i64 %24) #9
+  %call68.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %23, ptr noundef nonnull %ack.i, i32 noundef range(i32 -2, 3) %rem4, i64 %24) #9
   %call69.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.6, i32 noundef %call68.i, i32 noundef 1) #9
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %err.i, label %for.cond73.preheader.i

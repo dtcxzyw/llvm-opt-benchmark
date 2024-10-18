@@ -112,7 +112,7 @@ define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr nocapture noundef nonnull
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %18, ptr noundef nonnull %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %18, ptr noundef nonnull align 1 dereferenceable(1) %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
@@ -141,7 +141,7 @@ define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr nocapture noundef nonnul
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %17, ptr noundef nonnull %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
@@ -170,7 +170,7 @@ define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr nocapture noundef nonnull
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %17, ptr noundef nonnull %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
@@ -228,7 +228,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %21, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %21, ptr noundef nonnull align 2 dereferenceable(2) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   ret void
@@ -290,7 +290,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret void
@@ -352,7 +352,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret void
@@ -414,7 +414,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -476,7 +476,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret void
@@ -538,7 +538,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -600,7 +600,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret void
@@ -664,7 +664,7 @@ define void @_ZN3gmx18InMemorySerializer8doOpaqueEPcm(ptr nocapture noundef nonn
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  tail call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %13, ptr noundef %1, ptr noundef %8)
+  tail call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr %13, ptr noundef %1, ptr noundef %8)
   ret void
 }
 
@@ -1189,7 +1189,7 @@ define void @_ZN3gmx20InMemoryDeserializer8doOpaqueEPcm(ptr nocapture noundef no
   %9 = load i64, ptr %5, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr i8, ptr %10, i64 %7
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %2, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %11, i64 %2, i1 false)
   %.pre.i = load i64, ptr %6, align 8
   br label %_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit
 
@@ -1204,8 +1204,8 @@ _ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit: ; preds = %3, %8
 define void @_ZN3gmx18InMemorySerializerC2ENS_18EndianSwapBehaviorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18InMemorySerializerE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 24, i1 false)
   switch i32 %1, label %5 [
     i32 2, label %6
     i32 3, label %4
@@ -1258,7 +1258,7 @@ define void @_ZN3gmx18InMemorySerializerD2Ev(ptr nocapture noundef nonnull align
   br label %_ZNKSt14default_deleteIN3gmx18InMemorySerializer4ImplEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3gmx18InMemorySerializer4ImplEEclEPS2_.exit.i: ; preds = %6, %4
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #14
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   br label %_ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev.exit
 
@@ -1271,7 +1271,7 @@ _ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev.ex
 define void @_ZN3gmx18InMemorySerializer18finishAndGetBufferEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1500,7 +1500,7 @@ _ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit: ; preds = %_ZN3gmx12_GLOBA
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = getelementptr inbounds i8, ptr %21, i64 %24
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %25, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr %25, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %26 = load ptr, ptr %19, align 8

@@ -270,7 +270,7 @@ if.end3:                                          ; preds = %entry, %if.then2, %
   %call5 = tail call i32 @lua_gc(ptr noundef %L, i32 noundef 1, i32 noundef -1) #9
   %10 = load i32, ptr @smain.1, align 8
   %sub.i = sub nsw i32 %10, %retval.0.i8893
-  tail call void @lua_createtable(ptr noundef %L, i32 noundef %sub.i, i32 noundef %retval.0.i8893) #9
+  tail call void @lua_createtable(ptr noundef %L, i32 noundef %sub.i, i32 noundef range(i32 0, -2147483648) %retval.0.i8893) #9
   %cmp10.i = icmp sgt i32 %10, 0
   br i1 %cmp10.i, label %for.body.preheader.i, label %createargtable.exit
 

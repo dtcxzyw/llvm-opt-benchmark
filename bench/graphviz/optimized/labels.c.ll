@@ -103,7 +103,7 @@ agxblen.exit.i:                                   ; preds = %30
   unreachable
 
 38:                                               ; preds = %30
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %39 = load ptr, ptr %3, align 8
   br label %agxbdisown.exit
 
@@ -200,7 +200,7 @@ agxblen.exit.i42:                                 ; preds = %77
   unreachable
 
 85:                                               ; preds = %77
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %86 = load ptr, ptr %3, align 8
   br label %agxbdisown.exit44
 
@@ -303,7 +303,7 @@ agxblen.exit.i57:                                 ; preds = %121
   unreachable
 
 131:                                              ; preds = %agxblen.exit
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %132 = load ptr, ptr %3, align 8
   br label %agxbdisown.exit59
 
@@ -1019,7 +1019,7 @@ agxblen.exit.i:                                   ; preds = %.split81.us
   unreachable
 
 127:                                              ; preds = %.split81.us
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %128 = load ptr, ptr %4, align 8
   br label %agxbdisown.exit
 

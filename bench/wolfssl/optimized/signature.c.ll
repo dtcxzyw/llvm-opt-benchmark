@@ -252,7 +252,7 @@ if.then26:                                        ; preds = %if.then24
   br i1 %cmp.i27, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then26
-  %call1.i = call i32 @wc_EncodeSignature(ptr noundef nonnull %hash_data, ptr noundef nonnull %hash_data, i32 noundef %call13, i32 noundef %call.i26) #6
+  %call1.i = call i32 @wc_EncodeSignature(ptr noundef nonnull %hash_data, ptr noundef nonnull %hash_data, i32 noundef range(i32 0, -2147483648) %call13, i32 noundef %call.i26) #6
   %cmp2.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then31, label %if.end29
 

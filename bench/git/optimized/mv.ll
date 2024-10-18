@@ -251,7 +251,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %cmp.i.i, label %if.then.i.i, label %st_add.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef %call.i, i64 noundef 2) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef range(i64 1, 0) %call.i, i64 noundef 2) #12
   unreachable
 
 st_add.exit.i:                                    ; preds = %if.then.i
@@ -399,7 +399,7 @@ if.then.i219:                                     ; preds = %land.lhs.true.i216
   br i1 %cmp.i.i220, label %if.then.i.i227, label %st_add.exit.i221
 
 if.then.i.i227:                                   ; preds = %if.then.i219
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef %call.i214, i64 noundef 2) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef range(i64 1, 0) %call.i214, i64 noundef 2) #12
   unreachable
 
 st_add.exit.i221:                                 ; preds = %if.then.i219
@@ -624,7 +624,7 @@ if.then254:                                       ; preds = %if.end248
   br i1 %mul.ov.i, label %if.then.i266, label %st_mult.exit
 
 if.then.i266:                                     ; preds = %if.then254
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef %conv266) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv266) #12
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then254
@@ -647,7 +647,7 @@ do.end:                                           ; preds = %if.end248, %st_mult
   br i1 %mul.ov.i268, label %if.then.i271, label %st_mult.exit278
 
 if.then.i271:                                     ; preds = %do.end
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef %conv273) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv273) #12
   unreachable
 
 st_mult.exit278:                                  ; preds = %do.end
@@ -673,7 +673,7 @@ if.then.i296:                                     ; preds = %land.lhs.true.i293
   br i1 %cmp.i.i297, label %if.then.i.i304, label %st_add.exit.i298
 
 if.then.i.i304:                                   ; preds = %if.then.i296
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef %call.i291, i64 noundef 2) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef range(i64 1, 0) %call.i291, i64 noundef 2) #12
   unreachable
 
 st_add.exit.i298:                                 ; preds = %if.then.i296
@@ -973,7 +973,7 @@ if.then.i362:                                     ; preds = %if.then430
   br i1 %mul.ov.i.i, label %if.then.i.i364, label %if.then.i366
 
 if.then.i.i364:                                   ; preds = %if.then.i362
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef %conv438) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef range(i64 4, 9) 8, i64 noundef range(i64 -2147483646, 2147483648) %conv438) #12
   unreachable
 
 if.then.i366:                                     ; preds = %if.then.i362
@@ -1532,7 +1532,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %cmp.i.i, label %if.then.i.i, label %st_add.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef %call.i, i64 noundef 2) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef range(i64 1, 0) %call.i, i64 noundef 2) #12
   unreachable
 
 st_add.exit.i:                                    ; preds = %if.then.i
@@ -1628,7 +1628,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %cmp.i.i, label %if.then.i.i, label %st_add.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef %call.i, i64 noundef 2) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.31, i64 noundef range(i64 1, 0) %call.i, i64 noundef 2) #12
   unreachable
 
 st_add.exit.i:                                    ; preds = %if.then.i

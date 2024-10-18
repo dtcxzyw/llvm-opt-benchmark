@@ -4006,7 +4006,7 @@ cleanup:                                          ; preds = %if.end.i, %invoke.c
 define void @_ZN6icu_7517CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, i32 noundef %ce32, i8 noundef signext %forward, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %digits = alloca %"class.icu_75::CharString", align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %digits)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %digits)
   %len.i = getelementptr inbounds i8, ptr %digits, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %digits, align 8
@@ -4058,7 +4058,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then21
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit205, %lpad.loopexit ], [ %lpad.loopexit207, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit210, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp211, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %digits) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %digits) #18
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont2
@@ -4554,7 +4554,7 @@ land.rhs101:                                      ; preds = %invoke.cont97
   br i1 %cmp104, label %do.body, label %cleanup, !llvm.loop !19
 
 cleanup:                                          ; preds = %land.rhs101, %invoke.cont97, %if.end72
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %digits) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %digits) #18
   ret void
 }
 

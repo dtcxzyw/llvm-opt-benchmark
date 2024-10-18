@@ -380,7 +380,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit51:               ; preds = %132
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %152
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %25)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(96) %25)
           to label %.noexc unwind label %623
 
 .noexc:                                           ; preds = %_ZN2cv4Mat_IdEC2Eii.exit

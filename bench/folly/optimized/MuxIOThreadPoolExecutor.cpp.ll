@@ -5671,7 +5671,7 @@ while.end.i:                                      ; preds = %_ZN5folly16Throttle
 
 if.then11.i:                                      ; preds = %while.end.i
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 136
-  %call.i = tail call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EENS_13invoke_detail6traitsIRKT_E6resultIEESA_(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i, ptr nonnull %sem_)
+  %call.i = tail call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EENS_13invoke_detail6traitsIRKT_E6resultIEESA_(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i, ptr nonnull align 64 dereferenceable(136) %sem_)
   %tobool.not.i7 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i7, label %_ZN5folly16ThrottledLifoSem4postEj.exit, label %if.then.i8
 
@@ -5723,7 +5723,7 @@ while.cond.i.i.backedge:                          ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i.i, !llvm.loop !350
 
 if.then30.i.i:                                    ; preds = %while.end27.i.i
-  %call.i38.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %call.i, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %call.i, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly16ThrottledLifoSem4postEj.exit unwind label %terminate.lpad.i.i10
 
 terminate.lpad.i.i10:                             ; preds = %if.then30.i.i
@@ -13504,7 +13504,7 @@ while.cond.i1.backedge:                           ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i1, !llvm.loop !350
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %call133, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %call133, i32 noundef 2147483647, i32 noundef -1)
           to label %cleanup151 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i

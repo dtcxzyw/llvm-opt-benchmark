@@ -2203,11 +2203,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #25
   %13 = load i64, ptr %_now.i.i, align 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and13, i32 noundef %2, i64 noundef %7, i64 noundef %8) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and13, i32 noundef range(i32 -2147483648, 7) %2, i64 noundef %7, i64 noundef %8) #25
   br label %trace_pci_update_mappings_del.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and13, i32 noundef %2, i64 noundef %7, i64 noundef %8) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and13, i32 noundef range(i32 -2147483648, 7) %2, i64 noundef %7, i64 noundef %8) #25
   br label %trace_pci_update_mappings_del.exit
 
 trace_pci_update_mappings_del.exit:               ; preds = %if.then10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2263,11 +2263,11 @@ if.then8.i.i51:                                   ; preds = %if.then.i.i48
   %call10.i.i53 = tail call i32 @qemu_get_thread_id() #25
   %25 = load i64, ptr %_now.i.i41, align 8
   %26 = load i64, ptr %tv_usec.i.i54, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i53, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef %and26, i32 noundef %and28, i32 noundef %2, i64 noundef %19, i64 noundef %20) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i53, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef range(i32 0, 32) %and26, i32 noundef range(i32 0, 8) %and28, i32 noundef range(i32 -2147483648, 7) %2, i64 noundef %19, i64 noundef %20) #25
   br label %trace_pci_update_mappings_add.exit
 
 if.else.i.i50:                                    ; preds = %if.then.i.i48
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef %and26, i32 noundef %and28, i32 noundef %2, i64 noundef %19, i64 noundef %20) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef range(i32 0, 32) %and26, i32 noundef range(i32 0, 8) %and28, i32 noundef range(i32 -2147483648, 7) %2, i64 noundef %19, i64 noundef %20) #25
   br label %trace_pci_update_mappings_add.exit
 
 trace_pci_update_mappings_add.exit:               ; preds = %if.then20, %land.lhs.true5.i.i45, %if.then8.i.i51, %if.else.i.i50
@@ -5757,7 +5757,7 @@ if.then60.i:                                      ; preds = %if.then55.i
 
 if.else65.i:                                      ; preds = %if.end51.i
   %sub.i.i75 = add nsw i64 %call34.i, -1
-  %122 = call range(i64 33, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false)
+  %122 = call range(i64 33, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, 2147483648) %sub.i.i75, i1 false)
   %sub2.i.i = add nuw nsw i64 %122, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
@@ -5808,7 +5808,7 @@ if.end89.i:                                       ; preds = %if.then81.i
 
 if.then91.i:                                      ; preds = %if.end89.i
   %conv92.i = trunc nuw i64 %size.0.i to i32
-  call fastcc void @pci_patch_ids(ptr noundef %qdev, ptr noundef %call83.i, i32 noundef %conv92.i)
+  call fastcc void @pci_patch_ids(ptr noundef nonnull %qdev, ptr noundef %call83.i, i32 noundef %conv92.i)
   br label %if.end94.i74
 
 if.end94.i74:                                     ; preds = %if.then91.i, %if.end89.i, %cond.end.i

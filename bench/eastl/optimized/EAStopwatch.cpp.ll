@@ -443,7 +443,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -563,7 +563,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i

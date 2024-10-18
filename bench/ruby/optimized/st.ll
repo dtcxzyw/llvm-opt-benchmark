@@ -1562,7 +1562,7 @@ define hidden noundef ptr @rb_st_replace(ptr noundef returned %0, ptr nocapture 
   %.val17 = load i8, ptr %1, align 8
   %18 = zext i8 %.val17 to i64
   %19 = shl nuw i64 1, %18
-  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %19, i64 24)
+  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 1, 25) %19, i64 24)
   %21 = extractvalue { i64, i1 } %20, 1
   br i1 %21, label %22, label %rbimpl_size_mul_or_raise.exit
 
@@ -1629,7 +1629,7 @@ define dso_local noalias noundef nonnull ptr @rb_st_copy(ptr nocapture noundef r
   %.val17.i = load i8, ptr %0, align 8
   %19 = zext i8 %.val17.i to i64
   %20 = shl nuw i64 1, %19
-  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 24)
+  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 1, 25) %20, i64 24)
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %23, label %rbimpl_size_mul_or_raise.exit.i
 
@@ -3712,7 +3712,7 @@ define dso_local void @rb_hash_bulk_insert_into_st_table(i64 noundef %0, ptr noc
   %.val.i = load i8, ptr %5, align 8
   %15 = zext nneg i8 %.val.i to i64
   %16 = shl nuw i64 1, %15
-  %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 24)
+  %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 1, 25) %16, i64 24)
   %18 = extractvalue { i64, i1 } %17, 1
   br i1 %18, label %19, label %rbimpl_size_mul_or_raise.exit.i
 

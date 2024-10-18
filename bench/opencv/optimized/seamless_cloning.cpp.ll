@@ -374,7 +374,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit59:             ; preds = %141
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit61:             ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit59
   %142 = getelementptr inbounds i8, ptr %32, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %32, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %32, i8 0, i64 72, i1 false)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %142) #9
   %143 = getelementptr inbounds i8, ptr %32, i64 168
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %143) #9
@@ -943,7 +943,7 @@ define void @_ZN2cv11colorChangeERKNS_11_InputArrayES2_RKNS_12_OutputArrayEfff(p
 
 64:                                               ; preds = %55
   %65 = getelementptr inbounds i8, ptr %15, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %15, i8 0, i64 72, i1 false)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #9
   %66 = getelementptr inbounds i8, ptr %15, i64 168
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #9
@@ -1176,7 +1176,7 @@ define void @_ZN2cv18illuminationChangeERKNS_11_InputArrayES2_RKNS_12_OutputArra
 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds i8, ptr %14, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %14, i8 0, i64 72, i1 false)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %64) #9
   %65 = getelementptr inbounds i8, ptr %14, i64 168
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #9
@@ -1405,7 +1405,7 @@ define void @_ZN2cv17textureFlatteningERKNS_11_InputArrayES2_RKNS_12_OutputArray
 
 64:                                               ; preds = %55
   %65 = getelementptr inbounds i8, ptr %15, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %15, i8 0, i64 72, i1 false)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #9
   %66 = getelementptr inbounds i8, ptr %15, i64 168
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #9

@@ -940,9 +940,9 @@ _ZNSt8functionIFvPhiiiEEC2IPS1_vEEOT_.exit.i:     ; preds = %22, %21
   %23 = phi ptr [ null, %21 ], [ @_ZNSt17_Function_handlerIFvPhiiiEPS1_E9_M_invokeERKSt9_Any_dataOS0_OiS8_S8_, %22 ]
   %24 = phi ptr [ null, %21 ], [ @_ZNSt17_Function_handlerIFvPhiiiEPS1_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = getelementptr inbounds i8, ptr %0, i64 32
@@ -958,7 +958,7 @@ _ZNSt8functionIFvPhiiiEEC2IPS1_vEEOT_.exit.i:     ; preds = %22, %21
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvPhiiiEEaSIPS1_EENSt9enable_ifIXsrNS2_9_CallableIT_NS5_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS7_E4typeEE4typeES2_EE5valueESt5decayIS7_EE4type4typeESt15__invoke_resultIRSI_JS0_iiiEEEE5valueERS2_E4typeEOS7_.exit, label %31
 
 31:                                               ; preds = %_ZNSt8functionIFvPhiiiEEC2IPS1_vEEOT_.exit.i
-  %32 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %32 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPhiiiEEaSIPS1_EENSt9enable_ifIXsrNS2_9_CallableIT_NS5_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS7_E4typeEE4typeES2_EE5valueESt5decayIS7_EE4type4typeESt15__invoke_resultIRSI_JS0_iiiEEEE5valueERS2_E4typeEOS7_.exit unwind label %33
 
 33:                                               ; preds = %31
@@ -981,7 +981,7 @@ _ZNSt8functionIFvPhiiiEEaSIPS1_EENSt9enable_ifIXsrNS2_9_CallableIT_NS5_IXntsr7is
   br i1 %.not.i.i4, label %common.resume, label %40
 
 40:                                               ; preds = %36
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
           to label %common.resume unwind label %42
 
 42:                                               ; preds = %40
@@ -1063,9 +1063,9 @@ _ZNSt8functionIFvPhiiiEEC2IPS1_vEEOT_.exit.i:     ; preds = %22, %21
   %23 = phi ptr [ null, %21 ], [ @_ZNSt17_Function_handlerIFvPhiiiEPS1_E9_M_invokeERKSt9_Any_dataOS0_OiS8_S8_, %22 ]
   %24 = phi ptr [ null, %21 ], [ @_ZNSt17_Function_handlerIFvPhiiiEPS1_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1081,7 +1081,7 @@ _ZNSt8functionIFvPhiiiEEC2IPS1_vEEOT_.exit.i:     ; preds = %22, %21
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvPhiiiEEaSIPS1_EENSt9enable_ifIXsrNS2_9_CallableIT_NS5_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS7_E4typeEE4typeES2_EE5valueESt5decayIS7_EE4type4typeESt15__invoke_resultIRSI_JS0_iiiEEEE5valueERS2_E4typeEOS7_.exit, label %31
 
 31:                                               ; preds = %_ZNSt8functionIFvPhiiiEEC2IPS1_vEEOT_.exit.i
-  %32 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %32 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPhiiiEEaSIPS1_EENSt9enable_ifIXsrNS2_9_CallableIT_NS5_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS7_E4typeEE4typeES2_EE5valueESt5decayIS7_EE4type4typeESt15__invoke_resultIRSI_JS0_iiiEEEE5valueERS2_E4typeEOS7_.exit unwind label %33
 
 33:                                               ; preds = %31
@@ -1104,7 +1104,7 @@ _ZNSt8functionIFvPhiiiEEaSIPS1_EENSt9enable_ifIXsrNS2_9_CallableIT_NS5_IXntsr7is
   br i1 %.not.i.i4, label %common.resume, label %40
 
 40:                                               ; preds = %36
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
           to label %common.resume unwind label %42
 
 42:                                               ; preds = %40
@@ -1572,10 +1572,10 @@ define hidden void @_ZN2cv4gapi5fluid24ViewPrivWithoutOwnBorderC2EPKNS1_6BufferE
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 -1, i64 16, i1 false)
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
@@ -1664,7 +1664,7 @@ _ZN2cv4gapi5fluid4View4Priv9initCacheEi.exit:     ; preds = %14, %16, %18, %20
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 80
   %25 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %25, ptr noundef nonnull align 8 dereferenceable(17) %24, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 17, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = getelementptr inbounds i8, ptr %23, i64 104
   %28 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
@@ -1713,7 +1713,7 @@ _ZNSt6vectorIPKhSaIS1_EE6resizeEm.exit:           ; preds = %13, %15, %17, %19
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 80
   %24 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %24, ptr noundef nonnull align 8 dereferenceable(17) %23, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 17, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 56
   %26 = getelementptr inbounds i8, ptr %22, i64 104
   %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
@@ -1772,10 +1772,10 @@ define hidden void @_ZN2cv4gapi5fluid21ViewPrivWithOwnBorderC2EPKNS1_6BufferEi(p
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 -1, i64 16, i1 false)
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
@@ -1896,7 +1896,7 @@ _ZN2cv4gapi5fluid4View4Priv9initCacheEi.exit:     ; preds = %16, %18, %20, %22
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 80
   %27 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %27, ptr noundef nonnull align 8 dereferenceable(17) %26, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 17, i1 false)
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = getelementptr inbounds i8, ptr %25, i64 104
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
@@ -2145,10 +2145,10 @@ define noundef nonnull align 8 dereferenceable(108) ptr @_ZNK2cv4gapi5fluid4View
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv4gapi5fluid6Buffer4PrivC2EiNS_5Rect_IiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 -1, i64 16, i1 false)
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -2187,7 +2187,7 @@ define void @_ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE(p
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 17, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -2256,7 +2256,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread:     ; preds = %6, %15, %_ZN2cveqIi
 
 _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %33, %35, %37, %39
   %40 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %40, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 17, i1 false)
   %41 = getelementptr inbounds i8, ptr %0, i64 48
   %42 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %10)
   ret void
@@ -2387,7 +2387,7 @@ _ZN2cv4gapi5fluid6BorderC2ERKS2_.exit.i:          ; preds = %.noexc
   %64 = load i32, ptr %63, align 8, !noalias !12
   %65 = shl nsw i32 %64, 1
   %66 = add nsw i32 %65, %32
-  invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %50, i32 noundef %29, i32 noundef %66, i32 noundef %39)
+  invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %50, i32 noundef range(i32 -2147483648, 2147483647) %29, i32 noundef %66, i32 noundef %39)
           to label %.noexc.i unwind label %71, !noalias !12
 
 .noexc.i:                                         ; preds = %61
@@ -2422,7 +2422,7 @@ _ZN2cv4gapi5fluid6BorderC2ERKS2_.exit.i:          ; preds = %.noexc
   %77 = getelementptr inbounds i8, ptr %74, i64 108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %77, i8 0, i64 16, i1 false), !noalias !12
   store ptr %74, ptr %11, align 8, !noalias !12
-  invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %75, i32 noundef %29, i32 noundef %32, i32 noundef %39)
+  invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %75, i32 noundef range(i32 -2147483648, 2147483647) %29, i32 noundef %32, i32 noundef %39)
           to label %_ZNSt10unique_ptrIN2cv4gapi5fluid26BufferStorageWithoutBorderESt14default_deleteIS3_EED2Ev.exit.i unwind label %78, !noalias !12
 
 _ZNSt10unique_ptrIN2cv4gapi5fluid26BufferStorageWithoutBorderESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %.noexc9
@@ -2998,7 +2998,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2Ev(ptr nocapture noundef nonnull writeonl
   %2 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #30
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 192, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 -1, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 72
@@ -3096,7 +3096,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2ERKNS_8GMatDescE(ptr noundef nonnull alig
   %6 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #30
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 192, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 -1, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %6, i64 72
@@ -3115,7 +3115,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2ERKNS_8GMatDescE(ptr noundef nonnull alig
   %17 = getelementptr inbounds i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
   store i32 1, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %10, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 17, i1 false)
   %19 = getelementptr inbounds i8, ptr %1, i64 24
   %20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %21 unwind label %55
@@ -3158,7 +3158,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %25, %_ZN2cveqIiEEbR
 
 37:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
   %38 = sub nuw nsw i64 1, %35
-  invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %38)
+  invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(188) %6, i64 noundef %38)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i unwind label %55
 
 39:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
@@ -3175,7 +3175,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %25, %_ZN2cveqIiEEbR
   br label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i
 
 _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i:          ; preds = %37, %43, %41, %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 17, i1 false)
   %44 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %_ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE.exit unwind label %55
 
@@ -3253,7 +3253,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2ERKNS_8GMatDescEiiiiNS_4util8optionalINS1
   %12 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #30
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %12, i8 0, i64 192, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 -1, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %12, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds i8, ptr %12, i64 72
@@ -3272,7 +3272,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2ERKNS_8GMatDescEiiiiNS_4util8optionalINS1
   %23 = getelementptr inbounds i8, ptr %1, i64 12
   %24 = load i32, ptr %23, align 4
   store i32 %5, ptr %15, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %16, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 17, i1 false)
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %25)
           to label %27 unwind label %68
@@ -3316,7 +3316,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %31, %_ZN2cveqIiEEbR
 
 44:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
   %45 = sub nuw nsw i64 %35, %42
-  invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %45)
+  invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(188) %12, i64 noundef %45)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i unwind label %68
 
 46:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
@@ -3333,7 +3333,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %31, %_ZN2cveqIiEEbR
   br label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i
 
 _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i:          ; preds = %44, %50, %48, %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 17, i1 false)
   %51 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %25)
           to label %_ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE.exit unwind label %68
 
@@ -3420,7 +3420,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2ERKNS_3MatEb(ptr noundef nonnull align 8 
   %5 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #30
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %5, i8 0, i64 192, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 -1, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 72
@@ -3445,7 +3445,7 @@ define void @_ZN2cv4gapi5fluid6BufferC2ERKNS_3MatEb(ptr noundef nonnull align 8 
 
 18:                                               ; preds = %3
   store i32 1, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 8 dereferenceable(17) %4, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 17, i1 false)
   %19 = getelementptr inbounds i8, ptr %4, i64 24
   %20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %21 unwind label %53
@@ -3490,7 +3490,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %25, %_ZN2cveqIiEEbR
 
 39:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
   %40 = sub nuw nsw i64 1, %37
-  invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %40)
+  invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(188) %5, i64 noundef %40)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i unwind label %53
 
 41:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
@@ -3507,7 +3507,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %25, %_ZN2cveqIiEEbR
   br label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i
 
 _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i:          ; preds = %39, %45, %43, %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(17) %4, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 17, i1 false)
   %46 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %_ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE.exit unwind label %53
 
@@ -3668,10 +3668,10 @@ define void @_ZN2cv4gapi5fluid6Buffer6mkViewEib(ptr dead_on_unwind noalias writa
 9:                                                ; preds = %4
   %10 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #30
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %11, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %10, i64 32
   %13 = getelementptr inbounds i8, ptr %10, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 -1, i64 16, i1 false)
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, i8 0, i64 28, i1 false)
@@ -3701,10 +3701,10 @@ define void @_ZN2cv4gapi5fluid6Buffer6mkViewEib(ptr dead_on_unwind noalias writa
 22:                                               ; preds = %4
   %23 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #30
   %24 = getelementptr inbounds i8, ptr %23, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %24, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %23, i64 32
   %26 = getelementptr inbounds i8, ptr %23, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 -1, i64 16, i1 false)
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, i8 0, i64 28, i1 false)
@@ -5114,7 +5114,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid14BorderHandlerTILi1EED2Ev(ptr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvPhiiiEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -5138,7 +5138,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid14BorderHandlerTILi1EED0Ev(ptr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN2cv4gapi5fluid14BorderHandlerTILi1EED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -5237,7 +5237,7 @@ define linkonce_odr hidden void @_ZNK2cv4gapi5fluid14BorderHandlerTILi1EE18updat
 
 _ZNKSt8functionIFvPhiiiEEclES0_iii.exit:          ; preds = %25
   %37 = load ptr, ptr %24, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void %37(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -5830,7 +5830,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid14BorderHandlerTILi4EED2Ev(ptr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvPhiiiEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -5854,7 +5854,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid14BorderHandlerTILi4EED0Ev(ptr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN2cv4gapi5fluid14BorderHandlerTILi4EED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -5955,7 +5955,7 @@ define linkonce_odr hidden void @_ZNK2cv4gapi5fluid14BorderHandlerTILi4EE18updat
 
 _ZNKSt8functionIFvPhiiiEEclES0_iii.exit:          ; preds = %25
   %37 = load ptr, ptr %24, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void %37(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

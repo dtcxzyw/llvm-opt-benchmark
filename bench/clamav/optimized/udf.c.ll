@@ -1110,7 +1110,7 @@ default.unreachable:                              ; preds = %458
   %494 = zext i32 %.047.i.i to i64
   %495 = getelementptr inbounds i8, ptr %492, i64 104
   %496 = load ptr, ptr %495, align 8
-  %497 = call ptr %496(ptr noundef %492, i64 noundef %493, i64 noundef %494, i32 noundef 1) #7
+  %497 = call ptr %496(ptr noundef %492, i64 noundef %493, i64 noundef range(i64 0, 4294967296) %494, i32 noundef 1) #7
   %498 = icmp eq ptr %497, null
   br i1 %498, label %extractFile.exit.thread.sink.split.i, label %499
 
@@ -1138,7 +1138,7 @@ default.unreachable:                              ; preds = %458
 
 505:                                              ; preds = %501
   %506 = load i32, ptr %3, align 4
-  %507 = call i64 @cli_writen(i32 noundef %506, ptr noundef nonnull %497, i64 noundef %494) #7
+  %507 = call i64 @cli_writen(i32 noundef %506, ptr noundef nonnull %497, i64 noundef range(i64 0, 4294967296) %494) #7
   %.not19.i.i.i = icmp eq i64 %507, %494
   br i1 %.not19.i.i.i, label %510, label %508
 
@@ -1200,7 +1200,7 @@ extractFile.exit.i:                               ; preds = %528, %526
   %529 = load ptr, ptr %7, align 8
   %530 = getelementptr inbounds i8, ptr %529, i64 128
   %531 = load ptr, ptr %530, align 8
-  call void %531(ptr noundef %529, i64 noundef %493, i64 noundef %494) #7
+  call void %531(ptr noundef %529, i64 noundef %493, i64 noundef range(i64 0, 4294967296) %494) #7
   %.not25.i = icmp eq i32 %.1.i.i.i, 0
   br i1 %.not25.i, label %parseFileEntryDescriptor.exit, label %extractFile.exit.thread.i
 

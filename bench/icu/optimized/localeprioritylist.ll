@@ -613,7 +613,7 @@ if.then16:                                        ; preds = %_ZN6icu_7512_GLOBAL
   br label %return
 
 if.end17:                                         ; preds = %_ZN6icu_7512_GLOBAL__N_113findTagLengthEPKcS2_.exit
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tag)
   store i32 0, ptr %len.i, align 8
   %8 = load ptr, ptr %tag, align 8
   store i8 0, ptr %8, align 1
@@ -622,7 +622,7 @@ if.end17:                                         ; preds = %_ZN6icu_7512_GLOBAL
 
 common.resume:                                    ; preds = %lpad18, %lpad27, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %9, %lpad.i ], [ %14, %lpad27 ], [ %11, %lpad18 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tag) #14
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.end17
@@ -636,7 +636,7 @@ _ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit:  ; preds = %if.end17
   br i1 %cmp.i30, label %if.end23, label %cleanup77.thread
 
 cleanup77.thread:                                 ; preds = %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tag) #14
   br label %return
 
 lpad18:                                           ; preds = %if.end23
@@ -816,20 +816,20 @@ invoke.cont71:                                    ; preds = %if.end70
 
 cleanup77.thread89:                               ; preds = %invoke.cont71
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tag) #14
   br label %while.end
 
 cleanup77.thread87:                               ; preds = %land.lhs.true66, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit57, %lor.lhs.false, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit70, %lor.lhs.false52, %lor.lhs.false55, %invoke.cont26
   store i32 1, ptr %errorCode, align 4
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tag) #14
   br label %return
 
 cleanup77:                                        ; preds = %invoke.cont71
   %incdec.ptr76 = getelementptr inbounds i8, ptr %28, i64 1
   store ptr %incdec.ptr76, ptr %p, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tag) #14
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit, %cleanup77.thread89
@@ -852,7 +852,7 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
 if.end.i:                                         ; preds = %lor.lhs.false3.i
   %34 = load ptr, ptr %this, align 8
   %.val.i = load ptr, ptr %34, align 8
-  call void @uprv_sortArray_75(ptr noundef %.val.i, i32 noundef %31, i32 noundef 16, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %errorCode)
+  call void @uprv_sortArray_75(ptr noundef %.val.i, i32 noundef %31, i32 noundef 16, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
 return:                                           ; preds = %if.end.i, %lor.lhs.false3.i, %lor.lhs.false.i, %while.end, %cleanup77.thread87, %cleanup77.thread, %entry, %if.then16, %if.then5
@@ -1111,7 +1111,7 @@ if.then3.i:                                       ; preds = %call.i.noexc
 if.then5.i:                                       ; preds = %if.then3.i
   %15 = load i32, ptr %14, align 8
   %spec.select.i = call i32 @llvm.smin.i32(i32 %12, i32 %15)
-  %length.addr.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %spec.select)
+  %length.addr.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 range(i32 100, -2147483648) %spec.select)
   %16 = load ptr, ptr %13, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
   %mul13.i = shl nsw i64 %conv12.i, 4

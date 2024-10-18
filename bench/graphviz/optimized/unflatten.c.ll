@@ -156,7 +156,7 @@ isleaf.exit:                                      ; preds = %.lr.ph.i.i, %.lr.ph
   %80 = srem i32 %.05788, %79
   %81 = add nsw i32 %80, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %81) #4
+  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef range(i32 -2147483647, -2147483648) %81) #4
   %83 = call i32 @agxset(ptr noundef nonnull %.05987, ptr noundef %5, ptr noundef nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %84 = add nsw i32 %.05788, 1
@@ -272,7 +272,7 @@ ischainnode.exit:                                 ; preds = %.lr.ph.i.i78
   %142 = srem i32 %.292, %141
   %143 = add nsw i32 %142, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %144 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %143) #4
+  %144 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef range(i32 -2147483647, -2147483648) %143) #4
   %145 = call i32 @agxset(ptr noundef nonnull %.16090, ptr noundef %5, ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   br label %146

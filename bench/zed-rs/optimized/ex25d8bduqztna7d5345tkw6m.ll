@@ -81,7 +81,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %27, label %_ZN3url3Url5slice17hc43588a5c7477ff7E.exit.i, label %28
 
 28:                                               ; preds = %26, %22
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, i64 noundef 0, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e1f8d39eecbcd5ec5a85accc0c2358ee.38) #18, !noalias !6
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, i64 noundef 0, i64 noundef range(i64 0, 4294967296) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e1f8d39eecbcd5ec5a85accc0c2358ee.38) #18, !noalias !6
   unreachable
 
 _ZN3url3Url5slice17hc43588a5c7477ff7E.exit.i:     ; preds = %26, %22, %2
@@ -110,7 +110,7 @@ _ZN3url3Url5slice17hc43588a5c7477ff7E.exit.i:     ; preds = %26, %22, %2
   br i1 %41, label %_ZN3url3Url5slice17he11bac14e7e7cf76E.exit.i.i, label %42
 
 42:                                               ; preds = %40, %36
-  call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, i64 noundef %32, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e1f8d39eecbcd5ec5a85accc0c2358ee.39) #18, !noalias !26
+  call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, i64 noundef range(i64 0, 4294967296) %32, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e1f8d39eecbcd5ec5a85accc0c2358ee.39) #18, !noalias !26
   unreachable
 
 _ZN3url3Url5slice17he11bac14e7e7cf76E.exit.i.i:   ; preds = %40, %36, %_ZN3url3Url5slice17hc43588a5c7477ff7E.exit.i
@@ -763,7 +763,7 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 

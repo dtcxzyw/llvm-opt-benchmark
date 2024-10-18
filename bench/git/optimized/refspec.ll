@@ -416,7 +416,7 @@ if.then:                                          ; preds = %refspec_item_init_o
   br i1 %mul.ov.i, label %if.then.i30, label %st_mult.exit
 
 if.then.i30:                                      ; preds = %if.then
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 24, i64 noundef %conv) #14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 24, i64 noundef range(i64 -2147483648, 2147483648) %conv) #14
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then
@@ -460,7 +460,7 @@ if.then25:                                        ; preds = %do.end
   br i1 %mul.ov.i32, label %if.then.i34, label %st_mult.exit35
 
 if.then.i34:                                      ; preds = %if.then25
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 8, i64 noundef %conv46) #14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv46) #14
   unreachable
 
 st_mult.exit35:                                   ; preds = %if.then25

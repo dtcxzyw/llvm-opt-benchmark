@@ -380,7 +380,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24: ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i, label %_ZNSt8functionIFviiiEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZNSt8functionIFviiiEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -436,7 +436,7 @@ _ZNSt8functionIFviiiEED2Ev.exit:                  ; preds = %47, %49
   br i1 %.not.i.i35, label %_ZNSt8functionIFviiiEED2Ev.exit36, label %72
 
 72:                                               ; preds = %69
-  %73 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %73 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZNSt8functionIFviiiEED2Ev.exit36 unwind label %74
 
 74:                                               ; preds = %72
@@ -3044,7 +3044,7 @@ define internal void @_ZN8LightGBM9Threading3ForIiEEiT_S2_S2_RKSt8functionIFviS2
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %25, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %_ZNKSt8functionIFviiiEEclEiii.exit unwind label %40
 
 _ZNKSt8functionIFviiiEEclEiii.exit:               ; preds = %38
@@ -3131,7 +3131,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:
 
 4:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #7
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, label %7
 
@@ -3171,7 +3171,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %9
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %12
-  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #7
+  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   br label %14
 
 14:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -3737,7 +3737,7 @@ _ZN8LightGBM7Network9GlobalSumIdEESt6vectorIT_SaIS3_EEPS5_.exit: ; preds = %_ZNS
 
 111:                                              ; preds = %98
   %112 = load ptr, ptr %96, align 8
-  %113 = invoke noundef i32 %112(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %113 = invoke noundef i32 %112(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %114 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit
 
 114:                                              ; preds = %111

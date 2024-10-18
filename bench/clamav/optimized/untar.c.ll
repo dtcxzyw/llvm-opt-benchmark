@@ -90,7 +90,7 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %spec.select.i = call i64 @llvm.umin.i64(i64 %26, i64 512)
   %27 = getelementptr inbounds i8, ptr %22, i64 104
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr %28(ptr noundef nonnull %22, i64 noundef %.0108, i64 noundef %spec.select.i, i32 noundef 0) #11
+  %29 = call ptr %28(ptr noundef nonnull %22, i64 noundef %.0108, i64 noundef range(i64 0, 513) %spec.select.i, i32 noundef 0) #11
   %.not20.i = icmp eq ptr %29, null
   %30 = select i1 %.not20.i, i64 0, i64 %spec.select.i
   br label %fmap_need_off_once_len.exit

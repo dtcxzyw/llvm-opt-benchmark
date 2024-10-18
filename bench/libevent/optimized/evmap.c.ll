@@ -1281,7 +1281,7 @@ for.cond.i:                                       ; preds = %for.body.i16
 
 for.body.i16:                                     ; preds = %if.end.i, %for.cond.i
   %ev.06.i = phi ptr [ %ev.0.i, %for.cond.i ], [ %ev.04.i, %if.end.i ]
-  %call.i17 = tail call i32 %fn(ptr noundef %base, ptr noundef nonnull %ev.06.i, ptr noundef %arg) #7
+  %call.i17 = tail call i32 %fn(ptr noundef nonnull %base, ptr noundef nonnull %ev.06.i, ptr noundef %arg) #7
   %tobool.not.i18 = icmp eq i32 %call.i17, 0
   br i1 %tobool.not.i18, label %for.cond.i, label %return
 
@@ -1327,7 +1327,7 @@ for.cond.i27:                                     ; preds = %for.body.i23
 
 for.body.i23:                                     ; preds = %if.end.i9, %for.cond.i27
   %ev.06.i24 = phi ptr [ %ev.0.i29, %for.cond.i27 ], [ %ev.04.i19, %if.end.i9 ]
-  %call.i = tail call i32 %fn(ptr noundef %base, ptr noundef nonnull %ev.06.i24, ptr noundef %arg) #7
+  %call.i = tail call i32 %fn(ptr noundef nonnull %base, ptr noundef nonnull %ev.06.i24, ptr noundef %arg) #7
   %tobool.not.i25 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i25, label %for.cond.i27, label %return
 

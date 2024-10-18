@@ -4833,7 +4833,7 @@ _ZN2cvmlIdLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   store ptr %1665, ptr %1668, align 8
   store ptr %1670, ptr %1669, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1670, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %73, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull %97, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %73, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(128) %97, i64 noundef 0)
           to label %.noexc.i144 unwind label %1755
 
 .noexc.i144:                                      ; preds = %_ZN2cvmlIdLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit.i
@@ -10758,7 +10758,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit.i:               ; preds = %685
   %692 = getelementptr inbounds i8, ptr %108, i64 80
   store ptr %692, ptr %691, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %692, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %85, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %109, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %85, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %109, i64 noundef 0)
           to label %.noexc119.i unwind label %787
 
 .noexc119.i:                                      ; preds = %_ZNK2cv4MatxIdLi3ELi3EE1tEv.exit.i
@@ -12261,7 +12261,7 @@ _ZN2cvL28calibrateRobotWorldHandEyeLiERKSt6vectorINS_4Mat_IdEESaIS2_EES6_S6_S6_R
   %1140 = getelementptr inbounds i8, ptr %184, i64 80
   store ptr %1140, ptr %1139, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1140, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %16, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %180, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %16, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %180, i64 noundef 0)
           to label %.noexc160 unwind label %.loopexit.split-lp
 
 .noexc160:                                        ; preds = %1133
@@ -12305,7 +12305,7 @@ _ZN2cvL28calibrateRobotWorldHandEyeLiERKSt6vectorINS_4Mat_IdEESaIS2_EES6_S6_S6_R
   %1153 = getelementptr inbounds i8, ptr %185, i64 80
   store ptr %1153, ptr %1152, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1153, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %182, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %182, i64 noundef 0)
           to label %.noexc163 unwind label %.loopexit.split-lp
 
 .noexc163:                                        ; preds = %1146
@@ -12349,7 +12349,7 @@ _ZN2cvL28calibrateRobotWorldHandEyeLiERKSt6vectorINS_4Mat_IdEESaIS2_EES6_S6_S6_R
   %1166 = getelementptr inbounds i8, ptr %186, i64 80
   store ptr %1166, ptr %1165, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1166, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %181, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %181, i64 noundef 0)
           to label %.noexc166 unwind label %.loopexit.split-lp
 
 .noexc166:                                        ; preds = %1159
@@ -12393,7 +12393,7 @@ _ZN2cvL28calibrateRobotWorldHandEyeLiERKSt6vectorINS_4Mat_IdEESaIS2_EES6_S6_S6_R
   %1179 = getelementptr inbounds i8, ptr %187, i64 80
   store ptr %1179, ptr %1178, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1179, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %183, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %183, i64 noundef 0)
           to label %.noexc170 unwind label %.loopexit.split-lp
 
 .noexc170:                                        ; preds = %1172
@@ -13161,7 +13161,7 @@ define internal fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unw
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 3, i32 noundef 1, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %8)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc unwind label %143
 
 .noexc:                                           ; preds = %101
@@ -13358,7 +13358,7 @@ define internal fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias 
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 3, i32 noundef 3, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !289)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %8)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc unwind label %124
 
 .noexc:                                           ; preds = %26
@@ -13947,7 +13947,7 @@ define internal fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noal
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 4, i32 noundef 1, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %8)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc unwind label %157
 
 .noexc:                                           ; preds = %108
@@ -14742,7 +14742,7 @@ common.resume:                                    ; preds = %132, %.body.i
   %97 = getelementptr inbounds i8, ptr %5, i64 80
   store ptr %97, ptr %96, align 8, !noalias !307
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false), !noalias !307
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %20, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %20, i64 noundef 0)
           to label %.noexc unwind label %118
 
 .noexc:                                           ; preds = %86

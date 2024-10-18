@@ -534,7 +534,7 @@ cmListFileLexerSetToken.exit:                     ; preds = %202, %205, %206
   br label %225
 
 225:                                              ; preds = %224, %212
-  %226 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str) #31
+  %226 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #31
   store ptr %226, ptr %90, align 8
   store i32 0, ptr %89, align 8
   br label %cmListFileLexerSetToken.exit292
@@ -1216,7 +1216,7 @@ cmListFileLexerSetToken.exit350:                  ; preds = %513, %516, %517
   br label %533
 
 533:                                              ; preds = %532, %524
-  %534 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str) #31
+  %534 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #31
   store ptr %534, ptr %90, align 8
   store i32 0, ptr %89, align 8
   br label %cmListFileLexerSetToken.exit354

@@ -1982,7 +1982,7 @@ if.then.i.i.i.i104.thread.i:                      ; preds = %lor.rhs.i.i.i.i.i
   br i1 %cmp.not.i32109.i, label %if.then.i42.i, label %if.then7.i.i.i
 
 if.then.i42.i:                                    ; preds = %if.then.i.i.i.i104.thread.i, %if.then.i.i.i.i104.i
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i.i.i.i, i64 noundef 1, ptr %agg.tmp.sroa.0.0.i.i.i)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i.i.i.i, i64 noundef 1, ptr nonnull %agg.tmp.sroa.0.0.i.i.i)
           to label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i.i.i.i unwind label %lpad36.loopexit.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i.i104.i
@@ -5149,7 +5149,7 @@ call.i.i.i.noexc.i186:                            ; preds = %if.end19.i, %if.end
   br i1 %or.cond.i94.i, label %if.then.i97.i, label %if.else.i95.i
 
 if.then.i97.i:                                    ; preds = %call.i.i.i.noexc.i186
-  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %candidates, ptr noundef %__x.086.i)
+  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(104) %candidates, ptr noundef %__x.086.i)
           to label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5clearEv.exit.i.i unwind label %terminate.lpad.i.i.i187
 
 terminate.lpad.i.i.i187:                          ; preds = %if.then.i97.i
@@ -7324,7 +7324,7 @@ invoke.cont73.i:                                  ; preds = %_ZNSt6vectorIN3ue21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a.i.i345)
   store ptr %a.sroa.0.0.copyload.i480, ptr %a.i.i345, align 8
   store i64 %a.sroa.14.0.copyload.i, ptr %772, align 8
-  %call.i.i.i152.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE11equal_rangeERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %candidates, ptr noundef nonnull align 8 dereferenceable(16) %a.i.i345)
+  %call.i.i.i152.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE11equal_rangeERKS8_(ptr noundef nonnull align 8 dereferenceable(104) %candidates, ptr noundef nonnull align 8 dereferenceable(16) %a.i.i345)
           to label %call.i.i.i.noexc.i557 unwind label %lpad.loopexit.split-lp.loopexit.loopexit.i
 
 call.i.i.i.noexc.i557:                            ; preds = %invoke.cont73.i
@@ -7338,7 +7338,7 @@ call.i.i.i.noexc.i557:                            ; preds = %invoke.cont73.i
 
 if.then.i167.i:                                   ; preds = %call.i.i.i.noexc.i557
   %861 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %candidates, ptr noundef %861)
+  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(104) %candidates, ptr noundef %861)
           to label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5clearEv.exit.i.i567 unwind label %terminate.lpad.i.i.i566
 
 terminate.lpad.i.i.i566:                          ; preds = %if.then.i167.i
@@ -27103,7 +27103,7 @@ if.then.i.i.i.i.thread:                           ; preds = %lor.rhs.i.i.i.i
   br i1 %cmp.not.i68, label %if.then.i11, label %if.then7.i.i
 
 if.then.i11:                                      ; preds = %if.then.i.i.i.i.thread, %if.then.i.i.i.i
-  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %literals8.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i.i.i, i64 noundef 1, ptr %agg.tmp.sroa.0.0.i.i), !noalias !757
+  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %literals8.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i.i.i, i64 noundef 1, ptr nonnull %agg.tmp.sroa.0.0.i.i), !noalias !757
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i.i.i

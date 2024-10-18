@@ -4510,7 +4510,7 @@ define hidden zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef %0, i32 noundef
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.1) #35
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.1) #35
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %FT_Get_Module.exit, label %.lr.ph.i
 
@@ -4523,7 +4523,7 @@ define hidden zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef %0, i32 noundef
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(7) @.str.1) #35
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.1) #35
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %FT_Get_Module.exit, label %.lr.ph.i
 
@@ -6427,14 +6427,14 @@ IsMacBinary.exit:                                 ; preds = %151
   %176 = add nuw nsw i64 %175, 127
   %177 = and i64 %176, 9223372036854775680
   %178 = add nuw nsw i64 %177, 128
-  %179 = call fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef nonnull %119, i64 noundef %178, i64 noundef %.089, ptr noundef %3)
+  %179 = call fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef nonnull %119, i64 noundef %178, i64 noundef range(i64 -2147483647, 2147483648) %.089, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   %180 = and i32 %179, 255
   %181 = icmp eq i32 %180, 2
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %IsMacBinary.exit.thread226, %IsMacBinary.exit
-  %183 = call fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef nonnull %119, i64 noundef 0, i64 noundef %.089, ptr noundef %3)
+  %183 = call fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef nonnull %119, i64 noundef 0, i64 noundef range(i64 -2147483647, 2147483648) %.089, ptr noundef %3)
   br label %184
 
 184:                                              ; preds = %182, %IsMacBinary.exit
@@ -6580,7 +6580,7 @@ FT_Stream_New.exit.i.thread:                      ; preds = %224, %ft_mem_free.e
 237:                                              ; preds = %230
   %238 = getelementptr inbounds [9 x i64], ptr %8, i64 0, i64 %indvars.iv298
   %239 = load i64, ptr %238, align 8
-  %240 = call fastcc i32 @IsMacResource(ptr noundef nonnull %0, ptr noundef nonnull %229, i64 noundef %239, i64 noundef %.089, ptr noundef %3)
+  %240 = call fastcc i32 @IsMacResource(ptr noundef nonnull %0, ptr noundef nonnull %229, i64 noundef %239, i64 noundef range(i64 -2147483647, 2147483648) %.089, ptr noundef %3)
   %241 = load ptr, ptr %231, align 8
   %242 = getelementptr inbounds i8, ptr %229, i64 48
   %243 = load ptr, ptr %242, align 8
@@ -12564,7 +12564,7 @@ define i32 @FT_Get_TrueType_Engine_Type(ptr noundef readonly %0) local_unnamed_a
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(9) @.str.9) #35
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.9) #35
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %FT_Get_Module.exit, label %7
 

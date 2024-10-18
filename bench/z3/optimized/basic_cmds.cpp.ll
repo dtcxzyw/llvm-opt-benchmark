@@ -1069,7 +1069,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18get_unsat_core_cmd, i64 16), ptr %call6, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call6)
   %call7 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 216)
-  tail call void @_ZN18set_get_option_cmdC2EPKc(ptr noundef nonnull align 8 dereferenceable(200) %call7, ptr noundef nonnull @.str.74)
+  tail call void @_ZN18set_get_option_cmdC2EPKc(ptr noundef nonnull align 8 dereferenceable(216) %call7, ptr noundef nonnull @.str.74)
   store ptr getelementptr inbounds (i8, ptr @_ZTV14set_option_cmd, i64 16), ptr %call7, align 8
   %m_unsupported.i = getelementptr inbounds i8, ptr %call7, i64 200
   store i8 0, ptr %m_unsupported.i, align 8
@@ -2433,7 +2433,7 @@ if.then.i.i.i58:                                  ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %vtable.i.i.i.i, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(96) %57) #20
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %57)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %57)
           to label %_ZN3refI5modelED2Ev.exit unwind label %terminate.lpad.i59
 
 terminate.lpad.i59:                               ; preds = %if.then.i.i.i58
@@ -2467,7 +2467,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2484,7 +2484,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -2634,7 +2634,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(96) %0) #20
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i
@@ -2669,7 +2669,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -4540,12 +4540,12 @@ entry:
 
 _ZNK8rational9is_uint64Ev.exit.i:                 ; preds = %entry
   %2 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %val)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(32) %val)
   br i1 %call.i.i.i.i, label %_ZNK8rational11is_unsignedEv.exit, label %if.then
 
 _ZNK8rational11is_unsignedEv.exit:                ; preds = %_ZNK8rational9is_uint64Ev.exit.i
   %3 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i1.i = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %3, ptr noundef nonnull align 8 dereferenceable(16) %val)
+  %call.i.i.i1.i = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %3, ptr noundef nonnull align 8 dereferenceable(32) %val)
   %cmp.i = icmp ult i64 %call.i.i.i1.i, 4294967296
   br i1 %cmp.i, label %if.end, label %if.then
 
@@ -4566,7 +4566,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %_ZNK8rational11is_unsignedEv.exit
   %5 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i.i2 = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %val)
+  %call.i.i.i.i2 = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %5, ptr noundef nonnull align 8 dereferenceable(32) %val)
   %conv.i = trunc i64 %call.i.i.i.i2 to i32
   ret i32 %conv.i
 }
@@ -7940,8 +7940,8 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add.ptr2 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %while.body
@@ -8030,8 +8030,8 @@ land.rhs:                                         ; preds = %entry, %while.body
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__parent.018
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__value)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %land.rhs
@@ -8104,8 +8104,8 @@ entry:
   %ref.tmp2.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__a)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__b)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__a)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__b)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
@@ -8141,8 +8141,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symb
 if.then:                                          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i20)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i19, ptr noundef nonnull align 8 dereferenceable(8) %__b)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i20, ptr noundef nonnull align 8 dereferenceable(8) %__c)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %__b)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %__c)
           to label %invoke.cont.i.i22 unwind label %lpad.i.i21
 
 invoke.cont.i.i22:                                ; preds = %if.then
@@ -8185,8 +8185,8 @@ if.then2:                                         ; preds = %_ZN9__gnu_cxx5__ops
 if.else:                                          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i28)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %__a)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i28, ptr noundef nonnull align 8 dereferenceable(8) %__c)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %__a)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %__c)
           to label %invoke.cont.i.i30 unwind label %lpad.i.i29
 
 invoke.cont.i.i30:                                ; preds = %if.else
@@ -8240,8 +8240,8 @@ if.else5:                                         ; preds = %_ZN9__gnu_cxx5__ops
 if.else7:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i41)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i42)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i41, ptr noundef nonnull align 8 dereferenceable(8) %__a)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i42, ptr noundef nonnull align 8 dereferenceable(8) %__c)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i41, ptr noundef nonnull align 8 dereferenceable(16) %__a)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i42, ptr noundef nonnull align 8 dereferenceable(16) %__c)
           to label %invoke.cont.i.i44 unwind label %lpad.i.i43
 
 invoke.cont.i.i44:                                ; preds = %if.else7
@@ -8284,8 +8284,8 @@ if.then9:                                         ; preds = %_ZN9__gnu_cxx5__ops
 if.else10:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i52)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i53)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i52, ptr noundef nonnull align 8 dereferenceable(8) %__b)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i53, ptr noundef nonnull align 8 dereferenceable(8) %__c)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i52, ptr noundef nonnull align 8 dereferenceable(16) %__b)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i53, ptr noundef nonnull align 8 dereferenceable(16) %__c)
           to label %invoke.cont.i.i55 unwind label %lpad.i.i54
 
 invoke.cont.i.i55:                                ; preds = %if.else10
@@ -8358,8 +8358,8 @@ while.cond1:                                      ; preds = %while.body2, %while
   %__first.addr.1 = phi ptr [ %__first.addr.0, %while.body ], [ %incdec.ptr, %while.body2 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.1)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__pivot)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__pivot)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %while.cond1
@@ -8401,8 +8401,8 @@ while.cond4:                                      ; preds = %_ZN9__gnu_cxx5__ops
   %__last.addr.1 = getelementptr inbounds i8, ptr %__last.addr.0.pn, i64 -16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i12)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i11, ptr noundef nonnull align 8 dereferenceable(8) %__pivot)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i12, ptr noundef nonnull align 8 dereferenceable(8) %__last.addr.1)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %__pivot)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1)
           to label %invoke.cont.i.i14 unwind label %lpad.i.i13
 
 invoke.cont.i.i14:                                ; preds = %while.cond4
@@ -8477,8 +8477,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__first.pn14 = phi ptr [ %__first, %for.body.lr.ph ], [ %__i.015, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__i.015)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__first)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.015)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.body
@@ -8568,8 +8568,8 @@ while.cond:                                       ; preds = %while.body, %entry
   %__next.0 = getelementptr inbounds i8, ptr %__last.addr.0, i64 -16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
-  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__val)
-  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__next.0)
+  call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val)
+  invoke void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__next.0)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %while.cond
@@ -8812,7 +8812,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %.pr, align 8
   %8 = load ptr, ptr %vtable.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(96) %.pr) #20
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %.pr)
           to label %_ZN3refI5modelED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i

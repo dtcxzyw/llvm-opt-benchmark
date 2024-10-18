@@ -429,7 +429,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17hceedbd791abee02
   store ptr %1, ptr %5, align 8, !alias.scope !80, !noalias !77
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %2, ptr %6, align 8, !alias.scope !80, !noalias !77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %3, i64 88, i1 false), !alias.scope !82
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %3, i64 88, i1 false), !alias.scope !82
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !80, !noalias !77
   ret void
@@ -533,7 +533,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %9 = phi ptr [ %5, %.lr.ph ], [ %19, %15 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %10, ptr %2, align 8, !alias.scope !93
-  %11 = invoke { i8, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h910ed96031d477caE.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  %11 = invoke { i8, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h910ed96031d477caE.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(128) %0)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %8
@@ -687,7 +687,7 @@ define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %31 = load ptr, ptr %0, align 8, !nonnull !7, !align !25, !noundef !7
   %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = invoke noundef i32 @ring_core_0_17_8__bn_from_montgomery_in_place(ptr noundef nonnull %29, i64 noundef %.fca.1.extract, ptr noundef nonnull %6, i64 noundef %.8.val, ptr noundef nonnull readonly %31, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32)
+  %33 = invoke noundef i32 @ring_core_0_17_8__bn_from_montgomery_in_place(ptr noundef nonnull align 8 %29, i64 noundef %.fca.1.extract, ptr noundef nonnull align 8 %6, i64 noundef %.8.val, ptr noundef nonnull readonly align 8 %31, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32)
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hebe1c783f3496088E.exit"
@@ -1138,7 +1138,7 @@ _ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit: ; pr
 _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit: ; preds = %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !188
-  %33 = call noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %3, i64 noundef %6)
+  %33 = call noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly align 8 %3, i64 noundef %6)
   %.not = icmp ne i64 %33, -1
   %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread, label %34
@@ -1876,7 +1876,7 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   store i64 %114, ptr %116, align 8, !noalias !265
   %117 = load ptr, ptr %67, align 8, !alias.scope !260, !noalias !267, !nonnull !7, !align !25, !noundef !7
   %118 = load ptr, ptr %20, align 8, !alias.scope !263, !noalias !268, !nonnull !7, !align !25, !noundef !7
-  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull %113, ptr noundef nonnull %113, ptr noundef nonnull readonly %117, ptr noundef nonnull readonly %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72, i64 noundef %114)
+  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %113, ptr noundef nonnull align 8 %113, ptr noundef nonnull readonly align 8 %117, ptr noundef nonnull readonly align 8 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72, i64 noundef %114)
           to label %128 unwind label %119, !noalias !260
 
 119:                                              ; preds = %115
@@ -1918,7 +1918,7 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   store i64 %114, ptr %129, align 8, !noalias !274
   %130 = load ptr, ptr %15, align 8, !alias.scope !269, !noalias !276, !nonnull !7, !align !25, !noundef !7
   %131 = load ptr, ptr %20, align 8, !alias.scope !272, !noalias !277, !nonnull !7, !align !25, !noundef !7
-  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull %113, ptr noundef nonnull %113, ptr noundef nonnull readonly %130, ptr noundef nonnull readonly %131, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72, i64 noundef %114)
+  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %113, ptr noundef nonnull align 8 %113, ptr noundef nonnull readonly align 8 %130, ptr noundef nonnull readonly align 8 %131, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72, i64 noundef %114)
           to label %136 unwind label %132, !noalias !269
 
 132:                                              ; preds = %128
@@ -2015,7 +2015,7 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
 
 _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i: ; preds = %.critedge.i
   %160 = load ptr, ptr %20, align 8, !alias.scope !283, !noalias !286, !nonnull !7, !align !25, !noundef !7
-  %161 = invoke noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly %144, ptr noundef nonnull readonly %160, i64 noundef %152)
+  %161 = invoke noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly align 8 %144, ptr noundef nonnull readonly align 8 %160, i64 noundef %152)
           to label %.noexc unwind label %162
 
 .noexc:                                           ; preds = %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i
@@ -2026,7 +2026,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   %.9269 = phi i8 [ %.11271, %189 ], [ 1, %162 ], [ %.13273, %195 ]
   %.12 = phi i8 [ %.14, %189 ], [ 1, %162 ], [ %.16, %195 ]
   %.pn287 = phi { ptr, i32 } [ %190, %189 ], [ %163, %162 ], [ %.pn, %195 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" unwind label %239
 
 162:                                              ; preds = %168, %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387384687170936.exit.i
@@ -2045,7 +2045,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
 167:                                              ; preds = %242, %177, %164
   %.10270 = phi i8 [ %.12272, %242 ], [ 1, %177 ], [ 1, %164 ]
   %.13 = phi i8 [ %.15, %242 ], [ 1, %177 ], [ 1, %164 ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320" unwind label %138
 
 168:                                              ; preds = %.noexc, %.critedge.i
@@ -2239,7 +2239,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328" unwind label %138
 
 234:                                              ; preds = %224
@@ -2343,7 +2343,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
 
 250:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338.thread", %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338"
   %.5257412 = phi i8 [ 1, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338.thread" ], [ %.8, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338" ]
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i" unwind label %251
 
 251:                                              ; preds = %250
@@ -2371,7 +2371,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
 "_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..P$GT$$GT$17h7c6357846459f3c2E.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit.i", %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..Q$GT$$GT$17hb50d01ef26b362f5E.exit", %82
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(80) %22)
           to label %"_ZN4core3ptr61drop_in_place$LT$ring..rsa..public_modulus..PublicModulus$GT$17h1129938936b7460aE.exit.i.i" unwind label %258
 
 258:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..P$GT$$GT$17h7c6357846459f3c2E.exit"
@@ -2417,7 +2417,7 @@ common.resume:                                    ; preds = %63, %.thread366, %.
   br label %237
 
 268:                                              ; preds = %.thread413, %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..Q$GT$$GT$17hb50d01ef26b362f5E.exit"
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit.i" unwind label %269
 
 269:                                              ; preds = %268
@@ -2492,7 +2492,7 @@ define noundef zeroext i1 @_ZN4ring3rsa7keypair7KeyPair4sign17h4cc53f65268603b2E
   %37 = alloca { { ptr, { [8 x i64] }, i64 }, [128 x i8], i64 }, align 8
   %38 = alloca { ptr, i64 }, align 8
   %39 = alloca { ptr, { [64 x i8] } }, align 8
-  %40 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
+  %40 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
   %41 = icmp ult i8 %40, 4
   tail call void @llvm.assume(i1 %41)
   %.not.i = icmp eq i8 %40, 2
@@ -2588,7 +2588,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   %82 = getelementptr inbounds i8, ptr %0, i64 104
   %83 = load i64, ptr %82, align 8, !alias.scope !312, !noalias !326, !noundef !7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !315
-  %84 = invoke { ptr, i64 } @_ZN4ring3rsa7keypair18elem_exp_consttime17h9eb95b5035302b90E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i64 noundef %83)
+  %84 = invoke { ptr, i64 } @_ZN4ring3rsa7keypair18elem_exp_consttime17h9eb95b5035302b90E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0, i64 noundef %83)
           to label %87 unwind label %85
 
 "_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$GT$$GT$17hcddb2799fbcd6d4cE.exit164.i": ; preds = %203, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..Q$GT$$GT$17h6acaa9f2cde17dc9E.exit160.thread.i", %.thread176.i, %95, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..Q$GT$$GT$17h6acaa9f2cde17dc9E.exit160.i", %85
@@ -2680,7 +2680,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   store i64 %113, ptr %114, align 8, !noalias !330
   %115 = load ptr, ptr %30, align 8, !alias.scope !327, !noalias !333, !nonnull !7, !align !25, !noundef !7
   %116 = load i64, ptr %106, align 8, !alias.scope !327, !noalias !333, !noundef !7
-  invoke void @ring_core_0_17_8__LIMBS_sub_mod(ptr noundef nonnull %112, ptr noundef nonnull %112, ptr noundef nonnull %.fca.0.extract28.i, ptr noundef nonnull %115, i64 noundef %116)
+  invoke void @ring_core_0_17_8__LIMBS_sub_mod(ptr noundef nonnull align 8 %112, ptr noundef nonnull align 8 %112, ptr noundef nonnull %.fca.0.extract28.i, ptr noundef nonnull %115, i64 noundef %116)
           to label %121 unwind label %117, !noalias !334
 
 117:                                              ; preds = %111
@@ -2711,7 +2711,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   store i64 %113, ptr %123, align 8, !noalias !340
   %124 = load ptr, ptr %122, align 8, !alias.scope !342, !noalias !343, !nonnull !7, !align !25, !noundef !7
   %125 = load ptr, ptr %30, align 8, !alias.scope !338, !noalias !344, !nonnull !7, !align !25, !noundef !7
-  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull %112, ptr noundef nonnull %112, ptr noundef nonnull readonly %124, ptr noundef nonnull readonly %125, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %105, i64 noundef %113)
+  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %112, ptr noundef nonnull align 8 %112, ptr noundef nonnull readonly align 8 %124, ptr noundef nonnull readonly align 8 %125, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %105, i64 noundef %113)
           to label %130 unwind label %126, !noalias !335
 
 126:                                              ; preds = %121
@@ -2782,7 +2782,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   store i64 %.fca.1.extract47.i, ptr %143, align 8, !noalias !350
   %144 = load ptr, ptr %76, align 8, !alias.scope !352, !noalias !353, !nonnull !7, !align !25, !noundef !7
   %145 = load ptr, ptr %34, align 8, !alias.scope !348, !noalias !354, !nonnull !7, !align !25, !noundef !7
-  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull %.fca.0.extract45.i, ptr noundef nonnull %.fca.0.extract45.i, ptr noundef nonnull readonly %144, ptr noundef nonnull readonly %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %74, i64 noundef %.fca.1.extract47.i)
+  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %.fca.0.extract45.i, ptr noundef nonnull align 8 %.fca.0.extract45.i, ptr noundef nonnull readonly align 8 %144, ptr noundef nonnull readonly align 8 %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %74, i64 noundef %.fca.1.extract47.i)
           to label %150 unwind label %146, !noalias !345
 
 146:                                              ; preds = %142
@@ -2811,7 +2811,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   %153 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 %152, ptr %153, align 8, !noalias !358
   %154 = load ptr, ptr %34, align 8, !alias.scope !355, !noalias !361, !nonnull !7, !align !25, !noundef !7
-  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull %151, ptr noundef nonnull %151, ptr noundef nonnull readonly %.fca.0.extract45.i, ptr noundef nonnull readonly %154, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %74, i64 noundef %152)
+  invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %151, ptr noundef nonnull align 8 %151, ptr noundef nonnull readonly align 8 %.fca.0.extract45.i, ptr noundef nonnull readonly align 8 %154, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %74, i64 noundef %152)
           to label %161 unwind label %155, !noalias !362
 
 155:                                              ; preds = %150
@@ -2868,7 +2868,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   store i64 %169, ptr %171, align 8, !noalias !366
   %172 = load ptr, ptr %34, align 8, !alias.scope !363, !noalias !369, !nonnull !7, !align !25, !noundef !7
   %173 = load i64, ptr %73, align 8, !alias.scope !363, !noalias !369, !noundef !7
-  invoke void @ring_core_0_17_8__LIMBS_add_mod(ptr noundef nonnull %.fca.0.extract65.i, ptr noundef nonnull %.fca.0.extract65.i, ptr noundef nonnull %168, ptr noundef nonnull %172, i64 noundef %173)
+  invoke void @ring_core_0_17_8__LIMBS_add_mod(ptr noundef nonnull align 8 %.fca.0.extract65.i, ptr noundef nonnull align 8 %.fca.0.extract65.i, ptr noundef nonnull align 8 %168, ptr noundef nonnull %172, i64 noundef %173)
           to label %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit2.i.i" unwind label %174, !noalias !363
 
 174:                                              ; preds = %167
@@ -2943,7 +2943,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
 _ZN4ring4limb27limbs_equal_limbs_consttime17h9c51487451836acaE.exit.i.i: ; preds = %185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !370
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !370
-  %188 = invoke noundef i64 @ring_core_0_17_8__LIMBS_equal(ptr noundef nonnull readonly %.fca.0.extract76.i, ptr noundef nonnull readonly %.val123.i, i64 noundef %.fca.1.extract78.i)
+  %188 = invoke noundef i64 @ring_core_0_17_8__LIMBS_equal(ptr noundef nonnull readonly align 8 %.fca.0.extract76.i, ptr noundef nonnull readonly align 8 %.val123.i, i64 noundef %.fca.1.extract78.i)
           to label %191 unwind label %189
 
 189:                                              ; preds = %_ZN4ring4limb27limbs_equal_limbs_consttime17h9c51487451836acaE.exit.i.i, %187

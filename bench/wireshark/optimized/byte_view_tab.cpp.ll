@@ -294,7 +294,7 @@ define void @_ZN11ByteViewTab13captureActiveEi(ptr noundef nonnull align 8 deref
 8:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !7
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(56) @_ZN12ByteViewText16staticMetaObjectE, ptr noundef nonnull %3, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(56) @_ZN12ByteViewText16staticMetaObjectE, ptr noundef nonnull align 8 %3, i32 1)
           to label %_ZNK7QObject12findChildrenIP12ByteViewTextEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %9
 
 9:                                                ; preds = %8
@@ -436,7 +436,7 @@ define void @_ZN11ByteViewTab20selectedFrameChangedE5QListIiE(ptr noundef nonnul
   tail call void @_ZN10QTabWidget5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !10
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(56) @_ZN12ByteViewText16staticMetaObjectE, ptr noundef nonnull %3, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(56) @_ZN12ByteViewText16staticMetaObjectE, ptr noundef nonnull align 8 %3, i32 1)
           to label %_ZNK7QObject12findChildrenIP12ByteViewTextEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %5
 
 5:                                                ; preds = %2
@@ -864,7 +864,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i47:    ; preds = %102
 110:                                              ; preds = %99, %93, %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !noalias !19
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %6)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %111 unwind label %65
 
 111:                                              ; preds = %110
@@ -958,7 +958,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58:    ; preds = %134
 
 _ZN7QStringD2Ev.exit60:                           ; preds = %134, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58, %137
   store i32 %133, ptr %21, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %21)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %_ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %65
 
 _ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %_ZN7QStringD2Ev.exit60
@@ -1167,7 +1167,7 @@ _ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit: ; preds = %9
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
   br label %27
 
 22:                                               ; preds = %9
@@ -1179,7 +1179,7 @@ _ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit: ; preds = %9
 24:                                               ; preds = %20, %19
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
   br label %28
 
 26:                                               ; preds = %_ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit, %17, %6, %2
@@ -1306,7 +1306,7 @@ _ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit: ; preds = %9
           to label %20 unwind label %23
 
 20:                                               ; preds = %19
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
   br label %26
 
 21:                                               ; preds = %9
@@ -1318,7 +1318,7 @@ _ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit: ; preds = %9
 23:                                               ; preds = %19
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
   br label %27
 
 25:                                               ; preds = %_ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit, %17, %6, %2
@@ -1347,7 +1347,7 @@ define noundef ptr @_ZN11ByteViewTab22findByteViewTextForTvbEP6tvbuffPi(ptr noun
 8:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !22
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) @_ZN12ByteViewText16staticMetaObjectE, ptr noundef nonnull %4, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) @_ZN12ByteViewText16staticMetaObjectE, ptr noundef nonnull align 8 %4, i32 1)
           to label %_ZNK7QObject12findChildrenIP12ByteViewTextEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %9
 
 9:                                                ; preds = %8
@@ -1580,9 +1580,9 @@ declare noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11ByteViewTab11tabInsertedEi(ptr noundef nonnull align 8 dereferenceable(65) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %3 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
   %4 = icmp sgt i32 %3, 1
-  %5 = tail call noundef ptr @_ZNK10QTabWidget6tabBarEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %5 = tail call noundef ptr @_ZNK10QTabWidget6tabBarEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
   br i1 %4, label %6, label %7
 
 6:                                                ; preds = %2
@@ -1621,9 +1621,9 @@ declare void @_ZN10QTabWidget11tabInsertedEi(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11ByteViewTab10tabRemovedEi(ptr noundef nonnull align 8 dereferenceable(65) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %3 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
   %4 = icmp sgt i32 %3, 1
-  %5 = tail call noundef ptr @_ZNK10QTabWidget6tabBarEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %5 = tail call noundef ptr @_ZNK10QTabWidget6tabBarEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
   br i1 %4, label %6, label %7
 
 6:                                                ; preds = %2

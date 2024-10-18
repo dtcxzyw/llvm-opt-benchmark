@@ -1259,7 +1259,7 @@ define internal fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 0, ptr %6, align 4
-  %12 = call fastcc i32 @SzReadStreamsInfo(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %6, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %4, ptr noundef %4)
+  %12 = call fastcc i32 @SzReadStreamsInfo(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %4, ptr noundef %4)
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %SzReadAndDecodePackedStreams2.exit
 
@@ -1695,7 +1695,7 @@ SzReadID.exit267.thread.i:                        ; preds = %139, %._crit_edge.i
 
 150:                                              ; preds = %SzReadID.exit267.thread.i
   %151 = getelementptr inbounds i8, ptr %0, i64 64
-  %152 = call fastcc i32 @SzReadStreamsInfo(ptr noundef %1, ptr noundef nonnull %151, ptr noundef %0, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %2, ptr noundef %3)
+  %152 = call fastcc i32 @SzReadStreamsInfo(ptr noundef nonnull %1, ptr noundef nonnull %151, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
   %.not223.i = icmp eq i32 %152, 0
   br i1 %.not223.i, label %153, label %SzReadHeader2.exit
 
@@ -2113,7 +2113,7 @@ SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
   br label %.loopexit.i
 
 360:                                              ; preds = %328
-  %361 = call fastcc i32 @SzReadBoolVector(ptr noundef %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %9, ptr noundef %3)
+  %361 = call fastcc i32 @SzReadBoolVector(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %9, ptr noundef %3)
   %.not240.i = icmp eq i32 %361, 0
   br i1 %.not240.i, label %.preheader389.i, label %SzReadHeader2.exit.loopexit118
 
@@ -2138,12 +2138,12 @@ SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
 
 367:                                              ; preds = %328
   %368 = zext i32 %.0185467.i to i64
-  %369 = call fastcc i32 @SzReadBoolVector(ptr noundef %1, i64 noundef %368, ptr noundef nonnull %10, ptr noundef %3)
+  %369 = call fastcc i32 @SzReadBoolVector(ptr noundef nonnull %1, i64 noundef %368, ptr noundef nonnull %10, ptr noundef %3)
   %.not239.i = icmp eq i32 %369, 0
   br i1 %.not239.i, label %.loopexitthread-pre-split.i, label %SzReadHeader2.exit.loopexit118
 
 370:                                              ; preds = %328
-  %371 = call fastcc i32 @SzReadBoolVector2(ptr noundef %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3)
+  %371 = call fastcc i32 @SzReadBoolVector2(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3)
   %.not235.i = icmp eq i32 %371, 0
   br i1 %.not235.i, label %372, label %SzReadHeader2.exit.loopexit118
 
@@ -2207,7 +2207,7 @@ SzReadUInt32.exit.thread.i:                       ; preds = %388, %.lr.ph463.i
   br i1 %exitcond590.not.i, label %.loopexitthread-pre-split.sink.split.i, label %.lr.ph463.i
 
 399:                                              ; preds = %328
-  %400 = call fastcc i32 @SzReadBoolVector2(ptr noundef %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3)
+  %400 = call fastcc i32 @SzReadBoolVector2(ptr noundef nonnull %1, i64 noundef %.1.ph.i.i, ptr noundef nonnull %11, ptr noundef %3)
   %.not230.i = icmp eq i32 %400, 0
   br i1 %.not230.i, label %401, label %SzReadHeader2.exit.loopexit118
 
@@ -2662,7 +2662,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
 127:                                              ; preds = %.loopexit.i.i
   %128 = trunc nuw nsw i64 %.1.ph.i.i to i32
   store i32 %128, ptr %23, align 4
-  %129 = tail call fastcc i32 @SzWaitAttribute(ptr noundef %0, i64 noundef 9)
+  %129 = tail call fastcc i32 @SzWaitAttribute(ptr noundef nonnull %0, i64 noundef 9)
   %.not73.i = icmp eq i32 %129, 0
   br i1 %.not73.i, label %130, label %SzReadID.exit
 
@@ -2851,7 +2851,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 212:                                              ; preds = %.loopexit.i
   %213 = load i32, ptr %23, align 4
   %214 = zext i32 %213 to i64
-  %215 = tail call fastcc i32 @SzReadHashDigests(ptr noundef %0, i64 noundef %214, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %7)
+  %215 = tail call fastcc i32 @SzReadHashDigests(ptr noundef nonnull %0, i64 noundef %214, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %7)
   %.not77.i = icmp eq i32 %215, 0
   br i1 %.not77.i, label %thread-pre-split.i, label %SzReadID.exit
 
@@ -2990,7 +2990,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  %284 = tail call fastcc i32 @SzWaitAttribute(ptr noundef %0, i64 noundef 11)
+  %284 = tail call fastcc i32 @SzWaitAttribute(ptr noundef nonnull %0, i64 noundef 11)
   %.not.i44 = icmp eq i32 %284, 0
   br i1 %.not.i44, label %285, label %SzReadUnpackInfo.exit.thread
 
@@ -3993,7 +3993,7 @@ SzFolder_FindBindPairForInStream.exit.thread.i.i: ; preds = %SzFolder_FindBindPa
   %indvars.iv589.i.i = phi i64 [ 0, %.lr.ph459.preheader.i.i ], [ %indvars.iv.next590.i.i, %791 ]
   %792 = load ptr, ptr %773, align 8
   %793 = getelementptr inbounds i32, ptr %792, i64 %indvars.iv589.i.i
-  %794 = tail call fastcc i32 @SzReadNumber32(ptr noundef %0, ptr noundef %793)
+  %794 = tail call fastcc i32 @SzReadNumber32(ptr noundef nonnull %0, ptr noundef %793)
   %.not153.i.i = icmp eq i32 %794, 0
   br i1 %.not153.i.i, label %791, label %SzGetNextFolderItem.exit.thread.i
 
@@ -4011,7 +4011,7 @@ SzReadSwitch.exit.i:                              ; preds = %791, %790, %775
   br i1 %797, label %.lr.ph294.i, label %SzReadSwitch.exit._crit_edge.i
 
 SzReadSwitch.exit._crit_edge.i:                   ; preds = %SzReadSwitch.exit.i, %SzReadSwitch.exit.preheader.i
-  %798 = tail call fastcc i32 @SzWaitAttribute(ptr noundef %0, i64 noundef 12)
+  %798 = tail call fastcc i32 @SzWaitAttribute(ptr noundef nonnull %0, i64 noundef 12)
   %.not96.i = icmp eq i32 %798, 0
   br i1 %.not96.i, label %.preheader139.i, label %SzReadUnpackInfo.exit.thread
 
@@ -4021,7 +4021,7 @@ SzReadSwitch.exit._crit_edge.i:                   ; preds = %SzReadSwitch.exit.i
   br i1 %.not320.i, label %.preheader136.i, label %.lr.ph307.i
 
 .preheader136.i:                                  ; preds = %._crit_edge305.i, %.preheader139.i
-  %800 = call fastcc i32 @SzReadID(ptr noundef %0, ptr noundef %14)
+  %800 = call fastcc i32 @SzReadID(ptr noundef nonnull %0, ptr noundef %14)
   %.not97311.i = icmp eq i32 %800, 0
   br i1 %.not97311.i, label %.lr.ph312.i, label %SzReadUnpackInfo.exit.thread
 
@@ -4170,7 +4170,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   store ptr null, ptr %16, align 8
   %862 = load i32, ptr %20, align 4
   %863 = zext i32 %862 to i64
-  %864 = call fastcc i32 @SzReadHashDigests(ptr noundef %0, i64 noundef %863, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %8)
+  %864 = call fastcc i32 @SzReadHashDigests(ptr noundef nonnull %0, i64 noundef %863, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %8)
   %865 = icmp eq i32 %864, 0
   br i1 %865, label %.preheader.i, label %SzReadNumber.exit.critedge.i
 
@@ -4208,12 +4208,12 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   br label %.backedge.i
 
 881:                                              ; preds = %.lr.ph312.i
-  %882 = tail call fastcc i32 @SzSkeepData(ptr noundef %0)
+  %882 = tail call fastcc i32 @SzSkeepData(ptr noundef nonnull %0)
   %.not98.i = icmp eq i32 %882, 0
   br i1 %.not98.i, label %.backedge.i, label %SzReadUnpackInfo.exit.thread
 
 .backedge.i:                                      ; preds = %881, %._crit_edge310.i
-  %883 = call fastcc i32 @SzReadID(ptr noundef %0, ptr noundef %14)
+  %883 = call fastcc i32 @SzReadID(ptr noundef nonnull %0, ptr noundef %14)
   %.not97.i = icmp eq i32 %883, 0
   br i1 %.not97.i, label %.lr.ph312.i, label %SzReadUnpackInfo.exit.thread
 
@@ -4757,7 +4757,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %1104, %1093, %SzFol
   br i1 %1125, label %1126, label %1128
 
 1126:                                             ; preds = %._crit_edge304.i
-  %1127 = call fastcc i32 @SzReadID(ptr noundef %0, ptr noundef %10)
+  %1127 = call fastcc i32 @SzReadID(ptr noundef nonnull %0, ptr noundef %10)
   %.not167.i = icmp eq i32 %1127, 0
   br i1 %.not167.i, label %1128, label %SzReadSubStreamsInfo.exit.thread
 
@@ -4828,7 +4828,7 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
 1147:                                             ; preds = %SzReadID.exit103
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
-  %1148 = call fastcc i32 @SzReadHashDigests(ptr noundef %0, i64 noundef %.0142.lcssa.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %8)
+  %1148 = call fastcc i32 @SzReadHashDigests(ptr noundef nonnull %0, i64 noundef %.0142.lcssa.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %8)
   %1149 = icmp ne i32 %1148, 0
   %brmerge.i = or i1 %.not325.i, %1149
   %.pre.i82 = load ptr, ptr %11, align 8
@@ -4933,7 +4933,7 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
   br i1 %1149, label %SzReadSubStreamsInfo.exit.thread, label %1189
 
 1187:                                             ; preds = %SzReadID.exit103
-  %1188 = tail call fastcc i32 @SzSkeepData(ptr noundef %0)
+  %1188 = tail call fastcc i32 @SzSkeepData(ptr noundef nonnull %0)
   %.not168.i = icmp eq i32 %1188, 0
   br i1 %.not168.i, label %1189, label %SzReadSubStreamsInfo.exit.thread
 
@@ -5279,7 +5279,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHashDigests(ptr nocapture nou
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %4, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %4, i64 noundef %1) #11
+  %21 = tail call ptr %20(ptr noundef nonnull %4, i64 noundef range(i64 0, 4294967296) %1) #11
   store ptr %21, ptr %2, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %SzReadUInt32.exit, label %.lr.ph.i.i
@@ -5328,7 +5328,7 @@ SzReadByte.exit.thread.i.i:                       ; preds = %24
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %4, align 8
-  %43 = tail call ptr %42(ptr noundef nonnull %4, i64 noundef %1) #11
+  %43 = tail call ptr %42(ptr noundef nonnull %4, i64 noundef range(i64 0, 4294967296) %1) #11
   store ptr %43, ptr %2, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %SzReadUInt32.exit, label %.lr.ph.i
@@ -5512,7 +5512,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadBoolVector2(ptr nocapture nou
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %3, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %3, i64 noundef %1) #11
+  %20 = tail call ptr %19(ptr noundef nonnull %3, i64 noundef range(i64 0, 4294967296) %1) #11
   store ptr %20, ptr %2, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %SzReadByte.exit, label %.lr.ph.i

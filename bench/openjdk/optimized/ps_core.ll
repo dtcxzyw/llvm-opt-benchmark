@@ -790,7 +790,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef non
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 24
   %45 = load i64, ptr %44, align 8
-  %46 = call fastcc i32 @read_lib_segments(ptr noundef %0, i32 noundef %43, ptr noundef %2, i64 noundef %45)
+  %46 = call fastcc i32 @read_lib_segments(ptr noundef nonnull %0, i32 noundef %43, ptr noundef %2, i64 noundef %45)
   %.not4.not.i = icmp eq i32 %46, 0
   br i1 %.not4.not.i, label %read_interp_segments.exit.thread, label %47
 

@@ -482,7 +482,7 @@ if.then29:                                        ; preds = %if.end24
   %call1.i = tail call i32 @pixman_image_get_height(ptr noundef %call18) #9
   %call2.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i) #9
   %call3.i = tail call ptr @pixman_image_get_data(ptr noundef %call2.i) #9
-  %call4.i = tail call noalias ptr @fdopen(i32 noundef %call19, ptr noundef nonnull @.str.23) #9
+  %call4.i = tail call noalias ptr @fdopen(i32 noundef range(i32 0, -1) %call19, ptr noundef nonnull @.str.23) #9
   %tobool.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -564,7 +564,7 @@ if.then31:                                        ; preds = %png_save.exit
 if.else34:                                        ; preds = %if.end24
   %call.i18 = tail call i32 @pixman_image_get_width(ptr noundef %call18) #9
   %call1.i19 = tail call i32 @pixman_image_get_height(ptr noundef %call18) #9
-  %call2.i20 = tail call ptr @qio_channel_file_new_fd(i32 noundef %call19) #9
+  %call2.i20 = tail call ptr @qio_channel_file_new_fd(i32 noundef range(i32 0, -1) %call19) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %5, 0
@@ -590,11 +590,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i31
   %9 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %call19, ptr noundef %call18) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef range(i32 0, -1) %call19, ptr noundef %call18) #9
   br label %trace_ppm_save.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i31
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call19, ptr noundef %call18) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, -1) %call19, ptr noundef %call18) #9
   br label %trace_ppm_save.exit.i
 
 trace_ppm_save.exit.i:                            ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else34

@@ -840,7 +840,7 @@ RSTRING_PTR.exit.i:                               ; preds = %39, %rb_type.exit.t
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 7
   %48 = add nsw i64 %41, -7
-  %49 = tail call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef readonly %47, i64 noundef %48, i32 noundef 1)
+  %49 = tail call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef readonly %47, i64 noundef range(i64 1, 9223372036854775801) %48, i32 noundef 1)
   br label %rlimit_type_by_sym.exit
 
 rlimit_type_by_sym.exit:                          ; preds = %RSTRING_PTR.exit.i, %43, %46
@@ -1886,7 +1886,7 @@ define internal fastcc void @rb_execarg_init(i32 noundef %0, ptr nocapture nound
   br i1 %22, label %23, label %rbimpl_size_mul_or_raise.exit.thread
 
 23:                                               ; preds = %20
-  tail call void @ruby_malloc_size_overflow(i64 noundef %21, i64 noundef 8) #28
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef range(i64 -2147483648, 2147483648) 8) #28
   unreachable
 
 rbimpl_size_mul_or_raise.exit.thread:             ; preds = %20
@@ -4334,7 +4334,7 @@ fd_set_cloexec.exit.i:                            ; preds = %287, %285, %275
   br i1 %310, label %311, label %322
 
 311:                                              ; preds = %307
-  %312 = call i32 (i32, i32, ...) @fcntl(i32 noundef %305, i32 noundef 1) #26
+  %312 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %305, i32 noundef 1) #26
   %313 = icmp eq i32 %312, -1
   br i1 %313, label %314, label %315
 
@@ -4348,7 +4348,7 @@ fd_set_cloexec.exit.i:                            ; preds = %287, %285, %275
 
 317:                                              ; preds = %315
   %318 = and i32 %312, -2
-  %319 = call i32 (i32, i32, ...) @fcntl(i32 noundef %305, i32 noundef 2, i32 noundef %318) #26
+  %319 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %305, i32 noundef 2, i32 noundef %318) #26
   %320 = icmp eq i32 %319, -1
   br i1 %320, label %321, label %fd_clear_cloexec.exit.i
 
@@ -6012,7 +6012,7 @@ define dso_local i64 @rb_proc_times(i64 %0) #1 {
   br i1 %.not7.i, label %32, label %36
 
 32:                                               ; preds = %27
-  %33 = call noundef i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 3)
+  %33 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %26, i64 range(i64 3458764513820540929, 3458764513820540928) %26, i64 3)
   %34 = and i64 %33, -4
   %35 = or disjoint i64 %34, 2
   br label %rb_float_new_inline.exit
@@ -6049,7 +6049,7 @@ rb_float_new_inline.exit:                         ; preds = %32, %36, %38
   br i1 %.not7.i7, label %55, label %59
 
 55:                                               ; preds = %50
-  %56 = call noundef i64 @llvm.fshl.i64(i64 %49, i64 %49, i64 3)
+  %56 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %49, i64 range(i64 3458764513820540929, 3458764513820540928) %49, i64 3)
   %57 = and i64 %56, -4
   %58 = or disjoint i64 %57, 2
   br label %rb_float_new_inline.exit9
@@ -6085,7 +6085,7 @@ rb_float_new_inline.exit9:                        ; preds = %55, %59, %61
   br i1 %.not7.i11, label %77, label %81
 
 77:                                               ; preds = %72
-  %78 = call noundef i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 3)
+  %78 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %71, i64 range(i64 3458764513820540929, 3458764513820540928) %71, i64 3)
   %79 = and i64 %78, -4
   %80 = or disjoint i64 %79, 2
   br label %rb_float_new_inline.exit13
@@ -6122,7 +6122,7 @@ rb_float_new_inline.exit13:                       ; preds = %77, %81, %83
   br i1 %.not7.i15, label %100, label %104
 
 100:                                              ; preds = %95
-  %101 = call noundef i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 3)
+  %101 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %94, i64 range(i64 3458764513820540929, 3458764513820540928) %94, i64 3)
   %102 = and i64 %101, -4
   %103 = or disjoint i64 %102, 2
   br label %rb_float_new_inline.exit17
@@ -8325,7 +8325,7 @@ define internal i64 @proc_getgroups(i64 %0) #1 {
   br i1 %15, label %16, label %rb_alloc_tmp_buffer2.exit
 
 16:                                               ; preds = %14
-  tail call void @ruby_malloc_size_overflow(i64 noundef %9, i64 noundef 4) #28
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef range(i64 -2147483648, 2147483648) 4) #28
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %14
@@ -8461,7 +8461,7 @@ maxgroups.exit:                                   ; preds = %RARRAY_LENINT.exit,
   br i1 %40, label %41, label %rb_alloc_tmp_buffer2.exit
 
 41:                                               ; preds = %39
-  tail call void @ruby_malloc_size_overflow(i64 noundef %.0.i.i, i64 noundef 4) #28
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %.0.i.i, i64 noundef range(i64 -2147483648, 2147483648) 4) #28
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %39
@@ -9222,7 +9222,7 @@ rb_num2int_inline.exit:                           ; preds = %82, %84
   br i1 %.not7.i.i, label %118, label %122
 
 118:                                              ; preds = %113
-  %119 = call noundef i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 3)
+  %119 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %112, i64 range(i64 3458764513820540929, 3458764513820540928) %112, i64 3)
   %120 = and i64 %119, -4
   %121 = or disjoint i64 %120, 2
   br label %timetick2dblnum_reciprocal.exit
@@ -11561,7 +11561,7 @@ write_retry.exit:                                 ; preds = %7, %14
   br i1 %.not, label %write_retry.exit12, label %.preheader
 
 .preheader:                                       ; preds = %18, %24
-  %22 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %21) #26
+  %22 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 1, 0) %21) #26
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %write_retry.exit12
 
@@ -12621,7 +12621,7 @@ reduce_factors.exit.i:                            ; preds = %38, %gcd_timetick_i
   br i1 %.not7.i.i, label %68, label %72
 
 68:                                               ; preds = %63
-  %69 = tail call noundef i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 3)
+  %69 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %62, i64 range(i64 3458764513820540929, 3458764513820540928) %62, i64 3)
   %70 = and i64 %69, -4
   %71 = or disjoint i64 %70, 2
   br label %timetick2dblnum.exit
@@ -12933,7 +12933,7 @@ gcd_timetick_int.exit.i.i:                        ; preds = %16
   br i1 %.not7.i, label %41, label %45
 
 41:                                               ; preds = %36
-  %42 = tail call noundef i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 3)
+  %42 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %26, i64 range(i64 3458764513820540929, 3458764513820540928) %26, i64 3)
   %43 = and i64 %42, -4
   %44 = or disjoint i64 %43, 2
   br label %rb_float_new_inline.exit

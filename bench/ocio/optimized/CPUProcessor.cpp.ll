@@ -5153,7 +5153,7 @@ entry:
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_mutex = getelementptr inbounds i8, ptr %this, i64 104
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -5497,7 +5497,7 @@ invoke.cont43:                                    ; preds = %invoke.cont40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %ops) #22
-  %call1.i.i.i80 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #22
+  %call1.i.i.i80 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #22
   ret void
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -5533,7 +5533,7 @@ ehcleanup45:                                      ; preds = %ehcleanup, %lpad2
 
 ehcleanup46:                                      ; preds = %ehcleanup45, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup45 ], [ %37, %lpad ]
-  %call1.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #22
+  %call1.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #22
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -6019,7 +6019,7 @@ define void @_ZN19OpenColorIO_v2_4dev12CPUProcessorC2Ev(ptr nocapture noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #21
   %m_inBitDepth.i = getelementptr inbounds i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call, i8 0, i64 56, i1 false)
   store i32 8, ptr %m_inBitDepth.i, align 8
   %m_outBitDepth.i = getelementptr inbounds i8, ptr %call, i64 60
   store i32 8, ptr %m_outBitDepth.i, align 4

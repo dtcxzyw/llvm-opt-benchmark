@@ -20180,7 +20180,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %1 = trunc nuw i64 %indvars.iv to i32
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %0, i1 true)
   %conv.i = trunc nuw nsw i64 %2 to i32
   %mul = shl i32 %1, 6
   %add = or disjoint i32 %mul, %conv.i
@@ -20211,7 +20211,7 @@ do.body:                                          ; preds = %do.cond, %entry
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %do.body
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %0, i1 true)
   %2 = trunc nuw nsw i64 %1 to i32
   %mul = shl i32 %dec, 6
   %3 = or disjoint i32 %mul, %2
@@ -20468,7 +20468,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %tobool.not.i, label %return, label %do.body.i, !llvm.loop !434
 
 _ZN4llvh5APInt5tcMSBEPKmj.exit:                   ; preds = %do.body.i
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %0, i1 true)
   %2 = trunc nuw nsw i64 %1 to i32
   %mul.i = shl i32 %dec.i, 6
   %3 = or disjoint i32 %mul.i, %2

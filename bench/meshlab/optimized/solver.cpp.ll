@@ -455,7 +455,7 @@ define void @_ZN6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %0
   %3 = getelementptr inbounds i8, ptr %0, i64 129
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 188
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 56, i1 false)
@@ -981,7 +981,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit.sink.split: ; pre
   %.sroa.06.4.vec.insert13.i.i71.sink = phi <2 x float> [ %.sroa.06.4.vec.insert13.i.i, %90 ], [ %.sroa.06.4.vec.insert13.i.i71, %136 ]
   %.sroa.086.0.in.in.ph = phi double [ %59, %90 ], [ %105, %136 ]
   %.sroa.3.0.in.in.ph = phi double [ %63, %90 ], [ %109, %136 ]
-  %144 = call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(56) %1, <2 x float> %.sroa.06.4.vec.insert13.i.i71.sink)
+  %144 = call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(132) %1, <2 x float> %.sroa.06.4.vec.insert13.i.i71.sink)
   %.pre = load float, ptr %18, align 4
   %.pre104 = load float, ptr %19, align 4
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
@@ -1699,7 +1699,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %.31077.i.i = phi double [ %.81082.i.i, %.loopexit284.i.i ], [ %.41078.i.i, %._crit_edge556.thread.i.i ], [ %.41078.i.i, %1563 ], [ %1570, %1577 ], [ %.11075725.i.i, %311 ], [ %.11075725.i.i, %.lr.ph440.i.i ]
   %.31065.i.i = phi double [ %.81070.i.i, %.loopexit284.i.i ], [ %.41066.i.i, %._crit_edge556.thread.i.i ], [ %.41066.i.i, %1563 ], [ %.51067237.i.i, %1577 ], [ %.11063726.i.i, %311 ], [ %.11063726.i.i, %.lr.ph440.i.i ]
   %.4.i.i = phi double [ %.10.i.i, %.loopexit284.i.i ], [ %.5.i.i, %._crit_edge556.thread.i.i ], [ %.5.i.i, %1563 ], [ %.6239.i.i, %1577 ], [ 0.000000e+00, %311 ], [ %316, %.lr.ph440.i.i ]
-  %317 = call noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_(i32 noundef %0, i32 noundef %13, ptr noundef nonnull %52, ptr noundef nonnull %56, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %64, ptr noundef nonnull %10, ptr noundef nonnull %70, ptr noundef nonnull %74, ptr noundef nonnull %139, ptr noundef nonnull %140, ptr noundef nonnull %143, ptr noundef nonnull %11)
+  %317 = call noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_(i32 noundef %0, i32 noundef range(i32 -2147483646, 1073741824) %13, ptr noundef nonnull %52, ptr noundef nonnull %56, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %64, ptr noundef nonnull %10, ptr noundef nonnull %70, ptr noundef nonnull %74, ptr noundef nonnull %139, ptr noundef nonnull %140, ptr noundef nonnull %143, ptr noundef nonnull %11)
   br i1 %.not414.i.i, label %._crit_edge544.i.i, label %.lr.ph543.i.i
 
 .lr.ph543.i.i:                                    ; preds = %.loopexit296.i.i, %.lr.ph543.i.i
@@ -6075,7 +6075,7 @@ define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix4
   %96 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %97 = getelementptr inbounds i8, ptr %96, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull %47) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(24) %47) #22
   %98 = load i64, ptr %49, align 8
   %99 = add i64 %98, 1
   store i64 %99, ptr %49, align 8
@@ -6221,20 +6221,20 @@ define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix4
   store i32 2, ptr %21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %169, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %170, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %172 = shl nuw nsw i64 %indvars.iv170, 2
   %173 = getelementptr inbounds [16 x float], ptr %22, i64 0, i64 %172
   %174 = load float, ptr %173, align 4
   %175 = fpext float %174 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %gep = getelementptr inbounds [16 x float], ptr %invariant.gep, i64 0, i64 %172
   %176 = load float, ptr %gep, align 4
   %177 = fpext float %176 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %gep158 = getelementptr inbounds [16 x float], ptr %invariant.gep157, i64 0, i64 %172
   %178 = load float, ptr %gep158, align 4
   %179 = fpext float %178 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %gep160 = getelementptr inbounds [16 x float], ptr %invariant.gep159, i64 0, i64 %172
   %180 = load float, ptr %gep160, align 4
   %181 = fpext float %180 to double
@@ -6382,20 +6382,20 @@ define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix4
   store i32 2, ptr %40, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %243, i8 0, i64 20, i1 false)
   store ptr @.str.35, ptr %244, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %246 = shl nuw nsw i64 %indvars.iv173, 2
   %247 = getelementptr inbounds [16 x float], ptr %41, i64 0, i64 %246
   %248 = load float, ptr %247, align 4
   %249 = fpext float %248 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %42, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %42, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %gep163 = getelementptr inbounds [16 x float], ptr %invariant.gep162, i64 0, i64 %246
   %250 = load float, ptr %gep163, align 4
   %251 = fpext float %250 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %43, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %43, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %gep165 = getelementptr inbounds [16 x float], ptr %invariant.gep164, i64 0, i64 %246
   %252 = load float, ptr %gep165, align 4
   %253 = fpext float %252 to double
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, ptr noundef nonnull align 4 dereferenceable(64) %164, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, ptr noundef nonnull align 4 dereferenceable(76) %164, i64 64, i1 false)
   %gep167 = getelementptr inbounds [16 x float], ptr %invariant.gep166, i64 0, i64 %246
   %254 = load float, ptr %gep167, align 4
   %255 = fpext float %254 to double

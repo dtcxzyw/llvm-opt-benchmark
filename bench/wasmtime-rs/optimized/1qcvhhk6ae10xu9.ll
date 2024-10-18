@@ -148,7 +148,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !26
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %5, ptr %3, align 8, !noalias !26
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.47d75529fa2dfa2f0a01de2e1a66d75e.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 1 @anon.47d75529fa2dfa2f0a01de2e1a66d75e.16, i64 noundef 11, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.47d75529fa2dfa2f0a01de2e1a66d75e.17, ptr noalias noundef nonnull readonly align 1 @anon.47d75529fa2dfa2f0a01de2e1a66d75e.18, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.47d75529fa2dfa2f0a01de2e1a66d75e.19)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.47d75529fa2dfa2f0a01de2e1a66d75e.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 1 @anon.47d75529fa2dfa2f0a01de2e1a66d75e.16, i64 noundef 11, ptr noundef nonnull readonly align 16 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.47d75529fa2dfa2f0a01de2e1a66d75e.17, ptr noalias noundef nonnull readonly align 1 @anon.47d75529fa2dfa2f0a01de2e1a66d75e.18, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.47d75529fa2dfa2f0a01de2e1a66d75e.19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !26
   ret i1 %6
 }
@@ -546,7 +546,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, i64 32, i1 false), !noalias !115
   %15 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !142, !noalias !115, !noundef !4
   %16 = shl i64 %15, 56
   %17 = getelementptr inbounds i8, ptr %6, i64 56

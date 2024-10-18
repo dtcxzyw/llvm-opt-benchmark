@@ -316,7 +316,7 @@ define hidden void @_ZN7XDriverC2Ev(ptr noundef nonnull align 8 dereferenceable(
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef 21, ptr noundef nonnull @.str.37, i1 noundef zeroext true) #12
+  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(152) %2, i32 noundef 21, ptr noundef nonnull @.str.37, i1 noundef zeroext true) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 1024
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1028
@@ -333,7 +333,7 @@ define hidden void @_ZN7XDriverC2Ev(ptr noundef nonnull align 8 dereferenceable(
   %10 = getelementptr inbounds i8, ptr %0, i64 1064
   %11 = getelementptr inbounds i8, ptr %0, i64 1072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %10, i8 0, i64 152, i1 false)
-  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef 21, ptr noundef nonnull @.str.37, i1 noundef zeroext true) #12
+  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(144) %11, i32 noundef 21, ptr noundef nonnull @.str.37, i1 noundef zeroext true) #12
   %12 = getelementptr inbounds i8, ptr %0, i64 1176
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 1184
@@ -361,11 +361,11 @@ declare void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK7XDriver7is_busyEv(ptr noundef nonnull align 8 dereferenceable(1216) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(152) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 1024
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(152) %2) #12
   ret i1 %5
 }
 
@@ -404,7 +404,7 @@ define hidden void @_ZN7XDriver7collectERK14XDriverRequest(ptr noundef nonnull a
 
 7:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2
   %8 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #12
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #12
   %9 = getelementptr inbounds i8, ptr %0, i64 1024
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -415,11 +415,11 @@ define hidden void @_ZN7XDriver7collectERK14XDriverRequest(ptr noundef nonnull a
   %14 = load i64, ptr %1, align 4
   store i64 %14, ptr %13, align 4
   store i8 1, ptr %9, align 8
-  tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #12
+  tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #12
   br label %_ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit
 
 _ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit: ; preds = %7, %12
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #12
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #12
   br label %29
 
 15:                                               ; preds = %2
@@ -433,7 +433,7 @@ _ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit: ; preds = %7, %12
 17:                                               ; preds = %2
   tail call void @_ZN11XBreakpoint8start_gcEv() #12
   %18 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #12
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(152) %18) #12
   %19 = getelementptr inbounds i8, ptr %0, i64 1024
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
@@ -444,11 +444,11 @@ _ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit: ; preds = %7, %12
   %24 = load i64, ptr %1, align 4
   store i64 %24, ptr %23, align 4
   store i8 1, ptr %19, align 8
-  tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #12
+  tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(152) %18) #12
   br label %_ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit6
 
 _ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit6: ; preds = %17, %22
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #12
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(152) %18) #12
   br label %29
 
 25:                                               ; preds = %2
@@ -472,7 +472,7 @@ _ZN13MonitorLockerD2Ev.exit:
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %3, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0) #12
+  call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 0) #12
   %6 = getelementptr inbounds i8, ptr %2, i64 48
   %7 = load i32, ptr @ConcGCThreads, align 4
   store i32 11, ptr %6, align 8
@@ -513,17 +513,17 @@ _ZN13MonitorLockerD2Ev.exit:
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  call void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %23)
+  call void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %23)
   br label %_ZN13MonitorLockerD2Ev.exit4
 
 29:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   br label %_ZN13MonitorLockerD2Ev.exit4
 
 _ZN13MonitorLockerD2Ev.exit4:                     ; preds = %28, %29
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
-  call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   ret void
 }
 
@@ -597,7 +597,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7XDriver5pauseI13VM_XMarkStart
   br label %_ZN10XStatTimerC2ERK10XStatPhase.exit
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %23, %31
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   %35 = load i8, ptr %17, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %.critedge.thread.i.i, label %.lr.ph.i.i
@@ -614,7 +614,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %23, %31
   br i1 %40, label %_ZN13MonitorLocker4waitEl.exit.i.i, label %44
 
 _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
-  %41 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef 0) #12
+  %41 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(144) %16, i64 noundef 0) #12
   %42 = load i8, ptr %17, align 8
   %43 = trunc i8 %42 to i1
   br i1 %43, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -634,7 +634,7 @@ _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
   br label %_ZN15XRendezvousPort4waitEv.exit
 
 _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.i, %44
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %53 = load i8, ptr %4, align 8
   %54 = trunc i8 %53 to i1
@@ -799,7 +799,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7XDriver5pauseI11VM_XMarkEndEE
   br label %_ZN10XStatTimerC2ERK10XStatPhase.exit
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %23, %31
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   %35 = load i8, ptr %17, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %.critedge.thread.i.i, label %.lr.ph.i.i
@@ -816,7 +816,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %23, %31
   br i1 %40, label %_ZN13MonitorLocker4waitEl.exit.i.i, label %44
 
 _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
-  %41 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef 0) #12
+  %41 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(144) %16, i64 noundef 0) #12
   %42 = load i8, ptr %17, align 8
   %43 = trunc i8 %42 to i1
   br i1 %43, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -836,7 +836,7 @@ _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
   br label %_ZN15XRendezvousPort4waitEv.exit
 
 _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.i, %44
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %53 = load i8, ptr %4, align 8
   %54 = trunc i8 %53 to i1
@@ -1241,7 +1241,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7XDriver5pauseI17VM_XRelocateS
   br label %_ZN10XStatTimerC2ERK10XStatPhase.exit
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %23, %31
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   %35 = load i8, ptr %17, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %.critedge.thread.i.i, label %.lr.ph.i.i
@@ -1258,7 +1258,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %23, %31
   br i1 %40, label %_ZN13MonitorLocker4waitEl.exit.i.i, label %44
 
 _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
-  %41 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %16, i64 noundef 0) #12
+  %41 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(144) %16, i64 noundef 0) #12
   %42 = load i8, ptr %17, align 8
   %43 = trunc i8 %42 to i1
   br i1 %43, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -1278,7 +1278,7 @@ _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
   br label %_ZN15XRendezvousPort4waitEv.exit
 
 _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.i, %44
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %53 = load i8, ptr %4, align 8
   %54 = trunc i8 %53 to i1
@@ -1842,7 +1842,7 @@ define hidden void @_ZN7XDriver11run_serviceEv(ptr noundef nonnull align 8 deref
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #12
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #12
   %11 = load i8, ptr %5, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %.critedge.thread.i, label %.lr.ph.i
@@ -1860,7 +1860,7 @@ define hidden void @_ZN7XDriver11run_serviceEv(ptr noundef nonnull align 8 deref
   br i1 %16, label %_ZN13MonitorLocker4waitEl.exit.i, label %20
 
 _ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %.lr.ph.i
-  %17 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef 0) #12
+  %17 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(152) %4, i64 noundef 0) #12
   %18 = load i8, ptr %5, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !9
@@ -1880,7 +1880,7 @@ _ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %.lr.ph.i
 
 _ZN12XMessagePortI14XDriverRequestE7receiveEv.exit: ; preds = %.critedge.thread.i, %20
   %.sroa.01.0.copyload.i = phi i64 [ %.sroa.01.0.copyload.pre.i, %.critedge.thread.i ], [ %.sroa.0.0.copyload.i.i, %20 ]
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #12
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #12
   store i64 %.sroa.01.0.copyload.i, ptr %2, align 8
   %27 = and i64 %.sroa.01.0.copyload.i, 4294967295
   %28 = icmp eq i64 %27, 11
@@ -1973,7 +1973,7 @@ define linkonce_odr hidden void @_ZN12XMessagePortI14XDriverRequestE3ackEv(ptr n
   %36 = getelementptr inbounds i8, ptr %.sroa.27.016, i64 16
   %37 = getelementptr inbounds i8, ptr %.sroa.27.016, i64 48
   store i64 %.sroa.01.0.copyload, ptr %37, align 8
-  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 1) #12
+  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 noundef 1) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %28, %23
@@ -2016,7 +2016,7 @@ define hidden void @_ZN7XDriver12stop_serviceEv(ptr noundef nonnull align 8 dere
   tail call void @_ZN6XAbort5abortEv() #12
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   %3 = load i32, ptr @ConcGCThreads, align 4
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(152) %2) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 1024
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -2029,11 +2029,11 @@ define hidden void @_ZN7XDriver12stop_serviceEv(ptr noundef nonnull align 8 dere
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 11
   store i64 %.sroa.0.0.insert.insert, ptr %8, align 4
   store i8 1, ptr %4, align 8
-  tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(152) %2) #12
   br label %_ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit
 
 _ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit: ; preds = %1, %7
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(152) %2) #12
   ret void
 }
 
@@ -2050,10 +2050,10 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 define linkonce_odr hidden void @_ZN7XDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1072
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #12
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #12
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #12
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   ret void
 }
 
@@ -2061,10 +2061,10 @@ define linkonce_odr hidden void @_ZN7XDriverD2Ev(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN7XDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV7XDriver, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1072
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #12
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #12
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #12
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) #12
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -2270,7 +2270,7 @@ define linkonce_odr hidden void @_ZN12XMessagePortIbE9send_syncERKb(ptr noundef 
 _ZN13MonitorLockerD2Ev.exit:
   %2 = alloca %class.XMessageRequest, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 0) #12
+  call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef 0) #12
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 56
@@ -2309,17 +2309,17 @@ _ZN13MonitorLockerD2Ev.exit:
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  call void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %21)
+  call void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull %21)
   br label %_ZN13MonitorLockerD2Ev.exit4
 
 27:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(33) %3) #12
   br label %_ZN13MonitorLockerD2Ev.exit4
 
 _ZN13MonitorLockerD2Ev.exit4:                     ; preds = %26, %27
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
-  call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #12
   ret void
 }
 
@@ -2739,7 +2739,7 @@ define linkonce_odr hidden void @_ZN12XMessagePortIbE3ackEv(ptr noundef nonnull 
   %40 = and i8 %38, 1
   %41 = getelementptr inbounds i8, ptr %.sroa.2.012, i64 48
   store i8 %40, ptr %41, align 8
-  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 1) #12
+  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(33) %39, i32 noundef 1) #12
   br label %select.unfold
 
 select.unfold:                                    ; preds = %30, %25, %15

@@ -770,7 +770,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %0, ptr n
 
 75:                                               ; preds = %74
   %76 = xor i64 %.val52.i, %.val.i
-  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %76, i1 true)
+  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %76, i1 true)
   %78 = lshr i64 %77, 3
   br label %ZSTD_count.exit
 
@@ -790,7 +790,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %0, ptr n
 
 81:                                               ; preds = %80
   %82 = xor i64 %.1.val.i, %.142.val.i
-  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %82, i1 true)
   %84 = lshr i64 %83, 3
   %85 = getelementptr inbounds i8, ptr %.1.i, i64 %84
   %86 = ptrtoint ptr %85 to i64
@@ -1016,7 +1016,7 @@ default.unreachable:                              ; preds = %443, %270
 ZSTD_BtFindBestMatch_noDict_4.exit.sink.split:    ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us2.i.i, %.lr.ph.split.i.i, %174, %147, %120
   %.sink1991 = phi i32 [ %129, %120 ], [ %156, %147 ], [ %183, %174 ], [ %129, %.lr.ph.split.i.i ], [ %156, %.lr.ph.split.us2.i.i ], [ %183, %.lr.ph.split.us.i.i ]
   store i32 %.sink1991, ptr %50, align 4
-  %200 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %.015561869, ptr noundef %9, ptr noundef %6, i32 noundef %spec.select1837, i32 noundef 0)
+  %200 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %.015561869, ptr noundef %9, ptr noundef nonnull %6, i32 noundef %spec.select1837, i32 noundef 0)
   br label %ZSTD_BtFindBestMatch_noDict_4.exit
 
 ZSTD_BtFindBestMatch_noDict_4.exit:               ; preds = %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, %173, %146, %119
@@ -1076,7 +1076,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit:               ; preds = %ZSTD_BtFindBestMatc
 
 ZSTD_count.exit1694.thread:                       ; preds = %223
   %224 = xor i64 %.val52.i1684, %.val.i1683
-  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %224, i1 true)
+  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %224, i1 true)
   %226 = lshr i64 %225, 3
   %227 = trunc i64 %.315901876 to i32
   %228 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %227, i1 true)
@@ -1098,7 +1098,7 @@ ZSTD_count.exit1694.thread:                       ; preds = %223
 
 231:                                              ; preds = %230
   %232 = xor i64 %.1.val.i1692, %.142.val.i1691
-  %233 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %232, i1 true)
+  %233 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %232, i1 true)
   %234 = lshr i64 %233, 3
   %235 = getelementptr inbounds i8, ptr %.1.i1689, i64 %234
   br label %ZSTD_count.exit1694
@@ -1347,7 +1347,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704.thread:    ; preds = %271, %303, %335
 ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i1719, %.lr.ph.split.us2.i.i1709, %.lr.ph.split.i.i1699, %341, %309, %277
   %.sink1996 = phi i32 [ %286, %277 ], [ %318, %309 ], [ %350, %341 ], [ %286, %.lr.ph.split.i.i1699 ], [ %318, %.lr.ph.split.us2.i.i1709 ], [ %350, %.lr.ph.split.us.i.i1719 ]
   store i32 %.sink1996, ptr %50, align 4
-  %370 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %214, ptr noundef %9, ptr noundef %7, i32 noundef %spec.select1837, i32 noundef 0)
+  %370 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %214, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1837, i32 noundef 0)
   %371 = shl i64 %.61585, 2
   %372 = trunc i64 %.41591 to i32
   %373 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %372, i1 true)
@@ -1408,7 +1408,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i
 
 ZSTD_count.exit1751.thread:                       ; preds = %401
   %402 = xor i64 %.val52.i1741, %.val.i1740
-  %403 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %402, i1 true)
+  %403 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %402, i1 true)
   %404 = lshr i64 %403, 3
   br label %435
 
@@ -1428,7 +1428,7 @@ ZSTD_count.exit1751.thread:                       ; preds = %401
 
 407:                                              ; preds = %406
   %408 = xor i64 %.1.val.i1749, %.142.val.i1748
-  %409 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %408, i1 true)
+  %409 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %408, i1 true)
   %410 = lshr i64 %409, 3
   %411 = getelementptr inbounds i8, ptr %.1.i1746, i64 %410
   br label %ZSTD_count.exit1751
@@ -1667,7 +1667,7 @@ ZSTD_count.exit1751:                              ; preds = %425, %427, %407
 ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i1776, %.lr.ph.split.us2.i.i1766, %.lr.ph.split.i.i1756, %514, %482, %450
   %.sink2001 = phi i32 [ %459, %450 ], [ %491, %482 ], [ %523, %514 ], [ %459, %.lr.ph.split.i.i1756 ], [ %491, %.lr.ph.split.us2.i.i1766 ], [ %523, %.lr.ph.split.us.i.i1776 ]
   store i32 %.sink2001, ptr %50, align 4
-  %540 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %392, ptr noundef %9, ptr noundef %8, i32 noundef %spec.select1837, i32 noundef 0)
+  %540 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %392, ptr noundef %9, ptr noundef nonnull %8, i32 noundef %spec.select1837, i32 noundef 0)
   %541 = icmp ugt i64 %540, 3
   br i1 %541, label %542, label %._crit_edge1882
 
@@ -1927,7 +1927,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %590, %.lr.ph.i, %.l
 
 657:                                              ; preds = %656
   %658 = xor i64 %.val52.i1806, %.val.i1805
-  %659 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %658, i1 true)
+  %659 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %658, i1 true)
   %660 = lshr i64 %659, 3
   br label %ZSTD_count.exit1816
 
@@ -1947,7 +1947,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %590, %.lr.ph.i, %.l
 
 663:                                              ; preds = %662
   %664 = xor i64 %.1.val.i1814, %.142.val.i1813
-  %665 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %664, i1 true)
+  %665 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %664, i1 true)
   %666 = lshr i64 %665, 3
   %667 = getelementptr inbounds i8, ptr %.1.i1811, i64 %666
   %668 = ptrtoint ptr %667 to i64
@@ -2187,7 +2187,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %0, ptr noc
 
 70:                                               ; preds = %69
   %71 = xor i64 %.val52.i, %.val.i
-  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %71, i1 true)
+  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %71, i1 true)
   %73 = lshr i64 %72, 3
   br label %ZSTD_count.exit
 
@@ -2207,7 +2207,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %0, ptr noc
 
 76:                                               ; preds = %75
   %77 = xor i64 %.1.val.i, %.142.val.i
-  %78 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %77, i1 true)
+  %78 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %77, i1 true)
   %79 = lshr i64 %78, 3
   %80 = getelementptr inbounds i8, ptr %.1.i, i64 %79
   %81 = ptrtoint ptr %80 to i64
@@ -2359,7 +2359,7 @@ default.unreachable:                              ; preds = %263, %185
 
 ZSTD_count.exit1683.thread:                       ; preds = %138
   %139 = xor i64 %.val52.i1673, %.val.i1672
-  %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %139, i1 true)
+  %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %139, i1 true)
   %141 = lshr i64 %140, 3
   %142 = trunc i64 %.315901804 to i32
   %143 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %142, i1 true)
@@ -2381,7 +2381,7 @@ ZSTD_count.exit1683.thread:                       ; preds = %138
 
 146:                                              ; preds = %145
   %147 = xor i64 %.1.val.i1681, %.142.val.i1680
-  %148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %147, i1 true)
+  %148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %147, i1 true)
   %149 = lshr i64 %148, 3
   %150 = getelementptr inbounds i8, ptr %.1.i1678, i64 %149
   br label %ZSTD_count.exit1683
@@ -2543,7 +2543,7 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %146
 
 ZSTD_count.exit1710.thread:                       ; preds = %221
   %222 = xor i64 %.val52.i1700, %.val.i1699
-  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %222, i1 true)
+  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %222, i1 true)
   %224 = lshr i64 %223, 3
   br label %255
 
@@ -2563,7 +2563,7 @@ ZSTD_count.exit1710.thread:                       ; preds = %221
 
 227:                                              ; preds = %226
   %228 = xor i64 %.1.val.i1708, %.142.val.i1707
-  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %228, i1 true)
+  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %228, i1 true)
   %230 = lshr i64 %229, 3
   %231 = getelementptr inbounds i8, ptr %.1.i1705, i64 %230
   br label %ZSTD_count.exit1710
@@ -2922,7 +2922,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %320, %.lr.ph.i, %.l
 
 387:                                              ; preds = %386
   %388 = xor i64 %.val52.i1734, %.val.i1733
-  %389 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %388, i1 true)
+  %389 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %388, i1 true)
   %390 = lshr i64 %389, 3
   br label %ZSTD_count.exit1744
 
@@ -2942,7 +2942,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %320, %.lr.ph.i, %.l
 
 393:                                              ; preds = %392
   %394 = xor i64 %.1.val.i1742, %.142.val.i1741
-  %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %394, i1 true)
+  %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %394, i1 true)
   %396 = lshr i64 %395, 3
   %397 = getelementptr inbounds i8, ptr %.1.i1739, i64 %396
   %398 = ptrtoint ptr %397 to i64
@@ -3181,7 +3181,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %0, ptr noca
 
 69:                                               ; preds = %68
   %70 = xor i64 %.val52.i, %.val.i
-  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
+  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %70, i1 true)
   %72 = lshr i64 %71, 3
   br label %ZSTD_count.exit
 
@@ -3201,7 +3201,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %0, ptr noca
 
 75:                                               ; preds = %74
   %76 = xor i64 %.1.val.i, %.142.val.i
-  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %76, i1 true)
+  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %76, i1 true)
   %78 = lshr i64 %77, 3
   %79 = getelementptr inbounds i8, ptr %.1.i, i64 %78
   %80 = ptrtoint ptr %79 to i64
@@ -3356,7 +3356,7 @@ default.unreachable:                              ; preds = %186
 
 ZSTD_count.exit1680.thread:                       ; preds = %139
   %140 = xor i64 %.val52.i1670, %.val.i1669
-  %141 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %140, i1 true)
+  %141 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %140, i1 true)
   %142 = lshr i64 %141, 3
   %143 = trunc i64 %.31590 to i32
   %144 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %143, i1 true)
@@ -3378,7 +3378,7 @@ ZSTD_count.exit1680.thread:                       ; preds = %139
 
 147:                                              ; preds = %146
   %148 = xor i64 %.1.val.i1678, %.142.val.i1677
-  %149 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %148, i1 true)
+  %149 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %148, i1 true)
   %150 = lshr i64 %149, 3
   %151 = getelementptr inbounds i8, ptr %.1.i1675, i64 %150
   br label %ZSTD_count.exit1680
@@ -3741,7 +3741,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %244, %.lr.ph.i, %.l
 
 311:                                              ; preds = %310
   %312 = xor i64 %.val52.i1704, %.val.i1703
-  %313 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %312, i1 true)
+  %313 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %312, i1 true)
   %314 = lshr i64 %313, 3
   br label %ZSTD_count.exit1714
 
@@ -3761,7 +3761,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %244, %.lr.ph.i, %.l
 
 317:                                              ; preds = %316
   %318 = xor i64 %.1.val.i1712, %.142.val.i1711
-  %319 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %318, i1 true)
+  %319 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %318, i1 true)
   %320 = lshr i64 %319, 3
   %321 = getelementptr inbounds i8, ptr %.1.i1709, i64 %320
   %322 = ptrtoint ptr %321 to i64
@@ -4043,7 +4043,7 @@ default.unreachable:                              ; preds = %120
 
 82:                                               ; preds = %81
   %83 = xor i64 %.val52.i, %.val.i
-  %84 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %83, i1 true)
+  %84 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %83, i1 true)
   %85 = lshr i64 %84, 3
   br label %ZSTD_count.exit
 
@@ -4063,7 +4063,7 @@ default.unreachable:                              ; preds = %120
 
 88:                                               ; preds = %87
   %89 = xor i64 %.1.val.i, %.142.val.i
-  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %89, i1 true)
+  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %89, i1 true)
   %91 = lshr i64 %90, 3
   %92 = getelementptr inbounds i8, ptr %.1.i, i64 %91
   %93 = ptrtoint ptr %92 to i64
@@ -4404,7 +4404,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %174, %.lr.ph.i, %.l
 
 241:                                              ; preds = %240
   %242 = xor i64 %.val52.i1674, %.val.i1673
-  %243 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %242, i1 true)
+  %243 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %242, i1 true)
   %244 = lshr i64 %243, 3
   br label %ZSTD_count.exit1684
 
@@ -4424,7 +4424,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %174, %.lr.ph.i, %.l
 
 247:                                              ; preds = %246
   %248 = xor i64 %.1.val.i1682, %.142.val.i1681
-  %249 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %248, i1 true)
+  %249 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %248, i1 true)
   %250 = lshr i64 %249, 3
   %251 = getelementptr inbounds i8, ptr %.1.i1679, i64 %250
   %252 = ptrtoint ptr %251 to i64
@@ -4831,7 +4831,7 @@ default.unreachable:                              ; preds = %364, %218
 ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split: ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us2.i.i, %.lr.ph.split.i.i, %146, %120, %94
   %.sink1897 = phi i32 [ %102, %94 ], [ %128, %120 ], [ %154, %146 ], [ %102, %.lr.ph.split.i.i ], [ %128, %.lr.ph.split.us2.i.i ], [ %154, %.lr.ph.split.us.i.i ]
   store i32 %.sink1897, ptr %47, align 4
-  %171 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %.015561775, ptr noundef %9, ptr noundef %6, i32 noundef %spec.select1746, i32 noundef 2)
+  %171 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %.015561775, ptr noundef %9, ptr noundef nonnull %6, i32 noundef %spec.select1746, i32 noundef 2)
   br label %ZSTD_BtFindBestMatch_dictMatchState_4.exit
 
 ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, %145, %119, %93
@@ -5076,7 +5076,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread: ; preds = %219, %250, %28
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i1688, %.lr.ph.split.us2.i.i1678, %.lr.ph.split.i.i1668, %287, %256, %225
   %.sink1899 = phi i32 [ %233, %225 ], [ %264, %256 ], [ %295, %287 ], [ %233, %.lr.ph.split.i.i1668 ], [ %264, %.lr.ph.split.us2.i.i1678 ], [ %295, %.lr.ph.split.us.i.i1688 ]
   store i32 %.sink1899, ptr %47, align 4
-  %314 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %184, ptr noundef %9, ptr noundef %7, i32 noundef %spec.select1746, i32 noundef 2)
+  %314 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %184, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1746, i32 noundef 2)
   %315 = trunc i64 %.51592 to i32
   %316 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %315, i1 true)
   %317 = icmp ugt i64 %314, 3
@@ -5315,7 +5315,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i1718, %.lr.ph.split.us2.i.i1708, %.lr.ph.split.i.i1698, %433, %402, %371
   %.sink1901 = phi i32 [ %379, %371 ], [ %410, %402 ], [ %441, %433 ], [ %379, %.lr.ph.split.i.i1698 ], [ %410, %.lr.ph.split.us2.i.i1708 ], [ %441, %.lr.ph.split.us.i.i1718 ]
   store i32 %.sink1901, ptr %47, align 4
-  %458 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %334, ptr noundef %9, ptr noundef %8, i32 noundef %spec.select1746, i32 noundef 2)
+  %458 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %334, ptr noundef %9, ptr noundef nonnull %8, i32 noundef %spec.select1746, i32 noundef 2)
   %459 = icmp ugt i64 %458, 3
   br i1 %459, label %460, label %._crit_edge1786
 
@@ -5598,7 +5598,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %510, %.lr.ph.i, %.l
 
 588:                                              ; preds = %587
   %589 = xor i64 %.val52.i.i, %.val.i.i1727
-  %590 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %589, i1 true)
+  %590 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %589, i1 true)
   %591 = lshr i64 %590, 3
   br label %ZSTD_count.exit.i
 
@@ -5618,7 +5618,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %510, %.lr.ph.i, %.l
 
 594:                                              ; preds = %593
   %595 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %596 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %595, i1 true)
+  %596 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %595, i1 true)
   %597 = lshr i64 %596, 3
   %598 = getelementptr inbounds i8, ptr %.1.i.i, i64 %597
   %599 = ptrtoint ptr %598 to i64
@@ -5702,7 +5702,7 @@ ZSTD_count.exit.i:                                ; preds = %623, %594, %588
 
 632:                                              ; preds = %631
   %633 = xor i64 %.val52.i38.i, %.val.i37.i
-  %634 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %633, i1 true)
+  %634 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %633, i1 true)
   %635 = lshr i64 %634, 3
   br label %ZSTD_count.exit48.i
 
@@ -5722,7 +5722,7 @@ ZSTD_count.exit.i:                                ; preds = %623, %594, %588
 
 638:                                              ; preds = %637
   %639 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %640 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %639, i1 true)
+  %640 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %639, i1 true)
   %641 = lshr i64 %640, 3
   %642 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %641
   %643 = ptrtoint ptr %642 to i64
@@ -6475,7 +6475,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
 
 329:                                              ; preds = %328
   %330 = xor i64 %.val52.i.i, %.val.i.i
-  %331 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %330, i1 true)
+  %331 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %330, i1 true)
   %332 = lshr i64 %331, 3
   br label %ZSTD_count.exit.i
 
@@ -6495,7 +6495,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
 
 335:                                              ; preds = %334
   %336 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %337 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %336, i1 true)
+  %337 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %336, i1 true)
   %338 = lshr i64 %337, 3
   %339 = getelementptr inbounds i8, ptr %.1.i.i, i64 %338
   %340 = ptrtoint ptr %339 to i64
@@ -6579,7 +6579,7 @@ ZSTD_count.exit.i:                                ; preds = %364, %335, %329
 
 373:                                              ; preds = %372
   %374 = xor i64 %.val52.i38.i, %.val.i37.i
-  %375 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %374, i1 true)
+  %375 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %374, i1 true)
   %376 = lshr i64 %375, 3
   br label %ZSTD_count.exit48.i
 
@@ -6599,7 +6599,7 @@ ZSTD_count.exit.i:                                ; preds = %364, %335, %329
 
 379:                                              ; preds = %378
   %380 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %381 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %380, i1 true)
+  %381 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %380, i1 true)
   %382 = lshr i64 %381, 3
   %383 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %382
   %384 = ptrtoint ptr %383 to i64
@@ -7253,7 +7253,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
 
 275:                                              ; preds = %274
   %276 = xor i64 %.val52.i.i, %.val.i.i
-  %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
+  %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %276, i1 true)
   %278 = lshr i64 %277, 3
   br label %ZSTD_count.exit.i
 
@@ -7273,7 +7273,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
 
 281:                                              ; preds = %280
   %282 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
+  %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %282, i1 true)
   %284 = lshr i64 %283, 3
   %285 = getelementptr inbounds i8, ptr %.1.i.i, i64 %284
   %286 = ptrtoint ptr %285 to i64
@@ -7357,7 +7357,7 @@ ZSTD_count.exit.i:                                ; preds = %310, %281, %275
 
 319:                                              ; preds = %318
   %320 = xor i64 %.val52.i38.i, %.val.i37.i
-  %321 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %320, i1 true)
+  %321 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %320, i1 true)
   %322 = lshr i64 %321, 3
   br label %ZSTD_count.exit48.i
 
@@ -7377,7 +7377,7 @@ ZSTD_count.exit.i:                                ; preds = %310, %281, %275
 
 325:                                              ; preds = %324
   %326 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %326, i1 true)
+  %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %326, i1 true)
   %328 = lshr i64 %327, 3
   %329 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %328
   %330 = ptrtoint ptr %329 to i64
@@ -7913,7 +7913,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
 
 216:                                              ; preds = %215
   %217 = xor i64 %.val52.i.i, %.val.i.i
-  %218 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %217, i1 true)
+  %218 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %217, i1 true)
   %219 = lshr i64 %218, 3
   br label %ZSTD_count.exit.i
 
@@ -7933,7 +7933,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
 
 222:                                              ; preds = %221
   %223 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %224 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %223, i1 true)
+  %224 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %223, i1 true)
   %225 = lshr i64 %224, 3
   %226 = getelementptr inbounds i8, ptr %.1.i.i, i64 %225
   %227 = ptrtoint ptr %226 to i64
@@ -8017,7 +8017,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %222, %216
 
 260:                                              ; preds = %259
   %261 = xor i64 %.val52.i38.i, %.val.i37.i
-  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
+  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %261, i1 true)
   %263 = lshr i64 %262, 3
   br label %ZSTD_count.exit48.i
 
@@ -8037,7 +8037,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %222, %216
 
 266:                                              ; preds = %265
   %267 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %267, i1 true)
   %269 = lshr i64 %268, 3
   %270 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %269
   %271 = ptrtoint ptr %270 to i64
@@ -8790,7 +8790,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
 
 329:                                              ; preds = %328
   %330 = xor i64 %.val52.i.i, %.val.i.i
-  %331 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %330, i1 true)
+  %331 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %330, i1 true)
   %332 = lshr i64 %331, 3
   br label %ZSTD_count.exit.i
 
@@ -8810,7 +8810,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
 
 335:                                              ; preds = %334
   %336 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %337 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %336, i1 true)
+  %337 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %336, i1 true)
   %338 = lshr i64 %337, 3
   %339 = getelementptr inbounds i8, ptr %.1.i.i, i64 %338
   %340 = ptrtoint ptr %339 to i64
@@ -8894,7 +8894,7 @@ ZSTD_count.exit.i:                                ; preds = %364, %335, %329
 
 373:                                              ; preds = %372
   %374 = xor i64 %.val52.i38.i, %.val.i37.i
-  %375 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %374, i1 true)
+  %375 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %374, i1 true)
   %376 = lshr i64 %375, 3
   br label %ZSTD_count.exit48.i
 
@@ -8914,7 +8914,7 @@ ZSTD_count.exit.i:                                ; preds = %364, %335, %329
 
 379:                                              ; preds = %378
   %380 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %381 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %380, i1 true)
+  %381 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %380, i1 true)
   %382 = lshr i64 %381, 3
   %383 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %382
   %384 = ptrtoint ptr %383 to i64
@@ -9568,7 +9568,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
 
 275:                                              ; preds = %274
   %276 = xor i64 %.val52.i.i, %.val.i.i
-  %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
+  %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %276, i1 true)
   %278 = lshr i64 %277, 3
   br label %ZSTD_count.exit.i
 
@@ -9588,7 +9588,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
 
 281:                                              ; preds = %280
   %282 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
+  %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %282, i1 true)
   %284 = lshr i64 %283, 3
   %285 = getelementptr inbounds i8, ptr %.1.i.i, i64 %284
   %286 = ptrtoint ptr %285 to i64
@@ -9672,7 +9672,7 @@ ZSTD_count.exit.i:                                ; preds = %310, %281, %275
 
 319:                                              ; preds = %318
   %320 = xor i64 %.val52.i38.i, %.val.i37.i
-  %321 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %320, i1 true)
+  %321 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %320, i1 true)
   %322 = lshr i64 %321, 3
   br label %ZSTD_count.exit48.i
 
@@ -9692,7 +9692,7 @@ ZSTD_count.exit.i:                                ; preds = %310, %281, %275
 
 325:                                              ; preds = %324
   %326 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %326, i1 true)
+  %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %326, i1 true)
   %328 = lshr i64 %327, 3
   %329 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %328
   %330 = ptrtoint ptr %329 to i64
@@ -10228,7 +10228,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
 
 216:                                              ; preds = %215
   %217 = xor i64 %.val52.i.i, %.val.i.i
-  %218 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %217, i1 true)
+  %218 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %217, i1 true)
   %219 = lshr i64 %218, 3
   br label %ZSTD_count.exit.i
 
@@ -10248,7 +10248,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
 
 222:                                              ; preds = %221
   %223 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %224 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %223, i1 true)
+  %224 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %223, i1 true)
   %225 = lshr i64 %224, 3
   %226 = getelementptr inbounds i8, ptr %.1.i.i, i64 %225
   %227 = ptrtoint ptr %226 to i64
@@ -10332,7 +10332,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %222, %216
 
 260:                                              ; preds = %259
   %261 = xor i64 %.val52.i38.i, %.val.i37.i
-  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
+  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %261, i1 true)
   %263 = lshr i64 %262, 3
   br label %ZSTD_count.exit48.i
 
@@ -10352,7 +10352,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %222, %216
 
 266:                                              ; preds = %265
   %267 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %267, i1 true)
   %269 = lshr i64 %268, 3
   %270 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %269
   %271 = ptrtoint ptr %270 to i64
@@ -10799,7 +10799,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
 
 181:                                              ; preds = %180
   %182 = xor i64 %.val52.i, %.val.i
-  %183 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %182, i1 true)
+  %183 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %182, i1 true)
   %184 = lshr i64 %183, 3
   br label %ZSTD_count.exit
 
@@ -10819,7 +10819,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
 
 187:                                              ; preds = %186
   %188 = xor i64 %.1.val.i, %.142.val.i
-  %189 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %188, i1 true)
+  %189 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %188, i1 true)
   %190 = lshr i64 %189, 3
   %191 = getelementptr inbounds i8, ptr %.1.i, i64 %190
   %192 = ptrtoint ptr %191 to i64
@@ -11025,7 +11025,7 @@ default.unreachable:                              ; preds = %419, %412, %405, %4
 
 ZSTD_count.exit1690.thread:                       ; preds = %264
   %265 = xor i64 %.val52.i1680, %.val.i1679
-  %266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %265, i1 true)
+  %266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %265, i1 true)
   %267 = lshr i64 %266, 3
   %268 = trunc i64 %.315901864 to i32
   %269 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %268, i1 true)
@@ -11047,7 +11047,7 @@ ZSTD_count.exit1690.thread:                       ; preds = %264
 
 272:                                              ; preds = %271
   %273 = xor i64 %.1.val.i1688, %.142.val.i1687
-  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %273, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.1.i1685, i64 %275
   br label %ZSTD_count.exit1690
@@ -11254,7 +11254,7 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %272
 
 ZSTD_count.exit1717.thread:                       ; preds = %362
   %363 = xor i64 %.val52.i1707, %.val.i1706
-  %364 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %363, i1 true)
+  %364 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %363, i1 true)
   %365 = lshr i64 %364, 3
   br label %396
 
@@ -11274,7 +11274,7 @@ ZSTD_count.exit1717.thread:                       ; preds = %362
 
 368:                                              ; preds = %367
   %369 = xor i64 %.1.val.i1715, %.142.val.i1714
-  %370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %369, i1 true)
+  %370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %369, i1 true)
   %371 = lshr i64 %370, 3
   %372 = getelementptr inbounds i8, ptr %.1.i1712, i64 %371
   br label %ZSTD_count.exit1717
@@ -11773,7 +11773,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
 
 593:                                              ; preds = %592
   %594 = xor i64 %.val52.i1741, %.val.i1740
-  %595 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %594, i1 true)
+  %595 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %594, i1 true)
   %596 = lshr i64 %595, 3
   br label %ZSTD_count.exit1751
 
@@ -11793,7 +11793,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
 
 599:                                              ; preds = %598
   %600 = xor i64 %.1.val.i1749, %.142.val.i1748
-  %601 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %600, i1 true)
+  %601 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %600, i1 true)
   %602 = lshr i64 %601, 3
   %603 = getelementptr inbounds i8, ptr %.1.i1746, i64 %602
   %604 = ptrtoint ptr %603 to i64
@@ -12244,7 +12244,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
 
 180:                                              ; preds = %179
   %181 = xor i64 %.val52.i, %.val.i
-  %182 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %181, i1 true)
+  %182 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %181, i1 true)
   %183 = lshr i64 %182, 3
   br label %ZSTD_count.exit
 
@@ -12264,7 +12264,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
 
 186:                                              ; preds = %185
   %187 = xor i64 %.1.val.i, %.142.val.i
-  %188 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %187, i1 true)
+  %188 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %187, i1 true)
   %189 = lshr i64 %188, 3
   %190 = getelementptr inbounds i8, ptr %.1.i, i64 %189
   %191 = ptrtoint ptr %190 to i64
@@ -12473,7 +12473,7 @@ default.unreachable:                              ; preds = %327, %320, %313, %3
 
 ZSTD_count.exit1687.thread:                       ; preds = %265
   %266 = xor i64 %.val52.i1677, %.val.i1676
-  %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
+  %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %266, i1 true)
   %268 = lshr i64 %267, 3
   %269 = trunc i64 %.31590 to i32
   %270 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %269, i1 true)
@@ -12495,7 +12495,7 @@ ZSTD_count.exit1687.thread:                       ; preds = %265
 
 273:                                              ; preds = %272
   %274 = xor i64 %.1.val.i1685, %.142.val.i1684
-  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %274, i1 true)
   %276 = lshr i64 %275, 3
   %277 = getelementptr inbounds i8, ptr %.1.i1682, i64 %276
   br label %ZSTD_count.exit1687
@@ -12998,7 +12998,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
 
 502:                                              ; preds = %501
   %503 = xor i64 %.val52.i1711, %.val.i1710
-  %504 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %503, i1 true)
+  %504 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %503, i1 true)
   %505 = lshr i64 %504, 3
   br label %ZSTD_count.exit1721
 
@@ -13018,7 +13018,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
 
 508:                                              ; preds = %507
   %509 = xor i64 %.1.val.i1719, %.142.val.i1718
-  %510 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %509, i1 true)
+  %510 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %509, i1 true)
   %511 = lshr i64 %510, 3
   %512 = getelementptr inbounds i8, ptr %.1.i1716, i64 %511
   %513 = ptrtoint ptr %512 to i64
@@ -13468,7 +13468,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
 
 179:                                              ; preds = %178
   %180 = xor i64 %.val52.i, %.val.i
-  %181 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %180, i1 true)
+  %181 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %180, i1 true)
   %182 = lshr i64 %181, 3
   br label %ZSTD_count.exit
 
@@ -13488,7 +13488,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
 
 185:                                              ; preds = %184
   %186 = xor i64 %.1.val.i, %.142.val.i
-  %187 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %186, i1 true)
+  %187 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %186, i1 true)
   %188 = lshr i64 %187, 3
   %189 = getelementptr inbounds i8, ptr %.1.i, i64 %188
   %190 = ptrtoint ptr %189 to i64
@@ -13970,7 +13970,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
 
 405:                                              ; preds = %404
   %406 = xor i64 %.val52.i1681, %.val.i1680
-  %407 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %406, i1 true)
+  %407 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %406, i1 true)
   %408 = lshr i64 %407, 3
   br label %ZSTD_count.exit1691
 
@@ -13990,7 +13990,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
 
 411:                                              ; preds = %410
   %412 = xor i64 %.1.val.i1689, %.142.val.i1688
-  %413 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %412, i1 true)
+  %413 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %412, i1 true)
   %414 = lshr i64 %413, 3
   %415 = getelementptr inbounds i8, ptr %.1.i1686, i64 %414
   %416 = ptrtoint ptr %415 to i64
@@ -15199,7 +15199,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 535:                                              ; preds = %534
   %536 = xor i64 %.val52.i.i, %.val.i.i
-  %537 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %536, i1 true)
+  %537 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %536, i1 true)
   %538 = lshr i64 %537, 3
   br label %ZSTD_count.exit.i
 
@@ -15219,7 +15219,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 541:                                              ; preds = %540
   %542 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %543 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %542, i1 true)
+  %543 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %542, i1 true)
   %544 = lshr i64 %543, 3
   %545 = getelementptr inbounds i8, ptr %.1.i.i, i64 %544
   %546 = ptrtoint ptr %545 to i64
@@ -15303,7 +15303,7 @@ ZSTD_count.exit.i:                                ; preds = %570, %541, %535
 
 579:                                              ; preds = %578
   %580 = xor i64 %.val52.i38.i, %.val.i37.i
-  %581 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %580, i1 true)
+  %581 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %580, i1 true)
   %582 = lshr i64 %581, 3
   br label %ZSTD_count.exit48.i
 
@@ -15323,7 +15323,7 @@ ZSTD_count.exit.i:                                ; preds = %570, %541, %535
 
 585:                                              ; preds = %584
   %586 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %587 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %586, i1 true)
+  %587 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %586, i1 true)
   %588 = lshr i64 %587, 3
   %589 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %588
   %590 = ptrtoint ptr %589 to i64
@@ -16383,7 +16383,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 466:                                              ; preds = %465
   %467 = xor i64 %.val52.i.i, %.val.i.i
-  %468 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %467, i1 true)
+  %468 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %467, i1 true)
   %469 = lshr i64 %468, 3
   br label %ZSTD_count.exit.i
 
@@ -16403,7 +16403,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 472:                                              ; preds = %471
   %473 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %474 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %473, i1 true)
+  %474 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %473, i1 true)
   %475 = lshr i64 %474, 3
   %476 = getelementptr inbounds i8, ptr %.1.i.i, i64 %475
   %477 = ptrtoint ptr %476 to i64
@@ -16487,7 +16487,7 @@ ZSTD_count.exit.i:                                ; preds = %501, %472, %466
 
 510:                                              ; preds = %509
   %511 = xor i64 %.val52.i38.i, %.val.i37.i
-  %512 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %511, i1 true)
+  %512 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %511, i1 true)
   %513 = lshr i64 %512, 3
   br label %ZSTD_count.exit48.i
 
@@ -16507,7 +16507,7 @@ ZSTD_count.exit.i:                                ; preds = %501, %472, %466
 
 516:                                              ; preds = %515
   %517 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %518 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %517, i1 true)
+  %518 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %517, i1 true)
   %519 = lshr i64 %518, 3
   %520 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %519
   %521 = ptrtoint ptr %520 to i64
@@ -17395,7 +17395,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 392:                                              ; preds = %391
   %393 = xor i64 %.val52.i.i, %.val.i.i
-  %394 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %393, i1 true)
+  %394 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %393, i1 true)
   %395 = lshr i64 %394, 3
   br label %ZSTD_count.exit.i
 
@@ -17415,7 +17415,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 398:                                              ; preds = %397
   %399 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %400 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %399, i1 true)
+  %400 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %399, i1 true)
   %401 = lshr i64 %400, 3
   %402 = getelementptr inbounds i8, ptr %.1.i.i, i64 %401
   %403 = ptrtoint ptr %402 to i64
@@ -17499,7 +17499,7 @@ ZSTD_count.exit.i:                                ; preds = %427, %398, %392
 
 436:                                              ; preds = %435
   %437 = xor i64 %.val52.i38.i, %.val.i37.i
-  %438 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %437, i1 true)
+  %438 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %437, i1 true)
   %439 = lshr i64 %438, 3
   br label %ZSTD_count.exit48.i
 
@@ -17519,7 +17519,7 @@ ZSTD_count.exit.i:                                ; preds = %427, %398, %392
 
 442:                                              ; preds = %441
   %443 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %444 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %443, i1 true)
+  %444 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %443, i1 true)
   %445 = lshr i64 %444, 3
   %446 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %445
   %447 = ptrtoint ptr %446 to i64
@@ -18723,7 +18723,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 535:                                              ; preds = %534
   %536 = xor i64 %.val52.i.i, %.val.i.i
-  %537 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %536, i1 true)
+  %537 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %536, i1 true)
   %538 = lshr i64 %537, 3
   br label %ZSTD_count.exit.i
 
@@ -18743,7 +18743,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 541:                                              ; preds = %540
   %542 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %543 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %542, i1 true)
+  %543 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %542, i1 true)
   %544 = lshr i64 %543, 3
   %545 = getelementptr inbounds i8, ptr %.1.i.i, i64 %544
   %546 = ptrtoint ptr %545 to i64
@@ -18827,7 +18827,7 @@ ZSTD_count.exit.i:                                ; preds = %570, %541, %535
 
 579:                                              ; preds = %578
   %580 = xor i64 %.val52.i38.i, %.val.i37.i
-  %581 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %580, i1 true)
+  %581 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %580, i1 true)
   %582 = lshr i64 %581, 3
   br label %ZSTD_count.exit48.i
 
@@ -18847,7 +18847,7 @@ ZSTD_count.exit.i:                                ; preds = %570, %541, %535
 
 585:                                              ; preds = %584
   %586 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %587 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %586, i1 true)
+  %587 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %586, i1 true)
   %588 = lshr i64 %587, 3
   %589 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %588
   %590 = ptrtoint ptr %589 to i64
@@ -19907,7 +19907,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 466:                                              ; preds = %465
   %467 = xor i64 %.val52.i.i, %.val.i.i
-  %468 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %467, i1 true)
+  %468 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %467, i1 true)
   %469 = lshr i64 %468, 3
   br label %ZSTD_count.exit.i
 
@@ -19927,7 +19927,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 472:                                              ; preds = %471
   %473 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %474 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %473, i1 true)
+  %474 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %473, i1 true)
   %475 = lshr i64 %474, 3
   %476 = getelementptr inbounds i8, ptr %.1.i.i, i64 %475
   %477 = ptrtoint ptr %476 to i64
@@ -20011,7 +20011,7 @@ ZSTD_count.exit.i:                                ; preds = %501, %472, %466
 
 510:                                              ; preds = %509
   %511 = xor i64 %.val52.i38.i, %.val.i37.i
-  %512 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %511, i1 true)
+  %512 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %511, i1 true)
   %513 = lshr i64 %512, 3
   br label %ZSTD_count.exit48.i
 
@@ -20031,7 +20031,7 @@ ZSTD_count.exit.i:                                ; preds = %501, %472, %466
 
 516:                                              ; preds = %515
   %517 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %518 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %517, i1 true)
+  %518 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %517, i1 true)
   %519 = lshr i64 %518, 3
   %520 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %519
   %521 = ptrtoint ptr %520 to i64
@@ -20919,7 +20919,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 392:                                              ; preds = %391
   %393 = xor i64 %.val52.i.i, %.val.i.i
-  %394 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %393, i1 true)
+  %394 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %393, i1 true)
   %395 = lshr i64 %394, 3
   br label %ZSTD_count.exit.i
 
@@ -20939,7 +20939,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 398:                                              ; preds = %397
   %399 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %400 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %399, i1 true)
+  %400 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %399, i1 true)
   %401 = lshr i64 %400, 3
   %402 = getelementptr inbounds i8, ptr %.1.i.i, i64 %401
   %403 = ptrtoint ptr %402 to i64
@@ -21023,7 +21023,7 @@ ZSTD_count.exit.i:                                ; preds = %427, %398, %392
 
 436:                                              ; preds = %435
   %437 = xor i64 %.val52.i38.i, %.val.i37.i
-  %438 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %437, i1 true)
+  %438 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %437, i1 true)
   %439 = lshr i64 %438, 3
   br label %ZSTD_count.exit48.i
 
@@ -21043,7 +21043,7 @@ ZSTD_count.exit.i:                                ; preds = %427, %398, %392
 
 442:                                              ; preds = %441
   %443 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %444 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %443, i1 true)
+  %444 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %443, i1 true)
   %445 = lshr i64 %444, 3
   %446 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %445
   %447 = ptrtoint ptr %446 to i64
@@ -21587,7 +21587,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %136, %.lr.ph.i, %.l
 
 223:                                              ; preds = %222
   %224 = xor i64 %.val52.i.i, %.val.i.i
-  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %224, i1 true)
+  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %224, i1 true)
   %226 = lshr i64 %225, 3
   br label %ZSTD_count.exit.i
 
@@ -21607,7 +21607,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %136, %.lr.ph.i, %.l
 
 229:                                              ; preds = %228
   %230 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %231 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %230, i1 true)
+  %231 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %230, i1 true)
   %232 = lshr i64 %231, 3
   %233 = getelementptr inbounds i8, ptr %.1.i.i, i64 %232
   %234 = ptrtoint ptr %233 to i64
@@ -21691,7 +21691,7 @@ ZSTD_count.exit.i:                                ; preds = %258, %229, %223
 
 267:                                              ; preds = %266
   %268 = xor i64 %.val52.i38.i, %.val.i37.i
-  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %268, i1 true)
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %268, i1 true)
   %270 = lshr i64 %269, 3
   br label %ZSTD_count.exit48.i
 
@@ -21711,7 +21711,7 @@ ZSTD_count.exit.i:                                ; preds = %258, %229, %223
 
 273:                                              ; preds = %272
   %274 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %274, i1 true)
   %276 = lshr i64 %275, 3
   %277 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %276
   %278 = ptrtoint ptr %277 to i64
@@ -22380,7 +22380,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %199, %.lr.ph.i, %.l
 
 286:                                              ; preds = %285
   %287 = xor i64 %.val52.i.i, %.val.i.i
-  %288 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %287, i1 true)
+  %288 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %287, i1 true)
   %289 = lshr i64 %288, 3
   br label %ZSTD_count.exit.i
 
@@ -22400,7 +22400,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %199, %.lr.ph.i, %.l
 
 292:                                              ; preds = %291
   %293 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %294 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %293, i1 true)
+  %294 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %293, i1 true)
   %295 = lshr i64 %294, 3
   %296 = getelementptr inbounds i8, ptr %.1.i.i, i64 %295
   %297 = ptrtoint ptr %296 to i64
@@ -22484,7 +22484,7 @@ ZSTD_count.exit.i:                                ; preds = %321, %292, %286
 
 330:                                              ; preds = %329
   %331 = xor i64 %.val52.i38.i, %.val.i37.i
-  %332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %331, i1 true)
+  %332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %331, i1 true)
   %333 = lshr i64 %332, 3
   br label %ZSTD_count.exit48.i
 
@@ -22504,7 +22504,7 @@ ZSTD_count.exit.i:                                ; preds = %321, %292, %286
 
 336:                                              ; preds = %335
   %337 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %337, i1 true)
+  %338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %337, i1 true)
   %339 = lshr i64 %338, 3
   %340 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %339
   %341 = ptrtoint ptr %340 to i64
@@ -23282,7 +23282,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %258, %.lr.ph.i, %.l
 
 345:                                              ; preds = %344
   %346 = xor i64 %.val52.i.i, %.val.i.i
-  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %346, i1 true)
+  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %346, i1 true)
   %348 = lshr i64 %347, 3
   br label %ZSTD_count.exit.i
 
@@ -23302,7 +23302,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %258, %.lr.ph.i, %.l
 
 351:                                              ; preds = %350
   %352 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %352, i1 true)
+  %353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %352, i1 true)
   %354 = lshr i64 %353, 3
   %355 = getelementptr inbounds i8, ptr %.1.i.i, i64 %354
   %356 = ptrtoint ptr %355 to i64
@@ -23386,7 +23386,7 @@ ZSTD_count.exit.i:                                ; preds = %380, %351, %345
 
 389:                                              ; preds = %388
   %390 = xor i64 %.val52.i38.i, %.val.i37.i
-  %391 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %390, i1 true)
+  %391 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %390, i1 true)
   %392 = lshr i64 %391, 3
   br label %ZSTD_count.exit48.i
 
@@ -23406,7 +23406,7 @@ ZSTD_count.exit.i:                                ; preds = %380, %351, %345
 
 395:                                              ; preds = %394
   %396 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %397 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %396, i1 true)
+  %397 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %396, i1 true)
   %398 = lshr i64 %397, 3
   %399 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %398
   %400 = ptrtoint ptr %399 to i64
@@ -23801,7 +23801,7 @@ default.unreachable:                              ; preds = %375, %219
 ZSTD_BtFindBestMatch_extDict_4.exit.sink.split:   ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us2.i.i, %.lr.ph.split.i.i, %143, %117, %91
   %.sink1695 = phi i32 [ %99, %91 ], [ %125, %117 ], [ %151, %143 ], [ %99, %.lr.ph.split.i.i ], [ %125, %.lr.ph.split.us2.i.i ], [ %151, %.lr.ph.split.us.i.i ]
   store i32 %.sink1695, ptr %40, align 4
-  %168 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %.013691566, ptr noundef %9, ptr noundef %6, i32 noundef %spec.select1532, i32 noundef 1)
+  %168 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %.013691566, ptr noundef %9, ptr noundef nonnull %6, i32 noundef %spec.select1532, i32 noundef 1)
   br label %ZSTD_BtFindBestMatch_extDict_4.exit
 
 ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, %142, %116, %90
@@ -24061,7 +24061,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456.thread:   ; preds = %220, %252, %284
 ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i1471, %.lr.ph.split.us2.i.i1461, %.lr.ph.split.i.i1451, %290, %258, %226
   %.sink1697 = phi i32 [ %235, %226 ], [ %267, %258 ], [ %299, %290 ], [ %235, %.lr.ph.split.i.i1451 ], [ %267, %.lr.ph.split.us2.i.i1461 ], [ %299, %.lr.ph.split.us.i.i1471 ]
   store i32 %.sink1697, ptr %40, align 4
-  %319 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %181, ptr noundef %9, ptr noundef %7, i32 noundef %spec.select1532, i32 noundef 1)
+  %319 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %181, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1532, i32 noundef 1)
   %320 = shl i64 %.5, 2
   %321 = trunc i64 %.41387 to i32
   %322 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %321, i1 true)
@@ -24314,7 +24314,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
 ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i1502, %.lr.ph.split.us2.i.i1492, %.lr.ph.split.i.i1482, %446, %414, %382
   %.sink1699 = phi i32 [ %391, %382 ], [ %423, %414 ], [ %455, %446 ], [ %391, %.lr.ph.split.i.i1482 ], [ %423, %.lr.ph.split.us2.i.i1492 ], [ %455, %.lr.ph.split.us.i.i1502 ]
   store i32 %.sink1699, ptr %40, align 4
-  %472 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %341, ptr noundef %9, ptr noundef %8, i32 noundef %spec.select1532, i32 noundef 1)
+  %472 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %341, ptr noundef %9, ptr noundef nonnull %8, i32 noundef %spec.select1532, i32 noundef 1)
   %473 = icmp ugt i64 %472, 3
   br i1 %473, label %474, label %._crit_edge1578
 
@@ -24608,7 +24608,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %525, %.lr.ph.i, %.l
 
 612:                                              ; preds = %611
   %613 = xor i64 %.val52.i.i, %.val.i.i1513
-  %614 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %613, i1 true)
+  %614 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %613, i1 true)
   %615 = lshr i64 %614, 3
   br label %ZSTD_count.exit.i
 
@@ -24628,7 +24628,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %525, %.lr.ph.i, %.l
 
 618:                                              ; preds = %617
   %619 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %620 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %619, i1 true)
+  %620 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %619, i1 true)
   %621 = lshr i64 %620, 3
   %622 = getelementptr inbounds i8, ptr %.1.i.i, i64 %621
   %623 = ptrtoint ptr %622 to i64
@@ -24712,7 +24712,7 @@ ZSTD_count.exit.i:                                ; preds = %647, %618, %612
 
 656:                                              ; preds = %655
   %657 = xor i64 %.val52.i38.i, %.val.i37.i
-  %658 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %657, i1 true)
+  %658 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %657, i1 true)
   %659 = lshr i64 %658, 3
   br label %ZSTD_count.exit48.i
 
@@ -24732,7 +24732,7 @@ ZSTD_count.exit.i:                                ; preds = %647, %618, %612
 
 662:                                              ; preds = %661
   %663 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %664 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %663, i1 true)
+  %664 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %663, i1 true)
   %665 = lshr i64 %664, 3
   %666 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %665
   %667 = ptrtoint ptr %666 to i64
@@ -25625,7 +25625,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
 
 399:                                              ; preds = %398
   %400 = xor i64 %.val52.i.i, %.val.i.i
-  %401 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %400, i1 true)
+  %401 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %400, i1 true)
   %402 = lshr i64 %401, 3
   br label %ZSTD_count.exit.i
 
@@ -25645,7 +25645,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
 
 405:                                              ; preds = %404
   %406 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %407 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %406, i1 true)
+  %407 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %406, i1 true)
   %408 = lshr i64 %407, 3
   %409 = getelementptr inbounds i8, ptr %.1.i.i, i64 %408
   %410 = ptrtoint ptr %409 to i64
@@ -25729,7 +25729,7 @@ ZSTD_count.exit.i:                                ; preds = %434, %405, %399
 
 443:                                              ; preds = %442
   %444 = xor i64 %.val52.i38.i, %.val.i37.i
-  %445 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %444, i1 true)
+  %445 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %444, i1 true)
   %446 = lshr i64 %445, 3
   br label %ZSTD_count.exit48.i
 
@@ -25749,7 +25749,7 @@ ZSTD_count.exit.i:                                ; preds = %434, %405, %399
 
 449:                                              ; preds = %448
   %450 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %451 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %450, i1 true)
+  %451 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %450, i1 true)
   %452 = lshr i64 %451, 3
   %453 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %452
   %454 = ptrtoint ptr %453 to i64
@@ -26824,7 +26824,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
 
 477:                                              ; preds = %476
   %478 = xor i64 %.val52.i.i, %.val.i.i
-  %479 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %478, i1 true)
+  %479 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %478, i1 true)
   %480 = lshr i64 %479, 3
   br label %ZSTD_count.exit.i
 
@@ -26844,7 +26844,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
 
 483:                                              ; preds = %482
   %484 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %485 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %484, i1 true)
+  %485 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %484, i1 true)
   %486 = lshr i64 %485, 3
   %487 = getelementptr inbounds i8, ptr %.1.i.i, i64 %486
   %488 = ptrtoint ptr %487 to i64
@@ -26928,7 +26928,7 @@ ZSTD_count.exit.i:                                ; preds = %512, %483, %477
 
 521:                                              ; preds = %520
   %522 = xor i64 %.val52.i38.i, %.val.i37.i
-  %523 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %522, i1 true)
+  %523 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %522, i1 true)
   %524 = lshr i64 %523, 3
   br label %ZSTD_count.exit48.i
 
@@ -26948,7 +26948,7 @@ ZSTD_count.exit.i:                                ; preds = %512, %483, %477
 
 527:                                              ; preds = %526
   %528 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %529 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %528, i1 true)
+  %529 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %528, i1 true)
   %530 = lshr i64 %529, 3
   %531 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %530
   %532 = ptrtoint ptr %531 to i64
@@ -28177,7 +28177,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
 
 551:                                              ; preds = %550
   %552 = xor i64 %.val52.i.i, %.val.i.i
-  %553 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %552, i1 true)
+  %553 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %552, i1 true)
   %554 = lshr i64 %553, 3
   br label %ZSTD_count.exit.i
 
@@ -28197,7 +28197,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
 
 557:                                              ; preds = %556
   %558 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %558, i1 true)
+  %559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %558, i1 true)
   %560 = lshr i64 %559, 3
   %561 = getelementptr inbounds i8, ptr %.1.i.i, i64 %560
   %562 = ptrtoint ptr %561 to i64
@@ -28281,7 +28281,7 @@ ZSTD_count.exit.i:                                ; preds = %586, %557, %551
 
 595:                                              ; preds = %594
   %596 = xor i64 %.val52.i38.i, %.val.i37.i
-  %597 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %596, i1 true)
+  %597 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %596, i1 true)
   %598 = lshr i64 %597, 3
   br label %ZSTD_count.exit48.i
 
@@ -28301,7 +28301,7 @@ ZSTD_count.exit.i:                                ; preds = %586, %557, %551
 
 601:                                              ; preds = %600
   %602 = xor i64 %.1.val.i46.i, %.142.val.i45.i
-  %603 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %602, i1 true)
+  %603 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %602, i1 true)
   %604 = lshr i64 %603, 3
   %605 = getelementptr inbounds i8, ptr %.1.i43.i, i64 %604
   %606 = ptrtoint ptr %605 to i64
@@ -28456,7 +28456,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %13
   %15 = xor i64 %.val52.i, %.val.i
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %15, i1 true)
   %17 = lshr i64 %16, 3
   br label %ZSTD_count.exit
 
@@ -28476,7 +28476,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %19
   %21 = xor i64 %.1.val.i, %.142.val.i
-  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %21, i1 true)
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %21, i1 true)
   %23 = lshr i64 %22, 3
   %24 = getelementptr inbounds i8, ptr %.1.i, i64 %23
   %25 = ptrtoint ptr %24 to i64
@@ -28561,7 +28561,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 
 59:                                               ; preds = %58
   %60 = xor i64 %.val52.i38, %.val.i37
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %60, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %60, i1 true)
   %62 = lshr i64 %61, 3
   br label %ZSTD_count.exit48
 
@@ -28581,7 +28581,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 
 65:                                               ; preds = %64
   %66 = xor i64 %.1.val.i46, %.142.val.i45
-  %67 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %66, i1 true)
+  %67 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %66, i1 true)
   %68 = lshr i64 %67, 3
   %69 = getelementptr inbounds i8, ptr %.1.i43, i64 %68
   %70 = ptrtoint ptr %69 to i64
@@ -28797,7 +28797,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_4(ptr no
 
 83:                                               ; preds = %82
   %84 = xor i64 %.val52.i.us, %.val.i.us
-  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %84, i1 true)
+  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %84, i1 true)
   %86 = lshr i64 %85, 3
   br label %ZSTD_count.exit.us
 
@@ -28865,7 +28865,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_4(ptr no
 
 110:                                              ; preds = %109
   %111 = xor i64 %.1.val.i.us, %.142.val.i.us
-  %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %111, i1 true)
+  %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %111, i1 true)
   %113 = lshr i64 %112, 3
   %114 = getelementptr inbounds i8, ptr %.1.i.us, i64 %113
   %115 = ptrtoint ptr %114 to i64
@@ -29200,7 +29200,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_5(ptr no
 
 81:                                               ; preds = %80
   %82 = xor i64 %.val52.i.us, %.val.i.us
-  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %82, i1 true)
   %84 = lshr i64 %83, 3
   br label %ZSTD_count.exit.us
 
@@ -29268,7 +29268,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_5(ptr no
 
 108:                                              ; preds = %107
   %109 = xor i64 %.1.val.i.us, %.142.val.i.us
-  %110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %109, i1 true)
+  %110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %109, i1 true)
   %111 = lshr i64 %110, 3
   %112 = getelementptr inbounds i8, ptr %.1.i.us, i64 %111
   %113 = ptrtoint ptr %112 to i64
@@ -29603,7 +29603,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_6(ptr no
 
 81:                                               ; preds = %80
   %82 = xor i64 %.val52.i.us, %.val.i.us
-  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %82, i1 true)
   %84 = lshr i64 %83, 3
   br label %ZSTD_count.exit.us
 
@@ -29671,7 +29671,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_6(ptr no
 
 108:                                              ; preds = %107
   %109 = xor i64 %.1.val.i.us, %.142.val.i.us
-  %110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %109, i1 true)
+  %110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %109, i1 true)
   %111 = lshr i64 %110, 3
   %112 = getelementptr inbounds i8, ptr %.1.i.us, i64 %111
   %113 = ptrtoint ptr %112 to i64
@@ -30165,7 +30165,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
   %.0872928 = phi i64 [ %219, %217 ], [ %200, %.lr.ph929.preheader ]
   %.0874927 = phi i64 [ %.1875, %217 ], [ 0, %.lr.ph929.preheader ]
   %.0881926 = phi i32 [ %.1882, %217 ], [ %35, %.lr.ph929.preheader ]
-  %201 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872928, i1 true)
+  %201 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872928, i1 true)
   %202 = trunc nuw nsw i64 %201 to i32
   %203 = add nuw nsw i32 %202, %186
   %204 = and i32 %203, 15
@@ -30256,7 +30256,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
 
 251:                                              ; preds = %250
   %252 = xor i64 %.val52.i, %.val.i
-  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %252, i1 true)
+  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %252, i1 true)
   %254 = lshr i64 %253, 3
   br label %ZSTD_count.exit
 
@@ -30276,7 +30276,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
 
 257:                                              ; preds = %256
   %258 = xor i64 %.1.val.i, %.142.val.i
-  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %258, i1 true)
+  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %258, i1 true)
   %260 = lshr i64 %259, 3
   %261 = getelementptr inbounds i8, ptr %.1.i, i64 %260
   %262 = ptrtoint ptr %261 to i64
@@ -30653,7 +30653,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
   br i1 %.not945, label %._crit_edge932, label %.lr.ph931.preheader
 
 .lr.ph931.preheader:                              ; preds = %.critedge
-  %204 = tail call noundef i32 @llvm.fshr.i32(i32 %203, i32 %203, i32 %201)
+  %204 = tail call noundef i32 @llvm.fshr.i32(i32 %203, i32 %203, i32 range(i32 0, 32) %201)
   %205 = zext i32 %204 to i64
   br label %.lr.ph931
 
@@ -30661,7 +30661,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
   %.0872929 = phi i64 [ %224, %222 ], [ %205, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %222 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %222 ], [ %35, %.lr.ph931.preheader ]
-  %206 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %206 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872929, i1 true)
   %207 = trunc nuw nsw i64 %206 to i32
   %208 = add nuw nsw i32 %207, %201
   %209 = and i32 %208, 31
@@ -30752,7 +30752,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
 
 256:                                              ; preds = %255
   %257 = xor i64 %.val52.i, %.val.i
-  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %257, i1 true)
+  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %257, i1 true)
   %259 = lshr i64 %258, 3
   br label %ZSTD_count.exit
 
@@ -30772,7 +30772,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
 
 262:                                              ; preds = %261
   %263 = xor i64 %.1.val.i, %.142.val.i
-  %264 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %263, i1 true)
+  %264 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %263, i1 true)
   %265 = lshr i64 %264, 3
   %266 = getelementptr inbounds i8, ptr %.1.i, i64 %265
   %267 = ptrtoint ptr %266 to i64
@@ -31193,7 +31193,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
   %.0872929 = phi i64 [ %251, %249 ], [ %232, %206 ]
   %.0874928 = phi i64 [ %.1875, %249 ], [ 0, %206 ]
   %.0881927 = phi i32 [ %.1882, %249 ], [ %36, %206 ]
-  %233 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %233 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872929, i1 true)
   %234 = trunc nuw nsw i64 %233 to i32
   %235 = add nuw nsw i32 %234, %208
   %236 = and i32 %235, 63
@@ -31284,7 +31284,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
 
 283:                                              ; preds = %282
   %284 = xor i64 %.val52.i, %.val.i
-  %285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %284, i1 true)
+  %285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %284, i1 true)
   %286 = lshr i64 %285, 3
   br label %ZSTD_count.exit
 
@@ -31304,7 +31304,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
 
 289:                                              ; preds = %288
   %290 = xor i64 %.1.val.i, %.142.val.i
-  %291 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %290, i1 true)
+  %291 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %290, i1 true)
   %292 = lshr i64 %291, 3
   %293 = getelementptr inbounds i8, ptr %.1.i, i64 %292
   %294 = ptrtoint ptr %293 to i64
@@ -31682,7 +31682,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
   %.0872928 = phi i64 [ %220, %218 ], [ %201, %.lr.ph929.preheader ]
   %.0874927 = phi i64 [ %.1875, %218 ], [ 0, %.lr.ph929.preheader ]
   %.0881926 = phi i32 [ %.1882, %218 ], [ %35, %.lr.ph929.preheader ]
-  %202 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872928, i1 true)
+  %202 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872928, i1 true)
   %203 = trunc nuw nsw i64 %202 to i32
   %204 = add nuw nsw i32 %203, %187
   %205 = and i32 %204, 15
@@ -31773,7 +31773,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
 
 252:                                              ; preds = %251
   %253 = xor i64 %.val52.i, %.val.i
-  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %253, i1 true)
+  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %253, i1 true)
   %255 = lshr i64 %254, 3
   br label %ZSTD_count.exit
 
@@ -31793,7 +31793,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
 
 258:                                              ; preds = %257
   %259 = xor i64 %.1.val.i, %.142.val.i
-  %260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %259, i1 true)
+  %260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %259, i1 true)
   %261 = lshr i64 %260, 3
   %262 = getelementptr inbounds i8, ptr %.1.i, i64 %261
   %263 = ptrtoint ptr %262 to i64
@@ -32171,7 +32171,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
   br i1 %.not945, label %._crit_edge932, label %.lr.ph931.preheader
 
 .lr.ph931.preheader:                              ; preds = %.critedge
-  %205 = tail call noundef i32 @llvm.fshr.i32(i32 %204, i32 %204, i32 %202)
+  %205 = tail call noundef i32 @llvm.fshr.i32(i32 %204, i32 %204, i32 range(i32 0, 32) %202)
   %206 = zext i32 %205 to i64
   br label %.lr.ph931
 
@@ -32179,7 +32179,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
   %.0872929 = phi i64 [ %225, %223 ], [ %206, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %223 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %223 ], [ %35, %.lr.ph931.preheader ]
-  %207 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %207 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872929, i1 true)
   %208 = trunc nuw nsw i64 %207 to i32
   %209 = add nuw nsw i32 %208, %202
   %210 = and i32 %209, 31
@@ -32270,7 +32270,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
 
 257:                                              ; preds = %256
   %258 = xor i64 %.val52.i, %.val.i
-  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %258, i1 true)
+  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %258, i1 true)
   %260 = lshr i64 %259, 3
   br label %ZSTD_count.exit
 
@@ -32290,7 +32290,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
 
 263:                                              ; preds = %262
   %264 = xor i64 %.1.val.i, %.142.val.i
-  %265 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %264, i1 true)
+  %265 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %264, i1 true)
   %266 = lshr i64 %265, 3
   %267 = getelementptr inbounds i8, ptr %.1.i, i64 %266
   %268 = ptrtoint ptr %267 to i64
@@ -32712,7 +32712,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
   %.0872929 = phi i64 [ %252, %250 ], [ %233, %207 ]
   %.0874928 = phi i64 [ %.1875, %250 ], [ 0, %207 ]
   %.0881927 = phi i32 [ %.1882, %250 ], [ %36, %207 ]
-  %234 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %234 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872929, i1 true)
   %235 = trunc nuw nsw i64 %234 to i32
   %236 = add nuw nsw i32 %235, %209
   %237 = and i32 %236, 63
@@ -32803,7 +32803,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
 
 284:                                              ; preds = %283
   %285 = xor i64 %.val52.i, %.val.i
-  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %285, i1 true)
+  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %285, i1 true)
   %287 = lshr i64 %286, 3
   br label %ZSTD_count.exit
 
@@ -32823,7 +32823,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
 
 290:                                              ; preds = %289
   %291 = xor i64 %.1.val.i, %.142.val.i
-  %292 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %291, i1 true)
+  %292 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %291, i1 true)
   %293 = lshr i64 %292, 3
   %294 = getelementptr inbounds i8, ptr %.1.i, i64 %293
   %295 = ptrtoint ptr %294 to i64
@@ -33201,7 +33201,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
   %.0872928 = phi i64 [ %220, %218 ], [ %201, %.lr.ph929.preheader ]
   %.0874927 = phi i64 [ %.1875, %218 ], [ 0, %.lr.ph929.preheader ]
   %.0881926 = phi i32 [ %.1882, %218 ], [ %35, %.lr.ph929.preheader ]
-  %202 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872928, i1 true)
+  %202 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872928, i1 true)
   %203 = trunc nuw nsw i64 %202 to i32
   %204 = add nuw nsw i32 %203, %187
   %205 = and i32 %204, 15
@@ -33292,7 +33292,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
 
 252:                                              ; preds = %251
   %253 = xor i64 %.val52.i, %.val.i
-  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %253, i1 true)
+  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %253, i1 true)
   %255 = lshr i64 %254, 3
   br label %ZSTD_count.exit
 
@@ -33312,7 +33312,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
 
 258:                                              ; preds = %257
   %259 = xor i64 %.1.val.i, %.142.val.i
-  %260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %259, i1 true)
+  %260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %259, i1 true)
   %261 = lshr i64 %260, 3
   %262 = getelementptr inbounds i8, ptr %.1.i, i64 %261
   %263 = ptrtoint ptr %262 to i64
@@ -33690,7 +33690,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
   br i1 %.not945, label %._crit_edge932, label %.lr.ph931.preheader
 
 .lr.ph931.preheader:                              ; preds = %.critedge
-  %205 = tail call noundef i32 @llvm.fshr.i32(i32 %204, i32 %204, i32 %202)
+  %205 = tail call noundef i32 @llvm.fshr.i32(i32 %204, i32 %204, i32 range(i32 0, 32) %202)
   %206 = zext i32 %205 to i64
   br label %.lr.ph931
 
@@ -33698,7 +33698,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
   %.0872929 = phi i64 [ %225, %223 ], [ %206, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %223 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %223 ], [ %35, %.lr.ph931.preheader ]
-  %207 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %207 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872929, i1 true)
   %208 = trunc nuw nsw i64 %207 to i32
   %209 = add nuw nsw i32 %208, %202
   %210 = and i32 %209, 31
@@ -33789,7 +33789,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
 
 257:                                              ; preds = %256
   %258 = xor i64 %.val52.i, %.val.i
-  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %258, i1 true)
+  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %258, i1 true)
   %260 = lshr i64 %259, 3
   br label %ZSTD_count.exit
 
@@ -33809,7 +33809,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
 
 263:                                              ; preds = %262
   %264 = xor i64 %.1.val.i, %.142.val.i
-  %265 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %264, i1 true)
+  %265 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %264, i1 true)
   %266 = lshr i64 %265, 3
   %267 = getelementptr inbounds i8, ptr %.1.i, i64 %266
   %268 = ptrtoint ptr %267 to i64
@@ -34231,7 +34231,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
   %.0872929 = phi i64 [ %252, %250 ], [ %233, %207 ]
   %.0874928 = phi i64 [ %.1875, %250 ], [ 0, %207 ]
   %.0881927 = phi i32 [ %.1882, %250 ], [ %36, %207 ]
-  %234 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %234 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872929, i1 true)
   %235 = trunc nuw nsw i64 %234 to i32
   %236 = add nuw nsw i32 %235, %209
   %237 = and i32 %236, 63
@@ -34322,7 +34322,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
 
 284:                                              ; preds = %283
   %285 = xor i64 %.val52.i, %.val.i
-  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %285, i1 true)
+  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %285, i1 true)
   %287 = lshr i64 %286, 3
   br label %ZSTD_count.exit
 
@@ -34342,7 +34342,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
 
 290:                                              ; preds = %289
   %291 = xor i64 %.1.val.i, %.142.val.i
-  %292 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %291, i1 true)
+  %292 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %291, i1 true)
   %293 = lshr i64 %292, 3
   %294 = getelementptr inbounds i8, ptr %.1.i, i64 %293
   %295 = ptrtoint ptr %294 to i64
@@ -34577,7 +34577,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_4(ptr n
 
 94:                                               ; preds = %93
   %95 = xor i64 %.val52.i, %.val.i
-  %96 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %95, i1 true)
+  %96 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %95, i1 true)
   %97 = lshr i64 %96, 3
   br label %ZSTD_count.exit
 
@@ -34597,7 +34597,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_4(ptr n
 
 100:                                              ; preds = %99
   %101 = xor i64 %.1.val.i, %.142.val.i
-  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %101, i1 true)
+  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %101, i1 true)
   %103 = lshr i64 %102, 3
   %104 = getelementptr inbounds i8, ptr %.1.i, i64 %103
   %105 = ptrtoint ptr %104 to i64
@@ -34853,7 +34853,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_5(ptr n
 
 92:                                               ; preds = %91
   %93 = xor i64 %.val52.i, %.val.i
-  %94 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %93, i1 true)
+  %94 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %93, i1 true)
   %95 = lshr i64 %94, 3
   br label %ZSTD_count.exit
 
@@ -34873,7 +34873,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_5(ptr n
 
 98:                                               ; preds = %97
   %99 = xor i64 %.1.val.i, %.142.val.i
-  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %99, i1 true)
+  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %99, i1 true)
   %101 = lshr i64 %100, 3
   %102 = getelementptr inbounds i8, ptr %.1.i, i64 %101
   %103 = ptrtoint ptr %102 to i64
@@ -35129,7 +35129,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_6(ptr n
 
 92:                                               ; preds = %91
   %93 = xor i64 %.val52.i, %.val.i
-  %94 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %93, i1 true)
+  %94 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %93, i1 true)
   %95 = lshr i64 %94, 3
   br label %ZSTD_count.exit
 
@@ -35149,7 +35149,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_6(ptr n
 
 98:                                               ; preds = %97
   %99 = xor i64 %.1.val.i, %.142.val.i
-  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %99, i1 true)
+  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %99, i1 true)
   %101 = lshr i64 %100, 3
   %102 = getelementptr inbounds i8, ptr %.1.i, i64 %101
   %103 = ptrtoint ptr %102 to i64
@@ -35556,7 +35556,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
   %.0872932 = phi i64 [ %226, %224 ], [ %207, %.lr.ph933.preheader ]
   %.0874931 = phi i64 [ %.1875, %224 ], [ 0, %.lr.ph933.preheader ]
   %.0881930 = phi i32 [ %.1882, %224 ], [ %42, %.lr.ph933.preheader ]
-  %208 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872932, i1 true)
+  %208 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872932, i1 true)
   %209 = trunc nuw nsw i64 %208 to i32
   %210 = add nuw nsw i32 %209, %193
   %211 = and i32 %210, 15
@@ -35654,7 +35654,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
 
 260:                                              ; preds = %259
   %261 = xor i64 %.val52.i, %.val.i
-  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
+  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %261, i1 true)
   %263 = lshr i64 %262, 3
   br label %ZSTD_count.exit
 
@@ -35674,7 +35674,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
 
 266:                                              ; preds = %265
   %267 = xor i64 %.1.val.i, %.142.val.i
-  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %267, i1 true)
   %269 = lshr i64 %268, 3
   %270 = getelementptr inbounds i8, ptr %.1.i, i64 %269
   %271 = ptrtoint ptr %270 to i64
@@ -36071,7 +36071,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
   br i1 %.not949, label %._crit_edge936, label %.lr.ph935.preheader
 
 .lr.ph935.preheader:                              ; preds = %.critedge
-  %211 = tail call noundef i32 @llvm.fshr.i32(i32 %210, i32 %210, i32 %208)
+  %211 = tail call noundef i32 @llvm.fshr.i32(i32 %210, i32 %210, i32 range(i32 0, 32) %208)
   %212 = zext i32 %211 to i64
   br label %.lr.ph935
 
@@ -36079,7 +36079,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
   %.0872933 = phi i64 [ %231, %229 ], [ %212, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %229 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %229 ], [ %42, %.lr.ph935.preheader ]
-  %213 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %213 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872933, i1 true)
   %214 = trunc nuw nsw i64 %213 to i32
   %215 = add nuw nsw i32 %214, %208
   %216 = and i32 %215, 31
@@ -36177,7 +36177,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
 
 265:                                              ; preds = %264
   %266 = xor i64 %.val52.i, %.val.i
-  %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
+  %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %266, i1 true)
   %268 = lshr i64 %267, 3
   br label %ZSTD_count.exit
 
@@ -36197,7 +36197,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
 
 271:                                              ; preds = %270
   %272 = xor i64 %.1.val.i, %.142.val.i
-  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
+  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %272, i1 true)
   %274 = lshr i64 %273, 3
   %275 = getelementptr inbounds i8, ptr %.1.i, i64 %274
   %276 = ptrtoint ptr %275 to i64
@@ -36638,7 +36638,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
   %.0872933 = phi i64 [ %258, %256 ], [ %239, %213 ]
   %.0874932 = phi i64 [ %.1875, %256 ], [ 0, %213 ]
   %.0881931 = phi i32 [ %.1882, %256 ], [ %43, %213 ]
-  %240 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %240 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872933, i1 true)
   %241 = trunc nuw nsw i64 %240 to i32
   %242 = add nuw nsw i32 %241, %215
   %243 = and i32 %242, 63
@@ -36736,7 +36736,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
 
 292:                                              ; preds = %291
   %293 = xor i64 %.val52.i, %.val.i
-  %294 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %293, i1 true)
+  %294 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %293, i1 true)
   %295 = lshr i64 %294, 3
   br label %ZSTD_count.exit
 
@@ -36756,7 +36756,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
 
 298:                                              ; preds = %297
   %299 = xor i64 %.1.val.i, %.142.val.i
-  %300 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %299, i1 true)
+  %300 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %299, i1 true)
   %301 = lshr i64 %300, 3
   %302 = getelementptr inbounds i8, ptr %.1.i, i64 %301
   %303 = ptrtoint ptr %302 to i64
@@ -37154,7 +37154,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
   %.0872932 = phi i64 [ %227, %225 ], [ %208, %.lr.ph933.preheader ]
   %.0874931 = phi i64 [ %.1875, %225 ], [ 0, %.lr.ph933.preheader ]
   %.0881930 = phi i32 [ %.1882, %225 ], [ %42, %.lr.ph933.preheader ]
-  %209 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872932, i1 true)
+  %209 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872932, i1 true)
   %210 = trunc nuw nsw i64 %209 to i32
   %211 = add nuw nsw i32 %210, %194
   %212 = and i32 %211, 15
@@ -37252,7 +37252,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
 
 261:                                              ; preds = %260
   %262 = xor i64 %.val52.i, %.val.i
-  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %262, i1 true)
+  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %262, i1 true)
   %264 = lshr i64 %263, 3
   br label %ZSTD_count.exit
 
@@ -37272,7 +37272,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
 
 267:                                              ; preds = %266
   %268 = xor i64 %.1.val.i, %.142.val.i
-  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %268, i1 true)
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %268, i1 true)
   %270 = lshr i64 %269, 3
   %271 = getelementptr inbounds i8, ptr %.1.i, i64 %270
   %272 = ptrtoint ptr %271 to i64
@@ -37670,7 +37670,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
   br i1 %.not949, label %._crit_edge936, label %.lr.ph935.preheader
 
 .lr.ph935.preheader:                              ; preds = %.critedge
-  %212 = tail call noundef i32 @llvm.fshr.i32(i32 %211, i32 %211, i32 %209)
+  %212 = tail call noundef i32 @llvm.fshr.i32(i32 %211, i32 %211, i32 range(i32 0, 32) %209)
   %213 = zext i32 %212 to i64
   br label %.lr.ph935
 
@@ -37678,7 +37678,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
   %.0872933 = phi i64 [ %232, %230 ], [ %213, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %230 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %230 ], [ %42, %.lr.ph935.preheader ]
-  %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872933, i1 true)
   %215 = trunc nuw nsw i64 %214 to i32
   %216 = add nuw nsw i32 %215, %209
   %217 = and i32 %216, 31
@@ -37776,7 +37776,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
 
 266:                                              ; preds = %265
   %267 = xor i64 %.val52.i, %.val.i
-  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %267, i1 true)
   %269 = lshr i64 %268, 3
   br label %ZSTD_count.exit
 
@@ -37796,7 +37796,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
 
 272:                                              ; preds = %271
   %273 = xor i64 %.1.val.i, %.142.val.i
-  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %273, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.1.i, i64 %275
   %277 = ptrtoint ptr %276 to i64
@@ -38238,7 +38238,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
   %.0872933 = phi i64 [ %259, %257 ], [ %240, %214 ]
   %.0874932 = phi i64 [ %.1875, %257 ], [ 0, %214 ]
   %.0881931 = phi i32 [ %.1882, %257 ], [ %43, %214 ]
-  %241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872933, i1 true)
   %242 = trunc nuw nsw i64 %241 to i32
   %243 = add nuw nsw i32 %242, %216
   %244 = and i32 %243, 63
@@ -38336,7 +38336,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
 
 293:                                              ; preds = %292
   %294 = xor i64 %.val52.i, %.val.i
-  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %294, i1 true)
+  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %294, i1 true)
   %296 = lshr i64 %295, 3
   br label %ZSTD_count.exit
 
@@ -38356,7 +38356,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
 
 299:                                              ; preds = %298
   %300 = xor i64 %.1.val.i, %.142.val.i
-  %301 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %300, i1 true)
+  %301 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %300, i1 true)
   %302 = lshr i64 %301, 3
   %303 = getelementptr inbounds i8, ptr %.1.i, i64 %302
   %304 = ptrtoint ptr %303 to i64
@@ -38754,7 +38754,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
   %.0872932 = phi i64 [ %227, %225 ], [ %208, %.lr.ph933.preheader ]
   %.0874931 = phi i64 [ %.1875, %225 ], [ 0, %.lr.ph933.preheader ]
   %.0881930 = phi i32 [ %.1882, %225 ], [ %42, %.lr.ph933.preheader ]
-  %209 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872932, i1 true)
+  %209 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872932, i1 true)
   %210 = trunc nuw nsw i64 %209 to i32
   %211 = add nuw nsw i32 %210, %194
   %212 = and i32 %211, 15
@@ -38852,7 +38852,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
 
 261:                                              ; preds = %260
   %262 = xor i64 %.val52.i, %.val.i
-  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %262, i1 true)
+  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %262, i1 true)
   %264 = lshr i64 %263, 3
   br label %ZSTD_count.exit
 
@@ -38872,7 +38872,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
 
 267:                                              ; preds = %266
   %268 = xor i64 %.1.val.i, %.142.val.i
-  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %268, i1 true)
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %268, i1 true)
   %270 = lshr i64 %269, 3
   %271 = getelementptr inbounds i8, ptr %.1.i, i64 %270
   %272 = ptrtoint ptr %271 to i64
@@ -39270,7 +39270,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
   br i1 %.not949, label %._crit_edge936, label %.lr.ph935.preheader
 
 .lr.ph935.preheader:                              ; preds = %.critedge
-  %212 = tail call noundef i32 @llvm.fshr.i32(i32 %211, i32 %211, i32 %209)
+  %212 = tail call noundef i32 @llvm.fshr.i32(i32 %211, i32 %211, i32 range(i32 0, 32) %209)
   %213 = zext i32 %212 to i64
   br label %.lr.ph935
 
@@ -39278,7 +39278,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
   %.0872933 = phi i64 [ %232, %230 ], [ %213, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %230 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %230 ], [ %42, %.lr.ph935.preheader ]
-  %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872933, i1 true)
   %215 = trunc nuw nsw i64 %214 to i32
   %216 = add nuw nsw i32 %215, %209
   %217 = and i32 %216, 31
@@ -39376,7 +39376,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
 
 266:                                              ; preds = %265
   %267 = xor i64 %.val52.i, %.val.i
-  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %267, i1 true)
   %269 = lshr i64 %268, 3
   br label %ZSTD_count.exit
 
@@ -39396,7 +39396,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
 
 272:                                              ; preds = %271
   %273 = xor i64 %.1.val.i, %.142.val.i
-  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %273, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.1.i, i64 %275
   %277 = ptrtoint ptr %276 to i64
@@ -39838,7 +39838,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
   %.0872933 = phi i64 [ %259, %257 ], [ %240, %214 ]
   %.0874932 = phi i64 [ %.1875, %257 ], [ 0, %214 ]
   %.0881931 = phi i32 [ %.1882, %257 ], [ %43, %214 ]
-  %241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872933, i1 true)
   %242 = trunc nuw nsw i64 %241 to i32
   %243 = add nuw nsw i32 %242, %216
   %244 = and i32 %243, 63
@@ -39936,7 +39936,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
 
 293:                                              ; preds = %292
   %294 = xor i64 %.val52.i, %.val.i
-  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %294, i1 true)
+  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %294, i1 true)
   %296 = lshr i64 %295, 3
   br label %ZSTD_count.exit
 
@@ -39956,7 +39956,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
 
 299:                                              ; preds = %298
   %300 = xor i64 %.1.val.i, %.142.val.i
-  %301 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %300, i1 true)
+  %301 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %300, i1 true)
   %302 = lshr i64 %301, 3
   %303 = getelementptr inbounds i8, ptr %.1.i, i64 %302
   %304 = ptrtoint ptr %303 to i64
@@ -40195,7 +40195,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 89:                                               ; preds = %88
   %90 = xor i64 %.val52.i.us, %.val.i.us
-  %91 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %90, i1 true)
+  %91 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %90, i1 true)
   %92 = lshr i64 %91, 3
   br label %ZSTD_count.exit.us
 
@@ -40263,7 +40263,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 116:                                              ; preds = %115
   %117 = xor i64 %.1.val.i.us, %.142.val.i.us
-  %118 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %117, i1 true)
+  %118 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %117, i1 true)
   %119 = lshr i64 %118, 3
   %120 = getelementptr inbounds i8, ptr %.1.i.us, i64 %119
   %121 = ptrtoint ptr %120 to i64
@@ -40622,7 +40622,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 87:                                               ; preds = %86
   %88 = xor i64 %.val52.i.us, %.val.i.us
-  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 true)
+  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %88, i1 true)
   %90 = lshr i64 %89, 3
   br label %ZSTD_count.exit.us
 
@@ -40690,7 +40690,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 114:                                              ; preds = %113
   %115 = xor i64 %.1.val.i.us, %.142.val.i.us
-  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %115, i1 true)
+  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %115, i1 true)
   %117 = lshr i64 %116, 3
   %118 = getelementptr inbounds i8, ptr %.1.i.us, i64 %117
   %119 = ptrtoint ptr %118 to i64
@@ -41049,7 +41049,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 87:                                               ; preds = %86
   %88 = xor i64 %.val52.i.us, %.val.i.us
-  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 true)
+  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %88, i1 true)
   %90 = lshr i64 %89, 3
   br label %ZSTD_count.exit.us
 
@@ -41117,7 +41117,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 114:                                              ; preds = %113
   %115 = xor i64 %.1.val.i.us, %.142.val.i.us
-  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %115, i1 true)
+  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %115, i1 true)
   %117 = lshr i64 %116, 3
   %118 = getelementptr inbounds i8, ptr %.1.i.us, i64 %117
   %119 = ptrtoint ptr %118 to i64
@@ -41652,7 +41652,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872943 = phi i64 [ %240, %238 ], [ %221, %.lr.ph944.preheader ]
   %.0874942 = phi i64 [ %.1875, %238 ], [ 0, %.lr.ph944.preheader ]
   %.0881941 = phi i32 [ %.1882, %238 ], [ %40, %.lr.ph944.preheader ]
-  %222 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872943, i1 true)
+  %222 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872943, i1 true)
   %223 = trunc nuw nsw i64 %222 to i32
   %224 = add nuw nsw i32 %223, %207
   %225 = and i32 %224, 15
@@ -41744,7 +41744,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 272:                                              ; preds = %271
   %273 = xor i64 %.val52.i, %.val.i
-  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %273, i1 true)
   %275 = lshr i64 %274, 3
   br label %ZSTD_count.exit
 
@@ -41764,7 +41764,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 278:                                              ; preds = %277
   %279 = xor i64 %.1.val.i, %.142.val.i
-  %280 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %279, i1 true)
+  %280 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %279, i1 true)
   %281 = lshr i64 %280, 3
   %282 = getelementptr inbounds i8, ptr %.1.i, i64 %281
   %283 = ptrtoint ptr %282 to i64
@@ -41883,7 +41883,7 @@ ZSTD_count.exit.thread:                           ; preds = %262, %308, %ZSTD_co
   %.0854961 = phi i64 [ %357, %355 ], [ %338, %.lr.ph962.preheader ]
   %.0856960 = phi i64 [ %.1857, %355 ], [ 0, %.lr.ph962.preheader ]
   %.2883959 = phi i32 [ %.3884, %355 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %339 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854961, i1 true)
+  %339 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854961, i1 true)
   %340 = trunc nuw nsw i64 %339 to i32
   %341 = add nuw nsw i32 %340, %323
   %342 = and i32 %341, 15
@@ -42284,7 +42284,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   br i1 %.not975, label %._crit_edge942, label %.lr.ph941.preheader
 
 .lr.ph941.preheader:                              ; preds = %.critedge
-  %226 = tail call noundef i32 @llvm.fshr.i32(i32 %225, i32 %225, i32 %223)
+  %226 = tail call noundef i32 @llvm.fshr.i32(i32 %225, i32 %225, i32 range(i32 0, 32) %223)
   %227 = zext i32 %226 to i64
   br label %.lr.ph941
 
@@ -42292,7 +42292,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872939 = phi i64 [ %246, %244 ], [ %227, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %244 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %244 ], [ %40, %.lr.ph941.preheader ]
-  %228 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %228 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872939, i1 true)
   %229 = trunc nuw nsw i64 %228 to i32
   %230 = add nuw nsw i32 %229, %223
   %231 = and i32 %230, 31
@@ -42384,7 +42384,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 278:                                              ; preds = %277
   %279 = xor i64 %.val52.i, %.val.i
-  %280 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %279, i1 true)
+  %280 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %279, i1 true)
   %281 = lshr i64 %280, 3
   br label %ZSTD_count.exit
 
@@ -42404,7 +42404,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 284:                                              ; preds = %283
   %285 = xor i64 %.1.val.i, %.142.val.i
-  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %285, i1 true)
+  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %285, i1 true)
   %287 = lshr i64 %286, 3
   %288 = getelementptr inbounds i8, ptr %.1.i, i64 %287
   %289 = ptrtoint ptr %288 to i64
@@ -42516,7 +42516,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %314, %ZSTD_co
   br i1 %344, label %.lr.ph962.preheader, label %._crit_edge971
 
 .lr.ph962.preheader:                              ; preds = %._crit_edge953
-  %345 = tail call noundef i32 @llvm.fshr.i32(i32 %341, i32 %341, i32 %339)
+  %345 = tail call noundef i32 @llvm.fshr.i32(i32 %341, i32 %341, i32 range(i32 0, 32) %339)
   %346 = zext i32 %345 to i64
   br label %.lr.ph962
 
@@ -42524,7 +42524,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %314, %ZSTD_co
   %.0854960 = phi i64 [ %365, %363 ], [ %346, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %363 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %363 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854960, i1 true)
   %348 = trunc nuw nsw i64 %347 to i32
   %349 = add nuw nsw i32 %348, %339
   %350 = and i32 %349, 31
@@ -42972,7 +42972,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872939 = phi i64 [ %275, %273 ], [ %256, %230 ]
   %.0874938 = phi i64 [ %.1875, %273 ], [ 0, %230 ]
   %.0881937 = phi i32 [ %.1882, %273 ], [ %42, %230 ]
-  %257 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %257 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872939, i1 true)
   %258 = trunc nuw nsw i64 %257 to i32
   %259 = add nuw nsw i32 %258, %232
   %260 = and i32 %259, 63
@@ -43064,7 +43064,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 307:                                              ; preds = %306
   %308 = xor i64 %.val52.i, %.val.i
-  %309 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %308, i1 true)
+  %309 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %308, i1 true)
   %310 = lshr i64 %309, 3
   br label %ZSTD_count.exit
 
@@ -43084,7 +43084,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 313:                                              ; preds = %312
   %314 = xor i64 %.1.val.i, %.142.val.i
-  %315 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %314, i1 true)
+  %315 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %314, i1 true)
   %316 = lshr i64 %315, 3
   %317 = getelementptr inbounds i8, ptr %.1.i, i64 %316
   %318 = ptrtoint ptr %317 to i64
@@ -43231,7 +43231,7 @@ ZSTD_count.exit.thread:                           ; preds = %297, %343, %ZSTD_co
   %.0854960 = phi i64 [ %415, %413 ], [ %393, %368 ]
   %.0856959 = phi i64 [ %.1857, %413 ], [ 0, %368 ]
   %.2883958 = phi i32 [ %.3884, %413 ], [ %.0881.lcssa, %368 ]
-  %397 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %397 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854960, i1 true)
   %398 = trunc nuw nsw i64 %397 to i32
   %399 = add nuw nsw i32 %398, %369
   %400 = and i32 %399, 63
@@ -43631,7 +43631,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872943 = phi i64 [ %241, %239 ], [ %222, %.lr.ph944.preheader ]
   %.0874942 = phi i64 [ %.1875, %239 ], [ 0, %.lr.ph944.preheader ]
   %.0881941 = phi i32 [ %.1882, %239 ], [ %40, %.lr.ph944.preheader ]
-  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872943, i1 true)
+  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872943, i1 true)
   %224 = trunc nuw nsw i64 %223 to i32
   %225 = add nuw nsw i32 %224, %208
   %226 = and i32 %225, 15
@@ -43723,7 +43723,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 273:                                              ; preds = %272
   %274 = xor i64 %.val52.i, %.val.i
-  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %274, i1 true)
   %276 = lshr i64 %275, 3
   br label %ZSTD_count.exit
 
@@ -43743,7 +43743,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 279:                                              ; preds = %278
   %280 = xor i64 %.1.val.i, %.142.val.i
-  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %280, i1 true)
+  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %280, i1 true)
   %282 = lshr i64 %281, 3
   %283 = getelementptr inbounds i8, ptr %.1.i, i64 %282
   %284 = ptrtoint ptr %283 to i64
@@ -43862,7 +43862,7 @@ ZSTD_count.exit.thread:                           ; preds = %263, %309, %ZSTD_co
   %.0854961 = phi i64 [ %358, %356 ], [ %339, %.lr.ph962.preheader ]
   %.0856960 = phi i64 [ %.1857, %356 ], [ 0, %.lr.ph962.preheader ]
   %.2883959 = phi i32 [ %.3884, %356 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %340 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854961, i1 true)
+  %340 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854961, i1 true)
   %341 = trunc nuw nsw i64 %340 to i32
   %342 = add nuw nsw i32 %341, %324
   %343 = and i32 %342, 15
@@ -44264,7 +44264,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   br i1 %.not975, label %._crit_edge942, label %.lr.ph941.preheader
 
 .lr.ph941.preheader:                              ; preds = %.critedge
-  %227 = tail call noundef i32 @llvm.fshr.i32(i32 %226, i32 %226, i32 %224)
+  %227 = tail call noundef i32 @llvm.fshr.i32(i32 %226, i32 %226, i32 range(i32 0, 32) %224)
   %228 = zext i32 %227 to i64
   br label %.lr.ph941
 
@@ -44272,7 +44272,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872939 = phi i64 [ %247, %245 ], [ %228, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %245 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %245 ], [ %40, %.lr.ph941.preheader ]
-  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872939, i1 true)
   %230 = trunc nuw nsw i64 %229 to i32
   %231 = add nuw nsw i32 %230, %224
   %232 = and i32 %231, 31
@@ -44364,7 +44364,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 279:                                              ; preds = %278
   %280 = xor i64 %.val52.i, %.val.i
-  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %280, i1 true)
+  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %280, i1 true)
   %282 = lshr i64 %281, 3
   br label %ZSTD_count.exit
 
@@ -44384,7 +44384,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 285:                                              ; preds = %284
   %286 = xor i64 %.1.val.i, %.142.val.i
-  %287 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %286, i1 true)
+  %287 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %286, i1 true)
   %288 = lshr i64 %287, 3
   %289 = getelementptr inbounds i8, ptr %.1.i, i64 %288
   %290 = ptrtoint ptr %289 to i64
@@ -44496,7 +44496,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   br i1 %345, label %.lr.ph962.preheader, label %._crit_edge971
 
 .lr.ph962.preheader:                              ; preds = %._crit_edge953
-  %346 = tail call noundef i32 @llvm.fshr.i32(i32 %342, i32 %342, i32 %340)
+  %346 = tail call noundef i32 @llvm.fshr.i32(i32 %342, i32 %342, i32 range(i32 0, 32) %340)
   %347 = zext i32 %346 to i64
   br label %.lr.ph962
 
@@ -44504,7 +44504,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   %.0854960 = phi i64 [ %366, %364 ], [ %347, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %364 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %364 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %348 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %348 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854960, i1 true)
   %349 = trunc nuw nsw i64 %348 to i32
   %350 = add nuw nsw i32 %349, %340
   %351 = and i32 %350, 31
@@ -44953,7 +44953,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872939 = phi i64 [ %276, %274 ], [ %257, %231 ]
   %.0874938 = phi i64 [ %.1875, %274 ], [ 0, %231 ]
   %.0881937 = phi i32 [ %.1882, %274 ], [ %42, %231 ]
-  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872939, i1 true)
   %259 = trunc nuw nsw i64 %258 to i32
   %260 = add nuw nsw i32 %259, %233
   %261 = and i32 %260, 63
@@ -45045,7 +45045,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 308:                                              ; preds = %307
   %309 = xor i64 %.val52.i, %.val.i
-  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %309, i1 true)
+  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %309, i1 true)
   %311 = lshr i64 %310, 3
   br label %ZSTD_count.exit
 
@@ -45065,7 +45065,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 314:                                              ; preds = %313
   %315 = xor i64 %.1.val.i, %.142.val.i
-  %316 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %315, i1 true)
+  %316 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %315, i1 true)
   %317 = lshr i64 %316, 3
   %318 = getelementptr inbounds i8, ptr %.1.i, i64 %317
   %319 = ptrtoint ptr %318 to i64
@@ -45212,7 +45212,7 @@ ZSTD_count.exit.thread:                           ; preds = %298, %344, %ZSTD_co
   %.0854960 = phi i64 [ %416, %414 ], [ %394, %369 ]
   %.0856959 = phi i64 [ %.1857, %414 ], [ 0, %369 ]
   %.2883958 = phi i32 [ %.3884, %414 ], [ %.0881.lcssa, %369 ]
-  %398 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %398 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854960, i1 true)
   %399 = trunc nuw nsw i64 %398 to i32
   %400 = add nuw nsw i32 %399, %370
   %401 = and i32 %400, 63
@@ -45612,7 +45612,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872943 = phi i64 [ %241, %239 ], [ %222, %.lr.ph944.preheader ]
   %.0874942 = phi i64 [ %.1875, %239 ], [ 0, %.lr.ph944.preheader ]
   %.0881941 = phi i32 [ %.1882, %239 ], [ %40, %.lr.ph944.preheader ]
-  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872943, i1 true)
+  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872943, i1 true)
   %224 = trunc nuw nsw i64 %223 to i32
   %225 = add nuw nsw i32 %224, %208
   %226 = and i32 %225, 15
@@ -45704,7 +45704,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 273:                                              ; preds = %272
   %274 = xor i64 %.val52.i, %.val.i
-  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %274, i1 true)
   %276 = lshr i64 %275, 3
   br label %ZSTD_count.exit
 
@@ -45724,7 +45724,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 279:                                              ; preds = %278
   %280 = xor i64 %.1.val.i, %.142.val.i
-  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %280, i1 true)
+  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %280, i1 true)
   %282 = lshr i64 %281, 3
   %283 = getelementptr inbounds i8, ptr %.1.i, i64 %282
   %284 = ptrtoint ptr %283 to i64
@@ -45843,7 +45843,7 @@ ZSTD_count.exit.thread:                           ; preds = %263, %309, %ZSTD_co
   %.0854961 = phi i64 [ %358, %356 ], [ %339, %.lr.ph962.preheader ]
   %.0856960 = phi i64 [ %.1857, %356 ], [ 0, %.lr.ph962.preheader ]
   %.2883959 = phi i32 [ %.3884, %356 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %340 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854961, i1 true)
+  %340 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854961, i1 true)
   %341 = trunc nuw nsw i64 %340 to i32
   %342 = add nuw nsw i32 %341, %324
   %343 = and i32 %342, 15
@@ -46245,7 +46245,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   br i1 %.not975, label %._crit_edge942, label %.lr.ph941.preheader
 
 .lr.ph941.preheader:                              ; preds = %.critedge
-  %227 = tail call noundef i32 @llvm.fshr.i32(i32 %226, i32 %226, i32 %224)
+  %227 = tail call noundef i32 @llvm.fshr.i32(i32 %226, i32 %226, i32 range(i32 0, 32) %224)
   %228 = zext i32 %227 to i64
   br label %.lr.ph941
 
@@ -46253,7 +46253,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872939 = phi i64 [ %247, %245 ], [ %228, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %245 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %245 ], [ %40, %.lr.ph941.preheader ]
-  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872939, i1 true)
   %230 = trunc nuw nsw i64 %229 to i32
   %231 = add nuw nsw i32 %230, %224
   %232 = and i32 %231, 31
@@ -46345,7 +46345,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 279:                                              ; preds = %278
   %280 = xor i64 %.val52.i, %.val.i
-  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %280, i1 true)
+  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %280, i1 true)
   %282 = lshr i64 %281, 3
   br label %ZSTD_count.exit
 
@@ -46365,7 +46365,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 285:                                              ; preds = %284
   %286 = xor i64 %.1.val.i, %.142.val.i
-  %287 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %286, i1 true)
+  %287 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %286, i1 true)
   %288 = lshr i64 %287, 3
   %289 = getelementptr inbounds i8, ptr %.1.i, i64 %288
   %290 = ptrtoint ptr %289 to i64
@@ -46477,7 +46477,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   br i1 %345, label %.lr.ph962.preheader, label %._crit_edge971
 
 .lr.ph962.preheader:                              ; preds = %._crit_edge953
-  %346 = tail call noundef i32 @llvm.fshr.i32(i32 %342, i32 %342, i32 %340)
+  %346 = tail call noundef i32 @llvm.fshr.i32(i32 %342, i32 %342, i32 range(i32 0, 32) %340)
   %347 = zext i32 %346 to i64
   br label %.lr.ph962
 
@@ -46485,7 +46485,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   %.0854960 = phi i64 [ %366, %364 ], [ %347, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %364 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %364 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %348 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %348 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854960, i1 true)
   %349 = trunc nuw nsw i64 %348 to i32
   %350 = add nuw nsw i32 %349, %340
   %351 = and i32 %350, 31
@@ -46934,7 +46934,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
   %.0872939 = phi i64 [ %276, %274 ], [ %257, %231 ]
   %.0874938 = phi i64 [ %.1875, %274 ], [ 0, %231 ]
   %.0881937 = phi i32 [ %.1882, %274 ], [ %42, %231 ]
-  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872939, i1 true)
   %259 = trunc nuw nsw i64 %258 to i32
   %260 = add nuw nsw i32 %259, %233
   %261 = and i32 %260, 63
@@ -47026,7 +47026,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 308:                                              ; preds = %307
   %309 = xor i64 %.val52.i, %.val.i
-  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %309, i1 true)
+  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %309, i1 true)
   %311 = lshr i64 %310, 3
   br label %ZSTD_count.exit
 
@@ -47046,7 +47046,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 314:                                              ; preds = %313
   %315 = xor i64 %.1.val.i, %.142.val.i
-  %316 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %315, i1 true)
+  %316 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %315, i1 true)
   %317 = lshr i64 %316, 3
   %318 = getelementptr inbounds i8, ptr %.1.i, i64 %317
   %319 = ptrtoint ptr %318 to i64
@@ -47193,7 +47193,7 @@ ZSTD_count.exit.thread:                           ; preds = %298, %344, %ZSTD_co
   %.0854960 = phi i64 [ %416, %414 ], [ %394, %369 ]
   %.0856959 = phi i64 [ %.1857, %414 ], [ 0, %369 ]
   %.2883958 = phi i32 [ %.3884, %414 ], [ %.0881.lcssa, %369 ]
-  %398 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %398 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0854960, i1 true)
   %399 = trunc nuw nsw i64 %398 to i32
   %400 = add nuw nsw i32 %399, %370
   %401 = and i32 %400, 63
@@ -47433,7 +47433,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
 
 101:                                              ; preds = %100
   %102 = xor i64 %.val52.i, %.val.i
-  %103 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %102, i1 true)
+  %103 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %102, i1 true)
   %104 = lshr i64 %103, 3
   br label %ZSTD_count.exit
 
@@ -47453,7 +47453,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
 
 107:                                              ; preds = %106
   %108 = xor i64 %.1.val.i, %.142.val.i
-  %109 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %108, i1 true)
+  %109 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %108, i1 true)
   %110 = lshr i64 %109, 3
   %111 = getelementptr inbounds i8, ptr %.1.i, i64 %110
   %112 = ptrtoint ptr %111 to i64
@@ -47868,7 +47868,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
 
 99:                                               ; preds = %98
   %100 = xor i64 %.val52.i, %.val.i
-  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %100, i1 true)
+  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %100, i1 true)
   %102 = lshr i64 %101, 3
   br label %ZSTD_count.exit
 
@@ -47888,7 +47888,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
 
 105:                                              ; preds = %104
   %106 = xor i64 %.1.val.i, %.142.val.i
-  %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %106, i1 true)
+  %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %106, i1 true)
   %108 = lshr i64 %107, 3
   %109 = getelementptr inbounds i8, ptr %.1.i, i64 %108
   %110 = ptrtoint ptr %109 to i64
@@ -48303,7 +48303,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
 
 99:                                               ; preds = %98
   %100 = xor i64 %.val52.i, %.val.i
-  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %100, i1 true)
+  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %100, i1 true)
   %102 = lshr i64 %101, 3
   br label %ZSTD_count.exit
 
@@ -48323,7 +48323,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
 
 105:                                              ; preds = %104
   %106 = xor i64 %.1.val.i, %.142.val.i
-  %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %106, i1 true)
+  %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %106, i1 true)
   %108 = lshr i64 %107, 3
   %109 = getelementptr inbounds i8, ptr %.1.i, i64 %108
   %110 = ptrtoint ptr %109 to i64
@@ -48896,7 +48896,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872949 = phi i64 [ %238, %236 ], [ %219, %.lr.ph950.preheader ]
   %.0874948 = phi i64 [ %.1875, %236 ], [ 0, %.lr.ph950.preheader ]
   %.0881947 = phi i32 [ %.1882, %236 ], [ %39, %.lr.ph950.preheader ]
-  %220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872949, i1 true)
+  %220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872949, i1 true)
   %221 = trunc nuw nsw i64 %220 to i32
   %222 = add nuw nsw i32 %221, %205
   %223 = and i32 %222, 15
@@ -48988,7 +48988,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 270:                                              ; preds = %269
   %271 = xor i64 %.val52.i, %.val.i
-  %272 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %271, i1 true)
+  %272 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %271, i1 true)
   %273 = lshr i64 %272, 3
   br label %ZSTD_count.exit
 
@@ -49008,7 +49008,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 276:                                              ; preds = %275
   %277 = xor i64 %.1.val.i, %.142.val.i
-  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %277, i1 true)
+  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %277, i1 true)
   %279 = lshr i64 %278, 3
   %280 = getelementptr inbounds i8, ptr %.1.i, i64 %279
   %281 = ptrtoint ptr %280 to i64
@@ -49571,7 +49571,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   br i1 %.not986, label %._crit_edge953, label %.lr.ph952.preheader
 
 .lr.ph952.preheader:                              ; preds = %.critedge
-  %223 = tail call noundef i32 @llvm.fshr.i32(i32 %222, i32 %222, i32 %220)
+  %223 = tail call noundef i32 @llvm.fshr.i32(i32 %222, i32 %222, i32 range(i32 0, 32) %220)
   %224 = zext i32 %223 to i64
   br label %.lr.ph952
 
@@ -49579,7 +49579,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872950 = phi i64 [ %243, %241 ], [ %224, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %241 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %241 ], [ %39, %.lr.ph952.preheader ]
-  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872950, i1 true)
   %226 = trunc nuw nsw i64 %225 to i32
   %227 = add nuw nsw i32 %226, %220
   %228 = and i32 %227, 31
@@ -49671,7 +49671,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 275:                                              ; preds = %274
   %276 = xor i64 %.val52.i, %.val.i
-  %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
+  %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %276, i1 true)
   %278 = lshr i64 %277, 3
   br label %ZSTD_count.exit
 
@@ -49691,7 +49691,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 281:                                              ; preds = %280
   %282 = xor i64 %.1.val.i, %.142.val.i
-  %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
+  %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %282, i1 true)
   %284 = lshr i64 %283, 3
   %285 = getelementptr inbounds i8, ptr %.1.i, i64 %284
   %286 = ptrtoint ptr %285 to i64
@@ -50298,7 +50298,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872950 = phi i64 [ %270, %268 ], [ %251, %225 ]
   %.0874949 = phi i64 [ %.1875, %268 ], [ 0, %225 ]
   %.0881948 = phi i32 [ %.1882, %268 ], [ %40, %225 ]
-  %252 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %252 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872950, i1 true)
   %253 = trunc nuw nsw i64 %252 to i32
   %254 = add nuw nsw i32 %253, %227
   %255 = and i32 %254, 63
@@ -50390,7 +50390,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 302:                                              ; preds = %301
   %303 = xor i64 %.val52.i, %.val.i
-  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %303, i1 true)
+  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %303, i1 true)
   %305 = lshr i64 %304, 3
   br label %ZSTD_count.exit
 
@@ -50410,7 +50410,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 308:                                              ; preds = %307
   %309 = xor i64 %.1.val.i, %.142.val.i
-  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %309, i1 true)
+  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %309, i1 true)
   %311 = lshr i64 %310, 3
   %312 = getelementptr inbounds i8, ptr %.1.i, i64 %311
   %313 = ptrtoint ptr %312 to i64
@@ -50974,7 +50974,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872949 = phi i64 [ %239, %237 ], [ %220, %.lr.ph950.preheader ]
   %.0874948 = phi i64 [ %.1875, %237 ], [ 0, %.lr.ph950.preheader ]
   %.0881947 = phi i32 [ %.1882, %237 ], [ %39, %.lr.ph950.preheader ]
-  %221 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872949, i1 true)
+  %221 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872949, i1 true)
   %222 = trunc nuw nsw i64 %221 to i32
   %223 = add nuw nsw i32 %222, %206
   %224 = and i32 %223, 15
@@ -51066,7 +51066,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 271:                                              ; preds = %270
   %272 = xor i64 %.val52.i, %.val.i
-  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
+  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %272, i1 true)
   %274 = lshr i64 %273, 3
   br label %ZSTD_count.exit
 
@@ -51086,7 +51086,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 277:                                              ; preds = %276
   %278 = xor i64 %.1.val.i, %.142.val.i
-  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %278, i1 true)
+  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %278, i1 true)
   %280 = lshr i64 %279, 3
   %281 = getelementptr inbounds i8, ptr %.1.i, i64 %280
   %282 = ptrtoint ptr %281 to i64
@@ -51650,7 +51650,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   br i1 %.not986, label %._crit_edge953, label %.lr.ph952.preheader
 
 .lr.ph952.preheader:                              ; preds = %.critedge
-  %224 = tail call noundef i32 @llvm.fshr.i32(i32 %223, i32 %223, i32 %221)
+  %224 = tail call noundef i32 @llvm.fshr.i32(i32 %223, i32 %223, i32 range(i32 0, 32) %221)
   %225 = zext i32 %224 to i64
   br label %.lr.ph952
 
@@ -51658,7 +51658,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872950 = phi i64 [ %244, %242 ], [ %225, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %242 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %242 ], [ %39, %.lr.ph952.preheader ]
-  %226 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %226 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872950, i1 true)
   %227 = trunc nuw nsw i64 %226 to i32
   %228 = add nuw nsw i32 %227, %221
   %229 = and i32 %228, 31
@@ -51750,7 +51750,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 276:                                              ; preds = %275
   %277 = xor i64 %.val52.i, %.val.i
-  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %277, i1 true)
+  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %277, i1 true)
   %279 = lshr i64 %278, 3
   br label %ZSTD_count.exit
 
@@ -51770,7 +51770,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 282:                                              ; preds = %281
   %283 = xor i64 %.1.val.i, %.142.val.i
-  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %283, i1 true)
+  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %283, i1 true)
   %285 = lshr i64 %284, 3
   %286 = getelementptr inbounds i8, ptr %.1.i, i64 %285
   %287 = ptrtoint ptr %286 to i64
@@ -52378,7 +52378,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872950 = phi i64 [ %271, %269 ], [ %252, %226 ]
   %.0874949 = phi i64 [ %.1875, %269 ], [ 0, %226 ]
   %.0881948 = phi i32 [ %.1882, %269 ], [ %40, %226 ]
-  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872950, i1 true)
   %254 = trunc nuw nsw i64 %253 to i32
   %255 = add nuw nsw i32 %254, %228
   %256 = and i32 %255, 63
@@ -52470,7 +52470,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 303:                                              ; preds = %302
   %304 = xor i64 %.val52.i, %.val.i
-  %305 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %304, i1 true)
+  %305 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %304, i1 true)
   %306 = lshr i64 %305, 3
   br label %ZSTD_count.exit
 
@@ -52490,7 +52490,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 309:                                              ; preds = %308
   %310 = xor i64 %.1.val.i, %.142.val.i
-  %311 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %310, i1 true)
+  %311 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %310, i1 true)
   %312 = lshr i64 %311, 3
   %313 = getelementptr inbounds i8, ptr %.1.i, i64 %312
   %314 = ptrtoint ptr %313 to i64
@@ -53054,7 +53054,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872949 = phi i64 [ %239, %237 ], [ %220, %.lr.ph950.preheader ]
   %.0874948 = phi i64 [ %.1875, %237 ], [ 0, %.lr.ph950.preheader ]
   %.0881947 = phi i32 [ %.1882, %237 ], [ %39, %.lr.ph950.preheader ]
-  %221 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872949, i1 true)
+  %221 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872949, i1 true)
   %222 = trunc nuw nsw i64 %221 to i32
   %223 = add nuw nsw i32 %222, %206
   %224 = and i32 %223, 15
@@ -53146,7 +53146,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 271:                                              ; preds = %270
   %272 = xor i64 %.val52.i, %.val.i
-  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
+  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %272, i1 true)
   %274 = lshr i64 %273, 3
   br label %ZSTD_count.exit
 
@@ -53166,7 +53166,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 277:                                              ; preds = %276
   %278 = xor i64 %.1.val.i, %.142.val.i
-  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %278, i1 true)
+  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %278, i1 true)
   %280 = lshr i64 %279, 3
   %281 = getelementptr inbounds i8, ptr %.1.i, i64 %280
   %282 = ptrtoint ptr %281 to i64
@@ -53730,7 +53730,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   br i1 %.not986, label %._crit_edge953, label %.lr.ph952.preheader
 
 .lr.ph952.preheader:                              ; preds = %.critedge
-  %224 = tail call noundef i32 @llvm.fshr.i32(i32 %223, i32 %223, i32 %221)
+  %224 = tail call noundef i32 @llvm.fshr.i32(i32 %223, i32 %223, i32 range(i32 0, 32) %221)
   %225 = zext i32 %224 to i64
   br label %.lr.ph952
 
@@ -53738,7 +53738,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872950 = phi i64 [ %244, %242 ], [ %225, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %242 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %242 ], [ %39, %.lr.ph952.preheader ]
-  %226 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %226 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872950, i1 true)
   %227 = trunc nuw nsw i64 %226 to i32
   %228 = add nuw nsw i32 %227, %221
   %229 = and i32 %228, 31
@@ -53830,7 +53830,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 276:                                              ; preds = %275
   %277 = xor i64 %.val52.i, %.val.i
-  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %277, i1 true)
+  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %277, i1 true)
   %279 = lshr i64 %278, 3
   br label %ZSTD_count.exit
 
@@ -53850,7 +53850,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 282:                                              ; preds = %281
   %283 = xor i64 %.1.val.i, %.142.val.i
-  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %283, i1 true)
+  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %283, i1 true)
   %285 = lshr i64 %284, 3
   %286 = getelementptr inbounds i8, ptr %.1.i, i64 %285
   %287 = ptrtoint ptr %286 to i64
@@ -54458,7 +54458,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
   %.0872950 = phi i64 [ %271, %269 ], [ %252, %226 ]
   %.0874949 = phi i64 [ %.1875, %269 ], [ 0, %226 ]
   %.0881948 = phi i32 [ %.1882, %269 ], [ %40, %226 ]
-  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0872950, i1 true)
   %254 = trunc nuw nsw i64 %253 to i32
   %255 = add nuw nsw i32 %254, %228
   %256 = and i32 %255, 63
@@ -54550,7 +54550,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 303:                                              ; preds = %302
   %304 = xor i64 %.val52.i, %.val.i
-  %305 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %304, i1 true)
+  %305 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %304, i1 true)
   %306 = lshr i64 %305, 3
   br label %ZSTD_count.exit
 
@@ -54570,7 +54570,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 309:                                              ; preds = %308
   %310 = xor i64 %.1.val.i, %.142.val.i
-  %311 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %310, i1 true)
+  %311 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %310, i1 true)
   %312 = lshr i64 %311, 3
   %313 = getelementptr inbounds i8, ptr %.1.i, i64 %312
   %314 = ptrtoint ptr %313 to i64
@@ -55030,7 +55030,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
 
 119:                                              ; preds = %118
   %120 = xor i64 %.val52.i.i, %.val.i.i
-  %121 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %120, i1 true)
+  %121 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %120, i1 true)
   %122 = lshr i64 %121, 3
   br label %ZSTD_count.exit.i
 
@@ -55050,7 +55050,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
 
 125:                                              ; preds = %124
   %126 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %127 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %126, i1 true)
+  %127 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %126, i1 true)
   %128 = lshr i64 %127, 3
   %129 = getelementptr inbounds i8, ptr %.1.i.i, i64 %128
   %130 = ptrtoint ptr %129 to i64
@@ -55241,7 +55241,7 @@ ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %1
 
 214:                                              ; preds = %213
   %215 = xor i64 %.val52.i, %.val.i
-  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %215, i1 true)
+  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %215, i1 true)
   %217 = lshr i64 %216, 3
   br label %ZSTD_count.exit
 
@@ -55261,7 +55261,7 @@ ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %1
 
 220:                                              ; preds = %219
   %221 = xor i64 %.1.val.i, %.142.val.i
-  %222 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %221, i1 true)
+  %222 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %221, i1 true)
   %223 = lshr i64 %222, 3
   %224 = getelementptr inbounds i8, ptr %.1.i239, i64 %223
   %225 = ptrtoint ptr %224 to i64

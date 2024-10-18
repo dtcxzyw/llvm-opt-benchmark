@@ -375,14 +375,14 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h9d6dd17144923
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %52 = load ptr, ptr %0, align 8, !alias.scope !25, !noalias !28, !nonnull !17, !align !21, !noundef !17
   %.val.i = load ptr, ptr %52, align 8, !noalias !30, !nonnull !17, !noundef !17
-  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %51), !noalias !31
+  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef range(i64 1, 0) %51), !noalias !31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h60c8d03c50c95813E.llvm.10450545656113513285(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63db81eb143bcf5e8cdda59fddb18563.6.llvm.10450545656113513285, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63db81eb143bcf5e8cdda59fddb18563.6.llvm.10450545656113513285, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 
@@ -394,17 +394,17 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Resu
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN66_$LT$tempfile..file..TempPath$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2036e247ad1d8ceeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN66_$LT$tempfile..file..TempPath$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2036e247ad1d8ceeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %7 unwind label %5
 
 5:                                                ; preds = %4
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b7912fbe630f856E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b7912fbe630f856E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body.i unwind label %8
 
 7:                                                ; preds = %4
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b7912fbe630f856E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b7912fbe630f856E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h0b67ebeee0a94c42E.exit" unwind label %10
 
 8:                                                ; preds = %5
@@ -606,7 +606,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 .lr.ph.split.us.i:                                ; preds = %3
   %5 = load ptr, ptr %0, align 8, !nonnull !17, !align !21, !noundef !17
   %.val = load ptr, ptr %5, align 8, !nonnull !17, !noundef !17
-  tail call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !88
+  tail call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %2), !noalias !88
   br label %_ZN3std2io5Write9write_all17h13b72bbdef800066E.exit
 
 _ZN3std2io5Write9write_all17h13b72bbdef800066E.exit: ; preds = %.lr.ph.split.us.i, %3
@@ -689,7 +689,7 @@ common.resume:                                    ; preds = %37, %27
 37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17b57927b2d4341eE.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17b57927b2d4341eE.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %common.resume unwind label %39, !noalias !114
 
 39:                                               ; preds = %37
@@ -699,7 +699,7 @@ common.resume:                                    ; preds = %37, %27
   unreachable
 
 _ZN3std4path4Path4join17h081f4dc02bd9adafE.exit:  ; preds = %33
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17b57927b2d4341eE.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !114
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17b57927b2d4341eE.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !114
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)

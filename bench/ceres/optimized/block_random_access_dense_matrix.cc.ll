@@ -297,7 +297,7 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   br label %_ZN5ceres8internal28BlockRandomAccessDenseMatrixD2Ev.exit
 
 _ZN5ceres8internal28BlockRandomAccessDenseMatrixD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.i, %8
-  tail call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

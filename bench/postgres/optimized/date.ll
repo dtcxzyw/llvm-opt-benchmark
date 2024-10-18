@@ -4521,7 +4521,7 @@ define dso_local range(i64 0, 2) i64 @in_range_time_interval(ptr nocapture nound
   br label %27
 
 23:                                               ; preds = %18
-  %24 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %5, i64 %12)
+  %24 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %5, i64 range(i64 0, -9223372036854775808) %12)
   %25 = extractvalue { i64, i1 } %24, 1
   %26 = extractvalue { i64, i1 } %24, 0
   br i1 %25, label %32, label %27
@@ -5678,7 +5678,7 @@ define dso_local range(i64 0, 2) i64 @in_range_timetz_interval(ptr nocapture nou
   br label %30
 
 26:                                               ; preds = %20
-  %27 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %23, i64 %14)
+  %27 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %23, i64 range(i64 0, -9223372036854775808) %14)
   %28 = extractvalue { i64, i1 } %27, 1
   %29 = extractvalue { i64, i1 } %27, 0
   br i1 %28, label %timetz_cmp_internal.exit, label %30

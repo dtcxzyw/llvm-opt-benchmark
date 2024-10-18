@@ -94,7 +94,7 @@ _ZNKSt14default_deleteIN5clang18DiagnosticConsumerEEclEPS1_.exit.i2.i: ; preds =
 
 _ZN5clang25ChainedDiagnosticConsumerD2Ev.exit:    ; preds = %_ZNSt10unique_ptrIN5clang18DiagnosticConsumerESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5clang18DiagnosticConsumerEEclEPS1_.exit.i2.i
   store ptr null, ptr %7, align 8
-  tail call void @_ZN5clang18DiagnosticConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
+  tail call void @_ZN5clang18DiagnosticConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #6
   ret void
 }

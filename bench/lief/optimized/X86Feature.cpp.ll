@@ -1918,7 +1918,7 @@ _ZN3fmt2v96detail8copy_strIcRKNS0_17basic_string_viewIcEESt20back_insert_iterato
   store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8
   store i32 0, ptr %5, align 8
   store ptr %4, ptr %20, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false)
   call void @_ZN3fmt2v96detail8for_eachIRKSt4pairIN4LIEF3ELF11X86Features4FLAGENS6_7FEATUREEENS0_9formatterIS9_cvE11format_eachINS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEJLm0ELm1EEEEvSt16integer_sequenceImJXspT1_EEEOT_OT0_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.026.031, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %.sroa.0.0.copyload.i20 = load ptr, ptr %4, align 8
   %36 = load ptr, ptr %22, align 8

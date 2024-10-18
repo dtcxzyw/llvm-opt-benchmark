@@ -1016,7 +1016,7 @@ _ZNK2cv11_InputArray6getMatEi.exit31.i:           ; preds = %326, %324
           to label %327 unwind label %445
 
 327:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit31.i
-  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %19, i32 noundef %.172, i32 noundef 1, i32 noundef 0)
+  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %19, i32 noundef range(i32 -1, -2147483648) %.172, i32 noundef 1, i32 noundef 0)
           to label %328 unwind label %447
 
 328:                                              ; preds = %327
@@ -1055,7 +1055,7 @@ _ZNK2cv11_InputArray6getMatEi.exit31.i:           ; preds = %326, %324
   br label %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit.i
 
 _ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit.i:         ; preds = %342, %339, %331
-  %344 = invoke noundef i32 @_ZN2cv17rhoEnsureCapacityENS_3PtrINS_8RHO_HESTEEEjd(ptr noundef nonnull %21, i32 noundef %.172, double noundef 3.500000e-01)
+  %344 = invoke noundef i32 @_ZN2cv17rhoEnsureCapacityENS_3PtrINS_8RHO_HESTEEEjd(ptr noundef nonnull %21, i32 noundef range(i32 -1, -2147483648) %.172, double noundef 3.500000e-01)
           to label %345 unwind label %451
 
 345:                                              ; preds = %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit.i
@@ -1166,7 +1166,7 @@ _ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit36.i:       ; preds = %390, %387, %_ZN2cv3
   %398 = fptrunc double %.0 to float
   %399 = getelementptr inbounds i8, ptr %18, i64 16
   %400 = load ptr, ptr %399, align 8
-  %401 = invoke noundef i32 @_ZN2cv7rhoHestENS_3PtrINS_8RHO_HESTEEEPKfS4_PcjfjjdjdjS4_Pf(ptr noundef nonnull %22, ptr noundef %393, ptr noundef %395, ptr noundef %397, i32 noundef %.172, float noundef %398, i32 noundef %6, i32 noundef %6, double noundef %7, i32 noundef 4, double noundef 3.500000e-01, i32 noundef 5, ptr noundef null, ptr noundef %400)
+  %401 = invoke noundef i32 @_ZN2cv7rhoHestENS_3PtrINS_8RHO_HESTEEEPKfS4_PcjfjjdjdjS4_Pf(ptr noundef nonnull %22, ptr noundef %393, ptr noundef %395, ptr noundef %397, i32 noundef range(i32 -1, -2147483648) %.172, float noundef %398, i32 noundef %6, i32 noundef %6, double noundef %7, i32 noundef 4, double noundef 3.500000e-01, i32 noundef 5, ptr noundef null, ptr noundef %400)
           to label %402 unwind label %453
 
 402:                                              ; preds = %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit36.i
@@ -8941,7 +8941,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit.i:               ; preds = %428
   store ptr %370, ptr %373, align 8, !noalias !194
   store ptr %375, ptr %374, align 8, !noalias !194
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %375, i8 0, i64 16, i1 false), !noalias !194
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %38, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %65, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %38, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %65, i64 noundef 0)
           to label %.noexc.i unwind label %513
 
 .noexc.i:                                         ; preds = %_ZNK2cv4MatxIdLi3ELi3EE1tEv.exit.i
@@ -9002,7 +9002,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %433
   store ptr %379, ptr %382, align 8, !noalias !200
   store ptr %384, ptr %383, align 8, !noalias !200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %384, i8 0, i64 16, i1 false), !noalias !200
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %35, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %59, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %35, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %59, i64 noundef 0)
           to label %.noexc284.i unwind label %515
 
 .noexc284.i:                                      ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i
@@ -9876,7 +9876,7 @@ _ZN2cvmLIdLi3ELi3EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit.i: ; preds = %776, %_ZN2cv
   %786 = getelementptr inbounds i8, ptr %32, i64 80
   store ptr %786, ptr %785, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %786, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %20, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %20, i64 noundef 0)
           to label %.noexc40 unwind label %805
 
 .noexc40:                                         ; preds = %_ZN2cvmLIdLi3ELi3EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit.i

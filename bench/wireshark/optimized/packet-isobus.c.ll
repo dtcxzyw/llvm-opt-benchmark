@@ -5309,7 +5309,7 @@ proto_item_append_conditional.exit348:            ; preds = %proto_item_append_c
   %393 = getelementptr inbounds i8, ptr %5, i64 12
   store i8 %387, ptr %393, align 4
   %394 = load ptr, ptr @subdissector_table_pgn, align 8
-  %395 = call i32 @dissector_try_uint_new(ptr noundef %394, i32 noundef %.0286, ptr noundef %0, ptr noundef %1, ptr noundef %44, i32 noundef 0, ptr noundef nonnull %5) #8
+  %395 = call i32 @dissector_try_uint_new(ptr noundef %394, i32 noundef range(i32 0, 262144) %.0286, ptr noundef %0, ptr noundef %1, ptr noundef %44, i32 noundef 0, ptr noundef nonnull %5) #8
   %396 = icmp sgt i32 %395, 0
   br i1 %396, label %call_isobus_subdissector.exit.thread, label %call_isobus_subdissector.exit
 

@@ -1577,7 +1577,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %49 = sub i64 4095, %.2
   %50 = select i1 %48, i64 %49, i64 10
   %51 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 @.str.15, i64 %50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 @.str.15, i64 %50, i1 false)
   %52 = add i64 %50, %.2
   %53 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #16
   %54 = add i64 %53, %52
@@ -1596,7 +1596,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %63 = sub i64 4095, %.3
   %64 = select i1 %62, i64 %63, i64 1
   %65 = getelementptr inbounds i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 @.str.16, i64 %64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull align 1 @.str.16, i64 %64, i1 false)
   %66 = add i64 %64, %.3
   %67 = icmp eq i32 %.024, 9
   %or.cond = and i1 %18, %67

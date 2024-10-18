@@ -594,7 +594,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   %99 = load i32, ptr %98, align 4
   %100 = getelementptr inbounds i8, ptr %95, i64 48
   %101 = load i64, ptr %100, align 8
-  %102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #21
+  %102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(56) %95) #21
   %103 = getelementptr inbounds i8, ptr %95, i64 32
   %104 = load i64, ptr %103, align 8
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %32, ptr noundef nonnull @.str.5, i32 noundef %97, i32 noundef %99, i64 noundef %101, ptr noundef %102, i64 noundef %104) #21
@@ -844,7 +844,7 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
           to label %90 unwind label %86
 
 90:                                               ; preds = %88
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %79)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(32) %79)
           to label %91 unwind label %95
 
 91:                                               ; preds = %90
@@ -887,7 +887,7 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
   %106 = load i32, ptr %98, align 8
   %107 = load i32, ptr %99, align 4
   %108 = load i64, ptr %100, align 8
-  %109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.027) #21
+  %109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(56) %.027) #21
   %110 = load i64, ptr %97, align 8
   %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %104, ptr noundef nonnull @.str.5, i32 noundef %106, i32 noundef %107, i64 noundef %108, ptr noundef %109, i64 noundef %110) #21
   %112 = icmp sgt i32 %111, 0
@@ -1267,7 +1267,7 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
           to label %115 unwind label %111
 
 115:                                              ; preds = %113
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %116 unwind label %121
 
 116:                                              ; preds = %115
@@ -1381,7 +1381,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1747,7 +1747,7 @@ define dso_local noundef zeroext i1 @_ZN8BuildLog6RestatE11StringPieceRK13DiskIn
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %78, i64 48
   %84 = load i64, ptr %83, align 8
-  %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #21
+  %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(56) %78) #21
   %86 = getelementptr inbounds i8, ptr %78, i64 32
   %87 = load i64, ptr %86, align 8
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %41, ptr noundef nonnull @.str.5, i32 noundef %80, i32 noundef %82, i64 noundef %84, ptr noundef %85, i64 noundef %87) #21
@@ -1797,7 +1797,7 @@ define dso_local noundef zeroext i1 @_ZN8BuildLog6RestatE11StringPieceRK13DiskIn
   %110 = load i32, ptr %109, align 4
   %111 = getelementptr inbounds i8, ptr %106, i64 48
   %112 = load i64, ptr %111, align 8
-  %113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %106) #21
+  %113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(56) %106) #21
   %114 = getelementptr inbounds i8, ptr %106, i64 32
   %115 = load i64, ptr %114, align 8
   %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %41, ptr noundef nonnull @.str.5, i32 noundef %108, i32 noundef %110, i64 noundef %112, ptr noundef %113, i64 noundef %115) #21

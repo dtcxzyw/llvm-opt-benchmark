@@ -128,7 +128,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %16, %16
 .lr.ph.i.i:                                       ; preds = %28, %.critedge12.i.i
   %.014.i.i = phi ptr [ %35, %.critedge12.i.i ], [ %13, %28 ]
   %29 = getelementptr inbounds i8, ptr %.014.i.i, i64 9
-  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(6) @.str.5, i64 noundef 5) #14
+  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #14
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.critedge12.i.i
 

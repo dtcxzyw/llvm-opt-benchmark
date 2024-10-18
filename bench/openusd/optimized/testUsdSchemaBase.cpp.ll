@@ -214,7 +214,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
   %.sink205.i.sroa.gep39 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.sink205.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink205.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %42 unwind label %122
 
 42:                                               ; preds = %2
@@ -290,7 +290,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %67, %54
   store i32 1, ptr %39, align 8
   %77 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(28) %38, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %78 unwind label %124
 
 78:                                               ; preds = %76
@@ -362,7 +362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i10.i: ; preds = %103, 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit13.i: ; preds = %111, %108, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i10.i
   store i32 22, ptr %43, align 8
   %puts3.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %112 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %36)
+  %112 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseaSERKS0_(ptr noundef nonnull align 8 dereferenceable(28) %38, ptr noundef nonnull align 8 dereferenceable(28) %36)
           to label %113 unwind label %126
 
 113:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit13.i
@@ -399,12 +399,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit13.i: ; preds = %111, %108
 126:                                              ; preds = %116, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit13.i
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %38) #13
   br label %128
 
 128:                                              ; preds = %126, %124
   %.pn.i = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #13
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i, %479, %122, %128
@@ -412,8 +412,8 @@ common.resume:                                    ; preds = %.body.i, %479, %122
   resume { ptr, i32 } %common.resume.op
 
 _ZL30TestEnsureParentCtorForCopyingv.exit:        ; preds = %113, %116
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %38) #13
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
@@ -443,7 +443,7 @@ _ZL30TestEnsureParentCtorForCopyingv.exit:        ; preds = %113, %116
           to label %.noexc.i unwind label %375
 
 .noexc.i:                                         ; preds = %_ZL30TestEnsureParentCtorForCopyingv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %129, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %129, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %.noexc24.i unwind label %375
 
 .noexc24.i:                                       ; preds = %.noexc.i
@@ -453,7 +453,7 @@ _ZL30TestEnsureParentCtorForCopyingv.exit:        ; preds = %113, %116
 130:                                              ; preds = %.noexc24.i
   %131 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc24.i
@@ -468,7 +468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %.noexc25.i unwind label %379
 
 .noexc25.i:                                       ; preds = %132
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %133, ptr noundef nonnull align 1 dereferenceable(1) %23)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %133, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %.noexc26.i unwind label %379
 
 .noexc26.i:                                       ; preds = %.noexc25.i
@@ -498,7 +498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %141 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #13
   br label %.body27.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: ; preds = %140
@@ -1524,13 +1524,13 @@ define linkonce_odr dso_local void @_ZN12Usd_TestBaseD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15Usd_TestDerivedD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15Usd_TestDerivedD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
   ret void
 }
@@ -1556,7 +1556,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12Usd_TestBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
   ret void
 }

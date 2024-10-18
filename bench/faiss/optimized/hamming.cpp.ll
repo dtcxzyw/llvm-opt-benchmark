@@ -24203,7 +24203,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %50, %53
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %37
@@ -24345,7 +24345,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %51, %54
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %38
@@ -24481,7 +24481,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %59, %62
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %46
@@ -24625,7 +24625,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %67, %70
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %54
@@ -24777,7 +24777,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %75, %78
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %62
@@ -24961,7 +24961,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %107, %110
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %94
@@ -25092,7 +25092,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_22Hamming
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %40

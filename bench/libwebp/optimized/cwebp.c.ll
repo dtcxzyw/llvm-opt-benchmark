@@ -1272,7 +1272,7 @@ sub_1769:                                         ; preds = %sub_0768
 490:                                              ; preds = %485, %483, %481, %479, %477, %472
   %.0480 = phi i32 [ 0, %472 ], [ 2, %477 ], [ 1, %479 ], [ 3, %481 ], [ 4, %483 ], [ 5, %485 ]
   %491 = load float, ptr %31, align 4
-  %492 = call i32 @WebPConfigInitInternal(ptr noundef nonnull %11, i32 noundef %.0480, float noundef %491, i32 noundef 528) #12
+  %492 = call i32 @WebPConfigInitInternal(ptr noundef nonnull %11, i32 noundef range(i32 0, 6) %.0480, float noundef %491, i32 noundef 528) #12
   %.not619 = icmp eq i32 %492, 0
   br i1 %.not619, label %493, label %.loopexit788
 
@@ -1582,7 +1582,7 @@ sub_1779:                                         ; preds = %.tail772, %sub_1774
   %630 = call ptr @WebPGuessImageReader(ptr noundef %628, i64 noundef %629) #12
   %631 = load ptr, ptr %7, align 8
   %632 = load i64, ptr %8, align 8
-  %633 = call i32 %630(ptr noundef %631, i64 noundef %632, ptr noundef nonnull %9, i32 noundef %.05161073, ptr noundef %.) #12
+  %633 = call i32 %630(ptr noundef %631, i64 noundef %632, ptr noundef nonnull %9, i32 noundef range(i32 0, 2) %.05161073, ptr noundef %.) #12
   br label %ReadYUV.exit.i
 
 634:                                              ; preds = %623
@@ -2528,7 +2528,7 @@ WriteLE24.exit.i:                                 ; preds = %1098
   %1105 = getelementptr inbounds i8, ptr %9, i64 12
   %1106 = load i32, ptr %1105, align 4
   %1107 = add nsw i32 %1106, -1
-  %1108 = call fastcc i32 @WriteLE24(ptr noundef %.1479704, i32 noundef %1107)
+  %1108 = call fastcc i32 @WriteLE24(ptr noundef nonnull %.1479704, i32 noundef %1107)
   br label %.critedge88.i
 
 .critedge88.i:                                    ; preds = %1104, %WriteLE24.exit.i, %WriteLE32.exit103.i, %1087, %1086, %1076
@@ -2542,7 +2542,7 @@ WriteLE24.exit.i:                                 ; preds = %1098
   br i1 %.not80.i, label %.thread.i, label %1110
 
 1110:                                             ; preds = %1109
-  %1111 = call fastcc i32 @WriteMetadataChunk(ptr noundef %.1479704, ptr noundef nonnull @.str.195, ptr noundef readonly %1014)
+  %1111 = call fastcc i32 @WriteMetadataChunk(ptr noundef nonnull %.1479704, ptr noundef nonnull @.str.195, ptr noundef readonly %1014)
   br label %1112
 
 1112:                                             ; preds = %1110, %.critedge88.i
@@ -2565,7 +2565,7 @@ WriteLE24.exit.i:                                 ; preds = %1098
   br i1 %1115, label %1118, label %.thread17.i
 
 1118:                                             ; preds = %1117
-  %1119 = call fastcc i32 @WriteMetadataChunk(ptr noundef %.1479704, ptr noundef nonnull @.str.196, ptr noundef readonly %14)
+  %1119 = call fastcc i32 @WriteMetadataChunk(ptr noundef nonnull %.1479704, ptr noundef nonnull @.str.196, ptr noundef nonnull readonly %14)
   br label %.thread17.i
 
 .thread17.i:                                      ; preds = %1118, %1117, %.thread.i
@@ -2587,7 +2587,7 @@ WriteLE24.exit.i:                                 ; preds = %1098
   br i1 %.not84.i, label %.thread22.i, label %1124
 
 1124:                                             ; preds = %1123
-  %1125 = call fastcc i32 @WriteMetadataChunk(ptr noundef %.1479704, ptr noundef nonnull @.str.197, ptr noundef readonly %1026)
+  %1125 = call fastcc i32 @WriteMetadataChunk(ptr noundef nonnull %.1479704, ptr noundef nonnull @.str.197, ptr noundef readonly %1026)
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %1124, %1123, %.thread18.i

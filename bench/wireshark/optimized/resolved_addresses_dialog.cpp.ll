@@ -196,7 +196,7 @@ define void @_ZN23ResolvedAddressesDialogC2EP7QWidget7QStringP4wtap(ptr noundef 
   %28 = alloca %class.QList.5, align 8
   %29 = alloca %class.QList, align 8
   %30 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
@@ -3190,7 +3190,7 @@ define void @_ZN23ResolvedAddressesDialog6saveAsEv(ptr nocapture noundef nonnull
 
 9:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %10 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ResolvedAddressesView16staticMetaObjectE, i32 1)
+  %10 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ResolvedAddressesView16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP21ResolvedAddressesViewEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %16
 
 _ZNK7QObject9findChildIP21ResolvedAddressesViewEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %9
@@ -3572,7 +3572,7 @@ define void @_ZN23ResolvedAddressesDialog10tabChangedEi(ptr nocapture noundef no
 
 10:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %11 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ResolvedAddressesView16staticMetaObjectE, i32 1)
+  %11 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ResolvedAddressesView16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP21ResolvedAddressesViewEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %26
 
 _ZNK7QObject9findChildIP21ResolvedAddressesViewEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %10
@@ -3779,7 +3779,7 @@ define void @_ZN23ResolvedAddressesDialogD0Ev(ptr noundef nonnull align 8 derefe
 define void @_ZThn16_N23ResolvedAddressesDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN23ResolvedAddressesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %2) #18
   ret void
 }
 

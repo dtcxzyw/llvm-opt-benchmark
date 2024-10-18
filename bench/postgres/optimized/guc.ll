@@ -9904,7 +9904,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   br i1 %18, label %serialize_variable.exit, label %19
 
 19:                                               ; preds = %can_skip_gucvar.exit.i
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef %16)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef %16)
   %20 = getelementptr i8, ptr %.sroa.0.020, i64 -52
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %56 [
@@ -9921,21 +9921,21 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
   %27 = select i1 %26, ptr @.str.40, ptr @.str.41
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %27)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %27)
   br label %56
 
 28:                                               ; preds = %19
   %29 = getelementptr i8, ptr %.sroa.0.020, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 4
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.69, i32 noundef %31)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.69, i32 noundef %31)
   br label %56
 
 32:                                               ; preds = %19
   %33 = getelementptr i8, ptr %.sroa.0.020, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = load double, ptr %34, align 8
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.131, i32 noundef 17, double noundef %35)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.131, i32 noundef 17, double noundef %35)
   br label %56
 
 36:                                               ; preds = %19
@@ -9944,7 +9944,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
   %spec.select.i = select i1 %.not.i, ptr @.str.8, ptr %39
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select.i)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select.i)
   br label %56
 
 40:                                               ; preds = %19
@@ -9982,7 +9982,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   unreachable
 
 config_enum_lookup_by_value.exit.i:               ; preds = %49
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %48)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %48)
   br label %56
 
 56:                                               ; preds = %config_enum_lookup_by_value.exit.i, %36, %32, %28, %22, %19
@@ -9990,7 +9990,7 @@ config_enum_lookup_by_value.exit.i:               ; preds = %49
   %58 = load ptr, ptr %57, align 8
   %.not47.i = icmp eq ptr %58, null
   %spec.select50.i = select i1 %.not47.i, ptr @.str.8, ptr %58
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select50.i)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select50.i)
   %59 = load ptr, ptr %57, align 8
   %.not48.i = icmp eq ptr %59, null
   br i1 %.not48.i, label %thread-pre-split.i, label %60

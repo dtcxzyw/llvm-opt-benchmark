@@ -75,8 +75,8 @@ define hidden void @_ZN4llvm12AIXException22emitExceptionInfoTableEPKNS_8MCSymbo
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
   %20 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %20, i64 noundef 128) #8
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.sroa.0.0.copyload.i, ptr noundef %19)
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull %20, i64 noundef 128) #8
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %.sroa.0.0.copyload.i, ptr noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -88,7 +88,7 @@ define hidden void @_ZN4llvm12AIXException22emitExceptionInfoTableEPKNS_8MCSymbo
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %25, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -97,7 +97,7 @@ define hidden void @_ZN4llvm12AIXException22emitExceptionInfoTableEPKNS_8MCSymbo
   br i1 %.not.i.i, label %32, label %30
 
 30:                                               ; preds = %17
-  %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 noundef zeroext 46) #8
+  %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 noundef zeroext 46) #8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit
 
 32:                                               ; preds = %17
@@ -123,7 +123,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit
-  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %39, i64 noundef %40) #8
+  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %39, i64 noundef %40) #8
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
 
 49:                                               ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit
@@ -138,19 +138,19 @@ _ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit: ; preds = %47, %49, %50
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #8
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %4, align 8
-  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #8
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 188
   %.sroa.0.0.copyload.i20 = load i32, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 148
   %.sroa.0.0.copyload.i21 = load i24, ptr %59, align 4
   %.sroa.05.0.insert.ext = and i32 %.sroa.0.0.copyload.i20, 255
   %60 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %55, ptr %56, i64 %57, i32 %.sroa.05.0.insert.ext, i24 %.sroa.0.0.copyload.i21, i1 noundef zeroext false, i64 0) #8
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #8
   %62 = load ptr, ptr %4, align 8
   %63 = icmp eq ptr %62, %20
   br i1 %63, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %64

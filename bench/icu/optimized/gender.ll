@@ -903,7 +903,7 @@ invoke.cont20:                                    ; preds = %if.then19
   %5 = load ptr, ptr %agg.tmp, align 8
   %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %7 = load i32, ptr %6, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %parentLocaleName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %parentLocaleName)
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %invoke.cont20
@@ -921,11 +921,11 @@ while.cond.preheader:                             ; preds = %.noexc
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %parentLocaleName) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %parentLocaleName) #14
   br label %ehcleanup70
 
 while.body:                                       ; preds = %while.cond.preheader, %invoke.cont42
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tmp)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tmp)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %while.body
@@ -964,7 +964,7 @@ lpad27:                                           ; preds = %invoke.cont26
 if.end35:                                         ; preds = %invoke.cont30
   %call36 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(60) %parentLocaleName, ptr noundef nonnull align 8 dereferenceable(60) %tmp) #14
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tmp) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tmp) #14
   store i32 0, ptr %key_status, align 4
   store i32 0, ptr %resLen, align 4
   %16 = load ptr, ptr %parentLocaleName, align 8
@@ -978,22 +978,22 @@ invoke.cont42:                                    ; preds = %if.end35
 
 ehcleanup:                                        ; preds = %lpad27, %lpad25
   %.pn = phi { ptr, i32 } [ %15, %lpad27 ], [ %14, %lpad25 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tmp) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tmp) #14
   br label %ehcleanup44
 
 ehcleanup44:                                      ; preds = %ehcleanup, %lpad23
   %.pn12 = phi { ptr, i32 } [ %13, %lpad23 ], [ %.pn, %ehcleanup ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %parentLocaleName) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %parentLocaleName) #14
   br label %ehcleanup70
 
 if.end45:                                         ; preds = %invoke.cont42
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %parentLocaleName) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %parentLocaleName) #14
   br label %if.end48
 
 if.then47.critedge:                               ; preds = %invoke.cont30
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tmp) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %parentLocaleName) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %tmp) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %parentLocaleName) #14
   %17 = load ptr, ptr @_ZL5gObjs, align 8
   br label %cleanup69
 

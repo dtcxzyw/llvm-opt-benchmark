@@ -367,7 +367,7 @@ ft_stroke_border_moveto.exit:                     ; preds = %3, %25, %26
   store i32 %49, ptr %20, align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 136
   store i8 0, ptr %50, align 8
-  %51 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %19, ptr noundef readonly %5, i8 noundef zeroext 0)
+  %51 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %19, ptr noundef nonnull readonly %5, i8 noundef zeroext 0)
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %52, label %95
 
@@ -432,7 +432,7 @@ ft_stroke_border_moveto.exit20:                   ; preds = %52, %65, %66
   store i32 %89, ptr %60, align 4
   %90 = getelementptr inbounds i8, ptr %0, i64 184
   store i8 0, ptr %90, align 8
-  %91 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %59, ptr noundef readonly %5, i8 noundef zeroext 0)
+  %91 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %59, ptr noundef nonnull readonly %5, i8 noundef zeroext 0)
   %92 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 40
@@ -569,7 +569,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
 
 77:                                               ; preds = %70
   %78 = zext i1 %71 to i32
-  %79 = call fastcc i32 @ft_stroker_arcto(ptr noundef %0, i32 noundef %78)
+  %79 = call fastcc i32 @ft_stroker_arcto(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %78)
   br label %ft_stroker_outside.exit
 
 80:                                               ; preds = %70
@@ -3728,7 +3728,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr nocapture noundef nonnull %0, i
   store i64 %84, ptr %5, align 8
   %85 = add nsw i64 %79, %83
   store i64 %85, ptr %58, align 8
-  %86 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef %17, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %86 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not35.i = icmp eq i32 %86, 0
   br i1 %.not35.i, label %87, label %ft_stroke_border_arcto.exit
 

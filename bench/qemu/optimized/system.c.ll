@@ -682,11 +682,11 @@ if.then:                                          ; preds = %entry
   br i1 %is_write, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  tail call void @cpu_physical_memory_rw(i64 noundef %addr, ptr noundef %buf, i64 noundef %conv, i1 noundef zeroext true) #15
+  tail call void @cpu_physical_memory_rw(i64 noundef %addr, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %conv, i1 noundef zeroext true) #15
   br label %return
 
 if.else:                                          ; preds = %if.then
-  tail call void @cpu_physical_memory_rw(i64 noundef %addr, ptr noundef %buf, i64 noundef %conv, i1 noundef zeroext false) #15
+  tail call void @cpu_physical_memory_rw(i64 noundef %addr, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %conv, i1 noundef zeroext false) #15
   br label %return
 
 if.end4:                                          ; preds = %entry

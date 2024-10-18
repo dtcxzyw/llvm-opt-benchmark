@@ -1801,7 +1801,7 @@ initScreenSpace.exit.i:                           ; preds = %21
   br i1 %.not11.i, label %36, label %27
 
 27:                                               ; preds = %initScreenSpace.exit.i
-  %28 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) #15
+  %28 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -536870912, 536870912) %2) #15
   store i32 %28, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %36, label %30
@@ -4849,7 +4849,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %234 = zext i1 %233 to i32
   store i32 %234, ptr %61, align 4
   store i32 0, ptr %62, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %14)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4880,7 +4880,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 3, ptr %57, align 4
   store i32 %248, ptr %58, align 4
   store i32 0, ptr %59, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %13)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4911,7 +4911,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 4, ptr %54, align 4
   store i32 %262, ptr %55, align 4
   store i32 0, ptr %56, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %12)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4941,7 +4941,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 8, ptr %11, align 8
   store i32 5, ptr %52, align 4
   store i64 %276, ptr %53, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %11)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4973,7 +4973,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 6, ptr %49, align 4
   store float %291, ptr %50, align 4
   store i32 0, ptr %51, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %10)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5003,7 +5003,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 8, ptr %9, align 8
   store i32 7, ptr %47, align 4
   store double %305, ptr %48, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %9)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5035,13 +5035,13 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 320:                                              ; preds = %317
   %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %319) #16
   %322 = trunc i64 %321 to i32
-  call fastcc void @spa_pod_builder_string_len(ptr noundef %0, ptr noundef nonnull %319, i32 noundef %322)
+  call fastcc void @spa_pod_builder_string_len(ptr noundef nonnull %0, ptr noundef nonnull %319, i32 noundef %322)
   br label %spa_pod_builder_primitive.exit.i
 
 323:                                              ; preds = %317
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 4294967296, ptr %8, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %8)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5089,7 +5089,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %346 = phi ptr [ %335, %337 ], [ %343, %341 ]
   %347 = phi ptr [ %339, %337 ], [ %342, %341 ]
   %348 = load i32, ptr %347, align 4
-  call fastcc void @spa_pod_builder_string_len(ptr noundef %0, ptr noundef %346, i32 noundef %348)
+  call fastcc void @spa_pod_builder_string_len(ptr noundef nonnull %0, ptr noundef %346, i32 noundef %348)
   br label %spa_pod_builder_primitive.exit.i
 
 349:                                              ; preds = %.lr.ph.i
@@ -5193,7 +5193,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   br i1 %.not34.i.i156.i, label %spa_pod_builder_bytes.exit.i, label %.lr.ph.i.i153.i, !llvm.loop !19
 
 spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.critedge.thread.i.i149.i
-  call fastcc void @spa_pod_builder_raw_padded(ptr noundef %0, ptr noundef %371, i32 noundef %373)
+  call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef %371, i32 noundef %373)
   br label %spa_pod_builder_primitive.exit.i
 
 397:                                              ; preds = %.lr.ph.i
@@ -5226,7 +5226,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 10, ptr %43, align 4
   store i32 %411, ptr %44, align 4
   store i32 %413, ptr %45, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %7)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5260,7 +5260,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 11, ptr %40, align 4
   store i32 %428, ptr %41, align 4
   store i32 %430, ptr %42, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %6)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5418,7 +5418,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   br i1 %.not34.i.i172.i, label %spa_pod_builder_array.exit.i, label %.lr.ph.i.i169.i, !llvm.loop !19
 
 spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.critedge.thread.i.i165.i
-  call fastcc void @spa_pod_builder_raw_padded(ptr noundef %0, ptr noundef %480, i32 noundef %481)
+  call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef %480, i32 noundef %481)
   br label %spa_pod_builder_primitive.exit.i
 
 506:                                              ; preds = %.lr.ph.i
@@ -5471,7 +5471,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   store i32 %528, ptr %37, align 8
   store i32 0, ptr %38, align 4
   store ptr %530, ptr %39, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %5)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5502,7 +5502,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   store i32 8, ptr %4, align 8
   store i32 18, ptr %34, align 4
   store i64 %545, ptr %35, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %4)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5534,7 +5534,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
 561:                                              ; preds = %557
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 4294967296, ptr %3, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %3)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5708,7 +5708,7 @@ spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad
   br i1 %169, label %634, label %.backedge
 
 634:                                              ; preds = %._crit_edge.i
-  %635 = call fastcc ptr @spa_pod_builder_pop(ptr noundef %0, ptr noundef %15)
+  %635 = call fastcc ptr @spa_pod_builder_pop(ptr noundef nonnull %0, ptr noundef %15)
   br label %.backedge
 
 .backedge:                                        ; preds = %634, %._crit_edge.i

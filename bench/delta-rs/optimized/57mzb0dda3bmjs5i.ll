@@ -213,7 +213,7 @@ define hidden void @_ZN13deltalake_sql6parser11DeltaParser8expected17h3c47ea8740
 
 17:                                               ; preds = %20, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ]
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
           to label %"_ZN4core3ptr60drop_in_place$LT$sqlparser..tokenizer..TokenWithLocation$GT$17h362ac4a329d9c66bE.exit" unwind label %32
 
 18:                                               ; preds = %26, %22, %5
@@ -245,7 +245,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15199295174849121677.exit: ; preds
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !63
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00acfb570783c145E.llvm.11705908289436625823"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00acfb570783c145E.llvm.11705908289436625823"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc8 unwind label %18
 
 .noexc8:                                          ; preds = %22
@@ -265,7 +265,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15199295174849121677.exit: ; preds
 31:                                               ; preds = %.noexc8, %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
   ret void
 
 32:                                               ; preds = %17, %20

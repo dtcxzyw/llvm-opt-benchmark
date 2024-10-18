@@ -482,11 +482,11 @@ if.then8.i.i152:                                  ; preds = %if.then.i.i149
   %64 = load i64, ptr %_now.i.i142, align 8
   %tv_usec.i.i155 = getelementptr inbounds i8, ptr %_now.i.i142, i64 8
   %65 = load i64, ptr %tv_usec.i.i155, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i154, i64 noundef %64, i64 noundef %65, ptr noundef %59, i32 noundef %ret.1170) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i154, i64 noundef %64, i64 noundef %65, ptr noundef %59, i32 noundef range(i32 -2147483648, 0) %ret.1170) #10
   br label %trace_vmstate_load_field_error.exit
 
 if.else.i.i151:                                   ; preds = %if.then.i.i149
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %59, i32 noundef %ret.1170) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %59, i32 noundef range(i32 -2147483648, 0) %ret.1170) #10
   br label %trace_vmstate_load_field_error.exit
 
 trace_vmstate_load_field_error.exit:              ; preds = %if.then80, %land.lhs.true5.i.i146, %if.then8.i.i152, %if.else.i.i151
@@ -637,11 +637,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %version_id, i32 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %version_id, i32 noundef range(i32 0, 2) %conv) #10
   br label %trace_vmstate_field_exists.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %version_id, i32 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %version_id, i32 noundef range(i32 0, 2) %conv) #10
   br label %trace_vmstate_field_exists.exit
 
 trace_vmstate_field_exists.exit:                  ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

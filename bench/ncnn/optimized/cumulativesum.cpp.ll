@@ -390,7 +390,7 @@ define linkonce_odr hidden void @_ZN4ncnn13CumulativeSumD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn13CumulativeSumD0Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #6
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #7
   ret void
 }

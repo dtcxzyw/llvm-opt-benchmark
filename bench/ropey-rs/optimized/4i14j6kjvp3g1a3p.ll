@@ -5791,7 +5791,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit58: ; preds = %48, %.no
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %72
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %.sroa.025.0, ptr nonnull readonly %.sroa.012.0, i64 %.sroa.715.0), !alias.scope !560
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.025.0, ptr nonnull readonly align 1 %.sroa.012.0, i64 %.sroa.715.0), !alias.scope !560
   %75 = icmp eq i32 %bcmp.i, 0
   br i1 %75, label %.thread, label %103
 
@@ -5810,7 +5810,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit58: ; preds = %48, %.no
 83:                                               ; preds = %72
   %84 = icmp ne ptr %.sroa.025.0, null
   call void @llvm.assume(i1 %84)
-  %bcmp.i62 = call i32 @bcmp(ptr nonnull readonly %.sroa.012.0, ptr nonnull readonly %.sroa.025.0, i64 %.sroa.728.0), !alias.scope !564
+  %bcmp.i62 = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.012.0, ptr nonnull readonly align 1 %.sroa.025.0, i64 %.sroa.728.0), !alias.scope !564
   %85 = icmp eq i32 %bcmp.i62, 0
   br i1 %85, label %80, label %103
 
@@ -5875,7 +5875,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit58: ; preds = %48, %.no
 
 105:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !576
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7)
           to label %.noexc66 unwind label %51
 
 .noexc66:                                         ; preds = %105
@@ -5906,7 +5906,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit58: ; preds = %48, %.no
 
 115:                                              ; preds = %"_ZN4core3ptr40drop_in_place$LT$ropey..iter..Chunks$GT$17h79bc23c6b8d7599aE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !590
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %8)
   %116 = getelementptr inbounds i8, ptr %3, i64 8
   %117 = load i64, ptr %116, align 8, !range !574, !noalias !590, !noundef !7
   %118 = icmp eq i64 %117, 0
@@ -6119,7 +6119,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit61: ; preds = %48, %.no
 76:                                               ; preds = %75
   %77 = icmp ne ptr %.sroa.011.0, null
   call void @llvm.assume(i1 %77)
-  %78 = call i32 @memcmp(ptr nonnull readonly %.sroa.011.0, ptr nonnull readonly %.sroa.023.0, i64 %.sroa.714.0), !alias.scope !619
+  %78 = call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.011.0, ptr nonnull readonly align 1 %.sroa.023.0, i64 %.sroa.714.0), !alias.scope !619
   %.not46 = icmp eq i32 %78, 0
   br i1 %.not46, label %.thread, label %.split.loop.exit
 
@@ -6141,7 +6141,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit61: ; preds = %48, %.no
 
 86:                                               ; preds = %.split.loop.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !630
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9)
           to label %.noexc62 unwind label %53
 
 .noexc62:                                         ; preds = %86
@@ -6163,7 +6163,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit61: ; preds = %48, %.no
   br label %"_ZN4core3ptr40drop_in_place$LT$ropey..iter..Chunks$GT$17h79bc23c6b8d7599aE.exit"
 
 95:                                               ; preds = %75
-  %96 = call i32 @memcmp(ptr nonnull readonly %.sroa.011.0, ptr nonnull readonly %.sroa.023.0, i64 %.sroa.726.0), !alias.scope !637
+  %96 = call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.011.0, ptr nonnull readonly align 1 %.sroa.023.0, i64 %.sroa.726.0), !alias.scope !637
   %.not47 = icmp eq i32 %96, 0
   br i1 %.not47, label %79, label %.split.loop.exit
 
@@ -6217,7 +6217,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit61: ; preds = %48, %.no
 
 115:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !648
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9)
           to label %.noexc69 unwind label %53
 
 .noexc69:                                         ; preds = %115
@@ -6274,7 +6274,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit61: ; preds = %48, %.no
 
 135:                                              ; preds = %"_ZN4core3ptr40drop_in_place$LT$ropey..iter..Chunks$GT$17h79bc23c6b8d7599aE.exit71"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !662
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10)
   %136 = getelementptr inbounds i8, ptr %4, i64 8
   %137 = load i64, ptr %136, align 8, !range !574, !noalias !662, !noundef !7
   %138 = icmp eq i64 %137, 0
@@ -6307,7 +6307,7 @@ _ZN5ropey5slice9RopeSlice6chunks17h2bff1969ed727d96E.exit61: ; preds = %48, %.no
 
 145:                                              ; preds = %"_ZN4core3ptr40drop_in_place$LT$ropey..iter..Chunks$GT$17h79bc23c6b8d7599aE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !676
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0c4a7a4ddf03751E.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10)
   %146 = getelementptr inbounds i8, ptr %3, i64 8
   %147 = load i64, ptr %146, align 8, !range !574, !noalias !676, !noundef !7
   %148 = icmp eq i64 %147, 0

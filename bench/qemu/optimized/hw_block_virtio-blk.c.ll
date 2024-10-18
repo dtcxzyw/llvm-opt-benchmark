@@ -818,11 +818,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef range(i64 0, 36028797018963968) %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_write.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef range(i64 0, 36028797018963968) %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_write.exit
 
 _nocheck__trace_virtio_blk_handle_write.exit:     ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -859,11 +859,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef range(i64 0, 36028797018963968) %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_read.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef range(i64 0, 36028797018963968) %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_read.exit
 
 _nocheck__trace_virtio_blk_handle_read.exit:      ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -944,11 +944,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef range(i32 0, 256) %conv) #14
   br label %trace_virtio_blk_req_complete.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef range(i32 0, 256) %conv) #14
   br label %trace_virtio_blk_req_complete.exit
 
 trace_virtio_blk_req_complete.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1106,11 +1106,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef %shr, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef range(i64 -18014398509481984, 18014398509481984) %shr, i32 noundef %conv) #14
   br label %trace_virtio_blk_handle_zone_report.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef %shr, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef range(i64 -18014398509481984, 18014398509481984) %shr, i32 noundef %conv) #14
   br label %trace_virtio_blk_handle_zone_report.exit
 
 trace_virtio_blk_handle_zone_report.exit:         ; preds = %if.end4, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1247,11 +1247,11 @@ if.then8.i.i37:                                   ; preds = %if.then.i.i34
   %15 = load i64, ptr %_now.i.i27, align 8
   %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %16 = load i64, ptr %tv_usec.i.i40, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i39, i64 noundef %15, i64 noundef %16, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %op, i64 noundef %shr, i64 noundef %shr22) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i39, i64 noundef %15, i64 noundef %16, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %op, i64 noundef range(i64 -18014398509481984, 18014398509481984) %shr, i64 noundef range(i64 0, 36028797018963968) %shr22) #14
   br label %trace_virtio_blk_handle_zone_mgmt.exit
 
 if.else.i.i36:                                    ; preds = %if.then.i.i34
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %op, i64 noundef %shr, i64 noundef %shr22) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %op, i64 noundef range(i64 -18014398509481984, 18014398509481984) %shr, i64 noundef range(i64 0, 36028797018963968) %shr22) #14
   br label %trace_virtio_blk_handle_zone_mgmt.exit
 
 trace_virtio_blk_handle_zone_mgmt.exit:           ; preds = %if.end, %land.lhs.true5.i.i31, %if.then8.i.i37, %if.else.i.i36
@@ -1515,11 +1515,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef %shr) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef range(i64 -18014398509481984, 18014398509481984) %shr) #14
   br label %trace_virtio_blk_handle_zone_append.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef %shr) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef range(i64 -18014398509481984, 18014398509481984) %shr) #14
   br label %trace_virtio_blk_handle_zone_append.exit
 
 trace_virtio_blk_handle_zone_append.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2008,7 +2008,7 @@ iov_from_buf.exit40.thread:                       ; preds = %land.lhs.true1.i36
   br label %for.inc
 
 iov_from_buf.exit40:                              ; preds = %switch.lookup51, %land.lhs.true1.i36
-  %call.i34 = call i64 @iov_from_buf_full(ptr noundef %2, i32 noundef %3, i64 noundef %i.048, ptr noundef nonnull %desc, i64 noundef 64) #14
+  %call.i34 = call i64 @iov_from_buf_full(ptr noundef %2, i32 noundef %3, i64 noundef range(i64 0, 274877906944) %i.048, ptr noundef nonnull %desc, i64 noundef 64) #14
   %cmp53.not = icmp eq i64 %call.i34, 64
   br i1 %cmp53.not, label %for.inc, label %if.then55
 
@@ -2459,13 +2459,13 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %22 = load i64, ptr %tv_usec.i.i, align 8
   %tobool.mask47 = and i8 %3, 1
   %conv12.i.i = zext nneg i8 %tobool.mask47 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, ptr noundef %call.i, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef %num_reqs, i64 noundef %shl, i64 noundef %16, i32 noundef %conv12.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, ptr noundef %call.i, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef range(i32 2, -2147483648) %num_reqs, i64 noundef range(i64 0, -511) %shl, i64 noundef %16, i32 noundef %conv12.i.i) #14
   br label %trace_virtio_blk_submit_multireq.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %tobool.mask = and i8 %3, 1
   %conv14.i.i = zext nneg i8 %tobool.mask to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %call.i, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef %num_reqs, i64 noundef %shl, i64 noundef %16, i32 noundef %conv14.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %call.i, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef range(i32 2, -2147483648) %num_reqs, i64 noundef range(i64 0, -511) %shl, i64 noundef %16, i32 noundef %conv14.i.i) #14
   br label %trace_virtio_blk_submit_multireq.exit
 
 trace_virtio_blk_submit_multireq.exit:            ; preds = %for.end34, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -557,11 +557,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_attempt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_attempt.exit
 
 trace_lockcnt_unlock_attempt.exit:                ; preds = %do.body1, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -597,11 +597,11 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i21
   %14 = load i64, ptr %_now.i.i14, align 8
   %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %15 = load i64, ptr %tv_usec.i.i27, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i26, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %lockcnt, i32 noundef %9, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i26, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %lockcnt, i32 noundef %9, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_success.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i21
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %lockcnt, i32 noundef %9, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %lockcnt, i32 noundef %9, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_success.exit
 
 trace_lockcnt_unlock_success.exit:                ; preds = %do.end10, %land.lhs.true5.i.i18, %if.then8.i.i24, %if.else.i.i23
@@ -654,11 +654,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_attempt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %lockcnt, i32 noundef %val.0, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_attempt.exit
 
 trace_lockcnt_unlock_attempt.exit:                ; preds = %do.body1, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -694,11 +694,11 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i21
   %13 = load i64, ptr %_now.i.i14, align 8
   %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %14 = load i64, ptr %tv_usec.i.i27, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i26, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %lockcnt, i32 noundef %8, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i26, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %lockcnt, i32 noundef %8, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_success.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i21
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %lockcnt, i32 noundef %8, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %lockcnt, i32 noundef %8, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_success.exit
 
 trace_lockcnt_unlock_success.exit:                ; preds = %do.end10, %land.lhs.true5.i.i18, %if.then8.i.i24, %if.else.i.i23

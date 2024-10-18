@@ -1668,8 +1668,8 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 51:                                               ; preds = %36
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %52 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %29, i32 %43)
-  %53 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %37, i32 %52)
+  %52 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 range(i32 -176, 80) %29, i32 range(i32 -176, 80) %43)
+  %53 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 range(i32 -176, 80) %37, i32 range(i32 -176, 80) %52)
   %.not = icmp sgt i32 %.val191, %53
   br i1 %.not, label %79, label %54
 
@@ -2248,8 +2248,8 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   br label %228
 
 60:                                               ; preds = %45
-  %61 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %38, i32 %52)
-  %62 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %46, i32 %61)
+  %61 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 range(i32 -176, 80) %38, i32 range(i32 -176, 80) %52)
+  %62 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 range(i32 -176, 80) %46, i32 range(i32 -176, 80) %61)
   %.not = icmp sgt i32 %.val173, %62
   br i1 %.not, label %73, label %63
 
@@ -2798,9 +2798,9 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not105, label %106, label %108
 
 106:                                              ; preds = %103
-  %107 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 7, i64 1, ptr %5)
-  tail call void @Io_NtkWriteSubcktFanins(ptr noundef %5, ptr noundef nonnull readonly %101)
-  %fputc.i = tail call i32 @fputc(i32 10, ptr %5)
+  %107 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 7, i64 1, ptr nonnull %5)
+  tail call void @Io_NtkWriteSubcktFanins(ptr noundef nonnull %5, ptr noundef nonnull readonly %101)
+  %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %5)
   %.pre133 = load ptr, ptr %94, align 8
   br label %108
 

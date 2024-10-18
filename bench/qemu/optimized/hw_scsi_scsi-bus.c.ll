@@ -1184,11 +1184,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %1, i32 noundef %lun, i32 noundef %tag, i32 noundef 0) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %1, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) 0) #16
   br label %trace_scsi_req_parse_bad.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %lun, i32 noundef %tag, i32 noundef 0) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) 0) #16
   br label %trace_scsi_req_parse_bad.exit
 
 trace_scsi_req_parse_bad.exit:                    ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1295,11 +1295,11 @@ if.then8.i.i79:                                   ; preds = %if.then.i.i76
   %22 = load i64, ptr %_now.i.i69, align 8
   %tv_usec.i.i82 = getelementptr inbounds i8, ptr %_now.i.i69, i64 8
   %23 = load i64, ptr %tv_usec.i.i82, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i81, i64 noundef %22, i64 noundef %23, i32 noundef %16, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv69) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i81, i64 noundef %22, i64 noundef %23, i32 noundef %16, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv69) #16
   br label %trace_scsi_req_parse_bad.exit83
 
 if.else.i.i78:                                    ; preds = %if.then.i.i76
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %16, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv69) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %16, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv69) #16
   br label %trace_scsi_req_parse_bad.exit83
 
 trace_scsi_req_parse_bad.exit83:                  ; preds = %if.then66, %land.lhs.true5.i.i73, %if.then8.i.i79, %if.else.i.i78
@@ -1355,11 +1355,11 @@ if.then8.i.i94:                                   ; preds = %if.then.i.i91
   %33 = load i64, ptr %_now.i.i84, align 8
   %tv_usec.i.i97 = getelementptr inbounds i8, ptr %_now.i.i84, i64 8
   %34 = load i64, ptr %tv_usec.i.i97, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i96, i64 noundef %33, i64 noundef %34, i32 noundef %25, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv79, i32 noundef %27, i32 noundef %conv80) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i96, i64 noundef %33, i64 noundef %34, i32 noundef %25, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv79, i32 noundef %27, i32 noundef %conv80) #16
   br label %trace_scsi_req_parsed.exit
 
 if.else.i.i93:                                    ; preds = %if.then.i.i91
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %25, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv79, i32 noundef %27, i32 noundef %conv80) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %25, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv79, i32 noundef %27, i32 noundef %conv80) #16
   br label %trace_scsi_req_parsed.exit
 
 trace_scsi_req_parsed.exit:                       ; preds = %if.end76, %land.lhs.true5.i.i88, %if.then8.i.i94, %if.else.i.i93
@@ -1398,11 +1398,11 @@ if.then8.i.i108:                                  ; preds = %if.then.i.i105
   %42 = load i64, ptr %_now.i.i98, align 8
   %tv_usec.i.i111 = getelementptr inbounds i8, ptr %_now.i.i98, i64 8
   %43 = load i64, ptr %tv_usec.i.i111, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i110, i64 noundef %42, i64 noundef %43, i32 noundef %36, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv86, i64 noundef %35) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i110, i64 noundef %42, i64 noundef %43, i32 noundef %36, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv86, i64 noundef range(i64 0, -1) %35) #16
   br label %trace_scsi_req_parsed_lba.exit
 
 if.else.i.i107:                                   ; preds = %if.then.i.i105
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %36, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv86, i64 noundef %35) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %36, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv86, i64 noundef range(i64 0, -1) %35) #16
   br label %trace_scsi_req_parsed_lba.exit
 
 trace_scsi_req_parsed_lba.exit:                   ; preds = %if.then83, %land.lhs.true5.i.i102, %if.then8.i.i108, %if.else.i.i107
@@ -1483,11 +1483,11 @@ if.then8.i.i122:                                  ; preds = %if.then.i.i119
   %55 = load i64, ptr %_now.i.i112, align 8
   %tv_usec.i.i125 = getelementptr inbounds i8, ptr %_now.i.i112, i64 8
   %56 = load i64, ptr %tv_usec.i.i125, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i124, i64 noundef %55, i64 noundef %56, i32 noundef %48, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv111, i32 noundef %conv114) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i124, i64 noundef %55, i64 noundef %56, i32 noundef %48, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv111, i32 noundef range(i32 0, 256) %conv114) #16
   br label %trace_scsi_inquiry.exit
 
 if.else.i.i121:                                   ; preds = %if.then.i.i119
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %48, i32 noundef %lun, i32 noundef %tag, i32 noundef %conv111, i32 noundef %conv114) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %48, i32 noundef %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %conv111, i32 noundef range(i32 0, 256) %conv114) #16
   br label %trace_scsi_inquiry.exit
 
 trace_scsi_inquiry.exit:                          ; preds = %sw.bb, %land.lhs.true5.i.i116, %if.then8.i.i122, %if.else.i.i121
@@ -1737,11 +1737,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %conv, i32 noundef range(i32 0, 256) %conv1, i32 noundef range(i32 0, 256) %conv2) #16
   br label %trace_scsi_req_build_sense.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %conv, i32 noundef range(i32 0, 256) %conv1, i32 noundef range(i32 0, 256) %conv2) #16
   br label %trace_scsi_req_build_sense.exit
 
 trace_scsi_req_build_sense.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2332,11 +2332,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %1, i32 noundef 6, i32 noundef %conv4, i32 noundef %conv5) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %1, i32 noundef 6, i32 noundef range(i32 0, 256) %conv4, i32 noundef range(i32 0, 256) %conv5) #16
   br label %trace_scsi_device_set_ua.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef 6, i32 noundef %conv4, i32 noundef %conv5) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef 6, i32 noundef range(i32 0, 256) %conv4, i32 noundef range(i32 0, 256) %conv5) #16
   br label %trace_scsi_device_set_ua.exit
 
 trace_scsi_device_set_ua.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4067,7 +4067,7 @@ sw.bb23:                                          ; preds = %land.lhs.true, %if.
   %req.val.val = load i32, ptr %46, align 4
   %cmp.i42 = icmp eq i32 %req.val.val, 6
   %..i = select i1 %cmp.i42, i64 32, i64 18
-  %call.i43 = tail call noalias ptr @g_malloc(i64 noundef %..i) #18
+  %call.i43 = tail call noalias ptr @g_malloc(i64 noundef range(i64 18, 37) %..i) #18
   %buf.i = getelementptr inbounds i8, ptr %req, i64 416
   store ptr %call.i43, ptr %buf.i, align 8
   %conv.i44 = trunc nuw nsw i64 %..i to i32

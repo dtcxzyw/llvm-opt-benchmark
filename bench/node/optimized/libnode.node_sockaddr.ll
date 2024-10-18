@@ -586,7 +586,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8, !alias.scope !5
   store i32 128, ptr %len.i, align 4, !noalias !5
   %address_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call1.i = call noundef i32 @uv_tcp_getsockname(ptr noundef nonnull %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !8
+  %call1.i = call noundef i32 @uv_tcp_getsockname(ptr noundef nonnull align 8 dereferenceable(248) %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !8
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %do.body.i, label %if.else.i
 
@@ -624,7 +624,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8, !alias.scope !9
   store i32 128, ptr %len.i, align 4, !noalias !9
   %address_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call1.i = call noundef i32 @uv_udp_getsockname(ptr noundef nonnull %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !12
+  %call1.i = call noundef i32 @uv_udp_getsockname(ptr noundef nonnull align 8 dereferenceable(216) %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !12
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %do.body.i, label %if.else.i
 
@@ -662,7 +662,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8, !alias.scope !13
   store i32 128, ptr %len.i, align 4, !noalias !13
   %address_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call1.i = call noundef i32 @uv_tcp_getpeername(ptr noundef nonnull %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !8
+  %call1.i = call noundef i32 @uv_tcp_getpeername(ptr noundef nonnull align 8 dereferenceable(248) %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !8
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %do.body.i, label %if.else.i
 
@@ -700,7 +700,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8, !alias.scope !16
   store i32 128, ptr %len.i, align 4, !noalias !16
   %address_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call1.i = call noundef i32 @uv_udp_getpeername(ptr noundef nonnull %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !12
+  %call1.i = call noundef i32 @uv_udp_getpeername(ptr noundef nonnull align 8 dereferenceable(216) %handle, ptr noundef nonnull %address_.i.i, ptr noundef nonnull %len.i) #21, !callees !12
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %do.body.i, label %if.else.i
 
@@ -1134,7 +1134,7 @@ _ZNSt10shared_ptrIN4node22SocketAddressBlockListEEC2ERKS2_.exit: ; preds = %entr
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_) #21
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -1151,7 +1151,7 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZNSt10shared_pt
 define dso_local void @_ZN4node22SocketAddressBlockList16AddSocketAddressERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %address) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25, !noalias !19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList17SocketAddressRuleE, i64 16), ptr %call.i, align 8, !noalias !19
   %address.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -1195,7 +1195,7 @@ _ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2
   %8 = load ptr, ptr %rules_, align 8
   %address_rules_ = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %address, align 8
-  %call.i3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4node13SocketAddressESt4pairIKS2_St14_List_iteratorISt10unique_ptrINS1_22SocketAddressBlockList4RuleESt14default_deleteIS8_EEEESaISD_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %address_rules_, ptr noundef nonnull align 8 dereferenceable(136) %9)
+  %call.i3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4node13SocketAddressESt4pairIKS2_St14_List_iteratorISt10unique_ptrINS1_22SocketAddressBlockList4RuleESt14default_deleteIS8_EEEESaISD_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %address_rules_, ptr noundef nonnull align 8 dereferenceable(136) %9)
   store ptr %8, ptr %call.i3, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #21
   ret void
@@ -1208,7 +1208,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN4node22SocketAddressBlockList19RemoveSocketAddressERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %address) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %address_rules_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %address, align 8
   %call.i = tail call ptr @_ZNSt10_HashtableIN4node13SocketAddressESt4pairIKS1_St14_List_iteratorISt10unique_ptrINS0_22SocketAddressBlockList4RuleESt14default_deleteIS7_EEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_(ptr noundef nonnull align 8 dereferenceable(56) %address_rules_, ptr noundef nonnull align 8 dereferenceable(136) %0)
@@ -1327,7 +1327,7 @@ if.end:                                           ; preds = %_ZNSt13unordered_ma
 define dso_local void @_ZN4node22SocketAddressBlockList21AddSocketAddressRangeERKSt10shared_ptrINS_13SocketAddressEES5_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %start, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %end) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25, !noalias !24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList22SocketAddressRangeRuleE, i64 16), ptr %call.i, align 8, !noalias !24
   %start.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -1403,7 +1403,7 @@ _ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2
 define dso_local void @_ZN4node22SocketAddressBlockList20AddSocketAddressMaskERKSt10shared_ptrINS_13SocketAddressEEi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %network, i32 noundef %prefix) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25, !noalias !27
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList21SocketAddressMaskRuleE, i64 16), ptr %call.i, align 8, !noalias !27
   %network.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -1454,7 +1454,7 @@ _ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2
 define dso_local noundef zeroext i1 @_ZN4node22SocketAddressBlockList5ApplyERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %address) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %rules_ = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.cond
 
@@ -1637,7 +1637,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 9))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %address = getelementptr inbounds i8, ptr %this, i64 8
@@ -1701,7 +1701,7 @@ entry:
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 7))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %start = getelementptr inbounds i8, ptr %this, i64 8
@@ -1748,7 +1748,7 @@ entry:
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 8))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %network = getelementptr inbounds i8, ptr %this, i64 8
@@ -1822,7 +1822,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry,
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv3, i8 noundef signext 45) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %conv5 = zext nneg i32 %__val.lobit to i64
@@ -1892,7 +1892,7 @@ define dso_local ptr @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11Environme
 entry:
   %rules = alloca %"class.std::vector", align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules, i8 0, i64 24, i1 false)
   %call = call noundef zeroext i1 @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11EnvironmentEPSt6vectorIN2v85LocalINS4_5ValueEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %env, ptr noundef nonnull %rules)
   %.pre = load ptr, ptr %rules, align 8
@@ -2857,7 +2857,7 @@ entry:
   %_M_next_resize.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !71
   %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 120
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_.i.i.i.i.i.i.i.i) #21, !noalias !71
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i) #21, !noalias !71
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN4node22SocketAddressBlockListEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
@@ -2869,13 +2869,13 @@ do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %entry
 _ZSt11make_sharedIN4node22SocketAddressBlockListEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_.exit: ; preds = %entry
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
   %1 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %1, ptr %agg.tmp.sroa.0.0.copyload) #21
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %1, ptr %agg.tmp.sroa.0.0.copyload) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i64 16), ptr %call, align 8
   %blocklist_.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %_M_impl.i.i.i.i.i.i, ptr %blocklist_.i, align 8
   %_M_refcount.i.i.i1 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call) #21
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
@@ -2944,13 +2944,13 @@ entry:
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args3, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #21
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i64 16), ptr %call, align 8
   %blocklist_.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %blocklist_.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %2, ptr %_M_refcount.i.i.i, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call) #21
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
@@ -3064,7 +3064,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %_M_next_resize.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !77
   %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 120
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_.i.i.i.i.i.i.i.i) #21, !noalias !77
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i) #21, !noalias !77
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
@@ -3077,13 +3077,13 @@ _ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit: ; preds = %_ZN4node
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %20 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call6, ptr noundef %20, ptr nonnull %add.ptr.i) #21
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call6, ptr noundef %20, ptr nonnull %add.ptr.i) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i64 16), ptr %call6, align 8
   %blocklist_.i = getelementptr inbounds i8, ptr %call6, i64 32
   store ptr %_M_impl.i.i.i.i.i.i, ptr %blocklist_.i, align 8
   %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %call6, i64 40
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i5, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call6) #21
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call6) #21
   ret void
 }
 
@@ -3786,7 +3786,7 @@ do.end117:                                        ; preds = %do.body108
   %blocklist_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %59 = load ptr, ptr %blocklist_, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %59, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #21
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25, !noalias !78
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList21SocketAddressMaskRuleE, i64 16), ptr %call.i.i, align 8, !noalias !78
   %network.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
@@ -4094,7 +4094,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %22 = load ptr, ptr %blocklist_, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rules.i)
   %mutex_.i = getelementptr inbounds i8, ptr %22, i64 104
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #21
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i8 0, i64 24, i1 false)
   %call.i = call noundef zeroext i1 @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11EnvironmentEPSt6vectorIN2v85LocalINS4_5ValueEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef readonly %retval.0.i.i, ptr noundef nonnull %rules.i)
   %.pre.i = load ptr, ptr %rules.i, align 8
@@ -4393,13 +4393,13 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25, !noalias !87
   %6 = load ptr, ptr %principal_realm_.i.i.i, align 8, !noalias !87
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef %6, ptr nonnull %call18.i) #21, !noalias !87
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call.i, ptr noundef %6, ptr nonnull %call18.i) #21, !noalias !87
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i64 16), ptr %call.i, align 8, !noalias !87
   %blocklist_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %0, ptr %blocklist_.i.i, align 8, !noalias !87
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !87
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #21, !noalias !87
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call.i) #21, !noalias !87
   %call3.i.i.i4 = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #21, !noalias !87
   %cmp2.not.i.i5 = icmp eq ptr %call3.i.i.i4, null
   br i1 %cmp2.not.i.i5, label %do.body6.i.i6, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i
@@ -4906,13 +4906,13 @@ cleanup.thread:                                   ; preds = %if.end116, %do.end8
   %add.ptr.i = getelementptr inbounds i8, ptr %74, i64 -8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %75 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call118, ptr noundef %75, ptr nonnull %add.ptr.i) #21
+  call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call118, ptr noundef %75, ptr nonnull %add.ptr.i) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17SocketAddressBaseE, i64 16), ptr %call118, align 8
   %address_.i = getelementptr inbounds i8, ptr %call118, i64 32
   store ptr %_M_impl.i.i.i.i.i.i, ptr %address_.i, align 8
   %_M_refcount.i.i.i44 = getelementptr inbounds i8, ptr %call118, i64 40
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i44, align 8
-  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call118) #21
+  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call118) #21
   br label %_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit79
 
 if.then.i.i.i50:                                  ; preds = %_ZN4node13SocketAddress3NewEiPKcjPS0_.exit
@@ -5461,13 +5461,13 @@ entry:
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args3, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #21
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17SocketAddressBaseE, i64 16), ptr %call, align 8
   %address_.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %address_.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %2, ptr %_M_refcount.i.i.i, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call) #21
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
@@ -5813,13 +5813,13 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25, !noalias !108
   %4 = load ptr, ptr %principal_realm_.i.i.i, align 8, !noalias !108
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i4, ptr noundef %4, ptr nonnull %call18.i) #21, !noalias !108
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call.i4, ptr noundef %4, ptr nonnull %call18.i) #21, !noalias !108
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17SocketAddressBaseE, i64 16), ptr %call.i4, align 8, !noalias !108
   %address_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 32
   store ptr %0, ptr %address_.i.i, align 8, !noalias !108
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 40
   store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !108
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i4) #21, !noalias !108
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call.i4) #21, !noalias !108
   %call3.i.i.i5 = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i4) #21, !noalias !108
   %cmp2.not.i.i6 = icmp eq ptr %call3.i.i.i5, null
   br i1 %cmp2.not.i.i6, label %do.body6.i.i7, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i
@@ -6307,7 +6307,7 @@ define linkonce_odr dso_local void @_ZN4node22SocketAddressBlockListD2Ev(ptr nou
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockListE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #21
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
   %address_rules_ = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -7141,7 +7141,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4node26SocketAddressBlockListWrapD2Ev.exit
 
 _ZN4node26SocketAddressBlockListWrapD2Ev.exit:    ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -7397,7 +7397,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4node17SocketAddressBaseD2Ev.exit
 
 _ZN4node17SocketAddressBaseD2Ev.exit:             ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -7453,7 +7453,7 @@ do.end8:                                          ; preds = %entry, %entry
   %call = call i32 @uv_inet_ntop(i32 noundef %conv10, ptr noundef nonnull %cond, ptr noundef nonnull %host, i64 noundef 46) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %host) #21
   %add.ptr.i = getelementptr inbounds i8, ptr %host, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %host, ptr noundef nonnull %add.ptr.i)
@@ -7568,7 +7568,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -7596,7 +7596,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #21
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #21
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
@@ -8912,7 +8912,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

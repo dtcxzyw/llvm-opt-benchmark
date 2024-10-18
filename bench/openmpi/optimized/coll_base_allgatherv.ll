@@ -442,7 +442,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %61
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
   %85 = sext i32 %81 to i64
-  %86 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %79, i64 noundef %85, ptr noundef %6, i32 noundef %30, i32 noundef -11, ptr noundef %73, i64 noundef %84, ptr noundef %6, i32 noundef %33, i32 noundef -11, ptr noundef %7, ptr noundef null) #7
+  %86 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %79, i64 noundef range(i64 -2147483648, 2147483648) %85, ptr noundef %6, i32 noundef %30, i32 noundef -11, ptr noundef %73, i64 noundef range(i64 -2147483648, 2147483648) %84, ptr noundef %6, i32 noundef %33, i32 noundef -11, ptr noundef %7, ptr noundef null) #7
   %.not60 = icmp eq i32 %86, 0
   br i1 %.not60, label %61, label %.loopexit
 
@@ -557,7 +557,7 @@ define i32 @ompi_coll_base_allgatherv_intra_neighborexchange(ptr noundef %0, i32
 75:                                               ; preds = %53
   %76 = sext i32 %71 to i64
   %77 = sext i32 %69 to i64
-  %78 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %67, i64 noundef %77, ptr noundef nonnull %6, i32 noundef %.sink142, i32 noundef -11, ptr noundef %63, i64 noundef %76, ptr noundef nonnull %6, i32 noundef %.sink142, i32 noundef -11, ptr noundef nonnull %7, ptr noundef null) #7
+  %78 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %67, i64 noundef range(i64 -2147483648, 2147483648) %77, ptr noundef nonnull %6, i32 noundef %.sink142, i32 noundef -11, ptr noundef %63, i64 noundef range(i64 -2147483648, 2147483648) %76, ptr noundef nonnull %6, i32 noundef %.sink142, i32 noundef -11, ptr noundef nonnull %7, ptr noundef null) #7
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %73, %75
@@ -718,7 +718,7 @@ define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 nounde
   %38 = getelementptr inbounds i32, ptr %4, i64 %31
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.0, i64 noundef %37, ptr noundef %.043, i32 noundef %19, i32 noundef -11, ptr noundef %36, i64 noundef %40, ptr noundef nonnull %6, i32 noundef %19, i32 noundef -11, ptr noundef nonnull %7, ptr noundef null) #7
+  %41 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.0, i64 noundef range(i64 -2147483648, 2147483648) %37, ptr noundef %.043, i32 noundef %19, i32 noundef -11, ptr noundef %36, i64 noundef range(i64 -2147483648, 2147483648) %40, ptr noundef nonnull %6, i32 noundef %19, i32 noundef -11, ptr noundef nonnull %7, ptr noundef null) #7
   %.not48 = icmp ne i32 %41, 0
   %brmerge = or i1 %20, %.not48
   br i1 %brmerge, label %52, label %42

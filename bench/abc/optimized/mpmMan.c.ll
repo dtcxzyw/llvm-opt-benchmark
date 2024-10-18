@@ -1440,7 +1440,7 @@ define void @Mpm_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %41
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.18, i32 noundef %46) #17
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.18, i32 noundef range(i32 0, 16) %46) #17
   br label %Vec_MemDumpDigit.exit.i
 
 50:                                               ; preds = %41

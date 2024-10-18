@@ -89,7 +89,7 @@ _ZNKSt8functionIFvRSoPvEEclES0_S1_.exit:          ; preds = %sw.bb
   store ptr %3, ptr %__args.addr2.i, align 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %ext, i64 24
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %ext, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %ext, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   br label %return
 
@@ -627,7 +627,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

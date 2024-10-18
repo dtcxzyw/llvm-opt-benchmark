@@ -994,13 +994,13 @@ if.then42:                                        ; preds = %land.lhs.true36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then42
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp) #15
   br label %return
 
 lpad:                                             ; preds = %if.then42
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp) #15
   resume { ptr, i32 } %5
 
 if.else44:                                        ; preds = %land.lhs.true36, %if.else25

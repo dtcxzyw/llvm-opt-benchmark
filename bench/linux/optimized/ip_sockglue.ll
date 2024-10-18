@@ -3996,13 +3996,13 @@ thread-pre-split:                                 ; preds = %29
   br label %.thread9
 
 copy_to_sockptr.exit:                             ; preds = %365
-  %367 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %7, i64 noundef %362) #14
+  %367 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %7, i64 noundef range(i64 -2147483648, 2147483648) %362) #14
   %368 = and i64 %367, 4294967295
   %369 = icmp eq i64 %368, 0
   br i1 %369, label %370, label %.thread9
 
 copy_to_sockptr.exit.thread:                      ; preds = %360
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %7, i64 %362, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %7, i64 range(i64 -2147483648, 2147483648) %362, i1 false)
   br label %370
 
 370:                                              ; preds = %349, %copy_to_sockptr.exit.thread, %.thread5, %copy_to_sockptr.exit

@@ -467,7 +467,7 @@ define i32 @WebPPictureImportBGR(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %.not73.i, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef null, i32 noundef 3, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
+  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef null, i32 noundef 3, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
 20:                                               ; preds = %16
@@ -537,7 +537,7 @@ define i32 @WebPPictureImportBGRA(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %1, i64 3
-  %20 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef nonnull %19, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
+  %20 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef nonnull %19, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
 21:                                               ; preds = %16
@@ -602,7 +602,7 @@ define i32 @WebPPictureImportBGRX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not73.i, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef null, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
+  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef null, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
 20:                                               ; preds = %16
@@ -671,7 +671,7 @@ define i32 @WebPPictureImportRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %.not73.i, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef null, i32 noundef 3, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
+  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef null, i32 noundef 3, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
 20:                                               ; preds = %16
@@ -741,7 +741,7 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %1, i64 3
-  %20 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %19, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
+  %20 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %19, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
 21:                                               ; preds = %16
@@ -806,7 +806,7 @@ define i32 @WebPPictureImportRGBX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not73.i, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef null, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
+  %19 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef null, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
 20:                                               ; preds = %16
@@ -923,7 +923,7 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
   %45 = load i32, ptr %11, align 8
   %46 = load i32, ptr %13, align 4
   %47 = tail call ptr @SharpYuvGetConversionMatrix(i32 noundef 0) #9
-  %48 = tail call i32 @SharpYuvConvert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %4, i32 noundef %5, i32 noundef 8, ptr noundef %36, i32 noundef %38, ptr noundef %40, i32 noundef %42, ptr noundef %44, i32 noundef %42, i32 noundef 8, i32 noundef %45, i32 noundef %46, ptr noundef %47) #9
+  %48 = tail call i32 @SharpYuvConvert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 3, 5) %4, i32 noundef %5, i32 noundef 8, ptr noundef %36, i32 noundef %38, ptr noundef %40, i32 noundef %42, ptr noundef %44, i32 noundef %42, i32 noundef 8, i32 noundef %45, i32 noundef %46, ptr noundef %47) #9
   %.not.i207 = icmp eq i32 %48, 0
   br i1 %.not.i207, label %49, label %PreprocessARGB.exit
 

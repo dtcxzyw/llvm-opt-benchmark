@@ -234,7 +234,7 @@ define void @_ZN6marisa5Agent10init_stateEv(ptr nocapture noundef nonnull align 
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 41, i1 false)
   %14 = getelementptr inbounds i8, ptr %11, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %14, i8 0, i64 41, i1 false)
   %15 = getelementptr inbounds i8, ptr %11, i64 96
@@ -359,7 +359,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

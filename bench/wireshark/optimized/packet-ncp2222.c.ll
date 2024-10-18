@@ -22875,7 +22875,7 @@ process_search_match.exit:                        ; preds = %150
   %210 = add i32 %.0.i28, 1
   %211 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %205, ptr noundef %1, i32 noundef %.1.i, i32 noundef -1, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.7221, i32 noundef %210) #13
   store i32 %.1.i, ptr %4, align 4
-  tail call fastcc void @process_set_filter(ptr noundef %211, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @process_set_filter(ptr noundef %211, ptr noundef %1, ptr noundef nonnull %2)
   %212 = load i32, ptr %4, align 4
   %213 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %212) #13
   %214 = icmp slt i32 %213, 4

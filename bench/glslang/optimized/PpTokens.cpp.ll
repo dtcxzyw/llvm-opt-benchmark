@@ -150,7 +150,7 @@ define linkonce_odr void @_ZNSt6vectorIN7glslang10TPpContext11TokenStream5TokenE
   br i1 %.not, label %31, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = getelementptr inbounds i8, ptr %4, i64 40
   %10 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #14, !noalias !4
@@ -237,7 +237,7 @@ define noundef i32 @_ZN7glslang10TPpContext11TokenStream8getTokenERNS_17TParseCo
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 0, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1065) %2, i8 0, i64 20, i1 false)
   %19 = getelementptr inbounds i8, ptr %2, i64 40
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 25
@@ -1188,7 +1188,7 @@ _ZNKSt6vectorIN7glslang10TPpContext11TokenStream5TokenENS0_14pool_allocatorIS3_E
 _ZNSt12_Vector_baseIN7glslang10TPpContext11TokenStream5TokenENS0_14pool_allocatorIS3_EEE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7glslang10TPpContext11TokenStream5TokenENS0_14pool_allocatorIS3_EEE12_M_check_lenEmPKc.exit, %21
   %25 = phi ptr [ %24, %21 ], [ null, %_ZNKSt6vectorIN7glslang10TPpContext11TokenStream5TokenENS0_14pool_allocatorIS3_EEE12_M_check_lenEmPKc.exit ]
   %26 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %25, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 16, i1 false)
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = getelementptr inbounds i8, ptr %26, i64 40
   %29 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #14, !noalias !21
@@ -1245,7 +1245,7 @@ _ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5
 .lr.ph.i.i:                                       ; preds = %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JRKS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOSA_.exit, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i
   %.011.i.i = phi ptr [ %70, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i ], [ %25, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JRKS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOSA_.exit ]
   %.sroa.05.010.i.i = phi ptr [ %69, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i ], [ %7, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JRKS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOSA_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.010.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.011.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.05.010.i.i, i64 16, i1 false)
   %48 = getelementptr inbounds i8, ptr %.011.i.i, i64 16
   %49 = getelementptr inbounds i8, ptr %.011.i.i, i64 40
   %50 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #14, !noalias !30
@@ -1310,7 +1310,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5Tok
 .lr.ph.i.i19:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5TokenES4_NS0_14pool_allocatorIS3_EEET0_T_S8_S7_RT1_.exit, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i23
   %.011.i.i20 = phi ptr [ %94, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i23 ], [ %71, %_ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5TokenES4_NS0_14pool_allocatorIS3_EEET0_T_S8_S7_RT1_.exit ]
   %.sroa.05.010.i.i21 = phi ptr [ %93, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i23 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5TokenES4_NS0_14pool_allocatorIS3_EEET0_T_S8_S7_RT1_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.010.i.i21, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.011.i.i20, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.05.010.i.i21, i64 16, i1 false)
   %72 = getelementptr inbounds i8, ptr %.011.i.i20, i64 16
   %73 = getelementptr inbounds i8, ptr %.011.i.i20, i64 40
   %74 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #14, !noalias !40

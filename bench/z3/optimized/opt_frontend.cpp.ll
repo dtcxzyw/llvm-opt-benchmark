@@ -891,7 +891,7 @@ if.then.i.i.i51:                                  ; preds = %if.then.i.i49
   %vtable.i.i.i.i = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %vtable.i.i.i.i, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(96) %55) #19
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %55)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %55)
           to label %if.end80 unwind label %terminate.lpad.i52
 
 terminate.lpad.i52:                               ; preds = %if.then.i.i.i51
@@ -1132,7 +1132,7 @@ if.then.i.i.i.i.i90:                              ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr2.i.i, align 8
   %93 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(96) %.pr2.i.i) #19
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr2.i.i)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %.pr2.i.i)
           to label %_ZL13display_modelRSo.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i90
@@ -1361,7 +1361,7 @@ define internal fastcc void @_ZL18display_statisticsv() unnamed_addr #5 personal
 entry:
   %stats = alloca %class.statistics, align 8
   %0 = load ptr, ptr @_ZL17display_stats_mux, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #19
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1445,11 +1445,11 @@ lpad2:                                            ; preds = %invoke.cont8, %invo
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10statisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %stats) #19
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   resume { ptr, i32 } %11
 
 if.end:                                           ; preds = %if.then.i.i.i2.i, %_ZN7svectorISt4pairIPKcdEjED2Ev.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
+  %call1.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   ret void
 }
 
@@ -1674,7 +1674,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(96) %0) #19
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i

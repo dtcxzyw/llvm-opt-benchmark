@@ -270,7 +270,7 @@ get_message_type.exit:                            ; preds = %11, %14, %17, %20, 
   %36 = load i32, ptr @ett_bt_tracker, align 4
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #4
   %38 = load i32, ptr @hf_bt_tracker_msg_type, align 4
-  %39 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0.i) #4
+  %39 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 8) %.0.i) #4
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %40
 

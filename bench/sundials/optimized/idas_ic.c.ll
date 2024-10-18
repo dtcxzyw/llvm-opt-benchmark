@@ -705,7 +705,7 @@ IDANewy.exit.i.i.i:                               ; preds = %337, %330
   br i1 %411, label %412, label %IDANewyyp.exit.i.i.i
 
 412:                                              ; preds = %409
-  tail call fastcc void @IDASensNewyyp(ptr noundef readonly %0, double noundef %.086108.i.i.i)
+  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull readonly %0, double noundef %.086108.i.i.i)
   br label %IDANewyyp.exit.i.i.i
 
 IDANewyyp.exit.i.i.i:                             ; preds = %412, %409, %407
@@ -1405,7 +1405,7 @@ thread-pre-split.i:                               ; preds = %933
 790:                                              ; preds = %857, %.lr.ph.i.i.i297
   %.04116.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i.i297 ], [ %858, %857 ]
   %.04315.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i297 ], [ %861, %857 ]
-  tail call fastcc void @IDASensNewyyp(ptr noundef %0, double noundef %.04116.i.i.i)
+  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull %0, double noundef %.04116.i.i.i)
   %791 = load ptr, ptr %160, align 8
   %792 = load i32, ptr %161, align 8
   %793 = load double, ptr %57, align 8

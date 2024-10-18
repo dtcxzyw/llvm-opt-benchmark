@@ -6699,7 +6699,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %143 = add i32 %.1.i, -1
   %144 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %142, ptr noundef %.0, i32 noundef %143, i32 noundef 1, i32 noundef 5) #5
   %145 = load i32, ptr @hf_length_indicator, align 4
-  %146 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %145, ptr noundef %.0, i32 noundef %.1.i, i32 noundef 1, i32 noundef %.0261.i) #5
+  %146 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %145, ptr noundef %.0, i32 noundef %.1.i, i32 noundef 1, i32 noundef range(i32 0, 2048) %.0261.i) #5
   %147 = add i32 %.1.i, 1
   call void @proto_tree_add_bitmask_list(ptr noundef %140, ptr noundef %.0, i32 noundef %147, i32 noundef 1, ptr noundef nonnull @dissect_codec.compatibility_info, i32 noundef 0) #5
   %148 = add i32 %.1.i, 2
@@ -6825,9 +6825,9 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %210 = zext i8 %200 to i32
   %211 = load i32, ptr @hf_bat_ase_identifier, align 4
   %212 = add i32 %.5.i, -1
-  %213 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %211, ptr noundef %.0, i32 noundef %212, i32 noundef 1, i32 noundef %210) #5
+  %213 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %211, ptr noundef %.0, i32 noundef %212, i32 noundef 1, i32 noundef range(i32 0, 256) %210) #5
   %214 = load i32, ptr @hf_length_indicator, align 4
-  %215 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %214, ptr noundef %.0, i32 noundef %.5.i, i32 noundef 1, i32 noundef %.1262.i) #5
+  %215 = call ptr @proto_tree_add_uint(ptr noundef %140, i32 noundef %214, ptr noundef %.0, i32 noundef %.5.i, i32 noundef 1, i32 noundef range(i32 0, 2048) %.1262.i) #5
   %216 = add i32 %.5.i, 1
   call void @proto_tree_add_bitmask_list(ptr noundef %140, ptr noundef %.0, i32 noundef %216, i32 noundef 1, ptr noundef nonnull @dissect_codec.compatibility_info, i32 noundef 0) #5
   %217 = add i32 %.5.i, 2

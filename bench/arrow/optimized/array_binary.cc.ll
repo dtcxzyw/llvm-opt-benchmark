@@ -243,7 +243,7 @@ cleanup.action:                                   ; preds = %call4.i.noexc, %cal
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %entry, %cleanup.action
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cleanup.done
@@ -498,7 +498,7 @@ invoke.cont8:                                     ; preds = %_ZSt10_ConstructISt
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad11
 
 .noexc:                                           ; preds = %invoke.cont10
@@ -1314,7 +1314,7 @@ cleanup.action:                                   ; preds = %call4.i.noexc, %cal
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %entry, %cleanup.action
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cleanup.done
@@ -1562,7 +1562,7 @@ invoke.cont8:                                     ; preds = %_ZSt10_ConstructISt
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad11
 
 .noexc:                                           ; preds = %invoke.cont10
@@ -2028,7 +2028,7 @@ cleanup.action:                                   ; preds = %call4.i.noexc, %cal
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %entry, %cleanup.action
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cleanup.done
@@ -2276,7 +2276,7 @@ invoke.cont8:                                     ; preds = %_ZSt10_ConstructISt
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad11
 
 .noexc:                                           ; preds = %invoke.cont10
@@ -2754,7 +2754,7 @@ cleanup.action:                                   ; preds = %call4.i.noexc, %cal
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %entry, %cleanup.action
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cleanup.done
@@ -3002,7 +3002,7 @@ invoke.cont8:                                     ; preds = %_ZSt10_ConstructISt
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %.noexc unwind label %lpad11
 
 .noexc:                                           ; preds = %invoke.cont10
@@ -3488,7 +3488,7 @@ cleanup.done:                                     ; preds = %entry, %cleanup.act
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store ptr %6, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %data, align 8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
           to label %.noexc unwind label %lpad15
 
 .noexc:                                           ; preds = %cleanup.done
@@ -3716,7 +3716,7 @@ invoke.cont10:                                    ; preds = %if.then9.i.i15, %if
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont10
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14)
           to label %.noexc25 unwind label %lpad19
 
 .noexc25:                                         ; preds = %invoke.cont18
@@ -4121,7 +4121,7 @@ cleanup.done:                                     ; preds = %entry, %cleanup.act
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store ptr %6, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %data, align 8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
           to label %.noexc unwind label %lpad15
 
 .noexc:                                           ; preds = %cleanup.done
@@ -4266,7 +4266,7 @@ entry:
   %raw_values_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %raw_values_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow20FixedSizeBinaryArrayE, i64 16), ptr %this, align 8
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry

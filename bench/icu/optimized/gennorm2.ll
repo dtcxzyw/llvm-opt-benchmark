@@ -669,7 +669,7 @@ invoke.cont41:                                    ; preds = %if.end40
   %22 = load ptr, ptr %agg.tmp, align 8
   %23 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %24 = load i32, ptr %23, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename)
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %invoke.cont41
@@ -683,7 +683,7 @@ invoke.cont41:                                    ; preds = %if.end40
 lpad.i:                                           ; preds = %.noexc
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename) #16
   br label %ehcleanup162
 
 invoke.cont44:                                    ; preds = %.noexc
@@ -947,7 +947,7 @@ if.else155:                                       ; preds = %if.else151
 
 if.end159:                                        ; preds = %invoke.cont144.invoke, %if.else155, %if.then153
   %63 = load i32, ptr %errorCode.i.i, align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename) #16
   %64 = load ptr, ptr %diff, align 8
   %isnull.i57 = icmp eq ptr %64, null
   br i1 %isnull.i57, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, label %delete.notnull.i58
@@ -983,7 +983,7 @@ _ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit67: ; preds = %_Z
 
 ehcleanup:                                        ; preds = %lpad45.loopexit, %lpad45.loopexit.split-lp, %lpad123, %lpad93, %lpad84
   %.pn = phi { ptr, i32 } [ %46, %lpad93 ], [ %45, %lpad84 ], [ %53, %lpad123 ], [ %lpad.loopexit, %lpad45.loopexit ], [ %lpad.loopexit.split-lp, %lpad45.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename) #16
   br label %ehcleanup162
 
 ehcleanup162:                                     ; preds = %lpad29, %lpad.i, %ehcleanup

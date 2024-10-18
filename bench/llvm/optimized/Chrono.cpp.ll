@@ -47,7 +47,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
   %7 = sdiv i64 %1, 1000000000
   %8 = srem i64 %1, 1000000000
   store i64 %7, ptr %3, align 8, !noalias !4
-  %9 = call ptr @localtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %9 = call ptr @localtime_r(ptr noundef nonnull %3, ptr noundef nonnull align 8 %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %10 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 20, ptr noundef nonnull @.str, ptr noundef nonnull %4) #8
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
@@ -129,7 +129,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %.sroa.0.0.copyload.i, ptr %11, align 8, !noalias !10
-  %13 = call ptr @gmtime_r(ptr noundef nonnull %11, ptr noundef nonnull %12) #8
+  %13 = call ptr @gmtime_r(ptr noundef nonnull %11, ptr noundef nonnull align 8 %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
@@ -152,7 +152,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %19, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -263,7 +263,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %63, %61, %55, %53, 
 
 _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %71, %68
   %72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %73 = call i64 @strftime(ptr noundef nonnull %10, i64 noundef 256, ptr noundef %72, ptr noundef nonnull %12) #8
+  %73 = call i64 @strftime(ptr noundef nonnull %10, i64 noundef 256, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %12) #8
   %.not.i = icmp eq i64 %73, 0
   %74 = select i1 %.not.i, ptr @.str.6, ptr %10
   %75 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #8
@@ -293,7 +293,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %71, %68
   br label %_ZN4llvmL6formatINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEvRKT_R2tmRNS_11raw_ostreamENS_9StringRefE.exit
 
 _ZN4llvmL6formatINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEvRKT_R2tmRNS_11raw_ostreamENS_9StringRefE.exit: ; preds = %84, %86, %87
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #8
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -320,7 +320,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   %14 = add i64 %.neg.i.i, %.sroa.0.0.copyload.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %13, ptr %11, align 8, !noalias !24
-  %15 = call ptr @localtime_r(ptr noundef nonnull %11, ptr noundef nonnull %12) #8
+  %15 = call ptr @localtime_r(ptr noundef nonnull %11, ptr noundef nonnull align 8 %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
@@ -343,7 +343,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %21, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -456,7 +456,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %67, %65, %59, %57, 
 
 _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %75, %72
   %76 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %77 = call i64 @strftime(ptr noundef nonnull %10, i64 noundef 256, ptr noundef %76, ptr noundef nonnull %12) #8
+  %77 = call i64 @strftime(ptr noundef nonnull %10, i64 noundef 256, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(56) %12) #8
   %.not.i = icmp eq i64 %77, 0
   %78 = select i1 %.not.i, ptr @.str.6, ptr %10
   %79 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #8
@@ -486,7 +486,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %75, %72
   br label %_ZN4llvmL6formatINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvRKT_R2tmRNS_11raw_ostreamENS_9StringRefE.exit
 
 _ZN4llvmL6formatINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvRKT_R2tmRNS_11raw_ostreamENS_9StringRefE.exit: ; preds = %88, %90, %91
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #8
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)

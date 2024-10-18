@@ -4964,12 +4964,12 @@ _add_dependency_to_list.exit:                     ; preds = %160, %155, %153
   br i1 %192, label %193, label %_find_dependent_job_ptr.exit.i
 
 193:                                              ; preds = %191
-  %194 = call ptr @find_job_record(i32 noundef %171) #16
+  %194 = call ptr @find_job_record(i32 noundef range(i32 1, 0) %171) #16
   %.not.i.i75 = icmp eq ptr %194, null
   br i1 %.not.i.i75, label %195, label %.thread.i.i
 
 195:                                              ; preds = %193
-  %196 = call ptr @find_job_array_rec(i32 noundef %171, i32 noundef -1) #16
+  %196 = call ptr @find_job_array_rec(i32 noundef range(i32 1, 0) %171, i32 noundef -1) #16
   %.not14.i.i = icmp eq ptr %196, null
   br i1 %.not14.i.i, label %_depends_on_same_job.exit.i, label %.thread.i.i
 
@@ -4993,7 +4993,7 @@ _add_dependency_to_list.exit:                     ; preds = %160, %155, %153
   br i1 %.not16.i.i, label %_depends_on_same_job.exit.i, label %_find_dependent_job_ptr.exit.thread45.i
 
 _find_dependent_job_ptr.exit.i:                   ; preds = %191
-  %206 = call ptr @find_job_array_rec(i32 noundef %171, i32 noundef %.038.i) #16
+  %206 = call ptr @find_job_array_rec(i32 noundef range(i32 1, 0) %171, i32 noundef %.038.i) #16
   %207 = icmp eq i32 %.038.i, -1
   br i1 %207, label %_find_dependent_job_ptr.exit.thread45.i, label %_depends_on_same_job.exit.i
 
@@ -5210,12 +5210,12 @@ _parse_dependency_jobid_new.exit.thread145:       ; preds = %264
   br i1 %287, label %288, label %_find_dependent_job_ptr.exit.i81
 
 288:                                              ; preds = %286
-  %289 = call ptr @find_job_record(i32 noundef %266) #16
+  %289 = call ptr @find_job_record(i32 noundef range(i32 1, 0) %266) #16
   %.not.i.i87 = icmp eq ptr %289, null
   br i1 %.not.i.i87, label %290, label %.thread.i.i88
 
 290:                                              ; preds = %288
-  %291 = call ptr @find_job_array_rec(i32 noundef %266, i32 noundef -1) #16
+  %291 = call ptr @find_job_array_rec(i32 noundef range(i32 1, 0) %266, i32 noundef -1) #16
   %.not14.i.i92 = icmp eq ptr %291, null
   br i1 %.not14.i.i92, label %_find_dependent_job_ptr.exit.thread19.thread.i, label %.thread.i.i88
 
@@ -5239,7 +5239,7 @@ _parse_dependency_jobid_new.exit.thread145:       ; preds = %264
   br i1 %.not16.i.i91, label %.split.thread.i, label %.split.thread43.i
 
 _find_dependent_job_ptr.exit.i81:                 ; preds = %286
-  %301 = call ptr @find_job_array_rec(i32 noundef %266, i32 noundef %.08.i) #16
+  %301 = call ptr @find_job_array_rec(i32 noundef range(i32 1, 0) %266, i32 noundef %.08.i) #16
   %.not108.i = icmp eq ptr %301, null
   br i1 %.not108.i, label %_find_dependent_job_ptr.exit.thread19.i, label %.split.i
 

@@ -1899,7 +1899,7 @@ define dso_local i64 @hash_aclitem_extended(ptr nocapture noundef readonly %0) l
   br label %20
 
 18:                                               ; preds = %1
-  %19 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %14, i64 noundef %6) #15
+  %19 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %14, i64 noundef range(i64 1, 0) %6) #15
   br label %20
 
 20:                                               ; preds = %18, %16

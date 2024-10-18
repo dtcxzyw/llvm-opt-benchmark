@@ -62,7 +62,7 @@ declare void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14FilesetCommandC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
@@ -79,7 +79,7 @@ _ZN4LIEF5MachO14FilesetCommand4nameERKNSt7__cxx1112basic_stringIcSt11char_traits
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  tail call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
+  tail call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #10
   resume { ptr, i32 } %7
 }
 
@@ -103,7 +103,7 @@ define void @_ZN4LIEF5MachO14FilesetCommandD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(112) ptr @_ZN4LIEF5MachO14FilesetCommandaSES1_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  tail call void @_ZN4LIEF5MachO11LoadCommand4swapERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  tail call void @_ZN4LIEF5MachO11LoadCommand4swapERS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i64, ptr %3, align 8

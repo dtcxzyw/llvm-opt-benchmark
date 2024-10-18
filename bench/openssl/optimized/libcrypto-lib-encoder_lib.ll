@@ -167,7 +167,7 @@ if.end5:                                          ; preds = %if.end.i, %if.then3
   %7 = load ptr, ptr %data, align 8
   %encoder_insts = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %encoder_insts, align 8
-  %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %dec128) #7
+  %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef range(i32 -2147483648, 2147483647) %dec128) #7
   %cmp.i65 = icmp eq ptr %call.i, null
   br i1 %cmp.i65, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit, label %if.end.i76
 

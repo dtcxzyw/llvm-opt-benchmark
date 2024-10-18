@@ -643,7 +643,7 @@ arraydestroy.body:                                ; preds = %ehcleanup43, %array
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   %falsename.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %falsename.i) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names
   br i1 %arraydestroy.done, label %cleanup.done48, label %arraydestroy.body
 
@@ -871,7 +871,7 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
   %falsename.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %falsename.i) #9
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #9
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names
   br i1 %arraydestroy.done, label %arraydestroy.done1, label %arraydestroy.body
 
@@ -905,7 +905,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc
@@ -926,7 +926,7 @@ lpad.i.i:                                         ; preds = %.noexc
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #9
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #9
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i

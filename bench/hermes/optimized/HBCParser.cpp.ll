@@ -436,7 +436,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZN6hermes39BasicBlockStaticInstructionCountVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapIPKhtSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_tEEE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %41 = load i32, ptr %funcId.addr, align 4
   call void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr noundef nonnull align 8 dereferenceable(28) %staticInstCountVisitor, i32 noundef %41) #10
-  %call.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_mapItmSt4hashItESt8equal_toItESaIS1_IKtmEEEESaISC_ENS_10_Select1stES6_IjES4_IjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %funcBasicBlockStaticInstCountMap_, ptr noundef nonnull align 4 dereferenceable(4) %funcId.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_mapItmSt4hashItESt8equal_toItESaIS1_IKtmEEEESaISC_ENS_10_Select1stES6_IjES4_IjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %funcBasicBlockStaticInstCountMap_, ptr noundef nonnull align 4 dereferenceable(4) %funcId.addr)
   %cmp.i.i = icmp eq ptr %basicBlockStaticInstCountMap_.i, %call.i
   br i1 %cmp.i.i, label %_ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEaSERKS8_.exit, label %if.end.i.i
 
@@ -519,7 +519,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 
 if.then:                                          ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
   call void @_ZN6hermes9HBCParser20buildProfileIndexMapEj(ptr nonnull sret(%"class.std::unordered_map.50") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %funcId)
-  %call.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_mapIPKhtSt4hashIS5_ESt8equal_toIS5_ESaIS1_IKS5_tEEEESaISE_ENS_10_Select1stES8_IjES6_IjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %funcProfileIndexMap_, ptr noundef nonnull align 4 dereferenceable(4) %funcId.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_mapIPKhtSt4hashIS5_ESt8equal_toIS5_ESaIS1_IKS5_tEEEESaISE_ENS_10_Select1stES8_IjES6_IjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %funcProfileIndexMap_, ptr noundef nonnull align 4 dereferenceable(4) %funcId.addr)
   %cmp.i.i.i = icmp eq ptr %ref.tmp9, %call.i
   br i1 %cmp.i.i.i, label %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit, label %if.end.i.i.i
 
@@ -631,7 +631,7 @@ if.end.i.i.i.i15:                                 ; preds = %_ZNSt10_HashtableIP
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i15, %_ZNSt10_HashtableIPKhSt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  %call.i16 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_mapIPKhtSt4hashIS5_ESt8equal_toIS5_ESaIS1_IKS5_tEEEESaISE_ENS_10_Select1stES8_IjES6_IjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %funcProfileIndexMap_, ptr noundef nonnull align 4 dereferenceable(4) %funcId.addr)
+  %call.i16 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt13unordered_mapIPKhtSt4hashIS5_ESt8equal_toIS5_ESaIS1_IKS5_tEEEESaISE_ENS_10_Select1stES8_IjES6_IjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %funcProfileIndexMap_, ptr noundef nonnull align 4 dereferenceable(4) %funcId.addr)
   ret ptr %call.i16
 }
 
@@ -1547,7 +1547,7 @@ if.end.i.i:                                       ; preds = %_ZNK6hermes3hbc21Ru
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !16
-  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %funcId)
+  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %funcId)
   %call20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   %13 = load ptr, ptr %ref.tmp12, align 8
@@ -1871,7 +1871,7 @@ entry:
   %conv = zext i32 %0 to i64
   %basicBlockStaticInstCountMap_ = getelementptr inbounds i8, ptr %this, i64 48
   %curProfileIndex_ = getelementptr inbounds i8, ptr %this, i64 28
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %basicBlockStaticInstCountMap_, ptr noundef nonnull align 2 dereferenceable(2) %curProfileIndex_)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %basicBlockStaticInstCountMap_, ptr noundef nonnull align 2 dereferenceable(2) %curProfileIndex_)
   store i64 %conv, ptr %call.i, align 8
   ret void
 }
@@ -1950,7 +1950,7 @@ if.then9:                                         ; preds = %if.then
   %conv = zext i32 %12 to i64
   %basicBlockStaticInstCountMap_ = getelementptr inbounds i8, ptr %this, i64 48
   %curProfileIndex_ = getelementptr inbounds i8, ptr %this, i64 28
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %basicBlockStaticInstCountMap_, ptr noundef nonnull align 2 dereferenceable(2) %curProfileIndex_)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %basicBlockStaticInstCountMap_, ptr noundef nonnull align 2 dereferenceable(2) %curProfileIndex_)
   store i64 %conv, ptr %call.i, align 8
   %.pre = load ptr, ptr %profileIndexMap_, align 8
   br label %if.end
@@ -1958,7 +1958,7 @@ if.then9:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then9, %if.then
   %13 = phi ptr [ %.pre, %if.then9 ], [ %0, %if.then ]
   store i32 0, ptr %curBlockStaticInstCount_, align 8
-  %call.i1 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt8__detail9_Map_baseIPKhSt4pairIKS2_tESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %ip.addr)
+  %call.i1 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt8__detail9_Map_baseIPKhSt4pairIKS2_tESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(8) %ip.addr)
   %14 = load i16, ptr %call.i1, align 2
   %curProfileIndex_15 = getelementptr inbounds i8, ptr %this, i64 28
   store i16 %14, ptr %curProfileIndex_15, align 4
@@ -3447,7 +3447,7 @@ if.then11:                                        ; preds = %_ZN6hermes3hbc13dec
 if.end13:                                         ; preds = %if.then11, %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
   %profileIndexMap_ = getelementptr inbounds i8, ptr %this, i64 48
   %curBasicBlockStart_14 = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt8__detail9_Map_baseIPKhSt4pairIKS2_tESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %profileIndexMap_, ptr noundef nonnull align 8 dereferenceable(8) %curBasicBlockStart_14)
+  %call.i = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt8__detail9_Map_baseIPKhSt4pairIKS2_tESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %profileIndexMap_, ptr noundef nonnull align 8 dereferenceable(8) %curBasicBlockStart_14)
   store i16 %conv2.i, ptr %call.i, align 2
   store i8 1, ptr %hasSeenProfileInst_10, align 4
   br label %if.end17

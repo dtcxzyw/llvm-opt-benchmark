@@ -476,7 +476,7 @@ define void @_ZN17RichParameterListC2ERKS_(ptr noundef nonnull align 8 dereferen
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %10, ptr %14, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %0) #24
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   %15 = load i64, ptr %4, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %4, align 8
@@ -494,7 +494,7 @@ define void @_ZN17RichParameterListC2ERKS_(ptr noundef nonnull align 8 dereferen
 .lr.ph.i.i.i:                                     ; preds = %17, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %19, %17 ]
   %20 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %20, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
@@ -529,7 +529,7 @@ define void @_ZN17RichParameterListC2EOS_(ptr noundef nonnull align 8 dereferenc
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %7, align 8
   store ptr %9, ptr %8, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %0) #24
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   %10 = load i64, ptr %4, align 8
   %11 = add i64 %10, 1
   store i64 %11, ptr %4, align 8
@@ -548,7 +548,7 @@ define void @_ZN17RichParameterListC2EOS_(ptr noundef nonnull align 8 dereferenc
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %12 ]
   %15 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %15, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
@@ -596,7 +596,7 @@ define void @_ZN17RichParameterListD2Ev(ptr noundef nonnull align 8 dereferencea
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %10, %._crit_edge.i ]
   %11 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %11, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
@@ -646,7 +646,7 @@ define void @_ZN17RichParameterList5clearEv(ptr noundef nonnull align 8 derefere
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %10, %._crit_edge ]
   %11 = load ptr, ptr %.09.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #23
   %.not.i.i = icmp eq ptr %11, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !10
 
@@ -1503,7 +1503,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -1775,7 +1775,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN17RichParameterList8a
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %6, ptr %8, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #24
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
@@ -1804,7 +1804,7 @@ define void @_ZN17RichParameterList4joinERKS_(ptr noundef nonnull align 8 derefe
   %11 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %10, ptr %12, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %0) #24
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   %13 = load i64, ptr %3, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8
@@ -1828,7 +1828,7 @@ define void @_ZN17RichParameterList19pushFromQDomElementE11QDomElement(ptr nound
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %3, align 8
   store ptr %8, ptr %7, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %0) #24
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
@@ -1843,7 +1843,7 @@ declare noundef zeroext i1 @_ZN20RichParameterAdapter6createERK11QDomElementRP13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17RichParameterList4swapERS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1891,7 +1891,7 @@ define noundef zeroext i1 @_ZN17RichParameterListeqERKS_(ptr noundef nonnull rea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN17RichParameterListaSES_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

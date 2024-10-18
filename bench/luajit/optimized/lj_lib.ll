@@ -47,7 +47,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.then.i
   store ptr %add.ptr.i, ptr %top.i, align 8
-  %call4.i = tail call ptr @luaL_findtable(ptr noundef nonnull %L, i32 noundef -10002, ptr noundef nonnull %libname, i32 noundef %conv5) #8
+  %call4.i = tail call ptr @luaL_findtable(ptr noundef nonnull %L, i32 noundef -10002, ptr noundef nonnull %libname, i32 noundef range(i32 0, 256) %conv5) #8
   %cmp5.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.not.i, label %if.end.i, label %if.then7.i
 
@@ -81,7 +81,7 @@ if.end13.i:                                       ; preds = %if.end.i, %if.then.
   br label %lib_create_table.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @lua_createtable(ptr noundef nonnull %L, i32 noundef 0, i32 noundef %conv5) #8
+  tail call void @lua_createtable(ptr noundef nonnull %L, i32 noundef 0, i32 noundef range(i32 0, 256) %conv5) #8
   br label %lib_create_table.exit
 
 lib_create_table.exit:                            ; preds = %if.end13.i, %if.else.i

@@ -142,7 +142,7 @@ define dso_local void @_ZN9Stockfish13compiler_infoB5cxx11Ev(ptr dead_on_unwind 
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   %3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %2) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   %4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.8) #21
@@ -590,7 +590,7 @@ define dso_local void @_ZN9Stockfish11CommandLineC2EiPPc(ptr noundef nonnull ali
   %18 = load ptr, ptr %17, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %10) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   %20 = icmp eq ptr %18, null
   br i1 %20, label %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -717,7 +717,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev() unnamed_ad
   %4 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %3
   %5 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %4) #21
   %6 = tail call noundef ptr @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 512)) #21
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 512)) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_13TieE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 512), align 8
   store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 576), align 8
   store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 584), align 8
@@ -727,7 +727,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev() unnamed_ad
   %10 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %9
   %11 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %10) #21
   %12 = tail call noundef ptr @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 592)) #21
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 592)) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish12_GLOBAL__N_13TieE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 592), align 8
   store ptr %11, ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 656), align 8
   store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 664), align 8
@@ -740,15 +740,15 @@ define internal void @_ZN9Stockfish12_GLOBAL__N_16LoggerD2Ev(ptr noundef nonnull
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.15)
   call fastcc void @_ZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   %5 = getelementptr inbounds i8, ptr %0, i64 592
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #21
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #21
   %6 = getelementptr inbounds i8, ptr %0, i64 512
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #21
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #21
   ret void
 }
@@ -788,7 +788,7 @@ define internal void @_ZN9Stockfish12_GLOBAL__N_13TieD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9Stockfish12_GLOBAL__N_13TieD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }

@@ -206,7 +206,7 @@ define dso_local void @_ZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtar
   br i1 %28, label %50, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = call { ptr, ptr } @_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Select1stIS6_ENS0_14LessRecordByIDESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.07.i, ptr noundef nonnull align 8 dereferenceable(8) %26)
+  %30 = call { ptr, ptr } @_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Select1stIS6_ENS0_14LessRecordByIDESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.07.i, ptr noundef nonnull align 8 dereferenceable(24) %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %32 = extractvalue { ptr, ptr } %30, 1
   %.not.i.i.i.i.i = icmp eq ptr %32, null
@@ -280,7 +280,7 @@ _ZNSt15insert_iteratorISt3mapIPN4llvm6RecordENS1_20SubtargetFeatureInfoENS1_14Le
   br i1 %60, label %61, label %82
 
 61:                                               ; preds = %.lr.ph.i68
-  %62 = call { ptr, ptr } @_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Select1stIS6_ENS0_14LessRecordByIDESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.sroa.3.07.i70, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  %62 = call { ptr, ptr } @_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Select1stIS6_ENS0_14LessRecordByIDESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.sroa.3.07.i70, ptr noundef nonnull align 8 dereferenceable(24) %58)
   %63 = extractvalue { ptr, ptr } %62, 0
   %64 = extractvalue { ptr, ptr } %62, 1
   %.not.i.i.i.i.i77 = icmp eq ptr %64, null
@@ -543,7 +543,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %172, %174
   %213 = ptrtoint ptr %211 to i64
   %214 = sub i64 %212, %213
   %215 = ashr exact i64 %214, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %206, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %210, %211
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIPN4llvm6RecordESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i, label %216
 
@@ -4987,7 +4987,7 @@ _ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPSt4pairISt6v
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %62, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %60, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %33, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit, label %67
 
 67:                                               ; preds = %57
@@ -5373,7 +5373,7 @@ _ZNSt12_Vector_baseISt4pairISt6vectorIPN4llvm6RecordESaIS4_EEiESaIS7_EE11_M_allo
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %25, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i = icmp eq ptr %27, %28
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIPN4llvm6RecordESaIS2_EEC2EmRKS3_.exit.i.i.i.i.thread, label %34
 
@@ -5427,7 +5427,7 @@ _ZNSt16allocator_traitsISaISt4pairISt6vectorIPN4llvm6RecordESaIS4_EEiEEE9constru
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %52 = load ptr, ptr %51, align 8, !alias.scope !29, !noalias !26
   store ptr %52, ptr %50, align 8, !alias.scope !26, !noalias !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !26
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %55 = load i32, ptr %54, align 8, !alias.scope !29, !noalias !26
@@ -5458,7 +5458,7 @@ _ZNSt6vectorISt4pairIS_IPN4llvm6RecordESaIS3_EEiESaIS6_EE11_S_relocateEPS6_S9_S9
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 16
   %65 = load ptr, ptr %64, align 8, !alias.scope !35, !noalias !32
   store ptr %65, ptr %63, align 8, !alias.scope !32, !noalias !35
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.0911.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 24
   %68 = load i32, ptr %67, align 8, !alias.scope !35, !noalias !32
@@ -5538,7 +5538,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = load ptr, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, i8 0, i64 24, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %34 = load i32, ptr %33, align 8
   store ptr %28, ptr %5, align 8
@@ -5583,7 +5583,7 @@ _ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiED2Ev.exit10.i.i.i: ; preds = %36, 
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   %52 = load ptr, ptr %51, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %47, i8 0, i64 24, i1 false)
   %53 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %54 = load i32, ptr %53, align 8
   %55 = load ptr, ptr %0, align 8
@@ -5592,7 +5592,7 @@ _ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiED2Ev.exit10.i.i.i: ; preds = %36, 
   store ptr %56, ptr %49, align 8
   %57 = load ptr, ptr %15, align 8
   store ptr %57, ptr %51, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 24, i1 false)
   %58 = load i32, ptr %17, align 4
   store i32 %58, ptr %53, align 8
   %59 = ptrtoint ptr %47 to i64
@@ -6485,7 +6485,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvmltENS_9Stri
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %59, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %57, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %55, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit, label %63
 
 63:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPNS2_6RecordESaISH_EEiESF_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread45"
@@ -6533,7 +6533,7 @@ _ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit: ; preds = %"_ZN9__gn
   %90 = load ptr, ptr %89, align 8
   store ptr %90, ptr %84, align 8
   %.not.i.i.i.i.i.i24 = icmp eq ptr %82, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %80, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i24, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit25, label %91
 
 91:                                               ; preds = %77
@@ -6557,7 +6557,7 @@ _ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit25: ; preds = %77, %91
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %103 = load ptr, ptr %102, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 24, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %105 = load i32, ptr %104, align 8
   %106 = icmp sgt i64 %.1, %1
@@ -6609,7 +6609,7 @@ _ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit25: ; preds = %77, %91
   %132 = load ptr, ptr %131, align 8
   store ptr %132, ptr %129, align 8
   %.not.i.i.i.i.i.i.i.us = icmp eq ptr %127, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %112, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i.us, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit.i.us, label %133
 
 133:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPNS2_6RecordESaISH_EEiESF_ISK_SaISK_EEEESK_EEbT_RT0_.exit.thread.i.us"
@@ -6716,7 +6716,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i.i:          ; preds = %_ZN4llvmltENS_9Stri
   %176 = load ptr, ptr %175, align 8
   store ptr %176, ptr %173, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %171, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %141, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit.i, label %177
 
 177:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPNS2_6RecordESaISH_EEiESF_ISK_SaISK_EEEESK_EEbT_RT0_.exit.thread.i"
@@ -6867,7 +6867,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvmltENS_9Stri
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPNS2_6RecordESaISH_EEiESF_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread": ; preds = %_ZN4llvmltENS_9StringRefES0_.exit.thread.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i, %8, %._crit_edge.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclINS_17__normal_iteratorIPSt4pairISt6vectorIPNS2_6RecordESaISH_EEiESF_ISK_SaISK_EEEESO_EEbT_T0_.exit"
   %46 = getelementptr inbounds i8, ptr %.pn26, i64 48
   %47 = load ptr, ptr %46, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.027, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.011.027, i8 0, i64 24, i1 false)
   %48 = getelementptr inbounds i8, ptr %.pn26, i64 56
   %49 = load i32, ptr %48, align 8
   %50 = ptrtoint ptr %.sroa.011.027 to i64
@@ -6899,7 +6899,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvmltENS_9Stri
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %59, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %55, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit.i.i.i.i.i, label %66
 
 66:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -6958,7 +6958,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = ptrtoint ptr %4 to i64
@@ -7003,7 +7003,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %29, align 8
   %.not.i.i.i.i.i.i.us = icmp eq ptr %27, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.us, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0.0.us, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.us, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit.us, label %33
 
 33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclISt4pairISt6vectorIPNS2_6RecordESaISG_EEiENS_17__normal_iteratorIPSJ_SE_ISJ_SaISJ_EEEEEEbRT_T0_.exit.thread.us"
@@ -7106,7 +7106,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvmltENS_9Stri
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %70, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %68, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0.0, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiEaSEOS6_.exit, label %74
 
 74:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS2_11raw_ostreamENS2_8ArrayRefINS2_2gi11RuleMatcherEEEE3$_2EclISt4pairISt6vectorIPNS2_6RecordESaISG_EEiENS_17__normal_iteratorIPSJ_SE_ISJ_SaISJ_EEEEEEbRT_T0_.exit.thread"

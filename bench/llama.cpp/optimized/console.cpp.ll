@@ -563,7 +563,7 @@ invoke.cont58.i:                                  ; preds = %if.end42.sink.split
   %add.ptr.i12 = getelementptr inbounds i8, ptr %call59.i, i64 %idx.ext.i
   %call60.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
   %sub.i = sub i64 %call60.i, %idx.ext.i
-  %call.i68.i = call noundef i32 @wcwidth(i32 noundef signext %call.i44.i) #14
+  %call.i68.i = call noundef i32 @wcwidth(i32 noundef signext range(i32 14, 13) %call.i44.i) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x2.i.i)

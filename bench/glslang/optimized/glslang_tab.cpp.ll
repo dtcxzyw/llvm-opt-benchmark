@@ -9350,7 +9350,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %3051 = getelementptr inbounds i8, ptr %3047, i64 21
   store i8 0, ptr %3051, align 1
   store ptr %3047, ptr %48, align 8
-  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %3047, i32 noundef 0, ptr noundef null)
+  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %3047, i32 noundef 0, ptr noundef null)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit3357
 
 3052:                                             ; preds = %359
@@ -9378,7 +9378,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %3066 = load ptr, ptr %48, align 8
   %.sroa.070.0.copyload = load i32, ptr %28, align 8
   %.sroa.272.0.copyload = load ptr, ptr %.sroa.272.0..sroa_idx, align 8
-  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %3066, i32 noundef %.sroa.070.0.copyload, ptr noundef %.sroa.272.0.copyload)
+  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %3066, i32 noundef %.sroa.070.0.copyload, ptr noundef %.sroa.272.0.copyload)
   %3067 = getelementptr inbounds i8, ptr %3066, i64 20
   store i8 0, ptr %3067, align 4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit3357
@@ -9387,7 +9387,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %3069 = getelementptr inbounds i8, ptr %.23203, i64 -608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %5, ptr noundef nonnull align 8 dereferenceable(304) %3069, i64 304, i1 false)
   %3070 = load ptr, ptr %48, align 8
-  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %3070, i32 noundef 0, ptr noundef null)
+  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %3070, i32 noundef 0, ptr noundef null)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit3357
 
 3071:                                             ; preds = %359
@@ -9403,7 +9403,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %3079 = load ptr, ptr %48, align 8
   %.sroa.067.0.copyload = load i32, ptr %29, align 8
   %.sroa.269.0.copyload = load ptr, ptr %.sroa.269.0..sroa_idx, align 8
-  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %3079, i32 noundef %.sroa.067.0.copyload, ptr noundef %.sroa.269.0.copyload)
+  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %3079, i32 noundef %.sroa.067.0.copyload, ptr noundef %.sroa.269.0.copyload)
   %3080 = getelementptr inbounds i8, ptr %3079, i64 20
   store i8 0, ptr %3080, align 4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit3357
@@ -9489,7 +9489,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %3127 = load ptr, ptr %3126, align 8
   %.sroa.064.0.copyload = load i32, ptr %30, align 8
   %.sroa.266.0.copyload = load ptr, ptr %.sroa.266.0..sroa_idx, align 8
-  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %3127, i32 noundef %.sroa.064.0.copyload, ptr noundef %.sroa.266.0.copyload)
+  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %3127, i32 noundef %.sroa.064.0.copyload, ptr noundef %.sroa.266.0.copyload)
   %3128 = getelementptr inbounds i8, ptr %3127, i64 20
   store i8 0, ptr %3128, align 4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit3357
@@ -9510,7 +9510,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   %3140 = load ptr, ptr %3139, align 8
   %.sroa.061.0.copyload = load i32, ptr %31, align 8
   %.sroa.263.0.copyload = load ptr, ptr %.sroa.263.0..sroa_idx, align 8
-  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %3140, i32 noundef %.sroa.061.0.copyload, ptr noundef %.sroa.263.0.copyload)
+  call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %3140, i32 noundef %.sroa.061.0.copyload, ptr noundef %.sroa.263.0.copyload)
   %3141 = getelementptr inbounds i8, ptr %3140, i64 20
   store i8 0, ptr %3141, align 4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit3357
@@ -43187,7 +43187,7 @@ define linkonce_odr void @_ZN7glslang5TType19copyArrayInnerSizesEPKNS_11TArraySi
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 1
   store i8 %18, ptr %13, align 1
-  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7glslang17TSmallArrayVectoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7glslang17TSmallArrayVectoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(22) %9, ptr noundef nonnull align 8 dereferenceable(22) %1)
   %20 = getelementptr inbounds i8, ptr %1, i64 20
   %21 = load i8, ptr %20, align 4
   %22 = and i8 %21, 1
@@ -55788,7 +55788,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0) #25
@@ -55923,7 +55923,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %24 = zext nneg i32 %.lobit to i64

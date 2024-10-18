@@ -456,7 +456,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %49, %52
   %60 = shl nuw nsw i64 %indvars.iv, %.8.i
   %61 = add nuw nsw i64 %59, %60
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %62(ptr noundef nonnull %50, i64 noundef %61, ptr noundef %54) #13
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %61, ptr noundef %54) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -592,7 +592,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %98, %108
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 133:                                              ; preds = %119
-  %134 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %123, i64 noundef 8, i32 noundef 0) #13
+  %134 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %123, i64 noundef 8, i32 noundef 0) #13
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %133, %131
@@ -625,7 +625,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %133, %131
   %151 = shl nuw nsw i64 %149, %.7.i
   %152 = add nuw nsw i64 %150, %151
   %153 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %154 = call noundef ptr %153(ptr noundef nonnull %145, i64 noundef %152) #13
+  %154 = call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(16) %145, i64 noundef %152) #13
   %155 = icmp eq ptr %154, null
   br i1 %155, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %156
 
@@ -647,7 +647,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %133, %131
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 167:                                              ; preds = %156
-  %168 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %157, i64 noundef 8, i32 noundef 0) #13
+  %168 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %157, i64 noundef 8, i32 noundef 0) #13
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %167, %165
@@ -670,7 +670,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %143, %_ZN10HandleAr
   %177 = shl nuw nsw i64 %175, %.7.i57
   %178 = add nuw nsw i64 %176, %177
   %179 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %180 = call noundef ptr %179(ptr noundef nonnull %169, i64 noundef %178) #13
+  %180 = call noundef ptr %179(ptr noundef nonnull align 8 dereferenceable(16) %169, i64 noundef %178) #13
   %181 = icmp eq ptr %180, null
   br i1 %181, label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit, label %182
 
@@ -692,7 +692,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %143, %_ZN10HandleAr
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i59
 
 193:                                              ; preds = %182
-  %194 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %183, i64 noundef 8, i32 noundef 0) #13
+  %194 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %183, i64 noundef 8, i32 noundef 0) #13
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i59
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i59: ; preds = %193, %191
@@ -734,7 +734,7 @@ _ZNK6HandleclEv.exit62:                           ; preds = %_ZN15typeArrayHandl
   br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
 
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %201, %205, %209
-  %210 = call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %204, ptr null, ptr null, ptr noundef %0) #13
+  %210 = call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %204, ptr null, ptr null, ptr noundef nonnull %0) #13
   %211 = getelementptr inbounds i8, ptr %210, i64 188
   %212 = load i16, ptr %211, align 4
   %213 = and i16 %212, 1

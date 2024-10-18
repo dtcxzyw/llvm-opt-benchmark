@@ -1106,7 +1106,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %agg.result, i8 0, i64 20, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1148,7 +1148,7 @@ sw.bb6:                                           ; preds = %if.end
 
 sw.default:                                       ; preds = %if.end
   store i32 17, ptr %errorCode, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %agg.result, i8 0, i64 20, i1 false)
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb, %if.then3, %sw.bb6
@@ -1174,7 +1174,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.result, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %agg.result, i8 0, i64 36, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1243,7 +1243,7 @@ if.then21:                                        ; preds = %sw.bb19
 
 sw.default:                                       ; preds = %if.end
   store i32 17, ptr %errorCode, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.result, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %agg.result, i8 0, i64 36, i1 false)
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb19, %if.then21, %sw.bb, %if.then3, %sw.bb11

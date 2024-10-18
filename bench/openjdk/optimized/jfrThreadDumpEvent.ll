@@ -59,7 +59,7 @@ define hidden noundef ptr @_ZN12JfrDcmdEvent11thread_dumpEv() local_unnamed_addr
   call void @_ZN14bufferedStreamC1Emm(ptr noundef nonnull align 8 dereferenceable(89) %1, i64 noundef 256, i64 noundef 10485760) #6
   %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP10JavaThread(i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @.str, i8 noundef signext 32, ptr noundef %3) #6
+  call void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP10JavaThread(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull @.str, i8 noundef signext 32, ptr noundef %3) #6
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null

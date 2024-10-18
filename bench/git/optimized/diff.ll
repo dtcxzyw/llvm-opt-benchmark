@@ -8957,7 +8957,7 @@ if.then69.i:                                      ; preds = %remove_space.exit72
   %58 = load i16, ptr %mode71.i, align 8
   %conv72.i = zext i16 %58 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i)
-  %call.i83.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef %conv72.i) #31
+  %call.i83.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef range(i32 0, 65536) %conv72.i) #31
   %59 = load ptr, ptr @the_repository, align 8
   %hash_algo.i84.i = getelementptr inbounds i8, ptr %59, i64 256
   %60 = load ptr, ptr %hash_algo.i84.i, align 8
@@ -8987,7 +8987,7 @@ if.then78.i:                                      ; preds = %if.else.i
   %68 = load i16, ptr %mode80.i, align 8
   %conv81.i = zext i16 %68 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i89.i)
-  %call.i90.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i89.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef %conv81.i) #31
+  %call.i90.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i89.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef range(i32 0, 65536) %conv81.i) #31
   %69 = load ptr, ptr @the_repository, align 8
   %hash_algo.i91.i = getelementptr inbounds i8, ptr %69, i64 256
   %70 = load ptr, ptr %hash_algo.i91.i, align 8
@@ -9014,7 +9014,7 @@ if.then91.i:                                      ; preds = %if.else82.i
   %76 = load i16, ptr %mode93.i, align 8
   %conv94.i = zext i16 %76 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i97.i)
-  %call.i98.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i97.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef %conv94.i) #31
+  %call.i98.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i97.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef range(i32 0, 65536) %conv94.i) #31
   %77 = load ptr, ptr @the_repository, align 8
   %hash_algo.i99.i = getelementptr inbounds i8, ptr %77, i64 256
   %78 = load ptr, ptr %hash_algo.i99.i, align 8
@@ -9034,7 +9034,7 @@ if.then91.i:                                      ; preds = %if.else82.i
   %84 = load i16, ptr %mode96.i, align 8
   %conv97.i = zext i16 %84 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i105.i)
-  %call.i106.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i105.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef %conv97.i) #31
+  %call.i106.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i105.i, i64 noundef 12, ptr noundef nonnull @.str.366, i32 noundef range(i32 0, 65536) %conv97.i) #31
   %85 = load ptr, ptr @the_repository, align 8
   %hash_algo.i107.i = getelementptr inbounds i8, ptr %85, i64 256
   %86 = load ptr, ptr %hash_algo.i107.i, align 8
@@ -11111,11 +11111,11 @@ if.else.i.i167:                                   ; preds = %for.end.i165
 if.then.i.i.i168:                                 ; preds = %if.else.i.i167
   %sext.i = shl i64 %indvars.iv.next34.i, 32
   %conv.i.i169 = ashr exact i64 %sext.i, 32
-  call void @qsort(ptr noundef nonnull %246, i64 noundef %conv.i.i169, i64 noundef 16, ptr noundef nonnull @dirstat_compare) #31
+  call void @qsort(ptr noundef nonnull %246, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i169, i64 noundef 16, ptr noundef nonnull @dirstat_compare) #31
   br label %sane_qsort.exit.i.i
 
 sane_qsort.exit.i.i:                              ; preds = %if.then.i.i.i168, %if.else.i.i167
-  %call.i.i170 = call fastcc i64 @gather_dirstat(ptr noundef %options, ptr noundef %dir.i, i64 noundef %add44.i, ptr noundef nonnull @.str.38, i32 noundef 0)
+  %call.i.i170 = call fastcc i64 @gather_dirstat(ptr noundef %options, ptr noundef nonnull %dir.i, i64 noundef %add44.i, ptr noundef nonnull @.str.38, i32 noundef 0)
   br label %conclude_dirstat.exit.i
 
 conclude_dirstat.exit.i:                          ; preds = %sane_qsort.exit.i.i, %for.end.i165, %if.end.i148
@@ -11559,11 +11559,11 @@ if.else.i108.i:                                   ; preds = %for.end.i219
 
 if.then.i.i111.i:                                 ; preds = %if.else.i108.i
   %conv.i.i222 = sext i32 %324 to i64
-  call void @qsort(ptr noundef %323, i64 noundef %conv.i.i222, i64 noundef 16, ptr noundef nonnull @dirstat_compare) #31
+  call void @qsort(ptr noundef %323, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i222, i64 noundef 16, ptr noundef nonnull @dirstat_compare) #31
   br label %sane_qsort.exit.i.i220
 
 sane_qsort.exit.i.i220:                           ; preds = %if.then.i.i111.i, %if.else.i108.i
-  %call.i.i221 = call fastcc i64 @gather_dirstat(ptr noundef %options, ptr noundef %dir.i182, i64 noundef %changed.1.i, ptr noundef nonnull @.str.38, i32 noundef 0)
+  %call.i.i221 = call fastcc i64 @gather_dirstat(ptr noundef %options, ptr noundef nonnull %dir.i182, i64 noundef %changed.1.i, ptr noundef nonnull @.str.38, i32 noundef 0)
   br label %show_dirstat.exit
 
 show_dirstat.exit:                                ; preds = %if.then46, %for.end.i219, %sane_qsort.exit.i.i220
@@ -12005,7 +12005,7 @@ for.end30.i.i:                                    ; preds = %for.inc27.i.i, %for
 if.then.i.i34.i.i:                                ; preds = %for.end30.i.i
   %conv.i.i.i321 = sext i32 %388 to i64
   %389 = load ptr, ptr @diff_queued_diff, align 8
-  call void @qsort(ptr noundef %389, i64 noundef %conv.i.i.i321, i64 noundef 8, ptr noundef nonnull @diffnamecmp) #31
+  call void @qsort(ptr noundef %389, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i.i321, i64 noundef 8, ptr noundef nonnull @diffnamecmp) #31
   br label %create_filepairs_for_header_only_notifications.exit.i
 
 create_filepairs_for_header_only_notifications.exit.i: ; preds = %if.then.i.i34.i.i, %for.end30.i.i
@@ -13758,7 +13758,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv = sext i32 %0 to i64
   %1 = load ptr, ptr @diff_queued_diff, align 8
-  tail call void @qsort(ptr noundef %1, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @diffnamecmp) #31
+  tail call void @qsort(ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 8, ptr noundef nonnull @diffnamecmp) #31
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %entry, %if.then.i
@@ -15471,7 +15471,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog266
 
 sw.bb9:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  tail call fastcc void @emit_line_0(ptr noundef %o, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly @.str.38, i32 noundef 0, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @emit_line_0(ptr noundef %o, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 0, ptr noundef %1, i32 noundef %2)
   br label %sw.epilog266
 
 sw.bb10:                                          ; preds = %entry, %entry
@@ -15965,11 +15965,11 @@ diff_line_prefix.exit353:                         ; preds = %sw.bb253, %if.end.i
   br label %sw.epilog266
 
 sw.bb257:                                         ; preds = %entry
-  tail call fastcc void @emit_line_0(ptr noundef %o, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly @.str.38, i32 noundef 0, ptr noundef nonnull @.str.311, i32 noundef 17)
+  tail call fastcc void @emit_line_0(ptr noundef %o, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 0, ptr noundef nonnull @.str.311, i32 noundef 17)
   br label %sw.epilog266
 
 sw.bb258:                                         ; preds = %entry
-  tail call fastcc void @emit_line_0(ptr noundef %o, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly @.str.38, i32 noundef 0, ptr noundef nonnull @.str.312, i32 noundef 5)
+  tail call fastcc void @emit_line_0(ptr noundef %o, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 0, ptr noundef nonnull @.str.312, i32 noundef 5)
   br label %sw.epilog266
 
 sw.bb259:                                         ; preds = %entry
@@ -17416,10 +17416,10 @@ if.then15:                                        ; preds = %if.end13
   %tobool19.not = icmp eq ptr %pgm.addr.0, null
   %9 = and i1 %tobool19.not, %tobool17
   %land.ext21 = zext i1 %9 to i32
-  %call.i.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %land.ext21) #31
+  %call.i.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef range(i32 0, 2) %land.ext21) #31
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   %retval.0.i.i = select i1 %tobool.not.i.i, ptr @.str.38, ptr getelementptr inbounds (i8, ptr @diff_colors, i64 150)
-  %call.i76.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %land.ext21) #31
+  %call.i76.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef range(i32 0, 2) %land.ext21) #31
   %tobool.not.i77.i = icmp eq i32 %call.i76.i, 0
   %retval.0.i78.i = select i1 %tobool.not.i77.i, ptr @.str.38, ptr @diff_colors
   %output_prefix.i.i = getelementptr inbounds i8, ptr %o, i64 536
@@ -19012,8 +19012,8 @@ strbuf_setlen.exit277.i:                          ; preds = %if.then4.i276.i, %i
 
 if.then298.i:                                     ; preds = %strbuf_setlen.exit277.i
   call fastcc void @emit_diff_symbol(ptr noundef nonnull %o, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  call fastcc void @emit_binary_diff_body(ptr noundef nonnull %o, ptr noundef readonly %mf1.i, ptr noundef readonly %mf2.i)
-  call fastcc void @emit_binary_diff_body(ptr noundef nonnull %o, ptr noundef readonly %mf2.i, ptr noundef readonly %mf1.i)
+  call fastcc void @emit_binary_diff_body(ptr noundef nonnull %o, ptr noundef nonnull readonly %mf1.i, ptr noundef nonnull readonly %mf2.i)
+  call fastcc void @emit_binary_diff_body(ptr noundef nonnull %o, ptr noundef nonnull readonly %mf2.i, ptr noundef nonnull readonly %mf1.i)
   br label %if.end306.i
 
 if.else299.i:                                     ; preds = %strbuf_setlen.exit277.i
@@ -20681,12 +20681,12 @@ land.lhs.true:                                    ; preds = %deflate_it.exit
 if.then:                                          ; preds = %land.lhs.true
   %6 = load ptr, ptr %one, align 8
   %7 = load ptr, ptr %two, align 8
-  %call.i34 = call ptr @create_delta_index(ptr noundef %6, i64 noundef %4) #31
+  %call.i34 = call ptr @create_delta_index(ptr noundef %6, i64 noundef range(i64 1, 0) %4) #31
   %tobool.not.i = icmp eq ptr %call.i34, null
   br i1 %tobool.not.i, label %if.else, label %diff_delta.exit
 
 diff_delta.exit:                                  ; preds = %if.then
-  %call1.i = call ptr @create_delta(ptr noundef nonnull %call.i34, ptr noundef %7, i64 noundef %5, ptr noundef nonnull %delta_size, i64 noundef %3) #31
+  %call1.i = call ptr @create_delta(ptr noundef nonnull %call.i34, ptr noundef %7, i64 noundef range(i64 1, 0) %5, ptr noundef nonnull %delta_size, i64 noundef %3) #31
   call void @free_delta_index(ptr noundef nonnull %call.i34) #31
   %tobool9.not = icmp eq ptr %call1.i, null
   br i1 %tobool9.not, label %if.else, label %if.then10

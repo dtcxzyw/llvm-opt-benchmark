@@ -361,13 +361,13 @@ gv_alloc.exit:                                    ; preds = %15
   br label %gv_recalloc.exit
 
 36:                                               ; preds = %31
-  %37 = tail call ptr @realloc(ptr noundef %23, i64 noundef %33) #21
+  %37 = tail call ptr @realloc(ptr noundef %23, i64 noundef range(i64 0, -15) %33) #21
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, i64 noundef %33) #19
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -15) %33) #19
   tail call fastcc void @graphviz_exit() #20
   unreachable
 

@@ -888,7 +888,7 @@ cleanup.done:                                     ; preds = %land.rhs
 if.then48:                                        ; preds = %cleanup.done
   store i32 5, ptr %status, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #11
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i71) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i71) #11
   %21 = load i32, ptr %singleUnits.i72, align 8
   %cmp3.i.i.i = icmp sgt i32 %21, 0
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
@@ -972,7 +972,7 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 
 invoke.cont55:                                    ; preds = %if.then5.i.i, %call2.i.i.noexc, %invoke.cont53
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp) #11
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i41) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i41) #11
   %35 = load i32, ptr %singleUnits.i42, align 8
   %cmp3.i.i.i43 = icmp sgt i32 %35, 0
   br i1 %cmp3.i.i.i43, label %for.body.i.i.i52, label %for.end.i.i.i44
@@ -1040,7 +1040,7 @@ invoke.cont57:                                    ; preds = %if.then15.i.i, %cal
   %47 = phi i32 [ 7, %if.then15.i.i ], [ %46, %call12.i.i.noexc ], [ %45, %_ZN6icu_7515MeasureUnitImplD2Ev.exit61 ]
   %cmp.i69 = icmp sgt i32 %47, 0
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #11
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i71) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i71) #11
   %48 = load i32, ptr %singleUnits.i72, align 8
   %cmp3.i.i.i73 = icmp sgt i32 %48, 0
   br i1 %cmp3.i.i.i73, label %for.body.i.i.i82, label %for.end.i.i.i74
@@ -1116,7 +1116,7 @@ ehcleanup66:                                      ; preds = %ehcleanup64, %lpad2
   br label %ehcleanup68
 
 cleanup67.critedge:                               ; preds = %invoke.cont27
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i71) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i71) #11
   %60 = load i32, ptr %singleUnits.i72, align 8
   %cmp3.i.i.i94 = icmp sgt i32 %60, 0
   br i1 %cmp3.i.i.i94, label %for.body.i.i.i103, label %for.end.i.i.i95
@@ -1181,7 +1181,7 @@ delete.notnull.i.i:                               ; preds = %for.body.i.i
   %skeleton.i.i.i = getelementptr inbounds i8, ptr %72, i64 80
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeleton.i.i.i) #11
   %unit.i.i.i = getelementptr inbounds i8, ptr %72, i64 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %unit.i.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %unit.i.i.i) #11
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %72) #11
   %.pre.i.i = load i32, ptr %unitPrefs, align 8
   br label %for.inc.i.i
@@ -1213,9 +1213,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 cleanup69:                                        ; preds = %if.then.i.i.i.i, %for.end.i.i, %invoke.cont7
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %category) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %category) #11
   %identifier.i115 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i115) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i115) #11
   %singleUnits.i116 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 8
   %79 = load i32, ptr %singleUnits.i116, align 8
   %cmp3.i.i.i117 = icmp sgt i32 %79, 0
@@ -1267,7 +1267,7 @@ terminate.lpad.i.i.i.i123:                        ; preds = %if.then.i.i.i.i.i12
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit135:          ; preds = %for.end.i.i.i118, %if.then.i.i.i.i.i121
   %identifier.i136 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i136) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i136) #11
   %singleUnits.i137 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 8
   %89 = load i32, ptr %singleUnits.i137, align 8
   %cmp3.i.i.i138 = icmp sgt i32 %89, 0
@@ -1334,15 +1334,15 @@ for.body.i.i.i166:                                ; preds = %_ZN6icu_7515Measure
 
 delete.notnull.i.i.i170:                          ; preds = %for.body.i.i.i166
   %systems.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 264
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %systems.i.i.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %systems.i.i.i.i) #11
   %offset.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 200
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %offset.i.i.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %offset.i.i.i.i) #11
   %factor.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 136
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %factor.i.i.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %factor.i.i.i.i) #11
   %baseUnit.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 72
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseUnit.i.i.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %baseUnit.i.i.i.i) #11
   %sourceUnit.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %sourceUnit.i.i.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %sourceUnit.i.i.i.i) #11
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %102) #11
   %.pre.i.i.i171 = load i32, ptr %conversionRates, align 8
   br label %for.inc.i.i.i172
@@ -1381,7 +1381,7 @@ ehcleanup68:                                      ; preds = %ehcleanup66, %lpad1
 
 ehcleanup70:                                      ; preds = %ehcleanup68, %lpad8
   %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %ehcleanup68 ], [ %7, %lpad8 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %category) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %category) #11
   br label %ehcleanup72
 
 ehcleanup72:                                      ; preds = %ehcleanup70, %lpad6
@@ -1582,7 +1582,7 @@ declare void @_ZNO6icu_7515MeasureUnitImpl5buildER10UErrorCode(ptr sret(%"class.
 define linkonce_odr void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %identifier = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier) #11
   %singleUnits = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %singleUnits, align 8
   %cmp3.i.i = icmp sgt i32 %0, 0
@@ -1660,7 +1660,7 @@ delete.notnull.i:                                 ; preds = %for.body.i
   %skeleton.i.i = getelementptr inbounds i8, ptr %3, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeleton.i.i) #11
   %unit.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %unit.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %unit.i.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #11
   %.pre.i = load i32, ptr %this, align 8
   br label %for.inc.i
@@ -1720,7 +1720,7 @@ delete.notnull.i.i:                               ; preds = %for.body.i.i
   %skeleton.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeleton.i.i.i) #11
   %unit.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %unit.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %unit.i.i.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #11
   %.pre.i.i = load i32, ptr %unitPrefs_, align 8
   br label %for.inc.i.i
@@ -1771,11 +1771,11 @@ for.body.i.i10:                                   ; preds = %for.inc.i.i16, %for
 
 delete.notnull.i.i14:                             ; preds = %for.body.i.i10
   %region.i.i.i = getelementptr inbounds i8, ptr %13, i64 136
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %region.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %region.i.i.i) #11
   %usage.i.i.i = getelementptr inbounds i8, ptr %13, i64 72
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %usage.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %usage.i.i.i) #11
   %category.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %category.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %category.i.i.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %13) #11
   %.pre.i.i15 = load i32, ptr %this, align 8
   br label %for.inc.i.i16
@@ -1832,15 +1832,15 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 delete.notnull.i.i:                               ; preds = %for.body.i.i
   %systems.i.i.i = getelementptr inbounds i8, ptr %3, i64 264
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %systems.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %systems.i.i.i) #11
   %offset.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %offset.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %offset.i.i.i) #11
   %factor.i.i.i = getelementptr inbounds i8, ptr %3, i64 136
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %factor.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %factor.i.i.i) #11
   %baseUnit.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseUnit.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %baseUnit.i.i.i) #11
   %sourceUnit.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %sourceUnit.i.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %sourceUnit.i.i.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #11
   %.pre.i.i = load i32, ptr %this, align 8
   br label %for.inc.i.i
@@ -2041,7 +2041,7 @@ _ZN6icu_755units11RouteResultC2ENS_16MaybeStackVectorINS_7MeasureELi8EEENS_15Mea
   %identifier.i.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   %identifier4.i.i = getelementptr inbounds i8, ptr %agg.tmp21, i64 96
   call void @_ZN6icu_7510CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i.i, ptr noundef nonnull align 8 dereferenceable(60) %identifier4.i.i) #11
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier4.i.i) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier4.i.i) #11
   %19 = load i32, ptr %singleUnits3.i.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %19, 0
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
@@ -2222,7 +2222,7 @@ declare noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDs
 define linkonce_odr void @_ZN6icu_755units19ConverterPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %identifier.i = getelementptr inbounds i8, ptr %this, i64 360
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i) #11
   %singleUnits.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load i32, ptr %singleUnits.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %0, 0
@@ -2417,7 +2417,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 delete.notnull:                                   ; preds = %for.body
   %identifier.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i.i) #11
   %singleUnits.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %singleUnits.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %4, 0
@@ -2506,7 +2506,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_24MeasureUnitImplWithIndexELi8EED2Ev.exit: ; pre
 define linkonce_odr void @_ZN6icu_755units14ConversionRateD2Ev(ptr noundef nonnull align 8 dereferenceable(361) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %identifier.i = getelementptr inbounds i8, ptr %this, i64 264
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i) #11
   %singleUnits.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %singleUnits.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %0, 0
@@ -2558,7 +2558,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
   %identifier.i1 = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i1) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i1) #11
   %singleUnits.i2 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i32, ptr %singleUnits.i2, align 8
   %cmp3.i.i.i3 = icmp sgt i32 %10, 0
@@ -2636,15 +2636,15 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 delete.notnull.i:                                 ; preds = %for.body.i
   %systems.i.i = getelementptr inbounds i8, ptr %3, i64 264
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %systems.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %systems.i.i) #11
   %offset.i.i = getelementptr inbounds i8, ptr %3, i64 200
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %offset.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %offset.i.i) #11
   %factor.i.i = getelementptr inbounds i8, ptr %3, i64 136
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %factor.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %factor.i.i) #11
   %baseUnit.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseUnit.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %baseUnit.i.i) #11
   %sourceUnit.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %sourceUnit.i.i) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %sourceUnit.i.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #11
   %.pre.i = load i32, ptr %this, align 8
   br label %for.inc.i

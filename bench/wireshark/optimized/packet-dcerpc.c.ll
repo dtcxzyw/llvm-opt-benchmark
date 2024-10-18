@@ -7988,7 +7988,7 @@ dcerpc_get_transport_salt.exit.i:                 ; preds = %466, %dcerpc_get_de
 
 dissect_dcerpc_cn_bind.exit:                      ; preds = %489, %dissect_dcerpc_uint8.exit.i
   %.0.lcssa.i = phi i32 [ %261, %dissect_dcerpc_uint8.exit.i ], [ %.2.lcssa.i, %489 ]
-  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %.0.lcssa.i, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %33, ptr noundef %32)
+  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %.0.lcssa.i, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef nonnull %33, ptr noundef %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
@@ -8363,7 +8363,7 @@ dissect_dcerpc_uint32.exit120.i:                  ; preds = %654, %653, %626, %6
 
 dissect_dcerpc_cn_bind_ack.exit:                  ; preds = %662, %dissect_dcerpc_uint8.exit.i220
   %.2.lcssa.i226 = phi i32 [ %569, %dissect_dcerpc_uint8.exit.i220 ], [ %phi.call.i, %662 ]
-  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %.2.lcssa.i226, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %33, ptr noundef %28)
+  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %.2.lcssa.i226, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef nonnull %33, ptr noundef %28)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
@@ -8539,7 +8539,7 @@ dcerpc_tvb_get_uuid.exit.i235:                    ; preds = %736, %735
 
 744:                                              ; preds = %742, %dissect_dcerpc_uint16.exit149.i
   %.0.i237 = phi i32 [ %743, %742 ], [ %727, %dissect_dcerpc_uint16.exit149.i ]
-  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %.0.i237, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %33, ptr noundef %23)
+  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %.0.i237, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef nonnull %33, ptr noundef %23)
   %745 = call ptr @find_conversation_pinfo(ptr noundef nonnull %2, i32 noundef 0) #16
   %.not135.i = icmp eq ptr %745, null
   br i1 %.not135.i, label %746, label %747
@@ -8821,7 +8821,7 @@ proto_item_set_generated.exit.i:                  ; preds = %879, %876, %873
 885:                                              ; preds = %883, %proto_item_set_generated.exit.i, %dcerpc_get_transport_salt.exit166.i
   %886 = getelementptr inbounds i8, ptr %.0124.ph.i, i64 40
   %887 = load i32, ptr %886, align 8
-  call fastcc void @dissect_dcerpc_cn_stub(ptr noundef %193, i32 noundef %.0.i237, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef %33, ptr noundef nonnull %848, ptr noundef %23, i32 noundef %887)
+  call fastcc void @dissect_dcerpc_cn_stub(ptr noundef %193, i32 noundef %.0.i237, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef nonnull %33, ptr noundef nonnull %848, ptr noundef %23, i32 noundef %887)
   br label %890
 
 888:                                              ; preds = %dcerpc_get_transport_salt.exit156.i, %dcerpc_get_transport_salt.exit.i241
@@ -8983,7 +8983,7 @@ dissect_dcerpc_uint16.exit._crit_edge.i:          ; preds = %949, %dissect_dcerp
 dissect_dcerpc_uint8.exit.i252:                   ; preds = %953, %dissect_dcerpc_uint16.exit._crit_edge.i
   call void @tvb_ensure_bytes_exist(ptr noundef %193, i32 noundef %947, i32 noundef 1) #16
   %959 = add nsw i32 %907, 8
-  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %959, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %33, ptr noundef %17)
+  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %959, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef nonnull %33, ptr noundef %17)
   %960 = call ptr @find_conversation_pinfo(ptr noundef nonnull %2, i32 noundef 0) #16
   %.not113.i = icmp eq ptr %960, null
   br i1 %.not113.i, label %961, label %962
@@ -9230,7 +9230,7 @@ proto_item_set_generated.exit135.i:               ; preds = %1064, %1061, %1058
 proto_item_set_generated.exit138.i:               ; preds = %1082, %1078, %1075, %1070
   %1084 = getelementptr inbounds i8, ptr %.0.ph.i, i64 64
   %1085 = load i32, ptr %1084, align 8
-  call fastcc void @dissect_dcerpc_cn_stub(ptr noundef %193, i32 noundef %959, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef %33, ptr noundef nonnull %1008, ptr noundef %17, i32 noundef %1085)
+  call fastcc void @dissect_dcerpc_cn_stub(ptr noundef %193, i32 noundef %959, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef nonnull %33, ptr noundef nonnull %1008, ptr noundef %17, i32 noundef %1085)
   br label %1088
 
 1086:                                             ; preds = %990, %dcerpc_get_transport_salt.exit.i262
@@ -9418,7 +9418,7 @@ dissect_dcerpc_uint8.exit.i271:                   ; preds = %1148, %dissect_dcer
   %1183 = load i32, ptr @hf_dcerpc_reserved, align 4
   %1184 = call ptr @proto_tree_add_item(ptr noundef %.0193, i32 noundef %1183, ptr noundef %193, i32 noundef %1177, i32 noundef 4, i32 noundef 0) #16
   %1185 = add nsw i32 %1105, 16
-  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %1185, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %33, ptr noundef %12)
+  call fastcc void @dissect_dcerpc_cn_auth(ptr noundef %193, i32 noundef %1185, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef nonnull %33, ptr noundef %12)
   %1186 = call i32 @tvb_captured_length_remaining(ptr noundef %193, i32 noundef %1185) #16
   %1187 = call i32 @tvb_reported_length_remaining(ptr noundef %193, i32 noundef %1185) #16
   %1188 = icmp slt i32 %1187, 0

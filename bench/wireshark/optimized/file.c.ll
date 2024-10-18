@@ -1010,7 +1010,7 @@ cf_add_encapsulation_type.exit.i:                 ; preds = %193, %._crit_edge.i
   br i1 %248, label %249, label %read_record.exit
 
 249:                                              ; preds = %246
-  call fastcc void @add_packet_to_packet_list(ptr noundef %214, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %182, ptr noundef %79, ptr noundef %11, ptr noundef %12, i32 noundef 1)
+  call fastcc void @add_packet_to_packet_list(ptr noundef %214, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %182, ptr noundef %79, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1)
   br label %read_record.exit
 
 read_record.exit:                                 ; preds = %203, %244, %246, %249
@@ -1135,7 +1135,7 @@ read_record.exit:                                 ; preds = %203, %244, %246, %2
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds i8, ptr %288, i64 8
   %291 = load ptr, ptr %290, align 8
-  call void %289(i32 noundef 6, ptr noundef %0, ptr noundef %291) #21
+  call void %289(i32 noundef 6, ptr noundef nonnull %0, ptr noundef %291) #21
   %292 = getelementptr inbounds i8, ptr %.09.i140, i64 8
   %.0.i141 = load ptr, ptr %292, align 8
   %.not.i142 = icmp eq ptr %.0.i141, null
@@ -1150,7 +1150,7 @@ read_record.exit:                                 ; preds = %203, %244, %246, %2
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds i8, ptr %294, i64 8
   %297 = load ptr, ptr %296, align 8
-  call void %295(i32 noundef 4, ptr noundef %0, ptr noundef %297) #21
+  call void %295(i32 noundef 4, ptr noundef nonnull %0, ptr noundef %297) #21
   %298 = getelementptr inbounds i8, ptr %.09.i147, i64 8
   %.0.i148 = load ptr, ptr %298, align 8
   %.not.i149 = icmp eq ptr %.0.i148, null

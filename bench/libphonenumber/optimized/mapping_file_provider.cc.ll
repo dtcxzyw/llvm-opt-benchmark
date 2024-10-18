@@ -228,13 +228,13 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_s
           to label %.noexc56 unwind label %50
 
 .noexc56:                                         ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc57 unwind label %50
 
 27:                                               ; preds = %.noexc57
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   br label %.body
 
 .noexc57:                                         ; preds = %.noexc56

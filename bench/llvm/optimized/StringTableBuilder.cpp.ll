@@ -824,14 +824,14 @@ define dso_local noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashSt
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !9
-  %7 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !9
+  %7 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !9
   %8 = load ptr, ptr %4, align 8, !noalias !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !9
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E6insertEOSt4pairIS2_mE.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %8), !noalias !9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !9
+  %10 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %8), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 16, i1 false), !noalias !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %6, align 8, !noalias !9
   store i64 %12, ptr %11, align 8, !noalias !9

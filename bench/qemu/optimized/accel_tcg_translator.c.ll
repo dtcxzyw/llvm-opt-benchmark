@@ -432,7 +432,7 @@ if.end31.i:                                       ; preds = %if.then18.i
 
 if.end52.i:                                       ; preds = %if.end31.i
   store i64 %call21.i, ptr %5, align 8
-  tail call void @page_protect(i64 noundef %call21.i) #8
+  tail call void @page_protect(i64 noundef range(i64 0, -1) %call21.i) #8
   br label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end31.i, %if.end52.i
@@ -594,7 +594,7 @@ if.end31.i:                                       ; preds = %if.then18.i
 
 if.end52.i:                                       ; preds = %if.end31.i
   store i64 %call21.i, ptr %5, align 8
-  tail call void @page_protect(i64 noundef %call21.i) #8
+  tail call void @page_protect(i64 noundef range(i64 0, -1) %call21.i) #8
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end52.i, %if.end31.i
@@ -764,7 +764,7 @@ if.end31.i:                                       ; preds = %if.then18.i
 
 if.end52.i:                                       ; preds = %if.end31.i
   store i64 %call21.i, ptr %5, align 8
-  tail call void @page_protect(i64 noundef %call21.i) #8
+  tail call void @page_protect(i64 noundef range(i64 0, -1) %call21.i) #8
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end52.i, %if.end31.i
@@ -933,7 +933,7 @@ if.end31.i:                                       ; preds = %if.then18.i
 
 if.end52.i:                                       ; preds = %if.end31.i
   store i64 %call21.i, ptr %5, align 8
-  tail call void @page_protect(i64 noundef %call21.i) #8
+  tail call void @page_protect(i64 noundef range(i64 0, -1) %call21.i) #8
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end52.i, %if.end31.i

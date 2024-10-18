@@ -159,7 +159,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK14XMemoryManager16peek_low_addressEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #7
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
@@ -178,14 +178,14 @@ define hidden noundef i64 @_ZNK14XMemoryManager16peek_low_addressEv(ptr noundef 
 
 _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %1, %10
   %.0 = phi i64 [ %12, %10 ], [ -1, %1 ]
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #7
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN14XMemoryManager17alloc_low_addressEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
 select.unfold.preheader:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #7
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
@@ -267,13 +267,13 @@ _ZN14XMemoryManager17shrink_from_frontEP7XMemorym.exit: ; preds = %37, %40
 
 _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %select.unfold, %_ZN14XMemoryManager17shrink_from_frontEP7XMemorym.exit, %_ZN14XMemoryManager7destroyEP7XMemory.exit
   %.0 = phi i64 [ %21, %_ZN14XMemoryManager7destroyEP7XMemory.exit ], [ %21, %_ZN14XMemoryManager17shrink_from_frontEP7XMemorym.exit ], [ -1, %select.unfold ]
-  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #7
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN14XMemoryManager25alloc_low_address_at_mostEmPm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #7
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
@@ -347,14 +347,14 @@ _ZN14XMemoryManager17shrink_from_frontEP7XMemorym.exit: ; preds = %31, %34
 
 _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %37, %_ZN14XMemoryManager17shrink_from_frontEP7XMemorym.exit, %_ZN14XMemoryManager7destroyEP7XMemory.exit
   %.0 = phi i64 [ %16, %_ZN14XMemoryManager7destroyEP7XMemory.exit ], [ %16, %_ZN14XMemoryManager17shrink_from_frontEP7XMemorym.exit ], [ -1, %37 ]
-  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #7
+  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN14XMemoryManager18alloc_high_addressEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
 select.unfold.preheader:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #7
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
@@ -438,7 +438,7 @@ _ZN14XMemoryManager16shrink_from_backEP7XMemorym.exit: ; preds = %39, %42
 
 _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %select.unfold, %_ZN14XMemoryManager16shrink_from_backEP7XMemorym.exit, %_ZN14XMemoryManager7destroyEP7XMemory.exit
   %.0 = phi i64 [ %22, %_ZN14XMemoryManager7destroyEP7XMemory.exit ], [ %44, %_ZN14XMemoryManager16shrink_from_backEP7XMemorym.exit ], [ -1, %select.unfold ]
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #7
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret i64 %.0
 }
 
@@ -446,7 +446,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %select.unfold, %_ZN
 define hidden void @_ZN14XMemoryManager4freeEmm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
 select.unfold.preheader:
   %3 = add i64 %2, %1
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #7
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
@@ -667,7 +667,7 @@ _ZN14XMemoryManager6createEmm.exit36:             ; preds = %94, %101
   br label %_ZN7XLockerI5XLockED2Ev.exit
 
 _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %_ZN14XMemoryManager14grow_from_backEP7XMemorym.exit34, %_ZN14XMemoryManager6createEmm.exit36, %45, %_ZN14XMemoryManager14grow_from_backEP7XMemorym.exit30, %_ZN14XMemoryManager6createEmm.exit, %_ZN14XMemoryManager15grow_from_frontEP7XMemorym.exit
-  %108 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #7
+  %108 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret void
 }
 

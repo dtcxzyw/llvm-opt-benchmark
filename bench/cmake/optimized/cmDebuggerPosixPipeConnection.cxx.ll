@@ -335,7 +335,7 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC2ENSt7__c
 
 54:                                               ; preds = %52, %50
   %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
-  tail call void @_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #27
+  tail call void @_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #27
   br label %.body
 
 55:                                               ; preds = %49
@@ -461,7 +461,7 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC1ENSt7__c
 
 22:                                               ; preds = %20, %18
   %.pn.i = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  tail call void @_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
+  tail call void @_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   br label %.body
 
 23:                                               ; preds = %17
@@ -868,7 +868,7 @@ define dso_local void @_ZTv0_n24_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %5) #26
   ret void
 }
 
@@ -876,7 +876,7 @@ define dso_local void @_ZTv0_n24_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0
 define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %2) #26
   ret void
 }
 
@@ -884,7 +884,7 @@ define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(
 define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %2) #26
   ret void
 }
 
@@ -998,7 +998,7 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i:               ; preds = %49
   br i1 %.not.i.i3.i, label %_ZNSt7promiseIvE9set_valueEv.exit, label %59
 
 59:                                               ; preds = %57
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt7promiseIvE9set_valueEv.exit unwind label %61
 
 61:                                               ; preds = %59
@@ -1016,7 +1016,7 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i:               ; preds = %49
   br i1 %.not.i.i4.i, label %_ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEvEED2Ev.exit5.i, label %67
 
 67:                                               ; preds = %64
-  %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEvEED2Ev.exit5.i unwind label %69
 
 69:                                               ; preds = %67
@@ -2065,7 +2065,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIX5closeEv.exit.i.i: ; preds = %.noexc1
   unreachable
 
 _ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev.exit: ; preds = %_ZN10cmDebugger26cmDebuggerPipeClient_POSIX5closeEv.exit.i.i, %23, %25
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(68) %5) #26
   ret void
 }
 
@@ -2131,7 +2131,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIX5closeEv.exit.i.i: ; preds = %.noexc1
   unreachable
 
 _ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev.exit: ; preds = %_ZN10cmDebugger26cmDebuggerPipeClient_POSIX5closeEv.exit.i.i, %19, %21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(68) %2) #26
   ret void
 }
 
@@ -2305,7 +2305,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #27
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -2812,7 +2812,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV216_M_brea
   call void @_ZNSt12future_errorC2ESt10error_code(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 4, ptr nonnull %8)
   %9 = call ptr @__cxa_allocate_exception(i64 noundef 32) #27, !noalias !25
   %10 = call ptr @__cxa_init_primary_exception(ptr noundef %9, ptr noundef nonnull @_ZTISt12future_error, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkISt12future_errorEEvPv) #27, !noalias !25
-  call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5) #27, !noalias !25
+  call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %5) #27, !noalias !25
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %9, align 8, !noalias !25
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   %12 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2967,7 +2967,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV213_M_set_
   store ptr %4, ptr %14, align 8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
-  %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
+  %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
 _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
@@ -3035,7 +3035,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV29_M_do_se
 _ZNKSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEvEEclEv.exit: ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !31
-  call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.19") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.19") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store i8 1, ptr %2, align 1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8

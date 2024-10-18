@@ -441,7 +441,7 @@ define noundef i32 @pmix_show_help_finalize() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %26 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %26 ]
-  tail call void %32(ptr noundef %9) #18
+  tail call void %32(ptr noundef nonnull %9) #18
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
@@ -1323,7 +1323,7 @@ define internal void @tuple_list_item_destructor(ptr noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %40 = phi ptr [ %42, %.lr.ph.i ], [ %39, %34 ]
   %.07.i = phi ptr [ %41, %.lr.ph.i ], [ %38, %34 ]
-  tail call void %40(ptr noundef %17) #18
+  tail call void %40(ptr noundef nonnull %17) #18
   %41 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null

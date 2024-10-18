@@ -2363,7 +2363,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %23, i64 392
   %74 = load i32, ptr %73, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef readonly %5, i32 noundef %74, ptr noundef %47)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %74, ptr noundef %47)
   %75 = getelementptr inbounds i8, ptr %23, i64 664
   %76 = load ptr, ptr %75, align 8
   %.not.i = icmp eq ptr %76, null
@@ -2378,7 +2378,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %73, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef readonly %5, i32 noundef %82, ptr noundef %79)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %82, ptr noundef %79)
   br label %83
 
 83:                                               ; preds = %81, %77, %._crit_edge
@@ -2388,7 +2388,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.i
   %.020.i = phi ptr [ %88, %.lr.ph.i ], [ %72, %83 ]
   %84 = load i32, ptr %73, align 8
-  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef null, ptr noundef readonly %5, i32 noundef %84, ptr noundef %.020.i)
+  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %84, ptr noundef %.020.i)
   %85 = getelementptr inbounds i8, ptr %.020.i, i64 312
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 72

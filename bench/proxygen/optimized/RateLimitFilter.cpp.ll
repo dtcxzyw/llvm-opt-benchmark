@@ -488,7 +488,7 @@ sw.bb:                                            ; preds = %entry
 common.resume:                                    ; preds = %lpad.i.i.i31, %lpad.i.i.i18, %lpad.i.i.i5, %lpad.i.i.i
   %call.i27.sink50 = phi ptr [ %call.i27, %lpad.i.i.i31 ], [ %call.i14, %lpad.i.i.i18 ], [ %call.i1, %lpad.i.i.i5 ], [ %call.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i.i.i31 ], [ %8, %lpad.i.i.i18 ], [ %5, %lpad.i.i.i5 ], [ %2, %lpad.i.i.i ]
-  tail call void @_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call.i27.sink50) #22, !noalias !7
+  tail call void @_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %call.i27.sink50) #22, !noalias !7
   tail call void @_ZdlPv(ptr noundef nonnull %call.i27.sink50) #23, !noalias !7
   resume { ptr, i32 } %common.resume.op
 
@@ -1138,7 +1138,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -1186,7 +1186,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -1836,7 +1836,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -1877,7 +1877,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -2045,7 +2045,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -2086,7 +2086,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -2108,7 +2108,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen22HeadersRateLimitFilterD0Ev.exit:    ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -2128,7 +2128,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -2169,7 +2169,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -2191,7 +2191,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen22HeadersRateLimitFilterD0Ev.exit:    ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -2233,7 +2233,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -2274,7 +2274,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -2573,7 +2573,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -2614,7 +2614,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -2636,7 +2636,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen29ControlMessageRateLimitFilterD0Ev.exit: ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -2656,7 +2656,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -2697,7 +2697,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -2719,7 +2719,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen29ControlMessageRateLimitFilterD0Ev.exit: ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -2777,7 +2777,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %ex, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #22
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #22
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #22
   ret void
 
 lpad:                                             ; preds = %entry
@@ -2915,7 +2915,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
   %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #22
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #22
   ret void
 }
 
@@ -3039,7 +3039,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #22
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -3066,7 +3066,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -3107,7 +3107,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -3247,7 +3247,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -3288,7 +3288,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -3310,7 +3310,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen21ResetsRateLimitFilterD0Ev.exit:     ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -3330,7 +3330,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -3371,7 +3371,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -3393,7 +3393,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen21ResetsRateLimitFilterD0Ev.exit:     ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -3451,7 +3451,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %ex, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #22
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #22
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #22
   ret void
 
 lpad:                                             ; preds = %entry
@@ -3487,7 +3487,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -3528,7 +3528,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -3649,7 +3649,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %ex, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #22
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #22
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #22
   br label %if.end16
 
 lpad:                                             ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA122_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
@@ -3719,7 +3719,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -3760,7 +3760,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %3, ptr %2
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -3782,7 +3782,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen27DirectErrorsRateLimitFilterD0Ev.exit: ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -3802,7 +3802,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -3843,7 +3843,7 @@ entry:
   %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %2 = load ptr, ptr %call_.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %invoke.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %entry
@@ -3865,7 +3865,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8proxygen27DirectErrorsRateLimitFilterD0Ev.exit: ; preds = %invoke.cont.i.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
@@ -3919,7 +3919,7 @@ _ZN5folly6detail15reserveInTargetIA122_cjJPNSt7__cxx1112basic_stringIcSt11char_t
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sizes.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %add.i.i)
   %4 = load ptr, ptr %vs3, align 8
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %vs)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(122) %vs)
   %5 = load i32, ptr %vs1, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i)
   %conv.i.i.i4 = zext i32 %5 to i64

@@ -448,7 +448,7 @@ exec_eval_cleanup.exit:                           ; preds = %58, %80, %78, %61, 
   br label %120
 
 120:                                              ; preds = %119, %117
-  %121 = call fastcc i32 @exec_stmt_block(ptr noundef %7, ptr noundef %110)
+  %121 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %7, ptr noundef %110)
   %122 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %123 = load ptr, ptr %122, align 8
   %.not14.i = icmp eq ptr %123, null
@@ -2336,7 +2336,7 @@ default.unreachable:                              ; preds = %37
   br label %105
 
 105:                                              ; preds = %104, %102
-  %106 = call fastcc i32 @exec_stmt_block(ptr noundef %3, ptr noundef %95)
+  %106 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %3, ptr noundef %95)
   %107 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %108 = load ptr, ptr %107, align 8
   %.not14.i = icmp eq ptr %108, null
@@ -2634,7 +2634,7 @@ define hidden void @plpgsql_exec_event_trigger(ptr noundef %0, ptr noundef %1) l
   br label %29
 
 29:                                               ; preds = %28, %26
-  %30 = call fastcc i32 @exec_stmt_block(ptr noundef %3, ptr noundef %19)
+  %30 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %3, ptr noundef %19)
   %31 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %32 = load ptr, ptr %31, align 8
   %.not14.i = icmp eq ptr %32, null
@@ -4383,7 +4383,7 @@ list_length.exit59.thread.i.i:                    ; preds = %list_length.exit59.
   %267 = getelementptr inbounds i8, ptr %263, i64 8
   %268 = load i32, ptr %267, align 4
   %269 = add i32 %268, -1
-  call fastcc void @exec_check_assignable(ptr noundef readonly %0, i32 noundef %269)
+  call fastcc void @exec_check_assignable(ptr noundef nonnull readonly %0, i32 noundef %269)
   %270 = load ptr, ptr %246, align 8
   %271 = add i32 %.06.i.i, 1
   %272 = getelementptr i32, ptr %270, i64 %261
@@ -4495,7 +4495,7 @@ setup_param_list.exit.i:                          ; preds = %299, %295
 
 322:                                              ; preds = %318
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
   br label %323
 
 323:                                              ; preds = %322, %318
@@ -4977,7 +4977,7 @@ exec_eval_cleanup.exit:                           ; preds = %553, %555
 exec_stmt_if.exit:                                ; preds = %529, %.split549, %._crit_edge547.split.us
   %.sink.in = phi ptr [ %530, %529 ], [ %560, %.split549 ], [ %561, %._crit_edge547.split.us ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %562 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %.sink)
+  %562 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %.sink)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69)
   br label %exec_stmt_perform.exit
 
@@ -5252,7 +5252,7 @@ assign_simple_var.exit:                           ; preds = %658, %681, %682
 exec_stmt_case.exit:                              ; preds = %656, %698
   %.sink886.in = phi ptr [ %657, %656 ], [ %699, %698 ]
   %.sink886 = load ptr, ptr %.sink886.in, align 8
-  %700 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %.sink886)
+  %700 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %.sink886)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68)
@@ -5260,7 +5260,7 @@ exec_stmt_case.exit:                              ; preds = %656, %698
 
 701:                                              ; preds = %.backedge, %.preheader
   %702 = load ptr, ptr %148, align 8
-  %703 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %702)
+  %703 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %702)
   switch i32 %703, label %.backedge [
     i32 2, label %exec_stmt_perform.exit
     i32 1, label %704
@@ -5355,7 +5355,7 @@ exec_eval_cleanup.exit208:                        ; preds = %734, %736
 
 741:                                              ; preds = %exec_eval_cleanup.exit208
   %742 = load ptr, ptr %724, align 8
-  %743 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %742)
+  %743 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %742)
   switch i32 %743, label %.backedge1044 [
     i32 2, label %exec_stmt_while.exit
     i32 1, label %744
@@ -5605,7 +5605,7 @@ exec_eval_cleanup.exit211:                        ; preds = %846, %848
   %869 = sext i32 %.065.i to i64
   call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %770, i64 noundef %869, i1 noundef zeroext false, i1 noundef zeroext false)
   %870 = load ptr, ptr %858, align 8
-  %871 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %870)
+  %871 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %870)
   switch i32 %871, label %890 [
     i32 2, label %exec_stmt_fori.exit.loopexit
     i32 1, label %872
@@ -5703,7 +5703,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   %908 = load ptr, ptr %907, align 8
   %909 = call fastcc i32 @exec_run_select(ptr noundef nonnull %0, ptr noundef %908, i64 noundef 0, ptr noundef nonnull %61)
   %910 = load ptr, ptr %61, align 8
-  %911 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef %910, i1 noundef zeroext true)
+  %911 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef %910, i1 noundef zeroext true)
   %912 = load ptr, ptr %61, align 8
   call void @SPI_cursor_close(ptr noundef %912) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
@@ -5789,7 +5789,7 @@ get_stmt_mcontext.exit:                           ; preds = %923, %926
   %956 = getelementptr ptr, ptr %954, i64 %955
   %957 = load ptr, ptr %956, align 8
   store ptr %957, ptr %120, align 8
-  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %60)
+  call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %60)
   br label %964
 
 958:                                              ; preds = %940
@@ -5857,7 +5857,7 @@ setup_param_list.exit:                            ; preds = %973, %977
 
 994:                                              ; preds = %992
   %995 = load i32, ptr %915, align 8
-  call fastcc void @exec_check_assignable(ptr noundef %0, i32 noundef %995)
+  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %995)
   %996 = load ptr, ptr %985, align 8
   %997 = call ptr @cstring_to_text(ptr noundef %996) #11
   %998 = ptrtoint ptr %997 to i64
@@ -5894,7 +5894,7 @@ exec_eval_cleanup.exit224:                        ; preds = %1002, %1004
   br label %1008
 
 1008:                                             ; preds = %1007, %exec_eval_cleanup.exit224
-  %1009 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef nonnull %985, i1 noundef zeroext false)
+  %1009 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %985, i1 noundef zeroext false)
   call void @SPI_cursor_close(ptr noundef nonnull %985) #11
   br i1 %993, label %1010, label %exec_stmt_forc.exit
 
@@ -6135,7 +6135,7 @@ exec_eval_cleanup.exit228:                        ; preds = %1070, %1072
 
 1132:                                             ; preds = %1129, %1123
   %1133 = load ptr, ptr %1121, align 8
-  %1134 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %1133)
+  %1134 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %1133)
   switch i32 %1134, label %1153 [
     i32 2, label %exec_stmt_foreach_a.exit
     i32 1, label %1135
@@ -6441,7 +6441,7 @@ exec_stmt_return.exit:                            ; preds = %1185, %1199, %1211,
   br i1 %1269, label %1270, label %1271
 
 1270:                                             ; preds = %1267
-  call fastcc void @exec_init_tuple_store(ptr noundef %0)
+  call fastcc void @exec_init_tuple_store(ptr noundef nonnull %0)
   br label %1271
 
 1271:                                             ; preds = %1270, %1267
@@ -6805,7 +6805,7 @@ get_stmt_mcontext.exit.i:                         ; preds = %1445, %1442
   br i1 %1457, label %1458, label %1459
 
 1458:                                             ; preds = %1455
-  call fastcc void @exec_init_tuple_store(ptr noundef %0)
+  call fastcc void @exec_init_tuple_store(ptr noundef nonnull %0)
   %.pre.i142 = load ptr, ptr %97, align 8
   br label %1459
 
@@ -6929,7 +6929,7 @@ exec_eval_cleanup.exit.i141:                      ; preds = %1514, %1512
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, i8 0, i64 32, i1 false)
   %1517 = getelementptr inbounds i8, ptr %137, i64 32
   %1518 = load ptr, ptr %1517, align 8
-  %1519 = call fastcc ptr @exec_eval_using_params(ptr noundef %0, ptr noundef %1518)
+  %1519 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %1518)
   store ptr %1519, ptr %43, align 8
   %1520 = load i8, ptr %94, align 2
   %1521 = and i8 %1520, 1
@@ -7751,7 +7751,7 @@ get_stmt_mcontext.exit.i165:                      ; preds = %1825, %1822
 exec_eval_cleanup.exit.i170:                      ; preds = %1849, %1847
   %1852 = getelementptr inbounds i8, ptr %137, i64 40
   %1853 = load ptr, ptr %1852, align 8
-  %1854 = call fastcc ptr @exec_eval_using_params(ptr noundef %0, ptr noundef %1853)
+  %1854 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %1853)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, i8 0, i64 32, i1 false)
   store ptr %1854, ptr %20, align 8
   %1855 = load i8, ptr %94, align 2
@@ -7857,7 +7857,7 @@ exec_eval_cleanup.exit.i170:                      ; preds = %1849, %1847
   br i1 %1904, label %1905, label %1907
 
 1905:                                             ; preds = %1900
-  %1906 = call fastcc ptr @format_preparedparamsdata(ptr noundef %0, ptr noundef %1854)
+  %1906 = call fastcc ptr @format_preparedparamsdata(ptr noundef nonnull %0, ptr noundef %1854)
   br label %1907
 
 1907:                                             ; preds = %1905, %1900
@@ -7891,7 +7891,7 @@ exec_eval_cleanup.exit.i170:                      ; preds = %1849, %1847
   br i1 %1922, label %1923, label %1925
 
 1923:                                             ; preds = %1918
-  %1924 = call fastcc ptr @format_preparedparamsdata(ptr noundef %0, ptr noundef %1854)
+  %1924 = call fastcc ptr @format_preparedparamsdata(ptr noundef nonnull %0, ptr noundef %1854)
   br label %1925
 
 1925:                                             ; preds = %1923, %1918
@@ -7956,8 +7956,8 @@ exec_stmt_dynexecute.exit:                        ; preds = %1875, %1940, %1942
   %1948 = load ptr, ptr %1947, align 8
   %1949 = getelementptr inbounds i8, ptr %137, i64 48
   %1950 = load ptr, ptr %1949, align 8
-  %1951 = call fastcc ptr @exec_dynquery_with_params(ptr noundef %0, ptr noundef %1948, ptr noundef %1950, ptr noundef null, i32 noundef 4)
-  %1952 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef nonnull %1951, i1 noundef zeroext true)
+  %1951 = call fastcc ptr @exec_dynquery_with_params(ptr noundef nonnull %0, ptr noundef %1948, ptr noundef %1950, ptr noundef null, i32 noundef 4)
+  %1952 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %1951, i1 noundef zeroext true)
   call void @SPI_cursor_close(ptr noundef nonnull %1951) #11
   br label %exec_stmt_perform.exit
 
@@ -8037,13 +8037,13 @@ get_stmt_mcontext.exit.i173:                      ; preds = %1966, %1963
   %1995 = load ptr, ptr %1994, align 8
   %1996 = getelementptr inbounds i8, ptr %137, i64 16
   %1997 = load i32, ptr %1996, align 8
-  %1998 = call fastcc ptr @exec_dynquery_with_params(ptr noundef %0, ptr noundef nonnull %1992, ptr noundef %1995, ptr noundef %.058.i175, i32 noundef %1997)
+  %1998 = call fastcc ptr @exec_dynquery_with_params(ptr noundef nonnull %0, ptr noundef nonnull %1992, ptr noundef %1995, ptr noundef %.058.i175, i32 noundef %1997)
   %1999 = icmp eq ptr %.058.i175, null
   br i1 %1999, label %2000, label %exec_stmt_open.exit
 
 2000:                                             ; preds = %1993
   %2001 = load i32, ptr %1955, align 4
-  call fastcc void @exec_check_assignable(ptr noundef %0, i32 noundef %2001)
+  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %2001)
   %2002 = load ptr, ptr %1998, align 8
   %2003 = call ptr @cstring_to_text(ptr noundef %2002) #11
   %2004 = ptrtoint ptr %2003 to i64
@@ -8083,7 +8083,7 @@ get_stmt_mcontext.exit.i173:                      ; preds = %1966, %1963
   %2021 = getelementptr ptr, ptr %2019, i64 %2020
   %2022 = load ptr, ptr %2021, align 8
   store ptr %2022, ptr %92, align 8
-  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %14)
+  call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %14)
   br label %2029
 
 2023:                                             ; preds = %2005
@@ -8153,7 +8153,7 @@ setup_param_list.exit.i178:                       ; preds = %2042, %2038
 
 2060:                                             ; preds = %2058
   %2061 = load i32, ptr %1955, align 4
-  call fastcc void @exec_check_assignable(ptr noundef %0, i32 noundef %2061)
+  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %2061)
   %2062 = load ptr, ptr %2051, align 8
   %2063 = call ptr @cstring_to_text(ptr noundef %2062) #11
   %2064 = ptrtoint ptr %2063 to i64
@@ -8433,7 +8433,7 @@ exec_stmt_close.exit:                             ; preds = %2184
 
 exec_stmt_commit.exit:                            ; preds = %2202, %2203
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
   br label %exec_stmt_perform.exit
 
 2204:                                             ; preds = %146
@@ -8452,7 +8452,7 @@ exec_stmt_commit.exit:                            ; preds = %2202, %2203
 
 exec_stmt_rollback.exit:                          ; preds = %2207, %2208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
   br label %exec_stmt_perform.exit
 
 2209:                                             ; preds = %146

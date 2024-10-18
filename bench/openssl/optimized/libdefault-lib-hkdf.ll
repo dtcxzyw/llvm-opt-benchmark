@@ -325,12 +325,12 @@ sw.default:                                       ; preds = %if.end13
 
 if.end.i30:                                       ; preds = %sw.default
   %conv.i = zext nneg i32 %call.i28 to i64
-  %call1.i = call fastcc i32 @HKDF_Extract(ptr noundef %call, ptr noundef %call4, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %1, i64 noundef %5, ptr noundef nonnull %prk.i, i64 noundef %conv.i)
+  %call1.i = call fastcc i32 @HKDF_Extract(ptr noundef %call, ptr noundef nonnull %call4, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %1, i64 noundef %5, ptr noundef nonnull %prk.i, i64 noundef %conv.i)
   %tobool.not.i31 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i31, label %HKDF.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i30
-  %call5.i = call fastcc i32 @HKDF_Expand(ptr noundef %call4, ptr noundef nonnull %prk.i, i64 noundef %conv.i, ptr noundef %6, i64 noundef %7, ptr noundef %key, i64 noundef %keylen)
+  %call5.i = call fastcc i32 @HKDF_Expand(ptr noundef nonnull %call4, ptr noundef nonnull %prk.i, i64 noundef %conv.i, ptr noundef %6, i64 noundef %7, ptr noundef %key, i64 noundef range(i64 1, 0) %keylen)
   call void @OPENSSL_cleanse(ptr noundef nonnull %prk.i, i64 noundef 64) #7
   br label %HKDF.exit
 
@@ -527,16 +527,16 @@ if.then18.i:                                      ; preds = %lor.lhs.false14.i, 
 
 if.end19.i:                                       ; preds = %lor.lhs.false14.i
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call8.i) #7
-  %call22.i = call fastcc i32 @prov_tls13_hkdf_expand(ptr noundef %call3, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %hash.i, i64 noundef %conv.i, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i)
+  %call22.i = call fastcc i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %call3, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %hash.i, i64 noundef %conv.i, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i)
   %tobool.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool.not.i, label %prov_tls13_hkdf_generate_secret.exit, label %if.then31.i
 
 if.end26.i:                                       ; preds = %if.end.i
-  %call27.i = tail call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef %call3, ptr noundef nonnull @prov_tls13_hkdf_generate_secret.default_zeros, i64 noundef 0, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
+  %call27.i = tail call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef nonnull %call3, ptr noundef nonnull @prov_tls13_hkdf_generate_secret.default_zeros, i64 noundef 0, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
   br label %prov_tls13_hkdf_generate_secret.exit
 
 if.then31.i:                                      ; preds = %if.end19.i
-  %call2722.i = call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef %call3, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
+  %call2722.i = call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef nonnull %call3, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
   call void @OPENSSL_cleanse(ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i) #7
   br label %prov_tls13_hkdf_generate_secret.exit
 

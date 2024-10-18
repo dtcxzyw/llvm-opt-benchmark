@@ -658,7 +658,7 @@ define internal fastcc noundef nonnull ptr @_ZL16initialize_stubsN17StubCodeGene
   br i1 %.not4, label %55, label %33
 
 33:                                               ; preds = %31
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %8, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %8, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
   %34 = getelementptr inbounds i8, ptr %8, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #13

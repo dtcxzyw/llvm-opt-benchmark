@@ -20,13 +20,13 @@ define ptr @call_tri(i32 noundef %0, ptr nocapture noundef readonly %1) local_un
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 8) #8
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #8
   tail call fastcc void @graphviz_exit() #9
   unreachable
 
 9:                                                ; preds = %2
   %10 = icmp ne i32 %0, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #10
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -39,7 +39,7 @@ define ptr @call_tri(i32 noundef %0, ptr nocapture noundef readonly %1) local_un
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #10
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
   %18 = icmp eq ptr %17, null
   %or.cond3.i49 = and i1 %10, %18
   br i1 %or.cond3.i49, label %19, label %gv_calloc.exit50
@@ -164,13 +164,13 @@ define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr nocapture noundef read
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 8) #8
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #8
   tail call fastcc void @graphviz_exit() #9
   unreachable
 
 9:                                                ; preds = %3
   %10 = icmp ne i32 %0, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #10
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -183,7 +183,7 @@ define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr nocapture noundef read
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #10
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
   %18 = icmp eq ptr %17, null
   %or.cond3.i49 = and i1 %10, %18
   br i1 %or.cond3.i49, label %20, label %gv_calloc.exit50.preheader

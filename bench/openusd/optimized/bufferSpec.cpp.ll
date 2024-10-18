@@ -106,7 +106,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %19 = phi ptr [ %.pre, %.lr.ph ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit ]
   %.sroa.013.030 = phi ptr [ %14, %.lr.ph ], [ %23, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit ]
   %20 = load ptr, ptr %1, align 8
-  %21 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %20, ptr %19, ptr nonnull %.sroa.013.030)
+  %21 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %20, ptr %19, ptr nonnull align 8 dereferenceable(24) %.sroa.013.030)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit unwind label %24
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit: ; preds = %18
@@ -192,7 +192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.032.051 = phi ptr [ %15, %.lr.ph ], [ %48, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE9push_backERKS1_.exit ]
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %18, align 8
-  %23 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %21, ptr %22, ptr nonnull %.sroa.032.051)
+  %23 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %21, ptr %22, ptr nonnull align 8 dereferenceable(24) %.sroa.032.051)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit unwind label %.loopexit.split-lp
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit: ; preds = %20
@@ -290,7 +290,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE9push_bac
   %.sroa.026.053 = phi ptr [ %49, %.lr.ph55 ], [ %79, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE9push_backERKS1_.exit22 ]
   %55 = load ptr, ptr %0, align 8
   %56 = load ptr, ptr %52, align 8
-  %57 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %55, ptr %56, ptr nonnull %.sroa.026.053)
+  %57 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %55, ptr %56, ptr nonnull align 8 dereferenceable(24) %.sroa.026.053)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit16 unwind label %.loopexit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit16: ; preds = %54
@@ -448,7 +448,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.019.037 = phi ptr [ %15, %.lr.ph ], [ %55, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE9push_backERKS1_.exit ]
   %22 = load ptr, ptr %2, align 8
   %23 = load ptr, ptr %18, align 8
-  %24 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %22, ptr %23, ptr nonnull %.sroa.019.037)
+  %24 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %22, ptr %23, ptr nonnull align 8 dereferenceable(24) %.sroa.019.037)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit unwind label %26
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit: ; preds = %21
@@ -478,7 +478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %26, %
 30:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
   %31 = load ptr, ptr %0, align 8
   %32 = load ptr, ptr %19, align 8
-  %33 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %31, ptr %32, ptr nonnull %.sroa.019.037)
+  %33 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %31, ptr %32, ptr nonnull align 8 dereferenceable(24) %.sroa.019.037)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit unwind label %26
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit: ; preds = %30

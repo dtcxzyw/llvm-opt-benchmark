@@ -806,7 +806,7 @@ _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_20U
   %21 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_20UsdStageCacheContextELb1EE5valueE monotonic, align 8
   %.0.i4 = inttoptr i64 %21 to ptr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  %22 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %.0.i4, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %22 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %.0.i4, ptr noundef nonnull align 1 dereferenceable(1) %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i8, ptr %23, align 8
@@ -2080,7 +2080,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage
   %3 = alloca %"class.std::thread::id", align 8
   %4 = tail call i64 @pthread_self() #24
   store i64 %4, ptr %3, align 8
-  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 3339675911)
+  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit unwind label %6
 
 6:                                                ; preds = %2

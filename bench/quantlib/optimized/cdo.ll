@@ -5425,7 +5425,7 @@ cond.false.i15:                                   ; preds = %invoke.cont13
 
 invoke.cont15:                                    ; preds = %.noexc17, %invoke.cont13
   %12 = phi ptr [ %11, %invoke.cont13 ], [ %.pre.i16, %.noexc17 ]
-  %call.i.i19 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(8) %d)
+  %call.i.i19 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(8) %d)
           to label %call.i.i.noexc unwind label %lpad12
 
 call.i.i.noexc:                                   ; preds = %invoke.cont15
@@ -6687,11 +6687,11 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit44: ; preds = %i
   %vtable.i = load ptr, ptr %61, align 8, !tbaa !33
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %62 = load ptr, ptr %vfn.i, align 8
-  call void %62(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::DayCounter") align 8 %ref.tmp.i61, ptr noundef nonnull align 8 dereferenceable(64) %61)
+  call void %62(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::DayCounter") align 8 %ref.tmp.i61, ptr noundef nonnull align 8 dereferenceable(152) %61)
   %vtable2.i = load ptr, ptr %61, align 8, !tbaa !33
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %63 = load ptr, ptr %vfn3.i, align 8
-  %call.i62 = invoke noundef nonnull align 8 dereferenceable(8) ptr %63(ptr noundef nonnull align 8 dereferenceable(64) %61)
+  %call.i62 = invoke noundef nonnull align 8 dereferenceable(8) ptr %63(ptr noundef nonnull align 8 dereferenceable(152) %61)
           to label %invoke.cont.i64 unwind label %lpad.i63
 
 invoke.cont.i64:                                  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit44
@@ -6810,11 +6810,11 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit49: ; preds = %i
   %vtable.i73 = load ptr, ptr %78, align 8, !tbaa !33
   %vfn.i74 = getelementptr inbounds i8, ptr %vtable.i73, i64 16
   %79 = load ptr, ptr %vfn.i74, align 8
-  call void %79(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::DayCounter") align 8 %ref.tmp.i70, ptr noundef nonnull align 8 dereferenceable(64) %78)
+  call void %79(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::DayCounter") align 8 %ref.tmp.i70, ptr noundef nonnull align 8 dereferenceable(152) %78)
   %vtable2.i75 = load ptr, ptr %78, align 8, !tbaa !33
   %vfn3.i76 = getelementptr inbounds i8, ptr %vtable2.i75, i64 40
   %80 = load ptr, ptr %vfn3.i76, align 8
-  %call.i77 = invoke noundef nonnull align 8 dereferenceable(8) ptr %80(ptr noundef nonnull align 8 dereferenceable(64) %78)
+  %call.i77 = invoke noundef nonnull align 8 dereferenceable(8) ptr %80(ptr noundef nonnull align 8 dereferenceable(152) %78)
           to label %invoke.cont.i81 unwind label %lpad.i78
 
 invoke.cont.i81:                                  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit49
@@ -6951,7 +6951,7 @@ cond.false.i54:                                   ; preds = %if.then101
 _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit56: ; preds = %if.then101, %cond.false.i54
   %100 = phi ptr [ %99, %if.then101 ], [ %.pre.i55, %cond.false.i54 ]
   %101 = load ptr, ptr %dates_.i, align 8, !tbaa !105
-  %call.i59 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef nonnull align 8 dereferenceable(8) %101)
+  %call.i59 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %100, ptr noundef nonnull align 8 dereferenceable(8) %101)
   %call2.i60 = call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %100, double noundef %call.i59, i1 noundef zeroext false)
   %mul112 = fmul double %mul105, %call2.i60
   br label %if.end114
@@ -8027,7 +8027,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -8089,7 +8089,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib3CDOD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %2) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 600) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(488) %2, i64 noundef 600) #31
   ret void
 }
 
@@ -8573,7 +8573,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8QuantLib6detail12simple_eventD0Ev.exit:       ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 72) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 72) #31
   ret void
 }
 
@@ -9304,7 +9304,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.noexc:                           ; preds = %if.then.i.i.i.i.i

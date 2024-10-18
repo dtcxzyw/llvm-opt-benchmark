@@ -101,7 +101,7 @@ entry:
 if.then.i.i.i.i:                                  ; preds = %entry
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %4 = inttoptr i64 %and.i.i.i.i.i6 to ptr
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %error_, ptr noundef %4) #5
+  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %error_, ptr noundef %4) #5
   br label %_ZN6hermes2vm9GCPointerINS0_7JSErrorEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_7JSErrorEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -174,7 +174,7 @@ _ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
   %heapStorage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %6 = inttoptr i64 %and.i.i.i.i.i6.i.i.i.i.i.i to ptr
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i, ptr noundef nonnull %error_.i.i.i.i.i.i, ptr noundef %6) #5
+  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %error_.i.i.i.i.i.i, ptr noundef %6) #5
   br label %_ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit
 
 _ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i

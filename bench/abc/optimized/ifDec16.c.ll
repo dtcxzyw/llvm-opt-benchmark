@@ -739,8 +739,8 @@ Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.t
   br label %231
 
 221:                                              ; preds = %206
-  %222 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %199, i32 %213)
-  %223 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %207, i32 %222)
+  %222 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -176, -2147483648) %199, i32 range(i32 -176, -2147483648) %213)
+  %223 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -176, -2147483648) %207, i32 range(i32 -176, -2147483648) %222)
   %.not54 = icmp sgt i32 %.049, %223
   br i1 %.not54, label %224, label %231
 
@@ -1112,7 +1112,7 @@ Vec_IntSetEntry.exit:                             ; preds = %22, %Vec_IntGrow.ex
 Vec_IntFree.exit:                                 ; preds = %._crit_edge56, %._crit_edge56.thread
   %.130.lcssa70 = phi i32 [ %.130.lcssa, %._crit_edge56 ], [ %.130.lcssa69, %._crit_edge56.thread ]
   tail call void @free(ptr noundef nonnull %3) #21
-  %71 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %.130.lcssa70, i32 1)
+  %71 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -176, -2147483648) %.130.lcssa70, i32 1)
   ret i32 %71
 }
 
@@ -2881,7 +2881,7 @@ If_CluAdjust.exit:                                ; preds = %If_CluPrintGroup.ex
   %37 = shl i64 %.030.i, 2
   %38 = select i1 %36, i64 %37, i64 0
   %.131.i = or i64 %38, %.030.i
-  %.1.i = tail call i32 @llvm.umax.i32(i32 %28, i32 2)
+  %.1.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %28, i32 2)
   %39 = icmp ult i8 %26, 3
   %40 = shl i64 %.131.i, 4
   %41 = select i1 %39, i64 %40, i64 0
@@ -2958,7 +2958,7 @@ If_CluAdjust.exit29:                              ; preds = %If_CluPrintGroup.ex
   %84 = shl i64 %.030.i19, 2
   %85 = select i1 %83, i64 %84, i64 0
   %.131.i20 = or i64 %85, %.030.i19
-  %.1.i21 = call i32 @llvm.umax.i32(i32 %74, i32 2)
+  %.1.i21 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %74, i32 2)
   %86 = icmp ult i8 %72, 3
   %87 = shl i64 %.131.i20, 4
   %88 = select i1 %86, i64 %87, i64 0
@@ -5985,7 +5985,7 @@ If_CluAdjust.exit:                                ; preds = %48
   %69 = shl i64 %.030.i, 2
   %70 = select i1 %68, i64 %69, i64 0
   %.131.i = or i64 %70, %.030.i
-  %.1.i38 = tail call i32 @llvm.umax.i32(i32 %58, i32 2)
+  %.1.i38 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %58, i32 2)
   %71 = icmp ult i32 %58, 3
   %72 = shl i64 %.131.i, 4
   %73 = select i1 %71, i64 %72, i64 0
@@ -6058,7 +6058,7 @@ If_CluAdjust.exit:                                ; preds = %48
   %112 = shl i64 %.030.i41, 2
   %113 = select i1 %111, i64 %112, i64 0
   %.131.i42 = or i64 %113, %.030.i41
-  %.1.i43 = tail call i32 @llvm.umax.i32(i32 %103, i32 2)
+  %.1.i43 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %103, i32 2)
   %114 = icmp ult i8 %100, 3
   %115 = shl i64 %.131.i42, 4
   %116 = select i1 %114, i64 %115, i64 0
@@ -6102,7 +6102,7 @@ If_CluAdjust.exit51:                              ; preds = %._crit_edge, %102
   %139 = shl i64 %.030.i53, 2
   %140 = select i1 %138, i64 %139, i64 0
   %.131.i54 = or i64 %140, %.030.i53
-  %.1.i55 = tail call i32 @llvm.umax.i32(i32 %130, i32 2)
+  %.1.i55 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %130, i32 2)
   %141 = icmp ult i8 %127, 3
   %142 = shl i64 %.131.i54, 4
   %143 = select i1 %141, i64 %142, i64 0
@@ -7885,7 +7885,7 @@ If_CluDeriveDisjoint.exit:                        ; preds = %192, %If_CluCopy.ex
   %217 = shl i64 %215, 2
   %218 = select i1 %216, i64 %217, i64 0
   %.131.i = or i64 %218, %215
-  %.1.i = call i32 @llvm.umax.i32(i32 %211, i32 2)
+  %.1.i = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %211, i32 2)
   %219 = icmp ult i8 %149, 3
   %220 = shl i64 %.131.i, 4
   %221 = select i1 %219, i64 %220, i64 0
@@ -7932,7 +7932,7 @@ If_CluAdjust.exit:                                ; preds = %205, %210
   %244 = shl i64 %.030.i167, 2
   %245 = select i1 %243, i64 %244, i64 0
   %.131.i168 = or i64 %245, %.030.i167
-  %.1.i169 = call i32 @llvm.umax.i32(i32 %234, i32 2)
+  %.1.i169 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %234, i32 2)
   %246 = icmp ult i8 %206, 3
   %247 = shl i64 %.131.i168, 4
   %248 = select i1 %246, i64 %247, i64 0
@@ -8028,7 +8028,7 @@ If_CluAdjust.exit189:                             ; preds = %275
   %288 = shl i64 %.030.i179, 2
   %289 = select i1 %287, i64 %288, i64 0
   %.131.i180 = or i64 %289, %.030.i179
-  %.1.i181 = call i32 @llvm.umax.i32(i32 %277, i32 2)
+  %.1.i181 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %277, i32 2)
   %290 = icmp ult i8 %276, 3
   %291 = shl i64 %.131.i180, 4
   %292 = select i1 %290, i64 %291, i64 0
@@ -8065,7 +8065,7 @@ If_CluAdjust.exit189:                             ; preds = %275
 
 If_CluCopy.exit196:                               ; preds = %.lr.ph.preheader.i190, %303, %If_CluAdjust.exit189
   %307 = icmp ne i32 %28, %277
-  %308 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %277, i32 6)
+  %308 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -128, 128) %277, i32 6)
   %309 = icmp slt i32 %308, %28
   %or.cond.i = select i1 %307, i1 %309, i1 false
   br i1 %or.cond.i, label %.lr.ph.i197, label %If_CluAdjustBig.exit
@@ -8468,7 +8468,7 @@ If_CluAdjust.exit22:                              ; preds = %If_CluAdjust.exit
   %19 = shl i64 %17, 2
   %20 = select i1 %18, i64 %19, i64 0
   %.131.i13 = or i64 %20, %17
-  %.1.i14 = call i32 @llvm.umax.i32(i32 %13, i32 2)
+  %.1.i14 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %13, i32 2)
   %21 = icmp ult i8 %.sroa.0.0.copyload, 3
   %22 = shl i64 %.131.i13, 4
   %23 = select i1 %21, i64 %22, i64 0
@@ -8589,7 +8589,7 @@ define range(i32 0, 2) i32 @If_CutPerformCheck54(ptr noundef %0, ptr nocapture n
   %25 = shl i64 %.030.i, 2
   %26 = select i1 %24, i64 %25, i64 0
   %.131.i = or i64 %26, %.030.i
-  %.1.i = call i32 @llvm.umax.i32(i32 %16, i32 2)
+  %.1.i = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %16, i32 2)
   %27 = icmp ult i8 %13, 3
   %28 = shl i64 %.131.i, 4
   %29 = select i1 %27, i64 %28, i64 0
@@ -9254,12 +9254,12 @@ define float @If_CutDelayLutStruct(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !143
 
 .critedge:                                        ; preds = %37, %43
-  %47 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %18, i32 %26)
+  %47 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -176, -2147483648) %18, i32 range(i32 -176, -2147483648) %26)
   %.not73 = icmp sgt i32 %11, %47
   br i1 %.not73, label %68, label %.lr.ph112
 
 .critedge.thread:                                 ; preds = %.preheader105
-  %48 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %18, i32 %26)
+  %48 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -176, -2147483648) %18, i32 range(i32 -176, -2147483648) %26)
   %.not73155 = icmp sgt i32 %11, %48
   br i1 %.not73155, label %68, label %If_CluDelayMax.exit
 

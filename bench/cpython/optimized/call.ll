@@ -1788,7 +1788,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -1865,7 +1865,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -1940,7 +1940,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -2017,7 +2017,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -2064,7 +2064,7 @@ if.then.i:                                        ; preds = %entry
   br label %callmethod.exit
 
 if.end.i:                                         ; preds = %entry
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i, %if.end.i
@@ -2122,7 +2122,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10

@@ -120,7 +120,7 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN3ue21
   br label %_ZN3ue217ComponentBoundaryD2Ev.exit
 
 _ZN3ue217ComponentBoundaryD2Ev.exit:              ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i, %if.then.i.i.i2.i
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -1316,7 +1316,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -28,7 +28,7 @@ define dso_local noundef i32 @Curl_md4it(ptr nocapture noundef writeonly %0, ptr
 
 15:                                               ; preds = %3
   %16 = and i64 %11, 4294967232
-  %17 = call fastcc ptr @body(ptr noundef %4, ptr noundef %1, i64 noundef %16)
+  %17 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %16)
   %18 = and i64 %11, 63
   %.pre.pre = load i32, ptr %4, align 4
   br label %MD4_Update.exit
@@ -52,7 +52,7 @@ MD4_Update.exit:                                  ; preds = %3, %15
 27:                                               ; preds = %MD4_Update.exit
   %28 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %23
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %25, i1 false)
-  %29 = call fastcc ptr @body(ptr noundef %4, ptr noundef nonnull %22, i64 noundef 64)
+  %29 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
   br label %MD4_Final.exit
 
 MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %27
@@ -115,7 +115,7 @@ MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %2
   %75 = call zeroext i8 @curlx_ultouc(i64 noundef %74) #6
   %76 = getelementptr inbounds i8, ptr %4, i64 87
   store i8 %75, ptr %76, align 1
-  %77 = call fastcc ptr @body(ptr noundef %4, ptr noundef nonnull %22, i64 noundef 64)
+  %77 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
   %78 = load i32, ptr %5, align 4
   %79 = and i32 %78, 255
   %80 = zext nneg i32 %79 to i64

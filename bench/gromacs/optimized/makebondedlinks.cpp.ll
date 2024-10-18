@@ -116,7 +116,7 @@ _ZNSt10unique_ptrIN3gmx11ListOfListsIiEESt14default_deleteIS2_EED2Ev.exit: ; pre
   %32 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #11, !noalias !8
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   store i32 0, ptr %32, align 4, !noalias !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %5, i8 0, i64 48, i1 false), !noalias !8
   %34 = getelementptr inbounds i8, ptr %1, i64 160
   %35 = load i8, ptr %34, align 8, !noalias !8
   %36 = trunc i8 %35 to i1
@@ -195,7 +195,7 @@ _ZNSt10unique_ptrIN3gmx11ListOfListsIiEESt14default_deleteIS2_EED2Ev.exit: ; pre
   store i8 0, ptr %8, align 1, !noalias !8
   store i8 0, ptr %55, align 1, !noalias !8
   store i8 0, ptr %56, align 1, !noalias !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %9, i8 0, i64 48, i1 false), !noalias !8
   %70 = getelementptr inbounds i8, ptr %69, i64 80
   %71 = getelementptr inbounds i8, ptr %69, i64 8
   invoke void @_Z18make_reverse_ilistRKSt5arrayI15InteractionListLm94EEPK7t_atomsRK17ReverseTopOptions12AtomLinkRuleP15reverse_ilist_t(ptr noundef nonnull align 8 dereferenceable(2256) %70, ptr noundef nonnull %71, ptr noundef nonnull align 1 dereferenceable(3) %8, i32 noundef 1, ptr noundef nonnull %9)

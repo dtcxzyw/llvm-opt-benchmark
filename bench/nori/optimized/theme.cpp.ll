@@ -2711,7 +2711,7 @@ define linkonce_odr hidden void @_ZN7nanogui5ThemeD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui5ThemeD0Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #9
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

@@ -824,7 +824,7 @@ _ZN2cvL12cvMatNDToMatEPK7CvMatNDb.exit:           ; preds = %122, %128
           to label %325 unwind label %312
 
 325:                                              ; preds = %316
-  invoke void @_ZN2cv11mixChannelsEPKNS_3MatEmPS0_mPKim(ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %13, i64 noundef 1)
+  invoke void @_ZN2cv11mixChannelsEPKNS_3MatEmPS0_mPKim(ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull align 8 %0, i64 noundef 1, ptr noundef nonnull %13, i64 noundef 1)
           to label %326 unwind label %312
 
 326:                                              ; preds = %325, %309

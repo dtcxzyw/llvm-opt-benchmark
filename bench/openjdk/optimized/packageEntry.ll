@@ -120,7 +120,7 @@ define hidden void @_ZN12PackageEntryD2Ev(ptr nocapture noundef nonnull align 8 
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIP11ModuleEntryED2Ev.exit.i
 
 _ZN13GrowableArrayIP11ModuleEntryED2Ev.exit.i:    ; preds = %8, %4
@@ -150,7 +150,7 @@ define hidden void @_ZN12PackageEntry24delete_qualified_exportsEv(ptr nocapture 
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIP11ModuleEntryED2Ev.exit
 
 _ZN13GrowableArrayIP11ModuleEntryED2Ev.exit:      ; preds = %4, %8
@@ -1346,7 +1346,7 @@ define hidden void @_ZN17PackageEntryTable21init_archived_entriesEP5ArrayIP12Pac
   store volatile i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 32
   store i64 0, ptr %19, align 8
-  tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %8) #13
+  tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull align 8 dereferenceable(44) %8) #13
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %15) #13
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %9) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1378,7 +1378,7 @@ define hidden void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12Pac
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN11ModuleEntry22restore_growable_arrayEP5ArrayIPS_E(ptr noundef %11) #13
   store ptr %12, ptr %10, align 8
-  tail call void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef nonnull %9) #13
+  tail call void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef nonnull align 8 dereferenceable(44) %9) #13
   %13 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit, label %14
@@ -1495,7 +1495,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   store volatile i32 0, ptr %9, align 8
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #13
-  tail call void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef nonnull %3) #13
+  tail call void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef nonnull align 8 dereferenceable(44) %3) #13
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #13
   %10 = ptrtoint ptr %1 to i64
   %11 = trunc i64 %10 to i32
@@ -1598,7 +1598,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   store volatile i32 0, ptr %9, align 8
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #13
-  tail call void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef nonnull %3) #13
+  tail call void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef nonnull align 8 dereferenceable(44) %3) #13
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #13
   %10 = ptrtoint ptr %1 to i64
   %11 = trunc i64 %10 to i32
@@ -1690,7 +1690,7 @@ _ZN16SymbolHandleBaseILb0EED2Ev.exit.thread:      ; preds = %_ZN21ResourceHashta
 
 59:                                               ; preds = %55
   store i32 0, ptr %54, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %54)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
   br label %_ZN13GrowableArrayIP11ModuleEntryED2Ev.exit.i.i
 
 _ZN13GrowableArrayIP11ModuleEntryED2Ev.exit.i.i:  ; preds = %59, %55

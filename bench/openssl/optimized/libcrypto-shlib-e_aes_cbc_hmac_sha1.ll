@@ -405,10 +405,10 @@ if.end132:                                        ; preds = %if.else127, %if.end
   %and144 = or i32 %conv140.masked, %shr142
   %27 = icmp samesign uge i32 %and144, %conv138
   %not.i = sext i1 %27 to i32
-  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i) #8, !srcloc !4
+  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %not.i) #8, !srcloc !4
   %and.i = and i32 %28, %conv138
   %not.i370 = xor i32 %not.i, -1
-  %29 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i370) #8, !srcloc !4
+  %29 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %not.i370) #8, !srcloc !4
   %and2.i = and i32 %29, %and144
   %or.i = or i32 %and2.i, %and.i
   %add153 = add nuw nsw i32 %or.i, 21
@@ -1511,7 +1511,7 @@ for.body75.i:                                     ; preds = %for.body75.i, %for.
   br i1 %exitcond272.not.i, label %for.end157.i, label %for.body75.i, !llvm.loop !19
 
 for.end157.i:                                     ; preds = %for.body75.i, %for.end.thread.i
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
   %cond164.i = call i32 @llvm.umin.i32(i32 %frag.0.i, i32 %last.0.i)
   %sub165.i = add i32 %cond164.i, -51
   %div166242.i = lshr i32 %sub165.i, 6
@@ -1528,8 +1528,8 @@ for.body173.preheader.i:                          ; preds = %for.cond170.prehead
 do.body.us.i:                                     ; preds = %for.body173.i, %for.cond191.for.end230_crit_edge.us.i
   %processed.1.us.i = phi i32 [ %add231.us.i, %for.cond191.for.end230_crit_edge.us.i ], [ 0, %for.body173.i ]
   %minblocks.0.us.i = phi i32 [ %sub232.us.i, %for.cond191.for.end230_crit_edge.us.i ], [ %div166242.i, %for.body173.i ]
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
-  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
+  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef range(i32 0, 1073741824) %div18287) #7
   br label %for.body194.us.i
 
 for.body194.us.i:                                 ; preds = %for.body194.us.i, %do.body.us.i
@@ -1595,14 +1595,14 @@ do.body.i:                                        ; preds = %for.cond170.prehead
 
 if.end235.i:                                      ; preds = %for.cond191.for.end230_crit_edge.us.i, %do.body.i, %for.end157.i
   %processed.0.i = phi i32 [ 0, %for.end157.i ], [ %add231.i, %do.body.i ], [ %add231.us.i, %for.cond191.for.end230_crit_edge.us.i ]
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %hash_d.i, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %hash_d.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   br i1 %cmp36245.not.i, label %for.end301.thread.i, label %for.body241.lr.ph.i
 
 for.end301.thread.i:                              ; preds = %if.end235.i
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
   br label %for.end499.i
 
 for.body241.lr.ph.i:                              ; preds = %if.end235.i
@@ -1647,7 +1647,7 @@ for.body241.i:                                    ; preds = %for.body241.i, %for
   br i1 %exitcond287.not.i, label %for.end301.i, label %for.body241.i, !llvm.loop !23
 
 for.end301.i:                                     ; preds = %for.body241.i
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   %tail.i = getelementptr inbounds i8, ptr %call, i64 340
   %B321.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 32
@@ -1711,7 +1711,7 @@ for.body307.i:                                    ; preds = %for.body307.i, %for
   br i1 %exitcond292.not.i, label %for.end391.i, label %for.body307.i, !llvm.loop !30
 
 for.end391.i:                                     ; preds = %for.body307.i
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div18287) #7
   %arrayidx475.i = getelementptr inbounds i8, ptr %call, i64 472
   %arrayidx480.i = getelementptr inbounds i8, ptr %call, i64 473
   %arrayidx485.i = getelementptr inbounds i8, ptr %call, i64 474
@@ -1802,7 +1802,7 @@ for.body396.i:                                    ; preds = %for.body396.i, %for
 
 for.end499.i:                                     ; preds = %for.body396.i, %for.end301.thread.i
   %ret.0.lcssa.i = phi i32 [ 0, %for.end301.thread.i ], [ %add494.i, %for.body396.i ]
-  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef %div18287) #7
+  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef range(i32 0, 1073741824) %div18287) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %blocks.i, i64 noundef 1024) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr4.i, i64 noundef 160) #7
   br label %tls1_1_multi_block_encrypt.exit

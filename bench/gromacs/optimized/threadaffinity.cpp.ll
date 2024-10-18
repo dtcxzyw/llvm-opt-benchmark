@@ -246,27 +246,27 @@ define void @_Z23gmx_set_thread_affinityRKN3gmx8MDLoggerEPK9t_commrecPK12gmx_hw_
 
 60:                                               ; preds = %57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #17
   %61 = getelementptr inbounds i8, ptr %45, i64 32
   store i8 1, ptr %61, align 8
-  %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str)
+  %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull @.str)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit unwind label %66
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit:     ; preds = %60
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(33) %45)
+  invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(40) %45)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %66
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #17
   br label %_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev.exit
 
 66:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %60
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #17
   br label %common.resume
 
 68:                                               ; preds = %52
@@ -284,7 +284,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 
 76:                                               ; preds = %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %46, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #17
   %77 = getelementptr inbounds i8, ptr %46, i64 32
   store i8 0, ptr %77, align 8
   %78 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull @.str.2, i32 noundef %70)
@@ -294,17 +294,17 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %80 = load ptr, ptr %74, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
-  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(33) %78)
+  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(40) %78)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit33 unwind label %83
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit33: ; preds = %79
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #17
   br label %85
 
 83:                                               ; preds = %79, %76
   %84 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #17
   br label %common.resume
 
 85:                                               ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit33, %73, %68
@@ -514,27 +514,27 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit.i: ; preds = %168, %160, %.loopex
 
 175:                                              ; preds = %172
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #17
   %176 = getelementptr inbounds i8, ptr %38, i64 32
   store i8 1, ptr %176, align 8
-  %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.8)
+  %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull @.str.8)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i unwind label %181
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i:   ; preds = %175
   %178 = load ptr, ptr %173, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 16
   %180 = load ptr, ptr %179, align 8
-  invoke void %180(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull align 8 dereferenceable(33) %38)
+  invoke void %180(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull align 8 dereferenceable(40) %38)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i unwind label %181
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #17
   br label %183
 
 181:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i, %175
   %182 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #17
   br label %common.resume
 
 183:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i, %172, %_ZL23invalidWithinSimulationPK9t_commrecb.exit.i, %170
@@ -613,27 +613,27 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit112.i: ; preds = %214, %206, %185
 
 223:                                              ; preds = %220
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #17
   %224 = getelementptr inbounds i8, ptr %39, i64 32
   store i8 1, ptr %224, align 8
-  %225 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.9)
+  %225 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull @.str.9)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit113.i unwind label %229
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit113.i: ; preds = %223
   %226 = load ptr, ptr %221, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 16
   %228 = load ptr, ptr %227, align 8
-  invoke void %228(ptr noundef nonnull align 8 dereferenceable(8) %221, ptr noundef nonnull align 8 dereferenceable(33) %39)
+  invoke void %228(ptr noundef nonnull align 8 dereferenceable(8) %221, ptr noundef nonnull align 8 dereferenceable(40) %39)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i unwind label %229
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit113.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #17
   br label %231
 
 229:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit113.i, %223
   %230 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #17
   br label %common.resume
 
 231:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i, %220, %218, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i, %216
@@ -713,27 +713,27 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit119.i: ; preds = %256, %248, %235
 
 265:                                              ; preds = %262
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #17
   %266 = getelementptr inbounds i8, ptr %40, i64 32
   store i8 1, ptr %266, align 8
-  %267 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.10)
+  %267 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull @.str.10)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit120.i unwind label %271
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit120.i: ; preds = %265
   %268 = load ptr, ptr %263, align 8
   %269 = getelementptr inbounds i8, ptr %268, i64 16
   %270 = load ptr, ptr %269, align 8
-  invoke void %270(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull align 8 dereferenceable(33) %40)
+  invoke void %270(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull align 8 dereferenceable(40) %40)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i unwind label %271
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit120.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #17
   br label %273
 
 271:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit120.i, %265
   %272 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #17
   br label %common.resume
 
 273:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i, %262, %260, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i, %258
@@ -806,27 +806,27 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit126.i: ; preds = %296, %288, %275
 
 305:                                              ; preds = %302
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #17
   %306 = getelementptr inbounds i8, ptr %41, i64 32
   store i8 1, ptr %306, align 8
-  %307 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.11)
+  %307 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull @.str.11)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit127.i unwind label %311
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit127.i: ; preds = %305
   %308 = load ptr, ptr %303, align 8
   %309 = getelementptr inbounds i8, ptr %308, i64 16
   %310 = load ptr, ptr %309, align 8
-  invoke void %310(ptr noundef nonnull align 8 dereferenceable(8) %303, ptr noundef nonnull align 8 dereferenceable(33) %41)
+  invoke void %310(ptr noundef nonnull align 8 dereferenceable(8) %303, ptr noundef nonnull align 8 dereferenceable(40) %41)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i unwind label %311
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit127.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #17
   br label %313
 
 311:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit127.i, %305
   %312 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #17
   br label %common.resume
 
 313:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i, %302, %300, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i, %298
@@ -893,27 +893,27 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit133.i: ; preds = %335, %327, %313
 
 344:                                              ; preds = %341
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #17
   %345 = getelementptr inbounds i8, ptr %42, i64 32
   store i8 1, ptr %345, align 8
-  %346 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.12)
+  %346 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull @.str.12)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit134.i unwind label %350
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit134.i: ; preds = %344
   %347 = load ptr, ptr %342, align 8
   %348 = getelementptr inbounds i8, ptr %347, i64 16
   %349 = load ptr, ptr %348, align 8
-  invoke void %349(ptr noundef nonnull align 8 dereferenceable(8) %342, ptr noundef nonnull align 8 dereferenceable(33) %42)
+  invoke void %349(ptr noundef nonnull align 8 dereferenceable(8) %342, ptr noundef nonnull align 8 dereferenceable(40) %42)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i unwind label %350
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit134.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #17
   br label %352
 
 350:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit134.i, %344
   %351 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #17
   br label %common.resume
 
 352:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i, %341, %339, %_ZL23invalidWithinSimulationPK9t_commrecb.exit133.i, %337
@@ -1005,27 +1005,27 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit140.i: ; preds = %386, %378, %366
 
 395:                                              ; preds = %392
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #17
   %396 = getelementptr inbounds i8, ptr %43, i64 32
   store i8 1, ptr %396, align 8
-  %397 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.13)
+  %397 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull @.str.13)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit141.i unwind label %401
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit141.i: ; preds = %395
   %398 = load ptr, ptr %393, align 8
   %399 = getelementptr inbounds i8, ptr %398, i64 16
   %400 = load ptr, ptr %399, align 8
-  invoke void %400(ptr noundef nonnull align 8 dereferenceable(8) %393, ptr noundef nonnull align 8 dereferenceable(33) %43)
+  invoke void %400(ptr noundef nonnull align 8 dereferenceable(8) %393, ptr noundef nonnull align 8 dereferenceable(40) %43)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i unwind label %401
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit141.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #17
   br label %403
 
 401:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit141.i, %395
   %402 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #17
   br label %common.resume
 
 403:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i, %392, %390, %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i, %388
@@ -1043,7 +1043,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i: ; preds = %_ZN3gmx14
 
 411:                                              ; preds = %407
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #17
   %412 = getelementptr inbounds i8, ptr %44, i64 32
   store i8 0, ptr %412, align 8
   %.str.15..str.16.i = select i1 %353, ptr @.str.15, ptr @.str.16
@@ -1054,17 +1054,17 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i: ; preds = %_ZN3gmx14
   %415 = load ptr, ptr %409, align 8
   %416 = getelementptr inbounds i8, ptr %415, i64 16
   %417 = load ptr, ptr %416, align 8
-  invoke void %417(ptr noundef nonnull align 8 dereferenceable(8) %409, ptr noundef nonnull align 8 dereferenceable(33) %413)
+  invoke void %417(ptr noundef nonnull align 8 dereferenceable(8) %409, ptr noundef nonnull align 8 dereferenceable(40) %413)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit143.i unwind label %418
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit143.i: ; preds = %414
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #17
   br label %420
 
 418:                                              ; preds = %414, %411
   %419 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #17
   br label %common.resume
 
 common.resume:                                    ; preds = %66, %83, %.body, %102, %108, %181, %229, %271, %311, %350, %401, %418
@@ -1285,27 +1285,27 @@ _ZL26get_thread_affinity_layoutRKN3gmx8MDLoggerEPK9t_commrecRKNS_16HardwareTopol
 
 490:                                              ; preds = %487
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %48, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #17
   %491 = getelementptr inbounds i8, ptr %48, i64 32
   store i8 1, ptr %491, align 8
-  %492 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.3)
+  %492 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull @.str.3)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39 unwind label %496
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit39:   ; preds = %490
   %493 = load ptr, ptr %488, align 8
   %494 = getelementptr inbounds i8, ptr %493, i64 16
   %495 = load ptr, ptr %494, align 8
-  invoke void %495(ptr noundef nonnull align 8 dereferenceable(8) %488, ptr noundef nonnull align 8 dereferenceable(33) %48)
+  invoke void %495(ptr noundef nonnull align 8 dereferenceable(8) %488, ptr noundef nonnull align 8 dereferenceable(40) %48)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit41 unwind label %496
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit41: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #17
   br label %498
 
 496:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39, %490
   %497 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #17
   br label %.body
 
 498:                                              ; preds = %482, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit41, %487, %485, %484
@@ -1376,7 +1376,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA137_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(137) %1, i8 noundef zeroext %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(137) %1) #17
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #17
@@ -1422,7 +1422,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA137_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #17
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #17
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -1447,7 +1447,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #17
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #17
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -1657,7 +1657,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1820,22 +1820,22 @@ define void @_Z29gmx_check_thread_affinity_setRKN3gmx8MDLoggerEP12gmx_hw_opt_tib
 
 32:                                               ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
   %33 = getelementptr inbounds i8, ptr %11, i64 32
   store i8 1, ptr %33, align 8
   %34 = load ptr, ptr %10, align 8
-  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %34)
+  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %34)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit unwind label %39
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit:     ; preds = %32
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(33) %11)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %39
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
   br label %41
 
 39:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %32
@@ -1958,17 +1958,17 @@ _ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit: ; preds = %67, %71
 
 84:                                               ; preds = %83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #17
   %85 = getelementptr inbounds i8, ptr %12, i64 32
   store i8 1, ptr %85, align 8
-  %86 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.29)
+  %86 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull @.str.29)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20 unwind label %90
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit20:   ; preds = %84
   %87 = load ptr, ptr %81, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
-  invoke void %89(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(33) %12)
+  invoke void %89(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(40) %12)
           to label %.sink.split unwind label %90
 
 90:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20, %84
@@ -1981,17 +1981,17 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit20:   ; preds = %84
 
 93:                                               ; preds = %92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
   %94 = getelementptr inbounds i8, ptr %13, i64 32
   store i8 1, ptr %94, align 8
-  %95 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.30)
+  %95 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull @.str.30)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22 unwind label %99
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit22:   ; preds = %93
   %96 = load ptr, ptr %81, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(33) %13)
+  invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %.sink.split unwind label %99
 
 99:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22, %93
@@ -2001,7 +2001,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit22:   ; preds = %93
 
 .sink.split:                                      ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20
   %.sink = phi ptr [ %12, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20 ], [ %13, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #17
   br label %101
 
 101:                                              ; preds = %.sink.split, %92, %83
@@ -2018,7 +2018,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit22:   ; preds = %93
 
 106:                                              ; preds = %103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #17
   %107 = getelementptr inbounds i8, ptr %14, i64 32
   store i8 1, ptr %107, align 8
   %108 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17getProgramContextEv()
@@ -2039,11 +2039,11 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit22:   ; preds = %93
   %117 = load ptr, ptr %104, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  invoke void %119(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(33) %115)
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(40) %115)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24 unwind label %120
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24: ; preds = %116
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #17
   br label %122
 
 120:                                              ; preds = %116, %114, %109, %106
@@ -2057,7 +2057,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24: ; preds = %116
 123:                                              ; preds = %120, %99, %90, %39
   %.sink32 = phi ptr [ %14, %120 ], [ %13, %99 ], [ %12, %90 ], [ %11, %39 ]
   %.pn = phi { ptr, i32 } [ %121, %120 ], [ %100, %99 ], [ %91, %90 ], [ %40, %39 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink32) #17
   resume { ptr, i32 } %.pn
 }
 

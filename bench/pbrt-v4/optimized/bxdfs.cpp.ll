@@ -613,7 +613,7 @@ entry:
   %albedo = getelementptr inbounds i8, ptr %this, i64 36
   %g = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_11DiffuseBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(16) %bottom, ptr noundef nonnull align 4 dereferenceable(4) %thickness, ptr noundef nonnull align 4 dereferenceable(16) %albedo, ptr noundef nonnull align 4 dereferenceable(4) %g)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_11DiffuseBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(16) %bottom, ptr noundef nonnull align 4 dereferenceable(4) %thickness, ptr noundef nonnull align 4 dereferenceable(16) %albedo, ptr noundef nonnull align 4 dereferenceable(4) %g)
           to label %_ZN4pbrt12StringPrintfIJRKNS_14DielectricBxDFERKNS_11DiffuseBxDFERKfRKNS_15SampledSpectrumES8_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -3046,7 +3046,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEC2EOS3_.exit: ; preds = %if.then29, %invok
   %set.i78 = getelementptr inbounds i8, ptr %agg.result, i64 44
   %frombool.i = and i8 %1, 1
   store i8 %frombool.i, ptr %set.i78, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %agg.result, ptr noundef nonnull align 4 dereferenceable(44) %bs, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %agg.result, ptr noundef nonnull align 4 dereferenceable(45) %bs, i64 44, i1 false)
   store i8 0, ptr %set.i, align 4
   br label %cleanup328
 
@@ -3611,7 +3611,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA39_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA39_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(39) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA39_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(39) %args)
           to label %_ZN4pbrt12StringPrintfIJRA39_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -4609,7 +4609,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.i4.i.us, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i.us, label %invoke.cont55.us
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i.us: ; preds = %for.body.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %wos, ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp43, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %wos, ptr noundef nonnull align 4 dereferenceable(45) %ref.tmp43, i64 44, i1 false)
   store i8 1, ptr %set.i, align 4
   br label %invoke.cont55.us
 
@@ -4665,7 +4665,7 @@ invoke.cont55.us:                                 ; preds = %_ZN4pstd8optionalIN
   br i1 %tobool.i4.i136.us, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i139.us, label %invoke.cont72.us
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i139.us: ; preds = %invoke.cont55.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %wis, ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp57, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %wis, ptr noundef nonnull align 4 dereferenceable(45) %ref.tmp57, i64 44, i1 false)
   store i8 1, ptr %set.i59, align 4
   br label %invoke.cont72.us
 
@@ -5493,7 +5493,7 @@ entry:
   %albedo = getelementptr inbounds i8, ptr %this, i64 60
   %g = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_13ConductorBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(40) %bottom, ptr noundef nonnull align 4 dereferenceable(4) %thickness, ptr noundef nonnull align 4 dereferenceable(16) %albedo, ptr noundef nonnull align 4 dereferenceable(4) %g)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_13ConductorBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(40) %bottom, ptr noundef nonnull align 4 dereferenceable(4) %thickness, ptr noundef nonnull align 4 dereferenceable(16) %albedo, ptr noundef nonnull align 4 dereferenceable(4) %g)
           to label %_ZN4pbrt12StringPrintfIJRKNS_14DielectricBxDFERKNS_13ConductorBxDFERKfRKNS_15SampledSpectrumES8_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -7814,7 +7814,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEC2EOS3_.exit: ; preds = %if.then29, %invok
   %set.i78 = getelementptr inbounds i8, ptr %agg.result, i64 44
   %frombool.i = and i8 %1, 1
   store i8 %frombool.i, ptr %set.i78, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %agg.result, ptr noundef nonnull align 4 dereferenceable(44) %bs, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %agg.result, ptr noundef nonnull align 4 dereferenceable(45) %bs, i64 44, i1 false)
   store i8 0, ptr %set.i, align 4
   br label %cleanup328
 
@@ -8964,7 +8964,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5resetEv.exit.i.us: ; preds = %for.body.us
   br i1 %tobool.i4.i.us, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i.us, label %invoke.cont55.us
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i.us: ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5resetEv.exit.i.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %wos, ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp43, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %wos, ptr noundef nonnull align 4 dereferenceable(45) %ref.tmp43, i64 44, i1 false)
   store i8 1, ptr %set.i, align 4
   br label %invoke.cont55.us
 
@@ -9033,7 +9033,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5resetEv.exit.i136.us: ; preds = %cond.tru
   br i1 %tobool.i4.i138.us, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i141.us, label %invoke.cont72.us
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i9.i141.us: ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5resetEv.exit.i136.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %wis, ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp57, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %wis, ptr noundef nonnull align 4 dereferenceable(45) %ref.tmp57, i64 44, i1 false)
   store i8 1, ptr %set.i59, align 4
   br label %invoke.cont72.us
 
@@ -9385,7 +9385,7 @@ if.end23.i.us:                                    ; preds = %init.end.i.us
   %retval.sroa.0.4.vec.insert.i.i18.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i17.i.us, float %fneg2.i.i.i.us, i64 1
   %retval.sroa.0.0.i.i.us = select i1 %cmp.i16.i.us, <2 x float> %retval.sroa.0.4.vec.insert.i.i18.i.us, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.us
   %retval.sroa.3.0.i.i.us = select i1 %cmp.i16.i.us, float %fneg.i.i.i.i.us, float %div3.i.i.i.us
-  %call.i.i678.us = invoke noundef float @_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEES2_(ptr noundef nonnull align 4 dereferenceable(8) %77, <2 x float> %retval.sroa.0.4.vec.insert.i201.us, float %fneg3.i199.us, <2 x float> %retval.sroa.0.0.i.i.us, float %retval.sroa.3.0.i.i.us)
+  %call.i.i678.us = invoke noundef float @_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEES2_(ptr noundef nonnull align 4 dereferenceable(40) %77, <2 x float> %retval.sroa.0.4.vec.insert.i201.us, float %fneg3.i199.us, <2 x float> %retval.sroa.0.0.i.i.us, float %retval.sroa.3.0.i.i.us)
           to label %call.i.i.noexc.us unwind label %lpad.split.us
 
 call.i.i.noexc.us:                                ; preds = %if.end23.i.us
@@ -9867,7 +9867,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -9877,7 +9877,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -9954,7 +9954,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -9964,7 +9964,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -10052,7 +10052,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -10064,7 +10064,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -10086,7 +10086,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define dso_local void @_ZNK4pbrt11DiffuseBxDF8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(16) %this)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(16) %this)
           to label %_ZN4pbrt12StringPrintfIJRKNS_15SampledSpectrumEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -10104,7 +10104,7 @@ define dso_local void @_ZNK4pbrt23DiffuseTransmissionBxDF8ToStringB5cxx11Ev(ptr 
 entry:
   %T = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %T)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %T)
           to label %_ZN4pbrt12StringPrintfIJRKNS_15SampledSpectrumES3_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -10541,7 +10541,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA12_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA12_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(12) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA12_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(12) %args)
           to label %_ZN4pbrt12StringPrintfIJRA12_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -10768,7 +10768,7 @@ entry:
   %mfDistrib = getelementptr inbounds i8, ptr %this, i64 4
   call void @_ZNK4pbrt27TrowbridgeReitzDistribution8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(8) %mfDistrib)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -10789,7 +10789,7 @@ declare void @_ZNK4pbrt27TrowbridgeReitzDistribution8ToStringB5cxx11Ev(ptr sret(
 define dso_local void @_ZNK4pbrt18ThinDielectricBxDF8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %this)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %this)
           to label %_ZN4pbrt12StringPrintfIJRKfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -10808,7 +10808,7 @@ entry:
   %eta = getelementptr inbounds i8, ptr %this, i64 8
   %k = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_27TrowbridgeReitzDistributionEJRKNS_15SampledSpectrumES7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(16) %eta, ptr noundef nonnull align 4 dereferenceable(16) %k)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_27TrowbridgeReitzDistributionEJRKNS_15SampledSpectrumES7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(16) %eta, ptr noundef nonnull align 4 dereferenceable(16) %k)
           to label %_ZN4pbrt12StringPrintfIJRKNS_27TrowbridgeReitzDistributionERKNS_15SampledSpectrumES6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -10936,7 +10936,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA18_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA18_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(18) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA18_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(18) %args)
           to label %_ZN4pbrt12StringPrintfIJRA18_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -10968,7 +10968,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA27_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA27_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(27) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA27_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(27) %args)
           to label %_ZN4pbrt12StringPrintfIJRA27_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -12633,7 +12633,7 @@ entry:
   %s = getelementptr inbounds i8, ptr %this, i64 48
   %sigma_a = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_S3_S3_S3_RKNS_15SampledSpectrumEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %eta, ptr noundef nonnull align 4 dereferenceable(4) %beta_m, ptr noundef nonnull align 4 dereferenceable(4) %beta_n, ptr noundef nonnull align 4 dereferenceable(4) %v, ptr noundef nonnull align 4 dereferenceable(4) %s, ptr noundef nonnull align 4 dereferenceable(16) %sigma_a)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_S3_S3_S3_RKNS_15SampledSpectrumEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %eta, ptr noundef nonnull align 4 dereferenceable(4) %beta_m, ptr noundef nonnull align 4 dereferenceable(4) %beta_n, ptr noundef nonnull align 4 dereferenceable(4) %v, ptr noundef nonnull align 4 dereferenceable(4) %s, ptr noundef nonnull align 4 dereferenceable(16) %sigma_a)
           to label %_ZN4pbrt12StringPrintfIJRKfS2_S2_S2_S2_S2_RKNS_15SampledSpectrumEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -12791,7 +12791,7 @@ do.end104:                                        ; preds = %do.body94
           to label %call.i.noexc unwind label %lpad106
 
 call.i.noexc:                                     ; preds = %do.end104
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef %call.i75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %call.i75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad106
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -12801,7 +12801,7 @@ call.i.noexc:                                     ; preds = %do.end104
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #24
   br label %lpad106.body
 
 invoke.cont107:                                   ; preds = %.noexc
@@ -13008,11 +13008,11 @@ invoke.cont247:                                   ; preds = %if.then.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %24 = ptrtoint ptr %call195 to i64
   store i64 %24, ptr %data248, align 8
-  %call.i84 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4pbrt6Tensor5FieldEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
+  %call.i84 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4pbrt6Tensor5FieldEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont251 unwind label %ehcleanup.thread
 
 invoke.cont251:                                   ; preds = %invoke.cont247
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i84, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp242, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i84, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp242, i64 16, i1 false)
   %shape.i = getelementptr inbounds i8, ptr %call.i84, i64 16
   %25 = load ptr, ptr %shape.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i84, i64 24
@@ -13113,7 +13113,7 @@ define linkonce_odr dso_local void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_str
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %ref.tmp, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %args)
           to label %_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13221,7 +13221,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt10unique_ptrIA
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6Tensor5FieldEELb1EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i) #27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !87
@@ -13275,7 +13275,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA21_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA21_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(21) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA21_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %_ZN4pbrt12StringPrintfIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13612,7 +13612,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i113, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i113, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -13622,11 +13622,11 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %call.i.i114115 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call.i.i114115 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.i114.noexc unwind label %lpad2
 
 call.i.i114.noexc:                                ; preds = %invoke.cont
@@ -13649,7 +13649,7 @@ invoke.cont3:                                     ; preds = %call.i.i114.noexc
           to label %call.i.noexc120 unwind label %lpad6
 
 call.i.noexc120:                                  ; preds = %invoke.cont3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i121, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i121, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
           to label %.noexc122 unwind label %lpad6
 
 .noexc122:                                        ; preds = %call.i.noexc120
@@ -13659,11 +13659,11 @@ call.i.noexc120:                                  ; preds = %invoke.cont3
 lpad.i119:                                        ; preds = %.noexc122
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #24
   br label %ehcleanup12
 
 invoke.cont7:                                     ; preds = %.noexc122
-  %call.i.i125129 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
+  %call.i.i125129 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
           to label %call.i.i125.noexc unwind label %lpad8
 
 call.i.i125.noexc:                                ; preds = %invoke.cont7
@@ -13686,7 +13686,7 @@ invoke.cont9:                                     ; preds = %call.i.i125.noexc
           to label %call.i.noexc135 unwind label %lpad15
 
 call.i.noexc135:                                  ; preds = %invoke.cont9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef %call.i136, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef %call.i136, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
           to label %.noexc137 unwind label %lpad15
 
 .noexc137:                                        ; preds = %call.i.noexc135
@@ -13696,11 +13696,11 @@ call.i.noexc135:                                  ; preds = %invoke.cont9
 lpad.i134:                                        ; preds = %.noexc137
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24
   br label %ehcleanup21
 
 invoke.cont16:                                    ; preds = %.noexc137
-  %call.i.i140144 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
+  %call.i.i140144 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %call.i.i140.noexc unwind label %lpad17
 
 call.i.i140.noexc:                                ; preds = %invoke.cont16
@@ -13723,7 +13723,7 @@ invoke.cont18:                                    ; preds = %call.i.i140.noexc
           to label %call.i.noexc150 unwind label %lpad24
 
 call.i.noexc150:                                  ; preds = %invoke.cont18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22, ptr noundef %call.i151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef %call.i151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
           to label %.noexc152 unwind label %lpad24
 
 .noexc152:                                        ; preds = %call.i.noexc150
@@ -13733,11 +13733,11 @@ call.i.noexc150:                                  ; preds = %invoke.cont18
 lpad.i149:                                        ; preds = %.noexc152
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #24
   br label %ehcleanup30
 
 invoke.cont25:                                    ; preds = %.noexc152
-  %call.i.i155159 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22)
+  %call.i.i155159 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22)
           to label %call.i.i155.noexc unwind label %lpad26
 
 call.i.i155.noexc:                                ; preds = %invoke.cont25
@@ -13760,7 +13760,7 @@ invoke.cont27:                                    ; preds = %call.i.i155.noexc
           to label %call.i.noexc165 unwind label %lpad33
 
 call.i.noexc165:                                  ; preds = %invoke.cont27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31, ptr noundef %call.i166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef %call.i166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32)
           to label %.noexc167 unwind label %lpad33
 
 .noexc167:                                        ; preds = %call.i.noexc165
@@ -13770,11 +13770,11 @@ call.i.noexc165:                                  ; preds = %invoke.cont27
 lpad.i164:                                        ; preds = %.noexc167
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #24
   br label %ehcleanup39
 
 invoke.cont34:                                    ; preds = %.noexc167
-  %call.i.i170174 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31)
+  %call.i.i170174 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31)
           to label %call.i.i170.noexc unwind label %lpad35
 
 call.i.i170.noexc:                                ; preds = %invoke.cont34
@@ -13797,7 +13797,7 @@ invoke.cont36:                                    ; preds = %call.i.i170.noexc
           to label %call.i.noexc180 unwind label %lpad42
 
 call.i.noexc180:                                  ; preds = %invoke.cont36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp40, ptr noundef %call.i181, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef %call.i181, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41)
           to label %.noexc182 unwind label %lpad42
 
 .noexc182:                                        ; preds = %call.i.noexc180
@@ -13807,11 +13807,11 @@ call.i.noexc180:                                  ; preds = %invoke.cont36
 lpad.i179:                                        ; preds = %.noexc182
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #24
   br label %ehcleanup48
 
 invoke.cont43:                                    ; preds = %.noexc182
-  %call.i.i185189 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40)
+  %call.i.i185189 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40)
           to label %call.i.i185.noexc unwind label %lpad44
 
 call.i.i185.noexc:                                ; preds = %invoke.cont43
@@ -13834,7 +13834,7 @@ invoke.cont45:                                    ; preds = %call.i.i185.noexc
           to label %call.i.noexc195 unwind label %lpad51
 
 call.i.noexc195:                                  ; preds = %invoke.cont45
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp49, ptr noundef %call.i196, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef %call.i196, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
           to label %.noexc197 unwind label %lpad51
 
 .noexc197:                                        ; preds = %call.i.noexc195
@@ -13844,11 +13844,11 @@ call.i.noexc195:                                  ; preds = %invoke.cont45
 lpad.i194:                                        ; preds = %.noexc197
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp49) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49) #24
   br label %ehcleanup57
 
 invoke.cont52:                                    ; preds = %.noexc197
-  %call.i.i200204 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49)
+  %call.i.i200204 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49)
           to label %call.i.i200.noexc unwind label %lpad53
 
 call.i.i200.noexc:                                ; preds = %invoke.cont52
@@ -13871,7 +13871,7 @@ invoke.cont54:                                    ; preds = %call.i.i200.noexc
           to label %call.i.noexc210 unwind label %lpad60
 
 call.i.noexc210:                                  ; preds = %invoke.cont54
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58, ptr noundef %call.i211, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58, ptr noundef %call.i211, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59)
           to label %.noexc212 unwind label %lpad60
 
 .noexc212:                                        ; preds = %call.i.noexc210
@@ -13881,11 +13881,11 @@ call.i.noexc210:                                  ; preds = %invoke.cont54
 lpad.i209:                                        ; preds = %.noexc212
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58) #24
   br label %ehcleanup66
 
 invoke.cont61:                                    ; preds = %.noexc212
-  %call.i.i215219 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58)
+  %call.i.i215219 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58)
           to label %call.i.i215.noexc unwind label %lpad62
 
 call.i.i215.noexc:                                ; preds = %invoke.cont61
@@ -13908,7 +13908,7 @@ invoke.cont63:                                    ; preds = %call.i.i215.noexc
           to label %call.i.noexc225 unwind label %lpad69
 
 call.i.noexc225:                                  ; preds = %invoke.cont63
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, ptr noundef %call.i226, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef %call.i226, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
           to label %.noexc227 unwind label %lpad69
 
 .noexc227:                                        ; preds = %call.i.noexc225
@@ -13918,11 +13918,11 @@ call.i.noexc225:                                  ; preds = %invoke.cont63
 lpad.i224:                                        ; preds = %.noexc227
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp67) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #24
   br label %ehcleanup75
 
 invoke.cont70:                                    ; preds = %.noexc227
-  %call.i.i230234 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67)
+  %call.i.i230234 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67)
           to label %call.i.i230.noexc unwind label %lpad71
 
 call.i.i230.noexc:                                ; preds = %invoke.cont70
@@ -13945,7 +13945,7 @@ invoke.cont72:                                    ; preds = %call.i.i230.noexc
           to label %call.i.noexc240 unwind label %lpad78
 
 call.i.noexc240:                                  ; preds = %invoke.cont72
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp76, ptr noundef %call.i241, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef %call.i241, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77)
           to label %.noexc242 unwind label %lpad78
 
 .noexc242:                                        ; preds = %call.i.noexc240
@@ -13955,11 +13955,11 @@ call.i.noexc240:                                  ; preds = %invoke.cont72
 lpad.i239:                                        ; preds = %.noexc242
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #24
   br label %ehcleanup84
 
 invoke.cont79:                                    ; preds = %.noexc242
-  %call.i.i245249 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76)
+  %call.i.i245249 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(96) %tf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76)
           to label %call.i.i245.noexc unwind label %lpad80
 
 call.i.i245.noexc:                                ; preds = %invoke.cont79
@@ -14206,7 +14206,7 @@ land.lhs.true217:                                 ; preds = %land.lhs.true213
 if.then:                                          ; preds = %land.lhs.true217, %land.lhs.true213, %land.lhs.true209, %land.lhs.true191, %land.lhs.true185, %land.lhs.true179, %land.lhs.true173, %land.lhs.true169, %land.lhs.true166, %land.lhs.true160, %land.lhs.true154, %land.lhs.true148, %land.lhs.true145, %land.lhs.true141, %land.lhs.true135, %land.lhs.true129, %land.lhs.true126, %land.lhs.true122, %land.lhs.true119, %land.lhs.true115, %land.lhs.true112, %land.lhs.true108, %land.lhs.true105, %land.lhs.true101, %land.lhs.true98, %land.lhs.true94, %land.lhs.true91, %land.lhs.true87, %land.lhs.true, %invoke.cont81
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRNS_6TensorEEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(96) %tf)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRNS_6TensorEEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(96) %tf)
           to label %_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6TensorEEEES6_PKcDpOT_.exit.i unwind label %lpad.i.i
 
 common.resume.i:                                  ; preds = %lpad.i320, %lpad.i.i
@@ -14767,7 +14767,7 @@ define linkonce_odr dso_local void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_str
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRiEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %ref.tmp, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRiEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1)
           to label %_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEES6_PKcDpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -17740,7 +17740,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt10unique_ptrIA
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6Tensor5FieldEELb1EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i.i.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #27
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !87
@@ -20037,7 +20037,7 @@ define dso_local void @_ZNK4pbrt12MeasuredBxDF8ToStringB5cxx11Ev(ptr noalias non
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_16MeasuredBxDFDataEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.76, ptr noundef nonnull align 8 dereferenceable(888) %0)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_16MeasuredBxDFDataEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.76, ptr noundef nonnull align 8 dereferenceable(888) %0)
           to label %_ZN4pbrt12StringPrintfIJRKNS_16MeasuredBxDFDataEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -20054,7 +20054,7 @@ _ZN4pbrt12StringPrintfIJRKNS_16MeasuredBxDFDataEEEENSt7__cxx1112basic_stringIcSt
 define dso_local void @_ZNK4pbrt21NormalizedFresnelBxDF8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(4) %this)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(4) %this)
           to label %_ZN4pbrt12StringPrintfIJRKfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -20476,7 +20476,7 @@ entry:
 sw.bb.i.i:                                        ; preds = %entry
   %T.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %T.i.i.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(16) %T.i.i.i.i)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i.i.i
 
 common.resume.i.i:                                ; preds = %common.resume.i.i.i, %lpad.i.i.i28.i.i, %lpad.i.i.i27.i.i, %lpad.i.i.i26.i.i, %lpad.i.i.i25.i.i, %lpad.i.i.i24.i.i, %lpad.i.i.i19.i.i, %lpad.i.i.i18.i.i, %lpad.i.i.i.i.i
@@ -20491,7 +20491,7 @@ lpad.i.i.i.i.i:                                   ; preds = %sw.bb.i.i
 
 sw.bb1.i.i:                                       ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(16) %0)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(16) %0)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i18.i.i
 
 lpad.i.i.i18.i.i:                                 ; preds = %sw.bb1.i.i
@@ -20506,7 +20506,7 @@ sw.bb2.i.i:                                       ; preds = %entry
   %albedo.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 36
   %g.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_11DiffuseBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(16) %bottom.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %thickness.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %albedo.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %g.i.i.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_11DiffuseBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(60) %0, ptr noundef nonnull align 4 dereferenceable(16) %bottom.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %thickness.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %albedo.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %g.i.i.i.i)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i19.i.i
 
 lpad.i.i.i19.i.i:                                 ; preds = %sw.bb2.i.i
@@ -20521,7 +20521,7 @@ sw.bb3.i.i:                                       ; preds = %entry
   %albedo.i.i22.i.i = getelementptr inbounds i8, ptr %0, i64 60
   %g.i.i23.i.i = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_13ConductorBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(40) %bottom.i.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %thickness.i.i21.i.i, ptr noundef nonnull align 4 dereferenceable(16) %albedo.i.i22.i.i, ptr noundef nonnull align 4 dereferenceable(4) %g.i.i23.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_14DielectricBxDFEJRKNS_13ConductorBxDFERKfRKNS_15SampledSpectrumES9_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(84) %0, ptr noundef nonnull align 4 dereferenceable(40) %bottom.i.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %thickness.i.i21.i.i, ptr noundef nonnull align 4 dereferenceable(16) %albedo.i.i22.i.i, ptr noundef nonnull align 4 dereferenceable(4) %g.i.i23.i.i)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i24.i.i
 
 lpad.i.i.i24.i.i:                                 ; preds = %sw.bb3.i.i
@@ -20535,7 +20535,7 @@ sw.bb4.i.i:                                       ; preds = %entry
   %mfDistrib.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @_ZNK4pbrt27TrowbridgeReitzDistribution8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %mfDistrib.i.i.i.i), !noalias !164
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
           to label %"_ZZNK4pbrt4BxDF8ToStringB5cxx11EvENK3$_0clIPKNS_14DielectricBxDFEEEDaT_.exit.i.i" unwind label %lpad.i.i.i25.i.i
 
 lpad.i.i.i25.i.i:                                 ; preds = %sw.bb4.i.i
@@ -20552,7 +20552,7 @@ lpad.i.i.i25.i.i:                                 ; preds = %sw.bb4.i.i
 
 sw.bb5.i.i:                                       ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %0)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i26.i.i
 
 lpad.i.i.i26.i.i:                                 ; preds = %sw.bb5.i.i
@@ -20569,7 +20569,7 @@ sw.bb6.i.i:                                       ; preds = %entry
   %s.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %sigma_a.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_S3_S3_S3_RKNS_15SampledSpectrumEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %eta.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %beta_m.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %beta_n.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %v.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %s.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_a.i.i.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_S3_S3_S3_RKNS_15SampledSpectrumEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(76) %0, ptr noundef nonnull align 4 dereferenceable(4) %eta.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %beta_m.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %beta_n.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %v.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %s.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_a.i.i.i.i)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i27.i.i
 
 lpad.i.i.i27.i.i:                                 ; preds = %sw.bb6.i.i
@@ -20581,7 +20581,7 @@ lpad.i.i.i27.i.i:                                 ; preds = %sw.bb6.i.i
 sw.bb7.i.i:                                       ; preds = %entry
   %ptr.val.i.i = load ptr, ptr %0, align 8, !noalias !167
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_16MeasuredBxDFDataEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.76, ptr noundef nonnull align 8 dereferenceable(888) %ptr.val.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_16MeasuredBxDFDataEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.76, ptr noundef nonnull align 8 dereferenceable(888) %ptr.val.i.i)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i28.i.i
 
 lpad.i.i.i28.i.i:                                 ; preds = %sw.bb7.i.i
@@ -20594,7 +20594,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %eta.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %k.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_27TrowbridgeReitzDistributionEJRKNS_15SampledSpectrumES7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %eta.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %k.i.i.i.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_27TrowbridgeReitzDistributionEJRKNS_15SampledSpectrumES7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(16) %eta.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %k.i.i.i.i.i)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i.i.i.i
 
 common.resume.i.i.i:                              ; preds = %lpad.i.i.i3.i.i.i, %lpad.i.i.i.i.i.i
@@ -20609,7 +20609,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 if.else.i.i.i:                                    ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(4) %0)
           to label %"_ZNK4pbrt13TaggedPointerIJNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFENS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEE11DispatchCPUIRZNKS_4BxDF8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i3.i.i.i
 
 lpad.i.i.i3.i.i.i:                                ; preds = %if.else.i.i.i
@@ -21542,7 +21542,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #27
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !173
@@ -22092,7 +22092,7 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit: ; preds = %if.then12, %if.
 
 cond.true.i:                                      ; preds = %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef nonnull align 4 dereferenceable(32) %this, i64 16, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %cond.true.i
@@ -22210,7 +22210,7 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit72: ; preds = %if.else, %if.
 
 cond.true.i94:                                    ; preds = %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i75)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i75, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i75, ptr noundef nonnull align 4 dereferenceable(32) %this, i64 16, i1 false)
   br label %for.body.i.i95
 
 for.body.i.i95:                                   ; preds = %for.body.i.i95, %cond.true.i94
@@ -22698,7 +22698,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA4_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA4_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(4) %args)
           to label %_ZN4pbrt12StringPrintfIJRA4_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -23031,7 +23031,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJPKcRS2_EEEvNS_8LogLevelES
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %_ZN4pbrt12StringPrintfIJPKcRS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -25767,7 +25767,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESU_IJEEEEEPNSD_16_Hashtable_allocISaINSD_10_Hash_nodeISB_Lb1EEEEEEDpOT_.exit unwind label %invoke.cont14.i.i
 
 invoke.cont14.i.i:                                ; preds = %if.end
@@ -25954,7 +25954,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt10unique_ptrIA
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6Tensor5FieldEELb1EEEEE18_M_deallocate_nodeEPSE_.exit: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   br label %if.end
 
@@ -25996,13 +25996,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #24
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #24
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr) #24
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #24
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #24
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr) #24
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #24
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4pbrt6Tensor5FieldEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit
@@ -26153,13 +26153,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #24
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #24
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr) #24
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #24
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #24
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr) #24
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #24
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4pbrt6Tensor5FieldEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit
@@ -26644,7 +26644,7 @@ entry:
 invoke.cont6:                                     ; preds = %entry
   %ndf = getelementptr inbounds i8, ptr %this, i64 208
   %m_param_values.i = getelementptr inbounds i8, ptr %this, i64 232
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ndf, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ndf, i8 0, i64 24, i1 false)
   store i64 %0, ptr %m_param_values.i, align 8
   %ptr.i.i = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i, i8 0, i64 24, i1 false)
@@ -26667,7 +26667,7 @@ invoke.cont6:                                     ; preds = %entry
 invoke.cont14:                                    ; preds = %invoke.cont6
   %sigma = getelementptr inbounds i8, ptr %this, i64 528
   %m_param_values.i5 = getelementptr inbounds i8, ptr %this, i64 552
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sigma, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sigma, i8 0, i64 24, i1 false)
   store i64 %0, ptr %m_param_values.i5, align 8
   %ptr.i.i6 = getelementptr inbounds i8, ptr %this, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i6, i8 0, i64 24, i1 false)
@@ -27190,7 +27190,7 @@ entry:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -27275,7 +27275,7 @@ lpad:                                             ; preds = %invoke.cont
   br label %common.resume
 
 if.then.i:                                        ; preds = %invoke.cont7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #27
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4pbrt16MeasuredBxDFDataEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_Auto_nodeD2Ev.exit
 
@@ -27612,7 +27612,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   br label %if.end
 
@@ -27784,7 +27784,7 @@ invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %filename.i.i = getelementptr inbounds i8, ptr %v, i64 856
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.114, ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.114, ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i)
           to label %_ZNK4pbrt16MeasuredBxDFData8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i
@@ -28027,7 +28027,7 @@ entry:
   %mfDistrib.i = getelementptr inbounds i8, ptr %v, i64 4
   call void @_ZNK4pbrt27TrowbridgeReitzDistribution8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(8) %mfDistrib.i), !noalias !219
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %v, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(12) %v, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZNK4pbrt14DielectricBxDF8ToStringB5cxx11Ev.exit unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i
@@ -28098,7 +28098,7 @@ if.then16:                                        ; preds = %if.end14
 invoke.cont17:                                    ; preds = %if.then16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(16) %v)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SampledSpectrumEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(16) %v)
           to label %_ZNK4pbrt11DiffuseBxDF8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i
@@ -28838,7 +28838,7 @@ invoke.cont17:                                    ; preds = %if.then16
   %eta.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %k.i.i = getelementptr inbounds i8, ptr %v, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_27TrowbridgeReitzDistributionEJRKNS_15SampledSpectrumES7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(8) %v, ptr noundef nonnull align 4 dereferenceable(16) %eta.i.i, ptr noundef nonnull align 4 dereferenceable(16) %k.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_27TrowbridgeReitzDistributionEJRKNS_15SampledSpectrumES7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(40) %v, ptr noundef nonnull align 4 dereferenceable(16) %eta.i.i, ptr noundef nonnull align 4 dereferenceable(16) %k.i.i)
           to label %_ZNK4pbrt13ConductorBxDF8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i

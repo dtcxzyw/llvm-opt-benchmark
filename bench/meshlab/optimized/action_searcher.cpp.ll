@@ -824,7 +824,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %39 unwind label %97
 
 39:                                               ; preds = %38
-  %40 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull %15)
+  %40 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit unwind label %.loopexit.split-lp223
 
 _ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit: ; preds = %39
@@ -1110,7 +1110,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i48: ; preds = %_ZN9QtPrivate8RefC
           to label %137 unwind label %195
 
 137:                                              ; preds = %136
-  %138 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull %19)
+  %138 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit57 unwind label %.loopexit.split-lp218
 
 _ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit57: ; preds = %137
@@ -1611,7 +1611,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i122: ; preds = %_ZN7
   unreachable
 
 _ZN11QStringListD2Ev.exit132:                     ; preds = %_ZN11QStringListaSEOS_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i128, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i122
-  %286 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull %15)
+  %286 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit134 unwind label %.loopexit.split-lp
 
 _ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit134: ; preds = %_ZN11QStringListD2Ev.exit132
@@ -1934,7 +1934,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i:        ; preds = %1
 13:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %9, i64 4
   %15 = load i32, ptr %14, align 4, !noalias !32
-  %16 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %15)
+  %16 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %15)
           to label %.noexc unwind label %78
 
 .noexc:                                           ; preds = %13
@@ -2082,7 +2082,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i: ; preds = %_ZN7Q
   unreachable
 
 _ZN9QtPrivate17QForeachContainerI11QStringListED2Ev.exit: ; preds = %.critedge, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i
-  %77 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull %6)
+  %77 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit unwind label %78
 
 78:                                               ; preds = %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit, %_ZN9QtPrivate17QForeachContainerI11QStringListED2Ev.exit, %13
@@ -3504,7 +3504,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %43 unwind label %124
 
 43:                                               ; preds = %42
-  %44 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull %11)
+  %44 = invoke noundef i32 @_ZN9QtPrivate28QStringList_removeDuplicatesEP11QStringList(ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit unwind label %131
 
 _ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit: ; preds = %43

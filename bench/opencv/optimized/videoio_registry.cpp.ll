@@ -394,7 +394,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %4
   br i1 %.not.i.i, label %41, label %24
 
 24:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = getelementptr inbounds i8, ptr %17, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -618,7 +618,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %4
   br i1 %.not.i.i, label %41, label %24
 
 24:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = getelementptr inbounds i8, ptr %17, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -737,7 +737,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %4
   br i1 %.not.i.i, label %41, label %24
 
 24:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = getelementptr inbounds i8, ptr %17, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -984,7 +984,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread: ;
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %21
   %.09.i.i.i.i.i.i = phi ptr [ %41, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %22, %21 ]
   %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %40, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %13, %21 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false), !noalias !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false), !noalias !22
   %26 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 24
   %27 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !22
@@ -1318,7 +1318,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndex
   br i1 %.not.i.i, label %43, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   %28 = getelementptr inbounds i8, ptr %19, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -1670,7 +1670,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilen
   br i1 %.not.i.i, label %43, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   %28 = getelementptr inbounds i8, ptr %19, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -2022,7 +2022,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit.
   br i1 %.not.i.i, label %43, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   %28 = getelementptr inbounds i8, ptr %19, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -2385,7 +2385,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread: ;
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %27
   %.09.i.i.i.i.i.i = phi ptr [ %47, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %28, %27 ]
   %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %46, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %16, %27 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false), !noalias !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false), !noalias !39
   %32 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 24
   %33 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !noalias !39
@@ -2749,7 +2749,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %7
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %22
   %.09.i.i.i.i.i.i = phi ptr [ %42, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %23, %22 ]
   %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %41, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %15, %22 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false), !noalias !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false), !noalias !43
   %27 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 24
   %28 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !43
@@ -3030,7 +3030,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %4, %1
   br i1 %.not.i.i, label %51, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 24, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 24
   %36 = getelementptr inbounds i8, ptr %27, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -3398,7 +3398,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %4, %1
   br i1 %.not.i.i, label %51, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 24, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 24
   %36 = getelementptr inbounds i8, ptr %27, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -3764,7 +3764,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %4, %1
   br i1 %.not.i.i, label %51, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 24, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 24
   %36 = getelementptr inbounds i8, ptr %27, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -4769,7 +4769,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 266:                                              ; preds = %261
   %267 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %263, i64 %indvars.iv23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %264, ptr noundef nonnull align 8 dereferenceable(24) %267, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %264, ptr noundef nonnull align 8 dereferenceable(40) %267, i64 24, i1 false)
   %268 = getelementptr inbounds i8, ptr %264, i64 24
   %269 = getelementptr inbounds i8, ptr %267, i64 24
   %270 = load ptr, ptr %269, align 8
@@ -5611,7 +5611,7 @@ _ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i: ; pre
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.011.i.i.i.i.i = phi ptr [ %34, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
   %.0810.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0810.i.i.i.i.i, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 24
   %20 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %20, align 8
@@ -5864,7 +5864,7 @@ _ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit: ; preds = %78
 .lr.ph.i.i.i.i20:                                 ; preds = %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %140, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %124, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ]
   %.0810.i.i.i.i = phi ptr [ %139, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.sink.i.i, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0810.i.i.i.i, i64 24, i1 false)
   %125 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 24
   %126 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 24
   %127 = load ptr, ptr %126, align 8
@@ -5935,7 +5935,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
   %.012 = phi i64 [ %62, %_ZN2cv16VideoBackendInfoaSERKS0_.exit ], [ %8, %.lr.ph.preheader ]
   %.0811 = phi ptr [ %61, %_ZN2cv16VideoBackendInfoaSERKS0_.exit ], [ %2, %.lr.ph.preheader ]
   %.0910 = phi ptr [ %60, %_ZN2cv16VideoBackendInfoaSERKS0_.exit ], [ %0, %.lr.ph.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811, ptr noundef nonnull align 8 dereferenceable(24) %.0910, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0811, ptr noundef nonnull align 8 dereferenceable(40) %.0910, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %.0811, i64 24
   %10 = getelementptr inbounds i8, ptr %.0910, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -6262,7 +6262,7 @@ _ZNKSt6vectorIN2cv16VideoBackendInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
   %.0911.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN2cv16VideoBackendInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i64 24, i1 false), !alias.scope !78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i, i64 24, i1 false), !alias.scope !78
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %30 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %31 = load ptr, ptr %30, align 8, !alias.scope !76, !noalias !73
@@ -6430,7 +6430,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 18:                                               ; preds = %_ZN2cv16VideoBackendInfoD2Ev.exit17, %11
   %.010 = phi i64 [ %13, %11 ], [ %60, %_ZN2cv16VideoBackendInfoD2Ev.exit17 ]
   %19 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %.010
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 32
@@ -6612,7 +6612,7 @@ _ZN2cv16VideoBackendInfoD2Ev.exit17:              ; preds = %_ZN2cv16VideoBacken
 define linkonce_odr hidden void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv16VideoBackendInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_(ptr %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::VideoBackendInfo", align 8
   %6 = alloca %"struct.cv::VideoBackendInfo", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -6623,7 +6623,7 @@ define linkonce_odr hidden void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iterator
   store ptr null, ptr %11, align 8
   store ptr %12, ptr %10, align 8
   store ptr null, ptr %8, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %8, align 8
@@ -6734,7 +6734,7 @@ _ZN2cv16VideoBackendInfoaSEOS0_.exit:             ; preds = %4, %_ZNSt16_Sp_coun
   %62 = ptrtoint ptr %0 to i64
   %63 = sub i64 %61, %62
   %64 = sdiv exact i64 %63, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 24, i1 false)
   %65 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %60, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %6, i64 32
@@ -6922,7 +6922,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %spec.select = select i1 %16, i64 %14, i64 %12
   %17 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %spec.select
   %18 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %.056
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = getelementptr inbounds i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8
@@ -7056,7 +7056,7 @@ _ZN2cv16VideoBackendInfoaSEOS0_.exit:             ; preds = %.lr.ph, %_ZNSt16_Sp
   %79 = or disjoint i64 %78, 1
   %80 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %79
   %81 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr noundef nonnull align 8 dereferenceable(40) %80, i64 24, i1 false)
   %82 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = getelementptr inbounds i8, ptr %80, i64 24
   %84 = load ptr, ptr %83, align 8
@@ -7172,7 +7172,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 _ZN2cv16VideoBackendInfoaSEOS0_.exit38:           ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i34, %77, %73, %._crit_edge
   %.1 = phi i64 [ %.0.lcssa, %73 ], [ %.0.lcssa, %._crit_edge ], [ %79, %77 ], [ %79, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i34 ]
   store ptr %4, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 24, i1 false)
   %133 = getelementptr inbounds i8, ptr %7, i64 24
   %134 = getelementptr inbounds i8, ptr %3, i64 24
   %135 = load ptr, ptr %134, align 8
@@ -7285,7 +7285,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %.032
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = getelementptr inbounds i8, ptr %7, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -7405,7 +7405,7 @@ _ZN2cv16VideoBackendInfoaSEOS0_.exit:             ; preds = %10, %_ZNSt16_Sp_cou
 .critedge:                                        ; preds = %.lr.ph, %_ZN2cv16VideoBackendInfoaSEOS0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0933, %_ZN2cv16VideoBackendInfoaSEOS0_.exit ], [ %.032, %.lr.ph ]
   %64 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 24, i1 false)
   %65 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = getelementptr inbounds i8, ptr %3, i64 24
   %67 = load ptr, ptr %66, align 8
@@ -7531,7 +7531,7 @@ define linkonce_odr hidden void @_ZSt4swapIN2cv16VideoBackendInfoEENSt9enable_if
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
@@ -8047,7 +8047,7 @@ _ZN2cv16VideoBackendInfoD2Ev.exit:                ; preds = %_ZNSt16_Sp_counted_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv16VideoBackendInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_(ptr %0, ptr %1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::VideoBackendInfo", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -8071,7 +8071,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKN2cv16VideoBackendInfoES5_EEclIS3_NS_17
   br i1 %10, label %12, label %65
 
 12:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKN2cv16VideoBackendInfoES5_EEclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.024.0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %.sroa.024.0, i64 -16
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %11, align 8
@@ -8193,7 +8193,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   resume { ptr, i32 } %64
 
 65:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKN2cv16VideoBackendInfoES5_EEclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.024.0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 24, i1 false)
   %66 = load ptr, ptr %4, align 8
   store ptr %66, ptr %11, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.024.0, i64 32
@@ -8399,7 +8399,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26
   %.078 = phi ptr [ %9, %_ZN2cv16VideoBackendInfoaSEOS0_.exit ], [ %1, %.lr.ph.preheader ]
   %9 = getelementptr inbounds i8, ptr %.078, i64 -40
   %10 = getelementptr inbounds i8, ptr %.069, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %.069, i64 -16
   %12 = getelementptr inbounds i8, ptr %.078, i64 -16
   %13 = load ptr, ptr %12, align 8
@@ -8558,7 +8558,7 @@ _ZNKSt6vectorIN2cv16VideoBackendInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv16VideoBackendInfoESaIS1_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv16VideoBackendInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = getelementptr inbounds i8, ptr %2, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -8595,7 +8595,7 @@ _ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_
   %.0911.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i64 24, i1 false), !alias.scope !95
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i, i64 24, i1 false), !alias.scope !95
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %41 = load ptr, ptr %40, align 8, !alias.scope !93, !noalias !90
@@ -8622,7 +8622,7 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
   %.0911.i.i.i.i19 = phi ptr [ %54, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i19, i64 24, i1 false), !alias.scope !101
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i19, i64 24, i1 false), !alias.scope !101
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
   %50 = load ptr, ptr %49, align 8, !alias.scope !99, !noalias !96

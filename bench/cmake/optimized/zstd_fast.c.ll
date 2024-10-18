@@ -896,7 +896,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr nocapture noundef readonly %0,
 
 190:                                              ; preds = %189
   %191 = xor i64 %.val52.i.i, %.val.i.i
-  %192 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %191, i1 true)
+  %192 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %191, i1 true)
   %193 = lshr i64 %192, 3
   br label %ZSTD_count.exit.i
 
@@ -916,7 +916,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr nocapture noundef readonly %0,
 
 196:                                              ; preds = %195
   %197 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %198 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %197, i1 true)
+  %198 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %197, i1 true)
   %199 = lshr i64 %198, 3
   %200 = getelementptr inbounds i8, ptr %.1.i.i, i64 %199
   %201 = ptrtoint ptr %200 to i64
@@ -1183,7 +1183,7 @@ ZSTD_safecopyLiterals.exit.i:                     ; preds = %243, %.lr.ph.i.i, %
 
 319:                                              ; preds = %318
   %320 = xor i64 %.val52.i559.i, %.val.i558.i
-  %321 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %320, i1 true)
+  %321 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %320, i1 true)
   %322 = lshr i64 %321, 3
   br label %ZSTD_count.exit569.i
 
@@ -1203,7 +1203,7 @@ ZSTD_safecopyLiterals.exit.i:                     ; preds = %243, %.lr.ph.i.i, %
 
 325:                                              ; preds = %324
   %326 = xor i64 %.1.val.i567.i, %.142.val.i566.i
-  %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %326, i1 true)
+  %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %326, i1 true)
   %328 = lshr i64 %327, 3
   %329 = getelementptr inbounds i8, ptr %.1.i564.i, i64 %328
   %330 = ptrtoint ptr %329 to i64
@@ -1633,7 +1633,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge5.i, %159,
 
 522:                                              ; preds = %521
   %523 = xor i64 %.val52.i.i206, %.val.i.i205
-  %524 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %523, i1 true)
+  %524 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %523, i1 true)
   %525 = lshr i64 %524, 3
   br label %ZSTD_count.exit.i119
 
@@ -1653,7 +1653,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge5.i, %159,
 
 528:                                              ; preds = %527
   %529 = xor i64 %.1.val.i.i214, %.142.val.i.i213
-  %530 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %529, i1 true)
+  %530 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %529, i1 true)
   %531 = lshr i64 %530, 3
   %532 = getelementptr inbounds i8, ptr %.1.i.i211, i64 %531
   %533 = ptrtoint ptr %532 to i64
@@ -1918,7 +1918,7 @@ ZSTD_safecopyLiterals.exit.i180:                  ; preds = %575, %.lr.ph.i.i195
 
 649:                                              ; preds = %648
   %650 = xor i64 %.val52.i559.i164, %.val.i558.i163
-  %651 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %650, i1 true)
+  %651 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %650, i1 true)
   %652 = lshr i64 %651, 3
   br label %ZSTD_count.exit569.i150
 
@@ -1938,7 +1938,7 @@ ZSTD_safecopyLiterals.exit.i180:                  ; preds = %575, %.lr.ph.i.i195
 
 655:                                              ; preds = %654
   %656 = xor i64 %.1.val.i567.i172, %.142.val.i566.i171
-  %657 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %656, i1 true)
+  %657 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %656, i1 true)
   %658 = lshr i64 %657, 3
   %659 = getelementptr inbounds i8, ptr %.1.i564.i169, i64 %658
   %660 = ptrtoint ptr %659 to i64
@@ -2368,7 +2368,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge5.i137, %4
 
 851:                                              ; preds = %850
   %852 = xor i64 %.val52.i.i415, %.val.i.i414
-  %853 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %852, i1 true)
+  %853 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %852, i1 true)
   %854 = lshr i64 %853, 3
   br label %ZSTD_count.exit.i327
 
@@ -2388,7 +2388,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge5.i137, %4
 
 857:                                              ; preds = %856
   %858 = xor i64 %.1.val.i.i423, %.142.val.i.i422
-  %859 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %858, i1 true)
+  %859 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %858, i1 true)
   %860 = lshr i64 %859, 3
   %861 = getelementptr inbounds i8, ptr %.1.i.i420, i64 %860
   %862 = ptrtoint ptr %861 to i64
@@ -2653,7 +2653,7 @@ ZSTD_safecopyLiterals.exit.i389:                  ; preds = %904, %.lr.ph.i.i404
 
 978:                                              ; preds = %977
   %979 = xor i64 %.val52.i559.i373, %.val.i558.i372
-  %980 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %979, i1 true)
+  %980 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %979, i1 true)
   %981 = lshr i64 %980, 3
   br label %ZSTD_count.exit569.i358
 
@@ -2673,7 +2673,7 @@ ZSTD_safecopyLiterals.exit.i389:                  ; preds = %904, %.lr.ph.i.i404
 
 984:                                              ; preds = %983
   %985 = xor i64 %.1.val.i567.i381, %.142.val.i566.i380
-  %986 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %985, i1 true)
+  %986 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %985, i1 true)
   %987 = lshr i64 %986, 3
   %988 = getelementptr inbounds i8, ptr %.1.i564.i378, i64 %987
   %989 = ptrtoint ptr %988 to i64
@@ -3103,7 +3103,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge5.i345, %8
 
 1180:                                             ; preds = %1179
   %1181 = xor i64 %.val52.i.i625, %.val.i.i624
-  %1182 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1181, i1 true)
+  %1182 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1181, i1 true)
   %1183 = lshr i64 %1182, 3
   br label %ZSTD_count.exit.i537
 
@@ -3123,7 +3123,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge5.i345, %8
 
 1186:                                             ; preds = %1185
   %1187 = xor i64 %.1.val.i.i633, %.142.val.i.i632
-  %1188 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1187, i1 true)
+  %1188 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1187, i1 true)
   %1189 = lshr i64 %1188, 3
   %1190 = getelementptr inbounds i8, ptr %.1.i.i630, i64 %1189
   %1191 = ptrtoint ptr %1190 to i64
@@ -3388,7 +3388,7 @@ ZSTD_safecopyLiterals.exit.i599:                  ; preds = %1233, %.lr.ph.i.i61
 
 1307:                                             ; preds = %1306
   %1308 = xor i64 %.val52.i559.i583, %.val.i558.i582
-  %1309 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1308, i1 true)
+  %1309 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1308, i1 true)
   %1310 = lshr i64 %1309, 3
   br label %ZSTD_count.exit569.i568
 
@@ -3408,7 +3408,7 @@ ZSTD_safecopyLiterals.exit.i599:                  ; preds = %1233, %.lr.ph.i.i61
 
 1313:                                             ; preds = %1312
   %1314 = xor i64 %.1.val.i567.i591, %.142.val.i566.i590
-  %1315 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1314, i1 true)
+  %1315 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1314, i1 true)
   %1316 = lshr i64 %1315, 3
   %1317 = getelementptr inbounds i8, ptr %.1.i564.i588, i64 %1316
   %1318 = ptrtoint ptr %1317 to i64
@@ -3896,7 +3896,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge5.i555, %1
 
 1553:                                             ; preds = %1552
   %1554 = xor i64 %.val52.i.i834, %.val.i.i833
-  %1555 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1554, i1 true)
+  %1555 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1554, i1 true)
   %1556 = lshr i64 %1555, 3
   br label %ZSTD_count.exit.i747
 
@@ -3916,7 +3916,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge5.i555, %1
 
 1559:                                             ; preds = %1558
   %1560 = xor i64 %.1.val.i.i842, %.142.val.i.i841
-  %1561 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1560, i1 true)
+  %1561 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1560, i1 true)
   %1562 = lshr i64 %1561, 3
   %1563 = getelementptr inbounds i8, ptr %.1.i.i839, i64 %1562
   %1564 = ptrtoint ptr %1563 to i64
@@ -4183,7 +4183,7 @@ ZSTD_safecopyLiterals.exit.i808:                  ; preds = %1606, %.lr.ph.i.i82
 
 1682:                                             ; preds = %1681
   %1683 = xor i64 %.val52.i559.i792, %.val.i558.i791
-  %1684 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1683, i1 true)
+  %1684 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1683, i1 true)
   %1685 = lshr i64 %1684, 3
   br label %ZSTD_count.exit569.i778
 
@@ -4203,7 +4203,7 @@ ZSTD_safecopyLiterals.exit.i808:                  ; preds = %1606, %.lr.ph.i.i82
 
 1688:                                             ; preds = %1687
   %1689 = xor i64 %.1.val.i567.i800, %.142.val.i566.i799
-  %1690 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1689, i1 true)
+  %1690 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1689, i1 true)
   %1691 = lshr i64 %1690, 3
   %1692 = getelementptr inbounds i8, ptr %.1.i564.i797, i64 %1691
   %1693 = ptrtoint ptr %1692 to i64
@@ -4632,7 +4632,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge5.i765, %1
 
 1884:                                             ; preds = %1883
   %1885 = xor i64 %.val52.i.i1045, %.val.i.i1044
-  %1886 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1885, i1 true)
+  %1886 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1885, i1 true)
   %1887 = lshr i64 %1886, 3
   br label %ZSTD_count.exit.i957
 
@@ -4652,7 +4652,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge5.i765, %1
 
 1890:                                             ; preds = %1889
   %1891 = xor i64 %.1.val.i.i1053, %.142.val.i.i1052
-  %1892 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1891, i1 true)
+  %1892 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1891, i1 true)
   %1893 = lshr i64 %1892, 3
   %1894 = getelementptr inbounds i8, ptr %.1.i.i1050, i64 %1893
   %1895 = ptrtoint ptr %1894 to i64
@@ -4917,7 +4917,7 @@ ZSTD_safecopyLiterals.exit.i1019:                 ; preds = %1937, %.lr.ph.i.i10
 
 2011:                                             ; preds = %2010
   %2012 = xor i64 %.val52.i559.i1003, %.val.i558.i1002
-  %2013 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2012, i1 true)
+  %2013 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2012, i1 true)
   %2014 = lshr i64 %2013, 3
   br label %ZSTD_count.exit569.i988
 
@@ -4937,7 +4937,7 @@ ZSTD_safecopyLiterals.exit.i1019:                 ; preds = %1937, %.lr.ph.i.i10
 
 2017:                                             ; preds = %2016
   %2018 = xor i64 %.1.val.i567.i1011, %.142.val.i566.i1010
-  %2019 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2018, i1 true)
+  %2019 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2018, i1 true)
   %2020 = lshr i64 %2019, 3
   %2021 = getelementptr inbounds i8, ptr %.1.i564.i1008, i64 %2020
   %2022 = ptrtoint ptr %2021 to i64
@@ -5366,7 +5366,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge5.i975, %1
 
 2212:                                             ; preds = %2211
   %2213 = xor i64 %.val52.i.i1255, %.val.i.i1254
-  %2214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2213, i1 true)
+  %2214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2213, i1 true)
   %2215 = lshr i64 %2214, 3
   br label %ZSTD_count.exit.i1167
 
@@ -5386,7 +5386,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge5.i975, %1
 
 2218:                                             ; preds = %2217
   %2219 = xor i64 %.1.val.i.i1263, %.142.val.i.i1262
-  %2220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2219, i1 true)
+  %2220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2219, i1 true)
   %2221 = lshr i64 %2220, 3
   %2222 = getelementptr inbounds i8, ptr %.1.i.i1260, i64 %2221
   %2223 = ptrtoint ptr %2222 to i64
@@ -5651,7 +5651,7 @@ ZSTD_safecopyLiterals.exit.i1229:                 ; preds = %2265, %.lr.ph.i.i12
 
 2339:                                             ; preds = %2338
   %2340 = xor i64 %.val52.i559.i1213, %.val.i558.i1212
-  %2341 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2340, i1 true)
+  %2341 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2340, i1 true)
   %2342 = lshr i64 %2341, 3
   br label %ZSTD_count.exit569.i1198
 
@@ -5671,7 +5671,7 @@ ZSTD_safecopyLiterals.exit.i1229:                 ; preds = %2265, %.lr.ph.i.i12
 
 2345:                                             ; preds = %2344
   %2346 = xor i64 %.1.val.i567.i1221, %.142.val.i566.i1220
-  %2347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2346, i1 true)
+  %2347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2346, i1 true)
   %2348 = lshr i64 %2347, 3
   %2349 = getelementptr inbounds i8, ptr %.1.i564.i1218, i64 %2348
   %2350 = ptrtoint ptr %2349 to i64
@@ -6100,7 +6100,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge5.i1185, %
 
 2540:                                             ; preds = %2539
   %2541 = xor i64 %.val52.i.i1465, %.val.i.i1464
-  %2542 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2541, i1 true)
+  %2542 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2541, i1 true)
   %2543 = lshr i64 %2542, 3
   br label %ZSTD_count.exit.i1377
 
@@ -6120,7 +6120,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge5.i1185, %
 
 2546:                                             ; preds = %2545
   %2547 = xor i64 %.1.val.i.i1473, %.142.val.i.i1472
-  %2548 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2547, i1 true)
+  %2548 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2547, i1 true)
   %2549 = lshr i64 %2548, 3
   %2550 = getelementptr inbounds i8, ptr %.1.i.i1470, i64 %2549
   %2551 = ptrtoint ptr %2550 to i64
@@ -6385,7 +6385,7 @@ ZSTD_safecopyLiterals.exit.i1439:                 ; preds = %2593, %.lr.ph.i.i14
 
 2667:                                             ; preds = %2666
   %2668 = xor i64 %.val52.i559.i1423, %.val.i558.i1422
-  %2669 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2668, i1 true)
+  %2669 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2668, i1 true)
   %2670 = lshr i64 %2669, 3
   br label %ZSTD_count.exit569.i1408
 
@@ -6405,7 +6405,7 @@ ZSTD_safecopyLiterals.exit.i1439:                 ; preds = %2593, %.lr.ph.i.i14
 
 2673:                                             ; preds = %2672
   %2674 = xor i64 %.1.val.i567.i1431, %.142.val.i566.i1430
-  %2675 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2674, i1 true)
+  %2675 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %2674, i1 true)
   %2676 = lshr i64 %2675, 3
   %2677 = getelementptr inbounds i8, ptr %.1.i564.i1428, i64 %2676
   %2678 = ptrtoint ptr %2677 to i64
@@ -7068,7 +7068,7 @@ ZSTD_safecopyLiterals.exit728.i:                  ; preds = %209, %.lr.ph.i724.i
 
 260:                                              ; preds = %259
   %261 = xor i64 %.val52.i731.i, %.val.i730.i
-  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
+  %262 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %261, i1 true)
   %263 = lshr i64 %262, 3
   br label %ZSTD_count.exit.i
 
@@ -7088,7 +7088,7 @@ ZSTD_safecopyLiterals.exit728.i:                  ; preds = %209, %.lr.ph.i724.i
 
 266:                                              ; preds = %265
   %267 = xor i64 %.1.val.i735.i, %.142.val.i.i
-  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %267, i1 true)
   %269 = lshr i64 %268, 3
   %270 = getelementptr inbounds i8, ptr %.1.i734.i, i64 %269
   %271 = ptrtoint ptr %270 to i64
@@ -7927,7 +7927,7 @@ ZSTD_safecopyLiterals.exit728.i187:               ; preds = %599, %.lr.ph.i724.i
 
 650:                                              ; preds = %649
   %651 = xor i64 %.val52.i731.i158, %.val.i730.i157
-  %652 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %651, i1 true)
+  %652 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %651, i1 true)
   %653 = lshr i64 %652, 3
   br label %ZSTD_count.exit.i72
 
@@ -7947,7 +7947,7 @@ ZSTD_safecopyLiterals.exit728.i187:               ; preds = %599, %.lr.ph.i724.i
 
 656:                                              ; preds = %655
   %657 = xor i64 %.1.val.i735.i166, %.142.val.i.i165
-  %658 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %657, i1 true)
+  %658 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %657, i1 true)
   %659 = lshr i64 %658, 3
   %660 = getelementptr inbounds i8, ptr %.1.i734.i163, i64 %659
   %661 = ptrtoint ptr %660 to i64
@@ -8783,7 +8783,7 @@ ZSTD_safecopyLiterals.exit728.i412:               ; preds = %986, %.lr.ph.i724.i
 
 1037:                                             ; preds = %1036
   %1038 = xor i64 %.val52.i731.i383, %.val.i730.i382
-  %1039 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1038, i1 true)
+  %1039 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1038, i1 true)
   %1040 = lshr i64 %1039, 3
   br label %ZSTD_count.exit.i297
 
@@ -8803,7 +8803,7 @@ ZSTD_safecopyLiterals.exit728.i412:               ; preds = %986, %.lr.ph.i724.i
 
 1043:                                             ; preds = %1042
   %1044 = xor i64 %.1.val.i735.i391, %.142.val.i.i390
-  %1045 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1044, i1 true)
+  %1045 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1044, i1 true)
   %1046 = lshr i64 %1045, 3
   %1047 = getelementptr inbounds i8, ptr %.1.i734.i388, i64 %1046
   %1048 = ptrtoint ptr %1047 to i64
@@ -9639,7 +9639,7 @@ ZSTD_safecopyLiterals.exit728.i637:               ; preds = %1373, %.lr.ph.i724.
 
 1424:                                             ; preds = %1423
   %1425 = xor i64 %.val52.i731.i608, %.val.i730.i607
-  %1426 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1425, i1 true)
+  %1426 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1425, i1 true)
   %1427 = lshr i64 %1426, 3
   br label %ZSTD_count.exit.i522
 
@@ -9659,7 +9659,7 @@ ZSTD_safecopyLiterals.exit728.i637:               ; preds = %1373, %.lr.ph.i724.
 
 1430:                                             ; preds = %1429
   %1431 = xor i64 %.1.val.i735.i616, %.142.val.i.i615
-  %1432 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1431, i1 true)
+  %1432 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1431, i1 true)
   %1433 = lshr i64 %1432, 3
   %1434 = getelementptr inbounds i8, ptr %.1.i734.i613, i64 %1433
   %1435 = ptrtoint ptr %1434 to i64
@@ -10088,7 +10088,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %13
   %15 = xor i64 %.val52.i, %.val.i
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %15, i1 true)
   %17 = lshr i64 %16, 3
   br label %ZSTD_count.exit
 
@@ -10108,7 +10108,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %19
   %21 = xor i64 %.1.val.i, %.142.val.i
-  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %21, i1 true)
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %21, i1 true)
   %23 = lshr i64 %22, 3
   %24 = getelementptr inbounds i8, ptr %.1.i, i64 %23
   %25 = ptrtoint ptr %24 to i64
@@ -10193,7 +10193,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 
 59:                                               ; preds = %58
   %60 = xor i64 %.val52.i38, %.val.i37
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %60, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %60, i1 true)
   %62 = lshr i64 %61, 3
   br label %ZSTD_count.exit48
 
@@ -10213,7 +10213,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 
 65:                                               ; preds = %64
   %66 = xor i64 %.1.val.i46, %.142.val.i45
-  %67 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %66, i1 true)
+  %67 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %66, i1 true)
   %68 = lshr i64 %67, 3
   %69 = getelementptr inbounds i8, ptr %.1.i43, i64 %68
   %70 = ptrtoint ptr %69 to i64

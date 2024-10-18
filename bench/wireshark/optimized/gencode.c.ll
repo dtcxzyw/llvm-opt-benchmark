@@ -1138,7 +1138,7 @@ common.ret96:                                     ; preds = %148, %dfw_append_re
 176:                                              ; preds = %3
   %177 = tail call ptr @sttype_slice_entity(ptr noundef %1) #9
   %178 = tail call ptr @dfvm_insn_new(i32 noundef 35) #9
-  %179 = tail call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %177, ptr noundef %2)
+  %179 = tail call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %177, ptr noundef nonnull %2)
   %180 = tail call ptr @dfvm_value_ref(ptr noundef %179) #9
   %181 = getelementptr inbounds i8, ptr %178, i64 8
   store ptr %180, ptr %181, align 8
@@ -1179,7 +1179,7 @@ common.ret96:                                     ; preds = %148, %dfw_append_re
   %203 = tail call ptr @dfvm_insn_new(i32 noundef 36) #9
   %204 = tail call ptr @sttype_function_params(ptr noundef %1) #9
   %205 = load ptr, ptr %204, align 8
-  %206 = tail call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %205, ptr noundef %2)
+  %206 = tail call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %205, ptr noundef nonnull %2)
   %207 = tail call ptr @dfvm_value_ref(ptr noundef %206) #9
   %208 = getelementptr inbounds i8, ptr %203, i64 8
   store ptr %207, ptr %208, align 8
@@ -1362,7 +1362,7 @@ dfw_append_function.exit:                         ; preds = %202, %._crit_edge
 286:                                              ; preds = %283, %282, %281, %280, %279, %278, %277, %275
   %.0.i67 = phi i32 [ 0, %275 ], [ 38, %283 ], [ 44, %282 ], [ 43, %281 ], [ 42, %280 ], [ 41, %279 ], [ 40, %278 ], [ 39, %277 ]
   %287 = load ptr, ptr %4, align 8
-  %288 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %287, ptr noundef %2)
+  %288 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %287, ptr noundef nonnull %2)
   %289 = load ptr, ptr %5, align 8
   %290 = icmp eq ptr %289, null
   br i1 %290, label %291, label %296
@@ -1376,7 +1376,7 @@ dfw_append_function.exit:                         ; preds = %202, %._crit_edge
   br label %gen_arithmetic.exit
 
 296:                                              ; preds = %286
-  %297 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %289, ptr noundef %2)
+  %297 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %289, ptr noundef nonnull %2)
   %298 = getelementptr inbounds i8, ptr %0, i64 68
   %299 = load i32, ptr %298, align 4
   %300 = add i32 %299, 1

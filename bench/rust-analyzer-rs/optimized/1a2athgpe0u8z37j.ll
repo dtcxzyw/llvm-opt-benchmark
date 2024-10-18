@@ -2013,7 +2013,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h02f34adae032a5f2E.exit.i"
 
 11:                                               ; preds = %5
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %8)
           to label %._crit_edge.i.i unwind label %12, !noalias !191
 
 ._crit_edge.i.i:                                  ; preds = %11
@@ -2073,7 +2073,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h02f34adae032a5f2E.exit.i"
 
 11:                                               ; preds = %5
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %8)
           to label %._crit_edge.i.i unwind label %12, !noalias !199
 
 ._crit_edge.i.i:                                  ; preds = %11
@@ -2565,7 +2565,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %54
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %57)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %57)
           to label %._crit_edge.i.i.i unwind label %61, !noalias !254
 
 ._crit_edge.i.i.i:                                ; preds = %60
@@ -2712,7 +2712,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %54
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %57)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %57)
           to label %._crit_edge.i.i.i unwind label %61, !noalias !285
 
 ._crit_edge.i.i.i:                                ; preds = %60
@@ -3463,7 +3463,7 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h02f34adae032a5f2E.exit"
 
 11:                                               ; preds = %5
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %8)
           to label %._crit_edge.i unwind label %12, !noalias !358
 
 ._crit_edge.i:                                    ; preds = %11
@@ -3522,7 +3522,7 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h02f34adae032a5f2E.exit"
 
 11:                                               ; preds = %5
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %8)
           to label %._crit_edge.i unwind label %12, !noalias !363
 
 ._crit_edge.i:                                    ; preds = %11

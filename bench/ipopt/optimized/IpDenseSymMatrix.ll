@@ -171,7 +171,7 @@ define void @_ZN5Ipopt14DenseSymMatrixC2EPKNS_19DenseSymMatrixSpaceE(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 48), ptr %4, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %_ZN5Ipopt12TaggedObjectC2Ev.exit.i.i unwind label %6
 
 common.resume:                                    ; preds = %42, %6
@@ -328,7 +328,7 @@ define void @_ZN5Ipopt14DenseSymMatrixD0Ev(ptr noundef nonnull align 8 dereferen
 define void @_ZThn16_N5Ipopt14DenseSymMatrixD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt14DenseSymMatrixD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(97) %2) #19
   ret void
 }
 
@@ -362,7 +362,7 @@ define void @_ZNK5Ipopt14DenseSymMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr 
   br label %26
 
 26:                                               ; preds = %25, %21, %5
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(248) %4)
   store i8 1, ptr %18, align 8
   %27 = getelementptr inbounds i8, ptr %4, i64 233
   store i8 0, ptr %27, align 1
@@ -786,7 +786,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 .noexc60:                                         ; preds = %87
   store double %91, ptr %11, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %.0.i4.i, ptr noundef nonnull %.0.i4.i54)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i, ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i54)
           to label %.noexc61 unwind label %116
 
 .noexc61:                                         ; preds = %.noexc60, %.noexc59
@@ -1045,7 +1045,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i85:                ; preds = %.noexc89, %._crit_e
 
 .noexc91:                                         ; preds = %186
   store double %190, ptr %10, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %169, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %.0.i4.i72, ptr noundef nonnull %.0.i4.i79)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %169, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i72, ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i79)
           to label %.noexc92 unwind label %217
 
 .noexc92:                                         ; preds = %.noexc91, %.noexc90
@@ -1350,7 +1350,7 @@ define void @_ZNK5Ipopt14DenseSymMatrix18ComputeRowAMaxImplERNS_6VectorEb(ptr no
   br label %12
 
 12:                                               ; preds = %11, %7, %3
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
   store i8 1, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 233
   store i8 0, ptr %13, align 1
@@ -1581,7 +1581,7 @@ define linkonce_odr noundef ptr @_ZNK5Ipopt14SymMatrixSpace7MakeNewEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt19DenseSymMatrixSpace16MakeNewSymMatrixEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #18
-  invoke void @_ZN5Ipopt14DenseSymMatrixC1EPKNS_19DenseSymMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(97) %2, ptr noundef nonnull %0)
+  invoke void @_ZN5Ipopt14DenseSymMatrixC1EPKNS_19DenseSymMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(97) %2, ptr noundef nonnull align 8 dereferenceable(20) %0)
           to label %_ZNK5Ipopt19DenseSymMatrixSpace21MakeNewDenseSymMatrixEv.exit unwind label %3
 
 3:                                                ; preds = %1
@@ -1865,7 +1865,7 @@ define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD1Ev(ptr noundef %0) unna
 define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt7SubjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   ret void
 }
 
@@ -2317,7 +2317,7 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %23, %
   %66 = add i64 %62, -1
   store i64 %66, ptr %65, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #17
-  tail call void @_ZdlPv(ptr noundef %63) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #19
   br label %67
 
 67:                                               ; preds = %45, %61, %34

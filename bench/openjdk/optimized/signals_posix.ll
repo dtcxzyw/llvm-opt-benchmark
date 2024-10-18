@@ -1575,7 +1575,7 @@ define internal fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9s
 
 9:                                                ; preds = %4
   %10 = trunc i64 %3 to i32
-  %11 = tail call noundef zeroext i1 @_ZN2os31print_function_and_library_nameEP12outputStreamPhPcibbb(ptr noundef %0, ptr noundef %.val, ptr noundef %2, i32 noundef %10, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  %11 = tail call noundef zeroext i1 @_ZN2os31print_function_and_library_nameEP12outputStreamPhPcibbb(ptr noundef %0, ptr noundef nonnull %.val, ptr noundef %2, i32 noundef %10, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #20
   br label %12
 
 12:                                               ; preds = %8, %9, %7

@@ -2281,11 +2281,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit: ; preds = %if.end.i, 
   %86 = load ptr, ptr %target17.i, align 8
   %edges18.i = getelementptr inbounds i8, ptr %86, i64 16
   store ptr %.sink25.i, ptr %edges18.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e131.0515, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %e131.0515, i8 0, i64 40, i1 false)
   %87 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %87, ptr %e131.0515, align 8
   store ptr %e131.0515, ptr %freeObjects.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %81, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %81, i8 0, i64 40, i1 false)
   %88 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %88, ptr %81, align 8
   store ptr %81, ptr %freeObjects.i.i, align 16
@@ -2408,11 +2408,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit397: ; preds = %if.end.
   %103 = load ptr, ptr %target17.i392, align 8
   %edges18.i393 = getelementptr inbounds i8, ptr %103, i64 16
   store ptr %.sink25.i391, ptr %edges18.i393, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e158.0517, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %e158.0517, i8 0, i64 40, i1 false)
   %104 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %104, ptr %e158.0517, align 8
   store ptr %e158.0517, ptr %freeObjects.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %99, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %99, i8 0, i64 40, i1 false)
   %105 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %105, ptr %99, align 8
   store ptr %99, ptr %freeObjects.i.i, align 16
@@ -2542,11 +2542,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit421: ; preds = %if.end.
   %122 = load ptr, ptr %target17.i416, align 8
   %edges18.i417 = getelementptr inbounds i8, ptr %122, i64 16
   store ptr %.sink25.i415, ptr %edges18.i417, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e193.0519, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %e193.0519, i8 0, i64 40, i1 false)
   %123 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %123, ptr %e193.0519, align 8
   store ptr %e193.0519, ptr %freeObjects.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %118, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %118, i8 0, i64 40, i1 false)
   %124 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %124, ptr %118, align 8
   store ptr %118, ptr %freeObjects.i.i, align 16
@@ -2626,11 +2626,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit444: ; preds = %if.end.
   %134 = load ptr, ptr %target17.i439, align 8
   %edges18.i440 = getelementptr inbounds i8, ptr %134, i64 16
   store ptr %.sink25.i438, ptr %edges18.i440, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e210.0521, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %e210.0521, i8 0, i64 40, i1 false)
   %135 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %135, ptr %e210.0521, align 8
   store ptr %e210.0521, ptr %freeObjects.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %129, i8 0, i64 40, i1 false)
   %136 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %136, ptr %129, align 8
   store ptr %129, ptr %freeObjects.i.i, align 16
@@ -4485,7 +4485,7 @@ invoke.cont227:                                   ; preds = %for.end.loopexit.i.
   %65 = load ptr, ptr %o.0.i, align 8
   store ptr %65, ptr %freeObjects.i, align 16
   %copy.i.i = getelementptr inbounds i8, ptr %o.0.i, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %o.0.i, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %o.0.i, i8 0, i64 40, i1 false)
   store i32 -1, ptr %copy.i.i, align 8
   %66 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i238 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %66, i64 %indvars.iv449
@@ -4803,7 +4803,7 @@ _ZNK20b3ConvexHullInternal6Vertex6xvalueEv.exit.thread: ; preds = %entry
 
 _ZNK20b3ConvexHullInternal6Vertex6xvalueEv.exit:  ; preds = %entry
   %point128.i = getelementptr inbounds i8, ptr %v, i64 40
-  %call.i.i = tail call noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %point128.i)
+  %call.i.i = tail call noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(64) %point128.i)
   %denominator.i.i = getelementptr inbounds i8, ptr %v, i64 88
   %call2.i.i = tail call noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %denominator.i.i)
   %div.i.i = fdiv float %call.i.i, %call2.i.i
@@ -5140,7 +5140,7 @@ invoke.cont30:                                    ; preds = %for.end.loopexit.i.
   %o.0.i = phi ptr [ %10, %if.then29 ], [ %.pre.i.i, %for.end.loopexit.i.i ], [ %15, %if.end.i ]
   %19 = load ptr, ptr %o.0.i, align 8
   store ptr %19, ptr %freeObjects.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %o.0.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %o.0.i, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %target, align 8
   %reverse = getelementptr inbounds i8, ptr %e.0, i64 16
   %21 = load ptr, ptr %reverse, align 8
@@ -6579,7 +6579,7 @@ _ZN20b3ConvexHullInternal4PoolINS_6VertexEE9newObjectEv.exit: ; preds = %_ZN20b3
   %o.0.i = phi ptr [ %90, %_ZN20b3ConvexHullInternal6Int1283mulEll.exit370 ], [ %.pre.i.i, %for.end.loopexit.i.i ], [ %95, %if.end.i ]
   %99 = load ptr, ptr %o.0.i, align 8
   store ptr %99, ptr %freeObjects.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %o.0.i, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %o.0.i, i8 0, i64 40, i1 false)
   %index = getelementptr inbounds i8, ptr %o.0.i, i64 116
   store i64 -1, ptr %index, align 4
   %100 = load i32, ptr %dir0.i, align 8
@@ -7256,7 +7256,7 @@ _ZNK20b3ConvexHullInternal6Int128mlEl.exit1053:   ; preds = %cond.end.i1014, %co
   store i64 %add.i1.i, ptr %ref.tmp190.sroa.6.0.point128.sroa_idx, align 8
   %ref.tmp190.sroa.6.sroa.2.0.ref.tmp190.sroa.6.0.point128.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 96
   store i64 %add6.i.i, ptr %ref.tmp190.sroa.6.sroa.2.0.ref.tmp190.sroa.6.0.point128.sroa_idx.sroa_idx, align 8
-  %call.i1067 = call noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %point128)
+  %call.i1067 = call noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(64) %point128)
   %call2.i = call noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp190.sroa.6.0.point128.sroa_idx)
   %div.i = fdiv float %call.i1067, %call2.i
   %conv297 = fptosi float %div.i to i32
@@ -7499,11 +7499,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit: ; preds = %if.end.i11
   %163 = load ptr, ptr %target366, align 8
   %edges18.i = getelementptr inbounds i8, ptr %163, i64 16
   store ptr %.sink25.i, ptr %edges18.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %155, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %155, i8 0, i64 40, i1 false)
   %164 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %164, ptr %155, align 8
   store ptr %155, ptr %freeObjects.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %158, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %158, i8 0, i64 40, i1 false)
   %165 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %165, ptr %158, align 8
   store ptr %158, ptr %freeObjects.i.i, align 16
@@ -7653,11 +7653,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1182: ; preds = %if.end
   %195 = load ptr, ptr %target400, align 8
   %edges18.i1178 = getelementptr inbounds i8, ptr %195, i64 16
   store ptr %.sink25.i1176, ptr %edges18.i1178, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %187, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %187, i8 0, i64 40, i1 false)
   %196 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %196, ptr %187, align 8
   store ptr %187, ptr %freeObjects.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %190, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %190, i8 0, i64 40, i1 false)
   %197 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %197, ptr %190, align 8
   store ptr %190, ptr %freeObjects.i.i, align 16
@@ -8013,11 +8013,11 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1257: ; preds = %if.end
   %251 = load ptr, ptr %target17.i1252, align 8
   %edges18.i1253 = getelementptr inbounds i8, ptr %251, i64 16
   store ptr %.sink25.i1251, ptr %edges18.i1253, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %244, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %244, i8 0, i64 40, i1 false)
   %252 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %252, ptr %244, align 8
   store ptr %244, ptr %freeObjects.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %246, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %246, i8 0, i64 40, i1 false)
   %253 = load ptr, ptr %freeObjects.i.i, align 16
   store ptr %253, ptr %246, align 8
   store ptr %246, ptr %freeObjects.i.i, align 16
@@ -8186,7 +8186,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else8.i:                                       ; preds = %if.else.i
   store i32 0, ptr %sign5.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %agg.result, i8 0, i64 16, i1 false)
   br label %_ZN20b3ConvexHullInternal11Rational128C2El.exit
 
 _ZN20b3ConvexHullInternal11Rational128C2El.exit:  ; preds = %if.then.i, %if.then4.i, %if.else8.i
@@ -8530,15 +8530,15 @@ _ZN20b3AlignedObjectArrayIiE5clearEv.exit:        ; preds = %_ZN20b3AlignedObjec
 if.end:                                           ; preds = %entry
   %vertexPool.i = getelementptr inbounds i8, ptr %hull, i64 32
   %arraySize.i.i = getelementptr inbounds i8, ptr %hull, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %vertexPool.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %vertexPool.i, i8 0, i64 24, i1 false)
   store i32 256, ptr %arraySize.i.i, align 8
   %edgePool.i = getelementptr inbounds i8, ptr %hull, i64 64
   %arraySize.i1.i = getelementptr inbounds i8, ptr %hull, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %edgePool.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %edgePool.i, i8 0, i64 24, i1 false)
   store i32 256, ptr %arraySize.i1.i, align 8
   %facePool.i = getelementptr inbounds i8, ptr %hull, i64 96
   %arraySize.i2.i = getelementptr inbounds i8, ptr %hull, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %facePool.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %facePool.i, i8 0, i64 24, i1 false)
   store i32 256, ptr %arraySize.i2.i, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %hull, i64 152
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8

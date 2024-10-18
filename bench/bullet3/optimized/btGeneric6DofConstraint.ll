@@ -75,7 +75,7 @@ invoke.cont:
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btGeneric6DofConstraint, i64 16), ptr %this, align 8
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(16) %frameInA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %frameInA, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %frameInA, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -86,7 +86,7 @@ invoke.cont:
   %m_origin3.i = getelementptr inbounds i8, ptr %frameInA, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %frameInB, i64 16, i1 false)
   %arrayidx6.i.i1 = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i.i2 = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i1, i64 16, i1 false)
@@ -101,7 +101,7 @@ invoke.cont:
   %m_stopERP.i = getelementptr inbounds i8, ptr %this, i64 780
   %m_targetVelocity.i = getelementptr inbounds i8, ptr %this, i64 816
   %m_maxMotorForce.i = getelementptr inbounds i8, ptr %this, i64 832
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_linearLimits, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %m_linearLimits, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_normalCFM.i, i8 0, i64 16, i1 false)
   store float 0x3FC99999A0000000, ptr %m_stopERP.i, align 4
   %arrayidx3.i14.i = getelementptr inbounds i8, ptr %this, i64 784
@@ -202,7 +202,7 @@ invoke.cont:
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(744) %call, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btGeneric6DofConstraint, i64 16), ptr %this, align 8
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %frameInB, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -217,7 +217,7 @@ invoke.cont:
   %m_stopERP.i = getelementptr inbounds i8, ptr %this, i64 780
   %m_targetVelocity.i = getelementptr inbounds i8, ptr %this, i64 816
   %m_maxMotorForce.i = getelementptr inbounds i8, ptr %this, i64 832
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_linearLimits, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %m_linearLimits, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_normalCFM.i, i8 0, i64 16, i1 false)
   store float 0x3FC99999A0000000, ptr %m_stopERP.i, align 4
   %arrayidx3.i14.i = getelementptr inbounds i8, ptr %this, i64 784
@@ -1870,7 +1870,7 @@ entry:
   %m_invInertiaLocal.i34 = getelementptr inbounds i8, ptr %10, i64 504
   %m_inverseMass.i35 = getelementptr inbounds i8, ptr %10, i64 452
   %33 = load float, ptr %m_inverseMass.i35, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %jacLinear, ptr noundef nonnull align 4 dereferenceable(16) %normalWorld, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %jacLinear, ptr noundef nonnull align 4 dereferenceable(16) %normalWorld, i64 16, i1 false)
   %m_aJ.i = getelementptr inbounds i8, ptr %jacLinear, i64 16
   %m_bJ.i = getelementptr inbounds i8, ptr %jacLinear, i64 32
   %m_0MinvJt.i = getelementptr inbounds i8, ptr %jacLinear, i64 48
@@ -2016,7 +2016,7 @@ entry:
   %m_bJ.i = getelementptr inbounds i8, ptr %jacAngular, i64 32
   %m_0MinvJt.i = getelementptr inbounds i8, ptr %jacAngular, i64 48
   %m_1MinvJt.i = getelementptr inbounds i8, ptr %jacAngular, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %jacAngular, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %jacAngular, i8 0, i64 16, i1 false)
   %20 = load float, ptr %jointAxisW, align 4
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %jointAxisW, i64 4
   %21 = load float, ptr %arrayidx7.i.i.i, align 4
@@ -2536,7 +2536,7 @@ if.then32:                                        ; preds = %if.then9.i.i, %if.e
   %m_bJ.i.i = getelementptr inbounds i8, ptr %arrayidx37, i64 32
   %m_0MinvJt.i.i = getelementptr inbounds i8, ptr %arrayidx37, i64 48
   %m_1MinvJt.i.i = getelementptr inbounds i8, ptr %arrayidx37, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx37, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %arrayidx37, i8 0, i64 16, i1 false)
   %39 = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %40 = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
   %mul8.i.i.i.i = fmul float %21, %40
@@ -4094,7 +4094,7 @@ entry:
 define dso_local void @_ZN23btGeneric6DofConstraint9setFramesERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameB) local_unnamed_addr #1 align 2 {
 entry:
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(16) %frameA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %frameA, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %frameA, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -4105,7 +4105,7 @@ entry:
   %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %frameB, i64 16, i1 false)
   %arrayidx5.i.i1 = getelementptr inbounds i8, ptr %frameB, i64 16
   %arrayidx7.i.i2 = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i1, i64 16, i1 false)

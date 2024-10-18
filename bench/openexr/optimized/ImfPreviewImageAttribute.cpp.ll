@@ -150,7 +150,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE16ma
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -162,7 +162,7 @@ entry:
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
+  tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -190,7 +190,7 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeINS_12PreviewImageEE4co
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -202,7 +202,7 @@ entry:
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
+  tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -226,7 +226,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_12PreviewImageEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_12PreviewImageEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE4castERKNS_9AttributeE.exit
 
@@ -596,7 +596,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vtable.i.i.i20 = load ptr, ptr %is, align 8
   %vfn.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i20, i64 24
   %9 = load ptr, ptr %vfn.i.i.i21, align 8
-  %call.i.i.i2223 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %arrayidx, i32 noundef 1)
+  %call.i.i.i2223 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %arrayidx, i32 noundef 1)
           to label %invoke.cont20 unwind label %lpad12.loopexit
 
 invoke.cont20:                                    ; preds = %for.body
@@ -604,7 +604,7 @@ invoke.cont20:                                    ; preds = %for.body
   %vtable.i.i.i24 = load ptr, ptr %is, align 8
   %vfn.i.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i.i24, i64 24
   %10 = load ptr, ptr %vfn.i.i.i25, align 8
-  %call.i.i.i2627 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %g, i32 noundef 1)
+  %call.i.i.i2627 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %g, i32 noundef 1)
           to label %invoke.cont23 unwind label %lpad12.loopexit
 
 invoke.cont23:                                    ; preds = %invoke.cont20
@@ -612,7 +612,7 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   %vtable.i.i.i29 = load ptr, ptr %is, align 8
   %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 24
   %11 = load ptr, ptr %vfn.i.i.i30, align 8
-  %call.i.i.i3132 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b, i32 noundef 1)
+  %call.i.i.i3132 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %b, i32 noundef 1)
           to label %invoke.cont26 unwind label %lpad12.loopexit
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -620,7 +620,7 @@ invoke.cont26:                                    ; preds = %invoke.cont23
   %vtable.i.i.i34 = load ptr, ptr %is, align 8
   %vfn.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i34, i64 24
   %12 = load ptr, ptr %vfn.i.i.i35, align 8
-  %call.i.i.i3637 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %a, i32 noundef 1)
+  %call.i.i.i3637 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %a, i32 noundef 1)
           to label %for.inc unwind label %lpad12.loopexit
 
 for.inc:                                          ; preds = %invoke.cont26

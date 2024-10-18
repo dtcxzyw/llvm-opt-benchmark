@@ -3074,7 +3074,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %629 = load i8, ptr @try_cuda, align 1, !noalias !10
   %630 = trunc i8 %629 to i1
   %631 = load float, ptr @match_conf, align 4, !noalias !10
-  invoke void @_ZN2cv6detail21BestOf2NearestMatcherC2Ebfiid(ptr noundef nonnull align 8 dereferenceable(48) %628, i1 noundef zeroext %630, float noundef %631, i32 noundef 6, i32 noundef 6, double noundef 3.000000e+00)
+  invoke void @_ZN2cv6detail21BestOf2NearestMatcherC2Ebfiid(ptr noundef nonnull align 8 dereferenceable(49) %628, i1 noundef zeroext %630, float noundef %631, i32 noundef 6, i32 noundef 6, double noundef 3.000000e+00)
           to label %633 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %.noexc478
@@ -10896,7 +10896,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail20BundleAdjusterReprojEJE
   store i32 1, ptr %4, align 4, !noalias !185
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjusterReprojESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !185
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef 7, i32 noundef 2)
+  invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %5, i32 noundef 7, i32 noundef 2)
           to label %_ZNSt10shared_ptrIN2cv6detail20BundleAdjusterReprojEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjusterReprojESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !185
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail20BundleAdjusterReprojESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %1
@@ -11121,7 +11121,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail17BundleAdjusterRayEJEEEN
   store i32 1, ptr %4, align 4, !noalias !188
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !188
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef 4, i32 noundef 3)
+  invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %5, i32 noundef 4, i32 noundef 3)
           to label %_ZNSt10shared_ptrIN2cv6detail17BundleAdjusterRayEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !188
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %1
@@ -11346,7 +11346,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6detail27BundleAdjusterAffinePar
   store i32 1, ptr %4, align 4, !noalias !191
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !191
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef 4, i32 noundef 2)
+  invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %5, i32 noundef 4, i32 noundef 2)
           to label %_ZNSt10shared_ptrIN2cv6detail27BundleAdjusterAffinePartialEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !191
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %1

@@ -5383,7 +5383,7 @@ get_reference.exit:                               ; preds = %if.end150, %if.then
   %100 = load ptr, ptr %def, align 8
   %101 = load i16, ptr %oc, align 8
   %conv154 = zext i16 %101 to i32
-  call fastcc void @add_pending_object_with_path(ptr noundef nonnull %revs, ptr noundef %call.i154, ptr noundef %100, i32 noundef %conv154, ptr noundef null)
+  call fastcc void @add_pending_object_with_path(ptr noundef nonnull %revs, ptr noundef %call.i154, ptr noundef %100, i32 noundef range(i32 0, 65536) %conv154, ptr noundef null)
   br label %if.end155
 
 if.end155:                                        ; preds = %get_reference.exit, %land.lhs.true142, %land.lhs.true139, %if.end136
@@ -5589,7 +5589,7 @@ if.end280:                                        ; preds = %if.end269
   %lnot.ext291 = zext i1 %tobool287 to i32
   %tobool293 = icmp ne ptr %116, null
   %lnot.ext297 = zext i1 %tobool293 to i32
-  call void @die_for_incompatible_opt4(i32 noundef %lnot.ext, ptr noundef nonnull @.str.11, i32 noundef %lnot.ext291, ptr noundef nonnull @.str.22, i32 noundef %lnot.ext297, ptr noundef nonnull @.str.23, i32 noundef 0, ptr noundef nonnull @.str.36) #25
+  call void @die_for_incompatible_opt4(i32 noundef range(i32 0, 2) %lnot.ext, ptr noundef nonnull @.str.11, i32 noundef range(i32 0, 2) %lnot.ext291, ptr noundef nonnull @.str.22, i32 noundef range(i32 0, 2) %lnot.ext297, ptr noundef nonnull @.str.23, i32 noundef 0, ptr noundef nonnull @.str.36) #25
   %bf.load298 = load i64, ptr %line_level_traverse, align 8
   %124 = and i64 %bf.load298, 16
   %tobool302.not = icmp eq i64 %124, 0
@@ -12528,9 +12528,9 @@ entry:
   %topo_walk_info = getelementptr inbounds i8, ptr %revs, i64 2936
   %0 = load ptr, ptr %topo_walk_info, align 8
   %indegree_queue = getelementptr inbounds i8, ptr %0, i64 48
-  %call27 = tail call ptr @prio_queue_peek(ptr noundef nonnull %indegree_queue) #25
-  %tobool.not28 = icmp eq ptr %call27, null
-  br i1 %tobool.not28, label %while.end, label %land.rhs.lr.ph
+  %call4 = tail call ptr @prio_queue_peek(ptr noundef nonnull %indegree_queue) #25
+  %tobool.not5 = icmp eq ptr %call4, null
+  br i1 %tobool.not5, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %repo.i = getelementptr inbounds i8, ptr %revs, i64 24
@@ -12540,8 +12540,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %indegree_walk_step.exit
-  %call29 = phi ptr [ %call27, %land.rhs.lr.ph ], [ %call, %indegree_walk_step.exit ]
-  %call1 = tail call i64 @commit_graph_generation(ptr noundef nonnull %call29) #25
+  %call6 = phi ptr [ %call4, %land.rhs.lr.ph ], [ %call, %indegree_walk_step.exit ]
+  %call1 = tail call i64 @commit_graph_generation(ptr noundef nonnull %call6) #25
   %cmp.not = icmp ult i64 %call1, %gen_cutoff
   br i1 %cmp.not, label %while.end, label %while.body
 
@@ -12565,13 +12565,13 @@ if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call i64 @commit_graph_generation(ptr noundef nonnull %call.i) #25
   %4 = load ptr, ptr %topo_walk_info, align 8
   %explore_queue.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %call68.i.i = tail call ptr @prio_queue_peek(ptr noundef nonnull %explore_queue.i.i) #25
-  %tobool.not69.i.i = icmp eq ptr %call68.i.i, null
-  br i1 %tobool.not69.i.i, label %explore_to_depth.exit.i, label %land.rhs.i.i
+  %call162.i.i = tail call ptr @prio_queue_peek(ptr noundef nonnull %explore_queue.i.i) #25
+  %tobool.not163.i.i = icmp eq ptr %call162.i.i, null
+  br i1 %tobool.not163.i.i, label %explore_to_depth.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end3.i, %explore_walk_step.exit.i.i
-  %call70.i.i = phi ptr [ %call.i.i, %explore_walk_step.exit.i.i ], [ %call68.i.i, %if.end3.i ]
-  %call1.i.i = tail call i64 @commit_graph_generation(ptr noundef nonnull %call70.i.i) #25
+  %call164.i.i = phi ptr [ %call.i.i, %explore_walk_step.exit.i.i ], [ %call162.i.i, %if.end3.i ]
+  %call1.i.i = tail call i64 @commit_graph_generation(ptr noundef nonnull %call164.i.i) #25
   %cmp.not.i.i = icmp ult i64 %call1.i.i, %call4.i
   br i1 %cmp.not.i.i, label %explore_to_depth.exit.i, label %while.body.i.i
 
@@ -12636,39 +12636,119 @@ if.then21.i.i.i:                                  ; preds = %if.end16.i.i.i
   br i1 %tobool.not8.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %for.body.i3.i.i
 
 for.body.i3.i.i:                                  ; preds = %if.then21.i.i.i, %for.inc.i.i.i
-  %pending.i.i.i.sroa.0.2 = phi ptr [ %pending.i.i.i.sroa.0.3, %for.inc.i.i.i ], [ null, %if.then21.i.i.i ]
-  %pending.i.i.i.sroa.20.2 = phi i64 [ %pending.i.i.i.sroa.20.3, %for.inc.i.i.i ], [ 0, %if.then21.i.i.i ]
-  %pending.i.promoted.i.i = phi ptr [ %pending.i.promoted78.i.i, %for.inc.i.i.i ], [ null, %if.then21.i.i.i ]
-  %alloc.i.i.promoted.i.i = phi i64 [ %alloc.i.i.promoted76.i.i, %for.inc.i.i.i ], [ 0, %if.then21.i.i.i ]
-  %nr.i.i.promoted.i.i = phi i64 [ %nr.i.i.promoted74.i.i, %for.inc.i.i.i ], [ 0, %if.then21.i.i.i ]
+  %pending.i.sroa.0.3.i.i = phi ptr [ %pending.i.sroa.0.17.i.i, %for.inc.i.i.i ], [ null, %if.then21.i.i.i ]
+  %pending.i.sroa.20.3.i.i = phi i64 [ %pending.i.sroa.20.12.i.i, %for.inc.i.i.i ], [ 0, %if.then21.i.i.i ]
+  %pending.i.sroa.38.3.i.i = phi i64 [ %pending.i.sroa.38.17.i.i, %for.inc.i.i.i ], [ 0, %if.then21.i.i.i ]
   %l.09.i.i.i = phi ptr [ %l.0.i.i.i, %for.inc.i.i.i ], [ %l.07.i.i.i, %if.then21.i.i.i ]
   %12 = load ptr, ptr %l.09.i.i.i, align 8
-  %bf.load.i7.i.i = load i32, ptr %12, align 8
-  %13 = and i32 %bf.load.i7.i.i, 32
-  %tobool.not.i8.i.i = icmp eq i32 %13, 0
+  %bf.load.i26.i.i = load i32, ptr %12, align 8
+  %13 = and i32 %bf.load.i26.i.i, 32
+  %tobool.not.i27.i.i = icmp eq i32 %13, 0
+  br i1 %tobool.not.i27.i.i, label %if.end.i29.i.i, label %mark_one_parent_uninteresting.exit88.i.i
+
+if.end.i29.i.i:                                   ; preds = %for.body.i3.i.i
+  %bf.set.i30.i.i = or disjoint i32 %bf.load.i26.i.i, 32
+  store i32 %bf.set.i30.i.i, ptr %12, align 8
+  %parents.i31.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %l.07.i32.i.i = load ptr, ptr %parents.i31.i.i, align 8
+  %tobool5.not8.i33.i.i = icmp eq ptr %l.07.i32.i.i, null
+  br i1 %tobool5.not8.i33.i.i, label %mark_one_parent_uninteresting.exit88.i.i, label %for.body.i39.i.i
+
+for.body.i39.i.i:                                 ; preds = %if.end.i29.i.i, %for.inc.i50.i.i
+  %pending.i.sroa.0.13.i.i = phi ptr [ %pending.i.sroa.0.14.i.i, %for.inc.i50.i.i ], [ %pending.i.sroa.0.3.i.i, %if.end.i29.i.i ]
+  %pending.i.sroa.20.10.i.i = phi i64 [ %add.i.i41.i.i, %for.inc.i50.i.i ], [ %pending.i.sroa.20.3.i.i, %if.end.i29.i.i ]
+  %pending.i.sroa.38.13.i.i = phi i64 [ %pending.i.sroa.38.14.i.i, %for.inc.i50.i.i ], [ %pending.i.sroa.38.3.i.i, %if.end.i29.i.i ]
+  %l.09.i40.i.i = phi ptr [ %l.0.i52.i.i, %for.inc.i50.i.i ], [ %l.07.i32.i.i, %if.end.i29.i.i ]
+  %14 = load ptr, ptr %l.09.i40.i.i, align 8
+  %add.i.i41.i.i = add i64 %pending.i.sroa.20.10.i.i, 1
+  %cmp.i.i42.i.i = icmp ugt i64 %add.i.i41.i.i, %pending.i.sroa.38.13.i.i
+  br i1 %cmp.i.i42.i.i, label %if.then.i.i54.i.i, label %commit_stack_push.exit.i45.i.i
+
+if.then.i.i54.i.i:                                ; preds = %for.body.i39.i.i
+  %15 = mul i64 %pending.i.sroa.38.13.i.i, 3
+  %mul.i.i55.i.i = add i64 %15, 48
+  %div13.i.i56.i.i = lshr i64 %mul.i.i55.i.i, 1
+  %add.div13.i.i57.i.i = tail call i64 @llvm.umax.i64(i64 %div13.i.i56.i.i, i64 %add.i.i41.i.i)
+  %mul.ov.i.i.i58.i.i = icmp ugt i64 %add.div13.i.i57.i.i, 2305843009213693951
+  br i1 %mul.ov.i.i.i58.i.i, label %if.then.i.i.i64.i.i, label %st_mult.exit.i.i59.i.i
+
+if.then.i.i.i64.i.i:                              ; preds = %if.then.i.i54.i.i
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.37, i64 noundef 8, i64 noundef %add.div13.i.i57.i.i) #27
+  unreachable
+
+st_mult.exit.i.i59.i.i:                           ; preds = %if.then.i.i54.i.i
+  %mul.i.i.i60.i.i = shl nuw i64 %add.div13.i.i57.i.i, 3
+  %call16.i.i61.i.i = tail call ptr @xrealloc(ptr noundef %pending.i.sroa.0.13.i.i, i64 noundef %mul.i.i.i60.i.i) #25
+  br label %commit_stack_push.exit.i45.i.i
+
+commit_stack_push.exit.i45.i.i:                   ; preds = %st_mult.exit.i.i59.i.i, %for.body.i39.i.i
+  %pending.i.sroa.0.14.i.i = phi ptr [ %call16.i.i61.i.i, %st_mult.exit.i.i59.i.i ], [ %pending.i.sroa.0.13.i.i, %for.body.i39.i.i ]
+  %pending.i.sroa.38.14.i.i = phi i64 [ %add.div13.i.i57.i.i, %st_mult.exit.i.i59.i.i ], [ %pending.i.sroa.38.13.i.i, %for.body.i39.i.i ]
+  %arrayidx.i.i47.i.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.14.i.i, i64 %pending.i.sroa.20.10.i.i
+  store ptr %14, ptr %arrayidx.i.i47.i.i, align 8
+  %bf.load7.i48.i.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
+  %16 = and i64 %bf.load7.i48.i.i, 549755813888
+  %tobool10.not.i49.i.i = icmp eq i64 %16, 0
+  br i1 %tobool10.not.i49.i.i, label %for.inc.i50.i.i, label %mark_one_parent_uninteresting.exit88.i.i
+
+for.inc.i50.i.i:                                  ; preds = %commit_stack_push.exit.i45.i.i
+  %next.i51.i.i = getelementptr inbounds i8, ptr %l.09.i40.i.i, i64 8
+  %l.0.i52.i.i = load ptr, ptr %next.i51.i.i, align 8
+  %tobool5.not.i53.i.i = icmp eq ptr %l.0.i52.i.i, null
+  br i1 %tobool5.not.i53.i.i, label %mark_one_parent_uninteresting.exit88.i.i, label %for.body.i39.i.i, !llvm.loop !20
+
+mark_one_parent_uninteresting.exit88.i.i:         ; preds = %for.inc.i50.i.i, %commit_stack_push.exit.i45.i.i, %if.end.i29.i.i, %for.body.i3.i.i
+  %pending.i.sroa.0.17.i.i = phi ptr [ %pending.i.sroa.0.3.i.i, %if.end.i29.i.i ], [ %pending.i.sroa.0.3.i.i, %for.body.i3.i.i ], [ %pending.i.sroa.0.14.i.i, %commit_stack_push.exit.i45.i.i ], [ %pending.i.sroa.0.14.i.i, %for.inc.i50.i.i ]
+  %pending.i.sroa.20.12.i.i = phi i64 [ %pending.i.sroa.20.3.i.i, %if.end.i29.i.i ], [ %pending.i.sroa.20.3.i.i, %for.body.i3.i.i ], [ %add.i.i41.i.i, %commit_stack_push.exit.i45.i.i ], [ %add.i.i41.i.i, %for.inc.i50.i.i ]
+  %pending.i.sroa.38.17.i.i = phi i64 [ %pending.i.sroa.38.3.i.i, %if.end.i29.i.i ], [ %pending.i.sroa.38.3.i.i, %for.body.i3.i.i ], [ %pending.i.sroa.38.14.i.i, %commit_stack_push.exit.i45.i.i ], [ %pending.i.sroa.38.14.i.i, %for.inc.i50.i.i ]
+  %bf.load.i4.i.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
+  %17 = and i64 %bf.load.i4.i.i, 549755813888
+  %tobool2.not.i.i.i = icmp eq i64 %17, 0
+  br i1 %tobool2.not.i.i.i, label %for.inc.i.i.i, label %for.end.i.i.i
+
+for.inc.i.i.i:                                    ; preds = %mark_one_parent_uninteresting.exit88.i.i
+  %next.i5.i.i = getelementptr inbounds i8, ptr %l.09.i.i.i, i64 8
+  %l.0.i.i.i = load ptr, ptr %next.i5.i.i, align 8
+  %tobool.not.i6.i.i = icmp eq ptr %l.0.i.i.i, null
+  br i1 %tobool.not.i6.i.i, label %for.end.i.i.i, label %for.body.i3.i.i, !llvm.loop !18
+
+for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %mark_one_parent_uninteresting.exit88.i.i
+  %cmp.not10.i.i.i = icmp eq i64 %pending.i.sroa.20.12.i.i, 0
+  br i1 %cmp.not10.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i
+
+commit_stack_pop.exit.i.i.i:                      ; preds = %for.end.i.i.i, %mark_one_parent_uninteresting.exit.i.i
+  %pending.i.sroa.0.5.i.i = phi ptr [ %pending.i.sroa.0.12.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %pending.i.sroa.0.17.i.i, %for.end.i.i.i ]
+  %pending.i.sroa.38.5.i.i = phi i64 [ %pending.i.sroa.38.12.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %pending.i.sroa.38.17.i.i, %for.end.i.i.i ]
+  %18 = phi i64 [ %pending.i.sroa.20.9.i.i, %mark_one_parent_uninteresting.exit.i.i ], [ %pending.i.sroa.20.12.i.i, %for.end.i.i.i ]
+  %dec.i.i.i.i = add i64 %18, -1
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.5.i.i, i64 %dec.i.i.i.i
+  %19 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %bf.load.i7.i.i = load i32, ptr %19, align 8
+  %20 = and i32 %bf.load.i7.i.i, 32
+  %tobool.not.i8.i.i = icmp eq i32 %20, 0
   br i1 %tobool.not.i8.i.i, label %if.end.i10.i.i, label %mark_one_parent_uninteresting.exit.i.i
 
-if.end.i10.i.i:                                   ; preds = %for.body.i3.i.i
+if.end.i10.i.i:                                   ; preds = %commit_stack_pop.exit.i.i.i
   %bf.set.i11.i.i = or disjoint i32 %bf.load.i7.i.i, 32
-  store i32 %bf.set.i11.i.i, ptr %12, align 8
-  %parents.i12.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  store i32 %bf.set.i11.i.i, ptr %19, align 8
+  %parents.i12.i.i = getelementptr inbounds i8, ptr %19, i64 48
   %l.07.i13.i.i = load ptr, ptr %parents.i12.i.i, align 8
   %tobool5.not8.i.i.i = icmp eq ptr %l.07.i13.i.i, null
   br i1 %tobool5.not8.i.i.i, label %mark_one_parent_uninteresting.exit.i.i, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.end.i10.i.i, %for.inc.i19.i.i
-  %call16.i.i67.i.i = phi ptr [ %call16.i.i66.i.i, %for.inc.i19.i.i ], [ %pending.i.promoted.i.i, %if.end.i10.i.i ]
-  %add.div13.i.i64.i.i = phi i64 [ %add.div13.i.i63.i.i, %for.inc.i19.i.i ], [ %alloc.i.i.promoted.i.i, %if.end.i10.i.i ]
-  %add.i.i62.i.i = phi i64 [ %add.i.i.i.i, %for.inc.i19.i.i ], [ %nr.i.i.promoted.i.i, %if.end.i10.i.i ]
+  %pending.i.sroa.0.8.i.i = phi ptr [ %pending.i.sroa.0.9.i.i, %for.inc.i19.i.i ], [ %pending.i.sroa.0.5.i.i, %if.end.i10.i.i ]
+  %pending.i.sroa.20.7.i.i = phi i64 [ %add.i.i.i.i, %for.inc.i19.i.i ], [ %dec.i.i.i.i, %if.end.i10.i.i ]
+  %pending.i.sroa.38.8.i.i = phi i64 [ %pending.i.sroa.38.9.i.i, %for.inc.i19.i.i ], [ %pending.i.sroa.38.5.i.i, %if.end.i10.i.i ]
   %l.09.i17.i.i = phi ptr [ %l.0.i21.i.i, %for.inc.i19.i.i ], [ %l.07.i13.i.i, %if.end.i10.i.i ]
-  %14 = load ptr, ptr %l.09.i17.i.i, align 8
-  %add.i.i.i.i = add i64 %add.i.i62.i.i, 1
-  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %add.div13.i.i64.i.i
+  %21 = load ptr, ptr %l.09.i17.i.i, align 8
+  %add.i.i.i.i = add i64 %pending.i.sroa.20.7.i.i, 1
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %pending.i.sroa.38.8.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %commit_stack_push.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i16.i.i
-  %15 = mul i64 %add.div13.i.i64.i.i, 3
-  %mul.i.i.i.i = add i64 %15, 48
+  %22 = mul i64 %pending.i.sroa.38.8.i.i, 3
+  %mul.i.i.i.i = add i64 %22, 48
   %div13.i.i.i.i = lshr i64 %mul.i.i.i.i, 1
   %add.div13.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div13.i.i.i.i, i64 %add.i.i.i.i)
   %mul.ov.i.i.i.i.i = icmp ugt i64 %add.div13.i.i.i.i, 2305843009213693951
@@ -12680,17 +12760,17 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 
 st_mult.exit.i.i.i.i:                             ; preds = %if.then.i.i.i.i
   %mul.i.i.i.i.i = shl nuw i64 %add.div13.i.i.i.i, 3
-  %call16.i.i.i.i = tail call ptr @xrealloc(ptr noundef %call16.i.i67.i.i, i64 noundef %mul.i.i.i.i.i) #25
+  %call16.i.i.i.i = tail call ptr @xrealloc(ptr noundef nonnull %pending.i.sroa.0.8.i.i, i64 noundef %mul.i.i.i.i.i) #25
   br label %commit_stack_push.exit.i.i.i
 
 commit_stack_push.exit.i.i.i:                     ; preds = %st_mult.exit.i.i.i.i, %for.body.i16.i.i
-  %call16.i.i66.i.i = phi ptr [ %call16.i.i.i.i, %st_mult.exit.i.i.i.i ], [ %call16.i.i67.i.i, %for.body.i16.i.i ]
-  %add.div13.i.i63.i.i = phi i64 [ %add.div13.i.i.i.i, %st_mult.exit.i.i.i.i ], [ %add.div13.i.i64.i.i, %for.body.i16.i.i ]
-  %arrayidx.i.i18.i.i = getelementptr inbounds ptr, ptr %call16.i.i66.i.i, i64 %add.i.i62.i.i
-  store ptr %14, ptr %arrayidx.i.i18.i.i, align 8
+  %pending.i.sroa.0.9.i.i = phi ptr [ %call16.i.i.i.i, %st_mult.exit.i.i.i.i ], [ %pending.i.sroa.0.8.i.i, %for.body.i16.i.i ]
+  %pending.i.sroa.38.9.i.i = phi i64 [ %add.div13.i.i.i.i, %st_mult.exit.i.i.i.i ], [ %pending.i.sroa.38.8.i.i, %for.body.i16.i.i ]
+  %arrayidx.i.i18.i.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.9.i.i, i64 %pending.i.sroa.20.7.i.i
+  store ptr %21, ptr %arrayidx.i.i18.i.i, align 8
   %bf.load7.i.i.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
-  %16 = and i64 %bf.load7.i.i.i, 549755813888
-  %tobool10.not.i.i.i = icmp eq i64 %16, 0
+  %23 = and i64 %bf.load7.i.i.i, 549755813888
+  %tobool10.not.i.i.i = icmp eq i64 %23, 0
   br i1 %tobool10.not.i.i.i, label %for.inc.i19.i.i, label %mark_one_parent_uninteresting.exit.i.i
 
 for.inc.i19.i.i:                                  ; preds = %commit_stack_push.exit.i.i.i
@@ -12699,100 +12779,16 @@ for.inc.i19.i.i:                                  ; preds = %commit_stack_push.e
   %tobool5.not.i.i.i = icmp eq ptr %l.0.i21.i.i, null
   br i1 %tobool5.not.i.i.i, label %mark_one_parent_uninteresting.exit.i.i, label %for.body.i16.i.i, !llvm.loop !20
 
-mark_one_parent_uninteresting.exit.i.i:           ; preds = %commit_stack_push.exit.i.i.i, %for.inc.i19.i.i, %if.end.i10.i.i, %for.body.i3.i.i
-  %pending.i.i.i.sroa.0.3 = phi ptr [ %pending.i.i.i.sroa.0.2, %if.end.i10.i.i ], [ %pending.i.i.i.sroa.0.2, %for.body.i3.i.i ], [ %call16.i.i66.i.i, %for.inc.i19.i.i ], [ %call16.i.i66.i.i, %commit_stack_push.exit.i.i.i ]
-  %pending.i.i.i.sroa.20.3 = phi i64 [ %pending.i.i.i.sroa.20.2, %if.end.i10.i.i ], [ %pending.i.i.i.sroa.20.2, %for.body.i3.i.i ], [ %add.div13.i.i63.i.i, %for.inc.i19.i.i ], [ %add.div13.i.i63.i.i, %commit_stack_push.exit.i.i.i ]
-  %pending.i.promoted78.i.i = phi ptr [ %pending.i.promoted.i.i, %if.end.i10.i.i ], [ %pending.i.promoted.i.i, %for.body.i3.i.i ], [ %call16.i.i66.i.i, %for.inc.i19.i.i ], [ %call16.i.i66.i.i, %commit_stack_push.exit.i.i.i ]
-  %alloc.i.i.promoted76.i.i = phi i64 [ %alloc.i.i.promoted.i.i, %if.end.i10.i.i ], [ %alloc.i.i.promoted.i.i, %for.body.i3.i.i ], [ %add.div13.i.i63.i.i, %for.inc.i19.i.i ], [ %add.div13.i.i63.i.i, %commit_stack_push.exit.i.i.i ]
-  %nr.i.i.promoted74.i.i = phi i64 [ %nr.i.i.promoted.i.i, %if.end.i10.i.i ], [ %nr.i.i.promoted.i.i, %for.body.i3.i.i ], [ %add.i.i.i.i, %for.inc.i19.i.i ], [ %add.i.i.i.i, %commit_stack_push.exit.i.i.i ]
-  %bf.load.i4.i.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
-  %17 = and i64 %bf.load.i4.i.i, 549755813888
-  %tobool2.not.i.i.i = icmp eq i64 %17, 0
-  br i1 %tobool2.not.i.i.i, label %for.inc.i.i.i, label %for.end.i.i.i
-
-for.inc.i.i.i:                                    ; preds = %mark_one_parent_uninteresting.exit.i.i
-  %next.i5.i.i = getelementptr inbounds i8, ptr %l.09.i.i.i, i64 8
-  %l.0.i.i.i = load ptr, ptr %next.i5.i.i, align 8
-  %tobool.not.i6.i.i = icmp eq ptr %l.0.i.i.i, null
-  br i1 %tobool.not.i6.i.i, label %for.end.i.i.i, label %for.body.i3.i.i, !llvm.loop !18
-
-for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %mark_one_parent_uninteresting.exit.i.i
-  %cmp.not10.i.i.i = icmp eq i64 %nr.i.i.promoted74.i.i, 0
-  br i1 %cmp.not10.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i
-
-commit_stack_pop.exit.i.i.i:                      ; preds = %for.end.i.i.i, %mark_one_parent_uninteresting.exit
-  %pending.i.i.i.sroa.0.4 = phi ptr [ %pending.i.i.i.sroa.0.14, %mark_one_parent_uninteresting.exit ], [ %pending.i.i.i.sroa.0.3, %for.end.i.i.i ]
-  %pending.i.i.i.sroa.20.4 = phi i64 [ %pending.i.i.i.sroa.20.14, %mark_one_parent_uninteresting.exit ], [ %pending.i.i.i.sroa.20.3, %for.end.i.i.i ]
-  %18 = phi i64 [ %pending.i.i.i.sroa.12.9, %mark_one_parent_uninteresting.exit ], [ %nr.i.i.promoted74.i.i, %for.end.i.i.i ]
-  %dec.i.i.i.i = add i64 %18, -1
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %pending.i.i.i.sroa.0.4, i64 %dec.i.i.i.i
-  %19 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %bf.load.i2 = load i32, ptr %19, align 8
-  %20 = and i32 %bf.load.i2, 32
-  %tobool.not.i3 = icmp eq i32 %20, 0
-  br i1 %tobool.not.i3, label %if.end.i4, label %mark_one_parent_uninteresting.exit
-
-if.end.i4:                                        ; preds = %commit_stack_pop.exit.i.i.i
-  %bf.set.i = or disjoint i32 %bf.load.i2, 32
-  store i32 %bf.set.i, ptr %19, align 8
-  %parents.i5 = getelementptr inbounds i8, ptr %19, i64 48
-  %l.07.i = load ptr, ptr %parents.i5, align 8
-  %tobool5.not8.i = icmp eq ptr %l.07.i, null
-  br i1 %tobool5.not8.i, label %mark_one_parent_uninteresting.exit, label %for.body.i7
-
-for.body.i7:                                      ; preds = %if.end.i4, %for.inc.i
-  %pending.i.i.i.sroa.0.10 = phi ptr [ %pending.i.i.i.sroa.0.11, %for.inc.i ], [ %pending.i.i.i.sroa.0.4, %if.end.i4 ]
-  %pending.i.i.i.sroa.12.7 = phi i64 [ %add.i.i, %for.inc.i ], [ %dec.i.i.i.i, %if.end.i4 ]
-  %pending.i.i.i.sroa.20.10 = phi i64 [ %pending.i.i.i.sroa.20.11, %for.inc.i ], [ %pending.i.i.i.sroa.20.4, %if.end.i4 ]
-  %l.09.i = phi ptr [ %l.0.i, %for.inc.i ], [ %l.07.i, %if.end.i4 ]
-  %21 = load ptr, ptr %l.09.i, align 8
-  %add.i.i = add i64 %pending.i.i.i.sroa.12.7, 1
-  %cmp.i.i = icmp ugt i64 %add.i.i, %pending.i.i.i.sroa.20.10
-  br i1 %cmp.i.i, label %if.then.i.i, label %commit_stack_push.exit.i
-
-if.then.i.i:                                      ; preds = %for.body.i7
-  %22 = mul i64 %pending.i.i.i.sroa.20.10, 3
-  %mul.i.i = add i64 %22, 48
-  %div13.i.i = lshr i64 %mul.i.i, 1
-  %add.div13.i.i = tail call i64 @llvm.umax.i64(i64 %div13.i.i, i64 %add.i.i)
-  %mul.ov.i.i.i = icmp ugt i64 %add.div13.i.i, 2305843009213693951
-  br i1 %mul.ov.i.i.i, label %if.then.i.i.i, label %st_mult.exit.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.37, i64 noundef 8, i64 noundef %add.div13.i.i) #27
-  unreachable
-
-st_mult.exit.i.i:                                 ; preds = %if.then.i.i
-  %mul.i.i.i11 = shl nuw i64 %add.div13.i.i, 3
-  %call16.i.i = tail call ptr @xrealloc(ptr noundef nonnull %pending.i.i.i.sroa.0.10, i64 noundef %mul.i.i.i11) #25
-  br label %commit_stack_push.exit.i
-
-commit_stack_push.exit.i:                         ; preds = %for.body.i7, %st_mult.exit.i.i
-  %pending.i.i.i.sroa.0.11 = phi ptr [ %call16.i.i, %st_mult.exit.i.i ], [ %pending.i.i.i.sroa.0.10, %for.body.i7 ]
-  %pending.i.i.i.sroa.20.11 = phi i64 [ %add.div13.i.i, %st_mult.exit.i.i ], [ %pending.i.i.i.sroa.20.10, %for.body.i7 ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %pending.i.i.i.sroa.0.11, i64 %pending.i.i.i.sroa.12.7
-  store ptr %21, ptr %arrayidx.i.i, align 8
-  %bf.load7.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
-  %23 = and i64 %bf.load7.i, 549755813888
-  %tobool10.not.i = icmp eq i64 %23, 0
-  br i1 %tobool10.not.i, label %for.inc.i, label %mark_one_parent_uninteresting.exit
-
-for.inc.i:                                        ; preds = %commit_stack_push.exit.i
-  %next.i9 = getelementptr inbounds i8, ptr %l.09.i, i64 8
-  %l.0.i = load ptr, ptr %next.i9, align 8
-  %tobool5.not.i10 = icmp eq ptr %l.0.i, null
-  br i1 %tobool5.not.i10, label %mark_one_parent_uninteresting.exit, label %for.body.i7, !llvm.loop !20
-
-mark_one_parent_uninteresting.exit:               ; preds = %commit_stack_push.exit.i, %for.inc.i, %commit_stack_pop.exit.i.i.i, %if.end.i4
-  %pending.i.i.i.sroa.0.14 = phi ptr [ %pending.i.i.i.sroa.0.4, %if.end.i4 ], [ %pending.i.i.i.sroa.0.4, %commit_stack_pop.exit.i.i.i ], [ %pending.i.i.i.sroa.0.11, %for.inc.i ], [ %pending.i.i.i.sroa.0.11, %commit_stack_push.exit.i ]
-  %pending.i.i.i.sroa.12.9 = phi i64 [ %dec.i.i.i.i, %if.end.i4 ], [ %dec.i.i.i.i, %commit_stack_pop.exit.i.i.i ], [ %add.i.i, %for.inc.i ], [ %add.i.i, %commit_stack_push.exit.i ]
-  %pending.i.i.i.sroa.20.14 = phi i64 [ %pending.i.i.i.sroa.20.4, %if.end.i4 ], [ %pending.i.i.i.sroa.20.4, %commit_stack_pop.exit.i.i.i ], [ %pending.i.i.i.sroa.20.11, %for.inc.i ], [ %pending.i.i.i.sroa.20.11, %commit_stack_push.exit.i ]
-  %cmp.not.i.i.i = icmp eq i64 %pending.i.i.i.sroa.12.9, 0
+mark_one_parent_uninteresting.exit.i.i:           ; preds = %for.inc.i19.i.i, %commit_stack_push.exit.i.i.i, %if.end.i10.i.i, %commit_stack_pop.exit.i.i.i
+  %pending.i.sroa.0.12.i.i = phi ptr [ %pending.i.sroa.0.5.i.i, %if.end.i10.i.i ], [ %pending.i.sroa.0.5.i.i, %commit_stack_pop.exit.i.i.i ], [ %pending.i.sroa.0.9.i.i, %commit_stack_push.exit.i.i.i ], [ %pending.i.sroa.0.9.i.i, %for.inc.i19.i.i ]
+  %pending.i.sroa.20.9.i.i = phi i64 [ %dec.i.i.i.i, %if.end.i10.i.i ], [ %dec.i.i.i.i, %commit_stack_pop.exit.i.i.i ], [ %add.i.i.i.i, %commit_stack_push.exit.i.i.i ], [ %add.i.i.i.i, %for.inc.i19.i.i ]
+  %pending.i.sroa.38.12.i.i = phi i64 [ %pending.i.sroa.38.5.i.i, %if.end.i10.i.i ], [ %pending.i.sroa.38.5.i.i, %commit_stack_pop.exit.i.i.i ], [ %pending.i.sroa.38.9.i.i, %commit_stack_push.exit.i.i.i ], [ %pending.i.sroa.38.9.i.i, %for.inc.i19.i.i ]
+  %cmp.not.i.i.i = icmp eq i64 %pending.i.sroa.20.9.i.i, 0
   br i1 %cmp.not.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i, !llvm.loop !19
 
-mark_parents_uninteresting.exit.i.i:              ; preds = %mark_one_parent_uninteresting.exit, %for.end.i.i.i, %if.then21.i.i.i
-  %24 = phi ptr [ %pending.i.promoted78.i.i, %for.end.i.i.i ], [ null, %if.then21.i.i.i ], [ %pending.i.i.i.sroa.0.14, %mark_one_parent_uninteresting.exit ]
-  tail call void @free(ptr noundef %24) #25
+mark_parents_uninteresting.exit.i.i:              ; preds = %mark_one_parent_uninteresting.exit.i.i, %for.end.i.i.i, %if.then21.i.i.i
+  %pending.i.sroa.0.7.i.i = phi ptr [ %pending.i.sroa.0.17.i.i, %for.end.i.i.i ], [ null, %if.then21.i.i.i ], [ %pending.i.sroa.0.12.i.i, %mark_one_parent_uninteresting.exit.i.i ]
+  tail call void @free(ptr noundef %pending.i.sroa.0.7.i.i) #25
   br label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %mark_parents_uninteresting.exit.i.i, %if.end16.i.i.i
@@ -12803,16 +12799,16 @@ if.end22.i.i.i:                                   ; preds = %mark_parents_uninte
 
 for.body.i.i.i:                                   ; preds = %if.end22.i.i.i, %test_flag_and_insert.exit.i.i.i
   %p.021.i.i.i = phi ptr [ %p.0.i.i.i, %test_flag_and_insert.exit.i.i.i ], [ %p.019.i.i.i, %if.end22.i.i.i ]
-  %25 = load ptr, ptr %p.021.i.i.i, align 8
-  %bf.load.i.i.i.i = load i32, ptr %25, align 8
-  %26 = and i32 %bf.load.i.i.i.i, 134217728
-  %tobool.not.i.i.i.i = icmp eq i32 %26, 0
+  %24 = load ptr, ptr %p.021.i.i.i, align 8
+  %bf.load.i.i.i.i = load i32, ptr %24, align 8
+  %25 = and i32 %bf.load.i.i.i.i, 134217728
+  %tobool.not.i.i.i.i = icmp eq i32 %25, 0
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %test_flag_and_insert.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i
   %bf.set.i.i.i.i = or disjoint i32 %bf.load.i.i.i.i, 134217728
-  store i32 %bf.set.i.i.i.i, ptr %25, align 8
-  tail call void @prio_queue_put(ptr noundef nonnull %explore_queue.i.i.i, ptr noundef nonnull %25) #25
+  store i32 %bf.set.i.i.i.i, ptr %24, align 8
+  tail call void @prio_queue_put(ptr noundef nonnull %explore_queue.i.i.i, ptr noundef nonnull %24) #25
   br label %test_flag_and_insert.exit.i.i.i
 
 test_flag_and_insert.exit.i.i.i:                  ; preds = %if.end.i.i.i.i, %for.body.i.i.i
@@ -12828,9 +12824,9 @@ explore_walk_step.exit.i.i:                       ; preds = %test_flag_and_inser
 
 explore_to_depth.exit.i:                          ; preds = %explore_walk_step.exit.i.i, %land.rhs.i.i, %if.end3.i
   %parents.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %p.027.i = load ptr, ptr %parents.i, align 8
-  %tobool5.not28.i = icmp eq ptr %p.027.i, null
-  br i1 %tobool5.not28.i, label %indegree_walk_step.exit, label %for.body.lr.ph.i
+  %p.028.i = load ptr, ptr %parents.i, align 8
+  %tobool5.not29.i = icmp eq ptr %p.028.i, null
+  br i1 %tobool5.not29.i, label %indegree_walk_step.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %explore_to_depth.exit.i
   %indegree.i = getelementptr inbounds i8, ptr %1, i64 128
@@ -12840,39 +12836,39 @@ for.body.lr.ph.i:                                 ; preds = %explore_to_depth.ex
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %test_flag_and_insert.exit.i
-  %next.i = getelementptr inbounds i8, ptr %p.029.i, i64 8
+  %next.i = getelementptr inbounds i8, ptr %p.030.i, i64 8
   %p.0.i = load ptr, ptr %next.i, align 8
   %tobool5.not.i = icmp eq ptr %p.0.i, null
   br i1 %tobool5.not.i, label %indegree_walk_step.exit, label %for.body.i, !llvm.loop !96
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %p.029.i = phi ptr [ %p.027.i, %for.body.lr.ph.i ], [ %p.0.i, %for.cond.i ]
-  %27 = load ptr, ptr %p.029.i, align 8
-  %28 = getelementptr i8, ptr %27, i64 64
-  %.val.i = load i32, ptr %28, align 8
-  %29 = load i32, ptr %indegree.i, align 8
-  %div.i.i.i = udiv i32 %.val.i, %29
-  %rem.i.i.i = urem i32 %.val.i, %29
-  %30 = load i32, ptr %slab_count.i.i.i, align 8
-  %cmp.not.i.i17.i = icmp ugt i32 %30, %div.i.i.i
-  %.pre31.i = load ptr, ptr %slab.i.i.i, align 8
+  %p.030.i = phi ptr [ %p.028.i, %for.body.lr.ph.i ], [ %p.0.i, %for.cond.i ]
+  %26 = load ptr, ptr %p.030.i, align 8
+  %27 = getelementptr i8, ptr %26, i64 64
+  %.val.i = load i32, ptr %27, align 8
+  %28 = load i32, ptr %indegree.i, align 8
+  %div.i.i.i = udiv i32 %.val.i, %28
+  %rem.i.i.i = urem i32 %.val.i, %28
+  %29 = load i32, ptr %slab_count.i.i.i, align 8
+  %cmp.not.i.i17.i = icmp ugt i32 %29, %div.i.i.i
+  %.pre33.i = load ptr, ptr %slab.i.i.i, align 8
   br i1 %cmp.not.i.i17.i, label %if.end12.i.i24.i, label %if.end.i.i18.i
 
 if.end.i.i18.i:                                   ; preds = %for.body.i
   %add.i.i.i = add i32 %div.i.i.i, 1
   %conv.i.i.i = zext i32 %add.i.i.i to i64
   %mul.i.i.i19.i = shl nuw nsw i64 %conv.i.i.i, 3
-  %call4.i.i.i = tail call ptr @xrealloc(ptr noundef %.pre31.i, i64 noundef %mul.i.i.i19.i) #25
+  %call4.i.i.i = tail call ptr @xrealloc(ptr noundef %.pre33.i, i64 noundef %mul.i.i.i19.i) #25
   store ptr %call4.i.i.i, ptr %slab.i.i.i, align 8
-  %31 = load i32, ptr %slab_count.i.i.i, align 8
-  %cmp7.not2.i.i.i = icmp ugt i32 %31, %div.i.i.i
+  %30 = load i32, ptr %slab_count.i.i.i, align 8
+  %cmp7.not2.i.i.i = icmp ugt i32 %30, %div.i.i.i
   br i1 %cmp7.not2.i.i.i, label %for.end.i.i23.i, label %for.body.i.i20.i
 
 for.body.i.i20.i:                                 ; preds = %if.end.i.i18.i, %for.body.i.i20.i
-  %i.03.i.i.i = phi i32 [ %inc.i.i21.i, %for.body.i.i20.i ], [ %31, %if.end.i.i18.i ]
-  %32 = load ptr, ptr %slab.i.i.i, align 8
+  %i.03.i.i.i = phi i32 [ %inc.i.i21.i, %for.body.i.i20.i ], [ %30, %if.end.i.i18.i ]
+  %31 = load ptr, ptr %slab.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %i.03.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %32, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %31, i64 %idxprom.i.i.i
   store ptr null, ptr %arrayidx.i.i.i, align 8
   %inc.i.i21.i = add i32 %i.03.i.i.i, 1
   %cmp7.not.i.i22.i = icmp ugt i32 %inc.i.i21.i, %div.i.i.i
@@ -12888,22 +12884,22 @@ for.end.i.i23.i:                                  ; preds = %for.end.i.i23.loope
   br label %if.end12.i.i24.i
 
 if.end12.i.i24.i:                                 ; preds = %for.end.i.i23.i, %for.body.i
-  %33 = phi ptr [ %.pre.i, %for.end.i.i23.i ], [ %.pre31.i, %for.body.i ]
+  %32 = phi ptr [ %.pre.i, %for.end.i.i23.i ], [ %.pre33.i, %for.body.i ]
   %idxprom14.i.i.i = zext i32 %div.i.i.i to i64
-  %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %33, i64 %idxprom14.i.i.i
-  %34 = load ptr, ptr %arrayidx15.i.i.i, align 8
-  %tobool16.not.i.i.i = icmp eq ptr %34, null
+  %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %32, i64 %idxprom14.i.i.i
+  %33 = load ptr, ptr %arrayidx15.i.i.i, align 8
+  %tobool16.not.i.i.i = icmp eq ptr %33, null
   br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %indegree_slab_at.exit.i
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i24.i
-  %35 = load i32, ptr %indegree.i, align 8
-  %conv22.i.i.i = zext i32 %35 to i64
-  %36 = load i32, ptr %stride.i.i.i, align 4
-  %conv23.i.i.i = zext i32 %36 to i64
+  %34 = load i32, ptr %indegree.i, align 8
+  %conv22.i.i.i = zext i32 %34 to i64
+  %35 = load i32, ptr %stride.i.i.i, align 4
+  %conv23.i.i.i = zext i32 %35 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv23.i.i.i, 2
   %call24.i.i.i = tail call ptr @xcalloc(i64 noundef %conv22.i.i.i, i64 noundef %mul.i.i.i) #25
-  %37 = load ptr, ptr %slab.i.i.i, align 8
-  %arrayidx27.i.i.i = getelementptr inbounds ptr, ptr %37, i64 %idxprom14.i.i.i
+  %36 = load ptr, ptr %slab.i.i.i, align 8
+  %arrayidx27.i.i.i = getelementptr inbounds ptr, ptr %36, i64 %idxprom14.i.i.i
   store ptr %call24.i.i.i, ptr %arrayidx27.i.i.i, align 8
   %.pre.i.i.i = load ptr, ptr %slab.i.i.i, align 8
   %arrayidx31.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %idxprom14.i.i.i
@@ -12911,37 +12907,37 @@ if.end20.i.i.i:                                   ; preds = %if.end12.i.i24.i
   br label %indegree_slab_at.exit.i
 
 indegree_slab_at.exit.i:                          ; preds = %if.end20.i.i.i, %if.end12.i.i24.i
-  %38 = phi ptr [ %34, %if.end12.i.i24.i ], [ %.pre4.i.i.i, %if.end20.i.i.i ]
-  %39 = load i32, ptr %stride.i.i.i, align 4
-  %40 = load ptr, ptr %repo.i, align 8
-  %call8.i = tail call i32 @repo_parse_commit_gently(ptr noundef %40, ptr noundef %27, i32 noundef 1) #25
+  %37 = phi ptr [ %33, %if.end12.i.i24.i ], [ %.pre4.i.i.i, %if.end20.i.i.i ]
+  %38 = load i32, ptr %stride.i.i.i, align 4
+  %39 = load ptr, ptr %repo.i, align 8
+  %call8.i = tail call i32 @repo_parse_commit_gently(ptr noundef %39, ptr noundef %26, i32 noundef 1) #25
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %indegree_walk_step.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %indegree_slab_at.exit.i
-  %mul33.i.i.i = mul i32 %rem.i.i.i, %39
+  %mul33.i.i.i = mul i32 %rem.i.i.i, %38
   %idxprom34.i.i.i = zext i32 %mul33.i.i.i to i64
-  %arrayidx35.i.i.i = getelementptr inbounds i32, ptr %38, i64 %idxprom34.i.i.i
-  %41 = load i32, ptr %arrayidx35.i.i.i, align 4
-  %tobool12.not.i = icmp eq i32 %41, 0
-  %inc14.i = add nsw i32 %41, 1
+  %arrayidx35.i.i.i = getelementptr inbounds i32, ptr %37, i64 %idxprom34.i.i.i
+  %40 = load i32, ptr %arrayidx35.i.i.i, align 4
+  %tobool12.not.i = icmp eq i32 %40, 0
+  %inc14.i = add nsw i32 %40, 1
   %storemerge.i = select i1 %tobool12.not.i, i32 2, i32 %inc14.i
   store i32 %storemerge.i, ptr %arrayidx35.i.i.i, align 4
-  %bf.load.i.i = load i32, ptr %27, align 8
-  %42 = and i32 %bf.load.i.i, 268435456
-  %tobool.not.i25.i = icmp eq i32 %42, 0
+  %bf.load.i.i = load i32, ptr %26, align 8
+  %41 = and i32 %bf.load.i.i, 268435456
+  %tobool.not.i25.i = icmp eq i32 %41, 0
   br i1 %tobool.not.i25.i, label %if.end.i.i, label %test_flag_and_insert.exit.i
 
 if.end.i.i:                                       ; preds = %if.end11.i
   %bf.set.i.i = or disjoint i32 %bf.load.i.i, 268435456
-  store i32 %bf.set.i.i, ptr %27, align 8
-  tail call void @prio_queue_put(ptr noundef nonnull %indegree_queue.i, ptr noundef nonnull %27) #25
+  store i32 %bf.set.i.i, ptr %26, align 8
+  tail call void @prio_queue_put(ptr noundef nonnull %indegree_queue.i, ptr noundef nonnull %26) #25
   br label %test_flag_and_insert.exit.i
 
 test_flag_and_insert.exit.i:                      ; preds = %if.end.i.i, %if.end11.i
   %bf.load.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
-  %43 = and i64 %bf.load.i, 274877906944
-  %tobool17.not.i = icmp eq i64 %43, 0
+  %42 = and i64 %bf.load.i, 274877906944
+  %tobool17.not.i = icmp eq i64 %42, 0
   br i1 %tobool17.not.i, label %for.cond.i, label %indegree_walk_step.exit
 
 indegree_walk_step.exit:                          ; preds = %for.cond.i, %indegree_slab_at.exit.i, %test_flag_and_insert.exit.i, %while.body, %if.end.i, %explore_to_depth.exit.i

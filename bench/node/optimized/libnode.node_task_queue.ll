@@ -396,7 +396,7 @@ if.end103:                                        ; preds = %if.end69, %_ZN4node
   %arrayinit.element120 = getelementptr inbounds i8, ptr %args, i64 16
   store ptr %value.sroa.0.1, ptr %arrayinit.element120, align 16
   %44 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %44) #14
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %44) #14
   %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %10, ptr %env_.i, align 8
   %mode_.i = getelementptr inbounds i8, ptr %try_catch, i64 56

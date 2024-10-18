@@ -278,12 +278,12 @@ if.then21:                                        ; preds = %if.end18
   ]
 
 if.then.i:                                        ; preds = %if.then21
-  %call.i = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %fd.0, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %yes.i, i32 noundef 4) #10
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
 if.then7.i:                                       ; preds = %if.then21
-  %call8.i = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call8.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %fd.0, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %yes.i, i32 noundef 4) #10
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
@@ -1865,11 +1865,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef 16, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef range(i32 16, 20) 16, ptr noundef nonnull %arg.i, i32 noundef 4) #10
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call3.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call3.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef range(i32 2, 35) 2, ptr noundef nonnull %arg.i, i32 noundef 4) #10
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -1912,11 +1912,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef 18, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef range(i32 16, 20) 18, ptr noundef nonnull %arg.i, i32 noundef 4) #10
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef 33, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef range(i32 2, 35) 33, ptr noundef nonnull %arg.i, i32 noundef 4) #10
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -1955,11 +1955,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef 19, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef range(i32 16, 20) 19, ptr noundef nonnull %arg.i, i32 noundef 4) #10
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef 34, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef range(i32 2, 35) 34, ptr noundef nonnull %arg.i, i32 noundef 4) #10
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i

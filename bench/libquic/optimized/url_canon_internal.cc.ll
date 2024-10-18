@@ -1022,7 +1022,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i:           ; preds = %if.then.i.i.i, %lor
   %8 = phi i32 [ 65533, %if.then.i.i.i ], [ %5, %lor.lhs.false.i.i.i ], [ %5, %lor.rhs.i.i.i.i ]
   %retval.0.i.i.i = phi i1 [ false, %if.then.i.i.i ], [ true, %lor.lhs.false.i.i.i ], [ true, %lor.rhs.i.i.i.i ]
   %and3.i.i = and i1 %success.05.i.i, %retval.0.i.i.i
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %8, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %8, ptr noundef nonnull %utf8_buffer)
   %9 = load i32, ptr %i.i.i, align 4
   %inc.i.i = add nsw i32 %9, 1
   store i32 %inc.i.i, ptr %i.i.i, align 4
@@ -1107,7 +1107,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i88:         ; preds = %if.then.i.i.i87, %l
   %20 = phi i32 [ 65533, %if.then.i.i.i87 ], [ %17, %lor.lhs.false.i.i.i96 ], [ %17, %lor.rhs.i.i.i.i100 ]
   %retval.0.i.i.i89 = phi i1 [ false, %if.then.i.i.i87 ], [ true, %lor.lhs.false.i.i.i96 ], [ true, %lor.rhs.i.i.i.i100 ]
   %and3.i.i90 = and i1 %success.05.i.i85, %retval.0.i.i.i89
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %20, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %20, ptr noundef nonnull %utf8_buffer)
   %21 = load i32, ptr %i.i.i68, align 4
   %inc.i.i91 = add nsw i32 %21, 1
   store i32 %inc.i.i91, ptr %i.i.i68, align 4
@@ -1192,7 +1192,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i127:        ; preds = %if.then.i.i.i126, %
   %32 = phi i32 [ 65533, %if.then.i.i.i126 ], [ %29, %lor.lhs.false.i.i.i135 ], [ %29, %lor.rhs.i.i.i.i139 ]
   %retval.0.i.i.i128 = phi i1 [ false, %if.then.i.i.i126 ], [ true, %lor.lhs.false.i.i.i135 ], [ true, %lor.rhs.i.i.i.i139 ]
   %and3.i.i129 = and i1 %success.05.i.i124, %retval.0.i.i.i128
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %32, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %32, ptr noundef nonnull %utf8_buffer)
   %33 = load i32, ptr %i.i.i107, align 4
   %inc.i.i130 = add nsw i32 %33, 1
   store i32 %inc.i.i130, ptr %i.i.i107, align 4
@@ -1277,7 +1277,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i166:        ; preds = %if.then.i.i.i165, %
   %44 = phi i32 [ 65533, %if.then.i.i.i165 ], [ %41, %lor.lhs.false.i.i.i174 ], [ %41, %lor.rhs.i.i.i.i178 ]
   %retval.0.i.i.i167 = phi i1 [ false, %if.then.i.i.i165 ], [ true, %lor.lhs.false.i.i.i174 ], [ true, %lor.rhs.i.i.i.i178 ]
   %and3.i.i168 = and i1 %success.05.i.i163, %retval.0.i.i.i167
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %44, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %44, ptr noundef nonnull %utf8_buffer)
   %45 = load i32, ptr %i.i.i146, align 4
   %inc.i.i169 = add nsw i32 %45, 1
   store i32 %inc.i.i169, ptr %i.i.i146, align 4
@@ -1362,7 +1362,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i205:        ; preds = %if.then.i.i.i204, %
   %56 = phi i32 [ 65533, %if.then.i.i.i204 ], [ %53, %lor.lhs.false.i.i.i213 ], [ %53, %lor.rhs.i.i.i.i217 ]
   %retval.0.i.i.i206 = phi i1 [ false, %if.then.i.i.i204 ], [ true, %lor.lhs.false.i.i.i213 ], [ true, %lor.rhs.i.i.i.i217 ]
   %and3.i.i207 = and i1 %success.05.i.i202, %retval.0.i.i.i206
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %56, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %56, ptr noundef nonnull %utf8_buffer)
   %57 = load i32, ptr %i.i.i185, align 4
   %inc.i.i208 = add nsw i32 %57, 1
   store i32 %inc.i.i208, ptr %i.i.i185, align 4
@@ -1447,7 +1447,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i244:        ; preds = %if.then.i.i.i243, %
   %68 = phi i32 [ 65533, %if.then.i.i.i243 ], [ %65, %lor.lhs.false.i.i.i252 ], [ %65, %lor.rhs.i.i.i.i256 ]
   %retval.0.i.i.i245 = phi i1 [ false, %if.then.i.i.i243 ], [ true, %lor.lhs.false.i.i.i252 ], [ true, %lor.rhs.i.i.i.i256 ]
   %and3.i.i246 = and i1 %success.05.i.i241, %retval.0.i.i.i245
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %68, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %68, ptr noundef nonnull %utf8_buffer)
   %69 = load i32, ptr %i.i.i224, align 4
   %inc.i.i247 = add nsw i32 %69, 1
   store i32 %inc.i.i247, ptr %i.i.i224, align 4
@@ -1532,7 +1532,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i283:        ; preds = %if.then.i.i.i282, %
   %80 = phi i32 [ 65533, %if.then.i.i.i282 ], [ %77, %lor.lhs.false.i.i.i291 ], [ %77, %lor.rhs.i.i.i.i295 ]
   %retval.0.i.i.i284 = phi i1 [ false, %if.then.i.i.i282 ], [ true, %lor.lhs.false.i.i.i291 ], [ true, %lor.rhs.i.i.i.i295 ]
   %and3.i.i285 = and i1 %success.05.i.i280, %retval.0.i.i.i284
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %80, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %80, ptr noundef nonnull %utf8_buffer)
   %81 = load i32, ptr %i.i.i263, align 4
   %inc.i.i286 = add nsw i32 %81, 1
   store i32 %inc.i.i286, ptr %i.i.i263, align 4
@@ -1617,7 +1617,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i322:        ; preds = %if.then.i.i.i321, %
   %92 = phi i32 [ 65533, %if.then.i.i.i321 ], [ %89, %lor.lhs.false.i.i.i330 ], [ %89, %lor.rhs.i.i.i.i334 ]
   %retval.0.i.i.i323 = phi i1 [ false, %if.then.i.i.i321 ], [ true, %lor.lhs.false.i.i.i330 ], [ true, %lor.rhs.i.i.i.i334 ]
   %and3.i.i324 = and i1 %success.05.i.i319, %retval.0.i.i.i323
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %92, ptr noundef %utf8_buffer)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %92, ptr noundef nonnull %utf8_buffer)
   %93 = load i32, ptr %i.i.i302, align 4
   %inc.i.i325 = add nsw i32 %93, 1
   store i32 %inc.i.i325, ptr %i.i.i302, align 4

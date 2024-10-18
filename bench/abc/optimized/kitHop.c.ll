@@ -712,7 +712,7 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   br label %.lr.ph.split.i22
 
 Kit_GraphToGia.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.split
-  %79 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull readonly %.0, i32 noundef %5)
+  %79 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %5)
   tail call void @Kit_GraphFree(ptr noundef nonnull %.0) #14
   ret i32 %79
 }
@@ -874,7 +874,7 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   br label %.lr.ph.split.i27
 
 Kit_GraphToGia.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.split
-  %80 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull readonly %.0, i32 noundef %6)
+  %80 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %6)
   tail call void @Kit_GraphFree(ptr noundef nonnull %.0) #14
   ret i32 %80
 }

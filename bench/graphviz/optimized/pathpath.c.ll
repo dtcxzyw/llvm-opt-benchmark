@@ -86,12 +86,12 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not67, label %agxbfree.exit83, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(6) @.str.3, i64 noundef 5) #17
+  %31 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 5) #17
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %agxbfree.exit83, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(10) @.str.4, i64 noundef 9) #17
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #17
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %agxbfree.exit83, label %36
 
@@ -292,7 +292,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -369,7 +369,7 @@ agxbsizeof.exit.i:                                ; preds = %4, %agxblen.exit.i
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %agxbsizeof.exit.i
-  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %2, align 1
   br label %10
 

@@ -578,7 +578,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #15
   ret void
 }
@@ -590,7 +590,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
@@ -607,7 +607,7 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #15
   ret void
 }
@@ -623,9 +623,9 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %5) #18
   ret void
 }
 
@@ -1378,7 +1378,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit44: ; preds = %_ZNSt10unique_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   store ptr %96, ptr %0, align 8
-  call void @_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @.str.21)
+  call void @_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull @.str.21)
   %97 = load i64, ptr %2, align 8
   store i64 %97, ptr %1, align 8
   store ptr null, ptr %2, align 8

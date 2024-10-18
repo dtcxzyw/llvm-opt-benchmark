@@ -96,7 +96,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -706,7 +706,7 @@ lpad.i233:                                        ; preds = %invoke.cont.i234, %
   %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i228) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E) #13
   br label %common.resume.sink.split
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i234
@@ -716,7 +716,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i234
           to label %call.i.noexc18.i unwind label %lpad2.i
 
 call.i.noexc18.i:                                 ; preds = %invoke.cont.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32), ptr noundef %call.i19.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32), ptr noundef %call.i19.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
           to label %.noexc20.i unwind label %lpad2.i
 
 .noexc20.i:                                       ; preds = %call.i.noexc18.i
@@ -746,7 +746,7 @@ lpad.i223:                                        ; preds = %invoke.cont.i224, %
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i218) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32)) #13
   br label %ehcleanup51.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i224
@@ -756,7 +756,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i224
           to label %call.i.noexc26.i unwind label %lpad5.i
 
 call.i.noexc26.i:                                 ; preds = %invoke.cont3.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64), ptr noundef %call.i27.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64), ptr noundef %call.i27.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
           to label %.noexc28.i unwind label %lpad5.i
 
 .noexc28.i:                                       ; preds = %call.i.noexc26.i
@@ -786,7 +786,7 @@ lpad.i213:                                        ; preds = %invoke.cont.i214, %
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i208) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64)) #13
   br label %ehcleanup49.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i214
@@ -796,7 +796,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i214
           to label %call.i.noexc34.i unwind label %lpad8.i
 
 call.i.noexc34.i:                                 ; preds = %invoke.cont6.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96), ptr noundef %call.i35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96), ptr noundef %call.i35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i)
           to label %.noexc36.i unwind label %lpad8.i
 
 .noexc36.i:                                       ; preds = %call.i.noexc34.i
@@ -806,7 +806,7 @@ call.i.noexc34.i:                                 ; preds = %invoke.cont6.i
 lpad.i33.i:                                       ; preds = %.noexc36.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96)) #13
   br label %ehcleanup48.i
 
 invoke.cont9.i:                                   ; preds = %.noexc36.i
@@ -815,7 +815,7 @@ invoke.cont9.i:                                   ; preds = %.noexc36.i
           to label %call.i.noexc42.i unwind label %lpad11.i
 
 call.i.noexc42.i:                                 ; preds = %invoke.cont9.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128), ptr noundef %call.i43.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128), ptr noundef %call.i43.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %.noexc44.i unwind label %lpad11.i
 
 .noexc44.i:                                       ; preds = %call.i.noexc42.i
@@ -845,7 +845,7 @@ lpad.i203:                                        ; preds = %invoke.cont.i204, %
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i198) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128)) #13
   br label %ehcleanup47.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont.i204
@@ -855,7 +855,7 @@ invoke.cont12.i:                                  ; preds = %invoke.cont.i204
           to label %call.i.noexc50.i unwind label %lpad14.i
 
 call.i.noexc50.i:                                 ; preds = %invoke.cont12.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160), ptr noundef %call.i51.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160), ptr noundef %call.i51.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i)
           to label %.noexc52.i unwind label %lpad14.i
 
 .noexc52.i:                                       ; preds = %call.i.noexc50.i
@@ -885,7 +885,7 @@ lpad.i193:                                        ; preds = %invoke.cont.i194, %
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i188) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160)) #13
   br label %ehcleanup46.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont.i194
@@ -895,7 +895,7 @@ invoke.cont15.i:                                  ; preds = %invoke.cont.i194
           to label %call.i.noexc58.i unwind label %lpad17.i
 
 call.i.noexc58.i:                                 ; preds = %invoke.cont15.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192), ptr noundef %call.i59.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192), ptr noundef %call.i59.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i)
           to label %.noexc60.i unwind label %lpad17.i
 
 .noexc60.i:                                       ; preds = %call.i.noexc58.i
@@ -925,7 +925,7 @@ lpad.i183:                                        ; preds = %invoke.cont.i184, %
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i178) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192)) #13
   br label %ehcleanup45.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont.i184
@@ -935,7 +935,7 @@ invoke.cont18.i:                                  ; preds = %invoke.cont.i184
           to label %call.i.noexc66.i unwind label %lpad20.i
 
 call.i.noexc66.i:                                 ; preds = %invoke.cont18.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224), ptr noundef %call.i67.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224), ptr noundef %call.i67.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i)
           to label %.noexc68.i unwind label %lpad20.i
 
 .noexc68.i:                                       ; preds = %call.i.noexc66.i
@@ -945,7 +945,7 @@ call.i.noexc66.i:                                 ; preds = %invoke.cont18.i
 lpad.i65.i:                                       ; preds = %.noexc68.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224)) #13
   br label %ehcleanup44.i
 
 invoke.cont21.i:                                  ; preds = %.noexc68.i
@@ -954,7 +954,7 @@ invoke.cont21.i:                                  ; preds = %.noexc68.i
           to label %call.i.noexc74.i unwind label %lpad23.i
 
 call.i.noexc74.i:                                 ; preds = %invoke.cont21.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256), ptr noundef %call.i75.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256), ptr noundef %call.i75.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i)
           to label %.noexc76.i unwind label %lpad23.i
 
 .noexc76.i:                                       ; preds = %call.i.noexc74.i
@@ -964,7 +964,7 @@ call.i.noexc74.i:                                 ; preds = %invoke.cont21.i
 lpad.i73.i:                                       ; preds = %.noexc76.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256)) #13
   br label %ehcleanup43.i
 
 invoke.cont24.i:                                  ; preds = %.noexc76.i
@@ -973,7 +973,7 @@ invoke.cont24.i:                                  ; preds = %.noexc76.i
           to label %call.i.noexc82.i unwind label %lpad26.i
 
 call.i.noexc82.i:                                 ; preds = %invoke.cont24.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288), ptr noundef %call.i83.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288), ptr noundef %call.i83.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i)
           to label %.noexc84.i unwind label %lpad26.i
 
 .noexc84.i:                                       ; preds = %call.i.noexc82.i
@@ -983,7 +983,7 @@ call.i.noexc82.i:                                 ; preds = %invoke.cont24.i
 lpad.i81.i:                                       ; preds = %.noexc84.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288)) #13
   br label %ehcleanup42.i
 
 invoke.cont27.i:                                  ; preds = %.noexc84.i
@@ -992,7 +992,7 @@ invoke.cont27.i:                                  ; preds = %.noexc84.i
           to label %call.i.noexc90.i unwind label %lpad29.i
 
 call.i.noexc90.i:                                 ; preds = %invoke.cont27.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320), ptr noundef %call.i91.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320), ptr noundef %call.i91.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28.i)
           to label %.noexc92.i unwind label %lpad29.i
 
 .noexc92.i:                                       ; preds = %call.i.noexc90.i
@@ -1022,7 +1022,7 @@ lpad.i173:                                        ; preds = %invoke.cont.i174, %
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i168) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320)) #13
   br label %ehcleanup41.i
 
 invoke.cont30.i:                                  ; preds = %invoke.cont.i174
@@ -1032,7 +1032,7 @@ invoke.cont30.i:                                  ; preds = %invoke.cont.i174
           to label %call.i.noexc98.i unwind label %lpad32.i
 
 call.i.noexc98.i:                                 ; preds = %invoke.cont30.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352), ptr noundef %call.i99.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352), ptr noundef %call.i99.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i)
           to label %.noexc100.i unwind label %lpad32.i
 
 .noexc100.i:                                      ; preds = %call.i.noexc98.i
@@ -1062,7 +1062,7 @@ lpad.i163:                                        ; preds = %invoke.cont.i164, %
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i158) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352)) #13
   br label %ehcleanup40.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont.i164
@@ -1072,7 +1072,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont.i164
           to label %call.i.noexc106.i unwind label %lpad35.i
 
 call.i.noexc106.i:                                ; preds = %invoke.cont33.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384), ptr noundef %call.i107.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384), ptr noundef %call.i107.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i)
           to label %.noexc108.i unwind label %lpad35.i
 
 .noexc108.i:                                      ; preds = %call.i.noexc106.i
@@ -1102,7 +1102,7 @@ lpad.i153:                                        ; preds = %invoke.cont.i154, %
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i148) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384)) #13
   br label %ehcleanup.i
 
 invoke.cont36.i:                                  ; preds = %invoke.cont.i154
@@ -1112,7 +1112,7 @@ invoke.cont36.i:                                  ; preds = %invoke.cont.i154
           to label %call.i.noexc114.i unwind label %lpad38.i
 
 call.i.noexc114.i:                                ; preds = %invoke.cont36.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 416), ptr noundef %call.i115.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 416), ptr noundef %call.i115.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i)
           to label %.noexc116.i unwind label %lpad38.i
 
 .noexc116.i:                                      ; preds = %call.i.noexc114.i
@@ -1142,7 +1142,7 @@ lpad.i145:                                        ; preds = %invoke.cont.i146, %
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 416)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 416)) #13
   br label %lpad38.body.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -1391,7 +1391,7 @@ lpad.i323:                                        ; preds = %invoke.cont.i324, %
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i318) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E) #13
   br label %common.resume.sink.split
 
 invoke.cont.i24:                                  ; preds = %invoke.cont.i324
@@ -1401,7 +1401,7 @@ invoke.cont.i24:                                  ; preds = %invoke.cont.i324
           to label %call.i.noexc18.i35 unwind label %lpad2.i26
 
 call.i.noexc18.i35:                               ; preds = %invoke.cont.i24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32), ptr noundef %call.i19.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32), ptr noundef %call.i19.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2)
           to label %.noexc20.i36 unwind label %lpad2.i26
 
 .noexc20.i36:                                     ; preds = %call.i.noexc18.i35
@@ -1431,7 +1431,7 @@ lpad.i313:                                        ; preds = %invoke.cont.i314, %
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i308) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32)) #13
   br label %ehcleanup51.i27
 
 invoke.cont3.i38:                                 ; preds = %invoke.cont.i314
@@ -1441,7 +1441,7 @@ invoke.cont3.i38:                                 ; preds = %invoke.cont.i314
           to label %call.i.noexc26.i44 unwind label %lpad5.i40
 
 call.i.noexc26.i44:                               ; preds = %invoke.cont3.i38
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64), ptr noundef %call.i27.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64), ptr noundef %call.i27.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i3)
           to label %.noexc28.i45 unwind label %lpad5.i40
 
 .noexc28.i45:                                     ; preds = %call.i.noexc26.i44
@@ -1451,7 +1451,7 @@ call.i.noexc26.i44:                               ; preds = %invoke.cont3.i38
 lpad.i25.i46:                                     ; preds = %.noexc28.i45
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64)) #13
   br label %ehcleanup49.i41
 
 invoke.cont6.i47:                                 ; preds = %.noexc28.i45
@@ -1460,7 +1460,7 @@ invoke.cont6.i47:                                 ; preds = %.noexc28.i45
           to label %call.i.noexc34.i53 unwind label %lpad8.i49
 
 call.i.noexc34.i53:                               ; preds = %invoke.cont6.i47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96), ptr noundef %call.i35.i48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96), ptr noundef %call.i35.i48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i4)
           to label %.noexc36.i54 unwind label %lpad8.i49
 
 .noexc36.i54:                                     ; preds = %call.i.noexc34.i53
@@ -1470,7 +1470,7 @@ call.i.noexc34.i53:                               ; preds = %invoke.cont6.i47
 lpad.i33.i55:                                     ; preds = %.noexc36.i54
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96)) #13
   br label %ehcleanup48.i50
 
 invoke.cont9.i56:                                 ; preds = %.noexc36.i54
@@ -1479,7 +1479,7 @@ invoke.cont9.i56:                                 ; preds = %.noexc36.i54
           to label %call.i.noexc42.i62 unwind label %lpad11.i58
 
 call.i.noexc42.i62:                               ; preds = %invoke.cont9.i56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128), ptr noundef %call.i43.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128), ptr noundef %call.i43.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i5)
           to label %.noexc44.i63 unwind label %lpad11.i58
 
 .noexc44.i63:                                     ; preds = %call.i.noexc42.i62
@@ -1509,7 +1509,7 @@ lpad.i303:                                        ; preds = %invoke.cont.i304, %
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i298) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128)) #13
   br label %ehcleanup47.i59
 
 invoke.cont12.i65:                                ; preds = %invoke.cont.i304
@@ -1519,7 +1519,7 @@ invoke.cont12.i65:                                ; preds = %invoke.cont.i304
           to label %call.i.noexc50.i71 unwind label %lpad14.i67
 
 call.i.noexc50.i71:                               ; preds = %invoke.cont12.i65
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160), ptr noundef %call.i51.i66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160), ptr noundef %call.i51.i66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i6)
           to label %.noexc52.i72 unwind label %lpad14.i67
 
 .noexc52.i72:                                     ; preds = %call.i.noexc50.i71
@@ -1549,7 +1549,7 @@ lpad.i293:                                        ; preds = %invoke.cont.i294, %
   %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i288) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160)) #13
   br label %ehcleanup46.i68
 
 invoke.cont15.i74:                                ; preds = %invoke.cont.i294
@@ -1559,7 +1559,7 @@ invoke.cont15.i74:                                ; preds = %invoke.cont.i294
           to label %call.i.noexc58.i80 unwind label %lpad17.i76
 
 call.i.noexc58.i80:                               ; preds = %invoke.cont15.i74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192), ptr noundef %call.i59.i75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192), ptr noundef %call.i59.i75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i7)
           to label %.noexc60.i81 unwind label %lpad17.i76
 
 .noexc60.i81:                                     ; preds = %call.i.noexc58.i80
@@ -1589,7 +1589,7 @@ lpad.i283:                                        ; preds = %invoke.cont.i284, %
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i278) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192)) #13
   br label %ehcleanup45.i77
 
 invoke.cont18.i83:                                ; preds = %invoke.cont.i284
@@ -1599,7 +1599,7 @@ invoke.cont18.i83:                                ; preds = %invoke.cont.i284
           to label %call.i.noexc66.i89 unwind label %lpad20.i85
 
 call.i.noexc66.i89:                               ; preds = %invoke.cont18.i83
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224), ptr noundef %call.i67.i84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224), ptr noundef %call.i67.i84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i8)
           to label %.noexc68.i90 unwind label %lpad20.i85
 
 .noexc68.i90:                                     ; preds = %call.i.noexc66.i89
@@ -1609,7 +1609,7 @@ call.i.noexc66.i89:                               ; preds = %invoke.cont18.i83
 lpad.i65.i91:                                     ; preds = %.noexc68.i90
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224)) #13
   br label %ehcleanup44.i86
 
 invoke.cont21.i92:                                ; preds = %.noexc68.i90
@@ -1618,7 +1618,7 @@ invoke.cont21.i92:                                ; preds = %.noexc68.i90
           to label %call.i.noexc74.i98 unwind label %lpad23.i94
 
 call.i.noexc74.i98:                               ; preds = %invoke.cont21.i92
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256), ptr noundef %call.i75.i93, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256), ptr noundef %call.i75.i93, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i9)
           to label %.noexc76.i99 unwind label %lpad23.i94
 
 .noexc76.i99:                                     ; preds = %call.i.noexc74.i98
@@ -1628,7 +1628,7 @@ call.i.noexc74.i98:                               ; preds = %invoke.cont21.i92
 lpad.i73.i100:                                    ; preds = %.noexc76.i99
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256)) #13
   br label %ehcleanup43.i95
 
 invoke.cont24.i101:                               ; preds = %.noexc76.i99
@@ -1637,7 +1637,7 @@ invoke.cont24.i101:                               ; preds = %.noexc76.i99
           to label %call.i.noexc82.i107 unwind label %lpad26.i103
 
 call.i.noexc82.i107:                              ; preds = %invoke.cont24.i101
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), ptr noundef %call.i83.i102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), ptr noundef %call.i83.i102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i10)
           to label %.noexc84.i108 unwind label %lpad26.i103
 
 .noexc84.i108:                                    ; preds = %call.i.noexc82.i107
@@ -1647,7 +1647,7 @@ call.i.noexc82.i107:                              ; preds = %invoke.cont24.i101
 lpad.i81.i109:                                    ; preds = %.noexc84.i108
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288)) #13
   br label %ehcleanup42.i104
 
 invoke.cont27.i110:                               ; preds = %.noexc84.i108
@@ -1656,7 +1656,7 @@ invoke.cont27.i110:                               ; preds = %.noexc84.i108
           to label %call.i.noexc90.i116 unwind label %lpad29.i112
 
 call.i.noexc90.i116:                              ; preds = %invoke.cont27.i110
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320), ptr noundef %call.i91.i111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28.i11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320), ptr noundef %call.i91.i111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28.i11)
           to label %.noexc92.i117 unwind label %lpad29.i112
 
 .noexc92.i117:                                    ; preds = %call.i.noexc90.i116
@@ -1686,7 +1686,7 @@ lpad.i273:                                        ; preds = %invoke.cont.i274, %
   %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i268) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320)) #13
   br label %ehcleanup41.i113
 
 invoke.cont30.i119:                               ; preds = %invoke.cont.i274
@@ -1696,7 +1696,7 @@ invoke.cont30.i119:                               ; preds = %invoke.cont.i274
           to label %call.i.noexc98.i125 unwind label %lpad32.i121
 
 call.i.noexc98.i125:                              ; preds = %invoke.cont30.i119
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352), ptr noundef %call.i99.i120, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352), ptr noundef %call.i99.i120, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i12)
           to label %.noexc100.i126 unwind label %lpad32.i121
 
 .noexc100.i126:                                   ; preds = %call.i.noexc98.i125
@@ -1726,7 +1726,7 @@ lpad.i263:                                        ; preds = %invoke.cont.i264, %
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i258) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352)) #13
   br label %ehcleanup40.i122
 
 invoke.cont33.i128:                               ; preds = %invoke.cont.i264
@@ -1736,7 +1736,7 @@ invoke.cont33.i128:                               ; preds = %invoke.cont.i264
           to label %call.i.noexc106.i134 unwind label %lpad35.i130
 
 call.i.noexc106.i134:                             ; preds = %invoke.cont33.i128
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384), ptr noundef %call.i107.i129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384), ptr noundef %call.i107.i129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i13)
           to label %.noexc108.i135 unwind label %lpad35.i130
 
 .noexc108.i135:                                   ; preds = %call.i.noexc106.i134
@@ -1766,7 +1766,7 @@ lpad.i253:                                        ; preds = %invoke.cont.i254, %
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i248) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384)) #13
   br label %ehcleanup.i131
 
 invoke.cont36.i137:                               ; preds = %invoke.cont.i254
@@ -1776,7 +1776,7 @@ invoke.cont36.i137:                               ; preds = %invoke.cont.i254
           to label %call.i.noexc114.i142 unwind label %lpad38.i139
 
 call.i.noexc114.i142:                             ; preds = %invoke.cont36.i137
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 416), ptr noundef %call.i115.i138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 416), ptr noundef %call.i115.i138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i14)
           to label %.noexc116.i143 unwind label %lpad38.i139
 
 .noexc116.i143:                                   ; preds = %call.i.noexc114.i142
@@ -1806,7 +1806,7 @@ lpad.i243:                                        ; preds = %invoke.cont.i244, %
   %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i238) #13
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 416)) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 416)) #13
   br label %lpad38.body.i140
 
 lpad.i16:                                         ; preds = %call.i.noexc.i21, %__cxx_global_var_init.exit

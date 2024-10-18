@@ -176,7 +176,7 @@ if.end7.us62:                                     ; preds = %if.then6.us61, %whi
   store i64 %8, ptr %abs_timeout.i, align 8
   %9 = extractvalue { i64, i64 } %call4.i.us47.us, 1
   store i64 %9, ptr %1, align 8
-  %call6.i.us48.us = call i32 @sem_timedwait(ptr noundef nonnull %this, ptr noundef nonnull %abs_timeout.i)
+  %call6.i.us48.us = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %abs_timeout.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_clock_timeout.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_timeout.i)
@@ -207,7 +207,7 @@ while.body9.backedge.us42.us:                     ; preds = %if.end27.us.us
   store i64 %14, ptr %abs_timeout.i, align 8
   %15 = extractvalue { i64, i64 } %call4.i.us.us, 1
   store i64 %15, ptr %1, align 8
-  %call6.i.us.us = call i32 @sem_timedwait(ptr noundef nonnull %this, ptr noundef nonnull %abs_timeout.i)
+  %call6.i.us.us = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %abs_timeout.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_clock_timeout.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_timeout.i)
@@ -255,7 +255,7 @@ if.end7:                                          ; preds = %if.then6, %while.en
   store i64 %20, ptr %abs_clock_timeout.i, align 8
   %21 = extractvalue { i64, i64 } %call2.i44, 1
   store i64 %21, ptr %0, align 8
-  %call3.i45 = call i32 @sem_clockwait(ptr noundef nonnull %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout.i)
+  %call3.i45 = call i32 @sem_clockwait(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_clock_timeout.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_timeout.i)
@@ -276,7 +276,7 @@ while.body9.backedge:                             ; preds = %if.end27
   store i64 %22, ptr %abs_clock_timeout.i, align 8
   %23 = extractvalue { i64, i64 } %call2.i, 1
   store i64 %23, ptr %0, align 8
-  %call3.i = call i32 @sem_clockwait(ptr noundef nonnull %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout.i)
+  %call3.i = call i32 @sem_clockwait(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_clock_timeout.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %abs_timeout.i)
@@ -320,7 +320,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i32 @sem_post(ptr noundef nonnull %this) #5
+  %call.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(36) %this) #5
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end, label %do.body.i
 

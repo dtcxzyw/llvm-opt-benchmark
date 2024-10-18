@@ -2970,32 +2970,32 @@ define i32 @proj_context_get_use_proj4_init_rules(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.6) #37
+  %9 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.6) #37
   %.not22 = icmp eq i32 %9, 0
   br i1 %.not22, label %25, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.7) #37
+  %11 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.7) #37
   %.not23 = icmp eq i32 %11, 0
   br i1 %.not23, label %25, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.8) #37
+  %13 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.8) #37
   %.not24 = icmp eq i32 %13, 0
   br i1 %.not24, label %25, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.9) #37
+  %15 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.9) #37
   %.not25 = icmp eq i32 %15, 0
   br i1 %.not25, label %25, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.10) #37
+  %17 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.10) #37
   %.not26 = icmp eq i32 %17, 0
   br i1 %.not26, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.11) #37
+  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.11) #37
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %25, label %20
 

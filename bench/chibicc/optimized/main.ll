@@ -1490,7 +1490,7 @@ if.end2.i:                                        ; preds = %endswith.exit.tail.
 
 endswith.exit21.i:                                ; preds = %if.end2.i
   %add.ptr5.i18.i = getelementptr inbounds i8, ptr %add.ptr.i.i100, i64 -3
-  %call6.i19.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr5.i18.i, ptr noundef nonnull readonly dereferenceable(4) @.str.81) #20
+  %call6.i19.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr5.i18.i, ptr noundef nonnull dereferenceable(4) @.str.81) #20
   %tobool.not.i20.i = icmp eq i32 %call6.i19.i, 0
   br i1 %tobool.not.i20.i, label %if.then43, label %endswith.exit37.i
 
@@ -1744,14 +1744,14 @@ if.then72:                                        ; preds = %for.end
   call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.91) #19
   call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.92) #19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i.i)
-  %call.i.i.i206 = call i32 @stat(ptr noundef nonnull readonly @.str.118, ptr noundef nonnull %st.i.i.i) #19
+  %call.i.i.i206 = call i32 @stat(ptr noundef nonnull @.str.118, ptr noundef nonnull %st.i.i.i) #19
   %tobool.not.i.i.i207 = icmp eq i32 %call.i.i.i206, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i.i)
   br i1 %tobool.not.i.i.i207, label %find_libpath.exit.i, label %if.end.i.i208
 
 if.end.i.i208:                                    ; preds = %if.then72
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i1.i.i)
-  %call.i2.i.i = call i32 @stat(ptr noundef nonnull readonly @.str.120, ptr noundef nonnull %st.i1.i.i) #19
+  %call.i2.i.i = call i32 @stat(ptr noundef nonnull @.str.120, ptr noundef nonnull %st.i1.i.i) #19
   %tobool.not.i3.i.i = icmp eq i32 %call.i2.i.i, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i1.i.i)
   br i1 %tobool.not.i3.i.i, label %find_libpath.exit.i, label %if.end3.i.i

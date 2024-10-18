@@ -438,7 +438,7 @@ entry:
   %delayed_task_scheduler_ = getelementptr inbounds i8, ptr %this, i64 224
   %threads_ = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %delayed_task_scheduler_, i8 0, i64 32, i1 false)
-  %call.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %platform_workers_mutex) #24
+  %call.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %platform_workers_mutex) #24
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -448,7 +448,7 @@ do.body5.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
-  %call.i.i4 = call noundef i32 @uv_cond_init(ptr noundef nonnull %platform_workers_ready) #24
+  %call.i.i4 = call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %platform_workers_ready) #24
   %cmp.not.i5 = icmp eq i32 %call.i.i4, 0
   br i1 %cmp.not.i5, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i6
 
@@ -458,7 +458,7 @@ do.body5.i6:                                      ; preds = %_ZN4node9MutexBaseI
   unreachable
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
-  call void @uv_mutex_lock(ptr noundef nonnull %platform_workers_mutex) #24
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %platform_workers_mutex) #24
   store i32 %thread_pool_size, ptr %pending_platform_workers, align 4
   %call.i = call noalias noundef nonnull dereferenceable(1296) ptr @_Znwm(i64 noundef 1296) #26, !noalias !5
   %pending_worker_tasks_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -483,13 +483,13 @@ _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit
-  call void @_ZNKSt14default_deleteIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %delayed_task_scheduler_, ptr noundef nonnull %0)
+  call void @_ZNKSt14default_deleteIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %delayed_task_scheduler_, ptr noundef nonnull %0)
   %.pr = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i7 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i7, label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EEaSEOS5_.exit
-  call void @_ZNKSt14default_deleteIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %.pr)
+  call void @_ZNKSt14default_deleteIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %.pr)
   br label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EEaSEOS5_.exit, %if.then.i
@@ -497,8 +497,8 @@ _ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14defa
   %1 = load ptr, ptr %delayed_task_scheduler_, align 8
   %call.i8 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26, !noalias !8
   store i64 0, ptr %call.i8, align 8, !noalias !8
-  %call2.i = call i32 @uv_sem_init(ptr noundef nonnull %1, i32 noundef 0) #24, !noalias !8
-  %call5.i = call i32 @uv_thread_create(ptr noundef nonnull %call.i8, ptr noundef nonnull @_ZZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler5StartEvENUlPvE_8__invokeES2_, ptr noundef nonnull %1) #24, !noalias !8
+  %call2.i = call i32 @uv_sem_init(ptr noundef nonnull align 8 dereferenceable(1296) %1, i32 noundef 0) #24, !noalias !8
+  %call5.i = call i32 @uv_thread_create(ptr noundef nonnull %call.i8, ptr noundef nonnull @_ZZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler5StartEvENUlPvE_8__invokeES2_, ptr noundef nonnull align 8 dereferenceable(1296) %1) #24, !noalias !8
   %cmp.not.i9 = icmp eq i32 %call5.i, 0
   br i1 %cmp.not.i9, label %_ZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler5StartEv.exit, label %do.body8.i
 
@@ -508,8 +508,8 @@ do.body8.i:                                       ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 _ZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler5StartEv.exit: ; preds = %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit
-  call void @uv_sem_wait(ptr noundef nonnull %1) #24, !noalias !8
-  call void @uv_sem_destroy(ptr noundef nonnull %1) #24, !noalias !8
+  call void @uv_sem_wait(ptr noundef nonnull align 8 dereferenceable(1296) %1) #24, !noalias !8
+  call void @uv_sem_destroy(ptr noundef nonnull align 8 dereferenceable(1296) %1) #24, !noalias !8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -706,22 +706,22 @@ for.end:                                          ; preds = %for.inc, %_ZNSt10un
   br i1 %cmp1983, label %while.body, label %while.end
 
 while.body:                                       ; preds = %for.end, %while.body
-  call void @uv_cond_wait(ptr noundef nonnull %platform_workers_ready, ptr noundef nonnull %platform_workers_mutex) #24
+  call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %platform_workers_ready, ptr noundef nonnull %platform_workers_mutex) #24
   %19 = load i32, ptr %pending_platform_workers, align 4
   %cmp19 = icmp sgt i32 %19, 0
   br i1 %cmp19, label %while.body, label %while.end, !llvm.loop !24
 
 while.end:                                        ; preds = %while.body, %for.end
   call void @uv_mutex_unlock(ptr noundef nonnull %platform_workers_mutex) #24
-  call void @uv_cond_destroy(ptr noundef nonnull %platform_workers_ready) #24
-  call void @uv_mutex_destroy(ptr noundef nonnull %platform_workers_mutex) #24
+  call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %platform_workers_ready) #24
+  call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %platform_workers_mutex) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9TaskQueueIN2v84TaskEEC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %this) #24
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -732,7 +732,7 @@ do.body5.i:                                       ; preds = %entry
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   %tasks_available_ = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i.i1 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %tasks_available_) #24
+  %call.i.i1 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_) #24
   %cmp.not.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %cmp.not.i2, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i3
 
@@ -743,7 +743,7 @@ do.body5.i3:                                      ; preds = %_ZN4node9MutexBaseI
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   %tasks_drained_ = getelementptr inbounds i8, ptr %this, i64 88
-  %call.i.i4 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %tasks_drained_) #24
+  %call.i.i4 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_) #24
   %cmp.not.i5 = icmp eq i32 %call.i.i4, 0
   br i1 %cmp.not.i5, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit7, label %do.body5.i6
 
@@ -879,7 +879,7 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
 do.end:                                           ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit, %if.end
   %platform_workers_mutex = getelementptr inbounds i8, ptr %data, i64 8
   %10 = load ptr, ptr %platform_workers_mutex, align 8
-  call void @uv_mutex_lock(ptr noundef nonnull %10) #24
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #24
   %pending_platform_workers = getelementptr inbounds i8, ptr %data, i64 24
   %11 = load ptr, ptr %pending_platform_workers, align 8
   %12 = load i32, ptr %11, align 4
@@ -887,7 +887,7 @@ do.end:                                           ; preds = %_ZNSt10unique_ptrIN
   store i32 %dec, ptr %11, align 4
   %platform_workers_ready = getelementptr inbounds i8, ptr %data, i64 16
   %13 = load ptr, ptr %platform_workers_ready, align 8
-  call void @uv_cond_signal(ptr noundef nonnull %13) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %13) #24
   call void @uv_mutex_unlock(ptr noundef %10) #24
   call void @_ZN4node9TaskQueueIN2v84TaskEE11BlockingPopEv(ptr nonnull sret(%"class.std::unique_ptr.22") align 8 %task, ptr noundef nonnull align 8 dereferenceable(224) %0)
   %14 = load ptr, ptr %task, align 8
@@ -905,7 +905,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #24
-  call void @uv_mutex_lock(ptr noundef nonnull %0) #24
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %0) #24
   %17 = load i32, ptr %outstanding_tasks_.i, align 8
   %dec.i = add nsw i32 %17, -1
   store i32 %dec.i, ptr %outstanding_tasks_.i, align 8
@@ -913,11 +913,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i22, label %if.then.i, label %cleanup
 
 if.then.i:                                        ; preds = %while.body
-  call void @uv_cond_broadcast(ptr noundef nonnull %tasks_drained_.i) #24
+  call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_.i) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i, %while.body
-  call void @uv_mutex_unlock(ptr noundef nonnull %0) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %0) #24
   %.pr = load ptr, ptr %task, align 8
   %cmp.not.i24 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i24, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
@@ -949,7 +949,7 @@ entry:
   %0 = load i64, ptr %task, align 8
   store i64 %0, ptr %agg.tmp, align 8
   store ptr null, ptr %task, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i32, ptr %outstanding_tasks_.i, align 8
   %inc.i = add nsw i32 %1, 1
@@ -977,8 +977,8 @@ if.else.i.i.i.i:                                  ; preds = %entry
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 40
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %this) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   %5 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
@@ -1035,7 +1035,7 @@ entry:
   %delay_in_seconds_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store double %delay_in_seconds, ptr %delay_in_seconds_.i.i, align 8, !noalias !25
   store ptr %call.i, ptr %agg.tmp, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %tasks_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i32, ptr %outstanding_tasks_.i, align 8
   %inc.i = add nsw i32 %1, 1
@@ -1064,8 +1064,8 @@ if.else.i.i.i.i:                                  ; preds = %entry
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 80
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %tasks_) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24
   %6 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
@@ -1087,7 +1087,7 @@ _ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12Schedul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node23WorkerThreadsTaskRunner13BlockingDrainEv(ptr noundef nonnull align 8 dereferenceable(256) %this) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i32, ptr %outstanding_tasks_.i, align 8
   %cmp2.i = icmp sgt i32 %0, 0
@@ -1098,25 +1098,25 @@ while.body.lr.ph.i:                               ; preds = %entry
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  tail call void @uv_cond_wait(ptr noundef nonnull %tasks_drained_.i, ptr noundef nonnull %this) #24
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_.i, ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   %1 = load i32, ptr %outstanding_tasks_.i, align 8
   %cmp.i = icmp sgt i32 %1, 0
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9TaskQueueIN2v84TaskEE13BlockingDrainEv.exit, !llvm.loop !28
 
 _ZN4node9TaskQueueIN2v84TaskEE13BlockingDrainEv.exit: ; preds = %while.body.i, %entry
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %this) #24
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node23WorkerThreadsTaskRunner8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(256) %this) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   %stopped_.i = getelementptr inbounds i8, ptr %this, i64 140
   store i8 1, ptr %stopped_.i, align 4
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @uv_cond_broadcast(ptr noundef nonnull %tasks_available_.i) #24
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %this) #24
+  tail call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   %delayed_task_scheduler_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %delayed_task_scheduler_, align 8
   tail call void @_ZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler4StopEv(ptr noundef nonnull align 8 dereferenceable(1296) %0)
@@ -1166,7 +1166,7 @@ entry:
   %scheduler_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %scheduler_.i.i, align 8, !noalias !30
   store ptr %call.i, ptr %agg.tmp, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %tasks_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %outstanding_tasks_.i, align 8
   %inc.i = add nsw i32 %0, 1
@@ -1195,8 +1195,8 @@ if.else.i.i.i.i:                                  ; preds = %entry
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 80
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %tasks_) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24
   %5 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
@@ -1284,7 +1284,7 @@ do.end8:                                          ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9TaskQueueINS_11DelayedTaskEEC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %this) #24
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -1295,7 +1295,7 @@ do.body5.i:                                       ; preds = %entry
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   %tasks_available_ = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i.i1 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %tasks_available_) #24
+  %call.i.i1 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_) #24
   %cmp.not.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %cmp.not.i2, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i3
 
@@ -1306,7 +1306,7 @@ do.body5.i3:                                      ; preds = %_ZN4node9MutexBaseI
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   %tasks_drained_ = getelementptr inbounds i8, ptr %this, i64 88
-  %call.i.i4 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %tasks_drained_) #24
+  %call.i.i4 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_) #24
   %cmp.not.i5 = icmp eq i32 %call.i.i4, 0
   br i1 %cmp.not.i5, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit7, label %do.body5.i6
 
@@ -1411,7 +1411,7 @@ entry:
   %tasks = alloca %"class.std::queue", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %foreground_delayed_tasks_ = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !37
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !37
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
@@ -1429,19 +1429,19 @@ _ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph: ; preds = %entry
   %2 = load i64, ptr %1, align 8, !noalias !37
   store ptr null, ptr %1, align 8, !noalias !37
   tail call void @_ZNSt5dequeISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i) #24, !noalias !37
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !37
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !37
   %cmp.i.not52.not = icmp eq i64 %2, 0
   br i1 %cmp.i.not52.not, label %while.end, label %while.body
 
 _ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread: ; preds = %_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit, %entry
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !37
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !37
   br label %while.end
 
 _ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit: ; preds = %_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit
   %3 = load i64, ptr %19, align 8, !noalias !37
   store ptr null, ptr %19, align 8, !noalias !37
   tail call void @_ZNSt5dequeISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i) #24, !noalias !37
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !37
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !37
   %cmp.i.not = icmp eq i64 %3, 0
   br i1 %cmp.i.not, label %while.end, label %while.body
 
@@ -1546,7 +1546,7 @@ if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i"
-  tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !37
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !37
   %18 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
   %19 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !37
   %cmp.i.i.i.i = icmp eq ptr %18, %19
@@ -1556,7 +1556,7 @@ while.end:                                        ; preds = %_ZN4node9TaskQueueI
   %did_work.040 = phi i1 [ %cmp.i.i.i.i41, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread ], [ false, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph ], [ true, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit ]
   %foreground_tasks_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_tasks_) #24, !noalias !46
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24, !noalias !46
   %_M_map_size.i.i.i.i.i = getelementptr inbounds i8, ptr %tasks, i64 8
   store i64 8, ptr %_M_map_size.i.i.i.i.i, align 8, !alias.scope !46
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26, !noalias !46
@@ -1567,9 +1567,9 @@ while.end:                                        ; preds = %_ZN4node9TaskQueueI
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 512
   %task_queue_.i4 = getelementptr inbounds i8, ptr %this, i64 248
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tasks, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %tasks, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tasks, ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i4, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %task_queue_.i4, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i4, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !46
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !46
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -1587,7 +1587,7 @@ while.end:                                        ; preds = %_ZN4node9TaskQueueI
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
   store ptr %__cur.04.i.i.ptr.i.i.i.i, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %foreground_tasks_) #24, !noalias !46
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24, !noalias !46
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tasks, i64 48
   %_M_start.i.i = getelementptr inbounds i8, ptr %tasks, i64 16
   %20 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1685,7 +1685,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %task, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %task, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_tasks_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i32, ptr %outstanding_tasks_.i, align 8
   %inc.i = add nsw i32 %2, 1
@@ -1713,8 +1713,8 @@ if.else.i.i.i.i:                                  ; preds = %if.end
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %foreground_tasks_) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24
   %6 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
@@ -1873,7 +1873,7 @@ _ZNSt10shared_ptrIN4node22PerIsolatePlatformDataEED2Ev.exit: ; preds = %if.end8.
   %foreground_delayed_tasks_ = getelementptr inbounds i8, ptr %this, i64 328
   %20 = ptrtoint ptr %call to i64
   store i64 %20, ptr %agg.tmp, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_delayed_tasks_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %this, i64 464
   %21 = load i32, ptr %outstanding_tasks_.i, align 8
   %inc.i = add nsw i32 %21, 1
@@ -1901,8 +1901,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt10shared_ptrIN
 
 _ZN4node9TaskQueueINS_11DelayedTaskEE4PushESt10unique_ptrIS1_St14default_deleteIS1_EE.exit: ; preds = %if.then.i.i.i.i9, %if.else.i.i.i.i
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 368
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %foreground_delayed_tasks_) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24
   %25 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %25, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit65, label %delete.notnull.i.i
@@ -2187,10 +2187,10 @@ _ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EED2Ev.exit: ; pr
   %task_queue_.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i) #24
   %tasks_drained_.i = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @uv_cond_destroy(ptr noundef nonnull %tasks_drained_.i) #24
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_.i) #24
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 144
-  tail call void @uv_cond_destroy(ptr noundef nonnull %tasks_available_.i) #24
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %foreground_tasks_) #24
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
@@ -2383,10 +2383,10 @@ _ZNSt11_Deque_baseISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESa
 
 _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
   %tasks_drained_ = getelementptr inbounds i8, ptr %this, i64 88
-  call void @uv_cond_destroy(ptr noundef nonnull %tasks_drained_) #24
+  call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_) #24
   %tasks_available_ = getelementptr inbounds i8, ptr %this, i64 40
-  call void @uv_cond_destroy(ptr noundef nonnull %tasks_available_) #24
-  call void @uv_mutex_destroy(ptr noundef nonnull %this) #24
+  call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_) #24
+  call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
   ret void
 }
 
@@ -2414,7 +2414,7 @@ define dso_local void @_ZThn8_N4node22PerIsolatePlatformDataD0Ev(ptr noundef %th
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(576) %0) #27
   ret void
 }
 
@@ -2516,7 +2516,7 @@ entry:
 if.end:                                           ; preds = %entry
   %foreground_delayed_tasks_ = getelementptr inbounds i8, ptr %this, i64 328
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !61
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !61
   %_M_map_size.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 8
   store i64 8, ptr %_M_map_size.i.i.i.i.i, align 8, !alias.scope !61
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26, !noalias !61
@@ -2527,9 +2527,9 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 512
   %task_queue_.i = getelementptr inbounds i8, ptr %this, i64 472
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %task_queue_.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !61
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !61
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
@@ -2547,7 +2547,7 @@ if.end:                                           ; preds = %entry
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   store ptr %__cur.04.i.i.ptr.i.i.i.i, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i, align 8, !noalias !61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !61
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #24, !noalias !61
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 16
   %1 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !64
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 24
@@ -2614,7 +2614,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESa
 _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %if.end, %_ZNSt11_Deque_baseISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i.i.i
   %foreground_tasks_ = getelementptr inbounds i8, ptr %this, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  call void @uv_mutex_lock(ptr noundef nonnull %foreground_tasks_) #24, !noalias !70
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24, !noalias !70
   %_M_map_size.i.i.i.i.i2 = getelementptr inbounds i8, ptr %agg.tmp.ensured2, i64 8
   store i64 8, ptr %_M_map_size.i.i.i.i.i2, align 8, !alias.scope !70
   %call5.i.i.i.i.i.i.i.i3 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26, !noalias !70
@@ -2625,9 +2625,9 @@ _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeI
   %add.ptr.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i5, i64 512
   %task_queue_.i7 = getelementptr inbounds i8, ptr %this, i64 248
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured2, ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i7, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %task_queue_.i7, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i1, i64 16, i1 false), !noalias !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i7, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i1, i64 16, i1 false), !noalias !70
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr %call5.i.i.i.i.i.i.i.i.i5, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i8, align 8, !noalias !70
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 272
@@ -2645,7 +2645,7 @@ _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeI
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 320
   store ptr %__cur.04.i.i.ptr.i.i.i.i4, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i15, align 8, !noalias !70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i1)
-  call void @uv_mutex_unlock(ptr noundef nonnull %foreground_tasks_) #24, !noalias !70
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #24, !noalias !70
   call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.ensured2) #24
   %scheduled_delayed_tasks_ = getelementptr inbounds i8, ptr %this, i64 552
   %14 = load ptr, ptr %scheduled_delayed_tasks_, align 8
@@ -2840,7 +2840,7 @@ define dso_local void @_ZN4node12NodePlatformC2EiPN2v817TracingControllerEPNS1_1
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12NodePlatformE, i64 16), ptr %this, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %per_isolate_mutex_) #24
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -3060,7 +3060,7 @@ _ZNSt10shared_ptrIN4node23WorkerThreadsTaskRunnerEED2Ev.exit: ; preds = %entry, 
   %per_isolate_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt10_HashtableIPN2v87IsolateESt4pairIKS2_S3_IPN4node23IsolatePlatformDelegateESt10shared_ptrINS5_22PerIsolatePlatformDataEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %per_isolate_) #24
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   ret void
 }
 
@@ -3078,7 +3078,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %worker_thread_task_runner_, align 8
   tail call void @_ZN4node23WorkerThreadsTaskRunner8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(256) %1)
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %per_isolate_ = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_M_before_begin.i.i.i, align 8
@@ -3195,7 +3195,7 @@ entry:
   %ref.tmp = alloca %"struct.std::pair.90", align 8
   store ptr %isolate, ptr %isolate.addr, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #26, !noalias !83
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !88
@@ -3372,7 +3372,7 @@ entry:
   %ref.tmp = alloca %"struct.std::pair.90", align 8
   store ptr %isolate, ptr %isolate.addr, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %per_isolate_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %delegate, ptr %ref.tmp, align 8, !alias.scope !92
   %second.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3470,7 +3470,7 @@ do.end7:                                          ; preds = %_ZNSt10shared_ptrIN
 define dso_local void @_ZN4node12NodePlatform17UnregisterIsolateEPN2v87IsolateE(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %isolate) unnamed_addr #3 align 2 {
 entry:
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %per_isolate_ = getelementptr inbounds i8, ptr %this, i64 48
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
@@ -3577,7 +3577,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN4node12NodePlatform26AddIsolateFinishedCallbackEPN2v87IsolateEPFvPvES4_(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %isolate, ptr noundef %cb, ptr noundef %data) unnamed_addr #3 align 2 {
 entry:
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
@@ -4078,7 +4078,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %_ZN4node23WorkerThreadsTaskRunner13BlockingDrainEv.exit
   %1 = load ptr, ptr %worker_thread_task_runner_, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %1) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(256) %1) #24
   %outstanding_tasks_.i.i = getelementptr inbounds i8, ptr %1, i64 136
   %2 = load i32, ptr %outstanding_tasks_.i.i, align 8
   %cmp2.i.i = icmp sgt i32 %2, 0
@@ -4089,13 +4089,13 @@ while.body.lr.ph.i.i:                             ; preds = %do.body
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  tail call void @uv_cond_wait(ptr noundef nonnull %tasks_drained_.i.i, ptr noundef nonnull %1) #24
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_.i.i, ptr noundef nonnull align 8 dereferenceable(256) %1) #24
   %3 = load i32, ptr %outstanding_tasks_.i.i, align 8
   %cmp.i.i = icmp sgt i32 %3, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4node23WorkerThreadsTaskRunner13BlockingDrainEv.exit, !llvm.loop !28
 
 _ZN4node23WorkerThreadsTaskRunner13BlockingDrainEv.exit: ; preds = %while.body.i.i, %do.body
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %1) #24
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(256) %1) #24
   %call4 = tail call noundef zeroext i1 @_ZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   br i1 %call4, label %do.body, label %cleanup, !llvm.loop !100
 
@@ -4183,9 +4183,9 @@ entry:
   %isolate.addr = alloca ptr, align 8
   store ptr %isolate, ptr %isolate.addr, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %per_isolate_ = getelementptr inbounds i8, ptr %this, i64 48
-  %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIPN2v87IsolateESt4pairIKS3_S4_IPN4node23IsolatePlatformDelegateESt10shared_ptrINS6_22PerIsolatePlatformDataEEEESaISD_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %per_isolate_, ptr noundef nonnull align 8 dereferenceable(8) %isolate.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIPN2v87IsolateESt4pairIKS3_S4_IPN4node23IsolatePlatformDelegateESt10shared_ptrINS6_22PerIsolatePlatformDataEEEESaISD_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %per_isolate_, ptr noundef nonnull align 8 dereferenceable(8) %isolate.addr)
   %0 = load ptr, ptr %call.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %second3.i, align 8
@@ -4336,7 +4336,7 @@ entry:
   store ptr null, ptr %task, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 %1, ptr %agg.tmp.i, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %0) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(256) %0) #24
   %outstanding_tasks_.i.i = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i32, ptr %outstanding_tasks_.i.i, align 8
   %inc.i.i = add nsw i32 %2, 1
@@ -4364,8 +4364,8 @@ if.else.i.i.i.i.i:                                ; preds = %entry
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %tasks_available_.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %0) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(256) %0) #24
   %6 = load ptr, ptr %agg.tmp.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i
@@ -4417,9 +4417,9 @@ entry:
   %isolate.addr = alloca ptr, align 8
   store ptr %isolate, ptr %isolate.addr, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %per_isolate_mutex_) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_) #24
   %per_isolate_ = getelementptr inbounds i8, ptr %this, i64 48
-  %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIPN2v87IsolateESt4pairIKS3_S4_IPN4node23IsolatePlatformDelegateESt10shared_ptrINS6_22PerIsolatePlatformDataEEEESaISD_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %per_isolate_, ptr noundef nonnull align 8 dereferenceable(8) %isolate.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIPN2v87IsolateESt4pairIKS3_S4_IPN4node23IsolatePlatformDelegateESt10shared_ptrINS6_22PerIsolatePlatformDataEEEESaISD_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %per_isolate_, ptr noundef nonnull align 8 dereferenceable(8) %isolate.addr)
   %0 = load ptr, ptr %call.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
@@ -4999,10 +4999,10 @@ _ZN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerD2Ev.exit: ; preds = %_ZN
   %task_queue_.i.i = getelementptr inbounds i8, ptr %__ptr, i64 184
   tail call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i.i) #24
   %tasks_drained_.i.i = getelementptr inbounds i8, ptr %__ptr, i64 128
-  tail call void @uv_cond_destroy(ptr noundef nonnull %tasks_drained_.i.i) #24
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_.i.i) #24
   %tasks_available_.i.i = getelementptr inbounds i8, ptr %__ptr, i64 80
-  tail call void @uv_cond_destroy(ptr noundef nonnull %tasks_available_.i.i) #24
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %tasks_.i) #24
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i.i) #24
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(224) %tasks_.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %__ptr) #27
   br label %delete.end
 
@@ -5149,7 +5149,7 @@ entry:
   %sub.i.i = add i64 %1, -264
   %2 = inttoptr i64 %sub.i.i to ptr
   %tasks_ = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %tasks_) #24, !noalias !108
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24, !noalias !108
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %2, i64 232
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %2, i64 200
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
@@ -5164,7 +5164,7 @@ if.end.i.lr.ph:                                   ; preds = %entry
   br label %if.end.i
 
 _ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread: ; preds = %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, %entry
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %tasks_) #24, !noalias !108
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24, !noalias !108
   br label %while.end
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
@@ -5222,7 +5222,7 @@ _ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_fr
 _ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit:        ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i ], [ %16, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_start.i.i.i, align 8, !noalias !108
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %tasks_) #24, !noalias !108
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24, !noalias !108
   %cmp.i.not = icmp eq i64 %6, 0
   br i1 %cmp.i.not, label %while.end, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
 
@@ -5235,7 +5235,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4no
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %tasks_) #24, !noalias !108
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #24, !noalias !108
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
   %20 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
   %cmp.i.i.i.i = icmp eq ptr %19, %20
@@ -5260,7 +5260,7 @@ declare void @_ZN4node7tracing17TracingController16AddMetadataEventEPKhPKciPS5_S
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9TaskQueueIN2v84TaskEE11BlockingPopEv(ptr noalias sret(%"class.std::unique_ptr.22") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #24
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5281,7 +5281,7 @@ land.rhs:                                         ; preds = %while.body
   br i1 %tobool, label %while.end, label %while.body, !llvm.loop !111
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
-  tail call void @uv_cond_wait(ptr noundef nonnull %tasks_available_, ptr noundef nonnull %this) #24
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_, ptr noundef nonnull %this) #24
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %5
@@ -5478,7 +5478,7 @@ entry:
   %timers_.i = getelementptr inbounds i8, ptr %2, i64 1240
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableIP10uv_timer_sS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %timers_.i, ptr noundef nonnull align 8 dereferenceable(8) %timer.addr.i), !noalias !112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timer.addr.i)
-  call void @uv_mutex_lock(ptr noundef nonnull %3) #24
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %3) #24
   %outstanding_tasks_.i = getelementptr inbounds i8, ptr %3, i64 136
   %5 = load i32, ptr %outstanding_tasks_.i, align 8
   %inc.i = add nsw i32 %5, 1
@@ -5507,8 +5507,8 @@ if.else.i.i.i.i:                                  ; preds = %entry
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %tasks_available_.i = getelementptr inbounds i8, ptr %3, i64 40
-  call void @uv_cond_signal(ptr noundef nonnull %tasks_available_.i) #24
-  call void @uv_mutex_unlock(ptr noundef nonnull %3) #24
+  call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %3) #24
   %10 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
@@ -7378,7 +7378,7 @@ _ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EED2Ev.exit: ; preds = 
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EED2Ev.exit
-  tail call void @_ZNKSt14default_deleteIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %delayed_task_scheduler_, ptr noundef nonnull %4)
+  tail call void @_ZNKSt14default_deleteIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %delayed_task_scheduler_, ptr noundef nonnull %4)
   br label %_ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EED2Ev.exit, %if.then.i
@@ -7386,10 +7386,10 @@ _ZNSt10unique_ptrIN4node23WorkerThreadsTaskRunner20DelayedTaskSchedulerESt14defa
   %task_queue_.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i) #24
   %tasks_drained_.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @uv_cond_destroy(ptr noundef nonnull %tasks_drained_.i) #24
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_drained_.i) #24
   %tasks_available_.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @uv_cond_destroy(ptr noundef nonnull %tasks_available_.i) #24
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %this) #24
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #24
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   ret void
 }
 

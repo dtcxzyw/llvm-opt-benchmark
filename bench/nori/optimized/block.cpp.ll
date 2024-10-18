@@ -144,7 +144,7 @@ define hidden void @_ZN4nori10ImageBlockC2ERKNS_7TVectorIiLi2EEEPKNS_20Reconstru
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
-  %13 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %12, ptr noundef null) #19
+  %13 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef null) #19
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN3tbb5mutexC2Ev.exit, label %14
 
@@ -209,7 +209,7 @@ _ZN3tbb5mutexC2Ev.exit:                           ; preds = %3, %14
 
 38:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %39 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %12) #19
+  %39 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   br label %75
 
 40:                                               ; preds = %33
@@ -324,7 +324,7 @@ define hidden void @_ZN4nori10ImageBlockD2Ev(ptr noundef nonnull align 8 derefer
 
 16:                                               ; preds = %15, %11
   %17 = getelementptr inbounds i8, ptr %0, i64 88
-  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %17) #19
+  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %17) #19
   %19 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %19) #19
   ret void
@@ -919,7 +919,7 @@ define hidden void @_ZN4nori10ImageBlock3putERS0_(ptr noundef nonnull align 8 de
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, %21
   %27 = getelementptr inbounds i8, ptr %0, i64 88
-  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #19
+  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %27) #19
   %.not.i.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i.i, label %30, label %29
 
@@ -972,7 +972,7 @@ define hidden void @_ZN4nori10ImageBlock3putERS0_(ptr noundef nonnull align 8 de
   br i1 %exitcond31.not, label %_ZN3tbb5mutex11scoped_lockD2Ev.exit, label %.preheader.i.i.i.i.i.i, !llvm.loop !48
 
 _ZN3tbb5mutex11scoped_lockD2Ev.exit:              ; preds = %._crit_edge.i.i.i.i.i.i, %30
-  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #19
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %27) #19
   ret void
 }
 
@@ -1195,7 +1195,7 @@ define hidden void @_ZN4nori14BlockGeneratorC2ERKNS_7TVectorIiLi2EEEi(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #19
+  %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef null) #19
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %10, label %9
 
@@ -1240,7 +1240,7 @@ define hidden void @_ZN4nori14BlockGeneratorC2ERKNS_7TVectorIiLi2EEEi(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4nori14BlockGenerator4nextERNS_10ImageBlockE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZN3tbb5mutex11scoped_lockC2ERS0_.exit, label %5
 
@@ -1372,7 +1372,7 @@ _ZN3tbb5mutex11scoped_lockD2Ev.exit7.loopexit:    ; preds = %63
   br label %_ZN3tbb5mutex11scoped_lockD2Ev.exit7
 
 _ZN3tbb5mutex11scoped_lockD2Ev.exit7:             ; preds = %_ZN3tbb5mutex11scoped_lockD2Ev.exit7.loopexit, %9, %_ZN3tbb5mutex11scoped_lockC2ERS0_.exit
-  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret i1 %8
 }
 
@@ -2437,7 +2437,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11 unwind label %62
 
 .noexc11:                                         ; preds = %.noexc
@@ -2447,7 +2447,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 24:                                               ; preds = %.noexc11
   %25 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc11

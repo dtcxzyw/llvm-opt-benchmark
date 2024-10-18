@@ -52,7 +52,7 @@ define hidden void @_ZN7nanogui8CheckBoxC2EPNS_6WidgetERKNSt7__cxx1112basic_stri
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvbEEC2ERKS1_.exit, label %14
 
 14:                                               ; preds = %6
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -71,7 +71,7 @@ define hidden void @_ZN7nanogui8CheckBoxC2EPNS_6WidgetERKNSt7__cxx1112basic_stri
   br i1 %.not.i.i, label %.body, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body unwind label %25
 
 25:                                               ; preds = %23
@@ -172,7 +172,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %34
   store i8 %38, ptr %6, align 1
   %42 = getelementptr inbounds i8, ptr %0, i64 208
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void %43(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %.sink.split
 
@@ -579,7 +579,7 @@ define linkonce_odr hidden void @_ZN7nanogui8CheckBoxD2Ev(ptr noundef nonnull al
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 184
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvbEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -606,7 +606,7 @@ define linkonce_odr hidden void @_ZN7nanogui8CheckBoxD0Ev(ptr noundef nonnull al
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 184
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN7nanogui8CheckBoxD2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -619,7 +619,7 @@ define linkonce_odr hidden void @_ZN7nanogui8CheckBoxD0Ev(ptr noundef nonnull al
 _ZN7nanogui8CheckBoxD2Ev.exit:                    ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #12
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

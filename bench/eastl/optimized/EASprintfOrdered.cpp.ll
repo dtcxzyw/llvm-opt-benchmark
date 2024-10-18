@@ -47,7 +47,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   store i32 0, ptr %mUserIndex.i.i, align 4, !noalias !8
   %mbEscapePresent.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 72
   store i8 0, ptr %mbEscapePresent.i.i, align 8, !noalias !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(73) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %mValue.i.i, i8 0, i64 17, i1 false), !noalias !8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 80
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 1680
@@ -1254,7 +1254,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   store i32 0, ptr %mUserIndex.i.i, align 4, !noalias !37
   %mbEscapePresent.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 88
   store i8 0, ptr %mbEscapePresent.i.i, align 8, !noalias !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(89) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %mValue.i.i, i8 0, i64 18, i1 false), !noalias !37
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 96
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 2016
@@ -2452,7 +2452,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %spans.i, i64 %arrayctor.cur.idx.i
   %mValue.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 32
   %mFormatChar.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(121) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %mValue.i.i, i8 0, i64 20, i1 false), !noalias !65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %mFormatChar.i.i, i8 0, i64 9, i1 false), !noalias !65
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 128

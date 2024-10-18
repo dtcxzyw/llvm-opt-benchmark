@@ -837,10 +837,10 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %210 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %210, align 8
   %211 = load i32, ptr @pref_max_unmasked_len, align 4
-  %212 = call i32 @llvm.umin.i32(i32 %.0120, i32 %211)
+  %212 = call i32 @llvm.umin.i32(i32 range(i32 1, 0) %.0120, i32 %211)
   %213 = zext i32 %212 to i64
   %214 = call noalias ptr @wmem_alloc(ptr noundef %.val, i64 noundef %213) #6
-  %215 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %151, i32 noundef %212) #6
+  %215 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 2, 15) %151, i32 noundef %212) #6
   %.not.i143 = icmp eq i32 %211, 0
   br i1 %.not.i143, label %tvb_unmasked.exit, label %.lr.ph.i
 
@@ -859,7 +859,7 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   br i1 %exitcond.not.i, label %tvb_unmasked.exit, label %.lr.ph.i, !llvm.loop !4
 
 tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
-  %223 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %214, i32 noundef %212, i32 noundef %.0120) #6
+  %223 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %214, i32 noundef %212, i32 noundef range(i32 1, 0) %.0120) #6
   call void @add_new_data_source(ptr noundef %1, ptr noundef %223, ptr noundef nonnull @.str.135) #6
   br label %226
 

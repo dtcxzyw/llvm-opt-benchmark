@@ -1521,7 +1521,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9pop_frontEv.exit: ; preds = %83, %85
   br label %99
 
 98:                                               ; preds = %91
-  invoke void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(85) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %99 unwind label %.loopexit
 
 99:                                               ; preds = %95, %52, %98
@@ -2318,7 +2318,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -2380,7 +2380,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11 unwind label %62
 
 .noexc11:                                         ; preds = %.noexc
@@ -2390,7 +2390,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 24:                                               ; preds = %.noexc11
   %25 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc11
@@ -3655,7 +3655,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_7PyDequeEJRPNS_2
 15:                                               ; preds = %5
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #25
   resume { ptr, i32 } %16
 
 _ZN4pkpy3Py_INS_7PyDequeEEC2IJRPNS_2VMERPNS_8PyObjectES9_EEENS_4TypeEDpOT_.exit: ; preds = %5
@@ -3889,7 +3889,7 @@ _ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
   br label %_ZN4pkpy3Py_INS_7PyDequeEED2Ev.exit
 
 _ZN4pkpy3Py_INS_7PyDequeEED2Ev.exit:              ; preds = %1, %_ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #26
   ret void
 }
@@ -5260,7 +5260,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_11PyDequeIterEED2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy3Py_INS_11PyDequeIterEED0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 232) #26
   ret void
 }
@@ -6078,7 +6078,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9pop_frontEv.exit.i: ; preds = %66, %64
   br label %80
 
 79:                                               ; preds = %72
-  invoke void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(85) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %80 unwind label %.loopexit.i
 
 80:                                               ; preds = %79, %76, %33
@@ -6212,7 +6212,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9pop_frontEv.exit.i: ; preds = %53, %51
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_NS_8ArgsViewE.exit"
 
 69:                                               ; preds = %60
-  call void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(85) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_NS_8ArgsViewE.exit"
 
 "_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_NS_8ArgsViewE.exit": ; preds = %13, %66, %69
@@ -6305,7 +6305,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br label %59
 
 59:                                               ; preds = %.thread26.i.i, %17, %3
-  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE13emplace_frontIJRS2_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE13emplace_frontIJRS2_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(85) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_11clES2_NS_8ArgsViewE.exit"
 
 "_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_11clES2_NS_8ArgsViewE.exit": ; preds = %13, %59
@@ -6572,7 +6572,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9pop_frontEv.exit.i: ; preds = %75, %73
   br label %89
 
 88:                                               ; preds = %81
-  invoke void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE16_M_push_back_auxIJRS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(85) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %89 unwind label %.loopexit.i
 
 89:                                               ; preds = %88, %85, %42
@@ -6859,7 +6859,7 @@ define linkonce_odr void @_ZN4pkpy3Py_IlED2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy3Py_IlED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #26
   ret void
 }
@@ -6972,7 +6972,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br label %70
 
 70:                                               ; preds = %.thread26.i.i, %35, %29
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE13emplace_frontIJRS2_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE13emplace_frontIJRS2_EEES6_DpOT_(ptr noundef nonnull align 8 dereferenceable(85) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %72 unwind label %.loopexit.i
 
 72:                                               ; preds = %70, %32
@@ -8113,7 +8113,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEED0Ev
   br label %_ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEED2Ev.exit
 
 _ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #26
   ret void
 }
@@ -8137,7 +8137,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJRS2_EEEP
 10:                                               ; preds = %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #25
   resume { ptr, i32 } %11
 
 _ZN4pkpy3Py_INS_5TupleEEC2ENS_4TypeERKS1_.exit:   ; preds = %3
@@ -8281,7 +8281,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_5TupleEED2Ev(ptr noundef nonnull align
 define linkonce_odr void @_ZN4pkpy3Py_INS_5TupleEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #25
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #26
   ret void
 }

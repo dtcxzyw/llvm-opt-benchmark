@@ -495,7 +495,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit2.i:      ; preds = %81, %_ZNSt6vectorIP
   br label %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit:         ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit2.i, %84
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #20
   call void @_ZdlPv(ptr noundef nonnull %68) #22
   call void @_ZdlPv(ptr noundef nonnull %64) #22
   call void @_ZdlPv(ptr noundef nonnull %56) #22
@@ -673,7 +673,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit2.i252:   ; preds = %136, %_ZNSt6vectorI
   br label %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit260
 
 _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit260:      ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit2.i252, %139
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #20
   call void @_ZdlPv(ptr noundef nonnull %123) #22
   call void @_ZdlPv(ptr noundef nonnull %119) #22
   call void @_ZdlPv(ptr noundef nonnull %111) #22
@@ -767,7 +767,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit265:              ; preds = %158
           to label %184 unwind label %241
 
 184:                                              ; preds = %167
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #20
   %185 = load i32, ptr %168, align 8
   store i32 0, ptr %28, align 4
   %186 = getelementptr inbounds i8, ptr %28, i64 4
@@ -796,7 +796,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit265:              ; preds = %158
           to label %200 unwind label %243
 
 200:                                              ; preds = %184
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #20
@@ -981,7 +981,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit279:      ; preds = %229, %_ZNSt6vectorI
 245:                                              ; preds = %243, %241
   %.sink = phi ptr [ %29, %243 ], [ %27, %241 ]
   %.pn47 = phi { ptr, i32 } [ %244, %243 ], [ %242, %241 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.sink) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #20
   br label %246
 
@@ -1239,7 +1239,7 @@ _ZNK2cv11_InputArray6getMatEi.exit10:             ; preds = %19, %22
           to label %60 unwind label %73
 
 60:                                               ; preds = %39
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #20
   invoke void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %10, double noundef 2.550000e+02, ptr noundef nonnull align 8 dereferenceable(96) %37)
           to label %61 unwind label %71
 
@@ -1277,7 +1277,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %61
 73:                                               ; preds = %39
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #20
   br label %77
 
 75:                                               ; preds = %61
@@ -1314,7 +1314,7 @@ define hidden void @_ZN2cv8ximgproc22DisparityWLSFilterImpl6createEbiiiii(ptr de
   %8 = alloca %"class.cv::Mat", align 8
   %9 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %9, i8 0, i64 200, i1 false)
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(196) %9)
           to label %10 unwind label %48
 
 10:                                               ; preds = %7
@@ -6448,21 +6448,21 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit2.i:      ; preds = %7, %_ZNSt6vectorIPN
   br label %_ZN2cv8ximgproc22DisparityWLSFilterImpl21ParallelMatOp_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc22DisparityWLSFilterImpl21ParallelMatOp_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit2.i, %10
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc22DisparityWLSFilterImpl24ComputeDepthDisc_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinuityAwareLRC_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -6481,7 +6481,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc22DisparityWLSFilterImplD0Ev(ptr
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN2cv8ximgproc22DisparityWLSFilterImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

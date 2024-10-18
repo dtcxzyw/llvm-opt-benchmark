@@ -328,7 +328,7 @@ cond.false.i32:                                   ; preds = %invoke.cont
 invoke.cont4:                                     ; preds = %.noexc, %invoke.cont
   %6 = phi ptr [ %5, %invoke.cont ], [ %.pre.i33, %.noexc ]
   %add = fadd double %k, %mul
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %6, double noundef %t, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %6, double noundef %t, i1 noundef zeroext false)
           to label %.noexc34 unwind label %lpad
 
 .noexc34:                                         ; preds = %invoke.cont4
@@ -362,7 +362,7 @@ cond.false.i38:                                   ; preds = %invoke.cont8
 invoke.cont10:                                    ; preds = %.noexc40, %invoke.cont8
   %9 = phi ptr [ %8, %invoke.cont8 ], [ %.pre.i39, %.noexc40 ]
   %sub = fsub double %k, %mul
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %9, double noundef %t, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %9, double noundef %t, i1 noundef zeroext false)
           to label %.noexc44 unwind label %lpad
 
 .noexc44:                                         ; preds = %invoke.cont10
@@ -519,7 +519,7 @@ cond.false.i78:                                   ; preds = %invoke.cont54
 
 invoke.cont56:                                    ; preds = %.noexc80, %invoke.cont54
   %25 = phi ptr [ %24, %invoke.cont54 ], [ %.pre.i79, %.noexc80 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %25, double noundef %t, i1 noundef zeroext true)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %25, double noundef %t, i1 noundef zeroext true)
           to label %.noexc84 unwind label %lpad49
 
 .noexc84:                                         ; preds = %invoke.cont56
@@ -1256,7 +1256,7 @@ cond.false.i45:                                   ; preds = %_ZNK5boost10shared_
 
 _ZNK5boost10shared_ptrIN8QuantLib21BlackVolTermStructureEEptEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit43, %cond.false.i45
   %14 = phi ptr [ %13, %_ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit43 ], [ %.pre.i46, %cond.false.i45 ]
-  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %14, double noundef %t, i1 noundef zeroext true)
+  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %14, double noundef %t, i1 noundef zeroext true)
   tail call void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68) %14, double noundef %mul, i1 noundef zeroext true)
   %vtable.i = load ptr, ptr %14, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104

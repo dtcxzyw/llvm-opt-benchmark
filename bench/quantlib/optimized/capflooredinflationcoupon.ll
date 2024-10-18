@@ -2251,7 +2251,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18YoYInflationCouponEEptEv.exit.i: ; preds = %e
   br label %_ZNK8QuantLib31CappedFlooredYoYInflationCoupon14underlyingRateEv.exit
 
 cond.false.i:                                     ; preds = %entry
-  %call5.i = tail call noundef double @_ZNK8QuantLib15InflationCoupon4rateEv(ptr noundef nonnull align 8 dereferenceable(160) %this)
+  %call5.i = tail call noundef double @_ZNK8QuantLib15InflationCoupon4rateEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
   br label %_ZNK8QuantLib31CappedFlooredYoYInflationCoupon14underlyingRateEv.exit
 
 _ZNK8QuantLib31CappedFlooredYoYInflationCoupon14underlyingRateEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YoYInflationCouponEEptEv.exit.i, %cond.false.i
@@ -3131,7 +3131,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib18YoYInflationCouponD2Ev.exit:        ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib15InflationCouponD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib18YoYInflationCouponE, i64 8)) #26
+  tail call void @_ZN8QuantLib15InflationCouponD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib18YoYInflationCouponE, i64 8)) #26
   %11 = getelementptr inbounds i8, ptr %this, i64 248
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %11, align 8, !tbaa !33
   %observables_.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -3171,7 +3171,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %17 = phi ptr [ %16, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull %11)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %11)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -3276,7 +3276,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib18YoYInflationCouponD0Ev(ptr noundef 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib18YoYInflationCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 304) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef 304) #29
   ret void
 }
 
@@ -3302,7 +3302,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib18YoYInflationCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 304) #29
   ret void
 }
 
@@ -3413,7 +3413,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -3469,7 +3469,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib31CappedFlooredYoYInflationCouponD0Ev
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib31CappedFlooredYoYInflationCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 344) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef 344) #29
   ret void
 }
 
@@ -3492,7 +3492,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib31CappedFlooredYoYInflationCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 344) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(232) %2, i64 noundef 344) #29
   ret void
 }
 
@@ -4065,7 +4065,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib18YoYInflationCouponD2Ev.exit:        ; preds = %_ZN5boost10shared_ptrIN8QuantLib18YoYInflationCouponEED2Ev.exit, %if.then.i.i.i1, %.noexc.i.i.i, %if.then.i.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN8QuantLib15InflationCouponD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %29) #26
+  tail call void @_ZN8QuantLib15InflationCouponD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull %29) #26
   ret void
 }
 

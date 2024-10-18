@@ -52,7 +52,7 @@ define dso_local void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEb
   tail call void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr noundef nonnull align 8 dereferenceable(30) %23, i8 noundef zeroext 14, i1 noundef zeroext false) #8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 1) #8
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %25, i64 noundef 1) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %2, ptr %26, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm9MCSectionD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %.not, label %._crit_edge22, label %.lr.ph21
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %1
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   %13 = icmp eq ptr %11, %12

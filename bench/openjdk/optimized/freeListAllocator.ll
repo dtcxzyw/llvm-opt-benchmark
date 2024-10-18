@@ -194,7 +194,7 @@ define hidden void @_ZN17FreeListAllocatorD2Ev(ptr noundef nonnull align 8 deref
 
 _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit: ; preds = %.lr.ph.i, %1
   %16 = getelementptr inbounds i8, ptr %0, i64 256
-  %17 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %16) #12, !srcloc !6
+  %17 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %16) #12, !srcloc !6
   %.not5.i1 = icmp eq ptr %17, null
   br i1 %.not5.i1, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit5, label %.lr.ph.i2
 
@@ -228,7 +228,7 @@ define hidden void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 d
   store ptr null, ptr %6, align 8, !noalias !13
   store volatile i64 0, ptr %9, align 8, !noalias !13
   %11 = getelementptr inbounds i8, ptr %0, i64 256
-  %12 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %11) #12, !srcloc !6
+  %12 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %11) #12, !srcloc !6
   %13 = getelementptr inbounds i8, ptr %0, i64 128
   store volatile i64 0, ptr %13, align 8
   ret void
@@ -287,13 +287,13 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %4, %11
   br i1 %.not.i, label %17, label %.thread.i
 
 17:                                               ; preds = %.backedge.i
-  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull %15) #12, !srcloc !17
+  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull align 8 dereferenceable(8) %15) #12, !srcloc !17
   %.not14.i = icmp eq ptr %18, null
   br i1 %.not14.i, label %22, label %.backedge.i.backedge
 
 .thread.i:                                        ; preds = %.backedge.i
   %19 = load volatile ptr, ptr %.011.i, align 8
-  %20 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %.011.i, ptr nonnull %15) #12, !srcloc !17
+  %20 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %.011.i, ptr nonnull align 8 dereferenceable(8) %15) #12, !srcloc !17
   %.not1417.i = icmp eq ptr %20, %.011.i
   br i1 %.not1417.i, label %.thread8, label %.backedge.i.backedge
 
@@ -416,7 +416,7 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
 51:                                               ; preds = %51, %46
   %.0.i.i.i = phi ptr [ %50, %46 ], [ %52, %51 ]
   store volatile ptr %.0.i.i.i, ptr %43, align 8
-  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %42, ptr %.0.i.i.i, ptr nonnull %49) #12, !srcloc !17
+  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(8) %42, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %49) #12, !srcloc !17
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %52
   br i1 %.not.i.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i, label %51, !llvm.loop !24
 
@@ -483,7 +483,7 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
 26:                                               ; preds = %26, %21
   %.0.i.i = phi ptr [ %25, %21 ], [ %27, %26 ]
   store volatile ptr %.0.i.i, ptr %18, align 8
-  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, ptr %.0.i.i, ptr nonnull %24) #12, !srcloc !17
+  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(8) %17, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %24) #12, !srcloc !17
   %.not.i.i = icmp eq ptr %.0.i.i, %27
   br i1 %.not.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit, label %26, !llvm.loop !24
 

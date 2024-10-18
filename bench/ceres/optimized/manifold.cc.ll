@@ -1911,7 +1911,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(26) %1, i64 24, i1 false)
   %37 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %29, ptr %37, align 8, !alias.scope !18
   call void @_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_3MapIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEES6_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -2078,7 +2078,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_3MapIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EE
   br label %_ZN5Eigen8internal20generic_product_implINS_3MapIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEKNS_5BlockIS5_Lin1ELi1ELb0EEENS_10DenseShapeESC_Li7EE13scaleAndAddToINS9_INS3_IdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRT_RKS8_RSB_RKd.exit
 
 58:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %8, ptr noundef nonnull align 8 dereferenceable(26) %1, i64 24, i1 false)
   store ptr %35, ptr %9, align 8
   %.sroa.352.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %37, ptr %.sroa.352.0..sroa_idx, align 8
@@ -2176,7 +2176,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_3MapIKNS_6MatrixIdLin1ELin1ELi1ELin1E
 
 90:                                               ; preds = %59
   %91 = load double, ptr %3, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 16, i1 false)
   %92 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %61, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %11, i64 24

@@ -139,7 +139,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %ompi_comm_peer_inva
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %55 = icmp ne i32 %54, 0
-  %56 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %2, i32 noundef %0, i1 noundef zeroext %55) #4
+  %56 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %2, i32 noundef range(i32 -1, -2) %0, i1 noundef zeroext %55) #4
   br i1 %56, label %ompi_comm_iface_p2p_check_proc.exit, label %57
 
 57:                                               ; preds = %51

@@ -212,10 +212,10 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
 116:                                              ; preds = %113
   %117 = load ptr, ptr @j2d_glTexParameteri, align 8
   %118 = load i32, ptr %77, align 8
-  call void %117(i32 noundef %118, i32 noundef 10240, i32 noundef %76) #6
+  call void %117(i32 noundef %118, i32 noundef 10240, i32 noundef range(i32 9728, 9730) %76) #6
   %119 = load ptr, ptr @j2d_glTexParameteri, align 8
   %120 = load i32, ptr %77, align 8
-  call void %119(i32 noundef %120, i32 noundef 10241, i32 noundef %76) #6
+  call void %119(i32 noundef %120, i32 noundef 10241, i32 noundef range(i32 9728, 9730) %76) #6
   store i32 %76, ptr %114, align 4
   br label %OGLBlitTextureToSurface.exit
 

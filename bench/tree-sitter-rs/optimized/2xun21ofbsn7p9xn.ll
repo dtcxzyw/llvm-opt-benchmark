@@ -349,7 +349,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   %50 = icmp ult i64 %3, -9223372036854775807
   tail call void @llvm.assume(i1 %50)
   %51 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !27
-  %52 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %42, i64 noundef %3) #21, !noalias !27
+  %52 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %42, i64 noundef range(i64 1, -9223372036854775807) %3) #21, !noalias !27
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h6436aa5d6c9223bdE.exit
 
@@ -518,7 +518,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 26:                                               ; preds = %18
   %27 = add nuw i64 %.0.i, 1
-  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %12, i64 %27)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %12, i64 range(i64 1, -2305843009213693957) %27)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !48
   %28 = icmp ult i64 %.0.sroa.speculated.i, 8
   br i1 %28, label %32, label %29
@@ -581,7 +581,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 60:                                               ; preds = %50
   %61 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !58
-  %62 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %55, i64 noundef 16) #21, !noalias !58
+  %62 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %55, i64 noundef range(i64 1, -9223372036854775807) 16) #21, !noalias !58
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %_ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h0b871d5f27f4ba02E.exit.i
 
@@ -1108,7 +1108,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 
 37:                                               ; preds = %27
   %38 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !125
-  %39 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %32, i64 noundef 16) #21, !noalias !125
+  %39 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %32, i64 noundef range(i64 1, -9223372036854775807) 16) #21, !noalias !125
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h6436aa5d6c9223bdE.exit.i
 

@@ -515,7 +515,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit, label %169
 
 169:                                              ; preds = %167
-  %170 = invoke noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %170 = invoke noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit unwind label %171
 
 171:                                              ; preds = %169
@@ -533,7 +533,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
   br i1 %.not.i.i23, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24, label %177
 
 177:                                              ; preds = %174
-  %178 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %178 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24 unwind label %179
 
 179:                                              ; preds = %177
@@ -651,7 +651,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: ; preds
   br i1 %.not.i.i25, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26, label %240
 
 240:                                              ; preds = %238
-  %241 = invoke noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %241 = invoke noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26 unwind label %242
 
 242:                                              ; preds = %240
@@ -688,7 +688,7 @@ _ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit26: ; preds = %238, %240
   br i1 %.not.i.i27, label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24, label %260
 
 260:                                              ; preds = %257
-  %261 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %261 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvPN2cv8obsensor5FrameEEED2Ev.exit24 unwind label %262
 
 262:                                              ; preds = %260
@@ -1108,7 +1108,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define hidden noundef zeroext i1 @_ZN2cv21VideoCapture_obsensor9grabFrameEv(ptr noundef nonnull align 8 dereferenceable(652) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.timespec, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %5
 
@@ -1146,7 +1146,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 %11, ptr %2, align 8
   store i64 %12, ptr %13, align 8
-  %17 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %2)
+  %17 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc3 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit
 
 .noexc3:                                          ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i"
@@ -1201,7 +1201,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %32, %35
   %37 = phi i1 [ true, %32 ], [ %36, %35 ]
-  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret i1 %37
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit:  ; preds = %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.thread.i.i", %"_ZZN2cv21VideoCapture_obsensor9grabFrameEvENK3$_0clEv.exit.i.i", %14
@@ -1216,7 +1216,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit.split-lp: ; preds = %21, %19, %3
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit8:           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit.split-lp, %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt11unique_lockISt5mutexED2Ev.exit8.loopexit.split-lp ]
-  %39 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %39 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -1240,7 +1240,7 @@ define hidden noundef zeroext i1 @_ZN2cv21VideoCapture_obsensor13retrieveFrameEi
   %13 = alloca %"class.cv::Mat", align 8
   %14 = alloca %"class.cv::_InputArray", align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %15) #19
+  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %17
 
@@ -1527,12 +1527,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split: ; preds = %126, %127
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split, %114, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %118, %21
   %.012 = phi i1 [ true, %114 ], [ false, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ false, %118 ], [ false, %21 ], [ %.012.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split ]
-  %132 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #19
+  %132 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   ret i1 %.012
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit21:          ; preds = %44, %46, %48, %68, %83, %103, %105, %128, %130
   %.pn = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %45, %44 ], [ %49, %48 ], [ %47, %46 ], [ %69, %68 ], [ %84, %83 ], [ %106, %105 ], [ %104, %103 ]
-  %133 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #19
+  %133 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -1792,7 +1792,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21V
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %.val, i64 40
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #19
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i, label %7
 
@@ -1840,7 +1840,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %2
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit9.i.i.i:     ; preds = %22, %16
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %22 ], [ %17, %16 ]
-  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
+  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 "_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_0JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.exit": ; preds = %13
@@ -1848,7 +1848,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit9.i.i.i:     ; preds = %22, %16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   %24 = getelementptr inbounds i8, ptr %.val, i64 80
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #19
-  %25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
+  %25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   ret void
@@ -1897,7 +1897,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN2cv8obsensor5FrameEEZNS0_21V
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %.val, i64 40
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #19
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i, label %7
 
@@ -1949,7 +1949,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %2
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit11.i.i.i:    ; preds = %26, %20
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %26 ], [ %21, %20 ]
-  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
+  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   resume { ptr, i32 } %.pn.pn.i.i.i
 
 "_ZSt10__invoke_rIvRZN2cv21VideoCapture_obsensorC1EiE3$_1JPNS0_8obsensor5FrameEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES9_E4typeEOSC_DpOSD_.exit": ; preds = %17
@@ -1957,7 +1957,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit11.i.i.i:    ; preds = %26, %20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   %28 = getelementptr inbounds i8, ptr %.val, i64 80
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %28) #19
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   ret void

@@ -263,7 +263,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit9: ; preds = %
 .noexc14:                                         ; preds = %.noexc13
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  %32 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %32 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 1 dereferenceable(1) %1)
           to label %.noexc15 unwind label %44
 
 .noexc15:                                         ; preds = %.noexc14
@@ -435,7 +435,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets
   %3 = alloca %"class.std::thread::id", align 8
   %4 = tail call i64 @pthread_self() #17
   store i64 %4, ptr %3, align 8
-  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 3339675911)
+  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit unwind label %6
 
 6:                                                ; preds = %2

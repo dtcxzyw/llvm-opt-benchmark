@@ -354,7 +354,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  call fastcc void @server_fill_credential(ptr noundef %cred.i)
+  call fastcc void @server_fill_credential(ptr noundef nonnull %cred.i)
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 40), align 8
   %call4.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call1.i.i, i32 noundef 10173, ptr noundef %18) #19
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 48), align 8
@@ -473,9 +473,9 @@ setup_curl.exit.i:                                ; preds = %if.then38.i.i, %lor
   %39 = load ptr, ptr @stderr, align 8
   %cmp.not.i = icmp eq i32 %count.2.i, 1
   %cond.i = select i1 %cmp.not.i, ptr @.str, ptr @.str.33
-  %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.32, i32 noundef %count.2.i, ptr noundef nonnull %cond.i) #21
+  %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.32, i32 noundef range(i32 1, 0) %count.2.i, ptr noundef nonnull %cond.i) #21
   %40 = load ptr, ptr @stderr, align 8
-  %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 0, i32 noundef %count.2.i) #21
+  %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 1, 0) %count.2.i) #21
   %len.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 8
   %41 = load i64, ptr %len, align 8
   %cmp.not.i147.not.i = icmp eq i64 %41, 0
@@ -491,7 +491,7 @@ while.body.i9:                                    ; preds = %lf_to_crlf.exit.i
   %mul.i = mul nuw nsw i32 %inc.i10, 100
   %div.i = sdiv i32 %mul.i, %count.2.i
   %43 = load ptr, ptr @stderr, align 8
-  %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.34, i32 noundef %div.i, i32 noundef %inc.i10, i32 noundef %count.2.i) #21
+  %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.34, i32 noundef %div.i, i32 noundef %inc.i10, i32 noundef range(i32 1, 0) %count.2.i) #21
   %44 = load i64, ptr %len.i, align 8
   %conv.i.i = sext i32 %conv29.i.i to i64
   %45 = load i64, ptr %len, align 8
@@ -1579,7 +1579,7 @@ cond.false.i:                                     ; preds = %lf_to_crlf.exit.i
 
 imap_store_msg.exit:                              ; preds = %lf_to_crlf.exit.i, %cond.false.i
   %cond.i = phi ptr [ %128, %cond.false.i ], [ @.str, %lf_to_crlf.exit.i ]
-  %call4.i = call range(i32 -3, 1) i32 (ptr, ptr, ptr, ...) @imap_exec_m(ptr noundef %call.i, ptr noundef %cb.i19, ptr nonnull poison, ptr noundef %cond.i, ptr noundef %127)
+  %call4.i = call range(i32 -3, 1) i32 (ptr, ptr, ptr, ...) @imap_exec_m(ptr noundef nonnull %call.i, ptr noundef %cb.i19, ptr nonnull poison, ptr noundef %cond.i, ptr noundef %127)
   %rcaps.i = getelementptr inbounds i8, ptr %117, i64 8
   %129 = load i32, ptr %rcaps.i, align 8
   %caps.i25 = getelementptr inbounds i8, ptr %117, i64 4
@@ -3545,9 +3545,9 @@ if.end13:                                         ; preds = %if.end23.i70, %if.e
   br i1 %tobool15.not, label %if.then16, label %sub_0
 
 if.then16:                                        ; preds = %if.end13
-  %call.i94 = call fastcc i32 @skip_imap_list_l(ptr noundef %cmd, i32 noundef 0)
-  %call.i95 = call fastcc i32 @skip_imap_list_l(ptr noundef %cmd, i32 noundef 0)
-  %call.i96 = call fastcc i32 @skip_imap_list_l(ptr noundef %cmd, i32 noundef 0)
+  %call.i94 = call fastcc i32 @skip_imap_list_l(ptr noundef nonnull %cmd, i32 noundef 0)
+  %call.i95 = call fastcc i32 @skip_imap_list_l(ptr noundef nonnull %cmd, i32 noundef 0)
+  %call.i96 = call fastcc i32 @skip_imap_list_l(ptr noundef nonnull %cmd, i32 noundef 0)
   br label %if.end174
 
 sub_0:                                            ; preds = %if.end13

@@ -239,7 +239,7 @@ if.end69:                                         ; preds = %if.end68, %if.then5
   %11 = load i32, ptr %line, align 4
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef %10, i32 noundef %11, ptr noundef %9) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %retval.0.i, i32 noundef %0, ptr noundef null) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef range(i32 0, 256) %retval.0.i, i32 noundef %0, ptr noundef null) #4
   br label %do.cond
 
 if.else72:                                        ; preds = %while.end

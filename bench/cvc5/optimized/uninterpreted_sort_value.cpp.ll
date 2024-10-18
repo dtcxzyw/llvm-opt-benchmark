@@ -131,7 +131,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
   %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_index, ptr noundef nonnull %index)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %index)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -241,7 +241,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store ptr %call, ptr %this, align 8
   %d_index = getelementptr inbounds i8, ptr %this, i64 8
   %d_index4 = getelementptr inbounds i8, ptr %val, i64 8
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_index, ptr noundef nonnull %d_index4)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -268,7 +268,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 define hidden void @_ZN4cvc58internal22UninterpretedSortValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_index)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_index)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %entry

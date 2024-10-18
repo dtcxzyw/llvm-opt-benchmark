@@ -870,7 +870,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_Z26ScanImageAndR
   br label %_ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit
 
 28:                                               ; preds = %25
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %0)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.pre55 = load ptr, ptr %6, align 8
   %.phi.trans.insert56 = getelementptr inbounds i8, ptr %6, i64 8
   %.pre57 = load i64, ptr %.phi.trans.insert56, align 8
@@ -906,7 +906,7 @@ _ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit: ; preds = %27, %28
   br label %_ZN2cv3Mat3endIhEENS_12MatIterator_IT_EEv.exit
 
 38:                                               ; preds = %_ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %0)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %39 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %40 = load ptr, ptr %7, align 8
   %41 = icmp eq ptr %40, null
@@ -991,7 +991,7 @@ _ZN2cv12MatIterator_IhEppEv.exit:                 ; preds = %.lr.ph42, %66, %70
   br label %_ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit
 
 76:                                               ; preds = %73
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %0)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.pre = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 8
   %.pre44 = load i64, ptr %.phi.trans.insert, align 8
@@ -1027,7 +1027,7 @@ _ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit: ; preds = %75, %
   br label %_ZN2cv3Mat3endINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit
 
 86:                                               ; preds = %_ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %0)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %87 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %88 = load ptr, ptr %10, align 8
   %89 = icmp eq ptr %88, null

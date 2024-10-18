@@ -8351,7 +8351,7 @@ select.unfold._crit_edge.i:                       ; preds = %522, %select.unfold
   %534 = load ptr, ptr %533, align 8
   store ptr %534, ptr %.044.i.lcssa, align 8
   %535 = load ptr, ptr @assoc_hash, align 8
-  %536 = tail call fastcc i32 @_assoc_hash_index(ptr noundef readonly %33)
+  %536 = tail call fastcc i32 @_assoc_hash_index(ptr noundef nonnull readonly %33)
   %.not3145.i = icmp eq ptr %535, null
   br i1 %.not3145.i, label %select.unfold37._crit_edge.i, label %.lr.ph47.preheader.i
 
@@ -12485,7 +12485,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_refresh_lists(ptr noundef %0, i16 noundef
 10:                                               ; preds = %2
   %11 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
   %12 = zext i16 %11 to i32
-  %13 = tail call fastcc i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef %12)
+  %13 = tail call fastcc i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef range(i32 0, 65536) %12)
   br label %14
 
 14:                                               ; preds = %10, %2

@@ -539,7 +539,7 @@ if.end7:                                          ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Out, align 8
   %OS.i = getelementptr inbounds i8, ptr %Out, i64 40
   store ptr %Spec, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Out, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %Out, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %OutBufEnd.i5.i28 = getelementptr inbounds i8, ptr %Out, i64 16
   %9 = load ptr, ptr %OutBufEnd.i5.i28, align 8
   %OutBufCur.i6.i29 = getelementptr inbounds i8, ptr %Out, i64 24
@@ -593,7 +593,7 @@ if.then23:                                        ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i.i, label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %if.then23
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Spec, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #12
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %Spec, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #12
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit
 
@@ -655,7 +655,7 @@ if.end33.critedge:                                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i.i70, label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit76, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %if.end33.critedge
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Spec, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #12
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %Spec, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #12
   %.pre.i.i73 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit76
 
@@ -694,7 +694,7 @@ if.then4.i.i91:                                   ; preds = %if.end.i.i89
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then4.i.i91, %if.end.i.i89, %if.then.i.i94, %if.end.i65, %if.then.i62
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %Out) #12
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Out) #12
   %32 = load ptr, ptr %Spec, align 8
   %cmp.i.i.i.i = icmp eq ptr %32, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i

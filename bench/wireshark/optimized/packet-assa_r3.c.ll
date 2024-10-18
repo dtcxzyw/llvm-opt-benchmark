@@ -3073,8 +3073,8 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph.i:                                         ; preds = %43, %47
   %.08298.i = phi i32 [ %49, %47 ], [ 5, %43 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.08298.i, i32 noundef 2) #5
-  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08298.i) #5
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef 2) #5
+  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i) #5
   %52 = add nuw i32 %.08298.i, 1
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #5
   %.b36.i.i = load i1, ptr @mfgCommandFlag, align 4
@@ -3093,7 +3093,7 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
   %.0.i.i = phi ptr [ %58, %57 ], [ %56, %55 ]
   %60 = zext i8 %51 to i32
   %61 = load i32, ptr @ett_r3cmd, align 4
-  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.081.i, ptr noundef %0, i32 noundef %.08298.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %5, ptr noundef nonnull @.str.1823, ptr noundef %.0.i.i, i32 noundef %54) #5
+  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.081.i, ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %5, ptr noundef nonnull @.str.1823, ptr noundef %.0.i.i, i32 noundef %54) #5
   %.b.i.i = load i1, ptr @mfgCommandFlag, align 4
   br i1 %.b.i.i, label %72, label %63
 
@@ -3110,7 +3110,7 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
   %69 = zext nneg i8 %53 to i64
   %70 = getelementptr [32 x ptr], ptr @r3command_dissect, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef %0, i32 noundef %.08298.i, i32 noundef 0, ptr noundef %1, ptr noundef %62) #5
+  call void %71(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef 0, ptr noundef %1, ptr noundef %62) #5
   br label %dissect_r3_command.exit.i
 
 72:                                               ; preds = %59
@@ -3127,11 +3127,11 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
   %78 = zext nneg i8 %53 to i64
   %79 = getelementptr [35 x ptr], ptr @r3commandmfg_dissect, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef %0, i32 noundef %.08298.i, i32 noundef 0, ptr noundef %1, ptr noundef %62) #5
+  call void %80(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef 0, ptr noundef %1, ptr noundef %62) #5
   br label %dissect_r3_command.exit.i
 
 dissect_r3_command.exit.i:                        ; preds = %77, %74, %68, %65
-  %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08298.i) #5
+  %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %83, label %47

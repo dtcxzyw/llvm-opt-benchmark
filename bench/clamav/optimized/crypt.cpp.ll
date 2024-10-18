@@ -897,7 +897,7 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds [4 x %"struct.CryptData::KDF3CacheItem"], ptr %0, i64 0, i64 %75
-  %77 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %77 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %76, ptr noundef nonnull align 8 dereferenceable(25) %2)
   %78 = getelementptr inbounds i8, ptr %2, i64 24
   %79 = load i8, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %76, i64 24
@@ -1266,7 +1266,7 @@ define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef n
   %42 = getelementptr inbounds %"struct.CryptData::KDF5CacheItem", ptr %15, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 80
   store i32 %6, ptr %43, align 8
-  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %42, ptr noundef nonnull align 8 dereferenceable(25) %2)
   %45 = getelementptr inbounds i8, ptr %2, i64 24
   %46 = load i8, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %42, i64 24
@@ -1397,7 +1397,7 @@ define void @_ZN9CryptDataC2Ev(ptr noundef nonnull align 8 dereferenceable(2516)
 3:                                                ; preds = %_ZN9CryptData13KDF3CacheItemC2Ev.exit, %1
   %.idx = phi i64 [ 0, %1 ], [ %.add, %_ZN9CryptData13KDF3CacheItemC2Ev.exit ]
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
-  invoke void @_ZN11SecPasswordC1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr)
+  invoke void @_ZN11SecPasswordC1Ev(ptr noundef nonnull align 8 dereferenceable(73) %.ptr)
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
@@ -1423,7 +1423,7 @@ define void @_ZN9CryptDataC2Ev(ptr noundef nonnull align 8 dereferenceable(2516)
 8:                                                ; preds = %.noexc3.i, %.noexc2.i, %.noexc.i, %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr) #20
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %.ptr) #20
   br label %.body
 
 _ZN9CryptData13KDF3CacheItemC2Ev.exit:            ; preds = %.noexc3.i
@@ -1434,7 +1434,7 @@ _ZN9CryptData13KDF3CacheItemC2Ev.exit:            ; preds = %.noexc3.i
 .preheader35:                                     ; preds = %_ZN9CryptData13KDF3CacheItemC2Ev.exit, %_ZN9CryptData13KDF5CacheItemC2Ev.exit
   %.idx11 = phi i64 [ %.add12, %_ZN9CryptData13KDF5CacheItemC2Ev.exit ], [ 328, %_ZN9CryptData13KDF3CacheItemC2Ev.exit ]
   %.ptr13.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx11
-  invoke void @_ZN11SecPasswordC1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr13.ptr)
+  invoke void @_ZN11SecPasswordC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr13.ptr)
           to label %.noexc30 unwind label %31
 
 .noexc30:                                         ; preds = %.preheader35
@@ -1465,7 +1465,7 @@ _ZN9CryptData13KDF3CacheItemC2Ev.exit:            ; preds = %.noexc3.i
 16:                                               ; preds = %.noexc4.i, %.noexc3.i29, %.noexc2.i28, %.noexc.i27, %.noexc30
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr13.ptr) #20
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr13.ptr) #20
   br label %.body31
 
 _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i

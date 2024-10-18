@@ -318,7 +318,7 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 %14, ptr %15, align 2
   %16 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %16, i64 noundef 32) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull %16, i64 noundef 32) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1448
@@ -344,10 +344,10 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   call void @_ZN4llvm18StringTableBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(38) %17) #12
   %29 = load ptr, ptr %19, align 8, !noalias !4
   %30 = load ptr, ptr %3, align 8, !noalias !5
-  %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #12, !noalias !10
+  %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %19) #12, !noalias !10
   %32 = getelementptr inbounds %"struct.llvm::dxbc::PSV::v0::SignatureElement", ptr %29, i64 %31
   %33 = load ptr, ptr %3, align 8, !noalias !10
-  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12, !noalias !10
+  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %3) #12, !noalias !10
   %35 = getelementptr inbounds %"class.llvm::StringRef", ptr %33, i64 %34
   %36 = icmp ne i64 %31, 0
   %37 = icmp ne ptr %30, %35
@@ -387,7 +387,7 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %47 = trunc i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %47, ptr %48, align 4
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %3) #12
   %50 = load ptr, ptr %3, align 8
   %51 = icmp eq ptr %50, %16
   br i1 %51, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %52
@@ -576,7 +576,7 @@ define dso_local void @_ZN4llvm6mcdxbc9Signature5writeERNS_11raw_ostreamE(ptr no
   %5 = alloca %"struct.llvm::dxbc::ProgramSignatureElement", align 4
   %6 = alloca %"struct.llvm::dxbc::ProgramSignatureHeader", align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef 1) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %7, i64 noundef 1) #12
   %8 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   %10 = icmp ult i64 %9, %8
@@ -657,7 +657,7 @@ _ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit: ; 
 ._crit_edge:                                      ; preds = %27, %_ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit
   call void @_ZN4llvm18StringTableBuilder15finalizeInOrderEv(ptr noundef nonnull align 8 dereferenceable(38) %4) #12
   %49 = load ptr, ptr %3, align 8
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
   %51 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %49, i64 %50
   %52 = icmp eq i64 %50, 0
   br i1 %52, label %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", label %53
@@ -706,7 +706,7 @@ _ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.
   %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %62, i64 noundef %64) #12
   call void @_ZNK4llvm18StringTableBuilder5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(38) %4, ptr noundef nonnull align 8 dereferenceable(48) %1) #12
   call void @_ZN4llvm18StringTableBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(38) %4) #12
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
   %67 = load ptr, ptr %3, align 8
   %68 = icmp eq ptr %67, %7
   br i1 %68, label %_ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit, label %69

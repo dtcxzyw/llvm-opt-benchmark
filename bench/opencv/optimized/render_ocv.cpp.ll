@@ -191,7 +191,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4RectEJNS4_4TextENS4_5FTextES5_NS4_6CircleENS4_
 
 _ZN2cv4util3getINS_4gapi3wip4draw4TextEJS5_NS4_5FTextENS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %56
   %66 = getelementptr inbounds i8, ptr %.sroa.095.0100, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %66)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(97) %6, ptr noundef nonnull align 8 dereferenceable(97) %66)
   %67 = getelementptr inbounds i8, ptr %.sroa.095.0100, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false)
   %68 = getelementptr inbounds i8, ptr %.sroa.095.0100, i64 64
@@ -225,13 +225,13 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %69
           to label %80 unwind label %81
 
 80:                                               ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(97) %6) #19
   br label %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit
 
 81:                                               ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(97) %6) #19
   br label %common.resume
 
 _ZN2cv4util3getINS_4gapi3wip4draw5FTextEJNS4_4TextES5_NS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %56
@@ -449,7 +449,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4PolyEJNS4_4TextENS4_5FTextENS4_4RectENS4_6Circ
   %170 = ptrtoint ptr %168 to i64
   %171 = sub i64 %169, %170
   %172 = ashr exact i64 %171, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %26, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %167, %168
   br i1 %.not.i.i.i.i.i, label %176, label %173
 
@@ -703,7 +703,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4RectEJNS4_4TextENS4_5FTextES5_NS4_6CircleENS4_
 
 _ZN2cv4util3getINS_4gapi3wip4draw4TextEJS5_NS4_5FTextENS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %81
   %107 = getelementptr inbounds i8, ptr %.sroa.092.097, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %107)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef nonnull align 8 dereferenceable(97) %107)
   %108 = getelementptr inbounds i8, ptr %.sroa.092.097, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
   %109 = getelementptr inbounds i8, ptr %.sroa.092.097, i64 64
@@ -755,13 +755,13 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %110
           to label %135 unwind label %136
 
 135:                                              ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(97) %8) #19
   br label %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit
 
 136:                                              ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
   %137 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(97) %8) #19
   br label %common.resume
 
 _ZN2cv4util3getINS_4gapi3wip4draw5FTextEJNS4_4TextES5_NS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %81
@@ -1050,7 +1050,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4PolyEJNS4_4TextENS4_5FTextENS4_4RectENS4_6Circ
   %272 = ptrtoint ptr %270 to i64
   %273 = sub i64 %271, %272
   %274 = ashr exact i64 %273, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %28, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %269, %270
   br i1 %.not.i.i.i.i.i, label %278, label %275
 

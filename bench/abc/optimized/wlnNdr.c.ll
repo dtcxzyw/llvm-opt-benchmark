@@ -1984,7 +1984,7 @@ Ndr_ObjReadOutName.exit469.i.i:                   ; preds = %Ndr_DataSize.exit.i
 
 510:                                              ; preds = %Ndr_ObjReadOutName.exit469.i.i
   %511 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 7, i64 1, ptr nonnull %20)
-  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %2, i32 noundef %.4908.i.i, ptr noundef %20, i32 noundef 1)
+  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %2, i32 noundef %.4908.i.i, ptr noundef nonnull %20, i32 noundef 1)
   %.val14.i.i470.i.i = load ptr, ptr %22, align 8
   %512 = getelementptr inbounds i32, ptr %.val14.i.i470.i.i, i64 %434
   %513 = load i32, ptr %512, align 4
@@ -3359,7 +3359,7 @@ Ndr_ObjReadBody.exit719.thread.i.i:               ; preds = %Ndr_DataSize.exit.i
   %1238 = getelementptr inbounds ptr, ptr %7, i64 %1237
   %1239 = load ptr, ptr %1238, align 8
   %fputs.i.i = tail call i32 @fputs(ptr %1239, ptr nonnull %20)
-  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %2, i32 noundef %.5921.i.i, ptr noundef %20, i32 noundef 0)
+  tail call fastcc void @Ndr_ObjWriteRange(ptr noundef readonly %2, i32 noundef %.5921.i.i, ptr noundef nonnull %20, i32 noundef 0)
   %1240 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 2, i64 1, ptr nonnull %20)
   br label %Ndr_ObjIsType.exit485.thread.i.i
 

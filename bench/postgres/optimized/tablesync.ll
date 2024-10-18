@@ -1262,7 +1262,7 @@ walrcv_clear_result.exit.i:                       ; preds = %140, %137
   br i1 %233, label %slot_getsomeattrs.exit.i.i.i.i, label %slot_getattr.exit.i.i.i
 
 slot_getsomeattrs.exit.i.i.i.i:                   ; preds = %230
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %222, i32 noundef 1) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %222, i32 noundef range(i32 1, 5) 1) #12
   %.pr.i.i = load i16, ptr %231, align 2
   br label %slot_getattr.exit.i.i.i
 
@@ -1277,7 +1277,7 @@ slot_getattr.exit.i.i.i:                          ; preds = %slot_getsomeattrs.e
   br i1 %239, label %slot_getsomeattrs.exit.i140.i.i.i, label %slot_getattr.exit141.i.i.i
 
 slot_getsomeattrs.exit.i140.i.i.i:                ; preds = %slot_getattr.exit.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %222, i32 noundef 2) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %222, i32 noundef range(i32 1, 5) 2) #12
   %.pre.i.i = load ptr, ptr %235, align 8
   br label %slot_getattr.exit141.i.i.i
 
@@ -1293,7 +1293,7 @@ slot_getattr.exit141.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %246, label %slot_getsomeattrs.exit.i142.i.i.i, label %247
 
 slot_getsomeattrs.exit.i142.i.i.i:                ; preds = %slot_getattr.exit141.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %222, i32 noundef 3) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %222, i32 noundef range(i32 1, 5) 3) #12
   br label %247
 
 247:                                              ; preds = %slot_getsomeattrs.exit.i142.i.i.i, %slot_getattr.exit141.i.i.i
@@ -1435,7 +1435,7 @@ walrcv_clear_result.exit.i.i.i:                   ; preds = %261, %259
   br i1 %320, label %slot_getsomeattrs.exit.i144.i.i.i, label %slot_getattr.exit145.i.i.i
 
 slot_getsomeattrs.exit.i144.i.i.i:                ; preds = %317
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %314, i32 noundef 1) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %314, i32 noundef range(i32 1, 5) 1) #12
   br label %slot_getattr.exit145.i.i.i
 
 slot_getattr.exit145.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i144.i.i.i, %317
@@ -1605,7 +1605,7 @@ walrcv_clear_result.exit150.i.i.i:                ; preds = %366, %364
   br i1 %407, label %slot_getsomeattrs.exit.i151.us.i.i.i, label %slot_getattr.exit152.us.i.i.i
 
 slot_getsomeattrs.exit.i151.us.i.i.i:             ; preds = %.lr.ph192.split.us.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef 1) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 1) #12
   br label %slot_getattr.exit152.usthread-pre-split.i.i.i
 
 .lr.ph192.split.i.i.i:                            ; preds = %.lr.ph192.i.i.i, %415
@@ -1614,7 +1614,7 @@ slot_getsomeattrs.exit.i151.us.i.i.i:             ; preds = %.lr.ph192.split.us.
   br i1 %409, label %slot_getsomeattrs.exit.i151.i.i.i, label %slot_getattr.exit152.i.i.i
 
 slot_getsomeattrs.exit.i151.i.i.i:                ; preds = %.lr.ph192.split.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef 1) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 1) #12
   br label %slot_getattr.exit152.i.i.i
 
 slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i151.i.i.i, %.lr.ph192.split.i.i.i
@@ -1645,7 +1645,7 @@ slot_getattr.exit152.us.i.i.i:                    ; preds = %slot_getattr.exit15
   br i1 %422, label %slot_getsomeattrs.exit.i153.i.i.i, label %slot_getattr.exit154.i.i.i
 
 slot_getsomeattrs.exit.i153.i.i.i:                ; preds = %slot_getattr.exit152.us.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef 2) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 2) #12
   br label %slot_getattr.exit154.i.i.i
 
 slot_getattr.exit154.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i153.i.i.i, %slot_getattr.exit152.us.i.i.i
@@ -1662,7 +1662,7 @@ slot_getattr.exit154.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %431, label %slot_getsomeattrs.exit.i155.i.i.i, label %slot_getattr.exit156.i.i.i
 
 slot_getsomeattrs.exit.i155.i.i.i:                ; preds = %slot_getattr.exit154.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef 3) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 3) #12
   br label %slot_getattr.exit156.i.i.i
 
 slot_getattr.exit156.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i155.i.i.i, %slot_getattr.exit154.i.i.i
@@ -1678,7 +1678,7 @@ slot_getattr.exit156.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %439, label %slot_getsomeattrs.exit.i157.i.i.i, label %slot_getattr.exit158.i.i.i
 
 slot_getsomeattrs.exit.i157.i.i.i:                ; preds = %slot_getattr.exit156.i.i.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef 4) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %399, i32 noundef range(i32 1, 5) 4) #12
   br label %slot_getattr.exit158.i.i.i
 
 slot_getattr.exit158.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i157.i.i.i, %slot_getattr.exit156.i.i.i
@@ -1851,7 +1851,7 @@ walrcv_clear_result.exit163.i.i.i:                ; preds = %467, %465
   br i1 %519, label %slot_getsomeattrs.exit.i164.i.i.i, label %slot_getattr.exit165.i.i.i
 
 slot_getsomeattrs.exit.i164.i.i.i:                ; preds = %517
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %509, i32 noundef 1) #12
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %509, i32 noundef range(i32 1, 5) 1) #12
   br label %slot_getattr.exit165.i.i.i
 
 slot_getattr.exit165.i.i.i:                       ; preds = %slot_getsomeattrs.exit.i164.i.i.i, %517

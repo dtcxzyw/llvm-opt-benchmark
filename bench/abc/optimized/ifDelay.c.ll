@@ -1699,7 +1699,7 @@ If_LogCreateAndXor.exit196:                       ; preds = %.Vec_IntGrow.exit10
   store i32 %400, ptr %389, align 4
   %401 = load i32, ptr %394, align 4
   %402 = load i32, ptr %395, align 4
-  %403 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef %3, i32 noundef %401, i32 noundef %402, i32 noundef %5)
+  %403 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef nonnull %3, i32 noundef %401, i32 noundef %402, i32 noundef %5)
   store i32 %403, ptr %395, align 4
   %404 = add nsw i32 %.181.i144, -1
   %405 = icmp slt i32 %.07180.i145, %404
@@ -1761,7 +1761,7 @@ If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.p
   %425 = load i32, ptr %424, align 4
   %gep.i165 = getelementptr i32, ptr %invariant.gep.i160, i64 %indvars.iv.i163
   %426 = load i32, ptr %gep.i165, align 4
-  %427 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef %3, i32 noundef %425, i32 noundef %426, i32 noundef %5)
+  %427 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef nonnull %3, i32 noundef %425, i32 noundef %426, i32 noundef %5)
   store i32 %427, ptr %gep.i165, align 4
   %428 = icmp ugt i64 %indvars.iv.i163, 2
   br i1 %428, label %.lr.ph.i162, label %If_LogCreateAndXorMulti.exit166, !llvm.loop !21

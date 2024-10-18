@@ -363,7 +363,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 
   %37 = sext i16 %23 to i32
   %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %37) #14
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef range(i32 -32768, 32768) %37) #14
   tail call void @errfinish(ptr noundef nonnull @.str.22, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 

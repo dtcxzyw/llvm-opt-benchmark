@@ -80,7 +80,7 @@ define dso_local void @_ZN4llvm25PGOForceFunctionAttrsPass3runERNS_6ModuleERNS_1
   %29 = icmp eq ptr %.sroa.016.025, null
   %30 = getelementptr inbounds i8, ptr %.sroa.016.025, i64 -56
   %31 = select i1 %29, ptr null, ptr %30
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %31) #3
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %31) #3
   br i1 %32, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %33
 
 33:                                               ; preds = %28
@@ -111,7 +111,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.i:          ; preds = %35
 _ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit: ; preds = %42
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull @_ZN4llvm22BlockFrequencyAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %31) #3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_8FunctionENS_18BlockFrequencyInfoEEEbPKT_RT0_(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(8) %45)
+  %46 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_8FunctionENS_18BlockFrequencyInfoEEEbPKT_RT0_(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(136) %31, ptr noundef nonnull align 8 dereferenceable(8) %45)
   br i1 %46, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread20, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
 
 _ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread20: ; preds = %40, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit
@@ -318,7 +318,7 @@ _ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPK
   %46 = icmp eq ptr %.sroa.011.024, null
   %47 = getelementptr inbounds i8, ptr %.sroa.011.024, i64 -24
   %48 = select i1 %46, ptr null, ptr %47
-  %49 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %48, i1 noundef zeroext false) #3
+  %49 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i1 noundef zeroext false) #3
   %50 = extractvalue { i64, i8 } %49, 1
   %51 = trunc i8 %50 to i1
   br i1 %51, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread

@@ -1525,7 +1525,7 @@ ecp_comb_recode_scalar.exit.i.i:                  ; preds = %.lr.ph.i.i.i.i, %21
 mpi_init_many.exit.i.i.i:                         ; preds = %247
   %250 = getelementptr inbounds i8, ptr %12, i64 %115
   %251 = load i8, ptr %250, align 1
-  %252 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef %1, ptr noundef %.08.i, i8 noundef zeroext %111, i8 noundef zeroext %251)
+  %252 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.08.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %251)
   %.not.i31.i.i = icmp eq i32 %252, 0
   br i1 %.not.i31.i.i, label %253, label %.loopexit.i.i.i
 
@@ -1557,7 +1557,7 @@ mpi_init_many.exit.i.i.i:                         ; preds = %247
 260:                                              ; preds = %.preheader.i.i.i
   %261 = getelementptr inbounds i8, ptr %12, i64 %258
   %262 = load i8, ptr %261, align 1
-  %263 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %.08.i, i8 noundef zeroext %111, i8 noundef zeroext %262)
+  %263 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %.08.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %262)
   %.not39.i.i.i = icmp eq i32 %263, 0
   br i1 %.not39.i.i.i, label %264, label %.loopexit.i.i.i
 

@@ -1284,7 +1284,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit, label %7
 
 7:                                                ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
@@ -1577,7 +1577,7 @@ _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit61: ; preds = %.thread, %94
   %.pn65 = phi { ptr, i32 } [ %93, %.thread ], [ %95, %94 ]
-  call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %67)
+  call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %67)
   resume { ptr, i32 } %.pn65
 
 96:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit, %41, %11
@@ -9507,7 +9507,7 @@ define hidden void @_ZN5osgeo4proj11NTv2GridSetD2Ev(ptr noundef nonnull align 8 
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
   br label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %4
@@ -10135,7 +10135,7 @@ _ZNKSt14default_deleteIN5osgeo4proj8NTv2GridEEclEPS2_.exit.i110: ; preds = %209
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %218
-  call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull %232)
+  call void @_ZNKSt14default_deleteIN5osgeo4proj14FloatLineCacheEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %232)
   br label %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEaSEOS5_.exit, %218
@@ -17083,7 +17083,7 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31: ; preds = %_ZN5
   %154 = getelementptr inbounds i8, ptr %.0.i2434, i64 64
   %155 = load double, ptr %154, align 8
   %156 = fsub double %3, %155
-  %157 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.040.0.i, double %156, ptr noundef %.0.i2434, i1 noundef zeroext true)
+  %157 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.040.0.i, double %156, ptr noundef nonnull %.0.i2434, i1 noundef zeroext true)
   %158 = extractvalue { double, double } %157, 0
   %159 = extractvalue { double, double } %157, 1
   %160 = load ptr, ptr %.0.i2434, align 8
@@ -20610,7 +20610,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #30
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #32
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
@@ -20818,7 +20818,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #30
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #32
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
@@ -20840,7 +20840,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #30
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #32
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
@@ -20862,7 +20862,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #30
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #32
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
@@ -22909,7 +22909,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -22994,7 +22994,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #30
   tail call void @_ZdlPv(ptr noundef nonnull %7) #32
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj10GTiffVGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -23329,7 +23329,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #30
   tail call void @_ZdlPv(ptr noundef nonnull %3) #32
   br label %6
 
@@ -23437,7 +23437,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -23522,7 +23522,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #30
   tail call void @_ZdlPv(ptr noundef nonnull %7) #32
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj8NTv2GridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -23857,7 +23857,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #30
   tail call void @_ZdlPv(ptr noundef nonnull %3) #32
   br label %6
 
@@ -24030,7 +24030,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -24115,7 +24115,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #30
   tail call void @_ZdlPv(ptr noundef nonnull %7) #32
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj10GTiffHGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -24450,7 +24450,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #30
   tail call void @_ZdlPv(ptr noundef nonnull %3) #32
   br label %6
 
@@ -24715,7 +24715,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -24800,7 +24800,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #30
   tail call void @_ZdlPv(ptr noundef nonnull %7) #32
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj16GTiffGenericGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -25135,7 +25135,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #30
   tail call void @_ZdlPv(ptr noundef nonnull %3) #32
   br label %6
 

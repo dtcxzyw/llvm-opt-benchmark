@@ -604,7 +604,7 @@ land.rhs.us:                                      ; preds = %land.rhs.us.prehead
   %spec.select.i.us33 = phi i32 [ %spec.select.i.us32, %grow_slab_list.exit.us ], [ %.promoted31, %land.rhs.us.preheader ]
   %inc.us30 = phi i32 [ %inc.us, %grow_slab_list.exit.us ], [ %.promoted29, %land.rhs.us.preheader ]
   %add12.i1018.us = phi i64 [ %add12.i.us, %grow_slab_list.exit.us ], [ %mem_malloced.promoted, %land.rhs.us.preheader ]
-  %call.i.us = tail call noalias ptr @malloc(i64 noundef %conv) #25
+  %call.i.us = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %conv) #25
   %add12.i.us = add i64 %add12.i1018.us, %conv
   %cmp1.not.us = icmp eq ptr %call.i.us, null
   br i1 %cmp1.not.us, label %while.end.sink.split, label %while.body.us
@@ -2427,7 +2427,7 @@ land.lhs.true17:                                  ; preds = %lor.lhs.false13, %g
   br i1 %cmp.i16, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %land.lhs.true17
-  %call.i20 = tail call noalias ptr @malloc(i64 noundef %conv18) #25
+  %call.i20 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %conv18) #25
   br label %memory_allocate.exit
 
 if.else.i:                                        ; preds = %land.lhs.true17

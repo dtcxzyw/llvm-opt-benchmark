@@ -344,16 +344,16 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
   %143 = getelementptr inbounds i8, ptr %133, i64 48
   %144 = sext i32 %141 to i64
   %145 = load ptr, ptr %143, align 8
-  %146 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 73, ptr noundef %145, i64 noundef %144, i64 noundef 32)
+  %146 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 73, ptr noundef %145, i64 noundef range(i64 -2147483648, 2147483648) %144, i64 noundef 32)
   store ptr %146, ptr %143, align 8
   %147 = getelementptr inbounds i8, ptr %133, i64 8
   %148 = sext i32 %139 to i64
   %149 = load ptr, ptr %147, align 8
-  %150 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 74, ptr noundef %149, i64 noundef %148, i64 noundef 36)
+  %150 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 74, ptr noundef %149, i64 noundef range(i64 -2147483648, 2147483648) %148, i64 noundef 36)
   store ptr %150, ptr %147, align 8
   %151 = getelementptr inbounds i8, ptr %133, i64 16
   %152 = load ptr, ptr %151, align 8
-  %153 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 75, ptr noundef %152, i64 noundef %148, i64 noundef 8)
+  %153 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 75, ptr noundef %152, i64 noundef range(i64 -2147483648, 2147483648) %148, i64 noundef 8)
   store ptr %153, ptr %151, align 8
   %154 = getelementptr inbounds i8, ptr %135, i64 66
   %155 = load i8, ptr %154, align 2
@@ -387,7 +387,7 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
 176:                                              ; preds = %132
   %177 = getelementptr inbounds i8, ptr %133, i64 24
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 85, ptr noundef %178, i64 noundef %148, i64 noundef 8)
+  %179 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 85, ptr noundef %178, i64 noundef range(i64 -2147483648, 2147483648) %148, i64 noundef 8)
   store ptr %179, ptr %177, align 8
   br label %180
 
@@ -399,7 +399,7 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
 183:                                              ; preds = %180
   %184 = getelementptr inbounds i8, ptr %133, i64 32
   %185 = load ptr, ptr %184, align 8
-  %186 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef %185, i64 noundef %148, i64 noundef 8)
+  %186 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef %185, i64 noundef range(i64 -2147483648, 2147483648) %148, i64 noundef 8)
   store ptr %186, ptr %184, align 8
   br label %187
 
@@ -411,7 +411,7 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
 190:                                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %133, i64 56
   %192 = load ptr, ptr %191, align 8
-  %193 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef %192, i64 noundef %148, i64 noundef 52)
+  %193 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef %192, i64 noundef range(i64 -2147483648, 2147483648) %148, i64 noundef 52)
   store ptr %193, ptr %191, align 8
   br label %194
 

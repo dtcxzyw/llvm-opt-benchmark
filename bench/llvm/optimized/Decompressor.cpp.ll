@@ -43,7 +43,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %7
 14:                                               ; preds = %7
   %15 = and i8 %12, -2
   store i8 %15, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %16
 
 16:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %14

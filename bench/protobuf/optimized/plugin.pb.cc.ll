@@ -802,7 +802,7 @@ if.then.i.i:                                      ; preds = %if.end6.i
   br label %_ZN6google8protobuf8compiler7Version5ClearEv.exit
 
 _ZN6google8protobuf8compiler7Version5ClearEv.exit: ; preds = %if.end6.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf8compiler7Version9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf8compiler7Version9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf8compiler7Version5ClearEv.exit
@@ -963,11 +963,11 @@ invoke.cont:
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %proto_file_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %proto_file_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proto_file_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i6.i, align 8
   %source_file_descriptors_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source_file_descriptors_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %source_file_descriptors_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i7.i, align 8
   %parameter_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %parameter_.i.i, align 8
@@ -1019,7 +1019,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 .noexc22:                                         ; preds = %if.end.i.i.i, %invoke.cont3
   %proto_file_.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %proto_file_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proto_file_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i15, align 8
   %current_size_.i.i.i.i.i16 = getelementptr inbounds i8, ptr %from, i64 56
   %7 = load i32, ptr %current_size_.i.i.i.i.i16, align 8
@@ -1034,7 +1034,7 @@ if.end.i.i.i18:                                   ; preds = %.noexc22
 invoke.cont.i:                                    ; preds = %.noexc22, %if.end.i.i.i18
   %source_file_descriptors_.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source_file_descriptors_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %source_file_descriptors_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i20, align 8
   %current_size_.i.i.i.i.i21 = getelementptr inbounds i8, ptr %from, i64 80
   %8 = load i32, ptr %current_size_.i.i.i.i.i21, align 8
@@ -1306,7 +1306,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_8compiler7VersionEEEPvPS1_PKv.exit:
   br label %if.end24
 
 if.else:                                          ; preds = %if.then15
-  tail call void @_ZN6google8protobuf8compiler7Version9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  tail call void @_ZN6google8protobuf8compiler7Version9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %19)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end, %if.else, %_ZN6google8protobuf5Arena13CopyConstructINS0_8compiler7VersionEEEPvPS1_PKv.exit, %_ZN6google8protobuf16RepeatedPtrFieldINS0_19FileDescriptorProtoEE9MergeFromERKS3_.exit30
@@ -1924,7 +1924,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf8compiler20CodeGeneratorRequest5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  tail call void @_ZN6google8protobuf8compiler20CodeGeneratorRequest9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf8compiler20CodeGeneratorRequest9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2011,13 +2011,13 @@ entry:
   store i32 %4, ptr %3, align 4
   %file_to_generate_ = getelementptr inbounds i8, ptr %this, i64 24
   %file_to_generate_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %file_to_generate_, ptr noundef nonnull %file_to_generate_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %file_to_generate_, ptr noundef nonnull %file_to_generate_7)
   %proto_file_ = getelementptr inbounds i8, ptr %this, i64 48
   %proto_file_8 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %proto_file_, ptr noundef nonnull %proto_file_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %proto_file_, ptr noundef nonnull %proto_file_8)
   %source_file_descriptors_ = getelementptr inbounds i8, ptr %this, i64 72
   %source_file_descriptors_9 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %source_file_descriptors_, ptr noundef nonnull %source_file_descriptors_9)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %source_file_descriptors_, ptr noundef nonnull %source_file_descriptors_9)
   %parameter_ = getelementptr inbounds i8, ptr %this, i64 96
   %parameter_10 = getelementptr inbounds i8, ptr %other, i64 96
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %parameter_10, align 8
@@ -2415,7 +2415,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_17GeneratedCodeInfoEEEPvPS1_PKv.exi
   br label %if.end28
 
 if.else:                                          ; preds = %if.then19
-  tail call void @_ZN6google8protobuf17GeneratedCodeInfo9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+  tail call void @_ZN6google8protobuf17GeneratedCodeInfo9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %33)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end16, %if.else, %_ZN6google8protobuf5Arena13CopyConstructINS0_17GeneratedCodeInfoEEEPvPS1_PKv.exit, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
@@ -2813,7 +2813,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf8compiler26CodeGeneratorResponse_File5ClearEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  tail call void @_ZN6google8protobuf8compiler26CodeGeneratorResponse_File9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf8compiler26CodeGeneratorResponse_File9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -3668,7 +3668,7 @@ if.then.i.i:                                      ; preds = %if.end6.i
   br label %_ZN6google8protobuf8compiler21CodeGeneratorResponse5ClearEv.exit
 
 _ZN6google8protobuf8compiler21CodeGeneratorResponse5ClearEv.exit: ; preds = %if.end6.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf8compiler21CodeGeneratorResponse9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf8compiler21CodeGeneratorResponse9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf8compiler21CodeGeneratorResponse5ClearEv.exit
@@ -3698,7 +3698,7 @@ entry:
   store i32 %4, ptr %3, align 4
   %file_ = getelementptr inbounds i8, ptr %this, i64 24
   %file_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %file_, ptr noundef nonnull %file_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %file_, ptr noundef nonnull %file_7)
   %error_ = getelementptr inbounds i8, ptr %this, i64 48
   %error_8 = getelementptr inbounds i8, ptr %other, i64 48
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %error_8, align 8

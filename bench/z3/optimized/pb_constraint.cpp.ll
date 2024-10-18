@@ -187,7 +187,7 @@ if.end.i.i.i:                                     ; preds = %entry
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %if.end.i.i.i, %entry
   %retval.0.i.i.i = phi i64 [ %4, %if.end.i.i.i ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr inbounds %"class.sat::watched", ptr %2, i64 %retval.0.i.i.i
-  %call.i.i.i = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef %add.ptr.i.i, ptr nonnull %w)
+  %call.i.i.i = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef %add.ptr.i.i, ptr nonnull align 8 dereferenceable(12) %w)
   %5 = load ptr, ptr %call7, align 8
   %cmp.i.i2.i = icmp eq ptr %5, null
   br i1 %cmp.i.i2.i, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.i, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.thread.i
@@ -334,7 +334,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i.i:   ; preds = %if.end.i.i.i.i, %if.then
   %retval.0.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i ], [ 0, %if.then ]
   %add.ptr.i.i.i = getelementptr inbounds %"class.sat::watched", ptr %3, i64 %retval.0.i.i.i.i
-  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %3, ptr noundef %add.ptr.i.i.i, ptr nonnull %w.i)
+  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %3, ptr noundef %add.ptr.i.i.i, ptr nonnull align 8 dereferenceable(12) %w.i)
   %6 = load ptr, ptr %call7.i, align 8
   %cmp.i.i2.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i2.i.i, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.i.i, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.thread.i.i
@@ -403,7 +403,7 @@ if.end.i.i.i.i14:                                 ; preds = %_ZN2pb10constraint1
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i.i16: ; preds = %if.end.i.i.i.i14, %_ZN2pb10constraint15unwatch_literalERNS_16solver_interfaceEN3sat7literalE.exit
   %retval.0.i.i.i.i17 = phi i64 [ %14, %if.end.i.i.i.i14 ], [ 0, %_ZN2pb10constraint15unwatch_literalERNS_16solver_interfaceEN3sat7literalE.exit ]
   %add.ptr.i.i.i18 = getelementptr inbounds %"class.sat::watched", ptr %12, i64 %retval.0.i.i.i.i17
-  %call.i.i.i.i19 = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %12, ptr noundef %add.ptr.i.i.i18, ptr nonnull %w.i6)
+  %call.i.i.i.i19 = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %12, ptr noundef %add.ptr.i.i.i18, ptr nonnull align 8 dereferenceable(12) %w.i6)
   %15 = load ptr, ptr %call7.i12, align 8
   %cmp.i.i2.i.i20 = icmp eq ptr %15, null
   br i1 %cmp.i.i2.i.i20, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.i.i41, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.thread.i.i21
@@ -885,7 +885,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

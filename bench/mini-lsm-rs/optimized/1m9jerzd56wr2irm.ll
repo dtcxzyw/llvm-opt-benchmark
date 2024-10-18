@@ -49,8 +49,8 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$$LP$u64$C$mini_lsm_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4e8bbb0702ed2623E.llvm.11246187030462519964(ptr noalias noundef nonnull align 8 dereferenceable(32) %6), !noalias !19
-  tail call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17he91d0d934ae0975fE.llvm.11246187030462519964(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 4, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4e8bbb0702ed2623E.llvm.11246187030462519964(ptr noalias noundef nonnull align 8 dereferenceable(64) %6), !noalias !19
+  tail call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17he91d0d934ae0975fE.llvm.11246187030462519964(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 4, i64 noundef 16)
   br label %"_ZN4core3ptr58drop_in_place$LT$mini_lsm_mvcc..mvcc..CommittedTxnData$GT$17hfd1c1122fb69a84dE.exit"
 
 "_ZN4core3ptr58drop_in_place$LT$mini_lsm_mvcc..mvcc..CommittedTxnData$GT$17hfd1c1122fb69a84dE.exit": ; preds = %1, %5
@@ -613,7 +613,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %74, ptr nonnull readonly align 8 %75, i64 %76, i1 false), !alias.scope !59, !noalias !58
   %77 = getelementptr inbounds { [8 x i64] }, ptr %17, i64 %59
   %78 = shl nuw nsw i64 %53, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull readonly align 8 %77, i64 %78, i1 false), !alias.scope !63, !noalias !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(808) %45, ptr nonnull readonly align 8 %77, i64 %78, i1 false), !alias.scope !63, !noalias !58
   %79 = trunc nuw nsw i64 %.0.i to i16
   store i16 %79, ptr %18, align 2, !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !34
@@ -1028,7 +1028,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %236, ptr nonnull readonly align 8 %237, i64 %238, i1 false), !alias.scope !134, !noalias !133
   %239 = getelementptr inbounds { [8 x i64] }, ptr %149, i64 %222
   %240 = shl nuw nsw i64 %216, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %208, ptr nonnull readonly align 8 %239, i64 %240, i1 false), !alias.scope !138, !noalias !133
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(808) %208, ptr nonnull readonly align 8 %239, i64 %240, i1 false), !alias.scope !138, !noalias !133
   %241 = trunc nuw nsw i64 %.0.i35 to i16
   store i16 %241, ptr %161, align 2, !noalias !132
   store i64 %220, ptr %9, align 8, !alias.scope !127, !noalias !142
@@ -1045,7 +1045,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %249, label %250, label %251
 
 250:                                              ; preds = %235
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %248, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f89037b9c2c4d3567c94f2c85a021c.24) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 1, 65537) %248, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f89037b9c2c4d3567c94f2c85a021c.24) #23
           to label %.noexc.i.i38 unwind label %233, !noalias !123
 
 .noexc.i.i38:                                     ; preds = %250
@@ -1597,7 +1597,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h11299f5dccbbd5daE.exit.i.i: ; 
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %167
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %180, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f89037b9c2c4d3567c94f2c85a021c.24) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 1, 65537) %180, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f89037b9c2c4d3567c94f2c85a021c.24) #23
           to label %.noexc10.i.i unwind label %165, !noalias !233
 
 .noexc10.i.i:                                     ; preds = %182

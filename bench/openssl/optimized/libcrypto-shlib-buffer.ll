@@ -131,7 +131,7 @@ if.end14:                                         ; preds = %if.end11
   br i1 %tobool.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end14
-  %call.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 60) #5
+  %call.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef range(i64 4, 2147483645) %mul, ptr noundef nonnull @.str, i32 noundef 60) #5
   %data.i = getelementptr inbounds i8, ptr %str, i64 8
   %6 = load ptr, ptr %data.i, align 8
   %cmp.i = icmp ne ptr %6, null
@@ -245,7 +245,7 @@ if.end18:                                         ; preds = %if.end15
   br i1 %tobool.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %if.end18
-  %call.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 60) #5
+  %call.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef range(i64 4, 2147483645) %mul, ptr noundef nonnull @.str, i32 noundef 60) #5
   %data.i = getelementptr inbounds i8, ptr %str, i64 8
   %7 = load ptr, ptr %data.i, align 8
   %cmp.i = icmp ne ptr %7, null

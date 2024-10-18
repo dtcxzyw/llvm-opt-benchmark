@@ -107,7 +107,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm24createX86WinCOFFStreamerERNS_9MC
   store i64 %9, ptr %5, align 8
   store i64 %10, ptr %6, align 8
   store i64 %11, ptr %7, align 8
-  call void @_ZN4llvm17MCWinCOFFStreamerC2ERNS_9MCContextESt10unique_ptrINS_12MCAsmBackendESt14default_deleteIS4_EES3_INS_13MCCodeEmitterES5_IS8_EES3_INS_14MCObjectWriterES5_ISB_EE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr noundef nonnull align 1 %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  call void @_ZN4llvm17MCWinCOFFStreamerC2ERNS_9MCContextESt10unique_ptrINS_12MCAsmBackendESt14default_deleteIS4_EES3_INS_13MCCodeEmitterES5_IS8_EES3_INS_14MCObjectWriterES5_ISB_EE(ptr noundef nonnull align 8 dereferenceable(440) %8, ptr noundef nonnull align 1 %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %12 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm14MCObjectWriterEEclEPS1_.exit.i.i
@@ -202,7 +202,7 @@ define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD2Ev(ptr noundef nonn
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_118X86WinCOFFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN4llvm5WinEH13UnwindEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
-  tail call void @_ZN4llvm16MCObjectStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #7
+  tail call void @_ZN4llvm16MCObjectStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #7
   ret void
 }
 
@@ -211,7 +211,7 @@ define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD0Ev(ptr noundef nonn
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_118X86WinCOFFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN4llvm5WinEH13UnwindEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
-  tail call void @_ZN4llvm16MCObjectStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #7
+  tail call void @_ZN4llvm16MCObjectStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 440) #8
   ret void
 }

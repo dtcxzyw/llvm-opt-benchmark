@@ -2418,7 +2418,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   call void @glEnd()
   call void @glBegin(i32 noundef 1)
   call void @glColor3f(float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %124 = fmul float %.sroa.0.0.copyload, %68
   %125 = fmul float %.sroa.4.0.copyload, %68
   %126 = fmul float %.sroa.5.0.copyload, %68
@@ -2433,9 +2433,9 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i228, ptr %16, align 8
   %.sroa.2140.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   store float %132, ptr %.sroa.2140.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %16)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %16)
   call void @glColor3f(float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %133 = fmul float %.sroa.3.0.copyload, %68
   %134 = fmul float %.sroa.4551.0.copyload, %68
   %135 = fmul float %.sroa.5552.0.copyload, %68
@@ -2450,9 +2450,9 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i236, ptr %17, align 8
   %.sroa.2132.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store float %141, ptr %.sroa.2132.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %17)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %17)
   call void @glColor3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %142 = fmul float %.sroa.3555.0.copyload, %68
   %143 = fmul float %.sroa.4556.0.copyload, %68
   %144 = fmul float %.sroa.5557.0.copyload, %68
@@ -2467,7 +2467,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i244, ptr %18, align 8
   %.sroa.2124.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
   store float %150, ptr %.sroa.2124.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %18)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %18)
   call void @glEnd()
   %151 = load float, ptr %2, align 4
   %152 = fmul float %.sroa.3555.0.copyload, %151
@@ -2508,14 +2508,14 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   %182 = fmul float %.sroa.4551.0.copyload, %180
   %183 = fmul float %.sroa.5552.0.copyload, %180
   call void @glBegin(i32 noundef 1)
-  call void @glColor4ubv(ptr noundef nonnull %11)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %11)
   %184 = load float, ptr %12, align 8
   %185 = load float, ptr %109, align 4
   %186 = load float, ptr %.sroa.2173.0..sroa_idx, align 8
   call void @glVertex3f(float noundef %184, float noundef %185, float noundef %186)
-  call void @glVertex3fv(ptr noundef nonnull %19)
-  call void @glColor4ubv(ptr noundef nonnull %11)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %19)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %11)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %187 = load float, ptr %19, align 8
   %188 = fadd float %171, %187
   %189 = getelementptr inbounds i8, ptr %19, i64 4
@@ -2531,8 +2531,8 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i272, ptr %20, align 8
   %.sroa.296.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
   store float %196, ptr %.sroa.296.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %20)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %20)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %197 = load float, ptr %19, align 8
   %198 = fadd float %171, %197
   %199 = load float, ptr %189, align 4
@@ -2547,8 +2547,8 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i280, ptr %21, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store float %205, ptr %.sroa.288.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %21)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %21)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %206 = load float, ptr %19, align 8
   %207 = fsub float %206, %171
   %208 = load float, ptr %189, align 4
@@ -2563,8 +2563,8 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i288, ptr %22, align 8
   %.sroa.280.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
   store float %214, ptr %.sroa.280.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %22)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %215 = load float, ptr %19, align 8
   %216 = fsub float %215, %171
   %217 = load float, ptr %189, align 4
@@ -2579,7 +2579,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i296, ptr %23, align 8
   %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   store float %223, ptr %.sroa.272.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   call void @glEnd()
   call void @glBegin(i32 noundef 2)
   %224 = load float, ptr %19, align 8
@@ -2596,7 +2596,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i304, ptr %24, align 8
   %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store float %232, ptr %.sroa.264.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %24)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %24)
   %233 = load float, ptr %19, align 8
   %234 = fadd float %171, %233
   %235 = load float, ptr %189, align 4
@@ -2611,7 +2611,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i312, ptr %25, align 8
   %.sroa.256.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store float %241, ptr %.sroa.256.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %25)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %25)
   %242 = load float, ptr %19, align 8
   %243 = fsub float %242, %171
   %244 = load float, ptr %189, align 4
@@ -2626,7 +2626,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i320, ptr %26, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   store float %250, ptr %.sroa.248.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %26)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %26)
   %251 = load float, ptr %19, align 8
   %252 = fsub float %251, %171
   %253 = load float, ptr %189, align 4
@@ -2641,13 +2641,13 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i328, ptr %27, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store float %259, ptr %.sroa.240.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %27)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %27)
   call void @glEnd()
   call void @glEnable(i32 noundef 3042)
   call void @glBlendFunc(i32 noundef 770, i32 noundef 771)
   call void @glColor4f(float noundef 0x3FE99999A0000000, float noundef 0x3FE99999A0000000, float noundef 0x3FE99999A0000000, float noundef 0x3FC99999A0000000)
   call void @glBegin(i32 noundef 6)
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   %260 = load float, ptr %19, align 8
   %261 = fadd float %171, %260
   %262 = load float, ptr %189, align 4
@@ -2662,7 +2662,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i336, ptr %28, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   store float %268, ptr %.sroa.232.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %28)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %28)
   %269 = load float, ptr %19, align 8
   %270 = fadd float %171, %269
   %271 = load float, ptr %189, align 4
@@ -2677,7 +2677,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i344, ptr %29, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store float %277, ptr %.sroa.224.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %29)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %29)
   %278 = load float, ptr %19, align 8
   %279 = fsub float %278, %171
   %280 = load float, ptr %189, align 4
@@ -2692,7 +2692,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i352, ptr %30, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store float %286, ptr %.sroa.216.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %30)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %30)
   %287 = load float, ptr %19, align 8
   %288 = fsub float %287, %171
   %289 = load float, ptr %189, align 4
@@ -2707,7 +2707,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i360, ptr %31, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   store float %295, ptr %.sroa.28.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %31)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %31)
   %296 = load float, ptr %19, align 8
   %297 = fadd float %171, %296
   %298 = load float, ptr %189, align 4
@@ -2722,7 +2722,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %101
   store <2 x float> %.sroa.0.4.vec.insert.i368, ptr %32, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   store float %304, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %32)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %32)
   call void @glEnd()
   call void @glDisable(i32 noundef 3042)
   call void @glPopMatrix()
@@ -3573,7 +3573,7 @@ _ZN7QStringD2Ev.exit166:                          ; preds = %183, %_ZN9QtPrivate
   br i1 %182, label %188, label %.loopexit341
 
 188:                                              ; preds = %_ZN7QStringD2Ev.exit166
-  invoke void @glColor4ubv(ptr noundef nonnull %17)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %17)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %188
@@ -3605,7 +3605,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %188
 
 201:                                              ; preds = %198
   %202 = getelementptr inbounds i8, ptr %.sroa.0321.0351, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %202)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %202)
           to label %203 unwind label %.loopexit.split-lp.loopexit
 
 203:                                              ; preds = %201
@@ -3630,7 +3630,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %188
   %.sroa.0.4.vec.insert.i168 = insertelement <2 x float> %.sroa.0.0.vec.insert.i167, float %217, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i168, ptr %25, align 8
   store float %220, ptr %.sroa.238.0..sroa_idx, align 8
-  invoke void @glVertex3fv(ptr noundef nonnull %25)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %25)
           to label %._ZN3vcg8glVertexERKNS_6Point3IfEE.exit171_crit_edge unwind label %.loopexit.split-lp.loopexit
 
 ._ZN3vcg8glVertexERKNS_6Point3IfEE.exit171_crit_edge: ; preds = %203
@@ -3714,7 +3714,7 @@ _ZN7QStringD2Ev.exit177:                          ; preds = %238, %_ZN9QtPrivate
   br i1 %237, label %243, label %.loopexit
 
 243:                                              ; preds = %_ZN7QStringD2Ev.exit177
-  invoke void @glColor4ubv(ptr noundef nonnull %19)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %19)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit178 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit178:         ; preds = %243
@@ -3784,7 +3784,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit178:         ; preds = %243
   %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %289, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i20.i, ptr %27, align 8
   store float %290, ptr %.sroa.234.0..sroa_idx, align 8
-  invoke void @glVertex3fv(ptr noundef nonnull %27)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %27)
           to label %291 unwind label %.loopexit340
 
 291:                                              ; preds = %257
@@ -3807,7 +3807,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit178:         ; preds = %243
   %.sroa.0.4.vec.insert.i185 = insertelement <2 x float> %.sroa.0.0.vec.insert.i184, float %304, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i185, ptr %28, align 8
   store float %306, ptr %.sroa.226.0..sroa_idx, align 8
-  invoke void @glVertex3fv(ptr noundef nonnull %28)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %28)
           to label %._ZN3vcg8glVertexERKNS_6Point3IfEE.exit188_crit_edge unwind label %.loopexit340
 
 ._ZN3vcg8glVertexERKNS_6Point3IfEE.exit188_crit_edge: ; preds = %291
@@ -4710,7 +4710,7 @@ _ZN7QStringD2Ev.exit291:                          ; preds = %563, %_ZN9QtPrivate
 592:                                              ; preds = %.lr.ph
   %593 = load ptr, ptr %588, align 8
   %594 = getelementptr inbounds i8, ptr %593, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %594)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %594)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit293 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit293:        ; preds = %592
@@ -4724,7 +4724,7 @@ _ZN3vcg8glVertexERKNS_6Point3IfEE.exit293:        ; preds = %592
 599:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit293
   %600 = load ptr, ptr %595, align 8
   %601 = getelementptr inbounds i8, ptr %600, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %601)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %601)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit295 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit295:        ; preds = %599
@@ -4738,7 +4738,7 @@ _ZN3vcg8glVertexERKNS_6Point3IfEE.exit295:        ; preds = %599
 606:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit295
   %607 = load ptr, ptr %602, align 8
   %608 = getelementptr inbounds i8, ptr %607, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %608)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %608)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit297 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit297:        ; preds = %606
@@ -4948,7 +4948,7 @@ define void @_ZN18DecorateBasePlugin14DrawBBoxCornerER9MeshModelb(ptr nocapture 
   tail call void @glEnable(i32 noundef 2848)
   tail call void @glLineWidth(float noundef 1.000000e+00)
   store i32 -256, ptr %5, align 4
-  call void @glColor4ubv(ptr noundef nonnull %5)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %5)
   %9 = getelementptr inbounds i8, ptr %1, i64 652
   %10 = load float, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 656
@@ -4965,13 +4965,13 @@ define void @_ZN18DecorateBasePlugin14DrawBBoxCornerER9MeshModelb(ptr nocapture 
 
 21:                                               ; preds = %3
   store i32 -16711936, ptr %7, align 4
-  call void @glColor4ubv(ptr noundef nonnull %7)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   call void @glPushMatrix()
   br label %34
 
 22:                                               ; preds = %3
   store i32 -256, ptr %6, align 4
-  call void @glColor4ubv(ptr noundef nonnull %6)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %6)
   call void @glPushMatrix()
   %23 = getelementptr inbounds i8, ptr %1, i64 1132
   call void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %8, ptr noundef nonnull align 4 dereferenceable(64) %23)
@@ -6339,7 +6339,7 @@ _ZN6GLArea23getSceneGLSharedContextEv.exit148:    ; preds = %226, %229
 
 .invoke:                                          ; preds = %273, %272, %264
   %269 = phi ptr [ %268, %264 ], [ %28, %272 ], [ %29, %273 ]
-  invoke void @glColor4ubv(ptr noundef nonnull %269)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %269)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit unwind label %.loopexit
 
 270:                                              ; preds = %263
@@ -6367,7 +6367,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %.invoke
   %282 = sdiv exact i64 %281, 48
   %283 = load ptr, ptr %277, align 8
   %284 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %283, i64 %282
-  invoke void @glTexCoord2fv(ptr noundef nonnull %284)
+  invoke void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %284)
           to label %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit unwind label %.loopexit
 
 _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit:        ; preds = %_ZN3vcg7glColorERKNS_6Color4IhEE.exit
@@ -6382,7 +6382,7 @@ _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit:        ; preds = %_ZN3vcg7glColorERKN
   %293 = sdiv exact i64 %292, 48
   %294 = load ptr, ptr %288, align 8
   %295 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %294, i64 %293
-  invoke void @glVertex2fv(ptr noundef nonnull %295)
+  invoke void @glVertex2fv(ptr noundef nonnull align 4 dereferenceable(8) %295)
           to label %_ZN3vcg8glVertexERKNS_6Point2IfEE.exit unwind label %.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point2IfEE.exit:           ; preds = %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit
@@ -6397,7 +6397,7 @@ _ZN3vcg8glVertexERKNS_6Point2IfEE.exit:           ; preds = %_ZN3vcg10glTexCoord
   %304 = sdiv exact i64 %303, 48
   %305 = load ptr, ptr %299, align 8
   %306 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %305, i64 %304, i32 0, i64 1
-  invoke void @glTexCoord2fv(ptr noundef nonnull %306)
+  invoke void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %306)
           to label %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit157 unwind label %.loopexit
 
 _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit157:     ; preds = %_ZN3vcg8glVertexERKNS_6Point2IfEE.exit
@@ -6412,7 +6412,7 @@ _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit157:     ; preds = %_ZN3vcg8glVertexERK
   %315 = sdiv exact i64 %314, 48
   %316 = load ptr, ptr %310, align 8
   %317 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %316, i64 %315, i32 0, i64 1
-  invoke void @glVertex2fv(ptr noundef nonnull %317)
+  invoke void @glVertex2fv(ptr noundef nonnull align 4 dereferenceable(8) %317)
           to label %_ZN3vcg8glVertexERKNS_6Point2IfEE.exit159 unwind label %.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point2IfEE.exit159:        ; preds = %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit157
@@ -6427,7 +6427,7 @@ _ZN3vcg8glVertexERKNS_6Point2IfEE.exit159:        ; preds = %_ZN3vcg10glTexCoord
   %326 = sdiv exact i64 %325, 48
   %327 = load ptr, ptr %321, align 8
   %328 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %327, i64 %326, i32 0, i64 2
-  invoke void @glTexCoord2fv(ptr noundef nonnull %328)
+  invoke void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %328)
           to label %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit161 unwind label %.loopexit
 
 _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit161:     ; preds = %_ZN3vcg8glVertexERKNS_6Point2IfEE.exit159
@@ -6442,7 +6442,7 @@ _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit161:     ; preds = %_ZN3vcg8glVertexERK
   %337 = sdiv exact i64 %336, 48
   %338 = load ptr, ptr %332, align 8
   %339 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %338, i64 %337, i32 0, i64 2
-  invoke void @glVertex2fv(ptr noundef nonnull %339)
+  invoke void @glVertex2fv(ptr noundef nonnull align 4 dereferenceable(8) %339)
           to label %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit161._ZN3vcg8glVertexERKNS_6Point2IfEE.exit163_crit_edge unwind label %.loopexit
 
 _ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit161._ZN3vcg8glVertexERKNS_6Point2IfEE.exit163_crit_edge: ; preds = %_ZN3vcg10glTexCoordERKNS_6Point2IfEE.exit161
@@ -6841,7 +6841,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_
   %.sroa.2.0.insert.insert.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i, %.sroa.0.0.insert.ext.i.i
   %.sroa.0.0.insert.insert.i.i = or disjoint i32 %.sroa.2.0.insert.insert.i.i, -16777216
   store i32 %.sroa.0.0.insert.insert.i.i, ptr %10, align 4
-  invoke void @glColor4ubv(ptr noundef nonnull %10)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %10)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit unwind label %.loopexit
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %124
@@ -6869,7 +6869,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %124
 
 150:                                              ; preds = %149
   %151 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @glColor4ubv(ptr noundef nonnull %151)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %151)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit96 unwind label %.loopexit.split-lp
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit96:          ; preds = %150
@@ -7794,7 +7794,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE13_M_dealloc
   %.012.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i ], [ %10, %33 ]
   %.0811.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %13, %33 ]
   %.0910.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %6, %33 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0811.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0910.i.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0811.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0910.i.i.i.i.i, i64 12, i1 false)
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 12
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 12
   %37 = load i32, ptr %35, align 4
@@ -7814,7 +7814,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE13_M_dealloc
   %.012.i.i.i.i.i27 = phi i64 [ %50, %.lr.ph.i.i.i.i.i26 ], [ %43, %42 ]
   %.0811.i.i.i.i.i28 = phi ptr [ %49, %.lr.ph.i.i.i.i.i26 ], [ %13, %42 ]
   %.0910.i.i.i.i.i29 = phi ptr [ %48, %.lr.ph.i.i.i.i.i26 ], [ %6, %42 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0811.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(12) %.0910.i.i.i.i.i29, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0811.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(16) %.0910.i.i.i.i.i29, i64 12, i1 false)
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 12
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 12
   %47 = load i32, ptr %45, align 4
@@ -8546,7 +8546,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE25FixPaddedPerMeshAttrib
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) %11)
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -8994,7 +8994,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIP9MeshModelP16QGLShaderProgramE7destroyEv.exit
 
 _ZN8QMapDataIP9MeshModelP16QGLShaderProgramE7destroyEv.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIP9MeshModelP16QGLShaderProgramE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -9403,7 +9403,7 @@ _ZN3vcg7glLabel4ModeC2ER5QFontNS_6Color4IhEEfb.exit: ; preds = %51
   store double %109, ptr %13, align 8, !alias.scope !161
   store double %111, ptr %101, align 8, !alias.scope !161
   store double %113, ptr %102, align 8, !alias.scope !161
-  invoke void @glVertex3dv(ptr noundef nonnull %13)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit:           ; preds = %103
@@ -9574,7 +9574,7 @@ _ZN7QStringD2Ev.exit116:                          ; preds = %_ZN7QStringD2Ev.exi
   store double %161, ptr %17, align 8, !alias.scope !169
   store double %163, ptr %153, align 8, !alias.scope !169
   store double %165, ptr %154, align 8, !alias.scope !169
-  invoke void @glVertex3dv(ptr noundef nonnull %17)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit117 unwind label %.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit117:        ; preds = %155
@@ -9596,11 +9596,11 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit117:        ; preds = %155
           to label %170 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 170:                                              ; preds = %169
-  invoke void @glVertex3dv(ptr noundef nonnull %1)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit118 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit118:        ; preds = %170
-  invoke void @glVertex3dv(ptr noundef nonnull %2)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit119 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit119:        ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit118
@@ -9609,7 +9609,7 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit119:        ; preds = %_ZN3vcg8glVertexERK
   br i1 %172, label %173, label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit120
 
 173:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit119
-  invoke void @glVertex3dv(ptr noundef nonnull %11)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit120:        ; preds = %173, %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit119
@@ -12631,7 +12631,7 @@ _ZN7QStringD2Ev.exit672:                          ; preds = %_ZN9QtPrivate8RefCo
           to label %834 unwind label %914
 
 834:                                              ; preds = %_ZN7QStringD2Ev.exit672
-  invoke void @_ZN3vcg9HistogramIfE8SetRangeEffif(ptr noundef nonnull align 8 dereferenceable(80) %769, float noundef %.sroa.0792.0, float noundef %.sroa.4793.0, i32 noundef %833, float noundef 1.000000e+00)
+  invoke void @_ZN3vcg9HistogramIfE8SetRangeEffif(ptr noundef nonnull align 8 dereferenceable(104) %769, float noundef %.sroa.0792.0, float noundef %.sroa.4793.0, i32 noundef %833, float noundef 1.000000e+00)
           to label %.noexc unwind label %914
 
 .noexc:                                           ; preds = %834
@@ -13085,7 +13085,7 @@ _ZN7QStringD2Ev.exit724:                          ; preds = %_ZN9QtPrivate8RefCo
           to label %1027 unwind label %1112
 
 1027:                                             ; preds = %_ZN7QStringD2Ev.exit724
-  invoke void @_ZN3vcg9HistogramIfE8SetRangeEffif(ptr noundef nonnull align 8 dereferenceable(80) %946, float noundef %.sroa.0776.0, float noundef %.sroa.4.0, i32 noundef %1026, float noundef 1.000000e+00)
+  invoke void @_ZN3vcg9HistogramIfE8SetRangeEffif(ptr noundef nonnull align 8 dereferenceable(104) %946, float noundef %.sroa.0776.0, float noundef %.sroa.4.0, i32 noundef %1026, float noundef 1.000000e+00)
           to label %.noexc727 unwind label %1112
 
 .noexc727:                                        ; preds = %1027

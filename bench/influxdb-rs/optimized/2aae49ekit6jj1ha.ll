@@ -34,7 +34,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h
   br i1 %15, label %.body.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i.i.i.i": ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef %11, i64 noundef %13) #5, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef %11, i64 noundef range(i64 0, -9223372036854775807) %13) #5, !noalias !5
   br label %.body.i.i
 
 16:                                               ; preds = %5
@@ -48,11 +48,11 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h
   br i1 %22, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17habb321eadec270c3E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i4.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i4.i.i.i.i": ; preds = %16
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef %18, i64 noundef %20) #5, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef %18, i64 noundef range(i64 0, -9223372036854775807) %20) #5, !noalias !5
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17habb321eadec270c3E.exit.i.i"
 
 .body.i.i:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i.i.i.i", %8
-  tail call fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h440b75bba5ddddbaE"(ptr noalias noundef readonly align 8 dereferenceable(88) %.val) #6
+  tail call fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h440b75bba5ddddbaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.val) #6
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 112, i64 noundef 8) #5
   resume { ptr, i32 } %9
 
@@ -71,7 +71,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4.i.i.i.i.i.i": ; preds = %25
   %28 = getelementptr inbounds i8, ptr %.val, i64 16
   %.val.i.i.i = load ptr, ptr %28, align 8, !alias.scope !14, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i, i64 noundef %.val1.i.i.i, i64 noundef 1) #5, !noalias !18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i, i64 noundef %.val1.i.i.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !18
   br label %"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$reqwest..error..Inner$GT$$GT$17hfb59b3eaccdeec85E.exit"
 
 "_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$reqwest..error..Inner$GT$$GT$17hfb59b3eaccdeec85E.exit": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17habb321eadec270c3E.exit.i.i", %25, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4.i.i.i.i.i.i"
@@ -88,7 +88,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4": ; preds = %1
   %.val2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef %.val3, i64 noundef 1) #5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef %.val3, i64 noundef range(i64 0, -9223372036854775807) 1) #5
   br label %"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17hb228de8be0cf773bE.exit5"
 
 "_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17hb228de8be0cf773bE.exit5": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4"
@@ -105,7 +105,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$alloc..string..FromUtf8Error
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4.i": ; preds = %1
   %.val2.i = load ptr, ptr %0, align 8, !alias.scope !21, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i, i64 noundef %.val3.i, i64 noundef 1) #5, !noalias !21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i, i64 noundef %.val3.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !21
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfff11426d467fcacE.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfff11426d467fcacE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4.i"
@@ -130,7 +130,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Optio
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.exit.i.i4.i.i.i": ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.val1, i64 noundef 1) #5, !noalias !27
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.val1, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !27
   br label %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hd59f9bfa4435dff1E.exit"
 }
 

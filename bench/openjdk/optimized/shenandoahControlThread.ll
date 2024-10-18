@@ -154,7 +154,7 @@ $_ZTV17LogStreamImplBase = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahControlThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
+  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 982
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %2) #10, !srcloc !6
@@ -459,7 +459,7 @@ default.unreachable:                              ; preds = %95
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %123, i64 8
   %131 = load i64, ptr %130, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %9, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %9, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %35) #10
   store i32 3, ptr %36, align 8
@@ -686,7 +686,7 @@ define hidden void @_ZN23ShenandoahControlThread31service_concurrent_normal_cycl
   br i1 %10, label %11, label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit
 
 11:                                               ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
+  %12 = tail call noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1868) %0) #10
   br i1 %12, label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit.thread, label %13
 
 13:                                               ; preds = %11
@@ -732,7 +732,7 @@ _ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20Shena
   br i1 %36, label %37, label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit6
 
 37:                                               ; preds = %31
-  %38 = call noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
+  %38 = call noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1868) %0) #10
   br i1 %38, label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit6, label %39
 
 39:                                               ; preds = %37
@@ -956,7 +956,7 @@ define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD2Ev(ptr noundef no
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 1520
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #10
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   ret void
 }
 
@@ -967,7 +967,7 @@ define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD0Ev(ptr noundef no
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 1520
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #10
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) #10
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -1195,7 +1195,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahControllerD2Ev(ptr noundef nonnu
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 1520
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #10
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
   ret void
 }
 

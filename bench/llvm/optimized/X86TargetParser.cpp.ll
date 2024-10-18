@@ -467,7 +467,7 @@ define dso_local noundef i32 @_ZN4llvm3X8612parseTuneCPUENS_9StringRefEb(ptr %0,
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %5, align 8
-  %6 = call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZL10NoTuneList, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24), ptr nonnull %4)
+  %6 = call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZL10NoTuneList, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24), ptr nonnull align 8 dereferenceable(16) %4)
   %.not = icmp eq ptr %6, getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24)
   br i1 %.not, label %7, label %_ZN4llvm3X8612parseArchX86ENS_9StringRefEb.exit
 
@@ -689,7 +689,7 @@ define dso_local void @_ZN4llvm3X8620fillValidTuneCPUListERNS_15SmallVectorImplI
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZL10NoTuneList, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24), ptr nonnull %.0.ptr14.us)
+  %11 = tail call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZL10NoTuneList, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24), ptr nonnull align 8 dereferenceable(16) %.0.ptr14.us)
   %.not12.us = icmp eq ptr %11, getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24)
   br i1 %.not12.us, label %12, label %14
 
@@ -724,7 +724,7 @@ define dso_local void @_ZN4llvm3X8620fillValidTuneCPUListERNS_15SmallVectorImplI
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZL10NoTuneList, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24), ptr nonnull %.0.ptr14)
+  %28 = tail call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZL10NoTuneList, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24), ptr nonnull align 8 dereferenceable(16) %.0.ptr14)
   %.not12 = icmp eq ptr %28, getelementptr inbounds (i8, ptr @_ZL10NoTuneList, i64 24)
   br i1 %.not12, label %29, label %31
 
@@ -1158,7 +1158,7 @@ _ZN4llvm6BitsetILj123EEoRERKS1_.exit12.i:         ; preds = %59, %49
   br i1 %.not.i, label %65, label %49, !llvm.loop !10
 
 65:                                               ; preds = %_ZN4llvm6BitsetILj123EEoRERKS1_.exit12.i
-  %bcmp.i.i.i.i.i.i.i17 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) %8, i64 16)
+  %bcmp.i.i.i.i.i.i.i17 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16)
   %.not7.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i17, 0
   br i1 %.not7.i.i.i.i.i.i.not.i, label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj123EEERKS1_.exit, label %_ZN4llvm6BitsetILj123EEoRERKS1_.exit.i, !llvm.loop !11
 
@@ -1231,7 +1231,7 @@ _ZNK4llvm6BitsetILj123EEanERKS1_.exit.i:          ; preds = %80
   br i1 %.not.i22, label %96, label %78, !llvm.loop !12
 
 96:                                               ; preds = %95
-  %bcmp.i.i.i.i.i.i.i23 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %8, i64 16)
+  %bcmp.i.i.i.i.i.i.i23 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16)
   %.not7.i.i.i.i.i.i.not.i24 = icmp eq i32 %bcmp.i.i.i.i.i.i.i23, 0
   br i1 %.not7.i.i.i.i.i.i.not.i24, label %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj123EEEj.exit, label %77, !llvm.loop !13
 

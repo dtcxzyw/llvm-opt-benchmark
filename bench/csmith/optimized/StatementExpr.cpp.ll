@@ -216,7 +216,7 @@ _ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %45, %47
           to label %57 unwind label %61
 
 57:                                               ; preds = %55
-  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 4, ptr noundef %56)
+  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(64) %54, i32 noundef 4, ptr noundef %56)
           to label %.noexc23 unwind label %61
 
 .noexc23:                                         ; preds = %57
@@ -228,7 +228,7 @@ _ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %45, %47
 59:                                               ; preds = %.noexc23
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #17
+  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %54) #17
   br label %.body
 
 61:                                               ; preds = %57, %55
@@ -357,7 +357,7 @@ define dso_local void @_ZN13StatementExprD0Ev(ptr noundef nonnull align 8 derefe
   store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

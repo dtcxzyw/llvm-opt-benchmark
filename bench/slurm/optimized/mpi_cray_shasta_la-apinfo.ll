@@ -1138,7 +1138,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i160, %
   br i1 %.not.us.us.i, label %437, label %435
 
 435:                                              ; preds = %431
-  %436 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, i32 noundef %434, i32 noundef %430, i32 noundef %.0109208217257268293304) #11
+  %436 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, i32 noundef %434, i32 noundef %430, i32 noundef range(i32 1, -2147483648) %.0109208217257268293304) #11
   br label %443
 
 437:                                              ; preds = %431
@@ -1180,7 +1180,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i160, %
   br i1 %.not.i172, label %457, label %455
 
 455:                                              ; preds = %451
-  %456 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, i32 noundef %454, i32 noundef %450, i32 noundef %.0109208217257268293304) #11
+  %456 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, i32 noundef %454, i32 noundef %450, i32 noundef range(i32 1, -2147483648) %.0109208217257268293304) #11
   br label %465
 
 457:                                              ; preds = %451

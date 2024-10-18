@@ -117,7 +117,7 @@ define dso_local i64 @_ZNK4llvm15IntervalMapImpl4Path14getLeftSiblingEj(ptr noca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15IntervalMapImpl4Path8moveLeftEj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7
+  %3 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
   br i1 %3, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread, label %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %2
@@ -139,7 +139,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %2
   br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !7
 
 _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread: ; preds = %2, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, -1
   %17 = icmp ult i32 %16, %1

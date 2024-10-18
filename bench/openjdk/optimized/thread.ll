@@ -162,7 +162,7 @@ define hidden void @_ZN6ThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dereferen
   %17 = getelementptr inbounds i8, ptr %0, i64 800
   store ptr %16, ptr %17, align 8
   %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext %1, i32 noundef 0) #12
-  tail call void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 noundef zeroext %1, i8 noundef zeroext 2, i64 noundef 216) #12
+  tail call void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 noundef zeroext %1, i8 noundef zeroext 2, i64 noundef 216) #12
   %19 = getelementptr inbounds i8, ptr %18, i64 48
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 808
@@ -533,7 +533,7 @@ define hidden void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(8
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %17
-  tail call void @_ZN5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #12
+  tail call void @_ZN5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #12
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %21) #12
   br label %24
 
@@ -552,7 +552,7 @@ define hidden void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(8
 
 32:                                               ; preds = %28
   store i32 0, ptr %26, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
   br label %_ZN13GrowableArrayIP8MetadataED2Ev.exit
 
 _ZN13GrowableArrayIP8MetadataED2Ev.exit:          ; preds = %28, %32
@@ -588,7 +588,7 @@ _ZN13GrowableArrayIP8MetadataED2Ev.exit:          ; preds = %28, %32
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %44, i64 8
-  %47 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %46) #12, !srcloc !6
+  %47 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %46) #12, !srcloc !6
   %48 = icmp eq i64 %47, 1
   br i1 %48, label %49, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
@@ -604,7 +604,7 @@ _ZN13GrowableArrayIP8MetadataED2Ev.exit:          ; preds = %28, %32
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i: ; preds = %52, %49
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %44, i64 noundef 16) #12
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef 16) #12
   br label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
 _ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i: ; preds = %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i, %45
@@ -677,7 +677,7 @@ define hidden noundef zeroext i1 @_ZN6Thread23is_JavaThread_protectedEPK10JavaTh
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %0) #12
+  %24 = tail call noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull %0) #12
   br i1 %24, label %_ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit, label %20, !llvm.loop !8
 
 _ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit: ; preds = %21, %20, %14, %6, %10, %1

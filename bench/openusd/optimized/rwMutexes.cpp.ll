@@ -839,7 +839,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6SpinRWEvvEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
   ret void
 }
@@ -951,7 +951,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI5BigRWEvvEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
   ret void
 }
@@ -1075,7 +1075,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI9TbbSpinRWEvvEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
   ret void
 }
@@ -1247,7 +1247,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6TbbQRWEvvEUlvE_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
   ret void
 }

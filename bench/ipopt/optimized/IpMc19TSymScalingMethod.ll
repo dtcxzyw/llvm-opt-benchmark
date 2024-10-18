@@ -105,7 +105,7 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod14InitializeImplERKNS
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %18
 
 .noexc5:                                          ; preds = %.noexc
@@ -115,7 +115,7 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod14InitializeImplERKNS
 13:                                               ; preds = %.noexc5
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -384,7 +384,7 @@ define linkonce_odr void @_ZN5Ipopt21Mc19TSymScalingMethodD0Ev(ptr noundef nonnu
   br label %_ZN5Ipopt21Mc19TSymScalingMethodD2Ev.exit
 
 _ZN5Ipopt21Mc19TSymScalingMethodD2Ev.exit:        ; preds = %1, %4, %12
-  tail call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #14
+  tail call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

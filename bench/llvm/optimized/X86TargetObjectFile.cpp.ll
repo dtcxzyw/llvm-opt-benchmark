@@ -145,7 +145,7 @@ define linkonce_odr hidden void @_ZN4llvm22X86ELFTargetObjectFileD2Ev(ptr nounde
   br label %_ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit
 
 _ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit:   ; preds = %1, %7
-  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) #5
+  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) #5
   ret void
 }
 
@@ -164,7 +164,7 @@ define linkonce_odr hidden void @_ZN4llvm22X86ELFTargetObjectFileD0Ev(ptr nounde
   br label %_ZN4llvm22X86ELFTargetObjectFileD2Ev.exit
 
 _ZN4llvm22X86ELFTargetObjectFileD2Ev.exit:        ; preds = %1, %7
-  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) #5
+  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) #5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1032) #6
   ret void
 }
@@ -269,7 +269,7 @@ define linkonce_odr hidden void @_ZN4llvm25X86_64ELFTargetObjectFileD2Ev(ptr nou
   br label %_ZN4llvm22X86ELFTargetObjectFileD2Ev.exit
 
 _ZN4llvm22X86ELFTargetObjectFileD2Ev.exit:        ; preds = %1, %7
-  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) #5
+  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) #5
   ret void
 }
 
@@ -288,7 +288,7 @@ define linkonce_odr hidden void @_ZN4llvm25X86_64ELFTargetObjectFileD0Ev(ptr nou
   br label %_ZN4llvm25X86_64ELFTargetObjectFileD2Ev.exit
 
 _ZN4llvm25X86_64ELFTargetObjectFileD2Ev.exit:     ; preds = %1, %7
-  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) #5
+  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) #5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1032) #6
   ret void
 }

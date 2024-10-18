@@ -910,7 +910,7 @@ _ZN3mio4poll8Registry10deregister17h8db01216e80c6d9cE.exit: ; preds = %3, %.crit
           to label %39 unwind label %37
 
 26:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h5fb549572145e40aE.exit"
-  %27 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull %17, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !13
+  %27 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull align 1 %17, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !13
   %.fca.0.extract.i.i.i.i9 = extractvalue { i8, i8 } %27, 0
   %28 = and i8 %.fca.0.extract.i.i.i.i9, 1
   %29 = icmp eq i8 %28, 0
@@ -1068,7 +1068,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 46:                                               ; preds = %42
   %47 = atomicrmw add ptr %31, i64 1 monotonic, align 8, !noalias !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !69
-  %48 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
+  %48 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull align 1 %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc8 unwind label %28
 
 .noexc8:                                          ; preds = %46
@@ -1099,7 +1099,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   unreachable
 
 56:                                               ; preds = %30
-  %57 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
+  %57 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull align 1 %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc10 unwind label %28
 
 .noexc10:                                         ; preds = %56
@@ -1265,7 +1265,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 46:                                               ; preds = %42
   %47 = atomicrmw add ptr %31, i64 1 monotonic, align 8, !noalias !84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !84
-  %48 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
+  %48 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull align 1 %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc8 unwind label %28
 
 .noexc8:                                          ; preds = %46
@@ -1296,7 +1296,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   unreachable
 
 56:                                               ; preds = %30
-  %57 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
+  %57 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17he38da0efc183c8c4E.llvm.14529172514207159973(ptr noundef nonnull align 1 %23, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc10 unwind label %28
 
 .noexc10:                                         ; preds = %56
@@ -1743,7 +1743,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry13ad
   br i1 %.sroa.18.0.in.i.i, label %.noexc, label %13
 
 13:                                               ; preds = %4
-  invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 %11)
+  invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 8 %11)
           to label %.noexc unwind label %.thread24
 
 .noexc:                                           ; preds = %13, %4
@@ -1831,7 +1831,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry13ad
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3ea7173341f00ed7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %47)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3ea7173341f00ed7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %31, i64 noundef %47)
           to label %._crit_edge.i.i unwind label %52, !noalias !139
 
 ._crit_edge.i.i:                                  ; preds = %51
@@ -1990,7 +1990,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry16re
   br i1 %.sroa.18.0.in.i.i, label %14, label %13
 
 13:                                               ; preds = %2
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 %11), !noalias !153
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 8 %11), !noalias !153
   br label %14
 
 14:                                               ; preds = %13, %2
@@ -2168,7 +2168,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry12ad
   br i1 %.sroa.18.0.in.i.i, label %10, label %9
 
 9:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 %7), !noalias !185
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 8 %7), !noalias !185
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -2235,7 +2235,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry12ad
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %.noexc
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb3bafc0341b03a8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %38)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb3bafc0341b03a8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %38)
           to label %._crit_edge.i.i unwind label %43, !noalias !209
 
 ._crit_edge.i.i:                                  ; preds = %42
@@ -2361,7 +2361,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry15re
   br i1 %.sroa.18.0.in.i.i, label %14, label %13
 
 13:                                               ; preds = %2
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 4 %11), !noalias !216
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock15write_contended17h596ab57a11d07e4fE(ptr noundef nonnull align 8 %11), !noalias !216
   br label %14
 
 14:                                               ; preds = %13, %2
@@ -2800,7 +2800,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry16InternalRegistry12a
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he2a5270914d4c33dE.llvm.7577897545201684169.exit"
 
 20:                                               ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb3bafc0341b03a8fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %16)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb3bafc0341b03a8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %16)
           to label %._crit_edge.i unwind label %21, !noalias !308
 
 ._crit_edge.i:                                    ; preds = %20

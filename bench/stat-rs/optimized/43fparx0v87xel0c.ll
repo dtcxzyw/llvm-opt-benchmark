@@ -668,7 +668,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
 38:                                               ; preds = %._crit_edge
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !96
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f9411735bae5566E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f9411735bae5566E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
   %39 = getelementptr inbounds i8, ptr %5, i64 8
   %40 = load i64, ptr %39, align 8, !range !107, !noalias !96, !noundef !4
   %41 = icmp eq i64 %40, 0
@@ -1222,13 +1222,13 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %.sroa.01.018.i.i = phi double [ %36, %.lr.ph.i.i ], [ 0.000000e+00, %.preheader.i.i ]
   %34 = phi i64 [ %35, %.lr.ph.i.i ], [ %32, %.preheader.i.i ]
   %35 = add i64 %34, 1
-  %36 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.018.i.i, i64 noundef %34), !noalias !195
+  %36 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly align 8 dereferenceable(8) %7, ptr nonnull readonly align 8 dereferenceable(8) %6, double noundef %.sroa.01.018.i.i, i64 noundef %34), !noalias !195
   %exitcond.not.i.i = icmp eq i64 %35, %.sroa.0.0.sroa.speculated.i.i
   br i1 %exitcond.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE.exit", label %.lr.ph.i.i
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE.exit": ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.sroa.01.0.lcssa24.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
-  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !195
+  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly align 8 dereferenceable(8) %7, ptr nonnull readonly align 8 dereferenceable(8) %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %38
 

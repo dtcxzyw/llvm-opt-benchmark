@@ -51,7 +51,7 @@ entry:
   %bufQueuePtr_ = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %this, ptr %bufQueuePtr_, align 8
   %buf_ = getelementptr inbounds i8, ptr %this, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %buf_, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf_, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %this, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -104,7 +104,7 @@ entry:
   %bufQueuePtr_ = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %this, ptr %bufQueuePtr_, align 8
   %buf_ = getelementptr inbounds i8, ptr %this, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %buf_, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf_, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %this, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

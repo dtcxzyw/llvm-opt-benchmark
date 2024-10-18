@@ -353,7 +353,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   resume { ptr, i32 } %0
 
 _ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit: ; preds = %entry
@@ -377,7 +377,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   resume { ptr, i32 } %0
 
 _ZN6icu_7512TimeZoneRuleC2ERKS0_.exit:            ; preds = %entry
@@ -399,7 +399,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fName.i) #17
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   ret void
 }
 
@@ -621,7 +621,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ]
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -674,7 +674,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   resume { ptr, i32 } %0
 
 _ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit: ; preds = %entry
@@ -703,7 +703,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %6, %lpad ]
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -773,7 +773,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fName.i) #17
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   ret void
 }
 
@@ -1389,7 +1389,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   br label %common.resume
 
 _ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit: ; preds = %entry
@@ -1414,7 +1414,7 @@ lpad:                                             ; preds = %_ZN6icu_7512TimeZon
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fName.i) #17
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   br label %common.resume
 }
 
@@ -1504,7 +1504,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   br label %common.resume
 
 _ZN6icu_7512TimeZoneRuleC2ERKS0_.exit:            ; preds = %entry
@@ -1539,7 +1539,7 @@ lpad:                                             ; preds = %_ZN6icu_7512TimeZon
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fName.i) #17
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   br label %common.resume
 }
 
@@ -1563,7 +1563,7 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fName.i) #17
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   ret void
 
 terminate.lpad:                                   ; preds = %if.then

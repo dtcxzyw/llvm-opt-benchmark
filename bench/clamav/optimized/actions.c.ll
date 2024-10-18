@@ -153,7 +153,7 @@ traverse_rename.exit.thread:                      ; preds = %9
   br label %35
 
 12:                                               ; preds = %9
-  %13 = call fastcc i32 @traverse_to(ptr noundef %0, ptr noundef %2)
+  %13 = call fastcc i32 @traverse_to(ptr noundef nonnull %0, ptr noundef %2)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %16, label %14
 

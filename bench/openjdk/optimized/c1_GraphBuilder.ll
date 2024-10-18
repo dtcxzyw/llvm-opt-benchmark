@@ -2856,7 +2856,7 @@ define linkonce_odr hidden void @_ZN10BlockBeginC2Ei(ptr noundef nonnull align 8
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef null) #19
   %23 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %23, align 8
   %24 = load i32, ptr %15, align 8
@@ -4433,7 +4433,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %242, %240
   br i1 %244, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %245
 
 245:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %225, i32 noundef 2, i32 noundef %223) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %225, i32 noundef 2, i32 noundef %223) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %245
@@ -4817,7 +4817,7 @@ _ZN9LoadFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit: ; preds = %441, %4
   store ptr %.0.i.i.i.i.i.i, ptr %479, align 8
   %480 = getelementptr inbounds i8, ptr %.0.i.i.i72, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %480, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i72, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i72, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
   %481 = getelementptr inbounds i8, ptr %.0.i.i.i72, i64 96
   store ptr %453, ptr %481, align 8
   %482 = getelementptr inbounds i8, ptr %.0.i.i.i72, i64 104
@@ -4919,7 +4919,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %31, %29
   br i1 %33, label %_ZN12GraphBuilder26copy_state_before_with_bciEi.exit, label %34
 
 34:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull %14, i32 noundef 2, i32 noundef %12) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %14, i32 noundef 2, i32 noundef %12) #19
   br label %_ZN12GraphBuilder26copy_state_before_with_bciEi.exit
 
 _ZN12GraphBuilder26copy_state_before_with_bciEi.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i, %34
@@ -5482,7 +5482,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %106, %108
   store ptr %3, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %3) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i, ptr noundef %3) #19
   %131 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %25, ptr %131, align 8
   %132 = load i32, ptr %128, align 8
@@ -5576,7 +5576,7 @@ _ZN11InstructionnwEm.exit24:                      ; preds = %166, %168
   store ptr %3, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %.0.i.i.i23, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i23, ptr noundef %3) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i.i23, ptr noundef %3) #19
   %191 = getelementptr inbounds i8, ptr %.0.i.i.i23, i64 96
   store ptr %25, ptr %191, align 8
   %192 = load i32, ptr %188, align 8
@@ -5720,7 +5720,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %69, %67
   br i1 %71, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %72
 
 72:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %52, i32 noundef 2, i32 noundef %50) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %52, i32 noundef 2, i32 noundef %50) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN11Compilation13is_optimisticEv.exit.thread:    ; preds = %19, %1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %_ZN11Compilation12is_profilingEv.exit.i, %30, %_ZN11Compilation13is_optimisticEv.exit
@@ -5946,7 +5946,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %121, %123
   store ptr %3, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %3) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i, ptr noundef %3) #19
   %146 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %40, ptr %146, align 8
   %147 = load i32, ptr %143, align 8
@@ -6189,7 +6189,7 @@ _ZN11InstructionnwEm.exit51:                      ; preds = %269, %271
   store ptr null, ptr %296, align 8
   %297 = getelementptr inbounds i8, ptr %.0.i.i.i50, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %297, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i50, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i50, ptr noundef null) #19
   %298 = getelementptr inbounds i8, ptr %.0.i.i.i50, i64 96
   store i32 126, ptr %298, align 8
   %299 = getelementptr inbounds i8, ptr %.0.i.i.i50, i64 104
@@ -6284,7 +6284,7 @@ _ZN11InstructionnwEm.exit54:                      ; preds = %332, %334
   store ptr %3, ptr %355, align 8
   %356 = getelementptr inbounds i8, ptr %.0.i.i.i53, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %356, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i53, ptr noundef %3) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(149) %.0.i.i.i53, ptr noundef %3) #19
   %357 = getelementptr inbounds i8, ptr %.0.i.i.i53, i64 96
   store ptr %40, ptr %357, align 8
   %358 = load i32, ptr %354, align 8
@@ -6461,7 +6461,7 @@ define linkonce_odr hidden void @_ZN7LogicOpC2EN9Bytecodes4CodeEP11InstructionS3
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef null) #19
   %29 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %1, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 104
@@ -7785,7 +7785,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   store ptr %3, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %3) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i, ptr noundef %3) #19
   %76 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 %2, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -7915,7 +7915,7 @@ switch.lookup:                                    ; preds = %22
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV8NegateOp, i64 16), ptr %.0.i.i.i, align 8
   %61 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %.0.i.i, ptr %61, align 8
@@ -8172,7 +8172,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %128, %130
   store ptr null, ptr %155, align 8
   %156 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i, ptr noundef null) #19
   %157 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 %2, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -8358,7 +8358,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %46, %48
   store ptr null, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i, ptr noundef null) #19
   %75 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 %2, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -8433,7 +8433,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %33, %31
   br i1 %35, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %36
 
 36:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %16, i32 noundef 2, i32 noundef %14) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %16, i32 noundef 2, i32 noundef %14) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %36
@@ -8547,7 +8547,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %77, %79
   store ptr %.0.i.i.i.i.i.i, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i.i) #19
   %102 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 %2, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -8696,7 +8696,7 @@ switch.lookup:                                    ; preds = %25
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV7Convert, i64 16), ptr %.0.i.i.i, align 8
   %61 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 %1, ptr %61, align 8
@@ -9162,7 +9162,7 @@ define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginb(ptr noundef nonnull a
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef null) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr %16, align 8
@@ -9614,7 +9614,7 @@ define linkonce_odr hidden void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10Bl
   store ptr %7, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %7) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %7) #19
   %30 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %30, align 8
   %31 = load i32, ptr %22, align 8
@@ -9835,7 +9835,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %84, %82
   br i1 %86, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %87
 
 87:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %68, i32 noundef 2, i32 noundef %66) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %68, i32 noundef 2, i32 noundef %66) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %87
@@ -9978,7 +9978,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %84, %82
   br i1 %86, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %87
 
 87:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %68, i32 noundef 2, i32 noundef %66) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %68, i32 noundef 2, i32 noundef %66) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %87
@@ -10043,7 +10043,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %33, %31
   br i1 %35, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %36
 
 36:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %16, i32 noundef 2, i32 noundef %14) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %16, i32 noundef 2, i32 noundef %14) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %36
@@ -10375,7 +10375,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %60, %58
   br i1 %62, label %_ZN12GraphBuilder26copy_state_before_with_bciEi.exit, label %63
 
 63:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull %44, i32 noundef 2, i32 noundef %1) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %44, i32 noundef 2, i32 noundef %1) #19
   br label %_ZN12GraphBuilder26copy_state_before_with_bciEi.exit
 
 _ZN12GraphBuilder26copy_state_before_with_bciEi.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i, %63
@@ -10979,7 +10979,7 @@ _ZN11InstructionnwEm.exit40:                      ; preds = %266, %268
   store ptr %251, ptr %306, align 8
   %307 = getelementptr inbounds i8, ptr %.0.i.i.i39, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %307, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i39, ptr noundef %251) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(124) %.0.i.i.i39, ptr noundef %251) #19
   %308 = getelementptr inbounds i8, ptr %.0.i.i.i39, i64 96
   store ptr null, ptr %308, align 8
   %309 = load i32, ptr %300, align 8
@@ -11125,7 +11125,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %71, %69
   br i1 %73, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %74
 
 74:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %54, i32 noundef 2, i32 noundef %52) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %54, i32 noundef 2, i32 noundef %52) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %21, %3, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %_ZN11Compilation12is_profilingEv.exit.i, %32, %74, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %_ZN11Compilation13is_optimisticEv.exit
@@ -11594,7 +11594,7 @@ _ZN11InstructionnwEm.exit49:                      ; preds = %274, %276
   store ptr %259, ptr %307, align 8
   %308 = getelementptr inbounds i8, ptr %.0.i.i.i48, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i48, ptr noundef %259) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i48, ptr noundef %259) #19
   %309 = getelementptr inbounds i8, ptr %.0.i.i.i48, i64 96
   store ptr null, ptr %309, align 8
   %310 = load i32, ptr %301, align 8
@@ -11809,7 +11809,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %91, %93
   store ptr %71, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %71) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %.0.i.i.i, ptr noundef %71) #19
   %118 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %118, align 8
   %119 = load i32, ptr %110, align 8
@@ -11930,7 +11930,7 @@ define linkonce_odr hidden void @_ZN9IntrinsicC2EP9ValueType13vmIntrinsicIDP13Gr
   store ptr %5, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %5) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %5) #19
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %28, align 8
   %29 = load i32, ptr %20, align 8
@@ -12238,7 +12238,7 @@ _ZN11InstructionnwEm.exit80:                      ; preds = %131, %133
   store ptr null, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %.0.i.i.i79, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i79, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i79, ptr noundef null) #19
   %160 = getelementptr inbounds i8, ptr %.0.i.i.i79, i64 96
   store i32 120, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %.0.i.i.i79, i64 104
@@ -12326,7 +12326,7 @@ _ZN11InstructionnwEm.exit83:                      ; preds = %189, %191
   store ptr null, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i82, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i82, ptr noundef null) #19
   %218 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 96
   store i32 122, ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 104
@@ -12521,7 +12521,7 @@ _ZN11InstructionnwEm.exit92:                      ; preds = %309, %311
   store ptr null, ptr %336, align 8
   %337 = getelementptr inbounds i8, ptr %.0.i.i.i91, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %337, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i91, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i91, ptr noundef null) #19
   %338 = getelementptr inbounds i8, ptr %.0.i.i.i91, i64 96
   store i32 120, ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %.0.i.i.i91, i64 104
@@ -12609,7 +12609,7 @@ _ZN11InstructionnwEm.exit95:                      ; preds = %367, %369
   store ptr null, ptr %394, align 8
   %395 = getelementptr inbounds i8, ptr %.0.i.i.i94, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %395, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i94, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i94, ptr noundef null) #19
   %396 = getelementptr inbounds i8, ptr %.0.i.i.i94, i64 96
   store i32 122, ptr %396, align 8
   %397 = getelementptr inbounds i8, ptr %.0.i.i.i94, i64 104
@@ -12804,7 +12804,7 @@ _ZN11InstructionnwEm.exit104:                     ; preds = %487, %489
   store ptr null, ptr %514, align 8
   %515 = getelementptr inbounds i8, ptr %.0.i.i.i103, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %515, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i103, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i103, ptr noundef null) #19
   %516 = getelementptr inbounds i8, ptr %.0.i.i.i103, i64 96
   store i32 126, ptr %516, align 8
   %517 = getelementptr inbounds i8, ptr %.0.i.i.i103, i64 104
@@ -12999,7 +12999,7 @@ _ZN11InstructionnwEm.exit113:                     ; preds = %607, %609
   store ptr null, ptr %634, align 8
   %635 = getelementptr inbounds i8, ptr %.0.i.i.i112, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %635, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i112, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i112, ptr noundef null) #19
   %636 = getelementptr inbounds i8, ptr %.0.i.i.i112, i64 96
   store i32 126, ptr %636, align 8
   %637 = getelementptr inbounds i8, ptr %.0.i.i.i112, i64 104
@@ -13373,7 +13373,7 @@ _ZN11InstructionnwEm.exit123:                     ; preds = %841, %843
   store ptr null, ptr %864, align 8
   %865 = getelementptr inbounds i8, ptr %.0.i.i.i122, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %865, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i122, ptr noundef null) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(121) %.0.i.i.i122, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV11RuntimeCall, i64 16), ptr %.0.i.i.i122, align 8
   %866 = getelementptr inbounds i8, ptr %.0.i.i.i122, i64 96
   store ptr @.str.10, ptr %866, align 8
@@ -13491,7 +13491,7 @@ _ZN11InstructionnwEm.exit126:                     ; preds = %916, %918
   store ptr null, ptr %939, align 8
   %940 = getelementptr inbounds i8, ptr %.0.i.i.i125, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %940, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i125, ptr noundef null) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(100) %.0.i.i.i125, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV6MemBar, i64 16), ptr %.0.i.i.i125, align 8
   %941 = getelementptr inbounds i8, ptr %.0.i.i.i125, i64 96
   store i32 13, ptr %941, align 8
@@ -13550,7 +13550,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %975, %973
   br i1 %977, label %_ZN10ValueStack16copy_for_parsingEv.exit, label %978
 
 978:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %959, i32 noundef 0, i32 noundef -99) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %959, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit
 
 _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %978
@@ -13932,7 +13932,7 @@ _ZN11InstructionnwEm.exit143:                     ; preds = %1183, %1185
   store ptr null, ptr %1208, align 8
   %1209 = getelementptr inbounds i8, ptr %.0.i.i.i142, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1209, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i142, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(116) %.0.i.i.i142, ptr noundef null) #19
   %1210 = getelementptr inbounds i8, ptr %.0.i.i.i142, i64 96
   store ptr null, ptr %1210, align 8
   %1211 = load i32, ptr %1202, align 8
@@ -14029,7 +14029,7 @@ _ZN11InstructionnwEm.exit146:                     ; preds = %1246, %1248
   store ptr null, ptr %1269, align 8
   %1270 = getelementptr inbounds i8, ptr %.0.i.i.i145, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1270, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i145, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(100) %.0.i.i.i145, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV6MemBar, i64 16), ptr %.0.i.i.i145, align 8
   %1271 = getelementptr inbounds i8, ptr %.0.i.i.i145, i64 96
   store i32 13, ptr %1271, align 8
@@ -14131,7 +14131,7 @@ _ZN6ReturnC2EP11Instruction.exit:                 ; preds = %1307, %1309
   store ptr null, ptr %1332, align 8
   %1333 = getelementptr inbounds i8, ptr %.0.i.i.i148, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1333, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i148, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i148, ptr noundef null) #19
   %1334 = getelementptr inbounds i8, ptr %.0.i.i.i148, i64 96
   store ptr null, ptr %1334, align 8
   %1335 = load i32, ptr %1326, align 8
@@ -14366,7 +14366,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %18, %20
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(116) %.0.i.i.i, ptr noundef null) #19
   %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %46, align 8
   %47 = load i32, ptr %38, align 8
@@ -14827,7 +14827,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %78, %80
   store ptr null, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV17ProfileReturnType, i64 16), ptr %.0.i.i.i, align 8
   %103 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %.0, ptr %103, align 8
@@ -14880,7 +14880,7 @@ define hidden noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(pt
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 416
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %4) #19
+  call void %13(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(28) %4) #19
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
@@ -15028,7 +15028,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %101, %99
   br i1 %103, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %104
 
 104:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %83, i32 noundef 3, i32 noundef %84) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %83, i32 noundef 3, i32 noundef %84) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %104
@@ -15363,7 +15363,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %38
   %40 = load ptr, ptr %9, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
-  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(24) %9) #19
+  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(144) %9) #19
   br i1 %43, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %38
@@ -15427,7 +15427,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationRes
   br i1 %or.cond, label %.thread, label %215
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit.thread229: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %57) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %59, i32 noundef 2, i32 noundef %57) #19
   %80 = and i32 %1, -2
   %or.cond230 = icmp eq i32 %80, 178
   br i1 %or.cond230, label %82, label %215
@@ -15877,7 +15877,7 @@ _ZN9LoadFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit: ; preds = %303, %3
   store ptr %.1, ptr %340, align 8
   %341 = getelementptr inbounds i8, ptr %.0.i.i.i152, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i152, ptr noundef %.1) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i152, ptr noundef %.1) #19
   %342 = getelementptr inbounds i8, ptr %.0.i.i.i152, i64 96
   store ptr %315, ptr %342, align 8
   %343 = getelementptr inbounds i8, ptr %.0.i.i.i152, i64 104
@@ -16162,7 +16162,7 @@ _ZN11InstructionnwEm.exit163:                     ; preds = %494, %496
   store ptr null, ptr %521, align 8
   %522 = getelementptr inbounds i8, ptr %.0.i.i.i162, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %522, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i162, ptr noundef null) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i162, ptr noundef null) #19
   %523 = getelementptr inbounds i8, ptr %.0.i.i.i162, i64 96
   store i32 126, ptr %523, align 8
   %524 = getelementptr inbounds i8, ptr %.0.i.i.i162, i64 104
@@ -16444,7 +16444,7 @@ _ZN9LoadFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit172: ; preds = %686,
   store ptr %.3, ptr %711, align 8
   %712 = getelementptr inbounds i8, ptr %.0.i.i.i169, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %712, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i169, ptr noundef %.3) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i169, ptr noundef %.3) #19
   %713 = getelementptr inbounds i8, ptr %.0.i.i.i169, i64 96
   store ptr %593, ptr %713, align 8
   %714 = getelementptr inbounds i8, ptr %.0.i.i.i169, i64 104
@@ -16846,7 +16846,7 @@ _ZN11InstructionnwEm.exit189:                     ; preds = %930, %932
   store ptr null, ptr %957, align 8
   %958 = getelementptr inbounds i8, ptr %.0.i.i.i188, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %958, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i188, ptr noundef null) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i188, ptr noundef null) #19
   %959 = getelementptr inbounds i8, ptr %.0.i.i.i188, i64 96
   store i32 126, ptr %959, align 8
   %960 = getelementptr inbounds i8, ptr %.0.i.i.i188, i64 104
@@ -16971,7 +16971,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i:              ; preds = %7
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
+  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(144) %0) #19
   br i1 %13, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, label %_ZN15ciInstanceKlass16update_if_sharedEN13InstanceKlass10ClassStateE.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i, %7
@@ -17032,7 +17032,7 @@ _ZN11AccessFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit: ; preds = %8, %
   store ptr %6, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %6) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %6) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 104
@@ -17425,7 +17425,7 @@ _ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread: ; preds = %_ZN11
   %98 = sub nuw nsw i32 32, %97
   %99 = shl nuw i32 1, %98
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %93, i32 %99
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %33, align 8
   br label %100
 
@@ -17537,7 +17537,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE11at_put_grow
   %148 = sub nuw nsw i32 32, %147
   %149 = shl nuw i32 1, %148
   %.0.i.i.i.i.i31 = select i1 %or.cond.i.i.i.i.i30, i32 %143, i32 %149
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %136, i32 noundef %.0.i.i.i.i.i31)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %136, i32 noundef %.0.i.i.i.i.i31)
   %.pre.i.i32 = load i32, ptr %136, align 8
   br label %150
 
@@ -18124,7 +18124,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %131, %129
   br i1 %133, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %134
 
 134:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %116, i32 noundef 2, i32 noundef %115) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %116, i32 noundef 2, i32 noundef %115) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %134
@@ -18158,7 +18158,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationRes
   store ptr %.0.i.i.i.i.i.i, ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i.i) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i.i) #19
   %154 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %154, align 8
   %155 = load i32, ptr %146, align 8
@@ -18331,7 +18331,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i250:    ; preds = %259, %257
   br i1 %261, label %_ZN12GraphBuilder17copy_state_beforeEv.exit252, label %262
 
 262:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i250
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i251, ptr noundef nonnull %243, i32 noundef 2, i32 noundef %241) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i251, ptr noundef nonnull align 8 dereferenceable(81) %243, i32 noundef 2, i32 noundef %241) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit252
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit252:   ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i250, %262
@@ -19078,7 +19078,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i283:    ; preds = %684, %682
   br i1 %686, label %_ZN12GraphBuilder21copy_state_exhandlingEv.exit, label %687
 
 687:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i283
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i284, ptr noundef nonnull %667, i32 noundef 2, i32 noundef %661) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i284, ptr noundef nonnull align 8 dereferenceable(81) %667, i32 noundef 2, i32 noundef %661) #19
   br label %_ZN12GraphBuilder21copy_state_exhandlingEv.exit
 
 _ZN12GraphBuilder21copy_state_exhandlingEv.exit:  ; preds = %644, %_ZN22CompilationResourceObjnwEm.exit.i.i.i283, %687
@@ -19450,7 +19450,7 @@ define linkonce_odr hidden void @_ZN9CheckCastC2EP7ciKlassP11InstructionP10Value
   store ptr %3, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %3) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %3) #19
   %25 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %25, align 8
   %26 = load i32, ptr %17, align 8
@@ -19873,7 +19873,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %35, %33
   br i1 %37, label %_ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit, label %38
 
 38:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull %18, i32 noundef 2, i32 noundef %12) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %18, i32 noundef 2, i32 noundef %12) #19
   br label %_ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit
 
 _ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit: ; preds = %1, %_ZN22CompilationResourceObjnwEm.exit.i.i, %38
@@ -20016,7 +20016,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %53, %55
   store ptr %70, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %70) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i, ptr noundef %70) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV9NullCheck, i64 16), ptr %.0.i.i.i, align 8
   %94 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %1, ptr %94, align 8
@@ -20146,7 +20146,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %32, %34
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(149) %.0.i.i.i, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV11ProfileCall, i64 16), ptr %.0.i.i.i, align 8
   %73 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %42, ptr %73, align 8
@@ -20244,7 +20244,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %36, %34
   br i1 %38, label %_ZN12GraphBuilder21copy_state_exhandlingEv.exit, label %39
 
 39:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %19, i32 noundef 2, i32 noundef %13) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %19, i32 noundef 2, i32 noundef %13) #19
   br label %_ZN12GraphBuilder21copy_state_exhandlingEv.exit
 
 _ZN12GraphBuilder21copy_state_exhandlingEv.exit:  ; preds = %._ZN12GraphBuilder21copy_state_exhandlingEv.exit_crit_edge, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %39
@@ -20324,7 +20324,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %57, %59
   store ptr %.0.i.i, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %.0.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(113) %.0.i.i.i, ptr noundef %.0.i.i) #19
   %90 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %90, align 8
   %91 = load i32, ptr %82, align 8
@@ -20601,7 +20601,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %35, %33
   br i1 %37, label %_ZN12GraphBuilder21copy_state_exhandlingEv.exit, label %38
 
 38:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %18, i32 noundef 2, i32 noundef %12) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %18, i32 noundef 2, i32 noundef %12) #19
   br label %_ZN12GraphBuilder21copy_state_exhandlingEv.exit
 
 _ZN12GraphBuilder21copy_state_exhandlingEv.exit:  ; preds = %._ZN12GraphBuilder21copy_state_exhandlingEv.exit_crit_edge, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %38
@@ -20729,7 +20729,7 @@ _ZNK16ciBytecodeStream9get_indexEv.exit:          ; preds = %_ZNK16ciBytecodeStr
   store ptr %.0.i.i, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %.0.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(114) %.0.i.i.i, ptr noundef %.0.i.i) #19
   %117 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %117, align 8
   %118 = load i32, ptr %109, align 8
@@ -20856,7 +20856,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %42, %40
   br i1 %44, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %45
 
 45:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %25, i32 noundef 2, i32 noundef %23) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %25, i32 noundef 2, i32 noundef %23) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %1, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -20915,7 +20915,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i6:      ; preds = %79, %77
   br i1 %81, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %82
 
 82:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i6
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i7, ptr noundef nonnull %62, i32 noundef 2, i32 noundef %56) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i7, ptr noundef nonnull align 8 dereferenceable(81) %62, i32 noundef 2, i32 noundef %56) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread._ZN12GraphBuilder17copy_state_beforeEv.exit_crit_edge, %82, %_ZN22CompilationResourceObjnwEm.exit.i.i.i6, %45, %_ZN22CompilationResourceObjnwEm.exit.i.i.i
@@ -20993,7 +20993,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %97, %99
   store ptr %83, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %83) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i, ptr noundef %83) #19
   %132 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %132, align 8
   %133 = load i32, ptr %124, align 8
@@ -21175,7 +21175,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %43, %41
   br i1 %45, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %46
 
 46:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %26, i32 noundef 2, i32 noundef %24) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %26, i32 noundef 2, i32 noundef %24) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -21269,7 +21269,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %73, %75
   store ptr %59, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %59) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %.0.i.i.i, ptr noundef %59) #19
   %108 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %108, align 8
   %109 = load i32, ptr %100, align 8
@@ -21519,7 +21519,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %43, %41
   br i1 %45, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %46
 
 46:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %26, i32 noundef 2, i32 noundef %24) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %26, i32 noundef 2, i32 noundef %24) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -21578,7 +21578,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i11:     ; preds = %80, %78
   br i1 %82, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %83
 
 83:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i11
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i12, ptr noundef nonnull %63, i32 noundef 2, i32 noundef %57) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(81) %63, i32 noundef 2, i32 noundef %57) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread._ZN12GraphBuilder17copy_state_beforeEv.exit_crit_edge, %83, %_ZN22CompilationResourceObjnwEm.exit.i.i.i11, %46, %_ZN22CompilationResourceObjnwEm.exit.i.i.i
@@ -21656,7 +21656,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %98, %100
   store ptr %84, ptr %131, align 8
   %132 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %84) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %.0.i.i.i, ptr noundef %84) #19
   %133 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %133, align 8
   %134 = load i32, ptr %125, align 8
@@ -21910,7 +21910,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %19, %21
   store ptr %4, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %4) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(116) %.0.i.i.i, ptr noundef %4) #19
   %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %47, align 8
   %48 = load i32, ptr %39, align 8
@@ -21989,7 +21989,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %26, %24
   br i1 %28, label %29, label %_ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit
 
 _ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull %9, i32 noundef 2, i32 noundef %1) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %9, i32 noundef 2, i32 noundef %1) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 29:                                               ; preds = %._crit_edge, %_ZN22CompilationResourceObjnwEm.exit.i.i
@@ -22037,7 +22037,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %57, %55
   br i1 %59, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %60
 
 60:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %46, i32 noundef %44, i32 noundef %1) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %46, i32 noundef %44, i32 noundef %1) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %60, %_ZN22CompilationResourceObjnwEm.exit.i, %_ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit
@@ -22111,7 +22111,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %43, %41
   br i1 %45, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %46
 
 46:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %26, i32 noundef 2, i32 noundef %24) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %26, i32 noundef 2, i32 noundef %24) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -22166,7 +22166,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i13:     ; preds = %80, %78
   br i1 %82, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %83
 
 83:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i13
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i14, ptr noundef nonnull %63, i32 noundef 2, i32 noundef %57) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(81) %63, i32 noundef 2, i32 noundef %57) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %83, %_ZN22CompilationResourceObjnwEm.exit.i.i.i13, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %46, %_ZN22CompilationResourceObjnwEm.exit.i.i.i
@@ -22278,7 +22278,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %122, %124
   store ptr %84, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %84) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i, ptr noundef %84) #19
   %147 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %147, align 8
   %148 = load i32, ptr %139, align 8
@@ -22377,7 +22377,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %21, %19
   br i1 %23, label %_ZN12GraphBuilder26copy_state_before_with_bciEi.exit, label %24
 
 24:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %1) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %4, i32 noundef 2, i32 noundef %1) #19
   br label %_ZN12GraphBuilder26copy_state_before_with_bciEi.exit
 
 _ZN12GraphBuilder26copy_state_before_with_bciEi.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i, %24
@@ -22452,7 +22452,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %38, %40
   store ptr %.0.i.i.i.i.i, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i) #19
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %72, align 8
   %73 = load i32, ptr %64, align 8
@@ -22512,7 +22512,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %21, %19
   br i1 %23, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %24
 
 24:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %1) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %4, i32 noundef 2, i32 noundef %1) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %24
@@ -22743,7 +22743,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %126, %124
   br i1 %128, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %129
 
 129:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %.16499, i32 noundef 4, i32 noundef %110) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %.16499, i32 noundef 4, i32 noundef %110) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %129, %_ZN22CompilationResourceObjnwEm.exit.i, %105
@@ -22863,7 +22863,7 @@ _ZN22CompilationResourceObjnwEm.exit81:           ; preds = %168, %170
   %193 = sub nuw nsw i32 32, %192
   %194 = shl nuw i32 1, %193
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %188, i32 %194
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8XHandler13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i77, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8XHandler13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i77, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %.0.i.i.i77, align 8
   br label %_ZN9XHandlers6appendEP8XHandler.exit
 
@@ -22942,7 +22942,7 @@ _ZN22CompilationResourceObjnwEm.exit.i83:         ; preds = %235, %233
   br i1 %237, label %_ZN10ValueStack4copyENS_4KindEi.exit85, label %238
 
 238:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i83
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i84, ptr noundef nonnull %.164.lcssa, i32 noundef %232, i32 noundef %222) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(81) %.164.lcssa, i32 noundef %232, i32 noundef %222) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit85
 
 _ZN10ValueStack4copyENS_4KindEi.exit85:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i83, %238
@@ -22969,7 +22969,7 @@ _ZN22CompilationResourceObjnwEm.exit.i87:         ; preds = %244, %242
   br i1 %246, label %_ZN10ValueStack4copyENS_4KindEi.exit89, label %247
 
 247:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i87
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i88, ptr noundef nonnull %.164.lcssa, i32 noundef %241, i32 noundef %222) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i88, ptr noundef nonnull align 8 dereferenceable(81) %.164.lcssa, i32 noundef %241, i32 noundef %222) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit89
 
 _ZN10ValueStack4copyENS_4KindEi.exit89:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i87, %247
@@ -23261,7 +23261,7 @@ define hidden void @_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin(pt
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13PhiSimplifier, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8
-  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull %4) #19
+  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(9) %4) #19
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %_ZN13PhiSimplifierC2EP10BlockBegin.exit
@@ -23270,7 +23270,7 @@ define hidden void @_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin(pt
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20SubstitutionResolver, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20SubstitutionResolver, i64 48), ptr %9, align 8
-  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull %3) #19
+  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZN13PhiSimplifierC2EP10BlockBegin.exit
 
 _ZN13PhiSimplifierC2EP10BlockBegin.exit:          ; preds = %2, %8
@@ -23327,7 +23327,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %29, %27
   br i1 %31, label %_ZN10ValueStack16copy_for_parsingEv.exit, label %32
 
 32:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %12, i32 noundef 0, i32 noundef -99) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %12, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit
 
 _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %32
@@ -28039,7 +28039,7 @@ _ZN11InstructionnwEm.exit377:                     ; preds = %2606, %2608
   store ptr %2592, ptr %2638, align 8
   %2639 = getelementptr inbounds i8, ptr %.0.i.i.i376, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2639, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i376, ptr noundef %2592) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i376, ptr noundef %2592) #19
   %2640 = getelementptr inbounds i8, ptr %.0.i.i.i376, i64 96
   store ptr %2620, ptr %2640, align 8
   %2641 = load i32, ptr %2637, align 8
@@ -28546,7 +28546,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %65, %63
   br i1 %67, label %_ZN10ValueStack16copy_for_parsingEv.exit, label %68
 
 68:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %49, i32 noundef 0, i32 noundef -99) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %49, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit
 
 _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %68
@@ -28777,7 +28777,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %110, %108
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds i8, ptr %94, i64 16
   %117 = load i32, ptr %116, align 8
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %94, i32 noundef %115, i32 noundef %117) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %94, i32 noundef %115, i32 noundef %117) #19
   br label %_ZN10ValueStack4copyEv.exit
 
 _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %113
@@ -28835,7 +28835,7 @@ _ZN22CompilationResourceObjnwEm.exit.i43:         ; preds = %146, %144
   %151 = load i32, ptr %150, align 4
   %152 = getelementptr inbounds i8, ptr %130, i64 16
   %153 = load i32, ptr %152, align 8
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i44, ptr noundef nonnull %130, i32 noundef %151, i32 noundef %153) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(81) %130, i32 noundef %151, i32 noundef %153) #19
   br label %_ZN10ValueStack4copyEv.exit45
 
 _ZN10ValueStack4copyEv.exit45:                    ; preds = %_ZN22CompilationResourceObjnwEm.exit.i43, %149
@@ -29232,7 +29232,7 @@ _ZN11InstructionnwEm.exit58:                      ; preds = %379, %381
   store ptr null, ptr %404, align 8
   %405 = getelementptr inbounds i8, ptr %.0.i.i.i57, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %405, i8 0, i64 16, i1 false)
-  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i57, ptr noundef null) #19
+  call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(115) %.0.i.i.i57, ptr noundef null) #19
   %406 = getelementptr inbounds i8, ptr %.0.i.i.i57, i64 96
   store ptr %209, ptr %406, align 8
   %407 = getelementptr inbounds i8, ptr %.0.i.i.i57, i64 104
@@ -29539,7 +29539,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %76, %74
   br i1 %78, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %79
 
 79:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %3, i32 noundef 3, i32 noundef %60) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %3, i32 noundef 3, i32 noundef %60) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %79
@@ -29696,7 +29696,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %89, %87
   br i1 %91, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %92
 
 92:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %4, i32 noundef 3, i32 noundef %73) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %4, i32 noundef 3, i32 noundef %73) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %92
@@ -29734,7 +29734,7 @@ _ZN22CompilationResourceObjnwEm.exit.i26:         ; preds = %110, %108
   br i1 %112, label %_ZN10ValueStack4copyENS_4KindEi.exit28, label %113
 
 113:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i26
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i27, ptr noundef nonnull %4, i32 noundef 3, i32 noundef %94) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(81) %4, i32 noundef 3, i32 noundef %94) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit28
 
 _ZN10ValueStack4copyENS_4KindEi.exit28:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i26, %113
@@ -29773,7 +29773,7 @@ _ZNK4Base9std_entryEv.exit31:                     ; preds = %_ZNK4Base9std_entry
   %136 = getelementptr inbounds i8, ptr %135, i64 99
   %137 = load i8, ptr %136, align 1
   %138 = trunc i8 %137 to i1
-  %139 = tail call noundef zeroext i1 @_ZN10BlockBegin9try_mergeEP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(408) %133, ptr noundef %4, i1 noundef zeroext %138) #19
+  %139 = tail call noundef zeroext i1 @_ZN10BlockBegin9try_mergeEP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(408) %133, ptr noundef nonnull %4, i1 noundef zeroext %138) #19
   br label %140
 
 140:                                              ; preds = %_ZNK4Base9std_entryEv.exit31, %_ZNK4Base9std_entryEv.exit
@@ -29813,7 +29813,7 @@ define linkonce_odr hidden void @_ZN4BaseC2EP10BlockBeginS1_(ptr noundef nonnull
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef null) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr %16, align 8
@@ -30027,7 +30027,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   store ptr null, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %.0.i.i.i26, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i26, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i26, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV5Local, i64 16), ptr %.0.i.i.i26, align 8
   %79 = getelementptr inbounds i8, ptr %.0.i.i.i26, i64 96
   store i32 0, ptr %79, align 8
@@ -30145,7 +30145,7 @@ _ZN11InstructionnwEm.exit29:                      ; preds = %125, %127
   store ptr null, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %.0.i.i.i28, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i28, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i28, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV5Local, i64 16), ptr %.0.i.i.i28, align 8
   %149 = getelementptr inbounds i8, ptr %.0.i.i.i28, i64 96
   store i32 %.134, ptr %149, align 8
@@ -30596,7 +30596,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %202, %200
   br i1 %204, label %_ZN10ValueStack16copy_for_parsingEv.exit, label %205
 
 205:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i42, ptr noundef nonnull %186, i32 noundef 0, i32 noundef -99) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(81) %186, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit
 
 _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %205
@@ -30777,7 +30777,7 @@ _ZN22CompilationResourceObjnwEm.exit.i52:         ; preds = %310, %308
   br i1 %312, label %_ZN10ValueStack16copy_for_parsingEv.exit54, label %313
 
 313:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i52
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i53, ptr noundef nonnull %294, i32 noundef 0, i32 noundef -99) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i53, ptr noundef nonnull align 8 dereferenceable(81) %294, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit54
 
 _ZN10ValueStack16copy_for_parsingEv.exit54:       ; preds = %_ZN22CompilationResourceObjnwEm.exit.i52, %313
@@ -30839,7 +30839,7 @@ _ZN10ValueStack16copy_for_parsingEv.exit54:       ; preds = %_ZN22CompilationRes
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13PhiSimplifier, i64 16), ptr %5, align 8
   %349 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %349, align 8
-  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %347, ptr noundef nonnull %5) #19
+  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %347, ptr noundef nonnull align 8 dereferenceable(9) %5) #19
   %350 = load i8, ptr %349, align 8
   %351 = trunc i8 %350 to i1
   br i1 %351, label %352, label %_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin.exit
@@ -30848,7 +30848,7 @@ _ZN10ValueStack16copy_for_parsingEv.exit54:       ; preds = %_ZN22CompilationRes
   %353 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20SubstitutionResolver, i64 16), ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20SubstitutionResolver, i64 48), ptr %353, align 8
-  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %347, ptr noundef nonnull %4) #19
+  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %347, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin.exit
 
 _ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin.exit: ; preds = %344, %352
@@ -30924,7 +30924,7 @@ _ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.i:  ; preds = %_ZN13GrowableArrayI
 385:                                              ; preds = %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.i
   %386 = getelementptr inbounds i8, ptr %6, i64 48
   store i32 0, ptr %386, align 8
-  call void @_ZN26GrowableArrayWithAllocatorI9BlockList13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %386)
+  call void @_ZN26GrowableArrayWithAllocatorI9BlockList13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %386)
   br label %_ZN13GrowableArrayI9BlockListED2Ev.exit.i
 
 _ZN13GrowableArrayI9BlockListED2Ev.exit.i:        ; preds = %385, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.i
@@ -31239,7 +31239,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %26, %24
   br i1 %28, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %29
 
 29:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %9, i32 noundef 2, i32 noundef %1) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %9, i32 noundef 2, i32 noundef %1) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %29, %_ZN22CompilationResourceObjnwEm.exit.i, %2
@@ -31344,7 +31344,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %33, %31
   br i1 %35, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %36
 
 36:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %16, i32 noundef 2, i32 noundef %14) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %16, i32 noundef 2, i32 noundef %14) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %36
@@ -31730,7 +31730,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %264, %266
   store ptr %.0.i.i.i.i.i.i, ptr %292, align 8
   %293 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %293, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i, ptr noundef %.0.i.i.i.i.i.i) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV8TypeCast, i64 16), ptr %.0.i.i.i, align 8
   %294 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %226, ptr %294, align 8
@@ -31842,7 +31842,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %354, %352
   br i1 %356, label %_ZN10ValueStack16copy_for_parsingEv.exit, label %357
 
 357:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %.0.i.i.i.i.i.i, i32 noundef 0, i32 noundef -99) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit
 
 _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %357
@@ -31935,7 +31935,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %33
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(24) %27) #19
+  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(144) %27) #19
   br i1 %39, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass9is_linkedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %33
@@ -31981,7 +31981,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i133:         ; preds = %53
   %56 = load ptr, ptr %47, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(24) %47) #19
+  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(144) %47) #19
   br i1 %59, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i132, label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i132:  ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i133, %53
@@ -33429,7 +33429,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %37, %39
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(115) %.0.i.i.i, ptr noundef null) #19
   %66 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %45, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -33462,7 +33462,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %37, %39
   %86 = getelementptr inbounds i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %5, align 8
-  tail call void @_ZN10ValueStack4pushEP9ValueTypeP11Instruction(ptr noundef nonnull align 8 dereferenceable(81) %88, ptr noundef %87, ptr noundef %85)
+  tail call void @_ZN10ValueStack4pushEP9ValueTypeP11Instruction(ptr noundef nonnull align 8 dereferenceable(81) %88, ptr noundef %87, ptr noundef nonnull %85)
   %89 = getelementptr inbounds i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 98
@@ -33682,7 +33682,7 @@ _ZN11InstructionnwEm.exit20:                      ; preds = %114, %116
   store ptr null, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %.0.i.i.i19, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i19, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.i.i19, ptr noundef null) #19
   %143 = getelementptr inbounds i8, ptr %.0.i.i.i19, i64 96
   store i32 126, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %.0.i.i.i19, i64 104
@@ -33774,7 +33774,7 @@ _ZN11InstructionnwEm.exit23:                      ; preds = %172, %174
   store ptr null, ptr %199, align 8
   %200 = getelementptr inbounds i8, ptr %.0.i.i.i22, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i22, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i22, ptr noundef null) #19
   %201 = getelementptr inbounds i8, ptr %.0.i.i.i22, i64 96
   store ptr %180, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %.0.i.i.i22, i64 104
@@ -34056,7 +34056,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %135, %137
   store ptr %14, ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %14) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %.0.i.i.i, ptr noundef %14) #19
   %161 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr null, ptr %161, align 8
   %162 = load i32, ptr %153, align 8
@@ -34194,7 +34194,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %41, %43
   store ptr null, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(129) %.0.i.i.i, ptr noundef null) #19
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %49, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -34244,7 +34244,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %41, %43
   %103 = getelementptr inbounds i8, ptr %92, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %4, align 8
-  tail call void @_ZN10ValueStack4pushEP9ValueTypeP11Instruction(ptr noundef nonnull align 8 dereferenceable(81) %105, ptr noundef %104, ptr noundef %92)
+  tail call void @_ZN10ValueStack4pushEP9ValueTypeP11Instruction(ptr noundef nonnull align 8 dereferenceable(81) %105, ptr noundef %104, ptr noundef nonnull %92)
   ret void
 }
 
@@ -34340,7 +34340,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %42, %44
   store ptr %4, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %4) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(149) %.0.i.i.i, ptr noundef %4) #19
   %67 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %22, ptr %67, align 8
   %68 = load i32, ptr %64, align 8
@@ -34478,7 +34478,7 @@ _ZN11InstructionnwEm.exit20:                      ; preds = %131, %133
   store ptr %4, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %.0.i.i.i19, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i19, ptr noundef %4) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i.i19, ptr noundef %4) #19
   %156 = getelementptr inbounds i8, ptr %.0.i.i.i19, i64 96
   store ptr %22, ptr %156, align 8
   %157 = load i32, ptr %153, align 8
@@ -34520,7 +34520,7 @@ _ZN11InstructionnwEm.exit20:                      ; preds = %131, %133
   %182 = getelementptr inbounds i8, ptr %178, i64 24
   %183 = load ptr, ptr %182, align 8
   %184 = load ptr, ptr %8, align 8
-  tail call void @_ZN10ValueStack4pushEP9ValueTypeP11Instruction(ptr noundef nonnull align 8 dereferenceable(81) %184, ptr noundef %183, ptr noundef %178)
+  tail call void @_ZN10ValueStack4pushEP9ValueTypeP11Instruction(ptr noundef nonnull align 8 dereferenceable(81) %184, ptr noundef %183, ptr noundef nonnull %178)
   br label %185
 
 185:                                              ; preds = %166, %98
@@ -34618,7 +34618,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %64, %62
   br i1 %66, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %67
 
 67:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull %47, i32 noundef 2, i32 noundef %46) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %47, i32 noundef 2, i32 noundef %46) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %67
@@ -34702,7 +34702,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %98, %100
   store ptr %.0.i.i.i.i.i.i, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
   %123 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %77, ptr %123, align 8
   %124 = load i32, ptr %120, align 8
@@ -34790,7 +34790,7 @@ _ZN11InstructionnwEm.exit32:                      ; preds = %155, %157
   store ptr %.0.i.i.i.i.i.i, ptr %178, align 8
   %179 = getelementptr inbounds i8, ptr %.0.i.i.i31, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i31, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(114) %.0.i.i.i31, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
   %180 = getelementptr inbounds i8, ptr %.0.i.i.i31, i64 96
   store ptr null, ptr %180, align 8
   %181 = load i32, ptr %172, align 8
@@ -35265,7 +35265,7 @@ _ZN11InstructionnwEm.exit62:                      ; preds = %449, %451
   store ptr %.0.i.i.i.i.i.i, ptr %472, align 8
   %473 = getelementptr inbounds i8, ptr %.0.i.i.i61, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %473, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i61, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(132) %.0.i.i.i61, ptr noundef nonnull %.0.i.i.i.i.i.i) #19
   %474 = getelementptr inbounds i8, ptr %.0.i.i.i61, i64 96
   store ptr null, ptr %474, align 8
   %475 = load i32, ptr %466, align 8
@@ -35412,7 +35412,7 @@ _ZN11InstructionnwEm.exit65:                      ; preds = %540, %542
   store ptr null, ptr %563, align 8
   %564 = getelementptr inbounds i8, ptr %.0.i.i.i64, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %564, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i64, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(100) %.0.i.i.i64, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV6MemBar, i64 16), ptr %.0.i.i.i64, align 8
   %565 = getelementptr inbounds i8, ptr %.0.i.i.i64, i64 96
   store i32 13, ptr %565, align 8
@@ -35828,7 +35828,7 @@ _ZNK12GraphBuilder9ScopeData9xhandlersEv.exit:    ; preds = %_ZN22CompilationRes
   %70 = sub nuw nsw i32 32, %69
   %71 = shl nuw i32 1, %70
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %65, i32 %71
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8XHandler13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8XHandler13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %.0.i, align 8
   br label %_ZN9XHandlers6appendEP8XHandler.exit
 
@@ -35895,7 +35895,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %29, %27
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %12, i64 16
   %36 = load i32, ptr %35, align 8
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %12, i32 noundef %34, i32 noundef %36) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %12, i32 noundef %34, i32 noundef %36) #19
   br label %_ZN10ValueStack4copyEv.exit
 
 _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %32
@@ -36213,7 +36213,7 @@ _ZN11InstructionnwEm.exit32:                      ; preds = %203, %205
   store ptr null, ptr %226, align 8
   %227 = getelementptr inbounds i8, ptr %.0.i.i.i31, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i31, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(121) %.0.i.i.i31, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 504) (i8, ptr @_ZTV11RuntimeCall, i64 16), ptr %.0.i.i.i31, align 8
   %228 = getelementptr inbounds i8, ptr %.0.i.i.i31, i64 96
   store ptr @.str.10, ptr %228, align 8
@@ -36308,7 +36308,7 @@ _ZN22CompilationResourceObjnwEm.exit.i34:         ; preds = %277, %275
   br i1 %279, label %_ZN10ValueStack16copy_for_parsingEv.exit, label %280
 
 280:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i34
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i35, ptr noundef nonnull %259, i32 noundef 0, i32 noundef -99) #19
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(81) %259, i32 noundef 0, i32 noundef -99) #19
   br label %_ZN10ValueStack16copy_for_parsingEv.exit
 
 _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationResourceObjnwEm.exit.i34, %280
@@ -36622,7 +36622,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %125, %123
   br i1 %127, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %128
 
 128:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %99, i32 noundef 1, i32 noundef %110) #19
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %99, i32 noundef 1, i32 noundef %110) #19
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %128
@@ -36769,7 +36769,7 @@ _ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.i:  ; preds = %_ZN13GrowableArrayI
 197:                                              ; preds = %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.i
   %198 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 0, ptr %198, align 8
-  call void @_ZN26GrowableArrayWithAllocatorI9BlockList13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %198)
+  call void @_ZN26GrowableArrayWithAllocatorI9BlockList13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %198)
   br label %_ZN13GrowableArrayI9BlockListED2Ev.exit.i
 
 _ZN13GrowableArrayI9BlockListED2Ev.exit.i:        ; preds = %197, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.i
@@ -36896,7 +36896,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %18, %20
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #19
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %.0.i.i.i, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV13ProfileInvoke, i64 16), ptr %.0.i.i.i, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store ptr %1, ptr %43, align 8
@@ -39279,7 +39279,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %18
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %12) #19
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(144) %12) #19
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZNK11AccessField13is_init_pointEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %18
@@ -39351,7 +39351,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %18
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %12) #19
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(144) %12) #19
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZNK11AccessField13is_init_pointEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %18
@@ -40104,7 +40104,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9BlockList13Gro
 
 32:                                               ; preds = %.lr.ph27
   store i32 0, ptr %28, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %28)
   br label %_ZN9BlockListD2Ev.exit
 
 _ZN9BlockListD2Ev.exit:                           ; preds = %.lr.ph27, %32
@@ -40723,7 +40723,7 @@ _ZN13GrowableArrayI9BlockListE8allocateEv.exit:   ; preds = %8, %12, %16
 
 49:                                               ; preds = %43
   store i32 0, ptr %45, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %45)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %45)
   br label %_ZN9BlockListD2Ev.exit
 
 _ZN9BlockListD2Ev.exit:                           ; preds = %43, %49

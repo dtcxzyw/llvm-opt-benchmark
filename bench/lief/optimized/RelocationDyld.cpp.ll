@@ -212,11 +212,11 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldgeERKS1_(ptr noundef n
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %11, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = load ptr, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(17) %1)
+  %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %29 = icmp ult i64 %24, %28
   br label %_ZNK4LIEF5MachO14RelocationDyldltERKS1_.exit
 
@@ -295,11 +295,11 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldleERKS1_(ptr noundef n
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %11, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = load ptr, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(17) %1)
+  %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %29 = icmp ugt i64 %24, %28
   br label %_ZNK4LIEF5MachO14RelocationDyldgtERKS1_.exit
 

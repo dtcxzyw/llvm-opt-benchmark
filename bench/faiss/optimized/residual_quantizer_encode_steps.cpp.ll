@@ -4870,7 +4870,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit133:            ; preds = %105, %107, %109, %1
 
 134:                                              ; preds = %._crit_edge200
   %135 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %135, i64 noundef %.lcssa, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %135, i64 noundef %.lcssa, i32 noundef 1)
           to label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EE5resetEPS1_.exit137 unwind label %.thread
 
 _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EE5resetEPS1_.exit137: ; preds = %134

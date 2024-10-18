@@ -385,7 +385,7 @@ define noalias ptr @opal_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph.i:                                         ; preds = %7, %17
   %9 = phi ptr [ %19, %17 ], [ %8, %7 ]
   %.01218.i = phi ptr [ %18, %17 ], [ %2, %7 ]
-  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #15
+  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
@@ -406,7 +406,7 @@ list_env_get.exit.thread:                         ; preds = %12
   br i1 %.not15.i, label %list_env_get.exit, label %.lr.ph.i, !llvm.loop !4
 
 list_env_get.exit:                                ; preds = %17, %4, %7
-  %20 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.2) #14
+  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #14
   %.not24 = icmp eq ptr %20, null
   br i1 %.not24, label %path_env_load.exit, label %21
 

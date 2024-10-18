@@ -286,7 +286,7 @@ define void @_ZN3gmx17CorrelationTensor18doubleBlockLengthsEv(ptr nocapture noun
   %9 = add nuw i64 %.04, 1
   %10 = getelementptr inbounds %"class.gmx::CorrelationBlockData", ptr %8, i64 %9
   %11 = getelementptr inbounds %"class.gmx::CorrelationBlockData", ptr %8, i64 %.04
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %11, ptr noundef nonnull align 8 dereferenceable(44) %10, i64 44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 44, i1 false)
   %12 = getelementptr inbounds i8, ptr %11, i64 48
   %13 = getelementptr inbounds i8, ptr %10, i64 48
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
@@ -601,7 +601,7 @@ define void @_ZN3gmx17CorrelationTensor18updateBlockLengthsEd(ptr nocapture noun
   %17 = add nuw i64 %.04.i, 1
   %18 = getelementptr inbounds %"class.gmx::CorrelationBlockData", ptr %16, i64 %17
   %19 = getelementptr inbounds %"class.gmx::CorrelationBlockData", ptr %16, i64 %.04.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %19, ptr noundef nonnull align 8 dereferenceable(44) %18, i64 44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 44, i1 false)
   %20 = getelementptr inbounds i8, ptr %19, i64 48
   %21 = getelementptr inbounds i8, ptr %18, i64 48
   %22 = getelementptr inbounds i8, ptr %18, i64 56
@@ -1260,7 +1260,7 @@ _ZNSt16allocator_traitsISaIN3gmx20CorrelationBlockDataEEE9constructIS1_JRidEEEvR
   %.0911.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN3gmx20CorrelationBlockDataEEE9constructIS1_JRidEEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %.0911.i.i.i, i64 44, i1 false), !alias.scope !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i, i64 44, i1 false), !alias.scope !22
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !alias.scope !20, !noalias !17
@@ -1303,7 +1303,7 @@ _ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
   %.0911.i.i.i30 = phi ptr [ %67, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.012.i.i.i29, ptr noundef nonnull align 8 dereferenceable(44) %.0911.i.i.i30, i64 44, i1 false), !alias.scope !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i29, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i30, i64 44, i1 false), !alias.scope !29
   %49 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 48
   %50 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 48
   %51 = load ptr, ptr %50, align 8, !alias.scope !27, !noalias !24
@@ -1414,7 +1414,7 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE17_S_check_init_lenEm
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
   br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i

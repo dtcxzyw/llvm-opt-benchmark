@@ -272,7 +272,7 @@ if.then6:                                         ; preds = %if.end3
   br i1 %cmp.i35, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then6
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, i64 noundef 8, i64 noundef %conv) #16
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv) #16
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then6
@@ -291,7 +291,7 @@ do.end:                                           ; preds = %if.end3, %st_mult.e
   br i1 %cmp.i37, label %if.then.i40, label %st_add.exit
 
 if.then.i40:                                      ; preds = %do.end
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i64 noundef 24, i64 noundef %conv30) #16
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i64 noundef 24, i64 noundef range(i64 -2147483648, 2147483648) %conv30) #16
   unreachable
 
 st_add.exit:                                      ; preds = %do.end
@@ -329,7 +329,7 @@ if.then.i48:                                      ; preds = %if.then38
   br i1 %cmp.i.i49, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i48
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, i64 noundef 8, i64 noundef %conv47) #16
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483647) %conv47) #16
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then.i48
@@ -451,7 +451,7 @@ if.then.i.i:                                      ; preds = %if.then5.i
   br i1 %cmp.i.i23.i, label %if.then.i.i.i, label %st_mult.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, i64 noundef 8, i64 noundef %conv16.i) #16
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483647) %conv16.i) #16
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i

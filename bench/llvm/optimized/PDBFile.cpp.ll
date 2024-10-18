@@ -184,7 +184,7 @@ define dso_local void @_ZN4llvm3pdb7PDBFileC2ENS_9StringRefESt10unique_ptrINS_12
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds i8, ptr %0, i64 80
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef 6) #18
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %19, ptr noundef nonnull %20, i64 noundef 6) #18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -228,7 +228,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14PDBStringTableESt14default_deleteIS2_EED2Ev.exit: 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %6, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %6 ]
   %10 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i.i.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -241,7 +241,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
 .lr.ph.i.i.i.i2.i.i.i:                            ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i, %.lr.ph.i.i.i.i2.i.i.i
   %.09.i.i.i.i3.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i2.i.i.i ], [ %12, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i ]
   %13 = load ptr, ptr %.09.i.i.i.i3.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i3.i.i.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i3.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i4.i.i.i = icmp eq ptr %13, %11
   br i1 %.not.i.i.i.i4.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i.i.i, label %.lr.ph.i.i.i.i2.i.i.i, !llvm.loop !4
 
@@ -405,7 +405,7 @@ _ZNSt10unique_ptrIN4llvm3pdb13GlobalsStreamESt14default_deleteIS2_EED2Ev.exit: ;
 
 _ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i: ; preds = %51, %_ZNSt10unique_ptrIN4llvm3pdb13GlobalsStreamESt14default_deleteIS2_EED2Ev.exit
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #18
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %57) #18
   %59 = load ptr, ptr %57, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 80
   %61 = icmp eq ptr %59, %60
@@ -684,7 +684,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
 24:                                               ; preds = %4
   %25 = and i8 %22, -2
   store i8 %25, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   br label %26
 
 26:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %24
@@ -841,7 +841,7 @@ _ZN4llvm5ErrorD2Ev.exit40:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %61 = shl nsw i64 -1, %60
   %62 = xor i64 %61, -1
   %63 = load ptr, ptr %54, align 8
-  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #18
+  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %54) #18
   %65 = getelementptr inbounds i64, ptr %63, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -8
   %67 = load i64, ptr %66, align 8
@@ -854,7 +854,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %59, %52
   %69 = add i32 %.0.copyload.i.i.i41, 63
   %70 = lshr i32 %69, 6
   %71 = zext nneg i32 %70 to i64
-  call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(16) %54, i64 noundef %71, i64 noundef 0)
+  call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(68) %54, i64 noundef %71, i64 noundef 0)
   %72 = load i32, ptr %56, align 8
   %73 = and i32 %72, 63
   %.not.i.i.i42 = icmp eq i32 %73, 0
@@ -865,7 +865,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %59, %52
   %76 = shl nsw i64 -1, %75
   %77 = xor i64 %76, -1
   %78 = load ptr, ptr %54, align 8
-  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #18
+  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %54) #18
   %80 = getelementptr inbounds i64, ptr %78, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -8
   %82 = load i64, ptr %81, align 8
@@ -2950,7 +2950,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 0, ptr %21, align 8, !noalias !243
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !noalias !243
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 32, i1 false), !noalias !243
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 120
   store i32 0, ptr %22, align 8, !noalias !243
   %23 = load ptr, ptr %3, align 8
@@ -3319,7 +3319,7 @@ _ZNSt10unique_ptrIN4llvm3pdb20InjectedSourceStreamESt14default_deleteIS2_EED2Ev.
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %36, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i.i ], [ %42, %36 ]
   %43 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i.i.i, i64 noundef 40) #19
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i.i.i.i = icmp eq ptr %43, %41
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -3332,7 +3332,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
 .lr.ph.i.i.i.i2.i.i.i:                            ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i, %.lr.ph.i.i.i.i2.i.i.i
   %.09.i.i.i.i3.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i2.i.i.i ], [ %45, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i ]
   %46 = load ptr, ptr %.09.i.i.i.i3.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %.09.i.i.i.i3.i.i.i, i64 noundef 40) #19
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i3.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i4.i.i.i = icmp eq ptr %46, %44
   br i1 %.not.i.i.i.i4.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i.i.i, label %.lr.ph.i.i.i.i2.i.i.i, !llvm.loop !4
 
@@ -4355,12 +4355,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #18
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #18
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #18
   ret void
 }
 
@@ -4647,7 +4647,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb14NamedStreamMapD2Ev(ptr noundef no
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
@@ -4657,7 +4657,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i ], [ %12, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
   %13 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i.i = icmp eq ptr %13, %11
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -4670,7 +4670,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.09.i.i.i.i3.i = phi ptr [ %16, %.lr.ph.i.i.i.i2.i ], [ %15, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i ]
   %16 = load ptr, ptr %.09.i.i.i.i3.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i3.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i3.i, i64 noundef 40) #19
   %.not.i.i.i.i4.i = icmp eq ptr %16, %14
   br i1 %.not.i.i.i.i4.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !4
 
@@ -4859,7 +4859,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit: ; preds = %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEED2Ev.exit, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i6
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %38) #18
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %38) #18
   ret void
 }
 
@@ -5024,7 +5024,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #19
   ret void
 }
@@ -5046,7 +5046,7 @@ define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN4llvm3pdb20InjectedSour
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %4, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i ], [ %7, %4 ]
   %8 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i.i.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, %6
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -5059,7 +5059,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
 .lr.ph.i.i.i.i2.i.i.i:                            ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i, %.lr.ph.i.i.i.i2.i.i.i
   %.09.i.i.i.i3.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i2.i.i.i ], [ %10, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i.i.i ]
   %11 = load ptr, ptr %.09.i.i.i.i3.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i3.i.i.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i3.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i4.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i4.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i.i.i, label %.lr.ph.i.i.i.i2.i.i.i, !llvm.loop !4
 

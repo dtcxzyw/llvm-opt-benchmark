@@ -186,11 +186,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i64 noundef %len, i64 noundef %conv4) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i64 noundef %len, i64 noundef range(i64 -2147483648, 2147483648) %conv4) #5
   br label %trace_virtio_console_flush_buf.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %0, i64 noundef %len, i64 noundef %conv4) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %0, i64 noundef %len, i64 noundef range(i64 -2147483648, 2147483648) %conv4) #5
   br label %trace_virtio_console_flush_buf.exit
 
 trace_virtio_console_flush_buf.exit:              ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

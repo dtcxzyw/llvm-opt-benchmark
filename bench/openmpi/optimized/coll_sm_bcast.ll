@@ -109,7 +109,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %24
   br i1 %47, label %59, label %150
 
 59:                                               ; preds = %opal_obj_run_constructors.exit
-  %60 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %9, ptr noundef %2, i64 noundef %49, ptr noundef %0) #3
+  %60 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %9, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %49, ptr noundef %0) #3
   %.not134 = icmp eq i32 %60, 0
   br i1 %.not134, label %61, label %opal_obj_run_destructors.exit
 
@@ -277,7 +277,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %61, %73
   br i1 %.us-phi, label %81, label %.loopexit152, !llvm.loop !9
 
 150:                                              ; preds = %opal_obj_run_constructors.exit
-  %151 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %9, ptr noundef %2, i64 noundef %49, ptr noundef %0) #3
+  %151 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %9, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %49, ptr noundef %0) #3
   %.not131 = icmp eq i32 %151, 0
   br i1 %.not131, label %152, label %opal_obj_run_destructors.exit
 

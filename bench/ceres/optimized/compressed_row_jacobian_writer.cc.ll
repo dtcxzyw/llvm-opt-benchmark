@@ -849,7 +849,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7
   %187 = load i32, ptr %186, align 4, !noalias !26
   %188 = getelementptr inbounds i8, ptr %174, i64 48
   %189 = load i32, ptr %188, align 8, !noalias !26
-  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.13, ptr noundef nonnull %174, ptr noundef %175, ptr noundef %177, i32 noundef %179, i32 noundef %183, i32 noundef %185, i32 noundef %187, i32 noundef %189)
+  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(80) %174, ptr noundef %175, ptr noundef %177, i32 noundef %179, i32 noundef %183, i32 noundef %185, i32 noundef %187, i32 noundef %189)
           to label %_ZNK5ceres8internal14ParameterBlock8ToStringB5cxx11Ev.exit unwind label %.loopexit
 
 _ZNK5ceres8internal14ParameterBlock8ToStringB5cxx11Ev.exit: ; preds = %171

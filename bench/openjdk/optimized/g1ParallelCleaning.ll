@@ -52,7 +52,7 @@ define hidden void @_ZN17JVMCICleaningTask4workEb(ptr noundef nonnull align 1 de
   br i1 %8, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit
 
 _ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit: ; preds = %6
-  %9 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %0) #3, !srcloc !6
+  %9 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull align 1 dereferenceable(1) %0) #3, !srcloc !6
   %10 = trunc i8 %9 to i1
   br i1 %10, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread, label %11
 
@@ -110,7 +110,7 @@ define hidden void @_ZN22G1ParallelCleaningTask4workEj(ptr noundef nonnull align
   br i1 %12, label %_ZN17JVMCICleaningTask4workEb.exit, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i
 
 _ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i: ; preds = %10
-  %13 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %3) #3, !srcloc !6
+  %13 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull align 1 dereferenceable(1) %3) #3, !srcloc !6
   %14 = trunc i8 %13 to i1
   br i1 %14, label %_ZN17JVMCICleaningTask4workEb.exit, label %15
 

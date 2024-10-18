@@ -491,7 +491,7 @@ define dso_local noundef ptr @_ZN4llvm14TargetRegistry12lookupTargetENS_9StringR
   call void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) #15
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load i32, ptr %23, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   %25 = load ptr, ptr @_ZL11FirstTarget, align 8
   %.not5.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not5.i.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %.lr.ph.i.i.i.i
@@ -548,7 +548,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %29, %19
 42:                                               ; preds = %.lr.ph.i.i.i22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #15
   %43 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %14) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %14) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 31))
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i.i, i64 16
   %45 = load ptr, ptr %44, align 8

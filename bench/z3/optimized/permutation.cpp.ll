@@ -71,7 +71,7 @@ lor.lhs.false.i.i:                                ; preds = %for.body.i
   br i1 %cmp5.i.i, label %if.then.i6.i, label %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
 
 if.then.i6.i:                                     ; preds = %lor.lhs.false.i.i, %for.body.i
-  invoke void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  invoke void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %if.then.i6.i
@@ -509,7 +509,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

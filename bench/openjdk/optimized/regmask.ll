@@ -126,7 +126,7 @@ _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
 
 .lr.ph.i1:                                        ; preds = %.lr.ph25.i, %17
   %.01320.i = phi i64 [ %18, %17 ], [ %16, %.lr.ph25.i ]
-  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01320.i, i1 true)
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.01320.i, i1 true)
   %20 = shl nuw i64 1, %19
   %21 = and i64 %20, 6148914691236517205
   %22 = icmp eq i64 %21, 0
@@ -200,7 +200,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph25, %9
   %.01320 = phi i64 [ %10, %9 ], [ %8, %.lr.ph25 ]
-  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01320, i1 true)
+  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.01320, i1 true)
   %12 = shl nuw i64 1, %11
   %13 = and i64 %12, 6148914691236517205
   %14 = icmp eq i64 %13, 0
@@ -298,7 +298,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr nocapture no
   br i1 %.not21, label %29, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
+  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %12, i1 true)
   %.not22 = icmp eq i64 %14, 63
   br i1 %.not22, label %17, label %15
 
@@ -387,7 +387,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %3, %switch.lookup
   br i1 %.not30.i, label %49, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
+  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %16, i1 true)
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw i64 1, %18
   %21 = add nuw nsw i32 %.0.i, %19
@@ -505,7 +505,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br i1 %.not21.i, label %90, label %74
 
 74:                                               ; preds = %.lr.ph.i9
-  %75 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %73, i1 true)
+  %75 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %73, i1 true)
   %.not22.i = icmp eq i64 %75, 63
   br i1 %.not22.i, label %78, label %76
 
@@ -577,7 +577,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr nocapture nou
   br i1 %.not30, label %46, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %13, i1 true)
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = shl nuw i64 1, %15
   %18 = add i32 %1, %16
@@ -689,7 +689,7 @@ define hidden noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr nocapture nou
 
 11:                                               ; preds = %.lr.ph
   %12 = shl i32 %.013, 6
-  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %10, i1 true)
+  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %10, i1 true)
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = add i32 %2, -1
   %16 = add i32 %15, %12

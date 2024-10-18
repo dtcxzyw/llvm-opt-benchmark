@@ -914,7 +914,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %42, %30, %24
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS_.exit.i, %47, %55
   %61 = add i32 %.025, 1
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %.025, ptr noundef %26) #14
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef %.025, ptr noundef nonnull %26) #14
   %62 = load i32, ptr %14, align 8
   %63 = add i32 %62, 1
   store i32 %63, ptr %14, align 8
@@ -1882,7 +1882,7 @@ _ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit93: ; preds = %_ZN12LiveRange
 
 388:                                              ; preds = %.lr.ph.i94
   %389 = shl i32 %.0712.i, 6
-  %390 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %387, i1 true)
+  %390 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %387, i1 true)
   %391 = trunc nuw nsw i64 %390 to i32
   %392 = or disjoint i32 %389, %391
   %393 = trunc i32 %392 to i16
@@ -2808,7 +2808,7 @@ _ZN3LRG3ANDERK7RegMask.exit166:                   ; preds = %321, %317, %281
   store i32 10, ptr %365, align 8
   %366 = getelementptr inbounds i8, ptr %275, i64 148
   store i32 0, ptr %366, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %322, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %322, i8 0, i64 88, i1 false)
   %367 = getelementptr inbounds i8, ptr %275, i64 152
   store i32 0, ptr %367, align 8
   br label %.critedge
@@ -3141,7 +3141,7 @@ _ZN4NodenwEm.exit:                                ; preds = %162, %164
   br i1 %166, label %183, label %167
 
 167:                                              ; preds = %_ZN4NodenwEm.exit
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 0) #14
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, i32 noundef 0) #14
   %168 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %168, align 4
   %169 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 54
@@ -3168,8 +3168,8 @@ _ZN4NodenwEm.exit:                                ; preds = %162, %164
   %181 = load i32, ptr %180, align 8
   %182 = or i32 %181, 1
   store i32 %182, ptr %180, align 8
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null) #14
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef nonnull %105) #14
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, ptr noundef null) #14
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, ptr noundef nonnull %105) #14
   br label %183
 
 183:                                              ; preds = %167, %_ZN4NodenwEm.exit
@@ -3704,7 +3704,7 @@ define hidden void @_ZN12PhaseChaitin14cache_lrg_infoEv(ptr nocapture noundef no
 _ZNK7RegMask14find_last_elemEv.exit:              ; preds = %41
   %45 = trunc i64 %42 to i32
   %46 = shl i32 %45, 6
-  %47 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %44, i1 true)
+  %47 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %44, i1 true)
   %48 = trunc nuw nsw i64 %47 to i32
   %49 = or disjoint i32 %46, %48
   %50 = xor i32 %49, 63
@@ -4486,7 +4486,7 @@ thread-pre-split.thread:                          ; preds = %101, %thread-pre-sp
 123:                                              ; preds = %119
   %124 = trunc i64 %120 to i32
   %125 = shl i32 %124, 6
-  %126 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %122, i1 true)
+  %126 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %122, i1 true)
   %127 = trunc nuw nsw i64 %126 to i32
   %128 = or disjoint i32 %125, %127
   %129 = xor i32 %128, 63
@@ -4508,7 +4508,7 @@ _ZN12PhaseChaitin12choose_colorER3LRGi.exit.thread: ; preds = %117
   %132 = add nuw nsw i32 %.056, 704
   store i32 0, ptr %32, align 8
   store i32 10, ptr %31, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %27, i8 -1, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %27, i8 -1, i64 88, i1 false)
   store i32 704, ptr %35, align 8
   br label %36
 
@@ -4546,7 +4546,7 @@ _ZN12PhaseChaitin12choose_colorER3LRGi.exit.thread: ; preds = %117
 146:                                              ; preds = %143, %139
   store i32 10, ptr %32, align 8
   store i32 0, ptr %31, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %27, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %27, i8 0, i64 88, i1 false)
   store i32 0, ptr %35, align 8
   %147 = lshr i32 %130, 6
   %.not83 = icmp ult i32 %130, 64
@@ -5541,7 +5541,7 @@ _ZL12is_legal_regR3LRGii.exit72:                  ; preds = %142, %127, %_ZNK9Ve
 
 202:                                              ; preds = %.lr.ph.i74
   %203 = shl i32 %.0712.i, 6
-  %204 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %201, i1 true)
+  %204 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %201, i1 true)
   %205 = trunc nuw nsw i64 %204 to i32
   %206 = or disjoint i32 %203, %205
   br label %_ZNK7RegMask15find_first_elemEv.exit
@@ -5591,7 +5591,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %207, %194, %202
 
 229:                                              ; preds = %.lr.ph.i78
   %230 = shl i32 %.0712.i79, 6
-  %231 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %228, i1 true)
+  %231 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %228, i1 true)
   %232 = trunc nuw nsw i64 %231 to i32
   %233 = or disjoint i32 %230, %232
   br label %_ZNK7RegMask15find_first_elemEv.exit83
@@ -5687,7 +5687,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin12choose_colorER3LRGi(ptr nocapture 
 28:                                               ; preds = %24
   %29 = trunc i64 %25 to i32
   %30 = shl i32 %29, 6
-  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %27, i1 true)
   %32 = trunc nuw nsw i64 %31 to i32
   %33 = or disjoint i32 %30, %32
   %34 = xor i32 %33, 63
@@ -5863,7 +5863,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %37, %42, %53
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef i32 @_ZNK5Block9find_nodeEPK4Node(ptr noundef nonnull align 8 dereferenceable(144) %70, ptr noundef %63) #14
   %72 = getelementptr inbounds i8, ptr %70, i64 16
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %72, i32 noundef %71, ptr noundef nonnull %32) #14
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %72, i32 noundef %71, ptr noundef nonnull %32) #14
   %73 = getelementptr inbounds i8, ptr %70, i64 40
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, 1
@@ -5907,7 +5907,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node8init_re
 
 97:                                               ; preds = %.lr.ph
   %98 = add i32 %.0114143, 1
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %72, i32 noundef %98, ptr noundef nonnull %92) #14
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %72, i32 noundef %98, ptr noundef nonnull %92) #14
   %99 = load i32, ptr %73, align 8
   %100 = add i32 %99, 1
   store i32 %100, ptr %73, align 8
@@ -6154,7 +6154,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %226, %229
 
 244:                                              ; preds = %_ZNK5Block8get_nodeEj.exit
   %245 = getelementptr inbounds i8, ptr %204, i64 16
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %245, i32 noundef %.2166, ptr noundef %152) #14
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %245, i32 noundef %.2166, ptr noundef nonnull %152) #14
   %246 = load i32, ptr %205, align 8
   %247 = add i32 %246, 1
   store i32 %247, ptr %205, align 8
@@ -6297,7 +6297,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %1
 define linkonce_odr hidden void @_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #2 comdat align 2 {
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %10) #14
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %10) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 44

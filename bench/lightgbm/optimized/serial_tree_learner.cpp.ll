@@ -5580,7 +5580,7 @@ _ZNSt10unique_ptrIN8LightGBM19GradientDiscretizerESt14default_deleteIS1_EE5reset
   br i1 %.not.i.i27, label %_ZNSt10unique_ptrIN8LightGBM29CostEfficientGradientBoostingESt14default_deleteIS1_EE5resetEPS1_.exit, label %264
 
 264:                                              ; preds = %255
-  tail call void @_ZNKSt14default_deleteIN8LightGBM29CostEfficientGradientBoostingEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %256, ptr noundef nonnull %263)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM29CostEfficientGradientBoostingEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %256, ptr noundef nonnull %263)
   %.pre49 = load ptr, ptr %256, align 8
   br label %_ZNSt10unique_ptrIN8LightGBM29CostEfficientGradientBoostingESt14default_deleteIS1_EE5resetEPS1_.exit
 
@@ -6231,7 +6231,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %.not.i.i, label %_ZNSt8functionIFiiEED2Ev.exit, label %157
 
 157:                                              ; preds = %155
-  %158 = invoke noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %158 = invoke noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8functionIFiiEED2Ev.exit unwind label %159
 
 159:                                              ; preds = %157
@@ -6249,7 +6249,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %.not.i.i27, label %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit31, label %165
 
 165:                                              ; preds = %162
-  %166 = invoke noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %166 = invoke noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit31 unwind label %167
 
 167:                                              ; preds = %165
@@ -7264,7 +7264,7 @@ _ZN8LightGBM13HistogramPool8ResetMapEv.exit:      ; preds = %7, %_ZSt4fillIN9__g
   br i1 %.not.i.i.i, label %_ZN8LightGBM29CostEfficientGradientBoosting11BeforeTrainEv.exit, label %148
 
 148:                                              ; preds = %146
-  %149 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %149 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZN8LightGBM29CostEfficientGradientBoosting11BeforeTrainEv.exit unwind label %150
 
 150:                                              ; preds = %148
@@ -7282,7 +7282,7 @@ _ZN8LightGBM13HistogramPool8ResetMapEv.exit:      ; preds = %7, %_ZSt4fillIN9__g
   br i1 %.not.i.i2.i, label %common.resume, label %156
 
 156:                                              ; preds = %153
-  %157 = invoke noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %157 = invoke noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %common.resume unwind label %158
 
 158:                                              ; preds = %156
@@ -8887,7 +8887,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   %265 = sext i32 %262 to i64
   %266 = load ptr, ptr %264, align 8
   %267 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %266, i64 %265
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %267, ptr noundef nonnull align 8 dereferenceable(96) %263, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %267, ptr noundef nonnull align 8 dereferenceable(122) %263, i64 96, i1 false)
   %268 = getelementptr inbounds i8, ptr %267, i64 96
   %269 = getelementptr inbounds i8, ptr %263, i64 96
   %270 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %269)
@@ -8974,7 +8974,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit67: ; 
   %312 = zext nneg i32 %278 to i64
   %313 = load ptr, ptr %264, align 8
   %314 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %313, i64 %312
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %314, ptr noundef nonnull align 8 dereferenceable(96) %311, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %314, ptr noundef nonnull align 8 dereferenceable(122) %311, i64 96, i1 false)
   %315 = getelementptr inbounds i8, ptr %314, i64 96
   %316 = getelementptr inbounds i8, ptr %311, i64 96
   %317 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %315, ptr noundef nonnull align 8 dereferenceable(24) %316)
@@ -10698,7 +10698,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIA_N8LightGBM16FeatureHisto
 
 15:                                               ; preds = %.preheader.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %11, i64 -32
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -10716,7 +10716,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.e
 
 23:                                               ; preds = %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %11, i64 -64
-  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %_ZN8LightGBM16FeatureHistogramD2Ev.exit.i.i.i.i.i.i unwind label %26
 
 26:                                               ; preds = %23
@@ -10861,7 +10861,7 @@ _ZNSt10unique_ptrIN8LightGBM19GradientDiscretizerESt14default_deleteIS1_EED2Ev.e
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN8LightGBM29CostEfficientGradientBoostingESt14default_deleteIS1_EED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZNSt10unique_ptrIN8LightGBM19GradientDiscretizerESt14default_deleteIS1_EED2Ev.exit
-  tail call void @_ZNKSt14default_deleteIN8LightGBM29CostEfficientGradientBoostingEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %8)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM29CostEfficientGradientBoostingEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %8)
   br label %_ZNSt10unique_ptrIN8LightGBM29CostEfficientGradientBoostingESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8LightGBM29CostEfficientGradientBoostingESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8LightGBM19GradientDiscretizerESt14default_deleteIS1_EED2Ev.exit, %9
@@ -10888,7 +10888,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i: ; 
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %18
 
 18:                                               ; preds = %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i
-  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull %17)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %17)
   br label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %18, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i
@@ -11739,7 +11739,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i: 
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i
-  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull %33)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %33)
   br label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i
 
 _ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i: ; preds = %34, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i
@@ -11777,7 +11777,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i11
   br i1 %.not.i.i.i.i.i12, label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i13, label %50
 
 50:                                               ; preds = %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i11
-  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull %49)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull %49)
   br label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i13
 
 _ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i13: ; preds = %50, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i11
@@ -11841,7 +11841,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i19
   br i1 %.not.i.i.i.i.i20, label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i21, label %84
 
 84:                                               ; preds = %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i19
-  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull %83)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull %83)
   br label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i21
 
 _ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i21: ; preds = %84, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i19
@@ -11879,7 +11879,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i27
   br i1 %.not.i.i.i.i.i28, label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i29, label %100
 
 100:                                              ; preds = %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i27
-  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %98, ptr noundef nonnull %99)
+  tail call void @_ZNKSt14default_deleteIN8LightGBM18MultiValBinWrapperEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull %99)
   br label %_ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i29
 
 _ZNSt10unique_ptrIN8LightGBM18MultiValBinWrapperESt14default_deleteIS1_EED2Ev.exit.i.i.i.i29: ; preds = %100, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit.i.i.i.i27
@@ -12428,7 +12428,7 @@ _ZSt27__uninitialized_default_n_aIPN8LightGBM9SplitInfoEmS1_ET_S3_T0_RSaIT1_E.ex
   %.0911.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN8LightGBM9SplitInfoEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i, i64 96, i1 false), !alias.scope !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(122) %.0911.i.i.i.i, i64 96, i1 false), !alias.scope !55
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 96
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 96
   %45 = load ptr, ptr %44, align 8, !alias.scope !53, !noalias !50
@@ -13864,7 +13864,7 @@ define linkonce_odr void @_ZThn8_N8LightGBM20BasicConstraintEntryD1Ev(ptr nounde
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N8LightGBM20BasicConstraintEntryD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #35
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   ret void
 }
 
@@ -16310,7 +16310,7 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedConstraintEntry28RecomputeConstr
 
 31:                                               ; preds = %20
   %32 = sub nuw nsw i64 1, %29
-  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %32)
+  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef %32)
   %.pre.i = load ptr, ptr %22, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
@@ -16739,7 +16739,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i4:                 ; preds = %.noexc5
   %24 = getelementptr inbounds i8, ptr %18, i64 128
   store ptr %24, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %25, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %25, i8 0, i64 144, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 281
@@ -17962,7 +17962,7 @@ define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN8LightGBM26AdvancedFeatu
   %12 = getelementptr inbounds i8, ptr %.0911, i64 24
   %13 = load ptr, ptr %12, align 8, !alias.scope !88, !noalias !85
   store ptr %13, ptr %11, align 8, !alias.scope !85, !noalias !88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
   %14 = getelementptr inbounds i8, ptr %.012, i64 32
   %15 = getelementptr inbounds i8, ptr %.0911, i64 32
   %16 = load ptr, ptr %15, align 8, !alias.scope !88, !noalias !85
@@ -17988,7 +17988,7 @@ define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN8LightGBM26AdvancedFeatu
   %30 = getelementptr inbounds i8, ptr %.0911, i64 72
   %31 = load ptr, ptr %30, align 8, !alias.scope !88, !noalias !85
   store ptr %31, ptr %29, align 8, !alias.scope !85, !noalias !88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
   %32 = getelementptr inbounds i8, ptr %.012, i64 80
   %33 = getelementptr inbounds i8, ptr %.0911, i64 80
   %34 = load ptr, ptr %33, align 8, !alias.scope !88, !noalias !85
@@ -18014,7 +18014,7 @@ define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN8LightGBM26AdvancedFeatu
   %48 = getelementptr inbounds i8, ptr %.0911, i64 120
   %49 = load ptr, ptr %48, align 8, !alias.scope !88, !noalias !85
   store ptr %49, ptr %47, align 8, !alias.scope !85, !noalias !88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %42, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
   %50 = getelementptr inbounds i8, ptr %.012, i64 128
   %51 = getelementptr inbounds i8, ptr %.0911, i64 128
   %52 = load ptr, ptr %51, align 8, !alias.scope !88, !noalias !85
@@ -18116,7 +18116,7 @@ define linkonce_odr void @_ZN8LightGBM26AdvancedFeatureConstraints5ResetEv(ptr n
 
 11:                                               ; preds = %1
   %12 = sub nuw nsw i64 1, %9
-  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %12)
+  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %12)
   %.pre.i = load ptr, ptr %2, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
@@ -18182,7 +18182,7 @@ _ZN8LightGBM26FeatureMinOrMaxConstraints5ResetEd.exit: ; preds = %28, %30, %32, 
 
 45:                                               ; preds = %_ZN8LightGBM26FeatureMinOrMaxConstraints5ResetEd.exit
   %46 = sub nuw nsw i64 1, %43
-  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %46)
+  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %46)
   %.pre.i5 = load ptr, ptr %36, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i1
 
@@ -21955,7 +21955,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIA_N8LightGBM16FeatureHistogramESt14default_de
 
 51:                                               ; preds = %.preheader.i.i.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %47, i64 -32
-  %53 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef 3)
+  %53 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i.i.i.i.i unwind label %54
 
 54:                                               ; preds = %51
@@ -21973,7 +21973,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.e
 
 59:                                               ; preds = %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %47, i64 -64
-  %61 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3)
           to label %_ZN8LightGBM16FeatureHistogramD2Ev.exit.i.i.i.i.i.i.i unwind label %62
 
 62:                                               ; preds = %59
@@ -22104,7 +22104,7 @@ define internal void @_ZN8LightGBM13HistogramPool17DynamicChangeSizeEPKNS_7Datas
 
 65:                                               ; preds = %.preheader.i.i.i
   %66 = getelementptr inbounds i8, ptr %61, i64 -32
-  %67 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef 3)
+  %67 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i unwind label %68
 
 68:                                               ; preds = %65
@@ -22122,7 +22122,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.e
 
 73:                                               ; preds = %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %61, i64 -64
-  %75 = invoke noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %74, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %74, i32 noundef 3)
           to label %_ZN8LightGBM16FeatureHistogramD2Ev.exit.i.i.i unwind label %76
 
 76:                                               ; preds = %73
@@ -22339,7 +22339,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:
 
 4:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #17
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, label %7
 
@@ -22379,7 +22379,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %9
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %12
-  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #17
+  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   br label %14
 
 14:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -22532,7 +22532,7 @@ define internal void @_ZN8LightGBM13HistogramPool17DynamicChangeSizeEPKNS_7Datas
 
 65:                                               ; preds = %.preheader.i.i.i
   %66 = getelementptr inbounds i8, ptr %61, i64 -32
-  %67 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef 3)
+  %67 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i unwind label %68
 
 68:                                               ; preds = %65
@@ -22550,7 +22550,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.e
 
 73:                                               ; preds = %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEED2Ev.exit.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %61, i64 -64
-  %75 = invoke noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %74, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %74, i32 noundef 3)
           to label %_ZN8LightGBM16FeatureHistogramD2Ev.exit.i.i.i unwind label %76
 
 76:                                               ; preds = %73
@@ -24067,9 +24067,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -24083,7 +24083,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -24107,9 +24107,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -24123,7 +24123,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -24151,9 +24151,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -24167,7 +24167,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -24191,9 +24191,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -24207,7 +24207,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -24240,9 +24240,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -24256,7 +24256,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -24280,9 +24280,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -24296,7 +24296,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -24324,9 +24324,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -24340,7 +24340,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -24364,9 +24364,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -24380,7 +24380,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -24447,9 +24447,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -24463,7 +24463,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -24487,9 +24487,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -24503,7 +24503,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -24531,9 +24531,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -24547,7 +24547,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -24571,9 +24571,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -24587,7 +24587,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -24620,9 +24620,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -24636,7 +24636,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -24660,9 +24660,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -24676,7 +24676,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -24704,9 +24704,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -24720,7 +24720,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -24744,9 +24744,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -24760,7 +24760,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -39586,9 +39586,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -39602,7 +39602,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -39626,9 +39626,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -39642,7 +39642,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -39670,9 +39670,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -39686,7 +39686,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -39710,9 +39710,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -39726,7 +39726,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -39759,9 +39759,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -39775,7 +39775,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -39799,9 +39799,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -39815,7 +39815,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -39843,9 +39843,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -39859,7 +39859,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -39883,9 +39883,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -39899,7 +39899,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -39966,9 +39966,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -39982,7 +39982,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -40006,9 +40006,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -40022,7 +40022,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -40050,9 +40050,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -40066,7 +40066,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -40090,9 +40090,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -40106,7 +40106,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -40139,9 +40139,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -40155,7 +40155,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -40179,9 +40179,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -40195,7 +40195,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -40223,9 +40223,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -40239,7 +40239,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -40263,9 +40263,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -40279,7 +40279,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -53528,9 +53528,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -53544,7 +53544,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -53568,9 +53568,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -53584,7 +53584,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -53612,9 +53612,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -53628,7 +53628,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -53652,9 +53652,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -53668,7 +53668,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -53701,9 +53701,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -53717,7 +53717,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -53741,9 +53741,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -53757,7 +53757,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -53785,9 +53785,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -53801,7 +53801,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -53825,9 +53825,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -53841,7 +53841,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -53908,9 +53908,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -53924,7 +53924,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -53948,9 +53948,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -53964,7 +53964,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -53992,9 +53992,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -54008,7 +54008,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -54032,9 +54032,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -54048,7 +54048,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -54081,9 +54081,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -54097,7 +54097,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -54121,9 +54121,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -54137,7 +54137,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -54165,9 +54165,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -54181,7 +54181,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -54205,9 +54205,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -54221,7 +54221,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -68838,9 +68838,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -68854,7 +68854,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -68878,9 +68878,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -68894,7 +68894,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -68922,9 +68922,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -68938,7 +68938,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -68962,9 +68962,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -68978,7 +68978,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -69011,9 +69011,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -69027,7 +69027,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -69051,9 +69051,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -69067,7 +69067,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -69095,9 +69095,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -69111,7 +69111,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -69135,9 +69135,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -69151,7 +69151,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -69218,9 +69218,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -69234,7 +69234,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -69258,9 +69258,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -69274,7 +69274,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -69302,9 +69302,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -69318,7 +69318,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -69342,9 +69342,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -69358,7 +69358,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -69391,9 +69391,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -69407,7 +69407,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -69431,9 +69431,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -69447,7 +69447,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -69475,9 +69475,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -69491,7 +69491,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -69515,9 +69515,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -69531,7 +69531,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -80500,9 +80500,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -80516,7 +80516,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -80540,9 +80540,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -80556,7 +80556,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -80584,9 +80584,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -80600,7 +80600,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -80624,9 +80624,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -80640,7 +80640,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -80673,9 +80673,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -80689,7 +80689,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -80713,9 +80713,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -80729,7 +80729,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -80757,9 +80757,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -80773,7 +80773,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -80797,9 +80797,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -80813,7 +80813,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -80880,9 +80880,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -80896,7 +80896,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -80920,9 +80920,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -80936,7 +80936,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -80964,9 +80964,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -80980,7 +80980,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -81004,9 +81004,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -81020,7 +81020,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -81053,9 +81053,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -81069,7 +81069,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -81093,9 +81093,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -81109,7 +81109,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -81137,9 +81137,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -81153,7 +81153,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -81177,9 +81177,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -81193,7 +81193,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -97536,9 +97536,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -97552,7 +97552,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -97576,9 +97576,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -97592,7 +97592,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -97620,9 +97620,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -97636,7 +97636,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -97660,9 +97660,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -97676,7 +97676,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -97709,9 +97709,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -97725,7 +97725,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -97749,9 +97749,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -97765,7 +97765,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -97793,9 +97793,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -97809,7 +97809,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -97833,9 +97833,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -97849,7 +97849,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -97916,9 +97916,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -97932,7 +97932,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -97956,9 +97956,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -97972,7 +97972,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -98000,9 +98000,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -98016,7 +98016,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -98040,9 +98040,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -98056,7 +98056,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -98089,9 +98089,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -98105,7 +98105,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -98129,9 +98129,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -98145,7 +98145,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -98173,9 +98173,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -98189,7 +98189,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -98213,9 +98213,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -98229,7 +98229,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -114861,9 +114861,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -114877,7 +114877,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -114901,9 +114901,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -114917,7 +114917,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -114945,9 +114945,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -114961,7 +114961,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -114985,9 +114985,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -115001,7 +115001,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -115034,9 +115034,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -115050,7 +115050,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -115074,9 +115074,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -115090,7 +115090,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -115118,9 +115118,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -115134,7 +115134,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -115158,9 +115158,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -115174,7 +115174,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -115241,9 +115241,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -115257,7 +115257,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -115281,9 +115281,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -115297,7 +115297,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -115325,9 +115325,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -115341,7 +115341,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -115365,9 +115365,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -115381,7 +115381,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -115414,9 +115414,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -115430,7 +115430,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -115454,9 +115454,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -115470,7 +115470,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -115498,9 +115498,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -115514,7 +115514,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -115538,9 +115538,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -115554,7 +115554,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -133125,9 +133125,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -133141,7 +133141,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -133165,9 +133165,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -133181,7 +133181,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -133209,9 +133209,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -133225,7 +133225,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -133249,9 +133249,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -133265,7 +133265,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -133298,9 +133298,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -133314,7 +133314,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -133338,9 +133338,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -133354,7 +133354,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -133382,9 +133382,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -133398,7 +133398,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -133422,9 +133422,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -133438,7 +133438,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -133505,9 +133505,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -133521,7 +133521,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb1E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -133545,9 +133545,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -133561,7 +133561,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -133589,9 +133589,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -133605,7 +133605,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -133629,9 +133629,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -133645,7 +133645,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -133678,9 +133678,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -133694,7 +133694,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -133718,9 +133718,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -133734,7 +133734,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -133762,9 +133762,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -133778,7 +133778,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -133802,9 +133802,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -133818,7 +133818,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb1ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -150079,9 +150079,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -150095,7 +150095,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -150119,9 +150119,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -150135,7 +150135,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -150163,9 +150163,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -150179,7 +150179,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -150203,9 +150203,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -150219,7 +150219,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -150252,9 +150252,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -150268,7 +150268,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -150292,9 +150292,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -150308,7 +150308,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -150336,9 +150336,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -150352,7 +150352,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -150376,9 +150376,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -150392,7 +150392,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -150459,9 +150459,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -150475,7 +150475,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -150499,9 +150499,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -150515,7 +150515,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -150543,9 +150543,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -150559,7 +150559,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -150583,9 +150583,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -150599,7 +150599,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -150632,9 +150632,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -150648,7 +150648,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -150672,9 +150672,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -150688,7 +150688,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -150716,9 +150716,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -150732,7 +150732,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -150756,9 +150756,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -150772,7 +150772,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -165481,9 +165481,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -165497,7 +165497,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -165521,9 +165521,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -165537,7 +165537,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -165565,9 +165565,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -165581,7 +165581,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -165605,9 +165605,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -165621,7 +165621,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -165654,9 +165654,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -165670,7 +165670,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -165694,9 +165694,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -165710,7 +165710,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -165738,9 +165738,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -165754,7 +165754,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -165778,9 +165778,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -165794,7 +165794,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -165861,9 +165861,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -165877,7 +165877,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -165901,9 +165901,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -165917,7 +165917,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -165945,9 +165945,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -165961,7 +165961,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -165985,9 +165985,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -166001,7 +166001,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -166034,9 +166034,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -166050,7 +166050,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -166074,9 +166074,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -166090,7 +166090,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -166118,9 +166118,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -166134,7 +166134,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -166158,9 +166158,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -166174,7 +166174,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -178875,9 +178875,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -178891,7 +178891,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -178915,9 +178915,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -178931,7 +178931,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -178959,9 +178959,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -178975,7 +178975,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -178999,9 +178999,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -179015,7 +179015,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -179048,9 +179048,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -179064,7 +179064,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -179088,9 +179088,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -179104,7 +179104,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -179132,9 +179132,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -179148,7 +179148,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -179172,9 +179172,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -179188,7 +179188,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -179255,9 +179255,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -179271,7 +179271,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -179295,9 +179295,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -179311,7 +179311,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -179339,9 +179339,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -179355,7 +179355,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -179379,9 +179379,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -179395,7 +179395,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -179428,9 +179428,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -179444,7 +179444,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -179468,9 +179468,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -179484,7 +179484,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -179512,9 +179512,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -179528,7 +179528,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -179552,9 +179552,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -179568,7 +179568,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -193649,9 +193649,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -193665,7 +193665,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -193689,9 +193689,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -193705,7 +193705,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -193733,9 +193733,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -193749,7 +193749,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -193773,9 +193773,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -193789,7 +193789,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -193822,9 +193822,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -193838,7 +193838,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -193862,9 +193862,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -193878,7 +193878,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -193906,9 +193906,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -193922,7 +193922,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -193946,9 +193946,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -193962,7 +193962,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -194029,9 +194029,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -194045,7 +194045,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -194069,9 +194069,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -194085,7 +194085,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -194113,9 +194113,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -194129,7 +194129,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -194153,9 +194153,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -194169,7 +194169,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -194202,9 +194202,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -194218,7 +194218,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -194242,9 +194242,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -194258,7 +194258,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -194286,9 +194286,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -194302,7 +194302,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -194326,9 +194326,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -194342,7 +194342,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb0ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -204787,9 +204787,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -204803,7 +204803,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -204827,9 +204827,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -204843,7 +204843,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -204871,9 +204871,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -204887,7 +204887,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -204911,9 +204911,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -204927,7 +204927,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -204960,9 +204960,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -204976,7 +204976,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -205000,9 +205000,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -205016,7 +205016,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -205044,9 +205044,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -205060,7 +205060,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -205084,9 +205084,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -205100,7 +205100,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -205167,9 +205167,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -205183,7 +205183,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -205207,9 +205207,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -205223,7 +205223,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -205251,9 +205251,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -205267,7 +205267,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -205291,9 +205291,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -205307,7 +205307,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -205340,9 +205340,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -205356,7 +205356,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -205380,9 +205380,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -205396,7 +205396,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -205424,9 +205424,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -205440,7 +205440,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -205464,9 +205464,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -205480,7 +205480,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -221721,9 +221721,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -221737,7 +221737,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -221761,9 +221761,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -221777,7 +221777,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -221805,9 +221805,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -221821,7 +221821,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -221845,9 +221845,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -221861,7 +221861,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -221894,9 +221894,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -221910,7 +221910,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -221934,9 +221934,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -221950,7 +221950,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -221978,9 +221978,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -221994,7 +221994,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -222018,9 +222018,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -222034,7 +222034,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -222101,9 +222101,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -222117,7 +222117,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -222141,9 +222141,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -222157,7 +222157,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -222185,9 +222185,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -222201,7 +222201,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -222225,9 +222225,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -222241,7 +222241,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -222274,9 +222274,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -222290,7 +222290,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -222314,9 +222314,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -222330,7 +222330,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -222358,9 +222358,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -222374,7 +222374,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -222398,9 +222398,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -222414,7 +222414,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb1ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -238387,9 +238387,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -238403,7 +238403,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -238427,9 +238427,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -238443,7 +238443,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -238471,9 +238471,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -238487,7 +238487,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -238511,9 +238511,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -238527,7 +238527,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -238560,9 +238560,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -238576,7 +238576,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -238600,9 +238600,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -238616,7 +238616,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -238644,9 +238644,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -238660,7 +238660,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -238684,9 +238684,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -238700,7 +238700,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -238767,9 +238767,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -238783,7 +238783,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -238807,9 +238807,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -238823,7 +238823,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -238851,9 +238851,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -238867,7 +238867,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -238891,9 +238891,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -238907,7 +238907,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -238940,9 +238940,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -238956,7 +238956,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -238980,9 +238980,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -238996,7 +238996,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -239024,9 +239024,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -239040,7 +239040,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -239064,9 +239064,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -239080,7 +239080,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb1ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -255993,9 +255993,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -256009,7 +256009,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -256033,9 +256033,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -256049,7 +256049,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -256077,9 +256077,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -256093,7 +256093,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -256117,9 +256117,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -256133,7 +256133,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -256166,9 +256166,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -256182,7 +256182,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -256206,9 +256206,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -256222,7 +256222,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -256250,9 +256250,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -256266,7 +256266,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -256290,9 +256290,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -256306,7 +256306,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb1EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -256373,9 +256373,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   %27 = ptrtoint ptr %0 to i64
   store i64 %27, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
@@ -256389,7 +256389,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram17FuncForNumricalL3ILb0E
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %32
 
 32:                                               ; preds = %22
-  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -256413,9 +256413,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %42 = ptrtoint ptr %0 to i64
   store i64 %42, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i5)
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
@@ -256429,7 +256429,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i6, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %47
 
 47:                                               ; preds = %37
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %49
 
 49:                                               ; preds = %47
@@ -256457,9 +256457,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %58 = ptrtoint ptr %0 to i64
   store i64 %58, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i7)
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -256473,7 +256473,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i8, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %63
 
 63:                                               ; preds = %.thread
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -256497,9 +256497,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %73 = ptrtoint ptr %0 to i64
   store i64 %73, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i9)
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
@@ -256513,7 +256513,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i10, label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %78
 
 78:                                               ; preds = %68
-  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUllddhhiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JlddhhiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %80
 
 80:                                               ; preds = %78
@@ -256546,9 +256546,9 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   %90 = ptrtoint ptr %0 to i64
   store i64 %90, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = load ptr, ptr %91, align 8
@@ -256562,7 +256562,7 @@ _ZNSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS
   br i1 %.not.i.i.i12, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %95
 
 95:                                               ; preds = %85
-  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %96 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %97
 
 97:                                               ; preds = %95
@@ -256586,9 +256586,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %105 = ptrtoint ptr %0 to i64
   store i64 %105, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i13)
   %106 = getelementptr inbounds i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -256602,7 +256602,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i14, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %110
 
 110:                                              ; preds = %100
-  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E0_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -256630,9 +256630,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %121 = ptrtoint ptr %0 to i64
   store i64 %121, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i15)
   %122 = getelementptr inbounds i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -256646,7 +256646,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i16, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %126
 
 126:                                              ; preds = %.thread30
-  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E1_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -256670,9 +256670,9 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   %136 = ptrtoint ptr %0 to i64
   store i64 %136, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i17)
   %137 = getelementptr inbounds i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
@@ -256686,7 +256686,7 @@ _ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_1
   br i1 %.not.i.i.i18, label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit, label %141
 
 141:                                              ; preds = %131
-  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEaSIZNS0_16FeatureHistogram17FuncForNumricalL3ILb0ELb1ELb0ELb0ELb0EEEvvEUlddiS3_dS5_E2_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JddiS3_dS5_EEEE5valueERS7_E4typeEOSE_.exit unwind label %143
 
 143:                                              ; preds = %141
@@ -273707,11 +273707,11 @@ _ZNK8LightGBM7Dataset12BinThresholdEid.exit:      ; preds = %243
 
 _ZN8LightGBM16FeatureHistogram22GatherInfoForThresholdEddjidPNS_9SplitInfoE.exit: ; preds = %294, %295, %297, %298
   store i32 %237, ptr %13, align 8
-  %299 = invoke noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN8LightGBM9SplitInfoEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %299 = invoke noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN8LightGBM9SplitInfoEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit unwind label %309
 
 _ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit: ; preds = %_ZN8LightGBM16FeatureHistogram22GatherInfoForThresholdEddjidPNS_9SplitInfoE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %299, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %299, ptr noundef nonnull align 8 dereferenceable(122) %13, i64 96, i1 false)
   %300 = getelementptr inbounds i8, ptr %299, i64 96
   %301 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %300, ptr noundef nonnull align 8 dereferenceable(24) %195)
           to label %302 unwind label %309
@@ -273884,11 +273884,11 @@ _ZNK8LightGBM7Dataset12BinThresholdEid.exit162:   ; preds = %334
 
 _ZN8LightGBM16FeatureHistogram22GatherInfoForThresholdEddjidPNS_9SplitInfoE.exit167: ; preds = %385, %386, %388, %389
   store i32 %328, ptr %14, align 8
-  %390 = invoke noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN8LightGBM9SplitInfoEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %390 = invoke noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN8LightGBM9SplitInfoEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit169 unwind label %309
 
 _ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit169: ; preds = %_ZN8LightGBM16FeatureHistogram22GatherInfoForThresholdEddjidPNS_9SplitInfoE.exit167
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %390, ptr noundef nonnull align 8 dereferenceable(96) %14, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %390, ptr noundef nonnull align 8 dereferenceable(122) %14, i64 96, i1 false)
   %391 = getelementptr inbounds i8, ptr %390, i64 96
   %392 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %391, ptr noundef nonnull align 8 dereferenceable(24) %196)
           to label %393 unwind label %309
@@ -274027,7 +274027,7 @@ _ZNSt4pairIN24json11_internal_lightgbm4JsonEiEC2ERKS2_.exit: ; preds = %_ZNSt13u
   br label %1053
 
 _ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit: ; preds = %442, %426, %437
-  %452 = invoke noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN8LightGBM9SplitInfoEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %452 = invoke noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN8LightGBM9SplitInfoEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %_ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit178 unwind label %450
 
 _ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit178: ; preds = %_ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit
@@ -274035,7 +274035,7 @@ _ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKi
   %454 = sext i32 %453 to i64
   %455 = load ptr, ptr %200, align 8
   %456 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %455, i64 %454
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %456, ptr noundef nonnull align 8 dereferenceable(96) %452, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %456, ptr noundef nonnull align 8 dereferenceable(122) %452, i64 96, i1 false)
   %457 = getelementptr inbounds i8, ptr %456, i64 96
   %458 = getelementptr inbounds i8, ptr %452, i64 96
   %459 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %457, ptr noundef nonnull align 8 dereferenceable(24) %458)
@@ -275918,7 +275918,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   br i1 %.not.i.i, label %_ZNSt8functionIFvimmEED2Ev.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -275978,7 +275978,7 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit:             ; preds = %35
   br i1 %.not.i.i18, label %_ZNSt8functionIFvimmEED2Ev.exit19, label %57
 
 57:                                               ; preds = %54
-  %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit19 unwind label %59
 
 59:                                               ; preds = %57
@@ -276169,7 +276169,7 @@ define internal void @_ZN8LightGBM9Threading3ForImEEiT_S2_S2_RKSt8functionIFviS2
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %25, align 8
-  invoke void %41(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZNKSt8functionIFvimmEEclEimm.exit unwind label %42
 
 _ZNKSt8functionIFvimmEEclEimm.exit:               ; preds = %40
@@ -278631,10 +278631,6 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZN
   %.not.i.i.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
-_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  store i64 0, ptr %4, align 8
-  br label %46
-
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %43 = mul nuw nsw i64 %41, 24
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #36
@@ -278642,223 +278638,223 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %45 = getelementptr inbounds %"class.std::vector.35", ptr %44, i64 %41
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %44, i8 0, i64 %43, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %44, i64 %43
-  br label %46
+  br label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i
 
-46:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i
-  %.pr.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %44, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %45, %.lr.ph.preheader.i.i.i.i.i ]
-  %47 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.sink.i, ptr %49, align 8
-  store ptr %47, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %1, align 8
+_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.lr.ph.preheader.i.i.i.i.i
+  %.pr.i = phi ptr [ %44, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.sink.i = phi ptr [ %45, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %46 = phi ptr [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.sink.i, ptr %48, align 8
+  store ptr %46, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %1, align 8
+  %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = lshr exact i64 %55, 2
-  %57 = trunc i64 %56 to i32
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph, label %.preheader
+  %54 = sub i64 %52, %53
+  %55 = lshr exact i64 %54, 2
+  %56 = trunc i64 %55 to i32
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph, label %.preheader
 
 .preheader.loopexit:                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %.pre40 = load i32, ptr %5, align 4
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %46
-  %59 = phi i32 [ %.pre40, %.preheader.loopexit ], [ %40, %46 ]
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph35, label %._crit_edge
+.preheader:                                       ; preds = %.preheader.loopexit, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i
+  %58 = phi i32 [ %.pre40, %.preheader.loopexit ], [ %40, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i ]
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.preheader
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
-  br label %107
+  %60 = getelementptr inbounds i8, ptr %0, i64 56
+  br label %106
 
-.lr.ph:                                           ; preds = %46, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %46 ]
-  %62 = phi ptr [ %100, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %52, %46 ]
-  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv
-  %64 = load i32, ptr %63, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %"class.std::vector.35", ptr %.pr.i, i64 %65
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %.not.i = icmp eq ptr %68, %70
-  br i1 %.not.i, label %75, label %71
+.lr.ph:                                           ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i ]
+  %61 = phi ptr [ %99, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %51, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i ]
+  %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds %"class.std::vector.35", ptr %.pr.i, i64 %64
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %.not.i = icmp eq ptr %67, %69
+  br i1 %.not.i, label %74, label %70
 
-71:                                               ; preds = %.lr.ph
-  %72 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %72, ptr %68, align 4
-  %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
-  store ptr %74, ptr %67, align 8
+70:                                               ; preds = %.lr.ph
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %71, ptr %67, align 4
+  %72 = load ptr, ptr %66, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  store ptr %73, ptr %66, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-75:                                               ; preds = %.lr.ph
-  %76 = load ptr, ptr %66, align 8
-  %77 = ptrtoint ptr %68 to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = icmp eq i64 %79, 9223372036854775804
-  br i1 %80, label %81, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+74:                                               ; preds = %.lr.ph
+  %75 = load ptr, ptr %65, align 8
+  %76 = ptrtoint ptr %67 to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  %79 = icmp eq i64 %78, 9223372036854775804
+  br i1 %79, label %80, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-81:                                               ; preds = %75
+80:                                               ; preds = %74
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #38
           to label %.noexc25 unwind label %.loopexit.split-lp
 
-.noexc25:                                         ; preds = %81
+.noexc25:                                         ; preds = %80
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %75
-  %82 = ashr exact i64 %79, 2
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %82, i64 1)
-  %83 = add nsw i64 %.sroa.speculated.i.i.i, %82
-  %84 = icmp ult i64 %83, %82
-  %85 = tail call i64 @llvm.umin.i64(i64 %83, i64 2305843009213693951)
-  %86 = select i1 %84, i64 2305843009213693951, i64 %85
-  %.not.i.i.i24 = icmp eq i64 %86, 0
-  br i1 %.not.i.i.i24, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %87
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %74
+  %81 = ashr exact i64 %78, 2
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %81, i64 1)
+  %82 = add nsw i64 %.sroa.speculated.i.i.i, %81
+  %83 = icmp ult i64 %82, %81
+  %84 = tail call i64 @llvm.umin.i64(i64 %82, i64 2305843009213693951)
+  %85 = select i1 %83, i64 2305843009213693951, i64 %84
+  %.not.i.i.i24 = icmp eq i64 %85, 0
+  br i1 %.not.i.i.i24, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %86
 
-87:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
-  %88 = shl nuw nsw i64 %86, 2
-  %89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #36
+86:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  %87 = shl nuw nsw i64 %85, 2
+  %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #36
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %87, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
-  %90 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %89, %87 ]
-  %91 = getelementptr inbounds i32, ptr %90, i64 %82
-  %92 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %92, ptr %91, align 4
-  %93 = icmp sgt i64 %79, 0
-  br i1 %93, label %94, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %86, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  %89 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %88, %86 ]
+  %90 = getelementptr inbounds i32, ptr %89, i64 %81
+  %91 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %91, ptr %90, align 4
+  %92 = icmp sgt i64 %78, 0
+  br i1 %92, label %93, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
-94:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %90, ptr align 4 %76, i64 %79, i1 false)
+93:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %89, ptr align 4 %75, i64 %78, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %94, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %95 = getelementptr inbounds i8, ptr %90, i64 %79
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
-  %.not.i17.i.i = icmp eq ptr %76, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %97
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %93, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+  %94 = getelementptr inbounds i8, ptr %89, i64 %78
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %.not.i17.i.i = icmp eq ptr %75, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %96
 
-97:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %76) #35
+96:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %75) #35
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  store ptr %90, ptr %66, align 8
-  store ptr %96, ptr %67, align 8
-  %98 = getelementptr inbounds i32, ptr %90, i64 %86
-  store ptr %98, ptr %69, align 8
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %96, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
+  store ptr %89, ptr %65, align 8
+  store ptr %95, ptr %66, align 8
+  %97 = getelementptr inbounds i32, ptr %89, i64 %85
+  store ptr %97, ptr %68, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %71
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load ptr, ptr %50, align 8
-  %100 = load ptr, ptr %1, align 8
+  %98 = load ptr, ptr %49, align 8
+  %99 = load ptr, ptr %1, align 8
+  %100 = ptrtoint ptr %98 to i64
   %101 = ptrtoint ptr %99 to i64
-  %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %sext = shl i64 %103, 30
-  %104 = ashr i64 %sext, 32
-  %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !924
+  %102 = sub i64 %100, %101
+  %sext = shl i64 %102, 30
+  %103 = ashr i64 %sext, 32
+  %104 = icmp slt i64 %indvars.iv.next, %103
+  br i1 %104, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !924
 
-.loopexit:                                        ; preds = %87
+.loopexit:                                        ; preds = %86
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %105
 
-.loopexit.split-lp:                               ; preds = %81
+.loopexit.split-lp:                               ; preds = %80
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %105
 
-106:                                              ; preds = %.loopexit.split-lp, %.loopexit
+105:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   resume { ptr, i32 } %lpad.phi
 
-107:                                              ; preds = %.lr.ph35, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit
+106:                                              ; preds = %.lr.ph35, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit
   %indvars.iv37 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next38, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit ]
-  %.02034 = phi i32 [ 0, %.lr.ph35 ], [ %136, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit ]
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds i32, ptr %108, i64 %indvars.iv37
-  store i32 %.02034, ptr %109, align 4
-  %110 = getelementptr inbounds %"class.std::vector.35", ptr %.pr.i, i64 %indvars.iv37
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %110, align 8
+  %.02034 = phi i32 [ 0, %.lr.ph35 ], [ %135, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit ]
+  %107 = load ptr, ptr %6, align 8
+  %108 = getelementptr inbounds i32, ptr %107, i64 %indvars.iv37
+  store i32 %.02034, ptr %108, align 4
+  %109 = getelementptr inbounds %"class.std::vector.35", ptr %.pr.i, i64 %indvars.iv37
+  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %109, align 8
+  %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
-  %115 = ptrtoint ptr %113 to i64
-  %116 = sub i64 %114, %115
-  %117 = lshr exact i64 %116, 2
-  %118 = trunc i64 %117 to i32
-  %119 = load ptr, ptr %24, align 8
-  %120 = getelementptr inbounds i32, ptr %119, i64 %indvars.iv37
-  store i32 %118, ptr %120, align 4
+  %115 = sub i64 %113, %114
+  %116 = lshr exact i64 %115, 2
+  %117 = trunc i64 %116 to i32
+  %118 = load ptr, ptr %24, align 8
+  %119 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv37
+  store i32 %117, ptr %119, align 4
+  %120 = load ptr, ptr %109, align 8
   %121 = load ptr, ptr %110, align 8
-  %122 = load ptr, ptr %111, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %122, %121
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit, label %123
+  %.not.i.i.i.i.i = icmp eq ptr %121, %120
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit, label %122
 
-123:                                              ; preds = %107
-  %124 = ptrtoint ptr %122 to i64
-  %125 = ptrtoint ptr %121 to i64
-  %126 = sub i64 %124, %125
-  %127 = load ptr, ptr %61, align 8
-  %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv37
-  %130 = load i32, ptr %129, align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i32, ptr %127, i64 %131
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %132, ptr align 4 %121, i64 %126, i1 false)
+122:                                              ; preds = %106
+  %123 = ptrtoint ptr %121 to i64
+  %124 = ptrtoint ptr %120 to i64
+  %125 = sub i64 %123, %124
+  %126 = load ptr, ptr %60, align 8
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv37
+  %129 = load i32, ptr %128, align 4
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i32, ptr %126, i64 %130
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %131, ptr align 4 %120, i64 %125, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit: ; preds = %123, %107
-  %133 = load ptr, ptr %24, align 8
-  %134 = getelementptr inbounds i32, ptr %133, i64 %indvars.iv37
-  %135 = load i32, ptr %134, align 4
-  %136 = add nsw i32 %135, %.02034
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit: ; preds = %122, %106
+  %132 = load ptr, ptr %24, align 8
+  %133 = getelementptr inbounds i32, ptr %132, i64 %indvars.iv37
+  %134 = load i32, ptr %133, align 4
+  %135 = add nsw i32 %134, %.02034
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %137 = load i32, ptr %5, align 4
-  %138 = sext i32 %137 to i64
-  %139 = icmp slt i64 %indvars.iv.next38, %138
-  br i1 %139, label %107, label %._crit_edge, !llvm.loop !925
+  %136 = load i32, ptr %5, align 4
+  %137 = sext i32 %136 to i64
+  %138 = icmp slt i64 %indvars.iv.next38, %137
+  br i1 %138, label %106, label %._crit_edge, !llvm.loop !925
 
 ._crit_edge:                                      ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IS2_S3_IiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEEEEET0_T_SE_SD_.exit, %.preheader
-  %.not4.i.i.i.i = icmp eq ptr %.pr.i, %47
+  %.not4.i.i.i.i = icmp eq ptr %.pr.i, %46
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %142, %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %._crit_edge ]
-  %140 = load ptr, ptr %.05.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %140, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i, label %141
+  %.05.i.i.i.i = phi ptr [ %141, %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %._crit_edge ]
+  %139 = load ptr, ptr %.05.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %139, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i, label %140
 
-141:                                              ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %140) #35
+140:                                              ; preds = %.lr.ph.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %139) #35
   br label %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i: ; preds = %141, %.lr.ph.i.i.i.i
-  %142 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i27 = icmp eq ptr %142, %47
+_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i: ; preds = %140, %.lr.ph.i.i.i.i
+  %141 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
+  %.not.i.i.i.i27 = icmp eq ptr %141, %46
   br i1 %.not.i.i.i.i27, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !920
 
 _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i, %._crit_edge
   %.not.i.i.i28 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i28, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit, label %143
+  br i1 %.not.i.i.i28, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit, label %142
 
-143:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i
+142:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i) #35
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, %143
+_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, %142
   ret void
 }
 
@@ -282287,7 +282283,7 @@ _ZNKSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEclEld
   %113 = getelementptr inbounds i8, ptr %89, i64 64
   %114 = getelementptr inbounds i8, ptr %89, i64 88
   %115 = load ptr, ptr %114, align 8
-  invoke void %115(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  invoke void %115(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %_ZN8LightGBM16FeatureHistogram20FindBestThresholdIntElddhhiPKNS_17FeatureConstraintEdPNS_9SplitInfoE.exit unwind label %116
 
 _ZN8LightGBM16FeatureHistogram20FindBestThresholdIntElddhhiPKNS_17FeatureConstraintEdPNS_9SplitInfoE.exit: ; preds = %_ZNKSt8functionIFvlddhhiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEclElddhhiS3_dS5_.exit.i
@@ -282355,7 +282351,7 @@ _ZNKSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEclEddiS3
   %136 = getelementptr inbounds i8, ptr %132, i64 32
   %137 = getelementptr inbounds i8, ptr %132, i64 56
   %138 = load ptr, ptr %137, align 8
-  invoke void %138(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  invoke void %138(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN8LightGBM16FeatureHistogram17FindBestThresholdEddiPKNS_17FeatureConstraintEdPNS_9SplitInfoE.exit unwind label %116
 
 _ZN8LightGBM16FeatureHistogram17FindBestThresholdEddiPKNS_17FeatureConstraintEdPNS_9SplitInfoE.exit: ; preds = %_ZNKSt8functionIFvddiPKN8LightGBM17FeatureConstraintEdPNS0_9SplitInfoEEEclEddiS3_dS5_.exit.i
@@ -282384,7 +282380,7 @@ _ZN8LightGBM16FeatureHistogram17FindBestThresholdEddiPKNS_17FeatureConstraintEdP
 146:                                              ; preds = %139
   %147 = getelementptr inbounds i8, ptr %6, i64 4
   %148 = load i32, ptr %147, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %26, ptr noundef nonnull align 8 dereferenceable(122) %25, i64 96, i1 false)
   %149 = getelementptr inbounds i8, ptr %26, i64 96
   %150 = getelementptr inbounds i8, ptr %25, i64 96
   %151 = getelementptr inbounds i8, ptr %25, i64 104
@@ -282547,7 +282543,7 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit:             ; preds = %220, %222
   br i1 %or.cond, label %230, label %236
 
 230:                                              ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %7, ptr noundef nonnull align 8 dereferenceable(122) %25, i64 96, i1 false)
   %231 = getelementptr inbounds i8, ptr %7, i64 96
   %232 = getelementptr inbounds i8, ptr %25, i64 96
   %233 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr noundef nonnull align 8 dereferenceable(24) %232)
@@ -288723,7 +288719,7 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit:             ; preds = %68
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %70, %_ZNK8LightGBM9SplitInfogtERKS0_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 8 dereferenceable(96) %53, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %64, ptr noundef nonnull align 8 dereferenceable(122) %53, i64 96, i1 false)
   %79 = getelementptr inbounds i8, ptr %64, i64 96
   %80 = getelementptr inbounds i8, ptr %53, i64 96
   %81 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -288893,7 +288889,7 @@ define linkonce_odr void @_ZN8LightGBM13DataPartition5SplitEiPKNS_7DatasetEiPKji
   br i1 %.not.i.i, label %_ZNSt8functionIFiiiiPiS0_EED2Ev.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFiiiiPiS0_EED2Ev.exit unwind label %37
 
 37:                                               ; preds = %35
@@ -288932,7 +288928,7 @@ _ZNSt8functionIFiiiiPiS0_EED2Ev.exit:             ; preds = %33, %35
   br i1 %.not.i.i23, label %_ZNSt8functionIFiiiiPiS0_EED2Ev.exit24, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFiiiiPiS0_EED2Ev.exit24 unwind label %56
 
 56:                                               ; preds = %54
@@ -289326,7 +289322,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   %205 = phi ptr [ %176, %175 ], [ %176, %.preheader.i ], [ %.pre, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %176, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
   %.013.i = phi i64 [ 0, %175 ], [ 0, %.preheader.i ], [ %187, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
   %206 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %205, i64 %.013.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %206, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %3, ptr noundef nonnull align 8 dereferenceable(122) %206, i64 96, i1 false)
   %207 = getelementptr inbounds i8, ptr %3, i64 96
   %208 = getelementptr inbounds i8, ptr %206, i64 96
   %209 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %207, ptr noundef nonnull align 8 dereferenceable(24) %208)
@@ -289882,7 +289878,7 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb1EE3RunILb0EEEiiR
 
 55:                                               ; preds = %47
   %56 = load ptr, ptr %30, align 8
-  %57 = invoke noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %57 = invoke noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %58 unwind label %62
 
 58:                                               ; preds = %55
@@ -290355,7 +290351,7 @@ define internal void @_ZNK8LightGBM17SerialTreeLearner15RenewTreeOutputEPNS_4Tre
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFdPKfiEEC2ERKS3_.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2)
           to label %56 unwind label %59
 
 56:                                               ; preds = %54
@@ -290373,7 +290369,7 @@ define internal void @_ZNK8LightGBM17SerialTreeLearner15RenewTreeOutputEPNS_4Tre
   br i1 %.not.i.i, label %.body, label %62
 
 62:                                               ; preds = %59
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
           to label %.body unwind label %64
 
 64:                                               ; preds = %62
@@ -290397,7 +290393,7 @@ _ZNSt8functionIFdPKfiEEC2ERKS3_.exit:             ; preds = %56, %51
   br i1 %.not.i.i24, label %_ZNSt8functionIFdPKfiEED2Ev.exit, label %74
 
 74:                                               ; preds = %72
-  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
           to label %_ZNSt8functionIFdPKfiEED2Ev.exit unwind label %76
 
 76:                                               ; preds = %74
@@ -290668,7 +290664,7 @@ _ZNK8LightGBM29CostEfficientGradientBoosting22CalculateOndemandCostsEiii.exit: ;
   %102 = load ptr, ptr %93, align 8
   %103 = getelementptr %"struct.LightGBM::SplitInfo", ptr %102, i64 %100
   %104 = getelementptr %"struct.LightGBM::SplitInfo", ptr %103, i64 %101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %104, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %104, ptr noundef nonnull align 8 dereferenceable(122) %5, i64 96, i1 false)
   %105 = getelementptr inbounds i8, ptr %104, i64 96
   %106 = getelementptr inbounds i8, ptr %5, i64 96
   %107 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %106)

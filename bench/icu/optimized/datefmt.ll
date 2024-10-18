@@ -120,7 +120,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #13
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #13
   ret void
 }
 
@@ -1101,7 +1101,7 @@ common.resume:                                    ; preds = %ehcleanup, %common.
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %2, %lpad.i ]
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %key) #13
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %key) #13
   br label %common.resume
 
 lpad.i.i:                                         ; preds = %if.end
@@ -1836,7 +1836,7 @@ new.notnull:                                      ; preds = %entry
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %2, %lpad.i ]
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %call) #13
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %call) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #13
   resume { ptr, i32 } %common.resume.op.i
 
@@ -1894,7 +1894,7 @@ invoke.cont5:                                     ; preds = %new.notnull
 ehcleanup.thread36:                               ; preds = %invoke.cont5
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call3) #13
+  call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %call3) #13
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #13
   br label %cleanup.action14
 
@@ -2097,7 +2097,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #13
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -2137,7 +2137,7 @@ new.notnull:                                      ; preds = %entry
 lpad.i:                                           ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %call) #13
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %call) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #13
   resume { ptr, i32 } %1
 

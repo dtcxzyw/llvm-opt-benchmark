@@ -412,7 +412,7 @@ define internal fastcc range(i32 -1, 1) i32 @moveDescriptor(i32 noundef %0, i32 
   br i1 %.not, label %11, label %.preheader
 
 .preheader:                                       ; preds = %2, %5
-  %3 = tail call i32 @dup2(i32 noundef %0, i32 noundef %1) #14
+  %3 = tail call i32 @dup2(i32 noundef %0, i32 noundef range(i32 0, 4) %1) #14
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %restartableDup2.exit
 

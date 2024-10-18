@@ -173,7 +173,7 @@ _ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread: ; preds = %
 
 .lr.ph.i:                                         ; preds = %46, %49
   %.sroa.011.020.i = phi ptr [ %.sroa.011.0.i, %49 ], [ %.sroa.011.018.i, %46 ]
-  %51 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.011.020.i) #3
+  %51 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.sroa.011.020.i) #3
   %52 = extractvalue { i64, i8 } %51, 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
@@ -514,7 +514,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo38is
 
 .lr.ph.i:                                         ; preds = %16, %19
   %.sroa.013.022.i = phi ptr [ %.sroa.013.0.i, %19 ], [ %.sroa.013.020.i, %16 ]
-  %21 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sroa.013.022.i) #3
+  %21 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.013.022.i) #3
   %22 = extractvalue { i64, i8 } %21, 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZNK4llvm18ProfileSummaryInfo24isColdBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit
@@ -562,7 +562,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo37is
 
 .lr.ph.i:                                         ; preds = %16, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i
   %.sroa.013.022.i = phi ptr [ %.sroa.013.0.i, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i ], [ %.sroa.013.020.i, %16 ]
-  %19 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sroa.013.022.i) #3
+  %19 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.013.022.i) #3
   %20 = extractvalue { i64, i8 } %19, 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i

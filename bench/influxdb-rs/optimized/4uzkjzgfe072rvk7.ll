@@ -1012,7 +1012,7 @@ define hidden void @"_ZN4core3ptr228drop_in_place$LT$std..collections..hash..set
   br i1 %5, label %"_ZN4core3ptr258drop_in_place$LT$hashbrown..set..HashSet$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$C$std..collections..hash..map..RandomState$GT$$GT$17h45a4b0810965611bE.llvm.11290379560268722015.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd1355f7d840c86f1E.llvm.15638356858648770541(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd1355f7d840c86f1E.llvm.15638356858648770541(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !610)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !613
   %7 = load i64, ptr %3, align 8, !alias.scope !613, !noundef !4
@@ -1104,7 +1104,7 @@ define hidden void @"_ZN4core3ptr258drop_in_place$LT$hashbrown..set..HashSet$LT$
   br i1 %5, label %"_ZN4core3ptr269drop_in_place$LT$hashbrown..map..HashMap$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$C$$LP$$RP$$C$std..collections..hash..map..RandomState$GT$$GT$17h85fcb602007d54c8E.llvm.11290379560268722015.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd1355f7d840c86f1E.llvm.15638356858648770541(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd1355f7d840c86f1E.llvm.15638356858648770541(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !639)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !642
   %7 = load i64, ptr %3, align 8, !alias.scope !642, !noundef !4
@@ -1617,7 +1617,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_p
 
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
           to label %15 unwind label %9
 
 9:                                                ; preds = %8
@@ -2139,7 +2139,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$influxdb_influxql_parse
   %4 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { ptr, [2 x i64] } }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1297)
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %4)
           to label %15 unwind label %6
 
 6:                                                ; preds = %.lr.ph
@@ -2932,7 +2932,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$iox_query_influxql_rewr
   br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$GT$17h28b5fb4ca45f34aeE.llvm.11290379560268722015.exit5.i"
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$GT$17h28b5fb4ca45f34aeE.llvm.11290379560268722015.exit5.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i4.i", %17, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$GT$17h28b5fb4ca45f34aeE.llvm.11290379560268722015.exit.i"
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5)
           to label %"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E.exit" unwind label %24
 
 21:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E.exit"
@@ -5556,7 +5556,7 @@ define hidden void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   br i1 %5, label %"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hb93880d2870dc0cfE.exit", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62c2f3b314f95b4dE.llvm.15638356858648770541.exit.i"
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62c2f3b314f95b4dE.llvm.15638356858648770541.exit.i": ; preds = %1, %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17ha4da22b8c34cc013E.llvm.15638356858648770541.exit.i"
-  %6 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h7916484b362eb79bE.llvm.15638356858648770541"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  %6 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h7916484b362eb79bE.llvm.15638356858648770541"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
   %7 = load i64, ptr %3, align 8, !alias.scope !3030, !noundef !4
   %8 = add i64 %7, -1
   store i64 %8, ptr %3, align 8, !alias.scope !3030

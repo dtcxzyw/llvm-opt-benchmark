@@ -3988,7 +3988,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataIibE7destroyEv.exit unwind label %9
 
 _ZN8QMapDataIibE7destroyEv.exit:                  ; preds = %1, %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -4032,7 +4032,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataI5QPairIiiEbE7destroyEv.exit unwind label %9
 
 _ZN8QMapDataI5QPairIiiEbE7destroyEv.exit:         ; preds = %1, %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -7005,7 +7005,7 @@ _ZN12QMapIteratorIibEC2ERK4QMapIibE.exit:         ; preds = %65, %67, %72
 
 .lr.ph:                                           ; preds = %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit, %110
   %88 = phi ptr [ %89, %110 ], [ %.0.i.i.i, %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit ]
-  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %88)
+  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(29) %88)
           to label %90 unwind label %.loopexit
 
 90:                                               ; preds = %.lr.ph
@@ -7123,7 +7123,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i.i unwind label %133
 
 .noexc.i.i:                                       ; preds = %132, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %129)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %129)
           to label %_ZN12QMapIteratorIibED2Ev.exit unwind label %133
 
 133:                                              ; preds = %.noexc.i.i, %132
@@ -7172,7 +7172,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i.i unwind label %8
 
 .noexc.i.i:                                       ; preds = %7, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %2)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %_ZN4QMapIibEaSEOS0_.exit unwind label %8
 
 8:                                                ; preds = %.noexc.i.i, %7
@@ -7204,7 +7204,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %15
 
 .noexc.i:                                         ; preds = %14, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull @_ZN12QMapDataBase11shared_nullE)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE)
           to label %_ZN4QMapIibED2Ev.exit unwind label %15
 
 15:                                               ; preds = %.noexc.i, %14
@@ -7768,7 +7768,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %9
 
 .noexc.i:                                         ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN4QMapIibED2Ev.exit unwind label %9
 
 9:                                                ; preds = %.noexc.i, %8
@@ -7837,7 +7837,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIibE7destroyEv.exit
 
 _ZN8QMapDataIibE7destroyEv.exit:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIibE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -8124,7 +8124,7 @@ _ZN12QMapIteratorIibEC2ERK4QMapIibE.exit:         ; preds = %65, %67, %72
 
 .lr.ph:                                           ; preds = %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit, %110
   %88 = phi ptr [ %89, %110 ], [ %.0.i.i.i, %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit ]
-  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %88)
+  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(29) %88)
           to label %90 unwind label %.loopexit
 
 90:                                               ; preds = %.lr.ph
@@ -8242,7 +8242,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i.i unwind label %133
 
 .noexc.i.i:                                       ; preds = %132, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %129)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %129)
           to label %_ZN12QMapIteratorIibED2Ev.exit unwind label %133
 
 133:                                              ; preds = %.noexc.i.i, %132
@@ -8470,7 +8470,7 @@ _ZN12QMapIteratorIibEC2ERK4QMapIibE.exit:         ; preds = %65, %67, %72
 
 .lr.ph:                                           ; preds = %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit, %110
   %88 = phi ptr [ %89, %110 ], [ %.0.i.i.i, %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit ]
-  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %88)
+  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(29) %88)
           to label %90 unwind label %.loopexit
 
 90:                                               ; preds = %.lr.ph
@@ -8588,7 +8588,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i.i unwind label %133
 
 .noexc.i.i:                                       ; preds = %132, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %129)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %129)
           to label %_ZN12QMapIteratorIibED2Ev.exit unwind label %133
 
 133:                                              ; preds = %.noexc.i.i, %132
@@ -8816,7 +8816,7 @@ _ZN12QMapIteratorIibEC2ERK4QMapIibE.exit:         ; preds = %65, %67, %72
 
 .lr.ph:                                           ; preds = %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit, %110
   %88 = phi ptr [ %89, %110 ], [ %.0.i.i.i, %_ZN12QMapIteratorIibEC2ERK4QMapIibE.exit ]
-  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %88)
+  %89 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(29) %88)
           to label %90 unwind label %.loopexit
 
 90:                                               ; preds = %.lr.ph
@@ -8934,7 +8934,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i.i unwind label %133
 
 .noexc.i.i:                                       ; preds = %132, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %129)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %129)
           to label %_ZN12QMapIteratorIibED2Ev.exit unwind label %133
 
 133:                                              ; preds = %.noexc.i.i, %132
@@ -11303,7 +11303,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %26
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %21)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %21)
           to label %_ZN4QMapIi15MLRenderingDataED2Ev.exit unwind label %26
 
 26:                                               ; preds = %.noexc1.i, %.noexc.i, %24
@@ -11354,7 +11354,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1 unwind label %10
 
 .noexc1:                                          ; preds = %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataIi15MLRenderingDataE7destroyEv.exit unwind label %10
 
 _ZN8QMapDataIi15MLRenderingDataE7destroyEv.exit:  ; preds = %1, %.noexc1, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -15326,7 +15326,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -16765,7 +16765,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataI5QPairIiiEbE7destroyEv.exit
 
 _ZN8QMapDataI5QPairIiiEbE7destroyEv.exit:         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataI5QPairIiiEbE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -16956,7 +16956,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %18
 
 .noexc.i:                                         ; preds = %17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %14)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %14)
           to label %_ZN4QMapIibED2Ev.exit unwind label %18
 
 18:                                               ; preds = %.noexc.i, %17
@@ -17029,7 +17029,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i10:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i12 unwind label %36
 
 .noexc.i12:                                       ; preds = %35, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i10
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %32)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %32)
           to label %_ZN4QMapI5QPairIiiEbED2Ev.exit unwind label %36
 
 36:                                               ; preds = %.noexc.i12, %35
@@ -17062,7 +17062,7 @@ define void @_ZN11LayerDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(25
 define void @_ZThn16_N11LayerDialogD0Ev(ptr noundef %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN11LayerDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(256) %2) #25
   ret void
 }
 
@@ -17443,7 +17443,7 @@ _Z12qobject_castIP14DecoratePluginET_P7QObject.exit.thread: ; preds = %166, %_Z1
   %186 = load ptr, ptr %185, align 8, !nonnull !10, !noundef !10
   %187 = getelementptr inbounds i8, ptr %186, i64 256
   %188 = load ptr, ptr %187, align 8
-  invoke void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %188)
+  invoke void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(1676) %188)
           to label %.noexc75 unwind label %.loopexit.split-lp
 
 .noexc75:                                         ; preds = %_Z12qobject_castIP14DecoratePluginET_P7QObject.exit.thread
@@ -17823,7 +17823,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i:        ; preds = %353
 358:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i
   %359 = getelementptr inbounds i8, ptr %354, i64 4
   %360 = load i32, ptr %359, align 4, !noalias !116
-  %361 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %360)
+  %361 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %11, i32 noundef %360)
           to label %.noexc118 unwind label %.loopexit.split-lp
 
 .noexc118:                                        ; preds = %358
@@ -19141,7 +19141,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIi5QListIP7QActionEE7destroyEv.exit
 
 _ZN8QMapDataIi5QListIP7QActionEE7destroyEv.exit:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIi5QListIP7QActionEE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -20713,7 +20713,7 @@ define linkonce_odr void @_ZN20RasterTreeWidgetItemD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN20RasterTreeWidgetItemD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #24
+  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -20770,7 +20770,7 @@ _Z12qobject_castIP14DecoratePluginET_P7QObject.exit.thread: ; preds = %18, %_Z12
   %33 = load ptr, ptr %32, align 8, !nonnull !10, !noundef !10
   %34 = getelementptr inbounds i8, ptr %33, i64 256
   %35 = load ptr, ptr %34, align 8
-  invoke void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %35)
+  invoke void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(1676) %35)
           to label %.noexc42 unwind label %43
 
 .noexc42:                                         ; preds = %_Z12qobject_castIP14DecoratePluginET_P7QObject.exit.thread
@@ -21414,7 +21414,7 @@ define void @_ZN25DecoratorParamsTreeWidgetD0Ev(ptr noundef nonnull align 8 dere
 define void @_ZThn16_N25DecoratorParamsTreeWidgetD0Ev(ptr noundef %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN25DecoratorParamsTreeWidgetD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %2) #25
   ret void
 }
 
@@ -21972,7 +21972,7 @@ define linkonce_odr void @_ZN18DecoratorParamItemD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18DecoratorParamItemD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #24
+  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }

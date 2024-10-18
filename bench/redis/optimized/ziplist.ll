@@ -1319,7 +1319,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %zi
   %p.addr.059 = phi ptr [ %p, %for.body.lr.ph ], [ %add.ptr, %zipRawEntryLengthSafe.exit ]
   %i.057 = phi i32 [ 0, %for.body.lr.ph ], [ %inc5, %zipRawEntryLengthSafe.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
-  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv, ptr noundef nonnull %p.addr.059, ptr noundef %e.i, i32 noundef 0)
+  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv, ptr noundef nonnull %p.addr.059, ptr noundef %e.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
@@ -1547,7 +1547,7 @@ if.else29:                                        ; preds = %entry
 
 if.then35:                                        ; preds = %if.else29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
-  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv, ptr noundef nonnull %add.ptr30, ptr noundef %e.i, i32 noundef 0)
+  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv, ptr noundef nonnull %add.ptr30, ptr noundef %e.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
@@ -2160,7 +2160,7 @@ while.cond109:                                    ; preds = %zipRawEntryLengthSa
 
 while.body112:                                    ; preds = %while.cond109
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
-  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv, ptr noundef nonnull %p.2, ptr noundef %e.i, i32 noundef 0)
+  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv, ptr noundef nonnull %p.2, ptr noundef %e.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
@@ -2197,7 +2197,7 @@ if.end122:                                        ; preds = %while.cond109, %zip
 
 if.end130:                                        ; preds = %if.end122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i42)
-  %call.i43 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv, ptr noundef nonnull %p.1, ptr noundef %e.i42, i32 noundef 1)
+  %call.i43 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv, ptr noundef nonnull %p.1, ptr noundef %e.i42, i32 noundef 1)
   %tobool.not.i44 = icmp eq i32 %call.i43, 0
   br i1 %tobool.not.i44, label %cond.false.i45, label %zipAssertValidEntry.exit
 
@@ -2243,7 +2243,7 @@ if.end:                                           ; preds = %entry
 
 if.end8:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7)
-  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv, ptr noundef nonnull %add.ptr, ptr noundef %e.i7, i32 noundef 1)
+  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv, ptr noundef nonnull %add.ptr, ptr noundef %e.i7, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %zipAssertValidEntry.exit
 
@@ -2314,7 +2314,7 @@ cond.end45:                                       ; preds = %do.end38
   %5 = load i32, ptr %zl, align 4
   %conv48 = zext i32 %5 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
-  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv48, ptr noundef nonnull %add.ptr47, ptr noundef %e.i, i32 noundef 1)
+  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv48, ptr noundef nonnull %add.ptr47, ptr noundef %e.i, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %zipAssertValidEntry.exit
 
@@ -3045,7 +3045,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %len.114 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %zipRawEntryLengthSafe.exit ]
   %p.013 = phi ptr [ %add.ptr4, %while.body.lr.ph ], [ %add.ptr9, %zipRawEntryLengthSafe.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
-  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv5, ptr noundef nonnull %p.013, ptr noundef %e.i, i32 noundef 0)
+  %call.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv5, ptr noundef nonnull %p.013, ptr noundef %e.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
@@ -3454,7 +3454,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end8.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7.i)
-  %call.i.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv.i, ptr noundef nonnull %add.ptr.i, ptr noundef %e.i7.i, i32 noundef 1)
+  %call.i.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv.i, ptr noundef nonnull %add.ptr.i, ptr noundef %e.i7.i, i32 noundef 1)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %zipAssertValidEntry.exit.i
 
@@ -3543,7 +3543,7 @@ while.body.i:                                     ; preds = %zipRawEntryLengthSa
   %len.114.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %inc.i, %zipRawEntryLengthSafe.exit.i ]
   %p.013.i = phi ptr [ %add.ptr4.i, %while.body.lr.ph.i ], [ %add.ptr9.i, %zipRawEntryLengthSafe.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i.i)
-  %call.i.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv5.i, ptr noundef nonnull %p.013.i, ptr noundef %e.i.i, i32 noundef 0)
+  %call.i.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv5.i, ptr noundef nonnull %p.013.i, ptr noundef %e.i.i, i32 noundef 0)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %zipRawEntryLengthSafe.exit.i
 
@@ -3647,7 +3647,7 @@ if.end.i:                                         ; preds = %while.body
 
 if.end8.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7.i)
-  %call.i.i38 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv.i32, ptr noundef nonnull %add.ptr.i37, ptr noundef %e.i7.i, i32 noundef 1)
+  %call.i.i38 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv.i32, ptr noundef nonnull %add.ptr.i37, ptr noundef %e.i7.i, i32 noundef 1)
   %tobool.not.i.i39 = icmp eq i32 %call.i.i38, 0
   br i1 %tobool.not.i.i39, label %cond.false.i.i40, label %zipAssertValidEntry.exit.i
 
@@ -3765,7 +3765,7 @@ if.end.i47:                                       ; preds = %while.end
 
 if.end8.i54:                                      ; preds = %if.end.i47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7.i43)
-  %call.i.i55 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv.i45, ptr noundef nonnull %add.ptr.i52, ptr noundef %e.i7.i43, i32 noundef 1)
+  %call.i.i55 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv.i45, ptr noundef nonnull %add.ptr.i52, ptr noundef %e.i7.i43, i32 noundef 1)
   %tobool.not.i.i56 = icmp eq i32 %call.i.i55, 0
   br i1 %tobool.not.i.i56, label %cond.false.i.i59, label %zipAssertValidEntry.exit.i57
 
@@ -3832,7 +3832,7 @@ while.body.i:                                     ; preds = %zipRawEntryLengthSa
   %len.114.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %inc.i, %zipRawEntryLengthSafe.exit.i ]
   %p.013.i = phi ptr [ %add.ptr4.i, %while.body.lr.ph.i ], [ %add.ptr9.i, %zipRawEntryLengthSafe.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i.i)
-  %call.i.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv5.i, ptr noundef nonnull %p.013.i, ptr noundef %e.i.i, i32 noundef 0)
+  %call.i.i = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv5.i, ptr noundef nonnull %p.013.i, ptr noundef %e.i.i, i32 noundef 0)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %zipRawEntryLengthSafe.exit.i
 
@@ -4016,7 +4016,7 @@ if.end.i31:                                       ; preds = %cond.end
 
 if.end8.i:                                        ; preds = %if.end.i31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7.i)
-  %call.i.i37 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv.i29, ptr noundef nonnull %add.ptr.i36, ptr noundef %e.i7.i, i32 noundef 1)
+  %call.i.i37 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv.i29, ptr noundef nonnull %add.ptr.i36, ptr noundef %e.i7.i, i32 noundef 1)
   %tobool.not.i.i38 = icmp eq i32 %call.i.i37, 0
   br i1 %tobool.not.i.i38, label %cond.false.i.i40, label %cond.end26
 
@@ -4153,7 +4153,7 @@ if.end.i87:                                       ; preds = %if.else
 
 if.end8.i94:                                      ; preds = %if.end.i87
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7.i83)
-  %call.i.i95 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv.i85, ptr noundef nonnull %add.ptr.i92, ptr noundef %e.i7.i83, i32 noundef 1)
+  %call.i.i95 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv.i85, ptr noundef nonnull %add.ptr.i92, ptr noundef %e.i7.i83, i32 noundef 1)
   %tobool.not.i.i96 = icmp eq i32 %call.i.i95, 0
   br i1 %tobool.not.i.i96, label %cond.false.i.i99, label %ziplistNext.exit100
 
@@ -4198,7 +4198,7 @@ if.end.i105:                                      ; preds = %if.end54
 
 if.end8.i112:                                     ; preds = %if.end.i105
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i7.i101)
-  %call.i.i113 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef %conv.i103, ptr noundef nonnull %add.ptr.i110, ptr noundef %e.i7.i101, i32 noundef 1)
+  %call.i.i113 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %zl, i64 noundef range(i64 0, 4294967296) %conv.i103, ptr noundef nonnull %add.ptr.i110, ptr noundef %e.i7.i101, i32 noundef 1)
   %tobool.not.i.i114 = icmp eq i32 %call.i.i113, 0
   br i1 %tobool.not.i.i114, label %cond.false.i.i117, label %ziplistNext.exit118
 

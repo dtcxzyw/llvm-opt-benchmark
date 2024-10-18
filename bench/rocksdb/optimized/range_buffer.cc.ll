@@ -268,7 +268,7 @@ entry:
   %_current_chunk_offset = getelementptr inbounds i8, ptr %this, i64 24
   %_current_chunk_max = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_current_chunk_base, i8 0, i64 32, i1 false)
-  %call.i = tail call noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %_current_chunk_max)
+  %call.i = tail call noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %_current_chunk_max)
   store ptr %call.i, ptr %_current_chunk_base, align 8
   store i64 0, ptr %_current_chunk_offset, align 8
   ret void
@@ -302,7 +302,7 @@ if.then:                                          ; preds = %entry
   %_current_chunk_base = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_current_chunk_base, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %rec, ptr noundef nonnull align 1 dereferenceable(10) %add.ptr, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %rec, ptr noundef nonnull align 1 dereferenceable(10) %add.ptr, i64 10, i1 false)
   %3 = load i8, ptr %rec, align 2
   %tobool.i.i = trunc i8 %3 to i1
   %left_pos_inf.i.i = getelementptr inbounds i8, ptr %rec, i64 1
@@ -390,7 +390,7 @@ if.then:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.then
   tail call void @_ZN8memarena14chunk_iterator4nextEv(ptr noundef nonnull align 8 dereferenceable(12) %this)
-  %call.i = tail call noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %_current_chunk_max7)
+  %call.i = tail call noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %_current_chunk_max7)
   %_current_chunk_base.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i, ptr %_current_chunk_base.i, align 8
   store i64 0, ptr %_current_chunk_offset4, align 8
@@ -425,7 +425,7 @@ if.then:                                          ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %left_key, i64 8
   %0 = load i64, ptr %size.i, align 8
   %add.i = add i64 %0, 10
-  %call.i = tail call noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %add.i)
+  %call.i = tail call noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 8 dereferenceable(60) %this, i64 noundef %add.i)
   %frombool.i.i = zext i1 %is_write_request to i8
   %call.i.i = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
   %cmp.i.i = icmp eq ptr %left_key, %call.i.i
@@ -617,7 +617,7 @@ if.end12:                                         ; preds = %if.then9, %if.end
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4toku12range_buffer8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call noundef i64 @_ZNK8memarena17total_size_in_useEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call.i = tail call noundef i64 @_ZNK8memarena17total_size_in_useEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %cmp = icmp eq i64 %call.i, 0
   ret i1 %cmp
 }

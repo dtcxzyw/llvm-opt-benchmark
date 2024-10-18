@@ -1511,7 +1511,7 @@ define internal fastcc i32 @ext4_getfsmap_helper(ptr noundef %0, ptr nocapture n
 155:                                              ; preds = %152
   %156 = getelementptr inbounds i8, ptr %153, i64 8
   %157 = load ptr, ptr %156, align 8
-  %158 = call i32 @__SCT__tp_func_ext4_fsmap_mapping(ptr noundef %157, ptr noundef %0, i32 noundef %135, i32 noundef %136, i64 noundef %141, i64 noundef %143, i64 noundef %145) #12
+  %158 = call i32 @__SCT__tp_func_ext4_fsmap_mapping(ptr noundef %157, ptr noundef %0, i32 noundef %135, i32 noundef %136, i64 noundef range(i64 -2147483648, 2147483648) %141, i64 noundef %143, i64 noundef %145) #12
   br label %159
 
 159:                                              ; preds = %155, %152

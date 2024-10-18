@@ -1564,7 +1564,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %92
   br label %117
 
 114:                                              ; preds = %102
-  %115 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %104, i64 noundef 8, i32 noundef 0) #12
+  %115 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %104, i64 noundef 8, i32 noundef 0) #12
   br label %117
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread:       ; preds = %_ZNK6HandleclEv.exit, %92
@@ -1926,13 +1926,13 @@ define hidden noundef ptr @_ZN14compiledVFrame8at_scopeEii(ptr noundef nonnull a
 
 _ZN14compiledVFrameC2EPK5framePK11RegisterMapP10JavaThreadP9ScopeDesci.exit: ; preds = %3
   %8 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i32 noundef 0) #12
-  tail call void @_ZN9ScopeDescC1EPKS_i(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %5, i32 noundef %1) #12
+  tail call void @_ZN9ScopeDescC1EPKS_i(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef %1) #12
   %9 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 5080, i32 noundef 0) #12
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = getelementptr inbounds i8, ptr %0, i64 5048
   %13 = load ptr, ptr %12, align 8
-  tail call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %13) #12
+  tail call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5076) %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %13) #12
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %9, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 5064
   store ptr %8, ptr %14, align 8
@@ -2132,7 +2132,7 @@ define hidden noundef ptr @_ZNK14compiledVFrame6senderEv(ptr noundef nonnull ali
   %20 = getelementptr inbounds i8, ptr %0, i64 5072
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, 1
-  call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) %14, ptr noundef nonnull %2, ptr noundef nonnull %15, ptr noundef %17) #12
+  call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5076) %14, ptr noundef nonnull %2, ptr noundef nonnull %15, ptr noundef %17) #12
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 5064
   store ptr %19, ptr %23, align 8
@@ -2239,7 +2239,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSetD2Ev(ptr nocapture noundef
 
 22:                                               ; preds = %._crit_edge
   store i32 0, ptr %.lcssa, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP26jvmtiDeferredLocalVariable13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP26jvmtiDeferredLocalVariable13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa)
   br label %23
 
 23:                                               ; preds = %22, %._crit_edge
@@ -2361,7 +2361,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_valueEP20StackVal
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 46:                                               ; preds = %32
-  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef 8, i32 noundef 0) #12
+  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %36, i64 noundef 8, i32 noundef 0) #12
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %46, %44

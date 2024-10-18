@@ -1857,7 +1857,7 @@ _ZNK9QComboBox8findTextERK7QString6QFlagsIN2Qt9MatchFlagEE.exit: ; preds = %31
   br i1 %35, label %37, label %48
 
 37:                                               ; preds = %_ZNK9QComboBox8findTextERK7QString6QFlagsIN2Qt9MatchFlagEE.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -2007,7 +2007,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i: ; preds = %._crit_edge
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit: ; preds = %._crit_edge, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i, %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !16
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) @_ZN8QToolBar16staticMetaObjectE, ptr noundef nonnull %5, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) @_ZN8QToolBar16staticMetaObjectE, ptr noundef nonnull align 8 %5, i32 1)
           to label %_ZNK7QObject12findChildrenIP8QToolBarEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %50
 
 50:                                               ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit
@@ -5039,7 +5039,7 @@ define void @_ZN19WiresharkMainWindow19captureEventHandlerE12CaptureEvent(ptr no
   %27 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
   %28 = load ptr, ptr %24, align 8
   %29 = select i1 %27, ptr %28, ptr null
-  tail call void @_ZN10MainWindow14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %29)
+  tail call void @_ZN10MainWindow14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %29)
   br label %_ZN19WiresharkMainWindow17captureFileOpenedEv.exit
 
 30:                                               ; preds = %15
@@ -5060,7 +5060,7 @@ define void @_ZN19WiresharkMainWindow19captureEventHandlerE12CaptureEvent(ptr no
   %39 = getelementptr inbounds i8, ptr %38, i64 2016
   %40 = load ptr, ptr %39, align 8
   tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %40)
-  tail call void @_ZN10MainWindow14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef null)
+  tail call void @_ZN10MainWindow14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef null)
   tail call void @_ZN19WiresharkMainWindow23setDissectedCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef null)
   br label %_ZN19WiresharkMainWindow17captureFileOpenedEv.exit
 
@@ -6563,7 +6563,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i95: ; preds = %102
   %288 = load ptr, ptr %287, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !85
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %288, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(56) @_ZN18FollowStreamAction16staticMetaObjectE, ptr noundef nonnull %21, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(56) @_ZN18FollowStreamAction16staticMetaObjectE, ptr noundef nonnull align 8 %21, i32 1)
           to label %_ZN5QListIP18FollowStreamActionED2Ev.exit unwind label %289
 
 289:                                              ; preds = %285
@@ -7751,7 +7751,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i96:     ; preds = %180
   br label %_ZN10QByteArrayD2Ev.exit98
 
 203:                                              ; preds = %186
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %204 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %204, align 8
   invoke void @_ZN7QAction7setDataERK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -7762,7 +7762,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i96:     ; preds = %180
   %206 = load ptr, ptr %188, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 1912
   %208 = load ptr, ptr %207, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
   %209 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 2, ptr %209, align 8
   invoke void @_ZN7QAction7setDataERK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -7805,7 +7805,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i96:     ; preds = %180
   br label %_ZN10QByteArrayD2Ev.exit98
 
 224:                                              ; preds = %214
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %225 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 2, ptr %225, align 8
   invoke void @_ZN7QAction7setDataERK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -11449,7 +11449,7 @@ define void @_ZN19WiresharkMainWindow16showColumnEditorEi(ptr noundef nonnull al
   br i1 %.not.i, label %_ZN19WiresharkMainWindow16setPreviousFocusEv.exit, label %6
 
 6:                                                ; preds = %2
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.105, ptr noundef nonnull %0, ptr noundef nonnull @.str.106, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.106, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   br label %_ZN19WiresharkMainWindow16setPreviousFocusEv.exit
 
@@ -12173,7 +12173,7 @@ _ZN7QStringD2Ev.exit62:                           ; preds = %_ZNO7QString7trimme
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.not.i.i.i67 = icmp eq ptr %133, null
   %spec.select.i.i.i = select i1 %.not.i.i.i67, ptr @_ZN7QString6_emptyE, ptr %133
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %12, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %134)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %134)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %157
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %131
@@ -14934,7 +14934,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i22:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.not.i.i.i25 = icmp eq ptr %51, null
   %spec.select.i.i.i = select i1 %.not.i.i.i25, ptr @_ZN7QString6_emptyE, ptr %51
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull %4, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %53)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %53)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %96
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %48
@@ -15846,7 +15846,7 @@ _ZN5QListI11QModelIndexED2Ev.exit:                ; preds = %55, %_ZN17QArrayDat
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %29
 
 68:                                               ; preds = %_ZN5QListI11QModelIndexED2Ev.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !327
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false), !alias.scope !327
   %69 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %69, align 8, !alias.scope !327
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -16352,7 +16352,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i95:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.not.i.i.i99 = icmp eq ptr %265, null
   %spec.select.i.i.i = select i1 %.not.i.i.i99, ptr @_ZN7QString6_emptyE, ptr %265
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %21, ptr noundef nonnull %16, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %267)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %267)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %285
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %262
@@ -16750,7 +16750,7 @@ define void @_ZN19WiresharkMainWindow10findPacketEv(ptr noundef nonnull align 8 
   br i1 %.not.i, label %_ZN19WiresharkMainWindow16setPreviousFocusEv.exit, label %20
 
 20:                                               ; preds = %17
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %2, ptr noundef nonnull %18, ptr noundef nonnull @.str.105, ptr noundef nonnull %0, ptr noundef nonnull @.str.106, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %2, ptr noundef nonnull %18, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.106, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   br label %_ZN19WiresharkMainWindow16setPreviousFocusEv.exit
 
@@ -24647,7 +24647,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16:    ; preds = %47
   %54 = getelementptr inbounds i8, ptr %0, i64 280
   %55 = getelementptr inbounds i8, ptr %0, i64 224
   %56 = load ptr, ptr %55, align 8
-  %57 = invoke noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef %56)
+  %57 = invoke noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef %56)
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %53
@@ -24970,7 +24970,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16:    ; preds = %47
   %54 = getelementptr inbounds i8, ptr %0, i64 280
   %55 = getelementptr inbounds i8, ptr %0, i64 224
   %56 = load ptr, ptr %55, align 8
-  %57 = invoke noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef %56, i1 noundef zeroext false)
+  %57 = invoke noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef %56, i1 noundef zeroext false)
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %53
@@ -25931,7 +25931,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %15, %_ZN17QArrayDat
   br i1 %.not.i, label %_ZN19WiresharkMainWindow17goToCancelClickedEv.exit, label %25
 
 25:                                               ; preds = %_ZN7QStringD2Ev.exit
-  %26 = call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %24, ptr noundef nonnull @.str.105, ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
+  %26 = call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %24, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.106)
   %27 = load ptr, ptr %23, align 8
   call void @_ZN7QWidget8setFocusEN2Qt11FocusReasonE(ptr noundef nonnull align 8 dereferenceable(40) %27, i32 noundef 7)
   store ptr null, ptr %23, align 8
@@ -25984,7 +25984,7 @@ define void @_ZN19WiresharkMainWindow25externalMenuItemTriggeredEv(ptr noundef n
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %class.QUrl, align 8
   %8 = alloca %class.QString, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %9, align 8
   %10 = invoke noundef ptr @_ZNK7QObject6senderEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -26005,7 +26005,7 @@ define void @_ZN19WiresharkMainWindow25externalMenuItemTriggeredEv(ptr noundef n
 15:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -26943,7 +26943,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %24
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !812
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(56) @_ZN8QToolBar16staticMetaObjectE, ptr noundef nonnull %7, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(56) @_ZN8QToolBar16staticMetaObjectE, ptr noundef nonnull align 8 %7, i32 1)
           to label %_ZNK7QObject12findChildrenIP8QToolBarEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %26
 
 26:                                               ; preds = %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit
@@ -27211,7 +27211,7 @@ define void @_ZN19WiresharkMainWindow32rtpPlayerDialogReplaceRtpStreamsE5QListIP
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6, i1 noundef zeroext false)
+  %7 = tail call noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6, i1 noundef zeroext false)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27281,7 +27281,7 @@ define void @_ZN19WiresharkMainWindow28rtpPlayerDialogAddRtpStreamsE5QListIP13_r
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6, i1 noundef zeroext false)
+  %7 = tail call noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6, i1 noundef zeroext false)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27349,7 +27349,7 @@ define void @_ZN19WiresharkMainWindow31rtpPlayerDialogRemoveRtpStreamsE5QListIP1
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6, i1 noundef zeroext false)
+  %7 = tail call noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6, i1 noundef zeroext false)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27419,7 +27419,7 @@ define void @_ZN19WiresharkMainWindow34rtpAnalysisDialogReplaceRtpStreamsE5QList
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
+  %7 = tail call noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27489,7 +27489,7 @@ define void @_ZN19WiresharkMainWindow30rtpAnalysisDialogAddRtpStreamsE5QListIP13
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
+  %7 = tail call noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27557,7 +27557,7 @@ define void @_ZN19WiresharkMainWindow33rtpAnalysisDialogRemoveRtpStreamsE5QListI
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
+  %7 = tail call noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27627,7 +27627,7 @@ define void @_ZN19WiresharkMainWindow32rtpStreamsDialogSelectRtpStreamsE5QListIP
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN15RtpStreamDialog19openRtpStreamDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
+  %7 = tail call noundef ptr @_ZN15RtpStreamDialog19openRtpStreamDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -27697,7 +27697,7 @@ define void @_ZN19WiresharkMainWindow34rtpStreamsDialogDeselectRtpStreamsE5QList
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @_ZN15RtpStreamDialog19openRtpStreamDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
+  %7 = tail call noundef ptr @_ZN15RtpStreamDialog19openRtpStreamDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %6)
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %3, align 8
@@ -31691,7 +31691,7 @@ _ZNO7QString6toUtf8Ev.exit.i.i.i:                 ; preds = %17
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr @_ZN10QByteArray6_emptyE, ptr %19
   %21 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %20, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull %spec.select.i.i.i.i.i)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %20, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull %spec.select.i.i.i.i.i)
           to label %22 unwind label %23
 
 22:                                               ; preds = %.noexc.i.i.i
@@ -36717,7 +36717,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   br i1 %.not.i.i.i.i, label %_ZN19WiresharkMainWindow16setPreviousFocusEv.exit.i.i.i, label %29
 
 29:                                               ; preds = %26
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %27, ptr noundef nonnull @.str.105, ptr noundef nonnull %.val, ptr noundef nonnull @.str.106, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %27, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull @.str.106, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   br label %_ZN19WiresharkMainWindow16setPreviousFocusEv.exit.i.i.i
 
@@ -37653,7 +37653,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.133)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.133)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_2Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37754,7 +37754,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.134)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.134)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_5Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37791,7 +37791,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.135)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.135)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_6Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37828,7 +37828,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.136)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.136)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_7Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37865,7 +37865,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.137)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.137)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_8Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37902,7 +37902,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.138)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.138)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_9Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37939,7 +37939,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.139)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.139)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_10Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -37978,7 +37978,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %12 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #24
   %13 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN25MulticastStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
+  invoke void @_ZN25MulticastStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_11Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %14
 
 14:                                               ; preds = %10
@@ -37988,7 +37988,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   resume { ptr, i32 } %15
 
 "_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_11Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit": ; preds = %10
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %.val, ptr noundef nonnull @.str.50, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull @.str.50, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -38018,7 +38018,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.140)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.140)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_12Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38055,7 +38055,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.141)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.141)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_13Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38092,7 +38092,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.142)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.142)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_14Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38129,7 +38129,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.143)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.143)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_15Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38166,7 +38166,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.144)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.144)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_16Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38203,7 +38203,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.145)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.145)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_17Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38240,7 +38240,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.146)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.146)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_18Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38277,7 +38277,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.147)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.147)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_19Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38314,7 +38314,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.148)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.148)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_20Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38351,7 +38351,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.149)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.149)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_21Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38388,7 +38388,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.150)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.150)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_22Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38717,7 +38717,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.151)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.151)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_31Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38754,7 +38754,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.152)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.152)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_32Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38791,7 +38791,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.153)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.153)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_33Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38828,7 +38828,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.154)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.154)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_34Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38865,7 +38865,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.155)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.155)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_35Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38902,7 +38902,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.156)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.156)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_36Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38939,7 +38939,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.157)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.157)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_37Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -38976,7 +38976,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.158)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.158)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_38Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39013,7 +39013,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.159)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.159)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_39Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39050,7 +39050,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.160)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.160)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_40Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39087,7 +39087,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.161)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.161)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_41Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39124,7 +39124,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.162)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.162)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_42Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39161,7 +39161,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.163)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.163)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_43Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39317,7 +39317,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.164)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.164)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_2Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39395,7 +39395,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %12 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #24
   %13 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN22LteMacStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(329) %12, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
+  invoke void @_ZN22LteMacStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(329) %12, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_4Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %14
 
 14:                                               ; preds = %10
@@ -39405,7 +39405,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   resume { ptr, i32 } %15
 
 "_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_4Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit": ; preds = %10
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %.val, ptr noundef nonnull @.str.50, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull @.str.50, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -39437,7 +39437,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %12 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #24
   %13 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN17LteRlcGraphDialogC1ER7QWidgetR11CaptureFileb(ptr noundef nonnull align 8 dereferenceable(268) %12, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, i1 noundef zeroext false)
+  invoke void @_ZN17LteRlcGraphDialogC1ER7QWidgetR11CaptureFileb(ptr noundef nonnull align 8 dereferenceable(268) %12, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, i1 noundef zeroext false)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_5Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %14
 
 14:                                               ; preds = %10
@@ -39543,7 +39543,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.165)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.165)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_8Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39643,7 +39643,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.166)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.166)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_9Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39680,7 +39680,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.167)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.167)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_10Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39717,7 +39717,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.168)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.168)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_11Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39754,7 +39754,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.169)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.169)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_12Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39791,7 +39791,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.170)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.170)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_13Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -39828,7 +39828,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   %.val = load ptr, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
   %12 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.171)
+  invoke void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.171)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_14Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %13
 
 13:                                               ; preds = %9
@@ -40052,7 +40052,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %12 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #24
   %13 = getelementptr inbounds i8, ptr %.val, i64 280
-  invoke void @_ZN20WlanStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(280) %12, ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
+  invoke void @_ZN20WlanStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(280) %12, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
           to label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_3Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" unwind label %14
 
 14:                                               ; preds = %10
@@ -40062,7 +40062,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
   resume { ptr, i32 } %15
 
 "_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_3Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit": ; preds = %10
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %.val, ptr noundef nonnull @.str.50, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(520) %.val, ptr noundef nonnull @.str.50, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)

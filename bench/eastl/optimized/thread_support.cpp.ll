@@ -79,7 +79,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #6
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -101,7 +101,7 @@ _ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.ex
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i.i)
   %call.i.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i.i) #6
   %call2.i.i.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i.i.i, i32 noundef 1) #6
-  %call4.i.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull @_ZN5eastl8Internal15gSharedPtrMutexE, ptr noundef nonnull %attr.i.i.i) #6
+  %call4.i.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(48) @_ZN5eastl8Internal15gSharedPtrMutexE, ptr noundef nonnull %attr.i.i.i) #6
   %call5.i.i.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i.i)
   store ptr @_ZN5eastl8Internal15gSharedPtrMutexE, ptr getelementptr inbounds (i8, ptr @_ZN5eastl8Internal15gSharedPtrMutexE, i64 40), align 8
@@ -110,7 +110,7 @@ _ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.ex
 _ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE3getEv.exit: ; preds = %entry, %_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.exit.i
   %2 = phi ptr [ @_ZN5eastl8Internal15gSharedPtrMutexE, %_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EE9constructIJEEEvDpOT_.exit.i ], [ %1, %entry ]
   store ptr %2, ptr %this, align 8
-  %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #6
+  %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #6
   ret void
 }
 

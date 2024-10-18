@@ -447,7 +447,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %fd, ptr noundef %1, i64 noundef %2) #15
@@ -482,7 +482,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %fd, ptr noundef %1, i64 noundef %2) #15
@@ -779,7 +779,7 @@ if.end:                                           ; preds = %entry, %packet_writ
 if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %call, i64 noundef %call112, ptr noundef %err.i)
+  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %call, i64 noundef range(i64 1, -9223372036854775808) %call112, ptr noundef %err.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %packet_write_gently.exit, label %packet_write_gently.exit.thread
 
@@ -839,7 +839,7 @@ if.end4.us:                                       ; preds = %if.end4.us.preheade
   %add.ptr.us = getelementptr inbounds i8, ptr %src_in, i64 %bytes_written.010.us18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call.i.us = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr.us, i64 noundef %.sub.us19, ptr noundef %err.i)
+  %call.i.us = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr.us, i64 noundef range(i64 1, -9223372036854775808) %.sub.us19, ptr noundef %err.i)
   %tobool.not.i.us = icmp eq i32 %call.i.us, 0
   br i1 %tobool.not.i.us, label %while.body.us, label %packet_write_gently.exit.us
 
@@ -874,7 +874,7 @@ if.end4:                                          ; preds = %if.end4.preheader, 
   %add.ptr = getelementptr inbounds i8, ptr %src_in, i64 %bytes_written.01013
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr, i64 noundef %.sub14, ptr noundef %err.i)
+  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr, i64 noundef range(i64 1, -9223372036854775808) %.sub14, ptr noundef %err.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %while.body, label %packet_write_gently.exit
 
@@ -1712,7 +1712,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef nonnull %args)
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %0, ptr noundef %2, i64 noundef %3) #15
@@ -1753,7 +1753,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef nonnull %args)
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %0, ptr noundef %2, i64 noundef %3) #15

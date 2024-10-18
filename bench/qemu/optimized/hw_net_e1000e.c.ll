@@ -376,11 +376,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %18 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, i32 noundef %call2.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, i32 noundef range(i32 -2147483648, 0) %call2.i) #9
   br label %trace_e1000e_msix_init_fail.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call2.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef range(i32 -2147483648, 0) %call2.i) #9
   br label %trace_e1000e_msix_init_fail.exit.i
 
 trace_e1000e_msix_init_fail.exit.i:               ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i
@@ -436,11 +436,11 @@ if.then8.i.i55:                                   ; preds = %if.then.i.i52
   %24 = load i64, ptr %_now.i.i45, align 8
   %tv_usec.i.i58 = getelementptr inbounds i8, ptr %_now.i.i45, i64 8
   %25 = load i64, ptr %tv_usec.i.i58, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i57, i64 noundef %24, i64 noundef %25, i32 noundef %call17) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i57, i64 noundef %24, i64 noundef %25, i32 noundef range(i32 1, 0) %call17) #9
   br label %trace_e1000e_msi_init_fail.exit
 
 if.else.i.i54:                                    ; preds = %if.then.i.i52
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call17) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef range(i32 1, 0) %call17) #9
   br label %trace_e1000e_msi_init_fail.exit
 
 trace_e1000e_msi_init_fail.exit:                  ; preds = %if.then18, %land.lhs.true5.i.i49, %if.then8.i.i55, %if.else.i.i54
@@ -1020,11 +1020,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %conv) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef range(i64 0, 4294967296) %conv) #9
   br label %trace_e1000e_io_read_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i64 noundef %conv) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i64 noundef range(i64 0, 4294967296) %conv) #9
   br label %trace_e1000e_io_read_addr.exit
 
 trace_e1000e_io_read_addr.exit:                   ; preds = %sw.bb, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1069,11 +1069,11 @@ if.then8.i.i16:                                   ; preds = %if.then.i.i13
   %14 = load i64, ptr %_now.i.i6, align 8
   %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %15 = load i64, ptr %tv_usec.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i18, i64 noundef %14, i64 noundef %15, i64 noundef %conv4, i64 noundef %call5) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i18, i64 noundef %14, i64 noundef %15, i64 noundef range(i64 0, 4294967296) %conv4, i64 noundef %call5) #9
   br label %trace_e1000e_io_read_data.exit
 
 if.else.i.i15:                                    ; preds = %if.then.i.i13
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i64 noundef %conv4, i64 noundef %call5) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i64 noundef range(i64 0, 4294967296) %conv4, i64 noundef %call5) #9
   br label %trace_e1000e_io_read_data.exit
 
 trace_e1000e_io_read_data.exit:                   ; preds = %if.then, %land.lhs.true5.i.i10, %if.then8.i.i16, %if.else.i.i15
@@ -1209,11 +1209,11 @@ if.then8.i.i17:                                   ; preds = %if.then.i.i14
   %12 = load i64, ptr %_now.i.i7, align 8
   %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
   %13 = load i64, ptr %tv_usec.i.i20, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i19, i64 noundef %12, i64 noundef %13, i64 noundef %conv2, i64 noundef %val) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i19, i64 noundef %12, i64 noundef %13, i64 noundef range(i64 0, 4294967296) %conv2, i64 noundef %val) #9
   br label %trace_e1000e_io_write_data.exit
 
 if.else.i.i16:                                    ; preds = %if.then.i.i14
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i64 noundef %conv2, i64 noundef %val) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i64 noundef range(i64 0, 4294967296) %conv2, i64 noundef %val) #9
   br label %trace_e1000e_io_write_data.exit
 
 trace_e1000e_io_write_data.exit:                  ; preds = %if.then, %land.lhs.true5.i.i11, %if.then8.i.i17, %if.else.i.i16
@@ -1307,11 +1307,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %conv) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef range(i64 131071, 524287) %conv) #9
   br label %trace_e1000e_wrn_io_addr_undefined.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i64 noundef %conv) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i64 noundef range(i64 131071, 524287) %conv) #9
   br label %trace_e1000e_wrn_io_addr_undefined.exit
 
 trace_e1000e_wrn_io_addr_undefined.exit:          ; preds = %if.then4, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1349,11 +1349,11 @@ if.then8.i.i17:                                   ; preds = %if.then.i.i14
   %10 = load i64, ptr %_now.i.i7, align 8
   %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
   %11 = load i64, ptr %tv_usec.i.i20, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i19, i64 noundef %10, i64 noundef %11, i64 noundef %conv12) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i19, i64 noundef %10, i64 noundef %11, i64 noundef range(i64 524287, 1048575) %conv12) #9
   br label %trace_e1000e_wrn_io_addr_flash.exit
 
 if.else.i.i16:                                    ; preds = %if.then.i.i14
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i64 noundef %conv12) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i64 noundef range(i64 524287, 1048575) %conv12) #9
   br label %trace_e1000e_wrn_io_addr_flash.exit
 
 trace_e1000e_wrn_io_addr_flash.exit:              ; preds = %if.then10, %land.lhs.true5.i.i11, %if.then8.i.i17, %if.else.i.i16
@@ -1386,11 +1386,11 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i28
   %16 = load i64, ptr %_now.i.i21, align 8
   %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
   %17 = load i64, ptr %tv_usec.i.i34, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i33, i64 noundef %16, i64 noundef %17, i64 noundef %conv12) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i33, i64 noundef %16, i64 noundef %17, i64 noundef range(i64 1048575, 4294967296) %conv12) #9
   br label %trace_e1000e_wrn_io_addr_unknown.exit
 
 if.else.i.i30:                                    ; preds = %if.then.i.i28
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i64 noundef %conv12) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i64 noundef range(i64 1048575, 4294967296) %conv12) #9
   br label %trace_e1000e_wrn_io_addr_unknown.exit
 
 trace_e1000e_wrn_io_addr_unknown.exit:            ; preds = %if.end13, %land.lhs.true5.i.i25, %if.then8.i.i31, %if.else.i.i30

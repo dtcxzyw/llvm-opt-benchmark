@@ -1692,7 +1692,7 @@ proto_item_set_hidden.exit41:                     ; preds = %45, %52, %48, %prot
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_ipv4_dst_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 17) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 184
-  %7 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %3, i32 noundef 4) #4
+  %7 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef range(i32 0, 17) %3, i32 noundef 4) #4
   store i32 2, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 188
   store i32 4, ptr %8, align 4
@@ -1983,7 +1983,7 @@ proto_item_set_hidden.exit36:                     ; preds = %43, %50, %46, %prot
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_ipv6_dst_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 17) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 184
-  %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %3, i32 noundef 16) #4
+  %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef range(i32 0, 17) %3, i32 noundef 16) #4
   store i32 3, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 188
   store i32 16, ptr %7, align 4

@@ -2026,7 +2026,7 @@ define linkonce_odr hidden void @_ZN5clang35MultiplexASTDeserializationListenerD
   br label %_ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit
 
 _ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5clang26ASTDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5clang26ASTDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
   ret void
 }
@@ -2071,7 +2071,7 @@ define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD0Ev(ptr
   br label %_ZN5clang28MultiplexASTMutationListenerD2Ev.exit
 
 _ZN5clang28MultiplexASTMutationListenerD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5clang19ASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5clang19ASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
   ret void
 }

@@ -567,7 +567,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5328
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he042abf7ed139935E.exit.i": ; preds = %.noexc11, %.noexc10
   %.0.i.i.i.i = phi i8 [ %27, %.noexc11 ], [ 0, %.noexc10 ]
   %28 = getelementptr inbounds i8, ptr %18, i64 4
-  %29 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h90603e889e3aed8bE.llvm.7941628235115526403(ptr noundef nonnull %28, i8 noundef 0)
+  %29 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h90603e889e3aed8bE.llvm.7941628235115526403(ptr noundef nonnull align 1 %28, i8 noundef 0)
           to label %.noexc12 unwind label %63
 
 .noexc12:                                         ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he042abf7ed139935E.exit.i"
@@ -734,7 +734,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5328
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he042abf7ed139935E.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5328983435487870688.exit, %10
   %.0.i.i.i = phi i8 [ %13, %10 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5328983435487870688.exit ]
   %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h90603e889e3aed8bE.llvm.7941628235115526403(ptr noundef nonnull %14, i8 noundef 0), !noalias !45
+  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h90603e889e3aed8bE.llvm.7941628235115526403(ptr noundef nonnull align 1 %14, i8 noundef 0), !noalias !45
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h15fa371309062639E.llvm.5328983435487870688.exit", label %16
 

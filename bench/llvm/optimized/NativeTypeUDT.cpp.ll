@@ -71,7 +71,7 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8c
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -99,7 +99,7 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -135,7 +135,7 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjRS1_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb13NativeTypeUDTD2Ev(ptr noundef nonnull align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #9
   ret void
 }
 

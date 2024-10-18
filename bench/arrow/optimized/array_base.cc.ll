@@ -4126,7 +4126,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -4136,7 +4136,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #15
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -6524,7 +6524,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -6534,7 +6534,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #15
   br label %terminate.lpad.body
 
 invoke.cont6:                                     ; preds = %.noexc
@@ -7310,7 +7310,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss)
   %ostream_.i = getelementptr inbounds i8, ptr %ss, i64 8
   %0 = load ptr, ptr %ostream_.i, align 8
-  %call.i.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %entry
@@ -7319,7 +7319,7 @@ call.i.i.noexc:                                   ; preds = %entry
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %call.i.i.noexc
-  %call.i.i.i.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i.i.i.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(39) %args3)
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
@@ -10857,7 +10857,7 @@ entry:
   %data_.i = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %data_.i, align 8
   %null_count.i = getelementptr inbounds i8, ptr %span, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %span, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %span, i8 0, i64 16, i1 false)
   store i64 -1, ptr %null_count.i, align 8
   %offset.i = getelementptr inbounds i8, ptr %span, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i, i8 0, i64 104, i1 false)
@@ -15323,7 +15323,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !342
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -15577,7 +15577,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !351
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -15831,7 +15831,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !360
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -16085,7 +16085,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !369
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -16339,7 +16339,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !378
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -16593,7 +16593,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !387
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -16847,7 +16847,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !396
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %3 = load ptr, ptr %ref.tmp7, align 8
   %4 = icmp eq ptr %3, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -17914,7 +17914,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !436
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !436
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(30) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !436
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -17922,7 +17922,7 @@ call.i.i.noexc.i:                                 ; preds = %entry
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !436
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !436
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -28267,7 +28267,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !558
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -28520,7 +28520,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !567
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -28773,7 +28773,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !576
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -29026,7 +29026,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !585
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -29279,7 +29279,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !594
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -29532,7 +29532,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !603
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -29785,7 +29785,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !612
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -33433,7 +33433,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !774
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -33686,7 +33686,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !783
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -33939,7 +33939,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !792
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -34192,7 +34192,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !801
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -34445,7 +34445,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !810
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -34698,7 +34698,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !819
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -34951,7 +34951,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !828
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -38586,7 +38586,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !987
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -38839,7 +38839,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !996
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -39092,7 +39092,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1005
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -39345,7 +39345,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1014
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -39598,7 +39598,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1023
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -39851,7 +39851,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1032
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -40104,7 +40104,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1041
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -43751,7 +43751,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1203
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -44004,7 +44004,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1212
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -44257,7 +44257,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1221
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -44510,7 +44510,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1230
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -44763,7 +44763,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1239
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -45016,7 +45016,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1248
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -45269,7 +45269,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1257
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -48905,7 +48905,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1416
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -49157,7 +49157,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1425
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -49410,7 +49410,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1434
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -49663,7 +49663,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1443
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -49915,7 +49915,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1452
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -50168,7 +50168,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1461
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -50420,7 +50420,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1470
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -54068,7 +54068,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1632
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -54320,7 +54320,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1641
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -54573,7 +54573,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1650
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -54826,7 +54826,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1659
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -55078,7 +55078,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1668
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -55331,7 +55331,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1677
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -55583,7 +55583,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1686
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -59218,7 +59218,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1845
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -59471,7 +59471,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1854
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -59723,7 +59723,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1863
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -59975,7 +59975,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1872
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -60228,7 +60228,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1881
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -60480,7 +60480,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1890
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -60733,7 +60733,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !1899
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -64377,7 +64377,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2061
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -64630,7 +64630,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2070
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -64882,7 +64882,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2079
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -65134,7 +65134,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2088
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -65387,7 +65387,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2097
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -65639,7 +65639,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2106
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -65892,7 +65892,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2115
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -69527,7 +69527,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2274
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -69780,7 +69780,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2283
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -70033,7 +70033,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2292
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -70286,7 +70286,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2301
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -70539,7 +70539,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2310
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -70792,7 +70792,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2319
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -71045,7 +71045,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2328
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -74364,7 +74364,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2469
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow14DurationScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -74617,7 +74617,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2478
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -74870,7 +74870,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2487
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Date64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -75123,7 +75123,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2496
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow15TimestampScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -75376,7 +75376,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2505
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time32ScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -75629,7 +75629,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2514
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow12Time64ScalarESaIvEJlSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -75882,7 +75882,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2523
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow19MonthIntervalScalarESaIvEJiSt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -83288,7 +83288,7 @@ do.end6:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp7, align 8, !alias.scope !2671
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow21DayTimeIntervalScalarESaIvEJNS4_19DayTimeIntervalType15DayMillisecondsESt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5arrow21DayTimeIntervalScalarESaIvEJNS4_19DayTimeIntervalType15DayMillisecondsESt10shared_ptrINS4_8DataTypeEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %2 = load ptr, ptr %ref.tmp7, align 8
   %3 = icmp eq ptr %2, null
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -95216,7 +95216,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !2863
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !2863
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !2863
 
 invoke.cont.i:                                    ; preds = %entry
@@ -95503,7 +95503,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !2866
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !2866
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(28) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !2866
 
 invoke.cont.i:                                    ; preds = %entry

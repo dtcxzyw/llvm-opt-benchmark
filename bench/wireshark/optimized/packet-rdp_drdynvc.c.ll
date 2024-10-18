@@ -338,23 +338,23 @@ dissect_rdp_vlength.exit:                         ; preds = %48, %58
   ]
 
 72:                                               ; preds = %68
-  %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0358) #7
+  %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 6) %.0358) #7
   %74 = zext i8 %73 to i32
   br label %80
 
 75:                                               ; preds = %68
-  %76 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0358, i32 noundef -2147483648) #7
+  %76 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef range(i32 1, 6) %.0358, i32 noundef -2147483648) #7
   %77 = zext i16 %76 to i32
   br label %80
 
 78:                                               ; preds = %68
-  %79 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0358, i32 noundef -2147483648) #7
+  %79 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef range(i32 1, 6) %.0358, i32 noundef -2147483648) #7
   br label %80
 
 80:                                               ; preds = %78, %75, %72
   %.019.i407 = phi i32 [ 4, %78 ], [ 2, %75 ], [ 1, %72 ]
   %.0.i408 = phi i32 [ %79, %78 ], [ %77, %75 ], [ %74, %72 ]
-  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %71, ptr noundef %0, i32 noundef %.0358, i32 noundef %.019.i407, i32 noundef %.0.i408) #7
+  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %71, ptr noundef %0, i32 noundef range(i32 1, 6) %.0358, i32 noundef %.019.i407, i32 noundef %.0.i408) #7
   br label %dissect_rdp_vlength.exit410
 
 dissect_rdp_vlength.exit410:                      ; preds = %68, %80

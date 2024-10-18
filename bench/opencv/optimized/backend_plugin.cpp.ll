@@ -1590,7 +1590,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicL
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !27
   store ptr null, ptr %3, align 8, !alias.scope !30, !noalias !27
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4impl13PluginBackendESaIvEJRKNS4_3PtrINS4_6plugin4impl10DynamicLibEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %357, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %36)
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4impl13PluginBackendESaIvEJRKNS4_3PtrINS4_6plugin4impl10DynamicLibEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %357, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %36)
           to label %385 unwind label %388
 
 385:                                              ; preds = %384
@@ -8550,7 +8550,7 @@ define linkonce_odr hidden void @_ZN2cv4impl13PluginBackend23getCapturePluginVer
 define linkonce_odr hidden void @_ZN2cv4impl20PluginBackendFactory12initBackend_Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN2cv4implL22getInitializationMutexEvE19initializationMutex) #20
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN2cv4implL22getInitializationMutexEvE19initializationMutex) #20
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %5
 
@@ -8654,7 +8654,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 46:                                               ; preds = %45, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %9
   store i8 1, ptr %6, align 8
-  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN2cv4implL22getInitializationMutexEvE19initializationMutex) #20
+  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN2cv4implL22getInitializationMutexEvE19initializationMutex) #20
   ret void
 
 48:                                               ; preds = %45
@@ -8669,7 +8669,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 51:                                               ; preds = %50, %48
   %.pn15 = phi { ptr, i32 } [ %49, %48 ], [ %.pn.pn, %50 ]
-  %52 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN2cv4implL22getInitializationMutexEvE19initializationMutex) #20
+  %52 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN2cv4implL22getInitializationMutexEvE19initializationMutex) #20
   resume { ptr, i32 } %.pn15
 
 53:                                               ; preds = %50

@@ -627,7 +627,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   %75 = sext i16 %62 to i32
   %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %76)
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %75) #9
+  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef range(i32 -32768, 32768) %75) #9
   call void @errfinish(ptr noundef nonnull @.str.39, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #9
   unreachable
 
@@ -637,7 +637,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
 
 80:                                               ; preds = %46
   %81 = trunc nuw nsw i64 %33 to i32
-  %82 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef %81, ptr noundef nonnull %16) #9
+  %82 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %81, ptr noundef nonnull %16) #9
   br label %heap_getattr.exit
 
 83:                                               ; preds = %42
@@ -659,7 +659,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
 
 94:                                               ; preds = %83
   %95 = trunc nuw nsw i64 %33 to i32
-  %96 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef %95, ptr noundef nonnull %16) #9
+  %96 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %95, ptr noundef nonnull %16) #9
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %39, %63, %66, %69, %72, %78, %80, %93, %94

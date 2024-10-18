@@ -498,7 +498,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit39.i:                ; preds = %187
   %194 = trunc i8 %193 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %195 = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 28, i1 false), !alias.scope !10
   store i32 -1, ptr %195, align 4, !alias.scope !10
   invoke void @_ZN5ZXing6Pdf41713BarcodeMatrix4initEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.372, i32 noundef %.3)
           to label %.preheader.i43 unwind label %.loopexit.split-lp.i
@@ -1746,7 +1746,7 @@ _ZNSt6vectorIN5ZXing6Pdf41710BarcodeRowESaIS2_EE6resizeEm.exit: ; preds = %13, %
 
 55:                                               ; preds = %38
   %56 = sub nuw i64 %33, %51
-  tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr %42, i32 %44, i64 noundef %56, i1 noundef zeroext false)
+  tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(44) %40, ptr %42, i32 %44, i64 noundef %56, i1 noundef zeroext false)
   br label %_ZN5ZXing6Pdf41710BarcodeRow4initEi.exit
 
 _ZN5ZXing6Pdf41710BarcodeRow4initEi.exit:         ; preds = %53, %55
@@ -1858,7 +1858,7 @@ _ZSt27__uninitialized_default_n_aIPN5ZXing6Pdf41710BarcodeRowEmS2_ET_S4_T0_RSaIT
   %.0911.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5ZXing6Pdf41710BarcodeRowEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i, i64 40, i1 false), !alias.scope !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %.0911.i.i.i, i64 40, i1 false), !alias.scope !26
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !24, !noalias !21
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !21

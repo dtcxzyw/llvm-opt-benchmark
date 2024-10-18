@@ -1951,7 +1951,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT23MathTopAccentAttachment9get_val
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %16, %25
   %28 = phi ptr [ %27, %25 ], [ null, %16 ]
-  %29 = tail call noundef i32 %20(ptr noundef nonnull %2, ptr noundef %22, i32 noundef %1, ptr noundef %28)
+  %29 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %22, i32 noundef %1, ptr noundef %28)
   %30 = sdiv i32 %29, 2
   br label %71
 
@@ -2727,7 +2727,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sanit
 41:                                               ; preds = %41, %39
   %indvars.iv.i.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i.i, %41 ]
   %42 = getelementptr inbounds [51 x %"struct.OT::MathValueRecord"], ptr %40, i64 0, i64 %indvars.iv.i.i.i.i
-  %43 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %42, ptr noundef nonnull %1, ptr noundef nonnull %35)
+  %43 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %42, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(214) %35)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, 51
   %or.cond.not.i.i.i.i = select i1 %43, i1 %exitcond.i.i.i.i, i1 false
@@ -2779,7 +2779,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 68:                                               ; preds = %59
   %69 = zext nneg i32 %66 to i64
   %70 = getelementptr inbounds i8, ptr %0, i64 %69
-  %71 = tail call noundef zeroext i1 @_ZNK2OT13MathGlyphInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %70, ptr noundef nonnull %1)
+  %71 = tail call noundef zeroext i1 @_ZNK2OT13MathGlyphInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %71, label %.thread37, label %72
 
 72:                                               ; preds = %68
@@ -2825,7 +2825,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24: ; preds = %72
 97:                                               ; preds = %88
   %98 = zext nneg i32 %95 to i64
   %99 = getelementptr inbounds i8, ptr %0, i64 %98
-  %100 = tail call noundef zeroext i1 @_ZNK2OT12MathVariants8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %99, ptr noundef nonnull %1)
+  %100 = tail call noundef zeroext i1 @_ZNK2OT12MathVariants8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %100, label %.thread32, label %101
 
 101:                                              ; preds = %97
@@ -3023,7 +3023,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13MathGlyphInfo8sanitizeEP
 26:                                               ; preds = %17
   %27 = zext nneg i32 %24 to i64
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  %29 = tail call noundef zeroext i1 @_ZNK2OT25MathItalicsCorrectionInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %28, ptr noundef nonnull %1)
+  %29 = tail call noundef zeroext i1 @_ZNK2OT25MathItalicsCorrectionInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %26
@@ -3069,7 +3069,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %30
 55:                                               ; preds = %46
   %56 = zext nneg i32 %53 to i64
   %57 = getelementptr inbounds i8, ptr %0, i64 %56
-  %58 = tail call noundef zeroext i1 @_ZNK2OT23MathTopAccentAttachment8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull %1)
+  %58 = tail call noundef zeroext i1 @_ZNK2OT23MathTopAccentAttachment8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %58, label %.thread56, label %59
 
 59:                                               ; preds = %55
@@ -3232,7 +3232,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i42: ; preds = %_ZN21hb_sanitize
 153:                                              ; preds = %144
   %154 = zext nneg i32 %151 to i64
   %155 = getelementptr inbounds i8, ptr %0, i64 %154
-  %156 = tail call noundef zeroext i1 @_ZNK2OT12MathKernInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %155, ptr noundef nonnull %1)
+  %156 = tail call noundef zeroext i1 @_ZNK2OT12MathKernInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %155, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %156, label %.thread51, label %157
 
 157:                                              ; preds = %153
@@ -3438,7 +3438,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %109 = getelementptr inbounds [1 x %"struct.OT::MathValueRecord"], ptr %3, i64 0, i64 %indvars.iv
-  %110 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %109, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %110 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %109, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %110, i1 %exitcond.not, i1 false
@@ -3629,7 +3629,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %109 = getelementptr inbounds [1 x %"struct.OT::MathValueRecord"], ptr %3, i64 0, i64 %indvars.iv
-  %110 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %109, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %110 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %109, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %110, i1 %exitcond.not, i1 false
@@ -3820,7 +3820,7 @@ _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %109 = getelementptr inbounds [1 x %"struct.OT::MathKernInfoRecord"], ptr %3, i64 0, i64 %indvars.iv
-  %110 = tail call noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %109, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %110 = tail call noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %110, i1 %exitcond.not, i1 false
@@ -3911,7 +3911,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i
 59:                                               ; preds = %59, %51
   %indvars.iv.i.i.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i.i.i, %59 ]
   %60 = getelementptr inbounds [1 x %"struct.OT::MathValueRecord"], ptr %31, i64 0, i64 %indvars.iv.i.i.i.i
-  %61 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %60, ptr noundef nonnull %1, ptr noundef nonnull %30)
+  %61 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(6) %30)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.i.i.i.i, %58
   %or.cond.not.i.i.i.i = select i1 %61, i1 %exitcond.i.i.i.i, i1 false
@@ -4288,7 +4288,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructi
 219:                                              ; preds = %210
   %220 = zext nneg i32 %217 to i64
   %221 = getelementptr inbounds i8, ptr %0, i64 %220
-  %222 = tail call noundef zeroext i1 @_ZNK2OT21MathGlyphConstruction8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %221, ptr noundef nonnull %1)
+  %222 = tail call noundef zeroext i1 @_ZNK2OT21MathGlyphConstruction8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %221, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %222, label %.thread.i, label %223
 
 223:                                              ; preds = %219
@@ -4360,7 +4360,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21MathGlyphConstruction8sa
   br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT17MathGlyphAssemblyEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %32
 
 32:                                               ; preds = %26
-  %33 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %28, ptr noundef nonnull %1, ptr noundef nonnull %28)
+  %33 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(16) %28)
   br i1 %33, label %34, label %_ZN21hb_sanitize_context_t8dispatchIN2OT17MathGlyphAssemblyEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
 34:                                               ; preds = %32

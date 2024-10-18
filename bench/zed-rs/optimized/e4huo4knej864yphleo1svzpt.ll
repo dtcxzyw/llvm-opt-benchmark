@@ -506,7 +506,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %111 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %107, i64 %90
   %112 = sub nsw i64 %93, %90
   %gepdiff131 = and i64 %112, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 %110)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 range(i64 0, 4294967296) %110)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -665,7 +665,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %163 = sub nuw nsw i64 %156, %88
   %164 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %160, i64 %88
   %.idx129 = sub nsw i64 %86, %88
-  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 %163)
+  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 range(i64 0, 4294967296) %163)
   %.not169 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i48, 0
   br i1 %.not169, label %._crit_edge, label %.lr.ph162
 
@@ -1015,7 +1015,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %105 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %101, i64 %84
   %106 = sub nsw i64 %87, %84
   %gepdiff123 = and i64 %106, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff123, i64 %104)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff123, i64 range(i64 0, 4294967296) %104)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1150,7 +1150,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %151 = sub nuw nsw i64 %144, %82
   %152 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %148, i64 %82
   %.idx121 = sub nsw i64 %80, %82
-  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx121, i64 %151)
+  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx121, i64 range(i64 0, 4294967296) %151)
   %.not158 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i50, 0
   br i1 %.not158, label %._crit_edge, label %.lr.ph151
 
@@ -1483,7 +1483,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %111 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %107, i64 %90
   %112 = sub nsw i64 %93, %90
   %gepdiff131 = and i64 %112, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 %110)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 range(i64 0, 4294967296) %110)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1642,7 +1642,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %163 = sub nuw nsw i64 %156, %88
   %164 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %160, i64 %88
   %.idx129 = sub nsw i64 %86, %88
-  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 %163)
+  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 range(i64 0, 4294967296) %163)
   %.not170 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i48, 0
   br i1 %.not170, label %._crit_edge, label %.lr.ph163
 
@@ -2016,7 +2016,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %114 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %110, i64 %94
   %115 = sub nsw i64 %97, %94
   %gepdiff148 = and i64 %115, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff148, i64 %113)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff148, i64 range(i64 0, 4294967296) %113)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -2191,7 +2191,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %167 = sub nuw nsw i64 %160, %92
   %168 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %164, i64 %92
   %.idx146 = sub nsw i64 %90, %92
-  %.sroa.0.0.sroa.speculated.i.i.i57 = call noundef i64 @llvm.umin.i64(i64 %.idx146, i64 %167)
+  %.sroa.0.0.sroa.speculated.i.i.i57 = call noundef i64 @llvm.umin.i64(i64 %.idx146, i64 range(i64 0, 4294967296) %167)
   %.not186 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i57, 0
   br i1 %.not186, label %._crit_edge, label %.lr.ph179
 
@@ -2579,7 +2579,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %114 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %110, i64 %94
   %115 = sub nsw i64 %97, %94
   %gepdiff148 = and i64 %115, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff148, i64 %113)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff148, i64 range(i64 0, 4294967296) %113)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -2754,7 +2754,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %167 = sub nuw nsw i64 %160, %92
   %168 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %164, i64 %92
   %.idx146 = sub nsw i64 %90, %92
-  %.sroa.0.0.sroa.speculated.i.i.i57 = call noundef i64 @llvm.umin.i64(i64 %.idx146, i64 %167)
+  %.sroa.0.0.sroa.speculated.i.i.i57 = call noundef i64 @llvm.umin.i64(i64 %.idx146, i64 range(i64 0, 4294967296) %167)
   %.not186 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i57, 0
   br i1 %.not186, label %._crit_edge, label %.lr.ph179
 
@@ -3105,7 +3105,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %97 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %93, i64 %77
   %98 = sub nsw i64 %80, %77
   %gepdiff107 = and i64 %98, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff107, i64 %96)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff107, i64 range(i64 0, 4294967296) %96)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -3222,7 +3222,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %139 = sub nuw nsw i64 %132, %75
   %140 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %136, i64 %75
   %.idx105 = sub nsw i64 %73, %75
-  %.sroa.0.0.sroa.speculated.i.i.i44 = call noundef i64 @llvm.umin.i64(i64 %.idx105, i64 %139)
+  %.sroa.0.0.sroa.speculated.i.i.i44 = call noundef i64 @llvm.umin.i64(i64 %.idx105, i64 range(i64 0, 4294967296) %139)
   %.not141 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i44, 0
   br i1 %.not141, label %._crit_edge, label %.lr.ph134
 
@@ -3510,7 +3510,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %99 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %95, i64 %78
   %100 = sub nsw i64 %81, %78
   %gepdiff102 = and i64 %100, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff102, i64 %98)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff102, i64 range(i64 0, 4294967296) %98)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -3626,7 +3626,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %143 = sub nuw nsw i64 %136, %76
   %144 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %140, i64 %76
   %.idx100 = sub nsw i64 %74, %76
-  %.sroa.0.0.sroa.speculated.i.i.i39 = call noundef i64 @llvm.umin.i64(i64 %.idx100, i64 %143)
+  %.sroa.0.0.sroa.speculated.i.i.i39 = call noundef i64 @llvm.umin.i64(i64 %.idx100, i64 range(i64 0, 4294967296) %143)
   %.not137 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i39, 0
   br i1 %.not137, label %._crit_edge, label %.lr.ph130
 
@@ -3939,7 +3939,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %111 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %107, i64 %90
   %112 = sub nsw i64 %93, %90
   %gepdiff131 = and i64 %112, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 %110)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 range(i64 0, 4294967296) %110)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -4098,7 +4098,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %163 = sub nuw nsw i64 %156, %88
   %164 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %160, i64 %88
   %.idx129 = sub nsw i64 %86, %88
-  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 %163)
+  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 range(i64 0, 4294967296) %163)
   %.not169 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i48, 0
   br i1 %.not169, label %._crit_edge, label %.lr.ph162
 
@@ -4445,7 +4445,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %103 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %99, i64 %82
   %104 = sub nsw i64 %85, %82
   %gepdiff125 = and i64 %104, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff125, i64 %102)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff125, i64 range(i64 0, 4294967296) %102)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -4588,7 +4588,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %153 = sub nuw nsw i64 %146, %80
   %154 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %150, i64 %80
   %.idx123 = sub nsw i64 %78, %80
-  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx123, i64 %153)
+  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx123, i64 range(i64 0, 4294967296) %153)
   %.not161 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i50, 0
   br i1 %.not161, label %._crit_edge, label %.lr.ph154
 
@@ -4937,7 +4937,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %111 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %107, i64 %90
   %112 = sub nsw i64 %93, %90
   %gepdiff131 = and i64 %112, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 %110)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff131, i64 range(i64 0, 4294967296) %110)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -5096,7 +5096,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %163 = sub nuw nsw i64 %156, %88
   %164 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %160, i64 %88
   %.idx129 = sub nsw i64 %86, %88
-  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 %163)
+  %.sroa.0.0.sroa.speculated.i.i.i48 = call noundef i64 @llvm.umin.i64(i64 %.idx129, i64 range(i64 0, 4294967296) %163)
   %.not170 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i48, 0
   br i1 %.not170, label %._crit_edge, label %.lr.ph163
 
@@ -5443,7 +5443,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %103 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %99, i64 %82
   %104 = sub nsw i64 %85, %82
   %gepdiff125 = and i64 %104, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff125, i64 %102)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff125, i64 range(i64 0, 4294967296) %102)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -5586,7 +5586,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %153 = sub nuw nsw i64 %146, %80
   %154 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %150, i64 %80
   %.idx123 = sub nsw i64 %78, %80
-  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx123, i64 %153)
+  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx123, i64 range(i64 0, 4294967296) %153)
   %.not161 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i50, 0
   br i1 %.not161, label %._crit_edge, label %.lr.ph154
 
@@ -5921,7 +5921,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %105 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %101, i64 %84
   %106 = sub nsw i64 %87, %84
   %gepdiff123 = and i64 %106, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff123, i64 %104)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff123, i64 range(i64 0, 4294967296) %104)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -6056,7 +6056,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %151 = sub nuw nsw i64 %144, %82
   %152 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %148, i64 %82
   %.idx121 = sub nsw i64 %80, %82
-  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx121, i64 %151)
+  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx121, i64 range(i64 0, 4294967296) %151)
   %.not158 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i50, 0
   br i1 %.not158, label %._crit_edge, label %.lr.ph151
 
@@ -8680,7 +8680,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h90d283a86be5feaaE.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h90d283a86be5feaaE.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2007
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2007
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17hf771290cdcb22a8cE.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.29.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -8720,7 +8720,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdf48427bde51d167E.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdf48427bde51d167E.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2018
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2018
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17h680dda605ec626b7E.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.31.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -8760,7 +8760,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4b210c43c94b7e9fE.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4b210c43c94b7e9fE.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2029
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2029
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17hb51adc42e71956b2E.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.32.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -8800,7 +8800,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h1e689b5edb773dcdE.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h1e689b5edb773dcdE.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2040
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2040
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17h4d9b1390f707ac01E.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.33.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -8840,7 +8840,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h421510af9f52f92dE.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h421510af9f52f92dE.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2051
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2051
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17he0ae2c85c6b1b9d3E.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.34.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -9044,7 +9044,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17heb3775e823d48160E.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17heb3775e823d48160E.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2106
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2106
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17hd02930f357cec390E.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.39.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -9084,7 +9084,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hbec0a76a23dd6f18E.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hbec0a76a23dd6f18E.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2117
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2117
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17h96e69ccd210775ebE.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.40.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -9124,7 +9124,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h035b8bf9416523c7E.llvm.4267649359718517871.exit"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h035b8bf9416523c7E.llvm.4267649359718517871.exit": ; preds = %18, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !2128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %0, i8 0, i64 16, i1 false), !alias.scope !2128
   %23 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17h3510164b9be9d2abE.llvm.4267649359718517871"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.261c9ab98e99934f23d62712a12443a7.41.llvm.4267649359718517871, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.261c9ab98e99934f23d62712a12443a7.30.llvm.4267649359718517871, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   ret i1 %23
 }
@@ -9735,7 +9735,7 @@ common.resume:                                    ; preds = %.body, %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2235)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
   %29 = getelementptr inbounds i8, ptr %0, i64 272
-  %30 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef align 1 %1, ptr noalias noundef nonnull readonly align 1 %29, ptr noalias noundef nonnull readonly align 1 %3)
+  %30 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %29, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %25
@@ -9856,7 +9856,7 @@ common.resume:                                    ; preds = %.body, %21
   %88 = sub nuw nsw i64 %83, %73
   %89 = sub nsw i64 %76, %73
   %gepdiff30.i = and i64 %89, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff30.i, i64 %88)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff30.i, i64 range(i64 0, 4294967296) %88)
   %.not.i = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i.i, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -9867,7 +9867,7 @@ common.resume:                                    ; preds = %.body, %21
   %.sroa.9.064.us.i = phi i64 [ %90, %.noexc6 ], [ 0, %.lr.ph.i ]
   %90 = add nuw nsw i64 %.sroa.9.064.us.i, 1
   %91 = getelementptr inbounds ptr, ptr %87, i64 %.sroa.9.064.us.i
-  %92 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
+  %92 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc5 unwind label %.loopexit.split-lp.loopexit
 
 .noexc5:                                          ; preds = %.lr.ph.split.us.i
@@ -9882,7 +9882,7 @@ common.resume:                                    ; preds = %.body, %21
   br i1 %96, label %.split66.us.i, label %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$9push_tree17hbb9ac211e405b71bE.exit.us.i"
 
 "_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$9push_tree17hbb9ac211e405b71bE.exit.us.i": ; preds = %93
-  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %94, ptr noalias noundef nonnull readonly align 1 %3)
+  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(2232) %14, ptr noundef nonnull %94, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc6 unwind label %.loopexit.split-lp.loopexit
 
 .noexc6:                                          ; preds = %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$9push_tree17hbb9ac211e405b71bE.exit.us.i"
@@ -9896,7 +9896,7 @@ common.resume:                                    ; preds = %.body, %21
   %.sroa.9.064.i = phi i64 [ %99, %.noexc9 ], [ 0, %.lr.ph.i ]
   %99 = add nuw nsw i64 %.sroa.9.064.i, 1
   %100 = getelementptr inbounds ptr, ptr %87, i64 %.sroa.9.064.i
-  %101 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
+  %101 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc8 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc8:                                          ; preds = %.lr.ph.split.i
@@ -9931,7 +9931,7 @@ common.resume:                                    ; preds = %.body, %21
   unreachable
 
 "_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$9push_tree17hbb9ac211e405b71bE.exit.i": ; preds = %106
-  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %107, ptr noalias noundef nonnull readonly align 1 %3)
+  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(2232) %14, ptr noundef nonnull %107, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc9:                                          ; preds = %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$9push_tree17hbb9ac211e405b71bE.exit.i"
@@ -9986,7 +9986,7 @@ common.resume:                                    ; preds = %.body, %21
   %128 = sub nuw nsw i64 %122, %71
   %129 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %125, i64 %71
   %.idx28.i = sub nsw i64 %69, %71
-  %.sroa.0.0.sroa.speculated.i.i.i43.i = call noundef i64 @llvm.umin.i64(i64 %.idx28.i, i64 %128)
+  %.sroa.0.0.sroa.speculated.i.i.i43.i = call noundef i64 @llvm.umin.i64(i64 %.idx28.i, i64 range(i64 0, 4294967296) %128)
   %.not77.i = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i43.i, 0
   br i1 %.not77.i, label %._crit_edge.i, label %.lr.ph72.i
 
@@ -10040,7 +10040,7 @@ common.resume:                                    ; preds = %.body, %21
 "_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$8end_leaf17hd0de2b433c789f5eE.exit.i": ; preds = %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2240) %133, ptr noundef nonnull align 8 dereferenceable(2240) %9, i64 2240, i1 false), !noalias !2289
   call void @llvm.lifetime.end.p0(i64 2240, ptr nonnull %9), !noalias !2282
-  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %133, ptr noalias noundef nonnull readonly align 1 %3)
+  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(2232) %14, ptr noundef nonnull %133, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.loopexit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .lr.ph72.i:                                       ; preds = %124, %.noexc15
@@ -10048,7 +10048,7 @@ common.resume:                                    ; preds = %.body, %21
   %140 = add nuw nsw i64 %.sroa.915.071.i, 1
   %141 = getelementptr inbounds { { i32, [128 x i8] } }, ptr %127, i64 %.sroa.915.071.i
   %142 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %129, i64 %.sroa.915.071.i
-  %143 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
+  %143 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %.lr.ph72.i
@@ -10118,7 +10118,7 @@ common.resume:                                    ; preds = %.body, %21
 "_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$8end_leaf17hd0de2b433c789f5eE.exit55.i": ; preds = %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2240) %152, ptr noundef nonnull align 8 dereferenceable(2240) %8, i64 2240, i1 false), !noalias !2300
   call void @llvm.lifetime.end.p0(i64 2240, ptr nonnull %8), !noalias !2293
-  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %152, ptr noalias noundef nonnull readonly align 1 %3)
+  invoke void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hc079e0b03e99650cE"(ptr noalias noundef nonnull align 8 dereferenceable(2232) %14, ptr noundef nonnull %152, ptr noalias noundef nonnull readonly align 1 %3)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc16:                                         ; preds = %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$8end_leaf17hd0de2b433c789f5eE.exit55.i"
@@ -10190,7 +10190,7 @@ common.resume:                                    ; preds = %.body, %21
   unreachable
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$12item_summary17h0faf0d4b0c44d7e9E.exit.thread.i": ; preds = %172, %163, %.loopexit31.i
-  %180 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
+  %180 = invoke noundef i8 @"_ZN76_$LT$sum_tree..End$LT$D$GT$$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17hcaaf0d2063ccb12bE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 1 %3)
           to label %"_ZN4core3ptr79drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$rope..Chunk$C$12_usize$GT$$GT$17h4f17ed0f33c6d4c3E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.lr.ph72.i, %144

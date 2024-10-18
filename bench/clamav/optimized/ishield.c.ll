@@ -292,7 +292,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %.lr.ph, %fmap_
 
 117:                                              ; preds = %115
   %118 = sub nuw i64 %114, %.1211
-  %spec.select.i161 = call i64 @llvm.umin.i64(i64 %112, i64 %118)
+  %spec.select.i161 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %112, i64 %118)
   %119 = load ptr, ptr %9, align 8
   %120 = call ptr %119(ptr noundef nonnull %8, i64 noundef %.1211, i64 noundef %spec.select.i161, i32 noundef 0) #13
   %.not.i162 = icmp eq ptr %120, null
@@ -743,7 +743,7 @@ define i32 @cli_scanishield(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
 110:                                              ; preds = %108
   %111 = getelementptr inbounds i8, ptr %109, i64 104
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call ptr %112(ptr noundef %109, i64 noundef %.sroa.12.0.ph221, i64 noundef %.sroa.19.0.ph220, i32 noundef 1) #13
+  %113 = tail call ptr %112(ptr noundef %109, i64 noundef %.sroa.12.0.ph221, i64 noundef range(i64 1, 0) %.sroa.19.0.ph220, i32 noundef 1) #13
   %.not210.i = icmp eq ptr %113, null
   br i1 %.not210.i, label %is_parse_hdr.exit.thread173, label %114
 

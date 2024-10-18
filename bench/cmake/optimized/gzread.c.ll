@@ -122,7 +122,7 @@ define internal fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef %1, i64 
   br i1 %33, label %gz_skip.exit.thread, label %34
 
 34:                                               ; preds = %31, %29
-  %35 = tail call fastcc i32 @gz_fetch(ptr noundef %0)
+  %35 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %0)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %gz_skip.exit, label %37
 
@@ -497,7 +497,7 @@ define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzungetc(i32 noundef %0
   br i1 %38, label %gz_skip.exit, label %39
 
 39:                                               ; preds = %36, %34
-  %40 = tail call fastcc i32 @gz_fetch(ptr noundef %1)
+  %40 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %1)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %gz_skip.exit.thread, label %42
 
@@ -682,7 +682,7 @@ define dso_local noundef ptr @cm_zlib_gzgets(ptr noundef %0, ptr noundef writeon
   br i1 %41, label %gz_skip.exit.thread, label %42
 
 42:                                               ; preds = %39, %37
-  %43 = tail call fastcc i32 @gz_fetch(ptr noundef %0)
+  %43 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %0)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %gz_skip.exit, label %45
 

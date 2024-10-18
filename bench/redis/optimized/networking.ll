@@ -1351,7 +1351,7 @@ entry:
   %3 = load ptr, ptr %2, align 8
   %set_write_handler.i = getelementptr inbounds i8, ptr %3, i64 152
   %4 = load ptr, ptr %set_write_handler.i, align 8
-  %call.i = tail call i32 %4(ptr noundef nonnull %2, ptr noundef nonnull @sendReplyToClient, i32 noundef %ae_barrier.0) #27
+  %call.i = tail call i32 %4(ptr noundef nonnull %2, ptr noundef nonnull @sendReplyToClient, i32 noundef range(i32 0, 2) %ae_barrier.0) #27
   %cmp2 = icmp eq i32 %call.i, -1
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -2323,7 +2323,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp.not.i6, label %if.end.i7, label %addReplyProto.exit8
 
 if.end.i7:                                        ; preds = %if.then
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.5, i64 noundef 5)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.5, i64 noundef 5)
   br label %addReplyProto.exit8
 
 addReplyProto.exit8:                              ; preds = %if.then, %if.end.i7
@@ -2341,7 +2341,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
   br i1 %cmp.not.i14, label %if.end.i15, label %addReplyProto.exit16
 
 if.end.i15:                                       ; preds = %if.end
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyProto.exit16
 
 addReplyProto.exit16:                             ; preds = %if.end, %if.end.i15
@@ -3009,7 +3009,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %addReplyProto.exit
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.18, i64 noundef 1)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.18, i64 noundef 1)
   br label %addReplyProto.exit
 
 addReplyProto.exit:                               ; preds = %entry, %if.end.i
@@ -3027,7 +3027,7 @@ addReplyProto.exit6:                              ; preds = %addReplyProto.exit,
   br i1 %cmp.not.i8, label %if.end.i9, label %addReplyProto.exit10
 
 if.end.i9:                                        ; preds = %addReplyProto.exit6
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyProto.exit10
 
 addReplyProto.exit10:                             ; preds = %addReplyProto.exit6, %if.end.i9
@@ -3043,7 +3043,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %addReplyProto.exit.i
 
 if.end.i.i:                                       ; preds = %entry
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.18, i64 noundef 1)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.18, i64 noundef 1)
   br label %addReplyProto.exit.i
 
 addReplyProto.exit.i:                             ; preds = %if.end.i.i, %entry
@@ -3061,7 +3061,7 @@ addReplyProto.exit6.i:                            ; preds = %if.end.i5.i, %addRe
   br i1 %cmp.not.i8.i, label %if.end.i9.i, label %addReplyStatusLength.exit
 
 if.end.i9.i:                                      ; preds = %addReplyProto.exit6.i
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyStatusLength.exit
 
 addReplyStatusLength.exit:                        ; preds = %addReplyProto.exit6.i, %if.end.i9.i
@@ -3123,7 +3123,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   br i1 %cmp.not.i.i, label %if.end.i.i, label %addReplyProto.exit.i
 
 if.end.i.i:                                       ; preds = %sdslen.exit
-  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.18, i64 noundef 1)
+  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.18, i64 noundef 1)
   br label %addReplyProto.exit.i
 
 addReplyProto.exit.i:                             ; preds = %if.end.i.i, %sdslen.exit
@@ -3141,7 +3141,7 @@ addReplyProto.exit6.i:                            ; preds = %if.end.i5.i, %addRe
   br i1 %cmp.not.i8.i, label %if.end.i9.i, label %addReplyStatusLength.exit
 
 if.end.i9.i:                                      ; preds = %addReplyProto.exit6.i
-  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyStatusLength.exit
 
 addReplyStatusLength.exit:                        ; preds = %addReplyProto.exit6.i, %if.end.i9.i
@@ -3769,7 +3769,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %addReplyProto.exit
 
 if.end.i:                                         ; preds = %if.else
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.25, i64 noundef 1)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.25, i64 noundef 1)
   br label %addReplyProto.exit
 
 addReplyProto.exit:                               ; preds = %if.else, %if.end.i
@@ -3787,7 +3787,7 @@ addReplyProto.exit10:                             ; preds = %addReplyProto.exit,
   br i1 %cmp.not.i12, label %if.end.sink.split, label %if.end
 
 if.end.sink.split:                                ; preds = %addReplyProto.exit10, %addReplyProto.exit.i
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %addReplyProto.exit10, %addReplyProto.exit.i
@@ -3812,7 +3812,7 @@ addReplyProto.exit:                               ; preds = %entry, %if.end.i
   br i1 %cmp.not.i5, label %if.end.i6, label %addReplyProto.exit7
 
 if.end.i6:                                        ; preds = %addReplyProto.exit
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyProto.exit7
 
 addReplyProto.exit7:                              ; preds = %addReplyProto.exit, %if.end.i6
@@ -3838,7 +3838,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i.i, label %if.end.i.i, label %addReplyBulk.exit
 
 if.end.i.i:                                       ; preds = %if.then
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulk.exit
 
 addReplyBulk.exit:                                ; preds = %if.then, %if.end.i.i
@@ -3852,7 +3852,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %addReplyProto.exit
 
 if.end.i:                                         ; preds = %if.else
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.26, i64 noundef 1)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.26, i64 noundef 1)
   br label %addReplyProto.exit
 
 addReplyProto.exit:                               ; preds = %if.else, %if.end.i
@@ -3871,7 +3871,7 @@ addReplyProto.exit10:                             ; preds = %addReplyProto.exit,
   br i1 %cmp.not.i12, label %if.end.i13, label %if.end
 
 if.end.i13:                                       ; preds = %addReplyProto.exit10
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i13, %addReplyProto.exit10, %addReplyBulk.exit
@@ -3891,7 +3891,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %addReplyProto.exit
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyProto.exit
 
 addReplyProto.exit:                               ; preds = %entry, %if.end.i
@@ -4259,14 +4259,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %if.then
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.28, i64 noundef 5)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.28, i64 noundef 5)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i5, label %if.end
 
 if.end.i5:                                        ; preds = %if.else
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.29, i64 noundef 3)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.29, i64 noundef 3)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i5, %if.else, %if.end.i, %if.then
@@ -4318,14 +4318,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %if.then
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.32, i64 noundef 5)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.32, i64 noundef 5)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i5, label %if.end
 
 if.end.i5:                                        ; preds = %if.else
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.29, i64 noundef 3)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.29, i64 noundef 3)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i5, %if.else, %if.end.i, %if.then
@@ -4444,7 +4444,7 @@ addReplySds.exit:                                 ; preds = %sdslen.exit, %sdsle
   br i1 %cmp.not.i5, label %if.end.i6, label %addReplyProto.exit
 
 if.end.i6:                                        ; preds = %addReplySds.exit
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyProto.exit
 
 addReplyProto.exit:                               ; preds = %addReplySds.exit, %if.end.i6
@@ -4567,14 +4567,14 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end
 
 if.end.i.i:                                       ; preds = %if.then.i
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.28, i64 noundef 5)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.28, i64 noundef 5)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
   br i1 %cmp.not.i.i, label %if.end.i5.i, label %if.end
 
 if.end.i5.i:                                      ; preds = %if.else.i
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.29, i64 noundef 3)
+  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.29, i64 noundef 3)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -4594,7 +4594,7 @@ addReplyProto.exit.i:                             ; preds = %if.end.i.i6, %if.el
   br i1 %cmp.not.i5.i, label %if.end.i6.i, label %if.end
 
 if.end.i6.i:                                      ; preds = %addReplyProto.exit.i
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i6.i, %addReplyProto.exit.i, %if.end.i5.i, %if.else.i, %if.end.i.i, %if.then.i
@@ -4622,7 +4622,7 @@ addReplyProto.exit.i:                             ; preds = %if.end.i.i, %entry
   br i1 %cmp.not.i5.i, label %if.end.i6.i, label %addReplyBulkCBuffer.exit
 
 if.end.i6.i:                                      ; preds = %addReplyProto.exit.i
-  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCBuffer.exit
 
 addReplyBulkCBuffer.exit:                         ; preds = %addReplyProto.exit.i, %if.end.i6.i
@@ -4699,7 +4699,7 @@ addReplyProto.exit17:                             ; preds = %addReplyProto.exit,
   br i1 %cmp.not.i19, label %if.end13.sink.split, label %if.end13
 
 if.end13.sink.split:                              ; preds = %addReplyProto.exit17, %addReplyProto.exit.i
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end13.sink.split, %addReplyProto.exit17, %addReplyProto.exit.i
@@ -7440,7 +7440,7 @@ if.end52:                                         ; preds = %while.end
   %22 = load ptr, ptr %21, align 8
   %writev.i = getelementptr inbounds i8, ptr %22, i64 136
   %23 = load ptr, ptr %writev.i, align 8
-  %call.i = call i32 %23(ptr noundef nonnull %21, ptr noundef nonnull %vla, i32 noundef %iovcnt.1.ph.lcssa) #27
+  %call.i = call i32 %23(ptr noundef nonnull %21, ptr noundef nonnull %vla, i32 noundef range(i32 1, 0) %iovcnt.1.ph.lcssa) #27
   %conv55 = sext i32 %call.i to i64
   store i64 %conv55, ptr %nwritten, align 8
   %cmp56 = icmp slt i32 %call.i, 1
@@ -7923,7 +7923,7 @@ if.then15:                                        ; preds = %if.end.i, %land.lhs
   %23 = load ptr, ptr %22, align 8
   %set_write_handler.i.i = getelementptr inbounds i8, ptr %23, i64 152
   %24 = load ptr, ptr %set_write_handler.i.i, align 8
-  %call.i.i = call i32 %24(ptr noundef nonnull %22, ptr noundef nonnull @sendReplyToClient, i32 noundef %ae_barrier.0.i) #27
+  %call.i.i = call i32 %24(ptr noundef nonnull %22, ptr noundef nonnull @sendReplyToClient, i32 noundef range(i32 0, 2) %ae_barrier.0.i) #27
   %cmp2.i9 = icmp eq i32 %call.i.i, -1
   br i1 %cmp2.i9, label %if.then3.i, label %while.cond.backedge
 
@@ -10048,7 +10048,7 @@ addReplyProto.exit.i:                             ; preds = %if.end.i.i, %while.
   br i1 %cmp.not.i5.i, label %if.end.i6.i, label %addReplyBulkCBuffer.exit
 
 if.end.i6.i:                                      ; preds = %addReplyProto.exit.i
-  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCBuffer.exit
 
 addReplyBulkCBuffer.exit:                         ; preds = %addReplyProto.exit.i, %if.end.i6.i
@@ -13141,7 +13141,7 @@ addReplyProto.exit.i.i:                           ; preds = %if.end.i.i6.i, %if.
   br i1 %cmp.not.i5.i.i, label %if.end.i6.i.i, label %addReplyBulkCString.exit
 
 if.end.i6.i.i:                                    ; preds = %addReplyProto.exit.i.i
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit
 
 addReplyBulkCString.exit:                         ; preds = %addReplyProto.exit.i.i, %if.end.i6.i.i
@@ -13160,7 +13160,7 @@ addReplyProto.exit.i.i108:                        ; preds = %if.end.i.i6.i113, %
   br i1 %cmp.not.i5.i.i110, label %if.end.i6.i.i112, label %addReplyBulkCString.exit114
 
 if.end.i6.i.i112:                                 ; preds = %addReplyProto.exit.i.i108
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit114
 
 addReplyBulkCString.exit114:                      ; preds = %addReplyProto.exit.i.i108, %if.end.i6.i.i112
@@ -13179,7 +13179,7 @@ addReplyProto.exit.i.i118:                        ; preds = %if.end.i.i6.i123, %
   br i1 %cmp.not.i5.i.i120, label %if.end.i6.i.i122, label %addReplyBulkCString.exit124
 
 if.end.i6.i.i122:                                 ; preds = %addReplyProto.exit.i.i118
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit124
 
 addReplyBulkCString.exit124:                      ; preds = %addReplyProto.exit.i.i118, %if.end.i6.i.i122
@@ -13198,7 +13198,7 @@ addReplyProto.exit.i.i128:                        ; preds = %if.end.i.i6.i133, %
   br i1 %cmp.not.i5.i.i130, label %if.end.i6.i.i132, label %addReplyBulkCString.exit134
 
 if.end.i6.i.i132:                                 ; preds = %addReplyProto.exit.i.i128
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit134
 
 addReplyBulkCString.exit134:                      ; preds = %addReplyProto.exit.i.i128, %if.end.i6.i.i132
@@ -13217,7 +13217,7 @@ addReplyProto.exit.i.i138:                        ; preds = %if.end.i.i6.i143, %
   br i1 %cmp.not.i5.i.i140, label %if.end.i6.i.i142, label %addReplyBulkCString.exit144
 
 if.end.i6.i.i142:                                 ; preds = %addReplyProto.exit.i.i138
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit144
 
 addReplyBulkCString.exit144:                      ; preds = %addReplyProto.exit.i.i138, %if.end.i6.i.i142
@@ -13239,7 +13239,7 @@ addReplyProto.exit.i.i148:                        ; preds = %if.end.i.i6.i153, %
   br i1 %cmp.not.i5.i.i150, label %if.end.i6.i.i152, label %addReplyBulkCString.exit154
 
 if.end.i6.i.i152:                                 ; preds = %addReplyProto.exit.i.i148
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit154
 
 addReplyBulkCString.exit154:                      ; preds = %addReplyProto.exit.i.i148, %if.end.i6.i.i152
@@ -13260,7 +13260,7 @@ addReplyProto.exit.i.i158:                        ; preds = %if.end.i.i6.i163, %
   br i1 %cmp.not.i5.i.i160, label %if.end.i6.i.i162, label %addReplyBulkCString.exit164
 
 if.end.i6.i.i162:                                 ; preds = %addReplyProto.exit.i.i158
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit164
 
 addReplyBulkCString.exit164:                      ; preds = %addReplyProto.exit.i.i158, %if.end.i6.i.i162
@@ -13284,7 +13284,7 @@ addReplyProto.exit.i.i168:                        ; preds = %if.end.i.i6.i173, %
   br i1 %cmp.not.i5.i.i170, label %if.end.i6.i.i172, label %if.end86
 
 if.end.i6.i.i172:                                 ; preds = %addReplyProto.exit.i.i168
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end86
 
 if.else81:                                        ; preds = %addReplyBulkCString.exit164
@@ -13308,7 +13308,7 @@ addReplyProto.exit.i.i178:                        ; preds = %if.end.i.i6.i183, %
   br i1 %cmp.not.i5.i.i180, label %if.end.i6.i.i182, label %if.end86
 
 if.end.i6.i.i182:                                 ; preds = %addReplyProto.exit.i.i178
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end86
 
 if.else84:                                        ; preds = %if.else81
@@ -13336,7 +13336,7 @@ addReplyProto.exit.i.i188:                        ; preds = %if.end.i.i6.i193, %
   br i1 %cmp.not.i5.i.i190, label %if.end.i6.i.i192, label %addReplyBulkCString.exit194
 
 if.end.i6.i.i192:                                 ; preds = %addReplyProto.exit.i.i188
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit194
 
 addReplyBulkCString.exit194:                      ; preds = %addReplyProto.exit.i.i188, %if.end.i6.i.i192
@@ -13359,7 +13359,7 @@ addReplyProto.exit.i.i199:                        ; preds = %if.end.i.i6.i204, %
   br i1 %cmp.not.i5.i.i201, label %if.end.i6.i.i203, label %if.end90
 
 if.end.i6.i.i203:                                 ; preds = %addReplyProto.exit.i.i199
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end.i6.i.i203, %addReplyProto.exit.i.i199, %if.end86
@@ -13378,7 +13378,7 @@ addReplyProto.exit.i.i210:                        ; preds = %if.end.i.i6.i215, %
   br i1 %cmp.not.i5.i.i212, label %if.end.i6.i.i214, label %addReplyBulkCString.exit216
 
 if.end.i6.i.i214:                                 ; preds = %addReplyProto.exit.i.i210
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCString.exit216
 
 addReplyBulkCString.exit216:                      ; preds = %addReplyProto.exit.i.i210, %if.end.i6.i.i214
@@ -15346,7 +15346,7 @@ if.then65:                                        ; preds = %if.end.i33, %land.l
   %52 = load ptr, ptr %51, align 8
   %set_write_handler.i.i = getelementptr inbounds i8, ptr %52, i64 152
   %53 = load ptr, ptr %set_write_handler.i.i, align 8
-  %call.i.i37 = call i32 %53(ptr noundef nonnull %51, ptr noundef nonnull @sendReplyToClient, i32 noundef %ae_barrier.0.i) #27
+  %call.i.i37 = call i32 %53(ptr noundef nonnull %51, ptr noundef nonnull @sendReplyToClient, i32 noundef range(i32 0, 2) %ae_barrier.0.i) #27
   %cmp2.i38 = icmp eq i32 %call.i.i37, -1
   br i1 %cmp2.i38, label %if.then3.i, label %if.end66
 

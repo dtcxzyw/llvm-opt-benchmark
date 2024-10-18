@@ -883,7 +883,7 @@ lpad:                                             ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont12
   store i32 0, ptr %tempStatus, align 4
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %loc)
           to label %invoke.cont18 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont18:                                    ; preds = %if.then
@@ -949,12 +949,12 @@ if.else:                                          ; preds = %invoke.cont28
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then32
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %loc) #20
   br label %if.end48
 
 ehcleanup:                                        ; preds = %lpad22, %lpad19
   %.pn = phi { ptr, i32 } [ %5, %lpad19 ], [ %6, %lpad22 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %loc) #20
   br label %ehcleanup231
 
 if.else38:                                        ; preds = %invoke.cont12

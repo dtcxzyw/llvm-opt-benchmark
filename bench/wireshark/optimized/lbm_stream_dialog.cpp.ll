@@ -4241,7 +4241,7 @@ define void @_ZN15LBMStreamDialogD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15LBMStreamDialogD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15LBMStreamDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %2) #19
   ret void
 }
 

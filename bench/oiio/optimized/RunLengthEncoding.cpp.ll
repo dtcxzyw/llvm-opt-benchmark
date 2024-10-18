@@ -78,7 +78,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %_ZN3dpx17RunLengthEncodingD2Ev.exit
 
 _ZN3dpx17RunLengthEncodingD2Ev.exit:              ; preds = %entry, %delete.notnull.i
-  tail call void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #9
+  tail call void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #8
   ret void
 }

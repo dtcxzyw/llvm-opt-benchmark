@@ -337,7 +337,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
   store i32 -2147483648, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %12 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %0)
+  %12 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %0)
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
@@ -387,7 +387,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
   store i32 -2147483648, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %0)
+  %13 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %0)
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
@@ -438,12 +438,12 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %0)
+  %15 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %0)
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit
 
 16:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
-  %17 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %0)
+  %17 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %0)
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
@@ -561,12 +561,12 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %4
-  %16 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %0)
+  %16 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %0)
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit
 
 17:                                               ; preds = %4
   store i32 %1, ptr %10, align 4
-  %18 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %0)
+  %18 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %0)
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
@@ -670,7 +670,7 @@ define void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx11
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -680,7 +680,7 @@ define void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx11
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -876,7 +876,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEE
   store i32 -2147483648, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %19 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %3)
+  %19 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull %3)
   store i32 0, ptr %17, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8
@@ -1055,7 +1055,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromZeroCopySt
   store i32 -2147483648, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %14 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %1)
+  %14 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %1)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
@@ -1103,7 +1103,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromZer
   store i32 -2147483648, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %14 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %1)
+  %14 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %1)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
@@ -1141,7 +1141,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
   store i32 -2147483648, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %4)
+  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc3 unwind label %36
 
 .noexc3:                                          ; preds = %.noexc
@@ -1230,7 +1230,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
   store i32 -2147483648, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %4)
+  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc3 unwind label %31
 
 .noexc3:                                          ; preds = %.noexc
@@ -1299,7 +1299,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
   store i32 -2147483648, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %4)
+  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc4 unwind label %38
 
 .noexc4:                                          ; preds = %.noexc
@@ -1392,7 +1392,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
   store i32 -2147483648, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %4)
+  %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc4 unwind label %33
 
 .noexc4:                                          ; preds = %.noexc
@@ -1440,13 +1440,13 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite37MergePartialFromBoundedZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull %0, i32 noundef 2)
+  %4 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 2)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30MergeFromBoundedZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull %0, i32 noundef 0)
+  %4 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0)
   ret i1 %4
 }
 
@@ -1456,7 +1456,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParseFromBoundedZer
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull %0, i32 noundef 1)
+  %7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1)
   ret i1 %7
 }
 
@@ -1466,7 +1466,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite37ParsePartialFromBou
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull %0, i32 noundef 3)
+  %7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
   ret i1 %7
 }
 
@@ -1997,7 +1997,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
 35:                                               ; preds = %2
   %36 = getelementptr inbounds i8, ptr %1, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(59) %1, ptr noundef %37)
+  %38 = tail call noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %37)
   %39 = getelementptr inbounds i8, ptr %1, i64 72
   %40 = load i64, ptr %39, align 8
   %41 = load ptr, ptr %36, align 8
@@ -2006,7 +2006,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %41, ptr noundef nonnull %1)
   store ptr %45, ptr %36, align 8
-  %46 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(59) %1, ptr noundef %45)
+  %46 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %45)
   store ptr %46, ptr %36, align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 56
   %48 = load i8, ptr %47, align 8
@@ -2014,7 +2014,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
   br i1 %49, label %97, label %50
 
 50:                                               ; preds = %35
-  %51 = tail call noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(59) %1, ptr noundef %46)
+  %51 = tail call noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %46)
   %52 = load i64, ptr %39, align 8
   %53 = add i64 %40, %51
   %54 = add i64 %38, %52
@@ -2466,7 +2466,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %3 = tail call noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
+  %3 = tail call noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret i1 %3
 }
 
@@ -2580,7 +2580,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  %3 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %0)
+  %3 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
           to label %_ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %5
 
 _ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -2692,7 +2692,7 @@ common.resume:                                    ; preds = %47, %10
 _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %2, %5, %9
   %12 = load ptr, ptr @_ZZN6google8protobuf8internal12ShutdownData3getEvE4data, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %13) #16
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %16, label %15
 
@@ -2783,13 +2783,13 @@ _ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx1
   br label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %21
-  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #16
+  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
   ret void
 
 47:                                               ; preds = %36, %30
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #16
+  %49 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
   br label %common.resume
 }
 

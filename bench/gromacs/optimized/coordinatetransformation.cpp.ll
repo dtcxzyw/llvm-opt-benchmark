@@ -655,7 +655,7 @@ define void @_ZNK3gmx20AffineTransformationclEPNS_11BasicVectorIfEE(ptr noundef 
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEEPNS_11BasicVectorIfEE(ptr nonnull %0, ptr noundef nonnull %1)
+  tail call void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEEPNS_11BasicVectorIfEE(ptr nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1)
   %5 = load float, ptr %1, align 4
   %6 = load float, ptr %2, align 8
   %7 = fadd float %5, %6

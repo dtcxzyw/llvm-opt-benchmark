@@ -850,7 +850,7 @@ while.end:                                        ; preds = %while.condthread-pr
   %hasVal.i.i351 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 1, ptr %hasVal.i.i351, align 8
   %SmallStorage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  call void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull %SmallStorage.i.i.i, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(28) %tryEndBlocks) #11
+  call void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull %SmallStorage.i.i.i, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(64) %tryEndBlocks) #11
   br label %cleanup59
 
 cleanup59:                                        ; preds = %_ZN4llvh8OptionalINS_11SmallPtrSetIPN6hermes10BasicBlockELj4EEEED2Ev.exit, %while.end
@@ -1019,7 +1019,7 @@ if.end13.i.i.i.i.i:                               ; preds = %for.body
 
 if.end28.i.i.i.i.i:                               ; preds = %if.end13.i.i.i.i.i
   %conv.i.i.i.i.i.i = zext i32 %10 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %coveredBlockList.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i, i64 noundef 8) #11
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %coveredBlockList.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i, i64 noundef 8) #11
   %.pre.i.i.i.i = load i32, ptr %Size.i.i.i.i.i26, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %.pre.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %for.body9.preheader, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i
@@ -1447,7 +1447,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
 if.end.i.i:                                       ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #11
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
@@ -1556,7 +1556,7 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
 if.end.i.i34:                                     ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %12, i64 %idx.ext.i.i35
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %12) #11
   %.pr85.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre99 = load ptr, ptr %this, align 8
@@ -1735,7 +1735,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoE
 
 if.then.i.i:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit
   %coveredBlockList3.i = getelementptr inbounds i8, ptr %B.021, i64 16
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIPN6hermes10BasicBlockEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %coveredBlockList.i, ptr noundef nonnull align 8 dereferenceable(16) %coveredBlockList3.i)
+  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIPN6hermes10BasicBlockEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(80) %coveredBlockList.i, ptr noundef nonnull align 8 dereferenceable(80) %coveredBlockList3.i)
   br label %_ZN6hermes17CatchCoverageInfoC2EOS0_.exit
 
 _ZN6hermes17CatchCoverageInfoC2EOS0_.exit:        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit, %if.then.i.i

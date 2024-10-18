@@ -550,11 +550,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef %conv, ptr noundef %call9, ptr noundef nonnull %.str.30..str.28) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef range(i32 0, 2) %conv, ptr noundef %call9, ptr noundef nonnull %.str.30..str.28) #16
   br label %trace_vfio_vmstate_change_prepare.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, ptr noundef %4, i32 noundef %conv, ptr noundef %call9, ptr noundef nonnull %.str.30..str.28) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, ptr noundef %4, i32 noundef range(i32 0, 2) %conv, ptr noundef %call9, ptr noundef nonnull %.str.30..str.28) #16
   br label %trace_vfio_vmstate_change_prepare.exit
 
 trace_vfio_vmstate_change_prepare.exit:           ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -633,11 +633,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %conv, ptr noundef %call13, ptr noundef nonnull %switch.load) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef range(i32 0, 2) %conv, ptr noundef %call13, ptr noundef nonnull %switch.load) #16
   br label %trace_vfio_vmstate_change.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef %4, i32 noundef %conv, ptr noundef %call13, ptr noundef nonnull %switch.load) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef %4, i32 noundef range(i32 0, 2) %conv, ptr noundef %call13, ptr noundef nonnull %switch.load) #16
   br label %trace_vfio_vmstate_change.exit
 
 trace_vfio_vmstate_change.exit:                   ; preds = %if.end11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1130,7 +1130,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %call)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %1, i64 range(i64 0, -9223372036854775808) %call)
   %sub.i = sub i64 %1, %cond.i
   store i64 %sub.i, ptr %precopy_init_size.i, align 8
   %sub6.i = sub nsw i64 %call, %cond.i
@@ -1436,11 +1436,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, i64 noundef %data.0) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, i64 noundef range(i64 -284164094, -284164095) %data.0) #16
   br label %trace_vfio_load_state.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %0, i64 noundef %data.0) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %0, i64 noundef range(i64 -284164094, -284164095) %data.0) #16
   br label %trace_vfio_load_state.exit
 
 trace_vfio_load_state.exit:                       ; preds = %while.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1541,7 +1541,7 @@ if.then8:                                         ; preds = %sw.bb6
   %18 = load ptr, ptr %migration1.i, align 8
   %data_fd.i = getelementptr inbounds i8, ptr %18, i64 44
   %19 = load i32, ptr %data_fd.i, align 4
-  %call.i30 = tail call i32 @qemu_file_get_to_fd(ptr noundef %f, i32 noundef %19, i64 noundef %call7) #16
+  %call.i30 = tail call i32 @qemu_file_get_to_fd(ptr noundef %f, i32 noundef %19, i64 noundef range(i64 1, 0) %call7) #16
   %20 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i29)
   %21 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1567,11 +1567,11 @@ if.then8.i.i.i41:                                 ; preds = %if.then.i.i.i38
   %call10.i.i.i43 = tail call i32 @qemu_get_thread_id() #16
   %25 = load i64, ptr %_now.i.i.i29, align 8
   %26 = load i64, ptr %tv_usec.i.i.i44, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i43, i64 noundef %25, i64 noundef %26, ptr noundef %20, i64 noundef %call7, i32 noundef %call.i30) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i43, i64 noundef %25, i64 noundef %26, ptr noundef %20, i64 noundef range(i64 1, 0) %call7, i32 noundef %call.i30) #16
   br label %vfio_load_buffer.exit
 
 if.else.i.i.i40:                                  ; preds = %if.then.i.i.i38
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef %20, i64 noundef %call7, i32 noundef %call.i30) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef %20, i64 noundef range(i64 1, 0) %call7, i32 noundef %call.i30) #16
   br label %vfio_load_buffer.exit
 
 vfio_load_buffer.exit:                            ; preds = %if.then8, %land.lhs.true5.i.i.i35, %if.then8.i.i.i41, %if.else.i.i.i40

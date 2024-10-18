@@ -62,7 +62,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %8, i64 96
   store ptr %32, ptr %33, align 8
-  %34 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %8, ptr noundef %3, i64 noundef %23, ptr noundef %1) #2
+  %34 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %8, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %23, ptr noundef %1) #2
   %35 = getelementptr inbounds i8, ptr %8, i64 24
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %11, align 8
@@ -205,7 +205,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %8, i64 96
   store ptr %31, ptr %32, align 8
-  %33 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %8, ptr noundef %6, i64 noundef %23, ptr noundef %4) #2
+  %33 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %8, ptr noundef %6, i64 noundef range(i64 -2147483648, 2147483648) %23, ptr noundef %4) #2
   %34 = getelementptr inbounds i8, ptr %8, i64 24
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %11, align 8
@@ -345,7 +345,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 96
   store ptr %26, ptr %27, align 8
-  %28 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %5, ptr noundef %2, i64 noundef %17, ptr noundef null) #2
+  %28 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %5, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %17, ptr noundef null) #2
   %29 = getelementptr inbounds i8, ptr %5, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = load i32, ptr %24, align 4

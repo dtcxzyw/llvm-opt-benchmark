@@ -151,7 +151,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit31:              ; preds = %invoke.cont33, %inv
 
 cleanup35:                                        ; preds = %if.end10, %if.end6, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31
   %retval.1 = phi i1 [ %tobool26.not, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31 ], [ false, %if.end6 ], [ false, %if.end10 ]
-  invoke void @png_destroy_write_struct(ptr noundef nonnull %guard, ptr noundef nonnull %info3.i)
+  invoke void @png_destroy_write_struct(ptr noundef nonnull align 8 dereferenceable(24) %guard, ptr noundef nonnull %info3.i)
           to label %_ZN7msdfgen8PngGuardD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup35

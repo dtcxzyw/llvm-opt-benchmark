@@ -3278,7 +3278,7 @@ define linkonce_odr void @_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4Nod
   %23 = getelementptr inbounds i8, ptr %1, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %24, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 16, i1 false)
   %26 = getelementptr inbounds i8, ptr %18, i64 16
   %27 = getelementptr inbounds i8, ptr %25, i64 16
   %28 = load i32, ptr %27, align 4
@@ -3389,7 +3389,7 @@ define linkonce_odr void @_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4Nod
   %10 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %7, i64 %.01417
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %11, i64 %.01417
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 4
@@ -3550,7 +3550,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit32, label %30
@@ -3680,7 +3680,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit._ZN12QH
   %103 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %100, i64 %.01417.i
   %104 = load ptr, ptr %101, align 8
   %105 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %104, i64 %.01417.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(40) %105, i64 16, i1 false)
   %106 = getelementptr inbounds i8, ptr %103, i64 16
   %107 = getelementptr inbounds i8, ptr %105, i64 16
   %108 = load i32, ptr %107, align 4
@@ -3798,7 +3798,7 @@ _ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE6insertEm.exit: ; preds
   store i8 %156, ptr %91, align 1
   %157 = getelementptr [128 x i8], ptr %90, i64 0, i64 %.pre-phi39
   store i8 %153, ptr %157, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %155, ptr noundef nonnull align 8 dereferenceable(40) %49, i64 16, i1 false)
   %158 = getelementptr inbounds i8, ptr %155, i64 16
   %159 = load i32, ptr %50, align 4
   store i32 %159, ptr %158, align 8
@@ -3885,7 +3885,7 @@ __cxx_global_var_init.exit:                       ; preds = %0
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 145
   store i8 0, ptr %7, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.ptr.i.i, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %.ptr.i.i, i8 -1, i64 128, i1 false)
   store ptr %.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 48), align 8
   %8 = tail call i64 @_ZN9QHashSeed10globalSeedEv() #21
   store i64 %8, ptr getelementptr inbounds (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 40), align 8

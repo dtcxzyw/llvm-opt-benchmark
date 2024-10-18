@@ -35,7 +35,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf1ca94f6c4270e81E.llvm.9700538728918920724"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf1ca94f6c4270e81E.llvm.9700538728918920724"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !4, !noalias !6, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -302,7 +302,7 @@ default.unreachable:                              ; preds = %2
 
 57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !37
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf1ca94f6c4270e81E.llvm.9700538728918920724"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf1ca94f6c4270e81E.llvm.9700538728918920724"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %58 = getelementptr inbounds i8, ptr %3, i64 8
   %59 = load i64, ptr %58, align 8, !range !4, !noalias !37, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %59, 0
@@ -755,7 +755,7 @@ _ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit: ; preds = %
   br i1 %.not.i.i.i, label %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit.i.i": ; preds = %12
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @anon.54225e673a00e8dbc55e954d1531c0a4.0, ptr noundef nonnull readonly dereferenceable(3) %1, i64 3), !alias.scope !73
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.54225e673a00e8dbc55e954d1531c0a4.0, ptr noundef nonnull readonly align 1 dereferenceable(3) %1, i64 3), !alias.scope !73
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %13, label %select.unfold.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i"
 
@@ -764,12 +764,12 @@ _ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit: ; preds = %
   br i1 %.not.i7.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i", label %_ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i": ; preds = %14, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit.i.i"
-  %bcmp.i.i9.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.1, ptr noundef nonnull readonly dereferenceable(2) %1, i64 2), !alias.scope !80
+  %bcmp.i.i9.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.1, ptr noundef nonnull readonly align 1 dereferenceable(2) %1, i64 2), !alias.scope !80
   %15 = icmp eq i32 %bcmp.i.i9.i.i, 0
   br i1 %15, label %select.unfold.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit11.i.i"
-  %bcmp.i.i14.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.2, ptr noundef nonnull readonly dereferenceable(2) %1, i64 2), !alias.scope !87
+  %bcmp.i.i14.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.54225e673a00e8dbc55e954d1531c0a4.2, ptr noundef nonnull readonly align 1 dereferenceable(2) %1, i64 2), !alias.scope !87
   %bcmp.i.i14.fr.i.i = freeze i32 %bcmp.i.i14.i.i
   %16 = icmp eq i32 %bcmp.i.i14.fr.i.i, 0
   br i1 %16, label %select.unfold.i, label %_ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit

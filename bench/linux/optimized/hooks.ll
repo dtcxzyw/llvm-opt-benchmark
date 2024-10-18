@@ -882,7 +882,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
 
 may_context_mount_inode_relabel.exit:             ; preds = %285
   %295 = load i32, ptr %13, align 8
-  %296 = tail call i32 @avc_has_perm(i32 noundef %145, i32 noundef %295, i16 noundef zeroext 6, i32 noundef 64, ptr noundef null) #24
+  %296 = tail call i32 @avc_has_perm(i32 noundef range(i32 1, 0) %145, i32 noundef %295, i16 noundef zeroext 6, i32 noundef 64, ptr noundef null) #24
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %.thread
 
@@ -914,7 +914,7 @@ may_context_mount_inode_relabel.exit:             ; preds = %285
 
 may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
   %313 = load i32, ptr %13, align 8
-  %314 = tail call i32 @avc_has_perm(i32 noundef %303, i32 noundef %313, i16 noundef zeroext 6, i32 noundef 64, ptr noundef null) #24
+  %314 = tail call i32 @avc_has_perm(i32 noundef range(i32 1, 0) %303, i32 noundef %313, i16 noundef zeroext 6, i32 noundef 64, ptr noundef null) #24
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %316, label %.thread
 
@@ -4388,7 +4388,7 @@ selinux_determine_inode_label.exit:               ; preds = %58, %65, %73
   %83 = load i32, ptr %82, align 4
   %84 = getelementptr inbounds i8, ptr %81, i64 28
   %85 = load i32, ptr %84, align 4
-  %86 = call i32 @security_transition_sid(i32 noundef %83, i32 noundef %85, i16 noundef zeroext %32, ptr noundef %2, ptr noundef nonnull %7) #24
+  %86 = call i32 @security_transition_sid(i32 noundef %83, i32 noundef %85, i16 noundef zeroext range(i16 7, 15) %32, ptr noundef %2, ptr noundef nonnull %7) #24
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %94
 
@@ -4531,7 +4531,7 @@ selinux_determine_inode_label.exit:               ; preds = %53, %60, %68
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds i8, ptr %75, i64 28
   %79 = load i32, ptr %78, align 4
-  %80 = call i32 @security_transition_sid(i32 noundef %77, i32 noundef %79, i16 noundef zeroext %27, ptr noundef %2, ptr noundef nonnull %6) #24
+  %80 = call i32 @security_transition_sid(i32 noundef %77, i32 noundef %79, i16 noundef zeroext range(i16 7, 15) %27, ptr noundef %2, ptr noundef nonnull %6) #24
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %selinux_determine_inode_label.exit._crit_edge, label %87
 
@@ -4750,7 +4750,7 @@ selinux_determine_inode_label.exit:               ; preds = %63, %70, %78
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds i8, ptr %86, i64 28
   %90 = load i32, ptr %89, align 4
-  %91 = call i32 @security_transition_sid(i32 noundef %88, i32 noundef %90, i16 noundef zeroext %47, ptr noundef %2, ptr noundef nonnull %6) #24
+  %91 = call i32 @security_transition_sid(i32 noundef %88, i32 noundef %90, i16 noundef zeroext range(i16 7, 15) %47, ptr noundef %2, ptr noundef nonnull %6) #24
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %selinux_determine_inode_label.exit._crit_edge, label %139
 
@@ -13399,7 +13399,7 @@ selinux_determine_inode_label.exit:               ; preds = %78, %84, %92
   %101 = load i32, ptr %45, align 4
   %102 = getelementptr inbounds i8, ptr %100, i64 28
   %103 = load i32, ptr %102, align 4
-  %104 = call i32 @security_transition_sid(i32 noundef %101, i32 noundef %103, i16 noundef zeroext %2, ptr noundef %53, ptr noundef nonnull %4) #24
+  %104 = call i32 @security_transition_sid(i32 noundef %101, i32 noundef %103, i16 noundef zeroext range(i16 7, 15) %2, ptr noundef %53, ptr noundef nonnull %4) #24
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %selinux_determine_inode_label.exit._crit_edge, label %114
 

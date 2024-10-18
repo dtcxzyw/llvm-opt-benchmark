@@ -173,7 +173,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %42
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %43)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %43)
           to label %.noexc.i unwind label %49, !noalias !11
 
 .noexc.i:                                         ; preds = %.noexc15
@@ -186,7 +186,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_
 47:                                               ; preds = %.noexc.i
   %48 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #10, !noalias !11
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #10, !noalias !11
   br label %.body.i
 
 49:                                               ; preds = %.noexc15
@@ -464,7 +464,7 @@ define void @_ZN4LIEF3ELF24SymbolVersionRequirement4swapERS1_(ptr noundef nonnul
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF24SymbolVersionRequirement19add_aux_requirementERKNS0_27SymbolVersionAuxRequirementE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12, !noalias !20
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %1)
           to label %.noexc.i unwind label %9, !noalias !20
 
 .noexc.i:                                         ; preds = %2
@@ -477,7 +477,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF24SymbolVers
 7:                                                ; preds = %.noexc.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10, !noalias !20
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #10, !noalias !20
   br label %.body.i
 
 9:                                                ; preds = %2
@@ -712,7 +712,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14defaul
   br label %_ZN4LIEF3ELF24SymbolVersionRequirementD2Ev.exit
 
 _ZN4LIEF3ELF24SymbolVersionRequirementD2Ev.exit:  ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i, %13
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

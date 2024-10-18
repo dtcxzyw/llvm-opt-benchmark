@@ -430,7 +430,7 @@ _ZNK2cv11_InputArray6getMatEi.exit73:             ; preds = %110, %113
 
 .sink.split:                                      ; preds = %147, %124
   %.sink = phi ptr [ %18, %124 ], [ %20, %147 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.sink) #12
   br label %152
 
 152:                                              ; preds = %.sink.split, %_ZNK2cv11_InputArray6getMatEi.exit73
@@ -461,7 +461,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %152, %155
 159:                                              ; preds = %150, %135
   %.sink79 = phi ptr [ %20, %150 ], [ %18, %135 ]
   %.pn38 = phi { ptr, i32 } [ %151, %150 ], [ %136, %135 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink79) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.sink79) #12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #12
   br label %160
 
@@ -581,7 +581,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18BlendLinearInvokerIhED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -713,7 +713,7 @@ declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18BlendLinearInvokerIfED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

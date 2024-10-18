@@ -3042,7 +3042,7 @@ invoke.cont15:                                    ; preds = %if.then12
   %shr.i.i.i = sext i16 %11 to i32
   %12 = load i32, ptr %fLength.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %12, i32 %shr.i.i.i
-  %call2.i17 = invoke noundef i32 @u_unescapeAt_75(ptr noundef nonnull @_ZL20UnicodeString_charAtiPv, ptr noundef nonnull %i, i32 noundef %cond.i.i, ptr noundef nonnull %this)
+  %call2.i17 = invoke noundef i32 @u_unescapeAt_75(ptr noundef nonnull @_ZL20UnicodeString_charAtiPv, ptr noundef nonnull align 4 dereferenceable(4) %i, i32 noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont17 unwind label %lpad.loopexit
 
 invoke.cont17:                                    ; preds = %invoke.cont15

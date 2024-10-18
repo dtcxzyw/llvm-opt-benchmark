@@ -113,7 +113,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %32, %34, %35
 
 _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %45, %47
   %51 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %51, i64 noundef 4) #4
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %51, i64 noundef 4) #4
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %52, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -513,7 +513,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit56:               ; preds = %240, %242
   br label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %._crit_edge, %260
-  %261 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
+  %261 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #4
   %262 = load ptr, ptr %5, align 8
   %263 = icmp eq ptr %262, %51
   br i1 %263, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %264

@@ -878,7 +878,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_h
   br i1 %6, label %"_ZN4core3ptr62drop_in_place$LT$actix_http..responses..head..ResponseHead$GT$17hb692267e8bc8925aE.exit", label %7
 
 7:                                                ; preds = %1
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h43b3a3ca5a000255E.llvm.14463304729524874133(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h43b3a3ca5a000255E.llvm.14463304729524874133(ptr noalias noundef nonnull align 8 dereferenceable(88) %3)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %7

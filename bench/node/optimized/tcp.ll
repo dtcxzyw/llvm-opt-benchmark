@@ -25,7 +25,7 @@ if.end6:                                          ; preds = %entry
   br i1 %cmp3, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %call.i = tail call i32 @uv__socket(i32 noundef %and, i32 noundef 1, i32 noundef 0) #7
+  %call.i = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) %and, i32 noundef 1, i32 noundef 0) #7
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then10, label %if.end.i
 
@@ -103,12 +103,12 @@ if.end.i:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp1.i, label %if.then2.i, label %if.end6
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i.i = tail call i32 @uv__socket(i32 noundef %conv319, i32 noundef 1, i32 noundef 0) #7
+  %call.i.i = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) %conv319, i32 noundef 1, i32 noundef 0) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2.i
-  %call1.i.i = tail call i32 @uv__stream_open(ptr noundef nonnull %tcp, i32 noundef %call.i.i, i32 noundef 0) #7
+  %call1.i.i = tail call i32 @uv__stream_open(ptr noundef nonnull %tcp, i32 noundef %call.i.i, i32 noundef range(i32 0, 49153) 0) #7
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6, label %if.then2.i.i
 
@@ -226,12 +226,12 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp1.i, label %if.then2.i, label %out.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i.i = tail call i32 @uv__socket(i32 noundef %conv, i32 noundef 1, i32 noundef 0) #7
+  %call.i.i = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) %conv, i32 noundef 1, i32 noundef 0) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2.i
-  %call1.i.i = tail call i32 @uv__stream_open(ptr noundef nonnull %handle, i32 noundef %call.i.i, i32 noundef 49152) #7
+  %call1.i.i = tail call i32 @uv__stream_open(ptr noundef nonnull %handle, i32 noundef %call.i.i, i32 noundef range(i32 0, 49153) 49152) #7
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.end5, label %if.then2.i.i
 
@@ -526,12 +526,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.end4
 
 if.then2.i:                                       ; preds = %if.end
-  %call.i.i = tail call i32 @uv__socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #7
+  %call.i.i = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) 2, i32 noundef 1, i32 noundef 0) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2.i
-  %call1.i.i = tail call i32 @uv__stream_open(ptr noundef nonnull %tcp, i32 noundef %call.i.i, i32 noundef 0) #7
+  %call1.i.i = tail call i32 @uv__stream_open(ptr noundef nonnull %tcp, i32 noundef %call.i.i, i32 noundef range(i32 0, 49153) 0) #7
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i.if.end4_crit_edge, label %if.then2.i.i
 

@@ -340,14 +340,14 @@ hwloc_tma_malloc.exit78.i:                        ; preds = %46, %43
   %77 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   store ptr %76, ptr %77, align 8
   %78 = load ptr, ptr %11, align 8
-  %79 = tail call ptr %78(ptr noundef nonnull %11, i64 noundef %73) #25
+  %79 = tail call ptr %78(ptr noundef nonnull %11, i64 noundef range(i64 0, 34359738361) %73) #25
   br label %hwloc_tma_malloc.exit.i83.i
 
 80:                                               ; preds = %62
   %81 = tail call noalias ptr @malloc(i64 noundef %73) #27
   %82 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   store ptr %81, ptr %82, align 8
-  %83 = tail call noalias ptr @malloc(i64 noundef %73) #27
+  %83 = tail call noalias ptr @malloc(i64 noundef range(i64 0, 34359738361) %73) #27
   br label %hwloc_tma_malloc.exit.i83.i
 
 hwloc_tma_malloc.exit.i83.i:                      ; preds = %80, %74
@@ -357,7 +357,7 @@ hwloc_tma_malloc.exit.i83.i:                      ; preds = %80, %74
   br i1 %.not.i85.i, label %hwloc_tma_calloc.exit.i, label %85
 
 85:                                               ; preds = %hwloc_tma_malloc.exit.i83.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i84.i, i8 0, i64 %73, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i84.i, i8 0, i64 range(i64 0, 34359738361) %73, i1 false)
   br label %hwloc_tma_calloc.exit.i
 
 hwloc_tma_calloc.exit.i:                          ; preds = %85, %hwloc_tma_malloc.exit.i83.i
@@ -2387,13 +2387,13 @@ define noalias noundef ptr @hwloc_distances_add_create(ptr nocapture noundef %0,
 
 16:                                               ; preds = %15
   %17 = and i64 %2, 3
-  %18 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 range(i64 0, 13) %17)
   %.not11 = icmp eq i64 %18, 1
   br i1 %.not11, label %19, label %22
 
 19:                                               ; preds = %16
   %20 = and i64 %2, 12
-  %21 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %20)
+  %21 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 range(i64 0, 13) %20)
   %.not12 = icmp eq i64 %21, 1
   br i1 %.not12, label %24, label %22
 
@@ -2610,13 +2610,13 @@ define range(i32 -1, 1) i32 @hwloc_distances_add(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %17
   %19 = and i64 %4, 3
-  %20 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %19)
+  %20 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 range(i64 0, 13) %19)
   %.not11.i = icmp eq i64 %20, 1
   br i1 %.not11.i, label %21, label %24
 
 21:                                               ; preds = %18
   %22 = and i64 %4, 12
-  %23 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %22)
+  %23 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 range(i64 0, 13) %22)
   %.not12.i = icmp eq i64 %23, 1
   br i1 %.not12.i, label %26, label %24
 
@@ -2735,7 +2735,7 @@ define hidden void @hwloc_internal_distances_refresh(ptr noundef %0) local_unnam
   br label %hwloc_get_next_obj_by_type.exit.i.us.i
 
 33:                                               ; preds = %26
-  %34 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %25, i32 noundef 0) #26
+  %34 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %25, i32 noundef 0) #26
   br label %hwloc_get_next_obj_by_type.exit.i.us.i
 
 hwloc_get_next_obj_by_type.exit.i.us.i:           ; preds = %33, %30
@@ -2790,7 +2790,7 @@ hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i:  ; preds = %35, %hwloc_get_next
   br label %hwloc_get_next_obj_by_type.exit.i58.us.i
 
 53:                                               ; preds = %46
-  %54 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %45, i32 noundef 0) #26
+  %54 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %45, i32 noundef 0) #26
   br label %hwloc_get_next_obj_by_type.exit.i58.us.i
 
 hwloc_get_next_obj_by_type.exit.i58.us.i:         ; preds = %53, %50

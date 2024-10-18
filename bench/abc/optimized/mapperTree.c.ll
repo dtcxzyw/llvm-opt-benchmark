@@ -909,7 +909,7 @@ Vec_StrGets.exit161:                              ; preds = %190, %197
 
 217:                                              ; preds = %213, %210
   %218 = trunc nsw i64 %indvars.iv.next319 to i32
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %168, i32 noundef %218, ptr noundef null) #16
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %168, i32 noundef range(i32 -2147483647, -2147483648) %218, ptr noundef null) #16
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %213, %217

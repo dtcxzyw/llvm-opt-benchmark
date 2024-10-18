@@ -522,7 +522,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %184 unwind label %185
 
 184:                                              ; preds = %174
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %24) #19
   %.pre = load i32, ptr %1, align 8
   br label %187
 
@@ -561,7 +561,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %201 unwind label %202
 
 201:                                              ; preds = %191
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %25) #19
   br label %204
 
 202:                                              ; preds = %191
@@ -605,7 +605,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %222 unwind label %223
 
 222:                                              ; preds = %212
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %26) #19
   %.pre176 = load i32, ptr %1, align 8
   br label %225
 
@@ -644,7 +644,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %239 unwind label %240
 
 239:                                              ; preds = %229
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit143
 
 240:                                              ; preds = %229
@@ -666,7 +666,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit143:                 ; preds = %225, %239, %204
 _ZNSt6vectorIiSaIiEED2Ev.exit145:                 ; preds = %240, %223, %202, %185
   %.sink = phi ptr [ %27, %240 ], [ %26, %223 ], [ %25, %202 ], [ %24, %185 ]
   %.pn129 = phi { ptr, i32 } [ %241, %240 ], [ %224, %223 ], [ %203, %202 ], [ %186, %185 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink) #19
   call void @_ZdlPv(ptr noundef nonnull %134) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit147
 
@@ -1030,7 +1030,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %152 unwind label %153
 
 152:                                              ; preds = %143
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #19
   %.pre = load i32, ptr %1, align 8
   br label %155
 
@@ -1067,7 +1067,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %168 unwind label %169
 
 168:                                              ; preds = %159
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %20) #19
   br label %171
 
 169:                                              ; preds = %159
@@ -1109,7 +1109,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %188 unwind label %189
 
 188:                                              ; preds = %179
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %21) #19
   %.pre154 = load i32, ptr %1, align 8
   br label %191
 
@@ -1146,7 +1146,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %204 unwind label %205
 
 204:                                              ; preds = %195
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %22) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit123
 
 205:                                              ; preds = %195
@@ -1165,7 +1165,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit123:                 ; preds = %191, %204, %171
 _ZNSt6vectorIiSaIiEED2Ev.exit125:                 ; preds = %205, %189, %169, %153
   %.sink = phi ptr [ %22, %205 ], [ %21, %189 ], [ %20, %169 ], [ %19, %153 ]
   %.pn111 = phi { ptr, i32 } [ %206, %205 ], [ %190, %189 ], [ %170, %169 ], [ %154, %153 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.sink) #19
   call void @_ZdlPv(ptr noundef nonnull %103) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit127
 
@@ -1625,7 +1625,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi1EEES3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -1793,7 +1793,7 @@ declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi1EEENS2_IfLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -1980,7 +1980,7 @@ _ZN2cvdvIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %86
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi3EEENS2_IfLi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2154,7 +2154,7 @@ _ZN2cv3VecIfLi3EEC2ERKS1_.exit._crit_edge:        ; preds = %.critedge, %_ZN2cv3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc24JointBilateralFilter_32fINS_3VecIfLi3EEES3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2356,7 +2356,7 @@ _ZN2cvdvIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %92
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi1EEES3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2519,7 +2519,7 @@ declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi1EEENS2_IhLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2720,7 +2720,7 @@ _ZNK2cv3VecIfLi3EEcvNS0_IT_Li3EEEIhEEv.exit:      ; preds = %85
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi3EEENS2_IhLi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2906,7 +2906,7 @@ _ZNK2cv3VecIhLi3EEcvNS0_IT_Li3EEEIiEEv.exit._crit_edge: ; preds = %.critedge, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc23JointBilateralFilter_8uINS_3VecIhLi3EEES3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

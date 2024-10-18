@@ -323,7 +323,7 @@ entry:
   %thaiWordSet = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp16 = alloca %"class.icu_75::UnicodeString", align 8
-  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
@@ -336,7 +336,7 @@ common.resume:                                    ; preds = %ehcleanup61, %lpad.
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
@@ -515,7 +515,7 @@ ehcleanup61:                                      ; preds = %ehcleanup60, %lpad
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup60 ], [ %3, %lpad ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 }
 
@@ -564,7 +564,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   ret void
 }
 
@@ -1366,7 +1366,7 @@ entry:
   %laoWordSet = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp14 = alloca %"class.icu_75::UnicodeString", align 8
-  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
@@ -1379,7 +1379,7 @@ common.resume:                                    ; preds = %ehcleanup49, %lpad.
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
@@ -1531,7 +1531,7 @@ ehcleanup49:                                      ; preds = %ehcleanup48, %lpad
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup48 ], [ %3, %lpad ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 }
 
@@ -1561,7 +1561,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   ret void
 }
 
@@ -2215,7 +2215,7 @@ define void @_ZN6icu_7518BurmeseBreakEngineC2EPNS_17DictionaryMatcherER10UErrorC
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp15 = alloca %"class.icu_75::UnicodeString", align 8
-  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
@@ -2228,7 +2228,7 @@ common.resume:                                    ; preds = %ehcleanup38, %lpad.
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
@@ -2353,7 +2353,7 @@ ehcleanup38:                                      ; preds = %ehcleanup37, %lpad
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup37 ], [ %3, %lpad ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 }
 
@@ -2383,7 +2383,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   ret void
 }
 
@@ -3038,7 +3038,7 @@ entry:
   %khmerWordSet = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp14 = alloca %"class.icu_75::UnicodeString", align 8
-  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
@@ -3051,7 +3051,7 @@ common.resume:                                    ; preds = %ehcleanup43, %lpad.
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
@@ -3195,7 +3195,7 @@ ehcleanup43:                                      ; preds = %ehcleanup42, %lpad
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup42 ], [ %3, %lpad ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 }
 
@@ -3225,7 +3225,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   ret void
 }
 
@@ -3883,7 +3883,7 @@ entry:
   %ref.tmp28 = alloca %"class.icu_75::UnicodeString", align 8
   %cjSet = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp41 = alloca %"class.icu_75::UnicodeString", align 8
-  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
@@ -3896,7 +3896,7 @@ common.resume:                                    ; preds = %ehcleanup60, %lpad.
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
@@ -3925,7 +3925,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr null, ptr %fSkipSet, align 8
   store i32 0, ptr %status.i, align 4
   %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 848
-  %call2.i.i13 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i)
+  %call2.i.i13 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.i.noexc unwind label %lpad6
 
 call2.i.i.noexc:                                  ; preds = %invoke.cont5
@@ -4118,7 +4118,7 @@ ehcleanup60:                                      ; preds = %ehcleanup59, %lpad
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup59 ], [ %4, %lpad ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   br label %common.resume
 }
 
@@ -4210,7 +4210,7 @@ _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %delete.end6, %if.th
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #10
-  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #10
   ret void
 }
 
@@ -5641,7 +5641,7 @@ invoke.cont407:                                   ; preds = %invoke.cont405
 
 invoke.cont410:                                   ; preds = %invoke.cont407
   %175 = load ptr, ptr %fSkipSet, align 8
-  %call.i584 = invoke noundef signext i8 @uhash_containsKey_75(ptr noundef %175, ptr noundef nonnull %ref.tmp)
+  %call.i584 = invoke noundef signext i8 @uhash_containsKey_75(ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %invoke.cont412 unwind label %lpad411
 
 invoke.cont412:                                   ; preds = %invoke.cont410
@@ -6237,7 +6237,7 @@ new.notnull.i:                                    ; preds = %invoke.cont13
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont13
-  %call2.i11 = invoke noundef i32 @uhash_puti_75(ptr noundef %2, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull %error)
+  %call2.i11 = invoke noundef i32 @uhash_puti_75(ptr noundef %2, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %error)
           to label %invoke.cont15 unwind label %lpad14
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -6350,7 +6350,7 @@ new.notnull.i:                                    ; preds = %invoke.cont11
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont11
-  %call2.i5 = invoke noundef i32 @uhash_puti_75(ptr noundef %1, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull %error)
+  %call2.i5 = invoke noundef i32 @uhash_puti_75(ptr noundef %1, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %error)
           to label %invoke.cont13 unwind label %lpad12
 
 lpad.i:                                           ; preds = %new.notnull.i

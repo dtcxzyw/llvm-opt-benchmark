@@ -2068,7 +2068,7 @@ _ZL24get_static_tls_area_sizePK14pthread_attr_t.exit: ; preds = %43, %41, %44
   br label %132
 
 132:                                              ; preds = %128, %130
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #26
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #26
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %133 = getelementptr inbounds i8, ptr %7, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %133) #26
@@ -2079,10 +2079,10 @@ _ZL24get_static_tls_area_sizePK14pthread_attr_t.exit: ; preds = %43, %41, %44
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
   call void @_ZN2os5Posix17print_rlimit_infoEP12outputStream(ptr noundef nonnull %7) #26
   call void @_ZN2os17print_memory_infoEP12outputStream(ptr noundef nonnull %7)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef %7, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, ptr noundef %7, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef %7, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, ptr noundef %7, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull %7, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, ptr noundef nonnull %7, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull %7, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, ptr noundef nonnull %7, i1 noundef zeroext true)
   %135 = call noundef zeroext i1 @_ZN2os5Linux20print_container_infoEP12outputStream(ptr noundef nonnull %7)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #26
   %136 = call i32 @pthread_attr_destroy(ptr noundef nonnull %4) #26
@@ -4253,7 +4253,7 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit: ; preds = %.lr.ph.split.us.i
 21:                                               ; preds = %._crit_edge
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.104) #26
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %2)
-  %22 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull readonly @.str.103, i32 noundef 0) #26
+  %22 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.103, i32 noundef 0) #26
   %.not13 = icmp eq i32 %22, -1
   br i1 %.not13, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit11, label %23
 
@@ -4336,7 +4336,7 @@ _ZN2os5Linux17print_uptime_infoEP12outputStream.exit: ; preds = %1, %6
   call void @_ZN2os5Posix17print_rlimit_infoEP12outputStream(ptr noundef nonnull %0) #26
   call void @_ZN2os5Posix18print_load_averageEP12outputStream(ptr noundef nonnull %0) #26
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef %0, i1 noundef zeroext false)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, i1 noundef zeroext false)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.116, ptr noundef nonnull %0, i1 noundef zeroext true)
   call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.117, ptr noundef nonnull %0, i1 noundef zeroext true)
@@ -4345,10 +4345,10 @@ _ZN2os5Linux17print_uptime_infoEP12outputStream.exit: ; preds = %1, %6
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   call void @_ZN2os5Linux25print_process_memory_infoEP12outputStream(ptr noundef nonnull %0)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, ptr noundef nonnull %0, i1 noundef zeroext true)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   %12 = call noundef zeroext i1 @_ZN2os5Linux21print_ld_preload_fileEP12outputStream(ptr noundef nonnull %0)
   br i1 %12, label %13, label %14
@@ -4580,7 +4580,7 @@ _ZL27print_glibc_malloc_tunablesP12outputStream.exit: ; preds = %66, %68
 define hidden noundef zeroext i1 @_ZN2os5Linux21print_ld_preload_fileEP12outputStream(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [33 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %2)
-  %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull readonly @.str.138, i32 noundef 0) #26
+  %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.138, i32 noundef 0) #26
   %4 = icmp ne i32 %3, -1
   br i1 %4, label %5, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit
 
@@ -5060,8 +5060,8 @@ _ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread: ; preds = %3, %_Z
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  tail call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.306, ptr noundef %0, i1 noundef zeroext true)
-  tail call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.308, ptr noundef %0, i1 noundef zeroext true)
+  tail call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.306, ptr noundef nonnull %0, i1 noundef zeroext true)
+  tail call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.308, ptr noundef nonnull %0, i1 noundef zeroext true)
   %27 = load i8, ptr @ExtensiveErrorReports, align 1
   %28 = trunc i8 %27 to i1
   br i1 %28, label %.preheader.i5, label %.loopexit.i
@@ -5076,10 +5076,10 @@ _ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread: ; preds = %3, %_Z
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.preheader.i5
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.313, ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.314, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.315, ptr noundef nonnull %6, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.316, ptr noundef nonnull %7, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.313, ptr noundef nonnull %4, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.314, ptr noundef nonnull %5, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.315, ptr noundef nonnull %6, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.316, ptr noundef nonnull %7, ptr noundef nonnull %0, i1 noundef zeroext true)
   br label %35
 
 35:                                               ; preds = %34, %.preheader.i5
@@ -5088,17 +5088,17 @@ _ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread: ; preds = %3, %_Z
   br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i5, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %35, %26
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.317, ptr noundef nonnull @.str.318, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.317, ptr noundef nonnull @.str.318, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, ptr noundef nonnull %0, i1 noundef zeroext true)
   %37 = load i8, ptr @ExtensiveErrorReports, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %.loopexit.i
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.323, ptr noundef nonnull @.str.324, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.327, ptr noundef nonnull @.str.328, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.323, ptr noundef nonnull @.str.324, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.327, ptr noundef nonnull @.str.328, ptr noundef nonnull %0, i1 noundef zeroext true)
   %.pre.i = load i8, ptr @ExtensiveErrorReports, align 1
   br label %40
 
@@ -5108,12 +5108,12 @@ _ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread: ; preds = %3, %_Z
   br i1 %42, label %43, label %_ZL26print_sys_devices_cpu_infoP12outputStream.exit
 
 43:                                               ; preds = %40
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.329, ptr noundef nonnull @.str.330, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.329, ptr noundef nonnull @.str.330, ptr noundef nonnull %0, i1 noundef zeroext true)
   br label %_ZL26print_sys_devices_cpu_infoP12outputStream.exit
 
 _ZL26print_sys_devices_cpu_infoP12outputStream.exit: ; preds = %40, %43
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.331, ptr noundef nonnull @.str.332, ptr noundef %0, i1 noundef zeroext true)
-  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.334, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.331, ptr noundef nonnull @.str.332, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.334, ptr noundef nonnull %0, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6)
@@ -7124,11 +7124,11 @@ switch.lookup:                                    ; preds = %4
 20:                                               ; preds = %switch.lookup
   %21 = getelementptr inbounds i8, ptr %13, i64 %18
   %22 = ptrtoint ptr %21 to i64
-  tail call void (ptr, ptr, ...) @_ZN6Events14log_memprotectEP6ThreadPKcz(ptr noundef null, ptr noundef nonnull @.str.338, i64 noundef %12, i64 noundef %22, i32 noundef %switch.load)
+  tail call void (ptr, ptr, ...) @_ZN6Events14log_memprotectEP6ThreadPKcz(ptr noundef null, ptr noundef nonnull @.str.338, i64 noundef %12, i64 noundef %22, i32 noundef range(i32 0, 8) %switch.load)
   br label %_ZL14linux_mprotectPcmi.exit
 
 _ZL14linux_mprotectPcmi.exit:                     ; preds = %switch.lookup, %20
-  %23 = tail call i32 @mprotect(ptr noundef %13, i64 noundef %18, i32 noundef %switch.load) #26
+  %23 = tail call i32 @mprotect(ptr noundef %13, i64 noundef %18, i32 noundef range(i32 0, 8) %switch.load) #26
   %24 = icmp eq i32 %23, 0
   ret i1 %24
 }
@@ -7857,7 +7857,7 @@ define linkonce_odr hidden void @_ZN33LargePageInitializationLoggerMarkD2Ev(ptr 
   br i1 %.not, label %42, label %4
 
 4:                                                ; preds = %1
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #26
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #26
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #26
@@ -8744,7 +8744,7 @@ _ZN2os5Linux13numa_max_nodeEv.exit.thread:        ; preds = %9, %_ZN2os5Linux23i
   br label %55
 
 _ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread: ; preds = %13, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #26
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #26
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %29) #26
@@ -11266,13 +11266,13 @@ declare noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr nound
 define linkonce_odr hidden noundef zeroext i1 @_ZN8JfrEventI20EventResidentSetSizeE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 {
   %7 = alloca %class.JfrFlush, align 8
   %8 = alloca %class.EventWriterHost, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %2, ptr %10, align 8
   %.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i.i.i.i, label %22, label %11
+  br i1 %.not.i.i.i.i.i, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 16
@@ -11289,130 +11289,126 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8JfrEventI20EventResidentSetSi
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
 
-22:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
+_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i: ; preds = %6, %11
+  %.sink.i.i.i.i.i = phi ptr [ %21, %11 ], [ null, %6 ]
+  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %.sink.i.i.i.i.i, ptr %22, align 8
+  %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !54
 
-_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i: ; preds = %22, %11
-  %.sink.i.i.i.i.i = phi ptr [ null, %22 ], [ %21, %11 ]
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %.sink.i.i.i.i.i, ptr %23, align 8
-  %24 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !54
+25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
+  %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #26
+  %.not.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.i.i.i, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, label %27
 
-26:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
-  %27 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #26
-  %.not.i.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i.i, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, label %28
-
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() #26
-  %30 = zext i1 %29 to i8
-  store i8 %30, ptr @_ZZ19compressed_integersvE13comp_integers, align 1
+27:                                               ; preds = %25
+  %28 = tail call noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() #26
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr @_ZZ19compressed_integersvE13comp_integers, align 1
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #26
   br label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit
 
-_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit: ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i, %26, %28
-  %31 = getelementptr inbounds i8, ptr %8, i64 40
-  %32 = load i8, ptr @_ZZ19compressed_integersvE13comp_integers, align 1
-  %33 = and i8 %32, 1
-  store i8 %33, ptr %31, align 8
+_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit: ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i, %25, %27
+  %30 = getelementptr inbounds i8, ptr %8, i64 40
+  %31 = load i8, ptr @_ZZ19compressed_integersvE13comp_integers, align 1
+  %32 = and i8 %31, 1
+  store i8 %32, ptr %30, align 8
   call void @_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE17begin_event_writeEb(ptr noundef nonnull align 8 dereferenceable(41) %8, i1 noundef zeroext %5)
-  %34 = load ptr, ptr %23, align 8
-  %.not.i.i.i4 = icmp eq ptr %34, null
-  br i1 %.not.i.i.i4, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit, label %35
+  %33 = load ptr, ptr %22, align 8
+  %.not.i.i.i4 = icmp eq ptr %33, null
+  br i1 %.not.i.i.i4, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit, label %34
 
-35:                                               ; preds = %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %34 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = icmp ult i64 %40, 9
-  br i1 %41, label %42, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i
+34:                                               ; preds = %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit
+  %35 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %33 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp ult i64 %39, 9
+  br i1 %40, label %41, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i
 
-42:                                               ; preds = %35
-  %43 = load ptr, ptr %8, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = sub i64 %39, %44
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %8, align 8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = sub i64 %38, %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %46 = load ptr, ptr %9, align 8
-  %47 = load ptr, ptr %10, align 8
-  call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %46, i64 noundef %45, i64 noundef 9, ptr noundef %47) #26
-  %48 = load ptr, ptr %7, align 8
-  store ptr %48, ptr %9, align 8
-  %.not5.i.i.i = icmp eq ptr %48, null
+  %45 = load ptr, ptr %9, align 8
+  %46 = load ptr, ptr %10, align 8
+  call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #26
+  %47 = load ptr, ptr %7, align 8
+  store ptr %47, ptr %9, align 8
+  %.not5.i.i.i = icmp eq ptr %47, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
-_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 40
-  %52 = load i16, ptr %51, align 8
-  %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %48, i64 %53
-  %55 = getelementptr inbounds i8, ptr %48, i64 32
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  %58 = getelementptr inbounds i8, ptr %50, i64 %45
-  store ptr %58, ptr %36, align 8
+_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %8, align 8
+  %50 = getelementptr inbounds i8, ptr %47, i64 40
+  %51 = load i16, ptr %50, align 8
+  %52 = zext i16 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %47, i64 %52
+  %54 = getelementptr inbounds i8, ptr %47, i64 32
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+  %57 = getelementptr inbounds i8, ptr %49, i64 %44
+  store ptr %57, ptr %35, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i, %42
-  %.sink.i.i.i = phi ptr [ %57, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %42 ]
-  %.0.ph.i.i.i = phi ptr [ %58, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %42 ]
-  store ptr %.sink.i.i.i, ptr %23, align 8
+.sink.split.i.i.i:                                ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i, %41
+  %.sink.i.i.i = phi ptr [ %56, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %41 ]
+  %.0.ph.i.i.i = phi ptr [ %57, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %41 ]
+  store ptr %.sink.i.i.i, ptr %22, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i: ; preds = %.sink.split.i.i.i, %35
-  %.0.i.i.i = phi ptr [ %37, %35 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i: ; preds = %.sink.split.i.i.i, %34
+  %.0.i.i.i = phi ptr [ %36, %34 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit, label %59
+  br i1 %.not.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit, label %58
 
-59:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i
-  %60 = load i8, ptr %31, align 8
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %63
+58:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i
+  %59 = load i8, ptr %30, align 8
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %59
+61:                                               ; preds = %58
   store i8 7, ptr %.0.i.i.i, align 1
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
-63:                                               ; preds = %59
-  %64 = ptrtoint ptr %.0.i.i.i to i64
-  %65 = and i64 %64, 7
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, label %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i
+62:                                               ; preds = %58
+  %63 = ptrtoint ptr %.0.i.i.i to i64
+  %64 = and i64 %63, 7
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, label %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i
 
-_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i: ; preds = %63
+_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i: ; preds = %62
   store i64 504403158265495552, ptr %.0.i.i.i, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
-_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %63
+_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   store i64 504403158265495552, ptr %.0.i.i.i, align 1
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %62
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %62 ]
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
-  store ptr %67, ptr %36, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
+  %66 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
+  store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit: ; preds = %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
-  %68 = load i64, ptr %0, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %8, i64 noundef %68)
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
-  %70 = load i64, ptr %69, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %8, i64 noundef %70)
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
-  %72 = load i64, ptr %71, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %8, i64 noundef %72)
-  %73 = call noundef i64 @_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE15end_event_writeEb(ptr noundef nonnull align 8 dereferenceable(41) %8, i1 noundef zeroext %5)
-  %74 = icmp sgt i64 %73, 0
-  ret i1 %74
+  %67 = load i64, ptr %0, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %8, i64 noundef %67)
+  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = load i64, ptr %68, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %8, i64 noundef %69)
+  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = load i64, ptr %70, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %8, i64 noundef %71)
+  %72 = call noundef i64 @_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE15end_event_writeEb(ptr noundef nonnull align 8 dereferenceable(41) %8, i1 noundef zeroext %5)
+  %73 = icmp sgt i64 %72, 0
+  ret i1 %73
 }
 
 declare noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195)) local_unnamed_addr #1

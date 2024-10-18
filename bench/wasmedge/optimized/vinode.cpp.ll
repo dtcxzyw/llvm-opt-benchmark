@@ -229,7 +229,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %12, %8
   br i1 %20, label %21, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 21:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %7) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %7) #14
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, %21
@@ -396,7 +396,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %12, %8
   br i1 %20, label %21, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 21:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %7) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %7) #14
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, %21
@@ -450,7 +450,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %12, %8
   br i1 %20, label %21, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 21:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %7) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %7) #14
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, %21
@@ -881,7 +881,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %34, %2
   br i1 %42, label %43, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 43:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %30) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %30) #14
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit: ; preds = %26, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %43
@@ -922,7 +922,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %9, %4
   br i1 %17, label %18, label %_ZN5cxx206detail25expected_move_assign_baseIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tLb0EED2Ev.exit
 
 18:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %5) #14
+  tail call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %5) #14
   br label %_ZN5cxx206detail25expected_move_assign_baseIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tLb0EED2Ev.exit
 
 _ZN5cxx206detail25expected_move_assign_baseIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tLb0EED2Ev.exit: ; preds = %1, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i, %18
@@ -942,7 +942,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode19pathCreateDirectoryESt10shared_ptrIS2
   store i64 %1, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %12, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 1, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext false)
           to label %_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEEb.exit unwind label %15
@@ -969,8 +969,8 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   %24 = load ptr, ptr %8, align 8
@@ -1008,7 +1008,7 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %23, %39
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %43 = load i8, ptr %9, align 8
@@ -1029,7 +1029,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %47, %45
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -1086,7 +1086,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6: ; preds = %70, %68
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6, %59
@@ -1107,7 +1107,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7: ; preds = %.cri
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7, %77
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %.sroa.410.0.insert.ext = zext i16 %.sroa.410.0 to i32
   %.sroa.410.0.insert.shift = shl nuw i32 %.sroa.410.0.insert.ext, 16
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.410.0.insert.shift, %.sroa.4.0
@@ -1145,7 +1145,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull al
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   ret void
 }
 
@@ -1162,7 +1162,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode15pathFilestatGetESt10shared_ptrIS2_ESt
   store i64 %1, ptr %9, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %2, ptr %14, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %3, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %15 unwind label %18
@@ -1189,8 +1189,8 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode15pathFilestatGetESt10shared_ptrIS2_ESt
 26:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   %27 = load ptr, ptr %10, align 8
@@ -1228,7 +1228,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode15pathFilestatGetESt10shared_ptrIS2_ESt
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %26, %42
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %46 = load i8, ptr %11, align 8
@@ -1249,7 +1249,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %50, %48
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -1306,7 +1306,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i8
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i8: ; preds = %73, %71
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit9
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit9: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i8, %62
@@ -1327,7 +1327,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit9: ; preds = %.cri
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit9, %80
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
   %.sroa.412.0.insert.ext = zext i16 %.sroa.412.0 to i32
   %.sroa.412.0.insert.shift = shl nuw i32 %.sroa.412.0.insert.ext, 16
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.412.0.insert.shift, %.sroa.4.0
@@ -1366,7 +1366,7 @@ define void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt1
   %29 = alloca %"class.std::shared_ptr", align 8
   %30 = alloca %"class.std::shared_ptr", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = and i8 %4, 4
@@ -1525,7 +1525,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %.preheader
 
 103:                                              ; preds = %102
   store i8 1, ptr %0, align 8
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %104 = load ptr, ptr %16, align 8
   store ptr %104, ptr %51, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1725,7 +1725,7 @@ _ZNSt6vectorISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE8pop_backEv.exi
   store i64 1, ptr %2, align 8
   store ptr @.str, ptr %31, align 8
   store i8 1, ptr %0, align 8
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %198 = load ptr, ptr %16, align 8
   store ptr %198, ptr %51, align 8
   %199 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1744,7 +1744,7 @@ _ZNSt6vectorISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE8pop_backEv.exi
 204:                                              ; preds = %203
   store i64 %.sroa.speculated.i, ptr %2, align 8
   store i8 1, ptr %0, align 8
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %205 = load ptr, ptr %16, align 8
   store ptr %205, ptr %51, align 8
   %206 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1785,7 +1785,7 @@ _ZNSt6vectorISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE8pop_backEv.exi
   store i64 %.sroa.speculated.i, ptr %2, align 8
   store ptr %.pre, ptr %31, align 8
   store i8 1, ptr %0, align 8
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %223 = load ptr, ptr %16, align 8
   store ptr %223, ptr %51, align 8
   %224 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1831,7 +1831,7 @@ _ZNSt6vectorISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE8pop_backEv.exi
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %239 = invoke noalias noundef nonnull dereferenceable(16384) ptr @_Znwm(i64 noundef 16384) #17
           to label %241 unwind label %.body
@@ -1839,7 +1839,7 @@ _ZNSt6vectorISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE8pop_backEv.exi
 .body:                                            ; preds = %238
   %240 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #14
   br label %532
 
@@ -2022,8 +2022,8 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %301, %299, %297, %_
 _ZNSt6vectorIcSaIcEE6insertIPKcvEEN9__gnu_cxx17__normal_iteratorIPcS1_EENS6_IS4_S1_EET_SA_.exit: ; preds = %307, %_ZNSt6vectorIcSaIcEE6resizeEm.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   %315 = load ptr, ptr %16, align 8
@@ -2055,7 +2055,7 @@ _ZNSt6vectorIcSaIcEE6insertIPKcvEEN9__gnu_cxx17__normal_iteratorIPcS1_EENS6_IS4_
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %_ZNSt6vectorIcSaIcEE6insertIPKcvEEN9__gnu_cxx17__normal_iteratorIPcS1_EENS6_IS4_S1_EET_SA_.exit, %324
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %328 = load ptr, ptr %16, align 8
@@ -2081,7 +2081,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %333, %335
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
   br i1 %257, label %56, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109, !llvm.loop !16
 
 340:                                              ; preds = %261, %259
@@ -2096,7 +2096,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %333, %335
   store i64 %.sroa.speculated.i, ptr %2, align 8
   store ptr %.pre, ptr %31, align 8
   store i8 1, ptr %0, align 8
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %343 = load ptr, ptr %16, align 8
   store ptr %343, ptr %51, align 8
   %344 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2357,7 +2357,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit106: ; preds = %_ZNSt10s
   store i64 0, ptr %0, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %.pre375 = load i8, ptr %26, align 8
   br label %.critedge62
@@ -2394,7 +2394,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %461, %
   br i1 %467, label %468, label %.preheader.backedge
 
 468:                                              ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %40) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %40) #14
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %468, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %456, %_ZNSt6vectorISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE8pop_backEv.exit, %109
@@ -2430,7 +2430,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i108: ; preds = %474
   br i1 %480, label %481, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109
 
 481:                                              ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i108
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %40) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %40) #14
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109
 
 _ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109: ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %481, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i108, %.critedge62, %349, %237, %230, %118, %76, %71, %67, %65, %60
@@ -2447,7 +2447,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109: ; p
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit111
 
 _ZNSt6vectorIcSaIcEED2Ev.exit111:                 ; preds = %103, %197, %204, %222, %342, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit109, %482
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %487 = load ptr, ptr %15, align 8
   %488 = load ptr, ptr %34, align 8
   %.not4.i.i.i.i = icmp eq ptr %487, %488
@@ -2576,7 +2576,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode20pathFilestatSetTimesESt10shared_ptrIS
   store i64 %1, ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %2, ptr %16, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %3, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %17 unwind label %20
@@ -2603,8 +2603,8 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode20pathFilestatSetTimesESt10shared_ptrIS
 28:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   %29 = load ptr, ptr %12, align 8
@@ -2642,7 +2642,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode20pathFilestatSetTimesESt10shared_ptrIS
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %28, %44
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %48 = load i8, ptr %13, align 8
@@ -2663,7 +2663,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %52, %50
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -2720,7 +2720,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i10
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i10: ; preds = %75, %73
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit11
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit11: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i10, %64
@@ -2741,7 +2741,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit11: ; preds = %.cr
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit11, %82
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
   %.sroa.414.0.insert.ext = zext i16 %.sroa.414.0 to i32
   %.sroa.414.0.insert.shift = shl nuw i32 %.sroa.414.0.insert.ext, 16
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.414.0.insert.shift, %.sroa.4.0
@@ -2786,9 +2786,9 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode8pathLinkESt10shared_ptrIS2_ESt17basic_
   br i1 %.not, label %171, label %27
 
 27:                                               ; preds = %7
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %6, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %28 unwind label %31
@@ -2815,8 +2815,8 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode8pathLinkESt10shared_ptrIS2_ESt17basic_
 39:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
   %40 = load ptr, ptr %16, align 8
@@ -2854,7 +2854,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode8pathLinkESt10shared_ptrIS2_ESt17basic_
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %39, %55
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %59 = load i8, ptr %18, align 8
@@ -2875,7 +2875,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %63, %61
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -2899,8 +2899,8 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
 77:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %17) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   %78 = load ptr, ptr %17, align 8
@@ -2938,7 +2938,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit32
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit32: ; preds = %77, %93
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %97 = load i8, ptr %19, align 8
@@ -2959,7 +2959,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit32: ; 
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i17
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i17: ; preds = %101, %99
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit18
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit18: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit32, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i17
@@ -3047,7 +3047,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit18: ; preds = %_ZN
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i24
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i24: ; preds = %136, %134
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit25
 
 .critedge13:                                      ; preds = %68
@@ -3070,7 +3070,7 @@ _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i27
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i27: ; preds = %146, %144
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit25
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit25: ; preds = %.critedge13, %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i27, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i24, %122
@@ -3091,7 +3091,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit25: ; preds = %.cr
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit25, %153
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
   %159 = load ptr, ptr %16, align 8
   %.not.i.i.i29 = icmp eq ptr %159, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIcSaIcEED2Ev.exit30, label %160
@@ -3106,7 +3106,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedI
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit30
 
 _ZNSt6vectorIcSaIcEED2Ev.exit30:                  ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %160
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %166 = zext i16 %.sroa.738.1 to i32
   %167 = shl nuw i32 %166, 16
   %168 = or disjoint i32 %167, %.sroa.7.1
@@ -3162,7 +3162,7 @@ define void @_ZN8WasmEdge4Host4WASI6VINode8pathOpenESt10shared_ptrIS2_ESt17basic
   %29 = zext nneg i16 %28 to i64
   %30 = or i64 %.039, %29
   %.142 = or i64 %30, %.040
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %4, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %31 unwind label %34
@@ -3201,8 +3201,8 @@ define void @_ZN8WasmEdge4Host4WASI6VINode8pathOpenESt10shared_ptrIS2_ESt17basic
   %53 = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %13) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
   %54 = load ptr, ptr %13, align 8
@@ -3240,7 +3240,7 @@ define void @_ZN8WasmEdge4Host4WASI6VINode8pathOpenESt10shared_ptrIS2_ESt17basic
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %52, %69
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %73 = load i8, ptr %14, align 8
@@ -3261,7 +3261,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %77, %75
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -3301,7 +3301,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i19
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i19: ; preds = %91, %87
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %89) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit20
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit20: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i19, %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
@@ -3319,7 +3319,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit20: ; preds = %.cr
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit20, %98
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   ret void
 }
 
@@ -3430,7 +3430,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %51, %4
   br i1 %59, label %60, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 60:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %47) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %47) #14
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit: ; preds = %43, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %60
@@ -3455,7 +3455,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode12pathReadlinkESt10shared_ptrIS2_ESt17b
   store i64 %1, ptr %10, align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %2, ptr %15, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %16 unwind label %19
@@ -3482,8 +3482,8 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode12pathReadlinkESt10shared_ptrIS2_ESt17b
 27:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   %28 = load ptr, ptr %11, align 8
@@ -3521,7 +3521,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode12pathReadlinkESt10shared_ptrIS2_ESt17b
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %27, %43
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %47 = load i8, ptr %12, align 8
@@ -3542,7 +3542,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %51, %49
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -3599,7 +3599,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i7
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i7: ; preds = %74, %72
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit8
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit8: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i7, %63
@@ -3620,7 +3620,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit8: ; preds = %.cri
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit8, %81
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
   %.sroa.414.0.insert.ext = zext i16 %.sroa.414.0 to i32
   %.sroa.414.0.insert.shift = shl nuw i32 %.sroa.414.0.insert.ext, 16
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.414.0.insert.shift, %.sroa.4.0
@@ -3649,7 +3649,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode19pathRemoveDirectoryESt10shared_ptrIS2
   store i64 %1, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %12, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 1, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext false)
           to label %_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEEb.exit unwind label %15
@@ -3676,8 +3676,8 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   %24 = load ptr, ptr %8, align 8
@@ -3715,7 +3715,7 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %23, %39
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %43 = load i8, ptr %9, align 8
@@ -3736,7 +3736,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %47, %45
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -3793,7 +3793,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6: ; preds = %70, %68
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6, %59
@@ -3814,7 +3814,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7: ; preds = %.cri
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7, %77
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %.sroa.410.0.insert.ext = zext i16 %.sroa.410.0 to i32
   %.sroa.410.0.insert.shift = shl nuw i32 %.sroa.410.0.insert.ext, 16
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.410.0.insert.shift, %.sroa.4.0
@@ -3854,9 +3854,9 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode10pathRenameESt10shared_ptrIS2_ESt17bas
   store i64 %4, ptr %14, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %5, ptr %24, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 1, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext false)
           to label %_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEEb.exit unwind label %27
@@ -3883,8 +3883,8 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
 35:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %15) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   %36 = load ptr, ptr %15, align 8
@@ -3922,7 +3922,7 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %35, %51
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %55 = load i8, ptr %17, align 8
@@ -3943,7 +3943,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %59, %57
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -3967,8 +3967,8 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
 72:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %16) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   %73 = load ptr, ptr %16, align 8
@@ -4006,7 +4006,7 @@ _ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit31
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit31: ; preds = %72, %88
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %92 = load i8, ptr %18, align 8
@@ -4027,7 +4027,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit31: ; 
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i16
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i16: ; preds = %96, %94
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit17
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit17: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit31, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i16
@@ -4115,7 +4115,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit17: ; preds = %_ZN
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i23
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i23: ; preds = %131, %129
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit24
 
 .critedge11:                                      ; preds = %_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEEb.exit12
@@ -4138,7 +4138,7 @@ _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i26
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i26: ; preds = %141, %139
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit24
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit24: ; preds = %.critedge11, %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i26, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i23, %117
@@ -4159,7 +4159,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit24: ; preds = %.cr
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit24, %148
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   %154 = load ptr, ptr %15, align 8
   %.not.i.i.i28 = icmp eq ptr %154, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIcSaIcEED2Ev.exit29, label %155
@@ -4174,7 +4174,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedI
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit29
 
 _ZNSt6vectorIcSaIcEED2Ev.exit29:                  ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %155
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
   %.sroa.636.0.insert.ext = zext i16 %.sroa.636.0 to i32
   %.sroa.636.0.insert.shift = shl nuw i32 %.sroa.636.0.insert.ext, 16
   %.sroa.6.0.insert.insert = or disjoint i32 %.sroa.636.0.insert.shift, %.sroa.6.0
@@ -4212,7 +4212,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode11pathSymlinkESt17basic_string_viewIcSt
   br i1 %.not, label %106, label %19
 
 19:                                               ; preds = %5
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 1, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %20 unwind label %23
@@ -4239,8 +4239,8 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode11pathSymlinkESt17basic_string_viewIcSt
 31:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   %32 = load ptr, ptr %11, align 8
@@ -4278,7 +4278,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode11pathSymlinkESt17basic_string_viewIcSt
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %31, %47
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %51 = load i8, ptr %12, align 8
@@ -4299,7 +4299,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %55, %53
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -4383,7 +4383,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i12
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i12: ; preds = %88, %86
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit13
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit13: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i12, %75
@@ -4404,7 +4404,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit13: ; preds = %.cr
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit13, %95
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
   %101 = zext i16 %.sroa.518.1 to i32
   %102 = shl nuw i32 %101, 16
   %103 = or disjoint i32 %102, %.sroa.5.1
@@ -4437,7 +4437,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode14pathUnlinkFileESt10shared_ptrIS2_ESt1
   store i64 %1, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %12, align 8
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   invoke void @_ZN8WasmEdge4Host4WASI6VINode11resolvePathERSt10shared_ptrIS2_ERSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tNS1_3VFS5FlagsEhb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i1 noundef zeroext true)
           to label %13 unwind label %16
@@ -4464,8 +4464,8 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode14pathUnlinkFileESt10shared_ptrIS2_ESt1
 24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   %25 = load ptr, ptr %8, align 8
@@ -4503,7 +4503,7 @@ define i32 @_ZN8WasmEdge4Host4WASI6VINode14pathUnlinkFileESt10shared_ptrIS2_ESt1
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %24, %40
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %44 = load i8, ptr %9, align 8
@@ -4524,7 +4524,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %48, %46
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i
@@ -4581,7 +4581,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6
 
 _ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6: ; preds = %71, %69
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
   br label %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7
 
 _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7: ; preds = %.critedge, %_ZN5cxx206detail21expected_storage_baseISt6vectorIcSaIcEE14__wasi_errno_tLb0ELb1EE14destruct_valueEv.exit.i.i.i.i.i.i.i.i6, %60
@@ -4602,7 +4602,7 @@ _ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7: ; preds = %.cri
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN5cxx208expectedISt6vectorIcSaIcEE14__wasi_errno_tED2Ev.exit7, %78
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %.sroa.410.0.insert.ext = zext i16 %.sroa.410.0 to i32
   %.sroa.410.0.insert.shift = shl nuw i32 %.sroa.410.0.insert.ext, 16
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.410.0.insert.shift, %.sroa.4.0
@@ -4740,7 +4740,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %31, %2
   br i1 %39, label %40, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 40:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %27) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %27) #14
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit: ; preds = %23, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %40
@@ -4832,7 +4832,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %33, %2
   br i1 %41, label %42, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 42:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %29) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %29) #14
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit
 
 _ZN5cxx208expectedIN8WasmEdge4Host4WASI5INodeE14__wasi_errno_tED2Ev.exit: ; preds = %25, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %42
@@ -5187,7 +5187,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i: ; preds = %7, %1
   br i1 %15, label %16, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit.i.i.i
 
 16:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i
-  tail call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %3) #14
+  tail call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %3) #14
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit.i.i.i
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit.i.i.i:      ; preds = %16, %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i.i.i.i
@@ -5325,7 +5325,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %28, %25
   br i1 %35, label %36, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 36:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %5) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %5) #14
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, %36
@@ -5500,7 +5500,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %29, %26
   br i1 %36, label %37, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 37:                                               ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i
-  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %6) #14
+  call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %6) #14
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, %37

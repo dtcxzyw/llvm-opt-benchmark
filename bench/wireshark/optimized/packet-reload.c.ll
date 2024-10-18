@@ -5760,7 +5760,7 @@ dissect_kindid.exit:                              ; preds = %getKindFromId.exit.
   %94 = add i16 %61, 16
   %95 = trunc i32 %64 to i16
   %96 = add i16 %95, -12
-  %97 = call fastcc i32 @dissect_datavalue(i32 noundef %93, ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %94, i16 noundef zeroext %96, i32 noundef %5, ptr noundef readonly %.0.i.i77)
+  %97 = call fastcc i32 @dissect_datavalue(i32 noundef %93, ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %94, i16 noundef zeroext %96, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %.0.i.i77)
   br label %dissect_arrayentry.exit.i
 
 98:                                               ; preds = %90
@@ -5818,7 +5818,7 @@ getDataValueLength.exit.i.i:                      ; preds = %110, %106
 132:                                              ; preds = %131, %123
   %133 = load i32, ptr @hf_reload_arrayentry_value, align 4
   %134 = add i16 %101, -16
-  %135 = call fastcc i32 @dissect_datavalue(i32 noundef %133, ptr noundef %0, ptr noundef %1, ptr noundef %126, i16 noundef zeroext %104, i16 noundef zeroext %134, i32 noundef %5, ptr noundef readonly %.0.i.i77)
+  %135 = call fastcc i32 @dissect_datavalue(i32 noundef %133, ptr noundef %0, ptr noundef %1, ptr noundef %126, i16 noundef zeroext %104, i16 noundef zeroext %134, i32 noundef range(i32 0, 2) %5, ptr noundef nonnull readonly %.0.i.i77)
   %136 = icmp eq i32 %spec.select.i.i, %99
   br i1 %136, label %137, label %dissect_arrayentry.exit.i
 
@@ -5921,7 +5921,7 @@ getDataValueLength.exit.i94.i:                    ; preds = %167, %163
   %197 = trunc i32 %.086.i.i to i16
   %198 = add i16 %140, %197
   %199 = sub i16 %142, %197
-  %200 = call fastcc i32 @dissect_datavalue(i32 noundef %196, ptr noundef %0, ptr noundef %1, ptr noundef %178, i16 noundef zeroext %198, i16 noundef zeroext %199, i32 noundef %5, ptr noundef readonly %.0.i.i77)
+  %200 = call fastcc i32 @dissect_datavalue(i32 noundef %196, ptr noundef %0, ptr noundef %1, ptr noundef %178, i16 noundef zeroext %198, i16 noundef zeroext %199, i32 noundef range(i32 0, 2) %5, ptr noundef nonnull readonly %.0.i.i77)
   %201 = add i32 %200, %.086.i.i
   br label %dissect_arrayentry.exit.i
 

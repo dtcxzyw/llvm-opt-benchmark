@@ -116,7 +116,7 @@ define dso_local noundef ptr @_ZN16DefaultOutputMgr14CreateInstanceEv() local_un
           to label %11 unwind label %14
 
 11:                                               ; preds = %9
-  invoke void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %_ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE.exit unwind label %18
 
 _ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE.exit: ; preds = %11
@@ -149,7 +149,7 @@ _ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_traitsIcEE.exit: ; preds =
           to label %22 unwind label %14
 
 22:                                               ; preds = %20
-  invoke void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21)
           to label %_ZN16DefaultOutputMgrC2Ev.exit unwind label %24
 
 _ZN16DefaultOutputMgrC2Ev.exit:                   ; preds = %22

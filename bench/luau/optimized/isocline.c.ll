@@ -610,7 +610,7 @@ pos_adjust.exit.i:                                ; preds = %.lr.ph69.i.i, %37, 
 
 43:                                               ; preds = %pos_adjust.exit.i
   %44 = load ptr, ptr %0, align 8
-  tail call fastcc void @attrbuf_update_set_at(ptr noundef %44, i64 noundef %1, i64 noundef %.0.i, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext true)
+  tail call fastcc void @attrbuf_update_set_at(ptr noundef %44, i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef range(i64 1, -9223372036854775808) %.0.i, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext true)
   br label %highlight_attr.exit
 
 highlight_attr.exit:                              ; preds = %43, %pos_adjust.exit.i, %21, %4, %8
@@ -899,7 +899,7 @@ define internal fastcc void @bbcode_append(ptr noundef %0, ptr noundef %1, ptr n
   br label %66, !llvm.loop !9
 
 .thread.i:                                        ; preds = %.preheader.i.i
-  %70 = call fastcc ptr @parse_tag_values(ptr noundef %11, ptr noundef %12, ptr noundef %.0.i.i.i, ptr noundef readonly %55, i64 noundef %56)
+  %70 = call fastcc ptr @parse_tag_values(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %.0.i.i.i, ptr noundef readonly %55, i64 noundef %56)
   %.pre.i = load ptr, ptr %11, align 8
   %71 = load i64, ptr %27, align 8
   %72 = load i64, ptr %18, align 8
@@ -976,7 +976,7 @@ bbcode_open.exit.i:                               ; preds = %83, %74
   br label %bbcode_process_tag.exit
 
 108:                                              ; preds = %60
-  %109 = call fastcc ptr @parse_tag_values(ptr noundef %11, ptr noundef %12, ptr noundef %.0.i19.i.i, ptr noundef readonly %55, i64 noundef %56)
+  %109 = call fastcc ptr @parse_tag_values(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %.0.i19.i.i, ptr noundef readonly %55, i64 noundef %56)
   %110 = load i64, ptr %32, align 8
   %111 = and i64 %110, 268435455
   %.not.i34.i = icmp eq i64 %111, 0
@@ -1020,7 +1020,7 @@ bbcode_open.exit.i:                               ; preds = %83, %74
 134:                                              ; preds = %131
   %135 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %109) #33
   %136 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %135, i64 0)
-  call fastcc void @attrbuf_append_n(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %109, i64 noundef %136, i64 %.sroa.013.5.i.i)
+  call fastcc void @attrbuf_append_n(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %109, i64 noundef %136, i64 %.sroa.013.5.i.i)
   %137 = getelementptr inbounds i8, ptr %109, i64 %136
   br label %bbcode_process_tag.exit
 
@@ -1028,14 +1028,14 @@ bbcode_open.exit.i:                               ; preds = %83, %74
   %139 = ptrtoint ptr %132 to i64
   %140 = ptrtoint ptr %109 to i64
   %141 = sub i64 %139, %140
-  call fastcc void @attrbuf_append_n(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %109, i64 noundef %141, i64 %.sroa.013.5.i.i)
+  call fastcc void @attrbuf_append_n(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %109, i64 noundef %141, i64 %.sroa.013.5.i.i)
   %142 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #33
   %143 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %142, i64 0)
   %144 = getelementptr inbounds i8, ptr %132, i64 %143
   br label %bbcode_process_tag.exit
 
 145:                                              ; preds = %66
-  %146 = call fastcc ptr @parse_tag_values(ptr noundef %11, ptr noundef %12, ptr noundef %.0.i21.i.i, ptr noundef readonly %55, i64 noundef %56)
+  %146 = call fastcc ptr @parse_tag_values(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %.0.i21.i.i, ptr noundef readonly %55, i64 noundef %56)
   %147 = load ptr, ptr %11, align 8
   %148 = call fastcc zeroext i1 @bbcode_close(ptr noundef nonnull %0, i64 noundef %19, ptr noundef %147, ptr noundef %14)
   br i1 %148, label %149, label %bbcode_process_tag.exit
@@ -1384,7 +1384,7 @@ attrbuf_delete_at.exit111.i.i:                    ; preds = %str_take_while_fit.
 
 attrbuf_attr_at.exit115.i.i:                      ; preds = %302, %299, %297
   %.sroa.0.0.i114.i.i = phi i64 [ %.sroa.0.0.copyload.i113.i.i, %302 ], [ 0, %299 ], [ 0, %297 ]
-  call fastcc void @attrbuf_append_n(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.220, i64 noundef 3, i64 %.sroa.0.0.i114.i.i)
+  call fastcc void @attrbuf_append_n(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull @.str.220, i64 noundef 3, i64 %.sroa.0.0.i114.i.i)
   br label %bbcode_restrict_width.exit.i
 
 305:                                              ; preds = %174, %.thread.i.i
@@ -1478,7 +1478,7 @@ attrbuf_attr_at.exit115.i.i:                      ; preds = %302, %299, %297
 
 .lr.ph139.i.i:                                    ; preds = %.lr.ph139.i.i, %.lr.ph139.preheader.i.i
   %.0138.i.i = phi i64 [ %343, %.lr.ph139.i.i ], [ 0, %.lr.ph139.preheader.i.i ]
-  call fastcc void @attrbuf_append_n(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, i64 noundef 1, i64 %.sroa.0.0.i123.i.i)
+  call fastcc void @attrbuf_append_n(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %10, i64 noundef 1, i64 %.sroa.0.0.i123.i.i)
   %343 = add nuw nsw i64 %.0138.i.i, 1
   %exitcond141.not.i.i = icmp eq i64 %343, %317
   br i1 %exitcond141.not.i.i, label %bbcode_restrict_width.exit.i, label %.lr.ph139.i.i, !llvm.loop !14
@@ -3243,7 +3243,7 @@ ic_strlen.exit:                                   ; preds = %ic_is_token.exit
 
 28:                                               ; preds = %ic_strlen.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 %1
-  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef %23) #33
+  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef range(i64 1, -9223372036854775808) %23) #33
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %ic_is_token.exit.thread
 
@@ -3322,7 +3322,7 @@ ic_strlen.exit:                                   ; preds = %.preheader, %35
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %ic_strlen.exit
-  %33 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %28, i64 noundef %23) #33
+  %33 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %28, i64 noundef range(i64 1, -9223372036854775808) %23) #33
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %ic_is_token.exit.thread, label %35
 
@@ -3440,7 +3440,7 @@ tty_start_raw.exit.i:                             ; preds = %25, %20, %16, %15
   %29 = load i64, ptr %28, align 8
   %30 = add nsw i64 %29, 1
   store i64 %30, ptr %28, align 8
-  %31 = tail call fastcc ptr @edit_line(ptr noundef %9, ptr noundef %0)
+  %31 = tail call fastcc ptr @edit_line(ptr noundef nonnull %9, ptr noundef %0)
   %32 = load ptr, ptr %26, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
@@ -4042,7 +4042,7 @@ define internal fastcc void @bbcode_style_def(ptr nocapture noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = call fastcc ptr @parse_tag_values(ptr noundef %5, ptr noundef %4, ptr noundef %2, ptr noundef %8, i64 noundef %10)
+  %11 = call fastcc ptr @parse_tag_values(ptr noundef nonnull %5, ptr noundef %4, ptr noundef %2, ptr noundef %8, i64 noundef %10)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %bbcode_parse_tag_content.exit
@@ -4162,7 +4162,7 @@ define internal fastcc void @bbcode_style_open(ptr nocapture noundef %0, ptr nou
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
-  %10 = call fastcc ptr @parse_tag_values(ptr noundef %4, ptr noundef %3, ptr noundef %1, ptr noundef %7, i64 noundef %9)
+  %10 = call fastcc ptr @parse_tag_values(ptr noundef nonnull %4, ptr noundef %3, ptr noundef %1, ptr noundef %7, i64 noundef %9)
   %.pre = load ptr, ptr %4, align 8
   br label %bbcode_parse_tag_content.exit
 
@@ -6336,7 +6336,7 @@ define internal fastcc void @term_set_attr(ptr nocapture noundef %0, i64 %1) unn
   br i1 %or.cond, label %22, label %13
 
 13:                                               ; preds = %6
-  tail call fastcc void @term_color_ex(ptr noundef nonnull %0, i32 noundef %8, i1 noundef zeroext false)
+  tail call fastcc void @term_color_ex(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %8, i1 noundef zeroext false)
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 4
@@ -6366,7 +6366,7 @@ define internal fastcc void @term_set_attr(ptr nocapture noundef %0, i64 %1) unn
   br i1 %or.cond54, label %39, label %30
 
 30:                                               ; preds = %22
-  tail call fastcc void @term_color_ex(ptr noundef nonnull %0, i32 noundef %26, i1 noundef zeroext true)
+  tail call fastcc void @term_color_ex(ptr noundef nonnull %0, i32 noundef range(i32 1, 268435456) %26, i1 noundef zeroext true)
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = icmp ult i32 %32, 4
@@ -6739,7 +6739,7 @@ ic_get_env.exit.thread7:                          ; preds = %2, %ic_get_env.exit
 color_from_ansi256.exit:                          ; preds = %15, %19, %21, %23
   %.0.i = phi i32 [ %16, %15 ], [ %20, %19 ], [ %27, %23 ], [ 39, %21 ]
   %not. = xor i1 %0, true
-  tail call fastcc void @term_color_ex(ptr noundef nonnull %11, i32 noundef %.0.i, i1 noundef zeroext %not.)
+  tail call fastcc void @term_color_ex(ptr noundef nonnull %11, i32 noundef range(i32 1, 0) %.0.i, i1 noundef zeroext %not.)
   br label %ic_get_env.exit.thread
 
 ic_get_env.exit.thread:                           ; preds = %color_from_ansi256.exit, %5, %ic_get_env.exit, %ic_get_env.exit.thread7
@@ -6775,7 +6775,7 @@ ic_get_env.exit.thread.sink.split:                ; preds = %ic_get_env.exit.thr
   %13 = and i32 %1, 16777215
   %14 = or disjoint i32 %13, 16777216
   %not. = xor i1 %0, true
-  tail call fastcc void @term_color_ex(ptr noundef nonnull %11, i32 noundef %14, i1 noundef zeroext %not.)
+  tail call fastcc void @term_color_ex(ptr noundef nonnull %11, i32 noundef range(i32 1, 0) %14, i1 noundef zeroext %not.)
   br label %ic_get_env.exit.thread
 
 ic_get_env.exit.thread:                           ; preds = %ic_get_env.exit.thread.sink.split, %5, %ic_get_env.exit, %ic_get_env.exit.thread7
@@ -7678,62 +7678,62 @@ sbuf_new.exit.i:                                  ; preds = %164, %tty_is_utf8.e
   br i1 %175, label %ic_contains.exit107.thread.i, label %ic_contains.exit.i
 
 ic_contains.exit.i:                               ; preds = %172
-  %176 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.455) #33
+  %176 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.455) #33
   %.not190.i = icmp eq ptr %176, null
   br i1 %.not190.i, label %ic_contains.exit87.i, label %.thread176.sink.split.i
 
 ic_contains.exit87.i:                             ; preds = %ic_contains.exit.i
-  %177 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.456) #33
+  %177 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.456) #33
   %.not191.i = icmp eq ptr %177, null
   br i1 %.not191.i, label %ic_contains.exit89.i, label %.thread176.sink.split.i
 
 ic_contains.exit89.i:                             ; preds = %ic_contains.exit87.i
-  %178 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.457) #33
+  %178 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.457) #33
   %.not192.i = icmp eq ptr %178, null
   br i1 %.not192.i, label %ic_contains.exit91.i, label %.thread176.sink.split.i
 
 ic_contains.exit91.i:                             ; preds = %ic_contains.exit89.i
-  %179 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.458) #33
+  %179 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.458) #33
   %.not193.i = icmp eq ptr %179, null
   br i1 %.not193.i, label %ic_contains.exit93.i, label %.thread188.sink.split.i
 
 ic_contains.exit93.i:                             ; preds = %ic_contains.exit91.i
-  %180 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.459) #33
+  %180 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.459) #33
   %.not194.i = icmp eq ptr %180, null
   br i1 %.not194.i, label %ic_contains.exit95.i, label %.thread188.sink.split.i
 
 ic_contains.exit95.i:                             ; preds = %ic_contains.exit93.i
-  %181 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.460) #33
+  %181 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.460) #33
   %.not195.i = icmp eq ptr %181, null
   br i1 %.not195.i, label %ic_contains.exit97.i, label %.thread185.sink.split.i
 
 ic_contains.exit97.i:                             ; preds = %ic_contains.exit95.i
-  %182 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.461) #33
+  %182 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.461) #33
   %.not196.i = icmp eq ptr %182, null
   br i1 %.not196.i, label %ic_contains.exit99.i, label %.thread185.sink.split.i
 
 ic_contains.exit99.i:                             ; preds = %ic_contains.exit97.i
-  %183 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.462) #33
+  %183 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.462) #33
   %.not197.i = icmp eq ptr %183, null
   br i1 %.not197.i, label %ic_contains.exit101.i, label %.thread182.sink.split.i
 
 ic_contains.exit101.i:                            ; preds = %ic_contains.exit99.i
-  %184 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.463) #33
+  %184 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.463) #33
   %.not198.i = icmp eq ptr %184, null
   br i1 %.not198.i, label %ic_contains.exit103.i, label %.thread182.sink.split.i
 
 ic_contains.exit103.i:                            ; preds = %ic_contains.exit101.i
-  %185 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.464) #33
+  %185 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.464) #33
   %.not199.i = icmp eq ptr %185, null
   br i1 %.not199.i, label %ic_contains.exit105.i, label %188
 
 ic_contains.exit105.i:                            ; preds = %ic_contains.exit103.i
-  %186 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.465) #33
+  %186 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.465) #33
   %.not200.i = icmp eq ptr %186, null
   br i1 %.not200.i, label %ic_contains.exit107.i, label %188
 
 ic_contains.exit107.i:                            ; preds = %ic_contains.exit105.i
-  %187 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.466) #33
+  %187 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.466) #33
   %.not201.i = icmp eq ptr %187, null
   br i1 %.not201.i, label %ic_contains.exit107.thread.i, label %188
 
@@ -7761,12 +7761,12 @@ ic_contains.exit107.thread.i:                     ; preds = %ic_contains.exit107
   br i1 %195, label %ic_contains.exit111.thread.i, label %ic_contains.exit109.i
 
 ic_contains.exit109.i:                            ; preds = %194
-  %196 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.456) #33
+  %196 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.456) #33
   %.not202.i = icmp eq ptr %196, null
   br i1 %.not202.i, label %ic_contains.exit111.i, label %.thread176.sink.split.i
 
 ic_contains.exit111.i:                            ; preds = %ic_contains.exit109.i
-  %197 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.457) #33
+  %197 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.457) #33
   %.not203.i = icmp eq ptr %197, null
   br i1 %.not203.i, label %ic_contains.exit111.thread.i, label %.thread176.sink.split.i
 
@@ -7774,7 +7774,7 @@ ic_contains.exit111.thread.i:                     ; preds = %ic_contains.exit111
   br i1 %175, label %ic_contains.exit113.thread.i, label %ic_contains.exit113.i
 
 ic_contains.exit113.i:                            ; preds = %ic_contains.exit111.thread.i
-  %198 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) @.str.455) #33
+  %198 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.455) #33
   %.not204.i = icmp eq ptr %198, null
   br i1 %.not204.i, label %ic_contains.exit113.thread.i, label %.thread176.sink.split.i
 
@@ -7782,47 +7782,47 @@ ic_contains.exit113.thread.i:                     ; preds = %ic_contains.exit113
   br i1 %195, label %ic_contains.exit131.thread.i, label %ic_contains.exit115.i
 
 ic_contains.exit115.i:                            ; preds = %ic_contains.exit113.thread.i
-  %199 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.470) #33
+  %199 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.470) #33
   %.not205.i = icmp eq ptr %199, null
   br i1 %.not205.i, label %ic_contains.exit117.i, label %.thread176.sink.split.i
 
 ic_contains.exit117.i:                            ; preds = %ic_contains.exit115.i
-  %200 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.471) #33
+  %200 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.471) #33
   %.not206.i = icmp eq ptr %200, null
   br i1 %.not206.i, label %ic_contains.exit119.i, label %.thread176.sink.split.i
 
 ic_contains.exit119.i:                            ; preds = %ic_contains.exit117.i
-  %201 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.459) #33
+  %201 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.459) #33
   %.not207.i = icmp eq ptr %201, null
   br i1 %.not207.i, label %ic_contains.exit121.i, label %.thread188.sink.split.i
 
 ic_contains.exit121.i:                            ; preds = %ic_contains.exit119.i
-  %202 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.472) #33
+  %202 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.472) #33
   %.not208.i = icmp eq ptr %202, null
   br i1 %.not208.i, label %ic_contains.exit123.i, label %.thread188.sink.split.i
 
 ic_contains.exit123.i:                            ; preds = %ic_contains.exit121.i
-  %203 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.461) #33
+  %203 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.461) #33
   %.not209.i = icmp eq ptr %203, null
   br i1 %.not209.i, label %ic_contains.exit125.i, label %.thread185.sink.split.i
 
 ic_contains.exit125.i:                            ; preds = %ic_contains.exit123.i
-  %204 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.463) #33
+  %204 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.463) #33
   %.not210.i = icmp eq ptr %204, null
   br i1 %.not210.i, label %ic_contains.exit127.i, label %.thread182.sink.split.i
 
 ic_contains.exit127.i:                            ; preds = %ic_contains.exit125.i
-  %205 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.466) #33
+  %205 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.466) #33
   %.not211.i = icmp eq ptr %205, null
   br i1 %.not211.i, label %ic_contains.exit129.i, label %208
 
 ic_contains.exit129.i:                            ; preds = %ic_contains.exit127.i
-  %206 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.465) #33
+  %206 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.465) #33
   %.not212.i = icmp eq ptr %206, null
   br i1 %.not212.i, label %ic_contains.exit131.i, label %208
 
 ic_contains.exit131.i:                            ; preds = %ic_contains.exit129.i
-  %207 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(1) @.str.473) #33
+  %207 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.473) #33
   %.not213.i = icmp eq ptr %207, null
   br i1 %.not213.i, label %ic_contains.exit131.thread.i, label %208
 
@@ -10719,7 +10719,7 @@ ic_str_tolower.exit.i:                            ; preds = %.lr.ph.i91.i, %ic_s
   br i1 %.not.i99.i, label %ic_str_tolower.exit101.i, label %.lr.ph.i96.i, !llvm.loop !69
 
 ic_str_tolower.exit101.i:                         ; preds = %.lr.ph.i96.i, %ic_str_tolower.exit.i
-  call fastcc void @attr_update_with_styles(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %6, i1 noundef zeroext %.035165.i, ptr noundef readonly %3, i64 noundef %4)
+  call fastcc void @attr_update_with_styles(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %6, i1 noundef zeroext %.035165.i, ptr noundef readonly %3, i64 noundef %4)
   br label %parse_tag_value.exit
 
 parse_tag_value.exit:                             ; preds = %.critedge.i.i, %.critedge.i68.i, %ic_str_tolower.exit101.i
@@ -12779,7 +12779,7 @@ sbuf_delete_at.exit.i:                            ; preds = %ic_memmove.exit.i.i
   %.pre-phi.i169 = phi i64 [ %288, %editor_start_modify.exit ], [ %288, %290 ], [ %.pre14.i, %ic_memmove.exit.i.i167 ]
   %308 = phi ptr [ %286, %editor_start_modify.exit ], [ %286, %290 ], [ %.pre.i168, %ic_memmove.exit.i.i167 ]
   %309 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %308, ptr noundef nonnull @.str.295, i64 noundef 1, i64 noundef %.pre-phi.i169)
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 310:                                              ; preds = %sbuf_clear.exit162, %thread-pre-split
@@ -13024,7 +13024,7 @@ ic_memmove.exit.i.i.i:                            ; preds = %379, %376
 
 sbuf_clear.exit.i:                                ; preds = %ic_memmove.exit.i.i.i, %sbuf_len.exit.i.i
   store i64 0, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 384:                                              ; preds = %324
@@ -13667,13 +13667,13 @@ sbuf_append.exit192.i.i:                          ; preds = %642, %639
   br label %652
 
 .thread.i.i:                                      ; preds = %history_get.exit.i.i, %588, %.backedge.i.i
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %657
 
 652:                                              ; preds = %649, %646
   %.0.i.i194.i.i = phi i64 [ %651, %649 ], [ 0, %646 ]
   %653 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %647, ptr noundef nonnull @.str.295, i64 noundef 1, i64 noundef %.0.i.i194.i.i)
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   %654 = load ptr, ptr %99, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %655 = call fastcc zeroext i1 @tty_read_timeout(ptr noundef %654, i64 noundef -1, ptr noundef %11)
@@ -13707,7 +13707,7 @@ sbuf_append.exit192.i.i:                          ; preds = %642, %639
   br label %670
 
 670:                                              ; preds = %669, %661, %657
-  call fastcc void @edit_resize(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_resize(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %tty_term_resize_event.exit.i.i
 
 tty_term_resize_event.exit.i.i:                   ; preds = %670, %665
@@ -13980,7 +13980,7 @@ sbuf_len.exit.i.i184:                             ; preds = %753, %sbuf_replace.
   br label %.outer.outer.i.i.outer
 
 772:                                              ; preds = %757
-  call fastcc void @editor_start_modify(ptr noundef %16)
+  call fastcc void @editor_start_modify(ptr noundef nonnull %16)
   %773 = load ptr, ptr %16, align 8
   %774 = load i64, ptr %42, align 8
   %.val.i.i230.i.i = load ptr, ptr %773, align 8
@@ -14047,7 +14047,7 @@ ic_memmove.exit.i.i.i.i.i:                        ; preds = %794, %788
 sbuf_delete_char_before.exit.i.i.i:               ; preds = %ic_memmove.exit.i.i.i.i.i, %785, %sbuf_prev_ofs.exit.thread.i.i.i.i, %772
   %.0.i.i231.i.i = phi i64 [ %783, %sbuf_prev_ofs.exit.thread.i.i.i.i ], [ %783, %785 ], [ %783, %ic_memmove.exit.i.i.i.i.i ], [ 0, %772 ]
   store i64 %.0.i.i231.i.i, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %.outer.outer.i.i.outer.backedge
 
 801:                                              ; preds = %sbuf_clear.exit209.i.i, %sbuf_clear.exit209.i.i, %sbuf_clear.exit209.i.i
@@ -14257,7 +14257,7 @@ hsearch_pop.exit267.i.i:                          ; preds = %873, %.loopexit422.
   br label %.outer.i.i
 
 884:                                              ; preds = %sbuf_clear.exit209.i.i
-  call fastcc void @edit_show_help(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_show_help(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %.backedge.i.i.backedge
 
 885:                                              ; preds = %sbuf_clear.exit209.i.i
@@ -14289,7 +14289,7 @@ hsearch_pop.exit267.i.i:                          ; preds = %873, %.loopexit422.
 
 hsearch_push.exit271.i.i:                         ; preds = %891, %887
   %.12.i.i = phi ptr [ %.2.ph.i.i, %887 ], [ %890, %891 ]
-  call fastcc void @edit_insert_char(ptr noundef %0, ptr noundef %16, i8 noundef signext %888)
+  call fastcc void @edit_insert_char(ptr noundef nonnull %0, ptr noundef nonnull %16, i8 noundef signext %888)
   br label %916
 
 897:                                              ; preds = %885
@@ -14319,7 +14319,7 @@ hsearch_push.exit271.i.i:                         ; preds = %891, %887
 
 hsearch_push.exit273.i.i:                         ; preds = %902, %899
   %.13.i.i = phi ptr [ %.2.ph.i.i, %899 ], [ %901, %902 ]
-  call fastcc void @edit_insert_unicode(ptr noundef %0, ptr noundef %16, i32 noundef %658)
+  call fastcc void @edit_insert_unicode(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %658)
   br label %916
 
 908:                                              ; preds = %897
@@ -14453,7 +14453,7 @@ ic_get_env.exit.thread6.i295.i.i:                 ; preds = %ic_get_env.exit.i29
   br label %ic_enable_hint.exit300.i.i
 
 ic_enable_hint.exit300.i.i:                       ; preds = %ic_get_env.exit.thread6.i295.i.i, %ic_get_env.exit.i298.i.i, %954
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_history_search_with_current_word.exit
 
 edit_history_search_with_current_word.exit:       ; preds = %434, %438, %ic_enable_hint.exit300.i.i
@@ -14464,11 +14464,11 @@ edit_history_search_with_current_word.exit:       ; preds = %434, %438, %ic_enab
   br label %edit_multiline_eol.exit.backedge
 
 962:                                              ; preds = %324
-  call fastcc void @edit_history_at(ptr noundef %0, ptr noundef %16, i32 noundef 1)
+  call fastcc void @edit_history_at(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef 1)
   br label %edit_multiline_eol.exit.backedge
 
 963:                                              ; preds = %324
-  call fastcc void @edit_history_at(ptr noundef %0, ptr noundef %16, i32 noundef -1)
+  call fastcc void @edit_history_at(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef -1)
   br label %edit_multiline_eol.exit.backedge
 
 964:                                              ; preds = %324
@@ -14478,20 +14478,20 @@ edit_history_search_with_current_word.exit:       ; preds = %434, %438, %ic_enab
   %.val.i191 = load i64, ptr %967, align 8
   %968 = add nsw i64 %.val.i191, -1
   store i64 %968, ptr %43, align 8
-  call fastcc void @edit_clear(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_clear(ptr noundef nonnull %0, ptr noundef nonnull %16)
   store i64 %965, ptr %43, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 969:                                              ; preds = %324, %324
-  call fastcc void @editor_restore(ptr noundef %16, ptr noundef %49, ptr noundef nonnull %50)
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @editor_restore(ptr noundef nonnull %16, ptr noundef %49, ptr noundef nonnull %50)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 970:                                              ; preds = %324
-  call fastcc void @editor_restore(ptr noundef %16, ptr noundef %50, ptr noundef nonnull %49)
+  call fastcc void @editor_restore(ptr noundef nonnull %16, ptr noundef %50, ptr noundef nonnull %49)
   store i8 0, ptr %45, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 971:                                              ; preds = %324
@@ -14565,7 +14565,7 @@ edit_history_search_with_current_word.exit:       ; preds = %434, %438, %ic_enab
   %1007 = call fastcc i64 @str_for_each_row(ptr noundef %.val6.i.i195, i64 noundef %.val7.i.i196, i64 noundef %1004, i64 noundef %998, i64 noundef %1002, ptr noundef nonnull @str_get_current_pos_iter, ptr noundef %9, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   store i64 %989, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_cursor_left.exit
 
 edit_cursor_left.exit:                            ; preds = %972, %.loopexit.i, %988
@@ -14628,13 +14628,13 @@ sbuf_len.exit198:                                 ; preds = %1008, %1012
   br i1 %1038, label %1039, label %1040
 
 1039:                                             ; preds = %1018
-  call fastcc void @edit_history_at(ptr noundef %0, ptr noundef %16, i32 noundef 1)
+  call fastcc void @edit_history_at(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef 1)
   br label %edit_cursor_row_up.exit
 
 1040:                                             ; preds = %1018
   %1041 = add nsw i64 %1037, -1
   %1042 = load i64, ptr %108, align 8
-  call fastcc void @edit_set_pos_at_rowcol(ptr noundef %0, ptr noundef %16, i64 noundef %1041, i64 noundef %1042)
+  call fastcc void @edit_set_pos_at_rowcol(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef %1041, i64 noundef %1042)
   br label %edit_cursor_row_up.exit
 
 edit_cursor_row_up.exit:                          ; preds = %1039, %1040
@@ -14674,12 +14674,12 @@ edit_cursor_row_up.exit:                          ; preds = %1039, %1040
   br i1 %.not.i205, label %1065, label %1064
 
 1064:                                             ; preds = %1043
-  call fastcc void @edit_history_at(ptr noundef %0, ptr noundef %16, i32 noundef -1)
+  call fastcc void @edit_history_at(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef -1)
   br label %edit_cursor_row_down.exit
 
 1065:                                             ; preds = %1043
   %1066 = load i64, ptr %107, align 8
-  call fastcc void @edit_set_pos_at_rowcol(ptr noundef %0, ptr noundef %16, i64 noundef %1063, i64 noundef %1066)
+  call fastcc void @edit_set_pos_at_rowcol(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef %1063, i64 noundef %1066)
   br label %edit_cursor_row_down.exit
 
 edit_cursor_row_down.exit:                        ; preds = %1064, %1065
@@ -14746,7 +14746,7 @@ edit_cursor_line_start.exit:                      ; preds = %str_prev_ofs.exit.t
   %.0.split.i.i.i.i = phi i64 [ -1, %1067 ], [ %.2.i.i.i.i, %char_is_linefeed.exit.i.i.i ], [ -1, %char_is_linefeed.exit.thread.i.i.i ], [ -1, %str_prev_ofs.exit.thread48.split.i.i.i.i ], [ %.2.i.i.i.i, %char_is_linefeed.exit.i.i.i ]
   %1084 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.0.split.i.i.i.i, i64 0)
   store i64 %1084, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1085:                                             ; preds = %324, %324
@@ -14795,7 +14795,7 @@ sbuf_find_line_end.exit.i:                        ; preds = %char_is_linefeed.ex
 
 1103:                                             ; preds = %sbuf_find_line_end.exit.i
   store i64 %1101, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1104:                                             ; preds = %324, %324, %324
@@ -14806,7 +14806,7 @@ sbuf_find_line_end.exit.i:                        ; preds = %char_is_linefeed.ex
   %.val6.i217 = load i64, ptr %1107, align 8
   %1108 = call fastcc i64 @sbuf_find_word_start(ptr %.val.i216, i64 %.val6.i217, i64 noundef %1106)
   store i64 %1108, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1109:                                             ; preds = %324, %324, %324
@@ -14839,12 +14839,12 @@ sbuf_len.exit219:                                 ; preds = %1109, %1113
 
 1122:                                             ; preds = %1118
   store i64 %1120, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1123:                                             ; preds = %324, %324, %324, %324
   store i64 0, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1124:                                             ; preds = %324, %324, %324, %324
@@ -14860,7 +14860,7 @@ sbuf_len.exit219:                                 ; preds = %1109, %1113
 edit_cursor_to_end.exit:                          ; preds = %1124, %1127
   %.0.i.i223 = phi i64 [ %1129, %1127 ], [ 0, %1124 ]
   store i64 %.0.i.i223, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1130:                                             ; preds = %324
@@ -14888,7 +14888,7 @@ sbuf_string.exit.i225:                            ; preds = %1135, %1130
 
 1142:                                             ; preds = %sbuf_string.exit.i225
   store i64 %1140, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1143:                                             ; preds = %324
@@ -15048,7 +15048,7 @@ ic_memmove.exit.i.i.i237:                         ; preds = %1203, %1197
 sbuf_delete_char_before.exit.i:                   ; preds = %ic_memmove.exit.i.i.i237, %1194, %sbuf_prev_ofs.exit.thread.i.i, %editor_start_modify.exit448
   %.0.i.i231 = phi i64 [ %1192, %sbuf_prev_ofs.exit.thread.i.i ], [ %1192, %1194 ], [ %1192, %ic_memmove.exit.i.i.i237 ], [ 0, %editor_start_modify.exit448 ]
   store i64 %.0.i.i231, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1210:                                             ; preds = %324
@@ -15188,7 +15188,7 @@ ic_memmove.exit.i.i.i245:                         ; preds = %1263, %1259
   br label %sbuf_delete_from_to.exit.i
 
 sbuf_delete_from_to.exit.i:                       ; preds = %ic_memmove.exit.i.i.i245, %1256, %editor_start_modify.exit464
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1271:                                             ; preds = %324
@@ -15415,7 +15415,7 @@ ic_memmove.exit.i.i.i257:                         ; preds = %1344, %1340
 
 edit_delete_to_start_of_ws_word.exit:             ; preds = %editor_start_modify.exit480, %1337, %ic_memmove.exit.i.i.i257
   store i64 %1303, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1352:                                             ; preds = %324, %324
@@ -15535,7 +15535,7 @@ ic_memmove.exit.i.i.i271:                         ; preds = %1395, %1391
 
 edit_delete_to_start_of_word.exit:                ; preds = %editor_start_modify.exit496, %1388, %ic_memmove.exit.i.i.i271
   store i64 %1356, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1403:                                             ; preds = %324
@@ -15720,7 +15720,7 @@ sbuf_find_line_end.exit.thread.i:                 ; preds = %1403
   br i1 %1468, label %edit_multiline_eol.exit.backedge, label %.thread44.i
 
 .thread44.i:                                      ; preds = %sbuf_find_line_end.exit.thread.i
-  call fastcc void @editor_start_modify(ptr noundef %16)
+  call fastcc void @editor_start_modify(ptr noundef nonnull %16)
   %.pre48.i = load ptr, ptr %16, align 8
   br label %sbuf_char_at.exit.thread.i
 
@@ -15776,7 +15776,7 @@ ic_memmove.exit.i.i.i286:                         ; preds = %1486, %1482
 
 sbuf_delete_from_to.exit.i287:                    ; preds = %ic_memmove.exit.i.i.i286, %.critedge.i
   store i64 %1470, ptr %42, align 8
-  call fastcc void @edit_cursor_right(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_cursor_right(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %1507
 
 sbuf_char_at.exit.thread.i:                       ; preds = %sbuf_char_at.exit.i, %1473, %1469, %editor_start_modify.exit512, %.thread44.i
@@ -15822,7 +15822,7 @@ sbuf_delete_from_to.exit41.i:                     ; preds = %ic_memmove.exit.i.i
   br label %1507
 
 1507:                                             ; preds = %sbuf_delete_from_to.exit41.i, %sbuf_delete_from_to.exit.i287
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1508:                                             ; preds = %324
@@ -16089,7 +16089,7 @@ ic_memmove.exit.i.i.i316:                         ; preds = %1608, %1604
   br label %sbuf_delete_from_to.exit.i312
 
 sbuf_delete_from_to.exit.i312:                    ; preds = %ic_memmove.exit.i.i.i316, %1601, %.critedge.i308
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 1615:                                             ; preds = %324
@@ -16252,7 +16252,7 @@ sbuf_swap_char.exit.i:                            ; preds = %ic_memmove.exit28.i
   %.0.i9.i = phi i64 [ %1680, %ic_memmove.exit28.i.i ], [ 0, %editor_start_modify.exit544 ], [ 0, %sbuf_prev_ofs.exit.i.i ], [ 0, %1663 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   store i64 %.0.i9.i, ptr %42, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %16)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %16)
   br label %edit_multiline_eol.exit.backedge
 
 edit_multiline_eol.exit.backedge:                 ; preds = %sbuf_swap_char.exit.i, %sbuf_len.exit.i327, %1615, %sbuf_delete_from_to.exit.i312, %sbuf_find_line_end.exit.i306, %1525, %1507, %sbuf_find_line_end.exit.thread.i, %1420, %sbuf_delete_from_to.exit.i, %1211, %sbuf_delete_char_before.exit.i, %1143, %1142, %sbuf_string.exit.i225, %1122, %1118, %1103, %sbuf_find_line_end.exit.i, %sbuf_clear.exit.i, %sbuf_len.exit.i175, %336, %sbuf_delete_at.exit.i, %sbuf_string.exit.i, %246, %321, %385, %386, %387, %edit_history_search_with_current_word.exit, %962, %963, %964, %969, %970, %971, %edit_cursor_left.exit, %edit_cursor_row_up.exit, %edit_cursor_row_down.exit, %edit_cursor_line_start.exit, %1104, %1123, %edit_cursor_to_end.exit, %1210, %edit_delete_to_start_of_ws_word.exit, %edit_delete_to_start_of_word.exit, %1017, %1016, %1117, %1684, %1681, %1691, %1692, %1687
@@ -17800,7 +17800,7 @@ term_up.exit:                                     ; preds = %term_set_buffer_mod
   %.val.i175 = load ptr, ptr %303, align 8
   %313 = getelementptr i8, ptr %303, i64 16
   %.val10.i = load i64, ptr %313, align 8
-  %314 = call fastcc i64 @str_for_each_row(ptr noundef %.val.i175, i64 noundef %.val10.i, i64 noundef %312, i64 noundef %26, i64 noundef %31, ptr noundef nonnull @edit_refresh_rows_iter, ptr noundef %4, ptr noundef null)
+  %314 = call fastcc i64 @str_for_each_row(ptr noundef %.val.i175, i64 noundef %.val10.i, i64 noundef %312, i64 noundef %26, i64 noundef %31, ptr noundef nonnull @edit_refresh_rows_iter, ptr noundef nonnull %4, ptr noundef null)
   br label %edit_refresh_rows.exit
 
 edit_refresh_rows.exit:                           ; preds = %term_up.exit, %306
@@ -17834,7 +17834,7 @@ edit_refresh_rows.exit:                           ; preds = %term_up.exit, %306
   %.val.i176 = load ptr, ptr %.0120, align 8
   %330 = getelementptr i8, ptr %.0120, i64 16
   %.val10.i177 = load i64, ptr %330, align 8
-  %331 = call fastcc i64 @str_for_each_row(ptr noundef %.val.i176, i64 noundef %.val10.i177, i64 noundef %329, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @edit_refresh_rows_iter, ptr noundef %3, ptr noundef null)
+  %331 = call fastcc i64 @str_for_each_row(ptr noundef %.val.i176, i64 noundef %.val10.i177, i64 noundef %329, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @edit_refresh_rows_iter, ptr noundef nonnull %3, ptr noundef null)
   br label %edit_refresh_rows.exit178
 
 edit_refresh_rows.exit178:                        ; preds = %316, %319
@@ -18409,7 +18409,7 @@ sbuf_string.exit24:                               ; preds = %20, %27
   br i1 %44, label %45, label %72
 
 45:                                               ; preds = %43
-  tail call fastcc void @editor_start_modify(ptr noundef %1)
+  tail call fastcc void @editor_start_modify(ptr noundef nonnull %1)
   %46 = load ptr, ptr %21, align 8
   %47 = load ptr, ptr %1, align 8
   %48 = load i64, ptr %9, align 8
@@ -18431,12 +18431,12 @@ completions_apply.exit.i:                         ; preds = %51, %45
 
 edit_complete.exit:                               ; preds = %completions_apply.exit.i
   %56 = getelementptr inbounds i8, ptr %1, i64 80
-  tail call fastcc void @editor_restore(ptr noundef %1, ptr noundef %56, ptr noundef null)
+  tail call fastcc void @editor_restore(ptr noundef nonnull %1, ptr noundef %56, ptr noundef null)
   br label %term_beep.exit
 
 57:                                               ; preds = %completions_apply.exit.i
   store i64 %54, ptr %9, align 8
-  tail call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %58 = getelementptr inbounds i8, ptr %0, i64 109
   %59 = load i8, ptr %58, align 1
   %60 = trunc i8 %59 to i1
@@ -18463,7 +18463,7 @@ edit_complete.exit:                               ; preds = %completions_apply.e
   br i1 %31, label %edit_complete_longest_prefix.exit, label %73
 
 73:                                               ; preds = %72
-  tail call fastcc void @editor_start_modify(ptr noundef %1)
+  tail call fastcc void @editor_start_modify(ptr noundef nonnull %1)
   %74 = load ptr, ptr %21, align 8
   %75 = load ptr, ptr %1, align 8
   %76 = load i64, ptr %9, align 8
@@ -18622,13 +18622,13 @@ completions_apply_longest_prefix.exit.i:          ; preds = %completions_get.exi
 
 133:                                              ; preds = %completions_apply_longest_prefix.exit.i, %completions_apply_longest_prefix.exit.thread.i
   %134 = getelementptr inbounds i8, ptr %1, i64 80
-  call fastcc void @editor_restore(ptr noundef %1, ptr noundef %134, ptr noundef null)
+  call fastcc void @editor_restore(ptr noundef nonnull %1, ptr noundef %134, ptr noundef null)
   br label %edit_complete_longest_prefix.exit
 
 135:                                              ; preds = %completions_apply_longest_prefix.exit.i, %completions_apply_longest_prefix.exit.thread12.i
   %.041.i14.i = phi i64 [ %123, %completions_apply_longest_prefix.exit.thread12.i ], [ %.041.i.i, %completions_apply_longest_prefix.exit.i ]
   store i64 %.041.i14.i, ptr %9, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %edit_complete_longest_prefix.exit
 
 edit_complete_longest_prefix.exit:                ; preds = %135, %133, %72
@@ -19433,7 +19433,7 @@ sbuf_insert_at_n.exit.i:                          ; preds = %ic_memmove.exit.i.i
   %468 = add nuw nsw i64 %.0173772.i, 3
   %469 = add nuw nsw i64 %.0173772.i, 6
   %470 = icmp eq i64 %.0173772.i, %.0174.i
-  call fastcc void @editor_append_completion(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %.0173772.i, i64 noundef %418, i1 noundef zeroext %470)
+  call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775808, 3) %.0173772.i, i64 noundef range(i64 3, -9223372036854775808) %418, i1 noundef zeroext %470)
   %471 = load ptr, ptr %149, align 8
   %472 = icmp eq ptr %471, null
   br i1 %472, label %sbuf_append.exit.i.thread.i, label %sbuf_append.exit.i.i
@@ -19527,7 +19527,7 @@ ic_memmove.exit.i331.i:                           ; preds = %507, %503
 
 sbuf_insert_at_n.exit339.i:                       ; preds = %ic_memmove.exit.i331.i, %490, %sbuf_append.exit.i.thread.i, %sbuf_append.exit.i.i
   %516 = icmp eq i64 %468, %.0174.i
-  call fastcc void @editor_append_completion(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %468, i64 noundef %418, i1 noundef zeroext %516)
+  call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775805, 6) %468, i64 noundef range(i64 3, -9223372036854775808) %418, i1 noundef zeroext %516)
   %517 = load ptr, ptr %149, align 8
   %518 = icmp eq ptr %517, null
   br i1 %518, label %editor_append_completion3.exit.thread.i, label %editor_append_completion3.exit.i
@@ -19621,7 +19621,7 @@ ic_memmove.exit.i313.i:                           ; preds = %553, %549
 
 sbuf_insert_at_n.exit321.i:                       ; preds = %ic_memmove.exit.i313.i, %536, %editor_append_completion3.exit.thread.i, %editor_append_completion3.exit.i
   %562 = icmp eq i64 %469, %.0174.i
-  call fastcc void @editor_append_completion(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %469, i64 noundef %418, i1 noundef zeroext %562)
+  call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775802, 9) %469, i64 noundef range(i64 3, -9223372036854775808) %418, i1 noundef zeroext %562)
   %563 = add nuw nsw i64 %.0173772.i, 1
   %exitcond831.not.i = icmp eq i64 %563, 3
   br i1 %exitcond831.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !96
@@ -20340,7 +20340,7 @@ ic_memmove.exit.i418.i:                           ; preds = %846, %842
 sbuf_insert_at_n.exit426.i:                       ; preds = %ic_memmove.exit.i418.i, %829, %sbuf_append.exit215.thread.i, %sbuf_append.exit215.i, %.preheader797.i
   %855 = add nuw nsw i64 %.0172770.i, %155
   %856 = icmp eq i64 %.0172770.i, %.0174.i
-  call fastcc void @editor_append_completion(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %.0172770.i, i64 noundef %805, i1 noundef zeroext %856)
+  call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775808, 4) %.0172770.i, i64 noundef range(i64 3, -9223372036854775808) %805, i1 noundef zeroext %856)
   %857 = load ptr, ptr %149, align 8
   %858 = icmp eq ptr %857, null
   br i1 %858, label %editor_append_completion2.exit.thread.i, label %editor_append_completion2.exit.i
@@ -20434,7 +20434,7 @@ ic_memmove.exit.i436.i:                           ; preds = %893, %889
 
 sbuf_insert_at_n.exit444.i:                       ; preds = %ic_memmove.exit.i436.i, %876, %editor_append_completion2.exit.thread.i, %editor_append_completion2.exit.i
   %902 = icmp eq i64 %855, %.0174.i
-  call fastcc void @editor_append_completion(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %855, i64 noundef %805, i1 noundef zeroext %902)
+  call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775805, 8) %855, i64 noundef range(i64 3, -9223372036854775808) %805, i1 noundef zeroext %902)
   %903 = add nuw nsw i64 %.0172770.i, 1
   %exitcond.not.i = icmp eq i64 %903, %155
   br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader797.i, !llvm.loop !97
@@ -20544,7 +20544,7 @@ ic_memmove.exit.i454.i:                           ; preds = %941, %937
 
 sbuf_insert_at_n.exit462.i:                       ; preds = %ic_memmove.exit.i454.i, %924, %sbuf_append.exit221.thread.i, %sbuf_append.exit221.i, %.lr.ph.i31
   %950 = icmp eq i64 %.0174.i, %.0171771.i
-  call fastcc void @editor_append_completion(ptr noundef %0, ptr noundef %1, i64 noundef %.0171771.i, i64 noundef -1, i1 noundef zeroext %950)
+  call fastcc void @editor_append_completion(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0171771.i, i64 noundef -1, i1 noundef zeroext %950)
   %951 = add nuw nsw i64 %.0171771.i, 1
   %exitcond830.not.i = icmp eq i64 %951, %156
   br i1 %exitcond830.not.i, label %.loopexit.i, label %.lr.ph.i31, !llvm.loop !98
@@ -20586,7 +20586,7 @@ sbuf_append.exit225.i:                            ; preds = %957, %955
   br i1 %or.cond.i, label %981, label %967
 
 967:                                              ; preds = %962
-  call fastcc void @editor_start_modify(ptr noundef %1)
+  call fastcc void @editor_start_modify(ptr noundef nonnull %1)
   %968 = load ptr, ptr %21, align 8
   %969 = load ptr, ptr %1, align 8
   %970 = load i64, ptr %9, align 8
@@ -20608,20 +20608,20 @@ completions_apply.exit.i.i27:                     ; preds = %973, %967
   br i1 %978, label %980, label %979
 
 979:                                              ; preds = %completions_apply.exit.i.i27
-  call fastcc void @editor_restore(ptr noundef %1, ptr noundef %158, ptr noundef null)
+  call fastcc void @editor_restore(ptr noundef nonnull %1, ptr noundef %158, ptr noundef null)
   br label %edit_complete.exit.i
 
 980:                                              ; preds = %completions_apply.exit.i.i27
   store i64 %977, ptr %9, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %edit_complete.exit.i
 
 edit_complete.exit.i:                             ; preds = %980, %979
-  call fastcc void @editor_restore(ptr noundef %1, ptr noundef %158, ptr noundef null)
+  call fastcc void @editor_restore(ptr noundef nonnull %1, ptr noundef %158, ptr noundef null)
   br label %982
 
 981:                                              ; preds = %962
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %982
 
 982:                                              ; preds = %981, %edit_complete.exit.i
@@ -20652,7 +20652,7 @@ edit_complete.exit.i:                             ; preds = %980, %979
   br label %997
 
 997:                                              ; preds = %996, %988, %982
-  call fastcc void @edit_resize(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_resize(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tty_term_resize_event.exit.i
 
 tty_term_resize_event.exit.i:                     ; preds = %997, %992
@@ -20728,7 +20728,7 @@ sbuf_clear.exit240.i:                             ; preds = %ic_memmove.exit.i.i
   br label %.backedge.i.backedge
 
 1021:                                             ; preds = %sbuf_clear.exit240.i
-  call fastcc void @edit_show_help(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_show_help(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %1021, %1019, %1017
@@ -20777,7 +20777,7 @@ sbuf_clear.exit240.i:                             ; preds = %ic_memmove.exit.i.i
   br i1 %1047, label %1029, label %completions_clear.exit.i, !llvm.loop !40
 
 completions_clear.exit.i:                         ; preds = %1029, %1022
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tty_code_pushback.exit.i
 
 1048:                                             ; preds = %sbuf_clear.exit240.i
@@ -20792,7 +20792,7 @@ completions_clear.exit.i:                         ; preds = %1029, %1022
   ]
 
 1051:                                             ; preds = %1050, %1050, %1050
-  call fastcc void @editor_start_modify(ptr noundef %1)
+  call fastcc void @editor_start_modify(ptr noundef nonnull %1)
   %1052 = load ptr, ptr %21, align 8
   %1053 = load ptr, ptr %1, align 8
   %1054 = load i64, ptr %9, align 8
@@ -20814,12 +20814,12 @@ completions_apply.exit.i242.i:                    ; preds = %1057, %1051
   br i1 %1062, label %1064, label %1063
 
 1063:                                             ; preds = %completions_apply.exit.i242.i
-  call fastcc void @editor_restore(ptr noundef %1, ptr noundef %158, ptr noundef null)
+  call fastcc void @editor_restore(ptr noundef nonnull %1, ptr noundef %158, ptr noundef null)
   br label %edit_complete.exit244.i
 
 1064:                                             ; preds = %completions_apply.exit.i242.i
   store i64 %1061, ptr %9, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %edit_complete.exit244.i
 
 edit_complete.exit244.i:                          ; preds = %1064, %1063
@@ -20856,7 +20856,7 @@ edit_complete.exit244.i:                          ; preds = %1064, %1063
   br i1 %1084, label %1101, label %1085
 
 1085:                                             ; preds = %1081
-  call fastcc void @editor_start_modify(ptr noundef %1)
+  call fastcc void @editor_start_modify(ptr noundef nonnull %1)
   %1086 = load ptr, ptr %21, align 8
   %1087 = load ptr, ptr %1, align 8
   %1088 = load i64, ptr %9, align 8
@@ -20882,12 +20882,12 @@ completions_apply.exit.i246.i:                    ; preds = %1093, %1090, %1085
   br i1 %1098, label %1100, label %1099
 
 1099:                                             ; preds = %completions_apply.exit.i246.i
-  call fastcc void @editor_restore(ptr noundef %1, ptr noundef %158, ptr noundef null)
+  call fastcc void @editor_restore(ptr noundef nonnull %1, ptr noundef %158, ptr noundef null)
   br label %tty_code_pushback.exit.i
 
 1100:                                             ; preds = %completions_apply.exit.i246.i
   store i64 %1097, ptr %9, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tty_code_pushback.exit.i
 
 1101:                                             ; preds = %1081, %1078
@@ -20918,7 +20918,7 @@ completions_apply.exit.i246.i:                    ; preds = %1093, %1090, %1085
 sbuf_string.exit.i:                               ; preds = %1112, %1106
   %.0.i.i250.i = phi ptr [ null, %1106 ], [ %spec.select.i.i249.i, %1112 ]
   %1115 = load i64, ptr %9, align 8
-  %1116 = call fastcc i64 @completions_generate(ptr noundef %0, ptr noundef %1107, ptr noundef %.0.i.i250.i, i64 noundef %1115, i64 noundef 1000)
+  %1116 = call fastcc i64 @completions_generate(ptr noundef nonnull %0, ptr noundef %1107, ptr noundef %.0.i.i250.i, i64 noundef %1115, i64 noundef 1000)
   br label %1117
 
 1117:                                             ; preds = %sbuf_string.exit.i, %1105
@@ -20953,7 +20953,7 @@ sbuf_string.exit.i:                               ; preds = %1112, %1106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %1140 = call fastcc i64 @str_for_each_row(ptr noundef %.val6.i.i, i64 noundef %.val7.i.i, i64 noundef %1137, i64 noundef %1129, i64 noundef %1134, ptr noundef nonnull @str_get_current_pos_iter, ptr noundef %4, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call fastcc void @edit_clear(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_clear(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %1141 = load ptr, ptr %152, align 8
   call fastcc void @bbcode_style_open(ptr noundef %1141, ptr noundef nonnull @.str.249)
   %1142 = load ptr, ptr %152, align 8
@@ -21060,11 +21060,11 @@ completions_get_display.exit.thread.i:            ; preds = %completions_get_dis
 ._crit_edge779.i:                                 ; preds = %.lr.ph778.i, %1177
   %1182 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 0, ptr %1182, align 8
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tty_code_pushback.exit.i
 
 1183:                                             ; preds = %1101
-  call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
+  call fastcc void @edit_refresh(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %tty_code_pushback.exit.i
 
 tty_code_pushback.exit.i:                         ; preds = %1183, %._crit_edge779.i, %1100, %1099, %1073, %1068, %edit_complete.exit244.i, %completions_clear.exit.i
@@ -22390,7 +22390,7 @@ tty_cpush_char.exit:                              ; preds = %32, %._crit_edge.i.
   br i1 %or.cond.i, label %52, label %.critedge.i
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = call fastcc zeroext i1 @tty_readc_noblock(ptr noundef %0, ptr noundef %7, i64 noundef %4)
+  %53 = call fastcc zeroext i1 @tty_readc_noblock(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %4)
   %.pr.pre = load i8, ptr %7, align 1
   br i1 %53, label %54, label %.critedge.i
 
@@ -22429,7 +22429,7 @@ tty_cpush_char.exit:                              ; preds = %32, %._crit_edge.i.
   br i1 %or.cond.i153, label %71, label %.critedge.i154
 
 71:                                               ; preds = %.lr.ph.i150
-  %72 = call fastcc zeroext i1 @tty_readc_noblock(ptr noundef %0, ptr noundef %7, i64 noundef %4)
+  %72 = call fastcc zeroext i1 @tty_readc_noblock(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %4)
   %.pr185.pre.pre = load i8, ptr %7, align 1
   br i1 %72, label %73, label %.critedge.i154
 
@@ -23701,7 +23701,7 @@ sbuf_append_n.exit.i:                             ; preds = %62, %58
 
 72:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %73 = call fastcc i32 @unicode_from_qutf8(ptr noundef nonnull %69, i64 noundef %.0.i73.i, ptr noundef %5)
+  %73 = call fastcc i32 @unicode_from_qutf8(ptr noundef nonnull %69, i64 noundef range(i64 1, -9223372036854775808) %.0.i73.i, ptr noundef %5)
   %74 = and i32 %73, 2096896
   %or.cond.i.i65.i = icmp eq i32 %74, 974848
   br i1 %or.cond.i.i65.i, label %75, label %unicode_is_raw.exit.i.i
@@ -23745,7 +23745,7 @@ unicode_is_raw.exit.i.i:                          ; preds = %72
 
 sbuf_append_n.exit.i.i:                           ; preds = %90, %89
   %.0.i.i.i.i = phi i64 [ %92, %90 ], [ 0, %89 ]
-  %93 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %87, ptr noundef nonnull %69, i64 noundef %.0.i73.i, i64 noundef %.0.i.i.i.i)
+  %93 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %87, ptr noundef nonnull %69, i64 noundef range(i64 1, -9223372036854775808) %.0.i73.i, i64 noundef %.0.i.i.i.i)
   br label %term_append_utf8.exit.i
 
 94:                                               ; preds = %unicode_is_raw.exit.i.i
@@ -23758,7 +23758,7 @@ sbuf_append_n.exit.i.i:                           ; preds = %90, %89
 
 sbuf_append_n.exit11.i.i:                         ; preds = %95, %94
   %.0.i.i10.i.i = phi i64 [ %97, %95 ], [ 0, %94 ]
-  %98 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %87, ptr noundef nonnull %69, i64 noundef %.0.i73.i, i64 noundef %.0.i.i10.i.i)
+  %98 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %87, ptr noundef nonnull %69, i64 noundef range(i64 1, -9223372036854775808) %.0.i73.i, i64 noundef %.0.i.i10.i.i)
   br label %term_append_utf8.exit.i
 
 term_append_utf8.exit.i:                          ; preds = %sbuf_append_n.exit11.i.i, %sbuf_append_n.exit.i.i, %sbuf_append_char.exit.i.i
@@ -23848,7 +23848,7 @@ attr_from_esc_sgr.exit.i.i:                       ; preds = %116, %114
 
 sbuf_append_n.exit.i66.i:                         ; preds = %143, %140
   %.0.i.i.i67.i = phi i64 [ %145, %143 ], [ 0, %140 ]
-  %146 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %141, ptr noundef nonnull %69, i64 noundef %.0.i73.i, i64 noundef %.0.i.i.i67.i)
+  %146 = call fastcc i64 @sbuf_insert_at_n(ptr noundef %141, ptr noundef nonnull %69, i64 noundef range(i64 2, -9223372036854775808) %.0.i73.i, i64 noundef %.0.i.i.i67.i)
   br label %term_append_esc.exit.i
 
 147:                                              ; preds = %99
@@ -26551,7 +26551,7 @@ define internal fastcc void @term_color_ex(ptr nocapture noundef %0, i32 noundef
   br i1 %8, label %9, label %color_to_ansi8.exit.i.i
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @rgb_match(i32 noundef 0, i32 noundef 8, ptr noundef nonnull @color_to_ansi8.ansi8_cache, i32 noundef %1)
+  %10 = tail call fastcc i32 @rgb_match(i32 noundef 0, i32 noundef 8, ptr noundef nonnull @color_to_ansi8.ansi8_cache, i32 noundef range(i32 1, 0) %1)
   %11 = and i32 %1, 252
   %12 = and i32 %1, 16515072
   %13 = icmp samesign ugt i32 %12, 12779520
@@ -26590,7 +26590,7 @@ color_to_ansi8.exit.i.i:                          ; preds = %9, %7
   br i1 %26, label %29, label %fmt_color_ansi16.exit.i
 
 29:                                               ; preds = %28
-  %30 = tail call fastcc i32 @rgb_match(i32 noundef 0, i32 noundef 16, ptr noundef nonnull @color_to_ansi16.ansi16_cache, i32 noundef %1)
+  %30 = tail call fastcc i32 @rgb_match(i32 noundef 0, i32 noundef 16, ptr noundef nonnull @color_to_ansi16.ansi16_cache, i32 noundef range(i32 1, 0) %1)
   %31 = icmp slt i32 %30, 8
   %.v.i.i.i = select i1 %31, i32 30, i32 82
   %32 = add nsw i32 %.v.i.i.i, %30
@@ -26609,7 +26609,7 @@ fmt_color_ansi16.exit.i:                          ; preds = %29, %28
 
 fmt_color_ansi256.exit.i:                         ; preds = %36
   %38 = select i1 %2, i32 48, i32 38
-  %39 = tail call fastcc i32 @rgb_match(i32 noundef 16, i32 noundef 256, ptr noundef nonnull @rgb_to_ansi256.ansi256_cache, i32 noundef %1)
+  %39 = tail call fastcc i32 @rgb_match(i32 noundef 16, i32 noundef 256, ptr noundef nonnull @rgb_to_ansi256.ansi256_cache, i32 noundef range(i32 1, 0) %1)
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.429, i32 noundef %38, i32 noundef %39) #32
   br label %fmt_color_ex.exit
 

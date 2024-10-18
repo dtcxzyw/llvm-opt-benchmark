@@ -46,7 +46,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %20 = getelementptr inbounds i8, ptr %16, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !6, !nonnull !4, !noundef !4
   %22 = load ptr, ptr %.val.i, align 8, !nonnull !4, !align !9, !noundef !4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %21, ptr nonnull readonly %22, i64 %18), !alias.scope !10
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %21, ptr nonnull readonly align 1 %22, i64 %18), !alias.scope !10
   %23 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %23, label %24, label %"_ZN15live_kit_client4test4Room19remote_audio_tracks28_$u7b$$u7b$closure$u7d$$u7d$17h30039483a26b56e0E.exit.thread.i"
 
@@ -116,7 +116,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %20 = getelementptr inbounds i8, ptr %16, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !19, !nonnull !4, !noundef !4
   %22 = load ptr, ptr %.val.i, align 8, !nonnull !4, !align !9, !noundef !4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %21, ptr nonnull readonly %22, i64 %18), !alias.scope !22
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %21, ptr nonnull readonly align 1 %22, i64 %18), !alias.scope !22
   %23 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %23, label %24, label %"_ZN15live_kit_client4test4Room19remote_video_tracks28_$u7b$$u7b$closure$u7d$$u7d$17h55c313dc7d50cf07E.exit.thread.i"
 
@@ -188,7 +188,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %21 = getelementptr inbounds i8, ptr %16, i64 48
   %22 = load ptr, ptr %21, align 8, !noalias !31, !nonnull !4, !noundef !4
   %23 = load ptr, ptr %.val.i, align 8, !nonnull !4, !align !9, !noundef !4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %22, ptr nonnull readonly %23, i64 %18), !alias.scope !34
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %22, ptr nonnull readonly align 1 %23, i64 %18), !alias.scope !34
   %24 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %24, label %25, label %"_ZN15live_kit_client4test4Room31remote_audio_track_publications28_$u7b$$u7b$closure$u7d$$u7d$17h47745eab94c70f02E.exit.thread.i"
 

@@ -59,8 +59,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i, label %if.then.i, label %unix_detect_overcommit.exit
 
 if.then.i:                                        ; preds = %if.end
-  %call.i3.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i, i64 noundef 32) #8
-  %call.i4.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i) #8
+  %call.i3.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -2147483648) %conv.i.i, ptr noundef nonnull %buf.i, i64 noundef 32) #8
+  %call.i4.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %conv.i.i) #8
   %cmp3.i = icmp sgt i64 %call.i3.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %unix_detect_overcommit.exit
 
@@ -250,7 +250,7 @@ define hidden i32 @_mi_prim_reset(ptr noundef %start, i64 noundef %size) local_u
 entry:
   %0 = load atomic i64, ptr @_mi_prim_reset.advice monotonic, align 8
   %conv = trunc nuw nsw i64 %0 to i32
-  %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #8
+  %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef range(i32 4, 15) %conv) #8
   %cmp.not8 = icmp eq i32 %call.i7, 0
   br i1 %cmp.not8, label %if.end, label %land.rhs.lr.ph
 
@@ -267,7 +267,7 @@ land.rhs:                                         ; preds = %while.body
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   store i32 0, ptr %call2, align 4
-  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #8
+  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef range(i32 4, 15) %conv) #8
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end, label %land.rhs, !llvm.loop !4
 
@@ -593,7 +593,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %count.019 = phi i64 [ %count.1, %if.end24 ], [ 0, %while.cond.preheader ]
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %count.019
   %sub = sub nuw i64 %buf_len, %count.019
-  %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #8
+  %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -2147483648) %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #8
   %cmp16 = icmp slt i64 %call.i15, 1
   br i1 %cmp16, label %if.then17, label %if.else
 
@@ -616,7 +616,7 @@ if.end24:                                         ; preds = %if.then17, %if.then
 
 while.end:                                        ; preds = %if.end24, %if.then17, %while.cond.preheader
   %count.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %count.019, %if.then17 ], [ %count.1, %if.end24 ]
-  %call.i16 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i) #8
+  %call.i16 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %conv.i) #8
   %cmp26 = icmp eq i64 %count.0.lcssa, %buf_len
   br label %return
 

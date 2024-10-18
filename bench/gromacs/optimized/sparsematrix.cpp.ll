@@ -21,13 +21,13 @@ define noundef ptr @_Z21gmx_sparsematrix_initi(i32 noundef %0) local_unnamed_add
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = sext i32 %0 to i64
-  %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 52, i64 noundef %5, i64 noundef 4)
+  %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 52, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 4)
   store ptr %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 53, i64 noundef %5, i64 noundef 4)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 53, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 4)
   store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 54, i64 noundef %5, i64 noundef 8)
+  %10 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 54, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   store ptr %10, ptr %9, align 8
   %11 = icmp sgt i32 %0, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
@@ -313,11 +313,11 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
   br i1 %37, label %42, label %44
 
 42:                                               ; preds = %31
-  %43 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %41, i64 noundef 8)
+  %43 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef range(i64 -2147483648, 2147483648) %41, i64 noundef 8)
   br label %.sink.split
 
 44:                                               ; preds = %31
-  %45 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull %36, i64 noundef %41, i64 noundef 8)
+  %45 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull %36, i64 noundef range(i64 -2147483648, 2147483648) %41, i64 noundef 8)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %42

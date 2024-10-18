@@ -657,7 +657,7 @@ define void @_ZN5arrow2io12ReadableFileC2EPNS_10MemoryPoolE(ptr noundef nonnull 
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %1)
+  tail call void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %1)
   %2 = load ptr, ptr %0, align 8
   store ptr %2, ptr %this, align 8
   %3 = getelementptr inbounds i8, ptr %vtt, i64 64
@@ -686,7 +686,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %1) #24
+  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %1) #24
   br label %common.resume
 
 _ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2Ev.exit: ; preds = %entry
@@ -712,8 +712,8 @@ _ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2Ev.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call, i8 0, i64 65, i1 false)
-  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call, i8 0, i64 65, i1 false)
+  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %call)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -735,7 +735,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
 _ZNKSt14default_deleteIN5arrow2io12ReadableFile16ReadableFileImplEEclEPS3_.exit.i.i: ; preds = %invoke.cont10
   %fd_.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #24
   tail call void @_ZdlPv(ptr noundef nonnull %13) #26
   br label %_ZNSt10unique_ptrIN5arrow2io12ReadableFile16ReadableFileImplESt14default_deleteIS3_EE5resetEPS3_.exit
 
@@ -778,7 +778,7 @@ entry:
 _ZNKSt14default_deleteIN5arrow2io12ReadableFile16ReadableFileImplEEclEPS3_.exit: ; preds = %entry
   %fd_.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %if.end
 
@@ -896,7 +896,7 @@ entry:
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %mode_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8ReadableE, i64 16), ptr %this, align 8
-  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io12ReadableFileE, i64 16))
+  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io12ReadableFileE, i64 16))
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -911,7 +911,7 @@ entry:
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io12ReadableFileE, i64 16)) #24
+  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io12ReadableFileE, i64 16)) #24
   br label %ehcleanup9
 
 invoke.cont:                                      ; preds = %.noexc
@@ -924,8 +924,8 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call, i8 0, i64 65, i1 false)
-  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call, i8 0, i64 65, i1 false)
+  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %call)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -947,7 +947,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
 _ZNKSt14default_deleteIN5arrow2io12ReadableFile16ReadableFileImplEEclEPS3_.exit.i.i: ; preds = %invoke.cont7
   %fd_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #24
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   br label %_ZNSt10unique_ptrIN5arrow2io12ReadableFile16ReadableFileImplESt14default_deleteIS3_EE5resetEPS3_.exit
 
@@ -1021,7 +1021,7 @@ invoke.cont:                                      ; preds = %entry
 _ZNKSt14default_deleteIN5arrow2io12ReadableFile16ReadableFileImplEEclEPS3_.exit.i: ; preds = %invoke.cont
   %fd_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #24
   tail call void @_ZdlPv(ptr noundef nonnull %5) #26
   br label %_ZNSt10unique_ptrIN5arrow2io12ReadableFile16ReadableFileImplESt14default_deleteIS3_EED2Ev.exit
 
@@ -1119,7 +1119,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5arrow2io12ReadableFile16ReadableFileImplESt14default_deleteIS3_EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
   %23 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %23) #24
+  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %23) #24
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -1196,7 +1196,7 @@ entry:
   tail call void @_ZN5arrow2io12ReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @_ZTTN5arrow2io12ReadableFileE) #24
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
   ret void
 }
 
@@ -1207,7 +1207,7 @@ entry:
   tail call void @_ZN5arrow2io12ReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @_ZTTN5arrow2io12ReadableFileE) #24
   %1 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %1) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
   ret void
 }
 
@@ -1226,7 +1226,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %file, align 8
   %impl_ = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %impl_, align 8
-  invoke void @_ZN5arrow2io6OSFile12OpenReadableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(32) %path)
+  invoke void @_ZN5arrow2io6OSFile12OpenReadableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %path)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad3
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont
@@ -1596,7 +1596,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -1606,7 +1606,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -1757,7 +1757,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %file, align 8
   %impl_ = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %impl_, align 8
-  invoke void @_ZN5arrow2io6OSFile12OpenReadableEi(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(65) %1, i32 noundef %fd)
+  invoke void @_ZN5arrow2io6OSFile12OpenReadableEi(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %fd)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad3
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont
@@ -3470,7 +3470,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call, i8 0, i64 72, i1 false)
-  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(65) %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -3490,7 +3490,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i: ; preds = %invoke.cont5
   %fd_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %7) #24
   tail call void @_ZdlPv(ptr noundef nonnull %7) #26
   br label %_ZNSt10unique_ptrIN5arrow2io16FileOutputStream20FileOutputStreamImplESt14default_deleteIS3_EE5resetEPS3_.exit
 
@@ -3527,7 +3527,7 @@ entry:
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit: ; preds = %entry
   %fd_.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %if.end
 
@@ -3553,7 +3553,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call, i8 0, i64 72, i1 false)
-  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(65) %call)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -3573,7 +3573,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i: ; preds = %invoke.cont4
   %fd_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %2) #24
   tail call void @_ZdlPv(ptr noundef nonnull %2) #26
   br label %_ZNSt10unique_ptrIN5arrow2io16FileOutputStream20FileOutputStreamImplESt14default_deleteIS3_EE5resetEPS3_.exit
 
@@ -3625,7 +3625,7 @@ invoke.cont:                                      ; preds = %entry
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i: ; preds = %invoke.cont
   %fd_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %3) #24
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   br label %_ZNSt10unique_ptrIN5arrow2io16FileOutputStream20FileOutputStreamImplESt14default_deleteIS3_EED2Ev.exit
 
@@ -3659,7 +3659,7 @@ invoke.cont.i:                                    ; preds = %entry
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i: ; preds = %invoke.cont.i
   %fd_.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %_ZN5arrow2io16FileOutputStreamD2Ev.exit
 
@@ -3698,7 +3698,7 @@ invoke.cont.i.i:                                  ; preds = %entry
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i.i: ; preds = %invoke.cont.i.i
   %fd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %4) #24
   tail call void @_ZdlPv(ptr noundef nonnull %4) #26
   br label %_ZN5arrow2io16FileOutputStreamD1Ev.exit
 
@@ -3733,7 +3733,7 @@ invoke.cont.i.i:                                  ; preds = %entry
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i.i: ; preds = %invoke.cont.i.i
   %fd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %_ZN5arrow2io16FileOutputStreamD1Ev.exit
 
@@ -3773,7 +3773,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 _ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %fd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %4) #24
   tail call void @_ZdlPv(ptr noundef nonnull %4) #26
   br label %_ZN5arrow2io16FileOutputStreamD0Ev.exit
 
@@ -3787,7 +3787,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 _ZN5arrow2io16FileOutputStreamD0Ev.exit:          ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN5arrow2io16FileOutputStream20FileOutputStreamImplEEclEPS3_.exit.i.i.i.i
   store ptr null, ptr %impl_.i.i.i, align 8
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
   ret void
 }
 
@@ -4085,7 +4085,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -4095,7 +4095,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -4562,7 +4562,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
 
 do.end6:                                          ; preds = %nrvo.skipdtor.thread, %_ZN5arrow6StatusD2Ev.exit
   %lock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #24
+  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -4597,7 +4597,7 @@ _ZN5arrow6StatusD2Ev.exit79:                      ; preds = %if.then.i42
 lpad:                                             ; preds = %if.then27, %if.then.i42, %if.end29
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #24
+  %call1.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #24
   resume { ptr, i32 } %2
 
 _ZN5arrow6StatusD2Ev.exit118:                     ; preds = %_ZN5arrow6StatusD2Ev.exit79, %_ZN5arrow6StatusD2Ev.exit79.thread
@@ -4614,7 +4614,7 @@ if.end29:                                         ; preds = %_ZN5arrow6StatusD2E
           to label %cleanup32 unwind label %lpad
 
 cleanup32:                                        ; preds = %if.then27, %_ZN5arrow6StatusD2Ev.exit79, %if.end29
-  %call1.i.i.i120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #24
+  %call1.i.i.i120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #24
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %cleanup32
@@ -4636,7 +4636,7 @@ define void @_ZN5arrow2io16MemoryMappedFileC2Ev(ptr noundef nonnull align 8 dere
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %1)
+  tail call void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %1)
   %2 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = getelementptr inbounds i8, ptr %vtt, i64 64
   %4 = getelementptr inbounds i8, ptr %vtt, i64 72
@@ -4722,7 +4722,7 @@ entry:
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %mode_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8ReadableE, i64 16), ptr %this, align 8
-  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 16))
+  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 16))
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -4855,7 +4855,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow2io16MemoryMappedFile9MemoryMapEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %18) #24
+  tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %18) #24
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -5018,7 +5018,7 @@ entry:
   tail call void @_ZN5arrow2io16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @_ZTTN5arrow2io16MemoryMappedFileE) #24
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   ret void
 }
 
@@ -5029,7 +5029,7 @@ entry:
   tail call void @_ZN5arrow2io16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @_ZTTN5arrow2io16MemoryMappedFileE) #24
   %1 = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %1) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -5040,7 +5040,7 @@ entry:
   tail call void @_ZN5arrow2io16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @_ZTTN5arrow2io16MemoryMappedFileE) #24
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %1) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -5051,7 +5051,7 @@ entry:
   tail call void @_ZN5arrow2io16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @_ZTTN5arrow2io16MemoryMappedFileE) #24
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %1) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -5440,7 +5440,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -5450,7 +5450,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -5522,7 +5522,7 @@ entry:
   %mode_.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store i32 0, ptr %mode_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8ReadableE, i64 16), ptr %call, align 8
-  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 16))
+  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 16))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -5553,7 +5553,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %memory_map_ = getelementptr inbounds i8, ptr %5, i64 40
   %region_.i = getelementptr inbounds i8, ptr %call4, i64 32
   %map_len_.i = getelementptr inbounds i8, ptr %call4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %region_.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %map_len_.i, i8 0, i64 48, i1 false)
   invoke void @_ZNSt12__shared_ptrIN5arrow2io16MemoryMappedFile9MemoryMapELN9__gnu_cxx12_Lock_policyE2EE5resetIS3_EENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPS9_(ptr noundef nonnull align 8 dereferenceable(16) %memory_map_, ptr noundef nonnull %call4)
@@ -6142,7 +6142,7 @@ entry:
   %ref.tmp44 = alloca %"class.arrow::Status", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25, !noalias !159
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call.i, i8 0, i64 72, i1 false), !noalias !159
-  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call.i)
+  invoke void @_ZN5arrow8internal16PlatformFilenameC1Ev(ptr noundef nonnull align 8 dereferenceable(65) %call.i)
           to label %_ZSt11make_uniqueIN5arrow2io6OSFileEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !159
 
 lpad.i:                                           ; preds = %entry
@@ -6169,7 +6169,7 @@ _ZSt11make_uniqueIN5arrow2io6OSFileEJEENSt8__detail9_MakeUniqIT_E15__single_obje
 _ZNKSt14default_deleteIN5arrow2io6OSFileEEclEPS2_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIN5arrow2io6OSFileEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %fd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i.i.i.i) #24
-  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #24
+  tail call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %1) #24
   tail call void @_ZdlPv(ptr noundef nonnull %1) #26
   br label %_ZNSt10unique_ptrIN5arrow2io6OSFileESt14default_deleteIS2_EED2Ev.exit
 
@@ -6324,7 +6324,7 @@ entry:
   %mode_.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store i32 0, ptr %mode_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8ReadableE, i64 16), ptr %call, align 8
-  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 16))
+  invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 16))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -6355,7 +6355,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %memory_map_ = getelementptr inbounds i8, ptr %5, i64 40
   %region_.i = getelementptr inbounds i8, ptr %call4, i64 32
   %map_len_.i = getelementptr inbounds i8, ptr %call4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %region_.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %map_len_.i, i8 0, i64 48, i1 false)
   invoke void @_ZNSt12__shared_ptrIN5arrow2io16MemoryMappedFile9MemoryMapELN9__gnu_cxx12_Lock_policyE2EE5resetIS3_EENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPS9_(ptr noundef nonnull align 8 dereferenceable(16) %memory_map_, ptr noundef nonnull %call4)
@@ -6759,7 +6759,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -6769,7 +6769,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -7481,7 +7481,7 @@ do.end9:                                          ; preds = %_ZN5arrow6StatusD2E
 
 cond.true:                                        ; preds = %do.end9
   %resize_lock_.i = getelementptr inbounds i8, ptr %14, i64 80
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %resize_lock_.i) #24
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %resize_lock_.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.true.cond.end_crit_edge, label %if.then.i.i.i
 
@@ -7771,7 +7771,7 @@ _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup75, %_ZN5arr
   br i1 %or.cond, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_ZN5arrow6ResultIlED2Ev.exit
-  %call1.i.i.i.i177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %guard_resize.sroa.0.0) #24
+  %call1.i.i.i.i177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %guard_resize.sroa.0.0) #24
   br label %return
 
 ehcleanup76:                                      ; preds = %lpad.i, %lpad50, %if.then.i.i.i133, %lpad24
@@ -7786,7 +7786,7 @@ ehcleanup78:                                      ; preds = %ehcleanup76, %lpad1
   br i1 %or.cond197, label %_ZNSt11unique_lockISt5mutexED2Ev.exit185, label %if.then3.i.i183
 
 if.then3.i.i183:                                  ; preds = %ehcleanup78
-  %call1.i.i.i.i184 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %guard_resize.sroa.0.0) #24
+  %call1.i.i.i.i184 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %guard_resize.sroa.0.0) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit185
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit185:         ; preds = %ehcleanup78, %if.then3.i.i183
@@ -7866,7 +7866,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -7876,7 +7876,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -8334,7 +8334,7 @@ do.end9:                                          ; preds = %_ZN5arrow6StatusD2E
 
 cond.true:                                        ; preds = %do.end9
   %resize_lock_.i = getelementptr inbounds i8, ptr %14, i64 80
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %resize_lock_.i) #24
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %resize_lock_.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.true.cond.end_crit_edge, label %if.then.i.i.i
 
@@ -8489,11 +8489,11 @@ _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup44.thread, %
   br i1 %or.cond, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_ZN5arrow6ResultIlED2Ev.exit
-  %call1.i.i.i.i50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %guard_resize.sroa.0.0) #24
+  %call1.i.i.i.i50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %guard_resize.sroa.0.0) #24
   br label %return
 
 if.then3.i.i56:                                   ; preds = %lpad19
-  %call1.i.i.i.i57 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %guard_resize.sroa.0.0) #24
+  %call1.i.i.i.i57 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %guard_resize.sroa.0.0) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit58
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit58:          ; preds = %lpad19, %if.then3.i.i56
@@ -9214,7 +9214,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i:    ; preds = %entry
   br label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2IS3_vEEONS0_IT_EE.exit
 
 if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %res)
+  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %res)
           to label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2IS3_vEEONS0_IT_EE.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
@@ -9281,7 +9281,7 @@ do.end9:                                          ; preds = %nrvo.skipdtor.threa
 
 cond.true:                                        ; preds = %do.end9
   %resize_lock_.i = getelementptr inbounds i8, ptr %3, i64 80
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %resize_lock_.i) #24
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %resize_lock_.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.end, label %if.then.i.i.i
 
@@ -9580,7 +9580,7 @@ _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit: ; preds = %cleanu
   br i1 %or.cond, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit
-  %call1.i.i.i.i73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %guard_resize.sroa.0.0) #24
+  %call1.i.i.i.i73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %guard_resize.sroa.0.0) #24
   br label %return
 
 ehcleanup:                                        ; preds = %lpad25.loopexit, %lpad25.loopexit.split-lp, %lpad30.body
@@ -9600,7 +9600,7 @@ ehcleanup69:                                      ; preds = %if.then.i.i.i75, %e
   br i1 %or.cond92, label %_ZNSt11unique_lockISt5mutexED2Ev.exit84, label %if.then3.i.i82
 
 if.then3.i.i82:                                   ; preds = %ehcleanup69
-  %call1.i.i.i.i83 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %guard_resize.sroa.0.0) #24
+  %call1.i.i.i.i83 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %guard_resize.sroa.0.0) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit84
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit84:          ; preds = %ehcleanup69, %if.then3.i.i82
@@ -9651,7 +9651,7 @@ do.end9:                                          ; preds = %nrvo.skipdtor.threa
   %file_.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %file_.i, align 8
   %lock_.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_.i.i) #24
+  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont16, label %if.then.i.i
 
@@ -9684,7 +9684,7 @@ if.then22:                                        ; preds = %invoke.cont20, %inv
 lpad15:                                           ; preds = %if.then.i126, %if.then22, %do.body25
   %11 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_.i.i) #24
+  %call1.i.i.i48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #24
   resume { ptr, i32 } %11
 
 do.body25:                                        ; preds = %invoke.cont20
@@ -9754,7 +9754,7 @@ _ZN5arrow2io16MemoryMappedFile13WriteInternalEPKvl.exit: ; preds = %_ZN5arrow6St
   br label %cleanup82
 
 cleanup82:                                        ; preds = %if.then22, %_ZN5arrow2io16MemoryMappedFile13WriteInternalEPKvl.exit, %_ZN5arrow6StatusD2Ev.exit163, %_ZN5arrow6StatusD2Ev.exit85
-  %call1.i.i.i202 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_.i.i) #24
+  %call1.i.i.i202 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #24
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %cleanup82
@@ -9835,7 +9835,7 @@ do.end9:                                          ; preds = %nrvo.skipdtor.threa
   %file_.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %file_.i, align 8
   %lock_.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_.i.i) #24
+  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont16, label %if.then.i.i
 
@@ -9868,7 +9868,7 @@ if.then22:                                        ; preds = %invoke.cont20, %inv
 lpad15:                                           ; preds = %if.then22, %do.body25
   %11 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_.i.i) #24
+  %call1.i.i.i44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #24
   resume { ptr, i32 } %11
 
 do.body25:                                        ; preds = %invoke.cont20
@@ -9915,7 +9915,7 @@ _ZN5arrow2io16MemoryMappedFile13WriteInternalEPKvl.exit: ; preds = %_ZN5arrow6St
   br label %cleanup59
 
 cleanup59:                                        ; preds = %if.then22, %_ZN5arrow2io16MemoryMappedFile13WriteInternalEPKvl.exit, %_ZN5arrow6StatusD2Ev.exit81
-  %call1.i.i.i120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_.i.i) #24
+  %call1.i.i.i120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #24
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %cleanup59
@@ -10002,7 +10002,7 @@ if.else.i.i:                                      ; preds = %lpad19
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #24
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #24
   store i8 0, ptr %_M_owns.i40, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -10017,7 +10017,7 @@ if.else.i.i84:                                    ; preds = %_ZNSt11unique_lockI
   br i1 %tobool2.not.i.i85, label %_ZNSt11unique_lockISt5mutexED2Ev.exit88, label %if.then3.i.i86
 
 if.then3.i.i86:                                   ; preds = %if.else.i.i84
-  %call1.i.i.i.i87 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #24
+  %call1.i.i.i.i87 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %11) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit88
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit88:          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %if.else.i.i84, %if.then3.i.i86
@@ -10038,7 +10038,7 @@ if.else.i.i129:                                   ; preds = %cleanup49
   br i1 %tobool2.not.i.i130, label %_ZNSt11unique_lockISt5mutexED2Ev.exit133, label %if.then3.i.i131
 
 if.then3.i.i131:                                  ; preds = %if.else.i.i129
-  %call1.i.i.i.i132 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #24
+  %call1.i.i.i.i132 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #24
   store i8 0, ptr %_M_owns.i40, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit133
 
@@ -10053,7 +10053,7 @@ if.else.i.i137:                                   ; preds = %_ZNSt11unique_lockI
   br i1 %tobool2.not.i.i138, label %return, label %if.then3.i.i139
 
 if.then3.i.i139:                                  ; preds = %if.else.i.i137
-  %call1.i.i.i.i140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #24
+  %call1.i.i.i.i140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #24
   br label %return
 
 return:                                           ; preds = %if.then3.i.i139, %if.else.i.i137, %_ZNSt11unique_lockISt5mutexED2Ev.exit133, %_ZN5arrow6StatusD2Ev.exit
@@ -10099,7 +10099,7 @@ if.else.i.i:                                      ; preds = %if.else4.i
   br i1 %tobool2.i.i, label %if.then.i.i43.invoke, label %if.else4.i.i
 
 if.else4.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %for.body, label %if.then.i.i43.invoke
 
@@ -10132,7 +10132,7 @@ if.else.i.i25:                                    ; preds = %if.else4.i23
   br i1 %tobool2.i.i27, label %if.then.i.i43.invoke, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.else.i.i25
-  %call1.i.i.i.i28 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %7) #24
+  %call1.i.i.i.i28 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %7) #24
   %tobool.not.i.i.i29 = icmp eq i32 %call1.i.i.i.i28, 0
   %frombool.i.i = zext i1 %tobool.not.i.i.i29 to i8
   store i8 %frombool.i.i, ptr %_M_owns.i.i26, align 8
@@ -10172,7 +10172,7 @@ if.else.i.i44:                                    ; preds = %if.then3.i41
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i, label %if.then3.i.i45
 
 if.then3.i.i45:                                   ; preds = %if.else.i.i44
-  %call1.i.i.i.i46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #24
+  %call1.i.i.i.i46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #24
   store i8 0, ptr %_M_owns.i.i42, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i
 
@@ -10240,7 +10240,7 @@ if.else.i.i.i:                                    ; preds = %if.then3.i.i56
   br i1 %tobool2.not.i.i.i, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
-  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #24
+  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %20) #24
   store i8 0, ptr %_M_owns.i.i.i, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i
 
@@ -11718,7 +11718,7 @@ entry:
   %0 = extractvalue { i64, ptr } %call.i, 0
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZN5arrow8internal16PlatformFilename10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.arrow::Result.100") align 8 %ref.tmp.i, i64 %0, ptr %1)
-  invoke void @_ZNO5arrow6ResultINS_8internal16PlatformFilenameEE5ValueIS2_vEENS_6StatusEPT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %this)
+  invoke void @_ZNO5arrow6ResultINS_8internal16PlatformFilenameEE5ValueIS2_vEENS_6StatusEPT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(65) %this)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
@@ -12605,7 +12605,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %invoke.cont6
-  invoke void @_ZNO5arrow6ResultINS_8internal16PlatformFilenameEE5ValueIS2_vEENS_6StatusEPT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %this)
+  invoke void @_ZNO5arrow6ResultINS_8internal16PlatformFilenameEE5ValueIS2_vEENS_6StatusEPT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(65) %this)
           to label %invoke.cont8 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -12669,7 +12669,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !514
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !514
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(33) %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !514
 
 invoke.cont1.i:                                   ; preds = %entry
@@ -12948,7 +12948,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !520
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !520
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(75) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !520
 
 invoke.cont.i:                                    ; preds = %entry
@@ -13375,7 +13375,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !523
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !523
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(17) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !523
 
 invoke.cont.i:                                    ; preds = %entry
@@ -13422,7 +13422,7 @@ entry:
   %0 = extractvalue { i64, ptr } %call.i, 0
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZN5arrow8internal16PlatformFilename10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.arrow::Result.100") align 8 %ref.tmp.i, i64 %0, ptr %1)
-  invoke void @_ZNO5arrow6ResultINS_8internal16PlatformFilenameEE5ValueIS2_vEENS_6StatusEPT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %this)
+  invoke void @_ZNO5arrow6ResultINS_8internal16PlatformFilenameEE5ValueIS2_vEENS_6StatusEPT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(65) %this)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
@@ -13863,7 +13863,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !541
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !541
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(28) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !541
 
 invoke.cont.i:                                    ; preds = %entry
@@ -14264,7 +14264,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !556
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !556
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(35) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !556
 
 invoke.cont.i:                                    ; preds = %entry
@@ -14307,7 +14307,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !559
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !559
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(29) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !559
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -14881,7 +14881,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !562
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !562
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(26) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !562
 
 invoke.cont.i:                                    ; preds = %entry
@@ -15536,7 +15536,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !565
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !565
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(36) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !565
 
 invoke.cont.i:                                    ; preds = %entry
@@ -15579,7 +15579,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !568
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !568
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(56) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !568
 
 invoke.cont.i:                                    ; preds = %entry
@@ -16846,7 +16846,7 @@ _ZNSt10shared_ptrIN5arrow2io16MemoryMappedFile9MemoryMap6RegionEED2Ev.exit: ; pr
 _ZNKSt14default_deleteIN5arrow2io6OSFileEEclEPS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN5arrow2io16MemoryMappedFile9MemoryMap6RegionEED2Ev.exit
   %fd_.i.i.i = getelementptr inbounds i8, ptr %50, i64 48
   call void @_ZN5arrow8internal14FileDescriptorD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %fd_.i.i.i) #24
-  call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #24
+  call void @_ZN5arrow8internal16PlatformFilenameD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %50) #24
   call void @_ZdlPv(ptr noundef nonnull %50) #26
   br label %_ZNSt10unique_ptrIN5arrow2io6OSFileESt14default_deleteIS2_EED2Ev.exit
 
@@ -17200,7 +17200,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i:    ; preds = %if.end
   br label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2IS3_vEEONS0_IT_EE.exit
 
 if.then.i.i:                                      ; preds = %if.end
-  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %res)
+  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %res)
           to label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2IS3_vEEONS0_IT_EE.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
@@ -17233,7 +17233,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i:  ; preds = %call.i.noexc
   br label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2IS3_vEEONS0_IT_EE.exit.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
-  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %call.i54, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
+  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %call.i54, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp)
           to label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2IS3_vEEONS0_IT_EE.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -17723,7 +17723,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !580
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !580
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(16) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !580
 
 invoke.cont.i:                                    ; preds = %entry
@@ -17789,7 +17789,7 @@ if.else.i.i:                                      ; preds = %if.then3.i
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
   store i8 0, ptr %_M_owns.i.i, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i
 
@@ -17889,7 +17889,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -17899,7 +17899,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -17964,7 +17964,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !586
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !586
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !586
 
 invoke.cont.i:                                    ; preds = %entry

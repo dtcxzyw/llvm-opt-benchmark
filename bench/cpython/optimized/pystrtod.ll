@@ -472,12 +472,12 @@ sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw
   br i1 %cmp.not.i, label %do.end.thread.i, label %if.then11.i
 
 do.end.thread.i:                                  ; preds = %sw.epilog
-  %call5139.i = call ptr @_Py_dg_dtoa(double noundef %val, i32 noundef %mode.0, i32 noundef %precision.addr.0, ptr noundef nonnull %decpt_as_int.i, ptr noundef nonnull %sign.i, ptr noundef nonnull %digits_end.i) #13
+  %call5139.i = call ptr @_Py_dg_dtoa(double noundef %val, i32 noundef range(i32 0, 4) %mode.0, i32 noundef %precision.addr.0, ptr noundef nonnull %decpt_as_int.i, ptr noundef nonnull %sign.i, ptr noundef nonnull %digits_end.i) #13
   br label %do.end13.i
 
 if.then11.i:                                      ; preds = %sw.epilog
   tail call void @_Py_set_387controlword(i16 noundef zeroext %or.i) #13
-  %call5.i = call ptr @_Py_dg_dtoa(double noundef %val, i32 noundef %mode.0, i32 noundef %precision.addr.0, ptr noundef nonnull %decpt_as_int.i, ptr noundef nonnull %sign.i, ptr noundef nonnull %digits_end.i) #13
+  %call5.i = call ptr @_Py_dg_dtoa(double noundef %val, i32 noundef range(i32 0, 4) %mode.0, i32 noundef %precision.addr.0, ptr noundef nonnull %decpt_as_int.i, ptr noundef nonnull %sign.i, ptr noundef nonnull %digits_end.i) #13
   call void @_Py_set_387controlword(i16 noundef zeroext %call.i) #13
   br label %do.end13.i
 

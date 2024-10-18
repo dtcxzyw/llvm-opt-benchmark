@@ -3940,7 +3940,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %46, %50, %52
 
 65:                                               ; preds = %._crit_edge55
   %66 = load i64, ptr %0, align 8
-  %.0.i43 = tail call i32 @llvm.umax.i32(i32 %38, i32 1)
+  %.0.i43 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 6) %38, i32 1)
   %67 = icmp ult i32 %38, 2
   %68 = and i64 %66, 3
   %69 = mul nuw nsw i64 %68, 5

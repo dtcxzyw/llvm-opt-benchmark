@@ -76,7 +76,7 @@ call.i.i.noexc:                                   ; preds = %_ZL8sleep_msj.exit.
 
 if.end.i:                                         ; preds = %call.i.i.noexc, %land.lhs.true.i, %do.body.i
   %ms_so_far.1.i = phi i32 [ %add.i, %call.i.i.noexc ], [ %ms_so_far.0.i, %land.lhs.true.i ], [ %ms_so_far.0.i, %do.body.i ]
-  %call5.i3 = invoke i32 @close(i32 noundef %0)
+  %call5.i3 = invoke i32 @close(i32 noundef range(i32 0, -1) %0)
           to label %call5.i.noexc unwind label %terminate.lpad.loopexit
 
 call5.i.noexc:                                    ; preds = %if.end.i

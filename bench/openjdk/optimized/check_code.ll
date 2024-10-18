@@ -320,7 +320,7 @@ initialize_class_hash.exit:                       ; preds = %CCinit.exit
   %66 = call fastcc i32 @make_class_info_from_name(ptr noundef %9, ptr noundef nonnull @.str.50)
   %67 = getelementptr inbounds i8, ptr %9, i64 488
   store i32 %66, ptr %67, align 8
-  %68 = call fastcc zeroext i16 @class_to_ID(ptr noundef %9, ptr noundef %1, i8 noundef zeroext 1)
+  %68 = call fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %9, ptr noundef %1, i8 noundef zeroext 1)
   %69 = zext i16 %68 to i32
   %70 = shl nuw i32 %69, 16
   %71 = or disjoint i32 %70, 9
@@ -334,7 +334,7 @@ initialize_class_hash.exit:                       ; preds = %CCinit.exit
   br i1 %.not126, label %123, label %77
 
 77:                                               ; preds = %57
-  %78 = call fastcc zeroext i16 @class_to_ID(ptr noundef %9, ptr noundef nonnull %76, i8 noundef zeroext 1)
+  %78 = call fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %9, ptr noundef nonnull %76, i8 noundef zeroext 1)
   %79 = zext i16 %78 to i32
   %80 = shl nuw i32 %79, 16
   %81 = or disjoint i32 %80, 9
@@ -390,7 +390,7 @@ initialize_class_hash.exit:                       ; preds = %CCinit.exit
 .lr.ph:                                           ; preds = %105, %.lr.ph
   %.0117260 = phi ptr [ %115, %.lr.ph ], [ %99, %105 ]
   %.1119259 = phi ptr [ %119, %.lr.ph ], [ %110, %105 ]
-  %111 = call fastcc zeroext i16 @class_to_ID(ptr noundef %9, ptr noundef nonnull %.1119259, i8 noundef zeroext 0)
+  %111 = call fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %9, ptr noundef nonnull %.1119259, i8 noundef zeroext 0)
   %112 = zext i16 %111 to i32
   %113 = shl nuw i32 %112, 16
   %114 = or disjoint i32 %113, 9
@@ -430,7 +430,7 @@ initialize_class_hash.exit:                       ; preds = %CCinit.exit
   %.0115261 = phi i32 [ %131, %verify_field.exit ], [ %129, %125 ]
   %131 = add nsw i32 %.0115261, -1
   %132 = load ptr, ptr %9, align 8
-  %133 = call i32 @JVM_GetFieldIxModifiers(ptr noundef %132, ptr noundef %1, i32 noundef %131) #20
+  %133 = call i32 @JVM_GetFieldIxModifiers(ptr noundef %132, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %131) #20
   store i32 %131, ptr %15, align 4
   %134 = and i32 %133, 1
   %.not.i = icmp eq i32 %134, 0
@@ -440,7 +440,7 @@ initialize_class_hash.exit:                       ; preds = %CCinit.exit
   br i1 %or.cond.i135, label %verify_field.exit, label %136
 
 136:                                              ; preds = %.lr.ph263
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.56)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.56)
   unreachable
 
 verify_field.exit:                                ; preds = %.lr.ph263
@@ -647,7 +647,7 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   %238 = load ptr, ptr %237, align 8
   %239 = load ptr, ptr %9, align 8
   %240 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %241 = call i32 @JVM_GetMethodIxModifiers(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
+  %241 = call i32 @JVM_GetMethodIxModifiers(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240) #20
   %242 = and i32 %241, 1280
   %.not.i136 = icmp eq i32 %242, 0
   br i1 %.not.i136, label %243, label %verify_method.exit
@@ -663,7 +663,7 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   store ptr %245, ptr %29, align 8
   %246 = sext i32 %236 to i64
   %247 = shl i32 %236, 2
-  %248 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %247)
+  %248 = call fastcc ptr @CCalloc(ptr noundef nonnull %9, i32 noundef %247)
   %249 = and i32 %241, 1
   %.not119.i = icmp eq i32 %249, 0
   %250 = and i32 %241, 6
@@ -672,11 +672,11 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   br i1 %or.cond.i137, label %252, label %251
 
 251:                                              ; preds = %243
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.56)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.56)
   unreachable
 
 252:                                              ; preds = %243
-  %253 = call zeroext i8 @JVM_IsVMGeneratedMethodIx(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
+  %253 = call zeroext i8 @JVM_IsVMGeneratedMethodIx(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240) #20
   %.not121.i = icmp eq i8 %253, 0
   br i1 %.not121.i, label %.preheader155.i, label %verify_method.exit
 
@@ -699,7 +699,7 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %256
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.57, i32 noundef %.0112219.i)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.57, i32 noundef %.0112219.i)
   unreachable
 
 263:                                              ; preds = %256
@@ -707,7 +707,7 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   br i1 %264, label %265, label %266
 
 265:                                              ; preds = %263
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.58, i32 noundef %.0112219.i)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.58, i32 noundef %.0112219.i)
   unreachable
 
 266:                                              ; preds = %263
@@ -744,16 +744,16 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
 ._crit_edge222.i:                                 ; preds = %._crit_edge.i, %.preheader155.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader155.i ], [ %279, %._crit_edge.i ]
   %281 = mul i32 %.0.lcssa.i, 88
-  %282 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %281)
+  %282 = call fastcc ptr @CCalloc(ptr noundef nonnull %9, i32 noundef %281)
   store ptr %238, ptr %220, align 8
   store ptr %282, ptr %221, align 8
   store ptr %248, ptr %222, align 8
   store i32 %.0.lcssa.i, ptr %223, align 8
-  %283 = call i32 @JVM_GetMethodIxExceptionTableLength(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
+  %283 = call i32 @JVM_GetMethodIxExceptionTableLength(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240) #20
   %284 = shl i32 %283, 5
-  %285 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %284)
+  %285 = call fastcc ptr @CCalloc(ptr noundef nonnull %9, i32 noundef %284)
   store ptr %285, ptr %224, align 8
-  %286 = call i32 @JVM_GetMethodIxLocalsCount(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
+  %286 = call i32 @JVM_GetMethodIxLocalsCount(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240) #20
   %287 = sext i32 %286 to i64
   %288 = add nsw i64 %287, 31
   %289 = lshr i64 %288, 5
@@ -770,7 +770,7 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   br label %294
 
 293:                                              ; preds = %._crit_edge222.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.59)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.59)
   unreachable
 
 294:                                              ; preds = %verify_opcode_operands.exit.i, %.lr.ph228.i
@@ -934,7 +934,7 @@ isLegalTarget.exit.i.i:                           ; preds = %320
   br i1 %338, label %isLegalTarget.exit.thread.i.i, label %339
 
 isLegalTarget.exit.thread.i.i:                    ; preds = %isLegalTarget.exit.i.i, %320
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.60)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.60)
   unreachable
 
 339:                                              ; preds = %isLegalTarget.exit.i.i
@@ -983,7 +983,7 @@ isLegalTarget.exit345.i.i:                        ; preds = %343
   br i1 %371, label %isLegalTarget.exit345.thread.i.i, label %372
 
 isLegalTarget.exit345.thread.i.i:                 ; preds = %isLegalTarget.exit345.i.i, %343
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.60)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.60)
   unreachable
 
 372:                                              ; preds = %isLegalTarget.exit345.i.i
@@ -1017,7 +1017,7 @@ isLegalTarget.exit345.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %.not340.i.i, label %385, label %389
 
 389:                                              ; preds = %.lr.ph376.i.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.61)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.61)
   unreachable
 
 .loopexit367.i.i:                                 ; preds = %385, %375
@@ -1059,7 +1059,7 @@ isLegalTarget.exit345.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %.not337.i.i, label %405, label %413, !llvm.loop !13
 
 413:                                              ; preds = %407
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.62)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.62)
   unreachable
 
 .loopexit.i.i:                                    ; preds = %405, %391
@@ -1067,7 +1067,7 @@ isLegalTarget.exit345.thread.i.i:                 ; preds = %isLegalTarget.exit3
   %.0310.i.i = phi i32 [ %399, %391 ], [ %403, %405 ]
   %414 = shl i32 %.0310.i.i, 2
   %415 = add i32 %414, 8
-  %416 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %415)
+  %416 = call fastcc ptr @CCalloc(ptr noundef nonnull %9, i32 noundef %415)
   %417 = load i32, ptr %381, align 4
   %418 = call noundef i32 @llvm.bswap.i32(i32 %417)
   %419 = add nsw i32 %418, %.2226.i
@@ -1086,7 +1086,7 @@ isLegalTarget.exit346.i.i:                        ; preds = %.loopexit.i.i
   br i1 %427, label %isLegalTarget.exit346.thread.i.i, label %428
 
 isLegalTarget.exit346.thread.i.i:                 ; preds = %isLegalTarget.exit346.i.i, %.loopexit.i.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.63)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.63)
   unreachable
 
 428:                                              ; preds = %isLegalTarget.exit346.i.i
@@ -1126,7 +1126,7 @@ isLegalTarget.exit347.i.i:                        ; preds = %437
   br i1 %448, label %isLegalTarget.exit347.thread.i.i, label %449
 
 isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit347.i.i, %437
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.64)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.64)
   unreachable
 
 449:                                              ; preds = %isLegalTarget.exit347.i.i
@@ -1157,7 +1157,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %or.cond173, label %464, label %463
 
 463:                                              ; preds = %455
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 464:                                              ; preds = %455
@@ -1177,7 +1177,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %475, label %476, label %verify_opcode_operands.exit.i
 
 476:                                              ; preds = %464
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 477:                                              ; preds = %294
@@ -1199,7 +1199,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %or.cond174, label %491, label %490
 
 490:                                              ; preds = %477
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 491:                                              ; preds = %477
@@ -1219,7 +1219,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %502, label %503, label %verify_opcode_operands.exit.i
 
 503:                                              ; preds = %491
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 504:                                              ; preds = %294
@@ -1240,7 +1240,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %or.cond175, label %517, label %516
 
 516:                                              ; preds = %504
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 517:                                              ; preds = %504
@@ -1255,7 +1255,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %525, label %526, label %verify_opcode_operands.exit.i
 
 526:                                              ; preds = %517
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 527:                                              ; preds = %294, %294, %294, %294
@@ -1276,7 +1276,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %or.cond176, label %540, label %539
 
 539:                                              ; preds = %527
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 540:                                              ; preds = %527
@@ -1288,7 +1288,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   br i1 %.not366.i.i, label %verify_constant_pool_type.exit.i.i, label %545
 
 545:                                              ; preds = %540
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 verify_constant_pool_type.exit.i.i:               ; preds = %540
@@ -1297,7 +1297,7 @@ verify_constant_pool_type.exit.i.i:               ; preds = %540
   br i1 %or.cond.i.i, label %547, label %verify_opcode_operands.exit.i
 
 547:                                              ; preds = %verify_constant_pool_type.exit.i.i
-  call fastcc void @set_protected(ptr noundef %9, i32 noundef %.0114224.i, i32 noundef %536, i32 noundef %316)
+  call fastcc void @set_protected(ptr noundef nonnull %9, i32 noundef %.0114224.i, i32 noundef %536, i32 noundef %316)
   br label %verify_opcode_operands.exit.i
 
 548:                                              ; preds = %294, %294, %294, %294
@@ -1334,7 +1334,7 @@ verify_constant_pool_type.exit.i.i:               ; preds = %540
   br i1 %or.cond177, label %568, label %567
 
 567:                                              ; preds = %564
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 568:                                              ; preds = %564
@@ -1349,7 +1349,7 @@ verify_constant_pool_type.exit.i.i:               ; preds = %540
   br i1 %576, label %577, label %verify_constant_pool_type.exit349.i.i
 
 577:                                              ; preds = %568
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 verify_constant_pool_type.exit349.i.i:            ; preds = %568
@@ -1431,7 +1431,7 @@ free_block.exit.i.i.i:                            ; preds = %602, %601, %check_a
   br label %pop_and_free.exit.i.i
 
 pop_and_free.exit.i.i:                            ; preds = %607, %604
-  %608 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef %9, i32 noundef %557, i32 noundef 10)
+  %608 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef nonnull %9, i32 noundef %557, i32 noundef 10)
   store i32 %557, ptr %317, align 8
   store i32 %608, ptr %318, align 8
   br i1 %.not329.i.i, label %609, label %611
@@ -1441,7 +1441,7 @@ pop_and_free.exit.i.i:                            ; preds = %607, %604
   br i1 %.not334.i.i, label %.thread390.i.i, label %610
 
 610:                                              ; preds = %609
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.66)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.66)
   unreachable
 
 .thread390.i.i:                                   ; preds = %609
@@ -1453,7 +1453,7 @@ pop_and_free.exit.i.i:                            ; preds = %607, %604
   br i1 %612, label %613, label %614
 
 613:                                              ; preds = %611
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.67)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.67)
   unreachable
 
 614:                                              ; preds = %611
@@ -1481,7 +1481,7 @@ pop_and_free.exit.i.i:                            ; preds = %607, %604
 
 .lr.ph.i.i:                                       ; preds = %618, %630
   %.0317374.i.i = phi ptr [ %633, %630 ], [ %623, %618 ]
-  %624 = call fastcc zeroext i16 @class_to_ID(ptr noundef %9, ptr noundef nonnull %.0317374.i.i, i8 noundef zeroext 0)
+  %624 = call fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %9, ptr noundef nonnull %.0317374.i.i, i8 noundef zeroext 0)
   %625 = zext i16 %624 to i32
   %626 = shl nuw i32 %625, 16
   %627 = or disjoint i32 %626, 9
@@ -1505,7 +1505,7 @@ pop_and_free.exit.i.i:                            ; preds = %607, %604
   %638 = getelementptr inbounds i8, ptr %637, i64 184
   %639 = load ptr, ptr %638, align 8
   call void %639(ptr noundef nonnull %310, ptr noundef null) #20
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.68)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.68)
   unreachable
 
 640:                                              ; preds = %.lr.ph.i.i
@@ -1641,7 +1641,7 @@ signature_to_args_size.exit.i.i:                  ; preds = %665, %signature_to_
   br i1 %.not335.i.i, label %687, label %686
 
 686:                                              ; preds = %signature_to_args_size.exit.i.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.69)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.69)
   unreachable
 
 687:                                              ; preds = %signature_to_args_size.exit.i.i
@@ -1651,7 +1651,7 @@ signature_to_args_size.exit.i.i:                  ; preds = %665, %signature_to_
   br i1 %.not336.i.i, label %691, label %690
 
 690:                                              ; preds = %687
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.70)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.70)
   unreachable
 
 691:                                              ; preds = %687
@@ -1693,11 +1693,11 @@ free_block.exit.i353.i.i:                         ; preds = %695, %694, %691
   br i1 %or.cond3.i.i, label %.thread363.i.i, label %verify_opcode_operands.exit.i
 
 .thread363.i.i:                                   ; preds = %701, %615, %.thread390.i.i
-  call fastcc void @set_protected(ptr noundef %9, i32 noundef %.0114224.i, i32 noundef %557, i32 noundef %316)
+  call fastcc void @set_protected(ptr noundef nonnull %9, i32 noundef %.0114224.i, i32 noundef %557, i32 noundef %316)
   br label %verify_opcode_operands.exit.i
 
 703:                                              ; preds = %294
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.71)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.71)
   unreachable
 
 704:                                              ; preds = %294, %294, %294, %294, %294
@@ -1717,7 +1717,7 @@ free_block.exit.i353.i.i:                         ; preds = %695, %694, %691
   br i1 %or.cond179, label %717, label %716
 
 716:                                              ; preds = %704
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 717:                                              ; preds = %704
@@ -1729,17 +1729,17 @@ free_block.exit.i353.i.i:                         ; preds = %695, %694, %691
   br i1 %.not365.i.i, label %verify_constant_pool_type.exit358.i.i, label %722
 
 722:                                              ; preds = %717
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 verify_constant_pool_type.exit358.i.i:            ; preds = %717
-  %723 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef %9, i32 noundef %713, i32 noundef 7)
+  %723 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef nonnull %9, i32 noundef %713, i32 noundef 7)
   %724 = and i32 %723, 31
   %725 = icmp eq i32 %724, 0
   br i1 %725, label %726, label %727
 
 726:                                              ; preds = %verify_constant_pool_type.exit358.i.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.72)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.72)
   unreachable
 
 727:                                              ; preds = %verify_constant_pool_type.exit358.i.i
@@ -1756,7 +1756,7 @@ verify_constant_pool_type.exit358.i.i:            ; preds = %717
   br i1 %731, label %732, label %733
 
 732:                                              ; preds = %728
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.73)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.73)
   unreachable
 
 733:                                              ; preds = %728
@@ -1774,7 +1774,7 @@ verify_constant_pool_type.exit358.i.i:            ; preds = %717
   br i1 %.not328.i.i, label %742, label %741
 
 741:                                              ; preds = %739
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.74)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.74)
   unreachable
 
 742:                                              ; preds = %739
@@ -1798,7 +1798,7 @@ verify_constant_pool_type.exit358.i.i:            ; preds = %717
   br i1 %or.cond344.i.i, label %753, label %verify_opcode_operands.exit.i
 
 753:                                              ; preds = %745
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.75)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.75)
   unreachable
 
 754:                                              ; preds = %727
@@ -1814,7 +1814,7 @@ verify_constant_pool_type.exit358.i.i:            ; preds = %717
   br i1 %759, label %switch.lookup, label %760
 
 760:                                              ; preds = %755
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.76)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.76)
   unreachable
 
 switch.lookup:                                    ; preds = %755
@@ -1911,7 +1911,7 @@ switch.lookup:                                    ; preds = %755
   br i1 %.not327.i.i, label %verify_opcode_operands.exit.i, label %803
 
 803:                                              ; preds = %800
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.77)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.77)
   unreachable
 
 804:                                              ; preds = %294, %294, %294, %294
@@ -1931,7 +1931,7 @@ switch.lookup:                                    ; preds = %755
   br i1 %.not.i.i, label %verify_opcode_operands.exit.i, label %813
 
 813:                                              ; preds = %809
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.77)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.77)
   unreachable
 
 814:                                              ; preds = %294
@@ -1939,7 +1939,7 @@ switch.lookup:                                    ; preds = %755
   br i1 %815, label %816, label %verify_opcode_operands.exit.i
 
 816:                                              ; preds = %814
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.78)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.78)
   unreachable
 
 verify_opcode_operands.exit.i:                    ; preds = %814, %809, %800, %switch.lookup, %754, %745, %742, %733, %.thread363.i.i, %701, %700, %697, %547, %verify_constant_pool_type.exit.i.i, %517, %491, %464, %._crit_edge381.i.i, %372, %339
@@ -1968,7 +1968,7 @@ verify_opcode_operands.exit.i:                    ; preds = %814, %809, %800, %s
   br i1 %830, label %.lr.ph.i124.i, label %initialize_exception_table.exit.i
 
 831:                                              ; preds = %._crit_edge229.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.80)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.80)
   unreachable
 
 .lr.ph.i124.i:                                    ; preds = %.preheader.i.i, %pop_and_free.exit.i133.i
@@ -2062,7 +2062,7 @@ isLegalTarget.exit67.i.i:                         ; preds = %870
   br i1 %875, label %isLegalTarget.exit.thread.i125.i, label %876
 
 isLegalTarget.exit.thread.i125.i:                 ; preds = %isLegalTarget.exit67.i.i, %870, %isLegalTarget.exit.i126.i, %860, %CCalloc.exit.i.i
-  call void (ptr, ptr, ...) @CFerror(ptr noundef %9, ptr noundef nonnull @.str.81)
+  call void (ptr, ptr, ...) @CFerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.81)
   unreachable
 
 876:                                              ; preds = %isLegalTarget.exit67.i.i, %868
@@ -2080,7 +2080,7 @@ isLegalTarget.exit68.i.i:                         ; preds = %876
   br i1 %883, label %isLegalTarget.exit68.thread.i.i, label %884
 
 isLegalTarget.exit68.thread.i.i:                  ; preds = %isLegalTarget.exit68.i.i, %876
-  call void (ptr, ptr, ...) @CFerror(ptr noundef %9, ptr noundef nonnull @.str.82)
+  call void (ptr, ptr, ...) @CFerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.82)
   unreachable
 
 884:                                              ; preds = %isLegalTarget.exit68.i.i
@@ -2153,15 +2153,15 @@ check_and_push_string_utf.exit.i127.i:            ; preds = %914, %910
   %920 = getelementptr inbounds i8, ptr %.0.i.i.i128.i, i64 16
   store ptr %919, ptr %920, align 8
   store ptr %.0.i.i.i128.i, ptr %160, align 8
-  %921 = call fastcc i32 @make_class_info_from_name(ptr noundef %9, ptr noundef nonnull %902)
+  %921 = call fastcc i32 @make_class_info_from_name(ptr noundef nonnull %9, ptr noundef nonnull %902)
   store i32 %921, ptr %852, align 8
   %922 = load i32, ptr %63, align 8
-  %923 = call fastcc i32 @merge_fullinfo_types(ptr noundef %9, i32 noundef %921, i32 noundef %922, i8 noundef zeroext 1)
+  %923 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %9, i32 noundef %921, i32 noundef %922, i8 noundef zeroext 1)
   %.not.i129.i = icmp eq i32 %923, %922
   br i1 %.not.i129.i, label %925, label %924
 
 924:                                              ; preds = %check_and_push_string_utf.exit.i127.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.83)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.83)
   unreachable
 
 925:                                              ; preds = %check_and_push_string_utf.exit.i127.i
@@ -2227,7 +2227,7 @@ initialize_exception_table.exit.i:                ; preds = %pop_and_free.exit.i
   %950 = getelementptr inbounds i8, ptr %944, i64 48
   store i32 %947, ptr %950, align 8
   %951 = shl i32 %947, 2
-  %952 = call fastcc ptr @CCalloc(ptr noundef %9, i32 noundef %951)
+  %952 = call fastcc ptr @CCalloc(ptr noundef nonnull %9, i32 noundef %951)
   %953 = getelementptr inbounds i8, ptr %944, i64 56
   store ptr %952, ptr %953, align 8
   %954 = getelementptr inbounds i8, ptr %944, i64 64
@@ -2316,7 +2316,7 @@ check_and_push_string_utf.exit.i136.i:            ; preds = %981, %977
 
 .lr.ph.i138.i:                                    ; preds = %check_and_push_string_utf.exit.i136.i, %999
   %.149.i.i = phi ptr [ %.2.i.i, %999 ], [ %.0.i135.i, %check_and_push_string_utf.exit.i136.i ]
-  %990 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %9, ptr noundef %7, ptr noundef %6)
+  %990 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %9, ptr noundef %7, ptr noundef %6)
   switch i8 %990, label %996 [
     i8 68, label %991
     i8 76, label %991
@@ -2353,7 +2353,7 @@ check_and_push_string_utf.exit.i136.i:            ; preds = %981, %977
   br i1 %1004, label %1008, label %1005
 
 1005:                                             ; preds = %._crit_edge.i139.i
-  %1006 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %9, ptr noundef %7, ptr noundef %6)
+  %1006 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %9, ptr noundef %7, ptr noundef %6)
   %1007 = load i32, ptr %6, align 4
   br label %1008
 
@@ -2403,8 +2403,8 @@ initialize_dataflow.exit.i:                       ; preds = %1021, %1018
   store i8 %1024, ptr %1022, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call fastcc void @run_dataflow(ptr noundef %9)
-  %1025 = call i32 @JVM_GetMethodIxExceptionsCount(ptr noundef %239, ptr noundef %1, i32 noundef %240) #20
+  call fastcc void @run_dataflow(ptr noundef nonnull %9)
+  %1025 = call i32 @JVM_GetMethodIxExceptionsCount(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240) #20
   %1026 = sext i32 %1025 to i64
   %1027 = shl nsw i64 %1026, 1
   %1028 = or disjoint i64 %1027, 1
@@ -2421,7 +2421,7 @@ initialize_dataflow.exit.i:                       ; preds = %1021, %1018
   unreachable
 
 1034:                                             ; preds = %initialize_dataflow.exit.i
-  call void @JVM_GetMethodIxExceptionIndexes(ptr noundef %239, ptr noundef %1, i32 noundef %240, ptr noundef nonnull %1029) #20
+  call void @JVM_GetMethodIxExceptionIndexes(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240, ptr noundef nonnull %1029) #20
   %1035 = icmp sgt i32 %1025, 0
   %.pre.i = load ptr, ptr %232, align 8
   br i1 %1035, label %.lr.ph232.i, label %._crit_edge233.i
@@ -2448,7 +2448,7 @@ initialize_dataflow.exit.i:                       ; preds = %1021, %1018
   br i1 %or.cond182, label %verify_constant_pool_type.exit.i, label %1044
 
 1044:                                             ; preds = %1039
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.138)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.138)
   unreachable
 
 verify_constant_pool_type.exit.i:                 ; preds = %1039
@@ -2459,7 +2459,7 @@ verify_constant_pool_type.exit.i:                 ; preds = %1039
   br i1 %.not152.i, label %1038, label %1048
 
 1048:                                             ; preds = %verify_constant_pool_type.exit.i
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %9, ptr noundef nonnull @.str.139)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %9, ptr noundef nonnull @.str.139)
   unreachable
 
 ._crit_edge233.i:                                 ; preds = %1038, %1034
@@ -2878,11 +2878,11 @@ class_hash_fun.exit.i:                            ; preds = %.lr.ph.i.i, %2
   br i1 %50, label %51, label %load_class_local.exit.i
 
 51:                                               ; preds = %._crit_edge.thread58.i
-  tail call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %1)
+  tail call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %1)
   unreachable
 
 load_class_local.exit.i:                          ; preds = %._crit_edge.thread58.i
-  %52 = tail call fastcc zeroext i16 @class_to_ID(ptr noundef %0, ptr noundef nonnull %49, i8 noundef zeroext 1)
+  %52 = tail call fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %0, ptr noundef nonnull %49, i8 noundef zeroext 1)
   %53 = load ptr, ptr %46, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 184
   %55 = load ptr, ptr %54, align 8
@@ -3098,7 +3098,7 @@ class_hash_fun.exit:                              ; preds = %.lr.ph.i, %check_an
   br i1 %69, label %70, label %load_class_local.exit.i
 
 70:                                               ; preds = %65
-  tail call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %6)
+  tail call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %6)
   unreachable
 
 load_class_local.exit.i:                          ; preds = %65
@@ -3900,7 +3900,7 @@ check_and_push_string_utf.exit367.i.us:           ; preds = %128, %125
   br i1 %.not317.i.us, label %145, label %143
 
 143:                                              ; preds = %140
-  %144 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %0, ptr noundef %12, ptr noundef %9)
+  %144 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %9)
   %.1302.add.i.us = add nuw nsw i64 %.1302.idx.i.us, 1
   store i8 %144, ptr %.1302.ptr.i.us, align 1
   %exitcond.not.i.us = icmp eq i64 %.1302.add.i.us, 256
@@ -3987,7 +3987,7 @@ check_and_push_string_utf.exit.i.us:              ; preds = %170, %167
 
 179:                                              ; preds = %178, %check_and_push_string_utf.exit.i.us
   %.0300.i.us = phi ptr [ %30, %178 ], [ %7, %check_and_push_string_utf.exit.i.us ]
-  %180 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %0, ptr noundef %11, ptr noundef %10)
+  %180 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %10)
   %181 = getelementptr inbounds i8, ptr %.0300.i.us, i64 1
   store i8 %180, ptr %.0300.i.us, align 1
   store i8 0, ptr %181, align 1
@@ -4262,7 +4262,7 @@ pop_and_free.exit.i.us:                           ; preds = %195, %194, %191, %1
   br i1 %.not356.i.us, label %.split418.us, label %289
 
 289:                                              ; preds = %284
-  %290 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef %0, i32 noundef %285, i32 noundef 9)
+  %290 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef nonnull %0, i32 noundef %285, i32 noundef 9)
   %291 = load i32, ptr %32, align 4
   %292 = icmp eq i32 %290, %291
   br i1 %292, label %293, label %.split418.us
@@ -4339,7 +4339,7 @@ pop_and_free.exit.i.us:                           ; preds = %195, %194, %191, %1
 
 308:                                              ; preds = %._crit_edge.i.us, %._crit_edge.i.us, %._crit_edge.i.us, %._crit_edge.i.us, %._crit_edge.i.us
   %309 = load i32, ptr %34, align 4
-  %310 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %302, i32 noundef %309, i8 noundef zeroext 1)
+  %310 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %302, i32 noundef %309, i8 noundef zeroext 1)
   %.not383.i.us = icmp eq i32 %310, %309
   br i1 %.not383.i.us, label %pop_stack.exit.us, label %.split426.us
 
@@ -4429,7 +4429,7 @@ check_and_push_string_utf.exit377.i.us:           ; preds = %325, %322
 
 351:                                              ; preds = %347
   %352 = load i32, ptr %32, align 4
-  %353 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %335, i32 noundef %352, i8 noundef zeroext 1)
+  %353 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %335, i32 noundef %352, i8 noundef zeroext 1)
   %.not384.i.us = icmp eq i32 %353, %352
   br i1 %.not384.i.us, label %386, label %.split439.us
 
@@ -4437,7 +4437,7 @@ check_and_push_string_utf.exit377.i.us:           ; preds = %325, %322
   %355 = getelementptr inbounds i8, ptr %57, i64 16
   %356 = load i32, ptr %355, align 8
   %357 = load i32, ptr %.0299.lcssa.i.us, align 4
-  %358 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %357, i32 noundef %356, i8 noundef zeroext 1)
+  %358 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %357, i32 noundef %356, i8 noundef zeroext 1)
   %.not385.i.us = icmp eq i32 %358, %356
   br i1 %.not385.i.us, label %359, label %.split441.us
 
@@ -4447,7 +4447,7 @@ check_and_push_string_utf.exit377.i.us:           ; preds = %325, %322
 
 361:                                              ; preds = %359
   %362 = load i32, ptr %32, align 4
-  %363 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %357, i32 noundef %362, i8 noundef zeroext 1)
+  %363 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %357, i32 noundef %362, i8 noundef zeroext 1)
   %.not386.i.us = icmp eq i32 %363, %362
   br i1 %.not386.i.us, label %364, label %.split443.us
 
@@ -4460,7 +4460,7 @@ check_and_push_string_utf.exit377.i.us:           ; preds = %325, %322
 
 368:                                              ; preds = %364
   %369 = load i32, ptr %32, align 4
-  %370 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %357, i32 noundef %369, i8 noundef zeroext 1)
+  %370 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %357, i32 noundef %369, i8 noundef zeroext 1)
   %.not387.i.us = icmp eq i32 %370, %369
   br i1 %.not387.i.us, label %386, label %371
 
@@ -4500,7 +4500,7 @@ check_and_push_string_utf.exit377.i.us:           ; preds = %325, %322
 
 .lr.ph471.i.us:                                   ; preds = %386, %396
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %396 ], [ %.0304.i.us, %386 ]
-  %389 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %0, ptr noundef %13, ptr noundef %9)
+  %389 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %9)
   %390 = icmp eq i8 %389, 65
   br i1 %390, label %391, label %396
 
@@ -4508,7 +4508,7 @@ check_and_push_string_utf.exit377.i.us:           ; preds = %325, %322
   %392 = getelementptr inbounds i32, ptr %.0299.lcssa.i.us, i64 %indvars.iv.i.us
   %393 = load i32, ptr %392, align 4
   %394 = load i32, ptr %9, align 4
-  %395 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %393, i32 noundef %394, i8 noundef zeroext 1)
+  %395 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %393, i32 noundef %394, i8 noundef zeroext 1)
   %.not388.i.us = icmp eq i32 %395, %394
   br i1 %.not388.i.us, label %396, label %.split447.us
 
@@ -4583,7 +4583,7 @@ decrement_indirection.exit375.i.us:               ; preds = %414, %412
 
 426:                                              ; preds = %._crit_edge.i.us
   %427 = load i32, ptr %37, align 8
-  %428 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %302, i32 noundef %427, i8 noundef zeroext 1)
+  %428 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %302, i32 noundef %427, i8 noundef zeroext 1)
   %.not389.i.us = icmp eq i32 %428, %427
   br i1 %.not389.i.us, label %pop_stack.exit.us, label %.split449.us
 
@@ -4595,8 +4595,8 @@ decrement_indirection.exit375.i.us:               ; preds = %414, %412
 
 432:                                              ; preds = %429
   %433 = load i32, ptr %59, align 8
-  %434 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef %0, i32 noundef %433, i32 noundef 9)
-  %435 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %302, i32 noundef %434, i8 noundef zeroext 1)
+  %434 = call fastcc i32 @cp_index_to_class_fullinfo(ptr noundef nonnull %0, i32 noundef %433, i32 noundef 9)
+  %435 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %302, i32 noundef %434, i8 noundef zeroext 1)
   %.not390.i.us = icmp eq i32 %435, %434
   br i1 %.not390.i.us, label %436, label %.split451.us
 
@@ -4609,7 +4609,7 @@ decrement_indirection.exit375.i.us:               ; preds = %414, %412
 
 440:                                              ; preds = %436
   %441 = load i32, ptr %32, align 4
-  %442 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %302, i32 noundef %441, i8 noundef zeroext 1)
+  %442 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %302, i32 noundef %441, i8 noundef zeroext 1)
   %.not391.i.us = icmp eq i32 %442, %441
   br i1 %.not391.i.us, label %443, label %.split453.us
 
@@ -4621,7 +4621,7 @@ decrement_indirection.exit375.i.us:               ; preds = %414, %412
   %445 = getelementptr inbounds i32, ptr %.0299.lcssa.i.us, i64 %444
   %446 = load i32, ptr %445, align 4
   %447 = load i32, ptr %10, align 4
-  %448 = call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %446, i32 noundef %447, i8 noundef zeroext 1)
+  %448 = call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %446, i32 noundef %447, i8 noundef zeroext 1)
   %.not392.i.us = icmp eq i32 %448, %447
   br i1 %.not392.i.us, label %pop_stack.exit.us, label %.split455.us
 
@@ -4733,7 +4733,7 @@ pop_stack.exit.us:                                ; preds = %466, %.thread382.i.
   %494 = trunc nuw nsw i64 %indvars.iv.i36.us to i32
   %495 = shl nuw nsw i64 %wide.trip.count.i.us, 2
   %496 = trunc i64 %495 to i32
-  %497 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %496)
+  %497 = call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %496)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %497, ptr nonnull align 4 %478, i64 %495, i1 false)
   %498 = icmp sgt i32 %476, %494
   br i1 %498, label %.lr.ph208.i.us, label %update_registers.exit.us
@@ -4988,11 +4988,11 @@ copy_masks.exit.us.us.i.us:                       ; preds = %copy_masks.exit.us.
 ._crit_edge.i41.us:                               ; preds = %599, %594
   %600 = add nsw i32 %.fr221.i.us, 1
   %601 = shl i32 %600, 4
-  %602 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %601)
+  %602 = call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %601)
   %603 = load i32, ptr %39, align 8
   %604 = shl i32 %600, 2
   %605 = mul i32 %604, %603
-  %606 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %605)
+  %606 = call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %605)
   %607 = sext i32 %603 to i64
   %608 = shl nsw i64 %607, 2
   br i1 %595, label %.lr.ph.i.i.us, label %add_to_masks.exit.i.us
@@ -5504,7 +5504,7 @@ check_and_push_string_utf.exit.i55.us:            ; preds = %841, %838
   %847 = getelementptr inbounds i8, ptr %.0.i.i.i56.us, i64 16
   store ptr %846, ptr %847, align 8
   store ptr %.0.i.i.i56.us, ptr %29, align 8
-  %848 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %0, ptr noundef %5, ptr noundef %3)
+  %848 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %3)
   store i8 %848, ptr %4, align 1
   store i8 0, ptr %45, align 1
   %849 = load ptr, ptr %29, align 8
@@ -5569,12 +5569,12 @@ free_block.exit.i.i57.us:                         ; preds = %856, %855, %check_a
   br i1 %cond.i.us, label %873, label %871
 
 871:                                              ; preds = %870
-  %872 = call fastcc i32 @make_class_info_from_name(ptr noundef %0, ptr noundef nonnull @.str.130)
+  %872 = call fastcc i32 @make_class_info_from_name(ptr noundef nonnull %0, ptr noundef nonnull @.str.130)
   store i32 %872, ptr %3, align 4
   br label %pop_and_free.exit.i45.us
 
 873:                                              ; preds = %870
-  %874 = call fastcc i32 @make_class_info_from_name(ptr noundef %0, ptr noundef nonnull @.str.129)
+  %874 = call fastcc i32 @make_class_info_from_name(ptr noundef nonnull %0, ptr noundef nonnull @.str.129)
   store i32 %874, ptr %3, align 4
   br label %pop_and_free.exit.i45.us
 
@@ -5584,7 +5584,7 @@ free_block.exit.i.i57.us:                         ; preds = %856, %855, %check_a
   br i1 %877, label %.split492.us, label %878
 
 878:                                              ; preds = %875
-  %879 = call fastcc i32 @make_class_info_from_name(ptr noundef %0, ptr noundef nonnull @.str.128)
+  %879 = call fastcc i32 @make_class_info_from_name(ptr noundef nonnull %0, ptr noundef nonnull @.str.128)
   store i32 %879, ptr %3, align 4
   br label %pop_and_free.exit.i45.us
 
@@ -5721,7 +5721,7 @@ get_result_signature.exit.i.us:                   ; preds = %917
   br i1 %928, label %931, label %929
 
 929:                                              ; preds = %get_result_signature.exit.i.us
-  %930 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef %0, ptr noundef %6, ptr noundef %3)
+  %930 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %3)
   store i8 %930, ptr %4, align 1
   store i8 0, ptr %45, align 1
   %.pre.i54.us = load ptr, ptr %29, align 8
@@ -6140,7 +6140,7 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
   %.0106.lcssa.i.us = phi i32 [ 0, %1069 ], [ %.1107.i.us, %1086 ]
   %1088 = shl i32 %.0106.lcssa.i.us, 2
   %1089 = add i32 %1088, 4
-  %1090 = call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %1089)
+  %1090 = call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %1089)
   store ptr %1090, ptr %1066, align 8
   store i32 %.0106.lcssa.i.us, ptr %1090, align 4
   %1091 = load i32, ptr %24, align 8
@@ -6255,7 +6255,7 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
   %1144 = and i16 %1143, %.0.i43108.us
   %1145 = load i16, ptr %1130, align 8
   %1146 = or i16 %1145, %810
-  call fastcc void @merge_into_one_successor(ptr noundef %0, i32 noundef %1132, i32 noundef %1141, ptr noundef nonnull %1128, ptr noundef nonnull %1142, i16 noundef zeroext %1144, i16 noundef zeroext %1146, i8 noundef zeroext 1)
+  call fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i32 noundef %1132, i32 noundef %1141, ptr noundef nonnull %1128, ptr noundef nonnull %1142, i16 noundef zeroext %1144, i16 noundef zeroext %1146, i8 noundef zeroext 1)
   br label %1147
 
 1147:                                             ; preds = %1139, %1135, %.lr.ph130.split.i.us
@@ -6286,8 +6286,8 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
   %1162 = getelementptr inbounds i8, ptr %.0128.us.i.us, i64 16
   %1163 = load i16, ptr %1129, align 2
   %1164 = load i16, ptr %1130, align 8
-  call fastcc void @merge_into_one_successor(ptr noundef %0, i32 noundef %1132, i32 noundef %1159, ptr noundef nonnull %1128, ptr noundef nonnull %1162, i16 noundef zeroext %1163, i16 noundef zeroext %1164, i8 noundef zeroext 1)
-  call fastcc void @merge_into_one_successor(ptr noundef %0, i32 noundef %1132, i32 noundef %1159, ptr noundef nonnull readonly %14, ptr noundef nonnull %1162, i16 noundef zeroext %.0.i43108.us, i16 noundef zeroext %spec.select122.us.i.us, i8 noundef zeroext 1)
+  call fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i32 noundef %1132, i32 noundef %1159, ptr noundef nonnull %1128, ptr noundef nonnull %1162, i16 noundef zeroext %1163, i16 noundef zeroext %1164, i8 noundef zeroext 1)
+  call fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i32 noundef %1132, i32 noundef %1159, ptr noundef nonnull readonly %14, ptr noundef nonnull %1162, i16 noundef zeroext %.0.i43108.us, i16 noundef zeroext %spec.select122.us.i.us, i8 noundef zeroext 1)
   br label %1165
 
 1165:                                             ; preds = %1157, %1153, %.lr.ph130.split.us.i.us
@@ -6314,7 +6314,7 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
   br i1 %.not119.i.us, label %1175, label %.split512.us
 
 1175:                                             ; preds = %1171
-  call fastcc void @merge_into_one_successor(ptr noundef %0, i32 noundef %1170, i32 noundef %1173, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i16 noundef zeroext %.0.i43108.us, i16 noundef zeroext %810, i8 noundef zeroext 0)
+  call fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i32 noundef %1170, i32 noundef %1173, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i16 noundef zeroext %.0.i43108.us, i16 noundef zeroext %810, i8 noundef zeroext 0)
   %indvars.iv.next141.i.us = add nuw nsw i64 %indvars.iv140.i.us, 1
   %exitcond.not.i62.us = icmp eq i64 %indvars.iv.next141.i.us, %wide.trip.count.i61.us
   br i1 %exitcond.not.i62.us, label %merge_into_successors.exit.us, label %1171, !llvm.loop !58
@@ -6346,31 +6346,31 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   br i1 %.not.us, label %.split514.us, label %.preheader.us.backedge
 
 .split355.us:                                     ; preds = %82
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.84, i32 noundef %60)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.84, i32 noundef %60)
   unreachable
 
 .split358.us:                                     ; preds = %90
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.85, i32 noundef %60)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.85, i32 noundef %60)
   unreachable
 
 .split361.us:                                     ; preds = %93
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.86, i32 noundef %60)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.86, i32 noundef %60)
   unreachable
 
 .split348.us:                                     ; preds = %66
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.87, i32 noundef %60, i32 noundef %67)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef %60, i32 noundef %67)
   unreachable
 
 .split351.us:                                     ; preds = %68, %73
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.88, i32 noundef %60, i32 noundef %67)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.88, i32 noundef %60, i32 noundef %67)
   unreachable
 
 .split364.us:                                     ; preds = %100
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.89)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
   unreachable
 
 .split366.us:                                     ; preds = %104
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.90)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.90)
   unreachable
 
 .split376.us:                                     ; preds = %159
@@ -6400,117 +6400,117 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split373.us:                                     ; preds = %143
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %120)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %120)
   unreachable
 
 .split381.us:                                     ; preds = %204
   %1186 = getelementptr inbounds i8, ptr %.0299458.i.us, i64 -4
   store i32 0, ptr %1186, align 4
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.92)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.92)
   unreachable
 
 .split422.us:                                     ; preds = %295
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.93)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.93)
   unreachable
 
 .split420.us:                                     ; preds = %294
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.94)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.94)
   unreachable
 
 .split418.us:                                     ; preds = %282, %284, %289
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.95)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.95)
   unreachable
 
 .split416.us:                                     ; preds = %271
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.96)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.96)
   unreachable
 
 .split414.us:                                     ; preds = %269
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.97)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
   unreachable
 
 .split412.us:                                     ; preds = %265
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.98)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.98)
   unreachable
 
 .split410.us:                                     ; preds = %264
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.99)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.99)
   unreachable
 
 .split408.us:                                     ; preds = %263
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.100)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.100)
   unreachable
 
 .split406.us:                                     ; preds = %260
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.101)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.101)
   unreachable
 
 .split404.us:                                     ; preds = %259
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.102)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.102)
   unreachable
 
 .split402.us:                                     ; preds = %258
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.103)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.103)
   unreachable
 
 .split400.us:                                     ; preds = %257
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.104)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.104)
   unreachable
 
 .split398.us:                                     ; preds = %252, %255
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.105)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   unreachable
 
 .split396.us:                                     ; preds = %251
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.106)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
   unreachable
 
 .split394.us:                                     ; preds = %250
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.107)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
   unreachable
 
 .split392.us:                                     ; preds = %249
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.108)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.108)
   unreachable
 
 .split390.us:                                     ; preds = %246
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.109)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.109)
   unreachable
 
 .split388.us:                                     ; preds = %243
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.110)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.110)
   unreachable
 
 .split386.us:                                     ; preds = %225, %227
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.111)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.111)
   unreachable
 
 .split384.us:                                     ; preds = %208
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.112)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.112)
   unreachable
 
 .split457.us:                                     ; preds = %decrement_indirection.exit.i.us
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.113)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
   unreachable
 
 .split459.us:                                     ; preds = %466
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.114)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.114)
   unreachable
 
 .split451.us:                                     ; preds = %432
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.115)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.115)
   unreachable
 
 .split453.us:                                     ; preds = %440
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.116)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
   unreachable
 
 .split455.us:                                     ; preds = %.thread382.i.us
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.117)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.117)
   unreachable
 
 .split449.us:                                     ; preds = %426
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.118)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.118)
   unreachable
 
 .split430.us:                                     ; preds = %313
@@ -6527,43 +6527,43 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split437.us:                                     ; preds = %342
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.119)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.119)
   unreachable
 
 .split439.us:                                     ; preds = %351
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.116)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
   unreachable
 
 .split435.us:                                     ; preds = %340
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.119)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.119)
   unreachable
 
 .split441.us:                                     ; preds = %354
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.120)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.120)
   unreachable
 
 .split443.us:                                     ; preds = %361
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.121)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.121)
   unreachable
 
 .split445.us:                                     ; preds = %379, %383
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.116)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
   unreachable
 
 .split447.us:                                     ; preds = %391
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.123)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.123)
   unreachable
 
 .split428.us:                                     ; preds = %311
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.124)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.124)
   unreachable
 
 .split426.us:                                     ; preds = %308
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.124)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.124)
   unreachable
 
 .split424.us:                                     ; preds = %.lr.ph466.i.us
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.125)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.125)
   unreachable
 
 .split473.us:                                     ; preds = %663
@@ -6583,7 +6583,7 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split469.us:                                     ; preds = %.lr.ph211.i.us
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.126)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.126)
   unreachable
 
 .split463.us:                                     ; preds = %532
@@ -6651,15 +6651,15 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split492.us:                                     ; preds = %875
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.127)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.127)
   unreachable
 
 .split490.us:                                     ; preds = %867
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.127)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.127)
   unreachable
 
 .split488.us:                                     ; preds = %862
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.127)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.127)
   unreachable
 
 .split483.us:                                     ; preds = %830
@@ -6689,7 +6689,7 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split499.us:                                     ; preds = %917
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull %902)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.131, ptr noundef nonnull %902)
   unreachable
 
 .split502.us:                                     ; preds = %961
@@ -6701,7 +6701,7 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split504.us:                                     ; preds = %CCalloc.exit.i.us
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.132)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.132)
   unreachable
 
 .split508.us:                                     ; preds = %1020
@@ -6725,7 +6725,7 @@ merge_into_successors.exit.us:                    ; preds = %1175, %.preheader.i
   unreachable
 
 .split512.us:                                     ; preds = %1171
-  call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.133)
+  call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.133)
   unreachable
 
 .split514.us:                                     ; preds = %..loopexit_crit_edge.us, %1
@@ -7015,7 +7015,7 @@ define internal fastcc ptr @object_fullinfo_to_classclass(ptr noundef nonnull %0
   br i1 %22, label %23, label %load_class_local.exit.i.i
 
 23:                                               ; preds = %16
-  tail call void (ptr, ptr, ...) @CCerror(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef %17)
+  tail call void (ptr, ptr, ...) @CCerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, ptr noundef %17)
   unreachable
 
 load_class_local.exit.i.i:                        ; preds = %16
@@ -7714,7 +7714,7 @@ define internal fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 nou
 ._crit_edge314:                                   ; preds = %.lr.ph313, %.preheader
   %.1240.lcssa = phi ptr [ %.0239.lcssa, %.preheader ], [ %220, %.lr.ph313 ]
   %.1.lcssa = phi ptr [ %.0234.lcssa, %.preheader ], [ %213, %.lr.ph313 ]
-  %228 = tail call fastcc zeroext i16 @class_to_ID(ptr noundef %0, ptr noundef %.1.lcssa, i8 noundef zeroext 0)
+  %228 = tail call fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %0, ptr noundef %.1.lcssa, i8 noundef zeroext 0)
   %229 = zext i16 %228 to i32
   %230 = shl nuw i32 %229, 16
   %231 = or disjoint i32 %230, 9
@@ -7802,7 +7802,7 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %28 = shl i32 %27, 4
-  %29 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %28)
+  %29 = tail call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %28)
   br label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
@@ -8123,7 +8123,7 @@ define internal fastcc void @merge_stack(ptr noundef nonnull %0, i32 noundef %1,
   %.0505 = phi ptr [ %21, %19 ], [ %15, %14 ]
   %16 = load i32, ptr %.0496, align 8
   %17 = load i32, ptr %.0505, align 8
-  %18 = tail call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %16, i32 noundef %17, i8 noundef zeroext 1)
+  %18 = tail call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %17, i8 noundef zeroext 1)
   %.not1 = icmp eq i32 %18, %17
   br i1 %.not1, label %19, label %.lr.ph.i
 
@@ -8146,7 +8146,7 @@ define internal fastcc void @merge_stack(ptr noundef nonnull %0, i32 noundef %1,
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %27 = shl i32 %26, 4
-  %28 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %27)
+  %28 = tail call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %27)
   br label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
@@ -8285,7 +8285,7 @@ define internal fastcc void @merge_registers(ptr noundef nonnull %0, i32 noundef
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
-  %43 = tail call fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %42, i32 noundef %40, i8 noundef zeroext 1)
+  %43 = tail call fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %40, i8 noundef zeroext 1)
   %.not184 = icmp eq i32 %43, %40
   br i1 %.not184, label %44, label %split
 

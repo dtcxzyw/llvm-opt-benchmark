@@ -139,7 +139,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !4
 
 if.end15.i.i:                                     ; preds = %entry
-  %call2.i.i.i = tail call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %d_may_complete, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call2.i.i.i = tail call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %d_may_complete, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %call2.i.i.i, %3
@@ -244,7 +244,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i10
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i4, %if.then13.i.i10
   %frombool = zext i1 %call8 to i8
-  %call.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_bESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %d_may_complete, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_bESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %d_may_complete, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   store i8 %frombool, ptr %call.i, align 1
   br label %return
 
@@ -294,7 +294,7 @@ if.then5:                                         ; preds = %invoke.cont
 
 if.else.i.i.i:                                    ; preds = %if.then5
   %conv.i.i = zext i32 %maxCard to i64
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp7, i64 noundef %conv.i.i)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, i64 noundef %conv.i.i)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.else.i.i.i
@@ -302,7 +302,7 @@ invoke.cont9:                                     ; preds = %if.else.i.i.i
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp7)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont11
@@ -313,7 +313,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont11
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont11
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %if.end13 unwind label %terminate.lpad.i.i4
 
 terminate.lpad.i.i4:                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
@@ -336,7 +336,7 @@ lpad8:                                            ; preds = %if.else.i.i.i
 lpad10:                                           ; preds = %invoke.cont9
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp7)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
           to label %ehcleanup unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %lpad10
@@ -348,7 +348,7 @@ terminate.lpad.i.i6:                              ; preds = %lpad10
 
 ehcleanup:                                        ; preds = %lpad10, %lpad8
   %.pn = phi { ptr, i32 } [ %5, %lpad8 ], [ %6, %lpad10 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %ehcleanup14 unwind label %terminate.lpad.i.i8
 
 terminate.lpad.i.i8:                              ; preds = %ehcleanup
@@ -360,7 +360,7 @@ terminate.lpad.i.i8:                              ; preds = %ehcleanup
 
 if.end13:                                         ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit, %invoke.cont
   %mc.1 = phi i1 [ false, %invoke.cont ], [ %call12, %_ZN4cvc58internal7IntegerD2Ev.exit ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %c)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %c)
           to label %return unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end13
@@ -372,7 +372,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end13
 
 ehcleanup14:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %.pn, %ehcleanup ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %c)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %c)
           to label %_ZN4cvc58internal11CardinalityD2Ev.exit11 unwind label %terminate.lpad.i.i.i10
 
 terminate.lpad.i.i.i10:                           ; preds = %ehcleanup14

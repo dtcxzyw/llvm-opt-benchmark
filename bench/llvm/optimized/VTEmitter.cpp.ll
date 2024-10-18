@@ -2137,7 +2137,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit:   ; preds = %15, %_ZN4llvm9Strin
   %.08.lcssa.i.i.i22 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIN4llvm9StringRefEZN12_GLOBAL__N_19VTEmitter3runERNS0_11raw_ostreamEE7VTRangeSt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit ], [ %.19.i.i.i, %19 ], [ %5, %2 ]
   %22 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   %.val7.i = load ptr, ptr %23, align 8

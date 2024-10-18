@@ -565,7 +565,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp10, label %return, label %if.else
 
 if.else:                                          ; preds = %for.end
-  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %timeout.0.in.lcssa, i64 %call9)
+  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 -1, 10000001) %timeout.0.in.lcssa, i64 range(i64 1, 0) %call9)
   br label %return
 
 return:                                           ; preds = %if.then.i, %aio_compute_bh_timeout.exit29, %if.then.i26, %for.end, %aio_compute_bh_timeout.exit, %if.else
@@ -1444,7 +1444,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp10.i, label %aio_compute_timeout.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end.i
-  %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %timeout.0.in.lcssa.i, i64 %call9.i)
+  %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 -1, 10000001) %timeout.0.in.lcssa.i, i64 range(i64 1, 0) %call9.i)
   br label %aio_compute_timeout.exit
 
 aio_compute_timeout.exit:                         ; preds = %if.then.i.i, %aio_compute_bh_timeout.exit29.i, %if.then.i26.i, %aio_compute_bh_timeout.exit.i, %for.end.i, %if.else.i

@@ -736,7 +736,7 @@ switch.early.test.i.i:                            ; preds = %decode_utf8.exit.i
 decode_utf8.exit.thread.i:                        ; preds = %97, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %decode_utf8.exit.i
   %117 = phi i32 [ %115, %switch.early.test.i.i ], [ %115, %switch.early.test.i.i ], [ %115, %switch.early.test.i.i ], [ %115, %switch.early.test.i.i ], [ %115, %switch.early.test.i.i ], [ %115, %switch.early.test.i.i ], [ %115, %decode_utf8.exit.i ], [ 0, %97 ]
   %.sink.i100.i = phi i64 [ %.sink.i.i, %switch.early.test.i.i ], [ %.sink.i.i, %switch.early.test.i.i ], [ %.sink.i.i, %switch.early.test.i.i ], [ %.sink.i.i, %switch.early.test.i.i ], [ %.sink.i.i, %switch.early.test.i.i ], [ %.sink.i.i, %switch.early.test.i.i ], [ %.sink.i.i, %decode_utf8.exit.i ], [ 0, %97 ]
-  %118 = tail call ptr @val_to_str_ext_const(i32 noundef %117, ptr noundef nonnull @str_key_name_ext, ptr noundef nonnull @.str.359) #5
+  %118 = tail call ptr @val_to_str_ext_const(i32 noundef range(i32 0, -2147483648) %117, ptr noundef nonnull @str_key_name_ext, ptr noundef nonnull @.str.359) #5
   br label %decode_key_name.exit.i
 
 119:                                              ; preds = %switch.early.test.i.i
@@ -750,7 +750,7 @@ decode_utf8.exit.thread.i:                        ; preds = %97, %switch.early.t
   br label %decode_key_name.exit.i
 
 125:                                              ; preds = %119
-  %126 = tail call ptr @val_to_str_ext_const(i32 noundef %115, ptr noundef nonnull @str_key_name_ext, ptr noundef nonnull @.str.359) #5
+  %126 = tail call ptr @val_to_str_ext_const(i32 noundef range(i32 0, -2147483648) %115, ptr noundef nonnull @str_key_name_ext, ptr noundef nonnull @.str.359) #5
   br label %decode_key_name.exit.i
 
 decode_key_name.exit.i:                           ; preds = %125, %121, %decode_utf8.exit.thread.i
@@ -901,7 +901,7 @@ decode_key_name.exit.i:                           ; preds = %125, %121, %decode_
 
 219:                                              ; preds = %209
   %220 = load i32, ptr @ett_property, align 4
-  %221 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0.i, i32 noundef %.041.i, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.441) #5
+  %221 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef range(i32 5, 8) %.0.i, i32 noundef range(i32 -5, 65533) %.041.i, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.441) #5
   %.not19.i.i = icmp eq i32 %.041.i, 0
   br i1 %.not19.i.i, label %decode_evt.exit, label %.lr.ph.i.i
 

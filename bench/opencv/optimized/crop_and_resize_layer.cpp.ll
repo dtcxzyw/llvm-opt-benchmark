@@ -187,7 +187,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052118CropAndResizeLayer6createERKNS1_11Layer
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = tail call ptr @__cxa_begin_catch(ptr %8) #19
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   invoke void @__cxa_rethrow() #21
           to label %15 unwind label %10
@@ -559,7 +559,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn22CropAndResizeLayerImplD2Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn22CropAndResizeLayerImplD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
@@ -2512,7 +2512,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv3dnn22CropAndResize
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   br label %6
 

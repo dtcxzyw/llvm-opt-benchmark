@@ -129,18 +129,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_.exit.i
   %37 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull %34, ptr nonnull @.str, i64 20, ptr nonnull %36, i64 %37, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull align 8 dereferenceable(240) %34, ptr nonnull @.str, i64 20, ptr nonnull %36, i64 %37, i1 noundef zeroext false)
   %38 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
   br label %_ZN12_GLOBAL__N_118ReturnUndefCheckerC2Ev.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit2.critedge.i.i:      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_.exit.i
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull %34, ptr nonnull @.str, i64 20, ptr null, i64 0, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull align 8 dereferenceable(240) %34, ptr nonnull @.str, i64 20, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_118ReturnUndefCheckerC2Ev.exit.i
 
 _ZN12_GLOBAL__N_118ReturnUndefCheckerC2Ev.exit.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit2.critedge.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i
   %39 = phi i64 [ %38, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit2.critedge.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 136
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %40, ptr noundef nonnull %34, ptr nonnull @.str.1, i64 24, ptr %36, i64 %39, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %40, ptr noundef nonnull align 8 dereferenceable(240) %34, ptr nonnull @.str.1, i64 24, ptr %36, i64 %39, i1 noundef zeroext false)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
@@ -622,7 +622,7 @@ define internal void @_ZN12_GLOBAL__N_118ReturnUndefCheckerD2Ev(ptr noundef nonn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   ret void
 }
 
@@ -641,7 +641,7 @@ define internal void @_ZN12_GLOBAL__N_118ReturnUndefCheckerD0Ev(ptr noundef nonn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #18
   ret void
 }
@@ -794,7 +794,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit27.i:           ; preds = %56
 
 .critedge.i:                                      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit27.i, %56, %48, %_ZNK5clang4Type10isVoidTypeEv.exit.i, %34
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %71, ptr nonnull @.str.3, i64 45, ptr noundef %.val, ptr noundef null)
+  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %71, ptr nonnull @.str.3, i64 45, ptr noundef nonnull %.val, ptr noundef null)
   br label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
 72:                                               ; preds = %10
@@ -825,8 +825,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit27.i:           ; preds = %56
   br i1 %88, label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S9_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOS_ISB_SC_E.exit.i.i.i, label %89
 
 _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S9_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOS_ISB_SC_E.exit.i.i.i: ; preds = %84
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %87) #16, !noalias !13
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %87) #16, !noalias !13
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %87) #16, !noalias !13
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %87) #16, !noalias !13
   br label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i.i
 
 89:                                               ; preds = %84
@@ -835,7 +835,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 104
   %93 = load ptr, ptr %92, align 8, !noalias !13
   store ptr %87, ptr %6, align 8, !noalias !13
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %87) #16, !noalias !13
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %87) #16, !noalias !13
   call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.383") align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull %6, ptr %.fca.0.extract4.i, i8 %.fca.1.extract5.i) #16
   %94 = load ptr, ptr %6, align 8, !noalias !13
   %.not.i.i.i.i.i = icmp eq ptr %94, null
@@ -909,7 +909,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds
   %114 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #16
   %115 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #16
   %116 = call noundef ptr @_ZN5clang4ento11bugreporter12getDerefExprEPKNS_4StmtE(ptr noundef nonnull %.val) #16
-  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %112, ptr %114, i64 %115, ptr noundef %.val, ptr noundef %116)
+  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %112, ptr %114, i64 %115, ptr noundef nonnull %.val, ptr noundef %116)
   br label %117
 
 117:                                              ; preds = %111, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i

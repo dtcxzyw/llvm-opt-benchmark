@@ -1601,7 +1601,7 @@ if.end377:                                        ; preds = %while.body, %while.
 
 fallback:                                         ; preds = %if.end191, %if.end187
   %78 = load i32, ptr %top150, align 8
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %0, i32 %78)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 1048576) %0, i32 %78)
   %cmp37.i = icmp sgt i32 %spec.select.i, 0
   br i1 %cmp37.i, label %for.body.preheader.i, label %MOD_EXP_CTIME_COPY_TO_PREBUF.exit
 
@@ -1625,7 +1625,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 MOD_EXP_CTIME_COPY_TO_PREBUF.exit:                ; preds = %for.body.i, %fallback
   %82 = load i32, ptr %top149, align 8
-  %spec.select.i270 = call i32 @llvm.smin.i32(i32 %0, i32 %82)
+  %spec.select.i270 = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 1048576) %0, i32 %82)
   %cmp37.i271 = icmp sgt i32 %spec.select.i270, 0
   br i1 %cmp37.i271, label %for.body.preheader.i272, label %MOD_EXP_CTIME_COPY_TO_PREBUF.exit283
 
@@ -1658,7 +1658,7 @@ if.then390:                                       ; preds = %MOD_EXP_CTIME_COPY_
 
 if.end394:                                        ; preds = %if.then390
   %86 = load i32, ptr %top150, align 8
-  %spec.select.i285 = call i32 @llvm.smin.i32(i32 %0, i32 %86)
+  %spec.select.i285 = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 1048576) %0, i32 %86)
   %cmp37.i286 = icmp sgt i32 %spec.select.i285, 0
   br i1 %cmp37.i286, label %for.body.preheader.i287, label %for.body402.lr.ph
 
@@ -1694,7 +1694,7 @@ for.body402:                                      ; preds = %for.body402.lr.ph, 
 
 if.end406:                                        ; preds = %for.body402
   %91 = load i32, ptr %top150, align 8
-  %spec.select.i300 = call i32 @llvm.smin.i32(i32 %0, i32 %91)
+  %spec.select.i300 = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 1048576) %0, i32 %91)
   %cmp37.i301 = icmp sgt i32 %spec.select.i300, 0
   br i1 %cmp37.i301, label %for.body.preheader.i302, label %MOD_EXP_CTIME_COPY_TO_PREBUF.exit313
 

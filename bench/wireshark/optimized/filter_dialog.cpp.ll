@@ -172,7 +172,7 @@ define void @_ZN12FilterDialogC2EP7QWidgetNS_10FilterTypeE7QString(ptr noundef n
   %30 = alloca %class.QUrl, align 8
   %31 = alloca %class.QString, align 8
   %32 = alloca %class.QString, align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
@@ -2340,7 +2340,7 @@ define void @_ZN12FilterDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(9
 define void @_ZThn16_N12FilterDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN12FilterDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   ret void
 }
 
@@ -3066,7 +3066,7 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %32, %27, %28
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %82
 
 41:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !23
   %42 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %42, align 8, !alias.scope !23
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -3124,7 +3124,7 @@ _ZNK11QModelIndex7siblingEii.exit17:              ; preds = %56, %51, %52
           to label %_ZNK11QModelIndex4dataEi.exit20 unwind label %86
 
 65:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !29
   %66 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %66, align 8, !alias.scope !29
   br label %_ZNK11QModelIndex4dataEi.exit20
@@ -3496,7 +3496,7 @@ define void @_ZNK18FilterTreeDelegate13setEditorDataEP7QWidgetRK11QModelIndex(pt
   br label %_ZNK11QModelIndex4dataEi.exit
 
 24:                                               ; preds = %17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !32
   %25 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %25, align 8, !alias.scope !32
   br label %_ZNK11QModelIndex4dataEi.exit

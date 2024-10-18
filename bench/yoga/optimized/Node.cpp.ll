@@ -4386,7 +4386,7 @@ if.end.i.i:                                       ; preds = %tailrecurse.i
   br i1 %tobool7.not.i.i, label %_ZN8facebook4yoga4Node8setDirtyEb.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  tail call void %4(ptr noundef nonnull %this.tr.i)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(640) %this.tr.i)
   br label %_ZN8facebook4yoga4Node8setDirtyEb.exit.i
 
 _ZN8facebook4yoga4Node8setDirtyEb.exit.i:         ; preds = %if.then8.i.i, %if.end.i.i
@@ -4427,7 +4427,7 @@ if.end.i:                                         ; preds = %tailrecurse
   br i1 %tobool7.not.i, label %_ZN8facebook4yoga4Node8setDirtyEb.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  tail call void %1(ptr noundef nonnull %this.tr)
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(640) %this.tr)
   br label %_ZN8facebook4yoga4Node8setDirtyEb.exit
 
 _ZN8facebook4yoga4Node8setDirtyEb.exit:           ; preds = %if.end.i, %if.then8.i
@@ -5688,7 +5688,7 @@ entry:
   %config_.i = getelementptr inbounds i8, ptr %this, i64 616
   %3 = load ptr, ptr %config_.i, align 8
   call void @_ZN8facebook4yoga4NodeC1EPKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(640) %ref.tmp, ptr noundef %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(592) %ref.tmp, i64 592, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(640) %ref.tmp, i64 592, i1 false)
   %children_2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 592
   %4 = load ptr, ptr %children_, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 608

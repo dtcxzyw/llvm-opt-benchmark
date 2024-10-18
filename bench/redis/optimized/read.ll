@@ -422,7 +422,7 @@ __redisReaderSetErrorOOM.exit:                    ; preds = %oom, %land.lhs.true
   store i32 -1, ptr %ridx.i.i, align 4
   store i32 5, ptr %r, align 8
   %errstr.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %return
@@ -468,7 +468,7 @@ __redisReaderSetError.exit:                       ; preds = %entry, %land.lhs.tr
   store i32 -1, ptr %ridx.i, align 4
   store i32 5, ptr %r, align 8
   %errstr.i = getelementptr inbounds i8, ptr %r, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i, align 1
   ret void
@@ -950,7 +950,7 @@ __redisReaderSetError.exit.i.i:                   ; preds = %if.then.i83.i.i, %l
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %errstr.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.10, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %errstr.i.i.i, ptr noundef nonnull align 1 dereferenceable(17) @.str.10, i64 17, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %r, i64 21
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %while.end.critedge
@@ -1004,7 +1004,7 @@ __redisReaderSetError.exit102.i.i:                ; preds = %if.then.i94.i.i, %l
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i100.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %errstr.i100.i.i, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.11, i64 25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %errstr.i100.i.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.11, i64 25, i1 false)
   %arrayidx.i101.i.i = getelementptr inbounds i8, ptr %r, i64 29
   store i8 0, ptr %arrayidx.i101.i.i, align 1
   br label %while.end.critedge
@@ -1106,7 +1106,7 @@ __redisReaderSetError.exit119.i.i:                ; preds = %if.then.i111.i.i, %
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i117.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i117.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.17, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i117.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.17, i64 13, i1 false)
   %arrayidx.i118.i.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i118.i.i, align 1
   br label %while.end.critedge
@@ -1166,7 +1166,7 @@ __redisReaderSetError.exit136.i.i:                ; preds = %if.then.i128.i.i, %
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i134.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %errstr.i134.i.i, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.19, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %errstr.i134.i.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.19, i64 14, i1 false)
   %arrayidx.i135.i.i = getelementptr inbounds i8, ptr %r, i64 18
   store i8 0, ptr %arrayidx.i135.i.i, align 1
   br label %while.end.critedge
@@ -1235,7 +1235,7 @@ __redisReaderSetError.exit153.i.i:                ; preds = %if.then.i145.i.i, %
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i151.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
   %arrayidx.i152.i.i = getelementptr inbounds i8, ptr %r, i64 20
   store i8 0, ptr %arrayidx.i152.i.i, align 1
   br label %while.end.critedge
@@ -1298,7 +1298,7 @@ __redisReaderSetError.exit170.i.i:                ; preds = %if.then.i162.i.i, %
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i168.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %errstr.i168.i.i, ptr noundef nonnull readonly align 1 dereferenceable(23) @.str.21, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %errstr.i168.i.i, ptr noundef nonnull align 1 dereferenceable(23) @.str.21, i64 23, i1 false)
   %arrayidx.i169.i.i = getelementptr inbounds i8, ptr %r, i64 27
   store i8 0, ptr %arrayidx.i169.i.i, align 1
   br label %while.end.critedge
@@ -1361,7 +1361,7 @@ __redisReaderSetErrorOOM.exit.i.i:                ; preds = %if.then.i.i.i.i, %l
   store i32 -1, ptr %ridx, align 4
   store i32 5, ptr %r, align 8
   %errstr.i.i.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i.i171.i.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i.i171.i.i, align 1
   br label %while.end.critedge
@@ -1592,7 +1592,7 @@ __redisReaderSetError.exit.i57.i:                 ; preds = %if.then.i.i.i, %lan
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i.i58.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %errstr.i.i58.i, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.22, i64 22, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %errstr.i.i58.i, ptr noundef nonnull align 1 dereferenceable(22) @.str.22, i64 22, i1 false)
   %arrayidx.i49.i.i = getelementptr inbounds i8, ptr %r, i64 26
   store i8 0, ptr %arrayidx.i49.i.i, align 1
   br label %return
@@ -1631,7 +1631,7 @@ __redisReaderSetError.exit66.i.i:                 ; preds = %if.then.i58.i.i, %l
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i64.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %errstr.i64.i.i, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.23, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %errstr.i64.i.i, ptr noundef nonnull align 1 dereferenceable(31) @.str.23, i64 31, i1 false)
   %arrayidx.i65.i.i = getelementptr inbounds i8, ptr %r, i64 35
   store i8 0, ptr %arrayidx.i65.i.i, align 1
   br label %return
@@ -1708,7 +1708,7 @@ __redisReaderSetError.exit83.i.i:                 ; preds = %if.then.i75.i.i, %l
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i81.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(75) %errstr.i81.i.i, ptr noundef nonnull readonly align 1 dereferenceable(75) @.str.24, i64 75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(75) %errstr.i81.i.i, ptr noundef nonnull align 1 dereferenceable(75) @.str.24, i64 75, i1 false)
   %arrayidx.i82.i.i = getelementptr inbounds i8, ptr %r, i64 79
   store i8 0, ptr %arrayidx.i82.i.i, align 1
   br label %return
@@ -1772,7 +1772,7 @@ __redisReaderSetErrorOOM.exit.i91.i:              ; preds = %if.then.i.i.i90.i, 
   store i32 -1, ptr %ridx, align 4
   store i32 5, ptr %r, align 8
   %errstr.i.i.i92.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i.i92.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i.i92.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i.i.i93.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i.i.i93.i, align 1
   br label %return
@@ -1857,7 +1857,7 @@ if.then.i247.i:                                   ; preds = %sw.bb35.i
   %conv.i.i249.i = sext i32 %add.i.i248.i to i64
   %mul.i.i250.i = shl nsw i64 %conv.i.i249.i, 3
   %152 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 16), align 8
-  %call.i.i.i251.i = call ptr %152(ptr noundef nonnull %149, i64 noundef %mul.i.i250.i) #12
+  %call.i.i.i251.i = call ptr %152(ptr noundef nonnull %149, i64 noundef range(i64 -17179869112, 17179869177) %mul.i.i250.i) #12
   %cmp.i.i252.i = icmp eq ptr %call.i.i.i251.i, null
   br i1 %cmp.i.i252.i, label %oom.i.i.i, label %if.end.i.i253.i
 
@@ -1917,7 +1917,7 @@ redisReaderGrow.exit.i.i:                         ; preds = %if.then.i.i.i.i.i, 
   store i32 -1, ptr %ridx, align 4
   store i32 5, ptr %r, align 8
   %errstr.i.i.i.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1
   br label %return
@@ -2087,7 +2087,7 @@ __redisReaderSetError.exit.i182.i:                ; preds = %if.then.i63.i.i, %l
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i.i183.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr.i.i183.i, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.25, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr.i.i183.i, ptr noundef nonnull align 1 dereferenceable(21) @.str.25, i64 21, i1 false)
   %arrayidx.i66.i.i = getelementptr inbounds i8, ptr %r, i64 25
   store i8 0, ptr %arrayidx.i66.i.i, align 1
   br label %return
@@ -2136,7 +2136,7 @@ __redisReaderSetError.exit83.i213.i:              ; preds = %if.then.i75.i211.i,
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
   %errstr.i81.i214.i = getelementptr inbounds i8, ptr %r, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %errstr.i81.i214.i, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.26, i64 30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %errstr.i81.i214.i, ptr noundef nonnull align 1 dereferenceable(30) @.str.26, i64 30, i1 false)
   %arrayidx.i82.i215.i = getelementptr inbounds i8, ptr %r, i64 34
   store i8 0, ptr %arrayidx.i82.i215.i, align 1
   br label %return

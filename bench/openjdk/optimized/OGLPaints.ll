@@ -443,7 +443,7 @@ define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef %0, ptr noundef
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %22
-  %28 = tail call fastcc i32 @OGLPaints_CreateMultiGradProgram(i32 noundef %.2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
+  %28 = tail call fastcc i32 @OGLPaints_CreateMultiGradProgram(i32 noundef range(i32 0, 32) %.2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
   store i32 %28, ptr %24, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %49, label %30
@@ -607,7 +607,7 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef %0, ptr noundef
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %26
-  %32 = tail call fastcc i32 @OGLPaints_CreateMultiGradProgram(i32 noundef %.2, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24)
+  %32 = tail call fastcc i32 @OGLPaints_CreateMultiGradProgram(i32 noundef range(i32 0, 32) %.2, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24)
   store i32 %32, ptr %28, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %59, label %34

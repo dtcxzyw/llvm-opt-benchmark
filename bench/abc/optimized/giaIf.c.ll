@@ -9197,7 +9197,7 @@ Abc_TtHasVar.exit.thread29.us.i:                  ; preds = %Abc_TtHasVar.exit.u
   %168 = load i32, ptr %167, align 4
   %169 = getelementptr inbounds i32, ptr %10, i64 %164
   store i32 %168, ptr %169, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef %9, i32 noundef %149, i32 noundef %.037.us.i, i32 noundef %156)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %9, i32 noundef %149, i32 noundef %.037.us.i, i32 noundef %156)
   br label %170
 
 170:                                              ; preds = %166, %Abc_TtHasVar.exit.thread29.us.i
@@ -9297,7 +9297,7 @@ Abc_TtHasVar.exit.thread29.i:                     ; preds = %179, %193
   %206 = getelementptr inbounds i32, ptr %10, i64 %201
   store i32 %205, ptr %206, align 4
   %207 = trunc nuw nsw i64 %indvars.iv.i125 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %9, i32 noundef %149, i32 noundef %.037.i, i32 noundef %207)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %9, i32 noundef %149, i32 noundef %.037.i, i32 noundef %207)
   br label %208
 
 208:                                              ; preds = %203, %Abc_TtHasVar.exit.thread29.i
@@ -10258,9 +10258,9 @@ If_CutTruthWR.exit:                               ; preds = %8, %41
 
 Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %.lr.ph18.preheader.i, %.preheader14.i, %.preheader.i
   %67 = getelementptr inbounds i8, ptr %15, i64 8
-  %68 = call fastcc i64 @Abc_TtDeriveBiDecOne(ptr noundef readonly %14, i32 noundef %19, i32 noundef %31)
+  %68 = call fastcc i64 @Abc_TtDeriveBiDecOne(ptr noundef nonnull readonly %14, i32 noundef range(i32 0, 256) %19, i32 noundef %31)
   store i64 %68, ptr %15, align 16
-  %69 = call fastcc i64 @Abc_TtDeriveBiDecOne(ptr noundef readonly %14, i32 noundef %19, i32 noundef %33)
+  %69 = call fastcc i64 @Abc_TtDeriveBiDecOne(ptr noundef nonnull readonly %14, i32 noundef range(i32 0, 256) %19, i32 noundef %33)
   store i64 %69, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -10457,7 +10457,7 @@ Abc_TtStretch6.exit60.i.i:                        ; preds = %._crit_edge.us.i58.
 
 152:                                              ; preds = %150
   %153 = trunc nuw nsw i64 %indvars.iv.next.i62.i.i to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %12, i32 noundef %19, i32 noundef %.017.i.i.i, i32 noundef %153)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %12, i32 noundef range(i32 0, 256) %19, i32 noundef %.017.i.i.i, i32 noundef %153)
   br label %154
 
 154:                                              ; preds = %152, %150
@@ -10498,7 +10498,7 @@ Abc_TtExpand.exit.i.i:                            ; preds = %156, %Abc_TtStretch
 
 171:                                              ; preds = %169
   %172 = trunc nuw nsw i64 %indvars.iv.next.i67.i.i to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %13, i32 noundef %19, i32 noundef %.017.i66.i.i, i32 noundef %172)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %13, i32 noundef range(i32 0, 256) %19, i32 noundef %.017.i66.i.i, i32 noundef %172)
   br label %173
 
 173:                                              ; preds = %171, %169

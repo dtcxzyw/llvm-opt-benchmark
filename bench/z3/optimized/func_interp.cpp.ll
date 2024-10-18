@@ -511,7 +511,7 @@ _ZN11ast_manager7dec_refEP3ast.exit12.i:          ; preds = %if.then2.i11.i, %if
   %mul.i.i = shl i32 %5, 3
   %add.i.i = add i32 %mul.i.i, 16
   %conv.i = zext i32 %add.i.i to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i, i64 noundef %conv.i, ptr noundef nonnull %3)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i, i64 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %for.inc unwind label %terminate.lpad.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %_ZN11ast_manager7dec_refEP3ast.exit12.i
@@ -1708,7 +1708,7 @@ _ZN10func_entry10deallocateER11ast_managerj.exit: ; preds = %for.end.i, %if.then
   %mul.i.i = shl i32 %9, 3
   %add.i.i = add i32 %mul.i.i, 16
   %conv.i = zext i32 %add.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i, i64 noundef %conv.i, ptr noundef nonnull %1)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i, i64 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret void
 }
 
@@ -1726,7 +1726,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %s, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %s, i64 536
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %s, ptr noundef nonnull align 8 dereferenceable(976) %1, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %s, ptr noundef nonnull align 8 dereferenceable(976) %1, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %s, align 8
   %m_std_order.i = getelementptr inbounds i8, ptr %s, i64 544
   store i8 0, ptr %m_std_order.i, align 8
@@ -1767,13 +1767,13 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i, %invoke.cont
   store ptr null, ptr %ref.tmp, align 8
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %s) #20
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %s) #20
   br label %return
 
 lpad:                                             ; preds = %if.end
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %s) #20
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %s) #20
   resume { ptr, i32 } %10
 
 return:                                           ; preds = %entry, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -1936,7 +1936,7 @@ invoke.cont8:                                     ; preds = %for.body.i.i.i, %fo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %6, ptr %ref.tmp.i, align 8
   store i32 %occs.0, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %num_occs, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %num_occs, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -2139,7 +2139,7 @@ _ZN10func_entry10deallocateER11ast_managerj.exit: ; preds = %for.end.i, %if.then
   %mul.i.i = shl i32 %13, 3
   %add.i.i = add i32 %mul.i.i, 16
   %conv.i = zext i32 %add.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i, i64 noundef %conv.i, ptr noundef nonnull %7)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i, i64 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(16) %7)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN10func_entry10deallocateER11ast_managerj.exit, %if.then17, %if.then13
@@ -2366,7 +2366,7 @@ _ZN10func_entry10deallocateER11ast_managerj.exit80: ; preds = %for.end.i67, %if.
   %mul.i.i75 = shl i32 %48, 3
   %add.i.i76 = add i32 %mul.i.i75, 16
   %conv.i77 = zext i32 %add.i.i76 to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i74, i64 noundef %conv.i77, ptr noundef nonnull %46)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i.i74, i64 noundef %conv.i77, ptr noundef nonnull align 8 dereferenceable(16) %46)
   %incdec.ptr42 = getelementptr inbounds i8, ptr %__begin2.0122, i64 8
   %cmp36.not = icmp eq ptr %incdec.ptr42, %add.ptr.i50
   br i1 %cmp36.not, label %for.end43, label %for.body37
@@ -3250,7 +3250,7 @@ invoke.cont64:                                    ; preds = %if.then49._ZN11ast_
   store ptr null, ptr %var_names, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %sub, i64 536
-  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %sub, ptr noundef nonnull align 8 dereferenceable(976) %34, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %sub, ptr noundef nonnull align 8 dereferenceable(976) %34, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
           to label %_ZN9var_substC2ER11ast_managerb.exit unwind label %lpad67
 
 _ZN9var_substC2ER11ast_managerb.exit:             ; preds = %invoke.cont64
@@ -3437,7 +3437,7 @@ lpad76.loopexit.split-lp:                         ; preds = %_ZNK15ref_vector_co
 
 lpad76:                                           ; preds = %lpad76.loopexit.split-lp, %lpad76.loopexit
   %lpad.phi368 = phi { ptr, i32 } [ %lpad.loopexit366, %lpad76.loopexit ], [ %lpad.loopexit.split-lp367, %lpad76.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #20
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #20
   br label %ehcleanup
 
 for.end97:                                        ; preds = %for.inc95, %_ZN9var_substC2ER11ast_managerb.exit
@@ -3532,7 +3532,7 @@ if.then2.i.i.i148:                                ; preds = %if.then.i.i.i143
 
 invoke.cont115:                                   ; preds = %if.then.i.i.i143, %if.end.i141, %if.then2.i.i.i148
   store ptr %call114, ptr %agg.result, align 8
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #20
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #20
   %89 = load ptr, ptr %var_names, align 8
   %tobool.not.i.i.i151 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i151, label %_ZN7svectorI6symboljED2Ev.exit, label %if.then.i.i.i152
@@ -4785,7 +4785,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12beta_reducerD0Ev(ptr noundef nonnull align 8 dereferenceable(537) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #20
+  tail call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(537) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -4897,9 +4897,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #20
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #20
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #20
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #20
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -5054,7 +5054,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -5336,7 +5336,7 @@ if.then9:                                         ; preds = %for.body
   br i1 %or.cond, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %if.then9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %curr.052, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.052, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   br label %return
 
 if.then17:                                        ; preds = %for.body
@@ -5351,7 +5351,7 @@ if.then18:                                        ; preds = %if.then17
 
 if.end21:                                         ; preds = %if.then17, %if.then18
   %new_entry.0 = phi ptr [ %del_entry.053, %if.then18 ], [ %curr.052, %if.then17 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %new_entry.0, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_entry.0, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   %10 = load i32, ptr %m_size, align 4
   %inc = add i32 %10, 1
   store i32 %inc, ptr %m_size, align 4
@@ -5382,7 +5382,7 @@ if.then31:                                        ; preds = %for.body29
   br i1 %or.cond41, label %if.then37, label %for.inc54
 
 if.then37:                                        ; preds = %if.then31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %curr.155, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr.155, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   br label %return
 
 if.then41:                                        ; preds = %for.body29
@@ -5397,7 +5397,7 @@ if.then44:                                        ; preds = %if.then41
 
 if.end48:                                         ; preds = %if.then41, %if.then44
   %new_entry42.0 = phi ptr [ %del_entry.256, %if.then44 ], [ %curr.155, %if.then41 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %new_entry42.0, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_entry42.0, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   %14 = load i32, ptr %m_size, align 4
   %inc50 = add i32 %14, 1
   store i32 %inc50, ptr %m_size, align 4

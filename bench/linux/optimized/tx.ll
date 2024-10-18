@@ -3616,7 +3616,7 @@ define dso_local void @__ieee80211_xmit_fast(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.old.not, label %324, label %.thread2.i
 
 .thread2.i:                                       ; preds = %318, %309, %303, %298
-  %319 = tail call i32 @pskb_expand_head(ptr noundef nonnull %27, i32 noundef %283, i32 noundef 0, i32 noundef 2080) #20
+  %319 = tail call i32 @pskb_expand_head(ptr noundef nonnull %27, i32 noundef range(i32 0, -2147483648) %283, i32 noundef 0, i32 noundef 2080) #20
   %320 = icmp eq i32 %319, 0
   br i1 %320, label %324, label %ieee80211_skb_resize.exit
 

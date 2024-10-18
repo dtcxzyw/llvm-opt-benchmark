@@ -126,7 +126,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
   %create_time = getelementptr inbounds i8, ptr %this, i64 112
   %hi_.i.i.i = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %hi_.i.i.i, align 4
@@ -294,7 +294,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %call11, i8 0, i64 24, i1 false)
   %create_time.i = getelementptr inbounds i8, ptr %call11, i64 112
   %hi_.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 116
   store i32 0, ptr %hi_.i.i.i.i, align 4

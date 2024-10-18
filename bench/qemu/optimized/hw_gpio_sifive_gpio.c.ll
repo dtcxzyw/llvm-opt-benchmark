@@ -206,11 +206,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %conv, i64 noundef %conv1) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef range(i64 -2147483648, 2147483648) %conv1) #7
   br label %trace_sifive_gpio_set.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i64 noundef %conv, i64 noundef %conv1) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef range(i64 -2147483648, 2147483648) %conv1) #7
   br label %trace_sifive_gpio_set.exit
 
 trace_sifive_gpio_set.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -404,11 +404,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %23 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, i64 noundef %offset, i64 noundef %r.0) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, i64 noundef %offset, i64 noundef range(i64 0, 4294967296) %r.0) #7
   br label %trace_sifive_gpio_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i64 noundef %offset, i64 noundef %r.0) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i64 noundef %offset, i64 noundef range(i64 0, 4294967296) %r.0) #7
   br label %trace_sifive_gpio_read.exit
 
 trace_sifive_gpio_read.exit:                      ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -836,11 +836,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #7
   %52 = load i64, ptr %_now.i.i.i, align 8
   %53 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i, i64 noundef %52, i64 noundef %53, i64 noundef %idxprom.i, i64 noundef %conv12.i) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i, i64 noundef %52, i64 noundef %53, i64 noundef range(i64 -2147483648, 2147483648) %idxprom.i, i64 noundef range(i64 0, 2) %conv12.i) #7
   br label %trace_sifive_gpio_update_output_irq.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i64 noundef %idxprom.i, i64 noundef %conv12.i) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i64 noundef range(i64 -2147483648, 2147483648) %idxprom.i, i64 noundef range(i64 0, 2) %conv12.i) #7
   br label %trace_sifive_gpio_update_output_irq.exit.i
 
 trace_sifive_gpio_update_output_irq.exit.i:       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %for.body.i

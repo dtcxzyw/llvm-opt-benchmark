@@ -1135,11 +1135,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %55 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %56 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %55, i64 noundef %56, ptr noundef nonnull %s, i32 noundef %index.1109, ptr noundef %name149, i64 noundef %len) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %55, i64 noundef %56, ptr noundef nonnull %s, i32 noundef range(i32 -2147483648, 65535) %index.1109, ptr noundef %name149, i64 noundef %len) #20
   br label %trace_fw_cfg_add_file.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, ptr noundef nonnull %s, i32 noundef %index.1109, ptr noundef %name149, i64 noundef %len) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, ptr noundef nonnull %s, i32 noundef range(i32 -2147483648, 65535) %index.1109, ptr noundef %name149, i64 noundef %len) #20
   br label %trace_fw_cfg_add_file.exit
 
 trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1877,12 +1877,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i14
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef range(i32 0, 2) %ret.0) #20
   br label %trace_fw_cfg_select.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i14
   %conv12.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef nonnull %s, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef nonnull %s, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i32 noundef range(i32 0, 2) %ret.0) #20
   br label %trace_fw_cfg_select.exit
 
 trace_fw_cfg_select.exit:                         ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2543,7 +2543,7 @@ entry:
   %1 = load ptr, ptr %dma_as, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i = call i32 @address_space_rw(ptr noundef %1, i64 noundef %0, i32 1, ptr noundef nonnull %dma, i64 noundef 16, i1 noundef zeroext false) #20
+  %call.i.i.i = call i32 @address_space_rw(ptr noundef %1, i64 noundef %0, i32 1, ptr noundef nonnull %dma, i64 noundef range(i64 0, 4294967296) 16, i1 noundef zeroext false) #20
   %tobool.not = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2553,7 +2553,7 @@ if.then:                                          ; preds = %entry
   store i32 16777216, ptr %val.addr.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %2, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i, i64 noundef 4, i1 noundef zeroext true) #20
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %2, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i)
   br label %return
 
@@ -2698,7 +2698,7 @@ if.then190:                                       ; preds = %if.else174
   %bf.clear202 = or disjoint i32 %bf.set200, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i105 = call i32 @address_space_rw(ptr noundef %20, i64 noundef %21, i32 %bf.clear202, ptr noundef %arrayidx196, i64 noundef %len.1, i1 noundef zeroext true) #20
+  %call.i.i.i105 = call i32 @address_space_rw(ptr noundef %20, i64 noundef %21, i32 %bf.clear202, ptr noundef %arrayidx196, i64 noundef range(i64 0, 4294967296) %len.1, i1 noundef zeroext true) #20
   %tobool230.not = icmp eq i32 %call.i.i.i105, 0
   br i1 %tobool230.not, label %if.end235, label %if.then231
 
@@ -2731,7 +2731,7 @@ lor.lhs.false244:                                 ; preds = %if.then237
   %bf.clear256 = or disjoint i32 %bf.set254, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i106 = call i32 @address_space_rw(ptr noundef %25, i64 noundef %26, i32 %bf.clear256, ptr noundef %arrayidx250, i64 noundef %len.1, i1 noundef zeroext false) #20
+  %call.i.i.i106 = call i32 @address_space_rw(ptr noundef %25, i64 noundef %26, i32 %bf.clear256, ptr noundef %arrayidx250, i64 noundef range(i64 0, 4294967296) %len.1, i1 noundef zeroext false) #20
   %tobool284.not = icmp eq i32 %call.i.i.i106, 0
   br i1 %tobool284.not, label %if.else288, label %if.then285
 
@@ -2789,7 +2789,7 @@ while.end:                                        ; preds = %if.end301, %if.end1
   store i32 %39, ptr %val.addr.i107, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i.i108 = call i32 @address_space_rw(ptr noundef %38, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i107, i64 noundef 4, i1 noundef zeroext true) #20
+  %call.i.i.i.i108 = call i32 @address_space_rw(ptr noundef %38, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i107, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i107)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %40 = load i32, ptr @trace_events_enabled_count, align 4

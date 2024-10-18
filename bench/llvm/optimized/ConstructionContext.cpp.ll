@@ -214,7 +214,7 @@ define dso_local noundef ptr @_ZN5clang19ConstructionContext37createMaterialized
   %15 = getelementptr inbounds i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
-  %18 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %16)
+  %18 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %16)
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %20, align 8

@@ -2068,7 +2068,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache16buildNavMeshTileE
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %39)
   %43 = load ptr, ptr %10, align 8
   %44 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 76
   %46 = load float, ptr %45, align 4

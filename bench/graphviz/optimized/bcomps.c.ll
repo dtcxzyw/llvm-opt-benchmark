@@ -200,7 +200,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %.lr.ph.i
-  call fastcc void @dfs(ptr noundef %51, ptr noundef nonnull %.04561.i, ptr noundef %3, ptr noundef null)
+  call fastcc void @dfs(ptr noundef nonnull %51, ptr noundef nonnull %.04561.i, ptr noundef %3, ptr noundef null)
   br label %59
 
 59:                                               ; preds = %58, %.lr.ph.i
@@ -519,7 +519,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr noc
   %61 = load i8, ptr %59, align 1
   %62 = icmp eq i8 %61, 37
   %.str.12..str.13.i.i = select i1 %62, ptr @.str.12, ptr @.str.13
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull %.str.12..str.13.i.i, ptr noundef nonnull %59, i32 noundef %60)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr noundef nonnull %.str.12..str.13.i.i, ptr noundef nonnull %59, i32 noundef %60)
   %.val.i.i.i.i.i = load i8, ptr %16, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
   %63 = load i64, ptr %17, align 8
@@ -531,7 +531,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr noc
   br i1 %.not.i.i.i.i, label %67, label %66
 
 66:                                               ; preds = %55
-  call fastcc void @agxbmore(ptr noundef %5, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
   %.val.i15.pre.i.i.i.i = load i8, ptr %16, align 1
   br label %67
 
@@ -690,7 +690,7 @@ agxblen.exit.i.i.i:                               ; preds = %15
   br i1 %20, label %21, label %.thread.i
 
 21:                                               ; preds = %agxblen.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %4, i64 noundef %16)
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef %16)
   %.val.i25.pre.i.i.i = load i8, ptr %18, align 1
   %.not.i26.i.i.i = icmp eq i8 %.val.i25.pre.i.i.i, -1
   br i1 %.not.i26.i.i.i, label %27, label %.thread.i
@@ -772,7 +772,7 @@ agxbsizeof.exit.i.i12.i:                          ; preds = %agxbput.exit.i
   br i1 %.not.i7.i.i, label %.thread.i.i, label %54
 
 54:                                               ; preds = %agxbsizeof.exit.i.i12.i
-  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %42, align 1
   %.not.i16.i.i.i = icmp eq i8 %.val.i15.pre.i.i.i, -1
   br i1 %.not.i16.i.i.i, label %..thread_crit_edge.i.i, label %55
@@ -942,7 +942,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

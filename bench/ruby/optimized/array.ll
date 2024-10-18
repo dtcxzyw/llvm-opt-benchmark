@@ -3065,7 +3065,7 @@ rb_array_len.exit.i:                              ; preds = %20, %.thread
   br i1 %.not.i20, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = tail call fastcc i64 @ary_modify_for_unshift(i64 noundef %2, i32 noundef %0)
+  %32 = tail call fastcc i64 @ary_modify_for_unshift(i64 noundef %2, i32 noundef range(i32 1, 0) %0)
   br label %ary_ensure_room_for_unshift.exit
 
 33:                                               ; preds = %29
@@ -3108,7 +3108,7 @@ rb_array_len.exit32.i:                            ; preds = %42, %39
   br i1 %56, label %58, label %RB_OBJ_FROZEN.exit.thread.i
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %53, %rb_array_len.exit32.i
-  %57 = tail call fastcc i64 @ary_modify_for_unshift(i64 noundef %2, i32 noundef %0)
+  %57 = tail call fastcc i64 @ary_modify_for_unshift(i64 noundef %2, i32 noundef range(i32 1, 0) %0)
   br label %ary_ensure_room_for_unshift.exit
 
 58:                                               ; preds = %53
@@ -3116,7 +3116,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %53, %rb_array_len.e
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %58
-  %61 = tail call fastcc i64 @ary_modify_for_unshift(i64 noundef %2, i32 noundef %0)
+  %61 = tail call fastcc i64 @ary_modify_for_unshift(i64 noundef %2, i32 noundef range(i32 1, 0) %0)
   br label %ary_ensure_room_for_unshift.exit
 
 62:                                               ; preds = %58
@@ -3458,7 +3458,7 @@ rb_obj_write.exit.i:                              ; preds = %49, %rb_array_const
 53:                                               ; preds = %30
   %54 = icmp slt i64 %3, 0
   %55 = sub i64 0, %.027
-  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %55)
+  %spec.select.i = tail call i64 @llvm.smax.i64(i64 range(i64 2, 0) %3, i64 %55)
   %.069.i = select i1 %54, i64 %spec.select.i, i64 %3
   %56 = tail call i64 @llvm.abs.i64(i64 %.069.i, i1 false)
   %57 = add i64 %.027, -1
@@ -4310,7 +4310,7 @@ RARRAY_AREF.exit.i:                               ; preds = %16, %14
   br label %ary_last.exit
 
 22:                                               ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
+  tail call void @rb_error_arity(i32 noundef range(i32 1, 0) %0, i32 noundef 0, i32 noundef 1) #20
   unreachable
 
 rb_check_arity.exit.i:                            ; preds = %3
@@ -11642,7 +11642,7 @@ rb_ary_modify_check.exit:                         ; preds = %12
   br i1 %.not, label %rb_check_arity.exit.i, label %19
 
 19:                                               ; preds = %rb_ary_modify_check.exit
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
+  tail call void @rb_error_arity(i32 noundef range(i32 1, 0) %0, i32 noundef 0, i32 noundef 1) #20
   unreachable
 
 rb_check_arity.exit.i:                            ; preds = %rb_ary_modify_check.exit
@@ -11836,7 +11836,7 @@ rb_ary_modify_check.exit:                         ; preds = %34
   br i1 %.not, label %rb_check_arity.exit.i, label %41
 
 41:                                               ; preds = %rb_ary_modify_check.exit
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #20
+  tail call void @rb_error_arity(i32 noundef range(i32 1, 0) %0, i32 noundef 0, i32 noundef 1) #20
   unreachable
 
 rb_check_arity.exit.i:                            ; preds = %rb_ary_modify_check.exit
@@ -14309,7 +14309,7 @@ take_items.exit:                                  ; preds = %rb_array_len.exit.i
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %64
-  call void @ruby_malloc_size_overflow(i64 noundef %62, i64 noundef 8) #20
+  call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, -8070450532247928832) %62, i64 noundef 8) #20
   unreachable
 
 .thread:                                          ; preds = %64
@@ -18748,7 +18748,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit46
   br i1 %65, label %66, label %rb_alloc_tmp_buffer2.exit
 
 66:                                               ; preds = %64
-  tail call void @ruby_malloc_size_overflow(i64 noundef %59, i64 noundef 8) #20
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, -8070450532247928832) %59, i64 noundef 8) #20
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %64
@@ -18909,7 +18909,7 @@ ary_make_shared_copy.exit:                        ; preds = %75, %78
   %spec.store.select.i.us.i = select i1 %.not15.i.us.i, ptr @.str.127, ptr %134
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_array__create_semaphore) #21, !srcloc !9
   %135 = load i32, ptr %4, align 4
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_array__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22array__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.037, i32 -2053, ptr nonnull %spec.store.select.i.us.i, i32 1025, i32 %135) #21, !srcloc !10
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_array__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22array__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 range(i64 2, -9223372036854775808) %.037, i32 -2053, ptr nonnull %spec.store.select.i.us.i, i32 1025, i32 %135) #21, !srcloc !10
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
   br label %136
 
@@ -18924,7 +18924,7 @@ ary_make_shared_copy.exit:                        ; preds = %75, %78
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   %143 = getelementptr inbounds i8, ptr %141, i64 24
   store i64 %.037, ptr %143, align 8
-  %144 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.037, i64 noundef 8) #22
+  %144 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef range(i64 2, -9223372036854775808) %.037, i64 noundef 8) #22
   %145 = getelementptr inbounds i8, ptr %141, i64 32
   store ptr %144, ptr %145, align 8
   store i64 0, ptr %142, align 8
@@ -19259,7 +19259,7 @@ ary_make_shared_copy.exit:                        ; preds = %51, %54
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %62
-  tail call void @ruby_malloc_size_overflow(i64 noundef %58, i64 noundef 8) #20
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, -8070450532247928832) %58, i64 noundef 8) #20
   unreachable
 
 65:                                               ; preds = %62
@@ -19307,7 +19307,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %65, %.thread36
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %76
   %.1.lcssa.i = phi i64 [ %.0.i34, %76 ], [ %.0.i, %.lr.ph.i ]
   %82 = load i64, ptr @rb_cArray, align 8
-  %83 = call fastcc i64 @ary_new(i64 noundef %82, i64 noundef %.0.i)
+  %83 = call fastcc i64 @ary_new(i64 noundef %82, i64 noundef range(i64 2, -9223372036854775808) %.0.i)
   %84 = inttoptr i64 %83 to ptr
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = getelementptr inbounds i8, ptr %84, i64 32
@@ -19527,7 +19527,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit27
   br i1 %55, label %56, label %rb_alloc_tmp_buffer2.exit
 
 56:                                               ; preds = %54
-  tail call void @ruby_malloc_size_overflow(i64 noundef %.0.i24, i64 noundef 8) #20
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, -8070450532247928832) %.0.i24, i64 noundef 8) #20
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %54
@@ -19626,7 +19626,7 @@ ary_make_shared_copy.exit:                        ; preds = %64, %67
   %spec.store.select.i.us.i = select i1 %.not15.i.us.i, ptr @.str.127, ptr %99
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_array__create_semaphore) #21, !srcloc !9
   %100 = load i32, ptr %3, align 4
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_array__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22array__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i24, i32 -2053, ptr nonnull %spec.store.select.i.us.i, i32 1025, i32 %100) #21, !srcloc !10
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_array__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22array__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 range(i64 2, -9223372036854775808) %.0.i24, i32 -2053, ptr nonnull %spec.store.select.i.us.i, i32 1025, i32 %100) #21, !srcloc !10
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
   br label %101
 
@@ -19641,7 +19641,7 @@ ary_make_shared_copy.exit:                        ; preds = %64, %67
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = getelementptr inbounds i8, ptr %106, i64 24
   store i64 %.0.i24, ptr %108, align 8
-  %109 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0.i24, i64 noundef 8) #22
+  %109 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef range(i64 2, -9223372036854775808) %.0.i24, i64 noundef 8) #22
   %110 = getelementptr inbounds i8, ptr %106, i64 32
   store ptr %109, ptr %110, align 8
   store i64 0, ptr %107, align 8
@@ -19900,7 +19900,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit30
   br i1 %57, label %58, label %rb_alloc_tmp_buffer2.exit
 
 58:                                               ; preds = %56
-  tail call void @ruby_malloc_size_overflow(i64 noundef %.0.i, i64 noundef 8) #20
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, -8070450532247928832) %.0.i, i64 noundef 8) #20
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %56
@@ -20036,7 +20036,7 @@ ary_make_shared_copy.exit:                        ; preds = %66, %69
   %spec.store.select.i.i = select i1 %.not15.i.i, ptr @.str.127, ptr %108
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_array__create_semaphore) #21, !srcloc !9
   %109 = load i32, ptr %3, align 4
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_array__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22array__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i, i32 -2053, ptr nonnull %spec.store.select.i.i, i32 1025, i32 %109) #21, !srcloc !10
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_array__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22array__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 range(i64 2, -9223372036854775808) %.0.i, i32 -2053, ptr nonnull %spec.store.select.i.i, i32 1025, i32 %109) #21, !srcloc !10
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
   br label %110
 
@@ -20056,7 +20056,7 @@ ary_make_shared_copy.exit:                        ; preds = %66, %69
   %118 = getelementptr inbounds i8, ptr %117, i64 16
   %119 = getelementptr inbounds i8, ptr %117, i64 24
   store i64 %.0.i, ptr %119, align 8
-  %120 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0.i, i64 noundef 8) #22
+  %120 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef range(i64 2, -9223372036854775808) %.0.i, i64 noundef 8) #22
   %121 = getelementptr inbounds i8, ptr %117, i64 32
   store ptr %120, ptr %121, align 8
   store i64 0, ptr %118, align 8
@@ -20209,7 +20209,7 @@ RARRAY_PTR.exit:                                  ; preds = %12, %14
   br i1 %22, label %23, label %rb_alloc_tmp_buffer2.exit
 
 23:                                               ; preds = %21
-  tail call void @ruby_malloc_size_overflow(i64 noundef %7, i64 noundef 4) #20
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, -8070450532247928832) %7, i64 noundef 4) #20
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %21
@@ -22333,7 +22333,7 @@ RB_FLOAT_TYPE_P.exit272:                          ; preds = %RB_FLOAT_TYPE_P.exi
   %129 = add nsw i64 %.neg.i.i, 2
   %130 = and i64 %.2222, -4
   %131 = or i64 %129, %130
-  %132 = tail call noundef i64 @llvm.fshl.i64(i64 %131, i64 %131, i64 61)
+  %132 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %131, i64 range(i64 1, 0) %131, i64 61)
   %133 = bitcast i64 %132 to double
   br label %rb_float_value_inline.exit.preheader
 
@@ -22465,7 +22465,7 @@ rb_array_len.exit277.thread:                      ; preds = %175
   br i1 %.not7.i, label %192, label %196
 
 192:                                              ; preds = %187
-  %193 = tail call noundef i64 @llvm.fshl.i64(i64 %186, i64 %186, i64 3)
+  %193 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %186, i64 range(i64 3458764513820540929, 3458764513820540928) %186, i64 3)
   %194 = and i64 %193, -4
   %195 = or disjoint i64 %194, 2
   br label %finish_exact_sum.exit
@@ -22492,7 +22492,7 @@ rb_array_len.exit277.thread:                      ; preds = %175
   br i1 %.not7.i280, label %206, label %210
 
 206:                                              ; preds = %201
-  %207 = tail call noundef i64 @llvm.fshl.i64(i64 %200, i64 %200, i64 3)
+  %207 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %200, i64 range(i64 3458764513820540929, 3458764513820540928) %200, i64 3)
   %208 = and i64 %207, -4
   %209 = or disjoint i64 %208, 2
   br label %rb_float_new_inline.exit282

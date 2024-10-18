@@ -671,7 +671,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   %.0.i.us = phi i32 [ 6, %74 ], [ 2, %72 ]
   %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %69, i32 noundef 0) #3
   %78 = zext i8 %77 to i32
-  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %69, i32 noundef 0, i32 noundef %.0.i.us, i32 noundef %.0127147.us, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef %.0127147.us, i32 noundef %78) #3
+  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %69, i32 noundef 0, i32 noundef %.0.i.us, i32 noundef range(i32 -2147483648, 255) %.0127147.us, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef range(i32 -2147483648, 255) %.0127147.us, i32 noundef %78) #3
   %80 = load ptr, ptr %5, align 8
   %81 = load i32, ptr @hf_component_tag, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %69, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
@@ -709,7 +709,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
 99:                                               ; preds = %.lr.ph.split
   %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef 0) #3
   %101 = zext i8 %100 to i32
-  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef %.0127147, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef %.0127147, i32 noundef %101) #3
+  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef range(i32 -2147483648, 255) %.0127147, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef range(i32 -2147483648, 255) %.0127147, i32 noundef %101) #3
   %103 = load ptr, ptr %5, align 8
   %104 = load i32, ptr @hf_component_tag, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
@@ -1067,7 +1067,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %57, 2
   %59 = zext i8 %55 to i32
-  %60 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %53, i32 noundef 0, i32 noundef %58, i32 noundef %54, ptr noundef nonnull %6, ptr noundef nonnull @.str.257, i32 noundef %54, i32 noundef %59) #3
+  %60 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %53, i32 noundef 0, i32 noundef %58, i32 noundef range(i32 0, 65536) %54, ptr noundef nonnull %6, ptr noundef nonnull @.str.257, i32 noundef range(i32 0, 65536) %54, i32 noundef %59) #3
   %61 = load ptr, ptr %6, align 8
   %62 = load i32, ptr @hf_splice_descriptor_tag, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %53, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
@@ -1175,7 +1175,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %.01011.i.i = phi i32 [ %144, %.lr.ph.i.i ], [ 0, %127 ]
   %132 = call ptr @tvb_new_subset_length(ptr noundef %71, i32 noundef %.22.i.i, i32 noundef 6) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %133 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %99, ptr noundef %132, i32 noundef 0, i32 noundef 6, i32 noundef %.01011.i.i, ptr noundef nonnull %5, ptr noundef nonnull @.str.184, i32 noundef %.01011.i.i) #3
+  %133 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %99, ptr noundef %132, i32 noundef 0, i32 noundef 6, i32 noundef range(i32 -2147483648, 255) %.01011.i.i, ptr noundef nonnull %5, ptr noundef nonnull @.str.184, i32 noundef range(i32 -2147483648, 255) %.01011.i.i) #3
   %134 = load ptr, ptr %5, align 8
   %135 = load i32, ptr @hf_descriptor_component_tag, align 4
   %136 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %132, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3

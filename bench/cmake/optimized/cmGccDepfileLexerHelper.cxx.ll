@@ -683,7 +683,7 @@ _ZNSt12_Vector_baseI20cmGccStyleDependencySaIS0_EE11_M_allocateEm.exit: ; preds 
   %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8, !alias.scope !14, !noalias !11
   store ptr %30, ptr %28, align 8, !alias.scope !11, !noalias !14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !11
   %31 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !14, !noalias !11
@@ -723,7 +723,7 @@ _ZNSt6vectorI20cmGccStyleDependencySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; 
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
   %49 = load ptr, ptr %48, align 8, !alias.scope !20, !noalias !17
   store ptr %49, ptr %47, align 8, !alias.scope !17, !noalias !20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !20, !noalias !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !20, !noalias !17
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
   %52 = load ptr, ptr %51, align 8, !alias.scope !20, !noalias !17

@@ -925,7 +925,7 @@ sw.bb64.i:                                        ; preds = %sw.epilog.i, %sw.ep
   br i1 %or.cond113.i, label %if.then80.i, label %if.then232.i
 
 if.then80.i:                                      ; preds = %sw.bb64.i
-  call fastcc void @process_bin_flush(ptr noundef nonnull %c, ptr noundef %extbuf)
+  call fastcc void @process_bin_flush(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
   br label %return
 
 sw.bb83.i:                                        ; preds = %sw.epilog.i
@@ -956,7 +956,7 @@ sw.bb97.i:                                        ; preds = %sw.bb97.sink.split.
   br i1 %or.cond114.i, label %if.then232.i, label %if.then110.i
 
 if.then110.i:                                     ; preds = %sw.bb97.i
-  call fastcc void @process_bin_update(ptr noundef nonnull %c, ptr noundef %extbuf)
+  call fastcc void @process_bin_update(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
   br label %return
 
 sw.bb113.sink.split.i:                            ; preds = %sw.bb42.i, %if.end19.i
@@ -975,7 +975,7 @@ land.lhs.true117.i:                               ; preds = %sw.bb113.i
   br i1 %or.cond6.i, label %if.then125.i, label %if.then232.i
 
 if.then125.i:                                     ; preds = %land.lhs.true117.i
-  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef %extbuf)
+  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
   br label %return
 
 sw.bb128.i:                                       ; preds = %sw.epilog.i, %sw.epilog.thread139.i
@@ -1004,7 +1004,7 @@ sw.bb143.i:                                       ; preds = %sw.bb143.sink.split
   br i1 %or.cond116.i, label %if.then157.i, label %if.then232.i
 
 if.then157.i:                                     ; preds = %sw.bb143.i
-  call fastcc void @complete_incr_bin(ptr noundef nonnull %c, ptr noundef %extbuf)
+  call fastcc void @complete_incr_bin(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
   br label %return
 
 sw.bb160.sink.split.i:                            ; preds = %sw.bb38.i, %if.end19.i
@@ -1081,7 +1081,7 @@ sw.bb218.i:                                       ; preds = %sw.bb218.sink.split
   br i1 %or.cond15.i, label %if.then226.i, label %if.then232.i
 
 if.then226.i:                                     ; preds = %sw.bb218.i
-  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef %extbuf)
+  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
   br label %return
 
 sw.default229.i:                                  ; preds = %sw.epilog.i

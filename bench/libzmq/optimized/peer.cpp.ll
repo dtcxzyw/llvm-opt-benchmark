@@ -66,7 +66,7 @@ entry:
   %sync_lock = alloca %"struct.zmq::scoped_optional_lock_t", align 8
   %_sync = getelementptr inbounds i8, ptr %this, i64 1480
   store ptr %_sync, ptr %sync_lock, align 8
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %_sync) #10
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #10
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit, label %if.then.i.i
 
@@ -111,7 +111,7 @@ if.end5:                                          ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %if.then, %if.end5, %invoke.cont
   %retval.0 = phi i32 [ 0, %if.then ], [ %4, %if.end5 ], [ 0, %invoke.cont ]
-  %call.i.i1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %_sync) #10
+  %call.i.i1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #10
   %tobool.not.i.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %tobool.not.i.i2, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %if.then.i.i3
 
@@ -150,7 +150,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
+  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #10
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
@@ -198,7 +198,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq6peer_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1936) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %this) #10
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -291,7 +291,7 @@ declare noundef i32 @_ZN3zmq13socket_base_t6xleaveEPKc(ptr noundef nonnull align
 define linkonce_odr void @_ZThn1448_N3zmq6peer_tD1Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %0) #10
   ret void
 }
 
@@ -299,8 +299,8 @@ entry:
 define linkonce_odr void @_ZThn1448_N3zmq6peer_tD0Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1936) %0) #14
   ret void
 }
 
@@ -308,7 +308,7 @@ entry:
 define linkonce_odr void @_ZThn1464_N3zmq6peer_tD1Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %0) #10
   ret void
 }
 
@@ -316,8 +316,8 @@ entry:
 define linkonce_odr void @_ZThn1464_N3zmq6peer_tD0Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1936) %0) #14
   ret void
 }
 
@@ -331,7 +331,7 @@ declare void @_ZThn1464_N3zmq13socket_base_t11timer_eventEi(ptr noundef, i32 nou
 define linkonce_odr void @_ZThn1472_N3zmq6peer_tD1Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %0) #10
   ret void
 }
 
@@ -339,8 +339,8 @@ entry:
 define linkonce_odr void @_ZThn1472_N3zmq6peer_tD0Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1936) %0) #14
   ret void
 }
 

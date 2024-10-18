@@ -706,7 +706,7 @@ _ZN20MallocMemorySnapshotC2Ev.exit.i:             ; preds = %7
   %.idx.i1.i = phi i64 [ 0, %_ZN20MallocMemorySnapshotC2Ev.exit.i ], [ %.add.i3.i, %21 ]
   %.ptr.i2.i = getelementptr inbounds i8, ptr %20, i64 %.idx.i1.i
   %22 = getelementptr inbounds i8, ptr %.ptr.i2.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i2.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i2.i, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %22, align 8
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 24
   %23 = icmp eq i64 %.add.i3.i, 672
@@ -779,7 +779,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   store ptr %4, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %6, i64 80
   call void @_ZN22NativeCallStackPrinterC1EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408) %58, ptr noundef %36) #7
-  call void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #7
+  call void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull align 8 dereferenceable(2488) %6) #7
   call void @_ZN17MemDetailReporter25report_virtual_memory_mapEv(ptr noundef nonnull align 8 dereferenceable(2488) %6) #7
   call void @_ZN17MemDetailReporter30report_memory_file_allocationsEv(ptr noundef nonnull align 8 dereferenceable(2488) %6) #7
   call void @_ZN17MemDetailReporter13report_detailEv(ptr noundef nonnull align 8 dereferenceable(2488) %6) #7
@@ -808,7 +808,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   br i1 %64, label %60, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !8
 
 _ZN17MemDetailReporterD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i
-  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %58) #7
+  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(2408) %58) #7
   br label %65
 
 65:                                               ; preds = %_ZN17MemDetailReporterD2Ev.exit, %37
@@ -948,7 +948,7 @@ _ZN20MallocMemorySnapshotC2Ev.exit.i:             ; preds = %7
   %.idx.i1.i = phi i64 [ 0, %_ZN20MallocMemorySnapshotC2Ev.exit.i ], [ %.add.i3.i, %21 ]
   %.ptr.i2.i = getelementptr inbounds i8, ptr %20, i64 %.idx.i1.i
   %22 = getelementptr inbounds i8, ptr %.ptr.i2.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i2.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i2.i, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %22, align 8
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 24
   %23 = icmp eq i64 %.add.i3.i, 672
@@ -1029,7 +1029,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   br i1 %51, label %47, label %_ZN21MemDetailDiffReporterD2Ev.exit, !llvm.loop !8
 
 _ZN21MemDetailDiffReporterD2Ev.exit:              ; preds = %._crit_edge.i.i.i.i
-  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #7
+  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(2408) %45) #7
   br label %52
 
 52:                                               ; preds = %_ZN21MemDetailDiffReporterD2Ev.exit, %37
@@ -1226,7 +1226,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
   br i1 %4, label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %5
 
 5:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
@@ -1285,7 +1285,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
 
 .lr.ph:                                           ; preds = %2, %5
   %.08 = phi ptr [ %.0, %5 ], [ %.06, %2 ]
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.08, i64 32)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(80) %.08, i64 32)
   %4 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %4, label %.critedge, label %5
 
@@ -1316,7 +1316,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
   br i1 %5, label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1357,7 +1357,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
   br i1 %5, label %_ZNK14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 72
@@ -1378,7 +1378,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   br i1 %.not12, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.0811, i64 32)
+  %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(80) %.0811, i64 32)
   %4 = icmp eq i32 %bcmp.i.i.i.i.i18, 0
   br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph20
 
@@ -1390,7 +1390,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph20
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.08, i64 32)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(80) %.08, i64 32)
   %6 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !17
 
@@ -1717,7 +1717,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   br i1 %23, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, label %24
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
   %25 = getelementptr inbounds i8, ptr %22, i64 48
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %10, align 8
@@ -1871,7 +1871,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   br i1 %24, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
   %26 = getelementptr inbounds i8, ptr %23, i64 48
   store ptr null, ptr %26, align 8
   %27 = load ptr, ptr %11, align 8
@@ -1964,7 +1964,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   br i1 %24, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
   %26 = getelementptr inbounds i8, ptr %23, i64 48
   store ptr null, ptr %26, align 8
   %27 = load ptr, ptr %11, align 8
@@ -2348,7 +2348,7 @@ define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryR
   br i1 %4, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
@@ -2481,7 +2481,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   br i1 %5, label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2522,7 +2522,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   br i1 %5, label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 48
@@ -2820,7 +2820,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   br i1 %4, label %_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %5
 
 5:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
@@ -2997,7 +2997,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
   br i1 %4, label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %5
 
 5:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
@@ -3056,7 +3056,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
 
 .lr.ph:                                           ; preds = %2, %5
   %.08 = phi ptr [ %.0, %5 ], [ %.06, %2 ]
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.08, i64 32)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(72) %.08, i64 32)
   %4 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %4, label %.critedge, label %5
 
@@ -3087,7 +3087,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
   br i1 %5, label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3128,7 +3128,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
   br i1 %5, label %_ZNK14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -3149,7 +3149,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   br i1 %.not12, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.0811, i64 32)
+  %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(72) %.0811, i64 32)
   %4 = icmp eq i32 %bcmp.i.i.i.i.i18, 0
   br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph20
 
@@ -3161,7 +3161,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.lr.ph20
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.08, i64 32)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(72) %.08, i64 32)
   %6 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !42
 

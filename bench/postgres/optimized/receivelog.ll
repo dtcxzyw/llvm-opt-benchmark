@@ -762,7 +762,7 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamRec
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %303
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.0.i93) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef range(i32 1, -2) %.0.i93) #11
   br label %HandleCopyStream.exit.thread
 
 306:                                              ; preds = %303
@@ -827,7 +827,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   br i1 %334, label %335, label %336
 
 335:                                              ; preds = %333
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.0.i93) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef range(i32 1, -2) %.0.i93) #11
   br label %HandleCopyStream.exit.thread
 
 336:                                              ; preds = %333

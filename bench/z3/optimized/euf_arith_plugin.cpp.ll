@@ -124,9 +124,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %5 = load ptr, ptr %_M_manager3.i.i.i, align 8
@@ -140,7 +140,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   br i1 %tobool.not.i.i4.i.i, label %if.then.i.i14, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i
-  %call.i.i6.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i6.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i32 noundef 3)
           to label %if.then.i.i14 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
@@ -160,9 +160,9 @@ if.then.i.i14:                                    ; preds = %if.then.i.i5.i.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i36)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i38, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i38, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i38, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i36)
   %_M_manager3.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 736
   %10 = load ptr, ptr %_M_manager3.i.i.i54, align 8
@@ -176,7 +176,7 @@ if.then.i.i14:                                    ; preds = %if.then.i.i5.i.i, %
   br i1 %tobool.not.i.i4.i.i56, label %if.then.i.i64, label %if.then.i.i5.i.i57
 
 if.then.i.i5.i.i57:                               ; preds = %if.then.i.i14
-  %call.i.i6.i.i58 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i37, i32 noundef 3)
+  %call.i.i6.i.i58 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37, i32 noundef 3)
           to label %if.then.i.i64 unwind label %terminate.lpad.i.i7.i.i59
 
 terminate.lpad.i.i7.i.i59:                        ; preds = %if.then.i.i5.i.i57
@@ -566,7 +566,7 @@ _ZN10ptr_vectorIN3euf5enodeEED2Ev.exit:           ; preds = %_ZN10ptr_vectorIN3e
 
 if.then.i.i:                                      ; preds = %_ZN10ptr_vectorIN3euf5enodeEED2Ev.exit
   %m_undo_notify = getelementptr inbounds i8, ptr %this, i64 248
-  %call.i.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i83
 
 terminate.lpad.i.i83:                             ; preds = %if.then.i.i
@@ -1291,7 +1291,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

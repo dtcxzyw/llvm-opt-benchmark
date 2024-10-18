@@ -1034,7 +1034,7 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
 
 83:                                               ; preds = %78
   %84 = load i32, ptr @hf_usb_vid_cam_objective_focal_len_min, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %84, ptr noundef %10, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %84, ptr noundef %10, i32 noundef range(i32 8, 10) %81, i32 noundef 2, i32 noundef -2147483648) #4
   %86 = or disjoint i32 %81, 2
   %87 = load i32, ptr @hf_usb_vid_cam_objective_focal_len_max, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %87, ptr noundef %10, i32 noundef %86, i32 noundef 2, i32 noundef -2147483648) #4
@@ -1043,9 +1043,9 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
   %91 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %90, ptr noundef %10, i32 noundef %89, i32 noundef 2, i32 noundef -2147483648) #4
   %92 = or disjoint i32 %81, 6
   %93 = load i32, ptr @ett_camera_controls, align 4
-  %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %92) #4
+  %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef range(i32 7, 16) %92) #4
   %95 = load i32, ptr @hf_usb_vid_bControlSize, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %95, ptr noundef %10, i32 noundef %92, i32 noundef 1, i32 noundef -2147483648) #4
+  %96 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %95, ptr noundef %10, i32 noundef range(i32 7, 16) %92, i32 noundef 1, i32 noundef -2147483648) #4
   %97 = add nuw nsw i32 %.1.i, 8
   %.not.i.i.i = icmp eq i8 %94, 0
   br i1 %.not.i.i.i, label %dissect_usb_video_camera_terminal.exit.i, label %98

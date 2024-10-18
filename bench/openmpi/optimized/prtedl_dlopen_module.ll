@@ -93,7 +93,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 
 .split.us:                                        ; preds = %24, %14
   %35 = load ptr, ptr %6, align 8
-  %36 = call ptr @dlopen(ptr noundef %35, i32 noundef %.) #7
+  %36 = call ptr @dlopen(ptr noundef %35, i32 noundef range(i32 1, 258) %.) #7
   br i1 %.not30, label %do_dlopen.exit, label %37
 
 37:                                               ; preds = %.split.us
@@ -115,7 +115,7 @@ do_dlopen.exit:                                   ; preds = %.split.us, %.sink.s
   br label %do_dlopen.exit35
 
 41:                                               ; preds = %5
-  %42 = tail call ptr @dlopen(ptr noundef %0, i32 noundef %.) #7
+  %42 = tail call ptr @dlopen(ptr noundef %0, i32 noundef range(i32 1, 258) %.) #7
   %.not.i31 = icmp eq ptr %4, null
   br i1 %.not.i31, label %do_dlopen.exit35, label %43
 

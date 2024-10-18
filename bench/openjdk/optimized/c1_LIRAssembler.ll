@@ -113,7 +113,7 @@ define hidden void @_ZN13LIR_Assembler15patching_epilogEP12PatchingStub13LIR_Pat
   %57 = sub nuw nsw i32 32, %56
   %58 = shl nuw i32 1, %57
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %52, i32 %58
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %38, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE6appendERKS1_.exit.i.i
 
@@ -249,7 +249,7 @@ define hidden void @_ZN13LIR_Assembler16append_code_stubEP8CodeStub(ptr nocaptur
   %30 = sub nuw nsw i32 32, %29
   %31 = shl nuw i32 1, %30
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %25, i32 %31
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %11, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
@@ -488,7 +488,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit.i:     ; preds = %24, %8
 29:                                               ; preds = %_ZN13LIR_Assembler15check_codespaceEv.exit.i
   %30 = load ptr, ptr %11, align 8
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull %0) #11
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(96) %0) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %3, align 4
   %33 = sext i32 %32 to i64
@@ -665,7 +665,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit.i:     ; preds = %62, %46
   %68 = load ptr, ptr %49, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull %0) #11
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(96) %0) #11
   %71 = load ptr, ptr %6, align 8
   %72 = tail call noundef ptr @_ZNK11Compilation19debug_info_recorderEv(ptr noundef nonnull align 8 dereferenceable(704) %71) #11
   %73 = getelementptr inbounds i8, ptr %72, i64 8
@@ -1434,7 +1434,7 @@ _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationRes
   %59 = sub nuw nsw i32 32, %58
   %60 = shl nuw i32 1, %59
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %54, i32 %60
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %40, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE6appendERKS1_.exit.i.i
 
@@ -1573,7 +1573,7 @@ _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationRes
   %59 = sub nuw nsw i32 32, %58
   %60 = shl nuw i32 1, %59
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %54, i32 %60
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %40, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE6appendERKS1_.exit.i.i
 
@@ -1892,7 +1892,7 @@ _ZN13LIR_Assembler10roundfp_opE7LIR_OprS0_S0_b.exit: ; preds = %switch.lookup, %
   %88 = sub nuw nsw i32 32, %87
   %89 = shl nuw i32 1, %88
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %83, i32 %89
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %69, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %69, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeStub13GrowableArrayIS1_EE6appendERKS1_.exit.i.i
 
@@ -2002,7 +2002,7 @@ _ZN24DebugInformationRecorder14last_pc_offsetEv.exit: ; preds = %96
   %157 = load ptr, ptr %0, align 8
   store i64 %.sroa.0.0.copyload.i66, ptr %3, align 8
   %158 = call i32 @_ZNK7LIR_Opr11as_registerEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  call void @_ZN14MacroAssembler10null_checkE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %157, i32 %158, i32 noundef -1) #11
+  call void @_ZN14MacroAssembler10null_checkE8Registeri(ptr noundef nonnull align 8 dereferenceable(44) %157, i32 %158, i32 noundef -1) #11
   br label %_ZN13LIR_Assembler16append_code_stubEP8CodeStub.exit
 
 159:                                              ; preds = %139

@@ -219,7 +219,7 @@ ompi_datatype_copy_content_same_ddt.exit181:      ; preds = %.lr.ph.i172
 
 ompi_datatype_copy_content_same_ddt.exit168.thread: ; preds = %63, %55, %61, %53, %ompi_datatype_copy_content_same_ddt.exit181, %ompi_datatype_copy_content_same_ddt.exit168
   %69 = icmp eq i32 %.val154.val, 0
-  %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val154.val, i1 true)
+  %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, 1) %.val154.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %70
   %71 = shl nuw i32 1, %narrow.i
   %72 = ashr i32 %71, 1
@@ -806,7 +806,7 @@ ompi_datatype_copy_content_same_ddt.exit249.thread: ; preds = %61, %ompi_datatyp
 
 178:                                              ; preds = %154
   %179 = sext i32 %169 to i64
-  %180 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %175, i64 noundef %179, ptr noundef %3, i32 noundef %68, i32 noundef -12, ptr noundef %172, i64 noundef %73, ptr noundef %3, i32 noundef %71, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
+  %180 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %175, i64 noundef range(i64 -2147483648, 2147483648) %179, ptr noundef %3, i32 noundef %68, i32 noundef -12, ptr noundef %172, i64 noundef range(i64 -2147483648, 2147483648) %73, ptr noundef %3, i32 noundef %71, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %176, %178
@@ -1350,7 +1350,7 @@ ompi_datatype_copy_content_same_ddt.exit357.thread: ; preds = %89, %ompi_datatyp
 
 245:                                              ; preds = %221
   %246 = sext i32 %236 to i64
-  %247 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %242, i64 noundef %246, ptr noundef %3, i32 noundef %97, i32 noundef -12, ptr noundef %239, i64 noundef %217, ptr noundef %3, i32 noundef %100, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
+  %247 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %242, i64 noundef range(i64 -2147483648, 2147483648) %246, ptr noundef %3, i32 noundef %97, i32 noundef -12, ptr noundef %239, i64 noundef range(i64 -2147483648, 2147483648) %217, ptr noundef %3, i32 noundef %100, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %243, %245
@@ -1736,7 +1736,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %63, %59
 149:                                              ; preds = %134
   %150 = sext i32 %135 to i64
   %151 = sext i32 %137 to i64
-  %152 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %142, i64 noundef %151, ptr noundef %3, i32 noundef %117, i32 noundef -12, ptr noundef nonnull %145, i64 noundef %150, ptr noundef %3, i32 noundef %117, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
+  %152 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %142, i64 noundef range(i64 -2147483648, 2147483648) %151, ptr noundef %3, i32 noundef %117, i32 noundef -12, ptr noundef nonnull %145, i64 noundef range(i64 -2147483648, 2147483648) %150, ptr noundef %3, i32 noundef %117, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %147, %149
@@ -1805,7 +1805,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %147, %149
 189:                                              ; preds = %166
   %190 = sext i32 %185 to i64
   %191 = sext i32 %178 to i64
-  %192 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %176, i64 noundef %191, ptr noundef %3, i32 noundef %171, i32 noundef -12, ptr noundef %183, i64 noundef %190, ptr noundef %3, i32 noundef %171, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
+  %192 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %176, i64 noundef range(i64 -2147483648, 2147483648) %191, ptr noundef %3, i32 noundef %171, i32 noundef -12, ptr noundef %183, i64 noundef range(i64 -2147483648, 2147483648) %190, ptr noundef %3, i32 noundef %171, i32 noundef -12, ptr noundef %5, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit308
 
 ompi_coll_base_sendrecv.exit308:                  ; preds = %187, %189

@@ -191,7 +191,7 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
   br i1 %40, label %"_ZN4core3ptr451drop_in_place$LT$core..option..Option$LT$rodio..conversions..sample..DataConverter$LT$rodio..conversions..channels..ChannelCountConverter$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$$C$f32$GT$$GT$$GT$17h5431ddc38551eb97E.exit", label %41
 
 41:                                               ; preds = %36
-  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0)
+  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %0)
           to label %"_ZN4core3ptr451drop_in_place$LT$core..option..Option$LT$rodio..conversions..sample..DataConverter$LT$rodio..conversions..channels..ChannelCountConverter$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$$C$f32$GT$$GT$$GT$17h5431ddc38551eb97E.exit" unwind label %34
 
 "_ZN4core3ptr451drop_in_place$LT$core..option..Option$LT$rodio..conversions..sample..DataConverter$LT$rodio..conversions..channels..ChannelCountConverter$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$$C$f32$GT$$GT$$GT$17h5431ddc38551eb97E.exit": ; preds = %36, %41
@@ -214,7 +214,7 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
 45:                                               ; preds = %"_ZN5rodio11conversions11sample_rate28SampleRateConverter$LT$I$GT$10into_inner17ha8eaf22197f00d24E.exit"
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %3)
+  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %3)
           to label %"_ZN4core3ptr423drop_in_place$LT$rodio..conversions..sample..DataConverter$LT$rodio..conversions..channels..ChannelCountConverter$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$$C$f32$GT$$GT$17h7efe40d0e5e3d084E.exit" unwind label %47
 
 47:                                               ; preds = %45
@@ -339,7 +339,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..boxed..Box$
   br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd70b4def60694365E.exit", label %12
 
 12:                                               ; preds = %4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %7, i64 noundef %9) #18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %7, i64 noundef range(i64 1, -9223372036854775807) %9) #18
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd70b4def60694365E.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd70b4def60694365E.exit": ; preds = %4, %12
@@ -360,7 +360,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..boxed..Box$
   br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd70b4def60694365E.exit4", label %22
 
 22:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %17, i64 noundef %19) #18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #18
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd70b4def60694365E.exit4"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd70b4def60694365E.exit4": ; preds = %22, %13
@@ -702,7 +702,7 @@ tailrecurse.i.i:                                  ; preds = %32, %tailrecurse.i.
   %90 = getelementptr inbounds i8, ptr %6, i64 16
   %91 = load ptr, ptr %90, align 8, !noalias !57, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !55
   %92 = getelementptr inbounds i8, ptr %9, i64 120
   store i32 %87, ptr %92, align 8, !alias.scope !52, !noalias !55
   %93 = getelementptr inbounds i8, ptr %9, i64 124
@@ -857,7 +857,7 @@ define hidden noundef range(i8 1, 3) i8 @_ZN5rodio6stream18OutputStreamHandle8pl
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx24, align 8, !noalias !149
   %.sroa.6.0..sroa_idx26 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx26, align 4, !noalias !149
-  invoke fastcc void @"_ZN5rodio6source7uniform34UniformSourceIterator$LT$I$C$D$GT$9bootstrap17h79ce1a5c5a755565E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %6, ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i16 noundef %21, i32 noundef %23)
+  invoke fastcc void @"_ZN5rodio6source7uniform34UniformSourceIterator$LT$I$C$D$GT$9bootstrap17h79ce1a5c5a755565E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %6, ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i16 noundef %21, i32 noundef %23)
           to label %.noexc14 unwind label %92
 
 .noexc14:                                         ; preds = %"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17hda6daae9b48395d9E.exit"
@@ -870,7 +870,7 @@ define hidden noundef range(i8 1, 3) i8 @_ZN5rodio6stream18OutputStreamHandle8pl
   store i64 %.sroa.4.0.copyload, ptr %26, align 8, !alias.scope !149, !noalias !150
   %27 = getelementptr inbounds i8, ptr %6, i64 168
   store i32 %.sroa.5.0.copyload, ptr %27, align 8, !alias.scope !149, !noalias !150
-  %28 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17hf636a3cbb10e6fbbE.llvm.2275879227513204832(ptr noundef nonnull %19, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
+  %28 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17hf636a3cbb10e6fbbE.llvm.2275879227513204832(ptr noundef nonnull align 8 %19, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc.i unwind label %.thread32.i, !noalias !148
 
 .noexc.i:                                         ; preds = %.noexc14
@@ -879,7 +879,7 @@ define hidden noundef range(i8 1, 3) i8 @_ZN5rodio6stream18OutputStreamHandle8pl
   br i1 %switch.i8.i, label %.noexc9.i, label %30
 
 30:                                               ; preds = %.noexc.i
-  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %19)
+  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %19)
           to label %.noexc9.i unwind label %.thread32.i, !noalias !148
 
 .noexc9.i:                                        ; preds = %30, %.noexc.i
@@ -903,7 +903,7 @@ define hidden noundef range(i8 1, 3) i8 @_ZN5rodio6stream18OutputStreamHandle8pl
 _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit.i.i: ; preds = %.noexc11.i, %.noexc10.i
   %.sroa.01.0.i.i.i = phi i8 [ %37, %.noexc11.i ], [ 0, %.noexc10.i ]
   %38 = getelementptr inbounds i8, ptr %8, i64 20
-  %39 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h7ffbe80de2f698a9E.llvm.2275879227513204832(ptr noundef nonnull %38, i8 noundef 0)
+  %39 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h7ffbe80de2f698a9E.llvm.2275879227513204832(ptr noundef nonnull align 1 %38, i8 noundef 0)
           to label %40 unwind label %.thread32.i, !noalias !148
 
 .thread32.i:                                      ; preds = %_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit.i.i, %34, %.noexc9.i, %30, %.noexc14
@@ -962,7 +962,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
   br i1 %57, label %.body3.i, label %58
 
 58:                                               ; preds = %54
-  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5)
+  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %5)
           to label %.body3.i unwind label %59, !noalias !148
 
 59:                                               ; preds = %58
@@ -973,7 +973,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
 
 .body3.i:                                         ; preds = %68, %58, %54
   %eh.lpad-body4.i = phi { ptr, i32 } [ %55, %54 ], [ %55, %58 ], [ %69, %68 ]
-  invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$rodio..source..Source$u2b$Item$u20$$u3d$$u20$f32$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h52a90d23372b218eE"(ptr nonnull %19, i8 %.sroa.01.0.i.i.i) #20
+  invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$rodio..source..Source$u2b$Item$u20$$u3d$$u20$f32$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h52a90d23372b218eE"(ptr nonnull align 8 %19, i8 %.sroa.01.0.i.i.i) #20
           to label %.body unwind label %87, !noalias !148
 
 61:                                               ; preds = %48
@@ -987,13 +987,13 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %61
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he19a4b5df57102b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %62)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he19a4b5df57102b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %62)
           to label %72 unwind label %68, !noalias !148
 
 68:                                               ; preds = %67
   %69 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rodio..source..Source$u2b$Item$u20$$u3d$$u20$f32$u2b$core..marker..Send$GT$$GT$17h3a6618f232f87fbcE"(ptr nonnull %51, ptr nonnull @anon.20e8271e5016fadc382b0336ece0ff03.37) #20
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rodio..source..Source$u2b$Item$u20$$u3d$$u20$f32$u2b$core..marker..Send$GT$$GT$17h3a6618f232f87fbcE"(ptr nonnull align 1 %51, ptr nonnull @anon.20e8271e5016fadc382b0336ece0ff03.37) #20
           to label %.body3.i unwind label %70, !noalias !148
 
 70:                                               ; preds = %68
@@ -1036,7 +1036,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %83, %.n
   br i1 %85, label %86, label %98
 
 86:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i
-  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %19)
+  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 8 %19)
           to label %98 unwind label %92
 
 87:                                               ; preds = %91, %.body3.i
@@ -1052,7 +1052,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %83, %.n
   br i1 %90, label %.body, label %91
 
 91:                                               ; preds = %.thread28.i
-  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %6)
+  invoke void @"_ZN4core3ptr309drop_in_place$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$rodio..source..uniform..Take$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h52632a67e3672668E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %6)
           to label %.body unwind label %87, !noalias !148
 
 "_ZN4core3ptr213drop_in_place$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$17hb5635259966fa31fE.exit": ; preds = %18, %13, %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$rodio..dynamic_mixer..DynamicMixerController$LT$f32$GT$$GT$$GT$17he33094f13ead7a9aE.exit19"

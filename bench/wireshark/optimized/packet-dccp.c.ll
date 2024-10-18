@@ -1562,7 +1562,7 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
   %638 = load i16, ptr %13, align 2
   %639 = zext i16 %638 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %640 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %627) #10
+  %640 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef range(i32 -3, 1037) %627) #10
   %641 = load i32, ptr @dccp_follow_tap, align 4
   %642 = call i32 @have_tap_listener(i32 noundef %641) #10
   %.not.i620 = icmp eq i32 %642, 0
@@ -1574,7 +1574,7 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
   br label %645
 
 645:                                              ; preds = %643, %635
-  %646 = call i32 @try_conversation_dissector(ptr noundef nonnull %15, ptr noundef nonnull %25, i32 noundef 4, i32 noundef %637, i32 noundef %639, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, i32 noundef 0) #10
+  %646 = call i32 @try_conversation_dissector(ptr noundef nonnull %15, ptr noundef nonnull %25, i32 noundef 4, i32 noundef range(i32 0, 65536) %637, i32 noundef range(i32 0, 65536) %639, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, i32 noundef 0) #10
   %.not39.i = icmp eq i32 %646, 0
   br i1 %.not39.i, label %647, label %decode_dccp_ports.exit
 
@@ -1590,8 +1590,8 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
   br i1 %.not41.i, label %652, label %decode_dccp_ports.exit
 
 652:                                              ; preds = %649, %647
-  %..i = call i32 @llvm.umin.i32(i32 %637, i32 %639)
-  %.48.i = call i32 @llvm.umax.i32(i32 %637, i32 %639)
+  %..i = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %637, i32 range(i32 0, 65536) %639)
+  %.48.i = call i32 @llvm.umax.i32(i32 range(i32 0, 65536) %637, i32 range(i32 0, 65536) %639)
   %.not42.i = icmp eq i32 %..i, 0
   br i1 %.not42.i, label %656, label %653
 

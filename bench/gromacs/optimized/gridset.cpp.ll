@@ -130,14 +130,14 @@ define void @_ZN5Nbnxm7GridSetC2E7PbcTypebPA3_KiPK18gmx_domdec_zones_t12Pairlist
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, i8 0, i64 28, i1 false)
-  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef 0)
+  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef 0)
           to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, i8 0, i64 28, i1 false)
-  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef 0)
+  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 0)
           to label %20 unwind label %16
 
 16:                                               ; preds = %.noexc
@@ -148,7 +148,7 @@ define void @_ZN5Nbnxm7GridSetC2E7PbcTypebPA3_KiPK18gmx_domdec_zones_t12Pairlist
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull %18) #19
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %18) #19
   br label %.body
 
 20:                                               ; preds = %.noexc
@@ -179,7 +179,7 @@ _ZNSt6vectorIN5Nbnxm8GridWorkESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds
   br i1 %.not.i.i.i.i15, label %_ZNSt12_Vector_baseIN5Nbnxm8GridWorkESaIS1_EEC2EmRKS2_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN5Nbnxm8GridWorkESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorIN5Nbnxm8GridWorkESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 16, i1 false)
   br label %33
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN5Nbnxm8GridWorkESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -262,7 +262,7 @@ _ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE11_M_allocateEm.exit.i: ; preds = %_ZN5
           to label %.noexc19 unwind label %.loopexit.split-lp
 
 .noexc19:                                         ; preds = %_ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE11_M_allocateEm.exit.i
-  %63 = tail call noundef ptr @_ZSt14__relocate_a_1IPN5Nbnxm4GridES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %51, ptr noundef %58, ptr noundef nonnull %62, ptr noundef nonnull align 1 dereferenceable(1) %12) #19
+  %63 = tail call noundef ptr @_ZSt14__relocate_a_1IPN5Nbnxm4GridES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %51, ptr noundef %58, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(24) %12) #19
   %64 = load ptr, ptr %12, align 8
   %.not.i8.i = icmp eq ptr %64, null
   br i1 %.not.i8.i, label %_ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit.i, label %65
@@ -418,14 +418,14 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.thread
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit: ; preds = %2
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %11) #19
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %11) #19
   %.pr = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %.pr) #19
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %.pr) #19
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.thread, %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit, %24
@@ -491,7 +491,7 @@ define linkonce_odr void @_ZN5Nbnxm11GridSetDataD2Ev(ptr noundef nonnull align 8
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull %3) #19
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %3) #19
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %1, %4
@@ -501,7 +501,7 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds 
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit2, label %8
 
 8:                                                ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %7) #19
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7) #19
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit2
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit2: ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit, %8
@@ -612,7 +612,7 @@ define linkonce_odr void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPol
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %19) #19
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %19) #19
   br label %_ZNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %17, %20
@@ -629,7 +629,7 @@ _ZNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ;
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %22 to i64
   %29 = sub i64 %27, %28
-  %30 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %29) #19
+  %30 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %29) #19
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
@@ -701,7 +701,7 @@ define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN5Nbnxm4GridES2_SaIS1_EET
   %.0911 = phi ptr [ %100, %.lr.ph ], [ %0, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %.012, ptr noundef nonnull align 8 dereferenceable(108) %.0911, i64 108, i1 false), !alias.scope !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(372) %.012, ptr noundef nonnull align 8 dereferenceable(372) %.0911, i64 108, i1 false), !alias.scope !16
   %5 = getelementptr inbounds i8, ptr %.012, i64 112
   %6 = getelementptr inbounds i8, ptr %.0911, i64 112
   %7 = load i32, ptr %6, align 8, !alias.scope !14, !noalias !11
@@ -949,7 +949,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %_ZNSt6vectorIN5Nbnx
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit8
   %35 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull %33) #19
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %33) #19
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit8, %34
@@ -960,7 +960,7 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds 
 
 38:                                               ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
   %39 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull %37) #19
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull %37) #19
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit11
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit11: ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit, %38

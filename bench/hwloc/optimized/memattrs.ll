@@ -814,7 +814,7 @@ define internal fastcc void @hwloc__imattr_refresh(ptr noundef %0, ptr nocapture
   br i1 %.not.i.i.i.i, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %21, i32 noundef 0) #28
+  %24 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %21, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_type.exit.i.i
 
 25:                                               ; preds = %22
@@ -855,7 +855,7 @@ hwloc_get_next_obj_by_type.exit.i.i:              ; preds = %28, %23
   br i1 %.not.i.i.i48.i, label %41, label %43
 
 41:                                               ; preds = %40
-  %42 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %39, i32 noundef 0) #28
+  %42 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %39, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_type.exit.i51.i
 
 43:                                               ; preds = %40
@@ -4020,7 +4020,7 @@ hwloc__guess_memory_tiers_types.exit:             ; preds = %358, %280, %270, %2
   br label %hwloc_get_next_obj_by_type.exit.us.i
 
 370:                                              ; preds = %.lr.ph46.split.us.i
-  %371 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %363, i32 noundef 0) #28
+  %371 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %363, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_type.exit.us.i
 
 hwloc_get_next_obj_by_type.exit.us.i:             ; preds = %370, %367
@@ -4126,7 +4126,7 @@ hwloc_memory_tier_type_snprintf.exit.us.i:        ; preds = %388, %387, %386, %3
   br i1 %.not.i.i.i49, label %403, label %405
 
 403:                                              ; preds = %.lr.ph46.split.i
-  %404 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %402, i32 noundef 0) #28
+  %404 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %402, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_type.exit.i
 
 405:                                              ; preds = %.lr.ph46.split.i

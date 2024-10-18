@@ -103,7 +103,7 @@ entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %call1, ptr noundef nonnull align 8 dereferenceable(592) %oldNodeRef, i64 592, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %call1, ptr noundef nonnull align 8 dereferenceable(640) %oldNodeRef, i64 592, i1 false)
   %children_.i = getelementptr inbounds i8, ptr %call1, i64 592
   %children_2.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 592
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 600

@@ -290,7 +290,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTrackerC2ERKNS_17MachineModule
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit, label %20
 
 20:                                               ; preds = %4
-  %21 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #5
+  %21 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #5
   br label %_ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit
 
 _ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit: ; preds = %4, %20
@@ -307,7 +307,7 @@ _ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit:
   br i1 %.not.i.i5, label %_ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_8FunctionEbEED2Ev.exit, label %26
 
 26:                                               ; preds = %_ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit
-  %27 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3) #5
+  %27 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #5
   br label %_ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_8FunctionEbEED2Ev.exit
 
 _ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_8FunctionEbEED2Ev.exit: ; preds = %_ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit, %26

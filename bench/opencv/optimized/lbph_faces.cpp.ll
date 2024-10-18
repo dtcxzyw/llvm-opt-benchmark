@@ -3845,7 +3845,7 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit29.i.us:          ; preds = %139
   store i64 0, ptr %94, align 8, !noalias !96
   store i32 33619968, ptr %29, align 8, !noalias !96
   store ptr %23, ptr %93, align 8, !noalias !96
-  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull %43, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %26, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull align 8 dereferenceable(96) %43, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %26, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %144 unwind label %.split90.us, !noalias !96
 
 144:                                              ; preds = %_ZN2cv4Mat_IfEC2ERKNS_3MatE.exit29.i.us
@@ -3910,7 +3910,7 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit26.i.us:          ; preds = %151
   store i64 0, ptr %102, align 8, !noalias !99
   store i32 33619968, ptr %21, align 8, !noalias !99
   store ptr %15, ptr %101, align 8, !noalias !99
-  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull %42, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 1, ptr noundef nonnull %16, ptr noundef nonnull %18, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull align 8 dereferenceable(96) %42, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 1, ptr noundef nonnull %16, ptr noundef nonnull %18, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %156 unwind label %.split99.us, !noalias !99
 
 156:                                              ; preds = %_ZN2cv4Mat_IfEC2ERKNS_3MatE.exit26.i.us
@@ -3966,7 +3966,7 @@ _ZN2cv4faceL6histc_ERKNS_3MatEiib.exit55.us:      ; preds = %162
   store i64 0, ptr %110, align 8, !noalias !102
   store i32 33619968, ptr %37, align 8, !noalias !102
   store ptr %31, ptr %109, align 8, !noalias !102
-  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull %40, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %37, i32 noundef 1, ptr noundef nonnull %32, ptr noundef nonnull %34, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull align 8 dereferenceable(96) %40, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %37, i32 noundef 1, ptr noundef nonnull %32, ptr noundef nonnull %34, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %163 unwind label %.split105.us, !noalias !102
 
 163:                                              ; preds = %.invoke.i.us
@@ -4031,7 +4031,7 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit.i.us:            ; preds = %170
   store i64 0, ptr %118, align 8, !noalias !105
   store i32 33619968, ptr %13, align 8, !noalias !105
   store ptr %7, ptr %117, align 8, !noalias !105
-  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull %41, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke void @_ZN2cv8calcHistEPKNS_3MatEiPKiRKNS_11_InputArrayERKNS_12_OutputArrayEiS4_PPKfbb(ptr noundef nonnull align 8 dereferenceable(96) %41, i32 noundef 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %175 unwind label %.split114.us, !noalias !105
 
 175:                                              ; preds = %_ZN2cv4Mat_IfEC2ERKNS_3MatE.exit.i.us
@@ -4613,7 +4613,7 @@ define void @_ZN2cv4face18LBPHFaceRecognizer6createEiiiid(ptr dead_on_unwind noa
   store i32 1, ptr %9, align 4, !noalias !117
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4face4LBPHESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !117
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %10)
           to label %_ZN2cv3PtrINS_4face4LBPHEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face4LBPHESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !117
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face4LBPHESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %6
@@ -4702,7 +4702,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   unreachable
 
 _ZN2cv4face18LBPHFaceRecognizerD2Ev.exit:         ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   ret void
 }
 
@@ -4754,7 +4754,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i:        ; preds = %9, %_ZSt8_DestroyIP
   unreachable
 
 _ZN2cv4face4LBPHD2Ev.exit:                        ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }

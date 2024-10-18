@@ -584,13 +584,13 @@ define noundef zeroext i1 @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose15isDepthPositiveEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPoseD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #17
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(272) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPoseD0Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #17
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 336) #18
   ret void
 }
@@ -981,15 +981,15 @@ define linkonce_odr noundef i32 @_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1EL
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o25EdgeSE3ProjectXYZOnlyPoseD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #17
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %2) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o25EdgeSE3ProjectXYZOnlyPoseD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 336) #18
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %2) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(328) %2, i64 noundef 336) #18
   ret void
 }
 
@@ -1109,7 +1109,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store double %67, ptr %64, align 8
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %68, ptr noundef nonnull align 8 dereferenceable(10) %69, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %69, i64 10, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %4, ptr %70, align 16
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 120

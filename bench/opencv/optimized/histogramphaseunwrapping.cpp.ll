@@ -683,7 +683,7 @@ _ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl
   br label %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE.exit
 
 63:                                               ; preds = %32
-  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %39, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %39, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %._ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE.exit_crit_edge unwind label %.loopexit42
 
 ._ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE.exit_crit_edge: ; preds = %63
@@ -795,7 +795,7 @@ _ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl
   br label %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE.exit37
 
 102:                                              ; preds = %70
-  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %78, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %78, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %._ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE.exit37_crit_edge unwind label %.loopexit
 
 ._ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE.exit37_crit_edge: ; preds = %102
@@ -2816,7 +2816,7 @@ define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6createERKNS1_6Pa
   store i32 1, ptr %5, align 4, !noalias !64
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !64
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6)
           to label %.noexc.i.i.i.i.i unwind label %14, !noalias !64
 
 .noexc.i.i.i.i.i:                                 ; preds = %2
@@ -2841,7 +2841,7 @@ define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6createERKNS1_6Pa
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %13, %10
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21, !noalias !64
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #21, !noalias !64
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
 
 14:                                               ; preds = %2
@@ -3015,7 +3015,7 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev.exit.i.i: 
   br label %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev.exit
 
 _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev.exit: ; preds = %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev.exit.i.i, %14
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

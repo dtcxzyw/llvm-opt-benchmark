@@ -3458,7 +3458,7 @@ emit_map_rect.exit:                               ; preds = %514, %543, %544
   %557 = load i32, ptr %8, align 8
   %558 = and i32 %557, 256
   %.not34.i.i = icmp eq i32 %558, 0
-  %559 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.028.i.i, ptr noundef nonnull readonly dereferenceable(12) @.str.28) #32
+  %559 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.028.i.i, ptr noundef nonnull dereferenceable(12) @.str.28) #32
   %560 = icmp eq i32 %559, 0
   br i1 %.not34.i.i, label %.thread.i.i, label %561
 
@@ -5482,7 +5482,7 @@ define internal fastcc void @emit_node(ptr noundef %0, ptr noundef %1) unnamed_a
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %.0, i64 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(6) @.str.65) #32
+  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(6) @.str.65) #32
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.loopexit45, label %37
 
@@ -6442,7 +6442,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %192
 
 205:                                              ; preds = %203
   %206 = getelementptr inbounds i8, ptr %.031, i64 8
-  %207 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %204, ptr noundef nonnull readonly dereferenceable(6) @.str.65) #32
+  %207 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %204, ptr noundef nonnull dereferenceable(6) @.str.65) #32
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %edge_in_layer.exit.thread142, label %203
 
@@ -7992,7 +7992,7 @@ emit_begin_edge.exit:                             ; preds = %866, %870
 
 891:                                              ; preds = %.preheader.i127
   %892 = getelementptr inbounds i8, ptr %.0318.i, i64 8
-  %893 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %890, ptr noundef nonnull readonly dereferenceable(8) @.str.86) #32
+  %893 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %890, ptr noundef nonnull dereferenceable(8) @.str.86) #32
   %894 = icmp eq i32 %893, 0
   br i1 %894, label %.loopexit404.i, label %.preheader.i127
 
@@ -8036,7 +8036,7 @@ emit_begin_edge.exit:                             ; preds = %866, %870
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %908 = call fastcc i32 @parseSegs(ptr noundef %889, i32 noundef %907, ptr noundef %5)
+  %908 = call fastcc i32 @parseSegs(ptr noundef %889, i32 noundef range(i32 -2147483647, -2147483648) %907, ptr noundef %5)
   %909 = icmp sgt i32 %908, 1
   br i1 %909, label %910, label %937
 
@@ -8482,22 +8482,22 @@ default_pencolor.exit:                            ; preds = %agxbclear.exit.thre
   br i1 %.not10.i.i, label %1106, label %1094
 
 1094:                                             ; preds = %1091
-  %1095 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull readonly dereferenceable(8) @.str.91) #32
+  %1095 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull dereferenceable(8) @.str.91) #32
   %1096 = icmp eq i32 %1095, 0
   br i1 %1096, label %taperfun.exit.i, label %1097
 
 1097:                                             ; preds = %1094
-  %1098 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull readonly dereferenceable(5) @.str.92) #32
+  %1098 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull dereferenceable(5) @.str.92) #32
   %1099 = icmp eq i32 %1098, 0
   br i1 %1099, label %taperfun.exit.i, label %1100
 
 1100:                                             ; preds = %1097
-  %1101 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull readonly dereferenceable(5) @.str.93) #32
+  %1101 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull dereferenceable(5) @.str.93) #32
   %1102 = icmp eq i32 %1101, 0
   br i1 %1102, label %taperfun.exit.i, label %1103
 
 1103:                                             ; preds = %1100
-  %1104 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull readonly dereferenceable(5) @.str.94) #32
+  %1104 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1092, ptr noundef nonnull dereferenceable(5) @.str.94) #32
   %1105 = icmp eq i32 %1104, 0
   br i1 %1105, label %taperfun.exit.i, label %1106
 
@@ -12058,7 +12058,7 @@ gv_strdup.exit.preheader:                         ; preds = %4
   %24 = load ptr, ptr %10, align 8
   %25 = call ptr @strtok_r(ptr noundef null, ptr noundef %24, ptr noundef nonnull %6) #28
   %.not46 = icmp eq ptr %25, null
-  %26 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(4) @.str.59) #32
+  %26 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(4) @.str.59) #32
   %27 = icmp eq i32 %26, 0
   br i1 %.not46, label %73, label %28
 
@@ -12116,7 +12116,7 @@ is_natural_number.exit.i:                         ; preds = %.preheader14.i
 
 layer_index.exit:                                 ; preds = %44, %28, %34, %36, %.preheader.i, %.loopexit.loopexit.split.loop.exit20.i
   %.012.i = phi i32 [ %35, %34 ], [ 0, %28 ], [ -1, %36 ], [ -1, %.preheader.i ], [ %45, %.loopexit.loopexit.split.loop.exit20.i ], [ -1, %44 ]
-  %46 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(4) @.str.59) #32
+  %46 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.59) #32
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %layer_index.exit63, label %.preheader14.i48
 

@@ -10898,7 +10898,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %36, %42, %52
   %57 = sub nsw i64 %55, %54
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.011.i, i64 %57)
   %58 = load ptr, ptr %0, align 8
-  tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %58, ptr noundef %.010.i, i64 noundef %spec.select.i)
+  tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %58, ptr noundef nonnull %.010.i, i64 noundef %spec.select.i)
   %59 = load i64, ptr %23, align 8
   %60 = add i64 %59, %.011.i
   store i64 %60, ptr %23, align 8

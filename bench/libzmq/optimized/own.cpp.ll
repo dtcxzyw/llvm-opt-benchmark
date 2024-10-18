@@ -1133,7 +1133,7 @@ do.end.i:                                         ; preds = %if.then6.i, %do.bod
   br i1 %tobool9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.end.i
-  tail call void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %7)
+  tail call void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef nonnull %7)
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %do.end.i
@@ -1499,7 +1499,7 @@ do.end.i:                                         ; preds = %if.then6.i, %do.bod
   br i1 %tobool9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.end.i
-  tail call void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %16)
+  tail call void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef nonnull %16)
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %do.end.i
@@ -1572,7 +1572,7 @@ do.end.i:                                         ; preds = %if.then6.i, %do.bod
   br i1 %tobool9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.end.i
-  tail call void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %11)
+  tail call void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef nonnull %11)
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %do.end.i
@@ -2137,7 +2137,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #20
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
@@ -2150,7 +2150,7 @@ while.end:                                        ; preds = %while.body, %entry
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__node, ptr noundef nonnull align 8 dereferenceable(64) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_storage.i = getelementptr inbounds i8, ptr %__node, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(64) %__args)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -2162,7 +2162,7 @@ entry:
 lpad.i.i.i:                                       ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i) #17
   br label %lpad.body
 
 lpad:                                             ; preds = %entry
@@ -2174,7 +2174,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i.i.i ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #17
-  tail call void @_ZdlPv(ptr noundef %__node) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %__node) #20
   invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad4
 

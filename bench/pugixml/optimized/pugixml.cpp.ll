@@ -553,7 +553,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %1, i32 noundef -2147483648, i32 noundef 2147483647)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i32 noundef -2147483648, i32 noundef 2147483647)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -575,7 +575,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %1, i32 noundef 0, i32 noundef -1)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i32 noundef 0, i32 noundef -1)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %1, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -695,7 +695,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %1, i64 noundef 0, i64 noundef -1)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i64 noundef 0, i64 noundef -1)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -4335,7 +4335,7 @@ cond.end.i:                                       ; preds = %_ZN4pugi4impl12_GLO
 
 if.end.i14:                                       ; preds = %cond.end.i
   %name.i = getelementptr inbounds i8, ptr %13, i64 8
-  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef nonnull readonly @.str.1, i64 noundef 3)
+  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef nonnull @.str.1, i64 noundef 3)
   %.pre = load i64, ptr %n, align 8
   br label %if.end15
 
@@ -4487,7 +4487,7 @@ cond.end.i:                                       ; preds = %_ZN4pugi4impl12_GLO
 
 if.end.i14:                                       ; preds = %cond.end.i
   %name.i = getelementptr inbounds i8, ptr %13, i64 8
-  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef nonnull readonly @.str.1, i64 noundef 3)
+  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef nonnull @.str.1, i64 noundef 3)
   %.pre = load i64, ptr %n, align 8
   br label %if.end15
 
@@ -4656,7 +4656,7 @@ cond.end.i:                                       ; preds = %_ZN4pugi4impl12_GLO
 
 if.end.i17:                                       ; preds = %cond.end.i
   %name.i = getelementptr inbounds i8, ptr %15, i64 8
-  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 32, ptr noundef nonnull readonly @.str.1, i64 noundef 3)
+  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 32, ptr noundef nonnull @.str.1, i64 noundef 3)
   %.pre = load i64, ptr %n, align 8
   br label %if.end21
 
@@ -4822,7 +4822,7 @@ cond.end.i:                                       ; preds = %_ZN4pugi4impl12_GLO
 
 if.end.i17:                                       ; preds = %cond.end.i
   %name.i = getelementptr inbounds i8, ptr %15, i64 8
-  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 32, ptr noundef nonnull readonly @.str.1, i64 noundef 3)
+  %call9.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 32, ptr noundef nonnull @.str.1, i64 noundef 3)
   %.pre = load i64, ptr %n, align 8
   br label %if.end21
 
@@ -11275,7 +11275,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writerC2ERNS_10xml_writerENS_12xml_enc
   store i32 %retval.0.i.i, ptr %encoding.i, align 8
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111node_outputERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcjj(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull %0, ptr noundef %indent, i32 noundef %flags, i32 noundef %depth)
   %3 = load i64, ptr %bufsize.i, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull %buffered_writer, i64 noundef %3)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, i64 noundef %3)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writerC2ERNS_10xml_writerENS_12xml_encodingE.exit
@@ -11333,7 +11333,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp.i, label %if.then.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 if.then.i:                                        ; preds = %if.then13
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %2)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %2)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit: ; preds = %if.then13, %if.then.i
@@ -11373,7 +11373,7 @@ if.then24:                                        ; preds = %if.end19
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i
 
 if.then.i.i:                                      ; preds = %if.then24
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %6)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %6)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i: ; preds = %if.then.i.i, %if.then24
@@ -11413,7 +11413,7 @@ if.then9.i:                                       ; preds = %if.then7.i
   br i1 %cmp.i27.i, label %if.then.i30.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i
 
 if.then.i30.i:                                    ; preds = %if.then9.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %10)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %10)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i: ; preds = %if.then.i30.i, %if.then9.i
@@ -11434,7 +11434,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i: ; preds = %if
   br i1 %cmp.i32.i, label %if.then.i36.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit37.i
 
 if.then.i36.i:                                    ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %11)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %11)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit37.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit37.i: ; preds = %if.then.i36.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i
@@ -11452,7 +11452,7 @@ if.then11.i:                                      ; preds = %if.else.i
   br i1 %cmp.i39.i, label %if.then.i43.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit44.i
 
 if.then.i43.i:                                    ; preds = %if.then11.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %10)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %10)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit44.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit44.i: ; preds = %if.then.i43.i, %if.then11.i
@@ -11469,7 +11469,7 @@ if.end12.i:                                       ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i46.i, label %if.then.i51.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i
 
 if.then.i51.i:                                    ; preds = %if.end12.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %12)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %12)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i: ; preds = %if.then.i51.i, %if.end12.i
@@ -11487,7 +11487,7 @@ if.else13.i:                                      ; preds = %if.then5.i
   br i1 %cmp.i53.i, label %if.then.i57.i, label %_ZN4pugi4impl12_GLOBAL__N_117node_output_startERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcmjj.exit
 
 if.then.i57.i:                                    ; preds = %if.else13.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %10)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %10)
   br label %_ZN4pugi4impl12_GLOBAL__N_117node_output_startERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcmjj.exit
 
 if.else14.i:                                      ; preds = %if.end.i
@@ -11496,7 +11496,7 @@ if.else14.i:                                      ; preds = %if.end.i
   br i1 %cmp.i60.i, label %if.then.i64.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit65.i
 
 if.then.i64.i:                                    ; preds = %if.else14.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %13)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %13)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit65.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit65.i: ; preds = %if.then.i64.i, %if.else14.i
@@ -11518,7 +11518,7 @@ if.then18.i:                                      ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i67.i, label %if.then.i73.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit74.i
 
 if.then.i73.i:                                    ; preds = %if.then18.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %16)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %16)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit74.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit74.i: ; preds = %if.then.i73.i, %if.then18.i
@@ -11536,7 +11536,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit74.i: ; preds = %i
   br i1 %cmp.i76.i, label %if.then.i80.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit81.i
 
 if.then.i80.i:                                    ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit74.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %17)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %17)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit81.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit81.i: ; preds = %if.then.i80.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit74.i
@@ -11613,7 +11613,7 @@ if.then61:                                        ; preds = %if.then55
   br i1 %cmp.i60, label %if.then.i65, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit66
 
 if.then.i65:                                      ; preds = %if.then61
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %24)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %24)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit66
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit66: ; preds = %if.then61, %if.then.i65
@@ -11644,7 +11644,7 @@ if.end68:                                         ; preds = %if.then67, %if.end6
   br i1 %cmp.i.i70, label %if.then.i.i79, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i71
 
 if.then.i.i79:                                    ; preds = %if.end68
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %26)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %26)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i71
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.i71: ; preds = %if.then.i.i79, %if.end68
@@ -11717,7 +11717,7 @@ _ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i: ; preds = %for.body.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %data.addr.0.lcssa.i, i64 %idx.neg8.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %data.addr.0.lcssa.i) #45
   %add.i = add i64 %call.i.i, %sub5.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %sub6.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %sub6.i)
   store i64 0, ptr %bufsize.i, align 8
   %cmp.i14.i = icmp ugt i64 %add.i, 2048
   br i1 %cmp.i14.i, label %if.then.i.i93, label %if.end7.i.i
@@ -11770,7 +11770,7 @@ while.end.i.i:                                    ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i:                                      ; preds = %while.end.i.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i
   %length.addr.0.i.i = phi i64 [ %sub.i15.i, %while.end.i.i ], [ %add.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %add.ptr9.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
   %40 = load i64, ptr %bufsize.i, align 8
   %add.i.i = add i64 %40, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
@@ -11782,7 +11782,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_stringEPKc.exit: ; preds
   br i1 %cmp.i5.i, label %if.then.i8.i, label %_ZN4pugi4impl12_GLOBAL__N_115node_output_endERNS1_19xml_buffered_writerEPNS_15xml_node_structE.exit
 
 if.then.i8.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_stringEPKc.exit
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %41)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %41)
   br label %_ZN4pugi4impl12_GLOBAL__N_115node_output_endERNS1_19xml_buffered_writerEPNS_15xml_node_structE.exit
 
 _ZN4pugi4impl12_GLOBAL__N_115node_output_endERNS1_19xml_buffered_writerEPNS_15xml_node_structE.exit: ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_stringEPKc.exit, %if.then.i8.i
@@ -11818,7 +11818,7 @@ if.then76:                                        ; preds = %do.end
   br i1 %cmp.i81, label %if.then.i86, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit87
 
 if.then.i86:                                      ; preds = %if.then76
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %42)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %42)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit87
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit87: ; preds = %if.then76, %if.then.i86
@@ -11870,7 +11870,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writerC2ERNS_10xml_writerENS_12xml_enc
   store i32 %retval.0.i.i.i, ptr %encoding.i.i, align 8
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111node_outputERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcjj(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, ptr noundef nonnull %0, ptr noundef %indent, i32 noundef %flags, i32 noundef %depth)
   %3 = load i64, ptr %bufsize.i.i, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, ptr noundef nonnull %buffered_writer.i, i64 noundef %3)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, i64 noundef %3)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writerC2ERNS_10xml_writerENS_12xml_encodingE.exit.i, %entry
@@ -11904,7 +11904,7 @@ if.end.i:                                         ; preds = %entry
   store i32 5, ptr %encoding.i.i, align 8
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111node_outputERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcjj(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, ptr noundef nonnull %0, ptr noundef %indent, i32 noundef %flags, i32 noundef %depth)
   %1 = load i64, ptr %bufsize.i.i, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, ptr noundef nonnull %buffered_writer.i, i64 noundef %1)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer.i, i64 noundef %1)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i, %entry
@@ -12449,7 +12449,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %8, i32 noundef -2147483648, i32 noundef 2147483647)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i32 noundef -2147483648, i32 noundef 2147483647)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12512,7 +12512,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %8, i32 noundef 0, i32 noundef -1)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i32 noundef 0, i32 noundef -1)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12774,7 +12774,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %8, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12837,7 +12837,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %8, i64 noundef 0, i64 noundef -1)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i64 noundef 0, i64 noundef -1)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -16125,7 +16125,7 @@ common.resume.i:                                  ; preds = %.noexc.i.i, %if.the
   resume { ptr, i32 } %common.resume.op.i
 
 if.end.i.i4:                                      ; preds = %call.i.noexc.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i27.i.i, i8 0, i64 16, i1 false), !noalias !114
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32744) %call.i27.i.i, i8 0, i64 16, i1 false), !noalias !114
   %tobool3.not.i.i = icmp eq ptr %last.0.i.i, null
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
@@ -16358,7 +16358,7 @@ if.then.i.i2:                                     ; preds = %if.end13.i
 
 _ZN4pugi4impl12_GLOBAL__N_121zero_terminate_bufferEPvmNS_12xml_encodingE.exit.i: ; preds = %if.then.i.i2, %if.end13.i
   %retval.0.i29.i = phi i64 [ %add.i30.i, %if.then.i.i2 ], [ %size.052.i, %if.end13.i ]
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %retval.0.i29.i, i32 noundef %options, i32 noundef %call14.i, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %retval.0.i29.i, i32 noundef %options, i32 noundef %call14.i, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %_buffer.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_116load_stream_implIcEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_116load_stream_implIcEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit: ; preds = %if.then.i, %if.then12.i, %_ZN4pugi4impl12_GLOBAL__N_121zero_terminate_bufferEPvmNS_12xml_encodingE.exit.i
@@ -16539,7 +16539,7 @@ common.resume.i:                                  ; preds = %.noexc.i.i, %if.the
   resume { ptr, i32 } %common.resume.op.i
 
 if.end.i.i3:                                      ; preds = %call.i.noexc.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i27.i.i, i8 0, i64 16, i1 false), !noalias !126
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32744) %call.i27.i.i, i8 0, i64 16, i1 false), !noalias !126
   %tobool3.not.i.i = icmp eq ptr %last.0.i.i, null
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
@@ -16766,7 +16766,7 @@ if.then12.i:                                      ; preds = %if.end10.i, %if.the
 if.end13.i:                                       ; preds = %if.end10.i, %invoke.cont38.i.i, %for.cond.preheader.i.i
   %buffer.053.i = phi ptr [ %buffer.1.i, %if.end10.i ], [ %call12.i.i, %invoke.cont38.i.i ], [ %call38.i.i, %for.cond.preheader.i.i ]
   %size.052.i = phi i64 [ %size.1.i, %if.end10.i ], [ %mul41.i.i, %invoke.cont38.i.i ], [ %total.0.i.i, %for.cond.preheader.i.i ]
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %size.052.i, i32 noundef %options, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %size.052.i, i32 noundef %options, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %_buffer.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_116load_stream_implIwEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_116load_stream_implIwEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit: ; preds = %if.then.i, %if.then12.i, %if.end13.i
@@ -17035,7 +17035,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
   %prev_sibling_c.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i1.i, ptr %prev_sibling_c.i.i, align 8
   store ptr %11, ptr %_memory.i.i, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %path_, ptr noundef nonnull readonly @.str.20)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %path_, ptr noundef nonnull @.str.20)
   %12 = load ptr, ptr %this, align 8
   invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %12, ptr noundef %call.i, i32 noundef %options, i32 noundef %encoding, ptr noundef %_buffer.i.i)
           to label %invoke.cont unwind label %lpad
@@ -17687,7 +17687,7 @@ if.end8:                                          ; preds = %if.then7, %if.then5
   br i1 %cmp.i8, label %if.then.i13, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 if.then.i13:                                      ; preds = %if.end8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull %buffered_writer, i64 noundef %5)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, i64 noundef %5)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit: ; preds = %if.end8, %if.then.i13
@@ -17708,7 +17708,7 @@ if.then11:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i15, label %if.then.i18, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 if.then.i18:                                      ; preds = %if.then11
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull %buffered_writer, i64 noundef %add5.i)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, i64 noundef %add5.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit: ; preds = %if.then11, %if.then.i18
@@ -17723,7 +17723,7 @@ if.end13:                                         ; preds = %for.body.i, %_ZN4pu
   %6 = load ptr, ptr %this, align 8
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111node_outputERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcjj(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef %6, ptr noundef %indent, i32 noundef %flags, i32 noundef 0)
   %7 = load i64, ptr %bufsize.i, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull %buffered_writer, i64 noundef %7)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, ptr noundef nonnull align 8 dereferenceable(10260) %buffered_writer, i64 noundef %7)
   ret void
 }
 
@@ -17793,7 +17793,7 @@ _ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit: ; preds = %for.cond.i, 
   %add.ptr9 = getelementptr inbounds i8, ptr %data.addr.0.lcssa, i64 %idx.neg8
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %data.addr.0.lcssa) #45
   %add = add i64 %call.i, %sub5
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %this, ptr noundef nonnull %this, i64 noundef %sub6)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %this, ptr noundef nonnull align 8 dereferenceable(10260) %this, i64 noundef %sub6)
   store i64 0, ptr %bufsize, align 8
   %cmp.i14 = icmp ugt i64 %add, 2048
   br i1 %cmp.i14, label %if.then.i, label %if.end7.i
@@ -17847,7 +17847,7 @@ while.end.i:                                      ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i:                                        ; preds = %while.end.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit
   %length.addr.0.i = phi i64 [ %sub.i15, %while.end.i ], [ %add, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit ]
   %data.addr.0.i = phi ptr [ %add.ptr.i, %while.end.i ], [ %add.ptr9, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %this, ptr align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
   %14 = load i64, ptr %bufsize, align 8
   %add.i = add i64 %14, %length.addr.0.i
   store i64 %add.i, ptr %bufsize, align 8
@@ -21757,7 +21757,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -23750,7 +23750,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -24652,7 +24652,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -26959,7 +26959,7 @@ entry:
   %c = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %sd = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_stack_data", align 8
   %r = alloca %"class.pugi::impl::(anonymous namespace)::xpath_string", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -27160,7 +27160,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %res.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -27746,7 +27746,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %res.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull readonly align 8 dereferenceable(16) %n, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -28143,7 +28143,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pugi15xpath_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #44
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #44
   tail call void @_ZdlPv(ptr noundef nonnull %this) #47
   ret void
 }
@@ -32331,7 +32331,7 @@ do.body.i:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
 
 if.then.i.i:                                      ; preds = %do.body.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %4)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %4)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i: ; preds = %if.then.i.i, %do.body.i
@@ -32356,7 +32356,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i: ; preds = %
   br i1 %cmp.i15.i, label %if.then.i24.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i
 
 if.then.i24.i:                                    ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %add14.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %add14.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i: ; preds = %if.then.i24.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
@@ -32418,7 +32418,7 @@ if.then.i27.i:                                    ; preds = %while.end.i
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
 
 if.else.i.i:                                      ; preds = %while.end.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %add11.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %add11.i.i)
   store i64 0, ptr %bufsize.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 2048
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end7.i.i.i
@@ -32471,7 +32471,7 @@ while.end.i.i.i:                                  ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i.i:                                    ; preds = %while.end.i.i.i, %if.else.i.i
   %length.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %while.end.i.i.i ], [ %sub.ptr.sub.i, %if.else.i.i ]
   %data.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.end.i.i.i ], [ %s.addr.0.i, %if.else.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writer, ptr align 1 %data.addr.0.i.i.i, i64 %length.addr.0.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i.i, i64 %length.addr.0.i.i.i, i1 false)
   %13 = load i64, ptr %bufsize.i.i, align 8
   %add.i.i.i = add i64 %13, %length.addr.0.i.i.i
   store i64 %add.i.i.i, ptr %bufsize.i.i, align 8
@@ -32483,7 +32483,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i: ; pr
   br i1 %cmp.i29.i, label %if.then.i36.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i
 
 if.then.i36.i:                                    ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %14)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %14)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit.i: ; preds = %if.then.i36.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
@@ -32513,7 +32513,7 @@ sw.bb11:                                          ; preds = %entry
   br i1 %cmp.i.i42, label %if.then.i.i97, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i43
 
 if.then.i.i97:                                    ; preds = %sw.bb11
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %17)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %17)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i43
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i43: ; preds = %if.then.i.i97, %sw.bb11
@@ -32587,7 +32587,7 @@ if.then.i16.i:                                    ; preds = %while.end.i56
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i68
 
 if.else.i.i62:                                    ; preds = %while.end.i56
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %19)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %19)
   store i64 0, ptr %bufsize.i.i41, align 8
   %cmp.i.i.i63 = icmp ugt i64 %sub.ptr.sub.i59, 2048
   br i1 %cmp.i.i.i63, label %if.then.i.i.i72, label %if.end7.i.i.i64
@@ -32640,7 +32640,7 @@ while.end.i.i.i87:                                ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i.i64:                                  ; preds = %while.end.i.i.i87, %if.else.i.i62
   %length.addr.0.i.i.i65 = phi i64 [ %sub.i.i.i85, %while.end.i.i.i87 ], [ %sub.ptr.sub.i59, %if.else.i.i62 ]
   %data.addr.0.i.i.i66 = phi ptr [ %add.ptr.i.i.i84, %while.end.i.i.i87 ], [ %s.addr.034.i, %if.else.i.i62 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writer, ptr align 1 %data.addr.0.i.i.i66, i64 %length.addr.0.i.i.i65, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i.i66, i64 %length.addr.0.i.i.i65, i1 false)
   %28 = load i64, ptr %bufsize.i.i41, align 8
   %add.i.i.i67 = add i64 %28, %length.addr.0.i.i.i65
   store i64 %add.i.i.i67, ptr %bufsize.i.i41, align 8
@@ -32657,7 +32657,7 @@ if.then.i:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i18.i, label %if.then.i23.i, label %if.end.i
 
 if.then.i23.i:                                    ; preds = %if.then.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %.pre36.i.pre)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %.pre36.i.pre)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i23.i, %if.then.i
@@ -32680,7 +32680,7 @@ while.end14.i:                                    ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i25.i, label %if.then.i32.i, label %_ZN4pugi4impl12_GLOBAL__N_119node_output_commentERNS1_19xml_buffered_writerEPKc.exit
 
 if.then.i32.i:                                    ; preds = %while.end14.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %30)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %30)
   br label %_ZN4pugi4impl12_GLOBAL__N_119node_output_commentERNS1_19xml_buffered_writerEPKc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119node_output_commentERNS1_19xml_buffered_writerEPKc.exit: ; preds = %while.end14.i, %if.then.i32.i
@@ -32704,7 +32704,7 @@ sw.bb20:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i100, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 if.then.i100:                                     ; preds = %sw.bb20
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %31)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %31)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit: ; preds = %sw.bb20, %if.then.i100
@@ -32732,7 +32732,7 @@ if.then:                                          ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i102, label %if.then.i106, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 if.then.i106:                                     ; preds = %if.then
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %.pr.pre236)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %.pr.pre236)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit: ; preds = %if.then, %if.then.i106
@@ -32796,7 +32796,7 @@ if.then.i.i165:                                   ; preds = %while.end.i118
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i130
 
 if.else.i.i124:                                   ; preds = %while.end.i118
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %36)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %36)
   store i64 0, ptr %bufsize.i, align 8
   %cmp.i.i.i125 = icmp ugt i64 %sub.ptr.sub.i121, 2048
   br i1 %cmp.i.i.i125, label %if.then.i.i.i143, label %if.end7.i.i.i126
@@ -32848,7 +32848,7 @@ while.end.i.i.i158:                               ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i.i126:                                 ; preds = %while.end.i.i.i158, %if.else.i.i124
   %length.addr.0.i.i.i127 = phi i64 [ %sub.i.i.i156, %while.end.i.i.i158 ], [ %sub.ptr.sub.i121, %if.else.i.i124 ]
   %data.addr.0.i.i.i128 = phi ptr [ %add.ptr.i.i.i155, %while.end.i.i.i158 ], [ %s.addr.015.i, %if.else.i.i124 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writer, ptr align 1 %data.addr.0.i.i.i128, i64 %length.addr.0.i.i.i127, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i.i128, i64 %length.addr.0.i.i.i127, i1 false)
   %45 = load i64, ptr %bufsize.i, align 8
   %add.i.i.i129 = add i64 %45, %length.addr.0.i.i.i127
   store i64 %add.i.i.i129, ptr %bufsize.i, align 8
@@ -32865,7 +32865,7 @@ if.then.i132:                                     ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i12.i, label %if.then.i13.i, label %if.end.i133
 
 if.then.i13.i:                                    ; preds = %if.then.i132
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %.pr.pre)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %.pr.pre)
   br label %if.end.i133
 
 if.end.i133:                                      ; preds = %if.then.i13.i, %if.then.i132
@@ -32891,7 +32891,7 @@ if.end:                                           ; preds = %if.end.i133, %_ZN4p
   br i1 %cmp.i170, label %if.then.i177, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit178
 
 if.then.i177:                                     ; preds = %if.end
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %47)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %47)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit178
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit178: ; preds = %if.end, %if.then.i177
@@ -32912,7 +32912,7 @@ sw.bb31:                                          ; preds = %entry
   br i1 %cmp.i180, label %if.then.i187, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit188
 
 if.then.i187:                                     ; preds = %sw.bb31
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %48)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %48)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit188
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit188: ; preds = %sw.bb31, %if.then.i187
@@ -32936,7 +32936,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit188: ; preds = %sw
   br i1 %cmp.i190, label %if.then.i197, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit198
 
 if.then.i197:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit188
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %50)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %50)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit198
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit198: ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit188, %if.then.i197
@@ -32957,7 +32957,7 @@ sw.bb40:                                          ; preds = %entry
   br i1 %cmp.i200, label %if.then.i206, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit
 
 if.then.i206:                                     ; preds = %sw.bb40
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %51)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %51)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit: ; preds = %sw.bb40, %if.then.i206
@@ -32982,7 +32982,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit: ; preds = %sw
   br i1 %cmp.i208, label %if.then.i218, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit
 
 if.then.i218:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %add14.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %add14.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit: ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit, %if.then.i218
@@ -33010,7 +33010,7 @@ if.then43:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i220, label %if.then.i225, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit226
 
 if.then.i225:                                     ; preds = %if.then43
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %add11.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %add11.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit226
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit226: ; preds = %if.then43, %if.then.i225
@@ -33030,7 +33030,7 @@ if.end45:                                         ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i228, label %if.then.i233, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit234
 
 if.then.i233:                                     ; preds = %if.end45
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %54)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %54)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit234
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit234: ; preds = %if.end45, %if.then.i233
@@ -33112,7 +33112,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i, label %if.then.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 if.then.i:                                        ; preds = %for.body
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %0)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %0)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit: ; preds = %for.body, %if.then.i
@@ -33134,7 +33134,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %_
   br i1 %cmp.i26, label %if.then.i29, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 if.then.i29:                                      ; preds = %for.body5
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %2)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %2)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit: ; preds = %for.body5, %if.then.i29
@@ -33160,7 +33160,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   br i1 %cmp.i31, label %if.then.i36, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit
 
 if.then.i36:                                      ; preds = %for.body15
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %5)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %5)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccc.exit: ; preds = %for.body15, %if.then.i36
@@ -33190,7 +33190,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   br i1 %cmp.i38, label %if.then.i45, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit
 
 if.then.i45:                                      ; preds = %for.body26
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %9)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %9)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit: ; preds = %for.body26, %if.then.i45
@@ -33226,7 +33226,7 @@ if.then.i48:                                      ; preds = %for.body37
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit
 
 if.else.i:                                        ; preds = %for.body37
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %14)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %14)
   store i64 0, ptr %bufsize.i46, align 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end7.i.i
 
@@ -33277,7 +33277,7 @@ while.end.i.i:                                    ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i:                                      ; preds = %while.end.i.i, %if.else.i
   %length.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %indent_length, %if.else.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %indent, %if.else.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
   %20 = load i64, ptr %bufsize.i46, align 8
   %add.i.i = add i64 %20, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i46, align 8
@@ -33403,7 +33403,7 @@ if.then.i.i:                                      ; preds = %for.end.i
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
 
 if.else.i.i:                                      ; preds = %for.end.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %11)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %11)
   store i64 0, ptr %bufsize.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 2048
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end7.i.i.i
@@ -33455,7 +33455,7 @@ while.end.i.i.i:                                  ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i.i:                                    ; preds = %while.end.i.i.i, %if.else.i.i
   %length.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %while.end.i.i.i ], [ %sub.ptr.sub.i, %if.else.i.i ]
   %data.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.end.i.i.i ], [ %s.addr.0136.i, %if.else.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writer, ptr align 1 %data.addr.0.i.i.i, i64 %length.addr.0.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i.i, i64 %length.addr.0.i.i.i, i1 false)
   %17 = load i64, ptr %bufsize.i.i, align 8
   %add.i.i.i = add i64 %17, %length.addr.0.i.i.i
   store i64 %add.i.i.i, ptr %bufsize.i.i, align 8
@@ -33479,7 +33479,7 @@ sw.bb42.i:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i37.i, label %if.then.i38.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
 
 if.then.i38.i:                                    ; preds = %sw.bb42.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %19)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %19)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i: ; preds = %if.then.i38.i, %sw.bb42.i
@@ -33507,7 +33507,7 @@ sw.bb43.i:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i40.i, label %if.then.i49.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i
 
 if.then.i49.i:                                    ; preds = %sw.bb43.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %20)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %20)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i: ; preds = %if.then.i49.i, %sw.bb43.i
@@ -33532,7 +33532,7 @@ sw.bb45.i:                                        ; preds = %_ZN4pugi4impl12_GLO
   br i1 %cmp.i51.i, label %if.then.i61.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i
 
 if.then.i61.i:                                    ; preds = %sw.bb45.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %21)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %21)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i: ; preds = %if.then.i61.i, %sw.bb45.i
@@ -33560,7 +33560,7 @@ if.then50.i:                                      ; preds = %sw.bb47.i
   br i1 %cmp.i64.i, label %if.then.i67.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i
 
 if.then.i67.i:                                    ; preds = %if.then50.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %22)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %22)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i: ; preds = %if.then.i67.i, %if.then50.i
@@ -33575,7 +33575,7 @@ if.else.i:                                        ; preds = %sw.bb47.i
   br i1 %cmp.i69.i, label %if.then.i80.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i
 
 if.then.i80.i:                                    ; preds = %if.else.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %22)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %22)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i: ; preds = %if.then.i80.i, %if.else.i
@@ -33609,7 +33609,7 @@ if.then56.i:                                      ; preds = %sw.bb53.i
   br i1 %cmp.i82.i, label %if.then.i96.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i
 
 if.then.i96.i:                                    ; preds = %if.then56.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %23)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %23)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i: ; preds = %if.then.i96.i, %if.then56.i
@@ -33639,7 +33639,7 @@ if.else57.i:                                      ; preds = %sw.bb53.i
   br i1 %cmp.i99.i, label %if.then.i103.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i
 
 if.then.i103.i:                                   ; preds = %if.else57.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %23)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %23)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i: ; preds = %if.then.i103.i, %if.else57.i
@@ -33664,7 +33664,7 @@ if.then64.i:                                      ; preds = %sw.default.i
   br i1 %cmp.i106.i, label %if.then.i118.i, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i
 
 if.then.i118.i:                                   ; preds = %if.then64.i
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %26)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %26)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i: ; preds = %if.then.i118.i, %if.then64.i
@@ -33727,7 +33727,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.us, label %if.then.i.us, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.us
 
 if.then.i.us:                                     ; preds = %for.body.us
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %0)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %0)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.us
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.us: ; preds = %if.then.i.us, %for.body.us
@@ -33747,7 +33747,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.us: ; preds = %if.
   br i1 %cmp.i24.us, label %if.then.i27.us, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.us
 
 if.then.i27.us:                                   ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.us
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %2)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %2)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.us
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit.us: ; preds = %if.then.i27.us, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.us
@@ -33775,7 +33775,7 @@ if.end9.us:                                       ; preds = %if.then7.us, %_ZN4p
   br i1 %cmp.i29.us, label %if.then.i33.us, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit34.us
 
 if.then.i33.us:                                   ; preds = %if.end9.us
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %4)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %4)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit34.us
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit34.us: ; preds = %if.then.i33.us, %if.end9.us
@@ -33796,7 +33796,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i17, label %if.then.i21, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit22
 
 if.then.i21:                                      ; preds = %for.body
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %5)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %5)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit22
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit22: ; preds = %for.body, %if.then.i21
@@ -33815,7 +33815,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit22: ; preds = %for.
   br i1 %cmp.i24, label %if.then.i27, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 if.then.i27:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit22
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %7)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %7)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcc.exit: ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit22, %if.then.i27
@@ -33843,7 +33843,7 @@ if.end9:                                          ; preds = %if.then7, %_ZN4pugi
   br i1 %cmp.i29, label %if.then.i33, label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit34
 
 if.then.i33:                                      ; preds = %if.end9
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %9)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %9)
   br label %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit34
 
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit34: ; preds = %if.end9, %if.then.i33
@@ -34106,7 +34106,7 @@ if.end.i:                                         ; preds = %if.else
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp14.i = icmp ne i32 %0, 5
-  %call.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef %scratch.ptr)
+  %call.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef range(i64 1, 0) %size, ptr noundef nonnull %scratch.ptr)
   %cmp.not7.i12.i = icmp ne ptr %scratch.ptr, %call.i.i
   %or.cond.not.i13.i = and i1 %cmp14.i, %cmp.not7.i12.i
   br i1 %or.cond.not.i13.i, label %for.body.i17.i, label %_ZN4pugi4impl12_GLOBAL__N_129convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i
@@ -43139,8 +43139,8 @@ if.then:                                          ; preds = %if.then5.i, %entry,
 
 if.end:                                           ; preds = %if.end3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %mantissa_buffer, i64 noundef 32, ptr noundef nonnull @.str.106, i32 noundef 15, double noundef %value) #44
-  %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %mantissa_buffer, i32 noundef 101) #45
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %mantissa_buffer, i64 noundef 32, ptr noundef nonnull @.str.106, i32 noundef 15, double noundef %value) #44
+  %call2.i = call noundef ptr @strchr(ptr noundef nonnull align 1 dereferenceable(32) %mantissa_buffer, i32 noundef 101) #45
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 1
   %call3.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #45
   %0 = load i8, ptr %mantissa_buffer, align 16
@@ -44010,7 +44010,7 @@ if.then6:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cn.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %c.i)
   call void @_ZN4pugi10xpath_nodeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %cn.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %cn.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %cn.i, i64 16, i1 false)
   %position.i = getelementptr inbounds i8, ptr %c.i, i64 16
   store i64 1, ptr %position.i, align 8
   %size.i = getelementptr inbounds i8, ptr %c.i, i64 24
@@ -44061,7 +44061,7 @@ for.body.i.lr.ph:                                 ; preds = %if.then10
 for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %for.inc.i.us
   %it.0.i78.us = phi ptr [ %incdec.ptr7.i.us, %for.inc.i.us ], [ %add.ptr.i, %for.body.i.lr.ph ]
   %i.0.i76.us = phi i64 [ %inc.i.us, %for.inc.i.us ], [ 1, %for.body.i.lr.ph ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.i12, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i78.us, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c.i12, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i78.us, i64 16, i1 false)
   store i64 %i.0.i76.us, ptr %position.i52, align 8
   store i64 %sub.i, ptr %size.i53, align 8
   %call3.i.us = call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c.i12, ptr noundef nonnull align 8 dereferenceable(16) %stack)
@@ -44085,7 +44085,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %it.0.i78 = phi ptr [ %incdec.ptr7.i, %for.inc.i ], [ %add.ptr.i, %for.body.i.lr.ph ]
   %last.0.i1877 = phi ptr [ %last.2.i, %for.inc.i ], [ %add.ptr.i, %for.body.i.lr.ph ]
   %i.0.i76 = phi i64 [ %inc.i, %for.inc.i ], [ 1, %for.body.i.lr.ph ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.i12, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i78, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c.i12, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i78, i64 16, i1 false)
   store i64 %i.0.i76, ptr %position.i52, align 8
   store i64 %sub.i, ptr %size.i53, align 8
   %call3.i = call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c.i12, ptr noundef nonnull align 8 dereferenceable(16) %stack)
@@ -44124,7 +44124,7 @@ for.body.i39.lr.ph:                               ; preds = %if.else12
 for.body.i39.us:                                  ; preds = %for.body.i39.lr.ph, %for.inc.i41.us
   %it.0.i3569.us = phi ptr [ %incdec.ptr6.i.us, %for.inc.i41.us ], [ %add.ptr.i, %for.body.i39.lr.ph ]
   %i.0.i3367.us = phi i64 [ %inc.i43.us, %for.inc.i41.us ], [ 1, %for.body.i39.lr.ph ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.i24, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i3569.us, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c.i24, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i3569.us, i64 16, i1 false)
   store i64 %i.0.i3367.us, ptr %position.i59, align 8
   store i64 %sub.i, ptr %size.i60, align 8
   %call3.i40.us = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node12eval_booleanERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c.i24, ptr noundef nonnull align 8 dereferenceable(16) %stack)
@@ -44146,7 +44146,7 @@ for.body.i39:                                     ; preds = %for.body.i39.lr.ph,
   %it.0.i3569 = phi ptr [ %incdec.ptr6.i, %for.inc.i41 ], [ %add.ptr.i, %for.body.i39.lr.ph ]
   %last.0.i3468 = phi ptr [ %last.2.i42, %for.inc.i41 ], [ %add.ptr.i, %for.body.i39.lr.ph ]
   %i.0.i3367 = phi i64 [ %inc.i43, %for.inc.i41 ], [ 1, %for.body.i39.lr.ph ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.i24, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i3569, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c.i24, ptr noundef nonnull readonly align 8 dereferenceable(16) %it.0.i3569, i64 16, i1 false)
   store i64 %i.0.i3367, ptr %position.i59, align 8
   store i64 %sub.i, ptr %size.i60, align 8
   %call3.i40 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node12eval_booleanERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c.i24, ptr noundef nonnull align 8 dereferenceable(16) %stack)
@@ -44268,7 +44268,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %10 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %10, null
   %11 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -44420,7 +44420,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %10 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %10, null
   %11 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -44656,7 +44656,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %20 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %20, null
   %21 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i90, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %21)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i90, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %21)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -44949,7 +44949,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %20 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %20, null
   %21 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i90, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %21)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i90, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %21)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -45164,7 +45164,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %10 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %10, null
   %11 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -45316,7 +45316,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %10 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %10, null
   %11 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -45468,7 +45468,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %10 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %10, null
   %11 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i52, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %11)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -45698,7 +45698,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %20 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %20, null
   %21 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i92, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %21)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i92, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %21)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -45969,7 +45969,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %18 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %18, null
   %19 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i80, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %19)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i80, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %19)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -46244,7 +46244,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %18 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %18, null
   %19 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i76, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %19)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i76, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %19)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -46536,7 +46536,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %23 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %23, null
   %24 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i95, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %24)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i95, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %24)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389
@@ -46740,7 +46740,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %6 = load ptr, ptr %_next.i, align 8
   %tobool4.not.i = icmp eq ptr %6, null
   %7 = and i1 %cond.i, %tobool4.not.i
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i50, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %7)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull align 8 dereferenceable(40) %pred.0.i50, ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef range(i64 -576460752303423488, 576460752303423488) %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %stack, i1 noundef zeroext %7)
   %pred.0.i = load ptr, ptr %_next.i, align 8
   %tobool.not.i = icmp eq ptr %pred.0.i, null
   br i1 %tobool.not.i, label %for.inc, label %for.body.i, !llvm.loop !389

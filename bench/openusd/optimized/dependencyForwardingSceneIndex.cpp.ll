@@ -1230,7 +1230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %312, %_ZN
 
 344:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_19HdDataSourceLocatorEEEED2Ev.exit79
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !14
-  invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %46, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr nonnull %8, ptr nonnull %46)
+  invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %46, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr nonnull align 4 dereferenceable(8) %8, ptr nonnull align 8 dereferenceable(592) %46)
           to label %.noexc unwind label %199
 
 .noexc:                                           ; preds = %344
@@ -1772,7 +1772,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 59:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !24
-  invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %4, ptr noundef nonnull align 8 dereferenceable(592) %21, ptr noundef nonnull align 4 dereferenceable(8) %.075, ptr nonnull %.075, ptr nonnull %21)
+  invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %4, ptr noundef nonnull align 8 dereferenceable(592) %21, ptr noundef nonnull align 4 dereferenceable(8) %.075, ptr nonnull align 4 dereferenceable(8) %.075, ptr nonnull align 8 dereferenceable(592) %21)
           to label %.noexc28 unwind label %.loopexit.split-lp.loopexit
 
 .noexc28:                                         ; preds = %59
@@ -2095,7 +2095,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1928
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !44
-  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %8, ptr noundef nonnull align 8 dereferenceable(592) %54, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nonnull %1, ptr nonnull %54), !noalias !47
+  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %8, ptr noundef nonnull align 8 dereferenceable(592) %54, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nonnull align 4 dereferenceable(8) %1, ptr nonnull align 8 dereferenceable(592) %54), !noalias !47
   %55 = load ptr, ptr %8, align 8, !noalias !47
   %.not.i.i14 = icmp eq ptr %55, null
   br i1 %.not.i.i14, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit, label %56
@@ -2312,7 +2312,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %167 = getelementptr inbounds nuw i8, ptr %.016.i.i34, i64 616
   store i8 1, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !58
-  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %91, ptr noundef nonnull align 4 dereferenceable(8) %93, ptr nonnull %93, ptr nonnull %91), !noalias !61
+  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE15internal_insertIRKS5_ZNSC_21internal_insert_valueISF_EESt4pairINS1_15solist_iteratorISC_S5_EEbEOT_EUlmE_EENSC_27internal_insert_return_typeESM_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_set_traits<pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, tbb::detail::d1::tbb_allocator<pxrInternal_v0_24__pxrReserved__::SdfPath>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %91, ptr noundef nonnull align 4 dereferenceable(8) %93, ptr nonnull align 4 dereferenceable(8) %93, ptr nonnull align 8 dereferenceable(592) %91), !noalias !61
   %168 = load ptr, ptr %3, align 8, !noalias !61
   %.not.i.i40 = icmp eq ptr %168, null
   br i1 %.not.i.i40, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE6insertERKS5_.exit43, label %169
@@ -3221,7 +3221,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetI
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %4, %.noexc.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i = phi ptr [ %7, %.noexc.i.i.i.i.i.i ], [ %6, %4 ]
   %7 = load ptr, ptr %.06.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeEmELb1EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %.06.i.i.i.i.i.i.i)
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeEmELb1EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.06.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i unwind label %8
 
 .noexc.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -3848,7 +3848,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   store i64 %100, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %3, align 8
-  %102 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS4_RKS5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEES3_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %102 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS4_RKS5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEES3_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %103 unwind label %182
 
 103:                                              ; preds = %.loopexit
@@ -4318,7 +4318,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %40, %32
 .body:                                            ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %38) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %38) #17
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %4) #17
   resume { ptr, i32 } %55
 
@@ -8786,7 +8786,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdDependencyFor
   tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %5) #17
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %8, null
@@ -8841,7 +8841,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit: ; preds = %1, %19, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %25
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #17
   ret void
 }
 
@@ -9218,7 +9218,7 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.015, i64 24
-  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %11) #17
+  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %11) #17
   %12 = load i32, ptr %10, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %13
@@ -9668,7 +9668,7 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.015, i64 24
-  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %11) #17
+  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %11) #17
   %12 = load i32, ptr %10, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %13
@@ -10102,7 +10102,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__3
 .lr.ph.i.i:                                       ; preds = %1, %.noexc.i
   %.06.i.i = phi ptr [ %4, %.noexc.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
-  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeEmELb1EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.06.i.i)
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeEmELb1EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.06.i.i)
           to label %.noexc.i unwind label %5
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
@@ -11104,7 +11104,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %24) #17
+  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %24) #17
   %25 = load i32, ptr %23, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %26
@@ -12615,7 +12615,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %5, %.
 .body:                                            ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %.016) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %.016) #17
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #17
   %.not4.i.i = icmp eq ptr %2, %.016
@@ -12792,7 +12792,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN32px
 .body:                                            ; preds = %.lr.ph
   %10 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %.014) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %.014) #17
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #17
   %.not4.i.i = icmp eq ptr %2, %.014
@@ -14979,7 +14979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_32HdDependencyForwardingScene
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %26, %.noexc.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i = phi ptr [ %29, %.noexc.i.i.i.i.i.i.i ], [ %28, %26 ]
   %29 = load ptr, ptr %.06.i.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeEmELb1EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull %.06.i.i.i.i.i.i.i.i)
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeEmELb1EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull %.06.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i unwind label %30
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -15027,7 +15027,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_32HdDependen
   %.07 = phi i64 [ %50, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_32HdDependencyForwardingSceneIndex12_VisitedNodeEmNS3_11HashFunctorESt8equal_toIS3_ESaISt4pairIKS3_mEEEESt14default_deleteISB_EE5resetEPSB_.exit ]
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdDependencyForwardingSceneIndex::_VisitedNode", ptr %46, i64 %.07
-  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mESaIS6_ENS_10_Select1stESt8equal_toIS3_ENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 8 dereferenceable(64) %48)
+  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mESaIS6_ENS_10_Select1stESt8equal_toIS3_ENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(64) %48)
   store i64 %.07, ptr %49, align 8
   %50 = add nuw i64 %.07, 1
   %51 = load ptr, ptr %43, align 8
@@ -15760,7 +15760,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %24) #17
+  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %24) #17
   %25 = load i32, ptr %23, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %26
@@ -15910,7 +15910,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store i64 %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %58) #17
+  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %58) #17
   %59 = load i32, ptr %57, align 4
   %.not.i.i.i.i.i.i.i5 = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i.i.i.i5, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %60
@@ -16548,7 +16548,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store i64 %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %58) #17
+  call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %58) #17
   %59 = load i32, ptr %57, align 4
   %.not.i.i.i.i.i.i.i5 = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i.i.i.i5, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %60
@@ -17246,7 +17246,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i: ; preds = %22, %17, %5
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %27, i8 0, i64 112, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %27)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %27)
           to label %.noexc.i.i.i.i unwind label %31
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i
@@ -17257,7 +17257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i: ; preds = %2
 29:                                               ; preds = %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %27) #17
   br label %.body.i.i.i.i
 
 31:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i
@@ -17977,7 +17977,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 32:                                               ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE16internal_extractEPNS1_10value_nodeISE_mEE.exit
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %33) #17
+  tail call void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(593) %33) #17
   %34 = load i32, ptr %4, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit, label %35

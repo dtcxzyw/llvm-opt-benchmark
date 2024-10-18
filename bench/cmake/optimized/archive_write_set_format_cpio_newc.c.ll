@@ -346,15 +346,15 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %28 = load i64, ptr %6, align 8
   %29 = trunc i64 %28 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(110) %5, i8 0, i64 110, i1 false)
-  %30 = call fastcc i64 @format_hex_recursive(i64 noundef 460545, ptr noundef %5, i32 noundef 6)
+  %30 = call fastcc i64 @format_hex_recursive(i64 noundef 460545, ptr noundef nonnull %5, i32 noundef 6)
   %31 = call i64 @archive_entry_devmajor(ptr noundef %1) #10
   %32 = getelementptr inbounds i8, ptr %5, i64 62
   %..i = call i64 @llvm.umin.i64(i64 %31, i64 4294967295)
-  %33 = call fastcc i64 @format_hex_recursive(i64 noundef %..i, ptr noundef %32, i32 noundef 8)
+  %33 = call fastcc i64 @format_hex_recursive(i64 noundef %..i, ptr noundef nonnull %32, i32 noundef 8)
   %34 = call i64 @archive_entry_devminor(ptr noundef %1) #10
   %35 = getelementptr inbounds i8, ptr %5, i64 70
   %..i77 = call i64 @llvm.umin.i64(i64 %34, i64 4294967295)
-  %36 = call fastcc i64 @format_hex_recursive(i64 noundef %..i77, ptr noundef %35, i32 noundef 8)
+  %36 = call fastcc i64 @format_hex_recursive(i64 noundef %..i77, ptr noundef nonnull %35, i32 noundef 8)
   %37 = call i64 @archive_entry_ino64(ptr noundef %1) #10
   %38 = icmp sgt i64 %37, 4294967295
   br i1 %38, label %39, label %40
@@ -367,23 +367,23 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %.2 = phi i32 [ -20, %39 ], [ %.058, %27 ]
   %41 = and i64 %37, 4294967295
   %42 = getelementptr inbounds i8, ptr %5, i64 6
-  %43 = call fastcc i64 @format_hex_recursive(i64 noundef %41, ptr noundef %42, i32 noundef 8)
+  %43 = call fastcc i64 @format_hex_recursive(i64 noundef %41, ptr noundef nonnull %42, i32 noundef 8)
   %44 = call i32 @archive_entry_mode(ptr noundef %1) #10
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %5, i64 14
-  %47 = call fastcc i64 @format_hex_recursive(i64 noundef %45, ptr noundef %46, i32 noundef 8)
+  %47 = call fastcc i64 @format_hex_recursive(i64 noundef %45, ptr noundef nonnull %46, i32 noundef 8)
   %48 = call i64 @archive_entry_uid(ptr noundef %1) #10
   %49 = getelementptr inbounds i8, ptr %5, i64 22
   %..i89 = call i64 @llvm.umin.i64(i64 %48, i64 4294967295)
-  %50 = call fastcc i64 @format_hex_recursive(i64 noundef %..i89, ptr noundef %49, i32 noundef 8)
+  %50 = call fastcc i64 @format_hex_recursive(i64 noundef %..i89, ptr noundef nonnull %49, i32 noundef 8)
   %51 = call i64 @archive_entry_gid(ptr noundef %1) #10
   %52 = getelementptr inbounds i8, ptr %5, i64 30
   %..i93 = call i64 @llvm.umin.i64(i64 %51, i64 4294967295)
-  %53 = call fastcc i64 @format_hex_recursive(i64 noundef %..i93, ptr noundef %52, i32 noundef 8)
+  %53 = call fastcc i64 @format_hex_recursive(i64 noundef %..i93, ptr noundef nonnull %52, i32 noundef 8)
   %54 = call i32 @archive_entry_nlink(ptr noundef %1) #10
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %5, i64 38
-  %57 = call fastcc i64 @format_hex_recursive(i64 noundef %55, ptr noundef %56, i32 noundef 8)
+  %57 = call fastcc i64 @format_hex_recursive(i64 noundef %55, ptr noundef nonnull %56, i32 noundef 8)
   %58 = call i32 @archive_entry_filetype(ptr noundef %1) #10
   %59 = icmp eq i32 %58, 24576
   br i1 %59, label %63, label %60
@@ -397,33 +397,33 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %64 = call i64 @archive_entry_rdevmajor(ptr noundef %1) #10
   %65 = getelementptr inbounds i8, ptr %5, i64 78
   %..i101 = call i64 @llvm.umin.i64(i64 %64, i64 4294967295)
-  %66 = call fastcc i64 @format_hex_recursive(i64 noundef %..i101, ptr noundef %65, i32 noundef 8)
+  %66 = call fastcc i64 @format_hex_recursive(i64 noundef %..i101, ptr noundef nonnull %65, i32 noundef 8)
   %67 = call i64 @archive_entry_rdevminor(ptr noundef %1) #10
   %68 = getelementptr inbounds i8, ptr %5, i64 86
   %..i105 = call i64 @llvm.umin.i64(i64 %67, i64 4294967295)
-  %69 = call fastcc i64 @format_hex_recursive(i64 noundef %..i105, ptr noundef %68, i32 noundef 8)
+  %69 = call fastcc i64 @format_hex_recursive(i64 noundef %..i105, ptr noundef nonnull %68, i32 noundef 8)
   br label %75
 
 70:                                               ; preds = %60
   %71 = getelementptr inbounds i8, ptr %5, i64 78
-  %72 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef %71, i32 noundef 8)
+  %72 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef nonnull %71, i32 noundef 8)
   %73 = getelementptr inbounds i8, ptr %5, i64 86
-  %74 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef %73, i32 noundef 8)
+  %74 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef nonnull %73, i32 noundef 8)
   br label %75
 
 75:                                               ; preds = %70, %63
   %76 = call i64 @archive_entry_mtime(ptr noundef %1) #10
   %77 = getelementptr inbounds i8, ptr %5, i64 46
   %..i109 = call i64 @llvm.umin.i64(i64 %76, i64 4294967295)
-  %78 = call fastcc i64 @format_hex_recursive(i64 noundef %..i109, ptr noundef %77, i32 noundef 8)
+  %78 = call fastcc i64 @format_hex_recursive(i64 noundef %..i109, ptr noundef nonnull %77, i32 noundef 8)
   %79 = shl i64 %28, 32
   %sext = add i64 %79, 4294967296
   %80 = ashr exact i64 %sext, 32
   %81 = getelementptr inbounds i8, ptr %5, i64 94
   %..i113 = call i64 @llvm.umin.i64(i64 %80, i64 4294967295)
-  %82 = call fastcc i64 @format_hex_recursive(i64 noundef %..i113, ptr noundef %81, i32 noundef 8)
+  %82 = call fastcc i64 @format_hex_recursive(i64 noundef %..i113, ptr noundef nonnull %81, i32 noundef 8)
   %83 = getelementptr inbounds i8, ptr %5, i64 102
-  %84 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef %83, i32 noundef 8)
+  %84 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef nonnull %83, i32 noundef 8)
   %85 = call i32 @archive_entry_filetype(ptr noundef %1) #10
   %.not62 = icmp eq i32 %85, 32768
   br i1 %.not62, label %87, label %86
@@ -479,7 +479,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %.sink123 = phi i64 [ %107, %106 ], [ %105, %104 ]
   %109 = getelementptr inbounds i8, ptr %5, i64 54
   %..i121 = call i64 @llvm.umin.i64(i64 %.sink123, i64 4294967295)
-  %110 = call fastcc i64 @format_hex_recursive(i64 noundef %..i121, ptr noundef %109, i32 noundef 8)
+  %110 = call fastcc i64 @format_hex_recursive(i64 noundef %..i121, ptr noundef nonnull %109, i32 noundef 8)
   %.0.in = icmp ult i64 %.sink123, 4294967296
   br i1 %.0.in, label %112, label %111
 

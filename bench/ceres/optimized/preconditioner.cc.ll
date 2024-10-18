@@ -85,7 +85,7 @@ define hidden void @_ZN5ceres8internal33SparseMatrixPreconditionerWrapperC2EPKNS
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   %9 = getelementptr inbounds i8, ptr %2, i64 32
@@ -229,7 +229,7 @@ define hidden void @_ZN5ceres8internal33SparseMatrixPreconditionerWrapperD0Ev(pt
   br label %_ZN5ceres8internal33SparseMatrixPreconditionerWrapperD2Ev.exit
 
 _ZN5ceres8internal33SparseMatrixPreconditionerWrapperD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

@@ -330,11 +330,11 @@ define hidden noundef ptr @_ZN13WorkerThreads13create_workerEj(ptr noundef nonnu
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(916) %8) #10
+  tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(928) %8) #10
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 920
   store ptr %11, ptr %12, align 8
-  tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %8, ptr noundef nonnull @.str.5, ptr noundef %10, i32 noundef %1) #10
+  tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(928) %8, ptr noundef nonnull @.str.5, ptr noundef %10, i32 noundef %1) #10
   %13 = tail call noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #10
   br i1 %13, label %18, label %14
 
@@ -632,7 +632,7 @@ define linkonce_odr hidden void @_ZN12WorkerThreadD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12WorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #10
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) #10
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
   ret void
 }

@@ -671,7 +671,7 @@ define internal i32 @dissect_telnet(ptr noundef %0, ptr noundef %1, ptr noundef 
   %20 = phi i32 [ %17, %.lr.ph ], [ %254, %telnet_command.exit ]
   %.056104 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %telnet_command.exit ]
   %.070103 = phi i32 [ 0, %.lr.ph ], [ %.2, %telnet_command.exit ]
-  %21 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.056104, i32 noundef %20, i8 noundef zeroext -1) #5
+  %21 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.056104, i32 noundef range(i32 1, 0) %20, i8 noundef zeroext -1) #5
   %.not11.i = icmp eq i32 %21, -1
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
 
@@ -698,7 +698,7 @@ find_unescaped_iac.exit:                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %7)
   %33 = icmp eq i32 %30, 1
   %34 = select i1 %33, ptr @.str.280, ptr @.str.281
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 30, ptr noundef nonnull @.str.279, i32 noundef %30, ptr noundef nonnull %34) #5
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 30, ptr noundef nonnull @.str.279, i32 noundef range(i32 1, 0) %30, ptr noundef nonnull %34) #5
   %36 = icmp eq i32 %.070103, 0
   br i1 %36, label %37, label %39
 
@@ -754,7 +754,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %23) #5
   %60 = load i32, ptr @ett_telnet_cmd, align 4
-  %61 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef %60, ptr noundef nonnull %6, ptr noundef nonnull @.str.283) #5
+  %61 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %0, i32 noundef range(i32 0, -1) %22, i32 noundef 2, i32 noundef %60, ptr noundef nonnull %6, ptr noundef nonnull @.str.283) #5
   %62 = load i32, ptr @hf_telnet_cmd, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #5
   %64 = add i32 %22, 2
@@ -1002,7 +1002,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   br i1 %185, label %unescape_and_tvbuffify_telnet_option.exit.i.i, label %186
 
 186:                                              ; preds = %184
-  %187 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %143, i32 noundef %159) #5
+  %187 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 3, 2) %143, i32 noundef range(i32 1, -2147483648) %159) #5
   %188 = zext nneg i32 %159 to i64
   %189 = getelementptr i8, ptr %187, i64 %188
   %190 = getelementptr i8, ptr %189, i64 -1
@@ -1078,7 +1078,7 @@ unescape_and_tvbuffify_telnet_option.exit.i.i:    ; preds = %.outer._crit_edge.i
   br i1 %219, label %unescape_and_tvbuffify_telnet_option.exit113.i.i, label %220
 
 220:                                              ; preds = %218
-  %221 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %143, i32 noundef %159) #5
+  %221 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 3, 2) %143, i32 noundef range(i32 1, -2147483648) %159) #5
   %222 = zext nneg i32 %159 to i64
   %223 = getelementptr i8, ptr %221, i64 %222
   %224 = getelementptr i8, ptr %223, i64 -1
@@ -1173,7 +1173,7 @@ telnet_command.exit:                              ; preds = %119, %add_telnet_in
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %5)
   %261 = icmp eq i32 %20, 1
   %262 = select i1 %261, ptr @.str.280, ptr @.str.281
-  %263 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 30, ptr noundef nonnull @.str.279, i32 noundef %20, ptr noundef nonnull %262) #5
+  %263 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 30, ptr noundef nonnull @.str.279, i32 noundef range(i32 1, 0) %20, ptr noundef nonnull %262) #5
   %264 = icmp eq i32 %.070103, 0
   br i1 %264, label %265, label %267
 

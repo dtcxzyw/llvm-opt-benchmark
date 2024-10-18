@@ -454,7 +454,7 @@ _ZL10scanformatP9lua_StatePKcPcPm.exit:           ; preds = %80
 
 117:                                              ; preds = %_ZL10scanformatP9lua_StatePKcPcPm.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %118 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %2)
+  %118 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %49, ptr noundef nonnull %2)
   %119 = load i64, ptr %2, align 8
   %120 = add i64 %119, 2
   %121 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %4, i64 noundef %120)
@@ -729,7 +729,7 @@ define internal noundef i32 @_ZL8str_gsubP9lua_State(ptr noundef %0) #0 {
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
   %.014.i.i = phi i32 [ %47, %.lr.ph.i.i ], [ 0, %41 ]
-  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef readonly %5, i32 noundef %.014.i.i, ptr noundef %.0, ptr noundef nonnull %37)
+  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef nonnull readonly %5, i32 noundef %.014.i.i, ptr noundef %.0, ptr noundef nonnull %37)
   %47 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %47, %spec.select.i.i
   br i1 %exitcond.not.i.i, label %_ZL13push_capturesP10MatchStatePKcS2_.exit.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -872,7 +872,7 @@ _ZL15push_onecaptureP10MatchStateiPKcS2_.exit.i:  ; preds = %65, %57, %50
 110:                                              ; preds = %107
   %111 = sext i8 %92 to i32
   %112 = add nsw i32 %111, -49
-  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef readonly %5, i32 noundef %112, ptr noundef %.0, ptr noundef nonnull %37)
+  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef nonnull readonly %5, i32 noundef %112, ptr noundef %.0, ptr noundef nonnull %37)
   call void @_Z13luaL_addvalueP11luaL_Strbuf(ptr noundef nonnull %6)
   br label %113
 
@@ -2537,7 +2537,7 @@ _ZL10nospecialsPKcm.exit.thread:                  ; preds = %.preheader, %._ZL10
 
 .lr.ph.i55:                                       ; preds = %85, %.lr.ph.i55
   %.014.i = phi i32 [ %97, %.lr.ph.i55 ], [ 0, %85 ]
-  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef readonly %5, i32 noundef %.014.i, ptr noundef null, ptr noundef null)
+  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef nonnull readonly %5, i32 noundef %.014.i, ptr noundef null, ptr noundef null)
   %97 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %97, %94
   br i1 %exitcond.not.i, label %_ZL13push_capturesP10MatchStatePKcS2_.exit, label %.lr.ph.i55, !llvm.loop !11
@@ -2556,7 +2556,7 @@ _ZL13push_capturesP10MatchStatePKcS2_.exit:       ; preds = %.lr.ph.i55, %85
 
 .lr.ph.i56:                                       ; preds = %99, %.lr.ph.i56
   %.014.i57 = phi i32 [ %103, %.lr.ph.i56 ], [ 0, %99 ]
-  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef readonly %5, i32 noundef %.014.i57, ptr noundef nonnull %.us-phi, ptr noundef nonnull %.us-phi73)
+  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef nonnull readonly %5, i32 noundef %.014.i57, ptr noundef nonnull %.us-phi, ptr noundef nonnull %.us-phi73)
   %103 = add nuw nsw i32 %.014.i57, 1
   %exitcond.not.i58 = icmp eq i32 %103, %spec.select.i
   br i1 %exitcond.not.i58, label %_ZL13push_capturesP10MatchStatePKcS2_.exit59, label %.lr.ph.i56, !llvm.loop !11
@@ -2674,7 +2674,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
   store i64 -2, ptr %50, align 8
   %51 = add nsw i32 %41, 1
   store i32 %51, ptr %26, align 8
-  %52 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef %.0.ph283, ptr noundef nonnull %47)
+  %52 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef %.0.ph283, ptr noundef nonnull %47)
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
@@ -2700,7 +2700,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
   store i64 -1, ptr %63, align 8
   %64 = add nsw i32 %41, 1
   store i32 %64, ptr %26, align 8
-  %65 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef %.0.ph283, ptr noundef nonnull %37)
+  %65 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef %.0.ph283, ptr noundef nonnull %37)
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
@@ -2743,7 +2743,7 @@ _ZL16capture_to_closeP10MatchState.exit:          ; preds = %76
   %88 = sub i64 %86, %87
   %89 = getelementptr inbounds i8, ptr %84, i64 8
   store i64 %88, ptr %89, align 8
-  %90 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef %.0.ph283, ptr noundef nonnull %37)
+  %90 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef %.0.ph283, ptr noundef nonnull %37)
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
@@ -2911,7 +2911,7 @@ _ZL8classendP10MatchStatePKc.exit:                ; preds = %142
 
 165:                                              ; preds = %.lr.ph.i104
   %166 = zext i8 %164 to i32
-  %167 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %156, i32 noundef %166)
+  %167 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef range(i32 0, 256) %156, i32 noundef %166)
   %.not29.i = icmp eq i32 %167, 0
   br i1 %.not29.i, label %180, label %_ZL17matchbracketclassiPKcS0_.exit
 
@@ -2965,7 +2965,7 @@ _ZL17matchbracketclassiPKcS0_.exit:               ; preds = %165, %175, %177, %1
 
 191:                                              ; preds = %.lr.ph.i112
   %192 = zext i8 %190 to i32
-  %193 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %185, i32 noundef %192)
+  %193 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef range(i32 0, 256) %185, i32 noundef %192)
   %.not29.i117 = icmp eq i32 %193, 0
   br i1 %.not29.i117, label %204, label %_ZL17matchbracketclassiPKcS0_.exit118
 
@@ -3132,7 +3132,7 @@ _ZL8classendP10MatchStatePKc.exit127:             ; preds = %33, %93, %234, %251
 
 271:                                              ; preds = %.lr.ph.i.i
   %272 = zext i8 %270 to i32
-  %273 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %255, i32 noundef %272)
+  %273 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef range(i32 0, 256) %255, i32 noundef %272)
   %.not29.i.i = icmp eq i32 %273, 0
   br i1 %.not29.i.i, label %284, label %_ZL17matchbracketclassiPKcS0_.exit.i
 
@@ -3208,7 +3208,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176: ; preds = %253, %_ZL11sin
 
 .preheader186:                                    ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread176
   %295 = getelementptr inbounds i8, ptr %.018.i126, i64 1
-  %296 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef nonnull %.0.ph283, ptr noundef nonnull %295)
+  %296 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph283, ptr noundef nonnull %295)
   %.not.i134285 = icmp eq ptr %296, null
   br i1 %.not.i134285, label %.lr.ph287, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
@@ -3313,7 +3313,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150.us295: ; preds = %.split.us292
 
 333:                                              ; preds = %.lr.ph.i.i144.us
   %334 = zext i8 %322 to i32
-  %335 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %317, i32 noundef %334)
+  %335 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef range(i32 0, 256) %317, i32 noundef %334)
   %.not29.i.i149.us = icmp eq i32 %335, 0
   br i1 %.not29.i.i149.us, label %336, label %_ZL17matchbracketclassiPKcS0_.exit.i141.us.loopexit
 
@@ -3361,7 +3361,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
 347:                                              ; preds = %.lr.ph311, %344
   %.1.i132310 = phi i64 [ %.us-phi, %.lr.ph311 ], [ %345, %344 ]
   %348 = getelementptr inbounds i8, ptr %.2, i64 %.1.i132310
-  %349 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef nonnull %348, ptr noundef nonnull %343)
+  %349 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %348, ptr noundef nonnull %343)
   %.not16.i = icmp eq ptr %349, null
   br i1 %.not16.i, label %344, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
@@ -3407,7 +3407,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit150:   ; preds = %.split
 
 369:                                              ; preds = %.lr.ph.i.i158
   %370 = zext i8 %368 to i32
-  %371 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef %353, i32 noundef %370)
+  %371 = tail call fastcc noundef i32 @_ZL11match_classii(i32 noundef range(i32 0, 256) %353, i32 noundef %370)
   %.not29.i.i163 = icmp eq i32 %371, 0
   br i1 %.not29.i.i163, label %382, label %_ZL17matchbracketclassiPKcS0_.exit.i155
 
@@ -3456,7 +3456,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit164:   ; preds = %355, %_ZL17matchbra
 
 _ZL11singlematchP10MatchStatePKcS2_S2_.exit164.thread183: ; preds = %351, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit164
   %388 = getelementptr inbounds i8, ptr %.011.i286, i64 1
-  %389 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef %0, ptr noundef nonnull %388, ptr noundef nonnull %295)
+  %389 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %388, ptr noundef nonnull %295)
   %.not.i134 = icmp eq ptr %389, null
   br i1 %.not.i134, label %350, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, !llvm.loop !38
 
@@ -3744,7 +3744,7 @@ define internal noundef i32 @_ZL10gmatch_auxP9lua_State(ptr noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %.014.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %21 ]
-  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef readonly %2, i32 noundef %.014.i, ptr noundef %.02229, ptr noundef nonnull %20)
+  call fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr noundef nonnull readonly %2, i32 noundef %.014.i, ptr noundef %.02229, ptr noundef nonnull %20)
   %33 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %33, %spec.select.i
   br i1 %exitcond.not.i, label %_ZL13push_capturesP10MatchStatePKcS2_.exit, label %.lr.ph.i, !llvm.loop !11

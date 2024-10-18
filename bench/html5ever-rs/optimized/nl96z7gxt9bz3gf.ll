@@ -185,7 +185,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   %10 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h25a8e61dd0f73f6cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !25
-  %11 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422854ac84c7db5E.llvm.9619877368797972682"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !25
+  %11 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422854ac84c7db5E.llvm.9619877368797972682"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !25
   %12 = icmp eq ptr %11, null
   br label %"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$20add_attrs_if_missing28_$u7b$$u7b$closure$u7d$$u7d$17h4e53a094b342e26cE.llvm.18182524917843083532.exit"
 
@@ -375,7 +375,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 32
   %9 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h25a8e61dd0f73f6cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  %10 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422854ac84c7db5E.llvm.9619877368797972682"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %10 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422854ac84c7db5E.llvm.9619877368797972682"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %11 = icmp eq ptr %10, null
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h69a65084bbb1a75eE.exit"
 

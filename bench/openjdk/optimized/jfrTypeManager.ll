@@ -295,7 +295,7 @@ _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE6removeEv.exit: ; pr
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %16, i64 8
-  %19 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %18) #8, !srcloc !10
+  %19 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %18) #8, !srcloc !10
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %21, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
@@ -311,7 +311,7 @@ _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE6removeEv.exit: ; pr
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i: ; preds = %24, %21
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %16, i64 noundef 16) #8
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef 16) #8
   br label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
 _ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i: ; preds = %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i, %17
@@ -703,7 +703,7 @@ define linkonce_odr hidden void @_ZNK25JfrSerializerRegistration6invokeER19JfrCh
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %41, i64 8
-  %44 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %43) #8, !srcloc !10
+  %44 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %43) #8, !srcloc !10
   %45 = icmp eq i64 %44, 1
   br i1 %45, label %46, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
@@ -719,7 +719,7 @@ define linkonce_odr hidden void @_ZNK25JfrSerializerRegistration6invokeER19JfrCh
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i: ; preds = %49, %46
-  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %41, i64 noundef 16) #8
+  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef 16) #8
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit: ; preds = %42, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i, %39, %35, %34, %7

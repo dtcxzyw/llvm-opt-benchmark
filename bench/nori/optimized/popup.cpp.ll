@@ -41,7 +41,7 @@ define hidden void @_ZN7nanogui5PopupC2EPNS_6WidgetEPNS_6WindowE(ptr noundef non
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc6 unwind label %15
 
 .noexc6:                                          ; preds = %.noexc
@@ -51,7 +51,7 @@ define hidden void @_ZN7nanogui5PopupC2EPNS_6WidgetEPNS_6WindowE(ptr noundef non
 7:                                                ; preds = %.noexc6
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
@@ -390,7 +390,7 @@ define linkonce_odr hidden void @_ZN7nanogui5PopupD2Ev(ptr noundef nonnull align
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #9
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #9
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %0) #9
   ret void
 }
 
@@ -399,7 +399,7 @@ define linkonce_odr hidden void @_ZN7nanogui5PopupD0Ev(ptr noundef nonnull align
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #9
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #9
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

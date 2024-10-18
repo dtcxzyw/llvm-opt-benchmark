@@ -370,7 +370,7 @@ entry:
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %pinned_iters_mgr_ = getelementptr inbounds i8, ptr %this, i64 152
-  invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %pinned_iters_mgr_)
+  invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %pinned_iters_mgr_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1151,7 +1151,7 @@ lpad.i.i.i.i:                                     ; preds = %call5.i.i.i.i.i.noe
 invoke.cont35:                                    ; preds = %call5.i.i.i.i.i.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i29, ptr noundef nonnull %pinned_slices_) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %pinned_slices_) #19
   %25 = load i64, ptr %_M_size.i.i, align 8
   %add.i.i = add i64 %25, 1
   store i64 %add.i.i, ptr %_M_size.i.i, align 8
@@ -1224,7 +1224,7 @@ lpad.i.i.i.i32:                                   ; preds = %call5.i.i.i.i.i.noe
 invoke.cont59:                                    ; preds = %call5.i.i.i.i.i.noexc35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i30) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i30)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i36, ptr noundef nonnull %pinned_slices_) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(24) %pinned_slices_) #19
   %36 = load i64, ptr %_M_size.i.i, align 8
   %add.i.i34 = add i64 %36, 1
   store i64 %add.i.i34, ptr %_M_size.i.i, align 8
@@ -1567,7 +1567,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #19
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #22
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i, !llvm.loop !14
 
@@ -2462,7 +2462,7 @@ invoke.cont159:                                   ; preds = %if.then157
 invoke.cont160:                                   ; preds = %invoke.cont159
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i185, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %start_key_with_max_ts) #19
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i185, ptr noundef nonnull %pinned_slices_) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i185, ptr noundef nonnull align 8 dereferenceable(24) %pinned_slices_) #19
   %119 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i183 = add i64 %119, 1
   store i64 %add.i.i.i183, ptr %_M_size.i.i.i, align 8
@@ -2483,7 +2483,7 @@ invoke.cont166:                                   ; preds = %invoke.cont160
 invoke.cont168:                                   ; preds = %invoke.cont166
   %_M_storage.i.i.i.i187 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i193, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i187, ptr noundef nonnull align 8 dereferenceable(32) %end_key_with_max_ts) #19
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i193, ptr noundef nonnull %pinned_slices_) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i193, ptr noundef nonnull align 8 dereferenceable(24) %pinned_slices_) #19
   %123 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i189 = add i64 %123, 1
   store i64 %add.i.i.i189, ptr %_M_size.i.i.i, align 8
@@ -2624,7 +2624,7 @@ if.else177:                                       ; preds = %if.end155
   br i1 %cmp.not.i228, label %if.else.i234, label %if.then.i229
 
 if.then.i229:                                     ; preds = %if.else177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false)
   %end_key.i.i.i.i230 = getelementptr inbounds i8, ptr %132, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i.i.i230, ptr noundef nonnull align 8 dereferenceable(16) %cur_end_key, i64 16, i1 false)
   %seq_start_idx.i.i.i.i231 = getelementptr inbounds i8, ptr %132, i64 32
@@ -2669,7 +2669,7 @@ cond.true.i.i.i246:                               ; preds = %_ZNKSt6vectorIN7roc
 invoke.cont.i.i248:                               ; preds = %cond.true.i.i.i246, %_ZNKSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_EE12_M_check_lenEmPKc.exit.i.i239
   %cond.i17.i.i249 = phi ptr [ null, %_ZNKSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_EE12_M_check_lenEmPKc.exit.i.i239 ], [ %call5.i.i.i.i.i271, %cond.true.i.i.i246 ]
   %add.ptr.i.i250 = getelementptr inbounds %"struct.rocksdb::FragmentedRangeTombstoneList::RangeTombstoneStack", ptr %cond.i17.i.i249, i64 %sub.ptr.div.i.i.i.i240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i250, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i250, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false)
   %end_key.i.i.i.i.i251 = getelementptr inbounds i8, ptr %add.ptr.i.i250, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i.i.i.i251, ptr noundef nonnull align 8 dereferenceable(16) %cur_end_key, i64 16, i1 false)
   %seq_start_idx.i.i.i.i.i252 = getelementptr inbounds i8, ptr %add.ptr.i.i250, i64 32
@@ -2895,7 +2895,7 @@ entry:
   store ptr %__callable.i, ptr %0, align 8
   %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb28FragmentedRangeTombstoneList13ContainsRangeEmmE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %1, align 8
-  %call1.i2.i = invoke noundef i32 @pthread_once(ptr noundef nonnull %seq_set_init_once_flag_, ptr noundef nonnull @__once_proxy)
+  %call1.i2.i = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %seq_set_init_once_flag_, ptr noundef nonnull @__once_proxy)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -3913,7 +3913,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %vtable.i.i.i.i.i.i = load ptr, ptr %agg.tmp8.sroa.0.0.copyload.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 208
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp8.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %target, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i, i1 noundef zeroext true)
+  %call.i.i.i.i.i.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp8.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %target, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i, i1 noundef zeroext true)
   %cmp2.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, 0
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 48
   %5 = xor i64 %shr.i.i.i, -1
@@ -4078,7 +4078,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %vtable.i.i.i.i.i = load ptr, ptr %agg.tmp8.sroa.0.0.copyload, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 208
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp8.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %target, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i1 noundef zeroext true)
+  %call.i.i.i.i.i = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp8.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %target, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i, i1 noundef zeroext true)
   %cmp2.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 48
   %7 = xor i64 %shr.i.i, -1
@@ -4571,7 +4571,7 @@ if.end:                                           ; preds = %for.body, %if.else
   store ptr %ref.tmp.i, ptr %__callable.i.i, align 8
   store ptr %__callable.i.i, ptr %1, align 8
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb28FragmentedRangeTombstoneList13ContainsRangeEmmE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %2, align 8
-  %call1.i2.i.i = invoke noundef i32 @pthread_once(ptr noundef nonnull %seq_set_init_once_flag_.i, ptr noundef nonnull @__once_proxy)
+  %call1.i2.i.i = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %seq_set_init_once_flag_.i, ptr noundef nonnull @__once_proxy)
           to label %invoke.cont.i.i unwind label %lpad.i.i.loopexit
 
 invoke.cont.i.i:                                  ; preds = %if.end
@@ -5033,13 +5033,13 @@ if.then.i:                                        ; preds = %land.rhs.i
   %current_start_key_.i = getelementptr inbounds i8, ptr %this, i64 168
   %7 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i64 %7, ptr %sequence.i.i.i, align 8
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   store i8 15, ptr %type.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %current_start_key_.i) #19
-  call void @_ZN7rocksdb17AppendInternalKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyE(ptr noundef nonnull %current_start_key_.i, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i)
+  call void @_ZN7rocksdb17AppendInternalKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyE(ptr noundef nonnull align 8 dereferenceable(32) %current_start_key_.i, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %8 = load i64, ptr %pos_.i, align 8
   store i64 %8, ptr %pinned_pos_.i, align 8
@@ -5088,7 +5088,7 @@ define linkonce_odr void @_ZNK7rocksdb32FragmentedRangeTombstoneIterator6statusE
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !59
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !59
   ret void
 }
 
@@ -9303,7 +9303,7 @@ define linkonce_odr void @_ZNK7rocksdb14VectorIterator6statusEv(ptr noalias sret
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !161
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !161
   ret void
 }
 
@@ -9994,7 +9994,7 @@ invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i8, ptr %__args3, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
   %sequence.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   %1 = load i64, ptr %__args1, align 8
   store i64 %1, ptr %sequence.i.i.i.i.i.i, align 8

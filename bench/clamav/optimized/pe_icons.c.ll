@@ -235,7 +235,7 @@ define i32 @cli_groupiconscan(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %8, i64 104
   %19 = load ptr, ptr %18, align 8
-  %20 = call ptr %19(ptr noundef %8, i64 noundef %17, i64 noundef 16, i32 noundef 0) #14
+  %20 = call ptr %19(ptr noundef %8, i64 noundef range(i64 0, 4294967296) %17, i64 noundef 16, i32 noundef 0) #14
   %21 = icmp eq ptr %20, null
   %22 = load i32, ptr %3, align 4
   %23 = icmp ne i32 %22, 0
@@ -259,7 +259,7 @@ define i32 @cli_groupiconscan(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %35 = zext i32 %34 to i64
   %36 = zext i32 %26 to i64
   %37 = load ptr, ptr %18, align 8
-  %38 = call ptr %37(ptr noundef nonnull %8, i64 noundef %35, i64 noundef %36, i32 noundef 0) #14
+  %38 = call ptr %37(ptr noundef nonnull %8, i64 noundef range(i64 0, 4294967296) %35, i64 noundef range(i64 0, 4294967296) %36, i32 noundef 0) #14
   %39 = icmp eq ptr %38, null
   %40 = load i32, ptr %3, align 4
   %41 = icmp ne i32 %40, 0
@@ -450,7 +450,7 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr nocapture noundef %0, i32 
   %44 = zext i32 %41 to i64
   %45 = getelementptr inbounds i8, ptr %22, i64 104
   %46 = load ptr, ptr %45, align 8
-  %47 = call ptr %46(ptr noundef nonnull %22, i64 noundef %44, i64 noundef 4, i32 noundef 0) #14
+  %47 = call ptr %46(ptr noundef nonnull %22, i64 noundef range(i64 0, 4294967296) %44, i64 noundef 4, i32 noundef 0) #14
   %.not581.i = icmp eq ptr %47, null
   br i1 %.not581.i, label %48, label %52
 
@@ -482,7 +482,7 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr nocapture noundef %0, i32 
   %64 = sub nuw i64 %62, %61
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %64, i64 40)
   %65 = load ptr, ptr %45, align 8
-  %66 = call ptr %65(ptr noundef nonnull %22, i64 noundef %61, i64 noundef %spec.select.i.i, i32 noundef 0) #14
+  %66 = call ptr %65(ptr noundef nonnull %22, i64 noundef range(i64 0, 4294967296) %61, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #14
   %.not26.i.i = icmp eq ptr %66, null
   br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 
@@ -596,7 +596,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %113 = zext nneg i32 %112 to i64
   %114 = shl nuw nsw i64 %113, 2
   %115 = load ptr, ptr %45, align 8
-  %116 = call ptr %115(ptr noundef nonnull %22, i64 noundef %111, i64 noundef %114, i32 noundef 1) #14
+  %116 = call ptr %115(ptr noundef nonnull %22, i64 noundef range(i64 0, 4294967296) %111, i64 noundef range(i64 -8589934592, 8589934589) %114, i32 noundef 1) #14
   %.not586.i = icmp eq ptr %116, null
   br i1 %.not586.i, label %parseicon.exit, label %117
 
@@ -629,7 +629,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %136 = mul nuw nsw i32 %135, %78
   %137 = zext nneg i32 %136 to i64
   %138 = load ptr, ptr %45, align 8
-  %139 = call ptr %138(ptr noundef nonnull %22, i64 noundef %134, i64 noundef %137, i32 noundef 0) #14
+  %139 = call ptr %138(ptr noundef nonnull %22, i64 noundef range(i64 0, 4294967296) %134, i64 noundef range(i64 0, 4294967296) %137, i32 noundef 0) #14
   %.not590.i = icmp eq ptr %139, null
   br i1 %.not590.i, label %140, label %153
 
@@ -651,7 +651,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %150 = sub i64 %147, %149
   %151 = getelementptr inbounds i8, ptr %22, i64 128
   %152 = load ptr, ptr %151, align 8
-  call void %152(ptr noundef nonnull %22, i64 noundef %150, i64 noundef %144) #14
+  call void %152(ptr noundef nonnull %22, i64 noundef %150, i64 noundef range(i64 -8589934592, 8589934589) %144) #14
   br label %parseicon.exit
 
 153:                                              ; preds = %120
@@ -692,7 +692,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %170 = sub i64 %167, %169
   %171 = getelementptr inbounds i8, ptr %22, i64 128
   %172 = load ptr, ptr %171, align 8
-  call void %172(ptr noundef nonnull %22, i64 noundef %170, i64 noundef %164) #14
+  call void %172(ptr noundef nonnull %22, i64 noundef %170, i64 noundef range(i64 -8589934592, 8589934589) %164) #14
   br label %parseicon.exit
 
 173:                                              ; preds = %.loopexit638.i, %.lr.ph663.i
@@ -904,7 +904,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %301 = sub i64 %298, %300
   %302 = getelementptr inbounds i8, ptr %22, i64 128
   %303 = load ptr, ptr %302, align 8
-  call void %303(ptr noundef %22, i64 noundef %301, i64 noundef %295) #14
+  call void %303(ptr noundef %22, i64 noundef %301, i64 noundef range(i64 -8589934592, 8589934589) %295) #14
   br label %304
 
 304:                                              ; preds = %292, %._crit_edge.i
@@ -920,7 +920,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %310 = mul nuw nsw i32 %132, %78
   %311 = zext nneg i32 %310 to i64
   %312 = load ptr, ptr %45, align 8
-  %313 = call ptr %312(ptr noundef %22, i64 noundef %309, i64 noundef %311, i32 noundef 0) #14
+  %313 = call ptr %312(ptr noundef %22, i64 noundef range(i64 0, 4294967296) %309, i64 noundef range(i64 0, 4294967296) %311, i32 noundef 0) #14
   %.not595.i = icmp eq ptr %313, null
   br i1 %.not595.i, label %.preheader637.i, label %319
 

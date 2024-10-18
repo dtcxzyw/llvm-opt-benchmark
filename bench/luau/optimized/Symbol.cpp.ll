@@ -1228,7 +1228,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc7 unwind label %17
 
 .noexc7:                                          ; preds = %.noexc
@@ -1245,7 +1245,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
 12:                                               ; preds = %14, %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 14:                                               ; preds = %.noexc7
@@ -1267,7 +1267,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
           to label %.noexc8 unwind label %31
 
 .noexc8:                                          ; preds = %19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc9 unwind label %31
 
 .noexc9:                                          ; preds = %.noexc8
@@ -1284,7 +1284,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
 26:                                               ; preds = %28, %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 28:                                               ; preds = %.noexc9

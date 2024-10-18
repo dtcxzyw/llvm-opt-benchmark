@@ -532,7 +532,7 @@ GetWindowSizeForHashChain.exit:                   ; preds = %9, %17, %19
 
 132:                                              ; preds = %131
   %133 = sub nsw i32 %124, %.0214
-  %134 = tail call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 %133, i32 4095)
+  %134 = tail call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 range(i32 -2147483645, 2147483647) %133, i32 4095)
   %135 = zext nneg i32 %.0214 to i64
   %136 = getelementptr inbounds i32, ptr %2, i64 %135
   %137 = tail call i32 @llvm.usub.sat.i32(i32 %.0214, i32 %23)
@@ -554,7 +554,7 @@ GetWindowSizeForHashChain.exit:                   ; preds = %9, %17, %19
 
 FindMatchLength.exit:                             ; preds = %142
   %146 = load ptr, ptr @VP8LVectorMismatch, align 8
-  %147 = tail call i32 %146(ptr noundef nonnull %143, ptr noundef nonnull %136, i32 noundef %134) #11
+  %147 = tail call i32 %146(ptr noundef nonnull %143, ptr noundef nonnull %136, i32 noundef range(i32 -2147483645, 2147483647) %134) #11
   %.fr = freeze i32 %147
   %148 = icmp sgt i32 %.fr, 0
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.fr, i32 0)
@@ -576,7 +576,7 @@ FindMatchLength.exit.thread:                      ; preds = %FindMatchLength.exi
 
 155:                                              ; preds = %FindMatchLength.exit.thread
   %156 = load ptr, ptr @VP8LVectorMismatch, align 8
-  %157 = tail call i32 %156(ptr noundef nonnull %149, ptr noundef nonnull %136, i32 noundef %134) #11
+  %157 = tail call i32 %156(ptr noundef nonnull %149, ptr noundef nonnull %136, i32 noundef range(i32 -2147483645, 2147483647) %134) #11
   br label %FindMatchLength.exit256
 
 FindMatchLength.exit256:                          ; preds = %FindMatchLength.exit.thread, %155
@@ -1052,7 +1052,7 @@ AddSingleLiteral.exit.i.i:                        ; preds = %152, %BackwardRefsN
 .lr.ph.i.i49:                                     ; preds = %AddSingleLiteral.exit.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i
   %.05584.i.i = phi i32 [ %.1.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i ], [ 1, %AddSingleLiteral.exit.i.i ]
   %157 = sub nsw i32 %90, %.05584.i.i
-  %158 = call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 %157, i32 4095)
+  %158 = call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 range(i32 -2147483645, 2147483647) %157, i32 4095)
   %159 = zext nneg i32 %.05584.i.i to i64
   %160 = getelementptr inbounds i32, ptr %2, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -4
@@ -1063,7 +1063,7 @@ AddSingleLiteral.exit.i.i:                        ; preds = %152, %BackwardRefsN
 
 164:                                              ; preds = %.lr.ph.i.i49
   %165 = load ptr, ptr @VP8LVectorMismatch, align 8
-  %166 = call i32 %165(ptr noundef nonnull %160, ptr noundef nonnull %161, i32 noundef %158) #11
+  %166 = call i32 %165(ptr noundef nonnull %160, ptr noundef nonnull %161, i32 noundef range(i32 -2147483645, 2147483647) %158) #11
   br label %FindMatchLength.exit.i.i
 
 FindMatchLength.exit.i.i:                         ; preds = %164, %.lr.ph.i.i49
@@ -1080,7 +1080,7 @@ FindMatchLength.exit.i.i:                         ; preds = %164, %.lr.ph.i.i49
 
 172:                                              ; preds = %168
   %173 = load ptr, ptr @VP8LVectorMismatch, align 8
-  %174 = call i32 %173(ptr noundef nonnull %160, ptr noundef nonnull %169, i32 noundef %158) #11
+  %174 = call i32 %173(ptr noundef nonnull %160, ptr noundef nonnull %169, i32 noundef range(i32 -2147483645, 2147483647) %158) #11
   br label %FindMatchLength.exit65.i.i
 
 FindMatchLength.exit65.i.i:                       ; preds = %172, %168, %FindMatchLength.exit.i.i
@@ -1864,7 +1864,7 @@ VP8LRefsCursorInit.exit.i.i43:                    ; preds = %439, %437
 
 536:                                              ; preds = %526
   %537 = add nsw i32 %528, -1
-  %538 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %537, i1 true)
+  %538 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 511, 2147483647) %537, i1 true)
   %539 = sub nuw nsw i32 30, %538
   %540 = lshr i32 %537, %539
   %541 = and i32 %540, 1
@@ -2037,12 +2037,12 @@ VP8LRefsCursorInit.exit.i139.i:                   ; preds = %596
   %598 = load ptr, ptr %597, align 8, !noalias !43
   %599 = getelementptr inbounds i8, ptr %.val119.i, i64 16
   %600 = load i32, ptr %599, align 8, !noalias !43
-  %601 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef %.4190.i) #11
+  %601 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef range(i32 1, -2147483648) %.4190.i) #11
   %.not.i140.i = icmp eq i32 %601, 0
   br i1 %.not.i140.i, label %BackwardRefsWithLocalCache.exit.thread.i, label %.preheader4.i.i
 
 VP8LRefsCursorInit.exit.thread.i.i:               ; preds = %596
-  %602 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef %.4190.i) #11
+  %602 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef range(i32 1, -2147483648) %.4190.i) #11
   %.not17.i.i = icmp eq i32 %602, 0
   br i1 %.not17.i.i, label %BackwardRefsWithLocalCache.exit.thread.i, label %BackwardRefsWithLocalCache.exit.i
 

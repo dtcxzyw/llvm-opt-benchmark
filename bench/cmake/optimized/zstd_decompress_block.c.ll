@@ -793,7 +793,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %92 = add i16 %91, 1
   store i16 %92, ptr %90, align 2
   %93 = zext i16 %91 to i32
-  %94 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %93, i1 true)
+  %94 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %93, i1 true)
   %95 = xor i32 %94, 31
   %96 = sub i32 %5, %95
   %97 = trunc i32 %96 to i8
@@ -975,7 +975,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
 
 88:                                               ; preds = %85
   %89 = load i32, ptr %11, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull readonly @LL_base, ptr noundef nonnull readonly @LL_bits, i32 noundef %86, ptr noundef nonnull %54, i64 poison, i32 poison)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %86, ptr noundef nonnull %54, i64 poison, i32 poison)
   %.pre.pre = load i32, ptr %50, align 4
   %.pre112.pre = load i32, ptr %52, align 4
   br label %.loopexit.sink.split.i
@@ -1084,7 +1084,7 @@ ZSTD_buildSeqTable.exit.thread:                   ; preds = %55, %56, %70, %80, 
 
 130:                                              ; preds = %127
   %131 = load i32, ptr %8, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %95, ptr noundef nonnull %10, i32 noundef %131, ptr noundef nonnull readonly @OF_base, ptr noundef nonnull readonly @OF_bits, i32 noundef %128, ptr noundef nonnull %54, i64 poison, i32 poison)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %95, ptr noundef nonnull %10, i32 noundef %131, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %128, ptr noundef nonnull %54, i64 poison, i32 poison)
   %.pre113.pre = load i32, ptr %50, align 4
   %.pre114.pre = load i32, ptr %52, align 4
   br label %.loopexit.sink.split.i85
@@ -1188,7 +1188,7 @@ ZSTD_buildSeqTable.exit93.thread:                 ; preds = %97, %98, %112, %122
 
 170:                                              ; preds = %167
   %171 = load i32, ptr %5, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %135, ptr noundef nonnull %7, i32 noundef %171, ptr noundef nonnull readonly @ML_base, ptr noundef nonnull readonly @ML_bits, i32 noundef %168, ptr noundef nonnull %54, i64 poison, i32 poison)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %135, ptr noundef nonnull %7, i32 noundef %171, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %168, ptr noundef nonnull %54, i64 poison, i32 poison)
   br label %.loopexit.sink.split.i95
 
 .loopexit.sink.split.i95:                         ; preds = %170, %141, %.loopexit110
@@ -1525,7 +1525,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr nou
 
 BIT_initDStream.exit.thread2453.i:                ; preds = %97
   %102 = zext i8 %101 to i32
-  %103 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %102, i1 true)
+  %103 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %102, i1 true)
   %104 = getelementptr inbounds i8, ptr %9, i64 8
   %105 = trunc nuw i64 %4 to i32
   %106 = shl nuw nsw i32 %105, 3
@@ -1537,7 +1537,7 @@ BIT_initDStream.exit.thread2453.i:                ; preds = %97
 BIT_initDStream.exit.i:                           ; preds = %50
   %108 = lshr i64 %.val.i.i, 56
   %109 = trunc nuw nsw i64 %108 to i32
-  %110 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %109, i1 true)
+  %110 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %109, i1 true)
   %111 = xor i32 %110, 31
   %112 = sub nuw nsw i32 8, %111
   %113 = getelementptr inbounds i8, ptr %9, i64 8
@@ -4485,7 +4485,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 BIT_initDStream.exit.thread1979.i:                ; preds = %85
   %90 = zext i8 %89 to i32
-  %91 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %90, i1 true)
+  %91 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %90, i1 true)
   %92 = getelementptr inbounds i8, ptr %10, i64 8
   %93 = trunc nuw i64 %4 to i32
   %94 = shl nuw nsw i32 %93, 3
@@ -4497,7 +4497,7 @@ BIT_initDStream.exit.thread1979.i:                ; preds = %85
 BIT_initDStream.exit.i:                           ; preds = %38
   %96 = lshr i64 %.val.i.i, 56
   %97 = trunc nuw nsw i64 %96 to i32
-  %98 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %97, i1 true)
+  %98 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %97, i1 true)
   %99 = xor i32 %98, 31
   %100 = sub nuw nsw i32 8, %99
   %101 = getelementptr inbounds i8, ptr %10, i64 8
@@ -6835,7 +6835,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 
 BIT_initDStream.exit.thread709.i:                 ; preds = %94
   %99 = zext i8 %98 to i32
-  %100 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %99, i1 true)
+  %100 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %99, i1 true)
   %101 = getelementptr inbounds i8, ptr %9, i64 8
   %102 = trunc nuw i64 %4 to i32
   %103 = shl nuw nsw i32 %102, 3
@@ -6847,7 +6847,7 @@ BIT_initDStream.exit.thread709.i:                 ; preds = %94
 BIT_initDStream.exit.i:                           ; preds = %47
   %105 = lshr i64 %.val.i.i, 56
   %106 = trunc nuw nsw i64 %105 to i32
-  %107 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %106, i1 true)
+  %107 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %106, i1 true)
   %108 = xor i32 %107, 31
   %109 = sub nuw nsw i32 8, %108
   %110 = getelementptr inbounds i8, ptr %9, i64 8

@@ -122,11 +122,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK11ZDriverPort7is_busyEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   ret i1 %4
 }
 
@@ -134,11 +134,11 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:
 define hidden void @_ZN11ZDriverPort9send_syncERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   %2 = alloca %class.ZDriverPortEntry, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0) #9
+  call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef 0) #9
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 11, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 60
@@ -149,7 +149,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   store ptr %8, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 80
   store ptr %8, ptr %9, align 8
-  %10 = call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
+  %10 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %3, align 8
@@ -168,7 +168,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   store i64 %20, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = call i32 @pthread_cond_signal(ptr noundef nonnull %21) #9
-  %23 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %23 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
@@ -178,23 +178,23 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit
-  call void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %25)
+  call void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull %25)
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit4
 
 31:                                               ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit
-  call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(44) %4) #9
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit4
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit4:          ; preds = %30, %31
-  %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
-  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
-  call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
+  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
+  call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ZDriverPort10send_asyncERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -209,7 +209,7 @@ define hidden void @_ZN11ZDriverPort10send_asyncERK14ZDriverRequest(ptr noundef 
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %7, %2
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   ret void
 }
 
@@ -218,7 +218,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -273,7 +273,7 @@ define hidden { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.critedge.thread, %17
   %.sroa.26.0.copyload = phi i32 [ %.sroa.26.0.copyload.pre, %.critedge.thread ], [ %.sroa.22.0.copyload.i, %17 ]
   %.sroa.05.0.copyload = phi i64 [ %.sroa.05.0.copyload.pre, %.critedge.thread ], [ %.sroa.01.0.copyload.i, %17 ]
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.05.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.26.0.copyload, 1
   ret { i64, i32 } %.fca.1.insert
@@ -281,7 +281,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.critedge.thread, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -346,7 +346,7 @@ define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferen
   store i64 %.sroa.01.0.copyload.i7, ptr %38, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.2.027, i64 64
   store i32 %.sroa.22.0.copyload.i9, ptr %.sroa.22.0..sroa_idx.i.i, align 8
-  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 1) #9
+  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(44) %37, i32 noundef 1) #9
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %29, %24
@@ -382,7 +382,7 @@ _ZN17ZListIteratorImplI16ZDriverPortEntryLb1EE4nextEPPS0_.exit: ; preds = %_ZN17
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %41, %42, %1
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   ret void
 }
 

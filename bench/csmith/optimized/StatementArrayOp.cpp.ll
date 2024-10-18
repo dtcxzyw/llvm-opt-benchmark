@@ -1722,7 +1722,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3.i:                 ; preds = %23, %_ZNSt6vectorIi
   br label %_ZN16StatementArrayOpD2Ev.exit
 
 _ZN16StatementArrayOpD2Ev.exit:                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3.i, %26
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

@@ -78,7 +78,7 @@ AddLength.exit:                                   ; preds = %if.end10, %if.then.
 
 if.then13:                                        ; preds = %AddLength.exit
   %sub = sub nuw nsw i32 64, %0
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 %sub)
+  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 range(i32 65, 64) %sub)
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
   %conv = zext nneg i32 %cond.i to i64
@@ -823,7 +823,7 @@ if.then8.i:                                       ; preds = %if.end4.i
   %conv.i = zext nneg i32 %sub.i to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx11.i, i8 0, i64 %conv.i, i1 false)
   store i32 64, ptr %tmpMd5, align 8
-  call fastcc void @Transform(ptr noundef %tmpMd5, ptr noundef %buffer.i)
+  call fastcc void @Transform(ptr noundef nonnull %tmpMd5, ptr noundef %buffer.i)
   store i32 0, ptr %tmpMd5, align 8
   br label %if.end17.i
 
@@ -846,7 +846,7 @@ if.end17.i:                                       ; preds = %if.then8.i, %if.end
   store i32 %shl27.i, ptr %arrayidx29.i, align 4
   %arrayidx31.i = getelementptr inbounds i8, ptr %tmpMd5, i64 72
   store i32 %add24.i, ptr %arrayidx31.i, align 8
-  call fastcc void @Transform(ptr noundef %tmpMd5, ptr noundef %buffer.i)
+  call fastcc void @Transform(ptr noundef nonnull %tmpMd5, ptr noundef %buffer.i)
   %digest.i = getelementptr inbounds i8, ptr %tmpMd5, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest.i, i64 16, i1 false)
   br label %return

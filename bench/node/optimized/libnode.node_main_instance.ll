@@ -233,7 +233,7 @@ _ZNSt10unique_ptrIN4node11IsolateDataESt14default_deleteIS1_EE5resetEPS1_.exit: 
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIKN4node20EmbedderSnapshotDataENS1_18DeleteSnapshotDataEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4node11IsolateDataESt14default_deleteIS1_EE5resetEPS1_.exit
-  call void @_ZNK4node20EmbedderSnapshotData18DeleteSnapshotDataclEPKS0_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18, ptr noundef nonnull %13) #13
+  call void @_ZNK4node20EmbedderSnapshotData18DeleteSnapshotDataclEPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr noundef nonnull %13) #13
   br label %_ZNSt10unique_ptrIKN4node20EmbedderSnapshotDataENS1_18DeleteSnapshotDataEED2Ev.exit
 
 _ZNSt10unique_ptrIKN4node20EmbedderSnapshotDataENS1_18DeleteSnapshotDataEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node11IsolateDataESt14default_deleteIS1_EE5resetEPS1_.exit, %if.then.i
@@ -659,7 +659,7 @@ if.then10.critedge:                               ; preds = %if.then, %if.then2
   br i1 %tobool.not.i.i, label %if.end18, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.critedge
-  %call.i.i = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, i32 noundef 3) #13
+  %call.i.i = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, i32 noundef 3) #13
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then.i.i, %if.then10.critedge, %if.then4

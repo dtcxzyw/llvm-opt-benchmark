@@ -1028,11 +1028,11 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %113, %92
           to label %121 unwind label %234
 
 121:                                              ; preds = %_ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit
-  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 258, ptr noundef nonnull %17, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
+  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 258, ptr noundef nonnull align 8 dereferenceable(80) %17, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
           to label %_ZN2cv3ocl9KernelArg14ReadOnlyNoSizeERKNS_4UMatEii.exit unwind label %236
 
 _ZN2cv3ocl9KernelArg14ReadOnlyNoSizeERKNS_4UMatEii.exit: ; preds = %121
-  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 260, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
+  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 260, ptr noundef nonnull align 8 dereferenceable(80) %8, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
           to label %_ZN2cv3ocl9KernelArg15WriteOnlyNoSizeERKNS_4UMatEii.exit unwind label %236
 
 _ZN2cv3ocl9KernelArg15WriteOnlyNoSizeERKNS_4UMatEii.exit: ; preds = %_ZN2cv3ocl9KernelArg14ReadOnlyNoSizeERKNS_4UMatEii.exit
@@ -1058,23 +1058,23 @@ _ZN2cv3ocl9KernelArg15WriteOnlyNoSizeERKNS_4UMatEii.exit: ; preds = %_ZN2cv3ocl9
           to label %.noexc82 unwind label %236
 
 .noexc82:                                         ; preds = %.noexc81
-  %133 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %132, ptr noundef nonnull %20, i64 noundef 4)
+  %133 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %132, ptr noundef nonnull align 4 dereferenceable(4) %20, i64 noundef 4)
           to label %.noexc83 unwind label %236
 
 .noexc83:                                         ; preds = %.noexc82
-  %134 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %133, ptr noundef nonnull %21, i64 noundef 4)
+  %134 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %133, ptr noundef nonnull align 4 dereferenceable(4) %21, i64 noundef 4)
           to label %.noexc84 unwind label %236
 
 .noexc84:                                         ; preds = %.noexc83
-  %135 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %134, ptr noundef nonnull %22, i64 noundef 4)
+  %135 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %134, ptr noundef nonnull align 4 dereferenceable(4) %22, i64 noundef 4)
           to label %.noexc85 unwind label %236
 
 .noexc85:                                         ; preds = %.noexc84
-  %136 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %135, ptr noundef nonnull %23, i64 noundef 4)
+  %136 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %135, ptr noundef nonnull align 4 dereferenceable(4) %23, i64 noundef 4)
           to label %.noexc86 unwind label %236
 
 .noexc86:                                         ; preds = %.noexc85
-  %137 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %136, ptr noundef nonnull %24, i64 noundef 4)
+  %137 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %136, ptr noundef nonnull align 4 dereferenceable(4) %24, i64 noundef 4)
           to label %_ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_iiiiiEEERS1_DpRKT_.exit unwind label %236
 
 _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_iiiiiEEERS1_DpRKT_.exit: ; preds = %.noexc86
@@ -1912,11 +1912,11 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %163, %142
           to label %171 unwind label %284
 
 171:                                              ; preds = %_ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit
-  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 258, ptr noundef nonnull %20, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
+  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 258, ptr noundef nonnull align 8 dereferenceable(80) %20, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
           to label %_ZN2cv3ocl9KernelArg14ReadOnlyNoSizeERKNS_4UMatEii.exit unwind label %286
 
 _ZN2cv3ocl9KernelArg14ReadOnlyNoSizeERKNS_4UMatEii.exit: ; preds = %171
-  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 260, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
+  invoke void @_ZN2cv3ocl9KernelArgC1EiPNS_4UMatEiiPKvm(ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 260, ptr noundef nonnull align 8 dereferenceable(80) %11, i32 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0)
           to label %_ZN2cv3ocl9KernelArg15WriteOnlyNoSizeERKNS_4UMatEii.exit unwind label %286
 
 _ZN2cv3ocl9KernelArg15WriteOnlyNoSizeERKNS_4UMatEii.exit: ; preds = %_ZN2cv3ocl9KernelArg14ReadOnlyNoSizeERKNS_4UMatEii.exit
@@ -1942,23 +1942,23 @@ _ZN2cv3ocl9KernelArg15WriteOnlyNoSizeERKNS_4UMatEii.exit: ; preds = %_ZN2cv3ocl9
           to label %.noexc103 unwind label %286
 
 .noexc103:                                        ; preds = %.noexc102
-  %183 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %182, ptr noundef nonnull %23, i64 noundef 4)
+  %183 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %182, ptr noundef nonnull align 4 dereferenceable(4) %23, i64 noundef 4)
           to label %.noexc104 unwind label %286
 
 .noexc104:                                        ; preds = %.noexc103
-  %184 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %183, ptr noundef nonnull %24, i64 noundef 4)
+  %184 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %183, ptr noundef nonnull align 4 dereferenceable(4) %24, i64 noundef 4)
           to label %.noexc105 unwind label %286
 
 .noexc105:                                        ; preds = %.noexc104
-  %185 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %184, ptr noundef nonnull %25, i64 noundef 4)
+  %185 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %184, ptr noundef nonnull align 4 dereferenceable(4) %25, i64 noundef 4)
           to label %.noexc106 unwind label %286
 
 .noexc106:                                        ; preds = %.noexc105
-  %186 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %185, ptr noundef nonnull %26, i64 noundef 4)
+  %186 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %185, ptr noundef nonnull align 4 dereferenceable(4) %26, i64 noundef 4)
           to label %.noexc107 unwind label %286
 
 .noexc107:                                        ; preds = %.noexc106
-  %187 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %186, ptr noundef nonnull %27, i64 noundef 4)
+  %187 = invoke noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %186, ptr noundef nonnull align 4 dereferenceable(4) %27, i64 noundef 4)
           to label %_ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_iiiiiEEERS1_DpRKT_.exit unwind label %286
 
 _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_iiiiiEEERS1_DpRKT_.exit: ; preds = %.noexc107
@@ -5443,7 +5443,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv7optflow18OpticalFlowPCAFlowD2Ev.exit
 
 _ZN2cv7optflow18OpticalFlowPCAFlowD2Ev.exit:      ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }

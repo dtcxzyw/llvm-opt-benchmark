@@ -93,7 +93,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
   %.sroa.5.062 = phi i64 [ %36, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit" ], [ %.val45, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader" ]
   %.sroa.052.061 = phi ptr [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit" ], [ %.val44, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader" ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.062, i64 8096)
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %.sroa.5.062, i64 8096)
   %34 = icmp ne ptr %.sroa.052.061, null
   call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %.sroa.052.061, i64 %.0.sroa.speculated.i.i

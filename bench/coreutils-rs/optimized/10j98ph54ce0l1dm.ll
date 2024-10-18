@@ -53,7 +53,7 @@ define hidden { ptr, ptr } @"_ZN48_$LT$$u5b$u8$u5d$$u20$as$u20$rand..rng..Fill$G
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %5, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %2)
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %5, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %2)
   store i64 0, ptr %4, align 16, !alias.scope !9, !noalias !7
   br label %10
 
@@ -210,7 +210,7 @@ define hidden { ptr, ptr } @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_c
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %5, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %0)
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %5, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %0)
   store i64 0, ptr %4, align 16, !alias.scope !24, !noalias !22
   br label %10
 
@@ -256,7 +256,7 @@ define hidden void @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$ra
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %4, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %0)
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %4, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %0)
   store i64 0, ptr %3, align 16, !alias.scope !27
   br label %9
 

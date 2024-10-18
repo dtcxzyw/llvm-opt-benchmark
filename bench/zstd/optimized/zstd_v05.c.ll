@@ -7418,7 +7418,7 @@ if.end.i:                                         ; preds = %if.then4
   store i32 31, ptr %offcodeMaxValue.i.i, align 4
   store i32 127, ptr %matchlengthMaxValue.i.i, align 4
   store i32 63, ptr %litlengthMaxValue.i.i, align 4
-  %call.i.i = tail call i64 @HUFv05_readDTableX4(ptr noundef nonnull %hufTableX4.i, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i)
+  %call.i.i = tail call i64 @HUFv05_readDTableX4(ptr noundef nonnull %hufTableX4.i, ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 -3, -4) %sub.i)
   %cmp.i.i.i.i = icmp ult i64 %call.i.i, -119
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %ZSTDv05_loadEntropy.exit.thread.i
 

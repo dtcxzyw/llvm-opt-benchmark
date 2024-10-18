@@ -309,7 +309,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i.i.i.i.i.i, i64 24, i1 false)
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
   store i8 0, ptr %value3.i.i.i.i.i.i, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i11, ptr noundef nonnull %hlist) #24
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(24) %hlist) #24
   %4 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %4, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -422,7 +422,7 @@ for.end:                                          ; preds = %invoke.cont11, %_ZN
           to label %invoke.cont13 unwind label %lpad.loopexit.split-lp44
 
 invoke.cont13:                                    ; preds = %for.end
-  call void @_ZNSt8__detail15_List_node_base10_M_reverseEv(ptr noundef nonnull align 8 dereferenceable(16) %hlist) #24
+  call void @_ZNSt8__detail15_List_node_base10_M_reverseEv(ptr noundef nonnull align 8 dereferenceable(24) %hlist) #24
   %__begin1.sroa.0.054 = load ptr, ptr %hlist, align 8
   %cmp.i.not55 = icmp eq ptr %__begin1.sroa.0.054, %hlist
   br i1 %cmp.i.not55, label %for.end40, label %for.body19.lr.ph
@@ -566,7 +566,7 @@ while.body.i.i.i:                                 ; preds = %for.end40, %while.b
   %38 = load ptr, ptr %__cur.05.i.i.i, align 8
   %_M_storage.i.i.i.i40 = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i40) #24
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #26
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #26
   %cmp.not.i.i.i = icmp eq ptr %38, %hlist
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
@@ -635,7 +635,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp6.not.i.i.i, label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %value, ptr align 1 %value_.coerce0, i64 %sub.ptr.sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %value, ptr align 1 %value_.coerce0, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
@@ -777,7 +777,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #24
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #26
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit, label %while.body.i.i, !llvm.loop !6
 
@@ -808,7 +808,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
   %shr.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i, 12
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i.i.i.i.i, 1
   %mul.i.i.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
-  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(8) %names_, i64 noundef %shr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i.i)
+  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(24) %names_, i64 noundef %shr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i.i)
           to label %if.end6.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
@@ -871,7 +871,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke void @_ZN8proxygen17StaticHeaderTableC1EPA2_PKci(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8proxygen17StaticHeaderTable3getEvE5table, ptr noundef nonnull @_ZN12_GLOBAL__N_114s_tableEntriesE, i32 noundef 61)
+  invoke void @_ZN8proxygen17StaticHeaderTableC1EPA2_PKci(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8proxygen17StaticHeaderTable3getEvE5table, ptr noundef nonnull align 8 dereferenceable(976) @_ZN12_GLOBAL__N_114s_tableEntriesE, i32 noundef 61)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -947,7 +947,7 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
   %shr.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 12
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i.i.i.i, 1
   %mul.i.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
-  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %shr.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i)
+  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %shr.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i)
           to label %if.end6.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 if.end6.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
@@ -1032,7 +1032,7 @@ for.body:                                         ; preds = %entry, %_ZNSt16allo
 while.body.i.i.i.i.i.i:                           ; preds = %for.body, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i.i.i ], [ %1, %for.body ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #26
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, %second.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !9
 

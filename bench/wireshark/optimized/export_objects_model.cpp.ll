@@ -142,7 +142,7 @@ define internal noundef ptr @_ZL21object_list_get_entryPvi(ptr noundef readonly 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %8 = sext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false), !noalias !4
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 2, ptr %9, align 8, !noalias !4
   %10 = getelementptr inbounds i8, ptr %6, i64 32
@@ -364,7 +364,7 @@ _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %4
   br i1 %or.cond, label %23, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4, %_ZNK11QModelIndex7isValidEv.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %22, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -378,7 +378,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4, %_ZNK11QModelInd
 24:                                               ; preds = %23
   %25 = zext nneg i32 %13 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !16
   %26 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %26, align 8, !noalias !16
   %27 = getelementptr inbounds i8, ptr %1, i64 32
@@ -413,7 +413,7 @@ _ZN14VariantPointerI22_export_object_entry_tE5asPtrE8QVariant.exit: ; preds = %_
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %_ZN14VariantPointerI22_export_object_entry_tE5asPtrE8QVariant.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %39, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -658,7 +658,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62:    ; preds = %110
 116:                                              ; preds = %23
   %117 = zext nneg i32 %13 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !noalias !22
   %118 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %118, align 8, !noalias !22
   %119 = getelementptr inbounds i8, ptr %1, i64 32
@@ -683,7 +683,7 @@ _ZNK5QListI8QVariantE5valueEx.exit65:             ; preds = %116
   br label %_ZN7QStringD2Ev.exit
 
 128:                                              ; preds = %23, %42
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %129 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %129, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -713,7 +713,7 @@ define void @_ZNK17ExportObjectModel10headerDataEiN2Qt11OrientationEi(ptr dead_o
   br i1 %or.cond, label %13, label %15
 
 13:                                               ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %14, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -888,7 +888,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40:    ; preds = %62
   br i1 %.not.i.i41, label %_ZN7QStringD2Ev.exit10.sink.split, label %_ZN7QStringD2Ev.exit10
 
 66:                                               ; preds = %15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %67 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %67, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -953,7 +953,7 @@ define void @_ZN17ExportObjectModel14addObjectEntryEP22_export_object_entry_t(pt
   call void @_ZN18QAbstractItemModel15beginInsertRowsERK11QModelIndexii(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %11, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !noalias !28
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %3)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %14 = load i64, ptr %9, align 8
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -984,7 +984,7 @@ define noundef ptr @_ZN17ExportObjectModel11objectEntryEi(ptr nocapture noundef 
   %4 = alloca %class.QVariant, align 8
   %5 = sext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false), !noalias !31
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 2, ptr %6, align 8, !noalias !31
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1050,7 +1050,7 @@ define noundef zeroext i1 @_ZN17ExportObjectModel9saveEntryER11QModelIndex7QStri
 19:                                               ; preds = %15
   %20 = zext nneg i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !noalias !37
   %21 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %21, align 8, !noalias !37
   %22 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1616,10 +1616,10 @@ define void @_ZN17ExportObjectModel8resetTapEPv(ptr nocapture noundef readonly %
   %7 = getelementptr inbounds i8, ptr %5, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @get_eo_reset_func(ptr noundef %8)
-  tail call void @_ZN18QAbstractItemModel15beginResetModelEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  tail call void @_ZN18QAbstractItemModel15beginResetModelEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN5QListI8QVariantE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-  tail call void @_ZN18QAbstractItemModel13endResetModelEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  tail call void @_ZN18QAbstractItemModel13endResetModelEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN17ExportObjectModel12resetObjectsEv.exit, label %11
 
@@ -1930,7 +1930,7 @@ _ZNK11QModelIndex4dataEi.exit19:                  ; preds = %72
           to label %_ZNK11QModelIndex4dataEi.exit21 unwind label %100
 
 90:                                               ; preds = %84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false), !alias.scope !51
   %91 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 2, ptr %91, align 8, !alias.scope !51
   br label %_ZNK11QModelIndex4dataEi.exit21
@@ -2140,7 +2140,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN22ExportObjectProxyModelD2Ev.exit
 
 _ZN22ExportObjectProxyModelD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i, %10
-  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2463,7 +2463,7 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit: ; preds = %8
 23:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit
   %24 = getelementptr %class.QVariant, ptr %15, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i, align 8
   %25 = load i64, ptr %9, align 8
@@ -2488,7 +2488,7 @@ _ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit: ; preds = %27
 35:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit
   %36 = getelementptr i8, ptr %30, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i17, align 8
   %37 = load ptr, ptr %29, align 8
@@ -2501,7 +2501,7 @@ _ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit: ; preds = %27
 
 _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread: ; preds = %3, %27, %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i18, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2521,7 +2521,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread: ; preds = %3, %27
 50:                                               ; preds = %47
   %51 = getelementptr i8, ptr %49, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr i8, ptr %52, i64 -32
   store ptr %53, ptr %48, align 8
@@ -2541,7 +2541,7 @@ _ZN9QtPrivate16QMovableArrayOpsI8QVariantE8InserterD2Ev.exit: ; preds = %47
   %60 = shl i64 %59, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %57, ptr align 1 %56, i64 %60, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   br label %61
 
 61:                                               ; preds = %_ZN9QtPrivate16QMovableArrayOpsI8QVariantE8InserterD2Ev.exit, %50
@@ -2935,7 +2935,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30.thread: ; preds = %38, 
   %.010.i33 = phi ptr [ %58, %.lr.ph.i31 ], [ %66, %63 ]
   %65 = getelementptr %class.QVariant, ptr %31, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %.010.i33, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.010.i33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.010.i33, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.010.i33, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %66 = getelementptr i8, ptr %.010.i33, i64 32

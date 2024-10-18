@@ -985,7 +985,7 @@ lowpan_dldst_to_ifcid.exit:                       ; preds = %89, %98, %118, %120
   %193 = load i32, ptr @hf_6lowpan_mesh_orig64, align 4
   %194 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %193, ptr noundef %0, i32 noundef %.0.i94, i32 noundef 8, i32 noundef 0) #10
   %195 = getelementptr inbounds i8, ptr %1, i64 208
-  %196 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0.i94, i32 noundef 8) #10
+  %196 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 11) %.0.i94, i32 noundef 8) #10
   store i32 8, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %1, i64 212
   store i32 8, ptr %197, align 4
@@ -1084,7 +1084,7 @@ lowpan_dldst_to_ifcid.exit:                       ; preds = %89, %98, %118, %120
   %248 = load i32, ptr @hf_6lowpan_mesh_dest64, align 4
   %249 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %248, ptr noundef %0, i32 noundef %.1.i, i32 noundef 8, i32 noundef 0) #10
   %250 = getelementptr inbounds i8, ptr %1, i64 232
-  %251 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.1.i, i32 noundef 8) #10
+  %251 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 11) %.1.i, i32 noundef 8) #10
   store i32 8, ptr %250, align 8
   %252 = getelementptr inbounds i8, ptr %1, i64 236
   store i32 8, ptr %252, align 4
@@ -1239,7 +1239,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %247, %282
   br i1 %.not.i96, label %340, label %342
 
 340:                                              ; preds = %318
-  %341 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %339, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %335, ptr noundef readonly %13, ptr noundef readonly %14)
+  %341 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %339, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %335, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
   br label %342
 
 342:                                              ; preds = %340, %318
@@ -1378,7 +1378,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %382
   %418 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %418, ptr noundef %.2, i32 noundef 4) #10
   %419 = call ptr @tvb_new_subset_length(ptr noundef %.2, i32 noundef 4, i32 noundef %412) #10
-  %420 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %419, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %413, ptr noundef readonly %13, ptr noundef readonly %14)
+  %420 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %419, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %413, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
   %421 = icmp eq ptr %420, null
   br i1 %421, label %dissect_6lowpan_frag_first.exit, label %422
 

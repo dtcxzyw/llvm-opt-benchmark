@@ -1187,7 +1187,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %header.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 16, i1 false)
   store ptr @_hb_NullPool, ptr %header.i, align 8
   %gid.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 -1, ptr %gid.i, align 8
@@ -1290,7 +1290,7 @@ lor.lhs.false:                                    ; preds = %if.end21
 
 if.then25:                                        ; preds = %lor.lhs.false, %if.end21
   %header.i39 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 16, i1 false)
   store ptr @_hb_NullPool, ptr %header.i39, align 8
   %gid.i40 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 -1, ptr %gid.i40, align 8
@@ -2896,8 +2896,8 @@ _ZN22contour_point_vector_tD2Ev.exit:             ; preds = %cleanup, %if.then.i
 if.then.i.i.i.i:                                  ; preds = %_ZN22contour_point_vector_tD2Ev.exit
   %177 = inttoptr i64 %176 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %177, i64 40
-  call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %177)
-  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %177) #13
+  call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %177)
+  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %177) #13
   call void @free(ptr noundef nonnull %177) #13
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
@@ -4331,7 +4331,7 @@ if.end.i351:                                      ; preds = %_ZN11hb_vector_tI15
 if.end.i4.i:                                      ; preds = %if.end.i351
   %idx.ext.i354 = zext nneg i32 %orig_points_vec.sroa.8.0 to i64
   %add.ptr.i355 = getelementptr inbounds %struct.contour_point_t, ptr %orig_points_vec.sroa.13.5, i64 %idx.ext.i354
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i355, ptr readonly align 1 %points.coerce0, i64 %mul.i353, i1 false), !alias.scope !30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i355, ptr readonly align 1 %points.coerce0, i64 range(i64 0, 51539607541) %mul.i353, i1 false), !alias.scope !30
   br label %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit
 
 _ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit: ; preds = %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i.i, %if.end.i351, %if.end.i4.i
@@ -5684,7 +5684,7 @@ if.end.i4:                                        ; preds = %if.end
   %8 = load ptr, ptr %arrayZ3, align 8
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %struct.contour_point_t, ptr %8, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr readonly align 1 %7, i64 %mul, i1 false), !alias.scope !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr readonly align 1 %7, i64 range(i64 0, 51539607541) %mul, i1 false), !alias.scope !48
   br label %return
 
 return:                                           ; preds = %entry, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %if.end.i4, %if.end
@@ -6803,7 +6803,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %l) #13
   %3 = load i32, ptr %length, align 4
   %tobool5.not21 = icmp eq i32 %3, 0
   br i1 %tobool5.not21, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -6823,7 +6823,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %old.sroa.2.0.retval.0.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0.retval.0.i.i.sroa_idx, align 8
   store i32 %sub.i, ptr %length, align 4, !noalias !59
-  %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #13
+  %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #13
   %tobool.not.i10 = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i10, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %if.then.i11
 
@@ -6832,7 +6832,7 @@ if.then.i11:                                      ; preds = %_ZN11hb_vector_tIN2
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %if.then.i11
-  %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #13
+  %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %l) #13
   %6 = load i32, ptr %length, align 4
   %tobool5.not = icmp eq i32 %6, 0
   br i1 %tobool5.not, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !62
@@ -6851,7 +6851,7 @@ if.then.i15:                                      ; preds = %while.end
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19: ; preds = %while.end, %if.then.i15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #13
+  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #13
   br label %return
 
 return:                                           ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -8542,7 +8542,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true6
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %idx.ext.i = zext i32 %add14.i.i.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i
-  %call.i.i = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i, ptr noundef nonnull %c)
+  %call.i.i = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(62) %c)
   br i1 %call.i.i, label %land.lhs.true8, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false.i
@@ -8600,7 +8600,7 @@ land.lhs.true.i64:                                ; preds = %land.lhs.true8
 lor.lhs.false.i68:                                ; preds = %land.lhs.true.i64
   %idx.ext.i67 = zext i32 %add14.i.i.i52 to i64
   %add.ptr.i68 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i67
-  %call.i.i69 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i68, ptr noundef nonnull %c)
+  %call.i.i69 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i68, ptr noundef nonnull align 8 dereferenceable(62) %c)
   br i1 %call.i.i69, label %land.lhs.true10, label %lor.rhs.i72
 
 lor.rhs.i72:                                      ; preds = %lor.lhs.false.i68
@@ -8658,7 +8658,7 @@ land.lhs.true.i43:                                ; preds = %land.lhs.true10
 lor.lhs.false.i47:                                ; preds = %land.lhs.true.i43
   %idx.ext.i116 = zext i32 %add14.i.i.i101 to i64
   %add.ptr.i117 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i116
-  %call.i.i118 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i117, ptr noundef nonnull %c)
+  %call.i.i118 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i117, ptr noundef nonnull align 8 dereferenceable(62) %c)
   br i1 %call.i.i118, label %land.rhs, label %lor.rhs.i51
 
 lor.rhs.i51:                                      ; preds = %lor.lhs.false.i47
@@ -8716,7 +8716,7 @@ land.lhs.true.i23:                                ; preds = %land.rhs
 lor.lhs.false.i27:                                ; preds = %land.lhs.true.i23
   %idx.ext.i166 = zext i32 %add14.i.i.i151 to i64
   %add.ptr.i167 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i166
-  %call.i.i168 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i167, ptr noundef nonnull %c)
+  %call.i.i168 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i167, ptr noundef nonnull align 8 dereferenceable(62) %c)
   br i1 %call.i.i168, label %land.end, label %lor.rhs.i31
 
 lor.rhs.i31:                                      ; preds = %lor.lhs.false.i27
@@ -8985,7 +8985,7 @@ land.lhs.true.i.i.i45:                            ; preds = %for.body.i
 lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i45
   %idx.ext.i.i.i = zext i32 %add14.i.i.i.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZNK2OT7VarData8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull %c)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZNK2OT7VarData8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(62) %c)
   br i1 %call.i.i.i.i, label %if.end9.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
@@ -9724,7 +9724,7 @@ if.then:                                          ; preds = %_ZN21hb_sanitize_co
   br label %return
 
 if.end:                                           ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  %call.i13 = tail call noundef zeroext i1 @_ZNK2OT8HVARVVAR8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull %this)
+  %call.i13 = tail call noundef zeroext i1 @_ZNK2OT8HVARVVAR8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(24) %2, ptr noundef nonnull %this)
   br i1 %call.i13, label %land.rhs.i, label %if.else
 
 land.rhs.i:                                       ; preds = %if.end
@@ -9765,7 +9765,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   %idx.ext.i.i14 = zext i32 %add14.i.i.i.i to i64
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i14
-  %call.i.i.i = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i.i15, ptr noundef nonnull %this)
+  %call.i.i.i = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i.i15, ptr noundef nonnull align 8 dereferenceable(62) %this)
   br i1 %call.i.i.i, label %if.then5, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %lor.lhs.false.i.i
@@ -9794,7 +9794,7 @@ if.then5:                                         ; preds = %lor.lhs.false.i.i, 
 
 if.then7:                                         ; preds = %if.then5
   store i32 0, ptr %edit_count.i, align 4
-  %call.i16 = tail call noundef zeroext i1 @_ZNK2OT8HVARVVAR8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull %this)
+  %call.i16 = tail call noundef zeroext i1 @_ZNK2OT8HVARVVAR8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(24) %2, ptr noundef nonnull %this)
   br i1 %call.i16, label %land.rhs.i18, label %_ZNK2OT4VVAR8sanitizeEP21hb_sanitize_context_t.exit55
 
 land.rhs.i18:                                     ; preds = %if.then7
@@ -9829,7 +9829,7 @@ land.lhs.true.i.i28:                              ; preds = %land.rhs.i18
 lor.lhs.false.i.i43:                              ; preds = %land.lhs.true.i.i28
   %idx.ext.i.i44 = zext i32 %add14.i.i.i.i41 to i64
   %add.ptr.i.i45 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i44
-  %call.i.i.i46 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i.i45, ptr noundef nonnull %this)
+  %call.i.i.i46 = tail call noundef zeroext i1 @_ZNK2OT16DeltaSetIndexMap8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i.i45, ptr noundef nonnull align 8 dereferenceable(62) %this)
   br i1 %call.i.i.i46, label %_ZNK2OT4VVAR8sanitizeEP21hb_sanitize_context_t.exit55, label %lor.rhs.i.i47
 
 lor.rhs.i.i47:                                    ; preds = %lor.lhs.false.i.i43

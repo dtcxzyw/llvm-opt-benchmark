@@ -1839,7 +1839,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 48, i64 noundef 8) #13
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 48, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then
@@ -1966,7 +1966,7 @@ if.then12:                                        ; preds = %_ZSt11lower_boundIP
   br i1 %cmp9.i.i.i2715, label %if.then.i.i.i2719, label %if.end.i.i.i2716
 
 if.then.i.i.i2719:                                ; preds = %if.then12
-  %call11.i.i.i2720 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 48, i64 noundef 8) #13
+  %call11.i.i.i2720 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %22, i64 noundef 48, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit2721
 
 if.end.i.i.i2716:                                 ; preds = %if.then12
@@ -1977,7 +1977,7 @@ if.end.i.i.i2716:                                 ; preds = %if.then12
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit2721: ; preds = %if.then.i.i.i2719, %if.end.i.i.i2716
   %retval.0.i.i.i2718 = phi ptr [ %call11.i.i.i2720, %if.then.i.i.i2719 ], [ %32, %if.end.i.i.i2716 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i2718, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i2718, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i2718, i64 16
   store i32 1, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i2718, i64 20
@@ -2440,7 +2440,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i2926, %_ZN
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i, i64 7)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %87, align 8
-  %call.i4.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly @.str.136, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #14
+  %call.i4.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull @.str.136, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
@@ -2478,7 +2478,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %90, align 8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %agg.tmp4.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 7)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %agg.tmp4.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull dereferenceable(7) @.str.136, i64 7)
   %91 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %91, label %if.then.i.i.i2929, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i
 
@@ -2525,7 +2525,7 @@ while.body.i.i.i.i.i45.i:                         ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i59.i: ; preds = %while.body.i.i.i.i.i45.i
   %.sroa.speculated.i.i.i.i.i.i.i.i57.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i56.i, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i = load ptr, ptr %96, align 8
-  %call.i4.i.i.i.i.i.i.i.i61.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i, ptr noundef nonnull readonly @.str.138, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i) #14
+  %call.i4.i.i.i.i.i.i.i.i61.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i, ptr noundef nonnull @.str.138, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i62.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i61.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i62.i, label %if.end.i.i.i.i.i.i.i.i.i72.i, label %if.then.i.i.i.i.i.i.i.i.i63.i
 
@@ -2563,7 +2563,7 @@ land.lhs.true.i.i.i27.i:                          ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i38.i:                             ; preds = %land.lhs.true.i.i.i27.i
   %agg.tmp4.sroa.0.0.copyload.i.i.i29.i = load ptr, ptr %99, align 8
-  %bcmp.i.i.i39.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i, ptr noundef nonnull readonly dereferenceable(5) @.str.138, i64 5)
+  %bcmp.i.i.i39.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i, ptr noundef nonnull dereferenceable(5) @.str.138, i64 5)
   %100 = icmp eq i32 %bcmp.i.i.i39.i, 0
   br i1 %100, label %if.then.i.i40.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i
 
@@ -2615,7 +2615,7 @@ if.end14.i:                                       ; preds = %_ZNK6hermes6parser1
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end14.i
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 64, i64 noundef 8) #13
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %this.val, i64 noundef 64, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end14.i
@@ -2626,7 +2626,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end14.i
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %113, %if.end.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 35, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -2747,7 +2747,7 @@ sw.bb.i:                                          ; preds = %if.end26.i
   br i1 %cmp9.i.i.i148.i, label %if.then.i.i.i152.i, label %if.end.i.i.i149.i
 
 if.then.i.i.i152.i:                               ; preds = %sw.bb.i
-  %call11.i.i.i153.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #13
+  %call11.i.i.i153.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %this.val, i64 noundef 56, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i
 
 if.end.i.i.i149.i:                                ; preds = %sw.bb.i
@@ -2760,7 +2760,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i: ; preds = %if.end.i.i.i149.i
   %retval.0.i.i.i151.i = phi ptr [ %call11.i.i.i153.i, %if.then.i.i.i152.i ], [ %131, %if.end.i.i.i149.i ]
   %value_.i.i = getelementptr inbounds i8, ptr %120, i64 16
   %132 = load ptr, ptr %value_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i151.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i151.i, i8 0, i64 16, i1 false)
   %kind_.i.i155.i = getelementptr inbounds i8, ptr %retval.0.i.i.i151.i, i64 16
   store i32 33, ptr %kind_.i.i155.i, align 8
   %parens_.i.i156.i = getelementptr inbounds i8, ptr %retval.0.i.i.i151.i, i64 20
@@ -2793,7 +2793,7 @@ sw.bb33.i:                                        ; preds = %if.end26.i
   br i1 %cmp9.i.i.i167.i, label %if.then.i.i.i171.i, label %if.end.i.i.i168.i
 
 if.then.i.i.i171.i:                               ; preds = %sw.bb33.i
-  %call11.i.i.i172.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #13
+  %call11.i.i.i172.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %this.val, i64 noundef 56, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i
 
 if.end.i.i.i168.i:                                ; preds = %sw.bb33.i
@@ -2807,7 +2807,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i: ; preds = %if.end.i.i.i168.i
   %value_.i174.i = getelementptr inbounds i8, ptr %120, i64 4
   %143 = load i8, ptr %value_.i174.i, align 4
   %frombool.i.i = and i8 %143, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i170.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %retval.0.i.i.i170.i, i8 0, i64 16, i1 false)
   %kind_.i.i175.i = getelementptr inbounds i8, ptr %retval.0.i.i.i170.i, i64 16
   store i32 32, ptr %kind_.i.i175.i, align 8
   %parens_.i.i176.i = getelementptr inbounds i8, ptr %retval.0.i.i.i170.i, i64 20
@@ -2840,7 +2840,7 @@ sw.bb39.i:                                        ; preds = %if.end26.i
   br i1 %cmp9.i.i.i188.i, label %if.then.i.i.i192.i, label %if.end.i.i.i189.i
 
 if.then.i.i.i192.i:                               ; preds = %sw.bb39.i
-  %call11.i.i.i193.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 48, i64 noundef 8) #13
+  %call11.i.i.i193.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %this.val, i64 noundef 48, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i
 
 if.end.i.i.i189.i:                                ; preds = %sw.bb39.i
@@ -2851,7 +2851,7 @@ if.end.i.i.i189.i:                                ; preds = %sw.bb39.i
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i: ; preds = %if.end.i.i.i189.i, %if.then.i.i.i192.i
   %retval.0.i.i.i191.i = phi ptr [ %call11.i.i.i193.i, %if.then.i.i.i192.i ], [ %153, %if.end.i.i.i189.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i191.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i191.i, i8 0, i64 16, i1 false)
   %kind_.i.i195.i = getelementptr inbounds i8, ptr %retval.0.i.i.i191.i, i64 16
   store i32 31, ptr %kind_.i.i195.i, align 8
   %parens_.i.i196.i = getelementptr inbounds i8, ptr %retval.0.i.i.i191.i, i64 20
@@ -2882,7 +2882,7 @@ sw.bb43.i:                                        ; preds = %if.end26.i
   br i1 %cmp9.i.i.i207.i, label %if.then.i.i.i211.i, label %if.end.i.i.i208.i
 
 if.then.i.i.i211.i:                               ; preds = %sw.bb43.i
-  %call11.i.i.i212.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #13
+  %call11.i.i.i212.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %this.val, i64 noundef 56, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i
 
 if.end.i.i.i208.i:                                ; preds = %sw.bb43.i
@@ -2895,7 +2895,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i: ; preds = %if.end.i.i.i208.i
   %retval.0.i.i.i210.i = phi ptr [ %call11.i.i.i212.i, %if.then.i.i.i211.i ], [ %163, %if.end.i.i.i208.i ]
   %value_.i214.i = getelementptr inbounds i8, ptr %120, i64 16
   %164 = load double, ptr %value_.i214.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i210.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i210.i, i8 0, i64 16, i1 false)
   %kind_.i.i215.i = getelementptr inbounds i8, ptr %retval.0.i.i.i210.i, i64 16
   store i32 34, ptr %kind_.i.i215.i, align 8
   %parens_.i.i216.i = getelementptr inbounds i8, ptr %retval.0.i.i.i210.i, i64 20
@@ -2965,7 +2965,7 @@ while.body.i.i.i.i.i.i3080:                       ; preds = %if.then108, %_ZN9__
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i3093: ; preds = %while.body.i.i.i.i.i.i3080
   %.sroa.speculated.i.i.i.i.i.i.i.i.i3094 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i3091, i64 4)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i3095 = load ptr, ptr %168, align 8
-  %call.i4.i.i.i.i.i.i.i.i.i3096 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i3095, ptr noundef nonnull readonly @.str.262, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i3094) #14
+  %call.i4.i.i.i.i.i.i.i.i.i3096 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i3095, ptr noundef nonnull @.str.262, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i3094) #14
   %tobool.i.not.i.i.i.i.i.i.i.i.i3097 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i.i3096, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i3097, label %if.end.i.i.i.i.i.i.i.i.i.i3107, label %if.then.i.i.i.i.i.i.i.i.i.i3098
 
@@ -3003,7 +3003,7 @@ land.lhs.true.i.i.i.i2943:                        ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i.i3072:                           ; preds = %land.lhs.true.i.i.i.i2943
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i3073 = load ptr, ptr %171, align 8
-  %bcmp.i.i.i.i3074 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i.i.i3073, ptr noundef nonnull readonly dereferenceable(4) @.str.262, i64 4)
+  %bcmp.i.i.i.i3074 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i.i.i3073, ptr noundef nonnull dereferenceable(4) @.str.262, i64 4)
   %172 = icmp eq i32 %bcmp.i.i.i.i3074, 0
   br i1 %172, label %if.then.i.i.i3075, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i2948
 
@@ -3138,7 +3138,7 @@ while.body.i.i.i.i.i45.i3014:                     ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i59.i3027: ; preds = %while.body.i.i.i.i.i45.i3014
   %.sroa.speculated.i.i.i.i.i.i.i.i57.i3028 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i56.i3025, i64 6)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i3029 = load ptr, ptr %187, align 8
-  %call.i4.i.i.i.i.i.i.i.i61.i3030 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i3029, ptr noundef nonnull readonly @.str.264, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i3028) #14
+  %call.i4.i.i.i.i.i.i.i.i61.i3030 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i3029, ptr noundef nonnull @.str.264, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i3028) #14
   %tobool.i.not.i.i.i.i.i.i.i.i62.i3031 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i61.i3030, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i62.i3031, label %if.end.i.i.i.i.i.i.i.i.i72.i3041, label %if.then.i.i.i.i.i.i.i.i.i63.i3032
 
@@ -3176,7 +3176,7 @@ land.lhs.true.i.i.i27.i2979:                      ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i38.i3006:                         ; preds = %land.lhs.true.i.i.i27.i2979
   %agg.tmp4.sroa.0.0.copyload.i.i.i29.i3007 = load ptr, ptr %190, align 8
-  %bcmp.i.i.i39.i3008 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i3007, ptr noundef nonnull readonly dereferenceable(6) @.str.264, i64 6)
+  %bcmp.i.i.i39.i3008 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i3007, ptr noundef nonnull dereferenceable(6) @.str.264, i64 6)
   %191 = icmp eq i32 %bcmp.i.i.i39.i3008, 0
   br i1 %191, label %if.then.i.i40.i3009, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i2984
 
@@ -3223,7 +3223,7 @@ while.body.i.i.i.i.i105.i:                        ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i119.i: ; preds = %while.body.i.i.i.i.i105.i
   %.sroa.speculated.i.i.i.i.i.i.i.i117.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i116.i, i64 3)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i = load ptr, ptr %196, align 8
-  %call.i4.i.i.i.i.i.i.i.i121.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i, ptr noundef nonnull readonly @.str.266, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i117.i) #14
+  %call.i4.i.i.i.i.i.i.i.i121.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i, ptr noundef nonnull @.str.266, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i117.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i122.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i121.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i122.i, label %if.end.i.i.i.i.i.i.i.i.i132.i, label %if.then.i.i.i.i.i.i.i.i.i123.i
 
@@ -3261,7 +3261,7 @@ land.lhs.true.i.i.i87.i:                          ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i98.i:                             ; preds = %land.lhs.true.i.i.i87.i
   %agg.tmp4.sroa.0.0.copyload.i.i.i89.i = load ptr, ptr %199, align 8
-  %bcmp.i.i.i99.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp4.sroa.0.0.copyload.i.i.i89.i, ptr noundef nonnull readonly dereferenceable(3) @.str.266, i64 3)
+  %bcmp.i.i.i99.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp4.sroa.0.0.copyload.i.i.i89.i, ptr noundef nonnull dereferenceable(3) @.str.266, i64 3)
   %200 = icmp eq i32 %bcmp.i.i.i99.i, 0
   br i1 %200, label %if.then.i.i100.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i93.i
 
@@ -3313,7 +3313,7 @@ if.end27.i:                                       ; preds = %_ZNK6hermes6parser1
   br i1 %cmp9.i.i.i.i2997, label %if.then.i.i.i.i3004, label %if.end.i.i.i.i2998
 
 if.then.i.i.i.i3004:                              ; preds = %if.end27.i
-  %call11.i.i.i.i3005 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val2699, i64 noundef 72, i64 noundef 8) #13
+  %call11.i.i.i.i3005 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %this.val2699, i64 noundef 72, i64 noundef 8) #13
   br label %if.end113
 
 if.end.i.i.i.i2998:                               ; preds = %if.end27.i
@@ -3334,7 +3334,7 @@ if.then112:                                       ; preds = %if.then6.i, %if.the
 if.end113:                                        ; preds = %if.end.i.i.i.i2998, %if.then.i.i.i.i3004
   %retval.0.i.i.i.i3001 = phi ptr [ %call11.i.i.i.i3005, %if.then.i.i.i.i3004 ], [ %213, %if.end.i.i.i.i2998 ]
   %frombool.i141.i = and i8 %175, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i3001, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i.i3001, i8 0, i64 16, i1 false)
   %kind_.i.i.i3002 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i3001, i64 16
   store i32 72, ptr %kind_.i.i.i3002, align 8
   %parens_.i.i.i3003 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i3001, i64 20
@@ -3380,7 +3380,7 @@ if.end.i.i15007:                                  ; preds = %if.end80
 if.then128:                                       ; preds = %if.end.i.i15007
   %219 = load ptr, ptr %this, align 8
   %call130 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %219, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call130, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call130, i8 0, i64 16, i1 false)
   %kind_.i.i3118 = getelementptr inbounds i8, ptr %call130, i64 16
   store i32 1, ptr %kind_.i.i3118, align 8
   %parens_.i.i3119 = getelementptr inbounds i8, ptr %call130, i64 20
@@ -3858,7 +3858,7 @@ if.end476:                                        ; preds = %_ZN4llvh9StringRefC
   %call478 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %280, i64 noundef 8)
   %281 = load ptr, ptr %arg0459, align 8
   %282 = load ptr, ptr %arg1460, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call478, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call478, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call478, i64 16
   store i32 11, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %call478, i64 20
@@ -3918,7 +3918,7 @@ if.end502:                                        ; preds = %_ZN4llvh9StringRefC
   %call504 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %288, i64 noundef 8)
   %289 = load ptr, ptr %arg0485, align 8
   %290 = load ptr, ptr %arg1486, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call504, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call504, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i3245 = getelementptr inbounds i8, ptr %call504, i64 16
   store i32 12, ptr %kind_.i.i.i.i3245, align 8
   %parens_.i.i.i.i3246 = getelementptr inbounds i8, ptr %call504, i64 20
@@ -3995,7 +3995,7 @@ if.end537:                                        ; preds = %_ZN4llvh9StringRefC
   %298 = load ptr, ptr %arg0511, align 8
   %299 = load ptr, ptr %arg1512, align 8
   %300 = load ptr, ptr %arg2513, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call539, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call539, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i3267 = getelementptr inbounds i8, ptr %call539, i64 16
   store i32 13, ptr %kind_.i.i.i.i3267, align 8
   %parens_.i.i.i.i3268 = getelementptr inbounds i8, ptr %call539, i64 20
@@ -4092,7 +4092,7 @@ if.end581:                                        ; preds = %_ZN4llvh9StringRefC
   %311 = load ptr, ptr %arg2548, align 8
   %312 = load i8, ptr %arg3549, align 1
   %frombool.i = and i8 %312, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call583, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %call583, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i3293 = getelementptr inbounds i8, ptr %call583, i64 16
   store i32 14, ptr %kind_.i.i.i.i3293, align 8
   %parens_.i.i.i.i3294 = getelementptr inbounds i8, ptr %call583, i64 20
@@ -4149,7 +4149,7 @@ if.end629:                                        ; preds = %if.then590
   %319 = load ptr, ptr %arg1592, align 8
   %320 = load ptr, ptr %arg2593, align 8
   %321 = load ptr, ptr %arg3594, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call631, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call631, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i3306 = getelementptr inbounds i8, ptr %call631, i64 16
   store i32 15, ptr %kind_.i.i.i.i3306, align 8
   %parens_.i.i.i.i3307 = getelementptr inbounds i8, ptr %call631, i64 20
@@ -4179,7 +4179,7 @@ if.end.i.i15216:                                  ; preds = %if.end399
 if.then637:                                       ; preds = %if.end.i.i15216
   %325 = load ptr, ptr %this, align 8
   %call639 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %325, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call639, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call639, i8 0, i64 16, i1 false)
   %kind_.i.i.i3313 = getelementptr inbounds i8, ptr %call639, i64 16
   store i32 17, ptr %kind_.i.i.i3313, align 8
   %parens_.i.i.i3314 = getelementptr inbounds i8, ptr %call639, i64 20
@@ -4199,7 +4199,7 @@ if.end.i.i15235:                                  ; preds = %if.end.i.i15178
 if.then645:                                       ; preds = %if.end.i.i15235
   %328 = load ptr, ptr %this, align 8
   %call647 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %328, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call647, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call647, i8 0, i64 16, i1 false)
   %kind_.i.i.i3318 = getelementptr inbounds i8, ptr %call647, i64 16
   store i32 18, ptr %kind_.i.i.i3318, align 8
   %parens_.i.i.i3319 = getelementptr inbounds i8, ptr %call647, i64 20
@@ -4256,7 +4256,7 @@ if.then670:                                       ; preds = %if.end.i.i15273
   %335 = load ptr, ptr %this, align 8
   %call682 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %335, i64 noundef 8)
   %336 = load ptr, ptr %arg0671, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call682, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call682, i8 0, i64 16, i1 false)
   %kind_.i.i.i3332 = getelementptr inbounds i8, ptr %call682, i64 16
   store i32 20, ptr %kind_.i.i.i3332, align 8
   %parens_.i.i.i3333 = getelementptr inbounds i8, ptr %call682, i64 20
@@ -4283,7 +4283,7 @@ if.then688:                                       ; preds = %if.end.i.i15292
   %340 = load ptr, ptr %this, align 8
   %call700 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %340, i64 noundef 8)
   %341 = load ptr, ptr %arg0689, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call700, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call700, i8 0, i64 16, i1 false)
   %kind_.i.i.i3337 = getelementptr inbounds i8, ptr %call700, i64 16
   store i32 21, ptr %kind_.i.i.i3337, align 8
   %parens_.i.i.i3338 = getelementptr inbounds i8, ptr %call700, i64 20
@@ -4324,7 +4324,7 @@ if.end715:                                        ; preds = %if.then706
   %346 = load ptr, ptr %this, align 8
   %call717 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %346, i64 noundef 8)
   %347 = load ptr, ptr %arg0707, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call717, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call717, i8 0, i64 16, i1 false)
   %kind_.i.i.i3348 = getelementptr inbounds i8, ptr %call717, i64 16
   store i32 22, ptr %kind_.i.i.i3348, align 8
   %parens_.i.i.i3349 = getelementptr inbounds i8, ptr %call717, i64 20
@@ -4349,7 +4349,7 @@ if.then723:                                       ; preds = %if.end.i.i15330
   %350 = load ptr, ptr %this, align 8
   %call735 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %350, i64 noundef 8)
   %351 = load ptr, ptr %arg0724, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call735, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call735, i8 0, i64 16, i1 false)
   %kind_.i.i.i3353 = getelementptr inbounds i8, ptr %call735, i64 16
   store i32 23, ptr %kind_.i.i.i3353, align 8
   %parens_.i.i.i3354 = getelementptr inbounds i8, ptr %call735, i64 20
@@ -4405,7 +4405,7 @@ if.end759:                                        ; preds = %_ZN4llvh9StringRefC
   %call761 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %356, i64 noundef 8)
   %357 = load ptr, ptr %arg0742, align 8
   %358 = load ptr, ptr %arg1743, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call761, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call761, i8 0, i64 16, i1 false)
   %kind_.i.i.i3369 = getelementptr inbounds i8, ptr %call761, i64 16
   store i32 24, ptr %kind_.i.i.i3369, align 8
   %parens_.i.i.i3370 = getelementptr inbounds i8, ptr %call761, i64 20
@@ -4514,7 +4514,7 @@ if.end811:                                        ; preds = %_ZN4llvh9StringRefC
   %call813 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %369, i64 noundef 8)
   %370 = load ptr, ptr %arg0794, align 8
   %371 = load ptr, ptr %arg1795, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call813, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call813, i8 0, i64 16, i1 false)
   %kind_.i.i.i3399 = getelementptr inbounds i8, ptr %call813, i64 16
   store i32 26, ptr %kind_.i.i.i3399, align 8
   %parens_.i.i.i3400 = getelementptr inbounds i8, ptr %call813, i64 20
@@ -4555,12 +4555,12 @@ if.then824:                                       ; preds = %if.then819
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7512:                ; preds = %if.then819
-  %call.i = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.112, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg1821)
+  %call.i = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.112, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg1821)
   %376 = load ptr, ptr %this, align 8
   %call840 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %376, i64 noundef 8)
   %377 = load ptr, ptr %arg0820, align 8
   %378 = load ptr, ptr %arg1821, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call840, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call840, i8 0, i64 16, i1 false)
   %kind_.i.i.i3411 = getelementptr inbounds i8, ptr %call840, i64 16
   store i32 27, ptr %kind_.i.i.i3411, align 8
   %parens_.i.i.i3412 = getelementptr inbounds i8, ptr %call840, i64 20
@@ -4607,7 +4607,7 @@ _ZN4llvh9StringRefC2EPKc.exit7542:                ; preds = %if.then846
   %383 = load ptr, ptr %arg0847, align 8
   %384 = load ptr, ptr %arg1848, align 8
   %385 = load ptr, ptr %arg2849, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call877, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call877, i8 0, i64 16, i1 false)
   %kind_.i.i.i3421 = getelementptr inbounds i8, ptr %call877, i64 16
   store i32 28, ptr %kind_.i.i.i3421, align 8
   %parens_.i.i.i3422 = getelementptr inbounds i8, ptr %call877, i64 20
@@ -4670,7 +4670,7 @@ _ZN4llvh9StringRefC2EPKc.exit7592:                ; preds = %_ZN4llvh9StringRefC
   %391 = load ptr, ptr %arg0884, align 8
   %392 = load ptr, ptr %arg1885, align 8
   %393 = load ptr, ptr %arg2886, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call913, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call913, i8 0, i64 16, i1 false)
   %kind_.i.i.i3436 = getelementptr inbounds i8, ptr %call913, i64 16
   store i32 29, ptr %kind_.i.i.i3436, align 8
   %parens_.i.i.i3437 = getelementptr inbounds i8, ptr %call913, i64 20
@@ -4696,7 +4696,7 @@ if.end.i.i15463:                                  ; preds = %if.end.i.i15444
 if.then919:                                       ; preds = %if.end.i.i15463
   %396 = load ptr, ptr %this, align 8
   %call921 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %396, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call921, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call921, i8 0, i64 16, i1 false)
   %kind_.i.i3442 = getelementptr inbounds i8, ptr %call921, i64 16
   store i32 31, ptr %kind_.i.i3442, align 8
   %parens_.i.i3443 = getelementptr inbounds i8, ptr %call921, i64 20
@@ -4734,7 +4734,7 @@ if.end936:                                        ; preds = %if.then927
   %call938 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %400, i64 noundef 8)
   %401 = load i8, ptr %arg0928, align 1
   %frombool.i3452 = and i8 %401, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call938, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %call938, i8 0, i64 16, i1 false)
   %kind_.i.i3453 = getelementptr inbounds i8, ptr %call938, i64 16
   store i32 32, ptr %kind_.i.i3453, align 8
   %parens_.i.i3454 = getelementptr inbounds i8, ptr %call938, i64 20
@@ -4755,7 +4755,7 @@ if.end.i.i15501:                                  ; preds = %if.end.i.i15349
 
 if.then945:                                       ; preds = %if.end.i.i15501
   store ptr null, ptr %arg0946, align 8
-  %call.i3458 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0946)
+  %call.i3458 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0946)
   br i1 %call.i3458, label %if.end954, label %if.then949
 
 if.then949:                                       ; preds = %if.then945
@@ -4773,7 +4773,7 @@ if.end954:                                        ; preds = %if.then945
   %405 = load ptr, ptr %this, align 8
   %call956 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %405, i64 noundef 8)
   %406 = load ptr, ptr %arg0946, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call956, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call956, i8 0, i64 16, i1 false)
   %kind_.i.i3464 = getelementptr inbounds i8, ptr %call956, i64 16
   store i32 33, ptr %kind_.i.i3464, align 8
   %parens_.i.i3465 = getelementptr inbounds i8, ptr %call956, i64 20
@@ -4812,7 +4812,7 @@ if.end971:                                        ; preds = %if.then962
   %410 = load ptr, ptr %this, align 8
   %call973 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %410, i64 noundef 8)
   %411 = load double, ptr %arg0963, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call973, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call973, i8 0, i64 16, i1 false)
   %kind_.i.i3475 = getelementptr inbounds i8, ptr %call973, i64 16
   store i32 34, ptr %kind_.i.i3475, align 8
   %parens_.i.i3476 = getelementptr inbounds i8, ptr %call973, i64 20
@@ -4868,7 +4868,7 @@ if.end997:                                        ; preds = %_ZN4llvh9StringRefC
   %call999 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %416, i64 noundef 8)
   %417 = load ptr, ptr %arg0980, align 8
   %418 = load ptr, ptr %arg1981, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call999, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call999, i8 0, i64 16, i1 false)
   %kind_.i.i3491 = getelementptr inbounds i8, ptr %call999, i64 16
   store i32 35, ptr %kind_.i.i3491, align 8
   %parens_.i.i3492 = getelementptr inbounds i8, ptr %call999, i64 20
@@ -4909,7 +4909,7 @@ if.end1014:                                       ; preds = %if.then1005
   %422 = load ptr, ptr %this, align 8
   %call1016 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %422, i64 noundef 8)
   %423 = load ptr, ptr %arg01006, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1016, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1016, i8 0, i64 16, i1 false)
   %kind_.i.i3501 = getelementptr inbounds i8, ptr %call1016, i64 16
   store i32 36, ptr %kind_.i.i3501, align 8
   %parens_.i.i3502 = getelementptr inbounds i8, ptr %call1016, i64 20
@@ -4931,7 +4931,7 @@ if.end.i.i15577:                                  ; preds = %if.end.i.i15520
 if.then1022:                                      ; preds = %if.end.i.i15577
   %426 = load ptr, ptr %this, align 8
   %call1024 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %426, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1024, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1024, i8 0, i64 16, i1 false)
   %kind_.i.i3506 = getelementptr inbounds i8, ptr %call1024, i64 16
   store i32 37, ptr %kind_.i.i3506, align 8
   %parens_.i.i3507 = getelementptr inbounds i8, ptr %call1024, i64 20
@@ -4951,7 +4951,7 @@ if.end.i.i15596:                                  ; preds = %if.end.i.i14988
 if.then1030:                                      ; preds = %if.end.i.i15596
   %429 = load ptr, ptr %this, align 8
   %call1032 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %429, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1032, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1032, i8 0, i64 16, i1 false)
   %kind_.i.i3511 = getelementptr inbounds i8, ptr %call1032, i64 16
   store i32 38, ptr %kind_.i.i3511, align 8
   %parens_.i.i3512 = getelementptr inbounds i8, ptr %call1032, i64 20
@@ -5108,7 +5108,7 @@ if.end1108:                                       ; preds = %if.then1099
   %447 = load ptr, ptr %this, align 8
   %call1110 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %447, i64 noundef 8)
   %448 = load ptr, ptr %arg01100, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1110, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1110, i8 0, i64 16, i1 false)
   %kind_.i.i3553 = getelementptr inbounds i8, ptr %call1110, i64 16
   store i32 42, ptr %kind_.i.i3553, align 8
   %parens_.i.i3554 = getelementptr inbounds i8, ptr %call1110, i64 20
@@ -5191,7 +5191,7 @@ if.then1152:                                      ; preds = %if.end.i.i15710
   %460 = load ptr, ptr %arg01153, align 8
   %461 = load i8, ptr %arg11154, align 1
   %frombool.i3573 = and i8 %461, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1174, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %call1174, i8 0, i64 16, i1 false)
   %kind_.i.i3574 = getelementptr inbounds i8, ptr %call1174, i64 16
   store i32 44, ptr %kind_.i.i3574, align 8
   %parens_.i.i3575 = getelementptr inbounds i8, ptr %call1174, i64 20
@@ -5232,7 +5232,7 @@ if.end1190:                                       ; preds = %if.then1181
   %465 = load ptr, ptr %this, align 8
   %call1192 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %465, i64 noundef 8)
   %466 = load ptr, ptr %arg01182, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1192, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1192, i8 0, i64 16, i1 false)
   %kind_.i.i3585 = getelementptr inbounds i8, ptr %call1192, i64 16
   store i32 45, ptr %kind_.i.i3585, align 8
   %parens_.i.i3586 = getelementptr inbounds i8, ptr %call1192, i64 20
@@ -5274,7 +5274,7 @@ _ZN4llvh9StringRefC2EPKc.exit7942:                ; preds = %if.then1198
   %call1219 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %470, i64 noundef 8)
   %471 = load ptr, ptr %arg01199, align 8
   %472 = load ptr, ptr %arg11200, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1219, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1219, i8 0, i64 16, i1 false)
   %kind_.i.i3596 = getelementptr inbounds i8, ptr %call1219, i64 16
   store i32 46, ptr %kind_.i.i3596, align 8
   %parens_.i.i3597 = getelementptr inbounds i8, ptr %call1219, i64 20
@@ -5491,7 +5491,7 @@ if.end1334:                                       ; preds = %_ZN4llvh9StringRefC
   %495 = load ptr, ptr %arg01308, align 8
   %496 = load ptr, ptr %arg11309, align 8
   %497 = load ptr, ptr %arg21310, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1336, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call1336, i8 0, i64 16, i1 false)
   %kind_.i.i3649 = getelementptr inbounds i8, ptr %call1336, i64 16
   store i32 51, ptr %kind_.i.i3649, align 8
   %parens_.i.i3650 = getelementptr inbounds i8, ptr %call1336, i64 20
@@ -5569,7 +5569,7 @@ if.end1369:                                       ; preds = %_ZN4llvh9StringRefC
   %505 = load ptr, ptr %arg11344, align 8
   %506 = load i8, ptr %arg21345, align 1
   %frombool.i3671 = and i8 %506, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1371, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call1371, i8 0, i64 16, i1 false)
   %kind_.i.i3672 = getelementptr inbounds i8, ptr %call1371, i64 16
   store i32 52, ptr %kind_.i.i3672, align 8
   %parens_.i.i3673 = getelementptr inbounds i8, ptr %call1371, i64 20
@@ -5647,7 +5647,7 @@ if.end1405:                                       ; preds = %_ZN4llvh9StringRefC
   %514 = load ptr, ptr %arg11380, align 8
   %515 = load i8, ptr %arg21381, align 1
   %frombool.i3694 = and i8 %515, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1407, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call1407, i8 0, i64 16, i1 false)
   %kind_.i.i3695 = getelementptr inbounds i8, ptr %call1407, i64 16
   store i32 53, ptr %kind_.i.i3695, align 8
   %parens_.i.i3696 = getelementptr inbounds i8, ptr %call1407, i64 20
@@ -5725,7 +5725,7 @@ if.end1441:                                       ; preds = %_ZN4llvh9StringRefC
   %523 = load ptr, ptr %arg11416, align 8
   %524 = load i8, ptr %arg21417, align 1
   %frombool.i3718 = and i8 %524, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1443, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call1443, i8 0, i64 16, i1 false)
   %kind_.i.i.i3719 = getelementptr inbounds i8, ptr %call1443, i64 16
   store i32 55, ptr %kind_.i.i.i3719, align 8
   %parens_.i.i.i3720 = getelementptr inbounds i8, ptr %call1443, i64 20
@@ -5825,7 +5825,7 @@ if.end1486:                                       ; preds = %_ZN4llvh9StringRefC
   %535 = load i8, ptr %arg31454, align 1
   %frombool.i3745 = and i8 %534, 1
   %frombool1.i = and i8 %535, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1488, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %call1488, i8 0, i64 16, i1 false)
   %kind_.i.i.i3746 = getelementptr inbounds i8, ptr %call1488, i64 16
   store i32 56, ptr %kind_.i.i.i3746, align 8
   %parens_.i.i.i3747 = getelementptr inbounds i8, ptr %call1488, i64 20
@@ -5908,7 +5908,7 @@ if.end1523:                                       ; preds = %_ZN4llvh9StringRefC
   %542 = load ptr, ptr %arg01497, align 8
   %543 = load ptr, ptr %arg11498, align 8
   %544 = load ptr, ptr %arg21499, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1525, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call1525, i8 0, i64 16, i1 false)
   %kind_.i.i3769 = getelementptr inbounds i8, ptr %call1525, i64 16
   store i32 58, ptr %kind_.i.i3769, align 8
   %parens_.i.i3770 = getelementptr inbounds i8, ptr %call1525, i64 20
@@ -6010,7 +6010,7 @@ if.end1558:                                       ; preds = %_ZN4llvh9StringRefC
   %551 = load ptr, ptr %arg01532, align 8
   %552 = load ptr, ptr %arg11533, align 8
   %553 = load ptr, ptr %arg21534, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1560, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call1560, i8 0, i64 16, i1 false)
   %kind_.i.i3792 = getelementptr inbounds i8, ptr %call1560, i64 16
   store i32 59, ptr %kind_.i.i3792, align 8
   %parens_.i.i3793 = getelementptr inbounds i8, ptr %call1560, i64 20
@@ -6087,7 +6087,7 @@ if.end1593:                                       ; preds = %_ZN4llvh9StringRefC
   %560 = load ptr, ptr %arg01567, align 8
   %561 = load ptr, ptr %arg11568, align 8
   %562 = load ptr, ptr %arg21569, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1595, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call1595, i8 0, i64 16, i1 false)
   %kind_.i.i3815 = getelementptr inbounds i8, ptr %call1595, i64 16
   store i32 60, ptr %kind_.i.i3815, align 8
   %parens_.i.i3816 = getelementptr inbounds i8, ptr %call1595, i64 20
@@ -6153,7 +6153,7 @@ if.end1610:                                       ; preds = %if.then1601
   %566 = load ptr, ptr %this, align 8
   %call1612 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %566, i64 noundef 8)
   %567 = load ptr, ptr %arg01602, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1612, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1612, i8 0, i64 16, i1 false)
   %kind_.i.i3828 = getelementptr inbounds i8, ptr %call1612, i64 16
   store i32 61, ptr %kind_.i.i3828, align 8
   %parens_.i.i3829 = getelementptr inbounds i8, ptr %call1612, i64 20
@@ -6174,7 +6174,7 @@ if.end.i.i15976:                                  ; preds = %if.end.i.i15938
 
 if.then1618:                                      ; preds = %if.end.i.i15976
   store ptr null, ptr %arg01619, align 8
-  %call.i3834 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01619)
+  %call.i3834 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01619)
   br i1 %call.i3834, label %if.end1627, label %if.then1622
 
 if.then1622:                                      ; preds = %if.then1618
@@ -6192,7 +6192,7 @@ if.end1627:                                       ; preds = %if.then1618
   %571 = load ptr, ptr %this, align 8
   %call1629 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %571, i64 noundef 8)
   %572 = load ptr, ptr %arg01619, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1629, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1629, i8 0, i64 16, i1 false)
   %kind_.i.i3840 = getelementptr inbounds i8, ptr %call1629, i64 16
   store i32 62, ptr %kind_.i.i3840, align 8
   %parens_.i.i3841 = getelementptr inbounds i8, ptr %call1629, i64 20
@@ -6252,7 +6252,7 @@ if.end1663:                                       ; preds = %_ZN4llvh9StringRefC
   %579 = load ptr, ptr %arg11637, align 8
   %580 = load i8, ptr %arg21638, align 1
   %frombool.i3856 = and i8 %580, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1665, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call1665, i8 0, i64 16, i1 false)
   %kind_.i.i3857 = getelementptr inbounds i8, ptr %call1665, i64 16
   store i32 63, ptr %kind_.i.i3857, align 8
   %parens_.i.i3858 = getelementptr inbounds i8, ptr %call1665, i64 20
@@ -6300,7 +6300,7 @@ if.end1681:                                       ; preds = %if.then1672
   %584 = load ptr, ptr %this, align 8
   %call1683 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %584, i64 noundef 8)
   %585 = load ptr, ptr %arg01673, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1683, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1683, i8 0, i64 16, i1 false)
   %kind_.i.i3868 = getelementptr inbounds i8, ptr %call1683, i64 16
   store i32 64, ptr %kind_.i.i3868, align 8
   %parens_.i.i3869 = getelementptr inbounds i8, ptr %call1683, i64 20
@@ -6356,7 +6356,7 @@ if.end1707:                                       ; preds = %_ZN4llvh9StringRefC
   %call1709 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %590, i64 noundef 8)
   %591 = load ptr, ptr %arg01690, align 8
   %592 = load ptr, ptr %arg11691, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1709, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1709, i8 0, i64 16, i1 false)
   %kind_.i.i3883 = getelementptr inbounds i8, ptr %call1709, i64 16
   store i32 65, ptr %kind_.i.i3883, align 8
   %parens_.i.i3884 = getelementptr inbounds i8, ptr %call1709, i64 20
@@ -6437,7 +6437,7 @@ if.end1761:                                       ; preds = %if.then1742
   %call1763 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %601, i64 noundef 8)
   %602 = load ptr, ptr %arg01743, align 8
   %603 = load ptr, ptr %arg11744, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1763, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1763, i8 0, i64 16, i1 false)
   %kind_.i.i3903 = getelementptr inbounds i8, ptr %call1763, i64 16
   store i32 67, ptr %kind_.i.i3903, align 8
   %parens_.i.i3904 = getelementptr inbounds i8, ptr %call1763, i64 20
@@ -6488,7 +6488,7 @@ if.end1788:                                       ; preds = %if.then1769
   %call1790 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %607, i64 noundef 8)
   %608 = load ptr, ptr %arg01770, align 8
   %609 = load ptr, ptr %arg11771, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1790, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1790, i8 0, i64 16, i1 false)
   %kind_.i.i3914 = getelementptr inbounds i8, ptr %call1790, i64 16
   store i32 68, ptr %kind_.i.i3914, align 8
   %parens_.i.i3915 = getelementptr inbounds i8, ptr %call1790, i64 20
@@ -6706,7 +6706,7 @@ if.end1866:                                       ; preds = %_ZN4llvh9StringRefC
   %call1868 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %625, i64 noundef 8)
   %626 = load ptr, ptr %arg01849, align 8
   %627 = load ptr, ptr %arg11850, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1868, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1868, i8 0, i64 16, i1 false)
   %kind_.i.i3960 = getelementptr inbounds i8, ptr %call1868, i64 16
   store i32 71, ptr %kind_.i.i3960, align 8
   %parens_.i.i3961 = getelementptr inbounds i8, ptr %call1868, i64 20
@@ -6767,7 +6767,7 @@ if.then1880:                                      ; preds = %if.then1874
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8702:                ; preds = %if.then1874
-  %call.i3970 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.264, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg11876)
+  %call.i3970 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.264, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg11876)
   %call1896 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg21877)
   br i1 %call1896, label %if.end1902, label %if.then1897
 
@@ -6789,7 +6789,7 @@ if.end1902:                                       ; preds = %_ZN4llvh9StringRefC
   %634 = load ptr, ptr %arg11876, align 8
   %635 = load ptr, ptr %arg21877, align 8
   %frombool.i3976 = and i8 %633, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1904, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call1904, i8 0, i64 16, i1 false)
   %kind_.i.i3977 = getelementptr inbounds i8, ptr %call1904, i64 16
   store i32 72, ptr %kind_.i.i3977, align 8
   %parens_.i.i3978 = getelementptr inbounds i8, ptr %call1904, i64 20
@@ -6940,7 +6940,7 @@ if.end1965:                                       ; preds = %_ZN4llvh9StringRefC
   %frombool.i4012 = and i8 %648, 1
   %frombool1.i4013 = and i8 %649, 1
   %frombool2.i = and i8 %650, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call1967, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(75) %call1967, i8 0, i64 16, i1 false)
   %kind_.i.i4014 = getelementptr inbounds i8, ptr %call1967, i64 16
   store i32 73, ptr %kind_.i.i4014, align 8
   %parens_.i.i4015 = getelementptr inbounds i8, ptr %call1967, i64 20
@@ -7297,7 +7297,7 @@ _ZN4llvh9StringRefC2EPKc.exit9042:                ; preds = %_ZN4llvh9StringRefC
   %frombool1.i4096 = and i8 %688, 1
   %frombool2.i4097 = and i8 %689, 1
   %frombool3.i = and i8 %690, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2229, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call2229, i8 0, i64 16, i1 false)
   %kind_.i.i4098 = getelementptr inbounds i8, ptr %call2229, i64 16
   store i32 77, ptr %kind_.i.i4098, align 8
   %parens_.i.i4099 = getelementptr inbounds i8, ptr %call2229, i64 20
@@ -7439,7 +7439,7 @@ _ZN4llvh9StringRefC2EPKc.exit9132:                ; preds = %_ZN4llvh9StringRefC
   %frombool.i4128 = and i8 %703, 1
   %frombool1.i4129 = and i8 %704, 1
   %frombool2.i4130 = and i8 %705, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2317, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call2317, i8 0, i64 16, i1 false)
   %kind_.i.i4131 = getelementptr inbounds i8, ptr %call2317, i64 16
   store i32 78, ptr %kind_.i.i4131, align 8
   %parens_.i.i4132 = getelementptr inbounds i8, ptr %call2317, i64 20
@@ -7584,7 +7584,7 @@ if.end2371:                                       ; preds = %_ZN4llvh9StringRefC
   %721 = load i8, ptr %arg42331, align 1
   %frombool.i4169 = and i8 %720, 1
   %frombool1.i4170 = and i8 %721, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2373, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %call2373, i8 0, i64 16, i1 false)
   %kind_.i.i4171 = getelementptr inbounds i8, ptr %call2373, i64 16
   store i32 79, ptr %kind_.i.i4171, align 8
   %parens_.i.i4172 = getelementptr inbounds i8, ptr %call2373, i64 20
@@ -7780,7 +7780,7 @@ if.end2453:                                       ; preds = %_ZN4llvh9StringRefC
   %736 = load ptr, ptr %arg02427, align 8
   %737 = load ptr, ptr %arg12428, align 8
   %738 = load ptr, ptr %arg22429, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2455, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call2455, i8 0, i64 16, i1 false)
   %kind_.i.i4216 = getelementptr inbounds i8, ptr %call2455, i64 16
   store i32 81, ptr %kind_.i.i4216, align 8
   %parens_.i.i4217 = getelementptr inbounds i8, ptr %call2455, i64 20
@@ -7844,7 +7844,7 @@ if.end2470:                                       ; preds = %if.then2461
   %742 = load ptr, ptr %this, align 8
   %call2472 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %742, i64 noundef 8)
   %743 = load ptr, ptr %arg02462, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2472, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2472, i8 0, i64 16, i1 false)
   %kind_.i.i4226 = getelementptr inbounds i8, ptr %call2472, i64 16
   store i32 82, ptr %kind_.i.i4226, align 8
   %parens_.i.i4227 = getelementptr inbounds i8, ptr %call2472, i64 20
@@ -7886,7 +7886,7 @@ if.end2487:                                       ; preds = %if.then2478
   %747 = load ptr, ptr %this, align 8
   %call2489 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %747, i64 noundef 8)
   %748 = load ptr, ptr %arg02479, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2489, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2489, i8 0, i64 16, i1 false)
   %kind_.i.i4237 = getelementptr inbounds i8, ptr %call2489, i64 16
   store i32 83, ptr %kind_.i.i4237, align 8
   %parens_.i.i4238 = getelementptr inbounds i8, ptr %call2489, i64 20
@@ -7964,7 +7964,7 @@ if.end2513:                                       ; preds = %_ZN4llvh9StringRefC
   %call2515 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %753, i64 noundef 8)
   %754 = load ptr, ptr %arg02496, align 8
   %755 = load ptr, ptr %arg12497, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2515, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2515, i8 0, i64 16, i1 false)
   %kind_.i.i4253 = getelementptr inbounds i8, ptr %call2515, i64 16
   store i32 84, ptr %kind_.i.i4253, align 8
   %parens_.i.i4254 = getelementptr inbounds i8, ptr %call2515, i64 20
@@ -8085,7 +8085,7 @@ if.end2585:                                       ; preds = %_ZN4llvh9StringRefC
   %call2587 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %768, i64 noundef 8)
   %769 = load ptr, ptr %arg02568, align 8
   %770 = load ptr, ptr %arg12569, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2587, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2587, i8 0, i64 16, i1 false)
   %kind_.i.i4284 = getelementptr inbounds i8, ptr %call2587, i64 16
   store i32 86, ptr %kind_.i.i4284, align 8
   %parens_.i.i4285 = getelementptr inbounds i8, ptr %call2587, i64 20
@@ -8129,7 +8129,7 @@ if.end2602:                                       ; preds = %if.then2593
   %774 = load ptr, ptr %this, align 8
   %call2604 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %774, i64 noundef 8)
   %775 = load ptr, ptr %arg02594, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2604, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2604, i8 0, i64 16, i1 false)
   %kind_.i.i4295 = getelementptr inbounds i8, ptr %call2604, i64 16
   store i32 87, ptr %kind_.i.i4295, align 8
   %parens_.i.i4296 = getelementptr inbounds i8, ptr %call2604, i64 20
@@ -8168,7 +8168,7 @@ if.end2619:                                       ; preds = %if.then2610
   %779 = load ptr, ptr %this, align 8
   %call2621 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %779, i64 noundef 8)
   %780 = load ptr, ptr %arg02611, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2621, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2621, i8 0, i64 16, i1 false)
   %kind_.i.i4306 = getelementptr inbounds i8, ptr %call2621, i64 16
   store i32 88, ptr %kind_.i.i4306, align 8
   %parens_.i.i4307 = getelementptr inbounds i8, ptr %call2621, i64 20
@@ -8227,7 +8227,7 @@ if.end2645:                                       ; preds = %_ZN4llvh9StringRefC
   %call2647 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %785, i64 noundef 8)
   %786 = load ptr, ptr %arg02628, align 8
   %787 = load ptr, ptr %arg12629, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2647, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2647, i8 0, i64 16, i1 false)
   %kind_.i.i4321 = getelementptr inbounds i8, ptr %call2647, i64 16
   store i32 89, ptr %kind_.i.i4321, align 8
   %parens_.i.i4322 = getelementptr inbounds i8, ptr %call2647, i64 20
@@ -8348,7 +8348,7 @@ if.end2716:                                       ; preds = %if.then2707
   %801 = load ptr, ptr %this, align 8
   %call2718 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %801, i64 noundef 8)
   %802 = load ptr, ptr %arg02708, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2718, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2718, i8 0, i64 16, i1 false)
   %kind_.i.i.i4350 = getelementptr inbounds i8, ptr %call2718, i64 16
   store i32 93, ptr %kind_.i.i.i4350, align 8
   %parens_.i.i.i4351 = getelementptr inbounds i8, ptr %call2718, i64 20
@@ -8407,7 +8407,7 @@ if.end2742:                                       ; preds = %_ZN4llvh9StringRefC
   %call2744 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %807, i64 noundef 8)
   %808 = load ptr, ptr %arg02725, align 8
   %809 = load ptr, ptr %arg12726, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2744, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2744, i8 0, i64 16, i1 false)
   %kind_.i.i.i4366 = getelementptr inbounds i8, ptr %call2744, i64 16
   store i32 94, ptr %kind_.i.i.i4366, align 8
   %parens_.i.i.i4367 = getelementptr inbounds i8, ptr %call2744, i64 20
@@ -8451,7 +8451,7 @@ if.end2759:                                       ; preds = %if.then2750
   %813 = load ptr, ptr %this, align 8
   %call2761 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %813, i64 noundef 8)
   %814 = load ptr, ptr %arg02751, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2761, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2761, i8 0, i64 16, i1 false)
   %kind_.i.i.i4378 = getelementptr inbounds i8, ptr %call2761, i64 16
   store i32 97, ptr %kind_.i.i.i4378, align 8
   %parens_.i.i.i4379 = getelementptr inbounds i8, ptr %call2761, i64 20
@@ -8510,7 +8510,7 @@ if.end2785:                                       ; preds = %_ZN4llvh9StringRefC
   %call2787 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %819, i64 noundef 8)
   %820 = load ptr, ptr %arg02768, align 8
   %821 = load ptr, ptr %arg12769, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2787, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2787, i8 0, i64 16, i1 false)
   %kind_.i.i.i4394 = getelementptr inbounds i8, ptr %call2787, i64 16
   store i32 98, ptr %kind_.i.i.i4394, align 8
   %parens_.i.i.i4395 = getelementptr inbounds i8, ptr %call2787, i64 20
@@ -8571,7 +8571,7 @@ if.end2811:                                       ; preds = %_ZN4llvh9StringRefC
   %call2813 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %826, i64 noundef 8)
   %827 = load ptr, ptr %arg02794, align 8
   %828 = load ptr, ptr %arg12795, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2813, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2813, i8 0, i64 16, i1 false)
   %kind_.i.i.i4411 = getelementptr inbounds i8, ptr %call2813, i64 16
   store i32 99, ptr %kind_.i.i.i4411, align 8
   %parens_.i.i.i4412 = getelementptr inbounds i8, ptr %call2813, i64 20
@@ -8598,7 +8598,7 @@ if.end.i.i16641:                                  ; preds = %if.end2815
 if.then2819:                                      ; preds = %if.end.i.i16641
   %831 = load ptr, ptr %this, align 8
   %call2821 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %831, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2821, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call2821, i8 0, i64 16, i1 false)
   %kind_.i.i.i4417 = getelementptr inbounds i8, ptr %call2821, i64 16
   store i32 100, ptr %kind_.i.i.i4417, align 8
   %parens_.i.i.i4418 = getelementptr inbounds i8, ptr %call2821, i64 20
@@ -8638,7 +8638,7 @@ if.end2836:                                       ; preds = %if.then2827
   %835 = load ptr, ptr %this, align 8
   %call2838 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %835, i64 noundef 8)
   %836 = load ptr, ptr %arg02828, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2838, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2838, i8 0, i64 16, i1 false)
   %kind_.i.i.i4427 = getelementptr inbounds i8, ptr %call2838, i64 16
   store i32 101, ptr %kind_.i.i.i4427, align 8
   %parens_.i.i.i4428 = getelementptr inbounds i8, ptr %call2838, i64 20
@@ -8680,7 +8680,7 @@ if.end2853:                                       ; preds = %if.then2844
   %840 = load ptr, ptr %this, align 8
   %call2855 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %840, i64 noundef 8)
   %841 = load ptr, ptr %arg02845, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2855, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2855, i8 0, i64 16, i1 false)
   %kind_.i.i.i4438 = getelementptr inbounds i8, ptr %call2855, i64 16
   store i32 102, ptr %kind_.i.i.i4438, align 8
   %parens_.i.i.i4439 = getelementptr inbounds i8, ptr %call2855, i64 20
@@ -8794,7 +8794,7 @@ if.end2916:                                       ; preds = %if.then2907
   %854 = load ptr, ptr %this, align 8
   %call2918 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %854, i64 noundef 8)
   %855 = load ptr, ptr %arg02908, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2918, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2918, i8 0, i64 16, i1 false)
   %kind_.i.i.i4468 = getelementptr inbounds i8, ptr %call2918, i64 16
   store i32 104, ptr %kind_.i.i.i4468, align 8
   %parens_.i.i.i4469 = getelementptr inbounds i8, ptr %call2918, i64 20
@@ -8836,7 +8836,7 @@ _ZN4llvh9StringRefC2EPKc.exit9862:                ; preds = %if.then2924
   %call2945 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %859, i64 noundef 8)
   %860 = load ptr, ptr %arg02925, align 8
   %861 = load ptr, ptr %arg12926, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2945, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2945, i8 0, i64 16, i1 false)
   %kind_.i.i.i4479 = getelementptr inbounds i8, ptr %call2945, i64 16
   store i32 105, ptr %kind_.i.i.i4479, align 8
   %parens_.i.i.i4480 = getelementptr inbounds i8, ptr %call2945, i64 20
@@ -8880,7 +8880,7 @@ if.end2960:                                       ; preds = %if.then2951
   %865 = load ptr, ptr %this, align 8
   %call2962 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %865, i64 noundef 8)
   %866 = load ptr, ptr %arg02952, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2962, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2962, i8 0, i64 16, i1 false)
   %kind_.i.i.i4491 = getelementptr inbounds i8, ptr %call2962, i64 16
   store i32 106, ptr %kind_.i.i.i4491, align 8
   %parens_.i.i.i4492 = getelementptr inbounds i8, ptr %call2962, i64 20
@@ -8905,7 +8905,7 @@ if.end.i.i16774:                                  ; preds = %if.end2964
 if.then2968:                                      ; preds = %if.end.i.i16774
   store ptr null, ptr %arg02969, align 8
   store ptr null, ptr %arg12970, align 8
-  %call.i4497 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02969)
+  %call.i4497 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02969)
   br i1 %call.i4497, label %_ZN4llvh9StringRefC2EPKc.exit9912, label %if.then2973
 
 if.then2973:                                      ; preds = %if.then2968
@@ -8939,7 +8939,7 @@ if.end2986:                                       ; preds = %_ZN4llvh9StringRefC
   %call2988 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %871, i64 noundef 8)
   %872 = load ptr, ptr %arg02969, align 8
   %873 = load ptr, ptr %arg12970, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2988, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call2988, i8 0, i64 16, i1 false)
   %kind_.i.i.i4508 = getelementptr inbounds i8, ptr %call2988, i64 16
   store i32 107, ptr %kind_.i.i.i4508, align 8
   %parens_.i.i.i4509 = getelementptr inbounds i8, ptr %call2988, i64 20
@@ -8984,7 +8984,7 @@ if.end.i.i16793:                                  ; preds = %if.end2964.thread16
 if.then2994:                                      ; preds = %if.end.i.i16793
   store ptr null, ptr %arg02995, align 8
   store ptr null, ptr %arg12996, align 8
-  %call.i4515 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02995)
+  %call.i4515 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02995)
   br i1 %call.i4515, label %_ZN4llvh9StringRefC2EPKc.exit9942, label %if.then2999
 
 if.then2999:                                      ; preds = %if.then2994
@@ -9018,7 +9018,7 @@ if.end3012:                                       ; preds = %_ZN4llvh9StringRefC
   %call3014 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %878, i64 noundef 8)
   %879 = load ptr, ptr %arg02995, align 8
   %880 = load ptr, ptr %arg12996, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3014, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3014, i8 0, i64 16, i1 false)
   %kind_.i.i.i4526 = getelementptr inbounds i8, ptr %call3014, i64 16
   store i32 108, ptr %kind_.i.i.i4526, align 8
   %parens_.i.i.i4527 = getelementptr inbounds i8, ptr %call3014, i64 20
@@ -9192,7 +9192,7 @@ if.end.i.i16850:                                  ; preds = %if.end3087
 if.then3091:                                      ; preds = %if.end.i.i16850
   %898 = load ptr, ptr %this, align 8
   %call3093 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %898, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3093, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3093, i8 0, i64 16, i1 false)
   %kind_.i.i.i4566 = getelementptr inbounds i8, ptr %call3093, i64 16
   store i32 111, ptr %kind_.i.i.i4566, align 8
   %parens_.i.i.i4567 = getelementptr inbounds i8, ptr %call3093, i64 20
@@ -9212,7 +9212,7 @@ if.end.i.i16869:                                  ; preds = %if.end.i.i16850
 if.then3099:                                      ; preds = %if.end.i.i16869
   %901 = load ptr, ptr %this, align 8
   %call3101 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %901, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3101, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3101, i8 0, i64 16, i1 false)
   %kind_.i.i.i4571 = getelementptr inbounds i8, ptr %call3101, i64 16
   store i32 112, ptr %kind_.i.i.i4571, align 8
   %parens_.i.i.i4572 = getelementptr inbounds i8, ptr %call3101, i64 20
@@ -9235,7 +9235,7 @@ if.end.i.i16888:                                  ; preds = %if.end3103
 if.then3107:                                      ; preds = %if.end.i.i16888
   %904 = load ptr, ptr %this, align 8
   %call3109 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %904, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3109, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3109, i8 0, i64 16, i1 false)
   %kind_.i.i.i4576 = getelementptr inbounds i8, ptr %call3109, i64 16
   store i32 115, ptr %kind_.i.i.i4576, align 8
   %parens_.i.i.i4577 = getelementptr inbounds i8, ptr %call3109, i64 20
@@ -9258,7 +9258,7 @@ if.end.i.i16907:                                  ; preds = %if.end3111
 if.then3115:                                      ; preds = %if.end.i.i16907
   %907 = load ptr, ptr %this, align 8
   %call3117 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %907, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3117, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3117, i8 0, i64 16, i1 false)
   %kind_.i.i.i4581 = getelementptr inbounds i8, ptr %call3117, i64 16
   store i32 116, ptr %kind_.i.i.i4581, align 8
   %parens_.i.i.i4582 = getelementptr inbounds i8, ptr %call3117, i64 20
@@ -9281,7 +9281,7 @@ if.end.i.i16926:                                  ; preds = %if.end3119
 if.then3123:                                      ; preds = %if.end.i.i16926
   %910 = load ptr, ptr %this, align 8
   %call3125 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %910, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3125, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3125, i8 0, i64 16, i1 false)
   %kind_.i.i.i4586 = getelementptr inbounds i8, ptr %call3125, i64 16
   store i32 117, ptr %kind_.i.i.i4586, align 8
   %parens_.i.i.i4587 = getelementptr inbounds i8, ptr %call3125, i64 20
@@ -9301,7 +9301,7 @@ if.end.i.i16945:                                  ; preds = %if.end.i.i16926
 if.then3131:                                      ; preds = %if.end.i.i16945
   %913 = load ptr, ptr %this, align 8
   %call3133 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %913, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3133, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3133, i8 0, i64 16, i1 false)
   %kind_.i.i.i4591 = getelementptr inbounds i8, ptr %call3133, i64 16
   store i32 118, ptr %kind_.i.i.i4591, align 8
   %parens_.i.i.i4592 = getelementptr inbounds i8, ptr %call3133, i64 20
@@ -9325,7 +9325,7 @@ if.end.i.i16964:                                  ; preds = %if.end3135
 if.then3139:                                      ; preds = %if.end.i.i16964
   store ptr null, ptr %arg03140, align 8
   store ptr null, ptr %arg13141, align 8
-  %call.i4596 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03140)
+  %call.i4596 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03140)
   br i1 %call.i4596, label %_ZN4llvh9StringRefC2EPKc.exit10112, label %if.then3144
 
 if.then3144:                                      ; preds = %if.then3139
@@ -9340,7 +9340,7 @@ if.then3144:                                      ; preds = %if.then3139
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10112:               ; preds = %if.then3139
-  %call.i4602 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13141)
+  %call.i4602 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13141)
   br i1 %call.i4602, label %if.end3157, label %if.then3152
 
 if.then3152:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10112
@@ -9359,7 +9359,7 @@ if.end3157:                                       ; preds = %_ZN4llvh9StringRefC
   %call3159 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %918, i64 noundef 8)
   %919 = load ptr, ptr %arg03140, align 8
   %920 = load ptr, ptr %arg13141, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3159, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3159, i8 0, i64 16, i1 false)
   %kind_.i.i.i4608 = getelementptr inbounds i8, ptr %call3159, i64 16
   store i32 119, ptr %kind_.i.i.i4608, align 8
   %parens_.i.i.i4609 = getelementptr inbounds i8, ptr %call3159, i64 20
@@ -9417,7 +9417,7 @@ if.end3183:                                       ; preds = %_ZN4llvh9StringRefC
   %call3185 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %925, i64 noundef 8)
   %926 = load double, ptr %arg03166, align 8
   %927 = load ptr, ptr %arg13167, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3185, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3185, i8 0, i64 16, i1 false)
   %kind_.i.i.i4625 = getelementptr inbounds i8, ptr %call3185, i64 16
   store i32 120, ptr %kind_.i.i.i4625, align 8
   %parens_.i.i.i4626 = getelementptr inbounds i8, ptr %call3185, i64 20
@@ -9461,7 +9461,7 @@ if.end3200:                                       ; preds = %if.then3191
   %931 = load ptr, ptr %this, align 8
   %call3202 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %931, i64 noundef 8)
   %932 = load ptr, ptr %arg03192, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3202, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call3202, i8 0, i64 16, i1 false)
   %kind_.i.i.i4637 = getelementptr inbounds i8, ptr %call3202, i64 16
   store i32 121, ptr %kind_.i.i.i4637, align 8
   %parens_.i.i.i4638 = getelementptr inbounds i8, ptr %call3202, i64 20
@@ -9486,7 +9486,7 @@ if.end.i.i17021:                                  ; preds = %if.end3204
 if.then3208:                                      ; preds = %if.end.i.i17021
   %935 = load ptr, ptr %this, align 8
   %call3210 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %935, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3210, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3210, i8 0, i64 16, i1 false)
   %kind_.i.i.i4643 = getelementptr inbounds i8, ptr %call3210, i64 16
   store i32 122, ptr %kind_.i.i.i4643, align 8
   %parens_.i.i.i4644 = getelementptr inbounds i8, ptr %call3210, i64 20
@@ -9547,7 +9547,7 @@ if.end3234:                                       ; preds = %_ZN4llvh9StringRefC
   %941 = load i8, ptr %arg03217, align 1
   %942 = load ptr, ptr %arg13218, align 8
   %frombool.i4658 = and i8 %941, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3236, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3236, i8 0, i64 16, i1 false)
   %kind_.i.i.i4659 = getelementptr inbounds i8, ptr %call3236, i64 16
   store i32 123, ptr %kind_.i.i.i4659, align 8
   %parens_.i.i.i4660 = getelementptr inbounds i8, ptr %call3236, i64 20
@@ -9575,7 +9575,7 @@ if.end.i.i17059:                                  ; preds = %if.end3212, %if.end
 if.then3243:                                      ; preds = %if.end.i.i17059
   %945 = load ptr, ptr %this, align 8
   %call3245 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %945, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3245, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3245, i8 0, i64 16, i1 false)
   %kind_.i.i.i4666 = getelementptr inbounds i8, ptr %call3245, i64 16
   store i32 124, ptr %kind_.i.i.i4666, align 8
   %parens_.i.i.i4667 = getelementptr inbounds i8, ptr %call3245, i64 20
@@ -9606,7 +9606,7 @@ if.end.i.i17078:                                  ; preds = %if.end3239.thread, 
 if.then3251:                                      ; preds = %if.end.i.i17078
   %948 = load ptr, ptr %this, align 8
   %call3253 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %948, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3253, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3253, i8 0, i64 16, i1 false)
   %kind_.i.i.i4671 = getelementptr inbounds i8, ptr %call3253, i64 16
   store i32 125, ptr %kind_.i.i.i4671, align 8
   %parens_.i.i.i4672 = getelementptr inbounds i8, ptr %call3253, i64 20
@@ -9635,7 +9635,7 @@ if.end.i.i17097:                                  ; preds = %if.end3255
 if.then3259:                                      ; preds = %if.end.i.i17097
   %951 = load ptr, ptr %this, align 8
   %call3261 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %951, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3261, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3261, i8 0, i64 16, i1 false)
   %kind_.i.i.i4676 = getelementptr inbounds i8, ptr %call3261, i64 16
   store i32 126, ptr %kind_.i.i.i4676, align 8
   %parens_.i.i.i4677 = getelementptr inbounds i8, ptr %call3261, i64 20
@@ -9658,7 +9658,7 @@ if.end.i.i17116:                                  ; preds = %if.end3263
 if.then3267:                                      ; preds = %if.end.i.i17116
   %954 = load ptr, ptr %this, align 8
   %call3269 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %954, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3269, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3269, i8 0, i64 16, i1 false)
   %kind_.i.i.i4681 = getelementptr inbounds i8, ptr %call3269, i64 16
   store i32 127, ptr %kind_.i.i.i4681, align 8
   %parens_.i.i.i4682 = getelementptr inbounds i8, ptr %call3269, i64 20
@@ -9681,7 +9681,7 @@ if.end.i.i17135:                                  ; preds = %if.end3271
 if.then3275:                                      ; preds = %if.end.i.i17135
   %957 = load ptr, ptr %this, align 8
   %call3277 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %957, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3277, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3277, i8 0, i64 16, i1 false)
   %kind_.i.i.i4686 = getelementptr inbounds i8, ptr %call3277, i64 16
   store i32 128, ptr %kind_.i.i.i4686, align 8
   %parens_.i.i.i4687 = getelementptr inbounds i8, ptr %call3277, i64 20
@@ -9704,7 +9704,7 @@ if.end.i.i17154:                                  ; preds = %if.end3279
 if.then3283:                                      ; preds = %if.end.i.i17154
   %960 = load ptr, ptr %this, align 8
   %call3285 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %960, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3285, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call3285, i8 0, i64 16, i1 false)
   %kind_.i.i.i4691 = getelementptr inbounds i8, ptr %call3285, i64 16
   store i32 129, ptr %kind_.i.i.i4691, align 8
   %parens_.i.i.i4692 = getelementptr inbounds i8, ptr %call3285, i64 20
@@ -9828,7 +9828,7 @@ if.end3375:                                       ; preds = %_ZN4llvh9StringRefC
   %976 = load ptr, ptr %arg13349, align 8
   %977 = load i8, ptr %arg23350, align 1
   %frombool.i4720 = and i8 %977, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3377, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call3377, i8 0, i64 16, i1 false)
   %kind_.i.i.i4721 = getelementptr inbounds i8, ptr %call3377, i64 16
   store i32 131, ptr %kind_.i.i.i4721, align 8
   %parens_.i.i.i4722 = getelementptr inbounds i8, ptr %call3377, i64 20
@@ -9941,7 +9941,7 @@ if.end3459:                                       ; preds = %_ZN4llvh9StringRefC
   %991 = load ptr, ptr %arg13433, align 8
   %992 = load i8, ptr %arg23434, align 1
   %frombool.i4748 = and i8 %992, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3461, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call3461, i8 0, i64 16, i1 false)
   %kind_.i.i.i4749 = getelementptr inbounds i8, ptr %call3461, i64 16
   store i32 133, ptr %kind_.i.i.i4749, align 8
   %parens_.i.i.i4750 = getelementptr inbounds i8, ptr %call3461, i64 20
@@ -9984,7 +9984,7 @@ if.end3477:                                       ; preds = %if.then3468
   %996 = load ptr, ptr %this, align 8
   %call3479 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %996, i64 noundef 8)
   %997 = load ptr, ptr %arg03469, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3479, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call3479, i8 0, i64 16, i1 false)
   %kind_.i.i.i4762 = getelementptr inbounds i8, ptr %call3479, i64 16
   store i32 134, ptr %kind_.i.i.i4762, align 8
   %parens_.i.i.i4763 = getelementptr inbounds i8, ptr %call3479, i64 20
@@ -10043,7 +10043,7 @@ if.end3503:                                       ; preds = %_ZN4llvh9StringRefC
   %call3505 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1002, i64 noundef 8)
   %1003 = load ptr, ptr %arg03486, align 8
   %1004 = load ptr, ptr %arg13487, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3505, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3505, i8 0, i64 16, i1 false)
   %kind_.i.i.i4778 = getelementptr inbounds i8, ptr %call3505, i64 16
   store i32 135, ptr %kind_.i.i.i4778, align 8
   %parens_.i.i.i4779 = getelementptr inbounds i8, ptr %call3505, i64 20
@@ -10087,7 +10087,7 @@ if.end3520:                                       ; preds = %if.then3511
   %1008 = load ptr, ptr %this, align 8
   %call3522 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1008, i64 noundef 8)
   %1009 = load ptr, ptr %arg03512, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3522, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call3522, i8 0, i64 16, i1 false)
   %kind_.i.i.i4789 = getelementptr inbounds i8, ptr %call3522, i64 16
   store i32 136, ptr %kind_.i.i.i4789, align 8
   %parens_.i.i.i4790 = getelementptr inbounds i8, ptr %call3522, i64 20
@@ -10129,7 +10129,7 @@ if.end3537:                                       ; preds = %if.then3528
   %1013 = load ptr, ptr %this, align 8
   %call3539 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1013, i64 noundef 8)
   %1014 = load ptr, ptr %arg03529, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3539, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call3539, i8 0, i64 16, i1 false)
   %kind_.i.i.i4800 = getelementptr inbounds i8, ptr %call3539, i64 16
   store i32 137, ptr %kind_.i.i.i4800, align 8
   %parens_.i.i.i4801 = getelementptr inbounds i8, ptr %call3539, i64 20
@@ -10185,7 +10185,7 @@ if.end3563:                                       ; preds = %_ZN4llvh9StringRefC
   %call3565 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1019, i64 noundef 8)
   %1020 = load ptr, ptr %arg03546, align 8
   %1021 = load ptr, ptr %arg13547, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3565, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3565, i8 0, i64 16, i1 false)
   %kind_.i.i.i4816 = getelementptr inbounds i8, ptr %call3565, i64 16
   store i32 138, ptr %kind_.i.i.i4816, align 8
   %parens_.i.i.i4817 = getelementptr inbounds i8, ptr %call3565, i64 20
@@ -10246,7 +10246,7 @@ if.end3589:                                       ; preds = %_ZN4llvh9StringRefC
   %call3591 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1026, i64 noundef 8)
   %1027 = load ptr, ptr %arg03572, align 8
   %1028 = load ptr, ptr %arg13573, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3591, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3591, i8 0, i64 16, i1 false)
   %kind_.i.i.i4833 = getelementptr inbounds i8, ptr %call3591, i64 16
   store i32 139, ptr %kind_.i.i.i4833, align 8
   %parens_.i.i.i4834 = getelementptr inbounds i8, ptr %call3591, i64 20
@@ -10330,7 +10330,7 @@ if.end3633:                                       ; preds = %if.then3614
   %call3635 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1036, i64 noundef 8)
   %1037 = load ptr, ptr %arg03615, align 8
   %1038 = load ptr, ptr %arg13616, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3635, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3635, i8 0, i64 16, i1 false)
   %kind_.i.i.i4854 = getelementptr inbounds i8, ptr %call3635, i64 16
   store i32 141, ptr %kind_.i.i.i4854, align 8
   %parens_.i.i.i4855 = getelementptr inbounds i8, ptr %call3635, i64 20
@@ -10412,7 +10412,7 @@ _ZN4llvh9StringRefC2EPKc.exit10702:               ; preds = %_ZN4llvh9StringRefC
   %1047 = load i8, ptr %arg23644, align 1
   %1048 = load ptr, ptr %arg33645, align 8
   %frombool.i4876 = and i8 %1047, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3680, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call3680, i8 0, i64 16, i1 false)
   %kind_.i.i.i4877 = getelementptr inbounds i8, ptr %call3680, i64 16
   store i32 142, ptr %kind_.i.i.i4877, align 8
   %parens_.i.i.i4878 = getelementptr inbounds i8, ptr %call3680, i64 20
@@ -10460,7 +10460,7 @@ if.end3696:                                       ; preds = %if.then3687
   %1052 = load ptr, ptr %this, align 8
   %call3698 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1052, i64 noundef 8)
   %1053 = load ptr, ptr %arg03688, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3698, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call3698, i8 0, i64 16, i1 false)
   %kind_.i.i.i4890 = getelementptr inbounds i8, ptr %call3698, i64 16
   store i32 143, ptr %kind_.i.i.i4890, align 8
   %parens_.i.i.i4891 = getelementptr inbounds i8, ptr %call3698, i64 20
@@ -10499,7 +10499,7 @@ if.end3713:                                       ; preds = %if.then3704
   %1057 = load ptr, ptr %this, align 8
   %call3715 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1057, i64 noundef 8)
   %1058 = load ptr, ptr %arg03705, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3715, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call3715, i8 0, i64 16, i1 false)
   %kind_.i.i.i4901 = getelementptr inbounds i8, ptr %call3715, i64 16
   store i32 144, ptr %kind_.i.i.i4901, align 8
   %parens_.i.i.i4902 = getelementptr inbounds i8, ptr %call3715, i64 20
@@ -10616,7 +10616,7 @@ _ZN4llvh9StringRefC2EPKc.exit10812:               ; preds = %if.then3755
   %call3776 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1070, i64 noundef 8)
   %1071 = load ptr, ptr %arg03756, align 8
   %1072 = load ptr, ptr %arg13757, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3776, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3776, i8 0, i64 16, i1 false)
   %kind_.i.i.i4929 = getelementptr inbounds i8, ptr %call3776, i64 16
   store i32 147, ptr %kind_.i.i.i4929, align 8
   %parens_.i.i.i4930 = getelementptr inbounds i8, ptr %call3776, i64 20
@@ -10677,7 +10677,7 @@ if.end3800:                                       ; preds = %_ZN4llvh9StringRefC
   %call3802 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1077, i64 noundef 8)
   %1078 = load ptr, ptr %arg03783, align 8
   %1079 = load ptr, ptr %arg13784, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3802, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3802, i8 0, i64 16, i1 false)
   %kind_.i.i.i4945 = getelementptr inbounds i8, ptr %call3802, i64 16
   store i32 148, ptr %kind_.i.i.i4945, align 8
   %parens_.i.i.i4946 = getelementptr inbounds i8, ptr %call3802, i64 20
@@ -10756,7 +10756,7 @@ if.end3835:                                       ; preds = %_ZN4llvh9StringRefC
   %1087 = load ptr, ptr %arg13810, align 8
   %1088 = load i8, ptr %arg23811, align 1
   %frombool.i4965 = and i8 %1088, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3837, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call3837, i8 0, i64 16, i1 false)
   %kind_.i.i.i4966 = getelementptr inbounds i8, ptr %call3837, i64 16
   store i32 149, ptr %kind_.i.i.i4966, align 8
   %parens_.i.i.i4967 = getelementptr inbounds i8, ptr %call3837, i64 20
@@ -10850,7 +10850,7 @@ if.end3880:                                       ; preds = %_ZN4llvh9StringRefC
   %1097 = load ptr, ptr %arg13846, align 8
   %1098 = load ptr, ptr %arg23847, align 8
   %1099 = load ptr, ptr %arg33848, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3882, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call3882, i8 0, i64 16, i1 false)
   %kind_.i.i.i4994 = getelementptr inbounds i8, ptr %call3882, i64 16
   store i32 150, ptr %kind_.i.i.i4994, align 8
   %parens_.i.i.i4995 = getelementptr inbounds i8, ptr %call3882, i64 20
@@ -10919,7 +10919,7 @@ if.end3916:                                       ; preds = %_ZN4llvh9StringRefC
   %1106 = load ptr, ptr %arg13890, align 8
   %1107 = load i8, ptr %arg23891, align 1
   %frombool.i5009 = and i8 %1107, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3918, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call3918, i8 0, i64 16, i1 false)
   %kind_.i.i.i5010 = getelementptr inbounds i8, ptr %call3918, i64 16
   store i32 151, ptr %kind_.i.i.i5010, align 8
   %parens_.i.i.i5011 = getelementptr inbounds i8, ptr %call3918, i64 20
@@ -11025,7 +11025,7 @@ if.end3980:                                       ; preds = %_ZN4llvh9StringRefC
   %1118 = load ptr, ptr %arg03953, align 8
   %1119 = load ptr, ptr %arg13954, align 8
   %1120 = load ptr, ptr %arg23955, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call3982, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call3982, i8 0, i64 16, i1 false)
   %kind_.i.i.i5035 = getelementptr inbounds i8, ptr %call3982, i64 16
   store i32 153, ptr %kind_.i.i.i5035, align 8
   %parens_.i.i.i5036 = getelementptr inbounds i8, ptr %call3982, i64 20
@@ -11094,7 +11094,7 @@ _ZN4llvh9StringRefC2EPKc.exit11092:               ; preds = %_ZN4llvh9StringRefC
   %1127 = load ptr, ptr %arg13990, align 8
   %1128 = load ptr, ptr %arg23991, align 8
   %1129 = load ptr, ptr %arg33992, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4028, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call4028, i8 0, i64 16, i1 false)
   %kind_.i.i.i5053 = getelementptr inbounds i8, ptr %call4028, i64 16
   store i32 154, ptr %kind_.i.i.i5053, align 8
   %parens_.i.i.i5054 = getelementptr inbounds i8, ptr %call4028, i64 20
@@ -11237,7 +11237,7 @@ if.end4107:                                       ; preds = %_ZN4llvh9StringRefC
   %1144 = load ptr, ptr %arg04080, align 8
   %1145 = load ptr, ptr %arg14081, align 8
   %1146 = load ptr, ptr %arg24082, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4109, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call4109, i8 0, i64 16, i1 false)
   %kind_.i.i.i5089 = getelementptr inbounds i8, ptr %call4109, i64 16
   store i32 156, ptr %kind_.i.i.i5089, align 8
   %parens_.i.i.i5090 = getelementptr inbounds i8, ptr %call4109, i64 20
@@ -11292,7 +11292,7 @@ _ZN4llvh9StringRefC2EPKc.exit11212:               ; preds = %if.then4115
   %1152 = load ptr, ptr %arg14117, align 8
   %1153 = load ptr, ptr %arg24118, align 8
   %1154 = load ptr, ptr %arg34119, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4156, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call4156, i8 0, i64 16, i1 false)
   %kind_.i.i.i5102 = getelementptr inbounds i8, ptr %call4156, i64 16
   store i32 157, ptr %kind_.i.i.i5102, align 8
   %parens_.i.i.i5103 = getelementptr inbounds i8, ptr %call4156, i64 20
@@ -11524,7 +11524,7 @@ _ZN4llvh9StringRefC2EPKc.exit11382:               ; preds = %if.then4270
   %call4291 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1178, i64 noundef 8)
   %1179 = load ptr, ptr %arg04271, align 8
   %1180 = load ptr, ptr %arg14272, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4291, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call4291, i8 0, i64 16, i1 false)
   %kind_.i.i.i5166 = getelementptr inbounds i8, ptr %call4291, i64 16
   store i32 160, ptr %kind_.i.i.i5166, align 8
   %parens_.i.i.i5167 = getelementptr inbounds i8, ptr %call4291, i64 20
@@ -11648,7 +11648,7 @@ if.end4371:                                       ; preds = %_ZN4llvh9StringRefC
   %call4373 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1194, i64 noundef 8)
   %1195 = load ptr, ptr %arg04354, align 8
   %1196 = load ptr, ptr %arg14355, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4373, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call4373, i8 0, i64 16, i1 false)
   %kind_.i.i.i5196 = getelementptr inbounds i8, ptr %call4373, i64 16
   store i32 162, ptr %kind_.i.i.i5196, align 8
   %parens_.i.i.i5197 = getelementptr inbounds i8, ptr %call4373, i64 20
@@ -11709,7 +11709,7 @@ if.end4397:                                       ; preds = %_ZN4llvh9StringRefC
   %call4399 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1201, i64 noundef 8)
   %1202 = load ptr, ptr %arg04380, align 8
   %1203 = load ptr, ptr %arg14381, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4399, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call4399, i8 0, i64 16, i1 false)
   %kind_.i.i.i5213 = getelementptr inbounds i8, ptr %call4399, i64 16
   store i32 163, ptr %kind_.i.i.i5213, align 8
   %parens_.i.i.i5214 = getelementptr inbounds i8, ptr %call4399, i64 20
@@ -11814,7 +11814,7 @@ if.end4461:                                       ; preds = %if.then4452
   %1215 = load ptr, ptr %this, align 8
   %call4463 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1215, i64 noundef 8)
   %1216 = load ptr, ptr %arg04453, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4463, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4463, i8 0, i64 16, i1 false)
   %kind_.i.i.i5239 = getelementptr inbounds i8, ptr %call4463, i64 16
   store i32 165, ptr %kind_.i.i.i5239, align 8
   %parens_.i.i.i5240 = getelementptr inbounds i8, ptr %call4463, i64 20
@@ -11891,7 +11891,7 @@ if.end4496:                                       ; preds = %_ZN4llvh9StringRefC
   %1223 = load ptr, ptr %arg04470, align 8
   %1224 = load ptr, ptr %arg14471, align 8
   %1225 = load ptr, ptr %arg24472, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4498, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call4498, i8 0, i64 16, i1 false)
   %kind_.i.i.i5260 = getelementptr inbounds i8, ptr %call4498, i64 16
   store i32 166, ptr %kind_.i.i.i5260, align 8
   %parens_.i.i.i5261 = getelementptr inbounds i8, ptr %call4498, i64 20
@@ -11937,7 +11937,7 @@ if.end4513:                                       ; preds = %if.then4504
   %1229 = load ptr, ptr %this, align 8
   %call4515 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1229, i64 noundef 8)
   %1230 = load ptr, ptr %arg04505, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4515, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4515, i8 0, i64 16, i1 false)
   %kind_.i.i.i5273 = getelementptr inbounds i8, ptr %call4515, i64 16
   store i32 167, ptr %kind_.i.i.i5273, align 8
   %parens_.i.i.i5274 = getelementptr inbounds i8, ptr %call4515, i64 20
@@ -11982,7 +11982,7 @@ _ZN4llvh9StringRefC2EPKc.exit11662:               ; preds = %if.then4521
   %call4542 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1234, i64 noundef 8)
   %1235 = load ptr, ptr %arg04522, align 8
   %1236 = load ptr, ptr %arg14523, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4542, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call4542, i8 0, i64 16, i1 false)
   %kind_.i.i.i5284 = getelementptr inbounds i8, ptr %call4542, i64 16
   store i32 168, ptr %kind_.i.i.i5284, align 8
   %parens_.i.i.i5285 = getelementptr inbounds i8, ptr %call4542, i64 20
@@ -12029,7 +12029,7 @@ _ZN4llvh9StringRefC2EPKc.exit11692:               ; preds = %if.then4548
   %call4569 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1240, i64 noundef 8)
   %1241 = load ptr, ptr %arg04549, align 8
   %1242 = load ptr, ptr %arg14550, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4569, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call4569, i8 0, i64 16, i1 false)
   %kind_.i.i.i5296 = getelementptr inbounds i8, ptr %call4569, i64 16
   store i32 169, ptr %kind_.i.i.i5296, align 8
   %parens_.i.i.i5297 = getelementptr inbounds i8, ptr %call4569, i64 20
@@ -12073,7 +12073,7 @@ if.end4584:                                       ; preds = %if.then4575
   %1246 = load ptr, ptr %this, align 8
   %call4586 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1246, i64 noundef 8)
   %1247 = load ptr, ptr %arg04576, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4586, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4586, i8 0, i64 16, i1 false)
   %kind_.i.i.i5308 = getelementptr inbounds i8, ptr %call4586, i64 16
   store i32 170, ptr %kind_.i.i.i5308, align 8
   %parens_.i.i.i5309 = getelementptr inbounds i8, ptr %call4586, i64 20
@@ -12351,7 +12351,7 @@ if.end4729:                                       ; preds = %_ZN4llvh9StringRefC
   %frombool1.i5387 = and i8 %1272, 1
   %frombool2.i5388 = and i8 %1273, 1
   %frombool3.i5389 = and i8 %1274, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4731, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call4731, i8 0, i64 16, i1 false)
   %kind_.i.i.i5390 = getelementptr inbounds i8, ptr %call4731, i64 16
   store i32 172, ptr %kind_.i.i.i5390, align 8
   %parens_.i.i.i5391 = getelementptr inbounds i8, ptr %call4731, i64 20
@@ -12407,7 +12407,7 @@ if.end4750:                                       ; preds = %if.then4741
   %1280 = load ptr, ptr %this, align 8
   %call4752 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1280, i64 noundef 8)
   %1281 = load ptr, ptr %arg04742, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4752, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4752, i8 0, i64 16, i1 false)
   %kind_.i.i.i5407 = getelementptr inbounds i8, ptr %call4752, i64 16
   store i32 173, ptr %kind_.i.i.i5407, align 8
   %parens_.i.i.i5408 = getelementptr inbounds i8, ptr %call4752, i64 20
@@ -12520,7 +12520,7 @@ if.end4803:                                       ; preds = %_ZN4llvh9StringRefC
   %frombool.i5438 = and i8 %1292, 1
   %frombool1.i5439 = and i8 %1293, 1
   %frombool2.i5440 = and i8 %1294, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4805, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(67) %call4805, i8 0, i64 16, i1 false)
   %kind_.i.i.i5441 = getelementptr inbounds i8, ptr %call4805, i64 16
   store i32 174, ptr %kind_.i.i.i5441, align 8
   %parens_.i.i.i5442 = getelementptr inbounds i8, ptr %call4805, i64 20
@@ -12585,7 +12585,7 @@ if.end4832:                                       ; preds = %_ZN4llvh9StringRefC
   %1300 = load ptr, ptr %arg04815, align 8
   %1301 = load i8, ptr %arg14816, align 1
   %frombool.i5461 = and i8 %1301, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4834, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %call4834, i8 0, i64 16, i1 false)
   %kind_.i.i.i5462 = getelementptr inbounds i8, ptr %call4834, i64 16
   store i32 175, ptr %kind_.i.i.i5462, align 8
   %parens_.i.i.i5463 = getelementptr inbounds i8, ptr %call4834, i64 20
@@ -12671,7 +12671,7 @@ _ZN4llvh9StringRefC2EPKc.exit12042:               ; preds = %_ZN4llvh9StringRefC
   %1311 = load i8, ptr %arg34845, align 1
   %1312 = load ptr, ptr %arg44846, align 8
   %frombool.i5484 = and i8 %1311, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4890, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call4890, i8 0, i64 16, i1 false)
   %kind_.i.i.i5485 = getelementptr inbounds i8, ptr %call4890, i64 16
   store i32 176, ptr %kind_.i.i.i5485, align 8
   %parens_.i.i.i5486 = getelementptr inbounds i8, ptr %call4890, i64 20
@@ -12753,7 +12753,7 @@ if.then4921:                                      ; preds = %_ZN4llvh9StringRefC
 
 _ZN4llvh9StringRefC2EPKc.exit12092:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12082
   %call4928 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg34901)
-  %call.i5510 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.183, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg44902)
+  %call.i5510 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg44902)
   %1318 = load ptr, ptr %this, align 8
   %call4946 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %1318, i64 noundef 8)
   %1319 = load ptr, ptr %arg04898, align 8
@@ -12761,7 +12761,7 @@ _ZN4llvh9StringRefC2EPKc.exit12092:               ; preds = %_ZN4llvh9StringRefC
   %1321 = load ptr, ptr %arg24900, align 8
   %1322 = load ptr, ptr %arg34901, align 8
   %1323 = load ptr, ptr %arg44902, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4946, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call4946, i8 0, i64 16, i1 false)
   %kind_.i.i.i5511 = getelementptr inbounds i8, ptr %call4946, i64 16
   store i32 177, ptr %kind_.i.i.i5511, align 8
   %parens_.i.i.i5512 = getelementptr inbounds i8, ptr %call4946, i64 20
@@ -12811,7 +12811,7 @@ if.end4961:                                       ; preds = %if.then4952
   %1327 = load ptr, ptr %this, align 8
   %call4963 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1327, i64 noundef 8)
   %1328 = load ptr, ptr %arg04953, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call4963, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4963, i8 0, i64 16, i1 false)
   %kind_.i.i.i5523 = getelementptr inbounds i8, ptr %call4963, i64 16
   store i32 178, ptr %kind_.i.i.i5523, align 8
   %parens_.i.i.i5524 = getelementptr inbounds i8, ptr %call4963, i64 20
@@ -12917,7 +12917,7 @@ if.end5034:                                       ; preds = %_ZN4llvh9StringRefC
   %1341 = load ptr, ptr %arg34990, align 8
   %1342 = load i8, ptr %arg44991, align 1
   %frombool.i5548 = and i8 %1342, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5036, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %call5036, i8 0, i64 16, i1 false)
   %kind_.i.i.i5549 = getelementptr inbounds i8, ptr %call5036, i64 16
   store i32 180, ptr %kind_.i.i.i5549, align 8
   %parens_.i.i.i5550 = getelementptr inbounds i8, ptr %call5036, i64 20
@@ -13021,7 +13021,7 @@ if.end5078:                                       ; preds = %_ZN4llvh9StringRefC
   %call5080 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1351, i64 noundef 8)
   %1352 = load ptr, ptr %arg05061, align 8
   %1353 = load ptr, ptr %arg15062, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5080, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5080, i8 0, i64 16, i1 false)
   %kind_.i.i.i5575 = getelementptr inbounds i8, ptr %call5080, i64 16
   store i32 182, ptr %kind_.i.i.i5575, align 8
   %parens_.i.i.i5576 = getelementptr inbounds i8, ptr %call5080, i64 20
@@ -13079,7 +13079,7 @@ if.end5104:                                       ; preds = %_ZN4llvh9StringRefC
   %call5106 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1358, i64 noundef 8)
   %1359 = load ptr, ptr %arg05087, align 8
   %1360 = load ptr, ptr %arg15088, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5106, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5106, i8 0, i64 16, i1 false)
   %kind_.i.i.i5592 = getelementptr inbounds i8, ptr %call5106, i64 16
   store i32 183, ptr %kind_.i.i.i5592, align 8
   %parens_.i.i.i5593 = getelementptr inbounds i8, ptr %call5106, i64 20
@@ -13106,7 +13106,7 @@ if.end.i.i18199:                                  ; preds = %if.end5108
 if.then5112:                                      ; preds = %if.end.i.i18199
   %1363 = load ptr, ptr %this, align 8
   %call5114 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1363, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5114, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5114, i8 0, i64 16, i1 false)
   %kind_.i.i.i5599 = getelementptr inbounds i8, ptr %call5114, i64 16
   store i32 184, ptr %kind_.i.i.i5599, align 8
   %parens_.i.i.i5600 = getelementptr inbounds i8, ptr %call5114, i64 20
@@ -13143,7 +13143,7 @@ if.end5129:                                       ; preds = %if.then5120
   %1367 = load ptr, ptr %this, align 8
   %call5131 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1367, i64 noundef 8)
   %1368 = load ptr, ptr %arg05121, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5131, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call5131, i8 0, i64 16, i1 false)
   %kind_.i.i.i5609 = getelementptr inbounds i8, ptr %call5131, i64 16
   store i32 185, ptr %kind_.i.i.i5609, align 8
   %parens_.i.i.i5610 = getelementptr inbounds i8, ptr %call5131, i64 20
@@ -13202,7 +13202,7 @@ if.end5155:                                       ; preds = %_ZN4llvh9StringRefC
   %call5157 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1373, i64 noundef 8)
   %1374 = load ptr, ptr %arg05138, align 8
   %1375 = load ptr, ptr %arg15139, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5157, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5157, i8 0, i64 16, i1 false)
   %kind_.i.i.i5625 = getelementptr inbounds i8, ptr %call5157, i64 16
   store i32 186, ptr %kind_.i.i.i5625, align 8
   %parens_.i.i.i5626 = getelementptr inbounds i8, ptr %call5157, i64 20
@@ -13517,7 +13517,7 @@ if.end5310:                                       ; preds = %if.then5301
   %1409 = load ptr, ptr %this, align 8
   %call5312 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1409, i64 noundef 8)
   %1410 = load ptr, ptr %arg05302, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5312, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call5312, i8 0, i64 16, i1 false)
   %kind_.i.i.i5708 = getelementptr inbounds i8, ptr %call5312, i64 16
   store i32 191, ptr %kind_.i.i.i5708, align 8
   %parens_.i.i.i5709 = getelementptr inbounds i8, ptr %call5312, i64 20
@@ -13576,7 +13576,7 @@ if.end5336:                                       ; preds = %_ZN4llvh9StringRefC
   %call5338 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1415, i64 noundef 8)
   %1416 = load ptr, ptr %arg05319, align 8
   %1417 = load ptr, ptr %arg15320, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5338, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5338, i8 0, i64 16, i1 false)
   %kind_.i.i.i5724 = getelementptr inbounds i8, ptr %call5338, i64 16
   store i32 192, ptr %kind_.i.i.i5724, align 8
   %parens_.i.i.i5725 = getelementptr inbounds i8, ptr %call5338, i64 20
@@ -13634,7 +13634,7 @@ if.end5362:                                       ; preds = %_ZN4llvh9StringRefC
   %call5364 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1422, i64 noundef 8)
   %1423 = load ptr, ptr %arg05345, align 8
   %1424 = load ptr, ptr %arg15346, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5364, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5364, i8 0, i64 16, i1 false)
   %kind_.i.i.i5741 = getelementptr inbounds i8, ptr %call5364, i64 16
   store i32 193, ptr %kind_.i.i.i5741, align 8
   %parens_.i.i.i5742 = getelementptr inbounds i8, ptr %call5364, i64 20
@@ -13695,7 +13695,7 @@ if.end5388:                                       ; preds = %_ZN4llvh9StringRefC
   %call5390 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1429, i64 noundef 8)
   %1430 = load ptr, ptr %arg05371, align 8
   %1431 = load ptr, ptr %arg15372, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5390, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5390, i8 0, i64 16, i1 false)
   %kind_.i.i.i5758 = getelementptr inbounds i8, ptr %call5390, i64 16
   store i32 194, ptr %kind_.i.i.i5758, align 8
   %parens_.i.i.i5759 = getelementptr inbounds i8, ptr %call5390, i64 20
@@ -13774,7 +13774,7 @@ if.end5423:                                       ; preds = %_ZN4llvh9StringRefC
   %1439 = load ptr, ptr %arg15398, align 8
   %1440 = load i8, ptr %arg25399, align 1
   %frombool.i5780 = and i8 %1440, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5425, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call5425, i8 0, i64 16, i1 false)
   %kind_.i.i.i5781 = getelementptr inbounds i8, ptr %call5425, i64 16
   store i32 195, ptr %kind_.i.i.i5781, align 8
   %parens_.i.i.i5782 = getelementptr inbounds i8, ptr %call5425, i64 20
@@ -13820,7 +13820,7 @@ if.end5441:                                       ; preds = %if.then5432
   %1444 = load ptr, ptr %this, align 8
   %call5443 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1444, i64 noundef 8)
   %1445 = load ptr, ptr %arg05433, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5443, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call5443, i8 0, i64 16, i1 false)
   %kind_.i.i.i5794 = getelementptr inbounds i8, ptr %call5443, i64 16
   store i32 198, ptr %kind_.i.i.i5794, align 8
   %parens_.i.i.i5795 = getelementptr inbounds i8, ptr %call5443, i64 20
@@ -13842,7 +13842,7 @@ if.end.i.i18446:                                  ; preds = %if.end.i.i18180
 if.then5449:                                      ; preds = %if.end.i.i18446
   %1448 = load ptr, ptr %this, align 8
   %call5451 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1448, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5451, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5451, i8 0, i64 16, i1 false)
   %kind_.i.i.i5800 = getelementptr inbounds i8, ptr %call5451, i64 16
   store i32 199, ptr %kind_.i.i.i5800, align 8
   %parens_.i.i.i5801 = getelementptr inbounds i8, ptr %call5451, i64 20
@@ -13865,7 +13865,7 @@ if.end.i.i18465:                                  ; preds = %if.end5453
 if.then5457:                                      ; preds = %if.end.i.i18465
   %1451 = load ptr, ptr %this, align 8
   %call5459 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1451, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5459, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5459, i8 0, i64 16, i1 false)
   %kind_.i.i.i5805 = getelementptr inbounds i8, ptr %call5459, i64 16
   store i32 200, ptr %kind_.i.i.i5805, align 8
   %parens_.i.i.i5806 = getelementptr inbounds i8, ptr %call5459, i64 20
@@ -13888,7 +13888,7 @@ if.end.i.i18484:                                  ; preds = %if.end5461
 if.then5465:                                      ; preds = %if.end.i.i18484
   %1454 = load ptr, ptr %this, align 8
   %call5467 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1454, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5467, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5467, i8 0, i64 16, i1 false)
   %kind_.i.i.i5810 = getelementptr inbounds i8, ptr %call5467, i64 16
   store i32 201, ptr %kind_.i.i.i5810, align 8
   %parens_.i.i.i5811 = getelementptr inbounds i8, ptr %call5467, i64 20
@@ -13911,7 +13911,7 @@ if.end.i.i18503:                                  ; preds = %if.end5469
 if.then5473:                                      ; preds = %if.end.i.i18503
   %1457 = load ptr, ptr %this, align 8
   %call5475 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1457, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5475, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5475, i8 0, i64 16, i1 false)
   %kind_.i.i.i5815 = getelementptr inbounds i8, ptr %call5475, i64 16
   store i32 202, ptr %kind_.i.i.i5815, align 8
   %parens_.i.i.i5816 = getelementptr inbounds i8, ptr %call5475, i64 20
@@ -13931,7 +13931,7 @@ if.end.i.i18522:                                  ; preds = %if.end.i.i18503
 if.then5481:                                      ; preds = %if.end.i.i18522
   %1460 = load ptr, ptr %this, align 8
   %call5483 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1460, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5483, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5483, i8 0, i64 16, i1 false)
   %kind_.i.i.i5820 = getelementptr inbounds i8, ptr %call5483, i64 16
   store i32 203, ptr %kind_.i.i.i5820, align 8
   %parens_.i.i.i5821 = getelementptr inbounds i8, ptr %call5483, i64 20
@@ -13954,7 +13954,7 @@ if.end.i.i18541:                                  ; preds = %if.end5485
 if.then5489:                                      ; preds = %if.end.i.i18541
   %1463 = load ptr, ptr %this, align 8
   %call5491 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1463, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5491, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5491, i8 0, i64 16, i1 false)
   %kind_.i.i.i5825 = getelementptr inbounds i8, ptr %call5491, i64 16
   store i32 204, ptr %kind_.i.i.i5825, align 8
   %parens_.i.i.i5826 = getelementptr inbounds i8, ptr %call5491, i64 20
@@ -13977,7 +13977,7 @@ if.end.i.i18560:                                  ; preds = %if.end5493
 if.then5497:                                      ; preds = %if.end.i.i18560
   %1466 = load ptr, ptr %this, align 8
   %call5499 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1466, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5499, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5499, i8 0, i64 16, i1 false)
   %kind_.i.i.i5830 = getelementptr inbounds i8, ptr %call5499, i64 16
   store i32 205, ptr %kind_.i.i.i5830, align 8
   %parens_.i.i.i5831 = getelementptr inbounds i8, ptr %call5499, i64 20
@@ -14000,7 +14000,7 @@ if.end.i.i18579:                                  ; preds = %if.end5501
 if.then5505:                                      ; preds = %if.end.i.i18579
   %1469 = load ptr, ptr %this, align 8
   %call5507 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1469, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5507, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5507, i8 0, i64 16, i1 false)
   %kind_.i.i.i5835 = getelementptr inbounds i8, ptr %call5507, i64 16
   store i32 206, ptr %kind_.i.i.i5835, align 8
   %parens_.i.i.i5836 = getelementptr inbounds i8, ptr %call5507, i64 20
@@ -14023,7 +14023,7 @@ if.end.i.i18598:                                  ; preds = %if.end5509
 if.then5513:                                      ; preds = %if.end.i.i18598
   %1472 = load ptr, ptr %this, align 8
   %call5515 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1472, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5515, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5515, i8 0, i64 16, i1 false)
   %kind_.i.i.i5840 = getelementptr inbounds i8, ptr %call5515, i64 16
   store i32 207, ptr %kind_.i.i.i5840, align 8
   %parens_.i.i.i5841 = getelementptr inbounds i8, ptr %call5515, i64 20
@@ -14046,7 +14046,7 @@ if.end.i.i18617:                                  ; preds = %if.end5517
 if.then5521:                                      ; preds = %if.end.i.i18617
   %1475 = load ptr, ptr %this, align 8
   %call5523 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1475, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5523, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5523, i8 0, i64 16, i1 false)
   %kind_.i.i.i5845 = getelementptr inbounds i8, ptr %call5523, i64 16
   store i32 208, ptr %kind_.i.i.i5845, align 8
   %parens_.i.i.i5846 = getelementptr inbounds i8, ptr %call5523, i64 20
@@ -14069,7 +14069,7 @@ if.end.i.i18636:                                  ; preds = %if.end5525
 if.then5529:                                      ; preds = %if.end.i.i18636
   %1478 = load ptr, ptr %this, align 8
   %call5531 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1478, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5531, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5531, i8 0, i64 16, i1 false)
   %kind_.i.i.i5850 = getelementptr inbounds i8, ptr %call5531, i64 16
   store i32 209, ptr %kind_.i.i.i5850, align 8
   %parens_.i.i.i5851 = getelementptr inbounds i8, ptr %call5531, i64 20
@@ -14109,7 +14109,7 @@ if.end5546:                                       ; preds = %if.then5537
   %1482 = load ptr, ptr %this, align 8
   %call5548 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1482, i64 noundef 8)
   %1483 = load ptr, ptr %arg05538, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5548, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call5548, i8 0, i64 16, i1 false)
   %kind_.i.i.i5860 = getelementptr inbounds i8, ptr %call5548, i64 16
   store i32 210, ptr %kind_.i.i.i5860, align 8
   %parens_.i.i.i5861 = getelementptr inbounds i8, ptr %call5548, i64 20
@@ -14168,7 +14168,7 @@ if.end5572:                                       ; preds = %_ZN4llvh9StringRefC
   %call5574 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1488, i64 noundef 8)
   %1489 = load ptr, ptr %arg05555, align 8
   %1490 = load ptr, ptr %arg15556, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5574, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5574, i8 0, i64 16, i1 false)
   %kind_.i.i.i5875 = getelementptr inbounds i8, ptr %call5574, i64 16
   store i32 211, ptr %kind_.i.i.i5875, align 8
   %parens_.i.i.i5876 = getelementptr inbounds i8, ptr %call5574, i64 20
@@ -14212,7 +14212,7 @@ if.end5589:                                       ; preds = %if.then5580
   %1494 = load ptr, ptr %this, align 8
   %call5591 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1494, i64 noundef 8)
   %1495 = load ptr, ptr %arg05581, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5591, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call5591, i8 0, i64 16, i1 false)
   %kind_.i.i.i5887 = getelementptr inbounds i8, ptr %call5591, i64 16
   store i32 212, ptr %kind_.i.i.i5887, align 8
   %parens_.i.i.i5888 = getelementptr inbounds i8, ptr %call5591, i64 20
@@ -14257,7 +14257,7 @@ _ZN4llvh9StringRefC2EPKc.exit12872:               ; preds = %if.then5597
   %call5618 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1499, i64 noundef 8)
   %1500 = load ptr, ptr %arg05598, align 8
   %1501 = load ptr, ptr %arg15599, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5618, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5618, i8 0, i64 16, i1 false)
   %kind_.i.i.i5898 = getelementptr inbounds i8, ptr %call5618, i64 16
   store i32 213, ptr %kind_.i.i.i5898, align 8
   %parens_.i.i.i5899 = getelementptr inbounds i8, ptr %call5618, i64 20
@@ -14301,7 +14301,7 @@ _ZN4llvh9StringRefC2EPKc.exit12902:               ; preds = %if.then5624
   %call5645 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1505, i64 noundef 8)
   %1506 = load ptr, ptr %arg05625, align 8
   %1507 = load ptr, ptr %arg15626, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5645, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5645, i8 0, i64 16, i1 false)
   %kind_.i.i.i5909 = getelementptr inbounds i8, ptr %call5645, i64 16
   store i32 214, ptr %kind_.i.i.i5909, align 8
   %parens_.i.i.i5910 = getelementptr inbounds i8, ptr %call5645, i64 20
@@ -14476,7 +14476,7 @@ if.end5741:                                       ; preds = %_ZN4llvh9StringRefC
   %call5743 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1526, i64 noundef 8)
   %1527 = load ptr, ptr %arg05724, align 8
   %1528 = load ptr, ptr %arg15725, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5743, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5743, i8 0, i64 16, i1 false)
   %kind_.i.i.i5954 = getelementptr inbounds i8, ptr %call5743, i64 16
   store i32 217, ptr %kind_.i.i.i5954, align 8
   %parens_.i.i.i5955 = getelementptr inbounds i8, ptr %call5743, i64 20
@@ -14574,7 +14574,7 @@ if.end5784:                                       ; preds = %_ZN4llvh9StringRefC
   %call5786 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1537, i64 noundef 8)
   %1538 = load ptr, ptr %arg05767, align 8
   %1539 = load ptr, ptr %arg15768, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5786, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5786, i8 0, i64 16, i1 false)
   %kind_.i.i.i5980 = getelementptr inbounds i8, ptr %call5786, i64 16
   store i32 219, ptr %kind_.i.i.i5980, align 8
   %parens_.i.i.i5981 = getelementptr inbounds i8, ptr %call5786, i64 20
@@ -14635,7 +14635,7 @@ if.end5810:                                       ; preds = %_ZN4llvh9StringRefC
   %call5812 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1544, i64 noundef 8)
   %1545 = load ptr, ptr %arg05793, align 8
   %1546 = load ptr, ptr %arg15794, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5812, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5812, i8 0, i64 16, i1 false)
   %kind_.i.i.i5997 = getelementptr inbounds i8, ptr %call5812, i64 16
   store i32 220, ptr %kind_.i.i.i5997, align 8
   %parens_.i.i.i5998 = getelementptr inbounds i8, ptr %call5812, i64 20
@@ -14736,7 +14736,7 @@ if.end5864:                                       ; preds = %_ZN4llvh9StringRefC
   %frombool.i6024 = and i8 %1557, 1
   %frombool1.i6025 = and i8 %1558, 1
   %frombool2.i6026 = and i8 %1559, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5866, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(67) %call5866, i8 0, i64 16, i1 false)
   %kind_.i.i.i6027 = getelementptr inbounds i8, ptr %call5866, i64 16
   store i32 221, ptr %kind_.i.i.i6027, align 8
   %parens_.i.i.i6028 = getelementptr inbounds i8, ptr %call5866, i64 20
@@ -14806,7 +14806,7 @@ if.end5903:                                       ; preds = %_ZN4llvh9StringRefC
   %1565 = load ptr, ptr %arg05876, align 8
   %1566 = load ptr, ptr %arg15877, align 8
   %1567 = load ptr, ptr %arg25878, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5905, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call5905, i8 0, i64 16, i1 false)
   %kind_.i.i.i6043 = getelementptr inbounds i8, ptr %call5905, i64 16
   store i32 222, ptr %kind_.i.i.i6043, align 8
   %parens_.i.i.i6044 = getelementptr inbounds i8, ptr %call5905, i64 20
@@ -14926,7 +14926,7 @@ _ZN4llvh9StringRefC2EPKc.exit13272:               ; preds = %if.then5956
   %call5977 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1580, i64 noundef 8)
   %1581 = load ptr, ptr %arg05957, align 8
   %1582 = load ptr, ptr %arg15958, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5977, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5977, i8 0, i64 16, i1 false)
   %kind_.i.i.i6075 = getelementptr inbounds i8, ptr %call5977, i64 16
   store i32 224, ptr %kind_.i.i.i6075, align 8
   %parens_.i.i.i6076 = getelementptr inbounds i8, ptr %call5977, i64 20
@@ -15061,7 +15061,7 @@ _ZN4llvh9StringRefC2EPKc.exit13352:               ; preds = %if.then6026
   %call6047 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1596, i64 noundef 8)
   %1597 = load ptr, ptr %arg06027, align 8
   %1598 = load ptr, ptr %arg16028, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6047, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call6047, i8 0, i64 16, i1 false)
   %kind_.i.i.i6110 = getelementptr inbounds i8, ptr %call6047, i64 16
   store i32 227, ptr %kind_.i.i.i6110, align 8
   %parens_.i.i.i6111 = getelementptr inbounds i8, ptr %call6047, i64 20
@@ -15122,7 +15122,7 @@ if.end6071:                                       ; preds = %_ZN4llvh9StringRefC
   %call6073 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1603, i64 noundef 8)
   %1604 = load ptr, ptr %arg06054, align 8
   %1605 = load ptr, ptr %arg16055, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6073, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call6073, i8 0, i64 16, i1 false)
   %kind_.i.i.i6126 = getelementptr inbounds i8, ptr %call6073, i64 16
   store i32 228, ptr %kind_.i.i.i6126, align 8
   %parens_.i.i.i6127 = getelementptr inbounds i8, ptr %call6073, i64 20
@@ -15206,7 +15206,7 @@ _ZN4llvh9StringRefC2EPKc.exit13432:               ; preds = %if.then6096
   %call6117 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1613, i64 noundef 8)
   %1614 = load ptr, ptr %arg06097, align 8
   %1615 = load ptr, ptr %arg16098, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6117, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call6117, i8 0, i64 16, i1 false)
   %kind_.i.i.i6147 = getelementptr inbounds i8, ptr %call6117, i64 16
   store i32 230, ptr %kind_.i.i.i6147, align 8
   %parens_.i.i.i6148 = getelementptr inbounds i8, ptr %call6117, i64 20
@@ -15293,7 +15293,7 @@ _ZN4llvh9StringRefC2EPKc.exit13482:               ; preds = %if.then6140
   %1624 = load ptr, ptr %arg06141, align 8
   %1625 = load ptr, ptr %arg16142, align 8
   %1626 = load ptr, ptr %arg26143, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6171, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call6171, i8 0, i64 16, i1 false)
   %kind_.i.i.i6168 = getelementptr inbounds i8, ptr %call6171, i64 16
   store i32 232, ptr %kind_.i.i.i6168, align 8
   %parens_.i.i.i6169 = getelementptr inbounds i8, ptr %call6171, i64 20
@@ -15450,7 +15450,7 @@ if.end6237:                                       ; preds = %if.then6228
   %1642 = load ptr, ptr %this, align 8
   %call6239 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1642, i64 noundef 8)
   %1643 = load ptr, ptr %arg06229, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6239, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call6239, i8 0, i64 16, i1 false)
   %kind_.i.i.i6207 = getelementptr inbounds i8, ptr %call6239, i64 16
   store i32 236, ptr %kind_.i.i.i6207, align 8
   %parens_.i.i.i6208 = getelementptr inbounds i8, ptr %call6239, i64 20
@@ -15543,7 +15543,7 @@ if.end6281:                                       ; preds = %_ZN4llvh9StringRefC
   %1652 = load ptr, ptr %arg16247, align 8
   %1653 = load ptr, ptr %arg26248, align 8
   %1654 = load ptr, ptr %arg36249, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6283, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call6283, i8 0, i64 16, i1 false)
   %kind_.i.i.i6232 = getelementptr inbounds i8, ptr %call6283, i64 16
   store i32 237, ptr %kind_.i.i.i6232, align 8
   %parens_.i.i.i6233 = getelementptr inbounds i8, ptr %call6283, i64 20
@@ -15724,7 +15724,7 @@ if.end6380:                                       ; preds = %_ZN4llvh9StringRefC
   %frombool2.i6282 = and i8 %1673, 1
   %frombool3.i6283 = and i8 %1674, 1
   %frombool4.i = and i8 %1675, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6382, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(77) %call6382, i8 0, i64 16, i1 false)
   %kind_.i.i.i6284 = getelementptr inbounds i8, ptr %call6382, i64 16
   store i32 239, ptr %kind_.i.i.i6284, align 8
   %parens_.i.i.i6285 = getelementptr inbounds i8, ptr %call6382, i64 20
@@ -15953,7 +15953,7 @@ if.end6511:                                       ; preds = %_ZN4llvh9StringRefC
   %1700 = load ptr, ptr %arg06494, align 8
   %1701 = load i8, ptr %arg16495, align 1
   %frombool.i6344 = and i8 %1701, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6513, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %call6513, i8 0, i64 16, i1 false)
   %kind_.i.i.i6345 = getelementptr inbounds i8, ptr %call6513, i64 16
   store i32 243, ptr %kind_.i.i.i6345, align 8
   %parens_.i.i.i6346 = getelementptr inbounds i8, ptr %call6513, i64 20
@@ -15980,7 +15980,7 @@ if.end.i.i19301:                                  ; preds = %if.end6516
 if.then6520:                                      ; preds = %if.end.i.i19301
   %1704 = load ptr, ptr %this, align 8
   %call6522 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1704, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6522, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call6522, i8 0, i64 16, i1 false)
   %kind_.i.i.i6352 = getelementptr inbounds i8, ptr %call6522, i64 16
   store i32 246, ptr %kind_.i.i.i6352, align 8
   %parens_.i.i.i6353 = getelementptr inbounds i8, ptr %call6522, i64 20
@@ -16003,7 +16003,7 @@ if.end.i.i19320:                                  ; preds = %if.end6524
 if.then6528:                                      ; preds = %if.end.i.i19320
   %1707 = load ptr, ptr %this, align 8
   %call6530 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %1707, i64 noundef 8)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6530, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call6530, i8 0, i64 16, i1 false)
   %kind_.i.i.i6357 = getelementptr inbounds i8, ptr %call6530, i64 16
   store i32 247, ptr %kind_.i.i.i6357, align 8
   %parens_.i.i.i6358 = getelementptr inbounds i8, ptr %call6530, i64 20
@@ -16043,7 +16043,7 @@ if.end6545:                                       ; preds = %if.then6536
   %1711 = load ptr, ptr %this, align 8
   %call6547 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1711, i64 noundef 8)
   %1712 = load ptr, ptr %arg06537, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6547, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call6547, i8 0, i64 16, i1 false)
   %kind_.i.i.i6367 = getelementptr inbounds i8, ptr %call6547, i64 16
   store i32 248, ptr %kind_.i.i.i6367, align 8
   %parens_.i.i.i6368 = getelementptr inbounds i8, ptr %call6547, i64 20
@@ -16082,7 +16082,7 @@ if.end6562:                                       ; preds = %if.then6553
   %1716 = load ptr, ptr %this, align 8
   %call6564 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %1716, i64 noundef 8)
   %1717 = load ptr, ptr %arg06554, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6564, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call6564, i8 0, i64 16, i1 false)
   %kind_.i.i.i6378 = getelementptr inbounds i8, ptr %call6564, i64 16
   store i32 249, ptr %kind_.i.i.i6378, align 8
   %parens_.i.i.i6379 = getelementptr inbounds i8, ptr %call6564, i64 20
@@ -16145,7 +16145,7 @@ if.end6598:                                       ; preds = %_ZN4llvh9StringRefC
   %1724 = load ptr, ptr %arg16572, align 8
   %1725 = load i8, ptr %arg26573, align 1
   %frombool.i6393 = and i8 %1725, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call6600, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %call6600, i8 0, i64 16, i1 false)
   %kind_.i.i.i6394 = getelementptr inbounds i8, ptr %call6600, i64 16
   store i32 250, ptr %kind_.i.i.i6394, align 8
   %parens_.i.i.i6395 = getelementptr inbounds i8, ptr %call6600, i64 20
@@ -17405,7 +17405,7 @@ lor.rhs.i.i:                                      ; preds = %entry
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
-  %call11.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i64 noundef %size, i64 noundef %alignment) #13
+  %call11.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %ctx, i64 noundef %size, i64 noundef %alignment) #13
   br label %_ZN6hermes7Context12allocateNodeEmm.exit
 
 if.end.i.i:                                       ; preds = %lor.rhs.i.i
@@ -17549,7 +17549,7 @@ return:                                           ; preds = %for.body, %if.end8,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree11ProgramNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -17796,7 +17796,7 @@ return:                                           ; preds = %_ZNK6hermes6parser1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb(ptr noundef nonnull align 8 dereferenceable(130) %this, ptr noundef %id_, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %body_, ptr noundef %typeParameters_, ptr noundef %returnType_, ptr noundef %predicate_, i1 noundef zeroext %generator_, i1 noundef zeroext %async_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 4, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -17851,7 +17851,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree27ArrowFunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb(ptr noundef nonnull align 8 dereferenceable(130) %this, ptr noundef %id_, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %body_, ptr noundef %typeParameters_, ptr noundef %returnType_, ptr noundef %predicate_, i1 noundef zeroext %expression_, i1 noundef zeroext %async_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 5, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -17906,7 +17906,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree23FunctionDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb(ptr noundef nonnull align 8 dereferenceable(130) %this, ptr noundef %id_, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %body_, ptr noundef %typeParameters_, ptr noundef %returnType_, ptr noundef %predicate_, i1 noundef zeroext %generator_, i1 noundef zeroext %async_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 6, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -17961,7 +17961,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24ComponentDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %id_, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %body_, ptr noundef %typeParameters_, ptr noundef %rendersType_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 7, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18008,7 +18008,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 19, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18053,7 +18053,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree19SwitchStatementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %discriminant_, ptr noundef nonnull align 8 dereferenceable(16) %cases_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 25, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18292,7 +18292,7 @@ return:                                           ; preds = %_ZNK6hermes6parser1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree22SequenceExpressionNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %expressions_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 39, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18331,7 +18331,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree20ObjectExpressionNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %properties_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 40, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18370,7 +18370,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree19ArrayExpressionNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %elements_, i1 noundef zeroext %trailingComma_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 41, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18412,7 +18412,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree17NewExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %callee_, ptr noundef %typeArguments_, ptr noundef nonnull align 8 dereferenceable(16) %arguments_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 43, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18455,7 +18455,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %callee_, ptr noundef %typeArguments_, ptr noundef nonnull align 8 dereferenceable(16) %arguments_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 48, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18498,7 +18498,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree26OptionalCallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEEb(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %callee_, ptr noundef %typeArguments_, ptr noundef nonnull align 8 dereferenceable(16) %arguments_, i1 noundef zeroext %optional_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 49, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18544,7 +18544,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree14SwitchCaseNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %test_, ptr noundef nonnull align 8 dereferenceable(16) %consequent_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 66, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18585,7 +18585,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree23VariableDeclarationNodeC2EPNS_12UniqueStringEON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %kind_, ptr noundef nonnull align 8 dereferenceable(16) %declarations_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 69, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18626,7 +18626,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree19TemplateLiteralNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEES6_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %quasis_, ptr noundef nonnull align 8 dereferenceable(16) %expressions_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 70, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18693,7 +18693,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit10: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree20ClassDeclarationNodeC2EPNS0_4NodeES3_S3_S3_ON4llvh12simple_ilistIS2_JEEES7_S3_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %id_, ptr noundef %typeParameters_, ptr noundef %superClass_, ptr noundef %superTypeParameters_, ptr noundef nonnull align 8 dereferenceable(16) %implements_, ptr noundef nonnull align 8 dereferenceable(16) %decorators_, ptr noundef %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 74, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18770,7 +18770,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit10: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree19ClassExpressionNodeC2EPNS0_4NodeES3_S3_S3_ON4llvh12simple_ilistIS2_JEEES7_S3_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %id_, ptr noundef %typeParameters_, ptr noundef %superClass_, ptr noundef %superTypeParameters_, ptr noundef nonnull align 8 dereferenceable(16) %implements_, ptr noundef nonnull align 8 dereferenceable(16) %decorators_, ptr noundef %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 75, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18847,7 +18847,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit10: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree13ClassBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 76, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18886,7 +18886,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree21ImportDeclarationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S6_PNS_12UniqueStringE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %specifiers_, ptr noundef %source_, ptr noundef nonnull align 8 dereferenceable(16) %assertions_, ptr noundef %importKind_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 80, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -18957,7 +18957,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit10: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %declaration_, ptr noundef nonnull align 8 dereferenceable(16) %specifiers_, ptr noundef %source_, ptr noundef %exportKind_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 85, ptr %kind_.i, align 8
   %parens_.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19002,7 +19002,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree17ObjectPatternNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %properties_, ptr noundef %typeAnnotation_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 91, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19043,7 +19043,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree16ArrayPatternNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %elements_, ptr noundef %typeAnnotation_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 92, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19084,7 +19084,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %name_, ptr noundef nonnull align 8 dereferenceable(16) %attributes_, i1 noundef zeroext %selfClosing_, ptr noundef %typeArguments_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 103, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19130,7 +19130,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %openingElement_, ptr noundef nonnull align 8 dereferenceable(16) %children_, ptr noundef %closingElement_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 109, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19173,7 +19173,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree15JSXFragmentNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %openingFragment_, ptr noundef nonnull align 8 dereferenceable(16) %children_, ptr noundef %closingFragment_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 110, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19216,7 +19216,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %this_, ptr noundef %returnType_, ptr noundef %rest_, ptr noundef %typeParameters_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 130, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19263,7 +19263,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree27ComponentTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %rest_, ptr noundef %typeParameters_, ptr noundef %rendersType_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 132, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19308,7 +19308,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree23TupleTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %types_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 140, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19347,7 +19347,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree23UnionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %types_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 145, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19386,7 +19386,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree30IntersectionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %types_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 146, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19425,7 +19425,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree27InterfaceTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %extends_, ptr noundef %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 152, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19466,7 +19466,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24InterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %id_, ptr noundef %typeParameters_, ptr noundef nonnull align 8 dereferenceable(16) %extends_, ptr noundef %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 155, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19511,7 +19511,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree20DeclareInterfaceNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %id_, ptr noundef %typeParameters_, ptr noundef nonnull align 8 dereferenceable(16) %extends_, ptr noundef %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 158, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19556,7 +19556,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES7_S7_S3_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %id_, ptr noundef %typeParameters_, ptr noundef nonnull align 8 dereferenceable(16) %extends_, ptr noundef nonnull align 8 dereferenceable(16) %implements_, ptr noundef nonnull align 8 dereferenceable(16) %mixins_, ptr noundef %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 159, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19657,7 +19657,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit20: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree20DeclareComponentNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %id_, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %rest_, ptr noundef %typeParameters_, ptr noundef %rendersType_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 161, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19704,7 +19704,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %declaration_, ptr noundef nonnull align 8 dereferenceable(16) %specifiers_, ptr noundef %source_, i1 noundef zeroext %default_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 164, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19750,7 +19750,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24ObjectTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEES6_S6_S6_bb(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef nonnull align 8 dereferenceable(16) %properties_, ptr noundef nonnull align 8 dereferenceable(16) %indexers_, ptr noundef nonnull align 8 dereferenceable(16) %callProperties_, ptr noundef nonnull align 8 dereferenceable(16) %internalSlots_, i1 noundef zeroext %inexact_, i1 noundef zeroext %exact_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 171, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19879,7 +19879,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit30: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree28TypeParameterDeclarationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 179, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19918,7 +19918,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 181, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -19957,7 +19957,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree18EnumStringBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEbb(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(16) %members_, i1 noundef zeroext %explicitType_, i1 noundef zeroext %hasUnknownMembers_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 187, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20002,7 +20002,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree18EnumNumberBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEbb(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(16) %members_, i1 noundef zeroext %explicitType_, i1 noundef zeroext %hasUnknownMembers_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 188, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20047,7 +20047,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree19EnumBooleanBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEbb(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(16) %members_, i1 noundef zeroext %explicitType_, i1 noundef zeroext %hasUnknownMembers_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 189, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20092,7 +20092,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree18EnumSymbolBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %members_, i1 noundef zeroext %hasUnknownMembers_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 190, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20134,7 +20134,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %returnType_, ptr noundef %typeParameters_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 215, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20177,7 +20177,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree21TSConstructorTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %returnType_, ptr noundef %typeParameters_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 216, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20220,7 +20220,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree15TSTupleTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %elementTypes_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 218, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20259,7 +20259,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %id_, ptr noundef %body_, ptr noundef nonnull align 8 dereferenceable(16) %extends_, ptr noundef %typeParameters_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 223, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20304,7 +20304,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree19TSInterfaceBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 225, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20343,7 +20343,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %id_, ptr noundef nonnull align 8 dereferenceable(16) %members_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 226, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20384,7 +20384,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree17TSModuleBlockNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %body_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 229, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20423,7 +20423,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree30TSTypeParameterDeclarationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 231, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20462,7 +20462,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree32TSTypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 233, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20501,7 +20501,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree15TSUnionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %types_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 234, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20540,7 +20540,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree22TSIntersectionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %types_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 235, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20579,7 +20579,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree17TSTypeLiteralNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %members_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 238, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20618,7 +20618,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree21TSMethodSignatureNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %key_, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %returnType_, i1 noundef zeroext %computed_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 240, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20664,7 +20664,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree20TSIndexSignatureNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %parameters_, ptr noundef %typeAnnotation_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 241, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -20705,7 +20705,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree30TSCallSignatureDeclarationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %params_, ptr noundef %returnType_) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 242, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %this, i64 20

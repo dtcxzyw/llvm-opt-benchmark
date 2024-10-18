@@ -189,7 +189,7 @@ define void @_ZTv0_n24_N2cv8saliency25StaticSaliencyFineGrainedD0Ev(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency25StaticSaliencyFineGrainedE, i64 48)) #13
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   ret void
 }
 

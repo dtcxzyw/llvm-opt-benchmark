@@ -453,7 +453,7 @@ for.body169:                                      ; preds = %for.body169.lr.ph, 
   %call.i = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #13
   %cmp.i = icmp ne ptr %call.i, null
   call void @llvm.assume(i1 %cmp.i)
-  %call1.i = call noalias ptr @calloc(i64 noundef %conv171, i64 noundef 1) #13
+  %call1.i = call noalias ptr @calloc(i64 noundef range(i64 0, 4294967296) %conv171, i64 noundef 1) #13
   %buf.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %buf.i, align 8
   %cmp3.i = icmp ne ptr %call1.i, null

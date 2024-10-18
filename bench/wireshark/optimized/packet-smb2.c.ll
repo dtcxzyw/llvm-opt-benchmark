@@ -3729,8 +3729,8 @@ dissect_smb2_FSCTL_SET_ZERO_DATA.exit:            ; preds = %224, %225
   br label %299
 
 299:                                              ; preds = %294, %260
-  %300 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %13, i32 noundef 0, i32 noundef 1)
-  %301 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %14, i32 noundef 0, i32 noundef 1)
+  %300 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 1)
+  %301 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 1)
   br label %dissect_smb2_FSCTL_STORAGE_QOS_CONTROL.exit
 
 302:                                              ; preds = %245
@@ -5069,9 +5069,9 @@ define internal fastcc void @dissect_smb2_FSCTL_REPARSE_POINT(ptr noundef %0, pt
   br label %dissect_smb2_reparse_nfs.exit
 
 55:                                               ; preds = %24
-  %56 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.0) #12
+  %56 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef range(i32 8, 25) %.0) #12
   %57 = load i32, ptr @hf_smb2_nfs_type, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %57, ptr noundef %0, i32 noundef %.0, i32 noundef 8, i32 noundef -2147483648) #12
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %57, ptr noundef %0, i32 noundef range(i32 8, 25) %.0, i32 noundef 8, i32 noundef -2147483648) #12
   %59 = add nuw nsw i32 %.0, 8
   switch i64 %56, label %dissect_smb2_reparse_nfs.exit [
     i64 21712460, label %60
@@ -6441,7 +6441,7 @@ append_uncompress_data.exit57.thread61.i.i:       ; preds = %618
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %635 = load i32, ptr @ett_smb2_comp_pattern_v1, align 4
-  %636 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %597, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619, i32 noundef %635, ptr noundef nonnull %5, ptr noundef nonnull @.str.1123) #12
+  %636 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %597, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef range(i32 0, 16777217) %619, i32 noundef %635, ptr noundef nonnull %5, ptr noundef nonnull @.str.1123) #12
   %637 = load i32, ptr @hf_smb2_comp_pattern_v1_pattern, align 4
   %638 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %636, i32 noundef %637, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #12
   %639 = add i32 %.051.i.i, 1
@@ -8308,7 +8308,7 @@ define internal i32 @dissect_smb2_tree_connect_request(ptr noundef %0, ptr nound
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %39, ptr %43, align 4
-  %44 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef 1)
+  %44 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
   %.val = load i32, ptr %6, align 4
   %.val43 = load i32, ptr %42, align 4
   %45 = getelementptr inbounds i8, ptr %1, i64 80
@@ -8624,7 +8624,7 @@ define internal i32 @dissect_smb2_create_request(ptr noundef %0, ptr noundef %1,
   store i32 %61, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 %60, ptr %63, align 4
-  %64 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef 1)
+  %64 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
   %65 = getelementptr inbounds i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %1, i64 408
@@ -9870,7 +9870,7 @@ define internal i32 @dissect_smb2_find_request(ptr noundef %0, ptr noundef %1, p
   %47 = add i32 %35, 4
   %48 = load i32, ptr @hf_smb2_output_buffer_len, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648) #12
-  %50 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef 1)
+  %50 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
   %.val = load i32, ptr %6, align 4
   %.val48 = load i32, ptr %45, align 4
   %51 = getelementptr inbounds i8, ptr %1, i64 80
@@ -11544,7 +11544,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
   br label %48
 
 46:                                               ; preds = %4
-  %47 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %12, ptr noundef %0, ptr noundef %5, i32 noundef 0, i32 noundef 2)
+  %47 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %12, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2)
   br label %48
 
 48:                                               ; preds = %46, %35
@@ -14218,17 +14218,17 @@ define internal fastcc void @dissect_smb2_infolevel(ptr noundef %0, ptr noundef 
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @hf_smb2_fs_info_01, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %69, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %69, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %71 = load i32, ptr @ett_smb2_fs_info_01, align 4
   %72 = tail call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #12
   br label %dissect_smb2_fs_info_01.exit
 
 dissect_smb2_fs_info_01.exit:                     ; preds = %67, %68
   %.0.i = phi ptr [ %72, %68 ], [ null, %67 ]
-  %73 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %73 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %74 = trunc i32 %73 to i16
   store i16 %74, ptr %14, align 2
-  %75 = call i32 @dissect_qfsi_FS_VOLUME_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %3, ptr noundef nonnull %14, i32 noundef 1) #12
+  %75 = call i32 @dissect_qfsi_FS_VOLUME_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %14, i32 noundef 1) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
   br label %190
 
@@ -14239,17 +14239,17 @@ dissect_smb2_fs_info_01.exit:                     ; preds = %67, %68
 
 77:                                               ; preds = %76
   %78 = load i32, ptr @hf_smb2_fs_info_03, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %78, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %78, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %80 = load i32, ptr @ett_smb2_fs_info_03, align 4
   %81 = tail call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #12
   br label %dissect_smb2_fs_info_03.exit
 
 dissect_smb2_fs_info_03.exit:                     ; preds = %76, %77
   %.0.i208 = phi ptr [ %81, %77 ], [ null, %76 ]
-  %82 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %82 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %83 = trunc i32 %82 to i16
   store i16 %83, ptr %13, align 2
-  %84 = call i32 @dissect_qfsi_FS_SIZE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i208, i32 noundef %3, ptr noundef nonnull %13) #12
+  %84 = call i32 @dissect_qfsi_FS_SIZE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i208, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %13) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
   br label %190
 
@@ -14260,17 +14260,17 @@ dissect_smb2_fs_info_03.exit:                     ; preds = %76, %77
 
 86:                                               ; preds = %85
   %87 = load i32, ptr @hf_smb2_fs_info_04, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %87, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %87, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %89 = load i32, ptr @ett_smb2_fs_info_04, align 4
   %90 = tail call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #12
   br label %dissect_smb2_fs_info_04.exit
 
 dissect_smb2_fs_info_04.exit:                     ; preds = %85, %86
   %.0.i210 = phi ptr [ %90, %86 ], [ null, %85 ]
-  %91 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %91 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %92 = trunc i32 %91 to i16
   store i16 %92, ptr %12, align 2
-  %93 = call i32 @dissect_qfsi_FS_DEVICE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i210, i32 noundef %3, ptr noundef nonnull %12) #12
+  %93 = call i32 @dissect_qfsi_FS_DEVICE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i210, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
   br label %190
 
@@ -14281,17 +14281,17 @@ dissect_smb2_fs_info_04.exit:                     ; preds = %85, %86
 
 95:                                               ; preds = %94
   %96 = load i32, ptr @hf_smb2_fs_info_05, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %96, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %96, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %98 = load i32, ptr @ett_smb2_fs_info_05, align 4
   %99 = tail call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98) #12
   br label %dissect_smb2_fs_info_05.exit
 
 dissect_smb2_fs_info_05.exit:                     ; preds = %94, %95
   %.0.i212 = phi ptr [ %99, %95 ], [ null, %94 ]
-  %100 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %100 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %101 = trunc i32 %100 to i16
   store i16 %101, ptr %11, align 2
-  %102 = call i32 @dissect_qfsi_FS_ATTRIBUTE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i212, i32 noundef %3, ptr noundef nonnull %11) #12
+  %102 = call i32 @dissect_qfsi_FS_ATTRIBUTE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i212, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   br label %190
 
@@ -14302,17 +14302,17 @@ dissect_smb2_fs_info_05.exit:                     ; preds = %94, %95
 
 104:                                              ; preds = %103
   %105 = load i32, ptr @hf_smb2_fs_info_06, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %105, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %105, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %107 = load i32, ptr @ett_smb2_fs_info_06, align 4
   %108 = tail call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107) #12
   br label %dissect_smb2_fs_info_06.exit
 
 dissect_smb2_fs_info_06.exit:                     ; preds = %103, %104
   %.0.i214 = phi ptr [ %108, %104 ], [ null, %103 ]
-  %109 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %109 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %110 = trunc i32 %109 to i16
   store i16 %110, ptr %10, align 2
-  %111 = call i32 @dissect_nt_quota(ptr noundef %0, ptr noundef %.0.i214, i32 noundef %3, ptr noundef nonnull %10) #12
+  %111 = call i32 @dissect_nt_quota(ptr noundef %0, ptr noundef %.0.i214, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   br label %190
 
@@ -14323,17 +14323,17 @@ dissect_smb2_fs_info_06.exit:                     ; preds = %103, %104
 
 113:                                              ; preds = %112
   %114 = load i32, ptr @hf_smb2_fs_info_07, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %114, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %114, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %116 = load i32, ptr @ett_smb2_fs_info_07, align 4
   %117 = tail call ptr @proto_item_add_subtree(ptr noundef %115, i32 noundef %116) #12
   br label %dissect_smb2_fs_info_07.exit
 
 dissect_smb2_fs_info_07.exit:                     ; preds = %112, %113
   %.0.i216 = phi ptr [ %117, %113 ], [ null, %112 ]
-  %118 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %118 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %119 = trunc i32 %118 to i16
   store i16 %119, ptr %9, align 2
-  %120 = call i32 @dissect_qfsi_FS_FULL_SIZE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i216, i32 noundef %3, ptr noundef nonnull %9) #12
+  %120 = call i32 @dissect_qfsi_FS_FULL_SIZE_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i216, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   br label %190
 
@@ -14343,14 +14343,14 @@ dissect_smb2_fs_info_07.exit:                     ; preds = %112, %113
 
 122:                                              ; preds = %121
   %123 = load i32, ptr @hf_smb2_fs_objectid_info, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %123, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %123, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %125 = load i32, ptr @ett_smb2_fs_objectid_info, align 4
   %126 = tail call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #12
   br label %dissect_smb2_FS_OBJECTID_INFO.exit
 
 dissect_smb2_FS_OBJECTID_INFO.exit:               ; preds = %121, %122
   %.0.i218 = phi ptr [ %126, %122 ], [ null, %121 ]
-  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %.0.i218, i32 noundef %3)
+  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %.0.i218, i32 noundef range(i32 0, 65536) %3)
   br label %190
 
 128:                                              ; preds = %66
@@ -14359,7 +14359,7 @@ dissect_smb2_FS_OBJECTID_INFO.exit:               ; preds = %121, %122
 
 129:                                              ; preds = %128
   %130 = load i32, ptr @hf_smb2_fs_posix_info, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %130, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %130, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %132 = load i32, ptr @ett_smb2_fs_posix_info, align 4
   %133 = tail call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %132) #12
   br label %dissect_smb2_fs_posix_info.exit
@@ -14367,7 +14367,7 @@ dissect_smb2_FS_OBJECTID_INFO.exit:               ; preds = %121, %122
 dissect_smb2_fs_posix_info.exit:                  ; preds = %128, %129
   %.0.i220 = phi ptr [ %133, %129 ], [ null, %128 ]
   %134 = load i32, ptr @hf_smb2_fs_posix_optimal_transfer_size, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i220, i32 noundef %134, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #12
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i220, i32 noundef %134, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef 4, i32 noundef -2147483648) #12
   %136 = add nuw nsw i32 %3, 4
   %137 = load i32, ptr @hf_smb2_fs_posix_block_size, align 4
   %138 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i220, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 4, i32 noundef -2147483648) #12
@@ -14408,15 +14408,15 @@ dissect_smb2_fs_posix_info.exit:                  ; preds = %128, %129
 
 164:                                              ; preds = %163
   %165 = load i32, ptr @hf_smb2_sec_info_00, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %165, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %165, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %167 = load i32, ptr @ett_smb2_sec_info_00, align 4
   %168 = tail call ptr @proto_item_add_subtree(ptr noundef %166, i32 noundef %167) #12
   br label %dissect_smb2_sec_info_00.exit
 
 dissect_smb2_sec_info_00.exit:                    ; preds = %163, %164
   %.0.i222 = phi ptr [ %168, %164 ], [ null, %163 ]
-  %169 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
-  %170 = tail call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %3, ptr noundef %1, ptr noundef %.0.i222, ptr noundef null, i32 noundef 1, i32 noundef %169, ptr noundef null) #12
+  %169 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
+  %170 = tail call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef range(i32 0, 65536) %3, ptr noundef %1, ptr noundef %.0.i222, ptr noundef null, i32 noundef 1, i32 noundef %169, ptr noundef null) #12
   br label %190
 
 171:                                              ; preds = %162
@@ -14433,17 +14433,17 @@ dissect_smb2_sec_info_00.exit:                    ; preds = %163, %164
 
 177:                                              ; preds = %176
   %178 = load i32, ptr @hf_smb2_quota_info, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %178, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #12
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %178, ptr noundef %0, i32 noundef range(i32 0, 65536) %3, i32 noundef -1, i32 noundef 0) #12
   %180 = load i32, ptr @ett_smb2_quota_info, align 4
   %181 = tail call ptr @proto_item_add_subtree(ptr noundef %179, i32 noundef %180) #12
   br label %dissect_smb2_quota_info.exit
 
 dissect_smb2_quota_info.exit:                     ; preds = %176, %177
   %.0.i224 = phi ptr [ %181, %177 ], [ null, %176 ]
-  %182 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
+  %182 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 65536) %3) #12
   %183 = trunc i32 %182 to i16
   store i16 %183, ptr %8, align 2
-  %184 = call i32 @dissect_nt_user_quota(ptr noundef %0, ptr noundef %.0.i224, i32 noundef %3, ptr noundef nonnull %8) #12
+  %184 = call i32 @dissect_nt_user_quota(ptr noundef %0, ptr noundef %.0.i224, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   br label %190
 

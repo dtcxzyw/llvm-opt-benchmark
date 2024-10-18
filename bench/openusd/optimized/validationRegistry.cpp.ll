@@ -667,7 +667,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i, label %42
 
 42:                                               ; preds = %.lr.ph.i.i.i.i2
-  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull %41)
+  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %41)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %42, %.lr.ph.i.i.i.i2
@@ -1364,7 +1364,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit82.invoke: ; preds 
           to label %472 unwind label %162
 
 205:                                              ; preds = %194
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %16, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %206 = load ptr, ptr %.sroa.0216.0290, align 8
@@ -2020,7 +2020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit133: ; preds = %427
   br label %452
 
 452:                                              ; preds = %.sink.split, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit133
-  %453 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(105) %16)
+  %453 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(105) %16, ptr noundef nonnull align 8 dereferenceable(105) %16)
           to label %.noexc134 unwind label %.loopexit228
 
 .noexc134:                                        ; preds = %452
@@ -2029,11 +2029,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit133: ; preds = %427
   br i1 %454, label %455, label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit
 
 455:                                              ; preds = %.noexc134
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(105) %16, ptr noundef nonnull align 8 dereferenceable(24) %39)
           to label %.noexc135 unwind label %.loopexit228
 
 .noexc135:                                        ; preds = %455
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(105) %16, ptr noundef nonnull align 8 dereferenceable(24) %52)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit unwind label %.loopexit228
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit: ; preds = %.noexc134, %.noexc135
@@ -2480,7 +2480,7 @@ define linkonce_odr void @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i
-  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %7)
+  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i
@@ -2607,7 +2607,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.33, i32 noundef 0)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.33, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %165
 
 .noexc.i.i.i:                                     ; preds = %4
@@ -4159,7 +4159,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRe
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdValidatorMetadata", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %4, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4222,7 +4222,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRe
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdValidatorMetadata", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %4, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4285,7 +4285,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRe
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdValidatorMetadata", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %4, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4354,7 +4354,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRe
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %12 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %11) #16
+  %12 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
   %13 = icmp eq i32 %12, 35
   br i1 %13, label %14, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -4467,7 +4467,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 
 70:                                               ; preds = %.loopexit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %72 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
+  %72 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
           to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %70
@@ -4478,13 +4478,13 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 74:                                               ; preds = %.noexc
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %76)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %76)
           to label %.noexc15 unwind label %68
 
 .noexc15:                                         ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %78)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %78)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit.thread unwind label %68
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit: ; preds = %.noexc
@@ -4579,7 +4579,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit22: ; preds = %98, 
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit, label %114
 
 114:                                              ; preds = %111
-  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %113)
+  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %113)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %111, %114
@@ -4592,7 +4592,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_
   br i1 %.not.i24, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25, label %117
 
 117:                                              ; preds = %115
-  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %116)
+  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %116)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25: ; preds = %115, %117
@@ -4600,7 +4600,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit18.invoke, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25
-  %118 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #16
+  %118 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
   br label %119
 
 119:                                              ; preds = %4, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
@@ -4608,7 +4608,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit28:  ; preds = %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit, %93, %68
   %.pn = phi { ptr, i32 } [ %112, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit ], [ %69, %68 ], [ %94, %93 ]
-  %120 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #16
+  %120 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -4629,7 +4629,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRe
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %12 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %11) #16
+  %12 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
   %13 = icmp eq i32 %12, 35
   br i1 %13, label %14, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -4742,7 +4742,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 
 70:                                               ; preds = %.loopexit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %72 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
+  %72 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
           to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %70
@@ -4753,13 +4753,13 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 74:                                               ; preds = %.noexc
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %76)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %76)
           to label %.noexc15 unwind label %68
 
 .noexc15:                                         ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %78)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %78)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit.thread unwind label %68
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit: ; preds = %.noexc
@@ -4854,7 +4854,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit22: ; preds = %98, 
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit, label %114
 
 114:                                              ; preds = %111
-  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %113)
+  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %113)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %111, %114
@@ -4867,7 +4867,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_
   br i1 %.not.i24, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25, label %117
 
 117:                                              ; preds = %115
-  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %116)
+  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %116)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25: ; preds = %115, %117
@@ -4875,7 +4875,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit18.invoke, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25
-  %118 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #16
+  %118 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
   br label %119
 
 119:                                              ; preds = %4, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
@@ -4883,7 +4883,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit28:  ; preds = %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit, %93, %68
   %.pn = phi { ptr, i32 } [ %112, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit ], [ %69, %68 ], [ %94, %93 ]
-  %120 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #16
+  %120 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -4941,7 +4941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry14_CheckMetadataERKN
 29:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %31 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %30) #16
+  %31 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %30) #16
   %32 = icmp eq i32 %31, 35
   br i1 %32, label %33, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -5054,7 +5054,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 
 89:                                               ; preds = %.loopexit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %91 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
+  %91 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
           to label %.noexc unwind label %87
 
 .noexc:                                           ; preds = %89
@@ -5065,13 +5065,13 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 93:                                               ; preds = %.noexc
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %95)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %95)
           to label %.noexc15 unwind label %87
 
 .noexc15:                                         ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %96, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %97)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %96, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %97)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit.thread unwind label %87
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit: ; preds = %.noexc
@@ -5166,7 +5166,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit22: ; preds = %117,
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit, label %133
 
 133:                                              ; preds = %130
-  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %132)
+  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %132)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %130, %133
@@ -5179,7 +5179,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_
   br i1 %.not.i24, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25, label %136
 
 136:                                              ; preds = %134
-  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %135)
+  call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %135)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25: ; preds = %134, %136
@@ -5187,7 +5187,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit18.invoke, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit25
-  %137 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %30) #16
+  %137 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %30) #16
   br label %138
 
 138:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry14_CheckMetadataERKNS_20UsdValidatorMetadataEbb.exit, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
@@ -5195,7 +5195,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit28:  ; preds = %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit, %112, %87
   %.pn = phi { ptr, i32 } [ %131, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit ], [ %88, %87 ], [ %113, %112 ]
-  %139 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %30) #16
+  %139 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %30) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -5205,7 +5205,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidation
   br label %4
 
 4:                                                ; preds = %4, %2
-  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #16
+  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   switch i32 %5, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %4
     i32 35, label %6
@@ -5295,7 +5295,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %4
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %52, %.lr.ph.i.i.i.i, %43, %14, %13, %32, %20
   %.sroa.06.1.i.i = phi ptr [ null, %20 ], [ %33, %32 ], [ null, %13 ], [ %.sroa.06.0.i.i, %14 ], [ %51, %43 ], [ null, %.lr.ph.i.i.i.i ], [ null, %52 ]
   %56 = icmp ne ptr %.sroa.06.1.i.i, null
-  %57 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #16
+  %57 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   ret i1 %56
 }
 
@@ -5308,7 +5308,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry22GetOr
   br label %5
 
 5:                                                ; preds = %5, %2
-  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #16, !noalias !42
+  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16, !noalias !42
   switch i32 %6, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %5
     i32 35, label %7
@@ -5426,7 +5426,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp.i: ; preds = %_Z
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i:  ; preds = %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.i ], [ %lpad.loopexit.split-lp.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp.i ]
-  %46 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %46 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   br label %common.resume
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit.i: ; preds = %43, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i, %20
@@ -5440,7 +5440,7 @@ common.resume:                                    ; preds = %44, %_ZNSt11shared_
   resume { ptr, i32 } %common.resume.op
 
 "_ZZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry22GetOrLoadAllValidatorsEvENK3$_0clEv.exit": ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit.i
-  %47 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %47 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry25GetOrLoadValidatorsByNameERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind writable sret(%"class.std::vector.97") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %48 unwind label %66
 
@@ -5679,7 +5679,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %4, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -5788,7 +5788,7 @@ define internal fastcc noundef ptr @"_ZZN32pxrInternal_v0_24__pxrReserved__21Usd
   br label %3
 
 3:                                                ; preds = %3, %1
-  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #16
+  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   switch i32 %4, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %3
     i32 35, label %5
@@ -5883,7 +5883,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptr
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit6:   ; preds = %.lr.ph.i.i.i.i, %51, %12, %19, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrINS0_12UsdValidatorESt14default_deleteIS3_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S6_EEE4findERSB_.exit
   %.0 = phi ptr [ %56, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrINS0_12UsdValidatorESt14default_deleteIS3_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S6_EEE4findERSB_.exit ], [ null, %19 ], [ null, %12 ], [ null, %51 ], [ null, %.lr.ph.i.i.i.i ]
-  %57 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #16
+  %57 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   ret ptr %.0
 }
 
@@ -5893,7 +5893,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidation
   br label %5
 
 5:                                                ; preds = %5, %3
-  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #16
+  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   switch i32 %6, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %5
     i32 35, label %7
@@ -5982,7 +5982,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_20UsdValidatorMetadataENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit
   %56 = landingpad { ptr, i32 }
           cleanup
-  %57 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %57 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   resume { ptr, i32 } %56
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_20UsdValidatorMetadataENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit: ; preds = %43, %15, %32
@@ -5993,7 +5993,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_20UsdValid
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit7:   ; preds = %.lr.ph.i.i.i.i, %52, %14, %21, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_20UsdValidatorMetadataENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit
   %.0 = phi i1 [ true, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_20UsdValidatorMetadataENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit ], [ false, %21 ], [ false, %14 ], [ false, %52 ], [ false, %.lr.ph.i.i.i.i ]
-  %60 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %60 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   ret i1 %.0
 }
 
@@ -6006,7 +6006,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry28Regis
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdValidatorMetadata", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %4, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -6421,7 +6421,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit47: ; preds = %_ZNK
 
 .loopexit82:                                      ; preds = %._crit_edge, %19, %13
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %179 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %178) #16
+  %179 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %178) #16
   %180 = icmp eq i32 %179, 35
   br i1 %180, label %181, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -6535,7 +6535,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 
 238:                                              ; preds = %.loopexit
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %240 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %239, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
+  %240 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_20UsdValidatorMetadataEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RKS4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %239, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(105) %1)
           to label %.noexc unwind label %236
 
 .noexc:                                           ; preds = %238
@@ -6545,13 +6545,13 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrI
 
 242:                                              ; preds = %.noexc
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %.noexc50 unwind label %236
 
 .noexc50:                                         ; preds = %242
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %244, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %245)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_UpdateValidatorNamesMappingsERSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERSA_RKS5_(ptr noundef nonnull align 8 dereferenceable(56) %244, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(24) %245)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit.thread unwind label %236
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry21_AddValidatorMetadataERKNS_20UsdValidatorMetadataE.exit: ; preds = %.noexc
@@ -6665,7 +6665,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit57: ; preds = %265,
   br label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i: ; preds = %285, %282
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %281) #16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %281) #16
   call void @_ZdlPvm(ptr noundef nonnull %281, i64 noundef 136) #18
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteESt14default_deleteIS1_EED2Ev.exit
 
@@ -6674,7 +6674,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteESt14def
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit53.invoke, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteESt14default_deleteIS1_EED2Ev.exit
-  %291 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %178) #16
+  %291 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %178) #16
   br label %292
 
 292:                                              ; preds = %4, %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit47, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit41, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
@@ -6682,7 +6682,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNK32pxrInternal_v
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit61:  ; preds = %278, %260, %236
   %.pn = phi { ptr, i32 } [ %279, %278 ], [ %237, %236 ], [ %261, %260 ]
-  %293 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %178) #16
+  %293 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %178) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -6801,7 +6801,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__1
   br label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit: ; preds = %3, %6
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %2) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 136) #18
   br label %12
 
@@ -6816,7 +6816,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidation
   br label %4
 
 4:                                                ; preds = %4, %2
-  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #16
+  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   switch i32 %5, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %4
     i32 35, label %6
@@ -6905,7 +6905,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %4
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %51, %.lr.ph.i.i.i.i, %42, %14, %13, %31, %20
   %.sroa.06.1.i.i = phi ptr [ null, %20 ], [ %32, %31 ], [ null, %13 ], [ %.sroa.06.0.i.i, %14 ], [ %50, %42 ], [ null, %.lr.ph.i.i.i.i ], [ null, %51 ]
   %55 = icmp ne ptr %.sroa.06.1.i.i, null
-  %56 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #16
+  %56 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   ret i1 %55
 }
 
@@ -6918,7 +6918,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry27GetOr
   br label %5
 
 5:                                                ; preds = %5, %2
-  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #16, !noalias !54
+  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16, !noalias !54
   switch i32 %6, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %5
     i32 35, label %7
@@ -7036,7 +7036,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp.i: ; preds = %_Z
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i:  ; preds = %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.i ], [ %lpad.loopexit.split-lp.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp.i ]
-  %46 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %46 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   br label %common.resume
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit.i: ; preds = %43, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i, %20
@@ -7050,7 +7050,7 @@ common.resume:                                    ; preds = %98, %95, %44, %_ZNS
   resume { ptr, i32 } %common.resume.op
 
 "_ZZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry27GetOrLoadAllValidatorSuitesEvENK3$_0clEv.exit": ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit.i
-  %47 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %47 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -7276,7 +7276,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %4, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -7385,7 +7385,7 @@ define internal fastcc noundef ptr @"_ZZN32pxrInternal_v0_24__pxrReserved__21Usd
   br label %3
 
 3:                                                ; preds = %3, %1
-  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #16
+  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   switch i32 %4, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %3
     i32 35, label %5
@@ -7479,7 +7479,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptr
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit6:   ; preds = %.lr.ph.i.i.i.i, %50, %12, %19, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrINS0_17UsdValidatorSuiteESt14default_deleteIS3_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S6_EEE4findERSB_.exit
   %.0 = phi ptr [ %55, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10unique_ptrINS0_17UsdValidatorSuiteESt14default_deleteIS3_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S6_EEE4findERSB_.exit ], [ null, %19 ], [ null, %12 ], [ null, %50 ], [ null, %.lr.ph.i.i.i.i ]
-  %56 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #16
+  %56 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   ret ptr %.0
 }
 
@@ -7761,7 +7761,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry23GetA
   br label %4
 
 4:                                                ; preds = %4, %2
-  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #16
+  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   switch i32 %5, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %4
     i32 35, label %6
@@ -7835,11 +7835,11 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp: ; preds = %_ZNS
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.loopexit.split-lp ]
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #16
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %25
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit10:  ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EE9push_backERKS1_.exit, %9
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #16
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   ret void
 
 25:                                               ; preds = %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit, %21
@@ -8190,7 +8190,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br label %.body
 
 30:                                               ; preds = %30, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %31 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %27) #16, !noalias !64
+  %31 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %27) #16, !noalias !64
   switch i32 %31, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %30
     i32 35, label %32
@@ -8211,11 +8211,11 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %30
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3.i: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %27) #16
+  %35 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %27) #16
   br label %.body5
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
-  %36 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %27) #16
+  %36 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %27) #16
   %37 = load ptr, ptr %12, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 7
@@ -8285,7 +8285,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry31GetV
   br label %5
 
 5:                                                ; preds = %5, %3
-  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #16
+  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   switch i32 %6, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %5
     i32 35, label %7
@@ -8301,13 +8301,13 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
           to label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit unwind label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit
-  %9 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %9 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   ret void
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %11 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   resume { ptr, i32 } %10
 }
 
@@ -8372,7 +8372,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br label %.body
 
 30:                                               ; preds = %30, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %31 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %27) #16, !noalias !67
+  %31 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %27) #16, !noalias !67
   switch i32 %31, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %30
     i32 35, label %32
@@ -8393,11 +8393,11 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %30
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3.i: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %27) #16
+  %35 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %27) #16
   br label %.body5
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
-  %36 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %27) #16
+  %36 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %27) #16
   %37 = load ptr, ptr %12, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 7
@@ -8467,7 +8467,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry34GetV
   br label %5
 
 5:                                                ; preds = %5, %3
-  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #16
+  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   switch i32 %6, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %5
     i32 35, label %7
@@ -8483,13 +8483,13 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
           to label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit unwind label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit
-  %9 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %9 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   ret void
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #16
+  %11 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   resume { ptr, i32 } %10
 }
 
@@ -8600,7 +8600,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS1_S
   br label %68
 
 68:                                               ; preds = %68, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS1_SaIS1_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit
-  %69 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %12) #16
+  %69 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #16
   switch i32 %69, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %68
     i32 35, label %70
@@ -8730,11 +8730,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EE9
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %124, %121, %.loopexit
   %126 = landingpad { ptr, i32 }
           cleanup
-  %127 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #16
+  %127 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #16
   br label %130
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit30:  ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EE9push_backERKS1_.exit, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit
-  %128 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #16
+  %128 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #16
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS1_SaIS1_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit.thread
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS1_SaIS1_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %62, %.preheader84, %33, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit30
@@ -8967,7 +8967,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %.body, %102
   resume { ptr, i32 } %.pn
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS1_SaIS1_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %43, %17, %32
-  %106 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_St6vectorIS2_SaIS2_EEESaIS8_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.025.034)
+  %106 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_St6vectorIS2_SaIS2_EEESaIS8_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.025.034)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -9164,7 +9164,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   br label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %11, %8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %7) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 136) #18
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
 
@@ -9219,7 +9219,7 @@ define linkonce_odr void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserv
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit, label %11
 
 11:                                               ; preds = %10
-  %12 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %12 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit unwind label %13
 
 13:                                               ; preds = %11
@@ -9233,7 +9233,7 @@ define linkonce_odr void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserv
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit unwind label %19
 
 19:                                               ; preds = %17
@@ -9247,7 +9247,7 @@ define linkonce_odr void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserv
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit, label %23
 
 23:                                               ; preds = %22
-  %24 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit unwind label %25
 
 25:                                               ; preds = %23
@@ -9262,7 +9262,7 @@ define linkonce_odr void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserv
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorD2Ev.exit: ; preds = %10, %11, %16, %17, %22, %23
   store i8 -1, ptr %6, align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %1) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 152) #18
   br label %29
 
@@ -9592,7 +9592,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %.lr.ph, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
@@ -9737,7 +9737,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread, %44, %57, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %62) #16
   %63 = load ptr, ptr %25, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %67
@@ -9757,7 +9757,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %3
@@ -9793,7 +9793,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #16
-  tail call void @_ZdlPvm(ptr noundef %1, i64 noundef 80) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 80) #18
   invoke void @__cxa_rethrow() #19
           to label %29 unwind label %23
 
@@ -12173,7 +12173,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St10u
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i, label %79
 
 79:                                               ; preds = %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St10unique_ptrINS0_12UsdValidatorESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull %22)
+  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %22)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
 
@@ -12321,7 +12321,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %4
-  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %7)
+  tail call void @_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7)
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESt14default_deleteIS1_EED2Ev.exit.i.i.i.i: ; preds = %8, %4
@@ -12617,7 +12617,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St10u
   br label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %82, %79
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %22) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %22) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 136) #18
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
@@ -12781,7 +12781,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   br label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteEEclEPS1_.exit.i.i.i.i.i: ; preds = %11, %8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %7) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 136) #18
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdValidatorSuiteESt14default_deleteIS1_EED2Ev.exit.i.i.i.i
 

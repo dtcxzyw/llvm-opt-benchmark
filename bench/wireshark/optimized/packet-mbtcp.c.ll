@@ -980,7 +980,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 294:                                              ; preds = %292
   %295 = getelementptr inbounds i8, ptr %.0114, i64 4
   %296 = load i32, ptr %295, align 4
-  tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 1, i32 noundef %132, i32 noundef %296, i16 noundef zeroext 0, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 1, i32 noundef range(i32 0, -1) %132, i32 noundef %296, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %231, %.lr.ph258.i, %294, %292, %288, %286, %281, %274, %259, %252, %225, %207, %195, %182, %178, %176, %173, %170, %166, %164, %153, %146, %141, %136, %135
@@ -1079,7 +1079,7 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %336 = load i32, ptr %335, align 4
   %337 = getelementptr inbounds i8, ptr %.0114, i64 8
   %338 = load i16, ptr %337, align 8
-  call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 2, i32 noundef %330, i32 noundef %336, i16 noundef zeroext %338, i16 noundef zeroext %.0450.i)
+  call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 2, i32 noundef %330, i32 noundef %336, i16 noundef zeroext %338, i16 noundef zeroext %.0450.i)
   br label %.loopexit.i130
 
 339:                                              ; preds = %proto_item_set_generated.exit473.i, %proto_item_set_generated.exit473.i
@@ -1091,7 +1091,7 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %345 = load i32, ptr %344, align 4
   %346 = getelementptr inbounds i8, ptr %.0114, i64 8
   %347 = load i16, ptr %346, align 8
-  call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 2, i32 noundef %341, i32 noundef %345, i16 noundef zeroext %347, i16 noundef zeroext 0)
+  call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 2, i32 noundef %341, i32 noundef %345, i16 noundef zeroext %347, i16 noundef zeroext 0)
   br label %.loopexit.i130
 
 348:                                              ; preds = %proto_item_set_generated.exit473.i
@@ -1538,7 +1538,7 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %634 = load i32, ptr %633, align 4
   %635 = getelementptr inbounds i8, ptr %.0114, i64 8
   %636 = load i16, ptr %635, align 8
-  call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 1, i32 noundef %132, i32 noundef %634, i16 noundef zeroext %636, i16 noundef zeroext 0)
+  call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 1, i32 noundef range(i32 0, -1) %132, i32 noundef %634, i16 noundef zeroext %636, i16 noundef zeroext 0)
   br label %.loopexit.i130
 
 .loopexit.i130:                                   ; preds = %620, %532, %506, %487, %632, %630, %624, %622, %586, %570, %561, %554, %525, %499, %494, %489, %429, %424, %418, %416, %413, %410, %407, %404, %401, %398, %395, %392, %389, %386, %383, %380, %376, %374, %364, %357, %348, %339, %328

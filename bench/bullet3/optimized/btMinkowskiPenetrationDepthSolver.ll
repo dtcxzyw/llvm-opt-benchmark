@@ -556,7 +556,7 @@ invoke.cont204:                                   ; preds = %for.end167
   %displacedTrans.sroa.6.sroa.3.0.m_origin3.i296.sroa_idx = getelementptr inbounds i8, ptr %input, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i285, ptr %displacedTrans.sroa.6.sroa.3.0.m_origin3.i296.sroa_idx, align 4
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %transB, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %transB, i64 16, i1 false)
   %arrayidx7.i.i298 = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i298, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx4.i.i67, i64 16, i1 false)
   %arrayidx11.i.i300 = getelementptr inbounds i8, ptr %input, i64 96

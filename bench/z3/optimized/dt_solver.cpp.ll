@@ -508,7 +508,7 @@ invoke.cont11:                                    ; preds = %call.i.i.i.noexc
   %m_find = getelementptr inbounds i8, ptr %this, i64 584
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %nullable.i5.i.i, i8 0, i64 28, i1 false)
   store ptr %this, ptr %m_find, align 8
-  %call.i10 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN3euf13th_euf_solver15get_trail_stackEv(ptr noundef nonnull align 8 dereferenceable(108) %this)
+  %call.i10 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN3euf13th_euf_solver15get_trail_stackEv(ptr noundef nonnull align 8 dereferenceable(736) %this)
           to label %invoke.cont17 unwind label %lpad13
 
 invoke.cont17:                                    ; preds = %invoke.cont11
@@ -1296,7 +1296,7 @@ define hidden void @_ZThn32_N2dt6solverD0Ev(ptr noundef %this) unnamed_addr #7 a
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(736) %0) #23
   ret void
 }
 
@@ -1305,7 +1305,7 @@ define hidden void @_ZThn40_N2dt6solverD0Ev(ptr noundef %this) unnamed_addr #7 a
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(736) %0) #23
   ret void
 }
 
@@ -1314,7 +1314,7 @@ define hidden void @_ZThn48_N2dt6solverD0Ev(ptr noundef %this) unnamed_addr #7 a
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(736) %0) #23
   ret void
 }
 
@@ -3213,7 +3213,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN11trail_stack8push_ptrEP5trail.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE9push_backERKj.exit32
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
   %.pre.i.i = load ptr, ptr %21, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -3715,7 +3715,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   %vtable.i.i = load ptr, ptr %0, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 496
   %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(108) %0)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(736) %0)
   %3 = load i32, ptr %m_num_scopes.i.i, align 8
   %dec.i.i = add i32 %3, -1
   store i32 %dec.i.i, ptr %m_num_scopes.i.i, align 8
@@ -3723,7 +3723,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   br i1 %cmp.not.i.i, label %_ZN3euf13th_euf_solver10force_pushEv.exit.i, label %for.body.i.i, !llvm.loop !12
 
 _ZN3euf13th_euf_solver10force_pushEv.exit.i:      ; preds = %for.body.i.i, %entry
-  %call.i = tail call noundef zeroext i1 @_ZNK3euf13th_euf_solver18is_attached_to_varEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %n)
+  %call.i = tail call noundef zeroext i1 @_ZNK3euf13th_euf_solver18is_attached_to_varEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %n)
   br i1 %call.i, label %_ZN2dt6solver16apply_sort_cnstrEPN3euf5enodeEP4sort.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN3euf13th_euf_solver10force_pushEv.exit.i
@@ -3853,7 +3853,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end8
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.end8
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
   %.pre.i.i = load ptr, ptr %14, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -4783,7 +4783,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end30
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.end30
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail.i)
   %.pre.i.i.i = load ptr, ptr %m_trail.i, align 8
   %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre1.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i, align 4
@@ -4921,7 +4921,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then17
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then17
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail.i)
   %.pre.i.i.i = load ptr, ptr %m_trail.i, align 8
   %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre1.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i, align 4
@@ -6433,7 +6433,7 @@ if.then21:                                        ; preds = %_ZNK8datatype4util1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %27, ptr %ref.tmp.i, align 8
   store ptr %7, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapIN3euf5enodeEPS2_E13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_parent, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapIN3euf5enodeEPS2_E13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_parent, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %28 = load ptr, ptr %m_dfs.i, align 8
   %cmp.i.i35 = icmp eq ptr %28, null
@@ -6725,7 +6725,7 @@ if.then7:                                         ; preds = %_ZNK8datatype4util1
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %10 = load ptr, ptr %this.8.val, align 8
   store ptr %10, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapIN3euf5enodeEPS2_E13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_parent, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapIN3euf5enodeEPS2_E13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_parent, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_dfs.i = getelementptr inbounds i8, ptr %this.0.val, i64 704
   %11 = load ptr, ptr %m_dfs.i, align 8
@@ -8507,7 +8507,7 @@ land.end:                                         ; preds = %if.end5.i.i.i, %if.
 define hidden noundef zeroext i1 @_ZThn48_N2dt6solver7visitedEP4expr(ptr noundef %this, ptr noundef %e) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %e)
+  %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %e)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN2dt6solver7visitedEP4expr.exit, label %land.rhs.i
 
@@ -9309,7 +9309,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -9319,7 +9319,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -9646,7 +9646,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -9701,7 +9701,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

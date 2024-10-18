@@ -924,7 +924,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148), !noalias !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %149), !noalias !6
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %150), !noalias !6
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %149, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %149, ptr nonnull align 16 %1)
           to label %.noexc.i unwind label %.loopexit.split-lp682, !noalias !6
 
 .noexc.i:                                         ; preds = %263
@@ -1036,7 +1036,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
           to label %.noexc178.i unwind label %.loopexit681, !noalias !6
 
 .noexc178.i:                                      ; preds = %.noexc177.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %140, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %140, ptr nonnull align 16 %1)
           to label %.noexc179.i unwind label %.loopexit681, !noalias !6
 
 .noexc179.i:                                      ; preds = %.noexc178.i
@@ -1217,7 +1217,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   br i1 %311, label %316, label %318
 
 313:                                              ; preds = %306
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %129, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %129, ptr nonnull align 16 %1)
           to label %.noexc73.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc73.i.i:                                     ; preds = %313
@@ -1363,7 +1363,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i: ; pr
           to label %.noexc123.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc123.i.i.i:                                  ; preds = %333
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %115, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %115, ptr nonnull align 16 %1)
           to label %.noexc124.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc124.i.i.i:                                  ; preds = %.noexc123.i.i.i
@@ -1372,7 +1372,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i: ; pr
   br i1 %335, label %384, label %385
 
 336:                                              ; preds = %.noexc122.i.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %111, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %111, ptr nonnull align 16 %1)
           to label %.noexc125.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc125.i.i.i:                                  ; preds = %336
@@ -1483,7 +1483,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
   br i1 %347, label %348, label %351
 
 348:                                              ; preds = %.noexc85.i.i.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %103, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %103, ptr nonnull align 16 %1)
           to label %.noexc86.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !28
 
 .noexc86.i.i.i.i:                                 ; preds = %348
@@ -1512,7 +1512,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
 
 352:                                              ; preds = %.noexc86.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %104, ptr noundef nonnull align 8 dereferenceable(56) %232, i64 56, i1 false), !noalias !31
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %101, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %101, ptr nonnull align 16 %1)
           to label %355 unwind label %.loopexit132.i.i.i.i, !noalias !31
 
 353:                                              ; preds = %.noexc86.i.i.i.i
@@ -1806,7 +1806,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
   br label %.thread191.i.i.i
 
 386:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %124, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %124, ptr nonnull align 16 %1)
           to label %390 unwind label %.loopexit.split-lp.i.i.i.loopexit, !noalias !19
 
 .thread191.i.i.i:                                 ; preds = %385, %381, %341, %339
@@ -2368,7 +2368,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   br label %.thread355.i
 
 456:                                              ; preds = %.noexc198.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %88, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %88, ptr nonnull align 16 %1)
           to label %.noexc199.i unwind label %.loopexit681, !noalias !6
 
 .noexc199.i:                                      ; preds = %456
@@ -2490,11 +2490,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %469, label %472, label %471
 
 471:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %85, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %85, ptr nonnull align 16 %1)
           to label %473 unwind label %.loopexit.i185.i, !noalias !37
 
 472:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %83, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %83, ptr nonnull align 16 %1)
           to label %479 unwind label %.loopexit.split-lp.i187.i, !noalias !37
 
 473:                                              ; preds = %471
@@ -2543,7 +2543,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %481, label %482, label %483
 
 482:                                              ; preds = %479
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %82, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %82, ptr nonnull align 16 %1)
           to label %484 unwind label %.loopexit.split-lp.i187.i, !noalias !37
 
 483:                                              ; preds = %479
@@ -2674,7 +2674,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
 .thread120.i:                                     ; preds = %.noexc95, %.noexc89
   %.sroa.045.0.i = phi i64 [ 0, %.noexc89 ], [ 1, %.noexc95 ]
   %.sroa.346.0.i = phi i64 [ undef, %.noexc89 ], [ %516, %.noexc95 ]
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %28, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %28, ptr nonnull align 16 %1)
           to label %.noexc93 unwind label %.loopexit681
 
 .noexc93:                                         ; preds = %.thread120.i
@@ -2800,7 +2800,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %524, label %526, label %525
 
 525:                                              ; preds = %.noexc85.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %15, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %15, ptr nonnull align 16 %1)
           to label %.noexc86.i unwind label %576, !noalias !49
 
 .noexc86.i:                                       ; preds = %525
@@ -2892,7 +2892,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
           to label %.noexc95.i unwind label %576, !noalias !49
 
 .noexc95.i:                                       ; preds = %.noexc94.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %7, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %7, ptr nonnull align 16 %1)
           to label %.noexc96.i unwind label %576, !noalias !49
 
 .noexc96.i:                                       ; preds = %.noexc95.i
@@ -2904,7 +2904,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.3.0..sroa_idx.i.i.i, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.322.0..sroa_idx.i.i.i, i64 48, i1 false), !noalias !66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %207, i64 72, i1 false), !noalias !66
   store i64 %543, ptr %8, align 16, !noalias !66
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %6, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %6, ptr nonnull align 16 %1)
           to label %548 unwind label %546, !noalias !66
 
 545:                                              ; preds = %.noexc96.i
@@ -2945,7 +2945,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br label %578
 
 556:                                              ; preds = %553
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias align 16 %17, ptr align 16 %1, ptr align 8 %22)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias align 16 %17, ptr nonnull align 16 %1, ptr align 8 %22)
           to label %.noexc98.i unwind label %576, !noalias !49
 
 .noexc98.i:                                       ; preds = %556
@@ -2964,7 +2964,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
           to label %.noexc103.i unwind label %576, !noalias !49
 
 .noexc103.i:                                      ; preds = %.noexc102.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %3, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %3, ptr nonnull align 16 %1)
           to label %.noexc104.i unwind label %576, !noalias !49
 
 .noexc104.i:                                      ; preds = %.noexc103.i
@@ -3186,7 +3186,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %595, label %596, label %599
 
 596:                                              ; preds = %.noexc62
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %39, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %39, ptr nonnull align 16 %1)
           to label %.noexc63 unwind label %.loopexit681
 
 .noexc63:                                         ; preds = %596
@@ -3261,7 +3261,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br i1 %603, label %606, label %605
 
 605:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %37, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %37, ptr nonnull align 16 %1)
           to label %607 unwind label %.loopexit.i, !noalias !74
 
 606:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i
@@ -3320,7 +3320,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br i1 %614, label %615, label %616
 
 615:                                              ; preds = %612
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %34, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %34, ptr nonnull align 16 %1)
           to label %617 unwind label %.loopexit.split-lp.i, !noalias !74
 
 616:                                              ; preds = %612
@@ -3470,7 +3470,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br i1 %638, label %643, label %645
 
 640:                                              ; preds = %633
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %64, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %64, ptr nonnull align 16 %1)
           to label %.noexc38 unwind label %.loopexit681
 
 .noexc38:                                         ; preds = %640
@@ -3607,7 +3607,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
           to label %.noexc46 unwind label %.loopexit681
 
 .noexc46:                                         ; preds = %.noexc45
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias align 8 %54, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias align 8 %54, ptr nonnull align 16 %1)
           to label %.noexc47 unwind label %.loopexit681
 
 .noexc47:                                         ; preds = %.noexc46
@@ -3617,7 +3617,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 666:                                              ; preds = %.noexc47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %180, i64 56, i1 false), !noalias !77
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %53, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %53, ptr nonnull align 16 %1)
           to label %670 unwind label %668, !noalias !77
 
 667:                                              ; preds = %.noexc47
@@ -3684,7 +3684,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   unreachable
 
 677:                                              ; preds = %.noexc42
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %59, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %59, ptr nonnull align 16 %1)
           to label %.noexc51 unwind label %.loopexit681
 
 .noexc51:                                         ; preds = %677
@@ -3711,7 +3711,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 681:                                              ; preds = %.noexc51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %184, i64 56, i1 false), !noalias !77
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %58, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %58, ptr nonnull align 16 %1)
           to label %685 unwind label %683, !noalias !77
 
 682:                                              ; preds = %.noexc51
@@ -3773,7 +3773,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 690:                                              ; preds = %.noexc38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(56) %186, i64 56, i1 false), !noalias !77
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %63, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %63, ptr nonnull align 16 %1)
           to label %694 unwind label %692, !noalias !77
 
 691:                                              ; preds = %.noexc38
@@ -3862,7 +3862,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
           to label %.noexc21 unwind label %.loopexit681
 
 .noexc21:                                         ; preds = %.noexc20
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %71, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %71, ptr nonnull align 16 %1)
           to label %.noexc22 unwind label %.loopexit681
 
 .noexc22:                                         ; preds = %.noexc21
@@ -3872,7 +3872,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 707:                                              ; preds = %.noexc22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(56) %170, i64 56, i1 false), !noalias !92
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %69, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %69, ptr nonnull align 16 %1)
           to label %710 unwind label %.loopexit686, !noalias !92
 
 708:                                              ; preds = %.noexc22
@@ -3915,7 +3915,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 713:                                              ; preds = %710
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %70, ptr noundef nonnull align 8 dereferenceable(56) %171, i64 56, i1 false), !noalias !92
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %68, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %68, ptr nonnull align 16 %1)
           to label %717 unwind label %715, !noalias !92
 
 714:                                              ; preds = %710
@@ -6243,7 +6243,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %.noexc114
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %13, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %13, ptr nonnull align 16 %1)
           to label %.noexc115 unwind label %.loopexit
 
 .noexc115:                                        ; preds = %85
@@ -6260,7 +6260,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
 
 89:                                               ; preds = %.noexc115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %75, i64 56, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %11, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %11, ptr nonnull align 16 %1)
           to label %92 unwind label %.loopexit224
 
 90:                                               ; preds = %.noexc115
@@ -6291,7 +6291,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
 
 95:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %76, i64 56, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %9, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %9, ptr nonnull align 16 %1)
           to label %97 unwind label %.loopexit229
 
 96:                                               ; preds = %92

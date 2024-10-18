@@ -107,7 +107,7 @@ define void @_ZN4LIEF5MachO15DyldBindingInfoC2ENS0_13BINDING_CLASSENS0_10BIND_TY
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(96) ptr @_ZN4LIEF5MachO15DyldBindingInfoaSES1_(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
-  tail call void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  tail call void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i64, ptr %3, align 8

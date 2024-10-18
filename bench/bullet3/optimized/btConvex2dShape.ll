@@ -49,7 +49,7 @@ declare void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15btConvex2dShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #7
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #7
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN15btConvex2dShapedlEPv.exit unwind label %terminate.lpad.i
 

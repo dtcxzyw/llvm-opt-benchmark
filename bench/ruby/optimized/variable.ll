@@ -1292,7 +1292,7 @@ define internal fastcc i64 @global_id(ptr noundef nonnull %0) unnamed_addr #0 {
 .thread:                                          ; preds = %7
   %11 = add i64 %8, 8
   %12 = lshr i64 %11, 3
-  %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %12) #28
+  %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %2, i64 noundef range(i64 1024, 0) %9, i64 noundef %12) #28
   store i8 36, ptr %13, align 1
   %14 = getelementptr i8, ptr %13, i64 1
   br label %18
@@ -1329,7 +1329,7 @@ define dso_local void @rb_define_variable(ptr noundef nonnull %0, ptr noundef no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load i64, ptr %1, align 8
   store volatile i64 %5, ptr %3, align 8
-  %6 = tail call fastcc i64 @global_id(ptr noundef %0)
+  %6 = tail call fastcc i64 @global_id(ptr noundef nonnull %0)
   %7 = tail call fastcc ptr @rb_global_entry(i64 noundef %6)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1357,7 +1357,7 @@ define dso_local void @rb_define_readonly_variable(ptr noundef nonnull %0, ptr n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load i64, ptr %1, align 8
   store volatile i64 %5, ptr %3, align 8
-  %6 = tail call fastcc i64 @global_id(ptr noundef %0)
+  %6 = tail call fastcc i64 @global_id(ptr noundef nonnull %0)
   %7 = tail call fastcc ptr @rb_global_entry(i64 noundef %6)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1388,7 +1388,7 @@ define dso_local void @rb_define_virtual_variable(ptr noundef nonnull %0, ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store volatile i64 4, ptr %4, align 8
-  %6 = tail call fastcc i64 @global_id(ptr noundef %0)
+  %6 = tail call fastcc i64 @global_id(ptr noundef nonnull %0)
   %7 = tail call fastcc ptr @rb_global_entry(i64 noundef %6)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1838,7 +1838,7 @@ define internal fastcc i64 @find_global_id(ptr noundef nonnull %0) unnamed_addr 
 .thread:                                          ; preds = %8
   %11 = add i64 %3, 8
   %12 = lshr i64 %11, 3
-  %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %12) #28
+  %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %2, i64 noundef range(i64 1024, 0) %9, i64 noundef %12) #28
   store i8 36, ptr %13, align 1
   %14 = getelementptr i8, ptr %13, i64 1
   br label %18
@@ -4845,7 +4845,7 @@ autoload_data.exit:                               ; preds = %23
   br i1 %.not, label %get_autoload_data.exit, label %26
 
 26:                                               ; preds = %autoload_data.exit
-  %27 = call ptr @rb_check_typeddata(i64 noundef %25, ptr noundef nonnull @autoload_const_type) #24
+  %27 = call ptr @rb_check_typeddata(i64 noundef range(i64 1, 0) %25, ptr noundef nonnull @autoload_const_type) #24
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = call ptr @rb_check_typeddata(i64 noundef %29, ptr noundef nonnull @autoload_data_type) #24
@@ -5128,7 +5128,7 @@ autoload_defined_p.exit:                          ; preds = %19
   br i1 %36, label %get_autoload_data.exit, label %37
 
 37:                                               ; preds = %34, %29
-  %38 = call ptr @rb_check_typeddata(i64 noundef %28, ptr noundef nonnull @autoload_const_type) #24
+  %38 = call ptr @rb_check_typeddata(i64 noundef range(i64 1, 0) %28, ptr noundef nonnull @autoload_const_type) #24
   %39 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = call ptr @rb_check_typeddata(i64 noundef %40, ptr noundef nonnull @autoload_data_type) #24
@@ -5467,7 +5467,7 @@ autoload_defined_p.exit.thread:                   ; preds = %rb_const_lookup.exi
   br i1 %.not14, label %get_autoload_data.exit, label %41
 
 41:                                               ; preds = %.split23.us
-  %42 = call ptr @rb_check_typeddata(i64 noundef %40, ptr noundef nonnull @autoload_const_type) #24
+  %42 = call ptr @rb_check_typeddata(i64 noundef range(i64 1, 0) %40, ptr noundef nonnull @autoload_const_type) #24
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = call ptr @rb_check_typeddata(i64 noundef %44, ptr noundef nonnull @autoload_data_type) #24
@@ -5555,7 +5555,7 @@ autoload_data.exit:                               ; preds = %25
   br i1 %.not, label %get_autoload_data.exit, label %28
 
 28:                                               ; preds = %autoload_data.exit
-  %29 = call ptr @rb_check_typeddata(i64 noundef %27, ptr noundef nonnull @autoload_const_type) #24
+  %29 = call ptr @rb_check_typeddata(i64 noundef range(i64 1, 0) %27, ptr noundef nonnull @autoload_const_type) #24
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = call ptr @rb_check_typeddata(i64 noundef %31, ptr noundef nonnull @autoload_data_type) #24
@@ -5673,7 +5673,7 @@ define internal fastcc i64 @rb_const_get_0(i64 noundef %0, i64 noundef %1, i32 n
   %7 = load i64, ptr @rb_cObject, align 8
   %8 = icmp eq i64 %0, %7
   %spec.select.i = select i1 %8, i32 0, i32 %2
-  %9 = tail call fastcc i64 @rb_const_search_from(i64 noundef %0, i64 noundef %1, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %4)
+  %9 = tail call fastcc i64 @rb_const_search_from(i64 noundef %0, i64 noundef %1, i32 noundef %spec.select.i, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4)
   %10 = icmp eq i64 %9, 36
   %.not.i = icmp eq i32 %spec.select.i, 0
   %or.cond.i = and i1 %10, %.not.i
@@ -5688,7 +5688,7 @@ define internal fastcc i64 @rb_const_get_0(i64 noundef %0, i64 noundef %1, i32 n
 
 15:                                               ; preds = %11
   %16 = load i64, ptr @rb_cObject, align 8
-  %17 = tail call fastcc i64 @rb_const_search_from(i64 noundef %16, i64 noundef %1, i32 noundef 0, i32 noundef %3, i32 noundef %4)
+  %17 = tail call fastcc i64 @rb_const_search_from(i64 noundef %16, i64 noundef %1, i32 noundef 0, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4)
   br label %rb_const_search.exit
 
 rb_const_search.exit:                             ; preds = %5, %15
@@ -5996,7 +5996,7 @@ define internal fastcc void @autoload_delete(i64 noundef %0, i64 noundef %1) unn
   br i1 %.not, label %43, label %12
 
 12:                                               ; preds = %8
-  %13 = call ptr @rb_check_typeddata(i64 noundef %11, ptr noundef nonnull @autoload_const_type) #24
+  %13 = call ptr @rb_check_typeddata(i64 noundef range(i64 1, 0) %11, ptr noundef nonnull @autoload_const_type) #24
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = call ptr @rb_check_typeddata(i64 noundef %15, ptr noundef nonnull @autoload_data_type) #24
@@ -9335,7 +9335,7 @@ autoload_data.exit:                               ; preds = %24
   br i1 %.not, label %43, label %27
 
 27:                                               ; preds = %autoload_data.exit
-  %28 = call ptr @rb_check_typeddata(i64 noundef %26, ptr noundef nonnull @autoload_const_type) #24
+  %28 = call ptr @rb_check_typeddata(i64 noundef range(i64 1, 0) %26, ptr noundef nonnull @autoload_const_type) #24
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = call ptr @rb_check_typeddata(i64 noundef %30, ptr noundef nonnull @autoload_data_type) #24

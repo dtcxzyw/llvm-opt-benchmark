@@ -2104,7 +2104,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
 
 .preheader54.preheader.i:                         ; preds = %51
   call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceVTagsEiPNS3_4VTagEi(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %42, ptr noundef nonnull %7, i32 noundef -1)
-  %60 = call i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr noundef nonnull %7, i32 noundef %54)
+  %60 = call i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr noundef nonnull %7, i32 noundef range(i32 0, 8) %54)
   %61 = and i16 %60, 4096
   %.not33.i = icmp eq i16 %61, 0
   br i1 %.not33.i, label %62, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread
@@ -2213,7 +2213,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit: ; preds = %99
   %.val.i = load i16, ptr %2, align 4
-  %101 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %60, ptr noundef %7, i32 noundef %54, i16 %.val.i)
+  %101 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %60, ptr noundef %7, i32 noundef range(i32 0, 8) %54, i16 %.val.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %101, label %.thread, label %102
 

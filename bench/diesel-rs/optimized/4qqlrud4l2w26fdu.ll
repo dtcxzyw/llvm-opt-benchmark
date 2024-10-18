@@ -553,7 +553,7 @@ define hidden void @"_ZN4core3ptr174drop_in_place$LT$diesel..query_dsl..load_dsl
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17hc00d3f7071a17d7bE.llvm.14992767593304109899.exit.i.i.i.i" unwind label %7, !noalias !278
 
 7:                                                ; preds = %5
@@ -793,7 +793,7 @@ define hidden void @"_ZN4core3ptr262drop_in_place$LT$diesel..query_dsl..load_dsl
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17hc00d3f7071a17d7bE.llvm.14992767593304109899.exit.i.i.i.i" unwind label %7, !noalias !424
 
 7:                                                ; preds = %5
@@ -1138,7 +1138,7 @@ define hidden void @"_ZN4core3ptr450drop_in_place$LT$diesel..query_builder..inse
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h5a15a49b2368bf50E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !631)
   %2 = load ptr, ptr %0, align 8, !alias.scope !631, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h6b727e6dd2cd2fe3E.llvm.14992767593304109899"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h6b727e6dd2cd2fe3E.llvm.14992767593304109899"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h62b2624b83dd4eacE.llvm.14992767593304109899.exit" unwind label %3, !noalias !631
 
 3:                                                ; preds = %1
@@ -1645,7 +1645,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row.
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17hc00d3f7071a17d7bE.llvm.14992767593304109899.exit.i.i.i" unwind label %7, !noalias !948
 
 7:                                                ; preds = %5
@@ -1774,7 +1774,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
   br i1 %6, label %"_ZN4core3ptr145drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..pg..backend..Pg$C$diesel..pg..connection..stmt..Statement$GT$$GT$17hd009756cb93ee654E.exit", label %7
 
 7:                                                ; preds = %1
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h739baa150a56a211E.llvm.279865716576117012(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h739baa150a56a211E.llvm.279865716576117012(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %7
@@ -1825,7 +1825,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
   br i1 %27, label %"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17h4e5bd2aedaad01deE.exit", label %28
 
 28:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..pg..backend..Pg$C$diesel..pg..connection..stmt..Statement$GT$$GT$17hd009756cb93ee654E.exit"
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17he8cb9ec4fb5feb37E.llvm.279865716576117012(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17he8cb9ec4fb5feb37E.llvm.279865716576117012(ptr noalias noundef nonnull align 8 dereferenceable(48) %24)
           to label %.noexc3 unwind label %44
 
 .noexc3:                                          ; preds = %28
@@ -1996,7 +1996,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..curs
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17hc00d3f7071a17d7bE.llvm.14992767593304109899.exit.i.i.i" unwind label %7, !noalias !1104
 
 7:                                                ; preds = %5
@@ -2269,7 +2269,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadat
   br i1 %5, label %"_ZN4core3ptr155drop_in_place$LT$std..collections..hash..map..HashMap$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$C$diesel..pg..backend..InnerPgTypeMetadata$GT$$GT$17h77ec72c163bfd9ddE.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17he8cb9ec4fb5feb37E.llvm.279865716576117012(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17he8cb9ec4fb5feb37E.llvm.279865716576117012(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1292)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1295
   %7 = load i64, ptr %3, align 8, !alias.scope !1295, !noundef !4
@@ -2605,7 +2605,7 @@ define hidden void @"_ZN4core3ptr730drop_in_place$LT$diesel..query_builder..inse
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h62b2624b83dd4eacE.llvm.14992767593304109899"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h6b727e6dd2cd2fe3E.llvm.14992767593304109899"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h6b727e6dd2cd2fe3E.llvm.14992767593304109899"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h3dd74e038f5c6f49E.llvm.14992767593304109899.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h3dd74e038f5c6f49E.llvm.14992767593304109899.exit": ; preds = %1
@@ -2916,7 +2916,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..rc..Rc$LT$diesel..pg.
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17hc00d3f7071a17d7bE.llvm.14992767593304109899.exit.i.i" unwind label %7, !noalias !1642
 
 7:                                                ; preds = %5
@@ -3679,7 +3679,7 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @"_ZN80_$LT$diesel..pg..connection..raw..RawResult$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3b6c9fb1d2c1cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17hc00d3f7071a17d7bE.llvm.14992767593304109899.exit.i" unwind label %7
 
 7:                                                ; preds = %5

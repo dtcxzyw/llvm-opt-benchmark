@@ -430,7 +430,7 @@ define internal void @startElement(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %3
-  %15 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #21
+  %15 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 177) 176) #21
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %gv_alloc.exit.i
 
@@ -506,7 +506,7 @@ mkTbl.exit:                                       ; preds = %36, %gv_alloc.exit.
 
 48:                                               ; preds = %45
   store i8 1, ptr getelementptr inbounds (i8, ptr @state, i64 72), align 8
-  %49 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #21
+  %49 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 177) 144) #21
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %gv_alloc.exit.i32
 
@@ -1774,7 +1774,7 @@ doAttrs.exit:                                     ; preds = %16, %1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @mkImg(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #21
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 177) 48) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
 

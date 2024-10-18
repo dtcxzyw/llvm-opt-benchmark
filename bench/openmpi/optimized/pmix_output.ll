@@ -870,7 +870,7 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   br i1 %113, label %114, label %.thread.i
 
 114:                                              ; preds = %110
-  %115 = call fastcc i32 @open_file(i32 noundef %0)
+  %115 = call fastcc i32 @open_file(i32 noundef range(i32 0, 64) %0)
   %.not30.i = icmp eq i32 %115, 0
   %116 = getelementptr inbounds i8, ptr %11, i64 68
   %117 = load i32, ptr %116, align 4

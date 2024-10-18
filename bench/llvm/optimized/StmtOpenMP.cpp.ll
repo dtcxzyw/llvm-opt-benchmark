@@ -362,10 +362,10 @@ define dso_local noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInn
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 4) #12
-  call void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE6assignEmS3_(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 1, ptr noundef nonnull %5)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %9, i64 noundef 4) #12
+  call void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE6assignEmS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef 1, ptr noundef nonnull %5)
   %10 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %10, i64 noundef 4) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %10, i64 noundef 4) #12
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %8
@@ -541,7 +541,7 @@ _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge: ; pr
   %.2 = phi ptr [ %.1.ph, %11 ], [ %.4, %57 ]
   %.not31 = icmp eq ptr %.2, null
   %spec.select = select i1 %.not31, ptr %0, ptr %.2
-  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
   %60 = load ptr, ptr %4, align 8
   %61 = icmp eq ptr %60, %10
   br i1 %61, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit, label %62
@@ -551,7 +551,7 @@ _ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge: ; pr
   br label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit: ; preds = %.loopexit, %62
-  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
   %64 = load ptr, ptr %3, align 8
   %65 = icmp eq ptr %64, %9
   br i1 %65, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit33, label %66

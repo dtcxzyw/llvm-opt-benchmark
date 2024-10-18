@@ -994,12 +994,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %message_type, i32 noundef %conv11.i.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 8) %message_type, i32 noundef %conv11.i.i) #19
   br label %trace_migrate_send_rp_message.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %message_type, i32 noundef %conv12.i.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef range(i32 1, 8) %message_type, i32 noundef %conv12.i.i) #19
   br label %trace_migrate_send_rp_message.exit
 
 trace_migrate_send_rp_message.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2483,7 +2483,7 @@ trace_migrate_set_state.exit:                     ; preds = %if.then3, %land.lhs
   br i1 %call.i, label %if.then.i, label %if.end4
 
 if.then.i:                                        ; preds = %trace_migrate_set_state.exit
-  tail call void @qapi_event_send_migration(i32 noundef %new_state) #19
+  tail call void @qapi_event_send_migration(i32 noundef range(i32 -2147483648, 14) %new_state) #19
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then.i, %trace_migrate_set_state.exit, %while.end
@@ -4076,11 +4076,11 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i16
   %15 = load i64, ptr %_now.i.i9, align 8
   %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
   %16 = load i64, ptr %tv_usec.i.i22, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef %call10.i.i21, i64 noundef %15, i64 noundef %16, i32 noundef %tobool11) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef %call10.i.i21, i64 noundef %15, i64 noundef %16, i32 noundef range(i32 0, 2) %tobool11) #19
   br label %trace_migration_rate_limit_post.exit
 
 if.else.i.i18:                                    ; preds = %if.then.i.i16
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %tobool11) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef range(i32 0, 2) %tobool11) #19
   br label %trace_migration_rate_limit_post.exit
 
 trace_migration_rate_limit_post.exit:             ; preds = %if.end10, %land.lhs.true5.i.i13, %if.then8.i.i19, %if.else.i.i18
@@ -4197,11 +4197,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i64 noundef %sub, i64 noundef %sub3, i64 noundef %conv35, i64 noundef %div36, i64 noundef %6) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i64 noundef %sub, i64 noundef %sub3, i64 noundef %conv35, i64 noundef range(i64 0, 18446744073709552) %div36, i64 noundef %6) #19
   br label %trace_migrate_transferred.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i64 noundef %sub, i64 noundef %sub3, i64 noundef %conv35, i64 noundef %div36, i64 noundef %6) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i64 noundef %sub, i64 noundef %sub3, i64 noundef %conv35, i64 noundef range(i64 0, 18446744073709552) %div36, i64 noundef %6) #19
   br label %trace_migrate_transferred.exit
 
 trace_migrate_transferred.exit:                   ; preds = %if.end34, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5380,7 +5380,7 @@ trace_migration_completion_vm_stop.exit.i.i.i:    ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp.i.i.i, label %migration_completion_precopy.exit.thread.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %trace_migration_completion_vm_stop.exit.i.i.i
-  %call2.i.i.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef %current_active_state.i.i, i32 noundef 12)
+  %call2.i.i.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %current_active_state.i.i, i32 noundef 12)
   %cmp3.i.i.i = icmp slt i32 %call2.i.i.i, 0
   br i1 %cmp3.i.i.i, label %migration_completion_precopy.exit.thread.i.i, label %migration_completion_precopy.exit.i.i
 
@@ -7380,11 +7380,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %rbname, i64 noundef %start, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %rbname, i64 noundef %start, i64 noundef range(i64 -2147483648, 2147483648) %len) #19
   br label %trace_migrate_handle_rp_req_pages.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef %rbname, i64 noundef %start, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef %rbname, i64 noundef %start, i64 noundef range(i64 -2147483648, 2147483648) %len) #19
   br label %trace_migrate_handle_rp_req_pages.exit
 
 trace_migrate_handle_rp_req_pages.exit:           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

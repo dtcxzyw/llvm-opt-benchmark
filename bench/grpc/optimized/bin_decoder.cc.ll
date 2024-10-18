@@ -534,7 +534,7 @@ if.then.i:                                        ; preds = %if.then108
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %13(ptr noundef nonnull %11)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %if.then108, %if.then.i, %if.then.i.i
@@ -628,7 +628,7 @@ if.then.i:                                        ; preds = %if.then
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %4(ptr noundef nonnull %2)
+  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %if.then, %if.then.i, %if.then.i.i
@@ -661,7 +661,7 @@ if.then.i29:                                      ; preds = %if.then9
 if.then.i.i31:                                    ; preds = %if.then.i29
   %destroyer_fn_.i.i32 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i32, align 8
-  call void %8(ptr noundef nonnull %6)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33: ; preds = %if.then9, %if.then.i29, %if.then.i.i31
@@ -718,7 +718,7 @@ if.then.i35:                                      ; preds = %if.then86
 if.then.i.i37:                                    ; preds = %if.then.i35
   %destroyer_fn_.i.i38 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %destroyer_fn_.i.i38, align 8
-  call void %17(ptr noundef nonnull %15)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit39
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit39: ; preds = %if.then86, %if.then.i35, %if.then.i.i37

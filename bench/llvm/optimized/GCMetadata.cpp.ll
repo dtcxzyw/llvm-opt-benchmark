@@ -171,7 +171,7 @@ define dso_local void @_ZN4llvm25CollectorMetadataAnalysis3runERNS_6ModuleERNS_1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::unique_ptr.84", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 16, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -317,7 +317,7 @@ define dso_local void @_ZN4llvm26initializeGCModuleInfoPassERNS_12PassRegistryE(
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL30InitializeGCModuleInfoPassFlag, ptr noundef nonnull @__once_proxy) #15
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL30InitializeGCModuleInfoPassFlag, ptr noundef nonnull @__once_proxy) #15
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -383,7 +383,7 @@ define dso_local void @_ZN4llvm14GCFunctionInfoD2Ev(ptr nocapture noundef nonnul
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm7GCPointEEvPT_.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(8) %7) #15
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7) #15
   br label %_ZSt8_DestroyIN4llvm7GCPointEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN4llvm7GCPointEEvPT_.exit.i.i.i.i:  ; preds = %8, %.lr.ph.i.i.i.i
@@ -828,10 +828,10 @@ define dso_local void @_ZN4llvm12GCModuleInfoC2Ev(ptr noundef nonnull align 8 de
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN4llvm12GCModuleInfoE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 1) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %8, i64 noundef 1) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 20, i1 false)
   store i32 16, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %11, i8 0, i64 44, i1 false)
@@ -846,7 +846,7 @@ define dso_local void @_ZN4llvm12GCModuleInfoC2Ev(ptr noundef nonnull align 8 de
   store ptr %2, ptr %14, align 8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %15, align 8
-  %16 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL30InitializeGCModuleInfoPassFlag, ptr noundef nonnull @__once_proxy) #15
+  %16 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL30InitializeGCModuleInfoPassFlag, ptr noundef nonnull @__once_proxy) #15
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZN4llvm26initializeGCModuleInfoPassERNS_12PassRegistryE.exit, label %17
 
@@ -1356,7 +1356,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm14GCFunctionInfoESt14default_deleteIS2_EESaIS5
 32:                                               ; preds = %.lr.ph.i
   %33 = load i64, ptr %31, align 8
   %34 = add i64 %33, 17
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %31, i64 noundef %34, i64 noundef 8) #15
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %34, i64 noundef 8) #15
   br label %35
 
 35:                                               ; preds = %32, %.lr.ph.i, %.lr.ph.i
@@ -1369,7 +1369,7 @@ _ZN4llvm9StringMapIPNS_10GCStrategyENS_15MallocAllocatorEED2Ev.exit: ; preds = %
   tail call void @free(ptr noundef %36) #15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #15
+  %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #15
   %.not4.i.i = icmp eq i64 %39, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i, label %.lr.ph.i.preheader.i
 

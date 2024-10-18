@@ -205,7 +205,7 @@ define linkonce_odr hidden void @_ZN15XStackWatermarkD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15XStackWatermarkD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #7
+  tail call void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #7
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #7
   ret void
 }

@@ -203,17 +203,17 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Resu
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN66_$LT$tempfile..file..TempPath$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2328291bf9f3f100E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN66_$LT$tempfile..file..TempPath$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2328291bf9f3f100E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %7 unwind label %5
 
 5:                                                ; preds = %4
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ee53b023cceefaE.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ee53b023cceefaE.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body.i unwind label %8
 
 7:                                                ; preds = %4
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ee53b023cceefaE.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ee53b023cceefaE.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17hea8fd448a24f865fE.exit" unwind label %10
 
 8:                                                ; preds = %5
@@ -355,7 +355,7 @@ common.resume:                                    ; preds = %37, %27
 37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %common.resume unwind label %39, !noalias !73
 
 39:                                               ; preds = %37
@@ -365,7 +365,7 @@ common.resume:                                    ; preds = %37, %27
   unreachable
 
 _ZN3std4path4Path4join17hda5391bca25cc202E.exit:  ; preds = %33
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !73
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
@@ -483,7 +483,7 @@ common.resume:                                    ; preds = %35, %25
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
           to label %common.resume unwind label %37, !noalias !101
 
 37:                                               ; preds = %35
@@ -493,7 +493,7 @@ common.resume:                                    ; preds = %35, %25
   unreachable
 
 _ZN3std4path4Path4join17hda5391bca25cc202E.exit:  ; preds = %31
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !101
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15), !noalias !101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)

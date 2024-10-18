@@ -5478,7 +5478,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -6212,7 +6212,7 @@ invoke.cont86:                                    ; preds = %.noexc109, %lor.lhs
   store ptr %56, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %q, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(20) %m_lambdas, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %m_lambdas, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont88 unwind label %lpad49.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont88:                                    ; preds = %invoke.cont86
@@ -7078,7 +7078,7 @@ if.end:                                           ; preds = %land.rhs.i.i, %invo
   %27 = phi ptr [ %call4, %land.rhs.i.i ], [ %call4, %invoke.cont30 ], [ %23, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %call4, %invoke.cont34 ]
   %m_relevancy_propagator.i = getelementptr inbounds i8, ptr %this, i64 7512
   %28 = load ptr, ptr %m_relevancy_propagator.i, align 8
-  invoke void @_ZN3smt20relevancy_propagator14add_dependencyEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %n, ptr noundef %27)
+  invoke void @_ZN3smt20relevancy_propagator14add_dependencyEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull %n, ptr noundef %27)
           to label %invoke.cont46 unwind label %lpad
 
 invoke.cont46:                                    ; preds = %if.end
@@ -10579,7 +10579,7 @@ invoke.cont66:                                    ; preds = %invoke.cont58
   %vtable.i129 = load ptr, ptr %55, align 8
   %vfn.i130 = getelementptr inbounds i8, ptr %vtable.i129, i64 16
   %56 = load ptr, ptr %vfn.i130, align 8
-  invoke void %56(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef %n, ptr noundef %call55)
+  invoke void %56(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull %n, ptr noundef %call55)
           to label %if.end unwind label %lpad8
 
 lpad:                                             ; preds = %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit
@@ -13712,7 +13712,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN3smt20simple_justificationC2ERNS_7contextEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %num_lits, ptr noundef %lits)
+  call void @_ZN3smt20simple_justificationC2ERNS_7contextEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %num_lits, ptr noundef %lits)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt27simple_theory_justificationE, i64 16), ptr %ref.tmp, align 8
   %m_th_id.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %tid, ptr %m_th_id.i.i, align 8
@@ -16081,7 +16081,7 @@ entry:
   store ptr %1, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr null, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6removeERKS8_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6removeERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }

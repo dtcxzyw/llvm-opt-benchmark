@@ -388,7 +388,7 @@ t42_parser_init.exit._crit_edge.i:                ; preds = %t42_parser_init.exi
 142:                                              ; preds = %138
   %143 = getelementptr inbounds i8, ptr %.080.ph108.i.i, i64 24
   %144 = load ptr, ptr %143, align 8
-  call void %144(ptr noundef %1, ptr noundef nonnull %9) #13
+  call void %144(ptr noundef nonnull %1, ptr noundef nonnull %9) #13
   %145 = load i32, ptr %70, align 8
   br label %t42_load_keyword.exit.i.i
 

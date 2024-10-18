@@ -517,16 +517,16 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   br i1 %.not.i39, label %64, label %62
 
 62:                                               ; preds = %57
-  %63 = call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %61, ptr noundef %58, ptr noundef nonnull %59) #10
+  %63 = call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %61, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(88) %59) #10
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 64:                                               ; preds = %57
-  %65 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %59, ptr noundef %58) #10
+  %65 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(88) %59, ptr noundef %58) #10
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 67:                                               ; preds = %64
-  %68 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %59, ptr noundef %58, i1 noundef zeroext true) #10
+  %68 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(88) %59, ptr noundef %58, i1 noundef zeroext true) #10
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
@@ -1134,7 +1134,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; 
   %67 = sub nuw nsw i32 32, %66
   %68 = shl nuw i32 1, %67
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %62, i32 %68
-  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %1, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
@@ -1228,7 +1228,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; 
   %41 = sub nuw nsw i32 32, %40
   %42 = shl nuw i32 1, %41
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %36, i32 %42
-  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %1, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
@@ -1316,7 +1316,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; 
   %43 = sub nuw nsw i32 32, %42
   %44 = shl nuw i32 1, %43
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %38, i32 %44
-  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %1, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
@@ -1568,7 +1568,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i:
   %25 = sub nuw nsw i32 32, %24
   %26 = shl nuw i32 1, %25
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %20, i32 %26
-  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %1, align 8
   br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
 

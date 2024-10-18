@@ -698,11 +698,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %hb.tr, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr3) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %hb.tr, i64 noundef %start, i64 noundef range(i64 1, 0) %count, i64 noundef %shr, i64 noundef %shr3) #12
   br label %trace_hbitmap_set.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %hb.tr, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr3) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %hb.tr, i64 noundef %start, i64 noundef range(i64 1, 0) %count, i64 noundef %shr, i64 noundef %shr3) #12
   br label %trace_hbitmap_set.exit
 
 trace_hbitmap_set.exit:                           ; preds = %tailrecurse, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -991,11 +991,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr15) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef range(i64 1, 0) %count, i64 noundef %shr, i64 noundef %shr15) #12
   br label %trace_hbitmap_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count, i64 noundef %shr, i64 noundef %shr15) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef range(i64 1, 0) %count, i64 noundef %shr, i64 noundef %shr15) #12
   br label %trace_hbitmap_reset.exit
 
 trace_hbitmap_reset.exit:                         ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

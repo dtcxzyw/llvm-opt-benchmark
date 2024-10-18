@@ -43,7 +43,7 @@ define i32 @ompi_datatype_create_vector(i32 noundef %0, i32 noundef %1, i32 noun
   %24 = sext i32 %0 to i64
   %25 = sext i32 %1 to i64
   %26 = mul nsw i64 %25, %24
-  %27 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef %26, i64 noundef 0, i64 noundef %10) #3
+  %27 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %26, i64 noundef 0, i64 noundef %10) #3
   br label %65
 
 28:                                               ; preds = %15
@@ -54,12 +54,12 @@ define i32 @ompi_datatype_create_vector(i32 noundef %0, i32 noundef %1, i32 noun
   %31 = zext nneg i32 %0 to i64
   %32 = sext i32 %2 to i64
   %33 = mul nsw i64 %10, %32
-  %34 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef %31, i64 noundef 0, i64 noundef %33) #3
+  %34 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %31, i64 noundef 0, i64 noundef %33) #3
   br label %65
 
 35:                                               ; preds = %28
   %36 = sext i32 %1 to i64
-  %37 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef %36, i64 noundef 0, i64 noundef %10) #3
+  %37 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %36, i64 noundef 0, i64 noundef %10) #3
   %38 = load i64, ptr %16, align 8
   %39 = trunc i64 %38 to i32
   %40 = add i32 %39, 4
@@ -67,7 +67,7 @@ define i32 @ompi_datatype_create_vector(i32 noundef %0, i32 noundef %1, i32 noun
   %42 = zext nneg i32 %0 to i64
   %43 = sext i32 %2 to i64
   %44 = mul nsw i64 %10, %43
-  %45 = tail call i32 @opal_datatype_add(ptr noundef %41, ptr noundef %20, i64 noundef %42, i64 noundef 0, i64 noundef %44) #3
+  %45 = tail call i32 @opal_datatype_add(ptr noundef %41, ptr noundef %20, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %42, i64 noundef 0, i64 noundef %44) #3
   %46 = getelementptr inbounds i8, ptr %20, i64 8
   %47 = load i8, ptr @opal_uses_threads, align 1
   %48 = trunc i8 %47 to i1
@@ -160,7 +160,7 @@ define i32 @ompi_datatype_create_hvector(i32 noundef %0, i32 noundef %1, i64 nou
 25:                                               ; preds = %15
   %26 = mul nsw i32 %1, %0
   %27 = sext i32 %26 to i64
-  %28 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef %27, i64 noundef 0, i64 noundef %10) #3
+  %28 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %27, i64 noundef 0, i64 noundef %10) #3
   br label %61
 
 29:                                               ; preds = %15
@@ -169,17 +169,17 @@ define i32 @ompi_datatype_create_hvector(i32 noundef %0, i32 noundef %1, i64 nou
 
 31:                                               ; preds = %29
   %32 = zext nneg i32 %0 to i64
-  %33 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef %32, i64 noundef 0, i64 noundef %2) #3
+  %33 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %32, i64 noundef 0, i64 noundef %2) #3
   br label %61
 
 34:                                               ; preds = %29
-  %35 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef %21, i64 noundef 0, i64 noundef %10) #3
+  %35 = tail call i32 @opal_datatype_add(ptr noundef %20, ptr noundef nonnull %3, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %21, i64 noundef 0, i64 noundef %10) #3
   %36 = load i64, ptr %16, align 8
   %37 = trunc i64 %36 to i32
   %38 = add i32 %37, 4
   %39 = tail call ptr @ompi_datatype_create(i32 noundef %38) #3
   %40 = zext nneg i32 %0 to i64
-  %41 = tail call i32 @opal_datatype_add(ptr noundef %39, ptr noundef %20, i64 noundef %40, i64 noundef 0, i64 noundef %2) #3
+  %41 = tail call i32 @opal_datatype_add(ptr noundef %39, ptr noundef %20, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %40, i64 noundef 0, i64 noundef %2) #3
   %42 = getelementptr inbounds i8, ptr %20, i64 8
   %43 = load i8, ptr @opal_uses_threads, align 1
   %44 = trunc i8 %43 to i1

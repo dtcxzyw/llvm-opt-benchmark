@@ -346,7 +346,7 @@ HFilter.exit:                                     ; preds = %HFilter.exit.prehea
   %179 = load i16, ptr %178, align 2
   %180 = sext i16 %179 to i32
   %181 = add nsw i32 %180, %168
-  %182 = tail call i32 @llvm.smax.i32(i32 %181, i32 0)
+  %182 = tail call i32 @llvm.smax.i32(i32 range(i32 -32768, 33023) %181, i32 0)
   %183 = tail call i32 @llvm.umin.i32(i32 %182, i32 255)
   %184 = trunc nuw i32 %183 to i8
   store i8 %184, ptr %166, align 1

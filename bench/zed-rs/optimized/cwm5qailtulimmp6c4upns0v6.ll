@@ -577,7 +577,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %40 = getelementptr inbounds i8, ptr %38, i64 -32
   %.val4.i.i.i = load ptr, ptr %40, align 8, !noalias !130, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds i8, ptr %.val4.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %1, ptr nonnull readonly %41, i64 %2), !alias.scope !131, !noalias !138
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %1, ptr nonnull readonly align 1 %41, i64 %2), !alias.scope !131, !noalias !138
   %42 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %42, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h105e2c0d1624eb40E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1a14adb324a7def7E.exit.thread.i.i"
 

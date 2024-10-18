@@ -160,7 +160,7 @@ define void @_ZThn8_N6icu_7516FunctionReplacerD0Ev(ptr noundef %this) unnamed_ad
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7516FunctionReplacerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #9
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   ret void
 }
 

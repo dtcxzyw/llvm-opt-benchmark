@@ -440,7 +440,7 @@ define i32 @pmix_mca_base_framework_close(ptr noundef %0) local_unnamed_addr #1 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.i
   %61 = phi ptr [ %63, %.lr.ph.i ], [ %60, %55 ]
   %.07.i = phi ptr [ %62, %.lr.ph.i ], [ %59, %55 ]
-  tail call void %61(ptr noundef %35) #9
+  tail call void %61(ptr noundef nonnull %35) #9
   %62 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not.i = icmp eq ptr %63, null
@@ -543,7 +543,7 @@ pmix_obj_run_destructors.exit70:                  ; preds = %.lr.ph.i67, %pmix_l
 .lr.ph.i74:                                       ; preds = %107, %.lr.ph.i74
   %113 = phi ptr [ %115, %.lr.ph.i74 ], [ %112, %107 ]
   %.07.i75 = phi ptr [ %114, %.lr.ph.i74 ], [ %111, %107 ]
-  tail call void %113(ptr noundef %90) #9
+  tail call void %113(ptr noundef nonnull %90) #9
   %114 = getelementptr inbounds i8, ptr %.07.i75, i64 8
   %115 = load ptr, ptr %114, align 8
   %.not.i76 = icmp eq ptr %115, null

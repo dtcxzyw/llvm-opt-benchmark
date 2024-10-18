@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_Z13blake2sp_initP14blake2sp_state(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2592
   %3 = getelementptr inbounds i8, ptr %0, i64 2304
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, i8 0, i64 240, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(281) %3, i8 0, i64 240, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 2576
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2584
@@ -47,7 +47,7 @@ _ZL18blake2s_init_paramP13blake2s_statejj.exit:   ; preds = %7
 19:                                               ; preds = %_ZL18blake2s_init_paramP13blake2s_statejj.exit, %_ZL18blake2s_init_paramP13blake2s_statejj.exit12
   %indvars.iv = phi i64 [ 0, %_ZL18blake2s_init_paramP13blake2s_statejj.exit ], [ %indvars.iv.next, %_ZL18blake2s_init_paramP13blake2s_statejj.exit12 ]
   %20 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %20, i8 0, i64 240, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(281) %20, i8 0, i64 240, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 272
   store i64 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 280

@@ -525,12 +525,12 @@ define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr nocapture noundef %1, 
 90:                                               ; preds = %89
   %91 = load ptr, ptr @Curl_cfree, align 8
   call void %91(ptr noundef null) #12
-  %92 = call ptr @Curl_memdup0(ptr noundef nonnull %.1439, i64 noundef %.0429.lcssa) #12
+  %92 = call ptr @Curl_memdup0(ptr noundef nonnull %.1439, i64 noundef range(i64 0, 4095) %.0429.lcssa) #12
   store ptr %92, ptr %23, align 8
   %93 = load ptr, ptr @Curl_cfree, align 8
   %94 = load ptr, ptr %34, align 8
   call void %93(ptr noundef %94) #12
-  %95 = call ptr @Curl_memdup0(ptr noundef %.1423, i64 noundef %.2432) #12
+  %95 = call ptr @Curl_memdup0(ptr noundef %.1423, i64 noundef range(i64 0, 4095) %.2432) #12
   store ptr %95, ptr %34, align 8
   %96 = load ptr, ptr %23, align 8
   %.not508 = icmp eq ptr %96, null
@@ -617,7 +617,7 @@ define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr nocapture noundef %1, 
   %125 = load ptr, ptr @Curl_cfree, align 8
   %126 = load ptr, ptr %32, align 8
   call void %125(ptr noundef %126) #12
-  %127 = call ptr @Curl_memdup0(ptr noundef %.1423, i64 noundef %.2432) #12
+  %127 = call ptr @Curl_memdup0(ptr noundef %.1423, i64 noundef range(i64 0, 4095) %.2432) #12
   store ptr %127, ptr %32, align 8
   %.not527 = icmp eq ptr %127, null
   br i1 %.not527, label %.thread632, label %128
@@ -727,7 +727,7 @@ sanitize_cookie_path.exit:                        ; preds = %150, %.thread.i
   br i1 %.not.i605, label %173, label %bad_domain.exit
 
 173:                                              ; preds = %171, %166
-  %174 = call ptr @memchr(ptr noundef nonnull %.2424, i32 noundef 46, i64 noundef %.3433) #13
+  %174 = call ptr @memchr(ptr noundef nonnull %.2424, i32 noundef 46, i64 noundef range(i64 0, 4095) %.3433) #13
   %.not10.i = icmp eq ptr %174, null
   br i1 %.not10.i, label %bad_domain.exit.thread623, label %175
 
@@ -774,7 +774,7 @@ bad_domain.exit:                                  ; preds = %171, %175
   %195 = load ptr, ptr @Curl_cfree, align 8
   %196 = load ptr, ptr %30, align 8
   call void %195(ptr noundef %196) #12
-  %197 = call ptr @Curl_memdup0(ptr noundef nonnull %.2424, i64 noundef %.3433) #12
+  %197 = call ptr @Curl_memdup0(ptr noundef nonnull %.2424, i64 noundef range(i64 0, 4095) %.3433) #12
   store ptr %197, ptr %30, align 8
   %.not524 = icmp eq ptr %197, null
   br i1 %.not524, label %.thread632, label %198

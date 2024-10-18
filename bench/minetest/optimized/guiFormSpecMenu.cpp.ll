@@ -55634,7 +55634,7 @@ invoke.cont219:                                   ; preds = %if.then217
   br i1 %cmp.not.i, label %if.else.i890.invoke, label %if.then.i875
 
 if.then.i875:                                     ; preds = %invoke.cont219
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %299, ptr noundef nonnull align 8 dereferenceable(25) %selector_spec, i64 25, i1 false), !tbaa.struct !355
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %299, ptr noundef nonnull align 8 dereferenceable(833) %selector_spec, i64 25, i1 false), !tbaa.struct !355
   br label %arrayinit.body.i.i.i
 
 arrayinit.body.i.i.i:                             ; preds = %invoke.cont.i.i.i, %if.then.i875
@@ -55740,7 +55740,7 @@ invoke.cont223:                                   ; preds = %if.else222
   br i1 %cmp.not.i886, label %if.else.i890.invoke, label %if.then.i887
 
 if.then.i887:                                     ; preds = %invoke.cont223
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %314, ptr noundef nonnull align 8 dereferenceable(25) %selector_spec, i64 25, i1 false), !tbaa.struct !355
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %314, ptr noundef nonnull align 8 dereferenceable(833) %selector_spec, i64 25, i1 false), !tbaa.struct !355
   br label %arrayinit.body.i.i.i103
 
 arrayinit.body.i.i.i103:                          ; preds = %invoke.cont.i.i.i112, %if.then.i887
@@ -56350,7 +56350,7 @@ invoke.cont294:                                   ; preds = %if.then292
   br i1 %cmp.not.i1144, label %if.else.i1161.invoke, label %if.then.i1145
 
 if.then.i1145:                                    ; preds = %invoke.cont294
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %386, ptr noundef nonnull align 8 dereferenceable(25) %hover_spec, i64 25, i1 false), !tbaa.struct !355
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %386, ptr noundef nonnull align 8 dereferenceable(833) %hover_spec, i64 25, i1 false), !tbaa.struct !355
   br label %arrayinit.body.i.i.i144
 
 arrayinit.body.i.i.i144:                          ; preds = %invoke.cont.i.i.i153, %if.then.i1145
@@ -56451,7 +56451,7 @@ invoke.cont299:                                   ; preds = %if.else297
   br i1 %cmp.not.i1157, label %if.else.i1161.invoke, label %if.then.i1158
 
 if.then.i1158:                                    ; preds = %invoke.cont299
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %400, ptr noundef nonnull align 8 dereferenceable(25) %hover_spec, i64 25, i1 false), !tbaa.struct !355
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %400, ptr noundef nonnull align 8 dereferenceable(833) %hover_spec, i64 25, i1 false), !tbaa.struct !355
   br label %arrayinit.body.i.i.i184
 
 arrayinit.body.i.i.i184:                          ; preds = %invoke.cont.i.i.i193, %if.then.i1158
@@ -57072,7 +57072,7 @@ invoke.cont374:                                   ; preds = %if.then372
   br i1 %cmp.not.i1426, label %if.else.i1443.invoke, label %if.then.i1427
 
 if.then.i1427:                                    ; preds = %invoke.cont374
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %472, ptr noundef nonnull align 8 dereferenceable(25) %press_spec, i64 25, i1 false), !tbaa.struct !355
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %472, ptr noundef nonnull align 8 dereferenceable(833) %press_spec, i64 25, i1 false), !tbaa.struct !355
   br label %arrayinit.body.i.i.i225
 
 arrayinit.body.i.i.i225:                          ; preds = %invoke.cont.i.i.i234, %if.then.i1427
@@ -57173,7 +57173,7 @@ invoke.cont379:                                   ; preds = %if.else377
   br i1 %cmp.not.i1439, label %if.else.i1443.invoke, label %if.then.i1440
 
 if.then.i1440:                                    ; preds = %invoke.cont379
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %486, ptr noundef nonnull align 8 dereferenceable(25) %press_spec, i64 25, i1 false), !tbaa.struct !355
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %486, ptr noundef nonnull align 8 dereferenceable(833) %press_spec, i64 25, i1 false), !tbaa.struct !355
   br label %arrayinit.body.i.i.i265
 
 arrayinit.body.i.i.i265:                          ; preds = %invoke.cont.i.i.i274, %if.then.i1440
@@ -74418,7 +74418,7 @@ if.then1087.invoke:                               ; preds = %if.then1087, %invok
   %conv.i3255 = zext i32 %376 to i64
   %377 = load ptr, ptr %list_s.0.sink, align 8, !tbaa !672
   %add.ptr.i.i3256 = getelementptr inbounds %struct.ItemStack, ptr %377, i64 %conv.i3255
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %slct1066, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i3256)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(312) %slct1066, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i3256)
           to label %.noexc166 unwind label %lpad1075
 
 .noexc166:                                        ; preds = %if.then1087.invoke
@@ -76931,7 +76931,7 @@ if.then1750:                                      ; preds = %if.else1748.if.then
   br i1 %cmp.i.i.i173, label %if.then.i.i.i190, label %if.end.i.i.i174
 
 if.then.i.i.i190:                                 ; preds = %if.then1750
-  %call2.i12.i.i192 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %stack_from1751, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i171, i64 noundef 0)
+  %call2.i12.i.i192 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(312) %stack_from1751, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i171, i64 noundef 0)
           to label %call2.i12.i.i.noexc191 unwind label %lpad1754
 
 call2.i12.i.i.noexc191:                           ; preds = %if.then.i.i.i190
@@ -95903,7 +95903,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorI9Styl
 _ZNSt12_Vector_baseI9StyleSpecSaIS0_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorI9StyleSpecSaIS0_EE12_M_check_lenEmPKc.exit
   %cond.i47 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9StyleSpecSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %class.StyleSpec, ptr %cond.i47, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %add.ptr, ptr noundef nonnull align 8 dereferenceable(25) %__args, i64 25, i1 false), !tbaa.struct !355
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %add.ptr, ptr noundef nonnull align 8 dereferenceable(833) %__args, i64 25, i1 false), !tbaa.struct !355
   %properties3.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   br label %arrayinit.body.i.i.i
 

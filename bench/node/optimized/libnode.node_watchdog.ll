@@ -345,7 +345,7 @@ entry:
 define dso_local void @_ZN4node20SigintWatchdogHelper8RegisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr noundef %wd) local_unnamed_addr #3 align 2 {
 entry:
   %list_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @uv_mutex_lock(ptr noundef nonnull %list_mutex_) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #15
   %watchdogs_ = getelementptr inbounds i8, ptr %this, i64 88
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -427,7 +427,7 @@ entry:
   %sigmask = alloca %struct.__sigset_t, align 8
   %savemask = alloca %struct.__sigset_t, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #15
   %0 = load i32, ptr %this, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %this, align 8
@@ -504,7 +504,7 @@ entry:
 define dso_local void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr noundef readnone %wd) local_unnamed_addr #3 align 2 {
 entry:
   %list_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @uv_mutex_lock(ptr noundef nonnull %list_mutex_) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #15
   %watchdogs_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %watchdogs_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -642,9 +642,9 @@ _ZNSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE5eraseEN9__gnu_cxx17__normal_it
 define dso_local noundef zeroext i1 @_ZN4node20SigintWatchdogHelper4StopEv(ptr noundef nonnull align 8 dereferenceable(162) %this) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #15
   %list_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @uv_mutex_lock(ptr noundef nonnull %list_mutex_) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #15
   %has_pending_signal_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i8, ptr %has_pending_signal_, align 8
   %1 = load i32, ptr %this, align 8
@@ -716,7 +716,7 @@ define dso_local void @_ZN4node14SigintWatchdogD0Ev(ptr noundef nonnull align 8 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #15
-  tail call void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE, ptr noundef nonnull %this)
+  tail call void @_ZN4node20SigintWatchdogHelper10UnregisterEPNS_18SigintWatchdogBaseE(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %call4.i = tail call noundef zeroext i1 @_ZN4node20SigintWatchdogHelper4StopEv(ptr noundef nonnull align 8 dereferenceable(162) @_ZN4node20SigintWatchdogHelper8instanceE)
   tail call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -837,7 +837,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %add.ptr.i6 = getelementptr inbounds i8, ptr %call6, i64 88
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 200), ptr %add.ptr.i6, align 8
   %handle_.i = getelementptr inbounds i8, ptr %call6, i64 104
-  tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %handle_.i, i32 noundef 44) #15
+  tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(236) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %handle_.i, i32 noundef 44) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 16), ptr %call6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 200), ptr %add.ptr.i6, align 8
   %interrupting.i = getelementptr inbounds i8, ptr %call6, i64 96
@@ -1064,7 +1064,7 @@ _ZN4node19TraceSigintWatchdog12HandleSigintEv.exit: ; preds = %entry
   %2 = load ptr, ptr %env_.i.i.i, align 8
   %isolate_.i.i = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %isolate_.i.i, align 8
-  tail call void @_ZN2v87Isolate16RequestInterruptEPFvPS0_PvES2_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @"_ZZN4node19TraceSigintWatchdog12HandleSigintEvEN3$_08__invokeEPN2v87IsolateEPv", ptr noundef nonnull %0) #15
+  tail call void @_ZN2v87Isolate16RequestInterruptEPFvPS0_PvES2_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @"_ZZN4node19TraceSigintWatchdog12HandleSigintEvEN3$_08__invokeEPN2v87IsolateEPv", ptr noundef nonnull align 8 dereferenceable(236) %0) #15
   ret i32 0
 }
 
@@ -1140,7 +1140,7 @@ entry:
 
 do.body:                                          ; preds = %_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv.exit, %entry
   tail call void @uv_sem_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 128)) #15
-  tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
   %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 161), align 1
   %tobool.i = trunc i8 %0 to i1
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8
@@ -1185,7 +1185,7 @@ declare void @uv_sem_wait(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv() local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 48)) #15
   %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 161), align 1
   %tobool = trunc i8 %0 to i1
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8
@@ -1250,7 +1250,7 @@ declare void @_ZN4node10SignalExitEiP9siginfo_tPv(i32 noundef, ptr noundef, ptr 
 define dso_local noundef zeroext i1 @_ZN4node20SigintWatchdogHelper16HasPendingSignalEv(ptr noundef nonnull align 8 dereferenceable(162) %this) local_unnamed_addr #3 align 2 {
 entry:
   %list_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @uv_mutex_lock(ptr noundef nonnull %list_mutex_) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #15
   %has_pending_signal_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i8, ptr %has_pending_signal_, align 8
   %tobool = trunc i8 %0 to i1
@@ -1263,7 +1263,7 @@ define dso_local void @_ZN4node20SigintWatchdogHelperC2Ev(ptr noundef nonnull al
 entry:
   store i32 0, ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_) #15
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #15
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -1274,7 +1274,7 @@ do.body5.i:                                       ; preds = %entry
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   %list_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  %call.i.i1 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %list_mutex_) #15
+  %call.i.i1 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #15
   %cmp.not.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %cmp.not.i2, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4, label %do.body5.i3
 
@@ -1336,9 +1336,9 @@ if.then.i.i.i:                                    ; preds = %do.end7
 
 _ZNSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EED2Ev.exit: ; preds = %do.end7, %if.then.i.i.i
   %list_mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %list_mutex_) #15
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %list_mutex_) #15
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #15
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #15
   ret void
 }
 
@@ -1374,7 +1374,7 @@ entry:
   store ptr %2, ptr %0, align 8
   store ptr %handle_wrap_queue_.i, ptr %handle_wrap_queue_.i, align 8
   store ptr %handle_wrap_queue_.i, ptr %next_.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #15
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #15
   ret void
 }
 
@@ -1392,7 +1392,7 @@ entry:
   store ptr %2, ptr %0, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %handle_wrap_queue_.i.i, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #15
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -1510,7 +1510,7 @@ entry:
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %handle_wrap_queue_.i.i, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %0) #15
   ret void
 }
 
@@ -1529,8 +1529,8 @@ entry:
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i.i, ptr %handle_wrap_queue_.i.i.i, align 8
   store ptr %handle_wrap_queue_.i.i.i, ptr %next_.i.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(236) %0) #18
   ret void
 }
 
@@ -1897,7 +1897,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -1925,7 +1925,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)

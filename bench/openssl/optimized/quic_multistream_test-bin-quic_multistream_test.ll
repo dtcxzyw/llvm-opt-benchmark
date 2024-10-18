@@ -852,7 +852,7 @@ if.end231.i:                                      ; preds = %if.end222.i, %if.en
   br label %helper_init.exit
 
 err.i:                                            ; preds = %if.end222.i, %if.end216.i, %if.then211.i, %if.end203.i, %if.end198.i, %if.end187.i, %if.end176.i, %if.end168.i, %if.end162.i, %if.end156.i, %if.end146.i, %if.end140.i, %if.end132.i, %if.end120.i, %if.then113.i, %if.end97.i, %if.end90.i, %if.then83.i, %if.end76.i, %if.end70.i, %if.end63.i, %if.end54.i, %if.end45.i, %if.end37.i, %lor.lhs.false.i, %if.end29.i, %if.end23.i, %if.end15.i, %if.end10.i, %if.end.i, %entry
-  call fastcc void @helper_cleanup(ptr noundef %h)
+  call fastcc void @helper_cleanup(ptr noundef nonnull %h)
   br label %helper_init.exit
 
 helper_init.exit:                                 ; preds = %if.end231.i, %err.i
@@ -1634,7 +1634,7 @@ if.then208:                                       ; preds = %if.end205
 
 land.lhs.true211:                                 ; preds = %if.then208
   %47 = load ptr, ptr %c_conn, align 8
-  %call.i488 = call i32 @SSL_get_error(ptr noundef %47, i32 noundef %call201) #14
+  %call.i488 = call i32 @SSL_get_error(ptr noundef %47, i32 noundef range(i32 2, 1) %call201) #14
   %48 = and i32 %call.i488, -2
   %.not1048 = icmp eq i32 %48, 2
   br i1 %.not1048, label %if.then215, label %if.end220

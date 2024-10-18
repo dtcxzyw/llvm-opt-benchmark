@@ -105,7 +105,7 @@ for.end54:                                        ; preds = %for.inc53
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %for.end54
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 4, i64 noundef %conv1) #7
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv1) #7
   unreachable
 
 st_mult.exit:                                     ; preds = %for.end54

@@ -266,7 +266,7 @@ define void @_ZN6gmxapi10MDWorkSpecD2Ev(ptr noundef nonnull align 8 dereferencea
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6gmxapi10MDWorkSpec4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN6gmxapi10MDWorkSpec4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %2)
+  tail call void @_ZNKSt14default_deleteIN6gmxapi10MDWorkSpec4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2)
   br label %_ZNSt10unique_ptrIN6gmxapi10MDWorkSpec4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6gmxapi10MDWorkSpec4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %3
@@ -481,7 +481,7 @@ _ZSt11make_sharedIN6gmxapi10MDWorkSpecEJEESt10shared_ptrINSt9enable_ifIXntsr8is_
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %8, align 8, !alias.scope !21
   store ptr %6, ptr %2, align 8, !alias.scope !21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   store ptr null, ptr %9, align 8, !alias.scope !24
@@ -511,7 +511,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6gmxapi8MDHolder4ImplESaI
 
 .body.i:                                          ; preds = %15, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6gmxapi8MDHolder4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %16, %15 ], [ %14, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6gmxapi8MDHolder4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   call void @_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
   br label %common.resume
 

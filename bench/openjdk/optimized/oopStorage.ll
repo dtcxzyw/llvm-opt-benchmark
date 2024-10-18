@@ -606,7 +606,7 @@ define hidden noundef ptr @_ZN10OopStorage5Block9new_blockEPKS_(ptr noundef %0) 
   %8 = add i64 %7, 63
   %9 = and i64 %8, -64
   %10 = inttoptr i64 %9 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %10, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %10, i8 0, i64 512, i1 false)
   %11 = getelementptr inbounds i8, ptr %10, i64 512
   store volatile i64 0, ptr %11, align 64
   %12 = getelementptr inbounds i8, ptr %10, i64 520
@@ -1116,7 +1116,7 @@ define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonn
   br i1 %.not.i, label %_ZL23log_release_transitionsmmPK10OopStoragePKv.exit, label %18
 
 18:                                               ; preds = %16
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #20
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #20
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %19) #20
@@ -1222,7 +1222,7 @@ _ZN13MutexUnlockerD2Ev.exit.thread:               ; preds = %1
   %10 = add i64 %9, 63
   %11 = and i64 %10, -64
   %12 = inttoptr i64 %11 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %12, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %12, i8 0, i64 512, i1 false)
   %13 = getelementptr inbounds i8, ptr %12, i64 512
   store volatile i64 0, ptr %13, align 64
   %14 = getelementptr inbounds i8, ptr %12, i64 520
@@ -1634,7 +1634,7 @@ declare void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK10OopStorage19obtain_active_arrayEv(ptr noundef nonnull align 8 dereferenceable(126) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %2) #20, !srcloc !7
+  %3 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) %2) #20, !srcloc !7
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
@@ -1888,14 +1888,14 @@ _ZN10OopStorage11ActiveArray6createEm8MEMFLAGSN17AllocFailStrategy13AllocFailEnu
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   %21 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef nonnull @.str.18) #20
   %22 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 22, i32 noundef 0) #20
-  call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %22, i32 noundef 15, ptr noundef nonnull %5, i1 noundef zeroext true) #20
+  call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(128) %22, i32 noundef 15, ptr noundef nonnull %5, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   %24 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef nonnull @.str.19) #20
   %25 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 22, i32 noundef 0) #20
-  call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %25, i32 noundef 14, ptr noundef nonnull %4, i1 noundef zeroext true) #20
+  call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(128) %25, i32 noundef 14, ptr noundef nonnull %4, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   store ptr %25, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2150,7 +2150,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage19delete_empty_blocksEv(ptr nou
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %9, %12
   %13 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 false, ptr nonnull %2) #20, !srcloc !17
   %14 = getelementptr inbounds i8, ptr %0, i64 72
-  %15 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %14) #20, !srcloc !7
+  %15 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) %14) #20, !srcloc !7
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
@@ -2450,7 +2450,7 @@ _ZN11MutexLockerD2Ev.exit21:                      ; preds = %142, %_ZN11MutexLoc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK10OopStorage11block_countEv(ptr noundef nonnull align 8 dereferenceable(126) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %2) #20, !srcloc !7
+  %3 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) %2) #20, !srcloc !7
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
@@ -2588,7 +2588,7 @@ define hidden noundef i64 @_ZNK10OopStorage18total_memory_usageEv(ptr noundef no
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %4) #20, !srcloc !7
+  %5 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) %4) #20, !srcloc !7
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load volatile ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
@@ -2649,7 +2649,7 @@ define hidden void @_ZN10OopStorage13BasicParStateC2EPKS_jb(ptr noundef nonnull 
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 72
-  %8 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %7) #20, !srcloc !7
+  %8 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) %7) #20, !srcloc !7
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load volatile ptr, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6

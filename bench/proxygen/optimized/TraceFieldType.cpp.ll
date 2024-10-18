@@ -436,7 +436,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -1879,7 +1879,7 @@ lpad.i1537:                                       ; preds = %invoke.cont.i, %if.
   %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeErrorStageB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeErrorStageB5cxx11E) #14
   br label %common.resume
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -1914,7 +1914,7 @@ call.i.noexc.i6:                                  ; preds = %__cxx_global_var_in
 lpad.i.i8:                                        ; preds = %.noexc.i7
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL20kTraceFieldTypeErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL20kTraceFieldTypeErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i3:                                          ; preds = %call.i.noexc.i6, %__cxx_global_var_init.exit
@@ -1962,7 +1962,7 @@ lpad.i1544:                                       ; preds = %invoke.cont.i1545, 
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1539) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeProxygenErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeProxygenErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i11:                                         ; preds = %call.i.noexc.i14, %__cxx_global_var_init.1.exit
@@ -2011,7 +2011,7 @@ lpad.i1554:                                       ; preds = %invoke.cont.i1555, 
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1549) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeHTTPStatusB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeHTTPStatusB5cxx11E) #14
   br label %common.resume
 
 lpad.i19:                                         ; preds = %call.i.noexc.i22, %__cxx_global_var_init.3.exit
@@ -2060,7 +2060,7 @@ lpad.i1564:                                       ; preds = %invoke.cont.i1565, 
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1559) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeDirectionErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeDirectionErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i27:                                         ; preds = %call.i.noexc.i30, %__cxx_global_var_init.5.exit
@@ -2109,7 +2109,7 @@ lpad.i1574:                                       ; preds = %invoke.cont.i1575, 
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1569) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeCodecErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeCodecErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i35:                                         ; preds = %call.i.noexc.i38, %__cxx_global_var_init.7.exit
@@ -2158,7 +2158,7 @@ lpad.i1584:                                       ; preds = %invoke.cont.i1585, 
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1579) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL23kTraceFieldTypeCallPathB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL23kTraceFieldTypeCallPathB5cxx11E) #14
   br label %common.resume
 
 lpad.i43:                                         ; preds = %call.i.noexc.i46, %__cxx_global_var_init.9.exit
@@ -2207,7 +2207,7 @@ lpad.i1594:                                       ; preds = %invoke.cont.i1595, 
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1589) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL18kTraceFieldTypeUriB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL18kTraceFieldTypeUriB5cxx11E) #14
   br label %common.resume
 
 lpad.i51:                                         ; preds = %call.i.noexc.i54, %__cxx_global_var_init.11.exit
@@ -2256,7 +2256,7 @@ lpad.i1604:                                       ; preds = %invoke.cont.i1605, 
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1599) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL23kTraceFieldTypeIsSecureB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL23kTraceFieldTypeIsSecureB5cxx11E) #14
   br label %common.resume
 
 lpad.i59:                                         ; preds = %call.i.noexc.i62, %__cxx_global_var_init.13.exit
@@ -2305,7 +2305,7 @@ lpad.i1614:                                       ; preds = %invoke.cont.i1615, 
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1609) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeUsingProxyB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeUsingProxyB5cxx11E) #14
   br label %common.resume
 
 lpad.i67:                                         ; preds = %call.i.noexc.i70, %__cxx_global_var_init.15.exit
@@ -2354,7 +2354,7 @@ lpad.i1624:                                       ; preds = %invoke.cont.i1625, 
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1619) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeStatusCodeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeStatusCodeB5cxx11E) #14
   br label %common.resume
 
 lpad.i75:                                         ; preds = %call.i.noexc.i78, %__cxx_global_var_init.17.exit
@@ -2403,7 +2403,7 @@ lpad.i1634:                                       ; preds = %invoke.cont.i1635, 
   %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1629) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL23kTraceFieldTypeProtocolB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL23kTraceFieldTypeProtocolB5cxx11E) #14
   br label %common.resume
 
 lpad.i83:                                         ; preds = %call.i.noexc.i86, %__cxx_global_var_init.19.exit
@@ -2432,7 +2432,7 @@ call.i.noexc.i94:                                 ; preds = %__cxx_global_var_in
 lpad.i.i96:                                       ; preds = %.noexc.i95
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeSecurityProtocolB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeSecurityProtocolB5cxx11E) #14
   br label %common.resume
 
 lpad.i91:                                         ; preds = %call.i.noexc.i94, %__cxx_global_var_init.21.exit
@@ -2480,7 +2480,7 @@ lpad.i1644:                                       ; preds = %invoke.cont.i1645, 
   %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1639) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeReplaySafeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeReplaySafeB5cxx11E) #14
   br label %common.resume
 
 lpad.i99:                                         ; preds = %call.i.noexc.i102, %__cxx_global_var_init.23.exit
@@ -2529,7 +2529,7 @@ lpad.i1654:                                       ; preds = %invoke.cont.i1655, 
   %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1649) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeLocalAddrB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeLocalAddrB5cxx11E) #14
   br label %common.resume
 
 lpad.i107:                                        ; preds = %call.i.noexc.i110, %__cxx_global_var_init.25.exit
@@ -2578,7 +2578,7 @@ lpad.i1664:                                       ; preds = %invoke.cont.i1665, 
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1659) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeLocalPortB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeLocalPortB5cxx11E) #14
   br label %common.resume
 
 lpad.i115:                                        ; preds = %call.i.noexc.i118, %__cxx_global_var_init.27.exit
@@ -2627,7 +2627,7 @@ lpad.i1674:                                       ; preds = %invoke.cont.i1675, 
   %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1669) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeContentTypeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeContentTypeB5cxx11E) #14
   br label %common.resume
 
 lpad.i123:                                        ; preds = %call.i.noexc.i126, %__cxx_global_var_init.29.exit
@@ -2656,7 +2656,7 @@ call.i.noexc.i134:                                ; preds = %__cxx_global_var_in
 lpad.i.i136:                                      ; preds = %.noexc.i135
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeReqHeaderSizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeReqHeaderSizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i131:                                        ; preds = %call.i.noexc.i134, %__cxx_global_var_init.31.exit
@@ -2684,7 +2684,7 @@ call.i.noexc.i142:                                ; preds = %__cxx_global_var_in
 lpad.i.i144:                                      ; preds = %.noexc.i143
   %84 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeReqHeaderCompSizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeReqHeaderCompSizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i139:                                        ; preds = %call.i.noexc.i142, %__cxx_global_var_init.33.exit
@@ -2712,7 +2712,7 @@ call.i.noexc.i150:                                ; preds = %__cxx_global_var_in
 lpad.i.i152:                                      ; preds = %.noexc.i151
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeReqBodySizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeReqBodySizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i147:                                        ; preds = %call.i.noexc.i150, %__cxx_global_var_init.35.exit
@@ -2740,7 +2740,7 @@ call.i.noexc.i158:                                ; preds = %__cxx_global_var_in
 lpad.i.i160:                                      ; preds = %.noexc.i159
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeRspHeaderSizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeRspHeaderSizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i155:                                        ; preds = %call.i.noexc.i158, %__cxx_global_var_init.37.exit
@@ -2768,7 +2768,7 @@ call.i.noexc.i166:                                ; preds = %__cxx_global_var_in
 lpad.i.i168:                                      ; preds = %.noexc.i167
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeRspHeaderCompSizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeRspHeaderCompSizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i163:                                        ; preds = %call.i.noexc.i166, %__cxx_global_var_init.39.exit
@@ -2796,7 +2796,7 @@ call.i.noexc.i174:                                ; preds = %__cxx_global_var_in
 lpad.i.i176:                                      ; preds = %.noexc.i175
   %96 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeRedirectLocationB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeRedirectLocationB5cxx11E) #14
   br label %common.resume
 
 lpad.i171:                                        ; preds = %call.i.noexc.i174, %__cxx_global_var_init.41.exit
@@ -2844,7 +2844,7 @@ lpad.i1684:                                       ; preds = %invoke.cont.i1685, 
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1679) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeNumRedirectsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeNumRedirectsB5cxx11E) #14
   br label %common.resume
 
 lpad.i179:                                        ; preds = %call.i.noexc.i182, %__cxx_global_var_init.43.exit
@@ -2873,7 +2873,7 @@ call.i.noexc.i190:                                ; preds = %__cxx_global_var_in
 lpad.i.i192:                                      ; preds = %.noexc.i191
   %104 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypeRedirectResponseCodeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypeRedirectResponseCodeB5cxx11E) #14
   br label %common.resume
 
 lpad.i187:                                        ; preds = %call.i.noexc.i190, %__cxx_global_var_init.45.exit
@@ -2921,7 +2921,7 @@ lpad.i1694:                                       ; preds = %invoke.cont.i1695, 
   %109 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1689) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeNumZeroRttRetriesB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeNumZeroRttRetriesB5cxx11E) #14
   br label %common.resume
 
 lpad.i195:                                        ; preds = %call.i.noexc.i198, %__cxx_global_var_init.47.exit
@@ -2970,7 +2970,7 @@ lpad.i1704:                                       ; preds = %invoke.cont.i1705, 
   %114 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1699) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeUsingHTTP2B5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeUsingHTTP2B5cxx11E) #14
   br label %common.resume
 
 lpad.i203:                                        ; preds = %call.i.noexc.i206, %__cxx_global_var_init.49.exit
@@ -2999,7 +2999,7 @@ call.i.noexc.i214:                                ; preds = %__cxx_global_var_in
 lpad.i.i216:                                      ; preds = %.noexc.i215
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL40kTraceFieldTypeFirstBodyByteFlushedRatioB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL40kTraceFieldTypeFirstBodyByteFlushedRatioB5cxx11E) #14
   br label %common.resume
 
 lpad.i211:                                        ; preds = %call.i.noexc.i214, %__cxx_global_var_init.51.exit
@@ -3027,7 +3027,7 @@ call.i.noexc.i222:                                ; preds = %__cxx_global_var_in
 lpad.i.i224:                                      ; preds = %.noexc.i223
   %120 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL39kTraceFieldTypeLastBodyByteFlushedRatioB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL39kTraceFieldTypeLastBodyByteFlushedRatioB5cxx11E) #14
   br label %common.resume
 
 lpad.i219:                                        ; preds = %call.i.noexc.i222, %__cxx_global_var_init.53.exit
@@ -3055,7 +3055,7 @@ call.i.noexc.i230:                                ; preds = %__cxx_global_var_in
 lpad.i.i232:                                      ; preds = %.noexc.i231
   %123 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeFlowControlPausesB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeFlowControlPausesB5cxx11E) #14
   br label %common.resume
 
 lpad.i227:                                        ; preds = %call.i.noexc.i230, %__cxx_global_var_init.55.exit
@@ -3103,7 +3103,7 @@ lpad.i1714:                                       ; preds = %invoke.cont.i1715, 
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1709) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeHTTPMethodB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeHTTPMethodB5cxx11E) #14
   br label %common.resume
 
 lpad.i235:                                        ; preds = %call.i.noexc.i238, %__cxx_global_var_init.57.exit
@@ -3152,7 +3152,7 @@ lpad.i1724:                                       ; preds = %invoke.cont.i1725, 
   %133 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1719) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeRangeRequestB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeRangeRequestB5cxx11E) #14
   br label %common.resume
 
 lpad.i243:                                        ; preds = %call.i.noexc.i246, %__cxx_global_var_init.59.exit
@@ -3181,7 +3181,7 @@ call.i.noexc.i254:                                ; preds = %__cxx_global_var_in
 lpad.i.i256:                                      ; preds = %.noexc.i255
   %136 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeRequestSendTimeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeRequestSendTimeB5cxx11E) #14
   br label %common.resume
 
 lpad.i251:                                        ; preds = %call.i.noexc.i254, %__cxx_global_var_init.61.exit
@@ -3209,7 +3209,7 @@ call.i.noexc.i262:                                ; preds = %__cxx_global_var_in
 lpad.i.i264:                                      ; preds = %.noexc.i263
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeRspIntvlAvgB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeRspIntvlAvgB5cxx11E) #14
   br label %common.resume
 
 lpad.i259:                                        ; preds = %call.i.noexc.i262, %__cxx_global_var_init.63.exit
@@ -3237,7 +3237,7 @@ call.i.noexc.i270:                                ; preds = %__cxx_global_var_in
 lpad.i.i272:                                      ; preds = %.noexc.i271
   %142 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeRspIntvlStdDevB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeRspIntvlStdDevB5cxx11E) #14
   br label %common.resume
 
 lpad.i267:                                        ; preds = %call.i.noexc.i270, %__cxx_global_var_init.65.exit
@@ -3265,7 +3265,7 @@ call.i.noexc.i278:                                ; preds = %__cxx_global_var_in
 lpad.i.i280:                                      ; preds = %.noexc.i279
   %145 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeRspNumOnBodyB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeRspNumOnBodyB5cxx11E) #14
   br label %common.resume
 
 lpad.i275:                                        ; preds = %call.i.noexc.i278, %__cxx_global_var_init.67.exit
@@ -3293,7 +3293,7 @@ call.i.noexc.i286:                                ; preds = %__cxx_global_var_in
 lpad.i.i288:                                      ; preds = %.noexc.i287
   %148 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeServerQualityB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeServerQualityB5cxx11E) #14
   br label %common.resume
 
 lpad.i283:                                        ; preds = %call.i.noexc.i286, %__cxx_global_var_init.69.exit
@@ -3341,7 +3341,7 @@ lpad.i1734:                                       ; preds = %invoke.cont.i1735, 
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1729) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeServerRttB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeServerRttB5cxx11E) #14
   br label %common.resume
 
 lpad.i291:                                        ; preds = %call.i.noexc.i294, %__cxx_global_var_init.71.exit
@@ -3370,7 +3370,7 @@ call.i.noexc.i302:                                ; preds = %__cxx_global_var_in
 lpad.i.i304:                                      ; preds = %.noexc.i303
   %156 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeRecvToAckB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeRecvToAckB5cxx11E) #14
   br label %common.resume
 
 lpad.i299:                                        ; preds = %call.i.noexc.i302, %__cxx_global_var_init.73.exit
@@ -3418,7 +3418,7 @@ lpad.i1744:                                       ; preds = %invoke.cont.i1745, 
   %161 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1739) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeServerRtxB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeServerRtxB5cxx11E) #14
   br label %common.resume
 
 lpad.i307:                                        ; preds = %call.i.noexc.i310, %__cxx_global_var_init.75.exit
@@ -3467,7 +3467,7 @@ lpad.i1754:                                       ; preds = %invoke.cont.i1755, 
   %166 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1749) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeServerCwndB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeServerCwndB5cxx11E) #14
   br label %common.resume
 
 lpad.i315:                                        ; preds = %call.i.noexc.i318, %__cxx_global_var_init.77.exit
@@ -3516,7 +3516,7 @@ lpad.i1764:                                       ; preds = %invoke.cont.i1765, 
   %171 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1759) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeServerMssB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeServerMssB5cxx11E) #14
   br label %common.resume
 
 lpad.i323:                                        ; preds = %call.i.noexc.i326, %__cxx_global_var_init.79.exit
@@ -3565,7 +3565,7 @@ lpad.i1774:                                       ; preds = %invoke.cont.i1775, 
   %176 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1769) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL38kTraceFieldTypeServerTotalBytesWrittenB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL38kTraceFieldTypeServerTotalBytesWrittenB5cxx11E) #14
   br label %common.resume
 
 lpad.i331:                                        ; preds = %call.i.noexc.i334, %__cxx_global_var_init.81.exit
@@ -3614,7 +3614,7 @@ lpad.i1784:                                       ; preds = %invoke.cont.i1785, 
   %181 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1779) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeNewConnectionB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeNewConnectionB5cxx11E) #14
   br label %common.resume
 
 lpad.i339:                                        ; preds = %call.i.noexc.i342, %__cxx_global_var_init.83.exit
@@ -3643,7 +3643,7 @@ call.i.noexc.i350:                                ; preds = %__cxx_global_var_in
 lpad.i.i352:                                      ; preds = %.noexc.i351
   %184 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeIsWaitingForNewConnB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeIsWaitingForNewConnB5cxx11E) #14
   br label %common.resume
 
 lpad.i347:                                        ; preds = %call.i.noexc.i350, %__cxx_global_var_init.85.exit
@@ -3671,7 +3671,7 @@ call.i.noexc.i358:                                ; preds = %__cxx_global_var_in
 lpad.i.i360:                                      ; preds = %.noexc.i359
   %187 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeNewConnTimeoutB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeNewConnTimeoutB5cxx11E) #14
   br label %common.resume
 
 lpad.i355:                                        ; preds = %call.i.noexc.i358, %__cxx_global_var_init.87.exit
@@ -3719,7 +3719,7 @@ lpad.i1794:                                       ; preds = %invoke.cont.i1795, 
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1789) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeInFlightConnsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeInFlightConnsB5cxx11E) #14
   br label %common.resume
 
 lpad.i363:                                        ; preds = %call.i.noexc.i366, %__cxx_global_var_init.89.exit
@@ -3768,7 +3768,7 @@ lpad.i1804:                                       ; preds = %invoke.cont.i1805, 
   %197 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1799) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeCachedSessionsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeCachedSessionsB5cxx11E) #14
   br label %common.resume
 
 lpad.i371:                                        ; preds = %call.i.noexc.i374, %__cxx_global_var_init.91.exit
@@ -3797,7 +3797,7 @@ call.i.noexc.i382:                                ; preds = %__cxx_global_var_in
 lpad.i.i384:                                      ; preds = %.noexc.i383
   %200 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypeCachedActiveSessionsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypeCachedActiveSessionsB5cxx11E) #14
   br label %common.resume
 
 lpad.i379:                                        ; preds = %call.i.noexc.i382, %__cxx_global_var_init.93.exit
@@ -3845,7 +3845,7 @@ lpad.i1814:                                       ; preds = %invoke.cont.i1815, 
   %205 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1809) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeConnsStartedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeConnsStartedB5cxx11E) #14
   br label %common.resume
 
 lpad.i387:                                        ; preds = %call.i.noexc.i390, %__cxx_global_var_init.95.exit
@@ -3894,7 +3894,7 @@ lpad.i1824:                                       ; preds = %invoke.cont.i1825, 
   %210 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1819) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeRequestsWaitedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeRequestsWaitedB5cxx11E) #14
   br label %common.resume
 
 lpad.i395:                                        ; preds = %call.i.noexc.i398, %__cxx_global_var_init.97.exit
@@ -3923,7 +3923,7 @@ call.i.noexc.i406:                                ; preds = %__cxx_global_var_in
 lpad.i.i408:                                      ; preds = %.noexc.i407
   %213 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeTotalRequestsWaitedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeTotalRequestsWaitedB5cxx11E) #14
   br label %common.resume
 
 lpad.i403:                                        ; preds = %call.i.noexc.i406, %__cxx_global_var_init.99.exit
@@ -3951,7 +3951,7 @@ call.i.noexc.i414:                                ; preds = %__cxx_global_var_in
 lpad.i.i416:                                      ; preds = %.noexc.i415
   %216 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeTotalConnsStartedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeTotalConnsStartedB5cxx11E) #14
   br label %common.resume
 
 lpad.i411:                                        ; preds = %call.i.noexc.i414, %__cxx_global_var_init.101.exit
@@ -3979,7 +3979,7 @@ call.i.noexc.i422:                                ; preds = %__cxx_global_var_in
 lpad.i.i424:                                      ; preds = %.noexc.i423
   %219 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL38kTraceFieldTypeTotalBackupConnsStartedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL38kTraceFieldTypeTotalBackupConnsStartedB5cxx11E) #14
   br label %common.resume
 
 lpad.i419:                                        ; preds = %call.i.noexc.i422, %__cxx_global_var_init.103.exit
@@ -4007,7 +4007,7 @@ call.i.noexc.i430:                                ; preds = %__cxx_global_var_in
 lpad.i.i432:                                      ; preds = %.noexc.i431
   %222 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeSessionCacheHitTypeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeSessionCacheHitTypeB5cxx11E) #14
   br label %common.resume
 
 lpad.i427:                                        ; preds = %call.i.noexc.i430, %__cxx_global_var_init.105.exit
@@ -4035,7 +4035,7 @@ call.i.noexc.i438:                                ; preds = %__cxx_global_var_in
 lpad.i.i440:                                      ; preds = %.noexc.i439
   %225 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypePerDomainLimitB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypePerDomainLimitB5cxx11E) #14
   br label %common.resume
 
 lpad.i435:                                        ; preds = %call.i.noexc.i438, %__cxx_global_var_init.107.exit
@@ -4063,7 +4063,7 @@ call.i.noexc.i446:                                ; preds = %__cxx_global_var_in
 lpad.i.i448:                                      ; preds = %.noexc.i447
   %228 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL38kTraceFieldTypeDynamicDomainLimitRatioB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL38kTraceFieldTypeDynamicDomainLimitRatioB5cxx11E) #14
   br label %common.resume
 
 lpad.i443:                                        ; preds = %call.i.noexc.i446, %__cxx_global_var_init.109.exit
@@ -4111,7 +4111,7 @@ lpad.i1834:                                       ; preds = %invoke.cont.i1835, 
   %233 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1829) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeLoadBalancingB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeLoadBalancingB5cxx11E) #14
   br label %common.resume
 
 lpad.i451:                                        ; preds = %call.i.noexc.i454, %__cxx_global_var_init.111.exit
@@ -4140,7 +4140,7 @@ call.i.noexc.i462:                                ; preds = %__cxx_global_var_in
 lpad.i.i464:                                      ; preds = %.noexc.i463
   %236 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL38kTraceFieldTypeMaxConnectionRetryCountB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL38kTraceFieldTypeMaxConnectionRetryCountB5cxx11E) #14
   br label %common.resume
 
 lpad.i459:                                        ; preds = %call.i.noexc.i462, %__cxx_global_var_init.113.exit
@@ -4168,7 +4168,7 @@ call.i.noexc.i470:                                ; preds = %__cxx_global_var_in
 lpad.i.i472:                                      ; preds = %.noexc.i471
   %239 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeMaxIdleHTTPSessionsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeMaxIdleHTTPSessionsB5cxx11E) #14
   br label %common.resume
 
 lpad.i467:                                        ; preds = %call.i.noexc.i470, %__cxx_global_var_init.115.exit
@@ -4196,7 +4196,7 @@ call.i.noexc.i478:                                ; preds = %__cxx_global_var_in
 lpad.i.i480:                                      ; preds = %.noexc.i479
   %242 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypeMaxIdleHTTP2SessionsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypeMaxIdleHTTP2SessionsB5cxx11E) #14
   br label %common.resume
 
 lpad.i475:                                        ; preds = %call.i.noexc.i478, %__cxx_global_var_init.117.exit
@@ -4224,7 +4224,7 @@ call.i.noexc.i486:                                ; preds = %__cxx_global_var_in
 lpad.i.i488:                                      ; preds = %.noexc.i487
   %245 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeConnRoutingStaleB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeConnRoutingStaleB5cxx11E) #14
   br label %common.resume
 
 lpad.i483:                                        ; preds = %call.i.noexc.i486, %__cxx_global_var_init.119.exit
@@ -4272,7 +4272,7 @@ lpad.i1844:                                       ; preds = %invoke.cont.i1845, 
   %250 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1839) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeAltSvcHostB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeAltSvcHostB5cxx11E) #14
   br label %common.resume
 
 lpad.i491:                                        ; preds = %call.i.noexc.i494, %__cxx_global_var_init.121.exit
@@ -4321,7 +4321,7 @@ lpad.i1854:                                       ; preds = %invoke.cont.i1855, 
   %255 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1849) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeInjectedSocketB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeInjectedSocketB5cxx11E) #14
   br label %common.resume
 
 lpad.i499:                                        ; preds = %call.i.noexc.i502, %__cxx_global_var_init.123.exit
@@ -4370,7 +4370,7 @@ lpad.i1864:                                       ; preds = %invoke.cont.i1865, 
   %260 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1859) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeServerAddrB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeServerAddrB5cxx11E) #14
   br label %common.resume
 
 lpad.i507:                                        ; preds = %call.i.noexc.i510, %__cxx_global_var_init.125.exit
@@ -4419,7 +4419,7 @@ lpad.i1874:                                       ; preds = %invoke.cont.i1875, 
   %265 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1869) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeServerPortB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeServerPortB5cxx11E) #14
   br label %common.resume
 
 lpad.i515:                                        ; preds = %call.i.noexc.i518, %__cxx_global_var_init.127.exit
@@ -4468,7 +4468,7 @@ lpad.i1884:                                       ; preds = %invoke.cont.i1885, 
   %270 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1879) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeCachedFamilyB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeCachedFamilyB5cxx11E) #14
   br label %common.resume
 
 lpad.i523:                                        ; preds = %call.i.noexc.i526, %__cxx_global_var_init.129.exit
@@ -4517,7 +4517,7 @@ lpad.i1894:                                       ; preds = %invoke.cont.i1895, 
   %275 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1889) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeNewSessionB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeNewSessionB5cxx11E) #14
   br label %common.resume
 
 lpad.i531:                                        ; preds = %call.i.noexc.i534, %__cxx_global_var_init.131.exit
@@ -4566,7 +4566,7 @@ lpad.i1904:                                       ; preds = %invoke.cont.i1905, 
   %280 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1899) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeNumWaitingB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeNumWaitingB5cxx11E) #14
   br label %common.resume
 
 lpad.i539:                                        ; preds = %call.i.noexc.i542, %__cxx_global_var_init.133.exit
@@ -4615,7 +4615,7 @@ lpad.i1914:                                       ; preds = %invoke.cont.i1915, 
   %285 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1909) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL23kTraceFieldTypeHostNameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL23kTraceFieldTypeHostNameB5cxx11E) #14
   br label %common.resume
 
 lpad.i547:                                        ; preds = %call.i.noexc.i550, %__cxx_global_var_init.135.exit
@@ -4664,7 +4664,7 @@ lpad.i1924:                                       ; preds = %invoke.cont.i1925, 
   %290 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1919) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL21kTraceFieldTypeIpAddrB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL21kTraceFieldTypeIpAddrB5cxx11E) #14
   br label %common.resume
 
 lpad.i555:                                        ; preds = %call.i.noexc.i558, %__cxx_global_var_init.137.exit
@@ -4713,7 +4713,7 @@ lpad.i1934:                                       ; preds = %invoke.cont.i1935, 
   %295 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1929) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL19kTraceFieldTypePortB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL19kTraceFieldTypePortB5cxx11E) #14
   br label %common.resume
 
 lpad.i563:                                        ; preds = %call.i.noexc.i566, %__cxx_global_var_init.139.exit
@@ -4762,7 +4762,7 @@ lpad.i1944:                                       ; preds = %invoke.cont.i1945, 
   %300 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1939) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeCNameRedirectsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeCNameRedirectsB5cxx11E) #14
   br label %common.resume
 
 lpad.i571:                                        ; preds = %call.i.noexc.i574, %__cxx_global_var_init.141.exit
@@ -4811,7 +4811,7 @@ lpad.i1954:                                       ; preds = %invoke.cont.i1955, 
   %305 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1949) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeCanonicalNameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeCanonicalNameB5cxx11E) #14
   br label %common.resume
 
 lpad.i579:                                        ; preds = %call.i.noexc.i582, %__cxx_global_var_init.143.exit
@@ -4840,7 +4840,7 @@ call.i.noexc.i590:                                ; preds = %__cxx_global_var_in
 lpad.i.i592:                                      ; preds = %.noexc.i591
   %308 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeNumberResolversB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeNumberResolversB5cxx11E) #14
   br label %common.resume
 
 lpad.i587:                                        ; preds = %call.i.noexc.i590, %__cxx_global_var_init.145.exit
@@ -4868,7 +4868,7 @@ call.i.noexc.i598:                                ; preds = %__cxx_global_var_in
 lpad.i.i600:                                      ; preds = %.noexc.i599
   %311 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeResolversSerializedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeResolversSerializedB5cxx11E) #14
   br label %common.resume
 
 lpad.i595:                                        ; preds = %call.i.noexc.i598, %__cxx_global_var_init.147.exit
@@ -4916,7 +4916,7 @@ lpad.i1964:                                       ; preds = %invoke.cont.i1965, 
   %316 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1959) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeRequestFamilyB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeRequestFamilyB5cxx11E) #14
   br label %common.resume
 
 lpad.i603:                                        ; preds = %call.i.noexc.i606, %__cxx_global_var_init.149.exit
@@ -4965,7 +4965,7 @@ lpad.i1974:                                       ; preds = %invoke.cont.i1975, 
   %321 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1969) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeNumberAnswersB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeNumberAnswersB5cxx11E) #14
   br label %common.resume
 
 lpad.i611:                                        ; preds = %call.i.noexc.i614, %__cxx_global_var_init.151.exit
@@ -5014,7 +5014,7 @@ lpad.i1984:                                       ; preds = %invoke.cont.i1985, 
   %326 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1979) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeNumberDNSRetriesB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeNumberDNSRetriesB5cxx11E) #14
   br label %common.resume
 
 lpad.i619:                                        ; preds = %call.i.noexc.i622, %__cxx_global_var_init.153.exit
@@ -5043,7 +5043,7 @@ call.i.noexc.i630:                                ; preds = %__cxx_global_var_in
 lpad.i.i632:                                      ; preds = %.noexc.i631
   %329 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeResolvedSuccessB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeResolvedSuccessB5cxx11E) #14
   br label %common.resume
 
 lpad.i627:                                        ; preds = %call.i.noexc.i630, %__cxx_global_var_init.155.exit
@@ -5091,7 +5091,7 @@ lpad.i1994:                                       ; preds = %invoke.cont.i1995, 
   %334 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1989) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeDNSCacheHitB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeDNSCacheHitB5cxx11E) #14
   br label %common.resume
 
 lpad.i635:                                        ; preds = %call.i.noexc.i638, %__cxx_global_var_init.157.exit
@@ -5140,7 +5140,7 @@ lpad.i2004:                                       ; preds = %invoke.cont.i2005, 
   %339 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1999) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeDNSCacheStaleB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeDNSCacheStaleB5cxx11E) #14
   br label %common.resume
 
 lpad.i643:                                        ; preds = %call.i.noexc.i646, %__cxx_global_var_init.159.exit
@@ -5169,7 +5169,7 @@ call.i.noexc.i654:                                ; preds = %__cxx_global_var_in
 lpad.i.i656:                                      ; preds = %.noexc.i655
   %342 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeDNSPreconnectDomainB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeDNSPreconnectDomainB5cxx11E) #14
   br label %common.resume
 
 lpad.i651:                                        ; preds = %call.i.noexc.i654, %__cxx_global_var_init.161.exit
@@ -5217,7 +5217,7 @@ lpad.i2014:                                       ; preds = %invoke.cont.i2015, 
   %347 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2009) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeTLSReusedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeTLSReusedB5cxx11E) #14
   br label %common.resume
 
 lpad.i659:                                        ; preds = %call.i.noexc.i662, %__cxx_global_var_init.163.exit
@@ -5266,7 +5266,7 @@ lpad.i2024:                                       ; preds = %invoke.cont.i2025, 
   %352 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2019) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeTLSCacheHitB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeTLSCacheHitB5cxx11E) #14
   br label %common.resume
 
 lpad.i667:                                        ; preds = %call.i.noexc.i670, %__cxx_global_var_init.165.exit
@@ -5315,7 +5315,7 @@ lpad.i2034:                                       ; preds = %invoke.cont.i2035, 
   %357 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2029) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeCipherNameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeCipherNameB5cxx11E) #14
   br label %common.resume
 
 lpad.i675:                                        ; preds = %call.i.noexc.i678, %__cxx_global_var_init.167.exit
@@ -5364,7 +5364,7 @@ lpad.i2044:                                       ; preds = %invoke.cont.i2045, 
   %362 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2039) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeTLSVersionB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeTLSVersionB5cxx11E) #14
   br label %common.resume
 
 lpad.i683:                                        ; preds = %call.i.noexc.i686, %__cxx_global_var_init.169.exit
@@ -5413,7 +5413,7 @@ lpad.i2054:                                       ; preds = %invoke.cont.i2055, 
   %367 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2049) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeOpenSSLVersionB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeOpenSSLVersionB5cxx11E) #14
   br label %common.resume
 
 lpad.i691:                                        ; preds = %call.i.noexc.i694, %__cxx_global_var_init.171.exit
@@ -5442,7 +5442,7 @@ call.i.noexc.i702:                                ; preds = %__cxx_global_var_in
 lpad.i.i704:                                      ; preds = %.noexc.i703
   %370 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeTLSCachePersistenceB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeTLSCachePersistenceB5cxx11E) #14
   br label %common.resume
 
 lpad.i699:                                        ; preds = %call.i.noexc.i702, %__cxx_global_var_init.173.exit
@@ -5470,7 +5470,7 @@ call.i.noexc.i710:                                ; preds = %__cxx_global_var_in
 lpad.i.i712:                                      ; preds = %.noexc.i711
   %373 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeTLSCachedInfoHitB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeTLSCachedInfoHitB5cxx11E) #14
   br label %common.resume
 
 lpad.i707:                                        ; preds = %call.i.noexc.i710, %__cxx_global_var_init.175.exit
@@ -5498,7 +5498,7 @@ call.i.noexc.i718:                                ; preds = %__cxx_global_var_in
 lpad.i.i720:                                      ; preds = %.noexc.i719
   %376 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeRspBodySizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeRspBodySizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i715:                                        ; preds = %call.i.noexc.i718, %__cxx_global_var_init.177.exit
@@ -5526,7 +5526,7 @@ call.i.noexc.i726:                                ; preds = %__cxx_global_var_in
 lpad.i.i728:                                      ; preds = %.noexc.i727
   %379 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeRspBodyCompSizeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeRspBodyCompSizeB5cxx11E) #14
   br label %common.resume
 
 lpad.i723:                                        ; preds = %call.i.noexc.i726, %__cxx_global_var_init.179.exit
@@ -5554,7 +5554,7 @@ call.i.noexc.i734:                                ; preds = %__cxx_global_var_in
 lpad.i.i736:                                      ; preds = %.noexc.i735
   %382 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeCompressionTypeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeCompressionTypeB5cxx11E) #14
   br label %common.resume
 
 lpad.i731:                                        ; preds = %call.i.noexc.i734, %__cxx_global_var_init.181.exit
@@ -5582,7 +5582,7 @@ call.i.noexc.i742:                                ; preds = %__cxx_global_var_in
 lpad.i.i744:                                      ; preds = %.noexc.i743
   %385 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL37kTraceFieldTypeCompressionDictSuccessB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL37kTraceFieldTypeCompressionDictSuccessB5cxx11E) #14
   br label %common.resume
 
 lpad.i739:                                        ; preds = %call.i.noexc.i742, %__cxx_global_var_init.183.exit
@@ -5610,7 +5610,7 @@ call.i.noexc.i750:                                ; preds = %__cxx_global_var_in
 lpad.i.i752:                                      ; preds = %.noexc.i751
   %388 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypeCompressionDictErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypeCompressionDictErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i747:                                        ; preds = %call.i.noexc.i750, %__cxx_global_var_init.185.exit
@@ -5638,7 +5638,7 @@ call.i.noexc.i758:                                ; preds = %__cxx_global_var_in
 lpad.i.i760:                                      ; preds = %.noexc.i759
   %391 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeCompressionDictIDB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeCompressionDictIDB5cxx11E) #14
   br label %common.resume
 
 lpad.i755:                                        ; preds = %call.i.noexc.i758, %__cxx_global_var_init.187.exit
@@ -5666,7 +5666,7 @@ call.i.noexc.i766:                                ; preds = %__cxx_global_var_in
 lpad.i.i768:                                      ; preds = %.noexc.i767
   %394 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeVerifiedSuccessB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeVerifiedSuccessB5cxx11E) #14
   br label %common.resume
 
 lpad.i763:                                        ; preds = %call.i.noexc.i766, %__cxx_global_var_init.189.exit
@@ -5714,7 +5714,7 @@ lpad.i2064:                                       ; preds = %invoke.cont.i2065, 
   %399 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2059) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeVerifiedChainB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeVerifiedChainB5cxx11E) #14
   br label %common.resume
 
 lpad.i771:                                        ; preds = %call.i.noexc.i774, %__cxx_global_var_init.191.exit
@@ -5763,7 +5763,7 @@ lpad.i2074:                                       ; preds = %invoke.cont.i2075, 
   %404 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2069) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeVerifiedTimeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeVerifiedTimeB5cxx11E) #14
   br label %common.resume
 
 lpad.i779:                                        ; preds = %call.i.noexc.i782, %__cxx_global_var_init.193.exit
@@ -5792,7 +5792,7 @@ call.i.noexc.i790:                                ; preds = %__cxx_global_var_in
 lpad.i.i792:                                      ; preds = %.noexc.i791
   %407 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL36kTraceFieldTypeVerifiedServerAddressB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL36kTraceFieldTypeVerifiedServerAddressB5cxx11E) #14
   br label %common.resume
 
 lpad.i787:                                        ; preds = %call.i.noexc.i790, %__cxx_global_var_init.195.exit
@@ -5820,7 +5820,7 @@ call.i.noexc.i798:                                ; preds = %__cxx_global_var_in
 lpad.i.i800:                                      ; preds = %.noexc.i799
   %410 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypeVerifiedProxyAddressB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypeVerifiedProxyAddressB5cxx11E) #14
   br label %common.resume
 
 lpad.i795:                                        ; preds = %call.i.noexc.i798, %__cxx_global_var_init.197.exit
@@ -5868,7 +5868,7 @@ lpad.i2084:                                       ; preds = %invoke.cont.i2085, 
   %415 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2079) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeVerifiedErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeVerifiedErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i803:                                        ; preds = %call.i.noexc.i806, %__cxx_global_var_init.199.exit
@@ -5917,7 +5917,7 @@ lpad.i2094:                                       ; preds = %invoke.cont.i2095, 
   %420 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2089) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeVerifiedReasonB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeVerifiedReasonB5cxx11E) #14
   br label %common.resume
 
 lpad.i811:                                        ; preds = %call.i.noexc.i814, %__cxx_global_var_init.201.exit
@@ -5946,7 +5946,7 @@ call.i.noexc.i822:                                ; preds = %__cxx_global_var_in
 lpad.i.i824:                                      ; preds = %.noexc.i823
   %423 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeVerifiedHostnameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeVerifiedHostnameB5cxx11E) #14
   br label %common.resume
 
 lpad.i819:                                        ; preds = %call.i.noexc.i822, %__cxx_global_var_init.203.exit
@@ -5974,7 +5974,7 @@ call.i.noexc.i830:                                ; preds = %__cxx_global_var_in
 lpad.i.i832:                                      ; preds = %.noexc.i831
   %426 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL40kTraceFieldTypeVerifiedMatchedCommonNameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL40kTraceFieldTypeVerifiedMatchedCommonNameB5cxx11E) #14
   br label %common.resume
 
 lpad.i827:                                        ; preds = %call.i.noexc.i830, %__cxx_global_var_init.205.exit
@@ -6002,7 +6002,7 @@ call.i.noexc.i838:                                ; preds = %__cxx_global_var_in
 lpad.i.i840:                                      ; preds = %.noexc.i839
   %429 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL44kTraceFieldTypeVerifiedMatchedSubjectAltNameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL44kTraceFieldTypeVerifiedMatchedSubjectAltNameB5cxx11E) #14
   br label %common.resume
 
 lpad.i835:                                        ; preds = %call.i.noexc.i838, %__cxx_global_var_init.207.exit
@@ -6030,7 +6030,7 @@ call.i.noexc.i846:                                ; preds = %__cxx_global_var_in
 lpad.i.i848:                                      ; preds = %.noexc.i847
   %432 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeVerifiedNameMatchedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeVerifiedNameMatchedB5cxx11E) #14
   br label %common.resume
 
 lpad.i843:                                        ; preds = %call.i.noexc.i846, %__cxx_global_var_init.209.exit
@@ -6058,7 +6058,7 @@ call.i.noexc.i854:                                ; preds = %__cxx_global_var_in
 lpad.i.i856:                                      ; preds = %.noexc.i855
   %435 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL42kTraceFieldTypeVerifiedHostnameFailMessageB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL42kTraceFieldTypeVerifiedHostnameFailMessageB5cxx11E) #14
   br label %common.resume
 
 lpad.i851:                                        ; preds = %call.i.noexc.i854, %__cxx_global_var_init.211.exit
@@ -6086,7 +6086,7 @@ call.i.noexc.i862:                                ; preds = %__cxx_global_var_in
 lpad.i.i864:                                      ; preds = %.noexc.i863
   %438 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL41kTraceFieldTypeSignatureAlgorithmCertSHA1B5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL41kTraceFieldTypeSignatureAlgorithmCertSHA1B5cxx11E) #14
   br label %common.resume
 
 lpad.i859:                                        ; preds = %call.i.noexc.i862, %__cxx_global_var_init.213.exit
@@ -6114,7 +6114,7 @@ call.i.noexc.i870:                                ; preds = %__cxx_global_var_in
 lpad.i.i872:                                      ; preds = %.noexc.i871
   %441 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL46kTraceFieldTypeFailureVerifiedCertDepthInChainB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL46kTraceFieldTypeFailureVerifiedCertDepthInChainB5cxx11E) #14
   br label %common.resume
 
 lpad.i867:                                        ; preds = %call.i.noexc.i870, %__cxx_global_var_init.215.exit
@@ -6142,7 +6142,7 @@ call.i.noexc.i878:                                ; preds = %__cxx_global_var_in
 lpad.i.i880:                                      ; preds = %.noexc.i879
   %444 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL46kTraceFieldTypeVerifiedChainFailuresOverriddenB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL46kTraceFieldTypeVerifiedChainFailuresOverriddenB5cxx11E) #14
   br label %common.resume
 
 lpad.i875:                                        ; preds = %call.i.noexc.i878, %__cxx_global_var_init.217.exit
@@ -6170,7 +6170,7 @@ call.i.noexc.i886:                                ; preds = %__cxx_global_var_in
 lpad.i.i888:                                      ; preds = %.noexc.i887
   %447 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL51kTraceFieldTypeVerifiedChainFailureVerificationTimeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL51kTraceFieldTypeVerifiedChainFailureVerificationTimeB5cxx11E) #14
   br label %common.resume
 
 lpad.i883:                                        ; preds = %call.i.noexc.i886, %__cxx_global_var_init.219.exit
@@ -6198,7 +6198,7 @@ call.i.noexc.i894:                                ; preds = %__cxx_global_var_in
 lpad.i.i896:                                      ; preds = %.noexc.i895
   %450 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypePinningReasonB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypePinningReasonB5cxx11E) #14
   br label %common.resume
 
 lpad.i891:                                        ; preds = %call.i.noexc.i894, %__cxx_global_var_init.221.exit
@@ -6226,7 +6226,7 @@ call.i.noexc.i902:                                ; preds = %__cxx_global_var_in
 lpad.i.i904:                                      ; preds = %.noexc.i903
   %453 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypePinningRequiredHashB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypePinningRequiredHashB5cxx11E) #14
   br label %common.resume
 
 lpad.i899:                                        ; preds = %call.i.noexc.i902, %__cxx_global_var_init.223.exit
@@ -6254,7 +6254,7 @@ call.i.noexc.i910:                                ; preds = %__cxx_global_var_in
 lpad.i.i912:                                      ; preds = %.noexc.i911
   %456 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypePinningUserHashB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypePinningUserHashB5cxx11E) #14
   br label %common.resume
 
 lpad.i907:                                        ; preds = %call.i.noexc.i910, %__cxx_global_var_init.225.exit
@@ -6282,7 +6282,7 @@ call.i.noexc.i918:                                ; preds = %__cxx_global_var_in
 lpad.i.i920:                                      ; preds = %.noexc.i919
   %459 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypePinningExcludedHashB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypePinningExcludedHashB5cxx11E) #14
   br label %common.resume
 
 lpad.i915:                                        ; preds = %call.i.noexc.i918, %__cxx_global_var_init.227.exit
@@ -6310,7 +6310,7 @@ call.i.noexc.i926:                                ; preds = %__cxx_global_var_in
 lpad.i.i928:                                      ; preds = %.noexc.i927
   %462 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypePinningRequiredFoundB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypePinningRequiredFoundB5cxx11E) #14
   br label %common.resume
 
 lpad.i923:                                        ; preds = %call.i.noexc.i926, %__cxx_global_var_init.229.exit
@@ -6338,7 +6338,7 @@ call.i.noexc.i934:                                ; preds = %__cxx_global_var_in
 lpad.i.i936:                                      ; preds = %.noexc.i935
   %465 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledFoundB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledFoundB5cxx11E) #14
   br label %common.resume
 
 lpad.i931:                                        ; preds = %call.i.noexc.i934, %__cxx_global_var_init.231.exit
@@ -6366,7 +6366,7 @@ call.i.noexc.i942:                                ; preds = %__cxx_global_var_in
 lpad.i.i944:                                      ; preds = %.noexc.i943
   %468 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledCountB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledCountB5cxx11E) #14
   br label %common.resume
 
 lpad.i939:                                        ; preds = %call.i.noexc.i942, %__cxx_global_var_init.233.exit
@@ -6394,7 +6394,7 @@ call.i.noexc.i950:                                ; preds = %__cxx_global_var_in
 lpad.i.i952:                                      ; preds = %.noexc.i951
   %471 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL35kTraceFieldTypePinningExcludedFoundB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL35kTraceFieldTypePinningExcludedFoundB5cxx11E) #14
   br label %common.resume
 
 lpad.i947:                                        ; preds = %call.i.noexc.i950, %__cxx_global_var_init.235.exit
@@ -6422,7 +6422,7 @@ call.i.noexc.i958:                                ; preds = %__cxx_global_var_in
 lpad.i.i960:                                      ; preds = %.noexc.i959
   %474 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypePinningTimePinB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypePinningTimePinB5cxx11E) #14
   br label %common.resume
 
 lpad.i955:                                        ; preds = %call.i.noexc.i958, %__cxx_global_var_init.237.exit
@@ -6450,7 +6450,7 @@ call.i.noexc.i966:                                ; preds = %__cxx_global_var_in
 lpad.i.i968:                                      ; preds = %.noexc.i967
   %477 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypePinningHostB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypePinningHostB5cxx11E) #14
   br label %common.resume
 
 lpad.i963:                                        ; preds = %call.i.noexc.i966, %__cxx_global_var_init.239.exit
@@ -6478,7 +6478,7 @@ call.i.noexc.i974:                                ; preds = %__cxx_global_var_in
 lpad.i.i976:                                      ; preds = %.noexc.i975
   %480 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypePinningSuccessB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypePinningSuccessB5cxx11E) #14
   br label %common.resume
 
 lpad.i971:                                        ; preds = %call.i.noexc.i974, %__cxx_global_var_init.241.exit
@@ -6506,7 +6506,7 @@ call.i.noexc.i982:                                ; preds = %__cxx_global_var_in
 lpad.i.i984:                                      ; preds = %.noexc.i983
   %483 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeVerifiedTimeMergeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeVerifiedTimeMergeB5cxx11E) #14
   br label %common.resume
 
 lpad.i979:                                        ; preds = %call.i.noexc.i982, %__cxx_global_var_init.243.exit
@@ -6534,7 +6534,7 @@ call.i.noexc.i990:                                ; preds = %__cxx_global_var_in
 lpad.i.i992:                                      ; preds = %.noexc.i991
   %486 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeRevokeReasonB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeRevokeReasonB5cxx11E) #14
   br label %common.resume
 
 lpad.i987:                                        ; preds = %call.i.noexc.i990, %__cxx_global_var_init.245.exit
@@ -6562,7 +6562,7 @@ call.i.noexc.i998:                                ; preds = %__cxx_global_var_in
 lpad.i.i1000:                                     ; preds = %.noexc.i999
   %489 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeRevokeSuccessB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeRevokeSuccessB5cxx11E) #14
   br label %common.resume
 
 lpad.i995:                                        ; preds = %call.i.noexc.i998, %__cxx_global_var_init.247.exit
@@ -6610,7 +6610,7 @@ lpad.i2104:                                       ; preds = %invoke.cont.i2105, 
   %494 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2099) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeProxyHostB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeProxyHostB5cxx11E) #14
   br label %common.resume
 
 lpad.i1003:                                       ; preds = %call.i.noexc.i1006, %__cxx_global_var_init.249.exit
@@ -6659,7 +6659,7 @@ lpad.i2114:                                       ; preds = %invoke.cont.i2115, 
   %499 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2109) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeProxyPortB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeProxyPortB5cxx11E) #14
   br label %common.resume
 
 lpad.i1011:                                       ; preds = %call.i.noexc.i1014, %__cxx_global_var_init.251.exit
@@ -6688,7 +6688,7 @@ call.i.noexc.i1022:                               ; preds = %__cxx_global_var_in
 lpad.i.i1024:                                     ; preds = %.noexc.i1023
   %502 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeProxyRespStatusB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeProxyRespStatusB5cxx11E) #14
   br label %common.resume
 
 lpad.i1019:                                       ; preds = %call.i.noexc.i1022, %__cxx_global_var_init.253.exit
@@ -6716,7 +6716,7 @@ call.i.noexc.i1030:                               ; preds = %__cxx_global_var_in
 lpad.i.i1032:                                     ; preds = %.noexc.i1031
   %505 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeProxyRespBodyB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeProxyRespBodyB5cxx11E) #14
   br label %common.resume
 
 lpad.i1027:                                       ; preds = %call.i.noexc.i1030, %__cxx_global_var_init.255.exit
@@ -6744,7 +6744,7 @@ call.i.noexc.i1038:                               ; preds = %__cxx_global_var_in
 lpad.i.i1040:                                     ; preds = %.noexc.i1039
   %508 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeProxyUpstreamDestB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeProxyUpstreamDestB5cxx11E) #14
   br label %common.resume
 
 lpad.i1035:                                       ; preds = %call.i.noexc.i1038, %__cxx_global_var_init.257.exit
@@ -6792,7 +6792,7 @@ lpad.i2124:                                       ; preds = %invoke.cont.i2125, 
   %513 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2119) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeSchedulerTypeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeSchedulerTypeB5cxx11E) #14
   br label %common.resume
 
 lpad.i1043:                                       ; preds = %call.i.noexc.i1046, %__cxx_global_var_init.259.exit
@@ -6821,7 +6821,7 @@ call.i.noexc.i1054:                               ; preds = %__cxx_global_var_in
 lpad.i.i1056:                                     ; preds = %.noexc.i1055
   %516 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeInitialPriorityB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeInitialPriorityB5cxx11E) #14
   br label %common.resume
 
 lpad.i1051:                                       ; preds = %call.i.noexc.i1054, %__cxx_global_var_init.261.exit
@@ -6869,7 +6869,7 @@ lpad.i2134:                                       ; preds = %invoke.cont.i2135, 
   %521 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2129) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeSizeOfQueueB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeSizeOfQueueB5cxx11E) #14
   br label %common.resume
 
 lpad.i1059:                                       ; preds = %call.i.noexc.i1062, %__cxx_global_var_init.263.exit
@@ -6918,7 +6918,7 @@ lpad.i2144:                                       ; preds = %invoke.cont.i2145, 
   %526 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2139) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypePreviousStateB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypePreviousStateB5cxx11E) #14
   br label %common.resume
 
 lpad.i1067:                                       ; preds = %call.i.noexc.i1070, %__cxx_global_var_init.265.exit
@@ -6967,7 +6967,7 @@ lpad.i2154:                                       ; preds = %invoke.cont.i2155, 
   %531 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2149) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeCurrentStateB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeCurrentStateB5cxx11E) #14
   br label %common.resume
 
 lpad.i1075:                                       ; preds = %call.i.noexc.i1078, %__cxx_global_var_init.267.exit
@@ -7016,7 +7016,7 @@ lpad.i2164:                                       ; preds = %invoke.cont.i2165, 
   %536 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2159) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeNetworkIDB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeNetworkIDB5cxx11E) #14
   br label %common.resume
 
 lpad.i1083:                                       ; preds = %call.i.noexc.i1086, %__cxx_global_var_init.269.exit
@@ -7045,7 +7045,7 @@ call.i.noexc.i1094:                               ; preds = %__cxx_global_var_in
 lpad.i.i1096:                                     ; preds = %.noexc.i1095
   %539 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeNumConnAttemptsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeNumConnAttemptsB5cxx11E) #14
   br label %common.resume
 
 lpad.i1091:                                       ; preds = %call.i.noexc.i1094, %__cxx_global_var_init.271.exit
@@ -7073,7 +7073,7 @@ call.i.noexc.i1102:                               ; preds = %__cxx_global_var_in
 lpad.i.i1104:                                     ; preds = %.noexc.i1103
   %542 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeAttemptAddrsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeAttemptAddrsB5cxx11E) #14
   br label %common.resume
 
 lpad.i1099:                                       ; preds = %call.i.noexc.i1102, %__cxx_global_var_init.273.exit
@@ -7101,7 +7101,7 @@ call.i.noexc.i1110:                               ; preds = %__cxx_global_var_in
 lpad.i.i1112:                                     ; preds = %.noexc.i1111
   %545 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeAttemptAddrFamilyB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeAttemptAddrFamilyB5cxx11E) #14
   br label %common.resume
 
 lpad.i1107:                                       ; preds = %call.i.noexc.i1110, %__cxx_global_var_init.275.exit
@@ -7129,7 +7129,7 @@ call.i.noexc.i1118:                               ; preds = %__cxx_global_var_in
 lpad.i.i1120:                                     ; preds = %.noexc.i1119
   %548 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeSucceededConnTimeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeSucceededConnTimeB5cxx11E) #14
   br label %common.resume
 
 lpad.i1115:                                       ; preds = %call.i.noexc.i1118, %__cxx_global_var_init.277.exit
@@ -7177,7 +7177,7 @@ lpad.i2174:                                       ; preds = %invoke.cont.i2175, 
   %553 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2169) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeRequestIDB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeRequestIDB5cxx11E) #14
   br label %common.resume
 
 lpad.i1123:                                       ; preds = %call.i.noexc.i1126, %__cxx_global_var_init.279.exit
@@ -7206,7 +7206,7 @@ call.i.noexc.i1134:                               ; preds = %__cxx_global_var_in
 lpad.i.i1136:                                     ; preds = %.noexc.i1135
   %556 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeHumanReadableNameB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeHumanReadableNameB5cxx11E) #14
   br label %common.resume
 
 lpad.i1131:                                       ; preds = %call.i.noexc.i1134, %__cxx_global_var_init.281.exit
@@ -7254,7 +7254,7 @@ lpad.i2184:                                       ; preds = %invoke.cont.i2185, 
   %561 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2179) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeCurrentTransactionsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeCurrentTransactionsB5cxx11E) #14
   br label %common.resume
 
 lpad.i1139:                                       ; preds = %call.i.noexc.i1142, %__cxx_global_var_init.283.exit
@@ -7283,7 +7283,7 @@ call.i.noexc.i1150:                               ; preds = %__cxx_global_var_in
 lpad.i.i1152:                                     ; preds = %.noexc.i1151
   %564 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL44kTraceFieldTypeHistoricalMaximumTransactionsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL44kTraceFieldTypeHistoricalMaximumTransactionsB5cxx11E) #14
   br label %common.resume
 
 lpad.i1147:                                       ; preds = %call.i.noexc.i1150, %__cxx_global_var_init.285.exit
@@ -7311,7 +7311,7 @@ call.i.noexc.i1158:                               ; preds = %__cxx_global_var_in
 lpad.i.i1160:                                     ; preds = %.noexc.i1159
   %567 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL39kTraceFieldTypeNumberTransactionsServedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL39kTraceFieldTypeNumberTransactionsServedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1155:                                       ; preds = %call.i.noexc.i1158, %__cxx_global_var_init.287.exit
@@ -7359,7 +7359,7 @@ lpad.i2194:                                       ; preds = %invoke.cont.i2195, 
   %572 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2189) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL19kTraceFieldTypeCwndB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL19kTraceFieldTypeCwndB5cxx11E) #14
   br label %common.resume
 
 lpad.i1163:                                       ; preds = %call.i.noexc.i1166, %__cxx_global_var_init.289.exit
@@ -7408,7 +7408,7 @@ lpad.i2204:                                       ; preds = %invoke.cont.i2205, 
   %577 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2199) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeCwndBytesB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeCwndBytesB5cxx11E) #14
   br label %common.resume
 
 lpad.i1171:                                       ; preds = %call.i.noexc.i1174, %__cxx_global_var_init.291.exit
@@ -7457,7 +7457,7 @@ lpad.i2214:                                       ; preds = %invoke.cont.i2215, 
   %582 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2209) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeTotalRetxB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeTotalRetxB5cxx11E) #14
   br label %common.resume
 
 lpad.i1179:                                       ; preds = %call.i.noexc.i1182, %__cxx_global_var_init.293.exit
@@ -7486,7 +7486,7 @@ call.i.noexc.i1190:                               ; preds = %__cxx_global_var_in
 lpad.i.i1192:                                     ; preds = %.noexc.i1191
   %585 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL33kTraceFieldTypeInflightPacketLossB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL33kTraceFieldTypeInflightPacketLossB5cxx11E) #14
   br label %common.resume
 
 lpad.i1187:                                       ; preds = %call.i.noexc.i1190, %__cxx_global_var_init.295.exit
@@ -7534,7 +7534,7 @@ lpad.i2224:                                       ; preds = %invoke.cont.i2225, 
   %590 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2219) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL18kTraceFieldTypeRTTB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL18kTraceFieldTypeRTTB5cxx11E) #14
   br label %common.resume
 
 lpad.i1195:                                       ; preds = %call.i.noexc.i1198, %__cxx_global_var_init.297.exit
@@ -7583,7 +7583,7 @@ lpad.i2234:                                       ; preds = %invoke.cont.i2235, 
   %595 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2229) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL21kTraceFieldTypeRTTVarB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL21kTraceFieldTypeRTTVarB5cxx11E) #14
   br label %common.resume
 
 lpad.i1203:                                       ; preds = %call.i.noexc.i1206, %__cxx_global_var_init.299.exit
@@ -7632,7 +7632,7 @@ lpad.i2244:                                       ; preds = %invoke.cont.i2245, 
   %600 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2239) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL18kTraceFieldTypeRTOB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL18kTraceFieldTypeRTOB5cxx11E) #14
   br label %common.resume
 
 lpad.i1211:                                       ; preds = %call.i.noexc.i1214, %__cxx_global_var_init.301.exit
@@ -7681,7 +7681,7 @@ lpad.i2254:                                       ; preds = %invoke.cont.i2255, 
   %605 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2249) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL18kTraceFieldTypeMSSB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL18kTraceFieldTypeMSSB5cxx11E) #14
   br label %common.resume
 
 lpad.i1219:                                       ; preds = %call.i.noexc.i1222, %__cxx_global_var_init.303.exit
@@ -7730,7 +7730,7 @@ lpad.i2264:                                       ; preds = %invoke.cont.i2265, 
   %610 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2259) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL18kTraceFieldTypeMTUB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL18kTraceFieldTypeMTUB5cxx11E) #14
   br label %common.resume
 
 lpad.i1227:                                       ; preds = %call.i.noexc.i1230, %__cxx_global_var_init.305.exit
@@ -7779,7 +7779,7 @@ lpad.i2274:                                       ; preds = %invoke.cont.i2275, 
   %615 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2269) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL21kTraceFieldTypeRcvWndB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL21kTraceFieldTypeRcvWndB5cxx11E) #14
   br label %common.resume
 
 lpad.i1235:                                       ; preds = %call.i.noexc.i1238, %__cxx_global_var_init.307.exit
@@ -7808,7 +7808,7 @@ call.i.noexc.i1246:                               ; preds = %__cxx_global_var_in
 lpad.i.i1248:                                     ; preds = %.noexc.i1247
   %618 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeUpstreamCapacityB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeUpstreamCapacityB5cxx11E) #14
   br label %common.resume
 
 lpad.i1243:                                       ; preds = %call.i.noexc.i1246, %__cxx_global_var_init.309.exit
@@ -7856,7 +7856,7 @@ lpad.i2284:                                       ; preds = %invoke.cont.i2285, 
   %623 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2279) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeReqsSucceedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeReqsSucceedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1251:                                       ; preds = %call.i.noexc.i1254, %__cxx_global_var_init.311.exit
@@ -7905,7 +7905,7 @@ lpad.i2294:                                       ; preds = %invoke.cont.i2295, 
   %628 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2289) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL25kTraceFieldTypeReqsFailedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL25kTraceFieldTypeReqsFailedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1259:                                       ; preds = %call.i.noexc.i1262, %__cxx_global_var_init.313.exit
@@ -7954,7 +7954,7 @@ lpad.i2304:                                       ; preds = %invoke.cont.i2305, 
   %633 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2299) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL19kTraceFieldTypeTTFBB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL19kTraceFieldTypeTTFBB5cxx11E) #14
   br label %common.resume
 
 lpad.i1267:                                       ; preds = %call.i.noexc.i1270, %__cxx_global_var_init.315.exit
@@ -8003,7 +8003,7 @@ lpad.i2314:                                       ; preds = %invoke.cont.i2315, 
   %638 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2309) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL19kTraceFieldTypeTTLBB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL19kTraceFieldTypeTTLBB5cxx11E) #14
   br label %common.resume
 
 lpad.i1275:                                       ; preds = %call.i.noexc.i1278, %__cxx_global_var_init.317.exit
@@ -8032,7 +8032,7 @@ call.i.noexc.i1286:                               ; preds = %__cxx_global_var_in
 lpad.i.i1288:                                     ; preds = %.noexc.i1287
   %641 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeConnLifeSpanB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeConnLifeSpanB5cxx11E) #14
   br label %common.resume
 
 lpad.i1283:                                       ; preds = %call.i.noexc.i1286, %__cxx_global_var_init.319.exit
@@ -8080,7 +8080,7 @@ lpad.i2324:                                       ; preds = %invoke.cont.i2325, 
   %646 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2319) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeEgressBufferedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeEgressBufferedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1291:                                       ; preds = %call.i.noexc.i1294, %__cxx_global_var_init.321.exit
@@ -8109,7 +8109,7 @@ call.i.noexc.i1302:                               ; preds = %__cxx_global_var_in
 lpad.i.i1304:                                     ; preds = %.noexc.i1303
   %649 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeSCFGCacheHitB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeSCFGCacheHitB5cxx11E) #14
   br label %common.resume
 
 lpad.i1299:                                       ; preds = %call.i.noexc.i1302, %__cxx_global_var_init.323.exit
@@ -8137,7 +8137,7 @@ call.i.noexc.i1310:                               ; preds = %__cxx_global_var_in
 lpad.i.i1312:                                     ; preds = %.noexc.i1311
   %652 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeSCFGExpiredB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeSCFGExpiredB5cxx11E) #14
   br label %common.resume
 
 lpad.i1307:                                       ; preds = %call.i.noexc.i1310, %__cxx_global_var_init.325.exit
@@ -8185,7 +8185,7 @@ lpad.i2334:                                       ; preds = %invoke.cont.i2335, 
   %657 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2329) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL23kTraceFieldTypeZeroAEADB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL23kTraceFieldTypeZeroAEADB5cxx11E) #14
   br label %common.resume
 
 lpad.i1315:                                       ; preds = %call.i.noexc.i1318, %__cxx_global_var_init.327.exit
@@ -8234,7 +8234,7 @@ lpad.i2344:                                       ; preds = %invoke.cont.i2345, 
   %662 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2339) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL22kTraceFieldTypeZeroKexB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL22kTraceFieldTypeZeroKexB5cxx11E) #14
   br label %common.resume
 
 lpad.i1323:                                       ; preds = %call.i.noexc.i1326, %__cxx_global_var_init.329.exit
@@ -8283,7 +8283,7 @@ lpad.i2354:                                       ; preds = %invoke.cont.i2355, 
   %667 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2349) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeZeroVersionB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeZeroVersionB5cxx11E) #14
   br label %common.resume
 
 lpad.i1331:                                       ; preds = %call.i.noexc.i1334, %__cxx_global_var_init.331.exit
@@ -8312,7 +8312,7 @@ call.i.noexc.i1342:                               ; preds = %__cxx_global_var_in
 lpad.i.i1344:                                     ; preds = %.noexc.i1343
   %670 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL29kTraceFieldTypeZeroRttEnabledB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL29kTraceFieldTypeZeroRttEnabledB5cxx11E) #14
   br label %common.resume
 
 lpad.i1339:                                       ; preds = %call.i.noexc.i1342, %__cxx_global_var_init.333.exit
@@ -8340,7 +8340,7 @@ call.i.noexc.i1350:                               ; preds = %__cxx_global_var_in
 lpad.i.i1352:                                     ; preds = %.noexc.i1351
   %673 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeZeroFallbackEnabledB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeZeroFallbackEnabledB5cxx11E) #14
   br label %common.resume
 
 lpad.i1347:                                       ; preds = %call.i.noexc.i1350, %__cxx_global_var_init.335.exit
@@ -8368,7 +8368,7 @@ call.i.noexc.i1358:                               ; preds = %__cxx_global_var_in
 lpad.i.i1360:                                     ; preds = %.noexc.i1359
   %676 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL34kTraceFieldTypeZeroVerifiedSuccessB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL34kTraceFieldTypeZeroVerifiedSuccessB5cxx11E) #14
   br label %common.resume
 
 lpad.i1355:                                       ; preds = %call.i.noexc.i1358, %__cxx_global_var_init.337.exit
@@ -8396,7 +8396,7 @@ call.i.noexc.i1366:                               ; preds = %__cxx_global_var_in
 lpad.i.i1368:                                     ; preds = %.noexc.i1367
   %679 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeZeroVerifiedErrorB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeZeroVerifiedErrorB5cxx11E) #14
   br label %common.resume
 
 lpad.i1363:                                       ; preds = %call.i.noexc.i1366, %__cxx_global_var_init.339.exit
@@ -8444,7 +8444,7 @@ lpad.i2364:                                       ; preds = %invoke.cont.i2365, 
   %684 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2359) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeTFOAttemptedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeTFOAttemptedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1371:                                       ; preds = %call.i.noexc.i1374, %__cxx_global_var_init.341.exit
@@ -8493,7 +8493,7 @@ lpad.i2374:                                       ; preds = %invoke.cont.i2375, 
   %689 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2369) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL26kTraceFieldTypeTFOFinishedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL26kTraceFieldTypeTFOFinishedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1379:                                       ; preds = %call.i.noexc.i1382, %__cxx_global_var_init.343.exit
@@ -8522,7 +8522,7 @@ call.i.noexc.i1390:                               ; preds = %__cxx_global_var_in
 lpad.i.i1392:                                     ; preds = %.noexc.i1391
   %692 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeMQTTConnAttemptsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeMQTTConnAttemptsB5cxx11E) #14
   br label %common.resume
 
 lpad.i1387:                                       ; preds = %call.i.noexc.i1390, %__cxx_global_var_init.345.exit
@@ -8570,7 +8570,7 @@ lpad.i2384:                                       ; preds = %invoke.cont.i2385, 
   %697 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2379) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeIsForegroundB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeIsForegroundB5cxx11E) #14
   br label %common.resume
 
 lpad.i1395:                                       ; preds = %call.i.noexc.i1398, %__cxx_global_var_init.347.exit
@@ -8599,7 +8599,7 @@ call.i.noexc.i1406:                               ; preds = %__cxx_global_var_in
 lpad.i.i1408:                                     ; preds = %.noexc.i1407
   %700 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeMQTTBytesWrittenB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeMQTTBytesWrittenB5cxx11E) #14
   br label %common.resume
 
 lpad.i1403:                                       ; preds = %call.i.noexc.i1406, %__cxx_global_var_init.349.exit
@@ -8647,7 +8647,7 @@ lpad.i2394:                                       ; preds = %invoke.cont.i2395, 
   %705 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2389) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeMQTTBytesReadB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeMQTTBytesReadB5cxx11E) #14
   br label %common.resume
 
 lpad.i1411:                                       ; preds = %call.i.noexc.i1414, %__cxx_global_var_init.351.exit
@@ -8676,7 +8676,7 @@ call.i.noexc.i1422:                               ; preds = %__cxx_global_var_in
 lpad.i.i1424:                                     ; preds = %.noexc.i1423
   %708 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL30kTraceFieldTypeRawBytesWrittenB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL30kTraceFieldTypeRawBytesWrittenB5cxx11E) #14
   br label %common.resume
 
 lpad.i1419:                                       ; preds = %call.i.noexc.i1422, %__cxx_global_var_init.353.exit
@@ -8724,7 +8724,7 @@ lpad.i2404:                                       ; preds = %invoke.cont.i2405, 
   %713 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2399) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeRawBytesReadB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeRawBytesReadB5cxx11E) #14
   br label %common.resume
 
 lpad.i1427:                                       ; preds = %call.i.noexc.i1430, %__cxx_global_var_init.355.exit
@@ -8753,7 +8753,7 @@ call.i.noexc.i1438:                               ; preds = %__cxx_global_var_in
 lpad.i.i1440:                                     ; preds = %.noexc.i1439
   %716 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL31kTraceFieldTypeEventLoopTimeAvgB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL31kTraceFieldTypeEventLoopTimeAvgB5cxx11E) #14
   br label %common.resume
 
 lpad.i1435:                                       ; preds = %call.i.noexc.i1438, %__cxx_global_var_init.357.exit
@@ -8801,7 +8801,7 @@ lpad.i2414:                                       ; preds = %invoke.cont.i2415, 
   %721 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2409) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeTransportTypeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeTransportTypeB5cxx11E) #14
   br label %common.resume
 
 lpad.i1443:                                       ; preds = %call.i.noexc.i1446, %__cxx_global_var_init.359.exit
@@ -8830,7 +8830,7 @@ call.i.noexc.i1454:                               ; preds = %__cxx_global_var_in
 lpad.i.i1456:                                     ; preds = %.noexc.i1455
   %724 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL37kTraceFieldTypeMQTTMsgRemainingLengthB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL37kTraceFieldTypeMQTTMsgRemainingLengthB5cxx11E) #14
   br label %common.resume
 
 lpad.i1451:                                       ; preds = %call.i.noexc.i1454, %__cxx_global_var_init.361.exit
@@ -8878,7 +8878,7 @@ lpad.i2424:                                       ; preds = %invoke.cont.i2425, 
   %729 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2419) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL22kTraceFieldTypeMsgTypeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL22kTraceFieldTypeMsgTypeB5cxx11E) #14
   br label %common.resume
 
 lpad.i1459:                                       ; preds = %call.i.noexc.i1462, %__cxx_global_var_init.363.exit
@@ -8927,7 +8927,7 @@ lpad.i2434:                                       ; preds = %invoke.cont.i2435, 
   %734 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2429) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL24kTraceFieldTypeIsMsgRecvB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL24kTraceFieldTypeIsMsgRecvB5cxx11E) #14
   br label %common.resume
 
 lpad.i1467:                                       ; preds = %call.i.noexc.i1470, %__cxx_global_var_init.365.exit
@@ -8956,7 +8956,7 @@ call.i.noexc.i1478:                               ; preds = %__cxx_global_var_in
 lpad.i.i1480:                                     ; preds = %.noexc.i1479
   %737 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL32kTraceFieldTypeConnectReturnCodeB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL32kTraceFieldTypeConnectReturnCodeB5cxx11E) #14
   br label %common.resume
 
 lpad.i1475:                                       ; preds = %call.i.noexc.i1478, %__cxx_global_var_init.367.exit
@@ -9004,7 +9004,7 @@ lpad.i2444:                                       ; preds = %invoke.cont.i2445, 
   %742 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2439) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypeMQTTMsgBytesB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypeMQTTMsgBytesB5cxx11E) #14
   br label %common.resume
 
 lpad.i1483:                                       ; preds = %call.i.noexc.i1486, %__cxx_global_var_init.369.exit
@@ -9053,7 +9053,7 @@ lpad.i2454:                                       ; preds = %invoke.cont.i2455, 
   %747 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2449) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL23kTraceFieldTypeMsgTopicB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL23kTraceFieldTypeMsgTopicB5cxx11E) #14
   br label %common.resume
 
 lpad.i1491:                                       ; preds = %call.i.noexc.i1494, %__cxx_global_var_init.371.exit
@@ -9102,7 +9102,7 @@ lpad.i2464:                                       ; preds = %invoke.cont.i2465, 
   %752 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2459) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL18kTraceFieldTypeQoSB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL18kTraceFieldTypeQoSB5cxx11E) #14
   br label %common.resume
 
 lpad.i1499:                                       ; preds = %call.i.noexc.i1502, %__cxx_global_var_init.373.exit
@@ -9151,7 +9151,7 @@ lpad.i2474:                                       ; preds = %invoke.cont.i2475, 
   %757 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2469) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeIsPushRequestB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeIsPushRequestB5cxx11E) #14
   br label %common.resume
 
 lpad.i1507:                                       ; preds = %call.i.noexc.i1510, %__cxx_global_var_init.375.exit
@@ -9180,7 +9180,7 @@ call.i.noexc.i1518:                               ; preds = %__cxx_global_var_in
 lpad.i.i1520:                                     ; preds = %.noexc.i1519
   %760 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL36kTraceFieldTypePushConnectedInFlightB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL36kTraceFieldTypePushConnectedInFlightB5cxx11E) #14
   br label %common.resume
 
 lpad.i1515:                                       ; preds = %call.i.noexc.i1518, %__cxx_global_var_init.377.exit
@@ -9228,7 +9228,7 @@ lpad.i2484:                                       ; preds = %invoke.cont.i2485, 
   %765 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2479) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL27kTraceFieldTypePushOrphanedB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL27kTraceFieldTypePushOrphanedB5cxx11E) #14
   br label %common.resume
 
 lpad.i1523:                                       ; preds = %call.i.noexc.i1526, %__cxx_global_var_init.379.exit
@@ -9277,7 +9277,7 @@ lpad.i2494:                                       ; preds = %invoke.cont.i2495, 
   %770 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i2489) #14
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygenL28kTraceFieldTypeAnalyticsTagsB5cxx11E) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygenL28kTraceFieldTypeAnalyticsTagsB5cxx11E) #14
   br label %common.resume
 
 lpad.i1531:                                       ; preds = %call.i.noexc.i1534, %__cxx_global_var_init.381.exit

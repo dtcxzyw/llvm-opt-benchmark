@@ -935,7 +935,7 @@ column_in_column_list.exit:                       ; preds = %23
   %26 = getelementptr inbounds i8, ptr %19, i64 74
   %27 = load i16, ptr %26, align 2
   %28 = sext i16 %27 to i32
-  %29 = tail call zeroext i1 @bms_is_member(i32 noundef %28, ptr noundef nonnull %3) #8
+  %29 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %28, ptr noundef nonnull %3) #8
   %cond.fr = freeze i1 %29
   %30 = zext i1 %cond.fr to i16
   %spec.select = add i16 %.0602, %30
@@ -1011,7 +1011,7 @@ column_in_column_list.exit66:                     ; preds = %66
   %67 = getelementptr inbounds i8, ptr %59, i64 74
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i32
-  %70 = tail call zeroext i1 @bms_is_member(i32 noundef %69, ptr noundef nonnull %3) #8
+  %70 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %69, ptr noundef nonnull %3) #8
   br i1 %70, label %column_in_column_list.exit66.thread, label %154
 
 column_in_column_list.exit66.thread:              ; preds = %66, %column_in_column_list.exit66
@@ -1115,7 +1115,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   %132 = add nsw i32 %131, -4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  %133 = tail call i32 @llvm.bswap.i32(i32 %132)
+  %133 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %132)
   %134 = load ptr, ptr %0, align 8, !alias.scope !136
   %135 = load i32, ptr %37, align 8, !alias.scope !136
   %136 = sext i32 %135 to i64
@@ -1798,7 +1798,7 @@ column_in_column_list.exit.i:                     ; preds = %75
   %78 = getelementptr inbounds i8, ptr %71, i64 74
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %79 to i32
-  %81 = tail call zeroext i1 @bms_is_member(i32 noundef %80, ptr noundef nonnull %3) #8
+  %81 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %80, ptr noundef nonnull %3) #8
   %cond.fr.i = freeze i1 %81
   %82 = zext i1 %cond.fr.i to i16
   %spec.select.i = add i16 %.03845.i, %82
@@ -1867,7 +1867,7 @@ column_in_column_list.exit.i:                     ; preds = %75
 column_in_column_list.exit43.i:                   ; preds = %112
   %114 = load i16, ptr %113, align 2
   %115 = sext i16 %114 to i32
-  %116 = tail call zeroext i1 @bms_is_member(i32 noundef %115, ptr noundef nonnull %3) #8
+  %116 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %115, ptr noundef nonnull %3) #8
   br i1 %116, label %column_in_column_list.exit43.thread.i, label %143
 
 column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_list.exit43.i, %112

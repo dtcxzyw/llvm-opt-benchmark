@@ -511,7 +511,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   br label %.body.i
 
 31:                                               ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !15
   %32 = getelementptr inbounds i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !20
@@ -584,7 +584,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
           to label %.body.i unwind label %70, !noalias !15
 
 50:                                               ; preds = %.noexc6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !15
   %51 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !29
@@ -836,7 +836,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   br label %.body.i
 
 43:                                               ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !44
   %44 = getelementptr inbounds i8, ptr %25, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !49
@@ -909,7 +909,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
           to label %.body.i unwind label %82, !noalias !44
 
 62:                                               ; preds = %.noexc6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !44
   %63 = getelementptr inbounds i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !58
@@ -1166,7 +1166,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7), !noalias !84
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8), !noalias !84
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !94
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   %130 = getelementptr inbounds i8, ptr %4, i64 8
   %131 = load i64, ptr %130, align 8, !range !103, !noalias !94, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %131, 0
@@ -1568,7 +1568,7 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
 
 64:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !122
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %61)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %61)
           to label %.noexc unwind label %73
 
 .noexc:                                           ; preds = %64
@@ -1658,7 +1658,7 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !129
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc32 unwind label %109
 
 .noexc32:                                         ; preds = %97
@@ -2037,7 +2037,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread16: ; preds = %19, %_
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !155
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
   %48 = getelementptr inbounds i8, ptr %4, i64 8
   %49 = load i64, ptr %48, align 8, !range !103, !noalias !155, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %49, 0
@@ -2457,7 +2457,7 @@ common.resume:                                    ; preds = %41, %68, %69, %70, 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio..net..tcp..stream..TcpStream$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb606e6a59866135cE"(ptr noalias noundef align 8 dereferenceable(48) %11) #29
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio..net..tcp..stream..TcpStream$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb606e6a59866135cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #29
           to label %common.resume unwind label %23, !noalias !207
 
 23:                                               ; preds = %21
@@ -2470,7 +2470,7 @@ common.resume:                                    ; preds = %41, %68, %69, %70, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !207
   %25 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @_ZN11tungstenite8protocol16WebSocketContext5write17h28a3c6cdc1f3a771E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %12, ptr noalias noundef nonnull align 8 dereferenceable(256) %25, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !213
+  call void @_ZN11tungstenite8protocol16WebSocketContext5write17h28a3c6cdc1f3a771E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %12, ptr noalias noundef nonnull align 8 dereferenceable(256) %25, ptr noalias noundef nonnull align 8 dereferenceable(312) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !213
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !208
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -2687,7 +2687,7 @@ common.resume:                                    ; preds = %41, %68, %69, %70, 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr272drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e8b2b85acc6c32E"(ptr noalias noundef align 8 dereferenceable(48) %11) #29
+  invoke fastcc void @"_ZN4core3ptr272drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e8b2b85acc6c32E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #29
           to label %common.resume unwind label %23, !noalias !241
 
 23:                                               ; preds = %21
@@ -2700,7 +2700,7 @@ common.resume:                                    ; preds = %41, %68, %69, %70, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !241
   %25 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @_ZN11tungstenite8protocol16WebSocketContext5write17hd66fa510fab43b17E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %12, ptr noalias noundef nonnull align 8 dereferenceable(256) %25, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !247
+  call void @_ZN11tungstenite8protocol16WebSocketContext5write17hd66fa510fab43b17E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %12, ptr noalias noundef nonnull align 8 dereferenceable(256) %25, ptr noalias noundef nonnull align 8 dereferenceable(312) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !247
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !242
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -3086,7 +3086,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !302
   %29 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 2, ptr %29, align 8, !noalias !302
-  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749ff93c543faE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !304
+  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749ff93c543faE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(304) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !304
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !302
   %30 = load i64, ptr %7, align 8, !range !85, !noalias !302, !noundef !4
   %31 = icmp eq i64 %30, 15
@@ -3096,7 +3096,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !302
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5), !noalias !302
   %33 = getelementptr inbounds i8, ptr %1, i64 120
-  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17h1b2a4454225b5e26E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !304
+  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17h1b2a4454225b5e26E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(304) %1), !noalias !304
   %34 = load i64, ptr %5, align 8, !range !85, !noalias !302, !noundef !4
   %35 = icmp eq i64 %34, 15
   br i1 %35, label %37, label %40
@@ -3130,7 +3130,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h92bf35ad52606180E.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h92bf35ad52606180E.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !295
   ret void
 }
@@ -3197,7 +3197,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !324
   %29 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 2, ptr %29, align 8, !noalias !324
-  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c8229527d4d2b9cE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !326
+  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c8229527d4d2b9cE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(304) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !326
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !324
   %30 = load i64, ptr %7, align 8, !range !85, !noalias !324, !noundef !4
   %31 = icmp eq i64 %30, 15
@@ -3207,7 +3207,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !324
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5), !noalias !324
   %33 = getelementptr inbounds i8, ptr %1, i64 120
-  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17hef7ede5edb3d6db0E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !326
+  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17hef7ede5edb3d6db0E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(304) %1), !noalias !326
   %34 = load i64, ptr %5, align 8, !range !85, !noalias !324, !noundef !4
   %35 = icmp eq i64 %34, 15
   br i1 %35, label %37, label %40
@@ -3241,7 +3241,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h3b7ebd4b9fe80fceE.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h3b7ebd4b9fe80fceE.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !317
   ret void
 }
@@ -3308,7 +3308,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !346
   %29 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 2, ptr %29, align 8, !noalias !346
-  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c8229527d4d2b9cE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !348
+  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c8229527d4d2b9cE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(304) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !348
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !346
   %30 = load i64, ptr %7, align 8, !range !85, !noalias !346, !noundef !4
   %31 = icmp eq i64 %30, 15
@@ -3318,7 +3318,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !346
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5), !noalias !346
   %33 = getelementptr inbounds i8, ptr %1, i64 120
-  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17hef7ede5edb3d6db0E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !348
+  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17hef7ede5edb3d6db0E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(304) %1), !noalias !348
   %34 = load i64, ptr %5, align 8, !range !85, !noalias !346, !noundef !4
   %35 = icmp eq i64 %34, 15
   br i1 %35, label %37, label %40
@@ -3352,7 +3352,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17h615da9e603ef6bbbE.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17h615da9e603ef6bbbE.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !339
   ret void
 }
@@ -3419,7 +3419,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !368
   %29 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 2, ptr %29, align 8, !noalias !368
-  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749ff93c543faE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !370
+  call void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749ff93c543faE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %28, ptr noalias noundef nonnull align 8 dereferenceable(304) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !370
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !368
   %30 = load i64, ptr %7, align 8, !range !85, !noalias !368, !noundef !4
   %31 = icmp eq i64 %30, 15
@@ -3429,7 +3429,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !368
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5), !noalias !368
   %33 = getelementptr inbounds i8, ptr %1, i64 120
-  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17h1b2a4454225b5e26E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !370
+  call void @_ZN11tungstenite8protocol5frame10FrameCodec16write_out_buffer17h1b2a4454225b5e26E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull align 8 dereferenceable(104) %33, ptr noalias noundef nonnull align 8 dereferenceable(304) %1), !noalias !370
   %34 = load i64, ptr %5, align 8, !range !85, !noalias !368, !noundef !4
   %35 = icmp eq i64 %34, 15
   br i1 %35, label %37, label %40
@@ -3463,7 +3463,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17he7940c8c336898c6E.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17he7940c8c336898c6E.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !361
   ret void
 }
@@ -4466,7 +4466,7 @@ _ZN4core3fmt8builders9DebugList7entries17h108c1ad82c62945cE.exit: ; preds = %.lr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17ha63123696d80a02fE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h99465148a27e4883E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51599c9a8035a201143fb9b5059500f5.55.llvm.7653731377883981346, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h99465148a27e4883E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51599c9a8035a201143fb9b5059500f5.55.llvm.7653731377883981346, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 
@@ -4530,7 +4530,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite.
 
 10:                                               ; preds = %11, %2
   %.pn.i.i = phi { ptr, i32 } [ %12, %11 ], [ %3, %2 ]
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17hb2c8a5c463332e88E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #29
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17hb2c8a5c463332e88E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #29
           to label %15 unwind label %13
 
 11:                                               ; preds = %9
@@ -4548,7 +4548,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite.
   resume { ptr, i32 } %.pn.i.i
 
 "_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h2cda96786ddca045E.exit": ; preds = %5, %9
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17hb2c8a5c463332e88E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$tokio..runtime..io..registration..Registration$GT$17hb2c8a5c463332e88E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
 
@@ -4569,7 +4569,7 @@ define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Resu
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !478
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8, !range !103, !noalias !478, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
@@ -4723,7 +4723,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !528
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35)
   %36 = getelementptr inbounds i8, ptr %2, i64 8
   %37 = load i64, ptr %36, align 8, !range !103, !noalias !528, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %37, 0
@@ -4770,7 +4770,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$serde_bare..error..ErrorImpl
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !538
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !103, !noalias !538, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -4826,7 +4826,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$tungstenite..error..UrlError
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !560
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !103, !noalias !560, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -4901,7 +4901,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..messa
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !589
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8, !range !103, !noalias !589, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %12, 0
@@ -4924,7 +4924,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..messa
 
 19:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !598
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   %21 = load i64, ptr %20, align 8, !range !103, !noalias !598, !noundef !4
   %.not.i.i.i.i1 = icmp eq i64 %21, 0
@@ -4947,7 +4947,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..messa
 
 28:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !607
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   %30 = load i64, ptr %29, align 8, !range !103, !noalias !607, !noundef !4
   %.not.i.i.i = icmp eq i64 %30, 0
@@ -4970,7 +4970,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..messa
 
 37:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !614
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !103, !noalias !614, !noundef !4
   %.not.i.i.i2 = icmp eq i64 %39, 0
@@ -4993,7 +4993,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..messa
 
 46:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !621
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %47 = getelementptr inbounds i8, ptr %3, i64 8
   %48 = load i64, ptr %47, align 8, !range !103, !noalias !621, !noundef !4
   %.not.i.i.i4 = icmp eq i64 %48, 0
@@ -5030,7 +5030,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..messa
 
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !639
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
   %63 = getelementptr inbounds i8, ptr %2, i64 8
   %64 = load i64, ptr %63, align 8, !range !103, !noalias !639, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %64, 0
@@ -5138,7 +5138,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tung
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !668
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !range !103, !noalias !668, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
@@ -5449,7 +5449,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !alias.scope !705, !noalias !697, !nonnull !4, !noundef !4
   %9 = load ptr, ptr %0, align 8, !alias.scope !702, !noalias !700, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %8, i64 %4), !alias.scope !708, !noalias !712
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %8, i64 %4), !alias.scope !708, !noalias !712
   %10 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h44ebc2511997388dE.llvm.7653731377883981346.exit"
 
@@ -5541,7 +5541,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h52bd6f68a342e04aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %44, i64 noundef %42), !noalias !724
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h52bd6f68a342e04aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %44, i64 noundef %42), !noalias !724
   %.pre.i.i.i = load i64, ptr %43, align 8, !alias.scope !719, !noalias !724
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit.i"
 
@@ -5566,7 +5566,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   br i1 %60, label %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc222fe27b2a16179E.exit.i"
 
 61:                                               ; preds = %.critedge.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h8326e3949341eebeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %57)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h8326e3949341eebeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %57)
   %.pre.i.i = load i64, ptr %56, align 8, !alias.scope !729
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc222fe27b2a16179E.exit.i"
 
@@ -5595,7 +5595,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit"
 
 10:                                               ; preds = %3
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h52bd6f68a342e04aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %2), !noalias !737
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h52bd6f68a342e04aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2), !noalias !737
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !732, !noalias !737
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit"
 
@@ -5998,7 +5998,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !794
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !range !103, !noalias !794, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %25, 0
@@ -6131,7 +6131,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !814
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !range !103, !noalias !814, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %25, 0
@@ -6264,7 +6264,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !834
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !range !103, !noalias !834, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %25, 0
@@ -9546,7 +9546,7 @@ define hidden void @"_ZN5tokio4util12sharded_list81ShardGuard$LT$L$C$$LT$L$u20$a
   call void @llvm.experimental.noalias.scope.decl(metadata !1398)
   call void @llvm.experimental.noalias.scope.decl(metadata !1401)
   %22 = load ptr, ptr %0, align 8, !alias.scope !1404, !nonnull !4, !align !5, !noundef !4
-  %23 = call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17hc8bc8d5193cba770E.llvm.12663281897316000666(ptr noundef nonnull %22, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !1404
+  %23 = call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17hc8bc8d5193cba770E.llvm.12663281897316000666(ptr noundef nonnull align 1 %22, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !1404
   %.fca.0.extract.i.i.i.i.i = extractvalue { i8, i8 } %23, 0
   %24 = and i8 %.fca.0.extract.i.i.i.i.i, 1
   %25 = icmp eq i8 %24, 0
@@ -9632,7 +9632,7 @@ define hidden void @"_ZN5tokio4util12sharded_list81ShardGuard$LT$L$C$$LT$L$u20$a
   call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   call void @llvm.experimental.noalias.scope.decl(metadata !1414)
   %22 = load ptr, ptr %0, align 8, !alias.scope !1417, !nonnull !4, !align !5, !noundef !4
-  %23 = call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17hc8bc8d5193cba770E.llvm.12663281897316000666(ptr noundef nonnull %22, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !1417
+  %23 = call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17hc8bc8d5193cba770E.llvm.12663281897316000666(ptr noundef nonnull align 1 %22, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0), !noalias !1417
   %.fca.0.extract.i.i.i.i.i = extractvalue { i8, i8 } %23, 0
   %24 = and i8 %.fca.0.extract.i.i.i.i.i, 1
   %25 = icmp eq i8 %24, 0
@@ -10428,7 +10428,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$co
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !alias.scope !1502, !nonnull !4, !noundef !4
   %9 = load ptr, ptr %0, align 8, !alias.scope !1499, !nonnull !4, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %8, i64 %4), !alias.scope !1505
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %8, i64 %4), !alias.scope !1505
   %10 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit"
 
@@ -10639,7 +10639,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   br label %24
 
 "_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17hfd198b3c90f10d95E.exit": ; preds = %24, %.critedge8.i.i
-  %40 = call { i64, ptr } @"_ZN87_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17h8f022ee1731b2e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  %40 = call { i64, ptr } @"_ZN87_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17h8f022ee1731b2e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !1543
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1543
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1543
@@ -10785,7 +10785,7 @@ define hidden void @"_ZN78_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   br label %24
 
 "_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17h903c939a7ba79482E.exit": ; preds = %24, %.critedge8.i.i
-  %40 = call { i64, ptr } @"_ZN87_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17h8f022ee1731b2e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  %40 = call { i64, ptr } @"_ZN87_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17h8f022ee1731b2e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !1575
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1575
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1575
@@ -11077,7 +11077,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   br label %18
 
 "_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17hd575d99f820a0466E.exit": ; preds = %18, %.critedge8.i.i
-  call void @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17h165c556fa2733dccE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call void @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17h165c556fa2733dccE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !1643
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1643
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1643
@@ -11188,7 +11188,7 @@ define hidden void @"_ZN79_$LT$tokio_tungstenite..compat..AllowStd$LT$S$GT$$u20$
   br label %18
 
 "_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12with_context17h817ba9b8e54e1e36E.exit": ; preds = %18, %.critedge8.i.i
-  call void @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17h165c556fa2733dccE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call void @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17h165c556fa2733dccE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !1672
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1672
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1672
@@ -11449,8 +11449,8 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
 "_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17h3ca123f9040b008eE.exit": ; preds = %25, %.critedge8.i.i
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !1710
   %43 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @_ZN11tungstenite8protocol16WebSocketContext4read17h2606f1d7c3ffb6baE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(256) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !1726
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef align 8 dereferenceable(136) %8, ptr noalias nocapture noundef align 8 dereferenceable(136) %4)
+  call void @_ZN11tungstenite8protocol16WebSocketContext4read17h2606f1d7c3ffb6baE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(256) %43, ptr noalias noundef nonnull align 8 dereferenceable(312) %1), !noalias !1726
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8, ptr noalias nocapture noundef align 8 dereferenceable(136) %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !1710
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1707
   %44 = load i64, ptr %8, align 8, !range !174, !noundef !4
@@ -11611,8 +11611,8 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
 "_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17h49f75dcae2fe9cdbE.exit": ; preds = %25, %.critedge8.i.i
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !1739
   %43 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @_ZN11tungstenite8protocol16WebSocketContext4read17hb5b913796b23cfe2E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(256) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !1755
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef align 8 dereferenceable(136) %8, ptr noalias nocapture noundef align 8 dereferenceable(136) %4)
+  call void @_ZN11tungstenite8protocol16WebSocketContext4read17hb5b913796b23cfe2E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(256) %43, ptr noalias noundef nonnull align 8 dereferenceable(312) %1), !noalias !1755
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8, ptr noalias nocapture noundef align 8 dereferenceable(136) %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !1739
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1736
   %44 = load i64, ptr %8, align 8, !range !174, !noundef !4
@@ -11734,7 +11734,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.7653731377883981346.exit: ; preds 
 12:                                               ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.7653731377883981346.exit
   %13 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1768
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !range !103, !noalias !1768, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %15, 0

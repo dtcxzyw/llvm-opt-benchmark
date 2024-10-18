@@ -2550,7 +2550,7 @@ entry:
   %style = alloca %class.StyleSpec, align 8
   call void @llvm.lifetime.start.p0(i64 840, ptr nonnull %style) #30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %style, ptr noundef nonnull align 8 dereferenceable(25) %styles, i64 25, i1 false), !tbaa.struct !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %style, ptr noundef nonnull align 8 dereferenceable(6720) %styles, i64 25, i1 false), !tbaa.struct !113
   %properties3.i.i = getelementptr inbounds i8, ptr %styles, i64 32
   br label %arrayinit.body.i.i.i
 

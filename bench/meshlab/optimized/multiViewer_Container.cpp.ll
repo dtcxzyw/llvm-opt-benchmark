@@ -735,7 +735,7 @@ define void @_ZN21MultiViewer_ContainerD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N21MultiViewer_ContainerD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21MultiViewer_ContainerD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %2) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(272) %2) #19
   ret void
 }
 
@@ -762,7 +762,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !11
-  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %10)
+  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %10)
   %12 = load ptr, ptr %2, align 8, !alias.scope !11
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
@@ -2551,7 +2551,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 9:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4, !noalias !36
-  %12 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %11)
+  %12 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %11)
   %13 = load ptr, ptr %3, align 8, !alias.scope !36
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %13, i64 8
@@ -2693,7 +2693,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 12:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %13 = getelementptr inbounds i8, ptr %8, i64 4
   %14 = load i32, ptr %13, align 4, !noalias !48
-  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %14)
+  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef %14)
   %16 = load ptr, ptr %4, align 8, !alias.scope !48
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr inbounds i8, ptr %16, i64 8
@@ -2870,7 +2870,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !61
-  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %10)
+  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %10)
   %12 = load ptr, ptr %2, align 8, !alias.scope !61
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
@@ -3015,7 +3015,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !73
-  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %10)
+  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %10)
   %12 = load ptr, ptr %2, align 8, !alias.scope !73
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
@@ -3225,7 +3225,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %39
 45:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %46 = getelementptr inbounds i8, ptr %41, i64 4
   %47 = load i32, ptr %46, align 4, !noalias !85
-  %48 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %47)
+  %48 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %47)
   %49 = load ptr, ptr %2, align 8, !alias.scope !85
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = getelementptr inbounds i8, ptr %49, i64 8
@@ -3391,7 +3391,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i37: ; preds = %_ZN9QtPrivate8RefC
   br i1 %.not50, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !96
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %.critedge, %34
-  %123 = call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.045.0)
+  %123 = call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.045.0)
   %.pre = load ptr, ptr %10, align 8
   br label %25, !llvm.loop !97
 
@@ -3559,7 +3559,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIi5QListIP7QActionEE7destroyEv.exit
 
 _ZN8QMapDataIi5QListIP7QActionEE7destroyEv.exit:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIi5QListIP7QActionEE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -3823,7 +3823,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !99
-  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %10)
+  %11 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %10)
   %12 = load ptr, ptr %2, align 8, !alias.scope !99
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
@@ -3977,7 +3977,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %7
 .noexc:                                           ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4, !noalias !111
-  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %14)
+  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %14)
   %16 = load ptr, ptr %3, align 8, !alias.scope !111
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr inbounds i8, ptr %16, i64 8

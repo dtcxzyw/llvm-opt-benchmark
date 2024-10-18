@@ -357,7 +357,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK21ZIsUnloadingBehaviour12has_
   br i1 %.not.i.i, label %_ZN14ZReentrantLock4lockEv.exit.i, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #8
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   store volatile ptr %7, ptr %8, align 8
   br label %_ZN14ZReentrantLock4lockEv.exit.i
 
@@ -399,7 +399,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14ZReentrant
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %4, i64 40
   store volatile ptr null, ptr %29, align 8
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #8
+  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   br label %_ZN7ZLockerI14ZReentrantLockED2Ev.exit
 
 _ZN7ZLockerI14ZReentrantLockED2Ev.exit:           ; preds = %22, %23, %28
@@ -417,7 +417,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN30ZCompiledICProtectionBehavio
   br i1 %.not.i, label %_ZN14ZReentrantLock4lockEv.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #8
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   store volatile ptr %5, ptr %6, align 8
   br label %_ZN14ZReentrantLock4lockEv.exit
 
@@ -442,7 +442,7 @@ define linkonce_odr hidden void @_ZN30ZCompiledICProtectionBehaviour6unlockEP7nm
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   store volatile ptr null, ptr %9, align 8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #8
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   br label %_ZN14ZReentrantLock6unlockEv.exit
 
 _ZN14ZReentrantLock6unlockEv.exit:                ; preds = %2, %8

@@ -226,7 +226,7 @@ define void @_ZN4VPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(84) 
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %13, %12 ]
   %14 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #20
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #20
   %.not.i.i.i = icmp eq ptr %14, %2
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -301,7 +301,7 @@ _ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %12
 .lr.ph.i.i.i10:                                   ; preds = %._crit_edge22, %.lr.ph.i.i.i10
   %.09.i.i.i11 = phi ptr [ %49, %.lr.ph.i.i.i10 ], [ %48, %._crit_edge22 ]
   %49 = load ptr, ptr %.09.i.i.i11, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i11) #20
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i11) #20
   %.not.i.i.i12 = icmp eq ptr %49, %2
   br i1 %.not.i.i.i12, label %_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit13, label %.lr.ph.i.i.i10, !llvm.loop !4
 
@@ -2284,7 +2284,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1
 _ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %6
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %14)
+  invoke void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef %14)
           to label %_ZNKSt14default_deleteI4nodeEclEPS0_.exit.i.i.i.i.i unwind label %15
 
 15:                                               ; preds = %_ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
@@ -3957,7 +3957,7 @@ define linkonce_odr ptr @_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_
 _ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %14
   %21 = getelementptr inbounds i8, ptr %13, i64 16
   %22 = load ptr, ptr %21, align 8
-  invoke void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %22)
+  invoke void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef %22)
           to label %_ZNKSt14default_deleteI4nodeEclEPS0_.exit.i.i.i.i.i.i.i.i.i unwind label %23
 
 23:                                               ; preds = %_ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -4007,7 +4007,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI4nodeSt14default_delete
 _ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %33
   %40 = getelementptr inbounds i8, ptr %32, i64 16
   %41 = load ptr, ptr %40, align 8
-  invoke void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %41)
+  invoke void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef %41)
           to label %_ZNKSt14default_deleteI4nodeEclEPS0_.exit.i.i.i unwind label %42
 
 42:                                               ; preds = %_ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i

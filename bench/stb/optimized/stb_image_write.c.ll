@@ -83,7 +83,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @stbi__start_write_file(ptr nocapture noundef writeonly %s, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
   %context1.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call.i, ptr %context1.i, align 8
@@ -774,7 +774,7 @@ entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds i8, ptr %s, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 72, i1 false)
-  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str)
+  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
   %context1.i.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call.i.i, ptr %context1.i.i, align 8
@@ -1234,7 +1234,7 @@ entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds i8, ptr %s, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 72, i1 false)
-  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str)
+  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
   %context1.i.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call.i.i, ptr %context1.i.i, align 8
@@ -1797,7 +1797,7 @@ entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds i8, ptr %s, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 72, i1 false)
-  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str)
+  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
   %context1.i.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call.i.i, ptr %context1.i.i, align 8
@@ -4532,7 +4532,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %return.sink.split, label %if.end3
 
@@ -6106,7 +6106,7 @@ entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds i8, ptr %s, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 72, i1 false)
-  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str)
+  %call.i.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
   %context1.i.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call.i.i, ptr %context1.i.i, align 8

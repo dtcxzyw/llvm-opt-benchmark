@@ -5187,7 +5187,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %23, %27
   br label %expanded_record_get_field.exit
 
 83:                                               ; preds = %70, %65
-  %84 = tail call i64 @expanded_record_fetch_field(ptr noundef nonnull %24, i32 noundef %29, ptr noundef %66) #15
+  %84 = tail call i64 @expanded_record_fetch_field(ptr noundef nonnull %24, i32 noundef range(i32 1, 32768) %29, ptr noundef %66) #15
   br label %expanded_record_get_field.exit
 
 expanded_record_get_field.exit:                   ; preds = %73, %83
@@ -5278,7 +5278,7 @@ expanded_record_get_field.exit:                   ; preds = %73, %83
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %130
-  %140 = tail call i64 @getmissingattr(ptr noundef nonnull %93, i32 noundef %94, ptr noundef %134) #15
+  %140 = tail call i64 @getmissingattr(ptr noundef nonnull %93, i32 noundef range(i32 1, 32768) %94, ptr noundef %134) #15
   br label %heap_getattr.exit
 
 141:                                              ; preds = %130
@@ -5340,7 +5340,7 @@ expanded_record_get_field.exit:                   ; preds = %73, %83
   %174 = sext i16 %160 to i32
   %175 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %175)
-  %176 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %174) #15
+  %176 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef range(i32 -32768, 32768) %174) #15
   tail call void @errfinish(ptr noundef nonnull @.str.30, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 
@@ -5349,7 +5349,7 @@ expanded_record_get_field.exit:                   ; preds = %73, %83
   br label %heap_getattr.exit
 
 179:                                              ; preds = %145
-  %180 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef %94, ptr noundef nonnull %93) #15
+  %180 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %94, ptr noundef nonnull %93) #15
   br label %heap_getattr.exit
 
 181:                                              ; preds = %141
@@ -5370,7 +5370,7 @@ expanded_record_get_field.exit:                   ; preds = %73, %83
   br label %heap_getattr.exit
 
 192:                                              ; preds = %181
-  %193 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef %94, ptr noundef nonnull %93) #15
+  %193 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %94, ptr noundef nonnull %93) #15
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %139, %162, %165, %168, %171, %177, %179, %191, %192
@@ -5848,7 +5848,7 @@ define dso_local void @ExecEvalScalarArrayOp(ptr nocapture readnone %0, ptr noun
 102:                                              ; preds = %90
   %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %103)
-  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %77) #15
+  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef range(i32 -32768, 32768) %77) #15
   tail call void @errfinish(ptr noundef nonnull @.str.30, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 
@@ -6216,7 +6216,7 @@ saophash_create.exit:                             ; preds = %saophash_compute_si
   %138 = sext i16 %124 to i32
   %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %139)
-  %140 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %138) #15
+  %140 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef range(i32 -32768, 32768) %138) #15
   call void @errfinish(ptr noundef nonnull @.str.30, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 

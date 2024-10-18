@@ -473,7 +473,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %cmp.i202.i, label %if.then.i213.i, label %for.body.i.i.i
 
 if.then.i213.i:                                   ; preds = %if.end8.i
-  %call.i.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef readonly %data, i64 noundef %n)
+  %call.i.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef readonly %data, i64 noundef range(i64 241, 0) %n)
   br label %_ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i
 
 for.body.i.i.i:                                   ; preds = %if.end8.i, %for.body.i.i.i

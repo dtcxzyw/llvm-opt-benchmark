@@ -93,7 +93,7 @@ define void @_ZN28ConversationHashTablesDialogC2EP7QWidget(ptr noundef nonnull a
   %16 = alloca %class.QString, align 8
   %17 = alloca %class.QString, align 8
   %18 = alloca %class.QString, align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -2727,7 +2727,7 @@ define void @_ZN28ConversationHashTablesDialogD0Ev(ptr noundef nonnull align 8 d
 define void @_ZThn16_N28ConversationHashTablesDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN28ConversationHashTablesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %2) #16
   ret void
 }
 

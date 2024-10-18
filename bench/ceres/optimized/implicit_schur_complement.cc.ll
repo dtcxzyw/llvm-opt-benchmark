@@ -865,8 +865,8 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %84, %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(26) %5, i64 24, i1 false)
+  call void @_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %97 = icmp sgt i32 %72, 0
   br i1 %97, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEERS5_RKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i.i.i.i.i
@@ -908,7 +908,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELi
   br i1 %107, label %"_ZZN5ceres8internal23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEENK3$_0clEi.exit.i", label %108
 
 108:                                              ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1ENS_5DenseEE12solveInPlaceINS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEEEEvRKNS_10MatrixBaseIT_EE.exit.i.i.i.i.i.i.i.i.i.i
-  invoke void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(26) %5)
+  invoke void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(26) %5)
           to label %"_ZZN5ceres8internal23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEENK3$_0clEi.exit.i" unwind label %109
 
 109:                                              ; preds = %108, %105
@@ -1056,7 +1056,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSA_E_clISD_EEDaSC_ENUlvE_D2Ev.exit.i.i.i", label %163
 
 163:                                              ; preds = %161
-  %164 = invoke noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %164 = invoke noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSA_E_clISD_EEDaSC_ENUlvE_D2Ev.exit.i.i.i" unwind label %165
 
 165:                                              ; preds = %163
@@ -1079,7 +1079,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i40.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i, label %173
 
 173:                                              ; preds = %170
-  %174 = invoke noundef zeroext i1 %172(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %174 = invoke noundef zeroext i1 %172(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i unwind label %175
 
 175:                                              ; preds = %173
@@ -1641,7 +1641,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1E
 
 443:                                              ; preds = %441
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 16, i1 false)
   store i64 %363, ptr %187, align 8
   store i64 %.sroa.speculated.i77.i.i.i, ptr %188, align 8
   store i64 %.sroa.speculated.i77.i.i.i, ptr %189, align 8
@@ -1824,7 +1824,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1EL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   store double -1.000000e+00, ptr %13, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 16, i1 false)
   store i64 %363, ptr %193, align 8
   store i64 %363, ptr %194, align 8
   store i64 %.sroa.speculated.i77.i.i.i, ptr %195, align 8
@@ -2054,7 +2054,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaS
 
 635:                                              ; preds = %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEERS5_RKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 16, i1 false)
   store i64 %238, ptr %201, align 8
   store i64 %238, ptr %202, align 8
   store i64 %238, ptr %203, align 8
@@ -2213,7 +2213,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i50.i.i.i: ; p
   %720 = load i64, ptr %202, align 8
   %721 = mul nsw i64 %720, %717
   store i64 %721, ptr %205, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %238, i64 noundef %238, ptr noundef %.sroa.0.7.ph.i.i.i, i64 noundef %238, ptr noundef %237, i64 noundef 1, i64 noundef %238, ptr noundef nonnull align 8 dereferenceable(40) %15)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %238, i64 noundef %238, ptr noundef nonnull %.sroa.0.7.ph.i.i.i, i64 noundef %238, ptr noundef nonnull %237, i64 noundef 1, i64 noundef %238, ptr noundef nonnull align 8 dereferenceable(40) %15)
           to label %726 unwind label %722
 
 722:                                              ; preds = %.noexc43.i.i.i
@@ -2232,7 +2232,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i50.i.i.i: ; p
   call void @free(ptr noundef %728) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 16, i1 false)
   store i64 %238, ptr %207, align 8
   store i64 %238, ptr %208, align 8
   store i64 %238, ptr %209, align 8
@@ -2391,7 +2391,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i.i.i.i: ; pre
   %813 = load i64, ptr %208, align 8
   %814 = mul nsw i64 %813, %810
   store i64 %814, ptr %211, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %238, i64 noundef %238, ptr noundef %.sroa.0.7.ph.i.i.i, i64 noundef %238, ptr noundef %237, i64 noundef 1, i64 noundef %238, ptr noundef nonnull align 8 dereferenceable(40) %16)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %238, i64 noundef %238, ptr noundef nonnull %.sroa.0.7.ph.i.i.i, i64 noundef %238, ptr noundef nonnull %237, i64 noundef 1, i64 noundef %238, ptr noundef nonnull align 8 dereferenceable(40) %16)
           to label %_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_.exit.i.i.i unwind label %815
 
 815:                                              ; preds = %.noexc.i.i.i
@@ -4179,7 +4179,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1EL
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS3_12CwiseUnaryOpINS3_8internal18scalar_opposite_opIdEEKS5_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSD_iiiOSE_iENKUlSF_E_clISP_EEDaSF_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS3_12CwiseUnaryOpINS3_8internal18scalar_opposite_opIdEEKS5_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSD_iiiOSE_iENKUlSF_E_clISP_EEDaSF_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -4202,7 +4202,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1EL
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -4803,7 +4803,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1EL
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -4899,7 +4899,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -5546,7 +5546,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %48 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %45, ptr %48, align 8, !alias.scope !63
   %49 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %49, ptr noundef nonnull align 8 dereferenceable(17) %44, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %49, ptr noundef nonnull align 8 dereferenceable(19) %44, i64 17, i1 false)
   %50 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %40, ptr %50, align 8, !alias.scope !63
   %51 = getelementptr inbounds i8, ptr %11, i64 32
@@ -6087,7 +6087,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEENS3_13CwiseBinaryOpINS3_8internal17scalar_product_opIddEEKNS3_12CwiseUnaryOpINSB_16scalar_square_opIdEEKNS3_12ArrayWrapperINS4_IKS6_Li0ES8_EEEEEESL_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSQ_iiiOSR_iENKUlSS_E_clIS12_EEDaSS_ENUlvE_D2Ev.exit, label %58
 
 58:                                               ; preds = %56
-  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEENS3_13CwiseBinaryOpINS3_8internal17scalar_product_opIddEEKNS3_12CwiseUnaryOpINSB_16scalar_square_opIdEEKNS3_12ArrayWrapperINS4_IKS6_Li0ES8_EEEEEESL_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSQ_iiiOSR_iENKUlSS_E_clIS12_EEDaSS_ENUlvE_D2Ev.exit unwind label %60
 
 60:                                               ; preds = %58
@@ -6110,7 +6110,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %68
 
 68:                                               ; preds = %65
-  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %70
 
 70:                                               ; preds = %68
@@ -6192,7 +6192,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matr
   %117 = getelementptr inbounds double, ptr %116, i64 %110
   store ptr %117, ptr %7, align 8, !alias.scope !71
   store i64 %115, ptr %82, align 8, !alias.scope !71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %83, ptr noundef nonnull align 8 dereferenceable(17) %114, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %83, ptr noundef nonnull align 8 dereferenceable(19) %114, i64 17, i1 false)
   store i64 %110, ptr %84, align 8, !alias.scope !71
   %118 = load i64, ptr %85, align 8
   store i64 %118, ptr %86, align 8, !alias.scope !71
@@ -6541,7 +6541,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %66
 
 66:                                               ; preds = %64
-  %67 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %67 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %68
 
 68:                                               ; preds = %66
@@ -6637,7 +6637,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %111
 
 111:                                              ; preds = %108
-  %112 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %112 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %113
 
 113:                                              ; preds = %111
@@ -6719,7 +6719,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matr
   %160 = getelementptr inbounds double, ptr %159, i64 %153
   store ptr %160, ptr %7, align 8, !alias.scope !75
   store i64 %158, ptr %125, align 8, !alias.scope !75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %126, ptr noundef nonnull align 8 dereferenceable(17) %157, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %126, ptr noundef nonnull align 8 dereferenceable(19) %157, i64 17, i1 false)
   store i64 %153, ptr %127, align 8, !alias.scope !75
   %161 = load i64, ptr %128, align 8
   store i64 %161, ptr %129, align 8, !alias.scope !75
@@ -8480,7 +8480,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
@@ -11591,7 +11591,7 @@ define linkonce_odr hidden void @_ZN5Eigen28selfadjoint_product_selectorINS_5Blo
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 24
@@ -12374,7 +12374,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 24
@@ -12397,7 +12397,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %23 = load i64, ptr %6, align 8
   %24 = load ptr, ptr %1, align 8
   %25 = load i64, ptr %8, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %7, i64 noundef %9, ptr noundef %22, i64 noundef %23, ptr noundef %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %7, i64 noundef %9, ptr noundef nonnull %22, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit unwind label %29
 
 _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit: ; preds = %2
@@ -12430,7 +12430,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
@@ -12454,7 +12454,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %1, align 8
   %25 = load i64, ptr %7, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef %21, i64 noundef %23, ptr noundef %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit unwind label %29
 
 _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit: ; preds = %2
@@ -13511,7 +13511,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_23Implici
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %65
 
 65:                                               ; preds = %63
@@ -13605,7 +13605,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit42, label %107
 
 107:                                              ; preds = %104
-  %108 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %108 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit42 unwind label %109
 
 109:                                              ; preds = %107
@@ -14191,7 +14191,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1E
 
 387:                                              ; preds = %385
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   store i64 %307, ptr %123, align 8
   store i64 %.sroa.speculated.i79, ptr %124, align 8
   store i64 %.sroa.speculated.i79, ptr %125, align 8
@@ -14374,7 +14374,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1EL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   store double -1.000000e+00, ptr %8, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 16, i1 false)
   store i64 %307, ptr %129, align 8
   store i64 %307, ptr %130, align 8
   store i64 %.sroa.speculated.i79, ptr %131, align 8
@@ -14610,7 +14610,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaS
 
 580:                                              ; preds = %_ZN5Eigen3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEaSINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEERS5_RKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 16, i1 false)
   store i64 %177, ptr %137, align 8
   store i64 %177, ptr %138, align 8
   store i64 %177, ptr %139, align 8
@@ -14769,7 +14769,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i52: ; preds =
   %665 = load i64, ptr %138, align 8
   %666 = mul nsw i64 %665, %662
   store i64 %666, ptr %141, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %177, i64 noundef %177, ptr noundef %.sroa.0.7340, i64 noundef %177, ptr noundef %176, i64 noundef 1, i64 noundef %177, ptr noundef nonnull align 8 dereferenceable(40) %10)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %177, i64 noundef %177, ptr noundef nonnull %.sroa.0.7340, i64 noundef %177, ptr noundef nonnull %176, i64 noundef 1, i64 noundef %177, ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %671 unwind label %667
 
 667:                                              ; preds = %.noexc45
@@ -14788,7 +14788,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i52: ; preds =
   call void @free(ptr noundef %673) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 16, i1 false)
   store i64 %177, ptr %143, align 8
   store i64 %177, ptr %144, align 8
   store i64 %177, ptr %145, align 8
@@ -14947,7 +14947,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i: ; preds = %
   %758 = load i64, ptr %144, align 8
   %759 = mul nsw i64 %758, %755
   store i64 %759, ptr %147, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %177, i64 noundef %177, ptr noundef %.sroa.0.7340, i64 noundef %177, ptr noundef %176, i64 noundef 1, i64 noundef %177, ptr noundef nonnull align 8 dereferenceable(40) %11)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %177, i64 noundef %177, ptr noundef nonnull %.sroa.0.7340, i64 noundef %177, ptr noundef nonnull %176, i64 noundef 1, i64 noundef %177, ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapIS3_Li0ENS_6StrideILi0ELi0EEEEELi1ELi2ELi0ELin1EE3runERS4_RS8_.exit unwind label %760
 
 760:                                              ; preds = %.noexc44
@@ -15757,7 +15757,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1EL
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS3_13CwiseBinaryOpINS3_8internal20scalar_difference_opIddEEKNS3_3MapIKS5_Li0ENS3_6StrideILi0ELi0EEEEESB_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSI_iiiOSJ_iENKUlSK_E_clISU_EEDaSK_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS3_13CwiseBinaryOpINS3_8internal20scalar_difference_opIddEEKNS3_3MapIKS5_Li0ENS3_6StrideILi0ELi0EEEEESB_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSI_iiiOSJ_iENKUlSK_E_clISU_EEDaSK_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -15780,7 +15780,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1EL
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -16228,7 +16228,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1EL
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -16324,7 +16324,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -17383,7 +17383,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEENS4_IKS6_Li0ES8_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSD_iiiOSE_iENKUlSF_E_clISP_EEDaSF_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEENS4_IKS6_Li0ES8_EEEEvPNS0_11ContextImplEiRT_RKT0_EUlRKSt5tupleIJiiEEE_EEvSD_iiiOSE_iENKUlSF_E_clISP_EEDaSF_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -17406,7 +17406,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -17840,7 +17840,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6Matri
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -17936,7 +17936,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106

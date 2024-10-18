@@ -471,7 +471,7 @@ adjust_cutoff_timestamp_for_slop.exit:            ; preds = %for.end, %if.then.i
 if.then.i.i:                                      ; preds = %adjust_cutoff_timestamp_for_slop.exit
   %conv.i = sext i32 %23 to i64
   %24 = load ptr, ptr @tip_table.0, align 8
-  call void @qsort(ptr noundef %24, i64 noundef %conv.i, i64 noundef 72, ptr noundef nonnull @cmp_by_tag_and_age) #16
+  call void @qsort(ptr noundef %24, i64 noundef range(i64 -2147483648, 2147483648) %conv.i, i64 noundef 72, ptr noundef nonnull @cmp_by_tag_and_age) #16
   %.pre.i = load i32, ptr @tip_table.1, align 8
   br label %sane_qsort.exit.i
 
@@ -973,7 +973,7 @@ if.then.i69.i.i:                                  ; preds = %strip_suffix.exit.i
   %79 = load ptr, ptr %55, align 8
   %80 = load i32, ptr %generation26.i.i, align 8
   %81 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i.i.i, ptr noundef nonnull @.str.36, i32 noundef %conv10.i.i.i, ptr noundef %79, i32 noundef %80, i32 noundef %81) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i.i.i, ptr noundef nonnull @.str.36, i32 noundef %conv10.i.i.i, ptr noundef %79, i32 noundef %80, i32 noundef range(i32 2, -2147483648) %81) #16
   br label %get_parent_name.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %strip_suffix.exit.i.i.i
@@ -985,7 +985,7 @@ if.else.i.i.i:                                    ; preds = %strip_suffix.exit.i
   %conv18.i.i.i = trunc i64 %len.0.i.i.i to i32
   %82 = load ptr, ptr %55, align 8
   %83 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i.i.i, ptr noundef nonnull @.str.37, i32 noundef %conv18.i.i.i, ptr noundef %82, i32 noundef %83) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i.i.i, ptr noundef nonnull @.str.37, i32 noundef %conv18.i.i.i, ptr noundef %82, i32 noundef range(i32 2, -2147483648) %83) #16
   br label %get_parent_name.exit.i.i
 
 get_parent_name.exit.i.i:                         ; preds = %if.else.i.i.i, %if.then.i69.i.i
@@ -1821,7 +1821,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
   %conv.i = sext i32 %2 to i64
-  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %conv.i, i64 noundef 72, ptr noundef nonnull @tipcmp) #16
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %conv.i, i64 noundef 72, ptr noundef nonnull @tipcmp) #16
   %.pre.pre.i = load ptr, ptr @tip_table.0, align 8
   %.pre4.pre.i = load i32, ptr @tip_table.1, align 8
   br label %sane_qsort.exit.i

@@ -156,7 +156,7 @@ _ZN8WasmEdge6SymbolIvEC2ERKS1_.exit:              ; preds = %37, %46, %49
   br label %55
 
 55:                                               ; preds = %55, %_ZN8WasmEdge6SymbolIvEC2ERKS1_.exit
-  %56 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %29) #14, !noalias !4
+  %56 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14, !noalias !4
   switch i32 %56, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %55
     i32 35, label %57
@@ -201,11 +201,11 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %55
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %65, %68
   %.sroa.137.1 = phi ptr [ %70, %68 ], [ %67, %65 ]
-  %74 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %29) #14, !noalias !4
+  %74 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14, !noalias !4
   %75 = getelementptr inbounds i8, ptr %.sroa.137.1, i64 112
   %76 = load i8, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %77 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %29) #14
+  %77 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14
   %78 = icmp eq i32 %77, 35
   br i1 %78, label %79, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
 
@@ -227,11 +227,11 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %_ZNK8WasmEdge7Run
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
   %82 = landingpad { ptr, i32 }
           cleanup
-  %83 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %29) #14
+  %83 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14
   br label %.body
 
 84:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
-  %85 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %29) #14
+  %85 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %86 = load ptr, ptr %27, align 8
   %.not.i.i.i.i23 = icmp eq ptr %86, null
@@ -334,7 +334,7 @@ common.resume:                                    ; preds = %_ZNSt11unique_lockI
   br label %130
 
 130:                                              ; preds = %130, %126
-  %131 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %32) #14, !noalias !9
+  %131 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14, !noalias !9
   switch i32 %131, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i26 [
     i32 11, label %130
     i32 35, label %132
@@ -379,7 +379,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i26: ; preds = %130
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit29: ; preds = %140, %143
   %.sroa.1.1 = phi ptr [ %145, %143 ], [ %142, %140 ]
-  %149 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #14, !noalias !9
+  %149 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14, !noalias !9
   %150 = getelementptr inbounds i8, ptr %.sroa.1.1, i64 112
   %151 = load i8, ptr %150, align 8
   %152 = getelementptr inbounds %"class.WasmEdge::AST::CodeSegment", ptr %14, i64 %127
@@ -403,7 +403,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit29: ; preds = %140,
   store ptr %161, ptr %10, align 8
   store i64 %167, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %168 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %32) #14
+  %168 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14
   %169 = icmp eq i32 %168, 35
   br i1 %169, label %170, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i35
 
@@ -422,11 +422,11 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i35: ; preds = %_ZNK8WasmEdge7R
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit7.i: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i35
   %173 = landingpad { ptr, i32 }
           cleanup
-  %174 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #14
+  %174 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14
   br label %common.resume
 
 _ZN8WasmEdge7Runtime8Instance14ModuleInstance7addFuncIJRKjRKNS_3AST12FunctionTypeEN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENSB_IKNS6_11InstructionELm18446744073709551615EEEEEEvDpOT_.exit: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i35
-  %175 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #14
+  %175 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %176 = add i32 %.058, 1
   %177 = zext i32 %176 to i64
@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstance17
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !13
   %16 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false), !noalias !13
   %17 = load ptr, ptr %16, align 8, !noalias !13
   store ptr %11, ptr %10, align 8, !noalias !13
   %18 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1116,7 +1116,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstance17
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %5, ptr %15, align 8, !noalias !29
   %16 = getelementptr inbounds i8, ptr %11, i64 32
-  tail call void @_ZN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionC2EN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENS5_IKNS_3AST11InstructionELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr %.sroa.0.sroa.0.0.copyload.i, i64 %.sroa.0.sroa.2.0.copyload.i) #14, !noalias !29
+  tail call void @_ZN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionC2EN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENS5_IKNS_3AST11InstructionELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(57) %16, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr %.sroa.0.sroa.0.0.copyload.i, i64 %.sroa.0.sroa.2.0.copyload.i) #14, !noalias !29
   %17 = getelementptr inbounds i8, ptr %11, i64 88
   store i8 0, ptr %17, align 8, !noalias !29
   %18 = load ptr, ptr %11, align 8, !noalias !29
@@ -1391,7 +1391,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE11_M_allocateEm.exit: ; 
   %.0911.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %8, %_ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %.012.i.i.i, ptr noundef nonnull align 16 dereferenceable(25) %.0911.i.i.i, i64 16, i1 false), !alias.scope !38
   %20 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %21 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %22 = load i32, ptr %21, align 16, !alias.scope !36, !noalias !33
@@ -1551,7 +1551,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
 45:                                               ; preds = %44
   call void @_ZN8WasmEdge3AST11InstructionC2ERKS1_(ptr noundef nonnull align 16 dereferenceable(25) %5, ptr noundef nonnull align 16 dereferenceable(25) %.0910.i.i.i.i.i) #14
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i128, ptr %5, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %.0811.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %5, ptr noundef nonnull align 16 dereferenceable(25) %.0811.i.i.i.i.i, i64 16, i1 false)
   store i128 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %.0811.i.i.i.i.i, align 16
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %47 = load i32, ptr %41, align 16
@@ -1623,7 +1623,7 @@ _ZSt7advanceIPKN8WasmEdge3AST11InstructionEmEvRT_T0_.exit: ; preds = %34
 66:                                               ; preds = %65
   call void @_ZN8WasmEdge3AST11InstructionC2ERKS1_(ptr noundef nonnull align 16 dereferenceable(25) %4, ptr noundef nonnull align 16 dereferenceable(25) %.0910.i.i.i.i.i22) #14
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i24 = load i128, ptr %4, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %.0811.i.i.i.i.i21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %4, ptr noundef nonnull align 16 dereferenceable(25) %.0811.i.i.i.i.i21, i64 16, i1 false)
   store i128 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i24, ptr %.0811.i.i.i.i.i21, align 16
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21, i64 16
   %68 = load i32, ptr %62, align 16
@@ -1765,7 +1765,7 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %1, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %46, i64 16, i1 false)
   %47 = getelementptr inbounds i8, ptr %44, i64 16
   %48 = getelementptr inbounds i8, ptr %46, i64 16
   %49 = getelementptr inbounds i8, ptr %46, i64 24

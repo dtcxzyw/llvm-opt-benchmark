@@ -1131,7 +1131,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBa
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %14
 
 .noexc2:                                          ; preds = %.noexc
@@ -1148,7 +1148,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBa
 9:                                                ; preds = %11, %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   br label %.body
 
 11:                                               ; preds = %.noexc2
@@ -1266,7 +1266,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
   br i1 %.not.i.i.i.i, label %_ZNKSt3any4typeEv.exit.i.i.i, label %42
 
 42:                                               ; preds = %41
-  invoke void %39(i32 noundef 1, ptr noundef nonnull %38, ptr noundef nonnull %3)
+  invoke void %39(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %3)
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
@@ -1317,7 +1317,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_7TfErrorEEEP
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %60
 
 60:                                               ; preds = %58
-  invoke void %59(i32 noundef 3, ptr noundef nonnull %8, ptr noundef null)
+  invoke void %59(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
           to label %_ZNSt3anyD2Ev.exit unwind label %61
 
 61:                                               ; preds = %60
@@ -1363,7 +1363,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1406,7 +1406,7 @@ define linkonce_odr void @_ZNSt3anyD2Ev(ptr noundef nonnull align 8 dereferencea
   br i1 %.not.i, label %_ZNSt3any5resetEv.exit, label %3
 
 3:                                                ; preds = %1
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
           to label %4 unwind label %5
 
 4:                                                ; preds = %3
@@ -1434,7 +1434,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %11
 
 .noexc5:                                          ; preds = %.noexc
@@ -1444,7 +1444,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
 8:                                                ; preds = %.noexc5
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -1501,7 +1501,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
   br i1 %.not.i.i.i.i, label %_ZNKSt3any4typeEv.exit.i.i.i, label %12
 
 12:                                               ; preds = %11
-  invoke void %9(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %3)
+  invoke void %9(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %3)
           to label %13 unwind label %15
 
 13:                                               ; preds = %12
@@ -1552,7 +1552,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_8TfStatusEEE
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %30
 
 30:                                               ; preds = %28
-  invoke void %29(i32 noundef 3, ptr noundef nonnull %5, ptr noundef null)
+  invoke void %29(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
           to label %_ZNSt3anyD2Ev.exit unwind label %31
 
 31:                                               ; preds = %30
@@ -1658,7 +1658,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
   br i1 %.not.i.i.i.i, label %_ZNKSt3any4typeEv.exit.i.i.i, label %42
 
 42:                                               ; preds = %41
-  invoke void %39(i32 noundef 1, ptr noundef nonnull %38, ptr noundef nonnull %3)
+  invoke void %39(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %3)
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
@@ -1709,7 +1709,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_9TfWarningEE
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %60
 
 60:                                               ; preds = %58
-  invoke void %59(i32 noundef 3, ptr noundef nonnull %8, ptr noundef null)
+  invoke void %59(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
           to label %_ZNSt3anyD2Ev.exit unwind label %61
 
 61:                                               ; preds = %60
@@ -2168,7 +2168,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 
 9:                                                ; preds = %3
   %10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(145) %10, ptr noundef nonnull align 8 dereferenceable(145) %6, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -2199,7 +2199,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 
 23:                                               ; preds = %17
   store ptr %18, ptr %4, align 8
-  invoke void %21(i32 noundef 2, ptr noundef nonnull %19, ptr noundef nonnull %4)
+  invoke void %21(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %4)
           to label %29 unwind label %26
 
 24:                                               ; preds = %.noexc
@@ -2252,7 +2252,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfErrorD2Ev.exit, label %43
 
 43:                                               ; preds = %40
-  invoke void %42(i32 noundef 3, ptr noundef nonnull %41, ptr noundef null)
+  invoke void %42(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef null)
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
@@ -2357,7 +2357,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 
 9:                                                ; preds = %3
   %10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(145) %10, ptr noundef nonnull align 8 dereferenceable(145) %6, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -2388,7 +2388,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 
 23:                                               ; preds = %17
   store ptr %18, ptr %4, align 8
-  invoke void %21(i32 noundef 2, ptr noundef nonnull %19, ptr noundef nonnull %4)
+  invoke void %21(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %4)
           to label %29 unwind label %26
 
 24:                                               ; preds = %.noexc
@@ -2441,7 +2441,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfStatusD2Ev.exit, label %43
 
 43:                                               ; preds = %40
-  invoke void %42(i32 noundef 3, ptr noundef nonnull %41, ptr noundef null)
+  invoke void %42(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef null)
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
@@ -2543,7 +2543,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 
 9:                                                ; preds = %3
   %10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(145) %10, ptr noundef nonnull align 8 dereferenceable(145) %6, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -2574,7 +2574,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 
 23:                                               ; preds = %17
   store ptr %18, ptr %4, align 8
-  invoke void %21(i32 noundef 2, ptr noundef nonnull %19, ptr noundef nonnull %4)
+  invoke void %21(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %4)
           to label %29 unwind label %26
 
 24:                                               ; preds = %.noexc
@@ -2627,7 +2627,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWarningD2Ev.exit, label %43
 
 43:                                               ; preds = %40
-  invoke void %42(i32 noundef 3, ptr noundef nonnull %41, ptr noundef null)
+  invoke void %42(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef null)
           to label %44 unwind label %45
 
 44:                                               ; preds = %43

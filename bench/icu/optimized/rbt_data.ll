@@ -24,7 +24,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 1072
-  %call2.i.i4 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i4 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -122,7 +122,7 @@ entry:
   store ptr null, ptr %variableNames, align 8
   store i32 0, ptr %status.i, align 4
   %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 1072
-  %call2.i.i18 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i)
+  %call2.i.i18 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %entry
@@ -159,7 +159,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 
 while.cond:                                       ; preds = %new.cont.i, %invoke.cont7
   %4 = load ptr, ptr %variableNames8, align 8
-  %call.i21 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %4, ptr noundef nonnull %pos)
+  %call.i21 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %pos)
           to label %invoke.cont9 unwind label %lpad6.loopexit.split-lp.loopexit
 
 invoke.cont9:                                     ; preds = %while.cond
@@ -216,7 +216,7 @@ new.notnull.i:                                    ; preds = %if.end
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.end
-  %call2.i22 = invoke noundef ptr @uhash_put_75(ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %call11, ptr noundef nonnull %status)
+  %call2.i22 = invoke noundef ptr @uhash_put_75(ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %call11, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %while.cond unwind label %lpad6.loopexit.split-lp.loopexit
 
 lpad.i:                                           ; preds = %new.notnull.i

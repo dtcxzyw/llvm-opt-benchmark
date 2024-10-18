@@ -98,7 +98,7 @@ if.end62:                                         ; preds = %for.cond, %for.cond
   br i1 %tobool63.not, label %if.end70, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
-  %cond.i = call noundef i32 @llvm.umin.i32(i32 %keyLeft.080, i32 %call11)
+  %cond.i = call noundef i32 @llvm.umin.i32(i32 %keyLeft.080, i32 range(i32 -2147483647, -2147483648) %call11)
   %sub = sub nsw i32 %keyLen, %keyLeft.080
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr inbounds i8, ptr %key, i64 %idxprom
@@ -119,7 +119,7 @@ if.end70:                                         ; preds = %if.then64, %if.end6
   br i1 %or.cond4, label %if.then73, label %if.end88
 
 if.then73:                                        ; preds = %if.end70
-  %cond.i65 = call noundef i32 @llvm.umin.i32(i32 %ivLeft.081, i32 %digestLeft.0)
+  %cond.i65 = call noundef i32 @llvm.umin.i32(i32 %ivLeft.081, i32 range(i32 -2147483647, -2147483648) %digestLeft.0)
   br i1 %cmp75.not, label %if.end85, label %if.then77
 
 if.then77:                                        ; preds = %if.then73
@@ -237,7 +237,7 @@ if.end34.us:                                      ; preds = %for.cond.us
   br i1 %cmp38.not.us, label %if.end41.us, label %while.end
 
 if.end41.us:                                      ; preds = %if.end34.us
-  %cond.i.us = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.044.us, i32 %call9)
+  %cond.i.us = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.044.us, i32 range(i32 -2147483647, -2147483648) %call9)
   %conv44.us = zext nneg i32 %cond.i.us to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.045.us, ptr nonnull align 16 %buffer, i64 %conv44.us, i1 false)
   %4 = ptrtoint ptr %output.addr.045.us to i64
@@ -354,7 +354,7 @@ if.end34:                                         ; preds = %for.cond
   br i1 %cmp38.not, label %if.end41, label %while.end
 
 if.end41:                                         ; preds = %if.end34
-  %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.044, i32 %call9)
+  %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.044, i32 range(i32 -2147483647, -2147483648) %call9)
   %conv44 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.045, ptr nonnull align 16 %buffer, i64 %conv44, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %output.addr.045, i64 %conv44
@@ -545,7 +545,7 @@ for.body.i:                                       ; preds = %if.end12.i, %for.in
   br i1 %cmp14.i, label %if.end18.i, label %for.inc.i
 
 if.end18.i:                                       ; preds = %for.body.i
-  %call17.i = call i32 @wc_HashUpdate(ptr noundef nonnull %hash.i, i32 noundef %call.i, ptr noundef nonnull %Ai, i32 noundef %call9) #6
+  %call17.i = call i32 @wc_HashUpdate(ptr noundef nonnull %hash.i, i32 noundef %call.i, ptr noundef nonnull %Ai, i32 noundef range(i32 1, -2147483648) %call9) #6
   %cmp19.i = icmp eq i32 %call17.i, 0
   br i1 %cmp19.i, label %if.then20.i, label %for.inc.i
 
@@ -670,7 +670,7 @@ if.end176:                                        ; preds = %if.else133, %if.els
 
 if.end190:                                        ; preds = %for.cond107, %for.cond107.preheader
   %ret.3.lcssa = phi i32 [ 0, %for.cond107.preheader ], [ %ret.5, %for.cond107 ]
-  %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.0102, i32 %call9)
+  %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.0102, i32 range(i32 -2147483647, -2147483648) %call9)
   %conv193 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.0103, ptr nonnull align 16 %Ai, i64 %conv193, i1 false)
   %add.ptr195 = getelementptr inbounds i8, ptr %output.addr.0103, i64 %conv193

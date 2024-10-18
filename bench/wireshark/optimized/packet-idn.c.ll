@@ -475,9 +475,9 @@ dissect_idn_header.exit:                          ; preds = %4, %4, %24
 
 29:                                               ; preds = %dissect_idn_header.exit
   %30 = load i32, ptr @ett_idn_header_tree, align 4
-  %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 40, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.213) #7
+  %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 40, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.213) #7
   %32 = load i32, ptr @hf_idn_struct_size, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 1, i32 noundef 0) #7
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 1, i32 noundef 0) #7
   %34 = add nuw nsw i32 %.sink.i, 1
   %35 = load i32, ptr @hf_idn_protocol_version, align 4
   %36 = load i32, ptr @ett_protocol_version, align 4
@@ -499,9 +499,9 @@ dissect_idn_header.exit:                          ; preds = %4, %4, %24
 
 51:                                               ; preds = %dissect_idn_header.exit
   %52 = load i32, ptr @ett_idn_header_tree, align 4
-  %53 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 4, i32 noundef %52, ptr noundef null, ptr noundef nonnull @.str.215) #7
+  %53 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 4, i32 noundef %52, ptr noundef null, ptr noundef nonnull @.str.215) #7
   %54 = load i32, ptr @hf_idn_struct_size, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 1, i32 noundef 0) #7
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 1, i32 noundef 0) #7
   %56 = add nuw nsw i32 %.sink.i, 1
   %57 = load i32, ptr @hf_idn_entry_size, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #7
@@ -560,10 +560,10 @@ dissect_idn_header.exit:                          ; preds = %4, %4, %24
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noalias ptr @wmem_alloc(ptr noundef %99, i64 noundef 12) #7
   %101 = load i32, ptr @ett_idn_channel_message_header_tree, align 4
-  %102 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 8, i32 noundef %101, ptr noundef null, ptr noundef nonnull @.str.220) #7
+  %102 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 8, i32 noundef %101, ptr noundef null, ptr noundef nonnull @.str.220) #7
   %103 = load i32, ptr @hf_idn_total_size, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 2, i32 noundef 0) #7
-  %105 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.sink.i, i32 noundef 2) #7
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 2, i32 noundef 0) #7
+  %105 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 2) #7
   %106 = getelementptr inbounds i8, ptr %100, i64 8
   store i16 %105, ptr %106, align 4
   %107 = or disjoint i32 %.sink.i, 2
@@ -676,10 +676,10 @@ determine_message_type.exit.thread.i:             ; preds = %140
   %152 = load ptr, ptr %14, align 8
   tail call void @col_append_str(ptr noundef %152, i32 noundef 25, ptr noundef nonnull @.str.229) #7
   %153 = load i32, ptr @ett_configuration_header, align 4
-  %154 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef %153, ptr noundef null, ptr noundef nonnull @.str.230) #7
+  %154 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 9, 13) %124, i32 noundef 4, i32 noundef %153, ptr noundef null, ptr noundef nonnull @.str.230) #7
   %155 = load i32, ptr @hf_idn_scwc, align 4
-  %156 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %0, i32 noundef %124, i32 noundef 1, i32 noundef 0) #7
-  %157 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %124) #7
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %0, i32 noundef range(i32 9, 13) %124, i32 noundef 1, i32 noundef 0) #7
+  %157 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 9, 13) %124) #7
   %158 = add nuw nsw i32 %.sink.i, 9
   %159 = load i32, ptr @hf_idn_cfl, align 4
   %160 = load i32, ptr @ett_cfl, align 4
@@ -813,7 +813,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
 
 236:                                              ; preds = %235
   %237 = load i32, ptr @ett_dic_tree, align 4
-  %238 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %231, i32 noundef -1, i32 noundef %237, ptr noundef null, ptr noundef nonnull @.str.231) #7
+  %238 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 13, 17) %231, i32 noundef -1, i32 noundef %237, ptr noundef null, ptr noundef nonnull @.str.231) #7
   %239 = load i8, ptr %.077.i.i.i, align 8
   %.not86.i.i.i = icmp eq i8 %239, 0
   br i1 %.not86.i.i.i, label %dissect_idn_dmx_dictionary.exit.i.i, label %.lr.ph91.i.i.i
@@ -972,7 +972,7 @@ dissect_idn_dmx_dictionary.exit.i.i:              ; preds = %.loopexit.i.i.i, %2
   %321 = getelementptr inbounds i8, ptr %.077.i.i.i, i64 16
   %322 = load ptr, ptr %321, align 8
   %323 = load i32, ptr @ett_dic_tree, align 4
-  %324 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %231, i32 noundef -1, i32 noundef %323, ptr noundef null, ptr noundef nonnull @.str.231) #7
+  %324 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 13, 17) %231, i32 noundef -1, i32 noundef %323, ptr noundef null, ptr noundef nonnull @.str.231) #7
   store i16 40, ptr %322, align 1
   %325 = load i8, ptr %.077.i.i.i, align 8
   %.not201.i.i.i = icmp eq i8 %325, 0
@@ -1884,9 +1884,9 @@ dissect_idn_laser_data.exit.i:                    ; preds = %set_laser_sample_va
 
 822:                                              ; preds = %dissect_idn_header.exit
   %823 = load i32, ptr @ett_idn_header_tree, align 4
-  %824 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 4, i32 noundef %823, ptr noundef null, ptr noundef nonnull @.str.269) #7
+  %824 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 4, i32 noundef %823, ptr noundef null, ptr noundef nonnull @.str.269) #7
   %825 = load i32, ptr @hf_idn_struct_size, align 4
-  %826 = tail call ptr @proto_tree_add_item(ptr noundef %824, i32 noundef %825, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 1, i32 noundef 0) #7
+  %826 = tail call ptr @proto_tree_add_item(ptr noundef %824, i32 noundef %825, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 1, i32 noundef 0) #7
   %827 = add nuw nsw i32 %.sink.i, 1
   %828 = load i32, ptr @hf_idn_result_code, align 4
   %829 = tail call ptr @proto_tree_add_item(ptr noundef %824, i32 noundef %828, ptr noundef %0, i32 noundef %827, i32 noundef 1, i32 noundef 0) #7

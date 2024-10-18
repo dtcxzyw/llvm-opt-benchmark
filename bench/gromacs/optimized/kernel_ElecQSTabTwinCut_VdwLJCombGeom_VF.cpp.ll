@@ -176,7 +176,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %109 = and i32 %77, 384
   %or.cond = icmp ne i32 %109, 128
   %spec.select = and i1 %or.cond, %108
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(64) %.val550.val, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(72) %.val550.val, i8 0, i64 64, i1 false)
   br i1 %108, label %110, label %.loopexit2572
 
 110:                                              ; preds = %75

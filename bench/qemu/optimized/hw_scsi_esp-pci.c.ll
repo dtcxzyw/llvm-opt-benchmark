@@ -326,7 +326,7 @@ if.end12:                                         ; preds = %if.then10, %do.body
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !5
   fence seq_cst
   %cmp.i.i.i = icmp ne i32 %dir, 0
-  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %conv15, i32 1, ptr noundef %buf, i64 noundef %conv25, i1 noundef zeroext %cmp.i.i.i) #5
+  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef range(i64 0, 4294967296) %conv15, i32 1, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %conv25, i1 noundef zeroext %cmp.i.i.i) #5
   %11 = load i32, ptr %arrayidx17, align 4
   %sub = sub i32 %11, %spec.select
   store i32 %sub, ptr %arrayidx17, align 4
@@ -434,11 +434,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %8 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv6, i32 noundef %val.0.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 0, 8) %conv6, i32 noundef %val.0.i) #5
   br label %esp_pci_dma_read.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv6, i32 noundef %val.0.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 8) %conv6, i32 noundef %val.0.i) #5
   br label %esp_pci_dma_read.exit
 
 esp_pci_dma_read.exit:                            ; preds = %if.end10.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -662,11 +662,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %12 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv43, i32 noundef %7, i32 noundef %conv44) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, i32 noundef range(i32 0, 8) %conv43, i32 noundef %7, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_write.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %conv43, i32 noundef %7, i32 noundef %conv44) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef range(i32 0, 8) %conv43, i32 noundef %7, i32 noundef %conv44) #5
   br label %trace_esp_pci_dma_write.exit.i
 
 trace_esp_pci_dma_write.exit.i:                   ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then40
@@ -918,11 +918,11 @@ if.then8.i.i77.i:                                 ; preds = %if.then.i.i74.i
   %50 = load i64, ptr %_now.i.i67.i, align 8
   %tv_usec.i.i80.i = getelementptr inbounds i8, ptr %_now.i.i67.i, i64 8
   %51 = load i64, ptr %tv_usec.i.i80.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i79.i, i64 noundef %50, i64 noundef %51, i32 noundef %conv44, i32 noundef %conv43) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i79.i, i64 noundef %50, i64 noundef %51, i32 noundef %conv44, i32 noundef range(i32 0, 8) %conv43) #5
   br label %trace_esp_pci_error_invalid_write_dma.exit.i
 
 if.else.i.i76.i:                                  ; preds = %if.then.i.i74.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %conv44, i32 noundef %conv43) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %conv44, i32 noundef range(i32 0, 8) %conv43) #5
   br label %trace_esp_pci_error_invalid_write_dma.exit.i
 
 trace_esp_pci_error_invalid_write_dma.exit.i:     ; preds = %if.else.i.i76.i, %if.then8.i.i77.i, %land.lhs.true5.i.i71.i, %sw.default18.i

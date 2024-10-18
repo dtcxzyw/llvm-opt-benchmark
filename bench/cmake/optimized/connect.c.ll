@@ -1088,7 +1088,7 @@ baller_next_addr.exit.i.i:                        ; preds = %293
   br label %311
 
 baller_start_next.exit.i:                         ; preds = %300, %297, %baller_next_addr.exit.i.i
-  tail call fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr noundef %194, i64 noundef %spec.select143)
+  tail call fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %194, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %spec.select143)
   %.pre.i = load i8, ptr %196, align 4
   %308 = and i8 %.pre.i, 4
   %309 = icmp eq i8 %308, 0

@@ -13,9 +13,9 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %9 = lshr i64 %2, 48
   %10 = and i64 %9, 32767
   %11 = and i64 %2, 281474976710655
-  %12 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %1, i64 4)
+  %12 = tail call i64 @llvm.fshl.i64(i64 range(i64 0, 281474976710656) %8, i64 %1, i64 4)
   %13 = shl i64 %1, 4
-  %14 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %3, i64 4)
+  %14 = tail call i64 @llvm.fshl.i64(i64 range(i64 0, 281474976710656) %11, i64 %3, i64 4)
   %15 = shl i64 %3, 4
   %16 = sub nsw i64 %7, %10
   %17 = icmp sgt i64 %16, 0

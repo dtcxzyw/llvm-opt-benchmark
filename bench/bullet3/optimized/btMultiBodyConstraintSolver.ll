@@ -3316,7 +3316,7 @@ invoke.cont140:                                   ; preds = %for.body8.i372, %in
   %scratch_m = getelementptr inbounds i8, ptr %this, i64 728
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
-  invoke void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640) %0, i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(16) %m_positionWorldOnA.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(16) %contactNormal, ptr noundef %arrayidx.i410, ptr noundef nonnull align 8 dereferenceable(25) %scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %scratch_m)
+  invoke void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640) %0, i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(16) %m_positionWorldOnA.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(16) %contactNormal, ptr noundef nonnull %arrayidx.i410, ptr noundef nonnull align 8 dereferenceable(25) %scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %scratch_m)
           to label %invoke.cont152 unwind label %lpad
 
 invoke.cont152:                                   ; preds = %invoke.cont140
@@ -3806,7 +3806,7 @@ invoke.cont272:                                   ; preds = %for.body8.i599, %in
   %scratch_m285 = getelementptr inbounds i8, ptr %this, i64 728
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i646)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i646, i8 0, i64 16, i1 false)
-  invoke void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640) %1, i32 noundef %169, ptr noundef nonnull align 4 dereferenceable(16) %m_positionWorldOnB.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i646, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp271, ptr noundef %arrayidx.i645, ptr noundef nonnull align 8 dereferenceable(25) %scratch_r281, ptr noundef nonnull align 8 dereferenceable(25) %scratch_v283, ptr noundef nonnull align 8 dereferenceable(25) %scratch_m285)
+  invoke void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640) %1, i32 noundef %169, ptr noundef nonnull align 4 dereferenceable(16) %m_positionWorldOnB.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i646, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp271, ptr noundef nonnull %arrayidx.i645, ptr noundef nonnull align 8 dereferenceable(25) %scratch_r281, ptr noundef nonnull align 8 dereferenceable(25) %scratch_v283, ptr noundef nonnull align 8 dereferenceable(25) %scratch_m285)
           to label %invoke.cont286 unwind label %lpad
 
 invoke.cont286:                                   ; preds = %invoke.cont272

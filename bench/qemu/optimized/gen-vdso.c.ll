@@ -786,7 +786,7 @@ for.body202.i:                                    ; preds = %for.body202.i, %for
   br i1 %exitcond187.not.i, label %if.then210.i, label %for.body202.i, !llvm.loop !14
 
 if.then210.i:                                     ; preds = %for.body202.i, %if.then189.i
-  tail call fastcc void @elf32_search_symtab(ptr noundef %add.ptr9129194.i, i32 noundef %dynsym_idx.0.lcssa.i, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
+  tail call fastcc void @elf32_search_symtab(ptr noundef %add.ptr9129194.i, i32 noundef %dynsym_idx.0.lcssa.i, ptr noundef nonnull %call20, i1 noundef zeroext %need_bswap.0)
   br label %if.end212.i
 
 if.end212.i:                                      ; preds = %if.then210.i, %if.end187.i
@@ -794,7 +794,7 @@ if.end212.i:                                      ; preds = %if.then210.i, %if.e
   br i1 %tobool213.not.i, label %sw.epilog85, label %if.then214.i
 
 if.then214.i:                                     ; preds = %if.end212.i
-  tail call fastcc void @elf32_search_symtab(ptr noundef %add.ptr9129194.i, i32 noundef %symtab_idx.0.lcssa.i, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
+  tail call fastcc void @elf32_search_symtab(ptr noundef %add.ptr9129194.i, i32 noundef %symtab_idx.0.lcssa.i, ptr noundef nonnull %call20, i1 noundef zeroext %need_bswap.0)
   br label %sw.epilog85
 
 sw.bb79:                                          ; preds = %sw.epilog73
@@ -1354,7 +1354,7 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   br i1 %exitcond185.not.i, label %if.then207.i, label %for.body199.i, !llvm.loop !22
 
 if.then207.i:                                     ; preds = %for.body199.i, %if.then188.i
-  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %dynsym_idx.0.lcssa.i63, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
+  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %dynsym_idx.0.lcssa.i63, ptr noundef nonnull %call20, i1 noundef zeroext %need_bswap.0)
   br label %if.end209.i
 
 if.end209.i:                                      ; preds = %if.then207.i, %if.end186.i
@@ -1362,7 +1362,7 @@ if.end209.i:                                      ; preds = %if.then207.i, %if.e
   br i1 %tobool210.not.i, label %sw.epilog85, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end209.i
-  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %symtab_idx.0.lcssa.i64, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
+  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %symtab_idx.0.lcssa.i64, ptr noundef nonnull %call20, i1 noundef zeroext %need_bswap.0)
   br label %sw.epilog85
 
 sw.default81:                                     ; preds = %sw.epilog73

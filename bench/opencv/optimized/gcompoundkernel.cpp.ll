@@ -187,7 +187,7 @@ define hidden void @_ZN2cv6detail16GCompoundContextC2ERKSt6vectorINS_4GArgESaIS3
 39:                                               ; preds = %32
   %40 = load ptr, ptr %38, align 8
   %41 = load ptr, ptr %40, align 8
-  invoke void %41(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  invoke void %41(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %39
@@ -866,7 +866,7 @@ define void @_ZN2cv6detail15GCompoundKernelC2ERKSt8functionIFvRNS0_16GCompoundCo
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRN2cv6detail16GCompoundContextEEEC2ERKS5_.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %9 unwind label %13
 
 9:                                                ; preds = %7
@@ -885,7 +885,7 @@ define void @_ZN2cv6detail15GCompoundKernelC2ERKSt8functionIFvRNS0_16GCompoundCo
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i unwind label %18
 
 18:                                               ; preds = %16
@@ -916,7 +916,7 @@ define void @_ZN2cv6detail15GCompoundKernel5applyERNS0_16GCompoundContextE(ptr n
 _ZNKSt8functionIFvRN2cv6detail16GCompoundContextEEEclES3_.exit: ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 

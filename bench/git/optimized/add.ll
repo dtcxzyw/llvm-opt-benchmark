@@ -1136,7 +1136,7 @@ if.end26.i:                                       ; preds = %land.lhs.true.i105,
   %arrayidx29.i = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv30.i
   %119 = load ptr, ptr %arrayidx29.i, align 8
   %name30.i = getelementptr inbounds i8, ptr %119, i64 4
-  %call32.i = call i32 @add_file_to_index(ptr noundef nonnull @the_index, ptr noundef nonnull %name30.i, i32 noundef %or118) #12
+  %call32.i = call i32 @add_file_to_index(ptr noundef nonnull @the_index, ptr noundef nonnull %name30.i, i32 noundef range(i32 0, 32) %or118) #12
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %if.else.i103, label %if.then34.i
 

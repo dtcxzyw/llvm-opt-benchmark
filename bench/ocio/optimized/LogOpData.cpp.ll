@@ -2365,7 +2365,7 @@ entry:
   %ref.tmp63 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp74 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_mutex = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #23
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #23
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -2624,7 +2624,7 @@ if.end80:                                         ; preds = %invoke.cont66, %inv
 
 invoke.cont81:                                    ; preds = %if.end80
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %cacheIDStream) #23
-  %call1.i.i.i14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #23
+  %call1.i.i.i14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #23
   ret void
 
 ehcleanup:                                        ; preds = %lpad2, %lpad.i, %lpad76, %lpad65, %lpad56, %lpad47, %lpad38, %lpad29, %lpad20
@@ -2634,7 +2634,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad.i, %lp
 
 ehcleanup82:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad ]
-  %call1.i.i.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #23
+  %call1.i.i.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #23
   resume { ptr, i32 } %.pn.pn
 }
 

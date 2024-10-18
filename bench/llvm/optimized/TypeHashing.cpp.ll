@@ -57,12 +57,12 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %9 = alloca %"class.llvm::TruncatedBLAKE3", align 8
   %10 = alloca %"class.llvm::codeview::TypeIndex", align 4
   %11 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %11, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %11, i64 noundef 4) #8
   call void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  call void @llvm_blake3_hasher_init(ptr noundef nonnull %9) #8
-  call void @llvm_blake3_hasher_init(ptr noundef nonnull %9) #8
+  call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #8
+  call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #8
   %..i = call i64 @llvm.umin.i64(i64 %1, i64 4)
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull %9, ptr noundef %0, i64 noundef %..i) #8
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef %0, i64 noundef %..i) #8
   %12 = add i64 %1, -4
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   %14 = load ptr, ptr %8, align 8
@@ -80,7 +80,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %20 = zext i32 %.079 to i64
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds i8, ptr %13, i64 %20
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull %9, ptr noundef nonnull %22, i64 noundef %21) #8
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %22, i64 noundef %21) #8
   %23 = load i32, ptr %.03778, align 4
   %24 = icmp eq i32 %23, 1
   %.sroa.058.0.copyload.sroa.speculated = select i1 %24, ptr %4, ptr %2
@@ -129,7 +129,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
 44:                                               ; preds = %32, %43
   %.sroa.4.2 = phi i64 [ 8, %43 ], [ 4, %32 ]
   %.sroa.053.2 = phi ptr [ %40, %43 ], [ %10, %32 ]
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull %9, ptr noundef nonnull %.sroa.053.2, i64 noundef %.sroa.4.2) #8
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.053.2, i64 noundef %.sroa.4.2) #8
   %45 = getelementptr inbounds i8, ptr %.03876, i64 4
   %.not39 = icmp eq ptr %45, %31
   br i1 %.not39, label %._crit_edge.loopexit, label %32
@@ -156,16 +156,16 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %.0.lcssa = phi i64 [ 0, %6 ], [ %51, %._crit_edge82.loopexit ]
   %52 = sub i64 %12, %.0.lcssa
   %53 = getelementptr inbounds i8, ptr %13, i64 %.0.lcssa
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %52) #8
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %53, i64 noundef %52) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm_blake3_hasher_finalize(ptr noundef nonnull %9, ptr noundef nonnull %7, i64 noundef 8) #8
+  call void @llvm_blake3_hasher_finalize(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %7, i64 noundef 8) #8
   %54 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %39, %._crit_edge82
   %.sroa.073.0 = phi i64 [ %54, %._crit_edge82 ], [ 0, %39 ], [ 0, %35 ]
-  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %8) #8
   %56 = load ptr, ptr %8, align 8
   %57 = icmp eq ptr %56, %11
   br i1 %57, label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit, label %58

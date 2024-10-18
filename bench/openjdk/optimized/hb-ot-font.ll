@@ -1818,7 +1818,7 @@ _ZNK2OT8hmtxvmtxINS_4vmtxENS_4vheaENS_4VVAREE13accelerator_t29get_advance_with_v
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i: ; preds = %147, %138
   %149 = phi ptr [ %148, %147 ], [ null, %138 ]
-  %150 = call noundef i32 %142(ptr noundef nonnull %0, ptr noundef %144, ptr noundef nonnull %9, ptr noundef %149)
+  %150 = call noundef i32 %142(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %144, ptr noundef nonnull %9, ptr noundef %149)
   %.not.i56 = icmp eq i32 %150, 0
   br i1 %.not.i56, label %151, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge
 
@@ -1929,7 +1929,7 @@ define internal noundef i32 @_ZL24hb_ot_get_glyph_v_originP9hb_font_tPvjPiS2_S1_
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %6, %23
   %26 = phi ptr [ %25, %23 ], [ null, %6 ]
-  %27 = tail call noundef i32 %18(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %2, ptr noundef %26)
+  %27 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %20, i32 noundef %2, ptr noundef %26)
   %28 = sdiv i32 %27, 2
   store i32 %28, ptr %3, align 4
   %29 = getelementptr inbounds i8, ptr %14, i64 104
@@ -2241,7 +2241,7 @@ _ZNK2OT18glyf_accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t.exit:
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i: ; preds = %183, %176
   %185 = phi ptr [ %184, %183 ], [ null, %176 ]
-  %186 = call noundef i32 %179(ptr noundef nonnull %0, ptr noundef %180, ptr noundef nonnull %12, ptr noundef %185)
+  %186 = call noundef i32 %179(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %180, ptr noundef nonnull %12, ptr noundef %185)
   %.not.i38 = icmp eq i32 %186, 0
   br i1 %.not.i38, label %187, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge
 
@@ -2290,7 +2290,7 @@ _ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit: ; preds = 
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i40: ; preds = %211, %204
   %213 = phi ptr [ %212, %211 ], [ null, %204 ]
-  %214 = call noundef i32 %207(ptr noundef nonnull %0, ptr noundef %208, ptr noundef nonnull %13, ptr noundef %213)
+  %214 = call noundef i32 %207(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %208, ptr noundef nonnull %13, ptr noundef %213)
   %.not.i41 = icmp eq i32 %214, 0
   br i1 %.not.i41, label %215, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i40._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit42_crit_edge
 
@@ -2577,7 +2577,7 @@ _ZNK16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16E
 
 108:                                              ; preds = %105, %._crit_edge.i
   %109 = phi ptr [ %107, %105 ], [ null, %._crit_edge.i ]
-  invoke void %102(ptr noundef nonnull %89, ptr noundef %90, ptr noundef nonnull %28, float noundef %94, float noundef %.pre.i, ptr noundef %109)
+  invoke void %102(ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef %90, ptr noundef nonnull align 4 dereferenceable(48) %28, float noundef %94, float noundef %.pre.i, ptr noundef %109)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i unwind label %119
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %108, %92
@@ -2595,7 +2595,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %108
 
 117:                                              ; preds = %114, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i
   %118 = phi ptr [ %116, %114 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i ]
-  invoke void %111(ptr noundef nonnull %89, ptr noundef %90, ptr noundef nonnull %28, ptr noundef %118)
+  invoke void %111(ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef %90, ptr noundef nonnull align 4 dereferenceable(48) %28, ptr noundef %118)
           to label %_ZN17hb_draw_session_tD2Ev.exit unwind label %119
 
 119:                                              ; preds = %117, %108
@@ -2810,7 +2810,7 @@ _ZNK16hb_lazy_loader_tIN2OT17SVG_accelerator_tE21hb_face_lazy_loader_tIS1_Lj39EE
 
 _ZNK2OT3SVG13accelerator_t11paint_glyphEP9hb_font_tjP16hb_paint_funcs_tPv.exit: ; preds = %70, %77
   %80 = phi ptr [ %79, %77 ], [ null, %70 ]
-  %81 = tail call noundef i32 %74(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %67, i32 noundef 0, i32 noundef 0, i32 noundef 1937139488, float noundef %72, ptr noundef null, ptr noundef %80)
+  %81 = tail call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, ptr noundef %67, i32 noundef 0, i32 noundef 0, i32 noundef 1937139488, float noundef %72, ptr noundef null, ptr noundef %80)
   tail call void @hb_blob_destroy(ptr noundef %67)
   br label %156
 
@@ -2963,7 +2963,7 @@ _ZNK16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15E
 
 _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit.i: ; preds = %138, %_ZNK16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_EptEv.exit
   %141 = phi ptr [ %140, %138 ], [ null, %_ZNK16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_EptEv.exit ]
-  tail call void %135(ptr noundef nonnull %3, ptr noundef %4, i32 noundef %2, ptr noundef %0, ptr noundef %141)
+  tail call void %135(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i32 noundef %2, ptr noundef %0, ptr noundef %141)
   %142 = getelementptr inbounds i8, ptr %3, i64 64
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %136, align 8
@@ -2977,7 +2977,7 @@ _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit.i: ; preds = %138, %_
 
 _ZN16hb_paint_funcs_t5colorEPvij.exit.i:          ; preds = %145, %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit.i
   %148 = phi ptr [ %147, %145 ], [ null, %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit.i ]
-  tail call void %143(ptr noundef nonnull %3, ptr noundef %4, i32 noundef 1, i32 noundef %6, ptr noundef %148)
+  tail call void %143(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i32 noundef 1, i32 noundef %6, ptr noundef %148)
   %149 = getelementptr inbounds i8, ptr %3, i64 56
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %136, align 8
@@ -2991,7 +2991,7 @@ _ZN16hb_paint_funcs_t5colorEPvij.exit.i:          ; preds = %145, %_ZN16hb_paint
 
 _ZNK2OT18glyf_accelerator_t11paint_glyphEP9hb_font_tjP16hb_paint_funcs_tPvj.exit: ; preds = %_ZN16hb_paint_funcs_t5colorEPvij.exit.i, %152
   %155 = phi ptr [ %154, %152 ], [ null, %_ZN16hb_paint_funcs_t5colorEPvij.exit.i ]
-  tail call void %150(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %155)
+  tail call void %150(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, ptr noundef %155)
   br label %156
 
 156:                                              ; preds = %_ZNK2OT18glyf_accelerator_t11paint_glyphEP9hb_font_tjP16hb_paint_funcs_tPvj.exit, %_ZNK2OT3SVG13accelerator_t11paint_glyphEP9hb_font_tjP16hb_paint_funcs_tPv.exit, %_ZNK16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_EptEv.exit, %82, %8
@@ -4670,7 +4670,7 @@ _ZNK2OT7ArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb
 78:                                               ; preds = %58
   %79 = zext i32 %76 to i64
   %80 = getelementptr inbounds i8, ptr %0, i64 %79
-  %81 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(262) %80, ptr noundef nonnull %1)
+  %81 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(262) %80, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %81, label %89, label %82
 
 82:                                               ; preds = %78
@@ -5084,7 +5084,7 @@ _ZNK2OT7ArrayOfINS_23VariationSelectorRecordENS_7IntTypeIjLj4EEEE16sanitize_shal
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %255 = getelementptr inbounds [1 x %"struct.OT::VariationSelectorRecord"], ptr %205, i64 0, i64 %indvars.iv.i
-  %256 = tail call noundef zeroext i1 @_ZNK2OT23VariationSelectorRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(11) %255, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %256 = tail call noundef zeroext i1 @_ZNK2OT23VariationSelectorRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(11) %255, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(21) %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond.not = select i1 %256, i1 %exitcond.not.i, i1 false
@@ -6329,7 +6329,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4cmap13accelerator_t19get_
 
 _ZNK2OT20CmapSubtableFormat1417get_glyph_variantEjjPj.exit: ; preds = %50, %5, %51
   %53 = phi ptr [ %52, %51 ], [ @_hb_NullPool, %5 ], [ @_hb_NullPool, %50 ]
-  %54 = tail call noundef i32 @_ZNK2OT23VariationSelectorRecord9get_glyphEjPjPKv(ptr noundef nonnull align 1 dereferenceable(11) %53, i32 noundef %1, ptr noundef %3, ptr noundef nonnull %spec.select.i.i)
+  %54 = tail call noundef i32 @_ZNK2OT23VariationSelectorRecord9get_glyphEjPjPKv(ptr noundef nonnull align 1 dereferenceable(11) %53, i32 noundef %1, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(21) %spec.select.i.i)
   switch i32 %54, label %56 [
     i32 0, label %_ZNK2OT4cmap13accelerator_t17get_nominal_glyphEjPjP10hb_cache_tILj21ELj16ELj8ELb1EE.exit
     i32 1, label %55
@@ -7086,7 +7086,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT8HVARVVAR8sanitizeEP21hb_s
 43:                                               ; preds = %24
   %44 = zext i32 %41 to i64
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %45, ptr noundef nonnull %1)
+  %46 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %43
@@ -11430,7 +11430,7 @@ define linkonce_odr hidden void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(p
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr @_hb_NullPool, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %10, align 8
@@ -11533,7 +11533,7 @@ define linkonce_odr hidden void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(p
 
 89:                                               ; preds = %83, %81
   %90 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr @_hb_NullPool, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %91, align 8
@@ -13195,11 +13195,11 @@ _ZN22contour_point_vector_tD2Ev.exit323:          ; preds = %_ZN11hb_vector_tI15
 704:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit323
   %705 = inttoptr i64 %703 to ptr
   %706 = getelementptr inbounds i8, ptr %705, i64 40
-  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %706, ptr noundef nonnull align 8 dereferenceable(40) %705)
+  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %706, ptr noundef nonnull align 8 dereferenceable(56) %705)
           to label %.noexc.i.i unwind label %710
 
 .noexc.i.i:                                       ; preds = %704
-  %707 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %705) #23
+  %707 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %705) #23
   call void @free(ptr noundef nonnull %705) #23
   store atomic i64 0, ptr %33 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
@@ -14532,7 +14532,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i.i: ; preds = %_ZN11hb_ve
 370:                                              ; preds = %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i.i
   %371 = zext nneg i32 %.sroa.10530.0 to i64
   %372 = getelementptr inbounds %struct.contour_point_t, ptr %.sroa.16533.5, i64 %371
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %372, ptr readonly align 1 %4, i64 %161, i1 false), !alias.scope !56
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %372, ptr readonly align 1 %4, i64 range(i64 0, 51539607541) %161, i1 false), !alias.scope !56
   br label %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit
 
 _ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit: ; preds = %370, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i.i
@@ -15918,7 +15918,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vect
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %4 to i64
   %34 = getelementptr inbounds %struct.contour_point_t, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %30, i64 %29, i1 false), !alias.scope !74
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %30, i64 range(i64 0, 51539607541) %29, i1 false), !alias.scope !74
   br label %_ZL9hb_memcpyPvPKvm.exit
 
 _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %2, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i, %27, %25
@@ -15936,11 +15936,11 @@ define linkonce_odr hidden void @_ZN8hb_map_tD2Ev(ptr noundef nonnull align 8 de
 4:                                                ; preds = %1
   %5 = inttoptr i64 %3 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(56) %5)
           to label %.noexc.i unwind label %11
 
 .noexc.i:                                         ; preds = %4
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %5) #23
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   tail call void @free(ptr noundef nonnull %5) #23
   store atomic i64 0, ptr %2 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i
@@ -17070,7 +17070,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #23
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -17090,7 +17090,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !86
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #23
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -17099,7 +17099,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #23
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !89
@@ -17118,7 +17118,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #23
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -17743,7 +17743,7 @@ define linkonce_odr hidden void @_ZN17hb_draw_session_tD2Ev(ptr noundef nonnull 
 
 24:                                               ; preds = %21, %._crit_edge
   %25 = phi ptr [ %23, %21 ], [ null, %._crit_edge ]
-  invoke void %18(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, float noundef %10, float noundef %.pre, ptr noundef %25)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(48) %6, float noundef %10, float noundef %.pre, ptr noundef %25)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit unwind label %35
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %8, %24
@@ -17761,7 +17761,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %8, %2
 
 33:                                               ; preds = %30, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
   %34 = phi ptr [ %32, %30 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit ]
-  invoke void %27(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %34)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef %34)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit unwind label %35
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %33, %1
@@ -17969,7 +17969,7 @@ _ZN22contour_point_vector_tD2Ev.exit:             ; preds = %14, %16
 
 83:                                               ; preds = %80, %._crit_edge1104
   %84 = phi ptr [ %82, %80 ], [ null, %._crit_edge1104 ]
-  invoke void %77(ptr noundef nonnull %60, ptr noundef %62, ptr noundef nonnull %63, float noundef %68, float noundef %.pre1106, ptr noundef %84)
+  invoke void %77(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef %62, ptr noundef nonnull align 4 dereferenceable(48) %63, float noundef %68, float noundef %.pre1106, ptr noundef %84)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %83, %72
@@ -17987,7 +17987,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %83, %
 
 92:                                               ; preds = %89, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
   %93 = phi ptr [ %91, %89 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit ]
-  invoke void %86(ptr noundef nonnull %60, ptr noundef %62, ptr noundef nonnull %63, ptr noundef %93)
+  invoke void %86(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef %62, ptr noundef nonnull align 4 dereferenceable(48) %63, ptr noundef %93)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %92
@@ -18039,7 +18039,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %92
 
 118:                                              ; preds = %115, %._crit_edge
   %119 = phi ptr [ %117, %115 ], [ null, %._crit_edge ]
-  invoke void %112(ptr noundef nonnull %60, ptr noundef %62, ptr noundef nonnull %63, float noundef %103, float noundef %.pre, ptr noundef %119)
+  invoke void %112(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef %62, ptr noundef nonnull align 4 dereferenceable(48) %63, float noundef %103, float noundef %.pre, ptr noundef %119)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841: ; preds = %118, %107
@@ -18057,7 +18057,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841: ; preds = %11
 
 127:                                              ; preds = %124, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841
   %128 = phi ptr [ %126, %124 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841 ]
-  invoke void %121(ptr noundef nonnull %60, ptr noundef %62, ptr noundef nonnull %63, ptr noundef %128)
+  invoke void %121(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef %62, ptr noundef nonnull align 4 dereferenceable(48) %63, ptr noundef %128)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843: ; preds = %127
@@ -18136,7 +18136,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843: ; preds = %1
 
 170:                                              ; preds = %167, %._crit_edge1110
   %171 = phi ptr [ %169, %167 ], [ null, %._crit_edge1110 ]
-  invoke void %164(ptr noundef nonnull %147, ptr noundef %149, ptr noundef nonnull %150, float noundef %155, float noundef %.pre1112, ptr noundef %171)
+  invoke void %164(ptr noundef nonnull align 8 dereferenceable(72) %147, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(48) %150, float noundef %155, float noundef %.pre1112, ptr noundef %171)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit845 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit845: ; preds = %170, %159
@@ -18154,7 +18154,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit845: ; preds = %17
 
 179:                                              ; preds = %176, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit845
   %180 = phi ptr [ %178, %176 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit845 ]
-  invoke void %173(ptr noundef nonnull %147, ptr noundef %149, ptr noundef nonnull %150, ptr noundef %180)
+  invoke void %173(ptr noundef nonnull align 8 dereferenceable(72) %147, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(48) %150, ptr noundef %180)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit847 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit847: ; preds = %179
@@ -18206,7 +18206,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit847: ; preds = %1
 
 205:                                              ; preds = %202, %._crit_edge1107
   %206 = phi ptr [ %204, %202 ], [ null, %._crit_edge1107 ]
-  invoke void %199(ptr noundef nonnull %147, ptr noundef %149, ptr noundef nonnull %150, float noundef %190, float noundef %.pre1109, ptr noundef %206)
+  invoke void %199(ptr noundef nonnull align 8 dereferenceable(72) %147, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(48) %150, float noundef %190, float noundef %.pre1109, ptr noundef %206)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit849 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit849: ; preds = %205, %194
@@ -18224,7 +18224,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit849: ; preds = %20
 
 214:                                              ; preds = %211, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit849
   %215 = phi ptr [ %213, %211 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit849 ]
-  invoke void %208(ptr noundef nonnull %147, ptr noundef %149, ptr noundef nonnull %150, ptr noundef %215)
+  invoke void %208(ptr noundef nonnull align 8 dereferenceable(72) %147, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(48) %150, ptr noundef %215)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit851 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit851: ; preds = %214
@@ -18296,7 +18296,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit851: ; preds = %2
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i: ; preds = %252, %243
   %254 = phi ptr [ %253, %252 ], [ null, %243 ]
-  invoke void %249(ptr noundef nonnull %237, ptr noundef %239, ptr noundef nonnull %240, float noundef %245, float noundef %247, ptr noundef %254)
+  invoke void %249(ptr noundef nonnull align 8 dereferenceable(72) %237, ptr noundef %239, ptr noundef nonnull align 4 dereferenceable(48) %240, float noundef %245, float noundef %247, ptr noundef %254)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i
@@ -18324,7 +18324,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %_ZN15hb_d
 
 267:                                              ; preds = %264, %259
   %268 = phi ptr [ %266, %264 ], [ null, %259 ]
-  invoke void %261(ptr noundef nonnull %237, ptr noundef %239, ptr noundef nonnull %240, float noundef %229, float noundef %230, float noundef %231, float noundef %232, float noundef %45, float noundef %50, ptr noundef %268)
+  invoke void %261(ptr noundef nonnull align 8 dereferenceable(72) %237, ptr noundef %239, ptr noundef nonnull align 4 dereferenceable(48) %240, float noundef %229, float noundef %230, float noundef %231, float noundef %232, float noundef %45, float noundef %50, ptr noundef %268)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit unwind label %.loopexit1101
 
 269:                                              ; preds = %228
@@ -18354,7 +18354,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %_ZN15hb_d
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854: ; preds = %284, %275
   %286 = phi ptr [ %285, %284 ], [ null, %275 ]
-  invoke void %281(ptr noundef nonnull %237, ptr noundef %239, ptr noundef nonnull %240, float noundef %277, float noundef %279, ptr noundef %286)
+  invoke void %281(ptr noundef nonnull align 8 dereferenceable(72) %237, ptr noundef %239, ptr noundef nonnull align 4 dereferenceable(48) %240, float noundef %277, float noundef %279, ptr noundef %286)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854
@@ -18382,7 +18382,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855: ; preds = %_ZN15h
 
 299:                                              ; preds = %296, %291
   %300 = phi ptr [ %298, %296 ], [ null, %291 ]
-  invoke void %293(ptr noundef nonnull %237, ptr noundef %239, ptr noundef nonnull %240, float noundef %271, float noundef %230, float noundef %272, float noundef %232, float noundef %273, float noundef %50, ptr noundef %300)
+  invoke void %293(ptr noundef nonnull align 8 dereferenceable(72) %237, ptr noundef %239, ptr noundef nonnull align 4 dereferenceable(48) %240, float noundef %271, float noundef %230, float noundef %272, float noundef %232, float noundef %273, float noundef %50, ptr noundef %300)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %299, %267
@@ -18430,7 +18430,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859: ; preds = %325, %316
   %327 = phi ptr [ %326, %325 ], [ null, %316 ]
-  invoke void %322(ptr noundef nonnull %310, ptr noundef %312, ptr noundef nonnull %313, float noundef %318, float noundef %320, ptr noundef %327)
+  invoke void %322(ptr noundef nonnull align 8 dereferenceable(72) %310, ptr noundef %312, ptr noundef nonnull align 4 dereferenceable(48) %313, float noundef %318, float noundef %320, ptr noundef %327)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859
@@ -18458,7 +18458,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860: ; preds = %_ZN15h
 
 340:                                              ; preds = %337, %332
   %341 = phi ptr [ %339, %337 ], [ null, %332 ]
-  invoke void %334(ptr noundef nonnull %310, ptr noundef %312, ptr noundef nonnull %313, float noundef %304, float noundef %305, float noundef %45, float noundef %50, ptr noundef %341)
+  invoke void %334(ptr noundef nonnull align 8 dereferenceable(72) %310, ptr noundef %312, ptr noundef nonnull align 4 dereferenceable(48) %313, float noundef %304, float noundef %305, float noundef %45, float noundef %50, ptr noundef %341)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %340
@@ -18494,7 +18494,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863: ; preds = %358, %349
   %360 = phi ptr [ %359, %358 ], [ null, %349 ]
-  invoke void %355(ptr noundef nonnull %310, ptr noundef %312, ptr noundef nonnull %313, float noundef %351, float noundef %353, ptr noundef %360)
+  invoke void %355(ptr noundef nonnull align 8 dereferenceable(72) %310, ptr noundef %312, ptr noundef nonnull align 4 dereferenceable(48) %313, float noundef %351, float noundef %353, ptr noundef %360)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863
@@ -18522,7 +18522,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864: ; preds = %_ZN15h
 
 373:                                              ; preds = %370, %365
   %374 = phi ptr [ %372, %370 ], [ null, %365 ]
-  invoke void %367(ptr noundef nonnull %310, ptr noundef %312, ptr noundef nonnull %313, float noundef %346, float noundef %305, float noundef %347, float noundef %50, ptr noundef %374)
+  invoke void %367(ptr noundef nonnull align 8 dereferenceable(72) %310, ptr noundef %312, ptr noundef nonnull align 4 dereferenceable(48) %313, float noundef %346, float noundef %305, float noundef %347, float noundef %50, ptr noundef %374)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866: ; preds = %373
@@ -18577,7 +18577,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866: ; pred
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875: ; preds = %405, %396
   %407 = phi ptr [ %406, %405 ], [ null, %396 ]
-  invoke void %402(ptr noundef nonnull %390, ptr noundef %392, ptr noundef nonnull %393, float noundef %398, float noundef %400, ptr noundef %407)
+  invoke void %402(ptr noundef nonnull align 8 dereferenceable(72) %390, ptr noundef %392, ptr noundef nonnull align 4 dereferenceable(48) %393, float noundef %398, float noundef %400, ptr noundef %407)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875
@@ -18605,7 +18605,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876: ; preds = %_ZN15h
 
 420:                                              ; preds = %417, %412
   %421 = phi ptr [ %419, %417 ], [ null, %412 ]
-  invoke void %414(ptr noundef nonnull %390, ptr noundef %392, ptr noundef nonnull %393, float noundef %379, float noundef %382, float noundef %381, float noundef %384, ptr noundef %421)
+  invoke void %414(ptr noundef nonnull align 8 dereferenceable(72) %390, ptr noundef %392, ptr noundef nonnull align 4 dereferenceable(48) %393, float noundef %379, float noundef %382, float noundef %381, float noundef %384, ptr noundef %421)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878 unwind label %.loopexit1101
 
 422:                                              ; preds = %378
@@ -18634,7 +18634,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880: ; preds = %436, %427
   %438 = phi ptr [ %437, %436 ], [ null, %427 ]
-  invoke void %433(ptr noundef nonnull %390, ptr noundef %392, ptr noundef nonnull %393, float noundef %429, float noundef %431, ptr noundef %438)
+  invoke void %433(ptr noundef nonnull align 8 dereferenceable(72) %390, ptr noundef %392, ptr noundef nonnull align 4 dereferenceable(48) %393, float noundef %429, float noundef %431, ptr noundef %438)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880
@@ -18662,7 +18662,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881: ; preds = %_ZN15h
 
 451:                                              ; preds = %448, %443
   %452 = phi ptr [ %450, %448 ], [ null, %443 ]
-  invoke void %445(ptr noundef nonnull %390, ptr noundef %392, ptr noundef nonnull %393, float noundef %424, float noundef %382, float noundef %425, float noundef %384, ptr noundef %452)
+  invoke void %445(ptr noundef nonnull align 8 dereferenceable(72) %390, ptr noundef %392, ptr noundef nonnull align 4 dereferenceable(48) %393, float noundef %424, float noundef %382, float noundef %425, float noundef %384, ptr noundef %452)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878: ; preds = %451, %420
@@ -18714,7 +18714,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878: ; pred
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885: ; preds = %477, %468
   %479 = phi ptr [ %478, %477 ], [ null, %468 ]
-  invoke void %474(ptr noundef nonnull %462, ptr noundef %464, ptr noundef nonnull %465, float noundef %470, float noundef %472, ptr noundef %479)
+  invoke void %474(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef %464, ptr noundef nonnull align 4 dereferenceable(48) %465, float noundef %470, float noundef %472, ptr noundef %479)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885
@@ -18742,7 +18742,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886: ; preds = %_ZN15h
 
 492:                                              ; preds = %489, %484
   %493 = phi ptr [ %491, %489 ], [ null, %484 ]
-  invoke void %486(ptr noundef nonnull %462, ptr noundef %464, ptr noundef nonnull %465, float noundef %45, float noundef %50, ptr noundef %493)
+  invoke void %486(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef %464, ptr noundef nonnull align 4 dereferenceable(48) %465, float noundef %45, float noundef %50, ptr noundef %493)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888: ; preds = %492
@@ -18777,7 +18777,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888: ; preds = %49
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890: ; preds = %509, %500
   %511 = phi ptr [ %510, %509 ], [ null, %500 ]
-  invoke void %506(ptr noundef nonnull %462, ptr noundef %464, ptr noundef nonnull %465, float noundef %502, float noundef %504, ptr noundef %511)
+  invoke void %506(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef %464, ptr noundef nonnull align 4 dereferenceable(48) %465, float noundef %502, float noundef %504, ptr noundef %511)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890
@@ -18805,7 +18805,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891: ; preds = %_ZN15h
 
 524:                                              ; preds = %521, %516
   %525 = phi ptr [ %523, %521 ], [ null, %516 ]
-  invoke void %518(ptr noundef nonnull %462, ptr noundef %464, ptr noundef nonnull %465, float noundef %498, float noundef %50, ptr noundef %525)
+  invoke void %518(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef %464, ptr noundef nonnull align 4 dereferenceable(48) %465, float noundef %498, float noundef %50, ptr noundef %525)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893: ; preds = %524
@@ -18894,7 +18894,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893: ; preds = %52
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902: ; preds = %575, %566
   %577 = phi ptr [ %576, %575 ], [ null, %566 ]
-  invoke void %572(ptr noundef nonnull %560, ptr noundef %562, ptr noundef nonnull %563, float noundef %568, float noundef %570, ptr noundef %577)
+  invoke void %572(ptr noundef nonnull align 8 dereferenceable(72) %560, ptr noundef %562, ptr noundef nonnull align 4 dereferenceable(48) %563, float noundef %568, float noundef %570, ptr noundef %577)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902
@@ -18922,7 +18922,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903: ; preds = %_ZN15h
 
 590:                                              ; preds = %587, %582
   %591 = phi ptr [ %589, %587 ], [ null, %582 ]
-  invoke void %584(ptr noundef nonnull %560, ptr noundef %562, ptr noundef nonnull %563, float noundef %554, float noundef %555, float noundef %544, float noundef %547, float noundef %546, float noundef %549, ptr noundef %591)
+  invoke void %584(ptr noundef nonnull align 8 dereferenceable(72) %560, ptr noundef %562, ptr noundef nonnull align 4 dereferenceable(48) %563, float noundef %554, float noundef %555, float noundef %544, float noundef %547, float noundef %546, float noundef %549, ptr noundef %591)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
 592:                                              ; preds = %553
@@ -18952,7 +18952,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907: ; preds = %607, %598
   %609 = phi ptr [ %608, %607 ], [ null, %598 ]
-  invoke void %604(ptr noundef nonnull %560, ptr noundef %562, ptr noundef nonnull %563, float noundef %600, float noundef %602, ptr noundef %609)
+  invoke void %604(ptr noundef nonnull align 8 dereferenceable(72) %560, ptr noundef %562, ptr noundef nonnull align 4 dereferenceable(48) %563, float noundef %600, float noundef %602, ptr noundef %609)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907
@@ -18980,7 +18980,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908: ; preds = %_ZN15h
 
 622:                                              ; preds = %619, %614
   %623 = phi ptr [ %621, %619 ], [ null, %614 ]
-  invoke void %616(ptr noundef nonnull %560, ptr noundef %562, ptr noundef nonnull %563, float noundef %594, float noundef %555, float noundef %595, float noundef %547, float noundef %596, float noundef %549, ptr noundef %623)
+  invoke void %616(ptr noundef nonnull align 8 dereferenceable(72) %560, ptr noundef %562, ptr noundef nonnull align 4 dereferenceable(48) %563, float noundef %594, float noundef %555, float noundef %595, float noundef %547, float noundef %596, float noundef %549, ptr noundef %623)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
 624:                                              ; preds = %539
@@ -19017,7 +19017,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912: ; preds = %644, %635
   %646 = phi ptr [ %645, %644 ], [ null, %635 ]
-  invoke void %641(ptr noundef nonnull %629, ptr noundef %631, ptr noundef nonnull %632, float noundef %637, float noundef %639, ptr noundef %646)
+  invoke void %641(ptr noundef nonnull align 8 dereferenceable(72) %629, ptr noundef %631, ptr noundef nonnull align 4 dereferenceable(48) %632, float noundef %637, float noundef %639, ptr noundef %646)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912
@@ -19045,7 +19045,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913: ; preds = %_ZN15h
 
 659:                                              ; preds = %656, %651
   %660 = phi ptr [ %658, %656 ], [ null, %651 ]
-  invoke void %653(ptr noundef nonnull %629, ptr noundef %631, ptr noundef nonnull %632, float noundef %544, float noundef %547, float noundef %546, float noundef %549, ptr noundef %660)
+  invoke void %653(ptr noundef nonnull align 8 dereferenceable(72) %629, ptr noundef %631, ptr noundef nonnull align 4 dereferenceable(48) %632, float noundef %544, float noundef %547, float noundef %546, float noundef %549, ptr noundef %660)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
 661:                                              ; preds = %624
@@ -19074,7 +19074,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917: ; preds = %675, %666
   %677 = phi ptr [ %676, %675 ], [ null, %666 ]
-  invoke void %672(ptr noundef nonnull %629, ptr noundef %631, ptr noundef nonnull %632, float noundef %668, float noundef %670, ptr noundef %677)
+  invoke void %672(ptr noundef nonnull align 8 dereferenceable(72) %629, ptr noundef %631, ptr noundef nonnull align 4 dereferenceable(48) %632, float noundef %668, float noundef %670, ptr noundef %677)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917
@@ -19102,7 +19102,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918: ; preds = %_ZN15h
 
 690:                                              ; preds = %687, %682
   %691 = phi ptr [ %689, %687 ], [ null, %682 ]
-  invoke void %684(ptr noundef nonnull %629, ptr noundef %631, ptr noundef nonnull %632, float noundef %663, float noundef %547, float noundef %664, float noundef %549, ptr noundef %691)
+  invoke void %684(ptr noundef nonnull align 8 dereferenceable(72) %629, ptr noundef %631, ptr noundef nonnull align 4 dereferenceable(48) %632, float noundef %663, float noundef %547, float noundef %664, float noundef %549, ptr noundef %691)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905: ; preds = %690, %659, %622, %590
@@ -19171,7 +19171,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905: ; preds 
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922: ; preds = %729, %720
   %731 = phi ptr [ %730, %729 ], [ null, %720 ]
-  invoke void %726(ptr noundef nonnull %714, ptr noundef %716, ptr noundef nonnull %717, float noundef %722, float noundef %724, ptr noundef %731)
+  invoke void %726(ptr noundef nonnull align 8 dereferenceable(72) %714, ptr noundef %716, ptr noundef nonnull align 4 dereferenceable(48) %717, float noundef %722, float noundef %724, ptr noundef %731)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922
@@ -19199,7 +19199,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923: ; preds = %_ZN15h
 
 744:                                              ; preds = %741, %736
   %745 = phi ptr [ %743, %741 ], [ null, %736 ]
-  invoke void %738(ptr noundef nonnull %714, ptr noundef %716, ptr noundef nonnull %717, float noundef %704, float noundef %705, float noundef %706, float noundef %707, float noundef %708, float noundef %709, ptr noundef %745)
+  invoke void %738(ptr noundef nonnull align 8 dereferenceable(72) %714, ptr noundef %716, ptr noundef nonnull align 4 dereferenceable(48) %717, float noundef %704, float noundef %705, float noundef %706, float noundef %707, float noundef %708, float noundef %709, ptr noundef %745)
           to label %.sink.split unwind label %.loopexit1101
 
 746:                                              ; preds = %703
@@ -19229,7 +19229,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927: ; preds = %761, %752
   %763 = phi ptr [ %762, %761 ], [ null, %752 ]
-  invoke void %758(ptr noundef nonnull %714, ptr noundef %716, ptr noundef nonnull %717, float noundef %754, float noundef %756, ptr noundef %763)
+  invoke void %758(ptr noundef nonnull align 8 dereferenceable(72) %714, ptr noundef %716, ptr noundef nonnull align 4 dereferenceable(48) %717, float noundef %754, float noundef %756, ptr noundef %763)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927
@@ -19257,7 +19257,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928: ; preds = %_ZN15h
 
 776:                                              ; preds = %773, %768
   %777 = phi ptr [ %775, %773 ], [ null, %768 ]
-  invoke void %770(ptr noundef nonnull %714, ptr noundef %716, ptr noundef nonnull %717, float noundef %748, float noundef %705, float noundef %749, float noundef %707, float noundef %750, float noundef %709, ptr noundef %777)
+  invoke void %770(ptr noundef nonnull align 8 dereferenceable(72) %714, ptr noundef %716, ptr noundef nonnull align 4 dereferenceable(48) %717, float noundef %748, float noundef %705, float noundef %749, float noundef %707, float noundef %750, float noundef %709, ptr noundef %777)
           to label %.sink.split unwind label %.loopexit1101
 
 778:                                              ; preds = %699
@@ -19298,7 +19298,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932: ; preds = %802, %793
   %804 = phi ptr [ %803, %802 ], [ null, %793 ]
-  invoke void %799(ptr noundef nonnull %787, ptr noundef %789, ptr noundef nonnull %790, float noundef %795, float noundef %797, ptr noundef %804)
+  invoke void %799(ptr noundef nonnull align 8 dereferenceable(72) %787, ptr noundef %789, ptr noundef nonnull align 4 dereferenceable(48) %790, float noundef %795, float noundef %797, ptr noundef %804)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932
@@ -19326,7 +19326,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933: ; preds = %_ZN15h
 
 817:                                              ; preds = %814, %809
   %818 = phi ptr [ %816, %814 ], [ null, %809 ]
-  invoke void %811(ptr noundef nonnull %787, ptr noundef %789, ptr noundef nonnull %790, float noundef %779, float noundef %780, float noundef %781, float noundef %782, ptr noundef %818)
+  invoke void %811(ptr noundef nonnull align 8 dereferenceable(72) %787, ptr noundef %789, ptr noundef nonnull align 4 dereferenceable(48) %790, float noundef %779, float noundef %780, float noundef %781, float noundef %782, ptr noundef %818)
           to label %.sink.split unwind label %.loopexit1101
 
 819:                                              ; preds = %778
@@ -19355,7 +19355,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937: ; preds = %833, %824
   %835 = phi ptr [ %834, %833 ], [ null, %824 ]
-  invoke void %830(ptr noundef nonnull %787, ptr noundef %789, ptr noundef nonnull %790, float noundef %826, float noundef %828, ptr noundef %835)
+  invoke void %830(ptr noundef nonnull align 8 dereferenceable(72) %787, ptr noundef %789, ptr noundef nonnull align 4 dereferenceable(48) %790, float noundef %826, float noundef %828, ptr noundef %835)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937
@@ -19383,7 +19383,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938: ; preds = %_ZN15h
 
 848:                                              ; preds = %845, %840
   %849 = phi ptr [ %847, %845 ], [ null, %840 ]
-  invoke void %842(ptr noundef nonnull %787, ptr noundef %789, ptr noundef nonnull %790, float noundef %821, float noundef %780, float noundef %822, float noundef %782, ptr noundef %849)
+  invoke void %842(ptr noundef nonnull align 8 dereferenceable(72) %787, ptr noundef %789, ptr noundef nonnull align 4 dereferenceable(48) %790, float noundef %821, float noundef %780, float noundef %822, float noundef %782, ptr noundef %849)
           to label %.sink.split unwind label %.loopexit1101
 
 850:                                              ; preds = %697, %694
@@ -19441,7 +19441,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942: ; preds = %885, %876
   %887 = phi ptr [ %886, %885 ], [ null, %876 ]
-  invoke void %882(ptr noundef nonnull %870, ptr noundef %872, ptr noundef nonnull %873, float noundef %878, float noundef %880, ptr noundef %887)
+  invoke void %882(ptr noundef nonnull align 8 dereferenceable(72) %870, ptr noundef %872, ptr noundef nonnull align 4 dereferenceable(48) %873, float noundef %878, float noundef %880, ptr noundef %887)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942
@@ -19469,7 +19469,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943: ; preds = %_ZN15h
 
 900:                                              ; preds = %897, %892
   %901 = phi ptr [ %899, %897 ], [ null, %892 ]
-  invoke void %894(ptr noundef nonnull %870, ptr noundef %872, ptr noundef nonnull %873, float noundef %860, float noundef %861, float noundef %862, float noundef %863, float noundef %864, float noundef %865, ptr noundef %901)
+  invoke void %894(ptr noundef nonnull align 8 dereferenceable(72) %870, ptr noundef %872, ptr noundef nonnull align 4 dereferenceable(48) %873, float noundef %860, float noundef %861, float noundef %862, float noundef %863, float noundef %864, float noundef %865, ptr noundef %901)
           to label %.sink.split unwind label %.loopexit1101
 
 902:                                              ; preds = %859
@@ -19499,7 +19499,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947: ; preds = %917, %908
   %919 = phi ptr [ %918, %917 ], [ null, %908 ]
-  invoke void %914(ptr noundef nonnull %870, ptr noundef %872, ptr noundef nonnull %873, float noundef %910, float noundef %912, ptr noundef %919)
+  invoke void %914(ptr noundef nonnull align 8 dereferenceable(72) %870, ptr noundef %872, ptr noundef nonnull align 4 dereferenceable(48) %873, float noundef %910, float noundef %912, ptr noundef %919)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947
@@ -19527,7 +19527,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948: ; preds = %_ZN15h
 
 932:                                              ; preds = %929, %924
   %933 = phi ptr [ %931, %929 ], [ null, %924 ]
-  invoke void %926(ptr noundef nonnull %870, ptr noundef %872, ptr noundef nonnull %873, float noundef %904, float noundef %861, float noundef %905, float noundef %863, float noundef %906, float noundef %865, ptr noundef %933)
+  invoke void %926(ptr noundef nonnull align 8 dereferenceable(72) %870, ptr noundef %872, ptr noundef nonnull align 4 dereferenceable(48) %873, float noundef %904, float noundef %861, float noundef %905, float noundef %863, float noundef %906, float noundef %865, ptr noundef %933)
           to label %.sink.split unwind label %.loopexit1101
 
 934:                                              ; preds = %855
@@ -19568,7 +19568,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952: ; preds = %958, %949
   %960 = phi ptr [ %959, %958 ], [ null, %949 ]
-  invoke void %955(ptr noundef nonnull %943, ptr noundef %945, ptr noundef nonnull %946, float noundef %951, float noundef %953, ptr noundef %960)
+  invoke void %955(ptr noundef nonnull align 8 dereferenceable(72) %943, ptr noundef %945, ptr noundef nonnull align 4 dereferenceable(48) %946, float noundef %951, float noundef %953, ptr noundef %960)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952
@@ -19596,7 +19596,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953: ; preds = %_ZN15h
 
 973:                                              ; preds = %970, %965
   %974 = phi ptr [ %972, %970 ], [ null, %965 ]
-  invoke void %967(ptr noundef nonnull %943, ptr noundef %945, ptr noundef nonnull %946, float noundef %935, float noundef %936, float noundef %937, float noundef %938, ptr noundef %974)
+  invoke void %967(ptr noundef nonnull align 8 dereferenceable(72) %943, ptr noundef %945, ptr noundef nonnull align 4 dereferenceable(48) %946, float noundef %935, float noundef %936, float noundef %937, float noundef %938, ptr noundef %974)
           to label %.sink.split unwind label %.loopexit1101
 
 975:                                              ; preds = %934
@@ -19625,7 +19625,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957: ; preds = %989, %980
   %991 = phi ptr [ %990, %989 ], [ null, %980 ]
-  invoke void %986(ptr noundef nonnull %943, ptr noundef %945, ptr noundef nonnull %946, float noundef %982, float noundef %984, ptr noundef %991)
+  invoke void %986(ptr noundef nonnull align 8 dereferenceable(72) %943, ptr noundef %945, ptr noundef nonnull align 4 dereferenceable(48) %946, float noundef %982, float noundef %984, ptr noundef %991)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957
@@ -19653,7 +19653,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958: ; preds = %_ZN15h
 
 1004:                                             ; preds = %1001, %996
   %1005 = phi ptr [ %1003, %1001 ], [ null, %996 ]
-  invoke void %998(ptr noundef nonnull %943, ptr noundef %945, ptr noundef nonnull %946, float noundef %977, float noundef %936, float noundef %978, float noundef %938, ptr noundef %1005)
+  invoke void %998(ptr noundef nonnull align 8 dereferenceable(72) %943, ptr noundef %945, ptr noundef nonnull align 4 dereferenceable(48) %946, float noundef %977, float noundef %936, float noundef %978, float noundef %938, ptr noundef %1005)
           to label %.sink.split unwind label %.loopexit1101
 
 1006:                                             ; preds = %850
@@ -19696,7 +19696,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962: ; preds = %1030, %1021
   %1032 = phi ptr [ %1031, %1030 ], [ null, %1021 ]
-  invoke void %1027(ptr noundef nonnull %1015, ptr noundef %1017, ptr noundef nonnull %1018, float noundef %1023, float noundef %1025, ptr noundef %1032)
+  invoke void %1027(ptr noundef nonnull align 8 dereferenceable(72) %1015, ptr noundef %1017, ptr noundef nonnull align 4 dereferenceable(48) %1018, float noundef %1023, float noundef %1025, ptr noundef %1032)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962
@@ -19724,7 +19724,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963: ; preds = %_ZN15h
 
 1045:                                             ; preds = %1042, %1037
   %1046 = phi ptr [ %1044, %1042 ], [ null, %1037 ]
-  invoke void %1039(ptr noundef nonnull %1015, ptr noundef %1017, ptr noundef nonnull %1018, float noundef %1009, float noundef %1010, ptr noundef %1046)
+  invoke void %1039(ptr noundef nonnull align 8 dereferenceable(72) %1015, ptr noundef %1017, ptr noundef nonnull align 4 dereferenceable(48) %1018, float noundef %1009, float noundef %1010, ptr noundef %1046)
           to label %.sink.split unwind label %.loopexit1101
 
 1047:                                             ; preds = %1007
@@ -19752,7 +19752,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967: ; preds = %1060, %1051
   %1062 = phi ptr [ %1061, %1060 ], [ null, %1051 ]
-  invoke void %1057(ptr noundef nonnull %1015, ptr noundef %1017, ptr noundef nonnull %1018, float noundef %1053, float noundef %1055, ptr noundef %1062)
+  invoke void %1057(ptr noundef nonnull align 8 dereferenceable(72) %1015, ptr noundef %1017, ptr noundef nonnull align 4 dereferenceable(48) %1018, float noundef %1053, float noundef %1055, ptr noundef %1062)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967
@@ -19780,7 +19780,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968: ; preds = %_ZN15h
 
 1075:                                             ; preds = %1072, %1067
   %1076 = phi ptr [ %1074, %1072 ], [ null, %1067 ]
-  invoke void %1069(ptr noundef nonnull %1015, ptr noundef %1017, ptr noundef nonnull %1018, float noundef %1049, float noundef %1010, ptr noundef %1076)
+  invoke void %1069(ptr noundef nonnull align 8 dereferenceable(72) %1015, ptr noundef %1017, ptr noundef nonnull align 4 dereferenceable(48) %1018, float noundef %1049, float noundef %1010, ptr noundef %1076)
           to label %.sink.split unwind label %.loopexit1101
 
 .thread:                                          ; preds = %854, %1006
@@ -19836,7 +19836,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968: ; preds = %_ZN15h
 
 1108:                                             ; preds = %1105, %._crit_edge1118
   %1109 = phi ptr [ %1107, %1105 ], [ null, %._crit_edge1118 ]
-  invoke void %1102(ptr noundef nonnull %1085, ptr noundef %1087, ptr noundef nonnull %1088, float noundef %1093, float noundef %.pre1120, ptr noundef %1109)
+  invoke void %1102(ptr noundef nonnull align 8 dereferenceable(72) %1085, ptr noundef %1087, ptr noundef nonnull align 4 dereferenceable(48) %1088, float noundef %1093, float noundef %.pre1120, ptr noundef %1109)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972: ; preds = %1108, %1097
@@ -19854,7 +19854,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972: ; preds = %11
 
 1117:                                             ; preds = %1114, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
   %1118 = phi ptr [ %1116, %1114 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972 ]
-  invoke void %1111(ptr noundef nonnull %1085, ptr noundef %1087, ptr noundef nonnull %1088, ptr noundef %1118)
+  invoke void %1111(ptr noundef nonnull align 8 dereferenceable(72) %1085, ptr noundef %1087, ptr noundef nonnull align 4 dereferenceable(48) %1088, ptr noundef %1118)
           to label %.sink.split1143 unwind label %.loopexit1101
 
 1119:                                             ; preds = %1077
@@ -19895,7 +19895,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972: ; preds = %11
 
 1140:                                             ; preds = %1137, %._crit_edge1115
   %1141 = phi ptr [ %1139, %1137 ], [ null, %._crit_edge1115 ]
-  invoke void %1134(ptr noundef nonnull %1085, ptr noundef %1087, ptr noundef nonnull %1088, float noundef %1125, float noundef %.pre1117, ptr noundef %1141)
+  invoke void %1134(ptr noundef nonnull align 8 dereferenceable(72) %1085, ptr noundef %1087, ptr noundef nonnull align 4 dereferenceable(48) %1088, float noundef %1125, float noundef %.pre1117, ptr noundef %1141)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976: ; preds = %1140, %1129
@@ -19913,7 +19913,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976: ; preds = %11
 
 1149:                                             ; preds = %1146, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
   %1150 = phi ptr [ %1148, %1146 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976 ]
-  invoke void %1143(ptr noundef nonnull %1085, ptr noundef %1087, ptr noundef nonnull %1088, ptr noundef %1150)
+  invoke void %1143(ptr noundef nonnull align 8 dereferenceable(72) %1085, ptr noundef %1087, ptr noundef nonnull align 4 dereferenceable(48) %1088, ptr noundef %1150)
           to label %.sink.split1143 unwind label %.loopexit1101
 
 .sink.split1143:                                  ; preds = %1149, %1117
@@ -19961,7 +19961,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976: ; preds = %11
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980: ; preds = %1174, %1165
   %1176 = phi ptr [ %1175, %1174 ], [ null, %1165 ]
-  invoke void %1171(ptr noundef nonnull %1159, ptr noundef %1161, ptr noundef nonnull %1162, float noundef %1167, float noundef %1169, ptr noundef %1176)
+  invoke void %1171(ptr noundef nonnull align 8 dereferenceable(72) %1159, ptr noundef %1161, ptr noundef nonnull align 4 dereferenceable(48) %1162, float noundef %1167, float noundef %1169, ptr noundef %1176)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980
@@ -19989,7 +19989,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981: ; preds = %_ZN15h
 
 1189:                                             ; preds = %1186, %1181
   %1190 = phi ptr [ %1188, %1186 ], [ null, %1181 ]
-  invoke void %1183(ptr noundef nonnull %1159, ptr noundef %1161, ptr noundef nonnull %1162, float noundef %1078, float noundef %1079, float noundef %1078, float noundef %1079, ptr noundef %1190)
+  invoke void %1183(ptr noundef nonnull align 8 dereferenceable(72) %1159, ptr noundef %1161, ptr noundef nonnull align 4 dereferenceable(48) %1162, float noundef %1078, float noundef %1079, float noundef %1078, float noundef %1079, ptr noundef %1190)
           to label %.sink.split unwind label %.loopexit1101
 
 1191:                                             ; preds = %1151
@@ -20017,7 +20017,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981: ; preds = %_ZN15h
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985: ; preds = %1204, %1195
   %1206 = phi ptr [ %1205, %1204 ], [ null, %1195 ]
-  invoke void %1201(ptr noundef nonnull %1159, ptr noundef %1161, ptr noundef nonnull %1162, float noundef %1197, float noundef %1199, ptr noundef %1206)
+  invoke void %1201(ptr noundef nonnull align 8 dereferenceable(72) %1159, ptr noundef %1161, ptr noundef nonnull align 4 dereferenceable(48) %1162, float noundef %1197, float noundef %1199, ptr noundef %1206)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985
@@ -20045,7 +20045,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986: ; preds = %_ZN15h
 
 1219:                                             ; preds = %1216, %1211
   %1220 = phi ptr [ %1218, %1216 ], [ null, %1211 ]
-  invoke void %1213(ptr noundef nonnull %1159, ptr noundef %1161, ptr noundef nonnull %1162, float noundef %1193, float noundef %1079, float noundef %1193, float noundef %1079, ptr noundef %1220)
+  invoke void %1213(ptr noundef nonnull align 8 dereferenceable(72) %1159, ptr noundef %1161, ptr noundef nonnull align 4 dereferenceable(48) %1162, float noundef %1193, float noundef %1079, float noundef %1193, float noundef %1079, ptr noundef %1220)
           to label %.sink.split unwind label %.loopexit1101
 
 .sink.split:                                      ; preds = %1219, %1189, %1075, %1045, %1004, %973, %932, %900, %848, %817, %776, %744
@@ -20104,7 +20104,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986: ; preds = %_ZN15h
 
 1248:                                             ; preds = %1245, %._crit_edge1121
   %1249 = phi ptr [ %1247, %1245 ], [ null, %._crit_edge1121 ]
-  invoke void %1242(ptr noundef nonnull %1226, ptr noundef %1228, ptr noundef nonnull %1229, float noundef %1233, float noundef %.pre1123, ptr noundef %1249)
+  invoke void %1242(ptr noundef nonnull align 8 dereferenceable(72) %1226, ptr noundef %1228, ptr noundef nonnull align 4 dereferenceable(48) %1229, float noundef %1233, float noundef %.pre1123, ptr noundef %1249)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990: ; preds = %1248, %1237
@@ -20122,7 +20122,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990: ; preds = %12
 
 1257:                                             ; preds = %1254, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
   %1258 = phi ptr [ %1256, %1254 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990 ]
-  invoke void %1251(ptr noundef nonnull %1226, ptr noundef %1228, ptr noundef nonnull %1229, ptr noundef %1258)
+  invoke void %1251(ptr noundef nonnull align 8 dereferenceable(72) %1226, ptr noundef %1228, ptr noundef nonnull align 4 dereferenceable(48) %1229, ptr noundef %1258)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992: ; preds = %1257, %1223
@@ -24320,7 +24320,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18cff1_accele
   br i1 %.not.i.i, label %.thread, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEEC2EP9hb_face_t(ptr noundef nonnull align 8 dereferenceable(304) %6, ptr noundef nonnull %4)
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEEC2EP9hb_face_t(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull %4)
   %8 = getelementptr inbounds i8, ptr %6, i64 304
   store atomic i64 0, ptr %8 monotonic, align 8
   %9 = ptrtoint ptr %6 to i64
@@ -24361,7 +24361,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18cff1_accele
   br label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i
 
 _ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i: ; preds = %24, %15
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %6) #23
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6) #23
   tail call void @free(ptr noundef nonnull %6) #23
   br label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E10do_destroyEPS1_.exit
 
@@ -28696,7 +28696,7 @@ _ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t.exit: ; preds = %237, %
 
 257:                                              ; preds = %254, %_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t.exit
   %258 = phi ptr [ %256, %254 ], [ null, %_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t.exit ]
-  invoke void %251(ptr noundef nonnull %244, ptr noundef %245, float noundef %.pre-phi, float noundef %247, float noundef %249, float noundef %.pre-phi120, ptr noundef %258)
+  invoke void %251(ptr noundef nonnull align 8 dereferenceable(144) %244, ptr noundef %245, float noundef %.pre-phi, float noundef %247, float noundef %249, float noundef %.pre-phi120, ptr noundef %258)
           to label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %_ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit.i, %488, %.noexc77, %512, %523, %534
@@ -28770,7 +28770,7 @@ _ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t.exit: ; preds = %237, %
 
 288:                                              ; preds = %285, %276
   %289 = phi ptr [ %287, %285 ], [ null, %276 ]
-  invoke void %282(ptr noundef nonnull %279, ptr noundef %280, float noundef %.sroa.0.0.vec.extract, float noundef %.sroa.0.4.vec.extract, float noundef %.sroa.3.8.vec.extract, float noundef %.sroa.3.12.vec.extract, ptr noundef %289)
+  invoke void %282(ptr noundef nonnull align 8 dereferenceable(144) %279, ptr noundef %280, float noundef %.sroa.0.0.vec.extract, float noundef %.sroa.0.4.vec.extract, float noundef %.sroa.3.8.vec.extract, float noundef %.sroa.3.12.vec.extract, ptr noundef %289)
           to label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit63 unwind label %306
 
 _ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit63: ; preds = %288
@@ -28816,7 +28816,7 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i:  ; preds = %297, %_ZN11hb_vecto
   br label %_ZN26hb_paint_extents_context_tD2Ev.exit
 
 _ZN26hb_paint_extents_context_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, %302
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 16, i1 false)
   br label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit
 
 306:                                              ; preds = %288, %262
@@ -28868,7 +28868,7 @@ _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %326, %_ZNK9hb_
   %333 = fdiv float %332, %330
   %334 = sitofp i32 %317 to float
   %335 = fdiv float %334, %330
-  invoke void %323(ptr noundef nonnull %308, ptr noundef %309, float noundef %335, float noundef 0.000000e+00, float noundef %333, float noundef %331, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %328)
+  invoke void %323(ptr noundef nonnull align 8 dereferenceable(144) %308, ptr noundef %309, float noundef %335, float noundef 0.000000e+00, float noundef %333, float noundef %331, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %328)
           to label %_ZN16hb_paint_funcs_t19push_root_transformEPvPK9hb_font_t.exit unwind label %.loopexit.split-lp
 
 _ZN16hb_paint_funcs_t19push_root_transformEPvPK9hb_font_t.exit: ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -28889,7 +28889,7 @@ _ZN16hb_paint_funcs_t19push_root_transformEPvPK9hb_font_t.exit: ; preds = %_ZN16
   store i32 %343, ptr %90, align 8
   %344 = add nsw i32 %340, -1
   store i32 %344, ptr %91, align 4
-  invoke void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %104, ptr noundef nonnull %14)
+  invoke void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %104, ptr noundef nonnull align 8 dereferenceable(160) %14)
           to label %.noexc66 unwind label %.loopexit.split-lp
 
 .noexc66:                                         ; preds = %342
@@ -28915,7 +28915,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %.noexc66, %339,
 
 356:                                              ; preds = %353, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
   %357 = phi ptr [ %355, %353 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit ]
-  invoke void %350(ptr noundef nonnull %347, ptr noundef %348, ptr noundef %357)
+  invoke void %350(ptr noundef nonnull align 8 dereferenceable(144) %347, ptr noundef %348, ptr noundef %357)
           to label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit unwind label %.loopexit.split-lp
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %356
@@ -28938,7 +28938,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %356
 
 368:                                              ; preds = %365, %358
   %369 = phi ptr [ %367, %365 ], [ null, %358 ]
-  invoke void %362(ptr noundef nonnull %359, ptr noundef %360, ptr noundef %369)
+  invoke void %362(ptr noundef nonnull align 8 dereferenceable(144) %359, ptr noundef %360, ptr noundef %369)
           to label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit unwind label %.loopexit.split-lp
 
 370:                                              ; preds = %105, %_ZN12hb_hashmap_tIjjLb1EE3addERKj.exit
@@ -29105,7 +29105,7 @@ _ZNK2OT4COLR21get_base_glyph_recordEj.exit:       ; preds = %_ZNK2OT20SortedUnsi
 
 _ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit.i: ; preds = %483, %476
   %486 = phi ptr [ %485, %483 ], [ null, %476 ]
-  %487 = invoke noundef i32 %480(ptr noundef nonnull %477, ptr noundef %478, i32 noundef %474, ptr noundef nonnull %9, ptr noundef %486)
+  %487 = invoke noundef i32 %480(ptr noundef nonnull align 8 dereferenceable(144) %477, ptr noundef %478, i32 noundef %474, ptr noundef nonnull %9, ptr noundef %486)
           to label %.noexc76 unwind label %.loopexit
 
 .noexc76:                                         ; preds = %_ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit.i
@@ -29156,7 +29156,7 @@ _ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit.i: ; preds = %483, %476
 
 512:                                              ; preds = %509, %493
   %513 = phi ptr [ %511, %509 ], [ null, %493 ]
-  invoke void %506(ptr noundef nonnull %495, ptr noundef %496, i32 noundef %503, ptr noundef %504, ptr noundef %513)
+  invoke void %506(ptr noundef nonnull align 8 dereferenceable(144) %495, ptr noundef %496, i32 noundef %503, ptr noundef %504, ptr noundef %513)
           to label %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit unwind label %.loopexit
 
 _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %512
@@ -29176,7 +29176,7 @@ _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %512
 
 523:                                              ; preds = %520, %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit
   %524 = phi ptr [ %522, %520 ], [ null, %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit ]
-  invoke void %517(ptr noundef nonnull %514, ptr noundef %515, i32 noundef %.0100, i32 noundef %494, ptr noundef %524)
+  invoke void %517(ptr noundef nonnull align 8 dereferenceable(144) %514, ptr noundef %515, i32 noundef %.0100, i32 noundef %494, ptr noundef %524)
           to label %_ZN16hb_paint_funcs_t5colorEPvij.exit unwind label %.loopexit
 
 _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %523
@@ -29196,7 +29196,7 @@ _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %523
 
 534:                                              ; preds = %531, %_ZN16hb_paint_funcs_t5colorEPvij.exit
   %535 = phi ptr [ %533, %531 ], [ null, %_ZN16hb_paint_funcs_t5colorEPvij.exit ]
-  invoke void %528(ptr noundef nonnull %525, ptr noundef %526, ptr noundef %535)
+  invoke void %528(ptr noundef nonnull align 8 dereferenceable(144) %525, ptr noundef %526, ptr noundef %535)
           to label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit85 unwind label %.loopexit
 
 _ZN16hb_paint_funcs_t8pop_clipEPv.exit85:         ; preds = %534
@@ -29255,7 +29255,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4CBDT13accelerator_t11pain
 
 _ZN16hb_paint_funcs_t5imageEPvP9hb_blob_tjjjfP18hb_glyph_extents_t.exit: ; preds = %15, %27
   %30 = phi ptr [ %29, %27 ], [ null, %15 ]
-  %31 = call noundef i32 %24(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %8, i32 noundef %17, i32 noundef %20, i32 noundef 1886283552, float noundef %22, ptr noundef nonnull %6, ptr noundef %30)
+  %31 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, ptr noundef %8, i32 noundef %17, i32 noundef %20, i32 noundef 1886283552, float noundef %22, ptr noundef nonnull %6, ptr noundef %30)
   %32 = icmp ne i32 %31, 0
   call void @hb_blob_destroy(ptr noundef %8)
   br label %33
@@ -29335,7 +29335,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4sbix13accelerator_t11pain
 
 _ZN16hb_paint_funcs_t5imageEPvP9hb_blob_tjjjfP18hb_glyph_extents_t.exit: ; preds = %36, %48
   %51 = phi ptr [ %50, %48 ], [ null, %36 ]
-  %52 = call noundef i32 %45(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %29, i32 noundef %38, i32 noundef %41, i32 noundef 1886283552, float noundef %43, ptr noundef nonnull %9, ptr noundef %51)
+  %52 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, ptr noundef %29, i32 noundef %38, i32 noundef %41, i32 noundef 1886283552, float noundef %43, ptr noundef nonnull %9, ptr noundef %51)
   %53 = icmp ne i32 %52, 0
   call void @hb_blob_destroy(ptr noundef %29)
   br label %54
@@ -29722,7 +29722,7 @@ _ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_cont
 118:                                              ; preds = %99
   %119 = zext i32 %116 to i64
   %120 = getelementptr inbounds i8, ptr %0, i64 %119
-  %121 = tail call noundef zeroext i1 @_ZNK2OT13BaseGlyphList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull %1)
+  %121 = tail call noundef zeroext i1 @_ZNK2OT13BaseGlyphList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %121, label %.thread85, label %122
 
 122:                                              ; preds = %118
@@ -29778,7 +29778,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %122
 157:                                              ; preds = %138
   %158 = zext i32 %155 to i64
   %159 = getelementptr inbounds i8, ptr %0, i64 %158
-  %160 = tail call noundef zeroext i1 @_ZNK2OT9LayerList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %159, ptr noundef nonnull %1)
+  %160 = tail call noundef zeroext i1 @_ZNK2OT9LayerList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %160, label %.thread91, label %161
 
 161:                                              ; preds = %157
@@ -29834,7 +29834,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59: ; preds = %161
 196:                                              ; preds = %177
   %197 = zext i32 %194 to i64
   %198 = getelementptr inbounds i8, ptr %0, i64 %197
-  %199 = tail call noundef zeroext i1 @_ZNK2OT8ClipList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %198, ptr noundef nonnull %1)
+  %199 = tail call noundef zeroext i1 @_ZNK2OT8ClipList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %198, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %199, label %.thread97, label %200
 
 200:                                              ; preds = %196
@@ -29946,7 +29946,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65: ; preds = %239
 274:                                              ; preds = %255
   %275 = zext i32 %272 to i64
   %276 = getelementptr inbounds i8, ptr %0, i64 %275
-  %277 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %276, ptr noundef nonnull %1)
+  %277 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %276, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %277, label %.thread, label %278
 
 278:                                              ; preds = %274
@@ -30103,7 +30103,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i.i: ; preds = %9
   br i1 %.not.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i.i
-  %95 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %92, ptr noundef nonnull %1)
+  %95 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %92, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %96 = load i32, ptr %58, align 4
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %58, align 4
@@ -30237,7 +30237,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 43:                                               ; preds = %12
-  %44 = tail call noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %44 = tail call noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 45:                                               ; preds = %12
@@ -30248,11 +30248,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 50:                                               ; preds = %12
-  %51 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10NoVariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull %1)
+  %51 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10NoVariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 52:                                               ; preds = %12
-  %53 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8VariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull %1)
+  %53 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8VariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 54:                                               ; preds = %12
@@ -30263,7 +30263,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %58
 
 58:                                               ; preds = %54
-  %59 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %59 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 60:                                               ; preds = %12
@@ -30274,7 +30274,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i68, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %65 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 66:                                               ; preds = %12
@@ -30285,7 +30285,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i69, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %71 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 72:                                               ; preds = %12
@@ -30296,7 +30296,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i70, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %76
 
 76:                                               ; preds = %72
-  %77 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %77 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 78:                                               ; preds = %12
@@ -30307,7 +30307,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i71, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %82
 
 82:                                               ; preds = %78
-  %83 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %83 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 84:                                               ; preds = %12
@@ -30318,7 +30318,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i72, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %88
 
 88:                                               ; preds = %84
-  %89 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %89 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 90:                                               ; preds = %12
@@ -30329,7 +30329,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i73, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %94
 
 94:                                               ; preds = %90
-  %95 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %95 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 96:                                               ; preds = %12
@@ -30340,7 +30340,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i74, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %100
 
 100:                                              ; preds = %96
-  %101 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %101 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 102:                                              ; preds = %12
@@ -30351,7 +30351,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i75, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %106
 
 106:                                              ; preds = %102
-  %107 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %107 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 108:                                              ; preds = %12
@@ -30362,7 +30362,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i76, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %112
 
 112:                                              ; preds = %108
-  %113 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %113 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 114:                                              ; preds = %12
@@ -30373,7 +30373,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i77, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %118
 
 118:                                              ; preds = %114
-  %119 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %119 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 120:                                              ; preds = %12
@@ -30384,7 +30384,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i78, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %124
 
 124:                                              ; preds = %120
-  %125 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %125 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 126:                                              ; preds = %12
@@ -30395,7 +30395,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i79, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %130
 
 130:                                              ; preds = %126
-  %131 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %131 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 132:                                              ; preds = %12
@@ -30406,7 +30406,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i80, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %136
 
 136:                                              ; preds = %132
-  %137 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %137 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 138:                                              ; preds = %12
@@ -30417,7 +30417,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i81, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %142
 
 142:                                              ; preds = %138
-  %143 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %143 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 144:                                              ; preds = %12
@@ -30428,7 +30428,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i82, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %148
 
 148:                                              ; preds = %144
-  %149 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %149 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 150:                                              ; preds = %12
@@ -30439,7 +30439,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i83, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %154
 
 154:                                              ; preds = %150
-  %155 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %155 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 156:                                              ; preds = %12
@@ -30450,11 +30450,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i84, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %160
 
 160:                                              ; preds = %156
-  %161 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %161 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 162:                                              ; preds = %12
-  %163 = tail call noundef zeroext i1 @_ZNK2OT14PaintComposite8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %163 = tail call noundef zeroext i1 @_ZNK2OT14PaintComposite8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit: ; preds = %160, %156, %154, %150, %148, %144, %142, %138, %136, %132, %130, %126, %124, %120, %118, %114, %112, %108, %106, %102, %100, %96, %94, %90, %88, %84, %82, %78, %76, %72, %70, %66, %64, %60, %58, %54, %12, %2, %162, %52, %50, %45, %43, %41, %39, %37, %35, %33, %31, %23, %19, %14
@@ -31118,7 +31118,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31202,7 +31202,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not43, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31338,7 +31338,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not39, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31481,7 +31481,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31565,7 +31565,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31649,7 +31649,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31733,7 +31733,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31817,7 +31817,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31901,7 +31901,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -31985,7 +31985,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -32069,7 +32069,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -32153,7 +32153,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -32246,7 +32246,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %35
   br i1 %.not51, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %41 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %37, ptr noundef nonnull %1)
+  %41 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %42 = load i32, ptr %38, align 4
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr %38, align 4
@@ -32313,7 +32313,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i33: ; preds = %72
   br i1 %.not52, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i33
-  %78 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %74, ptr noundef nonnull %1)
+  %78 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %74, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %79 = load i32, ptr %75, align 4
   %80 = add nsw i32 %79, -1
   store i32 %80, ptr %75, align 4
@@ -32470,7 +32470,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i: ; preds = %88
   br i1 %.not.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i
-  %93 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %90, ptr noundef nonnull %1)
+  %93 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %90, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %94 = load i32, ptr %57, align 4
   %95 = add nsw i32 %94, -1
   store i32 %95, ptr %57, align 4
@@ -33004,11 +33004,11 @@ define linkonce_odr hidden void @_ZN2OT18hb_paint_context_tD2Ev(ptr noundef nonn
 5:                                                ; preds = %1
   %6 = inttoptr i64 %4 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 40
-  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %6)
+  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %.noexc.i.i unwind label %12
 
 .noexc.i.i:                                       ; preds = %5
-  %8 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #23
+  %8 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   tail call void @free(ptr noundef nonnull %6) #23
   store atomic i64 0, ptr %3 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
@@ -33048,11 +33048,11 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
 22:                                               ; preds = %_ZN8hb_map_tD2Ev.exit
   %23 = inttoptr i64 %21 to ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 40
-  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(40) %23)
+  invoke void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(56) %23)
           to label %.noexc.i.i2 unwind label %29
 
 .noexc.i.i2:                                      ; preds = %22
-  %25 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %23) #23
+  %25 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %23) #23
   tail call void @free(ptr noundef nonnull %23) #23
   store atomic i64 0, ptr %20 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i3
@@ -33554,11 +33554,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   ]
 
 4:                                                ; preds = %2
-  tail call void @_ZNK2OT15PaintColrLayers11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT15PaintColrLayers11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 5:                                                ; preds = %2
-  tail call void @_ZNK2OT10PaintSolid11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(5) %0, ptr noundef nonnull %1, i32 noundef -1)
+  tail call void @_ZNK2OT10PaintSolid11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(5) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 6:                                                ; preds = %2
@@ -33580,11 +33580,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
-  tail call void @_ZNK2OT10PaintSolid11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(5) %0, ptr noundef nonnull %1, i32 noundef %24)
+  tail call void @_ZNK2OT10PaintSolid11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %24)
   br label %252
 
 25:                                               ; preds = %2
-  tail call void @_ZNK2OT19PaintLinearGradientINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull %1, i32 noundef -1)
+  tail call void @_ZNK2OT19PaintLinearGradientINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 26:                                               ; preds = %2
@@ -33606,11 +33606,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
-  tail call void @_ZNK2OT19PaintLinearGradientINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull %1, i32 noundef %44)
+  tail call void @_ZNK2OT19PaintLinearGradientINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %44)
   br label %252
 
 45:                                               ; preds = %2
-  tail call void @_ZNK2OT19PaintRadialGradientINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull %1, i32 noundef -1)
+  tail call void @_ZNK2OT19PaintRadialGradientINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 46:                                               ; preds = %2
@@ -33632,11 +33632,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  tail call void @_ZNK2OT19PaintRadialGradientINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull %1, i32 noundef %64)
+  tail call void @_ZNK2OT19PaintRadialGradientINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %64)
   br label %252
 
 65:                                               ; preds = %2
-  tail call void @_ZNK2OT18PaintSweepGradientINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1, i32 noundef -1)
+  tail call void @_ZNK2OT18PaintSweepGradientINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 66:                                               ; preds = %2
@@ -33658,27 +33658,27 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = or disjoint i32 %80, %83
-  tail call void @_ZNK2OT18PaintSweepGradientINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1, i32 noundef %84)
+  tail call void @_ZNK2OT18PaintSweepGradientINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %84)
   br label %252
 
 85:                                               ; preds = %2
-  tail call void @_ZNK2OT10PaintGlyph11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT10PaintGlyph11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 86:                                               ; preds = %2
-  tail call void @_ZNK2OT14PaintColrGlyph11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT14PaintColrGlyph11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 87:                                               ; preds = %2
-  tail call void @_ZNK2OT14PaintTransformINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT14PaintTransformINS_10NoVariableEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 88:                                               ; preds = %2
-  tail call void @_ZNK2OT14PaintTransformINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT14PaintTransformINS_8VariableEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 89:                                               ; preds = %2
-  tail call void @_ZNK2OT14PaintTranslate11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT14PaintTranslate11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 90:                                               ; preds = %2
@@ -33700,11 +33700,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = or disjoint i32 %104, %107
-  tail call void @_ZNK2OT14PaintTranslate11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef %108)
+  tail call void @_ZNK2OT14PaintTranslate11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %108)
   br label %252
 
 109:                                              ; preds = %2
-  tail call void @_ZNK2OT10PaintScale11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT10PaintScale11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 110:                                              ; preds = %2
@@ -33726,11 +33726,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = or disjoint i32 %124, %127
-  tail call void @_ZNK2OT10PaintScale11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef %128)
+  tail call void @_ZNK2OT10PaintScale11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %128)
   br label %252
 
 129:                                              ; preds = %2
-  tail call void @_ZNK2OT22PaintScaleAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT22PaintScaleAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 130:                                              ; preds = %2
@@ -33752,11 +33752,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = or disjoint i32 %144, %147
-  tail call void @_ZNK2OT22PaintScaleAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1, i32 noundef %148)
+  tail call void @_ZNK2OT22PaintScaleAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %148)
   br label %252
 
 149:                                              ; preds = %2
-  tail call void @_ZNK2OT17PaintScaleUniform11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT17PaintScaleUniform11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 150:                                              ; preds = %2
@@ -33778,11 +33778,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i32
   %168 = or disjoint i32 %164, %167
-  tail call void @_ZNK2OT17PaintScaleUniform11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef %1, i32 noundef %168)
+  tail call void @_ZNK2OT17PaintScaleUniform11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %168)
   br label %252
 
 169:                                              ; preds = %2
-  tail call void @_ZNK2OT29PaintScaleUniformAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT29PaintScaleUniformAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 170:                                              ; preds = %2
@@ -33804,19 +33804,19 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i32
   %188 = or disjoint i32 %184, %187
-  tail call void @_ZNK2OT29PaintScaleUniformAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1, i32 noundef %188)
+  tail call void @_ZNK2OT29PaintScaleUniformAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %188)
   br label %252
 
 189:                                              ; preds = %2
-  tail call void @_ZNK2OT10NoVariableINS_11PaintRotateEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT10NoVariableINS_11PaintRotateEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 190:                                              ; preds = %2
-  tail call void @_ZNK2OT8VariableINS_11PaintRotateEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT8VariableINS_11PaintRotateEE11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 191:                                              ; preds = %2
-  tail call void @_ZNK2OT23PaintRotateAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT23PaintRotateAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 192:                                              ; preds = %2
@@ -33838,11 +33838,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
   %210 = or disjoint i32 %206, %209
-  tail call void @_ZNK2OT23PaintRotateAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1, i32 noundef %210)
+  tail call void @_ZNK2OT23PaintRotateAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %210)
   br label %252
 
 211:                                              ; preds = %2
-  tail call void @_ZNK2OT9PaintSkew11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT9PaintSkew11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 212:                                              ; preds = %2
@@ -33864,11 +33864,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %228 = load i8, ptr %227, align 1
   %229 = zext i8 %228 to i32
   %230 = or disjoint i32 %226, %229
-  tail call void @_ZNK2OT9PaintSkew11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef %230)
+  tail call void @_ZNK2OT9PaintSkew11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %230)
   br label %252
 
 231:                                              ; preds = %2
-  tail call void @_ZNK2OT21PaintSkewAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1, i32 noundef -1)
+  tail call void @_ZNK2OT21PaintSkewAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef -1)
   br label %252
 
 232:                                              ; preds = %2
@@ -33890,11 +33890,11 @@ define linkonce_odr hidden void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tE
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
   %250 = or disjoint i32 %246, %249
-  tail call void @_ZNK2OT21PaintSkewAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1, i32 noundef %250)
+  tail call void @_ZNK2OT21PaintSkewAroundCenter11paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %250)
   br label %252
 
 251:                                              ; preds = %2
-  tail call void @_ZNK2OT14PaintComposite11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT14PaintComposite11paint_glyphEPNS_18hb_paint_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(160) %1)
   br label %252
 
 252:                                              ; preds = %2, %251, %232, %231, %212, %211, %192, %191, %190, %189, %170, %169, %150, %149, %130, %129, %110, %109, %90, %89, %88, %87, %86, %85, %66, %65, %46, %45, %26, %25, %6, %5, %4
@@ -34086,7 +34086,7 @@ _ZNK2OT9LayerList9get_paintEj.exit:               ; preds = %.loopexit, %107
 
 _ZN16hb_paint_funcs_t10push_groupEPv.exit:        ; preds = %_ZNK2OT9LayerList9get_paintEj.exit, %136
   %139 = phi ptr [ %138, %136 ], [ null, %_ZNK2OT9LayerList9get_paintEj.exit ]
-  call void %133(ptr noundef nonnull %130, ptr noundef %131, ptr noundef %139)
+  call void %133(ptr noundef nonnull align 8 dereferenceable(144) %130, ptr noundef %131, ptr noundef %139)
   %140 = load i32, ptr %60, align 8
   %141 = icmp slt i32 %140, 1
   br i1 %141, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %142
@@ -34101,7 +34101,7 @@ _ZN16hb_paint_funcs_t10push_groupEPv.exit:        ; preds = %_ZNK2OT9LayerList9g
   store i32 %146, ptr %60, align 8
   %147 = add nsw i32 %143, -1
   store i32 %147, ptr %61, align 4
-  call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i.i14, ptr noundef nonnull %1)
+  call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i.i14, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %148 = load i32, ptr %60, align 8
   %149 = add nsw i32 %148, 1
   store i32 %149, ptr %60, align 8
@@ -34124,7 +34124,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t9pop_groupEPv25hb_paint_composite_mode_t.exit: ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %156
   %159 = phi ptr [ %158, %156 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit ]
-  call void %153(ptr noundef nonnull %150, ptr noundef %151, i32 noundef 3, ptr noundef %159)
+  call void %153(ptr noundef nonnull align 8 dereferenceable(144) %150, ptr noundef %151, i32 noundef 3, ptr noundef %159)
   %160 = load ptr, ptr %51, align 8
   %.not.i17 = icmp eq ptr %160, null
   %.pre37 = load i32, ptr %3, align 4
@@ -34263,7 +34263,7 @@ define linkonce_odr hidden void @_ZNK2OT10PaintSolid11paint_glyphEPNS_18hb_paint
 
 _ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit.i: ; preds = %32, %23
   %35 = phi ptr [ %34, %32 ], [ null, %23 ]
-  %36 = call noundef i32 %29(ptr noundef nonnull %25, ptr noundef %27, i32 noundef %13, ptr noundef nonnull %4, ptr noundef %35)
+  %36 = call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef %27, i32 noundef %13, ptr noundef nonnull %4, ptr noundef %35)
   %.not7.i = icmp eq i32 %36, 0
   br i1 %.not7.i, label %37, label %44
 
@@ -34318,7 +34318,7 @@ _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %_ZN2OT18hb_paint_co
   %69 = and i32 %68, 255
   %70 = and i32 %45, -256
   %71 = or disjoint i32 %69, %70
-  call void %51(ptr noundef nonnull %47, ptr noundef %49, i32 noundef %.0, i32 noundef %71, ptr noundef %57)
+  call void %51(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef %49, i32 noundef %.0, i32 noundef %71, ptr noundef %57)
   ret void
 }
 
@@ -34442,7 +34442,7 @@ _ZN16hb_paint_funcs_t15linear_gradientEPvP15hb_color_line_tffffff.exit: ; preds 
   %107 = or disjoint i16 %105, %106
   %108 = sitofp i16 %107 to float
   %109 = fadd float %35, %108
-  call void %67(ptr noundef nonnull %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
   ret void
 }
 
@@ -34584,7 +34584,7 @@ define linkonce_odr hidden void @_ZNK2OT9ColorStop14get_color_stopEPNS_18hb_pain
 
 _ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit.i: ; preds = %44, %35
   %47 = phi ptr [ %46, %44 ], [ null, %35 ]
-  %48 = call noundef i32 %41(ptr noundef nonnull %37, ptr noundef %39, i32 noundef %26, ptr noundef nonnull %6, ptr noundef %47)
+  %48 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(144) %37, ptr noundef %39, i32 noundef %26, ptr noundef nonnull %6, ptr noundef %47)
   %.not7.i = icmp eq i32 %48, 0
   br i1 %.not7.i, label %49, label %56
 
@@ -34746,7 +34746,7 @@ _ZN16hb_paint_funcs_t15linear_gradientEPvP15hb_color_line_tffffff.exit: ; preds 
   %107 = or disjoint i16 %105, %106
   %108 = sitofp i16 %107 to float
   %109 = fadd float %35, %108
-  call void %67(ptr noundef nonnull %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
   ret void
 }
 
@@ -34820,7 +34820,7 @@ _ZNK2OT7ArrayOfINS_8VariableINS_9ColorStopEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; 
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
-  tail call void @_ZNK2OT9ColorStop14get_color_stopEPNS_18hb_paint_context_tEP15hb_color_stop_tjRKNS_17VarStoreInstancerE(ptr noundef nonnull align 1 dereferenceable(6) %.0.i.i, ptr noundef %5, ptr noundef nonnull %35, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  tail call void @_ZNK2OT9ColorStop14get_color_stopEPNS_18hb_paint_context_tEP15hb_color_stop_tjRKNS_17VarStoreInstancerE(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i, ptr noundef %5, ptr noundef nonnull %35, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i32, ptr %3, align 4
   %55 = zext i32 %54 to i64
@@ -34968,7 +34968,7 @@ _ZN16hb_paint_funcs_t15radial_gradientEPvP15hb_color_line_tffffff.exit: ; preds 
   %107 = or disjoint i16 %105, %106
   %108 = sitofp i16 %107 to float
   %109 = fadd float %35, %108
-  call void %67(ptr noundef nonnull %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
   ret void
 }
 
@@ -35092,7 +35092,7 @@ _ZN16hb_paint_funcs_t15radial_gradientEPvP15hb_color_line_tffffff.exit: ; preds 
   %107 = or disjoint i16 %105, %106
   %108 = sitofp i16 %107 to float
   %109 = fadd float %35, %108
-  call void %67(ptr noundef nonnull %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %109, float noundef %103, float noundef %97, float noundef %91, float noundef %85, float noundef %79, ptr noundef %73)
   ret void
 }
 
@@ -35198,7 +35198,7 @@ _ZN16hb_paint_funcs_t14sweep_gradientEPvP15hb_color_line_tffff.exit: ; preds = %
   %89 = or disjoint i16 %87, %88
   %90 = sitofp i16 %89 to float
   %91 = fadd float %35, %90
-  call void %55(ptr noundef nonnull %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %91, float noundef %85, float noundef %79, float noundef %70, ptr noundef %61)
+  call void %55(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %91, float noundef %85, float noundef %79, float noundef %70, ptr noundef %61)
   ret void
 }
 
@@ -35304,7 +35304,7 @@ _ZN16hb_paint_funcs_t14sweep_gradientEPvP15hb_color_line_tffff.exit: ; preds = %
   %89 = or disjoint i16 %87, %88
   %90 = sitofp i16 %89 to float
   %91 = fadd float %35, %90
-  call void %55(ptr noundef nonnull %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %91, float noundef %85, float noundef %79, float noundef %70, ptr noundef %61)
+  call void %55(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef %28, ptr noundef nonnull %4, float noundef %91, float noundef %85, float noundef %79, float noundef %70, ptr noundef %61)
   ret void
 }
 
@@ -35364,7 +35364,7 @@ _ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit: ; preds =
   %39 = sitofp i32 %38 to float
   %40 = fdiv float %35, %39
   %41 = fdiv float %28, %39
-  tail call void %22(ptr noundef nonnull %4, ptr noundef %6, float noundef %41, float noundef 0.000000e+00, float noundef %40, float noundef %33, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %27)
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef %6, float noundef %41, float noundef 0.000000e+00, float noundef %40, float noundef %33, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %27)
   %42 = load ptr, ptr %3, align 8
   %43 = load ptr, ptr %5, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 4
@@ -35390,7 +35390,7 @@ _ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit: ; preds =
 
 _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit, %57
   %60 = phi ptr [ %59, %57 ], [ null, %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit ]
-  tail call void %54(ptr noundef nonnull %42, ptr noundef %43, i32 noundef %51, ptr noundef %52, ptr noundef %60)
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(144) %42, ptr noundef %43, i32 noundef %51, ptr noundef %52, ptr noundef %60)
   %61 = load ptr, ptr %3, align 8
   %62 = load ptr, ptr %5, align 8
   %63 = load ptr, ptr %7, align 8
@@ -35433,7 +35433,7 @@ _ZN16hb_paint_funcs_t19push_root_transformEPvPK9hb_font_t.exit: ; preds = %_ZNK9
   %87 = fdiv float %86, %84
   %88 = sitofp i32 %71 to float
   %89 = fdiv float %88, %84
-  tail call void %77(ptr noundef nonnull %61, ptr noundef %62, float noundef %89, float noundef 0.000000e+00, float noundef %87, float noundef %85, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %82)
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(144) %61, ptr noundef %62, float noundef %89, float noundef 0.000000e+00, float noundef %87, float noundef %85, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %82)
   %90 = getelementptr inbounds i8, ptr %0, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
@@ -35467,7 +35467,7 @@ _ZN16hb_paint_funcs_t19push_root_transformEPvPK9hb_font_t.exit: ; preds = %_ZNK9
   store i32 %114, ptr %106, align 8
   %115 = add nsw i32 %111, -1
   store i32 %115, ptr %110, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i21, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i21, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %116 = load i32, ptr %106, align 8
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %106, align 8
@@ -35490,7 +35490,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %124
   %127 = phi ptr [ %126, %124 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit ]
-  tail call void %121(ptr noundef nonnull %118, ptr noundef %119, ptr noundef %127)
+  tail call void %121(ptr noundef nonnull align 8 dereferenceable(144) %118, ptr noundef %119, ptr noundef %127)
   %128 = load ptr, ptr %3, align 8
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr inbounds i8, ptr %128, i64 56
@@ -35507,7 +35507,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN2OT18hb_paint_co
 
 _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %134
   %137 = phi ptr [ %136, %134 ], [ null, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit ]
-  tail call void %131(ptr noundef nonnull %128, ptr noundef %129, ptr noundef %137)
+  tail call void %131(ptr noundef nonnull align 8 dereferenceable(144) %128, ptr noundef %129, ptr noundef %137)
   %138 = load ptr, ptr %3, align 8
   %139 = load ptr, ptr %5, align 8
   %140 = getelementptr inbounds i8, ptr %138, i64 24
@@ -35524,7 +35524,7 @@ _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit25:   ; preds = %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, %144
   %147 = phi ptr [ %146, %144 ], [ null, %_ZN16hb_paint_funcs_t8pop_clipEPv.exit ]
-  tail call void %141(ptr noundef nonnull %138, ptr noundef %139, ptr noundef %147)
+  tail call void %141(ptr noundef nonnull align 8 dereferenceable(144) %138, ptr noundef %139, ptr noundef %147)
   ret void
 }
 
@@ -35651,7 +35651,7 @@ _ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit: ; preds =
   %82 = sitofp i32 %81 to float
   %83 = fdiv float %78, %82
   %84 = fdiv float %71, %82
-  call void %65(ptr noundef nonnull %47, ptr noundef %49, float noundef %84, float noundef 0.000000e+00, float noundef %83, float noundef %76, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %70)
+  call void %65(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef %49, float noundef %84, float noundef 0.000000e+00, float noundef %83, float noundef %76, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %70)
   %85 = load ptr, ptr %46, align 8
   %86 = load ptr, ptr %48, align 8
   %87 = load i8, ptr %7, align 1
@@ -35675,7 +35675,7 @@ _ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit: ; preds =
 
 _ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit: ; preds = %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit, %98
   %101 = phi ptr [ %100, %98 ], [ null, %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit ]
-  %102 = call noundef i32 %95(ptr noundef nonnull %85, ptr noundef %86, i32 noundef %92, ptr noundef %93, ptr noundef %101)
+  %102 = call noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(144) %85, ptr noundef %86, i32 noundef %92, ptr noundef %93, ptr noundef %101)
   %.not61 = icmp eq i32 %102, 0
   %103 = load ptr, ptr %46, align 8
   %104 = load ptr, ptr %48, align 8
@@ -35696,7 +35696,7 @@ _ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit: ; preds = %_ZN16hb_paint
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %109, %110
   %113 = phi ptr [ %112, %110 ], [ null, %109 ]
-  call void %106(ptr noundef nonnull %103, ptr noundef %104, ptr noundef %113)
+  call void %106(ptr noundef nonnull align 8 dereferenceable(144) %103, ptr noundef %104, ptr noundef %113)
   %114 = load i8, ptr %7, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 8
@@ -35771,7 +35771,7 @@ _ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i40: ; preds = %._crit_edge.i38
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit42:   ; preds = %152, %153
   %156 = phi ptr [ %155, %153 ], [ null, %152 ]
-  call void %106(ptr noundef nonnull %103, ptr noundef %104, ptr noundef %156)
+  call void %106(ptr noundef nonnull align 8 dereferenceable(144) %103, ptr noundef %104, ptr noundef %156)
   %157 = getelementptr inbounds i8, ptr %1, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = load i8, ptr %7, align 1
@@ -35848,7 +35848,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit42:   ; preds = %152, %153
 
 _ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit: ; preds = %196, %216
   %219 = phi ptr [ %218, %216 ], [ null, %196 ]
-  call void %213(ptr noundef nonnull %197, ptr noundef %198, float noundef %200, float noundef %206, float noundef %210, float noundef %211, ptr noundef %219)
+  call void %213(ptr noundef nonnull align 8 dereferenceable(144) %197, ptr noundef %198, float noundef %200, float noundef %206, float noundef %210, float noundef %211, ptr noundef %219)
   br label %220
 
 220:                                              ; preds = %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42
@@ -35872,7 +35872,7 @@ _ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit: ; preds = %196, %216
   store i32 %230, ptr %222, align 8
   %231 = add nsw i32 %227, -1
   store i32 %231, ptr %226, align 4
-  call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %165, ptr noundef nonnull %1)
+  call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %165, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %232 = load i32, ptr %222, align 8
   %233 = add nsw i32 %232, 1
   store i32 %233, ptr %222, align 8
@@ -35898,7 +35898,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %229, %225, %221
 
 _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %234, %241
   %244 = phi ptr [ %243, %241 ], [ null, %234 ]
-  call void %238(ptr noundef nonnull %235, ptr noundef %236, ptr noundef %244)
+  call void %238(ptr noundef nonnull align 8 dereferenceable(144) %235, ptr noundef %236, ptr noundef %244)
   br label %245
 
 245:                                              ; preds = %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -36033,7 +36033,7 @@ define linkonce_odr hidden void @_ZNK2OT14PaintTransformINS_10NoVariableEE11pain
   store i32 %43, ptr %35, align 8
   %44 = add nsw i32 %40, -1
   store i32 %44, ptr %39, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i5, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i5, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %45 = load i32, ptr %35, align 8
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %35, align 8
@@ -36058,7 +36058,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %2, %38, %42
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %55
   %58 = phi ptr [ %57, %55 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit ]
-  tail call void %52(ptr noundef nonnull %48, ptr noundef %50, ptr noundef %58)
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(144) %48, ptr noundef %50, ptr noundef %58)
   ret void
 }
 
@@ -36219,7 +36219,7 @@ _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %3, %72
   %150 = sitofp i32 %149 to float
   %151 = fadd float %10, %150
   %152 = fmul float %151, 0x3EF0000000000000
-  tail call void %69(ptr noundef nonnull %5, ptr noundef %7, float noundef %152, float noundef %139, float noundef %126, float noundef %113, float noundef %100, float noundef %87, ptr noundef %74)
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %7, float noundef %152, float noundef %139, float noundef %126, float noundef %113, float noundef %100, float noundef %87, ptr noundef %74)
   ret void
 }
 
@@ -36260,7 +36260,7 @@ define linkonce_odr hidden void @_ZNK2OT14PaintTransformINS_8VariableEE11paint_g
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %32, %35
-  tail call void @_ZNK2OT9Affine2x311paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(24) %.0.i.i, ptr noundef %1, i32 noundef %36)
+  tail call void @_ZNK2OT9Affine2x311paint_glyphEPNS_18hb_paint_context_tEj(ptr noundef nonnull align 1 dereferenceable(28) %.0.i.i, ptr noundef %1, i32 noundef %36)
   %37 = getelementptr inbounds i8, ptr %0, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -36294,7 +36294,7 @@ define linkonce_odr hidden void @_ZNK2OT14PaintTransformINS_8VariableEE11paint_g
   store i32 %61, ptr %53, align 8
   %62 = add nsw i32 %58, -1
   store i32 %62, ptr %57, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i5, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i5, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %63 = load i32, ptr %53, align 8
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %53, align 8
@@ -36319,7 +36319,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %2, %56, %60
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %73
   %76 = phi ptr [ %75, %73 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit ]
-  tail call void %70(ptr noundef nonnull %66, ptr noundef %68, ptr noundef %76)
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(144) %66, ptr noundef %68, ptr noundef %76)
   ret void
 }
 
@@ -36373,7 +36373,7 @@ define linkonce_odr hidden void @_ZNK2OT14PaintTranslate11paint_glyphEPNS_18hb_p
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %40, %35
   %42 = phi ptr [ %41, %40 ], [ null, %35 ]
-  tail call void %37(ptr noundef nonnull %30, ptr noundef %32, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %16, float noundef %28, ptr noundef %42)
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef %32, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %16, float noundef %28, ptr noundef %42)
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit
 
 _ZN16hb_paint_funcs_t14push_translateEPvff.exit:  ; preds = %3, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -36410,7 +36410,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit:  ; preds = %3, %_ZN16hb_paint_f
   store i32 %67, ptr %59, align 8
   %68 = add nsw i32 %64, -1
   store i32 %68, ptr %63, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %69 = load i32, ptr %59, align 8
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %59, align 8
@@ -36436,7 +36436,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %71, %78
   %81 = phi ptr [ %80, %78 ], [ null, %71 ]
-  tail call void %75(ptr noundef nonnull %72, ptr noundef %73, ptr noundef %81)
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(144) %72, ptr noundef %73, ptr noundef %81)
   br label %82
 
 82:                                               ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -36495,7 +36495,7 @@ define linkonce_odr hidden void @_ZNK2OT10PaintScale11paint_glyphEPNS_18hb_paint
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %42, %37
   %44 = phi ptr [ %43, %42 ], [ null, %37 ]
-  tail call void %39(ptr noundef nonnull %32, ptr noundef %34, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %30, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %44)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef %34, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %30, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %44)
   br label %_ZN16hb_paint_funcs_t10push_scaleEPvff.exit
 
 _ZN16hb_paint_funcs_t10push_scaleEPvff.exit:      ; preds = %3, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -36532,7 +36532,7 @@ _ZN16hb_paint_funcs_t10push_scaleEPvff.exit:      ; preds = %3, %_ZN16hb_paint_f
   store i32 %69, ptr %61, align 8
   %70 = add nsw i32 %66, -1
   store i32 %70, ptr %65, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %71 = load i32, ptr %61, align 8
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %61, align 8
@@ -36558,7 +36558,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %73, %80
   %83 = phi ptr [ %82, %80 ], [ null, %73 ]
-  tail call void %77(ptr noundef nonnull %74, ptr noundef %75, ptr noundef %83)
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(144) %74, ptr noundef %75, ptr noundef %83)
   br label %84
 
 84:                                               ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -36641,7 +36641,7 @@ define linkonce_odr hidden void @_ZNK2OT22PaintScaleAroundCenter11paint_glyphEPN
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %66, %61
   %68 = phi ptr [ %67, %66 ], [ null, %61 ]
-  tail call void %63(ptr noundef nonnull %56, ptr noundef %58, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %42, float noundef %54, ptr noundef %68)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(144) %56, ptr noundef %58, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %42, float noundef %54, ptr noundef %68)
   %.pre = load ptr, ptr %55, align 8
   %.pre40 = load ptr, ptr %57, align 8
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit
@@ -36668,7 +36668,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit:  ; preds = %3, %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i31: ; preds = %78, %73
   %80 = phi ptr [ %79, %78 ], [ null, %73 ]
-  tail call void %75(ptr noundef nonnull %70, ptr noundef %69, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %30, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %80)
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(144) %70, ptr noundef %69, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %30, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %80)
   %.pre41 = load ptr, ptr %55, align 8
   %.pre42 = load ptr, ptr %57, align 8
   br label %_ZN16hb_paint_funcs_t10push_scaleEPvff.exit
@@ -36694,7 +36694,7 @@ _ZN16hb_paint_funcs_t10push_scaleEPvff.exit:      ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i34: ; preds = %90, %85
   %92 = phi ptr [ %91, %90 ], [ null, %85 ]
-  tail call void %87(ptr noundef nonnull %82, ptr noundef %81, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %83, float noundef %84, ptr noundef %92)
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(144) %82, ptr noundef %81, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %83, float noundef %84, ptr noundef %92)
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit35
 
 _ZN16hb_paint_funcs_t14push_translateEPvff.exit35: ; preds = %_ZN16hb_paint_funcs_t10push_scaleEPvff.exit, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i34
@@ -36731,7 +36731,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit35: ; preds = %_ZN16hb_paint_func
   store i32 %117, ptr %109, align 8
   %118 = add nsw i32 %114, -1
   store i32 %118, ptr %113, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %119 = load i32, ptr %109, align 8
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %109, align 8
@@ -36757,7 +36757,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %121, %128
   %131 = phi ptr [ %130, %128 ], [ null, %121 ]
-  tail call void %125(ptr noundef nonnull %122, ptr noundef %123, ptr noundef %131)
+  tail call void %125(ptr noundef nonnull align 8 dereferenceable(144) %122, ptr noundef %123, ptr noundef %131)
   br label %132
 
 132:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -36780,7 +36780,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %121, %128
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit37:   ; preds = %133, %140
   %143 = phi ptr [ %142, %140 ], [ null, %133 ]
-  tail call void %137(ptr noundef nonnull %134, ptr noundef %135, ptr noundef %143)
+  tail call void %137(ptr noundef nonnull align 8 dereferenceable(144) %134, ptr noundef %135, ptr noundef %143)
   br label %144
 
 144:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit37, %132
@@ -36803,7 +36803,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit37:   ; preds = %133, %140
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit39:   ; preds = %145, %152
   %155 = phi ptr [ %154, %152 ], [ null, %145 ]
-  tail call void %149(ptr noundef nonnull %146, ptr noundef %147, ptr noundef %155)
+  tail call void %149(ptr noundef nonnull align 8 dereferenceable(144) %146, ptr noundef %147, ptr noundef %155)
   br label %156
 
 156:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit39, %144
@@ -36847,7 +36847,7 @@ define linkonce_odr hidden void @_ZNK2OT17PaintScaleUniform11paint_glyphEPNS_18h
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %28, %23
   %30 = phi ptr [ %29, %28 ], [ null, %23 ]
-  tail call void %25(ptr noundef nonnull %19, ptr noundef %21, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %30)
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef %21, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %30)
   br label %_ZN16hb_paint_funcs_t10push_scaleEPvff.exit
 
 _ZN16hb_paint_funcs_t10push_scaleEPvff.exit:      ; preds = %3, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -36884,7 +36884,7 @@ _ZN16hb_paint_funcs_t10push_scaleEPvff.exit:      ; preds = %3, %_ZN16hb_paint_f
   store i32 %55, ptr %47, align 8
   %56 = add nsw i32 %52, -1
   store i32 %56, ptr %51, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %57 = load i32, ptr %47, align 8
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %47, align 8
@@ -36910,7 +36910,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %59, %66
   %69 = phi ptr [ %68, %66 ], [ null, %59 ]
-  tail call void %63(ptr noundef nonnull %60, ptr noundef %61, ptr noundef %69)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(144) %60, ptr noundef %61, ptr noundef %69)
   br label %70
 
 70:                                               ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -36980,7 +36980,7 @@ define linkonce_odr hidden void @_ZNK2OT29PaintScaleUniformAroundCenter11paint_g
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %53, %48
   %55 = phi ptr [ %54, %53 ], [ null, %48 ]
-  tail call void %50(ptr noundef nonnull %43, ptr noundef %45, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %29, float noundef %41, ptr noundef %55)
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef %45, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %29, float noundef %41, ptr noundef %55)
   %.pre = load ptr, ptr %42, align 8
   %.pre38 = load ptr, ptr %44, align 8
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit
@@ -37005,7 +37005,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit:  ; preds = %3, %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i29: ; preds = %64, %59
   %66 = phi ptr [ %65, %64 ], [ null, %59 ]
-  tail call void %61(ptr noundef nonnull %57, ptr noundef %56, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %66)
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(144) %57, ptr noundef %56, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %17, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %66)
   %.pre39 = load ptr, ptr %42, align 8
   %.pre40 = load ptr, ptr %44, align 8
   br label %_ZN16hb_paint_funcs_t10push_scaleEPvff.exit
@@ -37031,7 +37031,7 @@ _ZN16hb_paint_funcs_t10push_scaleEPvff.exit:      ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i32: ; preds = %76, %71
   %78 = phi ptr [ %77, %76 ], [ null, %71 ]
-  tail call void %73(ptr noundef nonnull %68, ptr noundef %67, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %69, float noundef %70, ptr noundef %78)
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(144) %68, ptr noundef %67, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %69, float noundef %70, ptr noundef %78)
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit33
 
 _ZN16hb_paint_funcs_t14push_translateEPvff.exit33: ; preds = %_ZN16hb_paint_funcs_t10push_scaleEPvff.exit, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i32
@@ -37068,7 +37068,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit33: ; preds = %_ZN16hb_paint_func
   store i32 %103, ptr %95, align 8
   %104 = add nsw i32 %100, -1
   store i32 %104, ptr %99, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %105 = load i32, ptr %95, align 8
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %95, align 8
@@ -37094,7 +37094,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %107, %114
   %117 = phi ptr [ %116, %114 ], [ null, %107 ]
-  tail call void %111(ptr noundef nonnull %108, ptr noundef %109, ptr noundef %117)
+  tail call void %111(ptr noundef nonnull align 8 dereferenceable(144) %108, ptr noundef %109, ptr noundef %117)
   br label %118
 
 118:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -37117,7 +37117,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %107, %114
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit35:   ; preds = %119, %126
   %129 = phi ptr [ %128, %126 ], [ null, %119 ]
-  tail call void %123(ptr noundef nonnull %120, ptr noundef %121, ptr noundef %129)
+  tail call void %123(ptr noundef nonnull align 8 dereferenceable(144) %120, ptr noundef %121, ptr noundef %129)
   br label %130
 
 130:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit35, %118
@@ -37140,7 +37140,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit35:   ; preds = %119, %126
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit37:   ; preds = %131, %138
   %141 = phi ptr [ %140, %138 ], [ null, %131 ]
-  tail call void %135(ptr noundef nonnull %132, ptr noundef %133, ptr noundef %141)
+  tail call void %135(ptr noundef nonnull align 8 dereferenceable(144) %132, ptr noundef %133, ptr noundef %141)
   br label %142
 
 142:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit37, %130
@@ -37188,7 +37188,7 @@ define linkonce_odr hidden void @_ZNK2OT10NoVariableINS_11PaintRotateEE11paint_g
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %31, %22
   %33 = phi ptr [ %32, %31 ], [ null, %22 ]
-  tail call void %28(ptr noundef nonnull %18, ptr noundef %20, float noundef %24, float noundef %25, float noundef %26, float noundef %24, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %33)
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(144) %18, ptr noundef %20, float noundef %24, float noundef %25, float noundef %26, float noundef %24, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %33)
   br label %_ZN16hb_paint_funcs_t11push_rotateEPvf.exit
 
 _ZN16hb_paint_funcs_t11push_rotateEPvf.exit:      ; preds = %2, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -37225,7 +37225,7 @@ _ZN16hb_paint_funcs_t11push_rotateEPvf.exit:      ; preds = %2, %_ZN16hb_paint_f
   store i32 %58, ptr %50, align 8
   %59 = add nsw i32 %55, -1
   store i32 %59, ptr %54, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %60 = load i32, ptr %50, align 8
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %50, align 8
@@ -37251,7 +37251,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %62, %69
   %72 = phi ptr [ %71, %69 ], [ null, %62 ]
-  tail call void %66(ptr noundef nonnull %63, ptr noundef %64, ptr noundef %72)
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(144) %63, ptr noundef %64, ptr noundef %72)
   br label %_ZNK2OT11PaintRotate11paint_glyphEPNS_18hb_paint_context_tEj.exit
 
 _ZNK2OT11PaintRotate11paint_glyphEPNS_18hb_paint_context_tEj.exit: ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
@@ -37323,7 +37323,7 @@ define linkonce_odr hidden void @_ZNK2OT8VariableINS_11PaintRotateEE11paint_glyp
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %49, %40
   %51 = phi ptr [ %50, %49 ], [ null, %40 ]
-  tail call void %46(ptr noundef nonnull %36, ptr noundef %38, float noundef %42, float noundef %43, float noundef %44, float noundef %42, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %51)
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef %38, float noundef %42, float noundef %43, float noundef %44, float noundef %42, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %51)
   br label %_ZN16hb_paint_funcs_t11push_rotateEPvf.exit
 
 _ZN16hb_paint_funcs_t11push_rotateEPvf.exit:      ; preds = %2, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -37360,7 +37360,7 @@ _ZN16hb_paint_funcs_t11push_rotateEPvf.exit:      ; preds = %2, %_ZN16hb_paint_f
   store i32 %76, ptr %68, align 8
   %77 = add nsw i32 %73, -1
   store i32 %77, ptr %72, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %78 = load i32, ptr %68, align 8
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %68, align 8
@@ -37386,7 +37386,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %80, %87
   %90 = phi ptr [ %89, %87 ], [ null, %80 ]
-  tail call void %84(ptr noundef nonnull %81, ptr noundef %82, ptr noundef %90)
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(144) %81, ptr noundef %82, ptr noundef %90)
   br label %_ZNK2OT11PaintRotate11paint_glyphEPNS_18hb_paint_context_tEj.exit
 
 _ZNK2OT11PaintRotate11paint_glyphEPNS_18hb_paint_context_tEj.exit: ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
@@ -37456,7 +37456,7 @@ define linkonce_odr hidden void @_ZNK2OT23PaintRotateAroundCenter11paint_glyphEP
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %53, %48
   %55 = phi ptr [ %54, %53 ], [ null, %48 ]
-  tail call void %50(ptr noundef nonnull %43, ptr noundef %45, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %29, float noundef %41, ptr noundef %55)
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef %45, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %29, float noundef %41, ptr noundef %55)
   %.pre = load ptr, ptr %42, align 8
   %.pre37 = load ptr, ptr %44, align 8
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit
@@ -37485,7 +37485,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit:  ; preds = %3, %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i28: ; preds = %68, %59
   %70 = phi ptr [ %69, %68 ], [ null, %59 ]
-  tail call void %65(ptr noundef nonnull %57, ptr noundef %56, float noundef %61, float noundef %62, float noundef %63, float noundef %61, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %70)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(144) %57, ptr noundef %56, float noundef %61, float noundef %62, float noundef %63, float noundef %61, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %70)
   %.pre38 = load ptr, ptr %42, align 8
   %.pre39 = load ptr, ptr %44, align 8
   br label %_ZN16hb_paint_funcs_t11push_rotateEPvf.exit
@@ -37511,7 +37511,7 @@ _ZN16hb_paint_funcs_t11push_rotateEPvf.exit:      ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i31: ; preds = %80, %75
   %82 = phi ptr [ %81, %80 ], [ null, %75 ]
-  tail call void %77(ptr noundef nonnull %72, ptr noundef %71, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %73, float noundef %74, ptr noundef %82)
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(144) %72, ptr noundef %71, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %73, float noundef %74, ptr noundef %82)
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit32
 
 _ZN16hb_paint_funcs_t14push_translateEPvff.exit32: ; preds = %_ZN16hb_paint_funcs_t11push_rotateEPvf.exit, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i31
@@ -37548,7 +37548,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit32: ; preds = %_ZN16hb_paint_func
   store i32 %107, ptr %99, align 8
   %108 = add nsw i32 %104, -1
   store i32 %108, ptr %103, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %109 = load i32, ptr %99, align 8
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %99, align 8
@@ -37574,7 +37574,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %111, %118
   %121 = phi ptr [ %120, %118 ], [ null, %111 ]
-  tail call void %115(ptr noundef nonnull %112, ptr noundef %113, ptr noundef %121)
+  tail call void %115(ptr noundef nonnull align 8 dereferenceable(144) %112, ptr noundef %113, ptr noundef %121)
   br label %122
 
 122:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -37597,7 +37597,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %111, %118
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit34:   ; preds = %123, %130
   %133 = phi ptr [ %132, %130 ], [ null, %123 ]
-  tail call void %127(ptr noundef nonnull %124, ptr noundef %125, ptr noundef %133)
+  tail call void %127(ptr noundef nonnull align 8 dereferenceable(144) %124, ptr noundef %125, ptr noundef %133)
   br label %134
 
 134:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit34, %122
@@ -37620,7 +37620,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit34:   ; preds = %123, %130
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit36:   ; preds = %135, %142
   %145 = phi ptr [ %144, %142 ], [ null, %135 ]
-  tail call void %139(ptr noundef nonnull %136, ptr noundef %137, ptr noundef %145)
+  tail call void %139(ptr noundef nonnull align 8 dereferenceable(144) %136, ptr noundef %137, ptr noundef %145)
   br label %146
 
 146:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit36, %134
@@ -37683,7 +37683,7 @@ define linkonce_odr hidden void @_ZNK2OT9PaintSkew11paint_glyphEPNS_18hb_paint_c
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %46, %37
   %48 = phi ptr [ %47, %46 ], [ null, %37 ]
-  tail call void %43(ptr noundef nonnull %32, ptr noundef %34, float noundef 1.000000e+00, float noundef %41, float noundef %39, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %48)
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef %34, float noundef 1.000000e+00, float noundef %41, float noundef %39, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %48)
   br label %_ZN16hb_paint_funcs_t9push_skewEPvff.exit
 
 _ZN16hb_paint_funcs_t9push_skewEPvff.exit:        ; preds = %3, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i
@@ -37720,7 +37720,7 @@ _ZN16hb_paint_funcs_t9push_skewEPvff.exit:        ; preds = %3, %_ZN16hb_paint_f
   store i32 %73, ptr %65, align 8
   %74 = add nsw i32 %70, -1
   store i32 %74, ptr %69, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %75 = load i32, ptr %65, align 8
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %65, align 8
@@ -37746,7 +37746,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %77, %84
   %87 = phi ptr [ %86, %84 ], [ null, %77 ]
-  tail call void %81(ptr noundef nonnull %78, ptr noundef %79, ptr noundef %87)
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(144) %78, ptr noundef %79, ptr noundef %87)
   br label %88
 
 88:                                               ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -37832,7 +37832,7 @@ define linkonce_odr hidden void @_ZNK2OT21PaintSkewAroundCenter11paint_glyphEPNS
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i: ; preds = %66, %61
   %68 = phi ptr [ %67, %66 ], [ null, %61 ]
-  tail call void %63(ptr noundef nonnull %56, ptr noundef %58, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %42, float noundef %54, ptr noundef %68)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(144) %56, ptr noundef %58, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %42, float noundef %54, ptr noundef %68)
   %.pre = load ptr, ptr %55, align 8
   %.pre41 = load ptr, ptr %57, align 8
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit
@@ -37863,7 +37863,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit:  ; preds = %3, %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i32: ; preds = %82, %73
   %84 = phi ptr [ %83, %82 ], [ null, %73 ]
-  tail call void %79(ptr noundef nonnull %70, ptr noundef %69, float noundef 1.000000e+00, float noundef %77, float noundef %75, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %84)
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(144) %70, ptr noundef %69, float noundef 1.000000e+00, float noundef %77, float noundef %75, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %84)
   %.pre42 = load ptr, ptr %55, align 8
   %.pre43 = load ptr, ptr %57, align 8
   br label %_ZN16hb_paint_funcs_t9push_skewEPvff.exit
@@ -37889,7 +37889,7 @@ _ZN16hb_paint_funcs_t9push_skewEPvff.exit:        ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i35: ; preds = %94, %89
   %96 = phi ptr [ %95, %94 ], [ null, %89 ]
-  tail call void %91(ptr noundef nonnull %86, ptr noundef %85, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %87, float noundef %88, ptr noundef %96)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(144) %86, ptr noundef %85, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %87, float noundef %88, ptr noundef %96)
   br label %_ZN16hb_paint_funcs_t14push_translateEPvff.exit36
 
 _ZN16hb_paint_funcs_t14push_translateEPvff.exit36: ; preds = %_ZN16hb_paint_funcs_t9push_skewEPvff.exit, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit.i35
@@ -37926,7 +37926,7 @@ _ZN16hb_paint_funcs_t14push_translateEPvff.exit36: ; preds = %_ZN16hb_paint_func
   store i32 %121, ptr %113, align 8
   %122 = add nsw i32 %118, -1
   store i32 %122, ptr %117, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %123 = load i32, ptr %113, align 8
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %113, align 8
@@ -37952,7 +37952,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %_ZN16hb_paint_f
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %125, %132
   %135 = phi ptr [ %134, %132 ], [ null, %125 ]
-  tail call void %129(ptr noundef nonnull %126, ptr noundef %127, ptr noundef %135)
+  tail call void %129(ptr noundef nonnull align 8 dereferenceable(144) %126, ptr noundef %127, ptr noundef %135)
   br label %136
 
 136:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
@@ -37975,7 +37975,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %125, %132
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit38:   ; preds = %137, %144
   %147 = phi ptr [ %146, %144 ], [ null, %137 ]
-  tail call void %141(ptr noundef nonnull %138, ptr noundef %139, ptr noundef %147)
+  tail call void %141(ptr noundef nonnull align 8 dereferenceable(144) %138, ptr noundef %139, ptr noundef %147)
   br label %148
 
 148:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit38, %136
@@ -37998,7 +37998,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit38:   ; preds = %137, %144
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit40:   ; preds = %149, %156
   %159 = phi ptr [ %158, %156 ], [ null, %149 ]
-  tail call void %153(ptr noundef nonnull %150, ptr noundef %151, ptr noundef %159)
+  tail call void %153(ptr noundef nonnull align 8 dereferenceable(144) %150, ptr noundef %151, ptr noundef %159)
   br label %160
 
 160:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit40, %148
@@ -38040,7 +38040,7 @@ define linkonce_odr hidden void @_ZNK2OT14PaintComposite11paint_glyphEPNS_18hb_p
   store i32 %27, ptr %19, align 8
   %28 = add nsw i32 %24, -1
   store i32 %28, ptr %23, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %29 = load i32, ptr %19, align 8
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %19, align 8
@@ -38065,7 +38065,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %2, %22, %26
 
 _ZN16hb_paint_funcs_t10push_groupEPv.exit:        ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, %39
   %42 = phi ptr [ %41, %39 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit ]
-  tail call void %36(ptr noundef nonnull %32, ptr noundef %34, ptr noundef %42)
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef %34, ptr noundef %42)
   %43 = getelementptr inbounds i8, ptr %0, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
@@ -38098,7 +38098,7 @@ _ZN16hb_paint_funcs_t10push_groupEPv.exit:        ; preds = %_ZN2OT18hb_paint_co
   store i32 %66, ptr %19, align 8
   %67 = add nsw i32 %63, -1
   store i32 %67, ptr %62, align 4
-  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i7, ptr noundef nonnull %1)
+  tail call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i7, ptr noundef nonnull align 8 dereferenceable(160) %1)
   %68 = load i32, ptr %19, align 8
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %19, align 8
@@ -38124,7 +38124,7 @@ _ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit8: ; preds = %_ZN16hb_paint_
 _ZN16hb_paint_funcs_t9pop_groupEPv25hb_paint_composite_mode_t.exit: ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit8, %78
   %81 = phi ptr [ %80, %78 ], [ null, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit8 ]
   %82 = zext i8 %73 to i32
-  tail call void %75(ptr noundef nonnull %70, ptr noundef %71, i32 noundef %82, ptr noundef %81)
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(144) %70, ptr noundef %71, i32 noundef %82, ptr noundef %81)
   ret void
 }
 
@@ -38865,7 +38865,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21h
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %67 = getelementptr inbounds [1 x %"struct.OT::BitmapSizeTable"], ptr %3, i64 0, i64 %indvars.iv
-  %68 = tail call noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %68 = tail call noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %68, i1 %exitcond.not, i1 false
@@ -38975,7 +38975,7 @@ _ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanit
 .lr.ph.i.i.i:                                     ; preds = %68, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %68 ]
   %69 = getelementptr inbounds [1 x %"struct.OT::IndexSubtableRecord"], ptr %36, i64 0, i64 %indvars.iv.i.i.i
-  %70 = tail call noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %69, ptr noundef nonnull %1, ptr noundef nonnull %36)
+  %70 = tail call noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(8) %36)
   br i1 %70, label %68, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.loopexit: ; preds = %68
@@ -42292,7 +42292,7 @@ _ZNK2OT4post13accelerator_t15get_glyph_countEv.exit.thread40: ; preds = %4, %_ZN
   br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !147
 
 29:                                               ; preds = %.preheader
-  tail call fastcc void @_ZL13sort_r_simpleIJPvEEvS0_mmPFiPKvS2_DpT_ES4_(ptr noundef %26, i64 noundef %23, ptr noundef %0)
+  tail call fastcc void @_ZL13sort_r_simpleIJPvEEvS0_mmPFiPKvS2_DpT_ES4_(ptr noundef nonnull %26, i64 noundef range(i64 1, 4294967296) %23, ptr noundef nonnull %0)
   %30 = ptrtoint ptr %26 to i64
   %31 = cmpxchg weak ptr %21, i64 0, i64 %30 acq_rel monotonic, align 8
   %32 = extractvalue { i64, i1 } %31, 1
@@ -42730,7 +42730,7 @@ _ZN11hb_vector_tIN2OT4cff113accelerator_t7gname_tELb1EE4pushIJRS3_EEEPS3_DpOT_.e
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %.pre to i64
   %95 = getelementptr inbounds i8, ptr %25, i64 8
   %96 = load ptr, ptr %95, align 8
-  call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %96, i64 noundef %.sroa.2.8.insert.ext.i.i.i, i64 noundef 24, ptr noundef nonnull readonly @_ZN2OT4cff113accelerator_t7gname_t3cmpEPKvS4_)
+  call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %96, i64 noundef range(i64 1, 4294967296) %.sroa.2.8.insert.ext.i.i.i, i64 noundef range(i64 0, 4294967296) 24, ptr noundef nonnull readonly @_ZN2OT4cff113accelerator_t7gname_t3cmpEPKvS4_)
   br label %.split36.thread
 
 .split36.thread:                                  ; preds = %28, %94, %.split36

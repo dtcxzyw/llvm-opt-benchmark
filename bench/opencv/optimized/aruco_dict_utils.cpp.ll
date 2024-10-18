@@ -226,7 +226,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 
 90:                                               ; preds = %75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #13
-  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 0, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %41)
+  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 0, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %41)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit unwind label %91
 
 91:                                               ; preds = %90
@@ -306,7 +306,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 108:                                              ; preds = %107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #13
-  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(32) %52, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %51)
+  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(32) %52, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %51)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit unwind label %.body87
 
 .body87:                                          ; preds = %108
@@ -517,7 +517,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %202 unwind label %137
 
 202:                                              ; preds = %201
-  %203 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %54)
+  %203 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %48, ptr noundef nonnull align 8 dereferenceable(104) %54)
           to label %.thread unwind label %208
 
 .thread:                                          ; preds = %202
@@ -525,7 +525,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %205 = getelementptr inbounds i8, ptr %54, i64 96
   %206 = load i64, ptr %205, align 8
   store i64 %206, ptr %204, align 8
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %54) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #13
   br label %246
 
@@ -536,7 +536,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 208:                                              ; preds = %202
   %209 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %54) #13
   br label %210
 
 210:                                              ; preds = %208, %137
@@ -565,7 +565,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 216:                                              ; preds = %215
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #13
-  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(32) %59, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %58)
+  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(32) %59, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %58)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit91 unwind label %217
 
 217:                                              ; preds = %216
@@ -790,7 +790,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %371
 
 281:                                              ; preds = %269
-  invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %18, ptr noundef nonnull align 8 dereferenceable(96) %66)
+  invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %18, ptr noundef nonnull align 8 dereferenceable(104) %66)
           to label %282 unwind label %.loopexit.split-lp.i
 
 282:                                              ; preds = %281
@@ -827,7 +827,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 295:                                              ; preds = %293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !5
-  invoke void @_ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %20, ptr noundef nonnull align 8 dereferenceable(96) %19, i32 noundef %98)
+  invoke void @_ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %20, ptr noundef nonnull align 8 dereferenceable(96) %19, i32 noundef range(i32 1, -2147483648) %98)
           to label %296 unwind label %308
 
 296:                                              ; preds = %295
@@ -921,7 +921,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.041122.i = phi i32 [ 0, %.lr.ph125.i ], [ %.142.i, %366 ]
   %.147121.i = phi i32 [ %.046.i, %.lr.ph125.i ], [ %.248.i, %366 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false), !noalias !5
-  invoke void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %98, i32 noundef %98, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  invoke void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %23, i32 noundef range(i32 1, -2147483648) %98, i32 noundef range(i32 1, -2147483648) %98, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %331 unwind label %343
 
 331:                                              ; preds = %330
@@ -1065,7 +1065,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 371:                                              ; preds = %370, %317, %306, %280, %.loopexit.split-lp.i, %.loopexit96.i
   %.pn69.pn.pn.i = phi { ptr, i32 } [ %.pn69.pn.i, %317 ], [ %.pn66.pn.i, %370 ], [ %307, %306 ], [ %.pn.i, %280 ], [ %lpad.loopexit.i, %.loopexit96.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %65) #13
   br label %.body92
 
 .loopexit130:                                     ; preds = %366, %.loopexit95.i
@@ -1093,7 +1093,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %32)
-  %375 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %65)
+  %375 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %48, ptr noundef nonnull align 8 dereferenceable(104) %65)
           to label %376 unwind label %385
 
 376:                                              ; preds = %.loopexit130
@@ -1121,12 +1121,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 385:                                              ; preds = %.loopexit130
   %386 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %65) #13
   br label %.body92
 
 .body92:                                          ; preds = %383, %371, %385
   %.pn76 = phi { ptr, i32 } [ %386, %385 ], [ %384, %383 ], [ %.pn69.pn.pn.i, %371 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %66) #13
   br label %404
 
 387:                                              ; preds = %251
@@ -1138,7 +1138,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %389 unwind label %395
 
 389:                                              ; preds = %388
-  %390 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %67)
+  %390 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %48, ptr noundef nonnull align 8 dereferenceable(104) %67)
           to label %391 unwind label %397
 
 391:                                              ; preds = %389
@@ -1156,19 +1156,19 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 397:                                              ; preds = %389
   %398 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %67) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %67) #13
   br label %399
 
 399:                                              ; preds = %397, %395
   %.pn74 = phi { ptr, i32 } [ %398, %397 ], [ %396, %395 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %68) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %68) #13
   br label %404
 
 400:                                              ; preds = %391, %376
   %.sink131 = phi ptr [ %67, %391 ], [ %65, %376 ]
   %.sink = phi ptr [ %68, %391 ], [ %66, %376 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink131) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sink131) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sink) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #13
   invoke void @_ZN2cv5aruco10Dictionary15writeDictionaryERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %48, ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(32) %69)
           to label %401 unwind label %402
@@ -1224,7 +1224,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 %.02136.us.i, ptr %8, align 4, !noalias !16
   store i32 %419, ptr %415, align 4, !noalias !16
   store i64 9223372034707292160, ptr %9, align 8, !noalias !16
-  invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(104) %48, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %.noexc98 unwind label %.loopexit
 
 .noexc98:                                         ; preds = %.lr.ph38.split.us.i
@@ -1318,7 +1318,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 %.02136.us.i104, ptr %3, align 4, !noalias !21
   store i32 %441, ptr %437, align 4, !noalias !21
   store i64 9223372034707292160, ptr %4, align 8, !noalias !21
-  invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(104) %48, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
           to label %.noexc118 unwind label %.loopexit.split-lp.loopexit
 
 .noexc118:                                        ; preds = %.lr.ph38.split.us.i103
@@ -1393,13 +1393,13 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 455:                                              ; preds = %.invoke, %239, %207
   %.2 = phi i32 [ 1, %207 ], [ 0, %239 ], [ 0, %.invoke ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %48) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #13
   br label %457
 
 .body99:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %427, %449, %404, %379, %237, %236, %231, %210, %136, %133
   %.pn80 = phi { ptr, i32 } [ %.pn78, %404 ], [ %380, %379 ], [ %.pn72, %210 ], [ %.pn70, %136 ], [ %238, %237 ], [ %.pn67.pn, %236 ], [ %.pn65, %231 ], [ %.pn63, %133 ], [ %.pn.pn.i, %427 ], [ %.pn.pn.i107, %449 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %48) #13
   br label %456
 
 456:                                              ; preds = %.body99, %127, %126, %121, %116

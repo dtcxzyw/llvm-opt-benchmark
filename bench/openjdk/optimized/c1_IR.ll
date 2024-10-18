@@ -758,7 +758,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %42, %44
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8)
-  call void @_ZN12GraphBuilderC1EP11CompilationP7IRScope(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef %1, ptr noundef nonnull %0) #19
+  call void @_ZN12GraphBuilderC1EP11CompilationP7IRScope(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %0) #19
   %64 = getelementptr inbounds i8, ptr %1, i64 112
   %65 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %65, null
@@ -1274,7 +1274,7 @@ define hidden void @_ZN2IR20split_critical_edgesEv(ptr nocapture noundef nonnull
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
-  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %11, ptr noundef nonnull %2) #19
+  call void @_ZN10BlockBegin16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %11, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %12 = load i32, ptr %3, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i, label %_ZN18CriticalEdgeFinder11split_edgesEv.exit
@@ -1401,7 +1401,7 @@ _ZN13GrowableArrayIiEC2EiiRKi.exit:               ; preds = %.lr.ph.preheader.i.
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 0, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef 0, i1 noundef zeroext true) #19
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef 0, i1 noundef zeroext true) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1882,7 +1882,7 @@ define hidden void @_ZN22ComputeLinearScanOrder10mark_loopsEv(ptr noundef nonnul
   %6 = load i32, ptr %0, align 8
   %7 = sext i32 %6 to i64
   %8 = mul nsw i64 %7, %5
-  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %8, i1 noundef zeroext true) #19
+  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %8, i1 noundef zeroext true) #19
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %7, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5277,7 +5277,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 432
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef nonnull %0) #19
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef nonnull align 8 dereferenceable(28) %0) #19
   %64 = load ptr, ptr %1, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 312
@@ -5291,7 +5291,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 440
   %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef nonnull %0) #19
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef nonnull align 8 dereferenceable(28) %0) #19
   br label %_ZN16UseCountComputer7uses_doEPP11Instruction.exit
 
 _ZN16UseCountComputer7uses_doEPP11Instruction.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.exit.i, %59, %69
@@ -5379,7 +5379,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   %37 = load ptr, ptr %storemerge20, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 432
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(96) %storemerge20, ptr noundef nonnull %0) #19
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(96) %storemerge20, ptr noundef nonnull align 8 dereferenceable(28) %0) #19
   %40 = load ptr, ptr %storemerge20, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 312
   %42 = load ptr, ptr %41, align 8
@@ -5391,7 +5391,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   %45 = load ptr, ptr %storemerge20, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 440
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(96) %storemerge20, ptr noundef nonnull %0) #19
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(96) %storemerge20, ptr noundef nonnull align 8 dereferenceable(28) %0) #19
   br label %_ZN16UseCountComputer7uses_doEPP11Instruction.exit
 
 _ZN16UseCountComputer7uses_doEPP11Instruction.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.exit.i, %36, %44
@@ -5466,7 +5466,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   %89 = load ptr, ptr %61, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 432
   %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(96) %61, ptr noundef nonnull %0) #19
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(96) %61, ptr noundef nonnull align 8 dereferenceable(28) %0) #19
   %92 = load ptr, ptr %61, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 312
   %94 = load ptr, ptr %93, align 8
@@ -5478,7 +5478,7 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.e
   %97 = load ptr, ptr %61, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 440
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull align 8 dereferenceable(96) %61, ptr noundef nonnull %0) #19
+  tail call void %99(ptr noundef nonnull align 8 dereferenceable(96) %61, ptr noundef nonnull align 8 dereferenceable(28) %0) #19
   br label %_ZN16UseCountComputer7uses_doEPP11Instruction.exit7
 
 _ZN16UseCountComputer7uses_doEPP11Instruction.exit7: ; preds = %_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE4pushERKS1_.exit.i3, %88, %96

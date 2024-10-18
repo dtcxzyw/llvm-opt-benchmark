@@ -267,7 +267,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %_ZN7QStringD2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK8RichEnum5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
-  invoke void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %1
@@ -341,7 +341,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i.i:                  ; preds = %32, %.lr.ph.i.i.i.i
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
+  tail call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
   br label %.body
 
 _ZN8RichEnumC2ERKS_.exit:                         ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i.i, %.noexc.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i
@@ -367,7 +367,7 @@ define void @_ZNK8RichEnum10stringTypeEv(ptr dead_on_unwind noalias nocapture wr
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8RichEnumeqERK13RichParameter(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichEnum, i64 0) #12
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichEnum, i64 0) #12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %4
 

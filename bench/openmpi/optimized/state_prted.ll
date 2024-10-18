@@ -271,7 +271,7 @@ define internal noundef i32 @finalize() #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #9
+  tail call void %28(ptr noundef nonnull %5) #9
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -364,7 +364,7 @@ pmix_obj_run_destructors.exit38:                  ; preds = %.lr.ph.i35, %._crit
 .lr.ph.i42:                                       ; preds = %67, %.lr.ph.i42
   %73 = phi ptr [ %75, %.lr.ph.i42 ], [ %72, %67 ]
   %.07.i43 = phi ptr [ %74, %.lr.ph.i42 ], [ %71, %67 ]
-  tail call void %73(ptr noundef %50) #9
+  tail call void %73(ptr noundef nonnull %50) #9
   %74 = getelementptr inbounds i8, ptr %.07.i43, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i44 = icmp eq ptr %75, null

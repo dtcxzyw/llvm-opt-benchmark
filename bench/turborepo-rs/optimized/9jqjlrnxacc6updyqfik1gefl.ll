@@ -99,7 +99,7 @@ define void @_RINvXs1_CseBw3mChBYfU_3hexINtCshTjWJoR5NBV_13generic_array12Generi
           to label %_RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDTb72WA_4core4iter6traits7collect12FromIteratorcE9from_iterNtCseBw3mChBYfU_3hex15BytesToHexCharsECsff1zCjKRl2o_13turborepo_env.exit unwind label %10, !noalias !14
 
 9:                                                ; preds = %.noexc.i
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef %8)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %8)
           to label %.noexc4.i unwind label %10, !noalias !14
 
 10:                                               ; preds = %9, %.noexc4.i, %2

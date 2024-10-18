@@ -141,7 +141,7 @@ define dso_local void @_ZN12VectorFilterD0Ev(ptr noundef nonnull align 8 derefer
   br label %_ZN12VectorFilterD2Ev.exit
 
 _ZN12VectorFilterD2Ev.exit:                       ; preds = %1, %4
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -155,7 +155,7 @@ define dso_local noundef zeroext i1 @_ZNK12VectorFilter6filterEi(ptr noundef non
   br i1 %3, label %4, label %60
 
 4:                                                ; preds = %2
-  %5 = tail call noundef zeroext i1 @_ZNK6Filter12valid_filterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %5 = tail call noundef zeroext i1 @_ZNK6Filter12valid_filterEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
   br i1 %5, label %6, label %_ZNK12VectorFilter6lookupEi.exit
 
 6:                                                ; preds = %4

@@ -483,7 +483,7 @@ parse_command_line.exit:                          ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %120 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %5) #20
   %121 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #20
-  %122 = call i64 @H5Dopen2(i64 noundef %96, ptr noundef nonnull %116, i64 noundef 0) #20
+  %122 = call i64 @H5Dopen2(i64 noundef range(i64 0, -9223372036854775808) %96, ptr noundef nonnull %116, i64 noundef 0) #20
   %123 = icmp slt i64 %122, 0
   br i1 %123, label %.loopexit.sink.split.i, label %124
 

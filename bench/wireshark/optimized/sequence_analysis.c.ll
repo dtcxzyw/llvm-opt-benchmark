@@ -1032,7 +1032,7 @@ define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr nounde
   br label %g_string_append_c_inline.exit.i
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %57 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i
 
 g_string_append_c_inline.exit.i:                  ; preds = %56, %50
@@ -1068,7 +1068,7 @@ enlarge_string.exit:                              ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i188
 
 72:                                               ; preds = %.lr.ph.i186
-  %73 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %73 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i188
 
 g_string_append_c_inline.exit.i188:               ; preds = %72, %66
@@ -1115,7 +1115,7 @@ enlarge_string.exit190:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i193
 
 95:                                               ; preds = %84
-  %96 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %96 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i193
 
 g_string_append_c_inline.exit.i193:               ; preds = %95, %89
@@ -1166,7 +1166,7 @@ enlarge_string.exit195:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i198
 
 119:                                              ; preds = %.lr.ph.i196
-  %120 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %120 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i198
 
 g_string_append_c_inline.exit.i198:               ; preds = %119, %113
@@ -1204,7 +1204,7 @@ enlarge_string.exit200:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i203
 
 136:                                              ; preds = %.lr.ph.i201
-  %137 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %137 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i203
 
 g_string_append_c_inline.exit.i203:               ; preds = %136, %130
@@ -1240,7 +1240,7 @@ enlarge_string.exit205:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i208
 
 152:                                              ; preds = %.lr.ph.i206
-  %153 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %153 = tail call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i208
 
 g_string_append_c_inline.exit.i208:               ; preds = %152, %146
@@ -1313,7 +1313,7 @@ g_string_append_c_inline.exit:                    ; preds = %165, %171
   br label %g_string_append_c_inline.exit.i213
 
 191:                                              ; preds = %180
-  %192 = tail call ptr @g_string_insert_c(ptr noundef nonnull %26, i64 noundef -1, i8 noundef signext 45) #14
+  %192 = tail call ptr @g_string_insert_c(ptr noundef nonnull %26, i64 noundef -1, i8 noundef signext range(i8 32, 125) 45) #14
   br label %g_string_append_c_inline.exit.i213
 
 g_string_append_c_inline.exit.i213:               ; preds = %191, %185
@@ -1423,7 +1423,7 @@ enlarge_string.exit215:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i218
 
 249:                                              ; preds = %.lr.ph.i216
-  %250 = call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %250 = call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i218
 
 g_string_append_c_inline.exit.i218:               ; preds = %249, %243
@@ -1468,7 +1468,7 @@ enlarge_string.exit220:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i223
 
 269:                                              ; preds = %.lr.ph.i221
-  %270 = call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext 32) #14
+  %270 = call ptr @g_string_insert_c(ptr noundef nonnull %24, i64 noundef -1, i8 noundef signext range(i8 32, 125) 32) #14
   br label %g_string_append_c_inline.exit.i223
 
 g_string_append_c_inline.exit.i223:               ; preds = %269, %263
@@ -1526,7 +1526,7 @@ enlarge_string.exit225:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i228
 
 299:                                              ; preds = %.lr.ph.i226
-  %300 = call ptr @g_string_insert_c(ptr noundef nonnull %28, i64 noundef -1, i8 noundef signext 45) #14
+  %300 = call ptr @g_string_insert_c(ptr noundef nonnull %28, i64 noundef -1, i8 noundef signext range(i8 32, 125) 45) #14
   br label %g_string_append_c_inline.exit.i228
 
 g_string_append_c_inline.exit.i228:               ; preds = %299, %293
@@ -1588,7 +1588,7 @@ enlarge_string.exit230:                           ; preds = %enlarge_string.exit
   br label %g_string_append_c_inline.exit.i234
 
 329:                                              ; preds = %.lr.ph.i232
-  %330 = call ptr @g_string_insert_c(ptr noundef nonnull %28, i64 noundef -1, i8 noundef signext 45) #14
+  %330 = call ptr @g_string_insert_c(ptr noundef nonnull %28, i64 noundef -1, i8 noundef signext range(i8 32, 125) 45) #14
   br label %g_string_append_c_inline.exit.i234
 
 g_string_append_c_inline.exit.i234:               ; preds = %329, %323

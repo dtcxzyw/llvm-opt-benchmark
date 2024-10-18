@@ -149,7 +149,7 @@ define dso_local noundef nonnull ptr @_ZN15ExpressionComma11make_randomER9CGCont
 
 _Z14cast_if_neededP10Expression.exit:             ; preds = %23, %18, %15, %7, %3
   %25 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef 4)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef 4)
           to label %26 unwind label %29
 
 26:                                               ; preds = %_Z14cast_if_neededP10Expression.exit
@@ -257,7 +257,7 @@ define dso_local void @_ZN15ExpressionCommaD0Ev(ptr noundef nonnull align 8 dere
   br label %_ZN15ExpressionCommaD2Ev.exit
 
 _ZN15ExpressionCommaD2Ev.exit:                    ; preds = %9, %13
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -283,7 +283,7 @@ define dso_local noundef nonnull ptr @_ZNK15ExpressionComma5cloneEv(ptr nocaptur
           to label %16 unwind label %20
 
 16:                                               ; preds = %9
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 4)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 4)
           to label %17 unwind label %20
 
 17:                                               ; preds = %16

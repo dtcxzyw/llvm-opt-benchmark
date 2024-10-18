@@ -961,7 +961,7 @@ if.end.i:                                         ; preds = %for.body16
   br i1 %tobool51.not.i, label %if.then52.i, label %vga_putcharxy.exit
 
 if.then52.i:                                      ; preds = %if.end.i
-  %call53.i = call ptr @qemu_pixman_glyph_from_vgafont(i32 noundef 16, ptr noundef nonnull @vgafont16, i32 noundef %conv) #12
+  %call53.i = call ptr @qemu_pixman_glyph_from_vgafont(i32 noundef 16, ptr noundef nonnull @vgafont16, i32 noundef range(i32 0, 256) %conv) #12
   store ptr %call53.i, ptr %arrayidx50.i, align 8
   br label %vga_putcharxy.exit
 
@@ -1727,11 +1727,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %32 = load i64, ptr %_now.i.i.i, align 8
   %33 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i.i, i64 noundef %32, i64 noundef %33, i32 noundef %26, i32 noundef %27, i32 noundef %conv, i32 noundef %24) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i.i, i64 noundef %32, i64 noundef %33, i32 noundef %26, i32 noundef %27, i32 noundef range(i32 0, 256) %conv, i32 noundef %24) #12
   br label %trace_console_putchar_csi.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %26, i32 noundef %27, i32 noundef %conv, i32 noundef %24) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %26, i32 noundef %27, i32 noundef range(i32 0, 256) %conv, i32 noundef %24) #12
   br label %trace_console_putchar_csi.exit.i
 
 trace_console_putchar_csi.exit.i:                 ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end59.i
@@ -2677,11 +2677,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %188 = load i64, ptr %_now.i.i, align 8
   %189 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %188, i64 noundef %189, i32 noundef %conv) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %188, i64 noundef %189, i32 noundef range(i32 0, 256) %conv) #12
   br label %trace_console_putchar_unhandled.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i23
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef range(i32 0, 256) %conv) #12
   br label %trace_console_putchar_unhandled.exit
 
 trace_console_putchar_unhandled.exit:             ; preds = %sw.default249.i, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

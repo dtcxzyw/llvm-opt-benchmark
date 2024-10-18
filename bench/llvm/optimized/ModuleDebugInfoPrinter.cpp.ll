@@ -37,19 +37,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm26ModuleDebugInfoPrinterPassC2ERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef 8) #3
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull %3, i64 noundef 8) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 8) #3
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5, i64 noundef 8) #3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 8) #3
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull %7, i64 noundef 8) #3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = getelementptr inbounds i8, ptr %0, i64 256
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 8) #3
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %9, i64 noundef 8) #3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = getelementptr inbounds i8, ptr %0, i64 336
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 8) #3
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull %11, i64 noundef 8) #3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %13, ptr %12, align 8
@@ -72,7 +72,7 @@ define dso_local void @_ZN4llvm26ModuleDebugInfoPrinterPass3runERNS_6ModuleERNS_
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #3
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(688) %1) #3
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %.not86.i = icmp eq i64 %8, 0
   br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph.i

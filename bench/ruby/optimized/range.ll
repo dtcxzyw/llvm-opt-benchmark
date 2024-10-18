@@ -2508,7 +2508,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
   %101 = add nsw i64 %.neg.i.i, 2
   %102 = and i64 %96, -4
   %103 = or i64 %101, %102
-  %104 = tail call noundef i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 61)
+  %104 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %103, i64 range(i64 1, 0) %103, i64 61)
   %105 = bitcast i64 %104 to double
   br label %rb_float_value_inline.exit
 
@@ -2543,7 +2543,7 @@ rb_float_value_inline.exit:                       ; preds = %106, %100, %99, %RB
   %123 = add nsw i64 %.neg.i.i307, 2
   %124 = and i64 %118, -4
   %125 = or i64 %123, %124
-  %126 = tail call noundef i64 @llvm.fshl.i64(i64 %125, i64 %125, i64 61)
+  %126 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %125, i64 range(i64 1, 0) %125, i64 61)
   %127 = bitcast i64 %126 to double
   br label %rb_float_value_inline.exit308
 
@@ -2637,7 +2637,7 @@ RANGE_EXCL.exit311:                               ; preds = %143, %146
   br i1 %.not7.i.i, label %176, label %180
 
 176:                                              ; preds = %171
-  %177 = tail call noundef i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 3)
+  %177 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %170, i64 range(i64 3458764513820540929, 3458764513820540928) %170, i64 3)
   %178 = and i64 %177, -4
   %179 = or disjoint i64 %178, 2
   br label %int64_as_double_to_num.exit
@@ -3535,7 +3535,7 @@ RANGE_EXCL.exit.i:                                ; preds = %63, %58
   br label %rb_int_range_last.exit
 
 81:                                               ; preds = %77
-  %82 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #10
+  %82 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef range(i32 1, 0) %0, ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %4) #10
   %83 = load i64, ptr %4, align 8
   %84 = and i64 %83, 1
   %.not.i.i = icmp eq i64 %84, 0

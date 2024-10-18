@@ -1050,7 +1050,7 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br i1 %72, label %._crit_edge.i, label %73
 
 73:                                               ; preds = %68
-  call void %.0.i.i(ptr noundef %69, ptr noundef %70, i64 noundef %2) #17
+  call void %.0.i.i(ptr noundef %69, ptr noundef %70, i64 noundef range(i64 1, 0) %2) #17
   %74 = shl i64 %.079.i, 1
   %75 = add i64 %74, %2
   %76 = icmp ult i64 %75, %55
@@ -1063,7 +1063,7 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
 .lr.ph100.i:                                      ; preds = %.preheader.i, %._crit_edge95.i
   %.199.i = phi i64 [ %79, %._crit_edge95.i ], [ %.pre.i, %.preheader.i ]
   %77 = getelementptr i8, ptr %.0180253, i64 %.199.i
-  call void %.0.i.i(ptr noundef %.0180253, ptr noundef %77, i64 noundef %2) #17
+  call void %.0.i.i(ptr noundef %.0180253, ptr noundef %77, i64 noundef range(i64 1, 0) %2) #17
   %78 = icmp ult i64 %2, %.199.i
   %79 = sub i64 %.199.i, %2
   br i1 %78, label %.lr.ph94.i, label %._crit_edge95.i
@@ -1092,7 +1092,7 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br i1 %92, label %._crit_edge95.i, label %93
 
 93:                                               ; preds = %88
-  call void %.0.i.i(ptr noundef %89, ptr noundef %90, i64 noundef %2) #17
+  call void %.0.i.i(ptr noundef %89, ptr noundef %90, i64 noundef range(i64 1, 0) %2) #17
   %94 = shl i64 %.180.i, 1
   %95 = add i64 %94, %2
   %96 = icmp ult i64 %95, %.199.i

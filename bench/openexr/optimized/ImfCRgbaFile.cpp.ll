@@ -1206,7 +1206,7 @@ if.then:                                          ; preds = %invoke.cont10
           to label %call.i.noexc unwind label %lpad22
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr noundef %call.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef %call.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
           to label %.noexc unwind label %lpad22
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1224,7 +1224,7 @@ lpad.i:                                           ; preds = %if.end.i, %if.then.
   %0 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #24
   br label %ehcleanup28
 
 if.end.i:                                         ; preds = %.noexc
@@ -4185,7 +4185,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_29roundNBitEEET_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 %n, i16 -1025, i16 31743, i16 0, i16 31744, i16 -1024, i16 32767)
+  invoke void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_29roundNBitEEET_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(12) %call, i32 %n, i16 -1025, i16 31743, i16 0, i16 31744, i16 -1024, i16 32767)
           to label %_ZN7Imf_3_27RgbaLutC2INS_9roundNBitEEET_NS_12RgbaChannelsE.exit unwind label %lpad1
 
 _ZN7Imf_3_27RgbaLutC2INS_9roundNBitEEET_NS_12RgbaChannelsE.exit: ; preds = %invoke.cont

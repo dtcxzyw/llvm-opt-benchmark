@@ -135,7 +135,7 @@ user_init.exit.thread:                            ; preds = %19
 
 ._crit_edge.i.thread:                             ; preds = %31, %29
   %34 = and i8 %.2.i, 1
-  %35 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #17
+  %35 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 105) 104) #17
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %gv_alloc.exit.i
 
@@ -253,7 +253,7 @@ user_init.exit.thread26:                          ; preds = %15, %user_init.exit
   %92 = load ptr, ptr %87, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 56
   store double %91, ptr %93, align 8
-  %94 = call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #17
+  %94 = call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 105) 12) #17
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %gv_alloc.exit
 

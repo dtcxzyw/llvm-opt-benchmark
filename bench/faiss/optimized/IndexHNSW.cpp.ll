@@ -537,7 +537,7 @@ define void @_ZN5faiss9IndexHNSW3addElPKf(ptr noundef nonnull align 8 dereferenc
 
 90:                                               ; preds = %60
   %91 = zext i1 %81 to i32
-  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %1, i64 noundef %69, i32 noundef %91)
+  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %69, i32 noundef %91)
   %93 = icmp eq i64 %1, 0
   br i1 %93, label %_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_9IndexHNSWEmmPKfbb.exit, label %96
 
@@ -954,13 +954,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %191
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %._crit_edge174.i
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 14, ptr nonnull @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_9IndexHNSWEmmPKfbb.omp_outlined, ptr nonnull %8, ptr nonnull %0, ptr nonnull %6, ptr nonnull %13, ptr nonnull %15, ptr nonnull %10, ptr nonnull %5, ptr nonnull %4, ptr nonnull %7, ptr nonnull %16, ptr nonnull %87, ptr nonnull %14, ptr nonnull %9, ptr nonnull %11)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 14, ptr nonnull @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_9IndexHNSWEmmPKfbb.omp_outlined, ptr nonnull %8, ptr nonnull align 8 dereferenceable(5208) %0, ptr nonnull %6, ptr nonnull %13, ptr nonnull %15, ptr nonnull %10, ptr nonnull %5, ptr nonnull %4, ptr nonnull %7, ptr nonnull %16, ptr nonnull %87, ptr nonnull %14, ptr nonnull %9, ptr nonnull %11)
   br label %253
 
 252:                                              ; preds = %._crit_edge174.i
   call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %82)
   store i32 %82, ptr %17, align 4
-  call void @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_9IndexHNSWEmmPKfbb.omp_outlined(ptr nonnull %17, ptr nonnull poison, ptr %8, ptr %0, ptr %6, ptr %13, ptr %15, ptr %10, ptr %5, ptr %4, ptr %7, ptr %16, ptr %87, ptr %14, ptr %9, ptr %11) #10
+  call void @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_9IndexHNSWEmmPKfbb.omp_outlined(ptr nonnull %17, ptr nonnull poison, ptr %8, ptr nonnull align 8 dereferenceable(5208) %0, ptr %6, ptr %13, ptr %15, ptr %10, ptr %5, ptr %4, ptr %7, ptr %16, ptr %87, ptr %14, ptr %9, ptr %11) #10
   call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %82)
   br label %253
 
@@ -1335,7 +1335,7 @@ define void @_ZNK5faiss9IndexHNSW6searchElPKflPfPlPKNS_16SearchParametersE(ptr n
   %92 = add nsw i64 %storemerge29.i, %90
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %1, i64 %92)
   store i64 %.sroa.speculated.i, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvPKNS_9IndexHNSWElPKfRT_PKNS_16SearchParametersE.omp_outlined, ptr nonnull %8, ptr nonnull %21, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %9, ptr nonnull %62, ptr nonnull %11)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvPKNS_9IndexHNSWElPKfRT_PKNS_16SearchParametersE.omp_outlined, ptr nonnull %8, ptr nonnull align 8 dereferenceable(56) %21, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %9, ptr nonnull %62, ptr nonnull %11)
   call void @_ZN5faiss17InterruptCallback5checkEv()
   %93 = load i64, ptr %18, align 8
   %94 = add nsw i64 %93, %90
@@ -1586,7 +1586,7 @@ define void @_ZNK5faiss9IndexHNSW12range_searchElPKffPNS_17RangeSearchResultEPKN
   %76 = add nsw i64 %storemerge29.i, %74
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %1, i64 %76)
   store i64 %.sroa.speculated.i, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEEEEvPKNS_9IndexHNSWElPKfRT_PKNS_16SearchParametersE.omp_outlined, ptr nonnull %7, ptr nonnull %19, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %8, ptr nonnull %45, ptr nonnull %10)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEEEEvPKNS_9IndexHNSWElPKfRT_PKNS_16SearchParametersE.omp_outlined, ptr nonnull %7, ptr nonnull align 8 dereferenceable(100) %19, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %8, ptr nonnull %45, ptr nonnull %10)
   invoke void @_ZN5faiss17InterruptCallback5checkEv()
           to label %.noexc15 unwind label %.loopexit17
 
@@ -2757,7 +2757,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_22HeapBlockResultH
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i.i, label %41, label %.noexc3.i
 
@@ -3894,7 +3894,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_29RangeSearchBlock
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i.i, label %41, label %.noexc3.i
 
@@ -4173,7 +4173,7 @@ _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ;
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %169, %172
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #10
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %45) #10
   %176 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12VisitedTableD2Ev.exit, label %177
@@ -4263,7 +4263,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %3, %6
-  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
+  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #10
   ret void
 
 7:                                                ; preds = %1
@@ -4316,7 +4316,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %3, %6
-  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
+  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -4363,7 +4363,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_117hnsw_add_verticesERNS_9IndexHNSWE
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %17, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i.i.i.i, label %33, label %.noexc3.i
 
@@ -4635,7 +4635,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #10
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -4857,7 +4857,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
           to label %46 unwind label %.loopexit.split-lp.loopexit
 
 46:                                               ; preds = %45
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %11, i8 0, i64 24, i1 false)
   %47 = load i64, ptr %9, align 8
   %48 = load i64, ptr %10, align 8
   %49 = icmp ult i64 %47, %48
@@ -5315,7 +5315,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %13, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i.i.i.i, label %52, label %.noexc3.i
 
@@ -5681,7 +5681,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           to label %67 unwind label %.loopexit.split-lp.loopexit
 
 67:                                               ; preds = %64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %12, i8 0, i64 24, i1 false)
   %68 = load i32, ptr %3, align 4
   %.not64 = icmp eq i32 %68, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph.preheader
@@ -6101,7 +6101,7 @@ define internal void @_ZN5faiss9IndexHNSW30init_level_0_from_entry_pointsEiPKiS2
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i.i.i, label %25, label %.noexc3.i
 
@@ -7047,7 +7047,7 @@ define void @_ZN5faiss13IndexHNSWFlatC2Ev(ptr noundef nonnull align 8 dereferenc
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   resume { ptr, i32 } %10
 
 _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
@@ -7081,7 +7081,7 @@ define void @_ZN5faiss13IndexHNSWFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull a
 
 7:                                                ; preds = %4
   %8 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 noundef %6, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef %6, i32 noundef 1)
           to label %_ZN5faiss11IndexFlatL2C2El.exit unwind label %29
 
 _ZN5faiss11IndexFlatL2C2El.exit:                  ; preds = %7
@@ -7125,7 +7125,7 @@ common.resume:                                    ; preds = %29, %31, %25
 25:                                               ; preds = %12
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   br label %common.resume
 
 _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %12
@@ -7176,7 +7176,7 @@ define void @_ZN5faiss11IndexHNSWPQC2Ev(ptr noundef nonnull align 8 dereferencea
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   resume { ptr, i32 } %10
 
 _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
@@ -7225,7 +7225,7 @@ common.resume:                                    ; preds = %25, %21
 21:                                               ; preds = %9
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   br label %common.resume
 
 _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %9
@@ -7283,7 +7283,7 @@ common.resume:                                    ; preds = %26, %19
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   br label %common.resume
 
 _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %7
@@ -7342,7 +7342,7 @@ define void @_ZN5faiss11IndexHNSWSQC2Ev(ptr noundef nonnull align 8 dereferencea
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   resume { ptr, i32 } %10
 
 _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1
@@ -7389,7 +7389,7 @@ common.resume:                                    ; preds = %23, %19
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   br label %common.resume
 
 _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %7
@@ -7432,7 +7432,7 @@ define void @_ZN5faiss15IndexHNSW2LevelC2Ev(ptr noundef nonnull align 8 derefere
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) #10
   resume { ptr, i32 } %10
 
 _ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE.exit:    ; preds = %1

@@ -744,7 +744,7 @@ if.then20.i:                                      ; preds = %if.end18.i
           to label %invoke.cont.i58.i unwind label %lpad.i57.i
 
 invoke.cont.i58.i:                                ; preds = %if.then20.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements.i.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %replacements.i.i, i8 0, i64 64, i1 false)
   %components_.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 64
   invoke void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i.i.i)
           to label %invoke.cont1.i.i unwind label %lpad.i57.i
@@ -1518,7 +1518,7 @@ if.then20.i:                                      ; preds = %if.end18.i
           to label %invoke.cont.i58.i unwind label %lpad.i57.i
 
 invoke.cont.i58.i:                                ; preds = %if.then20.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements.i.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %replacements.i.i, i8 0, i64 64, i1 false)
   %components_.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 64
   invoke void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i.i.i)
           to label %invoke.cont1.i.i unwind label %lpad.i57.i

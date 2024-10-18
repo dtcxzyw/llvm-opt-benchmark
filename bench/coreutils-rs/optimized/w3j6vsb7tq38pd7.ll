@@ -38,7 +38,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !alias.scope !6, !noalias !12, !nonnull !4, !align !5, !noundef !4
   %8 = load i64, ptr %7, align 8, !noalias !9, !noundef !4
-  call void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fefc6152e9690beE.llvm.13320378164913035617"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !noalias !13
+  call void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fefc6152e9690beE.llvm.13320378164913035617"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !noalias !13
   %9 = load i64, ptr %7, align 8, !noalias !14, !noundef !4
   %10 = add i64 %9, 1
   store i64 %10, ptr %7, align 8, !noalias !14
@@ -59,7 +59,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..ops..control_flow..Co
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !17
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h14a4f004bf15865bE.llvm.3568425259640809499"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h14a4f004bf15865bE.llvm.3568425259640809499"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !28, !noalias !17, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %6, 0
@@ -90,7 +90,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..Con
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h14a4f004bf15865bE.llvm.3568425259640809499"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h14a4f004bf15865bE.llvm.3568425259640809499"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !28, !noalias !29, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -331,7 +331,7 @@ common.resume:                                    ; preds = %77, %.body.i
   br i1 %97, label %.body.i, label %98
 
 98:                                               ; preds = %90
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i4, i64 noundef %93, i64 noundef %95) #12, !noalias !76
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i4, i64 noundef range(i64 1, -9223372036854775808) %93, i64 noundef range(i64 1, -9223372036854775807) %95) #12, !noalias !76
   br label %.body.i
 
 99:                                               ; preds = %87
@@ -345,7 +345,7 @@ common.resume:                                    ; preds = %77, %.body.i
   br i1 %105, label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h186d0188117db753E.exit.i", label %106
 
 106:                                              ; preds = %99
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i4, i64 noundef %101, i64 noundef %103) #12, !noalias !76
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i4, i64 noundef range(i64 1, -9223372036854775808) %101, i64 noundef range(i64 1, -9223372036854775807) %103) #12, !noalias !76
   br label %"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h186d0188117db753E.exit.i"
 
 107:                                              ; preds = %82

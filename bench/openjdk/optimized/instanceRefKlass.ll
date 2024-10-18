@@ -281,7 +281,7 @@ define hidden void @_ZN16InstanceRefKlass13oop_verify_onEP7oopDescP12outputStrea
   %4 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %5 = sext i32 %4 to i64
   %6 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %7 = tail call noundef ptr %6(ptr noundef nonnull %1, i64 noundef %5) #5
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %5) #5
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
 
@@ -299,7 +299,7 @@ define hidden void @_ZN16InstanceRefKlass13oop_verify_onEP7oopDescP12outputStrea
   %13 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull %1, i64 noundef %14) #5
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %14) #5
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %42, label %17
 
@@ -1248,7 +1248,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #5, !srcloc !8
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #5, !srcloc !8
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
@@ -1346,7 +1346,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #5, !srcloc !8
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #5, !srcloc !8
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 

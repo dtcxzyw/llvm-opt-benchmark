@@ -466,7 +466,7 @@ _ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i: ; preds = %156, %.c
   br label %160
 
 160:                                              ; preds = %163, %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i
-  %161 = call i32 @fstat64(i32 noundef %144, ptr noundef nonnull %4) #13
+  %161 = call i32 @fstat64(i32 noundef range(i32 0, -1) %144, ptr noundef nonnull %4) #13
   %162 = icmp eq i32 %161, -1
   br i1 %162, label %163, label %_ZL14is_file_secureiPKc.exit.i.i.i
 
@@ -815,8 +815,8 @@ define hidden void @_ZN10PerfMemory6attachEiPPcPmP10JavaThread(i32 noundef %0, p
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %19 = tail call noundef i32 @_ZN2os5Linux17get_namespace_pidEi(i32 noundef %0) #13
-  %20 = tail call fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef %0, i32 noundef %19, ptr noundef %3)
+  %19 = tail call noundef i32 @_ZN2os5Linux17get_namespace_pidEi(i32 noundef range(i32 1, 0) %0) #13
+  %20 = tail call fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef range(i32 1, 0) %0, i32 noundef %19, ptr noundef %3)
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not16.i.i = icmp eq ptr %22, null
@@ -827,7 +827,7 @@ define hidden void @_ZN10PerfMemory6attachEiPPcPmP10JavaThread(i32 noundef %0, p
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef %0, i32 noundef %0, ptr noundef nonnull %3)
+  %26 = tail call fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 0) %0, ptr noundef nonnull %3)
   %27 = load ptr, ptr %21, align 8
   %28 = icmp ne ptr %27, null
   %.not.i.i = icmp eq ptr %26, null
@@ -852,7 +852,7 @@ _ZL13get_user_nameiPiP10JavaThread.exit.i:        ; preds = %25
   br i1 %.not.i45.i, label %_ZL16get_user_tmp_dirPKcii.exit.i, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %9, i64 noundef 26, ptr noundef nonnull @.str.11, i32 noundef %0, ptr noundef %32) #13
+  %34 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %9, i64 noundef 26, ptr noundef nonnull @.str.11, i32 noundef range(i32 1, 0) %0, ptr noundef %32) #13
   br label %_ZL16get_user_tmp_dirPKcii.exit.i
 
 _ZL16get_user_tmp_dirPKcii.exit.i:                ; preds = %33, %31
@@ -932,18 +932,18 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str.26, i32 noundef 981, ptr noundef %69, ptr noundef nonnull @.str.28) #13
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 981, ptr noundef %69, ptr noundef nonnull @.str.28) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str.26, i32 noundef 985, ptr noundef %71, ptr noundef nonnull @.str.32) #13
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 985, ptr noundef %71, ptr noundef nonnull @.str.32) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
   %74 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %67) #13
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str.26, i32 noundef 989, ptr noundef %73, ptr noundef %74) #13
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 989, ptr noundef %73, ptr noundef %74) #13
   br label %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i
 
 .critedge14.i.i:                                  ; preds = %62
@@ -951,7 +951,7 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
   br label %75
 
 75:                                               ; preds = %78, %.critedge14.i.i
-  %76 = call i32 @fstat64(i32 noundef %63, ptr noundef nonnull %7) #13
+  %76 = call i32 @fstat64(i32 noundef range(i32 0, -1) %63, ptr noundef nonnull %7) #13
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %_ZL14is_file_secureiPKc.exit.i.i
 
@@ -994,7 +994,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
   br label %92
 
 92:                                               ; preds = %95, %91
-  %93 = call i32 @fstat64(i32 noundef %.0.i47.i, ptr noundef nonnull %6) #13
+  %93 = call i32 @fstat64(i32 noundef range(i32 0, -1) %.0.i47.i, ptr noundef nonnull %6) #13
   %94 = icmp eq i32 %93, -1
   br i1 %94, label %95, label %.critedge6.i.i
 
@@ -1006,7 +1006,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
 
 .critedge.i.i:                                    ; preds = %95
   %99 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str.26, i32 noundef 1144, ptr noundef %99, ptr noundef nonnull @.str.33) #13
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1144, ptr noundef %99, ptr noundef nonnull @.str.33) #13
   br label %_ZL18sharedmem_filesizeiP10JavaThread.exit.i
 
 .critedge6.i.i:                                   ; preds = %92
@@ -1023,7 +1023,7 @@ _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_s
 
 106:                                              ; preds = %103, %.critedge6.i.i
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1256), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str.26, i32 noundef 1150, ptr noundef %107, ptr noundef nonnull @.str.34) #13
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, i32 noundef 1150, ptr noundef %107, ptr noundef nonnull @.str.34) #13
   br label %_ZL18sharedmem_filesizeiP10JavaThread.exit.i
 
 _ZL18sharedmem_filesizeiP10JavaThread.exit.i:     ; preds = %106, %103, %.critedge.i.i
@@ -1080,7 +1080,7 @@ _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack
 
 127:                                              ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i
   %128 = ptrtoint ptr %110 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.30, i64 noundef %.0.i, i32 noundef %0, i64 noundef %128)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.30, i64 noundef %.0.i, i32 noundef range(i32 1, 0) %0, i64 noundef %128)
   br label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit
 
 _ZL18mmap_attach_sharediPPcPmP10JavaThread.exit:  ; preds = %18, %_ZL13get_user_nameiPiP10JavaThread.exit.i, %29, %54, %_ZL19open_sharedmem_filePKciP10JavaThread.exit.i, %_ZL18sharedmem_filesizeiP10JavaThread.exit.i, %113, %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i, %127
@@ -1441,7 +1441,7 @@ define internal fastcc noundef ptr @_ZL21open_directory_securePKc(ptr nocapture 
   br label %12
 
 12:                                               ; preds = %15, %.critedge21
-  %13 = call i32 @fstat64(i32 noundef %6, ptr noundef nonnull %4) #13
+  %13 = call i32 @fstat64(i32 noundef range(i32 0, -1) %6, ptr noundef nonnull %4) #13
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %.critedge3.i
 
@@ -1492,7 +1492,7 @@ _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
   br label %32
 
 32:                                               ; preds = %35, %30
-  %33 = call i32 @fstat64(i32 noundef %6, ptr noundef nonnull %2) #13
+  %33 = call i32 @fstat64(i32 noundef range(i32 0, -1) %6, ptr noundef nonnull %2) #13
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %.critedge8.i
 

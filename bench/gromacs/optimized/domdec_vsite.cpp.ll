@@ -191,7 +191,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %4
 
 41:                                               ; preds = %.critedge.i.i
   %42 = sub nuw nsw i64 %33, %39
-  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %42)
+  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %6, i64 noundef %42)
   br label %_ZN3gmx9HashedMapIiE6resizeEi.exit.i
 
 43:                                               ; preds = %.critedge.i.i
@@ -823,7 +823,7 @@ define void @_Z18init_domdec_vsitesP12gmx_domdec_ti(ptr nocapture noundef %0, i3
 .critedge.i.i.i:                                  ; preds = %17, %14
   %.0.lcssa.i.i.i = phi i32 [ %18, %17 ], [ %.07.i.i.i, %14 ]
   %20 = zext nneg i32 %.0.lcssa.i.i.i to i64
-  invoke void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %20)
+  invoke void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %11, i64 noundef %20)
           to label %_ZSt11make_uniqueIN3gmx9HashedMapIiEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %21, !noalias !27
 
 21:                                               ; preds = %.critedge.i.i.i
@@ -874,7 +874,7 @@ _ZNSt10unique_ptrIN3gmx9HashedMapIiEESt14default_deleteIS2_EED2Ev.exit: ; preds 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %_ZNSt10unique_ptrIN3gmx9HashedMapIiEESt14default_deleteIS2_EED2Ev.exit
   %.idx15.i.i = phi i64 [ %.add16.i.i, %.preheader.i.i ], [ 48, %_ZNSt10unique_ptrIN3gmx9HashedMapIiEESt14default_deleteIS2_EED2Ev.exit ]
   %.ptr17.i.i = getelementptr inbounds i8, ptr %33, i64 %.idx15.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr17.i.i, i8 0, i64 24, i1 false), !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.ptr17.i.i, i8 0, i64 24, i1 false), !noalias !30
   %.add16.i.i = add nuw nsw i64 %.idx15.i.i, 32
   %34 = icmp eq i64 %.add16.i.i, 240
   br i1 %34, label %_ZSt11make_uniqueI24gmx_domdec_specat_comm_tJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %.preheader.i.i

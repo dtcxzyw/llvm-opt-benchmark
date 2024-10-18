@@ -117,7 +117,7 @@ if.then2:                                         ; preds = %if.end
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %buffer.coerce1, ptr %size_.i.i.i, align 8, !noalias !4
   store ptr %call.i.i, ptr %agg.tmp.i, align 8
-  call void @_ZN6hermes3hbc20BCProviderFromBuffer26createBCProviderFromBufferB5cxx11ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr nonnull sret(%"struct.std::pair") align 8 %res.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %cond)
+  call void @_ZN6hermes3hbc20BCProviderFromBuffer26createBCProviderFromBufferB5cxx11ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr nonnull sret(%"struct.std::pair") align 8 %res.i, ptr noundef nonnull %agg.tmp.i, i32 noundef range(i32 0, 2) %cond)
   %0 = load ptr, ptr %agg.tmp.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN6hermes6BufferESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i.i
@@ -227,7 +227,7 @@ if.else:                                          ; preds = %if.end
   %size_.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i13, i64 16
   store i64 %buffer.coerce1, ptr %size_.i.i.i15, align 8, !noalias !8
   store ptr %call.i.i13, ptr %agg.tmp.i9, align 8
-  call void @_ZN6hermes3hbc20BCProviderFromBuffer26createBCProviderFromBufferB5cxx11ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr nonnull sret(%"struct.std::pair") align 8 %res.i8, ptr noundef nonnull %agg.tmp.i9, i32 noundef %cond)
+  call void @_ZN6hermes3hbc20BCProviderFromBuffer26createBCProviderFromBufferB5cxx11ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr nonnull sret(%"struct.std::pair") align 8 %res.i8, ptr noundef nonnull %agg.tmp.i9, i32 noundef range(i32 0, 2) %cond)
   %15 = load ptr, ptr %agg.tmp.i9, align 8
   %cmp.not.i.i16 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i16, label %_ZNSt10unique_ptrIN6hermes6BufferESt14default_deleteIS1_EED2Ev.exit.i20, label %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i.i17

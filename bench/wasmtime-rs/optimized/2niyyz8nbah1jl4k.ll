@@ -1569,7 +1569,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !83
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %0, i64 %3), !alias.scope !83
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -1837,7 +1837,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %26
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hfd44aa6ce15e3f97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hfd44aa6ce15e3f97E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %6)
           to label %._crit_edge.i unwind label %30, !noalias !101
 
 ._crit_edge.i:                                    ; preds = %29
@@ -1875,7 +1875,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
 41:                                               ; preds = %_ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E.exit, %9, %2
   %.0 = phi i8 [ 0, %2 ], [ 1, %9 ], [ 2, %_ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !103
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he16c77f2b6b4d94eE.llvm.1938814379164664089"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he16c77f2b6b4d94eE.llvm.1938814379164664089"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %42 = getelementptr inbounds i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !112, !noalias !103, !noundef !28
   %.not.i.i.i.i = icmp eq i64 %43, 0
@@ -2565,7 +2565,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br i1 %164, label %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit", label %165
 
 165:                                              ; preds = %163
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef readonly align 8 dereferenceable(64) %27)
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %27)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit"
 
 .body.thread325:                                  ; preds = %.body.thread, %167, %139
@@ -2578,7 +2578,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br i1 %166, label %.body.thread325, label %167
 
 167:                                              ; preds = %.body.thread
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef readonly align 8 dereferenceable(64) %27)
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %27)
           to label %.body.thread325 unwind label %168
 
 168:                                              ; preds = %167
@@ -2819,7 +2819,7 @@ define hidden noundef zeroext i1 @_ZN11wasi_common4file8WasiFile6isatty17hf637f0
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h1833cd8d37da2b10E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !214
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !214
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !214
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0902414420422215E.exit"
 
@@ -2841,7 +2841,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h1833cd
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h1f2dbf0dca013537E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !217
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !217
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !217
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5257159671d22318E.exit"
 
@@ -2863,7 +2863,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h1f2dbf
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h4ddf85c70f90ca51E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !220
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !220
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !220
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0f54defb5bf7d36eE.exit"
 
@@ -2885,7 +2885,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h4ddf85
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h50565c9b58ffbda6E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !223
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !223
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !223
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h62b05b555982f10bE.exit"
 
@@ -2907,7 +2907,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17h50565c
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11sock_accept17he0c935df36f67840E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !226
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !226
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !226
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d1ed3cb163ca771E.exit"
 
@@ -3134,7 +3134,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17h222d36fc50f31914E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !230
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !230
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !230
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h94320d9ae021bd1cE.exit"
 
@@ -3156,7 +3156,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17h222d36fc5
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17h8f900fc5950d7553E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !233
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !233
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !233
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he22737e842704e8dE.exit"
 
@@ -3178,7 +3178,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17h8f900fc59
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17hd3538c963c0b8760E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !236
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !236
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !236
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h90eaf9b7f571bcd5E.exit"
 
@@ -3200,7 +3200,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17hd3538c963
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17hdc36f720a2228abdE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !239
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !239
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !239
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc848555d0b76a813E.exit"
 
@@ -3222,7 +3222,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17hdc36f720a
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_recv17hf65057667bc0507dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !242
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !242
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !242
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h059f871dbd70da40E.exit"
 
@@ -3439,7 +3439,7 @@ default.unreachable9:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17h01361553e0d4fc9aE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !245
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !245
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !245
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d747c79e2a1d9d2E.exit"
 
@@ -3461,7 +3461,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17h01361553e
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17h79026640079fd2ceE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !248
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !248
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !248
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h16ce71a428dd97a8E.exit"
 
@@ -3483,7 +3483,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17h790266400
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17h891368a6664852e9E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !251
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !251
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !251
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he7fb09b985043b04E.exit"
 
@@ -3505,7 +3505,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17h891368a66
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17hab1671bffb1cb4d6E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !254
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !254
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !254
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2593f4860b0a3936E.exit"
 
@@ -3527,7 +3527,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17hab1671bff
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9sock_send17hfe4fd3d1f240cad1E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !257
-  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !257
+  %6 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !257
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb3bec8961292334cE.exit"
 
@@ -3744,7 +3744,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h2adfee2684ecb3a3E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !260
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !260
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !260
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3e0e8c14098c4389E.exit"
 
@@ -3766,7 +3766,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h2adf
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h2e2827e177c35b11E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !263
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !263
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !263
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf2c64ca0beb5c895E.exit"
 
@@ -3788,7 +3788,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h2e28
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h49a0be2680db1badE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !266
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !266
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !266
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he8175e8319b589d8E.exit"
 
@@ -3810,7 +3810,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h49a0
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h7cd7b451397b23b0E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !269
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !269
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !269
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4ead4709c5d42b6eE.exit"
 
@@ -3832,7 +3832,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17h7cd7
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13sock_shutdown17hf6c0dc557317c51aE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !272
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !272
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !272
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8f6d39cb69aa0ff7E.exit"
 
@@ -4039,7 +4039,7 @@ default.unreachable4:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h1a1f5cba4e521f18E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !275
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !275
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !275
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b1f98cb87aa1a40E.exit"
 
@@ -4059,7 +4059,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h1a1f5cba4e
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h5cd600efd8c302b8E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !278
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !278
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !278
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd681fa550fe5dd51E.exit"
 
@@ -4079,7 +4079,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h5cd600efd8
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h678327bdb867d371E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !281
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !281
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !281
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc5fc0b7684bb13b0E.exit"
 
@@ -4099,7 +4099,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h678327bdb8
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h895084db23d7fd1fE(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !284
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !284
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !284
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7ed7d260614c01a6E.exit"
 
@@ -4119,7 +4119,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h895084db23
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h9359a4f8df21eafaE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !287
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !287
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !287
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1f4c90594531d942E.exit"
 
@@ -4139,7 +4139,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17h9359a4f8df
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17he1669e1dc230d5c2E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !290
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !290
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !290
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf755ca4f9f76bdebE.exit"
 
@@ -4159,7 +4159,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17he1669e1dc2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8datasync17hfac4f544c441744bE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !293
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !293
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !293
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5f764252a92ac049E.exit"
 
@@ -4361,7 +4361,7 @@ default.unreachable2:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h59cf83556a4b5d87E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !296
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !296
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !296
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6c4341c4d24eb203E.exit"
 
@@ -4381,7 +4381,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h59cf83556a4b5d
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h5c6fe66646101e07E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !299
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !299
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !299
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbc82930de41cd8d6E.exit"
 
@@ -4401,7 +4401,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h5c6fe66646101e
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h64e95a68407c257eE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !302
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !302
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !302
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha59871639785652dE.exit"
 
@@ -4421,7 +4421,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h64e95a68407c25
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h73b713a978a47cd8E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !305
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !305
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !305
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hdfb44c8117d3bd7fE.exit"
 
@@ -4441,7 +4441,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h73b713a978a47c
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h9e7263f91ffa8299E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !308
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !308
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !308
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hea0c02e4b76d64caE.exit"
 
@@ -4461,7 +4461,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17h9e7263f91ffa82
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17ha534d5e8d805a647E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !311
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !311
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !311
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hcef6de79cb9baff1E.exit"
 
@@ -4481,7 +4481,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17ha534d5e8d805a6
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4sync17haa5e706a7ca946cdE(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !314
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !314
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !314
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5cde8de927e91d04E.exit"
 
@@ -4683,7 +4683,7 @@ default.unreachable2:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11get_fdflags17h1605c9a44315dbafE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !317
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !317
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !317
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h387a00741b9f8fd2E.exit"
 
@@ -4732,7 +4732,7 @@ default.unreachable8:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11set_fdflags17h82673500f89d0bfeE(ptr noalias noundef align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !320
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !320
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !320
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h19edf4918035d9a0E.exit"
 
@@ -4754,7 +4754,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11set_fdflags17h826735
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11set_fdflags17h9ba2f27789805221E(ptr noalias noundef align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !323
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !323
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !323
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfdc13cd40b261485E.exit"
 
@@ -4776,7 +4776,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11set_fdflags17h9ba2f2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile11set_fdflags17hf9ea6ff6ea7271c2E(ptr noalias noundef align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !326
-  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !326
+  %4 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !326
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9a0a50eb05a07ad4E.exit"
 
@@ -4914,7 +4914,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17h28e0b
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !329
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !329
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !329
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7c1f40c3bd35d7fcE.exit"
 
@@ -4928,7 +4928,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17h28e0b
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr142drop_in_place$LT$$LT$wasi_common..sync..stdio..Stdin$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe57152c6a570769E"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr142drop_in_place$LT$$LT$wasi_common..sync..stdio..Stdin$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe57152c6a570769E"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -4956,7 +4956,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17h37732
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !332
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !332
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !332
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha89fe4832af6adedE.exit"
 
@@ -4970,7 +4970,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17h37732
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr145drop_in_place$LT$$LT$wasi_common..sync..net..UnixStream$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17h05f6e64e602023efE"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr145drop_in_place$LT$$LT$wasi_common..sync..net..UnixStream$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17h05f6e64e602023efE"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -4998,7 +4998,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17h733e8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !335
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !335
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !335
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd65943ad2ced3f14E.exit"
 
@@ -5012,7 +5012,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17h733e8
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr147drop_in_place$LT$$LT$wasi_common..sync..net..UnixListener$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb87f44b1732b1b6cE"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr147drop_in_place$LT$$LT$wasi_common..sync..net..UnixListener$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb87f44b1732b1b6cE"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -5040,7 +5040,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hacab1
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !338
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !338
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !338
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h04d564574671ff3aE.exit"
 
@@ -5054,7 +5054,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hacab1
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr146drop_in_place$LT$$LT$wasi_common..sync..net..TcpListener$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5de16afc931d31eE"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr146drop_in_place$LT$$LT$wasi_common..sync..net..TcpListener$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5de16afc931d31eE"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -5082,7 +5082,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hb49f3
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !341
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !341
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !341
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3b1e23c166cab19E.exit"
 
@@ -5096,7 +5096,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hb49f3
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr143drop_in_place$LT$$LT$wasi_common..sync..stdio..Stdout$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd36bfc81698bfb2fE"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr143drop_in_place$LT$$LT$wasi_common..sync..stdio..Stdout$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd36bfc81698bfb2fE"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -5124,7 +5124,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hc46c3
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !344
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !344
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !344
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hcb31e8a6fbfcde8bE.exit"
 
@@ -5138,7 +5138,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hc46c3
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr144drop_in_place$LT$$LT$wasi_common..sync..net..TcpStream$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9244848dbe045327E"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr144drop_in_place$LT$$LT$wasi_common..sync..net..TcpStream$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9244848dbe045327E"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -5166,7 +5166,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hf2f83
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !347
-  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !347
+  %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !347
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3e4dba70bf86add3E.exit"
 
@@ -5180,7 +5180,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile12get_filestat17hf2f83
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr143drop_in_place$LT$$LT$wasi_common..sync..stdio..Stderr$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc4d91ce1689b4ed9E"(ptr noundef nonnull align 8 %2) #24
+  invoke void @"_ZN4core3ptr143drop_in_place$LT$$LT$wasi_common..sync..stdio..Stderr$u20$as$u20$wasi_common..file..WasiFile$GT$..get_filestat..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc4d91ce1689b4ed9E"(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
@@ -6323,7 +6323,7 @@ common.ret:                                       ; preds = %39, %"_ZN4core3ptr2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h3a756f032094ec1dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !469
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !469
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !469
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hff88d422e4852466E.exit"
 
@@ -6345,7 +6345,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h3c70e4749407048eE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !472
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !472
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !472
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1cf58a342320e9f5E.exit"
 
@@ -6367,7 +6367,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h3e245ce01a6c250dE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !475
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !475
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !475
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17haed3eefe57ebcb37E.exit"
 
@@ -6389,7 +6389,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h465f90fa4d7e1873E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !478
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !478
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !478
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc0c4ca911287c775E.exit"
 
@@ -6411,7 +6411,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h4c4bbf580f0b5d6fE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !481
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !481
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !481
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc5fcc077f9fe9bd4E.exit"
 
@@ -6433,7 +6433,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h4ccceb37cfabd03dE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !484
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !484
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !484
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf19dd6f138884a48E.exit"
 
@@ -6455,7 +6455,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17set_filestat_size17hab9224ebd5a96babE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !487
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !487
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !487
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd354afe8f6e8ae74E.exit"
 
@@ -6736,7 +6736,7 @@ default.unreachable4:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h2877e7389d4b2e1dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !490
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !490
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !490
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h26bcdf8ea4b42ef0E.exit"
 
@@ -6762,7 +6762,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h2877e7389d4b
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h49595a454c87f02cE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !493
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !493
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !493
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h15a8cb070b215e6bE.exit"
 
@@ -6788,7 +6788,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h49595a454c87
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h58d2277370a6cabdE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !496
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !496
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !496
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfca3c21b71a28cecE.exit"
 
@@ -6814,7 +6814,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h58d2277370a6
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h5b1d12ae5a3e7c3bE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !499
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !499
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !499
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h850275605ebe53a4E.exit"
 
@@ -6840,7 +6840,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h5b1d12ae5a3e
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h5d688ab60e835ca1E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !502
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !502
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !502
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb64b6ec16d1a2afbE.exit"
 
@@ -6866,7 +6866,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h5d688ab60e83
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h6409974ea21bb59fE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !505
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !505
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !505
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1419ef5bf28cf8b7E.exit"
 
@@ -6892,7 +6892,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17h6409974ea21b
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile6advise17ha17938bf142568deE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !508
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !508
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !508
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h471b9f0c04eecb9fE.exit"
 
@@ -7177,7 +7177,7 @@ default.unreachable4:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17h33c59b98824182bcE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 %1, i32 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !511
-  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #26, !noalias !511
+  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 48, i64 noundef 8) #26, !noalias !511
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfd82f04001690a9aE.exit"
 
@@ -7205,7 +7205,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17h33c59b988
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17h563e4afc7b6e35a1E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 %1, i32 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !514
-  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #26, !noalias !514
+  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 48, i64 noundef 8) #26, !noalias !514
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ec9cd777e9833caE.exit"
 
@@ -7233,7 +7233,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17h563e4afc7
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17h747dba30dcd7768aE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 %1, i32 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !517
-  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #26, !noalias !517
+  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 48, i64 noundef 8) #26, !noalias !517
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfce958ba284668faE.exit"
 
@@ -7261,7 +7261,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17h747dba30d
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile9set_times17ha26f8e0d48d6f2a8E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 %1, i32 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !520
-  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #26, !noalias !520
+  %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 48, i64 noundef 8) #26, !noalias !520
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6e16bfc7cb9a2191E.exit"
 
@@ -7437,7 +7437,7 @@ default.unreachable4:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17h39773b21dc29581aE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !523
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !523
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !523
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb0afbaa6384140b9E.exit"
 
@@ -7457,7 +7457,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17h3977
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17h449421ce96bc26b8E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !526
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !526
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !526
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h42dce3c687a4143fE.exit"
 
@@ -7477,7 +7477,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17h4494
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17h79cece5899dcccbdE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !529
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !529
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !529
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28a9b2d9886c97f8E.exit"
 
@@ -7497,7 +7497,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17h79ce
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile13read_vectored17hdc71951175fe8e20E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !532
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !532
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !532
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7d14b1820e48709aE.exit"
 
@@ -7673,7 +7673,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h1eb4686f8f87743eE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !535
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !535
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !535
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf9804ed70cceaa2fE.exit"
 
@@ -7695,7 +7695,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h1
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h7e853c21a98719caE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !538
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !538
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !538
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2af3a48285487043E.exit"
 
@@ -7717,7 +7717,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h7
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h893742f78e9437b1E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !541
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !541
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !541
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he9313fe59ec00cddE.exit"
 
@@ -7739,7 +7739,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h8
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h9861e11d3e5db024E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !544
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !544
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !544
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hebece825695f2172E.exit"
 
@@ -7761,7 +7761,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17h9
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17hfdb833659497b152E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !547
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !547
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !547
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72f9057172bed121E.exit"
 
@@ -7783,7 +7783,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17hf
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile16read_vectored_at17hfe322c7bca15b825E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !550
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !550
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !550
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hed371c5058a83f62E.exit"
 
@@ -8039,7 +8039,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile14write_vectored17h15b410a706140b61E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !553
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !553
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !553
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7ba88a03707b2384E.exit"
 
@@ -8059,7 +8059,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile14write_vectored17h15b
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile14write_vectored17h1ae47c1d94ae0dadE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !556
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !556
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !556
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h260e7c9fd1dfe9bdE.exit"
 
@@ -8079,7 +8079,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile14write_vectored17h1ae
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile14write_vectored17h1dc087f22dd2cbb4E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !559
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !559
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !559
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfb782f89b74a5d30E.exit"
 
@@ -8216,7 +8216,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17h59b7701d9bc2c05fE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !562
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !562
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !562
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd98bac3289aeece7E.exit"
 
@@ -8238,7 +8238,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17h91b9dc230f62dbf6E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !565
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !565
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !565
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6db4b082873d77acE.exit"
 
@@ -8260,7 +8260,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17ha82c152490896984E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !568
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !568
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !568
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf21407705440bf4bE.exit"
 
@@ -8282,7 +8282,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17hb9cac8c64fb056b6E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !571
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !571
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !571
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h798416f046e60031E.exit"
 
@@ -8304,7 +8304,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile17write_vectored_at17hbb3f7785ff89522fE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !574
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #26, !noalias !574
+  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 24, i64 noundef 8) #26, !noalias !574
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbfc62823d726e1c3E.exit"
 
@@ -8521,7 +8521,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17h02eb15eae2dea911E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !577
-  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !577
+  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !577
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h833d9e225a92079eE.exit"
 
@@ -8543,7 +8543,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17h02eb15eae2dea9
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17h4518ff4cfc4b1d79E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !580
-  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !580
+  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !580
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb0d932b692363675E.exit"
 
@@ -8565,7 +8565,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17h4518ff4cfc4b1d
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17h884dabd1180ef73dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !583
-  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !583
+  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !583
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h93171085ae9e5b4bE.exit"
 
@@ -8587,7 +8587,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17h884dabd1180ef7
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4seek17hcc48e8c4b0486ae6E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !586
-  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #26, !noalias !586
+  %4 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 32, i64 noundef 8) #26, !noalias !586
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h903d0e64ae86c8d6E.exit"
 
@@ -8765,7 +8765,7 @@ default.unreachable7:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h214ca74720d30f6dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !589
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !589
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !589
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc756a08c24351453E.exit"
 
@@ -8785,7 +8785,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h214ca74720d30f
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h6de896635fcb26ccE(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !592
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !592
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !592
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h709c62e7dc950f25E.exit"
 
@@ -8805,7 +8805,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h6de896635fcb26
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h812a46d5f9d33d70E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !595
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !595
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !595
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d8e379a909db47cE.exit"
 
@@ -8825,7 +8825,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h812a46d5f9d33d
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile4peek17h9574c6ef8f982bc0E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !598
-  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !598
+  %5 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !598
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h051b4a29efd5f3e3E.exit"
 
@@ -9013,7 +9013,7 @@ define hidden void @_ZN11wasi_common4file8WasiFile15num_ready_bytes17hff65e79fc4
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17h4dcda46c08291415E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !601
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !601
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !601
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf079343149178c5bE.exit"
 
@@ -9033,7 +9033,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17h4dcda46c08
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17h8e368cfbd36e4c6fE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !604
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !604
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !604
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3363c10beb28f03E.exit"
 
@@ -9053,7 +9053,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17h8e368cfbd3
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17h9c74bc52d5fd3380E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !607
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !607
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !607
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3201f971d3aaaf22E.exit"
 
@@ -9073,7 +9073,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17h9c74bc52d5
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17ha109c2226da77f1eE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !610
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !610
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !610
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72e829d4bf8c6036E.exit"
 
@@ -9093,7 +9093,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17ha109c2226d
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8readable17hcbf8fb7c1c9c0093E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !613
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !613
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !613
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h50d1aa259fab6f80E.exit"
 
@@ -9298,7 +9298,7 @@ default.unreachable4:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17h4e7238e98bb619a7E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !616
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !616
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !616
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc1bbdd7a46de44a5E.exit"
 
@@ -9318,7 +9318,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17h4e7238e98b
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17h67d1486c57e75917E(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !619
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !619
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !619
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbccda25fb1d9a90fE.exit"
 
@@ -9338,7 +9338,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17h67d1486c57
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17ha0eaa588d2e6b6f5E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !622
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !622
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !622
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2b6d6c22df0a37ddE.exit"
 
@@ -9358,7 +9358,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17ha0eaa588d2
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17hb04c79b0c41091b4E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !625
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !625
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !625
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd1d2ce10ccc231afE.exit"
 
@@ -9378,7 +9378,7 @@ define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17hb04c79b0c4
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN11wasi_common4file8WasiFile8writable17he78bfdb1e0ff69daE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !628
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #26, !noalias !628
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 49) 16, i64 noundef 8) #26, !noalias !628
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.noexc, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h665c3b2d651eacebE.exit"
 
@@ -9764,7 +9764,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
   %.sroa.974.8..sroa_idx77 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %.sroa.974.8.copyload76, ptr %.sroa.974.8..sroa_idx77, align 8, !noalias !646
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !647
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he16c77f2b6b4d94eE.llvm.1938814379164664089"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he16c77f2b6b4d94eE.llvm.1938814379164664089"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %39
@@ -9799,7 +9799,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
   store ptr %.sroa.869.8.copyload71, ptr %.sroa.638.0..sroa_idx, align 8
   %.sroa.739.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.974.8.copyload76, ptr %.sroa.739.0..sroa_idx, align 8
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h75a56b3548c6f323E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h75a56b3548c6f323E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10)
           to label %"_ZN4core3ptr55drop_in_place$LT$rustix..backend..fs..dir..DirEntry$GT$17h02b16fa2d9100e07E.llvm.1938814379164664089.exit.i.i.i" unwind label %48
 
 48:                                               ; preds = %47
@@ -9819,7 +9819,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
 
 53:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$rustix..backend..fs..dir..DirEntry$GT$17h02b16fa2d9100e07E.llvm.1938814379164664089.exit.i.i.i"
   call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.1938814379164664089(i8 noundef 2), !noalias !676
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcdf2db0564dec0e1E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcdf2db0564dec0e1E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
   br label %"_ZN4core3ptr53drop_in_place$LT$cap_std..fs..dir_entry..DirEntry$GT$17h4f585bd149dca946E.exit64"
 
 54:                                               ; preds = %48
@@ -9841,7 +9841,7 @@ common.resume:                                    ; preds = %21, %58, %48
   store ptr %.sroa.010.0.sink, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %57, align 8
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h75a56b3548c6f323E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h75a56b3548c6f323E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10)
           to label %"_ZN4core3ptr55drop_in_place$LT$rustix..backend..fs..dir..DirEntry$GT$17h02b16fa2d9100e07E.llvm.1938814379164664089.exit.i.i.i63" unwind label %58
 
 58:                                               ; preds = %56
@@ -9861,7 +9861,7 @@ common.resume:                                    ; preds = %21, %58, %48
 
 63:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$rustix..backend..fs..dir..DirEntry$GT$17h02b16fa2d9100e07E.llvm.1938814379164664089.exit.i.i.i63"
   call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.1938814379164664089(i8 noundef 2), !noalias !693
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcdf2db0564dec0e1E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcdf2db0564dec0e1E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
   br label %"_ZN4core3ptr53drop_in_place$LT$cap_std..fs..dir_entry..DirEntry$GT$17h4f585bd149dca946E.exit64"
 
 64:                                               ; preds = %58

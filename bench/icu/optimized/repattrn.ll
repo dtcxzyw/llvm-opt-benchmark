@@ -1683,7 +1683,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %new.isnull.i, label %return.sink.split.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end6.i
-  invoke void @_ZN6icu_7512RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %call7.i, ptr noundef nonnull %this)
+  invoke void @_ZN6icu_7512RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %call7.i, ptr noundef nonnull align 8 dereferenceable(200) %this)
           to label %if.then unwind label %lpad.i
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -1776,7 +1776,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
   br i1 %new.isnull.i.i, label %return.sink.split.i.i, label %new.notnull.i.i
 
 new.notnull.i.i:                                  ; preds = %if.end6.i.i
-  invoke void @_ZN6icu_7512RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %call7.i.i, ptr noundef nonnull %call1)
+  invoke void @_ZN6icu_7512RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %call7.i.i, ptr noundef nonnull align 8 dereferenceable(200) %call1)
           to label %if.then.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %new.notnull.i.i
@@ -1841,7 +1841,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %new.isnull.i, label %return.sink.split.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end6.i
-  invoke void @_ZN6icu_7512RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %call7.i, ptr noundef nonnull %call1)
+  invoke void @_ZN6icu_7512RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %call7.i, ptr noundef nonnull align 8 dereferenceable(200) %call1)
           to label %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -2026,7 +2026,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool2.not.i, label %if.then5.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.end.i
-  %call4.i3 = invoke i32 @uhash_geti_75(ptr noundef nonnull %2, ptr noundef nonnull %name)
+  %call4.i3 = invoke i32 @uhash_geti_75(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(64) %name)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %cond.end.i

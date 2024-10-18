@@ -237,7 +237,7 @@ define internal range(i32 12, 23) i32 @dissect_nordic_ble(ptr noundef %0, ptr no
   %.sink29.i = phi i8 [ %36, %.split.i ], [ 0, %.split26.i ]
   %.sink.i = phi i32 [ 1, %.split.i ], [ 2, %.split26.i ]
   %38 = load i32, ptr @hf_nordic_ble_header, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef %.sink.i, i32 noundef -1, i32 noundef 0) #3
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef range(i32 1, 3) %.sink.i, i32 noundef -1, i32 noundef 0) #3
   %40 = load i32, ptr @ett_packet_header, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #3
   %42 = zext i8 %.sink29.i to i32
@@ -266,7 +266,7 @@ define internal range(i32 12, 23) i32 @dissect_nordic_ble(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %44, %47, %50
   %54 = load i32, ptr @hf_nordic_ble_packet_id, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef %.sink.i, i32 noundef 1, i32 noundef 0) #3
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef range(i32 1, 3) %.sink.i, i32 noundef 1, i32 noundef 0) #3
   %56 = add nuw nsw i32 %.sink.i, 1
   %57 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %56, i32 noundef -2147483648) #3
   %58 = zext i16 %57 to i32

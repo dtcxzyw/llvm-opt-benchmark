@@ -568,7 +568,7 @@ entry:
   %variableNames = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %variableNames, align 8
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull %name)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %name)
   ret ptr %call.i
 }
 
@@ -2741,7 +2741,7 @@ entry:
   %srcChar.addr.i = alloca i16, align 2
   %variableNames = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %variableNames, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %name)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %name)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.else13
 
@@ -3140,7 +3140,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store ptr null, ptr %variableNames, align 8
   store i32 0, ptr %status.i, align 4
   %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %call2.i.i10 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i)
+  %call2.i.i10 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.i.noexc unwind label %lpad4
 
 call2.i.i.noexc:                                  ; preds = %invoke.cont3
@@ -4252,7 +4252,7 @@ for.end:                                          ; preds = %invoke.cont346, %if
 invoke.cont351:                                   ; preds = %for.end
   store i32 -1, ptr %p352, align 4
   %87 = load ptr, ptr %variableNames, align 8
-  %call.i197198 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %87, ptr noundef nonnull %p352)
+  %call.i197198 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %87, ptr noundef nonnull align 4 dereferenceable(4) %p352)
           to label %while.cond356 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 while.cond356:                                    ; preds = %invoke.cont351, %invoke.cont367
@@ -4286,7 +4286,7 @@ new.notnull.i:                                    ; preds = %if.end365
           to label %new.cont.i unwind label %lpad.i200
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.end365
-  %call2.i201 = invoke noundef ptr @uhash_put_75(ptr noundef %91, ptr noundef %call.i199, ptr noundef nonnull %call362, ptr noundef nonnull %status)
+  %call2.i201 = invoke noundef ptr @uhash_put_75(ptr noundef %91, ptr noundef %call.i199, ptr noundef nonnull %call362, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont367 unwind label %lpad31.loopexit.split-lp.loopexit
 
 lpad.i200:                                        ; preds = %new.notnull.i
@@ -4297,7 +4297,7 @@ lpad.i200:                                        ; preds = %new.notnull.i
 
 invoke.cont367:                                   ; preds = %new.cont.i
   %93 = load ptr, ptr %variableNames, align 8
-  %call.i204205 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %93, ptr noundef nonnull %p352)
+  %call.i204205 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %93, ptr noundef nonnull align 4 dereferenceable(4) %p352)
           to label %while.cond356 unwind label %lpad31.loopexit.split-lp.loopexit
 
 for.inc373:                                       ; preds = %while.cond356

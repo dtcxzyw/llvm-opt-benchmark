@@ -5852,13 +5852,13 @@ dissect_spdu_payload_signal.exit.thread102:       ; preds = %96
   br label %418
 
 108:                                              ; preds = %96
-  %109 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.076128) #13
+  %109 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128) #13
   %110 = icmp slt i32 %109, %spec.select.i
   br i1 %110, label %dissect_spdu_payload_signal.exit.thread, label %114
 
 dissect_spdu_payload_signal.exit.thread:          ; preds = %108
-  %111 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.076128) #13
-  %112 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_payload_truncated, ptr noundef %0, i32 noundef %.076128, i32 noundef %111) #13
+  %111 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128) #13
+  %112 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_payload_truncated, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %111) #13
   %113 = load ptr, ptr %70, align 8
   call void @col_append_str(ptr noundef %113, i32 noundef 25, ptr noundef nonnull @.str.324) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -5890,7 +5890,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   br label %128
 
 125:                                              ; preds = %121
-  %126 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i) #13
+  %126 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i) #13
   %127 = load ptr, ptr %70, align 8
   call void @col_append_str(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.325) #13
   br label %128
@@ -5907,7 +5907,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   br label %136
 
 133:                                              ; preds = %128
-  %134 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i) #13
+  %134 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i) #13
   %135 = load ptr, ptr %70, align 8
   call void @col_append_str(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.325) #13
   br label %136
@@ -6100,11 +6100,11 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
   %215 = getelementptr inbounds i8, ptr %90, i64 48
   %216 = load double, ptr %215, align 8
   %217 = call double @llvm.fmuladd.f64(double %214, double %192, double %216)
-  %218 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %217) #13
+  %218 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %217) #13
   br label %221
 
 219:                                              ; preds = %.loopexit.i
-  %220 = call ptr @proto_tree_add_uint64(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, i64 noundef %.2.i.i) #13
+  %220 = call ptr @proto_tree_add_uint64(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i64 noundef %.2.i.i) #13
   br label %221
 
 221:                                              ; preds = %219, %212
@@ -6124,7 +6124,7 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
 224:                                              ; preds = %223, %222
   %225 = load i32, ptr @ett_spdu_signal, align 4
   %226 = call ptr @proto_item_add_subtree(ptr noundef %.1262.i, i32 noundef %225) #13
-  %227 = call ptr @proto_tree_add_uint64(ptr noundef %226, i32 noundef %.0273.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, i64 noundef %.2.i.i) #13
+  %227 = call ptr @proto_tree_add_uint64(ptr noundef %226, i32 noundef %.0273.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i64 noundef %.2.i.i) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %227, ptr noundef nonnull @.str.321, i64 noundef %.2.i.i) #13
   br label %304
 
@@ -6165,11 +6165,11 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   %248 = getelementptr inbounds i8, ptr %90, i64 48
   %249 = load double, ptr %248, align 8
   %250 = call double @llvm.fmuladd.f64(double %247, double %239, double %249)
-  %251 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %250) #13
+  %251 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %250) #13
   br label %254
 
 252:                                              ; preds = %ws_sign_ext64.exit.i
-  %253 = call ptr @proto_tree_add_int64(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, i64 noundef %.0.i313.i) #13
+  %253 = call ptr @proto_tree_add_int64(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i64 noundef %.0.i313.i) #13
   br label %254
 
 254:                                              ; preds = %252, %245
@@ -6178,7 +6178,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2.i, ptr noundef nonnull @.str.323, i64 noundef %.0.i313.i) #13
   %255 = load i32, ptr @ett_spdu_signal, align 4
   %256 = call ptr @proto_item_add_subtree(ptr noundef %.2.i, i32 noundef %255) #13
-  %257 = call ptr @proto_tree_add_int64(ptr noundef %256, i32 noundef %.0273.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, i64 noundef %.0.i313.i) #13
+  %257 = call ptr @proto_tree_add_int64(ptr noundef %256, i32 noundef %.0273.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i64 noundef %.0.i313.i) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %257, ptr noundef nonnull @.str.321, i64 noundef %.0.i313.i) #13
   br label %304
 
@@ -6202,11 +6202,11 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
 
 267:                                              ; preds = %263, %261, %258
   %.3.i = phi double [ 0.000000e+00, %258 ], [ %266, %263 ], [ %262, %261 ]
-  %268 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %.3.i) #13
+  %268 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %.3.i) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %268, ptr noundef nonnull @.str.320, i64 noundef %.2.i.i) #13
   %269 = load i32, ptr @ett_spdu_signal, align 4
   %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269) #13
-  %271 = call ptr @proto_tree_add_double(ptr noundef %270, i32 noundef %.0273.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %.3.i) #13
+  %271 = call ptr @proto_tree_add_double(ptr noundef %270, i32 noundef %.0273.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %.3.i) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef nonnull @.str.320, i64 noundef %.2.i.i) #13
   br label %304
 
@@ -6215,7 +6215,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br i1 %.not293.i, label %276, label %273
 
 273:                                              ; preds = %272
-  %274 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_unaligned_data, ptr noundef %0, i32 noundef %.076128, i32 noundef 0) #13
+  %274 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_unaligned_data, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef 0) #13
   %275 = load ptr, ptr %70, align 8
   call void @col_append_str(ptr noundef %275, i32 noundef 25, ptr noundef nonnull @.str.326) #13
   br label %276
@@ -6223,7 +6223,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
 276:                                              ; preds = %273, %272
   %277 = getelementptr inbounds i8, ptr %90, i64 68
   %278 = load i32, ptr %277, align 4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, i32 noundef %278) #13
+  %279 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i32 noundef %278) #13
   br label %proto_item_set_hidden.exit.i
 
 280:                                              ; preds = %dissect_shifted_and_shortened_uint.exit.i
@@ -6231,7 +6231,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br i1 %.not292.i, label %284, label %281
 
 281:                                              ; preds = %280
-  %282 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_unaligned_data, ptr noundef %0, i32 noundef %.076128, i32 noundef 0) #13
+  %282 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_unaligned_data, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef 0) #13
   %283 = load ptr, ptr %70, align 8
   call void @col_append_str(ptr noundef %283, i32 noundef 25, ptr noundef nonnull @.str.326) #13
   br label %284
@@ -6239,7 +6239,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
 284:                                              ; preds = %281, %280
   %285 = getelementptr inbounds i8, ptr %90, i64 68
   %286 = load i32, ptr %285, align 4
-  %287 = call ptr @proto_tree_add_item_ret_length(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef -1, i32 noundef %286, ptr noundef nonnull %6) #13
+  %287 = call ptr @proto_tree_add_item_ret_length(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef -1, i32 noundef %286, ptr noundef nonnull %6) #13
   %288 = load i32, ptr %6, align 4
   %289 = shl i32 %288, 3
   store i32 %289, ptr %6, align 4
@@ -6250,7 +6250,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br i1 %.not290.i, label %294, label %291
 
 291:                                              ; preds = %290
-  %292 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_unaligned_data, ptr noundef %0, i32 noundef %.076128, i32 noundef 0) #13
+  %292 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_spdu_unaligned_data, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef 0) #13
   %293 = load ptr, ptr %70, align 8
   call void @col_append_str(ptr noundef %293, i32 noundef 25, ptr noundef nonnull @.str.326) #13
   br label %294
@@ -6262,7 +6262,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   %297 = load i32, ptr %296, align 4
   %298 = or i32 %297, -2147483648
   %.sink.i = select i1 %.not291.i, i32 %298, i32 %297
-  %299 = call ptr @proto_tree_add_item_ret_length(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, i32 noundef %.sink.i, ptr noundef nonnull %6) #13
+  %299 = call ptr @proto_tree_add_item_ret_length(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i32 noundef %.sink.i, ptr noundef nonnull %6) #13
   %300 = load i32, ptr %6, align 4
   %301 = shl i32 %300, 3
   %302 = load i32, ptr %99, align 4
@@ -6440,7 +6440,7 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   %387 = load ptr, ptr %386, align 8
   %388 = load i32, ptr %387, align 4
   %389 = load double, ptr %.0260321.i, align 8
-  %390 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %388, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %389) #13
+  %390 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %388, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %389) #13
   br label %391
 
 391:                                              ; preds = %385, %383
@@ -6455,7 +6455,7 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   %397 = load i32, ptr %396, align 4
   %398 = getelementptr inbounds i8, ptr %.0260321.i, i64 16
   %399 = load double, ptr %398, align 8
-  %400 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %397, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %399) #13
+  %400 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %397, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %399) #13
   br label %401
 
 401:                                              ; preds = %394, %391
@@ -6474,7 +6474,7 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   %409 = getelementptr inbounds i8, ptr %90, i64 120
   %410 = load ptr, ptr %409, align 8
   %411 = load i32, ptr %410, align 4
-  %412 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %411, ptr noundef %0, i32 noundef %.076128, i32 noundef %spec.select.i, double noundef %406) #13
+  %412 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %411, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %406) #13
   br label %413
 
 413:                                              ; preds = %408, %404, %401, %382, %318

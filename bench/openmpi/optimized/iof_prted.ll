@@ -1268,7 +1268,7 @@ define internal noundef i32 @finalize() #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #11
+  tail call void %28(ptr noundef nonnull %5) #11
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -1615,7 +1615,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %57
 .lr.ph.i121:                                      ; preds = %117, %.lr.ph.i121
   %123 = phi ptr [ %125, %.lr.ph.i121 ], [ %122, %117 ]
   %.07.i122 = phi ptr [ %124, %.lr.ph.i121 ], [ %121, %117 ]
-  tail call void %123(ptr noundef %26) #11
+  tail call void %123(ptr noundef nonnull %26) #11
   %124 = getelementptr inbounds i8, ptr %.07.i122, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not.i123 = icmp eq ptr %125, null
@@ -1807,7 +1807,7 @@ pmix_obj_run_destructors.exit130:                 ; preds = %.lr.ph.i127, %151
 .lr.ph.i133:                                      ; preds = %213, %.lr.ph.i133
   %219 = phi ptr [ %221, %.lr.ph.i133 ], [ %218, %213 ]
   %.07.i134 = phi ptr [ %220, %.lr.ph.i133 ], [ %217, %213 ]
-  tail call void %219(ptr noundef %26) #11
+  tail call void %219(ptr noundef nonnull %26) #11
   %220 = getelementptr inbounds i8, ptr %.07.i134, i64 8
   %221 = load ptr, ptr %220, align 8
   %.not.i135 = icmp eq ptr %221, null

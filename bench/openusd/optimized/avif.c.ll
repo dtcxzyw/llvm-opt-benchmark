@@ -2623,7 +2623,7 @@ define hidden void @avifCodecVersions(ptr nocapture noundef writeonly %0) local_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.64, i64 3, i1 false)
   %1 = getelementptr inbounds i8, ptr %0, i64 3
   store i8 0, ptr %1, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 58, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 10

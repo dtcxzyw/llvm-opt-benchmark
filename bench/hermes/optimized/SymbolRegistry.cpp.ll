@@ -131,7 +131,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
 
 if.end.i.i:                                       ; preds = %if.then20.i.i.i.i, %if.end44
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then20.i.i.i.i ], [ null, %if.end44 ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %registeredSymbols_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef %cond.sink.i.i.i.i), !noalias !4
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %registeredSymbols_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef %cond.sink.i.i.i.i), !noalias !4
   %7 = load i32, ptr %ref.tmp45, align 4, !noalias !4
   store i32 %7, ptr %call.i.i.i, align 4, !noalias !4
   %retval.sroa.0.0.copyload.i.i10.pre = load i64, ptr %retval.0.i.i.i.i.i.i, align 8

@@ -342,7 +342,7 @@ if.then59.i:                                      ; preds = %if.then38.i, %if.th
   br label %return
 
 if.else61.i:                                      ; preds = %land.lhs.true35.i, %if.else33.i, %if.else.i.i, %if.then9.i
-  %call62.i = tail call fastcc ptr @lj_alloc_malloc(ptr noundef %msp, i64 noundef %nsize)
+  %call62.i = tail call fastcc ptr @lj_alloc_malloc(ptr noundef %msp, i64 noundef range(i64 1, 0) %nsize)
   %cmp63.not.i = icmp eq ptr %call62.i, null
   br i1 %cmp63.not.i, label %return, label %if.then64.i
 
@@ -362,7 +362,7 @@ land.rhs.i:                                       ; preds = %if.then64.i
 land.end.i:                                       ; preds = %land.rhs.i, %if.then64.i
   %cond71.neg.i = phi i64 [ -8, %if.then64.i ], [ %.neg.i, %land.rhs.i ]
   %sub72.i = add i64 %cond71.neg.i, %and.i
-  %cond77.i = tail call i64 @llvm.umin.i64(i64 %sub72.i, i64 %nsize)
+  %cond77.i = tail call i64 @llvm.umin.i64(i64 %sub72.i, i64 range(i64 1, 0) %nsize)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call62.i, ptr nonnull align 1 %ptr, i64 %cond77.i, i1 false)
   tail call fastcc void @lj_alloc_free(ptr noundef %msp, ptr noundef nonnull %ptr)
   br label %return

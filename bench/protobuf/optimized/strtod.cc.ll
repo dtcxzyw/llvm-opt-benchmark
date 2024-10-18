@@ -189,7 +189,7 @@ if.then19.i:                                      ; preds = %_ZN6google8protobuf
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then19.i, %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
-  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef %buffer)
+  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef nonnull %buffer)
   br label %_ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit: ; preds = %if.then.i, %if.then4.i, %if.then9.i, %if.end23.i
@@ -199,7 +199,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit: ; preds = %if.the
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -211,7 +211,7 @@ call.i.noexc:                                     ; preds = %_ZN6google8protobuf
 lpad.i:                                           ; preds = %.noexc
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -322,7 +322,7 @@ if.then20.i:                                      ; preds = %_ZN6google8protobuf
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then20.i, %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i
-  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef %buffer)
+  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef nonnull %buffer)
   br label %_ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit: ; preds = %if.then.i, %if.then5.i, %if.then10.i, %if.end24.i
@@ -331,7 +331,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit: ; preds = %if.then
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -343,7 +343,7 @@ call.i.noexc:                                     ; preds = %_ZN6google8protobuf
 lpad.i:                                           ; preds = %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc

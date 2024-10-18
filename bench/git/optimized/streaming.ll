@@ -333,7 +333,7 @@ close_and_exit:                                   ; preds = %for.cond.backedge, 
   %close.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %close.i, align 8
   %call.i22 = call i32 %6(ptr noundef nonnull %call) #11
-  call void @free(ptr noundef %call) #11
+  call void @free(ptr noundef nonnull %call) #11
   br label %return
 
 return:                                           ; preds = %if.then, %if.then2, %close_and_exit

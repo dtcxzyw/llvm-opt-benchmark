@@ -103,7 +103,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit: ; preds = %entry, %init
   %6 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %6, ptr %_M_refcount.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %weak_handler, i8 0, i64 16, i1 false)
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -375,12 +375,12 @@ if.else.i.i.i:                                    ; preds = %invoke.cont.i2
 lpad.i1:                                          ; preds = %if.else.i.i.i, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEEZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_ET_SH_SH_T0_.exit.i.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i5.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #15
+  %call1.i.i.i5.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
   %.pre = load ptr, ptr %_M_refcount.i.i, align 8
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.else.i.i.i, %if.then.i.i3.i
-  %call1.i.i.i4.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #15
+  %call1.i.i.i4.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
   %46 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i4 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i4, label %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEED2Ev.exit, label %if.then.i.i.i5
@@ -746,7 +746,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %invoke.con
   %4 = load ptr, ptr @_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvE5state, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %handler.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt5mutex4lockEv.exit.i.i, label %if.then.i.i.i
 
@@ -903,7 +903,7 @@ _ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningH
 
 if.else.i.i.i.i.i.i.i.i2.i:                       ; preds = %for.body.i.i.i.i
   store ptr %token.i.i.i.i.i.i.i.i, ptr %__arg.i.i.i.i.i.i.i.i.i, align 8, !noalias !18
-  invoke void %20(i32 noundef 4, ptr noundef nonnull %token3.i.i.i.i.i.i.i.i, ptr noundef nonnull %__arg.i.i.i.i.i.i.i.i.i)
+  invoke void %20(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %token3.i.i.i.i.i.i.i.i, ptr noundef nonnull %__arg.i.i.i.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i.i.i2.i
@@ -920,7 +920,7 @@ _ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningH
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i.i
-  invoke void %.pr.i.i.i.i3.i(i32 noundef 3, ptr noundef nonnull %token3.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void %.pr.i.i.i.i3.i(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %token3.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1144,7 +1144,7 @@ for.body24.i.i:                                   ; preds = %for.end.i.i, %for.i
 _ZNKSt8functionIFSt3anyvEEclEv.exit.i.i:          ; preds = %for.body24.i.i
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load ptr, ptr %_M_invoker.i.i.i, align 8, !noalias !20
-  call void %49(ptr nonnull sret(%"class.std::any") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  call void %49(ptr nonnull sret(%"class.std::any") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %47)
   %token.i.i = getelementptr inbounds i8, ptr %__begin316.sroa.0.042.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__arg.i.i.i)
   %50 = load ptr, ptr %ref.tmp.i.i, align 8
@@ -1161,7 +1161,7 @@ _ZNSt3anyaSEOS_.exit.thread.i.i:                  ; preds = %if.then.i24.i.i
   br label %for.inc36.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i24.i.i
-  invoke void %51(i32 noundef 3, ptr noundef nonnull %token.i.i, ptr noundef null)
+  invoke void %51(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %token.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -1189,7 +1189,7 @@ if.then2.i.i.i:                                   ; preds = %if.else.i22.i.i
   br i1 %cmp.i.not.i4.i.i.i, label %_ZNSt3any5resetEv.exit8.i.i.i, label %if.then.i5.i.i.i
 
 if.then.i5.i.i.i:                                 ; preds = %if.then2.i.i.i
-  invoke void %54(i32 noundef 3, ptr noundef nonnull %token.i.i, ptr noundef null)
+  invoke void %54(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %token.i.i, ptr noundef null)
           to label %invoke.cont.i7.i.i.i unwind label %terminate.lpad.i6.i.i.i
 
 invoke.cont.i7.i.i.i:                             ; preds = %if.then.i5.i.i.i
@@ -1207,7 +1207,7 @@ terminate.lpad.i6.i.i.i:                          ; preds = %if.then.i5.i.i.i
 _ZNSt3any5resetEv.exit8.i.i.i:                    ; preds = %invoke.cont.i7.i.i.i, %if.then2.i.i.i
   %57 = phi ptr [ %50, %if.then2.i.i.i ], [ %.pre.i.i.i, %invoke.cont.i7.i.i.i ]
   store ptr %token.i.i, ptr %__arg.i.i.i, align 8
-  invoke void %57(i32 noundef 4, ptr noundef nonnull %ref.tmp.i.i, ptr noundef nonnull %__arg.i.i.i)
+  invoke void %57(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull %__arg.i.i.i)
           to label %_ZNSt3anyaSEOS_.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNSt3any5resetEv.exit8.i.i.i
@@ -1225,7 +1225,7 @@ _ZNSt3anyaSEOS_.exit.i.i:                         ; preds = %_ZNSt3any5resetEv.e
 
 if.then.i.i26.i.i:                                ; preds = %_ZNSt3anyaSEOS_.exit.i.i, %_ZNSt3anyaSEOS_.exit.thread35.i.i
   %60 = phi ptr [ %50, %_ZNSt3anyaSEOS_.exit.thread35.i.i ], [ %.pr.i.i, %_ZNSt3anyaSEOS_.exit.i.i ]
-  invoke void %60(i32 noundef 3, ptr noundef nonnull %ref.tmp.i.i, ptr noundef null)
+  invoke void %60(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef null)
           to label %invoke.cont.i.i28.i.i unwind label %terminate.lpad.i.i27.i.i
 
 invoke.cont.i.i28.i.i:                            ; preds = %if.then.i.i26.i.i
@@ -1338,7 +1338,7 @@ entry:
   br i1 %cmp.i.not.i, label %_ZNSt3any5resetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  invoke void %0(i32 noundef 3, ptr noundef nonnull %this, ptr noundef null)
+  invoke void %0(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1454,7 +1454,7 @@ _ZNSt3anyC2EOS_.exit.thread.i.i:                  ; preds = %if.then.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
   store ptr %agg.tmp.i.i, ptr %__arg.i.i.i, align 8
-  invoke void %10(i32 noundef 4, ptr noundef nonnull %token.i.i, ptr noundef nonnull %__arg.i.i.i)
+  invoke void %10(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %token.i.i, ptr noundef nonnull %__arg.i.i.i)
           to label %_ZNSt3anyC2EOS_.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.else.i.i.i
@@ -1480,7 +1480,7 @@ if.then.i8.i.i:                                   ; preds = %_ZNSt3anyC2EOS_.exi
 if.end.i.i.i:                                     ; preds = %_ZNSt3anyC2EOS_.exit.i.i, %_ZNSt3anyC2EOS_.exit.thread.i.i
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
   %14 = load ptr, ptr %_M_invoker.i.i.i, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %parent_after.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %parent_after.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i)
           to label %invoke.cont12.i.i unwind label %lpad11.loopexit.i.i
 
 invoke.cont12.i.i:                                ; preds = %if.end.i.i.i
@@ -1489,7 +1489,7 @@ invoke.cont12.i.i:                                ; preds = %if.end.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %for.inc.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont12.i.i
-  invoke void %15(i32 noundef 3, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null)
+  invoke void %15(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -1524,7 +1524,7 @@ for.inc.i.i:                                      ; preds = %invoke.cont.i.i.i.i
   br i1 %cmp.i.i.i.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit", label %for.body.i.i, !llvm.loop !23
 
 "_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit": ; preds = %for.inc.i.i, %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #15
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
   call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handlers.i.i) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handlers.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
@@ -1548,7 +1548,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %token.i.i.i.i.i.i, ptr noundef null)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %token.i.i.i.i.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -1666,7 +1666,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNSt3anyD2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %token.i.i.i.i.i, ptr noundef null)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %token.i.i.i.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
@@ -1817,7 +1817,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %invoke.con
   %4 = load ptr, ptr @_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvE5state, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handlers.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 40, i1 false)
   %handlers_while_forking_.i.i = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load ptr, ptr %handlers_while_forking_.i.i, align 8
   store ptr %5, ptr %handlers.i.i, align 8
@@ -1863,7 +1863,7 @@ _ZNSt3anyC2EOS_.exit.thread.i.i:                  ; preds = %if.then.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
   store ptr %agg.tmp.i.i, ptr %__arg.i.i.i, align 8
-  invoke void %10(i32 noundef 4, ptr noundef nonnull %token.i.i, ptr noundef nonnull %__arg.i.i.i)
+  invoke void %10(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %token.i.i, ptr noundef nonnull %__arg.i.i.i)
           to label %_ZNSt3anyC2EOS_.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.else.i.i.i
@@ -1889,7 +1889,7 @@ if.then.i8.i.i:                                   ; preds = %_ZNSt3anyC2EOS_.exi
 if.end.i.i.i:                                     ; preds = %_ZNSt3anyC2EOS_.exit.i.i, %_ZNSt3anyC2EOS_.exit.thread.i.i
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %8, i64 88
   %14 = load ptr, ptr %_M_invoker.i.i.i, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %child_after.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %child_after.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i)
           to label %invoke.cont11.i.i unwind label %lpad10.loopexit.i.i
 
 invoke.cont11.i.i:                                ; preds = %if.end.i.i.i
@@ -1898,7 +1898,7 @@ invoke.cont11.i.i:                                ; preds = %if.end.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %for.inc.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont11.i.i
-  invoke void %15(i32 noundef 3, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null)
+  invoke void %15(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -2041,7 +2041,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !26
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !26
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(36) %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !26
 
 invoke.cont1.i:                                   ; preds = %entry

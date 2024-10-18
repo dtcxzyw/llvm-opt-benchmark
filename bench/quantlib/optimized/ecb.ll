@@ -2968,7 +2968,7 @@ if.then6.i.i.i.i.i.i:                             ; preds = %_ZNK8QuantLib12_GLO
   %yy.0.sink.i.ph.i.i.i.i.i.i = phi ptr [ %y.0.lcssa13.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %y.0.lcssa14.i.i.i.i.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_18is_ilessclEN5boost17basic_string_viewIcSt11char_traitsIcEEES6_.exit38.i.i.i.i.i.i.i ]
   %add.ptr.i40.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %yy.0.sink.i.ph.i.i.i.i.i.i, i64 24
   %call5.i.i.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %x, i64 16, i1 false), !tbaa.struct !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call5.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %x, i64 16, i1 false), !tbaa.struct !63
   %right.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i, i64 16
   store i32 %1, ptr %right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i.i, i64 24
@@ -4030,7 +4030,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt12out_of_rangeED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #28
   ret void
 }
 
@@ -4107,7 +4107,7 @@ _ZN5boost10wrapexceptISt12out_of_rangeED0Ev.exit: ; preds = %entry, %call.i.noex
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #28
   ret void
 }
 

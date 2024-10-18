@@ -87,7 +87,7 @@ define hidden void @_ZN16SATBMarkQueueSetD2Ev(ptr noundef nonnull align 8 derefe
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   store volatile i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %3) #10, !srcloc !6
+  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #10, !srcloc !6
   %.not6.i = icmp eq ptr %4, null
   br i1 %.not6.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i
 
@@ -96,7 +96,7 @@ define hidden void @_ZN16SATBMarkQueueSetD2Ev(ptr noundef nonnull align 8 derefe
   %5 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   store volatile ptr null, ptr %5, align 8
-  tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.07.i) #10
+  tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull %.07.i) #10
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -110,7 +110,7 @@ define hidden void @_ZN16SATBMarkQueueSet25abandon_completed_buffersEv(ptr nound
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   store volatile i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %3) #10, !srcloc !6
+  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #10, !srcloc !6
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -217,14 +217,14 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %9, %2
   br i1 %.not.i.i.not.not.not.not, label %.thread.i.i, label %15
 
 15:                                               ; preds = %.backedge.i.i
-  %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull %13) #10, !srcloc !10
+  %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull align 8 dereferenceable(8) %13) #10, !srcloc !10
   %.not14.i.i = icmp eq ptr %16, null
   br i1 %.not14.i.i, label %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread, label %.backedge.i.i.backedge
 
 .thread.i.i:                                      ; preds = %.backedge.i.i
   %17 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
   %18 = load volatile ptr, ptr %17, align 8
-  %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18, ptr nonnull %.011.i.i, ptr nonnull %13) #10, !srcloc !10
+  %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18, ptr nonnull %.011.i.i, ptr nonnull align 8 dereferenceable(8) %13) #10, !srcloc !10
   %.not1417.i.i = icmp eq ptr %19, %.011.i.i
   br i1 %.not1417.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread.i, label %.backedge.i.i.backedge
 
@@ -302,14 +302,14 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %1, %8
   br i1 %.not.i, label %14, label %.thread.i
 
 14:                                               ; preds = %.backedge.i
-  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull %12) #10, !srcloc !10
+  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull align 8 dereferenceable(8) %12) #10, !srcloc !10
   %.not14.i = icmp eq ptr %15, null
   br i1 %.not14.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit, label %.backedge.i.backedge
 
 .thread.i:                                        ; preds = %.backedge.i
   %16 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %17 = load volatile ptr, ptr %16, align 8
-  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17, ptr nonnull %.011.i, ptr nonnull %12) #10, !srcloc !10
+  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17, ptr nonnull %.011.i, ptr nonnull align 8 dereferenceable(8) %12) #10, !srcloc !10
   %.not1417.i = icmp eq ptr %18, %.011.i
   br i1 %.not1417.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread, label %.backedge.i.backedge
 
@@ -371,7 +371,7 @@ define hidden void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueue
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN11PtrQueueSet18install_new_bufferER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #10
+  tail call void @_ZN11PtrQueueSet18install_new_bufferER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #10
   br label %_ZN16SATBMarkQueueSet17handle_zero_indexER13SATBMarkQueue.exit
 
 10:                                               ; preds = %5
@@ -387,7 +387,7 @@ define hidden void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueue
   br i1 %18, label %19, label %_ZN16SATBMarkQueueSet17handle_zero_indexER13SATBMarkQueue.exit
 
 19:                                               ; preds = %10
-  %20 = tail call noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #10
+  %20 = tail call noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #10
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %20) #10
@@ -480,7 +480,7 @@ _ZL15increment_countPVmm.exit:                    ; preds = %7
 15:                                               ; preds = %15, %_ZL15increment_countPVmm.exit
   %.0.i.i = phi ptr [ %13, %_ZL15increment_countPVmm.exit ], [ %16, %15 ]
   store volatile ptr %.0.i.i, ptr %14, align 8
-  %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr %.0.i.i, ptr nonnull %12) #10, !srcloc !10
+  %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %1, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %12) #10, !srcloc !10
   %.not.i.i = icmp eq ptr %.0.i.i, %16
   br i1 %.not.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE4pushES1_.exit, label %15, !llvm.loop !15
 
@@ -494,7 +494,7 @@ define hidden void @_ZN16SATBMarkQueueSet23abandon_partial_markingEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store volatile i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
-  %5 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %4) #10, !srcloc !6
+  %5 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %4) #10, !srcloc !6
   %.not6.i = icmp eq ptr %5, null
   br i1 %.not6.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i
 
@@ -503,7 +503,7 @@ define hidden void @_ZN16SATBMarkQueueSet23abandon_partial_markingEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %7 = load volatile ptr, ptr %6, align 8
   store volatile ptr null, ptr %6, align 8
-  tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.07.i) #10
+  tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull %.07.i) #10
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i, !llvm.loop !7
 

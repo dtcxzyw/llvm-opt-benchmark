@@ -409,7 +409,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br i1 %193, label %194, label %199
 
 194:                                              ; preds = %190
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %191)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %191)
           to label %._crit_edge.i.i unwind label %195, !noalias !53
 
 ._crit_edge.i.i:                                  ; preds = %194
@@ -457,7 +457,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br i1 %210, label %211, label %216
 
 211:                                              ; preds = %207
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %208)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %208)
           to label %._crit_edge.i35.i unwind label %212, !noalias !64
 
 ._crit_edge.i35.i:                                ; preds = %211
@@ -506,7 +506,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br i1 %228, label %229, label %234
 
 229:                                              ; preds = %225
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %226)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %226)
           to label %._crit_edge.i42.i unwind label %230, !noalias !75
 
 ._crit_edge.i42.i:                                ; preds = %229
@@ -557,7 +557,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br i1 %245, label %246, label %251
 
 246:                                              ; preds = %242
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %243)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %243)
           to label %._crit_edge.i50.i unwind label %247, !noalias !90
 
 ._crit_edge.i50.i:                                ; preds = %246
@@ -636,7 +636,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %262
   br i1 %267, label %268, label %273
 
 268:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %265)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %265)
           to label %._crit_edge.i57.i unwind label %269, !noalias !108
 
 ._crit_edge.i57.i:                                ; preds = %268
@@ -674,7 +674,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %262
   br i1 %281, label %282, label %287
 
 282:                                              ; preds = %278
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %279)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %279)
           to label %._crit_edge.i63.i unwind label %283, !noalias !115
 
 ._crit_edge.i63.i:                                ; preds = %282
@@ -730,7 +730,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit74.i: ; preds = %287
   br i1 %296, label %297, label %302
 
 297:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit74.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %294)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcf1a1de76774c2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %294)
           to label %._crit_edge.i75.i unwind label %298, !noalias !133
 
 ._crit_edge.i75.i:                                ; preds = %297

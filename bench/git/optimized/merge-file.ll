@@ -467,7 +467,7 @@ if.then235:                                       ; preds = %if.then231
 
 if.then239:                                       ; preds = %if.then235
   %25 = load ptr, ptr %result, align 8
-  %call.i42 = call i32 @write_object_file_flags(ptr noundef %25, i64 noundef %24, i32 noundef 3, ptr noundef nonnull %oid236, i32 noundef 0) #11
+  %call.i42 = call i32 @write_object_file_flags(ptr noundef %25, i64 noundef range(i64 1, 0) %24, i32 noundef 3, ptr noundef nonnull %oid236, i32 noundef 0) #11
   %cmp243 = icmp slt i32 %call.i42, 0
   br i1 %cmp243, label %if.then244, label %if.then254
 

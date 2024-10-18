@@ -70,7 +70,7 @@ define hidden void @_ZN20JvmtiDeferredUpdatesD2Ev(ptr noundef nonnull align 8 de
 
 19:                                               ; preds = %._crit_edge
   store i32 0, ptr %2, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit
 
 _ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit: ; preds = %._crit_edge, %19
@@ -135,7 +135,7 @@ define hidden noundef i32 @_ZN20JvmtiDeferredUpdates37get_and_reset_relock_count
 
 12:                                               ; preds = %._crit_edge.i
   store i32 0, ptr %6, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %_ZN20JvmtiDeferredUpdatesD2Ev.exit
 
 _ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %12
@@ -254,7 +254,7 @@ _ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit: ; pre
 
 51:                                               ; preds = %._crit_edge.i
   store i32 0, ptr %6, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %_ZN20JvmtiDeferredUpdatesD2Ev.exit
 
 _ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %51

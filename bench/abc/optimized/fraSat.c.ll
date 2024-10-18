@@ -559,7 +559,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 31:                                               ; preds = %23, %25
   %32 = phi i32 [ %30, %25 ], [ 0, %23 ]
-  %33 = call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %24, i32 %32)
+  %33 = call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 range(i32 0, 16777216) %24, i32 range(i32 0, 16777216) %32)
   %34 = uitofp nneg i32 %33 to double
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24

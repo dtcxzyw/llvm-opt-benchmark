@@ -560,7 +560,7 @@ set_var_from_str.exit:                            ; preds = %.else, %.cont.us, %
   %185 = getelementptr inbounds i8, ptr %4, i64 24
   %186 = load ptr, ptr %185, align 8
   tail call void @free(ptr noundef %186) #14
-  tail call void @free(ptr noundef %4) #14
+  tail call void @free(ptr noundef nonnull %4) #14
   br label %187
 
 187:                                              ; preds = %set_var_from_str.exit, %2, %184

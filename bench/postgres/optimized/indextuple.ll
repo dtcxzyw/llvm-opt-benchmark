@@ -330,7 +330,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %48 = sext i16 %34 to i32
   %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %49)
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %48) #8
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %48) #8
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
@@ -748,7 +748,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %249 = sext i16 %235 to i32
   %250 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %250)
-  %251 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %249) #8
+  %251 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %249) #8
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
@@ -979,7 +979,7 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   %100 = sext i16 %87 to i32
   %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %101)
-  %102 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %100) #8
+  %102 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %100) #8
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 

@@ -920,7 +920,7 @@ if.then.i.i.i9.i:                                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN8QuantLib23MultiStepCoinitialSwapsD2Ev.exit
 
 _ZN8QuantLib23MultiStepCoinitialSwapsD2Ev.exit:   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit7.i, %if.then.i.i.i9.i
-  tail call void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #12
+  tail call void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 256) #11
   ret void
 }

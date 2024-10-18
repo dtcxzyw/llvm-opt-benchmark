@@ -2044,7 +2044,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i280: ; preds = %.lr.ph.i.i.i.i2
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit283:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i280, %730
   %731 = getelementptr inbounds i8, ptr %74, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %731) #16
-  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %74) #16
+  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %74) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #16
   br label %816
@@ -2374,7 +2374,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit291:                 ; preds = %_ZNSt6vectorIdSaIdE
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %75) #16
   %814 = getelementptr inbounds i8, ptr %74, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %814) #16
-  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %74) #16
+  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %74) #16
   br label %815
 
 815:                                              ; preds = %734, %_ZNSt6vectorIdSaIdEED2Ev.exit291, %732

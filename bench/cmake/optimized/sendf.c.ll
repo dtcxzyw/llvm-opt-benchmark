@@ -608,7 +608,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   %.pre-phi.i = phi i64 [ %.pre-phi152, %.thread.i ], [ %indvars.iv.i, %31 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 3216
   %45 = getelementptr inbounds [3 x %struct.tempbuf], ptr %44, i64 0, i64 %.pre-phi.i
-  %46 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %45, ptr noundef %3, i64 noundef %4) #9
+  %46 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %45, ptr noundef %3, i64 noundef range(i64 1, 0) %4) #9
   %.not32.i = icmp eq i32 %46, 0
   br i1 %.not32.i, label %47, label %pausewrite.exit
 
@@ -753,7 +753,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   %.pre-phi.i111 = phi i64 [ %.pre-phi150, %.thread.i110 ], [ %indvars.iv.i106, %99 ]
   %110 = getelementptr inbounds i8, ptr %0, i64 3216
   %111 = getelementptr inbounds [3 x %struct.tempbuf], ptr %110, i64 0, i64 %.pre-phi.i111
-  %112 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %111, ptr noundef %.074138, i64 noundef %.075137) #9
+  %112 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %111, ptr noundef %.074138, i64 noundef range(i64 1, 0) %.075137) #9
   %.not32.i112 = icmp eq i32 %112, 0
   br i1 %.not32.i112, label %113, label %pausewrite.exit
 
@@ -881,7 +881,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   %.pre-phi.i124 = phi i64 [ %.pre-phi, %.thread.i123 ], [ %indvars.iv.i119, %159 ]
   %170 = getelementptr inbounds i8, ptr %0, i64 3216
   %171 = getelementptr inbounds [3 x %struct.tempbuf], ptr %170, i64 0, i64 %.pre-phi.i124
-  %172 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %171, ptr noundef %3, i64 noundef %4) #9
+  %172 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %171, ptr noundef %3, i64 noundef range(i64 1, 0) %4) #9
   %.not32.i125 = icmp eq i32 %172, 0
   br i1 %.not32.i125, label %173, label %pausewrite.exit
 

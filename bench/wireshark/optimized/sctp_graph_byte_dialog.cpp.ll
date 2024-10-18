@@ -1297,7 +1297,7 @@ define void @_ZN19SCTPGraphByteDialogD0Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZThn16_N19SCTPGraphByteDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19SCTPGraphByteDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   ret void
 }
 

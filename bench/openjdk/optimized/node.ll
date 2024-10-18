@@ -3072,12 +3072,12 @@ _ZN7Compile19add_parse_predicateEP18ParsePredicateNode.exit: ; preds = %146, %15
   %236 = getelementptr inbounds i8, ptr %235, i64 144
   %237 = load ptr, ptr %236, align 8
   %238 = tail call noundef ptr %237(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i) #15
-  tail call void @_ZN8JVMState12set_map_deepEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(64) %238, ptr noundef nonnull %.0.i.i) #15
+  tail call void @_ZN8JVMState12set_map_deepEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(64) %238, ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i) #15
   br label %_ZN13SafePointNode10clone_jvmsEP7Compile.exit
 
 239:                                              ; preds = %223
   %240 = tail call noundef ptr @_ZNK8JVMState13clone_shallowEP7Compile(ptr noundef nonnull align 8 dereferenceable(64) %231, ptr noundef nonnull %7) #15
-  tail call void @_ZN8JVMState8bind_mapEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(64) %240, ptr noundef nonnull %.0.i.i) #15
+  tail call void @_ZN8JVMState8bind_mapEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(64) %240, ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i) #15
   br label %_ZN13SafePointNode10clone_jvmsEP7Compile.exit
 
 _ZN13SafePointNode10clone_jvmsEP7Compile.exit:    ; preds = %218, %232, %239
@@ -6352,7 +6352,7 @@ define hidden noundef ptr @_ZN4Node18find_exact_controlEPS_(ptr noundef nonnull 
   br i1 %13, label %_ZNK10RegionNode7is_copyEv.exit, label %.thread26
 
 _ZNK10RegionNode7is_copyEv.exit:                  ; preds = %9
-  %14 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #15
+  %14 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(60) %0) #15
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.thread26, label %_ZNK10RegionNode7is_copyEv.exit.thread19
 
@@ -6485,7 +6485,7 @@ define hidden noundef zeroext i1 @_ZN4Node9dominatesEPS_R9Node_List(ptr noundef 
   br i1 %42, label %_ZNK10RegionNode7is_copyEv.exit.i, label %_ZN4Node18find_exact_controlEPS_.exit
 
 _ZNK10RegionNode7is_copyEv.exit.i:                ; preds = %40
-  %43 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.064100) #15
+  %43 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(60) %.064100) #15
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_ZN4Node18find_exact_controlEPS_.exit, label %_ZNK10RegionNode7is_copyEv.exit.thread19.i
 
@@ -7599,7 +7599,7 @@ _ZL14kill_dead_codeP4NodeP12PhaseIterGVN.exit:    ; preds = %13, %439, %441
   br i1 %451, label %_ZNK10RegionNode7is_copyEv.exit, label %_ZNK10RegionNode7is_copyEv.exit.thread
 
 _ZNK10RegionNode7is_copyEv.exit:                  ; preds = %447
-  %452 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %7) #15
+  %452 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(60) %7) #15
   %.not10 = icmp eq ptr %452, null
   br i1 %.not10, label %_ZNK10RegionNode7is_copyEv.exit.thread, label %453
 

@@ -2197,7 +2197,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i.i.i:    ; preds = %8, %_ZSt8_DestroyIP
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv2ml11ANN_MLPImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i.i.i, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %12) #19
   ret void
 }
 
@@ -2502,7 +2502,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i:        ; preds = %8, %_ZSt8_DestroyIP
   br label %_ZN2cv2ml11ANN_MLPImplD2Ev.exit
 
 _ZN2cv2ml11ANN_MLPImplD2Ev.exit:                  ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i, %11
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -7776,7 +7776,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit209.thread: ; preds = %_ZNSt6vectorIN2cv3
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %143) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %142) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %17) #19
   br label %.body
 
 166:                                              ; preds = %162
@@ -7980,7 +7980,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit209.thread: ; preds = %_ZNSt6vectorIN2cv3
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv2ml11ANN_MLPImpl9RPropLoopE, i64 16), ptr %17, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %143) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %142) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %17) #19
   br i1 %267, label %._crit_edge320, label %268
 
 268:                                              ; preds = %._crit_edge315
@@ -7993,7 +7993,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit209.thread: ; preds = %_ZNSt6vectorIN2cv3
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv2ml11ANN_MLPImpl9RPropLoopE, i64 16), ptr %17, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %143) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %142) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %17) #19
   br label %.body
 
 ._crit_edge320:                                   ; preds = %268, %._crit_edge315, %132
@@ -9485,7 +9485,7 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl9RPropLoopD0Ev(ptr nounde
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -10177,7 +10177,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit213:            ; preds = %127, %125, %123, %1
 364:                                              ; preds = %363
   %365 = load ptr, ptr %38, align 8
   %366 = getelementptr inbounds i8, ptr %365, i64 248
-  %367 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %366) #19
+  %367 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %366) #19
   %.not.i.i215 = icmp eq i32 %367, 0
   br i1 %.not.i.i215, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %368
 
@@ -10365,7 +10365,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %364
 
 ._crit_edge467:                                   ; preds = %._crit_edge463.us, %396
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #19
-  %427 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %366) #19
+  %427 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %366) #19
   %428 = and i64 %indvars.iv.next593, 1
   %429 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 %428
   %430 = load ptr, ptr %429, align 8
@@ -10421,7 +10421,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %364
 
 442:                                              ; preds = %.loopexit, %.loopexit.split-lp, %441
   %.pn172.pn = phi { ptr, i32 } [ %.pn172, %441 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %443 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %366) #19
+  %443 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %366) #19
   br label %456
 
 444:                                              ; preds = %432, %451
@@ -10486,7 +10486,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %364
   %.0160.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %.1161.lcssa, %._crit_edge472 ]
   %462 = load ptr, ptr %38, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 248
-  %464 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %463) #19
+  %464 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %463) #19
   %.not.i.i226 = icmp eq i32 %464, 0
   br i1 %.not.i.i226, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit228, label %465
 
@@ -10503,7 +10503,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit228: ; preds = %._crit_edge477
   %468 = load double, ptr %467, align 8
   %469 = fadd double %.0160.lcssa, %468
   store double %469, ptr %467, align 8
-  %470 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %463) #19
+  %470 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %463) #19
   %.not.i.i.i = icmp eq ptr %.sroa.0269.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %471
 

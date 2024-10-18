@@ -950,7 +950,7 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i32: ; preds = %_ZNSt1
 
 _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit33: ; preds = %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit30, %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i32
   store ptr null, ptr %57, align 8
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   ret void
 }
 
@@ -1692,7 +1692,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br i1 %.not.i.i, label %39, label %37
 
 37:                                               ; preds = %35
-  tail call void @_ZN5clang4ento22CheckerProgramPointTagC1EPKNS0_11CheckerBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) @_ZZNK12_GLOBAL__N_121CallAndMessageChecker17HandleNilReceiverERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERKNS2_14ObjCMethodCallEE3Tag, ptr noundef nonnull %0, ptr nonnull @.str.6, i64 11) #20
+  tail call void @_ZN5clang4ento22CheckerProgramPointTagC1EPKNS0_11CheckerBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) @_ZZNK12_GLOBAL__N_121CallAndMessageChecker17HandleNilReceiverERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERKNS2_14ObjCMethodCallEE3Tag, ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nonnull @.str.6, i64 11) #20
   %38 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5clang4ento22CheckerProgramPointTagD2Ev, ptr nonnull @_ZZNK12_GLOBAL__N_121CallAndMessageChecker17HandleNilReceiverERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERKNS2_14ObjCMethodCallEE3Tag, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK12_GLOBAL__N_121CallAndMessageChecker17HandleNilReceiverERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERKNS2_14ObjCMethodCallEE3Tag) #20
   br label %39
@@ -1991,7 +1991,7 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit.
   %170 = call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(72) %1) #20
   %171 = call i64 @_ZNK5clang4ento9CallEvent13getResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #20
   %172 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %172, i64 noundef 200) #20
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef nonnull %172, i64 noundef 200) #20
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2003,7 +2003,7 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit.
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
   %177 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %11, ptr %177, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
   %178 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -2257,8 +2257,8 @@ _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i: ; preds =
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #20
-  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #20
+  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(224) %11) #20
   %330 = load ptr, ptr %11, align 8
   %331 = icmp eq ptr %330, %172
   br i1 %331, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker18emitNilReceiverBugERN5clang4ento14CheckerContextERKNS2_14ObjCMethodCallEPNS2_12ExplodedNodeE.exit.i.i, label %332
@@ -2423,7 +2423,7 @@ define linkonce_odr hidden void @_ZN5clang4ento22CheckerProgramPointTagD2Ev(ptr 
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang21SimpleProgramPointTagE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
   ret void
 }
 
@@ -2667,10 +2667,10 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit.
 
 _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S9_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOS_ISB_SC_E.exit.i.i.i: ; preds = %105
   store ptr %57, ptr %51, align 8, !alias.scope !26, !noalias !23
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %57) #20, !noalias !29
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %57) #20, !noalias !29
   %107 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %57, ptr %107, align 8, !alias.scope !26, !noalias !23
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %57) #20, !noalias !29
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %57) #20, !noalias !29
   br label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i.i
 
 108:                                              ; preds = %105
@@ -2678,7 +2678,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 104
   %111 = load ptr, ptr %110, align 8, !noalias !29
   store ptr %57, ptr %47, align 8, !noalias !29
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %57) #20, !noalias !29
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %57) #20, !noalias !29
   call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.790") align 8 %51, ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull %47, ptr %.fca.0.extract7.i.i, i8 %.fca.1.extract8.i.i) #20
   %112 = load ptr, ptr %47, align 8, !noalias !29
   %.not.i.i.i.i.i = icmp eq ptr %112, null
@@ -2902,7 +2902,7 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i: ; preds = %
 _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i, %171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !30
   %187 = getelementptr inbounds i8, ptr %45, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull %187, i64 noundef 512) #20, !noalias !30
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(536) %45, ptr noundef nonnull %187, i64 noundef 512) #20, !noalias !30
   %188 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 2, ptr %188, align 8, !noalias !30
   %189 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -2914,7 +2914,7 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %46, align 8, !noalias !30
   %192 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store ptr %45, ptr %192, align 8, !noalias !30
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !30
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !30
   %193 = load ptr, ptr %1, align 8, !noalias !30
   %194 = getelementptr inbounds i8, ptr %193, i64 32
   %195 = load ptr, ptr %194, align 8, !noalias !30
@@ -3142,8 +3142,8 @@ _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i: ; preds = %
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit34.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40), !noalias !30
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #20, !noalias !30
-  %322 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #20, !noalias !30
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %46) #20, !noalias !30
+  %322 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(536) %45) #20, !noalias !30
   %323 = load ptr, ptr %45, align 8, !noalias !30
   %324 = icmp eq ptr %323, %187
   br i1 %324, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit43.i, label %325
@@ -3270,10 +3270,10 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit.
   br i1 %369, label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S9_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOS_ISB_SC_E.exit.i.i58.i, label %371
 
 _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S9_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOS_ISB_SC_E.exit.i.i58.i: ; preds = %368
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0160.0.i) #20, !noalias !42
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0160.0.i) #20, !noalias !42
   %370 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.sroa.0160.0.i, ptr %370, align 8, !alias.scope !39, !noalias !36
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0160.0.i) #20, !noalias !42
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0160.0.i) #20, !noalias !42
   br label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i50.i
 
 371:                                              ; preds = %368
@@ -3282,7 +3282,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 104
   %375 = load ptr, ptr %374, align 8, !noalias !42
   store ptr %.sroa.0160.0.i, ptr %34, align 8, !noalias !42
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0160.0.i) #20, !noalias !42
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0160.0.i) #20, !noalias !42
   call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.790") align 8 %37, ptr noundef nonnull align 8 dereferenceable(56) %375, ptr noundef nonnull %34, ptr %.fca.0.extract7.i47.i, i8 %.fca.1.extract8.i48.i) #20
   %376 = load ptr, ptr %34, align 8, !noalias !42
   %.not.i.i.i.i49.i = icmp eq ptr %376, null
@@ -3752,14 +3752,14 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14Che
   br label %750
 
 576:                                              ; preds = %561
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull %522, i64 noundef 200) #20, !noalias !49
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(224) %19, ptr noundef nonnull %522, i64 noundef 200) #20, !noalias !49
   store i32 2, ptr %523, align 8, !noalias !49
   store i8 0, ptr %524, align 8, !noalias !49
   store i32 1, ptr %525, align 4, !noalias !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %526, i8 0, i64 24, i1 false), !noalias !49
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %20, align 8, !noalias !49
   store ptr %19, ptr %527, align 8, !noalias !49
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !49
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !49
   %577 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 48
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %577, align 8, !noalias !49
   %578 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
@@ -4117,8 +4117,8 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
 
 745:                                              ; preds = %.sink.split.i.i.i.i, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i, %_ZNK5clang8QualType16isConstQualifiedEv.exit.i.i.i.i, %624
   %.1.i.i.i.i = phi i1 [ false, %624 ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit.i.i.i.i ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i ], [ %695, %.sink.split.i.i.i.i ]
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #20, !noalias !49
-  %746 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #20, !noalias !49
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #20, !noalias !49
+  %746 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(224) %19) #20, !noalias !49
   %747 = load ptr, ptr %19, align 8, !noalias !49
   %748 = icmp eq ptr %747, %522
   br i1 %748, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.i.i.i, label %749
@@ -4224,7 +4224,7 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i: ; preds =
 _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i, %767
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !49
   %779 = getelementptr inbounds i8, ptr %22, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull %779, i64 noundef 200) #20, !noalias !49
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(224) %22, ptr noundef nonnull %779, i64 noundef 200) #20, !noalias !49
   %780 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 2, ptr %780, align 8, !noalias !49
   %781 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -4236,7 +4236,7 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %23, align 8, !noalias !49
   %784 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %22, ptr %784, align 8, !noalias !49
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !49
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !49
   %785 = load ptr, ptr %1, align 8, !noalias !49
   %786 = getelementptr inbounds i8, ptr %785, i64 32
   %787 = load ptr, ptr %786, align 8, !noalias !49
@@ -4257,7 +4257,7 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
 791:                                              ; preds = %789
   %792 = add nsw i32 %.03168.i.i, 1
   %793 = sext i32 %792 to i64
-  %794 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %793) #20, !noalias !49
+  %794 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %793) #20, !noalias !49
   %795 = urem i32 %792, 100
   %.off.i.i72.i.i.i = add nsw i32 %795, -11
   %switch.i.i73.i.i.i = icmp ult i32 %.off.i.i72.i.i.i, 3
@@ -4336,7 +4336,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i76.i.i.i: ; preds = %810, %808
   br i1 %835, label %836, label %838
 
 836:                                              ; preds = %827
-  %837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull @.str.45, i64 noundef 54) #20, !noalias !49
+  %837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull @.str.45, i64 noundef 54) #20, !noalias !49
   br label %_ZL35describeUninitializedArgumentInCallRKN5clang4ento9CallEventEiRN4llvm19raw_svector_ostreamE.exit.i.i.i
 
 838:                                              ; preds = %827
@@ -4372,7 +4372,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i76.i.i.i: ; preds = %810, %808
   br i1 %858, label %859, label %861
 
 859:                                              ; preds = %857
-  %860 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull @.str.46, i64 noundef 55) #20, !noalias !49
+  %860 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull @.str.46, i64 noundef 55) #20, !noalias !49
   br label %_ZL35describeUninitializedArgumentInCallRKN5clang4ento9CallEventEiRN4llvm19raw_svector_ostreamE.exit.i.i.i
 
 861:                                              ; preds = %857
@@ -4387,7 +4387,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i76.i.i.i: ; preds = %810, %808
   br i1 %865, label %866, label %868
 
 866:                                              ; preds = %864
-  %867 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull @.str.47, i64 noundef 41) #20, !noalias !49
+  %867 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull @.str.47, i64 noundef 41) #20, !noalias !49
   br label %_ZL35describeUninitializedArgumentInCallRKN5clang4ento9CallEventEiRN4llvm19raw_svector_ostreamE.exit.i.i.i
 
 868:                                              ; preds = %864
@@ -4403,7 +4403,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i76.i.i.i: ; preds = %810, %808
 872:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
   %873 = add nsw i32 %.03168.i.i, 1
   %874 = sext i32 %873 to i64
-  %875 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %874) #20, !noalias !49
+  %875 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %874) #20, !noalias !49
   %876 = urem i32 %873, 100
   %.off.i32.i.i.i.i = add nsw i32 %876, -11
   %switch.i33.i.i.i.i = icmp ult i32 %.off.i32.i.i.i.i, 3
@@ -4473,7 +4473,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit40.i.i.i.i: ; preds = %891, %889
 908:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
   %909 = add nsw i32 %.03168.i.i, 1
   %910 = sext i32 %909 to i64
-  %911 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %910) #20, !noalias !49
+  %911 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %910) #20, !noalias !49
   %912 = urem i32 %909, 100
   %.off.i44.i.i.i.i = add nsw i32 %912, -11
   %switch.i45.i.i.i.i = icmp ult i32 %.off.i44.i.i.i.i, 3
@@ -4606,8 +4606,8 @@ _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i: ; preds =
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i, %964
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !49
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #20, !noalias !49
-  %975 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #20, !noalias !49
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %23) #20, !noalias !49
+  %975 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(224) %22) #20, !noalias !49
   %976 = load ptr, ptr %22, align 8, !noalias !49
   %977 = icmp eq ptr %976, %779
   br i1 %977, label %.loopexit.i.i, label %978
@@ -4635,7 +4635,7 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   %992 = getelementptr inbounds nuw i8, ptr %991, i64 232
   %993 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 8
   %994 = load ptr, ptr %993, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %536, i64 noundef 10) #20, !noalias !49
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(120) %24, ptr noundef nonnull %536, i64 noundef 10) #20, !noalias !49
   store ptr %988, ptr %537, align 8, !noalias !49
   store ptr %992, ptr %538, align 8, !noalias !49
   store ptr %994, ptr %539, align 8, !noalias !49
@@ -4726,14 +4726,14 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i: ; preds 
 
 _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i109.i, %1013
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !49
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull %542, i64 noundef 512) #20, !noalias !49
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(536) %26, ptr noundef nonnull %542, i64 noundef 512) #20, !noalias !49
   store i32 2, ptr %543, align 8, !noalias !49
   store i8 0, ptr %544, align 8, !noalias !49
   store i32 1, ptr %545, align 4, !noalias !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %546, i8 0, i64 24, i1 false), !noalias !49
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %27, align 8, !noalias !49
   store ptr %26, ptr %547, align 8, !noalias !49
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !49
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef null, i64 noundef 0, i32 noundef 0) #20, !noalias !49
   %1024 = load ptr, ptr %548, align 8, !noalias !49
   %1025 = load ptr, ptr %549, align 8, !noalias !49
   %1026 = ptrtoint ptr %1024 to i64
@@ -4921,8 +4921,8 @@ _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i91.i.i.i: ; preds
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit98.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i91.i.i.i, %1100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !49
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #20, !noalias !49
-  %1111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #20, !noalias !49
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #20, !noalias !49
+  %1111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(536) %26) #20, !noalias !49
   %1112 = load ptr, ptr %26, align 8, !noalias !49
   %1113 = icmp eq ptr %1112, %542
   br i1 %1113, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83.i.i.i, label %1114
@@ -4932,7 +4932,7 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83.i.i.i: ; preds = %1114, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit98.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit85.i.i.i, %1003, %1001, %981
-  %1115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #20, !noalias !49
+  %1115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(120) %24) #20, !noalias !49
   %1116 = load ptr, ptr %24, align 8, !noalias !49
   %1117 = icmp eq ptr %1116, %536
   br i1 %1117, label %_ZN12_GLOBAL__N_122FindUninitializedFieldD2Ev.exit.i.i.i, label %1118

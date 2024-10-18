@@ -2551,7 +2551,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
   br i1 %.not37.i, label %.thread.i125, label %868
 
 868:                                              ; preds = %865, %862
-  %869 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef %.0128173182) #13
+  %869 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 0, -2147483648) %.0128173182) #13
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %869, ptr noundef nonnull @.str.204) #13
   br label %875
 
@@ -2559,7 +2559,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
   %870 = phi i32 [ 0, %862 ], [ 0, %865 ], [ %861, %856 ]
   %871 = getelementptr inbounds i8, ptr %855, i64 4
   %872 = load i32, ptr %871, align 4
-  %873 = call ptr @fragment_add_check_with_fallback(ptr noundef nonnull @usbll_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, i32 noundef %857, ptr noundef null, i32 noundef %872, i32 noundef %.0128173182, i32 noundef %870, i32 noundef %857) #13
+  %873 = call ptr @fragment_add_check_with_fallback(ptr noundef nonnull @usbll_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, i32 noundef %857, ptr noundef null, i32 noundef %872, i32 noundef range(i32 0, -2147483648) %.0128173182, i32 noundef %870, i32 noundef %857) #13
   %874 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @.str.204, ptr noundef %873, ptr noundef nonnull @usbll_frag_items, ptr noundef null, ptr noundef %11) #13
   br label %875
 

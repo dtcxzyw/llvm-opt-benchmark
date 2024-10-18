@@ -1177,12 +1177,12 @@ _build_tasks_per_node_sock.exit:                  ; preds = %._crit_edge.i, %._c
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %27)
   store i16 0, ptr %26, align 2
   store i16 0, ptr %27, align 2
-  %315 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %66, ptr noundef nonnull %26, ptr noundef nonnull %27) #6
+  %315 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %66, ptr noundef nonnull %26, ptr noundef nonnull %27) #6
   %.not.i179 = icmp eq i32 %315, 0
   br i1 %.not.i179, label %316, label %.sink.split.i
 
 316:                                              ; preds = %310
-  %317 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %66, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
+  %317 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %66, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
   %318 = icmp slt i32 %317, 0
   br i1 %318, label %.sink.split.i, label %.preheader24.i
 
@@ -1501,7 +1501,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   %466 = getelementptr inbounds i8, ptr %465, i64 32
   %467 = load i64, ptr %466, align 8
   store i64 %467, ptr %25, align 8
-  %468 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %70, ptr noundef nonnull %22, ptr noundef nonnull %23) #6
+  %468 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %70, ptr noundef nonnull %22, ptr noundef nonnull %23) #6
   %.not.i200 = icmp eq i32 %468, 0
   br i1 %.not.i200, label %471, label %469
 
@@ -1510,7 +1510,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   br label %_set_shared_node_bits.exit
 
 471:                                              ; preds = %459
-  %472 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %70, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
+  %472 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %70, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
   %473 = icmp slt i32 %472, 0
   br i1 %473, label %474, label %476
 
@@ -1593,7 +1593,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   br i1 %513, label %.preheader.i202, label %._crit_edge.i208, !llvm.loop !26
 
 ._crit_edge.i208:                                 ; preds = %.loopexit.i206, %487
-  call fastcc void @_pick_shared_gres(ptr noundef %25, ptr noundef %490, ptr noundef readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_pick_shared_gres(ptr noundef %25, ptr noundef %490, ptr noundef nonnull readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext true, i1 noundef zeroext false)
   %514 = load i64, ptr %25, align 8
   %.not49.i = icmp eq i64 %514, 0
   %515 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
@@ -1602,7 +1602,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   br i1 %or.cond.i, label %517, label %516
 
 516:                                              ; preds = %._crit_edge.i208
-  call fastcc void @_pick_shared_gres(ptr noundef %25, ptr noundef %490, ptr noundef readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_pick_shared_gres(ptr noundef %25, ptr noundef %490, ptr noundef nonnull readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext false, i1 noundef zeroext false)
   %.pr.i = load i64, ptr %25, align 8
   br label %517
 
@@ -1698,7 +1698,7 @@ _get_task_cnt_node.exit.i:                        ; preds = %_get_task_cnt_node.
   br label %553
 
 553:                                              ; preds = %551, %_get_task_cnt_node.exit.i
-  call fastcc void @_pick_shared_gres(ptr noundef %19, ptr noundef nonnull readonly %531, ptr noundef readonly %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_pick_shared_gres(ptr noundef %19, ptr noundef nonnull readonly %531, ptr noundef nonnull readonly %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext false)
   %554 = load i64, ptr %19, align 8
   %.not34.i = icmp eq i64 %554, 0
   br i1 %.not34.i, label %_set_shared_task_bits.exit, label %555
@@ -1741,7 +1741,7 @@ _get_task_cnt_node.exit.i:                        ; preds = %_get_task_cnt_node.
   %.036.i = phi i32 [ %570, %569 ], [ 0, %565 ]
   %573 = load i64, ptr %564, align 8
   store i64 %573, ptr %21, align 8
-  call fastcc void @_pick_shared_gres(ptr noundef %21, ptr noundef %561, ptr noundef readonly %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext %528)
+  call fastcc void @_pick_shared_gres(ptr noundef %21, ptr noundef %561, ptr noundef nonnull readonly %73, i32 noundef %525, i1 noundef zeroext %533, i1 noundef zeroext true, i1 noundef zeroext %528)
   %574 = load i64, ptr %21, align 8
   %.not35.i = icmp eq i64 %574, 0
   br i1 %.not35.i, label %569, label %575
@@ -1796,7 +1796,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   %590 = load ptr, ptr %395, align 8
   %591 = getelementptr inbounds i8, ptr %590, i64 8
   %592 = load ptr, ptr %591, align 8
-  %593 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %67, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
+  %593 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %67, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
   %.not.i217 = icmp eq i32 %593, 0
   br i1 %.not.i217, label %596, label %594
 
@@ -1805,7 +1805,7 @@ _set_shared_task_bits.exit:                       ; preds = %534, %553, %555, %.
   br label %_set_node_bits.exit
 
 596:                                              ; preds = %585
-  %597 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %67, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
+  %597 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %67, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
   %598 = icmp slt i32 %597, 0
   br i1 %598, label %599, label %601
 
@@ -2571,7 +2571,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   %942 = load ptr, ptr %395, align 8
   %943 = getelementptr inbounds i8, ptr %942, i64 8
   %944 = load ptr, ptr %943, align 8
-  %945 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %68, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
+  %945 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %68, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   %.not.i228 = icmp eq i32 %945, 0
   br i1 %.not.i228, label %948, label %946
 
@@ -2580,7 +2580,7 @@ _set_node_bits.exit:                              ; preds = %594, %599, %.crited
   br label %_set_sock_bits.exit
 
 948:                                              ; preds = %937
-  %949 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %68, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
+  %949 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %68, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
   %950 = icmp slt i32 %949, 0
   br i1 %950, label %951, label %953
 
@@ -3678,7 +3678,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
   %1443 = getelementptr inbounds i8, ptr %1437, i64 112
   %1444 = load i64, ptr %1443, align 8
   %1445 = icmp eq i64 %1442, %1444
-  %1446 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %69, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
+  %1446 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %69, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.not.i264 = icmp eq i32 %1446, 0
   br i1 %.not.i264, label %1449, label %1447
 
@@ -3687,7 +3687,7 @@ _set_task_bits.exit:                              ; preds = %._crit_edge228.thre
   br label %_set_job_bits1.exit
 
 1449:                                             ; preds = %1432
-  %1450 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %69, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
+  %1450 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %69, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
   %1451 = icmp slt i32 %1450, 0
   br i1 %1451, label %1452, label %1454
 
@@ -4389,7 +4389,7 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
   br label %_set_job_bits2.exit
 
 1751:                                             ; preds = %1745
-  %1752 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef %1721, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %1752 = call i32 @get_job_resources_cnt(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %1721, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %.not122.i = icmp eq i32 %1752, 0
   br i1 %.not122.i, label %1755, label %1753
 
@@ -4398,7 +4398,7 @@ _set_job_bits1.exit:                              ; preds = %1447, %1452, %.loop
   br label %_set_job_bits2.exit
 
 1755:                                             ; preds = %1751
-  %1756 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef %1721, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
+  %1756 = call i32 @get_job_resources_offset(ptr noundef nonnull %34, i32 noundef range(i32 -2147483647, -2147483648) %1721, i16 noundef zeroext 0, i16 noundef zeroext 0) #6
   %1757 = icmp slt i32 %1756, 0
   br i1 %1757, label %1758, label %1760
 

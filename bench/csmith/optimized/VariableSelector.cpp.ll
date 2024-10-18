@@ -159,7 +159,7 @@ declare void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN20VariableSelectFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1750,7 +1750,7 @@ _ZNK8Variable12is_aggregateEv.exit.thread.i:      ; preds = %_ZNSt6vectorIP8Vari
   br label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit
 
 _ZN16VariableSelector24expand_struct_union_varsERSt6vectorIP8VariableSaIS2_EEPK4Type.exit: ; preds = %_ZNK8Variable12is_aggregateEv.exit.thread.i, %11, %13, %9
-  %58 = invoke noundef ptr @_Z12get_fact_mgrPK9CGContext(ptr noundef nonnull %2)
+  %58 = invoke noundef ptr @_Z12get_fact_mgrPK9CGContext(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %.noexc62 unwind label %.loopexit.split-lp188.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %_ZN16VariableSelector24expand_struct_union_varsERSt6vectorIP8VariableSaIS2_EEPK4Type.exit
@@ -6012,7 +6012,7 @@ define dso_local noundef ptr @_ZN16VariableSelector6selectEN6Effect6AccessERK9CG
   br i1 %.not, label %10, label %108
 
 10:                                               ; preds = %7
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
   store ptr getelementptr inbounds (i8, ptr @_ZTV20VariableSelectFilter, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %1, ptr %11, align 8
@@ -6161,7 +6161,7 @@ _ZN16ProbabilityTableIj14eVariableScopeE9get_valueEj.exit.i: ; preds = %.lr.ph.i
 
 74:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   resume { ptr, i32 } %lpad.phi
 
 _ZL28VariableSelectionProbability14eVariableScopeP6Filter.exit: ; preds = %10
@@ -6255,7 +6255,7 @@ _ZL28VariableSelectionProbability14eVariableScopeP6Filter.exit.thread: ; preds =
 
 .critedge:                                        ; preds = %.noexc44, %_ZL28VariableSelectionProbability14eVariableScopeP6Filter.exit.thread, %.thread51, %99, %102, %105, %87, %_ZL28VariableSelectionProbability14eVariableScopeP6Filter.exit
   %.1 = phi ptr [ null, %_ZL28VariableSelectionProbability14eVariableScopeP6Filter.exit ], [ null, %87 ], [ %.037.ph, %105 ], [ %.037.ph, %102 ], [ %.037.ph, %99 ], [ null, %.thread51 ], [ null, %_ZL28VariableSelectionProbability14eVariableScopeP6Filter.exit.thread ], [ null, %.noexc44 ]
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   br label %108
 
 108:                                              ; preds = %7, %.critedge

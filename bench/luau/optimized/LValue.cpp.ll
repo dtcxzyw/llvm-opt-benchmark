@@ -1506,7 +1506,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau7VariantIJNS1_6Symbo
           to label %.noexc58 unwind label %106
 
 .noexc58:                                         ; preds = %48
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc59 unwind label %106
 
 .noexc59:                                         ; preds = %.noexc58
@@ -1523,7 +1523,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau7VariantIJNS1_6Symbo
 57:                                               ; preds = %59, %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #18
   br label %108
 
 59:                                               ; preds = %.noexc59
@@ -2130,7 +2130,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
   br i1 %.not.i.i, label %_ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEE4findERSC_.exit.thread, label %18, !llvm.loop !11
 
 28:                                               ; preds = %12
-  %29 = call noundef i64 @_ZNK4Luau12LValueHasherclERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(56) %13)
+  %29 = call noundef i64 @_ZNK4Luau12LValueHasherclERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(56) %13)
   %30 = load i64, ptr %8, align 8
   %31 = urem i64 %29, %30
   %32 = load ptr, ptr %0, align 8
@@ -2205,7 +2205,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
 
 _ZNKSt8functionIFPKN4Luau4TypeES3_S3_EEclES3_S3_.exit: ; preds = %_ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEE4findERSC_.exit.thread22
   %63 = load ptr, ptr %11, align 8
-  %64 = call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %64 = call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %66
@@ -2216,7 +2216,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
 
 66:                                               ; preds = %_ZNKSt8functionIFPKN4Luau4TypeES3_S3_EEclES3_S3_.exit, %_ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEE4findERSC_.exit.thread
   %.sink = phi ptr [ %64, %_ZNKSt8functionIFPKN4Luau4TypeES3_S3_EEclES3_S3_.exit ], [ %65, %_ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEE4findERSC_.exit.thread ]
-  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEESaISB_ENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(56) %13)
+  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEESaISB_ENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %13)
   store ptr %.sink, ptr %67, align 8
   %.sroa.018.0 = load ptr, ptr %.sroa.018.031, align 8
   %.not = icmp eq ptr %.sroa.018.0, null
@@ -2228,7 +2228,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau13addRefinementERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERSC_S7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEESaISB_ENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEESaISB_ENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   store ptr %2, ptr %4, align 8
   ret void
 }
@@ -2487,7 +2487,7 @@ _ZNSt10shared_ptrIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEEC2ERKS5_.exit.i: ; 
 17:                                               ; preds = %_ZNSt10shared_ptrIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEEC2ERKS5_.exit.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZNSt10shared_ptrIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #18
   resume { ptr, i32 } %18
 
 _ZN4Luau5FieldC2ERKS0_.exit:                      ; preds = %_ZNSt10shared_ptrIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEEC2ERKS5_.exit.i

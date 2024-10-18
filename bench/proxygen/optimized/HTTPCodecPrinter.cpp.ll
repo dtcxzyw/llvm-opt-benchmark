@@ -402,7 +402,7 @@ entry:
   %vtable.i = load ptr, ptr %error, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(48) %error) #20
+  %call2.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(96) %error) #20
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef %call2.i)
   %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call3.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -748,7 +748,7 @@ cond.false:                                       ; preds = %entry
           to label %call.i.noexc unwind label %lpad12
 
 call.i.noexc:                                     ; preds = %cond.false
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %debugInfo, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
           to label %.noexc unwind label %lpad12
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -758,7 +758,7 @@ call.i.noexc:                                     ; preds = %cond.false
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %debugInfo) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo) #20
   br label %ehcleanup26
 
 cleanup.action18:                                 ; preds = %invoke.cont
@@ -975,7 +975,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.end.i.i.i.i
 lpad.i.i.i.i:                                     ; preds = %if.end.i.i.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i) #20
+  call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i.i) #20
   resume { ptr, i32 } %8
 
 _ZN5folly2toItN8proxygen10SettingsIdEEENSt9enable_ifIXaaaasr3std7is_enumIT0_EE5valuentsr3std7is_sameIS4_T_EE5valuentsr3std14is_convertibleIS5_NS_5RangeIPKcEEEE5valueES5_E4typeERKS4_.exit: ; preds = %for.body
@@ -1472,7 +1472,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   unreachable
 
 _ZN8proxygen16HTTPCodecPrinterD0Ev.exit:          ; preds = %invoke.cont.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   ret void
 }
 
@@ -1493,7 +1493,7 @@ if.then:                                          ; preds = %entry
   store i8 1, ptr %fields_16, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %data_, i8 0, i64 208, i1 false)
-  tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %data_)
+  tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 8 dereferenceable(202) %data_)
   %port_.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store i16 0, ptr %port_.i.i, align 8
   %external_.i.i = getelementptr inbounds i8, ptr %this, i64 202
@@ -2238,7 +2238,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15ConversionErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
+  tail call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }

@@ -618,7 +618,7 @@ if.then72:                                        ; preds = %land.lhs.true68, %l
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %27, ptr noundef nonnull align 8 dereferenceable(144) %i.sroa.0.039, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %27, ptr noundef nonnull align 8 dereferenceable(176) %i.sroa.0.039, i64 144, i1 false)
   %filename_.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 144
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_)
           to label %.noexc16 unwind label %lpad28
@@ -735,7 +735,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont36
   call void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %info, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %info, i8 0, i64 144, i1 false)
   %4 = load ptr, ptr %dent, align 8
   %d_name = getelementptr inbounds i8, ptr %4, i64 19
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull %d_name)
@@ -809,7 +809,7 @@ if.end35:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(144) %info, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %13, ptr noundef nonnull align 8 dereferenceable(176) %info, i64 144, i1 false)
   %filename_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 144
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i)
           to label %.noexc unwind label %lpad16
@@ -866,7 +866,7 @@ entry:
   %0 = load i64, ptr %current_directory_entry_, align 8
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %"class.base::FileEnumerator::FileInfo", ptr %1, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %add.ptr.i, i64 144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i, i64 144, i1 false)
   %filename_.i = getelementptr inbounds i8, ptr %agg.result, i64 144
   %filename_3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 144
   tail call void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i)
@@ -1430,7 +1430,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4bas
 _ZNSt12_Vector_baseIN4base14FileEnumerator8FileInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.base::FileEnumerator::FileInfo", ptr %cond.i19, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(144) %__args, i64 144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr, ptr noundef nonnull align 8 dereferenceable(176) %__args, i64 144, i1 false)
   %filename_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 144
   %filename_3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 144
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i)
@@ -1443,7 +1443,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.inc.i.i.i.i.i
   %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
   %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %__first.addr.09.i.i.i.i.i, i64 144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.09.i.i.i.i.i, i64 144, i1 false)
   %filename_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 144
   %filename_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 144
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i.i.i.i.i)
@@ -1500,7 +1500,7 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
   %__cur.010.i.i.i.i.i22.idx = phi i64 [ %__cur.010.i.i.i.i.i22.add, %for.inc.i.i.i.i.i37 ], [ 176, %invoke.cont10 ]
   %__first.addr.09.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.inc.i.i.i.i.i37 ], [ %__position.coerce, %invoke.cont10 ]
   %__cur.010.i.i.i.i.i22.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 %__cur.010.i.i.i.i.i22.idx
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %__cur.010.i.i.i.i.i22.ptr, ptr noundef nonnull align 8 dereferenceable(144) %__first.addr.09.i.i.i.i.i23, i64 144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %__cur.010.i.i.i.i.i22.ptr, ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.09.i.i.i.i.i23, i64 144, i1 false)
   %filename_.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22.ptr, i64 144
   %filename_3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 144
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i.i.i.i.i25)

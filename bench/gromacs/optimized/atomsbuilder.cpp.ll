@@ -99,18 +99,18 @@ define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull alig
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef %7, i64 noundef %6, i64 noundef 36)
+  %8 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef %7, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 36)
   store ptr %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef %11, i64 noundef %6, i64 noundef 8)
+  %12 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8)
   store ptr %12, ptr %10, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 48
   %15 = sext i32 %2 to i64
   %16 = load ptr, ptr %14, align 8
-  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef %16, i64 noundef %15, i64 noundef 32)
+  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef %16, i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 32)
   store ptr %17, ptr %14, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 56
@@ -119,7 +119,7 @@ define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull alig
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %3
-  %22 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull %20, i64 noundef %6, i64 noundef 52)
+  %22 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull %20, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 52)
   store ptr %22, ptr %19, align 8
   br label %23
 
@@ -601,7 +601,7 @@ define void @_ZN3gmx12AtomsRemoverC2ERK7t_atoms(ptr noundef nonnull align 8 dere
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
@@ -617,7 +617,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNSt6vec
 11:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   br label %.body
 
 13:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
@@ -688,7 +688,7 @@ define void @_ZN3gmx12AtomsRemoverD2Ev(ptr noundef nonnull align 8 dereferenceab
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 

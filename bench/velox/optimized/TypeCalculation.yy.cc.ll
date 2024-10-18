@@ -189,7 +189,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i
   %value3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -438,8 +438,8 @@ sw.bb:                                            ; preds = %_ZNK8facebook5velox
 
 sw.bb3:                                           ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit
   %value5 = getelementptr inbounds i8, ptr %that, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i, ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(32) %value.i, ptr noundef nonnull align 16 dereferenceable(32) %value5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value5) #26
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw.bb, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit
@@ -470,8 +470,8 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb3:                                           ; preds = %entry
   %value5 = getelementptr inbounds i8, ptr %that, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i, ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(32) %value.i, ptr noundef nonnull align 16 dereferenceable(32) %value5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value5) #26
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb, %entry
@@ -527,7 +527,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i: ; p
 
 sw.bb2.i.i.i:                                     ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i
   %value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit: ; preds = %invoke.cont, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i, %sw.bb2.i.i.i
@@ -566,8 +566,8 @@ sw.bb.i:                                          ; preds = %_ZNK8facebook5velox
 sw.bb3.i:                                         ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i
   %value4.i = getelementptr i8, ptr %7, i64 -32
   %value5.i = getelementptr inbounds i8, ptr %t, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value4.i, ptr noundef nonnull align 8 dereferenceable(32) %value5.i) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(32) %value4.i, ptr noundef nonnull align 16 dereferenceable(32) %value5.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value5.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser12basic_symbolINS3_8by_stateEE4moveERS6_.exit
 
 _ZN8facebook5velox10expression9calculate6Parser12basic_symbolINS3_8by_stateEE4moveERS6_.exit: ; preds = %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i, %sw.bb.i, %sw.bb3.i
@@ -589,7 +589,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i3: ; 
 
 sw.bb2.i.i.i7:                                    ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i3
   %value3.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i8) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i8) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit9
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit9: ; preds = %lpad, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i3, %sw.bb2.i.i.i7
@@ -619,7 +619,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i: ; p
 
 sw.bb2.i.i.i:                                     ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i
   %value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit: ; preds = %invoke.cont, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i, %sw.bb2.i.i.i
@@ -641,7 +641,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2: ; 
 
 sw.bb2.i.i.i6:                                    ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2
   %value3.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i7) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i7) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit8
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit8: ; preds = %lpad, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2, %sw.bb2.i.i.i6
@@ -677,7 +677,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i
   %value3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i: ; preds = %sw.bb2.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i, %for.body.i
@@ -783,7 +783,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i.i
   %value3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -819,7 +819,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i: ;
 
 sw.bb2.i.i.i.i:                                   ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i
   %value3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit
 
 lpad.i:                                           ; preds = %.noexc
@@ -838,7 +838,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2.i: 
 
 sw.bb2.i.i.i6.i:                                  ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2.i
   %value3.i.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i7.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i7.i) #26
   br label %lpad.body
 
 _ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit: ; preds = %invoke.cont.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i, %sw.bb2.i.i.i.i
@@ -1014,7 +1014,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i57:
   br i1 %cond.i.i.i.i60, label %sw.bb2.i.i.i.i61, label %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit66
 
 sw.bb2.i.i.i.i61:                                 ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i57
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i62) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i62) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit66
 
 lpad.i46:                                         ; preds = %.noexc63
@@ -1032,7 +1032,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2.i48
   br i1 %cond.i.i.i5.i51, label %sw.bb2.i.i.i6.i53, label %lpad.body
 
 sw.bb2.i.i.i6.i53:                                ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2.i48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i62) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i62) #26
   br label %lpad.body
 
 _ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit66: ; preds = %invoke.cont.i55, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i57, %sw.bb2.i.i.i.i61
@@ -1132,7 +1132,7 @@ sw.bb:                                            ; preds = %_ZN8facebook5velox1
   br label %sw.epilog
 
 sw.bb85:                                          ; preds = %_ZN8facebook5velox10expression9calculate6Parser17yy_lr_goto_state_Eai.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value86) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value86) #26
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN8facebook5velox10expression9calculate6Parser17yy_lr_goto_state_Eai.exit, %sw.bb85, %sw.bb
@@ -1172,7 +1172,7 @@ sw.bb89:                                          ; preds = %sw.epilog
   %59 = load i64, ptr %value100, align 8
   %values_.i = getelementptr inbounds i8, ptr %55, i64 736
   %60 = load ptr, ptr %values_.i, align 8
-  %call.i.i92 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 8 dereferenceable(32) %value95)
+  %call.i.i92 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(32) %value95)
           to label %_ZN8facebook5velox10expression9calculate7Scanner8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit unwind label %lpad92
 
 _ZN8facebook5velox10expression9calculate7Scanner8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %sw.bb89
@@ -1535,7 +1535,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i
   %value3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %158, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i, %for.body.i.i
@@ -1564,7 +1564,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i: ; p
   br i1 %cond.i.i.i, label %sw.bb2.i.i.i, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
 sw.bb2.i.i.i:                                     ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value86) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value86) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit: ; preds = %cleanup, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i, %sw.bb2.i.i.i
@@ -1593,7 +1593,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i270: 
   br i1 %cond.i.i.i273, label %sw.bb2.i.i.i274, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit276
 
 sw.bb2.i.i.i274:                                  ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i270
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value86) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value86) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit276
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit276: ; preds = %ehcleanup, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i270, %sw.bb2.i.i.i274
@@ -1644,7 +1644,7 @@ if.then373:                                       ; preds = %yyerrlab
   ]
 
 sw.bb2.i:                                         ; preds = %if.then373
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser12basic_symbolINS3_7by_kindEE5clearEv.exit
 
 _ZN8facebook5velox10expression9calculate6Parser12basic_symbolINS3_7by_kindEE5clearEv.exit: ; preds = %if.then373, %sw.bb2.i
@@ -1677,7 +1677,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i293:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i286
   %value3.i.i.i.i.i.i.i.i294 = getelementptr inbounds i8, ptr %170, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i294) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i294) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i290
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i290: ; preds = %sw.bb2.i.i.i.i.i.i.i.i293, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i286, %for.body.i.i282
@@ -1740,7 +1740,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i320:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i313
   %value3.i.i.i.i.i.i.i.i321 = getelementptr inbounds i8, ptr %173, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i321) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i321) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i317
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i317: ; preds = %sw.bb2.i.i.i.i.i.i.i.i320, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i313, %for.body.i.i309.preheader
@@ -1769,7 +1769,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i327: 
   br i1 %cond.i.i.i330, label %sw.bb2.i.i.i331, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit333
 
 sw.bb2.i.i.i331:                                  ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i327
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i332) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i332) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit333
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit333: ; preds = %invoke.cont424, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i327, %sw.bb2.i.i.i331
@@ -1792,7 +1792,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i335: 
   br i1 %cond.i.i.i338, label %sw.bb2.i.i.i339, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit341
 
 sw.bb2.i.i.i339:                                  ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i335
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i332) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i332) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit341
 
 _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit341: ; preds = %lpad423, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i335, %sw.bb2.i.i.i339
@@ -1838,7 +1838,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i359:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i352
   %value3.i.i.i.i.i.i.i.i360 = getelementptr inbounds i8, ptr %192, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i360) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i360) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i356
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i356: ; preds = %sw.bb2.i.i.i.i.i.i.i.i359, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i352, %for.body.i.i348
@@ -1873,7 +1873,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i385:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i378
   %value3.i.i.i.i.i.i.i.i386 = getelementptr inbounds i8, ptr %197, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i386) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i386) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i382
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i382: ; preds = %sw.bb2.i.i.i.i.i.i.i.i385, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i378, %while.body
@@ -1909,7 +1909,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i.i411:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i404
   %value3.i.i.i.i.i.i.i.i412 = getelementptr inbounds i8, ptr %203, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i412) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i412) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i408
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i408: ; preds = %sw.bb2.i.i.i.i.i.i.i.i411, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i404, %while.body448
@@ -1932,7 +1932,7 @@ invoke.cont455:                                   ; preds = %lpad441
   br i1 %cond.i.i.i414, label %sw.bb2.i.i.i415, label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit
 
 sw.bb2.i.i.i415:                                  ; preds = %invoke.cont455
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit
 
 _ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit: ; preds = %invoke.cont455, %sw.bb2.i.i.i415
@@ -1945,7 +1945,7 @@ cleanup457:                                       ; preds = %_ZN8facebook5velox1
   br i1 %cond.i.i.i417, label %sw.bb2.i.i.i418, label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit420
 
 sw.bb2.i.i.i418:                                  ; preds = %cleanup457
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit420
 
 _ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit420: ; preds = %cleanup457, %sw.bb2.i.i.i418
@@ -1980,7 +1980,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1997,7 +1997,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -2111,13 +2111,13 @@ if.end:                                           ; preds = %nrvo.skipdtor.threa
           to label %call.i.noexc unwind label %lpad8
 
 call.i.noexc:                                     ; preds = %if.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %if.end.i unwind label %lpad8
 
 lpad.i:                                           ; preds = %if.end.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   br label %lpad8.body
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -2528,7 +2528,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i:                               ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i
   %value3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i: ; preds = %sw.bb2.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i, %for.body.i.i
@@ -2562,7 +2562,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i:
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i
   %value3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i: ; preds = %sw.bb2.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i, %for.body.i
@@ -2612,7 +2612,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESR_IJEEEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit unwind label %invoke.cont14.i.i
 
 invoke.cont14.i.i:                                ; preds = %if.end
@@ -2778,7 +2778,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   br label %if.end
 
@@ -2820,13 +2820,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #26
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #26
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #26
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #26
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -2984,13 +2984,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #26
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #26
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #26
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #26
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -3053,13 +3053,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #26
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #26
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #26
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #26
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #26
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -3465,7 +3465,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
 
 sw.bb2.i.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i
   %value3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -3512,7 +3512,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i:
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i
   %value3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i) #26
   br label %if.end.thread
 
 if.end.thread:                                    ; preds = %sw.bb2.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i, %if.then

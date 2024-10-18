@@ -170,7 +170,7 @@ _ZN12NavmeshFlagsD2Ev.exit.i:                     ; preds = %._crit_edge.i.i
   br label %_ZN16NavMeshPruneToolD2Ev.exit
 
 _ZN16NavMeshPruneToolD2Ev.exit:                   ; preds = %1, %_ZN12NavmeshFlagsD2Ev.exit.i
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

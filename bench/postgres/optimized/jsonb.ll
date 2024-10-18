@@ -1240,7 +1240,7 @@ define internal fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef 
   %55 = load ptr, ptr %15, align 8
   %56 = load i32, ptr %19, align 4
   %57 = load i32, ptr %20, align 4
-  call fastcc void @array_dim_to_jsonb(ptr noundef %2, i32 noundef 0, i32 noundef %40, ptr noundef %41, ptr noundef %54, ptr noundef %55, ptr noundef %13, i32 noundef %56, i32 noundef %57)
+  call fastcc void @array_dim_to_jsonb(ptr noundef nonnull %2, i32 noundef 0, i32 noundef %40, ptr noundef %41, ptr noundef %54, ptr noundef %55, ptr noundef %13, i32 noundef %56, i32 noundef %57)
   %58 = load ptr, ptr %14, align 8
   call void @pfree(ptr noundef %58) #11
   %59 = load ptr, ptr %15, align 8
@@ -1385,7 +1385,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
   %131 = sext i16 %118 to i32
   %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %132)
-  %133 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, i32 noundef %131) #11
+  %133 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, i32 noundef range(i32 -32768, 32768) %131) #11
   call void @errfinish(ptr noundef nonnull @.str.45, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -1395,7 +1395,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
 
 136:                                              ; preds = %102
   %137 = trunc nuw nsw i64 %89 to i32
-  %138 = call i64 @nocachegetattr(ptr noundef nonnull %7, i32 noundef %137, ptr noundef nonnull %67) #11
+  %138 = call i64 @nocachegetattr(ptr noundef nonnull %7, i32 noundef range(i32 1, 2048) %137, ptr noundef nonnull %67) #11
   br label %heap_getattr.exit
 
 139:                                              ; preds = %98
@@ -1417,7 +1417,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
 
 150:                                              ; preds = %139
   %151 = trunc nuw nsw i64 %89 to i32
-  %152 = call i64 @nocachegetattr(ptr noundef nonnull %7, i32 noundef %151, ptr noundef nonnull %67) #11
+  %152 = call i64 @nocachegetattr(ptr noundef nonnull %7, i32 noundef range(i32 1, 2048) %151, ptr noundef nonnull %67) #11
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %95, %119, %122, %125, %128, %134, %136, %149, %150
@@ -1445,7 +1445,7 @@ heap_getattr.exit:                                ; preds = %95, %119, %122, %12
   %.pre-phi = phi i1 [ %.pre113, %156 ], [ true, %155 ]
   %160 = phi i32 [ %.pre111, %156 ], [ 0, %155 ]
   %161 = phi i32 [ %.pre110, %156 ], [ 0, %155 ]
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %.0.i96, i1 noundef zeroext %.pre-phi, ptr noundef %2, i32 noundef %161, i32 noundef %160, i1 noundef zeroext false)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %.0.i96, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %2, i32 noundef %161, i32 noundef %160, i1 noundef zeroext false)
   %.pre112 = load i32, ptr %67, align 8
   br label %162
 
@@ -1780,7 +1780,7 @@ add_jsonb.exit.us.us:                             ; preds = %.critedge.us.us
   call void @json_categorize_type(i32 noundef %32, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i.us.us = load i32, ptr %7, align 4
   %.pre6.i.us.us = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %30, i1 noundef zeroext false, ptr noundef %9, i32 noundef %.pre.i.us.us, i32 noundef %.pre6.i.us.us, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %30, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i.us.us, i32 noundef %.pre6.i.us.us, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %34 = or disjoint i32 %.026.us.us, 1
@@ -1827,7 +1827,7 @@ add_jsonb.exit.us:                                ; preds = %.critedge.us
   call void @json_categorize_type(i32 noundef %58, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i.us = load i32, ptr %7, align 4
   %.pre6.i.us = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %56, i1 noundef zeroext false, ptr noundef %9, i32 noundef %.pre.i.us, i32 noundef %.pre6.i.us, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %56, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i.us, i32 noundef %.pre6.i.us, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %60 = getelementptr i64, ptr %1, i64 %51
@@ -1884,7 +1884,7 @@ add_jsonb.exit:                                   ; preds = %.critedge
   call void @json_categorize_type(i32 noundef %80, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i = load i32, ptr %7, align 4
   %.pre6.i = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %78, i1 noundef zeroext false, ptr noundef %9, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %78, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %85 = or disjoint i32 %.026, 1

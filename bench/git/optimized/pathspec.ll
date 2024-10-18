@@ -598,7 +598,7 @@ if.end124:                                        ; preds = %if.then120
 if.then.i73:                                      ; preds = %if.end124
   %conv127 = sext i32 %27 to i64
   %28 = load ptr, ptr %items41, align 8
-  tail call void @qsort(ptr noundef %28, i64 noundef %conv127, i64 noundef 56, ptr noundef nonnull @pathspec_item_cmp) #16
+  tail call void @qsort(ptr noundef %28, i64 noundef range(i64 -2147483648, 2147483648) %conv127, i64 noundef 56, ptr noundef nonnull @pathspec_item_cmp) #16
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then.i73, %if.end124, %if.then15, %if.end, %if.end116, %if.end23
@@ -1671,7 +1671,7 @@ entry:
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, i64 noundef 56, i64 noundef %conv) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, i64 noundef 56, i64 noundef range(i64 -2147483648, 2147483648) %conv) #17
   unreachable
 
 st_mult.exit:                                     ; preds = %entry
@@ -1714,7 +1714,7 @@ for.body:                                         ; preds = %copy_array.exit, %f
   br i1 %mul.ov.i27, label %if.then.i29, label %st_mult.exit30
 
 if.then.i29:                                      ; preds = %for.body
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, i64 noundef 16, i64 noundef %conv15) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %conv15) #17
   unreachable
 
 st_mult.exit30:                                   ; preds = %for.body

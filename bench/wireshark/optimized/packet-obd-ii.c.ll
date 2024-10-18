@@ -1112,32 +1112,32 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 118:                                              ; preds = %42
   %119 = load i32, ptr @hf_obdii_mode01_engine_load, align 4
-  %120 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %119)
+  %120 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %119)
   br label %.loopexit.i
 
 121:                                              ; preds = %42
   %122 = load i32, ptr @hf_obdii_mode01_engine_coolant_temp, align 4
-  %123 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %122)
+  %123 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %122)
   br label %.loopexit.i
 
 124:                                              ; preds = %42
   %125 = load i32, ptr @hf_obdii_mode01_short_term_fuel_bank1, align 4
-  %126 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %125)
+  %126 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %125)
   br label %.loopexit.i
 
 127:                                              ; preds = %42
   %128 = load i32, ptr @hf_obdii_mode01_long_term_fuel_bank1, align 4
-  %129 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %128)
+  %129 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %128)
   br label %.loopexit.i
 
 130:                                              ; preds = %42
   %131 = load i32, ptr @hf_obdii_mode01_short_term_fuel_bank2, align 4
-  %132 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %131)
+  %132 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %131)
   br label %.loopexit.i
 
 133:                                              ; preds = %42
   %134 = load i32, ptr @hf_obdii_mode01_long_term_fuel_bank2, align 4
-  %135 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %134)
+  %135 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %134)
   br label %.loopexit.i
 
 136:                                              ; preds = %42
@@ -1229,7 +1229,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 203:                                              ; preds = %42
   %204 = load i32, ptr @hf_obdii_mode01_intake_air_temp, align 4
-  %205 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %204)
+  %205 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %204)
   br label %.loopexit.i
 
 206:                                              ; preds = %42
@@ -1260,7 +1260,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 227:                                              ; preds = %42
   %228 = load i32, ptr @hf_obdii_mode01_throttle_position, align 4
-  %229 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %228)
+  %229 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %228)
   br label %.loopexit.i
 
 230:                                              ; preds = %42
@@ -1502,12 +1502,12 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 400:                                              ; preds = %42
   %401 = load i32, ptr @hf_obdii_mode01_fuel_rail_gauge_pressure, align 4
-  %402 = tail call fastcc i32 @dissect_obdii_common_fuel_rail_pressure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %401)
+  %402 = tail call fastcc i32 @dissect_obdii_common_fuel_rail_pressure(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %401)
   br label %.loopexit.i
 
 403:                                              ; preds = %42
   %404 = load i32, ptr @hf_obdii_mode01_fuel_rail_absolute_pressure, align 4
-  %405 = tail call fastcc i32 @dissect_obdii_common_fuel_rail_pressure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %404)
+  %405 = tail call fastcc i32 @dissect_obdii_common_fuel_rail_pressure(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %404)
   br label %.loopexit.i
 
 406:                                              ; preds = %42, %42, %42, %42, %42, %42, %42, %42
@@ -1557,22 +1557,22 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 445:                                              ; preds = %42
   %446 = load i32, ptr @hf_obdii_mode01_commanded_egr, align 4
-  %447 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %446)
+  %447 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %446)
   br label %.loopexit.i
 
 448:                                              ; preds = %42
   %449 = load i32, ptr @hf_obdii_mode01_egr_error, align 4
-  %450 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %449)
+  %450 = tail call fastcc i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %449)
   br label %.loopexit.i
 
 451:                                              ; preds = %42
   %452 = load i32, ptr @hf_obdii_mode01_commanded_evap_purge, align 4
-  %453 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %452)
+  %453 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %452)
   br label %.loopexit.i
 
 454:                                              ; preds = %42
   %455 = load i32, ptr @hf_obdii_mode01_fuel_tank_level_input, align 4
-  %456 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %455)
+  %456 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %455)
   br label %.loopexit.i
 
 457:                                              ; preds = %42
@@ -1622,12 +1622,12 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 492:                                              ; preds = %42
   %493 = load i32, ptr @hf_obdii_mode01_absolute_barometric_pressure, align 4
-  %494 = tail call fastcc i32 @dissect_obdii_common_absolute_pressure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %493)
+  %494 = tail call fastcc i32 @dissect_obdii_common_absolute_pressure(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %493)
   br label %.loopexit.i
 
 495:                                              ; preds = %42
   %496 = load i32, ptr @hf_obdii_mode01_intake_manifold_absolute_pressure, align 4
-  %497 = tail call fastcc i32 @dissect_obdii_common_absolute_pressure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %496)
+  %497 = tail call fastcc i32 @dissect_obdii_common_absolute_pressure(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %496)
   br label %.loopexit.i
 
 498:                                              ; preds = %42, %42, %42, %42, %42, %42, %42, %42
@@ -1796,62 +1796,62 @@ switch.lookup:                                    ; preds = %540
 
 627:                                              ; preds = %42
   %628 = load i32, ptr @hf_obdii_mode01_relative_throttle_position, align 4
-  %629 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %628)
+  %629 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %628)
   br label %.loopexit.i
 
 630:                                              ; preds = %42
   %631 = load i32, ptr @hf_obdii_mode01_ambient_air_temp, align 4
-  %632 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %631)
+  %632 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %631)
   br label %.loopexit.i
 
 633:                                              ; preds = %42
   %634 = load i32, ptr @hf_obdii_mode01_absolute_throttle_position_B, align 4
-  %635 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %634)
+  %635 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %634)
   br label %.loopexit.i
 
 636:                                              ; preds = %42
   %637 = load i32, ptr @hf_obdii_mode01_absolute_throttle_position_C, align 4
-  %638 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %637)
+  %638 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %637)
   br label %.loopexit.i
 
 639:                                              ; preds = %42
   %640 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_D, align 4
-  %641 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %640)
+  %641 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %640)
   br label %.loopexit.i
 
 642:                                              ; preds = %42
   %643 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_E, align 4
-  %644 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %643)
+  %644 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %643)
   br label %.loopexit.i
 
 645:                                              ; preds = %42
   %646 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_F, align 4
-  %647 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %646)
+  %647 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %646)
   br label %.loopexit.i
 
 648:                                              ; preds = %42
   %649 = load i32, ptr @hf_obdii_mode01_commanded_throttle_actuator, align 4
-  %650 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %649)
+  %650 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %649)
   br label %.loopexit.i
 
 651:                                              ; preds = %42
   %652 = load i32, ptr @hf_obdii_mode01_distance_traveled_with_mil, align 4
-  %653 = tail call fastcc i32 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %652)
+  %653 = tail call fastcc i32 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %652)
   br label %.loopexit.i
 
 654:                                              ; preds = %42
   %655 = load i32, ptr @hf_obdii_mode01_distance_traveled_since_code_clear, align 4
-  %656 = tail call fastcc i32 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %655)
+  %656 = tail call fastcc i32 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %655)
   br label %.loopexit.i
 
 657:                                              ; preds = %42
   %658 = load i32, ptr @hf_obdii_mode01_time_run_with_mil, align 4
-  %659 = tail call fastcc i32 @dissect_obdii_common_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %658)
+  %659 = tail call fastcc i32 @dissect_obdii_common_time(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %658)
   br label %.loopexit.i
 
 660:                                              ; preds = %42
   %661 = load i32, ptr @hf_obdii_mode01_time_since_trouble_code_clear, align 4
-  %662 = tail call fastcc i32 @dissect_obdii_common_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %661)
+  %662 = tail call fastcc i32 @dissect_obdii_common_time(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %661)
   br label %.loopexit.i
 
 663:                                              ; preds = %42
@@ -1876,7 +1876,7 @@ switch.lookup:                                    ; preds = %540
 
 678:                                              ; preds = %42
   %679 = load i32, ptr @hf_obdii_mode01_ethanol_fuel, align 4
-  %680 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %679)
+  %680 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %679)
   br label %.loopexit.i
 
 681:                                              ; preds = %42
@@ -1931,17 +1931,17 @@ switch.lookup:                                    ; preds = %540
 
 721:                                              ; preds = %42
   %722 = load i32, ptr @hf_obdii_mode01_relative_accelerator_pedal_position, align 4
-  %723 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %722)
+  %723 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %722)
   br label %.loopexit.i
 
 724:                                              ; preds = %42
   %725 = load i32, ptr @hf_obdii_mode01_hybrid_battery_remaining_life, align 4
-  %726 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %725)
+  %726 = tail call fastcc i32 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %725)
   br label %.loopexit.i
 
 727:                                              ; preds = %42
   %728 = load i32, ptr @hf_obdii_mode01_engine_oil_temp, align 4
-  %729 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %728)
+  %729 = tail call fastcc i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %728)
   br label %.loopexit.i
 
 730:                                              ; preds = %42
@@ -1999,12 +1999,12 @@ switch.lookup:                                    ; preds = %540
 
 773:                                              ; preds = %42
   %774 = load i32, ptr @hf_obdii_mode01_torque_driver_demand_engine, align 4
-  %775 = tail call fastcc i32 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %774)
+  %775 = tail call fastcc i32 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %774)
   br label %.loopexit.i
 
 776:                                              ; preds = %42
   %777 = load i32, ptr @hf_obdii_mode01_torque_actual_engine, align 4
-  %778 = tail call fastcc i32 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %777)
+  %778 = tail call fastcc i32 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %777)
   br label %.loopexit.i
 
 779:                                              ; preds = %42

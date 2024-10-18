@@ -2389,7 +2389,7 @@ land.lhs.true:                                    ; preds = %_ZNK6vectorISt4pair
 land.rhs:                                         ; preds = %land.lhs.true
   %m.i = getelementptr inbounds i8, ptr %26, i64 136
   %29 = load ptr, ptr %m.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %29)
   br i1 %call2.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -2894,7 +2894,7 @@ if.end62:                                         ; preds = %if.end62.loopexit, 
   %69 = phi ptr [ %.pre, %if.end62.loopexit ], [ %.pre159, %if.end34 ]
   %m.i = getelementptr inbounds i8, ptr %69, i64 136
   %70 = load ptr, ptr %m.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %70)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %70)
   br i1 %call2.i, label %if.end69, label %if.then66
 
 if.then66:                                        ; preds = %if.end62
@@ -3378,7 +3378,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

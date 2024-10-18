@@ -339,7 +339,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread73:       ; preds = %.critedge, %64, %_Z
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 136
   %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef nonnull align 8 dereferenceable(48) %130, ptr noundef nonnull align 8 dereferenceable(8) %14) #13
+  call void %133(ptr noundef nonnull align 8 dereferenceable(48) %130, ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   %134 = load ptr, ptr %36, align 8
   %135 = icmp ne ptr %134, %35
   %lhsv.i.i.i.i = load i64, ptr %14, align 8

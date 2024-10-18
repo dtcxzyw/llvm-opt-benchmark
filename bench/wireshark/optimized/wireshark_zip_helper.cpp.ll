@@ -500,7 +500,7 @@ _ZN7QStringD2Ev.exit118:                          ; preds = %_ZN7QStringD2Ev.exi
   %180 = getelementptr inbounds i8, ptr %174, i64 32
   %181 = load ptr, ptr %180, align 8, !noalias !10
   %182 = getelementptr inbounds i8, ptr %174, i64 16
-  %183 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringS2_EESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S2_St4lessIS2_ESaIS4_EEE4keysEvEUlRKT_E_ET0_SH_SH_SL_T1_(ptr %181, ptr nonnull %182, ptr nonnull %21)
+  %183 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringS2_EESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S2_St4lessIS2_ESaIS4_EEE4keysEvEUlRKT_E_ET0_SH_SH_SL_T1_(ptr %181, ptr nonnull %182, ptr nonnull align 8 %21)
           to label %_ZNK4QMapI7QStringS0_E4keysEv.exit unwind label %184
 
 184:                                              ; preds = %179, %176
@@ -512,7 +512,7 @@ _ZN7QStringD2Ev.exit118:                          ; preds = %_ZN7QStringD2Ev.exi
 _ZNK4QMapI7QStringS0_E4keysEv.exit:               ; preds = %179, %175
   %186 = load ptr, ptr %85, align 8
   %187 = load i64, ptr %86, align 8
-  %188 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %21, i64 %187, ptr %186, i32 noundef 1)
+  %188 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %21, i64 %187, ptr %186, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %189
 
 189:                                              ; preds = %_ZNK4QMapI7QStringS0_E4keysEv.exit

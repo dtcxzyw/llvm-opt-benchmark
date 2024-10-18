@@ -101,7 +101,7 @@ define hidden void @_ZN14MacroAssembler9fast_sha1E11XMMRegisterS0_S0_S0_S0_S0_S0
   %59 = load ptr, ptr %21, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(40) %20) #5
+  call void %61(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %20) #5
   %62 = getelementptr inbounds i8, ptr %20, i64 40
   %63 = getelementptr inbounds i8, ptr %21, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
@@ -114,7 +114,7 @@ define hidden void @_ZN14MacroAssembler9fast_sha1E11XMMRegisterS0_S0_S0_S0_S0_S0
   %65 = load ptr, ptr %23, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #5
+  call void %67(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %22) #5
   %68 = getelementptr inbounds i8, ptr %22, i64 40
   %69 = getelementptr inbounds i8, ptr %23, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
@@ -564,7 +564,7 @@ define hidden void @_ZN14MacroAssembler11fast_sha256E11XMMRegisterS0_S0_S0_S0_S0
   %76 = load ptr, ptr %22, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(40) %21) #5
+  call void %78(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %21) #5
   %79 = getelementptr inbounds i8, ptr %21, i64 40
   %80 = getelementptr inbounds i8, ptr %22, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
@@ -575,7 +575,7 @@ define hidden void @_ZN14MacroAssembler11fast_sha256E11XMMRegisterS0_S0_S0_S0_S0
   %82 = load ptr, ptr %24, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #5
+  call void %84(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %23) #5
   %85 = getelementptr inbounds i8, ptr %23, i64 40
   %86 = getelementptr inbounds i8, ptr %24, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
@@ -1877,10 +1877,10 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %188 = getelementptr inbounds i8, ptr %70, i64 40
   store i32 0, ptr %188, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %56)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %56, ptr noundef nonnull align 8 dereferenceable(21) %70, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %70, i64 21, i1 false)
   %189 = getelementptr inbounds i8, ptr %56, i64 24
   %190 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %186, ptr noundef nonnull align 8 dereferenceable(40) %189) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %186, ptr noundef nonnull align 8 dereferenceable(40) %189) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 1, ptr noundef nonnull %56) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %56)
   call void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 2, i32 2) #5
@@ -1924,9 +1924,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %201 = getelementptr inbounds i8, ptr %71, i64 40
   store i32 0, ptr %201, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %55)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %55, ptr noundef nonnull align 8 dereferenceable(21) %71, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %71, i64 21, i1 false)
   %202 = getelementptr inbounds i8, ptr %55, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %199, ptr noundef nonnull align 8 dereferenceable(40) %202) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %199, ptr noundef nonnull align 8 dereferenceable(40) %202) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 8, ptr noundef nonnull %55) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %55)
   store i32 %13, ptr %72, align 8
@@ -2081,7 +2081,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %268 = load ptr, ptr %81, align 8
   %269 = getelementptr inbounds i8, ptr %268, i64 16
   %270 = load ptr, ptr %269, align 8
-  call void %270(ptr noundef nonnull align 8 dereferenceable(20) %81, ptr noundef nonnull align 8 dereferenceable(40) %80) #5
+  call void %270(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %80) #5
   %271 = getelementptr inbounds i8, ptr %80, i64 40
   %272 = getelementptr inbounds i8, ptr %81, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef nonnull align 8 dereferenceable(16) %272, i64 16, i1 false)
@@ -2091,7 +2091,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %274 = load ptr, ptr %83, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 16
   %276 = load ptr, ptr %275, align 8
-  call void %276(ptr noundef nonnull align 8 dereferenceable(20) %83, ptr noundef nonnull align 8 dereferenceable(40) %82) #5
+  call void %276(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %82) #5
   %277 = getelementptr inbounds i8, ptr %82, i64 40
   %278 = getelementptr inbounds i8, ptr %83, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef nonnull align 8 dereferenceable(16) %278, i64 16, i1 false)
@@ -2101,7 +2101,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %280 = load ptr, ptr %85, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
-  call void %282(ptr noundef nonnull align 8 dereferenceable(20) %85, ptr noundef nonnull align 8 dereferenceable(40) %84) #5
+  call void %282(ptr noundef nonnull align 8 dereferenceable(56) %85, ptr noundef nonnull align 8 dereferenceable(56) %84) #5
   %283 = getelementptr inbounds i8, ptr %84, i64 40
   %284 = getelementptr inbounds i8, ptr %85, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef nonnull align 8 dereferenceable(16) %284, i64 16, i1 false)
@@ -2149,7 +2149,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %302 = load ptr, ptr %89, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 16
   %304 = load ptr, ptr %303, align 8
-  call void %304(ptr noundef nonnull align 8 dereferenceable(20) %89, ptr noundef nonnull align 8 dereferenceable(40) %88) #5
+  call void %304(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %88) #5
   %305 = getelementptr inbounds i8, ptr %88, i64 40
   %306 = getelementptr inbounds i8, ptr %89, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %305, ptr noundef nonnull align 8 dereferenceable(16) %306, i64 16, i1 false)
@@ -2271,9 +2271,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %352 = getelementptr inbounds i8, ptr %95, i64 40
   store i32 0, ptr %352, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %54)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %54, ptr noundef nonnull align 8 dereferenceable(21) %95, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %95, i64 21, i1 false)
   %353 = getelementptr inbounds i8, ptr %54, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %350, ptr noundef nonnull align 8 dereferenceable(40) %353) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %350, ptr noundef nonnull align 8 dereferenceable(40) %353) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 9, i32 4, ptr noundef nonnull %54, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54)
   store i32 %13, ptr %96, align 8
@@ -2312,9 +2312,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %367 = getelementptr inbounds i8, ptr %97, i64 40
   store i32 0, ptr %367, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %53)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %53, ptr noundef nonnull align 8 dereferenceable(21) %97, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %97, i64 21, i1 false)
   %368 = getelementptr inbounds i8, ptr %53, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %365, ptr noundef nonnull align 8 dereferenceable(40) %368) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %365, ptr noundef nonnull align 8 dereferenceable(40) %368) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 9, i32 5, ptr noundef nonnull %53, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %53)
   store i32 %13, ptr %98, align 8
@@ -2357,9 +2357,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %384 = getelementptr inbounds i8, ptr %99, i64 40
   store i32 0, ptr %384, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %52)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %52, ptr noundef nonnull align 8 dereferenceable(21) %99, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %99, i64 21, i1 false)
   %385 = getelementptr inbounds i8, ptr %52, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %382, ptr noundef nonnull align 8 dereferenceable(40) %385) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %382, ptr noundef nonnull align 8 dereferenceable(40) %385) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 9, i32 6, ptr noundef nonnull %52, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %52)
   store i32 %13, ptr %100, align 8
@@ -2402,9 +2402,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %401 = getelementptr inbounds i8, ptr %101, i64 40
   store i32 0, ptr %401, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %51, ptr noundef nonnull align 8 dereferenceable(21) %101, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %101, i64 21, i1 false)
   %402 = getelementptr inbounds i8, ptr %51, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %399, ptr noundef nonnull align 8 dereferenceable(40) %402) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %399, ptr noundef nonnull align 8 dereferenceable(40) %402) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 9, i32 7, ptr noundef nonnull %51, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %51)
   store i32 %13, ptr %102, align 8
@@ -2447,9 +2447,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %416 = getelementptr inbounds i8, ptr %103, i64 40
   store i32 0, ptr %416, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %50)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %50, ptr noundef nonnull align 8 dereferenceable(21) %103, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %103, i64 21, i1 false)
   %417 = getelementptr inbounds i8, ptr %50, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %414, ptr noundef nonnull align 8 dereferenceable(40) %417) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %414, ptr noundef nonnull align 8 dereferenceable(40) %417) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 9, i32 4, ptr noundef nonnull %50, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %50)
   store i32 %13, ptr %104, align 8
@@ -2488,9 +2488,9 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %431 = getelementptr inbounds i8, ptr %105, i64 40
   store i32 0, ptr %431, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %49)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %49, ptr noundef nonnull align 8 dereferenceable(21) %105, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %105, i64 21, i1 false)
   %432 = getelementptr inbounds i8, ptr %49, i64 24
-  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %429, ptr noundef nonnull align 8 dereferenceable(40) %432) #5
+  call void %190(ptr noundef nonnull align 8 dereferenceable(40) %429, ptr noundef nonnull align 8 dereferenceable(40) %432) #5
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 9, i32 5, ptr noundef nonnull %49, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %49)
   store i32 %13, ptr %106, align 8
@@ -3291,7 +3291,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %745 = load ptr, ptr %114, align 8
   %746 = getelementptr inbounds i8, ptr %745, i64 16
   %747 = load ptr, ptr %746, align 8
-  call void %747(ptr noundef nonnull align 8 dereferenceable(20) %114, ptr noundef nonnull align 8 dereferenceable(40) %113) #5
+  call void %747(ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull align 8 dereferenceable(56) %113) #5
   %748 = getelementptr inbounds i8, ptr %113, i64 40
   %749 = getelementptr inbounds i8, ptr %114, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %748, ptr noundef nonnull align 8 dereferenceable(16) %749, i64 16, i1 false)
@@ -3504,7 +3504,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %838 = load ptr, ptr %127, align 8
   %839 = getelementptr inbounds i8, ptr %838, i64 16
   %840 = load ptr, ptr %839, align 8
-  call void %840(ptr noundef nonnull align 8 dereferenceable(20) %127, ptr noundef nonnull align 8 dereferenceable(40) %126) #5
+  call void %840(ptr noundef nonnull align 8 dereferenceable(56) %127, ptr noundef nonnull align 8 dereferenceable(56) %126) #5
   %841 = getelementptr inbounds i8, ptr %126, i64 40
   %842 = getelementptr inbounds i8, ptr %127, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %841, ptr noundef nonnull align 8 dereferenceable(16) %842, i64 16, i1 false)
@@ -3513,7 +3513,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %843 = load ptr, ptr %129, align 8
   %844 = getelementptr inbounds i8, ptr %843, i64 16
   %845 = load ptr, ptr %844, align 8
-  call void %845(ptr noundef nonnull align 8 dereferenceable(20) %129, ptr noundef nonnull align 8 dereferenceable(40) %128) #5
+  call void %845(ptr noundef nonnull align 8 dereferenceable(56) %129, ptr noundef nonnull align 8 dereferenceable(56) %128) #5
   %846 = getelementptr inbounds i8, ptr %128, i64 40
   %847 = getelementptr inbounds i8, ptr %129, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %846, ptr noundef nonnull align 8 dereferenceable(16) %847, i64 16, i1 false)
@@ -3522,7 +3522,7 @@ define hidden void @_ZN14MacroAssembler11sha256_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %848 = load ptr, ptr %131, align 8
   %849 = getelementptr inbounds i8, ptr %848, i64 16
   %850 = load ptr, ptr %849, align 8
-  call void %850(ptr noundef nonnull align 8 dereferenceable(20) %131, ptr noundef nonnull align 8 dereferenceable(40) %130) #5
+  call void %850(ptr noundef nonnull align 8 dereferenceable(56) %131, ptr noundef nonnull align 8 dereferenceable(56) %130) #5
   %851 = getelementptr inbounds i8, ptr %130, i64 40
   %852 = getelementptr inbounds i8, ptr %131, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %851, ptr noundef nonnull align 8 dereferenceable(16) %852, i64 16, i1 false)
@@ -4366,7 +4366,7 @@ define hidden void @_ZN14MacroAssembler11sha512_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %243 = load ptr, ptr %57, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 16
   %245 = load ptr, ptr %244, align 8
-  call void %245(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef nonnull align 8 dereferenceable(40) %56) #5
+  call void %245(ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull align 8 dereferenceable(56) %56) #5
   %246 = getelementptr inbounds i8, ptr %56, i64 40
   %247 = getelementptr inbounds i8, ptr %57, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, ptr noundef nonnull align 8 dereferenceable(16) %247, i64 16, i1 false)
@@ -4376,7 +4376,7 @@ define hidden void @_ZN14MacroAssembler11sha512_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %249 = load ptr, ptr %59, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 16
   %251 = load ptr, ptr %250, align 8
-  call void %251(ptr noundef nonnull align 8 dereferenceable(20) %59, ptr noundef nonnull align 8 dereferenceable(40) %58) #5
+  call void %251(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %58) #5
   %252 = getelementptr inbounds i8, ptr %58, i64 40
   %253 = getelementptr inbounds i8, ptr %59, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %252, ptr noundef nonnull align 8 dereferenceable(16) %253, i64 16, i1 false)
@@ -4406,7 +4406,7 @@ define hidden void @_ZN14MacroAssembler11sha512_AVX2E11XMMRegisterS0_S0_S0_S0_S0
   %263 = load ptr, ptr %62, align 8
   %264 = getelementptr inbounds i8, ptr %263, i64 16
   %265 = load ptr, ptr %264, align 8
-  call void %265(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(40) %61) #5
+  call void %265(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %61) #5
   %266 = getelementptr inbounds i8, ptr %61, i64 40
   %267 = getelementptr inbounds i8, ptr %62, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false)

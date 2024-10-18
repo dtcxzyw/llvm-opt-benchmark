@@ -221,7 +221,7 @@ define hidden noundef zeroext i1 @_ZN18ZBarrierSetNMethod21nmethod_entry_barrier
   br i1 %.not.i.i, label %_ZN14ZReentrantLock4lockEv.exit.i, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #9
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %6) #9
   store volatile ptr %9, ptr %10, align 8
   br label %_ZN14ZReentrantLock4lockEv.exit.i
 
@@ -280,7 +280,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %5, %_ZN14ZReentrant
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %6, i64 40
   store volatile ptr null, ptr %35, align 8
-  %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #9
+  %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %6) #9
   br label %_ZN7ZLockerI14ZReentrantLockED2Ev.exit
 
 _ZN7ZLockerI14ZReentrantLockED2Ev.exit:           ; preds = %34, %29, %28, %2

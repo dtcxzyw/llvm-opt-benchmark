@@ -310,7 +310,7 @@ depack_do_frame_ping.exit.thread.i:               ; preds = %sw.bb16.i
 
 depack_do_frame_ping.exit.i:                      ; preds = %sw.bb16.i
   %13 = load ptr, ptr %txp.i.i, align 8
-  call void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef %13, i32 noundef %switch.load) #3
+  call void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef %13, i32 noundef range(i32 0, 4) %switch.load) #3
   br label %sw.epilog198.i
 
 sw.bb21.i:                                        ; preds = %sw.epilog.i
@@ -398,7 +398,7 @@ if.then31.i.i:                                    ; preds = %land.lhs.true27.i.i
 
 if.end32.i.i:                                     ; preds = %land.lhs.true27.i.i, %lor.lhs.false23.i.i, %if.end17.i.i
   %28 = load ptr, ptr %ackm.i.i, align 8
-  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load321, i64 %2) #3
+  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef range(i32 0, 3) %switch.load321, i64 %2) #3
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %malformed.i.i, label %depack_do_frame_ack.exit.i
 
@@ -443,7 +443,7 @@ if.then.i151.i:                                   ; preds = %if.end39.i
 
 if.end.i147.i:                                    ; preds = %if.end39.i
   %30 = load i64, ptr %frame_data.i.i, align 8
-  %call1.i.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %30, i64 noundef 4, ptr noundef %stream.i.i)
+  %call1.i.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %30, i64 noundef 4, ptr noundef %stream.i.i)
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %depack_do_frame_reset_stream.exit.thread.i, label %if.end4.i.i
 
@@ -525,7 +525,7 @@ if.then.i169.i:                                   ; preds = %if.end49.i
 
 if.end.i156.i:                                    ; preds = %if.end49.i
   %37 = load i64, ptr %frame_data.i152.i, align 8
-  %call1.i157.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %37, i64 noundef 5, ptr noundef %stream.i153.i)
+  %call1.i157.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %37, i64 noundef 5, ptr noundef %stream.i153.i)
   %tobool2.not.i158.i = icmp eq i32 %call1.i157.i, 0
   br i1 %tobool2.not.i158.i, label %depack_do_frame_stop_sending.exit.thread.i, label %if.end4.i159.i
 
@@ -707,7 +707,7 @@ if.then.i222.i:                                   ; preds = %if.end75.i
 
 if.end.i193.i:                                    ; preds = %if.end75.i
   %50 = load i64, ptr %frame_data.i189.i, align 8
-  %call1.i194.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %50, i64 noundef %12, ptr noundef %stream.i190.i)
+  %call1.i194.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %50, i64 noundef %12, ptr noundef %stream.i190.i)
   %tobool2.not.i195.i = icmp eq i32 %call1.i194.i, 0
   br i1 %tobool2.not.i195.i, label %depack_do_frame_stream.exit.thread.i, label %if.end4.i196.i
 
@@ -920,7 +920,7 @@ if.then.i246.i:                                   ; preds = %if.end95.i
 
 if.end.i233.i:                                    ; preds = %if.end95.i
   %71 = load i64, ptr %stream_id.i.i, align 8
-  %call1.i234.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %71, i64 noundef 17, ptr noundef %stream.i230.i)
+  %call1.i234.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %71, i64 noundef 17, ptr noundef %stream.i230.i)
   %tobool2.not.i235.i = icmp eq i32 %call1.i234.i, 0
   br i1 %tobool2.not.i235.i, label %depack_do_frame_max_stream_data.exit.thread.i, label %if.end4.i236.i
 
@@ -1073,7 +1073,7 @@ if.then.i279.i:                                   ; preds = %if.end125.i
 
 if.end.i269.i:                                    ; preds = %if.end125.i
   %79 = load i64, ptr %stream_id.i264.i, align 8
-  %call1.i270.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %79, i64 noundef 21, ptr noundef %stream.i266.i)
+  %call1.i270.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %79, i64 noundef 21, ptr noundef %stream.i266.i)
   %tobool2.not.i271.i = icmp eq i32 %call1.i270.i, 0
   br i1 %tobool2.not.i271.i, label %depack_do_frame_stream_data_blocked.exit.thread.i, label %if.end4.i272.i
 

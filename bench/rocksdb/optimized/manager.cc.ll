@@ -199,7 +199,7 @@ _ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEEaSERKS2_.exit: ; preds =
   %m_escalation_count.i = getelementptr inbounds i8, ptr %this, i64 224
   %m_escalator.i = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %m_escalation_count.i, i8 0, i64 104, i1 false)
-  %call1.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %m_escalator.i, ptr noundef null) #13
+  %call1.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i, ptr noundef null) #13
   %m_escalator_done.i.i = getelementptr inbounds i8, ptr %this, i64 328
   %call1.i1.i.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %m_escalator_done.i.i, ptr noundef null) #13
   %m_escalator_running.i.i = getelementptr inbounds i8, ptr %this, i64 384
@@ -219,7 +219,7 @@ entry:
   %m_escalation_count = getelementptr inbounds i8, ptr %this, i64 224
   %m_escalator = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %m_escalation_count, i8 0, i64 104, i1 false)
-  %call1.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %m_escalator, ptr noundef null) #13
+  %call1.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator, ptr noundef null) #13
   %m_escalator_done.i = getelementptr inbounds i8, ptr %this, i64 328
   %call1.i1.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %m_escalator_done.i, ptr noundef null) #13
   %m_escalator_running.i = getelementptr inbounds i8, ptr %this, i64 384
@@ -233,7 +233,7 @@ entry:
   %m_escalator.i = getelementptr inbounds i8, ptr %this, i64 280
   %m_escalator_done.i.i = getelementptr inbounds i8, ptr %this, i64 328
   %call.i.i.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %m_escalator_done.i.i) #13
-  %call.i1.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %m_escalator.i) #13
+  %call.i1.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i) #13
   %m_escalation_mutex.i = getelementptr inbounds i8, ptr %this, i64 176
   %call.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %m_escalation_mutex.i) #13
   %m_locktree_map = getelementptr inbounds i8, ptr %this, i64 88
@@ -279,7 +279,7 @@ entry:
   %m_escalator = getelementptr inbounds i8, ptr %this, i64 280
   %m_escalator_done.i = getelementptr inbounds i8, ptr %this, i64 328
   %call.i.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %m_escalator_done.i) #13
-  %call.i1.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %m_escalator) #13
+  %call.i1.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator) #13
   %m_escalation_mutex = getelementptr inbounds i8, ptr %this, i64 176
   %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %m_escalation_mutex) #13
   ret void
@@ -1228,7 +1228,7 @@ entry:
 define void @_ZN4toku16locktree_manager23run_escalation_for_testEv(ptr noundef nonnull align 8 dereferenceable(392) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_escalator.i = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i, ptr noundef nonnull %this, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull %this)
+  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull align 8 dereferenceable(392) %this)
   ret void
 }
 
@@ -1890,7 +1890,7 @@ entry:
 
 if.end4:                                          ; preds = %entry
   %m_escalator.i = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i, ptr noundef nonnull %this, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull %this)
+  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull align 8 dereferenceable(392) %this)
   %2 = load i64, ptr %m_current_lock_memory.i, align 8
   %3 = load i64, ptr %this, align 8
   %div1.i5 = lshr i64 %3, 1
@@ -1906,7 +1906,7 @@ land.lhs.true5:                                   ; preds = %entry, %if.end4
 if.then7:                                         ; preds = %land.lhs.true5
   %m_current_lock_memory.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %m_escalator.i9 = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i9, ptr noundef nonnull %this, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull %this)
+  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %m_escalator.i9, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull align 8 dereferenceable(392) %this)
   %6 = load i64, ptr %m_current_lock_memory.i7, align 8
   %7 = load i64, ptr %this, align 8
   %cmp.i11.not = icmp ult i64 %6, %7

@@ -1104,7 +1104,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 41:                                               ; preds = %29
-  %42 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef 8, i32 noundef 0) #19
+  %42 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %41, %39
@@ -1796,7 +1796,7 @@ _ZN9Signature12has_envelopeEPK6Symbol.exit.thread: ; preds = %5, %_ZNK6Symbol9en
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 57:                                               ; preds = %45
-  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef 8, i32 noundef 0) #19
+  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %47, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %57, %55
@@ -1832,7 +1832,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %39, %_ZN10HandleAre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i66
 
 76:                                               ; preds = %64
-  %77 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %66, i64 noundef 8, i32 noundef 0) #19
+  %77 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i66
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i66: ; preds = %76, %74
@@ -2031,7 +2031,7 @@ _ZN5ciEnv9get_klassEP5Klass.exit:                 ; preds = %_ZNK12ConstantPool1
 
 170:                                              ; preds = %.loopexit
   %171 = load ptr, ptr %34, align 8
-  %172 = call noundef ptr @_ZN15ciObjectFactory18get_unloaded_klassEP7ciKlassP8ciSymbolb(ptr noundef nonnull align 8 dereferenceable(652) %171, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true) #19
+  %172 = call noundef ptr @_ZN15ciObjectFactory18get_unloaded_klassEP7ciKlassP8ciSymbolb(ptr noundef nonnull align 8 dereferenceable(652) %171, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true) #19
   br label %common.ret91
 }
 
@@ -4011,7 +4011,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
   br i1 %59, label %_ZN6Method19get_method_countersEP6Thread.exit, label %_ZN6Method19get_method_countersEP6Thread.exit.thread
 
 _ZN6Method19get_method_countersEP6Thread.exit:    ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %60 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef nonnull %18, ptr noundef nonnull %56) #19
+  %60 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(88) %56) #19
   %.pre.i = load ptr, ptr %57, align 8
   %61 = icmp eq ptr %.pre.i, null
   br i1 %61, label %62, label %_ZN6Method19get_method_countersEP6Thread.exit.thread
@@ -4189,7 +4189,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %144
   %147 = load ptr, ptr %138, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 32
   %149 = load ptr, ptr %148, align 8
-  %150 = tail call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(24) %138) #19
+  %150 = tail call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(144) %138) #19
   br i1 %150, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %144
@@ -5599,7 +5599,7 @@ define hidden void @_ZN5ciEnv17record_lambdaformEP6ThreadP7oopDesc(ptr noundef n
   %26 = shl nuw nsw i64 %indvars.iv, %.7.i
   %27 = add nuw nsw i64 %25, %26
   %28 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %29 = call noundef ptr %28(ptr noundef nonnull %13, i64 noundef %27) #19
+  %29 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %27) #19
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef %30)
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %0, ptr noundef nonnull @.str.27)
@@ -5897,7 +5897,7 @@ _ZN33java_lang_invoke_ConstantCallSite11is_instanceEP7oopDesc.exit: ; preds = %2
   %42 = load i32, ptr @_ZN25java_lang_invoke_CallSite14_target_offsetE, align 4
   %43 = sext i32 %42 to i64
   %44 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %45 = tail call noundef ptr %44(ptr noundef nonnull %2, i64 noundef %43) #19
+  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %43) #19
   %46 = load i8, ptr @UseCompressedClassPointers, align 1
   %47 = trunc i8 %46 to i1
   %48 = getelementptr inbounds i8, ptr %45, i64 8
@@ -6125,7 +6125,7 @@ define hidden void @_ZN5ciEnv21process_invokedynamicERK18constantPoolHandleiP10J
   br i1 %.not.i, label %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit, label %29
 
 29:                                               ; preds = %19
-  call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.34)
+  call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef nonnull @.str.34)
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %27, align 4
   %30 = and i32 %.sroa.0.0.copyload.i.i.i.i, 67108864
   %.not.i.i = icmp eq i32 %30, 0
@@ -6205,7 +6205,7 @@ _ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit: ; preds = %19, %_ZN5ci
   %68 = shl nuw nsw i64 %66, %.7.i.i
   %69 = add nuw nsw i64 %67, %68
   %70 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %71 = call noundef ptr %70(ptr noundef nonnull %54, i64 noundef %69) #19
+  %71 = call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(16) %54, i64 noundef %69) #19
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
   call void @_ZN5ciEnv20record_call_site_objEP6ThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %3, ptr noundef %71)
   %72 = load ptr, ptr %7, align 8
@@ -6364,7 +6364,7 @@ define hidden void @_ZN5ciEnv20process_invokehandleERK18constantPoolHandleiP10Ja
   br i1 %.not.i, label %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit, label %55
 
 55:                                               ; preds = %41
-  call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %0, ptr noundef nonnull @.str.34)
+  call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef nonnull @.str.34)
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %53, align 4
   %56 = and i32 %.sroa.0.0.copyload.i.i.i.i, 67108864
   %.not.i.i = icmp eq i32 %56, 0
@@ -6619,7 +6619,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %87, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i37
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   %112 = load i32, ptr %36, align 4
   %113 = load i32, ptr %37, align 8
@@ -6898,7 +6898,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %240
   %260 = getelementptr inbounds ptr, ptr %258, i64 %259
   store ptr %241, ptr %260, align 8
   %261 = trunc nuw nsw i64 %indvars.iv60 to i32
-  %262 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %261, i32 noundef -2, ptr noundef nonnull %9, ptr noundef nonnull %57) #19
+  %262 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %261, i32 noundef -2, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %57) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.not = icmp eq ptr %262, null
@@ -7332,7 +7332,7 @@ define hidden void @_ZN5ciEnv16dump_replay_dataEi(ptr noundef nonnull align 8 de
   br i1 %.not8, label %16, label %12
 
 12:                                               ; preds = %10
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %11, ptr %13, align 8
@@ -7385,7 +7385,7 @@ define hidden void @_ZN5ciEnv16dump_inline_dataEi(ptr nocapture noundef nonnull 
   br i1 %.not11, label %57, label %12
 
 12:                                               ; preds = %10
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %11, ptr %13, align 8

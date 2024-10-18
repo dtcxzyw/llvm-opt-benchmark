@@ -534,7 +534,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %76, %_ZN17QArrayDat
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %.loopexit
 
 115:                                              ; preds = %109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false), !alias.scope !4
   store i64 2, ptr %92, align 8, !alias.scope !4
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -600,7 +600,7 @@ _ZNK11QModelIndex4dataEi.exit52:                  ; preds = %129
           to label %_ZNK11QModelIndex4dataEi.exit55 unwind label %144
 
 141:                                              ; preds = %135
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false), !alias.scope !10
   store i64 2, ptr %95, align 8, !alias.scope !10
   br label %_ZNK11QModelIndex4dataEi.exit55
 
@@ -797,7 +797,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77:    ; preds = %_ZN10QByteArrayD2Ev
           to label %_ZNK11QModelIndex4dataEi.exit82 unwind label %170
 
 204:                                              ; preds = %198
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false), !alias.scope !13
   store i64 2, ptr %97, align 8, !alias.scope !13
   br label %_ZNK11QModelIndex4dataEi.exit82
 
@@ -828,7 +828,7 @@ _ZNK11QModelIndex4dataEi.exit82:                  ; preds = %204, %200
           to label %_ZNK11QModelIndex4dataEi.exit85 unwind label %221
 
 214:                                              ; preds = %208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !alias.scope !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false), !alias.scope !16
   store i64 2, ptr %98, align 8, !alias.scope !16
   br label %_ZNK11QModelIndex4dataEi.exit85
 
@@ -882,7 +882,7 @@ _ZNK11QModelIndex4dataEi.exit85:                  ; preds = %214, %210
           to label %_ZNK11QModelIndex4dataEi.exit88 unwind label %221
 
 233:                                              ; preds = %227
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 24, i1 false), !alias.scope !19
   store i64 2, ptr %99, align 8, !alias.scope !19
   br label %_ZNK11QModelIndex4dataEi.exit88
 
@@ -936,7 +936,7 @@ _ZN5QListIP7QActionElsES1_.exit92:                ; preds = %240
           to label %_ZNK11QModelIndex4dataEi.exit95 unwind label %221
 
 248:                                              ; preds = %242
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false), !alias.scope !22
   store i64 2, ptr %102, align 8, !alias.scope !22
   br label %_ZNK11QModelIndex4dataEi.exit95
 
@@ -973,7 +973,7 @@ _ZNK8QVariant5valueI5QFontEET_v.exit:             ; preds = %_ZNK11QModelIndex4d
           to label %_ZNK11QModelIndex4dataEi.exit99 unwind label %221
 
 258:                                              ; preds = %252
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false), !alias.scope !25
   store i64 2, ptr %103, align 8, !alias.scope !25
   br label %_ZNK11QModelIndex4dataEi.exit99
 

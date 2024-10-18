@@ -205,10 +205,10 @@ define noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayES2_NS_6Point_IiEEN
 
 106:                                              ; preds = %103, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %69, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %69, i8 0, i64 3, i1 false)
   %107 = getelementptr inbounds i8, ptr %69, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %107, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %70, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %70, i8 0, i64 3, i1 false)
   %108 = getelementptr inbounds i8, ptr %70, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   %109 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -4121,14 +4121,14 @@ _ZN2cvL14floodFill_CnIRINS_3VecIfLi3EEEEEvRNS_3MatENS_6Point_IiEET_PNS_13Connect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %100, ptr noundef nonnull align 4 dereferenceable(12) %1711, i64 12, i1 false)
   %1712 = getelementptr inbounds i8, ptr %70, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, i8 0, i64 12, i1 false), !alias.scope !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %99, i8 0, i64 12, i1 false), !alias.scope !62
   br label %5382
 
 .preheader1716.preheader:                         ; preds = %.loopexit1742
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02642, ptr noundef nonnull align 8 dereferenceable(12) %68, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %98, ptr noundef nonnull align 4 dereferenceable(12) %107, i64 12, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, i8 0, i64 12, i1 false), !alias.scope !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %97, i8 0, i64 12, i1 false), !alias.scope !65
   br label %3838
 
 .preheader.preheader:                             ; preds = %.loopexit1742

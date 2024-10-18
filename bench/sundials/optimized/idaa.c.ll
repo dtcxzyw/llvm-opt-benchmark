@@ -2622,7 +2622,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   store i32 %77, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %45, i64 584
   store i32 3, ptr %79, align 8
-  %80 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef %0, ptr noundef %45)
+  %80 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef %45)
   %.not29.i = icmp eq i32 %80, 0
   br i1 %.not29.i, label %81, label %84
 
@@ -2637,7 +2637,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %326
 
 84:                                               ; preds = %76
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef %0, ptr noundef %45)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull %0, ptr noundef %45)
   %85 = getelementptr inbounds i8, ptr %45, i64 592
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %17, i64 80
@@ -2956,7 +2956,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %spec.select.i = select i1 %271, i32 %272, i32 6
   %273 = getelementptr inbounds i8, ptr %209, i64 584
   store i32 %spec.select.i, ptr %273, align 8
-  %274 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef %0, ptr noundef %209)
+  %274 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef %209)
   %.not82.i = icmp eq i32 %274, 0
   br i1 %.not82.i, label %275, label %276
 
@@ -2965,7 +2965,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %IDAAckpntNew.exit.thread
 
 276:                                              ; preds = %268
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef %0, ptr noundef %209)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull %0, ptr noundef %209)
   %277 = load ptr, ptr %160, align 8
   %278 = getelementptr inbounds i8, ptr %209, i64 592
   store ptr %277, ptr %278, align 8

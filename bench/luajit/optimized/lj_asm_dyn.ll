@@ -542,7 +542,7 @@ if.then4.i.i:                                     ; preds = %for.body.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then4.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then4.i.i
@@ -1568,11 +1568,11 @@ asm_baseslot.exit.i:                              ; preds = %for.cond.i.i, %if.t
   br i1 %cmp.i.i173, label %if.then.i.i206, label %checkmclim.exit.i
 
 if.then.i.i206:                                   ; preds = %asm_baseslot.exit.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 checkmclim.exit.i:                                ; preds = %asm_baseslot.exit.i
-  %call5.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef 32768, i32 noundef 4)
+  %call5.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 4)
   %140 = load ptr, ptr %T22, align 8
   %link.i = getelementptr inbounds i8, ptr %140, i64 106
   %141 = load i16, ptr %link.i, align 2
@@ -1844,7 +1844,7 @@ if.else.i177:                                     ; preds = %checkmclim.exit.i
 if.then50.i:                                      ; preds = %if.else.i177
   %182 = load ptr, ptr %J21, align 8
   %jit_base.i = getelementptr inbounds i8, ptr %182, i64 -352
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1996488450, i32 noundef 524802, ptr noundef nonnull %jit_base.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1996488450, i32 noundef 524802, ptr noundef nonnull %jit_base.i)
   br label %if.end53.i178
 
 if.end53.i178:                                    ; preds = %if.then50.i, %if.else.i.i, %if.then.i61.i
@@ -2017,7 +2017,7 @@ if.else.i75.i:                                    ; preds = %emit_movmroi.exit.i
   br i1 %tobool.not.i.i.i190, label %ra_alloc1.exit.i.i, label %if.then.i67.i.i
 
 if.then.i67.i.i:                                  ; preds = %if.else.i75.i
-  %call.i.i.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %and.i71.i, i32 noundef 49131)
+  %call.i.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef 49131)
   %.pre.i.i191 = load ptr, ptr %mcp, align 8
   br label %ra_alloc1.exit.i.i
 
@@ -2083,7 +2083,7 @@ if.then22.i.i:                                    ; preds = %if.else17.i.i
   br i1 %tobool.not.i79.i.i, label %ra_alloc1.exit87.i.i, label %if.then.i80.i.i
 
 if.then.i80.i.i:                                  ; preds = %if.then22.i.i
-  %call.i81.i.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %and.i71.i, i32 noundef -65536)
+  %call.i81.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef -65536)
   br label %ra_alloc1.exit87.i.i
 
 ra_alloc1.exit87.i.i:                             ; preds = %if.then.i80.i.i, %if.then22.i.i
@@ -2146,7 +2146,7 @@ if.then28.i.i:                                    ; preds = %if.else25.i.i
   br i1 %tobool.not.i124.i.i, label %ra_alloc1.exit132.i.i, label %if.then.i125.i.i
 
 if.then.i125.i.i:                                 ; preds = %if.then28.i.i
-  %call.i126.i.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %and.i71.i, i32 noundef 49131)
+  %call.i126.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef 49131)
   br label %ra_alloc1.exit132.i.i
 
 ra_alloc1.exit132.i.i:                            ; preds = %if.then.i125.i.i, %if.then28.i.i
@@ -2384,7 +2384,7 @@ if.end81.i.i:                                     ; preds = %emit_movmroi.exit27
   br i1 %cmp.i.i80.i, label %if.then.i.i81.i, label %for.inc.i.i185
 
 if.then.i.i81.i:                                  ; preds = %if.end81.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 for.inc.i.i185:                                   ; preds = %if.end81.i.i, %for.body.i69.i
@@ -2403,7 +2403,7 @@ if.then72.i189:                                   ; preds = %asm_stack_restore.e
   %244 = load i32, ptr %topslot, align 4
   %245 = load i32, ptr %freeset.i.i, align 8
   %and74.i = and i32 %245, 49135
-  call fastcc void @asm_stack_check(ptr noundef %as_, i32 noundef %244, ptr noundef null, i32 noundef %and74.i, i32 noundef %sub.i)
+  call fastcc void @asm_stack_check(ptr noundef nonnull %as_, i32 noundef %244, ptr noundef null, i32 noundef %and74.i, i32 noundef %sub.i)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then72.i189, %asm_stack_restore.exit.i, %asm_setup_regsp.exit
@@ -2551,7 +2551,7 @@ for.body.i.i231:                                  ; preds = %for.inc.i.i236, %fo
   br i1 %cmp9.i.i, label %for.inc.i.i236, label %if.then.i.i235
 
 if.then.i.i235:                                   ; preds = %for.body.i.i231
-  call fastcc void @asm_snap_alloc1(ptr noundef %as_, i32 noundef %and.i.i234)
+  call fastcc void @asm_snap_alloc1(ptr noundef nonnull %as_, i32 noundef %and.i.i234)
   br label %for.inc.i.i236
 
 for.inc.i.i236:                                   ; preds = %if.then.i.i235, %for.body.i.i231
@@ -2793,7 +2793,7 @@ sw.bb.i363:                                       ; preds = %checkmclim.exit188
   br i1 %tobool.not.i3265, label %if.end.i3267, label %if.then.i3266
 
 if.then.i3266:                                    ; preds = %sw.bb.i363
-  call fastcc void @asm_gc_check(ptr noundef %as_)
+  call fastcc void @asm_gc_check(ptr noundef nonnull %as_)
   br label %if.end.i3267
 
 if.end.i3267:                                     ; preds = %if.then.i3266, %sw.bb.i363
@@ -2861,14 +2861,14 @@ if.end25.thread.i.i:                              ; preds = %if.then7.i.i3431
   br label %if.end30.i.i
 
 if.else.i.i3438:                                  ; preds = %if.then7.i.i3431
-  %call.i.i3439 = call fastcc i32 @ra_restore(ptr noundef %as_, i32 noundef %conv11.i.i3432)
+  %call.i.i3439 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv11.i.i3432)
   %319 = load ptr, ptr %mcp, align 8
   %320 = load ptr, ptr %mclim, align 8
   %cmp.i151.i.i = icmp ult ptr %319, %320
   br i1 %cmp.i151.i.i, label %if.then.i155.i.i, label %if.end25.i.i3283
 
 if.then.i155.i.i:                                 ; preds = %if.else.i.i3438
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end25.i.i3283:                                 ; preds = %if.else.i.i3438, %if.then.i.i3281
@@ -3015,7 +3015,7 @@ ra_rename.exit.i.i:                               ; preds = %if.then.i80.i.i3417
   br i1 %cmp.i142.i.i, label %if.then.i146.i.i, label %if.end30.i.i
 
 if.then.i146.i.i:                                 ; preds = %ra_rename.exit.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end30.i.i:                                     ; preds = %ra_rename.exit.i.i, %if.end25.i.i3283, %if.end25.thread.i.i, %while.body.if.end30_crit_edge.i.i
@@ -3060,7 +3060,7 @@ if.then.i82.i.i3397:                              ; preds = %if.then39.i.i
   br i1 %tobool.not.i.i85.i.i, label %if.then.i.i87.i.i, label %if.else.i.i86.i.i
 
 if.then.i.i87.i.i:                                ; preds = %if.then.i82.i.i3397
-  %call.i.i88.i.i = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and1.i.i.i3398)
+  %call.i.i88.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and1.i.i.i3398)
   br label %ra_pick.exit.i.i.i
 
 if.else.i.i86.i.i:                                ; preds = %if.then.i82.i.i3397
@@ -3077,7 +3077,7 @@ ra_pick.exit.i.i.i:                               ; preds = %if.else.i.i86.i.i, 
   %352 = call i32 @llvm.bswap.i32(i32 %spec.select.i.i.i3402)
   %353 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %352, i1 true)
   %xor9.i.i.i = xor i32 %353, 7
-  call fastcc void @ra_rename(ptr noundef %as_, i32 noundef %xor9.i.i.i, i32 noundef %retval.0.i.i.i.i3400)
+  call fastcc void @ra_rename(ptr noundef nonnull %as_, i32 noundef %xor9.i.i.i, i32 noundef %retval.0.i.i.i.i3400)
   br label %asm_phi_break.exit.i.i
 
 asm_phi_break.exit.i.i:                           ; preds = %ra_pick.exit.i.i.i, %if.then39.i.i
@@ -3093,7 +3093,7 @@ if.then.i91.i.i3403:                              ; preds = %asm_phi_break.exit.
   br i1 %tobool.not.i.i96.i.i, label %if.then.i.i106.i.i, label %if.else.i.i97.i.i
 
 if.then.i.i106.i.i:                               ; preds = %if.then.i91.i.i3403
-  %call.i.i107.i.i = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and1.i93.i.i)
+  %call.i.i107.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and1.i93.i.i)
   br label %ra_pick.exit.i99.i.i
 
 if.else.i.i97.i.i:                                ; preds = %if.then.i91.i.i3403
@@ -3110,7 +3110,7 @@ ra_pick.exit.i99.i.i:                             ; preds = %if.else.i.i97.i.i, 
   %357 = call i32 @llvm.bswap.i32(i32 %spec.select.i104.i.i)
   %358 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %357, i1 true)
   %xor9.i105.i.i = xor i32 %358, 7
-  call fastcc void @ra_rename(ptr noundef %as_, i32 noundef %xor9.i105.i.i, i32 noundef %retval.0.i.i100.i.i)
+  call fastcc void @ra_rename(ptr noundef nonnull %as_, i32 noundef %xor9.i105.i.i, i32 noundef %retval.0.i.i100.i.i)
   br label %asm_phi_break.exit108.i.i
 
 asm_phi_break.exit108.i.i:                        ; preds = %ra_pick.exit.i99.i.i, %asm_phi_break.exit.i.i
@@ -3120,7 +3120,7 @@ asm_phi_break.exit108.i.i:                        ; preds = %ra_pick.exit.i99.i.
   br i1 %cmp.i133.i.i, label %if.then.i137.i.i, label %if.end40.i.i
 
 if.then.i137.i.i:                                 ; preds = %asm_phi_break.exit108.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end40.i.i:                                     ; preds = %asm_phi_break.exit108.i.i, %if.end35.i.i3287
@@ -3149,7 +3149,7 @@ while.body49.i.i:                                 ; preds = %while.cond47.i.i
   %arrayidx53.i.i3291 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom52.i.i3290
   %366 = load i32, ptr %arrayidx53.i.i3291, align 4
   %conv55.i.i3292 = and i32 %366, 65535
-  %call56.i.i = call fastcc i32 @ra_restore(ptr noundef %as_, i32 noundef %conv55.i.i3292)
+  %call56.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv55.i.i3292)
   %shl57.i.i = shl nuw i32 1, %365
   %not58.i.i = xor i32 %shl57.i.i, -1
   %and59.i.i3293 = and i32 %work.0.i.i, %not58.i.i
@@ -3159,7 +3159,7 @@ while.body49.i.i:                                 ; preds = %while.cond47.i.i
   br i1 %cmp.i124.i.i, label %if.then.i128.i.i, label %while.cond47.i.i, !llvm.loop !21
 
 if.then.i128.i.i:                                 ; preds = %while.body49.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 while.end60.i.i:                                  ; preds = %while.cond47.i.i
@@ -3182,7 +3182,7 @@ while.body69.i.i:                                 ; preds = %while.cond67.i.i
   %arrayidx73.i.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom72.i.i
   %373 = load i32, ptr %arrayidx73.i.i, align 4
   %conv75.i.i = and i32 %373, 65535
-  %call76.i.i = call fastcc i32 @ra_restore(ptr noundef %as_, i32 noundef %conv75.i.i)
+  %call76.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv75.i.i)
   %shl77.i.i = shl nuw i32 1, %372
   %not78.i.i = xor i32 %shl77.i.i, -1
   %and79.i.i = and i32 %work.1.i.i, %not78.i.i
@@ -3192,7 +3192,7 @@ while.body69.i.i:                                 ; preds = %while.cond67.i.i
   br i1 %cmp.i115.i.i, label %if.then.i119.i.i, label %while.cond67.i.i, !llvm.loop !22
 
 if.then.i119.i.i:                                 ; preds = %while.body69.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 while.end80.i.i:                                  ; preds = %while.cond67.i.i
@@ -3268,7 +3268,7 @@ land.lhs.true.i3766:                              ; preds = %if.end.i3765
   br i1 %cmp18.i, label %if.then20.i3768, label %if.end27.i3748
 
 if.then20.i3768:                                  ; preds = %land.lhs.true.i3766
-  %call.i3769 = call fastcc i32 @ra_rematk(ptr noundef %as_, i32 noundef %conv17.i)
+  %call.i3769 = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv17.i)
   br label %ra_allocref.exit
 
 if.end27.i3748:                                   ; preds = %land.lhs.true.i3766, %if.end.i3765, %if.then.i3746
@@ -3302,7 +3302,7 @@ if.else.i3751:                                    ; preds = %land.lhs.true30.i, 
   br label %ra_allocref.exit
 
 if.else50.i:                                      ; preds = %if.then.i112.i.i
-  %call51.i = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %shl105.i.i)
+  %call51.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %shl105.i.i)
   br label %ra_allocref.exit
 
 ra_allocref.exit:                                 ; preds = %if.then4.i, %if.then20.i3768, %if.then34.i3759, %if.else.i3751, %if.else50.i
@@ -3452,7 +3452,7 @@ ra_save.exit.i.i:                                 ; preds = %if.then46.i.i.i.i.i
   br i1 %cmp.i.i.i3319, label %if.then.i.i.i3392, label %if.end107.i.i
 
 if.then.i.i.i3392:                                ; preds = %ra_save.exit.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end107.i.i:                                    ; preds = %ra_save.exit.i.i, %while.body84.i.i
@@ -3862,7 +3862,7 @@ emit_rmro.exit360.i.i:                            ; preds = %if.then46.i.i343.i.
   br i1 %cmp.i189.i.i, label %if.then.i193.i.i, label %for.inc81.i.i
 
 if.then.i193.i.i:                                 ; preds = %emit_rmro.exit360.i.i, %emit_rmro.exit.i131.us.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 for.inc81.i.i:                                    ; preds = %emit_rmro.exit360.i.i, %land.lhs.true60.i.i, %if.then51.i.i3361, %for.body46.i.i
@@ -4162,7 +4162,7 @@ emit_rmro.exit492.i.i:                            ; preds = %if.then46.i.i475.i.
   br i1 %cmp.i.i30.i, label %if.then.i.i31.i3384, label %for.inc169.i.i
 
 if.then.i.i31.i3384:                              ; preds = %emit_rmro.exit492.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 for.inc169.i.i:                                   ; preds = %emit_rmro.exit492.i.i, %land.lhs.true146.i.i, %if.then136.i.i, %for.body131.i.i
@@ -4356,7 +4356,7 @@ if.then.i3256:                                    ; preds = %sw.bb2.i
   %562 = add nsw i8 %561, -13
   %563 = icmp ult i8 %562, 2
   %cond.i361 = select i1 %563, i32 -65536, i32 49135
-  %call.i3257 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv3.i359, i32 noundef %cond.i361)
+  %call.i3257 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv3.i359, i32 noundef %cond.i361)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %sw.bb2.i, %if.then.i3256
@@ -4421,7 +4421,7 @@ if.then27.i3180:                                  ; preds = %if.end25.i3178
 
 if.then33.i3181:                                  ; preds = %if.then27.i3180
   %conv35.i3182 = zext i16 %573 to i32
-  %call.i3183 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv35.i3182, i32 noundef %and8.i)
+  %call.i3183 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv35.i3182, i32 noundef %and8.i)
   %.pre.i3184 = shl nuw i32 1, %call.i3183
   br label %if.end39.i
 
@@ -4430,7 +4430,7 @@ if.else.i3188:                                    ; preds = %if.then27.i3180
   br i1 %tobool.not.i.i.i3189, label %if.then.i.i.i3240, label %if.else.i.i.i3190
 
 if.then.i.i.i3240:                                ; preds = %if.else.i3188
-  %call.i.i.i3241 = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and8.i)
+  %call.i.i.i3241 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and8.i)
   br label %ra_scratch.exit.i3192
 
 if.else.i.i.i3190:                                ; preds = %if.else.i3188
@@ -4676,7 +4676,7 @@ sw.bb.i3159:                                      ; preds = %if.end23.i, %if.end
 if.then27.i:                                      ; preds = %sw.bb.i3159
   %618 = load i16, ptr %arrayidx63, align 8
   %conv28.i = zext i16 %618 to i32
-  %call.i3161 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv28.i, i32 noundef 1)
+  %call.i3161 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv28.i, i32 noundef 1)
   br label %for.inc
 
 sw.bb14.i:                                        ; preds = %checkmclim.exit188
@@ -4727,7 +4727,7 @@ for.end.i3132:                                    ; preds = %for.inc.i3140, %sw.
   br i1 %tobool24.not.i, label %asm_gcstep.exit, label %if.then25.i3133
 
 if.then25.i3133:                                  ; preds = %for.end.i3132
-  call fastcc void @asm_gc_check(ptr noundef %as_)
+  call fastcc void @asm_gc_check(ptr noundef nonnull %as_)
   br label %asm_gcstep.exit
 
 asm_gcstep.exit:                                  ; preds = %for.end.i3132, %if.then25.i3133
@@ -4820,11 +4820,11 @@ asm_prof.exit:                                    ; preds = %if.end.i.i3117, %if
   store i8 -128, ptr %incdec.ptr.i3100, align 1
   %638 = load ptr, ptr %J21, align 8
   %hookmask.i = getelementptr inbounds i8, ptr %638, i64 -583
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -167771906, i32 noundef 0, ptr noundef nonnull %hookmask.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -167771906, i32 noundef 0, ptr noundef nonnull %hookmask.i)
   br label %for.inc
 
 sw.bb16.i:                                        ; preds = %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188
-  call fastcc void @asm_comp(ptr noundef %as_, ptr noundef nonnull %arrayidx63)
+  call fastcc void @asm_comp(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63)
   br label %for.inc
 
 sw.bb17.i:                                        ; preds = %checkmclim.exit188, %checkmclim.exit188
@@ -4846,11 +4846,11 @@ if.then.i.i358:                                   ; preds = %land.lhs.true.i.i35
   store i32 %conv2.i.i, ptr %curins, align 8
   %642 = load i8, ptr %o.i263, align 1
   %conv8.i.i = zext i8 %642 to i32
-  call fastcc void @asm_href(ptr noundef %as_, ptr noundef nonnull %add.ptr.i.i352, i32 noundef %conv8.i.i)
+  call fastcc void @asm_href(ptr noundef nonnull %as_, ptr noundef nonnull %add.ptr.i.i352, i32 noundef %conv8.i.i)
   br label %for.inc
 
 if.else.i.i355:                                   ; preds = %land.lhs.true.i.i356, %sw.bb17.i
-  call fastcc void @asm_comp(ptr noundef %as_, ptr noundef nonnull %arrayidx63)
+  call fastcc void @asm_comp(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63)
   br label %for.inc
 
 sw.bb18.i:                                        ; preds = %checkmclim.exit188
@@ -4862,7 +4862,7 @@ sw.bb18.i:                                        ; preds = %checkmclim.exit188
   br i1 %tobool.not.i.i2943, label %ra_alloc1.exit.i2946, label %if.then.i.i2944
 
 if.then.i.i2944:                                  ; preds = %sw.bb18.i
-  %call.i.i2945 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef 32768, i32 noundef 49135)
+  %call.i.i2945 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit.i2946
 
 ra_alloc1.exit.i2946:                             ; preds = %if.then.i.i2944, %sw.bb18.i
@@ -4880,7 +4880,7 @@ ra_alloc1.exit.i2946:                             ; preds = %if.then.i.i2944, %s
   br i1 %tobool.not.i.i.i2956, label %if.then.i.i.i3070, label %if.else.i.i.i2957
 
 if.then.i.i.i3070:                                ; preds = %ra_alloc1.exit.i2946
-  %call.i.i.i3071 = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and.i2953)
+  %call.i.i.i3071 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i2953)
   br label %ra_scratch.exit.i2959
 
 if.else.i.i.i2957:                                ; preds = %ra_alloc1.exit.i2946
@@ -4919,7 +4919,7 @@ ra_scratch.exit.i2959:                            ; preds = %if.else.i.i.i2957, 
   %or10.i2974 = or disjoint i32 %r.0.i.i2947, 524800
   %658 = load ptr, ptr %J21, align 8
   %jit_base.i2976 = getelementptr inbounds i8, ptr %658, i64 -352
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1996488450, i32 noundef %or10.i2974, ptr noundef nonnull %jit_base.i2976)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1996488450, i32 noundef %or10.i2974, ptr noundef nonnull %jit_base.i2976)
   %mul.i2977 = mul nsw i32 %add.i2969, -8
   %659 = load ptr, ptr %mcp, align 8
   %660 = add nsw i32 %mul.i2977, 128
@@ -5088,11 +5088,11 @@ asm_retf.exit:                                    ; preds = %if.end15.thread.i.i
   %incdec.ptr.i.i35.i = getelementptr inbounds i8, ptr %p.1.i.i3019, i64 -3
   store i8 %conv63.i.i.i3032, ptr %incdec.ptr.i.i35.i, align 1
   store ptr %incdec.ptr.i.i35.i, ptr %mcp, align 8
-  call fastcc void @emit_loadu64(ptr noundef %as_, i32 noundef %retval.0.i.i.i2960, i64 noundef %652)
+  call fastcc void @emit_loadu64(ptr noundef nonnull %as_, i32 noundef %retval.0.i.i.i2960, i64 noundef %652)
   br label %for.inc
 
 sw.bb19.i:                                        ; preds = %checkmclim.exit188
-  %call.i2916 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2916 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %677 = load i8, ptr %t, align 4
   %678 = and i8 %677, 31
   %and.i2918 = zext nneg i8 %678 to i32
@@ -5130,11 +5130,11 @@ asm_neg_not.exit:                                 ; preds = %sw.bb19.i, %if.then
   store ptr %retval.i.0.i.i2938, ptr %mcp, align 8
   %685 = load i16, ptr %arrayidx63, align 8
   %conv2.i2939 = zext i16 %685 to i32
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call.i2916, i32 noundef %conv2.i2939)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call.i2916, i32 noundef %conv2.i2939)
   br label %for.inc
 
 sw.bb20.i:                                        ; preds = %checkmclim.exit188
-  %call.i2898 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2898 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %686 = load i8, ptr %t, align 4
   %687 = and i8 %686, 31
   %and1.i = zext nneg i8 %687 to i32
@@ -5171,39 +5171,39 @@ asm_bswap.exit:                                   ; preds = %sw.bb20.i, %if.then
   store ptr %p.addr.i.0.i, ptr %mcp, align 8
   %692 = load i16, ptr %arrayidx63, align 8
   %conv6.i2915 = zext i16 %692 to i32
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call.i2898, i32 noundef %conv6.i2915)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call.i2898, i32 noundef %conv6.i2915)
   br label %for.inc
 
 sw.bb21.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 4)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 4)
   br label %for.inc
 
 sw.bb22.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1)
   br label %for.inc
 
 sw.bb23.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 6)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 6)
   br label %for.inc
 
 sw.bb24.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_bitshift(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 4, i32 noundef -143007036)
+  call fastcc void @asm_bitshift(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 4, i32 noundef -143007036)
   br label %for.inc
 
 sw.bb25.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_bitshift(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 5, i32 noundef -142875964)
+  call fastcc void @asm_bitshift(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 5, i32 noundef -142875964)
   br label %for.inc
 
 sw.bb26.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_bitshift(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 7, i32 noundef -142941500)
+  call fastcc void @asm_bitshift(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 7, i32 noundef -142941500)
   br label %for.inc
 
 sw.bb27.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_bitshift(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0, i32 noundef 0)
+  call fastcc void @asm_bitshift(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0, i32 noundef 0)
   br label %for.inc
 
 sw.bb28.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_bitshift(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1, i32 noundef 0)
+  call fastcc void @asm_bitshift(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1, i32 noundef 0)
   br label %for.inc
 
 sw.bb29.i:                                        ; preds = %checkmclim.exit188
@@ -5214,7 +5214,7 @@ sw.bb29.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2845, label %if.then.i2897, label %if.else.i2846
 
 if.then.i2897:                                    ; preds = %sw.bb29.i
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1477440252)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1477440252)
   br label %for.inc
 
 if.else.i2846:                                    ; preds = %sw.bb29.i
@@ -5349,7 +5349,7 @@ if.then96.i.i:                                    ; preds = %land.lhs.true91.i.i
 
 if.then.i3731:                                    ; preds = %if.then96.i.i
   %conv99.i.i = zext i16 %720 to i32
-  %call.i3732 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv99.i.i, i32 noundef %and10.i.i2882)
+  %call.i3732 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv99.i.i, i32 noundef %and10.i.i2882)
   %.pre4045 = load i32, ptr %weakset.i.i, align 8
   %.pre4046 = load ptr, ptr %ir37, align 8
   br label %ra_alloc1.exit3739
@@ -5410,7 +5410,7 @@ if.then143.i.i:                                   ; preds = %lor.lhs.false138.i.
 
 if.then.i.i.i2869:                                ; preds = %if.then143.i.i
   %conv147.i.i = zext i16 %731 to i32
-  %call.i.i.i2870 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv147.i.i, i32 noundef 49135)
+  %call.i.i.i2870 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv147.i.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i.i2871
 
 ra_alloc1.exit.i.i2871:                           ; preds = %if.then.i.i.i2869, %if.then143.i.i
@@ -5462,7 +5462,7 @@ if.else165.i.i:                                   ; preds = %ra_alloc1.exit.i.i2
 if.end175.i.i.sink.split:                         ; preds = %if.else165.i.i, %if.then159.i.i
   %.sink4119 = phi i16 [ %736, %if.then159.i.i ], [ %742, %if.else165.i.i ]
   %conv173.i.i = zext i16 %.sink4119 to i32
-  %call.i3717 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv173.i.i, i32 noundef %and151.i.i)
+  %call.i3717 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv173.i.i, i32 noundef %and151.i.i)
   %.pre4044 = load i32, ptr %weakset.i.i, align 8
   br label %if.end175.i.i
 
@@ -5480,12 +5480,12 @@ if.end175.i.i:                                    ; preds = %if.end175.i.i.sink.
 
 asm_lea.exit.i:                                   ; preds = %if.end175.i.i, %ra_alloc1.exit3739, %if.else.i.i2890, %if.then64.i.i
   %allow.0.i.i = phi i32 [ %and178.i.i, %if.end175.i.i ], [ %and10.i.i2882, %if.then64.i.i ], [ %and71.i.i, %if.else.i.i2890 ], [ %and102.i.i, %ra_alloc1.exit3739 ]
-  %call185.i.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef %allow.0.i.i)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1929379586, i32 noundef %call185.i.i, i32 noundef 32)
+  %call185.i.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef %allow.0.i.i)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1929379586, i32 noundef %call185.i.i, i32 noundef 32)
   br label %for.inc
 
 if.then11.i2851:                                  ; preds = %lor.lhs.false138.i.i, %land.lhs.true122.i.i, %if.else115.i.i, %land.lhs.true91.i.i, %if.else82.i.i, %land.lhs.true49.i.i, %land.lhs.true34.i.i, %lor.lhs.false.i2849, %if.else.i2846
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0)
   br label %for.inc
 
 sw.bb30.i:                                        ; preds = %checkmclim.exit188
@@ -5495,11 +5495,11 @@ sw.bb30.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2839, label %if.then.i2842, label %if.else.i2840
 
 if.then.i2842:                                    ; preds = %sw.bb30.i
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1544549116)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1544549116)
   br label %for.inc
 
 if.else.i2840:                                    ; preds = %sw.bb30.i
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 5)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 5)
   br label %for.inc
 
 sw.bb31.i:                                        ; preds = %checkmclim.exit188
@@ -5509,11 +5509,11 @@ sw.bb31.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2834, label %if.then.i2837, label %if.else.i2835
 
 if.then.i2837:                                    ; preds = %sw.bb31.i
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1494217468)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1494217468)
   br label %for.inc
 
 if.else.i2835:                                    ; preds = %sw.bb31.i
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 8)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 8)
   br label %for.inc
 
 sw.bb32.i:                                        ; preds = %checkmclim.exit188
@@ -5534,8 +5534,8 @@ if.then.i2819:                                    ; preds = %sw.bb32.i
   %751 = load i16, ptr %op2.i.i2824, align 2
   %conv2.i.i2825 = zext i16 %751 to i32
   store i32 %conv2.i.i2825, ptr %arrayidx3.i.i2826, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i2822)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %arrayidx.i.i2822, ptr noundef %args.i.i2816)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i2822)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx.i.i2822, ptr noundef %args.i.i2816)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i.i2816)
   br label %for.inc
 
@@ -5548,8 +5548,8 @@ if.else.i2828:                                    ; preds = %sw.bb32.i
   %753 = load i16, ptr %op2.i7.i2830, align 2
   %conv2.i8.i2831 = zext i16 %753 to i32
   store i32 %conv2.i8.i2831, ptr %arrayidx3.i9.i2832, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 704))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 704), ptr noundef %args.i5.i2815)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 704))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 704), ptr noundef %args.i5.i2815)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i5.i2815)
   br label %for.inc
 
@@ -5560,11 +5560,11 @@ sw.bb33.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2790, label %if.then.i2814, label %if.else.i2791
 
 if.then.i2814:                                    ; preds = %sw.bb33.i
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1460601085)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1460601085)
   br label %for.inc
 
 if.else.i2791:                                    ; preds = %sw.bb33.i
-  %call.i.i2792 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i.i2792 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %756 = load i8, ptr %t, align 4
   %757 = and i8 %756, 31
   %and.i.i2793 = zext nneg i8 %757 to i32
@@ -5602,7 +5602,7 @@ asm_neg_not.exit.i:                               ; preds = %if.then46.i.i.i.i28
   store ptr %retval.i.0.i.i.i2811, ptr %mcp, align 8
   %764 = load i16, ptr %arrayidx63, align 8
   %conv2.i.i2812 = zext i16 %764 to i32
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call.i.i2792, i32 noundef %conv2.i.i2812)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call.i.i2792, i32 noundef %conv2.i.i2812)
   br label %for.inc
 
 sw.bb34.i351:                                     ; preds = %checkmclim.exit188
@@ -5623,13 +5623,13 @@ if.then.i2779:                                    ; preds = %sw.bb34.i351
   %768 = load i16, ptr %op2.i.i2784, align 2
   %conv2.i.i2785 = zext i16 %768 to i32
   store i32 %conv2.i.i2785, ptr %arrayidx3.i.i2786, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i2782)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %arrayidx.i.i2782, ptr noundef %args.i.i2776)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i2782)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx.i.i2782, ptr noundef %args.i.i2776)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i.i2776)
   br label %for.inc
 
 if.else.i2788:                                    ; preds = %sw.bb34.i351
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1578103548)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1578103548)
   br label %for.inc
 
 sw.bb35.i:                                        ; preds = %checkmclim.exit188
@@ -5650,8 +5650,8 @@ if.then.i2766:                                    ; preds = %sw.bb35.i
   %772 = load i16, ptr %op2.i.i2771, align 2
   %conv2.i.i2772 = zext i16 %772 to i32
   store i32 %conv2.i.i2772, ptr %arrayidx3.i.i2773, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i2769)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %arrayidx.i.i2769, ptr noundef %args.i.i2763)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i2769)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx.i.i2769, ptr noundef %args.i.i2763)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i.i2763)
   br label %for.inc
 
@@ -5664,13 +5664,13 @@ if.else.i2775:                                    ; preds = %sw.bb35.i
   %774 = load i16, ptr %op2.i7.i, align 2
   %conv2.i8.i = zext i16 %774 to i32
   store i32 %conv2.i8.i, ptr %arrayidx3.i9.i, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1040))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1040), ptr noundef %args.i5.i)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1040))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1040), ptr noundef %args.i5.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i5.i)
   br label %for.inc
 
 sw.bb36.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1410269437)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1410269437)
   br label %for.inc
 
 sw.bb37.i:                                        ; preds = %checkmclim.exit188
@@ -5774,11 +5774,11 @@ asm_ldexp.exit:                                   ; preds = %if.end.i2728, %if.t
   store ptr %add.ptr9.i, ptr %mcp, align 8
   %783 = load i16, ptr %arrayidx63, align 8
   %conv10.i2733 = zext i16 %783 to i32
-  call fastcc void @asm_x87load(ptr noundef %as_, i32 noundef %conv10.i2733)
+  call fastcc void @asm_x87load(ptr noundef nonnull %as_, i32 noundef %conv10.i2733)
   %op2.i2734 = getelementptr inbounds i8, ptr %arrayidx63, i64 2
   %784 = load i16, ptr %op2.i2734, align 2
   %conv11.i2735 = zext i16 %784 to i32
-  call fastcc void @asm_x87load(ptr noundef %as_, i32 noundef %conv11.i2735)
+  call fastcc void @asm_x87load(ptr noundef nonnull %as_, i32 noundef %conv11.i2735)
   br label %for.inc
 
 sw.bb38.i:                                        ; preds = %checkmclim.exit188
@@ -5789,11 +5789,11 @@ sw.bb38.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2662, label %if.then.i2719, label %if.else.i2663
 
 if.then.i2719:                                    ; preds = %sw.bb38.i
-  %call.i2720 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef -65536)
+  %call.i2720 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef -65536)
   %786 = load i16, ptr %arrayidx63, align 8
   %conv2.i2721 = zext i16 %786 to i32
-  %call3.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv2.i2721, i32 noundef -65536)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef 1359999740, i32 noundef %call.i2720, i32 noundef %call3.i)
+  %call3.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv2.i2721, i32 noundef -65536)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 1359999740, i32 noundef %call.i2720, i32 noundef %call3.i)
   br label %for.inc
 
 if.else.i2663:                                    ; preds = %sw.bb38.i
@@ -5807,17 +5807,17 @@ if.then6.i2668:                                   ; preds = %if.else.i2663
   br i1 %tobool.not.i2671, label %if.else28.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then6.i2668
-  %call9.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef -65536)
+  %call9.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef -65536)
   %788 = load i16, ptr %arrayidx63, align 8
   %conv12.i = zext i16 %788 to i32
-  %call13.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv12.i, i32 noundef -65536)
+  %call13.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv12.i, i32 noundef -65536)
   %789 = trunc nuw i16 %785 to i8
   %conv14.i2672 = add nuw nsw i8 %789, 9
   %790 = load ptr, ptr %mcp, align 8
   %incdec.ptr.i2674 = getelementptr inbounds i8, ptr %790, i64 -1
   store ptr %incdec.ptr.i2674, ptr %mcp, align 8
   store i8 %conv14.i2672, ptr %incdec.ptr.i2674, align 1
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef 188354556, i32 noundef %call9.i, i32 noundef %call13.i)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 188354556, i32 noundef %call9.i, i32 noundef %call13.i)
   %791 = load ptr, ptr %mcp, align 8
   %arrayidx.i2675 = getelementptr inbounds i8, ptr %791, i64 1
   %792 = load i8, ptr %arrayidx.i2675, align 1
@@ -5847,8 +5847,8 @@ if.else28.i:                                      ; preds = %if.then6.i2668
   %not.i2682 = and i32 %shl.i2681, 983041
   %and35.i2683 = xor i32 %not.i2682, 983041
   %drop.0.i = select i1 %tobool31.not.i2679, i32 %and35.i2683, i32 983041
-  call fastcc void @ra_evictset(ptr noundef %as_, i32 noundef %drop.0.i)
-  %call.i.i2684 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 65536)
+  call fastcc void @ra_evictset(ptr noundef nonnull %as_, i32 noundef %drop.0.i)
+  %call.i.i2684 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 65536)
   %cmp.not.i.i2685 = icmp eq i32 %call.i.i2684, 16
   br i1 %cmp.not.i.i2685, label %if.else28.ra_destreg.exit_crit_edge.i, label %if.then.i.i2686
 
@@ -6073,7 +6073,7 @@ emit_call_.exit.i:                                ; preds = %if.else51.i3652, %i
   store ptr %arrayidx62.i3655.sink, ptr %mcp, align 8
   %824 = load i16, ptr %arrayidx63, align 8
   %conv43.i = zext i16 %824 to i32
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef 16, i32 noundef %conv43.i)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef 16, i32 noundef %conv43.i)
   br label %for.inc
 
 if.else45.i:                                      ; preds = %if.else.i2663
@@ -6085,13 +6085,13 @@ if.else45.i:                                      ; preds = %if.else.i2663
   %conv.i37.i = zext i16 %825 to i32
   store i32 %conv.i37.i, ptr %args.i.i2659, align 4
   store i32 %conv.i2661, ptr %arrayidx3.i.i2667, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i36.i2666)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %arrayidx.i36.i2666, ptr noundef %args.i.i2659)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i36.i2666)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx.i36.i2666, ptr noundef %args.i.i2659)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i.i2659)
   br label %for.inc
 
 sw.bb39.i:                                        ; preds = %checkmclim.exit188
-  %call.i2566 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2566 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %826 = load ptr, ptr %ir37, align 8
   %827 = load i16, ptr %arrayidx63, align 8
   %idxprom.i2568 = zext i16 %827 to i64
@@ -6103,7 +6103,7 @@ sw.bb39.i:                                        ; preds = %checkmclim.exit188
 
 ra_alloc1.exit.i2572:                             ; preds = %sw.bb39.i
   %conv3.i2573 = zext i16 %827 to i32
-  %call.i.i2574 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv3.i2573, i32 noundef -65536)
+  %call.i.i2574 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv3.i2573, i32 noundef -65536)
   %shl.i.i2575 = shl nuw i32 1, %call.i.i2574
   %not.i.i2576 = xor i32 %shl.i.i2575, -1
   %829 = load i32, ptr %weakset.i.i, align 8
@@ -6180,7 +6180,7 @@ if.then517.i.i2655:                               ; preds = %if.then510.i.i2648
 
 ra_evict.exit.i2653:                              ; preds = %if.then517.i.i2655, %if.then510.i.i2648, %land.lhs.true507.i.i2645, %if.then.i.i.i2611
   %ref.0.i.i2654 = phi i32 [ %conv504.i.i2643, %if.then.i.i.i2611 ], [ %conv504.i.i2643, %if.then510.i.i2648 ], [ %conv524.i.i2658, %if.then517.i.i2655 ], [ %conv504.i.i2643, %land.lhs.true507.i.i2645 ]
-  %call.i21.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as_, i32 noundef %ref.0.i.i2654)
+  %call.i21.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2654)
   br label %ra_scratch.exit.i2607
 
 if.else.i.i.i2605:                                ; preds = %cond.false.i
@@ -6234,11 +6234,11 @@ asm_tobit.exit:                                   ; preds = %cond.end.i2579, %if
   %shl.i2599 = shl nuw i32 1, %cond.i2580
   %not.i2600 = and i32 %shl.i2599, -65536
   %and7.i = xor i32 %not.i2600, -65536
-  %call8.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv6.i2598, i32 noundef %and7.i)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef 1477440252, i32 noundef %cond.i2580, i32 noundef %call8.i)
+  %call8.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv6.i2598, i32 noundef %and7.i)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 1477440252, i32 noundef %cond.i2580, i32 noundef %call8.i)
   %860 = load i16, ptr %arrayidx63, align 8
   %conv10.i2601 = zext i16 %860 to i32
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %cond.i2580, i32 noundef %conv10.i2601)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %cond.i2580, i32 noundef %conv10.i2601)
   br label %for.inc
 
 sw.bb40.i350:                                     ; preds = %checkmclim.exit188
@@ -6248,11 +6248,11 @@ sw.bb40.i350:                                     ; preds = %checkmclim.exit188
   br i1 %cmp.i2562, label %if.then.i2565, label %if.else.i2563
 
 if.then.i2565:                                    ; preds = %sw.bb40.i350
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1561326332)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1561326332)
   br label %for.inc
 
 if.else.i2563:                                    ; preds = %sw.bb40.i350
-  call fastcc void @asm_intmin_max(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 15)
+  call fastcc void @asm_intmin_max(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 15)
   br label %for.inc
 
 sw.bb41.i:                                        ; preds = %checkmclim.exit188
@@ -6262,28 +6262,28 @@ sw.bb41.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2557, label %if.then.i2560, label %if.else.i2558
 
 if.then.i2560:                                    ; preds = %sw.bb41.i
-  call fastcc void @asm_fparith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1594880764)
+  call fastcc void @asm_fparith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 1594880764)
   br label %for.inc
 
 if.else.i2558:                                    ; preds = %sw.bb41.i
-  call fastcc void @asm_intmin_max(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 12)
+  call fastcc void @asm_intmin_max(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 12)
   br label %for.inc
 
 sw.bb42.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0)
   br label %for.inc
 
 sw.bb43.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 5)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 5)
   br label %for.inc
 
 sw.bb44.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_intarith(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 8)
+  call fastcc void @asm_intarith(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 8)
   br label %for.inc
 
 sw.bb45.i:                                        ; preds = %checkmclim.exit188
-  %call.i2531 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
-  call fastcc void @asm_fusearef(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2531 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  call fastcc void @asm_fusearef(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %865 = load i8, ptr %idx.i1400, align 1
   %cmp.i2533 = icmp eq i8 %865, -128
   %866 = load i32, ptr %mrm.i.i814, align 8
@@ -6293,7 +6293,7 @@ sw.bb45.i:                                        ; preds = %checkmclim.exit188
 
 if.then.i2534:                                    ; preds = %sw.bb45.i
   %or.i2535 = or disjoint i32 %call.i2531, 524800
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1929379586, i32 noundef %or.i2535, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1929379586, i32 noundef %or.i2535, i32 noundef 32)
   br label %for.inc
 
 if.else.i2539:                                    ; preds = %sw.bb45.i
@@ -6326,7 +6326,7 @@ if.then9.i2542:                                   ; preds = %if.else.i2539
   br label %for.inc
 
 sw.bb46.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_href(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0)
+  call fastcc void @asm_href(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 0)
   br label %for.inc
 
 sw.bb47.i:                                        ; preds = %checkmclim.exit188
@@ -6353,7 +6353,7 @@ lor.lhs.false.i2391:                              ; preds = %sw.bb47.i
   br i1 %cmp.not.i2393, label %cond.end.i2397, label %cond.true.i2394
 
 cond.true.i2394:                                  ; preds = %lor.lhs.false.i2391, %sw.bb47.i
-  %call.i2395 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2395 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %.pre.i2396 = load ptr, ptr %ir37, align 8
   br label %cond.end.i2397
 
@@ -6371,7 +6371,7 @@ cond.end.i2397:                                   ; preds = %cond.true.i2394, %l
 
 if.then.i.i2404:                                  ; preds = %cond.end.i2397
   %conv11.i = zext i16 %878 to i32
-  %call.i.i2405 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv11.i, i32 noundef 49135)
+  %call.i.i2405 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv11.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i2406
 
 ra_alloc1.exit.i2406:                             ; preds = %if.then.i.i2404, %cond.end.i2397
@@ -6626,7 +6626,7 @@ if.then34.i:                                      ; preds = %asm_guardcc.exit.i2
   br i1 %tobool.not.i.i.i2440, label %if.then.i.i.i2451, label %if.else.i.i.i2441
 
 if.then.i.i.i2451:                                ; preds = %if.then34.i
-  %call.i.i.i2452 = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and35.i)
+  %call.i.i.i2452 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and35.i)
   %.pre190.i = load ptr, ptr %mcp, align 8
   br label %ra_scratch.exit.i2443
 
@@ -6735,7 +6735,7 @@ cond.false46.i:                                   ; preds = %emit_rmro.exit143.i
 
 cond.end56.i:                                     ; preds = %cond.false46.i, %cond.true44.i
   %cond57.i = phi i64 [ %910, %cond.true44.i ], [ %or55.i, %cond.false46.i ]
-  call fastcc void @emit_loadu64(ptr noundef %as_, i32 noundef %retval.0.i.i.i2444, i64 noundef %cond57.i)
+  call fastcc void @emit_loadu64(ptr noundef nonnull %as_, i32 noundef %retval.0.i.i.i2444, i64 noundef %cond57.i)
   br label %for.inc
 
 if.else58.i:                                      ; preds = %asm_guardcc.exit.i2434
@@ -6826,14 +6826,14 @@ sw.bb48.i:                                        ; preds = %checkmclim.exit188
   br i1 %cmp.i2368, label %asm_newref.exit, label %if.end.i2369
 
 if.end.i2369:                                     ; preds = %sw.bb48.i
-  call fastcc void @asm_snap_prep(ptr noundef %as_)
+  call fastcc void @asm_snap_prep(ptr noundef nonnull %as_)
   store i32 32767, ptr %args.i2366, align 4
   %917 = load i16, ptr %arrayidx63, align 8
   %conv2.i2370 = zext i16 %917 to i32
   store i32 %conv2.i2370, ptr %arrayidx3.i, align 4
   store i32 32765, ptr %arrayidx4.i2371, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560), ptr noundef %args.i2366)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560), ptr noundef %args.i2366)
   %918 = load ptr, ptr %ir37, align 8
   %r2.i.i2373 = getelementptr inbounds i8, ptr %918, i64 262126
   %919 = load i8, ptr %r2.i.i2373, align 2
@@ -6849,7 +6849,7 @@ if.end.i2369:                                     ; preds = %sw.bb48.i
   %op2.i2380 = getelementptr inbounds i8, ptr %arrayidx63, i64 2
   %922 = load i16, ptr %op2.i2380, align 2
   %conv5.i2381 = zext i16 %922 to i32
-  call fastcc void @asm_tvptr(ptr noundef %as_, i32 noundef %conv.i.i2374, i32 noundef %conv5.i2381, i32 noundef 1)
+  call fastcc void @asm_tvptr(ptr noundef nonnull %as_, i32 noundef %conv.i.i2374, i32 noundef %conv5.i2381, i32 noundef 1)
   br label %asm_newref.exit
 
 asm_newref.exit:                                  ; preds = %sw.bb48.i, %if.end.i2369
@@ -6857,7 +6857,7 @@ asm_newref.exit:                                  ; preds = %sw.bb48.i, %if.end.
   br label %for.inc
 
 sw.bb49.i:                                        ; preds = %checkmclim.exit188, %checkmclim.exit188
-  %call.i.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %923 = load i8, ptr %t, align 4
   %924 = and i8 %923, -97
   %cmp.i137.i = icmp eq i8 %924, -119
@@ -6883,7 +6883,7 @@ if.then.i139.i:                                   ; preds = %sw.bb49.i
   %932 = inttoptr i64 %931 to ptr
   %v12.i.i = getelementptr inbounds i8, ptr %932, i64 32
   %or.i.i310 = or disjoint i32 %call.i.i, 524800
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1962934018, i32 noundef %or.i.i310, ptr noundef nonnull %v12.i.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %or.i.i310, ptr noundef nonnull %v12.i.i)
   br label %for.inc
 
 if.else.i140.i:                                   ; preds = %sw.bb49.i
@@ -6952,7 +6952,7 @@ if.then517.i.i.i:                                 ; preds = %if.then510.i.i.i
 
 ra_evict.exit.i.i:                                ; preds = %if.then517.i.i.i, %if.then510.i.i.i, %land.lhs.true507.i.i.i, %if.then.i.i.i.i
   %ref.0.i.i.i = phi i32 [ %conv504.i.i.i, %if.then.i.i.i.i ], [ %conv504.i.i.i, %if.then510.i.i.i ], [ %conv524.i.i.i, %if.then517.i.i.i ], [ %conv504.i.i.i, %land.lhs.true507.i.i.i ]
-  %call.i166.i.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as_, i32 noundef %ref.0.i.i.i)
+  %call.i166.i.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i.i)
   br label %ra_scratch.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i140.i
@@ -7230,7 +7230,7 @@ if.then32.i.i:                                    ; preds = %if.end27.i.i
   %idxprom45.i.i = zext nneg i16 %984 to i64
   %arrayidx46.i.i = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr41.i.i, i64 0, i64 %idxprom45.i.i
   %985 = load i64, ptr %arrayidx46.i.i, align 8
-  call fastcc void @emit_loadu64(ptr noundef %as_, i32 noundef %retval.0.i.i.i.i, i64 noundef %985)
+  call fastcc void @emit_loadu64(ptr noundef nonnull %as_, i32 noundef %retval.0.i.i.i.i, i64 noundef %985)
   br label %for.inc
 
 if.else48.i.i:                                    ; preds = %if.end27.i.i
@@ -7242,7 +7242,7 @@ if.else48.i.i:                                    ; preds = %if.end27.i.i
 
 if.then.i113.i.i:                                 ; preds = %if.else48.i.i
   %conv29.i.i = zext i16 %979 to i32
-  %call.i.i.i318 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv29.i.i, i32 noundef 49135)
+  %call.i.i.i318 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv29.i.i, i32 noundef 49135)
   %.pre.i.i319 = load ptr, ptr %mcp, align 8
   br label %ra_alloc1.exit.i.i320
 
@@ -7333,7 +7333,7 @@ emit_rmro.exit160.i.i:                            ; preds = %if.else22.i118.i.i,
   br label %for.inc
 
 sw.bb50.i:                                        ; preds = %checkmclim.exit188
-  %call.i2331 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2331 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   store i8 -128, ptr %idx.i1400, align 1
   %993 = load i16, ptr %arrayidx63, align 8
   %cmp.i.i2334 = icmp eq i16 %993, 32767
@@ -7406,7 +7406,7 @@ if.end61.i.i:                                     ; preds = %if.then36.i.i2356, 
 
 if.then.i.i.i2345:                                ; preds = %if.end61.i.i
   %conv63.i.i2346 = zext i16 %996 to i32
-  %call.i.i.i2347 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv63.i.i2346, i32 noundef 49135)
+  %call.i.i.i2347 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv63.i.i2346, i32 noundef 49135)
   br label %ra_alloc1.exit.i.i2348
 
 ra_alloc1.exit.i.i2348:                           ; preds = %if.then.i.i.i2345, %if.end61.i.i
@@ -7422,21 +7422,21 @@ ra_alloc1.exit.i.i2348:                           ; preds = %if.then.i.i.i2345, 
 asm_fref.exit:                                    ; preds = %if.then.i.i2362, %if.then23.i.i, %if.then51.i.i2361, %ra_alloc1.exit.i.i2348
   %conv64.sink.i.i = phi i8 [ %conv64.i.i, %ra_alloc1.exit.i.i2348 ], [ 14, %if.then51.i.i2361 ], [ 14, %if.then23.i.i ], [ 14, %if.then.i.i2362 ]
   store i8 %conv64.sink.i.i, ptr %base.i, align 4
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1929379586, i32 noundef %call.i2331, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1929379586, i32 noundef %call.i2331, i32 noundef 32)
   br label %for.inc
 
 sw.bb51.i:                                        ; preds = %checkmclim.exit188
-  %call.i2327 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2327 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %1005 = load i16, ptr %arrayidx63, align 8
   %conv.i2328 = zext i16 %1005 to i32
   %op2.i2329 = getelementptr inbounds i8, ptr %arrayidx63, i64 2
   %1006 = load i16, ptr %op2.i2329, align 2
   %conv1.i2330 = zext i16 %1006 to i32
-  call fastcc void @asm_tvptr(ptr noundef %as_, i32 noundef %call.i2327, i32 noundef %conv.i2328, i32 noundef %conv1.i2330)
+  call fastcc void @asm_tvptr(ptr noundef nonnull %as_, i32 noundef %call.i2327, i32 noundef %conv.i2328, i32 noundef %conv1.i2330)
   br label %for.inc
 
 sw.bb52.i:                                        ; preds = %checkmclim.exit188
-  %call.i2252 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i2252 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   store i8 -128, ptr %idx.i1400, align 1
   store i8 -128, ptr %base.i, align 4
   store i8 0, ptr %scale.i1406, align 2
@@ -7453,7 +7453,7 @@ sw.bb52.i:                                        ; preds = %checkmclim.exit188
 
 if.then.i.i.i2261:                                ; preds = %sw.bb52.i
   %conv.i.i2262 = zext i16 %1007 to i32
-  %call.i.i.i2263 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv.i.i2262, i32 noundef 49135)
+  %call.i.i.i2263 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv.i.i2262, i32 noundef 49135)
   %.pre.i2264 = load ptr, ptr %ir37, align 8
   br label %ra_alloc1.exit.i.i2265
 
@@ -7492,7 +7492,7 @@ if.then.i25.i.i:                                  ; preds = %if.else.i.i2276
   %conv9.i.i2277 = zext i16 %1012 to i32
   %not.i.i2278 = and i32 %shl.i.i.i2267, 49135
   %and.i.i2279 = xor i32 %not.i.i2278, 49135
-  %call.i26.i.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv9.i.i2277, i32 noundef %and.i.i2279)
+  %call.i26.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv9.i.i2277, i32 noundef %and.i.i2279)
   %.pre.i.i2280 = load i32, ptr %weakset.i.i, align 8
   %.pre33.i.i = load i8, ptr %base.i, align 4
   br label %ra_alloc1.exit32.i.i
@@ -7648,12 +7648,12 @@ if.end.i24.i:                                     ; preds = %if.else.i22.i, %if.
 
 if.else15.i:                                      ; preds = %if.else.i2282
   %or16.i = or disjoint i32 %call.i2252, 524800
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1929379586, i32 noundef %or16.i, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1929379586, i32 noundef %or16.i, i32 noundef 32)
   br label %for.inc
 
 sw.bb53.i:                                        ; preds = %checkmclim.exit188
-  %call.i2251 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call.i2251, i32 noundef 32767)
+  %call.i2251 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call.i2251, i32 noundef 32767)
   br label %for.inc
 
 sw.bb54.i:                                        ; preds = %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188, %checkmclim.exit188
@@ -7677,10 +7677,10 @@ if.then.i142.i:                                   ; preds = %sw.bb54.i.if.then.i
   %1042 = and i8 %1041, 31
   %cmp5.i.i300 = icmp eq i8 %1042, 14
   %cond.i144.i = select i1 %cmp5.i.i300, i32 -65536, i32 49135
-  %call.i145.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef %cond.i144.i)
+  %call.i145.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef %cond.i144.i)
   %1043 = load i16, ptr %arrayidx63, align 8
   %conv7.i.i = zext i16 %1043 to i32
-  call fastcc void @asm_fuseahuref(ptr noundef %as_, i32 noundef %conv7.i.i, i32 noundef 49135)
+  call fastcc void @asm_fuseahuref(ptr noundef nonnull %as_, i32 noundef %conv7.i.i, i32 noundef 49135)
   %1044 = load i8, ptr %o.i263, align 1
   %cmp9.i.i301 = icmp eq i8 %1044, 72
   br i1 %cmp9.i.i301, label %if.then11.i.i, label %if.end.i147.i
@@ -7839,7 +7839,7 @@ emit_rr.exit.i.i:                                 ; preds = %if.then46.i.i.i184.
   br i1 %tobool31.not.i.i, label %if.else.i186.i, label %if.then32.i185.i
 
 if.then32.i185.i:                                 ; preds = %emit_rr.exit.i.i
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -251927612, i32 noundef %call.i145.i, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -251927612, i32 noundef %call.i145.i, i32 noundef 32)
   br label %for.inc
 
 if.else.i186.i:                                   ; preds = %emit_rr.exit.i.i
@@ -7853,13 +7853,13 @@ if.else.i186.i:                                   ; preds = %emit_rr.exit.i.i
   store i8 %conv63.i.i.i.i, ptr %incdec.ptr.i.i102.i.i, align 1
   store ptr %incdec.ptr.i.i102.i.i, ptr %mcp, align 8
   %or.i187.i = or disjoint i32 %call.i145.i, 524800
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1962934018, i32 noundef %or.i187.i, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %or.i187.i, i32 noundef 32)
   br label %for.inc
 
 if.else38.i.i:                                    ; preds = %if.end.i147.i
   %cmp39.i.i = icmp samesign ult i32 %call.i145.i, 16
   %cond41.i.i = select i1 %cmp39.i.i, i32 -1962934018, i32 269480700
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef %cond41.i.i, i32 noundef %call.i145.i, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %cond41.i.i, i32 noundef %call.i145.i, i32 noundef 32)
   %.pre4039 = load i32, ptr %mrm.i.i814, align 8
   br label %if.end69.i.i
 
@@ -7936,7 +7936,7 @@ if.then517.i.i265.i:                              ; preds = %if.then510.i.i256.i
 
 ra_evict.exit.i262.i:                             ; preds = %if.then517.i.i265.i, %if.then510.i.i256.i, %land.lhs.true507.i.i252.i, %if.then.i.i.i223.i
   %ref.0.i.i263.i = phi i32 [ %conv504.i.i250.i, %if.then.i.i.i223.i ], [ %conv504.i.i250.i, %if.then510.i.i256.i ], [ %conv524.i.i268.i, %if.then517.i.i265.i ], [ %conv504.i.i250.i, %land.lhs.true507.i.i252.i ]
-  %call.i.i264.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as_, i32 noundef %ref.0.i.i263.i)
+  %call.i.i264.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i263.i)
   br label %ra_scratch.exit.i218.i
 
 if.else.i.i.i216.i:                               ; preds = %if.then51.i.i
@@ -7960,7 +7960,7 @@ if.end54.i.i:                                     ; preds = %ra_scratch.exit.i21
   %gpr.0.i.i = phi i32 [ %and53.i.i, %ra_scratch.exit.i218.i ], [ 49135, %if.else43.i.i ]
   %1100 = load i16, ptr %arrayidx63, align 8
   %conv56.i.i = zext i16 %1100 to i32
-  call fastcc void @asm_fuseahuref(ptr noundef %as_, i32 noundef %conv56.i.i, i32 noundef %gpr.0.i.i)
+  call fastcc void @asm_fuseahuref(ptr noundef nonnull %as_, i32 noundef %conv56.i.i, i32 noundef %gpr.0.i.i)
   %1101 = load i8, ptr %o.i263, align 1
   %cmp59.i.i = icmp eq i8 %1101, 72
   %.pre4040 = load i32, ptr %mrm.i.i814, align 8
@@ -8082,7 +8082,7 @@ if.then86.i.i:                                    ; preds = %asm_guardcc.exit158
   br i1 %cmp.i.i150.i, label %if.then.i.i152.i, label %checkmclim.exit.i.i
 
 if.then.i.i152.i:                                 ; preds = %if.then86.i.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 checkmclim.exit.i.i:                              ; preds = %if.then86.i.i
@@ -8383,7 +8383,7 @@ emit_mrm.exit2167:                                ; preds = %mrmidx.i2118, %if.t
   store i8 %conv63.i.i173.i.i, ptr %incdec.ptr.i.i174.i.i, align 1
   store ptr %incdec.ptr.i.i174.i.i, ptr %mcp, align 8
   %or112.i.i = or i32 %tmp.0.i.i, 524800
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1962934018, i32 noundef %or112.i.i, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %or112.i.i, i32 noundef 32)
   br label %for.inc
 
 if.else113.i.i:                                   ; preds = %if.else90.i.i
@@ -8658,11 +8658,11 @@ emit_mrm.exit2000:                                ; preds = %mrmidx.i1951, %if.t
   br label %for.inc
 
 sw.bb55.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_fxload(ptr noundef %as_, ptr noundef nonnull %arrayidx63)
+  call fastcc void @asm_fxload(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63)
   br label %for.inc
 
 sw.bb56.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_fxload(ptr noundef %as_, ptr noundef nonnull %arrayidx63)
+  call fastcc void @asm_fxload(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63)
   br label %for.inc
 
 sw.bb57.i:                                        ; preds = %checkmclim.exit188
@@ -8752,7 +8752,7 @@ if.then517.i.i:                                   ; preds = %if.then510.i.i
 
 ra_evict.exit.i:                                  ; preds = %if.then517.i.i, %if.then510.i.i, %land.lhs.true507.i.i, %if.then.i.i.i1915
   %ref.0.i.i = phi i32 [ %conv504.i.i, %if.then.i.i.i1915 ], [ %conv504.i.i, %if.then510.i.i ], [ %conv524.i.i, %if.then517.i.i ], [ %conv504.i.i, %land.lhs.true507.i.i ]
-  %call.i600.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as_, i32 noundef %ref.0.i.i)
+  %call.i600.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i)
   br label %ra_scratch.exit.i1857
 
 if.else.i.i.i1855:                                ; preds = %if.then.i1851
@@ -8767,7 +8767,7 @@ ra_scratch.exit.i1857:                            ; preds = %if.else.i.i.i1855, 
   %1251 = load i32, ptr %modset.i.i, align 4
   %or.i.i1861 = or i32 %1251, %shl.i.i1859
   store i32 %or.i.i1861, ptr %modset.i.i, align 4
-  call fastcc void @asm_tointg(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef %retval.0.i.i.i1858)
+  call fastcc void @asm_tointg(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef %retval.0.i.i.i1858)
   %1252 = load ptr, ptr %ir37, align 8
   %r1.i.i1863 = getelementptr inbounds i8, ptr %1252, i64 262150
   %1253 = load i8, ptr %r1.i.i1863, align 2
@@ -8776,7 +8776,7 @@ ra_scratch.exit.i1857:                            ; preds = %if.else.i.i.i1855, 
   br i1 %tobool.not.i.i1865, label %ra_alloc1.exit.i1868, label %if.then.i.i1866
 
 if.then.i.i1866:                                  ; preds = %ra_scratch.exit.i1857
-  %call.i.i1867 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef 32768, i32 noundef 49135)
+  %call.i.i1867 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit.i1868
 
 ra_alloc1.exit.i1868:                             ; preds = %if.then.i.i1866, %ra_scratch.exit.i1857
@@ -8888,7 +8888,7 @@ lor.lhs.false.i1778:                              ; preds = %if.else.i1776
 if.then20.i1780:                                  ; preds = %lor.lhs.false.i1778, %if.else.i1776
   %cmp24.i = icmp eq i8 %1222, 14
   %cond.i1781 = select i1 %cmp24.i, i32 -65536, i32 49135
-  %call26.i1782 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef %cond.i1781)
+  %call26.i1782 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef %cond.i1781)
   %1259 = load ptr, ptr %ir37, align 8
   %r1.i102.i = getelementptr inbounds i8, ptr %1259, i64 262150
   %1260 = load i8, ptr %r1.i102.i, align 2
@@ -8897,7 +8897,7 @@ if.then20.i1780:                                  ; preds = %lor.lhs.false.i1778
   br i1 %tobool.not.i104.i, label %ra_alloc1.exit112.i, label %if.then.i105.i
 
 if.then.i105.i:                                   ; preds = %if.then20.i1780
-  %call.i106.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef 32768, i32 noundef 49135)
+  %call.i106.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit112.i
 
 ra_alloc1.exit112.i:                              ; preds = %if.then.i105.i, %if.then20.i1780
@@ -8915,7 +8915,7 @@ ra_alloc1.exit112.i:                              ; preds = %if.then.i105.i, %if
 if.then32.i:                                      ; preds = %ra_alloc1.exit112.i
   %conv39.i = select i1 %cmp.i1775, i8 14, i8 19
   %cond46.i = select i1 %cmp.i1775, i32 739242748, i32 705688316
-  call fastcc void @emit_rmro(ptr noundef %as_, i32 noundef %cond46.i, i32 noundef %call26.i1782, i32 noundef %r.0.i107.i, i32 noundef %mul.i1772)
+  call fastcc void @emit_rmro(ptr noundef nonnull %as_, i32 noundef %cond46.i, i32 noundef %call26.i1782, i32 noundef %r.0.i107.i, i32 noundef %mul.i1772)
   br label %if.end105.i
 
 if.else47.i:                                      ; preds = %ra_alloc1.exit112.i
@@ -9241,7 +9241,7 @@ emit_rmro.exit280.i:                              ; preds = %if.else22.i229.i, %
 
 if.else87.i:                                      ; preds = %if.else47.i
   %cond93.i = select i1 %cmp24.i, i32 269480700, i32 -1962934018
-  call fastcc void @emit_rmro(ptr noundef %as_, i32 noundef %cond93.i, i32 noundef %call26.i1782, i32 noundef %r.0.i107.i, i32 noundef %mul.i1772)
+  call fastcc void @emit_rmro(ptr noundef nonnull %as_, i32 noundef %cond93.i, i32 noundef %call26.i1782, i32 noundef %r.0.i107.i, i32 noundef %mul.i1772)
   br label %if.end105.i
 
 if.else96.i:                                      ; preds = %lor.lhs.false.i1778
@@ -9258,7 +9258,7 @@ if.end102.i:                                      ; preds = %if.else96.i
   br i1 %tobool.not.i285.i, label %ra_alloc1.exit294.i, label %if.then.i286.i1850
 
 if.then.i286.i1850:                               ; preds = %if.end102.i
-  %call.i287.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef 32768, i32 noundef 49135)
+  %call.i287.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit294.i
 
 ra_alloc1.exit294.i:                              ; preds = %if.then.i286.i1850, %if.end102.i
@@ -9637,7 +9637,7 @@ if.else163.i:                                     ; preds = %if.else146.i
   br i1 %tobool.not.i.i499.i, label %if.then.i.i506.i, label %if.else.i.i500.i
 
 if.then.i.i506.i:                                 ; preds = %if.else163.i
-  %call.i.i507.i = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and165.i)
+  %call.i.i507.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and165.i)
   %.pre.i1787 = load ptr, ptr %mcp, align 8
   br label %ra_scratch.exit508.i
 
@@ -9780,8 +9780,8 @@ sw.bb58.i:                                        ; preds = %checkmclim.exit188
   store i32 %conv.i.i1768, ptr %args.i.i1763, align 4
   %conv2.i.i1769 = zext i16 %1337 to i32
   store i32 %conv2.i.i1769, ptr %arrayidx3.i.i1770, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i1767)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %arrayidx.i.i1767, ptr noundef %args.i.i1763)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i.i1767)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx.i.i1767, ptr noundef %args.i.i1763)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i.i1763)
   br label %for.inc
 
@@ -9811,7 +9811,7 @@ if.then5.i.i:                                     ; preds = %if.end.i271.i
 
 if.then.i.i295.i:                                 ; preds = %if.then5.i.i
   %conv6.i.i = zext i16 %1342 to i32
-  %call.i.i296.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv6.i.i, i32 noundef -65536)
+  %call.i.i296.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv6.i.i, i32 noundef -65536)
   br label %ra_alloc1.exit.i297.i
 
 ra_alloc1.exit.i297.i:                            ; preds = %if.then.i.i295.i, %if.then5.i.i
@@ -9823,8 +9823,8 @@ ra_alloc1.exit.i297.i:                            ; preds = %if.then.i.i295.i, %
   store i32 %and2.i.i301.i, ptr %weakset.i.i, align 8
   %1346 = load i16, ptr %arrayidx63, align 8
   %conv7.i302.i = zext i16 %1346 to i32
-  call fastcc void @asm_fuseahuref(ptr noundef %as_, i32 noundef %conv7.i302.i, i32 noundef 49135)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef 286257916, i32 noundef %r.0.i.i298.i, i32 noundef 32)
+  call fastcc void @asm_fuseahuref(ptr noundef nonnull %as_, i32 noundef %conv7.i302.i, i32 noundef 49135)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 286257916, i32 noundef %r.0.i.i298.i, i32 noundef 32)
   br label %asm_ahustore.exit.i
 
 if.else.i275.i:                                   ; preds = %if.end.i271.i
@@ -9842,7 +9842,7 @@ if.then12.i.i294:                                 ; preds = %if.else.i275.i
   call void @lj_ir_kvalue(ptr noundef %1348, ptr noundef nonnull %k.i.i262, ptr noundef %arrayidx.i283.i) #14
   %1350 = load i16, ptr %arrayidx63, align 8
   %conv16.i.i = zext i16 %1350 to i32
-  call fastcc void @asm_fuseahuref(ptr noundef %as_, i32 noundef %conv16.i.i, i32 noundef 49135)
+  call fastcc void @asm_fuseahuref(ptr noundef nonnull %as_, i32 noundef %conv16.i.i, i32 noundef 49135)
   %1351 = load i64, ptr %k.i.i262, align 8
   %cmp17.i284.i = icmp eq i64 %1351, -1
   br i1 %cmp17.i284.i, label %if.then19.i287.i, label %if.else22.i.i
@@ -10267,7 +10267,7 @@ if.else32.i.i:                                    ; preds = %if.else.i275.i
   br i1 %tobool.not.i54.i.i, label %ra_alloc1.exit62.i.i, label %if.then.i55.i.i
 
 if.then.i55.i.i:                                  ; preds = %if.else32.i.i
-  %call.i56.i.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv9.i.i, i32 noundef 49135)
+  %call.i56.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv9.i.i, i32 noundef 49135)
   br label %ra_alloc1.exit62.i.i
 
 ra_alloc1.exit62.i.i:                             ; preds = %if.then.i55.i.i, %if.else32.i.i
@@ -10281,7 +10281,7 @@ ra_alloc1.exit62.i.i:                             ; preds = %if.then.i55.i.i, %i
   %and46.i.i = xor i32 %not.i276.i, 49135
   %1424 = load i16, ptr %arrayidx63, align 8
   %conv49.i.i = zext i16 %1424 to i32
-  call fastcc void @asm_fuseahuref(ptr noundef %as_, i32 noundef %conv49.i.i, i32 noundef %and46.i.i)
+  call fastcc void @asm_fuseahuref(ptr noundef nonnull %as_, i32 noundef %conv49.i.i, i32 noundef %and46.i.i)
   %tobool.not.i277.i = icmp samesign ult i32 %r.0.i57.i.i, 128
   br i1 %tobool.not.i277.i, label %if.then51.i278.i, label %if.else67.i.i
 
@@ -10431,7 +10431,7 @@ emit_mrm.exit1525:                                ; preds = %mrmidx.i1479, %if.t
   %sub.i280.i = add nsw i32 %1451, -4
   store i32 %sub.i280.i, ptr %mrm.i.i814, align 8
   %or.i281.i = or disjoint i32 %r.0.i57.i.i, 524800
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1996488450, i32 noundef %or.i281.i, i32 noundef 32)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1996488450, i32 noundef %or.i281.i, i32 noundef 32)
   br label %asm_ahustore.exit.i
 
 if.else67.i.i:                                    ; preds = %ra_alloc1.exit62.i.i
@@ -10734,16 +10734,16 @@ asm_ahustore.exit.i:                              ; preds = %emit_mrm.exit, %emi
   br label %for.inc
 
 sw.bb60.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_fxstore(ptr noundef %as_, ptr noundef nonnull %arrayidx63)
+  call fastcc void @asm_fxstore(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63)
   br label %for.inc
 
 sw.bb61.i:                                        ; preds = %checkmclim.exit188
-  call fastcc void @asm_fxstore(ptr noundef %as_, ptr noundef nonnull %arrayidx63)
+  call fastcc void @asm_fxstore(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63)
   br label %for.inc
 
 sw.bb62.i:                                        ; preds = %checkmclim.exit188, %checkmclim.exit188
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %args.i.i261)
-  call fastcc void @asm_snap_prep(ptr noundef %as_)
+  call fastcc void @asm_snap_prep(ptr noundef nonnull %as_)
   store i32 32767, ptr %args.i.i261, align 4
   %1499 = load i16, ptr %arrayidx63, align 8
   %conv.i303.i = zext i16 %1499 to i32
@@ -10755,21 +10755,21 @@ sw.bb62.i:                                        ; preds = %checkmclim.exit188,
   %1501 = load i32, ptr %gcsteps, align 8
   %inc.i.i = add nsw i32 %1501, 1
   store i32 %inc.i.i, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32), ptr noundef %args.i.i261)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32), ptr noundef %args.i.i261)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %args.i.i261)
   br label %for.inc
 
 sw.bb63.i:                                        ; preds = %checkmclim.exit188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %args.i1305)
-  call fastcc void @asm_snap_prep(ptr noundef %as_)
+  call fastcc void @asm_snap_prep(ptr noundef nonnull %as_)
   store i32 32767, ptr %args.i1305, align 4
   store i32 32765, ptr %arrayidx1.i1306, align 4
   %1502 = load i32, ptr %gcsteps, align 8
   %inc.i1308 = add nsw i32 %1502, 1
   store i32 %inc.i1308, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512), ptr noundef %args.i1305)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512), ptr noundef %args.i1305)
   %1503 = load ptr, ptr %ir37, align 8
   %r2.i.i1310 = getelementptr inbounds i8, ptr %1503, i64 262126
   %1504 = load i8, ptr %r2.i.i1310, align 2
@@ -10858,7 +10858,7 @@ asm_tnew.exit:                                    ; preds = %if.then.i.i1336, %i
 
 sw.bb64.i:                                        ; preds = %checkmclim.exit188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %args.i1300)
-  call fastcc void @asm_snap_prep(ptr noundef %as_)
+  call fastcc void @asm_snap_prep(ptr noundef nonnull %as_)
   store i32 32767, ptr %args.i1300, align 4
   %1517 = load i16, ptr %arrayidx63, align 8
   %conv.i1301 = zext i16 %1517 to i32
@@ -10866,8 +10866,8 @@ sw.bb64.i:                                        ; preds = %checkmclim.exit188
   %1518 = load i32, ptr %gcsteps, align 8
   %inc.i1304 = add nsw i32 %1518, 1
   store i32 %inc.i1304, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528), ptr noundef %args.i1300)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528), ptr noundef %args.i1300)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i1300)
   br label %for.inc
 
@@ -10887,7 +10887,7 @@ sw.bb65.i:                                        ; preds = %checkmclim.exit188,
   %1525 = load i32, ptr %gcsteps, align 8
   %inc.i312.i = add nsw i32 %1525, 1
   store i32 %inc.i312.i, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672))
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672))
   %1526 = load i8, ptr %o.i263, align 1
   %cmp.i314.i = icmp eq i8 %1526, 84
   br i1 %cmp.i314.i, label %if.then.i324.i, label %if.else47.i.i285
@@ -11102,7 +11102,7 @@ if.else41.i.i:                                    ; preds = %if.then.i324.i
 
 if.then.i.i331.i:                                 ; preds = %if.else41.i.i
   %conv5.i.i = zext i16 %1528 to i32
-  %call.i.i332.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv5.i.i, i32 noundef 45096)
+  %call.i.i332.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv5.i.i, i32 noundef 45096)
   br label %ra_alloc1.exit.i333.i
 
 ra_alloc1.exit.i333.i:                            ; preds = %if.then.i.i331.i, %if.else41.i.i
@@ -11156,7 +11156,7 @@ if.then52.i.i:                                    ; preds = %if.else47.i.i285
   %conv58.i.i = zext i16 %1560 to i32
   store i32 %conv58.i.i, ptr %arrayidx59.i.i, align 8
   store i32 32765, ptr %arrayidx60.i.i, align 4
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1616), ptr noundef %args.i306.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1616), ptr noundef %args.i306.i)
   %1562 = load ptr, ptr %ir37, align 8
   %r2.i.i.i = getelementptr inbounds i8, ptr %1562, i64 262126
   %1563 = load i8, ptr %r2.i.i.i, align 2
@@ -11257,10 +11257,10 @@ if.end63.i.i:                                     ; preds = %ra_alloc1.exit.i333
   store ptr %arrayidx.i.i135.i.i, ptr %mcp, align 8
   %1575 = load ptr, ptr %J21, align 8
   %currentwhite.i.i = getelementptr inbounds i8, ptr %1575, i64 -696
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1240530691, i32 noundef 1, ptr noundef nonnull %currentwhite.i.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1240530691, i32 noundef 1, ptr noundef nonnull %currentwhite.i.i)
   store i32 32767, ptr %args.i306.i, align 16
   store i32 32765, ptr %arrayidx56.i.i, align 4
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672), ptr noundef %args.i306.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672), ptr noundef %args.i306.i)
   %1576 = load ptr, ptr %ir37, align 8
   %r2.i138.i.i = getelementptr inbounds i8, ptr %1576, i64 262126
   %1577 = load i8, ptr %r2.i138.i.i, align 2
@@ -11344,7 +11344,7 @@ asm_cnew.exit.i:                                  ; preds = %if.else.i147.i.i, %
   br label %for.inc
 
 sw.bb66.i:                                        ; preds = %checkmclim.exit188
-  %call.i1100 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call.i1100 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %op2.i1101 = getelementptr inbounds i8, ptr %arrayidx63, i64 2
   %1589 = load i16, ptr %op2.i1101, align 2
   switch i16 %1589, label %asm_bufhdr.exit [
@@ -11363,7 +11363,7 @@ sw.bb.i1156:                                      ; preds = %sw.bb66.i
   br i1 %tobool.not.i.i.i1162, label %if.then.i.i.i1226, label %if.else.i.i.i1163
 
 if.then.i.i.i1226:                                ; preds = %sw.bb.i1156
-  %call.i.i.i1227 = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and.i1159)
+  %call.i.i.i1227 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i1159)
   br label %ra_scratch.exit.i1165
 
 if.else.i.i.i1163:                                ; preds = %sw.bb.i1156
@@ -11682,7 +11682,7 @@ while.end.i1151:                                  ; preds = %land.rhs.i
 
 if.then36.i:                                      ; preds = %while.end.i1151
   %conv38.i = zext i16 %1604 to i32
-  %call39.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv38.i, i32 noundef 49135)
+  %call39.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv38.i, i32 noundef 49135)
   %shl40.i = shl nuw i32 1, %call39.i
   %1612 = load i32, ptr %weakset.i.i, align 8
   %or.i1153 = or i32 %1612, %shl40.i
@@ -11699,7 +11699,7 @@ sw.bb42.i1102:                                    ; preds = %sw.bb66.i
   br i1 %tobool.not.i.i.i.i1106, label %if.then.i.i.i.i1136, label %if.else.i.i.i.i1107
 
 if.then.i.i.i.i1136:                              ; preds = %sw.bb42.i1102
-  %call.i.i.i.i = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and.i89.i)
+  %call.i.i.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i89.i)
   br label %ra_scratch.exit.i.i1109
 
 if.else.i.i.i.i1107:                              ; preds = %sw.bb42.i1102
@@ -11843,7 +11843,7 @@ emit_storeofs.exit.i.i:                           ; preds = %if.then46.i.i.i104.
   %or.i105.i = or disjoint i32 %retval.0.i.i.i.i1110, 524800
   %1620 = load ptr, ptr %J21, align 8
   %cur_L.i.i = getelementptr inbounds i8, ptr %1620, i64 -360
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef 184549630, i32 noundef %or.i105.i, ptr noundef nonnull %cur_L.i.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef 184549630, i32 noundef %or.i105.i, ptr noundef nonnull %cur_L.i.i)
   %1621 = load ptr, ptr %mcp, align 8
   %incdec.ptr.i.i107.i = getelementptr inbounds i8, ptr %1621, i64 -1
   store i8 7, ptr %incdec.ptr.i.i107.i, align 1
@@ -11991,7 +11991,7 @@ asm_bufhdr.exit:                                  ; preds = %sw.bb66.i, %emit_rm
   %ir.addr.0.i = phi ptr [ %arrayidx63, %sw.bb66.i ], [ %arrayidx63, %asm_bufhdr_write.exit.i ], [ %irp.0.i, %if.then36.i ], [ %arrayidx63, %while.end.i1151 ], [ %arrayidx63, %lor.lhs.false16.i ], [ %arrayidx63, %sw.bb2.i1137 ], [ %arrayidx63, %emit_rmro.exit.i71.i ], [ %arrayidx63, %emit_rmro.exit188.i ]
   %1627 = load i16, ptr %ir.addr.0.i, align 8
   %conv44.i = zext i16 %1627 to i32
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call.i1100, i32 noundef %conv44.i)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call.i1100, i32 noundef %conv44.i)
   br label %for.inc
 
 sw.bb67.i:                                        ; preds = %checkmclim.exit188
@@ -12076,8 +12076,8 @@ if.end59.i:                                       ; preds = %if.then49.i, %if.el
   %1642 = phi i32 [ %conv34.i, %if.else32.i ], [ 32765, %if.then30.i ], [ 32765, %if.then11.i1097 ], [ %conv1.i1041, %if.then20.i ], [ %conv1.i1041, %if.else.i1047 ], [ %conv1.i1041, %land.lhs.true.i1091 ], [ %conv51.i, %if.then49.i ], [ %conv1.i1041, %if.then.i1096 ]
   %kchar.0.i = phi i32 [ -129, %if.else32.i ], [ -129, %if.then30.i ], [ %conv13.i1099, %if.then11.i1097 ], [ -129, %if.then20.i ], [ -129, %if.else.i1047 ], [ -129, %land.lhs.true.i1091 ], [ -129, %if.then49.i ], [ -129, %if.then.i1096 ]
   %ci.0.i1049 = phi ptr [ %..i1095, %if.else32.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 128), %if.then30.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 288), %if.then11.i1097 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.then20.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.else.i1047 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %land.lhs.true.i1091 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 256), %if.then49.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.then.i1096 ]
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i1049)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %ci.0.i1049, ptr noundef %args.i1038)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i1049)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.0.i1049, ptr noundef %args.i1038)
   %cmp61.i = icmp eq i32 %1642, 32765
   br i1 %cmp61.i, label %if.then63.i1050, label %asm_bufput.exit
 
@@ -12100,7 +12100,7 @@ if.then63.i1050:                                  ; preds = %if.end59.i
 if.then66.i:                                      ; preds = %if.then63.i1050
   %1647 = load i16, ptr %arrayidx5.i1044, align 8
   %conv68.i = zext i16 %1647 to i32
-  call fastcc void @asm_tvptr(ptr noundef %as_, i32 noundef %conv.i.i1052, i32 noundef %conv68.i, i32 noundef 1)
+  call fastcc void @asm_tvptr(ptr noundef nonnull %as_, i32 noundef %conv.i.i1052, i32 noundef %conv68.i, i32 noundef 1)
   br label %asm_bufput.exit
 
 if.else69.i:                                      ; preds = %if.then63.i1050
@@ -12187,8 +12187,8 @@ sw.bb68.i:                                        ; preds = %checkmclim.exit188
   %1657 = load i32, ptr %gcsteps, align 8
   %inc.i1037 = add nsw i32 %1657, 1
   store i32 %inc.i1037, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480))
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480), ptr noundef %args.i1034)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480), ptr noundef %args.i1034)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %args.i1034)
   br label %for.inc
 
@@ -12205,7 +12205,7 @@ sw.bb69.i:                                        ; preds = %checkmclim.exit188
 
 if.then.i.i975:                                   ; preds = %sw.bb69.i
   %conv.i976 = zext i16 %ir.val.i to i32
-  %call.i.i977 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv.i976, i32 noundef 49135)
+  %call.i.i977 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv.i976, i32 noundef 49135)
   br label %ra_alloc1.exit.i978
 
 ra_alloc1.exit.i978:                              ; preds = %if.then.i.i975, %sw.bb69.i
@@ -12223,7 +12223,7 @@ ra_alloc1.exit.i978:                              ; preds = %if.then.i.i975, %sw
   br i1 %tobool.not.i.i.i988, label %if.then.i.i.i1032, label %if.else.i.i.i989
 
 if.then.i.i.i1032:                                ; preds = %ra_alloc1.exit.i978
-  %call.i.i.i1033 = call fastcc i32 @ra_evict(ptr noundef %as_, i32 noundef %and.i985)
+  %call.i.i.i1033 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i985)
   br label %ra_scratch.exit.i991
 
 if.else.i.i.i989:                                 ; preds = %ra_alloc1.exit.i978
@@ -12298,10 +12298,10 @@ emit_rmro.exit.i998:                              ; preds = %if.else22.i.i996, %
   %or2.i = or disjoint i32 %r.0.i.i979, 524800
   %1667 = load ptr, ptr %J21, align 8
   %grayagain.i = getelementptr inbounds i8, ptr %1667, i64 -664
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1996488450, i32 noundef %or2.i, ptr noundef nonnull %grayagain.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1996488450, i32 noundef %or2.i, ptr noundef nonnull %grayagain.i)
   %1668 = load ptr, ptr %J21, align 8
   %grayagain8.i = getelementptr inbounds i8, ptr %1668, i64 -664
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1962934018, i32 noundef %or.i, ptr noundef nonnull %grayagain8.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %or.i, ptr noundef nonnull %grayagain8.i)
   %1669 = load ptr, ptr %mcp, align 8
   %incdec.ptr.i1013 = getelementptr inbounds i8, ptr %1669, i64 -1
   store ptr %incdec.ptr.i1013, ptr %mcp, align 8
@@ -12436,13 +12436,13 @@ asm_tbar.exit:                                    ; preds = %if.end25.i65.thread
 
 sw.bb70.i:                                        ; preds = %checkmclim.exit188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %args.i912)
-  call fastcc void @ra_evictset(ptr noundef %as_, i32 noundef -61497)
+  call fastcc void @ra_evictset(ptr noundef nonnull %as_, i32 noundef -61497)
   %1677 = load ptr, ptr %mcp, align 8
   store i32 32765, ptr %args.i912, align 4
   %1678 = load i16, ptr %arrayidx63, align 8
   %conv.i914 = zext i16 %1678 to i32
   store i32 %conv.i914, ptr %arrayidx1.i, align 4
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 656), ptr noundef %args.i912)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 656), ptr noundef %args.i912)
   %1679 = load ptr, ptr %ir37, align 8
   %r2.i.i916 = getelementptr inbounds i8, ptr %1679, i64 262126
   %1680 = load i8, ptr %r2.i.i916, align 2
@@ -12458,7 +12458,7 @@ sw.bb70.i:                                        ; preds = %checkmclim.exit188
   %1683 = load ptr, ptr %J21, align 8
   %g.i = getelementptr inbounds i8, ptr %1683, i64 -728
   %1684 = ptrtoint ptr %g.i to i64
-  call fastcc void @emit_loadu64(ptr noundef %as_, i32 noundef %conv.i.i917, i64 noundef %1684)
+  call fastcc void @emit_loadu64(ptr noundef nonnull %as_, i32 noundef %conv.i.i917, i64 noundef %1684)
   %1685 = load ptr, ptr %ir37, align 8
   %1686 = load i16, ptr %arrayidx63, align 8
   %idxprom.i924 = zext i16 %1686 to i64
@@ -12491,7 +12491,7 @@ if.then.i967:                                     ; preds = %sw.bb70.i
   %1691 = load i64, ptr %arrayidx13.i, align 8
   %1692 = inttoptr i64 %1691 to ptr
   %marked.i = getelementptr inbounds i8, ptr %1692, i64 8
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -167771906, i32 noundef 0, ptr noundef nonnull %marked.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -167771906, i32 noundef 0, ptr noundef nonnull %marked.i)
   %.pre.i968 = load ptr, ptr %mcp, align 8
   br label %if.end.i951
 
@@ -12507,7 +12507,7 @@ if.then.i.i938:                                   ; preds = %if.else.i935
   %shl.i940 = shl nuw i32 1, %conv5.i
   %not.i941 = and i32 %shl.i940, 4039
   %and.i942 = xor i32 %not.i941, 4039
-  %call.i.i943 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv7.i939, i32 noundef %and.i942)
+  %call.i.i943 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv7.i939, i32 noundef %and.i942)
   br label %ra_alloc1.exit.i944
 
 ra_alloc1.exit.i944:                              ; preds = %if.then.i.i938, %if.else.i935
@@ -12671,13 +12671,13 @@ sw.bb71.i:                                        ; preds = %checkmclim.exit188
   br i1 %switch.i840, label %if.then.i859, label %if.else61.i
 
 if.then.i859:                                     ; preds = %sw.bb71.i
-  %call.i860 = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef -65536)
+  %call.i860 = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef -65536)
   br i1 %1705, label %if.then25.i909, label %if.else.i861
 
 if.then25.i909:                                   ; preds = %if.then.i859
-  %call26.i910 = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef -65536)
+  %call26.i910 = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   %cond.i911 = select i1 %cmp6.i837, i32 1510994684, i32 1510994940
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef %cond.i911, i32 noundef %call.i860, i32 noundef %call26.i910)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %cond.i911, i32 noundef %call.i860, i32 noundef %call26.i910)
   %cmp29.i = icmp eq i32 %call26.i910, %call.i860
   br i1 %cmp29.i, label %for.inc, label %if.end60.i
 
@@ -12700,7 +12700,7 @@ cond.true.i894:                                   ; preds = %if.else.i861, %if.e
   br i1 %tobool.not.i.i900, label %ra_alloc1.exit.i903, label %if.then.i.i901
 
 if.then.i.i901:                                   ; preds = %cond.true.i894
-  %call.i.i902 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef 49135)
+  %call.i.i902 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i903
 
 ra_alloc1.exit.i903:                              ; preds = %if.then.i.i901, %cond.true.i894
@@ -12733,7 +12733,7 @@ if.then.i122.i:                                   ; preds = %land.lhs.true.i.i86
   br i1 %tobool.not.i.i.i886, label %cond.end.thread.i, label %if.then.i.i.i887
 
 if.then.i.i.i887:                                 ; preds = %if.then.i122.i
-  %call.i.i.i888 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef 49135)
+  %call.i.i.i888 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef range(i32 0, 65536) %conv13.i, i32 noundef 49135)
   br label %cond.end.thread.i
 
 cond.end.thread.i:                                ; preds = %if.then.i.i.i887, %if.then.i122.i
@@ -12746,7 +12746,7 @@ cond.end.thread.i:                                ; preds = %if.then.i.i.i887, %
   br label %if.end44.i
 
 if.end.i.i865:                                    ; preds = %land.lhs.true.i.i862, %if.else.i861
-  %call3.i.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef 49135)
+  %call3.i.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef range(i32 0, 65536) %conv13.i, i32 noundef 49135)
   br label %cond.end.i866
 
 cond.end.i866:                                    ; preds = %if.end.i.i865, %ra_alloc1.exit.i903
@@ -12757,7 +12757,7 @@ if.then43.i:                                      ; preds = %cond.end.i866
   %1719 = load ptr, ptr %mcp, align 8
   %1720 = load ptr, ptr %J21, align 8
   %arrayidx.i874 = getelementptr inbounds i8, ptr %1720, i64 312
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef 1477440252, i32 noundef %call.i860, ptr noundef nonnull %arrayidx.i874)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef 1477440252, i32 noundef %call.i860, ptr noundef nonnull %arrayidx.i874)
   %1721 = load ptr, ptr %mcp, align 8
   %sub.ptr.lhs.cast.i.i875 = ptrtoint ptr %1719 to i64
   %sub.ptr.rhs.cast.i.i876 = ptrtoint ptr %1721 to i64
@@ -12799,7 +12799,7 @@ if.end44.i:                                       ; preds = %if.then43.i, %cond.
   %1728 = or i1 %cmp4.i836, %1727
   %cond58.i = select i1 %1728, i32 524800, i32 0
   %or59.i = or disjoint i32 %call.i860, %cond58.i
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef %cond51.i, i32 noundef %or59.i, i32 noundef %cond40272.i)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %cond51.i, i32 noundef %or59.i, i32 noundef %cond40272.i)
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.end44.i, %if.then25.i909
@@ -12851,7 +12851,7 @@ if.then69.i:                                      ; preds = %if.then63.i
   br i1 %tobool.not.i151.i, label %ra_alloc1.exit160.i, label %if.then.i152.i847
 
 if.then.i152.i847:                                ; preds = %if.then69.i
-  %call.i153.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef -65536)
+  %call.i153.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   br label %ra_alloc1.exit160.i
 
 ra_alloc1.exit160.i:                              ; preds = %if.then.i152.i847, %if.then69.i
@@ -12861,11 +12861,11 @@ ra_alloc1.exit160.i:                              ; preds = %if.then.i152.i847, 
   %1734 = load i32, ptr %weakset.i.i, align 8
   %and2.i159.i = and i32 %1734, %not.i157.i
   store i32 %and2.i159.i, ptr %weakset.i.i, align 8
-  call fastcc void @asm_tointg(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef %r.0.i155.i)
+  call fastcc void @asm_tointg(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef %r.0.i155.i)
   br label %for.inc
 
 if.else71.i:                                      ; preds = %if.then63.i
-  %call73.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call73.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   %cond76.i = select i1 %cmp6.i837, i32 739242748, i32 739243004
   %1735 = load i8, ptr %t, align 4
   %1736 = and i8 %1735, 31
@@ -12884,7 +12884,7 @@ if.then91.i:                                      ; preds = %if.else71.i
   br i1 %tobool96.not.i, label %cond.false99.i, label %ra_alloc1.exit3637
 
 ra_alloc1.exit3637:                               ; preds = %if.then91.i
-  %call.i3630 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef -65536)
+  %call.i3630 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   %shl.i3633 = shl nuw i32 1, %call.i3630
   %not.i3634 = xor i32 %shl.i3633, -1
   %1739 = load i32, ptr %weakset.i.i, align 8
@@ -12961,7 +12961,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i163.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i163.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i3622 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as_, i32 noundef %ref.0.i)
+  %call.i3622 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i856:                                 ; preds = %cond.false99.i
@@ -13007,7 +13007,7 @@ cond.end101.i:                                    ; preds = %ra_scratch.exit.i, 
   %..i853 = select i1 %cmp6.i837, i64 320, i64 260
   %.274.i = select i1 %cmp6.i837, i32 1477440252, i32 1477440508
   %k32.i = getelementptr inbounds i8, ptr %1769, i64 %..i853
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef %.274.i, i32 noundef %cond102.i, ptr noundef nonnull %k32.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef %.274.i, i32 noundef %cond102.i, ptr noundef nonnull %k32.i)
   %1770 = load ptr, ptr %mcp, align 8
   %sub.ptr.lhs.cast.i192.i = ptrtoint ptr %1766 to i64
   %sub.ptr.rhs.cast.i193.i = ptrtoint ptr %1770 to i64
@@ -13040,7 +13040,7 @@ cond.end101.i:                                    ; preds = %ra_scratch.exit.i, 
   store i8 %conv51.i.i.i, ptr %add.ptr34.i.i227.i, align 1
   store i8 %conv63.i.i183.i, ptr %add.ptr29.i.i226.i, align 1
   store ptr %add.ptr29.i.i226.i, ptr %mcp, align 8
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %cond102.i, i32 noundef %conv13.i)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %cond102.i, i32 noundef %conv13.i)
   br label %for.inc
 
 if.then125.i:                                     ; preds = %if.else71.i
@@ -13086,8 +13086,8 @@ if.end126.i:                                      ; preds = %emit_rr.exit269.i, 
   %1778 = select i1 %cmp138.i, i32 524800, i32 0
   %cond142.i = select i1 %tobool132.not.i, i32 %1778, i32 524800
   %or143.i = or disjoint i32 %cond142.i, %call73.i
-  %call144.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef -65536)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef %cond76.i, i32 noundef %or143.i, i32 noundef %call144.i)
+  %call144.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %cond76.i, i32 noundef %or143.i, i32 noundef %call144.i)
   br label %for.inc
 
 if.else147.i:                                     ; preds = %if.else61.i
@@ -13096,7 +13096,7 @@ if.else147.i:                                     ; preds = %if.else61.i
   br i1 %or.cond2.i841, label %if.then152.i, label %if.else175.i
 
 if.then152.i:                                     ; preds = %if.else147.i
-  %call155.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call155.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   switch i16 %1703, label %if.else170.i [
     i16 15, label %if.then159.i846
     i16 16, label %if.then164.i845
@@ -13117,15 +13117,15 @@ if.else170.i:                                     ; preds = %if.then152.i
 if.end173.i:                                      ; preds = %if.else170.i, %if.then164.i845, %if.then159.i846, %if.then152.i
   %op156.0.i = phi i32 [ -1106312963, %if.then159.i846 ], [ -1240530691, %if.then164.i845 ], [ -1223753475, %if.else170.i ], [ -1089535747, %if.then152.i ]
   %dest154.0.i = phi i32 [ %or160.i, %if.then159.i846 ], [ %or165.i, %if.then164.i845 ], [ %call155.i, %if.else170.i ], [ %call155.i, %if.then152.i ]
-  %call174.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef 49135)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef %op156.0.i, i32 noundef %dest154.0.i, i32 noundef %call174.i)
+  %call174.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %op156.0.i, i32 noundef %dest154.0.i, i32 noundef %call174.i)
   br label %for.inc
 
 if.else175.i:                                     ; preds = %if.else147.i
   %1780 = shl nuw i32 1, %and15.i
   %1781 = and i32 %1780, 6315993
   %tobool182.not.i842 = icmp eq i32 %1781, 0
-  %call200.i = call fastcc i32 @ra_dest(ptr noundef %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
+  %call200.i = call fastcc i32 @ra_dest(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, i32 noundef 49135)
   br i1 %tobool182.not.i842, label %if.else198.i, label %if.then183.i843
 
 if.then183.i843:                                  ; preds = %if.else175.i
@@ -13142,13 +13142,13 @@ lor.lhs.false187.i:                               ; preds = %if.then183.i843
   br i1 %tobool191.not.i844, label %if.then192.i, label %if.else193.i
 
 if.then192.i:                                     ; preds = %lor.lhs.false187.i, %if.then183.i843, %if.then183.i843, %if.then183.i843
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call200.i, i32 noundef %conv13.i)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call200.i, i32 noundef %conv13.i)
   br label %for.inc
 
 if.else193.i:                                     ; preds = %lor.lhs.false187.i
-  %call195.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef 49135)
+  %call195.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   %or196.i = or disjoint i32 %call200.i, 524800
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef 1660944638, i32 noundef %or196.i, i32 noundef %call195.i)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 1660944638, i32 noundef %or196.i, i32 noundef %call195.i)
   br label %for.inc
 
 if.else198.i:                                     ; preds = %if.else175.i
@@ -13165,17 +13165,17 @@ land.lhs.true202.i:                               ; preds = %if.else198.i, %if.e
   br i1 %tobool206.not.i, label %if.then207.i, label %if.else210.i
 
 if.then207.i:                                     ; preds = %land.lhs.true202.i
-  %call209.i = call fastcc i32 @asm_fuseload(ptr noundef %as_, i32 noundef %conv13.i, i32 noundef 49135)
-  call fastcc void @emit_mrm(ptr noundef %as_, i32 noundef -1962934018, i32 noundef %call200.i, i32 noundef %call209.i)
+  %call209.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
+  call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %call200.i, i32 noundef %call209.i)
   br label %for.inc
 
 if.else210.i:                                     ; preds = %land.lhs.true202.i, %if.else198.i
-  call fastcc void @ra_left(ptr noundef %as_, i32 noundef %call200.i, i32 noundef %conv13.i)
+  call fastcc void @ra_left(ptr noundef nonnull %as_, i32 noundef %call200.i, i32 noundef %conv13.i)
   br label %for.inc
 
 sw.bb72.i:                                        ; preds = %checkmclim.exit188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %args.i816)
-  call fastcc void @asm_snap_prep(ptr noundef %as_)
+  call fastcc void @asm_snap_prep(ptr noundef nonnull %as_)
   store i32 32767, ptr %args.i816, align 4
   %1786 = load i32, ptr %gcsteps, align 8
   %inc.i818 = add nsw i32 %1786, 1
@@ -13196,8 +13196,8 @@ if.end11.i:                                       ; preds = %if.else.i821, %sw.b
   %conv3.sink.i = phi i32 [ %conv3.i822, %if.else.i821 ], [ 32765, %sw.bb72.i ]
   %ci.0.i = phi ptr [ %..i, %if.else.i821 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 80), %sw.bb72.i ]
   store i32 %conv3.sink.i, ptr %29, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %ci.0.i, ptr noundef %args.i816)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.0.i, ptr noundef %args.i816)
   %1789 = load i16, ptr %op2.i819, align 2
   %cmp14.i823 = icmp eq i16 %1789, 1
   br i1 %cmp14.i823, label %if.then16.i825, label %asm_tostr.exit
@@ -13217,7 +13217,7 @@ if.then16.i825:                                   ; preds = %if.end11.i
   store i8 -1, ptr %r2.i.i827, align 2
   %1794 = load i16, ptr %arrayidx63, align 8
   %conv18.i834 = zext i16 %1794 to i32
-  call fastcc void @asm_tvptr(ptr noundef %as_, i32 noundef %conv.i.i828, i32 noundef %conv18.i834, i32 noundef 1)
+  call fastcc void @asm_tvptr(ptr noundef nonnull %as_, i32 noundef %conv.i.i828, i32 noundef %conv18.i834, i32 noundef 1)
   br label %asm_tostr.exit
 
 asm_tostr.exit:                                   ; preds = %if.end11.i, %if.then16.i825
@@ -13226,7 +13226,7 @@ asm_tostr.exit:                                   ; preds = %if.end11.i, %if.the
 
 sw.bb73.i:                                        ; preds = %checkmclim.exit188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %args.i772)
-  call fastcc void @ra_evictset(ptr noundef %as_, i32 noundef -61497)
+  call fastcc void @ra_evictset(ptr noundef nonnull %as_, i32 noundef -61497)
   %1795 = load ptr, ptr %J21, align 8
   %exitstubgroup.i.i774 = getelementptr inbounds i8, ptr %1795, i64 1696
   %1796 = load i32, ptr %snapno.i, align 4
@@ -13317,7 +13317,7 @@ asm_guardcc.exit.i:                               ; preds = %if.end35.i.i, %if.e
   %conv4.i785 = zext i16 %1807 to i32
   store i32 %conv4.i785, ptr %args.i772, align 4
   store i32 32765, ptr %arrayidx5.i, align 4
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 48), ptr noundef %args.i772)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 48), ptr noundef %args.i772)
   %1808 = load ptr, ptr %ir37, align 8
   %r2.i.i787 = getelementptr inbounds i8, ptr %1808, i64 262126
   %1809 = load i8, ptr %r2.i.i787, align 2
@@ -13434,8 +13434,8 @@ asm_call.exit.i:                                  ; preds = %while.body.i.i.i275
   %narrow.i.i.i272 = select i1 %cmp13.i.i.i271, i16 0, i16 %1822
   %spec.select10.i.i.i273 = zext i16 %narrow.i.i.i272 to i32
   store i32 %spec.select10.i.i.i273, ptr %args.addr.0.i.i.i267, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i351.i)
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %arrayidx.i351.i, ptr noundef %args.i348.i)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %arrayidx.i351.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx.i351.i, ptr noundef %args.i348.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %args.i348.i)
   br label %for.inc
 
@@ -13551,7 +13551,7 @@ asm_collectargs.exit.i:                           ; preds = %asm_collectargs.exi
   %narrow.i.i728 = select i1 %cmp13.i.i727, i16 0, i16 %1841
   %spec.select10.i.i = zext i16 %narrow.i.i728 to i32
   store i32 %spec.select10.i.i, ptr %args.addr.0.i.i, align 4
-  call fastcc void @asm_setupresult(ptr noundef %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.i)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.i)
   %1842 = load i16, ptr %op2.i.i719, align 2
   %1843 = load ptr, ptr %ir37, align 8
   %idxprom.i729 = zext i16 %1842 to i64
@@ -13619,7 +13619,7 @@ if.then11.i:                                      ; preds = %asm_callx_func.exit
   br i1 %tobool.not.i30.i, label %ra_alloc1.exit.i, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %if.then11.i
-  %call.i.i736 = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %func.0.i, i32 noundef 45096)
+  %call.i.i736 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %func.0.i, i32 noundef 45096)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i31.i, %if.then11.i
@@ -13652,7 +13652,7 @@ emit_rr.exit.i:                                   ; preds = %if.then46.i.i.i740,
   br label %asm_callx.exit
 
 asm_callx.exit:                                   ; preds = %asm_callx_func.exit.i, %emit_rr.exit.i
-  call fastcc void @asm_gencall(ptr noundef %as_, ptr noundef nonnull %ci.i, ptr noundef %args.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.i, ptr noundef %args.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %args.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ci.i)
   br label %for.inc
@@ -13736,14 +13736,14 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   br i1 %or.cond.i, label %if.then.i378, label %if.end.i
 
 if.then.i378:                                     ; preds = %while.body.i
-  %call.i379 = call fastcc i32 @ra_rematk(ptr noundef %as_, i32 noundef %conv1.i)
+  %call.i379 = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv1.i)
   %1874 = load ptr, ptr %mcp, align 8
   %1875 = load ptr, ptr %mclim, align 8
   %cmp.i35.i = icmp ult ptr %1874, %1875
   br i1 %cmp.i35.i, label %if.then.i39.i, label %if.end.i
 
 if.then.i39.i:                                    ; preds = %if.then.i378
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i378, %while.body.i
@@ -13778,14 +13778,14 @@ while.body12.i:                                   ; preds = %if.end27.i, %while.
   br i1 %or.cond1.i, label %if.then25.i, label %if.end27.i
 
 if.then25.i:                                      ; preds = %while.body12.i
-  %call26.i = call fastcc i32 @ra_rematk(ptr noundef %as_, i32 noundef %conv19.i)
+  %call26.i = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv19.i)
   %1879 = load ptr, ptr %mcp, align 8
   %1880 = load ptr, ptr %mclim, align 8
   %cmp.i.i376 = icmp ult ptr %1879, %1880
   br i1 %cmp.i.i376, label %if.then.i.i377, label %if.end27.i
 
 if.then.i.i377:                                   ; preds = %if.then25.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end27.i:                                       ; preds = %if.then25.i, %while.body12.i
@@ -13845,7 +13845,7 @@ for.body.i.i510:                                  ; preds = %for.inc.i.i515, %fo
   br i1 %cmp9.i.i514, label %for.inc.i.i515, label %if.then.i151.i
 
 if.then.i151.i:                                   ; preds = %for.body.i.i510
-  call fastcc void @asm_snap_alloc1(ptr noundef %as_, i32 noundef %and.i.i513)
+  call fastcc void @asm_snap_alloc1(ptr noundef nonnull %as_, i32 noundef %and.i.i513)
   br label %for.inc.i.i515
 
 for.inc.i.i515:                                   ; preds = %if.then.i151.i, %for.body.i.i510
@@ -13926,7 +13926,7 @@ if.else30.i.i:                                    ; preds = %land.lhs.true.i.i48
   %or31.i.i = or disjoint i32 %conv.i.i391, 524800
   %1904 = load ptr, ptr %J21, align 8
   %jit_base.i.i = getelementptr inbounds i8, ptr %1904, i64 -352
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -1962934018, i32 noundef %or31.i.i, ptr noundef nonnull %jit_base.i.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %or31.i.i, ptr noundef nonnull %jit_base.i.i)
   br label %asm_head_side_base.exit.i
 
 asm_head_side_base.exit.i:                        ; preds = %if.else30.i.i, %if.then24.i.i, %if.end.i.i483, %if.end.i389
@@ -14087,7 +14087,7 @@ ra_save.exit.if.end43_crit_edge.i:                ; preds = %ra_save.exit.i
   br label %if.end43.i
 
 if.then.i349.i:                                   ; preds = %ra_save.exit.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.else.i432:                                     ; preds = %for.body.i428
@@ -14254,7 +14254,7 @@ if.then164.i:                                     ; preds = %if.end148.i
 
 if.end165.i:                                      ; preds = %if.end148.i
   %1945 = trunc nuw i64 %indvars.iv367.i to i32
-  %call166.i = call fastcc i32 @ra_allocref(ptr noundef %as_, i32 noundef %1945, i32 noundef %and161.i)
+  %call166.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %1945, i32 noundef %and161.i)
   %arrayidx113.val.i = load i8, ptr %t114.i, align 4
   %1946 = getelementptr i8, ptr %arrayidx113.i, i64 7
   %arrayidx113.val150.i = load i8, ptr %1946, align 1
@@ -14394,7 +14394,7 @@ if.end185.i:                                      ; preds = %if.else179.i, %if.t
   br i1 %cmp.i336.i, label %if.then.i340.i, label %for.inc187.i
 
 if.then.i340.i:                                   ; preds = %if.end185.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 for.inc187.i:                                     ; preds = %if.end185.i, %if.else139.i, %for.body109.i
@@ -14422,7 +14422,7 @@ if.end190.i:                                      ; preds = %for.inc187.i, %if.t
   store ptr %add.ptr194.i, ptr %mcp, align 8
   %1962 = load ptr, ptr %J21, align 8
   %vmstate.i = getelementptr inbounds i8, ptr %1962, i64 -544
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -956301058, i32 noundef 0, ptr noundef nonnull %vmstate.i)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -956301058, i32 noundef 0, ptr noundef nonnull %vmstate.i)
   %sub197.i = sub nsw i32 0, %spec.select146.i
   %tobool.not.i231.i = icmp slt i32 %sub93.i, 1
   br i1 %tobool.not.i231.i, label %emit_addptr.exit.i408, label %if.then.i232.i
@@ -14612,7 +14612,7 @@ emit_loadofs.exit.i:                              ; preds = %if.then46.i.i.i, %i
   br i1 %cmp.i327.i, label %if.then.i331.i, label %if.end230.i
 
 if.then.i331.i:                                   ; preds = %emit_loadofs.exit.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 if.end230.i:                                      ; preds = %emit_loadofs.exit.i, %while.body.i410
@@ -14750,7 +14750,7 @@ emit_movrr.exit.i:                                ; preds = %if.then46.i.i18.i.i
   br i1 %cmp.i318.i, label %if.then.i322.i, label %while.cond234.i.outer, !llvm.loop !35
 
 if.then.i322.i:                                   ; preds = %emit_movrr.exit.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 while.end259.i:                                   ; preds = %while.cond234.i
@@ -14978,7 +14978,7 @@ if.end294.i:                                      ; preds = %if.then.i3478, %emi
   br i1 %cmp.i.i413, label %if.then.i.i414, label %while.cond234.i
 
 if.then.i.i414:                                   ; preds = %if.end294.i
-  call fastcc void @asm_mclimit(ptr noundef %as_) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #16
   unreachable
 
 for.end295.i:                                     ; preds = %while.end259.i
@@ -15003,7 +15003,7 @@ if.then306.i:                                     ; preds = %for.end295.i
   %conv310.i = trunc i32 %2050 to i8
   store i8 %conv310.i, ptr %topslot302.i, align 1
   %2055 = load i32, ptr %topslot, align 4
-  call fastcc void @asm_stack_check(ptr noundef %as_, i32 noundef %2055, ptr noundef nonnull %arrayidx.i382, i32 noundef %pallow.1.lcssa.i, i32 noundef %2054)
+  call fastcc void @asm_stack_check(ptr noundef nonnull %as_, i32 noundef %2055, ptr noundef nonnull %arrayidx.i382, i32 noundef %pallow.1.lcssa.i, i32 noundef %2054)
   br label %asm_head_side.exit
 
 asm_head_side.exit:                               ; preds = %for.end295.i, %if.then306.i
@@ -15076,7 +15076,7 @@ asm_head_root_base.exit.i:                        ; preds = %if.else.asm_head_ro
   store ptr %add.ptr2.i, ptr %mcp, align 8
   %2067 = load ptr, ptr %J21, align 8
   %vmstate.i527 = getelementptr inbounds i8, ptr %2067, i64 -544
-  call fastcc void @emit_rma(ptr noundef %as_, i32 noundef -956301058, i32 noundef 0, ptr noundef nonnull %vmstate.i527)
+  call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -956301058, i32 noundef 0, ptr noundef nonnull %vmstate.i527)
   %as.val.i528 = load i32, ptr %evenspill.i, align 8
   %cmp.i.i529 = icmp slt i32 %as.val.i528, 3
   %add.i.i530 = shl i32 %as.val.i528, 2
@@ -15525,7 +15525,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp9.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call fastcc void @asm_snap_alloc1(ptr noundef %as, i32 noundef %and.i)
+  tail call fastcc void @asm_snap_alloc1(ptr noundef nonnull %as, i32 noundef %and.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -18453,7 +18453,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %ra_alloc1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %lref.0, i32 noundef -65536)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref.0, i32 noundef -65536)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then, %if.then.i
@@ -19110,7 +19110,7 @@ if.then.i315:                                     ; preds = %land.lhs.true.i
   br i1 %tobool.not.i.i, label %ra_alloc1.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i315
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %lref29.0, i32 noundef 49135)
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %lref29.0, i32 noundef 49135)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.then.i315
@@ -19124,7 +19124,7 @@ ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.th
   br label %if.end370
 
 if.end.i313:                                      ; preds = %land.lhs.true.i, %if.else361
-  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %lref29.0, i32 noundef 49135)
+  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %lref29.0, i32 noundef 49135)
   br label %if.end370
 
 if.end370:                                        ; preds = %if.end.i313, %ra_alloc1.exit.i, %if.then313
@@ -19307,7 +19307,7 @@ emit_gmrmi.exit:                                  ; preds = %if.then.i387, %if.e
   %and11.i = and i32 %add398, 524800
   %or.i = or disjoint i32 %and11.i, 7
   %and12.i = and i32 %add398, -524801
-  tail call fastcc void @emit_mrm(ptr noundef %as, i32 noundef %xo.0.i, i32 noundef %or.i, i32 noundef %and12.i)
+  tail call fastcc void @emit_mrm(ptr noundef nonnull %as, i32 noundef %xo.0.i, i32 noundef %or.i, i32 noundef %and12.i)
   br label %if.end411
 
 if.else401:                                       ; preds = %if.else.i, %if.end89
@@ -19320,7 +19320,7 @@ if.else401:                                       ; preds = %if.else.i, %if.end8
   br i1 %tobool.not.i395, label %ra_alloc1.exit404, label %if.then.i396
 
 if.then.i396:                                     ; preds = %if.else401
-  %call.i397 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %lref29.0, i32 noundef 49135)
+  %call.i397 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135)
   br label %ra_alloc1.exit404
 
 ra_alloc1.exit404:                                ; preds = %if.else401, %if.then.i396
@@ -19356,7 +19356,7 @@ if.then.i416:                                     ; preds = %land.lhs.true.i406
   br i1 %tobool.not.i.i419, label %ra_alloc1.exit.i422, label %if.then.i.i420
 
 if.then.i.i420:                                   ; preds = %if.then.i416
-  %call.i.i421 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %rref32.0, i32 noundef %and407)
+  %call.i.i421 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %rref32.0, i32 noundef range(i32 0, 49136) %and407)
   %.pre = load i32, ptr %weakset.i402, align 8
   br label %ra_alloc1.exit.i422
 
@@ -19370,7 +19370,7 @@ ra_alloc1.exit.i422:                              ; preds = %if.then.i.i420, %if
   br label %asm_fuseloadm.exit428
 
 if.end.i413:                                      ; preds = %land.lhs.true.i406, %ra_alloc1.exit404
-  %call3.i414 = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %rref32.0, i32 noundef %and407)
+  %call3.i414 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %rref32.0, i32 noundef range(i32 0, 49136) %and407)
   br label %asm_fuseloadm.exit428
 
 asm_fuseloadm.exit428:                            ; preds = %ra_alloc1.exit.i422, %if.end.i413
@@ -19704,7 +19704,7 @@ if.then.i79:                                      ; preds = %land.lhs.true.i72
   br i1 %tobool.not.i.i, label %ra_alloc1.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i79
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %36, i32 noundef %and52)
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %36, i32 noundef range(i32 0, 49136) %and52)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.then.i79
@@ -19718,7 +19718,7 @@ ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.th
   br label %if.end58
 
 if.end.i77:                                       ; preds = %land.lhs.true.i72, %.thread133
-  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %36, i32 noundef %and52)
+  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %36, i32 noundef range(i32 0, 49136) %and52)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end.i77, %ra_alloc1.exit.i, %if.then13.i, %if.then6.i, %if.end37
@@ -19945,7 +19945,7 @@ if.then.i104:                                     ; preds = %land.lhs.true.i94
   br i1 %tobool.not.i.i107, label %ra_alloc1.exit.i110, label %if.then.i.i108
 
 if.then.i.i108:                                   ; preds = %if.then.i104
-  %call.i.i109 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %lref.0, i32 noundef 49135)
+  %call.i.i109 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %lref.0, i32 noundef 49135)
   br label %ra_alloc1.exit.i110
 
 ra_alloc1.exit.i110:                              ; preds = %if.then.i.i108, %if.then.i104
@@ -19959,7 +19959,7 @@ ra_alloc1.exit.i110:                              ; preds = %if.then.i.i108, %if
   br label %asm_fuseloadm.exit116
 
 if.end.i101:                                      ; preds = %land.lhs.true.i94, %if.else107
-  %call3.i102 = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %lref.0, i32 noundef 49135)
+  %call3.i102 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %lref.0, i32 noundef 49135)
   br label %asm_fuseloadm.exit116
 
 asm_fuseloadm.exit116:                            ; preds = %ra_alloc1.exit.i110, %if.end.i101
@@ -20069,7 +20069,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %tobool.not.i.i, label %ra_alloc1.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv12, i32 noundef 49135)
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %conv12, i32 noundef 49135)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.then.i
@@ -20083,7 +20083,7 @@ ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.th
   br label %asm_fuseloadm.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then11
-  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %conv12, i32 noundef 49135)
+  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %conv12, i32 noundef 49135)
   br label %asm_fuseloadm.exit
 
 asm_fuseloadm.exit:                               ; preds = %ra_alloc1.exit.i, %if.end.i
@@ -20224,7 +20224,7 @@ if.then63:                                        ; preds = %if.else
   br i1 %tobool.not.i94, label %ra_alloc1.exit, label %if.then.i95
 
 if.then.i95:                                      ; preds = %if.then63
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv, i32 noundef 49135)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv, i32 noundef 49135)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then63, %if.then.i95
@@ -20269,7 +20269,7 @@ if.then.i108:                                     ; preds = %land.lhs.true.i98
   br i1 %tobool.not.i.i111, label %ra_alloc1.exit.i114, label %if.then.i.i112
 
 if.then.i.i112:                                   ; preds = %if.then.i108
-  %call.i.i113 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv68, i32 noundef %and69)
+  %call.i.i113 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %conv68, i32 noundef range(i32 0, 49136) %and69)
   %.pre = load i32, ptr %weakset.i, align 8
   br label %ra_alloc1.exit.i114
 
@@ -20283,7 +20283,7 @@ ra_alloc1.exit.i114:                              ; preds = %if.then.i.i112, %if
   br label %asm_fuseloadm.exit120
 
 if.end.i105:                                      ; preds = %land.lhs.true.i98, %ra_alloc1.exit
-  %call3.i106 = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %conv68, i32 noundef %and69)
+  %call3.i106 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef range(i32 0, 65536) %conv68, i32 noundef range(i32 0, 49136) %and69)
   br label %asm_fuseloadm.exit120
 
 asm_fuseloadm.exit120:                            ; preds = %ra_alloc1.exit.i114, %if.end.i105
@@ -20384,7 +20384,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i123, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i123 ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i204 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as, i32 noundef %ref.0.i)
+  %call.i204 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %if.then92
@@ -20466,7 +20466,7 @@ if.then.i.i156:                                   ; preds = %if.then112
   %arrayidx19.i = getelementptr inbounds i8, ptr %as, i64 4
   %90 = load i32, ptr %arrayidx19.i, align 4
   %conv504.i207 = and i32 %90, 65535
-  %call.i221 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef %as, i32 noundef %conv504.i207)
+  %call.i221 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv504.i207)
   br label %ra_scratch.exit158
 
 ra_scratch.exit158:                               ; preds = %if.then112, %if.then.i.i156
@@ -20726,7 +20726,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 
 if.then.i167:                                     ; preds = %lor.end
   %conv3 = zext i16 %3 to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv3, i32 noundef %and4)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv3, i32 noundef %and4)
   %.pre = load ptr, ptr %ir.i, align 8
   br label %ra_alloc1.exit
 
@@ -20761,7 +20761,7 @@ if.then.i175:                                     ; preds = %if.then
   %10 = and i8 %kt.sroa.0.0.copyload, 31
   %cmp19 = icmp eq i8 %10, 14
   %cond = select i1 %cmp19, i32 -65536, i32 %and14
-  %call.i176 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv8, i32 noundef %cond)
+  %call.i176 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv8, i32 noundef %cond)
   %.pre1365 = load i32, ptr %weakset.i, align 8
   br label %ra_alloc1.exit182
 
@@ -20780,7 +20780,7 @@ ra_alloc1.exit182:                                ; preds = %if.then, %if.then.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %ra_alloc1.exit182
-  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef %as, i32 noundef %and24)
+  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %and24)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %ra_alloc1.exit182
@@ -22639,7 +22639,7 @@ if.end61.i:                                       ; preds = %if.then36.i, %if.el
 
 if.then.i.i:                                      ; preds = %if.end61.i
   %conv63.i = zext i16 %8 to i32
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv63.i, i32 noundef 49135)
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.end61.i
@@ -22786,7 +22786,7 @@ if.then.i41:                                      ; preds = %if.then27
   %.off = add nsw i8 %2, -13
   %switch = icmp ult i8 %.off, 2
   %spec.select35 = select i1 %switch, i32 -65536, i32 49135
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv55, i32 noundef %spec.select35)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv55, i32 noundef %spec.select35)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then27, %if.then.i41
@@ -22890,7 +22890,7 @@ if.end61.i:                                       ; preds = %if.then36.i, %if.el
 
 if.then.i.i:                                      ; preds = %if.end61.i
   %conv63.i = zext i16 %23 to i32
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv63.i, i32 noundef %allow.0)
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef %allow.0)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.end61.i
@@ -23988,7 +23988,7 @@ if.end61.i:                                       ; preds = %if.then36.i, %if.el
 
 if.then.i.i:                                      ; preds = %if.end61.i
   %conv63.i = zext i16 %116 to i32
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv63.i, i32 noundef 0)
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef 0)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.end61.i
@@ -24374,7 +24374,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %ra_alloc1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %ref, i32 noundef %allow)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then, %if.then.i
@@ -24601,7 +24601,7 @@ if.end61:                                         ; preds = %if.end, %if.else, %
 
 if.then.i:                                        ; preds = %if.end61
   %conv63 = zext i16 %3 to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv63, i32 noundef %allow)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63, i32 noundef %allow)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.end61, %if.then.i
@@ -24672,7 +24672,7 @@ if.then9:                                         ; preds = %sw.bb5
 
 if.then.i:                                        ; preds = %if.then9
   %conv10 = zext i16 %5 to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv10, i32 noundef %allow)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv10, i32 noundef %allow)
   %.pre = load ptr, ptr %ir1, align 8
   br label %ra_alloc1.exit
 
@@ -24756,7 +24756,7 @@ if.end72:                                         ; preds = %entry
   br label %ra_alloc1.exit52
 
 if.then.i45:                                      ; preds = %sw.bb, %sw.bb5, %if.then26, %sw.bb21, %if.then
-  %call.i46 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %ref, i32 noundef %allow)
+  %call.i46 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %ra_alloc1.exit52
 
 ra_alloc1.exit52:                                 ; preds = %if.end72, %if.then.i45
@@ -25006,7 +25006,7 @@ noadd:                                            ; preds = %if.end17, %land.lhs
   br i1 %tobool.not.i60, label %ra_alloc1.exit, label %if.then.i61
 
 if.then.i61:                                      ; preds = %noadd
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %ref.addr.0, i32 noundef %allow.addr.0)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref.addr.0, i32 noundef %allow.addr.0)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %noadd, %if.then.i61
@@ -25137,7 +25137,7 @@ asm_fuseabase.exit:                               ; preds = %while.body.us.us.i.
 
 if.then.i18:                                      ; preds = %asm_fuseabase.exit
   %retval.0.i = zext i16 %retval.0.i.in to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %retval.0.i, i32 noundef %allow)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %retval.0.i, i32 noundef %allow)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %asm_fuseabase.exit, %if.then.i18
@@ -25183,7 +25183,7 @@ if.else:                                          ; preds = %ra_alloc1.exit
 if.then.i25:                                      ; preds = %if.else
   %conv14 = zext i16 %20 to i32
   %and = and i32 %allow, %not.i
-  %call.i26 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %conv14, i32 noundef %and)
+  %call.i26 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv14, i32 noundef %and)
   %.pre = load i32, ptr %weakset.i, align 8
   br label %ra_alloc1.exit32
 
@@ -25243,7 +25243,7 @@ if.else14:                                        ; preds = %if.else, %land.lhs.
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else14
-  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef %as, i32 noundef %allow)
+  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %if.else14
@@ -25804,7 +25804,7 @@ emit_rmro.exit:                                   ; preds = %if.then10.i, %if.el
   br label %if.end79
 
 if.else:                                          ; preds = %if.then51
-  %call.i = tail call fastcc i32 @ra_dest(ptr noundef %as, ptr noundef nonnull %ir, i32 noundef 65536)
+  %call.i = tail call fastcc i32 @ra_dest(ptr noundef nonnull %as, ptr noundef nonnull %ir, i32 noundef 65536)
   %cmp.not.i = icmp eq i32 %call.i, 16
   br i1 %cmp.not.i, label %if.end79, label %if.then.i
 
@@ -25904,7 +25904,7 @@ if.then74:                                        ; preds = %if.else72
 if.then.i70:                                      ; preds = %if.then74
   %34 = load i32, ptr %as, align 8
   %conv14.i = and i32 %34, 65535
-  %call.i71 = tail call fastcc i32 @ra_restore(ptr noundef %as, i32 noundef %conv14.i)
+  %call.i71 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv14.i)
   %.pre.i = load i32, ptr %freeset.i, align 8
   br label %if.end.i
 
@@ -25922,7 +25922,7 @@ if.then25.i:                                      ; preds = %if.end.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %as, i64 8
   %37 = load i32, ptr %arrayidx27.i, align 8
   %conv29.i69 = and i32 %37, 65535
-  %call30.i = tail call fastcc i32 @ra_restore(ptr noundef %as, i32 noundef %conv29.i69)
+  %call30.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv29.i69)
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then25.i, %if.end.i
@@ -26446,7 +26446,7 @@ ra_save.exit254.i:                                ; preds = %if.then46.i.i.i.i24
   br label %if.end79
 
 if.else75:                                        ; preds = %if.else72
-  %call.i72 = tail call fastcc i32 @ra_dest(ptr noundef %as, ptr noundef nonnull %ir, i32 noundef 1)
+  %call.i72 = tail call fastcc i32 @ra_dest(ptr noundef nonnull %as, ptr noundef nonnull %ir, i32 noundef 1)
   %cmp.not.i73 = icmp eq i32 %call.i72, 0
   br i1 %cmp.not.i73, label %if.end79, label %if.then.i74
 
@@ -26549,7 +26549,7 @@ if.then.i55:                                      ; preds = %if.then
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 -2
   store i8 -1, ptr %arrayidx.i.i.i, align 1
   store ptr %arrayidx.i.i.i, ptr %mcp.i54, align 8
-  tail call fastcc void @emit_loadu64(ptr noundef %as, i32 noundef 0, i64 noundef %sub.ptr.lhs.cast.i)
+  tail call fastcc void @emit_loadu64(ptr noundef nonnull %as, i32 noundef 0, i64 noundef %sub.ptr.lhs.cast.i)
   br label %if.end
 
 if.end.i:                                         ; preds = %if.then
@@ -26824,7 +26824,7 @@ if.then80:                                        ; preds = %if.end25, %if.then2
   br i1 %tobool.not.i89, label %ra_alloc1.exit, label %if.then.i90
 
 if.then.i90:                                      ; preds = %if.then80
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %6, i32 noundef -65536)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef -65536)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then80, %if.then.i90
@@ -26898,7 +26898,7 @@ if.else89:                                        ; preds = %if.end25.thread163
   br i1 %tobool.not.i107, label %ra_alloc1.exit116, label %if.then.i108
 
 if.then.i108:                                     ; preds = %if.else89
-  %call.i109 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %6, i32 noundef 49135)
+  %call.i109 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef 49135)
   br label %ra_alloc1.exit116
 
 ra_alloc1.exit116:                                ; preds = %if.else89, %if.then.i108
@@ -27210,7 +27210,7 @@ if.then.i:                                        ; preds = %entry
   %shl = shl nuw i32 1, %call
   %not = and i32 %shl, 49135
   %and = xor i32 %not, 49135
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %spec.select16, i32 noundef %and)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %spec.select16, i32 noundef %and)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %entry, %if.then.i
@@ -27339,7 +27339,7 @@ if.end:                                           ; preds = %if.then4
   br i1 %tobool.not.i, label %ra_alloc1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %ref, i32 noundef -65536)
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef -65536)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.end, %if.then.i
@@ -27575,7 +27575,7 @@ if.then.i83:                                      ; preds = %if.else14
   %shl = shl nuw i32 1, %dest
   %not = and i32 %shl, 49135
   %and15 = xor i32 %not, 49135
-  %call.i84 = tail call fastcc i32 @ra_allocref(ptr noundef %as, i32 noundef %ref, i32 noundef %and15)
+  %call.i84 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %and15)
   br label %ra_alloc1.exit90
 
 ra_alloc1.exit90:                                 ; preds = %if.else14, %if.then.i83
@@ -27820,7 +27820,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef %as, i32 noundef %and)
+  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %and)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %entry

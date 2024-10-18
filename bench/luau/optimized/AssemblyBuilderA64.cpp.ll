@@ -3163,7 +3163,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11Regist
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = shl i64 %14, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %15)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %15)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %16, i64 %14, i1 false)
@@ -3409,7 +3409,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11Regist
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = shl i64 %13, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %14)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %15, i64 %13, i1 false)
@@ -3487,7 +3487,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11Regist
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = shl i64 %13, 1
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %14)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %15, i64 %13, i1 false)

@@ -745,7 +745,7 @@ entry:
 define dso_local i32 @helper_clz_i32(i32 noundef %arg, i32 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i32 %arg, 0
-  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %arg, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %arg, i1 true)
   %spec.select = select i1 %tobool.not, i32 %zero_val, i32 %0
   ret i32 %spec.select
 }
@@ -754,7 +754,7 @@ entry:
 define dso_local i32 @helper_ctz_i32(i32 noundef %arg, i32 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i32 %arg, 0
-  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %arg, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %arg, i1 true)
   %spec.select = select i1 %tobool.not, i32 %zero_val, i32 %0
   ret i32 %spec.select
 }
@@ -763,7 +763,7 @@ entry:
 define dso_local i64 @helper_clz_i64(i64 noundef %arg, i64 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i64 %arg, 0
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %arg, i1 true)
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %arg, i1 true)
   %cond = select i1 %tobool.not, i64 %zero_val, i64 %0
   ret i64 %cond
 }
@@ -772,7 +772,7 @@ entry:
 define dso_local i64 @helper_ctz_i64(i64 noundef %arg, i64 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i64 %arg, 0
-  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %arg, i1 true)
+  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %arg, i1 true)
   %cond = select i1 %tobool.not, i64 %zero_val, i64 %0
   ret i64 %cond
 }

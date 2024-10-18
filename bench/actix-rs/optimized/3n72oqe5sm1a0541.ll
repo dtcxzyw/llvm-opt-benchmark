@@ -1061,7 +1061,7 @@ define hidden void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h9e5b8b7c1
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !401
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb245e3ee45a3854E.llvm.1711877461099840233"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb245e3ee45a3854E.llvm.1711877461099840233"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !range !410, !noalias !401, !noundef !9
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -1097,7 +1097,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
 "_ZN4mime4Mime9get_param28_$u7b$$u7b$closure$u7d$$u7d$17h13a622cd4708f621E.llvm.1214063349730439972.exit": ; preds = %3
   %9 = load ptr, ptr %2, align 8, !alias.scope !422, !noalias !423, !nonnull !9, !align !372, !noundef !9
   %10 = load ptr, ptr %4, align 8, !alias.scope !416, !noalias !421, !nonnull !9, !align !372, !noundef !9
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %10, ptr nonnull readonly %9, i64 %6), !alias.scope !424, !noalias !428
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %10, ptr nonnull readonly align 1 %9, i64 %6), !alias.scope !424, !noalias !428
   %11 = icmp eq i32 %bcmp.i.i.i, 0
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   %13 = load i8, ptr %12, align 8, !range !353, !alias.scope !416, !noalias !421
@@ -1151,7 +1151,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h07cf118137
 "_ZN4mime4Mime9get_param28_$u7b$$u7b$closure$u7d$$u7d$17h13a622cd4708f621E.llvm.1214063349730439972.exit.i": ; preds = %12
   %14 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %14)
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %.sroa.0.0.copyload, i64 %8), !alias.scope !442, !noalias !446
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %.sroa.0.0.copyload, i64 %8), !alias.scope !442, !noalias !446
   %15 = icmp eq i32 %bcmp.i.i.i.i, 0
   %.not.i.i.i = icmp eq i8 %11, %13
   %.0.i.i.i = select i1 %15, i1 %.not.i.i.i, i1 false
@@ -1273,7 +1273,7 @@ define hidden void @_ZN4mime4Mime9get_param17h6900ebdbaf11b486E(ptr noalias noca
 "_ZN4mime4Mime9get_param28_$u7b$$u7b$closure$u7d$$u7d$17h13a622cd4708f621E.llvm.1214063349730439972.exit.i.i": ; preds = %24
   %26 = icmp ne ptr %.sroa.0.0.copyload.i, null
   tail call void @llvm.assume(i1 %26)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %21, ptr nonnull readonly %.sroa.0.0.copyload.i, i64 %20), !alias.scope !480, !noalias !484
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %21, ptr nonnull readonly align 1 %.sroa.0.0.copyload.i, i64 %20), !alias.scope !480, !noalias !484
   %27 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %.not.i.i.i.i = icmp eq i8 %23, %25
   %.0.i.i.i.i = select i1 %27, i1 %.not.i.i.i.i, i1 false
@@ -1321,7 +1321,7 @@ define hidden noundef zeroext i1 @"_ZN4mime4Mime9get_param28_$u7b$$u7b$closure$u
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8, !alias.scope !488, !noalias !485, !nonnull !9, !align !372, !noundef !9
   %10 = load ptr, ptr %3, align 8, !alias.scope !485, !noalias !488, !nonnull !9, !align !372, !noundef !9
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %10, ptr nonnull readonly %9, i64 %5), !alias.scope !490, !noalias !494
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %10, ptr nonnull readonly align 1 %9, i64 %5), !alias.scope !490, !noalias !494
   %11 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN51_$LT$mime..Name$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c229bd6052ab46E.llvm.1214063349730439972.exit"
 
@@ -1348,7 +1348,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$mime..Name$u20$as$u20$core..cmp..Pa
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !nonnull !9, !align !372, !noundef !9
   %9 = load ptr, ptr %0, align 8, !nonnull !9, !align !372, !noundef !9
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %8, i64 %4), !alias.scope !495
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %8, i64 %4), !alias.scope !495
   %10 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b672548edd6b300E.exit"
 
@@ -1621,7 +1621,7 @@ default.unreachable7:                             ; preds = %2
   br i1 %.not.i.i29.i, label %66, label %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.exit"
 
 66:                                               ; preds = %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit28.i"
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %49, ptr noundef nonnull readonly dereferenceable(7) @anon.06d4fed4438762fd0e19c8abda5f0fb6.1, i64 7), !alias.scope !534, !noalias !538
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %49, ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.06d4fed4438762fd0e19c8abda5f0fb6.1, i64 7), !alias.scope !534, !noalias !538
   %67 = icmp eq i32 %bcmp.i.i.i, 0
   %68 = zext i1 %67 to i8
   br label %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.exit"

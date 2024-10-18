@@ -4317,7 +4317,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta8gen_inst8generate17h818bd
           to label %149 unwind label %54
 
 149:                                              ; preds = %148
-  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr align 8 %51, i1 zeroext true)
+  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %51, i1 zeroext true)
           to label %_ZN22cranelift_codegen_meta8gen_inst12gen_opt_isle17h138a2d6d657034e2E.exit unwind label %151
 
 150:                                              ; preds = %158, %151
@@ -4343,7 +4343,7 @@ _ZN22cranelift_codegen_meta8gen_inst12gen_opt_isle17h138a2d6d657034e2E.exit: ; p
           to label %157 unwind label %151
 
 157:                                              ; preds = %156
-  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr align 8 %50, i1 zeroext false)
+  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %50, i1 zeroext false)
           to label %_ZN22cranelift_codegen_meta8gen_inst14gen_lower_isle17h790988203db05d7aE.exit unwind label %159
 
 158:                                              ; preds = %168, %159

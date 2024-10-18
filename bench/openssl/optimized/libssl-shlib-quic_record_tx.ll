@@ -700,7 +700,7 @@ if.end65:                                         ; preds = %if.then59, %if.else
   br i1 %switch.selectcmp.i.not.i, label %if.end9.i, label %if.else.i112
 
 if.else.i112:                                     ; preds = %if.end65
-  %call2.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i, i32 noundef %retval.0.i203238, i32 noundef 1) #11
+  %call2.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i, i32 noundef range(i32 0, 5) %retval.0.i203238, i32 noundef 1) #11
   %cmp.not.i113 = icmp eq ptr %call2.i, null
   br i1 %cmp.not.i113, label %qtx_write.exit.thread, label %if.end9.i
 
@@ -796,7 +796,7 @@ if.end46.i:                                       ; preds = %iovec_cur_init.exit
   br i1 %switch.selectcmp.i.not.i, label %if.end53.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end46.i
-  %call.i.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i, i32 noundef %retval.0.i203238, i32 noundef 1) #11
+  %call.i.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i, i32 noundef range(i32 0, 5) %retval.0.i203238, i32 noundef 1) #11
   %cmp.i.i118 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i118, label %if.end53.i, label %if.end.i.i119
 
@@ -947,7 +947,7 @@ if.end94.i:                                       ; preds = %if.end3.i.i, %if.en
 if.else100.i:                                     ; preds = %if.end84.i
   %gepdiff.i = sub nsw i64 %add.i50.i, %73
   %88 = load i64, ptr %pn.i, align 8
-  %call102.i = call fastcc i32 @qtx_encrypt_into_txe(ptr noundef nonnull %qtx, ptr noundef %cur.i, ptr noundef %retval.0.i93, i32 noundef %retval.0.i203238, i64 noundef %88, ptr noundef %add.ptr.i, i64 noundef %gepdiff.i, ptr noundef %ptrs.i)
+  %call102.i = call fastcc i32 @qtx_encrypt_into_txe(ptr noundef nonnull %qtx, ptr noundef %cur.i, ptr noundef nonnull %retval.0.i93, i32 noundef range(i32 0, 5) %retval.0.i203238, i64 noundef %88, ptr noundef %add.ptr.i, i64 noundef %gepdiff.i, ptr noundef %ptrs.i)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %err.i, label %if.end106.i
 

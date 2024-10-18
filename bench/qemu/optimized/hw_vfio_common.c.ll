@@ -587,7 +587,7 @@ for.body19.us.i:                                  ; preds = %while.end.us.i, %if
   br i1 %tobool21.not.us.i, label %if.end52.us.i, label %if.then22.us.i
 
 if.then22.us.i:                                   ; preds = %for.body19.us.i
-  %10 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9)
+  %10 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %9)
   %11 = load ptr, ptr %blocks.i, align 16
   %arrayidx27.us.i = getelementptr ptr, ptr %11, i64 %idx.166.us.i
   %12 = load ptr, ptr %arrayidx27.us.i, align 8
@@ -722,7 +722,7 @@ for.body77.i:                                     ; preds = %if.else.i, %for.inc
   br i1 %cmp79.not.i, label %for.inc114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %for.body77.i
-  %35 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34)
+  %35 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %34)
   %36 = load i32, ptr @global_dirty_tracking, align 4
   %and86.i = and i32 %36, 2
   %tobool87.not.i = icmp eq i32 %and86.i, 0
@@ -2116,7 +2116,7 @@ for.body.us.i:                                    ; preds = %if.then4
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
 
 if.then4.us.i:                                    ; preds = %for.body.us.i
-  call void @qemu_file_set_error(ptr noundef nonnull %34, i32 noundef %retval.0.i15) #17
+  call void @qemu_file_set_error(ptr noundef nonnull %34, i32 noundef range(i32 1, 0) %retval.0.i15) #17
   br label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %if.then4.us.i, %for.body.us.i
@@ -2416,7 +2416,7 @@ for.body.us.i:                                    ; preds = %if.then3
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
 
 if.then4.us.i:                                    ; preds = %for.body.us.i
-  call void @qemu_file_set_error(ptr noundef nonnull %25, i32 noundef %ret.013) #17
+  call void @qemu_file_set_error(ptr noundef nonnull %25, i32 noundef range(i32 1, 0) %ret.013) #17
   br label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %if.then4.us.i, %for.body.us.i
@@ -2523,7 +2523,7 @@ for.body.us.i:                                    ; preds = %if.then2
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
 
 if.then4.us.i:                                    ; preds = %for.body.us.i
-  tail call void @qemu_file_set_error(ptr noundef nonnull %8, i32 noundef %call1) #17
+  tail call void @qemu_file_set_error(ptr noundef nonnull %8, i32 noundef range(i32 1, 0) %call1) #17
   br label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %if.then4.us.i, %for.body.us.i
@@ -2926,11 +2926,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %24 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i.i, i64 noundef %24, i64 noundef %25, ptr noundef %call2.i, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i.i, i64 noundef %24, i64 noundef %25, ptr noundef %call2.i, i64 noundef %18, i64 noundef %19, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i) #17
   br label %vfio_known_safe_misalignment.exit.thread
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %call2.i, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %call2.i, i64 noundef %18, i64 noundef %19, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i) #17
   br label %vfio_known_safe_misalignment.exit.thread
 
 vfio_known_safe_misalignment.exit.thread:         ; preds = %if.end.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -3181,7 +3181,7 @@ for.body.us.i34:                                  ; preds = %if.then28
   br i1 %tobool3.not.us.i37, label %qemu_lockable_auto_unlock.exit.us.i39, label %if.then4.us.i38
 
 if.then4.us.i38:                                  ; preds = %for.body.us.i34
-  tail call void @qemu_file_set_error(ptr noundef nonnull %31, i32 noundef %call26) #17
+  tail call void @qemu_file_set_error(ptr noundef nonnull %31, i32 noundef range(i32 1, 0) %call26) #17
   br label %qemu_lockable_auto_unlock.exit.us.i39
 
 qemu_lockable_auto_unlock.exit.us.i39:            ; preds = %if.then4.us.i38, %for.body.us.i34
@@ -3300,7 +3300,7 @@ int128_get64.exit49:                              ; preds = %do.end15
   %call27 = tail call i64 @ram_discard_manager_get_min_granularity(ptr noundef %call, ptr noundef %4) #17
   %granularity = getelementptr inbounds i8, ptr %call16, i64 32
   store i64 %call27, ptr %granularity, align 8
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call27)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %call27)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %do.body36, label %if.else33
 
@@ -3767,7 +3767,7 @@ for.body.us.i:                                    ; preds = %if.then20
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
 
 if.then4.us.i:                                    ; preds = %for.body.us.i
-  call void @qemu_file_set_error(ptr noundef nonnull %24, i32 noundef %ret.026) #17
+  call void @qemu_file_set_error(ptr noundef nonnull %24, i32 noundef range(i32 1, 0) %ret.026) #17
   br label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %if.then4.us.i, %for.body.us.i

@@ -249,7 +249,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %7 = load ptr, ptr %data.i.i, align 8
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %6, i64 %call.i)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %6, i64 range(i64 1, 0) %call.i)
   %cmp4.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp4.not.i.i, label %do_encode_custom.exit.thread85, label %if.then6.i.i
 

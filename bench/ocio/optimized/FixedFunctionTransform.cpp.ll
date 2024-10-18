@@ -409,7 +409,7 @@ if.end:                                           ; preds = %invoke.cont12, %inv
   store ptr %7, ptr %_M_refcount3.i.i.i6, align 8
   %8 = tail call ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 0) #19
   %m_data.i71 = getelementptr inbounds i8, ptr %8, i64 8
-  %call.i73 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i71, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
+  %call.i73 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %m_data.i71, ptr noundef nonnull align 8 dereferenceable(200) %m_data.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end

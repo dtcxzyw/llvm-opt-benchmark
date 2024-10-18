@@ -58,7 +58,7 @@ if.end:                                           ; preds = %entry, %if.then
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %5, i32 1, ptr noundef %4, i64 noundef %conv5, i1 noundef zeroext false) #8
+  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %5, i32 1, ptr noundef %4, i64 noundef range(i64 0, 65536) %conv5, i1 noundef zeroext false) #8
   %6 = load ptr, ptr %buf13, align 8
   ret ptr %6
 }

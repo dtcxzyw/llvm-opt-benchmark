@@ -1017,7 +1017,7 @@ entry:
   %inner_inner_contents = alloca %struct.cbb_st, align 8
   %buf = alloca ptr, align 8
   %buf_len = alloca i64, align 8
-  call void @CBB_zero(ptr noundef nonnull %cbb)
+  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
   %call2 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
           to label %invoke.cont1 unwind label %lpad
 
@@ -1036,7 +1036,7 @@ invoke.cont5:                                     ; preds = %lor.lhs.false
 lpad:                                             ; preds = %invoke.cont74, %if.end73, %lor.lhs.false68, %lor.lhs.false64, %lor.lhs.false60, %lor.lhs.false56, %lor.lhs.false52, %lor.lhs.false46, %lor.lhs.false42, %lor.lhs.false36, %lor.lhs.false32, %lor.lhs.false26, %lor.lhs.false22, %lor.lhs.false16, %invoke.cont10, %if.end, %lor.lhs.false, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -1191,7 +1191,7 @@ if.then.i:                                        ; preds = %land.end
 
 cleanup:                                          ; preds = %if.then.i, %land.end, %invoke.cont77, %invoke.cont13, %invoke.cont19, %invoke.cont23, %invoke.cont29, %invoke.cont33, %invoke.cont39, %invoke.cont43, %invoke.cont49, %invoke.cont53, %invoke.cont57, %invoke.cont61, %invoke.cont65, %invoke.cont69, %invoke.cont1, %invoke.cont5
   %retval.0 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont1 ], [ false, %invoke.cont69 ], [ false, %invoke.cont65 ], [ false, %invoke.cont61 ], [ false, %invoke.cont57 ], [ false, %invoke.cont53 ], [ false, %invoke.cont49 ], [ false, %invoke.cont43 ], [ false, %invoke.cont39 ], [ false, %invoke.cont33 ], [ false, %invoke.cont29 ], [ false, %invoke.cont23 ], [ false, %invoke.cont19 ], [ false, %invoke.cont13 ], [ false, %invoke.cont77 ], [ %5, %land.end ], [ %5, %if.then.i ]
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %cleanup
@@ -1773,7 +1773,7 @@ entry:
   %ptr = alloca ptr, align 8
   %len = alloca i64, align 8
   %cbb = alloca %class.ScopedOpenSSLContext, align 8
-  call void @CBB_zero(ptr noundef nonnull %cbb)
+  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
   %call1 = invoke i32 @CBB_init_fixed(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, i64 noundef 10)
           to label %invoke.cont unwind label %lpad
 
@@ -1822,7 +1822,7 @@ invoke.cont20:                                    ; preds = %lor.lhs.false18
 lpad:                                             ; preds = %lor.lhs.false18, %lor.lhs.false13, %lor.lhs.false6, %lor.lhs.false, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -1837,7 +1837,7 @@ _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.ex
 
 cleanup:                                          ; preds = %invoke.cont20, %invoke.cont, %invoke.cont3, %invoke.cont8, %invoke.cont15
   %retval.0 = phi i1 [ false, %invoke.cont15 ], [ false, %invoke.cont8 ], [ false, %invoke.cont3 ], [ false, %invoke.cont ], [ %or.cond1.not, %invoke.cont20 ]
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit3 unwind label %terminate.lpad.i2
 
 terminate.lpad.i2:                                ; preds = %cleanup

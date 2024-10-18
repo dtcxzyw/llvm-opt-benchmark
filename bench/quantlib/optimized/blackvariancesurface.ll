@@ -858,7 +858,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %v, ptr nonnull @_ZTIN8QuantLib14AcyclicVisitorE, ptr nonnull @_ZTIN8QuantLib7VisitorINS_26BlackVarianceTermStructureEEE, i64 -2) #26
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %v, ptr nonnull @_ZTIN8QuantLib14AcyclicVisitorE, ptr nonnull @_ZTIN8QuantLib7VisitorINS_26BlackVarianceTermStructureEEE, i64 -2) #26
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -1913,7 +1913,7 @@ if.then.i.i.i203:                                 ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEED2Ev.exit208:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit201, %if.then.i.i.i203
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dayCounter_) #26
   %141 = getelementptr inbounds i8, ptr %vtt, i64 32
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %141) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %141) #26
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit208, %lpad
@@ -3217,7 +3217,7 @@ if.then.i.i.i207:                                 ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt6vectorIdSaIdEED2Ev.exit212:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit205, %if.then.i.i.i207
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dayCounter_) #26
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20BlackVarianceSurfaceE, i64 32)) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20BlackVarianceSurfaceE, i64 32)) #26
   br label %ehcleanup255
 
 ehcleanup255:                                     ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit212, %lpad
@@ -3786,7 +3786,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %10 = phi ptr [ %9, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %4)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -3881,7 +3881,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib20BlackVarianceSurfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(208) %2, i64 noundef 320) #29
   ret void
 }
 
@@ -4696,7 +4696,7 @@ terminate.lpad.i.i.i17:                           ; preds = %if.then.i.i.i.i.i21
 
 _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit8, %if.then.i.i.i11, %.noexc.i.i.i18, %if.then.i.i.i.i.i21
   %24 = getelementptr inbounds i8, ptr %vtt, i64 32
-  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %24) #26
+  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %24) #26
   ret void
 }
 

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21command_palette_hooks4init17h846066e7f50a9423E(ptr noalias noundef align 8 dereferenceable(1176) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [64 x i8], align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @anon.6a7c910729cff2016bead211e3ac9a38.1.llvm.17981425489127122807, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) @anon.6a7c910729cff2016bead211e3ac9a38.1.llvm.17981425489127122807, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) @anon.6a7c910729cff2016bead211e3ac9a38.1.llvm.17981425489127122807, i64 32, i1 false)
   call void @_ZN4gpui3app10AppContext10set_global17h24909fd79bfdf38aE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2)
@@ -492,7 +492,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h90c0c5231b73a5deE.exit.i.i": ; preds = %.lr.ph.i.i10
   %201 = getelementptr inbounds i8, ptr %199, i64 -16
   %.val4.i.i.i = load ptr, ptr %201, align 8, !noalias !98, !nonnull !12, !noundef !12
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.03.sroa.12.0.copyload, ptr nonnull readonly %.val4.i.i.i, i64 %.sroa.4.1.i), !alias.scope !99, !noalias !106
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.03.sroa.12.0.copyload, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %.sroa.4.1.i), !alias.scope !99, !noalias !106
   %202 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %202, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdc6febfb40514bbdE.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h90c0c5231b73a5deE.exit.thread.i.i"
 
@@ -776,7 +776,7 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor5clear17h7792a
   br i1 %14, label %"_ZN4core3ptr255drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RF$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$command_palette_hooks..CommandInterceptResult$GT$$GT$$GT$$GT$17hf50a8966b96d90a2E.exit", label %15
 
 15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %10, i64 noundef %12) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %10, i64 noundef range(i64 1, -9223372036854775807) %12) #14
   br label %"_ZN4core3ptr255drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RF$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$command_palette_hooks..CommandInterceptResult$GT$$GT$$GT$$GT$17hf50a8966b96d90a2E.exit"
 
 16:                                               ; preds = %7
@@ -792,7 +792,7 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor5clear17h7792a
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %16
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %19, i64 noundef %21) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %19, i64 noundef range(i64 1, -9223372036854775807) %21) #14
   br label %.body
 
 .body:                                            ; preds = %16, %24
@@ -834,7 +834,7 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor3set17h9472706
   br i1 %16, label %"_ZN4core3ptr255drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RF$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$command_palette_hooks..CommandInterceptResult$GT$$GT$$GT$$GT$17hf50a8966b96d90a2E.exit", label %17
 
 17:                                               ; preds = %10
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %12, i64 noundef %14) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #14
   br label %"_ZN4core3ptr255drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RF$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$command_palette_hooks..CommandInterceptResult$GT$$GT$$GT$$GT$17hf50a8966b96d90a2E.exit"
 
 18:                                               ; preds = %9
@@ -850,7 +850,7 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor3set17h9472706
   br i1 %25, label %.body, label %26
 
 26:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %21, i64 noundef %23) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef range(i64 1, -9223372036854775807) %23) #14
   br label %.body
 
 .body:                                            ; preds = %18, %26

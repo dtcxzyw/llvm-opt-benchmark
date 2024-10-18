@@ -651,7 +651,7 @@ invoke.cont6.i:                                   ; preds = %if.else.i
   br i1 %tobool8.not.i, label %if.end31.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %invoke.cont6.i
-  %call12.i = invoke noundef ptr @_ZNK6icu_7510ICUService6getKeyERNS_13ICUServiceKeyER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(72) %call7.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call12.i = invoke noundef ptr @_ZNK6icu_7510ICUService6getKeyERNS_13ICUServiceKeyER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(72) %call7.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %delete.notnull.i unwind label %lpad.i
 
 delete.notnull.i:                                 ; preds = %if.then9.i
@@ -815,7 +815,7 @@ invoke.cont6.i:                                   ; preds = %if.else.i
   br i1 %tobool8.not.i, label %if.end31.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %invoke.cont6.i
-  %call12.i = invoke noundef ptr @_ZNK6icu_7510ICUService6getKeyERNS_13ICUServiceKeyER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(72) %call7.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call12.i = invoke noundef ptr @_ZNK6icu_7510ICUService6getKeyERNS_13ICUServiceKeyER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(72) %call7.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %delete.notnull.i unwind label %lpad.i
 
 delete.notnull.i:                                 ; preds = %if.then9.i
@@ -1002,7 +1002,7 @@ entry:
   br i1 %new.isnull, label %return, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(180) %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -1039,7 +1039,7 @@ lpad5.i:                                          ; preds = %invoke.cont2.i
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad5.i ], [ %1, %lpad.i ]
-  call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call) #13
+  call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %call) #13
   br label %lpad.body
 
 new.cont:                                         ; preds = %invoke.cont2.i

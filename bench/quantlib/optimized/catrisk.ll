@@ -2145,9 +2145,9 @@ define noundef double @_ZN8QuantLib18BetaRiskSimulation12generateBetaEv(ptr noun
 entry:
   %gammaAlpha_ = getelementptr inbounds nuw i8, ptr %this, i64 5056
   %rng_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %call.i = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaAlpha_, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(32) %gammaAlpha_)
+  %call.i = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaAlpha_, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(64) %gammaAlpha_)
   %gammaBeta_ = getelementptr inbounds nuw i8, ptr %this, i64 5120
-  %call.i2 = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaBeta_, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(32) %gammaBeta_)
+  %call.i2 = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaBeta_, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(64) %gammaBeta_)
   %maxLoss_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %maxLoss_, align 8, !tbaa !50
   %mul = fmul double %call.i, %0
@@ -2245,8 +2245,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.not, label %while.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %call.i.i = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaAlpha_.i, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(32) %gammaAlpha_.i)
-  %call.i2.i = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaBeta_.i, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(32) %gammaBeta_.i)
+  %call.i.i = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaAlpha_.i, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(64) %gammaAlpha_.i)
+  %call.i2.i = tail call noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %gammaBeta_.i, ptr noundef nonnull align 8 dereferenceable(5000) %rng_, ptr noundef nonnull align 8 dereferenceable(64) %gammaBeta_.i)
   %8 = load double, ptr %maxLoss_.i, align 8, !tbaa !50
   %mul.i = fmul double %call.i.i, %8
   %add.i = fadd double %call.i.i, %call.i2.i
@@ -3616,7 +3616,7 @@ entry:
   br label %do.body2
 
 do.body2:                                         ; preds = %do.body2.backedge, %entry
-  %call.i = tail call noundef double @_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %_M_nd, ptr noundef nonnull align 8 dereferenceable(5000) %__urng, ptr noundef nonnull align 8 dereferenceable(16) %_M_nd)
+  %call.i = tail call noundef double @_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %_M_nd, ptr noundef nonnull align 8 dereferenceable(5000) %__urng, ptr noundef nonnull align 8 dereferenceable(25) %_M_nd)
   %1 = load double, ptr %_M_a2, align 8, !tbaa !66
   %2 = tail call double @llvm.fmuladd.f64(double %1, double %call.i, double 1.000000e+00)
   %cmp = fcmp ugt double %2, 0.000000e+00

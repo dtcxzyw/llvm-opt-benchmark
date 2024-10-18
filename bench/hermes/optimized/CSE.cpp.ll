@@ -85,7 +85,7 @@ entry:
   call void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(72) %DT, ptr noundef %F) #10
   %Slabs.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 24
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %CCtx, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %CCtx, i8 0, i64 24, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %Slabs.i.i.i.i, align 8
   %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 32
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
@@ -122,7 +122,7 @@ entry:
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
-  %call.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef %call.i.i)
+  %call.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(264) %CCtx, ptr noundef %call.i.i)
   %0 = ptrtoint ptr %call.i.i.i to i64
   %1 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %2 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
@@ -313,7 +313,7 @@ if.then10.i.i.i.i:                                ; preds = %_ZNK4llvh15ScopedHa
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then10.i.i.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i
 
@@ -333,7 +333,7 @@ if.end12.i.i.i.i:                                 ; preds = %_ZNK4llvh15ScopedHa
   store ptr %__begin1.sroa.0.011.i.i.i.i, ptr %ref.tmp14.i.i.i.i, align 8
   %add.ptr16.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i.i.i.i, i64 16
   %21 = load ptr, ptr %CurScope.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %availableValues_.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp14.i.i.i.i)
+  %call.i.i.i.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_EixERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %availableValues_.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp14.i.i.i.i)
   %22 = getelementptr i8, ptr %21, i64 16
   %S.val.i.i.i.i.i.i = load ptr, ptr %22, align 8
   %23 = load ptr, ptr %call.i.i.i.i.i.i, align 8
@@ -495,7 +495,7 @@ _ZN6hermes10DomTreeDFS9StackNodeIN12_GLOBAL__N_110CSEContextEE9nextChildEv.exit.
   br label %if.else14.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %_ZN6hermes10DomTreeDFS9StackNodeIN12_GLOBAL__N_110CSEContextEE9nextChildEv.exit.i.i.i
-  %call13.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef nonnull %45)
+  %call13.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(264) %CCtx, ptr noundef nonnull %45)
   %46 = ptrtoint ptr %call13.i.i.i to i64
   %47 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %48 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4

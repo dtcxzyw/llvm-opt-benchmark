@@ -31,7 +31,7 @@ define void @_ZN3dds4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(552) %
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
-  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull @.str)
           to label %5 unwind label %9
 
 5:                                                ; preds = %3

@@ -501,14 +501,14 @@ define dso_local void @_ZN5clang26OnlyLargestCloneConstraint9constrainERSt6vecto
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds %"class.llvm::SmallVector.431", ptr %9, i64 %10
   %14 = getelementptr inbounds %"class.llvm::SmallVector.431", ptr %9, i64 %8
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
-  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %13) #21
+  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %14) #21
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread, label %18
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %13, align 8
-  %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
+  %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %13) #21
   %21 = getelementptr inbounds %"class.clang::StmtSequence", ptr %19, i64 %20
   %.not15.i = icmp eq i64 %20, 0
   br i1 %.not15.i, label %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit, label %.lr.ph.i
@@ -516,7 +516,7 @@ define dso_local void @_ZN5clang26OnlyLargestCloneConstraint9constrainERSt6vecto
 .lr.ph.i:                                         ; preds = %18, %_ZL18containsAnyInGroupRN5clang12StmtSequenceERN4llvm11SmallVectorIS0_Lj8EEE.exit.i
   %.01216.i = phi ptr [ %28, %_ZL18containsAnyInGroupRN5clang12StmtSequenceERN4llvm11SmallVectorIS0_Lj8EEE.exit.i ], [ %19, %18 ]
   %22 = load ptr, ptr %14, align 8
-  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
+  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %14) #21
   %24 = getelementptr inbounds %"class.clang::StmtSequence", ptr %22, i64 %23
   %.not11.not.i.not.i = icmp eq i64 %23, 0
   br i1 %.not11.not.i.not.i, label %_ZL13containsGroupRN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_.exit.thread, label %.lr.ph.i.i
@@ -656,7 +656,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZL13containsGroupR
   %.012.i.i.i.i.i.i.i = phi i64 [ %89, %.lr.ph.i.i.i.i.i.i.i ], [ %85, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i.i ], [ %77, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.0910.i.i.i.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ %78, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %86 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i.i.i)
+  %86 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(208) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(208) %.0910.i.i.i.i.i.i.i)
   %87 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 208
   %88 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 208
   %89 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
@@ -671,7 +671,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm11SmallVectorIN5clang12StmtSeque
   %91 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i ], [ %79, %80 ], [ %79, %.lr.ph49 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -208
   store ptr %92, ptr %3, align 8
-  %93 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #21
+  %93 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %92) #21
   %94 = load ptr, ptr %92, align 8
   %95 = getelementptr inbounds i8, ptr %91, i64 -192
   %96 = icmp eq ptr %94, %95
@@ -837,7 +837,7 @@ define dso_local void @_ZN5clang34RecursiveCloneTypeIIHashConstraint9constrainER
   %.02240 = phi i32 [ %112, %_ZN4llvm11SmallVectorIN5clang12StmtSequenceELj8EED2Ev.exit ], [ 0, %._crit_edge ]
   %41 = getelementptr inbounds %"struct.std::pair", ptr %34, i64 %40
   %.sroa.0.0.copyload = load i64, ptr %41, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef 8) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull %10, i64 noundef 8) #21
   %42 = zext i32 %.02240 to i64
   %43 = icmp ugt i64 %38, %42
   br i1 %43, label %.lr.ph39, label %.loopexit
@@ -909,15 +909,15 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12StmtSequenceELb1EE9push_backERKS2_.ex
 
 77:                                               ; preds = %.loopexit
   %78 = getelementptr inbounds i8, ptr %75, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull %78, i64 noundef 8) #21
-  %79 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %75, ptr noundef nonnull %78, i64 noundef 8) #21
+  %79 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %5) #21
   %80 = icmp eq ptr %75, %5
   %or.cond = or i1 %80, %79
   br i1 %or.cond, label %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, label %81
 
 81:                                               ; preds = %77
-  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %5) #21
+  %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %75) #21
   %.not.i28 = icmp ult i64 %83, %82
   br i1 %.not.i28, label %89, label %84
 
@@ -933,19 +933,19 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12StmtSequenceELb1EE9push_backERKS2_.ex
   br label %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i
 
 _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i: ; preds = %85, %84
-  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %75) #21
   br label %.sink.split.i
 
 89:                                               ; preds = %81
-  %90 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  %90 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(208) %75) #21
   %91 = icmp ult i64 %90, %82
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %89
-  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %75) #21
   %94 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 0, ptr %94, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull %78, i64 noundef %82, i64 noundef 24) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(208) %75, ptr noundef nonnull %78, i64 noundef %82, i64 noundef 24) #21
   br label %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i
 
 95:                                               ; preds = %89
@@ -962,7 +962,7 @@ _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i: ; preds = %85, %84
 _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i: ; preds = %96, %95, %92
   %.022.i = phi i64 [ 0, %92 ], [ 0, %95 ], [ %83, %96 ]
   %99 = load ptr, ptr %5, align 8
-  %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %5) #21
   %.not.i.i29 = icmp eq i64 %.022.i, %100
   br i1 %.not.i.i29, label %.sink.split.i, label %101
 
@@ -977,7 +977,7 @@ _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i: ; preds = %96, %95,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %101, %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i, %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %75, i64 noundef %82) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(208) %75, i64 noundef %82) #21
   br label %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %.sink.split.i, %77
@@ -991,7 +991,7 @@ _ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9co
   br label %_ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %107
-  %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %5) #21
   %109 = load ptr, ptr %5, align 8
   %110 = icmp eq ptr %109, %10
   br i1 %110, label %_ZN4llvm11SmallVectorIN5clang12StmtSequenceELj8EED2Ev.exit, label %111
@@ -1032,7 +1032,7 @@ _ZNSt6vectorISt4pairImN5clang12StmtSequenceEESaIS3_EED2Ev.exit: ; preds = %._cri
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge49, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %128, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i.i ], [ %120, %._crit_edge49 ]
-  %123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i) #21
+  %123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %.05.i.i.i.i) #21
   %124 = load ptr, ptr %.05.i.i.i.i, align 8
   %125 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
   %126 = icmp eq ptr %124, %125
@@ -1139,135 +1139,135 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   ]
 
 25:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitBinPtrMemDEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitBinPtrMemDEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 26:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitBinPtrMemIEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitBinPtrMemIEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 27:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinMulEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinMulEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 28:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinDivEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinDivEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 29:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinRemEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinRemEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 30:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinAddEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinAddEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 31:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinSubEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinSubEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 32:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinShlEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinShlEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 33:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinShrEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinShrEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 34:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinLTEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinLTEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 35:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinGTEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinGTEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 36:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinLEEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinLEEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 37:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinGEEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinGEEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 38:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinEQEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinEQEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 39:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinNEEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinNEEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 40:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinCmpEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinCmpEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 41:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinAndEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinAndEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 42:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinXorEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinXorEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 43:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinOrEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE10VisitBinOrEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 44:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE12VisitBinLAndEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE12VisitBinLAndEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 45:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinLOrEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE11VisitBinLOrEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 46:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitBinAssignEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitBinAssignEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 47:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinMulAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinMulAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 48:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinDivAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinDivAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 49:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinRemAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinRemAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 50:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinAddAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinAddAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 51:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinSubAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinSubAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 52:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinShlAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinShlAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 53:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinShrAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinShrAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 54:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinAndAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinAndAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 55:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitBinOrAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitBinOrAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 56:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinXorAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitBinXorAssignEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 57:                                               ; preds = %21
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitBinCommaEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitBinCommaEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 58:                                               ; preds = %3
@@ -1297,59 +1297,59 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   ]
 
 64:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitUnaryPostIncEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitUnaryPostIncEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 65:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitUnaryPostDecEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitUnaryPostDecEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 66:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitUnaryPreIncEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitUnaryPreIncEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 67:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitUnaryPreDecEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitUnaryPreDecEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 68:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitUnaryAddrOfEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitUnaryAddrOfEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 69:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitUnaryDerefEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitUnaryDerefEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 70:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryPlusEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryPlusEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 71:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitUnaryMinusEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitUnaryMinusEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 72:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitUnaryNotEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitUnaryNotEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 73:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryLNotEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryLNotEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 74:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryRealEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryRealEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 75:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryImagEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitUnaryImagEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 76:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitUnaryExtensionEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitUnaryExtensionEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 77:                                               ; preds = %60
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitUnaryCoawaitEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitUnaryCoawaitEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 78:                                               ; preds = %58, %21
@@ -1610,7 +1610,7 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 82:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitVAArgExprEPKNS_9VAArgExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitVAArgExprEPKNS_9VAArgExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 .thread.i.i:                                      ; preds = %78, %60
@@ -1618,11 +1618,11 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 83:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 84:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitTypoExprEPKNS_8TypoExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitTypoExprEPKNS_8TypoExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 85:                                               ; preds = %78
@@ -1630,11 +1630,11 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 86:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE37VisitSubstNonTypeTemplateParmPackExprEPKNS_32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE37VisitSubstNonTypeTemplateParmPackExprEPKNS_32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 87:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE33VisitSubstNonTypeTemplateParmExprEPKNS_28SubstNonTypeTemplateParmExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE33VisitSubstNonTypeTemplateParmExprEPKNS_28SubstNonTypeTemplateParmExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 88:                                               ; preds = %78
@@ -1642,35 +1642,35 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 89:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitStmtExprEPKNS_8StmtExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE13VisitStmtExprEPKNS_8StmtExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 90:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitSourceLocExprEPKNS_13SourceLocExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitSourceLocExprEPKNS_13SourceLocExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 91:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 92:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitShuffleVectorExprEPKNS_17ShuffleVectorExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitShuffleVectorExprEPKNS_17ShuffleVectorExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 93:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitSYCLUniqueStableNameExprEPKNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitSYCLUniqueStableNameExprEPKNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 94:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitRequiresExprEPKNS_12RequiresExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitRequiresExprEPKNS_12RequiresExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 95:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitRecoveryExprEPKNS_12RecoveryExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitRecoveryExprEPKNS_12RecoveryExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 96:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitPseudoObjectExprEPKNS_16PseudoObjectExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitPseudoObjectExprEPKNS_16PseudoObjectExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 97:                                               ; preds = %78
@@ -1678,51 +1678,51 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 98:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitParenListExprEPKNS_13ParenListExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitParenListExprEPKNS_13ParenListExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 99:                                               ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitParenExprEPKNS_9ParenExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitParenExprEPKNS_9ParenExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 100:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitPackIndexingExprEPKNS_16PackIndexingExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitPackIndexingExprEPKNS_16PackIndexingExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 101:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitPackExpansionExprEPKNS_17PackExpansionExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitPackExpansionExprEPKNS_17PackExpansionExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 102:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitUnresolvedMemberExprEPKNS_20UnresolvedMemberExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitUnresolvedMemberExprEPKNS_20UnresolvedMemberExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 103:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 104:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitOpaqueValueExprEPKNS_15OpaqueValueExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitOpaqueValueExprEPKNS_15OpaqueValueExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 105:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitOffsetOfExprEPKNS_12OffsetOfExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitOffsetOfExprEPKNS_12OffsetOfExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 106:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 107:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitObjCStringLiteralEPKNS_17ObjCStringLiteralE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 108:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 109:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 110:                                              ; preds = %78
@@ -1730,15 +1730,15 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 111:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitObjCMessageExprEPKNS_15ObjCMessageExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitObjCMessageExprEPKNS_15ObjCMessageExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 112:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 113:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitObjCIsaExprEPKNS_11ObjCIsaExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitObjCIsaExprEPKNS_11ObjCIsaExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 114:                                              ; preds = %78
@@ -1746,39 +1746,39 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 115:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 116:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitObjCDictionaryLiteralEPKNS_21ObjCDictionaryLiteralE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitObjCDictionaryLiteralEPKNS_21ObjCDictionaryLiteralE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 117:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 118:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 119:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitObjCAvailabilityCheckExprEPKNS_25ObjCAvailabilityCheckExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitObjCAvailabilityCheckExprEPKNS_25ObjCAvailabilityCheckExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 120:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitObjCArrayLiteralEPKNS_16ObjCArrayLiteralE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitObjCArrayLiteralEPKNS_16ObjCArrayLiteralE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 121:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitOMPIteratorExprEPKNS_15OMPIteratorExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitOMPIteratorExprEPKNS_15OMPIteratorExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 122:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitOMPArrayShapingExprEPKNS_19OMPArrayShapingExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitOMPArrayShapingExprEPKNS_19OMPArrayShapingExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 123:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitNoInitExprEPKNS_10NoInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitNoInitExprEPKNS_10NoInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 124:                                              ; preds = %78
@@ -1786,19 +1786,19 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 125:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitMatrixSubscriptExprEPKNS_19MatrixSubscriptExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitMatrixSubscriptExprEPKNS_19MatrixSubscriptExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 126:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 127:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE28VisitMSPropertySubscriptExprEPKNS_23MSPropertySubscriptExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE28VisitMSPropertySubscriptExprEPKNS_23MSPropertySubscriptExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 128:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitMSPropertyRefExprEPKNS_17MSPropertyRefExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitMSPropertyRefExprEPKNS_17MSPropertyRefExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 129:                                              ; preds = %78
@@ -1810,19 +1810,19 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 131:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 132:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitImplicitValueInitExprEPKNS_21ImplicitValueInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitImplicitValueInitExprEPKNS_21ImplicitValueInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 133:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitImaginaryLiteralEPKNS_16ImaginaryLiteralE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitImaginaryLiteralEPKNS_16ImaginaryLiteralE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 134:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitHLSLOutArgExprEPKNS_14HLSLOutArgExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitHLSLOutArgExprEPKNS_14HLSLOutArgExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 135:                                              ; preds = %78
@@ -1830,19 +1830,19 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 136:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitGNUNullExprEPKNS_11GNUNullExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitGNUNullExprEPKNS_11GNUNullExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 137:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitFunctionParmPackExprEPKNS_20FunctionParmPackExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitFunctionParmPackExprEPKNS_20FunctionParmPackExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 138:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitExprWithCleanupsEPKNS_16ExprWithCleanupsE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitExprWithCleanupsEPKNS_16ExprWithCleanupsE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 139:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitConstantExprEPKNS_12ConstantExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitConstantExprEPKNS_12ConstantExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 140:                                              ; preds = %78
@@ -1850,11 +1850,11 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 141:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitFixedPointLiteralEPKNS_17FixedPointLiteralE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitFixedPointLiteralEPKNS_17FixedPointLiteralE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 142:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitExtVectorElementExprEPKNS_20ExtVectorElementExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitExtVectorElementExprEPKNS_20ExtVectorElementExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 143:                                              ; preds = %78
@@ -1862,23 +1862,23 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 144:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitEmbedExprEPKNS_9EmbedExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitEmbedExprEPKNS_9EmbedExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 145:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitDesignatedInitUpdateExprEPKNS_24DesignatedInitUpdateExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitDesignatedInitUpdateExprEPKNS_24DesignatedInitUpdateExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 146:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitDesignatedInitExprEPKNS_18DesignatedInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitDesignatedInitExprEPKNS_18DesignatedInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 147:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 148:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitDependentCoawaitExprEPKNS_20DependentCoawaitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitDependentCoawaitExprEPKNS_20DependentCoawaitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 149:                                              ; preds = %78
@@ -1886,27 +1886,27 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 150:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitCoyieldExprEPKNS_11CoyieldExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitCoyieldExprEPKNS_11CoyieldExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 151:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitCoawaitExprEPKNS_11CoawaitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitCoawaitExprEPKNS_11CoawaitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 152:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitConvertVectorExprEPKNS_17ConvertVectorExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitConvertVectorExprEPKNS_17ConvertVectorExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 153:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitConceptSpecializationExprEPKNS_25ConceptSpecializationExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitConceptSpecializationExprEPKNS_25ConceptSpecializationExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 154:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitCompoundLiteralExprEPKNS_19CompoundLiteralExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitCompoundLiteralExprEPKNS_19CompoundLiteralExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 155:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitChooseExprEPKNS_10ChooseExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitChooseExprEPKNS_10ChooseExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 156:                                              ; preds = %78
@@ -1914,7 +1914,7 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 157:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitImplicitCastExprEPKNS_16ImplicitCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitImplicitCastExprEPKNS_16ImplicitCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 158:                                              ; preds = %78
@@ -1922,35 +1922,35 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 159:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitCXXStaticCastExprEPKNS_17CXXStaticCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitCXXStaticCastExprEPKNS_17CXXStaticCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 160:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCXXReinterpretCastExprEPKNS_22CXXReinterpretCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCXXReinterpretCastExprEPKNS_22CXXReinterpretCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 161:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitCXXDynamicCastExprEPKNS_18CXXDynamicCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitCXXDynamicCastExprEPKNS_18CXXDynamicCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 162:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitCXXConstCastExprEPKNS_16CXXConstCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitCXXConstCastExprEPKNS_16CXXConstCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 163:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitCXXAddrspaceCastExprEPKNS_20CXXAddrspaceCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitCXXAddrspaceCastExprEPKNS_20CXXAddrspaceCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 164:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitCXXFunctionalCastExprEPKNS_21CXXFunctionalCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitCXXFunctionalCastExprEPKNS_21CXXFunctionalCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 165:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitCStyleCastExprEPKNS_14CStyleCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE19VisitCStyleCastExprEPKNS_14CStyleCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 166:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitBuiltinBitCastExprEPKNS_18BuiltinBitCastExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitBuiltinBitCastExprEPKNS_18BuiltinBitCastExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 167:                                              ; preds = %78
@@ -1974,59 +1974,59 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 172:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitCXXUuidofExprEPKNS_13CXXUuidofExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitCXXUuidofExprEPKNS_13CXXUuidofExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 173:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 174:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 175:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitCXXThrowExprEPKNS_12CXXThrowExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE17VisitCXXThrowExprEPKNS_12CXXThrowExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 176:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitCXXThisExprEPKNS_11CXXThisExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE16VisitCXXThisExprEPKNS_11CXXThisExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 177:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitCXXStdInitializerListExprEPKNS_25CXXStdInitializerListExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitCXXStdInitializerListExprEPKNS_25CXXStdInitializerListExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 178:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCXXScalarValueInitExprEPKNS_22CXXScalarValueInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCXXScalarValueInitExprEPKNS_22CXXScalarValueInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 179:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE31VisitCXXRewrittenBinaryOperatorEPKNS_26CXXRewrittenBinaryOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE31VisitCXXRewrittenBinaryOperatorEPKNS_26CXXRewrittenBinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 180:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE28VisitCXXPseudoDestructorExprEPKNS_23CXXPseudoDestructorExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE28VisitCXXPseudoDestructorExprEPKNS_23CXXPseudoDestructorExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 181:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitCXXParenListInitExprEPKNS_20CXXParenListInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitCXXParenListInitExprEPKNS_20CXXParenListInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 182:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitCXXNullPtrLiteralExprEPKNS_21CXXNullPtrLiteralExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE26VisitCXXNullPtrLiteralExprEPKNS_21CXXNullPtrLiteralExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 183:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitCXXNoexceptExprEPKNS_15CXXNoexceptExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE20VisitCXXNoexceptExprEPKNS_15CXXNoexceptExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 184:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitCXXNewExprEPKNS_10CXXNewExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitCXXNewExprEPKNS_10CXXNewExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 185:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitCXXInheritedCtorInitExprEPKNS_24CXXInheritedCtorInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE29VisitCXXInheritedCtorInitExprEPKNS_24CXXInheritedCtorInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 186:                                              ; preds = %78
@@ -2034,7 +2034,7 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 187:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE32VisitCXXDependentScopeMemberExprEPKNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE32VisitCXXDependentScopeMemberExprEPKNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 188:                                              ; preds = %78
@@ -2042,19 +2042,19 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 189:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitCXXDefaultInitExprEPKNS_18CXXDefaultInitExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitCXXDefaultInitExprEPKNS_18CXXDefaultInitExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 190:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 191:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 192:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCXXTemporaryObjectExprEPKNS_22CXXTemporaryObjectExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCXXTemporaryObjectExprEPKNS_22CXXTemporaryObjectExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 193:                                              ; preds = %78
@@ -2062,11 +2062,11 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 194:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 195:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitBlockExprEPKNS_9BlockExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE14VisitBlockExprEPKNS_9BlockExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 196:                                              ; preds = %78
@@ -2074,15 +2074,15 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 197:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 198:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitAtomicExprEPKNS_10AtomicExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitAtomicExprEPKNS_10AtomicExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 199:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitAsTypeExprEPKNS_10AsTypeExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE15VisitAsTypeExprEPKNS_10AsTypeExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 200:                                              ; preds = %78
@@ -2090,19 +2090,19 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 201:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitArraySubscriptExprEPKNS_18ArraySubscriptExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitArraySubscriptExprEPKNS_18ArraySubscriptExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 202:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitArraySectionExprEPKNS_16ArraySectionExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE21VisitArraySectionExprEPKNS_16ArraySectionExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 203:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitArrayInitLoopExprEPKNS_17ArrayInitLoopExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE22VisitArrayInitLoopExprEPKNS_17ArrayInitLoopExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 204:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitArrayInitIndexExprEPKNS_18ArrayInitIndexExprE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE23VisitArrayInitIndexExprEPKNS_18ArrayInitIndexExprE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 205:                                              ; preds = %78
@@ -2110,11 +2110,11 @@ define internal fastcc noundef i64 @_ZL8saveHashPKN5clang4StmtEPKNS_4DeclERSt6ve
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 206:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 207:                                              ; preds = %78
-  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE(ptr noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS1_3MD5EEEvJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERNS4_10ASTContextERS2_.exit
 
 208:                                              ; preds = %78
@@ -2574,7 +2574,7 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EEC2EPKN5clang4StmtERN
   %322 = icmp eq i8 %321, -21
   %spec.select.i.i = select i1 %322, ptr %0, ptr null
   %323 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %323, i64 noundef 8) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull %323, i64 noundef 8) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.830") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %0) #21, !noalias !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -2890,7 +2890,7 @@ _ZNSt6vectorISt4pairImN5clang12StmtSequenceEESaIS3_EE17_M_realloc_insertIJS3_EEE
   br label %_ZNSt6vectorISt4pairImN5clang12StmtSequenceEESaIS3_EE9push_backEOS3_.exit51
 
 _ZNSt6vectorISt4pairImN5clang12StmtSequenceEESaIS3_EE9push_backEOS3_.exit51: ; preds = %417, %_ZNSt6vectorISt4pairImN5clang12StmtSequenceEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i50
-  %442 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
+  %442 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %9) #21
   %443 = load ptr, ptr %9, align 8
   %444 = icmp eq ptr %443, %323
   br i1 %444, label %_ZN4llvm11SmallVectorImLj8EED2Ev.exit, label %445
@@ -2942,12 +2942,12 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE11_M
   %.09.i.i.i.i.i = phi ptr [ %27, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %21, %_ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE11_M_allocateEm.exit.i ]
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %26, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE11_M_allocateEm.exit.i ]
   %22 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull %22, i64 noundef 8) #21
-  %23 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %.09.i.i.i.i.i, ptr noundef nonnull %22, i64 noundef 8) #21
+  %23 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %.sroa.04.08.i.i.i.i.i) #21
   br i1 %23, label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %24
 
 24:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i)
+  %25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.04.08.i.i.i.i.i)
   br label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %24, %.lr.ph.i.i.i.i.i
@@ -2969,7 +2969,7 @@ _ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE20_M_alloca
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %36, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i ], [ %28, %_ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit ]
-  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i) #21
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %.05.i.i.i) #21
   %32 = load ptr, ptr %.05.i.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
   %34 = icmp eq ptr %32, %33
@@ -3027,7 +3027,7 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE13_M
   %.012.i.i.i.i.i = phi i64 [ %55, %.lr.ph.i.i.i.i.i25 ], [ %51, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i25 ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i25 ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
-  %52 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i)
+  %52 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(208) %.0910.i.i.i.i.i)
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 208
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 208
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -3053,7 +3053,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm11SmallVectorIN5clang12StmtSequ
 
 .lr.ph.i.i.i27:                                   ; preds = %.lr.ph.i.i.i27.preheader, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i28
   %.sroa.01.05.i.i.i = phi ptr [ %65, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i28 ], [ %59, %.lr.ph.i.i.i27.preheader ]
-  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i.i.i) #21
+  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %.sroa.01.05.i.i.i) #21
   %61 = load ptr, ptr %.sroa.01.05.i.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i, i64 16
   %63 = icmp eq ptr %61, %62
@@ -3080,7 +3080,7 @@ _ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i28
   %.012.i.i.i.i.i33 = phi i64 [ %72, %.lr.ph.i.i.i.i.i32 ], [ %68, %.lr.ph.preheader.i.i.i.i.i31 ]
   %.0811.i.i.i.i.i34 = phi ptr [ %71, %.lr.ph.i.i.i.i.i32 ], [ %12, %.lr.ph.preheader.i.i.i.i.i31 ]
   %.0910.i.i.i.i.i35 = phi ptr [ %70, %.lr.ph.i.i.i.i.i32 ], [ %6, %.lr.ph.preheader.i.i.i.i.i31 ]
-  %69 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i35)
+  %69 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %.0811.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(208) %.0910.i.i.i.i.i35)
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 208
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 208
   %72 = add nsw i64 %.012.i.i.i.i.i33, -1
@@ -3110,12 +3110,12 @@ _ZSt4copyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_ET0_T_S7_S6_.exit:
   %.011.i.i.i.i = phi ptr [ %83, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i ], [ %75, %_ZSt4copyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_ET0_T_S7_S6_.exit ]
   %.0810.i.i.i.i = phi ptr [ %82, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i ], [ %77, %_ZSt4copyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_ET0_T_S7_S6_.exit ]
   %78 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull %78, i64 noundef 8) #21
-  %79 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %.011.i.i.i.i, ptr noundef nonnull %78, i64 noundef 8) #21
+  %79 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %.0810.i.i.i.i) #21
   br i1 %79, label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i
-  %81 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i)
+  %81 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(208) %.0810.i.i.i.i)
   br label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i
 
 _ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %80, %.lr.ph.i.i.i.i
@@ -3167,7 +3167,7 @@ define dso_local void @_ZN5clang15CloneConstraint16splitCloneGroupsERSt6vectorIN
 
 16:                                               ; preds = %.lr.ph41, %_ZNSt6vectorIcSaIcEED2Ev.exit
   %.sroa.028.039 = phi ptr [ %8, %.lr.ph41 ], [ %169, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.028.039) #21
   %18 = load ptr, ptr %11, align 8
@@ -3294,27 +3294,27 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %_ZSt27__uninitializ
   %66 = getelementptr inbounds %"class.clang::StmtSequence", ptr %65, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %13, i64 noundef 8) #21
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
-  %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
-  %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %13, i64 noundef 8) #21
+  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
+  %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
+  %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %70 = add i64 %69, 1
-  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %72 = icmp ult i64 %71, %70
   br i1 %72, label %73, label %_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEE6appendIPKS2_vEEvT_S7_.exit
 
 73:                                               ; preds = %64
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %13, i64 noundef %70, i64 noundef 24) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %13, i64 noundef %70, i64 noundef 24) #21
   br label %_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEE6appendIPKS2_vEEvT_S7_.exit
 
 _ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEE6appendIPKS2_vEEvT_S7_.exit: ; preds = %64, %73
   %74 = load ptr, ptr %7, align 8
-  %75 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  %75 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %76 = getelementptr inbounds %"class.clang::StmtSequence", ptr %74, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  %77 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  %77 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %78 = add i64 %77, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %78) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(208) %7, i64 noundef %78) #21
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 %60
   %81 = load i8, ptr %80, align 1
@@ -3403,15 +3403,15 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12StmtSequenceELb1EE9push_backERKS2_.ex
 
 126:                                              ; preds = %._crit_edge
   %127 = getelementptr inbounds i8, ptr %124, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull %127, i64 noundef 8) #21
-  %128 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %124, ptr noundef nonnull %127, i64 noundef 8) #21
+  %128 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %129 = icmp eq ptr %124, %7
   %or.cond = or i1 %129, %128
   br i1 %or.cond, label %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, label %130
 
 130:                                              ; preds = %126
-  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
-  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #21
+  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
+  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %124) #21
   %.not.i27 = icmp ult i64 %132, %131
   br i1 %.not.i27, label %138, label %133
 
@@ -3427,19 +3427,19 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12StmtSequenceELb1EE9push_backERKS2_.ex
   br label %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i
 
 _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i: ; preds = %134, %133
-  %137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #21
+  %137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %124) #21
   br label %.sink.split.i
 
 138:                                              ; preds = %130
-  %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #21
+  %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(208) %124) #21
   %140 = icmp ult i64 %139, %131
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %138
-  %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #21
+  %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %124) #21
   %143 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i32 0, ptr %143, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull %127, i64 noundef %131, i64 noundef 24) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(208) %124, ptr noundef nonnull %127, i64 noundef %131, i64 noundef 24) #21
   br label %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i
 
 144:                                              ; preds = %138
@@ -3456,7 +3456,7 @@ _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i: ; preds = %134, %133
 _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i: ; preds = %145, %144, %141
   %.022.i = phi i64 [ 0, %141 ], [ 0, %144 ], [ %132, %145 ]
   %148 = load ptr, ptr %7, align 8
-  %149 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  %149 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %.not.i.i = icmp eq i64 %.022.i, %149
   br i1 %.not.i.i, label %.sink.split.i, label %150
 
@@ -3471,7 +3471,7 @@ _ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i: ; preds = %145, %14
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %150, %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit31.i, %_ZSt4copyIPKN5clang12StmtSequenceEPS1_ET0_T_S6_S5_.exit.i
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %124, i64 noundef %131) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(208) %124, i64 noundef %131) #21
   br label %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %.sink.split.i, %126
@@ -3485,7 +3485,7 @@ _ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9co
   br label %_ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %156
-  %157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  %157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #21
   %158 = load ptr, ptr %7, align 8
   %159 = icmp eq ptr %158, %13
   br i1 %159, label %_ZN4llvm11SmallVectorIN5clang12StmtSequenceELj8EED2Ev.exit, label %160
@@ -3515,7 +3515,7 @@ _ZN4llvm11SmallVectorIN5clang12StmtSequenceELj8EED2Ev.exit: ; preds = %.lr.ph36.
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge37, %164
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   %169 = getelementptr inbounds i8, ptr %.sroa.028.039, i64 208
   %.not32 = icmp eq ptr %169, %10
   br i1 %.not32, label %._crit_edge42, label %16
@@ -3530,7 +3530,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge37, %164
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge42, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %179, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i.i ], [ %171, %._crit_edge42 ]
-  %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i) #21
+  %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %.05.i.i.i.i) #21
   %175 = load ptr, ptr %.05.i.i.i.i, align 8
   %176 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
   %177 = icmp eq ptr %175, %176
@@ -5779,7 +5779,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -5832,7 +5832,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -5854,7 +5854,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -5939,7 +5939,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -5961,7 +5961,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -5983,7 +5983,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6005,7 +6005,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6027,7 +6027,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6049,7 +6049,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6071,7 +6071,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6093,7 +6093,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6115,7 +6115,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6137,7 +6137,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6159,7 +6159,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6212,7 +6212,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6234,7 +6234,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6256,7 +6256,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6278,7 +6278,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6300,7 +6300,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6322,7 +6322,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6344,7 +6344,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6366,7 +6366,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6388,7 +6388,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6410,7 +6410,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6432,7 +6432,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6454,7 +6454,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6498,7 +6498,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %17, i64 %18) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6520,7 +6520,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6542,7 +6542,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6564,7 +6564,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6618,7 +6618,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6640,7 +6640,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6662,7 +6662,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6684,7 +6684,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6706,7 +6706,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6728,7 +6728,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6750,7 +6750,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6772,7 +6772,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6794,7 +6794,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6816,7 +6816,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6838,7 +6838,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6860,7 +6860,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6882,7 +6882,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -6904,7 +6904,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7030,7 +7030,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7052,7 +7052,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7074,7 +7074,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7096,7 +7096,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7118,7 +7118,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7193,7 +7193,7 @@ _ZNK5clang20GenericSelectionExpr13AssociationTyILb1EE7getTypeEv.exit: ; preds = 
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %32, i64 %33) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7215,7 +7215,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7237,7 +7237,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7259,7 +7259,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7281,7 +7281,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7303,7 +7303,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7325,7 +7325,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7347,7 +7347,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7378,7 +7378,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %11, i64 %12) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7400,7 +7400,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7422,7 +7422,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7444,7 +7444,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7466,7 +7466,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7488,7 +7488,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7510,7 +7510,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7532,7 +7532,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7554,7 +7554,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7576,7 +7576,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7598,7 +7598,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7620,7 +7620,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7642,7 +7642,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7664,7 +7664,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7686,7 +7686,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7718,7 +7718,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i.i, ptr %12, i64 %13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7740,7 +7740,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7762,7 +7762,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7784,7 +7784,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7806,7 +7806,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7828,7 +7828,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7850,7 +7850,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7872,7 +7872,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7894,7 +7894,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -7942,7 +7942,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %15
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %27, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
   %28 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -8086,7 +8086,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %._crit_edge, %121
   %123 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %124 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val, ptr %123, i64 %124) #21
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #21
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   br label %125
 
@@ -8136,7 +8136,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8158,7 +8158,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8180,7 +8180,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8202,7 +8202,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8224,7 +8224,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8246,7 +8246,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8268,7 +8268,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8290,7 +8290,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8312,7 +8312,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8334,7 +8334,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8356,7 +8356,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8378,7 +8378,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8400,7 +8400,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8422,7 +8422,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8495,7 +8495,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8559,7 +8559,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8581,7 +8581,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8603,7 +8603,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8625,7 +8625,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8647,7 +8647,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8669,7 +8669,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8691,7 +8691,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8775,7 +8775,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8797,7 +8797,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8829,7 +8829,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %12, i64 %13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8851,7 +8851,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8873,7 +8873,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8895,7 +8895,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8917,7 +8917,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -8986,7 +8986,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -9008,7 +9008,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val.i.i, ptr %7, i64 %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
@@ -9037,7 +9037,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   %12 = call noundef ptr @_ZNK5clang4Attr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %11) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %4) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %4) #21
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -9077,7 +9077,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   store i8 %7, ptr %3, align 1
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val, ptr nonnull %3, i64 1) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret void
 }
 
@@ -9093,7 +9093,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4l
   store i8 %6, ptr %3, align 1
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %.val, ptr nonnull %3, i64 1) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret void
 }
 
@@ -9270,7 +9270,7 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %32, %36
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %53, %_ZNK5clang8DeclStmt5declsEv.exit
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorIN4llvm3MD5EE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret void
 }
 
@@ -11412,12 +11412,12 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE11_M
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.llvm::SmallVector.431", ptr %23, i64 %19
   %25 = getelementptr inbounds i8, ptr %24, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 8) #21
-  %26 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %24, ptr noundef nonnull %25, i64 noundef 8) #21
+  %26 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %2) #21
   br i1 %26, label %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %27
 
 27:                                               ; preds = %_ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE11_M_allocateEm.exit
-  %28 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %28 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %24, ptr noundef nonnull align 8 dereferenceable(208) %2)
   br label %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE11_M_allocateEm.exit, %27
@@ -11428,12 +11428,12 @@ _ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9co
   %.011.i.i.i.i.i = phi ptr [ %34, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   %.0810.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   %29 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i, ptr noundef nonnull %29, i64 noundef 8) #21
-  %30 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i.i) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %.011.i.i.i.i.i, ptr noundef nonnull %29, i64 noundef 8) #21
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %.0810.i.i.i.i.i) #21
   br i1 %30, label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %31
 
 31:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i.i)
+  %32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(208) %.0810.i.i.i.i.i)
   br label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %31, %.lr.ph.i.i.i.i.i
@@ -11452,12 +11452,12 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm11SmallVectorIN5clang12StmtSeque
   %.011.i.i.i.i.i20 = phi ptr [ %41, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i22 ], [ %35, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
   %.0810.i.i.i.i.i21 = phi ptr [ %40, %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i22 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
   %36 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i20, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i20, ptr noundef nonnull %36, i64 noundef 8) #21
-  %37 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i.i21) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %.011.i.i.i.i.i20, ptr noundef nonnull %36, i64 noundef 8) #21
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(208) %.0810.i.i.i.i.i21) #21
   br i1 %37, label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i22, label %38
 
 38:                                               ; preds = %.lr.ph.i.i.i.i.i19
-  %39 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i.i21)
+  %39 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(208) %.011.i.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(208) %.0810.i.i.i.i.i21)
   br label %_ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i22
 
 _ZSt10_ConstructIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i22: ; preds = %38, %.lr.ph.i.i.i.i.i19
@@ -11473,7 +11473,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm11SmallVectorIN5clang12StmtSeque
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit25, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %47, %_ZSt8_DestroyIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit25 ]
-  %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i) #21
+  %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %.05.i.i.i) #21
   %43 = load ptr, ptr %.05.i.i.i, align 8
   %44 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
   %45 = icmp eq ptr %43, %44
@@ -11594,15 +11594,15 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSeq
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %8, i64 noundef 32) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %8, i64 noundef 32) #21
   %9 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %9, i64 noundef 32) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %9, i64 noundef 32) #21
   store ptr %4, ptr %6, align 8
   store ptr %5, ptr %7, align 8
   call fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %10 = call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5) #21
-  %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #21
   %12 = load ptr, ptr %5, align 8
   %13 = icmp eq ptr %12, %9
   br i1 %13, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i, label %14
@@ -11612,7 +11612,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSeq
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i:          ; preds = %14, %3
-  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #21
   %16 = load ptr, ptr %4, align 8
   %17 = icmp eq ptr %16, %8
   br i1 %17, label %"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit", label %18
@@ -14685,7 +14685,7 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i266, ptr %955, i64 %956) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %266) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266)
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %423, ptr noundef %441)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %423, ptr noundef nonnull %441)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %267)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %269)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEEC2EPKN5clang4StmtERNS3_10ASTContextERS1_.exit
@@ -15993,7 +15993,7 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %1287 = call noundef ptr @_ZNK5clang4Attr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %1286) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %414) #21
   %1288 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %413) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %413, ptr noundef %1288, ptr noundef nonnull align 1 dereferenceable(1) %414) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %413, ptr noundef %1288, ptr noundef nonnull align 1 dereferenceable(1) %414) #21
   %1289 = icmp eq ptr %1287, null
   br i1 %1289, label %1290, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
 
@@ -16596,7 +16596,7 @@ _ZNK5clang8DeclStmt5declsEv.exit.i:               ; preds = %1462, %1458
   br i1 %.not.i24, label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE13VisitDeclStmtIvEEvPKN5clang8DeclStmtE.exit, label %.lr.ph.i
 
 _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE13VisitDeclStmtIvEEvPKN5clang8DeclStmtE.exit: ; preds = %1479, %_ZNK5clang8DeclStmt5declsEv.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %423, ptr noundef %441)
+  call fastcc void @_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE9VisitStmtIvEEvPKN5clang4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(16) %423, ptr noundef nonnull %441)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %419)
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEEC2EPKN5clang4StmtERNS3_10ASTContextERS1_.exit
 
@@ -16780,7 +16780,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %15
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %27, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
   %28 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -16925,7 +16925,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %._crit_edge, %121
   %124 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %.val.i = load ptr, ptr %.val, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i, ptr %123, i64 %124) #21
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #21
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   br label %125
 

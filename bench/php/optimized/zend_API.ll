@@ -19754,7 +19754,7 @@ try_parse_string.exit.thread73:                   ; preds = %31
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %29, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %39, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 1 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 1 %28, i64 range(i64 0, -2) %29, i1 false)
   %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %29
   store i8 0, ptr %44, align 1
   br label %46

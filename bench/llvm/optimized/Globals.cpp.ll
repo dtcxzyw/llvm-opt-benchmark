@@ -164,7 +164,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZN
 
 39:                                               ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #12
+  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #12
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2768
   store ptr %1, ptr %4, align 8
@@ -233,7 +233,7 @@ _ZNK4llvm11GlobalValue20getSanitizerMetadataEv.exit: ; preds = %63, %47, %_ZN4ll
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.sroa.0.0.copyload = load i32, ptr %77, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2768
   store ptr %0, ptr %3, align 8
@@ -308,7 +308,7 @@ _ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE.exit: ; pre
   br label %154
 
 118:                                              ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
-  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 2768
   %122 = load ptr, ptr %121, align 8
@@ -815,7 +815,7 @@ define dso_local void @_ZN4llvm11GlobalValue16removeFromParentEv(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %0) #12
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 56
@@ -830,7 +830,7 @@ define dso_local void @_ZN4llvm11GlobalValue16removeFromParentEv(ptr noundef non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 64
@@ -845,7 +845,7 @@ define dso_local void @_ZN4llvm11GlobalValue16removeFromParentEv(ptr noundef non
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(81) %0) #12
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 64
@@ -870,7 +870,7 @@ define dso_local void @_ZN4llvm11GlobalAlias16removeFromParentEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -887,7 +887,7 @@ define dso_local void @_ZN4llvm11GlobalIFunc16removeFromParentEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -904,7 +904,7 @@ define dso_local void @_ZN4llvm14GlobalVariable16removeFromParentEv(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -934,7 +934,7 @@ define dso_local void @_ZN4llvm11GlobalValue15eraseFromParentEv(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %0) #12
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 56
@@ -943,16 +943,16 @@ define dso_local void @_ZN4llvm11GlobalValue15eraseFromParentEv(ptr noundef nonn
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %0) #12
+  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
+  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
+  tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
   br label %39
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 64
@@ -967,21 +967,21 @@ define dso_local void @_ZN4llvm11GlobalValue15eraseFromParentEv(ptr noundef nonn
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm11GlobalIFunc15eraseFromParentEv.exit, label %24
 
 24:                                               ; preds = %13
-  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   br label %_ZN4llvm11GlobalIFunc15eraseFromParentEv.exit
 
 _ZN4llvm11GlobalIFunc15eraseFromParentEv.exit:    ; preds = %13, %24
   store ptr null, ptr %22, align 8
-  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %0) #12
+  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
+  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
+  tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   br label %39
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(81) %0) #12
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 64
@@ -996,7 +996,7 @@ _ZN4llvm11GlobalIFunc15eraseFromParentEv.exit:    ; preds = %13, %24
   %36 = and i32 %35, -134217728
   %37 = or disjoint i32 %36, 1
   store i32 %37, ptr %34, align 4
-  tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull align 8 dereferenceable(81) %0) #12
   br label %39
 
 38:                                               ; preds = %1
@@ -1013,7 +1013,7 @@ define dso_local void @_ZN4llvm11GlobalAlias15eraseFromParentEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1022,8 +1022,8 @@ define dso_local void @_ZN4llvm11GlobalAlias15eraseFromParentEv(ptr noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
+  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
   tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -1033,7 +1033,7 @@ define dso_local void @_ZN4llvm11GlobalIFunc15eraseFromParentEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1048,13 +1048,13 @@ define dso_local void @_ZN4llvm11GlobalIFunc15eraseFromParentEv(ptr noundef nonn
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6Module10eraseIFuncEPNS_11GlobalIFuncE.exit, label %12
 
 12:                                               ; preds = %1
-  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   br label %_ZN4llvm6Module10eraseIFuncEPNS_11GlobalIFuncE.exit
 
 _ZN4llvm6Module10eraseIFuncEPNS_11GlobalIFuncE.exit: ; preds = %1, %12
   store ptr null, ptr %10, align 8
-  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
+  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   tail call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -1064,7 +1064,7 @@ define dso_local void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1091,13 +1091,13 @@ define dso_local void @_ZN4llvm12GlobalObjectD2Ev(ptr noundef nonnull align 8 de
   br i1 %.not.i, label %_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   br label %_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE.exit
 
 _ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE.exit: ; preds = %1, %4
   store ptr null, ptr %2, align 8
-  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
+  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   ret void
 }
 
@@ -1206,7 +1206,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobalValue24canBenefitFromLocal
 
 18:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 20, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 -32
   %20 = load ptr, ptr %19, align 8
   %21 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -1282,7 +1282,7 @@ define dso_local noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr nocapture n
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 -32
   %6 = load ptr, ptr %5, align 8
   %7 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -1488,7 +1488,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(p
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2720
   store ptr %0, ptr %2, align 8
@@ -1686,7 +1686,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm11GlobalValue10getSectionEv(ptr noundef 
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 -32
   %6 = load ptr, ptr %5, align 8
   %7 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -1723,7 +1723,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm11GlobalValue10getSectionEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm11GlobalAlias16getAliaseeObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::DenseSet.470", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 20, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 -32
   %4 = load ptr, ptr %3, align 8
   %5 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -1748,7 +1748,7 @@ declare { ptr, i64 } @_ZN4llvm17UniqueStringSaver4saveENS_9StringRefE(ptr nounde
 define dso_local void @_ZN4llvm11GlobalValue21setNoSanitizeMetadataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2768
   store ptr %0, ptr %2, align 8
@@ -1986,7 +1986,7 @@ _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %switch.ho
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
   br i1 %33, label %..thread14_crit_edge, label %36
 
 ..thread14_crit_edge:                             ; preds = %27
@@ -2015,7 +2015,7 @@ _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %switch.ho
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
   %45 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %45, 3
   %or.cond19 = select i1 %44, i1 %.not, i1 false
@@ -2050,7 +2050,7 @@ declare void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm11GlobalValue16getAliaseeObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::DenseSet.470", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 20, i1 false)
   %3 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2133,7 +2133,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .loopexit:                                        ; preds = %8, %26
   %.sink.i.i.i.i = phi ptr [ %27, %26 ], [ null, %8 ]
-  %37 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !12
+  %37 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !12
   %38 = load ptr, ptr %3, align 8
   store ptr %38, ptr %37, align 8, !noalias !12
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
@@ -2326,7 +2326,7 @@ define dso_local void @_ZN4llvm14GlobalVariableC2EPNS_4TypeEbNS_11GlobalValue12L
   %11 = icmp ne ptr %4, null
   %12 = zext i1 %11 to i32
   %13 = tail call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %1, i32 noundef %7) #12
-  tail call void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %13, i32 noundef 3) #12
+  tail call void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %13, i32 noundef 3) #12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, -134217728
@@ -2348,7 +2348,7 @@ define dso_local void @_ZN4llvm14GlobalVariableC2EPNS_4TypeEbNS_11GlobalValue12L
   %27 = or disjoint i32 %25, 16384
   %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i, i32 %27, i32 %25
   store i32 %spec.select.i.i, ptr %19, align 8
-  tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(34) %5) #12
+  tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(34) %5) #12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %28, align 8
   %29 = load i32, ptr %19, align 8
@@ -2430,7 +2430,7 @@ define dso_local void @_ZN4llvm14GlobalVariableC2ERNS_6ModuleEPNS_4TypeEbNS_11Gl
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %0) #12
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2443,7 +2443,7 @@ define dso_local void @_ZN4llvm14GlobalVariableC2ERNS_6ModuleEPNS_4TypeEbNS_11Gl
 
 25:                                               ; preds = %11
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %0) #12
   %27 = getelementptr inbounds i8, ptr %0, i64 56
   %28 = load ptr, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2691,7 +2691,7 @@ _ZN4llvm14GlobalVariable14setInitializerEPNS_8ConstantE.exit: ; preds = %34, %38
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14GlobalVariable18copyAttributesFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  tail call void @_ZN4llvm11GlobalValue18copyAttributesFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
+  tail call void @_ZN4llvm11GlobalValue18copyAttributesFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 17
@@ -2819,7 +2819,7 @@ declare void @_ZN4llvm5Value13clearMetadataEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11GlobalAliasC2EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 align 2 {
   %8 = tail call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %1, i32 noundef %2) #12
-  tail call void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8, i32 noundef 1) #12
+  tail call void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %8, i32 noundef 1) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, -134217728
@@ -2841,7 +2841,7 @@ define dso_local void @_ZN4llvm11GlobalAliasC2EPNS_4TypeEjNS_11GlobalValue12Link
   %22 = or disjoint i32 %20, 16384
   %spec.select.i = select i1 %spec.select.i.i.i.i.i, i32 %22, i32 %20
   store i32 %spec.select.i, ptr %14, align 8
-  tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #12
+  tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #12
   %23 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -2894,7 +2894,7 @@ _ZN4llvm11GlobalAlias10setAliaseeEPNS_8ConstantE.exit: ; preds = %_ZN4llvm3Use14
 
 41:                                               ; preds = %_ZN4llvm11GlobalAlias10setAliaseeEPNS_8ConstantE.exit
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %0) #12
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %42, ptr %44, align 8
@@ -2977,7 +2977,7 @@ define dso_local noundef ptr @_ZN4llvm11GlobalAlias6createEPNS_4TypeEjNS_11Globa
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 64, i32 noundef 1) #12
-  tail call void @_ZN4llvm11GlobalAliasC1EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4, ptr noundef %7) #12
+  tail call void @_ZN4llvm11GlobalAliasC1EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef nonnull %4, ptr noundef %7) #12
   ret ptr %8
 }
 
@@ -2993,7 +2993,7 @@ define dso_local noundef ptr @_ZN4llvm11GlobalAlias6createENS_11GlobalValue12Lin
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 64, i32 noundef 1) #12
-  tail call void @_ZN4llvm11GlobalAliasC1EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef %5, i32 noundef %10, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef %2, ptr noundef %12) #12
+  tail call void @_ZN4llvm11GlobalAliasC1EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef %5, i32 noundef %10, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull %2, ptr noundef %12) #12
   ret ptr %13
 }
 
@@ -3012,7 +3012,7 @@ define dso_local noundef ptr @_ZN4llvm11GlobalAlias6createERKNS_5TwineEPNS_11Glo
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 64, i32 noundef 1) #12
-  tail call void @_ZN4llvm11GlobalAliasC1EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %7, i32 noundef %12, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1, ptr noundef %14) #12
+  tail call void @_ZN4llvm11GlobalAliasC1EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %7, i32 noundef %12, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %1, ptr noundef %14) #12
   ret ptr %15
 }
 
@@ -3088,7 +3088,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .loopexit:                                        ; preds = %8, %26
   %.sink.i.i.i.i = phi ptr [ %27, %26 ], [ null, %8 ]
-  %37 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !18
+  %37 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !18
   %38 = load ptr, ptr %3, align 8
   store ptr %38, ptr %37, align 8, !noalias !18
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
@@ -3170,7 +3170,7 @@ tailrecurse.backedge:                             ; preds = %63, %73
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11GlobalIFuncC2EPNS_4TypeEjNS_11GlobalValue12LinkageTypesERKNS_5TwineEPNS_8ConstantEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 align 2 {
   %8 = tail call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %1, i32 noundef %2) #12
-  tail call void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8, i32 noundef 2) #12
+  tail call void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %8, i32 noundef 2) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, -134217728
@@ -3192,7 +3192,7 @@ define dso_local void @_ZN4llvm11GlobalIFuncC2EPNS_4TypeEjNS_11GlobalValue12Link
   %22 = or disjoint i32 %20, 16384
   %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i, i32 %22, i32 %20
   store i32 %spec.select.i.i, ptr %14, align 8
-  tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #12
+  tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %23, align 8
   %24 = load i32, ptr %14, align 8
@@ -3250,7 +3250,7 @@ _ZN4llvm11GlobalIFunc11setResolverEPNS_8ConstantE.exit: ; preds = %_ZN4llvm3Use1
 
 44:                                               ; preds = %_ZN4llvm11GlobalIFunc11setResolverEPNS_8ConstantE.exit
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE13addNodeToListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %0) #12
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %45, ptr %47, align 8
@@ -3291,7 +3291,7 @@ define dso_local void @_ZNK4llvm11GlobalIFunc22applyAlongResolverPathENS_12funct
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 20, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 -32
   %8 = load ptr, ptr %7, align 8
   %9 = call fastcc noundef ptr @_ZL14findBaseObjectIN4llvm12function_refIFvRKNS0_11GlobalValueEEEEEPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISG_vEEEERKT_(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -3386,7 +3386,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit: ; preds = %tail
 
 .loopexit:                                        ; preds = %12, %32
   %.sink.i.i.i.i = phi ptr [ %33, %32 ], [ null, %12 ]
-  %43 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !23
+  %43 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !23
   %44 = load ptr, ptr %4, align 8
   store ptr %44, ptr %43, align 8, !noalias !23
   %45 = getelementptr inbounds i8, ptr %44, i64 -32
@@ -3560,20 +3560,20 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit.i.i:            ; preds = %21, %16, %.lr.ph.i.
   br i1 %.not.i.i, label %_ZN4llvm14GlobalVariable17dropAllReferencesEv.exit, label %.lr.ph.i.i
 
 _ZN4llvm14GlobalVariable17dropAllReferencesEv.exit: ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i, %_ZN4llvm4User8operandsEv.exit.i.i
-  tail call void @_ZN4llvm5Value13clearMetadataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZN4llvm5Value13clearMetadataEv(ptr noundef nonnull align 8 dereferenceable(81) %0) #12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %.not.i.i1 = icmp eq ptr %26, null
   br i1 %.not.i.i1, label %_ZN4llvm12GlobalObjectD2Ev.exit, label %27
 
 27:                                               ; preds = %_ZN4llvm14GlobalVariable17dropAllReferencesEv.exit
-  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull %0) #12
+  tail call void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   br label %_ZN4llvm12GlobalObjectD2Ev.exit
 
 _ZN4llvm12GlobalObjectD2Ev.exit:                  ; preds = %_ZN4llvm14GlobalVariable17dropAllReferencesEv.exit, %27
   store ptr null, ptr %25, align 8
-  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  tail call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   ret void
 }
 

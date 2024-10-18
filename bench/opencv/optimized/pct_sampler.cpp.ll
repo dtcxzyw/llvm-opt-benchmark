@@ -240,7 +240,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2.i.i.i:             ; preds = %7, %_ZNSt6vectorIfS
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv11xfeatures2d14pct_signatures15PCTSampler_ImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit2.i.i.i, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #14
   ret void
 }
 
@@ -613,7 +613,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2.i:                 ; preds = %7, %_ZNSt6vectorIfS
   br label %_ZN2cv11xfeatures2d14pct_signatures15PCTSampler_ImplD2Ev.exit
 
 _ZN2cv11xfeatures2d14pct_signatures15PCTSampler_ImplD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit2.i, %10
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

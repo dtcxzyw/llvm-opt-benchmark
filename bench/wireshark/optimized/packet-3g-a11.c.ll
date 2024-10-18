@@ -1096,8 +1096,8 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 319:                                              ; preds = %316
   %320 = load i32, ptr @ett_a11_exts, align 4
-  %321 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0455, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef %320, ptr noundef null, ptr noundef nonnull @.str.411) #3
-  %322 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
+  %321 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0455, ptr noundef %0, i32 noundef range(i32 0, 25) %.0, i32 noundef -1, i32 noundef %320, ptr noundef null, ptr noundef nonnull @.str.411) #3
+  %322 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 25) %.0) #3
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %.lr.ph.i, label %dissect_a11_extensions.exit
 
@@ -1416,7 +1416,7 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
 
 504:                                              ; preds = %501
   %505 = load i32, ptr @ett_a11_radiuses, align 4
-  %506 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %351, ptr noundef %0, i32 noundef %487, i32 noundef %488, i32 noundef %505, ptr noundef null, ptr noundef nonnull @.str.423) #3
+  %506 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %351, ptr noundef %0, i32 noundef %487, i32 noundef range(i32 2, 65532) %488, i32 noundef %505, ptr noundef null, ptr noundef nonnull @.str.423) #3
   tail call void @dissect_attribute_value_pairs(ptr noundef %506, ptr noundef %1, ptr noundef %0, i32 noundef %495, i32 noundef %496, ptr noundef null) #3
   br label %dissect_a11_radius.exit.i
 
@@ -1932,14 +1932,14 @@ dissect_fqi_entry_flags.exit.i.i:                 ; preds = %719, %699
 
 840:                                              ; preds = %518
   %841 = load i32, ptr @ett_a11_subscriber_profile, align 4
-  %842 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %351, ptr noundef %0, i32 noundef %520, i32 noundef 0, i32 noundef %841, ptr noundef null, ptr noundef nonnull @.str.436, i32 noundef %521) #3
+  %842 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %351, ptr noundef %0, i32 noundef %520, i32 noundef 0, i32 noundef %841, ptr noundef null, ptr noundef nonnull @.str.436, i32 noundef range(i32 0, 65528) %521) #3
   %.not.i261.i = icmp eq i32 %521, 0
   br i1 %.not.i261.i, label %dissect_a11_radius.exit.i, label %843
 
 843:                                              ; preds = %840
   %844 = load i32, ptr @hf_a11_subscriber_profile, align 4
-  %845 = tail call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %844, ptr noundef %0, i32 noundef %520, i32 noundef %521, i32 noundef 0) #3
-  tail call void @dissect_attribute_value_pairs(ptr noundef %842, ptr noundef %1, ptr noundef %0, i32 noundef %520, i32 noundef %521, ptr noundef null) #3
+  %845 = tail call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %844, ptr noundef %0, i32 noundef %520, i32 noundef range(i32 0, 65528) %521, i32 noundef 0) #3
+  tail call void @dissect_attribute_value_pairs(ptr noundef %842, ptr noundef %1, ptr noundef %0, i32 noundef %520, i32 noundef range(i32 0, 65528) %521, ptr noundef null) #3
   br label %dissect_a11_radius.exit.i
 
 846:                                              ; preds = %518

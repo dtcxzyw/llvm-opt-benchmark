@@ -270,7 +270,7 @@ define { ptr, ptr } @_ZN3gmx4Bias22calcForceAndUpdateBiasEPKdNS_8ArrayRefIS1_EES
   %.050 = phi i1 [ false, %31 ], [ true, %29 ]
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #17
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #17
   br i1 %.050, label %36, label %405
@@ -405,7 +405,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread:   ; preds = %._crit_edge.i.i.i.i.i.i, %37, %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit
   %94 = getelementptr inbounds i8, ptr %0, i64 216
   %95 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN3gmx10CoordState13setCoordValueERKNS_8BiasGridEPKd(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef %1)
+  tail call void @_ZN3gmx10CoordState13setCoordValueERKNS_8BiasGridEPKd(ptr noundef nonnull align 8 dereferenceable(216) %94, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef %1)
   %96 = getelementptr inbounds i8, ptr %0, i64 504
   %.not125 = icmp eq i64 %9, 0
   br i1 %.not125, label %_ZNK3gmx10BiasParams17isSampleCoordStepEl.exit.thread, label %_ZNK3gmx10BiasParams17isSampleCoordStepEl.exit
@@ -973,7 +973,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -990,7 +990,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -1095,7 +1095,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   ret void
 }
 
@@ -1258,7 +1258,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
@@ -1534,7 +1534,7 @@ _ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i: ; preds = %.lr.p
 
 66:                                               ; preds = %61, %52
   %67 = call ptr @__cxa_allocate_exception(i64 24) #17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %68 unwind label %.thread.i
 
 68:                                               ; preds = %66
@@ -1574,7 +1574,7 @@ _ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i: ; preds = %.lr.p
   %.0.i = phi i1 [ false, %72 ], [ true, %70 ]
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br i1 %.0.i, label %77, label %78
@@ -1661,7 +1661,7 @@ define void @_ZNK3gmx4Bias20initHistoryFromStateEPNS_14AwhBiasHistoryE(ptr nound
 _ZNK3gmx4Bias20forceCorrelationGridEv.exit:       ; preds = %5
   call void @_ZN3gmx35initCorrelationGridHistoryFromStateERKNS_15CorrelationGridE(ptr dead_on_unwind nonnull writable sret(%"struct.gmx::CorrelationGridHistory") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 12, i1 false)
   %10 = getelementptr inbounds i8, ptr %1, i64 88
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %10, align 8
@@ -2010,7 +2010,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %.not.i.i.i.i50, label %_ZNK3gmx4Bias20forceCorrelationGridEv.exit, label %_ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit: ; preds = %149
-  tail call void @_ZNKSt14default_deleteIN3gmx15CorrelationGridEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull %150)
+  tail call void @_ZNKSt14default_deleteIN3gmx15CorrelationGridEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %150)
   %.pre = load ptr, ptr %102, align 8
   %.not.i51 = icmp eq ptr %.pre, null
   br i1 %.not.i51, label %151, label %_ZNK3gmx4Bias20forceCorrelationGridEv.exit
@@ -2167,7 +2167,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %202, %.body48, %197
   br i1 %.not.i59, label %_ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit60, label %204
 
 204:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  tail call void @_ZNKSt14default_deleteIN3gmx15CorrelationGridEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull %203)
+  tail call void @_ZNKSt14default_deleteIN3gmx15CorrelationGridEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %203)
   br label %_ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit60
 
 _ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit60: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %204

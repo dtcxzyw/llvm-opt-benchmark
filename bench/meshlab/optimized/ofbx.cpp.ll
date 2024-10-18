@@ -1859,11 +1859,11 @@ _ZNK4ofbx8DataView8toStringILi128EEEvRAT__c.exit.i.i.i: ; preds = %.lr.ph.i.i.i.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx11TextureImplE, i64 16), ptr %3, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 176
   %33 = getelementptr inbounds i8, ptr %3, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %32, i8 0, i64 16, i1 false)
   store i8 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 200
   %35 = getelementptr inbounds i8, ptr %3, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %34, i8 0, i64 16, i1 false)
   store i8 1, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -9109,7 +9109,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i: ; preds = %_ZNK4ofbx8DataView
   br i1 %.not41.i.i, label %.thread31.i.i, label %652
 
 652:                                              ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i
-  %653 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %651, ptr noundef %15)
+  %653 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %651, ptr noundef nonnull %15)
           to label %.noexc238.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc238.i:                                      ; preds = %652
@@ -13477,7 +13477,7 @@ _ZNKSt14default_deleteIN4ofbx8PropertyEEclEPS1_.exit.i31.sink.split.i: ; preds =
   br label %_ZN4ofbx8PropertyD0Ev.exit.i
 
 _ZN4ofbx8PropertyD0Ev.exit.i:                     ; preds = %_ZN4ofbxL4readIjEENS_13OptionalErrorIT_EEPNS_6CursorE.exit29.i, %_ZNKSt14default_deleteIN4ofbx8PropertyEEclEPS1_.exit.i31.sink.split.i
-  tail call void @_ZdlPv(ptr noundef nonnull %62) #33
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %62) #33
   br label %117
 
 117:                                              ; preds = %60, %_ZN4ofbx8PropertyD0Ev.exit.i
@@ -14967,7 +14967,7 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
 
 189:                                              ; preds = %136
   store ptr @.str.18, ptr @_ZN4ofbx5Error9s_messageE, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %71) #33
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %71) #33
   tail call fastcc void @_ZN4ofbxL13deleteElementEPNS_7ElementE(ptr noundef nonnull %61)
   br label %.critedge2
 
@@ -15683,7 +15683,7 @@ _ZNK4ofbx8DataView8toStringILi128EEEvRAT__c.exit.i.i.i: ; preds = %.lr.ph.i.i.i.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx17NodeAttributeImplE, i64 16), ptr %3, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 176
   %33 = getelementptr inbounds i8, ptr %3, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %32, i8 0, i64 16, i1 false)
   store i8 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8

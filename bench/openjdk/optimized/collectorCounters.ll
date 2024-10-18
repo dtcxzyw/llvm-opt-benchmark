@@ -169,7 +169,7 @@ define hidden void @_ZN19TraceCollectorStatsC2EP17CollectorCounters(ptr noundef 
   br i1 %or.cond.not.i.i, label %11, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
 
 11:                                               ; preds = %2
-  tail call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #6
+  tail call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
   %.pre.i = load i8, ptr @UsePerfData, align 1
   br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
 
@@ -242,7 +242,7 @@ define hidden void @_ZN19TraceCollectorStatsD2Ev(ptr noundef nonnull align 8 der
   br i1 %18, label %19, label %_ZN19PerfTraceTimedEventD2Ev.exit
 
 19:                                               ; preds = %15
-  tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #6
+  tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %0, align 8

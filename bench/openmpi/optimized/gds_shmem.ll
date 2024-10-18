@@ -524,7 +524,7 @@ pmix_tma_free.exit:                               ; preds = %6, %9
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
   %43 = phi ptr [ %45, %.lr.ph.i ], [ %42, %37 ]
   %.07.i = phi ptr [ %44, %.lr.ph.i ], [ %41, %37 ]
-  tail call void %43(ptr noundef %20) #20
+  tail call void %43(ptr noundef nonnull %20) #20
   %44 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not.i45 = icmp eq ptr %45, null
@@ -631,7 +631,7 @@ pmix_obj_run_destructors.exit51:                  ; preds = %.lr.ph.i48, %._crit
 .lr.ph.i55:                                       ; preds = %92, %.lr.ph.i55
   %98 = phi ptr [ %100, %.lr.ph.i55 ], [ %97, %92 ]
   %.07.i56 = phi ptr [ %99, %.lr.ph.i55 ], [ %96, %92 ]
-  tail call void %98(ptr noundef %75) #20
+  tail call void %98(ptr noundef nonnull %75) #20
   %99 = getelementptr inbounds i8, ptr %.07.i56, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not.i57 = icmp eq ptr %100, null
@@ -1004,7 +1004,7 @@ pmix_obj_run_destructors.exit120:                 ; preds = %.lr.ph.i117, %52
 
 80:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %81 = call i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr noundef %0, i32 noundef %74, ptr noundef nonnull %2) #20
+  %81 = call i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr noundef %0, i32 noundef range(i32 4, 3) %74, ptr noundef nonnull %2) #20
   switch i32 %81, label %82 [
     i32 0, label %84
     i32 -2, label %emit_shmem_usage_stats.exit
@@ -1566,7 +1566,7 @@ define internal void @app_destruct(ptr nocapture noundef readonly %0) #2 {
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
   %35 = phi ptr [ %37, %.lr.ph.i ], [ %34, %29 ]
   %.07.i = phi ptr [ %36, %.lr.ph.i ], [ %33, %29 ]
-  tail call void %35(ptr noundef %12) #20
+  tail call void %35(ptr noundef nonnull %12) #20
   %36 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
@@ -1673,7 +1673,7 @@ pmix_obj_run_destructors.exit46:                  ; preds = %.lr.ph.i43, %._crit
 .lr.ph.i50:                                       ; preds = %84, %.lr.ph.i50
   %90 = phi ptr [ %92, %.lr.ph.i50 ], [ %89, %84 ]
   %.07.i51 = phi ptr [ %91, %.lr.ph.i50 ], [ %88, %84 ]
-  tail call void %90(ptr noundef %67) #20
+  tail call void %90(ptr noundef nonnull %67) #20
   %91 = getelementptr inbounds i8, ptr %.07.i51, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not.i52 = icmp eq ptr %92, null
@@ -1898,7 +1898,7 @@ define internal void @module_finalize() #2 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #20
+  tail call void %28(ptr noundef nonnull %5) #20
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -1991,7 +1991,7 @@ pmix_obj_run_destructors.exit38:                  ; preds = %.lr.ph.i35, %._crit
 .lr.ph.i42:                                       ; preds = %67, %.lr.ph.i42
   %73 = phi ptr [ %75, %.lr.ph.i42 ], [ %72, %67 ]
   %.07.i43 = phi ptr [ %74, %.lr.ph.i42 ], [ %71, %67 ]
-  tail call void %73(ptr noundef %50) #20
+  tail call void %73(ptr noundef nonnull %50) #20
   %74 = getelementptr inbounds i8, ptr %.07.i43, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i44 = icmp eq ptr %75, null
@@ -5276,7 +5276,7 @@ define internal fastcc noundef i32 @pack_shmem_seg_blob(ptr noundef %0, i32 noun
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
-  %24 = call i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5) #20
+  %24 = call i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull %5) #20
   switch i32 %24, label %25 [
     i32 0, label %27
     i32 -2, label %pack_shmem_connection_info.exit.thread

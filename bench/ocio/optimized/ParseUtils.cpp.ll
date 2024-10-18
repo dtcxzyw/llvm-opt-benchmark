@@ -246,7 +246,7 @@ entry:
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
   %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 240), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %arraydestroy.element) #23
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN19OpenColorIO_v2_4devL4eltsE
   br i1 %arraydestroy.done, label %arraydestroy.done1, label %arraydestroy.body
 
@@ -5022,7 +5022,7 @@ ehcleanup19.i:                                    ; preds = %ehcleanup17.i, %lpa
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %ehcleanup19.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.1.i, %ehcleanup19.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %arraydestroy.element.i) #23
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZN19OpenColorIO_v2_4devL4eltsE
   br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
 

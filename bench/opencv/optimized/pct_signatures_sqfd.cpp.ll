@@ -530,7 +530,7 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_Impl
 
 common.resume:                                    ; preds = %38, %35
   %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %39, %38 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #15
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %28
@@ -543,7 +543,7 @@ _ZN2cv11xfeatures2d14pct_signatures21Parallel_computeSQFDsC2EPKNS0_17PCTSignatur
           to label %37 unwind label %38
 
 37:                                               ; preds = %_ZN2cv11xfeatures2d14pct_signatures21Parallel_computeSQFDsC2EPKNS0_17PCTSignaturesSQFDEPKNS_3MatEPKSt6vectorIS6_SaIS6_EEPS9_IfSaIfEE.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #15
   ret void
 
 38:                                               ; preds = %_ZN2cv11xfeatures2d14pct_signatures21Parallel_computeSQFDsC2EPKNS0_17PCTSignaturesSQFDEPKNS_3MatEPKSt6vectorIS6_SaIS6_EEPS9_IfSaIfEE.exit
@@ -569,7 +569,7 @@ define void @_ZN2cv11xfeatures2d17PCTSignaturesSQFD6createEiif(ptr dead_on_unwin
   store i32 1, ptr %7, align 4, !noalias !14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !14
   %8 = getelementptr inbounds i8, ptr %5, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %8)
           to label %_ZN2cv3PtrINS_11xfeatures2d14pct_signatures22PCTSignaturesSQFD_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !14
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %4
@@ -600,7 +600,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures22PCTSignatu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -643,7 +643,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures21Parallel_computeSQFDsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

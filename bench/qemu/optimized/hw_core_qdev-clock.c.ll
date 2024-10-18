@@ -228,7 +228,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool, label %qdev_init_clock_out.exit, label %if.end.i
 
 qdev_init_clock_out.exit:                         ; preds = %if.end
-  %call.i = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %1, i1 noundef zeroext true, ptr noundef null)
+  %call.i = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
   br label %for.inc
 
 if.end.i:                                         ; preds = %if.end
@@ -236,7 +236,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = load ptr, ptr %callback, align 8
   %callback_events = getelementptr inbounds i8, ptr %elem.019, i64 24
   %5 = load i32, ptr %callback_events, align 8
-  %call.i15 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %1, i1 noundef zeroext false, ptr noundef null)
+  %call.i15 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
   %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %for.inc, label %if.then2.i
 

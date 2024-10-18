@@ -662,7 +662,7 @@ _ZNKSt14default_deleteIN7CaDiCaL6SolverEEclEPS1_.exit.i.i.i: ; preds = %_ZNSt10u
   br label %_ZN4cvc58internal4prop13CadicalSolverD0Ev.exit
 
 _ZN4cvc58internal4prop13CadicalSolverD0Ev.exit:   ; preds = %_ZNSt10unique_ptrIN7CaDiCaL10TerminatorESt14default_deleteIS1_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN7CaDiCaL6SolverEEclEPS1_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(144) %0) #28
   ret void
 }
 
@@ -1087,7 +1087,7 @@ cond.false:                                       ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.false
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1097,7 +1097,7 @@ call.i.noexc:                                     ; preds = %cond.false
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #29
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #29
   br label %cleanup.action16
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1107,7 +1107,7 @@ invoke.cont:                                      ; preds = %.noexc
   br i1 %cmp.i.i.i, label %if.end68, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %invoke.cont
-  %call.i.i.i7 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %2, ptr %3, ptr nonnull %ref.tmp3)
+  %call.i.i.i7 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %2, ptr %3, ptr nonnull align 8 dereferenceable(32) %ref.tmp3)
           to label %if.end68 unwind label %lpad6
 
 lpad:                                             ; preds = %call.i.noexc, %cond.false

@@ -648,13 +648,13 @@ entry:
 invoke.cont8:                                     ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %aabbMin, ptr noundef nonnull align 16 dereferenceable(16) %m_aabbMin2.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %aabbMax, ptr noundef nonnull align 16 dereferenceable(16) %m_aabbMax5.i, i64 16, i1 false)
-  call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %aabbCallback) #10
+  call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %aabbCallback) #10
   ret void
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %aabbCallback) #10
+  call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %aabbCallback) #10
   resume { ptr, i32 } %1
 }
 
@@ -696,7 +696,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN23b3StridingMeshInterface23calculateAabbBruteForceER9b3Vector3S1_EN23AabbCalculationCallbackD0Ev(ptr noundef nonnull align 16 dereferenceable(48) %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

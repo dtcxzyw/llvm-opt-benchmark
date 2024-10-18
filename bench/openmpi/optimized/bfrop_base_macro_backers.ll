@@ -636,7 +636,7 @@ define void @PMIx_Argv_free(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_argv_free.exit
 
 pmix_bfrops_base_tma_argv_free.exit:              ; preds = %1, %._crit_edge.i
@@ -866,13 +866,13 @@ pmix_bfrops_base_tma_argv_count.exit.i68:         ; preds = %.lr.ph.i.i64, %.pre
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %66, %pmix_bfrops_base_tma_argv_count.exit.i68, %77
-  tail call void @free(ptr noundef %56) #38
+  tail call void @free(ptr noundef nonnull %56) #38
   br label %.critedge
 
 83:                                               ; preds = %77
   %84 = getelementptr i8, ptr %80, i64 8
   store ptr null, ptr %84, align 8
-  tail call void @free(ptr noundef %56) #38
+  tail call void @free(ptr noundef nonnull %56) #38
   br label %111
 
 85:                                               ; preds = %52
@@ -979,7 +979,7 @@ define noalias noundef ptr @PMIx_Argv_join(ptr noundef readonly %0, i32 noundef 
   br i1 %6, label %7, label %.preheader.i
 
 7:                                                ; preds = %4, %2
-  %8 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str.1) #38
+  %8 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.1) #38
   br label %pmix_bfrops_base_tma_argv_join.exit
 
 .preheader.i:                                     ; preds = %4, %.preheader.i
@@ -1630,7 +1630,7 @@ pmix_bfrops_base_tma_endpoint_destruct.exit.i:    ; preds = %85, %82
   br i1 %.not10.i.i.i, label %pmix_bfrops_base_tma_argv_free.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit.i.i:          ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  tail call void @free(ptr noundef %93) #38
+  tail call void @free(ptr noundef nonnull %93) #38
   br label %pmix_bfrops_base_tma_regattr_destruct.exit.i
 
 pmix_bfrops_base_tma_regattr_destruct.exit.i:     ; preds = %pmix_bfrops_base_tma_argv_free.exit.i.i, %91
@@ -1788,7 +1788,7 @@ define void @PMIx_Value_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_value_free.exit
 
 pmix_bfrops_base_tma_value_free.exit:             ; preds = %2, %._crit_edge.i
@@ -1813,7 +1813,7 @@ define internal fastcc void @pmix_bfrops_base_tma_value_free(ptr noundef %0, i64
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %5
 
 5:                                                ; preds = %._crit_edge, %2
@@ -2973,7 +2973,7 @@ define void @PMIx_Topology_free(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_topology_free.exit
 
 pmix_bfrops_base_tma_topology_free.exit:          ; preds = %2, %._crit_edge.i
@@ -3025,7 +3025,7 @@ define void @PMIx_Cpuset_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_cpuset_free.exit
 
 pmix_bfrops_base_tma_cpuset_free.exit:            ; preds = %2, %._crit_edge.i
@@ -3195,7 +3195,7 @@ pmix_bfrops_base_tma_geometry_destruct.exit:      ; preds = %11, %pmix_bfrops_ba
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %pmix_bfrops_base_tma_geometry_destruct.exit, %.preheader
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %22
 
 22:                                               ; preds = %._crit_edge, %2
@@ -4599,7 +4599,7 @@ define void @PMIx_Node_stats_free(ptr noundef %0, i64 noundef %1) local_unnamed_
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_node_stats_free.exit
 
 pmix_bfrops_base_tma_node_stats_free.exit:        ; preds = %2, %._crit_edge.i
@@ -4652,7 +4652,7 @@ define void @PMIx_Pdata_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_pdata_free.exit
 
 pmix_bfrops_base_tma_pdata_free.exit:             ; preds = %2, %._crit_edge.i
@@ -4703,7 +4703,7 @@ define internal fastcc void @pmix_bfrops_base_tma_app_destruct(ptr nocapture nou
   br i1 %.not10.i, label %pmix_bfrops_base_tma_argv_free.exit, label %.lr.ph.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit:              ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %6) #38
+  tail call void @free(ptr noundef nonnull %6) #38
   store ptr null, ptr %5, align 8
   br label %11
 
@@ -4728,7 +4728,7 @@ pmix_bfrops_base_tma_argv_free.exit:              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not10.i35, label %pmix_bfrops_base_tma_argv_free.exit37, label %.lr.ph.i33, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit37:            ; preds = %.lr.ph.i33, %.preheader.i31
-  tail call void @free(ptr noundef %13) #38
+  tail call void @free(ptr noundef nonnull %13) #38
   store ptr null, ptr %12, align 8
   br label %18
 
@@ -4846,7 +4846,7 @@ define void @PMIx_App_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %pmix_bfrops_base_tma_app_free.exit
 
 pmix_bfrops_base_tma_app_free.exit:               ; preds = %2, %._crit_edge.i
@@ -4871,7 +4871,7 @@ define internal fastcc void @pmix_bfrops_base_tma_app_free(ptr noundef %0, i64 n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef %0) #38
+  tail call void @free(ptr noundef nonnull %0) #38
   br label %5
 
 5:                                                ; preds = %._crit_edge, %2
@@ -4919,7 +4919,7 @@ define void @PMIx_Query_destruct(ptr nocapture noundef %0) local_unnamed_addr #6
   br i1 %.not10.i.i, label %pmix_bfrops_base_tma_argv_free.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit.i:            ; preds = %.lr.ph.i.i, %.preheader.i.i
-  tail call void @free(ptr noundef %2) #38
+  tail call void @free(ptr noundef nonnull %2) #38
   store ptr null, ptr %0, align 8
   br label %7
 
@@ -5045,7 +5045,7 @@ define internal fastcc void @pmix_bfrops_base_tma_query_free(ptr noundef %0, i64
   br i1 %.not10.i.i, label %pmix_bfrops_base_tma_argv_free.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit.i:            ; preds = %.lr.ph.i.i, %.preheader.i.i
-  tail call void @free(ptr noundef %4) #38
+  tail call void @free(ptr noundef nonnull %4) #38
   store ptr null, ptr %3, align 8
   br label %9
 
@@ -5148,7 +5148,7 @@ define void @PMIx_Regattr_destruct(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not10.i.i, label %pmix_bfrops_base_tma_argv_free.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit.i:            ; preds = %.lr.ph.i.i, %.preheader.i.i
-  tail call void @free(ptr noundef %7) #38
+  tail call void @free(ptr noundef nonnull %7) #38
   store ptr null, ptr %6, align 8
   br label %pmix_bfrops_base_tma_regattr_destruct.exit
 
@@ -5250,7 +5250,7 @@ define void @PMIx_Regattr_free(ptr noundef %0, i64 noundef %1) local_unnamed_add
   br i1 %.not10.i.i.i, label %pmix_bfrops_base_tma_argv_free.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit.i.i:          ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  tail call void @free(ptr noundef %8) #38
+  tail call void @free(ptr noundef nonnull %8) #38
   store ptr null, ptr %7, align 8
   br label %pmix_bfrops_base_tma_regattr_destruct.exit.i
 
@@ -5862,7 +5862,7 @@ define internal fastcc void @pmix_bfrops_base_tma_data_array_destruct(ptr nounde
   br i1 %exitcond65.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !16
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %.preheader
-  tail call void @free(ptr noundef %19) #38
+  tail call void @free(ptr noundef nonnull %19) #38
   br label %pmix_bfrops_base_tma_value_free.exit
 
 24:                                               ; preds = %1
@@ -5886,7 +5886,7 @@ define internal fastcc void @pmix_bfrops_base_tma_data_array_destruct(ptr nounde
   br i1 %exitcond64.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !41
 
 ._crit_edge41:                                    ; preds = %.lr.ph40, %.preheader3
-  tail call void @free(ptr noundef %26) #38
+  tail call void @free(ptr noundef nonnull %26) #38
   br label %pmix_bfrops_base_tma_value_free.exit
 
 31:                                               ; preds = %1
@@ -5945,7 +5945,7 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph37, %39
   br i1 %exitcond62.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !40
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %.preheader5
-  tail call void @free(ptr noundef %44) #38
+  tail call void @free(ptr noundef nonnull %44) #38
   br label %pmix_bfrops_base_tma_value_free.exit
 
 49:                                               ; preds = %1
@@ -6162,7 +6162,7 @@ pmix_bfrops_base_tma_proc_info_destruct.exit.i:   ; preds = %111, %108
   br i1 %.not10.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %123
-  tail call void @free(ptr noundef %122) #38
+  tail call void @free(ptr noundef nonnull %122) #38
   store ptr null, ptr %121, align 8
   br label %128
 
@@ -6335,7 +6335,7 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %162, %.lr.ph.i173
   br i1 %.not10.i.i.i, label %pmix_bfrops_base_tma_argv_free.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 pmix_bfrops_base_tma_argv_free.exit.i.i:          ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  tail call void @free(ptr noundef %174) #38
+  tail call void @free(ptr noundef nonnull %174) #38
   store ptr null, ptr %173, align 8
   br label %pmix_bfrops_base_tma_regattr_destruct.exit.i
 
@@ -6723,7 +6723,7 @@ pmix_bfrops_base_tma_net_stats_destruct.exit.i:   ; preds = %299, %.lr.ph.i233
   br i1 %exitcond.not.i243, label %._crit_edge.i244, label %.lr.ph.i241, !llvm.loop !39
 
 ._crit_edge.i244:                                 ; preds = %.lr.ph.i241, %.preheader.i239
-  tail call void @free(ptr noundef %303) #38
+  tail call void @free(ptr noundef nonnull %303) #38
   br label %pmix_bfrops_base_tma_value_free.exit
 
 308:                                              ; preds = %1

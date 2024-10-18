@@ -1838,7 +1838,7 @@ if.else8.i:                                       ; preds = %if.end.i
 
 sw.bb25:                                          ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %progress.i)
-  %call.i51 = call i32 @Curl_sasl_continue(ptr noundef nonnull %sasl.i, ptr noundef %data, i32 noundef %4, ptr noundef nonnull %progress.i) #9
+  %call.i51 = call i32 @Curl_sasl_continue(ptr noundef nonnull %sasl.i, ptr noundef %data, i32 noundef range(i32 1, -1) %4, ptr noundef nonnull %progress.i) #9
   %tobool.not.i52 = icmp eq i32 %call.i51, 0
   br i1 %tobool.not.i52, label %if.then.i54, label %imap_state_auth_resp.exit
 
@@ -1910,7 +1910,7 @@ sw.bb28:                                          ; preds = %if.end15
   br i1 %cmp.not.i61, label %land.lhs.true.sink.split, label %if.then.i62
 
 if.then.i62:                                      ; preds = %sw.bb28
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.21, i32 noundef %4) #9
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.21, i32 noundef range(i32 1, -1) %4) #9
   br label %return
 
 sw.bb31:                                          ; preds = %if.end15, %if.end15

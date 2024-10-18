@@ -204,7 +204,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %59, %skipLine.exit2
 
 67:                                               ; preds = %65
   store i32 0, ptr %16, align 4
-  %68 = call fastcc i32 @xSAT_ReadInt(ptr noundef %3)
+  %68 = call fastcc i32 @xSAT_ReadInt(ptr noundef nonnull %3)
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %xSAT_ReadClause.exit.i, label %.lr.ph.i.i
 

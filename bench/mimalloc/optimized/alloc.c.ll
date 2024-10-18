@@ -82,7 +82,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_calloc.exit, label %if.end.i
@@ -130,7 +130,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %9 = load i32, ptr %xblock_size.i.i.i.i.i.i, align 4
   %conv15.i.i.i.i.i.i = zext i32 %9 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %conv15.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i.i.i.i.i, i1 false)
   br label %mi_heap_calloc.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i
@@ -1021,7 +1021,7 @@ if.else:                                          ; preds = %if.then12
   %3 = load i32, ptr %xblock_size, align 4
   %conv15 = zext i32 %3 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %conv15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 range(i64 0, 4294967296) %conv15, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.else, %if.then14, %if.then
@@ -1144,7 +1144,7 @@ if.else.i.i:                                      ; preds = %if.then12.i.i
   %4 = load i32, ptr %xblock_size.i.i, align 4
   %conv15.i.i = zext i32 %4 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %conv15.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i, i1 false)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1203,7 +1203,7 @@ if.else.i.i.i:                                    ; preds = %if.then12.i.i.i
   %4 = load i32, ptr %xblock_size.i.i.i, align 4
   %conv15.i.i.i = zext i32 %4 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %conv15.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i.i, i1 false)
   br label %_mi_heap_malloc_zero_ex.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1297,7 +1297,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   %6 = load i32, ptr %xblock_size.i.i, align 4
   %conv15.i.i = zext i32 %6 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %conv15.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i, i1 false)
   br label %mi_heap_malloc_small_zero.exit
 
 mi_heap_malloc_small_zero.exit:                   ; preds = %if.then.i.i, %if.then14.i.i, %if.else.i.i
@@ -1349,7 +1349,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %4 = load i32, ptr %xblock_size.i.i.i.i, align 4
   %conv15.i.i.i.i = zext i32 %4 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %conv15.i.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i.i.i, i1 false)
   br label %_mi_heap_malloc_zero.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -1407,7 +1407,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %6 = load i32, ptr %xblock_size.i.i.i.i.i, align 4
   %conv15.i.i.i.i.i = zext i32 %6 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %conv15.i.i.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i.i.i.i, i1 false)
   br label %mi_heap_zalloc.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -1794,7 +1794,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -1842,7 +1842,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %7 = load i32, ptr %xblock_size.i.i.i.i.i, align 4
   %conv15.i.i.i.i.i = zext i32 %7 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %conv15.i.i.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 range(i64 0, 4294967296) %conv15.i.i.i.i.i, i1 false)
   br label %return
 
 if.else.i.i.i:                                    ; preds = %if.end
@@ -1861,7 +1861,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -1914,7 +1914,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_mallocn.exit, label %if.end.i
@@ -2126,7 +2126,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -2356,7 +2356,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -2380,7 +2380,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_reallocn.exit, label %if.end.i
@@ -2467,7 +2467,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_recalloc.exit, label %if.end.i
@@ -2962,7 +2962,7 @@ entry:
   br i1 %cmp.i, label %if.else, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %if.then, label %if.else
@@ -3228,7 +3228,7 @@ entry:
   br i1 %cmp.i, label %if.else, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %if.then, label %if.else

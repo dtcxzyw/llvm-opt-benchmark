@@ -205,7 +205,7 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %12 = alloca %"struct.nori::TVector", align 4
   %13 = alloca %"class.Eigen::Matrix.95", align 8
   %14 = alloca %"class.Eigen::CwiseBinaryOp.62", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %5, ptr noundef nonnull align 4 dereferenceable(44) %1, i64 12, i1 false)
   %15 = getelementptr inbounds i8, ptr %5, i64 12
   %16 = getelementptr inbounds i8, ptr %1, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
@@ -446,13 +446,13 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ;
   store float %.sroa.6108.0, ptr %189, align 4
   %190 = getelementptr inbounds i8, ptr %9, i64 12
   %191 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %9, i8 0, i64 24, i1 false)
   store float %.sroa.0106.0, ptr %191, align 4
   %192 = getelementptr inbounds i8, ptr %9, i64 28
   store float %.sroa.3107.0, ptr %192, align 4
   %193 = getelementptr inbounds i8, ptr %9, i64 32
   store float %.sroa.6108.0, ptr %193, align 4
-  call void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %190)
+  call void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(36) %9, ptr noundef nonnull align 4 dereferenceable(12) %190)
   %194 = getelementptr inbounds i8, ptr %2, i64 60
   %195 = load float, ptr %9, align 4
   %196 = load float, ptr %194, align 4
@@ -580,13 +580,13 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ;
   store float %258, ptr %256, align 4
   %259 = getelementptr inbounds i8, ptr %11, i64 12
   %260 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 24, i1 false)
   store float %252, ptr %260, align 4
   %261 = getelementptr inbounds i8, ptr %11, i64 28
   store float %255, ptr %261, align 4
   %262 = getelementptr inbounds i8, ptr %11, i64 32
   store float %258, ptr %262, align 4
-  invoke void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %259)
+  invoke void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(36) %11, ptr noundef nonnull align 4 dereferenceable(12) %259)
           to label %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit unwind label %295
 
 _ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit:      ; preds = %231

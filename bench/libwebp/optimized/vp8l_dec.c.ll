@@ -1034,7 +1034,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %37 = load i32, ptr %25, align 4
   %38 = add i32 %37, %34
   %39 = lshr i32 %38, %31
-  %40 = tail call fastcc i32 @DecodeImageStream(i32 noundef %36, i32 noundef %39, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %26)
+  %40 = tail call fastcc i32 @DecodeImageStream(i32 noundef %36, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %26)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.threadthread-pre-split, label %.backedge
 
@@ -1059,7 +1059,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %56 = lshr i32 %55, %51
   %57 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %51, ptr %57, align 4
-  %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %26)
+  %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %26)
   %.not45.i = icmp eq i32 %58, 0
   br i1 %.not45.i, label %.threadthread-pre-split, label %59
 
@@ -1173,7 +1173,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   %105 = add i32 %104, %100
   %106 = lshr i32 %105, %99
   %107 = mul i32 %103, %106
-  %108 = call fastcc i32 @DecodeImageStream(i32 noundef %103, i32 noundef %106, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %6)
+  %108 = call fastcc i32 @DecodeImageStream(i32 noundef %103, i32 noundef %106, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %6)
   %.not73.i = icmp eq i32 %108, 0
   br i1 %.not73.i, label %147, label %109
 
@@ -1275,7 +1275,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   br i1 %.not74.i, label %145, label %147
 
 145:                                              ; preds = %.loopexit
-  %146 = call i32 @ReadHuffmanCodesHelper(i32 noundef %.049, i32 noundef %.060.i, i32 noundef %.062.i, ptr noundef %.065.i, ptr noundef nonnull %3, ptr noundef nonnull %94, ptr noundef nonnull %7)
+  %146 = call i32 @ReadHuffmanCodesHelper(i32 noundef range(i32 -2147483648, 12) %.049, i32 noundef %.060.i, i32 noundef %.062.i, ptr noundef %.065.i, ptr noundef nonnull %3, ptr noundef nonnull %94, ptr noundef nonnull %7)
   %.not75.i = icmp eq i32 %146, 0
   br i1 %.not75.i, label %147, label %151
 

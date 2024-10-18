@@ -255,7 +255,7 @@ if.then.i:                                        ; preds = %if.then
 invoke.cont4:                                     ; preds = %if.then, %if.then.i
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup, label %if.then.i.i
 
@@ -324,7 +324,7 @@ if.then.i6:                                       ; preds = %if.end
 invoke.cont6:                                     ; preds = %if.end, %if.then.i6
   %state_.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i11, align 8, !alias.scope !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont4, %if.then.i.i, %invoke.cont6
@@ -402,7 +402,7 @@ if.then.i:                                        ; preds = %if.then7
 invoke.cont8:                                     ; preds = %if.then7, %if.then.i
   %state_.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup, label %if.then.i.i
 
@@ -515,7 +515,7 @@ _ZN7rocksdb13BlockContentsD2Ev.exit:              ; preds = %delete.notnull.i.i.
   store i64 0, ptr %allocation3.i, align 8
   %state_.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i23, align 8, !alias.scope !10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont8, %if.then.i.i, %_ZN7rocksdb13BlockContentsD2Ev.exit

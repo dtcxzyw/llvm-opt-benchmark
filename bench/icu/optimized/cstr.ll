@@ -488,7 +488,7 @@ invoke.cont:
   %status = alloca i32, align 4
   %resultCapacity = alloca i32, align 4
   %s = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %s)
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %s)
   %len.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %s, align 8
@@ -533,7 +533,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont2, %invoke.cont
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %s) #9
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %s) #9
   resume { ptr, i32 } %9
 
 if.end:                                           ; preds = %invoke.cont11, %invoke.cont5
@@ -550,7 +550,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 define void @_ZN6icu_754CStrD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   %s = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %s) #9
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %s) #9
   ret void
 }
 

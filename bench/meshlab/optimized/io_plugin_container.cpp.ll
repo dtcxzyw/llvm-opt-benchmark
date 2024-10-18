@@ -160,7 +160,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i.i unwind label %9
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %2)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %_ZN4QMapI7QStringP8IOPluginEaSEOS3_.exit unwind label %9
 
 9:                                                ; preds = %.noexc1.i.i, %.noexc.i.i, %7
@@ -197,7 +197,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %17
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull @_ZN12QMapDataBase11shared_nullE)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE)
           to label %_ZN4QMapI7QStringP8IOPluginED2Ev.exit unwind label %17
 
 17:                                               ; preds = %.noexc1.i, %.noexc.i, %15
@@ -428,7 +428,7 @@ _ZNSt6vectorIP8IOPluginSaIS1_EE9push_backERKS1_.exit: ; preds = %25, %_ZNSt6vect
   %56 = load ptr, ptr %.09.i.i.i, align 8
   %57 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #22
   %.not.i.i.i68 = icmp eq ptr %56, %3
   br i1 %.not.i.i.i68, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -597,7 +597,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i unwind label %137
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i: ; preds = %.noexc372, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %108)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %108)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i unwind label %137
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i:     ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i369, %104
@@ -719,7 +719,7 @@ _ZN7QStringD2Ev.exit80:                           ; preds = %_ZN9QtPrivate8RefCo
   %141 = load ptr, ptr %.09.i.i.i83, align 8
   %142 = getelementptr inbounds i8, ptr %.09.i.i.i83, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %142) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i83) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i83) #22
   %.not.i.i.i84 = icmp eq ptr %141, %6
   br i1 %.not.i.i.i84, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit85, label %.lr.ph.i.i.i82, !llvm.loop !5
 
@@ -888,7 +888,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i379: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i381 unwind label %222
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i381: ; preds = %.noexc388, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i379
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %193)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %193)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i378 unwind label %222
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i378:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i381, %_ZN9QtPrivate8RefCount5derefEv.exit.i382, %189
@@ -1010,7 +1010,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN9QtPrivate8RefCo
   %226 = load ptr, ptr %.09.i.i.i140, align 8
   %227 = getelementptr inbounds i8, ptr %.09.i.i.i140, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %227) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i140) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i140) #22
   %.not.i.i.i141 = icmp eq ptr %226, %9
   br i1 %.not.i.i.i141, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit142, label %.lr.ph.i.i.i139, !llvm.loop !5
 
@@ -1179,7 +1179,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i396: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i398 unwind label %307
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i398: ; preds = %.noexc405, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i396
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %278)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %278)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i395 unwind label %307
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i395:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i398, %_ZN9QtPrivate8RefCount5derefEv.exit.i399, %274
@@ -1301,7 +1301,7 @@ _ZN7QStringD2Ev.exit194:                          ; preds = %_ZN9QtPrivate8RefCo
   %311 = load ptr, ptr %.09.i.i.i197, align 8
   %312 = getelementptr inbounds i8, ptr %.09.i.i.i197, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %312) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i197) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i197) #22
   %.not.i.i.i198 = icmp eq ptr %311, %12
   br i1 %.not.i.i.i198, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit199, label %.lr.ph.i.i.i196, !llvm.loop !5
 
@@ -1470,7 +1470,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i413: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i415 unwind label %392
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i415: ; preds = %.noexc422, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i413
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %363)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %363)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i412 unwind label %392
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i412:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i415, %_ZN9QtPrivate8RefCount5derefEv.exit.i416, %359
@@ -1592,7 +1592,7 @@ _ZN7QStringD2Ev.exit251:                          ; preds = %_ZN9QtPrivate8RefCo
   %396 = load ptr, ptr %.09.i.i.i254, align 8
   %397 = getelementptr inbounds i8, ptr %.09.i.i.i254, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %397) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i254) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i254) #22
   %.not.i.i.i255 = icmp eq ptr %396, %15
   br i1 %.not.i.i.i255, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit256, label %.lr.ph.i.i.i253, !llvm.loop !5
 
@@ -1761,7 +1761,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i430: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i432 unwind label %477
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i432: ; preds = %.noexc439, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i430
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %448)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %448)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i429 unwind label %477
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i429:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i432, %_ZN9QtPrivate8RefCount5derefEv.exit.i433, %444
@@ -1883,7 +1883,7 @@ _ZN7QStringD2Ev.exit308:                          ; preds = %_ZN9QtPrivate8RefCo
   %481 = load ptr, ptr %.09.i.i.i311, align 8
   %482 = getelementptr inbounds i8, ptr %.09.i.i.i311, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %482) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i311) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i311) #22
   %.not.i.i.i312 = icmp eq ptr %481, %18
   br i1 %.not.i.i.i312, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit313, label %.lr.ph.i.i.i310, !llvm.loop !5
 
@@ -2042,7 +2042,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i447: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i449 unwind label %558
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i449: ; preds = %.noexc456, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i447
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %529)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %529)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i446 unwind label %558
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i446:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i449, %_ZN9QtPrivate8RefCount5derefEv.exit.i450, %525
@@ -2163,7 +2163,7 @@ define linkonce_odr void @_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev(ptr nounde
   %3 = load ptr, ptr %.09.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
   tail call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #22
   %.not.i.i = icmp eq ptr %3, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseI10FileFormatSaIS1_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !5
 
@@ -2529,7 +2529,7 @@ _ZNSt6vectorIP8IOPluginSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.
   %65 = load ptr, ptr %.09.i.i.i, align 8
   %66 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %66) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %65, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i32, !llvm.loop !5
 
@@ -2637,7 +2637,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i unwind label %.loopexit.split-lp203
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i: ; preds = %.noexc123, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %103)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %103)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i unwind label %.loopexit.split-lp203
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i:     ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i120, %99
@@ -2782,7 +2782,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN4QMapI7QStringP8
   %133 = load ptr, ptr %.09.i.i.i39, align 8
   %134 = getelementptr inbounds i8, ptr %.09.i.i.i39, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %134) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i39) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i39) #22
   %.not.i.i.i40 = icmp eq ptr %133, %5
   br i1 %.not.i.i.i40, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit41, label %.lr.ph.i.i.i38, !llvm.loop !5
 
@@ -2890,7 +2890,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i130: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i132 unwind label %.loopexit.split-lp197
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i132: ; preds = %.noexc139, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i130
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %171)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %171)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i129 unwind label %.loopexit.split-lp197
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i129:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i132, %_ZN9QtPrivate8RefCount5derefEv.exit.i133, %167
@@ -3035,7 +3035,7 @@ _ZN7QStringD2Ev.exit76:                           ; preds = %_ZN4QMapI7QStringP8
   %201 = load ptr, ptr %.09.i.i.i79, align 8
   %202 = getelementptr inbounds i8, ptr %.09.i.i.i79, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %202) #19
-  call void @_ZdlPv(ptr noundef %.09.i.i.i79) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i79) #22
   %.not.i.i.i80 = icmp eq ptr %201, %7
   br i1 %.not.i.i.i80, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit81, label %.lr.ph.i.i.i78, !llvm.loop !5
 
@@ -3133,7 +3133,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i147: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i149 unwind label %.loopexit.split-lp
 
 _ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i149: ; preds = %.noexc156, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i147
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %235)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %235)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i146 unwind label %.loopexit.split-lp
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i146:  ; preds = %_ZN8QMapDataI7QStringP8IOPluginE7destroyEv.exit.i149, %_ZN9QtPrivate8RefCount5derefEv.exit.i150, %231
@@ -4282,7 +4282,7 @@ _ZN4QMapI7QStringP8IOPluginE14const_iteratorppEv.exit: ; preds = %24, %13
           to label %24 unwind label %.loopexit
 
 24:                                               ; preds = %22
-  %25 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.0)
+  %25 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.05.0)
           to label %_ZN4QMapI7QStringP8IOPluginE14const_iteratorppEv.exit unwind label %.loopexit
 
 .loopexit:                                        ; preds = %22, %24

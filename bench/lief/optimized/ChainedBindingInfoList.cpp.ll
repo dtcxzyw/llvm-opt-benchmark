@@ -72,7 +72,7 @@ define hidden void @_ZN4LIEF5MachO22ChainedBindingInfoListD0Ev(ptr noundef nonnu
   br label %_ZN4LIEF5MachO22ChainedBindingInfoListD2Ev.exit
 
 _ZN4LIEF5MachO22ChainedBindingInfoListD2Ev.exit:  ; preds = %1, %4
-  tail call void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #7
+  tail call void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   tail call void @_ZdlPv(ptr noundef nonnull %0) #6
   ret void
 }

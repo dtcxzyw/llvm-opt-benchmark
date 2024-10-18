@@ -1322,7 +1322,7 @@ if.then.i.i.i198:                                 ; preds = %ehcleanup75
 ehcleanup76:                                      ; preds = %if.then.i.i.i198, %ehcleanup75, %lpad8
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %lpad8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup75 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i198 ]
   %87 = getelementptr inbounds i8, ptr %vtt, i64 48
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %87) #23
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef nonnull %87) #23
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -1925,11 +1925,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %12 = load ptr, ptr %vfn.i, align 8
-  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr)
+  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr)
   %vtable2.i = load ptr, ptr %add.ptr, align 8, !tbaa !22
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %13 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %13(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %13(ptr noundef nonnull align 8 dereferenceable(68) %add.ptr)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body
@@ -3419,7 +3419,7 @@ if.then.i.i.i198:                                 ; preds = %ehcleanup70
 ehcleanup71:                                      ; preds = %if.then.i.i.i198, %ehcleanup70, %lpad8
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %lpad8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup70 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i198 ]
   %85 = getelementptr inbounds i8, ptr %vtt, i64 48
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %85) #23
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef nonnull %85) #23
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -3504,7 +3504,7 @@ _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pred
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN8QuantLib6PeriodESaIS1_EEC2EmRKS2_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN8QuantLib6PeriodESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %optionTenors_, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %optionTenors_, i8 0, i64 16, i1 false)
   br label %invoke.cont10
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -4173,7 +4173,7 @@ if.then.i.i.i212:                                 ; preds = %ehcleanup70
 ehcleanup71:                                      ; preds = %if.then.i.i.i212, %ehcleanup70, %lpad9
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %68, %lpad9 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup70 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i212 ]
   %93 = getelementptr inbounds i8, ptr %vtt, i64 48
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %93) #23
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef nonnull %93) #23
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

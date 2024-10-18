@@ -2759,7 +2759,7 @@ define noundef zeroext i1 @_ZN14vsstatus_csr_t14unlogged_writeEm(ptr noundef non
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(37) %0) #28
+  %20 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %21 = xor i64 %20, %10
   %22 = getelementptr inbounds i8, ptr %0, i64 37
   %23 = load i8, ptr %22, align 1
@@ -3206,7 +3206,7 @@ define noundef zeroext i1 @_ZN13mstatus_csr_t14unlogged_writeEm(ptr noundef nonn
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(37) %0) #28
+  %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %45 = xor i64 %44, %40
   %46 = load i8, ptr %10, align 1
   %47 = trunc i8 %46 to i1
@@ -5001,8 +5001,8 @@ _ZN5csr_t5writeEm.exit102:                        ; preds = %444, %438, %_ZN5csr
   %459 = load ptr, ptr %453, align 8
   %460 = getelementptr inbounds i8, ptr %459, i64 40
   %461 = load ptr, ptr %460, align 8
-  %462 = tail call noundef i64 %461(ptr noundef nonnull align 8 dereferenceable(37) %453) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %453, i64 noundef %458, i64 noundef %462) #28
+  %462 = tail call noundef i64 %461(ptr noundef nonnull align 8 dereferenceable(48) %453) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %453, i64 noundef %458, i64 noundef %462) #28
   %463 = load ptr, ptr %378, align 8
   %464 = getelementptr inbounds i8, ptr %463, i64 1016
   %465 = load ptr, ptr %464, align 8
@@ -5015,8 +5015,8 @@ _ZN5csr_t5writeEm.exit102:                        ; preds = %444, %438, %_ZN5csr
   %471 = load ptr, ptr %465, align 8
   %472 = getelementptr inbounds i8, ptr %471, i64 40
   %473 = load ptr, ptr %472, align 8
-  %474 = tail call noundef i64 %473(ptr noundef nonnull align 8 dereferenceable(37) %465) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %465, i64 noundef %470, i64 noundef %474) #28
+  %474 = tail call noundef i64 %473(ptr noundef nonnull align 8 dereferenceable(48) %465) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %465, i64 noundef %470, i64 noundef %474) #28
   %475 = load ptr, ptr %378, align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 1784
   %477 = load ptr, ptr %476, align 8
@@ -5167,8 +5167,8 @@ define noundef zeroext i1 @_ZN16mip_or_mie_csr_t14unlogged_writeEm(ptr noundef n
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(37) %0) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %0, i64 noundef %14, i64 noundef %18) #28
+  %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %14, i64 noundef %18) #28
   ret i1 false
 }
 
@@ -5504,8 +5504,8 @@ _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %14, %19
   %47 = load ptr, ptr %34, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(37) %34) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %34, i64 noundef %46, i64 noundef %50) #28
+  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(48) %34) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef %46, i64 noundef %50) #28
   ret void
 }
 
@@ -5623,8 +5623,8 @@ _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %14, %19
   %47 = load ptr, ptr %34, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(37) %34) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %34, i64 noundef %46, i64 noundef %50) #28
+  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(48) %34) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef %46, i64 noundef %50) #28
   ret void
 }
 
@@ -5800,8 +5800,8 @@ _ZN22generic_int_accessor_t8ip_writeEm.exit:      ; preds = %16, %21
   %49 = load ptr, ptr %36, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %36) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %36, i64 noundef %48, i64 noundef %52) #28
+  %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(48) %36) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %48, i64 noundef %52) #28
   ret i1 false
 }
 
@@ -5973,8 +5973,8 @@ _ZN22generic_int_accessor_t8ie_writeEm.exit:      ; preds = %16, %21
   %49 = load ptr, ptr %36, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %36) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %36, i64 noundef %48, i64 noundef %52) #28
+  %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(48) %36) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %48, i64 noundef %52) #28
   ret i1 false
 }
 
@@ -6239,7 +6239,7 @@ define noundef zeroext i1 @_ZN12envcfg_csr_t14unlogged_writeEm(ptr noundef nonnu
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
@@ -7139,7 +7139,7 @@ _ZNK18wide_counter_csr_t19is_counting_enabledEv.exit: ; preds = %2, %13, %15
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(48) %18) #28
+  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(72) %18) #28
   %24 = getelementptr inbounds i8, ptr %18, i64 64
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
@@ -7209,7 +7209,7 @@ define noundef zeroext i1 @_ZNK18wide_counter_csr_t19is_counting_enabledEv(ptr n
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(48) %18) #28
+  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(72) %18) #28
   %24 = getelementptr inbounds i8, ptr %18, i64 64
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
@@ -7275,7 +7275,7 @@ _ZNK18wide_counter_csr_t19is_counting_enabledEv.exit: ; preds = %2, %14, %16
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(48) %19) #28
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(72) %19) #28
   %25 = getelementptr inbounds i8, ptr %19, i64 64
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
@@ -9339,7 +9339,7 @@ define noundef zeroext i1 @_ZN11float_csr_t14unlogged_writeEm(ptr noundef nonnul
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, -1
@@ -9880,7 +9880,7 @@ define noundef zeroext i1 @_ZN11vxsat_csr_t14unlogged_writeEm(ptr noundef nonnul
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, -1
@@ -9966,7 +9966,7 @@ define noundef zeroext i1 @_ZN14hstateen_csr_t14unlogged_writeEm(ptr noundef non
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = xor i64 %21, -1
@@ -10121,7 +10121,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %32 = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(57) %0) #28
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8
   %35 = xor i64 %34, -1
@@ -10144,7 +10144,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %53 = tail call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(57) %0) #28
   %54 = getelementptr inbounds i8, ptr %0, i64 48
   %55 = load i64, ptr %54, align 8
   %56 = xor i64 %55, -1
@@ -10196,7 +10196,7 @@ define void @_ZNK14sstateen_csr_t18verify_permissionsE6insn_tb(ptr nocapture nou
   unreachable
 
 _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
-  tail call void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull readonly align 8 dereferenceable(37) %0, i64 %1, i1 noundef zeroext %2)
+  tail call void @_ZNK5csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull readonly align 8 dereferenceable(57) %0, i64 %1, i1 noundef zeroext %2)
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 850
   %27 = load i8, ptr %26, align 2
@@ -12095,7 +12095,7 @@ define noundef zeroext i1 @_ZN15smcntrpmf_csr_t14unlogged_writeEm(ptr noundef no
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
+  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, -1
@@ -12283,8 +12283,8 @@ define noundef zeroext i1 @_ZN10hvip_csr_t14unlogged_writeEm(ptr nocapture nound
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(37) %6) #28
-  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(37) %6, i64 noundef %13, i64 noundef %17) #28
+  %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(48) %6) #28
+  tail call void @_ZNK5csr_t17log_special_writeEmm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13, i64 noundef %17) #28
   %18 = and i64 %1, 1088
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %18, ptr %19, align 8
@@ -13809,7 +13809,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN22virtualized_satp_csr_tD2Ev.exit
 
 _ZN22virtualized_satp_csr_tD2Ev.exit:             ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZN17virtualized_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #28
+  tail call void @_ZN17virtualized_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #32
   ret void
 }
@@ -15379,7 +15379,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #28
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #28
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %10
@@ -15394,7 +15394,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %19, %15, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

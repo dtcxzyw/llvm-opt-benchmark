@@ -283,7 +283,7 @@ define dso_local void @_Z15cmCurlSetCAInfoPvRKNSt7__cxx1112basic_stringIcSt11cha
           to label %.noexc unwind label %104
 
 .noexc:                                           ; preds = %85
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %86, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %86, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc50 unwind label %104
 
 .noexc50:                                         ; preds = %.noexc
@@ -293,7 +293,7 @@ define dso_local void @_Z15cmCurlSetCAInfoPvRKNSt7__cxx1112basic_stringIcSt11cha
 87:                                               ; preds = %.noexc50
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc50

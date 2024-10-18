@@ -1351,7 +1351,7 @@ if.then.i.i.i.i221:                               ; preds = %if.then.i.i.i217
   %vtable.i.i.i.i.i = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %vtable.i.i.i.i.i, align 8
   call void %148(ptr noundef nonnull align 8 dereferenceable(12) %146) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %146)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %146)
           to label %invoke.cont195 unwind label %lpad111.loopexit.split-lp
 
 invoke.cont195:                                   ; preds = %if.then.i.i.i217, %if.end.i.i215, %if.then.i.i.i.i221
@@ -2556,7 +2556,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %m_orig, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %m_orig, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2573,7 +2573,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_orig) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_orig) #17
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -2634,7 +2634,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %vtable.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %2)
   br label %_ZN3refI15model_converterEaSEPS0_.exit
 
 _ZN3refI15model_converterEaSEPS0_.exit:           ; preds = %if.end.i, %if.then.i.i, %if.then.i.i.i
@@ -3340,7 +3340,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -4372,7 +4372,7 @@ if.then13:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i10)
   store ptr %45, ptr %temp.i.i.i10, align 8
   store i8 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i12, align 8
-  %call.i.i.i13 = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_facts, ptr noundef nonnull align 8 dereferenceable(9) %temp.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i11)
+  %call.i.i.i13 = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_facts, ptr noundef nonnull align 8 dereferenceable(9) %temp.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i10)
   %46 = load ptr, ptr %et.i.i11, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i11)

@@ -314,7 +314,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit105: ; preds = %64
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !100
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb322ff6fcd8b365E.llvm.7377480865939079465"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb322ff6fcd8b365E.llvm.7377480865939079465"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
           to label %.noexc106 unwind label %83
 
 .noexc106:                                        ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit105
@@ -618,7 +618,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit105: ; preds = %64
   %.0 = phi ptr [ %.08.i.i.i125, %167 ], [ %.08.i.i.i114, %166 ], [ %.08.i.i.i, %157 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !178
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb322ff6fcd8b365E.llvm.7377480865939079465"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb322ff6fcd8b365E.llvm.7377480865939079465"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %159 = getelementptr inbounds i8, ptr %4, i64 8
   %160 = load i64, ptr %159, align 8, !range !109, !noalias !178, !noundef !4
   %.not.i.i.i.i132 = icmp eq i64 %160, 0

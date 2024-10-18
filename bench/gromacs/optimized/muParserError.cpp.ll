@@ -970,7 +970,7 @@ define void @_ZN2mu11ParserErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN2mu14ParserErrorMsg8InstanceEv.exit:           ; preds = %10, %7, %2
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZZN2mu14ParserErrorMsg8InstanceEvE8instance, ptr %14, align 8
-  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.49)
+  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.49)
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %_ZN2mu14ParserErrorMsg8InstanceEv.exit

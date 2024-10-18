@@ -331,7 +331,7 @@ define dso_local void @_ZN4llvm4hlsl16FrontendResourceC2EPNS_14GlobalVariableENS
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %13 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %13, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %13, i64 noundef 2) #7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %10, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -395,7 +395,7 @@ define dso_local void @_ZN4llvm4hlsl16FrontendResourceC2EPNS_14GlobalVariableENS
   store ptr %55, ptr %0, align 8
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #7
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
-  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #7
   %57 = load ptr, ptr %8, align 8
   %58 = icmp eq ptr %57, %13
   br i1 %58, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit, label %59

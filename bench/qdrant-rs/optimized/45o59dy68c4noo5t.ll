@@ -112,7 +112,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %56, label %63, label %57
 
 57:                                               ; preds = %50
-  %58 = call i64 @llvm.usub.sat.i64(i64 %25, i64 4)
+  %58 = call i64 @llvm.usub.sat.i64(i64 range(i64 2, 33) %25, i64 4)
   store i64 %58, ptr %14, align 8
   %59 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %25, ptr %59, align 8
@@ -142,7 +142,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %69, label %71, label %70, !prof !4
 
 70:                                               ; preds = %66
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %storemerge.i.i, i64 %25, ptr nonnull align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.3) #8
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %storemerge.i.i, i64 range(i64 2, 33) %25, ptr nonnull align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.3) #8
   unreachable
 
 71:                                               ; preds = %66

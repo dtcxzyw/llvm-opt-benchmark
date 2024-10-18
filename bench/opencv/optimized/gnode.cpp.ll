@@ -17,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_ = comdat any
-
 $_ZN2cv5GNode4PrivD2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -170,7 +168,7 @@ define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ConstTagE(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -179,7 +177,48 @@ define hidden void @_ZN2cv5GNodeC2Ev(ptr noundef nonnull align 8 dereferenceable
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   store ptr %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
+  store ptr null, ptr %5, align 8
+  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  invoke void @__cxa_rethrow() #17
+          to label %17 unwind label %11
+
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %13 unwind label %14
+
+13:                                               ; preds = %11
+  resume { ptr, i32 } %12
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #18
+  unreachable
+
+17:                                               ; preds = %7
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 1, ptr %19, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %20, align 8
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -192,7 +231,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::GCall", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %5 = load ptr, ptr %1, align 8
@@ -265,25 +304,58 @@ _ZN2cv5GCallC2ERKS0_.exit:                        ; preds = %12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #14
   store ptr %4, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %4)
-          to label %_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit unwind label %32
+  store ptr null, ptr %31, align 8
+  %32 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+          to label %43 unwind label %33
 
-_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit: ; preds = %29
+33:                                               ; preds = %29
+  %34 = landingpad { ptr, i32 }
+          catch ptr null
+  %35 = extractvalue { ptr, i32 } %34, 0
+  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #14
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #16
+  invoke void @__cxa_rethrow() #17
+          to label %42 unwind label %37
+
+37:                                               ; preds = %33
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %47 unwind label %39
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          catch ptr null
+  %41 = extractvalue { ptr, i32 } %40, 0
+  tail call void @__clang_call_terminate(ptr %41) #18
+  unreachable
+
+42:                                               ; preds = %33
+  unreachable
+
+43:                                               ; preds = %29
+  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  store i32 1, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %32, i64 12
+  store i32 1, ptr %45, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %32, align 8
+  %46 = getelementptr inbounds i8, ptr %32, i64 16
+  store ptr %4, ptr %46, align 8
+  store ptr %32, ptr %31, align 8
   call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   ret void
 
-32:                                               ; preds = %29
-  %33 = landingpad { ptr, i32 }
-          cleanup
+47:                                               ; preds = %37
   call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: nounwind
 declare void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store i32 2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -292,12 +364,53 @@ define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr noundef nonnull align 8 de
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   store ptr %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
+  store ptr null, ptr %5, align 8
+  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  invoke void @__cxa_rethrow() #17
+          to label %17 unwind label %11
+
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %13 unwind label %14
+
+13:                                               ; preds = %11
+  resume { ptr, i32 } %12
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #18
+  unreachable
+
+17:                                               ; preds = %7
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 1, ptr %19, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %20, align 8
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -306,123 +419,66 @@ define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr noundef nonnull align 8 de
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   store ptr %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
+  store ptr null, ptr %5, align 8
+  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  invoke void @__cxa_rethrow() #17
+          to label %17 unwind label %11
+
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %13 unwind label %14
+
+13:                                               ; preds = %11
+  resume { ptr, i32 } %12
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #18
+  unreachable
+
+17:                                               ; preds = %7
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 1, ptr %19, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %20, align 8
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNode4CallERKNS_5GCallE(ptr dead_on_unwind noalias nonnull writable sret(%"class.cv::GNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv5GNode4CallERKNS_5GCallE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   tail call void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNode5ParamEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  store i32 2, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  store ptr %2, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %5, align 8
-  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
-          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
-
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
-  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
-  invoke void @__cxa_rethrow() #17
-          to label %17 unwind label %11
-
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %13 unwind label %14
-
-13:                                               ; preds = %11
-  resume { ptr, i32 } %12
-
-14:                                               ; preds = %11
-  %15 = landingpad { ptr, i32 }
-          catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #18
-  unreachable
-
-17:                                               ; preds = %7
-  unreachable
-
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 1, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %2, ptr %20, align 8
-  store ptr %6, ptr %5, align 8
+define hidden void @_ZN2cv5GNode5ParamEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 {
+  tail call void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNode5ConstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  store i32 3, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  store ptr %2, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %5, align 8
-  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
-          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
-
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
-  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
-  invoke void @__cxa_rethrow() #17
-          to label %17 unwind label %11
-
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %13 unwind label %14
-
-13:                                               ; preds = %11
-  resume { ptr, i32 } %12
-
-14:                                               ; preds = %11
-  %15 = landingpad { ptr, i32 }
-          catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #18
-  unreachable
-
-17:                                               ; preds = %7
-  unreachable
-
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 1, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %2, ptr %20, align 8
-  store ptr %6, ptr %5, align 8
+define hidden void @_ZN2cv5GNode5ConstEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 {
+  tail call void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }
 
@@ -485,60 +541,6 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #9
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #14
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %1) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #17
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #18
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

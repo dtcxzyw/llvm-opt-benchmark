@@ -172,7 +172,7 @@ define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr nocapture n
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %71, %73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #8
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #8
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #8
   br label %74
 
 74:                                               ; preds = %13, %_ZNSt6vectorIiSaIiEED2Ev.exit, %52, %47, %32
@@ -218,7 +218,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %84, %81
 
 86:                                               ; preds = %85, %77, %75
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %85 ], [ %78, %77 ], [ %76, %75 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #8
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #8
   br label %87
 
 87:                                               ; preds = %86, %16

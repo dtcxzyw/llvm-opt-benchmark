@@ -778,7 +778,7 @@ declare ptr @g_thread_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noalias noundef nonnull ptr @_ZL19icvWindowThreadLoopPv(ptr nocapture readnone %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #27
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #27
   %.not.i.i5 = icmp eq i32 %3, 0
   br i1 %.not.i.i5, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %._crit_edge
 
@@ -793,18 +793,18 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1, %6
           to label %6 unwind label %10
 
 6:                                                ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #27
+  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   tail call void @g_usleep(i64 noundef 500)
   tail call void @g_thread_yield()
   %8 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %8) #27
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #27
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %._crit_edge, !llvm.loop !4
 
 10:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #27
+  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   resume { ptr, i32 } %11
 }
 
@@ -848,7 +848,7 @@ define hidden { i64, i64 } @_Z19cvGetWindowRect_GTKPKc(ptr noundef %0) local_unn
 
 15:                                               ; preds = %1
   %16 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #27
+  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %18
 
@@ -977,7 +977,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %33, %52, %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %70 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %70 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   ret { i64, i64 } %32
 
 71:                                               ; preds = %31
@@ -992,7 +992,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %33, %52, %65, %_ZNS
 
 74:                                               ; preds = %73, %24
   %.pn12.pn = phi { ptr, i32 } [ %.pn12, %73 ], [ %25, %24 ]
-  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   br label %76
 
 76:                                               ; preds = %74, %14
@@ -1529,7 +1529,7 @@ define hidden noundef double @_Z19cvGetModeWindow_GTKPKc(ptr noundef %0) local_u
 
 15:                                               ; preds = %1
   %16 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #27
+  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %18
 
@@ -1658,12 +1658,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %31, %52, %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %70 = sitofp i32 %33 to double
-  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   ret double %70
 
 72:                                               ; preds = %30, %24
   %.pn10.pn = phi { ptr, i32 } [ %.pn10, %30 ], [ %25, %24 ]
-  %73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   br label %74
 
 74:                                               ; preds = %72, %14
@@ -1711,7 +1711,7 @@ define hidden void @_Z19cvSetModeWindow_GTKPKcd(ptr noundef %0, double noundef %
 
 16:                                               ; preds = %2
   %17 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %18 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %17) #27
+  %18 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %17) #27
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %19
 
@@ -1841,7 +1841,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %34, %53, %66, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #27
+  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %17) #27
   ret void
 
 72:                                               ; preds = %32
@@ -1856,7 +1856,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %34, %53, %66, %_ZNS
 
 75:                                               ; preds = %74, %25
   %.pn13.pn = phi { ptr, i32 } [ %.pn13, %74 ], [ %26, %25 ]
-  %76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #27
+  %76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %17) #27
   br label %77
 
 77:                                               ; preds = %75, %15
@@ -1925,7 +1925,7 @@ define hidden void @_Z18setWindowTitle_GTKRKNSt7__cxx1112basic_stringIcSt11char_
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #27
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #27
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %9
 
@@ -2236,7 +2236,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit19
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit19:          ; preds = %112, %131, %144, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18
-  %149 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #27
+  %149 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #27
   ret void
 
 150:                                              ; preds = %103, %94
@@ -2246,7 +2246,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit19:          ; preds = %112, %131, %144, %_
 
 151:                                              ; preds = %150, %92
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %150 ], [ %93, %92 ]
-  %152 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #27
+  %152 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #27
   resume { ptr, i32 } %.pn9.pn
 }
 
@@ -2298,7 +2298,7 @@ define hidden noundef double @_Z27cvGetPropWindowAutoSize_GTKPKc(ptr noundef %0)
 
 13:                                               ; preds = %1
   %14 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %14) #27
+  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %16
 
@@ -2318,7 +2318,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %13
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #27
+  %21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   br label %65
 
 22:                                               ; preds = %17
@@ -2404,7 +2404,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %27, %46, %59, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #27
+  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   ret double %.0
 
 65:                                               ; preds = %19, %12
@@ -2450,7 +2450,7 @@ define hidden noundef double @_Z20cvGetRatioWindow_GTKPKc(ptr noundef %0) local_
 
 13:                                               ; preds = %1
   %14 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %14) #27
+  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %16
 
@@ -2571,12 +2571,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %32, %51, %64, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #27
+  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   ret double %.07
 
 70:                                               ; preds = %30, %19
   %.pn10 = phi { ptr, i32 } [ %31, %30 ], [ %20, %19 ]
-  %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #27
+  %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   br label %72
 
 72:                                               ; preds = %70, %12
@@ -2636,7 +2636,7 @@ define range(i32 0, 2) i32 @cvNamedWindow(ptr noundef %0, i32 noundef %1) local_
 
 21:                                               ; preds = %2
   %22 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %22) #27
+  %23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %22) #27
   %.not.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %24
 
@@ -2840,12 +2840,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit20:          ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19, %103, %90, %69, %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
   %.07.shrunk = phi i1 [ true, %_ZNSt10shared_ptrI8CvWindowED2Ev.exit ], [ %71, %69 ], [ %71, %90 ], [ %71, %103 ], [ %71, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19 ]
   %.07 = zext i1 %.07.shrunk to i32
-  %113 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #27
+  %113 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %22) #27
   ret i32 %.07
 
 114:                                              ; preds = %112, %64
   %.pn10.pn = phi { ptr, i32 } [ %.pn10, %112 ], [ %65, %64 ]
-  %115 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #27
+  %115 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %22) #27
   br label %116
 
 116:                                              ; preds = %114, %20
@@ -3036,7 +3036,7 @@ _ZSt11make_sharedI8CvWindowJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
           to label %84 unwind label %44
 
 84:                                               ; preds = %82
-  %85 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %83) #27
+  %85 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %83) #27
   %.not.i.i = icmp eq i32 %85, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %86
 
@@ -3105,7 +3105,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrI8CvWindowEEE9constructIS2_JRKS2_EEEvRS
           to label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE9push_backERKS2_.exit unwind label %127
 
 _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrI8CvWindowEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %109
-  %110 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %83) #27
+  %110 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %83) #27
   %111 = and i32 %2, 1
   %112 = icmp eq i32 %111, 0
   %113 = load ptr, ptr %18, align 8
@@ -3141,7 +3141,7 @@ _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE9push_backERKS2_.exit: ; preds = %
 127:                                              ; preds = %109
   %128 = landingpad { ptr, i32 }
           cleanup
-  %129 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %83) #27
+  %129 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %83) #27
   br label %131
 
 130:                                              ; preds = %117, %126
@@ -3505,7 +3505,7 @@ define void @cvDestroyWindow(ptr noundef %0) local_unnamed_addr #3 personality p
 
 14:                                               ; preds = %1
   %15 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %15) #27
+  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %15) #27
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %17
 
@@ -3642,12 +3642,12 @@ _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_itera
           to label %72 unwind label %37
 
 72:                                               ; preds = %71
-  %73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #27
+  %73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #27
   ret void
 
 74:                                               ; preds = %70, %37
   %.pn25 = phi { ptr, i32 } [ %38, %37 ], [ %.pn23, %70 ]
-  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #27
+  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #27
   br label %76
 
 76:                                               ; preds = %74, %13
@@ -3719,7 +3719,7 @@ _ZL13getGTKWindowsv.exit:                         ; preds = %0, %3, %5
 ; Function Attrs: mustprogress uwtable
 define void @cvDestroyAllWindows() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #27
+  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %3
 
@@ -3838,13 +3838,13 @@ _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5clearEv.exit: ; preds = %_ZL13get
           to label %49 unwind label %51
 
 49:                                               ; preds = %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5clearEv.exit
-  %50 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #27
+  %50 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   ret void
 
 51:                                               ; preds = %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5clearEv.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #27
+  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   resume { ptr, i32 } %52
 }
 
@@ -3889,7 +3889,7 @@ define void @cvShowImage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 p
 
 17:                                               ; preds = %2
   %18 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %19 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %18) #27
+  %19 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %18) #27
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %20
 
@@ -4215,7 +4215,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit30
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit30:          ; preds = %124, %143, %156, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i29
-  %161 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #27
+  %161 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %18) #27
   ret void
 
 162:                                              ; preds = %112, %103
@@ -4225,7 +4225,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit30:          ; preds = %124, %143, %156, %_
 
 163:                                              ; preds = %162, %101
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %162 ], [ %102, %101 ]
-  %164 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #27
+  %164 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %18) #27
   br label %165
 
 165:                                              ; preds = %163, %16
@@ -4395,7 +4395,7 @@ define void @cvResizeWindow(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 
 15:                                               ; preds = %3
   %16 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #27
+  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %18
 
@@ -4502,12 +4502,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %26, %45, %58, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   ret void
 
 64:                                               ; preds = %24, %21
   %.pn10 = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
-  %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   br label %66
 
 66:                                               ; preds = %64, %14
@@ -4623,7 +4623,7 @@ define void @cvMoveWindow(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
 
 15:                                               ; preds = %3
   %16 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #27
+  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %18
 
@@ -4731,7 +4731,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %29, %48, %61, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %66 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %66 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   ret void
 
 67:                                               ; preds = %28, %23
@@ -4742,7 +4742,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %29, %48, %61, %_ZNS
 
 69:                                               ; preds = %67, %21
   %.pn10 = phi { ptr, i32 } [ %68, %67 ], [ %22, %21 ]
-  %70 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %70 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   br label %71
 
 71:                                               ; preds = %69, %14
@@ -4869,7 +4869,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL17icvCreateTrackbarPKcS0_
 
 46:                                               ; preds = %36
   %47 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %48 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %47) #27
+  %48 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %47) #27
   %.not.i.i = icmp eq i32 %48, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %49
 
@@ -5358,7 +5358,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit76, %245, %258, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82
-  %263 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #27
+  %263 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %47) #27
   ret i32 %.041
 
 264:                                              ; preds = %.body, %158
@@ -5368,7 +5368,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 
 265:                                              ; preds = %264, %52
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %264 ], [ %53, %52 ]
-  %266 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #27
+  %266 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %47) #27
   br label %267
 
 267:                                              ; preds = %265, %45, %35, %26
@@ -5420,7 +5420,7 @@ define void @cvSetMouseCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 15:                                               ; preds = %3
   %16 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #27
+  %17 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %18
 
@@ -5440,7 +5440,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
 21:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   br label %65
 
 24:                                               ; preds = %19
@@ -5525,7 +5525,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %27, %46, %59, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #27
+  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   ret void
 
 65:                                               ; preds = %21, %14
@@ -5608,7 +5608,7 @@ define i32 @cvGetTrackbarPos(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %30 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %29) #27
+  %30 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %29) #27
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %31
 
@@ -5819,12 +5819,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit, %103, %116, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i28
-  %121 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #27
+  %121 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #27
   ret i32 %.011
 
 122:                                              ; preds = %44, %34
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %44 ], [ %35, %34 ]
-  %123 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #27
+  %123 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #27
   br label %124
 
 124:                                              ; preds = %122, %27, %18
@@ -6181,7 +6181,7 @@ define void @cvSetTrackbarPos(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 31:                                               ; preds = %22
   %32 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %32) #27
+  %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %32) #27
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %34
 
@@ -6426,7 +6426,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit, %115, %128, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i35
-  %133 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #27
+  %133 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %32) #27
   ret void
 
 134:                                              ; preds = %96, %50
@@ -6436,7 +6436,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 
 135:                                              ; preds = %134, %37
   %.pn24.pn.pn = phi { ptr, i32 } [ %.pn24.pn, %134 ], [ %38, %37 ]
-  %136 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #27
+  %136 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %32) #27
   br label %137
 
 137:                                              ; preds = %135, %30, %21
@@ -6578,7 +6578,7 @@ define void @cvSetTrackbarMax(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 29:                                               ; preds = %20
   %30 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %30) #27
+  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %30) #27
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %32
 
@@ -6810,7 +6810,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit, %117, %130, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30
-  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #27
+  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #27
   ret void
 
 136:                                              ; preds = %60, %45
@@ -6820,7 +6820,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 
 137:                                              ; preds = %136, %35
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %136 ], [ %36, %35 ]
-  %138 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #27
+  %138 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #27
   br label %139
 
 139:                                              ; preds = %137, %28, %19
@@ -6908,7 +6908,7 @@ define void @cvSetTrackbarMin(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 29:                                               ; preds = %20
   %30 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %30) #27
+  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %30) #27
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %32
 
@@ -7140,7 +7140,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit, %117, %130, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30
-  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #27
+  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #27
   ret void
 
 136:                                              ; preds = %60, %45
@@ -7150,7 +7150,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 
 137:                                              ; preds = %136, %35
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %136 ], [ %36, %35 ]
-  %138 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #27
+  %138 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #27
   br label %139
 
 139:                                              ; preds = %137, %28, %19
@@ -7196,7 +7196,7 @@ define ptr @cvGetWindowHandle(ptr noundef %0) local_unnamed_addr #3 personality 
 
 13:                                               ; preds = %1
   %14 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %14) #27
+  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %16
 
@@ -7216,7 +7216,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %13
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #27
+  %21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   br label %63
 
 22:                                               ; preds = %17
@@ -7300,7 +7300,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %25, %44, %57, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #27
+  %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   ret ptr %.06
 
 63:                                               ; preds = %19, %12
@@ -7345,7 +7345,7 @@ define noundef ptr @cvGetWindowName(ptr noundef readnone %0) local_unnamed_addr 
 
 12:                                               ; preds = %1
   %13 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %13) #27
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #27
   %.not.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %15
 
@@ -7416,7 +7416,7 @@ _ZL13getGTKWindowsv.exit.i:                       ; preds = %20, %18, %_ZNSt10lo
 
 _ZL17icvWindowByWidgetP10_GtkWidget.exit:         ; preds = %28, %_ZL13getGTKWindowsv.exit.i, %43
   %.0 = phi ptr [ %45, %43 ], [ @.str.16, %_ZL13getGTKWindowsv.exit.i ], [ @.str.16, %28 ]
-  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #27
+  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #27
   ret ptr %.0
 }
 
@@ -9577,7 +9577,7 @@ define internal noundef i32 @_ZL10icvOnCloseP10_GtkWidgetP9_GdkEventPv(ptr nound
           to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %14
-  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %15) #27
+  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %15) #27
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, label %17
 
@@ -9706,11 +9706,11 @@ _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_itera
 
 64:                                               ; preds = %62, %34
   %.pn17.i = phi { ptr, i32 } [ %35, %34 ], [ %.pn.i, %62 ]
-  %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #27
+  %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #27
   br label %.body
 
 _ZL16icvDeleteWindow_P8CvWindow.exit:             ; preds = %63
-  %66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #27
+  %66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #27
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %98
@@ -11432,7 +11432,7 @@ define linkonce_odr hidden void @_ZN2cv4impl12GTKBackendUI12createWindowERKNSt7_
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt23enable_shared_from_thisIN2cv4impl9GTKWindowEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #27
-  call void @_ZN2cv15highgui_backend8UIWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #27
+  call void @_ZN2cv15highgui_backend8UIWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %41) #27
   call void @_ZdlPv(ptr noundef nonnull %38) #30
   br label %.body
 
@@ -11968,7 +11968,7 @@ _ZNKSt10__weak_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EE7expiredEv.exit: ; pre
 define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow7destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #27
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %5
 
@@ -12042,7 +12042,7 @@ _ZNKSt8weak_ptrI8CvWindowE4lockEv.exit:           ; preds = %_ZNKSt14__shared_co
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrI8CvWindowED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
-  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #27
+  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
   resume { ptr, i32 } %26
 
 28:                                               ; preds = %_ZNKSt8weak_ptrI8CvWindowE4lockEv.exit.thread, %24, %_ZNKSt8weak_ptrI8CvWindowE4lockEv.exit
@@ -12154,7 +12154,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI8CvWindowED2Ev.exit
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %74, %61, %_ZNSt10__weak_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, %_ZNKSt10__weak_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EE7expiredEv.exit
-  %79 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #27
+  %79 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
   ret void
 }
 
@@ -14247,7 +14247,7 @@ _ZNSt10shared_ptrIN2cv4impl9GTKWindowEED2Ev.exit: ; preds = %193, %212, %225, %_
           to label %231 unwind label %356
 
 231:                                              ; preds = %_ZNSt10shared_ptrIN2cv4impl9GTKWindowEED2Ev.exit
-  %232 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %230) #27
+  %232 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %230) #27
   %.not.i.i37 = icmp eq i32 %232, 0
   br i1 %.not.i.i37, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %233
 
@@ -14264,7 +14264,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %231
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit unwind label %358
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit: ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %236 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %230) #27
+  %236 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %230) #27
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %237 = load ptr, ptr %17, align 8, !noalias !102
   store ptr %237, ptr %0, align 8, !alias.scope !102
@@ -14535,7 +14535,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 358:                                              ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %359 = landingpad { ptr, i32 }
           cleanup
-  %360 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %230) #27
+  %360 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %230) #27
   br label %361
 
 361:                                              ; preds = %358, %356
@@ -14557,7 +14557,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow12findTrackbarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.64") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #27
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %6
 
@@ -14648,7 +14648,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2c
   br label %_ZSt19static_pointer_castIN2cv15highgui_backend10UITrackbarENS0_4impl11GTKTrackbarEESt10shared_ptrIT_ERKS5_IT0_E.exit
 
 _ZSt19static_pointer_castIN2cv15highgui_backend10UITrackbarENS0_4impl11GTKTrackbarEESt10shared_ptrIT_ERKS5_IT0_E.exit: ; preds = %36, %33, %24, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.thread
-  %38 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #27
+  %38 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   ret void
 }
 
@@ -14796,7 +14796,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %.lr.ph, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #27
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #30
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
@@ -16151,7 +16151,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %71, %58, %39
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #27
   tail call void @_ZdlPv(ptr noundef nonnull %4) #30
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE10_Auto_nodeD2Ev.exit
 
@@ -16167,7 +16167,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_create_nodeIJRS7_RSC_EEEPSt13_Rb_tree_nodeISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #29
   %5 = getelementptr inbounds i8, ptr %4, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc.i unwind label %19
 
 .noexc.i:                                         ; preds = %3

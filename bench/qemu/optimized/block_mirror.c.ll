@@ -222,7 +222,7 @@ if.end7:                                          ; preds = %if.then5, %do.end
   %granularity.addr.0 = phi i32 [ %call6, %if.then5 ], [ %granularity, %do.end ]
   %conv = zext i32 %granularity.addr.0 to i64
   %tobool.not.i = icmp ne i32 %granularity.addr.0, 0
-  %0 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv)
+  %0 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 range(i64 0, 4294967296) %conv)
   %tobool1.not.i = icmp samesign ult i64 %0, 2
   %or.cond = select i1 %tobool.not.i, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end11, label %if.else10
@@ -1300,7 +1300,7 @@ if.else66:                                        ; preds = %sw.epilog
   store atomic i8 0, ptr %actively_synced monotonic, align 8
   %on_target_error.i = getelementptr inbounds i8, ptr %job, i64 596
   %19 = load i32, ptr %on_target_error.i, align 4
-  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %19, i32 noundef 0, i32 noundef %sub83) #12
+  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %19, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub83) #12
   %cmp85 = icmp eq i32 %call4.i, 1
   br i1 %cmp85, label %if.then86, label %if.end93
 
@@ -2065,7 +2065,7 @@ if.then.i159:                                     ; preds = %if.then191
   %sub.i160 = sub i32 0, %call.i157
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %56 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %56, i32 noundef 0, i32 noundef %sub.i160) #12
+  %call4.i.i = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %56, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub.i160) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %for.cond.backedge.thread, label %for.cond.backedge
 
@@ -2167,7 +2167,7 @@ if.then.i178:                                     ; preds = %lor.lhs.false244
   %sub.i179 = sub i32 0, %call.i176
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %70 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i182 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %70, i32 noundef 0, i32 noundef %sub.i179) #12
+  %call4.i.i182 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %70, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub.i179) #12
   %cmp2.i183 = icmp eq i32 %call4.i.i182, 1
   br i1 %cmp2.i183, label %if.then3.i184, label %if.then248
 
@@ -2231,11 +2231,11 @@ if.then8.i.i197:                                  ; preds = %if.then.i.i194
   %call10.i.i199 = call i32 @qemu_get_thread_id() #12
   %77 = load i64, ptr %_now.i.i187, align 8
   %78 = load i64, ptr %tv_usec.i.i200, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i199, i64 noundef %77, i64 noundef %78, ptr noundef nonnull %job, i64 noundef 0, i32 noundef %conv274, i64 noundef 100000000) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i199, i64 noundef %77, i64 noundef %78, ptr noundef nonnull %job, i64 noundef 0, i32 noundef range(i32 0, 2) %conv274, i64 noundef 100000000) #12
   br label %trace_mirror_before_sleep.exit
 
 if.else.i.i196:                                   ; preds = %if.then.i.i194
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef nonnull %job, i64 noundef 0, i32 noundef %conv274, i64 noundef 100000000) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef nonnull %job, i64 noundef 0, i32 noundef range(i32 0, 2) %conv274, i64 noundef 100000000) #12
   br label %trace_mirror_before_sleep.exit
 
 trace_mirror_before_sleep.exit:                   ; preds = %if.then270, %land.lhs.true5.i.i191, %if.then8.i.i197, %if.else.i.i196
@@ -3481,7 +3481,7 @@ if.then:                                          ; preds = %entry
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
   %on_target_error.i = getelementptr inbounds i8, ptr %s, i64 596
   %1 = load i32, ptr %on_target_error.i, align 4
-  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %s, i32 noundef %1, i32 noundef 0, i32 noundef %sub) #12
+  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %s, i32 noundef %1, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub) #12
   %cmp2 = icmp eq i32 %call4.i, 1
   br i1 %cmp2, label %if.then3, label %if.end5
 
@@ -3993,7 +3993,7 @@ if.then.i:                                        ; preds = %entry
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %on_target_error.i.i = getelementptr inbounds i8, ptr %11, i64 596
   %15 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %11, i32 noundef %15, i32 noundef 0, i32 noundef %sub.i) #12
+  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %11, i32 noundef %15, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub.i) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %mirror_write_complete.exit
 
@@ -4054,7 +4054,7 @@ if.then.i:                                        ; preds = %entry
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %on_target_error.i.i = getelementptr inbounds i8, ptr %10, i64 596
   %14 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %10, i32 noundef %14, i32 noundef 0, i32 noundef %sub.i) #12
+  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %10, i32 noundef %14, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub.i) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %mirror_write_complete.exit
 
@@ -4186,7 +4186,7 @@ if.then:                                          ; preds = %entry
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
   %on_source_error.i = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load i32, ptr %on_source_error.i, align 8
-  %call.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 1, i32 noundef %sub) #12
+  %call.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 1, i32 noundef range(i32 1, -2147483647) %sub) #12
   %cmp2 = icmp eq i32 %call.i, 1
   br i1 %cmp2, label %land.lhs.true, label %return
 
@@ -4223,7 +4223,7 @@ if.then.i:                                        ; preds = %if.end7
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %on_target_error.i.i = getelementptr inbounds i8, ptr %8, i64 596
   %12 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %8, i32 noundef %12, i32 noundef 0, i32 noundef %sub.i) #12
+  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %8, i32 noundef %12, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub.i) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %return
 
@@ -4415,7 +4415,7 @@ if.then:                                          ; preds = %entry
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
   %on_target_error.i = getelementptr inbounds i8, ptr %0, i64 596
   %4 = load i32, ptr %on_target_error.i, align 4
-  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 0, i32 noundef %sub) #12
+  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 0, i32 noundef range(i32 1, -2147483647) %sub) #12
   %cmp2 = icmp eq i32 %call4.i, 1
   br i1 %cmp2, label %land.lhs.true, label %if.end7
 

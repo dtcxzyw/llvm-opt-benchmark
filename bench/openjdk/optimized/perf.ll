@@ -135,7 +135,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 1832
   %35 = load ptr, ptr %34, align 8
-  %36 = call noundef ptr %35(ptr noundef nonnull %0, ptr noundef %31, i64 noundef %32) #5
+  %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %31, i64 noundef %32) #5
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   store volatile i32 6, ptr %16, align 4
@@ -318,11 +318,11 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 1840
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr %31(ptr noundef nonnull %0, ptr noundef %2) #5
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2) #5
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 1848
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i64 %35(ptr noundef nonnull %0, ptr noundef %2) #5
+  %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2) #5
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   store volatile i32 6, ptr %14, align 4
@@ -489,18 +489,18 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 1344
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef i32 %51(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #5
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 1312
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %56 = tail call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #5
   %57 = add nsw i32 %52, 1
   %58 = sext i32 %57 to i64
   %59 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %58, i32 noundef 0) #5
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 1768
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %56, ptr noundef %59) #5
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %56, ptr noundef %59) #5
   br label %_ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit
 
 _ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit: ; preds = %46, %48
@@ -598,7 +598,7 @@ _ZN15PerfDataManager6existsEPKc.exit.thread:      ; preds = %75, %_ZN15PerfDataM
   %94 = load ptr, ptr %0, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 1832
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef ptr %96(ptr noundef nonnull %0, ptr noundef %93, i64 noundef 8) #5
+  %97 = tail call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %93, i64 noundef 8) #5
   %98 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %99 = trunc i8 %98 to i1
   store volatile i32 6, ptr %17, align 4
@@ -805,18 +805,18 @@ _ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit: ; preds = %38
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 1344
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %57 = tail call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #5
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 1312
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
+  %61 = tail call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #5
   %62 = add nsw i32 %57, 1
   %63 = sext i32 %62 to i64
   %64 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %63, i32 noundef 0) #5
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 1768
   %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %61, ptr noundef %64) #5
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %61, ptr noundef %64) #5
   %68 = getelementptr inbounds i8, ptr %11, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not67 = icmp eq ptr %69, null
@@ -826,14 +826,14 @@ _ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit: ; preds = %38
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 1368
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef i32 %73(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
+  %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5) #5
   %75 = add nsw i32 %74, 1
   %76 = sext i32 %75 to i64
   %77 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %76, i32 noundef 0) #5
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 1600
   %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %74, ptr noundef %77) #5
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %74, ptr noundef %77) #5
   br label %81
 
 81:                                               ; preds = %_ZL11jstr_to_utfP7JNIEnv_P8_jstringP10JavaThread.exit, %70
@@ -919,7 +919,7 @@ _ZN15PerfDataManager6existsEPKc.exit.thread:      ; preds = %92, %_ZN15PerfDataM
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 1832
   %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef ptr %111(ptr noundef nonnull %0, ptr noundef %106, i64 noundef %108) #5
+  %112 = tail call noundef ptr %111(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %106, i64 noundef %108) #5
   call void @_ZN20ThreadToNativeFromVMD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
   br label %113
 
@@ -1233,7 +1233,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 1720
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i32 %27(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_ZL11perfmethods, i32 noundef 6) #5
+  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @_ZL11perfmethods, i32 noundef 6) #5
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %32, label %30
 

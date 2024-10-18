@@ -76,7 +76,7 @@ define internal fastcc i64 @negative_numeric(i64 noundef %0) unnamed_addr #0 {
   %15 = add nsw i64 %.neg.i.i, 2
   %16 = and i64 %0, -4
   %17 = or i64 %15, %16
-  %18 = tail call noundef i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 61)
+  %18 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %17, i64 range(i64 1, 0) %17, i64 61)
   %19 = bitcast i64 %18 to double
   br label %rb_float_value_inline.exit
 
@@ -96,7 +96,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
   br i1 %.not7.i, label %27, label %31
 
 27:                                               ; preds = %22
-  %28 = tail call noundef i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 3)
+  %28 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %21, i64 range(i64 3458764513820540929, 3458764513820540928) %21, i64 3)
   %29 = and i64 %28, -4
   %30 = or disjoint i64 %29, 2
   br label %rb_float_new_inline.exit
@@ -189,7 +189,7 @@ rb_float_value_inline.exit26:                     ; preds = %35
   br i1 %.not7.i28, label %78, label %82
 
 78:                                               ; preds = %73
-  %79 = tail call noundef i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 3)
+  %79 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %72, i64 range(i64 3458764513820540929, 3458764513820540928) %72, i64 3)
   %80 = and i64 %79, -4
   %81 = or disjoint i64 %80, 2
   br label %rb_float_new_inline.exit
@@ -235,7 +235,7 @@ define dso_local i64 @rb_node_float_literal_val(ptr nocapture noundef readonly %
   br i1 %.not7.i, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = tail call noundef i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 3)
+  %15 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 3)
   %16 = and i64 %15, -4
   %17 = or disjoint i64 %16, 2
   br label %rb_float_new_inline.exit
@@ -347,7 +347,7 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readon
   br i1 %.not7.i, label %20, label %24
 
 20:                                               ; preds = %15
-  %21 = tail call noundef i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 3)
+  %21 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 3)
   %22 = and i64 %21, -4
   %23 = or disjoint i64 %22, 2
   br label %rb_float_new_inline.exit

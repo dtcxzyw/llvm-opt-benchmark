@@ -1545,7 +1545,7 @@ if.end14:                                         ; preds = %_ZN6vectorISt4pairI
   store i32 %num_occs.0, ptr %m_value.i.i10, align 8
   %m_hash.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 20
   store i32 %xor6.i.i.i.pre-phi, ptr %m_hash.i.i, align 4
-  call void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
   %39 = load ptr, ptr %m_params, align 8
@@ -1729,7 +1729,7 @@ if.end22:                                         ; preds = %_ZN6vectorI6tripleI
   %xor6.i11.i.i = xor i32 %sub4.i9.i.i, %shl5.i10.i.i
   %m_hash.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 28
   store i32 %xor6.i11.i.i, ptr %m_hash.i.i, align 4
-  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %m_params, align 8
@@ -2053,7 +2053,7 @@ if.then11:                                        ; preds = %_ZNK12obj_pair_mapI
   %shl5.i.i.i = shl i32 %sub1.i.i.i, 10
   %xor6.i.i.i = xor i32 %sub4.i.i.i, %shl5.i.i.i
   store i32 %xor6.i.i.i, ptr %m_hash.i.i, align 4
-  call void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %39 = load ptr, ptr %m, align 8
   %40 = load ptr, ptr %it.085, align 8
@@ -2115,7 +2115,7 @@ if.end19:                                         ; preds = %_ZNK12obj_pair_mapI
   %shl5.i.i.i57 = shl i32 %sub1.i.i.i53, 10
   %xor6.i.i.i58 = xor i32 %sub4.i.i.i56, %shl5.i.i.i57
   store i32 %xor6.i.i.i58, ptr %m_hash.i.i59, align 4
-  call void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i45)
+  call void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i45)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i45)
   %49 = load ptr, ptr %m_params, align 8
   %m_dack_threshold = getelementptr inbounds i8, ptr %49, i64 16
@@ -2290,7 +2290,7 @@ if.then:                                          ; preds = %if.then.i.i.i, %if.
   store ptr %cls, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value.i.i.i, i8 0, i64 16, i1 false)
-  call void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseESt4pairIP3appS5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6removeERKSA_(ptr noundef nonnull align 8 dereferenceable(20) %m_clause2app_pair, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseESt4pairIP3appS5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6removeERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %m_clause2app_pair, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   br label %if.end10
 
@@ -2365,7 +2365,7 @@ if.then5:                                         ; preds = %if.then.i.i.i37, %i
   store ptr %cls, ptr %ref.tmp.i.i42, align 8
   %m_value.i.i.i43 = getelementptr inbounds i8, ptr %ref.tmp.i.i42, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i.i43, i8 0, i64 24, i1 false)
-  call void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseE6tripleIP3appS5_S5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6removeERKSA_(ptr noundef nonnull align 8 dereferenceable(20) %m_clause2apps, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i42)
+  call void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseE6tripleIP3appS5_S5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6removeERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %m_clause2apps, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i42)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i42)
   br label %if.end10
 
@@ -2643,7 +2643,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %xor6.i.i.i = xor i32 %sub4.i.i.i, %shl5.i.i.i
   %m_hash.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 20
   store i32 %xor6.i.i.i, ptr %m_hash.i.i, align 4
-  invoke void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN12obj_pair_mapI3appS1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_app_pair2num_occs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont15 unwind label %lpad.loopexit.split-lp
 
 invoke.cont15:                                    ; preds = %for.end
@@ -2784,7 +2784,7 @@ if.end41:                                         ; preds = %invoke.cont37
   store ptr %n1, ptr %m_value.i.i, align 8
   %p.sroa.3.0.m_value.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i52, i64 16
   store ptr %n2, ptr %p.sroa.3.0.m_value.i.i.sroa_idx, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseESt4pairIP3appS5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6insertEOSA_(ptr noundef nonnull align 8 dereferenceable(20) %m_clause2app_pair, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i52)
+  invoke void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseESt4pairIP3appS5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6insertEOSA_(ptr noundef nonnull align 8 dereferenceable(24) %m_clause2app_pair, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i52)
           to label %_ZN7obj_mapIN3smt6clauseESt4pairIP3appS4_EE6insertEPS1_RKS5_.exit unwind label %lpad.loopexit.split-lp
 
 _ZN7obj_mapIN3smt6clauseESt4pairIP3appS4_EE6insertEPS1_RKS5_.exit: ; preds = %if.end41
@@ -2858,7 +2858,7 @@ entry:
   %xor6.i11.i.i = xor i32 %sub4.i9.i.i, %shl5.i10.i.i
   %m_hash.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 28
   store i32 %xor6.i11.i.i, ptr %m_hash.i.i, align 4
-  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %m_instantiated = getelementptr inbounds i8, ptr %this, i64 184
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
@@ -3170,7 +3170,7 @@ if.end47:                                         ; preds = %invoke.cont43
   store ptr %n2, ptr %tr.sroa.3.0.m_value.i.i.sroa_idx, align 8
   %tr.sroa.4.0.m_value.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i101, i64 24
   store ptr %r, ptr %tr.sroa.4.0.m_value.i.i.sroa_idx, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseE6tripleIP3appS5_S5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6insertEOSA_(ptr noundef nonnull align 8 dereferenceable(20) %m_clause2apps, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i101)
+  invoke void @_ZN14core_hashtableIN7obj_mapIN3smt6clauseE6tripleIP3appS5_S5_EE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE6insertEOSA_(ptr noundef nonnull align 8 dereferenceable(24) %m_clause2apps, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i101)
           to label %_ZN7obj_mapIN3smt6clauseE6tripleIP3appS4_S4_EE6insertEPS1_RKS5_.exit unwind label %lpad
 
 _ZN7obj_mapIN3smt6clauseE6tripleIP3appS4_S4_EE6insertEPS1_RKS5_.exit: ; preds = %if.end47
@@ -3839,7 +3839,7 @@ if.then18:                                        ; preds = %_ZNK14obj_triple_ma
   %shl5.i10.i.i = shl i32 %sub1.i6.i.i, 10
   %xor6.i11.i.i = xor i32 %sub4.i9.i.i, %shl5.i10.i.i
   store i32 %xor6.i11.i.i, ptr %m_hash.i.i, align 4
-  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6removeERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %26 = load ptr, ptr %m, align 8
   %27 = load ptr, ptr %it.0106, align 8
@@ -3930,7 +3930,7 @@ if.end30:                                         ; preds = %_ZNK14obj_triple_ma
   %shl5.i10.i.i86 = shl i32 %sub1.i6.i.i82, 10
   %xor6.i11.i.i87 = xor i32 %sub4.i9.i.i85, %shl5.i10.i.i86
   store i32 %xor6.i11.i.i87, ptr %m_hash.i.i88, align 4
-  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i63)
+  call void @_ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_triple, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i63)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i63)
   %41 = load ptr, ptr %m_params, align 8
   %m_dack_threshold = getelementptr inbounds i8, ptr %41, i64 16
@@ -5298,7 +5298,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

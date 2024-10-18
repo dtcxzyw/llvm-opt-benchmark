@@ -1461,7 +1461,7 @@ _ZN18SafeThreadsListPtr29acquire_stable_list_fast_pathEv.exit.i.i.i: ; preds = %
   br label %_ZN18SafeThreadsListPtrC2EP6Threadb.exit.i
 
 32:                                               ; preds = %3
-  tail call void @_ZN18SafeThreadsListPtr31acquire_stable_list_nested_pathEv(ptr noundef nonnull align 8 dereferenceable(26) %4)
+  tail call void @_ZN18SafeThreadsListPtr31acquire_stable_list_nested_pathEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   br label %_ZN18SafeThreadsListPtrC2EP6Threadb.exit.i
 
 _ZN18SafeThreadsListPtrC2EP6Threadb.exit.i:       ; preds = %32, %_ZN18SafeThreadsListPtr29acquire_stable_list_fast_pathEv.exit.i.i.i
@@ -2442,7 +2442,7 @@ define hidden void @_ZN17ThreadsSMRSupport14log_statisticsEv() local_unnamed_add
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %0
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false) #15
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
@@ -2703,7 +2703,7 @@ _ZN17ThreadsSMRSupport16update_tlh_statsEj.exit.i: ; preds = %119, %117, %_ZN17T
   br i1 %123, label %124, label %_ZN17ThreadsListHandleD2Ev.exit
 
 124:                                              ; preds = %_ZN17ThreadsSMRSupport16update_tlh_statsEj.exit.i
-  call void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef nonnull align 8 dereferenceable(26) %2)
+  call void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZN17ThreadsListHandleD2Ev.exit
 
 _ZN17ThreadsListHandleD2Ev.exit:                  ; preds = %_ZN17ThreadsSMRSupport16update_tlh_statsEj.exit.i, %124

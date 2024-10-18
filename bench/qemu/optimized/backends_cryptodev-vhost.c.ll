@@ -262,7 +262,7 @@ if.end.i60:                                       ; preds = %cryptodev_get_vhost
   br i1 %tobool2.not.i, label %for.inc43, label %vhost_set_vring_enable.exit
 
 vhost_set_vring_enable.exit:                      ; preds = %if.end.i60
-  %call6.i61 = tail call i32 %13(ptr noundef nonnull %call.i.i, i32 noundef %10) #6
+  %call6.i61 = tail call i32 %13(ptr noundef nonnull %call.i.i, i32 noundef range(i32 1, 0) %10) #6
   %cmp38 = icmp slt i32 %call6.i61, 0
   br i1 %cmp38, label %err_start, label %for.inc43
 

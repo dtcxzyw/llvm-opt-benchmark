@@ -311,7 +311,7 @@ isoptish.exit.thread741.tail:                     ; preds = %36
 
 isoption.exit:                                    ; preds = %isoptish.exit.thread741.tail
   %125 = getelementptr inbounds i8, ptr %33, i64 2
-  %126 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %125, ptr noundef nonnull readonly dereferenceable(6) @.str.5) #23
+  %126 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %125, ptr noundef nonnull dereferenceable(6) @.str.5) #23
   %.not14.i.not = icmp eq i32 %126, 0
   br i1 %.not14.i.not, label %thread-pre-split.thread, label %isoption.exit623
 
@@ -333,7 +333,7 @@ isoption.exit.thread:                             ; preds = %123, %thread-pre-sp
 
 isoption.exit623:                                 ; preds = %isoption.exit
   %131 = getelementptr inbounds i8, ptr %33, i64 2
-  %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(11) @.str.6) #23
+  %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull dereferenceable(11) @.str.6) #23
   %.not14.i621.not = icmp eq i32 %132, 0
   br i1 %.not14.i621.not, label %thread-pre-split763.thread, label %isoption.exit630
 
@@ -349,7 +349,7 @@ thread-pre-split763:                              ; preds = %isoption.exit.threa
 
 isoption.exit630:                                 ; preds = %isoption.exit623
   %136 = getelementptr inbounds i8, ptr %33, i64 2
-  %137 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(12) @.str.7) #23
+  %137 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %136, ptr noundef nonnull dereferenceable(12) @.str.7) #23
   %.not14.i628.not = icmp eq i32 %137, 0
   br i1 %.not14.i628.not, label %138, label %isoption.exit638
 
@@ -365,7 +365,7 @@ isoption.exit623.thread:                          ; preds = %isoption.exit.threa
   br i1 %.not16.i635, label %isoption.exit638.thread, label %thread-pre-split792
 
 isoption.exit638:                                 ; preds = %isoption.exit630
-  %142 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(12) @.str.8) #23
+  %142 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %136, ptr noundef nonnull dereferenceable(12) @.str.8) #23
   %.not14.i636.not = icmp eq i32 %142, 0
   br i1 %.not14.i636.not, label %thread-pre-split792.thread, label %isoption.exit646
 
@@ -389,7 +389,7 @@ isoption.exit638.thread:                          ; preds = %isoption.exit623.th
 isoption.exit646:                                 ; preds = %isoption.exit638
   store i64 0, ptr %6, align 8
   %148 = getelementptr inbounds i8, ptr %33, i64 2
-  %149 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %148, ptr noundef nonnull readonly dereferenceable(15) @.str.9) #23
+  %149 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %148, ptr noundef nonnull dereferenceable(15) @.str.9) #23
   %.not14.i644.not = icmp eq i32 %149, 0
   br i1 %.not14.i644.not, label %thread-pre-split811.thread, label %isoption.exit646.thread.thread
 
@@ -422,7 +422,7 @@ isoption.exit646.thread.thread:                   ; preds = %isoption.exit638.th
 
 isoption.exit654:                                 ; preds = %isoption.exit646.thread.thread
   %159 = getelementptr inbounds i8, ptr %33, i64 2
-  %160 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %159, ptr noundef nonnull readonly dereferenceable(13) @.str.10) #23
+  %160 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %159, ptr noundef nonnull dereferenceable(13) @.str.10) #23
   %.not14.i652.not = icmp eq i32 %160, 0
   br i1 %.not14.i652.not, label %thread-pre-split819.thread, label %isoption.exit662
 
@@ -445,7 +445,7 @@ thread-pre-split819:                              ; preds = %.thread19.i650
 
 isoption.exit662:                                 ; preds = %isoption.exit654
   %165 = getelementptr inbounds i8, ptr %33, i64 2
-  %166 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %165, ptr noundef nonnull readonly dereferenceable(18) @.str.11) #23
+  %166 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %165, ptr noundef nonnull dereferenceable(18) @.str.11) #23
   %.not14.i660.not = icmp eq i32 %166, 0
   br i1 %.not14.i660.not, label %thread-pre-split839.thread, label %isoption.exit670
 
@@ -468,7 +468,7 @@ thread-pre-split839:                              ; preds = %.thread19.i658
 
 isoption.exit670:                                 ; preds = %isoption.exit662
   %171 = getelementptr inbounds i8, ptr %33, i64 2
-  %172 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %171, ptr noundef nonnull readonly dereferenceable(13) @.str.12) #23
+  %172 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %171, ptr noundef nonnull dereferenceable(13) @.str.12) #23
   %.not14.i668.not = icmp eq i32 %172, 0
   br i1 %.not14.i668.not, label %thread-pre-split860.thread, label %isoption.exit677
 
@@ -484,7 +484,7 @@ thread-pre-split860:                              ; preds = %.thread19.i666
 
 isoption.exit677:                                 ; preds = %isoption.exit670
   %176 = getelementptr inbounds i8, ptr %33, i64 2
-  %177 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(11) @.str.13) #23
+  %177 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull dereferenceable(11) @.str.13) #23
   %.not14.i675.not = icmp eq i32 %177, 0
   br i1 %.not14.i675.not, label %178, label %isoption.exit685
 
@@ -500,7 +500,7 @@ isoption.exit677:                                 ; preds = %isoption.exit670
   br i1 %.not16.i682, label %.thread19.i689, label %thread-pre-split897
 
 isoption.exit685:                                 ; preds = %isoption.exit677
-  %181 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(10) @.str.14) #23
+  %181 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull dereferenceable(10) @.str.14) #23
   %.not14.i683.not = icmp eq i32 %181, 0
   br i1 %.not14.i683.not, label %thread-pre-split897.thread, label %isoption.exit693
 
@@ -523,7 +523,7 @@ thread-pre-split897:                              ; preds = %.thread886
 
 isoption.exit693:                                 ; preds = %isoption.exit685
   %186 = getelementptr inbounds i8, ptr %33, i64 2
-  %187 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %186, ptr noundef nonnull readonly dereferenceable(10) @.str.15) #23
+  %187 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %186, ptr noundef nonnull dereferenceable(10) @.str.15) #23
   %.not14.i691.not = icmp eq i32 %187, 0
   br i1 %.not14.i691.not, label %thread-pre-split918.thread, label %isoption.exit701
 
@@ -546,7 +546,7 @@ thread-pre-split918:                              ; preds = %.thread19.i689
 
 isoption.exit701:                                 ; preds = %isoption.exit693
   %192 = getelementptr inbounds i8, ptr %33, i64 2
-  %193 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %192, ptr noundef nonnull readonly dereferenceable(11) @.str.16) #23
+  %193 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %192, ptr noundef nonnull dereferenceable(11) @.str.16) #23
   %.not14.i699.not = icmp eq i32 %193, 0
   br i1 %.not14.i699.not, label %thread-pre-split939.thread, label %isoption.exit709
 
@@ -569,7 +569,7 @@ thread-pre-split939:                              ; preds = %.thread19.i697
 
 isoption.exit709:                                 ; preds = %isoption.exit701
   %198 = getelementptr inbounds i8, ptr %33, i64 2
-  %199 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %198, ptr noundef nonnull readonly dereferenceable(10) @.str.17) #23
+  %199 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %198, ptr noundef nonnull dereferenceable(10) @.str.17) #23
   %.not14.i707.not = icmp eq i32 %199, 0
   br i1 %.not14.i707.not, label %thread-pre-split960.thread, label %isoption.exit724
 
@@ -596,7 +596,7 @@ thread-pre-split960:                              ; preds = %.thread19.i705
 
 isoption.exit724:                                 ; preds = %isoption.exit709
   %206 = getelementptr inbounds i8, ptr %33, i64 2
-  %207 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(4) @.str.19) #23
+  %207 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull dereferenceable(4) @.str.19) #23
   %.not14.i722.not = icmp eq i32 %207, 0
   br i1 %.not14.i722.not, label %208, label %isoption.exit731
 
@@ -607,7 +607,7 @@ isoption.exit724:                                 ; preds = %isoption.exit709
   br label %418
 
 isoption.exit731:                                 ; preds = %isoption.exit724
-  %211 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(7) @.str.20) #23
+  %211 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull dereferenceable(7) @.str.20) #23
   %.not14.i729.not = icmp eq i32 %211, 0
   br i1 %.not14.i729.not, label %212, label %isoption.exit738
 
@@ -653,7 +653,7 @@ isoption.exit731:                                 ; preds = %isoption.exit724
 
 isoption.exit738:                                 ; preds = %isoption.exit731
   store i64 0, ptr %6, align 8
-  %236 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(4) @.str.23) #23
+  %236 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull dereferenceable(4) @.str.23) #23
   %.not14.i736.not = icmp eq i32 %236, 0
   br i1 %.not14.i736.not, label %237, label %isoption.exit738.thread
 
@@ -1821,7 +1821,7 @@ define internal void @stderr_cb(ptr nocapture readonly %0, i64 %1, ptr %2) #13 {
   %11 = tail call i32 @jv_string_length_bytes(i64 %9, ptr %10) #19
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i64 @fwrite(ptr noundef %7, i64 noundef 1, i64 noundef %12, ptr noundef %13) #20
+  %14 = tail call i64 @fwrite(ptr noundef %7, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %12, ptr noundef %13) #20
   br label %21
 
 15:                                               ; preds = %3
@@ -2053,7 +2053,7 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   %111 = tail call i32 @jv_string_length_bytes(i64 %109, ptr %110) #19
   %112 = sext i32 %111 to i64
   %113 = load ptr, ptr @stdout, align 8
-  %114 = tail call i64 @fwrite(ptr noundef %107, i64 noundef 1, i64 noundef %112, ptr noundef %113)
+  %114 = tail call i64 @fwrite(ptr noundef %107, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %112, ptr noundef %113)
   br label %115
 
 115:                                              ; preds = %106, %85
@@ -2161,7 +2161,7 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   %164 = tail call i32 @jv_string_length_bytes(i64 %162, ptr %163) #19
   %165 = sext i32 %164 to i64
   %166 = load ptr, ptr @stderr, align 8
-  %167 = tail call i64 @fwrite(ptr noundef %160, i64 noundef 1, i64 noundef %165, ptr noundef %166) #20
+  %167 = tail call i64 @fwrite(ptr noundef %160, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %165, ptr noundef %166) #20
   br label %180
 
 168:                                              ; preds = %153

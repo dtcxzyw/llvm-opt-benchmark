@@ -1012,7 +1012,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN
   br label %_ZN2cv8ximgproc19FeatureSpaceWeightsD2Ev.exit
 
 _ZN2cv8ximgproc19FeatureSpaceWeightsD2Ev.exit:    ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i, %131
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %9) #24
   %132 = getelementptr inbounds i8, ptr %4, i64 112
   %133 = load ptr, ptr %132, align 8
   %.not.i.i.i.i43 = icmp eq ptr %133, null
@@ -2393,7 +2393,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %.thread452, %469, %
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %471, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %19) #24
   br label %.body
 
 472:                                              ; preds = %461, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i245
@@ -2432,7 +2432,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i192:               ; preds = %477, %475
   br label %_ZN2cv8ximgproc14FeatureNormalsD2Ev.exit
 
 _ZN2cv8ximgproc14FeatureNormalsD2Ev.exit:         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i192, %479
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %19) #24
   call void @_ZN2cv8ximgproc18FeatureCenterDistsD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %16) #24
   %480 = add nuw nsw i32 %.0385, 1
   %481 = load i32, ptr %1, align 4
@@ -11621,7 +11621,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN
   br label %_ZN2cv8ximgproc19FeatureSpaceWeightsD2Ev.exit
 
 _ZN2cv8ximgproc19FeatureSpaceWeightsD2Ev.exit:    ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i, %14
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -16768,7 +16768,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZN2cv8ximgproc14FeatureNormalsD2Ev.exit
 
 _ZN2cv8ximgproc14FeatureNormalsD2Ev.exit:         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %7
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

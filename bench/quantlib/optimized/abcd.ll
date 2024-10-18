@@ -938,7 +938,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %this, align 8, !tbaa !30
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !28
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib12AbcdFunctionES3_EEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %this, ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib12AbcdFunctionES3_EEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
           to label %_ZN5boost10shared_ptrIN8QuantLib12AbcdFunctionEEC2IS2_EEPT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i

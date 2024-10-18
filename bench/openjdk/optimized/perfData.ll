@@ -489,11 +489,11 @@ define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture nou
   br i1 %5, label %.split5, label %.split
 
 .split5:                                          ; preds = %4
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef 5, i32 noundef 1)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, i32 noundef 5, i32 noundef 1)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1, ptr %6, align 8
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 8, i64 noundef 1, i64 noundef 1)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 noundef zeroext 8, i64 noundef 1, i64 noundef 1)
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -512,12 +512,12 @@ define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture nou
   %15 = load i32, ptr @PerfMaxStringConstLength, align 4
   %16 = add nsw i32 %15, 1
   %17 = tail call noundef i32 @llvm.smin.i32(i32 %14, i32 %16)
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef 5, i32 noundef 1)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, i32 noundef 5, i32 noundef 1)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %17, ptr %18, align 8
   %19 = sext i32 %17 to i64
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 8, i64 noundef 1, i64 noundef %19)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 noundef zeroext 8, i64 noundef 1, i64 noundef %19)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10PerfString, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
@@ -637,7 +637,7 @@ define hidden void @_ZN15PerfDataManager7destroyEv() local_unnamed_addr #0 align
 
 49:                                               ; preds = %._crit_edge
   store i32 0, ptr %.lcssa, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa)
   br label %50
 
 50:                                               ; preds = %49, %._crit_edge
@@ -661,7 +661,7 @@ define hidden void @_ZN15PerfDataManager7destroyEv() local_unnamed_addr #0 align
 
 60:                                               ; preds = %56
   store i32 0, ptr %54, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %54)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
   br label %_ZN13GrowableArrayIP8PerfDataED2Ev.exit.i10
 
 _ZN13GrowableArrayIP8PerfDataED2Ev.exit.i10:      ; preds = %60, %56
@@ -691,7 +691,7 @@ _ZN12PerfDataListD2Ev.exit11:                     ; preds = %53, %_ZN13GrowableA
 
 71:                                               ; preds = %67
   store i32 0, ptr %65, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %65)
   br label %_ZN13GrowableArrayIP8PerfDataED2Ev.exit.i13
 
 _ZN13GrowableArrayIP8PerfDataED2Ev.exit.i13:      ; preds = %71, %67
@@ -923,7 +923,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
 
 5:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #15
-  tail call void @_ZN12PerfDataListC2EPS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull readonly %3)
+  tail call void @_ZN12PerfDataListC2EPS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull readonly align 8 dereferenceable(8) %3)
   br label %7
 
 7:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %5
@@ -1077,12 +1077,12 @@ define hidden noundef ptr @_ZN15PerfDataManager22create_string_variableE9Counter
   %.016 = phi i32 [ %10, %8 ], [ %2, %5 ]
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   %13 = add nsw i32 %.016, 1
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %0, ptr noundef %1, i32 noundef 5, i32 noundef 3)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(52) %12, i32 noundef %0, ptr noundef %1, i32 noundef 5, i32 noundef 3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 48
   store i32 %13, ptr %14, align 8
   %15 = sext i32 %13 to i64
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 noundef zeroext 8, i64 noundef 1, i64 noundef %15)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(52) %12, i8 noundef zeroext 8, i64 noundef 1, i64 noundef %15)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV10PerfString, i64 16), ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 40
   %17 = load ptr, ptr %16, align 8
@@ -1123,7 +1123,7 @@ _ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit.thread: ; preds = %11, %_ZN18Pe
   br label %_ZN18PerfStringVariableD0Ev.exit
 
 _ZN18PerfStringVariableD0Ev.exit:                 ; preds = %_ZN18PerfStringVariableC2E9CounterNSPKciS2_.exit.thread, %33
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %12) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(52) %12) #15
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 405, ptr noundef %36, ptr noundef null) #15
   br label %38
@@ -1140,9 +1140,9 @@ _ZN18PerfStringVariableD0Ev.exit:                 ; preds = %_ZN18PerfStringVari
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 3)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -1172,7 +1172,7 @@ _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %
   br label %_ZN16PerfLongVariableD0Ev.exit
 
 _ZN16PerfLongVariableD0Ev.exit:                   ; preds = %_ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread, %14
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %6) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 423, ptr noundef %17, ptr noundef null) #15
   br label %19
@@ -1194,9 +1194,9 @@ define hidden noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNS
 
 8:                                                ; preds = %5
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 3)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %9, align 8
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   store ptr %3, ptr %10, align 8
@@ -1236,7 +1236,7 @@ _ZN16PerfLongVariableC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.ex
   br label %_ZN16PerfLongVariableD0Ev.exit
 
 _ZN16PerfLongVariableD0Ev.exit:                   ; preds = %19, %25
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %9) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %9) #15
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 445, ptr noundef %28, ptr noundef null) #15
   br label %30
@@ -1253,9 +1253,9 @@ _ZN16PerfLongVariableD0Ev.exit:                   ; preds = %19, %25
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 2)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 2)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %6, align 8
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -1285,7 +1285,7 @@ _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %5
   br label %_ZN15PerfLongCounterD0Ev.exit
 
 _ZN15PerfLongCounterD0Ev.exit:                    ; preds = %_ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread, %14
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %6) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 463, ptr noundef %17, ptr noundef null) #15
   br label %19
@@ -1307,9 +1307,9 @@ define hidden noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSP
 
 8:                                                ; preds = %5
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
-  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 2)
+  tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 2)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %9, align 8
-  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15PerfLongVariant, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   store ptr %3, ptr %10, align 8
@@ -1349,7 +1349,7 @@ _ZN15PerfLongCounterC2E9CounterNSPKcN8PerfData5UnitsEP20PerfLongSampleHelper.exi
   br label %_ZN15PerfLongCounterD0Ev.exit
 
 _ZN15PerfLongCounterD0Ev.exit:                    ; preds = %19, %25
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %9) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull align 8 dereferenceable(56) %9) #15
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef 485, ptr noundef %28, ptr noundef null) #15
   br label %30
@@ -1510,7 +1510,7 @@ define hidden void @_ZN12PerfDataListD2Ev(ptr nocapture noundef nonnull readonly
 
 8:                                                ; preds = %4
   store i32 0, ptr %2, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8PerfData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN13GrowableArrayIP8PerfDataED2Ev.exit
 
 _ZN13GrowableArrayIP8PerfDataED2Ev.exit:          ; preds = %4, %8

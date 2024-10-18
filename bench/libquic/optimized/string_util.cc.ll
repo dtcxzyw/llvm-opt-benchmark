@@ -608,7 +608,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i) #21
   %s16.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s16.i.i.i.i) #21
   %3 = ptrtoint ptr %call.i.i.i to i64
@@ -644,7 +644,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i) #21
   %s16.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s16.i.i.i.i) #21
   %3 = ptrtoint ptr %call.i.i.i to i64
@@ -3018,7 +3018,7 @@ for.cond.i:                                       ; preds = %invoke.cont.i, %if.
   br i1 %cmp.i.not.i, label %_ZN4baseL11JoinStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKSt6vectorIS7_SaIS7_EENS_16BasicStringPieceIS7_EE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14AppendToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %sep.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14AppendToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %sep.i, ptr noundef nonnull align 8 %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body.i
@@ -3067,7 +3067,7 @@ for.cond.i:                                       ; preds = %invoke.cont.i, %if.
   br i1 %cmp.i.not.i, label %_ZN4baseL11JoinStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEET_RKSt6vectorIS6_SaIS6_EENS_16BasicStringPieceIS6_EE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE14AppendToStringEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %sep.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE14AppendToStringEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %sep.i, ptr noundef nonnull align 8 %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body.i
@@ -3970,7 +3970,7 @@ delete.notnull.i:                                 ; preds = %entry
   %2 = inttoptr i64 %1 to ptr
   %s16.i.i = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s16.i.i) #21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #21
   tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %_ZN4base22DefaultSingletonTraitsINS_12_GLOBAL__N_112EmptyStringsEE6DeleteEPS2_.exit
 

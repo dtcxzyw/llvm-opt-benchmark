@@ -287,7 +287,7 @@ define void @_ZN18cranelift_frontend8frontend22FunctionBuilderContext3new17hed42
 "_ZN95_$LT$cranelift_frontend..frontend..FunctionBuilderContext$u20$as$u20$core..default..Default$GT$7default17h44f0e21e36fc50a4E.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %4, i64 296, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(296) %4, i64 296, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 328
@@ -505,7 +505,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e1e5eb39b6c3c46E.exit.thread": ; preds = %_ZN18cranelift_frontend3ssa10SSABuilder25declare_block_predecessor17hf22514fd2b151ab2E.exit.backedge, %85
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !48
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1f4b44055e580d5E.llvm.13942660722550990700"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1f4b44055e580d5E.llvm.13942660722550990700"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
   %100 = getelementptr inbounds i8, ptr %5, i64 8
   %101 = load i64, ptr %100, align 8, !range !57, !noalias !48, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %101, 0
@@ -547,7 +547,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
 
 116:                                              ; preds = %111
   %117 = sub nuw nsw i64 %114, %.pre37
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %117, i64 noundef 0)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %117, i64 noundef 0)
           to label %..thread.i_crit_edge unwind label %.loopexit
 
 ..thread.i_crit_edge:                             ; preds = %116
@@ -1181,7 +1181,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11try_def_var17h74
   br i1 %.not.i1.i, label %28, label %26
 
 26:                                               ; preds = %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit"
-  %27 = tail call noundef align 8 dereferenceable(32) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h0901a6714717cc78E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %9)
+  %27 = tail call noundef align 8 dereferenceable(32) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h0901a6714717cc78E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %6, i64 noundef %9)
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit.i"
 
 28:                                               ; preds = %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit"
@@ -1381,7 +1381,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %20
   br i1 %36, label %37, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ae4fa1073849f12E.exit"
 
 37:                                               ; preds = %33
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h66abbb20cf3c82b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %31)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h66abbb20cf3c82b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %31)
   %.pre.i = load i64, ptr %34, align 8, !alias.scope !179
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ae4fa1073849f12E.exit"
 
@@ -1682,7 +1682,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder40append_block_par
 define void @_ZN18cranelift_frontend8frontend15FunctionBuilder8finalize17h26b6fc564eb1a468E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !32, !noundef !4
-  tail call void @_ZN18cranelift_frontend3ssa10SSABuilder5clear17h1f75ca6809ee2986E(ptr noalias noundef nonnull align 8 dereferenceable(296) %3)
+  tail call void @_ZN18cranelift_frontend3ssa10SSABuilder5clear17h1f75ca6809ee2986E(ptr noalias noundef nonnull align 8 dereferenceable(360) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 312
   store i64 0, ptr %4, align 8, !alias.scope !202
   %5 = getelementptr inbounds i8, ptr %3, i64 344
@@ -1928,7 +1928,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %21)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %21)
           to label %.noexc unwind label %92
 
 .noexc:                                           ; preds = %24
@@ -1956,7 +1956,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %33)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %33)
           to label %.noexc4 unwind label %92
 
 .noexc4:                                          ; preds = %36
@@ -1983,7 +1983,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %44)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %44)
           to label %.noexc7 unwind label %92
 
 .noexc7:                                          ; preds = %47
@@ -2012,7 +2012,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %54
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %57)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %57)
           to label %.noexc10 unwind label %92
 
 .noexc10:                                         ; preds = %60
@@ -2086,7 +2086,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   %84 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %68), !noalias !264
   %85 = getelementptr inbounds i8, ptr %10, i64 12
   %86 = getelementptr inbounds i8, ptr %84, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !267
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly align 4 %10, ptr noundef nonnull readonly %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !267
   %87 = load i32, ptr %8, align 4, !noalias !260, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !260
   %88 = getelementptr inbounds i8, ptr %7, i64 1
@@ -2448,7 +2448,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %20
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %22)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %22)
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %25
@@ -2476,7 +2476,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %34)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %34)
           to label %.noexc4 unwind label %99
 
 .noexc4:                                          ; preds = %37
@@ -2503,7 +2503,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %45)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %45)
           to label %.noexc7 unwind label %99
 
 .noexc7:                                          ; preds = %48
@@ -2532,7 +2532,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %55
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %56, i64 noundef %58)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %58)
           to label %.noexc10 unwind label %99
 
 .noexc10:                                         ; preds = %61
@@ -2616,7 +2616,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit14
   %91 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %69), !noalias !356
   %92 = getelementptr inbounds i8, ptr %11, i64 12
   %93 = getelementptr inbounds i8, ptr %91, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %93), !noalias !359
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly align 4 %11, ptr noundef nonnull readonly %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %93), !noalias !359
   %94 = load i32, ptr %8, align 4, !noalias !352, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !352
   %95 = getelementptr inbounds i8, ptr %7, i64 1
@@ -2915,7 +2915,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %21)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %21)
           to label %.noexc unwind label %92
 
 .noexc:                                           ; preds = %24
@@ -2943,7 +2943,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %33)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %33)
           to label %.noexc4 unwind label %92
 
 .noexc4:                                          ; preds = %36
@@ -2970,7 +2970,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %44)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %44)
           to label %.noexc7 unwind label %92
 
 .noexc7:                                          ; preds = %47
@@ -2999,7 +2999,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %54
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %57)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %57)
           to label %.noexc10 unwind label %92
 
 .noexc10:                                         ; preds = %60
@@ -3073,7 +3073,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   %84 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %68), !noalias !440
   %85 = getelementptr inbounds i8, ptr %10, i64 12
   %86 = getelementptr inbounds i8, ptr %84, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !443
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly align 4 %10, ptr noundef nonnull readonly %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !443
   %87 = load i32, ptr %8, align 4, !noalias !436, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !436
   %88 = getelementptr inbounds i8, ptr %7, i64 1
@@ -3130,7 +3130,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0892ed9d0f6fa1e8E.exit"
 
 24:                                               ; preds = %6
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h962ca6310042ec32E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %20, i64 noundef 3)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h962ca6310042ec32E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20, i64 noundef 3)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0892ed9d0f6fa1e8E.exit" unwind label %100
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0892ed9d0f6fa1e8E.exit": ; preds = %6, %24
@@ -3145,7 +3145,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %26)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %26)
           to label %.noexc3 unwind label %100
 
 .noexc3:                                          ; preds = %29
@@ -3173,7 +3173,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %38)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %38)
           to label %.noexc5 unwind label %100
 
 .noexc5:                                          ; preds = %41
@@ -3200,7 +3200,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %49)
           to label %.noexc8 unwind label %100
 
 .noexc8:                                          ; preds = %52
@@ -3229,7 +3229,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %59
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %62)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h67453245d5f5adb2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60, i64 noundef %62)
           to label %.noexc11 unwind label %100
 
 .noexc11:                                         ; preds = %65
@@ -3303,7 +3303,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   %89 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %73), !noalias !485
   %90 = getelementptr inbounds i8, ptr %10, i64 12
   %91 = getelementptr inbounds i8, ptr %89, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %90, ptr noalias noundef nonnull align 8 dereferenceable(48) %91), !noalias !488
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly align 4 %10, ptr noundef nonnull readonly %90, ptr noalias noundef nonnull align 8 dereferenceable(48) %91), !noalias !488
   %92 = load i32, ptr %8, align 4, !noalias !481, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !481
   %93 = getelementptr inbounds i8, ptr %7, i64 1

@@ -4649,7 +4649,7 @@ define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noca
 
 36:                                               ; preds = %31
   %37 = sub nuw i32 %34, %32
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %33)
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %37, i32 range(i32 0, 65536) %33)
   %38 = and i32 %spec.select.i.i, 65534
   %.not24.i.i = icmp eq i32 %38, 0
   br i1 %.not24.i.i, label %smb_find_unicode_null_offset.exit.i, label %.lr.ph.i.i
@@ -4942,7 +4942,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
 147:                                              ; preds = %139
   %148 = load i32, ptr @hf_smb_dfs_referral_path, align 4
   %149 = add i32 %49, %124
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %148, i32 noundef %149, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %146, i32 noundef %5, ptr noundef %9)
+  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %148, i32 noundef %149, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %146, i32 noundef %5, ptr noundef nonnull %9)
   br label %150
 
 150:                                              ; preds = %147, %139
@@ -4953,7 +4953,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   %152 = load i32, ptr @hf_smb_dfs_referral_alt_path, align 4
   %153 = add i32 %49, %133
   %154 = load i16, ptr %4, align 2
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %152, i32 noundef %153, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %154, i32 noundef %5, ptr noundef %9)
+  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %152, i32 noundef %153, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %154, i32 noundef %5, ptr noundef nonnull %9)
   br label %155
 
 155:                                              ; preds = %151, %150
@@ -4964,7 +4964,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   %157 = load i32, ptr @hf_smb_dfs_referral_node, align 4
   %158 = add i32 %49, %142
   %159 = load i16, ptr %4, align 2
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %157, i32 noundef %158, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %159, i32 noundef %5, ptr noundef %9)
+  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %157, i32 noundef %158, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %159, i32 noundef %5, ptr noundef nonnull %9)
   br label %dissect_dfs_referral_entry_v2.exit
 
 dissect_dfs_referral_entry_v2.exit:               ; preds = %105, %107, %114, %121, %130, %155, %156
@@ -8605,7 +8605,7 @@ define internal noundef i32 @dissect_open_file_response(ptr noundef %0, ptr noca
   br label %dissect_smb_UTIME.exit
 
 38:                                               ; preds = %25
-  %39 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %33)
+  %39 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %33)
   %40 = sext i32 %39 to i64
   %41 = add nsw i64 %40, %33
   %42 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %41)
@@ -8706,7 +8706,7 @@ define internal i32 @dissect_create_file_request(ptr noundef %0, ptr nocapture n
   br label %dissect_smb_UTIME.exit
 
 33:                                               ; preds = %19
-  %34 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %28)
+  %34 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %28)
   %35 = sext i32 %34 to i64
   %36 = add nsw i64 %35, %28
   %37 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %36)
@@ -8922,7 +8922,7 @@ define internal noundef i32 @dissect_close_file_request(ptr noundef %0, ptr noca
   br label %dissect_smb_UTIME.exit
 
 25:                                               ; preds = %14
-  %26 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %20)
+  %26 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %20)
   %27 = sext i32 %26 to i64
   %28 = add nsw i64 %27, %20
   %29 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %28)
@@ -9521,7 +9521,7 @@ define internal noundef i32 @dissect_query_information_response(ptr noundef %0, 
   br label %dissect_smb_UTIME.exit
 
 26:                                               ; preds = %14
-  %27 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %21)
+  %27 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %21)
   %28 = sext i32 %27 to i64
   %29 = add nsw i64 %28, %21
   %30 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %29)
@@ -9619,7 +9619,7 @@ define internal i32 @dissect_set_information_request(ptr noundef %0, ptr nocaptu
   br label %dissect_smb_UTIME.exit
 
 31:                                               ; preds = %19
-  %32 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %26)
+  %32 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %26)
   %33 = sext i32 %32 to i64
   %34 = add nsw i64 %33, %26
   %35 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %34)
@@ -10382,7 +10382,7 @@ define internal i32 @dissect_create_temporary_request(ptr noundef %0, ptr nocapt
   br label %dissect_smb_UTIME.exit
 
 30:                                               ; preds = %19
-  %31 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %25)
+  %31 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %25)
   %32 = sext i32 %31 to i64
   %33 = add nsw i64 %32, %25
   %34 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %33)
@@ -12734,7 +12734,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
 235:                                              ; preds = %232, %228, %225
   %.0249.i = phi ptr [ %234, %232 ], [ null, %228 ], [ null, %225 ]
   %236 = load i32, ptr @ett_smb_transaction_params, align 4
-  %237 = call ptr @val_to_str_ext(i32 noundef %.0279, ptr noundef nonnull @trans2_cmd_vals_ext, ptr noundef nonnull @.str.2599) #15
+  %237 = call ptr @val_to_str_ext(i32 noundef range(i32 -1, 65536) %.0279, ptr noundef nonnull @trans2_cmd_vals_ext, ptr noundef nonnull @.str.2599) #15
   %238 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %218, i32 noundef %221, i32 noundef %236, ptr noundef null, ptr noundef nonnull @.str.2633, ptr noundef %237) #15
   switch i32 %.0279, label %thread-pre-split.i.thread [
     i32 0, label %239
@@ -12867,7 +12867,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   br i1 %319, label %dissect_transaction2_request_parameters.exit, label %320
 
 320:                                              ; preds = %315
-  %321 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %318, ptr noundef %5)
+  %321 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %318, ptr noundef nonnull %5)
   %322 = icmp eq i16 %313, 6
   br i1 %322, label %dissect_transaction2_request_parameters.exit, label %323
 
@@ -13014,7 +13014,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   br i1 %409, label %dissect_transaction2_request_parameters.exit, label %410
 
 410:                                              ; preds = %405
-  %411 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %408, ptr noundef %5)
+  %411 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %408, ptr noundef nonnull %5)
   store i32 %411, ptr %11, align 4
   %412 = add i16 %.0272, -12
   store i16 %412, ptr %12, align 2
@@ -13641,7 +13641,7 @@ dissect_transaction2_request_parameters.exit:     ; preds = %239, %241, %245, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i16 %.0276, ptr %9, align 2
   %790 = load i32, ptr @ett_smb_transaction_data, align 4
-  %791 = call ptr @val_to_str_ext(i32 noundef %.0279, ptr noundef nonnull @trans2_cmd_vals_ext, ptr noundef nonnull @.str.2599) #15
+  %791 = call ptr @val_to_str_ext(i32 noundef range(i32 -1, 65536) %.0279, ptr noundef nonnull @trans2_cmd_vals_ext, ptr noundef nonnull @.str.2599) #15
   %792 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %782, i32 noundef %785, i32 noundef %790, ptr noundef nonnull %10, ptr noundef nonnull @.str.2639, ptr noundef %791) #15
   switch i32 %.0279, label %dissect_sfsi_request.exit.thread35.i [
     i32 17, label %816
@@ -13681,12 +13681,12 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
 
 810:                                              ; preds = %789
   %811 = load ptr, ptr %10, align 8
-  %812 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %811, i32 noundef %782, ptr noundef %9, ptr noundef readonly %5)
+  %812 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %811, i32 noundef %782, ptr noundef %9, ptr noundef nonnull readonly %5)
   br label %dissect_sfsi_request.exit.i
 
 813:                                              ; preds = %789
   %814 = load ptr, ptr %10, align 8
-  %815 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %814, i32 noundef %782, ptr noundef %9, ptr noundef readonly %5)
+  %815 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %814, i32 noundef %782, ptr noundef %9, ptr noundef nonnull readonly %5)
   br label %dissect_sfsi_request.exit.i
 
 816:                                              ; preds = %789
@@ -14926,7 +14926,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %326, %328, %442, %4
 
 503:                                              ; preds = %502
   %504 = add i32 %.070.i, -1
-  %505 = call fastcc i32 @dissect_ff2_response_data(ptr noundef %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.1.i, ptr noundef %11, ptr noundef %10, ptr noundef %5)
+  %505 = call fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.1.i, ptr noundef %11, ptr noundef %10, ptr noundef nonnull %5)
   %506 = load i32, ptr %10, align 4
   %.not90.i = icmp eq i32 %506, 0
   br i1 %.not90.i, label %502, label %dissect_sfsi_response.exit.i, !llvm.loop !19
@@ -14957,7 +14957,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %326, %328, %442, %4
 
 514:                                              ; preds = %513
   %515 = add i32 %.171.i, -1
-  %516 = call fastcc i32 @dissect_ff2_response_data(ptr noundef %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.2.i, ptr noundef %11, ptr noundef %10, ptr noundef %5)
+  %516 = call fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.2.i, ptr noundef %11, ptr noundef %10, ptr noundef nonnull %5)
   %517 = load i32, ptr %10, align 4
   %.not87.i = icmp eq i32 %517, 0
   br i1 %.not87.i, label %513, label %dissect_sfsi_response.exit.i, !llvm.loop !20
@@ -15540,12 +15540,12 @@ dissect_qfsi_vals.exit.i:                         ; preds = %.lr.ph.i.i, %754, %
 
 871:                                              ; preds = %494
   %872 = load ptr, ptr %9, align 8
-  %873 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %872, ptr noundef %11, ptr noundef %5)
+  %873 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %872, ptr noundef %11, ptr noundef nonnull %5)
   br label %dissect_sfsi_response.exit.i
 
 874:                                              ; preds = %494
   %875 = load ptr, ptr %9, align 8
-  %876 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %875, ptr noundef %11, ptr noundef %5)
+  %876 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %875, ptr noundef %11, ptr noundef nonnull %5)
   br label %dissect_sfsi_response.exit.i
 
 877:                                              ; preds = %494
@@ -16147,7 +16147,7 @@ define internal i32 @dissect_write_and_close_request(ptr noundef %0, ptr nocaptu
   br label %dissect_smb_UTIME.exit
 
 33:                                               ; preds = %14
-  %34 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %28)
+  %34 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %28)
   %35 = sext i32 %34 to i64
   %36 = add nsw i64 %35, %28
   %37 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %36)
@@ -16285,7 +16285,7 @@ define internal i32 @dissect_open_andx_request(ptr noundef %0, ptr noundef %1, p
   br label %dissect_smb_UTIME.exit
 
 58:                                               ; preds = %28
-  %59 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %53)
+  %59 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %53)
   %60 = sext i32 %59 to i64
   %61 = add nsw i64 %60, %53
   %62 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %61)
@@ -16520,7 +16520,7 @@ define internal noundef i32 @dissect_open_andx_response(ptr noundef %0, ptr noun
   br label %dissect_smb_UTIME.exit
 
 49:                                               ; preds = %23
-  %50 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %44)
+  %50 = tail call fastcc i32 @TimeZoneFaster(i64 noundef range(i64 0, 4294967296) %44)
   %51 = sext i32 %50 to i64
   %52 = add nsw i64 %51, %44
   %53 = tail call fastcc i32 @TimeZoneFaster(i64 noundef %52)
@@ -20203,8 +20203,8 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
 126:                                              ; preds = %123, %119, %116
   %.063.i = phi ptr [ %125, %123 ], [ null, %119 ], [ null, %116 ]
   %127 = load i32, ptr @ett_smb_nt_trans_setup, align 4
-  %128 = tail call ptr @val_to_str_ext(i32 noundef %78, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2684) #15
-  %129 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %115, i32 noundef %117, i32 noundef %127, ptr noundef null, ptr noundef nonnull @.str.2683, ptr noundef %128) #15
+  %128 = tail call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %78, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2684) #15
+  %129 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %115, i32 noundef range(i32 2, 511) %117, i32 noundef %127, ptr noundef null, ptr noundef nonnull @.str.2683, ptr noundef %128) #15
   switch i16 %77, label %dissect_nt_trans_setup_request.exit [
     i16 4, label %143
     i16 2, label %130
@@ -20560,11 +20560,11 @@ define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef
   %91 = load i32, ptr @hf_smb_nt_transaction_setup, align 4
   %92 = load i32, ptr %.0.i, align 4
   %93 = tail call ptr @val_to_str_ext(i32 noundef %92, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2690) #15
-  %94 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %2, i32 noundef %91, ptr noundef %0, i32 noundef %78, i32 noundef %80, ptr noundef null, ptr noundef nonnull @.str.2683, ptr noundef %93) #15
+  %94 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %2, i32 noundef %91, ptr noundef %0, i32 noundef %78, i32 noundef range(i32 0, 511) %80, ptr noundef null, ptr noundef nonnull @.str.2683, ptr noundef %93) #15
   br label %dissect_nt_trans_setup_response.exit
 
 95:                                               ; preds = %89
-  %96 = tail call ptr @proto_tree_add_expert(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_smb_nt_transaction_setup, ptr noundef %0, i32 noundef %78, i32 noundef %80) #15
+  %96 = tail call ptr @proto_tree_add_expert(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_smb_nt_transaction_setup, ptr noundef %0, i32 noundef %78, i32 noundef range(i32 0, 511) %80) #15
   br label %dissect_nt_trans_setup_response.exit
 
 dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
@@ -26582,7 +26582,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
   %1201 = load i16, ptr %4, align 2
   %1202 = add i16 %1201, -4
   store i16 %1202, ptr %4, align 2
-  %1203 = tail call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1200, ptr noundef %4, ptr noundef %5)
+  %1203 = tail call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1200, ptr noundef nonnull %4, ptr noundef nonnull %5)
   store i32 %1203, ptr %8, align 4
   %1204 = load i32, ptr %5, align 4
   %.not.i116 = icmp eq i32 %1204, 0
@@ -26650,7 +26650,7 @@ dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197,
   %1239 = load i16, ptr %4, align 2
   %1240 = add i16 %1239, -4
   store i16 %1240, ptr %4, align 2
-  %1241 = tail call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1238, ptr noundef %4, ptr noundef %5)
+  %1241 = tail call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1238, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %1242 = load i32, ptr %5, align 4
   %.not.i119 = icmp eq i32 %1242, 0
   br i1 %.not.i119, label %1243, label %dissect_find_file_unix_info2.exit
@@ -27613,7 +27613,7 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %37 = add i16 %.15112, -1
   %38 = load i32, ptr @ett_smb_search_dir_info, align 4
   %39 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.213, i32 noundef 43, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.2681) #15
-  %40 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %39, i32 noundef %.213, ptr noundef %6, ptr noundef %7, i32 noundef %3)
+  %40 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %39, i32 noundef %.213, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef range(i32 0, 2) %3)
   %41 = load i32, ptr %7, align 4
   %.not37.i = icmp eq i32 %41, 0
   br i1 %.not37.i, label %43, label %dissect_search_dir_info.exit.thread

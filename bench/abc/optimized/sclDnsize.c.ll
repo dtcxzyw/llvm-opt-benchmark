@@ -2012,7 +2012,7 @@ define internal fastcc void @Vec_QuePush(ptr nocapture noundef %0, i32 noundef %
 6:                                                ; preds = %2
   %7 = add nsw i32 %4, 1
   %8 = shl nsw i32 %5, 1
-  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %7, i32 %8)
+  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %7, i32 %8)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %0, i32 noundef %9)
   %.pre = load i32, ptr %0, align 8
   br label %10
@@ -2025,7 +2025,7 @@ define internal fastcc void @Vec_QuePush(ptr nocapture noundef %0, i32 noundef %
 12:                                               ; preds = %10
   %13 = add nsw i32 %1, 1
   %14 = shl nsw i32 %11, 1
-  %15 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 %14)
+  %15 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %13, i32 %14)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %0, i32 noundef %15)
   br label %16
 
@@ -2548,7 +2548,7 @@ Abc_SclObjCell.exit.i:                            ; preds = %162
 186:                                              ; preds = %Abc_SclObjCell.exit.i
   %187 = add nsw i32 %184, 1
   %188 = shl nsw i32 %185, 1
-  %189 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %187, i32 %188)
+  %189 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %187, i32 %188)
   call fastcc void @Vec_QueGrow(ptr noundef nonnull %182, i32 noundef %189)
   %.pre.i238 = load i32, ptr %182, align 8
   br label %190
@@ -2561,7 +2561,7 @@ Abc_SclObjCell.exit.i:                            ; preds = %162
 192:                                              ; preds = %190
   %193 = add nsw i32 %.val14.i, 1
   %194 = shl nsw i32 %191, 1
-  %195 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %193, i32 %194)
+  %195 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %193, i32 %194)
   call fastcc void @Vec_QueGrow(ptr noundef nonnull %182, i32 noundef %195)
   br label %196
 
@@ -3200,7 +3200,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 499:                                              ; preds = %493
   %500 = add nsw i32 %497, 1
   %501 = shl nsw i32 %498, 1
-  %502 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %500, i32 %501)
+  %502 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %500, i32 %501)
   %503 = getelementptr inbounds i8, ptr %494, i64 8
   %504 = load ptr, ptr %503, align 8
   %.not23.i264 = icmp eq ptr %504, null
@@ -3263,7 +3263,7 @@ Vec_QueGrow.exit267:                              ; preds = %517, %515
 536:                                              ; preds = %534
   %537 = add nsw i32 %.val, 1
   %538 = shl nsw i32 %535, 1
-  %539 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %537, i32 %538)
+  %539 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %537, i32 %538)
   %.not.i261 = icmp slt i32 %535, %539
   br i1 %.not.i261, label %540, label %Vec_QueGrow.exit
 

@@ -510,7 +510,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl26ComputeCovGuideInv_ParBod
 
 22:                                               ; preds = %3
   %23 = sub nuw nsw i64 %13, %20
-  invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %23)
+  invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(28) %6, i64 noundef %23)
           to label %_ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit unwind label %.loopexit.split-lp
 
 24:                                               ; preds = %3
@@ -2240,7 +2240,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyclERK
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl6createERKNS_11_InputArrayEidd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #21
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(156) %6)
           to label %7 unwind label %27
 
 7:                                                ; preds = %5
@@ -2822,7 +2822,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit39:   ; preds = %209, %211, %213, %_
 
 221:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #19
   %222 = load ptr, ptr %20, align 8
   %223 = getelementptr inbounds i8, ptr %20, i64 8
   %224 = load ptr, ptr %223, align 8
@@ -2880,7 +2880,7 @@ _ZN2cv8ximgproc10SymArray2DINS_3MatEED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 233:                                              ; preds = %218
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #19
   br label %235
 
 235:                                              ; preds = %233, %231
@@ -2948,7 +2948,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %16, %13
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
   ret void
 
 19:                                               ; preds = %3
@@ -2997,7 +2997,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %16, %13
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
   ret void
 
 19:                                               ; preds = %3
@@ -3252,7 +3252,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %16, %13
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
   ret void
 
 19:                                               ; preds = %3
@@ -3288,7 +3288,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl15computeCovGuideERNS0_10Sy
 
 22:                                               ; preds = %2
   %23 = sub nuw nsw i64 %13, %20
-  tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %23)
+  tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(28) %1, i64 noundef %23)
   br label %_ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit
 
 24:                                               ; preds = %2
@@ -3356,7 +3356,7 @@ _ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit: ; preds = %22, %24, %26, %_
 
 51:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   call void @_ZN2cv8ximgproc16GuidedFilterImpl13parMeanFilterISt6vectorINS_3MatESaIS4_EEEEvRT_S8_(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %1)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16GuidedFilterImpl38ComputeCovGuideFromChannelsMul_ParBodyE, i64 16), ptr %6, align 8
   %52 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3373,7 +3373,7 @@ _ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit: ; preds = %22, %24, %26, %_
 
 56:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   ret void
 
 57:                                               ; preds = %._crit_edge
@@ -3389,7 +3389,7 @@ _ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit: ; preds = %22, %24, %26, %_
 61:                                               ; preds = %59, %57
   %.sink = phi ptr [ %6, %59 ], [ %5, %57 ]
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -3817,7 +3817,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %112, %114, %116, %_
 
 145:                                              ; preds = %._crit_edge126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   %146 = load ptr, ptr %13, align 8
   %147 = load ptr, ptr %88, align 8
   %.not.i.i85 = icmp eq ptr %147, %146
@@ -3880,7 +3880,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %145, %_ZSt8_D
 
 161:                                              ; preds = %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   invoke void @_ZN2cv8ximgproc16GuidedFilterImpl13parMeanFilterISt6vectorINS_3MatESaIS4_EEEEvRT_S8_(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3904,13 +3904,13 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %145, %_ZSt8_D
 168:                                              ; preds = %._crit_edge126
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   br label %.loopexit.split-lp
 
 170:                                              ; preds = %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit
   %171 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   br label %.loopexit.split-lp
 
 172:                                              ; preds = %167, %163
@@ -3929,7 +3929,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %145, %_ZSt8_D
           to label %178 unwind label %186
 
 178:                                              ; preds = %172
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #19
   %.not57 = icmp ne i32 %.043, 5
   %179 = icmp ne i32 %57, 0
   %or.cond = and i1 %.not57, %179
@@ -3960,7 +3960,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %145, %_ZSt8_D
 186:                                              ; preds = %172
   %187 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #19
   br label %.loopexit.split-lp
 
 188:                                              ; preds = %182
@@ -4319,7 +4319,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %56, %58, %60, %_ZSt
 
 81:                                               ; preds = %._crit_edge35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZN2cv8ximgproc16GuidedFilterImpl13parMeanFilterISt6vectorINS_3MatESaIS4_EEEEvRT_S8_(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   call void @_ZN2cv8ximgproc16GuidedFilterImpl13parMeanFilterISt6vectorIS3_INS_3MatESaIS4_EESaIS6_EEEEvRT_SA_(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16GuidedFilterImpl36ComputeCovFromSrcChannelsMul_ParBodyE, i64 16), ptr %8, align 8
@@ -4339,7 +4339,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %56, %58, %60, %_ZSt
 
 87:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   ret void
 
 88:                                               ; preds = %._crit_edge35
@@ -4355,7 +4355,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %56, %58, %60, %_ZSt
 92:                                               ; preds = %90, %88
   %.sink = phi ptr [ %8, %90 ], [ %7, %88 ]
   %.pn = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -4410,7 +4410,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %16, %13
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
   ret void
 
 19:                                               ; preds = %3
@@ -4459,7 +4459,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %16, %13
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
   ret void
 
 19:                                               ; preds = %3
@@ -4508,7 +4508,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %16, %13
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
   ret void
 
 19:                                               ; preds = %3
@@ -4979,56 +4979,56 @@ declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl24MulChannelsGuide_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl38ComputeCovGuideFromChannelsMul_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl30MulChannelsGuideAndSrc_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl36ComputeCovFromSrcChannelsMul_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl20ComputeAlpha_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19ComputeBeta_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl22ApplyTransform_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl26ComputeCovGuideInv_ParBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -5083,7 +5083,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i:       ; preds = %4, %1
   br label %_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit
 
 _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit.i, %7
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

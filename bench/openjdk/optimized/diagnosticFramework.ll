@@ -716,7 +716,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 255, ptr noundef nonnull %.str.8.sink.i, ptr noundef %82) #19
   %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %.sink.i, ptr noundef %84, ptr noundef nonnull %5) #19
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef %.sink.i, ptr noundef %84, ptr noundef nonnull %5) #19
   br label %_ZN10DCmdParser5checkEP10JavaThread.exit
 
 _ZN10DCmdParser5checkEP10JavaThread.exit:         ; preds = %79, %.preheader.i, %.loopexit.sink.split.i
@@ -2093,7 +2093,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %1
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 47:                                               ; preds = %33
-  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %37, i64 noundef 8, i32 noundef 0) #19
+  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %37, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %47, %45

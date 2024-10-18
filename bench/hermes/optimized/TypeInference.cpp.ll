@@ -89,11 +89,11 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i, %for.body.lr.ph.i
   %__begin1.sroa.0.064.i = phi ptr [ %__begin1.sroa.0.061.i, %for.body.lr.ph.i ], [ %__begin1.sroa.0.0.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i ]
   %changed.063.i = phi i1 [ false, %for.body.lr.ph.i ], [ %or4.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %scgp.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %scgp.i, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %callsites_.i.i.i, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %receivers_.i.i.i, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %stores_.i.i.i, i8 0, i64 20, i1 false)
-  call void @_ZN6hermes23SimpleCallGraphProvider21initCallRelationshipsEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(96) %scgp.i, ptr noundef %__begin1.sroa.0.064.i) #7
+  call void @_ZN6hermes23SimpleCallGraphProvider21initCallRelationshipsEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(96) %scgp.i, ptr noundef nonnull %__begin1.sroa.0.064.i) #7
   %this.val.val.i.i = load ptr, ptr %callsites_.i.i.i, align 8
   %this.val.val16.i.i = load i32, ptr %0, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %this.val.val16.i.i, 0
@@ -242,14 +242,14 @@ for.body14.i.i.i.i:                               ; preds = %_ZN4llvh6detail12De
   %paramTy.sroa.0.035.i.i.i.i = phi i32 [ 1023, %for.body14.lr.ph.i.i.i.i ], [ %storemerge.i.i.i.i, %_ZN4llvh6detail12DenseSetImplIPN6hermes8CallInstENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i.i.i ]
   %__begin2.sroa.0.034.i.i.i.i = phi ptr [ %add.ptr.i.i.pn16.i.i.i.i.i.i, %for.body14.lr.ph.i.i.i.i ], [ %__begin2.sroa.0.1.i.i.i.i, %_ZN4llvh6detail12DenseSetImplIPN6hermes8CallInstENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i.i.i ]
   %call17.i.i.i.i = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i.i) #7
-  %call.i.i.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %23) #7
+  %call.i.i.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %23) #7
   %sub.i.i.i.i.i = add i32 %call.i.i.i.i.i, -2
   %24 = zext i32 %sub.i.i.i.i.i to i64
   %cmp19.i.i.i.i = icmp samesign ult i64 %20, %24
   br i1 %cmp19.i.i.i.i, label %if.then20.i.i.i.i, label %if.end22.i.i.i.i
 
 if.then20.i.i.i.i:                                ; preds = %for.body14.i.i.i.i
-  %call.i17.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %23, i32 noundef %22) #7
+  %call.i17.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef %22) #7
   br label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.then20.i.i.i.i, %for.body14.i.i.i.i
@@ -400,11 +400,11 @@ sw.bb.i.i.i:                                      ; preds = %for.body16.i.i
   ]
 
 sw.bb2.i.i.i.i:                                   ; preds = %sw.bb.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i.i
-  %call.i.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
+  %call.i.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
   %valueType.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %valueType.i.i.i.i.i.i, align 2
   %LeftTy.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i.i.i.i.i.i to i16
-  %call.i6.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
+  %call.i6.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
   %valueType.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i8.i.i.i.i.i = load i32, ptr %valueType.i7.i.i.i.i.i, align 2
   %RightTy.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i8.i.i.i.i.i to i16
@@ -431,11 +431,11 @@ if.end13.i.i.i.i.i:                               ; preds = %land.lhs.true7.i.i.
   br label %return.sink.split.i.i.i.i
 
 sw.bb6.i.i.i.i:                                   ; preds = %sw.bb.i.i.i
-  %call.i.i14.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
+  %call.i.i14.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
   %valueType.i.i15.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i14.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i.i16.i.i.i.i = load i32, ptr %valueType.i.i15.i.i.i.i, align 2
   %LeftTy.sroa.0.0.extract.trunc.i17.i.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i.i16.i.i.i.i to i16
-  %call.i6.i18.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
+  %call.i6.i18.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
   %valueType.i7.i19.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i18.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i8.i20.i.i.i.i = load i32, ptr %valueType.i7.i19.i.i.i.i, align 2
   %RightTy.sroa.0.0.extract.trunc.i21.i.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i8.i20.i.i.i.i to i16
@@ -465,11 +465,11 @@ sw.bb10.i.i.i.i:                                  ; preds = %sw.bb.i.i.i
   br label %return.sink.split.i.i.i.i
 
 sw.bb14.i.i.i.i:                                  ; preds = %sw.bb.i.i.i
-  %call.i.i.i69.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
+  %call.i.i.i69.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
   %valueType.i36.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i69.i.i, i64 2
   %retval.sroa.0.0.copyload.i.i.i70.i.i = load i32, ptr %valueType.i36.i.i.i.i, align 2
   %LeftTy.sroa.0.0.extract.trunc.i.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i.i.i70.i.i to i16
-  %call.i37.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
+  %call.i37.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
   %valueType.i38.i.i.i.i = getelementptr inbounds i8, ptr %call.i37.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i39.i.i.i.i = load i32, ptr %valueType.i38.i.i.i.i, align 2
   %RightTy.sroa.0.0.extract.trunc.i.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i39.i.i.i.i to i16
@@ -518,10 +518,10 @@ if.end62.i.i.i.i:                                 ; preds = %land.lhs.true52.i.i
   br label %return.sink.split.i.i.i.i
 
 sw.bb69.i.i.i.i:                                  ; preds = %sw.bb.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i.i
-  %call.i.i54.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
+  %call.i.i54.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 0) #7
   %valueType.i.i55.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i54.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i.i56.i.i.i.i = load i32, ptr %valueType.i.i55.i.i.i.i, align 2
-  %call.i3.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
+  %call.i3.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %__begin3.sroa.0.0199.i.i, i32 noundef 1) #7
   %valueType.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3.i.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i5.i.i.i.i.i = load i32, ptr %valueType.i4.i.i.i.i.i, align 2
   %37 = and i32 %retval.sroa.0.0.copyload.i.i56.i.i.i.i, 960

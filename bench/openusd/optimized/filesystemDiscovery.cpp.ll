@@ -297,7 +297,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29_NdrFilesystemDiscoveryPlugi
           to label %.noexc10 unwind label %90
 
 .noexc10:                                         ; preds = %16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc11 unwind label %90
 
 .noexc11:                                         ; preds = %.noexc10
@@ -307,7 +307,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29_NdrFilesystemDiscoveryPlugi
 18:                                               ; preds = %.noexc11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
@@ -405,7 +405,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %.noexc17 unwind label %94
 
 .noexc17:                                         ; preds = %50
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc18 unwind label %94
 
 .noexc18:                                         ; preds = %.noexc17
@@ -415,7 +415,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 52:                                               ; preds = %.noexc18
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   br label %.body19
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; preds = %.noexc18
@@ -559,7 +559,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i.i, label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEED2Ev.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEED2Ev.exit unwind label %103
 
 103:                                              ; preds = %101
@@ -640,7 +640,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29_NdrFilesystemDiscoveryPlugi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -648,15 +648,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29_NdrFilesystemDiscoveryPlugi
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEC2EOS4_.exit.i, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEC2EOS4_.exit.i
 
 _ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEC2EOS4_.exit.i: ; preds = %10, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -671,7 +671,7 @@ _ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEE
   br i1 %.not.i.i.i, label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEaSEOS4_.exit, label %16
 
 16:                                               ; preds = %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEC2EOS4_.exit.i
-  %17 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEaSEOS4_.exit unwind label %18
 
 18:                                               ; preds = %16
@@ -710,7 +710,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29_NdrFilesystemDiscoveryPlugi
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_S4_PNS0_10NdrVersionEEED2Ev.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_S4_PNS0_10NdrVersionEEED2Ev.exit unwind label %17
 
 17:                                               ; preds = %15
@@ -754,7 +754,7 @@ _ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_S4_PNS0_10Ndr
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %27, align 8
-  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(272) %.sroa.015.033)
+  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(272) %.sroa.015.033)
           to label %_ZNKSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEclES2_.exit unwind label %.loopexit
 
 _ZNKSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEEclES2_.exit: ; preds = %31
@@ -776,7 +776,7 @@ _ZNKSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEE
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_S4_PNS0_10NdrVersionEEED2Ev.exit10, label %40
 
 40:                                               ; preds = %37
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_S4_PNS0_10NdrVersionEEED2Ev.exit10 unwind label %42
 
 42:                                               ; preds = %40
@@ -1042,7 +1042,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__29_NdrFilesystemD
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFbRN32pxrInternal_v0_24__pxrReserved__22NdrNodeDiscoveryResultEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4

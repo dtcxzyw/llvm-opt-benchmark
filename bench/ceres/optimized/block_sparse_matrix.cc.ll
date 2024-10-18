@@ -711,7 +711,7 @@ define hidden noundef ptr @_ZN5ceres8internal17BlockSparseMatrix14AllocateValues
   store ptr null, ptr %4, align 8
   %17 = sext i32 %1 to i64
   %18 = shl nsw i64 %17, 3
-  %19 = call noundef i32 @cudaHostAlloc(ptr noundef nonnull %4, i64 noundef %18, i32 noundef 0)
+  %19 = call noundef i32 @cudaHostAlloc(ptr noundef nonnull %4, i64 noundef range(i64 -17179869184, 17179869177) %18, i32 noundef 0)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %21
 
@@ -1832,7 +1832,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i", label %148
 
 148:                                              ; preds = %146
-  %149 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %149 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" unwind label %150
 
 150:                                              ; preds = %148
@@ -1855,7 +1855,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i40.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i, label %158
 
 158:                                              ; preds = %155
-  %159 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %159 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i unwind label %160
 
 160:                                              ; preds = %158
@@ -2339,7 +2339,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i: ; preds = %112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.41)
   %121 = load ptr, ptr %29, align 8
-  %122 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %121, i32 noundef %4)
+  %122 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %121, i32 noundef range(i32 2, 1) %4)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i unwind label %127
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i: ; preds = %120
@@ -2468,7 +2468,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 .critedge.i.i:                                    ; preds = %169
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %177 = shl nsw i32 %4, 2
-  %178 = call i32 @llvm.umin.i32(i32 %177, i32 %111)
+  %178 = call i32 @llvm.umin.i32(i32 %177, i32 range(i32 1, 0) %111)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %179 = call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #29, !noalias !26
   %180 = getelementptr inbounds i8, ptr %179, i64 8
@@ -2477,7 +2477,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   store i32 1, ptr %181, align 4, !noalias !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %179, align 8, !noalias !26
   %182 = getelementptr inbounds i8, ptr %179, i64 16
-  invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %182, i32 noundef 0, i32 noundef %111, i32 noundef %178)
+  invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %182, i32 noundef 0, i32 noundef range(i32 1, 0) %111, i32 noundef %178)
           to label %184 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i, !noalias !26
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i: ; preds = %.critedge.i.i
@@ -2569,7 +2569,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i", label %220
 
 220:                                              ; preds = %218
-  %221 = invoke noundef zeroext i1 %219(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %221 = invoke noundef zeroext i1 %219(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" unwind label %222
 
 222:                                              ; preds = %220
@@ -2592,7 +2592,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i40.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i, label %230
 
 230:                                              ; preds = %227
-  %231 = invoke noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %231 = invoke noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i unwind label %232
 
 232:                                              ; preds = %230
@@ -3279,7 +3279,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i.i: ; preds = %472
 
 .noexc32.i:                                       ; preds = %473
   %474 = load ptr, ptr %18, align 8
-  %475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %474, i32 noundef %4)
+  %475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %474, i32 noundef range(i32 2, 1) %4)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i unwind label %480
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i: ; preds = %.noexc32.i
@@ -3414,7 +3414,7 @@ _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i29.i.i: ; preds = %.noe
           to label %514 unwind label %517
 
 514:                                              ; preds = %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i29.i.i
-  %515 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %513, i32 noundef %111)
+  %515 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %513, i32 noundef range(i32 1, -2147483648) %111)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i.i.i30.i.i unwind label %517
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i.i.i30.i.i: ; preds = %514
@@ -3555,7 +3555,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i.i.i: ; preds = %546
 
 .noexc43.i:                                       ; preds = %551
   %552 = load ptr, ptr %11, align 8
-  %553 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %552, i32 noundef %4)
+  %553 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %552, i32 noundef range(i32 2, 1) %4)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i.i unwind label %558
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i.i: ; preds = %.noexc43.i
@@ -3812,7 +3812,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i", label %659
 
 659:                                              ; preds = %657
-  %660 = invoke noundef zeroext i1 %658(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %660 = invoke noundef zeroext i1 %658(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %661
 
 661:                                              ; preds = %659
@@ -3835,7 +3835,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   br i1 %.not.i.i42.i.i.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i, label %669
 
 669:                                              ; preds = %666
-  %670 = invoke noundef zeroext i1 %668(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %670 = invoke noundef zeroext i1 %668(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i unwind label %671
 
 671:                                              ; preds = %669
@@ -5072,7 +5072,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i: ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.41)
   %66 = load ptr, ptr %28, align 8
-  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %66, i32 noundef %3)
+  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %66, i32 noundef range(i32 2, 1) %3)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i unwind label %72
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i: ; preds = %65
@@ -5411,7 +5411,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 .critedge.i.i:                                    ; preds = %213
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %221 = shl nsw i32 %3, 2
-  %222 = call i32 @llvm.umin.i32(i32 %221, i32 %61)
+  %222 = call i32 @llvm.umin.i32(i32 %221, i32 range(i32 1, -2147483648) %61)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %223 = call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #29, !noalias !52
   %224 = getelementptr inbounds i8, ptr %223, i64 8
@@ -5420,7 +5420,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   store i32 1, ptr %225, align 4, !noalias !52
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %223, align 8, !noalias !52
   %226 = getelementptr inbounds i8, ptr %223, i64 16
-  invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %226, i32 noundef 0, i32 noundef %61, i32 noundef %222)
+  invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %226, i32 noundef 0, i32 noundef range(i32 1, -2147483648) %61, i32 noundef %222)
           to label %228 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i, !noalias !52
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i: ; preds = %.critedge.i.i
@@ -5512,7 +5512,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i", label %264
 
 264:                                              ; preds = %262
-  %265 = invoke noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %265 = invoke noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i" unwind label %266
 
 266:                                              ; preds = %264
@@ -5535,7 +5535,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i40.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i, label %274
 
 274:                                              ; preds = %271
-  %275 = invoke noundef zeroext i1 %273(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %275 = invoke noundef zeroext i1 %273(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i unwind label %276
 
 276:                                              ; preds = %274
@@ -6154,7 +6154,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i.i: ; preds = %484
 
 .noexc32.i:                                       ; preds = %485
   %486 = load ptr, ptr %17, align 8
-  %487 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %486, i32 noundef %3)
+  %487 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %486, i32 noundef range(i32 2, 1) %3)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i unwind label %492
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i: ; preds = %.noexc32.i
@@ -6289,7 +6289,7 @@ _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i29.i.i: ; preds = %.noe
           to label %526 unwind label %529
 
 526:                                              ; preds = %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i29.i.i
-  %527 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %525, i32 noundef %61)
+  %527 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %525, i32 noundef range(i32 1, -2147483648) %61)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i.i.i30.i.i unwind label %529
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i.i.i30.i.i: ; preds = %526
@@ -6430,7 +6430,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i.i.i: ; preds = %558
 
 .noexc43.i:                                       ; preds = %563
   %564 = load ptr, ptr %10, align 8
-  %565 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %564, i32 noundef %3)
+  %565 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %564, i32 noundef range(i32 2, 1) %3)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i.i unwind label %570
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i.i: ; preds = %.noexc43.i
@@ -6630,7 +6630,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i", label %633
 
 633:                                              ; preds = %631
-  %634 = invoke noundef zeroext i1 %632(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %634 = invoke noundef zeroext i1 %632(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %635
 
 635:                                              ; preds = %633
@@ -6653,7 +6653,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   br i1 %.not.i.i42.i.i.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i, label %643
 
 643:                                              ; preds = %640
-  %644 = invoke noundef zeroext i1 %642(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %644 = invoke noundef zeroext i1 %642(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i unwind label %645
 
 645:                                              ; preds = %643
@@ -7221,7 +7221,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i: ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.41)
   %63 = load ptr, ptr %28, align 8
-  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %63, i32 noundef %3)
+  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %63, i32 noundef range(i32 2, 1) %3)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i unwind label %69
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i: ; preds = %62
@@ -7460,7 +7460,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 .critedge.i.i:                                    ; preds = %154
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %162 = shl nsw i32 %3, 2
-  %163 = call i32 @llvm.umin.i32(i32 %162, i32 %58)
+  %163 = call i32 @llvm.umin.i32(i32 %162, i32 range(i32 1, -2147483648) %58)
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %164 = call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #29, !noalias !73
   %165 = getelementptr inbounds i8, ptr %164, i64 8
@@ -7469,7 +7469,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   store i32 1, ptr %166, align 4, !noalias !73
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %164, align 8, !noalias !73
   %167 = getelementptr inbounds i8, ptr %164, i64 16
-  invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %167, i32 noundef 0, i32 noundef %58, i32 noundef %163)
+  invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %167, i32 noundef 0, i32 noundef range(i32 1, -2147483648) %58, i32 noundef %163)
           to label %169 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i, !noalias !73
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i: ; preds = %.critedge.i.i
@@ -7561,7 +7561,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i", label %205
 
 205:                                              ; preds = %203
-  %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i" unwind label %207
 
 207:                                              ; preds = %205
@@ -7584,7 +7584,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   br i1 %.not.i.i40.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i, label %215
 
 215:                                              ; preds = %212
-  %216 = invoke noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %216 = invoke noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i unwind label %217
 
 217:                                              ; preds = %215
@@ -8203,7 +8203,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i.i: ; preds = %425
 
 .noexc32.i:                                       ; preds = %426
   %427 = load ptr, ptr %17, align 8
-  %428 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %427, i32 noundef %3)
+  %428 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %427, i32 noundef range(i32 2, 1) %3)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i unwind label %433
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i: ; preds = %.noexc32.i
@@ -8338,7 +8338,7 @@ _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i29.i.i: ; preds = %.noe
           to label %467 unwind label %470
 
 467:                                              ; preds = %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i29.i.i
-  %468 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %466, i32 noundef %58)
+  %468 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %466, i32 noundef range(i32 1, -2147483648) %58)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i.i.i30.i.i unwind label %470
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i.i.i30.i.i: ; preds = %467
@@ -8479,7 +8479,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i.i.i: ; preds = %499
 
 .noexc43.i:                                       ; preds = %504
   %505 = load ptr, ptr %10, align 8
-  %506 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %505, i32 noundef %3)
+  %506 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %505, i32 noundef range(i32 2, 1) %3)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i.i unwind label %511
 
 _ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i.i.i.i: ; preds = %.noexc43.i
@@ -8679,7 +8679,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i", label %574
 
 574:                                              ; preds = %572
-  %575 = invoke noundef zeroext i1 %573(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %575 = invoke noundef zeroext i1 %573(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %576
 
 576:                                              ; preds = %574
@@ -8702,7 +8702,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   br i1 %.not.i.i42.i.i.i.i.i, label %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i, label %584
 
 584:                                              ; preds = %581
-  %585 = invoke noundef zeroext i1 %583(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %585 = invoke noundef zeroext i1 %583(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i unwind label %586
 
 586:                                              ; preds = %584
@@ -13279,7 +13279,7 @@ _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; 
 .lr.ph.i:                                         ; preds = %475, %.noexc137
   %.08.i = phi i32 [ %485, %.noexc137 ], [ %482, %475 ]
   %.057.i = phi ptr [ %486, %.noexc137 ], [ %477, %475 ]
-  %484 = invoke noundef double @_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %38, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %38)
+  %484 = invoke noundef double @_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %38, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(25) %38)
           to label %.noexc137 unwind label %488
 
 .noexc137:                                        ; preds = %.lr.ph.i
@@ -14533,7 +14533,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -14627,7 +14627,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit42, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit42 unwind label %100
 
 100:                                              ; preds = %98
@@ -15393,7 +15393,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -15487,7 +15487,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit42, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit42 unwind label %100
 
 100:                                              ; preds = %98
@@ -16253,7 +16253,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -16347,7 +16347,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i43, label %_ZNSt8functionIFvvEED2Ev.exit44, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit44 unwind label %100
 
 100:                                              ; preds = %98
@@ -17404,7 +17404,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -17498,7 +17498,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit42, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit42 unwind label %100
 
 100:                                              ; preds = %98
@@ -18207,7 +18207,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -18301,7 +18301,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i43, label %_ZNSt8functionIFvvEED2Ev.exit44, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit44 unwind label %100
 
 100:                                              ; preds = %98
@@ -19201,7 +19201,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSp
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -19295,7 +19295,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit42, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit42 unwind label %100
 
 100:                                              ; preds = %98
@@ -20004,7 +20004,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %56
 
 56:                                               ; preds = %54
@@ -20098,7 +20098,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i43, label %_ZNSt8functionIFvvEED2Ev.exit44, label %98
 
 98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit44 unwind label %100
 
 100:                                              ; preds = %98

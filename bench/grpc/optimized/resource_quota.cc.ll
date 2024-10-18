@@ -154,7 +154,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i.i), !noalias !4
   store ptr null, ptr %memory_quota_, align 8, !alias.scope !7
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN9grpc_core11MemoryQuotaESaIvEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %memory_quota_, ptr nonnull %__a.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN9grpc_core11MemoryQuotaESaIvEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %memory_quota_, ptr nonnull %__a.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -507,7 +507,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

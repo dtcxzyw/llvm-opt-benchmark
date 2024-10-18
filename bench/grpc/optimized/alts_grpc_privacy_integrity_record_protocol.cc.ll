@@ -123,7 +123,7 @@ if.then.i:                                        ; preds = %if.then20
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %13(ptr noundef nonnull %11)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %return
 
 if.end22:                                         ; preds = %if.end
@@ -220,7 +220,7 @@ if.then.i:                                        ; preds = %if.then28
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %16(ptr noundef nonnull %14)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %14)
   br label %return
 
 if.end30:                                         ; preds = %if.end6

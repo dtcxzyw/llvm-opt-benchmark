@@ -2190,7 +2190,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN8proxygen26PassThroughHTTPCodecFilterD0Ev.exit: ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
   ret void
 }
 

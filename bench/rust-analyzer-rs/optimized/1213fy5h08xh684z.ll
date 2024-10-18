@@ -540,7 +540,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit83.
 
 131:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit83.thread127
   %132 = add nuw nsw i64 %129, 1
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %132, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25538c9ccf52d1e39c701684ae298586.41) #13
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %132, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25538c9ccf52d1e39c701684ae298586.41) #13
           to label %.noexc92 unwind label %92
 
 .noexc92:                                         ; preds = %131

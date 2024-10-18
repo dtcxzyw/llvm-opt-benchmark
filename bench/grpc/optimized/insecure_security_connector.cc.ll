@@ -251,7 +251,7 @@ if.then.i.i:                                      ; preds = %_ZN9grpc_core12_GLO
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit: ; preds = %if.then.i.i, %if.then.i.i.i
@@ -266,7 +266,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core13RefC
 
 _ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i: ; preds = %if.then.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit, %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit, %if.then.i, %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i
@@ -316,7 +316,7 @@ if.then:                                          ; preds = %entry
 
 _ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit: ; preds = %if.then
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit, %if.then, %entry
@@ -477,7 +477,7 @@ if.then.i.i:                                      ; preds = %_ZN9grpc_core12_GLO
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit: ; preds = %if.then.i.i, %if.then.i.i.i
@@ -492,7 +492,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core13RefC
 
 _ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i: ; preds = %if.then.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit, %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit, %if.then.i, %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i
@@ -783,7 +783,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i6:                                       ; preds = %if.then.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %entry, %if.then.i6, %if.then.i
@@ -849,7 +849,7 @@ common.ret9:                                      ; preds = %if.then.i5, %_ZNSt1
 
 _ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit: ; preds = %if.then.i5
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
   br label %common.ret9
 
 terminate.lpad.loopexit:                          ; preds = %for.body

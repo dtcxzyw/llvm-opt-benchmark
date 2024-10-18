@@ -34,7 +34,7 @@ declare void @_ZNSt7codecvtIcc11__mbstate_tED2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7codecvtD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZNSt7codecvtIcc11__mbstate_tED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #9
+  tail call void @_ZNSt7codecvtIcc11__mbstate_tED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

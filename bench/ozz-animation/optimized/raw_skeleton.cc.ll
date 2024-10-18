@@ -39,7 +39,7 @@ define dso_local void @_ZN3ozz9animation7offline11RawSkeletonD2Ev(ptr noundef no
 
 .noexc.i:                                         ; preds = %1, %.noexc.i
   %.0.i2.i = phi ptr [ %5, %.noexc.i ], [ %2, %1 ]
-  tail call void @_ZN3ozz12StdAllocatorINS_9animation7offline11RawSkeleton5JointEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.0.i2.i)
+  tail call void @_ZN3ozz12StdAllocatorINS_9animation7offline11RawSkeleton5JointEE7destroyIS4_EEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.0.i2.i)
   %5 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %.not.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i, label %_ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.loopexit.i, label %.noexc.i, !llvm.loop !5
@@ -154,7 +154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit, %.lr.ph
   %.0.i.i2 = phi ptr [ %21, %.lr.ph ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit ]
-  tail call void @_ZN3ozz12StdAllocatorINS_9animation7offline11RawSkeleton5JointEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %.0.i.i2)
+  tail call void @_ZN3ozz12StdAllocatorINS_9animation7offline11RawSkeleton5JointEE7destroyIS4_EEvPT_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %.0.i.i2)
   %21 = getelementptr inbounds i8, ptr %.0.i.i2, i64 96
   %.not.i.i = icmp eq ptr %21, %20
   br i1 %.not.i.i, label %_ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i.loopexit, label %.lr.ph, !llvm.loop !5

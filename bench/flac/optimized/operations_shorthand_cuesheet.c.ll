@@ -192,7 +192,7 @@ if.then9.i:                                       ; preds = %if.end7.i
   br label %import_cs_from.exit.thread
 
 if.end13.i:                                       ; preds = %if.end7.i
-  %call14.i = call ptr @grabbag__cuesheet_parse(ptr noundef nonnull %f.0.i, ptr noundef nonnull %error_message.i, ptr noundef nonnull %last_line_read.i, i32 noundef %sample_rate.1, i32 noundef %is_cdda.1, i64 noundef %lead_out_offset.1) #9
+  %call14.i = call ptr @grabbag__cuesheet_parse(ptr noundef nonnull %f.0.i, ptr noundef nonnull %error_message.i, ptr noundef nonnull %last_line_read.i, i32 noundef range(i32 1, 0) %sample_rate.1, i32 noundef range(i32 0, 2) %is_cdda.1, i64 noundef range(i64 1, 0) %lead_out_offset.1) #9
   %20 = load ptr, ptr @stdin, align 8
   %cmp15.not.i = icmp eq ptr %f.0.i, %20
   br i1 %cmp15.not.i, label %if.end18.i, label %if.then16.i

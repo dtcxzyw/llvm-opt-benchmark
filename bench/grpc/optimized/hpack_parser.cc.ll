@@ -1108,7 +1108,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S9_SC_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2239,7 +2239,7 @@ _ZN9grpc_core11HPackParser6StringC2EOS1_.exit203: ; preds = %do.end.i.i42, %_ZNK
   store i8 1, ptr %base64, align 8, !alias.scope !16
   %wire_size3.i.i47 = getelementptr inbounds i8, ptr %base64, i64 8
   store i64 %conv.i23, ptr %wire_size3.i.i47, align 8, !alias.scope !16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %base64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %base64, i64 16, i1 false)
   %value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_index.i.i.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %agg.result, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i, i8 0, i64 16, i1 false)
@@ -2259,9 +2259,9 @@ invoke.cont.i.i:                                  ; preds = %if.end.i25
   %value = getelementptr inbounds i8, ptr %base64, i64 16
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %base64, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %value, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %value, i64 16, i1 false)
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %value, i8 0, i64 16, i1 false)
   br label %_ZN9grpc_core11HPackParser6StringC2EOS1_.exit
 
 _ZNSt7variantIJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS1_S6_S9_EE4typeEDpT0_EERSF_E4typeEDpOSG_.exit.i.i: ; preds = %if.then.i.i.i41, %if.end.i25
@@ -2279,7 +2279,7 @@ _ZNSt7variantIJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEE
   %value381 = getelementptr inbounds i8, ptr %base64, i64 16
   %_M_index.i.i.i.i.i.i.i.i382 = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i62383 = getelementptr inbounds i8, ptr %base64, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value381, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %value381, i64 32, i1 false)
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i382, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value381, i8 0, i64 32, i1 false)
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i62383, align 8
@@ -2313,7 +2313,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %22(ptr noundef nonnull %20)
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %20)
           to label %cleanup unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2371,7 +2371,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i66:    ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i66
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %29(ptr noundef nonnull %27)
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S9_SC_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2563,7 +2563,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i156:     ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i158:   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i156
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i159, align 8
-  invoke void %51(ptr noundef nonnull %49)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %49)
           to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S9_SC_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i153 unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i158
@@ -2655,7 +2655,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S9_SC_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2866,7 +2866,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %sw.bb2.i.i.i.i.i.i.
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPKN9grpc_core10HPackTable7MementoENS3_5SliceEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S8_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3912,7 +3912,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.then.i, %entry, %if.then.i.i
@@ -3944,7 +3944,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #30
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
 }
@@ -4879,7 +4879,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_16HttpPathMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -4957,7 +4957,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_21HttpAuthorityMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -5036,7 +5036,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_18HttpStatusMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -5218,7 +5218,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %0)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_26GrpcAcceptEncodingMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -5298,7 +5298,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_18GrpcStatusMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -5368,7 +5368,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %0)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_19GrpcTimeoutMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -5448,7 +5448,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_31GrpcPreviousRpcAttemptsMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -5524,7 +5524,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %1(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_27GrpcRetryPushbackMsMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -5600,7 +5600,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_17UserAgentMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -5676,7 +5676,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_19GrpcMessageMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -5752,7 +5752,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_12HostMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -5828,7 +5828,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_30EndpointLoadMetricsBinMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -5904,7 +5904,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_26GrpcServerStatsBinMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -5980,7 +5980,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_20GrpcTraceBinMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -6056,7 +6056,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_19GrpcTagsBinMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -6125,7 +6125,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %0)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_17LbCostBinMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -6204,7 +6204,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_15LbTokenMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -6280,7 +6280,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i:                                 ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core16EncodedSizeOfKeyINS_18XEnvoyPeerMetadataEEEmT_RKNS2_9ValueTypeE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2.i
@@ -7339,7 +7339,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %sw.bb2.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %44(ptr noundef nonnull %42)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %42)
           to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPKN9grpc_core10HPackTable7MementoENS3_5SliceEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S8_EEEEDcOT0_DpOT1_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -7357,7 +7357,7 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont18, %_ZS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0, i8 0, i64 32, i1 false), !noalias !211
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %key16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %key16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i)
   store i8 1, ptr %_M_index.i.i.i.i.i, align 8
   %call23 = invoke noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser16ParseValueLengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
@@ -7388,7 +7388,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %50(ptr noundef nonnull %48)
+  invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -8489,7 +8489,7 @@ if.then.i.i230:                                   ; preds = %invoke.cont81
 if.then.i.i.i232:                                 ; preds = %if.then.i.i230
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %100(ptr noundef nonnull %98)
+  invoke void %100(ptr noundef nonnull align 8 dereferenceable(16) %98)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i232
@@ -8726,7 +8726,7 @@ if.then.i.i270:                                   ; preds = %_ZN9grpc_core14Pars
 if.then.i.i.i272:                                 ; preds = %if.then.i.i270
   %destroyer_fn_.i.i.i273 = getelementptr inbounds i8, ptr %145, i64 8
   %147 = load ptr, ptr %destroyer_fn_.i.i.i273, align 8
-  invoke void %147(ptr noundef nonnull %145)
+  invoke void %147(ptr noundef nonnull align 8 dereferenceable(16) %145)
           to label %cleanup109 unwind label %terminate.lpad.i274
 
 terminate.lpad.i274:                              ; preds = %if.then.i.i.i272
@@ -8786,7 +8786,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %sw.bb.i.i.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %155, i64 8
   %157 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %157(ptr noundef nonnull %155)
+  invoke void %157(ptr noundef nonnull align 8 dereferenceable(16) %155)
           to label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9041,7 +9041,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %sw.bb2.i.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %12(ptr noundef nonnull %10)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZNSt7variantIJPKN9grpc_core10HPackTable7MementoENS0_5SliceEEE7emplaceIS4_JRS4_EEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISA_EERSA_E4typeEDpOSB_.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10068,7 +10068,7 @@ if.then6:                                         ; preds = %if.end
   %set.i.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %set.i.i, align 8
   %value_.i.i = getelementptr inbounds i8, ptr %md, i64 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i, ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(568) %21)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end
@@ -10208,7 +10208,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -10218,7 +10218,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #30
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry
@@ -10730,7 +10730,7 @@ if.then.i.i.i2:                                   ; preds = %invoke.cont4
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i2
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -10959,7 +10959,7 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -11818,7 +11818,7 @@ if.then.i.i3:                                     ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i3
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -11945,7 +11945,7 @@ if.then.i.i7:                                     ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i9:                                   ; preds = %if.then.i.i7
   %destroyer_fn_.i.i.i10 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i.i10, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN9grpc_core5SliceD2Ev.exit12 unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %if.then.i.i.i9
@@ -12018,7 +12018,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12041,7 +12041,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -12120,7 +12120,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12204,7 +12204,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12227,7 +12227,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -12304,7 +12304,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12336,8 +12336,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !402
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !402
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -12361,7 +12361,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12438,7 +12438,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -12542,8 +12542,8 @@ entry:
   %val.i.i.i.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !414
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !414
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12585,7 +12585,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoIjTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_22SimpleIntBasedMetadataIjLj0EE12ParseMementoES6_bSH_EEEES5_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12682,7 +12682,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -12786,8 +12786,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !426
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !426
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12818,7 +12818,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_18HttpSchemeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -12903,7 +12903,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -13006,8 +13006,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !438
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !438
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -13031,7 +13031,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -13106,7 +13106,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -13209,8 +13209,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !450
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !450
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -13234,7 +13234,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -13309,7 +13309,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -13412,8 +13412,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !462
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !462
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -13437,7 +13437,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -13512,7 +13512,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -13607,8 +13607,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !474
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !474
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -13632,7 +13632,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -13756,8 +13756,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !483
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !483
   %0 = load ptr, ptr %agg.tmp.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   %bytes.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
@@ -13784,7 +13784,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_23CompressionAlgorithmSetETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_26GrpcAcceptEncodingMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -13905,7 +13905,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvENKUlPNS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEPS2_E_clES9_bSK_SL_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -13994,8 +13994,8 @@ entry:
   %val.i.i.i.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !495
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !495
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14037,7 +14037,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoI16grpc_status_codeTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_22SimpleIntBasedMetadataIS5_LS5_2EE12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -14134,7 +14134,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -14236,8 +14236,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !507
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !507
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -14261,7 +14261,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -14336,7 +14336,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -14445,8 +14445,8 @@ entry:
   %val.i.i.i.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !522
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !522
   %on_error_.i = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %on_error_.i, align 8
   %agg.tmp2.sroa.2.0.on_error_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14488,7 +14488,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoIjTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_22SimpleIntBasedMetadataIjLj0EE12ParseMementoES6_bSH_EEEES5_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -14619,8 +14619,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_met
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !531
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !531
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -14644,7 +14644,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES7_bSI_EEEES6_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -14719,7 +14719,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -14870,7 +14870,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -14893,7 +14893,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -14970,7 +14970,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15050,7 +15050,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15073,7 +15073,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -15150,7 +15150,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15230,7 +15230,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15253,7 +15253,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -15330,7 +15330,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15410,7 +15410,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15433,7 +15433,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -15510,7 +15510,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15590,7 +15590,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15613,7 +15613,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -15690,7 +15690,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15770,7 +15770,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15793,7 +15793,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -15870,7 +15870,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15950,7 +15950,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -15973,7 +15973,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -16050,7 +16050,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16106,7 +16106,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16137,7 +16137,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i3:                                   ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i3
@@ -16176,7 +16176,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16207,7 +16207,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i3:                                   ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i3
@@ -16292,8 +16292,8 @@ entry:
   %agg.tmp.i = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp2 = alloca %"struct.grpc_core::LbCostBinMetadata::ValueType", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !639
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !noalias !642
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 32, i1 false), !noalias !639
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 32, i1 false), !noalias !642
   %will_keep_past_request_lifetime_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %will_keep_past_request_lifetime_.i, align 8, !noalias !639
   %tobool.i = trunc i8 %0 to i1
@@ -16317,7 +16317,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchE19ParseValueToMementoINS_17LbCostBinMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEEXadL_ZNS5_12ParseMementoES8_bSJ_EEEES7_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16610,7 +16610,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvENKUlPNS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEPS2_E_clES9_bSK_SL_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16797,7 +16797,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16820,7 +16820,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -16897,7 +16897,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -16977,7 +16977,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN9grpc_core11Meta
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.sroa.0.0.copyload.i, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %__tmp.i.i.i.sroa.0.0.copyload.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -17000,7 +17000,7 @@ if.then.i.i2.i:                                   ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i:                                 ; preds = %if.then.i.i2.i
   %destroyer_fn_.i.i.i5.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i5.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core15metadata_detail13SetSliceValueIXadL_ZNS_24SimpleSliceBasedMetadata14MementoToValueENS_5SliceEEEEEvPS3_RKNS0_6BufferE.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
@@ -17077,7 +17077,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont9.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core15metadata_detail23MakeDebugStringPipelineINS_5SliceERKS2_St17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS7_SaIcEEES8_RKNS0_6BufferEPFT_SF_EPFT1_T0_E.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -17247,7 +17247,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core5SliceD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
@@ -17270,7 +17270,7 @@ if.then.i.i2.i.i:                                 ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i4.i.i:                               ; preds = %if.then.i.i2.i.i
   %destroyer_fn_.i.i.i5.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i5.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt4pairIN9grpc_core5SliceES1_ED2Ev.exit.i unwind label %terminate.lpad.i6.i.i
 
 terminate.lpad.i6.i.i:                            ; preds = %if.then.i.i.i4.i.i
@@ -17332,7 +17332,7 @@ if.then.i.i3.i:                                   ; preds = %invoke.cont.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i3.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEENKUlRKNS_15metadata_detail6BufferEPS1_E_clESA_SB_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -17901,7 +17901,7 @@ entry:
           to label %call.i.noexc.i unwind label %lpad.i
 
 call.i.noexc.i:                                   ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
@@ -17931,7 +17931,7 @@ lpad.i1:                                          ; preds = %invoke.cont.i, %if.
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #30
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #30
   br label %lpad.body.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -24556,10 +24556,10 @@ sw.bb89.i:                                        ; preds = %sw.bb82.i
   %166 = load ptr, ptr %arrayidx.i226.i, align 8
   %arrayidx1.i227.i = getelementptr inbounds i8, ptr %166, i64 %shr91.i
   %167 = load i8, ptr %arrayidx1.i227.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %167)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %167)
   %arrayidx1.i231.i = getelementptr inbounds i8, ptr %arrayidx1.i227.i, i64 1
   %168 = load i8, ptr %arrayidx1.i231.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %168)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %168)
   br label %while.end
 
 sw.bb100.i:                                       ; preds = %sw.bb82.i
@@ -24572,7 +24572,7 @@ sw.bb102.i:                                       ; preds = %sw.bb82.i
   %169 = load ptr, ptr %arrayidx.i234.i, align 8
   %arrayidx1.i235.i = getelementptr inbounds i8, ptr %169, i64 %shr104.i
   %170 = load i8, ptr %arrayidx1.i235.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %170)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %170)
   br label %while.end
 
 default.unreachable379:                           ; preds = %if.end, %sw.bb190.i, %sw.bb163.i, %sw.bb136.i, %sw.bb109.i, %sw.bb82.i
@@ -24611,10 +24611,10 @@ sw.bb118.i:                                       ; preds = %sw.bb109.i
   %176 = load ptr, ptr %arrayidx.i242.i, align 8
   %arrayidx1.i243.i = getelementptr inbounds i8, ptr %176, i64 %shr120.i
   %177 = load i8, ptr %arrayidx1.i243.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %177)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %177)
   %arrayidx1.i247.i = getelementptr inbounds i8, ptr %arrayidx1.i243.i, i64 1
   %178 = load i8, ptr %arrayidx1.i247.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %178)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %178)
   br label %while.end
 
 sw.bb129.i:                                       ; preds = %sw.bb109.i
@@ -24623,7 +24623,7 @@ sw.bb129.i:                                       ; preds = %sw.bb109.i
   %179 = load ptr, ptr %arrayidx.i250.i, align 8
   %arrayidx1.i251.i = getelementptr inbounds i8, ptr %179, i64 %shr131.i
   %180 = load i8, ptr %arrayidx1.i251.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %180)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %180)
   br label %while.end
 
 sw.bb136.i:                                       ; preds = %sw.epilog.i
@@ -24654,10 +24654,10 @@ sw.bb145.i:                                       ; preds = %sw.bb136.i
   %184 = load ptr, ptr %arrayidx.i259.i, align 8
   %arrayidx1.i260.i = getelementptr inbounds i8, ptr %184, i64 %shr147.i
   %185 = load i8, ptr %arrayidx1.i260.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %185)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %185)
   %arrayidx1.i264.i = getelementptr inbounds i8, ptr %arrayidx1.i260.i, i64 1
   %186 = load i8, ptr %arrayidx1.i264.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %186)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %186)
   br label %while.end
 
 sw.bb156.i:                                       ; preds = %sw.bb136.i
@@ -24666,7 +24666,7 @@ sw.bb156.i:                                       ; preds = %sw.bb136.i
   %187 = load ptr, ptr %arrayidx.i267.i, align 8
   %arrayidx1.i268.i = getelementptr inbounds i8, ptr %187, i64 %shr158.i
   %188 = load i8, ptr %arrayidx1.i268.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %188)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %188)
   br label %while.end
 
 sw.bb163.i:                                       ; preds = %sw.epilog.i
@@ -24702,10 +24702,10 @@ sw.bb172.i:                                       ; preds = %sw.bb163.i
   %194 = load ptr, ptr %arrayidx.i279.i, align 8
   %arrayidx1.i280.i = getelementptr inbounds i8, ptr %194, i64 %shr174.i
   %195 = load i8, ptr %arrayidx1.i280.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %195)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %195)
   %arrayidx1.i284.i = getelementptr inbounds i8, ptr %arrayidx1.i280.i, i64 1
   %196 = load i8, ptr %arrayidx1.i284.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %196)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %196)
   br label %while.end
 
 sw.bb183.i:                                       ; preds = %sw.bb163.i
@@ -24714,7 +24714,7 @@ sw.bb183.i:                                       ; preds = %sw.bb163.i
   %197 = load ptr, ptr %arrayidx.i287.i, align 8
   %arrayidx1.i288.i = getelementptr inbounds i8, ptr %197, i64 %shr185.i
   %198 = load i8, ptr %arrayidx1.i288.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %198)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %198)
   br label %while.end
 
 sw.bb190.i:                                       ; preds = %sw.epilog.i
@@ -24750,10 +24750,10 @@ sw.bb199.i:                                       ; preds = %sw.bb190.i
   %204 = load ptr, ptr %arrayidx.i299.i, align 8
   %arrayidx1.i300.i = getelementptr inbounds i8, ptr %204, i64 %shr201.i
   %205 = load i8, ptr %arrayidx1.i300.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %205)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %205)
   %arrayidx1.i304.i = getelementptr inbounds i8, ptr %arrayidx1.i300.i, i64 1
   %206 = load i8, ptr %arrayidx1.i304.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %206)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %206)
   br label %while.end
 
 sw.bb210.i:                                       ; preds = %sw.bb190.i
@@ -24762,7 +24762,7 @@ sw.bb210.i:                                       ; preds = %sw.bb190.i
   %207 = load ptr, ptr %arrayidx.i307.i, align 8
   %arrayidx1.i308.i = getelementptr inbounds i8, ptr %207, i64 %shr212.i
   %208 = load i8, ptr %arrayidx1.i308.i, align 1
-  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %208)
+  tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(46) %this, i8 noundef zeroext %208)
   br label %while.end
 
 if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i133.i, %return.sink.split.i31.i, %return.sink.split.i.i, %while.body

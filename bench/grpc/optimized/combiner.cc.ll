@@ -693,14 +693,14 @@ _ZL9move_nextv.exit:                              ; preds = %_ZN9grpc_core7ExecC
 
 invoke.cont:                                      ; preds = %_ZL9move_nextv.exit
   %15 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %15(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #19
+  call void %15(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZL9move_nextv.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %17(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #19
+  call void %17(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #19
   resume { ptr, i32 } %16
 }
 

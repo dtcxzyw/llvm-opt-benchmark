@@ -263,7 +263,7 @@ define dso_local void @_ZN15LinearAllocatorD0Ev(ptr noundef nonnull align 8 dere
   unreachable
 
 _ZN15LinearAllocatorD2Ev.exit:                    ; preds = %1
-  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -279,7 +279,7 @@ declare void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MeshProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1129,7 +1129,7 @@ define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   store ptr %10, ptr %14, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -1195,7 +1195,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   store ptr %10, ptr %14, align 8
   %59 = load float, ptr %15, align 4
   %60 = load float, ptr %16, align 4
@@ -1738,7 +1738,7 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23TempObstacleHilightToolD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1751,7 +1751,7 @@ define dso_local void @_ZN22TempObstacleCreateToolD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22TempObstacleCreateToolD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1783,7 +1783,7 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
 .body:                                            ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #15
   tail call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %27
 
@@ -1899,7 +1899,7 @@ define dso_local void @_ZN20Sample_TempObstaclesD0Ev(ptr noundef nonnull align 8
   unreachable
 
 _ZN20Sample_TempObstaclesD2Ev.exit:               ; preds = %4
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #15
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

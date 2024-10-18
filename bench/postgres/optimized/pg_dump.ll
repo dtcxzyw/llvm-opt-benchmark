@@ -4108,7 +4108,7 @@ sub_0305.i:                                       ; preds = %1230, %.tail300.thr
 ._crit_edge.i363:                                 ; preds = %1272, %1241
   %1276 = load ptr, ptr %1034, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1032, ptr noundef nonnull @.str.988, ptr noundef %1276) #14
-  call fastcc void @append_depends_on_extension(ptr noundef nonnull %330, ptr noundef %1032, ptr noundef readonly %791, ptr noundef nonnull @.str.989, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1152)
+  call fastcc void @append_depends_on_extension(ptr noundef nonnull %330, ptr noundef %1032, ptr noundef nonnull readonly %791, ptr noundef nonnull @.str.989, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1152)
   %1277 = getelementptr inbounds i8, ptr %1026, i64 48
   %1278 = load i32, ptr %1277, align 8
   %.not284.i = icmp eq i32 %1278, 0
@@ -4118,7 +4118,7 @@ sub_0305.i:                                       ; preds = %1230, %.tail300.thr
   %1280 = load ptr, ptr %1147, align 8
   %1281 = getelementptr inbounds i8, ptr %1280, i64 16
   %1282 = load ptr, ptr %1281, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %1032, ptr noundef readonly %791, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1145, ptr noundef %1282)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %1032, ptr noundef nonnull readonly %791, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1145, ptr noundef %1282)
   br label %1283
 
 1283:                                             ; preds = %1279, %._crit_edge.i363
@@ -6746,7 +6746,7 @@ dumpAttrDef.exit:                                 ; preds = %2441, %2450, %2502
   br i1 %2571, label %.lr.ph.i293, label %.loopexit.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %.lr.ph.i293, %.preheader.i, %2551
-  call fastcc void @append_depends_on_extension(ptr noundef nonnull %330, ptr noundef %2513, ptr noundef readonly %791, ptr noundef nonnull @.str.1245, ptr noundef nonnull @.str.1322, ptr noundef %2525)
+  call fastcc void @append_depends_on_extension(ptr noundef nonnull %330, ptr noundef %2513, ptr noundef nonnull readonly %791, ptr noundef nonnull @.str.1245, ptr noundef nonnull @.str.1322, ptr noundef %2525)
   %2572 = getelementptr inbounds i8, ptr %791, i64 129
   %2573 = load i8, ptr %2572, align 1
   %2574 = trunc i8 %2573 to i1
@@ -13463,11 +13463,11 @@ sub_0304:                                         ; preds = %232, %.tail, %.tail
   br label %.tail303.thread
 
 .tail303.thread:                                  ; preds = %sub_0304, %246, %.tail303
-  %252 = call ptr @GetConnection(ptr noundef %0) #14
+  %252 = call ptr @GetConnection(ptr noundef nonnull %0) #14
   %253 = call ptr @createPQExpBuffer() #14
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %253, ptr noundef nonnull @.str.715, i32 noundef %46) #14
   %254 = load ptr, ptr %253, align 8
-  %255 = call ptr @ExecuteSqlQuery(ptr noundef %0, ptr noundef %254, i32 noundef 2) #14
+  %255 = call ptr @ExecuteSqlQuery(ptr noundef nonnull %0, ptr noundef %254, i32 noundef 2) #14
   %256 = call i32 @PQntuples(ptr noundef %255) #14
   %257 = icmp sgt i32 %256, 0
   br i1 %257, label %.lr.ph.i302, label %._crit_edge.i
@@ -13485,7 +13485,7 @@ sub_0304:                                         ; preds = %232, %.tail, %.tail
   call void @PQclear(ptr noundef %255) #14
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %253, ptr noundef nonnull @.str.716, i32 noundef %46) #14
   %262 = load ptr, ptr %253, align 8
-  %263 = call ptr @ExecuteSqlQuery(ptr noundef %0, ptr noundef %262, i32 noundef 2) #14
+  %263 = call ptr @ExecuteSqlQuery(ptr noundef nonnull %0, ptr noundef %262, i32 noundef 2) #14
   %264 = call i32 @PQntuples(ptr noundef %263) #14
   %265 = icmp sgt i32 %264, 0
   br i1 %265, label %.lr.ph33.i, label %dumpDatabaseConfig.exit
@@ -27982,7 +27982,7 @@ findSecLabels.exit.i.i:                           ; preds = %1250, %1247, %.lr.p
 
 1286:                                             ; preds = %1284
   %1287 = load ptr, ptr %306, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1304, i32 noundef %1267, ptr noundef %1287) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1304, i32 noundef range(i32 1, 0) %1267, ptr noundef %1287) #14
   call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
@@ -28393,7 +28393,7 @@ define internal fastcc void @dumpConstraint(ptr noundef %0, ptr nocapture nounde
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %45, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1304, i32 noundef %79, ptr noundef %91) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1304, i32 noundef range(i32 1, 0) %79, ptr noundef %91) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
@@ -28484,7 +28484,7 @@ getAttrName.exit:                                 ; preds = %switch.lookup, %83
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %45, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1304, i32 noundef %121, ptr noundef %135) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1304, i32 noundef range(i32 1, 0) %121, ptr noundef %135) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 

@@ -3652,7 +3652,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i36: ; preds = %lpad1
 
 _ZN5folly3gen6detail3MapINS0_4CastINS_5RangeIPKcEEEEE9GeneratorIS7_NS1_16StringResplitter9GeneratorINSA_INS4_IPKhEENS1_10FileReaderEOS7_EEEESH_ED2Ev.exit38: ; preds = %lpad18.body, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i36
   store ptr null, ptr %buffer_.i.i.i.i, align 8, !tbaa !57
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %ref.tmp) #32
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp) #32
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZN5folly3gen6detail3MapINS0_4CastINS_5RangeIPKcEEEEE9GeneratorIS7_NS1_16StringResplitter9GeneratorINSA_INS4_IPKhEENS1_10FileReaderEOS7_EEEESH_ED2Ev.exit38, %lpad14
@@ -3670,7 +3670,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i41: ; preds = %ehclean
 
 _ZN5folly3gen6detail16StringResplitter9GeneratorINS1_3MapINS0_4CastINS_5RangeIPKcEEEEE9GeneratorINS6_IPKhEENS1_10FileReaderEOS9_EEED2Ev.exit42: ; preds = %ehcleanup, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i41
   store ptr null, ptr %buffer_.i.i.i39, align 8, !tbaa !57
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %ref.tmp10) #32
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp10) #32
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %_ZN5folly3gen6detail16StringResplitter9GeneratorINS1_3MapINS0_4CastINS_5RangeIPKcEEEEE9GeneratorINS6_IPKhEENS1_10FileReaderEOS9_EEED2Ev.exit42, %lpad11, %lpad.i.i84

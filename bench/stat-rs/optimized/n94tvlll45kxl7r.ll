@@ -765,7 +765,7 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
   br i1 %18, label %19, label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
 
 19:                                               ; preds = %.preheader
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8ae74b42406a7b03E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8ae74b42406a7b03E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" unwind label %27
 
 "_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i": ; preds = %19, %.preheader

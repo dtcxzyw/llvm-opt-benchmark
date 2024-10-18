@@ -20,7 +20,7 @@ entry:
   %begin146 = ptrtoint ptr %begin to i64
   %end145 = ptrtoint ptr %end to i64
   %subrange_begin.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subrange_begin.i, i8 0, i64 24, i1 false)
   %cmp = icmp eq ptr %begin, %end
   br i1 %cmp, label %return, label %if.end
@@ -663,7 +663,7 @@ entry:
   %begin152 = ptrtoint ptr %begin to i64
   %end151 = ptrtoint ptr %end to i64
   %subrange_begin.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subrange_begin.i, i8 0, i64 24, i1 false)
   %cmp = icmp eq ptr %begin, %end
   br i1 %cmp, label %return, label %if.end

@@ -1085,7 +1085,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit.i.i.i"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17haaa3f6b4e5ccb87bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %.sroa.029.0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17haaa3f6b4e5ccb87bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %.sroa.029.0)
           to label %._crit_edge.i.i.i.i unwind label %40, !noalias !176
 
 ._crit_edge.i.i.i.i:                              ; preds = %39
@@ -1316,7 +1316,7 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %.loopexit.i.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h8163180375df4e29E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %36)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h8163180375df4e29E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %36)
           to label %.noexc10.i.i unwind label %27, !noalias !253
 
 .noexc10.i.i:                                     ; preds = %39
@@ -1324,7 +1324,7 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
   br label %46
 
 40:                                               ; preds = %32
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hafa060754ac9fd31E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %.sroa.8.031.i, i64 noundef %.0.i.i.i)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hafa060754ac9fd31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.sroa.8.031.i, i64 noundef %.0.i.i.i)
           to label %.noexc12.i.i unwind label %27, !noalias !253
 
 .noexc12.i.i:                                     ; preds = %40
@@ -1947,7 +1947,7 @@ define hidden void @_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17hca
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h817100a1e83c35b3E.exit"
 
 24:                                               ; preds = %13
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hafa060754ac9fd31E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %15, i64 noundef %18), !noalias !423
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hafa060754ac9fd31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 noundef %18), !noalias !423
   %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !425, !noalias !423
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h817100a1e83c35b3E.exit"
 
@@ -1981,7 +1981,7 @@ define hidden void @_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17hca
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h817100a1e83c35b3E.exit11"
 
 38:                                               ; preds = %34
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hafa060754ac9fd31E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 0, i64 noundef %20), !noalias !433
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hafa060754ac9fd31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %20), !noalias !433
   %.pre.i.i10 = load i64, ptr %7, align 8, !alias.scope !435, !noalias !433
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h817100a1e83c35b3E.exit11"
 

@@ -281,7 +281,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #42
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #42
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN6Assimp9LogStreamESaIS3_EED2Ev.exit, label %while.body.i.i, !llvm.loop !4
 
@@ -896,7 +896,7 @@ if.then:                                          ; preds = %entry, %_ZNSt3mapI1
   %__y.addr.0.lcssa.i.i.i16 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapI11aiLogStreamPN6Assimp9LogStreamENS1_5mpredESaISt4pairIKS0_S3_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #43
   %_M_storage.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(16) %__k, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(16) %__k, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i.i, align 8
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeI11aiLogStreamSt4pairIKS0_PN6Assimp9LogStreamEESt10_Select1stIS6_ENS3_5mpredESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i16, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i4)
@@ -1266,7 +1266,7 @@ invoke.cont:                                      ; preds = %entry
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1283,7 +1283,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #44
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #44
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -1682,7 +1682,7 @@ if.end:                                           ; preds = %entry
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %if.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1694,7 +1694,7 @@ call.i.noexc:                                     ; preds = %if.end
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #44
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #44
   br label %ehcleanup
 
 invoke.cont3:                                     ; preds = %.noexc
@@ -6476,7 +6476,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -6552,7 +6552,7 @@ define hidden noundef ptr @assimp_stbi_load_from_file(ptr noundef %f, ptr nocapt
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -6649,7 +6649,7 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %mul.i = mul nsw i32 %2, %1
   %mul1.i = mul nsw i32 %mul.i, %cond
   %conv.i = sext i32 %mul1.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #47
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i) #47
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -6772,7 +6772,7 @@ define hidden noundef ptr @assimp_stbi_load_from_file_16(ptr noundef %f, ptr noc
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -6867,7 +6867,7 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %mul1.i = mul nsw i32 %mul.i, %cond
   %mul2.i = shl nsw i32 %mul1.i, 1
   %conv.i = sext i32 %mul2.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #47
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i) #47
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -6999,7 +6999,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -7306,7 +7306,7 @@ _ZL17stbi__malloc_mad4iiiii.exit.i:               ; preds = %_ZL21stbi__mul2size
   %mul1.i.i = shl i32 %mul.i.i.i, 2
   %mul2.i.i = mul i32 %mul1.i.i, %cond
   %conv.i.i = sext i32 %mul2.i.i to i64
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i.i) #47
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i.i) #47
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %if.then1.i, label %if.end4.i
 
@@ -7469,7 +7469,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -7530,7 +7530,7 @@ define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %f, ptr nocap
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -7644,7 +7644,7 @@ define hidden ptr @assimp_stbi_zlib_decode_malloc_guesssize(ptr noundef %buffer,
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #47
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv) #47
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -8344,7 +8344,7 @@ for.end.i.i:                                      ; preds = %_ZL14stbi__zreceive
 
 while.body.i73.i:                                 ; preds = %for.end.i.i, %if.end58.i.i
   %n.0222.i.i = phi i32 [ %n.1.i.i, %if.end58.i.i ], [ 0, %for.end.i.i ]
-  %call12.i.i = call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef %z_codelength.i.i)
+  %call12.i.i = call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef nonnull %a, ptr noundef %z_codelength.i.i)
   %or.cond.i.i = icmp ugt i32 %call12.i.i, 18
   br i1 %or.cond.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i, label %if.end17.i.i
 
@@ -8582,7 +8582,7 @@ if.end29.i:                                       ; preds = %_ZL27stbi__compute_
 
 for.cond.i.i:                                     ; preds = %if.end80.i.i, %if.end29.i
   %zout.0.i.i = phi ptr [ %111, %if.end29.i ], [ %zout.2.i.i, %if.end80.i.i ]
-  %call.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef %z_length.i.i)
+  %call.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef nonnull %a, ptr noundef %z_length.i.i)
   %cmp.i101.i = icmp slt i32 %call.i.i, 256
   br i1 %cmp.i101.i, label %if.then.i135.i, label %if.else.i102.i
 
@@ -8755,7 +8755,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit.i106.i:    ; preds = %_ZL11stbi__zget8P10
 
 if.end27.i.i:                                     ; preds = %_ZL14stbi__zreceiveP10stbi__zbufi.exit.i106.i, %if.end19.i.i
   %len.0.i.i = phi i32 [ %add.i110.i, %_ZL14stbi__zreceiveP10stbi__zbufi.exit.i106.i ], [ %121, %if.end19.i.i ]
-  %call28.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef %z_distance.i.i)
+  %call28.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef nonnull %a, ptr noundef %z_distance.i.i)
   %or.cond.i111.i = icmp ugt i32 %call28.i.i, 29
   br i1 %or.cond.i111.i, label %if.then31.i118.i, label %if.end33.i112.i
 
@@ -8974,7 +8974,7 @@ define hidden ptr @assimp_stbi_zlib_decode_malloc(ptr noundef %buffer, i32 nound
 entry:
   %a.i = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %a.i)
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #47
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) 16384) #47
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %assimp_stbi_zlib_decode_malloc_guesssize.exit, label %if.end.i
 
@@ -9026,7 +9026,7 @@ define hidden ptr @assimp_stbi_zlib_decode_malloc_guesssize_headerflag(ptr nound
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #47
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv) #47
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -9231,7 +9231,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -9279,7 +9279,7 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %if.then.i.i.i, 
   store ptr %add.ptr12.sink.i.i.i, ptr %img_buffer_original_end.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %s, ptr %p.i.i, align 8
-  %call.i.i.i3 = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i.i, i32 noundef 2, i32 noundef 0)
+  %call.i.i.i3 = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i.i, i32 noundef 2, i32 noundef 0)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i3, 0
   br i1 %tobool.not.i.i.i, label %if.end.i, label %if.end.i.i.i
 
@@ -9372,7 +9372,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -9420,7 +9420,7 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %if.then.i.i.i, 
   store ptr %add.ptr12.sink.i.i.i, ptr %img_buffer_original_end.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %s, ptr %p.i.i, align 8
-  %call.i.i.i3 = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i.i, i32 noundef 2, i32 noundef 0)
+  %call.i.i.i3 = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i.i, i32 noundef 2, i32 noundef 0)
   %tobool.not.i.i.i = icmp ne i32 %call.i.i.i3, 0
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %5 = load i32, ptr %depth.i.i, align 8
@@ -9470,7 +9470,7 @@ entry:
   store ptr %add.ptr.i, ptr %img_buffer_end.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %s, ptr %p.i.i, align 8
-  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i.i, i32 noundef 2, i32 noundef 0)
+  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i.i, i32 noundef 2, i32 noundef 0)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end.i, label %if.end.i.i.i
 
@@ -9584,7 +9584,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
   store ptr %add.ptr12.sink.i.i, ptr %img_buffer_original_end.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %s, ptr %p.i.i, align 8
-  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i.i, i32 noundef 2, i32 noundef 0)
+  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i.i, i32 noundef 2, i32 noundef 0)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end.i, label %if.end.i.i.i
 
@@ -9667,7 +9667,7 @@ entry:
   store ptr %add.ptr.i, ptr %img_buffer_end.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %s, ptr %p.i.i, align 8
-  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i.i, i32 noundef 2, i32 noundef 0)
+  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i.i, i32 noundef 2, i32 noundef 0)
   %tobool.not.i.i.i = icmp ne i32 %call.i.i.i, 0
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %0 = load i32, ptr %depth.i.i, align 8
@@ -9747,7 +9747,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
   store ptr %add.ptr12.sink.i.i, ptr %img_buffer_original_end.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %s, ptr %p.i.i, align 8
-  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i.i, i32 noundef 2, i32 noundef 0)
+  %call.i.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i.i, i32 noundef 2, i32 noundef 0)
   %tobool.not.i.i.i = icmp ne i32 %call.i.i.i, 0
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %5 = load i32, ptr %depth.i.i, align 8
@@ -11337,7 +11337,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   %sub.i.i.i = add i64 %5, -1
   store i64 %sub.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.04.i.i.i) #44
-  tail call void @_ZdlPv(ptr noundef %__first.sroa.0.04.i.i.i) #42
+  tail call void @_ZdlPv(ptr noundef nonnull %__first.sroa.0.04.i.i.i) #42
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i.i, %entry, %delete.end
@@ -11382,7 +11382,7 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
   %sub.i.i.i.i = add i64 %5, -1
   store i64 %sub.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.04.i.i.i.i) #44
-  tail call void @_ZdlPv(ptr noundef %__first.sroa.0.04.i.i.i.i) #42
+  tail call void @_ZdlPv(ptr noundef nonnull %__first.sroa.0.04.i.i.i.i) #42
   br label %_ZN23LogToCallbackRedirectorD2Ev.exit
 
 _ZN23LogToCallbackRedirectorD2Ev.exit:            ; preds = %while.body.i.i.i.i, %entry, %delete.end.i
@@ -11575,7 +11575,7 @@ if.then.i.i11:                                    ; preds = %if.then
   br label %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
 
 if.end.i.i:                                       ; preds = %if.then
-  %call2.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %p.i, i32 noundef 0, i32 noundef %req_comp)
+  %call2.i.i = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull %p.i, i32 noundef 0, i32 noundef %req_comp)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.end.i.if.end52.i_crit_edge.i, label %if.then4.i.i
 
@@ -11652,7 +11652,7 @@ _ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i:    ; preds = %if.end.i8.i.i.i.i.i
 _ZL17stbi__malloc_mad3iiii.exit.i.i.i:            ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i, %if.end.i8.i.i.i.i.i
   %mul1.i.i.i.i = mul nsw i32 %mul.i.i.i.i.i, %22
   %conv.i.i.i.i9 = sext i32 %mul1.i.i.i.i to i64
-  %call.i.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i.i.i.i9) #47
+  %call.i.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i.i.i.i9) #47
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp1.i.i.i, label %if.end37.thread.i.i, label %for.cond.preheader.i.i.i
 
@@ -12001,7 +12001,7 @@ if.end.i38.i.i:                                   ; preds = %if.then20.i.i
   %mul1.i.i.i = mul i32 %mul.i.i.i, %21
   %mul2.i.i.i = mul i32 %mul1.i.i.i, %22
   %conv.i39.i.i = zext i32 %mul2.i.i.i to i64
-  %call.i.i.i.i7 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i39.i.i) #47
+  %call.i.i.i.i7 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i39.i.i) #47
   %cmp3.i.i.i = icmp eq ptr %call.i.i.i.i7, null
   br i1 %cmp3.i.i.i, label %if.end37.thread.i.i, label %for.cond.preheader.i40.i.i
 
@@ -12624,9 +12624,9 @@ if.end14:                                         ; preds = %if.end9
   %call1.i = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %0)
   %add.i = or disjoint i32 %shl.i, %call1.i
   store i32 %add.i, ptr %0, align 8
-  %call.i191 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %0)
+  %call.i191 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
   %shl.i192 = shl nuw i32 %call.i191, 16
-  %call1.i193 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %0)
+  %call1.i193 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %0)
   %add.i194 = or disjoint i32 %shl.i192, %call1.i193
   store i32 %add.i194, ptr %img_y, align 4
   %cmp18 = icmp ugt i32 %add.i194, 16777216
@@ -14038,7 +14038,7 @@ _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
   %mul1.i = mul nsw i32 %mul.i.i, %mul
   %conv.i = sext i32 %mul1.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #47
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i) #47
   %tobool7.not = icmp eq ptr %call.i.i, null
   br i1 %tobool7.not, label %if.then8, label %for.cond.preheader
 
@@ -14452,7 +14452,7 @@ _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
 _ZL17stbi__malloc_mad2iii.exit:                   ; preds = %if.end.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i
   %mul.i = mul nsw i32 %mul, %pal_img_n
   %conv.i = sext i32 %mul.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #47
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i) #47
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -14600,7 +14600,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2size
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
   %mul1.i = mul nsw i32 %mul4, %mul.i.i
   %conv.i = sext i32 %mul1.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #47
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 4294967296) %conv.i) #47
   %out = getelementptr inbounds i8, ptr %a, i64 24
   store ptr %call.i.i, ptr %out, align 8
   %tobool.not = icmp eq ptr %call.i.i, null

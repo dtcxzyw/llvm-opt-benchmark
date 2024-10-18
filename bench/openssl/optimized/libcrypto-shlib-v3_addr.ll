@@ -2405,7 +2405,7 @@ sw.bb36:                                          ; preds = %if.end
 for.body.i:                                       ; preds = %sw.bb36, %for.inc.i
   %i.019.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %sw.bb36 ]
   %call3.i = tail call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef %i.019.i) #15
-  %call4.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.38, i32 noundef %add, ptr noundef nonnull @.str.24) #15
+  %call4.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483646, -2147483648) %add, ptr noundef nonnull @.str.24) #15
   %13 = load i32, ptr %call3.i, align 8
   switch i32 %13, label %for.inc.i [
     i32 0, label %sw.bb.i
@@ -2415,7 +2415,7 @@ for.body.i:                                       ; preds = %sw.bb36, %for.inc.i
 sw.bb.i:                                          ; preds = %for.body.i
   %u.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %14 = load ptr, ptr %u.i, align 8
-  %call5.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef %retval.0.i34, i8 noundef zeroext 0, ptr noundef %14)
+  %call5.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef range(i32 0, 65536) %retval.0.i34, i8 noundef zeroext 0, ptr noundef %14)
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i30
 
@@ -2435,7 +2435,7 @@ sw.bb10.i:                                        ; preds = %for.body.i
   %u11.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %20 = load ptr, ptr %u11.i, align 8
   %21 = load ptr, ptr %20, align 8
-  %call12.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef %retval.0.i34, i8 noundef zeroext 0, ptr noundef %21)
+  %call12.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef range(i32 0, 65536) %retval.0.i34, i8 noundef zeroext 0, ptr noundef %21)
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %return, label %if.end15.i
 
@@ -2444,7 +2444,7 @@ if.end15.i:                                       ; preds = %sw.bb10.i
   %22 = load ptr, ptr %u11.i, align 8
   %max.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %max.i, align 8
-  %call18.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef %retval.0.i34, i8 noundef zeroext -1, ptr noundef %23)
+  %call18.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef range(i32 0, 65536) %retval.0.i34, i8 noundef zeroext -1, ptr noundef %23)
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %return, label %if.end21.i
 
@@ -3550,7 +3550,7 @@ if.end2:                                          ; preds = %if.end.i, %if.else.
   %add.ptr.i = getelementptr inbounds i8, ptr %addr, i64 %idx.ext.i.pre-phi
   %sub37.i = sub nuw nsw i32 4, %0
   %conv38.i = zext nneg i32 %sub37.i to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 %fill, i64 %conv38.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 range(i8 -1, 1) %fill, i64 %conv38.i, i1 false)
   %10 = load i8, ptr %addr, align 16
   %conv = zext i8 %10 to i32
   %arrayidx3 = getelementptr inbounds i8, ptr %addr, i64 1
@@ -3615,7 +3615,7 @@ addr_expand.exit52:                               ; preds = %if.end.i27, %if.the
   %add.ptr.i44 = getelementptr inbounds i8, ptr %addr, i64 %idx.ext.i43.pre-phi
   %sub37.i45 = sub nuw nsw i32 16, %0
   %conv38.i46 = zext nneg i32 %sub37.i45 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i44, i8 %fill, i64 %conv38.i46, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i44, i8 range(i8 -1, 1) %fill, i64 %conv38.i46, i1 false)
   br label %for.cond
 
 for.cond:                                         ; preds = %addr_expand.exit52, %land.rhs

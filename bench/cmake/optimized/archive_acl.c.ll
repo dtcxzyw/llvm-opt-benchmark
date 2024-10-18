@@ -1011,7 +1011,7 @@ switch.early.test.i:                              ; preds = %150
   ]
 
 .thread.i:                                        ; preds = %162, %162
-  call fastcc void @append_id_w(ptr noundef %6, i32 noundef %.077.i)
+  call fastcc void @append_id_w(ptr noundef nonnull %6, i32 noundef %.077.i)
   %163 = and i32 %115, 15360
   %164 = icmp eq i32 %163, 0
   %spec.select.i = select i1 %164, i32 -1, i32 %.077.i
@@ -1195,7 +1195,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %235 = getelementptr inbounds i8, ptr %233, i64 4
   store ptr %235, ptr %6, align 8
   store i32 58, ptr %233, align 4
-  call fastcc void @append_id_w(ptr noundef %6, i32 noundef %.3123.i)
+  call fastcc void @append_id_w(ptr noundef nonnull %6, i32 noundef %.3123.i)
   br label %append_entry_w.exit88
 
 append_entry_w.exit88:                            ; preds = %232, %234
@@ -1873,7 +1873,7 @@ switch.early.test.i:                              ; preds = %138
   ]
 
 .thread.i:                                        ; preds = %149, %149
-  call fastcc void @append_id(ptr noundef %7, i32 noundef %.077.i)
+  call fastcc void @append_id(ptr noundef nonnull %7, i32 noundef %.077.i)
   %150 = and i32 %112, 15360
   %151 = icmp eq i32 %150, 0
   %spec.select.i = select i1 %151, i32 -1, i32 %.077.i
@@ -2064,7 +2064,7 @@ switch.early.test.i:                              ; preds = %138
   %223 = getelementptr inbounds i8, ptr %221, i64 1
   store ptr %223, ptr %7, align 8
   store i8 58, ptr %221, align 1
-  call fastcc void @append_id(ptr noundef %7, i32 noundef %.3123.i)
+  call fastcc void @append_id(ptr noundef nonnull %7, i32 noundef %.3123.i)
   br label %append_entry.exit86
 
 append_entry.exit86:                              ; preds = %220, %222
@@ -3815,7 +3815,7 @@ acl_special.exit.i:                               ; preds = %279, %274, %269
   %.sroa.0.1310 = phi ptr [ %.sroa.0.2, %isint.exit213.thread ], [ %.sroa.0.1, %268 ], [ %.sroa.0.1, %isint.exit213 ]
   %.1238309 = phi i32 [ %.1238.ph, %isint.exit213.thread ], [ %.0237, %268 ], [ %.0237, %isint.exit213 ]
   %.2246308 = phi i32 [ %.14.ph, %isint.exit213.thread ], [ %.2246, %268 ], [ %.2246, %isint.exit213 ]
-  %285 = tail call fastcc ptr @acl_new_entry(ptr noundef %0, i32 noundef %.1108312, i32 noundef %.2246308, i32 noundef %.2313, i32 noundef %.1238309)
+  %285 = tail call fastcc ptr @acl_new_entry(ptr noundef %0, i32 noundef range(i32 15361, 15360) %.1108312, i32 noundef %.2246308, i32 noundef %.2313, i32 noundef %.1238309)
   %286 = icmp eq ptr %285, null
   br i1 %286, label %archive_acl_add_entry_len_l.exit, label %287
 

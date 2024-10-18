@@ -110,11 +110,11 @@ define range(i32 -29, 1) i32 @pmix_hash_table_init2(ptr noundef %0, i64 noundef 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %7, i64 noundef %16, i64 noundef 40) #13
+  %20 = tail call ptr %19(ptr noundef nonnull %7, i64 noundef range(i64 1, -14) %16, i64 noundef 40) #13
   br label %pmix_tma_calloc.exit
 
 21:                                               ; preds = %6
-  %22 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 40) #14
+  %22 = tail call noalias ptr @calloc(i64 noundef range(i64 1, -14) %16, i64 noundef 40) #14
   br label %pmix_tma_calloc.exit
 
 pmix_tma_calloc.exit:                             ; preds = %17, %21
@@ -163,11 +163,11 @@ define range(i32 -29, 1) i32 @pmix_hash_table_init(ptr noundef %0, i64 noundef %
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr %12(ptr noundef nonnull %3, i64 noundef %9, i64 noundef 40) #13
+  %13 = tail call ptr %12(ptr noundef nonnull %3, i64 noundef range(i64 1, -14) %9, i64 noundef 40) #13
   br label %pmix_tma_calloc.exit.i
 
 14:                                               ; preds = %2
-  %15 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 40) #14
+  %15 = tail call noalias ptr @calloc(i64 noundef range(i64 1, -14) %9, i64 noundef 40) #14
   br label %pmix_tma_calloc.exit.i
 
 pmix_tma_calloc.exit.i:                           ; preds = %14, %10
@@ -392,11 +392,11 @@ define internal fastcc range(i32 -29, 1) i32 @pmix_hash_grow(ptr noundef %0) unn
 20:                                               ; preds = %1
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr %22(ptr noundef nonnull %2, i64 noundef %19, i64 noundef 40) #13
+  %23 = tail call ptr %22(ptr noundef nonnull %2, i64 noundef range(i64 1, -14) %19, i64 noundef 40) #13
   br label %pmix_tma_calloc.exit
 
 24:                                               ; preds = %1
-  %25 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 40) #14
+  %25 = tail call noalias ptr @calloc(i64 noundef range(i64 1, -14) %19, i64 noundef 40) #14
   br label %pmix_tma_calloc.exit
 
 pmix_tma_calloc.exit:                             ; preds = %20, %24

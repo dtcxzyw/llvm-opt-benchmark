@@ -659,7 +659,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull readonly align 8 %78, i64 %79, i1 false), !alias.scope !61, !noalias !59
   %80 = getelementptr inbounds { ptr, ptr }, ptr %17, i64 %65
   %81 = shl nuw nsw i64 %55, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull readonly align 8 %80, i64 %81, i1 false), !alias.scope !65, !noalias !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(280) %47, ptr nonnull readonly align 8 %80, i64 %81, i1 false), !alias.scope !65, !noalias !59
   %82 = trunc i64 %40 to i16
   store i16 %82, ptr %18, align 2, !noalias !57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !60
@@ -1067,7 +1067,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %250, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !147, !noalias !145
   %253 = getelementptr inbounds { ptr, ptr }, ptr %160, i64 %236
   %254 = shl nuw nsw i64 %227, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %219, ptr nonnull readonly align 8 %253, i64 %254, i1 false), !alias.scope !151, !noalias !145
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(280) %219, ptr nonnull readonly align 8 %253, i64 %254, i1 false), !alias.scope !151, !noalias !145
   %255 = trunc i64 %214 to i16
   store i16 %255, ptr %172, align 2, !noalias !143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !146
@@ -1082,7 +1082,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %249
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %262, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46a9e265401e6cf69d1387f578460db3.23) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %262, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46a9e265401e6cf69d1387f578460db3.23) #23
           to label %.noexc.i.i38 unwind label %247, !noalias !136
 
 .noexc.i.i38:                                     ; preds = %264

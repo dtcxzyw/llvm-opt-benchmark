@@ -95,7 +95,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %9 = load ptr, ptr %.029.val.i.i.i.i.i, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %.029.val.i.i.i.i.i, ptr noundef %0) #14
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %.029.val.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %12, label %13, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 13:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -104,7 +104,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %15 = load ptr, ptr %.val31.i.i.i.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(44) %.val31.i.i.i.i.i, ptr noundef %0) #14
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(44) %.val31.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %18, label %19, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 19:                                               ; preds = %13
@@ -113,7 +113,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %21 = load ptr, ptr %.val33.i.i.i.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(44) %.val33.i.i.i.i.i, ptr noundef %0) #14
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(44) %.val33.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %24, label %25, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
 
 25:                                               ; preds = %19
@@ -122,7 +122,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %27 = load ptr, ptr %.val35.i.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(44) %.val35.i.i.i.i.i, ptr noundef %0) #14
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(44) %.val35.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %30, label %31, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17"
 
 31:                                               ; preds = %25
@@ -151,7 +151,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %37 = load ptr, ptr %.029.val37.i.i.i.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(44) %.029.val37.i.i.i.i.i, ptr noundef %0) #14
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(44) %.029.val37.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %40, label %41, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 41:                                               ; preds = %36
@@ -164,7 +164,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %44 = load ptr, ptr %.1.val.i.i.i.i.i, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(44) %.1.val.i.i.i.i.i, ptr noundef %0) #14
+  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(44) %.1.val.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %47, label %48, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 48:                                               ; preds = %43
@@ -177,7 +177,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7V
   %51 = load ptr, ptr %.2.val.i.i.i.i.i, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(44) %.2.val.i.i.i.i.i, ptr noundef %0) #14
+  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(44) %.2.val.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %54, label %55, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstLaneUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 55:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %9 = load ptr, ptr %.029.val.i.i.i.i.i, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %.029.val.i.i.i.i.i, ptr noundef %0) #14
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %.029.val.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %12, label %13, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 13:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -228,7 +228,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %15 = load ptr, ptr %.val31.i.i.i.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(44) %.val31.i.i.i.i.i, ptr noundef %0) #14
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(44) %.val31.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %18, label %19, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 19:                                               ; preds = %13
@@ -237,7 +237,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %21 = load ptr, ptr %.val33.i.i.i.i.i, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(44) %.val33.i.i.i.i.i, ptr noundef %0) #14
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(44) %.val33.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %24, label %25, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
 
 25:                                               ; preds = %19
@@ -246,7 +246,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %27 = load ptr, ptr %.val35.i.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(44) %.val35.i.i.i.i.i, ptr noundef %0) #14
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(44) %.val35.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %30, label %31, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17"
 
 31:                                               ; preds = %25
@@ -275,7 +275,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %37 = load ptr, ptr %.029.val37.i.i.i.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(44) %.029.val37.i.i.i.i.i, ptr noundef %0) #14
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(44) %.029.val37.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %40, label %41, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 41:                                               ; preds = %36
@@ -288,7 +288,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %44 = load ptr, ptr %.1.val.i.i.i.i.i, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(44) %.1.val.i.i.i.i.i, ptr noundef %0) #14
+  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(44) %.1.val.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %47, label %48, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 48:                                               ; preds = %43
@@ -301,7 +301,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7V
   %51 = load ptr, ptr %.2.val.i.i.i.i.i, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(44) %.2.val.i.i.i.i.i, ptr noundef %0) #14
+  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(44) %.2.val.i.i.i.i.i, ptr noundef nonnull %0) #14
   br i1 %54, label %55, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_6VPUserEEEZNS_7vputils17onlyFirstPartUsedEPKNS_7VPValueEE3$_0EEbOT_T0_.exit"
 
 55:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
@@ -402,13 +402,13 @@ _ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread: ; preds = %.lr.ph.i.i
   %47 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @_ZN4llvm17VPSingleDefRecipeC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(160) %47, i8 noundef zeroext 2, ptr null, i64 0, ptr noundef nonnull %5)
+  call void @_ZN4llvm17VPSingleDefRecipeC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(176) %47, i8 noundef zeroext 2, ptr null, i64 0, ptr noundef nonnull %5)
   %48 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit, label %49
 
 49:                                               ; preds = %46
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(8) %48) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %48) #14
   br label %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit
 
 _ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit: ; preds = %46, %49
@@ -1243,7 +1243,7 @@ define linkonce_odr hidden void @_ZN4llvm17VPSingleDefRecipeC2EhNS_8ArrayRefIPNS
   br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(8) %7, i64 1) #14
+  %9 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, i64 1) #14
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %5, %8
@@ -1258,7 +1258,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %5, %8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm6VPUserE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 2) #14
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull %15, i64 noundef 2) #14
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %2, i64 %3
@@ -1285,13 +1285,13 @@ _ZN4llvm6VPUserC2ENS_8ArrayRefIPNS_7VPValueEEENS0_8VPUserIDE.exit.i: ; preds = %
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %_ZN4llvm12VPRecipeBaseC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE.exit
 
 _ZN4llvm12VPRecipeBaseC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE.exit: ; preds = %_ZN4llvm6VPUserC2ENS_8ArrayRefIPNS_7VPValueEEENS0_8VPUserIDE.exit.i
-  %23 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %21, ptr noundef nonnull align 4 dereferenceable(8) %22, i64 1) #14
+  %23 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %22, i64 1) #14
   %.pr = load ptr, ptr %6, align 8
   %.not.i.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i3, label %_ZN4llvm8DebugLocD2Ev.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm12VPRecipeBaseC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(8) %.pr) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %.pr) #14
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm6VPUserC2ENS_8ArrayRefIPNS_7VPValueEEENS0_8VPUserIDE.exit.i, %_ZN4llvm12VPRecipeBaseC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE.exit, %24
@@ -1329,7 +1329,7 @@ define linkonce_odr hidden void @_ZThn40_N4llvm17VPSingleDefRecipeD1Ev(ptr nound
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN4llvm7VPValueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
-  tail call void @_ZN4llvm12VPRecipeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
+  tail call void @_ZN4llvm12VPRecipeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #14
   ret void
 }
 
@@ -1362,7 +1362,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6VPUser17onlyFirstPartUs
 define linkonce_odr hidden void @_ZThn104_N4llvm17VPSingleDefRecipeD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -104
   tail call void @_ZN4llvm7VPValueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
-  tail call void @_ZN4llvm12VPRecipeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
+  tail call void @_ZN4llvm12VPRecipeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #14
   ret void
 }
 
@@ -1427,7 +1427,7 @@ _ZN4llvm20make_early_inc_rangeIRNS_13TinyPtrVectorIPNS_7VPValueEEEEENS_14iterato
   br i1 %.not.i, label %_ZN4llvm13TinyPtrVectorIPNS_7VPValueEED2Ev.exit, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #14
+  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #14
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 16
   %26 = icmp eq ptr %24, %25
@@ -1524,7 +1524,7 @@ define linkonce_odr hidden void @_ZN4llvm6VPUserD2Ev(ptr noundef nonnull align 8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = icmp eq ptr %9, %10
@@ -1557,7 +1557,7 @@ define linkonce_odr hidden void @_ZN4llvm6VPUserD0Ev(ptr noundef nonnull align 8
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = icmp eq ptr %9, %10
@@ -1578,7 +1578,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN4llvm7VPValue10removeUserERNS_6VPUserE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(44) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
   %.idx3.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %4, i64 %.idx3.i
   %7 = ashr i64 %5, 2
@@ -1724,7 +1724,7 @@ define linkonce_odr hidden void @_ZN4llvm12VPRecipeBaseD2Ev(ptr noundef nonnull 
   br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %4) #14
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4) #14
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %1, %5
@@ -1745,7 +1745,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %1, %5
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN4llvm8DebugLocD2Ev.exit
-  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = icmp eq ptr %13, %14
@@ -2128,7 +2128,7 @@ _ZN4llvm17VPlanPatternMatch22VPCanonicalIVPHI_match5matchEPKNS_7VPValueE.exit: ;
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; preds = %34, %20
   %.012.i = phi ptr [ %22, %20 ], [ %33, %34 ]
   %37 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
-  %38 = tail call noundef zeroext i1 @_ZN4llvm5APInt11isSameValueERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(12) %15)
+  %38 = tail call noundef zeroext i1 @_ZN4llvm5APInt11isSameValueERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(16) %15)
   br label %_ZN4llvm17VPlanPatternMatch15specific_intvalILj0EE5matchEPNS_7VPValueE.exit
 
 _ZN4llvm17VPlanPatternMatch15specific_intvalILj0EE5matchEPNS_7VPValueE.exit: ; preds = %6, %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i, %34, %32, %24, %14, %_ZN4llvm17VPlanPatternMatch22VPCanonicalIVPHI_match5matchEPKNS_7VPValueE.exit, %2

@@ -562,7 +562,7 @@ dumpInteger.exit.i:                               ; preds = %if.then.i.i23.i, %s
 
 sw.bb3.i:                                         ; preds = %dumpByte.exit.i, %dumpByte.exit.i
   %73 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @dumpString(ptr noundef %D, ptr noundef %73)
+  call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %73)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb3.i, %dumpInteger.exit.i, %dumpNumber.exit.i, %dumpByte.exit.i
@@ -751,7 +751,7 @@ for.body.i143:                                    ; preds = %for.body.i143.lr.ph
   %arrayidx.i144 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
   %106 = load ptr, ptr %arrayidx.i144, align 8
   %107 = load ptr, ptr %source.i, align 8
-  call fastcc void @dumpFunction(ptr noundef %D, ptr noundef %106, ptr noundef %107)
+  call fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef %106, ptr noundef %107)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %dumpProtos.exit, label %for.body.i143, !llvm.loop !9
@@ -1054,7 +1054,7 @@ for.body20.i:                                     ; preds = %dumpInt.exit180.i, 
   %161 = load ptr, ptr %locvars.i, align 8
   %arrayidx22.i = getelementptr inbounds %struct.LocVar, ptr %161, i64 %indvars.iv211.i
   %162 = load ptr, ptr %arrayidx22.i, align 8
-  call fastcc void @dumpString(ptr noundef %D, ptr noundef %162)
+  call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %162)
   %163 = load ptr, ptr %locvars.i, align 8
   %startpc.i = getelementptr inbounds %struct.LocVar, ptr %163, i64 %indvars.iv211.i, i32 1
   %164 = load i32, ptr %startpc.i, align 8
@@ -1206,7 +1206,7 @@ for.body41.i:                                     ; preds = %for.body41.i, %for.
   %191 = load ptr, ptr %upvalues.i160, align 8
   %arrayidx43.i = getelementptr inbounds %struct.Upvaldesc, ptr %191, i64 %indvars.iv216.i
   %192 = load ptr, ptr %arrayidx43.i, align 8
-  call fastcc void @dumpString(ptr noundef %D, ptr noundef %192)
+  call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %192)
   %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, 1
   %exitcond220.not.i = icmp eq i64 %indvars.iv.next217.i, %wide.trip.count219.i
   br i1 %exitcond220.not.i, label %dumpDebug.exit, label %for.body41.i, !llvm.loop !12

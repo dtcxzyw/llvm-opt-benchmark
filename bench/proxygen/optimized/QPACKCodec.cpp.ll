@@ -366,7 +366,7 @@ entry:
   %curOutstanding_ = getelementptr inbounds i8, ptr %this, i64 464
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %curOutstanding_, ptr noundef %0)
+  invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(49) %curOutstanding_, ptr noundef %0)
           to label %_ZN8proxygen12QPACKEncoder16OutstandingBlockD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %entry
@@ -440,7 +440,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQu
   br label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit
 
 _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %_ZN8proxygen12QPACKEncoder16OutstandingBlockD2Ev.exit, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i
-  tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %controlBuffer_) #26
+  tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_) #26
   %17 = getelementptr inbounds i8, ptr %this, i64 152
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 16), ptr %17, align 8
   %refCount_.i.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -463,7 +463,7 @@ _ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i.i.i: ; preds = %if.then.
 
 _ZN8proxygen12QPACKContextD2Ev.exit:              ; preds = %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit, %_ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i.i.i
   store ptr null, ptr %refCount_.i.i, align 8
-  tail call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #26
+  tail call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %17) #26
   %attached.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %20 = load i8, ptr %attached.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %20 to i1
@@ -525,7 +525,7 @@ if.then.i.i.i.i.i4:                               ; preds = %_ZNK5folly10IOBufQu
 
 _ZN8proxygen16HPACKEncoderBaseD2Ev.exit:          ; preds = %_ZN8proxygen12QPACKContextD2Ev.exit, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i4
   %streamBuffer_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %streamBuffer_.i) #26
+  tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_.i) #26
   ret void
 }
 
@@ -2198,7 +2198,7 @@ _ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i.i: ; preds = %if.then.i.
 
 _ZN8proxygen16QPACKHeaderTableD2Ev.exit:          ; preds = %entry, %_ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i.i
   store ptr null, ptr %refCount_.i, align 8
-  tail call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #26
+  tail call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #26
   ret void
 }
 
@@ -2261,7 +2261,7 @@ _ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i.i.i: ; preds = %if.then.
 
 _ZN8proxygen12QPACKContextD2Ev.exit:              ; preds = %_ZN5folly15DestructorCheckD2Ev.exit, %_ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i.i.i
   store ptr null, ptr %refCount_.i.i, align 8
-  tail call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #26
+  tail call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %3) #26
   ret void
 }
 
@@ -2443,7 +2443,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
   %shr.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i, 12
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i.i.i.i.i, 1
   %mul.i.i.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
-  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(8) %names_, i64 noundef %shr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i.i)
+  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(24) %names_, i64 noundef %shr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i.i)
           to label %if.end7.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
@@ -2511,7 +2511,7 @@ for.body:                                         ; preds = %entry, %_ZNSt16allo
 while.body.i.i.i.i.i.i:                           ; preds = %for.body, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i.i.i ], [ %1, %for.body ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #28
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, %second.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !12
 
@@ -2609,7 +2609,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i, %_Z
   %_M_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i.i.i, i64 16
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i.i.i, i64 32
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i.i.i.i.i.i, ptr noundef %4)
+  invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(49) %_M_storage.i.i.i.i.i.i.i.i.i.i, ptr noundef %4)
           to label %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %while.body.i.i.i.i.i.i.i.i.i
@@ -2695,7 +2695,7 @@ if.then:                                          ; preds = %entry
   store i8 1, ptr %fields_15, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %data_, i8 0, i64 208, i1 false)
-  tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %data_)
+  tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 8 dereferenceable(202) %data_)
   %port_.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store i16 0, ptr %port_.i.i, align 8
   %external_.i.i = getelementptr inbounds i8, ptr %this, i64 202

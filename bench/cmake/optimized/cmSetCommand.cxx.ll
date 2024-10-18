@@ -92,7 +92,7 @@ define dso_local noundef zeroext i1 @_Z12cmSetCommandRKSt6vectorINSt7__cxx1112ba
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc114 unwind label %31
 
 .noexc114:                                        ; preds = %.noexc
@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @_Z12cmSetCommandRKSt6vectorINSt7__cxx1112ba
 27:                                               ; preds = %.noexc114
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc114
@@ -424,7 +424,7 @@ _ZN6cmList9to_stringI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basi
           to label %.noexc127 unwind label %169
 
 .noexc127:                                        ; preds = %163
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %164, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %164, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc128 unwind label %169
 
 .noexc128:                                        ; preds = %.noexc127
@@ -434,7 +434,7 @@ _ZN6cmList9to_stringI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basi
 165:                                              ; preds = %.noexc128
   %166 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
   br label %.body129
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ; preds = %.noexc128
@@ -684,7 +684,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

@@ -728,7 +728,7 @@ define internal void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchPa
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %10, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i.i.i, label %27, label %.noexc3.i
 
@@ -1063,7 +1063,7 @@ define void @_ZN5faiss18IndexNNDescentFlatC2Ev(ptr noundef nonnull align 8 deref
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #10
   resume { ptr, i32 } %10
 
 _ZN5faiss14IndexNNDescentC2EiiNS_10MetricTypeE.exit: ; preds = %1
@@ -1100,7 +1100,7 @@ define linkonce_odr void @_ZN5faiss18IndexNNDescentFlatD2Ev(ptr noundef nonnull 
 _ZN5faiss14IndexNNDescentD2Ev.exit:               ; preds = %1, %5, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5faiss9NNDescentD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %13) #10
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #10
   ret void
 }
 
@@ -1128,7 +1128,7 @@ define linkonce_odr void @_ZN5faiss18IndexNNDescentFlatD0Ev(ptr noundef nonnull 
 _ZN5faiss18IndexNNDescentFlatD2Ev.exit:           ; preds = %1, %5, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5faiss9NNDescentD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %13) #10
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
@@ -1169,7 +1169,7 @@ common.resume:                                    ; preds = %23, %19
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #10
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #10
   br label %common.resume
 
 _ZN5faiss14IndexNNDescentC2EPNS_5IndexEi.exit:    ; preds = %7

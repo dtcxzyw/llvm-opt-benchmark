@@ -2733,7 +2733,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_process_location(ptr nou
   br i1 %71, label %hwloc_calc_append_iodev_by_index.exit, label %72
 
 72:                                               ; preds = %63
-  %73 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef %70, ptr noundef readonly %15)
+  %73 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef %70, ptr noundef nonnull readonly %15)
   %.not37.i = icmp eq i32 %73, 0
   br i1 %.not37.i, label %74, label %79
 
@@ -3783,7 +3783,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %76, %71
   br label %.backedge.i, !llvm.loop !32
 
 95:                                               ; preds = %92, %85
-  %96 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i, ptr noundef readonly %3)
+  %96 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i, ptr noundef nonnull readonly %3)
   %97 = xor i32 %96, 1
   %spec.select.i = add i32 %97, %.0.ph.i
   br label %.outer.i, !llvm.loop !32
@@ -3885,7 +3885,7 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
   br i1 %.not29.not.us.i, label %.outer.us.i.backedge, label %142
 
 142:                                              ; preds = %139, %132
-  %143 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.us.i, ptr noundef readonly %3)
+  %143 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.us.i, ptr noundef nonnull readonly %3)
   %.not32.us.i = icmp eq i32 %143, 0
   br i1 %.not32.us.i, label %144, label %.outer.us.i.backedge
 
@@ -3966,7 +3966,7 @@ hwloc_get_next_obj_by_depth.exit.i96:             ; preds = %153, %148
   br i1 %.not29.not.i, label %.backedge.i99.backedge, label %172
 
 172:                                              ; preds = %169, %162
-  %173 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i97, ptr noundef readonly %3)
+  %173 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.i97, ptr noundef nonnull readonly %3)
   %.not32.i = icmp eq i32 %173, 0
   br i1 %.not32.i, label %174, label %.backedge.i99.backedge
 

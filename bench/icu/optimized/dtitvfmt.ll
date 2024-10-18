@@ -970,7 +970,7 @@ entry:
   br i1 %new.isnull.i.i, label %if.then.i.i, label %new.notnull.i.i
 
 new.notnull.i.i:                                  ; preds = %entry
-  invoke void @_ZN6icu_7518DateIntervalFormatC1ERKNS_6LocaleEPNS_16DateIntervalInfoEPKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1900) %call.i.i, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef %call.i, ptr noundef nonnull %skeleton, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_7518DateIntervalFormatC1ERKNS_6LocaleEPNS_16DateIntervalInfoEPKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1900) %call.i.i, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(64) %skeleton, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.else.i.i unwind label %lpad.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -1178,7 +1178,7 @@ arraydestroy.body11:                              ; preds = %arraydestroy.body11
   %arraydestroy.element13.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast12.add
   %secondPart.i7 = getelementptr inbounds i8, ptr %arraydestroy.element13.ptr, i64 64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %secondPart.i7) #17
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element13.ptr) #17
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %arraydestroy.element13.ptr) #17
   %arraydestroy.done14 = icmp eq i64 %arraydestroy.elementPast12.add, 648
   br i1 %arraydestroy.done14, label %ehcleanup, label %arraydestroy.body11
 
@@ -1387,7 +1387,7 @@ for.body:                                         ; preds = %if.end69, %for.body
   %indvars.iv = phi i64 [ 0, %if.end69 ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [9 x %"struct.icu_75::DateIntervalFormat::PatternInfo"], ptr %fIntervalPatterns, i64 0, i64 %indvars.iv
   %arrayidx75 = getelementptr inbounds [9 x %"struct.icu_75::DateIntervalFormat::PatternInfo"], ptr %fIntervalPatterns73, i64 0, i64 %indvars.iv
-  %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx75, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(129) %arrayidx75, ptr noundef nonnull align 8 dereferenceable(129) %arrayidx)
   %secondPart.i = getelementptr inbounds i8, ptr %arrayidx75, i64 64
   %secondPart3.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %call4.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %secondPart.i, ptr noundef nonnull align 8 dereferenceable(64) %secondPart3.i)
@@ -1566,7 +1566,7 @@ arraydestroy.body:                                ; preds = %arraydestroy.body.p
   %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.add
   %secondPart.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 64
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %secondPart.i) #17
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.ptr) #17
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %arraydestroy.element.ptr) #17
   %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 648
   br i1 %arraydestroy.done, label %arraydestroy.done30, label %arraydestroy.body
 
@@ -4433,7 +4433,7 @@ arraydestroy.body57:                              ; preds = %arraydestroy.body57
   %arraydestroy.element59.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast58.add
   %secondPart.i26 = getelementptr inbounds i8, ptr %arraydestroy.element59.ptr, i64 64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %secondPart.i26) #17
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element59.ptr) #17
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %arraydestroy.element59.ptr) #17
   %arraydestroy.done60 = icmp eq i64 %arraydestroy.elementPast58.add, 648
   br i1 %arraydestroy.done60, label %ehcleanup62, label %arraydestroy.body57
 

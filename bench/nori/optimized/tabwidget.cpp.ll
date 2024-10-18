@@ -295,7 +295,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %58
   store i32 %1, ptr %4, align 4
   %65 = getelementptr inbounds i8, ptr %0, i64 360
   %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  call void %66(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %67
 
@@ -328,7 +328,7 @@ _ZNKSt8functionIFviEEclEi.exit14:                 ; preds = %76, %72
   store i32 %81, ptr %3, align 4
   %82 = getelementptr inbounds i8, ptr %0, i64 328
   %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void %83(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 128
@@ -674,7 +674,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %26
   store i32 %37, ptr %4, align 4
   %38 = getelementptr inbounds i8, ptr %0, i64 328
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  call void %39(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 128
@@ -1633,7 +1633,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui13TabWidgetBase18mouse_button_event
   %9 = alloca %"struct.nanogui::Array", align 4
   %10 = alloca %"struct.nanogui::Array", align 4
   %11 = alloca %"struct.nanogui::Array", align 4
-  %12 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
+  %12 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 84
@@ -1806,7 +1806,7 @@ _ZNKSt8functionIFPN7nanogui5PopupEiPNS0_6ScreenEEEclEiS4_.exit: ; preds = %102
   store ptr %65, ptr %8, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 392
   %114 = load ptr, ptr %113, align 8
-  %115 = call noundef ptr %114(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %115 = call noundef ptr %114(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store ptr %115, ptr %66, align 8
@@ -2039,7 +2039,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %226, %220
   store i32 %229, ptr %6, align 4
   %230 = getelementptr inbounds i8, ptr %0, i64 328
   %231 = load ptr, ptr %230, align 8
-  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void %231(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %232 = load ptr, ptr %0, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 128
@@ -2157,7 +2157,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui13TabWidgetBase17mouse_enter_eventE
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7nanogui13TabWidgetBase18mouse_motion_eventERKNS_5ArrayIiLm2EEES4_ii(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
-  %6 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
+  %6 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(416) %0)
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 84
@@ -2812,7 +2812,7 @@ define linkonce_odr hidden void @_ZN7nanogui13TabWidgetBaseD2Ev(ptr noundef nonn
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 368
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFPN7nanogui5PopupEiPNS0_6ScreenEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -2830,7 +2830,7 @@ _ZNSt8functionIFPN7nanogui5PopupEiPNS0_6ScreenEEED2Ev.exit: ; preds = %1, %4
 
 12:                                               ; preds = %_ZNSt8functionIFPN7nanogui5PopupEiPNS0_6ScreenEEED2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 336
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %12
@@ -2848,7 +2848,7 @@ _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %_ZNSt8functionIFPN7
 
 20:                                               ; preds = %_ZNSt8functionIFviEED2Ev.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 304
-  %22 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit3 unwind label %23
 
 23:                                               ; preds = %20
@@ -3004,7 +3004,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
   br label %_ZN7nanogui9TabWidgetD2Ev.exit
 
 _ZN7nanogui9TabWidgetD2Ev.exit:                   ; preds = %_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %13
-  tail call void @_ZN7nanogui13TabWidgetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) #20
+  tail call void @_ZN7nanogui13TabWidgetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

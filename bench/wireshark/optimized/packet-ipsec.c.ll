@@ -1539,14 +1539,14 @@ show_esp_sequence_info.exit:                      ; preds = %113, %110, %105, %c
 158:                                              ; preds = %152
   %159 = getelementptr inbounds i8, ptr %154, i64 8
   %160 = load ptr, ptr %159, align 8
-  %161 = call fastcc i32 @filter_address_match(ptr noundef %131, ptr noundef %160, i32 noundef %switch.select483)
+  %161 = call fastcc i32 @filter_address_match(ptr noundef %131, ptr noundef %160, i32 noundef range(i32 -1, 3) %switch.select483)
   %.not.i485 = icmp eq i32 %161, 0
   br i1 %.not.i485, label %208, label %162
 
 162:                                              ; preds = %158
   %163 = getelementptr inbounds i8, ptr %154, i64 16
   %164 = load ptr, ptr %163, align 8
-  %165 = call fastcc i32 @filter_address_match(ptr noundef %134, ptr noundef %164, i32 noundef %switch.select483)
+  %165 = call fastcc i32 @filter_address_match(ptr noundef %134, ptr noundef %164, i32 noundef range(i32 -1, 3) %switch.select483)
   %.not50.i = icmp eq i32 %165, 0
   br i1 %.not50.i, label %208, label %166
 
@@ -2552,7 +2552,7 @@ export_ipsec_pdu.exit491:                         ; preds = %608, %614
   br i1 %.not.i.i493, label %export_ipsec_pdu.exit.i, label %664
 
 664:                                              ; preds = %661
-  %665 = call ptr @dissector_handle_get_dissector_name(ptr noundef %643) #17
+  %665 = call ptr @dissector_handle_get_dissector_name(ptr noundef nonnull %643) #17
   %666 = call ptr @export_pdu_create_common_tags(ptr noundef nonnull %1, ptr noundef %665, i16 noundef zeroext 12) #17
   %667 = call i32 @tvb_captured_length(ptr noundef %656) #17
   %668 = getelementptr inbounds i8, ptr %666, i64 16

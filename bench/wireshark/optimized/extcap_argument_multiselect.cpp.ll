@@ -750,7 +750,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate16QGen
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %8, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %2, i64 %54, ptr %52, i32 noundef 1)
+  %55 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %2, i64 %54, ptr %52, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %56
 
 56:                                               ; preds = %50
@@ -1565,7 +1565,7 @@ _ZN5QListI7QStringED2Ev.exit64:                   ; preds = %201, %_ZN17QArrayDa
   br label %.body
 
 219:                                              ; preds = %190
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %192, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %192, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.2, i32 noundef 0)
           to label %_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit unwind label %.loopexit.split-lp
 
 _ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit: ; preds = %219
@@ -1849,7 +1849,7 @@ _ZN7QStringD2Ev.exit12:                           ; preds = %62, %_ZN17QArrayDat
   %spec.select.i.i.i = select i1 %.not.i.i.i13, ptr @_ZN7QString6_emptyE, ptr %66
   %67 = getelementptr inbounds i8, ptr %11, i64 16
   %68 = load i64, ptr %67, align 8, !noalias !28
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull %3, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %68)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %68)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %73
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %64
@@ -2360,7 +2360,7 @@ _ZN5QListI11ExtcapValueED2Ev.exit:                ; preds = %20, %_ZN17QArrayDat
   %spec.select.i.i.i = select i1 %.not.i.i.i7, ptr @_ZN7QString6_emptyE, ptr %33
   %34 = getelementptr inbounds i8, ptr %6, i64 16
   %35 = load i64, ptr %34, align 8, !noalias !31
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull %3, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %35)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %35)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %62
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %31

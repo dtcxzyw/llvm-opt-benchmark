@@ -4721,7 +4721,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i30, label %if.then.i69, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.else
-  %call1.i = tail call ptr @PyImport_ImportModuleLevelObject(ptr noundef nonnull %call.i, ptr noundef null, ptr readnone poison, ptr noundef null, i32 noundef 0)
+  %call1.i = tail call ptr @PyImport_ImportModuleLevelObject(ptr noundef nonnull %call.i, ptr noundef null, ptr poison, ptr noundef null, i32 noundef 0)
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i3.not.i = icmp eq i64 %4, 0

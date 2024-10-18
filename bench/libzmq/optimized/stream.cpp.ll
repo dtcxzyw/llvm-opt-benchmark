@@ -190,7 +190,7 @@ define void @_ZThn1448_N3zmq8stream_tD0Ev(ptr noundef %this) unnamed_addr #6 ali
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq8stream_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2112) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2112) %0) #17
   ret void
 }
 
@@ -199,7 +199,7 @@ define void @_ZThn1464_N3zmq8stream_tD0Ev(ptr noundef %this) unnamed_addr #6 ali
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq8stream_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2112) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2112) %0) #17
   ret void
 }
 
@@ -208,7 +208,7 @@ define void @_ZThn1472_N3zmq8stream_tD0Ev(ptr noundef %this) unnamed_addr #6 ali
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq8stream_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2112) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2112) %0) #17
   ret void
 }
 
@@ -248,7 +248,7 @@ entry:
   %connect_routing_id = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"struct.zmq::blob_t", align 8
   %_owned.i = getelementptr inbounds i8, ptr %routing_id, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %routing_id, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %routing_id, i8 0, i64 16, i1 false)
   store i8 1, ptr %_owned.i, align 8
   br i1 %locally_initiated_, label %land.lhs.true, label %if.else.thread
 

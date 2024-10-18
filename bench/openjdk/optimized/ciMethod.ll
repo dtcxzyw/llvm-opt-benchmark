@@ -1341,7 +1341,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
 74:                                               ; preds = %74, %70
   %.0.i.i.i.i.i.i.i = phi i32 [ %76, %74 ], [ %73, %70 ]
   %75 = or i32 %.0.i.i.i.i.i.i.i, 64
-  %76 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, i32 %.0.i.i.i.i.i.i.i, ptr nonnull %72) #14, !srcloc !11
+  %76 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, i32 %.0.i.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %72) #14, !srcloc !11
   %.not.i.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i.i, %76
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN6Method31set_guaranteed_monitor_matchingEv.exit, label %74, !llvm.loop !12
 
@@ -1532,7 +1532,7 @@ define hidden void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind noalias w
   %16 = getelementptr inbounds i8, ptr %1, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %18, i1 noundef zeroext true) #14
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %18, i1 noundef zeroext true) #14
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %19, align 8
   %20 = load i32, ptr %16, align 8
@@ -1552,7 +1552,7 @@ define hidden void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind noalias w
   %28 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef %27) #14, !noalias !13
   %29 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %29)
-  tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef %27, ptr noundef nonnull %1) #14, !noalias !13
+  tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %1) #14, !noalias !13
   store ptr %28, ptr %23, align 8, !noalias !13
   tail call void @_ZN14MethodLiveness16compute_livenessEv(ptr noundef nonnull align 8 dereferenceable(80) %28) #14, !noalias !13
   %.pre.i = load ptr, ptr %23, align 8, !noalias !13
@@ -3065,7 +3065,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %20
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(144) %2) #14
   br i1 %26, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass9is_linkedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %20
@@ -3585,7 +3585,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %12
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(144) %6) #14
   br i1 %18, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %12
@@ -4001,7 +4001,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
   br i1 %44, label %45, label %_ZN6Method19get_method_countersEP6Thread.exit
 
 45:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %46 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef nonnull %4, ptr noundef nonnull %19) #14
+  %46 = tail call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(88) %19) #14
   %.pre.i = load ptr, ptr %42, align 8
   br label %_ZN6Method19get_method_countersEP6Thread.exit
 

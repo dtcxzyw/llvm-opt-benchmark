@@ -1981,7 +1981,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit211:                 ; preds = %_ZNSt6vectorIdSaIdE
   call void @_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %volatilities_) #27
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dayCounter_) #27
   %147 = getelementptr inbounds i8, ptr %vtt, i64 32
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %147) #27
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %147) #27
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit211, %lpad
@@ -3858,7 +3858,7 @@ if.then.i.i.i210:                                 ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEED2Ev.exit215:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit208, %if.then.i.i.i210
   call void @_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %volatilities_) #27
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dayCounter_) #27
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib26ExtendedBlackVarianceCurveE, i64 32)) #27
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib26ExtendedBlackVarianceCurveE, i64 32)) #27
   br label %ehcleanup199
 
 ehcleanup199:                                     ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit215, %lpad
@@ -4655,7 +4655,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %10 = phi ptr [ %9, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %4)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -4731,7 +4731,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %v, ptr nonnull @_ZTIN8QuantLib14AcyclicVisitorE, ptr nonnull @_ZTIN8QuantLib7VisitorINS_26BlackVarianceTermStructureEEE, i64 -2) #27
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %v, ptr nonnull @_ZTIN8QuantLib14AcyclicVisitorE, ptr nonnull @_ZTIN8QuantLib7VisitorINS_26BlackVarianceTermStructureEEE, i64 -2) #27
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -4769,7 +4769,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib26ExtendedBlackVarianceCurveD1Ev(ptr noundef nonnull align 8 dereferenceable(201) %2) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(201) %2, i64 noundef 320) #30
   ret void
 }
 
@@ -5647,7 +5647,7 @@ terminate.lpad.i.i.i23:                           ; preds = %if.then.i.i.i.i.i27
 
 _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit, %if.then.i.i.i17, %.noexc.i.i.i24, %if.then.i.i.i.i.i27
   %34 = getelementptr inbounds i8, ptr %vtt, i64 32
-  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %34) #27
+  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %34) #27
   ret void
 }
 

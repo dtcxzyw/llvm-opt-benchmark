@@ -3228,7 +3228,7 @@ get_addressed_entity_type.exit.i:                 ; preds = %38
 66:                                               ; preds = %.thread124.i
   %67 = load i32, ptr @hf_wvalue, align 4
   %68 = load i32, ptr @ett_wvalue, align 4
-  %69 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %5, i32 noundef -2147483648) #8
+  %69 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 0, 2) %.0, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %5, i32 noundef -2147483648) #8
   %70 = getelementptr inbounds i8, ptr %5, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
@@ -3256,7 +3256,7 @@ get_addressed_entity_type.exit.i:                 ; preds = %38
   %dissect_windex_and_wlength.windex_endpoint.sink.i.i = phi ptr [ @dissect_windex_and_wlength.windex_endpoint, %79 ], [ @dissect_windex_and_wlength.windex_interface, %75 ]
   %80 = load i32, ptr @hf_windex, align 4
   %81 = load i32, ptr @ett_windex, align 4
-  %82 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %76, i32 noundef %80, i32 noundef %81, ptr noundef nonnull %dissect_windex_and_wlength.windex_endpoint.sink.i.i, i32 noundef -2147483648) #8
+  %82 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 2, 4) %76, i32 noundef %80, i32 noundef %81, ptr noundef nonnull %dissect_windex_and_wlength.windex_endpoint.sink.i.i, i32 noundef -2147483648) #8
   br label %dissect_windex_and_wlength.exit.i
 
 dissect_windex_and_wlength.exit.i:                ; preds = %.sink.split.i.i, %75

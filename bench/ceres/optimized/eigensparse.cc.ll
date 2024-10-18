@@ -426,7 +426,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i2, %.b
   tail call void @_ZN5Eigen8internal17CompressedStorageIdiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22, !noalias !7
   %.sink8 = load ptr, ptr %.sink8.in, align 8, !noalias !7
   tail call void @free(ptr noundef %.sink8) #22, !noalias !7
-  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink13) #22, !noalias !7
+  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.sink13) #22, !noalias !7
   tail call void @_ZdlPv(ptr noundef nonnull %.sink13) #23, !noalias !7
   resume { ptr, i32 } %common.resume.op
 
@@ -548,7 +548,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i2, %.b
   tail call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22, !noalias !7
   %.sink8 = load ptr, ptr %.sink8.in, align 8, !noalias !7
   tail call void @free(ptr noundef %.sink8) #22, !noalias !7
-  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink13) #22, !noalias !7
+  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %.sink13) #22, !noalias !7
   tail call void @_ZdlPv(ptr noundef nonnull %.sink13) #23, !noalias !7
   resume { ptr, i32 } %common.resume.op
 
@@ -649,7 +649,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #22
-  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -824,7 +824,7 @@ define linkonce_odr hidden noundef i32 @_ZN5ceres8internal27EigenSparseCholeskyT
   store ptr %2, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %22, ptr %24, align 8
-  call void @_ZNK5Eigen22SimplicialCholeskyBaseINS_14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_11AMDOrderingIiEEEEE11_solve_implINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS9_ISB_Li0ESE_EEEEvRKNS_10MatrixBaseIT_EERNSH_IT0_EE(ptr noundef nonnull align 8 dereferenceable(184) %20, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZNK5Eigen22SimplicialCholeskyBaseINS_14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_11AMDOrderingIiEEEEE11_solve_implINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS9_ISB_Li0ESE_EEEEvRKNS_10MatrixBaseIT_EERNSH_IT0_EE(ptr noundef nonnull align 8 dereferenceable(184) %20, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(19) %7)
   %25 = getelementptr inbounds i8, ptr %0, i64 36
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, 0
@@ -7777,7 +7777,7 @@ define linkonce_odr hidden void @_ZNK5Eigen22SimplicialCholeskyBaseINS_14Simplic
   %13 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %13, ptr %4, align 8, !alias.scope !94
   %14 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %14, ptr noundef nonnull align 8 dereferenceable(19) %1, i64 17, i1 false)
   call void @_ZN5Eigen8internal26permutation_matrix_productINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runINS2_IS4_Li0ES7_EENS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(19) %14)
   br label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEaSINS1_IKS3_Li0ES5_EEEERS6_RKNS_9DenseBaseIT_EE.exit
 
@@ -8426,7 +8426,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_12SparseMatrixIdLi0EiEEEELj6EN
   %356 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %356, ptr %5, align 8, !alias.scope !107
   %357 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %357, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %357, ptr noundef nonnull align 8 dereferenceable(19) %2, i64 17, i1 false)
   call void @_ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 8 dereferenceable(16) %356, ptr noundef nonnull align 8 dereferenceable(19) %357)
   br label %358
 
@@ -8678,7 +8678,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #22
-  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -8853,7 +8853,7 @@ define linkonce_odr hidden noundef i32 @_ZN5ceres8internal27EigenSparseCholeskyT
   store ptr %2, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %22, ptr %24, align 8
-  call void @_ZNK5Eigen22SimplicialCholeskyBaseINS_14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_15NaturalOrderingIiEEEEE11_solve_implINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS9_ISB_Li0ESE_EEEEvRKNS_10MatrixBaseIT_EERNSH_IT0_EE(ptr noundef nonnull align 8 dereferenceable(184) %20, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZNK5Eigen22SimplicialCholeskyBaseINS_14SimplicialLDLTINS_12SparseMatrixIdLi0EiEELi2ENS_15NaturalOrderingIiEEEEE11_solve_implINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS9_ISB_Li0ESE_EEEEvRKNS_10MatrixBaseIT_EERNSH_IT0_EE(ptr noundef nonnull align 8 dereferenceable(184) %20, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(19) %7)
   %25 = getelementptr inbounds i8, ptr %0, i64 36
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, 0
@@ -10230,7 +10230,7 @@ define linkonce_odr hidden void @_ZNK5Eigen22SimplicialCholeskyBaseINS_14Simplic
   %13 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %13, ptr %4, align 8, !alias.scope !128
   %14 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %14, ptr noundef nonnull align 8 dereferenceable(19) %1, i64 17, i1 false)
   call void @_ZN5Eigen8internal26permutation_matrix_productINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runINS2_IS4_Li0ES7_EENS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(19) %14)
   br label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEaSINS1_IKS3_Li0ES5_EEEERS6_RKNS_9DenseBaseIT_EE.exit
 
@@ -10879,7 +10879,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_12SparseMatrixIdLi0EiEEEELj6EN
   %356 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %356, ptr %5, align 8, !alias.scope !131
   %357 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %357, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %357, ptr noundef nonnull align 8 dereferenceable(19) %2, i64 17, i1 false)
   call void @_ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 8 dereferenceable(16) %356, ptr noundef nonnull align 8 dereferenceable(19) %357)
   br label %358
 
@@ -10905,7 +10905,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #22
-  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -18632,7 +18632,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27EigenSparseCholeskyTemplate
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #22
-  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN5ceres8internal14SparseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

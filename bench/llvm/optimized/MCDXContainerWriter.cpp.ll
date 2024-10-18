@@ -119,7 +119,7 @@ _ZNKSt14default_deleteIN4llvm25MCDXContainerTargetWriterEEclEPS1_.exit.i.i: ; pr
 
 _ZN12_GLOBAL__N_123DXContainerObjectWriterD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm25MCDXContainerTargetWriterEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #11
+  tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #12
   ret void
 }
@@ -153,7 +153,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_123DXContainerObjectWriter11writeOb
   %13 = alloca [4 x i8], align 1
   %14 = alloca %"struct.llvm::dxbc::ProgramHeader", align 4
   %15 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %15, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull %15, i64 noundef 16) #11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #11
@@ -488,7 +488,7 @@ _ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit111: ; preds = %.
   br i1 %.not165, label %._crit_edge183, label %91
 
 ._crit_edge183:                                   ; preds = %174, %._crit_edge178
-  %176 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
+  %176 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #11
   %177 = load ptr, ptr %12, align 8
   %178 = icmp eq ptr %177, %15
   br i1 %178, label %_ZN4llvm11SmallVectorImLj16EED2Ev.exit, label %179

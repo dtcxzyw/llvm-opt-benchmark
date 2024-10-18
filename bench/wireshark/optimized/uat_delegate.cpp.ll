@@ -464,7 +464,7 @@ _ZN7QStringC2EPKc.exit102:                        ; preds = %_ZN7QStringC2EPKc.e
   %144 = load i64, ptr %138, align 8
   store i64 %144, ptr %137, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
   store i64 2, ptr %139, align 8
   %145 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %129)
           to label %.noexc103 unwind label %159

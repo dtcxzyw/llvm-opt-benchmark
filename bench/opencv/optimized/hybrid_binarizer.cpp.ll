@@ -1535,7 +1535,7 @@ define hidden void @_ZN5zxing15HybridBinarizer26calculateThresholdForBlockERNS_3
   %24 = shl i32 %.067.us, %4
   %spec.select.us = tail call i32 @llvm.smin.i32(i32 %24, i32 %11)
   %25 = icmp samesign ult i32 %.067.us, 2
-  %26 = tail call i32 @llvm.smin.i32(i32 %.067.us, i32 %22)
+  %26 = tail call i32 @llvm.smin.i32(i32 %.067.us, i32 range(i32 -2147483648, 2147483645) %22)
   %27 = select i1 %25, i32 2, i32 %26
   %28 = add nsw i32 %27, -2
   %29 = add nsw i32 %27, 3
@@ -1549,7 +1549,7 @@ define hidden void @_ZN5zxing15HybridBinarizer26calculateThresholdForBlockERNS_3
 32:                                               ; preds = %.lr.ph.us, %30
   %.04766.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %30 ]
   %33 = icmp samesign ult i32 %.04766.us, 2
-  %34 = tail call i32 @llvm.smin.i32(i32 %.04766.us, i32 %21)
+  %34 = tail call i32 @llvm.smin.i32(i32 %.04766.us, i32 range(i32 -2147483648, 2147483645) %21)
   %35 = select i1 %33, i32 2, i32 %34
   %36 = load i32, ptr %23, align 4
   %37 = mul nsw i32 %36, %28

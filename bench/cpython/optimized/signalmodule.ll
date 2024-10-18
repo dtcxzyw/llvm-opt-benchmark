@@ -2672,7 +2672,7 @@ if.end13:                                         ; preds = %if.end8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %mask5)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %previous.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %mask5, ptr noundef nonnull align 8 dereferenceable(128) %mask, i64 128, i1 false)
-  %call.i = call i32 @pthread_sigmask(i32 noundef %call2, ptr noundef nonnull %mask5, ptr noundef nonnull %previous.i) #15
+  %call.i = call i32 @pthread_sigmask(i32 noundef %call2, ptr noundef nonnull align 8 %mask5, ptr noundef nonnull %previous.i) #15
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -2787,7 +2787,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %signum.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %sigset1, ptr noundef nonnull align 8 dereferenceable(128) %sigset, i64 128, i1 false)
   %call.i = call ptr @PyEval_SaveThread() #15
-  %call1.i = call i32 @sigwait(ptr noundef nonnull %sigset1, ptr noundef nonnull %signum.i) #15
+  %call1.i = call i32 @sigwait(ptr noundef nonnull align 8 %sigset1, ptr noundef nonnull %signum.i) #15
   call void @PyEval_RestoreThread(ptr noundef %call.i) #15
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -2831,7 +2831,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %si.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %sigset1, ptr noundef nonnull align 8 dereferenceable(128) %sigset, i64 128, i1 false)
   %call8.i = call ptr @PyEval_SaveThread() #15
-  %call19.i = call i32 @sigwaitinfo(ptr noundef nonnull %sigset1, ptr noundef nonnull %si.i) #15
+  %call19.i = call i32 @sigwaitinfo(ptr noundef nonnull align 8 %sigset1, ptr noundef nonnull %si.i) #15
   call void @PyEval_RestoreThread(ptr noundef %call8.i) #15
   %cmp10.i = icmp eq i32 %call19.i, -1
   br i1 %cmp10.i, label %land.lhs.true.lr.ph.i, label %if.end.i
@@ -2897,7 +2897,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
 
 do.body.backedge.i:                               ; preds = %if.end6.i.i, %if.end.i.i
   %call.i = call ptr @PyEval_SaveThread() #15
-  %call1.i = call i32 @sigwaitinfo(ptr noundef nonnull %sigset1, ptr noundef nonnull %si.i) #15
+  %call1.i = call i32 @sigwaitinfo(ptr noundef nonnull align 8 %sigset1, ptr noundef nonnull %si.i) #15
   call void @PyEval_RestoreThread(ptr noundef %call.i) #15
   %cmp.i = icmp eq i32 %call1.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i, !llvm.loop !11
@@ -2984,7 +2984,7 @@ do.body.i:                                        ; preds = %if.end24.i, %if.end
 
 if.end8.i:                                        ; preds = %do.body.i
   %call9.i = call ptr @PyEval_SaveThread() #15
-  %call10.i = call i32 @sigtimedwait(ptr noundef nonnull %sigset4, ptr noundef nonnull %si.i, ptr noundef nonnull %ts.i) #15
+  %call10.i = call i32 @sigtimedwait(ptr noundef nonnull align 8 %sigset4, ptr noundef nonnull %si.i, ptr noundef nonnull %ts.i) #15
   call void @PyEval_RestoreThread(ptr noundef %call9.i) #15
   %cmp11.not.i = icmp eq i32 %call10.i, -1
   br i1 %cmp11.not.i, label %if.end13.i, label %do.end.i

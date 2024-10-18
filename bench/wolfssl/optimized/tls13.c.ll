@@ -88,7 +88,7 @@ do.end:                                           ; preds = %if.end9, %if.else
   %ssl.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10 = load i32, ptr %3, align 4
-  %call.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %output, i32 noundef %spec.select31, ptr noundef %secret, i32 noundef %hashSz.01529, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef %label, i32 noundef %labelLen, ptr noundef nonnull %hash, i32 noundef %hashOutSz.0, i32 noundef %digestAlg.01627, ptr noundef %ssl.val, i32 noundef %ssl.val10) #11
+  %call.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %output, i32 noundef range(i32 0, -1) %spec.select31, ptr noundef %secret, i32 noundef range(i32 0, 49) %hashSz.01529, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef %label, i32 noundef %labelLen, ptr noundef nonnull %hash, i32 noundef range(i32 0, 49) %hashOutSz.0, i32 noundef range(i32 0, 8) %digestAlg.01627, ptr noundef %ssl.val, i32 noundef %ssl.val10) #11
   br label %return
 
 return:                                           ; preds = %entry, %sw.epilog, %do.end
@@ -128,7 +128,7 @@ do.end3:                                          ; preds = %lor.lhs.false
   %ssl.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val6 = load i32, ptr %3, align 4
-  %call.i = tail call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef nonnull %secret, ptr noundef null, i32 noundef 0, ptr noundef nonnull %masterSecret, i32 noundef 0, i32 noundef %switch.select2.i, ptr noundef %ssl.val, i32 noundef %ssl.val6) #11
+  %call.i = tail call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef nonnull %secret, ptr noundef null, i32 noundef 0, ptr noundef nonnull %masterSecret, i32 noundef 0, i32 noundef range(i32 0, 8) %switch.select2.i, ptr noundef %ssl.val, i32 noundef %ssl.val6) #11
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %do.end3
@@ -176,7 +176,7 @@ do.end9:                                          ; preds = %if.end
   %ssl.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val13 = load i32, ptr %8, align 4
-  %call.i = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef %3, ptr noundef nonnull %key, i32 noundef %conv13, ptr noundef %3, i32 noundef %5, i32 noundef %switch.select2.i, ptr noundef %ssl.val, i32 noundef %ssl.val13) #11
+  %call.i = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef %3, ptr noundef nonnull %key, i32 noundef range(i32 0, 256) %conv13, ptr noundef %3, i32 noundef %5, i32 noundef range(i32 0, 8) %switch.select2.i, ptr noundef %ssl.val, i32 noundef %ssl.val13) #11
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %do.end9
@@ -259,7 +259,7 @@ if.end31:                                         ; preds = %if.end24
   %ssl.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val18 = load i32, ptr %6, align 4
-  %call.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %output, i32 noundef %hashSz.0.ph, ptr noundef %secret, i32 noundef %hashSz.0.ph, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @derivedLabel, i32 noundef 7, ptr noundef nonnull %hash, i32 noundef %hashSz.0.ph, i32 noundef %digestAlg.0.ph, ptr noundef %ssl.val, i32 noundef %ssl.val18) #11
+  %call.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %output, i32 noundef range(i32 0, 49) %hashSz.0.ph, ptr noundef %secret, i32 noundef range(i32 0, 49) %hashSz.0.ph, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @derivedLabel, i32 noundef 7, ptr noundef nonnull %hash, i32 noundef range(i32 0, 49) %hashSz.0.ph, i32 noundef range(i32 0, 8) %digestAlg.0.ph, ptr noundef %ssl.val, i32 noundef %ssl.val18) #11
   br label %return
 
 return:                                           ; preds = %sw.bb, %sw.bb6, %entry, %if.end24, %if.end21, %if.end31
@@ -305,7 +305,7 @@ do.end8:                                          ; preds = %if.end
   %ssl.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val12 = load i32, ptr %7, align 4
-  %call.i = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef nonnull %masterSecret, ptr noundef nonnull %key, i32 noundef %conv13, ptr noundef nonnull %masterSecret, i32 noundef 0, i32 noundef %switch.select2.i, ptr noundef %ssl.val, i32 noundef %ssl.val12) #11
+  %call.i = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef nonnull %masterSecret, ptr noundef nonnull %key, i32 noundef range(i32 0, 256) %conv13, ptr noundef nonnull %masterSecret, i32 noundef 0, i32 noundef range(i32 0, 8) %switch.select2.i, ptr noundef %ssl.val, i32 noundef %ssl.val12) #11
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %do.end8
@@ -406,7 +406,7 @@ DeriveClientHandshakeSecret.exit:                 ; preds = %sw.epilog.i.i
   %ssl.val.i.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i = load i32, ptr %7, align 4
-  %call.i.i.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %clientSecret, i32 noundef %hashSz.0.i.i, ptr noundef %2, i32 noundef %hashSz.0.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @clientHandshakeLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i, i32 noundef %hashSz.0.i.i, i32 noundef %digestAlg.0.i.i, ptr noundef %ssl.val.i.i, i32 noundef %ssl.val10.i.i) #11
+  %call.i.i.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %clientSecret, i32 noundef range(i32 0, -1) %hashSz.0.i.i, ptr noundef %2, i32 noundef range(i32 0, 49) %hashSz.0.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @clientHandshakeLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i, i32 noundef range(i32 0, 49) %hashSz.0.i.i, i32 noundef range(i32 0, 8) %digestAlg.0.i.i, ptr noundef %ssl.val.i.i, i32 noundef %ssl.val10.i.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i)
   %cmp8.not = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp8.not, label %if.end12, label %ForceZero.exit
@@ -469,7 +469,7 @@ DeriveServerHandshakeSecret.exit:                 ; preds = %sw.epilog.i.i77
   %ssl.val.i.i86 = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i87 = load i32, ptr %14, align 4
-  %call.i.i.i88 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %serverSecret, i32 noundef %hashSz.0.i.i79, ptr noundef %9, i32 noundef %hashSz.0.i.i79, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @serverHandshakeLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i65, i32 noundef %hashSz.0.i.i79, i32 noundef %digestAlg.0.i.i80, ptr noundef %ssl.val.i.i86, i32 noundef %ssl.val10.i.i87) #11
+  %call.i.i.i88 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %serverSecret, i32 noundef range(i32 0, -1) %hashSz.0.i.i79, ptr noundef %9, i32 noundef range(i32 0, 49) %hashSz.0.i.i79, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @serverHandshakeLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i65, i32 noundef range(i32 0, 49) %hashSz.0.i.i79, i32 noundef range(i32 0, 8) %digestAlg.0.i.i80, ptr noundef %ssl.val.i.i86, i32 noundef %ssl.val10.i.i87) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i65)
   %cmp18.not = icmp eq i32 %call.i.i.i88, 0
   br i1 %cmp18.not, label %sw.epilog, label %ForceZero.exit
@@ -531,7 +531,7 @@ DeriveClientTrafficSecret.exit:                   ; preds = %sw.epilog.i.i104
   %ssl.val.i.i113 = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i114 = load i32, ptr %20, align 4
-  %call.i.i.i115 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %clientSecret27, i32 noundef %hashSz.0.i.i106, ptr noundef nonnull %masterSecret.i, i32 noundef %hashSz.0.i.i106, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @clientAppLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i93, i32 noundef %hashSz.0.i.i106, i32 noundef %digestAlg.0.i.i107, ptr noundef %ssl.val.i.i113, i32 noundef %ssl.val10.i.i114) #11
+  %call.i.i.i115 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %clientSecret27, i32 noundef range(i32 0, -1) %hashSz.0.i.i106, ptr noundef nonnull %masterSecret.i, i32 noundef range(i32 0, 49) %hashSz.0.i.i106, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @clientAppLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i93, i32 noundef range(i32 0, 49) %hashSz.0.i.i106, i32 noundef range(i32 0, 8) %digestAlg.0.i.i107, ptr noundef %ssl.val.i.i113, i32 noundef %ssl.val10.i.i114) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i93)
   %cmp30.not = icmp eq i32 %call.i.i.i115, 0
   br i1 %cmp30.not, label %if.end34, label %ForceZero.exit
@@ -593,7 +593,7 @@ DeriveServerTrafficSecret.exit:                   ; preds = %sw.epilog.i.i132
   %ssl.val.i.i141 = load ptr, ptr %25, align 8
   %26 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i142 = load i32, ptr %26, align 4
-  %call.i.i.i143 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %serverSecret38, i32 noundef %hashSz.0.i.i134, ptr noundef nonnull %masterSecret.i126, i32 noundef %hashSz.0.i.i134, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @serverAppLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i120, i32 noundef %hashSz.0.i.i134, i32 noundef %digestAlg.0.i.i135, ptr noundef %ssl.val.i.i141, i32 noundef %ssl.val10.i.i142) #11
+  %call.i.i.i143 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %serverSecret38, i32 noundef range(i32 0, -1) %hashSz.0.i.i134, ptr noundef nonnull %masterSecret.i126, i32 noundef range(i32 0, 49) %hashSz.0.i.i134, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @serverAppLabel, i32 noundef 12, ptr noundef nonnull %hash.i.i120, i32 noundef range(i32 0, 49) %hashSz.0.i.i134, i32 noundef range(i32 0, 8) %digestAlg.0.i.i135, ptr noundef %ssl.val.i.i141, i32 noundef %ssl.val10.i.i142) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i120)
   %cmp41.not = icmp eq i32 %call.i.i.i143, 0
   br i1 %cmp41.not, label %sw.epilog, label %ForceZero.exit
@@ -628,7 +628,7 @@ DeriveTrafficSecret.exit:                         ; preds = %if.then49, %sw.bb1.
   %ssl.val.i.i151 = load ptr, ptr %28, align 8
   %29 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i152 = load i32, ptr %29, align 4
-  %call.i.i.i153 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %clientSecret50, i32 noundef %hashSz.0.ph.i.i, ptr noundef nonnull %clientSecret50, i32 noundef %hashSz.0.ph.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @appTrafficLabel, i32 noundef 11, ptr noundef nonnull %hash.i.i148, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i, ptr noundef %ssl.val.i.i151, i32 noundef %ssl.val10.i.i152) #11
+  %call.i.i.i153 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %clientSecret50, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i, ptr noundef nonnull %clientSecret50, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @appTrafficLabel, i32 noundef 11, ptr noundef nonnull %hash.i.i148, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i, ptr noundef %ssl.val.i.i151, i32 noundef %ssl.val10.i.i152) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i148)
   %cmp53.not = icmp eq i32 %call.i.i.i153, 0
   br i1 %cmp53.not, label %if.end57, label %ForceZero.exit
@@ -663,7 +663,7 @@ DeriveTrafficSecret.exit167:                      ; preds = %if.then60, %sw.bb1.
   %ssl.val.i.i162 = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i163 = load i32, ptr %32, align 4
-  %call.i.i.i164 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %serverSecret61, i32 noundef %hashSz.0.ph.i.i160, ptr noundef nonnull %serverSecret61, i32 noundef %hashSz.0.ph.i.i160, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @appTrafficLabel, i32 noundef 11, ptr noundef nonnull %hash.i.i156, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i161, ptr noundef %ssl.val.i.i162, i32 noundef %ssl.val10.i.i163) #11
+  %call.i.i.i164 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %serverSecret61, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i160, ptr noundef nonnull %serverSecret61, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i160, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @appTrafficLabel, i32 noundef 11, ptr noundef nonnull %hash.i.i156, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i161, ptr noundef %ssl.val.i.i162, i32 noundef %ssl.val10.i.i163) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i156)
   %cmp64.not = icmp eq i32 %call.i.i.i164, 0
   br i1 %cmp64.not, label %sw.epilog, label %ForceZero.exit
@@ -706,7 +706,7 @@ Tls13DeriveKey.exit:                              ; preds = %sw.bb1.i, %do.end
   %ssl.val.i = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i = load i32, ptr %36, align 4
-  %call.i.i168 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %key_dig, i32 noundef %conv75, ptr noundef nonnull %clientSecret76, i32 noundef %hashSz.0.ph.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeKeyLabel, i32 noundef 3, ptr noundef nonnull %hash.i, i32 noundef 0, i32 noundef %digestAlg.0.ph.i, ptr noundef %ssl.val.i, i32 noundef %ssl.val10.i) #11
+  %call.i.i168 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %key_dig, i32 noundef range(i32 0, -1) %conv75, ptr noundef nonnull %clientSecret76, i32 noundef range(i32 0, 49) %hashSz.0.ph.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeKeyLabel, i32 noundef 3, ptr noundef nonnull %hash.i, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i, ptr noundef %ssl.val.i, i32 noundef %ssl.val10.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i)
   %cmp81.not = icmp eq i32 %call.i.i168, 0
   br i1 %cmp81.not, label %if.end84, label %ForceZero.exit
@@ -751,7 +751,7 @@ Tls13DeriveKey.exit180:                           ; preds = %sw.bb1.i171, %do.en
   %ssl.val.i175 = load ptr, ptr %40, align 8
   %41 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i176 = load i32, ptr %41, align 4
-  %call.i.i177 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %arrayidx95, i32 noundef %conv98, ptr noundef nonnull %serverSecret99, i32 noundef %hashSz.0.ph.i173, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeKeyLabel, i32 noundef 3, ptr noundef nonnull %hash.i170, i32 noundef 0, i32 noundef %digestAlg.0.ph.i174, ptr noundef %ssl.val.i175, i32 noundef %ssl.val10.i176) #11
+  %call.i.i177 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %arrayidx95, i32 noundef range(i32 0, -1) %conv98, ptr noundef nonnull %serverSecret99, i32 noundef range(i32 0, 49) %hashSz.0.ph.i173, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeKeyLabel, i32 noundef 3, ptr noundef nonnull %hash.i170, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i174, ptr noundef %ssl.val.i175, i32 noundef %ssl.val10.i176) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i170)
   %cmp105.not = icmp eq i32 %call.i.i177, 0
   br i1 %cmp105.not, label %if.end108, label %for.cond.preheader.i
@@ -796,7 +796,7 @@ Tls13DeriveKey.exit191:                           ; preds = %sw.bb1.i182, %do.en
   %ssl.val.i186 = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i187 = load i32, ptr %46, align 4
-  %call.i.i188 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %arrayidx120, i32 noundef %conv122, ptr noundef nonnull %clientSecret123, i32 noundef %hashSz.0.ph.i184, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeIVLabel, i32 noundef 2, ptr noundef nonnull %hash.i181, i32 noundef 0, i32 noundef %digestAlg.0.ph.i185, ptr noundef %ssl.val.i186, i32 noundef %ssl.val10.i187) #11
+  %call.i.i188 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %arrayidx120, i32 noundef range(i32 0, -1) %conv122, ptr noundef nonnull %clientSecret123, i32 noundef range(i32 0, 49) %hashSz.0.ph.i184, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeIVLabel, i32 noundef 2, ptr noundef nonnull %hash.i181, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i185, ptr noundef %ssl.val.i186, i32 noundef %ssl.val10.i187) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i181)
   %cmp129.not = icmp eq i32 %call.i.i188, 0
   br i1 %cmp129.not, label %if.end132, label %for.cond.preheader.i
@@ -841,7 +841,7 @@ Tls13DeriveKey.exit202:                           ; preds = %sw.bb1.i193, %do.en
   %ssl.val.i197 = load ptr, ptr %50, align 8
   %51 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i198 = load i32, ptr %51, align 4
-  %call.i.i199 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %arrayidx144, i32 noundef %conv147, ptr noundef nonnull %serverSecret148, i32 noundef %hashSz.0.ph.i195, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeIVLabel, i32 noundef 2, ptr noundef nonnull %hash.i192, i32 noundef 0, i32 noundef %digestAlg.0.ph.i196, ptr noundef %ssl.val.i197, i32 noundef %ssl.val10.i198) #11
+  %call.i.i199 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %arrayidx144, i32 noundef range(i32 0, -1) %conv147, ptr noundef nonnull %serverSecret148, i32 noundef range(i32 0, 49) %hashSz.0.ph.i195, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @writeIVLabel, i32 noundef 2, ptr noundef nonnull %hash.i192, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i196, ptr noundef %ssl.val.i197, i32 noundef %ssl.val10.i198) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i192)
   %cmp154.not = icmp eq i32 %call.i.i199, 0
   br i1 %cmp154.not, label %if.end157, label %for.cond.preheader.i
@@ -3395,7 +3395,7 @@ DeriveFinishedSecret.exit:                        ; preds = %if.then47, %sw.bb1.
   %ssl.val.i.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i = load i32, ptr %8, align 4
-  %call.i.i.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys, i32 noundef %hashSz.0.ph.i.i, ptr noundef nonnull %clientSecret, i32 noundef %hashSz.0.ph.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i, ptr noundef %ssl.val.i.i, i32 noundef %ssl.val10.i.i) #11
+  %call.i.i.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i, ptr noundef nonnull %clientSecret, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i, ptr noundef %ssl.val.i.i, i32 noundef %ssl.val10.i.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i)
   %cmp49.not = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp49.not, label %if.end92, label %return
@@ -3430,7 +3430,7 @@ DeriveFinishedSecret.exit64:                      ; preds = %if.then65, %sw.bb1.
   %ssl.val.i.i60 = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i61 = load i32, ptr %11, align 4
-  %call.i.i.i62 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys68, i32 noundef %hashSz.0.ph.i.i58, ptr noundef nonnull %clientSecret66, i32 noundef %hashSz.0.ph.i.i58, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i54, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i59, ptr noundef %ssl.val.i.i60, i32 noundef %ssl.val10.i.i61) #11
+  %call.i.i.i62 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys68, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i58, ptr noundef nonnull %clientSecret66, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i58, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i54, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i59, ptr noundef %ssl.val.i.i60, i32 noundef %ssl.val10.i.i61) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i54)
   %cmp72.not = icmp eq i32 %call.i.i.i62, 0
   br i1 %cmp72.not, label %if.end75, label %return
@@ -3458,7 +3458,7 @@ DeriveFinishedSecret.exit75:                      ; preds = %if.end75, %sw.bb1.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %hash.i.i65, i8 0, i64 64, i1 false)
   %ssl.val.i.i71 = load ptr, ptr %10, align 8
   %ssl.val10.i.i72 = load i32, ptr %11, align 4
-  %call.i.i.i73 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %server_write_MAC_secret, i32 noundef %hashSz.0.ph.i.i69, ptr noundef nonnull %serverSecret, i32 noundef %hashSz.0.ph.i.i69, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i65, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i70, ptr noundef %ssl.val.i.i71, i32 noundef %ssl.val10.i.i72) #11
+  %call.i.i.i73 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %server_write_MAC_secret, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i69, ptr noundef nonnull %serverSecret, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i69, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i65, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i70, ptr noundef %ssl.val.i.i71, i32 noundef %ssl.val10.i.i72) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i65)
   %cmp80.not = icmp eq i32 %call.i.i.i73, 0
   br i1 %cmp80.not, label %if.end92, label %return
@@ -4671,13 +4671,13 @@ CheckRSASignature.exit.thread81:                  ; preds = %if.end.i
 
 if.then2.i:                                       ; preds = %if.end.i
   store i32 0, ptr %hashType.i, align 4
-  %call3.i = call i32 @ConvertHashPss(i32 noundef %conv239, ptr noundef nonnull %hashType.i, ptr noundef null) #11
+  %call3.i = call i32 @ConvertHashPss(i32 noundef range(i32 0, 256) %conv239, ptr noundef nonnull %hashType.i, ptr noundef null) #11
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %CheckRSASignature.exit.thread, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   %conv.i69 = and i32 %conv30.i.i, 65535
-  %call9.i = call i32 @CreateRSAEncodedSig(ptr noundef nonnull %sigData.i, ptr noundef nonnull %sigData.i, i32 noundef %conv.i69, i32 poison, i32 noundef %conv239)
+  %call9.i = call i32 @CreateRSAEncodedSig(ptr noundef nonnull %sigData.i, ptr noundef nonnull %sigData.i, i32 noundef %conv.i69, i32 poison, i32 noundef range(i32 0, 256) %conv239)
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %CheckRSASignature.exit.thread, label %CheckRSASignature.exit
 
@@ -6259,7 +6259,7 @@ DeriveFinishedSecret.exit:                        ; preds = %if.then6, %sw.bb1.i
   %ssl.val.i.i = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i = load i32, ptr %4, align 4
-  %call.i.i.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys, i32 noundef %hashSz.0.ph.i.i, ptr noundef nonnull %clientSecret, i32 noundef %hashSz.0.ph.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i, ptr noundef %ssl.val.i.i, i32 noundef %ssl.val10.i.i) #11
+  %call.i.i.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i, ptr noundef nonnull %clientSecret, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i, ptr noundef %ssl.val.i.i, i32 noundef %ssl.val10.i.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i)
   %cmp9.not = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.not, label %if.end49, label %return
@@ -6300,7 +6300,7 @@ DeriveFinishedSecret.exit71:                      ; preds = %if.else26, %sw.bb1.
   %ssl.val.i.i67 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val10.i.i68 = load i32, ptr %8, align 4
-  %call.i.i.i69 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys29, i32 noundef %hashSz.0.ph.i.i65, ptr noundef nonnull %clientSecret27, i32 noundef %hashSz.0.ph.i.i65, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i61, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i66, ptr noundef %ssl.val.i.i67, i32 noundef %ssl.val10.i.i68) #11
+  %call.i.i.i69 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %keys29, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i65, ptr noundef nonnull %clientSecret27, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i65, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i61, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i66, ptr noundef %ssl.val.i.i67, i32 noundef %ssl.val10.i.i68) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i61)
   %cmp33.not = icmp eq i32 %call.i.i.i69, 0
   br i1 %cmp33.not, label %if.end36, label %return
@@ -6328,7 +6328,7 @@ DeriveFinishedSecret.exit82:                      ; preds = %if.end36, %sw.bb1.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %hash.i.i72, i8 0, i64 64, i1 false)
   %ssl.val.i.i78 = load ptr, ptr %7, align 8
   %ssl.val10.i.i79 = load i32, ptr %8, align 4
-  %call.i.i.i80 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %server_write_MAC_secret, i32 noundef %hashSz.0.ph.i.i76, ptr noundef nonnull %serverSecret, i32 noundef %hashSz.0.ph.i.i76, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i72, i32 noundef 0, i32 noundef %digestAlg.0.ph.i.i77, ptr noundef %ssl.val.i.i78, i32 noundef %ssl.val10.i.i79) #11
+  %call.i.i.i80 = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %server_write_MAC_secret, i32 noundef range(i32 0, -1) %hashSz.0.ph.i.i76, ptr noundef nonnull %serverSecret, i32 noundef range(i32 0, 49) %hashSz.0.ph.i.i76, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @finishedLabel, i32 noundef 8, ptr noundef nonnull %hash.i.i72, i32 noundef range(i32 0, 49) 0, i32 noundef range(i32 0, 8) %digestAlg.0.ph.i.i77, ptr noundef %ssl.val.i.i78, i32 noundef %ssl.val10.i.i79) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %hash.i.i72)
   %cmp41.not = icmp eq i32 %call.i.i.i80, 0
   br i1 %cmp41.not, label %if.end49, label %return
@@ -7357,7 +7357,7 @@ if.end.i:                                         ; preds = %if.end
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm.i, align 2
   %conv.i = zext i8 %1 to i32
-  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef readonly %ssl, ptr noundef %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
+  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull readonly %ssl, ptr noundef %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
   %cmp4.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp4.not.i, label %DeriveHandshakeSecret.exit, label %DeriveHandshakeSecret.exit.thread
 
@@ -7384,7 +7384,7 @@ DeriveHandshakeSecret.exit:                       ; preds = %if.end.i
   %ssl.val.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val13.i = load i32, ptr %8, align 4
-  %call.i.i = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef %3, ptr noundef nonnull %key.i, i32 noundef %conv13.i, ptr noundef %3, i32 noundef %5, i32 noundef %switch.select2.i.i, ptr noundef %ssl.val.i, i32 noundef %ssl.val13.i) #11
+  %call.i.i = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef %3, ptr noundef nonnull %key.i, i32 noundef range(i32 0, 256) %conv13.i, ptr noundef %3, i32 noundef %5, i32 noundef range(i32 0, 8) %switch.select2.i.i, ptr noundef %ssl.val.i, i32 noundef %ssl.val13.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i)
   %cmp4.not = icmp eq i32 %call.i.i, 0
   br i1 %cmp4.not, label %if.end6, label %return

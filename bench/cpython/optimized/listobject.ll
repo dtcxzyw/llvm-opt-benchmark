@@ -3465,7 +3465,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp13.i169, label %while.body.i170, label %while.end.i
 
 while.body.i170:                                  ; preds = %land.rhs.i
-  %call16.i = call fastcc i64 @merge_at(ptr noundef %ms, i64 noundef %idxprom10.i)
+  %call16.i = call fastcc i64 @merge_at(ptr noundef nonnull %ms, i64 noundef %idxprom10.i)
   %cmp17.i = icmp slt i64 %call16.i, 0
   br i1 %cmp17.i, label %fail, label %while.cond.i, !llvm.loop !24
 
@@ -3524,7 +3524,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i181
 
 if.end.i187:                                      ; preds = %land.lhs.true.i, %while.body.i181
   %n1.0.i = phi i64 [ 0, %while.body.i181 ], [ %spec.select.i186, %land.lhs.true.i ]
-  %call.i188 = call fastcc i64 @merge_at(ptr noundef %ms, i64 noundef %n1.0.i)
+  %call.i188 = call fastcc i64 @merge_at(ptr noundef nonnull %ms, i64 noundef %n1.0.i)
   %cmp10.i189 = icmp slt i64 %call.i188, 0
   br i1 %cmp10.i189, label %fail, label %while.cond.i178, !llvm.loop !26
 
@@ -6355,7 +6355,7 @@ sortslice_copy_decr.exit146.i:                    ; preds = %if.then.i141.i, %if
 if.end82.i:                                       ; preds = %sortslice_copy_decr.exit146.i
   %83 = load ptr, ptr %ssa.sroa.0.6.i104, align 8
   %sub86.i = add i64 %nb.addr.6.i98, -2
-  %call87.i = tail call fastcc i64 @gallop_left(ptr noundef %ms, ptr noundef %83, ptr noundef %baseb.sroa.0.0.copyload.i, i64 noundef %dec78.i, i64 noundef %sub86.i)
+  %call87.i = tail call fastcc i64 @gallop_left(ptr noundef nonnull %ms, ptr noundef %83, ptr noundef %baseb.sroa.0.0.copyload.i, i64 noundef %dec78.i, i64 noundef %sub86.i)
   %cmp88.i = icmp slt i64 %call87.i, 0
   br i1 %cmp88.i, label %Fail.i117, label %if.end91.i
 

@@ -1576,7 +1576,7 @@ cond.true10.i:                                    ; preds = %cond.end6.i
 
 cond.end14.i:                                     ; preds = %cond.true10.i, %cond.end6.i
   %cond15.i = phi i32 [ %9, %cond.true10.i ], [ 0, %cond.end6.i ]
-  %call17.i = tail call fastcc i32 @is_cr_needed(ptr noundef readonly %xe1, ptr noundef readonly %xe2, ptr noundef readonly %m.addr.0151)
+  %call17.i = tail call fastcc i32 @is_cr_needed(ptr noundef nonnull readonly %xe1, ptr noundef nonnull readonly %xe2, ptr noundef nonnull readonly %m.addr.0151)
   %i1.i = getelementptr inbounds i8, ptr %m.addr.0151, i64 16
   %10 = load i64, ptr %i1.i, align 8
   %11 = trunc i64 %10 to i32

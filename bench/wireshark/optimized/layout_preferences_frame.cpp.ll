@@ -4259,7 +4259,7 @@ define void @_ZN22LayoutPreferencesFrameD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22LayoutPreferencesFrameD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22LayoutPreferencesFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(136) %2) #11
   ret void
 }
 

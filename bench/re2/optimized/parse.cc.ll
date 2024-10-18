@@ -3805,7 +3805,7 @@ if.end12.i:                                       ; preds = %invoke.cont48
   br i1 %tobool14.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end12.i
-  invoke fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %tmp, i32 noundef %20, i32 noundef %20, i32 noundef 0)
+  invoke fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull align 8 dereferenceable(64) %tmp, i32 noundef %20, i32 noundef %20, i32 noundef 0)
           to label %invoke.cont56 unwind label %lpad49
 
 if.else.i:                                        ; preds = %if.end12.i
@@ -4152,7 +4152,7 @@ if.then8:                                         ; preds = %if.then
   br i1 %tobool14.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then8
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %this, i32 noundef %lo, i32 noundef 9, i32 noundef 0)
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %lo, i32 noundef 9, i32 noundef 0)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then8
@@ -4169,7 +4169,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %tobool14.not.i23, label %if.else.i25, label %if.then15.i24
 
 if.then15.i24:                                    ; preds = %if.then10
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %this, i32 noundef 11, i32 noundef %hi, i32 noundef 0)
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef 11, i32 noundef %hi, i32 noundef 0)
   br label %if.end17
 
 if.else.i25:                                      ; preds = %if.then10
@@ -7521,7 +7521,7 @@ _ZNK4absl7debian211string_viewixEm.exit28.i:      ; preds = %_ZN4absl7debian211s
   br i1 %cmp17.i, label %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit28.i
-  %call19.i = call fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr noundef %s.i, ptr noundef %hi)
+  %call19.i = call fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr noundef %s.i, ptr noundef nonnull %hi)
   %.pre.i = load i64, ptr %length_.i.i144, align 8
   %cmp.i30.i = icmp ne i64 %.pre.i, 0
   %or.cond.not.i = select i1 %call19.i, i1 %cmp.i30.i, i1 false
@@ -9634,7 +9634,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !78
   %splices.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %splices3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %5 = load ptr, ptr %splices3.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !73
@@ -9668,7 +9668,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN3re25
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i30, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN3re25FrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !85
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(44) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !85
   %splices.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
   %splices3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
   %9 = load ptr, ptr %splices3.i.i.i.i.i.i.i23, align 8, !alias.scope !83, !noalias !80

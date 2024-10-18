@@ -7705,7 +7705,7 @@ define void @_ZN22SCTPAssocAnalyseDialogD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22SCTPAssocAnalyseDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22SCTPAssocAnalyseDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %2) #13
   ret void
 }
 

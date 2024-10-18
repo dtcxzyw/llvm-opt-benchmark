@@ -1158,7 +1158,7 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 165:                                              ; preds = %.loopexit.i69
   %166 = load ptr, ptr @Tailport, align 8
-  %167 = tail call fastcc i32 @write_port(ptr noundef %.04498, ptr noundef %1, ptr noundef %166)
+  %167 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %166)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %write_node.exit.thread, label %169
 
@@ -1183,7 +1183,7 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr @Headport, align 8
-  %182 = tail call fastcc i32 @write_port(ptr noundef %.04498, ptr noundef %1, ptr noundef %181)
+  %182 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %181)
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %write_node.exit.thread, label %184
 

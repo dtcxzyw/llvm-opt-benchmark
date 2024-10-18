@@ -124,7 +124,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o12VertexLine2DC2Ev(ptr noundef nonnull align 16 dereferenceable(208) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 16 dereferenceable(200) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 16
@@ -215,7 +215,7 @@ define linkonce_odr void @_ZN3g2o12VertexLine2DD2Ev(ptr noundef nonnull align 16
   br label %_ZN3g2o10BaseVertexILi2ENS_6Line2DEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi2ENS_6Line2DEED2Ev.exit:    ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %0) #19
   ret void
 }
 
@@ -239,7 +239,7 @@ define linkonce_odr void @_ZN3g2o12VertexLine2DD0Ev(ptr noundef nonnull align 16
   br label %_ZN3g2o12VertexLine2DD2Ev.exit
 
 _ZN3g2o12VertexLine2DD2Ev.exit:                   ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(208) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #18
   ret void
 }
@@ -844,7 +844,7 @@ define linkonce_odr void @_ZThn64_N3g2o12VertexLine2DD1Ev(ptr noundef %0) unname
   br label %_ZN3g2o12VertexLine2DD2Ev.exit
 
 _ZN3g2o12VertexLine2DD2Ev.exit:                   ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #19
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(208) %2) #19
   ret void
 }
 
@@ -868,8 +868,8 @@ define linkonce_odr void @_ZThn64_N3g2o12VertexLine2DD0Ev(ptr noundef %0) unname
   br label %_ZN3g2o12VertexLine2DD0Ev.exit
 
 _ZN3g2o12VertexLine2DD0Ev.exit:                   ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #19
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(208) %2) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(208) %2, i64 noundef 208) #18
   ret void
 }
 
@@ -946,7 +946,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi2ENS_6Line2DEED1Ev(ptr nou
   br label %_ZN3g2o10BaseVertexILi2ENS_6Line2DEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi2ENS_6Line2DEED2Ev.exit:    ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #19
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %2) #19
   ret void
 }
 

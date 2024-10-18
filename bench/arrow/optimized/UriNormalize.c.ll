@@ -420,7 +420,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then108
   br i1 %cmp3.i221, label %if.end126, label %if.end.i222
 
 if.end.i222:                                      ; preds = %lor.lhs.false2.i
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef %43, ptr noundef %afterLast120)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef nonnull %43, ptr noundef nonnull %afterLast120)
   br label %if.end126
 
 if.else116:                                       ; preds = %if.then108
@@ -555,7 +555,7 @@ lor.lhs.false2.i266:                              ; preds = %if.then152
   br i1 %cmp5.i272, label %if.else212, label %if.end.i268
 
 if.end.i268:                                      ; preds = %lor.lhs.false2.i266
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef %64, ptr noundef %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef nonnull %64, ptr noundef nonnull %afterLast164)
   br label %if.else212
 
 lor.lhs.false4.i271:                              ; preds = %if.then152
@@ -583,7 +583,7 @@ if.end13.i281:                                    ; preds = %if.else.i279
 if.end18.i:                                       ; preds = %if.end13.i281
   %68 = load ptr, ptr %userInfo149, align 8
   %69 = load ptr, ptr %afterLast164, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %68, ptr noundef %69, ptr noundef %call.i283, ptr noundef %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %68, ptr noundef %69, ptr noundef %call.i283, ptr noundef nonnull %afterLast164)
   store ptr %call.i283, ptr %userInfo149, align 8
   br label %if.end168
 
@@ -742,7 +742,7 @@ lor.lhs.false2.i317:                              ; preds = %while.body229
   br i1 %cmp3.i318, label %uriFixPercentEncodingInplaceA.exit320, label %if.end.i319
 
 if.end.i319:                                      ; preds = %lor.lhs.false2.i317
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef %88, ptr noundef %afterLast233)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef %88, ptr noundef nonnull %afterLast233)
   br label %uriFixPercentEncodingInplaceA.exit320
 
 uriFixPercentEncodingInplaceA.exit320:            ; preds = %while.body229, %lor.lhs.false2.i317, %if.end.i319
@@ -785,7 +785,7 @@ if.end13.i332:                                    ; preds = %if.else.i330
 if.end18.i336:                                    ; preds = %if.end13.i332
   %94 = load ptr, ptr %walker216.1463, align 8
   %95 = load ptr, ptr %afterLast244, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %94, ptr noundef %95, ptr noundef %call.i334, ptr noundef %afterLast244)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %94, ptr noundef %95, ptr noundef %call.i334, ptr noundef nonnull %afterLast244)
   store ptr %call.i334, ptr %walker216.1463, align 8
   br label %if.end248
 
@@ -976,7 +976,7 @@ lor.lhs.false2.i400:                              ; preds = %if.then292
   br i1 %cmp5.i406, label %if.end311, label %if.end.i402
 
 if.end.i402:                                      ; preds = %lor.lhs.false2.i400
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef %121, ptr noundef %afterLast304)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef nonnull %121, ptr noundef nonnull %afterLast304)
   br label %if.end311
 
 lor.lhs.false4.i405:                              ; preds = %if.then292
@@ -1004,7 +1004,7 @@ if.end13.i415:                                    ; preds = %if.else.i413
 if.end18.i419:                                    ; preds = %if.end13.i415
   %125 = load ptr, ptr %query288, align 8
   %126 = load ptr, ptr %afterLast304, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %125, ptr noundef %126, ptr noundef %call.i417, ptr noundef %afterLast304)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %125, ptr noundef %126, ptr noundef %call.i417, ptr noundef nonnull %afterLast304)
   store ptr %call.i417, ptr %query288, align 8
   br label %if.end308
 
@@ -1042,7 +1042,7 @@ lor.lhs.false2.i423:                              ; preds = %if.then319
   br i1 %cmp3.i424, label %land.lhs.true342, label %if.end.i425
 
 if.end.i425:                                      ; preds = %lor.lhs.false2.i423
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef %128, ptr noundef %afterLast331)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef nonnull %128, ptr noundef nonnull %afterLast331)
   br label %land.lhs.true342
 
 if.else327:                                       ; preds = %if.then319
@@ -1250,7 +1250,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp15.not.i, label %if.else.i431, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then13.i
-  %call19.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef %doneMask, i32 noundef 4, ptr noundef %ipFuture.i, ptr noundef %memory)
+  %call19.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef %ipFuture.i, ptr noundef %memory)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %if.then348, label %if.end22.i
 
@@ -1271,7 +1271,7 @@ if.else.i431:                                     ; preds = %if.then13.i
   br i1 %cmp33.not.i, label %if.end43.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else.i431
-  %call36.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef %doneMask, i32 noundef 4, ptr noundef %hostText31.i, ptr noundef %memory)
+  %call36.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef %hostText31.i, ptr noundef %memory)
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %if.then348, label %if.end43.i
 
@@ -1868,7 +1868,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then108
   br i1 %cmp3.i225, label %if.end126, label %if.end.i226
 
 if.end.i226:                                      ; preds = %lor.lhs.false2.i
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef %43, ptr noundef %afterLast120)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef nonnull %43, ptr noundef nonnull %afterLast120)
   br label %if.end126
 
 if.else116:                                       ; preds = %if.then108
@@ -2003,7 +2003,7 @@ lor.lhs.false2.i270:                              ; preds = %if.then152
   br i1 %cmp5.i276, label %if.else207, label %if.end.i272
 
 if.end.i272:                                      ; preds = %lor.lhs.false2.i270
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef %64, ptr noundef %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef nonnull %64, ptr noundef nonnull %afterLast164)
   br label %if.else207
 
 lor.lhs.false4.i275:                              ; preds = %if.then152
@@ -2032,7 +2032,7 @@ if.end13.i286:                                    ; preds = %if.else.i284
 if.end18.i:                                       ; preds = %if.end13.i286
   %68 = load ptr, ptr %userInfo149, align 8
   %69 = load ptr, ptr %afterLast164, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %68, ptr noundef %69, ptr noundef %call.i288, ptr noundef %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %68, ptr noundef %69, ptr noundef %call.i288, ptr noundef nonnull %afterLast164)
   store ptr %call.i288, ptr %userInfo149, align 8
   br label %if.end168
 
@@ -2191,7 +2191,7 @@ lor.lhs.false2.i322:                              ; preds = %while.body222
   br i1 %cmp3.i323, label %uriFixPercentEncodingInplaceW.exit325, label %if.end.i324
 
 if.end.i324:                                      ; preds = %lor.lhs.false2.i322
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef %88, ptr noundef %afterLast226)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef %88, ptr noundef nonnull %afterLast226)
   br label %uriFixPercentEncodingInplaceW.exit325
 
 uriFixPercentEncodingInplaceW.exit325:            ; preds = %while.body222, %lor.lhs.false2.i322, %if.end.i324
@@ -2235,7 +2235,7 @@ if.end13.i338:                                    ; preds = %if.else.i336
 if.end18.i342:                                    ; preds = %if.end13.i338
   %94 = load ptr, ptr %walker211.1470, align 8
   %95 = load ptr, ptr %afterLast236, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %94, ptr noundef %95, ptr noundef %call.i340, ptr noundef %afterLast236)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %94, ptr noundef %95, ptr noundef %call.i340, ptr noundef nonnull %afterLast236)
   store ptr %call.i340, ptr %walker211.1470, align 8
   br label %if.end240
 
@@ -2426,7 +2426,7 @@ lor.lhs.false2.i406:                              ; preds = %if.then280
   br i1 %cmp5.i412, label %if.end299, label %if.end.i408
 
 if.end.i408:                                      ; preds = %lor.lhs.false2.i406
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef %121, ptr noundef %afterLast292)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef nonnull %121, ptr noundef nonnull %afterLast292)
   br label %if.end299
 
 lor.lhs.false4.i411:                              ; preds = %if.then280
@@ -2455,7 +2455,7 @@ if.end13.i422:                                    ; preds = %if.else.i420
 if.end18.i426:                                    ; preds = %if.end13.i422
   %125 = load ptr, ptr %query277, align 8
   %126 = load ptr, ptr %afterLast292, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %125, ptr noundef %126, ptr noundef %call.i424, ptr noundef %afterLast292)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %125, ptr noundef %126, ptr noundef %call.i424, ptr noundef nonnull %afterLast292)
   store ptr %call.i424, ptr %query277, align 8
   br label %if.end296
 
@@ -2493,7 +2493,7 @@ lor.lhs.false2.i430:                              ; preds = %if.then306
   br i1 %cmp3.i431, label %land.lhs.true328, label %if.end.i432
 
 if.end.i432:                                      ; preds = %lor.lhs.false2.i430
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef %128, ptr noundef %afterLast318)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef nonnull %128, ptr noundef nonnull %afterLast318)
   br label %land.lhs.true328
 
 if.else314:                                       ; preds = %if.then306
@@ -2709,7 +2709,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp15.not.i, label %if.else.i438, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then13.i
-  %call19.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef %doneMask, i32 noundef 4, ptr noundef %ipFuture.i, ptr noundef %memory)
+  %call19.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef %ipFuture.i, ptr noundef %memory)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %if.then334, label %if.end22.i
 
@@ -2730,7 +2730,7 @@ if.else.i438:                                     ; preds = %if.then13.i
   br i1 %cmp33.not.i, label %if.end43.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else.i438
-  %call36.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef %doneMask, i32 noundef 4, ptr noundef %hostText31.i, ptr noundef %memory)
+  %call36.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef %hostText31.i, ptr noundef %memory)
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %if.then334, label %if.end43.i
 

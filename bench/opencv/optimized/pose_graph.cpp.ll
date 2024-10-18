@@ -358,7 +358,7 @@ _ZNSt4pairIKmN2cv5kinfu6detail13PoseGraphImpl4NodeEEC2IRmRS5_TnNSt9enable_ifIXaa
   store double %60, ptr %.sroa.14.40..sroa_idx, align 8
   %.sroa.15.40..sroa_idx = getelementptr inbounds i8, ptr %10, i64 72
   store double %61, ptr %.sroa.15.40..sroa_idx, align 8
-  %79 = call { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN2cv5kinfu6detail13PoseGraphImpl4NodeEESt10_Select1stIS7_ESt4lessImESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr nonnull %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %79 = call { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN2cv5kinfu6detail13PoseGraphImpl4NodeEESt10_Select1stIS7_ESt4lessImESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr nonnull %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %10)
   %80 = extractvalue { ptr, ptr } %79, 1
   %.not.i.i.i6 = icmp eq ptr %80, null
   br i1 %.not.i.i.i6, label %_ZNSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE6insertESt23_Rb_tree_const_iteratorIS9_EOS9_.exit, label %81
@@ -383,7 +383,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN2cv5kinfu6detail13PoseGraphImpl4NodeEESt10_Select1stI
   %90 = getelementptr inbounds i8, ptr %89, i64 32
   store i64 %.pre.i.i.i.i, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %89, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %91, ptr noundef nonnull align 8 dereferenceable(9) %76, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(72) %76, i64 9, i1 false)
   %92 = getelementptr inbounds i8, ptr %89, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
   %93 = getelementptr inbounds i8, ptr %89, i64 80
@@ -2210,7 +2210,7 @@ define linkonce_odr hidden void @_ZN2cv5kinfu6detail13PoseGraphImpl7addEdgeEmmRK
   br i1 %.not.i, label %24, label %11
 
 11:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %8, ptr noundef nonnull align 8 dereferenceable(216) %6, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   br label %14
@@ -2634,7 +2634,7 @@ _ZNKSt6vectorIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE12_M_check_lenEmPKc.
 _ZNSt12_Vector_baseIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::kinfu::detail::PoseGraphImpl::Edge", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %24, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
@@ -2650,7 +2650,7 @@ _ZNSt12_Vector_baseIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE11_M_allocateE
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE11_M_allocateEm.exit, %37
   %.015.i.i.i.i.i = phi ptr [ %43, %37 ], [ %23, %_ZNSt12_Vector_baseIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE11_M_allocateEm.exit ]
   %.01214.i.i.i.i.i = phi ptr [ %42, %37 ], [ %6, %_ZNSt12_Vector_baseIN2cv5kinfu6detail13PoseGraphImpl4EdgeESaIS4_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01214.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.015.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(216) %.01214.i.i.i.i.i, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 16
   %32 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 16
   br label %33
@@ -2686,7 +2686,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv5kinfu6detail13PoseGraphImpl4EdgeE
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv5kinfu6detail13PoseGraphImpl4EdgeES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %51
   %.015.i.i.i.i.i30 = phi ptr [ %57, %51 ], [ %44, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv5kinfu6detail13PoseGraphImpl4EdgeES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
   %.01214.i.i.i.i.i31 = phi ptr [ %56, %51 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv5kinfu6detail13PoseGraphImpl4EdgeES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015.i.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %.01214.i.i.i.i.i31, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.015.i.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(216) %.01214.i.i.i.i.i31, i64 16, i1 false)
   %45 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 16
   %46 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 16
   br label %47

@@ -1818,7 +1818,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %cmp2 = icmp slt i64 %size.addr.015, 1024
   %1 = and i64 %size.addr.015, 4294967295
   %spec.select = select i1 %cmp2, i64 %1, i64 1024
-  call void @cpu_physical_memory_rw(i64 noundef %addr.addr.016, ptr noundef nonnull %buf, i64 noundef %spec.select, i1 noundef zeroext false) #16
+  call void @cpu_physical_memory_rw(i64 noundef %addr.addr.016, ptr noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %spec.select, i1 noundef zeroext false) #16
   %call10 = call i64 @fwrite(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef %spec.select, ptr noundef nonnull %call)
   %cmp12.not = icmp eq i64 %call10, %spec.select
   br i1 %cmp12.not, label %if.end15, label %if.then14

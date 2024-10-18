@@ -241,7 +241,7 @@ _ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread.exit: ; preds = %7, %9
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 27:                                               ; preds = %15
-  %28 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef 8, i32 noundef 0) #4
+  %28 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef 8, i32 noundef 0) #4
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %27, %25

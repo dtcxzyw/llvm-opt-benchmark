@@ -16809,7 +16809,7 @@ lor.lhs.false.i125:                               ; preds = %for.end
   br i1 %tobool2.not.i126, label %if.end7.i127, label %if.then.i120
 
 if.then.i120:                                     ; preds = %lor.lhs.false.i125, %for.end
-  %call3.i121 = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %tmp, ptr noundef %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
+  %call3.i121 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %result, ptr noundef nonnull %tmp, ptr noundef nonnull %result, ptr noundef nonnull readonly %maxcontext, ptr noundef %status)
   %tobool4.not.i122 = icmp eq i32 %call3.i121, 0
   br i1 %tobool4.not.i122, label %if.end.i123, label %finish
 
@@ -27095,7 +27095,7 @@ if.then.i41:                                      ; preds = %do.body.i
 
 if.end3.i43:                                      ; preds = %if.then.i41, %do.body.i
   %wlen.addr.1.i = phi i64 [ %.pre.i, %if.then.i41 ], [ %wlen.addr.0.i, %do.body.i ]
-  %call4.i = call i64 @_mpd_shortdiv(ptr noundef %21, ptr noundef %21, i64 noundef %ulen.addr.0.i, i64 noundef %conv) #28
+  %call4.i = call i64 @_mpd_shortdiv(ptr noundef %21, ptr noundef %21, i64 noundef %ulen.addr.0.i, i64 noundef range(i64 0, 4294967296) %conv) #28
   %conv.i44 = trunc i64 %call4.i to i16
   %25 = load ptr, ptr %rdata, align 8
   %arrayidx.i = getelementptr i16, ptr %25, i64 %n.0.i
@@ -27885,7 +27885,7 @@ while.body.i:                                     ; preds = %if.end37.i, %while.
   %n.056.i = phi i64 [ 1, %while.body.lr.ph.i ], [ %n.2.i, %if.end37.i ]
   %wlen.addr.055.i = phi i64 [ %add.i, %while.body.lr.ph.i ], [ %wlen.addr.3.i, %if.end37.i ]
   %17 = load ptr, ptr %data.i, align 8
-  %call.i45 = tail call i64 @_mpd_shortmul_b(ptr noundef %17, ptr noundef %17, i64 noundef %n.056.i, i64 noundef %conv, i64 noundef -8446744073709551616) #28
+  %call.i45 = tail call i64 @_mpd_shortmul_b(ptr noundef %17, ptr noundef %17, i64 noundef %n.056.i, i64 noundef range(i64 0, 4294967296) %conv, i64 noundef -8446744073709551616) #28
   %tobool.not.i = icmp eq i64 %call.i45, 0
   br i1 %tobool.not.i, label %if.end17.i, label %if.then.i
 
@@ -28443,7 +28443,7 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   %12 = or disjoint i8 %11, 64
   store i8 %12, ptr %coeff.i, align 8
   store i64 0, ptr %exp2.i.i, align 8
-  %call10.i.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %coeff.i, ptr noundef nonnull readonly @_coeff_as_uint128.uint128_max)
+  %call10.i.i = call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %coeff.i, ptr noundef nonnull @_coeff_as_uint128.uint128_max)
   %cmp14.i = icmp sgt i32 %call10.i.i, 0
   br i1 %cmp14.i, label %_coeff_as_uint128.exit, label %if.end16.i
 
@@ -29589,7 +29589,7 @@ mpd_seterror.exit.i170:                           ; preds = %if.then4.i.i.i181, 
 
 _mpd_qmul_exact.exit:                             ; preds = %if.end.i91, %mpd_seterror.exit.i170
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %s.i, ptr noundef nonnull %t.i, ptr noundef %maxcontext.i, ptr noundef %status26)
+  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %s.i, ptr noundef nonnull %t.i, ptr noundef %maxcontext.i, ptr noundef nonnull %status26)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.i = icmp sgt i64 %indvars.iv.i, 0
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !53
@@ -31072,7 +31072,7 @@ add_size_t.exit12:                                ; preds = %add_size_t.exit
   %add = add nuw i64 %la, 1
   %div6 = lshr i64 %add, 1
   %add2 = add nuw nsw i64 %div6, 1
-  %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add2, i64 3)
+  %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add2, i64 range(i64 1, -9223372036854775807) 3)
   %8 = extractvalue { i64, i1 } %umul.i, 1
   br i1 %8, label %do.body.i13, label %mul_size_t.exit
 

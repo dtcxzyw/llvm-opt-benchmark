@@ -2822,7 +2822,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %.sroa.063.0.copyload.us = load double, ptr %511, align 8
   %.sroa.264.0..sroa_idx.us = getelementptr inbounds i8, ptr %.sroa.0534.3.lcssa.us861, i64 24
   %.sroa.264.0.copyload.us = load double, ptr %.sroa.264.0..sroa_idx.us, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, i8 0, i64 40, i1 false)
   store double 0x7FF8000000000000, ptr %469, align 8
   store double 0x7FF8000000000000, ptr %470, align 8
   store double 0x7FF8000000000000, ptr %471, align 8
@@ -2850,7 +2850,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %.sroa.059.0.copyload.us = load double, ptr %516, align 8
   %.sroa.260.0..sroa_idx.us = getelementptr inbounds i8, ptr %.sroa.0524.5.lcssa.us, i64 24
   %.sroa.260.0.copyload.us = load double, ptr %.sroa.260.0..sroa_idx.us, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 40, i1 false)
   store double 0x7FF8000000000000, ptr %472, align 8
   store double 0x7FF8000000000000, ptr %473, align 8
   store double 0x7FF8000000000000, ptr %474, align 8
@@ -5976,7 +5976,7 @@ define void @_ZN5ZXing6QRCode9SampleMQRERKNS_9BitMatrixERKNS_17ConcentricPattern
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %8, i64 %gepdiff.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %4, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 dereferenceable(64) %4, i64 %24, i1 false)
   br label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit
 
 _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit: ; preds = %23, %26
@@ -6417,7 +6417,7 @@ define void @_ZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatte
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %10, i64 %gepdiff.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %6, i64 %34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 dereferenceable(64) %6, i64 %34, i1 false)
   br label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit
 
 _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit: ; preds = %33, %36
@@ -6882,7 +6882,7 @@ _ZN5ZXing6CenterINS_6PointTIdEEEET_RKNS_13QuadrilateralIS3_EE.exit112.i: ; preds
 
 275:                                              ; preds = %"_ZSt11min_elementIPN5ZXing6PointTIdEEZZNS0_6QRCode10SampleRMQRERKNS0_9BitMatrixERKNS0_17ConcentricPatternEENK3$_0clERNS0_13QuadrilateralIS2_EESE_EUlT_T0_E0_ESF_SF_SF_SG_.exit.i"
   %276 = getelementptr inbounds i8, ptr %4, i64 %gepdiff.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %276, ptr nonnull align 8 %6, i64 %.idx.i.i, i1 false), !noalias !137
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %276, ptr nonnull align 8 dereferenceable(64) %6, i64 %.idx.i.i, i1 false), !noalias !137
   br label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i
 
 _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i: ; preds = %275, %"_ZSt11min_elementIPN5ZXing6PointTIdEEZZNS0_6QRCode10SampleRMQRERKNS0_9BitMatrixERKNS0_17ConcentricPatternEENK3$_0clERNS0_13QuadrilateralIS2_EESE_EUlT_T0_E0_ESF_SF_SF_SG_.exit.i"
@@ -6900,7 +6900,7 @@ _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i:
 
 281:                                              ; preds = %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i
   %282 = getelementptr inbounds i8, ptr %5, i64 %gepdiff.i124.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %282, ptr nonnull align 8 %12, i64 %.idx.i123.i, i1 false), !noalias !137
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %282, ptr nonnull align 8 dereferenceable(64) %12, i64 %.idx.i123.i, i1 false), !noalias !137
   br label %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit126.i
 
 _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit126.i: ; preds = %281, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit.i

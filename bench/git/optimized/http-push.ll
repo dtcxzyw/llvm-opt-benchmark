@@ -1074,7 +1074,7 @@ release_request.exit:                             ; preds = %while.cond.i, %if.t
   %url.i = getelementptr inbounds i8, ptr %request.0176, i64 16
   %114 = load ptr, ptr %url.i, align 8
   call void @free(ptr noundef %114) #15
-  call void @free(ptr noundef %request.0176) #15
+  call void @free(ptr noundef nonnull %request.0176) #15
   %cmp322.not = icmp eq ptr %111, null
   br i1 %cmp322.not, label %while.end, label %while.body, !llvm.loop !10
 
@@ -2003,7 +2003,7 @@ while.body:                                       ; preds = %entry, %if.end7
 if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %results.i)
   store i32 1, ptr %refreshing, align 8
-  %call.i7 = call fastcc ptr @get_dav_token_headers(ptr noundef %lock.018, i32 noundef 5)
+  %call.i7 = call fastcc ptr @get_dav_token_headers(ptr noundef nonnull %lock.018, i32 noundef 5)
   %call1.i = call ptr @get_active_slot() #15
   %results2.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %results.i, ptr %results2.i, align 8
@@ -3549,7 +3549,7 @@ release_request.exit.i:                           ; preds = %while.cond.i.i, %if
   %url.i56.i = getelementptr inbounds i8, ptr %callback_data, i64 16
   %33 = load ptr, ptr %url.i56.i, align 8
   tail call void @free(ptr noundef %33) #15
-  tail call void @free(ptr noundef %callback_data) #15
+  tail call void @free(ptr noundef nonnull %callback_data) #15
   br label %finish_request.exit
 
 if.else59.i:                                      ; preds = %if.then46.i
@@ -3625,7 +3625,7 @@ release_request.exit71.i:                         ; preds = %while.cond.i59.i, %
   %url.i68.i = getelementptr inbounds i8, ptr %callback_data, i64 16
   %47 = load ptr, ptr %url.i68.i, align 8
   tail call void @free(ptr noundef %47) #15
-  tail call void @free(ptr noundef %callback_data) #15
+  tail call void @free(ptr noundef nonnull %callback_data) #15
   br label %finish_request.exit
 
 if.else93.i:                                      ; preds = %if.end87.i
@@ -3768,7 +3768,7 @@ release_request.exit:                             ; preds = %while.cond.i, %if.t
   %url.i = getelementptr inbounds i8, ptr %request, i64 16
   %11 = load ptr, ptr %url.i, align 8
   tail call void @free(ptr noundef %11) #15
-  tail call void @free(ptr noundef %request) #15
+  tail call void @free(ptr noundef nonnull %request) #15
   br label %if.end38
 
 if.end:                                           ; preds = %entry
@@ -3849,7 +3849,7 @@ release_request.exit39:                           ; preds = %while.cond.i27, %if
   %url.i36 = getelementptr inbounds i8, ptr %request, i64 16
   %25 = load ptr, ptr %url.i36, align 8
   tail call void @free(ptr noundef %25) #15
-  tail call void @free(ptr noundef %request) #15
+  tail call void @free(ptr noundef nonnull %request) #15
   br label %if.end38
 
 if.end27:                                         ; preds = %land.lhs.true, %while.body

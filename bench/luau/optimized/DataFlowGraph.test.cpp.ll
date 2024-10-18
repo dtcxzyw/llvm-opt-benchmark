@@ -1567,7 +1567,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #5 personality
   store i8 %7, ptr %5, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %4, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   %10 = getelementptr inbounds i8, ptr %4, i64 80
@@ -1618,7 +1618,7 @@ _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_9C2Ev.exit: ; preds = %11
           to label %.noexc.i unwind label %40
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_9C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc10.i unwind label %40
 
 .noexc10.i:                                       ; preds = %.noexc.i
@@ -1628,7 +1628,7 @@ _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_9C2Ev.exit: ; preds = %11
 24:                                               ; preds = %.noexc10.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc10.i
@@ -1710,7 +1710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %4, i64 160
   store i8 0, ptr %22, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %56) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %56) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %55, %52
@@ -1720,7 +1720,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %55, %52
 
 58:                                               ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %57) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %58, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -1732,7 +1732,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %58, %_ZNSt8optional
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %61
 
 61:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %63
 
 63:                                               ; preds = %61
@@ -1784,7 +1784,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef 
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   ret void
 }
 
@@ -1804,7 +1804,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_13Ev() #5 personality
   store i8 %7, ptr %5, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %4, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   %10 = getelementptr inbounds i8, ptr %4, i64 80
@@ -1855,7 +1855,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_12C2Ev.exit: ; preds = %11
           to label %.noexc.i unwind label %40
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_12C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc10.i unwind label %40
 
 .noexc10.i:                                       ; preds = %.noexc.i
@@ -1865,7 +1865,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_12C2Ev.exit: ; preds = %11
 24:                                               ; preds = %.noexc10.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc10.i
@@ -1947,7 +1947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %4, i64 160
   store i8 0, ptr %22, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %56) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %56) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %55, %52
@@ -1957,7 +1957,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %55, %52
 
 58:                                               ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %57) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %58, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -1969,7 +1969,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %58, %_ZNSt8optional
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %61
 
 61:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %63
 
 63:                                               ; preds = %61
@@ -2025,7 +2025,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_16Ev() #5 personality
   store i8 %15, ptr %13, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 32, i1 false)
   %17 = getelementptr inbounds i8, ptr %12, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   %18 = getelementptr inbounds i8, ptr %12, i64 80
@@ -2084,7 +2084,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_15C2Ev.exit: ; preds = %19
           to label %.noexc.i unwind label %68
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_15C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc19.i unwind label %68
 
 .noexc19.i:                                       ; preds = %.noexc.i
@@ -2094,7 +2094,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_15C2Ev.exit: ; preds = %19
 32:                                               ; preds = %.noexc19.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc19.i
@@ -2312,7 +2312,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %112) #17
   %113 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #17
   %114 = getelementptr inbounds i8, ptr %7, i64 48
@@ -2335,7 +2335,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %12, i64 160
   store i8 0, ptr %30, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %118) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %118) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
@@ -2345,7 +2345,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
 
 120:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %119) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -2357,7 +2357,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %123
 
 123:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %16, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %125
 
 125:                                              ; preds = %123
@@ -2413,7 +2413,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_19Ev() #5 personality
   store i8 %15, ptr %13, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 32, i1 false)
   %17 = getelementptr inbounds i8, ptr %12, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   %18 = getelementptr inbounds i8, ptr %12, i64 80
@@ -2472,7 +2472,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_18C2Ev.exit: ; preds = %19
           to label %.noexc.i unwind label %68
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_18C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc19.i unwind label %68
 
 .noexc19.i:                                       ; preds = %.noexc.i
@@ -2482,7 +2482,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_18C2Ev.exit: ; preds = %19
 32:                                               ; preds = %.noexc19.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc19.i
@@ -2700,7 +2700,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %112) #17
   %113 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #17
   %114 = getelementptr inbounds i8, ptr %7, i64 48
@@ -2723,7 +2723,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %12, i64 160
   store i8 0, ptr %30, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %118) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %118) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
@@ -2733,7 +2733,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
 
 120:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %119) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -2745,7 +2745,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %123
 
 123:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %16, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %125
 
 125:                                              ; preds = %123
@@ -2799,7 +2799,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #5 personality
   store i8 %13, ptr %11, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 32, i1 false)
   %15 = getelementptr inbounds i8, ptr %10, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
   %16 = getelementptr inbounds i8, ptr %10, i64 80
@@ -2856,7 +2856,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_21C2Ev.exit: ; preds = %17
           to label %.noexc.i unwind label %59
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_21C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc16.i unwind label %59
 
 .noexc16.i:                                       ; preds = %.noexc.i
@@ -2866,7 +2866,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_21C2Ev.exit: ; preds = %17
 30:                                               ; preds = %.noexc16.i
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc16.i
@@ -3049,7 +3049,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %46, %_ZNSt
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %95) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %95) #17
   %96 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %96) #17
   %97 = getelementptr inbounds i8, ptr %5, i64 48
@@ -3070,7 +3070,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %46, %_ZNSt
 100:                                              ; preds = %94
   %101 = getelementptr inbounds i8, ptr %10, i64 160
   store i8 0, ptr %28, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %101) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %101) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %100, %94
@@ -3080,7 +3080,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %100, %94
 
 103:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %102) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %103, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -3092,7 +3092,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %103, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %106
 
 106:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %108
 
 108:                                              ; preds = %106
@@ -3155,7 +3155,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_25Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -3220,7 +3220,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_24C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_24C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -3230,7 +3230,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_24C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -3469,7 +3469,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -3577,7 +3577,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -3605,7 +3605,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -3615,7 +3615,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -3627,7 +3627,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -3690,7 +3690,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -3755,7 +3755,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -3765,7 +3765,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -4004,7 +4004,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -4112,7 +4112,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -4140,7 +4140,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -4150,7 +4150,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -4162,7 +4162,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -4225,7 +4225,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -4290,7 +4290,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_30C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_30C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -4300,7 +4300,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_30C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -4539,7 +4539,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -4647,7 +4647,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -4675,7 +4675,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -4685,7 +4685,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -4697,7 +4697,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -4760,7 +4760,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -4825,7 +4825,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_33C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_33C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -4835,7 +4835,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_33C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -5074,7 +5074,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -5182,7 +5182,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -5210,7 +5210,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -5220,7 +5220,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -5232,7 +5232,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -5295,7 +5295,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -5360,7 +5360,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_36C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_36C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -5370,7 +5370,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_36C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -5609,7 +5609,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -5717,7 +5717,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -5745,7 +5745,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -5755,7 +5755,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -5767,7 +5767,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -5830,7 +5830,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -5895,7 +5895,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_39C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_39C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -5905,7 +5905,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_39C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -6144,7 +6144,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -6252,7 +6252,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -6280,7 +6280,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -6290,7 +6290,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -6302,7 +6302,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -6365,7 +6365,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_43Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -6430,7 +6430,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_42C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_42C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -6440,7 +6440,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_42C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -6679,7 +6679,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -6787,7 +6787,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -6815,7 +6815,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -6825,7 +6825,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -6837,7 +6837,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -6900,7 +6900,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_46Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -6965,7 +6965,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_45C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %90
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_45C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc29.i unwind label %90
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -6975,7 +6975,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_45C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -7214,7 +7214,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #17
   %131 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #17
   %132 = getelementptr inbounds i8, ptr %9, i64 48
@@ -7322,7 +7322,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #17
   %166 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 48
@@ -7350,7 +7350,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit54.i:    ; preds = %78, %76
 
 170:                                              ; preds = %164
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %41) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %41) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
@@ -7360,7 +7360,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %170, %164
 
 172:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %171) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -7372,7 +7372,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %172, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %175
 
 175:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %176 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %177
 
 177:                                              ; preds = %175
@@ -7435,7 +7435,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #5 personality
   store i8 %22, ptr %20, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   %25 = getelementptr inbounds i8, ptr %19, i64 80
@@ -7501,7 +7501,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_48C2Ev.exit: ; preds = %26
           to label %.noexc.i unwind label %88
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_48C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc29.i unwind label %88
 
 .noexc29.i:                                       ; preds = %.noexc.i
@@ -7511,7 +7511,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_48C2Ev.exit: ; preds = %26
 39:                                               ; preds = %.noexc29.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc29.i
@@ -7764,7 +7764,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit52.i:    ; preds = %76, %74
 
 135:                                              ; preds = %134
   %136 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %136) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %136) #17
   %137 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #17
   %138 = getelementptr inbounds i8, ptr %9, i64 48
@@ -7872,7 +7872,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit52.i:    ; preds = %76, %74
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %171) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %171) #17
   %172 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %172) #17
   %173 = getelementptr inbounds i8, ptr %14, i64 48
@@ -7902,7 +7902,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit52.i:    ; preds = %76, %74
 176:                                              ; preds = %170
   %177 = getelementptr inbounds i8, ptr %19, i64 160
   store i8 0, ptr %37, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %177) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %177) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %176, %170
@@ -7912,7 +7912,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %176, %170
 
 179:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %178) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %179, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -7924,7 +7924,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %179, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %182
 
 182:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %184
 
 184:                                              ; preds = %182
@@ -7980,7 +7980,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_52Ev() #5 personality
   store i8 %15, ptr %13, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 32, i1 false)
   %17 = getelementptr inbounds i8, ptr %12, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   %18 = getelementptr inbounds i8, ptr %12, i64 80
@@ -8039,7 +8039,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_51C2Ev.exit: ; preds = %19
           to label %.noexc.i unwind label %68
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_51C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc19.i unwind label %68
 
 .noexc19.i:                                       ; preds = %.noexc.i
@@ -8049,7 +8049,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_51C2Ev.exit: ; preds = %19
 32:                                               ; preds = %.noexc19.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc19.i
@@ -8267,7 +8267,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %112) #17
   %113 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #17
   %114 = getelementptr inbounds i8, ptr %7, i64 48
@@ -8290,7 +8290,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %12, i64 160
   store i8 0, ptr %30, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %118) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %118) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
@@ -8300,7 +8300,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
 
 120:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %119) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -8312,7 +8312,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %123
 
 123:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %16, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %125
 
 125:                                              ; preds = %123
@@ -8368,7 +8368,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #5 personality
   store i8 %15, ptr %13, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 32, i1 false)
   %17 = getelementptr inbounds i8, ptr %12, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   %18 = getelementptr inbounds i8, ptr %12, i64 80
@@ -8427,7 +8427,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_54C2Ev.exit: ; preds = %19
           to label %.noexc.i unwind label %68
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_54C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc19.i unwind label %68
 
 .noexc19.i:                                       ; preds = %.noexc.i
@@ -8437,7 +8437,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_54C2Ev.exit: ; preds = %19
 32:                                               ; preds = %.noexc19.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc19.i
@@ -8655,7 +8655,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %112) #17
   %113 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #17
   %114 = getelementptr inbounds i8, ptr %7, i64 48
@@ -8678,7 +8678,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit32.i:    ; preds = %56, %54
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %12, i64 160
   store i8 0, ptr %30, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %118) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %118) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
@@ -8688,7 +8688,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %117, %111
 
 120:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %119) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -8700,7 +8700,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %120, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %123
 
 123:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %16, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %125
 
 125:                                              ; preds = %123
@@ -8785,7 +8785,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_58Ev() #5 personality
   store i8 %44, ptr %42, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 0, i64 32, i1 false)
   %46 = getelementptr inbounds i8, ptr %41, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #17
   %47 = getelementptr inbounds i8, ptr %41, i64 80
@@ -8873,7 +8873,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_57C2Ev.exit: ; preds = %48
           to label %.noexc.i unwind label %110
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_57C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc50.i unwind label %110
 
 .noexc50.i:                                       ; preds = %.noexc.i
@@ -8883,7 +8883,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_57C2Ev.exit: ; preds = %48
 61:                                               ; preds = %.noexc50.i
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc50.i
@@ -9136,7 +9136,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit73.i:    ; preds = %98, %96
 
 157:                                              ; preds = %156
   %158 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %158) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %158) #17
   %159 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #17
   %160 = getelementptr inbounds i8, ptr %9, i64 48
@@ -9232,7 +9232,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit73.i:    ; preds = %98, %96
 
 188:                                              ; preds = %187
   %189 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %189) #17
   %190 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %190) #17
   %191 = getelementptr inbounds i8, ptr %14, i64 48
@@ -9342,7 +9342,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 225:                                              ; preds = %224
   %226 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %226) #17
   %227 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #17
   %228 = getelementptr inbounds i8, ptr %20, i64 48
@@ -9447,7 +9447,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 264:                                              ; preds = %263
   %265 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %265) #17
   %266 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %266) #17
   %267 = getelementptr inbounds i8, ptr %25, i64 48
@@ -9558,7 +9558,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 301:                                              ; preds = %300
   %302 = getelementptr inbounds i8, ptr %31, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %302) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %302) #17
   %303 = getelementptr inbounds i8, ptr %31, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %303) #17
   %304 = getelementptr inbounds i8, ptr %31, i64 48
@@ -9686,7 +9686,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 347:                                              ; preds = %342
   %348 = getelementptr inbounds i8, ptr %36, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %348) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %348) #17
   %349 = getelementptr inbounds i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %349) #17
   %350 = getelementptr inbounds i8, ptr %36, i64 48
@@ -9738,7 +9738,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 353:                                              ; preds = %347
   %354 = getelementptr inbounds i8, ptr %41, i64 160
   store i8 0, ptr %59, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %354) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %354) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %353, %347
@@ -9748,7 +9748,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %353, %347
 
 356:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %355) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %356, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -9760,7 +9760,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %356, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %359
 
 359:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %360 = invoke noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 3)
+  %360 = invoke noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %45, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %361
 
 361:                                              ; preds = %359
@@ -9845,7 +9845,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_61Ev() #5 personality
   store i8 %44, ptr %42, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 0, i64 32, i1 false)
   %46 = getelementptr inbounds i8, ptr %41, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #17
   %47 = getelementptr inbounds i8, ptr %41, i64 80
@@ -9933,7 +9933,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_60C2Ev.exit: ; preds = %48
           to label %.noexc.i unwind label %110
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_60C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc50.i unwind label %110
 
 .noexc50.i:                                       ; preds = %.noexc.i
@@ -9943,7 +9943,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_60C2Ev.exit: ; preds = %48
 61:                                               ; preds = %.noexc50.i
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc50.i
@@ -10196,7 +10196,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit73.i:    ; preds = %98, %96
 
 157:                                              ; preds = %156
   %158 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %158) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %158) #17
   %159 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #17
   %160 = getelementptr inbounds i8, ptr %9, i64 48
@@ -10292,7 +10292,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit73.i:    ; preds = %98, %96
 
 188:                                              ; preds = %187
   %189 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %189) #17
   %190 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %190) #17
   %191 = getelementptr inbounds i8, ptr %14, i64 48
@@ -10402,7 +10402,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 225:                                              ; preds = %224
   %226 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %226) #17
   %227 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #17
   %228 = getelementptr inbounds i8, ptr %20, i64 48
@@ -10507,7 +10507,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 264:                                              ; preds = %263
   %265 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %265) #17
   %266 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %266) #17
   %267 = getelementptr inbounds i8, ptr %25, i64 48
@@ -10618,7 +10618,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 301:                                              ; preds = %300
   %302 = getelementptr inbounds i8, ptr %31, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %302) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %302) #17
   %303 = getelementptr inbounds i8, ptr %31, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %303) #17
   %304 = getelementptr inbounds i8, ptr %31, i64 48
@@ -10746,7 +10746,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 
 347:                                              ; preds = %342
   %348 = getelementptr inbounds i8, ptr %36, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %348) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %348) #17
   %349 = getelementptr inbounds i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %349) #17
   %350 = getelementptr inbounds i8, ptr %36, i64 48
@@ -10798,7 +10798,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %192, %188
 353:                                              ; preds = %347
   %354 = getelementptr inbounds i8, ptr %41, i64 160
   store i8 0, ptr %59, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %354) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %354) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %353, %347
@@ -10808,7 +10808,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %353, %347
 
 356:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %355) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %356, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -10820,7 +10820,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %356, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %359
 
 359:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %360 = invoke noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 3)
+  %360 = invoke noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %45, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %361
 
 361:                                              ; preds = %359
@@ -10923,7 +10923,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_64Ev() #5 personality
   store i8 %62, ptr %60, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %63 = getelementptr inbounds i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %63, i8 0, i64 32, i1 false)
   %64 = getelementptr inbounds i8, ptr %59, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #17
   %65 = getelementptr inbounds i8, ptr %59, i64 80
@@ -11029,7 +11029,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_63C2Ev.exit: ; preds = %66
           to label %.noexc.i unwind label %180
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_63C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc80.i unwind label %180
 
 .noexc80.i:                                       ; preds = %.noexc.i
@@ -11039,7 +11039,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_63C2Ev.exit: ; preds = %66
 79:                                               ; preds = %.noexc80.i
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc80.i
@@ -11480,7 +11480,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit143.i:   ; preds = %168, %166
 
 259:                                              ; preds = %258
   %260 = getelementptr inbounds i8, ptr %17, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %260) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %260) #17
   %261 = getelementptr inbounds i8, ptr %17, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %261) #17
   %262 = getelementptr inbounds i8, ptr %17, i64 48
@@ -11576,7 +11576,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit143.i:   ; preds = %168, %166
 
 290:                                              ; preds = %289
   %291 = getelementptr inbounds i8, ptr %22, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %291) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %291) #17
   %292 = getelementptr inbounds i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %292) #17
   %293 = getelementptr inbounds i8, ptr %22, i64 48
@@ -11672,7 +11672,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit143.i:   ; preds = %168, %166
 
 321:                                              ; preds = %320
   %322 = getelementptr inbounds i8, ptr %27, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %322) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %322) #17
   %323 = getelementptr inbounds i8, ptr %27, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %323) #17
   %324 = getelementptr inbounds i8, ptr %27, i64 48
@@ -11768,7 +11768,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit143.i:   ; preds = %168, %166
 
 352:                                              ; preds = %351
   %353 = getelementptr inbounds i8, ptr %32, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %353) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %353) #17
   %354 = getelementptr inbounds i8, ptr %32, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %354) #17
   %355 = getelementptr inbounds i8, ptr %32, i64 48
@@ -11878,7 +11878,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %356, %352
 
 389:                                              ; preds = %388
   %390 = getelementptr inbounds i8, ptr %38, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %390) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %390) #17
   %391 = getelementptr inbounds i8, ptr %38, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %391) #17
   %392 = getelementptr inbounds i8, ptr %38, i64 48
@@ -11983,7 +11983,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %356, %352
 
 428:                                              ; preds = %427
   %429 = getelementptr inbounds i8, ptr %43, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %429) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %429) #17
   %430 = getelementptr inbounds i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %430) #17
   %431 = getelementptr inbounds i8, ptr %43, i64 48
@@ -12094,7 +12094,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %356, %352
 
 465:                                              ; preds = %464
   %466 = getelementptr inbounds i8, ptr %49, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %466) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %466) #17
   %467 = getelementptr inbounds i8, ptr %49, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %467) #17
   %468 = getelementptr inbounds i8, ptr %49, i64 48
@@ -12222,7 +12222,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %356, %352
 
 511:                                              ; preds = %506
   %512 = getelementptr inbounds i8, ptr %54, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %512) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %512) #17
   %513 = getelementptr inbounds i8, ptr %54, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %513) #17
   %514 = getelementptr inbounds i8, ptr %54, i64 48
@@ -12292,7 +12292,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %356, %352
 517:                                              ; preds = %511
   %518 = getelementptr inbounds i8, ptr %59, i64 160
   store i8 0, ptr %77, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %518) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %518) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %517, %511
@@ -12302,7 +12302,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %517, %511
 
 520:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %519) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %520, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -12314,7 +12314,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %520, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %523
 
 523:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %524 = invoke noundef zeroext i1 %522(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 3)
+  %524 = invoke noundef zeroext i1 %522(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %63, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %525
 
 525:                                              ; preds = %523
@@ -12411,7 +12411,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_67Ev() #5 personality
   store i8 %56, ptr %54, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %57 = getelementptr inbounds i8, ptr %53, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, i8 0, i64 32, i1 false)
   %58 = getelementptr inbounds i8, ptr %53, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #17
   %59 = getelementptr inbounds i8, ptr %53, i64 80
@@ -12510,7 +12510,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_66C2Ev.exit: ; preds = %60
           to label %.noexc.i unwind label %137
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_66C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc65.i unwind label %137
 
 .noexc65.i:                                       ; preds = %.noexc.i
@@ -12520,7 +12520,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_66C2Ev.exit: ; preds = %60
 73:                                               ; preds = %.noexc65.i
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc65.i
@@ -12806,7 +12806,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit100.i:   ; preds = %125, %123
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds i8, ptr %11, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %185) #17
   %186 = getelementptr inbounds i8, ptr %11, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %186) #17
   %187 = getelementptr inbounds i8, ptr %11, i64 48
@@ -12902,7 +12902,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit100.i:   ; preds = %125, %123
 
 215:                                              ; preds = %214
   %216 = getelementptr inbounds i8, ptr %16, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %216) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %216) #17
   %217 = getelementptr inbounds i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %217) #17
   %218 = getelementptr inbounds i8, ptr %16, i64 48
@@ -12998,7 +12998,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit100.i:   ; preds = %125, %123
 
 246:                                              ; preds = %245
   %247 = getelementptr inbounds i8, ptr %21, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %247) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %247) #17
   %248 = getelementptr inbounds i8, ptr %21, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #17
   %249 = getelementptr inbounds i8, ptr %21, i64 48
@@ -13108,7 +13108,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %250, %246
 
 283:                                              ; preds = %282
   %284 = getelementptr inbounds i8, ptr %27, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %284) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %284) #17
   %285 = getelementptr inbounds i8, ptr %27, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #17
   %286 = getelementptr inbounds i8, ptr %27, i64 48
@@ -13213,7 +13213,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %250, %246
 
 322:                                              ; preds = %321
   %323 = getelementptr inbounds i8, ptr %32, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %323) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %323) #17
   %324 = getelementptr inbounds i8, ptr %32, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %324) #17
   %325 = getelementptr inbounds i8, ptr %32, i64 48
@@ -13324,7 +13324,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %250, %246
 
 359:                                              ; preds = %358
   %360 = getelementptr inbounds i8, ptr %38, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %360) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %360) #17
   %361 = getelementptr inbounds i8, ptr %38, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %361) #17
   %362 = getelementptr inbounds i8, ptr %38, i64 48
@@ -13440,7 +13440,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %250, %246
 
 401:                                              ; preds = %400
   %402 = getelementptr inbounds i8, ptr %43, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %402) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %402) #17
   %403 = getelementptr inbounds i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %403) #17
   %404 = getelementptr inbounds i8, ptr %43, i64 48
@@ -13568,7 +13568,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %250, %246
 
 447:                                              ; preds = %442
   %448 = getelementptr inbounds i8, ptr %48, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %448) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %448) #17
   %449 = getelementptr inbounds i8, ptr %48, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %449) #17
   %450 = getelementptr inbounds i8, ptr %48, i64 48
@@ -13630,7 +13630,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %250, %246
 
 453:                                              ; preds = %447
   store i8 0, ptr %71, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %75) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %75) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %453, %447
@@ -13640,7 +13640,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %453, %447
 
 455:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %454) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %455, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -13652,7 +13652,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %455, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %458
 
 458:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %459 = invoke noundef zeroext i1 %457(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef 3)
+  %459 = invoke noundef zeroext i1 %457(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %57, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %460
 
 460:                                              ; preds = %458
@@ -13742,7 +13742,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_70Ev() #5 personality
   store i8 %49, ptr %47, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, i8 0, i64 32, i1 false)
   %51 = getelementptr inbounds i8, ptr %46, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #17
   %52 = getelementptr inbounds i8, ptr %46, i64 80
@@ -13834,7 +13834,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_69C2Ev.exit: ; preds = %53
           to label %.noexc.i unwind label %128
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_69C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %65, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %65, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc66.i unwind label %128
 
 .noexc66.i:                                       ; preds = %.noexc.i
@@ -13844,7 +13844,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_69C2Ev.exit: ; preds = %53
 66:                                               ; preds = %.noexc66.i
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc66.i
@@ -14144,7 +14144,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit99.i:    ; preds = %116, %114
 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds i8, ptr %12, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %184) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %184) #17
   %185 = getelementptr inbounds i8, ptr %12, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #17
   %186 = getelementptr inbounds i8, ptr %12, i64 48
@@ -14240,7 +14240,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit99.i:    ; preds = %116, %114
 
 214:                                              ; preds = %213
   %215 = getelementptr inbounds i8, ptr %17, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %215) #17
   %216 = getelementptr inbounds i8, ptr %17, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %216) #17
   %217 = getelementptr inbounds i8, ptr %17, i64 48
@@ -14336,7 +14336,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit99.i:    ; preds = %116, %114
 
 .lr.ph.i.i:                                       ; preds = %244
   %245 = getelementptr inbounds i8, ptr %22, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %245) #17
   %246 = getelementptr inbounds i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %246) #17
   %247 = getelementptr inbounds i8, ptr %22, i64 48
@@ -14524,7 +14524,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %277, %_ZNS
 
 318:                                              ; preds = %317
   %319 = getelementptr inbounds i8, ptr %30, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %319) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %319) #17
   %320 = getelementptr inbounds i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #17
   %321 = getelementptr inbounds i8, ptr %30, i64 48
@@ -14629,7 +14629,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %277, %_ZNS
 
 357:                                              ; preds = %356
   %358 = getelementptr inbounds i8, ptr %35, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %358) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %358) #17
   %359 = getelementptr inbounds i8, ptr %35, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %359) #17
   %360 = getelementptr inbounds i8, ptr %35, i64 48
@@ -14752,7 +14752,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %277, %_ZNS
 
 398:                                              ; preds = %393
   %399 = getelementptr inbounds i8, ptr %41, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %399) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %399) #17
   %400 = getelementptr inbounds i8, ptr %41, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %400) #17
   %401 = getelementptr inbounds i8, ptr %41, i64 48
@@ -14807,7 +14807,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %277, %_ZNS
 
 404:                                              ; preds = %398
   store i8 0, ptr %64, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %248) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %248) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %404, %398
@@ -14817,7 +14817,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %404, %398
 
 406:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %405) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %406, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -14829,7 +14829,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %406, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %409
 
 409:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %410 = invoke noundef zeroext i1 %408(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
+  %410 = invoke noundef zeroext i1 %408(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %50, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %411
 
 411:                                              ; preds = %409
@@ -14909,7 +14909,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_73Ev() #5 personality
   store i8 %39, ptr %37, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 32, i1 false)
   %41 = getelementptr inbounds i8, ptr %36, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
   %42 = getelementptr inbounds i8, ptr %36, i64 80
@@ -14991,7 +14991,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_72C2Ev.exit: ; preds = %43
           to label %.noexc.i unwind label %107
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_72C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc45.i unwind label %107
 
 .noexc45.i:                                       ; preds = %.noexc.i
@@ -15001,7 +15001,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_72C2Ev.exit: ; preds = %43
 56:                                               ; preds = %.noexc45.i
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc45.i
@@ -15240,7 +15240,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit70.i:    ; preds = %95, %93
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %147) #17
   %148 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #17
   %149 = getelementptr inbounds i8, ptr %9, i64 48
@@ -15336,7 +15336,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit70.i:    ; preds = %95, %93
 
 177:                                              ; preds = %176
   %178 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %178) #17
   %179 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #17
   %180 = getelementptr inbounds i8, ptr %14, i64 48
@@ -15446,7 +15446,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 214:                                              ; preds = %213
   %215 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %215) #17
   %216 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %216) #17
   %217 = getelementptr inbounds i8, ptr %20, i64 48
@@ -15551,7 +15551,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 253:                                              ; preds = %252
   %254 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %254) #17
   %255 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #17
   %256 = getelementptr inbounds i8, ptr %25, i64 48
@@ -15674,7 +15674,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 294:                                              ; preds = %289
   %295 = getelementptr inbounds i8, ptr %31, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %295) #17
   %296 = getelementptr inbounds i8, ptr %31, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #17
   %297 = getelementptr inbounds i8, ptr %31, i64 48
@@ -15719,7 +15719,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 300:                                              ; preds = %294
   store i8 0, ptr %54, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %58) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %58) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %300, %294
@@ -15729,7 +15729,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %300, %294
 
 302:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %301) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %302, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -15741,7 +15741,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %302, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %305
 
 305:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 3)
+  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %40, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %307
 
 307:                                              ; preds = %305
@@ -15828,7 +15828,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_76Ev() #5 personality
   store i8 %46, ptr %44, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %47 = getelementptr inbounds i8, ptr %43, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, i8 0, i64 32, i1 false)
   %48 = getelementptr inbounds i8, ptr %43, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
   %49 = getelementptr inbounds i8, ptr %43, i64 80
@@ -15917,7 +15917,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_75C2Ev.exit: ; preds = %50
           to label %.noexc.i unwind label %127
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_75C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %62, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %62, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc55.i unwind label %127
 
 .noexc55.i:                                       ; preds = %.noexc.i
@@ -15927,7 +15927,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_75C2Ev.exit: ; preds = %50
 63:                                               ; preds = %.noexc55.i
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc55.i
@@ -16213,7 +16213,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit90.i:    ; preds = %115, %113
 
 174:                                              ; preds = %173
   %175 = getelementptr inbounds i8, ptr %11, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %175) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %175) #17
   %176 = getelementptr inbounds i8, ptr %11, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %176) #17
   %177 = getelementptr inbounds i8, ptr %11, i64 48
@@ -16309,7 +16309,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit90.i:    ; preds = %115, %113
 
 205:                                              ; preds = %204
   %206 = getelementptr inbounds i8, ptr %16, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %206) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %206) #17
   %207 = getelementptr inbounds i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %207) #17
   %208 = getelementptr inbounds i8, ptr %16, i64 48
@@ -16405,7 +16405,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit90.i:    ; preds = %115, %113
 
 236:                                              ; preds = %235
   %237 = getelementptr inbounds i8, ptr %21, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %237) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %237) #17
   %238 = getelementptr inbounds i8, ptr %21, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %238) #17
   %239 = getelementptr inbounds i8, ptr %21, i64 48
@@ -16515,7 +16515,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %240, %236
 
 273:                                              ; preds = %272
   %274 = getelementptr inbounds i8, ptr %27, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %274) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %274) #17
   %275 = getelementptr inbounds i8, ptr %27, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %275) #17
   %276 = getelementptr inbounds i8, ptr %27, i64 48
@@ -16620,7 +16620,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %240, %236
 
 312:                                              ; preds = %311
   %313 = getelementptr inbounds i8, ptr %32, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %313) #17
   %314 = getelementptr inbounds i8, ptr %32, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #17
   %315 = getelementptr inbounds i8, ptr %32, i64 48
@@ -16743,7 +16743,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %240, %236
 
 353:                                              ; preds = %348
   %354 = getelementptr inbounds i8, ptr %38, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %354) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %354) #17
   %355 = getelementptr inbounds i8, ptr %38, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %355) #17
   %356 = getelementptr inbounds i8, ptr %38, i64 48
@@ -16795,7 +16795,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %240, %236
 
 359:                                              ; preds = %353
   store i8 0, ptr %61, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %65) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %65) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %359, %353
@@ -16805,7 +16805,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %359, %353
 
 361:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %360) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %361, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -16817,7 +16817,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %361, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %364
 
 364:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %365 = invoke noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
+  %365 = invoke noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %47, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %366
 
 366:                                              ; preds = %364
@@ -16909,7 +16909,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_79Ev() #5 personality
   store i8 %51, ptr %49, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %52 = getelementptr inbounds i8, ptr %48, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %52, i8 0, i64 32, i1 false)
   %53 = getelementptr inbounds i8, ptr %48, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #17
   %54 = getelementptr inbounds i8, ptr %48, i64 80
@@ -17003,7 +17003,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_78C2Ev.exit: ; preds = %55
           to label %.noexc.i unwind label %132
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_78C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc60.i unwind label %132
 
 .noexc60.i:                                       ; preds = %.noexc.i
@@ -17013,7 +17013,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_78C2Ev.exit: ; preds = %55
 68:                                               ; preds = %.noexc60.i
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc60.i
@@ -17299,7 +17299,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit95.i:    ; preds = %120, %118
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds i8, ptr %11, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %180) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %180) #17
   %181 = getelementptr inbounds i8, ptr %11, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %181) #17
   %182 = getelementptr inbounds i8, ptr %11, i64 48
@@ -17395,7 +17395,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit95.i:    ; preds = %120, %118
 
 210:                                              ; preds = %209
   %211 = getelementptr inbounds i8, ptr %16, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %211) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %211) #17
   %212 = getelementptr inbounds i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #17
   %213 = getelementptr inbounds i8, ptr %16, i64 48
@@ -17491,7 +17491,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit95.i:    ; preds = %120, %118
 
 241:                                              ; preds = %240
   %242 = getelementptr inbounds i8, ptr %21, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %242) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %242) #17
   %243 = getelementptr inbounds i8, ptr %21, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %243) #17
   %244 = getelementptr inbounds i8, ptr %21, i64 48
@@ -17601,7 +17601,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %245, %241
 
 278:                                              ; preds = %277
   %279 = getelementptr inbounds i8, ptr %27, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %279) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %279) #17
   %280 = getelementptr inbounds i8, ptr %27, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %280) #17
   %281 = getelementptr inbounds i8, ptr %27, i64 48
@@ -17706,7 +17706,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %245, %241
 
 317:                                              ; preds = %316
   %318 = getelementptr inbounds i8, ptr %32, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %318) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %318) #17
   %319 = getelementptr inbounds i8, ptr %32, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %319) #17
   %320 = getelementptr inbounds i8, ptr %32, i64 48
@@ -17817,7 +17817,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %245, %241
 
 354:                                              ; preds = %353
   %355 = getelementptr inbounds i8, ptr %38, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %355) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %355) #17
   %356 = getelementptr inbounds i8, ptr %38, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %356) #17
   %357 = getelementptr inbounds i8, ptr %38, i64 48
@@ -17945,7 +17945,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %245, %241
 
 400:                                              ; preds = %395
   %401 = getelementptr inbounds i8, ptr %43, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %401) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %401) #17
   %402 = getelementptr inbounds i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %402) #17
   %403 = getelementptr inbounds i8, ptr %43, i64 48
@@ -18002,7 +18002,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %245, %241
 
 406:                                              ; preds = %400
   store i8 0, ptr %66, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %70) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %70) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %406, %400
@@ -18012,7 +18012,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %406, %400
 
 408:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %407) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %408, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -18024,7 +18024,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %408, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %411
 
 411:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %412 = invoke noundef zeroext i1 %410(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef 3)
+  %412 = invoke noundef zeroext i1 %410(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %52, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %413
 
 413:                                              ; preds = %411
@@ -18092,7 +18092,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_82Ev() #5 personality
   store i8 %27, ptr %25, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 32, i1 false)
   %29 = getelementptr inbounds i8, ptr %24, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   %30 = getelementptr inbounds i8, ptr %24, i64 80
@@ -18162,7 +18162,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_81C2Ev.exit: ; preds = %31
           to label %.noexc.i unwind label %101
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_81C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc36.i unwind label %101
 
 .noexc36.i:                                       ; preds = %.noexc.i
@@ -18172,7 +18172,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_81C2Ev.exit: ; preds = %31
 44:                                               ; preds = %.noexc36.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc36.i
@@ -18423,7 +18423,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %88, %_ZNSt
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %141) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %141) #17
   %142 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %142) #17
   %143 = getelementptr inbounds i8, ptr %9, i64 48
@@ -18534,7 +18534,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %88, %_ZNSt
 
 177:                                              ; preds = %176
   %178 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %178) #17
   %179 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #17
   %180 = getelementptr inbounds i8, ptr %14, i64 48
@@ -18662,7 +18662,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %88, %_ZNSt
 
 223:                                              ; preds = %218
   %224 = getelementptr inbounds i8, ptr %19, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %224) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %224) #17
   %225 = getelementptr inbounds i8, ptr %19, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #17
   %226 = getelementptr inbounds i8, ptr %19, i64 48
@@ -18695,7 +18695,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %88, %_ZNSt
 
 229:                                              ; preds = %223
   store i8 0, ptr %42, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %46) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %46) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %229, %223
@@ -18705,7 +18705,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %229, %223
 
 231:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %230) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %231, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -18717,7 +18717,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %231, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %234
 
 234:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %235 = invoke noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %235 = invoke noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %28, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %236
 
 236:                                              ; preds = %234
@@ -18791,7 +18791,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_85Ev() #5 personality
   store i8 %33, ptr %31, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, i8 0, i64 32, i1 false)
   %35 = getelementptr inbounds i8, ptr %30, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
   %36 = getelementptr inbounds i8, ptr %30, i64 80
@@ -18868,7 +18868,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_84C2Ev.exit: ; preds = %37
           to label %.noexc.i unwind label %105
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_84C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc41.i unwind label %105
 
 .noexc41.i:                                       ; preds = %.noexc.i
@@ -18878,7 +18878,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_84C2Ev.exit: ; preds = %37
 50:                                               ; preds = %.noexc41.i
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc41.i
@@ -19143,7 +19143,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %153) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %153) #17
   %154 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #17
   %155 = getelementptr inbounds i8, ptr %9, i64 48
@@ -19248,7 +19248,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 191:                                              ; preds = %190
   %192 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %192) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %192) #17
   %193 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #17
   %194 = getelementptr inbounds i8, ptr %14, i64 48
@@ -19359,7 +19359,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 228:                                              ; preds = %227
   %229 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %229) #17
   %230 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %230) #17
   %231 = getelementptr inbounds i8, ptr %20, i64 48
@@ -19487,7 +19487,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 274:                                              ; preds = %269
   %275 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %275) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %275) #17
   %276 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #17
   %277 = getelementptr inbounds i8, ptr %25, i64 48
@@ -19528,7 +19528,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 280:                                              ; preds = %274
   %281 = getelementptr inbounds i8, ptr %30, i64 160
   store i8 0, ptr %48, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %281) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %281) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %280, %274
@@ -19538,7 +19538,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %280, %274
 
 283:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %282) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %283, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -19550,7 +19550,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %283, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %286
 
 286:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %287 = invoke noundef zeroext i1 %285(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
+  %287 = invoke noundef zeroext i1 %285(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %34, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %288
 
 288:                                              ; preds = %286
@@ -19624,7 +19624,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_88Ev() #5 personality
   store i8 %33, ptr %31, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, i8 0, i64 32, i1 false)
   %35 = getelementptr inbounds i8, ptr %30, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
   %36 = getelementptr inbounds i8, ptr %30, i64 80
@@ -19701,7 +19701,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_87C2Ev.exit: ; preds = %37
           to label %.noexc.i unwind label %105
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_87C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc41.i unwind label %105
 
 .noexc41.i:                                       ; preds = %.noexc.i
@@ -19711,7 +19711,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_87C2Ev.exit: ; preds = %37
 50:                                               ; preds = %.noexc41.i
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc41.i
@@ -19976,7 +19976,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %153) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %153) #17
   %154 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #17
   %155 = getelementptr inbounds i8, ptr %9, i64 48
@@ -20081,7 +20081,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 191:                                              ; preds = %190
   %192 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %192) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %192) #17
   %193 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #17
   %194 = getelementptr inbounds i8, ptr %14, i64 48
@@ -20192,7 +20192,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 228:                                              ; preds = %227
   %229 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %229) #17
   %230 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %230) #17
   %231 = getelementptr inbounds i8, ptr %20, i64 48
@@ -20320,7 +20320,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 
 274:                                              ; preds = %269
   %275 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %275) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %275) #17
   %276 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #17
   %277 = getelementptr inbounds i8, ptr %25, i64 48
@@ -20361,7 +20361,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %92, %_ZNSt
 280:                                              ; preds = %274
   %281 = getelementptr inbounds i8, ptr %30, i64 160
   store i8 0, ptr %48, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %281) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %281) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %280, %274
@@ -20371,7 +20371,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %280, %274
 
 283:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %282) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %283, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -20383,7 +20383,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %283, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %286
 
 286:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %287 = invoke noundef zeroext i1 %285(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
+  %287 = invoke noundef zeroext i1 %285(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %34, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %288
 
 288:                                              ; preds = %286
@@ -20463,7 +20463,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_91Ev() #5 personality
   store i8 %39, ptr %37, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 32, i1 false)
   %41 = getelementptr inbounds i8, ptr %36, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
   %42 = getelementptr inbounds i8, ptr %36, i64 80
@@ -20545,7 +20545,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_90C2Ev.exit: ; preds = %43
           to label %.noexc.i unwind label %107
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_90C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc45.i unwind label %107
 
 .noexc45.i:                                       ; preds = %.noexc.i
@@ -20555,7 +20555,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_90C2Ev.exit: ; preds = %43
 56:                                               ; preds = %.noexc45.i
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc45.i
@@ -20794,7 +20794,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit70.i:    ; preds = %95, %93
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %147) #17
   %148 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #17
   %149 = getelementptr inbounds i8, ptr %9, i64 48
@@ -20890,7 +20890,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit70.i:    ; preds = %95, %93
 
 177:                                              ; preds = %176
   %178 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %178) #17
   %179 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #17
   %180 = getelementptr inbounds i8, ptr %14, i64 48
@@ -21000,7 +21000,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 214:                                              ; preds = %213
   %215 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %215) #17
   %216 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %216) #17
   %217 = getelementptr inbounds i8, ptr %20, i64 48
@@ -21105,7 +21105,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 253:                                              ; preds = %252
   %254 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %254) #17
   %255 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #17
   %256 = getelementptr inbounds i8, ptr %25, i64 48
@@ -21228,7 +21228,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 294:                                              ; preds = %289
   %295 = getelementptr inbounds i8, ptr %31, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %295) #17
   %296 = getelementptr inbounds i8, ptr %31, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #17
   %297 = getelementptr inbounds i8, ptr %31, i64 48
@@ -21273,7 +21273,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 300:                                              ; preds = %294
   store i8 0, ptr %54, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %58) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %58) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %300, %294
@@ -21283,7 +21283,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %300, %294
 
 302:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %301) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %302, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -21295,7 +21295,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %302, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %305
 
 305:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 3)
+  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %40, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %307
 
 307:                                              ; preds = %305
@@ -21363,7 +21363,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_94Ev() #5 personality
   store i8 %27, ptr %25, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 32, i1 false)
   %29 = getelementptr inbounds i8, ptr %24, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   %30 = getelementptr inbounds i8, ptr %24, i64 80
@@ -21433,7 +21433,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_93C2Ev.exit: ; preds = %31
           to label %.noexc.i unwind label %95
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_93C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc34.i unwind label %95
 
 .noexc34.i:                                       ; preds = %.noexc.i
@@ -21443,7 +21443,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_93C2Ev.exit: ; preds = %31
 44:                                               ; preds = %.noexc34.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc34.i
@@ -21682,7 +21682,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit59.i:    ; preds = %83, %81
 
 134:                                              ; preds = %133
   %135 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %135) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %135) #17
   %136 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %136) #17
   %137 = getelementptr inbounds i8, ptr %9, i64 48
@@ -21778,7 +21778,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit59.i:    ; preds = %83, %81
 
 165:                                              ; preds = %164
   %166 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %166) #17
   %167 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #17
   %168 = getelementptr inbounds i8, ptr %14, i64 48
@@ -21886,7 +21886,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit59.i:    ; preds = %83, %81
 
 200:                                              ; preds = %195
   %201 = getelementptr inbounds i8, ptr %19, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %201) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %201) #17
   %202 = getelementptr inbounds i8, ptr %19, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #17
   %203 = getelementptr inbounds i8, ptr %19, i64 48
@@ -21919,7 +21919,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit59.i:    ; preds = %83, %81
 
 206:                                              ; preds = %200
   store i8 0, ptr %42, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %46) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %46) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %206, %200
@@ -21929,7 +21929,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %206, %200
 
 208:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %207) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %208, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -21941,7 +21941,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %208, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %211
 
 211:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %212 = invoke noundef zeroext i1 %210(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %212 = invoke noundef zeroext i1 %210(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %28, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %213
 
 213:                                              ; preds = %211
@@ -22021,7 +22021,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_97Ev() #5 personality
   store i8 %39, ptr %37, align 8
   store i8 1, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 32, i1 false)
   %41 = getelementptr inbounds i8, ptr %36, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
   %42 = getelementptr inbounds i8, ptr %36, i64 80
@@ -22103,7 +22103,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_96C2Ev.exit: ; preds = %43
           to label %.noexc.i unwind label %107
 
 .noexc.i:                                         ; preds = %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_96C2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc45.i unwind label %107
 
 .noexc45.i:                                       ; preds = %.noexc.i
@@ -22113,7 +22113,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_96C2Ev.exit: ; preds = %43
 56:                                               ; preds = %.noexc45.i
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc45.i
@@ -22352,7 +22352,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit70.i:    ; preds = %95, %93
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %147) #17
   %148 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #17
   %149 = getelementptr inbounds i8, ptr %9, i64 48
@@ -22448,7 +22448,7 @@ _ZNSt6vectorIN4Luau3NthESaIS1_EED2Ev.exit70.i:    ; preds = %95, %93
 
 177:                                              ; preds = %176
   %178 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %178) #17
   %179 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #17
   %180 = getelementptr inbounds i8, ptr %14, i64 48
@@ -22558,7 +22558,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 214:                                              ; preds = %213
   %215 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %215) #17
   %216 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %216) #17
   %217 = getelementptr inbounds i8, ptr %20, i64 48
@@ -22663,7 +22663,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 253:                                              ; preds = %252
   %254 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %254) #17
   %255 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #17
   %256 = getelementptr inbounds i8, ptr %25, i64 48
@@ -22786,7 +22786,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 294:                                              ; preds = %289
   %295 = getelementptr inbounds i8, ptr %31, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %295) #17
   %296 = getelementptr inbounds i8, ptr %31, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #17
   %297 = getelementptr inbounds i8, ptr %31, i64 48
@@ -22831,7 +22831,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit.i: ; preds = %181, %177
 
 300:                                              ; preds = %294
   store i8 0, ptr %54, align 8
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %58) #17
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %58) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %300, %294
@@ -22841,7 +22841,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i: ; preds = %300, %294
 
 302:                                              ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %301) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %302, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i.i
@@ -22853,7 +22853,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i.i:              ; preds = %302, %_ZNSt8optiona
   br i1 %.not.i.i.i1.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i, label %305
 
 305:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i.i
-  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 3)
+  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %40, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i.i unwind label %307
 
 307:                                              ; preds = %305
@@ -22902,7 +22902,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE6fnDtorIS2_EEvPv(ptr noundef %0) #1 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #17
   ret void
 }
 
@@ -22942,7 +22942,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_9D2Ev(ptr nou
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -22953,7 +22953,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -22968,7 +22968,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -23011,7 +23011,7 @@ define linkonce_odr dso_local void @_ZN4Luau21InternalErrorReporterD2Ev(ptr noun
   br i1 %.not.i.i, label %_ZNSt8functionIFvPKcEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
           to label %_ZNSt8functionIFvPKcEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %5
@@ -23341,7 +23341,7 @@ _ZN4Luau5queryINS_12AstExprLocalELi1EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthESaIS7
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -23540,7 +23540,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(288) ptr @
   %49 = getelementptr inbounds i8, ptr %1, i64 104
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %48, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 24, i1 false)
   %51 = getelementptr inbounds i8, ptr %0, i64 120
   %52 = getelementptr inbounds i8, ptr %1, i64 120
   %53 = load ptr, ptr %52, align 8
@@ -23557,7 +23557,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(288) ptr @
   %61 = getelementptr inbounds i8, ptr %1, i64 144
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %60, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 24, i1 false)
   %63 = getelementptr inbounds i8, ptr %0, i64 160
   %64 = getelementptr inbounds i8, ptr %1, i64 160
   %65 = load ptr, ptr %64, align 8
@@ -23574,7 +23574,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(288) ptr @
   %73 = getelementptr inbounds i8, ptr %1, i64 184
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %72, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, i8 0, i64 24, i1 false)
   %75 = getelementptr inbounds i8, ptr %0, i64 200
   %76 = getelementptr inbounds i8, ptr %1, i64 200
   %77 = load ptr, ptr %76, align 8
@@ -23591,7 +23591,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(288) ptr @
   %85 = getelementptr inbounds i8, ptr %1, i64 224
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %84, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, i8 0, i64 24, i1 false)
   %87 = getelementptr inbounds i8, ptr %0, i64 240
   %88 = getelementptr inbounds i8, ptr %1, i64 240
   %89 = load ptr, ptr %88, align 8
@@ -23608,7 +23608,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(288) ptr @
   %97 = getelementptr inbounds i8, ptr %1, i64 264
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %96, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, i8 0, i64 24, i1 false)
   store i8 1, ptr %3, align 8
   br label %99
 
@@ -23625,7 +23625,7 @@ define linkonce_odr dso_local void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonn
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %1, %4
@@ -23636,7 +23636,7 @@ _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerE
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %7
@@ -23647,7 +23647,7 @@ _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_to
 
 10:                                               ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %9) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %10
@@ -23658,7 +23658,7 @@ _ZN4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_to
 
 13:                                               ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %12) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %13
@@ -23669,7 +23669,7 @@ _ZN4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_t
 
 16:                                               ; preds = %_ZN4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %15) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit5
 
 _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit5: ; preds = %_ZN4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %16
@@ -23853,7 +23853,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
 
 49:                                               ; preds = %47
   tail call void @_ZdlPv(ptr noundef nonnull %48) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 16, i1 false)
   br label %50
 
 50:                                               ; preds = %49, %47
@@ -23871,7 +23871,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %59, ptr %60, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %46, i8 0, i64 24, i1 false)
   %61 = getelementptr inbounds i8, ptr %0, i64 120
   %62 = getelementptr inbounds i8, ptr %1, i64 120
   %63 = load ptr, ptr %61, align 8
@@ -23880,7 +23880,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
 
 64:                                               ; preds = %50
   tail call void @_ZdlPv(ptr noundef nonnull %63) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, i8 0, i64 16, i1 false)
   br label %65
 
 65:                                               ; preds = %64, %50
@@ -23898,7 +23898,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %74, ptr %75, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %0, i64 160
   %77 = getelementptr inbounds i8, ptr %1, i64 160
   %78 = load ptr, ptr %76, align 8
@@ -23907,7 +23907,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
 
 79:                                               ; preds = %65
   tail call void @_ZdlPv(ptr noundef nonnull %78) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, i8 0, i64 16, i1 false)
   br label %80
 
 80:                                               ; preds = %79, %65
@@ -23925,7 +23925,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr %89, ptr %90, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 24, i1 false)
   %91 = getelementptr inbounds i8, ptr %0, i64 200
   %92 = getelementptr inbounds i8, ptr %1, i64 200
   %93 = load ptr, ptr %91, align 8
@@ -23934,7 +23934,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
 
 94:                                               ; preds = %80
   tail call void @_ZdlPv(ptr noundef nonnull %93) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %91, i8 0, i64 16, i1 false)
   br label %95
 
 95:                                               ; preds = %94, %80
@@ -23952,7 +23952,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %104, ptr %105, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %92, i8 0, i64 24, i1 false)
   %106 = getelementptr inbounds i8, ptr %0, i64 240
   %107 = getelementptr inbounds i8, ptr %1, i64 240
   %108 = load ptr, ptr %106, align 8
@@ -23961,7 +23961,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
 
 109:                                              ; preds = %95
   tail call void @_ZdlPv(ptr noundef nonnull %108) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %106, i8 0, i64 16, i1 false)
   br label %110
 
 110:                                              ; preds = %109, %95
@@ -23979,7 +23979,7 @@ _ZN4Luau18RefinementKeyArenaaSEOS0_.exit:         ; preds = %_ZN4Luau8DefArenaaS
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %119, ptr %120, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %107, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EEaSEOSA_.exit
 
 _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_13RefinementKeyENS_16DenseHashPointerESt8equal_toIS3_EEaSEOSA_.exit: ; preds = %_ZN4Luau18RefinementKeyArenaaSEOS0_.exit, %110
@@ -24053,7 +24053,7 @@ _ZN4Luau14TypedAllocatorINS_13RefinementKeyEE8unfreezeEv.exit: ; preds = %.noexc
 29:                                               ; preds = %.lr.ph.i1
   %30 = getelementptr inbounds i8, ptr %25, i64 16
   store i8 0, ptr %26, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #17
   br label %_ZN4Luau13RefinementKeyD2Ev.exit.i
 
 _ZN4Luau13RefinementKeyD2Ev.exit.i:               ; preds = %29, %.lr.ph.i1
@@ -24464,7 +24464,7 @@ declare void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -24501,7 +24501,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_12D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -24512,7 +24512,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -24527,7 +24527,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -24563,7 +24563,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_15D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -24574,7 +24574,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -24589,7 +24589,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -24754,7 +24754,7 @@ _ZN4Luau5queryINS_12AstExprLocalELi2EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthESaIS7
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -24950,7 +24950,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_18D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -24961,7 +24961,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -24976,7 +24976,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25012,7 +25012,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_21D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25023,7 +25023,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25038,7 +25038,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25150,7 +25150,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_24D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25161,7 +25161,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25176,7 +25176,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25273,7 +25273,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25284,7 +25284,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25299,7 +25299,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25335,7 +25335,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_30D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25346,7 +25346,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25361,7 +25361,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25397,7 +25397,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_33D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25408,7 +25408,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25423,7 +25423,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25459,7 +25459,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_36D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25470,7 +25470,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25485,7 +25485,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25521,7 +25521,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_39D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25532,7 +25532,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25547,7 +25547,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25583,7 +25583,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_42D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25594,7 +25594,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25609,7 +25609,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25645,7 +25645,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_45D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25656,7 +25656,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25671,7 +25671,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25707,7 +25707,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_48D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -25718,7 +25718,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -25733,7 +25733,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -25898,7 +25898,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi1EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -26064,7 +26064,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi2EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -26230,7 +26230,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi3EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -26343,7 +26343,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_51D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -26354,7 +26354,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -26369,7 +26369,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -26405,7 +26405,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_54D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -26416,7 +26416,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -26431,7 +26431,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -26467,7 +26467,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_57D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -26478,7 +26478,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -26493,7 +26493,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -26749,7 +26749,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_60D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -26760,7 +26760,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -26775,7 +26775,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -26811,7 +26811,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_63D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -26822,7 +26822,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -26837,7 +26837,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -27002,7 +27002,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi4EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -27168,7 +27168,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi5EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -27334,7 +27334,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi6EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -27500,7 +27500,7 @@ _ZN4Luau5queryINS_16AstExprIndexNameELi7EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthES
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -27537,7 +27537,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_66D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -27548,7 +27548,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -27563,7 +27563,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -27728,7 +27728,7 @@ _ZN4Luau5queryINS_12AstExprLocalELi3EEEPT_PNS_7AstNodeERKSt6vectorINS_3NthESaIS7
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -27765,7 +27765,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_69D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -27776,7 +27776,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -27791,7 +27791,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -27827,7 +27827,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_72D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -27838,7 +27838,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -27853,7 +27853,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -27889,7 +27889,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_75D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -27900,7 +27900,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -27915,7 +27915,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -27951,7 +27951,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_78D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -27962,7 +27962,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -27977,7 +27977,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28013,7 +28013,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_81D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -28024,7 +28024,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -28039,7 +28039,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28075,7 +28075,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_84D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -28086,7 +28086,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -28101,7 +28101,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28137,7 +28137,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_87D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -28148,7 +28148,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -28163,7 +28163,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28328,7 +28328,7 @@ _ZN4Luau5queryINS_19AstExprConstantBoolELi1EEEPT_PNS_7AstNodeERKSt6vectorINS_3Nt
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %54) #17
   %55 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   %56 = getelementptr inbounds i8, ptr %5, i64 48
@@ -28441,7 +28441,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_90D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -28452,7 +28452,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -28467,7 +28467,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28503,7 +28503,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_93D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -28514,7 +28514,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -28529,7 +28529,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28565,7 +28565,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_96D2Ev(ptr no
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #17
+  tail call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #17
   br label %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
 
 _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
@@ -28576,7 +28576,7 @@ _ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i: ; preds = %5, %1
 
 9:                                                ; preds = %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12AstNameTableD2Ev.exit.i
 
 _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalIN4Luau13DataFlowGraphEED2Ev.exit.i
@@ -28591,7 +28591,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %9, %_ZNSt8optionalI
 
 14:                                               ; preds = %_ZN4Luau12AstNameTableD2Ev.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef 3)
           to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %14
@@ -28731,7 +28731,7 @@ __cxx_global_var_init.56.exit:                    ; preds = %72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #17
   %79 = getelementptr inbounds i8, ptr %60, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %60) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %61) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %60)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
@@ -28766,7 +28766,7 @@ __cxx_global_var_init.59.exit:                    ; preds = %83
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %89) #17
   %90 = getelementptr inbounds i8, ptr %58, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %58) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59)
@@ -28801,7 +28801,7 @@ __cxx_global_var_init.61.exit:                    ; preds = %94
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %100) #17
   %101 = getelementptr inbounds i8, ptr %56, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %56) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57)
@@ -28836,7 +28836,7 @@ __cxx_global_var_init.63.exit:                    ; preds = %105
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #17
   %112 = getelementptr inbounds i8, ptr %54, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %54) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
@@ -28871,7 +28871,7 @@ __cxx_global_var_init.65.exit:                    ; preds = %116
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %122) #17
   %123 = getelementptr inbounds i8, ptr %52, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %52) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
@@ -28906,7 +28906,7 @@ __cxx_global_var_init.67.exit:                    ; preds = %127
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %133) #17
   %134 = getelementptr inbounds i8, ptr %50, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %134) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %50) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51)
@@ -28941,7 +28941,7 @@ __cxx_global_var_init.69.exit:                    ; preds = %138
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %144) #17
   %145 = getelementptr inbounds i8, ptr %48, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %145) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %48) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
@@ -28976,7 +28976,7 @@ __cxx_global_var_init.71.exit:                    ; preds = %149
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %155) #17
   %156 = getelementptr inbounds i8, ptr %46, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %156) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %46) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
@@ -29011,7 +29011,7 @@ __cxx_global_var_init.73.exit:                    ; preds = %160
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #17
   %167 = getelementptr inbounds i8, ptr %44, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %44) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
@@ -29046,7 +29046,7 @@ __cxx_global_var_init.75.exit:                    ; preds = %171
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %177) #17
   %178 = getelementptr inbounds i8, ptr %42, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %42) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
@@ -29081,7 +29081,7 @@ __cxx_global_var_init.77.exit:                    ; preds = %182
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #17
   %189 = getelementptr inbounds i8, ptr %40, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %40) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
@@ -29116,7 +29116,7 @@ __cxx_global_var_init.79.exit:                    ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %199) #17
   %200 = getelementptr inbounds i8, ptr %38, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %200) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %38) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
@@ -29151,7 +29151,7 @@ __cxx_global_var_init.81.exit:                    ; preds = %204
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %210) #17
   %211 = getelementptr inbounds i8, ptr %36, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %211) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %36) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
@@ -29186,7 +29186,7 @@ __cxx_global_var_init.83.exit:                    ; preds = %215
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %221) #17
   %222 = getelementptr inbounds i8, ptr %34, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %222) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %34) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -29221,7 +29221,7 @@ __cxx_global_var_init.85.exit:                    ; preds = %226
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %232) #17
   %233 = getelementptr inbounds i8, ptr %32, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %233) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %32) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
@@ -29256,7 +29256,7 @@ __cxx_global_var_init.87.exit:                    ; preds = %237
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %243) #17
   %244 = getelementptr inbounds i8, ptr %30, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %244) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %30) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -29291,7 +29291,7 @@ __cxx_global_var_init.89.exit:                    ; preds = %248
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #17
   %255 = getelementptr inbounds i8, ptr %28, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %28) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -29326,7 +29326,7 @@ __cxx_global_var_init.91.exit:                    ; preds = %259
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #17
   %266 = getelementptr inbounds i8, ptr %26, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %266) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
@@ -29361,7 +29361,7 @@ __cxx_global_var_init.93.exit:                    ; preds = %270
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #17
   %277 = getelementptr inbounds i8, ptr %24, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %277) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %24) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
@@ -29396,7 +29396,7 @@ __cxx_global_var_init.95.exit:                    ; preds = %281
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %287) #17
   %288 = getelementptr inbounds i8, ptr %22, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %288) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %22) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
@@ -29431,7 +29431,7 @@ __cxx_global_var_init.97.exit:                    ; preds = %292
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %298) #17
   %299 = getelementptr inbounds i8, ptr %20, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %299) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %20) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
@@ -29466,7 +29466,7 @@ __cxx_global_var_init.99.exit:                    ; preds = %303
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %309) #17
   %310 = getelementptr inbounds i8, ptr %18, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -29501,7 +29501,7 @@ __cxx_global_var_init.101.exit:                   ; preds = %314
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #17
   %321 = getelementptr inbounds i8, ptr %16, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %321) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %16) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
@@ -29536,7 +29536,7 @@ __cxx_global_var_init.103.exit:                   ; preds = %325
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %331) #17
   %332 = getelementptr inbounds i8, ptr %14, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %332) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
@@ -29571,7 +29571,7 @@ __cxx_global_var_init.105.exit:                   ; preds = %336
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %342) #17
   %343 = getelementptr inbounds i8, ptr %12, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %343) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -29606,7 +29606,7 @@ __cxx_global_var_init.107.exit:                   ; preds = %347
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %353) #17
   %354 = getelementptr inbounds i8, ptr %10, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %354) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %10) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -29641,7 +29641,7 @@ __cxx_global_var_init.109.exit:                   ; preds = %358
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %364) #17
   %365 = getelementptr inbounds i8, ptr %8, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %365) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %8) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -29676,7 +29676,7 @@ __cxx_global_var_init.111.exit:                   ; preds = %369
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %375) #17
   %376 = getelementptr inbounds i8, ptr %6, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %376) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %6) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -29711,7 +29711,7 @@ __cxx_global_var_init.113.exit:                   ; preds = %380
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %386) #17
   %387 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %387) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -29746,7 +29746,7 @@ __cxx_global_var_init.115.exit:                   ; preds = %391
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %397) #17
   %398 = getelementptr inbounds i8, ptr %2, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %398) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)

@@ -2970,7 +2970,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %.029.i39 = phi i32 [ 0, %.lr.ph42 ], [ %56, %69 ]
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr %struct.JsonbValue, ptr %52, i64 %indvars.iv52
-  call fastcc void @convertJsonbValue(ptr noundef %0, ptr noundef %7, ptr noundef %53, i32 noundef %50)
+  call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %53, i32 noundef %50)
   %54 = load i32, ptr %7, align 4
   %55 = and i32 %54, 268435455
   %56 = add nuw nsw i32 %55, %.029.i39
@@ -3108,7 +3108,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %.045.i31 = phi i32 [ 0, %.lr.ph ], [ %125, %138 ]
   %121 = load ptr, ptr %116, align 8
   %122 = getelementptr %struct.JsonbPair, ptr %121, i64 %indvars.iv
-  call fastcc void @convertJsonbScalar(ptr noundef %0, ptr noundef %5, ptr noundef %122)
+  call fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %122)
   %123 = load i32, ptr %5, align 4
   %124 = and i32 %123, 268435455
   %125 = add nuw nsw i32 %124, %.045.i31
@@ -3152,7 +3152,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %.146.i35 = phi i32 [ %125, %.lr.ph38 ], [ %148, %163 ]
   %144 = load ptr, ptr %117, align 8
   %145 = getelementptr %struct.JsonbPair, ptr %144, i64 %indvars.iv47, i32 1
-  call fastcc void @convertJsonbValue(ptr noundef %0, ptr noundef %6, ptr noundef %145, i32 noundef %118)
+  call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %145, i32 noundef %118)
   %146 = load i32, ptr %6, align 4
   %147 = and i32 %146, 268435455
   %148 = add nuw nsw i32 %147, %.146.i35

@@ -709,9 +709,9 @@ namelist_add.exit:                                ; preds = %2, %19
   store i32 %28, ptr @cmodule_list.1, align 8
   %29 = sext i32 %26 to i64
   %30 = getelementptr %struct.namelist_entry_t, ptr %27, i64 %29
-  %31 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull readonly @.str.4) #17
+  %31 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #17
   store ptr %31, ptr %30, align 8
-  %32 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull readonly @.str.4) #17
+  %32 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #17
   %33 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 16
@@ -741,9 +741,9 @@ namelist_add.exit137:                             ; preds = %namelist_add.exit, 
   store i32 %47, ptr @cmodule_list.1, align 8
   %48 = sext i32 %45 to i64
   %49 = getelementptr %struct.namelist_entry_t, ptr %46, i64 %48
-  %50 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.5) #17
+  %50 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #17
   store ptr %50, ptr %49, align 8
-  %51 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.5) #17
+  %51 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #17
   %52 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %49, i64 16

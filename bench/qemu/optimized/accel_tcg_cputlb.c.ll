@@ -532,7 +532,7 @@ do.end.i:                                         ; preds = %if.then
   %mul1.i.i = mul i64 %13, 1000
   %add.i.i = add i64 %mul1.i.i, %mul.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  tail call fastcc void @tlb_flush_one_mmuidx_locked(ptr noundef nonnull %cpu, i32 noundef %7, i64 noundef %add.i.i)
+  tail call fastcc void @tlb_flush_one_mmuidx_locked(ptr noundef nonnull %cpu, i32 noundef range(i32 -2147483648, 16) %7, i64 noundef %add.i.i)
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then
@@ -1130,7 +1130,7 @@ do.end.i.us:                                      ; preds = %if.then.us
 
 for.end.sink.split.i.us:                          ; preds = %do.end.i.us, %do.end14.i.us
   %add.i29.sink.i.us = phi i64 [ %add.i29.i.us, %do.end14.i.us ], [ %add.i.i.us, %do.end.i.us ]
-  tail call fastcc void @tlb_flush_one_mmuidx_locked(ptr noundef nonnull %cpu, i32 noundef %11, i64 noundef %add.i29.sink.i.us)
+  tail call fastcc void @tlb_flush_one_mmuidx_locked(ptr noundef nonnull %cpu, i32 noundef range(i32 -2147483648, 16) %11, i64 noundef %add.i29.sink.i.us)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.i.us, %for.end.sink.split.i.us, %for.body.us
@@ -1273,7 +1273,7 @@ tlb_flush_vtlb_page_mask_locked.exit.i:           ; preds = %for.inc.i.i
 
 for.end.sink.split.i:                             ; preds = %do.end14.i, %do.end.i
   %add.i29.sink.i = phi i64 [ %add.i29.i, %do.end14.i ], [ %add.i.i, %do.end.i ]
-  tail call fastcc void @tlb_flush_one_mmuidx_locked(ptr noundef nonnull %cpu, i32 noundef %21, i64 noundef %add.i29.sink.i)
+  tail call fastcc void @tlb_flush_one_mmuidx_locked(ptr noundef nonnull %cpu, i32 noundef range(i32 -2147483648, 16) %21, i64 noundef %add.i29.sink.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %tlb_flush_vtlb_page_mask_locked.exit.i, %for.end.sink.split.i, %for.body
@@ -3060,7 +3060,7 @@ if.then.i.i:                                      ; preds = %entry
   %4 = load ptr, ptr %l.i, align 8
   %addr.i.i = getelementptr inbounds i8, ptr %l.i, i64 16
   %5 = load i64, ptr %addr.i.i, align 8
-  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %retaddr)
+  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %retaddr)
   %conv3.i.i = trunc i64 %call.i.i to i8
   br label %do_ld1_mmu.exit
 
@@ -3111,7 +3111,7 @@ if.then.i:                                        ; preds = %if.then
   %3 = load ptr, ptr %l, align 8
   %addr.i = getelementptr inbounds i8, ptr %l, i64 16
   %4 = load i64, ptr %addr.i, align 8
-  %call.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 2, i32 noundef %2, i32 noundef %access_type, i64 noundef %ra)
+  %call.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 2, i32 noundef %2, i32 noundef range(i32 0, 3) %access_type, i64 noundef %ra)
   %conv3.i = trunc i64 %call.i to i16
   %and4.i = and i32 %1, 16
   %cmp.i = icmp eq i32 %and4.i, 0
@@ -3326,7 +3326,7 @@ if.then.i15:                                      ; preds = %if.end
   %27 = load ptr, ptr %l, align 8
   %addr.i16 = getelementptr inbounds i8, ptr %l, i64 16
   %28 = load i64, ptr %addr.i16, align 8
-  %call.i17 = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %27, i64 noundef 0, i64 noundef %28, i32 noundef 1, i32 noundef %26, i32 noundef %access_type, i64 noundef %ra)
+  %call.i17 = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %27, i64 noundef 0, i64 noundef %28, i32 noundef 1, i32 noundef %26, i32 noundef range(i32 0, 3) %access_type, i64 noundef %ra)
   %conv3.i18 = trunc i64 %call.i17 to i8
   br label %do_ld_1.exit
 
@@ -3349,7 +3349,7 @@ if.then.i24:                                      ; preds = %do_ld_1.exit
   %32 = load ptr, ptr %arrayidx10, align 8
   %addr.i25 = getelementptr inbounds i8, ptr %l, i64 48
   %33 = load i64, ptr %addr.i25, align 8
-  %call.i26 = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %32, i64 noundef 0, i64 noundef %33, i32 noundef 1, i32 noundef %26, i32 noundef %access_type, i64 noundef %ra)
+  %call.i26 = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %32, i64 noundef 0, i64 noundef %33, i32 noundef 1, i32 noundef %26, i32 noundef range(i32 0, 3) %access_type, i64 noundef %ra)
   %conv3.i27 = trunc i64 %call.i26 to i8
   br label %do_ld_1.exit31
 
@@ -3420,7 +3420,7 @@ if.then.i:                                        ; preds = %if.then
   %3 = load ptr, ptr %l, align 8
   %addr.i = getelementptr inbounds i8, ptr %l, i64 16
   %4 = load i64, ptr %addr.i, align 8
-  %call.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 4, i32 noundef %2, i32 noundef %access_type, i64 noundef %ra)
+  %call.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 4, i32 noundef %2, i32 noundef range(i32 0, 3) %access_type, i64 noundef %ra)
   %conv3.i = trunc i64 %call.i to i32
   %and4.i = and i32 %0, 16
   %cmp.i = icmp eq i32 %and4.i, 0
@@ -3733,7 +3733,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %4 = load ptr, ptr %l.i.i, align 8
   %addr.i.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i, align 8
-  %call.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %retaddr)
+  %call.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %retaddr)
   %conv3.i.i.i = trunc i64 %call.i.i.i to i8
   br label %helper_ldub_mmu.exit
 
@@ -5354,7 +5354,7 @@ if.then.i.i:                                      ; preds = %entry
   %4 = load ptr, ptr %l.i, align 8
   %addr.i.i = getelementptr inbounds i8, ptr %l.i, i64 16
   %5 = load i64, ptr %addr.i.i, align 8
-  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %ra)
+  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %ra)
   %conv3.i.i = trunc i64 %call.i.i to i8
   br label %do_ld1_mmu.exit
 
@@ -5589,7 +5589,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %4 = load ptr, ptr %l.i.i, align 8
   %addr.i.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i, align 8
-  %call.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %ra)
+  %call.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %ra)
   %conv3.i.i.i = trunc i64 %call.i.i.i to i8
   br label %cpu_ldb_mmu.exit
 
@@ -5631,7 +5631,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %4 = load ptr, ptr %l.i.i.i, align 8
   %addr.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i.i, align 8
-  %call.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %ra)
+  %call.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %ra)
   %conv3.i.i.i.i = trunc i64 %call.i.i.i.i to i8
   br label %cpu_ldub_mmuidx_ra.exit
 
@@ -5889,7 +5889,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %4 = load ptr, ptr %l.i.i.i, align 8
   %addr.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i.i, align 8
-  %call.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %ra)
+  %call.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %ra)
   %conv3.i.i.i.i = trunc i64 %call.i.i.i.i to i8
   br label %cpu_ldub_mmuidx_ra.exit
 
@@ -5932,7 +5932,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %4 = load ptr, ptr %l.i.i.i.i, align 8
   %addr.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef %ra)
+  %call.i.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef %ra)
   %conv3.i.i.i.i.i = trunc i64 %call.i.i.i.i.i to i8
   br label %cpu_ldub_data_ra.exit
 
@@ -6205,7 +6205,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %4 = load ptr, ptr %l.i.i.i.i, align 8
   %addr.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef 0)
+  %call.i.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef 0)
   %conv3.i.i.i.i.i = trunc i64 %call.i.i.i.i.i to i8
   br label %cpu_ldub_data_ra.exit
 
@@ -6248,7 +6248,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   %4 = load ptr, ptr %l.i.i.i.i.i, align 8
   %addr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i.i, i64 16
   %5 = load i64, ptr %addr.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef 0, i64 noundef 0)
+  %call.i.i.i.i.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i.i.i.i.i, ptr noundef %4, i64 noundef 0, i64 noundef %5, i32 noundef 1, i32 noundef %3, i32 noundef range(i32 0, 3) 0, i64 noundef 0)
   %conv3.i.i.i.i.i.i = trunc i64 %call.i.i.i.i.i.i to i8
   br label %cpu_ldub_data.exit
 
@@ -11863,7 +11863,7 @@ if.then.i.i:                                      ; preds = %entry
   %3 = load ptr, ptr %l.i, align 8
   %addr.i.i = getelementptr inbounds i8, ptr %l.i, i64 16
   %4 = load i64, ptr %addr.i.i, align 8
-  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 1, i32 noundef %2, i32 noundef 2, i64 noundef 0)
+  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 1, i32 noundef %2, i32 noundef range(i32 0, 3) 2, i64 noundef 0)
   %conv3.i.i = trunc i64 %call.i.i to i8
   br label %do_ld1_mmu.exit
 
@@ -11957,7 +11957,7 @@ if.then.i.i:                                      ; preds = %entry
   %3 = load ptr, ptr %l.i, align 8
   %addr.i.i = getelementptr inbounds i8, ptr %l.i, i64 16
   %4 = load i64, ptr %addr.i.i, align 8
-  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 1, i32 noundef %2, i32 noundef 2, i64 noundef %retaddr)
+  %call.i.i = tail call fastcc i64 @do_ld_mmio_beN(ptr noundef %add.ptr.i, ptr noundef %3, i64 noundef 0, i64 noundef %4, i32 noundef 1, i32 noundef %2, i32 noundef range(i32 0, 3) 2, i64 noundef %retaddr)
   %conv3.i.i = trunc i64 %call.i.i to i8
   br label %do_ld1_mmu.exit
 
@@ -12337,7 +12337,7 @@ if.then5:                                         ; preds = %get_alignment_bits.
   %1 = load ptr, ptr %tcg_ops.i, align 8
   %do_unaligned_access.i = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %do_unaligned_access.i, align 8
-  tail call void %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef %type, i32 noundef %and.i, i64 noundef %ra) #22
+  tail call void %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef range(i32 0, 3) %type, i32 noundef %and.i, i64 noundef %ra) #22
   unreachable
 
 if.end7:                                          ; preds = %get_alignment_bits.exit
@@ -12611,7 +12611,7 @@ victim_tlb_hit.exit.thread:                       ; preds = %for.inc.i
   %12 = load ptr, ptr %tcg_ops.i, align 8
   %tlb_fill.i = getelementptr inbounds i8, ptr %12, i64 64
   %13 = load ptr, ptr %tlb_fill.i, align 8
-  %call.i = tail call zeroext i1 %13(ptr noundef nonnull %cpu, i64 noundef %0, i32 noundef %10, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext false, i64 noundef %ra) #19
+  %call.i = tail call zeroext i1 %13(ptr noundef nonnull %cpu, i64 noundef %0, i32 noundef %10, i32 noundef range(i32 0, 3) %access_type, i32 noundef %mmu_idx, i1 noundef zeroext false, i64 noundef %ra) #19
   br i1 %call.i, label %tlb_fill.exit, label %if.else.i
 
 victim_tlb_hit.exit:                              ; preds = %while.cond.loopexit.i.i, %if.then.i
@@ -12769,7 +12769,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs2, align 8
-  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef %type, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
+  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef range(i32 0, 3) %type, i32 noundef %mmu_idx, i32 %11, i32 noundef range(i32 1, 0) %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i8, %do.body.i
@@ -13244,7 +13244,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs2, align 8
-  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 0, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
+  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef range(i32 0, 3) 0, i32 noundef %mmu_idx, i32 %11, i32 noundef range(i32 1, 0) %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i17, %do.body.i
@@ -13314,7 +13314,7 @@ if.then.i.i42:                                    ; preds = %land.lhs.true.i.i38
   %and.i.i43 = and i64 %addr.addr.0.i27, 4095
   %or.i.i44 = or i64 %20, %and.i.i43
   %21 = load i32, ptr %attrs2, align 8
-  call void %19(ptr noundef nonnull %cpu, i64 noundef %or.i.i44, i64 noundef %addr.addr.0.i27, i32 noundef %shl.i32, i32 noundef 0, i32 noundef %mmu_idx, i32 %21, i32 noundef %call3.i34, i64 noundef %ra) #19
+  call void %19(ptr noundef nonnull %cpu, i64 noundef %or.i.i44, i64 noundef %addr.addr.0.i27, i32 noundef %shl.i32, i32 noundef range(i32 0, 3) 0, i32 noundef %mmu_idx, i32 %21, i32 noundef range(i32 1, 0) %call3.i34, i64 noundef %ra) #19
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.then.i.i42, %land.lhs.true.i.i38, %if.then.i36, %do.body.i24
@@ -13665,7 +13665,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs2, align 8
-  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
+  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef range(i32 1, 0) %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i8, %do.body.i
@@ -14243,7 +14243,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs3, align 8
-  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
+  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef range(i32 1, 0) %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i15, %do.body.i
@@ -14301,7 +14301,7 @@ if.then.i.i38:                                    ; preds = %land.lhs.true.i.i34
   %and.i.i39 = and i64 %addr.addr.0.i24, 4095
   %or.i.i40 = or i64 %18, %and.i.i39
   %19 = load i32, ptr %attrs3, align 8
-  tail call void %17(ptr noundef nonnull %cpu, i64 noundef %or.i.i40, i64 noundef %addr.addr.0.i24, i32 noundef %shl.i29, i32 noundef 1, i32 noundef %mmu_idx, i32 %19, i32 noundef %call3.i30, i64 noundef %ra) #19
+  tail call void %17(ptr noundef nonnull %cpu, i64 noundef %or.i.i40, i64 noundef %addr.addr.0.i24, i32 noundef %shl.i29, i32 noundef 1, i32 noundef %mmu_idx, i32 %19, i32 noundef range(i32 1, 0) %call3.i30, i64 noundef %ra) #19
   br label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.then.i.i38, %land.lhs.true.i.i34, %if.then.i32, %do.body.i21

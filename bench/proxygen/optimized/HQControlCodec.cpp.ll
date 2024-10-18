@@ -2599,7 +2599,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %ex, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #27
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -2634,7 +2634,7 @@ entry:
 
 if.end.i.i.i:                                     ; preds = %entry
   %resumeHook_.i = getelementptr inbounds i8, ptr %this, i64 128
-  %call.i.i.i = tail call noundef i64 %1(i32 noundef 1, ptr noundef nonnull %resumeHook_.i, ptr noundef null) #27
+  %call.i.i.i = tail call noundef i64 %1(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %resumeHook_.i, ptr noundef null) #27
   br label %_ZN8proxygen2hq13HQFramedCodecD2Ev.exit
 
 _ZN8proxygen2hq13HQFramedCodecD2Ev.exit:          ; preds = %entry, %if.end.i.i.i
@@ -2653,7 +2653,7 @@ entry:
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %resumeHook_.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %call.i.i.i.i = tail call noundef i64 %1(i32 noundef 1, ptr noundef nonnull %resumeHook_.i.i, ptr noundef null) #27
+  %call.i.i.i.i = tail call noundef i64 %1(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %resumeHook_.i.i, ptr noundef null) #27
   br label %_ZN8proxygen2hq14HQControlCodecD2Ev.exit
 
 _ZN8proxygen2hq14HQControlCodecD2Ev.exit:         ; preds = %entry, %if.end.i.i.i.i
@@ -2880,7 +2880,7 @@ entry:
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %resumeHook_.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %call.i.i.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %resumeHook_.i.i, ptr noundef null) #27
+  %call.i.i.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %resumeHook_.i.i, ptr noundef null) #27
   br label %_ZN8proxygen2hq14HQControlCodecD2Ev.exit
 
 _ZN8proxygen2hq14HQControlCodecD2Ev.exit:         ; preds = %entry, %if.end.i.i.i.i
@@ -2898,12 +2898,12 @@ entry:
 
 if.end.i.i.i.i.i:                                 ; preds = %entry
   %resumeHook_.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %call.i.i.i.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %resumeHook_.i.i.i, ptr noundef null) #27
+  %call.i.i.i.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %resumeHook_.i.i.i, ptr noundef null) #27
   br label %_ZN8proxygen2hq14HQControlCodecD0Ev.exit
 
 _ZN8proxygen2hq14HQControlCodecD0Ev.exit:         ; preds = %entry, %if.end.i.i.i.i.i
   %1 = getelementptr inbounds i8, ptr %this, i64 -32
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
+  tail call void @_ZdlPv(ptr noundef nonnull align 16 dereferenceable(232) %1) #31
   ret void
 }
 
@@ -4119,7 +4119,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
   %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #27
   ret void
 }
 
@@ -4154,7 +4154,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -4179,7 +4179,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %resumeHook_ = getelementptr inbounds i8, ptr %this, i64 96
-  %call.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %resumeHook_, ptr noundef null) #27
+  %call.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %resumeHook_, ptr noundef null) #27
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %entry, %if.end.i.i
@@ -5088,7 +5088,7 @@ _ZN5folly6detail15reserveInTargetIA3_chJPKcPNSt7__cxx1112basic_stringIcSt11char_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sizes.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %add.i.i)
   %5 = load ptr, ptr %vs5, align 8
-  %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %vs)
+  %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(3) %vs)
   %6 = load i8, ptr %vs1, align 1
   %conv.i.i.i6 = zext i8 %6 to i64
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i)

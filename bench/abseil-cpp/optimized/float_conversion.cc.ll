@@ -1095,7 +1095,7 @@ if.then.i59:                                      ; preds = %if.then18
   br i1 %cmp1.i, label %if.then2.i60, label %if.then.i.i
 
 if.then2.i60:                                     ; preds = %if.then.i59
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_122FormatFPositiveExpSlowENS_7uint128EiRKNS1_11FormatStateE(i64 %conv.i, i64 0, i32 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_122FormatFPositiveExpSlowENS_7uint128EiRKNS1_11FormatStateE(i64 %conv.i, i64 0, i32 noundef range(i32 -2147483648, 2147483595) %sub.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   br label %return
 
 if.else.i58:                                      ; preds = %if.then18
@@ -1821,7 +1821,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatSt
 if.then7.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.thread.i
   %printed.0.i115.i = phi i64 [ -1, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.thread.i ], [ %7, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.i ]
   %sub9.i = sub nuw i64 %printed.0.i115.i, %precision
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub9.i, i1 noundef zeroext false, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub9.i, i1 noundef zeroext false, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end10.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.i
@@ -1930,7 +1930,7 @@ if.else.i:                                        ; preds = %_ZN4absl19str_forma
 if.then42.i:                                      ; preds = %if.else.i
   %sub44.i = sub nuw i64 %sub38.i, %precision
   %cmp45.i = icmp ne i64 %and.i, 0
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub44.i, i1 noundef zeroext %cmp45.i, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub44.i, i1 noundef zeroext %cmp45.i, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end46.i:                                       ; preds = %if.else.i
@@ -2109,7 +2109,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatSt
 if.then8.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.thread.i
   %printed.0.i119.i = phi i64 [ -1, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.thread.i ], [ %35, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.i ]
   %sub10.i = sub nuw i64 %printed.0.i119.i, %precision
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub10.i, i1 noundef zeroext false, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub10.i, i1 noundef zeroext false, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end11.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.i
@@ -2220,7 +2220,7 @@ if.else.i11:                                      ; preds = %_ZN4absl19str_forma
 if.then44.i:                                      ; preds = %if.else.i11
   %sub46.i = sub nuw i64 %sub40.i, %precision
   %cmp47.i = icmp ne i128 %and.i10, 0
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub46.i, i1 noundef zeroext %cmp47.i, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub46.i, i1 noundef zeroext %cmp47.i, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end48.i:                                       ; preds = %if.else.i11
@@ -2392,7 +2392,7 @@ _ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionC
           to label %call.i.noexc unwind label %lpad18
 
 call.i.noexc:                                     ; preds = %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %space, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %space, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
           to label %.noexc unwind label %lpad18
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2402,7 +2402,7 @@ call.i.noexc:                                     ; preds = %_ZN4absl19str_forma
 lpad.i:                                           ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %space) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %space) #17
   br label %lpad18.body
 
 invoke.cont19:                                    ; preds = %.noexc
@@ -6041,7 +6041,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatSt
 if.then7.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.thread.i
   %printed.0.i115.i = phi i64 [ -1, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.thread.i ], [ %5, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.i ]
   %sub9.i = sub nuw i64 %printed.0.i115.i, %precision
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub9.i, i1 noundef zeroext false, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub9.i, i1 noundef zeroext false, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end10.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EmEEmT0_PNS1_6BufferE.exit.i
@@ -6150,7 +6150,7 @@ if.else.i:                                        ; preds = %_ZN4absl19str_forma
 if.then42.i:                                      ; preds = %if.else.i
   %sub44.i = sub nuw i64 %sub38.i, %precision
   %cmp45.i = icmp ne i64 %and.i, 0
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub44.i, i1 noundef zeroext %cmp45.i, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub44.i, i1 noundef zeroext %cmp45.i, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end46.i:                                       ; preds = %if.else.i
@@ -6321,7 +6321,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatSt
 if.then8.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.i, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.thread.i
   %printed.0.i119.i = phi i64 [ -1, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.thread.i ], [ %32, %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.i ]
   %sub10.i = sub nuw i64 %printed.0.i119.i, %precision
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub10.i, i1 noundef zeroext false, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub10.i, i1 noundef zeroext false, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end11.i:                                       ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit.i
@@ -6433,7 +6433,7 @@ if.else.i13:                                      ; preds = %_ZN4absl19str_forma
 if.then44.i:                                      ; preds = %if.else.i13
   %sub46.i = sub nuw i64 %sub40.i, %precision
   %cmp47.i = icmp ne i128 %and.i12, 0
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub46.i, i1 noundef zeroext %cmp47.i, ptr noundef %out, ptr noundef %exp)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %sub46.i, i1 noundef zeroext %cmp47.i, ptr noundef nonnull %out, ptr noundef nonnull %exp)
   br label %return
 
 if.end48.i:                                       ; preds = %if.else.i13
@@ -6603,7 +6603,7 @@ _ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionC
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %space, ptr noundef %call.i17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %space, ptr noundef %call.i17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -6613,7 +6613,7 @@ call.i.noexc:                                     ; preds = %_ZN4absl19str_forma
 lpad.i:                                           ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %space) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %space) #17
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc

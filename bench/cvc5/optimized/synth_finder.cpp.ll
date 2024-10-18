@@ -758,7 +758,7 @@ if.then54:                                        ; preds = %_ZNSt10unique_ptrIN
 invoke.cont55:                                    ; preds = %if.then54
   %d_env57 = getelementptr inbounds i8, ptr %this, i64 8
   %46 = load ptr, ptr %d_env57, align 8
-  invoke void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %call56, ptr noundef nonnull align 8 dereferenceable(576) %46)
+  invoke void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) %call56, ptr noundef nonnull align 8 dereferenceable(576) %46)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont55

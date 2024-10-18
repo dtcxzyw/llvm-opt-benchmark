@@ -109,7 +109,7 @@ for.end:                                          ; preds = %for.body
 
 if.then.i:                                        ; preds = %if.then, %for.end
   %last_obj_offset.0.lcssa186 = phi i64 [ %spec.select, %for.end ], [ 0, %if.then ]
-  tail call void @qsort(ptr noundef %objects, i64 noundef %idx.ext, i64 noundef 8, ptr noundef nonnull @sha1_compare) #19
+  tail call void @qsort(ptr noundef %objects, i64 noundef range(i64 -2147483648, 2147483648) %idx.ext, i64 noundef 8, ptr noundef nonnull @sha1_compare) #19
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.i, %for.end, %entry

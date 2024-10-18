@@ -1140,7 +1140,7 @@ cpuid_or_from_dump.exit217:                       ; preds = %279, %._crit_edge.i
 315:                                              ; preds = %308, %306
   %.070.us.i = phi ptr [ %307, %306 ], [ null, %308 ]
   %316 = getelementptr inbounds %struct.procinfo, ptr %54, i64 %indvars.iv99.i
-  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef %316, i64 noundef %1, i32 noundef %.0274281, i32 noundef %.1275327340, ptr noundef readonly %8, i32 noundef %.0117, ptr noundef %.070.us.i)
+  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef %316, i64 noundef range(i64 0, 4) %1, i32 noundef range(i32 1, 0) %.0274281, i32 noundef %.1275327340, ptr noundef nonnull readonly %8, i32 noundef range(i32 0, 5) %.0117, ptr noundef %.070.us.i)
   %317 = load ptr, ptr %17, align 8
   %.not89.us.i = icmp eq ptr %317, null
   br i1 %.not89.us.i, label %323, label %318
@@ -1197,7 +1197,7 @@ cpuiddump_free.exit.us.i:                         ; preds = %320, %318
 337:                                              ; preds = %330, %328
   %.070.i = phi ptr [ %329, %328 ], [ null, %330 ]
   %338 = getelementptr inbounds %struct.procinfo, ptr %54, i64 %indvars.iv.i
-  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef %338, i64 noundef %1, i32 noundef %.0274281, i32 noundef %.1275327340, ptr noundef readonly %8, i32 noundef %.0117, ptr noundef %.070.i)
+  call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef %338, i64 noundef range(i64 0, 4) %1, i32 noundef range(i32 1, 0) %.0274281, i32 noundef %.1275327340, ptr noundef nonnull readonly %8, i32 noundef range(i32 0, 5) %.0117, ptr noundef %.070.i)
   %339 = load ptr, ptr %17, align 8
   %.not89.i = icmp eq ptr %339, null
   br i1 %.not89.i, label %345, label %340
@@ -1240,7 +1240,7 @@ cpuiddump_free.exit.i:                            ; preds = %342, %340
   br i1 %.not80.i, label %look_procs.exit.thread, label %352
 
 352:                                              ; preds = %349
-  call fastcc void @summarize(ptr noundef nonnull %0, ptr noundef %54, i64 noundef %1)
+  call fastcc void @summarize(ptr noundef nonnull %0, ptr noundef nonnull %54, i64 noundef range(i64 0, 4) %1)
   %353 = getelementptr inbounds i8, ptr %0, i64 116
   %354 = load i32, ptr %353, align 4
   %.not81.i = icmp eq i32 %354, 0
@@ -3708,7 +3708,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond.i.us, label %.loopexit482, label %34
 
 34:                                               ; preds = %.lr.ph509.split.us
-  %35 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef %33, i32 noundef 0) #23
+  %35 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef range(i32 0, -2) %33, i32 noundef 0) #23
   %.not.i.i.us = icmp eq ptr %35, null
   br i1 %.not.i.i.us, label %.loopexit482, label %.preheader.i.i.us
 
@@ -4284,7 +4284,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
   %.0.i449 = phi i32 [ %280, %283 ], [ %278, %284 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 1, ptr %4, align 4
-  %285 = call i32 @hwloc_topology_get_type_filter(ptr noundef %10, i32 noundef %.0.i449, ptr noundef nonnull %4) #22
+  %285 = call i32 @hwloc_topology_get_type_filter(ptr noundef %10, i32 noundef range(i32 0, -1) %.0.i449, ptr noundef nonnull %4) #22
   %286 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %286, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -4350,12 +4350,12 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
 310:                                              ; preds = %._crit_edge562
   %311 = call noalias ptr @hwloc_bitmap_alloc() #22
   %312 = call i32 @hwloc_bitmap_set(ptr noundef %311, i32 noundef %290) #22
-  %313 = call i32 @hwloc_get_type_depth(ptr noundef %10, i32 noundef %.0.i449) #22
+  %313 = call i32 @hwloc_get_type_depth(ptr noundef %10, i32 noundef range(i32 0, -1) %.0.i449) #22
   %or.cond.i450 = icmp ugt i32 %313, -3
   br i1 %or.cond.i450, label %.loopexit, label %314
 
 314:                                              ; preds = %310
-  %315 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef %313, i32 noundef 0) #23
+  %315 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef range(i32 0, -2) %313, i32 noundef 0) #23
   %.not.i.i451 = icmp eq ptr %315, null
   br i1 %.not.i.i451, label %.loopexit, label %.preheader.i.i452
 

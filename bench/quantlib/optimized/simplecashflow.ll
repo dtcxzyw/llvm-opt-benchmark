@@ -1571,7 +1571,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -1643,7 +1643,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib14SimpleCashFlowD0Ev(ptr noundef %thi
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib14SimpleCashFlowD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef 152) #25
   ret void
 }
 
@@ -1666,7 +1666,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib14SimpleCashFlowD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 152) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef 152) #25
   ret void
 }
 

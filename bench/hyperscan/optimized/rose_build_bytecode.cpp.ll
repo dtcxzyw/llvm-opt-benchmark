@@ -2251,14 +2251,14 @@ if.end11.i.i:                                     ; preds = %do.body7.i.i
   br i1 %cmp14.i.i, label %call2.i.i.i.i.noexc.i, label %do.body18.i.i
 
 do.body18.i.i:                                    ; preds = %if.end11.i.i
-  %call.i.i504512 = invoke noundef zeroext i1 @_ZNK3ue211ue2_literalltERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i)
+  %call.i.i504512 = invoke noundef zeroext i1 @_ZNK3ue211ue2_literalltERKS0_(ptr noundef nonnull align 8 dereferenceable(124) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %ref.tmp.i)
           to label %call.i.i504.noexc unwind label %lpad29.loopexit.i
 
 call.i.i504.noexc:                                ; preds = %do.body18.i.i
   br i1 %call.i.i504512, label %call2.i.i.i.i.noexc.i, label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %call.i.i504.noexc
-  %call24.i.i505513 = invoke noundef zeroext i1 @_ZNK3ue211ue2_literalltERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i.i.i.i.i)
+  %call24.i.i505513 = invoke noundef zeroext i1 @_ZNK3ue211ue2_literalltERKS0_(ptr noundef nonnull align 8 dereferenceable(124) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(124) %_M_storage.i.i.i.i.i.i.i)
           to label %call24.i.i505.noexc unwind label %lpad29.loopexit.i
 
 call24.i.i505.noexc:                              ; preds = %if.end21.i.i
@@ -19235,11 +19235,11 @@ for.cond.i:                                       ; preds = %for.body.i, %if.the
 
 for.body.i:                                       ; preds = %for.cond.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
-  %call4.i.i = tail call noundef zeroext i1 @_ZNK3ue222RoseProgramEquivalenceclERKNS_11RoseProgramES3_(ptr noundef nonnull align 1 dereferenceable(1) %program_cache, ptr noundef nonnull align 8 dereferenceable(24) %program, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i)
+  %call4.i.i = tail call noundef zeroext i1 @_ZNK3ue222RoseProgramEquivalenceclERKNS_11RoseProgramES3_(ptr noundef nonnull align 8 dereferenceable(56) %program_cache, ptr noundef nonnull align 8 dereferenceable(24) %program, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i)
   br i1 %call4.i.i, label %do.end10, label %for.cond.i, !llvm.loop !286
 
 if.end15.i:                                       ; preds = %if.end
-  %call2.i.i = tail call noundef i64 @_ZNK3ue215RoseProgramHashclERKNS_11RoseProgramE(ptr noundef nonnull align 1 dereferenceable(1) %program_cache, ptr noundef nonnull align 8 dereferenceable(24) %program)
+  %call2.i.i = tail call noundef i64 @_ZNK3ue215RoseProgramHashclERKNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(56) %program_cache, ptr noundef nonnull align 8 dereferenceable(24) %program)
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %bc, i64 152
   %1 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i = urem i64 %call2.i.i, %1
@@ -19264,7 +19264,7 @@ for.cond.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN3ue211RoseProgramESt4pairIKS2_jENS_10_Select1stENS1_22RoseProgramEquivalenceENS1_15RoseProgramHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS5_Lb1EEE.exit.i.i.i: ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i.i, i64 8
-  %call4.i.i.i.i.i = tail call noundef zeroext i1 @_ZNK3ue222RoseProgramEquivalenceclERKNS_11RoseProgramES3_(ptr noundef nonnull align 1 dereferenceable(1) %program_cache, ptr noundef nonnull align 8 dereferenceable(24) %program, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i)
+  %call4.i.i.i.i.i = tail call noundef zeroext i1 @_ZNK3ue222RoseProgramEquivalenceclERKNS_11RoseProgramES3_(ptr noundef nonnull align 8 dereferenceable(56) %program_cache, ptr noundef nonnull align 8 dereferenceable(24) %program, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i)
   br i1 %call4.i.i.i.i.i, label %_ZNSt10_HashtableIN3ue211RoseProgramESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stENS0_22RoseProgramEquivalenceENS0_15RoseProgramHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue211RoseProgramESt4pairIKS2_jENS_10_Select1stENS1_22RoseProgramEquivalenceENS1_15RoseProgramHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS5_Lb1EEE.exit.i.i.i, %for.cond.i.i.i

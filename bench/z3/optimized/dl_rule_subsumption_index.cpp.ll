@@ -151,7 +151,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   store ptr %1, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call4, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI3appEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(20) %m_unconditioned_heads, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI3appEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_unconditioned_heads, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %if.end
 
@@ -994,7 +994,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -1169,7 +1169,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
-  %call.i = tail call noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %3)
+  %call.i = tail call noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %3)
   %4 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %4, -1
   %and = and i32 %sub, %call.i
@@ -1200,7 +1200,7 @@ land.lhs.true:                                    ; preds = %if.then9
   %m_data.i = getelementptr inbounds i8, ptr %curr.063, i64 8
   %8 = load ptr, ptr %m_data.i, align 8
   %9 = load ptr, ptr %e, align 8
-  %call.i34 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %8, ptr noundef %9)
+  %call.i34 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %8, ptr noundef %9)
   br i1 %call.i34, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %land.lhs.true
@@ -1269,7 +1269,7 @@ land.lhs.true34:                                  ; preds = %if.then31
   %m_data.i43 = getelementptr inbounds i8, ptr %curr.167, i64 8
   %17 = load ptr, ptr %m_data.i43, align 8
   %18 = load ptr, ptr %e, align 8
-  %call.i44 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %17, ptr noundef %18)
+  %call.i44 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %17, ptr noundef %18)
   br i1 %call.i44, label %if.then37, label %for.inc54
 
 if.then37:                                        ; preds = %land.lhs.true34
@@ -1431,7 +1431,7 @@ declare noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noun
 define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entryIPN7datalog4ruleEENS1_14rule_hash_procENS1_12rule_eq_procEE9find_coreERKS3_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) local_unnamed_addr #3 comdat align 2 {
 entry:
   %0 = load ptr, ptr %e, align 8
-  %call.i = tail call noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %0)
+  %call.i = tail call noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %0)
   %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %1, -1
@@ -1462,7 +1462,7 @@ land.lhs.true:                                    ; preds = %if.then
   %m_data.i = getelementptr inbounds i8, ptr %curr.031, i64 8
   %5 = load ptr, ptr %m_data.i, align 8
   %6 = load ptr, ptr %e, align 8
-  %call.i19 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %5, ptr noundef %6)
+  %call.i19 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %5, ptr noundef %6)
   br i1 %call.i19, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
@@ -1497,7 +1497,7 @@ land.lhs.true25:                                  ; preds = %if.then22
   %m_data.i24 = getelementptr inbounds i8, ptr %curr.133, i64 8
   %10 = load ptr, ptr %m_data.i24, align 8
   %11 = load ptr, ptr %e, align 8
-  %call.i25 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %10, ptr noundef %11)
+  %call.i25 = tail call noundef zeroext i1 @_ZNK7datalog12rule_eq_procclEPKNS_4ruleES3_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %10, ptr noundef %11)
   br i1 %call.i25, label %return, label %for.inc36
 
 for.inc36:                                        ; preds = %for.body20, %land.lhs.true25, %if.then22

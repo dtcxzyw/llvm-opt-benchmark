@@ -61,7 +61,7 @@ define dso_local noundef nonnull ptr @_ZN23FunctionInvocationUnary29CreateFuncti
           to label %14 unwind label %19
 
 14:                                               ; preds = %6
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 1, ptr noundef nonnull %2)
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef 1, ptr noundef nonnull %2)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %14
@@ -75,7 +75,7 @@ define dso_local noundef nonnull ptr @_ZN23FunctionInvocationUnary29CreateFuncti
 17:                                               ; preds = %.noexc
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #11
+  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #11
   br label %.body
 
 _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc
@@ -105,7 +105,7 @@ _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_strin
 24:                                               ; preds = %3
   %25 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %25, i32 noundef 1, ptr noundef null)
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef 1, ptr noundef null)
           to label %.noexc21 unwind label %30
 
 .noexc21:                                         ; preds = %24
@@ -121,7 +121,7 @@ _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_strin
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
-  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #11
+  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #11
   br label %.body22
 
 _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit: ; preds = %.noexc21
@@ -263,7 +263,7 @@ define dso_local void @_ZN23FunctionInvocationUnaryD0Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTV23FunctionInvocationUnary, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
-  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
+  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -271,7 +271,7 @@ define dso_local void @_ZN23FunctionInvocationUnaryD0Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK23FunctionInvocationUnary5cloneEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #10
-  invoke void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
@@ -288,7 +288,7 @@ define dso_local noundef nonnull ptr @_ZNK23FunctionInvocationUnary5cloneEv(ptr 
 8:                                                ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
+  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #11
   br label %.body
 
 _ZN23FunctionInvocationUnaryC2ERKS_.exit:         ; preds = %.noexc

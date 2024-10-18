@@ -633,7 +633,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   %2 = load ptr, ptr %call, align 8
-  %call.i2 = invoke noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %id)
+  %call.i2 = invoke noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %id)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -669,7 +669,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %_coverage, align 8
   store i32 -1, ptr %pos, align 4
   %2 = load ptr, ptr %call, align 8
-  %call.i8 = call noundef ptr @uhash_nextElement_75(ptr noundef %2, ptr noundef nonnull %pos)
+  %call.i8 = call noundef ptr @uhash_nextElement_75(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp3.not9 = icmp eq ptr %call.i8, null
   br i1 %cmp3.not9, label %if.end12, label %while.body.lr.ph
 
@@ -692,14 +692,14 @@ new.notnull.i.us:                                 ; preds = %while.body.us
           to label %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit.us unwind label %lpad.i.split.us
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit.us: ; preds = %new.notnull.i.us, %while.body.us
-  %call2.i.us = call noundef ptr @uhash_put_75(ptr noundef %4, ptr noundef %call.i7.us, ptr noundef nonnull %this, ptr noundef nonnull %status)
+  %call2.i.us = call noundef ptr @uhash_put_75(ptr noundef %4, ptr noundef %call.i7.us, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
   %cmp.i.us = icmp slt i32 %5, 1
   br i1 %cmp.i.us, label %if.end11.us, label %if.end12
 
 if.end11.us:                                      ; preds = %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit.us
   %6 = load ptr, ptr %call, align 8
-  %call.i.us = call noundef ptr @uhash_nextElement_75(ptr noundef %6, ptr noundef nonnull %pos)
+  %call.i.us = call noundef ptr @uhash_nextElement_75(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp3.not.us = icmp eq ptr %call.i.us, null
   br i1 %cmp3.not.us, label %if.end12, label %while.body.us, !llvm.loop !4
 
@@ -714,9 +714,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %key = getelementptr inbounds i8, ptr %call.i10, i64 16
   %8 = load ptr, ptr %key, align 8
   %9 = load ptr, ptr %result, align 8
-  %call.i6 = call noundef ptr @uhash_remove_75(ptr noundef %9, ptr noundef nonnull %8)
+  %call.i6 = call noundef ptr @uhash_remove_75(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(64) %8)
   %10 = load ptr, ptr %call, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %10, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %if.end12, label %while.body, !llvm.loop !4
 

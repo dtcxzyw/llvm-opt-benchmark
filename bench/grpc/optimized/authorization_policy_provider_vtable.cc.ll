@@ -52,7 +52,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %p, align 8
   %1 = load ptr, ptr %vtable.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %p)
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %p)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry

@@ -740,7 +740,7 @@ if.end28:                                         ; preds = %if.else23, %if.then
 
 if.then32:                                        ; preds = %if.end28
   %call.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
-  call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @icount_timer_cb, ptr noundef null) #9
+  call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef range(i32 1, 4) 3, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @icount_timer_cb, ptr noundef null) #9
   store ptr %call.i.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
   %.pre = load i64, ptr %time_shift, align 8
   br label %if.end34
@@ -763,14 +763,14 @@ if.end40:                                         ; preds = %if.end34
   store i16 3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26), align 2
   store i64 -1, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
   %call.i.i.i13 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
-  call void @timer_init_full(ptr noundef %call.i.i.i13, ptr noundef null, i32 noundef 3, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @icount_adjust_rt, ptr noundef null) #9
+  call void @timer_init_full(ptr noundef %call.i.i.i13, ptr noundef null, i32 noundef range(i32 1, 4) 3, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @icount_adjust_rt, ptr noundef null) #9
   store ptr %call.i.i.i13, ptr getelementptr inbounds (i8, ptr @timers_state, i64 72), align 8
   %call.i = call i64 @qemu_clock_get_ns(i32 noundef 3) #9
   %div.i = sdiv i64 %call.i, 1000000
   %add = add nsw i64 %div.i, 1000
   call void @timer_mod(ptr noundef %call.i.i.i13, i64 noundef %add) #9
   %call.i.i.i14 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
-  call void @timer_init_full(ptr noundef %call.i.i.i14, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @icount_adjust_vm, ptr noundef null) #9
+  call void @timer_init_full(ptr noundef %call.i.i.i14, ptr noundef null, i32 noundef range(i32 1, 4) 1, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @icount_adjust_vm, ptr noundef null) #9
   store ptr %call.i.i.i14, ptr getelementptr inbounds (i8, ptr @timers_state, i64 80), align 8
   %call44 = call i64 @qemu_clock_get_ns(i32 noundef 1) #9
   %add45 = add i64 %call44, 100000000

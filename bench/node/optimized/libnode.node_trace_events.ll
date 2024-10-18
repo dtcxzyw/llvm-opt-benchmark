@@ -320,7 +320,7 @@ do.end65:                                         ; preds = %_ZN4node9Utf8ValueD
   %add.ptr.i119 = getelementptr inbounds i8, ptr %31, i64 -8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %32 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call66, ptr noundef %32, ptr nonnull %add.ptr.i119) #16
+  call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(88) %call66, ptr noundef %32, ptr nonnull %add.ptr.i119) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15NodeCategorySetE, i64 16), ptr %call66, align 8
   %enabled_.i = getelementptr inbounds i8, ptr %call66, i64 32
   store i8 0, ptr %enabled_.i, align 8
@@ -363,7 +363,7 @@ _ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setIN
   %.sink = phi i64 [ 0, %if.else.i.i.i.i.i ], [ %38, %if.then.i.i.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %call66, i64 80
   store i64 %.sink, ptr %39, align 8
-  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call66) #16
+  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(88) %call66) #16
   br label %cleanup75
 
 cleanup75:                                        ; preds = %if.end40, %for.body, %_ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISD_ESaISD_EE.exit
@@ -1226,7 +1226,7 @@ entry:
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %categories_.i, ptr noundef %0)
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -2352,7 +2352,7 @@ entry:
   %0 = load ptr, ptr %__args, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #16
   %call.i.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i, ptr noundef %call.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef %call.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #16
   %cmp.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_construct_nodeIJPcEEEvPSt13_Rb_tree_nodeIS5_EDpOT_.exit
 

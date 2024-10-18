@@ -147,7 +147,7 @@ lpad3:                                            ; preds = %if.then3.i.i.i, %if
           cleanup
   %m_unscaledPoints = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_unscaledPoints) #17
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #17
   resume { ptr, i32 } %7
 
 for.end:                                          ; preds = %for.body, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread
@@ -588,7 +588,7 @@ entry:
   %0 = load ptr, ptr %m_data.i, align 8
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 124
   %1 = load i32, ptr %m_size.i, align 4
-  %call.i3 = invoke noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %conv, ptr noundef %0, i1 noundef zeroext false, i32 noundef 16, i32 noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %call.i3 = invoke noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %conv, ptr noundef nonnull %0, i1 noundef zeroext false, i32 noundef 16, i32 noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
 
 invoke.cont7:                                     ; preds = %entry
@@ -988,7 +988,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK17btConvexHullShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
+  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
   %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_implicitShapeDimensions2.i = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i.i
@@ -1267,7 +1267,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i, align 4
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #17
   ret void
 }
 
@@ -1305,7 +1305,7 @@ _ZN17btConvexHullShapeD2Ev.exit:                  ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #17
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN17btConvexHullShapedlEPv.exit unwind label %terminate.lpad.i
 

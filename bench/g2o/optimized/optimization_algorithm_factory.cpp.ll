@@ -48,7 +48,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN3g2o36AbstractOptimizationAlgorithmCreatorC2ERKNS_29OptimizationAlgorithmPropertyE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(108) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3g2o36AbstractOptimizationAlgorithmCreatorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(108) %3, ptr noundef nonnull align 8 dereferenceable(108) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -73,7 +73,7 @@ define void @_ZN3g2o36AbstractOptimizationAlgorithmCreatorC2ERKNS_29Optimization
 
 13:                                               ; preds = %11, %9
   %.pn.i = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(108) %3) #12
   resume { ptr, i32 } %.pn.i
 
 _ZN3g2o29OptimizationAlgorithmPropertyC2ERKS0_.exit: ; preds = %6
@@ -273,7 +273,7 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
   br label %_ZNSt7__cxx114listISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt7__cxx114listISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %66, %69
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %0) #12
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, 1
@@ -486,7 +486,7 @@ _ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIc
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.03.010.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(108) %2, ptr noundef nonnull align 8 dereferenceable(108) %19)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
@@ -556,7 +556,7 @@ define void @_ZN3g2o28OptimizationAlgorithmFactory7destroyEv() local_unnamed_add
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3g2o28OptimizationAlgorithmFactoryESt14default_deleteIS1_EED2Ev.exit, label %3
 
 3:                                                ; preds = %0
-  call void @_ZNKSt14default_deleteIN3g2o28OptimizationAlgorithmFactoryEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %2)
+  call void @_ZNKSt14default_deleteIN3g2o28OptimizationAlgorithmFactoryEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   br label %_ZNSt10unique_ptrIN3g2o28OptimizationAlgorithmFactoryESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3g2o28OptimizationAlgorithmFactoryESt14default_deleteIS1_EED2Ev.exit: ; preds = %0, %3
@@ -645,7 +645,7 @@ define linkonce_odr void @_ZN3g2o36AbstractOptimizationAlgorithmCreatorD2Ev(ptr 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(108) %2) #12
   ret void
 }
 

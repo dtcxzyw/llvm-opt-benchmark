@@ -148,7 +148,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o16VertexIntrinsicsC2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 16
@@ -290,7 +290,7 @@ define linkonce_odr void @_ZN3g2o16VertexIntrinsicsD2Ev(ptr noundef nonnull alig
   br label %_ZN3g2o10BaseVertexILi4EN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi4EN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEED2Ev.exit: ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) #22
   ret void
 }
 
@@ -314,7 +314,7 @@ define linkonce_odr void @_ZN3g2o16VertexIntrinsicsD0Ev(ptr noundef nonnull alig
   br label %_ZN3g2o16VertexIntrinsicsD2Ev.exit
 
 _ZN3g2o16VertexIntrinsicsD2Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #21
   ret void
 }
@@ -733,7 +733,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi1ELi4E
 
 160:                                              ; preds = %157
   store i8 1, ptr %99, align 8, !alias.scope !13
-  %161 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEElRT_(ptr noundef nonnull align 16 dereferenceable(128) %4)
+  %161 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEElRT_(ptr noundef nonnull align 16 dereferenceable(144) %4)
   %162 = icmp ne i64 %161, -1
   %163 = zext i1 %162 to i32
   %164 = getelementptr inbounds nuw i8, ptr %4, i64 140
@@ -1097,7 +1097,7 @@ define linkonce_odr void @_ZThn64_N3g2o16VertexIntrinsicsD1Ev(ptr noundef %0) un
   br label %_ZN3g2o16VertexIntrinsicsD2Ev.exit
 
 _ZN3g2o16VertexIntrinsicsD2Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #22
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(240) %2) #22
   ret void
 }
 
@@ -1121,8 +1121,8 @@ define linkonce_odr void @_ZThn64_N3g2o16VertexIntrinsicsD0Ev(ptr noundef %0) un
   br label %_ZN3g2o16VertexIntrinsicsD0Ev.exit
 
 _ZN3g2o16VertexIntrinsicsD0Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #21
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(240) %2) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(240) %2, i64 noundef 240) #21
   ret void
 }
 
@@ -1181,7 +1181,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi4EN5Eigen6MatrixIdLi5ELi1E
   br label %_ZN3g2o10BaseVertexILi4EN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi4EN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEED2Ev.exit: ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #22
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(240) %2) #22
   ret void
 }
 

@@ -6153,7 +6153,7 @@ define ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
   store i32 0, ptr %41, align 4
-  %52 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %41)
+  %52 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %41)
   %53 = icmp eq ptr %52, null
   %54 = icmp ne i32 %3, 0
   %or.cond.i.i = and i1 %54, %53
@@ -6175,13 +6175,13 @@ define ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 tvb_get_ascii_string.exit:                        ; preds = %51
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  %61 = call ptr @get_ascii_string(ptr noundef %0, ptr noundef %52, i32 noundef %3) #17
+  %61 = call ptr @get_ascii_string(ptr noundef %0, ptr noundef %52, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 62:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40)
   store i32 0, ptr %40, align 4
-  %63 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %40)
+  %63 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %40)
   %64 = icmp eq ptr %63, null
   %65 = icmp ne i32 %3, 0
   %or.cond.i.i212 = and i1 %65, %64
@@ -6203,13 +6203,13 @@ tvb_get_ascii_string.exit:                        ; preds = %51
 
 tvb_get_utf_8_string.exit:                        ; preds = %62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
-  %72 = call ptr @get_utf_8_string(ptr noundef %0, ptr noundef %63, i32 noundef %3) #17
+  %72 = call ptr @get_utf_8_string(ptr noundef %0, ptr noundef %63, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 73:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
   store i32 0, ptr %39, align 4
-  %74 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %39)
+  %74 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %39)
   %75 = icmp eq ptr %74, null
   %76 = icmp ne i32 %3, 0
   %or.cond.i.i213 = and i1 %76, %75
@@ -6232,13 +6232,13 @@ tvb_get_utf_8_string.exit:                        ; preds = %62
 tvb_get_utf_16_string.exit:                       ; preds = %73
   %83 = and i32 %4, -1610612736
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
-  %84 = call ptr @get_utf_16_string(ptr noundef %0, ptr noundef %74, i32 noundef %3, i32 noundef %83) #17
+  %84 = call ptr @get_utf_16_string(ptr noundef %0, ptr noundef %74, i32 noundef range(i32 0, -2147483648) %3, i32 noundef range(i32 0, -1610612735) %83) #17
   br label %507
 
 85:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
   store i32 0, ptr %38, align 4
-  %86 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %38)
+  %86 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %38)
   %87 = icmp eq ptr %86, null
   %88 = icmp ne i32 %3, 0
   %or.cond.i.i214 = and i1 %88, %87
@@ -6261,13 +6261,13 @@ tvb_get_utf_16_string.exit:                       ; preds = %73
 tvb_get_ucs_2_string.exit:                        ; preds = %85
   %95 = and i32 %4, -1610612736
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  %96 = call ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %86, i32 noundef %3, i32 noundef %95) #17
+  %96 = call ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %86, i32 noundef range(i32 0, -2147483648) %3, i32 noundef range(i32 0, -1610612735) %95) #17
   br label %507
 
 97:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
   store i32 0, ptr %37, align 4
-  %98 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %37)
+  %98 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %37)
   %99 = icmp eq ptr %98, null
   %100 = icmp ne i32 %3, 0
   %or.cond.i.i215 = and i1 %100, %99
@@ -6290,13 +6290,13 @@ tvb_get_ucs_2_string.exit:                        ; preds = %85
 tvb_get_ucs_4_string.exit:                        ; preds = %97
   %107 = and i32 %4, -1610612736
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  %108 = call ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %98, i32 noundef %3, i32 noundef %107) #17
+  %108 = call ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %98, i32 noundef range(i32 0, -2147483648) %3, i32 noundef range(i32 0, -1610612735) %107) #17
   br label %507
 
 109:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
   store i32 0, ptr %36, align 4
-  %110 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %36)
+  %110 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %36)
   %111 = icmp eq ptr %110, null
   %112 = icmp ne i32 %3, 0
   %or.cond.i.i216 = and i1 %112, %111
@@ -6318,13 +6318,13 @@ tvb_get_ucs_4_string.exit:                        ; preds = %97
 
 tvb_get_string_8859_1.exit:                       ; preds = %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  %119 = call ptr @get_8859_1_string(ptr noundef %0, ptr noundef %110, i32 noundef %3) #17
+  %119 = call ptr @get_8859_1_string(ptr noundef %0, ptr noundef %110, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 120:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
   store i32 0, ptr %35, align 4
-  %121 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %35)
+  %121 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %35)
   %122 = icmp eq ptr %121, null
   %123 = icmp ne i32 %3, 0
   %or.cond.i.i217 = and i1 %123, %122
@@ -6346,13 +6346,13 @@ tvb_get_string_8859_1.exit:                       ; preds = %109
 
 tvb_get_string_unichar2.exit:                     ; preds = %120
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  %130 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %121, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_2) #17
+  %130 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %121, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_2) #17
   br label %507
 
 131:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
   store i32 0, ptr %34, align 4
-  %132 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %34)
+  %132 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %34)
   %133 = icmp eq ptr %132, null
   %134 = icmp ne i32 %3, 0
   %or.cond.i.i218 = and i1 %134, %133
@@ -6374,13 +6374,13 @@ tvb_get_string_unichar2.exit:                     ; preds = %120
 
 tvb_get_string_unichar2.exit219:                  ; preds = %131
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  %141 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %132, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_3) #17
+  %141 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %132, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_3) #17
   br label %507
 
 142:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
   store i32 0, ptr %33, align 4
-  %143 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %33)
+  %143 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %33)
   %144 = icmp eq ptr %143, null
   %145 = icmp ne i32 %3, 0
   %or.cond.i.i220 = and i1 %145, %144
@@ -6402,13 +6402,13 @@ tvb_get_string_unichar2.exit219:                  ; preds = %131
 
 tvb_get_string_unichar2.exit221:                  ; preds = %142
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  %152 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %143, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_4) #17
+  %152 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %143, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_4) #17
   br label %507
 
 153:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
   store i32 0, ptr %32, align 4
-  %154 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %32)
+  %154 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %32)
   %155 = icmp eq ptr %154, null
   %156 = icmp ne i32 %3, 0
   %or.cond.i.i222 = and i1 %156, %155
@@ -6430,13 +6430,13 @@ tvb_get_string_unichar2.exit221:                  ; preds = %142
 
 tvb_get_string_unichar2.exit223:                  ; preds = %153
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
-  %163 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %154, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_5) #17
+  %163 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %154, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_5) #17
   br label %507
 
 164:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
   store i32 0, ptr %31, align 4
-  %165 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %31)
+  %165 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %31)
   %166 = icmp eq ptr %165, null
   %167 = icmp ne i32 %3, 0
   %or.cond.i.i224 = and i1 %167, %166
@@ -6458,13 +6458,13 @@ tvb_get_string_unichar2.exit223:                  ; preds = %153
 
 tvb_get_string_unichar2.exit225:                  ; preds = %164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  %174 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %165, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_6) #17
+  %174 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %165, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_6) #17
   br label %507
 
 175:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
   store i32 0, ptr %30, align 4
-  %176 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %30)
+  %176 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %30)
   %177 = icmp eq ptr %176, null
   %178 = icmp ne i32 %3, 0
   %or.cond.i.i226 = and i1 %178, %177
@@ -6486,13 +6486,13 @@ tvb_get_string_unichar2.exit225:                  ; preds = %164
 
 tvb_get_string_unichar2.exit227:                  ; preds = %175
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  %185 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %176, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_7) #17
+  %185 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %176, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_7) #17
   br label %507
 
 186:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   store i32 0, ptr %29, align 4
-  %187 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %29)
+  %187 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %29)
   %188 = icmp eq ptr %187, null
   %189 = icmp ne i32 %3, 0
   %or.cond.i.i228 = and i1 %189, %188
@@ -6514,13 +6514,13 @@ tvb_get_string_unichar2.exit227:                  ; preds = %175
 
 tvb_get_string_unichar2.exit229:                  ; preds = %186
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  %196 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %187, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_8) #17
+  %196 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %187, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_8) #17
   br label %507
 
 197:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   store i32 0, ptr %28, align 4
-  %198 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %28)
+  %198 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %28)
   %199 = icmp eq ptr %198, null
   %200 = icmp ne i32 %3, 0
   %or.cond.i.i230 = and i1 %200, %199
@@ -6542,13 +6542,13 @@ tvb_get_string_unichar2.exit229:                  ; preds = %186
 
 tvb_get_string_unichar2.exit231:                  ; preds = %197
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  %207 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %198, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_9) #17
+  %207 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %198, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_9) #17
   br label %507
 
 208:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   store i32 0, ptr %27, align 4
-  %209 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %27)
+  %209 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %27)
   %210 = icmp eq ptr %209, null
   %211 = icmp ne i32 %3, 0
   %or.cond.i.i232 = and i1 %211, %210
@@ -6570,13 +6570,13 @@ tvb_get_string_unichar2.exit231:                  ; preds = %197
 
 tvb_get_string_unichar2.exit233:                  ; preds = %208
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  %218 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %209, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_10) #17
+  %218 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %209, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_10) #17
   br label %507
 
 219:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   store i32 0, ptr %26, align 4
-  %220 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %26)
+  %220 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %26)
   %221 = icmp eq ptr %220, null
   %222 = icmp ne i32 %3, 0
   %or.cond.i.i234 = and i1 %222, %221
@@ -6598,13 +6598,13 @@ tvb_get_string_unichar2.exit233:                  ; preds = %208
 
 tvb_get_string_unichar2.exit235:                  ; preds = %219
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  %229 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %220, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_11) #17
+  %229 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %220, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_11) #17
   br label %507
 
 230:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
   store i32 0, ptr %25, align 4
-  %231 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %25)
+  %231 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %25)
   %232 = icmp eq ptr %231, null
   %233 = icmp ne i32 %3, 0
   %or.cond.i.i236 = and i1 %233, %232
@@ -6626,13 +6626,13 @@ tvb_get_string_unichar2.exit235:                  ; preds = %219
 
 tvb_get_string_unichar2.exit237:                  ; preds = %230
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  %240 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %231, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_13) #17
+  %240 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %231, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_13) #17
   br label %507
 
 241:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   store i32 0, ptr %24, align 4
-  %242 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %24)
+  %242 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %24)
   %243 = icmp eq ptr %242, null
   %244 = icmp ne i32 %3, 0
   %or.cond.i.i238 = and i1 %244, %243
@@ -6654,13 +6654,13 @@ tvb_get_string_unichar2.exit237:                  ; preds = %230
 
 tvb_get_string_unichar2.exit239:                  ; preds = %241
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  %251 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %242, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_14) #17
+  %251 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %242, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_14) #17
   br label %507
 
 252:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   store i32 0, ptr %23, align 4
-  %253 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %23)
+  %253 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %23)
   %254 = icmp eq ptr %253, null
   %255 = icmp ne i32 %3, 0
   %or.cond.i.i240 = and i1 %255, %254
@@ -6682,13 +6682,13 @@ tvb_get_string_unichar2.exit239:                  ; preds = %241
 
 tvb_get_string_unichar2.exit241:                  ; preds = %252
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  %262 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %253, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_15) #17
+  %262 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %253, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_15) #17
   br label %507
 
 263:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   store i32 0, ptr %22, align 4
-  %264 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %22)
+  %264 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %22)
   %265 = icmp eq ptr %264, null
   %266 = icmp ne i32 %3, 0
   %or.cond.i.i242 = and i1 %266, %265
@@ -6710,13 +6710,13 @@ tvb_get_string_unichar2.exit241:                  ; preds = %252
 
 tvb_get_string_unichar2.exit243:                  ; preds = %263
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  %273 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %264, i32 noundef %3, ptr noundef nonnull @charset_table_iso_8859_16) #17
+  %273 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %264, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_8859_16) #17
   br label %507
 
 274:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   store i32 0, ptr %21, align 4
-  %275 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %21)
+  %275 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %21)
   %276 = icmp eq ptr %275, null
   %277 = icmp ne i32 %3, 0
   %or.cond.i.i244 = and i1 %277, %276
@@ -6738,13 +6738,13 @@ tvb_get_string_unichar2.exit243:                  ; preds = %263
 
 tvb_get_string_unichar2.exit245:                  ; preds = %274
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  %284 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %275, i32 noundef %3, ptr noundef nonnull @charset_table_cp1250) #17
+  %284 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %275, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_cp1250) #17
   br label %507
 
 285:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   store i32 0, ptr %20, align 4
-  %286 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %20)
+  %286 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %20)
   %287 = icmp eq ptr %286, null
   %288 = icmp ne i32 %3, 0
   %or.cond.i.i246 = and i1 %288, %287
@@ -6766,13 +6766,13 @@ tvb_get_string_unichar2.exit245:                  ; preds = %274
 
 tvb_get_string_unichar2.exit247:                  ; preds = %285
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  %295 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %286, i32 noundef %3, ptr noundef nonnull @charset_table_cp1251) #17
+  %295 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %286, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_cp1251) #17
   br label %507
 
 296:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   store i32 0, ptr %19, align 4
-  %297 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %19)
+  %297 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %19)
   %298 = icmp eq ptr %297, null
   %299 = icmp ne i32 %3, 0
   %or.cond.i.i248 = and i1 %299, %298
@@ -6794,13 +6794,13 @@ tvb_get_string_unichar2.exit247:                  ; preds = %285
 
 tvb_get_string_unichar2.exit249:                  ; preds = %296
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  %306 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %297, i32 noundef %3, ptr noundef nonnull @charset_table_cp1252) #17
+  %306 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %297, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_cp1252) #17
   br label %507
 
 307:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store i32 0, ptr %18, align 4
-  %308 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %18)
+  %308 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %18)
   %309 = icmp eq ptr %308, null
   %310 = icmp ne i32 %3, 0
   %or.cond.i.i250 = and i1 %310, %309
@@ -6822,13 +6822,13 @@ tvb_get_string_unichar2.exit249:                  ; preds = %296
 
 tvb_get_string_unichar2.exit251:                  ; preds = %307
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  %317 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %308, i32 noundef %3, ptr noundef nonnull @charset_table_mac_roman) #17
+  %317 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %308, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_mac_roman) #17
   br label %507
 
 318:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   store i32 0, ptr %17, align 4
-  %319 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %17)
+  %319 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %17)
   %320 = icmp eq ptr %319, null
   %321 = icmp ne i32 %3, 0
   %or.cond.i.i252 = and i1 %321, %320
@@ -6850,13 +6850,13 @@ tvb_get_string_unichar2.exit251:                  ; preds = %307
 
 tvb_get_string_unichar2.exit253:                  ; preds = %318
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  %328 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %319, i32 noundef %3, ptr noundef nonnull @charset_table_cp437) #17
+  %328 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %319, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_cp437) #17
   br label %507
 
 329:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store i32 0, ptr %16, align 4
-  %330 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %16)
+  %330 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %16)
   %331 = icmp eq ptr %330, null
   %332 = icmp ne i32 %3, 0
   %or.cond.i.i254 = and i1 %332, %331
@@ -6878,13 +6878,13 @@ tvb_get_string_unichar2.exit253:                  ; preds = %318
 
 tvb_get_string_unichar2.exit255:                  ; preds = %329
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  %339 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %330, i32 noundef %3, ptr noundef nonnull @charset_table_cp855) #17
+  %339 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %330, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_cp855) #17
   br label %507
 
 340:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   store i32 0, ptr %15, align 4
-  %341 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %15)
+  %341 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %15)
   %342 = icmp eq ptr %341, null
   %343 = icmp ne i32 %3, 0
   %or.cond.i.i256 = and i1 %343, %342
@@ -6906,13 +6906,13 @@ tvb_get_string_unichar2.exit255:                  ; preds = %329
 
 tvb_get_string_unichar2.exit257:                  ; preds = %340
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  %350 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %341, i32 noundef %3, ptr noundef nonnull @charset_table_cp866) #17
+  %350 = call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %341, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_cp866) #17
   br label %507
 
 351:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 0, ptr %14, align 4
-  %352 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %14)
+  %352 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %14)
   %353 = icmp eq ptr %352, null
   %354 = icmp ne i32 %3, 0
   %or.cond.i.i258 = and i1 %354, %353
@@ -6934,7 +6934,7 @@ tvb_get_string_unichar2.exit257:                  ; preds = %340
 
 tvb_get_iso_646_string.exit:                      ; preds = %351
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %361 = call ptr @get_iso_646_string(ptr noundef %0, ptr noundef %352, i32 noundef %3, ptr noundef nonnull @charset_table_iso_646_basic) #17
+  %361 = call ptr @get_iso_646_string(ptr noundef %0, ptr noundef %352, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_iso_646_basic) #17
   br label %507
 
 362:                                              ; preds = %49
@@ -6954,7 +6954,7 @@ tvb_get_iso_646_string.exit:                      ; preds = %351
 372:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  %373 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %13)
+  %373 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %13)
   %374 = icmp eq ptr %373, null
   %375 = icmp ne i32 %3, 0
   %or.cond.i.i259 = and i1 %375, %374
@@ -6976,13 +6976,13 @@ tvb_get_iso_646_string.exit:                      ; preds = %351
 
 tvb_get_nonascii_unichar2_string.exit:            ; preds = %372
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %382 = call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %373, i32 noundef %3, ptr noundef nonnull @charset_table_ebcdic) #17
+  %382 = call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %373, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_ebcdic) #17
   br label %507
 
 383:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  %384 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12)
+  %384 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %12)
   %385 = icmp eq ptr %384, null
   %386 = icmp ne i32 %3, 0
   %or.cond.i.i260 = and i1 %386, %385
@@ -7004,13 +7004,13 @@ tvb_get_nonascii_unichar2_string.exit:            ; preds = %372
 
 tvb_get_nonascii_unichar2_string.exit261:         ; preds = %383
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %393 = call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %384, i32 noundef %3, ptr noundef nonnull @charset_table_ebcdic_cp037) #17
+  %393 = call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %384, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_ebcdic_cp037) #17
   br label %507
 
 394:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %395 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %11)
+  %395 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %11)
   %396 = icmp eq ptr %395, null
   %397 = icmp ne i32 %3, 0
   %or.cond.i.i262 = and i1 %397, %396
@@ -7032,13 +7032,13 @@ tvb_get_nonascii_unichar2_string.exit261:         ; preds = %383
 
 tvb_get_nonascii_unichar2_string.exit263:         ; preds = %394
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %404 = call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %395, i32 noundef %3, ptr noundef nonnull @charset_table_ebcdic_cp500) #17
+  %404 = call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %395, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull @charset_table_ebcdic_cp500) #17
   br label %507
 
 405:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %406 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %10)
+  %406 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %10)
   %407 = icmp eq ptr %406, null
   %408 = icmp ne i32 %3, 0
   %or.cond.i.i264 = and i1 %408, %407
@@ -7060,7 +7060,7 @@ tvb_get_nonascii_unichar2_string.exit263:         ; preds = %394
 
 tvb_get_t61_string.exit:                          ; preds = %405
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %415 = call ptr @get_t61_string(ptr noundef %0, ptr noundef %406, i32 noundef %3) #17
+  %415 = call ptr @get_t61_string(ptr noundef %0, ptr noundef %406, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 416:                                              ; preds = %49
@@ -7104,7 +7104,7 @@ tvb_get_t61_string.exit:                          ; preds = %405
 441:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %442 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9)
+  %442 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %9)
   %443 = icmp eq ptr %442, null
   %444 = icmp ne i32 %3, 0
   %or.cond.i.i265 = and i1 %444, %443
@@ -7126,13 +7126,13 @@ tvb_get_t61_string.exit:                          ; preds = %405
 
 tvb_get_gb18030_string.exit:                      ; preds = %441
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %451 = call ptr @get_gb18030_string(ptr noundef %0, ptr noundef %442, i32 noundef %3) #17
+  %451 = call ptr @get_gb18030_string(ptr noundef %0, ptr noundef %442, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 452:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %453 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %8)
+  %453 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %8)
   %454 = icmp eq ptr %453, null
   %455 = icmp ne i32 %3, 0
   %or.cond.i.i266 = and i1 %455, %454
@@ -7154,7 +7154,7 @@ tvb_get_gb18030_string.exit:                      ; preds = %441
 
 tvb_get_euc_kr_string.exit:                       ; preds = %452
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %462 = call ptr @get_euc_kr_string(ptr noundef %0, ptr noundef %453, i32 noundef %3) #17
+  %462 = call ptr @get_euc_kr_string(ptr noundef %0, ptr noundef %453, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 463:                                              ; preds = %49
@@ -7167,7 +7167,7 @@ tvb_get_euc_kr_string.exit:                       ; preds = %452
 467:                                              ; preds = %463
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %468 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %7)
+  %468 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %7)
   %469 = icmp eq ptr %468, null
   br i1 %469, label %470, label %ensure_contiguous.exit.i
 
@@ -7246,7 +7246,7 @@ tvb_get_apn_string.exit:                          ; preds = %._crit_edge.i, %.lr
 490:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %491 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %6)
+  %491 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef nonnull %6)
   %492 = icmp eq ptr %491, null
   %493 = icmp ne i32 %3, 0
   %or.cond.i.i267 = and i1 %493, %492
@@ -7268,7 +7268,7 @@ tvb_get_apn_string.exit:                          ; preds = %._crit_edge.i, %.lr
 
 tvb_get_dect_standard_8bits_string.exit:          ; preds = %490
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %500 = call ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef %491, i32 noundef %3) #17
+  %500 = call ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef %491, i32 noundef range(i32 0, -2147483648) %3) #17
   br label %507
 
 501:                                              ; preds = %49
@@ -7789,7 +7789,7 @@ ensure_contiguous.exit.i152:                      ; preds = %tvb_unicode_strsize
   br label %tvb_get_utf_16_stringz.exit
 
 tvb_get_utf_16_stringz.exit:                      ; preds = %ensure_contiguous.exit.i152, %91
-  %92 = call ptr @get_utf_16_string(ptr noundef %0, ptr noundef %82, i32 noundef %80, i32 noundef %81) #17
+  %92 = call ptr @get_utf_16_string(ptr noundef %0, ptr noundef %82, i32 noundef %80, i32 noundef range(i32 0, -1610612735) %81) #17
   br label %538
 
 .preheader.i.i155:                                ; preds = %45, %.preheader.i.i155
@@ -7841,7 +7841,7 @@ ensure_contiguous.exit.i162:                      ; preds = %tvb_unicode_strsize
   br label %tvb_get_ucs_2_stringz.exit
 
 tvb_get_ucs_2_stringz.exit:                       ; preds = %ensure_contiguous.exit.i162, %111
-  %112 = call ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %102, i32 noundef %100, i32 noundef %101) #17
+  %112 = call ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %102, i32 noundef %100, i32 noundef range(i32 0, -1610612735) %101) #17
   br label %538
 
 .preheader:                                       ; preds = %45, %.preheader
@@ -7903,7 +7903,7 @@ ensure_contiguous.exit.i166:                      ; preds = %133
   br label %tvb_get_ucs_4_stringz.exit
 
 tvb_get_ucs_4_stringz.exit:                       ; preds = %ensure_contiguous.exit.i166, %144
-  %145 = call ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %135, i32 noundef %132, i32 noundef %134) #17
+  %145 = call ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %135, i32 noundef %132, i32 noundef range(i32 0, -1610612735) %134) #17
   br label %538
 
 146:                                              ; preds = %45

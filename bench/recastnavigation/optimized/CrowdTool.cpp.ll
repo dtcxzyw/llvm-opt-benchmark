@@ -198,7 +198,7 @@ define dso_local void @_ZN14CrowdToolStateD0Ev(ptr noundef nonnull align 8 deref
   unreachable
 
 _ZN14CrowdToolStateD2Ev.exit:                     ; preds = %1
-  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -2529,7 +2529,7 @@ define dso_local void @_ZN9CrowdTool4initEP6Sample(ptr noundef nonnull align 8 d
 .body:                                            ; preds = %34, %24, %22, %17
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #17
+  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %18) #17
   tail call void @_ZdlPv(ptr noundef nonnull %18) #19
   resume { ptr, i32 } %37
 
@@ -3208,7 +3208,7 @@ define linkonce_odr dso_local void @_ZN9CrowdToolD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9CrowdToolD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

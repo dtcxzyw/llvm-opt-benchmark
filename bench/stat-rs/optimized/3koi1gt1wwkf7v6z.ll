@@ -1085,7 +1085,7 @@ common.resume:                                    ; preds = %.body, %31, %38
   resume { ptr, i32 } %common.resume.op
 
 "_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE.exit": ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !73
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 24
@@ -1199,7 +1199,7 @@ common.resume:                                    ; preds = %.body, %31, %38
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %21, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !113
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f9411735bae5566E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f9411735bae5566E.llvm.12303340874314762014"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
   %75 = getelementptr inbounds i8, ptr %3, i64 8
   %76 = load i64, ptr %75, align 8, !range !35, !noalias !113, !noundef !4
   %77 = icmp eq i64 %76, 0
@@ -1271,7 +1271,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   %.sroa.0.0.i.i.i.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !124
-  %22 = call { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309"(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, i64 noundef 0, double noundef %21), !noalias !130
+  %22 = call { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309"(ptr noundef nonnull readonly align 8 %1, ptr noundef nonnull readonly %9, i64 noundef 0, double noundef %21), !noalias !130
   %23 = extractvalue { i64, double } %22, 0
   %.not.i.i = icmp eq i64 %23, %.sroa.04.0.i
   br i1 %.not.i.i, label %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit, label %24
@@ -1366,7 +1366,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   %.sroa.0.0.i.i.i.i = select i1 %19, ptr %20, ptr null
   %21 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !140
-  %22 = call { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309"(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, i64 noundef 0, double noundef %21), !noalias !146
+  %22 = call { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309"(ptr noundef nonnull readonly align 8 %1, ptr noundef nonnull readonly %9, i64 noundef 0, double noundef %21), !noalias !146
   %23 = extractvalue { i64, double } %22, 0
   %.not.i.i = icmp eq i64 %23, %.sroa.04.0.i
   br i1 %.not.i.i, label %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit, label %24

@@ -378,19 +378,19 @@ define void @_ZN2cv2ml5Boost6createEv(ptr dead_on_unwind noalias nocapture writa
   store i32 1, ptr %4, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %5)
           to label %.noexc.i.i.i.i.i unwind label %8, !noalias !4
 
 .noexc.i.i.i.i.i:                                 ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds i8, ptr %2, i64 24
-  invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %6)
+  invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %6)
           to label %_ZN2cv3PtrINS_2ml9BoostImplEED2Ev.exit unwind label %.body.i.i.i.i.i.i, !noalias !4
 
 .body.i.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20, !noalias !4
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %5) #20, !noalias !4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i
 
 8:                                                ; preds = %1
@@ -523,19 +523,19 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4loadINS_2ml5BoostEEENS_3PtrIT_
   store i32 1, ptr %36, align 4, !noalias !12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !12
   %37 = getelementptr inbounds i8, ptr %34, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %37)
           to label %.noexc.i.i.i.i.i.i unwind label %40, !noalias !12
 
 .noexc.i.i.i.i.i.i:                               ; preds = %.noexc
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %37, align 8, !noalias !12
   %38 = getelementptr inbounds i8, ptr %34, i64 24
-  invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %38)
+  invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %38)
           to label %42 unwind label %.body.i.i.i.i.i.i.i, !noalias !12
 
 .body.i.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i.i.i
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #20, !noalias !12
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %37) #20, !noalias !12
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i
 
 40:                                               ; preds = %.noexc
@@ -774,7 +774,7 @@ define linkonce_odr hidden void @_ZN2cv2ml9BoostImplD2Ev(ptr noundef nonnull ali
 
 _ZN2cv2ml18DTreesImplForBoostD2Ev.exit:           ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %5) #20
+  tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %5) #20
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   ret void
 }
@@ -793,8 +793,8 @@ define linkonce_odr hidden void @_ZN2cv2ml9BoostImplD0Ev(ptr noundef nonnull ali
 
 _ZN2cv2ml9BoostImplD2Ev.exit:                     ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %5) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %5) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -1368,7 +1368,7 @@ define linkonce_odr hidden void @_ZN2cv2ml18DTreesImplForBoostD0Ev(ptr noundef n
   br label %_ZN2cv2ml18DTreesImplForBoostD2Ev.exit
 
 _ZN2cv2ml18DTreesImplForBoostD2Ev.exit:           ; preds = %1, %4
-  tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) #20
+  tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -1681,7 +1681,7 @@ define linkonce_odr hidden void @_ZN2cv2ml18DTreesImplForBoost4readERKNS_8FileNo
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.cv::FileNode", align 8
   %9 = alloca %"class.cv::FileNode", align 8
-  tail call void @_ZN2cv2ml10DTreesImpl5clearEv(ptr noundef nonnull align 8 dereferenceable(448) %0)
+  tail call void @_ZN2cv2ml10DTreesImpl5clearEv(ptr noundef nonnull align 8 dereferenceable(488) %0)
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.6)
   %10 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZN2cv2ml18DTreesImplForBoost10readParamsERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -1917,7 +1917,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %51, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  invoke void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr noundef nonnull align 8 dereferenceable(448) %0)
+  invoke void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr noundef nonnull align 8 dereferenceable(488) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %._crit_edge
@@ -2934,7 +2934,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %3, %36
 69:                                               ; preds = %59
   store i32 %1, ptr %7, align 4
   store i32 %53, ptr %54, align 4
-  %70 = invoke noundef float @_ZNK2cv2ml10DTreesImpl12predictTreesERKNS_5RangeERKNS_3MatEi(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef %56)
+  %70 = invoke noundef float @_ZNK2cv2ml10DTreesImpl12predictTreesERKNS_5RangeERKNS_3MatEi(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef %56)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %69

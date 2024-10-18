@@ -168,7 +168,7 @@ define internal void @_GLOBAL__sub_I_qp_to_nlp_meta.cpp() #7 section ".text.star
 4:                                                ; preds = %.noexc1.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN6casadi7QpToNlp8meta_docB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN6casadi7QpToNlp8meta_docB5cxx11E) #10
   br label %.body.i
 
 6:                                                ; preds = %.noexc.i, %0

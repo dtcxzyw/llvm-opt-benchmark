@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 8) #6
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %5, i64 noundef 8) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   %8 = call fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(44) %2)
@@ -3869,7 +3869,7 @@ _ZN4llvm11raw_ostreamlsEc.exit904:                ; preds = %1835, %1833, %_ZN4l
 
 _ZN4llvm11raw_ostreamlsEc.exit907:                ; preds = %1841, %1839, %1685, %9, %3
   %.0574 = phi i1 [ true, %3 ], [ false, %9 ], [ false, %1685 ], [ true, %1839 ], [ true, %1841 ]
-  %1843 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %1843 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #6
   %1844 = load ptr, ptr %4, align 8
   %1845 = icmp eq ptr %1844, %5
   br i1 %1845, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %1846

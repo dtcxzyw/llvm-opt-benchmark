@@ -1523,7 +1523,7 @@ w_byte.exit187:                                   ; preds = %132, %137, %142
   %158 = add nsw i64 %.neg.i.i, 2
   %159 = and i64 %0, -4
   %160 = or i64 %158, %159
-  %161 = call noundef i64 @llvm.fshl.i64(i64 %160, i64 %160, i64 61)
+  %161 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %160, i64 range(i64 1, 0) %160, i64 61)
   %162 = bitcast i64 %161 to double
   br label %rb_float_value_inline.exit
 
@@ -1836,7 +1836,7 @@ RSTRING_PTR.exit202:                              ; preds = %289, %295
   %305 = add nsw i64 %.neg.i.i205, 2
   %306 = and i64 %263, -4
   %307 = or i64 %305, %306
-  %308 = call noundef i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 61)
+  %308 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %307, i64 range(i64 1, 0) %307, i64 61)
   %309 = bitcast i64 %308 to double
   br label %rb_float_value_inline.exit206
 
@@ -2529,7 +2529,7 @@ w_byte.exit:                                      ; preds = %11, %16, %21
   br i1 %31, label %48, label %32
 
 32:                                               ; preds = %29
-  %33 = call i32 @rb_enc_str_coderange(i64 noundef %26) #21
+  %33 = call i32 @rb_enc_str_coderange(i64 noundef range(i64 1, 0) %26) #21
   %34 = icmp eq i32 %33, 1048576
   br i1 %34, label %48, label %35
 
@@ -5079,7 +5079,7 @@ RSTRING_PTR.exit:                                 ; preds = %r_long.exit595, %29
   br i1 %.not7.i, label %319, label %323
 
 319:                                              ; preds = %314
-  %320 = call noundef i64 @llvm.fshl.i64(i64 %313, i64 %313, i64 3)
+  %320 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %313, i64 range(i64 3458764513820540929, 3458764513820540928) %313, i64 3)
   %321 = and i64 %320, -4
   %322 = or disjoint i64 %321, 2
   br label %rb_float_new_inline.exit

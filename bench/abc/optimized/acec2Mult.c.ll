@@ -631,8 +631,8 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
   br i1 %269, label %Abc_TtSwapVars.exit213.us, label %270
 
 270:                                              ; preds = %267
-  %spec.select.i187.us = call i32 @llvm.smax.i32(i32 %268, i32 %.017.i.i.us)
-  %spec.select117.i188.us = call i32 @llvm.smin.i32(i32 %268, i32 %.017.i.i.us)
+  %spec.select.i187.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %268, i32 range(i32 -2147483648, 14) %.017.i.i.us)
+  %spec.select117.i188.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %268, i32 range(i32 -2147483648, 14) %.017.i.i.us)
   %271 = icmp ult i32 %spec.select.i187.us, 6
   br i1 %271, label %328, label %272
 
@@ -819,8 +819,8 @@ Abc_TtExpand.exit.i.us:                           ; preds = %350, %Abc_TtCopy.ex
   br i1 %372, label %Abc_TtSwapVars.exit186.us, label %373
 
 373:                                              ; preds = %370
-  %spec.select.i160.us = call i32 @llvm.smax.i32(i32 %371, i32 %.017.i77.i.us)
-  %spec.select117.i161.us = call i32 @llvm.smin.i32(i32 %371, i32 %.017.i77.i.us)
+  %spec.select.i160.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %371, i32 range(i32 -2147483648, 14) %.017.i77.i.us)
+  %spec.select117.i161.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %371, i32 range(i32 -2147483648, 14) %.017.i77.i.us)
   %374 = icmp ult i32 %spec.select.i160.us, 6
   br i1 %374, label %431, label %375
 
@@ -1102,8 +1102,8 @@ Abc_TtHasVar.exit.i.i.us:                         ; preds = %478, %.lr.ph.i.i114
   br i1 %502, label %Abc_TtSwapVars.exit.us, label %503
 
 503:                                              ; preds = %498
-  %spec.select.i.us = call i32 @llvm.smax.i32(i32 %472, i32 %.033.i.i.us)
-  %spec.select117.i.us = call i32 @llvm.smin.i32(i32 %472, i32 %.033.i.i.us)
+  %spec.select.i.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %472, i32 range(i32 -2147483648, 14) %.033.i.i.us)
+  %spec.select117.i.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %472, i32 range(i32 -2147483648, 14) %.033.i.i.us)
   %504 = icmp slt i32 %spec.select.i.us, 6
   br i1 %504, label %.lr.ph.i157.us, label %505
 

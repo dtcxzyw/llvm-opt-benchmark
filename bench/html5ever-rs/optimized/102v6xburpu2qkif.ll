@@ -290,7 +290,7 @@ define void @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer10get_result17hd77
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !50
-  call void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h8dfb5e8fd8f6269eE.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull sret({ { ptr, i32, i32 }, i8, [3 x i8], i32 }) align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %12)
+  call void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h8dfb5e8fd8f6269eE.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull sret({ { ptr, i32, i32 }, i8, [3 x i8], i32 }) align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !50
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = load i8, ptr %16, align 8, !range !51, !noalias !50, !noundef !7

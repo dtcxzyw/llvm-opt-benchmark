@@ -3480,14 +3480,14 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i32, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %do.end
-  %call.i.i33 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d1)
+  %call.i.i33 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call2.i.i = tail call noundef double @_ZNK8QuantLib31DefaultProbabilityTermStructure19survivalProbabilityEdb(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %call.i.i33, i1 noundef zeroext %extrapolate)
   %sub.i = fsub double 1.000000e+00, %call2.i.i
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end, %cond.false
   %cond = phi double [ %sub.i, %cond.false ], [ 0.000000e+00, %do.end ]
-  %call.i.i34 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d2)
+  %call.i.i34 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call2.i.i35 = tail call noundef double @_ZNK8QuantLib31DefaultProbabilityTermStructure19survivalProbabilityEdb(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %call.i.i34, i1 noundef zeroext %extrapolate)
   %sub.i36 = fsub double 1.000000e+00, %call2.i.i35
   %sub = fsub double %sub.i36, %cond

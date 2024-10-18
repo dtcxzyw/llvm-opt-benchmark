@@ -1573,7 +1573,7 @@ define internal fastcc void @_ZN2cvrsI6MyDataEEvRKNS_8FileNodeERT_(ptr noundef n
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZL4readRKN2cv8FileNodeER6MyDataRKS3_.exit unwind label %20

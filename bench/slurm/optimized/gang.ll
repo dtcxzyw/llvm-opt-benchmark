@@ -2222,7 +2222,7 @@ _slice_sleep.exit:                                ; preds = %36
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
-  call fastcc void @_add_job_to_active(ptr noundef %136, ptr noundef %56)
+  call fastcc void @_add_job_to_active(ptr noundef %136, ptr noundef nonnull %56)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %137 = load i32, ptr %73, align 4
   %138 = zext i32 %137 to i64
@@ -2242,13 +2242,13 @@ _slice_sleep.exit:                                ; preds = %36
   br i1 %148, label %154, label %149
 
 149:                                              ; preds = %140
-  %150 = call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %145, ptr noundef %56)
+  %150 = call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %145, ptr noundef nonnull %56)
   %.not19.i.i = icmp eq i32 %150, 0
   br i1 %.not19.i.i, label %154, label %151
 
 151:                                              ; preds = %149
   %152 = load ptr, ptr %144, align 8
-  call fastcc void @_add_job_to_active(ptr noundef %152, ptr noundef %56)
+  call fastcc void @_add_job_to_active(ptr noundef %152, ptr noundef nonnull %56)
   %153 = getelementptr inbounds i8, ptr %143, i64 18
   store i16 4, ptr %153, align 2
   br label %154
@@ -2291,7 +2291,7 @@ _build_active_row.exit.i:                         ; preds = %163, %160, %._crit_
   br label %170
 
 170:                                              ; preds = %169, %166, %_build_active_row.exit.i
-  call fastcc void @_print_jobs(ptr noundef %56)
+  call fastcc void @_print_jobs(ptr noundef nonnull %56)
   %171 = load i32, ptr %71, align 4
   %.not80.i = icmp eq i32 %171, 0
   br i1 %.not80.i, label %._crit_edge78.i, label %.lr.ph75.i

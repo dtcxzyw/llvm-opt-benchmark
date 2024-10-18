@@ -403,7 +403,7 @@ _Z8trimzeroPc.exit84:                             ; preds = %257
   %265 = select i1 %264, i8 45, i8 43
   %266 = getelementptr inbounds i8, ptr %spec.select, i64 2
   store i8 %265, ptr %263, align 1
-  %267 = call i32 @llvm.abs.i32(i32 %262, i1 true)
+  %267 = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %262, i1 true)
   %268 = icmp samesign ugt i32 %267, 99
   br i1 %268, label %269, label %_ZL8printexpPci.exit
 

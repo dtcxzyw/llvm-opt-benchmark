@@ -2088,7 +2088,7 @@ create_and_attach.exit:                           ; preds = %38
   %51 = add nsw i64 %48, %50
   store i64 %51, ptr %2, align 8
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
-  %53 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %51, ptr noundef %52, i64 noundef 32, i64 noundef %50) #14
+  %53 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %51, ptr noundef %52, i64 noundef 32, i64 noundef range(i64 -2147483648, 2147483648) %50) #14
   store ptr %53, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %54 = icmp eq ptr %53, null
   br i1 %54, label %create_and_attach.exit47, label %55

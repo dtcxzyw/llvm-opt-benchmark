@@ -82,12 +82,12 @@ define dso_local { i64, i8 } @_ZNK4llvm18DWARFDataExtractor16getInitialLengthEPm
   store i64 %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %16, align 8
-  %17 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %16)
+  %17 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef null, ptr noundef nonnull %16)
   %18 = icmp eq i64 %17, 4294967295
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
-  %20 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 8, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %16)
+  %20 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef null, ptr noundef nonnull %16)
   br label %36
 
 21:                                               ; preds = %14
@@ -118,14 +118,14 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8, !noalias !7
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %8, ptr %29, align 8, !noalias !7
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #14, !noalias !7
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #14, !noalias !7
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str, ptr %30, align 8, !alias.scope !10, !noalias !7
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %10, align 8, !alias.scope !10, !noalias !7
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %17, ptr %31, align 8, !alias.scope !10, !noalias !7
-  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #14, !noalias !7
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #14, !noalias !7
+  %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #14, !noalias !7
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #14, !noalias !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !13
   %33 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !16
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32

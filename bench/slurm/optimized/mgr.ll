@@ -4439,7 +4439,7 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
   %49 = trunc i8 %48 to i1
   %50 = select i1 %49, ptr @.str.147, ptr @.str.148
   %51 = tail call ptr @slurm_strerror(i32 noundef %.124) #15
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._send_exit_msg, i32 noundef %.127, ptr noundef nonnull %50, ptr noundef %51) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._send_exit_msg, i32 noundef range(i32 1, 0) %.127, ptr noundef nonnull %50, ptr noundef %51) #15
   br label %52
 
 52:                                               ; preds = %46, %43
@@ -5729,7 +5729,7 @@ job_task_info_by_pid.exit:                        ; preds = %89
   br i1 %106, label %107, label %_log_task_exit.exit
 
 107:                                              ; preds = %104
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.166, i64 noundef %99, i64 noundef %100) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.166, i64 noundef range(i64 0, 4294967296) %99, i64 noundef range(i64 -2147483648, 2147483648) %100) #15
   br label %_log_task_exit.exit
 
 108:                                              ; preds = %job_task_info_by_pid.exit
@@ -5745,7 +5745,7 @@ job_task_info_by_pid.exit:                        ; preds = %89
 114:                                              ; preds = %111
   %115 = lshr i32 %101, 8
   %116 = and i32 %115, 255
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.167, i64 noundef %99, i64 noundef %100, i32 noundef %116) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.167, i64 noundef range(i64 0, 4294967296) %99, i64 noundef range(i64 -2147483648, 2147483648) %100, i32 noundef %116) #15
   br label %_log_task_exit.exit
 
 117:                                              ; preds = %108
@@ -5763,14 +5763,14 @@ job_task_info_by_pid.exit:                        ; preds = %89
   %124 = and i32 %101, 128
   %.not.i104 = icmp eq i32 %124, 0
   %125 = select i1 %.not.i104, ptr @.str.125, ptr @.str.169
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.168, i64 noundef %99, i64 noundef %100, i32 noundef %109, ptr noundef nonnull %125) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.168, i64 noundef range(i64 0, 4294967296) %99, i64 noundef range(i64 -2147483648, 2147483648) %100, i32 noundef %109, ptr noundef nonnull %125) #15
   br label %_log_task_exit.exit
 
 126:                                              ; preds = %117
   br i1 %121, label %127, label %_log_task_exit.exit
 
 127:                                              ; preds = %126
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.170, i64 noundef %99, i64 noundef %100, i32 noundef %101) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.170, i64 noundef range(i64 0, 4294967296) %99, i64 noundef range(i64 -2147483648, 2147483648) %100, i32 noundef %101) #15
   br label %_log_task_exit.exit
 
 _log_task_exit.exit:                              ; preds = %104, %107, %111, %114, %122, %123, %126, %127

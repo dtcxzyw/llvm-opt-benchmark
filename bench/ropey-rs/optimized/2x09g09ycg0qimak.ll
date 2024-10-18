@@ -269,7 +269,7 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   br i1 %.not, label %._crit_edge65, label %.lr.ph
 
 10:                                               ; preds = %2
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %8, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d126d3296d9517d5518575f231663373.10) #15
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef range(i64 0, 256) %8, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d126d3296d9517d5518575f231663373.10) #15
           to label %.noexc29 unwind label %11
 
 .noexc29:                                         ; preds = %10

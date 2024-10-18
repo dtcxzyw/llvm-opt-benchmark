@@ -80,9 +80,9 @@ define void @_ZNK5ZXing10DataMatrix6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_
 
 8:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  tail call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %0)
+  tail call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(211) %0)
   %9 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %9) #11
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -133,12 +133,12 @@ define void @_ZNK5ZXing10DataMatrix6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_
 
 39:                                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  invoke void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %0)
+  invoke void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(211) %0)
           to label %_ZN5ZXing6ResultC2Ev.exit unwind label %57
 
 _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %39
   %40 = getelementptr inbounds i8, ptr %0, i64 56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %40) #11
   %41 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 96
@@ -309,7 +309,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN5ZXing10CustomDataEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %38) #11
   %39 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #11
   %40 = getelementptr inbounds i8, ptr %0, i64 56
@@ -384,7 +384,7 @@ define linkonce_odr void @_ZNK5ZXing6Reader6decodeERKNS_12BinaryBitmapEi(ptr dea
   %26 = getelementptr inbounds i8, ptr %5, i64 16
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(211) %5, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %6, i64 24
   %29 = getelementptr inbounds i8, ptr %5, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -403,7 +403,7 @@ define linkonce_odr void @_ZNK5ZXing6Reader6decodeERKNS_12BinaryBitmapEi(ptr dea
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %37, ptr noundef nonnull align 8 dereferenceable(6) %38, i64 6, i1 false)
   %39 = getelementptr inbounds i8, ptr %6, i64 56
   %40 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %39, ptr noundef nonnull align 8 dereferenceable(43) %40) #11
   %41 = getelementptr inbounds i8, ptr %6, i64 88
   %42 = getelementptr inbounds i8, ptr %5, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %41, ptr noundef nonnull align 8 dereferenceable(11) %42, i64 11, i1 false)
@@ -454,7 +454,7 @@ _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %
   %62 = getelementptr inbounds i8, ptr %6, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #11
   %63 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %63) #11
   %64 = getelementptr inbounds i8, ptr %6, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i = icmp eq ptr %65, null
@@ -477,7 +477,7 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EED2Ev.exit.i.i: ; preds = %66, %.cr
   %69 = getelementptr inbounds i8, ptr %5, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #11
   %70 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %70) #11
   %71 = getelementptr inbounds i8, ptr %5, i64 24
   %72 = load ptr, ptr %71, align 8
   %.not.i.i.i.i.i13 = icmp eq ptr %72, null
@@ -569,7 +569,7 @@ define linkonce_odr void @_ZN5ZXing6ResultD2Ev(ptr noundef nonnull align 8 deref
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %3) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -615,13 +615,13 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN5ZXing6ResultEPS1_ET0
 .lr.ph:                                           ; preds = %3, %21
   %.021 = phi ptr [ %25, %21 ], [ %2, %3 ]
   %.01220 = phi ptr [ %24, %21 ], [ %0, %3 ]
-  invoke void @_ZN5ZXing7ContentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(54) %.021, ptr noundef nonnull align 8 dereferenceable(54) %.01220)
+  invoke void @_ZN5ZXing7ContentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(211) %.021, ptr noundef nonnull align 8 dereferenceable(211) %.01220)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %.lr.ph
   %4 = getelementptr inbounds i8, ptr %.021, i64 56
   %5 = getelementptr inbounds i8, ptr %.01220, i64 56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(43) %4, ptr noundef nonnull align 8 dereferenceable(43) %5)
           to label %6 unwind label %16
 
 6:                                                ; preds = %.noexc
@@ -648,12 +648,12 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN5ZXing6ResultEPS1_ET0
 18:                                               ; preds = %6
   %19 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %4) #11
   br label %20
 
 20:                                               ; preds = %18, %16
   %.pn.i.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  tail call void @_ZN5ZXing7ContentD2Ev(ptr noundef nonnull align 8 dereferenceable(54) %.021) #11
+  tail call void @_ZN5ZXing7ContentD2Ev(ptr noundef nonnull align 8 dereferenceable(211) %.021) #11
   br label %.body
 
 21:                                               ; preds = %6
@@ -715,7 +715,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN5ZXing6ResultEEvT_S3_(ptr noundef %0, 
   %3 = getelementptr inbounds i8, ptr %.05.i, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   %4 = getelementptr inbounds i8, ptr %.05.i, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %4) #11
   %5 = getelementptr inbounds i8, ptr %.05.i, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null

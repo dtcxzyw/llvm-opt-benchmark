@@ -836,7 +836,7 @@ _ZN5faiss24RemapDimensionsTransformC2ERKS0_.exit: ; preds = %.noexc4.i.thread, %
 
 37:                                               ; preds = %35
   %38 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23
-  invoke void @_ZN5faiss15LinearTransformC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %38, ptr noundef nonnull align 8 dereferenceable(73) %36)
+  invoke void @_ZN5faiss15LinearTransformC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 8 dereferenceable(120) %36)
           to label %_ZN5faiss9OPQMatrixC2ERKS0_.exit unwind label %41
 
 _ZN5faiss9OPQMatrixC2ERKS0_.exit:                 ; preds = %37
@@ -875,7 +875,7 @@ _ZN5faiss9OPQMatrixC2ERKS0_.exit:                 ; preds = %37
 
 51:                                               ; preds = %49
   %52 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
-  invoke void @_ZN5faiss15LinearTransformC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %52, ptr noundef nonnull align 8 dereferenceable(73) %50)
+  invoke void @_ZN5faiss15LinearTransformC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %52, ptr noundef nonnull align 8 dereferenceable(112) %50)
           to label %.noexc47 unwind label %79
 
 .noexc47:                                         ; preds = %51
@@ -932,7 +932,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %67
 74:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i46
   %75 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %52) #22
+  tail call void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %52) #22
   br label %.body
 
 _ZN5faiss9ITQMatrixC2ERKS0_.exit:                 ; preds = %.noexc5.i.thread, %70
@@ -1080,7 +1080,7 @@ define noundef ptr @_ZN5faiss6Cloner11clone_IndexEPKNS_5IndexE(ptr noundef nonnu
 
 21:                                               ; preds = %19
   %22 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
-  invoke void @_ZN5faiss11IndexFlatL2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %20)
+  invoke void @_ZN5faiss11IndexFlatL2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %20)
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %21
@@ -1138,7 +1138,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %38
 45:                                               ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #22
+  tail call void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(128) %22) #22
   br label %.body
 
 _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %41
@@ -2353,7 +2353,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -2658,7 +2658,7 @@ common.resume:                                    ; preds = %36, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #22
   br label %common.resume
 
 _ZN5faiss8IndexIVFC2ERKS0_.exit:                  ; preds = %2
@@ -2680,8 +2680,8 @@ _ZN5faiss8IndexIVFC2ERKS0_.exit:                  ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 504
   %26 = getelementptr inbounds i8, ptr %1, i64 504
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIfLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 16, i1 false)
+  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIfLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
           to label %28 unwind label %34
 
 28:                                               ; preds = %22
@@ -2740,7 +2740,7 @@ common.resume:                                    ; preds = %27, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #22
   br label %common.resume
 
 _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
@@ -2758,7 +2758,7 @@ _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 296), ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 280
   %23 = getelementptr inbounds i8, ptr %1, i64 280
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %22, ptr noundef nonnull align 8 dereferenceable(308) %23)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %22, ptr noundef nonnull align 8 dereferenceable(393) %23)
           to label %24 unwind label %27
 
 24:                                               ; preds = %_ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit
@@ -2807,7 +2807,7 @@ common.resume:                                    ; preds = %.body, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #22
   br label %common.resume
 
 _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
@@ -2825,7 +2825,7 @@ _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 296), ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 280
   %23 = getelementptr inbounds i8, ptr %1, i64 280
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %22, ptr noundef nonnull align 8 dereferenceable(308) %23)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %22, ptr noundef nonnull align 8 dereferenceable(344) %23)
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %_ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit
@@ -2885,7 +2885,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 49:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %22) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %22) #22
   br label %.body
 
 51:                                               ; preds = %48, %.noexc5.i.i
@@ -2937,7 +2937,7 @@ common.resume:                                    ; preds = %.body, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #22
   br label %common.resume
 
 _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
@@ -2955,7 +2955,7 @@ _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 296), ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 280
   %23 = getelementptr inbounds i8, ptr %1, i64 280
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %22, ptr noundef nonnull align 8 dereferenceable(308) %23)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %22, ptr noundef nonnull align 8 dereferenceable(344) %23)
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %_ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit
@@ -3015,7 +3015,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 49:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %22) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %22) #22
   br label %.body
 
 51:                                               ; preds = %48, %.noexc5.i.i
@@ -3067,7 +3067,7 @@ common.resume:                                    ; preds = %25, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #22
   br label %common.resume
 
 _ZN5faiss25IndexIVFAdditiveQuantizerC2ERKS0_.exit: ; preds = %2
@@ -3130,7 +3130,7 @@ common.resume:                                    ; preds = %29, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
   br label %common.resume
 
 _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -3153,7 +3153,7 @@ _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 352
   %25 = getelementptr inbounds i8, ptr %1, i64 352
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %24, ptr noundef nonnull align 8 dereferenceable(308) %25)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %24, ptr noundef nonnull align 8 dereferenceable(393) %25)
           to label %26 unwind label %29
 
 26:                                               ; preds = %_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit
@@ -3202,7 +3202,7 @@ common.resume:                                    ; preds = %.body, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
   br label %common.resume
 
 _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -3225,7 +3225,7 @@ _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 352
   %25 = getelementptr inbounds i8, ptr %1, i64 352
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %24, ptr noundef nonnull align 8 dereferenceable(308) %25)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %24, ptr noundef nonnull align 8 dereferenceable(344) %25)
           to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit
@@ -3285,7 +3285,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 51:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %24) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %24) #22
   br label %.body
 
 53:                                               ; preds = %50, %.noexc5.i.i
@@ -3337,7 +3337,7 @@ common.resume:                                    ; preds = %.body, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
   br label %common.resume
 
 _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -3360,7 +3360,7 @@ _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 352
   %25 = getelementptr inbounds i8, ptr %1, i64 352
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %24, ptr noundef nonnull align 8 dereferenceable(308) %25)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %24, ptr noundef nonnull align 8 dereferenceable(344) %25)
           to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit
@@ -3420,7 +3420,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 51:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %24) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %24) #22
   br label %.body
 
 53:                                               ; preds = %50, %.noexc5.i.i
@@ -3472,7 +3472,7 @@ common.resume:                                    ; preds = %27, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
   br label %common.resume
 
 _ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -3540,7 +3540,7 @@ common.resume:                                    ; preds = %39, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #22
   br label %common.resume
 
 _ZN5faiss16IndexIVFFastScanC2ERKS0_.exit:         ; preds = %2
@@ -3568,8 +3568,8 @@ _ZN5faiss16IndexIVFFastScanC2ERKS0_.exit:         ; preds = %2
   store i32 %27, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 544
   %29 = getelementptr inbounds i8, ptr %1, i64 544
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  %30 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIfLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 16, i1 false)
+  %30 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIfLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %31 unwind label %37
 
 31:                                               ; preds = %24
@@ -3629,7 +3629,7 @@ common.resume:                                    ; preds = %34, %15
   %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #22
   br label %common.resume
 
 _ZN5faiss12IndexIVFFlatC2ERKS0_.exit:             ; preds = %2
@@ -3702,7 +3702,7 @@ define linkonce_odr void @_ZN5faiss12IndexIVFFlatC2ERKS0_(ptr noundef nonnull al
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #22
   resume { ptr, i32 } %15
 
 _ZN5faiss8IndexIVFC2ERKS0_.exit:                  ; preds = %2
@@ -3748,7 +3748,7 @@ common.resume:                                    ; preds = %46, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #22
   br label %common.resume
 
 _ZN5faiss8IndexIVFC2ERKS0_.exit:                  ; preds = %2
@@ -3854,7 +3854,7 @@ common.resume:                                    ; preds = %49, %14
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss15Level1QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #22
   br label %common.resume
 
 _ZN5faiss8IndexIVFC2ERKS0_.exit:                  ; preds = %2
@@ -4860,7 +4860,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i26: ; preds = %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %80, ptr noundef nonnull align 8 dereferenceable(27) %81, i64 27, i1 false)
   %82 = getelementptr inbounds i8, ptr %0, i64 136
   %83 = getelementptr inbounds i8, ptr %1, i64 136
-  invoke void @_ZN5faiss11IndexFlatL2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %82, ptr noundef nonnull align 8 dereferenceable(96) %83)
+  invoke void @_ZN5faiss11IndexFlatL2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %82, ptr noundef nonnull align 8 dereferenceable(128) %83)
           to label %.noexc32 unwind label %144
 
 .noexc32:                                         ; preds = %78
@@ -4921,7 +4921,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %97
 110:                                              ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %111 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(96) %82) #22
+  tail call void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(128) %82) #22
   br label %.body
 
 112:                                              ; preds = %109, %.noexc5.i
@@ -5073,7 +5073,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIlS
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %10
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #22
   ret void
 }
 
@@ -5101,7 +5101,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -5118,7 +5118,7 @@ define linkonce_odr void @_ZN5faiss9IndexFlatD2Ev(ptr noundef nonnull align 8 de
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -5344,7 +5344,7 @@ define linkonce_odr void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanD0Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5426,7 +5426,7 @@ define linkonce_odr void @_ZThn40_N5faiss36IndexIVFLocalSearchQuantizerFastScanD
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %2) #22
   ret void
 }
 
@@ -5437,8 +5437,8 @@ define linkonce_odr void @_ZThn40_N5faiss36IndexIVFLocalSearchQuantizerFastScanD
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(752) %2) #25
   ret void
 }
 
@@ -5463,7 +5463,7 @@ define linkonce_odr void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScan
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5475,7 +5475,7 @@ define linkonce_odr void @_ZThn40_N5faiss43IndexIVFProductLocalSearchQuantizerFa
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #22
   ret void
 }
 
@@ -5486,8 +5486,8 @@ define linkonce_odr void @_ZThn40_N5faiss43IndexIVFProductLocalSearchQuantizerFa
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(696) %2) #25
   ret void
 }
 
@@ -5509,7 +5509,7 @@ define linkonce_odr void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanD0E
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5521,7 +5521,7 @@ define linkonce_odr void @_ZThn40_N5faiss40IndexIVFProductResidualQuantizerFastS
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #22
   ret void
 }
 
@@ -5532,8 +5532,8 @@ define linkonce_odr void @_ZThn40_N5faiss40IndexIVFProductResidualQuantizerFastS
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(696) %2) #25
   ret void
 }
 
@@ -5564,7 +5564,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %6, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #22
   tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
   ret void
 }
@@ -5596,8 +5596,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %6, %1
   br label %_ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit
 
 _ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5629,8 +5629,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %6, %1
   br label %_ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit
 
 _ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %2) #22
   ret void
 }
 
@@ -5661,9 +5661,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %6, %1
   br label %_ZN5faiss33IndexIVFResidualQuantizerFastScanD0Ev.exit
 
 _ZN5faiss33IndexIVFResidualQuantizerFastScanD0Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #22
-  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #22
+  tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(784) %2) #25
   ret void
 }
 
@@ -6006,7 +6006,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %28
 .body:                                            ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #22
   tail call void @_ZdlPv(ptr noundef nonnull %12) #25
   br label %48
 
@@ -6128,7 +6128,7 @@ common.resume:                                    ; preds = %46, %30
 30:                                               ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   br label %common.resume
 
 _ZN5faiss18IndexIDMapTemplateINS_5IndexEEC2ERKS2_.exit: ; preds = %.noexc5.i, %29
@@ -6242,7 +6242,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %_ZN5faiss19IndexIDMap2TemplateINS_5IndexEED2Ev.exit
 
 _ZN5faiss19IndexIDMap2TemplateINS_5IndexEED2Ev.exit: ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %13
-  tail call void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
+  tail call void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -6317,7 +6317,7 @@ define noundef nonnull ptr @_ZN5faiss15clone_IndexHNSWEPKNS_9IndexHNSWE(ptr noun
 .body:                                            ; preds = %7
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %8) #22
   tail call void @_ZdlPv(ptr noundef nonnull %8) #25
   br label %61
 
@@ -6347,7 +6347,7 @@ _ZN5faiss15IndexHNSW2LevelC2ERKS0_.exit:          ; preds = %7
 .body36:                                          ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %19) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %19) #22
   tail call void @_ZdlPv(ptr noundef nonnull %19) #25
   br label %61
 
@@ -6377,7 +6377,7 @@ _ZN5faiss13IndexHNSWFlatC2ERKS0_.exit:            ; preds = %18
 .body38:                                          ; preds = %29
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %30) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %30) #22
   tail call void @_ZdlPv(ptr noundef nonnull %30) #25
   br label %61
 
@@ -6407,7 +6407,7 @@ _ZN5faiss11IndexHNSWPQC2ERKS0_.exit:              ; preds = %29
 .body40:                                          ; preds = %41
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %40) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %40) #22
   tail call void @_ZdlPv(ptr noundef nonnull %40) #25
   br label %61
 
@@ -6954,7 +6954,7 @@ define linkonce_odr void @_ZN5faiss14IndexNNDescentC2ERKS0_(ptr noundef nonnull 
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexNNDescentE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 40, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = getelementptr inbounds i8, ptr %1, i64 80
   invoke void @_ZNSt6vectorIN5faiss9nndescent5NhoodESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -7326,7 +7326,7 @@ define noalias noundef nonnull ptr @_ZN5faiss14clone_IndexNSGEPKNS_8IndexNSGE(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 40
   %12 = getelementptr inbounds i8, ptr %6, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5048) %11, ptr noundef nonnull align 8 dereferenceable(5048) %12, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %8, i64 64
   %14 = getelementptr inbounds i8, ptr %6, i64 64
   %15 = load ptr, ptr %14, align 8
@@ -7377,7 +7377,7 @@ _ZN5faiss12IndexNSGFlatC2ERKS0_.exit:             ; preds = %7, %22, %25
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 40
   %38 = getelementptr inbounds i8, ptr %32, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5048) %37, ptr noundef nonnull align 8 dereferenceable(5048) %38, i64 24, i1 false)
   %39 = getelementptr inbounds i8, ptr %34, i64 64
   %40 = getelementptr inbounds i8, ptr %32, i64 64
   %41 = load ptr, ptr %40, align 8
@@ -7430,7 +7430,7 @@ _ZN5faiss10IndexNSGPQC2ERKS0_.exit:               ; preds = %33, %48, %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %60, ptr noundef nonnull align 8 dereferenceable(28) %65, i64 28, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %59, align 8
   %66 = getelementptr inbounds i8, ptr %58, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5048) %61, ptr noundef nonnull align 8 dereferenceable(5048) %66, i64 24, i1 false)
   %67 = getelementptr inbounds i8, ptr %58, i64 64
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %62, align 8
@@ -7471,7 +7471,7 @@ _ZN5faiss10IndexNSGSQC2ERKS0_.exit:               ; preds = %64, %74, %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %60, ptr noundef nonnull align 8 dereferenceable(28) %84, i64 28, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %59, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5048) %61, ptr noundef nonnull align 8 dereferenceable(5048) %85, i64 24, i1 false)
   %86 = getelementptr inbounds i8, ptr %0, i64 64
   %87 = load ptr, ptr %86, align 8
   store ptr %87, ptr %62, align 8
@@ -8019,7 +8019,7 @@ define noundef nonnull ptr @_ZN5faiss15clone_QuantizerEPKNS_9QuantizerE(ptr noun
 
 13:                                               ; preds = %11
   %14 = tail call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #23
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %14, ptr noundef nonnull align 8 dereferenceable(308) %12)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %14, ptr noundef nonnull align 8 dereferenceable(393) %12)
           to label %_ZN5faiss20LocalSearchQuantizerC2ERKS0_.exit unwind label %17
 
 _ZN5faiss20LocalSearchQuantizerC2ERKS0_.exit:     ; preds = %13
@@ -8445,7 +8445,7 @@ common.resume:                                    ; preds = %38, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   br label %common.resume
 
 _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
@@ -8537,7 +8537,7 @@ common.resume:                                    ; preds = %.body, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   br label %common.resume
 
 _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
@@ -8551,7 +8551,7 @@ _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 80
   %36 = getelementptr inbounds i8, ptr %1, i64 80
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %35, ptr noundef nonnull align 8 dereferenceable(308) %36)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %35, ptr noundef nonnull align 8 dereferenceable(344) %36)
           to label %.noexc unwind label %66
 
 .noexc:                                           ; preds = %_ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit
@@ -8611,7 +8611,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 62:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i7
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %35) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %35) #22
   br label %.body
 
 64:                                               ; preds = %61, %.noexc5.i.i5
@@ -8696,7 +8696,7 @@ common.resume:                                    ; preds = %40, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   br label %common.resume
 
 _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
@@ -8710,7 +8710,7 @@ _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 80
   %36 = getelementptr inbounds i8, ptr %1, i64 80
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %35, ptr noundef nonnull align 8 dereferenceable(308) %36)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %35, ptr noundef nonnull align 8 dereferenceable(393) %36)
           to label %37 unwind label %40
 
 37:                                               ; preds = %_ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit
@@ -8792,7 +8792,7 @@ common.resume:                                    ; preds = %.body, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   br label %common.resume
 
 _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
@@ -8806,7 +8806,7 @@ _ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit:   ; preds = %.noexc5.i.i, %28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 80
   %36 = getelementptr inbounds i8, ptr %1, i64 80
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %35, ptr noundef nonnull align 8 dereferenceable(308) %36)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %35, ptr noundef nonnull align 8 dereferenceable(344) %36)
           to label %.noexc unwind label %66
 
 .noexc:                                           ; preds = %_ZN5faiss22IndexAdditiveQuantizerC2ERKS0_.exit
@@ -8866,7 +8866,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 62:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i7
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %35) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %35) #22
   br label %.body
 
 64:                                               ; preds = %61, %.noexc5.i.i5
@@ -8898,8 +8898,8 @@ define linkonce_odr void @_ZN5faiss30IndexResidualQuantizerFastScanC2ERKS0_(ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit unwind label %10
 
 common.resume:                                    ; preds = %23, %10
@@ -8909,7 +8909,7 @@ common.resume:                                    ; preds = %23, %10
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
   br label %common.resume
 
 _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -8953,8 +8953,8 @@ define linkonce_odr void @_ZN5faiss33IndexLocalSearchQuantizerFastScanC2ERKS0_(p
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit unwind label %10
 
 common.resume:                                    ; preds = %25, %10
@@ -8964,7 +8964,7 @@ common.resume:                                    ; preds = %25, %10
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
   br label %common.resume
 
 _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -8983,7 +8983,7 @@ _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss33IndexLocalSearchQuantizerFastScanE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 160
   %21 = getelementptr inbounds i8, ptr %1, i64 160
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %20, ptr noundef nonnull align 8 dereferenceable(308) %21)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %20, ptr noundef nonnull align 8 dereferenceable(393) %21)
           to label %22 unwind label %25
 
 22:                                               ; preds = %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit
@@ -9012,8 +9012,8 @@ define linkonce_odr void @_ZN5faiss37IndexProductResidualQuantizerFastScanC2ERKS
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit unwind label %10
 
 common.resume:                                    ; preds = %.body, %10
@@ -9023,7 +9023,7 @@ common.resume:                                    ; preds = %.body, %10
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
   br label %common.resume
 
 _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -9042,7 +9042,7 @@ _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss37IndexProductResidualQuantizerFastScanE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 160
   %21 = getelementptr inbounds i8, ptr %1, i64 160
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %20, ptr noundef nonnull align 8 dereferenceable(308) %21)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %20, ptr noundef nonnull align 8 dereferenceable(344) %21)
           to label %.noexc unwind label %51
 
 .noexc:                                           ; preds = %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit
@@ -9102,7 +9102,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %48 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %20) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %20) #22
   br label %.body
 
 49:                                               ; preds = %46, %.noexc5.i.i
@@ -9134,8 +9134,8 @@ define linkonce_odr void @_ZN5faiss40IndexProductLocalSearchQuantizerFastScanC2E
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit unwind label %10
 
 common.resume:                                    ; preds = %.body, %10
@@ -9145,7 +9145,7 @@ common.resume:                                    ; preds = %.body, %10
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
   br label %common.resume
 
 _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
@@ -9164,7 +9164,7 @@ _ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit: ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexProductLocalSearchQuantizerFastScanE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 160
   %21 = getelementptr inbounds i8, ptr %1, i64 160
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %20, ptr noundef nonnull align 8 dereferenceable(308) %21)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %20, ptr noundef nonnull align 8 dereferenceable(344) %21)
           to label %.noexc unwind label %51
 
 .noexc:                                           ; preds = %_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKS0_.exit
@@ -9224,7 +9224,7 @@ _ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIPN5faiss17AdditiveQuantizerEEE8allocateERS3_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %48 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %20) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %20) #22
   br label %.body
 
 49:                                               ; preds = %46, %.noexc5.i.i
@@ -9310,7 +9310,7 @@ common.resume:                                    ; preds = %39, %30
 30:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss23AdditiveCoarseQuantizerC2ERKS0_.exit:  ; preds = %.noexc5.i, %29
@@ -9402,7 +9402,7 @@ common.resume:                                    ; preds = %38, %30
 30:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss23AdditiveCoarseQuantizerC2ERKS0_.exit:  ; preds = %.noexc5.i, %29
@@ -9411,7 +9411,7 @@ _ZN5faiss23AdditiveCoarseQuantizerC2ERKS0_.exit:  ; preds = %.noexc5.i, %29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss26LocalSearchCoarseQuantizerE, i64 16), ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 72
   %34 = getelementptr inbounds i8, ptr %1, i64 72
-  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(308) %33, ptr noundef nonnull align 8 dereferenceable(308) %34)
+  invoke void @_ZN5faiss17AdditiveQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %33, ptr noundef nonnull align 8 dereferenceable(393) %34)
           to label %35 unwind label %38
 
 35:                                               ; preds = %_ZN5faiss23AdditiveCoarseQuantizerC2ERKS0_.exit
@@ -9441,7 +9441,7 @@ define linkonce_odr void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonn
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -9473,7 +9473,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %8
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %2) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
   ret void
 }
@@ -9503,8 +9503,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
   br label %_ZN5faiss30IndexResidualQuantizerFastScanD2Ev.exit
 
 _ZN5faiss30IndexResidualQuantizerFastScanD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %8
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %2) #22
-  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
+  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9612,7 +9612,7 @@ define linkonce_odr void @_ZN5faiss33IndexLocalSearchQuantizerFastScanD0Ev(ptr n
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss33IndexLocalSearchQuantizerFastScanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %2) #22
-  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
+  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9631,7 +9631,7 @@ define linkonce_odr void @_ZN5faiss37IndexProductResidualQuantizerFastScanD0Ev(p
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss37IndexProductResidualQuantizerFastScanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #22
-  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
+  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9650,7 +9650,7 @@ define linkonce_odr void @_ZN5faiss40IndexProductLocalSearchQuantizerFastScanD0E
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexProductLocalSearchQuantizerFastScanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #22
-  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #22
+  tail call void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9688,7 +9688,7 @@ define linkonce_odr void @_ZN5faiss26LocalSearchCoarseQuantizerD2Ev(ptr noundef 
   br label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit
 
 _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -9708,7 +9708,7 @@ define linkonce_odr void @_ZN5faiss26LocalSearchCoarseQuantizerD0Ev(ptr noundef 
   br label %_ZN5faiss26LocalSearchCoarseQuantizerD2Ev.exit
 
 _ZN5faiss26LocalSearchCoarseQuantizerD2Ev.exit:   ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9788,7 +9788,7 @@ common.resume:                                    ; preds = %51, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss14IndexFlatCodesC2ERKS0_.exit:           ; preds = %.noexc5.i, %28
@@ -9808,7 +9808,7 @@ _ZN5faiss14IndexFlatCodesC2ERKS0_.exit:           ; preds = %.noexc5.i, %28
   store i8 %38, ptr %35, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 288
   %40 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %40, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(96) %40, i64 40, i1 false)
   %41 = getelementptr inbounds i8, ptr %0, i64 324
   %42 = getelementptr inbounds i8, ptr %1, i64 324
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %41, ptr noundef nonnull align 4 dereferenceable(28) %42, i64 28, i1 false)
@@ -9905,7 +9905,7 @@ common.resume:                                    ; preds = %65, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss14IndexFlatCodesC2ERKS0_.exit:           ; preds = %.noexc5.i, %28
@@ -10057,7 +10057,7 @@ common.resume:                                    ; preds = %56, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss9IndexFlatC2ERKS0_.exit:                 ; preds = %.noexc5.i.i, %28
@@ -10185,7 +10185,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %16
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   resume { ptr, i32 } %30
 
 _ZN5faiss9IndexFlatC2ERKS0_.exit:                 ; preds = %.noexc5.i.i, %28
@@ -10256,7 +10256,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %16
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   resume { ptr, i32 } %30
 
 _ZN5faiss14IndexFlatCodesC2ERKS0_.exit:           ; preds = %.noexc5.i, %28
@@ -10278,7 +10278,7 @@ define linkonce_odr void @_ZN5faiss12IndexLatticeC2ERKS0_(ptr noundef nonnull al
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = getelementptr inbounds i8, ptr %1, i64 48
-  invoke void @_ZN5faiss13ZnSphereCodecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %8)
+  invoke void @_ZN5faiss13ZnSphereCodecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %7, ptr noundef nonnull align 8 dereferenceable(224) %8)
           to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %2
@@ -10296,7 +10296,7 @@ define linkonce_odr void @_ZN5faiss12IndexLatticeC2ERKS0_(ptr noundef nonnull al
 15:                                               ; preds = %.noexc
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss13ZnSphereCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #22
+  tail call void @_ZN5faiss13ZnSphereCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %7) #22
   br label %.body
 
 _ZN5faiss16ZnSphereCodecAltC2ERKS0_.exit:         ; preds = %.noexc
@@ -10385,8 +10385,8 @@ define linkonce_odr void @_ZN5faiss15IndexPQFastScanC2ERKS0_(ptr noundef nonnull
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN5faiss13IndexFastScanC2ERKS0_.exit unwind label %10
 
 common.resume:                                    ; preds = %21, %10
@@ -10396,7 +10396,7 @@ common.resume:                                    ; preds = %21, %10
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
   br label %common.resume
 
 _ZN5faiss13IndexFastScanC2ERKS0_.exit:            ; preds = %2
@@ -10489,7 +10489,7 @@ common.resume:                                    ; preds = %61, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss14IndexFlatCodesC2ERKS0_.exit:           ; preds = %.noexc5.i, %28
@@ -11109,7 +11109,7 @@ common.resume:                                    ; preds = %39, %29
 29:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   br label %common.resume
 
 _ZN5faiss14IndexFlatCodesC2ERKS0_.exit:           ; preds = %.noexc5.i, %28
@@ -11194,7 +11194,7 @@ define linkonce_odr void @_ZN5faiss11IndexFlatIPD2Ev(ptr noundef nonnull align 8
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   ret void
 }
 
@@ -11211,7 +11211,7 @@ define linkonce_odr void @_ZN5faiss11IndexFlatIPD0Ev(ptr noundef nonnull align 8
   br label %_ZN5faiss11IndexFlatIPD2Ev.exit
 
 _ZN5faiss11IndexFlatIPD2Ev.exit:                  ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #22
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -11369,7 +11369,7 @@ _ZN5faiss13ZnSphereCodecD2Ev.exit:                ; preds = %_ZNSt6vectorIN5fais
 define linkonce_odr void @_ZN5faiss13ZnSphereCodecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = getelementptr inbounds i8, ptr %1, i64 48
@@ -12588,8 +12588,8 @@ _ZNSt16allocator_traitsISaIN5faiss12AlignedTableIhLi32EEEEE8allocateERS3_m.exit.
 .lr.ph.i.i.i.i:                                   ; preds = %13, %21
   %.014.i.i.i.i = phi ptr [ %26, %21 ], [ %14, %13 ]
   %.sroa.08.013.i.i.i.i = phi ptr [ %25, %21 ], [ %18, %13 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.014.i.i.i.i, i8 0, i64 16, i1 false)
-  %20 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.013.i.i.i.i)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i.i.i, i8 0, i64 16, i1 false)
+  %20 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22AlignedTableTightAllocIhLi32EEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.013.i.i.i.i)
           to label %21 unwind label %27
 
 21:                                               ; preds = %.lr.ph.i.i.i.i
@@ -12840,7 +12840,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %22
 .body:                                            ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
+  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %8) #22
   tail call void @_ZdlPv(ptr noundef nonnull %8) #25
   br label %42
 

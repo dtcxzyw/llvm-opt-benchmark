@@ -2280,7 +2280,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %57, %84, %95
   br i1 %.not.i151, label %205, label %203
 
 203:                                              ; preds = %200
-  %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 25, ptr noundef nonnull @.str.31, i64 noundef %199) #14
+  %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 25, ptr noundef nonnull @.str.31, i64 noundef range(i64 1, 0) %199) #14
   br label %hwloc_memory_size_snprintf.exit
 
 205:                                              ; preds = %200

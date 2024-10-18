@@ -77,7 +77,7 @@ define noundef i32 @_ZN3egg9unionfind9UnionFind8make_set17h4dc0d3e9e7b3af7dE(ptr
   br i1 %5, label %6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa9aa4e8e4bd2a75E.exit"
 
 6:                                                ; preds = %1
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5539cc0d58ba758E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5539cc0d58ba758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa9aa4e8e4bd2a75E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa9aa4e8e4bd2a75E.exit": ; preds = %1, %6
@@ -211,7 +211,7 @@ define { ptr, i64 } @"_ZN94_$LT$alloc..boxed..Box$LT$$u5b$egg..Id$u5d$$GT$$u20$a
   br i1 %5, label %6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h97399eeb5e04e39bE.exit"
 
 6:                                                ; preds = %1
-  %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h4960bac15fea03a0E.llvm.14841418887450666567"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h4960bac15fea03a0E.llvm.14841418887450666567"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4)
           to label %.noexc.i unwind label %13
 
 .noexc.i:                                         ; preds = %6

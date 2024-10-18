@@ -1914,7 +1914,7 @@ for.body.i.i:                                     ; preds = %finalize_garbage.ex
   br i1 %cmp.not.i.i198, label %gc_list_clear_collecting.exit.i, label %for.body.i.i, !llvm.loop !21
 
 gc_list_clear_collecting.exit.i:                  ; preds = %for.body.i.i, %finalize_garbage.exit.thread, %finalize_garbage.exit
-  call fastcc void @deduce_unreachable(ptr noundef nonnull %unreachable, ptr noundef %final_unreachable)
+  call fastcc void @deduce_unreachable(ptr noundef nonnull %unreachable, ptr noundef nonnull %final_unreachable)
   %unreachable.val.i.i = load i64, ptr %final_unreachable, align 8
   %gc.04.i.i = inttoptr i64 %unreachable.val.i.i to ptr
   %cmp.not5.i.i = icmp eq ptr %final_unreachable, %gc.04.i.i

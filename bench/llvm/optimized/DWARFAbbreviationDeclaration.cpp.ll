@@ -158,7 +158,7 @@ _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exi
 define dso_local void @_ZN4llvm28DWARFAbbreviationDeclarationC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3, i64 noundef 8) #10
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %3, i64 noundef 8) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 158
   store i8 0, ptr %4, align 2
   store i64 0, ptr %0, align 8
@@ -1080,7 +1080,7 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValu
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 0, ptr %21, align 2
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   call void @_ZNK4llvm9DWARFUnit21getDebugInfoExtractorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFDataExtractor") align 8 %9, ptr noundef nonnull align 8 dereferenceable(448) %4) #10
@@ -1091,7 +1091,7 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValu
 
 .sink.split:                                      ; preds = %20, %17
   %.sink10 = phi ptr [ %7, %17 ], [ %8, %20 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink10, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink10, i64 48, i1 false)
   br label %26
 
 26:                                               ; preds = %.sink.split, %20
@@ -1242,18 +1242,18 @@ _ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWA
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 0, ptr %67, align 2, !noalias !54
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false), !noalias !54
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 16, i1 false), !noalias !54
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false), !noalias !54
   call void @_ZNK4llvm9DWARFUnit21getDebugInfoExtractorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFDataExtractor") align 8 %9, ptr noundef nonnull align 8 dereferenceable(448) %4) #10, !noalias !54
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.0.0.copyload.i8 = load i48, ptr %70, align 8, !noalias !54
-  %71 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPmNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload.i8, ptr noundef null, ptr noundef nonnull %4) #10, !noalias !54
+  %71 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPmNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload.i8, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(448) %4) #10, !noalias !54
   br i1 %71, label %.sink.split.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit
 
 .sink.split.i:                                    ; preds = %66, %63
   %.sink10.i = phi ptr [ %7, %63 ], [ %8, %66 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink10.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink10.i, i64 48, i1 false)
   br label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit
 
 _ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit: ; preds = %66, %.sink.split.i

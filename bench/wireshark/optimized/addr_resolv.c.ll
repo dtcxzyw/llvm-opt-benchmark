@@ -3675,7 +3675,7 @@ parse_vlan_line.exit.i.i.i:                       ; preds = %42, %39, %36
 
 54:                                               ; preds = %52, %.split.i.i, %.split.thread15.i.i, %set_vlanent.exit.i.i
   %55 = getelementptr inbounds i8, ptr %15, i64 4
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 128, ptr noundef nonnull @.str.77, i32 noundef %7) #20
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 128, ptr noundef nonnull @.str.77, i32 noundef range(i32 0, 65536) %7) #20
   br label %vlan_name_lookup.exit
 
 get_vlannamebyid.exit.i:                          ; preds = %49
@@ -6071,7 +6071,7 @@ parse_ether_address_fast.exit.i:                  ; preds = %.sink.split.sink.sp
   br label %161
 
 159:                                              ; preds = %154, %142, %136, %133, %130, %84, %82, %30, %27, %24
-  %160 = call fastcc i32 @parse_ether_address(ptr noundef nonnull %22, ptr noundef nonnull @get_ethent.eth, ptr noundef %0, i32 noundef %1)
+  %160 = call fastcc i32 @parse_ether_address(ptr noundef nonnull %22, ptr noundef nonnull @get_ethent.eth, ptr noundef %0, i32 noundef range(i32 0, 2) %1)
   %.not27.i = icmp eq i32 %160, 0
   br i1 %.not27.i, label %parse_ether_line.exit, label %161
 

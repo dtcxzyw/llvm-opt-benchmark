@@ -217,16 +217,16 @@ _ZNK6HandleclEv.exit:                             ; preds = %5, %15
   br i1 %.not.i, label %27, label %25
 
 25:                                               ; preds = %19
-  %26 = tail call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef %18, ptr noundef nonnull %22) #5
+  %26 = tail call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(88) %22) #5
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 27:                                               ; preds = %19
-  %28 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %22, ptr noundef %18) #5
+  %28 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef %18) #5
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 30:                                               ; preds = %27
-  %31 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %22, ptr noundef %18, i1 noundef zeroext true) #5
+  %31 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef %18, i1 noundef zeroext true) #5
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %25, %27, %30

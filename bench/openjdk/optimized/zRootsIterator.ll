@@ -651,7 +651,7 @@ define hidden void @_ZN27ZRootsIteratorStrongColored5applyEP10OopClosureP10CLDCl
   br i1 %8, label %_ZN14ZParallelApplyI28ZOopStorageSetIteratorStrongE5applyI10OopClosureEEvPT_.exit, label %9
 
 9:                                                ; preds = %3
-  tail call void @_ZN28ZOopStorageSetIteratorStrong5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %1)
+  tail call void @_ZN28ZOopStorageSetIteratorStrong5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1)
   %10 = load volatile i8, ptr %6, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %_ZN14ZParallelApplyI28ZOopStorageSetIteratorStrongE5applyI10OopClosureEEvPT_.exit, label %12
@@ -737,7 +737,7 @@ define hidden void @_ZN29ZRootsIteratorStrongUncolored5applyEP13ThreadClosureP14
   br i1 %8, label %_ZN14ZParallelApplyI20ZJavaThreadsIteratorE5applyI13ThreadClosureEEvPT_.exit, label %9
 
 9:                                                ; preds = %3
-  tail call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(61) %0, ptr noundef %1)
+  tail call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
   %10 = load volatile i8, ptr %6, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %_ZN14ZParallelApplyI20ZJavaThreadsIteratorE5applyI13ThreadClosureEEvPT_.exit, label %12
@@ -1159,7 +1159,7 @@ define hidden void @_ZN25ZRootsIteratorWeakColored5applyEP10OopClosure(ptr nound
   br label %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit.i.i
 
 _ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit.i.i: ; preds = %16, %8
-  call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef %1)
+  call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(577) %0, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %19 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %19, null
@@ -1206,7 +1206,7 @@ define hidden void @_ZN24ZRootsIteratorAllColored5applyEP10OopClosureP10CLDClosu
   br i1 %10, label %_ZN14ZParallelApplyI28ZOopStorageSetIteratorStrongE5applyI10OopClosureEEvPT_.exit, label %11
 
 11:                                               ; preds = %3
-  tail call void @_ZN28ZOopStorageSetIteratorStrong5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %1)
+  tail call void @_ZN28ZOopStorageSetIteratorStrong5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1)
   %12 = load volatile i8, ptr %8, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN14ZParallelApplyI28ZOopStorageSetIteratorStrongE5applyI10OopClosureEEvPT_.exit, label %14
@@ -1248,7 +1248,7 @@ _ZN14ZParallelApplyI28ZOopStorageSetIteratorStrongE5applyI10OopClosureEEvPT_.exi
   br label %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit.i.i
 
 _ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit.i.i: ; preds = %27, %19
-  call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %15, ptr noundef %1)
+  call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(577) %15, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %30 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %30, null
@@ -1356,7 +1356,7 @@ define hidden void @_ZN26ZRootsIteratorAllUncolored5applyEP13ThreadClosureP14NMe
   br i1 %8, label %_ZN14ZParallelApplyI20ZJavaThreadsIteratorE5applyI13ThreadClosureEEvPT_.exit, label %9
 
 9:                                                ; preds = %3
-  tail call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(61) %0, ptr noundef %1)
+  tail call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1)
   %10 = load volatile i8, ptr %6, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %_ZN14ZParallelApplyI20ZJavaThreadsIteratorE5applyI13ThreadClosureEEvPT_.exit, label %12
@@ -1994,7 +1994,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #7, !srcloc !16
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #7, !srcloc !16
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 

@@ -699,7 +699,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %.val = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.206) #3
   %197 = load i32, ptr @hf_dec_rt_src_node, align 4
-  %198 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %197, ptr noundef %0, i32 noundef %195, i32 noundef 2, i32 noundef -2147483648) #3
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %197, ptr noundef %0, i32 noundef range(i32 3, 131) %195, i32 noundef 2, i32 noundef -2147483648) #3
   %199 = add nuw nsw i32 %.0176, 3
   %200 = load i32, ptr @hf_dec_rt_tiinfo, align 4
   %201 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %200, ptr noundef %0, i32 noundef %199, i32 noundef 2, i32 noundef -2147483648) #3
@@ -735,7 +735,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %.val184 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val184, i32 noundef 25, ptr noundef nonnull @.str.208) #3
   %226 = load i32, ptr @hf_dec_rt_src_node, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %226, ptr noundef %0, i32 noundef %195, i32 noundef 2, i32 noundef -2147483648) #3
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %226, ptr noundef %0, i32 noundef range(i32 3, 131) %195, i32 noundef 2, i32 noundef -2147483648) #3
   %228 = add nuw nsw i32 %.0176, 3
   %229 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %228) #3
   %.not.i202 = icmp eq i8 %229, 0
@@ -751,7 +751,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %.val185 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val185, i32 noundef 25, ptr noundef nonnull @.str.209) #3
   %235 = load i32, ptr @hf_dec_rt_src_node, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %235, ptr noundef %0, i32 noundef %195, i32 noundef 2, i32 noundef -2147483648) #3
+  %236 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %235, ptr noundef %0, i32 noundef range(i32 3, 131) %195, i32 noundef 2, i32 noundef -2147483648) #3
   %237 = add nuw nsw i32 %.0176, 3
   %238 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %237) #3
   %.not.i204 = icmp eq i32 %238, 0
@@ -764,7 +764,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
 
 242:                                              ; preds = %183, %183
   %243 = load i32, ptr @hf_dec_rt_src_node, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %243, ptr noundef %0, i32 noundef %195, i32 noundef 2, i32 noundef -2147483648) #3
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %243, ptr noundef %0, i32 noundef range(i32 3, 131) %195, i32 noundef 2, i32 noundef -2147483648) #3
   %245 = add nuw nsw i32 %.0176, 4
   %246 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %245) #3
   %247 = icmp eq i32 %184, 3
@@ -849,7 +849,7 @@ do_routing_msg.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %handle_nsp_msg.exit
 
 296:                                              ; preds = %183, %183
-  %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %195) #3
+  %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 3, 131) %195) #3
   %298 = add nuw nsw i32 %.0176, 2
   %299 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %298) #3
   %300 = add nuw nsw i32 %.0176, 3
@@ -858,7 +858,7 @@ do_routing_msg.exit:                              ; preds = %.lr.ph.i, %.prehead
   %303 = zext i8 %297 to i32
   %304 = zext i8 %299 to i32
   %305 = zext i8 %301 to i32
-  %306 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %194, i32 noundef %302, ptr noundef %0, i32 noundef %195, i32 noundef 3, ptr noundef nonnull @.str.214, i32 noundef %303, i32 noundef %304, i32 noundef %305) #3
+  %306 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %194, i32 noundef %302, ptr noundef %0, i32 noundef range(i32 3, 131) %195, i32 noundef 3, ptr noundef nonnull @.str.214, i32 noundef %303, i32 noundef %304, i32 noundef %305) #3
   %307 = add nuw nsw i32 %.0176, 4
   %308 = load i32, ptr @hf_dec_rt_id, align 4
   %309 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %308, ptr noundef %0, i32 noundef %307, i32 noundef 6, i32 noundef 0) #3

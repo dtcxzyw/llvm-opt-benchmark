@@ -371,7 +371,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %._crit_
   br i1 %95, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %92
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0198, i32 noundef %93) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0198, i32 noundef range(i32 -32767, 32768) %93) #8
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %92
@@ -1056,12 +1056,12 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %321, %325, %307, %.
   br label %481
 
 .thread248.i:                                     ; preds = %419
-  call fastcc void @ExecInitRoutingInfo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef %.0100197, ptr noundef nonnull %401, i32 noundef %.0.i128155, i1 noundef zeroext false)
+  call fastcc void @ExecInitRoutingInfo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %.0100197, ptr noundef nonnull %401, i32 noundef range(i32 0, -2147483648) %.0.i128155, i1 noundef zeroext false)
   br label %629
 
 481:                                              ; preds = %468, %.thread253.i, %._crit_edge293.i
   %.1.ph.i = phi ptr [ null, %.thread253.i ], [ %430, %._crit_edge293.i ], [ %.2.i, %468 ]
-  call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef %.0100197, ptr noundef nonnull %401, i32 noundef %.0.i128155, i1 noundef zeroext false)
+  call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %.0100197, ptr noundef nonnull %401, i32 noundef range(i32 0, -2147483648) %.0.i128155, i1 noundef zeroext false)
   %482 = getelementptr inbounds i8, ptr %387, i64 188
   %483 = load i32, ptr %482, align 4
   %.not230.i = icmp eq i32 %483, 0

@@ -110,17 +110,17 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr nocapture nound
 
 12:                                               ; preds = %10
   %13 = sext i32 %1 to i64
-  %14 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef %8, i64 noundef %13, i64 noundef 4)
+  %14 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4)
   br label %.loopexit.sink.split
 
 15:                                               ; preds = %10
   %16 = sext i32 %1 to i64
-  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 89, ptr noundef %8, i64 noundef %16, i64 noundef 4)
+  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 89, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %16, i64 noundef 4)
   br label %.loopexit.sink.split
 
 18:                                               ; preds = %10
   %19 = sext i32 %1 to i64
-  %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef %8, i64 noundef %19, i64 noundef 8)
+  %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
   store ptr %20, ptr %7, align 8
   %21 = load i32, ptr %3, align 8
   %22 = icmp slt i32 %21, %1
@@ -198,7 +198,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr nocapture nound
 
 49:                                               ; preds = %10
   %50 = sext i32 %1 to i64
-  %51 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef %50, i64 noundef 24)
+  %51 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %50, i64 noundef 24)
   store ptr %51, ptr %7, align 8
   %52 = load i32, ptr %3, align 8
   %53 = icmp slt i32 %52, %1

@@ -566,12 +566,12 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %177
   br i1 %exitcond.not.i59, label %_ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit, label %196, !llvm.loop !11
 
 _ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit: ; preds = %196
-  %204 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 0, ptr noundef nonnull %15, i64 noundef 9, i1 noundef zeroext true)
+  %204 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(36) %15, i64 noundef 9, i1 noundef zeroext true)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %.loopexit.split-lp
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit: ; preds = %_ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit
   store i32 1, ptr %17, align 4
-  %205 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %204, ptr noundef nonnull %17, i64 noundef 1, i1 noundef zeroext false)
+  %205 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %17, i64 noundef 1, i1 noundef zeroext false)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %.loopexit.split-lp
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEEiRKT_b.exit: ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
@@ -618,12 +618,12 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEE
   br i1 %exitcond.not.i63, label %_ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit64, label %218, !llvm.loop !11
 
 _ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit64: ; preds = %218
-  %226 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %.03398, ptr noundef nonnull %15, i64 noundef 9, i1 noundef zeroext true)
+  %226 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %.03398, ptr noundef nonnull align 4 dereferenceable(36) %15, i64 noundef 9, i1 noundef zeroext true)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit65 unwind label %.loopexit
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit65: ; preds = %_ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit64
   %227 = add nsw i32 %226, %.03398
-  %228 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %227, ptr noundef nonnull %17, i64 noundef 1, i1 noundef zeroext false)
+  %228 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %227, ptr noundef nonnull align 4 dereferenceable(4) %17, i64 noundef 1, i1 noundef zeroext false)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEEiRKT_b.exit66 unwind label %.loopexit
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEEiRKT_b.exit66: ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit65
@@ -679,7 +679,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEE
   br i1 %exitcond.not.i69, label %_ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit70, label %241, !llvm.loop !11
 
 _ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit70: ; preds = %241
-  %249 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %.033.lcssa, ptr noundef nonnull %15, i64 noundef 9, i1 noundef zeroext true)
+  %249 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %.033.lcssa, ptr noundef nonnull align 4 dereferenceable(36) %15, i64 noundef 9, i1 noundef zeroext true)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit71 unwind label %.loopexit.split-lp
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEEiRKT_b.exit71: ; preds = %_ZN5ZXing4OneDL10ToIntArrayEiRSt5arrayIiLm9EE.exit70
@@ -805,7 +805,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc6 unwind label %57
 
 .noexc6:                                          ; preds = %.noexc
@@ -815,7 +815,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 22:                                               ; preds = %.noexc6
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc6
@@ -957,7 +957,7 @@ define internal fastcc void @_ZN5ZXing4OneDL11ToHexStringB5cxx11Ei(ptr dead_on_u
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc8 unwind label %22
 
 .noexc8:                                          ; preds = %.noexc
@@ -967,7 +967,7 @@ define internal fastcc void @_ZN5ZXing4OneDL11ToHexStringB5cxx11Ei(ptr dead_on_u
 5:                                                ; preds = %.noexc8
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc8

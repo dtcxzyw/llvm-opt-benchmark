@@ -251,7 +251,7 @@ if.end40:                                         ; preds = %sw.default.if.end40
   %copiedIndices_.i = getelementptr inbounds i8, ptr %decoded, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %baseVector_.i, i8 0, i64 13, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %copiedIndices_.i, i8 0, i64 48, i1 false)
-  invoke void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %decoded, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef nonnull %activeRows, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %decoded, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef nonnull align 8 dereferenceable(38) %activeRows, i1 noundef zeroext true)
           to label %_ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorERKNS0_17SelectivityVectorEb.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end40

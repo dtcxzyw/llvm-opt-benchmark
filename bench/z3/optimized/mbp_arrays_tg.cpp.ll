@@ -587,7 +587,7 @@ if.then24:                                        ; preds = %invoke.cont22, %inv
   %55 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i)
   store ptr %22, ptr %tmp.i.i.i, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %55, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i)
           to label %invoke.cont25 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont25:                                    ; preds = %if.then24
@@ -899,7 +899,7 @@ if.then84:                                        ; preds = %cleanup.done
   %102 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i178)
   store ptr %nt.0, ptr %tmp.i.i.i178, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %102, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i178)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i178)
           to label %invoke.cont85 unwind label %lpad73.loopexit.split-lp
 
 invoke.cont85:                                    ; preds = %if.then84
@@ -907,7 +907,7 @@ invoke.cont85:                                    ; preds = %if.then84
   %103 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i182)
   store ptr %22, ptr %tmp.i.i.i182, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %103, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i182)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i182)
           to label %invoke.cont86 unwind label %lpad73.loopexit.split-lp
 
 invoke.cont86:                                    ; preds = %invoke.cont85
@@ -1071,7 +1071,7 @@ invoke.cont122:                                   ; preds = %_ZN11ast_manager7in
   %130 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i234)
   store ptr %127, ptr %tmp.i.i.i234, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %130, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i234)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i234)
           to label %invoke.cont126 unwind label %lpad123
 
 invoke.cont126:                                   ; preds = %invoke.cont122
@@ -1101,7 +1101,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit246:      ; preds = %invoke.cont126, %if
   %134 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i247)
   store ptr %nt.0, ptr %tmp.i.i.i247, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %134, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i247)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i247)
           to label %invoke.cont128 unwind label %lpad73.loopexit.split-lp
 
 invoke.cont128:                                   ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit246
@@ -1109,7 +1109,7 @@ invoke.cont128:                                   ; preds = %_ZN7obj_refI4expr11
   %135 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i251)
   store ptr %22, ptr %tmp.i.i.i251, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %135, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i251)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i251)
           to label %invoke.cont129 unwind label %lpad73.loopexit.split-lp
 
 invoke.cont129:                                   ; preds = %invoke.cont128
@@ -1270,7 +1270,7 @@ invoke.cont167:                                   ; preds = %_ZN11ast_manager7in
   %163 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i311)
   store ptr %160, ptr %tmp.i.i.i311, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %163, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i311)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %163, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i311)
           to label %invoke.cont171 unwind label %lpad168
 
 invoke.cont171:                                   ; preds = %invoke.cont167
@@ -1416,7 +1416,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit365:      ; preds = %_ZN7obj_refI4expr11
   %183 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i366)
   store ptr %nt.0, ptr %tmp.i.i.i366, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %183, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i366)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %183, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i366)
           to label %invoke.cont190 unwind label %lpad189
 
 invoke.cont190:                                   ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit365
@@ -1424,7 +1424,7 @@ invoke.cont190:                                   ; preds = %_ZN7obj_refI4expr11
   %184 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i370)
   store ptr %22, ptr %tmp.i.i.i370, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %184, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i370)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i370)
           to label %invoke.cont191 unwind label %lpad189
 
 invoke.cont191:                                   ; preds = %invoke.cont190
@@ -1563,7 +1563,7 @@ if.then206:                                       ; preds = %invoke.cont204
   %204 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i401)
   store ptr %22, ptr %tmp.i.i.i401, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %204, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i401)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i401)
           to label %invoke.cont207 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont207:                                   ; preds = %if.then206
@@ -1792,7 +1792,7 @@ invoke.cont240:                                   ; preds = %if.end239
   %242 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i468)
   store ptr %216, ptr %tmp.i.i.i468, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %242, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i468)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i468)
           to label %_ZN3mbp12mbp_array_tg4impl9mark_seenEP4expr.exit471 unwind label %lpad6.loopexit.split-lp.loopexit
 
 _ZN3mbp12mbp_array_tg4impl9mark_seenEP4expr.exit471: ; preds = %invoke.cont240
@@ -6242,7 +6242,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

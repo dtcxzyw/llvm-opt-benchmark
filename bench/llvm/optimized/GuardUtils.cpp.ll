@@ -660,8 +660,8 @@ _ZN4llvm7isGuardEPKNS_4UserE.exit.thread:         ; preds = %_ZN4llvm16dyn_cast_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %30 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %30, i64 noundef 4) #8
-  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 1, ptr noundef %29)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %30, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef 1, ptr noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %31, ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -886,7 +886,7 @@ _ZN4llvm20isWidenableConditionEPKNS_5ValueE.exit.thread.i.i: ; preds = %_ZN4llvm
   br label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit.i
 
 _ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit.i: ; preds = %131, %127
-  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #8
   %133 = load ptr, ptr %3, align 8
   %134 = icmp eq ptr %133, %30
   br i1 %134, label %"_ZL14parseConditionIZN4llvm19parseWidenableGuardEPKNS0_4UserERNS0_15SmallVectorImplIPNS0_5ValueEEEE3$_0EvS6_T_.exit", label %135
@@ -934,8 +934,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %19 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %19, i64 noundef 4) #8
-  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 1, ptr noundef nonnull %12)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %19, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, ptr noundef nonnull %12)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %20, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1159,7 +1159,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %110
   br label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit.i
 
 _ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit.i: ; preds = %120, %.loopexit.i
-  %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #8
   %122 = load ptr, ptr %2, align 8
   %123 = icmp eq ptr %122, %19
   br i1 %123, label %"_ZL14parseConditionIZN4llvm25extractWidenableConditionEPKNS0_4UserEE3$_0EvPNS0_5ValueET_.exit", label %124

@@ -196,7 +196,7 @@ define dso_local noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %
           to label %18 unwind label %311
 
 18:                                               ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(59) %12, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #16
   %20 = getelementptr inbounds i8, ptr %12, i64 56

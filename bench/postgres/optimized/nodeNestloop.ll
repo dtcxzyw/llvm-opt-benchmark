@@ -221,7 +221,7 @@ ExecProcNode.exit:                                ; preds = %44, %46
   br i1 %78, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph97
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %48, i32 noundef %75) #5
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %48, i32 noundef range(i32 -32767, 32768) %75) #5
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %.lr.ph97, %slot_getsomeattrs.exit.i

@@ -627,7 +627,7 @@ define dso_local void @_ZNK26GeneratorExpressionContent8EvaluateB5cxx11EP28cmGen
           to label %.noexc unwind label %77
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc50 unwind label %77
 
 .noexc50:                                         ; preds = %.noexc
@@ -637,7 +637,7 @@ define dso_local void @_ZNK26GeneratorExpressionContent8EvaluateB5cxx11EP28cmGen
 35:                                               ; preds = %.noexc50
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc50
@@ -675,7 +675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !21
   %47 = getelementptr inbounds i8, ptr %10, i64 40
   store i8 0, ptr %47, align 8, !noalias !21
-  invoke void @_ZN23cmMakefileProfilingData4RAIIC1ERS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St8optionalIN4Json5ValueEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(520) %46, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %10)
+  invoke void @_ZN23cmMakefileProfilingData4RAIIC1ERS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St8optionalIN4Json5ValueEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(520) %46, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %10)
           to label %48 unwind label %52
 
 48:                                               ; preds = %.noexc54
@@ -685,7 +685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 51:                                               ; preds = %48
   store i8 0, ptr %47, align 8, !noalias !21
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #17
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #17
   br label %_ZSt13make_optionalIN23cmMakefileProfilingData4RAIIEJRS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St9nullopt_tEENSt9enable_ifIX18is_constructible_vIT_DpT0_EESt8optionalISD_EE4typeEDpOSE_.exit.i.i
 
 52:                                               ; preds = %.noexc54
@@ -697,7 +697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 56:                                               ; preds = %52
   store i8 0, ptr %47, align 8, !noalias !21
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #17
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #17
   br label %.body55
 
 _ZSt13make_optionalIN23cmMakefileProfilingData4RAIIEJRS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St9nullopt_tEENSt9enable_ifIX18is_constructible_vIT_DpT0_EESt8optionalISD_EE4typeEDpOSE_.exit.i.i: ; preds = %51, %48
@@ -822,7 +822,7 @@ _ZSt13make_optionalIN23cmMakefileProfilingData4RAIIEJRS0_RKNSt7__cxx1112basic_st
           to label %.noexc60 unwind label %95
 
 .noexc60:                                         ; preds = %90
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %91, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %91, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %.noexc61 unwind label %95
 
 .noexc61:                                         ; preds = %.noexc60
@@ -832,7 +832,7 @@ _ZSt13make_optionalIN23cmMakefileProfilingData4RAIIEJRS0_RKNSt7__cxx1112basic_st
 92:                                               ; preds = %.noexc61
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #17
   br label %.body62
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; preds = %.noexc61
@@ -1026,7 +1026,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %.noexc66 unwind label %210
 
 .noexc66:                                         ; preds = %159
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %160, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %160, ptr noundef nonnull align 1 dereferenceable(1) %30)
           to label %.noexc67 unwind label %210
 
 .noexc67:                                         ; preds = %.noexc66
@@ -1036,7 +1036,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 161:                                              ; preds = %.noexc67
   %162 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   br label %.body68
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70: ; preds = %.noexc67
@@ -1132,10 +1132,10 @@ common.resume.i:                                  ; preds = %196, %192, %185, %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !28
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !34
-  call void @_ZN4Json5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %8) #17, !noalias !34
+  call void @_ZN4Json5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(40) %8) #17, !noalias !34
   %187 = getelementptr inbounds i8, ptr %5, i64 40
   store i8 1, ptr %187, align 8, !noalias !34
-  invoke void @_ZN23cmMakefileProfilingData4RAIIC1ERS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St8optionalIN4Json5ValueEE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(520) %165, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %5)
+  invoke void @_ZN23cmMakefileProfilingData4RAIIC1ERS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St8optionalIN4Json5ValueEE(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(520) %165, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %5)
           to label %188 unwind label %192
 
 188:                                              ; preds = %"_ZZNK26GeneratorExpressionContent8EvaluateB5cxx11EP28cmGeneratorExpressionContextP31cmGeneratorExpressionDAGCheckerENK3$_0clEv.exit.i"
@@ -1145,7 +1145,7 @@ common.resume.i:                                  ; preds = %196, %192, %185, %1
 
 191:                                              ; preds = %188
   store i8 0, ptr %187, align 8, !noalias !34
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   br label %197
 
 192:                                              ; preds = %"_ZZNK26GeneratorExpressionContent8EvaluateB5cxx11EP28cmGeneratorExpressionContextP31cmGeneratorExpressionDAGCheckerENK3$_0clEv.exit.i"
@@ -1157,7 +1157,7 @@ common.resume.i:                                  ; preds = %196, %192, %185, %1
 
 196:                                              ; preds = %192
   store i8 0, ptr %187, align 8, !noalias !34
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   br label %common.resume.i
 
 197:                                              ; preds = %191, %188
@@ -1190,7 +1190,7 @@ common.resume.i:                                  ; preds = %196, %192, %185, %1
 
 209:                                              ; preds = %205
   store i8 0, ptr %206, align 8
-  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
+  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #17
   br label %_ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit
 
 210:                                              ; preds = %.noexc66, %159
@@ -1223,7 +1223,7 @@ common.resume.i:                                  ; preds = %196, %192, %185, %1
 
 219:                                              ; preds = %214
   store i8 0, ptr %216, align 8
-  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
+  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #17
   br label %_ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit76
 
 _ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit: ; preds = %209, %205, %153
@@ -1266,7 +1266,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 228:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit85
   store i8 0, ptr %58, align 8
-  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
   br label %_ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit86
 
 _ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit86: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit85, %228
@@ -1281,7 +1281,7 @@ _ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit86: ; preds = %_ZNSt6ve
 
 231:                                              ; preds = %.body57
   store i8 0, ptr %58, align 8
-  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  call void @_ZN23cmMakefileProfilingData4RAIID1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
   br label %_ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit87
 
 _ZNSt8optionalIN23cmMakefileProfilingData4RAIIEED2Ev.exit87: ; preds = %231, %.body57, %.body

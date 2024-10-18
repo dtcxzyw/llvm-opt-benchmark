@@ -261,7 +261,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   %5 = alloca %"class.draco::RAnsSymbolDecoder", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 28, i1 false)
   %7 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi5EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef %2)
           to label %8 unwind label %9
 
@@ -1453,7 +1453,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.5", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi1EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -1592,7 +1592,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.6", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi2EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -1731,7 +1731,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.7", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi3EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -1870,7 +1870,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.8", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi4EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2009,7 +2009,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi5EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2148,7 +2148,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.9", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi6EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2287,7 +2287,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.10", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi7EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2426,7 +2426,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.11", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi8EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2565,7 +2565,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.12", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi9EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2704,7 +2704,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.14", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi10EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2843,7 +2843,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.16", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi11EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -2982,7 +2982,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.18", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi12EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -3121,7 +3121,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.20", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi13EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -3260,7 +3260,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.22", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi14EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -3399,7 +3399,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.24", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi15EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -3538,7 +3538,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.25", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi16EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -3677,7 +3677,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.26", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi17EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 
@@ -3816,7 +3816,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %4 = alloca %"class.draco::RAnsSymbolDecoder.27", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
   %6 = invoke noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi18EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %1)
           to label %7 unwind label %8
 

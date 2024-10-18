@@ -263,7 +263,7 @@ found:                                            ; preds = %while.body, %if.the
   %tmp.0 = phi i64 [ %and2, %if.then ], [ %1, %while.body ]
   %mul = shl nuw i64 %words.0, 6
   %sub10 = or disjoint i64 %mul, 63
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %tmp.0, i1 true)
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %tmp.0, i1 true)
   %sub11 = sub nuw nsw i64 %sub10, %2
   br label %return
 

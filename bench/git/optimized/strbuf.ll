@@ -3751,19 +3751,19 @@ while.body:                                       ; preds = %entry, %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.14, i64 noundef 6)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.14, i64 noundef 6)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.15, i64 noundef 4)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.15, i64 noundef 4)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.16, i64 noundef 4)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.16, i64 noundef 4)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.17, i64 noundef 5)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.17, i64 noundef 5)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb, %while.body
@@ -4026,7 +4026,7 @@ if.then.i:                                        ; preds = %cond.true41
   br label %cond.end45
 
 if.end.i:                                         ; preds = %cond.true41
-  %call.i43 = tail call ptr @ngettext(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i64 noundef %bytes) #23
+  %call.i43 = tail call ptr @ngettext(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i64 noundef range(i64 -9223372036854775808, 1025) %bytes) #23
   br label %cond.end45
 
 cond.false43:                                     ; preds = %if.else38
@@ -4038,7 +4038,7 @@ if.then.i49:                                      ; preds = %cond.false43
   br label %cond.end45
 
 if.end.i46:                                       ; preds = %cond.false43
-  %call.i47 = tail call ptr @ngettext(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %bytes) #23
+  %call.i47 = tail call ptr @ngettext(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef range(i64 -9223372036854775808, 1025) %bytes) #23
   br label %cond.end45
 
 cond.end45:                                       ; preds = %if.end.i46, %if.then.i49, %if.end.i, %if.then.i

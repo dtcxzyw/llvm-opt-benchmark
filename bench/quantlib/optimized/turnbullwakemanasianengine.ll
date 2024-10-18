@@ -1007,7 +1007,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8ExerciseEEptEv.exit146: ; preds = %_ZNK5boost1
   %61 = phi ptr [ %60, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ], [ %.pre.i145, %cond.false.i144 ]
   %call97 = call i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36) %61)
   store i64 %call97, ptr %ref.tmp93, align 8
-  %call.i = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
+  %call.i = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %59, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
   %call2.i = call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %59, double noundef %call.i, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp93) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp101) #27
@@ -1572,7 +1572,7 @@ cond.false.i317:                                  ; preds = %invoke.cont236
 
 invoke.cont238:                                   ; preds = %.noexc319, %invoke.cont236
   %138 = phi ptr [ %137, %invoke.cont236 ], [ %.pre.i318, %.noexc319 ]
-  %call.i321323 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %138, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.01285)
+  %call.i321323 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %138, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.01285)
           to label %call.i321.noexc unwind label %lpad231
 
 call.i321.noexc:                                  ; preds = %invoke.cont238
@@ -1617,7 +1617,7 @@ cond.false.i331:                                  ; preds = %invoke.cont247
 
 invoke.cont249:                                   ; preds = %.noexc333, %invoke.cont247
   %142 = phi ptr [ %141, %invoke.cont247 ], [ %.pre.i332, %.noexc333 ]
-  %call.i335337 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %142, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.01285)
+  %call.i335337 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %142, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.01285)
           to label %call.i335.noexc unwind label %lpad231
 
 call.i335.noexc:                                  ; preds = %invoke.cont249
@@ -1956,7 +1956,7 @@ cond.false.i394:                                  ; preds = %invoke.cont368
 
 invoke.cont370:                                   ; preds = %.noexc396, %invoke.cont368
   %177 = phi ptr [ %176, %invoke.cont368 ], [ %.pre.i395, %.noexc396 ]
-  %call.i398400 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %177, ptr noundef nonnull align 8 dereferenceable(8) %__begin1.sroa.0.01289)
+  %call.i398400 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %177, ptr noundef nonnull align 8 dereferenceable(8) %__begin1.sroa.0.01289)
           to label %call.i398.noexc unwind label %lpad363
 
 call.i398.noexc:                                  ; preds = %invoke.cont370
@@ -2000,7 +2000,7 @@ cond.false.i409:                                  ; preds = %invoke.cont380
 
 invoke.cont382:                                   ; preds = %.noexc411, %invoke.cont380
   %181 = phi ptr [ %180, %invoke.cont380 ], [ %.pre.i410, %.noexc411 ]
-  %call.i413415 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %181, ptr noundef nonnull align 8 dereferenceable(8) %__begin1.sroa.0.01289)
+  %call.i413415 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %181, ptr noundef nonnull align 8 dereferenceable(8) %__begin1.sroa.0.01289)
           to label %call.i413.noexc unwind label %lpad375
 
 call.i413.noexc:                                  ; preds = %invoke.cont382
@@ -2217,7 +2217,7 @@ cond.false.i473:                                  ; preds = %invoke.cont414
 invoke.cont416:                                   ; preds = %.noexc475, %invoke.cont414
   %191 = phi ptr [ %190, %invoke.cont414 ], [ %.pre.i474, %.noexc475 ]
   %192 = load double, ptr %add.ptr.i.i.i.i.i.i455.pn, align 8, !tbaa !104
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %191, double noundef %192, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %191, double noundef %192, i1 noundef zeroext false)
           to label %.noexc479 unwind label %lpad409.loopexit
 
 .noexc479:                                        ; preds = %invoke.cont416
@@ -4352,7 +4352,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib26TurnbullWakemanAsianEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 400) #30
   ret void
 }
@@ -4492,7 +4492,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib26TurnbullWakemanAsianEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) #27
   ret void
 }
 
@@ -4541,8 +4541,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib26TurnbullWakemanAsianEngineD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 400) #30
+  tail call void @_ZN8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(400) %0, i64 noundef 400) #30
   ret void
 }
 
@@ -4550,7 +4550,7 @@ _ZN8QuantLib26TurnbullWakemanAsianEngineD0Ev.exit: ; preds = %entry, %if.then.i.
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_28DiscreteAveragingAsianOption9argumentsENS_14OneAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #14 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(384) %0)
   ret void
 }
 
@@ -5161,7 +5161,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %8 = phi ptr [ %7, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i

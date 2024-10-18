@@ -1576,7 +1576,7 @@ atmarpnum_to_str.exit:                            ; preds = %4, %42, %44
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %36, align 8
-  %51 = tail call ptr @tvb_bytes_to_str(ptr noundef %50, ptr noundef %0, i32 noundef %25, i32 noundef %47) #9
+  %51 = tail call ptr @tvb_bytes_to_str(ptr noundef %50, ptr noundef %0, i32 noundef range(i32 12, 457) %25, i32 noundef %47) #9
   br label %atmarpsubaddr_to_str.exit
 
 atmarpsubaddr_to_str.exit:                        ; preds = %49, %46, %atmarpnum_to_str.exit
@@ -1642,11 +1642,11 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %atmarpsubaddr_to_st
   br i1 %.not.i333, label %82, label %80
 
 80:                                               ; preds = %78
-  %81 = call ptr @tvb_get_string_enc(ptr noundef %75, ptr noundef %0, i32 noundef %29, i32 noundef %76, i32 noundef 0) #9
+  %81 = call ptr @tvb_get_string_enc(ptr noundef %75, ptr noundef %0, i32 noundef range(i32 12, 394) %29, i32 noundef %76, i32 noundef 0) #9
   br label %atmarpnum_to_str.exit335
 
 82:                                               ; preds = %78
-  %83 = call ptr @tvb_bytes_to_str(ptr noundef %75, ptr noundef %0, i32 noundef %29, i32 noundef %76) #9
+  %83 = call ptr @tvb_bytes_to_str(ptr noundef %75, ptr noundef %0, i32 noundef range(i32 12, 394) %29, i32 noundef %76) #9
   br label %atmarpnum_to_str.exit335
 
 atmarpnum_to_str.exit335:                         ; preds = %tvb_arpproaddr_to_str.exit, %80, %82
@@ -1661,7 +1661,7 @@ atmarpnum_to_str.exit335:                         ; preds = %tvb_arpproaddr_to_s
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %36, align 8
-  %89 = call ptr @tvb_bytes_to_str(ptr noundef %88, ptr noundef %0, i32 noundef %31, i32 noundef %85) #9
+  %89 = call ptr @tvb_bytes_to_str(ptr noundef %88, ptr noundef %0, i32 noundef range(i32 12, 457) %31, i32 noundef %85) #9
   br label %atmarpsubaddr_to_str.exit337
 
 atmarpsubaddr_to_str.exit337:                     ; preds = %87, %84, %atmarpnum_to_str.exit335
@@ -2089,19 +2089,19 @@ dissect_atm_number.exit:                          ; preds = %287, %283, %280, %2
 
 304:                                              ; preds = %303
   %305 = load i32, ptr @hf_atmarp_dst_atm_num_e164, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %305, ptr noundef %0, i32 noundef %29, i32 noundef %76, i32 noundef 0) #9
+  %306 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %305, ptr noundef %0, i32 noundef range(i32 12, 394) %29, i32 noundef %76, i32 noundef 0) #9
   br label %dissect_atm_number.exit345
 
 307:                                              ; preds = %303
   %308 = load i32, ptr @hf_atmarp_dst_atm_num_nsap, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %308, ptr noundef %0, i32 noundef %29, i32 noundef %76, i32 noundef 0) #9
+  %309 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %308, ptr noundef %0, i32 noundef range(i32 12, 394) %29, i32 noundef %76, i32 noundef 0) #9
   %310 = icmp samesign ugt i32 %76, 19
   br i1 %310, label %311, label %dissect_atm_number.exit345
 
 311:                                              ; preds = %307
   %312 = load i32, ptr @ett_atmarp_nsap, align 4
   %313 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %312) #9
-  call void @dissect_atm_nsap(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %29, i32 noundef %76, ptr noundef %313)
+  call void @dissect_atm_nsap(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 12, 394) %29, i32 noundef %76, ptr noundef %313)
   br label %dissect_atm_number.exit345
 
 dissect_atm_number.exit345:                       ; preds = %311, %307, %304, %302

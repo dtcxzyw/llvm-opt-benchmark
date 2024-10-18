@@ -1440,7 +1440,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit70: ; preds = %_ZN2cv4Mat_INS_3Vec
 138:                                              ; preds = %92
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #22
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %21) #22
   br label %.body71
 
 140:                                              ; preds = %129
@@ -1454,7 +1454,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit70: ; preds = %_ZN2cv4Mat_INS_3Vec
   br i1 %exitcond94.not, label %145, label %.preheader, !llvm.loop !49
 
 145:                                              ; preds = %140
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #22
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %21) #22
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #22
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #22
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #22
@@ -1673,7 +1673,7 @@ declare float @cosf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5kinfu12GetAbInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -2160,7 +2160,7 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
 341:                                              ; preds = %.preheader
   %342 = getelementptr inbounds i8, ptr %0, i64 16
   %343 = load ptr, ptr %342, align 8
-  %344 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %343) #22
+  %344 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %343) #22
   %.not.i.i = icmp eq i32 %344, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %345
 
@@ -2186,7 +2186,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %341
   br i1 %exitcond.not.i, label %_ZN2cvpLIffLi6ELi7EEERNS_4MatxIT_XT1_EXT2_EEES4_RKNS1_IT0_XT1_EXT2_EEE.exit, label %348, !llvm.loop !104
 
 _ZN2cvpLIffLi6ELi7EEERNS_4MatxIT_XT1_EXT2_EEES4_RKNS1_IT0_XT1_EXT2_EEE.exit: ; preds = %348
-  %354 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %343) #22
+  %354 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %343) #22
   ret void
 }
 

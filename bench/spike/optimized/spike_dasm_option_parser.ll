@@ -46,7 +46,7 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit.thread:       ; preds = %5
   br label %_ZN15option_parser_t8option_tC2EcPKciSt8functionIFvS2_EE.exit
 
 17:                                               ; preds = %5
-  %18 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+  %18 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2)
           to label %_ZNSt8functionIFvPKcEEC2ERKS3_.exit unwind label %19
 
 19:                                               ; preds = %17
@@ -57,7 +57,7 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit.thread:       ; preds = %5
   br i1 %.not.i.i, label %common.resume, label %22
 
 22:                                               ; preds = %19
-  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %24
 
 24:                                               ; preds = %22
@@ -90,7 +90,7 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit:              ; preds = %17
   br i1 %.not.i.i.not.i.i, label %_ZN15option_parser_t8option_tC2EcPKciSt8functionIFvS2_EE.exit, label %35
 
 35:                                               ; preds = %_ZNSt8functionIFvPKcEEC2ERKS3_.exit
-  %36 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 2)
           to label %37 unwind label %40
 
 37:                                               ; preds = %35
@@ -108,7 +108,7 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit:              ; preds = %17
   br i1 %.not.i.i.i, label %.body, label %43
 
 43:                                               ; preds = %40
-  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %.body unwind label %45
 
 45:                                               ; preds = %43
@@ -130,10 +130,10 @@ _ZN15option_parser_t8option_tC2EcPKciSt8functionIFvS2_EE.exit: ; preds = %_ZNSt8
   br i1 %.not.i.i7, label %65, label %55
 
 55:                                               ; preds = %_ZN15option_parser_t8option_tC2EcPKciSt8functionIFvS2_EE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %52, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 20, i1 false)
   %56 = getelementptr inbounds i8, ptr %52, i64 24
   %57 = getelementptr inbounds i8, ptr %52, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 24, i1 false)
   %58 = load ptr, ptr %48, align 8
   store ptr %58, ptr %57, align 8
   %59 = load ptr, ptr %49, align 8
@@ -142,7 +142,7 @@ _ZN15option_parser_t8option_tC2EcPKciSt8functionIFvS2_EE.exit: ; preds = %_ZNSt8
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %52, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 16, i1 false)
   %62 = load ptr, ptr %49, align 8
   store ptr %62, ptr %61, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
@@ -164,7 +164,7 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE9push_backEOS1_.exit: ; preds =
   br i1 %.not.i.i.i8, label %_ZN15option_parser_t8option_tD2Ev.exit, label %66
 
 66:                                               ; preds = %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE9push_backEOS1_.exit
-  %67 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
+  %67 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3)
           to label %_ZN15option_parser_t8option_tD2Ev.exit unwind label %68
 
 68:                                               ; preds = %66
@@ -180,7 +180,7 @@ _ZN15option_parser_t8option_tD2Ev.exit:           ; preds = %_ZNSt6vectorIN15opt
   br i1 %.not.i.i9, label %_ZNSt8functionIFvPKcEED2Ev.exit, label %72
 
 72:                                               ; preds = %_ZN15option_parser_t8option_tD2Ev.exit
-  %73 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %73 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvPKcEED2Ev.exit unwind label %74
 
 74:                                               ; preds = %72
@@ -201,7 +201,7 @@ _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %_ZN15option_parser_
   br i1 %.not.i.i.i11, label %.body, label %80
 
 80:                                               ; preds = %77
-  %81 = invoke noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
+  %81 = invoke noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3)
           to label %.body unwind label %82
 
 82:                                               ; preds = %80
@@ -218,7 +218,7 @@ _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %_ZN15option_parser_
   br i1 %.not.i.i13, label %common.resume, label %86
 
 86:                                               ; preds = %.body
-  %87 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %87 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %88
 
 88:                                               ; preds = %86
@@ -247,7 +247,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr nocapture noundef nonnu
   %6 = getelementptr inbounds i8, ptr %.sroa.058.0102143, i64 24
   %7 = getelementptr inbounds i8, ptr %.sroa.058.0102143, i64 48
   %8 = load ptr, ptr %7, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.0 = getelementptr inbounds i8, ptr %.283, i64 8
   %9 = load ptr, ptr %.0, align 8
@@ -461,11 +461,11 @@ _ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
 _ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.option_parser_t::option_t", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 20, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = getelementptr inbounds i8, ptr %24, i64 48
   %27 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 40
@@ -476,7 +476,7 @@ _ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE11_M_allocateEm.exit: ; 
 31:                                               ; preds = %_ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 24
   %33 = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
@@ -490,11 +490,11 @@ _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvR
   %.0911.i.i.i = phi ptr [ %42, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.0911.i.i.i, i64 20, i1 false), !alias.scope !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i, i64 20, i1 false), !alias.scope !12
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !10
   %37 = load ptr, ptr %36, align 8, !alias.scope !10, !noalias !7
   store ptr %37, ptr %35, align 8, !alias.scope !7, !noalias !10
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
@@ -505,7 +505,7 @@ _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvR
 _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !alias.scope !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 16, i1 false), !alias.scope !12
   store ptr %39, ptr %41, align 8, !alias.scope !7, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false), !alias.scope !10, !noalias !7
   br label %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
@@ -527,11 +527,11 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
   %.0911.i.i.i19 = phi ptr [ %53, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(20) %.0911.i.i.i19, i64 20, i1 false), !alias.scope !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i19, i64 20, i1 false), !alias.scope !19
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !17
   %48 = load ptr, ptr %47, align 8, !alias.scope !17, !noalias !14
   store ptr %48, ptr %46, align 8, !alias.scope !14, !noalias !17
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
@@ -542,7 +542,7 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !alias.scope !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 16, i1 false), !alias.scope !19
   store ptr %50, ptr %52, align 8, !alias.scope !14, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !alias.scope !17, !noalias !14
   br label %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22

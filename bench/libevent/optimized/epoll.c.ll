@@ -72,7 +72,7 @@ if.end9:                                          ; preds = %if.end7, %entry
   br i1 %tobool.not, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end9
-  %call.i = tail call i32 @close(i32 noundef %epfd.0) #5
+  %call.i = tail call i32 @close(i32 noundef range(i32 0, -1) %epfd.0) #5
   br label %return
 
 if.end12:                                         ; preds = %if.end9
@@ -85,7 +85,7 @@ if.end12:                                         ; preds = %if.end9
 
 if.then17:                                        ; preds = %if.end12
   tail call void @event_mm_free_(ptr noundef nonnull %call10) #5
-  %call.i14 = tail call i32 @close(i32 noundef %epfd.0) #5
+  %call.i14 = tail call i32 @close(i32 noundef range(i32 0, -1) %epfd.0) #5
   br label %return
 
 if.end18:                                         ; preds = %if.end12
@@ -420,7 +420,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call.i = tail call i32 @close(i32 noundef %2) #5
+  %call.i = tail call i32 @close(i32 noundef range(i32 0, -1) %2) #5
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end

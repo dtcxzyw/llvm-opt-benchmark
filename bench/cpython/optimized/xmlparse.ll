@@ -1172,7 +1172,7 @@ if.end:                                           ; preds = %copyString.exit, %e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_unknownEncodingMem, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %m_paramEntityParsing, i8 0, i64 44, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i)
-  %call.i76 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.308) #25
+  %call.i76 = tail call ptr @getenv(ptr noundef nonnull @.str.308) #25
   %cmp.i = icmp eq ptr %call.i76, null
   br i1 %cmp.i, label %getDebugLevel.exit, label %if.end.i77
 
@@ -1208,7 +1208,7 @@ getDebugLevel.exit:                               ; preds = %if.end, %lor.lhs.fa
   %m_entity_stats = getelementptr inbounds i8, ptr %parser, i64 960
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entity_stats, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i78)
-  %call.i79 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.309) #25
+  %call.i79 = tail call ptr @getenv(ptr noundef nonnull @.str.309) #25
   %cmp.i80 = icmp eq ptr %call.i79, null
   br i1 %cmp.i80, label %getDebugLevel.exit89, label %if.end.i81
 
@@ -2349,14 +2349,14 @@ for.inc.i:                                        ; preds = %if.else141.i, %pool
   br i1 %cmp102.i, label %for.body.i, label %while.cond.i160.i.backedge, !llvm.loop !15
 
 for.end148.i:                                     ; preds = %while.cond.i160.i
-  %call151.i = call fastcc i32 @copyEntityTable(ptr noundef readonly %oldParser, ptr noundef %33, ptr noundef nonnull %pool.i, ptr noundef readonly %0)
+  %call151.i = call fastcc i32 @copyEntityTable(ptr noundef nonnull readonly %oldParser, ptr noundef %33, ptr noundef nonnull %pool.i, ptr noundef readonly %0)
   %tobool152.not.i = icmp eq i32 %call151.i, 0
   br i1 %tobool152.not.i, label %if.then58, label %if.end154.i
 
 if.end154.i:                                      ; preds = %for.end148.i
   %paramEntities.i = getelementptr inbounds i8, ptr %33, i64 264
   %paramEntities156.i = getelementptr inbounds i8, ptr %0, i64 264
-  %call157.i = call fastcc i32 @copyEntityTable(ptr noundef readonly %oldParser, ptr noundef nonnull %paramEntities.i, ptr noundef nonnull %pool.i, ptr noundef nonnull readonly %paramEntities156.i)
+  %call157.i = call fastcc i32 @copyEntityTable(ptr noundef nonnull readonly %oldParser, ptr noundef nonnull %paramEntities.i, ptr noundef nonnull %pool.i, ptr noundef nonnull readonly %paramEntities156.i)
   %tobool158.not.i = icmp eq i32 %call157.i, 0
   br i1 %tobool158.not.i, label %if.then58, label %lor.lhs.false
 
@@ -4246,7 +4246,7 @@ land.rhs.i.i:                                     ; preds = %do.cond.i.i, %do.bo
 if.then.i:                                        ; preds = %do.cond.i.i
   %2 = load i64, ptr %entropy.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i.i.i)
-  %call.i.i.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #25
+  %call.i.i.i = call ptr @getenv(ptr noundef nonnull @.str.324) #25
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %getDebugLevel.exit.thread.i.i, label %if.end.i.i.i
 
@@ -4295,7 +4295,7 @@ if.end.i:                                         ; preds = %land.rhs.i.i
   store i64 %xor.i, ptr %entropy.i, align 8
   %mul.i = mul i64 %xor.i, 2305843009213693951
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i.i2.i)
-  %call.i.i3.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #25
+  %call.i.i3.i = call ptr @getenv(ptr noundef nonnull @.str.324) #25
   %cmp.i.i4.i = icmp eq ptr %call.i.i3.i, null
   br i1 %cmp.i.i4.i, label %getDebugLevel.exit.thread.i10.i, label %if.end.i.i5.i
 
@@ -6004,7 +6004,7 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6
 
 if.then20.i:                                      ; preds = %lor.end.i
   call fastcc void @accountingReportStats(ptr noundef nonnull %rootParser.0.i.i, ptr noundef nonnull @.str.310)
-  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %s.addr.0, ptr noundef %12, i64 noundef %sub.ptr.sub.i, i32 noundef 4717, i32 noundef %account)
+  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %s.addr.0, ptr noundef %12, i64 noundef %sub.ptr.sub.i, i32 noundef 4717, i32 noundef range(i32 0, 3) %account)
   br label %accountingDiffTolerated.exit
 
 accountingDiffTolerated.exit:                     ; preds = %lor.end.i, %if.then20.i
@@ -9030,7 +9030,7 @@ if.end.i.i1294:                                   ; preds = %if.end.i1291
   %cond.i.i1295 = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i = getelementptr inbounds i8, ptr %retval.0.i1281, i64 16
   %531 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i1296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %529, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1286, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %526, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1295, ptr noundef %528, ptr noundef nonnull @.str.319, i32 noundef %531, i32 noundef 5439) #28
+  %call.i.i1296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %529, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1286, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %526, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1295, ptr noundef %528, ptr noundef nonnull @.str.319, i32 noundef %531, i32 noundef range(i32 5439, 6175) 5439) #28
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i1291, %if.end.i.i1294
@@ -9081,7 +9081,7 @@ if.end.i.i1305:                                   ; preds = %getRootParserOf.exi
   %cond.i.i1309 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i1310 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 16
   %545 = load i32, ptr %textLen.i.i1310, align 8
-  %call.i.i1311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1299, i32 noundef %541, i32 noundef %542, i32 noundef %543, i32 noundef %mul.i.i1307, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1309, ptr noundef %539, ptr noundef nonnull @.str.321, i32 noundef %545, i32 noundef 5447) #28
+  %call.i.i1311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1299, i32 noundef %541, i32 noundef %542, i32 noundef %543, i32 noundef %mul.i.i1307, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1309, ptr noundef %539, ptr noundef nonnull @.str.321, i32 noundef %545, i32 noundef range(i32 5439, 6175) 5447) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i1302, %if.end.i.i1305
@@ -11363,7 +11363,7 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6
 
 if.then20.i:                                      ; preds = %lor.end.i
   call fastcc void @accountingReportStats(ptr noundef nonnull %rootParser.0.i.i, ptr noundef nonnull @.str.310)
-  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %entityTextPtr.addr.0, ptr noundef %4, i64 noundef %sub.ptr.sub.i, i32 noundef 6109, i32 noundef %account)
+  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %entityTextPtr.addr.0, ptr noundef %4, i64 noundef %sub.ptr.sub.i, i32 noundef 6109, i32 noundef range(i32 0, 3) %account)
   br label %accountingDiffTolerated.exit
 
 accountingDiffTolerated.exit:                     ; preds = %lor.end.i, %if.then20.i
@@ -11656,7 +11656,7 @@ if.end.i.i120:                                    ; preds = %if.end.i117
   %cond.i.i121 = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i = getelementptr inbounds i8, ptr %35, i64 16
   %60 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i112, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %55, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i121, ptr noundef %57, ptr noundef nonnull @.str.319, i32 noundef %60, i32 noundef 6152) #28
+  %call.i.i122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i112, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %55, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i121, ptr noundef %57, ptr noundef nonnull @.str.319, i32 noundef %60, i32 noundef range(i32 5439, 6175) 6152) #28
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i117, %if.end.i.i120
@@ -11706,7 +11706,7 @@ if.end.i.i131:                                    ; preds = %getRootParserOf.exi
   %cond.i.i135 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i136 = getelementptr inbounds i8, ptr %35, i64 16
   %74 = load i32, ptr %textLen.i.i136, align 8
-  %call.i.i137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i125, i32 noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %mul.i.i133, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i135, ptr noundef %68, ptr noundef nonnull @.str.321, i32 noundef %74, i32 noundef 6161) #28
+  %call.i.i137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i125, i32 noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %mul.i.i133, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i135, ptr noundef %68, ptr noundef nonnull @.str.321, i32 noundef %74, i32 noundef range(i32 5439, 6175) 6161) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i128, %if.end.i.i131
@@ -11777,7 +11777,7 @@ if.end.i.i153:                                    ; preds = %if.end.i150
   %cond.i.i158 = select i1 %tobool.not.i6.i157, ptr @.str.89, ptr @.str.88
   %textLen.i.i159 = getelementptr inbounds i8, ptr %35, i64 16
   %88 = load i32, ptr %textLen.i.i159, align 8
-  %call.i.i160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i140, i32 noundef %inc.i145, i32 noundef %inc2.i147, i32 noundef %83, i32 noundef %mul.i.i155, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i158, ptr noundef %85, ptr noundef nonnull @.str.319, i32 noundef %88, i32 noundef 6169) #28
+  %call.i.i160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i140, i32 noundef %inc.i145, i32 noundef %inc2.i147, i32 noundef %83, i32 noundef %mul.i.i155, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i158, ptr noundef %85, ptr noundef nonnull @.str.319, i32 noundef %88, i32 noundef range(i32 5439, 6175) 6169) #28
   br label %entityTrackingOnOpen.exit163
 
 entityTrackingOnOpen.exit163:                     ; preds = %if.end.i150, %if.end.i.i153
@@ -11820,7 +11820,7 @@ if.end.i.i171:                                    ; preds = %getRootParserOf.exi
   %tobool.not.i2.i178 = icmp eq i8 %99, 0
   %cond.i.i179 = select i1 %tobool.not.i2.i178, ptr @.str.89, ptr @.str.88
   %100 = load i32, ptr %textLen, align 8
-  %call.i.i181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i165, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef %mul.i.i176, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i179, ptr noundef %94, ptr noundef nonnull @.str.321, i32 noundef %100, i32 noundef 6174) #28
+  %call.i.i181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i165, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef %mul.i.i176, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i179, ptr noundef %94, ptr noundef nonnull @.str.321, i32 noundef %100, i32 noundef range(i32 5439, 6175) 6174) #28
   br label %entityTrackingOnClose.exit184
 
 entityTrackingOnClose.exit184:                    ; preds = %getRootParserOf.exit.i168, %if.end.i.i171
@@ -12517,7 +12517,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i = getelementptr inbounds i8, ptr %entity, i64 16
   %12 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %7, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %9, ptr noundef nonnull @.str.319, i32 noundef %12, i32 noundef 5732) #28
+  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %7, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %9, ptr noundef nonnull @.str.319, i32 noundef %12, i32 noundef range(i32 5439, 6175) 5732) #28
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i, %if.end.i.i
@@ -12623,7 +12623,7 @@ if.end.i.i58:                                     ; preds = %getRootParserOf.exi
   %tobool.not.i2.i = icmp eq i8 %33, 0
   %cond.i.i62 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %34 = load i32, ptr %textLen, align 8
-  %call.i.i64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i52, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %mul.i.i60, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i62, ptr noundef %28, ptr noundef nonnull @.str.321, i32 noundef %34, i32 noundef 5766) #28
+  %call.i.i64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i52, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %mul.i.i60, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i62, ptr noundef %28, ptr noundef nonnull @.str.321, i32 noundef %34, i32 noundef range(i32 5439, 6175) 5766) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i55, %if.end.i.i58
@@ -12679,7 +12679,7 @@ if.end.i:                                         ; preds = %getRootParserOf.exi
   %cond.i = select i1 %tobool.not.i2, ptr @.str.89, ptr @.str.88
   %textLen.i = getelementptr inbounds i8, ptr %entity, i64 16
   %8 = load i32, ptr %textLen.i, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %mul.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i, ptr noundef %2, ptr noundef nonnull @.str.321, i32 noundef %8, i32 noundef %sourceLine) #28
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %mul.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i, ptr noundef %2, ptr noundef nonnull @.str.321, i32 noundef %8, i32 noundef range(i32 5439, 6175) %sourceLine) #28
   br label %entityTrackingReportStats.exit
 
 entityTrackingReportStats.exit:                   ; preds = %getRootParserOf.exit, %if.end.i
@@ -14024,7 +14024,7 @@ accountingGetCurrentAmplification.exit.i:         ; preds = %cond.true.i.i796, %
   br label %accountingReportStats.exit
 
 accountingReportStats.exit:                       ; preds = %getRootParserOf.exit.i790, %accountingGetCurrentAmplification.exit.i
-  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %7, ptr noundef %cond7, i64 noundef %sub.ptr.sub.i, i32 noundef 2773, i32 noundef %account)
+  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %7, ptr noundef %cond7, i64 noundef %sub.ptr.sub.i, i32 noundef 2773, i32 noundef range(i32 0, 3) %account)
   br label %accountingDiffTolerated.exit
 
 accountingDiffTolerated.exit:                     ; preds = %lor.end.i, %accountingReportStats.exit
@@ -16647,7 +16647,7 @@ if.end107:                                        ; preds = %for.cond92, %if.the
   %49 = load ptr, ptr %valuePtr, align 8
   %valueEnd = getelementptr inbounds i8, ptr %arrayidx87, i64 16
   %50 = load ptr, ptr %valueEnd, align 8
-  %call.i347 = call fastcc i32 @appendAttributeValue(ptr noundef %parser, ptr noundef %enc, i8 noundef zeroext %isCdata.0, ptr noundef %49, ptr noundef %50, ptr noundef nonnull %m_tempPool124, i32 noundef %account)
+  %call.i347 = call fastcc i32 @appendAttributeValue(ptr noundef %parser, ptr noundef %enc, i8 noundef zeroext %isCdata.0, ptr noundef %49, ptr noundef %50, ptr noundef nonnull %m_tempPool124, i32 noundef range(i32 0, 3) %account)
   %tobool.not.i348 = icmp eq i32 %call.i347, 0
   br i1 %tobool.not.i348, label %if.end.i, label %return
 
@@ -18029,7 +18029,7 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6
 
 if.then20.i:                                      ; preds = %lor.end.i
   call fastcc void @accountingReportStats(ptr noundef nonnull %rootParser.0.i.i, ptr noundef nonnull @.str.310)
-  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %5, ptr noundef %6, i64 noundef %sub.ptr.sub.i, i32 noundef 4044, i32 noundef %account)
+  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %5, ptr noundef %6, i64 noundef %sub.ptr.sub.i, i32 noundef 4044, i32 noundef range(i32 0, 3) %account)
   br label %accountingDiffTolerated.exit
 
 accountingDiffTolerated.exit:                     ; preds = %lor.end.i, %if.then20.i
@@ -19340,7 +19340,7 @@ accountingGetCurrentAmplification.exit.i:         ; preds = %cond.true.i.i, %if.
   br label %accountingReportStats.exit
 
 accountingReportStats.exit:                       ; preds = %getRootParserOf.exit.i190, %accountingGetCurrentAmplification.exit.i
-  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %ptr.addr.0, ptr noundef %2, i64 noundef %sub.ptr.sub.i, i32 noundef 5896, i32 noundef %account)
+  call fastcc void @accountingReportDiff(ptr noundef nonnull %rootParser.0.i.i, i32 noundef %stepsTakenUpwards.0.i.i, ptr noundef %ptr.addr.0, ptr noundef %2, i64 noundef %sub.ptr.sub.i, i32 noundef 5896, i32 noundef range(i32 0, 3) %account)
   br label %accountingDiffTolerated.exit
 
 accountingDiffTolerated.exit:                     ; preds = %lor.end.i, %accountingReportStats.exit
@@ -19929,7 +19929,7 @@ if.end.i.i167:                                    ; preds = %if.end.i164
   %tobool.not.i6.i = icmp eq i8 %100, 0
   %cond.i.i168 = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %101 = load i32, ptr %textLen, align 8
-  %call.i.i169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i159, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %96, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i168, ptr noundef %98, ptr noundef nonnull @.str.319, i32 noundef %101, i32 noundef 6046) #28
+  %call.i.i169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i159, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %96, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i168, ptr noundef %98, ptr noundef nonnull @.str.319, i32 noundef %101, i32 noundef range(i32 5439, 6175) 6046) #28
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i164, %if.end.i.i167
@@ -19967,7 +19967,7 @@ if.end.i.i178:                                    ; preds = %getRootParserOf.exi
   %tobool.not.i2.i = icmp eq i8 %111, 0
   %cond.i.i182 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %112 = load i32, ptr %textLen, align 8
-  %call.i.i184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i172, i32 noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %mul.i.i180, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i182, ptr noundef %106, ptr noundef nonnull @.str.321, i32 noundef %112, i32 noundef 6053) #28
+  %call.i.i184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i172, i32 noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %mul.i.i180, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i182, ptr noundef %106, ptr noundef nonnull @.str.321, i32 noundef %112, i32 noundef range(i32 5439, 6175) 6053) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i175, %if.end.i.i178
@@ -20101,7 +20101,7 @@ if.end.i.i:                                       ; preds = %getRootParserOf.exi
   %tobool.not.i2.i = icmp eq i8 %22, 0
   %cond.i.i = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %23 = load i32, ptr %textLen, align 8
-  %call.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %17, ptr noundef nonnull @.str.321, i32 noundef %23, i32 noundef 5817) #28
+  %call.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %17, ptr noundef nonnull @.str.321, i32 noundef %23, i32 noundef range(i32 5439, 6175) 5817) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i, %if.end.i.i

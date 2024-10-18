@@ -1021,7 +1021,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseEEclEPS1_.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %6
-  invoke void %8(i32 noundef 3, ptr noundef nonnull %7, ptr noundef null)
+  invoke void %8(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null)
           to label %10 unwind label %11
 
 10:                                               ; preds = %9

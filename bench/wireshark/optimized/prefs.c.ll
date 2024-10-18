@@ -4589,7 +4589,7 @@ define void @prefs_register_string_preference(ptr nocapture noundef %0, ptr noun
 define void @prefs_register_filename_preference(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %.not = icmp eq i32 %5, 0
   %7 = select i1 %.not, i32 16384, i32 128
-  %8 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %7)
+  %8 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 8, 131073) %7)
   %9 = load ptr, ptr %4, align 8
   %10 = icmp eq ptr %9, null
   %.str.9..i = select i1 %10, ptr @.str.9, ptr %9

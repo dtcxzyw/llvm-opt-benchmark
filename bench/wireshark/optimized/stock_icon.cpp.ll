@@ -3079,7 +3079,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i34:     ; preds = %54
 
 69:                                               ; preds = %68
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  invoke void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %13, i32 noundef 1)
+  invoke void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %13, i32 noundef 1)
           to label %_ZN8QPainter8drawRectERK5QRect.exit unwind label %96
 
 _ZN8QPainter8drawRectERK5QRect.exit:              ; preds = %69

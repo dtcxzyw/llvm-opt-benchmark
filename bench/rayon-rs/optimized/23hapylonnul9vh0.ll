@@ -22,7 +22,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h87242f1eacdf9c21E)
+  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h87242f1eacdf9c21E)
   store i8 1, ptr %3, align 8
   br label %6
 
@@ -103,7 +103,7 @@ default.unreachable:                              ; preds = %5
   unreachable
 
 8:                                                ; preds = %5
-  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h87242f1eacdf9c21E), !noalias !14
+  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h87242f1eacdf9c21E), !noalias !14
   store i8 1, ptr %6, align 8, !noalias !14
   br label %9
 
@@ -377,7 +377,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdfd1c6e44b3c64b1E(ptr noalia
   br i1 %18, label %.body.i.i.i.i, label %19
 
 19:                                               ; preds = %11
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i, i64 noundef %14, i64 noundef %16) #18, !noalias !64
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %14, i64 noundef range(i64 1, -9223372036854775807) %16) #18, !noalias !64
   br label %.body.i.i.i.i
 
 20:                                               ; preds = %8
@@ -391,7 +391,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdfd1c6e44b3c64b1E(ptr noalia
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i, i64 noundef %22, i64 noundef %24) #18, !noalias !64
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %22, i64 noundef range(i64 1, -9223372036854775807) %24) #18, !noalias !64
   br label %36
 
 .body.i.i.i.i:                                    ; preds = %19, %11
@@ -532,7 +532,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc760c849c1a4213aE.llvm.17432
   br i1 %19, label %.body.i.i.i, label %20
 
 20:                                               ; preds = %12
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef %15, i64 noundef %17) #18, !noalias !99
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %15, i64 noundef range(i64 1, -9223372036854775807) %17) #18, !noalias !99
   br label %.body.i.i.i
 
 21:                                               ; preds = %9
@@ -546,7 +546,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc760c849c1a4213aE.llvm.17432
   br i1 %27, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hcde91246f251b30aE.exit", label %28
 
 28:                                               ; preds = %21
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef %23, i64 noundef %25) #18, !noalias !99
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %23, i64 noundef range(i64 1, -9223372036854775807) %25) #18, !noalias !99
   br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hcde91246f251b30aE.exit"
 
 .body.i.i.i:                                      ; preds = %20, %12

@@ -3430,7 +3430,7 @@ ehcleanup184:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end187:                                        ; preds = %do.body135, %lor.lhs.false137
-  %call.i = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(72) %f, double noundef %xMin)
+  %call.i = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %xMin)
   %delta_.i = getelementptr inbounds nuw i8, ptr %f, i64 72
   %94 = load double, ptr %delta_.i, align 8, !tbaa !56
   %sub.i = fsub double %call.i, %94
@@ -3448,7 +3448,7 @@ if.then192:                                       ; preds = %do.end187
 
 if.end194:                                        ; preds = %do.end187
   %97 = load double, ptr %xMax_, align 8, !tbaa !49
-  %call.i165 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(72) %f, double noundef %97)
+  %call.i165 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %97)
   %98 = load double, ptr %delta_.i, align 8, !tbaa !56
   %sub.i167 = fsub double %call.i165, %98
   %fxMax_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -6045,7 +6045,7 @@ entry:
   %ref.tmp137 = alloca %"class.std::allocator.6", align 1
   %ref.tmp140 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load double, ptr %this, align 8, !tbaa !63
-  %call.i = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(72) %f, double noundef %0)
+  %call.i = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %0)
   %delta_.i = getelementptr inbounds nuw i8, ptr %f, i64 72
   %1 = load double, ptr %delta_.i, align 8, !tbaa !56
   %sub.i = fsub double %call.i, %1
@@ -6165,7 +6165,7 @@ if.end40:                                         ; preds = %if.then29, %if.end2
   br i1 %or.cond108, label %if.then52, label %if.end58
 
 if.then52:                                        ; preds = %if.end40
-  %call.i51 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(72) %f, double noundef %19)
+  %call.i51 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %19)
   %24 = load i64, ptr %evaluationNumber_, align 8, !tbaa !60
   %inc56 = add i64 %24, 1
   store i64 %inc56, ptr %evaluationNumber_, align 8, !tbaa !60
@@ -6280,7 +6280,7 @@ if.end122:                                        ; preds = %if.end111, %if.else
   %cond.i.pn = phi double [ %cond.i, %if.else118 ], [ %d.2, %if.end111 ]
   %storemerge = fadd double %19, %cond.i.pn
   store double %storemerge, ptr %this, align 8, !tbaa !63
-  %call.i62 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(72) %f, double noundef %storemerge)
+  %call.i62 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %storemerge)
   %41 = load double, ptr %delta_.i, align 8, !tbaa !56
   %sub.i64 = fsub double %call.i62, %41
   %42 = load i64, ptr %evaluationNumber_, align 8, !tbaa !60

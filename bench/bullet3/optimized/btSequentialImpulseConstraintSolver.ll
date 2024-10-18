@@ -1355,7 +1355,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 
 if.then:                                          ; preds = %cond.end
   %m_worldTransform.i = getelementptr inbounds i8, ptr %cond, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %solverBody, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %solverBody, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %cond, i64 24
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %solverBody, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -2700,7 +2700,7 @@ for.inc.i.i:                                      ; preds = %for.inc.i.i, %for.i
   %arrayidx.i.i = getelementptr inbounds %struct.btSolverBody, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btSolverBody, ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
@@ -2749,7 +2749,7 @@ invoke.cont:                                      ; preds = %entry, %if.then, %_
   %7 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds %struct.btSolverBody, ptr %7, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %fillValue, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %arrayidx, ptr noundef nonnull align 8 dereferenceable(248) %fillValue, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %fillValue, i64 16
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
@@ -5719,7 +5719,7 @@ for.inc.i.i:                                      ; preds = %for.inc.i.i, %for.i
   %arrayidx.i.i = getelementptr inbounds %struct.btSolverBody, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btSolverBody, ptr %3, i64 %indvars.iv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
@@ -7713,7 +7713,7 @@ if.then28:                                        ; preds = %if.end
   %inc.i64 = add nsw i32 %39, 1
   store i32 %inc.i64, ptr %m_updateRevision.i63, align 8
   %m_worldTransform.i = getelementptr inbounds i8, ptr %38, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i59, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i59, i64 16, i1 false)
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i59, i64 16
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %38, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
@@ -7837,7 +7837,7 @@ if.then27:                                        ; preds = %if.then.if.then27_c
   %20 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %20, align 8
   call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(16) %m_pushVelocity, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %newTransform)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %newTransform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %newTransform, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %newTransform, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -8275,7 +8275,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul36 = fmul float %mul35, 5.000000e-01
   %call.i43 = tail call noundef float @cosf(float noundef %mul36) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -8394,7 +8394,7 @@ if.then47:                                        ; preds = %_ZN12btQuaternion13
   br label %if.end50
 
 if.else48:                                        ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(16) %curTrans, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(48) %curTrans, i64 16, i1 false)
   %arrayidx5.i.i58 = getelementptr inbounds i8, ptr %curTrans, i64 16
   %arrayidx7.i.i59 = getelementptr inbounds i8, ptr %predictedTransform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i58, i64 16, i1 false)

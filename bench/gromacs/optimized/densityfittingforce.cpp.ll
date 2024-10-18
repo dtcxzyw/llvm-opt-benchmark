@@ -78,7 +78,7 @@ define void @_ZN3gmx19DensityFittingForce4ImplC2ERKNS_30GaussianSpreadKernelPara
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i)
@@ -561,7 +561,7 @@ _ZNSt5arrayIN3gmx19GaussianOn1DLatticeELm3EEC2ERKS2_.exit: ; preds = %7
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %17, %18
   br i1 %.not.i.i.i.i.i.i, label %.noexc5, label %23
 
@@ -631,7 +631,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19DensityFittingFo
   %.sroa.03.i.i.i = alloca { %"class.gmx::accessor_basic", %"class.gmx::layout_right::mapping" }, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 36, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   br label %7
@@ -649,7 +649,7 @@ _ZN3gmx19DensityFittingForce4ImplaSERKS1_.exit:   ; preds = %7
   %12 = getelementptr inbounds i8, ptr %4, i64 64
   %13 = getelementptr inbounds i8, ptr %3, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03.i.i.i)
-  %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 96
   %.sroa.03.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.i.i.i, i64 8
@@ -813,7 +813,7 @@ _ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3gmx21OuterPr
   br i1 %9, label %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i.i.i.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i.i.i.i: ; preds = %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %4) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #15
   br label %_ZNSt10unique_ptrIN3gmx19DensityFittingForce4ImplESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN3gmx19DensityFittingForce4ImplESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %2, %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i.i.i.i

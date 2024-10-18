@@ -417,7 +417,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   unreachable
 
 27:                                               ; preds = %17
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h07e9a84d108e881dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %19, i64 noundef %16), !noalias !111
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h07e9a84d108e881dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19, i64 noundef %16), !noalias !111
   %.pre.i = load i64, ptr %18, align 8, !alias.scope !108, !noalias !111
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9b0dfb709a5a4762E.llvm.7777262224095092759.exit"
 

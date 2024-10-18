@@ -387,7 +387,7 @@ define internal i32 @dissect_hsms_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond8, label %93, label %95
 
 93:                                               ; preds = %86
-  %94 = call fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %58, ptr noundef %6)
+  %94 = call fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %6)
   %.pre = load i32, ptr %6, align 4
   br label %95
 

@@ -151,7 +151,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr nocapture nounde
   br i1 %.not.i, label %.thread.i, label %59
 
 .thread.i:                                        ; preds = %54
-  %58 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
+  %58 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef range(i32 0, 7) %.1, ptr noundef nonnull %7) #6
   br label %call_nftw.exit
 
 59:                                               ; preds = %54
@@ -181,7 +181,7 @@ call_nftw.exit.thread:                            ; preds = %68
   br label %132
 
 70:                                               ; preds = %68
-  %71 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
+  %71 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef range(i32 0, 7) %.1, ptr noundef nonnull %7) #6
   %72 = call i32 @lib_restoredir() #6
   br label %call_nftw.exit
 
@@ -287,7 +287,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not.i104, label %.thread.i107, label %117
 
 .thread.i107:                                     ; preds = %112
-  %116 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
+  %116 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef range(i32 0, 7) %.1, ptr noundef nonnull %6) #6
   br label %call_nftw.exit108
 
 117:                                              ; preds = %112
@@ -317,7 +317,7 @@ call_nftw.exit108.thread:                         ; preds = %126
   br label %132
 
 128:                                              ; preds = %126
-  %129 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
+  %129 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef range(i32 0, 7) %.1, ptr noundef nonnull %6) #6
   %130 = call i32 @lib_restoredir() #6
   br label %call_nftw.exit108
 

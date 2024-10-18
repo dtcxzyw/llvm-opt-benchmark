@@ -2761,7 +2761,7 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number15NumberFormatter4withEv(ptr noalias nonnull sret(%"class.icu_75::number::UnlocalizedNumberFormatter") align 8 %agg.result) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %agg.result)
+  tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %agg.result)
   ret void
 }
 
@@ -2769,8 +2769,8 @@ entry:
 define void @_ZN6icu_756number15NumberFormatter10withLocaleERKNS_6LocaleE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(217) %locale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::number::UnlocalizedNumberFormatter", align 8
-  call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %ref.tmp)
-  invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1EONS0_4impl10MacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(496) %agg.result, ptr noundef nonnull align 8 dereferenceable(472) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(217) %locale)
+  call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %ref.tmp)
+  invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1EONS0_4impl10MacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(496) %agg.result, ptr noundef nonnull align 8 dereferenceable(473) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2807,7 +2807,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number26UnlocalizedNumberFormatterC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %this, ptr noundef nonnull align 8 dereferenceable(473) %other) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN6icu_756number4impl10MacroPropsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(472) %other)
+  tail call void @_ZN6icu_756number4impl10MacroPropsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(473) %this, ptr noundef nonnull align 8 dereferenceable(472) %other)
   ret void
 }
 
@@ -2979,7 +2979,7 @@ define void @_ZN6icu_756number24LocalizedNumberFormatterC2ERKS1_(ptr noundef non
 entry:
   %localStatus.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
-  tail call void @_ZN6icu_756number4impl10MacroPropsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(472) %other)
+  tail call void @_ZN6icu_756number4impl10MacroPropsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(472) %other)
   %fCompiled.i = getelementptr inbounds i8, ptr %this, i64 472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCompiled.i, i8 0, i64 24, i1 false)
   store i32 0, ptr %localStatus.i, align 4
@@ -2989,7 +2989,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756number23NumberFormatterSettingsINS0_24LocalizedNumberFormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) #15
+  call void @_ZN6icu_756number23NumberFormatterSettingsINS0_24LocalizedNumberFormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this) #15
   resume { ptr, i32 } %0
 
 _ZN6icu_756number24LocalizedNumberFormatterC2ERKNS0_23NumberFormatterSettingsIS1_EE.exit: ; preds = %entry
@@ -4098,7 +4098,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %call2, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %call2, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -4125,7 +4125,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #15
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %call2) #15
   br label %lpad.body
 
 if.then3:                                         ; preds = %if.end
@@ -4208,7 +4208,7 @@ if.then15.i:                                      ; preds = %if.end.i
   br i1 %new.isnull.i, label %_ZNK6icu_756number24LocalizedNumberFormatter15computeCompiledER10UErrorCode.exit.thread9, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then15.i
-  invoke void @_ZN6icu_756number4impl19NumberFormatterImplC1ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %call16.i, ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_756number4impl19NumberFormatterImplC1ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %call16.i, ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZNK6icu_756number24LocalizedNumberFormatter15computeCompiledER10UErrorCode.exit.thread unwind label %lpad.i
 
 _ZNK6icu_756number24LocalizedNumberFormatter15computeCompiledER10UErrorCode.exit.thread9: ; preds = %if.then15.i
@@ -4272,7 +4272,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %call2, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %call2, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -4299,7 +4299,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #15
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %call2) #15
   br label %lpad.body
 
 if.then3:                                         ; preds = %if.end
@@ -4359,7 +4359,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %call2, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %call2, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -4386,7 +4386,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #15
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %call2) #15
   br label %lpad.body
 
 if.then3:                                         ; preds = %if.end
@@ -4446,7 +4446,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %call2, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %call2, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -4473,7 +4473,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #15
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %call2) #15
   br label %lpad.body
 
 if.then3:                                         ; preds = %if.end
@@ -4633,7 +4633,7 @@ if.then15.i:                                      ; preds = %if.end.i
   br i1 %new.isnull.i, label %invoke.cont.thread21, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then15.i
-  invoke void @_ZN6icu_756number4impl19NumberFormatterImplC1ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %call16.i, ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_756number4impl19NumberFormatterImplC1ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %call16.i, ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont.thread unwind label %lpad.i
 
 invoke.cont.thread21:                             ; preds = %if.then15.i
@@ -5112,16 +5112,16 @@ _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #15
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier.i) #15
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier.i) #15
   %multiplier.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #15
   %emptyStrongModifier.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier.i) #15
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier.i) #15
   %emptyWeakModifier.i = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier.i) #15
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %helpers) #15
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier.i) #15
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %helpers) #15
   %currencyAsDecimal.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i) #15
   ret void
@@ -5282,12 +5282,12 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i.i) #15
   %posPrefix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr.i) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %arraydestroy.element.ptr.i) #15
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 8
   br i1 %arraydestroy.done.i, label %_ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit, label %arraydestroy.body.i
 
 _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arraydestroy.body.i
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencyPluralInfoAPP) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %currencyPluralInfoAPP) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
   %negSuffix.i = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i) #15
@@ -5297,7 +5297,7 @@ _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arr
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i) #15
   %posPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %this) #15
   ret void
 }
 

@@ -296,7 +296,7 @@ define internal fastcc void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1
   %32 = load i32, ptr @hf_asf_payload_data, align 4
   %33 = zext i8 %31 to i32
   %34 = tail call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull %asf_integrity_type_vals.sink, ptr noundef nonnull @.str.72) #2
-  %35 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %.str.74.sink, ptr noundef %34) #2
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef %29, i32 noundef range(i32 1, 65532) %30, ptr noundef nonnull %.str.74.sink, ptr noundef %34) #2
   %36 = load i32, ptr @ett_asf_alg_payload, align 4
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #2
   %38 = load i32, ptr %hf_asf_integrity_alg.sink, align 4

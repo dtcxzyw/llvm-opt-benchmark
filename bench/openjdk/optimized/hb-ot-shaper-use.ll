@@ -226,7 +226,7 @@ define internal noundef zeroext i1 @_ZL11compose_usePK31hb_ot_shape_normalize_co
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i32 %8(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %10)
+  %11 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %1, ptr noundef %10)
   %12 = icmp ult i32 %11, 32
   br i1 %12, label %13, label %.critedge
 
@@ -236,7 +236,7 @@ define internal noundef zeroext i1 @_ZL11compose_usePK31hb_ot_shape_normalize_co
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i32 %16(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %18)
+  %19 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(216) %14, i32 noundef %1, ptr noundef %18)
   %20 = shl nuw i32 1, %19
   %21 = and i32 %20, 7168
   %22 = icmp eq i32 %21, 0
@@ -255,7 +255,7 @@ define internal noundef zeroext i1 @_ZL11compose_usePK31hb_ot_shape_normalize_co
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %23, i64 128
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef i32 %28(ptr noundef nonnull %23, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %30)
+  %31 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(216) %23, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %30)
   %32 = icmp ne i32 %31, 0
   br label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
 
@@ -639,9 +639,9 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit.i.thread, label %.lr.ph.i.i3.i.i.i.i.i.i, !llvm.loop !32
 
 .loopexit.i.thread:                               ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEv.exit.i.i.i.i.i.i.i.i", %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE3lenEv.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %89 = getelementptr inbounds i8, ptr %8, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %90 = getelementptr inbounds i8, ptr %9, i64 72
   store i8 1, ptr %89, align 8
   store i8 1, ptr %90, align 8
@@ -651,9 +651,9 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %.sroa.18.0..sroa_idx2557.i5368 = phi ptr [ %.sroa.18.0..sroa_idx2554.i, %.thread ], [ %.sroa.18.0..sroa_idx.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
   %.sroa.6.0..sroa_idx2556.i5566 = phi ptr [ %.sroa.6.0..sroa_idx2553.i, %.thread ], [ %.sroa.6.0..sroa_idx.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
   %.sroa.01173.0.i5764 = phi i32 [ 0, %.thread ], [ %70, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %91 = getelementptr inbounds i8, ptr %8, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %92 = getelementptr inbounds i8, ptr %9, i64 72
   store i8 1, ptr %91, align 8
   store i8 1, ptr %92, align 8
@@ -775,7 +775,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 138:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %10, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %139 = getelementptr inbounds i8, ptr %10, i64 72
   %140 = load i8, ptr %52, align 8, !noalias !53
   %141 = and i8 %140, 1
@@ -886,7 +886,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 183:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %11, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %184 = getelementptr inbounds i8, ptr %11, i64 72
   %185 = load i8, ptr %52, align 8, !noalias !60
   %186 = and i8 %185, 1
@@ -1044,7 +1044,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 248:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %12, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %249 = getelementptr inbounds i8, ptr %12, i64 72
   %250 = load i8, ptr %52, align 8, !noalias !86
   %251 = and i8 %250, 1
@@ -1203,7 +1203,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 314:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %13, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %315 = getelementptr inbounds i8, ptr %13, i64 72
   %316 = load i8, ptr %52, align 8, !noalias !112
   %317 = and i8 %316, 1
@@ -1362,7 +1362,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 380:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %14, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %381 = getelementptr inbounds i8, ptr %14, i64 72
   %382 = load i8, ptr %52, align 8, !noalias !138
   %383 = and i8 %382, 1
@@ -1521,7 +1521,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 446:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %15, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %447 = getelementptr inbounds i8, ptr %15, i64 72
   %448 = load i8, ptr %52, align 8, !noalias !164
   %449 = and i8 %448, 1
@@ -1680,7 +1680,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 512:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %16, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %513 = getelementptr inbounds i8, ptr %16, i64 72
   %514 = load i8, ptr %52, align 8, !noalias !190
   %515 = and i8 %514, 1
@@ -1839,7 +1839,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 578:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %17, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %579 = getelementptr inbounds i8, ptr %17, i64 72
   %580 = load i8, ptr %52, align 8, !noalias !216
   %581 = and i8 %580, 1
@@ -1998,7 +1998,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 644:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %18, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %645 = getelementptr inbounds i8, ptr %18, i64 72
   %646 = load i8, ptr %52, align 8, !noalias !242
   %647 = and i8 %646, 1
@@ -2162,7 +2162,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 714:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %19, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %715 = getelementptr inbounds i8, ptr %19, i64 72
   %716 = load i8, ptr %52, align 8, !noalias !268
   %717 = and i8 %716, 1
@@ -3684,7 +3684,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 1332:                                             ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !487)
   call void @llvm.experimental.noalias.scope.decl(metadata !490)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull readonly align 8 dereferenceable(72) %9, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %20, ptr noundef nonnull readonly align 8 dereferenceable(73) %9, i64 72, i1 false)
   %1333 = getelementptr inbounds i8, ptr %20, i64 72
   %1334 = load i8, ptr %94, align 8, !noalias !493
   %1335 = and i8 %1334, 1

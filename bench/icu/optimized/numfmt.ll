@@ -808,7 +808,7 @@ entry:
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i2 = invoke noundef nonnull align 8 dereferenceable(322) ptr @_ZN6icu_756FormataSERKS0_(ptr noundef nonnull align 8 dereferenceable(322) %this, ptr noundef nonnull align 8 dereferenceable(322) %source)
+  %call.i2 = invoke noundef nonnull align 8 dereferenceable(322) ptr @_ZN6icu_756FormataSERKS0_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(356) %source)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
@@ -2325,7 +2325,7 @@ new.notnull:                                      ; preds = %if.then3
 call.i.noexc:                                     ; preds = %new.notnull
   %tobool.not.i = icmp eq i8 %call.i6, 0
   %cond.i = zext i1 %tobool.not.i to i32
-  invoke void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr noundef nonnull align 8 dereferenceable(76) %call4, i32 noundef %cond.i)
+  invoke void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr noundef nonnull align 8 dereferenceable(96) %call4, i32 noundef %cond.i)
           to label %if.then5 unwind label %lpad
 
 if.then5:                                         ; preds = %call.i.noexc
@@ -2911,7 +2911,7 @@ if.end:                                           ; preds = %entry
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ]
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %ref.tmp) #20
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #20
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.end
@@ -2926,7 +2926,7 @@ _ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEC2ERKNS_6LocaleE.exit: ; pre
 invoke.cont:                                      ; preds = %_ZN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEC2ERKNS_6LocaleE.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %ref.tmp, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #20
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %ref.tmp) #20
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #20
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont
@@ -3288,7 +3288,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
   br i1 %cmp125, label %if.then126, label %if.else155
 
 if.then126:                                       ; preds = %invoke.cont123
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %nsLocID)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %nsLocID)
           to label %invoke.cont127 unwind label %lpad116
 
 invoke.cont127:                                   ; preds = %if.then126
@@ -3338,7 +3338,7 @@ invoke.cont150:                                   ; preds = %invoke.cont148
   %cmp152 = icmp eq i8 %call151, 0
   %spec.select = select i1 %cmp152, i32 0, i32 3
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %SpelloutRules) #20
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %nsLocID) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %nsLocID) #20
   br label %if.end160
 
 lpad113:                                          ; preds = %invoke.cont112
@@ -3383,7 +3383,7 @@ lpad149:                                          ; preds = %invoke.cont148
 
 ehcleanup:                                        ; preds = %lpad149, %lpad147, %lpad131, %lpad129
   %.pn68 = phi { ptr, i32 } [ %47, %lpad149 ], [ %45, %lpad147 ], [ %43, %lpad129 ], [ %44, %lpad131 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %nsLocID) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %nsLocID) #20
   br label %ehcleanup180
 
 if.else155:                                       ; preds = %invoke.cont123
@@ -4092,7 +4092,7 @@ new.notnull:                                      ; preds = %if.then3
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call5, i64 8
-  %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -4136,7 +4136,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   br label %common.resume
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %for.body, %new.notnull.i
-  %call2.i = call noundef ptr @uhash_put_75(ptr noundef %8, ptr noundef %call.i, ptr noundef nonnull %this, ptr noundef nonnull %status)
+  %call2.i = call noundef ptr @uhash_put_75(ptr noundef %8, ptr noundef %call.i, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %count, align 4
   %11 = sext i32 %10 to i64
@@ -4528,7 +4528,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_18SharedNumberFormatEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #20
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #20
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #20
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -4568,7 +4568,7 @@ new.notnull:                                      ; preds = %entry
 lpad.i:                                           ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %call) #20
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %call) #20
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %1
 

@@ -691,7 +691,7 @@ define hidden void @_ZN21DynamicArchiveBuilder13write_archiveEPc(ptr noundef non
   tail call void @_ZN13FileMapHeader13set_as_offsetEPcPm(ptr noundef nonnull align 8 dereferenceable(792) %7, ptr noundef %1, ptr noundef nonnull %8) #11
   %9 = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8
   tail call void @_ZN11FileMapInfo14open_for_writeEv(ptr noundef nonnull align 8 dereferenceable(40) %9) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN11CHeapBitMapC1Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %10, i64 noundef 128, i8 noundef zeroext 13, i1 noundef zeroext true) #11
   %11 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1106,7 +1106,7 @@ define hidden void @_ZN14DynamicArchive9post_dumpEv() local_unnamed_addr #0 alig
 
 6:                                                ; preds = %2
   store i32 0, ptr %1, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN13GrowableArrayIP13ObjArrayKlassED2Ev.exit
 
 _ZN13GrowableArrayIP13ObjArrayKlassED2Ev.exit:    ; preds = %2, %6
@@ -1234,14 +1234,14 @@ define hidden void @_ZN14DynamicArchive12dump_at_exitEP10JavaThreadPKc(ptr nound
   store ptr null, ptr %29, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %30) #11
+  call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %30) #11
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21DynamicArchiveBuilder, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %4, i64 1096
   store ptr %1, ptr %31, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #11
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %4, align 8
   call void @_ZN18RegeneratedClasses7cleanupEv() #11
-  call void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %30) #11
+  call void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %30) #11
   br label %57
 
 32:                                               ; preds = %25
@@ -1348,14 +1348,14 @@ define hidden void @_ZN14DynamicArchive13dump_for_jcmdEPKcP10JavaThread(ptr noun
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %8) #11
+  call void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %8) #11
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21DynamicArchiveBuilder, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 1096
   store ptr %0, ptr %9, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #11
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_PopulateDynamicDumpSharedSpace, i64 16), ptr %3, align 8
   call void @_ZN18RegeneratedClasses7cleanupEv() #11
-  call void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %8) #11
+  call void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %8) #11
   br label %10
 
 10:                                               ; preds = %2, %6
@@ -2564,7 +2564,7 @@ _ZN14DynamicArchive18dump_array_klassesEv.exit:   ; preds = %.lr.ph.i, %57, %66
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv.i7
   %99 = load ptr, ptr %98, align 8
-  %100 = call noundef ptr @_ZNK14ArchiveBuilder17get_buffered_addrEPh(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %99) #11
+  %100 = call noundef ptr @_ZNK14ArchiveBuilder17get_buffered_addrEPh(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr noundef %99) #11
   %101 = getelementptr inbounds i8, ptr %100, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = icmp slt i32 %102, 5
@@ -2629,7 +2629,7 @@ _ZN21DynamicArchiveBuilder14release_headerEv.exit: ; preds = %115, %118
 
 124:                                              ; preds = %120
   store i32 0, ptr %119, align 4
-  call void @_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %119)
+  call void @_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %119)
   br label %_ZN13GrowableArrayIP13ObjArrayKlassED2Ev.exit.i
 
 _ZN13GrowableArrayIP13ObjArrayKlassED2Ev.exit.i:  ; preds = %124, %120

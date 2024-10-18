@@ -57,7 +57,7 @@ define dso_local void @_ZN4llvm35initializeAArch64GlobalsTaggingPassERNS_12PassR
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeAArch64GlobalsTaggingPassFlag, ptr noundef nonnull @__once_proxy) #14
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeAArch64GlobalsTaggingPassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -127,7 +127,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm31createAArch64GlobalsTaggingPassE
   store ptr %1, ptr %14, align 8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %15, align 8
-  %16 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeAArch64GlobalsTaggingPassFlag, ptr noundef nonnull @__once_proxy) #14
+  %16 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeAArch64GlobalsTaggingPassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_121AArch64GlobalsTaggingC2Ev.exit, label %17
 
@@ -179,7 +179,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_121
   store ptr %1, ptr %14, align 8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %15, align 8
-  %16 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeAArch64GlobalsTaggingPassFlag, ptr noundef nonnull @__once_proxy) #14
+  %16 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeAArch64GlobalsTaggingPassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_121AArch64GlobalsTaggingC2Ev.exit, label %17
 
@@ -217,7 +217,7 @@ define internal void @_ZN12_GLOBAL__N_121AArch64GlobalsTaggingD0Ev(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeIPN4llvm14GlobalVariableES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
-  tail call void @_ZN4llvm10ModulePassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #14
+  tail call void @_ZN4llvm10ModulePassD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #17
   ret void
 }
@@ -305,18 +305,18 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121AArch64GlobalsTagging11ru
   br i1 %.not.i.i, label %_ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EE9push_backEOS2_.exit, label %_ZNK4llvm11GlobalValue8isTaggedEv.exit.i
 
 _ZNK4llvm11GlobalValue8isTaggedEv.exit.i:         ; preds = %18
-  %22 = tail call noundef nonnull align 4 dereferenceable(1) ptr @_ZNK4llvm11GlobalValue20getSanitizerMetadataEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #14
+  %22 = tail call noundef nonnull align 4 dereferenceable(1) ptr @_ZNK4llvm11GlobalValue20getSanitizerMetadataEv(ptr noundef nonnull align 8 dereferenceable(81) %16) #14
   %23 = load i8, ptr %22, align 4
   %24 = and i8 %23, 4
   %.not.i = icmp eq i8 %24, 0
   br i1 %.not.i, label %_ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EE9push_backEOS2_.exit, label %25
 
 25:                                               ; preds = %_ZNK4llvm11GlobalValue8isTaggedEv.exit.i
-  %26 = tail call noundef nonnull align 4 dereferenceable(1) ptr @_ZNK4llvm11GlobalValue20getSanitizerMetadataEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #14
+  %26 = tail call noundef nonnull align 4 dereferenceable(1) ptr @_ZNK4llvm11GlobalValue20getSanitizerMetadataEv(ptr noundef nonnull align 8 dereferenceable(81) %16) #14
   %.sroa.02.0.copyload.i = load i8, ptr %26, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 1
   %.sroa.7.sroa.0.0.copyload.i = load i24, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %27 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  %27 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %16) #14
   %28 = extractvalue { ptr, i64 } %27, 1
   %.not.i20.i = icmp ult i64 %28, 5
   br i1 %.not.i20.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread23.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
@@ -348,7 +348,7 @@ _ZNK4llvm11GlobalValue8isTaggedEv.exit.thread.sink.split.i: ; preds = %33, %_ZNK
   %.sroa.7.0.insert.shift.i = shl nuw i32 %.sroa.7.0.insert.ext.i, 8
   %.sroa.02.0.insert.ext.i = zext i8 %38 to i32
   %.sroa.02.0.insert.insert.i = or disjoint i32 %.sroa.7.0.insert.shift.i, %.sroa.02.0.insert.ext.i
-  tail call void @_ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE(ptr noundef nonnull align 8 dereferenceable(48) %16, i32 %.sroa.02.0.insert.insert.i) #14
+  tail call void @_ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE(ptr noundef nonnull align 8 dereferenceable(81) %16, i32 %.sroa.02.0.insert.insert.i) #14
   br label %_ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EE9push_backEOS2_.exit
 
 _ZL15shouldTagGlobalRN4llvm14GlobalVariableE.exit: ; preds = %33
@@ -454,11 +454,11 @@ _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EE9push_backEOS2_.exit: ; preds = %_Z
 
 83:                                               ; preds = %64
   %84 = sub i64 %82, %80
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %11, i64 noundef 40) #14
-  call void @_ZN4llvm15SmallVectorImplIhE6assignEmh(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %84, i8 noundef zeroext 0)
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %11, i64 noundef 40) #14
+  call void @_ZN4llvm15SmallVectorImplIhE6assignEmh(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef %84, i8 noundef zeroext 0)
   %85 = load ptr, ptr %1, align 8
   %86 = load ptr, ptr %4, align 8
-  %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
   %88 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %85, i32 noundef 8) #14
   %89 = call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %88, i64 noundef %87) #14
   %90 = call noundef ptr @_ZN4llvm22ConstantDataSequential7getImplENS_9StringRefEPNS_4TypeE(ptr %86, i64 %87, ptr noundef %89) #14
@@ -494,7 +494,7 @@ _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EE9push_backEOS2_.exit: ; preds = %_Z
   call void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull %65) #14
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull %93) #14
   call void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(81) %65) #14
-  %111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
   %112 = load ptr, ptr %4, align 8
   %113 = icmp eq ptr %112, %11
   br i1 %113, label %_ZL19tagGlobalDefinitionRN4llvm6ModuleEPNS_14GlobalVariableE.exit, label %114

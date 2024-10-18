@@ -1209,7 +1209,7 @@ BIT_initDStream.exit:                             ; preds = %9
   %.ptr537 = getelementptr inbounds i8, ptr %2, i64 %.add
   %.val.i = load i64, ptr %.ptr537, align 1
   %60 = zext i8 %11 to i32
-  %61 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %60, i1 true)
+  %61 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %60, i1 true)
   %62 = xor i32 %61, 31
   %63 = sub nuw nsw i32 8, %62
   %64 = icmp ult i64 %3, -119
@@ -1227,7 +1227,7 @@ BIT_initDStream.exit:                             ; preds = %9
 
 .thread611:                                       ; preds = %56
   %70 = zext i8 %59 to i32
-  %71 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %70, i1 true)
+  %71 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %70, i1 true)
   %72 = trunc nuw i64 %3 to i32
   %73 = shl nuw nsw i32 %72, 3
   %reass.sub = sub nsw i32 %71, %73
@@ -1964,7 +1964,7 @@ BIT_initDStream.exit:                             ; preds = %11
   %.ptr287 = getelementptr inbounds i8, ptr %2, i64 %.add
   %.val.i = load i64, ptr %.ptr287, align 1
   %62 = zext i8 %13 to i32
-  %63 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %62, i1 true)
+  %63 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %62, i1 true)
   %64 = xor i32 %63, 31
   %65 = sub nuw nsw i32 8, %64
   %66 = icmp ult i64 %3, -119
@@ -1977,7 +1977,7 @@ BIT_initDStream.exit:                             ; preds = %11
 
 .thread318:                                       ; preds = %58
   %69 = zext i8 %61 to i32
-  %70 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %69, i1 true)
+  %70 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %69, i1 true)
   %71 = trunc nuw i64 %3 to i32
   %72 = shl nuw nsw i32 %71, 3
   %reass.sub = sub nsw i32 %70, %72
@@ -2817,7 +2817,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
   %357 = getelementptr inbounds i8, ptr %336, i64 -8
   %.val.i.i30 = load i64, ptr %357, align 1
   %358 = zext i8 %355 to i32
-  %359 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %358, i1 true)
+  %359 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %358, i1 true)
   %360 = xor i32 %359, 31
   %361 = sub nuw nsw i32 8, %360
   br label %415
@@ -2896,7 +2896,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
 
 409:                                              ; preds = %406
   %410 = zext i8 %408 to i32
-  %411 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %410, i1 true)
+  %411 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %410, i1 true)
   %412 = shl nuw nsw i16 %.val1946.i, 3
   %413 = zext nneg i16 %412 to i32
   %reass.sub = sub nsw i32 %411, %413
@@ -2925,7 +2925,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
   %424 = getelementptr inbounds i8, ptr %337, i64 -8
   %.val.i1952.i = load i64, ptr %424, align 1
   %425 = zext i8 %422 to i32
-  %426 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %425, i1 true)
+  %426 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %425, i1 true)
   %427 = xor i32 %426, 31
   %428 = sub nuw nsw i32 8, %427
   br label %482
@@ -3004,7 +3004,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
 
 476:                                              ; preds = %473
   %477 = zext i8 %475 to i32
-  %478 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %477, i1 true)
+  %478 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %477, i1 true)
   %479 = shl nuw nsw i16 %.val1947.i, 3
   %480 = zext nneg i16 %479 to i32
   %reass.sub159 = sub nsw i32 %478, %480
@@ -3033,7 +3033,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
   %491 = getelementptr inbounds i8, ptr %338, i64 -8
   %.val.i1959.i = load i64, ptr %491, align 1
   %492 = zext i8 %489 to i32
-  %493 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %492, i1 true)
+  %493 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %492, i1 true)
   %494 = xor i32 %493, 31
   %495 = sub nuw nsw i32 8, %494
   br label %549
@@ -3112,7 +3112,7 @@ HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
 
 543:                                              ; preds = %540
   %544 = zext i8 %542 to i32
-  %545 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %544, i1 true)
+  %545 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %544, i1 true)
   %546 = shl nuw nsw i16 %.val1948.i, 3
   %547 = zext nneg i16 %546 to i32
   %reass.sub160 = sub nsw i32 %545, %547
@@ -5898,7 +5898,7 @@ HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
   %263 = getelementptr inbounds i8, ptr %243, i64 -8
   %.val.i.i28 = load i64, ptr %263, align 1
   %264 = zext i8 %261 to i32
-  %265 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %264, i1 true)
+  %265 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %264, i1 true)
   %266 = xor i32 %265, 31
   %267 = sub nuw nsw i32 8, %266
   br label %321
@@ -5977,7 +5977,7 @@ HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
 
 315:                                              ; preds = %312
   %316 = zext i8 %314 to i32
-  %317 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %316, i1 true)
+  %317 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %316, i1 true)
   %318 = shl nuw nsw i16 %.val1154.i, 3
   %319 = zext nneg i16 %318 to i32
   %reass.sub = sub nsw i32 %317, %319
@@ -6006,7 +6006,7 @@ HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
   %330 = getelementptr inbounds i8, ptr %244, i64 -8
   %.val.i1158.i = load i64, ptr %330, align 1
   %331 = zext i8 %328 to i32
-  %332 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %331, i1 true)
+  %332 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %331, i1 true)
   %333 = xor i32 %332, 31
   %334 = sub nuw nsw i32 8, %333
   br label %388
@@ -6085,7 +6085,7 @@ HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
 
 382:                                              ; preds = %379
   %383 = zext i8 %381 to i32
-  %384 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %383, i1 true)
+  %384 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %383, i1 true)
   %385 = shl nuw nsw i16 %.val1153.i, 3
   %386 = zext nneg i16 %385 to i32
   %reass.sub52 = sub nsw i32 %384, %386
@@ -6114,7 +6114,7 @@ HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
   %397 = getelementptr inbounds i8, ptr %245, i64 -8
   %.val.i1165.i = load i64, ptr %397, align 1
   %398 = zext i8 %395 to i32
-  %399 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %398, i1 true)
+  %399 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %398, i1 true)
   %400 = xor i32 %399, 31
   %401 = sub nuw nsw i32 8, %400
   br label %455
@@ -6193,7 +6193,7 @@ HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
 
 449:                                              ; preds = %446
   %450 = zext i8 %448 to i32
-  %451 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %450, i1 true)
+  %451 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %450, i1 true)
   %452 = shl nuw nsw i16 %.val1152.i, 3
   %453 = zext nneg i16 %452 to i32
   %reass.sub53 = sub nsw i32 %451, %453
@@ -7399,7 +7399,7 @@ HUF_selectDecoder.exit:                           ; preds = %12, %13
   br i1 %.not, label %34, label %42
 
 34:                                               ; preds = %HUF_selectDecoder.exit
-  %35 = tail call i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7)
+  %35 = tail call i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5, i64 noundef %6, i32 noundef %7)
   %36 = icmp ult i64 %35, -119
   br i1 %36, label %37, label %HUF_decompress4X2_DCtx_wksp.exit
 
@@ -7410,11 +7410,11 @@ HUF_selectDecoder.exit:                           ; preds = %12, %13
 38:                                               ; preds = %37
   %39 = getelementptr inbounds i8, ptr %3, i64 %35
   %40 = sub nuw i64 %4, %35
-  %41 = tail call fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %39, i64 noundef %40, ptr noundef %0, i32 noundef %7)
+  %41 = tail call fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %39, i64 noundef %40, ptr noundef %0, i32 noundef %7)
   br label %HUF_decompress4X2_DCtx_wksp.exit
 
 42:                                               ; preds = %HUF_selectDecoder.exit
-  %43 = tail call i64 @HUF_readDTableX1_wksp(ptr noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7)
+  %43 = tail call i64 @HUF_readDTableX1_wksp(ptr noundef %0, ptr noundef %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5, i64 noundef %6, i32 noundef %7)
   %44 = icmp ult i64 %43, -119
   br i1 %44, label %45, label %HUF_decompress4X2_DCtx_wksp.exit
 
@@ -7425,7 +7425,7 @@ HUF_selectDecoder.exit:                           ; preds = %12, %13
 46:                                               ; preds = %45
   %47 = getelementptr inbounds i8, ptr %3, i64 %43
   %48 = sub nuw i64 %4, %43
-  %49 = tail call fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %47, i64 noundef %48, ptr noundef %0, i32 noundef %7)
+  %49 = tail call fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %47, i64 noundef %48, ptr noundef %0, i32 noundef %7)
   br label %HUF_decompress4X2_DCtx_wksp.exit
 
 HUF_decompress4X2_DCtx_wksp.exit:                 ; preds = %46, %45, %42, %38, %37, %34, %10, %8
@@ -7470,7 +7470,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 18:                                               ; preds = %11
   %19 = zext i8 %16 to i32
-  %20 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 8, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7565,7 +7565,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 74:                                               ; preds = %69
   %75 = zext i8 %72 to i32
-  %76 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %75, i1 true)
+  %76 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %75, i1 true)
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   %78 = trunc nuw i64 %2 to i32
   %79 = shl nuw nsw i32 %78, 3
@@ -7671,7 +7671,7 @@ define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr no
   %57 = load i8, ptr %56, align 1
   %.not.i = icmp eq i8 %57, 0
   %58 = zext i8 %57 to i32
-  %59 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %58, i1 true)
+  %59 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %58, i1 true)
   %60 = xor i32 %59, 31
   %61 = sub nuw nsw i32 8, %60
   %62 = zext nneg i32 %61 to i64
@@ -7685,7 +7685,7 @@ define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr no
   %68 = load i8, ptr %67, align 1
   %.not.i80 = icmp eq i8 %68, 0
   %69 = zext i8 %68 to i32
-  %70 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %69, i1 true)
+  %70 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %69, i1 true)
   %71 = xor i32 %70, 31
   %72 = sub nuw nsw i32 8, %71
   %73 = zext nneg i32 %72 to i64
@@ -7699,7 +7699,7 @@ define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr no
   %79 = load i8, ptr %78, align 1
   %.not.i82 = icmp eq i8 %79, 0
   %80 = zext i8 %79 to i32
-  %81 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %80, i1 true)
+  %81 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %80, i1 true)
   %82 = xor i32 %81, 31
   %83 = sub nuw nsw i32 8, %82
   %84 = zext nneg i32 %83 to i64
@@ -7713,7 +7713,7 @@ define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr no
   %90 = load i8, ptr %89, align 1
   %.not.i84 = icmp eq i8 %90, 0
   %91 = zext i8 %90 to i32
-  %92 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 %91, i1 true)
+  %92 = tail call range(i32 24, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 256) %91, i1 true)
   %93 = xor i32 %92, 31
   %94 = sub nuw nsw i32 8, %93
   %95 = zext nneg i32 %94 to i64

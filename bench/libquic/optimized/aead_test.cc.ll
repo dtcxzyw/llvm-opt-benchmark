@@ -182,7 +182,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIhSaIhE
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %key.sroa.0.0.i = phi ptr [ %call5.i.i.i.i1.i.i43.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull %ctx.i11)
+  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull align 8 dereferenceable(16) %ctx.i11)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont.i
@@ -570,7 +570,7 @@ _ZNSt6vectorImSaImEED2Ev.exit146.i:               ; preds = %if.then.i.i.i141.i,
 
 cleanup158.i:                                     ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i, %invoke.cont10.i
   %retval.0.i15 = phi i1 [ %retval.1.i, %_ZNSt6vectorImSaImEED2Ev.exit.i ], [ false, %invoke.cont10.i ]
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx.i11)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx.i11)
           to label %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %cleanup158.i
@@ -590,7 +590,7 @@ if.then.i.i.i148.i:                               ; preds = %_ZN20ScopedOpenSSLC
 
 ehcleanup159.i:                                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit146.i, %_ZNSt12_Vector_baseImSaImEED2Ev.exit.i.i, %lpad6.i
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %_ZNSt6vectorImSaImEED2Ev.exit146.i ], [ %13, %lpad6.i ], [ %14, %_ZNSt12_Vector_baseImSaImEED2Ev.exit.i.i ]
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx.i11)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx.i11)
           to label %ehcleanup161.i unwind label %terminate.lpad.i150.i
 
 terminate.lpad.i150.i:                            ; preds = %ehcleanup159.i
@@ -882,7 +882,7 @@ ehcleanup117:                                     ; preds = %ehcleanup116, %lpad
   br label %ehcleanup333
 
 if.end:                                           ; preds = %cleanup.done56.thread
-  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %invoke.cont119 unwind label %lpad118
 
 invoke.cont119:                                   ; preds = %if.end
@@ -1338,11 +1338,11 @@ invoke.cont195:                                   ; preds = %invoke.cont.i.i138,
   br label %if.end204
 
 if.end204:                                        ; preds = %invoke.cont188, %invoke.cont195
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %.noexc192 unwind label %lpad157
 
 .noexc192:                                        ; preds = %if.end204
-  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %invoke.cont205 unwind label %lpad157
 
 invoke.cont205:                                   ; preds = %.noexc192
@@ -1605,11 +1605,11 @@ invoke.cont258:                                   ; preds = %invoke.cont253
   br i1 %call259, label %if.end261, label %cleanup
 
 if.end261:                                        ; preds = %invoke.cont258
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %.noexc300 unwind label %lpad230
 
 .noexc300:                                        ; preds = %if.end261
-  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %invoke.cont262 unwind label %lpad230
 
 invoke.cont262:                                   ; preds = %.noexc300
@@ -1677,11 +1677,11 @@ if.end291:                                        ; preds = %invoke.cont286
           to label %invoke.cont292 unwind label %lpad230
 
 invoke.cont292:                                   ; preds = %if.end291
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %.noexc331 unwind label %lpad230
 
 .noexc331:                                        ; preds = %invoke.cont292
-  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_zero(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %invoke.cont293 unwind label %lpad230
 
 invoke.cont293:                                   ; preds = %.noexc331
@@ -1804,7 +1804,7 @@ if.then.i.i.i375:                                 ; preds = %ehcleanup329
 
 cleanup330:                                       ; preds = %if.then.i.i.i372, %cleanup328, %if.then127
   %retval.1 = phi i1 [ false, %if.then127 ], [ %retval.2, %cleanup328 ], [ %retval.2, %if.then.i.i.i372 ]
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %cleanup332 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup330
@@ -1816,7 +1816,7 @@ terminate.lpad.i:                                 ; preds = %cleanup330
 
 ehcleanup331:                                     ; preds = %if.then.i.i.i375, %ehcleanup329, %lpad134, %lpad124
   %.pn43.pn = phi { ptr, i32 } [ %28, %lpad134 ], [ %17, %lpad124 ], [ %.pn43, %ehcleanup329 ], [ %.pn43, %if.then.i.i.i375 ]
-  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx)
+  invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(16) %ctx)
           to label %ehcleanup333 unwind label %terminate.lpad.i377
 
 terminate.lpad.i377:                              ; preds = %ehcleanup331

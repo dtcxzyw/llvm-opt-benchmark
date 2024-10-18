@@ -1565,7 +1565,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
   %253 = load i64, ptr %.0149.i, align 8
   %254 = and i8 %178, 3
   %255 = load i64, ptr %7, align 8
-  call fastcc void @transfer_add_segment(ptr noundef %10, i64 noundef %253, i8 noundef zeroext %254, i64 noundef %255, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef %191)
+  call fastcc void @transfer_add_segment(ptr noundef nonnull %10, i64 noundef %253, i8 noundef zeroext %254, i64 noundef %255, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef %191)
   br label %256
 
 256:                                              ; preds = %252, %proto_item_set_generated.exit.i
@@ -1671,7 +1671,7 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
 311:                                              ; preds = %proto_item_set_generated.exit173.i
   %312 = load i64, ptr %.1150.i, align 8
   %313 = load i64, ptr %7, align 8
-  call fastcc void @transfer_add_ack(ptr noundef %10, i64 noundef %312, i8 noundef zeroext 0, i64 noundef %313, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef null)
+  call fastcc void @transfer_add_ack(ptr noundef nonnull %10, i64 noundef %312, i8 noundef zeroext 0, i64 noundef %313, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef null)
   br label %dissect_v3_msg.exit
 
 314:                                              ; preds = %173
@@ -2343,7 +2343,7 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   br i1 %.not484.i, label %684, label %683
 
 683:                                              ; preds = %681
-  tail call fastcc void @transfer_add_segment(ptr noundef %10, i64 noundef %561, i8 noundef zeroext %557, i64 noundef %652, ptr noundef %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %560)
+  tail call fastcc void @transfer_add_segment(ptr noundef nonnull %10, i64 noundef %561, i8 noundef zeroext %557, i64 noundef %652, ptr noundef %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %560)
   br label %684
 
 684:                                              ; preds = %683, %681
@@ -2408,7 +2408,7 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   br i1 %.not479.i, label %.thread.i, label %714
 
 714:                                              ; preds = %712
-  tail call fastcc void @transfer_add_ack(ptr noundef %10, i64 noundef %698, i8 noundef zeroext %694, i64 noundef %701, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %697)
+  tail call fastcc void @transfer_add_ack(ptr noundef nonnull %10, i64 noundef %698, i8 noundef zeroext %694, i64 noundef %701, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %697)
   br label %.thread.i
 
 715:                                              ; preds = %381
@@ -2518,7 +2518,7 @@ tcpcl_frame_loc_compare.exit516.thread.thread.i:  ; preds = %tcpcl_frame_loc_com
   br label %768
 
 768:                                              ; preds = %766, %tcpcl_frame_loc_compare.exit516.thread.thread.i
-  call fastcc void @try_negotiate(ptr noundef %10, ptr noundef %1)
+  call fastcc void @try_negotiate(ptr noundef nonnull %10, ptr noundef %1)
   %769 = icmp eq i8 %386, 7
   br i1 %769, label %770, label %dissect_v4_msg.exit
 

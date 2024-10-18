@@ -1395,7 +1395,7 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
   br label %21
 
 9:                                                ; preds = %3
-  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.84, i32 noundef %0) #12
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.84, i32 noundef range(i32 2, 1) %0) #12
   br i1 %1, label %11, label %16
 
 11:                                               ; preds = %9

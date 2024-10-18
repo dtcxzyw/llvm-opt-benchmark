@@ -487,7 +487,7 @@ _ZNKSt14default_deleteIN5Yosys3AST7AstNodeEEclEPS2_.exit.i.i: ; preds = %1
 
 _ZN5Yosys3AST7BindingD2Ev.exit:                   ; preds = %1, %_ZNKSt14default_deleteIN5Yosys3AST7AstNodeEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN5Yosys5RTLIL7BindingD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  tail call void @_ZN5Yosys5RTLIL7BindingD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

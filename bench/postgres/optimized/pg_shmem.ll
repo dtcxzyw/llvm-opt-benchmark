@@ -223,7 +223,7 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef wri
 20:                                               ; preds = %.thread
   %21 = icmp ult i64 %.017, 2
   %22 = add nsw i64 %.017, -1
-  %23 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
+  %23 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -2199023255553, 4398046510080) %22, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
   %.neg = mul i32 %24, -67108864
   %25 = or disjoint i32 %.neg, 262144

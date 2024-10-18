@@ -158,7 +158,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit:    ; preds = %10, %10
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
   %.not17 = icmp eq ptr %3, null
   br i1 %.not17, label %30, label %25
 
@@ -206,7 +206,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit:    ; preds = %10, %10
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %53)
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %53)
   br label %79
 
 _ZN21cmCursesOptionsWidget10NextOptionEv.exit18:  ; preds = %10, %10
@@ -225,7 +225,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit18:  ; preds = %10, %10
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %66)
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %66)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %75, label %70
 
@@ -447,7 +447,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN21cmCursesOptionsWidgetD2Ev.exit
 
 _ZN21cmCursesOptionsWidgetD2Ev.exit:              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %8
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #12
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

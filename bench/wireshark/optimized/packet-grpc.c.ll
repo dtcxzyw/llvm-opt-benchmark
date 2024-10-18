@@ -527,7 +527,7 @@ can_uncompress_body.exit.thread71.i:              ; preds = %can_uncompress_body
   %88 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.71, i32 noundef %87) #5
   %89 = load i32, ptr %5, align 4
-  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %83, i32 noundef 0, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef readonly %3)
+  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %83, i32 noundef 0, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef nonnull readonly %3)
   br label %dissect_body_data.exit.i
 
 90:                                               ; preds = %can_uncompress_body.exit.thread71.i
@@ -559,7 +559,7 @@ can_uncompress_body.exit.thread.i:                ; preds = %can_uncompress_body
 
 108:                                              ; preds = %75
   %109 = load i32, ptr %5, align 4
-  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef 1, i32 noundef %109, ptr noundef readonly %3)
+  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef 1, i32 noundef %109, ptr noundef nonnull readonly %3)
   br label %dissect_body_data.exit.i
 
 dissect_body_data.exit.i:                         ; preds = %108, %104, %can_uncompress_body.exit.thread.i, %96, %90, %86

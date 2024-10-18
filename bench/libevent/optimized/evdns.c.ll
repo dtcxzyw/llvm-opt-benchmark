@@ -3806,7 +3806,7 @@ if.end42.i:                                       ; preds = %if.end33.i
   %call46.i = call zeroext i16 @htons(i16 noundef zeroext %conv45.i) #19
   %add.ptr47.i = getelementptr inbounds i8, ptr %call7, i64 210
   store i16 %call46.i, ptr %add.ptr47.i, align 1
-  %call50.i = call fastcc i64 @dnsname_to_labels(ptr noundef nonnull %add.ptr, i64 noundef %add5.i, i64 noundef 12, ptr noundef %name.addr.0, i64 noundef %call, ptr noundef null)
+  %call50.i = call fastcc i64 @dnsname_to_labels(ptr noundef nonnull %add.ptr, i64 noundef %add5.i, i64 noundef 12, ptr noundef %name.addr.0, i64 noundef range(i64 0, 256) %call, ptr noundef null)
   %cmp51.i = icmp slt i64 %call50.i, 0
   br i1 %cmp51.i, label %evdns_request_data_build.exit, label %do.body56.i
 
@@ -3816,7 +3816,7 @@ do.body56.i:                                      ; preds = %if.end42.i
   br i1 %cmp58.i, label %err1, label %if.end61.i
 
 if.end61.i:                                       ; preds = %do.body56.i
-  %call62.i = call zeroext i16 @htons(i16 noundef zeroext %conv54) #19
+  %call62.i = call zeroext i16 @htons(i16 noundef zeroext range(i16 0, 256) %conv54) #19
   %add.ptr63.i = getelementptr inbounds i8, ptr %add.ptr, i64 %call50.i
   store i16 %call62.i, ptr %add.ptr63.i, align 1
   %add67.i = add nuw nsw i64 %call50.i, 4
@@ -5228,7 +5228,7 @@ if.else.i:                                        ; preds = %entry
 
 str_matches_option.exit:                          ; preds = %entry, %if.else.i
   %call.sink.i = phi i64 [ %call1.i, %entry ], [ 6, %if.else.i ]
-  %call6.i = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull readonly @.str.73, i64 noundef %call.sink.i) #20
+  %call6.i = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull @.str.73, i64 noundef %call.sink.i) #20
   %tobool7.not.i.not = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i.not, label %if.then5, label %if.else
 
@@ -5291,7 +5291,7 @@ if.else.i112:                                     ; preds = %if.else
 
 str_matches_option.exit119:                       ; preds = %if.else, %if.else.i112
   %call.sink.i116 = phi i64 [ %call1.i, %if.else ], [ 8, %if.else.i112 ]
-  %call6.i117 = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull readonly @.str.75, i64 noundef %call.sink.i116) #20
+  %call6.i117 = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull @.str.75, i64 noundef %call.sink.i116) #20
   %tobool7.not.i118.not = icmp eq i32 %call6.i117, 0
   br i1 %tobool7.not.i118.not, label %if.then25, label %if.else34
 
@@ -5347,7 +5347,7 @@ if.else.i134:                                     ; preds = %if.else34
 
 str_matches_option.exit141:                       ; preds = %if.else34, %if.else.i134
   %call.sink.i138 = phi i64 [ %call1.i, %if.else34 ], [ 23, %if.else.i134 ]
-  %call6.i139 = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull readonly @.str.77, i64 noundef %call.sink.i138) #20
+  %call6.i139 = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull @.str.77, i64 noundef %call.sink.i138) #20
   %tobool7.not.i140.not = icmp eq i32 %call6.i139, 0
   br i1 %tobool7.not.i140.not, label %if.then37, label %if.else47
 
@@ -5402,7 +5402,7 @@ if.else.i168:                                     ; preds = %if.else47
 
 str_matches_option.exit175:                       ; preds = %if.else47, %if.else.i168
   %call.sink.i172 = phi i64 [ %call1.i, %if.else47 ], [ 13, %if.else.i168 ]
-  %call6.i173 = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull readonly @.str.79, i64 noundef %call.sink.i172) #20
+  %call6.i173 = tail call i32 @strncmp(ptr noundef readonly %option, ptr noundef nonnull @.str.79, i64 noundef %call.sink.i172) #20
   %tobool7.not.i174.not = icmp eq i32 %call6.i173, 0
   br i1 %tobool7.not.i174.not, label %if.then50, label %if.else59
 

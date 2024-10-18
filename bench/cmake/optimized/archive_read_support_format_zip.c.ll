@@ -1686,7 +1686,7 @@ rsrc_basename.exit.i:                             ; preds = %211
   %233 = call i32 @__archive_rb_tree_insert_node(ptr noundef nonnull %69, ptr noundef %93) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %234 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull %199, i64 noundef %167) #21
+  %234 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull %199, i64 noundef range(i64 9, 65536) %167) #21
   %235 = load ptr, ptr %4, align 8
   %236 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %235, i32 noundef 47) #23
   %237 = icmp eq ptr %236, null

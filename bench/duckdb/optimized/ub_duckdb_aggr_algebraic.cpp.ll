@@ -27712,7 +27712,7 @@ for.body.i:                                       ; preds = %entry, %_ZN6duckdb1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !312
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 32, i1 false), !tbaa.struct !312
   br label %_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_13CorrOperationEEEvRKT_RS4_RNS_18AggregateInputDataE.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i

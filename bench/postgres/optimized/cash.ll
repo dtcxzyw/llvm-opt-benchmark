@@ -248,7 +248,7 @@ define dso_local i64 @cash_in(ptr nocapture noundef readonly %0) local_unnamed_a
   %94 = extractvalue { i64, i1 } %91, 0
   %95 = add i8 %83, -48
   %96 = sext i8 %95 to i64
-  %97 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %94, i64 %96)
+  %97 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %94, i64 range(i64 -128, 128) %96)
   %98 = extractvalue { i64, i1 } %97, 1
   br i1 %98, label %99, label %104
 

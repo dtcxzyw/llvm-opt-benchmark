@@ -342,7 +342,7 @@ Vec_IntFree.exit:                                 ; preds = %27, %28
 
 30:                                               ; preds = %.loopexit
   %31 = add nsw i32 %20, -1
-  %32 = tail call range(i32 0, -1) i32 @llvm.smax.i32(i32 %.0, i32 %31)
+  %32 = tail call range(i32 0, -1) i32 @llvm.smax.i32(i32 range(i32 0, -1) %.0, i32 range(i32 0, -1) %31)
   %33 = shl nsw i32 %31, 1
   %34 = or disjoint i32 %33, %.045
   %35 = load i32, ptr %6, align 4

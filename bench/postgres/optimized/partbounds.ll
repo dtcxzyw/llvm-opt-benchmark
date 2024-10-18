@@ -5209,7 +5209,7 @@ add_merged_range_bounds.exit.i:                   ; preds = %1104, %1094, %.crit
   %.2458.i = phi ptr [ %1120, %.critedge.i.i ], [ %.0456714.i, %partition_rbound_cmp.exit.i239.i ], [ %.0456714.i, %1081 ], [ %.0456714.i, %1094 ], [ %.0456714.i, %1104 ]
   %1121 = tail call ptr @lappend(ptr noundef %.2464.i, ptr noundef %.sroa.4286.0.i) #11
   %1122 = tail call ptr @lappend(ptr noundef %.2461.i, ptr noundef %.sroa.5.0.i) #11
-  %1123 = tail call ptr @lappend_int(ptr noundef %.2458.i, i32 noundef %.096.i) #11
+  %1123 = tail call ptr @lappend_int(ptr noundef %.2458.i, i32 noundef range(i32 0, -2147483648) %.096.i) #11
   br label %1124
 
 1124:                                             ; preds = %add_merged_range_bounds.exit.i, %get_range_partition.exit211.i
@@ -7865,7 +7865,7 @@ define internal fastcc ptr @make_partition_op_expr(ptr nocapture noundef readonl
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i32, ptr %12, i64 %8
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 @get_opfamily_member(i32 noundef %10, i32 noundef %14, i32 noundef %14, i16 noundef signext %2) #11
+  %15 = tail call i32 @get_opfamily_member(i32 noundef %10, i32 noundef %14, i32 noundef %14, i16 noundef signext range(i16 1, 6) %2) #11
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %26
 

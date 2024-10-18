@@ -632,11 +632,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 1, 0) %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
   br label %trace_keymap_add.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef range(i32 1, 0) %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
   br label %trace_keymap_add.exit
 
 trace_keymap_add.exit:                            ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

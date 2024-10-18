@@ -930,7 +930,7 @@ while.end:                                        ; preds = %while.body, %entry
 if.then.i:                                        ; preds = %while.end
   %4 = load ptr, ptr %m_subtree.i, align 8
   %m_range.i = getelementptr inbounds i8, ptr %sto_lkr, i64 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_8locktree33sto_migrate_buffer_ranges_to_treeEPvE14migrate_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %4, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i, ptr noundef %migrate_fn)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_8locktree33sto_migrate_buffer_ranges_to_treeEPvE14migrate_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %4, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i, ptr noundef nonnull %migrate_fn)
   br label %_ZNK4toku15concurrent_tree15locked_keyrange7iterateIZNS_8locktree33sto_migrate_buffer_ranges_to_treeEPvE14migrate_fn_objEEvPT_.exit
 
 _ZNK4toku15concurrent_tree15locked_keyrange7iterateIZNS_8locktree33sto_migrate_buffer_ranges_to_treeEPvE14migrate_fn_objEEvPT_.exit: ; preds = %while.end, %if.then.i
@@ -1024,7 +1024,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then
   %1 = load ptr, ptr %m_subtree.i.i, align 8
   %m_range.i.i = getelementptr inbounds i8, ptr %prepared_lkr, i64 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %1, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef %copy_fn.i)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %1, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef nonnull %copy_fn.i)
   br label %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit
 
 _ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit: ; preds = %if.then, %if.then.i.i
@@ -1057,7 +1057,7 @@ _ZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked
 _ZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEE.exit: ; preds = %if.else
   %3 = load ptr, ptr %m_subtree.i.i13, align 8
   %m_range.i.i16 = getelementptr inbounds i8, ptr %prepared_lkr, i64 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS8_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %3, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i16, ptr noundef %copy_fn.i12)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS8_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %3, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i16, ptr noundef nonnull %copy_fn.i12)
   %.pre.i = load i8, ptr %matching_lock_found.i.i, align 1
   %4 = trunc i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %copy_fn.i12)
@@ -1076,7 +1076,7 @@ if.then6:                                         ; preds = %if.then4
   %owners = getelementptr inbounds i8, ptr %new_lock, i64 104
   store ptr null, ptr %owners, align 8
   %call.i = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %new_lock)
+  %call1.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %new_lock)
   %5 = load ptr, ptr %this, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %return, label %if.then10
@@ -1184,8 +1184,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZN4toku8keyrange6extendERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %requested_range, ptr noundef nonnull align 8 dereferenceable(17) %m_cmp24, ptr noundef nonnull align 8 dereferenceable(81) %overlapping_lock)
   %12 = load ptr, ptr %this, align 8
   %call.i.i19 = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %overlapping_lock)
-  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %prepared_lkr, ptr noundef nonnull align 8 dereferenceable(81) %overlapping_lock, i64 noundef -2)
+  %call1.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %overlapping_lock)
+  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %prepared_lkr, ptr noundef nonnull align 8 dereferenceable(112) %overlapping_lock, i64 noundef -2)
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit, label %if.then.i20
 
@@ -1214,11 +1214,11 @@ for.end:                                          ; preds = %_ZN4tokuL25remove_r
   store ptr null, ptr %owners37, align 8
   %15 = load ptr, ptr %this, align 8
   %call.i.i21 = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i.i22 = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %new_lock31)
+  %call1.i.i22 = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %new_lock31)
   %16 = load i64, ptr %txnid33, align 8
   %17 = load i8, ptr %is_shared34, align 8
   %tobool.i23 = trunc i8 %17 to i1
-  call void @_ZN4toku15concurrent_tree15locked_keyrange6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(104) %prepared_lkr, ptr noundef nonnull align 8 dereferenceable(81) %new_lock31, i64 noundef %16, i1 noundef zeroext %tobool.i23)
+  call void @_ZN4toku15concurrent_tree15locked_keyrange6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(104) %prepared_lkr, ptr noundef nonnull align 8 dereferenceable(112) %new_lock31, i64 noundef %16, i1 noundef zeroext %tobool.i23)
   %cmp.not.i24 = icmp eq ptr %15, null
   br i1 %cmp.not.i24, label %return, label %if.then.i25
 
@@ -1559,7 +1559,7 @@ if.else:                                          ; preds = %entry
 if.then.i.i:                                      ; preds = %if.else
   %4 = load ptr, ptr %m_subtree.i.i, align 8
   %m_range.i.i = getelementptr inbounds i8, ptr %lkr, i64 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %4, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef %copy_fn.i)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %4, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef nonnull %copy_fn.i)
   br label %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit
 
 _ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit: ; preds = %if.else, %if.then.i.i
@@ -1634,7 +1634,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %2 = load ptr, ptr %m_subtree.i.i, align 8
   %m_range.i.i = getelementptr inbounds i8, ptr %lkr, i64 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %2, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef %copy_fn.i)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %2, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef nonnull %copy_fn.i)
   br label %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit
 
 _ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit: ; preds = %entry, %if.then.i.i
@@ -1726,7 +1726,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %2 = load ptr, ptr %m_subtree.i.i, align 8
   %m_range.i.i = getelementptr inbounds i8, ptr %lkr, i64 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %2, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef %copy_fn.i)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEE11copy_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %2, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef nonnull %copy_fn.i)
   br label %_ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit
 
 _ZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEE.exit: ; preds = %entry, %if.then.i.i
@@ -1788,8 +1788,8 @@ _ZN11TxnidVector8containsEm.exit:                 ; preds = %_ZNSt8_Rb_treeImmSt
 if.then:                                          ; preds = %_ZN11TxnidVector8containsEm.exit, %for.body
   %10 = load ptr, ptr %this, align 8
   %call.i.i5 = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %lock)
-  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(81) %lock, i64 noundef %txnid)
+  %call1.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %lock)
+  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(112) %lock, i64 noundef %txnid)
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %for.inc, label %if.then.i
 
@@ -2068,7 +2068,7 @@ while.cond.loopexit:                              ; preds = %delete.end
 _ZNK4toku15concurrent_tree15locked_keyrange7iterateIZNS_L25extract_first_n_row_locksEPS1_PNS_16locktree_managerEPNS_8row_lockEiE14extract_fn_objEEvPT_.exit.i: ; preds = %_ZNK4toku15concurrent_tree15locked_keyrange7iterateIZNS_L25extract_first_n_row_locksEPS1_PNS_16locktree_managerEPNS_8row_lockEiE14extract_fn_objEEvPT_.exit.i.lr.ph, %while.cond.loopexit
   %8 = phi ptr [ %3, %_ZNK4toku15concurrent_tree15locked_keyrange7iterateIZNS_L25extract_first_n_row_locksEPS1_PNS_16locktree_managerEPNS_8row_lockEiE14extract_fn_objEEvPT_.exit.i.lr.ph ], [ %6, %while.cond.loopexit ]
   %9 = load ptr, ptr %m_subtree.i.i, align 8
-  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L25extract_first_n_row_locksEPNS_15concurrent_tree15locked_keyrangeEPNS_16locktree_managerEPNS_8row_lockEiE14extract_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %9, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef %extract_fn.i)
+  call fastcc void @_ZN4toku8treenode17traverse_overlapsIZNS_L25extract_first_n_row_locksEPNS_15concurrent_tree15locked_keyrangeEPNS_16locktree_managerEPNS_8row_lockEiE14extract_fn_objEEvRKNS_8keyrangeEPT_(ptr noundef nonnull align 8 dereferenceable(202) %9, ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef nonnull %extract_fn.i)
   %.pre.i = load i32, ptr %extract_fn.i, align 8
   %cmp57.i = icmp sgt i32 %.pre.i, 0
   br i1 %cmp57.i, label %for.body.lr.ph.i, label %_ZN4tokuL25extract_first_n_row_locksEPNS_15concurrent_tree15locked_keyrangeEPNS_16locktree_managerEPNS_8row_lockEi.exit.thread
@@ -2082,8 +2082,8 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.us.i = getelementptr inbounds %"struct.toku::row_lock", ptr %call, i64 %indvars.iv11.i
   %call.i.i.us.i = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i.i.us.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %arrayidx.us.i)
-  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(81) %arrayidx.us.i, i64 noundef -2)
+  %call1.i.i.us.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.us.i)
+  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.us.i, i64 noundef -2)
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count14.i
   br i1 %exitcond15.not.i, label %_ZN4tokuL25extract_first_n_row_locksEPNS_15concurrent_tree15locked_keyrangeEPNS_16locktree_managerEPNS_8row_lockEi.exit, label %for.body.us.i, !llvm.loop !30
@@ -2092,8 +2092,8 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.i = getelementptr inbounds %"struct.toku::row_lock", ptr %call, i64 %indvars.iv.i
   %call.i.i.i = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %arrayidx.i)
-  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(81) %arrayidx.i, i64 noundef -2)
+  %call1.i.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.i)
+  call void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.i, i64 noundef -2)
   %add.i.i.i = add i64 %call1.i.i.i, %call.i.i.i
   call void @_ZN4toku16locktree_manager17note_mem_releasedEm(ptr noundef nonnull align 8 dereferenceable(392) %8, i64 noundef %add.i.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2842,7 +2842,7 @@ if.end.i:                                         ; preds = %if.else15.i, %if.th
 
 .noexc218:                                        ; preds = %if.end.i
   %114 = load i32, ptr %weight.i, align 8
-  invoke void @_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %range_buffers, ptr noundef %rebalance_subtree.i.4, ptr noundef %tmp_array.0.i, i32 noundef %114)
+  invoke void @_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %range_buffers, ptr noundef nonnull %rebalance_subtree.i.4, ptr noundef %tmp_array.0.i, i32 noundef %114)
           to label %.noexc219 unwind label %lpad.loopexit
 
 .noexc219:                                        ; preds = %.noexc218
@@ -3031,11 +3031,11 @@ while.body114:                                    ; preds = %if.end109, %_ZN4tok
   store ptr null, ptr %owners123, align 8
   %141 = load ptr, ptr %this, align 8
   %call.i.i102 = call noundef i64 @_ZN4toku15concurrent_tree29get_insertion_memory_overheadEv()
-  %call1.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %lock)
+  %call1.i.i = call noundef i64 @_ZNK4toku8keyrange15get_memory_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %lock)
   %142 = load i64, ptr %txnid119, align 8
   %143 = load i8, ptr %is_shared120, align 8
   %tobool.i103 = trunc i8 %143 to i1
-  call void @_ZN4toku15concurrent_tree15locked_keyrange6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(81) %lock, i64 noundef %142, i1 noundef zeroext %tobool.i103)
+  call void @_ZN4toku15concurrent_tree15locked_keyrange6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(104) %lkr, ptr noundef nonnull align 8 dereferenceable(112) %lock, i64 noundef %142, i1 noundef zeroext %tobool.i103)
   %cmp.not.i104 = icmp eq ptr %141, null
   br i1 %cmp.not.i104, label %_ZN4tokuL25insert_row_lock_into_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEPNS_16locktree_managerE.exit, label %if.then.i105
 

@@ -2135,7 +2135,7 @@ define void @_ZN11AboutDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(56
 define void @_ZThn16_N11AboutDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN11AboutDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
   ret void
 }
 

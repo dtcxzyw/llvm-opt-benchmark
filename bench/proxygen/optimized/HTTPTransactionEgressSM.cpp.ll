@@ -182,7 +182,7 @@ _ZN8proxygen15TransitionTableINS_27HTTPTransactionEgressSMData5StateENS1_5EventE
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 16), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, i8 0, i64 24, i1 false)
   %nStates_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %5 = load i64, ptr %nStates_3.i.i.i, align 8
   store i64 %5, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 24), align 8

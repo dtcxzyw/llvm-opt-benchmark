@@ -151,7 +151,7 @@ define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr nocapture noundef %0, pt
 48:                                               ; preds = %41
   %49 = zext i16 %.val27 to i32
   %50 = add nsw i32 %49, -1
-  %51 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
+  %51 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 511, 2147483647) %50, i1 true)
   %52 = sub nuw nsw i32 30, %51
   %53 = lshr i32 %50, %52
   %54 = and i32 %53, 1
@@ -187,7 +187,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
 
 72:                                               ; preds = %66
   %73 = add nsw i32 %.val28, -1
-  %74 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
+  %74 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 511, 2147483647) %73, i1 true)
   %75 = sub nuw nsw i32 30, %74
   %76 = lshr i32 %73, %75
   %77 = and i32 %76, 1
@@ -210,7 +210,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
 
 88:                                               ; preds = %81
   %89 = add nsw i32 %82, -1
-  %90 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %89, i1 true)
+  %90 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 511, 2147483647) %89, i1 true)
   %91 = sub nuw nsw i32 30, %90
   %92 = lshr i32 %89, %91
   %93 = and i32 %92, 1

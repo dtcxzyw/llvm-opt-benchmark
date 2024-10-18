@@ -307,7 +307,7 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6ReaderEERKS0_INS_6Writer
           to label %.noexc.i.i.i.i.i.i.i unwind label %48, !noalias !17
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7.i.i.i.i.i.i.i unwind label %48, !noalias !17
 
 .noexc7.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i.i.i
@@ -324,7 +324,7 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6ReaderEERKS0_INS_6Writer
 15:                                               ; preds = %17, %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24, !noalias !17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24, !noalias !17
   br label %.body.i.i.i.i.i.i.i
 
 17:                                               ; preds = %.noexc7.i.i.i.i.i.i.i
@@ -441,7 +441,7 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6WriterEES4_PKc(ptr dead_
           to label %.noexc.i.i.i.i.i.i.i unwind label %48, !noalias !20
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7.i.i.i.i.i.i.i unwind label %48, !noalias !20
 
 .noexc7.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i.i.i
@@ -458,7 +458,7 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6WriterEES4_PKc(ptr dead_
 15:                                               ; preds = %17, %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24, !noalias !20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24, !noalias !20
   br label %.body.i.i.i.i.i.i.i
 
 17:                                               ; preds = %.noexc7.i.i.i.i.i.i.i
@@ -913,7 +913,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_12RWD1Ev(ptr nocapture noundef %0) un
 define internal void @_ZThn8_N12_GLOBAL__N_12RWD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN12_GLOBAL__N_12RWD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %2) #25
   ret void
 }
 
@@ -1247,7 +1247,7 @@ _ZN12_GLOBAL__N_14PipeD1Ev.exit:                  ; preds = %1, %_ZNSt11_Deque_b
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_14Pipe6isOpenEv(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #24
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #24
   %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %4
 
@@ -1260,14 +1260,14 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %1
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = xor i1 %7, true
-  %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #24
+  %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #24
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_14Pipe5closeEv(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #24
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #24
   %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %4
 
@@ -1280,7 +1280,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %1
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #24
-  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #24
+  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #24
   ret void
 }
 
@@ -1290,7 +1290,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_14Pipe4readEPvm(ptr noundef nonnull
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #24
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %8
 
@@ -1379,7 +1379,7 @@ _ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11uniqu
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #24
+  %55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %53) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %48, %52, %54
@@ -1462,7 +1462,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %82, %84
   br i1 %.not.i.i15, label %_ZNSt11unique_lockISt5mutexED2Ev.exit16, label %97
 
 97:                                               ; preds = %95
-  %98 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %96) #24
+  %98 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %96) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit16:          ; preds = %.critedge.thread, %95, %97
@@ -1472,7 +1472,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit16:          ; preds = %.critedge.thread, %
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_14Pipe5writeEPKvm(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #24
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %6
 
@@ -1550,7 +1550,7 @@ _ZNSt5dequeIhSaIhEE12emplace_backIJRKhEEERhDpOT_.exit: ; preds = %50, %46
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %50
   %52 = landingpad { ptr, i32 }
           cleanup
-  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #24
+  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   resume { ptr, i32 } %52
 
 54:                                               ; preds = %_ZNSt5dequeIhSaIhEE12emplace_backIJRKhEEERhDpOT_.exit
@@ -1563,7 +1563,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %50
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit14:          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %55, %54
   %.0 = xor i1 %9, true
-  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #24
+  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   ret i1 %.0
 }
 
@@ -1648,7 +1648,7 @@ _ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i.i.i.i: ; preds = %_
 _ZN12_GLOBAL__N_14PipeD0Ev.exit:                  ; preds = %1, %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(185) %2) #25
   ret void
 }
 
@@ -2139,7 +2139,7 @@ define internal void @_ZN12_GLOBAL__N_14File5closeEv(ptr nocapture noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN12_GLOBAL__N_14File4readEPvm(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #24
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader, label %7
 
@@ -2169,14 +2169,14 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.lr.ph
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %.lr.ph, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader
   %.0 = phi i64 [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader ], [ %.01114, %.lr.ph ], [ %2, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #24
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_14File5writeEPKvm(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #24
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %6
 
@@ -2197,7 +2197,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %11, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #24
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   ret i1 %10
 }
 
@@ -2250,14 +2250,14 @@ define internal void @_ZThn8_N12_GLOBAL__N_14FileD0Ev(ptr noundef %0) unnamed_ad
   br label %_ZN12_GLOBAL__N_14FileD0Ev.exit
 
 _ZN12_GLOBAL__N_14FileD0Ev.exit:                  ; preds = %1, %6, %10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(113) %2) #25
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_14File5writeEPKvm(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #24
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   %.not.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %6
 
@@ -2278,7 +2278,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %3
   br label %_ZN12_GLOBAL__N_14File5writeEPKvm.exit
 
 _ZN12_GLOBAL__N_14File5writeEPKvm.exit:           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, %11
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #24
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   ret i1 %10
 }
 

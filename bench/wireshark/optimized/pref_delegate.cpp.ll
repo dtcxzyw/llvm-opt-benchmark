@@ -118,7 +118,7 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
 10:                                               ; preds = %4, %4, %4
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %13, align 8
   %14 = load ptr, ptr %12, align 8

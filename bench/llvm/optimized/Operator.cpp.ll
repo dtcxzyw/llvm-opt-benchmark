@@ -642,8 +642,8 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %11, %14
   %20 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %.pre-phi2.i.i.i
   %21 = getelementptr inbounds i8, ptr %19, i64 32
   %22 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %22, i64 noundef 6) #9
-  call void @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendINS_4User23const_value_op_iteratorEvEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %21, ptr %20)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %22, i64 noundef 6) #9
+  call void @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendINS_4User23const_value_op_iteratorEvEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull %21, ptr %20)
   %23 = load i8, ptr %0, align 8
   %.not.i = icmp eq i8 %23, 63
   br i1 %.not.i, label %24, label %27
@@ -665,7 +665,7 @@ _ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit: ; preds = %24, %27
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
   %31 = call noundef zeroext i1 @_ZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEE(ptr noundef %.0.i, ptr %29, i64 %30, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %7)
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #9
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #9
   %33 = load ptr, ptr %6, align 8
   %34 = icmp eq ptr %33, %22
   br i1 %34, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit, label %35
@@ -1609,7 +1609,7 @@ _ZN4llvm5APIntC2Ejmbb.exit68:                     ; preds = %155, %.thread112
   store i32 %157, ptr %37, align 8
   store i64 %156, ptr %36, align 8
   store i32 0, ptr %35, align 8
-  %158 = call { ptr, i8 } @_ZN4llvm9MapVectorIPNS_5ValueENS_5APIntENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S3_ELj0EEEE11try_emplaceIJS3_EEESC_IPSD_bEOS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(12) %36)
+  %158 = call { ptr, i8 } @_ZN4llvm9MapVectorIPNS_5ValueENS_5APIntENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S3_ELj0EEEE11try_emplaceIJS3_EEESC_IPSD_bEOS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(12) %36)
   %.fca.0.extract = extractvalue { ptr, i8 } %158, 0
   %159 = load i32, ptr %37, align 8
   %160 = icmp ugt i32 %159, 64
@@ -2304,7 +2304,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9MapVectorIPNS_5ValueENS_5APIntE
 
 38:                                               ; preds = %27, %3
   %.sink.i.i.i.i = phi ptr [ %28, %27 ], [ null, %3 ]
-  %39 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !10
+  %39 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %.sink.i.i.i.i), !noalias !10
   %40 = load ptr, ptr %4, align 8, !noalias !10
   store ptr %40, ptr %39, align 8, !noalias !10
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8

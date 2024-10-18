@@ -873,7 +873,7 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit176:    ; preds = %_ZNSt6vectorImSaImE
   br i1 %tobool.not.i, label %_ZN8QuantLib5ArrayD2Ev.exit180, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit176
-  %call.i = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(16) %emptyFct, ptr noundef nonnull align 8 dereferenceable(16) %emptyFct, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, i32 noundef 3)
           to label %_ZN8QuantLib5ArrayD2Ev.exit180 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -955,7 +955,7 @@ for.cond.cleanup171:                              ; preds = %for.body172
   br i1 %tobool.not.i.i.not.i, label %invoke.cont190, label %if.then.i190
 
 if.then.i190:                                     ; preds = %for.cond.cleanup171
-  %call3.i = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(16) %emptyFct, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i190
@@ -973,7 +973,7 @@ lpad.i:                                           ; preds = %if.then.i190
   br i1 %tobool.not.i.i, label %ehcleanup203, label %if.then.i.i191
 
 if.then.i.i191:                                   ; preds = %lpad.i
-  %call.i.i192 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, i32 noundef 3)
+  %call.i.i192 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, i32 noundef 3)
           to label %ehcleanup203 unwind label %terminate.lpad.i.i193
 
 terminate.lpad.i.i193:                            ; preds = %if.then.i.i191
@@ -1031,7 +1031,7 @@ invoke.cont199:                                   ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i214, label %_ZNSt14_Function_baseD2Ev.exit.i218, label %if.then.i.i215
 
 if.then.i.i215:                                   ; preds = %invoke.cont199
-  %call.i.i216 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(16) %f_.i, ptr noundef nonnull align 8 dereferenceable(16) %f_.i, i32 noundef 3)
+  %call.i.i216 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(32) %f_.i, ptr noundef nonnull align 8 dereferenceable(32) %f_.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i218 unwind label %terminate.lpad.i.i217
 
 terminate.lpad.i.i217:                            ; preds = %if.then.i.i215
@@ -1077,7 +1077,7 @@ _ZN8QuantLib5ArrayD2Ev.exit223:                   ; preds = %_ZN8QuantLib24Numer
   br i1 %tobool.not.i225, label %_ZNSt14_Function_baseD2Ev.exit229, label %if.then.i226
 
 if.then.i226:                                     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit223
-  %call.i227 = invoke noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, i32 noundef 3)
+  %call.i227 = invoke noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit229 unwind label %terminate.lpad.i228
 
 terminate.lpad.i228:                              ; preds = %if.then.i226
@@ -1184,7 +1184,7 @@ ehcleanup202:                                     ; preds = %_ZN8QuantLib5ArrayD
   br i1 %tobool.not.i243, label %ehcleanup203, label %if.then.i244
 
 if.then.i244:                                     ; preds = %ehcleanup202
-  %call.i245 = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, i32 noundef 3)
+  %call.i245 = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, i32 noundef 3)
           to label %ehcleanup203 unwind label %terminate.lpad.i246
 
 terminate.lpad.i246:                              ; preds = %if.then.i244
@@ -1499,7 +1499,7 @@ ehcleanup256:                                     ; preds = %ehcleanup255, %lpad
   br i1 %tobool.not.i275, label %_ZN8QuantLib5ArrayD2Ev.exit283, label %if.then.i276
 
 if.then.i276:                                     ; preds = %ehcleanup256
-  %call.i277 = invoke noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(16) %emptyFct, ptr noundef nonnull align 8 dereferenceable(16) %emptyFct, i32 noundef 3)
+  %call.i277 = invoke noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, ptr noundef nonnull align 8 dereferenceable(32) %emptyFct, i32 noundef 3)
           to label %_ZN8QuantLib5ArrayD2Ev.exit283 unwind label %terminate.lpad.i278
 
 terminate.lpad.i278:                              ; preds = %if.then.i276
@@ -1940,7 +1940,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %f_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %f_, ptr noundef nonnull align 8 dereferenceable(16) %f_, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %f_, ptr noundef nonnull align 8 dereferenceable(32) %f_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i

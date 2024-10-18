@@ -354,7 +354,7 @@ define void @_ZN3gmx15analysismodules7RdfInfo6createEv(ptr dead_on_unwind noalia
   %4 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %4)
           to label %.noexc unwind label %201
 
 .noexc:                                           ; preds = %1
@@ -613,12 +613,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit.i
 
 _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %115, %102, %84
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, ptr noundef nonnull @.str)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(276) %4, ptr noundef nonnull %12, ptr noundef nonnull @.str)
           to label %120 unwind label %188
 
 120:                                              ; preds = %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit.i
   %121 = load ptr, ptr %16, align 8
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule20registerBasicDatasetEPNS_20AbstractAnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %121, ptr noundef nonnull @.str.1)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule20registerBasicDatasetEPNS_20AbstractAnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(276) %4, ptr noundef %121, ptr noundef nonnull @.str.1)
           to label %122 unwind label %188
 
 122:                                              ; preds = %120
@@ -727,7 +727,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i
 
 _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i28.i, %167, %154, %136
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %14, ptr noundef nonnull @.str.2)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(276) %4, ptr noundef nonnull %14, ptr noundef nonnull @.str.2)
           to label %200 unwind label %188
 
 172:                                              ; preds = %.noexc
@@ -828,7 +828,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i: ; preds = %199, %197, %172
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %173, %172 ], [ %.pn.pn.pn.pn.pn.pn.i, %197 ], [ %.pn.pn.pn.pn.pn.pn.i, %199 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+  call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %4) #22
   br label %.body
 
 200:                                              ; preds = %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i
@@ -1363,7 +1363,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %35 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %5)
   %36 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 12
@@ -1393,7 +1393,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %6)
   %53 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 1, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %7, i64 12
@@ -1413,7 +1413,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %61 = load ptr, ptr %1, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %64 = call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %7)
   %65 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 1, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %8, i64 12
@@ -1438,7 +1438,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %76 = load ptr, ptr %1, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %79 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %8)
   %80 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 1, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %9, i64 12
@@ -1456,7 +1456,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %87 = load ptr, ptr %1, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %9)
   %91 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %10, i64 12
@@ -1474,7 +1474,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %98 = load ptr, ptr %1, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
-  %101 = call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %101 = call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %10)
   %102 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 1, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %11, i64 12
@@ -1494,7 +1494,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %110 = load ptr, ptr %1, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
-  %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %11)
+  %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %11)
   %114 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 1, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %12, i64 12
@@ -1514,7 +1514,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %122 = load ptr, ptr %1, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 24
   %124 = load ptr, ptr %123, align 8
-  %125 = call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %125 = call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %12)
   %126 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 1, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %13, i64 12
@@ -1536,7 +1536,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %135 = load ptr, ptr %1, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = load ptr, ptr %136, align 8
-  %138 = call noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %138 = call noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %13)
   %139 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 1, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %14, i64 12
@@ -1560,7 +1560,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %149 = load ptr, ptr %1, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 24
   %151 = load ptr, ptr %150, align 8
-  %152 = call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %152 = call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %14)
   %153 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 1, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %15, i64 12
@@ -1584,7 +1584,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   %163 = load ptr, ptr %1, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8
-  %166 = call noundef ptr %165(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  %166 = call noundef ptr %165(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %15)
   ret void
 }
 
@@ -1657,7 +1657,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf15optionsFinishe
   %.06 = phi i1 [ false, %22 ], [ true, %20 ]
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
   br i1 %.06, label %.sink.split, label %51
@@ -1709,7 +1709,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf15optionsFinishe
   %.0 = phi i1 [ false, %36 ], [ true, %34 ]
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
   br i1 %.0, label %.sink.split, label %51
@@ -1866,7 +1866,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12initAnalysisER
   %.025 = phi i1 [ false, %65 ], [ true, %63 ]
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #22
   br i1 %.025, label %.sink.split, label %143
@@ -1952,7 +1952,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12initAnalysisER
   %.021 = phi i1 [ false, %99 ], [ true, %97 ]
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #22
   br i1 %.021, label %.sink.split, label %143
@@ -2011,7 +2011,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12initAnalysisER
   %.017 = phi i1 [ false, %116 ], [ true, %114 ]
   %120 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #22
   br i1 %.017, label %.sink.split, label %143
@@ -2070,7 +2070,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12initAnalysisER
   %.0 = phi i1 [ false, %136 ], [ true, %134 ]
   %140 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #22
   br i1 %.0, label %.sink.split, label %143
@@ -2233,7 +2233,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf11startFramesERK
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %6 = getelementptr inbounds i8, ptr %1, i64 272
   %7 = load i32, ptr %6, align 8
-  invoke void @_ZN3gmx28TrajectoryAnalysisModuleDataC2EPNS_24TrajectoryAnalysisModuleERKNS_27AnalysisDataParallelOptionsERKNS_19SelectionCollectionE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %3)
+  invoke void @_ZN3gmx28TrajectoryAnalysisModuleDataC2EPNS_24TrajectoryAnalysisModuleERKNS_27AnalysisDataParallelOptionsERKNS_19SelectionCollectionE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %3)
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %4
@@ -2260,7 +2260,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf11startFramesERK
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %14, %11
-  tail call void @_ZN3gmx28TrajectoryAnalysisModuleDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
+  tail call void @_ZN3gmx28TrajectoryAnalysisModuleDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #22
   br label %.body
 
 _ZN3gmx15analysismodules12_GLOBAL__N_113RdfModuleDataC2EPNS_24TrajectoryAnalysisModuleERKNS_27AnalysisDataParallelOptionsERKNS_19SelectionCollectionEi.exit: ; preds = %9, %.noexc
@@ -3123,7 +3123,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf14finishAnalysis
   tail call void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull align 8 dereferenceable(120) %16, float noundef %17)
   %18 = load ptr, ptr %14, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx33AnalysisDataSimpleHistogramModule8averagerEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(94) %19)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(120) %19)
   %20 = load ptr, ptr %14, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx33AnalysisDataSimpleHistogramModule8averagerEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
   call void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.220") align 8 %3, ptr noundef nonnull align 8 dereferenceable(120) %21, i1 noundef zeroext true)
@@ -3303,7 +3303,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
 
 _ZNSt6vectorIfSaIfEED2Ev.exit44:                  ; preds = %91, %.loopexit108, %92
   %99 = load ptr, ptr %3, align 8
-  invoke void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(94) %99)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(120) %99)
           to label %_ZN3gmx24AbstractAverageHistogram4doneEv.exit unwind label %97
 
 _ZN3gmx24AbstractAverageHistogram4doneEv.exit:    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit44
@@ -3370,7 +3370,7 @@ _ZN3gmx24AbstractAverageHistogram4doneEv.exit:    ; preds = %_ZNSt6vectorIfSaIfE
 125:                                              ; preds = %124
   %126 = getelementptr inbounds i8, ptr %0, i64 104
   %127 = load ptr, ptr %126, align 8
-  %128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %127) #22
+  %128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %127) #22
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.85, ptr noundef %128)
           to label %129 unwind label %.loopexit.split-lp103
 
@@ -3408,7 +3408,7 @@ _ZN3gmx24AbstractAverageHistogram4doneEv.exit:    ; preds = %_ZNSt6vectorIfSaIfE
   %.028119 = phi i64 [ %143, %142 ], [ 0, %.preheader101 ]
   %139 = getelementptr inbounds %"class.gmx::Selection", ptr %138, i64 %.028119
   %140 = load ptr, ptr %139, align 8
-  %141 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %140) #22
+  %141 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %140) #22
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %141)
           to label %142 unwind label %.loopexit102
 
@@ -3635,7 +3635,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit: ; preds = %_ZNSt10sh
 
 242:                                              ; preds = %240
   %243 = load ptr, ptr %7, align 8
-  invoke void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(94) %243)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(120) %243)
           to label %_ZN3gmx24AbstractAverageHistogram4doneEv.exit56 unwind label %291
 
 _ZN3gmx24AbstractAverageHistogram4doneEv.exit56:  ; preds = %242
@@ -3699,7 +3699,7 @@ _ZN3gmx24AbstractAverageHistogram4doneEv.exit56:  ; preds = %242
 
 267:                                              ; preds = %266
   %268 = load ptr, ptr %126, align 8
-  %269 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %268) #22
+  %269 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %268) #22
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.85, ptr noundef %269)
           to label %270 unwind label %.loopexit.split-lp
 
@@ -3727,7 +3727,7 @@ _ZN3gmx24AbstractAverageHistogram4doneEv.exit56:  ; preds = %242
   %.0122 = phi i64 [ %280, %279 ], [ 0, %.preheader ]
   %276 = getelementptr inbounds %"class.gmx::Selection", ptr %275, i64 %.0122
   %277 = load ptr, ptr %276, align 8
-  %278 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %277) #22
+  %278 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %277) #22
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %244, ptr noundef %278)
           to label %279 unwind label %.loopexit
 
@@ -5427,7 +5427,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -5444,7 +5444,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -5547,7 +5547,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   ret void
 }
 
@@ -5608,7 +5608,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5796,7 +5796,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_113RdfModuleDataD0Ev(
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_113RdfModuleDataD2Ev.exit
 
 _ZN3gmx15analysismodules12_GLOBAL__N_113RdfModuleDataD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN3gmx28TrajectoryAnalysisModuleDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  tail call void @_ZN3gmx28TrajectoryAnalysisModuleDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }

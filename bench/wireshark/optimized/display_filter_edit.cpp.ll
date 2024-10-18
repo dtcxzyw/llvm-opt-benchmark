@@ -1169,7 +1169,7 @@ define void @_ZN17DisplayFilterEdit18applyDisplayFilterEv(ptr noundef nonnull al
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %46
 
 33:                                               ; preds = %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !28
   %34 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %34, align 8, !alias.scope !28
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -2399,7 +2399,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i: ; preds = %_
   br label %_ZN15FilterListModelD2Ev.exit
 
 _ZN15FilterListModelD2Ev.exit:                    ; preds = %372, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i.i, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i
-  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
+  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #20
   br label %388
 
 _ZN7QStringD2Ev.exit175:                          ; preds = %362, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i190, %358, %341, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i181, %338, %332, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i177, %328, %324, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i173, %320, %326
@@ -2864,7 +2864,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i116:   ; preds = %128
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %.loopexit
 
 174:                                              ; preds = %168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false), !alias.scope !48
   store i64 2, ptr %144, align 8, !alias.scope !48
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -2894,7 +2894,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %174, %170
           to label %_ZNK11QModelIndex4dataEi.exit121 unwind label %230
 
 182:                                              ; preds = %176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false), !alias.scope !51
   store i64 2, ptr %148, align 8, !alias.scope !51
   br label %_ZNK11QModelIndex4dataEi.exit121
 
@@ -3240,7 +3240,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i174:   ; preds = %_ZN7QStringD2Ev.exi
 
 290:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull align 8 dereferenceable(352) %0)
           to label %.noexc178 unwind label %.loopexit.split-lp
 
 .noexc178:                                        ; preds = %290
@@ -3329,7 +3329,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i: ; preds = %_
   br label %_ZN15FilterListModelD2Ev.exit
 
 _ZN15FilterListModelD2Ev.exit:                    ; preds = %302, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i.i, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i
-  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #20
+  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #20
   br label %318
 
 318:                                              ; preds = %1, %_ZN15FilterListModelD2Ev.exit
@@ -5596,7 +5596,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i: ; preds = %_
   br label %_ZN15FilterListModelD2Ev.exit
 
 _ZN15FilterListModelD2Ev.exit:                    ; preds = %65, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i.i, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i
-  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %81 = load ptr, ptr %4, align 8
   %.not.i.i.i22 = icmp eq ptr %81, null
   br i1 %.not.i.i.i22, label %_ZN7QStringD2Ev.exit25, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23
@@ -6477,7 +6477,7 @@ _ZN7QStringD2Ev.exit153:                          ; preds = %_ZN5QListI7QStringE
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %.loopexit293
 
 231:                                              ; preds = %225
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false), !alias.scope !83
   store i64 2, ptr %216, align 8, !alias.scope !83
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -6496,7 +6496,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %231, %227
 235:                                              ; preds = %234
   %236 = load ptr, ptr %217, align 8
   %237 = load i64, ptr %218, align 8
-  %238 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %17, i64 %237, ptr %236, i32 noundef 1)
+  %238 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %17, i64 %237, ptr %236, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %239
 
 239:                                              ; preds = %235
@@ -7042,7 +7042,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i226:   ; preds = %414
           to label %420 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 420:                                              ; preds = %._crit_edge
-  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull %28, i32 noundef 1)
+  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %28, i32 noundef 1)
           to label %_ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit: ; preds = %420, %304
@@ -7225,7 +7225,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i: ; preds = %_
   br label %_ZN15FilterListModelD2Ev.exit
 
 _ZN15FilterListModelD2Ev.exit:                    ; preds = %_ZN5QListI7QStringED2Ev.exit257, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i.i, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i.i
-  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #20
+  call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #20
   %479 = load ptr, ptr %17, align 8
   %.not.i.i.i261 = icmp eq ptr %479, null
   br i1 %.not.i.i.i261, label %_ZN5QListI7QStringED2Ev.exit, label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i262
@@ -9665,7 +9665,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN17DisplayFilterEditC1
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %.val = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %.val)
+  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(352) %.val)
   invoke void @_ZN17DisplayFilterEdit11checkFilterERK7QString(ptr noundef nonnull align 8 dereferenceable(352) %.val, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %12 unwind label %17
 

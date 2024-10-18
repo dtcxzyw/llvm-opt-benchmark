@@ -1453,7 +1453,7 @@ osc_rdma_get_remote_segment.exit:                 ; preds = %37, %42
 70:                                               ; preds = %66
   %71 = inttoptr i64 %.1.ph to ptr
   fence seq_cst
-  %72 = call i32 @ompi_datatype_sndrcv(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %71, i32 noundef %6, ptr noundef nonnull %7) #11
+  %72 = call i32 @ompi_datatype_sndrcv(ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef %3, ptr noundef %71, i32 noundef range(i32 1, 0) %6, ptr noundef nonnull %7) #11
   %.not.i36 = icmp eq ptr %8, null
   br i1 %.not.i36, label %ompi_osc_rdma_copy_local.exit, label %73
 
@@ -1696,7 +1696,7 @@ osc_rdma_get_remote_segment.exit:                 ; preds = %37, %42
 70:                                               ; preds = %66
   %71 = inttoptr i64 %.1.ph to ptr
   fence seq_cst
-  %72 = call i32 @ompi_datatype_sndrcv(ptr noundef %71, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %3) #11
+  %72 = call i32 @ompi_datatype_sndrcv(ptr noundef %71, i32 noundef range(i32 1, 0) %6, ptr noundef nonnull %7, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef %3) #11
   %.not.i36 = icmp eq ptr %8, null
   br i1 %.not.i36, label %ompi_osc_rdma_copy_local.exit, label %73
 
@@ -2210,7 +2210,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i67, %85
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %17, i64 96
   store ptr %102, ptr %103, align 8
-  %104 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %17, ptr noundef %8, i64 noundef %93, ptr noundef %94) #11
+  %104 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %17, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %93, ptr noundef %94) #11
   %.not90.i = icmp eq i32 %104, 0
   br i1 %.not90.i, label %105, label %ompi_osc_rdma_master_noncontig.exit
 
@@ -2256,7 +2256,7 @@ opal_obj_run_constructors.exit105.i:              ; preds = %.lr.ph.i102.i, %109
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %16, i64 96
   store ptr %124, ptr %125, align 8
-  %126 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %16, ptr noundef %3, i64 noundef %24, ptr noundef %1) #11
+  %126 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %16, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %24, ptr noundef %1) #11
   %.not92.i = icmp eq i32 %126, 0
   br i1 %.not92.i, label %127, label %ompi_osc_rdma_master_noncontig.exit
 

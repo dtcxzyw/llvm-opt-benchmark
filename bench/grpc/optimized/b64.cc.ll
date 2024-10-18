@@ -664,7 +664,7 @@ if.then.i70:                                      ; preds = %fail
 if.then.i.i:                                      ; preds = %if.then.i70
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %30(ptr noundef nonnull %28)
+  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %fail, %if.then.i70, %if.then.i.i

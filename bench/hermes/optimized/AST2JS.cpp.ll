@@ -2576,8 +2576,8 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.then, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
-  %call.i2 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS13endsWithBlockEPNS_6ESTree4NodeE(ptr noundef %__begin2.sroa.0.07)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.07)
+  %call.i2 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS13endsWithBlockEPNS_6ESTree4NodeE(ptr noundef nonnull %__begin2.sroa.0.07)
   br i1 %call.i2, label %_ZN6hermes12_GLOBAL__N_15GenJS17visitStmtInABlockEPNS_6ESTree4NodeES4_.exit, label %if.then.i3
 
 if.then.i3:                                       ; preds = %if.end
@@ -2872,7 +2872,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.07)
   %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %params
@@ -2989,7 +2989,7 @@ if.end.i:                                         ; preds = %if.then7
 
 if.end10:                                         ; preds = %if.end.i, %if.then.i, %if.then5
   %12 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %12)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %12)
   br label %if.end27
 
 if.else:                                          ; preds = %land.lhs.true, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit, %lor.lhs.false
@@ -3057,7 +3057,7 @@ if.then4.i.i.i:                                   ; preds = %if.then22
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin3.sroa.0.077)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin3.sroa.0.077)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.077, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %_params15
@@ -3387,7 +3387,7 @@ land.rhs.i18.i:                                   ; preds = %if.end.i88
 
 _ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i9.i
   %agg.tmp.sroa.0.0.copyload.i11.i = load ptr, ptr %14, align 8
-  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull readonly dereferenceable(2) @.str.246, i64 2)
+  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
   %16 = icmp eq i32 %bcmp.i15.i, 0
   br i1 %16, label %if.then23, label %if.then43.i106
 
@@ -3475,7 +3475,7 @@ land.rhs.i8.i:                                    ; preds = %land.lhs.true.i.i25
 
 land.rhs.i.i13.i:                                 ; preds = %land.rhs.i8.i
   %agg.tmp.sroa.0.0.copyload.i10.i = load ptr, ptr %23, align 8
-  %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i, ptr noundef nonnull readonly dereferenceable(2) @.str.247, i64 2)
+  %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
   %24 = icmp eq i32 %bcmp.i14.i, 0
   br i1 %24, label %if.then29, label %if.then43.i147
 
@@ -3595,7 +3595,7 @@ land.rhs.i18.i270:                                ; preds = %if.end.i170
 
 _ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293: ; preds = %land.rhs.i9.i277
   %agg.tmp.sroa.0.0.copyload.i11.i283 = load ptr, ptr %34, align 8
-  %bcmp.i15.i284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i283, ptr noundef nonnull readonly dereferenceable(2) @.str.246, i64 2)
+  %bcmp.i15.i284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i283, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
   %36 = icmp eq i32 %bcmp.i15.i284, 0
   br i1 %36, label %if.then40, label %if.then43.i188
 
@@ -3682,7 +3682,7 @@ land.rhs.i8.i298:                                 ; preds = %land.lhs.true.i.i29
 
 land.rhs.i.i13.i303:                              ; preds = %land.rhs.i8.i298
   %agg.tmp.sroa.0.0.copyload.i10.i304 = load ptr, ptr %43, align 8
-  %bcmp.i14.i305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i304, ptr noundef nonnull readonly dereferenceable(2) @.str.247, i64 2)
+  %bcmp.i14.i305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i304, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
   %44 = icmp eq i32 %bcmp.i14.i305, 0
   br i1 %44, label %if.then51, label %if.then43.i236
 
@@ -5358,7 +5358,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6hermes12_GLOBAL
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
   %__begin2.sroa.0.059 = phi ptr [ %__begin2.sroa.0.057, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.059)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.059)
   %18 = load i8, ptr %4, align 8
   %tobool.i39 = trunc i8 %18 to i1
   br i1 %tobool.i39, label %if.then.i41, label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
@@ -5817,7 +5817,7 @@ if.end:                                           ; preds = %if.then4.i.i.i, %if
 if.end.i:                                         ; preds = %if.end
   %cond = select i1 %tobool.not, i32 0, i32 2
   %this.val.i = load i8, ptr %0, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef %node, ptr noundef nonnull %__begin2.sroa.0.011, i32 noundef %cond)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef %node, ptr noundef nonnull %__begin2.sroa.0.011, i32 noundef range(i32 0, 3) %cond)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -5961,7 +5961,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.07)
   %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %props
@@ -6058,7 +6058,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i = load i8, ptr %3, align 8
-  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef %__begin2.sroa.0.040)
+  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef nonnull %__begin2.sroa.0.040)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i7 to i32
   %cmp.i8 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i8, label %if.then.i34, label %if.end6.i
@@ -6083,11 +6083,11 @@ if.end.i.i:                                       ; preds = %if.then.i34
   br label %if.then8.i
 
 if.end6.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.040)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 if.then8.i:                                       ; preds = %if.then.i.i, %if.end.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.040)
   %10 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -6320,7 +6320,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i6 = load i8, ptr %16, align 8
-  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i6, ptr noundef %__begin2.sroa.0.055)
+  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i6, ptr noundef nonnull %__begin2.sroa.0.055)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i7 to i32
   %cmp.i8 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i8, label %if.then.i39, label %if.end6.i17
@@ -6345,11 +6345,11 @@ if.end.i.i47:                                     ; preds = %if.then.i39
   br label %if.then8.i19
 
 if.end6.i17:                                      ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.055)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.055)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit49
 
 if.then8.i19:                                     ; preds = %if.then.i.i43, %if.end.i.i47
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.055)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.055)
   %23 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i20 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %OutBufCur.i13.i20, align 8
@@ -6635,7 +6635,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i6 = load i8, ptr %12, align 8
-  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i6, ptr noundef %__begin2.sroa.0.052)
+  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i6, ptr noundef nonnull %__begin2.sroa.0.052)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i7 to i32
   %cmp.i8 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i8, label %if.then.i36, label %if.end6.i14
@@ -6660,11 +6660,11 @@ if.end.i.i44:                                     ; preds = %if.then.i36
   br label %if.then8.i16
 
 if.end6.i14:                                      ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.052)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.052)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit46
 
 if.then8.i16:                                     ; preds = %if.then.i.i40, %if.end.i.i44
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.052)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.052)
   %19 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i17 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i13.i17, align 8
@@ -8486,7 +8486,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.017)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.017)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i10.not = icmp eq ptr %__begin2.sroa.0.0, %_declarations
@@ -8594,7 +8594,7 @@ if.end.i19:                                       ; preds = %if.then
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %if.then.i23, %if.end.i19
   %Next.i.i.i.i26 = getelementptr inbounds i8, ptr %ecur.sroa.0.050, i64 8
   %13 = load ptr, ptr %Next.i.i.i.i26, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ecur.sroa.0.050)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %ecur.sroa.0.050)
   %14 = load ptr, ptr %this, align 8
   %OutBufCur.i28 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i28, align 8
@@ -9317,7 +9317,7 @@ if.then.i14:                                      ; preds = %for.body
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %for.body, %if.then.i14
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.040)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.040, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_body
@@ -9904,7 +9904,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i = load i8, ptr %3, align 8
-  %call.i4 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef %__begin2.sroa.0.023)
+  %call.i4 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef nonnull %__begin2.sroa.0.023)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i4 to i32
   %cmp.i5 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i5, label %if.then.i17, label %if.end6.i
@@ -9929,11 +9929,11 @@ if.end.i.i:                                       ; preds = %if.then.i17
   br label %if.then8.i
 
 if.end6.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.023)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.023)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 if.then8.i:                                       ; preds = %if.then.i.i, %if.end.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.023)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.023)
   %10 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i13.i, align 8

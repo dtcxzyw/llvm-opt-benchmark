@@ -12193,7 +12193,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %__cur.010 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
   %__n.addr.09 = phi i64 [ %dec, %for.inc ], [ %__n, %entry ]
   %filled1_.i.i = getelementptr inbounds nuw i8, ptr %__cur.010, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.010, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %__cur.010, i8 0, i64 24, i1 false)
   store i64 1, ptr %filled1_.i.i, align 8, !tbaa !221
   %filled2_.i.i = getelementptr inbounds nuw i8, ptr %__cur.010, i64 32
   store i64 0, ptr %filled2_.i.i, align 8, !tbaa !222

@@ -969,7 +969,7 @@ tm_complete_obj_weight.exit.thread:               ; preds = %._crit_edge.i94
   br i1 %132, label %.lr.ph.i.i, label %clone_tree.exit.i, !llvm.loop !18
 
 133:                                              ; preds = %.lr.ph.i107
-  tail call fastcc void @create_dumb_tree(ptr noundef %95, i32 noundef %3, ptr noundef readonly %4)
+  tail call fastcc void @create_dumb_tree(ptr noundef %95, i32 noundef range(i32 -2147483648, 2147483647) %3, ptr noundef readonly %4)
   %134 = getelementptr inbounds i8, ptr %95, i64 48
   %135 = trunc nuw nsw i64 %indvars.iv.i108 to i32
   store i32 %135, ptr %134, align 8
@@ -1312,7 +1312,7 @@ choose.exit.i:                                    ; preds = %.lr.ph.i155.i, %bui
   store double 0x7FEFFFFFFFFFFFFF, ptr %17, align 8
   store i32 0, ptr %16, align 4
   %279 = getelementptr inbounds %struct._tm_tree_t, ptr %152, i64 %indvars.iv60.i.i
-  call fastcc void @fast_group(ptr noundef readonly %.057.i.i, ptr noundef %.0167181, ptr noundef %279, i32 noundef -1, i32 noundef %2, i32 noundef 0, ptr noundef %17, ptr noundef %270, ptr noundef %16, i32 noundef %spec.select.i)
+  call fastcc void @fast_group(ptr noundef readonly %.057.i.i, ptr noundef %.0167181, ptr noundef %279, i32 noundef -1, i32 noundef range(i32 3, 6) %2, i32 noundef 0, ptr noundef %17, ptr noundef %270, ptr noundef %16, i32 noundef %spec.select.i)
   %280 = load double, ptr %17, align 8
   %281 = fadd double %.045.i.i, %280
   %282 = getelementptr inbounds i8, ptr %279, i64 40
@@ -1455,7 +1455,7 @@ fast_grouping.exit.i:                             ; preds = %329, %267
   br i1 %336, label %341, label %343
 
 341:                                              ; preds = %335
-  %342 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %338, i32 noundef %149, i32 noundef %2)
+  %342 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %338, i32 noundef %149, i32 noundef range(i32 6, -2147483648) %2)
   br label %343
 
 343:                                              ; preds = %341, %335, %.thread336.i
@@ -1924,7 +1924,7 @@ independent_groups.exit.us.i.i.i:                 ; preds = %533
   %545 = load double, ptr %544, align 8
   %546 = fadd double %521, %545
   %547 = add nuw nsw i32 %.02634.i.i.i, 1
-  %548 = call fastcc i32 @recurs_select_independent_groups(ptr noundef readonly %428, i32 noundef %547, i32 noundef %430, i32 noundef %2, i32 noundef 2, i32 noundef %149, double noundef %546, ptr noundef %19, ptr noundef nonnull %481, ptr noundef %426)
+  %548 = call fastcc i32 @recurs_select_independent_groups(ptr noundef readonly %428, i32 noundef %547, i32 noundef %430, i32 noundef %2, i32 noundef 2, i32 noundef %149, double noundef %546, ptr noundef nonnull %19, ptr noundef nonnull %481, ptr noundef %426)
   br label %test_independent_groups.exit.i.i
 
 test_independent_groups.exit.i.i:                 ; preds = %independent_groups.exit.us.i.i.i, %.loopexit.i.i.i, %.preheader.i.i.i

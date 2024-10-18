@@ -2226,7 +2226,7 @@ if.end.i91.i.i:                                   ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i.i119.i.i, i8 0, i64 %conv.i.i.i.i, i1 false)
   %blockLength.i.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 24
   store i32 64, ptr %blockLength.i.i.i.i, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef 0, i32 noundef 128)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef 0, i32 noundef 128)
   %86 = load i32, ptr %highStart.i.i.i, align 8
   %shr.i93.i.i = ashr i32 %86, 4
   %cmp5231.i.i.i = icmp sgt i32 %shr.i93.i.i, 8
@@ -2298,7 +2298,7 @@ if.end11.i.i.i:                                   ; preds = %if.end22.i106.i.i.i
   store i32 %newLength.0.i89.i.i.i, ptr %length.i.i.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i104.i121257.i.i, i8 0, i64 %.pre8.i95.i.i.i, i1 false)
   store i32 16, ptr %blockLength.i.i.i.i, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef 0, i32 noundef %newDataLength.1236.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef 0, i32 noundef %newDataLength.1236.i.i.i)
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end11.i.i.i, %for.body6.i.i.i
@@ -2546,7 +2546,7 @@ while.end47.loopexit.i.i.i:                       ; preds = %while.body42.i.i.i
 
 while.end47.i.i.i:                                ; preds = %while.end47.loopexit.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
   %newDataLength.2.lcssa.i.i.i = phi i32 [ %newDataLength.1236.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i ], [ %110, %while.end47.loopexit.i.i.i ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.2.lcssa.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.2.lcssa.i.i.i)
   br label %for.inc96.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %if.end12.i.i.i
@@ -2710,7 +2710,7 @@ while.end82.loopexit.i.i.i:                       ; preds = %while.body75.i.i.i
 
 while.end82.i.i.i:                                ; preds = %while.end82.loopexit.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i
   %newDataLength.3.lcssa.i.i.i = phi i32 [ %newDataLength.1236.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %132, %while.end82.loopexit.i.i.i ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.3.lcssa.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.3.lcssa.i.i.i)
   br label %for.inc96.i.i.i
 
 if.else84.i.i.i:                                  ; preds = %if.end12.i.i.i

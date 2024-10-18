@@ -888,11 +888,11 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tempKey.i)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %ref.tmp.i)
   call void @_ZN6icu_7520StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %installed.i)
-  %call.i = invoke ptr @ures_openDirect_75(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull %status)
+  %call.i = invoke ptr @ures_openDirect_75(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont.i:                                    ; preds = %if.then4.i
-  %call4.i = invoke ptr @ures_getByKey_75(ptr noundef %call.i, ptr noundef nonnull @.str.31, ptr noundef nonnull %installed.i, ptr noundef nonnull %status)
+  %call4.i = invoke ptr @ures_getByKey_75(ptr noundef %call.i, ptr noundef nonnull @.str.31, ptr noundef nonnull %installed.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont3.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
@@ -958,7 +958,7 @@ invoke.cont26.i:                                  ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %invoke.cont26.i
   store ptr null, ptr %tempKey.i, align 8
-  %call32.i = invoke ptr @ures_getNextString_75(ptr noundef nonnull %installed.i, ptr noundef null, ptr noundef nonnull %tempKey.i, ptr noundef nonnull %status)
+  %call32.i = invoke ptr @ures_getNextString_75(ptr noundef nonnull %installed.i, ptr noundef null, ptr noundef nonnull %tempKey.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont31.i unwind label %lpad.loopexit.i
 
 invoke.cont31.i:                                  ; preds = %while.body.i
@@ -1436,7 +1436,7 @@ if.then:                                          ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.then
   %2 = load ptr, ptr %call, align 8
-  %call.i = call noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %id)
+  %call.i = call noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %id)
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %if.end10, label %if.then4
 
@@ -1585,7 +1585,7 @@ new.notnull:                                      ; preds = %if.then
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call4, i64 8
-  %call2.i.i10 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i10 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -1633,7 +1633,7 @@ new.notnull.i:                                    ; preds = %for.body
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %for.body
-  %call2.i12 = invoke noundef ptr @uhash_put_75(ptr noundef %10, ptr noundef %call.i, ptr noundef nonnull %this, ptr noundef nonnull %status)
+  %call2.i12 = invoke noundef ptr @uhash_put_75(ptr noundef %10, ptr noundef %call.i, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont16 unwind label %lpad12.loopexit
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -1828,7 +1828,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %new.isnull, label %return, label %new.notnull
 
 new.notnull:                                      ; preds = %if.then5
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call6)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %call6)
           to label %_ZN6icu_7530CollationLocaleListEnumerationC2Ev.exit unwind label %lpad
 
 _ZN6icu_7530CollationLocaleListEnumerationC2Ev.exit: ; preds = %new.notnull
@@ -2329,7 +2329,7 @@ entry:
   br i1 %new.isnull, label %if.end, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %call)
           to label %if.then unwind label %lpad
 
 if.then:                                          ; preds = %new.notnull

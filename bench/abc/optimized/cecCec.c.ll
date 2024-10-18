@@ -816,7 +816,7 @@ Abc_Clock.exit:                                   ; preds = %2, %11
   br i1 %40, label %Extra_ProgressBarUpdate.exit, label %41
 
 41:                                               ; preds = %37, %36
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %24, i32 noundef %33, ptr noundef null) #10
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %24, i32 noundef range(i32 -2147483648, 1073741823) %33, ptr noundef null) #10
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %41, %37, %32

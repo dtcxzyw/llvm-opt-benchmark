@@ -299,7 +299,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl32RequireDecimalSeparatorValidatorD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
   ret void
 }
@@ -335,7 +335,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i64 16), ptr %this, align 8
   %fMultiplier.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i) #6
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
   ret void
 }

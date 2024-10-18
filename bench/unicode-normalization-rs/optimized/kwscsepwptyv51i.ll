@@ -120,7 +120,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   br i1 %.0.i.i.i, label %74, label %54
 
 54:                                               ; preds = %52
-  %55 = tail call i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970(i32 noundef %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.10.llvm.3355593342274400970, i64 noundef 3812, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.11.llvm.3355593342274400970, i64 noundef 3812, i48 0), !noalias !27
+  %55 = tail call i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970(i32 noundef range(i32 1114113, 1114112) %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.10.llvm.3355593342274400970, i64 noundef 3812, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.11.llvm.3355593342274400970, i64 noundef 3812, i48 0), !noalias !27
   %trunc.i.i.i = trunc i48 %55 to i16
   %switch.i.i.i = icmp eq i16 %trunc.i.i.i, 0
   br i1 %switch.i.i.i, label %64, label %56
@@ -149,7 +149,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   unreachable
 
 64:                                               ; preds = %54
-  %65 = tail call i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970(i32 noundef %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.4.llvm.3355593342274400970, i64 noundef 2061, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.5.llvm.3355593342274400970, i64 noundef 2061, i48 0), !noalias !27
+  %65 = tail call i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970(i32 noundef range(i32 1114113, 1114112) %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.4.llvm.3355593342274400970, i64 noundef 2061, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.5.llvm.3355593342274400970, i64 noundef 2061, i48 0), !noalias !27
   %trunc.i.i.i.i.i = trunc i48 %65 to i16
   %switch.i.i.i.i.i = icmp eq i16 %trunc.i.i.i.i.i, 0
   br i1 %switch.i.i.i.i.i, label %76, label %66
@@ -185,7 +185,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   br label %_ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42E.exit.i
 
 76:                                               ; preds = %64
-  %77 = tail call noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970(i32 noundef %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.0.llvm.3355593342274400970, i64 noundef 922, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.1.llvm.3355593342274400970, i64 noundef 922, i8 noundef 0), !noalias !27
+  %77 = tail call noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970(i32 noundef range(i32 1114113, 1114112) %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.0.llvm.3355593342274400970, i64 noundef 922, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.1.llvm.3355593342274400970, i64 noundef 922, i8 noundef 0), !noalias !27
   %78 = icmp ne i8 %77, 0
   %.5.i.i = zext i1 %78 to i64
   br label %_ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42E.exit.i
@@ -233,7 +233,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
 
 _ZN21unicode_normalization6tables31stream_safe_leading_nonstarters17h846749e84f037066E.exit.i.i: ; preds = %87, %86, %85, %84, %83, %82, %81, %80, %79, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit.i.i.i.i.i"
   %.0.i6.i.i = phi i64 [ 1, %87 ], [ 1, %86 ], [ 2, %85 ], [ 2, %84 ], [ 2, %83 ], [ 2, %82 ], [ 1, %81 ], [ 1, %80 ], [ 1, %79 ], [ 0, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit.i.i.i.i.i" ]
-  %88 = tail call noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970(i32 noundef %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.22.llvm.3355593342274400970, i64 noundef 1090, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.23.llvm.3355593342274400970, i64 noundef 1090, i8 noundef 0), !noalias !27
+  %88 = tail call noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970(i32 noundef range(i32 1114113, 1114112) %.0.i10.i, ptr noalias noundef nonnull readonly align 2 @anon.1bf8cbd9db60c063894021140588f89d.22.llvm.3355593342274400970, i64 noundef 1090, ptr noalias noundef nonnull readonly align 4 @anon.1bf8cbd9db60c063894021140588f89d.23.llvm.3355593342274400970, i64 noundef 1090, i8 noundef 0), !noalias !27
   %89 = zext i8 %88 to i64
   br label %_ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42E.exit.i
 
@@ -339,7 +339,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i: ; preds =
   br i1 %140, label %141, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hee4c213bced04c19E.exit.i.i.i"
 
 141:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h040ac32c5bcb1659E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %137, i64 noundef %136), !noalias !47
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h040ac32c5bcb1659E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %137, i64 noundef %136), !noalias !47
   %.pre.i.i.i.i.i = load i64, ptr %7, align 8, !alias.scope !42, !noalias !47
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hee4c213bced04c19E.exit.i.i.i"
 
@@ -367,7 +367,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i: ; preds =
   br i1 %150, label %151, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h63198f7b7bd4532cE.exit.i.i.i"
 
 151:                                              ; preds = %.critedge.i.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h752aab1885f04fb9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %148)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h752aab1885f04fb9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %148)
   %.pre.i.i.i.i = load i64, ptr %7, align 8, !alias.scope !52
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h63198f7b7bd4532cE.exit.i.i.i"
 

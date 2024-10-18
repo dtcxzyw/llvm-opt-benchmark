@@ -431,7 +431,7 @@ Abc_Clock.exit114:                                ; preds = %192, %195
   %.0.i113 = phi i64 [ %201, %195 ], [ -1, %192 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %202 = add i64 %.0.i113, %.0.i108.neg
-  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str, i32 noundef %.0.lcssa.i, i32 noundef %191)
+  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str, i32 noundef range(i32 0, 32768) %.0.lcssa.i, i32 noundef %191)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   %204 = sitofp i64 %202 to double
   %205 = fdiv double %204, 1.000000e+06
@@ -537,7 +537,7 @@ Abc_Clock.exit137:                                ; preds = %239, %242
   %.0.i136 = phi i64 [ %248, %242 ], [ -1, %239 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %249 = add i64 %.0.i136, %.0.i115.neg
-  %250 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1, i32 noundef %.0.lcssa.i118, i32 noundef %238)
+  %250 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1, i32 noundef range(i32 0, 32768) %.0.lcssa.i118, i32 noundef %238)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   %251 = sitofp i64 %249 to double
   %252 = fdiv double %251, 1.000000e+06
@@ -1001,7 +1001,7 @@ Abc_Clock.exit168:                                ; preds = %449, %452
   %.0.i167 = phi i64 [ %458, %452 ], [ -1, %449 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %459 = add i64 %.0.i167, %.0.i138.neg
-  %460 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2, i32 noundef %.0.lcssa.i149, i32 noundef %448)
+  %460 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 32768) %.0.lcssa.i149, i32 noundef %448)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   %461 = sitofp i64 %459 to double
   %462 = fdiv double %461, 1.000000e+06
@@ -1103,7 +1103,7 @@ Abc_Clock.exit191:                                ; preds = %495, %498
   %.0.i190 = phi i64 [ %504, %498 ], [ -1, %495 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %505 = add i64 %.0.i190, %.0.i169.neg
-  %506 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1, i32 noundef %.0.lcssa.i172, i32 noundef %494)
+  %506 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1, i32 noundef range(i32 0, 32768) %.0.lcssa.i172, i32 noundef %494)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   %507 = sitofp i64 %505 to double
   %508 = fdiv double %507, 1.000000e+06

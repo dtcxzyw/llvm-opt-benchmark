@@ -1459,7 +1459,7 @@ add_conversation.exit.i:                          ; preds = %proto_item_set_gene
 
 564:                                              ; preds = %add_conversation.exit.i
   %565 = call ptr @proto_item_get_subtree(ptr noundef %135) #9
-  call fastcc void @resolve_unique_name(ptr noundef %16, ptr noundef %565)
+  call fastcc void @resolve_unique_name(ptr noundef nonnull %16, ptr noundef %565)
   br label %566
 
 566:                                              ; preds = %564, %add_conversation.exit.i

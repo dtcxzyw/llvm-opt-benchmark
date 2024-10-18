@@ -491,7 +491,7 @@ sw.bb:                                            ; preds = %_ZNK8facebook5velox
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %that, i64 32
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 16
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value2, i8 0, i64 24, i1 false)
   %types.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %types3.i.i.i = getelementptr inbounds i8, ptr %that, i64 40
   %6 = load ptr, ptr %types3.i.i.i, align 8
@@ -505,7 +505,7 @@ sw.bb:                                            ; preds = %_ZNK8facebook5velox
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i5.i.i.i, align 8
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i4.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types3.i.i.i, i8 0, i64 24, i1 false)
-  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %value2) #26
+  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %value2) #26
   br label %sw.epilog
 
 lpad:                                             ; preds = %sw.bb7
@@ -610,8 +610,8 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb15:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
   %value17 = getelementptr inbounds i8, ptr %that, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i, ptr noundef nonnull align 8 dereferenceable(32) %value17) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value17) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(48) %value.i, ptr noundef nonnull align 16 dereferenceable(48) %value17) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value17) #26
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -626,7 +626,7 @@ sw.bb19:                                          ; preds = %_ZNK8facebook5velox
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %that, i64 32
   %26 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 16
   store ptr %26, ptr %_M_end_of_storage.i.i.i.i.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value21, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value21, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -641,7 +641,7 @@ sw.bb23:                                          ; preds = %_ZNK8facebook5velox
   %_M_end_of_storage4.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %that, i64 32
   %29 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i13, align 16
   store ptr %29, ptr %_M_end_of_storage.i.i.i.i.i.i12, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value25, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %sw.bb11, %sw.bb23, %sw.bb19, %sw.bb15, %sw.bb3, %sw.bb, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %sw.bb7
@@ -654,7 +654,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox4type6Parser10value_type4moveISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvOS3_(ptr noundef nonnull align 16 dereferenceable(48) %this, ptr noundef nonnull align 16 dereferenceable(48) %that) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %that) #26
   %second.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %second3.i.i = getelementptr inbounds i8, ptr %that, i64 32
   %0 = load ptr, ptr %second3.i.i, align 16
@@ -739,7 +739,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvv.exit
 
 _ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvv.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %that) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %that) #26
   ret void
 }
 
@@ -781,7 +781,7 @@ sw.bb:                                            ; preds = %entry
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %that, i64 32
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 16
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value2, i8 0, i64 24, i1 false)
   %types.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %types3.i.i.i = getelementptr inbounds i8, ptr %that, i64 40
   %4 = load ptr, ptr %types3.i.i.i, align 8
@@ -795,7 +795,7 @@ sw.bb:                                            ; preds = %entry
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i5.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i4.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types3.i.i.i, i8 0, i64 24, i1 false)
-  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %value2) #26
+  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %value2) #26
   br label %sw.epilog
 
 lpad:                                             ; preds = %sw.bb7
@@ -900,8 +900,8 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb15:                                          ; preds = %entry, %entry, %entry
   %value17 = getelementptr inbounds i8, ptr %that, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i, ptr noundef nonnull align 8 dereferenceable(32) %value17) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value17) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(48) %value.i, ptr noundef nonnull align 16 dereferenceable(48) %value17) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value17) #26
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
@@ -916,7 +916,7 @@ sw.bb19:                                          ; preds = %entry
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %that, i64 32
   %24 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 16
   store ptr %24, ptr %_M_end_of_storage.i.i.i.i.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value21, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value21, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -931,7 +931,7 @@ sw.bb23:                                          ; preds = %entry
   %_M_end_of_storage4.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %that, i64 32
   %27 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i12, align 16
   store ptr %27, ptr %_M_end_of_storage.i.i.i.i.i.i11, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value25, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %sw.bb11, %sw.bb23, %sw.bb19, %sw.bb15, %sw.bb3, %sw.bb, %entry, %sw.bb7
@@ -1515,24 +1515,24 @@ sw.bb85:                                          ; preds = %_ZN8facebook5velox4
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value106) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value106) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %second.i.i, i8 0, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb93:                                          ; preds = %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value106, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value106, i8 0, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb97:                                          ; preds = %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value106) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value106) #26
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value106, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value106, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value106, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value106, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb89, %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit, %sw.bb105, %sw.bb101, %sw.bb97, %sw.bb93, %sw.bb85, %sw.bb
@@ -3068,7 +3068,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -3085,7 +3085,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -3311,7 +3311,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKN8facebook5velox4TypeEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_(ptr noalias sret(%"struct.std::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__x, ptr noundef nonnull align 8 dereferenceable(16) %__y) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__x)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__x)
   %second.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %0 = load ptr, ptr %__y, align 8
   store ptr %0, ptr %second.i, align 8
@@ -3880,7 +3880,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #26
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #26
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -4679,7 +4679,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %value = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %value) #26
+  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %value) #26
   br label %sw.epilog15
 
 sw.bb4:                                           ; preds = %entry
@@ -4758,7 +4758,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvv.exit
 
 _ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvv.exit: ; preds = %sw.bb4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value5) #26
   br label %sw.epilog15
 
 sw.bb6:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
@@ -4837,7 +4837,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb8:                                           ; preds = %entry, %entry, %entry
   %value9 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value9) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value9) #26
   br label %sw.epilog15
 
 sw.bb10:                                          ; preds = %entry
@@ -5029,13 +5029,13 @@ if.end:                                           ; preds = %nrvo.skipdtor.threa
           to label %call.i.noexc unwind label %lpad8
 
 call.i.noexc:                                     ; preds = %if.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %if.end.i unwind label %lpad8
 
 lpad.i:                                           ; preds = %if.end.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   br label %lpad8.body
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -5792,7 +5792,7 @@ _ZNK8facebook5velox4type6Parser8by_state4kindEv.exit: ; preds = %entry
 
 sw.bb:                                            ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
   %value = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %value) #26
+  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %value) #26
   br label %sw.epilog21
 
 sw.bb5:                                           ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -5871,7 +5871,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvv.exit
 
 _ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKNS0_4TypeEEEEEvv.exit: ; preds = %sw.bb5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value6) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value6) #26
   br label %sw.epilog21
 
 sw.bb8:                                           ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -5950,7 +5950,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 sw.bb11:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
   %value12 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value12) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value12) #26
   br label %sw.epilog21
 
 sw.bb14:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -6270,7 +6270,7 @@ sw.bb:                                            ; preds = %_ZNK8facebook5velox
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 32
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 16
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value2, i8 0, i64 24, i1 false)
   %types.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %types3.i.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %6 = load ptr, ptr %types3.i.i.i, align 8
@@ -6284,7 +6284,7 @@ sw.bb:                                            ; preds = %_ZNK8facebook5velox
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i5.i.i.i, align 8
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i4.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types3.i.i.i, i8 0, i64 24, i1 false)
-  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %value2) #26
+  tail call void @_ZN12RowArgumentsD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %value2) #26
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -6387,8 +6387,8 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 sw.bb12:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
   %value13 = getelementptr inbounds i8, ptr %this, i64 16
   %value14 = getelementptr inbounds i8, ptr %s, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value13, ptr noundef nonnull align 8 dereferenceable(32) %value14) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value14) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 16 dereferenceable(48) %value13, ptr noundef nonnull align 16 dereferenceable(48) %value14) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(48) %value14) #26
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -6404,7 +6404,7 @@ sw.bb15:                                          ; preds = %_ZNK8facebook5velox
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 32
   %25 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 16
   store ptr %25, ptr %_M_end_of_storage.i.i.i.i.i.i, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value17, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit
@@ -6420,7 +6420,7 @@ sw.bb18:                                          ; preds = %_ZNK8facebook5velox
   %_M_end_of_storage4.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %s, i64 32
   %28 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i11, align 16
   store ptr %28, ptr %_M_end_of_storage.i.i.i.i.i.i10, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %value20, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %sw.bb9, %_ZNK8facebook5velox4type6Parser8by_state4kindEv.exit, %sw.bb18, %sw.bb15, %sw.bb12, %sw.bb6, %sw.bb3, %sw.bb

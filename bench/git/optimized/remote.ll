@@ -5281,7 +5281,7 @@ alloc_ref_with_prefix.exit:                       ; preds = %st_add.exit.i
   %add.i10.i = add nuw i64 %call.i, 182
   %call4.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i10.i) #21
   %name5.i = getelementptr inbounds i8, ptr %call4.i, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 181
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %name, i64 %call.i, i1 false)
   br label %return
@@ -5596,7 +5596,7 @@ if.then.i:                                        ; preds = %if.then26
 
 if.end.i:                                         ; preds = %if.then26
   %conv = sext i32 %7 to i64
-  %call.i41 = call ptr @ngettext(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i64 noundef %conv) #21
+  %call.i41 = call ptr @ngettext(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i64 noundef range(i64 -2147483648, 2147483648) %conv) #21
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i, %if.end.i
@@ -5637,7 +5637,7 @@ if.then.i54:                                      ; preds = %if.then35
 
 if.end.i51:                                       ; preds = %if.then35
   %conv36 = sext i32 %6 to i64
-  %call.i52 = call ptr @ngettext(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i64 noundef %conv36) #21
+  %call.i52 = call ptr @ngettext(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i64 noundef range(i64 -2147483648, 2147483648) %conv36) #21
   br label %Q_.exit57
 
 Q_.exit57:                                        ; preds = %if.then.i54, %if.end.i51
@@ -5675,7 +5675,7 @@ if.then.i69:                                      ; preds = %if.else43
 
 if.end.i66:                                       ; preds = %if.else43
   %conv44 = sext i32 %add to i64
-  %call.i67 = call ptr @ngettext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i64 noundef %conv44) #21
+  %call.i67 = call ptr @ngettext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i64 noundef range(i64 -2147483648, 2147483648) %conv44) #21
   br label %Q_.exit72
 
 Q_.exit72:                                        ; preds = %if.then.i69, %if.end.i66
@@ -5879,7 +5879,7 @@ if.end17:                                         ; preds = %find_ref_by_name.ex
 for.body.i36:                                     ; preds = %if.end17, %for.inc.i41
   %list.addr.05.i37 = phi ptr [ %7, %for.inc.i41 ], [ %refs, %if.end17 ]
   %name1.i38 = getelementptr inbounds i8, ptr %list.addr.05.i37, i64 176
-  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name1.i38, ptr noundef nonnull readonly dereferenceable(18) @.str.30) #20
+  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name1.i38, ptr noundef nonnull dereferenceable(18) @.str.30) #20
   %tobool2.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %tobool2.not.i40, label %land.lhs.true20, label %for.inc.i41
 

@@ -165,7 +165,7 @@ while.body4:                                      ; preds = %while.cond2
 
 while.end6:                                       ; preds = %while.cond.loopexit, %entry
   %m_contactManager = getelementptr inbounds i8, ptr %this, i64 103064
-  tail call void @_ZN12b2BroadPhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager) #16
+  tail call void @_ZN12b2BroadPhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_contactManager) #16
   %m_stackAllocator = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN16b2StackAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(102932) %m_stackAllocator) #16
   tail call void @_ZN16b2BlockAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #16
@@ -2329,7 +2329,7 @@ entry:
   store ptr %m_contactManager, ptr %wrapper, align 8
   %callback2 = getelementptr inbounds i8, ptr %wrapper, i64 8
   store ptr %callback, ptr %callback2, align 8
-  call void @_ZNK13b2DynamicTree5QueryI19b2WorldQueryWrapperEEvPT_RK6b2AABB(ptr noundef nonnull align 8 dereferenceable(32) %m_contactManager, ptr noundef nonnull %wrapper, ptr noundef nonnull align 4 dereferenceable(16) %aabb)
+  call void @_ZNK13b2DynamicTree5QueryI19b2WorldQueryWrapperEEvPT_RK6b2AABB(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager, ptr noundef nonnull %wrapper, ptr noundef nonnull align 4 dereferenceable(16) %aabb)
   ret void
 }
 
@@ -2349,7 +2349,7 @@ entry:
   %p2 = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %point2, align 4
   store i64 %1, ptr %p2, align 8
-  call void @_ZNK13b2DynamicTree7RayCastI21b2WorldRayCastWrapperEEvPT_RK14b2RayCastInput(ptr noundef nonnull align 8 dereferenceable(32) %m_contactManager, ptr noundef nonnull %wrapper, ptr noundef nonnull align 4 dereferenceable(20) %input)
+  call void @_ZNK13b2DynamicTree7RayCastI21b2WorldRayCastWrapperEEvPT_RK14b2RayCastInput(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager, ptr noundef nonnull %wrapper, ptr noundef nonnull align 4 dereferenceable(20) %input)
   ret void
 }
 
@@ -2986,7 +2986,7 @@ entry:
 define noundef i32 @_ZNK7b2World13GetTreeHeightEv(ptr noundef nonnull align 8 dereferenceable(103284) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_contactManager = getelementptr inbounds i8, ptr %this, i64 103064
-  %call.i = tail call noundef i32 @_ZNK13b2DynamicTree9GetHeightEv(ptr noundef nonnull align 8 dereferenceable(32) %m_contactManager)
+  %call.i = tail call noundef i32 @_ZNK13b2DynamicTree9GetHeightEv(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager)
   ret i32 %call.i
 }
 
@@ -2994,7 +2994,7 @@ entry:
 define noundef i32 @_ZNK7b2World14GetTreeBalanceEv(ptr noundef nonnull align 8 dereferenceable(103284) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_contactManager = getelementptr inbounds i8, ptr %this, i64 103064
-  %call.i = tail call noundef i32 @_ZNK13b2DynamicTree13GetMaxBalanceEv(ptr noundef nonnull align 8 dereferenceable(32) %m_contactManager)
+  %call.i = tail call noundef i32 @_ZNK13b2DynamicTree13GetMaxBalanceEv(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager)
   ret i32 %call.i
 }
 
@@ -3002,7 +3002,7 @@ entry:
 define noundef float @_ZNK7b2World14GetTreeQualityEv(ptr noundef nonnull align 8 dereferenceable(103284) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_contactManager = getelementptr inbounds i8, ptr %this, i64 103064
-  %call.i = tail call noundef float @_ZNK13b2DynamicTree12GetAreaRatioEv(ptr noundef nonnull align 8 dereferenceable(32) %m_contactManager)
+  %call.i = tail call noundef float @_ZNK13b2DynamicTree12GetAreaRatioEv(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager)
   ret float %call.i
 }
 
@@ -3080,7 +3080,7 @@ for.body6:                                        ; preds = %for.end, %for.body6
 
 for.end9:                                         ; preds = %for.body6, %for.end
   %m_contactManager = getelementptr inbounds i8, ptr %this, i64 103064
-  tail call void @_ZN13b2DynamicTree11ShiftOriginERK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(32) %m_contactManager, ptr noundef nonnull align 4 dereferenceable(8) %newOrigin)
+  tail call void @_ZN13b2DynamicTree11ShiftOriginERK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(76) %m_contactManager, ptr noundef nonnull align 4 dereferenceable(8) %newOrigin)
   br label %return
 
 return:                                           ; preds = %entry, %for.end9

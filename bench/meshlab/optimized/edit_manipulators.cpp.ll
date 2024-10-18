@@ -4872,7 +4872,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:
   tail call void @glEnable(i32 noundef 2848)
   tail call void @glLineWidth(float noundef 1.000000e+00)
   store i32 -256, ptr %3, align 4
-  call void @glColor4ubv(ptr noundef nonnull %3)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %3)
   call void @glPushMatrix()
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
@@ -7162,7 +7162,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i210, ptr %5, align 8
   %.sroa.2140.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store float %119, ptr %.sroa.2140.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %5)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %5)
   %120 = fadd float %57, 1.000000e+01
   %.sroa.0.0.vec.insert.i213 = insertelement <2 x float> poison, float %120, i64 0
   %.sroa.0.4.vec.insert.i214 = insertelement <2 x float> %.sroa.0.0.vec.insert.i213, float %118, i64 1
@@ -7180,7 +7180,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i218, ptr %7, align 8
   %.sroa.2132.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store float %124, ptr %.sroa.2132.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %7)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %7)
   %125 = fadd float %.sroa.0520.0.vec.extract, 1.000000e+01
   %.sroa.0.0.vec.insert.i221 = insertelement <2 x float> poison, float %125, i64 0
   %.sroa.0.4.vec.insert.i222 = insertelement <2 x float> %.sroa.0.0.vec.insert.i221, float %123, i64 1
@@ -7206,7 +7206,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i226, ptr %9, align 8
   %.sroa.2124.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store float %135, ptr %.sroa.2124.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %9)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %9)
   %136 = fadd float %69, 1.000000e+01
   %.sroa.0.4.vec.insert.i230 = insertelement <2 x float> %.sroa.0.0.vec.insert.i225, float %136, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i230, ptr %10, align 8
@@ -7223,7 +7223,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i234, ptr %11, align 8
   %.sroa.2116.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   store float %140, ptr %.sroa.2116.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %11)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %11)
   %141 = fadd float %.sroa.0520.4.vec.extract546, 1.000000e+01
   %.sroa.0.4.vec.insert.i238 = insertelement <2 x float> %.sroa.0.0.vec.insert.i233, float %141, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i238, ptr %12, align 8
@@ -7248,7 +7248,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i242, ptr %13, align 8
   %.sroa.2108.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   store float %151, ptr %.sroa.2108.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %13)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %13)
   %152 = fadd float %81, 1.000000e+01
   store <2 x float> %.sroa.0.4.vec.insert.i242, ptr %14, align 8
   br label %.sink.split
@@ -7264,7 +7264,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i250, ptr %15, align 8
   %.sroa.2100.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store float %156, ptr %.sroa.2100.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %15)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %15)
   %157 = fadd float %.sroa.7.0.i, 1.000000e+01
   store <2 x float> %.sroa.0.4.vec.insert.i250, ptr %16, align 8
   br label %.sink.split
@@ -7291,7 +7291,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i262, ptr %17, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store float %170, ptr %.sroa.288.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %17)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %17)
   %171 = fadd float %164, %57
   %172 = fadd float %165, %69
   %173 = fadd float %166, %81
@@ -7311,7 +7311,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i278, ptr %19, align 8
   %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
   store float %177, ptr %.sroa.272.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %19)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %19)
   %178 = fadd float %164, %.sroa.0520.0.vec.extract532
   %179 = fadd float %165, %.sroa.0520.4.vec.extract554
   %180 = fadd float %166, %.sroa.7.0.i
@@ -7342,7 +7342,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i294, ptr %21, align 8
   %.sroa.256.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store float %193, ptr %.sroa.256.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %21)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %21)
   %194 = fadd float %187, %57
   %195 = fadd float %188, %69
   %196 = fadd float %189, %81
@@ -7362,7 +7362,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i310, ptr %23, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   store float %200, ptr %.sroa.240.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   %201 = fadd float %187, %.sroa.0520.0.vec.extract536
   %202 = fadd float %188, %.sroa.0520.4.vec.extract558
   %203 = fadd float %189, %.sroa.7.0.i
@@ -7393,7 +7393,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i326, ptr %25, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store float %216, ptr %.sroa.224.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %25)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %25)
   %217 = fadd float %57, %210
   %218 = fadd float %69, %211
   %219 = fadd float %81, %212
@@ -7413,7 +7413,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   store <2 x float> %.sroa.0.4.vec.insert.i342, ptr %27, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store float %223, ptr %.sroa.28.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %27)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %27)
   %224 = fadd float %210, %.sroa.0520.0.vec.extract540
   %225 = fadd float %211, %.sroa.0520.4.vec.extract562
   %226 = fadd float %212, %.sroa.7.0.i
@@ -7427,7 +7427,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
   %.sink578 = phi ptr [ %26, %213 ], [ %28, %220 ], [ %22, %190 ], [ %24, %197 ], [ %18, %167 ], [ %20, %174 ], [ %14, %148 ], [ %16, %153 ], [ %10, %132 ], [ %12, %137 ], [ %6, %116 ], [ %8, %121 ]
   %.sink577 = phi float [ %219, %213 ], [ %226, %220 ], [ %196, %190 ], [ %203, %197 ], [ %173, %167 ], [ %180, %174 ], [ %152, %148 ], [ %157, %153 ], [ %135, %132 ], [ %140, %137 ], [ %119, %116 ], [ %124, %121 ]
   store float %.sink577, ptr %.sink578.sroa.phi, align 8
-  call void @glVertex3fv(ptr noundef nonnull %.sink578)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %.sink578)
   br label %227
 
 227:                                              ; preds = %.sink.split, %108

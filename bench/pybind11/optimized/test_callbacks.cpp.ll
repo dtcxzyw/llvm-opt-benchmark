@@ -1628,7 +1628,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8pybind1117error_already_set4whatEv(
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @PyErr_Fetch(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  invoke void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %_ZN8pybind1111error_scopeC2Ev.exit unwind label %38
 
 _ZN8pybind1111error_scopeC2Ev.exit:               ; preds = %4
@@ -6138,7 +6138,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i418: ; preds = %_ZNKR8pyb
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %27)
   store ptr null, ptr %117, align 8
   %1427 = getelementptr inbounds i8, ptr %27, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %27, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(129) %27, i8 0, i64 72, i1 false)
   %1428 = invoke ptr @PyList_New(i64 noundef 0)
           to label %.noexc.i422 unwind label %1460
 
@@ -6191,7 +6191,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i418: ; preds = %_ZNKR8pyb
 
 1446:                                             ; preds = %1443
   %1447 = getelementptr inbounds i8, ptr %27, i64 96
-  %1448 = invoke noundef zeroext i1 %1445(ptr noundef nonnull align 8 dereferenceable(16) %1447, ptr noundef nonnull align 8 dereferenceable(16) %1447, i32 noundef 3)
+  %1448 = invoke noundef zeroext i1 %1445(ptr noundef nonnull align 8 dereferenceable(32) %1447, ptr noundef nonnull align 8 dereferenceable(32) %1447, i32 noundef 3)
           to label %_ZNSt8functionIFvP15_heaptypeobjectEED2Ev.exit.i.i unwind label %1449
 
 1449:                                             ; preds = %1446
@@ -6460,7 +6460,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i444: ; preds = %_ZNKR8pyb
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22)
   store ptr null, ptr %118, align 8
   %1532 = getelementptr inbounds i8, ptr %22, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(129) %22, i8 0, i64 72, i1 false)
   %1533 = invoke ptr @PyList_New(i64 noundef 0)
           to label %.noexc.i449 unwind label %1565
 
@@ -6513,7 +6513,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i444: ; preds = %_ZNKR8pyb
 
 1551:                                             ; preds = %1548
   %1552 = getelementptr inbounds i8, ptr %22, i64 96
-  %1553 = invoke noundef zeroext i1 %1550(ptr noundef nonnull align 8 dereferenceable(16) %1552, ptr noundef nonnull align 8 dereferenceable(16) %1552, i32 noundef 3)
+  %1553 = invoke noundef zeroext i1 %1550(ptr noundef nonnull align 8 dereferenceable(32) %1552, ptr noundef nonnull align 8 dereferenceable(32) %1552, i32 noundef 3)
           to label %_ZNSt8functionIFvP15_heaptypeobjectEED2Ev.exit.i.i452 unwind label %1554
 
 1554:                                             ; preds = %1551
@@ -8506,7 +8506,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN8pybind1117error_already_setD2Ev.exit
 
 _ZN8pybind1117error_already_setD2Ev.exit:         ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #33
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #33
   tail call void @_ZdlPv(ptr noundef nonnull %0) #39
   ret void
 }
@@ -8533,7 +8533,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(472) ptr @_ZN
   %12 = tail call i32 @PyGILState_Ensure()
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  invoke void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %13, ptr noundef nonnull %14)
           to label %_ZN8pybind1111error_scopeC2Ev.exit unwind label %37
 
 _ZN8pybind1111error_scopeC2Ev.exit:               ; preds = %11
@@ -10836,7 +10836,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_set23m_fetched_erro
   call void @_ZN8pybind1118gil_scoped_acquireC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @PyErr_Fetch(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  invoke void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %_ZN8pybind1111error_scopeC2Ev.exit unwind label %35
 
 _ZN8pybind1111error_scopeC2Ev.exit:               ; preds = %1
@@ -10965,7 +10965,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #33
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -11630,7 +11630,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11 unwind label %62
 
 .noexc11:                                         ; preds = %.noexc
@@ -11640,7 +11640,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 24:                                               ; preds = %.noexc11
   %25 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc11
@@ -13436,7 +13436,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail27get_fully_qualified_tp_nam
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %15
 
 .noexc2:                                          ; preds = %.noexc
@@ -13453,7 +13453,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail27get_fully_qualified_tp_nam
 10:                                               ; preds = %12, %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body
 
 12:                                               ; preds = %.noexc2
@@ -15732,13 +15732,13 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit353: ; p
           to label %.noexc357 unwind label %440
 
 .noexc357:                                        ; preds = %426
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %432, ptr noundef nonnull align 1 dereferenceable(1) %32)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %432, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %.noexc358 unwind label %440
 
 433:                                              ; preds = %.noexc358
   %434 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #33
   br label %.body359
 
 .noexc358:                                        ; preds = %.noexc357
@@ -17153,7 +17153,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc6 unwind label %57
 
 .noexc6:                                          ; preds = %.noexc
@@ -17163,7 +17163,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 22:                                               ; preds = %.noexc6
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc6
@@ -17260,7 +17260,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail27replace_newlines_and_squas
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc31 unwind label %29
 
 .noexc31:                                         ; preds = %.noexc
@@ -17277,7 +17277,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail27replace_newlines_and_squas
 10:                                               ; preds = %12, %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #33
   br label %.body
 
 12:                                               ; preds = %.noexc31
@@ -17375,7 +17375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc32 unwind label %47
 
 .noexc32:                                         ; preds = %43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc33 unwind label %47
 
 .noexc33:                                         ; preds = %.noexc32
@@ -17385,7 +17385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 45:                                               ; preds = %.noexc33
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; preds = %.noexc33
@@ -17508,7 +17508,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idERNSt7__cxx11
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc8 unwind label %32
 
 .noexc8:                                          ; preds = %.noexc
@@ -17538,7 +17538,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idERNSt7__cxx11
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #33
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %22
@@ -19510,7 +19510,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %703
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %130, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, i8 0, i64 16, i1 false)
-  invoke void @_ZN8pybind116detail19loader_life_support13set_stack_topEPS1_(ptr noundef nonnull %18)
+  invoke void @_ZN8pybind116detail19loader_life_support13set_stack_topEPS1_(ptr noundef nonnull align 8 dereferenceable(64) %18)
           to label %_ZN8pybind116detail19loader_life_supportC2Ev.exit unwind label %712
 
 712:                                              ; preds = %.noexc490
@@ -19780,7 +19780,7 @@ _ZN8pybind114dictD2Ev.exit502._crit_edge:         ; preds = %778, %_ZN8pybind114
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %800, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %801, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %802, i8 0, i64 16, i1 false)
-  invoke void @_ZN8pybind116detail19loader_life_support13set_stack_topEPS1_(ptr noundef nonnull %19)
+  invoke void @_ZN8pybind116detail19loader_life_support13set_stack_topEPS1_(ptr noundef nonnull align 8 dereferenceable(64) %19)
           to label %_ZN8pybind116detail19loader_life_supportC2Ev.exit511 unwind label %805
 
 805:                                              ; preds = %.noexc508
@@ -19987,7 +19987,7 @@ _ZNKR8pybind116handle7inc_refEv.exit:             ; preds = %866
           to label %.noexc517 unwind label %939
 
 .noexc517:                                        ; preds = %871
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %873, ptr noundef nonnull align 1 dereferenceable(1) %24)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %873, ptr noundef nonnull align 1 dereferenceable(1) %24)
           to label %.noexc518 unwind label %939
 
 .noexc518:                                        ; preds = %.noexc517
@@ -20004,7 +20004,7 @@ _ZNKR8pybind116handle7inc_refEv.exit:             ; preds = %866
 877:                                              ; preds = %879, %875
   %878 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #33
   br label %.body519
 
 879:                                              ; preds = %.noexc518
@@ -20027,7 +20027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc522 unwind label %943
 
 .noexc522:                                        ; preds = %883
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %887, ptr noundef nonnull align 1 dereferenceable(1) %26)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %887, ptr noundef nonnull align 1 dereferenceable(1) %26)
           to label %.noexc523 unwind label %943
 
 .noexc523:                                        ; preds = %.noexc522
@@ -20039,7 +20039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 890:                                              ; preds = %.noexc523
   %891 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #33
   br label %.body524
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ; preds = %.noexc523
@@ -20113,7 +20113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %.noexc535 unwind label %959
 
 .noexc535:                                        ; preds = %916
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %919, ptr noundef nonnull align 1 dereferenceable(1) %31)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %919, ptr noundef nonnull align 1 dereferenceable(1) %31)
           to label %.noexc536 unwind label %959
 
 .noexc536:                                        ; preds = %.noexc535
@@ -20139,7 +20139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
 
 923:                                              ; preds = %.loopexit.split-lp717, %.loopexit716
   %lpad.phi720 = phi { ptr, i32 } [ %lpad.loopexit718, %.loopexit716 ], [ %lpad.loopexit.split-lp719, %.loopexit.split-lp717 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #33
   br label %.body537
 
 924:                                              ; preds = %.noexc536
@@ -20999,7 +20999,7 @@ _ZN8pybind115tupleD2Ev.exit589:                   ; preds = %_ZN8pybind119set_er
           to label %.noexc590 unwind label %1216
 
 .noexc590:                                        ; preds = %1200
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %1201, ptr noundef nonnull align 1 dereferenceable(1) %46)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef %1201, ptr noundef nonnull align 1 dereferenceable(1) %46)
           to label %.noexc591 unwind label %1216
 
 .noexc591:                                        ; preds = %.noexc590
@@ -21009,7 +21009,7 @@ _ZN8pybind115tupleD2Ev.exit589:                   ; preds = %_ZN8pybind119set_er
 1202:                                             ; preds = %.noexc591
   %1203 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #33
   br label %.body592
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit594: ; preds = %.noexc591
@@ -21371,7 +21371,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail15local_internalsC2Ev(ptr no
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
@@ -21381,12 +21381,12 @@ define linkonce_odr hidden void @_ZN8pybind116detail15local_internalsC2Ev(ptr no
 13:                                               ; preds = %.noexc11
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #33
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
   %15 = getelementptr inbounds i8, ptr %10, i64 344
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PvESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PvESaISA_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEEixEOS5_.exit unwind label %30
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEEixEOS5_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -21556,7 +21556,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
   %16 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #36
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %1) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(32) %1) #33
   %18 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr null, ptr %18, align 8
   store ptr %16, ptr %15, align 8
@@ -21687,7 +21687,7 @@ define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #33
   tail call void @_ZdlPv(ptr noundef nonnull %3) #39
   br label %6
 
@@ -21728,13 +21728,13 @@ define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcS
 
 15:                                               ; preds = %11
   %16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #33
-  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #33
+  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #33
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PvENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread
 
 19:                                               ; preds = %15
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #33
-  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #33
+  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #33
   %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #33
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PvENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread18, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PvENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit
@@ -24351,7 +24351,7 @@ declare i32 @PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJRKNS_6handleEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRKNS_6handleEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRKNS_6handleEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -24881,7 +24881,7 @@ define linkonce_odr hidden void @_ZZN8pybind117capsule35initialize_with_void_ptr
   %3 = alloca %"struct.pybind11::error_scope", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @PyErr_Fetch(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %6 = invoke ptr @PyCapsule_GetContext(ptr noundef %1)
           to label %7 unwind label %14
 
@@ -24981,7 +24981,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind117capsule23get_name_in_error_
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = invoke ptr @PyCapsule_GetName(ptr noundef %0)
           to label %6 unwind label %12
 
@@ -26795,7 +26795,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_
   br i1 %.not.i, label %27, label %16
 
 16:                                               ; preds = %9
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callIS2_NS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE3$_2EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit.i" unwind label %7
 
 "_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callIS2_NS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE3$_2EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit.i": ; preds = %16
@@ -26828,7 +26828,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %21, %18, %"_ZNO8pyb
   br label %_ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_callE.exit.i
 
 27:                                               ; preds = %9
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callIS2_NS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE3$_2EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit18.i" unwind label %7
 
 "_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callIS2_NS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE3$_2EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit18.i": ; preds = %27
@@ -27060,7 +27060,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_
   store i8 120, ptr %5, align 1, !noalias !743
   store i8 1, ptr %6, align 1, !noalias !743
   store i32 5, ptr %7, align 4, !noalias !743
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA6_KccbiEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA6_KccbiEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %23 unwind label %13
 
 23:                                               ; preds = %22
@@ -27102,7 +27102,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %28, %25, %23
   store i8 120, ptr %2, align 1, !noalias !751
   store i8 1, ptr %3, align 1, !noalias !751
   store i32 5, ptr %4, align 4, !noalias !751
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA6_KccbiEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA6_KccbiEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %35 unwind label %13
 
 35:                                               ; preds = %34
@@ -27174,7 +27174,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA6_KccbiEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRA6_KccbiEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %7, ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRA6_KccbiEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %8 = load ptr, ptr %1, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !754)
   %9 = load ptr, ptr %7, align 8, !noalias !754
@@ -27475,13 +27475,13 @@ _ZN8pybind114noneD2Ev.exit:                       ; preds = %3
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc12 unwind label %23
 
 11:                                               ; preds = %.noexc12
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   br label %.body
 
 .noexc12:                                         ; preds = %.noexc
@@ -27642,7 +27642,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt8functionIFiiEEEE9load_argsERNS0_13fun
 _ZNKSt8functionIFiiEEclEi.exit.i.i.i.i:           ; preds = %25
   %27 = getelementptr inbounds i8, ptr %6, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !778
-  %29 = invoke noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %29 = invoke noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc17.i unwind label %17
 
 .noexc17.i:                                       ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i.i.i.i
@@ -27685,7 +27685,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %.noexc17.i
 _ZNKSt8functionIFiiEEclEi.exit.i.i.i20.i:         ; preds = %35
   %37 = getelementptr inbounds i8, ptr %6, i64 24
   %38 = load ptr, ptr %37, align 8, !noalias !786
-  %39 = invoke noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %39 = invoke noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc22.i unwind label %17
 
 .noexc22.i:                                       ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i.i.i20.i
@@ -27753,7 +27753,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKSt8functionIFiiEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESW_.exit", label %57
 
 57:                                               ; preds = %54
-  %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKSt8functionIFiiEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESW_.exit" unwind label %59
 
 59:                                               ; preds = %57
@@ -27771,7 +27771,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not.i.i.i.i.i.i.i30.i, label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFiiEEEED2Ev.exit31.i, label %64
 
 64:                                               ; preds = %.body.i
-  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFiiEEEED2Ev.exit31.i unwind label %66
 
 66:                                               ; preds = %64
@@ -28074,9 +28074,9 @@ _ZNSt8functionIFiiEEC2IRPS0_vEEOT_.exit:          ; preds = %2, %5
   %6 = phi ptr [ null, %2 ], [ @_ZNSt17_Function_handlerIFiiEPS0_E9_M_invokeERKSt9_Any_dataOi, %5 ]
   %7 = phi ptr [ null, %2 ], [ @_ZNSt17_Function_handlerIFiiEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, %5 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -28092,7 +28092,7 @@ _ZNSt8functionIFiiEEC2IRPS0_vEEOT_.exit:          ; preds = %2, %5
   br i1 %.not.i.i, label %_ZNSt8functionIFiiEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt8functionIFiiEEC2IRPS0_vEEOT_.exit
-  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFiiEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -28129,9 +28129,9 @@ _ZNSt8functionIFiiEEC2IZN8pybind116detail11type_casterIS1_vE4loadENS3_6handleEbE
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -28145,7 +28145,7 @@ _ZNSt8functionIFiiEEC2IZN8pybind116detail11type_casterIS1_vE4loadENS3_6handleEbE
   br i1 %.not.i.i2, label %_ZNSt8functionIFiiEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt8functionIFiiEEC2IZN8pybind116detail11type_casterIS1_vE4loadENS3_6handleEbE12func_wrappervEEOT_.exit
-  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFiiEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -28601,7 +28601,7 @@ _ZN8pybind1118gil_scoped_acquireD2Ev.exit:        ; preds = %.noexc2.i, %_ZN8pyb
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJiEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJiEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJiEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %5 = load ptr, ptr %1, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !796)
   %6 = load ptr, ptr %4, align 8, !noalias !796
@@ -29151,7 +29151,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %11 = load i8, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !809
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false), !alias.scope !809
   store ptr @"_ZNSt17_Function_handlerIFiiEZZ24test_submodule_callbacksRN8pybind117module_EENK3$_0clEvEUliE_E9_M_invokeERKSt9_Any_dataOi", ptr %13, align 8, !alias.scope !809
   store ptr @"_ZNSt17_Function_handlerIFiiEZZ24test_submodule_callbacksRN8pybind117module_EENK3$_0clEvEUliE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %12, align 8, !alias.scope !809
   %14 = invoke ptr @_ZN8pybind116detail11type_casterISt8functionIFiiEEvE4castIS4_EENS_6handleEOT_NS_19return_value_policyES7_(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef zeroext %11, ptr %.val2)
@@ -29163,7 +29163,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   br i1 %.not.i.i17.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE3$_0St8functionIFiiEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit", label %17
 
 17:                                               ; preds = %15
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE3$_0St8functionIFiiEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit" unwind label %19
 
 19:                                               ; preds = %17
@@ -29181,7 +29181,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   br i1 %.not.i.i19.i, label %_ZNSt8functionIFiiEED2Ev.exit20.i, label %25
 
 25:                                               ; preds = %22
-  %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFiiEED2Ev.exit20.i unwind label %27
 
 27:                                               ; preds = %25
@@ -29227,7 +29227,7 @@ _ZN8pybind114noneD2Ev.exit:                       ; preds = %3
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %17 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0)
+  %17 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0)
           to label %_ZNKSt8functionIFiiEE11target_typeEv.exit.i.i unwind label %22
 
 _ZNKSt8functionIFiiEE11target_typeEv.exit.i.i:    ; preds = %16
@@ -29262,7 +29262,7 @@ _ZNSt8functionIFiiEE6targetIPS0_EEPT_v.exit.thread: ; preds = %_ZNKSt9type_infoe
 
 _ZNKSt9type_infoeqERKS_.exit.thread.i.i:          ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i, %_ZNKSt8functionIFiiEE11target_typeEv.exit.i.i, %14
   %30 = load ptr, ptr %10, align 8
-  %31 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1)
+  %31 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1)
           to label %_ZNSt8functionIFiiEE6targetIPS0_EEPT_v.exit unwind label %32
 
 32:                                               ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i.i
@@ -29468,7 +29468,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeISt8funct
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %10, i64 24
   %13 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 16
@@ -29478,7 +29478,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeISt8funct
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %10, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   store ptr %16, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br label %19
@@ -29539,7 +29539,7 @@ define linkonce_odr hidden void @_ZZN8pybind1112cpp_function10initializeISt8func
   br i1 %.not.i.i.i.i, label %_ZZN8pybind1112cpp_function10initializeISt8functionIFiiEEiJiEJNS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_EN7captureD2Ev.exit.i, label %8
 
 8:                                                ; preds = %5
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZN8pybind1112cpp_function10initializeISt8functionIFiiEEiJiEJNS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_EN7captureD2Ev.exit.i unwind label %10
 
 10:                                               ; preds = %8
@@ -29607,7 +29607,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeISt8funct
 _ZN8pybind114noneD2Ev.exit:                       ; preds = %23
   %26 = getelementptr inbounds i8, ptr %17, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %28 = call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %29 = load i64, ptr @_Py_NoneStruct, align 8
   %30 = add nsw i64 %29, 1
@@ -29628,7 +29628,7 @@ _ZN8pybind114noneD2Ev.exit:                       ; preds = %23
 _ZNO8pybind116detail15argument_loaderIJiEE4callIiNS0_9void_typeERSt8functionIFiiEEEENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit17: ; preds = %31
   %34 = getelementptr inbounds i8, ptr %17, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %36 = call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %37 = sext i32 %36 to i64
   %38 = call ptr @PyLong_FromSsize_t(i64 noundef %37)
@@ -30344,7 +30344,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_8funct
   store i32 4, ptr %11, align 4, !noalias !859
   %15 = load ptr, ptr %6, align 8, !noalias !859
   store ptr %15, ptr %12, align 8, !noalias !859
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA11_KciNS0_10args_proxyEiS9_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.153, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA11_KciNS0_10args_proxyEiS9_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.153, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %16 unwind label %35
 
 16:                                               ; preds = %13
@@ -31844,7 +31844,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_8funct
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i8 2, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !908
   %15 = getelementptr inbounds i8, ptr %6, i64 16
-  %16 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull @.str.155, i8 noundef zeroext 0, ptr null), !noalias !911
+  %16 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull align 1 dereferenceable(6) @.str.155, i8 noundef zeroext 0, ptr null), !noalias !911
   store ptr %16, ptr %15, align 8, !alias.scope !912, !noalias !908
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr null, ptr %17, align 8, !alias.scope !905, !noalias !908
@@ -32094,7 +32094,7 @@ _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit23.i.i:  ; preds = %69, %68
   %93 = load ptr, ptr %8, align 8, !noalias !908
   store ptr %93, ptr %13, align 8, !noalias !908
   store ptr %75, ptr %14, align 8, !noalias !908
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA11_KciNS0_12kwargs_proxyES9_S9_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.153, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA11_KciNS0_12kwargs_proxyES9_S9_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.153, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %94 unwind label %127
 
 94:                                               ; preds = %92
@@ -32395,7 +32395,7 @@ _ZN8pybind114dictC2Ev.exit:                       ; preds = %.noexc
   br label %.body16
 
 _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit: ; preds = %.noexc15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   %25 = getelementptr inbounds i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8
@@ -32409,7 +32409,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %30 unwind label %84
 
 30:                                               ; preds = %_ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %6, i64 16
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = load i64, ptr %32, align 8
@@ -32955,7 +32955,7 @@ _ZN8pybind114dictC2Ev.exit:                       ; preds = %.noexc
   br label %.body12
 
 _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit: ; preds = %.noexc11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %4, i64 16
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8
@@ -33732,7 +33732,7 @@ _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i:    ; preds = %10, %9
   br label %.body.i.i
 
 _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit5.i.i:   ; preds = %18, %17
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS_5arg_vES6_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS_5arg_vES6_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %21 unwind label %40
 
 21:                                               ; preds = %_ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit5.i.i
@@ -34181,7 +34181,7 @@ _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i:    ; preds = %17, %16
 
 50:                                               ; preds = %47, %46
   store ptr %23, ptr %11, align 8, !noalias !1007
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJiNS0_10args_proxyENS_5arg_vENS0_12kwargs_proxyEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJiNS0_10args_proxyENS_5arg_vENS0_12kwargs_proxyEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %51 unwind label %81
 
 51:                                               ; preds = %50
@@ -34473,7 +34473,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %26 unwind label %73
 
 26:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   %27 = getelementptr inbounds i8, ptr %7, i64 16
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8
@@ -35067,7 +35067,7 @@ _ZN8pybind115arg_vD2Ev.exit35.i.i:                ; preds = %92, %89, %_ZN8pybin
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i8 2, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !noalias !1045
   %100 = getelementptr inbounds i8, ptr %19, i64 16
-  %101 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull @.str.155, i8 noundef zeroext 0, ptr null)
+  %101 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull align 1 dereferenceable(6) @.str.155, i8 noundef zeroext 0, ptr null)
           to label %.noexc37.i.i unwind label %193
 
 .noexc37.i.i:                                     ; preds = %98
@@ -35154,7 +35154,7 @@ _ZN8pybind115arg_vD2Ev.exit35.i.i:                ; preds = %92, %89, %_ZN8pybin
   br label %.body48.i.i
 
 _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit50.i.i:  ; preds = %123, %122
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA11_KcNS0_10args_proxyEiS9_iNS_5arg_vENS0_12kwargs_proxyESA_SB_SA_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.153, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJRA11_KcNS0_10args_proxyEiS9_iNS_5arg_vENS0_12kwargs_proxyESA_SB_SA_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.153, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %126 unwind label %199
 
 126:                                              ; preds = %_ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit50.i.i
@@ -35619,7 +35619,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %37 unwind label %115
 
 37:                                               ; preds = %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
   %38 = getelementptr inbounds i8, ptr %13, i64 16
   %39 = getelementptr inbounds i8, ptr %6, i64 16
   %40 = load i64, ptr %39, align 8
@@ -35638,7 +35638,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %45 unwind label %117
 
 45:                                               ; preds = %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   %46 = getelementptr inbounds i8, ptr %14, i64 16
   %47 = getelementptr inbounds i8, ptr %8, i64 16
   %48 = load i64, ptr %47, align 8
@@ -35657,7 +35657,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %53 unwind label %119
 
 53:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false)
   %54 = getelementptr inbounds i8, ptr %15, i64 16
   %55 = getelementptr inbounds i8, ptr %10, i64 16
   %56 = load i64, ptr %55, align 8
@@ -36182,7 +36182,7 @@ _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit10.i.i:  ; preds = %42, %41
 
 53:                                               ; preds = %50, %49
   store ptr %20, ptr %8, align 8, !noalias !1106
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS_5arg_vES6_NS0_12kwargs_proxyEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS_5arg_vES6_NS0_12kwargs_proxyEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %54 unwind label %84
 
 54:                                               ; preds = %53
@@ -36463,7 +36463,7 @@ _ZN8pybind114dictC2Ev.exit:                       ; preds = %.noexc
   br label %.body18
 
 _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit: ; preds = %.noexc17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %6, i64 16
   %26 = getelementptr inbounds i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8
@@ -36477,7 +36477,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %31 unwind label %86
 
 31:                                               ; preds = %_ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   %32 = getelementptr inbounds i8, ptr %7, i64 16
   %33 = getelementptr inbounds i8, ptr %2, i64 16
   %34 = load i64, ptr %33, align 8
@@ -36942,7 +36942,7 @@ _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i:    ; preds = %13, %12
   br label %.body.i.i
 
 _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit8.i.i:   ; preds = %42, %41
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS0_12kwargs_proxyENS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS0_12kwargs_proxyENS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %45 unwind label %65
 
 45:                                               ; preds = %_ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit8.i.i
@@ -37193,7 +37193,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %23 unwind label %69
 
 23:                                               ; preds = %_ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   %25 = getelementptr inbounds i8, ptr %2, i64 16
   %26 = load i64, ptr %25, align 8
@@ -37422,7 +37422,7 @@ _ZN8pybind1110isinstanceINS_8functionETnNSt9enable_ifIXsr3std10is_base_ofINS_6ob
   br label %.body
 
 _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i.i:  ; preds = %19, %18
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJi16UnregisteredTypeNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJi16UnregisteredTypeNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %22 unwind label %39
 
 22:                                               ; preds = %_ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i.i
@@ -37689,7 +37689,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %25 unwind label %71
 
 25:                                               ; preds = %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   %26 = getelementptr inbounds i8, ptr %6, i64 16
   %27 = getelementptr inbounds i8, ptr %3, i64 16
   %28 = load i64, ptr %27, align 8
@@ -38284,13 +38284,13 @@ _ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.thread: ; preds = %9, 
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc15 unwind label %28
 
 20:                                               ; preds = %.noexc15
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   br label %.body
 
 .noexc15:                                         ; preds = %.noexc
@@ -39290,7 +39290,7 @@ _ZNK8pybind113argaSI16UnregisteredTypeEENS_5arg_vEOT_.exit.i.i.i: ; preds = %20,
   br label %.body.i.i.i
 
 _ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i.i:  ; preds = %28, %27
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJiNS_5arg_vES6_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %2, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJiNS_5arg_vES6_EEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %31 unwind label %58
 
 31:                                               ; preds = %_ZNK8pybind113argaSIiEENS_5arg_vEOT_.exit.i.i.i
@@ -39592,7 +39592,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %25 unwind label %86
 
 25:                                               ; preds = %_ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEES3_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   %26 = getelementptr inbounds i8, ptr %6, i64 16
   %27 = getelementptr inbounds i8, ptr %2, i64 16
   %28 = load i64, ptr %27, align 8
@@ -39606,7 +39606,7 @@ _ZN8pybind114listC2IlTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0
           to label %32 unwind label %88
 
 32:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   %33 = getelementptr inbounds i8, ptr %7, i64 16
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   %35 = load i64, ptr %34, align 8
@@ -39822,7 +39822,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %.sroa.01.0.copyload.i = load ptr, ptr %16, align 8
   %or.cond.i.i = icmp ult i8 %13, 2
   %spec.store.select.i.i = select i1 %or.cond.i.i, i8 3, i8 %13
-  %17 = tail call { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(16) @_ZTI16ConstructorStats, ptr noundef null)
+  %17 = tail call { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull align 8 dereferenceable(100) %15, ptr noundef nonnull align 8 dereferenceable(16) @_ZTI16ConstructorStats, ptr noundef null)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   %20 = tail call ptr @_ZN8pybind116detail19type_caster_generic4castEPKvNS_19return_value_policyENS_6handleEPKNS0_9type_infoEPFPvS3_ESB_S3_(ptr noundef %18, i8 noundef zeroext %spec.store.select.i.i, ptr %.sroa.01.0.copyload.i, ptr noundef %19, ptr noundef nonnull @_ZZN8pybind116detail16type_caster_baseI16ConstructorStatsE21make_copy_constructorIS2_vEEDTcmnw_T_piclsr3stdE7declvalIKS5_EEEtlPFPvPKvEEEPS6_ENUlS9_E_8__invokeES9_, ptr noundef nonnull @_ZZN8pybind116detail16type_caster_baseI16ConstructorStatsE21make_move_constructorIS2_vEEDTcmnw_T_piclsr3stdE7declvalIOS5_EEEtlPFPvPKvEEEPKS5_ENUlS9_E_8__invokeES9_, ptr noundef null)
@@ -39901,7 +39901,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body.i
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i: ; preds = %.noexc.i
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %14) #33
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %14) #33
   %23 = load i64, ptr %17, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr %17, align 8
@@ -40154,7 +40154,7 @@ define linkonce_odr void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_
   %3 = load ptr, ptr %.09.i, align 8
   %4 = getelementptr inbounds i8, ptr %.09.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  tail call void @_ZdlPv(ptr noundef %.09.i) #39
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i) #39
   %.not.i = icmp eq ptr %3, %0
   br i1 %.not.i, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8_M_clearEv.exit, label %.lr.ph.i, !llvm.loop !1236
 
@@ -40259,7 +40259,7 @@ _ZZN8pybind116detail16type_caster_baseI16ConstructorStatsE21make_move_constructo
 define linkonce_odr hidden void @_ZNSt13unordered_mapISt10type_index16ConstructorStatsSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10type_index16ConstructorStatsELb0EEEEE19_M_deallocate_nodesEPS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %3)
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10type_index16ConstructorStatsELb0EEEEE19_M_deallocate_nodesEPS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %3)
           to label %_ZNSt10_HashtableISt10type_indexSt4pairIKS0_16ConstructorStatsESaIS4_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i unwind label %4
 
 4:                                                ; preds = %1
@@ -40311,7 +40311,7 @@ define linkonce_odr hidden void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %7 = load ptr, ptr %.09.i.i.i.i.i.i.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #33
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i) #39
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i) #39
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, %5
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !1236
 
@@ -40572,7 +40572,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableISt10type_indexSt4pairIKS0_16C
   %8 = load ptr, ptr %.09.i.i.i.i.i.i.i.i, align 8
   %9 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #33
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i) #39
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i) #39
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, %6
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !1236
 
@@ -40822,7 +40822,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_
   br i1 %.not.i.i.i, label %_ZN8pybind114noneD2Ev.exit.i, label %11
 
 11:                                               ; preds = %8
-  %12 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %12 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZN8pybind114noneD2Ev.exit.i unwind label %13
 
 13:                                               ; preds = %11
@@ -40854,7 +40854,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %11, %8
   br i1 %.not.i.i17.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE3$_1St8functionIFvvEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit", label %26
 
 26:                                               ; preds = %23
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE3$_1St8functionIFvvEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit" unwind label %28
 
 28:                                               ; preds = %26
@@ -40873,7 +40873,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %11, %8
   br i1 %.not.i.i19.i, label %_ZNSt8functionIFvvEED2Ev.exit20.i, label %35
 
 35:                                               ; preds = %31
-  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit20.i unwind label %37
 
 37:                                               ; preds = %35
@@ -40914,7 +40914,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt8
           to label %.noexc.i.i.i.i unwind label %46, !noalias !1246
 
 .noexc.i.i.i.i:                                   ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc5.i.i.i.i unwind label %46, !noalias !1246
 
 .noexc5.i.i.i.i:                                  ; preds = %.noexc.i.i.i.i
@@ -40924,11 +40924,11 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt8
 11:                                               ; preds = %.noexc5.i.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #33, !noalias !1246
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33, !noalias !1246
   br label %.body.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i: ; preds = %.noexc5.i.i.i.i
-  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %13 unwind label %48, !noalias !1246
 
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i
@@ -41000,7 +41000,7 @@ _ZN16ConstructorStats3getIZ24test_submodule_callbacksRN8pybind117module_EE7Paylo
   store ptr %8, ptr %42, align 8, !noalias !1246
   %43 = getelementptr inbounds i8, ptr %41, i64 16
   store i32 0, ptr %43, align 8, !noalias !1246
-  %44 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef %24, i64 noundef %21, ptr noundef nonnull %41, i64 noundef 1)
+  %44 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(100) %20, i64 noundef %24, i64 noundef %21, ptr noundef nonnull %41, i64 noundef 1)
           to label %_ZZ24test_submodule_callbacksRN8pybind117module_EEN7PayloadC2Ev.exit.i.i unwind label %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i.i, !noalias !1246
 
 common.resume.i.i:                                ; preds = %104, %.body.i.i.i.i, %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i.i
@@ -41057,7 +41057,7 @@ _ZZ24test_submodule_callbacksRN8pybind117module_EEN7PayloadC2Ev.exit.i.i: ; pred
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %93, !noalias !1246
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc5.i.i.i.i.i.i.i.i unwind label %93, !noalias !1246
 
 .noexc5.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i.i.i
@@ -41067,11 +41067,11 @@ _ZZ24test_submodule_callbacksRN8pybind117module_EEN7PayloadC2Ev.exit.i.i: ; pred
 58:                                               ; preds = %.noexc5.i.i.i.i.i.i.i.i
   %59 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #33, !noalias !1246
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #33, !noalias !1246
   br label %.body.i.i.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc5.i.i.i.i.i.i.i.i
-  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef %56, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %60 unwind label %95, !noalias !1246
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i.i
@@ -41149,7 +41149,7 @@ _ZN16ConstructorStats3getIZ24test_submodule_callbacksRN8pybind117module_EE7Paylo
   store ptr %56, ptr %89, align 8, !noalias !1246
   %90 = getelementptr inbounds i8, ptr %88, i64 16
   store i32 0, ptr %90, align 8, !noalias !1246
-  %91 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %67, i64 noundef %71, i64 noundef %68, ptr noundef nonnull %88, i64 noundef 1)
+  %91 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(100) %67, i64 noundef %71, i64 noundef %68, ptr noundef nonnull %88, i64 noundef 1)
           to label %"_ZNO8pybind116detail15argument_loaderIJEE9call_implISt8functionIFvvEERZ24test_submodule_callbacksRNS_7module_EE3$_1TpTnmJENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit" unwind label %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !1246
 
 _ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc1.i.i.i.i.i.i.i
@@ -41252,7 +41252,7 @@ _ZN8pybind114noneD2Ev.exit:                       ; preds = %3
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %17 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0)
+  %17 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0)
           to label %_ZNKSt8functionIFvvEE11target_typeEv.exit.i.i unwind label %22
 
 _ZNKSt8functionIFvvEE11target_typeEv.exit.i.i:    ; preds = %16
@@ -41287,7 +41287,7 @@ _ZNSt8functionIFvvEE6targetIPS0_EEPT_v.exit.thread: ; preds = %_ZNKSt9type_infoe
 
 _ZNKSt9type_infoeqERKS_.exit.thread.i.i:          ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i, %_ZNKSt8functionIFvvEE11target_typeEv.exit.i.i, %14
   %30 = load ptr, ptr %10, align 8
-  %31 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1)
+  %31 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1)
           to label %_ZNSt8functionIFvvEE6targetIPS0_EEPT_v.exit unwind label %32
 
 32:                                               ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i.i
@@ -41358,7 +41358,7 @@ define internal fastcc void @_ZZ24test_submodule_callbacksRN8pybind117module_EEN
           to label %.noexc.i unwind label %41
 
 .noexc.i:                                         ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc5.i unwind label %41
 
 .noexc5.i:                                        ; preds = %.noexc.i
@@ -41368,11 +41368,11 @@ define internal fastcc void @_ZZ24test_submodule_callbacksRN8pybind117module_EEN
 6:                                                ; preds = %.noexc5.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #33
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc5.i
-  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %8 unwind label %43
 
 8:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -41444,7 +41444,7 @@ _ZN16ConstructorStats3getIZ24test_submodule_callbacksRN8pybind117module_EE7Paylo
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   store i32 0, ptr %38, align 8
-  %39 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %19, i64 noundef %16, ptr noundef nonnull %36, i64 noundef 1)
+  %39 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(100) %15, i64 noundef %19, i64 noundef %16, ptr noundef nonnull %36, i64 noundef 1)
           to label %_Z18print_copy_createdIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_DpOT0_.exit unwind label %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i
 
 common.resume.i:                                  ; preds = %.body.i, %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i
@@ -41501,7 +41501,7 @@ define internal fastcc void @_ZZ24test_submodule_callbacksRN8pybind117module_EEN
           to label %.noexc.i unwind label %23
 
 .noexc.i:                                         ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5.i unwind label %23
 
 .noexc5.i:                                        ; preds = %.noexc.i
@@ -41531,12 +41531,12 @@ define internal fastcc void @_ZZ24test_submodule_callbacksRN8pybind117module_EEN
   %14 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #33
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_Z20print_constr_detailsIZ24test_submodule_callbacksRN8pybind117module_EE7PayloadJEEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %15 unwind label %25
 
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -41710,7 +41710,7 @@ _ZN8pybind113strD2Ev.exit:                        ; preds = %21, %23, %26
 define linkonce_odr hidden void @_ZN8pybind115printILNS_19return_value_policyE1EJRA4_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_NS_3strERKSA_EEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pybind11::detail::simple_collector", align 8
   %7 = alloca %"class.pybind11::dict", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRA4_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_NS_3strERKSA_EEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %6, ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRA4_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_NS_3strERKSA_EEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !1254)
   %8 = invoke ptr @PyDict_New()
           to label %.noexc unwind label %30
@@ -43312,7 +43312,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8pybind114dict8containsIRA4_K
   %4 = load ptr, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1335)
-  %5 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %1, i8 noundef zeroext 3, ptr null), !noalias !1338
+  %5 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull align 1 dereferenceable(4) %1, i8 noundef zeroext 3, ptr null), !noalias !1338
   store ptr %5, ptr %3, align 8, !alias.scope !1339
   %6 = invoke i32 @PyDict_Contains(ptr noundef %4, ptr noundef %5)
           to label %7 unwind label %19
@@ -43376,7 +43376,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %7, %8, %11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJNS_5tupleEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_5tupleEEEES2_DpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_5tupleEEEES2_DpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -43453,7 +43453,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8pybind114dict8containsIRA5_K
   %4 = load ptr, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1348)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1351)
-  %5 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %1, i8 noundef zeroext 3, ptr null), !noalias !1354
+  %5 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull align 1 dereferenceable(5) %1, i8 noundef zeroext 3, ptr null), !noalias !1354
   store ptr %5, ptr %3, align 8, !alias.scope !1355
   %6 = invoke i32 @PyDict_Contains(ptr noundef %4, ptr noundef %5)
           to label %7 unwind label %19
@@ -43545,7 +43545,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %1, %3, %6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJNS_6objectEEEES9_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6objectEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6objectEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -43619,7 +43619,7 @@ _ZN8pybind116detail16simple_collectorILNS_19return_value_policyE1EED2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJNS_3strEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_3strEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_3strEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -43696,7 +43696,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8pybind114dict8containsIRA6_K
   %4 = load ptr, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1370)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1373)
-  %5 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %1, i8 noundef zeroext 3, ptr null), !noalias !1376
+  %5 = tail call ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull align 1 dereferenceable(6) %1, i8 noundef zeroext 3, ptr null), !noalias !1376
   store ptr %5, ptr %3, align 8, !alias.scope !1377
   %6 = invoke i32 @PyDict_Contains(ptr noundef %4, ptr noundef %5)
           to label %7 unwind label %19
@@ -44354,7 +44354,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idB5cxx11EPKc(p
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc5 unwind label %13
 
 .noexc5:                                          ; preds = %.noexc
@@ -44371,7 +44371,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idB5cxx11EPKc(p
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body
 
 10:                                               ; preds = %.noexc5
@@ -44554,7 +44554,7 @@ declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJmEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJmEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJmEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -45161,7 +45161,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeISt8funct
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %10, i64 24
   %13 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 16
@@ -45171,7 +45171,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeISt8funct
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %10, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   store ptr %16, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br label %19
@@ -45232,7 +45232,7 @@ define linkonce_odr hidden void @_ZZN8pybind1112cpp_function10initializeISt8func
   br i1 %.not.i.i.i.i, label %_ZZN8pybind1112cpp_function10initializeISt8functionIFvvEEvJEJNS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_EN7captureD2Ev.exit.i, label %8
 
 8:                                                ; preds = %5
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZN8pybind1112cpp_function10initializeISt8functionIFvvEEvJEJNS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_EN7captureD2Ev.exit.i unwind label %10
 
 10:                                               ; preds = %8
@@ -45281,7 +45281,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeISt8funct
 _ZZN8pybind1112cpp_function10initializeISt8functionIFvvEEvJEJNS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESJ_.exit: ; preds = %10, %12
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %4)
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr @_Py_NoneStruct, align 8
@@ -45549,7 +45549,7 @@ _ZN16ConstructorStats3getIZ24test_submodule_callbacksRN8pybind117module_EE11CppC
   store ptr %9, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 16
   store i32 0, ptr %65, align 8
-  %66 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %42, i64 noundef %46, i64 noundef %43, ptr noundef nonnull %63, i64 noundef 1)
+  %66 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(100) %42, i64 noundef %46, i64 noundef %43, ptr noundef nonnull %63, i64 noundef 1)
           to label %.loopexit.i.i unwind label %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i
 
 _ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i: ; preds = %.noexc16.i.i
@@ -45682,7 +45682,7 @@ _ZN16ConstructorStats3getIZ24test_submodule_callbacksRN8pybind117module_EE11CppC
   store ptr %81, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %109, i64 16
   store i32 0, ptr %111, align 8
-  %112 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %88, i64 noundef %92, i64 noundef %89, ptr noundef nonnull %109, i64 noundef 1)
+  %112 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(100) %88, i64 noundef %92, i64 noundef %89, ptr noundef nonnull %109, i64 noundef 1)
           to label %.loopexit.i.i.i.i unwind label %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc10.i.i.i.i
@@ -45914,7 +45914,7 @@ _ZN16ConstructorStats3getIZ24test_submodule_callbacksRN8pybind117module_EE11CppC
   store ptr %155, ptr %184, align 8
   %185 = getelementptr inbounds i8, ptr %183, i64 16
   store i32 0, ptr %185, align 8
-  %186 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %162, i64 noundef %166, i64 noundef %163, ptr noundef nonnull %183, i64 noundef 1)
+  %186 = invoke ptr @_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(100) %162, i64 noundef %166, i64 noundef %163, ptr noundef nonnull %183, i64 noundef 1)
           to label %_ZZ24test_submodule_callbacksRN8pybind117module_EEN11CppCallableC2EOS2_.exit.i.i.i.i unwind label %_ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i63.i.i
 
 _ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.i.i.i.i.i.i63.i.i: ; preds = %.noexc1.i.i.i.i.i
@@ -46465,7 +46465,7 @@ _ZN8pybind116detail15argument_loaderIJiiEE9load_argsERNS0_13function_callE.exit.
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 2
   %17 = icmp ne i64 %16, 0
-  %18 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %17)
+  %18 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %17)
   br i1 %18, label %19, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_16iJiiEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESL_.exit"
 
 19:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJiiEE9load_argsERNS0_13function_callE.exit.i
@@ -46522,7 +46522,7 @@ _ZN8pybind116detail15argument_loaderIJiiEE9load_argsERNS0_13function_callE.exit.
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 2
   %17 = icmp ne i64 %16, 0
-  %18 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %17)
+  %18 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %17)
   br i1 %18, label %19, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_17iJiiEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESL_.exit"
 
 19:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJiiEE9load_argsERNS0_13function_callE.exit.i
@@ -46602,7 +46602,7 @@ _ZN8pybind116detail15argument_loaderIJSt8functionIFiiEEbEE9load_argsERNS0_13func
 
 _ZNSt8functionIFiiEEC2EOS1_.exit.i.i.i:           ; preds = %20
   %24 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !noalias !1466
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !noalias !1466
   store ptr %23, ptr %24, align 8, !noalias !1466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !1466
   %25 = load i8, ptr %4, align 8, !noalias !1466
@@ -46612,7 +46612,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.i.i.i:           ; preds = %20
 
 .thread.i:                                        ; preds = %20
   %27 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !1470
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !1470
   store ptr %22, ptr %27, align 8, !alias.scope !1470
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1460
   br label %_ZN8pybind114noneD2Ev.exit.i
@@ -46642,7 +46642,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.i.i.i:           ; preds = %20
 
 .body.i.i.i:                                      ; preds = %33, %31
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
-  %35 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %.body.i unwind label %36, !noalias !1466
 
 36:                                               ; preds = %.body.i.i.i
@@ -46659,7 +46659,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.i.i.i:           ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %23, ptr %41, align 8, !alias.scope !1470
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1460
-  %42 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %42 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN8pybind114noneD2Ev.exit.i unwind label %43
 
 43:                                               ; preds = %39
@@ -46688,7 +46688,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %39, %.thread.i
 
 _ZNSt8functionIFiiEEC2EOS1_.exit.i.i18.i:         ; preds = %48
   %52 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !noalias !1477
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !noalias !1477
   store ptr %51, ptr %52, align 8, !noalias !1477
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !1477
   %53 = load i8, ptr %4, align 8, !noalias !1477
@@ -46698,7 +46698,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.i.i18.i:         ; preds = %48
 
 _ZNSt8functionIFiiEEC2EOS1_.exit.thread.i.i23.i:  ; preds = %48
   %55 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !1481
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !1481
   store ptr %50, ptr %55, align 8, !alias.scope !1481
   br label %70
 
@@ -46735,7 +46735,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.thread.i.i23.i:  ; preds = %48
 
 .body.i.i19.i:                                    ; preds = %64, %59
   %eh.lpad-body.i.i20.i = phi { ptr, i32 } [ %65, %64 ], [ %60, %59 ]
-  %66 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %66 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %.body.i unwind label %67, !noalias !1477
 
 67:                                               ; preds = %.body.i.i19.i
@@ -46759,7 +46759,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.thread.i.i23.i:  ; preds = %48
   br i1 %.not.i.i27.i, label %_ZNSt8functionIFiiEED2Ev.exit28.i, label %76
 
 76:                                               ; preds = %73
-  %77 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %77 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFiiEED2Ev.exit28.i unwind label %78
 
 78:                                               ; preds = %76
@@ -46778,7 +46778,7 @@ _ZNSt8functionIFiiEEC2EOS1_.exit.thread.i.i23.i:  ; preds = %48
   br i1 %.not.i.i29.i, label %.body.i, label %85
 
 85:                                               ; preds = %81
-  %86 = invoke noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %86 = invoke noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %.body.i unwind label %87
 
 87:                                               ; preds = %85
@@ -46796,7 +46796,7 @@ _ZNSt8functionIFiiEED2Ev.exit28.i:                ; preds = %76, %73, %_ZN8pybin
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_18St8functionIFiiEEJS7_bEJNS_4nameENS_5scopeENS_7siblingENS_3argENS_5arg_vEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit", label %92
 
 92:                                               ; preds = %_ZNSt8functionIFiiEED2Ev.exit28.i
-  %93 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %93 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_18St8functionIFiiEEJS7_bEJNS_4nameENS_5scopeENS_7siblingENS_3argENS_5arg_vEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit" unwind label %94
 
 94:                                               ; preds = %92
@@ -46814,7 +46814,7 @@ _ZNSt8functionIFiiEED2Ev.exit28.i:                ; preds = %76, %73, %_ZN8pybin
   br i1 %.not.i.i.i.i.i.i.i31.i, label %_ZN8pybind116detail15argument_loaderIJSt8functionIFiiEEbEED2Ev.exit32.i, label %99
 
 99:                                               ; preds = %.body.i
-  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZN8pybind116detail15argument_loaderIJSt8functionIFiiEEbEED2Ev.exit32.i unwind label %101
 
 101:                                              ; preds = %99
@@ -47265,7 +47265,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_19NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKSt8functionIFiiEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESW_.exit", label %38
 
 38:                                               ; preds = %35
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_19NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKSt8functionIFiiEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESW_.exit" unwind label %40
 
 40:                                               ; preds = %38
@@ -47283,7 +47283,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not.i.i.i.i.i.i.i18.i, label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFiiEEEED2Ev.exit19.i, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFiiEEEED2Ev.exit19.i unwind label %48
 
 48:                                               ; preds = %46
@@ -47326,7 +47326,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKSt8functi
 
 13:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1493
-  %14 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
+  %14 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0)
           to label %_ZNKSt8functionIFiiEE11target_typeEv.exit.i.i.i unwind label %19, !noalias !1493
 
 _ZNKSt8functionIFiiEE11target_typeEv.exit.i.i.i:  ; preds = %13
@@ -47357,7 +47357,7 @@ _ZNKSt9type_infoeqERKS_.exit.i.i.i:               ; preds = %_ZNKSt8functionIFii
 
 _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %_ZNKSt8functionIFiiEE11target_typeEv.exit.i.i.i, %2
   %27 = load ptr, ptr %9, align 8, !noalias !1493
-  %28 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
+  %28 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 1)
           to label %_ZNKSt8functionIFiiEE6targetIPS0_EEPKT_v.exit.i.i unwind label %29, !noalias !1493
 
 29:                                               ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i
@@ -47391,7 +47391,7 @@ _ZNKSt8functionIFiiEE6targetIPS0_EEPKT_v.exit.i.i: ; preds = %_ZNKSt9type_infoeq
 _ZNKSt8functionIFiiEEclEi.exit.i.i:               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8, !noalias !1493
-  %38 = call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %3), !noalias !1493
+  %38 = call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %3), !noalias !1493
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !1493
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %38) #33, !noalias !1493
   %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.196)
@@ -47435,7 +47435,7 @@ _ZNKSt8functionIFiiEEclEi.exit.i.i:               ; preds = %33
           to label %.noexc.i.i unwind label %55
 
 .noexc.i.i:                                       ; preds = %51
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %52, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %52, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc13.i.i unwind label %55
 
 .noexc13.i.i:                                     ; preds = %.noexc.i.i
@@ -47445,7 +47445,7 @@ _ZNKSt8functionIFiiEEclEi.exit.i.i:               ; preds = %33
 53:                                               ; preds = %.noexc13.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: ; preds = %.noexc13.i.i
@@ -47725,9 +47725,9 @@ _ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
   %84 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %81, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %85 = getelementptr inbounds i8, ptr %7, i64 16
   %86 = load ptr, ptr %85, align 8
@@ -47741,7 +47741,7 @@ _ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
   br i1 %.not.i.i2.i.i.i.i.i, label %.thread50.i.i.i.i, label %89
 
 89:                                               ; preds = %_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEEC2IZNS0_6detail11type_casterIS6_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit.i.i.i.i.i
-  %90 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %90 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %.thread50.i.i.i.i unwind label %91
 
 91:                                               ; preds = %89
@@ -47837,7 +47837,7 @@ _ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
   br i1 %.not.i.i.i.i.i.i.i19.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_20vJRKSt8functionIFdRZ24test_submodule_callbacksS3_E12AbstractBaseEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESS_.exit", label %116
 
 116:                                              ; preds = %113
-  %117 = invoke noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %117 = invoke noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_20vJRKSt8functionIFdRZ24test_submodule_callbacksS3_E12AbstractBaseEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESS_.exit" unwind label %118
 
 118:                                              ; preds = %116
@@ -47855,7 +47855,7 @@ _ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
   br i1 %.not.i.i.i.i.i.i.i20.i, label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEEED2Ev.exit21.i, label %123
 
 123:                                              ; preds = %.body.i
-  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEEED2Ev.exit21.i unwind label %125
 
 125:                                              ; preds = %123
@@ -47889,9 +47889,9 @@ _ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
   %4 = phi ptr [ null, %1 ], [ @_ZNSt17_Function_handlerIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEPS5_E9_M_invokeERKSt9_Any_dataS4_, %3 ]
   %5 = phi ptr [ null, %1 ], [ @_ZNSt17_Function_handlerIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -47907,7 +47907,7 @@ _ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
   br i1 %.not.i.i, label %_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEEC2IRPS5_vEEOT_.exit
-  %13 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %13 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEED2Ev.exit unwind label %14
 
 14:                                               ; preds = %12
@@ -48259,7 +48259,7 @@ _ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i: ;
   br i1 %.not2.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
 
 _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i, %.noexc6.i.i.i, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i, %16, %2
-  %32 = invoke { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase, ptr noundef %12)
+  %32 = invoke { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase, ptr noundef %12)
           to label %.noexc7.i.i.i unwind label %107
 
 .noexc7.i.i.i:                                    ; preds = %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i
@@ -49118,7 +49118,7 @@ define internal void @_ZN8pybind116class_IZ24test_submodule_callbacksRNS_7module
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load i8, ptr %6, align 8
@@ -49490,7 +49490,7 @@ _ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread: ; preds 
   %126 = load ptr, ptr %96, align 8
   store ptr %126, ptr %15, align 8
   %127 = getelementptr inbounds i8, ptr %125, i64 224
-  %128 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEESaISD_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 1 dereferenceable(1) %127, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %128 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEESaISD_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %127, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %129 = getelementptr inbounds i8, ptr %94, i64 112
   store ptr %128, ptr %129, align 8
   %130 = load i8, ptr %59, align 8
@@ -49547,7 +49547,7 @@ _ZN8pybind116detail19get_local_internalsEv.exit:  ; preds = %132, %135, %140
 
 147:                                              ; preds = %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread, %_ZN8pybind116detail19get_local_internalsEv.exit
   %.sink107 = phi ptr [ %146, %_ZN8pybind116detail19get_local_internalsEv.exit ], [ %125, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread ]
-  %148 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEESaIS8_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 1 dereferenceable(1) %.sink107, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %148 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEESaIS8_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %.sink107, ptr noundef nonnull align 8 dereferenceable(8) %15)
   store ptr %94, ptr %148, align 8
   store ptr %94, ptr %16, align 8
   %149 = getelementptr inbounds i8, ptr %125, i64 56
@@ -49916,7 +49916,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail11type_recordD2Ev(ptr nounde
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 96
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvP15_heaptypeobjectEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -50861,7 +50861,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit158.thre
           to label %.noexc179 unwind label %194
 
 .noexc179:                                        ; preds = %_ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit158.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %151, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %151, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc180 unwind label %194
 
 .noexc180:                                        ; preds = %.noexc179
@@ -50878,7 +50878,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit158.thre
 155:                                              ; preds = %157, %153
   %156 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #33
   br label %.body181.thread.thread
 
 157:                                              ; preds = %.noexc180
@@ -51273,7 +51273,7 @@ _ZNKR8pybind116handle7inc_refEv.exit:             ; preds = %258, %256
   store ptr %236, ptr %2, align 8
   %318 = getelementptr inbounds i8, ptr %0, i64 120
   %319 = load ptr, ptr %318, align 8
-  invoke void %319(ptr noundef nonnull align 8 dereferenceable(16) %317, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %319(ptr noundef nonnull align 8 dereferenceable(32) %317, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZNKSt8functionIFvP15_heaptypeobjectEEclES1_.exit unwind label %244
 
 _ZNKSt8functionIFvP15_heaptypeobjectEEclES1_.exit: ; preds = %316
@@ -51731,7 +51731,7 @@ _ZN8pybind116detail19type_caster_genericC2EPKNS0_9type_infoE.exit: ; preds = %2,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJRKPKcEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRKPKcEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRKPKcEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -54478,9 +54478,9 @@ _ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjec
   %86 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %83, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %87 = getelementptr inbounds i8, ptr %9, i64 16
   %88 = load ptr, ptr %87, align 8
@@ -54494,7 +54494,7 @@ _ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjec
   br i1 %.not.i.i2.i.i.i.i.i, label %.thread50.i.i.i.i, label %91
 
 91:                                               ; preds = %_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEEC2IZNS0_6detail11type_casterIS6_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit.i.i.i.i.i
-  %92 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %92 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.thread50.i.i.i.i unwind label %93
 
 93:                                               ; preds = %91
@@ -54595,7 +54595,7 @@ _ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjec
 "_ZNO8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEEE9call_implIbRZ24test_submodule_callbacksS4_E4$_21JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit.i.i": ; preds = %118
   %120 = getelementptr inbounds i8, ptr %9, i64 24
   %121 = load ptr, ptr %120, align 8
-  invoke void %121(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void %121(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZN8pybind114noneD2Ev.exit.i unwind label %110
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEEE9call_implIbRZ24test_submodule_callbacksS4_E4$_21JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit.i.i"
@@ -54622,7 +54622,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %"_ZNO8pybind116deta
 "_ZNO8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEEE9call_implIbRZ24test_submodule_callbacksS4_E4$_21JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit.i23.i": ; preds = %124
   %126 = getelementptr inbounds i8, ptr %9, i64 24
   %127 = load ptr, ptr %126, align 8
-  invoke void %127(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void %127(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %128 unwind label %110
 
 128:                                              ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEEE9call_implIbRZ24test_submodule_callbacksS4_E4$_21JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit.i23.i"
@@ -54643,7 +54643,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %"_ZNO8pybind116deta
   br i1 %.not.i.i.i.i.i.i.i27.i, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_21bJRKSt8functionIFvRZ24test_submodule_callbacksS3_E13MovableObjectEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESS_.exit", label %137
 
 137:                                              ; preds = %134
-  %138 = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %138 = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_21bJRKSt8functionIFvRZ24test_submodule_callbacksS3_E13MovableObjectEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESS_.exit" unwind label %139
 
 139:                                              ; preds = %137
@@ -54661,7 +54661,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %"_ZNO8pybind116deta
   br i1 %.not.i.i.i.i.i.i.i28.i, label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEEED2Ev.exit29.i, label %144
 
 144:                                              ; preds = %.body.i
-  %145 = invoke noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %145 = invoke noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEEED2Ev.exit29.i unwind label %146
 
 146:                                              ; preds = %144
@@ -54695,9 +54695,9 @@ _ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjec
   %4 = phi ptr [ null, %1 ], [ @_ZNSt17_Function_handlerIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEPS5_E9_M_invokeERKSt9_Any_dataS4_, %3 ]
   %5 = phi ptr [ null, %1 ], [ @_ZNSt17_Function_handlerIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -54713,7 +54713,7 @@ _ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjec
   br i1 %.not.i.i, label %_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEEC2IRPS5_vEEOT_.exit
-  %13 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %13 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEED2Ev.exit unwind label %14
 
 14:                                               ; preds = %12
@@ -55008,7 +55008,7 @@ define internal void @_ZNSt17_Function_handlerIFvRZ24test_submodule_callbacksRN8
   call void @llvm.experimental.noalias.scope.decl(metadata !1628)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1631
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1631
-  %8 = invoke { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE13MovableObject, ptr noundef null)
+  %8 = invoke { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE13MovableObject, ptr noundef null)
           to label %.noexc.i.i.i unwind label %112
 
 .noexc.i.i.i:                                     ; preds = %2
@@ -55590,7 +55590,7 @@ define internal void @_ZN8pybind116class_IZ24test_submodule_callbacksRNS_7module
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load i8, ptr %6, align 8
@@ -56161,7 +56161,7 @@ declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorINS0_17accessor_policies8str_attrEEEEclILNS_19return_value_policyE1EJRA9_KcEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(9) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRA9_KcEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 1 dereferenceable(9) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJRA9_KcEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(9) %2)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8pybind116detail8accessorINS0_17accessor_policies8str_attrEE9get_cacheEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %6 unwind label %24
 
@@ -56369,7 +56369,7 @@ _ZN8pybind116detail15argument_loaderIJRZ24test_submodule_callbacksRNS_7module_EE
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2
   %27 = icmp ne i64 %26, 0
-  %28 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %27)
+  %28 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %27)
   br i1 %28, label %29, label %"_ZZN8pybind1112cpp_function10initializeIZ24test_submodule_callbacksRNS_7module_EE4$_22iJRZ24test_submodule_callbacksS3_E18CppBoundMethodTestiEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
 29:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRZ24test_submodule_callbacksRNS_7module_EE18CppBoundMethodTestiEE9load_argsERNS0_13function_callE.exit.i
@@ -56529,7 +56529,7 @@ _ZN8pybind118iterableC2ERKS0_.exit.i.i.i.i:       ; preds = %15, %14
 22:                                               ; preds = %_ZN8pybind118iterableC2ERKS0_.exit.i.i.i.i
   %23 = getelementptr inbounds i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke noundef double %24(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %25 = invoke noundef double %24(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZNKSt8functionIFdN8pybind118iterableEEEclES1_.exit.i.i.i.i unwind label %34
 
 _ZNKSt8functionIFdN8pybind118iterableEEEclES1_.exit.i.i.i.i: ; preds = %22
@@ -56596,7 +56596,7 @@ _ZN8pybind118iterableC2ERKS0_.exit.i.i.i20.i:     ; preds = %39, %38
 46:                                               ; preds = %_ZN8pybind118iterableC2ERKS0_.exit.i.i.i20.i
   %47 = getelementptr inbounds i8, ptr %4, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = invoke noundef double %48(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %49 = invoke noundef double %48(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZNKSt8functionIFdN8pybind118iterableEEEclES1_.exit.i.i.i22.i unwind label %58
 
 _ZNKSt8functionIFdN8pybind118iterableEEEclES1_.exit.i.i.i22.i: ; preds = %46
@@ -56642,7 +56642,7 @@ _ZN8pybind116detail11type_casterIdvE4castIdEENSt9enable_ifIXsr3std17is_floating_
 
 64:                                               ; preds = %_ZN8pybind116detail11type_casterIdvE4castIdEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueENS_6handleEE4typeES5_NS_19return_value_policyES6_.exit.i
   %65 = getelementptr inbounds i8, ptr %4, i64 8
-  %66 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef 3)
+  %66 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %65, i32 noundef 3)
           to label %_ZNSt10_Head_baseILm0EN8pybind116detail11type_casterISt8functionIFdNS0_8iterableEEEvEELb0EED2Ev.exit.i.i.i.i unwind label %67
 
 67:                                               ; preds = %64
@@ -56694,7 +56694,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail15argument_loaderIJRKSt8func
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt10_Head_baseILm0EN8pybind116detail11type_casterISt8functionIFdNS0_8iterableEEEvEELb0EED2Ev.exit.i.i unwind label %7
 
 7:                                                ; preds = %4
@@ -57115,9 +57115,9 @@ _ZNSt8functionIFdN8pybind118iterableEEEC2IRPS2_vEEOT_.exit: ; preds = %2, %5
   %6 = phi ptr [ null, %2 ], [ @_ZNSt17_Function_handlerIFdN8pybind118iterableEEPS2_E9_M_invokeERKSt9_Any_dataOS1_, %5 ]
   %7 = phi ptr [ null, %2 ], [ @_ZNSt17_Function_handlerIFdN8pybind118iterableEEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, %5 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -57133,7 +57133,7 @@ _ZNSt8functionIFdN8pybind118iterableEEEC2IRPS2_vEEOT_.exit: ; preds = %2, %5
   br i1 %.not.i.i, label %_ZNSt8functionIFdN8pybind118iterableEEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt8functionIFdN8pybind118iterableEEEC2IRPS2_vEEOT_.exit
-  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFdN8pybind118iterableEEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -57170,9 +57170,9 @@ _ZNSt8functionIFdN8pybind118iterableEEEC2IZNS0_6detail11type_casterIS3_vE4loadEN
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -57186,7 +57186,7 @@ _ZNSt8functionIFdN8pybind118iterableEEEC2IZNS0_6detail11type_casterIS3_vE4loadEN
   br i1 %.not.i.i2, label %_ZNSt8functionIFdN8pybind118iterableEEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt8functionIFdN8pybind118iterableEEEC2IZNS0_6detail11type_casterIS3_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit
-  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFdN8pybind118iterableEEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -57684,7 +57684,7 @@ _ZN8pybind1118gil_scoped_acquireD2Ev.exit:        ; preds = %.noexc2.i, %_ZN8pyb
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJNS_8iterableEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.pybind11::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::detail::simple_collector", align 8
-  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_8iterableEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_8iterableEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = load ptr, ptr %1, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1696)
   %6 = load ptr, ptr %4, align 8, !noalias !1696
@@ -57992,7 +57992,7 @@ _ZN8pybind1118reinterpret_borrowINS_4listEEET_NS_6handleE.exit.i.i.i.i: ; preds 
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt8functionIFviEEC2ERKS1_.exit.i.i.i, label %41
 
 41:                                               ; preds = %.invoke.i
-  %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2)
+  %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 2)
           to label %43 unwind label %47
 
 43:                                               ; preds = %41
@@ -58011,7 +58011,7 @@ _ZN8pybind1118reinterpret_borrowINS_4listEEET_NS_6handleE.exit.i.i.i.i: ; preds 
   br i1 %.not.i.i.i.i.i, label %.body, label %50
 
 50:                                               ; preds = %47
-  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %.body unwind label %52
 
 52:                                               ; preds = %50
@@ -58070,7 +58070,7 @@ _ZNK8pybind114list5beginEv.exit.thread.i.i.i:     ; preds = %61, %_ZNSt8function
   br i1 %.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFviEEC2ERKS1_.exit.i.i.i.i, label %75
 
 75:                                               ; preds = %72
-  %76 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
+  %76 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2)
           to label %77 unwind label %80
 
 77:                                               ; preds = %75
@@ -58088,7 +58088,7 @@ _ZNK8pybind114list5beginEv.exit.thread.i.i.i:     ; preds = %61, %_ZNSt8function
   br i1 %.not.i.i.i8.i.i.i, label %.body.i.i.i, label %83
 
 83:                                               ; preds = %80
-  %84 = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %84 = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %.body.i.i.i unwind label %85
 
 85:                                               ; preds = %83
@@ -58111,12 +58111,12 @@ _ZNSt8functionIFviEEC2ERKS1_.exit.i.i.i.i:        ; preds = %77, %72
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = getelementptr inbounds i8, ptr %89, i64 24
   %92 = getelementptr inbounds i8, ptr %89, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %90, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %106, label %93
 
 93:                                               ; preds = %.noexc.i.i.i.i
-  %94 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %94 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2)
           to label %95 unwind label %98
 
 95:                                               ; preds = %93
@@ -58135,7 +58135,7 @@ _ZNSt8functionIFviEEC2ERKS1_.exit.i.i.i.i:        ; preds = %77, %72
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i4, label %.body.i.i.i.i.i.i, label %101
 
 101:                                              ; preds = %98
-  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %90, i32 noundef 3)
+  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull align 8 dereferenceable(40) %90, i32 noundef 3)
           to label %.body.i.i.i.i.i.i unwind label %103
 
 103:                                              ; preds = %101
@@ -58146,7 +58146,7 @@ _ZNSt8functionIFviEEC2ERKS1_.exit.i.i.i.i:        ; preds = %77, %72
   unreachable
 
 .body.i.i.i.i.i.i:                                ; preds = %101, %98
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %89) #33
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %89) #33
   call void @_ZdlPv(ptr noundef nonnull %89) #39
   br label %.body.i.i.i.i
 
@@ -58204,7 +58204,7 @@ _ZNSt6threadD2Ev.exit.i.i.i.i:                    ; preds = %121
   br i1 %.not.i.i.i.i.i.i.i, label %140, label %124
 
 124:                                              ; preds = %_ZNSt6threadD2Ev.exit.i.i.i.i
-  %125 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %125 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 3)
           to label %140 unwind label %126
 
 126:                                              ; preds = %124
@@ -58237,7 +58237,7 @@ _ZNSt6threadD2Ev.exit.i.i.i.i:                    ; preds = %121
   br i1 %.not.i.i.i9.i.i.i.i, label %.body.i.i.i, label %135
 
 135:                                              ; preds = %.body.i.i.i.i
-  %136 = invoke noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %136 = invoke noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 3)
           to label %.body.i.i.i unwind label %137
 
 137:                                              ; preds = %135
@@ -58266,7 +58266,7 @@ _ZNSt6threadD2Ev.exit.i.i.i.i:                    ; preds = %121
   br i1 %.not.i.i.i10.i.i.i, label %.body, label %145
 
 145:                                              ; preds = %.body.i.i.i
-  %146 = invoke noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %146 = invoke noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %.body unwind label %147
 
 147:                                              ; preds = %145
@@ -58286,7 +58286,7 @@ _ZNSt6threadD2Ev.exit.i.i.i.i:                    ; preds = %121
   br i1 %.not.i.i.i11.i.i.i, label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFviEERKNS_4listEEE9load_argsERNS0_13function_callE.exit.sink.split.i, label %151
 
 151:                                              ; preds = %._crit_edge.i.i.i
-  %152 = invoke noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %152 = invoke noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFviEERKNS_4listEEE9load_argsERNS0_13function_callE.exit.sink.split.i unwind label %153
 
 153:                                              ; preds = %151
@@ -58312,7 +58312,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt8functionIFviEERKNS_4listEEE9load_args
   br i1 %.not.i.i.i.i.i.i.i18.i, label %_ZNSt10_Head_baseILm0EN8pybind116detail11type_casterISt8functionIFviEEvEELb0EED2Ev.exit.i.i.i.i, label %160
 
 160:                                              ; preds = %_ZN8pybind116detail15argument_loaderIJRKSt8functionIFviEERKNS_4listEEE9load_argsERNS0_13function_callE.exit.i
-  %161 = invoke noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %161 = invoke noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt10_Head_baseILm0EN8pybind116detail11type_casterISt8functionIFviEEvEELb0EED2Ev.exit.i.i.i.i unwind label %162
 
 162:                                              ; preds = %160
@@ -58359,7 +58359,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail15argument_loaderIJRKSt8func
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt10_Head_baseILm0EN8pybind116detail11type_casterISt8functionIFviEEvEELb0EED2Ev.exit.i.i unwind label %7
 
 7:                                                ; preds = %4
@@ -58679,9 +58679,9 @@ _ZNSt8functionIFviEEC2IRPS0_vEEOT_.exit:          ; preds = %2, %5
   %6 = phi ptr [ null, %2 ], [ @_ZNSt17_Function_handlerIFviEPS0_E9_M_invokeERKSt9_Any_dataOi, %5 ]
   %7 = phi ptr [ null, %2 ], [ @_ZNSt17_Function_handlerIFviEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, %5 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -58697,7 +58697,7 @@ _ZNSt8functionIFviEEC2IRPS0_vEEOT_.exit:          ; preds = %2, %5
   br i1 %.not.i.i, label %_ZNSt8functionIFviEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt8functionIFviEEC2IRPS0_vEEOT_.exit
-  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -58734,9 +58734,9 @@ _ZNSt8functionIFviEEC2IZN8pybind116detail11type_casterIS1_vE4loadENS3_6handleEbE
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -58750,7 +58750,7 @@ _ZNSt8functionIFviEEC2IZN8pybind116detail11type_casterIS1_vE4loadENS3_6handleEbE
   br i1 %.not.i.i2, label %_ZNSt8functionIFviEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt8functionIFviEEC2IZN8pybind116detail11type_casterIS1_vE4loadENS3_6handleEbE12func_wrappervEEOT_.exit
-  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -59207,7 +59207,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24tes
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 3)
           to label %"_ZNSt6thread8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS2_4listEENKUliE_clEiEUlvE_EEED2Ev.exit" unwind label %7
 
 7:                                                ; preds = %4
@@ -59232,7 +59232,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24tes
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 3)
           to label %"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEED2Ev.exit" unwind label %7
 
 7:                                                ; preds = %4
@@ -59243,7 +59243,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24tes
   unreachable
 
 "_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEED2Ev.exit": ; preds = %1, %4
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #33
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #33
   tail call void @_ZdlPv(ptr noundef nonnull %0) #39
   ret void
 }
@@ -59288,7 +59288,7 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  call void %19(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret void
 }
@@ -59356,7 +59356,7 @@ _ZN8pybind1118reinterpret_borrowINS_8functionEEET_NS_6handleE.exit.i.i.i.i: ; pr
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2
   %26 = icmp ne i64 %25, 0
-  %27 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterImvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %26)
+  %27 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterImvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %26)
           to label %_ZN8pybind116detail15argument_loaderIJRKNS_8functionEmEE9load_argsERNS0_13function_callE.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN8pybind116detail15argument_loaderIJRKNS_8functionEmEE9load_argsERNS0_13function_callE.exit.i: ; preds = %20
@@ -59398,7 +59398,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_8functionEmEE9load_argsERNS0_13functi
 
 .lr.ph.i.i.i.i:                                   ; preds = %34, %_ZN8pybind116objectD2Ev.exit.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %43, %_ZN8pybind116objectD2Ev.exit.i.i.i.i ], [ 0, %34 ]
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc20.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc20.i:                                       ; preds = %.lr.ph.i.i.i.i
@@ -59439,7 +59439,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %_ZN8pybind116object
 
 .lr.ph.i.i.i23.i:                                 ; preds = %44, %_ZN8pybind116objectD2Ev.exit.i.i.i27.i
   %.01.i.i.i24.i = phi i64 [ %53, %_ZN8pybind116objectD2Ev.exit.i.i.i27.i ], [ 0, %44 ]
-  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %2, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNK8pybind116detail10object_apiINS_6handleEEclILNS_19return_value_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::object") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc29.i unwind label %.loopexit.i
 
 .noexc29.i:                                       ; preds = %.lr.ph.i.i.i23.i

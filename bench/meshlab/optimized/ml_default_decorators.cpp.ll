@@ -7260,7 +7260,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %_ZN3vcg3tri7TriMesh
   call void @glBlendFunc(i32 noundef 770, i32 noundef 771)
   call void @glLineWidth(float noundef 1.000000e+00)
   store i32 -65281, ptr %62, align 4
-  call void @glColor4ubv(ptr noundef nonnull %62)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %62)
   call void @glDepthRange(double noundef 0.000000e+00, double noundef 0x3FEFF7CED916872B)
   call void @glEnableClientState(i32 noundef 32884)
   %620 = load ptr, ptr %616, align 8
@@ -7730,7 +7730,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %15
   call void @glColorPointer(i32 noundef 4, i32 noundef 5121, i32 noundef 16, ptr noundef nonnull %23)
   call void @glDisableClientState(i32 noundef 32886)
   store i32 -12566464, ptr %5, align 4
-  call void @glColor4ubv(ptr noundef nonnull %5)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %5)
   %24 = load ptr, ptr %16, align 8
   %25 = load ptr, ptr %1, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -8585,7 +8585,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE13_M_dealloc
   %.012.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i ], [ %10, %33 ]
   %.0811.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %13, %33 ]
   %.0910.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %6, %33 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0811.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0910.i.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0811.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0910.i.i.i.i.i, i64 12, i1 false)
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 12
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 12
   %37 = load i32, ptr %35, align 4
@@ -8605,7 +8605,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE13_M_dealloc
   %.012.i.i.i.i.i27 = phi i64 [ %50, %.lr.ph.i.i.i.i.i26 ], [ %43, %42 ]
   %.0811.i.i.i.i.i28 = phi ptr [ %49, %.lr.ph.i.i.i.i.i26 ], [ %13, %42 ]
   %.0910.i.i.i.i.i29 = phi ptr [ %48, %.lr.ph.i.i.i.i.i26 ], [ %6, %42 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0811.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(12) %.0910.i.i.i.i.i29, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0811.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(16) %.0910.i.i.i.i.i29, i64 12, i1 false)
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 12
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 12
   %47 = load i32, ptr %45, align 4
@@ -10084,7 +10084,7 @@ _ZN3vcg7glLabel4ModeC2ER5QFontNS_6Color4IhEEfb.exit: ; preds = %37
   store double %100, ptr %12, align 8, !alias.scope !150
   store double %102, ptr %92, align 8, !alias.scope !150
   store double %104, ptr %93, align 8, !alias.scope !150
-  invoke void @glVertex3dv(ptr noundef nonnull %12)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit:           ; preds = %94
@@ -10256,7 +10256,7 @@ _ZN7QStringD2Ev.exit118:                          ; preds = %_ZN7QStringD2Ev.exi
   store double %154, ptr %16, align 8, !alias.scope !158
   store double %156, ptr %146, align 8, !alias.scope !158
   store double %158, ptr %147, align 8, !alias.scope !158
-  invoke void @glVertex3dv(ptr noundef nonnull %16)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit119 unwind label %.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit119:        ; preds = %148
@@ -10278,11 +10278,11 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit119:        ; preds = %148
           to label %163 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 163:                                              ; preds = %162
-  invoke void @glVertex3dv(ptr noundef nonnull %0)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit120:        ; preds = %163
-  invoke void @glVertex3dv(ptr noundef nonnull %1)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit121 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit121:        ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit120
@@ -10291,7 +10291,7 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit121:        ; preds = %_ZN3vcg8glVertexERK
   br i1 %165, label %166, label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit122
 
 166:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit121
-  invoke void @glVertex3dv(ptr noundef nonnull %10)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit122 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit122:        ; preds = %166, %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit121

@@ -83,7 +83,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef nonnull %0, ptr noundef
   br i1 %.not.i, label %24, label %21
 
 21:                                               ; preds = %15
-  %22 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %22 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.critedge, label %24
 
@@ -129,7 +129,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef nonnull %0, ptr noundef
   %40 = load i64, ptr %26, align 8
   %41 = add nsw i64 %40, %.pre-phi.i
   store i64 %41, ptr %26, align 8
-  %42 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %42 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %.critedge, label %27
 
@@ -315,7 +315,7 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noun
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %21 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %gz_zero.exit.thread, label %23
 
@@ -362,7 +362,7 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noun
   %40 = load i64, ptr %26, align 8
   %41 = add nsw i64 %40, %.pre-phi.i
   store i64 %41, ptr %26, align 8
-  %42 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %42 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %gz_zero.exit.thread, label %27
 
@@ -521,7 +521,7 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not.i, label %32, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %30 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %.loopexit, label %32
 
@@ -567,7 +567,7 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   %48 = load i64, ptr %34, align 8
   %49 = add nsw i64 %48, %.pre-phi.i
   store i64 %49, ptr %34, align 8
-  %50 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %50 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %.loopexit, label %35
 
@@ -1097,7 +1097,7 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %20 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %.sink.split, label %22
 
@@ -1144,7 +1144,7 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   %39 = load i64, ptr %25, align 8
   %40 = add nsw i64 %39, %.pre-phi.i
   store i64 %40, ptr %25, align 8
-  %41 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %41 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %.sink.split, label %26
 
@@ -1207,7 +1207,7 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not.i, label %31, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %29 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %.loopexit, label %31
 
@@ -1254,7 +1254,7 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   %48 = load i64, ptr %34, align 8
   %49 = add nsw i64 %48, %.pre-phi.i
   store i64 %49, ptr %34, align 8
-  %50 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %50 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %.loopexit, label %35
 
@@ -1328,7 +1328,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %9
-  %16 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %16 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %.loopexit, label %18
 
@@ -1375,7 +1375,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   %35 = load i64, ptr %21, align 8
   %36 = add nsw i64 %35, %.pre-phi.i
   store i64 %36, ptr %21, align 8
-  %37 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
+  %37 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %.loopexit, label %22
 

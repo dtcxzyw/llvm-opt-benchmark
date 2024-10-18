@@ -256,7 +256,7 @@ define hidden noundef zeroext i1 @_ZN15ProcSmapsParser10parse_nextER13ProcSmapsI
   %3 = getelementptr inbounds i8, ptr %1, i64 37
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1064
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %1, i8 0, i64 17, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -282,7 +282,7 @@ define hidden noundef zeroext i1 @_ZN15ProcSmapsParser10parse_nextER13ProcSmapsI
   %17 = phi ptr [ %.pre, %._crit_edge ], [ %6, %2 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %3) #7
+  %20 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(1120) %1, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %3) #7
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %5, align 8
   store i8 0, ptr %22, align 1

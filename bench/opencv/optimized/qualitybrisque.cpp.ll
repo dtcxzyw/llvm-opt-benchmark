@@ -468,14 +468,14 @@ define void @_ZN2cv7quality14QualityBRISQUE7computeERKNS_11_InputArrayERKNSt7__c
 
 6:                                                ; preds = %4
   call void @_ZN2cv7quality14QualityBRISQUED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull @_ZTTN2cv7quality14QualityBRISQUEE) #21
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #21
   ret void
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7quality14QualityBRISQUED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull @_ZTTN2cv7quality14QualityBRISQUEE) #21
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #21
   resume { ptr, i32 } %8
 }
 
@@ -2782,7 +2782,7 @@ define linkonce_odr hidden void @_ZNK2cv7quality11QualityBase13getQualityMapERKN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7quality14QualityBRISQUED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN2cv7quality14QualityBRISQUED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull @_ZTTN2cv7quality14QualityBRISQUEE) #21
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }

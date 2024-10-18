@@ -83,7 +83,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net21TcpCubicSenderPacketsD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %this) #9
+  tail call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }

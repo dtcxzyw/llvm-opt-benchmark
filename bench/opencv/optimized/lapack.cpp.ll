@@ -7886,7 +7886,7 @@ define void @cvSVD(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
   br label %303
 
 74:                                               ; preds = %61, %48, %57
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #16
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %15) #16
   %75 = getelementptr inbounds i8, ptr %15, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %75) #16
   %76 = getelementptr inbounds i8, ptr %15, i64 192
@@ -8389,7 +8389,7 @@ define void @cvSVD(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
 301:                                              ; preds = %287, %298, %269
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %76) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %75) #16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #16
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %15) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #16

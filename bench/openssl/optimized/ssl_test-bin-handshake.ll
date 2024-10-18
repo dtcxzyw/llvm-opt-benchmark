@@ -351,7 +351,7 @@ if.end66.i:                                       ; preds = %if.then64.i, %if.en
 
 if.then70.i:                                      ; preds = %if.end66.i
   %npn_protocols_len.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 8
-  %call74.i = call fastcc i32 @parse_protos(ptr noundef nonnull %9, ptr noundef %server_ctx_data, ptr noundef %npn_protocols_len.i)
+  %call74.i = call fastcc i32 @parse_protos(ptr noundef nonnull %9, ptr noundef nonnull %server_ctx_data, ptr noundef %npn_protocols_len.i)
   %call77.i = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 588, ptr noundef nonnull @.str.20, i32 noundef %call74.i) #10
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %if.then2, label %if.end80.i
@@ -368,7 +368,7 @@ if.end81.i:                                       ; preds = %if.end80.i, %if.end
 
 if.then85.i:                                      ; preds = %if.end81.i
   %npn_protocols_len89.i = getelementptr inbounds i8, ptr %server2_ctx_data, i64 8
-  %call90.i = call fastcc i32 @parse_protos(ptr noundef nonnull %10, ptr noundef %server2_ctx_data, ptr noundef %npn_protocols_len89.i)
+  %call90.i = call fastcc i32 @parse_protos(ptr noundef nonnull %10, ptr noundef nonnull %server2_ctx_data, ptr noundef %npn_protocols_len89.i)
   %call93.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 596, ptr noundef nonnull @.str.21, i32 noundef %call90.i) #10
   %tobool94.not.i = icmp eq i32 %call93.i, 0
   br i1 %tobool94.not.i, label %if.then2, label %lor.lhs.false.i
@@ -390,7 +390,7 @@ if.end99.i:                                       ; preds = %if.end98.i, %if.end
 
 if.then104.i:                                     ; preds = %if.end99.i
   %npn_protocols_len108.i = getelementptr inbounds i8, ptr %client_ctx_data, i64 8
-  %call109.i = call fastcc i32 @parse_protos(ptr noundef nonnull %11, ptr noundef %client_ctx_data, ptr noundef %npn_protocols_len108.i)
+  %call109.i = call fastcc i32 @parse_protos(ptr noundef nonnull %11, ptr noundef nonnull %client_ctx_data, ptr noundef %npn_protocols_len108.i)
   %call112.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 605, ptr noundef nonnull @.str.23, i32 noundef %call109.i) #10
   %tobool113.not.i = icmp eq i32 %call112.i, 0
   br i1 %tobool113.not.i, label %if.then2, label %if.end115.i

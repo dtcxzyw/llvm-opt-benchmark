@@ -595,7 +595,7 @@ do.end.i:                                         ; preds = %if.end20
   store i8 0, ptr %emitted_key.i, align 1
   %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
   store i32 0, ptr %nesting_depth.i, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.27)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.27)
   store i32 1, ptr %nesting_depth.i, align 8
   store i8 0, ptr %item_at_depth.i, align 4
   br label %emitter_begin.exit
@@ -621,7 +621,7 @@ if.else.i:                                        ; preds = %if.end3, %if.end20
   store i8 0, ptr %emitted_key.i52, align 1
   %nesting_depth.i53 = getelementptr inbounds i8, ptr %emitter, i64 24
   store i32 0, ptr %nesting_depth.i53, align 8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
   br label %emitter_begin.exit
 
 emitter_begin.exit:                               ; preds = %do.end.i, %if.else.i
@@ -637,8 +637,8 @@ emitter_begin.exit:                               ; preds = %do.end.i, %if.else.
   %extents.03756 = phi i1 [ %extents.1, %do.end.i ], [ %extents.037.ph, %if.else.i ]
   %hpa.03854 = phi i1 [ %hpa.1, %do.end.i ], [ %hpa.038.ph, %if.else.i ]
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.24)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.25)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.25)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   br i1 %general.03070, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %emitter_begin.exit
@@ -660,7 +660,7 @@ do.end.i8:                                        ; preds = %if.end24
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %2 = load i32, ptr %nesting_depth.i74, align 8
   %3 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %3, 0
@@ -675,13 +675,13 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i11, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i11 = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i11, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.then1.i, %do.end.i8
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %if.end24, %if.end.i
@@ -697,7 +697,7 @@ do.end.i15:                                       ; preds = %emitter_json_object
   store i8 1, ptr %item_at_depth.i72, align 4
   %cmp.i = icmp eq i32 %emitter.val.i12, 1
   %cond.i = select i1 %cmp.i, ptr @.str.448, ptr @.str.449
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %cond.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %cond.i)
   br label %return
 
 return:                                           ; preds = %do.end.i15, %emitter_json_object_end.exit, %if.then2
@@ -814,14 +814,14 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end2:                                          ; preds = %entry
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   %emitter.val.i = load i32, ptr %emitter, align 8
   %spec.select.i.i = icmp ult i32 %emitter.val.i, 2
   br i1 %spec.select.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.end2
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.38)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.38)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   br label %emitter_dict_begin.exit
 
 if.else.i:                                        ; preds = %do.end2
@@ -840,13 +840,13 @@ for.body.preheader.i.i.i:                         ; preds = %if.then.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
   %i.06.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31)
   %inc.i.i.i = add nuw nsw i32 %i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %amount.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %emitter_indent.exit.i.i, label %for.body.i.i.i, !llvm.loop !7
 
 emitter_indent.exit.i.i:                          ; preds = %for.body.i.i.i, %if.then.i.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.39)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.39)
   %1 = load i32, ptr %nesting_depth.i.i.i, align 8
   %inc.i5.i.i = add nsw i32 %1, 1
   store i32 %inc.i5.i.i, ptr %nesting_depth.i.i.i, align 8
@@ -866,7 +866,7 @@ if.then9:                                         ; preds = %emitter_dict_begin.
   unreachable
 
 do.end12:                                         ; preds = %emitter_dict_begin.exit
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz16, align 8
   %call18 = call i32 @je_mallctl(ptr noundef nonnull @.str.42, ptr noundef nonnull %bv, ptr noundef nonnull %sz16, ptr noundef null, i64 noundef 0) #13
   %cmp19.not = icmp eq i32 %call18, 0
@@ -878,7 +878,7 @@ if.then20:                                        ; preds = %do.end12
   unreachable
 
 do.end23:                                         ; preds = %do.end12
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.42, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.42, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz27, align 8
   %call29 = call i32 @je_mallctl(ptr noundef nonnull @.str.44, ptr noundef nonnull %bv, ptr noundef nonnull %sz27, ptr noundef null, i64 noundef 0) #13
   %cmp30.not = icmp eq i32 %call29, 0
@@ -890,7 +890,7 @@ if.then31:                                        ; preds = %do.end23
   unreachable
 
 do.end34:                                         ; preds = %do.end23
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.44, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.44, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz38, align 8
   %call40 = call i32 @je_mallctl(ptr noundef nonnull @.str.46, ptr noundef nonnull %bv, ptr noundef nonnull %sz38, ptr noundef null, i64 noundef 0) #13
   %cmp41.not = icmp eq i32 %call40, 0
@@ -902,8 +902,8 @@ if.then42:                                        ; preds = %do.end34
   unreachable
 
 do.end45:                                         ; preds = %do.end34
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 8, ptr noundef nonnull readonly @config_malloc_conf, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.46, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 8, ptr noundef nonnull @config_malloc_conf, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz49, align 8
   %call51 = call i32 @je_mallctl(ptr noundef nonnull @.str.50, ptr noundef nonnull %bv, ptr noundef nonnull %sz49, ptr noundef null, i64 noundef 0) #13
   %cmp52.not = icmp eq i32 %call51, 0
@@ -915,7 +915,7 @@ if.then53:                                        ; preds = %do.end45
   unreachable
 
 do.end56:                                         ; preds = %do.end45
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz60, align 8
   %call62 = call i32 @je_mallctl(ptr noundef nonnull @.str.52, ptr noundef nonnull %bv, ptr noundef nonnull %sz60, ptr noundef null, i64 noundef 0) #13
   %cmp63.not = icmp eq i32 %call62, 0
@@ -927,7 +927,7 @@ if.then64:                                        ; preds = %do.end56
   unreachable
 
 do.end67:                                         ; preds = %do.end56
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.52, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.52, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz71, align 8
   %call73 = call i32 @je_mallctl(ptr noundef nonnull @.str.53, ptr noundef nonnull %bv, ptr noundef nonnull %sz71, ptr noundef null, i64 noundef 0) #13
   %cmp74.not = icmp eq i32 %call73, 0
@@ -939,7 +939,7 @@ if.then75:                                        ; preds = %do.end67
   unreachable
 
 do.end78:                                         ; preds = %do.end67
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz82, align 8
   %call84 = call i32 @je_mallctl(ptr noundef nonnull @.str.55, ptr noundef nonnull %bv, ptr noundef nonnull %sz82, ptr noundef null, i64 noundef 0) #13
   %cmp85.not = icmp eq i32 %call84, 0
@@ -951,7 +951,7 @@ if.then86:                                        ; preds = %do.end78
   unreachable
 
 do.end89:                                         ; preds = %do.end78
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.55, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.55, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz93, align 8
   %call95 = call i32 @je_mallctl(ptr noundef nonnull @.str.57, ptr noundef nonnull %bv, ptr noundef nonnull %sz93, ptr noundef null, i64 noundef 0) #13
   %cmp96.not = icmp eq i32 %call95, 0
@@ -963,7 +963,7 @@ if.then97:                                        ; preds = %do.end89
   unreachable
 
 do.end100:                                        ; preds = %do.end89
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.57, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.57, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz104, align 8
   %call106 = call i32 @je_mallctl(ptr noundef nonnull @.str.59, ptr noundef nonnull %bv, ptr noundef nonnull %sz104, ptr noundef null, i64 noundef 0) #13
   %cmp107.not = icmp eq i32 %call106, 0
@@ -975,7 +975,7 @@ if.then108:                                       ; preds = %do.end100
   unreachable
 
 do.end111:                                        ; preds = %do.end100
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.59, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.59, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 1, ptr %sz115, align 8
   %call117 = call i32 @je_mallctl(ptr noundef nonnull @.str.61, ptr noundef nonnull %bv, ptr noundef nonnull %sz115, ptr noundef null, i64 noundef 0) #13
   %cmp118.not = icmp eq i32 %call117, 0
@@ -987,7 +987,7 @@ if.then119:                                       ; preds = %do.end111
   unreachable
 
 do.end122:                                        ; preds = %do.end111
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   %emitter.val.i137 = load i32, ptr %emitter, align 8
   %spec.select.i.i138 = icmp ult i32 %emitter.val.i137, 2
   br i1 %spec.select.i.i138, label %do.end.i.i, label %if.else.i139
@@ -1003,7 +1003,7 @@ do.end.i.i:                                       ; preds = %do.end122
   br i1 %cmp.not.i.i, label %emitter_dict_end.exit, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %do.end.i.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %3 = load i32, ptr %nesting_depth.i.i.i142, align 8
   %4 = load i32, ptr %emitter, align 8
   %cmp.i.i.i = icmp ne i32 %4, 0
@@ -1018,7 +1018,7 @@ for.body.preheader.i.i.i145:                      ; preds = %if.then1.i.i
 
 for.body.i.i.i147:                                ; preds = %for.body.i.i.i147, %for.body.preheader.i.i.i145
   %i.06.i.i.i148 = phi i32 [ %inc.i.i.i149, %for.body.i.i.i147 ], [ 0, %for.body.preheader.i.i.i145 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
   %inc.i.i.i149 = add nuw nsw i32 %i.06.i.i.i148, 1
   %exitcond.not.i.i.i150 = icmp eq i32 %inc.i.i.i149, %amount.0.i.i.i146
   br i1 %exitcond.not.i.i.i150, label %emitter_dict_end.exit, label %for.body.i.i.i147, !llvm.loop !7
@@ -1037,14 +1037,14 @@ if.else.i153.thread:                              ; preds = %if.else.i139
   br label %if.then.i.i155
 
 emitter_dict_end.exit:                            ; preds = %for.body.i.i.i147, %do.end.i.i, %if.then1.i.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   %emitter.val.i151.pr.pre = load i32, ptr %emitter, align 8
   %spec.select.i.i152 = icmp ult i32 %emitter.val.i151.pr.pre, 2
   br i1 %spec.select.i.i152, label %if.then.i167, label %if.else.i153
 
 if.then.i167:                                     ; preds = %emitter_dict_end.exit
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.63)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.63)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   br label %emitter_dict_begin.exit168
 
 if.else.i153:                                     ; preds = %emitter_dict_end.exit
@@ -1063,13 +1063,13 @@ for.body.preheader.i.i.i161:                      ; preds = %if.then.i.i155
 
 for.body.i.i.i163:                                ; preds = %for.body.i.i.i163, %for.body.preheader.i.i.i161
   %i.06.i.i.i164 = phi i32 [ %inc.i.i.i165, %for.body.i.i.i163 ], [ 0, %for.body.preheader.i.i.i161 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31)
   %inc.i.i.i165 = add nuw nsw i32 %i.06.i.i.i164, 1
   %exitcond.not.i.i.i166 = icmp eq i32 %inc.i.i.i165, %amount.0.i.i.i162
   br i1 %exitcond.not.i.i.i166, label %emitter_indent.exit.i.i158, label %for.body.i.i.i163, !llvm.loop !7
 
 emitter_indent.exit.i.i158:                       ; preds = %for.body.i.i.i163, %if.then.i.i155
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.64)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.64)
   %7 = load i32, ptr %nesting_depth.i.i.i156, align 8
   %inc.i5.i.i159 = add nsw i32 %7, 1
   store i32 %inc.i5.i.i159, ptr %nesting_depth.i.i.i156, align 8
@@ -1083,7 +1083,7 @@ emitter_dict_begin.exit168:                       ; preds = %if.else.i139, %if.t
   br i1 %cmp125, label %if.then126, label %if.end127
 
 if.then126:                                       ; preds = %emitter_dict_begin.exit168
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.65, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.65, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end127
 
 if.end127:                                        ; preds = %if.then126, %emitter_dict_begin.exit168
@@ -1092,7 +1092,7 @@ if.end127:                                        ; preds = %if.then126, %emitte
   br i1 %cmp129, label %if.then130, label %if.end131
 
 if.then130:                                       ; preds = %if.end127
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.67, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.67, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then130, %if.end127
@@ -1101,7 +1101,7 @@ if.end131:                                        ; preds = %if.then130, %if.end
   br i1 %cmp133, label %if.then134, label %if.end135
 
 if.then134:                                       ; preds = %if.end131
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.69, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.69, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then134, %if.end131
@@ -1110,7 +1110,7 @@ if.end135:                                        ; preds = %if.then134, %if.end
   br i1 %cmp137, label %if.then138, label %if.end139
 
 if.then138:                                       ; preds = %if.end135
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.70, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.70, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then138, %if.end135
@@ -1119,7 +1119,7 @@ if.end139:                                        ; preds = %if.then138, %if.end
   br i1 %cmp141, label %if.then142, label %if.end143
 
 if.then142:                                       ; preds = %if.end139
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.72, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.72, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then142, %if.end139
@@ -1128,7 +1128,7 @@ if.end143:                                        ; preds = %if.then142, %if.end
   br i1 %cmp145, label %if.then146, label %if.end147
 
 if.then146:                                       ; preds = %if.end143
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then146, %if.end143
@@ -1137,7 +1137,7 @@ if.end147:                                        ; preds = %if.then146, %if.end
   br i1 %cmp149, label %if.then150, label %if.end151
 
 if.then150:                                       ; preds = %if.end147
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then150, %if.end147
@@ -1146,7 +1146,7 @@ if.end151:                                        ; preds = %if.then150, %if.end
   br i1 %cmp153, label %if.then154, label %if.end155
 
 if.then154:                                       ; preds = %if.end151
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.78, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.78, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then154, %if.end151
@@ -1155,7 +1155,7 @@ if.end155:                                        ; preds = %if.then154, %if.end
   br i1 %cmp157, label %if.then158, label %if.end159
 
 if.then158:                                       ; preds = %if.end155
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.80, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.80, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then158, %if.end155
@@ -1164,7 +1164,7 @@ if.end159:                                        ; preds = %if.then158, %if.end
   br i1 %cmp161, label %if.then162, label %if.end163
 
 if.then162:                                       ; preds = %if.end159
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.82, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.82, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end163
 
 if.end163:                                        ; preds = %if.then162, %if.end159
@@ -1173,7 +1173,7 @@ if.end163:                                        ; preds = %if.then162, %if.end
   br i1 %cmp165, label %if.then166, label %if.end167
 
 if.then166:                                       ; preds = %if.end163
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.84, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.84, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end167
 
 if.end167:                                        ; preds = %if.then166, %if.end163
@@ -1182,7 +1182,7 @@ if.end167:                                        ; preds = %if.then166, %if.end
   br i1 %cmp169, label %if.then170, label %if.end171
 
 if.then170:                                       ; preds = %if.end167
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.86, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.86, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then170, %if.end167
@@ -1191,7 +1191,7 @@ if.end171:                                        ; preds = %if.then170, %if.end
   br i1 %cmp173, label %if.then174, label %if.end175
 
 if.then174:                                       ; preds = %if.end171
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.88, i32 noundef 5, ptr noundef nonnull readonly %u64v, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.88, i32 noundef 5, ptr noundef nonnull readonly %u64v, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then174, %if.end171
@@ -1200,7 +1200,7 @@ if.end175:                                        ; preds = %if.then174, %if.end
   br i1 %cmp177, label %if.then178, label %if.end179
 
 if.then178:                                       ; preds = %if.end175
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.90, i32 noundef 5, ptr noundef nonnull readonly %u64v, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.90, i32 noundef 5, ptr noundef nonnull readonly %u64v, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end179
 
 if.end179:                                        ; preds = %if.then178, %if.end175
@@ -1224,7 +1224,7 @@ if.else:                                          ; preds = %if.then182
 
 if.end187.sink.split:                             ; preds = %if.else, %if.then184
   %neg1.sink = phi ptr [ %neg1, %if.then184 ], [ %bufp, %if.else ]
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.92, i32 noundef 8, ptr noundef nonnull readonly %neg1.sink, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.92, i32 noundef 8, ptr noundef nonnull readonly %neg1.sink, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end187.sink.split, %if.end179
@@ -1233,7 +1233,7 @@ if.end187:                                        ; preds = %if.end187.sink.spli
   br i1 %cmp189, label %if.then190, label %if.end191
 
 if.then190:                                       ; preds = %if.end187
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.95, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.95, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end191
 
 if.end191:                                        ; preds = %if.then190, %if.end187
@@ -1242,7 +1242,7 @@ if.end191:                                        ; preds = %if.then190, %if.end
   br i1 %cmp193, label %if.then194, label %if.end195
 
 if.then194:                                       ; preds = %if.end191
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.97, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.97, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end195
 
 if.end195:                                        ; preds = %if.then194, %if.end191
@@ -1251,7 +1251,7 @@ if.end195:                                        ; preds = %if.then194, %if.end
   br i1 %cmp197, label %if.then198, label %if.end199
 
 if.then198:                                       ; preds = %if.end195
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.99, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.99, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end199
 
 if.end199:                                        ; preds = %if.then198, %if.end195
@@ -1260,7 +1260,7 @@ if.end199:                                        ; preds = %if.then198, %if.end
   br i1 %cmp201, label %if.then202, label %if.end203
 
 if.then202:                                       ; preds = %if.end199
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.101, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.101, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end203
 
 if.end203:                                        ; preds = %if.then202, %if.end199
@@ -1269,7 +1269,7 @@ if.end203:                                        ; preds = %if.then202, %if.end
   br i1 %cmp205, label %if.then206, label %if.end207
 
 if.then206:                                       ; preds = %if.end203
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.103, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.103, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end207
 
 if.end207:                                        ; preds = %if.then206, %if.end203
@@ -1278,7 +1278,7 @@ if.end207:                                        ; preds = %if.then206, %if.end
   br i1 %cmp209, label %if.then210, label %if.end211
 
 if.then210:                                       ; preds = %if.end207
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.105, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.105, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end211
 
 if.end211:                                        ; preds = %if.then210, %if.end207
@@ -1287,7 +1287,7 @@ if.end211:                                        ; preds = %if.then210, %if.end
   br i1 %cmp213, label %if.then214, label %if.end215
 
 if.then214:                                       ; preds = %if.end211
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.107, i32 noundef 2, ptr noundef nonnull readonly %i64v, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.107, i32 noundef 2, ptr noundef nonnull readonly %i64v, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end215
 
 if.end215:                                        ; preds = %if.then214, %if.end211
@@ -1338,7 +1338,7 @@ if.end235:                                        ; preds = %if.then234, %land.l
   br i1 %cmp237, label %if.then238, label %if.end239
 
 if.then238:                                       ; preds = %if.end235
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.116, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.116, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end239
 
 if.end239:                                        ; preds = %if.then238, %if.end235
@@ -1347,7 +1347,7 @@ if.end239:                                        ; preds = %if.then238, %if.end
   br i1 %cmp241, label %if.then242, label %if.end243
 
 if.then242:                                       ; preds = %if.end239
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then242, %if.end239
@@ -1356,7 +1356,7 @@ if.end243:                                        ; preds = %if.then242, %if.end
   br i1 %cmp245, label %if.then246, label %if.end247
 
 if.then246:                                       ; preds = %if.end243
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.120, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.120, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then246, %if.end243
@@ -1365,7 +1365,7 @@ if.end247:                                        ; preds = %if.then246, %if.end
   br i1 %cmp249, label %if.then250, label %if.end251
 
 if.then250:                                       ; preds = %if.end247
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.122, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.122, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end251
 
 if.end251:                                        ; preds = %if.then250, %if.end247
@@ -1374,7 +1374,7 @@ if.end251:                                        ; preds = %if.then250, %if.end
   br i1 %cmp253, label %if.then254, label %if.end255
 
 if.then254:                                       ; preds = %if.end251
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.123, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.123, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end255
 
 if.end255:                                        ; preds = %if.then254, %if.end251
@@ -1383,7 +1383,7 @@ if.end255:                                        ; preds = %if.then254, %if.end
   br i1 %cmp257, label %if.then258, label %if.end259
 
 if.then258:                                       ; preds = %if.end255
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.124, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.124, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end259
 
 if.end259:                                        ; preds = %if.then258, %if.end255
@@ -1392,7 +1392,7 @@ if.end259:                                        ; preds = %if.then258, %if.end
   br i1 %cmp261, label %if.then262, label %if.end263
 
 if.then262:                                       ; preds = %if.end259
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.126, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.126, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end263
 
 if.end263:                                        ; preds = %if.then262, %if.end259
@@ -1401,7 +1401,7 @@ if.end263:                                        ; preds = %if.then262, %if.end
   br i1 %cmp265, label %if.then266, label %if.end267
 
 if.then266:                                       ; preds = %if.end263
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.128, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.128, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end267
 
 if.end267:                                        ; preds = %if.then266, %if.end263
@@ -1410,7 +1410,7 @@ if.end267:                                        ; preds = %if.then266, %if.end
   br i1 %cmp269, label %if.then270, label %if.end271
 
 if.then270:                                       ; preds = %if.end267
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.130, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.130, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end271
 
 if.end271:                                        ; preds = %if.then270, %if.end267
@@ -1419,7 +1419,7 @@ if.end271:                                        ; preds = %if.then270, %if.end
   br i1 %cmp273, label %if.then274, label %if.end275
 
 if.then274:                                       ; preds = %if.end271
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.132, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.132, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end275
 
 if.end275:                                        ; preds = %if.then274, %if.end271
@@ -1428,7 +1428,7 @@ if.end275:                                        ; preds = %if.then274, %if.end
   br i1 %cmp277, label %if.then278, label %if.end279
 
 if.then278:                                       ; preds = %if.end275
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.134, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.134, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end279
 
 if.end279:                                        ; preds = %if.then278, %if.end275
@@ -1437,7 +1437,7 @@ if.end279:                                        ; preds = %if.then278, %if.end
   br i1 %cmp281, label %if.then282, label %if.end283
 
 if.then282:                                       ; preds = %if.end279
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.136, i32 noundef 7, ptr noundef nonnull readonly %ssv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.136, i32 noundef 7, ptr noundef nonnull readonly %ssv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end283
 
 if.end283:                                        ; preds = %if.then282, %if.end279
@@ -1446,7 +1446,7 @@ if.end283:                                        ; preds = %if.then282, %if.end
   br i1 %cmp285, label %if.then286, label %if.end287
 
 if.then286:                                       ; preds = %if.end283
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.138, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.138, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end287
 
 if.end287:                                        ; preds = %if.then286, %if.end283
@@ -1455,7 +1455,7 @@ if.end287:                                        ; preds = %if.then286, %if.end
   br i1 %cmp289, label %if.then290, label %if.end291
 
 if.then290:                                       ; preds = %if.end287
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.140, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.140, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end291
 
 if.end291:                                        ; preds = %if.then290, %if.end287
@@ -1464,7 +1464,7 @@ if.end291:                                        ; preds = %if.then290, %if.end
   br i1 %cmp293, label %if.then294, label %if.end295
 
 if.then294:                                       ; preds = %if.end291
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.142, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.142, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end295
 
 if.end295:                                        ; preds = %if.then294, %if.end291
@@ -1473,7 +1473,7 @@ if.end295:                                        ; preds = %if.then294, %if.end
   br i1 %cmp297, label %if.then298, label %if.end299
 
 if.then298:                                       ; preds = %if.end295
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.144, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.144, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end299
 
 if.end299:                                        ; preds = %if.then298, %if.end295
@@ -1482,7 +1482,7 @@ if.end299:                                        ; preds = %if.then298, %if.end
   br i1 %cmp301, label %if.then302, label %if.end303
 
 if.then302:                                       ; preds = %if.end299
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.146, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.146, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end303
 
 if.end303:                                        ; preds = %if.then302, %if.end299
@@ -1491,7 +1491,7 @@ if.end303:                                        ; preds = %if.then302, %if.end
   br i1 %cmp305, label %if.then306, label %if.end307
 
 if.then306:                                       ; preds = %if.end303
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.148, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.148, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end307
 
 if.end307:                                        ; preds = %if.then306, %if.end303
@@ -1500,7 +1500,7 @@ if.end307:                                        ; preds = %if.then306, %if.end
   br i1 %cmp309, label %if.then310, label %if.end311
 
 if.then310:                                       ; preds = %if.end307
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.149, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.149, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end311
 
 if.end311:                                        ; preds = %if.then310, %if.end307
@@ -1551,7 +1551,7 @@ if.end332:                                        ; preds = %if.then331, %land.l
   br i1 %cmp334, label %if.then335, label %if.end336
 
 if.then335:                                       ; preds = %if.end332
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.160, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.160, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end336
 
 if.end336:                                        ; preds = %if.then335, %if.end332
@@ -1560,7 +1560,7 @@ if.end336:                                        ; preds = %if.then335, %if.end
   br i1 %cmp338, label %if.then339, label %if.end340
 
 if.then339:                                       ; preds = %if.end336
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.162, i32 noundef 7, ptr noundef nonnull readonly %ssv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.162, i32 noundef 7, ptr noundef nonnull readonly %ssv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end340
 
 if.end340:                                        ; preds = %if.then339, %if.end336
@@ -1569,7 +1569,7 @@ if.end340:                                        ; preds = %if.then339, %if.end
   br i1 %cmp342, label %if.then343, label %if.end344
 
 if.then343:                                       ; preds = %if.end340
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.164, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.164, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end344
 
 if.end344:                                        ; preds = %if.then343, %if.end340
@@ -1578,7 +1578,7 @@ if.end344:                                        ; preds = %if.then343, %if.end
   br i1 %cmp346, label %if.then347, label %if.end348
 
 if.then347:                                       ; preds = %if.end344
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.166, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.166, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end348
 
 if.end348:                                        ; preds = %if.then347, %if.end344
@@ -1587,7 +1587,7 @@ if.end348:                                        ; preds = %if.then347, %if.end
   br i1 %cmp350, label %if.then351, label %if.end352
 
 if.then351:                                       ; preds = %if.end348
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.168, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end352
 
 if.end352:                                        ; preds = %if.then351, %if.end348
@@ -1596,7 +1596,7 @@ if.end352:                                        ; preds = %if.then351, %if.end
   br i1 %cmp354, label %if.then355, label %if.end356
 
 if.then355:                                       ; preds = %if.end352
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.170, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.170, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end356
 
 if.end356:                                        ; preds = %if.then355, %if.end352
@@ -1605,7 +1605,7 @@ if.end356:                                        ; preds = %if.then355, %if.end
   br i1 %cmp358, label %if.then359, label %if.end360
 
 if.then359:                                       ; preds = %if.end356
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end360
 
 if.end360:                                        ; preds = %if.then359, %if.end356
@@ -1614,7 +1614,7 @@ if.end360:                                        ; preds = %if.then359, %if.end
   br i1 %cmp362, label %if.then363, label %if.end364
 
 if.then363:                                       ; preds = %if.end360
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end364
 
 if.end364:                                        ; preds = %if.then363, %if.end360
@@ -1623,7 +1623,7 @@ if.end364:                                        ; preds = %if.then363, %if.end
   br i1 %cmp366, label %if.then367, label %if.end368
 
 if.then367:                                       ; preds = %if.end364
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.172, i32 noundef 0, ptr noundef nonnull readonly %bv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end368
 
 if.end368:                                        ; preds = %if.then367, %if.end364
@@ -1632,7 +1632,7 @@ if.end368:                                        ; preds = %if.then367, %if.end
   br i1 %cmp370, label %if.then371, label %if.end372
 
 if.then371:                                       ; preds = %if.end368
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end372
 
 if.end372:                                        ; preds = %if.then371, %if.end368
@@ -1641,7 +1641,7 @@ if.end372:                                        ; preds = %if.then371, %if.end
   br i1 %cmp374, label %if.then375, label %if.end376
 
 if.then375:                                       ; preds = %if.end372
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.176, i32 noundef 2, ptr noundef nonnull readonly %i64v, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.176, i32 noundef 2, ptr noundef nonnull readonly %i64v, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end376
 
 if.end376:                                        ; preds = %if.then375, %if.end372
@@ -1650,7 +1650,7 @@ if.end376:                                        ; preds = %if.then375, %if.end
   br i1 %cmp378, label %if.then379, label %if.end380
 
 if.then379:                                       ; preds = %if.end376
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.178, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.178, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end380
 
 if.end380:                                        ; preds = %if.then379, %if.end376
@@ -1659,7 +1659,7 @@ if.end380:                                        ; preds = %if.then379, %if.end
   br i1 %cmp382, label %if.then383, label %if.end384
 
 if.then383:                                       ; preds = %if.end380
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.180, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.180, i32 noundef 8, ptr noundef nonnull readonly %cpv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %if.end384
 
 if.end384:                                        ; preds = %if.then383, %if.end380
@@ -1678,7 +1678,7 @@ do.end.i.i177:                                    ; preds = %if.end384
   br i1 %cmp.not.i.i181, label %emitter_json_object_end.exit.i186, label %if.then1.i.i182
 
 if.then1.i.i182:                                  ; preds = %do.end.i.i177
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %10 = load i32, ptr %nesting_depth.i.i.i178, align 8
   %11 = load i32, ptr %emitter, align 8
   %cmp.i.i.i183 = icmp ne i32 %11, 0
@@ -1693,13 +1693,13 @@ for.body.preheader.i.i.i187:                      ; preds = %if.then1.i.i182
 
 for.body.i.i.i190:                                ; preds = %for.body.i.i.i190, %for.body.preheader.i.i.i187
   %i.06.i.i.i191 = phi i32 [ %inc.i.i.i192, %for.body.i.i.i190 ], [ 0, %for.body.preheader.i.i.i187 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i184)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i184)
   %inc.i.i.i192 = add nuw nsw i32 %i.06.i.i.i191, 1
   %exitcond.not.i.i.i193 = icmp eq i32 %inc.i.i.i192, %amount.0.i.i.i189
   br i1 %exitcond.not.i.i.i193, label %emitter_json_object_end.exit.i186, label %for.body.i.i.i190, !llvm.loop !7
 
 emitter_json_object_end.exit.i186:                ; preds = %for.body.i.i.i190, %if.then1.i.i182, %do.end.i.i177
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_dict_end.exit194
 
 if.else.i171:                                     ; preds = %if.end384
@@ -1716,8 +1716,8 @@ if.then.i.i173:                                   ; preds = %if.else.i171
   br label %emitter_dict_end.exit194
 
 emitter_dict_end.exit194:                         ; preds = %emitter_json_object_end.exit.i186, %if.else.i171, %if.then.i.i173
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.182)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.182)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   store i64 4, ptr %sz386, align 8
   %call388 = call i32 @je_mallctl(ptr noundef nonnull @.str.183, ptr noundef nonnull %uv, ptr noundef nonnull %sz386, ptr noundef null, i64 noundef 0) #13
   %cmp389.not = icmp eq i32 %call388, 0
@@ -1729,7 +1729,7 @@ if.then390:                                       ; preds = %emitter_dict_end.ex
   unreachable
 
 do.end393:                                        ; preds = %emitter_dict_end.exit194
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.184, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.184, i32 noundef 3, ptr noundef nonnull readonly %uv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 8, ptr %sz395, align 8
   %call397 = call i32 @je_mallctl(ptr noundef nonnull @.str.111, ptr noundef nonnull %ssv, ptr noundef nonnull %sz395, ptr noundef null, i64 noundef 0) #13
   %cmp398.not = icmp eq i32 %call397, 0
@@ -1741,8 +1741,8 @@ if.then399:                                       ; preds = %do.end393
   unreachable
 
 do.end402:                                        ; preds = %do.end393
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.112)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 7, ptr noundef nonnull readonly %ssv)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.112)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 7, ptr noundef nonnull readonly %ssv)
   store i64 8, ptr %sz404, align 8
   %call406 = call i32 @je_mallctl(ptr noundef nonnull @.str.114, ptr noundef nonnull %ssv, ptr noundef nonnull %sz404, ptr noundef null, i64 noundef 0) #13
   %cmp407.not = icmp eq i32 %call406, 0
@@ -1754,8 +1754,8 @@ if.then408:                                       ; preds = %do.end402
   unreachable
 
 do.end411:                                        ; preds = %do.end402
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.115)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 7, ptr noundef nonnull readonly %ssv)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.115)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 7, ptr noundef nonnull readonly %ssv)
   store i64 8, ptr %sz413, align 8
   %call415 = call i32 @je_mallctl(ptr noundef nonnull @.str.185, ptr noundef nonnull %sv, ptr noundef nonnull %sz413, ptr noundef null, i64 noundef 0) #13
   %cmp416.not = icmp eq i32 %call415, 0
@@ -1767,7 +1767,7 @@ if.then417:                                       ; preds = %do.end411
   unreachable
 
 do.end420:                                        ; preds = %do.end411
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.187, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.187, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 8, ptr %sz422, align 8
   %call424 = call i32 @je_mallctl(ptr noundef nonnull @.str.188, ptr noundef nonnull %sv, ptr noundef nonnull %sz422, ptr noundef null, i64 noundef 0) #13
   %cmp425.not = icmp eq i32 %call424, 0
@@ -1779,13 +1779,13 @@ if.then426:                                       ; preds = %do.end420
   unreachable
 
 do.end429:                                        ; preds = %do.end420
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   %call430 = call i32 @je_mallctl(ptr noundef nonnull @.str.191, ptr noundef nonnull %sv, ptr noundef nonnull %ssz, ptr noundef null, i64 noundef 0) #13
   %cmp431 = icmp eq i32 %call430, 0
   br i1 %cmp431, label %if.then432, label %do.body434
 
 if.then432:                                       ; preds = %do.end429
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.192, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.192, i32 noundef 6, ptr noundef nonnull readonly %sv, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %do.body434
 
 do.body434:                                       ; preds = %do.end429, %if.then432
@@ -1800,7 +1800,7 @@ if.then439:                                       ; preds = %do.body434
   unreachable
 
 do.end442:                                        ; preds = %do.body434
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.195, i32 noundef 3, ptr noundef nonnull readonly %arenas_nbins, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.195, i32 noundef 3, ptr noundef nonnull readonly %arenas_nbins, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 4, ptr %sz444, align 8
   %call446 = call i32 @je_mallctl(ptr noundef nonnull @.str.196, ptr noundef nonnull %arenas_nhbins, ptr noundef nonnull %sz444, ptr noundef null, i64 noundef 0) #13
   %cmp447.not = icmp eq i32 %call446, 0
@@ -1812,7 +1812,7 @@ if.then448:                                       ; preds = %do.end442
   unreachable
 
 do.end451:                                        ; preds = %do.end442
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.198, i32 noundef 3, ptr noundef nonnull readonly %arenas_nhbins, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.198, i32 noundef 3, ptr noundef nonnull readonly %arenas_nhbins, ptr noundef null, i32 noundef 0, ptr noundef null)
   %emitter.val = load i32, ptr %emitter, align 8
   %spec.select.i = icmp ult i32 %emitter.val, 2
   br i1 %spec.select.i, label %if.then453, label %do.body538
@@ -1878,8 +1878,8 @@ if.then480:                                       ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end485:                                        ; preds = %tsd_fetch_impl.exit624
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.202)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.202)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
   store i64 7, ptr %miblen_new489, align 8
   store i64 4, ptr %sz490, align 8
   %17 = load i8, ptr %state.i769, align 8
@@ -1902,8 +1902,8 @@ if.then497:                                       ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end502:                                        ; preds = %tsd_fetch_impl.exit648
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.204)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 4, ptr noundef nonnull readonly %u32v)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.204)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 4, ptr noundef nonnull readonly %u32v)
   store i64 7, ptr %miblen_new506, align 8
   store i64 8, ptr %sz507, align 8
   %18 = load i8, ptr %state.i769, align 8
@@ -1926,8 +1926,8 @@ if.then514:                                       ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end519:                                        ; preds = %tsd_fetch_impl.exit672
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.205)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.205)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
   store i64 7, ptr %miblen_new523, align 8
   store i64 4, ptr %sz524, align 8
   %19 = load i8, ptr %state.i769, align 8
@@ -1950,8 +1950,8 @@ if.then531:                                       ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end536:                                        ; preds = %tsd_fetch_impl.exit696
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.206)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 4, ptr noundef nonnull readonly %u32v)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.206)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 4, ptr noundef nonnull readonly %u32v)
   %emitter.val.i195 = load i32, ptr %emitter, align 8
   %spec.select.i.i196 = icmp ult i32 %emitter.val.i195, 2
   br i1 %spec.select.i.i196, label %do.end.i, label %emitter_json_object_end.exit
@@ -1965,7 +1965,7 @@ do.end.i:                                         ; preds = %do.end536
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %21 = load i32, ptr %nesting_depth.i.i, align 8
   %22 = load i32, ptr %emitter, align 8
   %cmp.i.i197 = icmp ne i32 %22, 0
@@ -1980,13 +1980,13 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.then1.i, %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %do.end536, %if.end.i
@@ -2012,7 +2012,7 @@ do.end.i200:                                      ; preds = %for.end
   br i1 %cmp.not.i204, label %if.end.i209, label %if.then1.i205
 
 if.then1.i205:                                    ; preds = %do.end.i200
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %26 = load i32, ptr %nesting_depth.i.i201, align 8
   %27 = load i32, ptr %emitter, align 8
   %cmp.i.i206 = icmp ne i32 %27, 0
@@ -2027,13 +2027,13 @@ for.body.preheader.i.i210:                        ; preds = %if.then1.i205
 
 for.body.i.i213:                                  ; preds = %for.body.i.i213, %for.body.preheader.i.i210
   %i.06.i.i214 = phi i32 [ %inc.i.i215, %for.body.i.i213 ], [ 0, %for.body.preheader.i.i210 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i207)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i207)
   %inc.i.i215 = add nuw nsw i32 %i.06.i.i214, 1
   %exitcond.not.i.i216 = icmp eq i32 %inc.i.i215, %amount.0.i.i212
   br i1 %exitcond.not.i.i216, label %if.end.i209, label %for.body.i.i213, !llvm.loop !7
 
 if.end.i209:                                      ; preds = %for.body.i.i213, %if.then1.i205, %do.end.i200
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.229)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %do.body538
 
 do.body538:                                       ; preds = %if.end.i209, %for.end, %do.end451
@@ -2048,7 +2048,7 @@ if.then544:                                       ; preds = %do.body538
   unreachable
 
 do.end547:                                        ; preds = %do.body538
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.209, i32 noundef 3, ptr noundef nonnull readonly %nlextents, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.209, i32 noundef 3, ptr noundef nonnull readonly %nlextents, ptr noundef null, i32 noundef 0, ptr noundef null)
   %emitter.val136 = load i32, ptr %emitter, align 8
   %spec.select.i217 = icmp ult i32 %emitter.val136, 2
   br i1 %spec.select.i217, label %if.then549, label %emitter_json_object_end.exit277
@@ -2114,8 +2114,8 @@ if.then584:                                       ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end589:                                        ; preds = %tsd_fetch_impl.exit744
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.202)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.202)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %sv)
   %emitter.val.i218 = load i32, ptr %emitter, align 8
   %spec.select.i.i219 = icmp ult i32 %emitter.val.i218, 2
   br i1 %spec.select.i.i219, label %do.end.i220, label %emitter_json_object_end.exit237
@@ -2129,7 +2129,7 @@ do.end.i220:                                      ; preds = %do.end589
   br i1 %cmp.not.i224, label %if.end.i229, label %if.then1.i225
 
 if.then1.i225:                                    ; preds = %do.end.i220
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %33 = load i32, ptr %nesting_depth.i.i221, align 8
   %34 = load i32, ptr %emitter, align 8
   %cmp.i.i226 = icmp ne i32 %34, 0
@@ -2144,13 +2144,13 @@ for.body.preheader.i.i230:                        ; preds = %if.then1.i225
 
 for.body.i.i233:                                  ; preds = %for.body.i.i233, %for.body.preheader.i.i230
   %i.06.i.i234 = phi i32 [ %inc.i.i235, %for.body.i.i233 ], [ 0, %for.body.preheader.i.i230 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i227)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i227)
   %inc.i.i235 = add nuw nsw i32 %i.06.i.i234, 1
   %exitcond.not.i.i236 = icmp eq i32 %inc.i.i235, %amount.0.i.i232
   br i1 %exitcond.not.i.i236, label %if.end.i229, label %for.body.i.i233, !llvm.loop !7
 
 if.end.i229:                                      ; preds = %for.body.i.i233, %if.then1.i225, %do.end.i220
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit237
 
 emitter_json_object_end.exit237:                  ; preds = %do.end589, %if.end.i229
@@ -2176,7 +2176,7 @@ do.end.i240:                                      ; preds = %for.end592
   br i1 %cmp.not.i244, label %if.end593, label %if.then1.i245
 
 if.then1.i245:                                    ; preds = %do.end.i240
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %38 = load i32, ptr %nesting_depth.i.i241, align 8
   %39 = load i32, ptr %emitter, align 8
   %cmp.i.i246 = icmp ne i32 %39, 0
@@ -2191,13 +2191,13 @@ for.body.preheader.i.i250:                        ; preds = %if.then1.i245
 
 for.body.i.i253:                                  ; preds = %for.body.i.i253, %for.body.preheader.i.i250
   %i.06.i.i254 = phi i32 [ %inc.i.i255, %for.body.i.i253 ], [ 0, %for.body.preheader.i.i250 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i247)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i247)
   %inc.i.i255 = add nuw nsw i32 %i.06.i.i254, 1
   %exitcond.not.i.i256 = icmp eq i32 %inc.i.i255, %amount.0.i.i252
   br i1 %exitcond.not.i.i256, label %if.end593, label %for.body.i.i253, !llvm.loop !7
 
 if.end593:                                        ; preds = %for.body.i.i253, %do.end.i240, %if.then1.i245
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.229)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   %emitter.val.i258.pr = load i32, ptr %emitter, align 8
   %spec.select.i.i259 = icmp ult i32 %emitter.val.i258.pr, 2
   br i1 %spec.select.i.i259, label %do.end.i260, label %emitter_json_object_end.exit277
@@ -2211,7 +2211,7 @@ do.end.i260:                                      ; preds = %if.end593
   br i1 %cmp.not.i264, label %if.end.i269, label %if.then1.i265
 
 if.then1.i265:                                    ; preds = %do.end.i260
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %41 = load i32, ptr %nesting_depth.i.i241, align 8
   %42 = load i32, ptr %emitter, align 8
   %cmp.i.i266 = icmp ne i32 %42, 0
@@ -2226,13 +2226,13 @@ for.body.preheader.i.i270:                        ; preds = %if.then1.i265
 
 for.body.i.i273:                                  ; preds = %for.body.i.i273, %for.body.preheader.i.i270
   %i.06.i.i274 = phi i32 [ %inc.i.i275, %for.body.i.i273 ], [ 0, %for.body.preheader.i.i270 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i267)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i267)
   %inc.i.i275 = add nuw nsw i32 %i.06.i.i274, 1
   %exitcond.not.i.i276 = icmp eq i32 %inc.i.i275, %amount.0.i.i272
   br i1 %exitcond.not.i.i276, label %if.end.i269, label %for.body.i.i273, !llvm.loop !7
 
 if.end.i269:                                      ; preds = %for.body.i.i273, %if.then1.i265, %do.end.i260
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit277
 
 emitter_json_object_end.exit277:                  ; preds = %do.end547, %for.end592, %if.end593, %if.end.i269
@@ -2417,24 +2417,24 @@ if.then96:                                        ; preds = %do.body91
   unreachable
 
 do.end99:                                         ; preds = %do.body91
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.58)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.241)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %allocated)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.242)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %active)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.243)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.106)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_thp)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.244)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %resident)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.245)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %mapped)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.246)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.247)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %zero_reallocs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.58)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.241)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %allocated)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.242)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %active)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.243)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.106)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_thp)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.244)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %resident)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.245)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %mapped)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.246)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.247)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %zero_reallocs)
   %0 = load i64, ptr %allocated, align 8
   %1 = load i64, ptr %active, align 8
   %2 = load i64, ptr %metadata, align 8
@@ -2445,14 +2445,14 @@ do.end99:                                         ; preds = %do.body91
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.248, i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6)
   %7 = load i64, ptr %zero_reallocs, align 8
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.249, i64 noundef %7)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.250)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %num_background_threads)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.251)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %background_thread_num_runs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.252)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %background_thread_run_interval)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.250)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %num_background_threads)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.251)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %background_thread_num_runs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.252)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %background_thread_run_interval)
   %emitter.val.i = load i32, ptr %emitter, align 8
   %spec.select.i.i = icmp ult i32 %emitter.val.i, 2
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
@@ -2468,7 +2468,7 @@ do.end.i:                                         ; preds = %do.end99
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %9 = load i32, ptr %nesting_depth.i.i, align 8
   %10 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %10, 0
@@ -2483,13 +2483,13 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.then1.i, %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %do.end99, %if.end.i
@@ -2519,7 +2519,7 @@ for.body.i:                                       ; preds = %if.end.i74, %for.bo
   %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %18 = load i32, ptr %type.i, align 8
   %19 = getelementptr inbounds i8, ptr %col.011.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull %19)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull %19)
   %link.i = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %20 = load ptr, ptr %link.i, align 8
   %21 = load ptr, ptr %row, align 8
@@ -2529,12 +2529,12 @@ for.body.i:                                       ; preds = %if.end.i74, %for.bo
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i74
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit
 
 emitter_table_row.exit:                           ; preds = %if.then100, %for.end.i
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.254)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.254)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   store i64 7, ptr %miblen, align 8
   store i64 8, ptr %sz103, align 8
   %call106 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.255, ptr noundef nonnull %mib, ptr noundef nonnull %miblen) #13
@@ -2922,8 +2922,8 @@ mutex_stats_read_global.exit:                     ; preds = %tsd_fetch_impl.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new136.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz137.i)
   %53 = load ptr, ptr %arrayidx135, align 8
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef %53)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef %53)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call fastcc void @mutex_stats_emit(ptr noundef %emitter, ptr noundef nonnull %row, ptr noundef %col64, ptr noundef %col32)
   %emitter.val.i78 = load i32, ptr %emitter, align 8
   %spec.select.i.i79 = icmp ult i32 %emitter.val.i78, 2
@@ -2938,7 +2938,7 @@ do.end.i80:                                       ; preds = %mutex_stats_read_gl
   br i1 %cmp.not.i84, label %if.end.i89, label %if.then1.i85
 
 if.then1.i85:                                     ; preds = %do.end.i80
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %55 = load i32, ptr %nesting_depth.i.i81, align 8
   %56 = load i32, ptr %emitter, align 8
   %cmp.i.i86 = icmp ne i32 %56, 0
@@ -2953,13 +2953,13 @@ for.body.preheader.i.i90:                         ; preds = %if.then1.i85
 
 for.body.i.i93:                                   ; preds = %for.body.i.i93, %for.body.preheader.i.i90
   %i.06.i.i94 = phi i32 [ %inc.i.i95, %for.body.i.i93 ], [ 0, %for.body.preheader.i.i90 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i87)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i87)
   %inc.i.i95 = add nuw nsw i32 %i.06.i.i94, 1
   %exitcond.not.i.i96 = icmp eq i32 %inc.i.i95, %amount.0.i.i92
   br i1 %exitcond.not.i.i96, label %if.end.i89, label %for.body.i.i93, !llvm.loop !7
 
 if.end.i89:                                       ; preds = %for.body.i.i93, %if.then1.i85, %do.end.i80
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit97
 
 emitter_json_object_end.exit97:                   ; preds = %mutex_stats_read_global.exit, %if.end.i89
@@ -2981,7 +2981,7 @@ do.end.i100:                                      ; preds = %for.end
   br i1 %cmp.not.i104, label %if.end.i109, label %if.then1.i105
 
 if.then1.i105:                                    ; preds = %do.end.i100
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %58 = load i32, ptr %nesting_depth.i.i81, align 8
   %59 = load i32, ptr %emitter, align 8
   %cmp.i.i106 = icmp ne i32 %59, 0
@@ -2996,13 +2996,13 @@ for.body.preheader.i.i110:                        ; preds = %if.then1.i105
 
 for.body.i.i113:                                  ; preds = %for.body.i.i113, %for.body.preheader.i.i110
   %i.06.i.i114 = phi i32 [ %inc.i.i115, %for.body.i.i113 ], [ 0, %for.body.preheader.i.i110 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i107)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i107)
   %inc.i.i115 = add nuw nsw i32 %i.06.i.i114, 1
   %exitcond.not.i.i116 = icmp eq i32 %inc.i.i115, %amount.0.i.i112
   br i1 %exitcond.not.i.i116, label %if.end.i109, label %for.body.i.i113, !llvm.loop !7
 
 if.end.i109:                                      ; preds = %for.body.i.i113, %if.then1.i105, %do.end.i100
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %if.end142
 
 if.end142:                                        ; preds = %if.end.i109, %emitter_json_object_end.exit
@@ -3021,7 +3021,7 @@ do.end.i120:                                      ; preds = %if.end142
   br i1 %cmp.not.i124, label %if.end.i129, label %if.then1.i125
 
 if.then1.i125:                                    ; preds = %do.end.i120
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %61 = load i32, ptr %nesting_depth.i.i121, align 8
   %62 = load i32, ptr %emitter, align 8
   %cmp.i.i126 = icmp ne i32 %62, 0
@@ -3036,13 +3036,13 @@ for.body.preheader.i.i130:                        ; preds = %if.then1.i125
 
 for.body.i.i133:                                  ; preds = %for.body.i.i133, %for.body.preheader.i.i130
   %i.06.i.i134 = phi i32 [ %inc.i.i135, %for.body.i.i133 ], [ 0, %for.body.preheader.i.i130 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i127)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i127)
   %inc.i.i135 = add nuw nsw i32 %i.06.i.i134, 1
   %exitcond.not.i.i136 = icmp eq i32 %inc.i.i135, %amount.0.i.i132
   br i1 %exitcond.not.i.i136, label %if.end.i129, label %for.body.i.i133, !llvm.loop !7
 
 if.end.i129:                                      ; preds = %for.body.i.i133, %if.then1.i125, %do.end.i120
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit137
 
 emitter_json_object_end.exit137:                  ; preds = %for.end, %if.end142, %if.end.i129
@@ -3051,8 +3051,8 @@ emitter_json_object_end.exit137:                  ; preds = %for.end, %if.end142
   br i1 %brmerge70, label %if.then147, label %if.end251
 
 if.then147:                                       ; preds = %emitter_json_object_end.exit137
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.259)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.259)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   store i64 4, ptr %sz149, align 8
   %call151 = call i32 @je_mallctl(ptr noundef nonnull @.str.183, ptr noundef nonnull %narenas, ptr noundef nonnull %sz149, ptr noundef null, i64 noundef 0) #13
   %cmp152.not = icmp eq i32 %call151, 0
@@ -3141,8 +3141,8 @@ do.end201:                                        ; preds = %for.end191
 
 if.then208:                                       ; preds = %do.end201
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.261)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.262)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.262)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef 4096, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
   call fastcc void @emitter_json_object_end(ptr noundef %emitter)
   br label %if.end214
@@ -3155,8 +3155,8 @@ if.end214:                                        ; preds = %if.then208, %do.end
 
 if.then220:                                       ; preds = %if.end214
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.263)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.264)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.264)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef 4097, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
   %emitter.val.i138 = load i32, ptr %emitter, align 8
   %spec.select.i.i139 = icmp ult i32 %emitter.val.i138, 2
@@ -3173,7 +3173,7 @@ do.end.i140:                                      ; preds = %if.then220
   br i1 %cmp.not.i144, label %if.end.i149, label %if.then1.i145
 
 if.then1.i145:                                    ; preds = %do.end.i140
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %76 = load i32, ptr %nesting_depth.i.i141, align 8
   %77 = load i32, ptr %emitter, align 8
   %cmp.i.i146 = icmp ne i32 %77, 0
@@ -3188,13 +3188,13 @@ for.body.preheader.i.i150:                        ; preds = %if.then1.i145
 
 for.body.i.i153:                                  ; preds = %for.body.i.i153, %for.body.preheader.i.i150
   %i.06.i.i154 = phi i32 [ %inc.i.i155, %for.body.i.i153 ], [ 0, %for.body.preheader.i.i150 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i147)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i147)
   %inc.i.i155 = add nuw nsw i32 %i.06.i.i154, 1
   %exitcond.not.i.i156 = icmp eq i32 %inc.i.i155, %amount.0.i.i152
   br i1 %exitcond.not.i.i156, label %if.end.i149, label %for.body.i.i153, !llvm.loop !7
 
 if.end.i149:                                      ; preds = %for.body.i.i153, %if.then1.i145, %do.end.i140
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %if.end226
 
 if.end226:                                        ; preds = %if.end.i149, %if.then220, %if.end214
@@ -3218,8 +3218,8 @@ for.body232:                                      ; preds = %for.body232.lr.ph, 
 if.then236:                                       ; preds = %for.body232
   %80 = trunc nuw i64 %indvars.iv212 to i32
   %call238 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.217, i32 noundef %80) #13
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull %arena_ind_str)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull %arena_ind_str)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.265, ptr noundef nonnull %arena_ind_str)
   call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %80, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
   %emitter.val.i158 = load i32, ptr %emitter, align 8
@@ -3235,7 +3235,7 @@ do.end.i160:                                      ; preds = %if.then236
   br i1 %cmp.not.i164, label %if.end.i169, label %if.then1.i165
 
 if.then1.i165:                                    ; preds = %do.end.i160
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %82 = load i32, ptr %nesting_depth.i.i161, align 8
   %83 = load i32, ptr %emitter, align 8
   %cmp.i.i166 = icmp ne i32 %83, 0
@@ -3250,13 +3250,13 @@ for.body.preheader.i.i170:                        ; preds = %if.then1.i165
 
 for.body.i.i173:                                  ; preds = %for.body.i.i173, %for.body.preheader.i.i170
   %i.06.i.i174 = phi i32 [ %inc.i.i175, %for.body.i.i173 ], [ 0, %for.body.preheader.i.i170 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i167)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i167)
   %inc.i.i175 = add nuw nsw i32 %i.06.i.i174, 1
   %exitcond.not.i.i176 = icmp eq i32 %inc.i.i175, %amount.0.i.i172
   br i1 %exitcond.not.i.i176, label %if.end.i169, label %for.body.i.i173, !llvm.loop !7
 
 if.end.i169:                                      ; preds = %for.body.i.i173, %if.then1.i165, %do.end.i160
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %for.inc247
 
 for.inc247:                                       ; preds = %if.end.i169, %if.then236, %for.body232
@@ -3282,7 +3282,7 @@ do.end.i180:                                      ; preds = %if.end250
   br i1 %cmp.not.i184, label %if.end.i189, label %if.then1.i185
 
 if.then1.i185:                                    ; preds = %do.end.i180
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %87 = load i32, ptr %nesting_depth.i.i181, align 8
   %88 = load i32, ptr %emitter, align 8
   %cmp.i.i186 = icmp ne i32 %88, 0
@@ -3297,13 +3297,13 @@ for.body.preheader.i.i190:                        ; preds = %if.then1.i185
 
 for.body.i.i193:                                  ; preds = %for.body.i.i193, %for.body.preheader.i.i190
   %i.06.i.i194 = phi i32 [ %inc.i.i195, %for.body.i.i193 ], [ 0, %for.body.preheader.i.i190 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i187)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i187)
   %inc.i.i195 = add nuw nsw i32 %i.06.i.i194, 1
   %exitcond.not.i.i196 = icmp eq i32 %inc.i.i195, %amount.0.i.i192
   br i1 %exitcond.not.i.i196, label %if.end.i189, label %for.body.i.i193, !llvm.loop !7
 
 if.end.i189:                                      ; preds = %for.body.i.i193, %if.then1.i185, %do.end.i180
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit197
 
 emitter_json_object_end.exit197:                  ; preds = %if.end250, %if.end.i189
@@ -3347,7 +3347,7 @@ for.body.preheader.i:                             ; preds = %if.then1
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %i.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i)
   %inc.i = add nuw nsw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %amount.0.i
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
@@ -3512,7 +3512,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.32)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.32)
   %.pre = load i32, ptr %emitter, align 8
   br label %if.end4.i
 
@@ -3522,7 +3522,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp.not.i, label %emitter_json_key_prefix.exit.thread, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
@@ -3538,7 +3538,7 @@ for.body.preheader.i.i:                           ; preds = %if.then5.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_json_key_prefix.exit.loopexit, label %for.body.i.i, !llvm.loop !7
@@ -3590,7 +3590,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.32)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.32)
   %.pre = load i32, ptr %emitter, align 8
   br label %if.end4.i
 
@@ -3600,7 +3600,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp.not.i, label %emitter_json_key_prefix.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
@@ -3616,7 +3616,7 @@ for.body.preheader.i.i:                           ; preds = %if.then5.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_json_key_prefix.exit, label %for.body.i.i, !llvm.loop !7
@@ -3667,25 +3667,25 @@ for.body.preheader.i.i:                           ; preds = %if.then.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_indent.exit.i, label %for.body.i.i, !llvm.loop !7
 
 emitter_indent.exit.i:                            ; preds = %for.body.i.i, %if.then.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.225, ptr noundef %table_key)
-  tail call fastcc void @emitter_print_value(ptr noundef %emitter, i32 noundef 2, i32 noundef -1, i32 noundef %value_type, ptr noundef readonly %value)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.225, ptr noundef %table_key)
+  tail call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef 2, i32 noundef -1, i32 noundef range(i32 0, 9) %value_type, ptr noundef readonly %value)
   %cmp1.not.i = icmp eq ptr %table_note_key, null
   br i1 %cmp1.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %emitter_indent.exit.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.226, ptr noundef nonnull %table_note_key)
-  tail call fastcc void @emitter_print_value(ptr noundef %emitter, i32 noundef 2, i32 noundef -1, i32 noundef %table_note_value_type, ptr noundef readonly %table_note_value)
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.227)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.226, ptr noundef nonnull %table_note_key)
+  tail call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef 2, i32 noundef -1, i32 noundef range(i32 0, 8) %table_note_value_type, ptr noundef readonly %table_note_value)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.227)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2.i, %emitter_indent.exit.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.else, %if.then
@@ -3719,7 +3719,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %tobool2.i.i, label %if.then3.i.i, label %if.end4.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.32)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.32)
   %.pre.i = load i32, ptr %emitter, align 8
   br label %if.end4.i.i
 
@@ -3729,7 +3729,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br i1 %cmp.not.i.i, label %emitter_json_key_prefix.exit.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
@@ -3745,13 +3745,13 @@ for.body.preheader.i.i.i:                         ; preds = %if.then5.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
   %i.06.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
   %inc.i.i.i = add nuw nsw i32 %i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %amount.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %emitter_json_key_prefix.exit.i, label %for.body.i.i.i, !llvm.loop !7
 
 emitter_json_key_prefix.exit.i:                   ; preds = %for.body.i.i.i, %if.then5.i.i, %if.end4.i.i, %if.then.i.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.228)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.228)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
@@ -3792,7 +3792,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.32)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.32)
   %.pre = load i32, ptr %emitter, align 8
   br label %if.end4.i
 
@@ -3802,7 +3802,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp.not.i, label %emitter_json_key_prefix.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
@@ -3818,7 +3818,7 @@ for.body.preheader.i.i:                           ; preds = %if.then5.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %emitter_json_key_prefix.exit, label %for.body.i.i, !llvm.loop !7
@@ -4672,7 +4672,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %4 = load i32, ptr %type.i, align 8
   %5 = getelementptr inbounds i8, ptr %col.011.i, i64 16
-  tail call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5)
   %link.i = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %6 = load ptr, ptr %link.i, align 8
   %7 = load ptr, ptr %row, align 8
@@ -4682,31 +4682,31 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
-  tail call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  tail call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.then, %entry
   %8 = getelementptr inbounds i8, ptr %col_uint64_t, i64 16
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.274)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %8)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.274)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %8)
   %9 = getelementptr inbounds i8, ptr %col_uint64_t, i64 56
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.275)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %9)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.275)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %9)
   %10 = getelementptr inbounds i8, ptr %col_uint64_t, i64 96
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.276)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %10)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.276)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %10)
   %11 = getelementptr inbounds i8, ptr %col_uint64_t, i64 136
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.277)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %11)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.277)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %11)
   %12 = getelementptr inbounds i8, ptr %col_uint64_t, i64 176
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.278)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %12)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.278)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %12)
   %13 = getelementptr inbounds i8, ptr %col_uint64_t, i64 216
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.279)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %13)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.279)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %13)
   %14 = getelementptr inbounds i8, ptr %col_uint32_t, i64 16
-  tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.280)
-  tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 4, ptr noundef nonnull readonly %14)
+  tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.280)
+  tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 4, ptr noundef nonnull readonly %14)
   ret void
 }
 
@@ -5036,7 +5036,7 @@ if.then20:                                        ; preds = %do.end14
   unreachable
 
 do.end23:                                         ; preds = %do.end14
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.282, ptr noundef nonnull @.str.283, i32 noundef 3, ptr noundef nonnull readonly %nthreads, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.282, ptr noundef nonnull @.str.283, i32 noundef 3, ptr noundef nonnull readonly %nthreads, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 7, ptr %miblen26, align 8
   store i64 8, ptr %sz27, align 8
   %call30 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.255, ptr noundef nonnull %mib25, ptr noundef nonnull %miblen26) #13
@@ -5062,7 +5062,7 @@ if.then43:                                        ; preds = %do.end35
   unreachable
 
 do.end46:                                         ; preds = %do.end35
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.285, i32 noundef 5, ptr noundef nonnull readonly %uptime, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.285, i32 noundef 5, ptr noundef nonnull readonly %uptime, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 7, ptr %miblen49, align 8
   store i64 8, ptr %sz50, align 8
   %call53 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.286, ptr noundef nonnull %mib48, ptr noundef nonnull %miblen49) #13
@@ -5088,7 +5088,7 @@ if.then66:                                        ; preds = %do.end58
   unreachable
 
 do.end69:                                         ; preds = %do.end58
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.287, i32 noundef 8, ptr noundef nonnull readonly %dss, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.287, i32 noundef 8, ptr noundef nonnull readonly %dss, ptr noundef null, i32 noundef 0, ptr noundef null)
   store i64 7, ptr %miblen72, align 8
   store i64 8, ptr %sz73, align 8
   %call76 = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.288, ptr noundef nonnull %mib71, ptr noundef nonnull %miblen72) #13
@@ -5364,28 +5364,28 @@ if.then319:                                       ; preds = %do.end311
   unreachable
 
 emitter_col_init.exit165:                         ; preds = %do.end311
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.112)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 7, ptr noundef nonnull readonly %dirty_decay_ms)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.115)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 7, ptr noundef nonnull readonly %muzzy_decay_ms)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.299)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %pactive)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.300)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %pdirty)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.301)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %pmuzzy)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.302)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %dirty_npurge)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.303)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %dirty_nmadvise)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.304)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %dirty_purged)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.305)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_npurge)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.306)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_nmadvise)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.307)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_purged)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.112)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 7, ptr noundef nonnull readonly %dirty_decay_ms)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.115)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 7, ptr noundef nonnull readonly %muzzy_decay_ms)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.299)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %pactive)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.300)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %pdirty)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.301)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %pmuzzy)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.302)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %dirty_npurge)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.303)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %dirty_nmadvise)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.304)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %dirty_purged)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.305)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_npurge)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.306)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_nmadvise)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.307)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_purged)
   %link.i = getelementptr inbounds i8, ptr %col_decay_type, i64 24
   %qre_prev.i = getelementptr inbounds i8, ptr %col_decay_type, i64 32
   store i32 1, ptr %col_decay_type, align 8
@@ -5477,7 +5477,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %24 = load i32, ptr %type.i, align 8
   %25 = getelementptr inbounds i8, ptr %col.011.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %25)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %25)
   %link.i166 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %26 = load ptr, ptr %link.i166, align 8
   %cmp4.not.i = icmp eq ptr %26, %.pre.i164
@@ -5486,7 +5486,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit
 
 emitter_table_row.exit:                           ; preds = %emitter_col_init.exit165, %for.end.i
@@ -5526,7 +5526,7 @@ for.body.i170:                                    ; preds = %if.end.i168, %for.b
   %type.i173 = getelementptr inbounds i8, ptr %col.011.i171, i64 8
   %36 = load i32, ptr %type.i173, align 8
   %37 = getelementptr inbounds i8, ptr %col.011.i171, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %37)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %37)
   %link.i174 = getelementptr inbounds i8, ptr %col.011.i171, i64 24
   %38 = load ptr, ptr %link.i174, align 8
   %cmp4.not.i175 = icmp eq ptr %38, %.pre.i164
@@ -5535,7 +5535,7 @@ for.body.i170:                                    ; preds = %if.end.i168, %for.b
   br i1 %cmp1.not.i177, label %for.end.i178, label %for.body.i170
 
 for.end.i178:                                     ; preds = %for.body.i170, %if.end.i168
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit179
 
 emitter_table_row.exit179:                        ; preds = %emitter_table_row.exit, %for.end.i178
@@ -5575,7 +5575,7 @@ for.body.i183:                                    ; preds = %if.end.i181, %for.b
   %type.i186 = getelementptr inbounds i8, ptr %col.011.i184, i64 8
   %48 = load i32, ptr %type.i186, align 8
   %49 = getelementptr inbounds i8, ptr %col.011.i184, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef nonnull %49)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef nonnull %49)
   %link.i187 = getelementptr inbounds i8, ptr %col.011.i184, i64 24
   %50 = load ptr, ptr %link.i187, align 8
   %cmp4.not.i188 = icmp eq ptr %50, %.pre.i164
@@ -5584,7 +5584,7 @@ for.body.i183:                                    ; preds = %if.end.i181, %for.b
   br i1 %cmp1.not.i190, label %for.end.i191, label %for.body.i183
 
 for.end.i191:                                     ; preds = %for.body.i183, %if.end.i181
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_col_init.exit270
 
 emitter_col_init.exit270:                         ; preds = %for.end.i191, %emitter_table_row.exit179
@@ -5883,7 +5883,7 @@ for.body.i352:                                    ; preds = %if.end.i350, %for.b
   %type.i355 = getelementptr inbounds i8, ptr %col.011.i353, i64 8
   %103 = load i32, ptr %type.i355, align 8
   %104 = getelementptr inbounds i8, ptr %col.011.i353, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %104)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %104)
   %link.i356 = getelementptr inbounds i8, ptr %col.011.i353, i64 24
   %105 = load ptr, ptr %link.i356, align 8
   %cmp4.not.i357 = icmp eq ptr %105, %98
@@ -5892,7 +5892,7 @@ for.body.i352:                                    ; preds = %if.end.i350, %for.b
   br i1 %cmp1.not.i359, label %for.end.i360, label %for.body.i352
 
 for.end.i360:                                     ; preds = %for.body.i352, %if.end.i350
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit361
 
 emitter_table_row.exit361:                        ; preds = %emitter_col_init.exit348, %for.end.i360
@@ -5901,8 +5901,8 @@ emitter_table_row.exit361:                        ; preds = %emitter_col_init.ex
   store i32 5, ptr %type382, align 8
   store i32 5, ptr %type388, align 8
   store i32 5, ptr %type394, align 8
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.322)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.322)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   store ptr @.str.323, ptr %51, align 8
   store i64 7, ptr %miblen402, align 8
   store i64 8, ptr %sz403, align 8
@@ -5929,8 +5929,8 @@ if.then419:                                       ; preds = %do.end411
   unreachable
 
 do.end422:                                        ; preds = %do.end411
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.241)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %small_allocated)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.241)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %small_allocated)
   store i32 6, ptr %type364, align 8
   %107 = load i64, ptr %small_allocated, align 8
   store i64 %107, ptr %52, align 8
@@ -5959,8 +5959,8 @@ if.then443:                                       ; preds = %do.end435
   unreachable
 
 do.end446:                                        ; preds = %do.end435
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.317)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nmalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.317)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nmalloc)
   store i32 5, ptr %type367, align 8
   %109 = load i64, ptr %small_nmalloc, align 8
   store i64 %109, ptr %53, align 8
@@ -6007,8 +6007,8 @@ if.then468:                                       ; preds = %do.end460
   unreachable
 
 do.end471:                                        ; preds = %do.end460
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.318)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_ndalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.318)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_ndalloc)
   store i32 5, ptr %type373, align 8
   %112 = load i64, ptr %small_ndalloc, align 8
   store i64 %112, ptr %55, align 8
@@ -6055,8 +6055,8 @@ if.then493:                                       ; preds = %do.end485
   unreachable
 
 do.end496:                                        ; preds = %do.end485
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.319)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nrequests)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.319)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nrequests)
   store i32 5, ptr %type379, align 8
   %115 = load i64, ptr %small_nrequests, align 8
   store i64 %115, ptr %64, align 8
@@ -6103,8 +6103,8 @@ if.then518:                                       ; preds = %do.end510
   unreachable
 
 do.end521:                                        ; preds = %do.end510
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.329)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nfills)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.329)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nfills)
   store i32 5, ptr %type385, align 8
   %118 = load i64, ptr %small_nfills, align 8
   store i64 %118, ptr %78, align 8
@@ -6151,8 +6151,8 @@ if.then543:                                       ; preds = %do.end535
   unreachable
 
 do.end546:                                        ; preds = %do.end535
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.331)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nflushes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.331)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %small_nflushes)
   store i32 5, ptr %type391, align 8
   %121 = load i64, ptr %small_nflushes, align 8
   store i64 %121, ptr %92, align 8
@@ -6190,7 +6190,7 @@ for.body.i407:                                    ; preds = %if.end.i405, %for.b
   %type.i410 = getelementptr inbounds i8, ptr %col.011.i408, i64 8
   %126 = load i32, ptr %type.i410, align 8
   %127 = getelementptr inbounds i8, ptr %col.011.i408, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef nonnull %127)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef nonnull %127)
   %link.i411 = getelementptr inbounds i8, ptr %col.011.i408, i64 24
   %128 = load ptr, ptr %link.i411, align 8
   %cmp4.not.i412 = icmp eq ptr %128, %98
@@ -6199,7 +6199,7 @@ for.body.i407:                                    ; preds = %if.end.i405, %for.b
   br i1 %cmp1.not.i414, label %for.end.i415, label %for.body.i407
 
 for.end.i415:                                     ; preds = %for.body.i407, %if.end.i405
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   %emitter.val.i.pr = load i32, ptr %emitter, align 8
   br label %emitter_table_row.exit416
 
@@ -6219,7 +6219,7 @@ do.end.i:                                         ; preds = %emitter_table_row.e
   br i1 %cmp.not.i417, label %if.end.i418, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %130 = load i32, ptr %nesting_depth.i.i, align 8
   %131 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %131, 0
@@ -6234,18 +6234,18 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i418, label %for.body.i.i, !llvm.loop !7
 
 if.end.i418:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %emitter_table_row.exit416, %if.end.i418
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.9)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.9)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   store ptr @.str.332, ptr %51, align 8
   store i64 7, ptr %miblen551, align 8
   store i64 8, ptr %sz552, align 8
@@ -6272,8 +6272,8 @@ if.then568:                                       ; preds = %do.end560
   unreachable
 
 do.end571:                                        ; preds = %do.end560
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.241)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %large_allocated)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.241)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %large_allocated)
   store i32 6, ptr %type364, align 8
   %133 = load i64, ptr %large_allocated, align 8
   store i64 %133, ptr %52, align 8
@@ -6302,8 +6302,8 @@ if.then592:                                       ; preds = %do.end584
   unreachable
 
 do.end595:                                        ; preds = %do.end584
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.317)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nmalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.317)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nmalloc)
   store i32 5, ptr %type367, align 8
   %135 = load i64, ptr %large_nmalloc, align 8
   store i64 %135, ptr %53, align 8
@@ -6350,8 +6350,8 @@ if.then617:                                       ; preds = %do.end609
   unreachable
 
 do.end620:                                        ; preds = %do.end609
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.318)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_ndalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.318)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_ndalloc)
   store i32 5, ptr %type373, align 8
   %138 = load i64, ptr %large_ndalloc, align 8
   store i64 %138, ptr %55, align 8
@@ -6398,8 +6398,8 @@ if.then642:                                       ; preds = %do.end634
   unreachable
 
 do.end645:                                        ; preds = %do.end634
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.319)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nrequests)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.319)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nrequests)
   store i32 5, ptr %type379, align 8
   %141 = load i64, ptr %large_nrequests, align 8
   store i64 %141, ptr %64, align 8
@@ -6446,8 +6446,8 @@ if.then667:                                       ; preds = %do.end659
   unreachable
 
 do.end670:                                        ; preds = %do.end659
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.329)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nfills)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.329)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nfills)
   store i32 5, ptr %type385, align 8
   %144 = load i64, ptr %large_nfills, align 8
   store i64 %144, ptr %78, align 8
@@ -6494,8 +6494,8 @@ if.then692:                                       ; preds = %do.end684
   unreachable
 
 do.end695:                                        ; preds = %do.end684
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.331)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nflushes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.331)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %large_nflushes)
   store i32 5, ptr %type391, align 8
   %147 = load i64, ptr %large_nflushes, align 8
   store i64 %147, ptr %92, align 8
@@ -6533,7 +6533,7 @@ for.body.i472:                                    ; preds = %if.end.i470, %for.b
   %type.i475 = getelementptr inbounds i8, ptr %col.011.i473, i64 8
   %152 = load i32, ptr %type.i475, align 8
   %153 = getelementptr inbounds i8, ptr %col.011.i473, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %150, i32 noundef %151, i32 noundef %152, ptr noundef nonnull %153)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %150, i32 noundef %151, i32 noundef %152, ptr noundef nonnull %153)
   %link.i476 = getelementptr inbounds i8, ptr %col.011.i473, i64 24
   %154 = load ptr, ptr %link.i476, align 8
   %cmp4.not.i477 = icmp eq ptr %154, %98
@@ -6542,7 +6542,7 @@ for.body.i472:                                    ; preds = %if.end.i470, %for.b
   br i1 %cmp1.not.i479, label %for.end.i480, label %for.body.i472
 
 for.end.i480:                                     ; preds = %for.body.i472, %if.end.i470
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   %emitter.val.i482.pr = load i32, ptr %emitter, align 8
   br label %emitter_table_row.exit481
 
@@ -6562,7 +6562,7 @@ do.end.i484:                                      ; preds = %emitter_table_row.e
   br i1 %cmp.not.i488, label %if.end.i493, label %if.then1.i489
 
 if.then1.i489:                                    ; preds = %do.end.i484
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %156 = load i32, ptr %nesting_depth.i.i485, align 8
   %157 = load i32, ptr %emitter, align 8
   %cmp.i.i490 = icmp ne i32 %157, 0
@@ -6577,13 +6577,13 @@ for.body.preheader.i.i494:                        ; preds = %if.then1.i489
 
 for.body.i.i497:                                  ; preds = %for.body.i.i497, %for.body.preheader.i.i494
   %i.06.i.i498 = phi i32 [ %inc.i.i499, %for.body.i.i497 ], [ 0, %for.body.preheader.i.i494 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i491)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i491)
   %inc.i.i499 = add nuw nsw i32 %i.06.i.i498, 1
   %exitcond.not.i.i500 = icmp eq i32 %inc.i.i499, %amount.0.i.i496
   br i1 %exitcond.not.i.i500, label %if.end.i493, label %for.body.i.i497, !llvm.loop !7
 
 if.end.i493:                                      ; preds = %for.body.i.i497, %if.then1.i489, %do.end.i484
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit501
 
 emitter_json_object_end.exit501:                  ; preds = %emitter_table_row.exit481, %if.end.i493
@@ -6710,7 +6710,7 @@ for.body.i555:                                    ; preds = %if.end.i553, %for.b
   %type.i558 = getelementptr inbounds i8, ptr %col.011.i556, i64 8
   %174 = load i32, ptr %type.i558, align 8
   %175 = getelementptr inbounds i8, ptr %col.011.i556, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef nonnull %175)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef nonnull %175)
   %link.i559 = getelementptr inbounds i8, ptr %col.011.i556, i64 24
   %176 = load ptr, ptr %link.i559, align 8
   %cmp4.not.i560 = icmp eq ptr %176, %98
@@ -6719,7 +6719,7 @@ for.body.i555:                                    ; preds = %if.end.i553, %for.b
   br i1 %cmp1.not.i562, label %for.end.i563, label %for.body.i555
 
 for.end.i563:                                     ; preds = %for.body.i555, %if.end.i553
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   %.pre = load i32, ptr %emitter, align 8
   %177 = icmp eq i32 %.pre, 2
   br label %emitter_col_init.exit590
@@ -6758,7 +6758,7 @@ for.body.i594:                                    ; preds = %emitter_col_init.ex
   %type.i597 = getelementptr inbounds i8, ptr %col.011.i595, i64 8
   %182 = load i32, ptr %type.i597, align 8
   %183 = getelementptr inbounds i8, ptr %col.011.i595, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef nonnull %183)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef nonnull %183)
   %link.i598 = getelementptr inbounds i8, ptr %col.011.i595, i64 24
   %184 = load ptr, ptr %link.i598, align 8
   %cmp4.not.i599 = icmp eq ptr %184, %mem_count_title
@@ -6767,7 +6767,7 @@ for.body.i594:                                    ; preds = %emitter_col_init.ex
   br i1 %cmp1.not.i601, label %for.end.i602, label %for.body.i594
 
 for.end.i602:                                     ; preds = %for.body.i594
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   %.pr = load i32, ptr %emitter, align 8
   %185 = icmp eq i32 %.pr, 2
   store i32 6, ptr %type713, align 8
@@ -6786,7 +6786,7 @@ for.body.i607:                                    ; preds = %for.end.i602, %for.
   %type.i610 = getelementptr inbounds i8, ptr %col.011.i608, i64 8
   %190 = load i32, ptr %type.i610, align 8
   %191 = getelementptr inbounds i8, ptr %col.011.i608, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %188, i32 noundef %189, i32 noundef %190, ptr noundef nonnull %191)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %188, i32 noundef %189, i32 noundef %190, ptr noundef nonnull %191)
   %link.i611 = getelementptr inbounds i8, ptr %col.011.i608, i64 24
   %192 = load ptr, ptr %link.i611, align 8
   %cmp4.not.i612 = icmp eq ptr %192, %mem_count_title
@@ -6795,7 +6795,7 @@ for.body.i607:                                    ; preds = %for.end.i602, %for.
   br i1 %cmp1.not.i614, label %for.end.i615, label %for.body.i607
 
 for.end.i615:                                     ; preds = %for.body.i607
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit616
 
 emitter_table_row.exit616.critedge:               ; preds = %emitter_col_init.exit590
@@ -6833,8 +6833,8 @@ if.then734:                                       ; preds = %do.end726
   unreachable
 
 do.end737:                                        ; preds = %do.end726
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.245)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %mapped)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.245)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %mapped)
   store ptr @.str.342, ptr %178, align 8
   %196 = load i64, ptr %mapped, align 8
   store i64 %196, ptr %179, align 8
@@ -6850,7 +6850,7 @@ for.body.i620:                                    ; preds = %do.end737, %for.bod
   %type.i623 = getelementptr inbounds i8, ptr %col.011.i621, i64 8
   %200 = load i32, ptr %type.i623, align 8
   %201 = getelementptr inbounds i8, ptr %col.011.i621, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef nonnull %201)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef nonnull %201)
   %link.i624 = getelementptr inbounds i8, ptr %col.011.i621, i64 24
   %202 = load ptr, ptr %link.i624, align 8
   %cmp4.not.i625 = icmp eq ptr %202, %mem_count_title
@@ -6859,7 +6859,7 @@ for.body.i620:                                    ; preds = %do.end737, %for.bod
   br i1 %cmp1.not.i627, label %for.end.i628, label %for.body.i620
 
 for.end.i628:                                     ; preds = %for.body.i620
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit629
 
 emitter_table_row.exit629:                        ; preds = %do.end737, %for.end.i628
@@ -6888,8 +6888,8 @@ if.then757:                                       ; preds = %do.end749
   unreachable
 
 do.end760:                                        ; preds = %do.end749
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.246)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.246)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained)
   store ptr @.str.344, ptr %178, align 8
   %204 = load i64, ptr %retained, align 8
   store i64 %204, ptr %179, align 8
@@ -6905,7 +6905,7 @@ for.body.i633:                                    ; preds = %do.end760, %for.bod
   %type.i636 = getelementptr inbounds i8, ptr %col.011.i634, i64 8
   %208 = load i32, ptr %type.i636, align 8
   %209 = getelementptr inbounds i8, ptr %col.011.i634, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef nonnull %209)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef nonnull %209)
   %link.i637 = getelementptr inbounds i8, ptr %col.011.i634, i64 24
   %210 = load ptr, ptr %link.i637, align 8
   %cmp4.not.i638 = icmp eq ptr %210, %mem_count_title
@@ -6914,7 +6914,7 @@ for.body.i633:                                    ; preds = %do.end760, %for.bod
   br i1 %cmp1.not.i640, label %for.end.i641, label %for.body.i633
 
 for.end.i641:                                     ; preds = %for.body.i633
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit642
 
 emitter_table_row.exit642:                        ; preds = %do.end760, %for.end.i641
@@ -6943,8 +6943,8 @@ if.then780:                                       ; preds = %do.end772
   unreachable
 
 do.end783:                                        ; preds = %do.end772
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.16)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %base)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.16)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %base)
   store ptr @.str.346, ptr %178, align 8
   %212 = load i64, ptr %base, align 8
   store i64 %212, ptr %179, align 8
@@ -6960,7 +6960,7 @@ for.body.i646:                                    ; preds = %do.end783, %for.bod
   %type.i649 = getelementptr inbounds i8, ptr %col.011.i647, i64 8
   %216 = load i32, ptr %type.i649, align 8
   %217 = getelementptr inbounds i8, ptr %col.011.i647, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef nonnull %217)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef nonnull %217)
   %link.i650 = getelementptr inbounds i8, ptr %col.011.i647, i64 24
   %218 = load ptr, ptr %link.i650, align 8
   %cmp4.not.i651 = icmp eq ptr %218, %mem_count_title
@@ -6969,7 +6969,7 @@ for.body.i646:                                    ; preds = %do.end783, %for.bod
   br i1 %cmp1.not.i653, label %for.end.i654, label %for.body.i646
 
 for.end.i654:                                     ; preds = %for.body.i646
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit655
 
 emitter_table_row.exit655:                        ; preds = %do.end783, %for.end.i654
@@ -6998,8 +6998,8 @@ if.then803:                                       ; preds = %do.end795
   unreachable
 
 do.end806:                                        ; preds = %do.end795
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.348)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %internal)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.348)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %internal)
   store ptr @.str.349, ptr %178, align 8
   %220 = load i64, ptr %internal, align 8
   store i64 %220, ptr %179, align 8
@@ -7015,7 +7015,7 @@ for.body.i659:                                    ; preds = %do.end806, %for.bod
   %type.i662 = getelementptr inbounds i8, ptr %col.011.i660, i64 8
   %224 = load i32, ptr %type.i662, align 8
   %225 = getelementptr inbounds i8, ptr %col.011.i660, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %222, i32 noundef %223, i32 noundef %224, ptr noundef nonnull %225)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %222, i32 noundef %223, i32 noundef %224, ptr noundef nonnull %225)
   %link.i663 = getelementptr inbounds i8, ptr %col.011.i660, i64 24
   %226 = load ptr, ptr %link.i663, align 8
   %cmp4.not.i664 = icmp eq ptr %226, %mem_count_title
@@ -7024,7 +7024,7 @@ for.body.i659:                                    ; preds = %do.end806, %for.bod
   br i1 %cmp1.not.i666, label %for.end.i667, label %for.body.i659
 
 for.end.i667:                                     ; preds = %for.body.i659
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit668
 
 emitter_table_row.exit668:                        ; preds = %do.end806, %for.end.i667
@@ -7053,8 +7053,8 @@ if.then826:                                       ; preds = %do.end818
   unreachable
 
 do.end829:                                        ; preds = %do.end818
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.106)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_thp)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.106)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_thp)
   store ptr @.str.351, ptr %178, align 8
   %228 = load i64, ptr %metadata_thp, align 8
   store i64 %228, ptr %179, align 8
@@ -7070,7 +7070,7 @@ for.body.i672:                                    ; preds = %do.end829, %for.bod
   %type.i675 = getelementptr inbounds i8, ptr %col.011.i673, i64 8
   %232 = load i32, ptr %type.i675, align 8
   %233 = getelementptr inbounds i8, ptr %col.011.i673, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull %233)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull %233)
   %link.i676 = getelementptr inbounds i8, ptr %col.011.i673, i64 24
   %234 = load ptr, ptr %link.i676, align 8
   %cmp4.not.i677 = icmp eq ptr %234, %mem_count_title
@@ -7079,7 +7079,7 @@ for.body.i672:                                    ; preds = %do.end829, %for.bod
   br i1 %cmp1.not.i679, label %for.end.i680, label %for.body.i672
 
 for.end.i680:                                     ; preds = %for.body.i672
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit681
 
 emitter_table_row.exit681:                        ; preds = %do.end829, %for.end.i680
@@ -7108,8 +7108,8 @@ if.then849:                                       ; preds = %do.end841
   unreachable
 
 do.end852:                                        ; preds = %do.end841
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.353)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %tcache_bytes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.353)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %tcache_bytes)
   store ptr @.str.354, ptr %178, align 8
   %236 = load i64, ptr %tcache_bytes, align 8
   store i64 %236, ptr %179, align 8
@@ -7125,7 +7125,7 @@ for.body.i685:                                    ; preds = %do.end852, %for.bod
   %type.i688 = getelementptr inbounds i8, ptr %col.011.i686, i64 8
   %240 = load i32, ptr %type.i688, align 8
   %241 = getelementptr inbounds i8, ptr %col.011.i686, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %238, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %241)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %238, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %241)
   %link.i689 = getelementptr inbounds i8, ptr %col.011.i686, i64 24
   %242 = load ptr, ptr %link.i689, align 8
   %cmp4.not.i690 = icmp eq ptr %242, %mem_count_title
@@ -7134,7 +7134,7 @@ for.body.i685:                                    ; preds = %do.end852, %for.bod
   br i1 %cmp1.not.i692, label %for.end.i693, label %for.body.i685
 
 for.end.i693:                                     ; preds = %for.body.i685
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit694
 
 emitter_table_row.exit694:                        ; preds = %do.end852, %for.end.i693
@@ -7163,8 +7163,8 @@ if.then872:                                       ; preds = %do.end864
   unreachable
 
 do.end875:                                        ; preds = %do.end864
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.356)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %tcache_stashed_bytes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.356)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %tcache_stashed_bytes)
   store ptr @.str.357, ptr %178, align 8
   %244 = load i64, ptr %tcache_stashed_bytes, align 8
   store i64 %244, ptr %179, align 8
@@ -7180,7 +7180,7 @@ for.body.i698:                                    ; preds = %do.end875, %for.bod
   %type.i701 = getelementptr inbounds i8, ptr %col.011.i699, i64 8
   %248 = load i32, ptr %type.i701, align 8
   %249 = getelementptr inbounds i8, ptr %col.011.i699, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %246, i32 noundef %247, i32 noundef %248, ptr noundef nonnull %249)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %246, i32 noundef %247, i32 noundef %248, ptr noundef nonnull %249)
   %link.i702 = getelementptr inbounds i8, ptr %col.011.i699, i64 24
   %250 = load ptr, ptr %link.i702, align 8
   %cmp4.not.i703 = icmp eq ptr %250, %mem_count_title
@@ -7189,7 +7189,7 @@ for.body.i698:                                    ; preds = %do.end875, %for.bod
   br i1 %cmp1.not.i705, label %for.end.i706, label %for.body.i698
 
 for.end.i706:                                     ; preds = %for.body.i698
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit707
 
 emitter_table_row.exit707:                        ; preds = %do.end875, %for.end.i706
@@ -7218,8 +7218,8 @@ if.then895:                                       ; preds = %do.end887
   unreachable
 
 do.end898:                                        ; preds = %do.end887
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.244)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %resident)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.244)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %resident)
   store ptr @.str.359, ptr %178, align 8
   %252 = load i64, ptr %resident, align 8
   store i64 %252, ptr %179, align 8
@@ -7235,7 +7235,7 @@ for.body.i711:                                    ; preds = %do.end898, %for.bod
   %type.i714 = getelementptr inbounds i8, ptr %col.011.i712, i64 8
   %256 = load i32, ptr %type.i714, align 8
   %257 = getelementptr inbounds i8, ptr %col.011.i712, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %254, i32 noundef %255, i32 noundef %256, ptr noundef nonnull %257)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %254, i32 noundef %255, i32 noundef %256, ptr noundef nonnull %257)
   %link.i715 = getelementptr inbounds i8, ptr %col.011.i712, i64 24
   %258 = load ptr, ptr %link.i715, align 8
   %cmp4.not.i716 = icmp eq ptr %258, %mem_count_title
@@ -7244,7 +7244,7 @@ for.body.i711:                                    ; preds = %do.end898, %for.bod
   br i1 %cmp1.not.i718, label %for.end.i719, label %for.body.i711
 
 for.end.i719:                                     ; preds = %for.body.i711
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit720
 
 emitter_table_row.exit720:                        ; preds = %do.end898, %for.end.i719
@@ -7273,8 +7273,8 @@ if.then918:                                       ; preds = %do.end910
   unreachable
 
 do.end921:                                        ; preds = %do.end910
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.361)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %abandoned_vm)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.361)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %abandoned_vm)
   store ptr @.str.362, ptr %178, align 8
   %260 = load i64, ptr %abandoned_vm, align 8
   store i64 %260, ptr %179, align 8
@@ -7290,7 +7290,7 @@ for.body.i724:                                    ; preds = %do.end921, %for.bod
   %type.i727 = getelementptr inbounds i8, ptr %col.011.i725, i64 8
   %264 = load i32, ptr %type.i727, align 8
   %265 = getelementptr inbounds i8, ptr %col.011.i725, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %262, i32 noundef %263, i32 noundef %264, ptr noundef nonnull %265)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %262, i32 noundef %263, i32 noundef %264, ptr noundef nonnull %265)
   %link.i728 = getelementptr inbounds i8, ptr %col.011.i725, i64 24
   %266 = load ptr, ptr %link.i728, align 8
   %cmp4.not.i729 = icmp eq ptr %266, %mem_count_title
@@ -7299,7 +7299,7 @@ for.body.i724:                                    ; preds = %do.end921, %for.bod
   br i1 %cmp1.not.i731, label %for.end.i732, label %for.body.i724
 
 for.end.i732:                                     ; preds = %for.body.i724
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit733
 
 emitter_table_row.exit733:                        ; preds = %do.end921, %for.end.i732
@@ -7328,8 +7328,8 @@ if.then941:                                       ; preds = %do.end933
   unreachable
 
 do.end944:                                        ; preds = %do.end933
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.10)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %extent_avail)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.10)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %extent_avail)
   store ptr @.str.364, ptr %178, align 8
   %268 = load i64, ptr %extent_avail, align 8
   store i64 %268, ptr %179, align 8
@@ -7345,7 +7345,7 @@ for.body.i737:                                    ; preds = %do.end944, %for.bod
   %type.i740 = getelementptr inbounds i8, ptr %col.011.i738, i64 8
   %272 = load i32, ptr %type.i740, align 8
   %273 = getelementptr inbounds i8, ptr %col.011.i738, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %270, i32 noundef %271, i32 noundef %272, ptr noundef nonnull %273)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %270, i32 noundef %271, i32 noundef %272, ptr noundef nonnull %273)
   %link.i741 = getelementptr inbounds i8, ptr %col.011.i738, i64 24
   %274 = load ptr, ptr %link.i741, align 8
   %cmp4.not.i742 = icmp eq ptr %274, %mem_count_title
@@ -7354,7 +7354,7 @@ for.body.i737:                                    ; preds = %do.end944, %for.bod
   br i1 %cmp1.not.i744, label %for.end.i745, label %for.body.i737
 
 for.end.i745:                                     ; preds = %for.body.i737
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit746
 
 emitter_table_row.exit746:                        ; preds = %do.end944, %for.end.i745
@@ -7371,8 +7371,8 @@ if.then945:                                       ; preds = %emitter_table_row.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new13.i)
   store ptr null, ptr %row.i, align 8
   call fastcc void @mutex_stats_init_cols(ptr noundef %row.i, ptr noundef nonnull @.str.29, ptr noundef nonnull %col_name.i, ptr noundef %col64.i, ptr noundef %col32.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.254)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.254)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   %276 = load i32, ptr %emitter, align 8
   %cmp.not.i.i = icmp eq i32 %276, 2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %emitter_table_row.exit.i
@@ -7390,7 +7390,7 @@ for.body.i.i750:                                  ; preds = %if.end.i.i, %for.bo
   %type.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 8
   %280 = load i32, ptr %type.i.i, align 8
   %281 = getelementptr inbounds i8, ptr %col.011.i.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %278, i32 noundef %279, i32 noundef %280, ptr noundef nonnull %281)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %278, i32 noundef %279, i32 noundef %280, ptr noundef nonnull %281)
   %link.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 24
   %282 = load ptr, ptr %link.i.i, align 8
   %283 = load ptr, ptr %row.i, align 8
@@ -7400,7 +7400,7 @@ for.body.i.i750:                                  ; preds = %if.end.i.i, %for.bo
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i750
 
 for.end.i.i:                                      ; preds = %for.body.i.i750, %if.end.i.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit.i
 
 emitter_table_row.exit.i:                         ; preds = %for.end.i.i, %if.then945
@@ -7486,8 +7486,8 @@ for.body.i748:                                    ; preds = %emitter_json_object
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %emitter_json_object_end.exit.i ]
   %arrayidx28.i = getelementptr inbounds [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
   %300 = load ptr, ptr %arrayidx28.i, align 8
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef %300)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef %300)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new11.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i.i)
@@ -7771,7 +7771,7 @@ mutex_stats_read_arena.exit.i:                    ; preds = %tsd_fetch_impl.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz120.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new136.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz137.i.i)
-  call fastcc void @mutex_stats_emit(ptr noundef %emitter, ptr noundef nonnull %row.i, ptr noundef %col64.i, ptr noundef %col32.i)
+  call fastcc void @mutex_stats_emit(ptr noundef nonnull %emitter, ptr noundef nonnull %row.i, ptr noundef %col64.i, ptr noundef %col32.i)
   %emitter.val.i.i = load i32, ptr %emitter, align 8
   %spec.select.i.i.i = icmp ult i32 %emitter.val.i.i, 2
   br i1 %spec.select.i.i.i, label %do.end.i.i, label %emitter_json_object_end.exit.i
@@ -7785,7 +7785,7 @@ do.end.i.i:                                       ; preds = %mutex_stats_read_ar
   br i1 %cmp.not.i19.i, label %if.end.i21.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %do.end.i.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %315 = load i32, ptr %nesting_depth.i.i.i, align 8
   %316 = load i32, ptr %emitter, align 8
   %cmp.i.i20.i = icmp ne i32 %316, 0
@@ -7800,13 +7800,13 @@ for.body.preheader.i.i.i:                         ; preds = %if.then1.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
   %i.06.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i)
   %inc.i.i.i = add nuw nsw i32 %i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %amount.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end.i21.i, label %for.body.i.i.i, !llvm.loop !7
 
 if.end.i21.i:                                     ; preds = %for.body.i.i.i, %if.then1.i.i, %do.end.i.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit.i
 
 emitter_json_object_end.exit.i:                   ; preds = %if.end.i21.i, %mutex_stats_read_arena.exit.i
@@ -7828,7 +7828,7 @@ do.end.i24.i:                                     ; preds = %for.end.i749
   br i1 %cmp.not.i28.i, label %if.end.i33.i, label %if.then1.i29.i
 
 if.then1.i29.i:                                   ; preds = %do.end.i24.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %318 = load i32, ptr %nesting_depth.i.i.i, align 8
   %319 = load i32, ptr %emitter, align 8
   %cmp.i.i30.i = icmp ne i32 %319, 0
@@ -7843,13 +7843,13 @@ for.body.preheader.i.i34.i:                       ; preds = %if.then1.i29.i
 
 for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %for.body.preheader.i.i34.i
   %i.06.i.i38.i = phi i32 [ %inc.i.i39.i, %for.body.i.i37.i ], [ 0, %for.body.preheader.i.i34.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i31.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i31.i)
   %inc.i.i39.i = add nuw nsw i32 %i.06.i.i38.i, 1
   %exitcond.not.i.i40.i = icmp eq i32 %inc.i.i39.i, %amount.0.i.i36.i
   br i1 %exitcond.not.i.i40.i, label %if.end.i33.i, label %for.body.i.i37.i, !llvm.loop !7
 
 if.end.i33.i:                                     ; preds = %for.body.i.i37.i, %if.then1.i29.i, %do.end.i24.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %stats_arena_mutexes_print.exit
 
 stats_arena_mutexes_print.exit:                   ; preds = %for.end.i749, %if.end.i33.i
@@ -8110,7 +8110,7 @@ if.then99.i:                                      ; preds = %do.end91.i
   unreachable
 
 do.end102.i:                                      ; preds = %do.end91.i
-  call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.417, ptr noundef nonnull @.str.418, i32 noundef 6, ptr noundef nonnull readonly %sec_bytes.i, ptr noundef null, i32 noundef 0, ptr noundef null)
+  call fastcc void @emitter_kv_note(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.417, ptr noundef nonnull @.str.418, i32 noundef 6, ptr noundef nonnull readonly %sec_bytes.i, ptr noundef null, i32 noundef 0, ptr noundef null)
   %328 = load i64, ptr %npurge_passes.i, align 8
   %cmp.i.i761 = icmp eq i64 %322, 0
   %cmp1.i.i = icmp eq i64 %328, 0
@@ -8176,17 +8176,17 @@ if.else.i127.i:                                   ; preds = %if.end.i125.i
 
 rate_per_second.exit131.i:                        ; preds = %if.else.i127.i, %if.end.i125.i, %rate_per_second.exit121.i
   %retval.0.i130.i = phi i64 [ %div4.i129.i, %if.else.i127.i ], [ 0, %rate_per_second.exit121.i ], [ %331, %if.end.i125.i ]
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.419, i64 noundef %328, i64 noundef %retval.0.i.i, i64 noundef %329, i64 noundef %retval.0.i110.i, i64 noundef %330, i64 noundef %retval.0.i120.i, i64 noundef %331, i64 noundef %retval.0.i130.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.18)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.420)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %npurge_passes.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.421)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %npurges.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.422)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nhugifies.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.423)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %ndehugifies.i)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.419, i64 noundef %328, i64 noundef %retval.0.i.i, i64 noundef %329, i64 noundef %retval.0.i110.i, i64 noundef %330, i64 noundef %retval.0.i120.i, i64 noundef %331, i64 noundef %retval.0.i130.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.18)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.420)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %npurge_passes.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.421)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %npurges.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.422)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nhugifies.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.423)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %ndehugifies.i)
   store i64 7, ptr %miblen109.i, align 8
   store i64 8, ptr %sz110.i, align 8
   %call113.i = call i32 @je_mallctlnametomib(ptr noundef nonnull @.str.424, ptr noundef nonnull %mib108.i, ptr noundef nonnull %miblen109.i) #13
@@ -8346,21 +8346,21 @@ do.end244.i:                                      ; preds = %do.end233.i
   %342 = load i64, ptr %npageslabs_huge.i, align 8
   %343 = load i64, ptr %nactive_huge.i, align 8
   %344 = load i64, ptr %ndirty_huge.i, align 8
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.430, i64 noundef %342, i64 noundef %338, i64 noundef %343, i64 noundef %339, i64 noundef %344, i64 noundef %340, i64 noundef %sub245.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.431)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.432)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.433)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.433)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.434)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_nonhuge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.435)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.436)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.430, i64 noundef %342, i64 noundef %338, i64 noundef %343, i64 noundef %339, i64 noundef %344, i64 noundef %340, i64 noundef %sub245.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.431)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.432)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.433)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.433)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.434)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_nonhuge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.435)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.436)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
   %emitter.val.i.i763 = load i32, ptr %emitter, align 8
   %spec.select.i.i.i764 = icmp ult i32 %emitter.val.i.i763, 2
   br i1 %spec.select.i.i.i764, label %do.end.i.i791, label %emitter_json_object_end.exit.i765
@@ -8376,7 +8376,7 @@ do.end.i.i791:                                    ; preds = %do.end244.i
   br i1 %cmp.not.i.i795, label %if.end.i132.i, label %if.then1.i.i796
 
 if.then1.i.i796:                                  ; preds = %do.end.i.i791
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %346 = load i32, ptr %nesting_depth.i.i.i792, align 8
   %347 = load i32, ptr %emitter, align 8
   %cmp.i.i.i797 = icmp ne i32 %347, 0
@@ -8391,13 +8391,13 @@ for.body.preheader.i.i.i800:                      ; preds = %if.then1.i.i796
 
 for.body.i.i.i803:                                ; preds = %for.body.i.i.i803, %for.body.preheader.i.i.i800
   %i.06.i.i.i804 = phi i32 [ %inc.i.i.i805, %for.body.i.i.i803 ], [ 0, %for.body.preheader.i.i.i800 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i798)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i.i798)
   %inc.i.i.i805 = add nuw nsw i32 %i.06.i.i.i804, 1
   %exitcond.not.i.i.i806 = icmp eq i32 %inc.i.i.i805, %amount.0.i.i.i802
   br i1 %exitcond.not.i.i.i806, label %if.end.i132.i, label %for.body.i.i.i803, !llvm.loop !7
 
 if.end.i132.i:                                    ; preds = %for.body.i.i.i803, %if.then1.i.i796, %do.end.i.i791
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit.i765
 
 emitter_json_object_end.exit.i765:                ; preds = %if.end.i132.i, %do.end244.i
@@ -8560,21 +8560,21 @@ do.end383.i:                                      ; preds = %do.end372.i
   %358 = load i64, ptr %npageslabs_huge.i, align 8
   %359 = load i64, ptr %nactive_huge.i, align 8
   %360 = load i64, ptr %ndirty_huge.i, align 8
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.443, i64 noundef %358, i64 noundef %354, i64 noundef %359, i64 noundef %355, i64 noundef %360, i64 noundef %356, i64 noundef %sub386.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.444)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.432)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.433)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.433)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.434)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_nonhuge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.435)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.436)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.443, i64 noundef %358, i64 noundef %354, i64 noundef %359, i64 noundef %355, i64 noundef %360, i64 noundef %356, i64 noundef %sub386.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.444)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.432)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.433)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.433)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.434)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_nonhuge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.435)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.436)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
   %emitter.val.i133.i = load i32, ptr %emitter, align 8
   %spec.select.i.i134.i = icmp ult i32 %emitter.val.i133.i, 2
   br i1 %spec.select.i.i134.i, label %do.end.i135.i, label %emitter_col_init.exit375.i
@@ -8590,7 +8590,7 @@ do.end.i135.i:                                    ; preds = %do.end383.i
   br i1 %cmp.not.i139.i, label %if.end.i144.i, label %if.then1.i140.i
 
 if.then1.i140.i:                                  ; preds = %do.end.i135.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %362 = load i32, ptr %nesting_depth.i.i136.i, align 8
   %363 = load i32, ptr %emitter, align 8
   %cmp.i.i141.i = icmp ne i32 %363, 0
@@ -8605,13 +8605,13 @@ for.body.preheader.i.i145.i:                      ; preds = %if.then1.i140.i
 
 for.body.i.i148.i:                                ; preds = %for.body.i.i148.i, %for.body.preheader.i.i145.i
   %i.06.i.i149.i = phi i32 [ %inc.i.i150.i, %for.body.i.i148.i ], [ 0, %for.body.preheader.i.i145.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i142.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i142.i)
   %inc.i.i150.i = add nuw nsw i32 %i.06.i.i149.i, 1
   %exitcond.not.i.i151.i = icmp eq i32 %inc.i.i150.i, %amount.0.i.i147.i
   br i1 %exitcond.not.i.i151.i, label %if.end.i144.i, label %for.body.i.i148.i, !llvm.loop !7
 
 if.end.i144.i:                                    ; preds = %for.body.i.i148.i, %if.then1.i140.i, %do.end.i135.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_col_init.exit375.i
 
 emitter_col_init.exit375.i:                       ; preds = %if.end.i144.i, %do.end383.i
@@ -8853,7 +8853,7 @@ for.body.i.i783:                                  ; preds = %do.end470.i, %for.b
   %type.i.i786 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 8
   %379 = load i32, ptr %type.i.i786, align 8
   %380 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %377, i32 noundef %378, i32 noundef %379, ptr noundef nonnull %380)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %377, i32 noundef %378, i32 noundef %379, ptr noundef nonnull %380)
   %link.i378.i = getelementptr inbounds i8, ptr %col.011.i.i784, i64 24
   %381 = load ptr, ptr %link.i378.i, align 8
   %cmp4.not.i.i787 = icmp eq ptr %381, %header_size.i
@@ -8862,11 +8862,11 @@ for.body.i.i783:                                  ; preds = %do.end470.i, %for.b
   br i1 %cmp1.not.i.i789, label %for.end.i.i790, label %for.body.i.i783
 
 for.end.i.i790:                                   ; preds = %for.body.i.i783
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit.i774
 
 emitter_table_row.exit.i774:                      ; preds = %for.end.i.i790, %do.end470.i
-  call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.375)
+  call fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.375)
   %arrayidx477.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i751, i64 40
   %382 = getelementptr inbounds i8, ptr %col_size.i, i64 16
   %383 = getelementptr inbounds i8, ptr %col_ind.i, i64 16
@@ -9032,7 +9032,7 @@ do.end579.i:                                      ; preds = %tsd_fetch_impl.exit
   br i1 %brmerge.i777, label %if.end594.i, label %if.then593.i
 
 if.then593.i:                                     ; preds = %do.end579.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.390)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.390)
   %.pre.i778 = load i64, ptr %npageslabs_huge.i, align 8
   %.pre526.i = load i64, ptr %npageslabs_nonhuge.i, align 8
   %.pre527.i = load i64, ptr %nactive_nonhuge.i, align 8
@@ -9072,7 +9072,7 @@ for.body.i382.i:                                  ; preds = %if.then598.i, %for.
   %type.i385.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 8
   %413 = load i32, ptr %type.i385.i, align 8
   %414 = getelementptr inbounds i8, ptr %col.011.i383.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %411, i32 noundef %412, i32 noundef %413, ptr noundef nonnull %414)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %411, i32 noundef %412, i32 noundef %413, ptr noundef nonnull %414)
   %link.i386.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 24
   %415 = load ptr, ptr %link.i386.i, align 8
   %cmp4.not.i387.i = icmp eq ptr %415, %col_size.i
@@ -9081,23 +9081,23 @@ for.body.i382.i:                                  ; preds = %if.then598.i, %for.
   br i1 %cmp1.not.i389.i, label %for.end.i390.i, label %for.body.i382.i
 
 for.end.i390.i:                                   ; preds = %for.body.i382.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %if.end599.i
 
 if.end599.i:                                      ; preds = %for.end.i390.i, %if.then598.i, %if.end594.i
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.432)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.433)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.445)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_huge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.434)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_nonhuge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.435)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.436)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.432)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.433)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.445)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_huge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.434)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %npageslabs_nonhuge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.435)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nactive_nonhuge.i)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.436)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty_nonhuge.i)
   %emitter.val.i392.i = load i32, ptr %emitter, align 8
   %spec.select.i.i393.i = icmp ult i32 %emitter.val.i392.i, 2
   br i1 %spec.select.i.i393.i, label %do.end.i394.i, label %emitter_json_object_end.exit411.i
@@ -9111,7 +9111,7 @@ do.end.i394.i:                                    ; preds = %if.end599.i
   br i1 %cmp.not.i398.i, label %if.end.i403.i, label %if.then1.i399.i
 
 if.then1.i399.i:                                  ; preds = %do.end.i394.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %417 = load i32, ptr %nesting_depth.i.i395.i, align 8
   %418 = load i32, ptr %emitter, align 8
   %cmp.i.i400.i = icmp ne i32 %418, 0
@@ -9126,13 +9126,13 @@ for.body.preheader.i.i404.i:                      ; preds = %if.then1.i399.i
 
 for.body.i.i407.i:                                ; preds = %for.body.i.i407.i, %for.body.preheader.i.i404.i
   %i.06.i.i408.i = phi i32 [ %inc.i.i409.i, %for.body.i.i407.i ], [ 0, %for.body.preheader.i.i404.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i401.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i401.i)
   %inc.i.i409.i = add nuw nsw i32 %i.06.i.i408.i, 1
   %exitcond.not.i.i410.i = icmp eq i32 %inc.i.i409.i, %amount.0.i.i406.i
   br i1 %exitcond.not.i.i410.i, label %if.end.i403.i, label %for.body.i.i407.i, !llvm.loop !7
 
 if.end.i403.i:                                    ; preds = %for.body.i.i407.i, %if.then1.i399.i, %do.end.i394.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit411.i
 
 emitter_json_object_end.exit411.i:                ; preds = %if.end.i403.i, %if.end599.i
@@ -9154,7 +9154,7 @@ do.end.i414.i:                                    ; preds = %for.end.i781
   br i1 %cmp.not.i418.i, label %emitter_json_array_end.exit.i, label %if.then1.i419.i
 
 if.then1.i419.i:                                  ; preds = %do.end.i414.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %420 = load i32, ptr %nesting_depth.i.i395.i, align 8
   %421 = load i32, ptr %emitter, align 8
   %cmp.i.i420.i = icmp ne i32 %421, 0
@@ -9169,13 +9169,13 @@ for.body.preheader.i.i424.i:                      ; preds = %if.then1.i419.i
 
 for.body.i.i427.i:                                ; preds = %for.body.i.i427.i, %for.body.preheader.i.i424.i
   %i.06.i.i428.i = phi i32 [ %inc.i.i429.i, %for.body.i.i427.i ], [ 0, %for.body.preheader.i.i424.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i421.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i421.i)
   %inc.i.i429.i = add nuw nsw i32 %i.06.i.i428.i, 1
   %exitcond.not.i.i430.i = icmp eq i32 %inc.i.i429.i, %amount.0.i.i426.i
   br i1 %exitcond.not.i.i430.i, label %emitter_json_array_end.exit.i, label %for.body.i.i427.i, !llvm.loop !7
 
 emitter_json_array_end.exit.i:                    ; preds = %for.body.i.i427.i, %if.then1.i419.i, %do.end.i414.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.229)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   %emitter.val.i431.pr.i = load i32, ptr %emitter, align 8
   %spec.select.i.i432.i = icmp ult i32 %emitter.val.i431.pr.i, 2
   br i1 %spec.select.i.i432.i, label %do.end.i433.i, label %emitter_json_object_end.exit450.i
@@ -9189,7 +9189,7 @@ do.end.i433.i:                                    ; preds = %emitter_json_array_
   br i1 %cmp.not.i437.i, label %if.end.i442.i, label %if.then1.i438.i
 
 if.then1.i438.i:                                  ; preds = %do.end.i433.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %423 = load i32, ptr %nesting_depth.i.i395.i, align 8
   %424 = load i32, ptr %emitter, align 8
   %cmp.i.i439.i = icmp ne i32 %424, 0
@@ -9204,20 +9204,20 @@ for.body.preheader.i.i443.i:                      ; preds = %if.then1.i438.i
 
 for.body.i.i446.i:                                ; preds = %for.body.i.i446.i, %for.body.preheader.i.i443.i
   %i.06.i.i447.i = phi i32 [ %inc.i.i448.i, %for.body.i.i446.i ], [ 0, %for.body.preheader.i.i443.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i440.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i440.i)
   %inc.i.i448.i = add nuw nsw i32 %i.06.i.i447.i, 1
   %exitcond.not.i.i449.i = icmp eq i32 %inc.i.i448.i, %amount.0.i.i445.i
   br i1 %exitcond.not.i.i449.i, label %if.end.i442.i, label %for.body.i.i446.i, !llvm.loop !7
 
 if.end.i442.i:                                    ; preds = %for.body.i.i446.i, %if.then1.i438.i, %do.end.i433.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit450.i
 
 emitter_json_object_end.exit450.i:                ; preds = %if.end.i442.i, %emitter_json_array_end.exit.i, %for.end.i781
   br i1 %402, label %if.then601.i, label %stats_arena_hpa_shard_print.exit
 
 if.then601.i:                                     ; preds = %emitter_json_object_end.exit450.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.390)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.390)
   br label %stats_arena_hpa_shard_print.exit
 
 stats_arena_hpa_shard_print.exit:                 ; preds = %emitter_json_object_end.exit450.i, %if.then601.i
@@ -10888,7 +10888,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %254 = load i32, ptr %type.i, align 8
   %255 = getelementptr inbounds i8, ptr %col.011.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef nonnull %255)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef nonnull %255)
   %link.i693 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %256 = load ptr, ptr %link.i693, align 8
   %cmp4.not.i = icmp eq ptr %256, %251
@@ -10897,7 +10897,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit
 
 emitter_table_row.exit:                           ; preds = %if.end184, %for.end.i
@@ -11649,26 +11649,26 @@ mutex_stats_read_arena_bin.exit:                  ; preds = %tsd_fetch_impl.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen_new136.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz137.i)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.317)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nmalloc)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.318)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %ndalloc)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.373)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %curregs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.319)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nrequests)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.329)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nfills)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.331)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nflushes)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.383)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nreslabs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.374)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %curslabs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.375)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nonfull_slabs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.391)
-  call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.317)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nmalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.318)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %ndalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.373)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %curregs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.319)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nrequests)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.329)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nfills)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.331)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nflushes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.383)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nreslabs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.374)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %curslabs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.375)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nonfull_slabs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.391)
+  call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call fastcc void @mutex_stats_emit(ptr noundef %emitter, ptr noundef null, ptr noundef %col_mutex64, ptr noundef %col_mutex32)
   %emitter.val.i = load i32, ptr %emitter, align 8
   %spec.select.i.i = icmp ult i32 %emitter.val.i, 2
@@ -11683,7 +11683,7 @@ do.end.i:                                         ; preds = %mutex_stats_read_ar
   br i1 %cmp.not.i696, label %if.end.i698, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %326 = load i32, ptr %nesting_depth.i.i, align 8
   %327 = load i32, ptr %emitter, align 8
   %cmp.i.i697 = icmp ne i32 %327, 0
@@ -11698,35 +11698,35 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i698, label %for.body.i.i, !llvm.loop !7
 
 if.end.i698:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %if.end574
 
 if.end574.critedge:                               ; preds = %do.end557
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.317)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nmalloc)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.318)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %ndalloc)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.373)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %curregs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.319)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nrequests)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.329)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nfills)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.331)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nflushes)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.383)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull readonly %nreslabs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.374)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %curslabs)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.375)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nonfull_slabs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.317)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nmalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.318)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %ndalloc)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.373)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %curregs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.319)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nrequests)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.329)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nfills)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.331)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nflushes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.383)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %nreslabs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.374)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %curslabs)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.375)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nonfull_slabs)
   br label %if.end574
 
 if.end574:                                        ; preds = %if.end.i698, %if.end574.critedge
@@ -11743,7 +11743,7 @@ do.end.i701:                                      ; preds = %if.end574
   br i1 %cmp.not.i705, label %if.end.i710, label %if.then1.i706
 
 if.then1.i706:                                    ; preds = %do.end.i701
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %329 = load i32, ptr %nesting_depth.i.i, align 8
   %330 = load i32, ptr %emitter, align 8
   %cmp.i.i707 = icmp ne i32 %330, 0
@@ -11758,13 +11758,13 @@ for.body.preheader.i.i711:                        ; preds = %if.then1.i706
 
 for.body.i.i714:                                  ; preds = %for.body.i.i714, %for.body.preheader.i.i711
   %i.06.i.i715 = phi i32 [ %inc.i.i716, %for.body.i.i714 ], [ 0, %for.body.preheader.i.i711 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i708)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i708)
   %inc.i.i716 = add nuw nsw i32 %i.06.i.i715, 1
   %exitcond.not.i.i717 = icmp eq i32 %inc.i.i716, %amount.0.i.i713
   br i1 %exitcond.not.i.i717, label %if.end.i710, label %for.body.i.i714, !llvm.loop !7
 
 if.end.i710:                                      ; preds = %for.body.i.i714, %if.then1.i706, %do.end.i701
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit718
 
 emitter_json_object_end.exit718:                  ; preds = %mutex_stats_read_arena_bin.exit, %if.end574, %if.end.i710
@@ -11946,7 +11946,7 @@ for.body.i780:                                    ; preds = %if.end.i778, %for.b
   %type.i783 = getelementptr inbounds i8, ptr %col.011.i781, i64 8
   %354 = load i32, ptr %type.i783, align 8
   %355 = getelementptr inbounds i8, ptr %col.011.i781, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %352, i32 noundef %353, i32 noundef %354, ptr noundef nonnull %355)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %352, i32 noundef %353, i32 noundef %354, ptr noundef nonnull %355)
   %link.i784 = getelementptr inbounds i8, ptr %col.011.i781, i64 24
   %356 = load ptr, ptr %link.i784, align 8
   %cmp4.not.i785 = icmp eq ptr %356, %351
@@ -11955,7 +11955,7 @@ for.body.i780:                                    ; preds = %if.end.i778, %for.b
   br i1 %cmp1.not.i787, label %for.end.i788, label %for.body.i780
 
 for.end.i788:                                     ; preds = %for.body.i780, %if.end.i778
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.end.i788, %rate_per_second.exit776, %land.lhs.true333
@@ -11982,7 +11982,7 @@ do.end.i792:                                      ; preds = %for.end
   br i1 %cmp.not.i796, label %if.end.i801, label %if.then1.i797
 
 if.then1.i797:                                    ; preds = %do.end.i792
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %360 = load i32, ptr %nesting_depth.i.i793, align 8
   %361 = load i32, ptr %emitter, align 8
   %cmp.i.i798 = icmp ne i32 %361, 0
@@ -11997,13 +11997,13 @@ for.body.preheader.i.i802:                        ; preds = %if.then1.i797
 
 for.body.i.i805:                                  ; preds = %for.body.i.i805, %for.body.preheader.i.i802
   %i.06.i.i806 = phi i32 [ %inc.i.i807, %for.body.i.i805 ], [ 0, %for.body.preheader.i.i802 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i799)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i799)
   %inc.i.i807 = add nuw nsw i32 %i.06.i.i806, 1
   %exitcond.not.i.i808 = icmp eq i32 %inc.i.i807, %amount.0.i.i804
   br i1 %exitcond.not.i.i808, label %if.end.i801, label %for.body.i.i805, !llvm.loop !7
 
 if.end.i801:                                      ; preds = %for.body.i.i805, %if.then1.i797, %do.end.i792
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.229)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %emitter_json_array_end.exit
 
 emitter_json_array_end.exit:                      ; preds = %for.end, %if.end.i801
@@ -12525,7 +12525,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %69 = load i32, ptr %type.i, align 8
   %70 = getelementptr inbounds i8, ptr %col.011.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
   %link.i300 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %71 = load ptr, ptr %link.i300, align 8
   %cmp4.not.i = icmp eq ptr %71, %64
@@ -12534,7 +12534,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit
 
 emitter_table_row.exit:                           ; preds = %emitter_col_init.exit299, %for.end.i
@@ -12759,8 +12759,8 @@ if.then254:                                       ; preds = %tsd_fetch_impl.exit
 
 if.end298:                                        ; preds = %tsd_fetch_impl.exit522
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.397)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %curlextents)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.397)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %curlextents)
   %emitter.val.i = load i32, ptr %emitter, align 8
   %spec.select.i.i = icmp ult i32 %emitter.val.i, 2
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
@@ -12774,7 +12774,7 @@ do.end.i:                                         ; preds = %if.end298
   br i1 %cmp.not.i301, label %if.end.i302, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %94 = load i32, ptr %nesting_depth.i.i, align 8
   %95 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %95, 0
@@ -12789,13 +12789,13 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i302, label %for.body.i.i, !llvm.loop !7
 
 if.end.i302:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %if.end298, %if.end.i302
@@ -12869,7 +12869,7 @@ for.body.i328:                                    ; preds = %if.end.i326, %for.b
   %type.i331 = getelementptr inbounds i8, ptr %col.011.i329, i64 8
   %106 = load i32, ptr %type.i331, align 8
   %107 = getelementptr inbounds i8, ptr %col.011.i329, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef nonnull %107)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef nonnull %107)
   %link.i332 = getelementptr inbounds i8, ptr %col.011.i329, i64 24
   %108 = load ptr, ptr %link.i332, align 8
   %cmp4.not.i333 = icmp eq ptr %108, %58
@@ -12878,7 +12878,7 @@ for.body.i328:                                    ; preds = %if.end.i326, %for.b
   br i1 %cmp1.not.i335, label %for.end.i336, label %for.body.i328
 
 for.end.i336:                                     ; preds = %for.body.i328, %if.end.i326
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.end.i336, %if.then315, %rate_per_second.exit324
@@ -12905,7 +12905,7 @@ do.end.i340:                                      ; preds = %for.end
   br i1 %cmp.not.i344, label %if.end.i349, label %if.then1.i345
 
 if.then1.i345:                                    ; preds = %do.end.i340
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %112 = load i32, ptr %nesting_depth.i.i341, align 8
   %113 = load i32, ptr %emitter, align 8
   %cmp.i.i346 = icmp ne i32 %113, 0
@@ -12920,13 +12920,13 @@ for.body.preheader.i.i350:                        ; preds = %if.then1.i345
 
 for.body.i.i353:                                  ; preds = %for.body.i.i353, %for.body.preheader.i.i350
   %i.06.i.i354 = phi i32 [ %inc.i.i355, %for.body.i.i353 ], [ 0, %for.body.preheader.i.i350 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i347)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i347)
   %inc.i.i355 = add nuw nsw i32 %i.06.i.i354, 1
   %exitcond.not.i.i356 = icmp eq i32 %inc.i.i355, %amount.0.i.i352
   br i1 %exitcond.not.i.i356, label %if.end.i349, label %for.body.i.i353, !llvm.loop !7
 
 if.end.i349:                                      ; preds = %for.body.i.i353, %if.then1.i345, %do.end.i340
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.229)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %emitter_json_array_end.exit
 
 emitter_json_array_end.exit:                      ; preds = %for.end, %if.end.i349
@@ -13423,7 +13423,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %69 = load i32, ptr %type.i, align 8
   %70 = getelementptr inbounds i8, ptr %col.011.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
   %link.i283 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %71 = load ptr, ptr %link.i283, align 8
   %cmp4.not.i = icmp eq ptr %71, %64
@@ -13432,7 +13432,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %emitter_table_row.exit
 
 emitter_table_row.exit:                           ; preds = %emitter_col_init.exit282, %for.end.i
@@ -13657,18 +13657,18 @@ if.then197:                                       ; preds = %do.end187
 
 if.end198:                                        ; preds = %do.end187, %if.then197
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.400)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.402)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nmuzzy)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.404)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %nretained)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.409)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %dirty_bytes)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.410)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %muzzy_bytes)
-  call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.411)
-  call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained_bytes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.400)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %ndirty)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.402)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nmuzzy)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.404)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %nretained)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.409)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %dirty_bytes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.410)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %muzzy_bytes)
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.411)
+  call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained_bytes)
   %emitter.val.i = load i32, ptr %emitter, align 8
   %spec.select.i.i = icmp ult i32 %emitter.val.i, 2
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
@@ -13682,7 +13682,7 @@ do.end.i:                                         ; preds = %if.end198
   br i1 %cmp.not.i284, label %if.end.i285, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %98 = load i32, ptr %nesting_depth.i.i, align 8
   %99 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %99, 0
@@ -13697,13 +13697,13 @@ for.body.preheader.i.i:                           ; preds = %if.then1.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i)
   %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %amount.0.i.i
   br i1 %exitcond.not.i.i, label %if.end.i285, label %for.body.i.i, !llvm.loop !7
 
 if.end.i285:                                      ; preds = %for.body.i.i, %if.then1.i, %do.end.i
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.448)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.448)
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %if.end198, %if.end.i285
@@ -13743,7 +13743,7 @@ for.body.i289:                                    ; preds = %if.end.i287, %for.b
   %type.i292 = getelementptr inbounds i8, ptr %col.011.i290, i64 8
   %110 = load i32, ptr %type.i292, align 8
   %111 = getelementptr inbounds i8, ptr %col.011.i290, i64 16
-  call fastcc void @emitter_print_value(ptr noundef readonly %emitter, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull %111)
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull %111)
   %link.i293 = getelementptr inbounds i8, ptr %col.011.i290, i64 24
   %112 = load ptr, ptr %link.i293, align 8
   %cmp4.not.i294 = icmp eq ptr %112, %58
@@ -13752,7 +13752,7 @@ for.body.i289:                                    ; preds = %if.end.i287, %for.b
   br i1 %cmp1.not.i296, label %for.end.i297, label %for.body.i289
 
 for.end.i297:                                     ; preds = %for.body.i289, %if.end.i287
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.33)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.end.i297, %if.then202, %emitter_json_object_end.exit
@@ -13774,7 +13774,7 @@ do.end.i301:                                      ; preds = %for.end
   br i1 %cmp.not.i305, label %if.end.i310, label %if.then1.i306
 
 if.then1.i306:                                    ; preds = %do.end.i301
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
   %114 = load i32, ptr %nesting_depth.i.i, align 8
   %115 = load i32, ptr %emitter, align 8
   %cmp.i.i307 = icmp ne i32 %115, 0
@@ -13789,13 +13789,13 @@ for.body.preheader.i.i311:                        ; preds = %if.then1.i306
 
 for.body.i.i314:                                  ; preds = %for.body.i.i314, %for.body.preheader.i.i311
   %i.06.i.i315 = phi i32 [ %inc.i.i316, %for.body.i.i314 ], [ 0, %for.body.preheader.i.i311 ]
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i308)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull %indent_str.0.i.i308)
   %inc.i.i316 = add nuw nsw i32 %i.06.i.i315, 1
   %exitcond.not.i.i317 = icmp eq i32 %inc.i.i316, %amount.0.i.i313
   br i1 %exitcond.not.i.i317, label %if.end.i310, label %for.body.i.i314, !llvm.loop !7
 
 if.end.i310:                                      ; preds = %for.body.i.i314, %if.then1.i306, %do.end.i301
-  call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.229)
+  call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.229)
   br label %emitter_json_array_end.exit
 
 emitter_json_array_end.exit:                      ; preds = %for.end, %if.end.i310

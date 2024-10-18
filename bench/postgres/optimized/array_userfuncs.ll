@@ -1101,7 +1101,7 @@ define dso_local i64 @array_agg_serialize(ptr nocapture noundef readonly %0) loc
   %19 = sext i32 %18 to i64
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #9
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %20 = call i64 @llvm.bswap.i64(i64 %19)
+  %20 = call i64 @llvm.bswap.i64(i64 range(i64 -2147483648, 2147483648) %19)
   %21 = load ptr, ptr %2, align 8, !alias.scope !14
   %22 = load i32, ptr %12, align 8, !alias.scope !14
   %23 = sext i32 %22 to i64

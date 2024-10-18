@@ -121,7 +121,7 @@ if.then.i.i.i19.i.i:                              ; preds = %if.end.i.i
 
 if.then.i.i.i.i.i.i24.i.i:                        ; preds = %if.then.i.i.i19.i.i
   %genFinalizer.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %thisTry.i.i, i64 32
-  %call.i.i.i.i.i.i26.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer.i.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer.i.i.i.i25.i.i, i32 noundef 3) #11
+  %call.i.i.i.i.i.i26.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer.i.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer.i.i.i.i25.i.i, i32 noundef 3) #11
   br label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i"
 
 "_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i": ; preds = %if.then.i.i.i.i.i.i24.i.i, %if.then.i.i.i19.i.i, %if.end.i.i
@@ -196,7 +196,7 @@ _ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_
 _ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i: ; preds = %if.then.i22.i
   %24 = load ptr, ptr %functionContext_.i1.i.i, align 8
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %newScope.i.i, ptr noundef %24) #11
+  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(65) %newScope.i.i, ptr noundef %24) #11
   br label %if.end.i23.i
 
 if.end.i23.i:                                     ; preds = %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i, %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS6_JRNS1_15ScopedHashTableIS3_S5_EEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISF_EERSF_E4typeEDpOSG_.exit.i.i
@@ -268,7 +268,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
 sw.bb3.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i23.i
-  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %newScope.i.i) #11
+  call void @_ZN6hermes5irgen15EnterBlockScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %newScope.i.i) #11
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
 sw.default.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end.i23.i
@@ -591,7 +591,7 @@ if.then.i:                                        ; preds = %if.then14
 _ZNKSt8functionIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEEclES3_S5_S7_.exit: ; preds = %if.then14
   %_M_invoker.i = getelementptr inbounds i8, ptr %sourceTry.addr.016, i64 56
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i) #11
+  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)

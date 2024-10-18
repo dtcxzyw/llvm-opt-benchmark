@@ -87,7 +87,7 @@ define range(i32 0, 2) i32 @Abc_NtkSuperChoiceLut(ptr noundef %0, i32 noundef %1
   %32 = select i1 %29, i32 1, i32 %31
   %33 = getelementptr inbounds i8, ptr %calloc.i, i64 12
   store i32 %32, ptr %33, align 4
-  %34 = tail call ptr @Extra_ArrayAlloc(i32 noundef %2, i32 noundef %32, i32 noundef 4) #16
+  %34 = tail call ptr @Extra_ArrayAlloc(i32 noundef range(i32 4, 16) %2, i32 noundef %32, i32 noundef 4) #16
   %35 = getelementptr inbounds i8, ptr %calloc.i, i64 104
   store ptr %34, ptr %35, align 8
   %36 = tail call ptr @Extra_ArrayAlloc(i32 noundef 1000, i32 noundef %32, i32 noundef 4) #16
@@ -1312,7 +1312,7 @@ Extra_TruthAnd.exit252.i.i.us.us.us.us:           ; preds = %select.unfold.i249.
   %539 = getelementptr inbounds i8, ptr %538, i64 20
   %540 = load i32, ptr %539, align 4
   %541 = lshr i32 %540, 12
-  %542 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %.011.i.i.i, i32 %541)
+  %542 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %.011.i.i.i, i32 range(i32 0, 1048576) %541)
   %indvars.iv.next.i267.i.i = add nuw nsw i64 %indvars.iv.i266.i.i, 1
   %exitcond.not.i268.i.i = icmp eq i64 %indvars.iv.next.i267.i.i, %wide.trip.count.i265.i.i
   br i1 %exitcond.not.i268.i.i, label %.critedge.loopexit.i.i.i, label %533, !llvm.loop !35
@@ -1575,7 +1575,7 @@ Abc_NodeDecomposeStep.exit.i:                     ; preds = %.loopexit286.thread
   %651 = getelementptr inbounds i8, ptr %650, i64 20
   %652 = load i32, ptr %651, align 4
   %653 = lshr i32 %652, 12
-  %654 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %.011.i.i, i32 %653)
+  %654 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %.011.i.i, i32 range(i32 0, 1048576) %653)
   %indvars.iv.next.i96.i = add nuw nsw i64 %indvars.iv.i95.i, 1
   %exitcond.not.i97.i = icmp eq i64 %indvars.iv.next.i96.i, %wide.trip.count.i94.i
   br i1 %exitcond.not.i97.i, label %Abc_NodeSuperChoiceLut.exit, label %645, !llvm.loop !35
@@ -1716,7 +1716,7 @@ Abc_ManSclStop.exit:                              ; preds = %681, %683
   %707 = getelementptr inbounds i8, ptr %.0103, i64 20
   %708 = load i32, ptr %707, align 4
   %709 = lshr i32 %708, 12
-  %710 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %.0100223, i32 %709)
+  %710 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %.0100223, i32 range(i32 0, 1048576) %709)
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count
   br i1 %exitcond253.not, label %.critedge7, label %688, !llvm.loop !42
@@ -2545,7 +2545,7 @@ define range(i32 1, 1048577) i32 @Abc_NodeGetLevel(ptr nocapture noundef readonl
   %13 = getelementptr inbounds i8, ptr %12, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 12
-  %16 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %.011, i32 %15)
+  %16 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %.011, i32 range(i32 0, 1048576) %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %7, !llvm.loop !35

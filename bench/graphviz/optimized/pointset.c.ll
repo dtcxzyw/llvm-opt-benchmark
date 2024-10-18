@@ -36,7 +36,7 @@ declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @insertPS(ptr noundef %0, i64 %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #13
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 49) 24) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %mkPair.exit
 
@@ -67,7 +67,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @addPS(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #13
+  %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 49) 24) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %mkPair.exit
 
@@ -151,12 +151,12 @@ define noalias noundef ptr @pointsOf(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %3, i64 noundef 8) #14
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 8) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call noalias ptr @calloc(i64 noundef %3, i64 noundef 8) #13
+  %10 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 8) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %gv_calloc.exit
 
@@ -192,7 +192,7 @@ declare ptr @dtflatten(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @newPM() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #13
+  %1 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 49) 48) #13
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %gv_alloc.exit
 
@@ -317,7 +317,7 @@ define internal ptr @mkMPair(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %gv_alloc.exit
 
 7:                                                ; preds = %2
-  %8 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #13
+  %8 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 49) 32) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %gv_alloc.exit
 

@@ -1427,11 +1427,11 @@ if.then8.i.i59:                                   ; preds = %if.then.i.i56
   %call10.i.i61 = call i32 @qemu_get_thread_id() #13
   %25 = load i64, ptr %_now.i.i49, align 8
   %26 = load i64, ptr %tv_usec.i.i62, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i61, i64 noundef %25, i64 noundef %26, ptr noundef %call21, i64 noundef %shl) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i61, i64 noundef %25, i64 noundef %26, ptr noundef %call21, i64 noundef range(i64 0, 17592186040321) %shl) #13
   br label %trace_virtio_balloon_handle_output.exit
 
 if.else.i.i58:                                    ; preds = %if.then.i.i56
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef %call21, i64 noundef %shl) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef %call21, i64 noundef range(i64 0, 17592186040321) %shl) #13
   br label %trace_virtio_balloon_handle_output.exit
 
 trace_virtio_balloon_handle_output.exit:          ; preds = %if.end19, %land.lhs.true5.i.i53, %if.then8.i.i59, %if.else.i.i58
@@ -1541,7 +1541,7 @@ if.then.i.i69:                                    ; preds = %if.end16.i
   br label %bitmap_full.exit.i
 
 if.else.i.i68:                                    ; preds = %if.end16.i
-  %call.i.i = call i32 @slow_bitmap_full(ptr noundef nonnull %pbp.sroa.3.3, i64 noundef %conv21.pre-phi.i) #13
+  %call.i.i = call i32 @slow_bitmap_full(ptr noundef nonnull %pbp.sroa.3.3, i64 noundef range(i64 -2147483648, 2147483648) %conv21.pre-phi.i) #13
   br label %bitmap_full.exit.i
 
 bitmap_full.exit.i:                               ; preds = %if.else.i.i68, %if.then.i.i69

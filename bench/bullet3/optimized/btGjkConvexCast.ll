@@ -120,7 +120,7 @@ entry:
   call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef null)
   %m_maximumDistanceSquared.i = getelementptr inbounds i8, ptr %input, i64 128
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %fromA, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %fromA, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %fromA, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -130,7 +130,7 @@ entry:
   %m_origin3.i = getelementptr inbounds i8, ptr %input, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i28, i64 16, i1 false)
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %fromB, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %fromB, i64 16, i1 false)
   %arrayidx5.i.i61 = getelementptr inbounds i8, ptr %fromB, i64 16
   %arrayidx7.i.i62 = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i62, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i61, i64 16, i1 false)
@@ -326,7 +326,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btGjkConvexCastD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }

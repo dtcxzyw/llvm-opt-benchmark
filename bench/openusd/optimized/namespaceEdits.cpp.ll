@@ -6275,7 +6275,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteEmSt4lessIS1_ESa
   br label %.body982
 
 2393:                                             ; preds = %2380
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2378) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2378) #19
   call void @_ZdlPvm(ptr noundef nonnull %2377, i64 noundef 56) #22
   br label %.noexc635
 
@@ -13717,7 +13717,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17Pc
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 56) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
@@ -14012,7 +14012,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStack
   %.0911.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17PcpNamespaceEdits14LayerStackSiteESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !181
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i, i64 12, i1 false), !alias.scope !181
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %31 = load ptr, ptr %30, align 8, !alias.scope !179, !noalias !176
@@ -14234,7 +14234,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpDependencyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not.i.i = icmp eq i32 %4, 0
@@ -16297,7 +16297,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17Pc
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 56) #22
   br label %6
 

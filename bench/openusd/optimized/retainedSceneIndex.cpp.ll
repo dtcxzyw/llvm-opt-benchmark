@@ -695,7 +695,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneInde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %27 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE18_InsertInTableImplIZNS3_14_InsertInTableERKSt4pairINS_7SdfPathES2_EEUlPNS3_6_EntryEE_EES5_INS3_8IteratorIS7_SB_EEbERKS6_OT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %27 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE18_InsertInTableImplIZNS3_14_InsertInTableERKSt4pairINS_7SdfPathES2_EEUlPNS3_6_EntryEE_EES5_INS3_8IteratorIS7_SB_EEbERKS6_OT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEEC2IRKS1_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
@@ -1084,7 +1084,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %.0.i.i, align 8
-  tail call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
+  tail call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %48) #16
   tail call void @_ZdlPvm(ptr noundef %48, i64 noundef 56) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE4findERKNS_7SdfPathE.exit.thread
 
@@ -1426,7 +1426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %39, %31
 54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %37) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %37) #16
   resume { ptr, i32 } %55
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryC2ERKNS_7SdfPathERKNS_22HdDataSourceLocatorSetE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
@@ -1959,7 +1959,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedScene
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndexD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndexD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #18
   ret void
 }
@@ -2582,7 +2582,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneInde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %6, ptr %3, align 8
-  %28 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE18_InsertInTableImplIZNS3_14_InsertInTableERKSt4pairINS_7SdfPathES2_EEUlPNS3_6_EntryEE_EES5_INS3_8IteratorIS7_SB_EEbERKS6_OT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %28 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE18_InsertInTableImplIZNS3_14_InsertInTableERKSt4pairINS_7SdfPathES2_EEUlPNS3_6_EntryEE_EES5_INS3_8IteratorIS7_SB_EEbERKS6_OT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEEC2IRKS1_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
@@ -3147,7 +3147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %.0.i8, align 8
-  tail call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #16
+  tail call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %43) #16
   tail call void @_ZdlPvm(ptr noundef %43, i64 noundef 56) #18
   %.not14.i = icmp eq ptr %.0.i15, null
   br i1 %.not14.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_PrimEntryEE24_EraseSubtreeAndSiblingsEPNS3_6_EntryE.exit, label %46
@@ -3199,7 +3199,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_20HdRetainedSceneIndex10_
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %.0.i5, align 8
-  tail call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #16
+  tail call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_20HdRetainedSceneIndex10_PrimEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %77) #16
   tail call void @_ZdlPvm(ptr noundef %77, i64 noundef 56) #18
   br label %80
 
@@ -3482,7 +3482,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN32px
 .body:                                            ; preds = %.lr.ph
   %10 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %.014) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %.014) #16
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #16
   %.not4.i.i = icmp eq ptr %2, %.014

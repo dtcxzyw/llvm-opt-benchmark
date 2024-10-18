@@ -168,7 +168,7 @@ AddLength.exit:                                   ; preds = %if.end3, %if.then.i
 
 if.then6:                                         ; preds = %AddLength.exit
   %sub = sub nuw nsw i32 128, %0
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 %sub)
+  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 range(i32 1, 0) %len, i32 range(i32 129, 128) %sub)
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
   %conv = zext nneg i32 %cond.i to i64
@@ -728,7 +728,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha512.i)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512.exit.i, label %for.body.i.i.i.preheader
 
@@ -965,7 +965,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha512.i)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_224.exit.i, label %for.body.i.i.i.preheader
 
@@ -1202,7 +1202,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha512.i)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_256.exit.i, label %for.body.i.i.i.preheader
 
@@ -1256,7 +1256,7 @@ entry:
 
 if.end.i5:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha384, i64 224, i1 false)
-  %call.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha384)
+  %call.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha384)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %for.body.i.i.preheader
 

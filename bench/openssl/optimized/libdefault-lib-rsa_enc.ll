@@ -346,17 +346,17 @@ if.end89:                                         ; preds = %if.else76, %if.end7
   %conv90 = sext i32 %ret.1 to i64
   %shr.neg.i = ashr i64 %conv90, 63
   %15 = load i64, ptr %outlen, align 8
-  %16 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shr.neg.i) #7, !srcloc !4
+  %16 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) %shr.neg.i) #7, !srcloc !4
   %and.i = and i64 %16, %15
   %not.i = xor i64 %shr.neg.i, -1
-  %17 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i) #7, !srcloc !4
+  %17 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) %not.i) #7, !srcloc !4
   %and2.i = and i64 %17, %conv90
   %or.i = or i64 %and2.i, %and.i
   store i64 %or.i, ptr %outlen, align 8
   %shr.neg.i52 = ashr i32 %ret.1, 31
-  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i52) #7, !srcloc !5
+  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %shr.neg.i52) #7, !srcloc !5
   %not.i.i = xor i32 %shr.neg.i52, -1
-  %19 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !5
+  %19 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %not.i.i) #7, !srcloc !5
   %and2.i.i = and i32 %19, 1
   br label %return
 

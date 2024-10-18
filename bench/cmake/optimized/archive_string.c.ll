@@ -6897,7 +6897,7 @@ archive_string_append.exit26:                     ; preds = %45
   %49 = load ptr, ptr %0, align 8
   %50 = load i64, ptr %13, align 8
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull readonly align 1 dereferenceable(3) @utf8_replacement_char, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) @utf8_replacement_char, i64 3, i1 false)
   br label %70
 
 52:                                               ; preds = %45

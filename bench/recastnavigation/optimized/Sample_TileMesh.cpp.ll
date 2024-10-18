@@ -141,7 +141,7 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15NavMeshTileToolD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(29) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

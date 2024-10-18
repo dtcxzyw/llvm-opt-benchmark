@@ -167,7 +167,7 @@ define dso_local noundef i64 @_ZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAs
   br i1 %.not.i.i, label %_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit, label %17
 
 17:                                               ; preds = %3
-  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
+  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #7
   br label %_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit
 
 _ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit: ; preds = %3, %17
@@ -175,7 +175,7 @@ _ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWrit
   %19 = add i64 %13, %18
   %20 = ptrtoint ptr %16 to i64
   %21 = sub i64 %19, %20
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #7
   ret i64 %21
 }
 
@@ -211,11 +211,11 @@ define internal void @_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssembler
   br i1 %.not.i.i, label %_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #7
+  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #7
   br label %_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit
 
 _ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit: ; preds = %1, %6
-  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #7
+  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #8
   ret void
 }

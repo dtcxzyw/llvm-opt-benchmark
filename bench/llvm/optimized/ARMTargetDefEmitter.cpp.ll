@@ -3368,7 +3368,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit544:              ; preds = %1583, %1585
 
 _ZN4llvm11raw_ostreamlsEPKc.exit547:              ; preds = %1595, %1597
   %1601 = getelementptr inbounds nuw i8, ptr %44, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 20, i1 false)
   store i32 8, ptr %1601, align 4
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %45, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nonnull @.str.95, i64 14) #18
   %1602 = load ptr, ptr %45, align 8
@@ -3397,7 +3397,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit547:              ; preds = %1595, %1597
 
 _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit549: ; preds = %._crit_edge993, %1606
   %1612 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 20, i1 false)
   store i32 8, ptr %1612, align 4
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %47, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nonnull @.str.96, i64 14) #18
   %1613 = load ptr, ptr %47, align 8
@@ -3908,7 +3908,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit585:              ; preds = %1842, %1844
 1858:                                             ; preds = %.lr.ph.i.i
   %1859 = load i64, ptr %1857, align 8
   %1860 = add i64 %1859, 9
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %1857, i64 noundef %1860, i64 noundef 8) #18
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(8) %1857, i64 noundef %1860, i64 noundef 8) #18
   br label %1861
 
 1861:                                             ; preds = %1858, %.lr.ph.i.i, %.lr.ph.i.i
@@ -3948,7 +3948,7 @@ _ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev.exit: ; preds = %1861, %_ZN4llvm11
 1873:                                             ; preds = %.lr.ph.i.i589
   %1874 = load i64, ptr %1872, align 8
   %1875 = add i64 %1874, 9
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %1872, i64 noundef %1875, i64 noundef 8) #18
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(8) %1872, i64 noundef %1875, i64 noundef 8) #18
   br label %1876
 
 1876:                                             ; preds = %1873, %.lr.ph.i.i589, %.lr.ph.i.i589
@@ -4610,7 +4610,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit630:              ; preds = %2127, %2129
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit633
 
 _ZN4llvm11raw_ostreamlsEPKc.exit633:              ; preds = %2139, %2141
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %69, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 20, i1 false)
   store i32 8, ptr %1726, align 4
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %70, ptr noundef nonnull align 8 dereferenceable(192) %1903, ptr nonnull @.str.107, i64 8) #18
   %2145 = load ptr, ptr %70, align 8
@@ -4708,7 +4708,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit641:              ; preds = %2171, %2173
 2185:                                             ; preds = %.lr.ph.i.i644
   %2186 = load i64, ptr %2184, align 8
   %2187 = add i64 %2186, 9
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %2184, i64 noundef %2187, i64 noundef 8) #18
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(8) %2184, i64 noundef %2187, i64 noundef 8) #18
   br label %2188
 
 2188:                                             ; preds = %2185, %.lr.ph.i.i644, %.lr.ph.i.i644
@@ -4953,7 +4953,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit601: ; preds = %1896, %_ZNSt6vector
 2286:                                             ; preds = %.lr.ph.i.i668
   %2287 = load i64, ptr %2285, align 8
   %2288 = add i64 %2287, 9
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %2285, i64 noundef %2288, i64 noundef 8) #18
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(8) %2285, i64 noundef %2288, i64 noundef 8) #18
   br label %2289
 
 2289:                                             ; preds = %2286, %.lr.ph.i.i668, %.lr.ph.i.i668
@@ -4992,7 +4992,7 @@ _ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev.exit673: ; preds = %2289, %_ZNSt6v
 2300:                                             ; preds = %.lr.ph.i.i676
   %2301 = load i64, ptr %2299, align 8
   %2302 = add i64 %2301, 9
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %2299, i64 noundef %2302, i64 noundef 8) #18
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(8) %2299, i64 noundef %2302, i64 noundef 8) #18
   br label %2303
 
 2303:                                             ; preds = %2300, %.lr.ph.i.i676, %.lr.ph.i.i676
@@ -5031,7 +5031,7 @@ declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(p
 define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 8, ptr %5, align 4
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %.0.val, ptr nonnull @.str.123, i64 16) #18
   %6 = load ptr, ptr %4, align 8
@@ -6138,7 +6138,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   %24 = zext nneg i32 %.lobit to i64

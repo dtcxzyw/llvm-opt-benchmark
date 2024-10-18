@@ -1066,7 +1066,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_5BytesEED0Ev(ptr noundef nonnull align
   br label %_ZN4pkpy3Py_INS_5BytesEED2Ev.exit
 
 _ZN4pkpy3Py_INS_5BytesEED2Ev.exit:                ; preds = %1, %5
-  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  tail call void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #19
   ret void
 }

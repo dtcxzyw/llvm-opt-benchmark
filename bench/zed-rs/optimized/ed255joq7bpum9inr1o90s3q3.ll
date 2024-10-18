@@ -33,7 +33,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %17 = load ptr, ptr %12, align 8, !noalias !16, !nonnull !4, !align !17, !noundef !4
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !11, !noalias !14, !nonnull !4, !align !17, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %19, i64 %14), !alias.scope !18, !noalias !16
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %19, i64 %14), !alias.scope !18, !noalias !16
   %20 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %20, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h06d6d625d0fae286E.exit.i", label %.thread.i
 
@@ -51,7 +51,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.thread.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.i", %16
   store i64 2, ptr %0, align 8, !alias.scope !6, !noalias !25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !26
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd5475c794abf08eaE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !14
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd5475c794abf08eaE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !14
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8, !range !13, !noalias !26, !noundef !4
   %23 = icmp eq i64 %22, 0
@@ -72,7 +72,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %28 = load ptr, ptr %12, align 8, !noalias !16, !nonnull !4, !align !17, !noundef !4
   %29 = getelementptr inbounds i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !11, !noalias !14, !nonnull !4, !noundef !4
-  %bcmp.i.i23.i = tail call i32 @bcmp(ptr nonnull readonly %28, ptr nonnull readonly %30, i64 %14), !alias.scope !37, !noalias !16
+  %bcmp.i.i23.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %28, ptr nonnull readonly align 1 %30, i64 %14), !alias.scope !37, !noalias !16
   %31 = icmp eq i32 %bcmp.i.i23.i, 0
   br i1 %31, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h06d6d625d0fae286E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.thread.i"
 
@@ -104,7 +104,7 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
   %15 = load ptr, ptr %10, align 8, !nonnull !4, !align !17, !noundef !4
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !17, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %15, ptr nonnull readonly %17, i64 %12), !alias.scope !44
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %15, ptr nonnull readonly align 1 %17, i64 %12), !alias.scope !44
   %18 = icmp eq i32 %bcmp.i.i, 0
   br i1 %18, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h06d6d625d0fae286E.exit", label %.thread
 
@@ -122,7 +122,7 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.thread": ; preds = %14, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25"
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !51
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd5475c794abf08eaE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd5475c794abf08eaE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8, !range !13, !noalias !51, !noundef !4
   %21 = icmp eq i64 %20, 0
@@ -143,7 +143,7 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
   %26 = load ptr, ptr %10, align 8, !nonnull !4, !align !17, !noundef !4
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i23 = tail call i32 @bcmp(ptr nonnull readonly %26, ptr nonnull readonly %28, i64 %12), !alias.scope !62
+  %bcmp.i.i23 = tail call i32 @bcmp(ptr nonnull readonly align 1 %26, ptr nonnull readonly align 1 %28, i64 %12), !alias.scope !62
   %29 = icmp eq i32 %bcmp.i.i23, 0
   br i1 %29, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h06d6d625d0fae286E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.thread"
 

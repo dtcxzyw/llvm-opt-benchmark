@@ -4412,17 +4412,17 @@ while.body12.i:                                   ; preds = %if.end39.i, %while.
   %17 = load i32, ptr %tid.i, align 4
   %call15.i = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %buff.i, i64 noundef 4096, ptr noundef nonnull @.str.296, i32 noundef %17, ptr noundef nonnull %curr_stacktrace_data.i) #22
   %call18.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff.i) #24
-  %call19.i = call i64 @write(i32 noundef %cond.i21, ptr noundef nonnull %buff.i, i64 noundef %call18.i) #22
+  %call19.i = call i64 @write(i32 noundef range(i32 0, -1) %cond.i21, ptr noundef nonnull %buff.i, i64 noundef %call18.i) #22
   %18 = load i32, ptr %tid.i, align 4
   %cmp25.i = icmp eq i32 %18, %conv.i
   br i1 %cmp25.i, label %if.then27.i, label %if.else.i
 
 if.then27.i:                                      ; preds = %while.body12.i
-  %call29.i = call i64 @write(i32 noundef %cond.i21, ptr noundef nonnull @.str.297, i64 noundef 3) #22
+  %call29.i = call i64 @write(i32 noundef range(i32 0, -1) %cond.i21, ptr noundef nonnull @.str.297, i64 noundef 3) #22
   br label %if.end39.i
 
 if.else.i:                                        ; preds = %while.body12.i
-  %call34.i = call i64 @write(i32 noundef %cond.i21, ptr noundef nonnull @.str.280, i64 noundef 1) #22
+  %call34.i = call i64 @write(i32 noundef range(i32 0, -1) %cond.i21, ptr noundef nonnull @.str.280, i64 noundef 1) #22
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.else.i, %if.then27.i
@@ -4431,7 +4431,7 @@ if.end39.i:                                       ; preds = %if.else.i, %if.then
   %add.ptr.i = getelementptr inbounds ptr, ptr %trace.i, i64 %idx.ext.i
   %19 = load i32, ptr %trace_size.i, align 8
   %sub.i = sub nsw i32 %19, %curr_uplevel.0.i
-  call void @backtrace_symbols_fd(ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i, i32 noundef %cond.i21) #22
+  call void @backtrace_symbols_fd(ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i, i32 noundef range(i32 0, -1) %cond.i21) #22
   %inc.i = add i64 %collected.024.i, 1
   %20 = load i32, ptr @stacktrace_pipe, align 4
   %call9.i = call i64 @read(i32 noundef %20, ptr noundef nonnull %curr_stacktrace_data.i, i64 noundef 824) #22
@@ -4442,7 +4442,7 @@ while.end41.i:                                    ; preds = %if.end39.i, %if.end
   %collected.0.lcssa.i = phi i64 [ 0, %if.end6.i ], [ %inc.i, %if.end39.i ]
   %call43.i = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %buff.i, i64 noundef 4096, ptr noundef nonnull @.str.298, i64 noundef %collected.0.lcssa.i, i64 noundef %retval.0.i12.i) #22
   %call46.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff.i) #24
-  %call47.i = call i64 @write(i32 noundef %cond.i21, ptr noundef nonnull %buff.i, i64 noundef %call46.i) #22
+  %call47.i = call i64 @write(i32 noundef range(i32 0, -1) %cond.i21, ptr noundef nonnull %buff.i, i64 noundef %call46.i) #22
   br label %writeStacktraces.exit
 
 writeStacktraces.exit:                            ; preds = %while.end.i, %while.end41.i

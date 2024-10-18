@@ -123,7 +123,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  invoke void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %this)
+  invoke void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(104) %this)
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -148,7 +148,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN4base19PersistentSampleMapD2Ev.exit:           ; preds = %if.end.i
-  tail call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
+  tail call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -388,7 +388,7 @@ if.then.i:                                        ; preds = %entry
   %meta_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %meta_.i.i, align 8
   %3 = load i64, ptr %2, align 8
-  %call2.i = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %1, i64 noundef %3, ptr noundef nonnull %this)
+  %call2.i = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %1, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(104) %this)
   store ptr %call2.i, ptr %records_.i, align 8
   br label %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
 
@@ -406,7 +406,7 @@ while.cond.outer.us:                              ; preds = %_ZN4base19Persisten
 while.body.us:                                    ; preds = %while.cond.us
   %call.val.us = load ptr, ptr %4, align 8
   %call.val.val.us = load ptr, ptr %call.val.us, align 8
-  %call.i.i.i.i.us = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %call.val.val.us, i32 noundef %call2.us, i32 noundef -1880709472, i32 noundef 16)
+  %call.i.i.i.i.us = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %call.val.val.us, i32 noundef range(i32 1, 0) %call2.us, i32 noundef -1880709472, i32 noundef 16)
   %tobool.not.us = icmp eq ptr %call.i.i.i.i.us, null
   br i1 %tobool.not.us, label %while.cond.us, label %if.end8.us, !llvm.loop !7
 
@@ -472,7 +472,7 @@ while.cond:                                       ; preds = %_ZN4base19Persisten
 while.body:                                       ; preds = %while.cond
   %call.val = load ptr, ptr %4, align 8
   %call.val.val = load ptr, ptr %call.val, align 8
-  %call.i.i.i.i = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %call.val.val, i32 noundef %call2, i32 noundef -1880709472, i32 noundef 16)
+  %call.i.i.i.i = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %call.val.val, i32 noundef range(i32 1, 0) %call2, i32 noundef -1880709472, i32 noundef 16)
   %tobool.not = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not, label %while.cond.backedge, label %if.end8
 
@@ -572,7 +572,7 @@ call.i.noexc.i:                                   ; preds = %while.body.i.i
 lpad.i:                                           ; preds = %while.body.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call2) #12
+  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #12
   tail call void @_ZdlPv(ptr noundef nonnull %call2) #13
   resume { ptr, i32 } %5
 
@@ -880,7 +880,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base12_GLOBAL__N_127PersistentSampleMapIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }

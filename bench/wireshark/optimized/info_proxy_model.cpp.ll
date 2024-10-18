@@ -316,7 +316,7 @@ define void @_ZN14InfoProxyModel10appendInfoE7QString(ptr noundef nonnull align 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %3, i64 %7, ptr %5, i32 noundef 1)
+  %8 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %7, ptr %5, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %9
 
 9:                                                ; preds = %2
@@ -382,7 +382,7 @@ define void @_ZNK14InfoProxyModel4dataERK11QModelIndexi(ptr dead_on_unwind noali
   br i1 %or.cond22, label %19, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %18, align 8
   br label %69
@@ -442,7 +442,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   br i1 %.not, label %57, label %55
 
 55:                                               ; preds = %51, %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %56 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %56, align 8
   br label %69

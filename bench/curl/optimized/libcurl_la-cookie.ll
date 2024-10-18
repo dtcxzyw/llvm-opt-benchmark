@@ -530,12 +530,12 @@ if.then149:                                       ; preds = %if.end147
 if.end152:                                        ; preds = %if.then149
   %15 = load ptr, ptr @Curl_cfree, align 8
   call void %15(ptr noundef null) #12
-  %call.i = call ptr @Curl_memdup0(ptr noundef nonnull %ptr.1, i64 noundef %nlen.0.lcssa) #12
+  %call.i = call ptr @Curl_memdup0(ptr noundef nonnull %ptr.1, i64 noundef range(i64 0, 4095) %nlen.0.lcssa) #12
   store ptr %call.i, ptr %name, align 8
   %16 = load ptr, ptr @Curl_cfree, align 8
   %17 = load ptr, ptr %value, align 8
   call void %16(ptr noundef %17) #12
-  %call.i396 = call ptr @Curl_memdup0(ptr noundef %valuep.1, i64 noundef %vlen.2) #12
+  %call.i396 = call ptr @Curl_memdup0(ptr noundef %valuep.1, i64 noundef range(i64 0, 4095) %vlen.2) #12
   store ptr %call.i396, ptr %value, align 8
   %18 = load ptr, ptr %name, align 8
   %tobool155.not = icmp eq ptr %18, null
@@ -622,7 +622,7 @@ if.then223:                                       ; preds = %land.lhs.true220
   %23 = load ptr, ptr @Curl_cfree, align 8
   %24 = load ptr, ptr %path224, align 8
   call void %23(ptr noundef %24) #12
-  %call.i402 = call ptr @Curl_memdup0(ptr noundef %valuep.1, i64 noundef %vlen.2) #12
+  %call.i402 = call ptr @Curl_memdup0(ptr noundef %valuep.1, i64 noundef range(i64 0, 4095) %vlen.2) #12
   store ptr %call.i402, ptr %path224, align 8
   %tobool226.not = icmp eq ptr %call.i402, null
   br i1 %tobool226.not, label %if.then459, label %if.end228
@@ -748,7 +748,7 @@ if.then272:                                       ; preds = %land.lhs.true269, %
   %38 = load ptr, ptr @Curl_cfree, align 8
   %39 = load ptr, ptr %domain273, align 8
   call void %38(ptr noundef %39) #12
-  %call.i405 = call ptr @Curl_memdup0(ptr noundef nonnull %valuep.2, i64 noundef %vlen.3) #12
+  %call.i405 = call ptr @Curl_memdup0(ptr noundef nonnull %valuep.2, i64 noundef range(i64 0, 4095) %vlen.3) #12
   store ptr %call.i405, ptr %domain273, align 8
   %tobool275.not = icmp eq ptr %call.i405, null
   br i1 %tobool275.not, label %if.then459, label %if.end277

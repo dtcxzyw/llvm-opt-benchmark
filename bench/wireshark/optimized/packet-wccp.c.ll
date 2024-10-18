@@ -3171,7 +3171,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 
 43:                                               ; preds = %39
   %44 = load i32, ptr @ett_extended_assigment_data_element, align 4
-  %45 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %31, i32 noundef %30, i32 noundef %44, ptr noundef nonnull %7, ptr noundef nonnull @.str.381) #7
+  %45 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 2147483640) %30, i32 noundef %44, ptr noundef nonnull %7, ptr noundef nonnull @.str.381) #7
   %46 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %31) #7
   %47 = load i32, ptr @hf_extended_assignment_data_type, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %47, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef 0) #7
@@ -3224,7 +3224,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 
 74:                                               ; preds = %65
   %75 = load i32, ptr @ett_alternate_mask_assignment_data_element, align 4
-  %76 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, i32 noundef %75, ptr noundef null, ptr noundef nonnull @.str.427) #7
+  %76 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %55, i32 noundef range(i32 0, 65540) %.0.i, i32 noundef %75, ptr noundef null, ptr noundef nonnull @.str.427) #7
   %77 = icmp samesign ult i32 %.0.i, 4
   br i1 %77, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, label %78
 
@@ -3453,7 +3453,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %21 = load i32, ptr @ett_mv_set_element, align 4
   %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.03740, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.420, i32 noundef %.03938) #7
-  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03740, i32 noundef %.03839, ptr noundef %22)
+  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03740, i32 noundef range(i32 0, -2147483648) %.03839, ptr noundef %22)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %dissect_wccp2_mask_value_set_element.exit.thread, label %25
 

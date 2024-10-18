@@ -1789,7 +1789,7 @@ define noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet23ParseFromZeroCo
 entry:
   %coded_input = alloca %"class.google::protobuf::io::CodedInputStream", align 8
   %input_.i = getelementptr inbounds i8, ptr %coded_input, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %coded_input, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %coded_input, i8 0, i64 16, i1 false)
   store ptr %input, ptr %input_.i, align 8
   %total_bytes_read_.i = getelementptr inbounds i8, ptr %coded_input, i64 24
   %current_limit_.i = getelementptr inbounds i8, ptr %coded_input, i64 40
@@ -1847,7 +1847,7 @@ entry:
   call void @_ZN6google8protobuf2io16ArrayInputStreamC1EPKvii(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef %data, i32 noundef %size, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %coded_input.i)
   %input_.i.i = getelementptr inbounds i8, ptr %coded_input.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %coded_input.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %coded_input.i, i8 0, i64 16, i1 false)
   store ptr %input, ptr %input_.i.i, align 8
   %total_bytes_read_.i.i = getelementptr inbounds i8, ptr %coded_input.i, i64 24
   %current_limit_.i.i = getelementptr inbounds i8, ptr %coded_input.i, i64 40
@@ -1954,7 +1954,7 @@ entry:
   %0 = load ptr, ptr %cur_.i.i, align 8
   %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %0, ptr noundef %output)
   store ptr %call2.i, ptr %cur_.i.i, align 8
-  %call.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call2.i)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call2.i)
   store ptr %call.i, ptr %cur_.i.i, align 8
   %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   %1 = load i8, ptr %had_error_.i.i, align 8
@@ -2036,7 +2036,7 @@ invoke.cont:                                      ; preds = %call.i.i.noexc.invo
 
 call2.i.i.noexc:                                  ; preds = %invoke.cont
   store ptr %call2.i.i4, ptr %cur_.i, align 8
-  %call.i.i6 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(60) %coded_output_stream, ptr noundef %call2.i.i4)
+  %call.i.i6 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %coded_output_stream, ptr noundef %call2.i.i4)
           to label %cleanup unwind label %lpad2
 
 lpad:                                             ; preds = %call2.i.noexc, %entry, %cleanup.cont
@@ -2275,7 +2275,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
   %5 = extractvalue { ptr, i8 } %call9.i.i, 0
   %6 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %6 to i1

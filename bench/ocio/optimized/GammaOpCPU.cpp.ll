@@ -516,7 +516,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEEED2Ev.exit: ;
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp, align 8, !alias.scope !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %2 = load ptr, ptr %ref.tmp, align 8
   store ptr %2, ptr %agg.result, align 8
@@ -528,7 +528,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdEED2Ev.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i22)
   store ptr null, ptr %ref.tmp2, align 8, !alias.scope !7
   %_M_refcount.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr nonnull %__a.i22, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i23, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr nonnull %__a.i22, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i22)
   %4 = load ptr, ptr %ref.tmp2, align 8
   store ptr %4, ptr %agg.result, align 8
@@ -544,7 +544,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEEED2Ev.exit: ;
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i57)
   store ptr null, ptr %ref.tmp6, align 8, !alias.scope !10
   %_M_refcount.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i58, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr nonnull %__a.i57, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i58, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr nonnull %__a.i57, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i57)
   %6 = load ptr, ptr %ref.tmp6, align 8
   store ptr %6, ptr %agg.result, align 8
@@ -556,7 +556,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevEED2Ev.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i92)
   store ptr null, ptr %ref.tmp8, align 8, !alias.scope !13
   %_M_refcount.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i93, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr nonnull %__a.i92, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i93, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, ptr nonnull %__a.i92, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i92)
   %8 = load ptr, ptr %ref.tmp8, align 8
   store ptr %8, ptr %agg.result, align 8
@@ -572,7 +572,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEEED2Ev.e
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i127)
   store ptr null, ptr %ref.tmp12, align 8, !alias.scope !16
   %_M_refcount.i.i.i128 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i128, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr nonnull %__a.i127, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i128, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12, ptr nonnull %__a.i127, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i127)
   %10 = load ptr, ptr %ref.tmp12, align 8
   store ptr %10, ptr %agg.result, align 8
@@ -584,7 +584,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i162)
   store ptr null, ptr %ref.tmp14, align 8, !alias.scope !19
   %_M_refcount.i.i.i163 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i163, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr nonnull %__a.i162, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i163, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14, ptr nonnull %__a.i162, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i162)
   %12 = load ptr, ptr %ref.tmp14, align 8
   store ptr %12, ptr %agg.result, align 8
@@ -600,7 +600,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEEED2Ev.e
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i197)
   store ptr null, ptr %ref.tmp18, align 8, !alias.scope !22
   %_M_refcount.i.i.i198 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i198, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr nonnull %__a.i197, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i198, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18, ptr nonnull %__a.i197, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i197)
   %14 = load ptr, ptr %ref.tmp18, align 8
   store ptr %14, ptr %agg.result, align 8
@@ -612,7 +612,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i232)
   store ptr null, ptr %ref.tmp20, align 8, !alias.scope !25
   %_M_refcount.i.i.i233 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i233, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr nonnull %__a.i232, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevESaIvEJRSt10shared_ptrIKNS4_11GammaOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i233, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr nonnull %__a.i232, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i232)
   %16 = load ptr, ptr %ref.tmp20, align 8
   store ptr %16, ptr %agg.result, align 8

@@ -58,7 +58,7 @@ _ZN7VM_Exit18block_if_vm_exitedEv.exit:           ; preds = %2, %5
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1720
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_ZL10UH_methods, i32 noundef 1) #4
+  %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @_ZL10UH_methods, i32 noundef 1) #4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %16
 
@@ -66,7 +66,7 @@ _ZN7VM_Exit18block_if_vm_exitedEv.exit:           ; preds = %2, %5
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull %0) #4
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %0) #4
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %18, label %16
 

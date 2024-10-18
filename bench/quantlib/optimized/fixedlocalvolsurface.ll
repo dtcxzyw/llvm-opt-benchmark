@@ -1165,7 +1165,7 @@ if.then.i.i.i88:                                  ; preds = %ehcleanup81
 
 _ZNSt6vectorIdSaIdEED2Ev.exit93:                  ; preds = %ehcleanup81, %if.then.i.i.i88
   %78 = getelementptr inbounds i8, ptr %vtt, i64 24
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %78) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %78) #26
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit93, %lpad
@@ -3553,7 +3553,7 @@ if.then.i.i.i94:                                  ; preds = %ehcleanup83
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit99
 
 _ZNSt6vectorIdSaIdEED2Ev.exit99:                  ; preds = %ehcleanup83, %if.then.i.i.i94
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20FixedLocalVolSurfaceE, i64 24)) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20FixedLocalVolSurfaceE, i64 24)) #26
   br label %ehcleanup86
 
 ehcleanup86:                                      ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit99, %ehcleanup
@@ -4149,7 +4149,7 @@ if.then.i.i.i73:                                  ; preds = %ehcleanup65
 ehcleanup67:                                      ; preds = %if.then.i.i.i73, %ehcleanup65, %lpad7
   %.pn13.pn.pn.pn = phi { ptr, i32 } [ %41, %lpad7 ], [ %.pn13.pn.pn, %ehcleanup65 ], [ %.pn13.pn.pn, %if.then.i.i.i73 ]
   %71 = getelementptr inbounds i8, ptr %vtt, i64 24
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %71) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %71) #26
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup67, %lpad
@@ -4767,7 +4767,7 @@ if.then.i.i.i79:                                  ; preds = %ehcleanup67
 
 ehcleanup69:                                      ; preds = %if.then.i.i.i79, %ehcleanup67, %lpad5
   %.pn15.pn.pn.pn = phi { ptr, i32 } [ %40, %lpad5 ], [ %.pn15.pn.pn, %ehcleanup67 ], [ %.pn15.pn.pn, %if.then.i.i.i79 ]
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20FixedLocalVolSurfaceE, i64 24)) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20FixedLocalVolSurfaceE, i64 24)) #26
   br label %ehcleanup70
 
 ehcleanup70:                                      ; preds = %ehcleanup69, %ehcleanup
@@ -5478,7 +5478,7 @@ if.then.i.i.i109:                                 ; preds = %ehcleanup101
 ehcleanup103:                                     ; preds = %if.then.i.i.i109, %ehcleanup101, %lpad7
   %.pn18.pn.pn.pn = phi { ptr, i32 } [ %34, %lpad7 ], [ %.pn18.pn.pn, %ehcleanup101 ], [ %.pn18.pn.pn, %if.then.i.i.i109 ]
   %89 = getelementptr inbounds i8, ptr %vtt, i64 24
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %89) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %89) #26
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup103, %lpad
@@ -6209,7 +6209,7 @@ if.then.i.i.i115:                                 ; preds = %ehcleanup103
 
 ehcleanup105:                                     ; preds = %if.then.i.i.i115, %ehcleanup103, %lpad5
   %.pn20.pn.pn.pn = phi { ptr, i32 } [ %33, %lpad5 ], [ %.pn20.pn.pn, %ehcleanup103 ], [ %.pn20.pn.pn, %if.then.i.i.i115 ]
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20FixedLocalVolSurfaceE, i64 24)) #26
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib20FixedLocalVolSurfaceE, i64 24)) #26
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %ehcleanup105, %ehcleanup
@@ -7206,7 +7206,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %10 = phi ptr [ %9, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %4)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -7252,7 +7252,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib20FixedLocalVolSurfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(176) %2, i64 noundef 288) #30
   ret void
 }
 
@@ -8397,7 +8397,7 @@ if.then.i.i.i19:                                  ; preds = %_ZN5boost10shared_p
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib6MatrixEED2Ev.exit, %if.then.i.i.i19
   %30 = getelementptr inbounds i8, ptr %vtt, i64 24
-  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %30) #26
+  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %30) #26
   ret void
 }
 

@@ -687,7 +687,7 @@ _ZN7Imf_3_212_GLOBAL__N_113runCoreChecksEPKcmbb.exit: ; preds = %if.then, %if.en
   br label %return
 
 if.else:                                          ; preds = %entry
-  call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %stream, ptr noundef nonnull @.str.13)
+  call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) %stream, ptr noundef nonnull @.str.13)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i64 16), ptr %stream, align 8
   %base.i = getelementptr inbounds i8, ptr %stream, i64 40
   store ptr %data, ptr %base.i, align 8
@@ -740,7 +740,7 @@ if.end.i6:                                        ; preds = %.noexc10, %.noexc8
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i6
-  invoke void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonnull align 8 dereferenceable(16) %multi.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i32 noundef %call3.i, i1 noundef zeroext true)
+  invoke void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonnull align 8 dereferenceable(16) %multi.i, ptr noundef nonnull align 8 dereferenceable(64) %stream, i32 noundef %call3.i, i1 noundef zeroext true)
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
@@ -829,7 +829,7 @@ invoke.cont39.i:                                  ; preds = %if.then38.i
           to label %invoke.cont41.i unwind label %lpad40.i
 
 invoke.cont41.i:                                  ; preds = %invoke.cont39.i
-  invoke void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) %rgba.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i32 noundef %call42.i)
+  invoke void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) %rgba.i, ptr noundef nonnull align 8 dereferenceable(64) %stream, i32 noundef %call42.i)
           to label %invoke.cont43.i unwind label %lpad40.i
 
 invoke.cont43.i:                                  ; preds = %invoke.cont41.i
@@ -908,7 +908,7 @@ invoke.cont59.i:                                  ; preds = %if.end57.i
           to label %invoke.cont62.i unwind label %lpad61.i
 
 invoke.cont62.i:                                  ; preds = %invoke.cont59.i
-  invoke void @_ZN7Imf_3_29InputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba60.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i32 noundef %call63.i)
+  invoke void @_ZN7Imf_3_29InputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba60.i, ptr noundef nonnull align 8 dereferenceable(64) %stream, i32 noundef %call63.i)
           to label %invoke.cont64.i unwind label %lpad61.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont62.i
@@ -976,7 +976,7 @@ invoke.cont86.i:                                  ; preds = %if.then84.i
           to label %invoke.cont89.i unwind label %lpad88.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont86.i
-  invoke void @_ZN7Imf_3_214TiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba87.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i32 noundef %call90.i)
+  invoke void @_ZN7Imf_3_214TiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba87.i, ptr noundef nonnull align 8 dereferenceable(64) %stream, i32 noundef %call90.i)
           to label %invoke.cont91.i unwind label %lpad88.i
 
 invoke.cont91.i:                                  ; preds = %invoke.cont89.i
@@ -1043,7 +1043,7 @@ invoke.cont111.i:                                 ; preds = %if.then109.i
           to label %invoke.cont114.i unwind label %lpad113.i
 
 invoke.cont114.i:                                 ; preds = %invoke.cont111.i
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba112.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i32 noundef %call115.i)
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba112.i, ptr noundef nonnull align 8 dereferenceable(64) %stream, i32 noundef %call115.i)
           to label %invoke.cont116.i unwind label %lpad113.i
 
 invoke.cont116.i:                                 ; preds = %invoke.cont114.i
@@ -1111,7 +1111,7 @@ invoke.cont138.i:                                 ; preds = %if.then136.i
           to label %invoke.cont141.i unwind label %lpad140.i
 
 invoke.cont141.i:                                 ; preds = %invoke.cont138.i
-  invoke void @_ZN7Imf_3_218DeepTiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba139.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i32 noundef %call142.i)
+  invoke void @_ZN7Imf_3_218DeepTiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %rgba139.i, ptr noundef nonnull align 8 dereferenceable(64) %stream, i32 noundef %call142.i)
           to label %invoke.cont143.i unwind label %lpad140.i
 
 invoke.cont143.i:                                 ; preds = %invoke.cont141.i
@@ -1192,7 +1192,7 @@ invoke.cont:                                      ; preds = %invoke.cont161.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rgba87.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rgba112.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rgba139.i)
-  call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %stream) #24
+  call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %stream) #24
   br label %return
 
 lpad:                                             ; preds = %.noexc10, %.noexc9, %if.then.i, %.noexc, %call.i5.noexc, %if.else
@@ -1202,7 +1202,7 @@ lpad:                                             ; preds = %.noexc10, %.noexc9,
 
 lpad.body:                                        ; preds = %lpad35.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %37, %lpad ], [ %10, %lpad35.i ]
-  call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %stream) #24
+  call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %stream) #24
   resume { ptr, i32 } %eh.lpad-body
 
 return:                                           ; preds = %invoke.cont, %_ZN7Imf_3_212_GLOBAL__N_113runCoreChecksEPKcmbb.exit
@@ -2286,7 +2286,7 @@ declare void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7Imf_3_212_GLOBAL__N_110PtrIStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
+  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -3972,7 +3972,7 @@ for.end41.i:                                      ; preds = %for.inc39.i, %_ZN7I
 lpad.i.i:                                         ; preds = %for.end41.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer.i) #24
+  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer.i) #24
   br label %ehcleanup204.thread.i
 
 invoke.cont42.i:                                  ; preds = %for.end41.i
@@ -4363,7 +4363,7 @@ if.then.i.i.i81.i:                                ; preds = %cleanup197.i
 _ZNSt6vectorIfSaIfEED2Ev.exit82.i:                ; preds = %if.then.i.i.i81.i, %cleanup197.i, %invoke.cont90.i
   %not.cmp96.not.not.lcssa248.i = phi i1 [ %not.cmp96.not.not.lcssa.i, %cleanup197.i ], [ %not.cmp96.not.not.lcssa.i, %if.then.i.i.i81.i ], [ false, %invoke.cont90.i ]
   %139 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i169, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer.i, ptr noundef %139)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer.i, ptr noundef %139)
           to label %_ZN7Imf_3_215DeepFrameBufferD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i182
 
 terminate.lpad.i.i.i.i182:                        ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit82.i
@@ -4638,7 +4638,7 @@ for.end46.i:                                      ; preds = %for.inc44.i, %call.
 lpad.i.i235:                                      ; preds = %for.end46.i
   %169 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer.i198) #24
+  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer.i198) #24
   br label %ehcleanup258.i
 
 invoke.cont47.i236:                               ; preds = %for.end46.i
@@ -5391,7 +5391,7 @@ if.then.i.i.i139.i:                               ; preds = %cleanup255.i
 _ZNSt6vectorIfSaIfEED2Ev.exit140.i:               ; preds = %if.then.i.i.i139.i, %cleanup255.i, %for.cond101.preheader.lr.ph.i, %invoke.cont95.i
   %cmp99.not297639.i = phi i1 [ %cmp99.not297.i, %cleanup255.i ], [ %cmp99.not297.i, %if.then.i.i.i139.i ], [ false, %invoke.cont95.i ], [ false, %for.cond101.preheader.lr.ph.i ]
   %203 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i230, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer.i198, ptr noundef %203)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer.i198, ptr noundef %203)
           to label %_ZN7Imf_3_215DeepFrameBufferD2Ev.exit.i243 unwind label %terminate.lpad.i.i.i.i242
 
 terminate.lpad.i.i.i.i242:                        ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit140.i
@@ -5437,7 +5437,7 @@ arraydestroy.done2.i.i250:                        ; preds = %_ZN7Imf_3_27Array2D
 ehcleanup.i238:                                   ; preds = %if.then.i.i.i.i257, %lpad105.i, %lpad49.loopexit.split-lp.i, %lpad49.loopexit.i
   %.pn.i239 = phi { ptr, i32 } [ %lpad.phi.i255, %lpad105.i ], [ %lpad.phi.i255, %if.then.i.i.i.i257 ], [ %lpad.loopexit232.i, %lpad49.loopexit.i ], [ %lpad.loopexit.split-lp233.i, %lpad49.loopexit.split-lp.i ]
   %208 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i230, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer.i198, ptr noundef %208)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer.i198, ptr noundef %208)
           to label %ehcleanup258.i unwind label %terminate.lpad.i.i.i149.i
 
 terminate.lpad.i.i.i149.i:                        ; preds = %ehcleanup.i238
@@ -6787,7 +6787,7 @@ for.end40:                                        ; preds = %for.inc38, %_ZN7Imf
 lpad.i:                                           ; preds = %for.end40
   %15 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer) #24
+  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer) #24
   br label %ehcleanup190.thread
 
 invoke.cont41:                                    ; preds = %for.end40
@@ -7102,7 +7102,7 @@ if.then.i.i.i78:                                  ; preds = %cleanup183
 _ZNSt6vectorIfSaIfEED2Ev.exit79:                  ; preds = %invoke.cont86, %cleanup183, %if.then.i.i.i78
   %not.cmp92.not.not.lcssa207 = phi i1 [ %not.cmp92.not.not.lcssa, %cleanup183 ], [ %not.cmp92.not.not.lcssa, %if.then.i.i.i78 ], [ false, %invoke.cont86 ]
   %40 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer, ptr noundef %40)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer, ptr noundef %40)
           to label %_ZN7Imf_3_215DeepFrameBufferD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit79
@@ -7338,7 +7338,7 @@ for.end45:                                        ; preds = %for.inc43, %call.i.
 lpad.i:                                           ; preds = %for.end45
   %18 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer) #24
+  call void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer) #24
   br label %ehcleanup245
 
 invoke.cont46:                                    ; preds = %for.end45
@@ -7848,7 +7848,7 @@ if.then.i.i.i139:                                 ; preds = %cleanup242
 _ZNSt6vectorIfSaIfEED2Ev.exit140:                 ; preds = %for.cond97.preheader.lr.ph, %invoke.cont91, %cleanup242, %if.then.i.i.i139
   %cmp95.not297639 = phi i1 [ %cmp95.not297, %cleanup242 ], [ %cmp95.not297, %if.then.i.i.i139 ], [ false, %invoke.cont91 ], [ false, %for.cond97.preheader.lr.ph ]
   %40 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer, ptr noundef %40)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer, ptr noundef %40)
           to label %_ZN7Imf_3_215DeepFrameBufferD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit140
@@ -7898,7 +7898,7 @@ _ZN7Imf_3_27Array2DIjED2Ev.exit:                  ; preds = %_ZN7Imf_3_215DeepFr
 ehcleanup:                                        ; preds = %lpad51.loopexit, %lpad51.loopexit.split-lp, %if.then.i.i.i, %lpad101
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad101 ], [ %lpad.phi, %if.then.i.i.i ], [ %lpad.loopexit232, %lpad51.loopexit ], [ %lpad.loopexit.split-lp233, %lpad51.loopexit.split-lp ]
   %45 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer, ptr noundef %45)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer, ptr noundef %45)
           to label %ehcleanup245 unwind label %terminate.lpad.i.i.i149
 
 terminate.lpad.i.i.i149:                          ; preds = %ehcleanup
@@ -8336,7 +8336,7 @@ lpad.i25:                                         ; preds = %invoke.cont.i, %if.
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #24
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7Imf_3_2L13SCANLINEIMAGEB5cxx11E) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7Imf_3_2L13SCANLINEIMAGEB5cxx11E) #24
   br label %common.resume
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -8391,7 +8391,7 @@ lpad.i32:                                         ; preds = %invoke.cont.i33, %i
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i27) #24
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7Imf_3_2L10TILEDIMAGEB5cxx11E) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7Imf_3_2L10TILEDIMAGEB5cxx11E) #24
   br label %common.resume
 
 lpad.i3:                                          ; preds = %call.i.noexc.i6, %__cxx_global_var_init.1.exit
@@ -8440,7 +8440,7 @@ lpad.i42:                                         ; preds = %invoke.cont.i43, %i
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i37) #24
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7Imf_3_2L12DEEPSCANLINEB5cxx11E) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7Imf_3_2L12DEEPSCANLINEB5cxx11E) #24
   br label %common.resume
 
 lpad.i11:                                         ; preds = %call.i.noexc.i14, %__cxx_global_var_init.2.exit
@@ -8489,7 +8489,7 @@ lpad.i52:                                         ; preds = %invoke.cont.i53, %i
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i47) #24
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7Imf_3_2L8DEEPTILEB5cxx11E) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7Imf_3_2L8DEEPTILEB5cxx11E) #24
   br label %common.resume
 
 lpad.i19:                                         ; preds = %call.i.noexc.i22, %__cxx_global_var_init.4.exit

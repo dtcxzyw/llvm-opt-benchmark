@@ -109,7 +109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18NormalizedExponen
 
 68:                                               ; preds = %62
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %8, i64 noundef %.0)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef %.040)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef range(i32 0, -2147483648) %.040)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %9, i16 noundef zeroext 10, i32 noundef %56)
   br i1 %43, label %69, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL24InitialScaledStartValuesEmibibPNS0_6BignumES2_S2_S2_.exit
 
@@ -117,9 +117,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18NormalizedExponen
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %9, i32 noundef 1)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 1)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %11, i16 noundef zeroext 1)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %11, i32 noundef %.040)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %11, i32 noundef range(i32 0, -2147483648) %.040)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %10, i16 noundef zeroext 1)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %10, i32 noundef %.040)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %10, i32 noundef range(i32 0, -2147483648) %.040)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL40InitialScaledStartValuesPositiveExponentEmiibPNS0_6BignumES2_S2_S2_.exit.i
 
 70:                                               ; preds = %62
@@ -128,7 +128,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18NormalizedExponen
 
 72:                                               ; preds = %70
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %8, i64 noundef %.0)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %9, i16 noundef zeroext 10, i32 noundef %56)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %9, i16 noundef zeroext 10, i32 noundef range(i32 0, -2147483648) %56)
   %73 = sub nsw i32 0, %.040
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %9, i32 noundef %73)
   br i1 %43, label %74, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL24InitialScaledStartValuesEmibibPNS0_6BignumES2_S2_S2_.exit
@@ -404,7 +404,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
 
 183:                                              ; preds = %174
   %184 = add nsw i32 %169, %2
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %184, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %184, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr %3, ptr noundef %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit

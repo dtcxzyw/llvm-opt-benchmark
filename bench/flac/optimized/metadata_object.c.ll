@@ -148,7 +148,7 @@ sw.bb21:                                          ; preds = %if.then2
   %length31 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %div3024, ptr %length31, align 8
   %description = getelementptr inbounds i8, ptr %call, i64 32
-  %call.i = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str) #28
+  %call.i = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #28
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then40, label %if.end41
 
@@ -159,7 +159,7 @@ if.then40:                                        ; preds = %sw.bb21
 if.end41:                                         ; preds = %sw.bb21
   %mime_type = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call.i, ptr %mime_type, align 8
-  %call.i38 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str) #28
+  %call.i38 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #28
   %tobool.not.i39 = icmp eq ptr %call.i38, null
   br i1 %tobool.not.i39, label %if.then46, label %copy_cstring_.exit42
 
@@ -369,7 +369,7 @@ if.else:                                          ; preds = %if.end67
   %comments74 = getelementptr inbounds i8, ptr %object, i64 40
   %12 = load ptr, ptr %comments74, align 8
   %conv.i.i = zext i32 %11 to i64
-  %call2.i.i.i = tail call noalias noundef ptr @calloc(i64 noundef %conv.i.i, i64 noundef 16) #25
+  %call2.i.i.i = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %conv.i.i, i64 noundef 16) #25
   %cmp.not.i = icmp eq ptr %call2.i.i.i, null
   br i1 %cmp.not.i, label %if.then84, label %for.body.i
 
@@ -436,8 +436,8 @@ if.then84:                                        ; preds = %vorbiscomment_entry
   store ptr null, ptr %comments79159, align 8
   %num_comments86 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %num_comments86, align 8
-  tail call void @FLAC__metadata_object_delete_data(ptr noundef %call)
-  tail call void @free(ptr noundef %call) #28
+  tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
+  tail call void @free(ptr noundef nonnull %call) #28
   br label %return
 
 if.end88:                                         ; preds = %for.inc.i, %if.end67
@@ -461,7 +461,7 @@ if.else100:                                       ; preds = %sw.bb93
   %tracks = getelementptr inbounds i8, ptr %object, i64 168
   %17 = load ptr, ptr %tracks, align 8
   %conv.i.i100 = zext i32 %16 to i64
-  %call2.i.i.i101 = tail call noalias noundef ptr @calloc(i64 noundef %conv.i.i100, i64 noundef 32) #25
+  %call2.i.i.i101 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %conv.i.i100, i64 noundef 32) #25
   %cmp.not.i102 = icmp eq ptr %call2.i.i.i101, null
   br i1 %cmp.not.i102, label %if.then111, label %for.body.i103
 
@@ -526,8 +526,8 @@ cuesheet_track_array_copy_.exit:                  ; preds = %for.inc.i112
 if.then111:                                       ; preds = %cuesheet_track_array_delete_.exit.i, %if.else100
   %tracks106162 = getelementptr inbounds i8, ptr %call, i64 168
   store ptr null, ptr %tracks106162, align 8
-  tail call void @FLAC__metadata_object_delete_data(ptr noundef %call)
-  tail call void @free(ptr noundef %call) #28
+  tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
+  tail call void @free(ptr noundef nonnull %call) #28
   br label %return
 
 sw.bb114:                                         ; preds = %if.then
@@ -2092,7 +2092,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %if.then
   %conv.i = zext i32 %new_num_comments to i64
-  %call2.i.i = tail call noalias noundef ptr @calloc(i64 noundef %conv.i, i64 noundef 16) #25
+  %call2.i.i = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %conv.i, i64 noundef 16) #25
   store ptr %call2.i.i, ptr %comments, align 8
   %cmp5 = icmp eq ptr %call2.i.i, null
   br i1 %cmp5, label %return, label %for.body
@@ -3110,7 +3110,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %if.then
   %conv.i = zext i32 %new_num_indices to i64
-  %call2.i.i = tail call noalias noundef ptr @calloc(i64 noundef %conv.i, i64 noundef 16) #25
+  %call2.i.i = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %conv.i, i64 noundef 16) #25
   store ptr %call2.i.i, ptr %indices, align 8
   %cmp4 = icmp eq ptr %call2.i.i, null
   br i1 %cmp4, label %return, label %if.end36
@@ -3426,7 +3426,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %if.then
   %conv.i = zext i32 %new_num_tracks to i64
-  %call2.i.i = tail call noalias noundef ptr @calloc(i64 noundef %conv.i, i64 noundef 32) #25
+  %call2.i.i = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %conv.i, i64 noundef 32) #25
   store ptr %call2.i.i, ptr %tracks, align 8
   %cmp5 = icmp eq ptr %call2.i.i, null
   br i1 %cmp5, label %return, label %if.end55

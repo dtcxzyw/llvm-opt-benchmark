@@ -1773,7 +1773,7 @@ quic_connection_create.exit.i:                    ; preds = %174, %169
   br i1 %or.cond221, label %quic_connection_create_or_update.exit, label %209
 
 209:                                              ; preds = %204
-  call fastcc void @quic_connection_update_initial(ptr noundef nonnull %.0193.ph, ptr noundef readonly %44, ptr noundef readonly %43)
+  call fastcc void @quic_connection_update_initial(ptr noundef nonnull %.0193.ph, ptr noundef nonnull readonly %44, ptr noundef nonnull readonly %43)
   %210 = load ptr, ptr @quic_server_connections, align 8
   %211 = getelementptr inbounds i8, ptr %.0193.ph, i64 496
   %212 = getelementptr inbounds i8, ptr %.0193.ph, i64 504
@@ -2869,7 +2869,7 @@ quic_are_ciphers_initialized.exit.thread.i:       ; preds = %quic_are_ciphers_in
   %662 = load ptr, ptr %274, align 8
   %663 = zext i32 %661 to i64
   %664 = call noalias ptr @wmem_alloc0(ptr noundef %662, i64 noundef %663) #15
-  %665 = call i32 @tls13_get_quic_secret(ptr noundef nonnull %1, i32 noundef %594, i32 noundef 1, i32 noundef %661, i32 noundef %661, ptr noundef %664) #15
+  %665 = call i32 @tls13_get_quic_secret(ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %594, i32 noundef 1, i32 noundef %661, i32 noundef %661, ptr noundef %664) #15
   %.not24.i.i = icmp eq i32 %665, 0
   br i1 %.not24.i.i, label %.thread235.sink.split.i, label %666
 
@@ -2881,13 +2881,13 @@ quic_are_ciphers_initialized.exit.thread.i:       ; preds = %quic_are_ciphers_in
   %671 = load i32, ptr %670, align 4
   %672 = getelementptr inbounds i8, ptr %591, i64 4
   %673 = load i32, ptr %672, align 4
-  %674 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %.0171.i, i32 noundef %667, i32 noundef %669, ptr noundef %664, ptr noundef %23, i32 noundef %673)
+  %674 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %.0171.i, i32 noundef %667, i32 noundef %669, ptr noundef %664, ptr noundef nonnull %23, i32 noundef %673)
   %.not.i.i.i = icmp eq i32 %674, 0
   br i1 %.not.i.i.i, label %quic_create_decoders.exit.i, label %quic_ciphers_prepare.exit.i.i
 
 quic_ciphers_prepare.exit.i.i:                    ; preds = %666
   %675 = getelementptr inbounds i8, ptr %.0171.i, i64 8
-  %676 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %675, i32 noundef %667, i32 noundef %669, i32 noundef %671, ptr noundef %664, ptr noundef %23, i32 noundef %673)
+  %676 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %675, i32 noundef %667, i32 noundef %669, i32 noundef %671, ptr noundef %664, ptr noundef nonnull %23, i32 noundef %673)
   br label %quic_create_decoders.exit.i
 
 quic_create_decoders.exit.i:                      ; preds = %quic_ciphers_prepare.exit.i.i, %666, %quic_are_ciphers_initialized.exit.i, %646, %645, %640, %636, %634
@@ -2973,12 +2973,12 @@ quic_create_decoders.exit.i:                      ; preds = %quic_ciphers_prepar
   %718 = load i32, ptr %12, align 4
   %719 = load i32, ptr %26, align 4
   %720 = load i32, ptr %11, align 4
-  %721 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %.0171.i, i32 noundef %718, i32 noundef %719, ptr noundef nonnull %24, ptr noundef %13, i32 noundef %709)
+  %721 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %.0171.i, i32 noundef %718, i32 noundef %719, ptr noundef nonnull %24, ptr noundef nonnull %13, i32 noundef %709)
   %.not.i.i212.i = icmp eq i32 %721, 0
   br i1 %.not.i.i212.i, label %quic_ciphers_prepare.exit.thread.i210.i, label %quic_ciphers_prepare.exit.i213.i
 
 quic_ciphers_prepare.exit.i213.i:                 ; preds = %717
-  %722 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %704, i32 noundef %718, i32 noundef %719, i32 noundef %720, ptr noundef nonnull %24, ptr noundef %13, i32 noundef %709)
+  %722 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %704, i32 noundef %718, i32 noundef %719, i32 noundef %720, ptr noundef nonnull %24, ptr noundef nonnull %13, i32 noundef %709)
   %.not11.i.i171 = icmp eq i32 %722, 0
   br i1 %.not11.i.i171, label %quic_ciphers_prepare.exit.thread.i210.i, label %quic_is_hp_cipher_initialized.exit.i
 
@@ -3032,7 +3032,7 @@ quic_create_decoders.exit.thread.i:               ; preds = %quic_create_decoder
   %734 = load i32, ptr %25, align 4
   %735 = and i8 %733, 3
   %narrow.i.i = add nuw nsw i8 %735, 1
-  %736 = call fastcc ptr @quic_max_packet_number(ptr noundef %591, i64 noundef %732, i32 noundef %594, i8 noundef zeroext %733)
+  %736 = call fastcc ptr @quic_max_packet_number(ptr noundef nonnull %591, i64 noundef %732, i32 noundef range(i32 0, 2) %594, i8 noundef zeroext %733)
   %737 = load i64, ptr %736, align 8
   %738 = zext i32 %734 to i64
   %739 = shl nuw nsw i8 %narrow.i.i, 3
@@ -3441,7 +3441,7 @@ quic_get_traffic_secret.exit.thread.i.i:          ; preds = %939, %932
   %956 = load ptr, ptr %923, align 8
   %957 = getelementptr inbounds i8, ptr %892, i64 4
   %958 = load i32, ptr %957, align 4
-  %959 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %953, i32 noundef %954, i32 noundef %955, ptr noundef %956, ptr noundef %9, i32 noundef %958)
+  %959 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %953, i32 noundef %954, i32 noundef %955, ptr noundef %956, ptr noundef nonnull %9, i32 noundef %958)
   %.not68.i.i = icmp eq i32 %959, 0
   br i1 %.not68.i.i, label %983, label %960
 
@@ -3452,7 +3452,7 @@ quic_get_traffic_secret.exit.thread.i.i:          ; preds = %939, %932
   %964 = load i32, ptr %929, align 4
   %965 = load ptr, ptr %923, align 8
   %966 = load i32, ptr %957, align 4
-  %967 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %961, i32 noundef %962, i32 noundef %963, i32 noundef %964, ptr noundef %965, ptr noundef %9, i32 noundef %966)
+  %967 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %961, i32 noundef %962, i32 noundef %963, i32 noundef %964, ptr noundef %965, ptr noundef nonnull %9, i32 noundef %966)
   %.not69.i.i = icmp eq i32 %967, 0
   br i1 %.not69.i.i, label %983, label %968
 
@@ -3462,7 +3462,7 @@ quic_get_traffic_secret.exit.thread.i.i:          ; preds = %939, %932
   %971 = load i32, ptr %928, align 8
   %972 = load ptr, ptr %924, align 8
   %973 = load i32, ptr %957, align 4
-  %974 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %969, i32 noundef %970, i32 noundef %971, ptr noundef %972, ptr noundef %9, i32 noundef %973)
+  %974 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %969, i32 noundef %970, i32 noundef %971, ptr noundef %972, ptr noundef nonnull %9, i32 noundef %973)
   %.not70.i.i = icmp eq i32 %974, 0
   br i1 %.not70.i.i, label %983, label %975
 
@@ -3473,7 +3473,7 @@ quic_get_traffic_secret.exit.thread.i.i:          ; preds = %939, %932
   %979 = load i32, ptr %929, align 4
   %980 = load ptr, ptr %924, align 8
   %981 = load i32, ptr %957, align 4
-  %982 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %976, i32 noundef %977, i32 noundef %978, i32 noundef %979, ptr noundef %980, ptr noundef %9, i32 noundef %981)
+  %982 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %976, i32 noundef %977, i32 noundef %978, i32 noundef %979, ptr noundef %980, ptr noundef nonnull %9, i32 noundef %981)
   %.not71.i.i = icmp eq i32 %982, 0
   br i1 %.not71.i.i, label %983, label %986
 
@@ -3540,7 +3540,7 @@ quic_is_hp_cipher_initialized.exit.i185:          ; preds = %.sink.split.i.i, %9
   %1013 = load i32, ptr %10, align 4
   %1014 = and i8 %1012, 3
   %narrow.i.i187 = add nuw nsw i8 %1014, 1
-  %1015 = call fastcc ptr @quic_max_packet_number(ptr noundef %892, i64 noundef %1011, i32 noundef %895, i8 noundef zeroext %1012)
+  %1015 = call fastcc ptr @quic_max_packet_number(ptr noundef nonnull %892, i64 noundef %1011, i32 noundef range(i32 0, 2) %895, i8 noundef zeroext %1012)
   %1016 = load i64, ptr %1015, align 8
   %1017 = zext i32 %1013 to i64
   %1018 = shl nuw nsw i8 %narrow.i.i187, 3
@@ -5167,21 +5167,21 @@ define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0
   %14 = getelementptr inbounds i8, ptr %0, i64 1
   %15 = load i8, ptr %0, align 8
   %16 = zext i8 %15 to i64
-  %17 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %14, i64 noundef %16, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_q50, i64 noundef 20) #15
+  %17 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %14, i64 noundef range(i64 0, 256) %16, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_q50, i64 noundef 20) #15
   br label %67
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %0, i64 1
   %20 = load i8, ptr %0, align 8
   %21 = zext i8 %20 to i64
-  %22 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %19, i64 noundef %21, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_t50, i64 noundef 20) #15
+  %22 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %19, i64 noundef range(i64 0, 256) %21, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_t50, i64 noundef 20) #15
   br label %67
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %0, i64 1
   %25 = load i8, ptr %0, align 8
   %26 = zext i8 %25 to i64
-  %27 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %24, i64 noundef %26, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_t51, i64 noundef 20) #15
+  %27 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %24, i64 noundef range(i64 0, 256) %26, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_t51, i64 noundef 20) #15
   br label %67
 
 28:                                               ; preds = %3
@@ -5214,7 +5214,7 @@ is_quic_draft_max.exit.thread62.i:                ; preds = %is_quic_draft_max.e
   %36 = getelementptr inbounds i8, ptr %0, i64 1
   %37 = load i8, ptr %0, align 8
   %38 = zext i8 %37 to i64
-  %39 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %36, i64 noundef %38, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_22, i64 noundef 20) #15
+  %39 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %36, i64 noundef range(i64 0, 256) %38, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_22, i64 noundef 20) #15
   br label %67
 
 is_quic_draft_max.exit47.i:                       ; preds = %is_quic_draft_max.exit.i
@@ -5226,7 +5226,7 @@ is_quic_draft_max.exit47.thread.i:                ; preds = %is_quic_draft_max.e
   %42 = getelementptr inbounds i8, ptr %0, i64 1
   %43 = load i8, ptr %0, align 8
   %44 = zext i8 %43 to i64
-  %45 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %42, i64 noundef %44, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_23, i64 noundef 20) #15
+  %45 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %42, i64 noundef range(i64 0, 256) %44, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_23, i64 noundef 20) #15
   br label %67
 
 is_quic_draft_max.exit56.i:                       ; preds = %is_quic_draft_max.exit47.i
@@ -5238,7 +5238,7 @@ is_quic_draft_max.exit56.thread.i:                ; preds = %is_quic_draft_max.e
   %48 = getelementptr inbounds i8, ptr %0, i64 1
   %49 = load i8, ptr %0, align 8
   %50 = zext i8 %49 to i64
-  %51 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %48, i64 noundef %50, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_29, i64 noundef 20) #15
+  %51 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %48, i64 noundef range(i64 0, 256) %50, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_29, i64 noundef 20) #15
   br label %67
 
 52:                                               ; preds = %.thread.i
@@ -5266,11 +5266,11 @@ is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.e
 61:                                               ; preds = %is_quic_draft_max.exit.thread, %is_quic_draft_max.exit
   %62 = phi i64 [ %55, %is_quic_draft_max.exit.thread ], [ %60, %is_quic_draft_max.exit ]
   %63 = phi ptr [ %53, %is_quic_draft_max.exit.thread ], [ %58, %is_quic_draft_max.exit ]
-  %64 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %63, i64 noundef %62, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v1, i64 noundef 20) #15
+  %64 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %63, i64 noundef range(i64 0, 256) %62, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v1, i64 noundef 20) #15
   br label %67
 
 65:                                               ; preds = %is_quic_draft_max.exit
-  %66 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %58, i64 noundef %60, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v2, i64 noundef 20) #15
+  %66 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %58, i64 noundef range(i64 0, 256) %60, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v2, i64 noundef 20) #15
   br label %67
 
 67:                                               ; preds = %65, %61, %is_quic_draft_max.exit56.thread.i, %is_quic_draft_max.exit47.thread.i, %is_quic_draft_max.exit.thread62.i, %23, %18, %13
@@ -5337,26 +5337,26 @@ quic_derive_initial_secrets.exit.thread:          ; preds = %80, %75, %68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %83 = getelementptr inbounds i8, ptr %2, i64 48
   %84 = load i32, ptr %11, align 4
-  %85 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %83, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %9, ptr noundef %1, i32 noundef %84)
+  %85 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %83, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %84)
   %.not.i = icmp eq i32 %85, 0
   br i1 %.not.i, label %quic_ciphers_prepare.exit.thread, label %quic_ciphers_prepare.exit
 
 quic_ciphers_prepare.exit:                        ; preds = %81
   %86 = getelementptr inbounds i8, ptr %2, i64 56
-  %87 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %86, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %9, ptr noundef %1, i32 noundef %84)
+  %87 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %86, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %84)
   %.not9 = icmp eq i32 %87, 0
   br i1 %.not9, label %quic_ciphers_prepare.exit.thread, label %88
 
 88:                                               ; preds = %quic_ciphers_prepare.exit
   %89 = getelementptr inbounds i8, ptr %2, i64 80
   %90 = load i32, ptr %11, align 4
-  %91 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef %89, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %10, ptr noundef %1, i32 noundef %90)
+  %91 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %89, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %90)
   %.not.i11 = icmp eq i32 %91, 0
   br i1 %.not.i11, label %quic_ciphers_prepare.exit.thread, label %quic_ciphers_prepare.exit12
 
 quic_ciphers_prepare.exit12:                      ; preds = %88
   %92 = getelementptr inbounds i8, ptr %2, i64 88
-  %93 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %92, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %10, ptr noundef %1, i32 noundef %90)
+  %93 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef %92, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %90)
   br label %quic_ciphers_prepare.exit.thread
 
 quic_ciphers_prepare.exit.thread:                 ; preds = %quic_ciphers_prepare.exit12, %88, %81, %quic_derive_initial_secrets.exit.thread, %quic_ciphers_prepare.exit
@@ -6917,7 +6917,7 @@ quic_streams_add.exit:                            ; preds = %315, %308, %256
   %.0207258.i.i = phi ptr [ %.0207.ph.i.i, %426 ], [ %.0207.ph.i.i, %.thread.i.i ], [ null, %413 ]
   store i32 %.0205.i.i, ptr %376, align 8
   %.val.i.i = load i8, ptr %394, align 2
-  call fastcc void @process_quic_stream(ptr noundef %388, i32 noundef %.0.i.i, ptr noundef nonnull %1, ptr noundef %75, ptr noundef readonly %4, ptr noundef %32, i8 %.val.i.i)
+  call fastcc void @process_quic_stream(ptr noundef %388, i32 noundef %.0.i.i, ptr noundef nonnull %1, ptr noundef %75, ptr noundef nonnull readonly %4, ptr noundef nonnull %32, i8 %.val.i.i)
   %477 = load i32, ptr %390, align 8
   %.not232.i.i = icmp eq i32 %477, 0
   br i1 %.not232.i.i, label %proto_item_set_generated.exit.thread.i.i, label %478
@@ -6966,7 +6966,7 @@ proto_item_set_generated.exit.thread.i.i:         ; preds = %474
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %499, ptr noundef nonnull @.str.591) #15
   store i32 %.0205.i.i, ptr %376, align 8
   %.val252.i.i = load i8, ptr %394, align 2
-  call fastcc void @process_quic_stream(ptr noundef %499, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %75, ptr noundef readonly %4, ptr noundef %32, i8 %.val252.i.i)
+  call fastcc void @process_quic_stream(ptr noundef %499, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %75, ptr noundef nonnull readonly %4, ptr noundef nonnull %32, i8 %.val252.i.i)
   %500 = call i32 @tvb_reported_length(ptr noundef %499) #15
   %501 = load i32, ptr %390, align 8
   %.not239.i.i = icmp eq i32 %501, 0

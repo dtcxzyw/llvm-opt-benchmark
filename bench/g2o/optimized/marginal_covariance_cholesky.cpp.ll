@@ -901,7 +901,7 @@ define void @_ZN3g2o26MarginalCovarianceCholesky17computeCovarianceERNS_17Sparse
   %12 = lshr exact i64 %11, 2
   %13 = trunc i64 %12 to i32
   call void @_ZN3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2EPKiS6_iib(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef %13, i32 noundef %13, i1 noundef zeroext true)
-  %14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(73) %5)
           to label %.noexc unwind label %83
 
 .noexc:                                           ; preds = %4

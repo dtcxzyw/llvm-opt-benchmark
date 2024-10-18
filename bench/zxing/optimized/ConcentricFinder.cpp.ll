@@ -918,7 +918,7 @@ _ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EER
   br i1 %exitcond.not.i, label %_ZN5ZXing5BlendINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_S7_.exit.preheader, label %33, !llvm.loop !19
 
 _ZN5ZXing5BlendINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_S7_.exit.preheader: ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
   br label %49
 
 49:                                               ; preds = %13, %6, %_ZN5ZXing5BlendINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_S7_.exit.preheader
@@ -1543,7 +1543,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
 "_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit136.i": ; preds = %236, %.preheader.i.i114.i, %.thread.i104.i
   %.011.i.i129.i = phi ptr [ %160, %.thread.i104.i ], [ %160, %.preheader.i.i114.i ], [ %spec.select.i.i126.i, %236 ]
   %251 = getelementptr inbounds i8, ptr %11, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 40, i1 false), !noalias !29
   %252 = getelementptr inbounds i8, ptr %11, i64 48
   %253 = getelementptr inbounds i8, ptr %11, i64 56
   %.not6.i.i.i.i = icmp eq ptr %107, %.011.i.i84.i
@@ -1646,7 +1646,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i: ; 
   %303 = getelementptr inbounds i8, ptr %11, i64 64
   %304 = getelementptr inbounds i8, ptr %.011.i.i84.i, i64 16
   %305 = getelementptr inbounds i8, ptr %11, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %303, i8 0, i64 40, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %303, i8 0, i64 40, i1 false), !noalias !29
   store double 0x7FF8000000000000, ptr %305, align 8, !noalias !29
   %306 = getelementptr inbounds i8, ptr %11, i64 112
   store double 0x7FF8000000000000, ptr %306, align 8, !noalias !29
@@ -1752,7 +1752,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i: ; 
   %357 = getelementptr inbounds i8, ptr %11, i64 128
   %358 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 16
   %359 = getelementptr inbounds i8, ptr %11, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %357, i8 0, i64 40, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %357, i8 0, i64 40, i1 false), !noalias !29
   store double 0x7FF8000000000000, ptr %359, align 8, !noalias !29
   %360 = getelementptr inbounds i8, ptr %11, i64 176
   store double 0x7FF8000000000000, ptr %360, align 8, !noalias !29
@@ -1858,7 +1858,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i: ; 
   %411 = getelementptr inbounds i8, ptr %11, i64 192
   %412 = getelementptr inbounds i8, ptr %.011.i.i129.i, i64 16
   %413 = getelementptr inbounds i8, ptr %11, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %411, i8 0, i64 40, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %411, i8 0, i64 40, i1 false), !noalias !29
   store double 0x7FF8000000000000, ptr %413, align 8, !noalias !29
   %414 = getelementptr inbounds i8, ptr %11, i64 240
   store double 0x7FF8000000000000, ptr %414, align 8, !noalias !29

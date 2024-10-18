@@ -207,7 +207,7 @@ _ZN26b3TriangleIndexVertexArrayD2Ev.exit:         ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN23b3StridingMeshInterfaceD2Ev(ptr noundef nonnull align 16 dereferenceable(32) %this) #11
+  tail call void @_ZN23b3StridingMeshInterfaceD2Ev(ptr noundef nonnull align 16 dereferenceable(112) %this) #11
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN26b3TriangleIndexVertexArraydlEPv.exit unwind label %terminate.lpad.i
 

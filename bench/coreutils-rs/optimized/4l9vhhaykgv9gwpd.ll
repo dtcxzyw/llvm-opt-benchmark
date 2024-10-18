@@ -322,7 +322,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hd992d0e2efc7fd74E(ptr noalias nocapture noundef writeonly sret({ i128, [4 x i64] }) align 16 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
-  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !113
+  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !113
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread15, label %7
 
@@ -391,7 +391,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hfddc6b9148b292ecE(ptr noalias nocapture noundef writeonly sret({ i64, [9 x i64] }) align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
-  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !128
+  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !128
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
 
@@ -850,7 +850,7 @@ define hidden void @_ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E(ptr n
   br i1 %25, label %68, label %67
 
 29:                                               ; preds = %3
-  %30 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.47.llvm.4295070668343094693, i64 noundef 16), !noalias !211
+  %30 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.47.llvm.4295070668343094693, i64 noundef 16), !noalias !211
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread, label %32
 
@@ -943,7 +943,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit: ; 
   br label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread
 
 68:                                               ; preds = %28
-  %69 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.49.llvm.4295070668343094693, i64 noundef 12), !noalias !247
+  %69 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.49.llvm.4295070668343094693, i64 noundef 12), !noalias !247
   %70 = icmp eq ptr %69, null
   br i1 %70, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread, label %71
 
@@ -1034,7 +1034,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thr
   %.0 = phi i8 [ 1, %148 ], [ 2, %143 ], [ %spec.select249, %67 ], [ 1, %29 ], [ 1, %35 ], [ 2, %68 ], [ 2, %74 ]
   %.2120 = phi i64 [ %150, %148 ], [ %145, %143 ], [ 0, %67 ], [ 0, %29 ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ]
   %.2117 = phi i8 [ 0, %148 ], [ 0, %143 ], [ 1, %67 ], [ 1, %29 ], [ 1, %35 ], [ 1, %68 ], [ 1, %74 ]
-  %106 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.51.llvm.4295070668343094693, i64 noundef 13), !noalias !282
+  %106 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.51.llvm.4295070668343094693, i64 noundef 13), !noalias !282
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit150.thread, label %108
 
@@ -1229,7 +1229,7 @@ switch.lookup:                                    ; preds = %_ZN12clap_builder6p
   %173 = icmp eq i64 %.1, 0
   %or.cond5 = and i1 %.not126217, %173
   %spec.store.select6 = select i1 %or.cond5, i64 2, i64 %.1
-  %174 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.44.llvm.4295070668343094693, i64 noundef 17), !noalias !330
+  %174 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.44.llvm.4295070668343094693, i64 noundef 17), !noalias !330
   %175 = icmp eq ptr %174, null
   br i1 %175, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit172.thread, label %176
 

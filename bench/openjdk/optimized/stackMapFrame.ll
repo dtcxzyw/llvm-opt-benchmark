@@ -976,7 +976,7 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   %63 = phi i32 [ %.pre8, %..thread_crit_edge ], [ %27, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread ]
   %64 = phi ptr [ %.pre, %..thread_crit_edge ], [ %32, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread ]
   %65 = load i32, ptr %0, align 8
-  call void @_ZN10TypeOrigin5stackEiP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %8, i32 noundef %63, ptr noundef nonnull %0) #12
+  call void @_ZN10TypeOrigin5stackEiP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %8, i32 noundef %63, ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
   call void @_ZN10TypeOrigin8implicitE16VerificationType(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %9, ptr %.sroa.0.0.copyload) #12
   %66 = getelementptr inbounds i8, ptr %7, i64 32

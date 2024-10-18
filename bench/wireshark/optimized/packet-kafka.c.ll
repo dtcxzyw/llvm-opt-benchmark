@@ -9645,7 +9645,7 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %311, %291
   %.0.i.i.i.i.i = phi i32 [ %294, %291 ], [ %314, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %315 = load i32, ptr @hf_kafka_record_header_value, align 4
-  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef %16)
+  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull %16)
   %317 = load ptr, ptr %12, align 8
   %318 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %317, ptr noundef nonnull @.str.574, ptr noundef %318) #6
@@ -10220,7 +10220,7 @@ decompress_lz4.exit:                              ; preds = %189, %192
   br label %decompress_zstd.exit
 
 195:                                              ; preds = %22
-  %196 = tail call ptr @tvb_child_uncompress_zstd(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef %3) #6
+  %196 = tail call ptr @tvb_child_uncompress_zstd(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef range(i32 1, 4194305) %3) #6
   store ptr %196, ptr %5, align 8
   store i32 0, ptr %6, align 4
   %197 = load ptr, ptr %5, align 8
@@ -10234,7 +10234,7 @@ decompress_lz4.exit:                              ; preds = %189, %192
   br label %decompress_zstd.exit
 
 201:                                              ; preds = %22
-  %202 = tail call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef %3) #6
+  %202 = tail call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef range(i32 1, 4194305) %3) #6
   store ptr %202, ptr %5, align 8
   store i32 0, ptr %6, align 4
   %203 = load ptr, ptr %5, align 8

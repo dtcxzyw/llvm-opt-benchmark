@@ -688,7 +688,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeI11RasterModelEEE7destroyIS1_EEvRS3_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeI11RasterModelEEE7destroyIS1_EEvRS3_PT_.exit.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i
-  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #28
+  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #27
   %.not.i.i = icmp eq ptr %3, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseI11RasterModelSaIS1_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !10
@@ -708,7 +708,7 @@ define linkonce_odr void @_ZNSt7__cxx114listI9MeshModelSaIS1_EED2Ev(ptr noundef 
   %3 = load ptr, ptr %.09.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
   tail call void @_ZN9MeshModelD2Ev(ptr noundef nonnull align 8 dereferenceable(1288) %4) #28
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #27
   %.not.i.i = icmp eq ptr %3, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseI9MeshModelSaIS1_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !11
 
@@ -756,7 +756,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i.i unwind label %11
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %6)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %_ZN9QMultiMapI7QString5QPairIS0_S0_EED2Ev.exit unwind label %11
 
 11:                                               ; preds = %.noexc1.i.i, %.noexc.i.i, %9
@@ -895,7 +895,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
   %8 = getelementptr inbounds i8, ptr %.07, i64 64
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -1181,7 +1181,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i.i: ; preds = %_ZN9QtPriv
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeI11RasterModelEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeI11RasterModelEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %16) #28
+  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #27
   %.not.i.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listI11RasterModelSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
@@ -1197,7 +1197,7 @@ _ZNSt7__cxx114listI11RasterModelSaIS1_EED2Ev.exit: ; preds = %_ZNSt16allocator_t
   %24 = load ptr, ptr %.09.i.i.i9, align 8
   %25 = getelementptr inbounds i8, ptr %.09.i.i.i9, i64 16
   tail call void @_ZN9MeshModelD2Ev(ptr noundef nonnull align 8 dereferenceable(1288) %25) #28
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i9) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i9) #27
   %.not.i.i.i10 = icmp eq ptr %24, %22
   br i1 %.not.i.i.i10, label %_ZNSt7__cxx114listI9MeshModelSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i8, !llvm.loop !11
 
@@ -1234,7 +1234,7 @@ define void @_ZN12MeshDocument5clearEv(ptr noundef nonnull align 8 dereferenceab
   %6 = load ptr, ptr %.09.i.i, align 8
   %7 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
   tail call void @_ZN9MeshModelD2Ev(ptr noundef nonnull align 8 dereferenceable(1288) %7) #28
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #27
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt7__cxx114listI9MeshModelSaIS1_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !11
 
@@ -1276,7 +1276,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeI11RasterModelEEE7destroyIS1_EEvRS3_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeI11RasterModelEEE7destroyIS1_EEvRS3_PT_.exit.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i2
-  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %13) #28
+  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %13) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i3) #27
   %.not.i.i4 = icmp eq ptr %12, %10
   br i1 %.not.i.i4, label %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5clearEv.exit, label %.lr.ph.i.i2, !llvm.loop !10
@@ -2222,7 +2222,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI9MeshModelEEED2Ev.exit9.i.i.i: ; preds 
   br label %.body
 
 47:                                               ; preds = %.noexc
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %10) #28
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(24) %10) #28
   %48 = getelementptr inbounds i8, ptr %0, i64 96
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, 1
@@ -3536,7 +3536,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_6QImageESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_construct_nodeIJRKS9_EEEvPSt13_Rb_tree_nodeIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
@@ -3548,7 +3548,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 7:                                                ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #28
   br label %.body
 
 9:                                                ; preds = %3
@@ -3560,7 +3560,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #28
-  tail call void @_ZdlPv(ptr noundef %1) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #27
   invoke void @__cxa_rethrow() #32
           to label %19 unwind label %13
 
@@ -3760,7 +3760,7 @@ _ZNSt7__cxx114listIP9MeshModelSaIS2_EE9push_backEOS2_.exit: ; preds = %3
   %11 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %2, ptr %12, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %0) #28
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   %13 = load i64, ptr %7, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %7, align 8
@@ -3776,7 +3776,7 @@ _ZNSt7__cxx114listIP9MeshModelSaIS2_EE9push_backEOS2_.exit: ; preds = %3
 .lr.ph.i.i.i:                                     ; preds = %15, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %.pre, %15 ]
   %16 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #27
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #27
   %.not.i.i.i = icmp eq ptr %16, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !42
 
@@ -3907,7 +3907,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %_ZN7QStringD2Ev.exi
 _ZNSt7__cxx114listIP9MeshModelSaIS2_EE9push_backEOS2_.exit27: ; preds = %52
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   store ptr %31, ptr %54, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull %0) #28
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   %55 = load i64, ptr %7, align 8
   %56 = add i64 %55, 1
   store i64 %56, ptr %7, align 8
@@ -4054,7 +4054,7 @@ _ZN12MeshDocument14setCurrentMeshEi.exit:         ; preds = %_ZN12MeshDocument7g
   store i64 %42, ptr %8, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #28
   tail call void @_ZN9MeshModelD2Ev(ptr noundef nonnull align 8 dereferenceable(1288) %5) #28
-  tail call void @_ZdlPv(ptr noundef %1) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #27
   tail call void @_ZN12MeshDocument14meshSetChangedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   tail call void @_ZN12MeshDocument11meshRemovedEi(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %7)
   br label %43
@@ -4094,7 +4094,7 @@ define noundef nonnull ptr @_ZN12MeshDocument12addNewRasterEv(ptr noundef nonnul
 
 .noexc:                                           ; preds = %11
   %13 = getelementptr inbounds i8, ptr %12, i64 16
-  invoke void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %4)
+  invoke void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(168) %13, ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %15 unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeI11RasterModelEEED2Ev.exit9.i.i.i
 
 _ZNSt15__allocated_ptrISaISt10_List_nodeI11RasterModelEEED2Ev.exit9.i.i.i: ; preds = %.noexc
@@ -4113,7 +4113,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI11RasterModelEEED2Ev.exit9.i.i.i: ; pre
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %20, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %7) #28
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %7) #28
   %22 = getelementptr inbounds i8, ptr %0, i64 120
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 1
@@ -4140,7 +4140,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11RasterModelD2Ev.exit
 
 _ZN11RasterModelD2Ev.exit:                        ; preds = %15, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #28
+  call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #28
   %29 = getelementptr inbounds i8, ptr %0, i64 112
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 172
@@ -4329,7 +4329,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit
 
 _ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit: ; preds = %22, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i
-  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %12) #28
+  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %12) #28
   tail call void @_ZdlPv(ptr noundef nonnull %spec.select) #27
   tail call void @_ZN12MeshDocument16rasterSetChangedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %._crit_edge.thread
@@ -4371,7 +4371,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
 
 _ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit: ; preds = %2, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %12) #28
+  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %12) #28
   tail call void @_ZdlPv(ptr noundef nonnull %1) #27
   ret ptr %3
 }

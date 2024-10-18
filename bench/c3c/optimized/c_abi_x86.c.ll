@@ -585,7 +585,7 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
   %40 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
-  %42 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %41)
+  %42 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %41)
   %43 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -617,7 +617,7 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
   %indvars.iv.i17 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i18, %54 ]
   %55 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.i17
   %56 = load ptr, ptr %55, align 8
-  %57 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %56)
+  %57 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %56)
   %58 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i17
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1

@@ -44,7 +44,7 @@ define linkonce_odr dso_local void @_ZN22cmCursesFilePathWidgetD2Ev(ptr noundef 
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #5
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #5
   ret void
 }
 
@@ -58,7 +58,7 @@ define linkonce_odr dso_local void @_ZN22cmCursesFilePathWidgetD0Ev(ptr noundef 
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #5
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #5
   tail call void @_ZdlPv(ptr noundef nonnull %0) #6
   ret void
 }

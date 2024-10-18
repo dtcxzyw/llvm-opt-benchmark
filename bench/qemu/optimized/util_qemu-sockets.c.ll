@@ -1818,13 +1818,13 @@ if.then.critedge.i.i:                             ; preds = %land.lhs.true16.i.i
   br label %if.then.i71.i
 
 if.then.i71.i:                                    ; preds = %if.then.critedge.i.i, %lor.end.i.i
-  %call.i72.i = call i32 @setsockopt(i32 noundef %call.i63.i, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %v6only.i.i, i32 noundef 4) #13
+  %call.i72.i = call i32 @setsockopt(i32 noundef range(i32 0, -2147483648) %call.i63.i, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %v6only.i.i, i32 noundef 4) #13
   br label %if.end.i70.i
 
 if.end.i70.i:                                     ; preds = %if.then.i71.i, %lor.end.i.i
   %50 = load ptr, ptr %ai_addr.i, align 8
   %51 = load i32, ptr %ai_addrlen.i, align 8
-  %call10.i.i17 = call i32 @bind(i32 noundef %call.i63.i, ptr %50, i32 noundef %51) #13
+  %call10.i.i17 = call i32 @bind(i32 noundef range(i32 0, -2147483648) %call.i63.i, ptr %50, i32 noundef %51) #13
   %tobool11.not.i.i = icmp eq i32 %call10.i.i17, 0
   br i1 %tobool11.not.i.i, label %try_bind.exit.thread.i, label %if.end13.i.i
 

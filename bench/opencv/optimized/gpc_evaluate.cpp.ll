@@ -408,7 +408,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 
 102:                                              ; preds = %88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
-  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %16)
+  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %16)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit unwind label %103
 
 103:                                              ; preds = %102
@@ -419,7 +419,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit: ; preds = %102
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
-  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 1, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %17)
+  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 1, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %17)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit142 unwind label %105
 
 105:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit
@@ -429,7 +429,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit142: ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
-  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %18)
+  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %18)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit145 unwind label %107
 
 107:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit142
@@ -439,7 +439,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit145: ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit142
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 3, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %19)
+  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 3, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %19)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit148 unwind label %109
 
 109:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit145
@@ -465,7 +465,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 114:                                              ; preds = %113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #21
-  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %23, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %22)
+  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %23, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %22)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit unwind label %.body149
 
 .body149:                                         ; preds = %114
@@ -1951,7 +1951,7 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4loadINS_7optflow9GPCForestILi5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !41
   store ptr null, ptr %5, align 8, !alias.scope !42, !noalias !41
   %36 = getelementptr inbounds i8, ptr %5, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv7optflow9GPCForestILi5EEESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %4)
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv7optflow9GPCForestILi5EEESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %4)
           to label %37 unwind label %17
 
 37:                                               ; preds = %35
@@ -2495,7 +2495,7 @@ _ZNSt6vectorIN2cv7optflow9GPCForestILi5EE5TrailESaIS4_EE17_S_check_init_lenEmRKS
           to label %157 unwind label %183
 
 157:                                              ; preds = %._crit_edge
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #21
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #21
   %158 = load ptr, ptr %22, align 8
   %159 = load ptr, ptr %94, align 8
   %.not.i.i = icmp eq ptr %159, %158
@@ -2551,7 +2551,7 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE5clearEv.exit: ; preds = %
 183:                                              ; preds = %._crit_edge
   %184 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #21
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #21
   br label %.loopexit.split-lp
 
 ._crit_edge160:                                   ; preds = %174, %.preheader146
@@ -2569,7 +2569,7 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE5clearEv.exit: ; preds = %
           to label %189 unwind label %229
 
 189:                                              ; preds = %._crit_edge160
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #21
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
   %190 = load ptr, ptr %23, align 8
   %191 = load ptr, ptr %152, align 8
   %.not.i.i104 = icmp eq ptr %190, %191
@@ -2637,7 +2637,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow9GPCForestILi5EE5TrailESt6
 .lr.ph163.preheader:                              ; preds = %.preheader144
   %222 = getelementptr inbounds %"struct.cv::optflow::GPCForest<5>::Trail", ptr %219, i64 %.052170
   %223 = getelementptr inbounds %"struct.cv::optflow::GPCForest<5>::Trail", ptr %219, i64 %220
-  %bcmp.i209 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %222, ptr noundef nonnull dereferenceable(20) %223, i64 20)
+  %bcmp.i209 = call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(28) %222, ptr noundef nonnull align 4 dereferenceable(28) %223, i64 20)
   %.not213 = icmp eq i32 %bcmp.i209, 0
   br i1 %.not213, label %.lr.ph210, label %.critedge, !llvm.loop !53
 
@@ -2650,14 +2650,14 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow9GPCForestILi5EE5TrailESt6
 .lr.ph163:                                        ; preds = %.lr.ph210
   %226 = getelementptr inbounds %"struct.cv::optflow::GPCForest<5>::Trail", ptr %219, i64 %224
   %227 = getelementptr inbounds %"struct.cv::optflow::GPCForest<5>::Trail", ptr %219, i64 %225
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %226, ptr noundef nonnull dereferenceable(20) %227, i64 20)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(28) %226, ptr noundef nonnull align 4 dereferenceable(28) %227, i64 20)
   %228 = icmp eq i32 %bcmp.i, 0
   br i1 %228, label %.lr.ph210, label %.critedge, !llvm.loop !53
 
 229:                                              ; preds = %._crit_edge160
   %230 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #21
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
   br label %.loopexit.split-lp
 
 .critedge:                                        ; preds = %.lr.ph163, %.lr.ph163.preheader
@@ -2732,7 +2732,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow9GPCForestILi5EE5T
   br i1 %.not, label %.critedge2, label %260
 
 260:                                              ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow9GPCForestILi5EE5TrailESt6vectorIS6_SaIS6_EEEES6_ET_SC_SC_RKT0_.exit
-  %bcmp.i112 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %.sroa.011.0.lcssa.i.i, ptr noundef nonnull dereferenceable(20) %233, i64 20)
+  %bcmp.i112 = call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.011.0.lcssa.i.i, ptr noundef nonnull align 4 dereferenceable(28) %233, i64 20)
   %261 = icmp eq i32 %bcmp.i112, 0
   br i1 %261, label %262, label %.critedge2
 
@@ -2742,7 +2742,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow9GPCForestILi5EE5T
   br i1 %264, label %267, label %265
 
 265:                                              ; preds = %262
-  %bcmp.i113 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %.sroa.011.0.lcssa.i.i, ptr noundef nonnull dereferenceable(20) %263, i64 20)
+  %bcmp.i113 = call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.011.0.lcssa.i.i, ptr noundef nonnull align 4 dereferenceable(28) %263, i64 20)
   %266 = icmp eq i32 %bcmp.i113, 0
   br i1 %266, label %.critedge2, label %267
 
@@ -3152,7 +3152,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestIL
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestILi5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %6, i8 0, i64 248, i1 false)
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %6)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestILi5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_.exit
@@ -3162,7 +3162,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestIL
 7:                                                ; preds = %8, %.noexc
   %.idx.i.i.i.i = phi i64 [ 8, %.noexc ], [ %.add.i.i.i.i, %8 ]
   %.ptr.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i.i.i
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr.ptr.i.i.i.i)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr.ptr.i.i.i.i)
           to label %8 unwind label %15
 
 8:                                                ; preds = %7
@@ -3196,7 +3196,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestIL
   br i1 %18, label %.loopexit.i.i.i.i, label %.preheader.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %.preheader.i.i.i.i, %15
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %6) #21
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestILi5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestILi5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %8
@@ -3318,7 +3318,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow9GPCForestILi5EED2Ev(ptr noundef 
   br label %_ZN2cv7optflow7GPCTreeD2Ev.exit
 
 _ZN2cv7optflow7GPCTreeD2Ev.exit:                  ; preds = %2, %5
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr1) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr1) #21
   %6 = icmp eq i64 %.add, 8
   br i1 %6, label %7, label %2
 
@@ -3347,12 +3347,12 @@ define linkonce_odr hidden void @_ZN2cv7optflow9GPCForestILi5EED0Ev(ptr noundef 
   br label %_ZN2cv7optflow7GPCTreeD2Ev.exit.i
 
 _ZN2cv7optflow7GPCTreeD2Ev.exit.i:                ; preds = %5, %2
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr1.i) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr1.i) #21
   %6 = icmp eq i64 %.add.i, 8
   br i1 %6, label %_ZN2cv7optflow9GPCForestILi5EED2Ev.exit, label %2
 
 _ZN2cv7optflow9GPCForestILi5EED2Ev.exit:          ; preds = %_ZN2cv7optflow7GPCTreeD2Ev.exit.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -3726,7 +3726,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow9GPCForestILi5EE21ParallelTrailsFillingD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

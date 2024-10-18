@@ -704,7 +704,7 @@ land.lhs.true2.i.i.i:                             ; preds = %lor.lhs.false.i.i
   %8 = load ptr, ptr %out_sg.i.i, align 8
   %conv12.i.i = zext i32 %6 to i64
   %mul.i.i = shl nuw nsw i64 %conv12.i.i, 4
-  %call.i43.i.i = call ptr @g_memdup2(ptr noundef %8, i64 noundef %mul.i.i) #14
+  %call.i43.i.i = call ptr @g_memdup2(ptr noundef %8, i64 noundef range(i64 0, 68719476721) %mul.i.i) #14
   store ptr %call.i43.i.i, ptr %out_iov.i.i, align 8
   %9 = load i32, ptr %in_num8.i.i, align 8
   store i32 %9, ptr %in_num.i.i, align 4
@@ -712,7 +712,7 @@ land.lhs.true2.i.i.i:                             ; preds = %lor.lhs.false.i.i
   %10 = load ptr, ptr %in_sg.i.i, align 8
   %conv15.i.i = zext i32 %9 to i64
   %mul16.i.i = shl nuw nsw i64 %conv15.i.i, 4
-  %call.i44.i.i = call ptr @g_memdup2(ptr noundef %10, i64 noundef %mul16.i.i) #14
+  %call.i44.i.i = call ptr @g_memdup2(ptr noundef %10, i64 noundef range(i64 0, 68719476721) %mul16.i.i) #14
   %iov_len.i.i.i = getelementptr inbounds i8, ptr %call.i43.i.i, i64 8
   %11 = load i64, ptr %iov_len.i.i.i, align 8
   %cmp5.not.i.i.i = icmp ult i64 %11, 72
@@ -832,7 +832,7 @@ sw.bb49.i.i:                                      ; preds = %if.end29.i.i, %if.e
 if.then.i49.i.i:                                  ; preds = %sw.bb49.i.i
   %conv.i50.i.i = zext i32 %req.val.i.i.i to i64
   %call5.i.i.i = call noalias ptr @g_malloc0(i64 noundef %conv.i50.i.i) #15
-  %call.i28.i.i.i = call i64 @iov_to_buf_full(ptr noundef %19, i32 noundef %20, i64 noundef 0, ptr noundef %call5.i.i.i, i64 noundef %conv.i50.i.i) #11
+  %call.i28.i.i.i = call i64 @iov_to_buf_full(ptr noundef %19, i32 noundef %20, i64 noundef 0, ptr noundef %call5.i.i.i, i64 noundef range(i64 0, 4294967296) %conv.i50.i.i) #11
   %21 = trunc i64 %call.i28.i.i.i to i32
   %cmp9.not.i.i.i = icmp eq i32 %req.val.i.i.i, %21
   br i1 %cmp9.not.i.i.i, label %if.end.i.i.i, label %if.then13.i.i.i
@@ -860,7 +860,7 @@ if.then19.i.i.i:                                  ; preds = %if.end16.i.i.i
 iov_to_buf.exit38.i.i.i:                          ; preds = %if.then19.i.i.i
   %23 = load i32, ptr %out_num.addr.i.i.i, align 4
   %24 = load ptr, ptr %iov.addr.i.i.i, align 8
-  %call.i32.i.i.i = call i64 @iov_to_buf_full(ptr noundef %24, i32 noundef %23, i64 noundef 0, ptr noundef %call21.i.i.i, i64 noundef %conv20.i.i.i) #11
+  %call.i32.i.i.i = call i64 @iov_to_buf_full(ptr noundef %24, i32 noundef %23, i64 noundef 0, ptr noundef %call21.i.i.i, i64 noundef range(i64 0, 4294967296) %conv20.i.i.i) #11
   %25 = trunc i64 %call.i32.i.i.i to i32
   %cmp28.not.i.i.i = icmp eq i32 %dst_data_len.val.i.i.i, %25
   br i1 %cmp28.not.i.i.i, label %if.end37.i.i.i, label %if.then36.i.i.i
@@ -1032,7 +1032,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   %3 = load ptr, ptr %out_sg, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %call.i50 = call ptr @g_memdup2(ptr noundef %3, i64 noundef %mul) #14
+  %call.i50 = call ptr @g_memdup2(ptr noundef %3, i64 noundef range(i64 0, 68719476721) %mul) #14
   store ptr %call.i50, ptr %out_iov, align 8
   %4 = load i32, ptr %in_num3, align 8
   %in_sg = getelementptr inbounds i8, ptr %call199, i64 40
@@ -1100,7 +1100,7 @@ sw.bb:                                            ; preds = %if.end17
   ]
 
 if.then.i53:                                      ; preds = %sw.bb
-  %call9.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef readonly %u43, ptr noundef %iov.addr.i, ptr noundef %out_num.addr.i)
+  %call9.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull readonly %u43, ptr noundef %iov.addr.i, ptr noundef %out_num.addr.i)
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %virtio_crypto_create_sym_session.exit.thread, label %virtio_crypto_create_sym_session.exit
 
@@ -1157,7 +1157,7 @@ if.then64.i:                                      ; preds = %if.end60.i
   %conv70.i = zext i32 %12 to i64
   %13 = load i32, ptr %out_num.addr.i, align 4
   %14 = load ptr, ptr %iov.addr.i, align 8
-  %call.i46.i = call i64 @iov_to_buf_full(ptr noundef %14, i32 noundef %13, i64 noundef 0, ptr noundef %call67.i, i64 noundef %conv70.i) #11
+  %call.i46.i = call i64 @iov_to_buf_full(ptr noundef %14, i32 noundef %13, i64 noundef 0, ptr noundef %call67.i, i64 noundef range(i64 0, 4294967296) %conv70.i) #11
   %.pre.i = load i32, ptr %auth_key_len49.i, align 8
   %.pre47.i = zext i32 %.pre.i to i64
   %cmp74.not.i = icmp eq i64 %call.i46.i, %.pre47.i
@@ -1240,7 +1240,7 @@ if.then10.i:                                      ; preds = %if.end.i
   %call11.i = call noalias ptr @g_malloc(i64 noundef %conv.i59) #15
   %key.i = getelementptr inbounds i8, ptr %call24, i64 48
   store ptr %call11.i, ptr %key.i, align 8
-  %call.i26.i = call i64 @iov_to_buf_full(ptr noundef %17, i32 noundef %18, i64 noundef 0, ptr noundef %call11.i, i64 noundef %conv.i59) #11
+  %call.i26.i = call i64 @iov_to_buf_full(ptr noundef %17, i32 noundef %18, i64 noundef 0, ptr noundef %call11.i, i64 noundef range(i64 0, 4294967296) %conv.i59) #11
   %cmp16.not.i = icmp eq i64 %call.i26.i, %conv.i59
   br i1 %cmp16.not.i, label %if.end19.i, label %if.then18.i
 
@@ -1491,7 +1491,7 @@ if.end.i:                                         ; preds = %if.then
   %dst.i = getelementptr inbounds i8, ptr %3, i64 56
   %6 = load ptr, ptr %dst.i, align 8
   %7 = load i32, ptr %in_num.i, align 8
-  %call.i.i = tail call i64 @iov_from_buf_full(ptr noundef %4, i32 noundef %7, i64 noundef 0, ptr noundef %6, i64 noundef %conv.i) #11
+  %call.i.i = tail call i64 @iov_from_buf_full(ptr noundef %4, i32 noundef %7, i64 noundef 0, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv.i) #11
   %cmp2.not.i = icmp eq i64 %call.i.i, %conv.i
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then4.i
 
@@ -1514,7 +1514,7 @@ if.then11.i:                                      ; preds = %if.end5.i
   %10 = load ptr, ptr %digest_result.i, align 8
   %11 = load i32, ptr %in_num.i, align 8
   %12 = load ptr, ptr %in_iov.i, align 8
-  %call.i16.i = call i64 @iov_from_buf_full(ptr noundef %12, i32 noundef %11, i64 noundef 0, ptr noundef %10, i64 noundef %conv13.i) #11
+  %call.i16.i = call i64 @iov_from_buf_full(ptr noundef %12, i32 noundef %11, i64 noundef 0, ptr noundef %10, i64 noundef range(i64 0, 4294967296) %conv13.i) #11
   %13 = load i32, ptr %digest_result_len.i, align 8
   %conv16.i = zext i32 %13 to i64
   %cmp17.not.i = icmp eq i64 %call.i16.i, %conv16.i
@@ -1550,7 +1550,7 @@ if.end3.i:                                        ; preds = %if.end.i20
   %dst.i23 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load ptr, ptr %dst.i23, align 8
   %18 = load i32, ptr %in_num.i22, align 8
-  %call.i.i27 = tail call i64 @iov_from_buf_full(ptr noundef %15, i32 noundef %18, i64 noundef 0, ptr noundef %17, i64 noundef %conv.i21) #11
+  %call.i.i27 = tail call i64 @iov_from_buf_full(ptr noundef %15, i32 noundef %18, i64 noundef 0, ptr noundef %17, i64 noundef range(i64 0, 4294967296) %conv.i21) #11
   %cmp4.not.i = icmp eq i64 %call.i.i27, %conv.i21
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then6.i
 
@@ -1703,7 +1703,7 @@ do.end:                                           ; preds = %if.end48
   %data = getelementptr inbounds i8, ptr %call50, i64 80
   %iv = getelementptr inbounds i8, ptr %call50, i64 40
   store ptr %data, ptr %iv, align 8
-  %call.i76 = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %out_num, i64 noundef 0, ptr noundef nonnull %data, i64 noundef %conv31) #11
+  %call.i76 = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %out_num, i64 noundef 0, ptr noundef nonnull %data, i64 noundef range(i64 0, 4294967296) %conv31) #11
   %.pre = load i32, ptr %iv_len51, align 4
   %.pre99 = zext i32 %.pre to i64
   %cmp69.not = icmp eq i64 %call.i76, %.pre99
@@ -1734,7 +1734,7 @@ do.end91:                                         ; preds = %if.end85
   %conv97 = zext i32 %2 to i64
   %3 = load i32, ptr %out_num.addr, align 4
   %4 = load ptr, ptr %iov.addr, align 8
-  %call.i80 = call i64 @iov_to_buf_full(ptr noundef %4, i32 noundef %3, i64 noundef 0, ptr noundef %add.ptr94, i64 noundef %conv97) #11
+  %call.i80 = call i64 @iov_to_buf_full(ptr noundef %4, i32 noundef %3, i64 noundef 0, ptr noundef %add.ptr94, i64 noundef range(i64 0, 4294967296) %conv97) #11
   %5 = load i32, ptr %call50, align 8
   %conv100 = zext i32 %5 to i64
   %cmp101.not = icmp eq i64 %call.i80, %conv100
@@ -1765,7 +1765,7 @@ do.end123:                                        ; preds = %if.end117
   %conv129 = zext i32 %7 to i64
   %8 = load i32, ptr %out_num.addr, align 4
   %9 = load ptr, ptr %iov.addr, align 8
-  %call.i90 = call i64 @iov_to_buf_full(ptr noundef %9, i32 noundef %8, i64 noundef 0, ptr noundef %add.ptr126, i64 noundef %conv129) #11
+  %call.i90 = call i64 @iov_to_buf_full(ptr noundef %9, i32 noundef %8, i64 noundef 0, ptr noundef %add.ptr126, i64 noundef range(i64 0, 4294967296) %conv129) #11
   %10 = load i32, ptr %src_len52, align 8
   %conv132 = zext i32 %10 to i64
   %cmp133.not = icmp eq i64 %call.i90, %conv132
@@ -2015,7 +2015,7 @@ do.end12:                                         ; preds = %if.end
   %2 = load i32, ptr %key_len, align 4
   %conv18 = zext i32 %2 to i64
   %3 = load ptr, ptr %iov, align 8
-  %call.i17 = tail call i64 @iov_to_buf_full(ptr noundef %3, i32 noundef %0, i64 noundef 0, ptr noundef %call15, i64 noundef %conv18) #11
+  %call.i17 = tail call i64 @iov_to_buf_full(ptr noundef %3, i32 noundef %0, i64 noundef 0, ptr noundef %call15, i64 noundef range(i64 0, 4294967296) %conv18) #11
   %.pre = load i32, ptr %key_len, align 4
   %.pre18 = zext i32 %.pre to i64
   %cmp22.not = icmp eq i64 %call.i17, %.pre18

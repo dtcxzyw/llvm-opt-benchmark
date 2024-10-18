@@ -2272,7 +2272,7 @@ _ZN4llvm6detail9IEEEFloat20shiftSignificandLeftEj.exit: ; preds = %34
   %.0.i.i37 = select i1 %53, ptr %54, ptr %17
   %55 = add i32 %51, 64
   %56 = lshr i32 %55, 6
-  %57 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i37, i32 noundef %56) #26
+  %57 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i37, i32 noundef range(i32 0, 67108864) %56) #26
   %.not.i.i.i = icmp ugt i32 %spec.select, %57
   br i1 %.not.i.i.i, label %58, label %_ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit.thread
 
@@ -2298,13 +2298,13 @@ _ZN4llvm6detail9IEEEFloat20shiftSignificandLeftEj.exit: ; preds = %34
 _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %58, %63, %66
   %spec.store.select.i = phi i32 [ 1, %66 ], [ 3, %58 ], [ 3, %63 ]
   %.0.i.i.i38 = phi i32 [ 1, %66 ], [ 2, %58 ], [ 3, %63 ]
-  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i37, i32 noundef %56, i32 noundef %spec.select) #26
+  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i37, i32 noundef range(i32 0, 67108864) %56, i32 noundef %spec.select) #26
   %.not.i39 = icmp eq i32 %2, 0
   %spec.select65 = select i1 %.not.i39, i32 %.0.i.i.i38, i32 %spec.store.select.i
   br label %_ZN4llvmL20combineLostFractionsENS_12lostFractionES0_.exit
 
 _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit.thread: ; preds = %49
-  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i37, i32 noundef %56, i32 noundef %spec.select) #26
+  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i37, i32 noundef range(i32 0, 67108864) %56, i32 noundef %spec.select) #26
   %.not.i3955 = icmp ne i32 %2, 0
   %spec.select62 = zext i1 %.not.i3955 to i32
   br label %_ZN4llvmL20combineLostFractionsENS_12lostFractionES0_.exit
@@ -2521,8 +2521,8 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit53: ; preds = %162
   %.0.i.i48 = select i1 %175, ptr %176, ptr %17
   %177 = add i32 %173, 64
   %178 = lshr i32 %177, 6
-  %179 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i48, i32 noundef %178) #26
-  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i48, i32 noundef %178, i32 noundef 1) #26
+  %179 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i48, i32 noundef range(i32 0, 67108864) %178) #26
+  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i48, i32 noundef range(i32 0, 67108864) %178, i32 noundef 1) #26
   br label %212
 
 180:                                              ; preds = %139
@@ -3009,8 +3009,8 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %51, %55
   %.0.i.i54 = select i1 %66, ptr %68, ptr %67
   %69 = add i32 %64, 64
   %70 = lshr i32 %69, 6
-  %71 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i54, i32 noundef %70) #26
-  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i54, i32 noundef %70, i32 noundef 1) #26
+  %71 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i54, i32 noundef range(i32 0, 67108864) %70) #26
+  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i54, i32 noundef range(i32 0, 67108864) %70, i32 noundef 1) #26
   %72 = call noundef i32 @_ZN4llvm6detail9IEEEFloat24addOrSubtractSignificandERKS1_b(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext false)
   br i1 %54, label %73, label %75
 
@@ -3042,7 +3042,7 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %51, %55
   %83 = sub nuw i32 %.0, %10
   %84 = add i32 %.0, 63
   %85 = lshr i32 %84, 6
-  %86 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef nonnull %.048, i32 noundef %85) #26
+  %86 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef nonnull %.048, i32 noundef range(i32 0, 67108864) %85) #26
   %.not.i.i = icmp ugt i32 %83, %86
   br i1 %.not.i.i, label %87, label %_ZN4llvmL10shiftRightEPmjj.exit.thread
 
@@ -3068,13 +3068,13 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %51, %55
 _ZN4llvmL10shiftRightEPmjj.exit:                  ; preds = %87, %92, %95
   %spec.store.select.i = phi i32 [ 1, %95 ], [ 3, %87 ], [ 3, %92 ]
   %.0.i.i55 = phi i32 [ 1, %95 ], [ 2, %87 ], [ 3, %92 ]
-  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef nonnull %.048, i32 noundef %85, i32 noundef %83) #26
+  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef nonnull %.048, i32 noundef range(i32 0, 67108864) %85, i32 noundef %83) #26
   %.not.i = icmp eq i32 %.049, 0
   %spec.select62 = select i1 %.not.i, i32 %.0.i.i55, i32 %spec.store.select.i
   br label %_ZN4llvmL20combineLostFractionsENS_12lostFractionES0_.exit
 
 _ZN4llvmL10shiftRightEPmjj.exit.thread:           ; preds = %82
-  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef nonnull %.048, i32 noundef %85, i32 noundef %83) #26
+  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef nonnull %.048, i32 noundef range(i32 0, 67108864) %85, i32 noundef %83) #26
   %.not.i58 = icmp ne i32 %.049, 0
   %spec.select = zext i1 %.not.i58 to i32
   br label %_ZN4llvmL20combineLostFractionsENS_12lostFractionES0_.exit
@@ -3263,7 +3263,7 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit:   ; preds = %4, %10, %13
   %101 = load ptr, ptr %100, align 8
   %.0.i91 = select i1 %99, ptr %101, ptr %100
   %102 = sub nsw i32 0, %.071101
-  %103 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i91, i32 noundef %30) #26
+  %103 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i91, i32 noundef range(i32 0, 67108864) %30) #26
   %.not.i.i = icmp ult i32 %103, %102
   br i1 %.not.i.i, label %104, label %_ZN4llvmL10shiftRightEPmjj.exit
 
@@ -3288,7 +3288,7 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit:   ; preds = %4, %10, %13
 
 _ZN4llvmL10shiftRightEPmjj.exit:                  ; preds = %94, %104, %109, %112
   %.0.i.i = phi i32 [ 1, %112 ], [ 0, %94 ], [ 2, %104 ], [ 3, %109 ]
-  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i91, i32 noundef %30, i32 noundef %102) #26
+  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i91, i32 noundef range(i32 0, 67108864) %30, i32 noundef %102) #26
   br label %.thread102
 
 .thread102:                                       ; preds = %46, %_ZN4llvmL10shiftRightEPmjj.exit, %90, %88, %80
@@ -3581,7 +3581,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm6detail9IEEEFloat21shiftSi
   %.0.i = select i1 %10, ptr %12, ptr %11
   %13 = add i32 %8, 64
   %14 = lshr i32 %13, 6
-  %15 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i, i32 noundef %14) #26
+  %15 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i, i32 noundef range(i32 0, 67108864) %14) #26
   %.not.i.i = icmp ugt i32 %1, %15
   br i1 %.not.i.i, label %16, label %_ZN4llvmL10shiftRightEPmjj.exit
 
@@ -3606,7 +3606,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm6detail9IEEEFloat21shiftSi
 
 _ZN4llvmL10shiftRightEPmjj.exit:                  ; preds = %2, %16, %21, %24
   %.0.i.i = phi i32 [ 1, %24 ], [ 0, %2 ], [ 2, %16 ], [ 3, %21 ]
-  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i, i32 noundef %14, i32 noundef %1) #26
+  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i, i32 noundef range(i32 0, 67108864) %14, i32 noundef %1) #26
   ret i32 %.0.i.i
 }
 
@@ -3654,7 +3654,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm6detail9IEEEFloat24addOrSu
   %.0.i.i = select i1 %31, ptr %33, ptr %32
   %34 = add i32 %29, 64
   %35 = lshr i32 %34, 6
-  %36 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i, i32 noundef %35) #26
+  %36 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i, i32 noundef range(i32 0, 67108864) %35) #26
   %.not.i.i.i = icmp ugt i32 %23, %36
   br i1 %.not.i.i.i, label %37, label %_ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit
 
@@ -3679,7 +3679,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm6detail9IEEEFloat24addOrSu
 
 _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %22, %37, %42, %45
   %.0.i.i.i = phi i32 [ 1, %45 ], [ 0, %22 ], [ 2, %37 ], [ 3, %42 ]
-  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i, i32 noundef %35, i32 noundef %23) #26
+  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i, i32 noundef range(i32 0, 67108864) %35, i32 noundef %23) #26
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 4
@@ -3711,7 +3711,7 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %22, %37, %42
   %.0.i.i22 = select i1 %65, ptr %67, ptr %66
   %68 = add i32 %63, 64
   %69 = lshr i32 %68, 6
-  %70 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i22, i32 noundef %69) #26
+  %70 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i22, i32 noundef range(i32 0, 67108864) %69) #26
   %.not.i.i.i23 = icmp ult i32 %70, %58
   br i1 %.not.i.i.i23, label %71, label %_ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit27
 
@@ -3736,7 +3736,7 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit: ; preds = %22, %37, %42
 
 _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit27: ; preds = %57, %71, %76, %79
   %.0.i.i.i24 = phi i32 [ 1, %79 ], [ 0, %57 ], [ 2, %71 ], [ 3, %76 ]
-  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i22, i32 noundef %69, i32 noundef %58) #26
+  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i22, i32 noundef range(i32 0, 67108864) %69, i32 noundef %58) #26
   %80 = load ptr, ptr %4, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 4
@@ -3884,7 +3884,7 @@ _ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %92, %98
   %.0.i.i36 = select i1 %184, ptr %186, ptr %185
   %187 = add i32 %182, 64
   %188 = lshr i32 %187, 6
-  %189 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i36, i32 noundef %188) #26
+  %189 = call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i36, i32 noundef range(i32 0, 67108864) %188) #26
   %.not.i.i.i37 = icmp ugt i32 %17, %189
   br i1 %.not.i.i.i37, label %190, label %_ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit41
 
@@ -3909,7 +3909,7 @@ _ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %92, %98
 
 _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit41: ; preds = %176, %190, %195, %198
   %.0.i.i.i38 = phi i32 [ 1, %198 ], [ 0, %176 ], [ 2, %190 ], [ 3, %195 ]
-  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i36, i32 noundef %188, i32 noundef %17) #26
+  call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i36, i32 noundef range(i32 0, 67108864) %188, i32 noundef %17) #26
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load i32, ptr %200, align 4
@@ -3944,7 +3944,7 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit41: ; preds = %176, %190,
   %.0.i.i44 = select i1 %221, ptr %223, ptr %222
   %224 = add i32 %219, 64
   %225 = lshr i32 %224, 6
-  %226 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i44, i32 noundef %225) #26
+  %226 = tail call noundef i32 @_ZN4llvm5APInt5tcLSBEPKmj(ptr noundef %.0.i.i44, i32 noundef range(i32 0, 67108864) %225) #26
   %.not.i.i.i45 = icmp ult i32 %226, %216
   br i1 %.not.i.i.i45, label %227, label %_ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit49
 
@@ -3969,7 +3969,7 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit41: ; preds = %176, %190,
 
 _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit49: ; preds = %215, %227, %232, %235
   %.0.i.i.i46 = phi i32 [ 1, %235 ], [ 0, %215 ], [ 2, %227 ], [ 3, %232 ]
-  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i44, i32 noundef %225, i32 noundef %216) #26
+  tail call void @_ZN4llvm5APInt12tcShiftRightEPmjj(ptr noundef %.0.i.i44, i32 noundef range(i32 0, 67108864) %225, i32 noundef %216) #26
   %236 = load ptr, ptr %0, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load i32, ptr %237, align 4
@@ -9702,7 +9702,7 @@ define dso_local i64 @_ZN4llvm6detail10hash_valueERKNS0_9IEEEFloatE(ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 120, i1 false)
   store i64 -49064778989728563, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 64
   %24 = getelementptr inbounds i8, ptr %7, i64 1
@@ -9738,7 +9738,7 @@ define dso_local i64 @_ZN4llvm6detail10hash_valueERKNS0_9IEEEFloatE(ptr noundef 
   %45 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKmEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.0.i.i, ptr noundef %44)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 120, i1 false)
   store i64 -49064778989728563, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 64
   %48 = getelementptr inbounds i8, ptr %5, i64 1
@@ -14123,7 +14123,7 @@ _ZN4llvm6detail12_GLOBAL__N_117AdjustToPrecisionERNS_5APIntERij.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %276 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %276, i64 noundef 256) #26
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %13, ptr noundef nonnull %276, i64 noundef 256) #26
   %277 = load i32, ptr %86, align 8
   %278 = icmp ult i32 %277, 4
   br i1 %278, label %279, label %290
@@ -14306,7 +14306,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit150.i: ; preds = %326, 
 
 353:                                              ; preds = %.critedge.i.i
   %354 = getelementptr inbounds i8, ptr %339, i64 %351
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %339, ptr align 1 %354, i64 %gepdiff44.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %339, ptr nonnull align 1 %354, i64 %gepdiff44.i.i, i1 false)
   br label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit.i.i
 
 _ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit.i.i: ; preds = %353, %.critedge.i.i
@@ -14375,7 +14375,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i.i: ; preds = %376, %
 
 386:                                              ; preds = %382
   %387 = getelementptr inbounds i8, ptr %383, i64 %384
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %383, ptr align 1 %387, i64 %gepdiff.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %383, ptr nonnull align 1 %387, i64 %gepdiff.i.i, i1 false)
   br label %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit43.i.i
 
 _ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit43.i.i: ; preds = %386, %382
@@ -14622,7 +14622,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit166.i: ; preds = %501, 
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %507) #26
   %spec.select.i = call i32 @llvm.abs.i32(i32 %412, i1 true)
   %508 = getelementptr inbounds i8, ptr %17, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %508, i64 noundef 6) #26
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %17, ptr noundef nonnull %508, i64 noundef 6) #26
   br label %509
 
 509:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit169.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit166.i
@@ -14722,7 +14722,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit175.i: ; preds = %551, 
   br i1 %.not128.i, label %._crit_edge.i, label %541, !llvm.loop !345
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit175.i, %537
-  %557 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
+  %557 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(30) %17) #26
   %558 = load ptr, ptr %17, align 8
   %559 = icmp eq ptr %558, %508
   br i1 %559, label %_ZN4llvm11SmallVectorIcLj6EED2Ev.exit.i, label %560
@@ -14991,7 +14991,7 @@ _ZN4llvm5APIntD2Ev.exit200.i:                     ; preds = %675, %672, %_ZN4llv
   br label %_ZN4llvm5APIntD2Ev.exit201.i
 
 _ZN4llvm5APIntD2Ev.exit201.i:                     ; preds = %681, %678, %_ZN4llvm5APIntD2Ev.exit200.i
-  %682 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #26
+  %682 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %13) #26
   %683 = load ptr, ptr %13, align 8
   %684 = icmp eq ptr %683, %276
   br i1 %684, label %_ZN4llvm6detail12_GLOBAL__N_112toStringImplERNS_15SmallVectorImplIcEEbiNS_5APIntEjjb.exit, label %685
@@ -15171,7 +15171,7 @@ _ZNK4llvm6detail9IEEEFloat10isDenormalEv.exit.thread: ; preds = %50, %57, %_ZNK4
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 80:                                               ; preds = %73
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %75) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %79, %80
@@ -15985,7 +15985,7 @@ define dso_local void @_ZN4llvm6detail13DoubleAPFloatC2ERKNS_12fltSemanticsEONS_
   br label %_ZN4llvm7APFloatC2EOS0_.exit
 
 10:                                               ; preds = %4
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #26
   br label %_ZN4llvm7APFloatC2EOS0_.exit
 
 _ZN4llvm7APFloatC2EOS0_.exit:                     ; preds = %9, %10
@@ -16000,7 +16000,7 @@ _ZN4llvm7APFloatC2EOS0_.exit:                     ; preds = %9, %10
   br label %_ZN4llvm7APFloatC2EOS0_.exit5
 
 15:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatC2EOS0_.exit5
 
 _ZN4llvm7APFloatC2EOS0_.exit5:                    ; preds = %14, %15
@@ -16034,7 +16034,7 @@ define dso_local void @_ZN4llvm6detail13DoubleAPFloatC2ERKS1_(ptr nocapture noun
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 13:                                               ; preds = %6
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %12, %13
@@ -16050,7 +16050,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %12, %13
   br label %_ZN4llvm7APFloatC2ERKS0_.exit6
 
 19:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit6
 
 _ZN4llvm7APFloatC2ERKS0_.exit6:                   ; preds = %19, %18, %2
@@ -16142,7 +16142,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 14:                                               ; preds = %.preheader
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %14, %13
@@ -16177,7 +16177,7 @@ define dso_local noundef i32 @_ZN4llvm6detail13DoubleAPFloat7addImplERKNS_7APFlo
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 15:                                               ; preds = %6
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %14, %15
@@ -16684,7 +16684,7 @@ _ZN4llvm7APFloat3addERKS0_NS_12RoundingModeE.exit90: ; preds = %266, %260, %244,
   br label %_ZN4llvm7APFloatC2ERKS0_.exit94
 
 289:                                              ; preds = %283
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %285, ptr noundef nonnull align 8 dereferenceable(16) %286) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %285, ptr noundef nonnull align 8 dereferenceable(24) %286) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit94
 
 _ZN4llvm7APFloatC2ERKS0_.exit94:                  ; preds = %288, %289
@@ -17167,7 +17167,7 @@ _ZN4llvm7APFloat3addERKS0_NS_12RoundingModeE.exit107: ; preds = %545, %539, %522
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 554:                                              ; preds = %550
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %285) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 555:                                              ; preds = %_ZN4llvm7APFloat3addERKS0_NS_12RoundingModeE.exit
@@ -17181,7 +17181,7 @@ _ZN4llvm7APFloat3addERKS0_NS_12RoundingModeE.exit107: ; preds = %545, %539, %522
   br label %_ZN4llvm7APFloatC2ERKS0_.exit110
 
 559:                                              ; preds = %555
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %556, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %556, ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit110
 
 _ZN4llvm7APFloatC2ERKS0_.exit110:                 ; preds = %558, %559
@@ -17263,7 +17263,7 @@ _ZN4llvm7APFloat8subtractERKS0_NS_12RoundingModeE.exit112: ; preds = %_ZN4llvm7A
   br label %_ZN4llvm7APFloatC2ERKS0_.exit114
 
 596:                                              ; preds = %_ZN4llvm7APFloat8subtractERKS0_NS_12RoundingModeE.exit112
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %594, ptr noundef nonnull align 8 dereferenceable(16) %556) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %594, ptr noundef nonnull align 8 dereferenceable(24) %556) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit114
 
 _ZN4llvm7APFloatC2ERKS0_.exit114:                 ; preds = %595, %596
@@ -17954,7 +17954,7 @@ _ZN4llvm7APFloat3addERKS0_NS_12RoundingModeE.exit139: ; preds = %953, %947, %931
   br label %_ZN4llvm7APFloatD2Ev.exit141
 
 962:                                              ; preds = %959
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %594) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %594) #26
   br label %_ZN4llvm7APFloatD2Ev.exit141
 
 _ZN4llvm7APFloatD2Ev.exit141:                     ; preds = %961, %962
@@ -17967,7 +17967,7 @@ _ZN4llvm7APFloatD2Ev.exit141:                     ; preds = %961, %962
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 965:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit141
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %556) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %556) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %965, %964, %554, %553, %279, %59
@@ -17981,7 +17981,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %965, %964, %554, %5
   br label %_ZN4llvm7APFloatD2Ev.exit145
 
 968:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
   br label %_ZN4llvm7APFloatD2Ev.exit145
 
 _ZN4llvm7APFloatD2Ev.exit145:                     ; preds = %967, %968
@@ -18460,7 +18460,7 @@ define dso_local noundef i32 @_ZN4llvm6detail13DoubleAPFloat14addWithSpecialERKS
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 145:                                              ; preds = %142
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %144, %145
@@ -18476,7 +18476,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %144, %145
   br label %_ZN4llvm7APFloatC2ERKS0_.exit63
 
 151:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %148) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef nonnull align 8 dereferenceable(24) %148) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit63
 
 _ZN4llvm7APFloatC2ERKS0_.exit63:                  ; preds = %150, %151
@@ -18492,7 +18492,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit63:                  ; preds = %150, %151
   br label %_ZN4llvm7APFloatC2ERKS0_.exit65
 
 157:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit63
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 8 dereferenceable(16) %154) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %154) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit65
 
 _ZN4llvm7APFloatC2ERKS0_.exit65:                  ; preds = %156, %157
@@ -18508,7 +18508,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit65:                  ; preds = %156, %157
   br label %_ZN4llvm7APFloatC2ERKS0_.exit67
 
 163:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit65
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %160) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %160) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit67
 
 _ZN4llvm7APFloatC2ERKS0_.exit67:                  ; preds = %162, %163
@@ -18522,7 +18522,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit67:                  ; preds = %162, %163
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 167:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit67
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %166, %167
@@ -18535,7 +18535,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %166, %167
   br label %_ZN4llvm7APFloatD2Ev.exit70
 
 170:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %153) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %153) #26
   br label %_ZN4llvm7APFloatD2Ev.exit70
 
 _ZN4llvm7APFloatD2Ev.exit70:                      ; preds = %169, %170
@@ -18548,7 +18548,7 @@ _ZN4llvm7APFloatD2Ev.exit70:                      ; preds = %169, %170
   br label %_ZN4llvm7APFloatD2Ev.exit72
 
 173:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit70
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %147) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #26
   br label %_ZN4llvm7APFloatD2Ev.exit72
 
 _ZN4llvm7APFloatD2Ev.exit72:                      ; preds = %172, %173
@@ -18561,7 +18561,7 @@ _ZN4llvm7APFloatD2Ev.exit72:                      ; preds = %172, %173
   br label %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit
 
 176:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit72
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %143) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %143) #26
   br label %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit
 
 _ZN4llvm6detail13DoubleAPFloataSERKS1_.exit:      ; preds = %176, %175, %138, %137, %127, %100, %99, %89, %82, %81, %71, %64, %63, %53, %36, %35, %25, %140, %111
@@ -18848,7 +18848,7 @@ _ZN4llvm6detail13DoubleAPFloataSERKS1_.exit61:    ; preds = %54, %56
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 80:                                               ; preds = %77
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %15) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %15) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %79, %80
@@ -18864,7 +18864,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %79, %80
   br label %_ZN4llvm7APFloatC2ERKS0_.exit70
 
 86:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %83) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %83) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit70
 
 _ZN4llvm7APFloatC2ERKS0_.exit70:                  ; preds = %85, %86
@@ -18880,7 +18880,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit70:                  ; preds = %85, %86
   br label %_ZN4llvm7APFloatC2ERKS0_.exit72
 
 92:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit70
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %89) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %89) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit72
 
 _ZN4llvm7APFloatC2ERKS0_.exit72:                  ; preds = %91, %92
@@ -18896,7 +18896,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit72:                  ; preds = %91, %92
   br label %_ZN4llvm7APFloatC2ERKS0_.exit74
 
 98:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit72
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %95) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %95) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit74
 
 _ZN4llvm7APFloatC2ERKS0_.exit74:                  ; preds = %97, %98
@@ -18910,7 +18910,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit74:                  ; preds = %97, %98
   br label %_ZN4llvm7APFloatC2ERKS0_.exit76
 
 102:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit74
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %78) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %78) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit76
 
 _ZN4llvm7APFloatC2ERKS0_.exit76:                  ; preds = %101, %102
@@ -18949,7 +18949,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit76:                  ; preds = %101, %102
   br label %_ZN4llvm7APFloatC2ERKS0_.exit78
 
 123:                                              ; preds = %119
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(16) %78) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %78) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit78
 
 _ZN4llvm7APFloatC2ERKS0_.exit78:                  ; preds = %122, %123
@@ -18966,7 +18966,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit78:                  ; preds = %122, %123
   br label %_ZN4llvm7APFloatC2ERKS0_.exit80
 
 128:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit78
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %78) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %78) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit80
 
 _ZN4llvm7APFloatC2ERKS0_.exit80:                  ; preds = %127, %128
@@ -18981,7 +18981,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit80:                  ; preds = %127, %128
   br label %_ZN4llvm7APFloatC2ERKS0_.exit82
 
 133:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit80
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %82) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %82) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit82
 
 _ZN4llvm7APFloatC2ERKS0_.exit82:                  ; preds = %132, %133
@@ -18997,7 +18997,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit82:                  ; preds = %132, %133
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 139:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit82
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %130) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %130) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %138, %139
@@ -19010,7 +19010,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %138, %139
   br label %_ZN4llvm7APFloatD2Ev.exit85
 
 142:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %125) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %125) #26
   br label %_ZN4llvm7APFloatD2Ev.exit85
 
 _ZN4llvm7APFloatD2Ev.exit85:                      ; preds = %141, %142
@@ -19024,7 +19024,7 @@ _ZN4llvm7APFloatD2Ev.exit85:                      ; preds = %141, %142
   br label %_ZN4llvm7APFloatC2ERKS0_.exit87
 
 146:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit85
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %99) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %99) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit87
 
 _ZN4llvm7APFloatC2ERKS0_.exit87:                  ; preds = %145, %146
@@ -19076,7 +19076,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit87:                  ; preds = %145, %146
   br label %_ZN4llvm7APFloatD2Ev.exit89
 
 176:                                              ; preds = %173
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %143) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %143) #26
   br label %_ZN4llvm7APFloatD2Ev.exit89
 
 _ZN4llvm7APFloatD2Ev.exit89:                      ; preds = %175, %176
@@ -19089,7 +19089,7 @@ _ZN4llvm7APFloatD2Ev.exit89:                      ; preds = %175, %176
   br label %_ZN4llvm7APFloatD2Ev.exit91
 
 179:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit89
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %120) #26
   br label %_ZN4llvm7APFloatD2Ev.exit91
 
 _ZN4llvm7APFloatD2Ev.exit91:                      ; preds = %179, %178, %113
@@ -19103,7 +19103,7 @@ _ZN4llvm7APFloatD2Ev.exit91:                      ; preds = %179, %178, %113
   br label %_ZN4llvm7APFloatD2Ev.exit93
 
 182:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit91
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %99) #26
   br label %_ZN4llvm7APFloatD2Ev.exit93
 
 _ZN4llvm7APFloatD2Ev.exit93:                      ; preds = %181, %182
@@ -19116,7 +19116,7 @@ _ZN4llvm7APFloatD2Ev.exit93:                      ; preds = %181, %182
   br label %_ZN4llvm7APFloatD2Ev.exit95
 
 185:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit93
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #26
   br label %_ZN4llvm7APFloatD2Ev.exit95
 
 _ZN4llvm7APFloatD2Ev.exit95:                      ; preds = %184, %185
@@ -19129,7 +19129,7 @@ _ZN4llvm7APFloatD2Ev.exit95:                      ; preds = %184, %185
   br label %_ZN4llvm7APFloatD2Ev.exit97
 
 188:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit95
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %88) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #26
   br label %_ZN4llvm7APFloatD2Ev.exit97
 
 _ZN4llvm7APFloatD2Ev.exit97:                      ; preds = %187, %188
@@ -19142,7 +19142,7 @@ _ZN4llvm7APFloatD2Ev.exit97:                      ; preds = %187, %188
   br label %_ZN4llvm7APFloatD2Ev.exit99
 
 191:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit97
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %82) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #26
   br label %_ZN4llvm7APFloatD2Ev.exit99
 
 _ZN4llvm7APFloatD2Ev.exit99:                      ; preds = %190, %191
@@ -19155,7 +19155,7 @@ _ZN4llvm7APFloatD2Ev.exit99:                      ; preds = %190, %191
   br label %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit46
 
 194:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit99
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #26
   br label %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit46
 
 _ZN4llvm6detail13DoubleAPFloataSERKS1_.exit46:    ; preds = %194, %193, %76, %75, %68, %52, %51, %44, %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit61, %58, %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit
@@ -19334,7 +19334,7 @@ _ZN4llvm7APFloat6divideERKS0_NS_12RoundingModeE.exit: ; preds = %39, %37, %35, %
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 47:                                               ; preds = %_ZN4llvm7APFloat6divideERKS0_NS_12RoundingModeE.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %46, %47
@@ -19401,7 +19401,7 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit8
 
 68:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit6
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
   br label %_ZN4llvm7APFloatD2Ev.exit8
 
 _ZN4llvm7APFloatD2Ev.exit8:                       ; preds = %67, %68
@@ -19538,7 +19538,7 @@ _ZN4llvm7APFloat9remainderERKS0_.exit:            ; preds = %19, %21
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 25:                                               ; preds = %_ZN4llvm7APFloat9remainderERKS0_.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %24, %25
@@ -19605,7 +19605,7 @@ _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit7
 
 46:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit5
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   br label %_ZN4llvm7APFloatD2Ev.exit7
 
 _ZN4llvm7APFloatD2Ev.exit7:                       ; preds = %45, %46
@@ -19664,7 +19664,7 @@ _ZN4llvm7APFloat3modERKS0_.exit:                  ; preds = %19, %21
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 25:                                               ; preds = %_ZN4llvm7APFloat3modERKS0_.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %24, %25
@@ -19731,7 +19731,7 @@ _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit7
 
 46:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit5
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   br label %_ZN4llvm7APFloatD2Ev.exit7
 
 _ZN4llvm7APFloatD2Ev.exit7:                       ; preds = %45, %46
@@ -19795,7 +19795,7 @@ _ZN4llvm7APFloat16fusedMultiplyAddERKS0_S2_NS_12RoundingModeE.exit: ; preds = %2
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 30:                                               ; preds = %_ZN4llvm7APFloat16fusedMultiplyAddERKS0_S2_NS_12RoundingModeE.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %29, %30
@@ -19823,7 +19823,7 @@ _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm7APFloatD2E
   br label %_ZN4llvm7APFloatD2Ev.exit6
 
 40:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit4
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #26
   br label %_ZN4llvm7APFloatD2Ev.exit6
 
 _ZN4llvm7APFloatD2Ev.exit6:                       ; preds = %39, %40
@@ -19890,7 +19890,7 @@ _ZN4llvm5APIntD2Ev.exit10:                        ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
 61:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit10
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #26
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
 _ZN4llvm7APFloatD2Ev.exit12:                      ; preds = %60, %61
@@ -19983,7 +19983,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 33:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit3
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %32, %33
@@ -20265,7 +20265,7 @@ define dso_local void @_ZN4llvm6detail13DoubleAPFloat11makeLargestEb(ptr nocaptu
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 15:                                               ; preds = %2
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %14, %15
@@ -20300,7 +20300,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm7APFloatD2E
   br label %_ZN4llvm7APFloatD2Ev.exit2
 
 29:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #26
   br label %_ZN4llvm7APFloatD2Ev.exit2
 
 _ZN4llvm7APFloatD2Ev.exit2:                       ; preds = %28, %29
@@ -20393,7 +20393,7 @@ define dso_local void @_ZN4llvm6detail13DoubleAPFloat22makeSmallestNormalizedEb(
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %12, %13
@@ -20805,7 +20805,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 26:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %25, %26
@@ -20917,7 +20917,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 33:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit3
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %32, %33
@@ -20954,7 +20954,7 @@ _ZNK4llvm7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_12RoundingModeE
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 18:                                               ; preds = %_ZNK4llvm7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_12RoundingModeEPb.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %17, %18
@@ -21045,7 +21045,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 27:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %26, %27
@@ -21121,7 +21121,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 28:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %27, %28
@@ -21197,7 +21197,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6detail13Do
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 28:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %27, %28
@@ -21306,7 +21306,7 @@ _ZNK4llvm7APFloat18convertToHexStringEPcjbNS_12RoundingModeE.exit: ; preds = %_Z
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 48:                                               ; preds = %_ZNK4llvm7APFloat18convertToHexStringEPcjbNS_12RoundingModeE.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %47, %48
@@ -21438,7 +21438,7 @@ _ZNK4llvm7APFloat10isDenormalEv.exit4.thread:     ; preds = %41, %49, %55, %_ZNK
   br label %_ZNK4llvm7APFloatplERKS0_.exit
 
 72:                                               ; preds = %_ZNK4llvm7APFloat10isDenormalEv.exit4.thread
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %69) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69) #26
   br label %_ZNK4llvm7APFloatplERKS0_.exit
 
 _ZNK4llvm7APFloatplERKS0_.exit:                   ; preds = %71, %72
@@ -21467,7 +21467,7 @@ _ZNK4llvm7APFloatplERKS0_.exit:                   ; preds = %71, %72
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 83:                                               ; preds = %79
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %68) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %55, %29, %1, %_ZNK4llvm7APFloat10isDenormalEv.exit4, %_ZNK4llvm7APFloat10isDenormalEv.exit, %83, %82
@@ -21706,7 +21706,7 @@ _ZNK4llvm7APFloat8toStringERNS_15SmallVectorImplIcEEjjb.exit: ; preds = %10, %11
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 14:                                               ; preds = %_ZNK4llvm7APFloat8toStringERNS_15SmallVectorImplIcEEjjb.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %13, %14
@@ -21800,7 +21800,7 @@ _ZNK4llvm7APFloat15getExactInverseEPS0_.exit6:    ; preds = %25, %27
 
 _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %30, %31
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %7) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %7) #26
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %32)
   %35 = load ptr, ptr %32, align 8
@@ -21812,7 +21812,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %30, %31
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 37:                                               ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %36, %37
@@ -21840,7 +21840,7 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm7APFloatD2E
   br label %_ZNK4llvm7APFloat15getExactInverseEPS0_.exit
 
 47:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit8
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #26
   br label %_ZNK4llvm7APFloat15getExactInverseEPS0_.exit
 
 _ZNK4llvm7APFloat15getExactInverseEPS0_.exit:     ; preds = %47, %46, %20, %18
@@ -21854,7 +21854,7 @@ _ZNK4llvm7APFloat15getExactInverseEPS0_.exit:     ; preds = %47, %46, %20, %18
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
 50:                                               ; preds = %_ZNK4llvm7APFloat15getExactInverseEPS0_.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
 _ZN4llvm7APFloatD2Ev.exit12:                      ; preds = %49, %50
@@ -21890,7 +21890,7 @@ define dso_local void @_ZN4llvm6detail6scalbnERKNS0_13DoubleAPFloatEiNS_12Roundi
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 15:                                               ; preds = %4
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %14, %15
@@ -21907,7 +21907,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %14, %15
   br label %_ZN4llvm7APFloatC2ERKS0_.exit6
 
 21:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit6
 
 _ZN4llvm7APFloatC2ERKS0_.exit6:                   ; preds = %20, %21
@@ -21923,7 +21923,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit6:                   ; preds = %20, %21
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 25:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit6
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %24, %25
@@ -21936,7 +21936,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %24, %25
   br label %_ZN4llvm7APFloatD2Ev.exit8
 
 28:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
   br label %_ZN4llvm7APFloatD2Ev.exit8
 
 _ZN4llvm7APFloatD2Ev.exit8:                       ; preds = %27, %28
@@ -21950,7 +21950,7 @@ _ZN4llvm7APFloatD2Ev.exit8:                       ; preds = %27, %28
   br label %_ZN4llvm7APFloatD2Ev.exit10
 
 32:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit8
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #26
   br label %_ZN4llvm7APFloatD2Ev.exit10
 
 _ZN4llvm7APFloatD2Ev.exit10:                      ; preds = %31, %32
@@ -21963,7 +21963,7 @@ _ZN4llvm7APFloatD2Ev.exit10:                      ; preds = %31, %32
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
 35:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit10
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
 _ZN4llvm7APFloatD2Ev.exit12:                      ; preds = %34, %35
@@ -22045,7 +22045,7 @@ _ZN4llvm6detail6scalbnENS0_9IEEEFloatEiNS_12RoundingModeE.exit: ; preds = %12, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9) #26
-  call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
@@ -22076,7 +22076,7 @@ define dso_local void @_ZN4llvm6detail5frexpERKNS0_13DoubleAPFloatERiNS_12Roundi
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 16:                                               ; preds = %4
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %15, %16
@@ -22105,7 +22105,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %15, %16
   br label %_ZN4llvm7APFloatC2ERKS0_.exit7
 
 31:                                               ; preds = %27
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit7
 
 _ZN4llvm7APFloatC2ERKS0_.exit7:                   ; preds = %30, %31
@@ -22123,7 +22123,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit7:                   ; preds = %30, %31
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 38:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit7
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %37, %38
@@ -22136,7 +22136,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %37, %38
   br label %_ZN4llvm7APFloatD2Ev.exit9
 
 41:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #26
   br label %_ZN4llvm7APFloatD2Ev.exit9
 
 _ZN4llvm7APFloatD2Ev.exit9:                       ; preds = %41, %40, %_ZN4llvm7APFloatC2ERKS0_.exit
@@ -22150,7 +22150,7 @@ _ZN4llvm7APFloatD2Ev.exit9:                       ; preds = %41, %40, %_ZN4llvm7
   br label %_ZN4llvm7APFloatD2Ev.exit11
 
 44:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit9
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatD2Ev.exit11
 
 _ZN4llvm7APFloatD2Ev.exit11:                      ; preds = %43, %44
@@ -22164,7 +22164,7 @@ _ZN4llvm7APFloatD2Ev.exit11:                      ; preds = %43, %44
   br label %_ZN4llvm7APFloatD2Ev.exit13
 
 48:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit11
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #26
   br label %_ZN4llvm7APFloatD2Ev.exit13
 
 _ZN4llvm7APFloatD2Ev.exit13:                      ; preds = %47, %48
@@ -22199,7 +22199,7 @@ define linkonce_odr hidden void @_ZN4llvm5frexpERKNS_7APFloatERiNS_12RoundingMod
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8) #26
-  call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
@@ -22243,7 +22243,7 @@ define dso_local void @_ZN4llvm7APFloat7StorageC2ENS_6detail9IEEEFloatERKNS_12fl
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 15:                                               ; preds = %9
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %14, %15
@@ -22256,7 +22256,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %14, %15
   br label %_ZN4llvm7APFloatD2Ev.exit6
 
 18:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
   br label %_ZN4llvm7APFloatD2Ev.exit6
 
 _ZN4llvm7APFloatD2Ev.exit6:                       ; preds = %17, %18
@@ -22282,7 +22282,7 @@ define dso_local void @_ZN4llvm7APFloatC2ERKNS_12fltSemanticsENS_9StringRefE(ptr
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsE.exit
 
 11:                                               ; preds = %4
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE) #26
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsE.exit
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsE.exit:     ; preds = %10, %11
@@ -22562,7 +22562,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %15
   %18 = tail call noundef i32 @_ZN4llvm6detail9IEEEFloat7convertERKNS_12fltSemanticsENS_12RoundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL24semPPCDoubleDoubleLegacyE, i8 noundef signext %2, ptr noundef %3)
   call void @_ZNK4llvm6detail9IEEEFloat14bitcastToAPIntEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %7) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %7) #26
   %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %19)
   %21 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %21, @_ZN4llvmL18semPPCDoubleDoubleE
@@ -22573,7 +22573,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %15
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 23:                                               ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %22, %23
@@ -22620,7 +22620,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %22, %23
   br label %_ZN4llvm7APFloatD2Ev.exit23
 
 44:                                               ; preds = %31
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #26
   br label %_ZN4llvm7APFloatD2Ev.exit23
 
 _ZN4llvm7APFloatD2Ev.exit23:                      ; preds = %43, %44
@@ -22667,7 +22667,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %8, %15
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
 
 18:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %3) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(24) @_ZN4llvmL18semPPCDoubleDoubleE, ptr noundef nonnull align 8 dereferenceable(12) %3) #26
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %17, %18
@@ -22692,7 +22692,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm7APFloatC2E
 define dso_local void @_ZNK4llvm7APFloat5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, i64 noundef 16) #26
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %4, i64 noundef 16) #26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, @_ZN4llvmL18semPPCDoubleDoubleE
@@ -22729,7 +22729,7 @@ _ZNK4llvm7APFloat8toStringERNS_15SmallVectorImplIcEEjjb.exit: ; preds = %7, %8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #26
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
   %23 = load ptr, ptr %3, align 8
   %24 = icmp eq ptr %23, %4
   br i1 %24, label %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit, label %25
@@ -22788,8 +22788,8 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK4llvm7APFloat16convertToInteg
   %10 = add nuw nsw i64 %9, 63
   %11 = lshr i64 %10, 6
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %12, i64 noundef 4) #26
-  call void @_ZN4llvm15SmallVectorImplImE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %11)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %12, i64 noundef 4) #26
+  call void @_ZN4llvm15SmallVectorImplImE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %11)
   %13 = load ptr, ptr %5, align 8
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -22834,7 +22834,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %32, %29, %_ZNK4llvm
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %7, align 8
   store i32 0, ptr %34, align 8
-  %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
+  %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #26
   %37 = load ptr, ptr %5, align 8
   %38 = icmp eq ptr %37, %12
   br i1 %38, label %_ZN4llvm11SmallVectorImLj4EED2Ev.exit, label %39
@@ -22889,7 +22889,7 @@ _ZNK4llvm6detail9IEEEFloat15convertToDoubleEv.exit: ; preds = %9, %16
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 20:                                               ; preds = %17
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %19, %20
@@ -22927,7 +22927,7 @@ _ZNK4llvm6detail9IEEEFloat15convertToDoubleEv.exit6: ; preds = %_ZN4llvm7APFloat
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 35:                                               ; preds = %_ZNK4llvm6detail9IEEEFloat15convertToDoubleEv.exit6
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %35, %34, %_ZNK4llvm6detail9IEEEFloat15convertToDoubleEv.exit
@@ -22980,7 +22980,7 @@ _ZNK4llvm6detail9IEEEFloat13convertToQuadEv.exit: ; preds = %9, %17
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 25:                                               ; preds = %22
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %24, %25
@@ -23021,7 +23021,7 @@ _ZNK4llvm6detail9IEEEFloat13convertToQuadEv.exit4: ; preds = %_ZN4llvm7APFloatC2
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 45:                                               ; preds = %_ZNK4llvm6detail9IEEEFloat13convertToQuadEv.exit4
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %45, %44, %_ZNK4llvm6detail9IEEEFloat13convertToQuadEv.exit
@@ -23072,7 +23072,7 @@ _ZNK4llvm6detail9IEEEFloat14convertToFloatEv.exit: ; preds = %9, %16
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 20:                                               ; preds = %17
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %_ZN4llvm7APFloatC2ERKS0_.exit
 
 _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %19, %20
@@ -23110,7 +23110,7 @@ _ZNK4llvm6detail9IEEEFloat14convertToFloatEv.exit6: ; preds = %_ZN4llvm7APFloatC
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 35:                                               ; preds = %_ZNK4llvm6detail9IEEEFloat14convertToFloatEv.exit6
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #26
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %35, %34, %_ZNK4llvm6detail9IEEEFloat14convertToFloatEv.exit
@@ -23300,7 +23300,7 @@ _ZN4llvm6detail9IEEEFloataSEOS1_.exit:            ; preds = %7, %12, %16
   br label %_ZN4llvm7APFloat7StorageD2Ev.exit
 
 40:                                               ; preds = %38
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   br label %_ZN4llvm7APFloat7StorageD2Ev.exit
 
 _ZN4llvm7APFloat7StorageD2Ev.exit:                ; preds = %39, %40
@@ -23313,7 +23313,7 @@ _ZN4llvm7APFloat7StorageD2Ev.exit:                ; preds = %39, %40
   br label %_ZN4llvm6detail13DoubleAPFloataSEOS1_.exit
 
 43:                                               ; preds = %_ZN4llvm7APFloat7StorageD2Ev.exit
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #26
   br label %_ZN4llvm6detail13DoubleAPFloataSEOS1_.exit
 
 _ZN4llvm6detail13DoubleAPFloataSEOS1_.exit:       ; preds = %43, %42, %.thread10, %37, %36, %38, %_ZN4llvm6detail9IEEEFloataSEOS1_.exit
@@ -23392,7 +23392,7 @@ tailrecurse:                                      ; preds = %9
   br label %_ZN4llvm7APFloat7StorageD2Ev.exit
 
 26:                                               ; preds = %24
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.tr34) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.tr34) #26
   br label %_ZN4llvm7APFloat7StorageD2Ev.exit
 
 _ZN4llvm7APFloat7StorageD2Ev.exit:                ; preds = %25, %26
@@ -23409,7 +23409,7 @@ _ZN4llvm7APFloat7StorageD2Ev.exit:                ; preds = %25, %26
   br label %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit
 
 29:                                               ; preds = %_ZN4llvm7APFloat7StorageD2Ev.exit
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %.tr32, ptr noundef nonnull align 8 dereferenceable(16) %.tr1628) #26
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.tr32, ptr noundef nonnull align 8 dereferenceable(24) %.tr1628) #26
   br label %_ZN4llvm6detail13DoubleAPFloataSERKS1_.exit
 
 _ZN4llvm6detail13DoubleAPFloataSERKS1_.exit:      ; preds = %29, %28, %.thread10, %23, %22, %24, %5

@@ -1260,7 +1260,7 @@ cond.end65.i:                                     ; preds = %cond.true61.i, %if.
   store ptr %cond66.i, ptr %literal_histograms5.i, align 8
   %histograms_.i199 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %cond66.i, ptr %histograms_.i199, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %num_contexts, i64 1)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 range(i64 2, 1) %num_contexts, i64 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %cond.end65.i

@@ -92,7 +92,7 @@ define hidden void @_ZN4llvm10WinCFGuardD0Ev(ptr noundef nonnull align 8 derefer
   br label %_ZN4llvm10WinCFGuardD2Ev.exit
 
 _ZN4llvm10WinCFGuardD2Ev.exit:                    ; preds = %1, %4
-  tail call void @_ZN4llvm17AsmPrinterHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN4llvm17AsmPrinterHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #13
   ret void
 }
@@ -220,8 +220,8 @@ define hidden void @_ZN4llvm10WinCFGuard9endModuleEv(ptr nocapture noundef nonnu
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %21, ptr %4, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %13, i64 noundef 4) #14
-  call void @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, ptr noundef nonnull %14)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %13, i64 noundef 4) #14
+  call void @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, ptr noundef nonnull %14)
   %22 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br i1 %22, label %.thread.i, label %.lr.ph32.i
 
@@ -306,7 +306,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit.i: ; pred
 
 .thread.i:                                        ; preds = %.loopexit.i, %43, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_4UserEEEDcPT0_.exit.i, %38, %18
   %.0.i = phi i1 [ false, %18 ], [ true, %38 ], [ true, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_4UserEEEDcPT0_.exit.i ], [ true, %43 ], [ false, %.loopexit.i ]
-  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
   %60 = load ptr, ptr %3, align 8
   %61 = icmp eq ptr %60, %13
   br i1 %61, label %_ZL28isPossibleIndirectCallTargetPKN4llvm8FunctionE.exit, label %62

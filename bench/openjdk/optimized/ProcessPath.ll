@@ -977,7 +977,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %240 = call float @llvm.fmuladd.f32(float %228, float %239, float %232)
   store float %240, ptr %103, align 4
   store float %240, ptr %77, align 4
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %13, ptr noundef %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %ProcessQuad.exit
 
@@ -1008,7 +1008,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %253 = call float @llvm.fmuladd.f32(float %241, float %252, float %245)
   store float %253, ptr %108, align 4
   store float %253, ptr %77, align 4
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %12, ptr noundef %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %254 = fsub double %.sroa.6.080.i, %.sroa.0.181.i
   %255 = fcmp ogt double %254, 0.000000e+00
@@ -1047,12 +1047,12 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %277 = call float @llvm.fmuladd.f32(float %259, float %276, float %267)
   store float %277, ptr %113, align 4
   store float %277, ptr %77, align 4
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %11, ptr noundef %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %ProcessQuad.exit
 
 ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, %.thread.i, %256
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %14, ptr noundef %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
   br label %279
 
 278:                                              ; preds = %182
@@ -1416,7 +1416,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   %476 = call float @llvm.fmuladd.f32(float %444, float %475, float %462)
   store float %476, ptr %91, align 4
   store float %476, ptr %77, align 4
-  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %9, ptr noundef %15)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br i1 %431, label %.lr.ph186.i, label %ProcessCubic.exit
 
@@ -1484,7 +1484,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   %518 = call float @llvm.fmuladd.f32(float %486, float %517, float %504)
   store float %518, ptr %98, align 4
   store float %518, ptr %77, align 4
-  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %8, ptr noundef %15)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %519
 
@@ -1494,7 +1494,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   br i1 %exitcond195.not.i, label %ProcessCubic.exit, label %477, !llvm.loop !9
 
 ProcessCubic.exit:                                ; preds = %519, %427, %._crit_edge.i241
-  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %14, ptr noundef %15)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %521
 
@@ -3197,7 +3197,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   %184 = icmp slt i32 %183, 0
   %.199.i = select i1 %184, i32 %123, i32 %178
   %185 = load ptr, ptr %0, align 8
-  tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext %115, i8 noundef zeroext 0) #12
+  tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #12
   %186 = icmp ugt i32 %.195124.i, 2
   br i1 %186, label %.lr.ph127.i, label %DrawMonotonicQuad.exit, !llvm.loop !19
 
@@ -3205,7 +3205,7 @@ DrawMonotonicQuad.exit:                           ; preds = %.lr.ph127.i, %.preh
   %.0100.lcssa.i = phi i32 [ %117, %.preheader.i ], [ %spec.select.i, %.lr.ph127.i ]
   %.098.lcssa.i = phi i32 [ %119, %.preheader.i ], [ %.199.i, %.lr.ph127.i ]
   %187 = load ptr, ptr %0, align 8
-  tail call void %187(ptr noundef nonnull %0, i32 noundef %.0100.lcssa.i, i32 noundef %.098.lcssa.i, i32 noundef %121, i32 noundef %123, ptr noundef nonnull %2, i8 noundef zeroext %115, i8 noundef zeroext 0) #12
+  tail call void %187(ptr noundef nonnull %0, i32 noundef %.0100.lcssa.i, i32 noundef %.098.lcssa.i, i32 noundef %121, i32 noundef %123, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #12
   br label %188
 
 188:                                              ; preds = %52, %56, %60, %36, %40, %44, %48, %DrawMonotonicQuad.exit, %77
@@ -3618,7 +3618,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
 
 .thread.i:                                        ; preds = %.critedge3.i
   %254 = load ptr, ptr %0, align 8
-  tail call void %254(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %148, i32 noundef %150, ptr noundef nonnull %2, i8 noundef zeroext %142, i8 noundef zeroext 0) #12
+  tail call void %254(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %148, i32 noundef %150, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #12
   br label %DrawMonotonicCubic.exit
 
 255:                                              ; preds = %.critedge3.i
@@ -3641,7 +3641,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   %271 = icmp slt i32 %270, 0
   %.1150.i = select i1 %271, i32 %150, i32 %265
   %272 = load ptr, ptr %0, align 8
-  tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef nonnull %2, i8 noundef zeroext %142, i8 noundef zeroext 0) #12
+  tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %142, i8 noundef zeroext 0) #12
   %273 = icmp sgt i32 %.2179.lcssa.i, 1
   br i1 %273, label %.preheader192.i, label %DrawMonotonicCubic.exit, !llvm.loop !22
 

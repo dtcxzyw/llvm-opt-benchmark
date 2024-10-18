@@ -100,7 +100,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePool24update_unlink_processorsEP18G
   br i1 %28, label %29, label %_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor15visit_free_listEPN16G1MonotonicArena15SegmentFreeListE.exit
 
 29:                                               ; preds = %26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 16, i1 false)
   br label %_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor15visit_free_listEPN16G1MonotonicArena15SegmentFreeListE.exit
 
 _ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor15visit_free_listEPN16G1MonotonicArena15SegmentFreeListE.exit: ; preds = %26, %29

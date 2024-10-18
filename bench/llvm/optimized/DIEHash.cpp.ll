@@ -125,7 +125,7 @@ define dso_local void @_ZN4llvm7DIEHash16addParentContextERKNS_3DIEE(ptr noundef
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::SmallVector", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 1) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7, i64 noundef 1) #9
   %8 = call noundef ptr @_ZNK4llvm3DIE9getParentEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #9
   %.not28 = icmp eq ptr %8, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -158,7 +158,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3DIEELb1EE9push_backES3_.exit: ; preds = 
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_3DIEELb1EE9push_backES3_.exit, %2
   %21 = load ptr, ptr %6, align 8, !noalias !8
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #9, !noalias !8
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9, !noalias !8
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %6, align 8, !noalias !19
   %.not2630 = icmp eq ptr %23, %24
@@ -170,7 +170,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %._crit_edge, %_ZL16
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 67, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %28 = load i16, ptr %27, align 4
@@ -187,7 +187,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %._crit_edge, %_ZL16
   %masksel.i11 = select i1 %.not.i10, i8 0, i8 -128
   %storemerge.i12 = or disjoint i8 %32, %masksel.i11
   store i8 %storemerge.i12, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   br i1 %.not.i10, label %_ZN4llvm7DIEHash10addULEB128Em.exit13, label %30, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit13:            ; preds = %30
@@ -248,9 +248,9 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %45, %47
 
 52:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i) #9
   store i8 0, ptr %3, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %3, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
 
@@ -259,7 +259,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %_
   br i1 %.not26, label %._crit_edge32, label %_ZN4llvm7DIEHash10addULEB128Em.exit
 
 ._crit_edge32:                                    ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, %._crit_edge
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #9
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   %54 = load ptr, ptr %6, align 8
   %55 = icmp eq ptr %54, %7
   br i1 %55, label %_ZN4llvm11SmallVectorIPKNS_3DIEELj1EED2Ev.exit, label %56
@@ -5520,7 +5520,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 78, ptr %8, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %8, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %8, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %9 = zext i16 %1 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -5535,7 +5535,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %masksel.i8 = select i1 %.not.i7, i8 0, i8 -128
   %storemerge.i9 = or disjoint i8 %12, %masksel.i8
   store i8 %storemerge.i9, ptr %7, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %7, i64 1) #9
   br i1 %.not.i7, label %_ZN4llvm7DIEHash10addULEB128Em.exit10, label %10, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit10:            ; preds = %10
@@ -5551,12 +5551,12 @@ _ZN4llvm7DIEHash10addULEB128Em.exit10:            ; preds = %10
 _ZN4llvm7DIEHash10addULEB128Em.exit15:            ; preds = %15, %_ZN4llvm7DIEHash10addULEB128Em.exit10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 69, ptr %6, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %6, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %3, i64 %4) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %3, i64 %4) #9
   store i8 0, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   ret void
 }
@@ -5569,7 +5569,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 82, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %6 = zext i16 %1 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -5584,7 +5584,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %masksel.i4 = select i1 %.not.i3, i8 0, i8 -128
   %storemerge.i5 = or disjoint i8 %9, %masksel.i4
   store i8 %storemerge.i5, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   br i1 %.not.i3, label %_ZN4llvm7DIEHash10addULEB128Em.exit6, label %7, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit6:             ; preds = %7
@@ -5602,7 +5602,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit6:             ; preds = %7
   %masksel.i9 = select i1 %.not.i8, i8 0, i8 -128
   %storemerge.i10 = or disjoint i8 %14, %masksel.i9
   store i8 %storemerge.i10, ptr %3, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %3, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #9
   br i1 %.not.i8, label %_ZN4llvm7DIEHash10addULEB128Em.exit11, label %12, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit11:            ; preds = %12
@@ -5758,7 +5758,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detai
 71:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixEOS4_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 82, ptr %9, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %9, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %9, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   br label %72
@@ -5772,7 +5772,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detai
   %masksel.i4.i = select i1 %.not.i3.i, i8 0, i8 -128
   %storemerge.i5.i = or disjoint i8 %74, %masksel.i4.i
   store i8 %storemerge.i5.i, ptr %8, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %8, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %8, i64 1) #9
   br i1 %.not.i3.i, label %_ZN4llvm7DIEHash10addULEB128Em.exit6.i, label %72, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit6.i:           ; preds = %72
@@ -5790,7 +5790,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit6.i:           ; preds = %72
   %masksel.i9.i = select i1 %.not.i8.i, i8 0, i8 -128
   %storemerge.i10.i = or disjoint i8 %79, %masksel.i9.i
   store i8 %storemerge.i10.i, ptr %7, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %7, i64 1) #9
   br i1 %.not.i8.i, label %_ZN4llvm7DIEHash25hashRepeatedTypeReferenceENS_5dwarf9AttributeEj.exit, label %77, !llvm.loop !4
 
 _ZN4llvm7DIEHash25hashRepeatedTypeReferenceENS_5dwarf9AttributeEj.exit: ; preds = %77
@@ -5800,7 +5800,7 @@ _ZN4llvm7DIEHash25hashRepeatedTypeReferenceENS_5dwarf9AttributeEj.exit: ; preds 
 _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixEOS4_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 84, ptr %6, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %6, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   br label %81
@@ -5814,7 +5814,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapB
   %masksel.i30 = select i1 %.not.i29, i8 0, i8 -128
   %storemerge.i31 = or disjoint i8 %83, %masksel.i30
   store i8 %storemerge.i31, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   br i1 %.not.i29, label %_ZN4llvm7DIEHash10addULEB128Em.exit32, label %81, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit32:            ; preds = %81
@@ -5840,7 +5840,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 68, ptr %6, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %6, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i16, ptr %8, align 4
@@ -5857,7 +5857,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %masksel.i14 = select i1 %.not.i13, i8 0, i8 -128
   %storemerge.i15 = or disjoint i8 %13, %masksel.i14
   store i8 %storemerge.i15, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   br i1 %.not.i13, label %_ZN4llvm7DIEHash10addULEB128Em.exit16, label %11, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit16:            ; preds = %11
@@ -5952,7 +5952,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %41, %43
 48:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 83, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %49 = load i16, ptr %18, align 4
   %50 = zext i16 %49 to i64
@@ -5968,15 +5968,15 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %41, %43
   %masksel.i6.i = select i1 %.not.i5.i, i8 0, i8 -128
   %storemerge.i7.i = or disjoint i8 %53, %masksel.i6.i
   store i8 %storemerge.i7.i, ptr %3, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %3, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #9
   br i1 %.not.i5.i, label %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit, label %51, !llvm.loop !4
 
 _ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %.sroa.0.0.i.i.i19, i64 %.sroa.3.0.i.i.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.i.i.i19, i64 %.sroa.3.0.i.i.i) #9
   store i8 0, ptr %2, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %2, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %2, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %select.unfold
 
@@ -6074,7 +6074,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detai
 _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixEOS4_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 82, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %42 = load i32, ptr %40, align 4
   %43 = zext i32 %42 to i64
@@ -6090,7 +6090,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapB
   %masksel.i8 = select i1 %.not.i7, i8 0, i8 -128
   %storemerge.i9 = or disjoint i8 %46, %masksel.i8
   store i8 %storemerge.i9, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   br i1 %.not.i7, label %_ZN4llvm7DIEHash10addULEB128Em.exit10, label %44, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit10:            ; preds = %44
@@ -6103,7 +6103,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit15:            ; preds = %_ZN4llvm12DenseMapB
   store i32 %49, ptr %40, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 84, ptr %3, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %3, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @_ZN4llvm7DIEHash11computeHashERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %50
@@ -6203,7 +6203,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %select.unfold.i, %1
   %.sroa.3.0.i = phi i64 [ %.sroa.3.0.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ 0, %13 ], [ 0, %select.unfold.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 83, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %41 = load i16, ptr %40, align 4
@@ -6220,15 +6220,15 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %select.unfold.i, %1
   %masksel.i6.i = select i1 %.not.i5.i, i8 0, i8 -128
   %storemerge.i7.i = or disjoint i8 %45, %masksel.i6.i
   store i8 %storemerge.i7.i, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   br i1 %.not.i5.i, label %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit, label %43, !llvm.loop !4
 
 _ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %43
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %.sroa.05.0.i, i64 %.sroa.3.0.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.05.0.i, i64 %.sroa.3.0.i) #9
   store i8 0, ptr %3, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %3, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %51
 
@@ -6262,7 +6262,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 83, ptr %6, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %6, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %8 = load i16, ptr %7, align 4
@@ -6279,15 +6279,15 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:
   %masksel.i6 = select i1 %.not.i5, i8 0, i8 -128
   %storemerge.i7 = or disjoint i8 %12, %masksel.i6
   store i8 %storemerge.i7, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   br i1 %.not.i5, label %_ZN4llvm7DIEHash10addULEB128Em.exit8, label %10, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit8:             ; preds = %10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %2, i64 %3) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %2, i64 %3) #9
   store i8 0, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -6315,7 +6315,7 @@ define dso_local void @_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE(ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i64 %10, 1
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #9
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1465) %9) #9
   %22 = icmp eq i64 %20, %21
   br i1 %22, label %23, label %26
 
@@ -6402,7 +6402,7 @@ define dso_local void @_ZN4llvm7DIEHash13hashAttributeERKNS_8DIEValueENS_5dwarf3
 _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
   store i8 65, ptr %22, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %22, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %22, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   %33 = zext i16 %28 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
@@ -6417,7 +6417,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %3
   %masksel.i25 = select i1 %.not.i24, i8 0, i8 -128
   %storemerge.i26 = or disjoint i8 %36, %masksel.i25
   store i8 %storemerge.i26, ptr %21, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %21, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %21, i64 1) #9
   br i1 %.not.i24, label %_ZN4llvm7DIEHash10addULEB128Em.exit27, label %34, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit27:            ; preds = %34
@@ -6438,7 +6438,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit27:            ; preds = %34
 _ZN4llvm7DIEHash10addULEB128Em.exit32:            ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit27, %_ZN4llvm7DIEHash10addULEB128Em.exit27, %_ZN4llvm7DIEHash10addULEB128Em.exit27, %_ZN4llvm7DIEHash10addULEB128Em.exit27, %_ZN4llvm7DIEHash10addULEB128Em.exit27, %_ZN4llvm7DIEHash10addULEB128Em.exit27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
   store i8 13, ptr %20, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %20, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %20, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
@@ -6462,7 +6462,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit32:            ; preds = %_ZN4llvm7DIEHash10a
 50:                                               ; preds = %.lr.ph.i
   %51 = or i8 %45, -128
   store i8 %51, ptr %19, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %19, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %19, i64 1) #9
   %52 = trunc i64 %46 to i8
   %53 = and i8 %52, 127
   store i8 %53, ptr %19, align 1
@@ -6470,14 +6470,14 @@ _ZN4llvm7DIEHash10addULEB128Em.exit32:            ; preds = %_ZN4llvm7DIEHash10a
   br i1 %54, label %_ZN4llvm7DIEHash10addSLEB128El.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN4llvm7DIEHash10addSLEB128El.exit:              ; preds = %.lr.ph.i, %50, %_ZN4llvm7DIEHash10addULEB128Em.exit32
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %19, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %19, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
   br label %127
 
 _ZN4llvm7DIEHash10addULEB128Em.exit37:            ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit27, %_ZN4llvm7DIEHash10addULEB128Em.exit27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
   store i8 12, ptr %18, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %18, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %18, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load i64, ptr %55, align 8
@@ -6493,7 +6493,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit37:            ; preds = %_ZN4llvm7DIEHash10a
   %masksel.i40 = select i1 %.not.i39, i8 0, i8 -128
   %storemerge.i41 = or disjoint i8 %59, %masksel.i40
   store i8 %storemerge.i41, ptr %17, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %17, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %17, i64 1) #9
   br i1 %.not.i39, label %_ZN4llvm7DIEHash10addULEB128Em.exit42, label %57, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit42:            ; preds = %57
@@ -6506,7 +6506,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit42:            ; preds = %57
 _ZN4llvm7DIEHash10addULEB128Em.exit47:            ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   store i8 65, ptr %16, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %16, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %16, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   %62 = zext i16 %28 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
@@ -6521,14 +6521,14 @@ _ZN4llvm7DIEHash10addULEB128Em.exit47:            ; preds = %3
   %masksel.i50 = select i1 %.not.i49, i8 0, i8 -128
   %storemerge.i51 = or disjoint i8 %65, %masksel.i50
   store i8 %storemerge.i51, ptr %15, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %15, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %15, i64 1) #9
   br i1 %.not.i49, label %_ZN4llvm7DIEHash10addULEB128Em.exit52, label %63, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit52:            ; preds = %63
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 8, ptr %14, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %14, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %14, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %67, align 8
@@ -6553,16 +6553,16 @@ _ZNK4llvm9DIEString9getStringEv.exit:             ; preds = %72, %74
   %.sroa.3.0.in.i.i = phi ptr [ %71, %72 ], [ %.sroa.3.0..sroa_idx.i.i, %74 ]
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i) #9
   store i8 0, ptr %13, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %13, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %13, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   br label %127
 
 _ZN4llvm7DIEHash10addULEB128Em.exit62:            ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 65, ptr %12, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %12, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %12, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   %76 = zext i16 %28 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
@@ -6577,14 +6577,14 @@ _ZN4llvm7DIEHash10addULEB128Em.exit62:            ; preds = %3
   %masksel.i65 = select i1 %.not.i64, i8 0, i8 -128
   %storemerge.i66 = or disjoint i8 %79, %masksel.i65
   store i8 %storemerge.i66, ptr %11, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %11, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %11, i64 1) #9
   br i1 %.not.i64, label %_ZN4llvm7DIEHash10addULEB128Em.exit67, label %77, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit67:            ; preds = %77
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 8, ptr %10, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %10, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %10, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
@@ -6592,16 +6592,16 @@ _ZN4llvm7DIEHash10addULEB128Em.exit67:            ; preds = %77
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %82, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #9
+  call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #9
   store i8 0, ptr %9, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %9, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %9, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %127
 
 _ZN4llvm7DIEHash10addULEB128Em.exit77:            ; preds = %3, %3, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 65, ptr %8, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %8, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %8, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %83 = zext i16 %28 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -6616,14 +6616,14 @@ _ZN4llvm7DIEHash10addULEB128Em.exit77:            ; preds = %3, %3, %3
   %masksel.i80 = select i1 %.not.i79, i8 0, i8 -128
   %storemerge.i81 = or disjoint i8 %86, %masksel.i80
   store i8 %storemerge.i81, ptr %7, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %7, i64 1) #9
   br i1 %.not.i79, label %_ZN4llvm7DIEHash10addULEB128Em.exit82, label %84, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit82:            ; preds = %84
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 9, ptr %6, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %6, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %88 = load i32, ptr %1, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6653,7 +6653,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit82:            ; preds = %84
   %masksel.i90 = select i1 %.not.i89, i8 0, i8 -128
   %storemerge.i91 = or disjoint i8 %100, %masksel.i90
   store i8 %storemerge.i91, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #9
   br i1 %.not.i89, label %_ZN4llvm7DIEHash10addULEB128Em.exit92, label %98, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit92:            ; preds = %98
@@ -6698,7 +6698,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %_ZN4llvm7DIEHash10a
   %masksel.i97 = select i1 %.not.i96, i8 0, i8 -128
   %storemerge.i98 = or disjoint i8 %118, %masksel.i97
   store i8 %storemerge.i98, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #9
   br i1 %.not.i96, label %_ZN4llvm7DIEHash10addULEB128Em.exit99, label %116, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit99:            ; preds = %116
@@ -7662,7 +7662,7 @@ define linkonce_odr hidden void @_ZN4llvm19HashingByteStreamer8emitInt8EhRKNS_5T
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %1, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %6, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr nonnull %4, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -7692,7 +7692,7 @@ define linkonce_odr hidden void @_ZN4llvm19HashingByteStreamer11emitSLEB128EmRKN
 15:                                               ; preds = %.lr.ph.i
   %16 = or i8 %10, -128
   store i8 %16, ptr %4, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %6, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr nonnull %4, i64 1) #9
   %17 = trunc i64 %11 to i8
   %18 = and i8 %17, 127
   store i8 %18, ptr %4, align 1
@@ -7700,7 +7700,7 @@ define linkonce_odr hidden void @_ZN4llvm19HashingByteStreamer11emitSLEB128EmRKN
   br i1 %19, label %_ZN4llvm7DIEHash10addSLEB128El.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN4llvm7DIEHash10addSLEB128El.exit:              ; preds = %.lr.ph.i, %15, %3
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %6, ptr nonnull %4, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr nonnull %4, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -7722,7 +7722,7 @@ define linkonce_odr hidden void @_ZN4llvm19HashingByteStreamer11emitULEB128EmRKN
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
   %storemerge.i = or disjoint i8 %10, %masksel.i
   store i8 %storemerge.i, ptr %5, align 1
-  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %7, ptr nonnull %5, i64 1) #9
+  call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr nonnull %5, i64 1) #9
   br i1 %.not.i, label %_ZN4llvm7DIEHash10addULEB128Em.exit, label %8, !llvm.loop !4
 
 _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %8

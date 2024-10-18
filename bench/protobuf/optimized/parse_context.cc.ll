@@ -2211,7 +2211,7 @@ if.end8.i.i:                                      ; preds = %if.end.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end8.i.i, %if.end24.i.i.i
   %overrun.addr.0.i.i.i = phi i32 [ %conv32.i.i.i, %if.end24.i.i.i ], [ %conv.i.i, %if.end8.i.i ]
-  %call9.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %overrun.addr.0.i.i.i, i32 noundef %0)
+  %call9.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %overrun.addr.0.i.i.i, i32 noundef %0)
   %cmp10.i.i.i = icmp eq ptr %call9.i.i.i, null
   br i1 %cmp10.i.i.i, label %if.then11.i.i.i, label %if.end24.i.i.i
 

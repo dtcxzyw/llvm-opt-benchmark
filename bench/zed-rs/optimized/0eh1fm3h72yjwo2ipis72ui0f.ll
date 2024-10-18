@@ -128,7 +128,7 @@ define hidden { i64, i64 } @_ZN4core3ops8function6FnOnce9call_once17h3ebd6ea32af
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17h7fa783421569fdc5E.llvm.9439706717187049124(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 40, i64 noundef 8) #27, !noalias !10
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %1, i64 noundef 40, i64 noundef 8) #27, !noalias !10
   ret void
 }
 
@@ -282,7 +282,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   %18 = add i64 %17, -1
   store i64 %18, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 40, i64 noundef 8) #27, !noalias !13
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #27, !noalias !13
   br label %12
 }
 

@@ -1101,7 +1101,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
 106:                                              ; preds = %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %12, ptr noundef nonnull align 1 dereferenceable(14) @__const.arcfour_mic_key.L40, i64 10, i1 false)
   store i32 0, ptr %77, align 1
-  %107 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef 14, ptr noundef nonnull %86, i64 noundef %102) #6
+  %107 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef 14, ptr noundef nonnull %86, i64 noundef range(i64 -2147483648, 2147483648) %102) #6
   %.not8.i.i.i = icmp eq i32 %107, 0
   br i1 %.not8.i.i.i, label %108, label %arcfour_mic_key.exit.i.i
 
@@ -1110,7 +1110,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
   br label %111
 
 109:                                              ; preds = %101
-  %110 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 4, ptr noundef nonnull %86, i64 noundef %102) #6
+  %110 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 4, ptr noundef nonnull %86, i64 noundef range(i64 -2147483648, 2147483648) %102) #6
   %.not.i.i.i = icmp eq i32 %110, 0
   br i1 %.not.i.i.i, label %111, label %arcfour_mic_key.exit.i.i
 
@@ -1253,7 +1253,7 @@ arcfour_mic_key.exit.i:                           ; preds = %135, %133, %130
   %167 = sub i32 %91, %159
   %168 = load ptr, ptr %61, align 8
   %169 = call ptr @tvb_get_ptr(ptr noundef %168, i32 noundef 0, i32 noundef 8) #6
-  call fastcc void @arcfour_mic_cksum(ptr noundef %86, i32 noundef %88, ptr noundef %17, ptr noundef %169, ptr noundef %16, ptr noundef %76, i64 noundef %157)
+  call fastcc void @arcfour_mic_cksum(ptr noundef nonnull %86, i32 noundef %88, ptr noundef %17, ptr noundef %169, ptr noundef %16, ptr noundef %76, i64 noundef %157)
   %170 = load ptr, ptr %61, align 8
   %171 = call i32 @tvb_memeql(ptr noundef %170, i32 noundef 16, ptr noundef nonnull %17, i64 noundef 8) #6
   %.not55.i.i = icmp eq i32 %171, 0
@@ -1454,7 +1454,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %4, i64 32
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %3, ptr noundef %2, i32 noundef %87, i32 noundef -1, ptr noundef %94, ptr noundef nonnull %84, ptr noundef %96, ptr noundef %80) #6
+  %97 = tail call ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %3, ptr noundef %2, i32 noundef range(i32 22, 25) %87, i32 noundef -1, ptr noundef %94, ptr noundef nonnull %84, ptr noundef %96, ptr noundef %80) #6
   %.not47.i = icmp eq ptr %97, null
   br i1 %.not47.i, label %decrypt_gssapi_krb_cfx_wrap.exit, label %98
 
@@ -1526,7 +1526,7 @@ rrc_rotate.exit.i:                                ; preds = %137, %133, %130, %1
   %138 = load ptr, ptr %83, align 8
   %139 = call ptr @tvb_new_child_real_data(ptr noundef %138, ptr noundef %108, i32 noundef %104, i32 noundef %104) #6
   call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef %139, ptr noundef nonnull @.str.137) #6
-  %140 = call ptr @decrypt_krb5_data(ptr noundef %3, ptr noundef nonnull %2, i32 noundef %87, ptr noundef %139, i32 noundef -1, ptr noundef nonnull %7) #6
+  %140 = call ptr @decrypt_krb5_data(ptr noundef %3, ptr noundef nonnull %2, i32 noundef range(i32 22, 25) %87, ptr noundef %139, i32 noundef -1, ptr noundef nonnull %7) #6
   %.not46.i = icmp eq ptr %140, null
   br i1 %.not46.i, label %decrypt_gssapi_krb_cfx_wrap.exit, label %141
 

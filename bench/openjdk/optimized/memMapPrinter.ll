@@ -535,7 +535,7 @@ define hidden void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr n
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker(ptr noundef nonnull %2) #13
+  %8 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   br label %10
 
 9:                                                ; preds = %1

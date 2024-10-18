@@ -2670,7 +2670,7 @@ entry:
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %generator_, ptr noundef nonnull align 8 dereferenceable(13) %agg.tmp, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %generator_, ptr noundef nonnull align 8 dereferenceable(97) %agg.tmp, i64 13, i1 false)
   %sequence_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %sequence_3.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %0 = load ptr, ptr %sequence_3.i.i, align 8, !tbaa !40
@@ -2683,7 +2683,7 @@ invoke.cont3:                                     ; preds = %entry
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 32
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !tbaa !41
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_3.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_3.i.i, i8 0, i64 24, i1 false)
   %weight.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %weight3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 40
   %3 = load double, ptr %weight3.i.i.i, align 8, !tbaa !64
@@ -2755,7 +2755,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i.
 lpad4.i:                                          ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8QuantLib8SobolRsgD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %generator_) #24
+  call void @_ZN8QuantLib8SobolRsgD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %generator_) #24
   call void @_ZN8QuantLib8SobolRsgD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %agg.tmp) #24
   br label %ehcleanup
 
@@ -3145,7 +3145,7 @@ entry:
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %generator_, ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %generator_, ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp, i64 20, i1 false)
   %sobolRsg_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %sobolRsg_3.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %0 = load ptr, ptr %sobolRsg_3.i.i, align 8, !tbaa !122
@@ -3180,7 +3180,7 @@ invoke.cont3:                                     ; preds = %entry
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 80
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !tbaa !41
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_5.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_5.i.i, i8 0, i64 24, i1 false)
   %weight.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   %weight3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 88
   %8 = load double, ptr %weight3.i.i.i, align 8, !tbaa !64
@@ -3239,7 +3239,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i.
 lpad4.i:                                          ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8QuantLib18Burley2020SobolRsgD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %generator_) #24
+  call void @_ZN8QuantLib18Burley2020SobolRsgD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %generator_) #24
   call void @_ZN8QuantLib18Burley2020SobolRsgD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp) #24
   br label %ehcleanup
 
@@ -3835,7 +3835,7 @@ entry:
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib32Burley2020SobolBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
   %generator_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   tail call void @_ZN8QuantLib20InverseCumulativeRsgINS_18Burley2020SobolRsgENS_23InverseCumulativeNormalEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %generator_.i) #24
-  tail call void @_ZN8QuantLib26SobolBrownianGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) #24
+  tail call void @_ZN8QuantLib26SobolBrownianGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 472) #27
   ret void
 }

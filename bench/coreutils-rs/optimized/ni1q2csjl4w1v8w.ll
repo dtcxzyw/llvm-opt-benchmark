@@ -37,7 +37,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %4 = phi i64 [ %18, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5af6b97c20f4ce59E.exit.i" ], [ %.sroa.52.0.copyload, %.lr.ph.split.i.preheader ]
   %5 = phi i64 [ %8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5af6b97c20f4ce59E.exit.i" ], [ %.sroa.5.0.copyload, %.lr.ph.split.i.preheader ]
   %6 = phi ptr [ %7, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5af6b97c20f4ce59E.exit.i" ], [ %.sroa.0.0.copyload, %.lr.ph.split.i.preheader ]
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %.sroa.7.0.copyload)
+  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %5, i64 %.sroa.7.0.copyload)
   %7 = getelementptr inbounds i32, ptr %6, i64 %.0.sroa.speculated.i.i.i
   %8 = sub nuw i64 %5, %.0.sroa.speculated.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -117,7 +117,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h97b4458eb298db
   %10 = phi i64 [ %24, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5af6b97c20f4ce59E.exit" ], [ %.promoted16, %.lr.ph.split.preheader ]
   %11 = phi i64 [ %14, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5af6b97c20f4ce59E.exit" ], [ %.promoted, %.lr.ph.split.preheader ]
   %12 = phi ptr [ %13, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5af6b97c20f4ce59E.exit" ], [ %.promoted12, %.lr.ph.split.preheader ]
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %6)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %11, i64 %6)
   %13 = getelementptr inbounds i32, ptr %12, i64 %.0.sroa.speculated.i.i
   %14 = sub nuw i64 %11, %.0.sroa.speculated.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)

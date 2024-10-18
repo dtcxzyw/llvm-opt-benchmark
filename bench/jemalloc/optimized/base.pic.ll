@@ -200,7 +200,7 @@ entry:
 if.end.i44:                                       ; preds = %entry
   %shl.i45 = shl nuw i64 %add11, 1
   %sub.i = add i64 %shl.i45, -1
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2305843009213693952) %sub.i, i1 true)
   %1 = trunc nuw nsw i64 %0 to i32
   %conv1.i.i.i.i = xor i32 %1, 63
   %conv2.i = zext nneg i32 %conv1.i.i.i.i to i64
@@ -237,7 +237,7 @@ sz_psz2u.exit:                                    ; preds = %entry, %if.end.i44
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sz_psz2u.exit
-  %call1.i = call ptr @extent_alloc_mmap(ptr noundef null, i64 noundef %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i) #10
+  %call1.i = call ptr @extent_alloc_mmap(ptr noundef null, i64 noundef range(i64 0, -2097151) %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i) #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %base_map.exit.thread, label %base_map.exit.thread65
 
@@ -247,7 +247,7 @@ base_map.exit.thread:                             ; preds = %if.then.i
   br label %return
 
 base_map.exit.thread65:                           ; preds = %if.then.i
-  call void @pages_set_thp_state(ptr noundef nonnull %call1.i, i64 noundef %cond24) #10
+  call void @pages_set_thp_state(ptr noundef nonnull %call1.i, i64 noundef range(i64 0, -2097151) %cond24) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %zero.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %commit.i)
   br label %if.end
@@ -260,7 +260,7 @@ if.else.i:                                        ; preds = %sz_psz2u.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
   %ehooks.val17.i.i = load i32, ptr %ehooks, align 8
-  %call2.i.i = call ptr @ehooks_default_alloc_impl(ptr noundef %tsdn, ptr noundef null, i64 noundef %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i, i32 noundef %ehooks.val17.i.i) #10
+  %call2.i.i = call ptr @ehooks_default_alloc_impl(ptr noundef %tsdn, ptr noundef null, i64 noundef range(i64 0, -2097151) %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i, i32 noundef %ehooks.val17.i.i) #10
   br label %base_map.exit
 
 if.else.i.i:                                      ; preds = %if.else.i
@@ -296,7 +296,7 @@ if.then.i.i.i.i:                                  ; preds = %cond.end.i.i.i
 ehooks_pre_reentrancy.exit.i.i:                   ; preds = %if.then.i.i.i.i, %cond.end.i.i.i
   %14 = load ptr, ptr %9, align 8
   %ehooks.val.i.i = load i32, ptr %ehooks, align 8
-  %call4.i.i = call ptr %14(ptr noundef nonnull %9, ptr noundef null, i64 noundef %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i, i32 noundef %ehooks.val.i.i) #10
+  %call4.i.i = call ptr %14(ptr noundef nonnull %9, ptr noundef null, i64 noundef range(i64 0, -2097151) %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i, i32 noundef %ehooks.val.i.i) #10
   br i1 %cmp.i.i.i.i, label %cond.true.i23.i.i, label %cond.end.i19.i.i
 
 cond.true.i23.i.i:                                ; preds = %ehooks_pre_reentrancy.exit.i.i
@@ -907,7 +907,7 @@ if.end.i.i:                                       ; preds = %if.then
 if.end12.i.i:                                     ; preds = %if.end.i.i
   %shl.i.i = shl nuw i64 %add.i, 1
   %sub13.i.i = add i64 %shl.i.i, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true)
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2305843009213693952) %sub13.i.i, i1 true)
   %sub28.i.i = sub nuw nsw i64 60, %2
   %shl31.i.i = shl nsw i64 -1, %sub28.i.i
   %and.i.i = and i64 %shl31.i.i, %edata.val
@@ -1100,7 +1100,7 @@ if.end.i:                                         ; preds = %malloc_mutex_lock.e
 if.end12.i:                                       ; preds = %if.end.i
   %shl.i = shl nuw i64 %sub5, 1
   %sub13.i = add i64 %shl.i, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2305843009213693952) %sub13.i, i1 true)
   %5 = trunc nuw nsw i64 %4 to i32
   %sub28.i = sub nuw nsw i64 60, %4
   %shl31.i = shl nsw i64 -1, %sub28.i
@@ -1143,7 +1143,7 @@ if.then12:                                        ; preds = %for.cond, %if.end.i
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #10
   %pind_last.i = getelementptr inbounds i8, ptr %base, i64 148
   %extent_sn_next.i = getelementptr inbounds i8, ptr %base, i64 152
-  %call3.i = tail call fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef nonnull %base, ptr noundef nonnull %ehooks_base.i.i, ptr noundef nonnull %pind_last.i, ptr noundef nonnull %extent_sn_next.i, i64 noundef %and3, i64 noundef %and)
+  %call3.i = tail call fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef nonnull %base, ptr noundef nonnull %ehooks_base.i.i, ptr noundef nonnull %pind_last.i, ptr noundef nonnull %extent_sn_next.i, i64 noundef %and3, i64 noundef range(i64 0, -15) %and)
   %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #10
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i31
@@ -1240,7 +1240,7 @@ if.end18:                                         ; preds = %for.body, %do.end20
   %and.i14.i.i.i = and i64 %edata.val18.i.i, -268369920
   %or.i17.i.i.i = or disjoint i64 %and.i14.i.i.i, 243314687
   store i64 %or.i17.i.i.i, ptr %edata.2.ph, align 8
-  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %add.ptr.i.i, i64 noundef %and3)
+  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %add.ptr.i.i, i64 noundef %and3)
   %cmp20.not = icmp eq ptr %esn, null
   br i1 %cmp20.not, label %if.end24, label %if.then22
 
@@ -1419,7 +1419,7 @@ if.end.i:                                         ; preds = %if.end
 if.end14.i:                                       ; preds = %if.end.i
   %shl15.i = shl nuw i64 %add, 1
   %sub.i = add i64 %shl15.i, -1
-  %11 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %11 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2305843009213693952) %sub.i, i1 true)
   %sub23.i = sub nuw nsw i64 60, %11
   %notmask = shl nsw i64 -1, %sub23.i
   %12 = xor i64 %notmask, -1
@@ -1522,7 +1522,7 @@ if.end.i.i:                                       ; preds = %malloc_mutex_lock.e
 if.end12.i.i:                                     ; preds = %if.end.i.i
   %shl.i.i = shl nuw i64 %add.i, 1
   %sub13.i.i = add i64 %shl.i.i, -1
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true)
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2305843009213693952) %sub13.i.i, i1 true)
   %sub28.i.i = sub nuw nsw i64 60, %8
   %shl31.i.i = shl nsw i64 -1, %sub28.i.i
   %and.i.i = and i64 %shl31.i.i, %edata.val.i

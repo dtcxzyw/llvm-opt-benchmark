@@ -560,7 +560,7 @@ lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.
   %305 = getelementptr inbounds i8, ptr %.021, i64 2
   %306 = icmp slt i32 %265, 0
   %spec.select.i.i = select i1 %306, i8 45, i8 43
-  %spec.select23.i.i = call i32 @llvm.abs.i32(i32 %265, i1 true)
+  %spec.select23.i.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
   store i8 %spec.select.i.i, ptr %305, align 1
   %307 = getelementptr inbounds i8, ptr %5, i64 3
   br label %308
@@ -623,7 +623,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %314, %302
 333:                                              ; preds = %326
   %334 = icmp slt i32 %265, 0
   %spec.select.i120.i = select i1 %334, i8 45, i8 43
-  %spec.select23.i121.i = call i32 @llvm.abs.i32(i32 %265, i1 true)
+  %spec.select23.i121.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
   store i8 %spec.select.i120.i, ptr %331, align 1
   %335 = getelementptr inbounds i8, ptr %4, i64 3
   br label %336

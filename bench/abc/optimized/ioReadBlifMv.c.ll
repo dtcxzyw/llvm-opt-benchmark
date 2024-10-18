@@ -7150,7 +7150,7 @@ Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loo
   %146 = tail call ptr @Abc_ObjName(ptr noundef %144) #20
   %147 = load ptr, ptr %51, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 8
-  %149 = tail call ptr @Io_ReadCreateNode(ptr noundef %145, ptr noundef %146, ptr noundef nonnull %148, i32 noundef %.074) #20
+  %149 = tail call ptr @Io_ReadCreateNode(ptr noundef %145, ptr noundef %146, ptr noundef nonnull %148, i32 noundef range(i32 -2147483648, 2147483646) %.074) #20
   br label %174
 
 150:                                              ; preds = %117
@@ -7201,7 +7201,7 @@ Io_MvGetLine.exit53.i:                            ; preds = %166, %.critedge.loo
   %170 = load ptr, ptr %93, align 8
   %171 = load ptr, ptr %51, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
-  %173 = tail call ptr @Io_ReadCreateNode(ptr noundef %170, ptr noundef %123, ptr noundef nonnull %172, i32 noundef %.074) #20
+  %173 = tail call ptr @Io_ReadCreateNode(ptr noundef %170, ptr noundef %123, ptr noundef nonnull %172, i32 noundef range(i32 -2147483648, 2147483646) %.074) #20
   br label %174
 
 174:                                              ; preds = %169, %143

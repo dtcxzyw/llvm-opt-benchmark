@@ -573,7 +573,7 @@ _ZN9btVector36setMaxERKS_.exit131:                ; preds = %_Z8btSetMaxIfEvRT_R
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN9btVector36setMaxERKS_.exit131
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %connectivityProcessor) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectivityProcessor) #15
   %inc = add nuw nsw i32 %triangleIndex.0137, 1
   %58 = load i32, ptr %numfaces, align 4
   %cmp7 = icmp slt i32 %inc, %58
@@ -582,7 +582,7 @@ invoke.cont:                                      ; preds = %_ZN9btVector36setMa
 lpad:                                             ; preds = %_ZN9btVector36setMaxERKS_.exit131
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %connectivityProcessor) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectivityProcessor) #15
   resume { ptr, i32 } %59
 
 for.inc81:                                        ; preds = %invoke.cont, %for.body
@@ -650,7 +650,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %processHeightfield) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %processHeightfield) #15
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont
@@ -659,7 +659,7 @@ return:                                           ; preds = %entry, %invoke.cont
 lpad:                                             ; preds = %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %processHeightfield) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %processHeightfield) #15
   resume { ptr, i32 } %2
 }
 
@@ -2580,7 +2580,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btConnectivityProcessorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -2826,7 +2826,7 @@ if.end99:                                         ; preds = %if.then90, %if.end8
   %sub14.i125 = fsub float %62, %63
   %arrayidx115 = getelementptr inbounds i8, ptr %57, i64 16
   %arrayidx117 = getelementptr inbounds i8, ptr %57, i64 32
-  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tA)
+  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tA)
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %tA, align 8
   %m_vertices1.ptr.i = getelementptr inbounds i8, ptr %tA, i64 80
   %m_shapeType.i = getelementptr inbounds i8, ptr %tA, i64 8
@@ -2845,7 +2845,7 @@ if.end99:                                         ; preds = %if.then90, %if.end8
   %arrayidx127 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 %idxprom126
   %idxprom128 = sext i32 %sub121 to i64
   %arrayidx129 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 %idxprom128
-  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tB)
+  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tB)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end99
@@ -2941,7 +2941,7 @@ lpad:                                             ; preds = %if.end99
 lpad130:                                          ; preds = %invoke.cont282, %invoke.cont249, %invoke.cont219, %invoke.cont133, %invoke.cont
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tB) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tB) #15
   br label %ehcleanup
 
 invoke.cont174:                                   ; preds = %invoke.cont151, %if.then157
@@ -3279,13 +3279,13 @@ sw.epilog.sink.split:                             ; preds = %if.end296, %if.end2
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end296, %if.end263, %if.end230, %if.end207
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tB) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tA) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tB) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tA) #15
   br label %sw.epilog303
 
 ehcleanup:                                        ; preds = %lpad130, %lpad
   %.pn = phi { ptr, i32 } [ %91, %lpad130 ], [ %90, %lpad ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tA) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tA) #15
   resume { ptr, i32 } %.pn
 
 sw.epilog303:                                     ; preds = %for.end, %if.then53, %entry, %for.end68, %if.end15, %if.end, %sw.epilog
@@ -3835,7 +3835,7 @@ declare void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btTriangleShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #15
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN15btTriangleShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -4407,7 +4407,7 @@ declare void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32b3ProcessAllTrianglesHeightfieldD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -4683,13 +4683,13 @@ invoke.cont19:                                    ; preds = %if.then.i11.i93, %_
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont19
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %connectivityProcessor) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectivityProcessor) #15
   ret void
 
 lpad:                                             ; preds = %invoke.cont19
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %connectivityProcessor) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectivityProcessor) #15
   resume { ptr, i32 } %31
 }
 

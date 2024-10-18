@@ -480,7 +480,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i)
   store ptr %5, ptr %e.i, align 8
   store i32 %delta, ptr %m_delta.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE9find_coreERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(12) %e.i)
+  %call.i.i = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE9find_coreERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(12) %e.i)
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit
 
@@ -538,7 +538,7 @@ if.then20:                                        ; preds = %sw.bb15
   store ptr %14, ptr %e.i17, align 8
   %m_delta.i.i18 = getelementptr inbounds i8, ptr %e.i17, i64 8
   store i32 %add25, ptr %m_delta.i.i18, align 8
-  %call.i.i19 = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE9find_coreERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(12) %e.i17)
+  %call.i.i19 = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE9find_coreERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(12) %e.i17)
   %cmp.i.not.i20 = icmp ne ptr %call.i.i19, null
   br i1 %cmp.i.not.i20, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit37, label %if.then.i21
 
@@ -686,7 +686,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -161,7 +161,7 @@ entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %style, ptr %m_style, align 8
   %m_contrast.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %ref.tmp2, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %m_contrast.i, align 8
   %m_green.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
   store double 1.000000e+00, ptr %m_green.i1.i, align 8
@@ -266,7 +266,7 @@ entry:
   store i32 %0, ptr %m_style, align 8
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
   %m_contrast.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %ref.tmp4, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %m_contrast.i, align 8
   %m_green.i1.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 40
   store double 1.000000e+00, ptr %m_green.i1.i, align 8
@@ -344,7 +344,7 @@ invoke.cont7:                                     ; preds = %call5.i.i.i3.i.i.i.
   br i1 %cmp.i9, label %invoke.cont9, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont7
-  %call.i11 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(168) %rhs)
+  %call.i11 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(192) %rhs)
           to label %call.i.noexc10 unwind label %lpad8
 
 call.i.noexc10:                                   ; preds = %if.end.i
@@ -780,7 +780,7 @@ if.end:                                           ; preds = %entry
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load i32, ptr %m_style, align 8
   %m_contrast.i = getelementptr inbounds i8, ptr %defaultValues, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defaultValues, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %defaultValues, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %m_contrast.i, align 8
   %m_green.i1.i = getelementptr inbounds i8, ptr %defaultValues, i64 40
   store double 1.000000e+00, ptr %m_green.i1.i, align 8
@@ -1239,7 +1239,7 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData10getCacheIDB
 entry:
   %cacheIDStream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %m_mutex = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #19
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #19
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1342,12 +1342,12 @@ if.end35:                                         ; preds = %invoke.cont31, %inv
 
 invoke.cont36:                                    ; preds = %if.end35
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %cacheIDStream) #19
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #19
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #19
   ret void
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad2 ], [ %0, %lpad ]
-  %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #19
+  %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #19
   resume { ptr, i32 } %.pn
 }
 

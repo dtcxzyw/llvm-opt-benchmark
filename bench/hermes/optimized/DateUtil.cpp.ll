@@ -1007,7 +1007,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %call = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
   %conv = fptosi double %call to i32
   %call1 = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
@@ -1031,7 +1031,7 @@ entry:
   %ref.tmp.ref.tmp6.sroa.sel22 = getelementptr inbounds i8, ptr %ref.tmp.ref.tmp6.sroa.sel22.v, i64 24
   store i32 %conv, ptr %ref.tmp.ref.tmp6.sroa.sel22, align 8
   %call7 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.ref.tmp6) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1050,7 +1050,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %div.i = fdiv double %t, 3.600000e+06
   %0 = call double @llvm.floor.f64(double %div.i)
   %call.i.i = call double @fmod(double noundef %0, double noundef 2.400000e+01) #17
@@ -1134,7 +1134,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %ref.tmp14.sink = phi ptr [ %ref.tmp14, %if.else ], [ %ref.tmp, %if.then ]
   %call15 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14.sink) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1154,7 +1154,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %os.i.i, i64 40
   store ptr %buf, ptr %OS.i.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %call.i.i = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
   %conv.i.i = fptosi double %call.i.i to i32
   %call1.i.i = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
@@ -1178,7 +1178,7 @@ entry:
   %ref.tmp.ref.tmp6.i.sroa.sel14.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %ref.tmp.ref.tmp6.i.sroa.sel14.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 24
   store i32 %conv.i.i, ptr %ref.tmp.ref.tmp6.i.sroa.sel14.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %call7.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.ref.tmp6.i.i) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i.i) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i.i) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i.i)
@@ -1243,7 +1243,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %call = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
   %conv = fptosi double %call to i32
   %call1 = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
@@ -1276,7 +1276,7 @@ entry:
   %6 = load ptr, ptr %arrayidx, align 8, !noalias !14
   store ptr %6, ptr %5, align 8, !alias.scope !14
   %call7 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1292,7 +1292,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %div.i = fdiv double %t, 3.600000e+06
   %0 = call double @llvm.floor.f64(double %div.i)
   %call.i.i = call double @fmod(double noundef %0, double noundef 2.400000e+01) #17
@@ -1324,7 +1324,7 @@ entry:
   %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %conv, ptr %4, align 8, !alias.scope !17
   %call5 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1340,7 +1340,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %cmp = fcmp oge double %tza, 0.000000e+00
   %cond = select i1 %cmp, i8 43, i8 45
   %0 = call noundef double @llvm.fabs.f64(double %tza)
@@ -1368,7 +1368,7 @@ entry:
   %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i8 %cond, ptr %4, align 8, !alias.scope !20
   %call5 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1389,7 +1389,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %os.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   %BufferMode.i.i.i.i = getelementptr inbounds i8, ptr %os.i, i64 32
@@ -1399,7 +1399,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %os.i, i64 40
   store ptr %buf, ptr %OS.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %call.i = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %tv)
   %conv.i = fptosi double %call.i to i32
   %call1.i = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %tv)
@@ -1432,7 +1432,7 @@ entry:
   %5 = load ptr, ptr %arrayidx.i, align 8, !noalias !23
   store ptr %5, ptr %4, align 8, !alias.scope !23
   %call7.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %os, i64 16
@@ -1463,7 +1463,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i8, align 8
   %OS.i.i12 = getelementptr inbounds i8, ptr %os.i8, i64 40
   store ptr %buf, ptr %OS.i.i12, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i8, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i8, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %div.i.i = fdiv double %tv, 3.600000e+06
   %9 = call double @llvm.floor.f64(double %div.i.i)
   %call.i.i.i13 = call double @fmod(double noundef %9, double noundef 2.400000e+01) #17
@@ -1495,7 +1495,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %13 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 24
   store i32 %conv.i17, ptr %13, align 8, !alias.scope !26
   %call5.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i8) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i8) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i9)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %os.i20)
@@ -1507,7 +1507,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i20, align 8
   %OS.i.i24 = getelementptr inbounds i8, ptr %os.i20, i64 40
   store ptr %buf, ptr %OS.i.i24, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i20, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i20, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %cmp.i = fcmp oge double %tza, 0.000000e+00
   %cond.i = select i1 %cmp.i, i8 43, i8 45
   %14 = call noundef double @llvm.fabs.f64(double %tza)
@@ -1535,10 +1535,10 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %18 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 24
   store i8 %cond.i, ptr %18, align 8, !alias.scope !29
   %call5.i39 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i20) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i20) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i21)
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1556,7 +1556,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %buf, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %call = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %tv)
   %conv = fptosi double %call to i32
   %call1 = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %tv)
@@ -1598,7 +1598,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %os.i, i64 40
   store ptr %buf, ptr %OS.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %div.i.i6 = fdiv double %tv, 3.600000e+06
   %6 = call double @llvm.floor.f64(double %div.i.i6)
   %call.i.i.i = call double @fmod(double noundef %6, double noundef 2.400000e+01) #17
@@ -1630,10 +1630,10 @@ entry:
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 %conv.i7, ptr %10, align 8, !alias.scope !35
   %call5.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #17
   ret void
 }
 
@@ -1653,7 +1653,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %os.i, i64 40
   store ptr %buf, ptr %OS.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %div.i.i = fdiv double %tv, 3.600000e+06
   %0 = call double @llvm.floor.f64(double %div.i.i)
   %call.i.i.i = call double @fmod(double noundef %0, double noundef 2.400000e+01) #17
@@ -1685,7 +1685,7 @@ entry:
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 %conv.i, ptr %4, align 8, !alias.scope !38
   %call5.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %os.i4)
@@ -1697,7 +1697,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os.i4, align 8
   %OS.i.i8 = getelementptr inbounds i8, ptr %os.i4, i64 40
   store ptr %buf, ptr %OS.i.i8, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os.i4, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os.i4, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %cmp.i = fcmp oge double %tza, 0.000000e+00
   %cond.i = select i1 %cmp.i, i8 43, i8 45
   %5 = call noundef double @llvm.fabs.f64(double %tza)
@@ -1725,7 +1725,7 @@ entry:
   %9 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 24
   store i8 %cond.i, ptr %9, align 8, !alias.scope !41
   %call5.i23 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os.i4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5) #17
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os.i4) #17
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os.i4) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %os.i4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5)
   ret void
@@ -4913,7 +4913,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit12: ; preds = %_ZNK6hermes2vm
   br i1 %cmp.not.i.i, label %_ZN4llvh11SmallStringILj16EEpLEc.exit, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit12
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %str, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #17
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh11SmallStringILj16EEpLEc.exit
 

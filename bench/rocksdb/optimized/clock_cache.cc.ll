@@ -771,7 +771,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry,
           to label %call.i.noexc unwind label %terminate.lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -781,7 +781,7 @@ call.i.noexc:                                     ; preds = %_ZNSt8__detail14__t
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %terminate.lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -978,7 +978,7 @@ if.then.i:                                        ; preds = %if.then16
 _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit: ; preds = %if.then16, %if.then.i
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
   br label %return
 
 if.else17:                                        ; preds = %if.then13
@@ -1005,7 +1005,7 @@ if.then30:                                        ; preds = %if.then28
 if.end31:                                         ; preds = %if.then30, %if.then28
   %state_.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i26, align 8, !alias.scope !10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %return
 
 if.end32:                                         ; preds = %if.then23.critedge
@@ -1032,7 +1032,7 @@ if.then.i29:                                      ; preds = %if.then36
 _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30: ; preds = %if.then36, %if.then.i29
   %state_.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i31, align 8, !alias.scope !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
   br label %return
 
 if.end41:                                         ; preds = %if.end32, %if.else17
@@ -1221,7 +1221,7 @@ do.body.i.i:                                      ; preds = %if.end8.i.i, %if.en
 
 if.then.i.i.i:                                    ; preds = %do.body.i.i
   %hashed_key.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %if.then3.i.i.i, label %if.end.sink.split.i.i
 
@@ -1286,7 +1286,7 @@ do.body.i:                                        ; preds = %if.end8.i, %entry
 
 if.then.i.i:                                      ; preds = %do.body.i
   %hashed_key.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then3.i.i, label %if.end.sink.split.i
 
@@ -1585,7 +1585,7 @@ do.body.i:                                        ; preds = %if.end8.i, %entry
 
 if.then.i.i:                                      ; preds = %do.body.i
   %hashed_key.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then3.i.i, label %if.end22.sink.split.i.i
 
@@ -1868,7 +1868,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %invoke.cont7, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -1887,7 +1887,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1973,7 +1973,7 @@ if.then.i.i.i:                                    ; preds = %.noexc
 
 _ZZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENKUlRKNS2_10HandleImplEE_clESK_.exit.i: ; preds = %.noexc
   %27 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i)
           to label %.noexc10 unwind label %lpad.loopexit
 
 .noexc10:                                         ; preds = %_ZZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENKUlRKNS2_10HandleImplEE_clESK_.exit.i
@@ -2000,7 +2000,7 @@ invoke.cont9:                                     ; preds = %invoke.cont9.loopex
   br i1 %tobool.not.i.i.i, label %_ZZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENUlRKNS2_10HandleImplEE_D2Ev.exit, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %invoke.cont9
-  %call.i.i.i = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, i32 noundef 3)
           to label %_ZZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENUlRKNS2_10HandleImplEE_D2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i12
@@ -2030,7 +2030,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i14, label %common.resume, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %lpad
-  %call.i.i.i16 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i.i16 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i17
 
 terminate.lpad.i.i.i17:                           ; preds = %if.then.i.i.i15
@@ -2262,7 +2262,7 @@ do.body.i.i.i:                                    ; preds = %if.end8.i.i.i, %if.
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i
   %hashed_key.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.sink.split.i.i.i
 
@@ -2618,7 +2618,7 @@ if.then.i:                                        ; preds = %if.then16
 _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit: ; preds = %if.then16, %if.then.i
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !26
   br label %return
 
 if.else17:                                        ; preds = %if.then13
@@ -2645,7 +2645,7 @@ if.then30:                                        ; preds = %if.then28
 if.end31:                                         ; preds = %if.then30, %if.then28
   %state_.i.i25 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i25, align 8, !alias.scope !29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
   br label %return
 
 if.end32:                                         ; preds = %if.then23.critedge
@@ -2672,7 +2672,7 @@ if.then.i28:                                      ; preds = %if.then36
 _ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29: ; preds = %if.then36, %if.then.i28
   %state_.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i30, align 8, !alias.scope !32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !32
   br label %return
 
 if.end41:                                         ; preds = %if.end32, %if.else17
@@ -2884,7 +2884,7 @@ for.body:                                         ; preds = %entry, %if.end20
   %shr.i = lshr i64 %next_with_shift.081, 8
   %arrayidx7 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %shr.i
   %hashed_key8 = getelementptr inbounds i8, ptr %arrayidx7, i64 16
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key8, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key8, ptr noundef nonnull align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %if.then, label %if.end20
 
@@ -2896,7 +2896,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool11.not, label %if.end20, label %if.then12
 
 if.then12:                                        ; preds = %if.then
-  %bcmp.i.i.i.i.i45 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key8, ptr noundef nonnull dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i45 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key8, ptr noundef nonnull align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i46 = icmp ne i32 %bcmp.i.i.i.i.i45, 0
   %and15 = and i64 %7, 2305843009213693952
   %tobool16.not = icmp eq i64 %and15, 0
@@ -3002,7 +3002,7 @@ if.end61:                                         ; preds = %if.end51
 
 if.end2.i:                                        ; preds = %if.end61
   %hashed_key4.i = getelementptr inbounds i8, ptr %arrayidx63, i64 16
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key4.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key4.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
   %and7.i = and i64 %17, 2305843009213693952
   %tobool8.not.i = icmp eq i64 %and7.i, 0
@@ -3562,7 +3562,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %invoke.cont7, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %callback, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -3581,7 +3581,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3667,7 +3667,7 @@ if.then.i.i.i:                                    ; preds = %.noexc
 
 _ZZN7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENKUlRKNS2_10HandleImplEE_clESK_.exit.i: ; preds = %.noexc
   %27 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i)
           to label %.noexc10 unwind label %lpad.loopexit
 
 .noexc10:                                         ; preds = %_ZZN7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENKUlRKNS2_10HandleImplEE_clESK_.exit.i
@@ -3694,7 +3694,7 @@ invoke.cont9:                                     ; preds = %invoke.cont9.loopex
   br i1 %tobool.not.i.i.i, label %_ZZN7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENUlRKNS2_10HandleImplEE_D2Ev.exit, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %invoke.cont9
-  %call.i.i.i = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, i32 noundef 3)
           to label %_ZZN7rocksdb11clock_cache15ClockCacheShardINS0_19AutoHyperClockTableEE18ApplyToSomeEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEEmPmENUlRKNS2_10HandleImplEE_D2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i12
@@ -3724,7 +3724,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i14, label %common.resume, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %lpad
-  %call.i.i.i16 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i.i16 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i17
 
 terminate.lpad.i.i.i17:                           ; preds = %if.then.i.i.i15
@@ -3982,7 +3982,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit: ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %_M_invoker.i, align 8
-  %call6.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i)
+  %call6.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr4.i)
   br i1 %call6.i, label %if.end9, label %if.then8
@@ -4026,7 +4026,7 @@ define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableC2EmNS_25CacheMetadat
 entry:
   %occupancy_.i = getelementptr inbounds i8, ptr %this, i64 64
   %metadata_charge_policy_.i = getelementptr inbounds i8, ptr %this, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(160) %this, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %occupancy_.i, i8 0, i64 24, i1 false)
   store i32 %metadata_charge_policy, ptr %metadata_charge_policy_.i, align 64
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -4270,7 +4270,7 @@ if.end3.i.i.i.i:                                  ; preds = %do.body.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.end3.i.i.i.i
   %hashed_key.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %if.then11.i.i.i.i, label %if.end8.i.sink.split
 
@@ -4290,7 +4290,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i.i.i, label %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i", label %if.end8.i
 
 "_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i": ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %.neg = sext i1 %keep_ref to i64
   %sub.i.i.i.i = add i64 %initial_countdown, %.neg
   %shl1.i.i.i.i = shl i64 %sub.i.i.i.i, 30
@@ -4391,7 +4391,7 @@ entry:
   store ptr %min_recommendation, ptr %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E9_M_invokeERKSt9_Any_dataOS6_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call.i19 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i19 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -4422,7 +4422,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES6_.exit.i: ; preds = %for.body.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc20 unwind label %lpad.loopexit
 
 .noexc20:                                         ; preds = %_ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES6_.exit.i
@@ -4437,7 +4437,7 @@ invoke.cont:                                      ; preds = %.noexc20, %call.i.n
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i22
@@ -4471,7 +4471,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i24, label %ehcleanup, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %lpad
-  %call.i.i26 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i26 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i27
 
 terminate.lpad.i.i27:                             ; preds = %if.then.i.i25
@@ -4663,7 +4663,7 @@ if.then:                                          ; preds = %entry
   store ptr %eviction_effort_exceeded_count, ptr %ref.tmp3.sroa.2.0.ref.tmp.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E9_M_invokeERKSt9_Any_dataOS6_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i4 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i4 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
@@ -4694,7 +4694,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES6_.exit.i: ; preds = %for.body.i
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc5 unwind label %lpad.loopexit
 
 .noexc5:                                          ; preds = %_ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES6_.exit.i
@@ -4710,7 +4710,7 @@ invoke.cont:                                      ; preds = %.noexc5
 
 if.then.i.i7:                                     ; preds = %call.i.noexc, %invoke.cont
   %5 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i7
@@ -4749,7 +4749,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i9, label %eh.resume, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad
-  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %eh.resume unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -4785,7 +4785,7 @@ invoke.cont22:
   %ref.tmp = alloca %"class.rocksdb::MemMapping", align 8
   %occupancy_.i = getelementptr inbounds i8, ptr %this, i64 64
   %metadata_charge_policy_.i = getelementptr inbounds i8, ptr %this, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(160) %this, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %occupancy_.i, i8 0, i64 24, i1 false)
   store i32 %metadata_charge_policy, ptr %metadata_charge_policy_.i, align 64
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -5730,7 +5730,7 @@ if.end3.i.i:                                      ; preds = %entry
 
 if.then8.i.i:                                     ; preds = %if.end3.i.i
   %hashed_key.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then11.i.i, label %if.else7.sink.split
 
@@ -5750,7 +5750,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit, label %if.else7
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit: ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i = shl i64 %initial_countdown, 30
   %shl1.i.i = add i64 %sub.i.i, 2305843008139952128
   %or.i.i = or i64 %initial_countdown, %shl1.i.i
@@ -5788,7 +5788,7 @@ if.end3.i.i81:                                    ; preds = %land.lhs.true
 
 if.then8.i.i84:                                   ; preds = %if.end3.i.i81
   %hashed_key.i.i85 = getelementptr inbounds i8, ptr %arrayidx9, i64 16
-  %bcmp.i.i.i.i.i.i.i87 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i85, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i87 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i85, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i88 = icmp eq i32 %bcmp.i.i.i.i.i.i.i87, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i88, label %if.then11.i.i90, label %if.else16.i.i89
 
@@ -5816,7 +5816,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i74, label %if.then11, label %for.body.preheader
 
 if.then11:                                        ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx9, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx9, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i77 = shl i64 %initial_countdown, 30
   %shl1.i.i78 = add i64 %sub.i.i77, 2305843008139952128
   %or.i.i79 = or i64 %initial_countdown, %shl1.i.i78
@@ -5848,7 +5848,7 @@ if.end3.i.i107:                                   ; preds = %for.body
 
 if.then8.i.i110:                                  ; preds = %if.end3.i.i107
   %hashed_key.i.i111 = getelementptr inbounds i8, ptr %arrayidx17, i64 16
-  %bcmp.i.i.i.i.i.i.i113 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i111, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i113 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i111, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i114 = icmp eq i32 %bcmp.i.i.i.i.i.i.i113, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i114, label %if.then11.i.i116, label %for.inc.sink.split
 
@@ -5868,7 +5868,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i100, label %for.end.thread, label %for.inc
 
 for.end.thread:                                   ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx17, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx17, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i103 = shl i64 %initial_countdown, 30
   %shl1.i.i104 = add i64 %sub.i.i103, 2305843008139952128
   %or.i.i105 = or i64 %initial_countdown, %shl1.i.i104
@@ -5958,7 +5958,7 @@ if.end3.i.i139:                                   ; preds = %if.end56
 
 if.then8.i.i142:                                  ; preds = %if.end3.i.i139
   %hashed_key.i.i143 = getelementptr inbounds i8, ptr %arrayidx57, i64 16
-  %bcmp.i.i.i.i.i.i.i145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i143, ptr noundef nonnull readonly dereferenceable(16) %hashed_key, i64 16)
+  %bcmp.i.i.i.i.i.i.i145 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i143, ptr noundef nonnull readonly align 8 dereferenceable(16) %hashed_key, i64 16)
   %tobool1.not.i.i.i.i.i.i.i146 = icmp eq i32 %bcmp.i.i.i.i.i.i.i145, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i146, label %if.then11.i.i148, label %for.inc64.sink.split
 
@@ -5978,7 +5978,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   br i1 %cmp.i.i132, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154, label %for.inc64
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154: ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx57, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx57, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i135 = shl i64 %initial_countdown, 30
   %shl1.i.i136 = add i64 %sub.i.i135, 2305843008139952128
   %or.i.i137 = or i64 %initial_countdown, %shl1.i.i136
@@ -6967,7 +6967,7 @@ if.then.i.i32:                                    ; preds = %.noexc
 _ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i: ; preds = %.noexc
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %49, i64 24
   %59 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call6.i.i34 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i.i)
+  %call6.i.i34 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i.i)
           to label %call6.i.i.noexc unwind label %lpad32.loopexit
 
 call6.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i
@@ -7109,7 +7109,7 @@ if.then:                                          ; preds = %entry
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E9_M_invokeERKSt9_Any_dataOS6_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call.i6 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i6 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
@@ -7140,7 +7140,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES6_.exit.i: ; preds = %for.body.i
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc7 unwind label %lpad.loopexit
 
 .noexc7:                                          ; preds = %_ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES6_.exit.i
@@ -7156,7 +7156,7 @@ invoke.cont:                                      ; preds = %.noexc7
 
 if.then.i.i9:                                     ; preds = %call.i.noexc, %invoke.cont
   %6 = phi ptr [ %.pre, %invoke.cont ], [ @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i9
@@ -7197,7 +7197,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i11, label %eh.resume, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %lpad
-  %call.i.i13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %eh.resume unwind label %terminate.lpad.i.i14
 
 terminate.lpad.i.i14:                             ; preds = %if.then.i.i12
@@ -7251,7 +7251,7 @@ if.then:                                          ; preds = %entry
   store ptr %eviction_effort_exceeded_count, ptr %ref.tmp3.sroa.2.0.ref.tmp.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E9_M_invokeERKSt9_Any_dataOS6_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i4 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i4 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
@@ -7282,7 +7282,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES6_.exit.i: ; preds = %for.body.i
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc5 unwind label %lpad.loopexit
 
 .noexc5:                                          ; preds = %_ZNKSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES6_.exit.i
@@ -7298,7 +7298,7 @@ invoke.cont:                                      ; preds = %.noexc5
 
 if.then.i.i7:                                     ; preds = %call.i.noexc, %invoke.cont
   %5 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i7
@@ -7337,7 +7337,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i9, label %eh.resume, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad
-  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %eh.resume unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -7947,13 +7947,13 @@ invoke.cont.i:
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp.i) #24
+  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp.i) #24
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #24
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #24
   resume { ptr, i32 } %1
 
 _ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit: ; preds = %invoke.cont.i
-  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp.i) #24
+  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp.i) #24
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   ret void
@@ -8159,7 +8159,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %if.then8
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !102
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !102
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 16
-  invoke void @_ZN7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEEC2ERKNS_22HyperClockCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(137) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(92) %opts)
+  invoke void @_ZN7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEEC2ERKNS_22HyperClockCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(92) %opts)
           to label %invoke.cont10 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !102
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc
@@ -8253,7 +8253,7 @@ call5.i.i.i3.i.i.i.i.noexc15:                     ; preds = %if.else
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i12, align 4, !noalias !105
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i16, align 8, !noalias !105
   %_M_impl.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i16, i64 16
-  invoke void @_ZN7rocksdb11clock_cache19BaseHyperClockCacheINS0_20FixedHyperClockTableEEC2ERKNS_22HyperClockCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(137) %_M_impl.i.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(92) %opts)
+  invoke void @_ZN7rocksdb11clock_cache19BaseHyperClockCacheINS0_20FixedHyperClockTableEEC2ERKNS_22HyperClockCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(92) %opts)
           to label %invoke.cont13 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !105
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc15
@@ -8446,12 +8446,12 @@ if.end8.sink.split.i.i.i.i.i113:                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i110, %if.end8.sink.split.i.i.i.i.i113, %if.end15, %if.then
-  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %opts) #24
+  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %opts) #24
   ret void
 
 ehcleanup:                                        ; preds = %lpad9.body, %lpad
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad9.body ], [ %14, %lpad ]
-  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %opts) #24
+  call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %opts) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -8554,7 +8554,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11clock_cache20FixedHyperClockCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) #24
+  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -8716,7 +8716,7 @@ do.body.i.i.i.i:                                  ; preds = %if.end8.i.i.i.i, %i
 
 if.then.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i
   %hashed_key.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hashed_key.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %hash, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %hashed_key.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %hash, i64 16)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end.sink.split.i.i.i.i
 
@@ -8845,7 +8845,7 @@ invoke.cont:                                      ; preds = %entry
   store i64 %call, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E11SetCapacityEmEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E11SetCapacityEmEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad3.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %invoke.cont
@@ -8876,7 +8876,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc4 unwind label %lpad3.loopexit
 
 .noexc4:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i
@@ -8892,7 +8892,7 @@ invoke.cont4:                                     ; preds = %.noexc4
 
 if.then.i.i6:                                     ; preds = %call.i.noexc, %invoke.cont4
   %4 = phi ptr [ %.pre, %invoke.cont4 ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E11SetCapacityEmEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i6
@@ -8938,7 +8938,7 @@ lpad3:                                            ; preds = %lpad3.loopexit.spli
   br i1 %tobool.not.i.i8, label %ehcleanup, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %lpad3
-  %call.i.i10 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i10 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
@@ -8980,7 +8980,7 @@ entry:
   store i8 %frombool, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E22SetStrictCapacityLimitEbEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E22SetStrictCapacityLimitEbEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i2 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i2 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -9011,7 +9011,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc3 unwind label %lpad.loopexit
 
 .noexc3:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i
@@ -9027,7 +9027,7 @@ invoke.cont:                                      ; preds = %.noexc3
 
 if.then.i.i5:                                     ; preds = %call.i.noexc, %invoke.cont
   %3 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E22SetStrictCapacityLimitEbEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i5
@@ -9068,7 +9068,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i7, label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit11, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %lpad
-  %call.i.i9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit11 unwind label %terminate.lpad.i.i10
 
 terminate.lpad.i.i10:                             ; preds = %if.then.i.i8
@@ -9217,10 +9217,10 @@ entry:
   %ref.tmp = alloca %"class.std::function.73", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E17EraseUnRefEntriesEvEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E17EraseUnRefEntriesEvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -9251,7 +9251,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc2 unwind label %lpad.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i
@@ -9267,7 +9267,7 @@ invoke.cont:                                      ; preds = %.noexc2
 
 if.then.i.i4:                                     ; preds = %call.i.noexc, %invoke.cont
   %3 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_E17EraseUnRefEntriesEvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i4
@@ -9297,7 +9297,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit10, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %lpad
-  %call.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit10 unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -9359,7 +9359,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11clock_cache19AutoHyperClockCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) #24
+  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -9597,7 +9597,7 @@ invoke.cont:                                      ; preds = %entry
   store i64 %call, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E11SetCapacityEmEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E11SetCapacityEmEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad3.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %invoke.cont
@@ -9628,7 +9628,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc4 unwind label %lpad3.loopexit
 
 .noexc4:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i
@@ -9644,7 +9644,7 @@ invoke.cont4:                                     ; preds = %.noexc4
 
 if.then.i.i6:                                     ; preds = %call.i.noexc, %invoke.cont4
   %4 = phi ptr [ %.pre, %invoke.cont4 ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E11SetCapacityEmEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i6
@@ -9690,7 +9690,7 @@ lpad3:                                            ; preds = %lpad3.loopexit.spli
   br i1 %tobool.not.i.i8, label %ehcleanup, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %lpad3
-  %call.i.i10 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i10 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
@@ -9732,7 +9732,7 @@ entry:
   store i8 %frombool, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E22SetStrictCapacityLimitEbEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E22SetStrictCapacityLimitEbEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i2 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i2 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -9763,7 +9763,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc3 unwind label %lpad.loopexit
 
 .noexc3:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i
@@ -9779,7 +9779,7 @@ invoke.cont:                                      ; preds = %.noexc3
 
 if.then.i.i5:                                     ; preds = %call.i.noexc, %invoke.cont
   %3 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E22SetStrictCapacityLimitEbEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i5
@@ -9820,7 +9820,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i7, label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit11, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %lpad
-  %call.i.i9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit11 unwind label %terminate.lpad.i.i10
 
 terminate.lpad.i.i10:                             ; preds = %if.then.i.i8
@@ -9959,10 +9959,10 @@ entry:
   %ref.tmp = alloca %"class.std::function.78", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E17EraseUnRefEntriesEvEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E17EraseUnRefEntriesEvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -9993,7 +9993,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc2 unwind label %lpad.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i
@@ -10009,7 +10009,7 @@ invoke.cont:                                      ; preds = %.noexc2
 
 if.then.i.i4:                                     ; preds = %call.i.noexc, %invoke.cont
   %3 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_E17EraseUnRefEntriesEvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i4
@@ -10039,7 +10039,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit10, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %lpad
-  %call.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit10 unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -10126,7 +10126,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15LRUCacheOptionsD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #24
+  tail call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -10380,7 +10380,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb22HyperClockCacheOptionsD0Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #24
+  tail call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -10401,7 +10401,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %eviction_callback_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %eviction_callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %eviction_callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %eviction_callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %eviction_callback_.i, i32 noundef 3)
           to label %_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -10503,10 +10503,10 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_ED1EvEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_ED1EvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
@@ -10537,7 +10537,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc2 unwind label %terminate.lpad.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i
@@ -10553,7 +10553,7 @@ invoke.cont:                                      ; preds = %.noexc2
 
 if.then.i.i4:                                     ; preds = %call.i.noexc, %invoke.cont
   %4 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS0_12ShardedCacheIS4_ED1EvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i4
@@ -10657,10 +10657,10 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_ED1EvEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_ED1EvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i1 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
@@ -10691,7 +10691,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i: ; preds = %for.body.i
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %.noexc2 unwind label %terminate.lpad.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i
@@ -10707,7 +10707,7 @@ invoke.cont:                                      ; preds = %.noexc2
 
 if.then.i.i4:                                     ; preds = %call.i.noexc, %invoke.cont
   %4 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS0_12ShardedCacheIS4_ED1EvEUlS5_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i4
@@ -11012,7 +11012,7 @@ if.else58:                                        ; preds = %lor.lhs.false
 if.end63:                                         ; preds = %if.then36, %lor.lhs.false, %do.end
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !118
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !118
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !118
   br label %return
 
 return:                                           ; preds = %if.end63, %if.else58, %if.then55, %invoke.cont17
@@ -11066,7 +11066,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry,
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -11076,7 +11076,7 @@ call.i.noexc:                                     ; preds = %_ZNSt8__detail14__t
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -11317,7 +11317,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %22, i64 24
   %32 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call6.i.i = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i.i)
+  %call6.i.i = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr4.i.i)
   br i1 %call6.i.i, label %_ZN7rocksdb11clock_cache14BaseClockTable27TrackAndReleaseEvictedEntryEPNS0_11ClockHandleE.exit, label %if.then8.i
@@ -11611,7 +11611,7 @@ if.else58:                                        ; preds = %lor.lhs.false
 if.end63:                                         ; preds = %if.then36, %lor.lhs.false, %do.end
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !128
   br label %return
 
 return:                                           ; preds = %if.end63, %if.else58, %if.then55, %invoke.cont17
@@ -12724,7 +12724,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -12734,7 +12734,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -12883,7 +12883,7 @@ entry:
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(137) %_M_impl.i) #24
+  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i) #24
   ret void
 }
 
@@ -12918,9 +12918,9 @@ entry:
   %per_shard = alloca i64, align 8
   %alloc = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::function.78", align 8
-  tail call void @_ZN7rocksdb16ShardedCacheBaseC2ERKNS_19ShardedCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(68) %opts)
+  tail call void @_ZN7rocksdb16ShardedCacheBaseC2ERKNS_19ShardedCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(68) %opts)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEE, i64 16), ptr %this, align 8
-  %call.i = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -12936,7 +12936,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %invoke.cont.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7rocksdb16ShardedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #24
+  tail call void @_ZN7rocksdb16ShardedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) #24
   br label %common.resume
 
 _ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEC2ERKNS_19ShardedCacheOptionsE.exit: ; preds = %invoke.cont.i
@@ -12970,7 +12970,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   store ptr %call.i.i2.i3, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS1_19BaseHyperClockCacheIS3_EC1ERKNS0_22HyperClockCacheOptionsEEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS1_19BaseHyperClockCacheIS3_EC1ERKNS0_22HyperClockCacheOptionsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i.i5 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i.i5 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.i.noexc unwind label %lpad6.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
@@ -13004,7 +13004,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i.i: ; preds = %for.body.i.i
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
           to label %.noexc6 unwind label %lpad6.loopexit
 
 .noexc6:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i.i
@@ -13021,7 +13021,7 @@ invoke.cont7:                                     ; preds = %.noexc6
 
 if.then.i.i:                                      ; preds = %invoke.cont7.thread, %invoke.cont7
   %5 = phi ptr [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNS1_19BaseHyperClockCacheIS3_EC1ERKNS0_22HyperClockCacheOptionsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, %invoke.cont7.thread ], [ %.pre, %invoke.cont7 ]
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -13056,7 +13056,7 @@ lpad6:                                            ; preds = %lpad6.loopexit.spli
   br i1 %tobool.not.i.i9, label %ehcleanup, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad6
-  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -13186,7 +13186,7 @@ entry:
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(137) %_M_impl.i) #24
+  tail call void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i) #24
   ret void
 }
 
@@ -13221,9 +13221,9 @@ entry:
   %per_shard = alloca i64, align 8
   %alloc = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::function.73", align 8
-  tail call void @_ZN7rocksdb16ShardedCacheBaseC2ERKNS_19ShardedCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(68) %opts)
+  tail call void @_ZN7rocksdb16ShardedCacheBaseC2ERKNS_19ShardedCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(68) %opts)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEE, i64 16), ptr %this, align 8
-  %call.i = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -13239,7 +13239,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %invoke.cont.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7rocksdb16ShardedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #24
+  tail call void @_ZN7rocksdb16ShardedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) #24
   br label %common.resume
 
 _ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEC2ERKNS_19ShardedCacheOptionsE.exit: ; preds = %invoke.cont.i
@@ -13273,7 +13273,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %call.i.i2.i3, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS1_19BaseHyperClockCacheIS3_EC1ERKNS0_22HyperClockCacheOptionsEEUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS1_19BaseHyperClockCacheIS3_EC1ERKNS0_22HyperClockCacheOptionsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i.i5 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i.i5 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.i.noexc unwind label %lpad5.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %invoke.cont4
@@ -13307,7 +13307,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
 
 _ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i.i: ; preds = %for.body.i.i
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i)
           to label %.noexc6 unwind label %lpad5.loopexit
 
 .noexc6:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i.i
@@ -13324,7 +13324,7 @@ invoke.cont6:                                     ; preds = %.noexc6
 
 if.then.i.i:                                      ; preds = %invoke.cont6.thread, %invoke.cont6
   %5 = phi ptr [ @_ZNSt17_Function_handlerIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNS1_19BaseHyperClockCacheIS3_EC1ERKNS0_22HyperClockCacheOptionsEEUlS5_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, %invoke.cont6.thread ], [ %.pre, %invoke.cont6 ]
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -13359,7 +13359,7 @@ lpad5:                                            ; preds = %lpad5.loopexit.spli
   br i1 %tobool.not.i.i9, label %ehcleanup, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad5
-  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -13829,7 +13829,7 @@ entry:
   store i64 %fn.coerce1, ptr %ref.tmp3.sroa.2.0.ref.tmp.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS0_12ShardedCacheIS4_E14SumOverShards2EMS4_KFmvEEUlS5_E_E9_M_invokeERKSt9_Any_dataS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS0_12ShardedCacheIS4_E14SumOverShards2EMS4_KFmvEEUlS5_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -13859,7 +13859,7 @@ _ZNKSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClock
   %1 = load ptr, ptr %shards_.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.rocksdb::clock_cache::ClockCacheShard", ptr %1, i64 %indvars.iv.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i.i4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 64 dereferenceable(320) %arrayidx.i)
+  %call2.i.i4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 64 dereferenceable(320) %arrayidx.i)
           to label %call2.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEEclES5_.exit.i
@@ -13876,7 +13876,7 @@ invoke.cont:                                      ; preds = %call2.i.i.noexc
 if.then.i.i6:                                     ; preds = %call.i.noexc, %invoke.cont
   %result.0.lcssa.i17 = phi i64 [ %add.i, %invoke.cont ], [ 0, %call.i.noexc ]
   %3 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS0_12ShardedCacheIS4_E14SumOverShards2EMS4_KFmvEEUlS5_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i6
@@ -13907,7 +13907,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i8, label %_ZNSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit12, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %lpad
-  %call.i.i10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEED2Ev.exit12 unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
@@ -14181,7 +14181,7 @@ entry:
   store i64 %fn.coerce1, ptr %ref.tmp3.sroa.2.0.ref.tmp.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS0_12ShardedCacheIS4_E14SumOverShards2EMS4_KFmvEEUlS5_E_E9_M_invokeERKSt9_Any_dataS5_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS0_12ShardedCacheIS4_E14SumOverShards2EMS4_KFmvEEUlS5_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
+  %call.i3 = invoke noundef i32 @_ZNK7rocksdb16ShardedCacheBase12GetNumShardsEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %entry
@@ -14211,7 +14211,7 @@ _ZNKSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockT
   %1 = load ptr, ptr %shards_.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.rocksdb::clock_cache::ClockCacheShard.15", ptr %1, i64 %indvars.iv.i
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i.i4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 64 dereferenceable(384) %arrayidx.i)
+  %call2.i.i4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 64 dereferenceable(384) %arrayidx.i)
           to label %call2.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEEclES5_.exit.i
@@ -14228,7 +14228,7 @@ invoke.cont:                                      ; preds = %call2.i.i.noexc
 if.then.i.i6:                                     ; preds = %call.i.noexc, %invoke.cont
   %result.0.lcssa.i17 = phi i64 [ %add.i, %invoke.cont ], [ 0, %call.i.noexc ]
   %3 = phi ptr [ %.pre, %invoke.cont ], [ @_ZNSt17_Function_handlerIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS0_12ShardedCacheIS4_E14SumOverShards2EMS4_KFmvEEUlS5_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, %call.i.noexc ]
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i6
@@ -14259,7 +14259,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i8, label %_ZNSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit12, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %lpad
-  %call.i.i10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFmRN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEED2Ev.exit12 unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i9

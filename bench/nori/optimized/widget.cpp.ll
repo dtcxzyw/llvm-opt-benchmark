@@ -57,7 +57,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc15 unwind label %32
 
 .noexc15:                                         ; preds = %.noexc
@@ -67,7 +67,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
 14:                                               ; preds = %.noexc15
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc15
@@ -685,7 +685,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge: ; pred
   br i1 %.not.i, label %_ZN7nanogui6Widget13request_focusEv.exit, label %.preheader, !llvm.loop !27
 
 _ZN7nanogui6Widget13request_focusEv.exit:         ; preds = %.preheader
-  call void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(384) %.0.i, ptr noundef nonnull %0)
+  call void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(384) %.0.i, ptr noundef nonnull align 8 dereferenceable(140) %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge, %48, %_ZN7nanogui6Widget13request_focusEv.exit, %._crit_edge

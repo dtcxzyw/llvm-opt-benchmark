@@ -1076,7 +1076,7 @@ zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   %25 = getelementptr inbounds i8, ptr %11, i64 16
   store i8 0, ptr %25, align 16
   %26 = getelementptr inbounds i8, ptr %9, i64 16
-  call fastcc void @zbee_sec_hash(ptr noundef %11, i32 noundef 17, ptr noundef nonnull %26)
+  call fastcc void @zbee_sec_hash(ptr noundef nonnull %11, i32 noundef 17, ptr noundef nonnull %26)
   call fastcc void @zbee_sec_hash(ptr noundef %9, i32 noundef 32, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %39
@@ -1111,7 +1111,7 @@ zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %37 = getelementptr inbounds i8, ptr %11, i64 16
   store i8 2, ptr %37, align 16
   %38 = getelementptr inbounds i8, ptr %8, i64 16
-  call fastcc void @zbee_sec_hash(ptr noundef %11, i32 noundef 17, ptr noundef nonnull %38)
+  call fastcc void @zbee_sec_hash(ptr noundef nonnull %11, i32 noundef 17, ptr noundef nonnull %38)
   call fastcc void @zbee_sec_hash(ptr noundef %8, i32 noundef 32, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %39

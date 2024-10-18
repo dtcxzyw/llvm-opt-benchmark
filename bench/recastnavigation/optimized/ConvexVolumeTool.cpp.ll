@@ -787,7 +787,7 @@ define linkonce_odr dso_local void @_ZN16ConvexVolumeToolD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16ConvexVolumeToolD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   ret void
 }

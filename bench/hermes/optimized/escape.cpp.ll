@@ -399,7 +399,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit101: ; preds = %_ZN
 
 if.end.i.thread.i:                                ; preds = %while.cond.i.i.preheader
   %add.i.i = add nuw nsw i64 %conv.i5.i.i, 2
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i, i64 noundef 2) #11
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %R, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i, i64 noundef 2) #11
   %.pre13.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre227 = zext i32 %.pre13.pre.i.i to i64
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit

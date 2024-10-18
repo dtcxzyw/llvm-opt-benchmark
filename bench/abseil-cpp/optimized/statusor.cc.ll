@@ -191,7 +191,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull %init_what_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
+  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %init_what_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl9call_onceIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvRNS_9once_flagEOT_DpOT0_.exit"
 
@@ -234,7 +234,7 @@ release.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl9call_onceIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvRNS_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
-  call void @AbslInternalSpinLockWake(ptr noundef nonnull %init_what_, i1 noundef zeroext true)
+  call void @AbslInternalSpinLockWake(ptr noundef nonnull align 4 dereferenceable(4) %init_what_, i1 noundef zeroext true)
   br label %"_ZN4absl9call_onceIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvRNS_9once_flagEOT_DpOT0_.exit"
 
 "_ZN4absl9call_onceIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvRNS_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
@@ -409,7 +409,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -426,7 +426,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -527,7 +527,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -537,7 +537,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry
@@ -639,7 +639,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN4absl17BadStatusOrAccessD2Ev.exit:             ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }

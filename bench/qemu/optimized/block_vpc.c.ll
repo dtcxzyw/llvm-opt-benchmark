@@ -366,7 +366,7 @@ if.end113:                                        ; preds = %if.end108
   store i32 %22, ptr %block_size115, align 8
   %conv117 = zext i32 %22 to i64
   %tobool.not.i119 = icmp eq i32 %21, 0
-  %23 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv117)
+  %23 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 range(i64 0, 4294967296) %conv117)
   %tobool1.not.i = icmp samesign ugt i64 %23, 1
   %or.cond122.not124 = select i1 %tobool.not.i119, i1 true, i1 %tobool1.not.i
   %cmp122 = icmp ult i32 %22, 512
@@ -640,7 +640,7 @@ for.body.i:                                       ; preds = %if.else.i, %calcula
   %i.011.i = phi i32 [ %inc.i, %calculate_geometry.exit.i ], [ 0, %if.else.i ]
   %conv6.i = sext i32 %i.011.i to i64
   %add.i = add nsw i64 %cond.i, %conv6.i
-  %cond.i.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 267382800)
+  %cond.i.i = tail call i64 @llvm.smin.i64(i64 range(i64 -2147483647, 36028799166447615) %add.i, i64 267382800)
   %cmp1.i.i = icmp sgt i64 %add.i, 66059279
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -895,7 +895,7 @@ for.body.i:                                       ; preds = %if.else.i, %calcula
   %i.011.i = phi i32 [ %inc.i, %calculate_geometry.exit.i ], [ 0, %if.else.i ]
   %conv6.i = sext i32 %i.011.i to i64
   %add.i = add nsw i64 %cond.i, %conv6.i
-  %cond.i.i = call i64 @llvm.smin.i64(i64 %add.i, i64 267382800)
+  %cond.i.i = call i64 @llvm.smin.i64(i64 range(i64 -2147483647, 36028799166447615) %add.i, i64 267382800)
   %cmp1.i.i = icmp sgt i64 %add.i, 66059279
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
 

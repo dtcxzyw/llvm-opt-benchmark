@@ -484,7 +484,7 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba10Properties3getIbEET_RKNSt3__11
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -498,7 +498,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 %16
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef nonnull %8)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %17, ptr noundef nonnull %8)
           to label %18 unwind label %21
 
 18:                                               ; preds = %3
@@ -565,7 +565,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   store i32 -1, ptr %20, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
 21:                                               ; preds = %3
@@ -576,7 +576,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %25
 
 common.resume:                                    ; preds = %38, %25
@@ -622,8 +622,8 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   store ptr %34, ptr %37, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #28
   ret void
 
@@ -656,7 +656,7 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba10Properties3getIbEET_RKNSt3__11
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -670,7 +670,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -716,7 +716,7 @@ define weak_odr noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basi
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -730,7 +730,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -782,7 +782,7 @@ define weak_odr noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basi
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -796,7 +796,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -842,7 +842,7 @@ define weak_odr noundef double @_ZNK7mitsuba10Properties3getIdEET_RKNSt3__112bas
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -856,7 +856,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -907,7 +907,7 @@ define weak_odr noundef double @_ZNK7mitsuba10Properties3getIdEET_RKNSt3__112bas
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -921,7 +921,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -968,7 +968,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.1.i.i.i, %11 ]
   %.0811.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.19.i.i.i, %11 ]
   %12 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 32 dereferenceable(352) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %13, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %13, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -982,7 +982,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %15)
   br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1066,7 +1066,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.1.i.i.i, %11 ]
   %.0811.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.19.i.i.i, %11 ]
   %12 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 32 dereferenceable(352) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %13, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %13, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1080,7 +1080,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %15)
   br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1152,7 +1152,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIiEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1166,7 +1166,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1218,7 +1218,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIiEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1232,7 +1232,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1280,7 +1280,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getImEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.1.i.i.i, %11 ]
   %.0811.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.19.i.i.i, %11 ]
   %12 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 32 dereferenceable(352) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %13, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %13, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1294,7 +1294,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %15)
   br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1377,7 +1377,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getImEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.1.i.i.i, %11 ]
   %.0811.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.19.i.i.i, %11 ]
   %12 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 32 dereferenceable(352) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %13, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %13, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1391,7 +1391,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %15)
   br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1462,7 +1462,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getIlEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1476,7 +1476,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1527,7 +1527,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getIlEET_RKNSt3__112basic_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1541,7 +1541,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1586,7 +1586,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIfLm3EEEE
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1600,7 +1600,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1652,7 +1652,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIfLm3EEEE
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1666,7 +1666,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1715,7 +1715,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIdLm3EEE
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1729,7 +1729,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1780,7 +1780,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIdLm3EEE
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1794,7 +1794,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1839,7 +1839,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5PointIfLm3EEEEET_R
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1853,7 +1853,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -1905,7 +1905,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5PointIfLm3EEEEET_R
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1919,7 +1919,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -1965,7 +1965,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5PointIdLm3EEEEET_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -1979,7 +1979,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -2030,7 +2030,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5PointIdLm3EEEEET_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2044,7 +2044,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2089,7 +2089,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_6VectorIfLm3EEEEET_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2103,7 +2103,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -2155,7 +2155,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_6VectorIfLm3EEEEET_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2169,7 +2169,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2215,7 +2215,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_6VectorIdLm3EEEEET
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2229,7 +2229,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -2280,7 +2280,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_6VectorIdLm3EEEEET
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2294,7 +2294,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2339,7 +2339,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5ColorIfLm3EEEEET_R
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2353,7 +2353,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -2405,7 +2405,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5ColorIfLm3EEEEET_R
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2419,7 +2419,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2465,7 +2465,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5ColorIdLm3EEEEET_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2479,7 +2479,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -2530,7 +2530,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5ColorIdLm3EEEEET_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2544,7 +2544,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2592,7 +2592,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm3E
   %.012.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %.1.i.i.i, %13 ]
   %.0811.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %.19.i.i.i, %13 ]
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 32 dereferenceable(352) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %15, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %15, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2606,7 +2606,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %17)
   br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2677,7 +2677,7 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   br i1 %exitcond.not.i.i, label %41, label %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i, !llvm.loop !19
 
 41:                                               ; preds = %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false)
   %42 = getelementptr inbounds i8, ptr %6, i64 96
   br label %43
 
@@ -2720,7 +2720,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm3E
   %.012.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %.1.i.i.i, %13 ]
   %.0811.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %.19.i.i.i, %13 ]
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 32 dereferenceable(352) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %15, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %15, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2734,7 +2734,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %17)
   br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -2794,7 +2794,7 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   br i1 %exitcond.not.i.i, label %37, label %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i, !llvm.loop !19
 
 37:                                               ; preds = %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, ptr noundef nonnull align 16 dereferenceable(48) %5, i64 48, i1 false)
   %38 = getelementptr inbounds i8, ptr %7, i64 96
   br label %39
 
@@ -2838,7 +2838,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm3E
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2852,7 +2852,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -2903,7 +2903,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm3E
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2917,7 +2917,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -2964,7 +2964,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm4E
   %.012.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %.1.i.i.i, %13 ]
   %.0811.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %.19.i.i.i, %13 ]
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 32 dereferenceable(352) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %15, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %15, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -2978,7 +2978,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %17)
   br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -3049,7 +3049,7 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   br i1 %exitcond.not.i.i, label %41, label %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i, !llvm.loop !39
 
 41:                                               ; preds = %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
   %42 = getelementptr inbounds i8, ptr %6, i64 128
   br label %43
 
@@ -3092,7 +3092,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm4E
   %.012.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %.1.i.i.i, %13 ]
   %.0811.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %.19.i.i.i, %13 ]
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 32 dereferenceable(352) %14, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %15, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %15, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3106,7 +3106,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %17)
   br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -3166,7 +3166,7 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   br i1 %exitcond.not.i.i, label %37, label %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i, !llvm.loop !39
 
 37:                                               ; preds = %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false)
   %38 = getelementptr inbounds i8, ptr %7, i64 128
   br label %39
 
@@ -3210,7 +3210,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm4E
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3224,7 +3224,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -3275,7 +3275,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm4E
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3289,7 +3289,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -3333,7 +3333,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__110shared_ptrIvEEEET_RK
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3347,7 +3347,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -3398,7 +3398,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__110shared_ptrIvEEEET_RK
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3412,7 +3412,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -3467,7 +3467,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__112basic_stringIcNS2_11
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3481,7 +3481,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -3532,7 +3532,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__112basic_stringIcNS2_11
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3546,7 +3546,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -3592,7 +3592,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_3refINS_6ObjectEEEEET_RKNS
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3606,7 +3606,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -3657,7 +3657,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_3refINS_6ObjectEEEEET_RKNS
   %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %12, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %12, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -3671,7 +3671,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %14)
   br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -3750,7 +3750,7 @@ define hidden void @_ZN7mitsuba8get_implINS_9TransformINS_5PointIdLm3EEEEENS1_IN
   br i1 %26, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit, label %51
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit: ; preds = %20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %0, i8 0, i64 96, i1 false), !alias.scope !49
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %0, i8 0, i64 96, i1 false), !alias.scope !49
   br label %27
 
 27:                                               ; preds = %27, %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit
@@ -3855,7 +3855,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 %19
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull %11)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %20, ptr noundef nonnull %11)
           to label %21 unwind label %24
 
 21:                                               ; preds = %6
@@ -3865,7 +3865,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   store i32 -1, ptr %23, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %9, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %11)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %26
 
 24:                                               ; preds = %6
@@ -3876,7 +3876,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
 26:                                               ; preds = %21
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %28
 
 common.resume:                                    ; preds = %50, %28
@@ -3940,8 +3940,8 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   store ptr %46, ptr %49, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %11, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %11) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %9) #28
   ret void
 
@@ -3973,7 +3973,7 @@ define void @_ZN7mitsuba10Properties8set_boolERKNSt3__112basic_stringIcNS1_11cha
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -3987,7 +3987,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4052,7 +4052,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIbEERSR_OT_.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull %39) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull align 32 dereferenceable(264) %39) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIbEERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIbEERSR_OT_.exit: ; preds = %34, %43, %46
@@ -4088,7 +4088,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties12has_propertyERKNSt3__112bas
   %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %7 ]
   %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %7 ]
   %8 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %9 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %9 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 32 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %9, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %9, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -4102,7 +4102,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 10:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %11)
   br i1 %12, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -4137,7 +4137,7 @@ define void @_ZN7mitsuba10Properties8set_longERKNSt3__112basic_stringIcNS1_11cha
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -4151,7 +4151,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4216,7 +4216,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIlEERSR_OT_.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull %39) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull align 32 dereferenceable(264) %39) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIlEERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIlEERSR_OT_.exit: ; preds = %34, %43, %46
@@ -4257,7 +4257,7 @@ define void @_ZN7mitsuba10Properties15set_transform3fERKNSt3__112basic_stringIcN
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
   %.0811.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %15 ]
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 32 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %17, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %17, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -4271,7 +4271,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %19)
   br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4336,12 +4336,12 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISE_EERSR_OT_.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull %39) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull align 32 dereferenceable(264) %39) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISE_EERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISE_EERSR_OT_.exit: ; preds = %35, %43, %46
   store ptr @_ZTIN7mitsuba9TransformINS_5PointIdLm3EEEEE, ptr %40, align 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %39, ptr noundef nonnull align 32 dereferenceable(192) %10, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(264) %39, ptr noundef nonnull align 32 dereferenceable(192) %10, i64 192, i1 false)
   %47 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -4377,7 +4377,7 @@ define void @_ZN7mitsuba10Properties13set_transformERKNSt3__112basic_stringIcNS1
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
   %.0811.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %15 ]
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 32 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %17, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %17, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -4391,7 +4391,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %19)
   br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4456,12 +4456,12 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISG_EERSR_OT_.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull %39) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull align 32 dereferenceable(264) %39) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISG_EERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISG_EERSR_OT_.exit: ; preds = %35, %43, %46
   store ptr @_ZTIN7mitsuba9TransformINS_5PointIdLm4EEEEE, ptr %40, align 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %39, ptr noundef nonnull align 32 dereferenceable(256) %10, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(264) %39, ptr noundef nonnull align 32 dereferenceable(256) %10, i64 256, i1 false)
   %47 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -4497,7 +4497,7 @@ define void @_ZN7mitsuba10Properties17set_tensor_handleERKNSt3__112basic_stringI
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
   %.0811.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %15 ]
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 32 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %17, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %17, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -4511,7 +4511,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %19)
   br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4597,7 +4597,7 @@ _ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %35, %40
   br i1 %or.cond.i.i.i, label %_ZNSt3__110shared_ptrIvED2B8ne190000Ev.exit, label %54
 
 54:                                               ; preds = %51
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %49, ptr noundef nonnull %47) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %49, ptr noundef nonnull align 32 dereferenceable(264) %47) #28
   %.pre = load ptr, ptr %10, align 8
   %.pre24 = load ptr, ptr %37, align 8
   br label %_ZNSt3__110shared_ptrIvED2B8ne190000Ev.exit
@@ -4645,7 +4645,7 @@ define linkonce_odr hidden void @_ZNSt3__110shared_ptrIvED2B8ne190000Ev(ptr noun
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   tail call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   br label %_ZNSt3__119__shared_weak_count16__release_sharedB8ne190000Ev.exit
 
@@ -4674,7 +4674,7 @@ define void @_ZN7mitsuba10Properties9set_colorERKNSt3__112basic_stringIcNS1_11ch
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -4688,7 +4688,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4753,7 +4753,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISK_EERSR_OT_.exit, label %45
 
 45:                                               ; preds = %42
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %40, ptr noundef nonnull %38) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %40, ptr noundef nonnull align 32 dereferenceable(264) %38) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISK_EERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISK_EERSR_OT_.exit: ; preds = %34, %42, %45
@@ -4794,7 +4794,7 @@ define void @_ZN7mitsuba10Properties10set_stringERKNSt3__112basic_stringIcNS1_11
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
   %.0811.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %15 ]
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 32 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %17, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %17, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -4808,7 +4808,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %19)
   br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -4881,12 +4881,12 @@ common.resume:                                    ; preds = %53, %33
   br i1 %or.cond.i.i.i, label %48, label %47
 
 47:                                               ; preds = %44
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %42, ptr noundef nonnull %40) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %42, ptr noundef nonnull align 32 dereferenceable(264) %40) #28
   br label %48
 
 48:                                               ; preds = %47, %44, %38
   store ptr @_ZTINSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE, ptr %41, align 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(264) %40, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #28
   %49 = load ptr, ptr %0, align 8
@@ -4925,7 +4925,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -4939,7 +4939,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -5016,7 +5016,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5030,7 +5030,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -5097,7 +5097,7 @@ define void @_ZN7mitsuba10Properties19set_named_referenceERKNSt3__112basic_strin
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
   %.0811.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %15 ]
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 32 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %17, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %17, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -5111,7 +5111,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %19)
   br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -5184,12 +5184,12 @@ common.resume:                                    ; preds = %53, %33
   br i1 %or.cond.i.i.i, label %48, label %47
 
 47:                                               ; preds = %44
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %42, ptr noundef nonnull %40) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %42, ptr noundef nonnull align 32 dereferenceable(264) %40) #28
   br label %48
 
 48:                                               ; preds = %47, %44, %38
   store ptr @_ZTIN7mitsuba14NamedReferenceE, ptr %41, align 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(264) %40, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #28
   %49 = load ptr, ptr %0, align 8
@@ -5228,7 +5228,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5242,7 +5242,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -5319,7 +5319,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5333,7 +5333,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -5399,7 +5399,7 @@ define void @_ZN7mitsuba10Properties10set_objectERKNSt3__112basic_stringIcNS1_11
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -5413,7 +5413,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -5494,7 +5494,7 @@ _ZN7mitsuba3refINS_6ObjectEEC2ERKS2_.exit:        ; preds = %34, %36
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit, label %50
 
 50:                                               ; preds = %47
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %45, ptr noundef nonnull %43) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %45, ptr noundef nonnull align 32 dereferenceable(264) %43) #28
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %41, %47, %50
@@ -5540,7 +5540,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties6
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5554,7 +5554,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -5631,7 +5631,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties6
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5645,7 +5645,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -5711,7 +5711,7 @@ define void @_ZN7mitsuba10Properties11set_pointerERKNSt3__112basic_stringIcNS1_1
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -5725,7 +5725,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -5790,7 +5790,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISQ_EERSR_OT_.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull %39) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull align 32 dereferenceable(264) %39) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISQ_EERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSISQ_EERSR_OT_.exit: ; preds = %34, %43, %46
@@ -5827,7 +5827,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties7
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5841,7 +5841,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -5918,7 +5918,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties7
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -5932,7 +5932,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -6034,7 +6034,7 @@ _ZNKSt3__114default_deleteIN7mitsuba10Properties17PropertiesPrivateEEclB8ne19000
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %6) #28
+  tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %6) #28
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
   br label %_ZNSt3__110unique_ptrIN7mitsuba10Properties17PropertiesPrivateENS_14default_deleteIS3_EEE5resetB8ne190000EPS3_.exit
 
@@ -6073,7 +6073,7 @@ define linkonce_odr void @_ZN7mitsuba10Properties17PropertiesPrivateC2ERKS1_(ptr
 .lr.ph.i.i:                                       ; preds = %2, %_ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i
   %.sroa.04.09.i.i = phi ptr [ %.06.i.i.i.i.i, %_ZNSt3__120__map_const_iteratorINS_21__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit.i.i ], [ %4, %2 ]
   %6 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i, i64 32
-  %7 = invoke { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE30__emplace_hint_unique_key_argsIS7_JRKNS_4pairIKS7_S9_EEEEENSH_INS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEEbEENS_21__tree_const_iteratorISA_SQ_lEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 32 dereferenceable(352) %6)
+  %7 = invoke { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE30__emplace_hint_unique_key_argsIS7_JRKNS_4pairIKS7_S9_EEEEENSH_INS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEEbEENS_21__tree_const_iteratorISA_SQ_lEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %3, ptr noundef nonnull align 32 dereferenceable(352) %6, ptr noundef nonnull align 32 dereferenceable(352) %6)
           to label %.noexc.i unwind label %16
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
@@ -6156,7 +6156,7 @@ _ZNKSt3__114default_deleteIN7mitsuba10Properties17PropertiesPrivateEEclB8ne19000
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %6) #28
+  tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %6) #28
   tail call void @_ZdlPv(ptr noundef nonnull %2) #30
   br label %_ZNSt3__110unique_ptrIN7mitsuba10Properties17PropertiesPrivateENS_14default_deleteIS3_EEED2B8ne190000Ev.exit
 
@@ -6174,7 +6174,7 @@ define void @_ZN7mitsuba10PropertiesaSERKS0_(ptr nocapture noundef nonnull reado
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE14__assign_multiINS_21__tree_const_iteratorISA_PNS_11__tree_nodeISA_PvEElEEEEvT_SN_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %6, ptr nonnull %7)
+  tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE14__assign_multiINS_21__tree_const_iteratorISA_PNS_11__tree_nodeISA_PvEElEEEEvT_SN_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr %6, ptr nonnull %7)
   br label %_ZN7mitsuba10Properties17PropertiesPrivateaSERKS1_.exit
 
 _ZN7mitsuba10Properties17PropertiesPrivateaSERKS1_.exit: ; preds = %2, %5
@@ -6204,7 +6204,7 @@ define noundef range(i32 0, 13) i32 @_ZNK7mitsuba10Properties4typeERKNSt3__112ba
   %.012.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.1.i.i.i, %8 ]
   %.0811.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.19.i.i.i, %8 ]
   %9 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %10 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %10 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 32 dereferenceable(352) %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %10, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %10, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -6218,7 +6218,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 11:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %12 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %12)
   br i1 %13, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -6338,7 +6338,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties12mark_queriedERKNSt3__112bas
   %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %7 ]
   %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %7 ]
   %8 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %9 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %9 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 32 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %9, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %9, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -6352,7 +6352,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 10:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %11)
   br i1 %12, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -6391,7 +6391,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties11was_queriedERKNSt3__112basi
   %.012.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.1.i.i.i, %8 ]
   %.0811.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.19.i.i.i, %8 ]
   %9 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %10 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %10 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 32 dereferenceable(352) %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %10, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %10, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -6405,7 +6405,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 11:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %12 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %12)
   br i1 %13, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -6456,7 +6456,7 @@ define noundef zeroext i1 @_ZN7mitsuba10Properties15remove_propertyERKNSt3__112b
   %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %7 ]
   %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %7 ]
   %8 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %9 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %9 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 32 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i = select i1 %9, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %9, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -6470,7 +6470,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 10:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %11)
   br i1 %12, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
@@ -6533,12 +6533,12 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE5eraseB8ne190000ENS_14__map_iteratorINS_15__tree_iteratorINS_12__value_typeIS6_S8_EEPNS_11__tree_nodeISI_PvEElEEEE.exit, label %38
 
 38:                                               ; preds = %35
-  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %33, ptr noundef nonnull %31) #28
+  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %33, ptr noundef nonnull align 32 dereferenceable(289) %31) #28
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE5eraseB8ne190000ENS_14__map_iteratorINS_15__tree_iteratorINS_12__value_typeIS6_S8_EEPNS_11__tree_nodeISI_PvEElEEEE.exit
 
 _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE5eraseB8ne190000ENS_14__map_iteratorINS_15__tree_iteratorINS_12__value_typeIS6_S8_EEPNS_11__tree_nodeISI_PvEElEEEE.exit: ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE21__remove_node_pointerEPNS_11__tree_nodeISA_PvEE.exit.i.i, %35, %38
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 32
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 32 dereferenceable(352) %39) #28
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0.0.i.i, i64 noundef 32) #30
   br label %40
 
@@ -6595,7 +6595,7 @@ define void @_ZN7mitsuba10Properties14copy_attributeERKS0_RKNSt3__112basic_strin
   %.012.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.1.i.i.i, %12 ]
   %.0811.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %.19.i.i.i, %12 ]
   %13 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 32 dereferenceable(352) %13, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %14, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %14, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -6609,7 +6609,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 15:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %16 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %16)
   br i1 %17, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %15, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
@@ -6660,7 +6660,7 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
   br i1 %or.cond.i.i.i.i, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i, label %38
 
 38:                                               ; preds = %35
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %33, ptr noundef nonnull %31) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %33, ptr noundef nonnull align 32 dereferenceable(289) %31) #28
   br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i
 
 _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i: ; preds = %38, %35, %26
@@ -6677,7 +6677,7 @@ _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_strin
   br label %_ZN7mitsuba5EntryaSERKS0_.exit
 
 45:                                               ; preds = %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i
-  %46 = call noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %40, ptr noundef nonnull %27, ptr noundef nonnull %31)
+  %46 = call noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %40, ptr noundef nonnull align 32 dereferenceable(289) %27, ptr noundef nonnull align 32 dereferenceable(289) %31)
   br label %_ZN7mitsuba5EntryaSERKS0_.exit
 
 _ZN7mitsuba5EntryaSERKS0_.exit:                   ; preds = %42, %45
@@ -6864,7 +6864,7 @@ define void @_ZNK7mitsuba10Properties16named_referencesEv(ptr dead_on_unwind noa
   unreachable
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSL_EEv.exit: ; preds = %20
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %.noexc13 unwind label %.loopexit
 
 .noexc13:                                         ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSL_EEv.exit
@@ -6874,7 +6874,7 @@ _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_t
 25:                                               ; preds = %.noexc13
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #28
   br label %.body
 
 _ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKN7mitsuba14NamedReferenceEEENS_4pairINS_18__unwrap_ref_decayIT_E4typeENSE_IT0_E4typeEEEOSF_OSI_.exit: ; preds = %.noexc13
@@ -6884,8 +6884,8 @@ _ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9alloc
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKN7mitsuba14NamedReferenceEEENS_4pairINS_18__unwrap_ref_decayIT_E4typeENSE_IT0_E4typeEEEOSF_OSI_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %27, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
@@ -6900,7 +6900,7 @@ _ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9alloc
   %.0.i = phi ptr [ %32, %30 ], [ %34, %33 ]
   store ptr %.0.i, ptr %12, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #28
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #28
   %36 = getelementptr inbounds i8, ptr %.sroa.015.023, i64 352
   store i8 1, ptr %36, align 32
   br label %37
@@ -6934,7 +6934,7 @@ _ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stri
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #28
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #28
   br label %.body
 
 ._crit_edge:                                      ; preds = %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit, %7
@@ -6983,8 +6983,8 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 .lr.ph.i.i:                                       ; preds = %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEEC2EmmSC_.exit, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %5, %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEEC2EmmSC_.exit ]
   %23 = phi ptr [ %27, %.lr.ph.i.i ], [ %22, %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEEC2EmmSC_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.014.i.i, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.014.i.i, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
@@ -6998,7 +6998,7 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %.06.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %5, %.lr.ph.i.i ]
   %28 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #28
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i.i) #28
   %29 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %29, %15
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !70
@@ -7040,7 +7040,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -48
   %7 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #28
   %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEENS5_ISA_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
@@ -7106,7 +7106,7 @@ define void @_ZNK7mitsuba10Properties7objectsEb(ptr dead_on_unwind noalias nonnu
 
 21:                                               ; preds = %20
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
@@ -7127,8 +7127,8 @@ _ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9alloc
   br i1 %28, label %.thread, label %32
 
 .thread:                                          ; preds = %_ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKN7mitsuba3refINS9_6ObjectEEEEENS_4pairINS_18__unwrap_ref_decayIT_E4typeENSG_IT0_E4typeEEEOSH_OSK_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %26, i64 24
   %30 = load ptr, ptr %12, align 8
   store ptr %30, ptr %29, align 8
@@ -7152,7 +7152,7 @@ _ZNSt3__19make_pairB8ne190000IRKNS_12basic_stringIcNS_11char_traitsIcEENS_9alloc
   br label %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS7_6ObjectEEEED2Ev.exit
 
 _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS7_6ObjectEEEED2Ev.exit: ; preds = %.thread, %34, %35
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   br i1 %2, label %36, label %40
 
 36:                                               ; preds = %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS7_6ObjectEEEED2Ev.exit
@@ -7238,8 +7238,8 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 .lr.ph.i.i:                                       ; preds = %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEEC2EmmSE_.exit, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %29, %.lr.ph.i.i ], [ %5, %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEEC2EmmSE_.exit ]
   %25 = phi ptr [ %30, %.lr.ph.i.i ], [ %24, %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEEC2EmmSE_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i, i8 0, i64 24, i1 false)
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
   %28 = load ptr, ptr %27, align 8
@@ -7262,7 +7262,7 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i: ; preds = %33, %.lr.ph.i.i.i
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.i.i) #28
   %34 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %34, %15
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !75
@@ -7328,7 +7328,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i: ; preds = %9, %.lr.ph.i.i.i
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
@@ -7472,7 +7472,7 @@ define void @_ZN7mitsuba10Properties5mergeERKS0_(ptr nocapture noundef nonnull r
   br i1 %or.cond.i.i.i.i, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i, label %20
 
 20:                                               ; preds = %17
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %15, ptr noundef nonnull %13) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %15, ptr noundef nonnull align 32 dereferenceable(289) %13) #28
   br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i
 
 _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i: ; preds = %20, %17, %.lr.ph
@@ -7489,7 +7489,7 @@ _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_strin
   br label %_ZN7mitsuba5EntryaSERKS0_.exit
 
 27:                                               ; preds = %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i
-  %28 = call noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %22, ptr noundef nonnull %9, ptr noundef nonnull %13)
+  %28 = call noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %22, ptr noundef nonnull align 32 dereferenceable(289) %9, ptr noundef nonnull align 32 dereferenceable(289) %13)
   br label %_ZN7mitsuba5EntryaSERKS0_.exit
 
 _ZN7mitsuba5EntryaSERKS0_.exit:                   ; preds = %24, %27
@@ -7672,7 +7672,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %.012.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i ], [ %.1.i.i.i, %73 ]
   %.0811.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i ], [ %.19.i.i.i, %73 ]
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %75 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %68)
+  %75 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 32 dereferenceable(352) %74, ptr noundef nonnull align 8 dereferenceable(24) %68)
   %.19.in.idx.i.i.i = select i1 %75, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %75, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -7686,7 +7686,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 76:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %77 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %78 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %77)
+  %78 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 32 dereferenceable(352) %77)
   br i1 %78, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %76, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %.lr.ph
@@ -7742,7 +7742,7 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
   br i1 %108, label %110, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread
 
 _ZNK7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEneERKSR_.exit: ; preds = %103
-  %109 = tail call noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE6equalsEPKSt9type_infoSR_SR_(ptr noundef %86, ptr noundef nonnull %83, ptr noundef nonnull %84)
+  %109 = tail call noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE6equalsEPKSt9type_infoSR_SR_(ptr noundef %86, ptr noundef nonnull align 32 dereferenceable(264) %83, ptr noundef nonnull align 32 dereferenceable(264) %84)
   br i1 %109, label %110, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread
 
 110:                                              ; preds = %105, %99, %91, %_ZNK7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEneERKSR_.exit
@@ -7795,7 +7795,7 @@ define void @_ZNK7mitsuba10Properties9as_stringERKNSt3__112basic_stringIcNS1_11c
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 %16
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef nonnull %8)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %17, ptr noundef nonnull %8)
           to label %18 unwind label %21
 
 18:                                               ; preds = %3
@@ -7805,7 +7805,7 @@ define void @_ZNK7mitsuba10Properties9as_stringERKNSt3__112basic_stringIcNS1_11c
   store i32 -1, ptr %20, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
 21:                                               ; preds = %3
@@ -7816,7 +7816,7 @@ define void @_ZNK7mitsuba10Properties9as_stringERKNSt3__112basic_stringIcNS1_11c
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %25
 
 common.resume:                                    ; preds = %80, %25
@@ -7966,8 +7966,8 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   store ptr %76, ptr %79, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #28
   ret void
 
@@ -8091,7 +8091,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.exit.i.i.i.i:
   store i64 3, ptr %7, align 16
   %59 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 3, ptr %59, align 8
-  invoke void @_ZN5drjit6detail9to_stringILb1ENS_6MatrixIdLm3EEEJEEEvRNS_12StringBufferERKT0_PKmDpT1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 32 dereferenceable(96) %0, ptr noundef nonnull %7)
+  invoke void @_ZN5drjit6detail9to_stringILb1ENS_6MatrixIdLm3EEEJEEEvRNS_12StringBufferERKT0_PKmDpT1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 32 dereferenceable(192) %0, ptr noundef nonnull %7)
           to label %60 unwind label %64
 
 60:                                               ; preds = %57
@@ -8127,7 +8127,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.e
   store i64 4, ptr %5, align 16
   %72 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 4, ptr %72, align 8
-  invoke void @_ZN5drjit6detail9to_stringILb1ENS_6MatrixIdLm4EEEJEEEvRNS_12StringBufferERKT0_PKmDpT1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 32 dereferenceable(128) %0, ptr noundef nonnull %5)
+  invoke void @_ZN5drjit6detail9to_stringILb1ENS_6MatrixIdLm4EEEJEEEvRNS_12StringBufferERKT0_PKmDpT1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull %5)
           to label %73 unwind label %77
 
 73:                                               ; preds = %70
@@ -8292,8 +8292,8 @@ define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
-  tail call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #28
-  tail call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  tail call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %7) #28
+  tail call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   %9 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %9) #28
   ret void
@@ -8318,7 +8318,7 @@ define void @_ZNK7mitsuba10Properties9as_stringERKNSt3__112basic_stringIcNS1_11c
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 %16
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef nonnull %8)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %17, ptr noundef nonnull %8)
           to label %18 unwind label %21
 
 18:                                               ; preds = %4
@@ -8328,7 +8328,7 @@ define void @_ZNK7mitsuba10Properties9as_stringERKNSt3__112basic_stringIcNS1_11c
   store i32 -1, ptr %20, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
 21:                                               ; preds = %4
@@ -8339,7 +8339,7 @@ define void @_ZNK7mitsuba10Properties9as_stringERKNSt3__112basic_stringIcNS1_11c
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %25
 
 common.resume:                                    ; preds = %59, %25
@@ -8476,8 +8476,8 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   store ptr %71, ptr %74, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #28
   ret void
 }
@@ -8499,7 +8499,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsubalsERNSt3__113b
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %9, ptr noundef nonnull align 8 dereferenceable(136) %16)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %9, ptr noundef nonnull align 8 dereferenceable(148) %16)
   %17 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i unwind label %22
 
@@ -8548,7 +8548,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(136) %45)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(148) %45)
   %46 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i15 unwind label %51
 
@@ -8591,7 +8591,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %74)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %7, ptr noundef nonnull align 8 dereferenceable(148) %74)
   %75 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i17 unwind label %80
 
@@ -8618,7 +8618,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %84, i64 %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(136) %88)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(148) %88)
   %89 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i19 unwind label %94
 
@@ -8700,7 +8700,7 @@ _ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stri
   %130 = load i64, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %0, i64 %130
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %131)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(148) %131)
   %132 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i21 unwind label %137
 
@@ -8733,7 +8733,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %146 = load i64, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %143, i64 %146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) %147)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(148) %147)
   %148 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i23 unwind label %153
 
@@ -8760,7 +8760,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %160 = load i64, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %157, i64 %160
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %3, ptr noundef nonnull align 8 dereferenceable(136) %161)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %3, ptr noundef nonnull align 8 dereferenceable(148) %161)
   %162 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i25 unwind label %167
 
@@ -8805,7 +8805,7 @@ define void @_ZN7mitsuba10Properties9set_floatERKNSt3__112basic_stringIcNS1_11ch
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -8819,7 +8819,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -8884,7 +8884,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIdEERSR_OT_.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull %39) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %41, ptr noundef nonnull align 32 dereferenceable(264) %39) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIdEERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIdEERSR_OT_.exit: ; preds = %34, %43, %46
@@ -8924,7 +8924,7 @@ define void @_ZN7mitsuba10Properties11set_array3fERKNSt3__112basic_stringIcNS1_1
   %.012.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
   %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.19.in.idx.i.i.i.i = select i1 %16, i64 8, i64 0
   %.19.in.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 %.19.in.idx.i.i.i.i
   %.1.i.i.i.i = select i1 %16, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
@@ -8938,7 +8938,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
-  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %18)
   br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 .critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
@@ -9003,7 +9003,7 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   br i1 %or.cond.i.i.i, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIS3_EERSR_OT_.exit, label %45
 
 45:                                               ; preds = %42
-  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %40, ptr noundef nonnull %38) #28
+  call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %40, ptr noundef nonnull align 32 dereferenceable(264) %38) #28
   br label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIS3_EERSR_OT_.exit
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEaSIS3_EERSR_OT_.exit: ; preds = %34, %42, %45
@@ -9039,7 +9039,7 @@ define void @_ZNK7mitsuba10Properties11find_objectERKNSt3__112basic_stringIcNS1_
   %.012.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
   %.0811.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.19.in.idx.i.i.i = select i1 %11, i64 8, i64 0
   %.19.in.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 %.19.in.idx.i.i.i
   %.1.i.i.i = select i1 %11, ptr %.012.i.i.i, ptr %.0811.i.i.i
@@ -9053,7 +9053,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
-  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 32 dereferenceable(352) %13)
   br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
 .critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
@@ -9140,7 +9140,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !78
   %15 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 32 dereferenceable(352) %15, ptr noundef nonnull align 32 dereferenceable(352) %3)
           to label %.noexc.i unwind label %29, !noalias !78
 
 .noexc.i:                                         ; preds = %11
@@ -9160,13 +9160,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__construct_nodeIJRKNS_4pairIKS7_S9_EEEEENS_10unique_ptrINS_11__tree_nodeISA_PvEENS_22__tree_node_destructorINS5_ISP_EEEEEEDpOT_.exit
 
 25:                                               ; preds = %.noexc.i
-  %26 = invoke noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %20, ptr noundef nonnull %17, ptr noundef nonnull %16)
+  %26 = invoke noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %20, ptr noundef nonnull align 32 dereferenceable(289) %17, ptr noundef nonnull align 32 dereferenceable(289) %16)
           to label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__construct_nodeIJRKNS_4pairIKS7_S9_EEEEENS_10unique_ptrINS_11__tree_nodeISA_PvEENS_22__tree_node_destructorINS5_ISP_EEEEEEDpOT_.exit unwind label %27, !noalias !78
 
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #28, !noalias !78
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 32 dereferenceable(352) %15) #28, !noalias !78
   br label %.body.i
 
 29:                                               ; preds = %11
@@ -9227,7 +9227,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %11 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 32 dereferenceable(352) %10)
   br i1 %11, label %.critedge, label %41
 
 .critedge:                                        ; preds = %5, %8
@@ -9259,7 +9259,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEmmB8ne190000Ev.exit: ; preds = %.preheader9.i.i, %.preheader.i.i
   %.07.i.i = phi ptr [ %20, %.preheader.i.i ], [ %.0.i.i.i, %.preheader9.i.i ]
   %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 32
-  %24 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %24 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 32 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br i1 %24, label %.critedge2, label %30
 
 .critedge2:                                       ; preds = %.critedge, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEmmB8ne190000Ev.exit
@@ -9286,7 +9286,7 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   %.024.i = phi ptr [ %.024.i.be, %.preheader.i.backedge ], [ %31, %30 ]
   %.0.i = phi ptr [ %.0.i.be, %.preheader.i.backedge ], [ %6, %30 ]
   %32 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %33 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %32)
+  %33 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 32 dereferenceable(352) %32)
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.preheader.i
@@ -9295,7 +9295,7 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   br i1 %.not31.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit, label %.preheader.i.backedge
 
 36:                                               ; preds = %.preheader.i
-  %37 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %37 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 32 dereferenceable(352) %32, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br i1 %37, label %38, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit
 
 38:                                               ; preds = %36
@@ -9316,7 +9316,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br label %70
 
 41:                                               ; preds = %8
-  %42 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %42 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br i1 %42, label %.lr.ph.i.i.i.preheader, label %69
 
 .lr.ph.i.i.i.preheader:                           ; preds = %41
@@ -9346,7 +9346,7 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
 
 51:                                               ; preds = %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit.i.i.i
   %52 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i, i64 32
-  %53 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %52)
+  %53 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 32 dereferenceable(352) %52)
   br i1 %53, label %..critedge4_crit_edge, label %58
 
 ..critedge4_crit_edge:                            ; preds = %51
@@ -9375,7 +9375,7 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   %.024.i28 = phi ptr [ %.024.i28.be, %.preheader.i27.backedge ], [ %59, %58 ]
   %.0.i29 = phi ptr [ %.0.i29.be, %.preheader.i27.backedge ], [ %6, %58 ]
   %60 = getelementptr inbounds i8, ptr %.024.i28, i64 32
-  %61 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %60)
+  %61 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 32 dereferenceable(352) %60)
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.preheader.i27
@@ -9384,7 +9384,7 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   br i1 %.not31.i35, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit36, label %.preheader.i27.backedge
 
 64:                                               ; preds = %.preheader.i27
-  %65 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %65 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %60, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br i1 %65, label %66, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit36
 
 66:                                               ; preds = %64
@@ -9442,11 +9442,11 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__v
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %.thread.i.i, label %16
 
 16:                                               ; preds = %13
-  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %11, ptr noundef nonnull %9) #28
+  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %11, ptr noundef nonnull align 32 dereferenceable(289) %9) #28
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %16, %13, %7
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 32 dereferenceable(352) %8) #28
   br label %_ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba5EntryEEEPvEEEEEclB8ne190000EPSD_.exit.i
 
 _ZNSt3__122__tree_node_destructorINS_9allocatorINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba5EntryEEEPvEEEEEclB8ne190000EPSD_.exit.i: ; preds = %.thread.i.i, %3
@@ -10042,7 +10042,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail14variant_helperIJN5drjit5Arr
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(24) %14) #28
   tail call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #28
   br label %_ZN7mitsuba6detail14variant_helperIJNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENS9_INSA_IdLm4EEEEENS2_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit
 
@@ -10103,11 +10103,11 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_s
   br i1 %or.cond.i.i.i.i.i.i.i, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %10, ptr noundef nonnull %8) #28
+  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %10, ptr noundef nonnull align 32 dereferenceable(289) %8) #28
   br label %16
 
 16:                                               ; preds = %15, %12, %3
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 32 dereferenceable(352) %7) #28
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %1, i64 noundef 32) #30
   br label %17
 
@@ -10218,7 +10218,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %42 = getelementptr inbounds i8, ptr %.sroa.024.146, i64 32
   %43 = getelementptr inbounds i8, ptr %41, i64 32
   %44 = getelementptr inbounds i8, ptr %41, i64 64
-  %45 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  %45 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_(ptr noundef nonnull align 32 dereferenceable(352) %43, ptr noundef nonnull align 32 dereferenceable(352) %42)
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %.lr.ph
@@ -10235,7 +10235,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %or.cond.i.i.i.i.i.i, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i.i.i, label %53
 
 53:                                               ; preds = %50
-  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %48, ptr noundef nonnull %44) #28
+  tail call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %48, ptr noundef nonnull align 32 dereferenceable(289) %44) #28
   br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i.i.i
 
 _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i.i.i: ; preds = %53, %50, %.noexc
@@ -10252,7 +10252,7 @@ _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_strin
   br label %62
 
 60:                                               ; preds = %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i.i.i
-  %61 = invoke noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %55, ptr noundef nonnull %46, ptr noundef nonnull %44)
+  %61 = invoke noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %55, ptr noundef nonnull align 32 dereferenceable(289) %46, ptr noundef nonnull align 32 dereferenceable(289) %44)
           to label %62 unwind label %122
 
 62:                                               ; preds = %57, %60
@@ -10270,7 +10270,7 @@ _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_strin
 .preheader.i.i:                                   ; preds = %62, %.preheader.i.i.backedge
   %.0.i.i = phi ptr [ %.0.i.i.be, %.preheader.i.i.backedge ], [ %69, %62 ]
   %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  %71 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %70)
+  %71 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 32 dereferenceable(352) %70)
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %.preheader.i.i
@@ -10539,7 +10539,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_st
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !92
   %7 = getelementptr inbounds i8, ptr %5, i64 32
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 32 dereferenceable(352) %7, ptr noundef nonnull align 32 dereferenceable(352) %1)
           to label %.noexc.i unwind label %21, !noalias !92
 
 .noexc.i:                                         ; preds = %2
@@ -10559,13 +10559,13 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_st
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__construct_nodeIJRKNS_4pairIKS7_S9_EEEEENS_10unique_ptrINS_11__tree_nodeISA_PvEENS_22__tree_node_destructorINS5_ISP_EEEEEEDpOT_.exit
 
 17:                                               ; preds = %.noexc.i
-  %18 = invoke noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %12, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  %18 = invoke noundef zeroext i1 @_ZN7mitsuba6detail14variant_helperIJldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE4copyEPKSt9type_infoSR_Pv(ptr noundef %12, ptr noundef nonnull align 32 dereferenceable(289) %9, ptr noundef nonnull align 32 dereferenceable(289) %8)
           to label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__construct_nodeIJRKNS_4pairIKS7_S9_EEEEENS_10unique_ptrINS_11__tree_nodeISA_PvEENS_22__tree_node_destructorINS5_ISP_EEEEEEDpOT_.exit unwind label %19, !noalias !92
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28, !noalias !92
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 32 dereferenceable(352) %7) #28, !noalias !92
   br label %.body.i
 
 21:                                               ; preds = %2
@@ -10596,7 +10596,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 29:                                               ; preds = %.backedge, %.preheader.i
   %.0.i = phi ptr [ %27, %.preheader.i ], [ %.0.i.be, %.backedge ]
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  %31 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %30)
+  %31 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 32 dereferenceable(352) %30)
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
@@ -10690,7 +10690,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 
 21:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  invoke void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) %13)
+  invoke void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(148) %13)
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %21
@@ -10739,7 +10739,7 @@ _ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i: ; preds = 
   %45 = getelementptr inbounds i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = or i32 %46, 5
-  invoke void @_ZNSt3__18ios_base5clearEj(ptr noundef nonnull align 8 dereferenceable(136) %44, i32 noundef %47)
+  invoke void @_ZNSt3__18ios_base5clearEj(ptr noundef nonnull align 8 dereferenceable(148) %44, i32 noundef %47)
           to label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateB8ne190000Ej.exit unwind label %50
 
 48:                                               ; preds = %3
@@ -10922,7 +10922,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERNSt3__113ba
 
 25:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(136) %15)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(148) %15)
   %26 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i unwind label %31
 
@@ -11044,7 +11044,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
   %80 = getelementptr i8, ptr %79, i64 -24
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %10, i64 %81
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %82, ptr noundef nonnull %invariant.gep)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %82, ptr noundef nonnull %invariant.gep)
           to label %83 unwind label %86
 
 83:                                               ; preds = %76
@@ -11054,7 +11054,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
   store i32 -1, ptr %85, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %10, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %36, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %invariant.gep)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %invariant.gep)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %88
 
 86:                                               ; preds = %76
@@ -11065,7 +11065,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 88:                                               ; preds = %83
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %90
 
 90:                                               ; preds = %88, %86
@@ -11176,8 +11176,8 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   store ptr %47, ptr %135, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %invariant.gep, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %invariant.gep) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %invariant.gep) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %36) #28
   br label %139
 
@@ -11265,7 +11265,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 180:                                              ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %176)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(148) %176)
   %181 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i60 unwind label %186
 
@@ -11334,7 +11334,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
 
 32:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %12, ptr noundef nonnull align 8 dereferenceable(136) %28)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %12, ptr noundef nonnull align 8 dereferenceable(148) %28)
   %33 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i unwind label %38
 
@@ -11422,7 +11422,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit: ; preds = %14,
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(136) %60)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(148) %60)
   %69 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i78 unwind label %74
 
@@ -11469,7 +11469,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit80: ; preds = %6
 
 91:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(136) %87)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(148) %87)
   %92 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i81 unwind label %97
 
@@ -11600,7 +11600,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
 
 159:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %9, ptr noundef nonnull align 8 dereferenceable(136) %155)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %9, ptr noundef nonnull align 8 dereferenceable(148) %155)
   %160 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i84 unwind label %165
 
@@ -11938,7 +11938,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
 
 351:                                              ; preds = %327
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(136) %347)
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(148) %347)
   %352 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
           to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i103 unwind label %357
 
@@ -12032,7 +12032,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt3__1
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 %16
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef nonnull %8)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %17, ptr noundef nonnull %8)
           to label %18 unwind label %21
 
 18:                                               ; preds = %3
@@ -12042,7 +12042,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt3__1
   store i32 -1, ptr %20, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
 21:                                               ; preds = %3
@@ -12053,7 +12053,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt3__1
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %25
 
 common.resume:                                    ; preds = %65, %25
@@ -12120,8 +12120,8 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   store ptr %57, ptr %60, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #28
   ret void
 
@@ -12225,7 +12225,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12
   %.024.i = phi ptr [ %8, %.preheader.i ], [ %.024.i.be, %.backedge ]
   %.0.i = phi ptr [ %7, %.preheader.i ], [ %.0.i.be, %.backedge ]
   %11 = getelementptr inbounds i8, ptr %.024.i, i64 32
-  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 32 dereferenceable(352) %11)
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
@@ -12234,7 +12234,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12
   br i1 %.not31.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit.thread, label %.backedge
 
 15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 32 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %16, label %17, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit
 
 17:                                               ; preds = %15
@@ -12266,7 +12266,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !102
   %23 = getelementptr inbounds i8, ptr %21, i64 32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %3, align 8, !noalias !102
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i.i)
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 32 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i.i)
           to label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__construct_nodeIJRKNS_21piecewise_construct_tENS_5tupleIJRKS7_EEENSK_IJEEEEEENS_10unique_ptrINS_11__tree_nodeISA_PvEENS_22__tree_node_destructorINS5_ISS_EEEEEEDpOT_.exit unwind label %24, !noalias !102
 
 24:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit.thread
@@ -13095,8 +13095,8 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %storemerge.i = phi ptr [ %24, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba14NamedReferenceEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSE_m.exit.i ], [ null, %_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEENS5_ISA_EEE11__recommendB8ne190000Em.exit ]
   %26 = getelementptr inbounds %"struct.std::__1::pair.86", ptr %storemerge.i, i64 %10
   %27 = getelementptr inbounds %"struct.std::__1::pair.86", ptr %storemerge.i, i64 %.0.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %26, i64 24
   %29 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
@@ -13115,8 +13115,8 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %32, %25 ]
   %37 = phi ptr [ %41, %.lr.ph.i.i ], [ %36, %25 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %.014.i.i, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.014.i.i, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
@@ -13130,7 +13130,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %.06.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i ]
   %42 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #28
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i.i) #28
   %43 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %43, %31
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !70
@@ -13207,8 +13207,8 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %storemerge.i = phi ptr [ %23, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSG_m.exit.i ], [ null, %_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE11__recommendB8ne190000Em.exit ]
   %25 = getelementptr inbounds %"struct.std::__1::pair.94", ptr %storemerge.i, i64 %10
   %26 = getelementptr inbounds %"struct.std::__1::pair.94", ptr %storemerge.i, i64 %.0.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %25, i64 24
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -13229,8 +13229,8 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %32, %24 ]
   %39 = phi ptr [ %44, %.lr.ph.i.i ], [ %38, %24 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.014.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i, i8 0, i64 24, i1 false)
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
   %42 = load ptr, ptr %41, align 8
@@ -13253,7 +13253,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i: ; preds = %47, %.lr.ph.i.i.i
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i) #28
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.i.i) #28
   %48 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %48, %31
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !75
@@ -14795,7 +14795,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 %17
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull %9)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %18, ptr noundef nonnull %9)
           to label %19 unwind label %22
 
 19:                                               ; preds = %4
@@ -14805,7 +14805,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   store i32 -1, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %9)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %24
 
 22:                                               ; preds = %4
@@ -14816,7 +14816,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
 24:                                               ; preds = %19
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %26
 
 common.resume:                                    ; preds = %42, %26
@@ -14868,8 +14868,8 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   store ptr %38, ptr %41, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %9) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %7) #28
   ret void
 
@@ -14941,7 +14941,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIlEEvRNS
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 %16
-  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef nonnull %8)
+  invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %17, ptr noundef nonnull %8)
           to label %18 unwind label %21
 
 18:                                               ; preds = %3
@@ -14951,7 +14951,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIlEEvRNS
   store i32 -1, ptr %20, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
-  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
 21:                                               ; preds = %3
@@ -14962,7 +14962,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIlEEvRNS
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   br label %25
 
 common.resume:                                    ; preds = %56, %25
@@ -15018,8 +15018,8 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   store ptr %48, ptr %51, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #28
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #28
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #28
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %6) #28
   ret void
 

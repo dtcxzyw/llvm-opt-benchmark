@@ -561,7 +561,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread21"
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc13 unwind label %33
 
 .noexc13:                                         ; preds = %.noexc
@@ -571,7 +571,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
 24:                                               ; preds = %.noexc13
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   br label %36
 
 "_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread": ; preds = %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44", %21, %._crit_edge.loopexit.i.i.i.i, %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"

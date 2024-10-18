@@ -757,13 +757,13 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
   br label %gv_realloc.exit
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef %10) #17
+  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef range(i64 0, 17179869177) %10) #17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef %10) #13
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef range(i64 0, 17179869177) %10) #13
   tail call fastcc void @graphviz_exit() #16
   unreachable
 

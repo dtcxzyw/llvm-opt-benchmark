@@ -144,7 +144,7 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
 
 .thread133:                                       ; preds = %.lr.ph157, %.lr.ph162
   %50 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %50, i64 noundef 8) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull %50, i64 noundef 8) #7
   br i1 %.not83148, label %._crit_edge182, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.thread133
@@ -235,7 +235,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15Mutabl
 ._crit_edge182:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit, %.thread133
   store ptr %3, ptr %5, align 8
   %81 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %81, i64 noundef 16) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(656) %6, ptr noundef nonnull %81, i64 noundef 16) #7
   %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
   %83 = icmp ult i64 %82, %1
   br i1 %83, label %84, label %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit
@@ -298,7 +298,7 @@ _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; pr
   %104 = mul i64 %1, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %103, i64 %104, i1 false)
   %105 = load i64, ptr %7, align 8
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(656) %6) #7
   %107 = load ptr, ptr %6, align 8
   %108 = icmp eq ptr %107, %81
   br i1 %108, label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, label %109
@@ -308,7 +308,7 @@ _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; pr
   br label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit: ; preds = %._crit_edge186, %109
-  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
+  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %3) #7
   %111 = load ptr, ptr %3, align 8
   %112 = icmp eq ptr %111, %50
   br i1 %112, label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit, label %113
@@ -521,7 +521,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %75 = ptrtoint ptr %73 to i64
   %76 = ptrtoint ptr %71 to i64
   %77 = sub i64 %75, %76
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.us-phi55, ptr nonnull align 8 %71, i64 %77, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.us-phi55, ptr nonnull align 8 %71, i64 %77, i1 false)
   br label %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i
 
 _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i: ; preds = %74, %70

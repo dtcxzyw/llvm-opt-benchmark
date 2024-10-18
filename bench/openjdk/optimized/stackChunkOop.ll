@@ -787,7 +787,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deo
   br i1 %59, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i:     ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i, %60, %49, %43
-  %63 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %30, ptr noundef nonnull %0) #9
+  %63 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %30, ptr noundef nonnull align 8 dereferenceable(56) %0) #9
   %64 = load ptr, ptr %63, align 8
   %.not.i.i2 = icmp eq ptr %64, null
   br i1 %.not.i.i2, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i, label %65
@@ -1028,7 +1028,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %76
   %130 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %131 = sext i32 %130 to i64
   %132 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %133 = call noundef ptr %132(ptr noundef nonnull %1, i64 noundef %131) #9
+  %133 = call noundef ptr %132(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %131) #9
   %.not = icmp eq ptr %133, null
   br i1 %.not, label %139, label %134
 
@@ -1036,7 +1036,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %76
   %135 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %136 = sext i32 %135 to i64
   %137 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %138 = call noundef ptr %137(ptr noundef nonnull %1, i64 noundef %136) #9
+  %138 = call noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %136) #9
   call void @_ZN17stackChunkOopDesc9top_frameEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef %3)
   br label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
@@ -3051,7 +3051,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deo
   br i1 %46, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i:     ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i, %47, %36, %30
-  %50 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %17, ptr noundef nonnull %0) #9
+  %50 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %17, ptr noundef nonnull align 8 dereferenceable(56) %0) #9
   %51 = load ptr, ptr %50, align 8
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i, label %52
@@ -5143,7 +5143,7 @@ define weak_odr hidden void @_ZN17stackChunkOopDesc16fix_thawed_frameI11Register
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 224
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull %0) #9
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br i1 %19, label %20, label %_ZNK5frame17is_compiled_frameEv.exit
 
 20:                                               ; preds = %14, %3
@@ -5225,7 +5225,7 @@ _ZNK7nmethod14is_java_methodEv.exit.i:            ; preds = %35
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %52, %48
-  %68 = call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #9
+  %68 = call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %1) #9
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %55, %44
@@ -5272,7 +5272,7 @@ define weak_odr hidden void @_ZN17stackChunkOopDesc16fix_thawed_frameI16SmallReg
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 224
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull %0) #9
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br i1 %19, label %20, label %_ZNK5frame17is_compiled_frameEv.exit
 
 20:                                               ; preds = %14, %3
@@ -5354,7 +5354,7 @@ _ZNK7nmethod14is_java_methodEv.exit.i:            ; preds = %35
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %52, %48
-  %68 = call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #9
+  %68 = call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %1) #9
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %55, %44
@@ -8081,7 +8081,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deo
   br i1 %110, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i:   ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i, %111, %100, %94
-  %114 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %82, ptr noundef nonnull %5) #9
+  %114 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %82, ptr noundef nonnull align 8 dereferenceable(56) %5) #9
   %115 = load ptr, ptr %114, align 8
   %.not.i.i.i = icmp eq ptr %115, null
   br i1 %.not.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i, label %116
@@ -8293,7 +8293,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i43:       ; preds = %_ZN7nmethod14is_deo
   br i1 %202, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i36, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i44
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i44: ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i43, %203, %192, %186
-  %206 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %181, ptr noundef nonnull %3) #9
+  %206 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %181, ptr noundef nonnull align 8 dereferenceable(56) %3) #9
   %207 = load ptr, ptr %206, align 8
   %.not.i.i.i45 = icmp eq ptr %207, null
   br i1 %.not.i.i.i45, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i46, label %208
@@ -9487,7 +9487,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deo
   br i1 %110, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i:   ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i, %111, %100, %94
-  %114 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %82, ptr noundef nonnull %7) #9
+  %114 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %82, ptr noundef nonnull align 8 dereferenceable(56) %7) #9
   %115 = load ptr, ptr %114, align 8
   %.not.i.i.i = icmp eq ptr %115, null
   br i1 %.not.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i, label %116
@@ -9700,7 +9700,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i43:       ; preds = %_ZN7nmethod14is_deo
   br i1 %200, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i36, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i44
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i44: ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i43, %201, %190, %184
-  %204 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %179, ptr noundef nonnull %4) #9
+  %204 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %179, ptr noundef nonnull align 8 dereferenceable(56) %4) #9
   %205 = load ptr, ptr %204, align 8
   %.not.i.i.i45 = icmp eq ptr %205, null
   br i1 %.not.i.i.i45, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i46, label %206
@@ -11337,7 +11337,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %2, %_ZNK5frame20is_
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %36, %32
-  %52 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %5) #9
+  %52 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %5) #9
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %39, %28, %24
@@ -12321,7 +12321,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %2, %_ZNK5frame20is_
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %36, %32
-  %52 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %5) #9
+  %52 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %5) #9
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %39, %28, %24

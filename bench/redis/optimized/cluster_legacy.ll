@@ -4105,7 +4105,7 @@ if.end11:                                         ; preds = %while.body
   %call12 = call ptr @connTypeOfCluster() #33
   %4 = getelementptr i8, ptr %call12, i64 80
   %call12.val = load ptr, ptr %4, align 8
-  %call.i = call ptr %call12.val(i32 noundef %call, ptr noundef nonnull %require_auth) #33
+  %call.i = call ptr %call12.val(i32 noundef range(i32 0, -1) %call, ptr noundef nonnull %require_auth) #33
   %5 = getelementptr i8, ptr %call.i, i64 8
   %call13.val = load i32, ptr %5, align 8
   %cmp15.not = icmp eq i32 %call13.val, 2
@@ -11212,7 +11212,7 @@ if.end40:                                         ; preds = %if.end31, %if.then
   %9 = load ptr, ptr %conn, align 8
   %read.i = getelementptr inbounds i8, ptr %9, i64 144
   %10 = load ptr, ptr %read.i, align 8
-  %call.i = call i32 %10(ptr noundef nonnull %conn, ptr noundef nonnull %buf, i64 noundef %conv42) #33
+  %call.i = call i32 %10(ptr noundef nonnull %conn, ptr noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %conv42) #33
   %conv44 = sext i32 %call.i to i64
   %cmp45 = icmp eq i32 %call.i, -1
   br i1 %cmp45, label %land.lhs.true, label %if.end51

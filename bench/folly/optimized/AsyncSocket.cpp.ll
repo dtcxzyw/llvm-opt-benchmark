@@ -17166,7 +17166,7 @@ _ZN5folly23ConstructorCallbackListINS_17ObserverContainerINS_28AsyncSocketObserv
   %arrayidx.i.i.i.i = getelementptr inbounds [4 x %"class.folly::Function.212"], ptr %callbacks_.i.i, i64 0, i64 %i.014.i.i
   %call_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 48
   %7 = load ptr, ptr %call_.i.i.i, align 16, !tbaa !503
-  invoke void %7(ptr noundef nonnull %observerContainer_, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i.i)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(81) %observerContainer_, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i.i)
           to label %.noexc8.i unwind label %lpad3.i
 
 .noexc8.i:                                        ; preds = %_ZN5folly23ConstructorCallbackListINS_17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EEELm4EE6globalEv.exit12.i.i
@@ -23444,7 +23444,7 @@ _ZN5folly23ConstructorCallbackListINS_17ObserverContainerINS_28AsyncSocketObserv
   %arrayidx.i.i.i.i = getelementptr inbounds [4 x %"class.folly::Function.212"], ptr %callbacks_.i.i, i64 0, i64 %i.014.i.i
   %call_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 48
   %7 = load ptr, ptr %call_.i.i.i, align 16, !tbaa !503
-  invoke void %7(ptr noundef nonnull %observerContainer_, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i.i)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(81) %observerContainer_, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i.i)
           to label %.noexc8.i unwind label %lpad3.i
 
 .noexc8.i:                                        ; preds = %_ZN5folly23ConstructorCallbackListINS_17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EEELm4EE6globalEv.exit12.i.i
@@ -24849,7 +24849,7 @@ _ZN5folly23ConstructorCallbackListINS_17ObserverContainerINS_28AsyncSocketObserv
   %arrayidx.i.i.i.i = getelementptr inbounds [4 x %"class.folly::Function.212"], ptr %callbacks_.i.i, i64 0, i64 %i.014.i.i
   %call_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 48
   %15 = load ptr, ptr %call_.i.i.i, align 16, !tbaa !503
-  invoke void %15(ptr noundef nonnull %observerContainer_, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i.i)
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(81) %observerContainer_, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i.i)
           to label %.noexc8.i unwind label %lpad3.i
 
 .noexc8.i:                                        ; preds = %_ZN5folly23ConstructorCallbackListINS_17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EEELm4EE6globalEv.exit12.i.i
@@ -33502,7 +33502,7 @@ invoke.cont243:                                   ; preds = %if.then237
           to label %.noexc unwind label %lpad244
 
 .noexc:                                           ; preds = %invoke.cont243
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ex238, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ex238, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc

@@ -127,7 +127,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZThn16_N17AdditionalToolBarD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN17AdditionalToolBarD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %2) #17
   ret void
 }
 
@@ -686,7 +686,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %34, %_ZN17QArrayDat
   %40 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %40, ptr %3, align 8, !noalias !12
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %3)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %41 = invoke noundef zeroext i1 @_ZN7QObject11setPropertyEPKcRK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %.013, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %42 unwind label %49
@@ -1620,7 +1620,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %47
 _ZN7QStringD2Ev.exit:                             ; preds = %47, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %37, ptr %7, align 8, !noalias !24
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %7)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %52 = load ptr, ptr %39, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 32
@@ -2269,7 +2269,7 @@ define void @_ZN29AdditionalToolbarWidgetAction18sendTextToCallbackEv(ptr nounde
 23:                                               ; preds = %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !31
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ApplyLineEdit16staticMetaObjectE, ptr noundef nonnull %2, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ApplyLineEdit16staticMetaObjectE, ptr noundef nonnull align 8 %2, i32 1)
           to label %_ZNK7QObject12findChildrenIP13ApplyLineEditEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %24
 
 24:                                               ; preds = %23
@@ -2956,7 +2956,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i146:   ; preds = %135
 _ZN7QStringD2Ev.exit148:                          ; preds = %135, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i146, %138
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr %125, ptr %10, align 8, !noalias !35
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %10)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %140 = load ptr, ptr %127, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 32
@@ -3125,7 +3125,7 @@ _ZN14VariantPointerI20_ext_toolbar_value_tE5asPtrE8QVariant.exit154: ; preds = %
   store ptr %200, ptr %198, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %192, ptr %8, align 8, !noalias !39
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %8)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %201 = load ptr, ptr %188, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 32
@@ -3249,7 +3249,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169:   ; preds = %242
 _ZN7QStringD2Ev.exit171:                          ; preds = %242, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169, %245
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %228, ptr %6, align 8, !noalias !43
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %6)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %247 = load ptr, ptr %232, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 32
@@ -3692,7 +3692,7 @@ define noundef ptr @_ZN29AdditionalToolbarWidgetAction28extractToolbarItemFromOb
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)

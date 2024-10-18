@@ -85,17 +85,17 @@ define noundef ptr @RAROpenArchiveEx(ptr nocapture noundef %0) local_unnamed_add
           to label %9 unwind label %31
 
 9:                                                ; preds = %6
-  invoke void @_ZN11CommandDataC1Ev(ptr noundef nonnull align 8 dereferenceable(100904) %8)
+  invoke void @_ZN11CommandDataC1Ev(ptr noundef nonnull align 8 dereferenceable(174824) %8)
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %9
   %10 = getelementptr inbounds i8, ptr %8, i64 100904
-  invoke void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %10, ptr noundef nonnull %8)
+  invoke void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %10, ptr noundef nonnull align 8 dereferenceable(174824) %8)
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
   %12 = getelementptr inbounds i8, ptr %8, i64 158016
-  invoke void @_ZN10CmdExtractC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(16800) %12, ptr noundef nonnull %8)
+  invoke void @_ZN10CmdExtractC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(16800) %12, ptr noundef nonnull align 8 dereferenceable(174824) %8)
           to label %_ZN7DataSetC2Ev.exit unwind label %15
 
 13:                                               ; preds = %.noexc
@@ -115,7 +115,7 @@ define noundef ptr @RAROpenArchiveEx(ptr nocapture noundef %0) local_unnamed_add
 
 17:                                               ; preds = %15, %13
   %.pn.i = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  tail call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %8) #17
+  tail call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %8) #17
   br label %.body
 
 _ZN7DataSetC2Ev.exit:                             ; preds = %11
@@ -199,7 +199,7 @@ _ZN7DataSetC2Ev.exit:                             ; preds = %11
   store i32 15, ptr %7, align 1
   call void @_ZN10CmdExtractD1Ev(ptr noundef nonnull align 8 dereferenceable(16800) %12) #17
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %10) #17
-  call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %8) #17
+  call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %8) #17
   call void @_ZdlPv(ptr noundef nonnull %8) #18
   br label %_ZN5ArrayIwED2Ev.exit
 
@@ -236,7 +236,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   store i32 %.sink131, ptr %7, align 1
   call void @_ZN10CmdExtractD1Ev(ptr noundef nonnull align 8 dereferenceable(16800) %12) #17
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %10) #17
-  call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %8) #17
+  call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %8) #17
   call void @_ZdlPv(ptr noundef nonnull %8) #18
   br label %_ZN5ArrayIwED2Ev.exit
 
@@ -742,7 +742,7 @@ define i32 @RARCloseArchive(ptr noundef %0) local_unnamed_addr #0 personality pt
   %7 = getelementptr inbounds i8, ptr %0, i64 158016
   tail call void @_ZN10CmdExtractD1Ev(ptr noundef nonnull align 8 dereferenceable(16800) %7) #17
   tail call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %4) #17
-  tail call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %0) #17
+  tail call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   %spec.select = select i1 %5, i32 0, i32 17
   br label %.thread14

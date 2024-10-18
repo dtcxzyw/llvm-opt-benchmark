@@ -671,7 +671,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %265, label %interclrep.exit, label %266
 
 266:                                              ; preds = %258
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef %.1200260)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1200260)
   %267 = load ptr, ptr %65, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 232
   %.03445.i = load ptr, ptr %268, align 8

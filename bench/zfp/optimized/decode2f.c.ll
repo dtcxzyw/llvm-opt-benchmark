@@ -313,7 +313,7 @@ stream_read_bits.exit.i11:                        ; preds = %148, %138
   %165 = load i32, ptr %164, align 4
   %166 = add i32 %165, -9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %167 = call fastcc i32 @decode_ints_uint32(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef %3)
+  %167 = call fastcc i32 @decode_ints_uint32(ptr noundef %161, i32 noundef %166, i32 noundef range(i32 0, -2147483648) %160, ptr noundef %3)
   %168 = icmp ult i32 %167, %163
   br i1 %168, label %169, label %192
 

@@ -4314,7 +4314,7 @@ invoke.cont24:                                    ; preds = %invoke.cont
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont24
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fracCharStr)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fracCharStr)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -4426,7 +4426,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %invoke.cont47, %if.then.i.i.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fracCharStr) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fracCharStr) #24
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fractionStr) #24
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %exponentStr) #24
   br label %return
@@ -4474,7 +4474,7 @@ ehcleanup49:                                      ; preds = %ehcleanup, %lpad36
 
 ehcleanup50:                                      ; preds = %ehcleanup49, %lpad32
   %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup49 ], [ %52, %lpad32 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fracCharStr) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fracCharStr) #24
   br label %ehcleanup51
 
 ehcleanup51:                                      ; preds = %ehcleanup50, %lpad30
@@ -4498,7 +4498,7 @@ invoke.cont57:                                    ; preds = %if.else
 
 invoke.cont59:                                    ; preds = %invoke.cont57
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp55) #24
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %numCharStr)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %numCharStr)
           to label %invoke.cont62 unwind label %lpad56
 
 invoke.cont62:                                    ; preds = %invoke.cont59
@@ -4519,7 +4519,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
   %sub.i85 = sub nsw i32 0, %call60
   %rReqPos.i86 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %sub.i85, ptr %rReqPos.i86, align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %numCharStr) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %numCharStr) #24
   br label %return
 
 lpad56:                                           ; preds = %invoke.cont59, %if.else
@@ -4536,7 +4536,7 @@ lpad58:                                           ; preds = %invoke.cont57
 lpad63:                                           ; preds = %invoke.cont67, %invoke.cont62
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %numCharStr) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %numCharStr) #24
   br label %ehcleanup75
 
 ehcleanup75:                                      ; preds = %lpad63, %lpad58, %lpad56

@@ -6423,7 +6423,7 @@ define internal void @dissect_pfcp_f_seid(ptr noundef %0, ptr noundef %1, ptr no
   %42 = load ptr, ptr %18, align 8
   %43 = call ptr @tvb_address_to_str(ptr noundef %42, ptr noundef %0, i32 noundef 3, i32 noundef %.0) #12
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2381, ptr noundef %43) #12
-  %44 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0, i32 noundef 16) #12
+  %44 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 9, 14) %.0, i32 noundef 16) #12
   store i32 3, ptr %39, align 8
   %45 = getelementptr inbounds i8, ptr %39, i64 4
   store i32 16, ptr %45, align 4

@@ -1541,7 +1541,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit: ; preds = %258, %_
 
 322:                                              ; preds = %.lr.ph144
   %323 = getelementptr inbounds i8, ptr %.sroa.078.0142, i64 8
-  call void @glVertex3fv(ptr noundef nonnull %323)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %323)
   %.pre = load ptr, ptr %250, align 8
   br label %324
 
@@ -1574,7 +1574,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit: ; preds = %258, %_
 
 336:                                              ; preds = %.lr.ph149
   %337 = getelementptr inbounds i8, ptr %332, i64 8
-  call void @glVertex3fv(ptr noundef nonnull %337)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %337)
   %.pre162 = load ptr, ptr %329, align 8
   br label %338
 
@@ -1636,7 +1636,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit: ; preds = %258, %_
 .lr.ph154:                                        ; preds = %343, %.lr.ph154
   %.sroa.067.0152 = phi ptr [ %377, %.lr.ph154 ], [ %373, %343 ]
   %376 = getelementptr inbounds i8, ptr %.sroa.067.0152, i64 8
-  call void @glVertex3fv(ptr noundef nonnull %376)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %376)
   %377 = getelementptr inbounds i8, ptr %.sroa.067.0152, i64 48
   %378 = load ptr, ptr %374, align 8
   %.not109 = icmp eq ptr %377, %378
@@ -1649,7 +1649,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit: ; preds = %258, %_
 ._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %343
   %379 = phi ptr [ %.pre163, %._crit_edge155.loopexit ], [ %373, %343 ]
   %380 = getelementptr inbounds i8, ptr %379, i64 56
-  call void @glVertex3fv(ptr noundef nonnull %380)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %380)
   call void @glEnd()
   br label %381
 
@@ -5215,7 +5215,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   %40 = icmp samesign ugt i64 %.pre-phi.i, 12
   br i1 %40, label %.lr.ph, label %._crit_edge.thread
 
@@ -5264,7 +5264,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i:                 ; preds = %60
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i, %60, %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %56, i64 12, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %56, i64 12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(12) %56, i64 12, i1 false)
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit
 
 67:                                               ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i
@@ -8412,7 +8412,7 @@ define linkonce_odr noundef i32 @_ZN3vcg6KdTreeIfE10createTreeEjjjj(ptr noundef 
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds %"class.vcg::Point3", ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
   %20 = add i32 %2, 1
   %21 = icmp ult i32 %20, %3
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
@@ -8443,7 +8443,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i:                 ; preds = %27
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i, %27, %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit
 
 34:                                               ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i
@@ -10301,7 +10301,7 @@ define linkonce_odr ptr @_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_mRNS3_1
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %2, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
@@ -10706,7 +10706,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP8CVertexOSt6vectorIS2_SaIS2_EEEEmEv
 define linkonce_odr ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(57) %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::PointerToAttribute", align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %2, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -11743,7 +11743,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypeP
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.013.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ %1, %3 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.013.i.i.i, i8 0, i64 24, i1 false)
   %19 = add i64 %.01012.i.i.i, -1
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %19, 0
@@ -11773,7 +11773,7 @@ _ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_le
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.013.i.i.i31 = phi ptr [ %30, %.lr.ph.i.i.i30 ], [ %28, %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %29, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i31, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.013.i.i.i31, i8 0, i64 24, i1 false)
   %29 = add i64 %.01012.i.i.i32, -1
   %30 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %29, 0
@@ -12706,7 +12706,7 @@ define void @_ZN15EditPointPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedD
 define void @_ZThn16_N15EditPointPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #16 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(1116) %5)
-  tail call void @_ZN3vcg3tri8KNNGraphI6CMeshOE13DeleteKNNTreeERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
+  tail call void @_ZN3vcg3tri8KNNGraphI6CMeshOE13DeleteKNNTreeERS2_(ptr noundef nonnull align 8 dereferenceable(1288) %1)
   ret void
 }
 

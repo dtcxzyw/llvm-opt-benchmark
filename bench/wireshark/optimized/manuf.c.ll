@@ -58990,7 +58990,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define void @ws_manuf_iter_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, ptr noundef nonnull readonly align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
   %3 = getelementptr i8, ptr %0, i64 27
   store i8 0, ptr %3, align 1
   %4 = getelementptr i8, ptr %0, i64 28
@@ -59016,7 +59016,7 @@ define void @ws_manuf_iter_init(ptr nocapture noundef writeonly %0) local_unname
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %15, ptr noundef nonnull readonly align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %15, ptr noundef nonnull align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 77
   store i8 36, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %0, i64 80
@@ -59257,7 +59257,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   store i64 0, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull readonly align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 27
   store i8 0, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %2, i64 28
@@ -59283,7 +59283,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %18, ptr noundef nonnull readonly align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %18, ptr noundef nonnull align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
   %19 = getelementptr inbounds i8, ptr %2, i64 77
   store i8 36, ptr %19, align 1
   %20 = getelementptr inbounds i8, ptr %2, i64 80

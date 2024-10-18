@@ -653,7 +653,7 @@ while.body.i:                                     ; preds = %entry, %while.cond.
   %numread.08.i = phi i64 [ %add.i, %while.cond.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %numread.08.i
   %sub.i = sub nuw nsw i64 32, %numread.08.i
-  %call.i = call i64 @read(i32 noundef %call, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #7
+  %call.i = call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #7
   %or.cond = icmp slt i64 %call.i, 1
   br i1 %or.cond, label %read_all.exit.thread, label %while.cond.i
 

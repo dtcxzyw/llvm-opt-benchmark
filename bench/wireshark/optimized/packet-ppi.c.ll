@@ -608,7 +608,7 @@ define internal i32 @dissect_ppi(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 65:                                               ; preds = %58
   %66 = load i32, ptr @ett_dot11_common, align 4
-  %67 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %66, ptr noundef null, ptr noundef nonnull @.str.278) #3
+  %67 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef range(i32 4, 65540) %63, i32 noundef %66, ptr noundef null, ptr noundef nonnull @.str.278) #3
   %68 = tail call ptr @wmem_packet_scope() #3
   %69 = tail call ptr @ptvcursor_new(ptr noundef %68, ptr noundef %67, ptr noundef %0, i32 noundef %.0325363) #3
   %70 = load i32, ptr @hf_ppi_field_type, align 4
@@ -912,7 +912,7 @@ ptvcursor_add_invalid_check.exit150.i:            ; preds = %221, %214
 
 223:                                              ; preds = %58
   %224 = load i32, ptr @ett_dot11n_mac_phy, align 4
-  %225 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.322) #3
+  %225 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef range(i32 4, 65540) %63, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.322) #3
   %226 = tail call ptr @wmem_packet_scope() #3
   %227 = tail call ptr @ptvcursor_new(ptr noundef %226, ptr noundef %225, ptr noundef %0, i32 noundef %.0325363) #3
   %228 = load i32, ptr @hf_ppi_field_type, align 4
@@ -929,7 +929,7 @@ ptvcursor_add_invalid_check.exit150.i:            ; preds = %221, %214
   br label %dissect_80211_common.exit
 
 235:                                              ; preds = %223
-  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %225, i32 noundef %232, i32 noundef 12, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %225, i32 noundef %232, i32 noundef 12, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %236 = add i32 %232, 9
   %237 = load ptr, ptr %44, align 8
   %238 = tail call ptr @ptvcursor_new(ptr noundef %237, ptr noundef %225, ptr noundef %0, i32 noundef %236) #3
@@ -1314,7 +1314,7 @@ ptvcursor_add_invalid_check.exit99.i:             ; preds = %441, %ptvcursor_add
 
 454:                                              ; preds = %58
   %455 = load i32, ptr @ett_aggregation_extension, align 4
-  %456 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %455, ptr noundef null, ptr noundef nonnull @.str.284) #3
+  %456 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef range(i32 4, 65540) %63, i32 noundef %455, ptr noundef null, ptr noundef nonnull @.str.284) #3
   %457 = tail call ptr @wmem_packet_scope() #3
   %458 = tail call ptr @ptvcursor_new(ptr noundef %457, ptr noundef %456, ptr noundef %0, i32 noundef %.0325363) #3
   %459 = load i32, ptr @hf_ppi_field_type, align 4
@@ -1340,7 +1340,7 @@ ptvcursor_add_invalid_check.exit99.i:             ; preds = %441, %ptvcursor_add
 
 471:                                              ; preds = %58
   %472 = load i32, ptr @ett_8023_extension, align 4
-  %473 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %472, ptr noundef null, ptr noundef nonnull @.str.285) #3
+  %473 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef range(i32 4, 65540) %63, i32 noundef %472, ptr noundef null, ptr noundef nonnull @.str.285) #3
   %474 = tail call ptr @wmem_packet_scope() #3
   %475 = tail call ptr @ptvcursor_new(ptr noundef %474, ptr noundef %473, ptr noundef %0, i32 noundef %.0325363) #3
   %476 = load i32, ptr @hf_ppi_field_type, align 4

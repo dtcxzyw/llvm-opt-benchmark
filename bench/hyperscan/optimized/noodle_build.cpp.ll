@@ -182,7 +182,7 @@ for.end57:                                        ; preds = %land.end, %for.end
 do.end61:                                         ; preds = %for.end57
   %17 = load ptr, ptr %agg.result, align 8, !alias.scope !8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %lit) #15
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(104) %lit) #15
   %cmp24.i = icmp ugt i64 %call.i, 1
   br i1 %cmp24.i, label %for.body.lr.ph.i, label %invoke.cont63
 
@@ -193,9 +193,9 @@ for.body.lr.ph.i:                                 ; preds = %do.end61
 for.body.i:                                       ; preds = %for.cond.backedge.i, %for.body.lr.ph.i
   %add26.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i76, %for.cond.backedge.i ]
   %i.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add26.i, %for.cond.backedge.i ]
-  %call3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %lit, i64 noundef %i.025.i) #15
+  %call3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(104) %lit, i64 noundef %i.025.i) #15
   %18 = load i8, ptr %call3.i, align 1
-  %call5.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %lit, i64 noundef %add26.i) #15
+  %call5.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(104) %lit, i64 noundef %add26.i) #15
   %19 = load i8, ptr %call5.i, align 1
   %20 = load i8, ptr %nocase.i, align 4
   %tobool.i = trunc i8 %20 to i1

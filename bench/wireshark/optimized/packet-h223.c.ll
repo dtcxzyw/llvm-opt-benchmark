@@ -1167,7 +1167,7 @@ find_h223_mux_element.exit.i.i:                   ; preds = %168, %164, %161
   br i1 %.not25.i.i, label %find_h223_mux_element.exit.thread.i.i, label %173
 
 173:                                              ; preds = %find_h223_mux_element.exit.i.i
-  %174 = call fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %139, ptr noundef %2, i32 noundef %141, ptr noundef %.0110131.i, ptr noundef nonnull %4, ptr noundef nonnull %172, i32 noundef 0, i32 noundef %.0112.i, i32 noundef %5, i32 noundef %6)
+  %174 = call fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %139, ptr noundef %2, i32 noundef %141, ptr noundef %.0110131.i, ptr noundef nonnull %4, ptr noundef nonnull %172, i32 noundef 0, i32 noundef range(i32 0, 2) %.0112.i, i32 noundef %5, i32 noundef %6)
   br label %dissect_mux_payload.exit.i
 
 find_h223_mux_element.exit.thread.i.i:            ; preds = %.critedge.i.i.i, %find_h223_mux_element.exit.i.i

@@ -247,7 +247,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %add.i.i = add nuw nsw i64 %idxprom.i.i, 1
   %add4.i.i = add nsw i64 %add.i.i, %sub.i.i
   %conv5.i.i = trunc i64 %add4.i.i to i32
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.033.i, i32 1)
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 range(i32 0, -1) %list.addr.033.i, i32 1)
   %idxprom.i9.i = zext i32 %cond.i.i to i64
   %arrayidx.i10.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i, i64 %idxprom.i9.i
   %5 = load i32, ptr %arrayidx.i10.i, align 4
@@ -511,7 +511,7 @@ sw.bb.i:                                          ; preds = %while.body
   %3 = load ptr, ptr %ls, align 8
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i1040)
-  %call.i.i1041 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v.i1040, i32 noundef 0)
+  %call.i.i1041 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v.i1040, i32 noundef 0)
   %4 = load i32, ptr %k.i1042, align 8
   %cmp.i1043 = icmp eq i32 %4, 0
   br i1 %cmp.i1043, label %if.then.i1046, label %expr_cond.exit1047
@@ -755,7 +755,7 @@ jmp_patchins.exit.i.i44.i:                        ; preds = %while.end.i.i40.i
 jmp_tohere.exit.i359:                             ; preds = %jmp_patchins.exit.i.i44.i, %if.then2.i.i.i360, %jmp_append.exit.i
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i1020)
-  %call.i.i1021 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v.i1020, i32 noundef 0)
+  %call.i.i1021 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v.i1020, i32 noundef 0)
   %28 = load i32, ptr %k.i1022, align 8
   %cmp.i1023 = icmp eq i32 %28, 0
   br i1 %cmp.i1023, label %if.then.i1025, label %expr_cond.exit
@@ -1147,7 +1147,7 @@ sw.bb1.i:                                         ; preds = %while.body
   %lasttarget.i212 = getelementptr inbounds i8, ptr %66, i64 44
   store i32 %67, ptr %lasttarget.i212, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i.i209)
-  %call.i997 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v.i.i209, i32 noundef 0)
+  %call.i997 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v.i.i209, i32 noundef 0)
   %68 = load i32, ptr %k.i.i213, align 8
   %cmp.i.i214 = icmp eq i32 %68, 0
   br i1 %cmp.i.i214, label %if.then.i.i291, label %expr_cond.exit.i215
@@ -1686,9 +1686,9 @@ if.then.i878:                                     ; preds = %var_new.exit907
 lex_check.exit880:                                ; preds = %var_new.exit907
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i852)
-  %call.i.i853 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i852, i32 noundef 0)
+  %call.i.i853 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i852, i32 noundef 0)
   %150 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %150, ptr noundef %e.i852)
+  call fastcc void @expr_discharge(ptr noundef %150, ptr noundef nonnull %e.i852)
   %151 = load i32, ptr %k.i.i.i854, align 8
   %cmp.i.i.i855 = icmp eq i32 %151, 12
   br i1 %cmp.i.i.i855, label %if.then.i.i.i869, label %expr_free.exit.i.i856
@@ -1734,7 +1734,7 @@ if.end.i.i.i.i865:                                ; preds = %if.then.i.i8.i.i863
 
 expr_next.exit875:                                ; preds = %expr_free.exit.i.i856, %if.end.i.i.i.i865
   store i32 %add.i.i.i.i858, ptr %freereg.i.i7.i.i857, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %150, ptr noundef %e.i852, i32 noundef %155)
+  call fastcc void @expr_toreg(ptr noundef nonnull %150, ptr noundef nonnull %e.i852, i32 noundef %155)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i852)
   %158 = load i32, ptr %tok, align 4
   %cmp.not.i848 = icmp eq i32 %158, 44
@@ -1747,9 +1747,9 @@ if.then.i849:                                     ; preds = %expr_next.exit875
 lex_check.exit851:                                ; preds = %expr_next.exit875
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i823)
-  %call.i.i824 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i823, i32 noundef 0)
+  %call.i.i824 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i823, i32 noundef 0)
   %159 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %159, ptr noundef %e.i823)
+  call fastcc void @expr_discharge(ptr noundef %159, ptr noundef nonnull %e.i823)
   %160 = load i32, ptr %k.i.i.i825, align 8
   %cmp.i.i.i826 = icmp eq i32 %160, 12
   br i1 %cmp.i.i.i826, label %if.then.i.i.i840, label %expr_free.exit.i.i827
@@ -1795,7 +1795,7 @@ if.end.i.i.i.i836:                                ; preds = %if.then.i.i8.i.i834
 
 expr_next.exit846:                                ; preds = %expr_free.exit.i.i827, %if.end.i.i.i.i836
   store i32 %add.i.i.i.i829, ptr %freereg.i.i7.i.i828, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %159, ptr noundef %e.i823, i32 noundef %164)
+  call fastcc void @expr_toreg(ptr noundef nonnull %159, ptr noundef nonnull %e.i823, i32 noundef %164)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i823)
   %167 = load i32, ptr %tok, align 4
   %cmp.i819 = icmp eq i32 %167, 44
@@ -1804,9 +1804,9 @@ expr_next.exit846:                                ; preds = %expr_free.exit.i.i8
 if.then.i13.i:                                    ; preds = %expr_next.exit846
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i795)
-  %call.i.i796 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i795, i32 noundef 0)
+  %call.i.i796 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i795, i32 noundef 0)
   %168 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %168, ptr noundef %e.i795)
+  call fastcc void @expr_discharge(ptr noundef %168, ptr noundef nonnull %e.i795)
   %169 = load i32, ptr %k.i.i.i797, align 8
   %cmp.i.i.i798 = icmp eq i32 %169, 12
   br i1 %cmp.i.i.i798, label %if.then.i.i.i812, label %expr_free.exit.i.i799
@@ -1852,7 +1852,7 @@ if.end.i.i.i.i808:                                ; preds = %if.then.i.i8.i.i806
 
 expr_next.exit:                                   ; preds = %expr_free.exit.i.i799, %if.end.i.i.i.i808
   store i32 %add.i.i.i.i801, ptr %freereg.i.i7.i.i800, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %168, ptr noundef %e.i795, i32 noundef %173)
+  call fastcc void @expr_toreg(ptr noundef nonnull %168, ptr noundef nonnull %e.i795, i32 noundef %173)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i795)
   br label %parse_for_num.exit.i
 
@@ -2350,7 +2350,7 @@ if.then.i552:                                     ; preds = %while.end.i.i
 lex_check.exit554:                                ; preds = %while.end.i.i
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %258 = load i32, ptr %linenumber.i, align 8
-  %call.i.i519 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i.i, i32 noundef 0)
+  %call.i.i519 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i.i, i32 noundef 0)
   %259 = load i32, ptr %tok, align 4
   %cmp.i.i5221510 = icmp eq i32 %259, 44
   br i1 %cmp.i.i5221510, label %while.body.i526, label %expr_list.exit
@@ -2359,7 +2359,7 @@ while.body.i526:                                  ; preds = %lex_check.exit554, 
   %n.0.i1511 = phi i32 [ %inc.i536, %expr_tonextreg.exit.i535 ], [ 1, %lex_check.exit554 ]
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %260 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %260, ptr noundef %e.i.i)
+  call fastcc void @expr_discharge(ptr noundef %260, ptr noundef nonnull %e.i.i)
   %261 = load i32, ptr %k.i.i.i527, align 8
   %cmp.i.i.i528 = icmp eq i32 %261, 12
   br i1 %cmp.i.i.i528, label %if.then.i.i.i543, label %expr_free.exit.i.i529
@@ -2405,8 +2405,8 @@ if.end.i.i.i.i539:                                ; preds = %if.then.i.i8.i.i537
 
 expr_tonextreg.exit.i535:                         ; preds = %if.end.i.i.i.i539, %expr_free.exit.i.i529
   store i32 %add.i.i.i.i531, ptr %freereg.i.i7.i.i530, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %260, ptr noundef %e.i.i, i32 noundef %265)
-  %call.i7.i = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i.i, i32 noundef 0)
+  call fastcc void @expr_toreg(ptr noundef nonnull %260, ptr noundef nonnull %e.i.i, i32 noundef %265)
+  %call.i7.i = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i.i, i32 noundef 0)
   %inc.i536 = add i32 %n.0.i1511, 1
   %268 = load i32, ptr %tok, align 4
   %cmp.i.i522 = icmp eq i32 %268, 44
@@ -2841,7 +2841,7 @@ if.else.i.i99:                                    ; preds = %if.then.i.i97
 lex_match.exit.i:                                 ; preds = %sw.bb4.i
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i.i)
-  %call.i423 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v.i.i, i32 noundef 0)
+  %call.i423 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v.i.i, i32 noundef 0)
   %332 = load i32, ptr %k.i.i100, align 8
   %cmp.i29.i101 = icmp eq i32 %332, 0
   br i1 %cmp.i29.i101, label %if.then.i30.i153, label %expr_cond.exit.i
@@ -3322,7 +3322,7 @@ var_new.exit70.i:                                 ; preds = %if.end10.i54.i, %if
 
 if.then15.i:                                      ; preds = %var_new.exit70.i
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i422 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i35, i32 noundef 0)
+  %call.i422 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i35, i32 noundef 0)
   %403 = load i32, ptr %tok, align 4
   %cmp.i4181504 = icmp eq i32 %403, 44
   br i1 %cmp.i4181504, label %while.body.i83.i, label %if.end.i72
@@ -3331,7 +3331,7 @@ while.body.i83.i:                                 ; preds = %if.then15.i, %expr_
   %n.0.i.i701505 = phi i32 [ %inc.i84.i, %expr_tonextreg.exit416 ], [ 1, %if.then15.i ]
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %404 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %404, ptr noundef %e.i35)
+  call fastcc void @expr_discharge(ptr noundef %404, ptr noundef nonnull %e.i35)
   %405 = load i32, ptr %k.i73, align 8
   %cmp.i.i396 = icmp eq i32 %405, 12
   br i1 %cmp.i.i396, label %if.then.i.i410, label %expr_free.exit.i397
@@ -3377,8 +3377,8 @@ if.end.i.i.i406:                                  ; preds = %if.then.i.i8.i404
 
 expr_tonextreg.exit416:                           ; preds = %expr_free.exit.i397, %if.end.i.i.i406
   store i32 %add.i.i.i399, ptr %freereg.i.i7.i398, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %404, ptr noundef %e.i35, i32 noundef %409)
-  %call.i394 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i35, i32 noundef 0)
+  call fastcc void @expr_toreg(ptr noundef nonnull %404, ptr noundef nonnull %e.i35, i32 noundef %409)
+  %call.i394 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i35, i32 noundef 0)
   %inc.i84.i = add i32 %n.0.i.i701505, 1
   %412 = load i32, ptr %tok, align 4
   %cmp.i418 = icmp eq i32 %412, 44
@@ -3453,7 +3453,7 @@ sw.bb7.i:                                         ; preds = %while.body
   ]
 
 if.else.i20:                                      ; preds = %sw.bb7.i
-  %call.i393 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i, i32 noundef 0)
+  %call.i393 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i, i32 noundef 0)
   %422 = load i32, ptr %tok, align 4
   %cmp.i3891502 = icmp eq i32 %422, 44
   br i1 %cmp.i3891502, label %while.body.i.i, label %if.then8.i
@@ -3462,7 +3462,7 @@ while.body.i.i:                                   ; preds = %if.else.i20, %expr_
   %n.0.i.i1503 = phi i32 [ %inc.i.i, %expr_tonextreg.exit ], [ 1, %if.else.i20 ]
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %423 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %423, ptr noundef %e.i)
+  call fastcc void @expr_discharge(ptr noundef %423, ptr noundef nonnull %e.i)
   %424 = load i32, ptr %k.i.i369, align 8
   %cmp.i.i370 = icmp eq i32 %424, 12
   br i1 %cmp.i.i370, label %if.then.i.i382, label %expr_free.exit.i371
@@ -3508,8 +3508,8 @@ if.end.i.i.i378:                                  ; preds = %if.then.i.i8.i
 
 expr_tonextreg.exit:                              ; preds = %expr_free.exit.i371, %if.end.i.i.i378
   store i32 %add.i.i.i372, ptr %freereg.i.i7.i, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %423, ptr noundef %e.i, i32 noundef %428)
-  %call.i368 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e.i, i32 noundef 0)
+  call fastcc void @expr_toreg(ptr noundef nonnull %423, ptr noundef nonnull %e.i, i32 noundef %428)
+  %call.i368 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e.i, i32 noundef 0)
   %inc.i.i = add i32 %n.0.i.i1503, 1
   %431 = load i32, ptr %tok, align 4
   %cmp.i389 = icmp eq i32 %431, 44
@@ -3582,7 +3582,7 @@ notailcall.i:                                     ; preds = %if.else29.i.notailc
   br label %if.end57.i
 
 if.else48.i:                                      ; preds = %if.else29.i
-  call fastcc void @expr_discharge(ptr noundef %418, ptr noundef %e.i)
+  call fastcc void @expr_discharge(ptr noundef %418, ptr noundef nonnull %e.i)
   %443 = load i32, ptr %k.i.i369, align 8
   %cmp.i.i.i23 = icmp eq i32 %443, 12
   br i1 %cmp.i.i.i23, label %if.then.i.i.i, label %expr_free.exit.i.i
@@ -3628,7 +3628,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i8.i.i
 
 expr_tonextreg.exit.i:                            ; preds = %if.end.i.i.i.i, %expr_free.exit.i.i
   store i32 %add.i.i.i.i24, ptr %freereg.i.i7.i.i, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %418, ptr noundef %e.i, i32 noundef %447)
+  call fastcc void @expr_toreg(ptr noundef nonnull %418, ptr noundef nonnull %e.i, i32 noundef %447)
   %nactvar49.i = getelementptr inbounds i8, ptr %418, i64 56
   %450 = load i32, ptr %nactvar49.i, align 8
   %shl50.i = shl i32 %450, 8
@@ -4673,7 +4673,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.i = add nuw nsw i64 %idxprom.i, 1
   %add4.i = add nsw i64 %add.i, %sub.i
   %conv5.i = trunc i64 %add4.i to i32
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.033, i32 1)
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 range(i32 0, -1) %list.addr.033, i32 1)
   %idxprom.i9 = zext i32 %cond.i to i64
   %arrayidx.i10 = getelementptr inbounds %struct.BCInsLine, ptr %fs.val, i64 %idxprom.i9
   %2 = load i32, ptr %arrayidx.i10, align 4
@@ -5483,7 +5483,7 @@ synlevel_begin.exit:                              ; preds = %entry
 
 if.end10.i.thread:                                ; preds = %synlevel_begin.exit
   tail call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i158 = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v, i32 noundef 8)
+  %call.i158 = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 8)
   %2 = load ptr, ptr %ls, align 8
   br label %if.end65.i
 
@@ -5608,18 +5608,18 @@ bcreg_reserve.exit.i:                             ; preds = %if.end.i.i.i140, %i
   br label %sw.epilog.i
 
 sw.bb18.i:                                        ; preds = %synlevel_begin.exit
-  tail call fastcc void @expr_table(ptr noundef nonnull %ls, ptr noundef %v)
+  tail call fastcc void @expr_table(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %expr_unop.exit
 
 sw.bb19.i:                                        ; preds = %synlevel_begin.exit
   tail call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %linenumber.i = getelementptr inbounds i8, ptr %ls, i64 112
   %14 = load i32, ptr %linenumber.i, align 8
-  tail call fastcc void @parse_body(ptr noundef nonnull %ls, ptr noundef %v, i32 noundef 0, i32 noundef %14)
+  tail call fastcc void @parse_body(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0, i32 noundef %14)
   br label %expr_unop.exit
 
 sw.default.i150:                                  ; preds = %synlevel_begin.exit
-  tail call fastcc void @expr_primary(ptr noundef nonnull %ls, ptr noundef %v)
+  tail call fastcc void @expr_primary(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %expr_unop.exit
 
 sw.epilog.i:                                      ; preds = %bcreg_reserve.exit.i, %sw.bb8.i144, %sw.bb7.i145, %sw.bb6.i146, %sw.bb3.i147, %sw.bb.i
@@ -5628,7 +5628,7 @@ sw.epilog.i:                                      ; preds = %bcreg_reserve.exit.
 
 if.then.i105:                                     ; preds = %synlevel_begin.exit
   tail call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i165 = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v, i32 noundef 8)
+  %call.i165 = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 8)
   %15 = load ptr, ptr %ls, align 8
   %f.i106 = getelementptr inbounds i8, ptr %v, i64 16
   %16 = load i32, ptr %f.i106, align 8
@@ -5647,7 +5647,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i105
 for.body.i.i:                                     ; preds = %jmp_patchtestreg.exit.i.i, %for.body.lr.ph.i.i
   %fs.val4.i.i = phi ptr [ %fs.val4.pre.i.i, %for.body.lr.ph.i.i ], [ %fs.val.i.i110, %jmp_patchtestreg.exit.i.i ]
   %list.addr.010.i.i = phi i32 [ %17, %for.body.lr.ph.i.i ], [ %conv5.i.i.i116, %jmp_patchtestreg.exit.i.i ]
-  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.010.i.i, i32 1)
+  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 range(i32 0, -1) %list.addr.010.i.i, i32 1)
   %idxprom.i.i.i108 = zext i32 %cond.i.i.i to i64
   %arrayidx.i.i.i109 = getelementptr inbounds %struct.BCInsLine, ptr %fs.val4.i.i, i64 %idxprom.i.i.i108
   %19 = load i32, ptr %arrayidx.i.i.i109, align 4
@@ -5710,7 +5710,7 @@ for.body.lr.ph.i49.i:                             ; preds = %jmp_dropval.exit.i
 for.body.i51.i:                                   ; preds = %jmp_patchtestreg.exit.i60.i, %for.body.lr.ph.i49.i
   %fs.val4.i52.i = phi ptr [ %fs.val4.pre.i50.i, %for.body.lr.ph.i49.i ], [ %fs.val.i61.i, %jmp_patchtestreg.exit.i60.i ]
   %list.addr.010.i53.i = phi i32 [ %25, %for.body.lr.ph.i49.i ], [ %conv5.i.i70.i, %jmp_patchtestreg.exit.i60.i ]
-  %cond.i.i54.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.010.i53.i, i32 1)
+  %cond.i.i54.i = tail call i32 @llvm.usub.sat.i32(i32 range(i32 0, -1) %list.addr.010.i53.i, i32 1)
   %idxprom.i.i55.i = zext i32 %cond.i.i54.i to i64
   %arrayidx.i.i56.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val4.i52.i, i64 %idxprom.i.i55.i
   %27 = load i32, ptr %arrayidx.i.i56.i, align 4
@@ -5757,7 +5757,7 @@ jmp_patchtestreg.exit.i60.i:                      ; preds = %if.then20.i.i73.i, 
   br i1 %cmp.not.i72.i, label %jmp_dropval.exit81.i, label %for.body.i51.i
 
 jmp_dropval.exit81.i:                             ; preds = %jmp_patchtestreg.exit.i60.i, %jmp_dropval.exit.i
-  tail call fastcc void @expr_discharge(ptr noundef %15, ptr noundef %v)
+  tail call fastcc void @expr_discharge(ptr noundef %15, ptr noundef nonnull %v)
   %k.i118 = getelementptr inbounds i8, ptr %v, i64 8
   %33 = load i32, ptr %k.i118, align 8
   %switch.i = icmp ult i32 %33, 2
@@ -5815,7 +5815,7 @@ if.end67.thread.i:                                ; preds = %if.else.i119
 
 land.lhs.true.i94:                                ; preds = %synlevel_begin.exit
   tail call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v, i32 noundef 8)
+  %call.i = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 8)
   %42 = load ptr, ptr %ls, align 8
   %t38.i = getelementptr inbounds i8, ptr %v, i64 12
   %43 = load i32, ptr %t38.i, align 4
@@ -5869,7 +5869,7 @@ if.then60.i:                                      ; preds = %land.lhs.true59.i
 if.end65.i:                                       ; preds = %if.end10.i.thread, %land.lhs.true59.i, %if.then42.i, %land.lhs.true.i94
   %51 = phi ptr [ %2, %if.end10.i.thread ], [ %42, %land.lhs.true59.i ], [ %42, %if.then42.i ], [ %42, %land.lhs.true.i94 ]
   %op.0.i162 = phi i32 [ 21, %if.end10.i.thread ], [ 20, %land.lhs.true59.i ], [ 20, %if.then42.i ], [ 20, %land.lhs.true.i94 ]
-  %call66.i = tail call fastcc i32 @expr_toanyreg(ptr noundef %51, ptr noundef %v)
+  %call66.i = tail call fastcc i32 @expr_toanyreg(ptr noundef %51, ptr noundef nonnull %v)
   %k.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %v, i64 8
   %.pre.i95 = load i32, ptr %k.i.phi.trans.insert.i, align 8
   br label %if.end67.i
@@ -6004,11 +6004,11 @@ while.body:                                       ; preds = %land.rhs
   ]
 
 if.then.i15:                                      ; preds = %while.body
-  call fastcc void @bcemit_branch_t(ptr noundef %62, ptr noundef %v)
+  call fastcc void @bcemit_branch_t(ptr noundef %62, ptr noundef nonnull %v)
   br label %bcemit_binop_left.exit
 
 if.then2.i:                                       ; preds = %while.body
-  call fastcc void @expr_discharge(ptr noundef %62, ptr noundef %v)
+  call fastcc void @expr_discharge(ptr noundef %62, ptr noundef nonnull %v)
   %63 = load i32, ptr %k.i.i.i, align 8
   switch i32 %63, label %if.else16.i.i [
     i32 0, label %jmp_append.exit.i.i
@@ -6024,7 +6024,7 @@ if.then5.i.i:                                     ; preds = %if.then2.i
   br label %if.end19.i.i
 
 if.then15.i.i:                                    ; preds = %if.then2.i, %if.then2.i, %if.then2.i
-  call fastcc void @expr_toreg_nobranch(ptr noundef %62, ptr noundef %v, i32 noundef 255)
+  call fastcc void @expr_toreg_nobranch(ptr noundef %62, ptr noundef nonnull %v, i32 noundef 255)
   %jpc1.i.i.i = getelementptr inbounds i8, ptr %62, i64 48
   %65 = load i32, ptr %jpc1.i.i.i, align 8
   %pc.i.i.i = getelementptr inbounds i8, ptr %62, i64 40
@@ -6109,7 +6109,7 @@ jmp_patchins.exit.i.i.i.i:                        ; preds = %while.end.i.i.i.i
   br label %if.end19.i.i
 
 if.else16.i.i:                                    ; preds = %if.then2.i
-  %call17.i.i = call fastcc i32 @bcemit_branch(ptr noundef %62, ptr noundef %v, i32 noundef 1)
+  %call17.i.i = call fastcc i32 @bcemit_branch(ptr noundef %62, ptr noundef nonnull %v, i32 noundef 1)
   br label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.else16.i.i, %jmp_patchins.exit.i.i.i.i, %if.end.i.i.i, %if.then5.i.i
@@ -6231,7 +6231,7 @@ bcemit_branch_f.exit.i:                           ; preds = %jmp_patchins.exit.i
   br label %bcemit_binop_left.exit
 
 if.then5.i:                                       ; preds = %while.body
-  call fastcc void @expr_discharge(ptr noundef %62, ptr noundef %v)
+  call fastcc void @expr_discharge(ptr noundef %62, ptr noundef nonnull %v)
   %83 = load i32, ptr %k.i.i.i, align 8
   %cmp.i.i19.i = icmp eq i32 %83, 12
   br i1 %cmp.i.i19.i, label %if.then.i.i25.i, label %expr_free.exit.i.i
@@ -6277,7 +6277,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i8.i.i
 
 expr_tonextreg.exit.i:                            ; preds = %if.end.i.i.i.i, %expr_free.exit.i.i
   store i32 %add.i.i.i20.i, ptr %freereg.i.i7.i.i, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %62, ptr noundef %v, i32 noundef %87)
+  call fastcc void @expr_toreg(ptr noundef nonnull %62, ptr noundef nonnull %v, i32 noundef %87)
   br label %bcemit_binop_left.exit
 
 if.else6.i:                                       ; preds = %while.body
@@ -6297,7 +6297,7 @@ land.lhs.true.i:                                  ; preds = %if.then9.i
   br i1 %cmp11.not.i, label %bcemit_binop_left.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %land.lhs.true.i, %if.then9.i
-  %call.i16 = call fastcc i32 @expr_toanyreg(ptr noundef %62, ptr noundef %v)
+  %call.i16 = call fastcc i32 @expr_toanyreg(ptr noundef %62, ptr noundef nonnull %v)
   br label %bcemit_binop_left.exit
 
 if.else13.i:                                      ; preds = %if.else6.i
@@ -6311,7 +6311,7 @@ land.lhs.true16.i:                                ; preds = %if.else13.i
   br i1 %cmp19.not.i, label %bcemit_binop_left.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %land.lhs.true16.i, %if.else13.i
-  %call21.i = call fastcc i32 @expr_toanyreg(ptr noundef %62, ptr noundef %v)
+  %call21.i = call fastcc i32 @expr_toanyreg(ptr noundef %62, ptr noundef nonnull %v)
   br label %bcemit_binop_left.exit
 
 bcemit_binop_left.exit:                           ; preds = %if.then.i15, %bcemit_branch_f.exit.i, %expr_tonextreg.exit.i, %land.lhs.true.i, %if.then12.i, %land.lhs.true16.i, %if.then20.i
@@ -6346,7 +6346,7 @@ land.lhs.true4.i.i.i:                             ; preds = %land.lhs.true.i.i.i
 if.end.i.i.i93:                                   ; preds = %land.lhs.true4.i.i.i
   %104 = load double, ptr %v, align 8
   %105 = load double, ptr %v2, align 8
-  %call10.i.i.i = call double @lj_vm_foldarith(double noundef %104, double noundef %105, i32 noundef %op.0188) #10
+  %call10.i.i.i = call double @lj_vm_foldarith(double noundef %104, double noundef %105, i32 noundef range(i32 0, 6) %op.0188) #10
   %cmp13.i.i.i = call i1 @llvm.is.fpclass.f64(double %call10.i.i.i, i32 35)
   br i1 %cmp13.i.i.i, label %if.end.i.i, label %foldarith.exit.i.i
 
@@ -6359,8 +6359,8 @@ if.end.i.i:                                       ; preds = %if.end.i.i.i93, %la
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call2.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
-  %call3.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v)
+  %call2.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
+  %call3.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v)
   br label %if.end25.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -6371,11 +6371,11 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i86, label %if.else.i.i.i90, label %if.then.i.i.i87
 
 if.then.i.i.i87:                                  ; preds = %if.else.i.i
-  %call.i.i.i88 = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
+  %call.i.i.i88 = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
   br label %expr_toval.exit.i.i
 
 if.else.i.i.i90:                                  ; preds = %if.else.i.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v2)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v2)
   br label %expr_toval.exit.i.i
 
 expr_toval.exit.i.i:                              ; preds = %if.else.i.i.i90, %if.then.i.i.i87
@@ -6417,7 +6417,7 @@ if.then7.i.i:                                     ; preds = %const_num.exit.i.i
   br label %if.end11.i.i
 
 if.else9.i.i:                                     ; preds = %const_num.exit.i.i, %expr_toval.exit.i.i
-  %call10.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
+  %call10.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.else9.i.i, %if.then7.i.i
@@ -6429,11 +6429,11 @@ if.end11.i.i:                                     ; preds = %if.else9.i.i, %if.t
   br i1 %cmp.not.i45.i.i, label %if.else.i49.i.i, label %if.then.i46.i.i
 
 if.then.i46.i.i:                                  ; preds = %if.end11.i.i
-  %call.i47.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v)
+  %call.i47.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v)
   br label %expr_toval.exit50.i.i
 
 if.else.i49.i.i:                                  ; preds = %if.end11.i.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v)
   br label %expr_toval.exit50.i.i
 
 expr_toval.exit50.i.i:                            ; preds = %if.else.i49.i.i, %if.then.i46.i.i
@@ -6478,7 +6478,7 @@ if.then20.i.i:                                    ; preds = %const_num.exit61.i.
   br label %if.end25.i.i
 
 if.else22.i.i:                                    ; preds = %const_num.exit61.i.i, %expr_toval.exit50.i.i
-  %call23.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v)
+  %call23.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v)
   br label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.else22.i.i, %if.then20.i.i, %if.then1.i.i
@@ -6540,7 +6540,7 @@ if.else.i:                                        ; preds = %bcemit_binop_left.e
   ]
 
 if.then2.i42:                                     ; preds = %if.else.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v2)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v2)
   %133 = load i32, ptr %f.i.i, align 8
   %cmp.i46.i = icmp eq i32 %133, -1
   br i1 %cmp.i46.i, label %jmp_append.exit.i, label %if.else.i47.i
@@ -6599,7 +6599,7 @@ jmp_append.exit.i:                                ; preds = %jmp_patchins.exit.i
   br label %bcemit_binop.exit
 
 if.then6.i:                                       ; preds = %if.else.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v2)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v2)
   %138 = load i32, ptr %t58.i.i, align 4
   %cmp.i51.i = icmp eq i32 %138, -1
   br i1 %cmp.i51.i, label %jmp_append.exit80.i, label %if.else.i52.i
@@ -6664,11 +6664,11 @@ if.then10.i:                                      ; preds = %if.else.i
   br i1 %cmp.not.i.i, label %if.else.i82.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %call.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
+  %call.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
   br label %expr_toval.exit.i
 
 if.else.i82.i:                                    ; preds = %if.then10.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v2)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v2)
   br label %expr_toval.exit.i
 
 expr_toval.exit.i:                                ; preds = %if.else.i82.i, %if.then.i.i
@@ -6716,7 +6716,7 @@ expr_free.exit.i:                                 ; preds = %if.then.i.i88.i, %i
   br label %if.end.i
 
 if.else27.i:                                      ; preds = %land.lhs.true.i39, %expr_toval.exit.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v2)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v2)
   %154 = load i32, ptr %k.i19, align 8
   %cmp.i.i90.i = icmp eq i32 %154, 12
   br i1 %cmp.i.i90.i, label %if.then.i.i91.i, label %expr_free.exit.i.i20
@@ -6762,7 +6762,7 @@ if.end.i.i.i.i30:                                 ; preds = %if.then.i.i8.i.i28
 
 expr_tonextreg.exit.i26:                          ; preds = %if.end.i.i.i.i30, %expr_free.exit.i.i20
   store i32 %add.i.i.i.i22, ptr %freereg.i.i7.i.i21, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %97, ptr noundef %v2, i32 noundef %158)
+  call fastcc void @expr_toreg(ptr noundef nonnull %97, ptr noundef nonnull %v2, i32 noundef %158)
   %161 = load i32, ptr %k.i19, align 8
   %cmp.i93.i = icmp eq i32 %161, 12
   br i1 %cmp.i93.i, label %if.then.i95.i, label %expr_free.exit101.i
@@ -6822,11 +6822,11 @@ if.else37.i:                                      ; preds = %if.else.i
   br i1 %cmp.not.i.i114.i, label %if.else.i.i147.i, label %if.then.i.i115.i
 
 if.then.i.i115.i:                                 ; preds = %if.else37.i
-  %call.i.i116.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v)
+  %call.i.i116.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v)
   br label %expr_toval.exit.i117.i
 
 if.else.i.i147.i:                                 ; preds = %if.else37.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v)
   br label %expr_toval.exit.i117.i
 
 expr_toval.exit.i117.i:                           ; preds = %if.else.i.i147.i, %if.then.i.i115.i
@@ -6850,11 +6850,11 @@ if.then.i129.i:                                   ; preds = %expr_toval.exit.i11
   br i1 %cmp.not.i53.i.i, label %if.else.i56.i.i, label %if.then.i54.i.i
 
 if.then.i54.i.i:                                  ; preds = %if.then.i129.i
-  %call.i55.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %spec.select.i.i)
+  %call.i55.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %spec.select.i.i)
   br label %expr_toval.exit57.i.i
 
 if.else.i56.i.i:                                  ; preds = %if.then.i129.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %spec.select.i.i)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %spec.select.i.i)
   br label %expr_toval.exit57.i.i
 
 expr_toval.exit57.i.i:                            ; preds = %if.else.i56.i.i, %if.then.i54.i.i
@@ -6970,21 +6970,21 @@ if.then32.i.i:                                    ; preds = %if.else.i118.i
   br i1 %cmp.not.i62.i.i, label %if.else.i66.i.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %if.then32.i.i
-  %call.i64.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
+  %call.i64.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
   br label %expr_toval.exit67.i.i
 
 if.else.i66.i.i:                                  ; preds = %if.then32.i.i
-  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef %v2)
+  call fastcc void @expr_discharge(ptr noundef %97, ptr noundef nonnull %v2)
   br label %expr_toval.exit67.i.i
 
 expr_toval.exit67.i.i:                            ; preds = %if.else.i66.i.i, %if.then.i63.i.i
-  %call35.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
-  %call36.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v)
+  %call35.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
+  %call36.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v)
   br label %if.end40.i.i
 
 if.else37.i.i:                                    ; preds = %if.else.i118.i
-  %call38.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v2)
-  %call39.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef %v)
+  %call38.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v2)
+  %call39.i.i = call fastcc i32 @expr_toanyreg(ptr noundef %97, ptr noundef nonnull %v)
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.else37.i.i, %expr_toval.exit67.i.i
@@ -7270,7 +7270,7 @@ while.cond:                                       ; preds = %if.end105, %lex_che
 
 if.then:                                          ; preds = %while.cond
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i209 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %key, i32 noundef 0)
+  %call.i209 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %key, i32 noundef 0)
   %8 = load ptr, ptr %ls, align 8
   %9 = load i32, ptr %t.i.i, align 4
   %10 = load i32, ptr %f.i.i, align 8
@@ -7278,11 +7278,11 @@ if.then:                                          ; preds = %while.cond
   br i1 %cmp.not.i204, label %if.else.i208, label %if.then.i205
 
 if.then.i205:                                     ; preds = %if.then
-  %call.i206 = call fastcc i32 @expr_toanyreg(ptr noundef %8, ptr noundef %key)
+  %call.i206 = call fastcc i32 @expr_toanyreg(ptr noundef %8, ptr noundef nonnull %key)
   br label %expr_toval.exit
 
 if.else.i208:                                     ; preds = %if.then
-  call fastcc void @expr_discharge(ptr noundef %8, ptr noundef %key)
+  call fastcc void @expr_discharge(ptr noundef %8, ptr noundef nonnull %key)
   br label %expr_toval.exit
 
 expr_toval.exit:                                  ; preds = %if.then.i205, %if.else.i208
@@ -7302,7 +7302,7 @@ lex_check.exit201:                                ; preds = %expr_toval.exit
 
 if.then6:                                         ; preds = %lex_check.exit201
   store i32 9, ptr %k1.i236, align 8
-  %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef nonnull %0, ptr noundef %key)
+  %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef nonnull %0, ptr noundef nonnull %key)
   store i32 %call25.i, ptr %aux27.i, align 4
   %.pr = load i32, ptr %k1.i.i, align 8
   br label %if.end
@@ -7390,7 +7390,7 @@ if.end26:                                         ; preds = %lex_check.exit116, 
   %narr.2 = phi i32 [ %narr.0, %lex_check.exit111 ], [ %narr.0, %lex_check.exit116 ], [ %inc24, %if.else23 ]
   %needarr.3 = phi i32 [ %needarr.2, %lex_check.exit111 ], [ %needarr.0, %lex_check.exit116 ], [ 1, %if.else23 ]
   %vcall.2 = phi i32 [ 0, %lex_check.exit111 ], [ 0, %lex_check.exit116 ], [ 1, %if.else23 ]
-  %call.i = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %val, i32 noundef 0)
+  %call.i = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %val, i32 noundef 0)
   %19 = load i32, ptr %k1.i.i, align 8
   %20 = add i32 %19, -1
   %or.cond = icmp ult i32 %20, 4
@@ -7642,7 +7642,7 @@ if.then19.i162:                                   ; preds = %const_str.exit.i155
   br label %expr_index.exit173
 
 if.end24.i158:                                    ; preds = %const_str.exit.i155, %if.then.i165, %if.then95
-  %call25.i159 = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef %key)
+  %call25.i159 = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef nonnull %key)
   br label %expr_index.exit173
 
 expr_index.exit173:                               ; preds = %if.then10.i171, %if.then19.i162, %if.end24.i158
@@ -8374,7 +8374,7 @@ if.then:                                          ; preds = %entry
   %linenumber = getelementptr inbounds i8, ptr %ls, i64 112
   %2 = load i32, ptr %linenumber, align 8
   tail call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %v, i32 noundef 0)
+  %call.i = tail call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0)
   %3 = load i32, ptr %tok, align 4
   %cmp.i.i = icmp eq i32 %3, 41
   br i1 %cmp.i.i, label %lex_match.exit, label %if.then.i
@@ -8446,7 +8446,7 @@ if.then14:                                        ; preds = %for.cond
 if.then18:                                        ; preds = %for.cond
   %call19 = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef %v)
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i85 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %key, i32 noundef 0)
+  %call.i85 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %key, i32 noundef 0)
   %10 = load ptr, ptr %ls, align 8
   %11 = load i32, ptr %t.i, align 4
   %12 = load i32, ptr %f.i, align 8
@@ -8454,11 +8454,11 @@ if.then18:                                        ; preds = %for.cond
   br i1 %cmp.not.i81, label %if.else.i84, label %if.then.i82
 
 if.then.i82:                                      ; preds = %if.then18
-  %call.i83 = call fastcc i32 @expr_toanyreg(ptr noundef %10, ptr noundef %key)
+  %call.i83 = call fastcc i32 @expr_toanyreg(ptr noundef %10, ptr noundef nonnull %key)
   br label %expr_toval.exit
 
 if.else.i84:                                      ; preds = %if.then18
-  call fastcc void @expr_discharge(ptr noundef %10, ptr noundef %key)
+  call fastcc void @expr_discharge(ptr noundef %10, ptr noundef nonnull %key)
   br label %expr_toval.exit
 
 expr_toval.exit:                                  ; preds = %if.then.i82, %if.else.i84
@@ -8530,7 +8530,7 @@ if.then19.i:                                      ; preds = %const_str.exit.i
   br label %expr_index.exit
 
 if.end24.i:                                       ; preds = %const_str.exit.i, %if.then.i39, %lex_check.exit
-  %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef %key)
+  %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef nonnull %key)
   br label %expr_index.exit
 
 expr_index.exit:                                  ; preds = %if.then10.i, %if.then19.i, %if.end24.i
@@ -8557,7 +8557,7 @@ expr_str.exit:                                    ; preds = %if.then23, %if.then
   %24 = load i64, ptr %tokval.i.i, align 8
   %and.i.i = and i64 %24, 140737488355327
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i41 = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef %v)
+  %call.i41 = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef nonnull %v)
   %25 = load i32, ptr %k.i87, align 8
   %cmp.i.i42 = icmp eq i32 %25, 12
   br i1 %cmp.i.i42, label %if.then.i.i57, label %expr_str.exit.expr_free.exit.i_crit_edge
@@ -8867,7 +8867,7 @@ if.end.i.i.i68:                                   ; preds = %if.then.i.i8.i
 
 expr_tonextreg.exit:                              ; preds = %expr_free.exit.i61, %if.end.i.i.i68
   store i32 %add.i.i.i62, ptr %freereg.i.i89, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %0, ptr noundef %v, i32 noundef %64)
+  call fastcc void @expr_toreg(ptr noundef nonnull %0, ptr noundef nonnull %v, i32 noundef %64)
   %67 = load i32, ptr %freereg.i.i89, align 4
   %add.i.i = add i32 %67, 1
   %68 = load i8, ptr %framesize.i.i.i63, align 2
@@ -8930,7 +8930,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp5.not, label %if.end12, label %return.sink.split
 
 if.end12:                                         ; preds = %if.end, %entry
-  tail call fastcc void @expr_discharge(ptr noundef %fs, ptr noundef %e)
+  tail call fastcc void @expr_discharge(ptr noundef %fs, ptr noundef nonnull %e)
   %5 = load i32, ptr %k, align 8
   %cmp.i.i = icmp eq i32 %5, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %expr_free.exit.i
@@ -9057,11 +9057,11 @@ if.then7:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.then7
-  %call.i = tail call fastcc i32 @expr_toanyreg(ptr noundef nonnull %fs, ptr noundef %e)
+  %call.i = tail call fastcc i32 @expr_toanyreg(ptr noundef nonnull %fs, ptr noundef nonnull %e)
   br label %expr_toval.exit
 
 if.else.i:                                        ; preds = %if.then7
-  tail call fastcc void @expr_discharge(ptr noundef nonnull %fs, ptr noundef %e)
+  tail call fastcc void @expr_discharge(ptr noundef nonnull %fs, ptr noundef nonnull %e)
   br label %expr_toval.exit
 
 expr_toval.exit:                                  ; preds = %if.then.i48, %if.else.i
@@ -10207,7 +10207,7 @@ if.then19.i:                                      ; preds = %const_str.exit.i
   br label %expr_index.exit
 
 if.end24.i:                                       ; preds = %const_str.exit.i
-  %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef nonnull %0, ptr noundef %key)
+  %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef nonnull %0, ptr noundef nonnull %key)
   br label %expr_index.exit
 
 expr_index.exit:                                  ; preds = %if.then19.i, %if.end24.i
@@ -10254,7 +10254,7 @@ if.end13.thread:                                  ; preds = %if.end
   br label %lex_match.exit
 
 if.else:                                          ; preds = %if.end
-  %call.i = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %args, i32 noundef 0)
+  %call.i = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %args, i32 noundef 0)
   %5 = load i32, ptr %tok, align 4
   %cmp.i6166 = icmp eq i32 %5, 44
   br i1 %cmp.i6166, label %while.body.i.lr.ph, label %expr_list.exit
@@ -10266,7 +10266,7 @@ while.body.i.lr.ph:                               ; preds = %if.else
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %expr_tonextreg.exit60
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %6 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %6, ptr noundef %args)
+  call fastcc void @expr_discharge(ptr noundef %6, ptr noundef nonnull %args)
   %7 = load i32, ptr %k.i.i40, align 8
   %cmp.i.i41 = icmp eq i32 %7, 12
   br i1 %cmp.i.i41, label %if.then.i.i54, label %expr_free.exit.i42
@@ -10312,8 +10312,8 @@ if.end.i.i.i50:                                   ; preds = %if.then.i.i8.i48
 
 expr_tonextreg.exit60:                            ; preds = %expr_free.exit.i42, %if.end.i.i.i50
   store i32 %add.i.i.i44, ptr %freereg.i.i7.i43, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %6, ptr noundef %args, i32 noundef %11)
-  %call.i39 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %args, i32 noundef 0)
+  call fastcc void @expr_toreg(ptr noundef nonnull %6, ptr noundef nonnull %args, i32 noundef %11)
+  %call.i39 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %args, i32 noundef 0)
   %14 = load i32, ptr %tok, align 4
   %cmp.i61 = icmp eq i32 %14, 44
   br i1 %cmp.i61, label %while.body.i, label %expr_list.exit, !llvm.loop !10
@@ -10406,7 +10406,7 @@ if.then31:                                        ; preds = %if.end26
   br label %if.end50
 
 if.then41:                                        ; preds = %if.end26
-  call fastcc void @expr_discharge(ptr noundef %0, ptr noundef %args)
+  call fastcc void @expr_discharge(ptr noundef %0, ptr noundef nonnull %args)
   %26 = load i32, ptr %k29, align 8
   %cmp.i.i38 = icmp eq i32 %26, 12
   br i1 %cmp.i.i38, label %if.then.i.i, label %expr_free.exit.i
@@ -10452,7 +10452,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i8.i
 
 expr_tonextreg.exit:                              ; preds = %expr_free.exit.i, %if.end.i.i.i
   store i32 %add.i.i.i, ptr %freereg.i.i7.i, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %0, ptr noundef %args, i32 noundef %30)
+  call fastcc void @expr_toreg(ptr noundef nonnull %0, ptr noundef nonnull %args, i32 noundef %30)
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end26, %expr_tonextreg.exit
@@ -10833,7 +10833,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %add.i.i = add nuw nsw i64 %idxprom.i.i, 1
   %add4.i.i = add nsw i64 %add.i.i, %sub.i.i
   %conv5.i.i = trunc i64 %add4.i.i to i32
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.033.i, i32 1)
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 range(i32 0, -1) %list.addr.033.i, i32 1)
   %idxprom.i9.i = zext i32 %cond.i.i to i64
   %arrayidx.i10.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i, i64 %idxprom.i9.i
   %7 = load i32, ptr %arrayidx.i10.i, align 4
@@ -11327,7 +11327,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %if.end.
   %add.i.i.i = add nuw nsw i64 %idxprom.i.i.i, 1
   %add4.i.i.i = add nsw i64 %add.i.i.i, %sub.i.i.i
   %conv5.i.i.i = trunc i64 %add4.i.i.i to i32
-  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.033.i.i, i32 1)
+  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 range(i32 0, -1) %list.addr.033.i.i, i32 1)
   %idxprom.i9.i.i = zext i32 %cond.i.i.i to i64
   %arrayidx.i10.i.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i9.i.i
   %25 = load i32, ptr %arrayidx.i10.i.i, align 4
@@ -11554,7 +11554,7 @@ bcreg_reserve.exit:                               ; preds = %if.then7, %if.end.i
   br label %if.end19
 
 if.then13:                                        ; preds = %entry
-  tail call fastcc void @expr_discharge(ptr noundef %0, ptr noundef %e)
+  tail call fastcc void @expr_discharge(ptr noundef %0, ptr noundef nonnull %e)
   %9 = load i32, ptr %k, align 8
   %cmp.i.i21 = icmp eq i32 %9, 12
   br i1 %cmp.i.i21, label %if.then.i.i22, label %expr_free.exit.i
@@ -11600,7 +11600,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i8.i
 
 expr_tonextreg.exit:                              ; preds = %expr_free.exit.i, %if.end.i.i.i
   store i32 %add.i.i.i, ptr %freereg.i.i7.i, align 4
-  tail call fastcc void @expr_toreg(ptr noundef nonnull %0, ptr noundef %e, i32 noundef %13)
+  tail call fastcc void @expr_toreg(ptr noundef nonnull %0, ptr noundef nonnull %e, i32 noundef %13)
   br label %if.end14
 
 if.end14:                                         ; preds = %entry, %expr_tonextreg.exit
@@ -11893,7 +11893,7 @@ if.then.i30:                                      ; preds = %if.end
 
 lex_check.exit:                                   ; preds = %if.end
   tail call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  %call.i51 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e, i32 noundef 0)
+  %call.i51 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %15 = load i32, ptr %tok1.i, align 4
   %cmp.i4757 = icmp eq i32 %15, 44
   br i1 %cmp.i4757, label %while.body.i.lr.ph, label %expr_list.exit
@@ -11906,7 +11906,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %n.0.i58 = phi i32 [ 1, %while.body.i.lr.ph ], [ %inc.i, %expr_tonextreg.exit ]
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
   %16 = load ptr, ptr %ls, align 8
-  call fastcc void @expr_discharge(ptr noundef %16, ptr noundef %e)
+  call fastcc void @expr_discharge(ptr noundef %16, ptr noundef nonnull %e)
   %17 = load i32, ptr %k.i.i, align 8
   %cmp.i.i = icmp eq i32 %17, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %expr_free.exit.i
@@ -11952,8 +11952,8 @@ if.end.i.i.i41:                                   ; preds = %if.then.i.i8.i
 
 expr_tonextreg.exit:                              ; preds = %expr_free.exit.i, %if.end.i.i.i41
   store i32 %add.i.i.i35, ptr %freereg.i.i7.i, align 4
-  call fastcc void @expr_toreg(ptr noundef nonnull %16, ptr noundef %e, i32 noundef %21)
-  %call.i34 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef %e, i32 noundef 0)
+  call fastcc void @expr_toreg(ptr noundef nonnull %16, ptr noundef nonnull %e, i32 noundef %21)
+  %call.i34 = call fastcc i32 @expr_binop(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %inc.i = add i32 %n.0.i58, 1
   %24 = load i32, ptr %tok1.i, align 4
   %cmp.i47 = icmp eq i32 %24, 44

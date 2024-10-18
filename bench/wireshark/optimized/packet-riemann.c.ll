@@ -218,8 +218,8 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
-  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
-  %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #2
+  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 5) %3) #2
+  %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 5) %3) #2
   %7 = icmp ult i32 %5, 16
   %8 = icmp ult i32 %6, 10
   %or.cond.i = select i1 %7, i1 true, i1 %8
@@ -268,7 +268,7 @@ is_riemann.exit.thread22:                         ; preds = %riemann_get_guint64
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #2
   %29 = load i32, ptr @ett_riemann, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #2
-  %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
+  %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 5) %3) #2
   %32 = sext i32 %31 to i64
   %33 = icmp sgt i32 %31, 0
   br i1 %33, label %.preheader.i13, label %._crit_edge.i
@@ -323,7 +323,7 @@ riemann_get_guint64.exit.i18:                     ; preds = %37
 
 52:                                               ; preds = %51
   %53 = zext nneg i8 %48 to i32
-  %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.60, i32 noundef 2, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef %53) #2
+  %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.60, i32 noundef 2, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef range(i32 0, 8) %53) #2
   br label %riemann_verify_wire_format.exit.i
 
 riemann_verify_wire_format.exit.i:                ; preds = %52, %51
@@ -337,7 +337,7 @@ riemann_verify_wire_format.exit.i:                ; preds = %52, %51
 
 58:                                               ; preds = %57
   %59 = zext nneg i8 %48 to i32
-  %60 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.61, i32 noundef 3, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %59) #2
+  %60 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.61, i32 noundef 3, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %59) #2
   br label %riemann_verify_wire_format.exit78.i
 
 riemann_verify_wire_format.exit78.i:              ; preds = %58, %57
@@ -379,7 +379,7 @@ riemann_dissect_string.exit.i:                    ; preds = %64, %62
 
 78:                                               ; preds = %77
   %79 = zext nneg i8 %48 to i32
-  %80 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.62, i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %79) #2
+  %80 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.62, i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %79) #2
   br label %riemann_verify_wire_format.exit82.i
 
 riemann_verify_wire_format.exit82.i:              ; preds = %78, %77
@@ -471,7 +471,7 @@ riemann_get_guint64.exit45.i.i:                   ; preds = %105
 
 120:                                              ; preds = %119
   %121 = zext nneg i8 %116 to i32
-  %122 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %121) #2
+  %122 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %121) #2
   br label %riemann_verify_wire_format.exit.i.i
 
 riemann_verify_wire_format.exit.i.i:              ; preds = %120, %119
@@ -581,7 +581,7 @@ riemann_dissect_query.exit.i:                     ; preds = %172, %._crit_edge.i
 
 178:                                              ; preds = %177
   %179 = zext nneg i8 %48 to i32
-  %180 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.64, i32 noundef 6, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %179) #2
+  %180 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.64, i32 noundef 6, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %179) #2
   br label %riemann_verify_wire_format.exit91.i
 
 riemann_verify_wire_format.exit91.i:              ; preds = %178, %177
@@ -688,7 +688,7 @@ riemann_get_guint64.exit132.i.i:                  ; preds = %206
 
 221:                                              ; preds = %220
   %222 = zext nneg i8 %217 to i32
-  %223 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.81, i32 noundef 1, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef %222) #2
+  %223 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.81, i32 noundef 1, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef range(i32 0, 8) %222) #2
   br label %riemann_verify_wire_format.exit.i107.i
 
 riemann_verify_wire_format.exit.i107.i:           ; preds = %221, %220
@@ -727,7 +727,7 @@ riemann_dissect_int64.exit.i.i:                   ; preds = %227, %225
 
 238:                                              ; preds = %237
   %239 = zext nneg i8 %217 to i32
-  %240 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.82, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %239) #2
+  %240 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.82, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %239) #2
   br label %riemann_verify_wire_format.exit137.i.i
 
 riemann_verify_wire_format.exit137.i.i:           ; preds = %238, %237
@@ -769,7 +769,7 @@ riemann_dissect_string.exit.i105.i:               ; preds = %244, %242
 
 258:                                              ; preds = %257
   %259 = zext nneg i8 %217 to i32
-  %260 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.83, i32 noundef 3, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %259) #2
+  %260 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.83, i32 noundef 3, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %259) #2
   br label %riemann_verify_wire_format.exit147.i.i
 
 riemann_verify_wire_format.exit147.i.i:           ; preds = %258, %257
@@ -842,7 +842,7 @@ riemann_dissect_string.exit162.i.i:               ; preds = %280, %278
 
 294:                                              ; preds = %293
   %295 = zext nneg i8 %217 to i32
-  %296 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.85, i32 noundef 4, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %295) #2
+  %296 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.85, i32 noundef 4, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %295) #2
   br label %riemann_verify_wire_format.exit165.i.i
 
 riemann_verify_wire_format.exit165.i.i:           ; preds = %294, %293
@@ -915,7 +915,7 @@ riemann_dissect_string.exit181.i.i:               ; preds = %316, %314
 
 330:                                              ; preds = %329
   %331 = zext nneg i8 %217 to i32
-  %332 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.86, i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %331) #2
+  %332 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.86, i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %331) #2
   br label %riemann_verify_wire_format.exit184.i.i
 
 riemann_verify_wire_format.exit184.i.i:           ; preds = %330, %329
@@ -957,7 +957,7 @@ riemann_dissect_string.exit192.i.i:               ; preds = %336, %334
 
 350:                                              ; preds = %349
   %351 = zext nneg i8 %217 to i32
-  %352 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.87, i32 noundef 7, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %351) #2
+  %352 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.87, i32 noundef 7, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %351) #2
   br label %riemann_verify_wire_format.exit195.i.i
 
 riemann_verify_wire_format.exit195.i.i:           ; preds = %350, %349
@@ -999,7 +999,7 @@ riemann_dissect_string.exit203.i.i:               ; preds = %356, %354
 
 370:                                              ; preds = %369
   %371 = zext nneg i8 %217 to i32
-  %372 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, i32 noundef 8, ptr noundef nonnull @.str.72, i32 noundef 5, i32 noundef %371) #2
+  %372 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.88, i32 noundef 8, ptr noundef nonnull @.str.72, i32 noundef 5, i32 noundef range(i32 0, 8) %371) #2
   br label %riemann_verify_wire_format.exit206.i.i
 
 riemann_verify_wire_format.exit206.i.i:           ; preds = %370, %369
@@ -1013,7 +1013,7 @@ riemann_verify_wire_format.exit206.i.i:           ; preds = %370, %369
 
 376:                                              ; preds = %375
   %377 = zext nneg i8 %217 to i32
-  %378 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.89, i32 noundef 9, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %377) #2
+  %378 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.89, i32 noundef 9, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %377) #2
   br label %riemann_verify_wire_format.exit209.i.i.preheader
 
 riemann_verify_wire_format.exit209.i.i.preheader: ; preds = %376, %375
@@ -1098,7 +1098,7 @@ riemann_get_guint64.exit49.i.i.i:                 ; preds = %400
 
 415:                                              ; preds = %414
   %416 = zext nneg i8 %411 to i32
-  %417 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %392, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.97, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %416) #2
+  %417 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %392, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.97, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %416) #2
   br label %riemann_verify_wire_format.exit.i.i.i
 
 riemann_verify_wire_format.exit.i.i.i:            ; preds = %415, %414
@@ -1140,7 +1140,7 @@ riemann_dissect_string.exit.i.i.i:                ; preds = %421, %419
 
 435:                                              ; preds = %434
   %436 = zext nneg i8 %411 to i32
-  %437 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %392, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.98, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %436) #2
+  %437 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %392, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.98, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %436) #2
   br label %riemann_verify_wire_format.exit54.i.i.i
 
 riemann_verify_wire_format.exit54.i.i.i:          ; preds = %435, %434
@@ -1219,7 +1219,7 @@ riemann_dissect_attribute.exit.i.i:               ; preds = %471, %._crit_edge.i
 
 477:                                              ; preds = %476
   %478 = zext nneg i8 %217 to i32
-  %479 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.90, i32 noundef 10, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef %478) #2
+  %479 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.90, i32 noundef 10, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef range(i32 0, 8) %478) #2
   br label %riemann_verify_wire_format.exit218.i.i
 
 riemann_verify_wire_format.exit218.i.i:           ; preds = %477, %476
@@ -1258,7 +1258,7 @@ riemann_dissect_int64.exit227.i.i:                ; preds = %483, %481
 
 494:                                              ; preds = %493
   %495 = zext nneg i8 %217 to i32
-  %496 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.91, i32 noundef 13, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef %495) #2
+  %496 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.91, i32 noundef 13, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef range(i32 0, 8) %495) #2
   br label %riemann_verify_wire_format.exit230.i.i
 
 riemann_verify_wire_format.exit230.i.i:           ; preds = %494, %493
@@ -1301,7 +1301,7 @@ riemann_dissect_sint64.exit.i.i:                  ; preds = %500, %498
 
 513:                                              ; preds = %512
   %514 = zext nneg i8 %217 to i32
-  %515 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef %514) #2
+  %515 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef range(i32 0, 8) %514) #2
   br label %riemann_verify_wire_format.exit241.i.i
 
 riemann_verify_wire_format.exit241.i.i:           ; preds = %513, %512
@@ -1315,7 +1315,7 @@ riemann_verify_wire_format.exit241.i.i:           ; preds = %513, %512
 
 519:                                              ; preds = %518
   %520 = zext nneg i8 %217 to i32
-  %521 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.93, i32 noundef 15, ptr noundef nonnull @.str.72, i32 noundef 5, i32 noundef %520) #2
+  %521 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.93, i32 noundef 15, ptr noundef nonnull @.str.72, i32 noundef 5, i32 noundef range(i32 0, 8) %520) #2
   br label %riemann_verify_wire_format.exit244.i.i
 
 riemann_verify_wire_format.exit244.i.i:           ; preds = %519, %518
@@ -1369,7 +1369,7 @@ riemann_dissect_event.exit.i:                     ; preds = %542, %._crit_edge.i
 
 548:                                              ; preds = %547
   %549 = zext nneg i8 %48 to i32
-  %550 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.66, i32 noundef 4, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %549) #2
+  %550 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.66, i32 noundef 4, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %549) #2
   br label %riemann_verify_wire_format.exit116.i
 
 riemann_verify_wire_format.exit116.i:             ; preds = %548, %547
@@ -1472,7 +1472,7 @@ riemann_get_guint64.exit103.i.i:                  ; preds = %576
 
 591:                                              ; preds = %590
   %592 = zext nneg i8 %587 to i32
-  %593 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.101, i32 noundef 1, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef %592) #2
+  %593 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.101, i32 noundef 1, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef range(i32 0, 8) %592) #2
   br label %riemann_verify_wire_format.exit.i134.i
 
 riemann_verify_wire_format.exit.i134.i:           ; preds = %591, %590
@@ -1511,7 +1511,7 @@ riemann_dissect_int64.exit.i139.i:                ; preds = %597, %595
 
 608:                                              ; preds = %607
   %609 = zext nneg i8 %587 to i32
-  %610 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.102, i32 noundef 3, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %609) #2
+  %610 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.102, i32 noundef 3, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %609) #2
   br label %riemann_verify_wire_format.exit108.i.i
 
 riemann_verify_wire_format.exit108.i.i:           ; preds = %608, %607
@@ -1584,7 +1584,7 @@ riemann_dissect_string.exit.i132.i:               ; preds = %630, %628
 
 644:                                              ; preds = %643
   %645 = zext nneg i8 %587 to i32
-  %646 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.103, i32 noundef 4, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %645) #2
+  %646 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.103, i32 noundef 4, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %645) #2
   br label %riemann_verify_wire_format.exit125.i.i
 
 riemann_verify_wire_format.exit125.i.i:           ; preds = %644, %643
@@ -1657,7 +1657,7 @@ riemann_dissect_string.exit141.i.i:               ; preds = %666, %664
 
 680:                                              ; preds = %679
   %681 = zext nneg i8 %587 to i32
-  %682 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.104, i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %681) #2
+  %682 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.104, i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %681) #2
   br label %riemann_verify_wire_format.exit144.i.i
 
 riemann_verify_wire_format.exit144.i.i:           ; preds = %680, %679
@@ -1699,7 +1699,7 @@ riemann_dissect_string.exit152.i.i:               ; preds = %686, %684
 
 700:                                              ; preds = %699
   %701 = zext nneg i8 %587 to i32
-  %702 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.105, i32 noundef 7, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %701) #2
+  %702 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.105, i32 noundef 7, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %701) #2
   br label %riemann_verify_wire_format.exit155.i.i
 
 riemann_verify_wire_format.exit155.i.i:           ; preds = %700, %699
@@ -1741,7 +1741,7 @@ riemann_dissect_string.exit163.i.i:               ; preds = %706, %704
 
 720:                                              ; preds = %719
   %721 = zext nneg i8 %587 to i32
-  %722 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.106, i32 noundef 8, ptr noundef nonnull @.str.72, i32 noundef 5, i32 noundef %721) #2
+  %722 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.106, i32 noundef 8, ptr noundef nonnull @.str.72, i32 noundef 5, i32 noundef range(i32 0, 8) %721) #2
   br label %riemann_verify_wire_format.exit166.i.i
 
 riemann_verify_wire_format.exit166.i.i:           ; preds = %720, %719
@@ -1755,7 +1755,7 @@ riemann_verify_wire_format.exit166.i.i:           ; preds = %720, %719
 
 726:                                              ; preds = %725
   %727 = zext nneg i8 %587 to i32
-  %728 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.107, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef %727) #2
+  %728 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.107, i32 noundef 2, ptr noundef nonnull @.str.71, i32 noundef 2, i32 noundef range(i32 0, 8) %727) #2
   br label %riemann_verify_wire_format.exit169.i.i
 
 riemann_verify_wire_format.exit169.i.i:           ; preds = %726, %725
@@ -1797,7 +1797,7 @@ riemann_dissect_string.exit177.i.i:               ; preds = %732, %730
 
 746:                                              ; preds = %745
   %747 = zext nneg i8 %587 to i32
-  %748 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.108, i32 noundef 6, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef %747) #2
+  %748 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %567, ptr noundef nonnull @ei_error_unknown_wire_tag, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.108, i32 noundef 6, ptr noundef nonnull @.str.70, i32 noundef 0, i32 noundef range(i32 0, 8) %747) #2
   br label %riemann_verify_wire_format.exit180.i.i
 
 riemann_verify_wire_format.exit180.i.i:           ; preds = %746, %745

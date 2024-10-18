@@ -799,7 +799,7 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   br i1 %36, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %33
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef 1) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef range(i32 1, 10) 1) #15
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %33, %slot_getsomeattrs.exit.i
@@ -823,7 +823,7 @@ slot_getattr.exit:                                ; preds = %33, %slot_getsomeat
   br i1 %46, label %slot_getsomeattrs.exit.i12, label %slot_getattr.exit13
 
 slot_getsomeattrs.exit.i12:                       ; preds = %44
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef 2) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef range(i32 1, 10) 2) #15
   %.pre = load ptr, ptr %37, align 8
   br label %slot_getattr.exit13
 
@@ -982,7 +982,7 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
   br i1 %53, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %50
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 1) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 1) #15
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %50, %slot_getsomeattrs.exit.i
@@ -996,7 +996,7 @@ slot_getattr.exit:                                ; preds = %50, %slot_getsomeat
   br i1 %59, label %slot_getsomeattrs.exit.i71, label %slot_getattr.exit72
 
 slot_getsomeattrs.exit.i71:                       ; preds = %slot_getattr.exit
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 2) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 2) #15
   br label %slot_getattr.exit72
 
 slot_getattr.exit72:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i71
@@ -1012,7 +1012,7 @@ slot_getattr.exit72:                              ; preds = %slot_getattr.exit, 
   br i1 %67, label %slot_getsomeattrs.exit.i73, label %slot_getattr.exit74
 
 slot_getsomeattrs.exit.i73:                       ; preds = %slot_getattr.exit72
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 3) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 3) #15
   br label %slot_getattr.exit74
 
 slot_getattr.exit74:                              ; preds = %slot_getattr.exit72, %slot_getsomeattrs.exit.i73
@@ -1031,7 +1031,7 @@ slot_getattr.exit74:                              ; preds = %slot_getattr.exit72
   br i1 %77, label %slot_getsomeattrs.exit.i75, label %slot_getattr.exit76
 
 slot_getsomeattrs.exit.i75:                       ; preds = %slot_getattr.exit74
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 4) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 4) #15
   br label %slot_getattr.exit76
 
 slot_getattr.exit76:                              ; preds = %slot_getattr.exit74, %slot_getsomeattrs.exit.i75
@@ -1050,7 +1050,7 @@ slot_getattr.exit76:                              ; preds = %slot_getattr.exit74
   br i1 %87, label %slot_getsomeattrs.exit.i77, label %slot_getattr.exit78
 
 slot_getsomeattrs.exit.i77:                       ; preds = %slot_getattr.exit76
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 5) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 5) #15
   br label %slot_getattr.exit78
 
 slot_getattr.exit78:                              ; preds = %slot_getattr.exit76, %slot_getsomeattrs.exit.i77
@@ -1070,7 +1070,7 @@ slot_getattr.exit78:                              ; preds = %slot_getattr.exit76
   br i1 %99, label %slot_getsomeattrs.exit.i79, label %slot_getattr.exit80
 
 slot_getsomeattrs.exit.i79:                       ; preds = %slot_getattr.exit78
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 6) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 6) #15
   br label %slot_getattr.exit80
 
 slot_getattr.exit80:                              ; preds = %slot_getattr.exit78, %slot_getsomeattrs.exit.i79
@@ -1086,7 +1086,7 @@ slot_getattr.exit80:                              ; preds = %slot_getattr.exit78
   br i1 %107, label %slot_getsomeattrs.exit.i81, label %slot_getattr.exit82
 
 slot_getsomeattrs.exit.i81:                       ; preds = %slot_getattr.exit80
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 7) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 7) #15
   br label %slot_getattr.exit82
 
 slot_getattr.exit82:                              ; preds = %slot_getattr.exit80, %slot_getsomeattrs.exit.i81
@@ -1102,7 +1102,7 @@ slot_getattr.exit82:                              ; preds = %slot_getattr.exit80
   br i1 %115, label %slot_getsomeattrs.exit.i83, label %slot_getattr.exit84
 
 slot_getsomeattrs.exit.i83:                       ; preds = %slot_getattr.exit82
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 8) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 8) #15
   br label %slot_getattr.exit84
 
 slot_getattr.exit84:                              ; preds = %slot_getattr.exit82, %slot_getsomeattrs.exit.i83
@@ -1118,7 +1118,7 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   br i1 %123, label %slot_getsomeattrs.exit.i85, label %slot_getattr.exit86
 
 slot_getsomeattrs.exit.i85:                       ; preds = %slot_getattr.exit84
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef 9) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %42, i32 noundef range(i32 1, 10) 9) #15
   br label %slot_getattr.exit86
 
 slot_getattr.exit86:                              ; preds = %slot_getattr.exit84, %slot_getsomeattrs.exit.i85

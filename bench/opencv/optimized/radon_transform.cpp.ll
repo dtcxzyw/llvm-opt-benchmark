@@ -461,7 +461,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %107
   store ptr %188, ptr %191, align 8, !alias.scope !7
   store ptr %193, ptr %192, align 8, !alias.scope !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, i8 0, i64 16, i1 false), !alias.scope !7
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 2, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %12, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 2, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 0)
           to label %.noexc84 unwind label %.loopexit
 
 .noexc84:                                         ; preds = %.noexc

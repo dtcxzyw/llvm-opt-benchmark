@@ -376,7 +376,7 @@ define dso_local void @_ZN14ArgumentParser8Instance4BindESt8functionIFNS_8Contin
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -384,15 +384,15 @@ define dso_local void @_ZN14ArgumentParser8Instance4BindESt8functionIFNS_8Contin
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i
 
 _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i: ; preds = %11, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   %13 = getelementptr inbounds i8, ptr %0, i64 80
@@ -407,7 +407,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEaSEOS7_.exit, label %17
 
 17:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i
-  %18 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEaSEOS7_.exit unwind label %19
 
 19:                                               ; preds = %17
@@ -432,7 +432,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 80
@@ -447,7 +447,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %11 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %12
 
 12:                                               ; preds = %10
@@ -474,7 +474,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store i64 %3, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -491,7 +491,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %13
 
 13:                                               ; preds = %11
@@ -515,7 +515,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %4 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   store ptr %0, ptr %3, align 8
   %.sroa.2.0..sroa_idx3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %.sroa.2.0..sroa_idx3, align 8
@@ -532,7 +532,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %11 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %12
 
 12:                                               ; preds = %10
@@ -557,7 +557,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store i64 %3, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -574,7 +574,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %13
 
 13:                                               ; preds = %11
@@ -599,7 +599,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store i64 %3, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -616,7 +616,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %13
 
 13:                                               ; preds = %11
@@ -641,7 +641,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store i64 %3, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -658,7 +658,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %13
 
 13:                                               ; preds = %11
@@ -704,7 +704,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %16 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 16, i1 false)
   store i64 %14, ptr %15, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -721,7 +721,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i
-  %23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %24
 
 24:                                               ; preds = %22
@@ -871,7 +871,7 @@ _ZNKSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tr
   store ptr %.sroa.2.0.copyload.i, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 48
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void %62(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %.pre37 = load ptr, ptr %0, align 8
   br label %_ZN14ArgumentParser8Instance13FinishKeywordEv.exit
@@ -898,7 +898,7 @@ _ZNKSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tr
   store ptr %.sroa.24.0.copyload, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %63, i64 80
   %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void %71(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %72
 
@@ -916,7 +916,7 @@ _ZNKSt8functionIFvRN14ArgumentParser8InstanceEEEclES2_.exit: ; preds = %72
   %76 = getelementptr inbounds i8, ptr %.sroa.02.0.lcssa.i.i.i, i64 16
   %77 = getelementptr inbounds i8, ptr %.sroa.02.0.lcssa.i.i.i, i64 40
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(97) %0)
+  call void %78(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(97) %0)
   br label %133
 
 _ZNK14ArgumentParser16KeywordActionMap4FindESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %34, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEES6_ZNKS8_16KeywordActionMap4FindES6_E3$_0ET_SM_SM_RKT0_T1_.exit.i"
@@ -933,7 +933,7 @@ _ZNKSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trai
   store ptr %3, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 88
   %84 = load ptr, ptr %83, align 8
-  %85 = call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %85 = call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %cond = icmp eq i32 %85, 0
   br i1 %cond, label %86, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEaSEDn.exit
@@ -944,7 +944,7 @@ _ZNKSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trai
   br i1 %.not.i15, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEaSEDn.exit, label %88
 
 88:                                               ; preds = %86
-  %89 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 3)
+  %89 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3)
           to label %90 unwind label %91
 
 90:                                               ; preds = %88
@@ -1031,7 +1031,7 @@ _ZNKSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_t
   %126 = getelementptr inbounds i8, ptr %.sroa.02.0.lcssa.i.i.i16, i64 8
   %127 = getelementptr inbounds i8, ptr %.sroa.02.0.lcssa.i.i.i16, i64 32
   %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void %128(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %133
@@ -1103,7 +1103,7 @@ _ZNKSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tr
   store ptr %.sroa.2.0.copyload, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %21, i64 48
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  call void %27(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %28
 
@@ -1393,7 +1393,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11cha
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %8, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
   store ptr %8, ptr %7, align 8
@@ -1830,11 +1830,11 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt4pairISt17basic_string_viewIcS
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %11, i64 16
   %18 = getelementptr inbounds i8, ptr %11, i64 40
   %19 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1844,7 +1844,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt4pairISt17basic_string_viewIcS
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %11, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   %25 = load ptr, ptr %21, align 8
   store ptr %25, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
@@ -1859,11 +1859,11 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
 28:                                               ; preds = %14
   store ptr %0, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %5, i64 24
   %31 = getelementptr inbounds i8, ptr %5, i64 48
   %32 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false)
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1873,7 +1873,7 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   store ptr %35, ptr %37, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %0, align 8
@@ -1892,7 +1892,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN1
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE16_Temporary_valueD2Ev.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE16_Temporary_valueD2Ev.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -1911,7 +1911,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN1
   br i1 %.not.i.i.i.i.i.i12, label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE16_Temporary_valueD2Ev.exit13, label %52
 
 52:                                               ; preds = %48
-  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE16_Temporary_valueD2Ev.exit13 unwind label %54
 
 54:                                               ; preds = %52
@@ -1944,11 +1944,11 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairISt17basic_string_viewIc
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 16, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = getelementptr inbounds i8, ptr %7, i64 40
   %11 = getelementptr inbounds i8, ptr %7, i64 -8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -1959,7 +1959,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairISt17basic_string_viewIc
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %7, i64 -32
   %17 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 16, i1 false)
   store ptr %14, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit
@@ -1987,11 +1987,11 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
   %.079.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEaSEOSA_.exit.i.i.i.i.i ]
   %29 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -48
   %30 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %32 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -16
   %35 = load ptr, ptr %34, align 8
@@ -2000,15 +2000,15 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i.i.i.i.i.i
 
 _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i.i.i.i.i.i: ; preds = %36, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
   %38 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
   %39 = load ptr, ptr %38, align 8
@@ -2022,7 +2022,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i.i.i.i.i.i: ; pre
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEaSEOSA_.exit.i.i.i.i.i, label %42
 
 42:                                               ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i.i.i.i.i.i
-  %43 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEaSEOSA_.exit.i.i.i.i.i unwind label %44
 
 44:                                               ; preds = %42
@@ -2039,12 +2039,12 @@ _ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentP
   br i1 %48, label %28, label %_ZSt13move_backwardIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESC_ET0_T_SE_SD_.exit, !llvm.loop !30
 
 _ZSt13move_backwardIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESC_ET0_T_SE_SD_.exit: ; preds = %_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEaSEOSA_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false)
   %49 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %50 = getelementptr inbounds i8, ptr %4, i64 24
   %51 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %2, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -2053,15 +2053,15 @@ _ZSt13move_backwardIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functi
 
 55:                                               ; preds = %_ZSt13move_backwardIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESC_ET0_T_SE_SD_.exit
   %56 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i
 
 _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i: ; preds = %55, %_ZSt13move_backwardIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESC_ET0_T_SE_SD_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   %57 = getelementptr inbounds i8, ptr %4, i64 16
   %58 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2076,7 +2076,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i: ; preds = %55, 
   br i1 %.not.i.i.i.i, label %_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEaSEOSA_.exit, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i.i
-  %63 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEaSEOSA_.exit unwind label %64
 
 64:                                               ; preds = %62
@@ -2127,11 +2127,11 @@ _ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN
 _ZNSt12_Vector_baseISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.std::pair.0", ptr %24, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = getelementptr inbounds i8, ptr %25, i64 40
   %28 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2141,7 +2141,7 @@ _ZNSt12_Vector_baseISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functio
 
 32:                                               ; preds = %_ZNSt12_Vector_baseISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE11_M_allocateEm.exit
   %33 = getelementptr inbounds i8, ptr %25, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   store ptr %31, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE9constructISB_JRS4_SA_EEEvRSC_PT_DpOT0_.exit
@@ -2155,11 +2155,11 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
   %.0911.i.i.i = phi ptr [ %42, %_ZSt19__relocate_object_aISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_SaISB_EEvPT_PT0_RT1_.exit.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE9constructISB_JRS4_SA_EEEvRSC_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i, i64 16, i1 false), !alias.scope !36
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !34
   %37 = load ptr, ptr %36, align 8, !alias.scope !34, !noalias !31
   store ptr %37, ptr %35, align 8, !alias.scope !31, !noalias !34
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -2170,7 +2170,7 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
 _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !alias.scope !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 16, i1 false), !alias.scope !36
   store ptr %39, ptr %41, align 8, !alias.scope !31, !noalias !34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false), !alias.scope !34, !noalias !31
   br label %_ZSt19__relocate_object_aISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_SaISB_EEvPT_PT0_RT1_.exit.i.i.i
@@ -2192,11 +2192,11 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN1
   %.0911.i.i.i30 = phi ptr [ %53, %_ZSt19__relocate_object_aISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_SaISB_EEvPT_PT0_RT1_.exit.i.i.i33 ], [ %1, %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i30, i64 16, i1 false), !alias.scope !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i29, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i30, i64 16, i1 false), !alias.scope !43
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 16
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 40
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !38, !noalias !41
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !38, !noalias !41
   %48 = load ptr, ptr %47, align 8, !alias.scope !41, !noalias !38
   store ptr %48, ptr %46, align 8, !alias.scope !38, !noalias !41
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 32
@@ -2207,7 +2207,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN1
 _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i.i.i32: ; preds = %.lr.ph.i.i.i28
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 16
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !alias.scope !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 16, i1 false), !alias.scope !43
   store ptr %50, ptr %52, align 8, !alias.scope !38, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !alias.scope !41, !noalias !38
   br label %_ZSt19__relocate_object_aISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_SaISB_EEvPT_PT0_RT1_.exit.i.i.i33
@@ -2266,7 +2266,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt4pairImSt8functionIFvRN14Argum
   %18 = getelementptr inbounds i8, ptr %11, i64 8
   %19 = getelementptr inbounds i8, ptr %11, i64 32
   %20 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2276,7 +2276,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt4pairImSt8functionIFvRN14Argum
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   %26 = load ptr, ptr %22, align 8
   store ptr %26, ptr %25, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -2296,7 +2296,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
   %32 = getelementptr inbounds i8, ptr %5, i64 16
   %33 = getelementptr inbounds i8, ptr %5, i64 40
   %34 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false)
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2306,7 +2306,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   store ptr %37, ptr %39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %0, align 8
@@ -2325,7 +2325,7 @@ _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_strin
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE16_Temporary_valueD2Ev.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %_ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE16_Temporary_valueD2Ev.exit unwind label %47
 
 47:                                               ; preds = %45
@@ -2344,7 +2344,7 @@ _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_strin
   br i1 %.not.i.i.i.i.i.i12, label %_ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE16_Temporary_valueD2Ev.exit13, label %54
 
 54:                                               ; preds = %50
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %_ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE16_Temporary_valueD2Ev.exit13 unwind label %56
 
 56:                                               ; preds = %54
@@ -2382,7 +2382,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairImSt8functionIFvRN14Argu
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = getelementptr inbounds i8, ptr %7, i64 32
   %12 = getelementptr inbounds i8, ptr %7, i64 -8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -2393,7 +2393,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairImSt8functionIFvRN14Argu
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %7, i64 -32
   %18 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 16, i1 false)
   store ptr %15, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit
@@ -2426,7 +2426,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
   %33 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %34 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -16
   %37 = load ptr, ptr %36, align 8
@@ -2435,15 +2435,15 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i.i.i.i.i.i
 
 _ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i.i.i.i.i.i: ; preds = %38, %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
   %40 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
   %41 = load ptr, ptr %40, align 8
@@ -2457,7 +2457,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_tr
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEaSEOSA_.exit.i.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i.i.i.i.i.i
-  %45 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEaSEOSA_.exit.i.i.i.i.i unwind label %46
 
 46:                                               ; preds = %44
@@ -2480,7 +2480,7 @@ _ZSt13move_backwardIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17bas
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %53 = getelementptr inbounds i8, ptr %4, i64 24
   %54 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %2, i64 24
   %57 = load ptr, ptr %56, align 8
@@ -2489,15 +2489,15 @@ _ZSt13move_backwardIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17bas
 
 58:                                               ; preds = %_ZSt13move_backwardIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESC_ET0_T_SE_SD_.exit
   %59 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i
 
 _ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i: ; preds = %58, %_ZSt13move_backwardIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESC_ET0_T_SE_SD_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   %60 = getelementptr inbounds i8, ptr %4, i64 16
   %61 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2512,7 +2512,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_tr
   br i1 %.not.i.i.i.i, label %_ZNSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEaSEOSA_.exit, label %65
 
 65:                                               ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i
-  %66 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %66 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEaSEOSA_.exit unwind label %67
 
 67:                                               ; preds = %65
@@ -2568,7 +2568,7 @@ _ZNSt12_Vector_baseISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basi
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = getelementptr inbounds i8, ptr %25, i64 32
   %29 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2578,7 +2578,7 @@ _ZNSt12_Vector_baseISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basi
 
 33:                                               ; preds = %_ZNSt12_Vector_baseISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE11_M_allocateEm.exit
   %34 = getelementptr inbounds i8, ptr %25, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   store ptr %32, ptr %34, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE9constructISB_JRmSA_EEEvRSC_PT_DpOT0_.exit
@@ -2597,7 +2597,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
   %36 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !48
   %39 = load ptr, ptr %38, align 8, !alias.scope !48, !noalias !45
   store ptr %39, ptr %37, align 8, !alias.scope !45, !noalias !48
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
@@ -2608,7 +2608,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !alias.scope !50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 16, i1 false), !alias.scope !50
   store ptr %41, ptr %43, align 8, !alias.scope !45, !noalias !48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false), !alias.scope !48, !noalias !45
   br label %_ZSt19__relocate_object_aISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_SaISB_EEvPT_PT0_RT1_.exit.i.i.i
@@ -2635,7 +2635,7 @@ _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_strin
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 8
   %49 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 32
   %50 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !55
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !55
   %51 = load ptr, ptr %50, align 8, !alias.scope !55, !noalias !52
   store ptr %51, ptr %49, align 8, !alias.scope !52, !noalias !55
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 24
@@ -2646,7 +2646,7 @@ _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_strin
 _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i.i.i32: ; preds = %.lr.ph.i.i.i28
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 8
   %55 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !alias.scope !57
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 16, i1 false), !alias.scope !57
   store ptr %53, ptr %55, align 8, !alias.scope !52, !noalias !55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false), !alias.scope !55, !noalias !52
   br label %_ZSt19__relocate_object_aISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_SaISB_EEvPT_PT0_RT1_.exit.i.i.i33

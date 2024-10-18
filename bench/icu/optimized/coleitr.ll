@@ -1604,12 +1604,12 @@ lpad6:                                            ; preds = %invoke.cont
 
 cleanup:                                          ; preds = %invoke.cont7, %if.then11
   %retval.1 = phi ptr [ null, %if.then11 ], [ %call1, %invoke.cont7 ]
-  call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #8
+  call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sink) #8
   br label %return
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad6
   %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %4, %lpad ], [ %2, %lpad.i ]
-  call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #8
+  call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sink) #8
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %entry, %cleanup
@@ -1717,7 +1717,7 @@ declare noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_110MaxExpSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #8
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #8
   ret void
 }

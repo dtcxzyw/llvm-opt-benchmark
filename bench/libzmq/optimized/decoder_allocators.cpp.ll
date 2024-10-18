@@ -62,7 +62,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 invoke.cont:                                      ; preds = %if.then.i, %land.lhs.true.i, %entry
   %_msg_content.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -86,7 +86,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -166,7 +166,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 16, i1 false)
   ret ptr %0
 }
 

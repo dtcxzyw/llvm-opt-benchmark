@@ -115,7 +115,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
   store ptr %errp, ptr %errp1.i, align 8
-  %call.i = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %cond520, i64 noundef %cond12, ptr noundef %spec.select.i) #8
+  %call.i = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %cond520, i64 noundef range(i64 1, 0) %cond12, ptr noundef %spec.select.i) #8
   %cmp3.i = icmp slt i32 %call.i, 0
   %_auto_errp_prop.val.i = load ptr, ptr %_auto_errp_prop.i, align 8
   %_auto_errp_prop.val7.i = load ptr, ptr %errp1.i, align 8

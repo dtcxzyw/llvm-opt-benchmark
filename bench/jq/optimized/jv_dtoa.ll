@@ -2153,7 +2153,7 @@ i2b.exit.i:                                       ; preds = %915, %913
   br label %935
 
 922:                                              ; preds = %906
-  %923 = call fastcc ptr @d2b(ptr noundef %0, ptr noundef %10, ptr noundef %5, ptr noundef %4)
+  %923 = call fastcc ptr @d2b(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %5, ptr noundef %4)
   %924 = load i32, ptr %5, align 4
   %925 = sub nsw i32 %924, %.sroa.45.0
   %926 = load i32, ptr %4, align 4

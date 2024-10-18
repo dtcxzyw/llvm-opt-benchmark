@@ -3785,7 +3785,7 @@ if.then.i30.i:                                    ; preds = %normalize_pair.exit
 
 normalize_datetime.exit:                          ; preds = %normalize_pair.exit28.i, %if.then.i30.i
   %hour.1 = phi i32 [ %hour.0, %normalize_pair.exit28.i ], [ %storemerge.i.i36.i, %if.then.i30.i ]
-  %call.i = call fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef %year, ptr noundef %month, ptr noundef %day)
+  %call.i = call fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4091,7 +4091,7 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
 
 if.else22.i:                                      ; preds = %ymd_to_ord.exit.i
   %sub.i = add nsw i32 %add17.i, -1
-  tail call fastcc void @ord_to_ymd(i32 noundef %sub.i, ptr noundef %year, ptr noundef %month, ptr noundef %day)
+  tail call fastcc void @ord_to_ymd(i32 noundef %sub.i, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   br label %normalize_y_m_d.exit
 
 if.end25.i:                                       ; preds = %if.then12.i, %if.then10.i, %if.else.i, %days_in_month.exit46.i, %days_in_month.exit.i
@@ -6153,7 +6153,7 @@ if.end18:                                         ; preds = %if.end13.i
   %add.i = add nsw i32 %spec.select.i.i, -8
   %sub20.i = add nsw i32 %add.i, %11
   %add21.i = add nsw i32 %sub20.i, %6
-  call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef %year, ptr noundef %month, ptr noundef %day)
+  call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %12 = load i32, ptr %year, align 4
   %13 = load i32, ptr %month, align 4
   %14 = load i32, ptr %day, align 4
@@ -7060,7 +7060,7 @@ if.end13.i:                                       ; preds = %land.rhs.i.i, %if.t
   %add.i54 = add nsw i32 %10, -8
   %sub20.i = add nsw i32 %add.i54, %iso_day.0
   %add21.i = add i32 %sub20.i, %spec.select.i.i
-  tail call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef %year, ptr noundef %month, ptr noundef %day)
+  tail call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   br label %return
 
 for.body.i56:                                     ; preds = %if.end, %if.end.i62
@@ -8328,7 +8328,7 @@ Py_DECREF.exit14.i:                               ; preds = %if.then1.i12.i, %if
   br i1 %cmp2.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %Py_DECREF.exit14.i
-  %call5.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.148, ptr noundef nonnull %call1.i, i32 noundef %conv98) #15
+  %call5.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.148, ptr noundef nonnull %call1.i, i32 noundef range(i32 1, 256) %conv98) #15
   %23 = load i64, ptr %call1.i, align 8
   %24 = and i64 %23, 2147483648
   %cmp.i19.not.i = icmp eq i64 %24, 0
@@ -10451,7 +10451,7 @@ if.end.i3:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %if.then.i18.i, label %if.else.i.i
 
 if.then.i18.i:                                    ; preds = %if.end.i3
-  %call.i19.i = call ptr @new_datetime_ex2(i32 noundef %add.i, i32 noundef %add1.i, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %cond.i, i32 noundef %2, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %call.i19.i = call ptr @new_datetime_ex2(i32 noundef %add.i, i32 noundef %add1.i, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %cond.i, i32 noundef %2, ptr noundef nonnull @_Py_NoneStruct, i32 noundef range(i32 0, 256) 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %datetime_from_timet_and_us.exit
 
 if.else.i.i:                                      ; preds = %if.end.i3
@@ -10624,7 +10624,7 @@ if.end.i3:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %if.then.i18.i, label %if.else.i.i
 
 if.then.i18.i:                                    ; preds = %if.end.i3
-  %call.i19.i = call ptr @new_datetime_ex2(i32 noundef %add.i, i32 noundef %add1.i, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %cond.i, i32 noundef %conv.i, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %call.i19.i = call ptr @new_datetime_ex2(i32 noundef %add.i, i32 noundef %add1.i, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %cond.i, i32 noundef %conv.i, ptr noundef nonnull @_Py_NoneStruct, i32 noundef range(i32 0, 256) 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %datetime_from_timet_and_us.exit
 
 if.else.i.i:                                      ; preds = %if.end.i3
@@ -10758,7 +10758,7 @@ if.then.i:                                        ; preds = %if.end5
   %fold = getelementptr inbounds i8, ptr %.pre, i64 31
   %15 = load i8, ptr %fold, align 1
   %conv37 = zext i8 %15 to i32
-  %call.i = call ptr @new_datetime_ex2(i32 noundef %or, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv20, i32 noundef %conv23, i32 noundef %or36, ptr noundef %3, i32 noundef %conv37, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %call.i = call ptr @new_datetime_ex2(i32 noundef %or, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv20, i32 noundef %conv23, i32 noundef %or36, ptr noundef %3, i32 noundef range(i32 0, 256) %conv37, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %if.end39
 
 if.else.i:                                        ; preds = %if.end5
@@ -11360,7 +11360,7 @@ format_ctime.exit:                                ; preds = %entry, %is_leap.exi
   %sub.i = add nsw i64 %idxprom.i.i.i.i, -1
   %arrayidx15.i = getelementptr [12 x ptr], ptr @format_ctime.MonthNames, i64 0, i64 %sub.i
   %9 = load ptr, ptr %arrayidx15.i, align 8
-  %call27.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.121, ptr noundef %8, ptr noundef %9, i32 noundef %conv9.i, i32 noundef %conv, i32 noundef %conv3, i32 noundef %conv6, i32 noundef %or.i) #15
+  %call27.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.121, ptr noundef %8, ptr noundef %9, i32 noundef %conv9.i, i32 noundef range(i32 0, 256) %conv, i32 noundef range(i32 0, 256) %conv3, i32 noundef range(i32 0, 256) %conv6, i32 noundef %or.i) #15
   ret ptr %call27.i
 }
 
@@ -12744,7 +12744,7 @@ if.end32:                                         ; preds = %if.end27, %if.end17
   br i1 %cmp.i, label %if.then.i18, label %if.else.i
 
 if.then.i18:                                      ; preds = %if.end32
-  %call.i19 = call ptr @new_datetime_ex2(i32 noundef %add, i32 noundef %add1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %cond, i32 noundef %us, ptr noundef %tzinfo, i32 noundef %fold.0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %call.i19 = call ptr @new_datetime_ex2(i32 noundef %add, i32 noundef %add1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %cond, i32 noundef %us, ptr noundef %tzinfo, i32 noundef range(i32 0, 256) %fold.0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %return
 
 if.else.i:                                        ; preds = %if.end32
@@ -14325,7 +14325,7 @@ Py_DECREF.exit14.i28:                             ; preds = %if.then1.i12.i41, %
   br i1 %cmp2.i29, label %if.end39, label %if.end4.i30
 
 if.end4.i30:                                      ; preds = %Py_DECREF.exit14.i28
-  %call5.i31 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.148, ptr noundef nonnull %call1.i26, i32 noundef %conv19) #15
+  %call5.i31 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.148, ptr noundef nonnull %call1.i26, i32 noundef range(i32 1, 256) %conv19) #15
   %19 = load i64, ptr %call1.i26, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i19.not.i32 = icmp eq i64 %20, 0

@@ -232,7 +232,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit.us: ; preds = %for.body.us
   %5 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !15
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i)
+  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -299,7 +299,7 @@ if.then.i:                                        ; preds = %for.body, %for.body
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit: ; preds = %for.body
   %13 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !15
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -2389,7 +2389,7 @@ if.then.i:                                        ; preds = %if.end20
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit: ; preds = %if.end20
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %fcn, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !15
-  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i)
+  call void %2(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -2556,7 +2556,7 @@ _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit328: ; preds = %L30
   store ptr %fjac, ptr %__args.addr6.i321, align 8, !tbaa !11
   store ptr %iflag, ptr %__args.addr8.i322, align 8, !tbaa !11
   %16 = load ptr, ptr %_M_invoker.i326, align 8, !tbaa !15
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %jacFcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i318, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i319, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i320, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i321, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i322)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(32) %jacFcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i318, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i319, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i320, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i321, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i322)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i318)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i319)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i320)
@@ -2603,7 +2603,7 @@ if.then.i338:                                     ; preds = %if.then34
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339: ; preds = %if.then34
   %20 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !15
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i329, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i330, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i331, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i332, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i333)
+  call void %20(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i329, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i330, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i331, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i332, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i333)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i329)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i330)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i331)
@@ -3082,7 +3082,7 @@ if.then.i495:                                     ; preds = %_ZN8QuantLib7MINPAC
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496: ; preds = %_ZN8QuantLib7MINPACK5enormEiPd.exit483
   %66 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !15
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i486, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i487, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i488, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i489, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i490)
+  call void %66(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i486, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i487, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i488, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i489, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i490)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i486)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i487)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i488)
@@ -3670,7 +3670,7 @@ if.then.i721:                                     ; preds = %if.then385
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722: ; preds = %if.then385
   %_M_invoker.i720 = getelementptr inbounds nuw i8, ptr %fcn, i64 24
   %118 = load ptr, ptr %_M_invoker.i720, align 8, !tbaa !15
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i712, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i713, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i714, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i715, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i716)
+  call void %118(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i712, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i713, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i714, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i715, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i716)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i712)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i713)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i714)

@@ -67,7 +67,7 @@ define dso_local void @_ZN4llvm35initializeRegUsageInfoCollectorPassERNS_12PassR
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeRegUsageInfoCollectorPassFlag, ptr noundef nonnull @__once_proxy) #14
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeRegUsageInfoCollectorPassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -130,7 +130,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm27createRegUsageInfoCollec
   store ptr %1, ptr %10, align 8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %11, align 8
-  %12 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeRegUsageInfoCollectorPassFlag, ptr noundef nonnull @__once_proxy) #14
+  %12 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeRegUsageInfoCollectorPassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_121RegUsageInfoCollectorC2Ev.exit, label %13
 
@@ -176,7 +176,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store ptr %1, ptr %10, align 8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %11, align 8
-  %12 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeRegUsageInfoCollectorPassFlag, ptr noundef nonnull @__once_proxy) #14
+  %12 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeRegUsageInfoCollectorPassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_121RegUsageInfoCollectorC2Ev.exit, label %13
 
@@ -198,13 +198,13 @@ declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121RegUsageInfoCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #14
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121RegUsageInfoCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #14
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #17
   ret void
 }
@@ -362,7 +362,7 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
   %48 = call noundef nonnull align 8 dereferenceable(64) ptr %47(ptr noundef nonnull align 8 dereferenceable(28) %44, ptr noundef nonnull @_ZN4llvm25PhysicalRegisterUsageInfo2IDE) #14
   call void @_ZN4llvm25PhysicalRegisterUsageInfo16setTargetMachineERKNS_17LLVMTargetMachineE(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 1 %15) #14
   %49 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %49, i64 noundef 6) #14
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull %49, i64 noundef 6) #14
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 0, ptr %50, align 8
   %51 = load ptr, ptr %8, align 8
@@ -376,7 +376,7 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(288) %56) #14
   store i32 0, ptr %50, align 8
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %5) #14
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %62, align 8
   %63 = load ptr, ptr %55, align 8
@@ -384,7 +384,7 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(21) %55, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(68) %5) #14
   %66 = load ptr, ptr %5, align 8
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %5) #14
   %.idx2.i.i.i.i = shl nsw i64 %67, 3
   %68 = getelementptr inbounds i8, ptr %66, i64 %.idx2.i.i.i.i
   %69 = ashr i64 %67, 2
@@ -486,7 +486,7 @@ _ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.
   %101 = load ptr, ptr %60, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 40
   %103 = load ptr, ptr %102, align 8
-  %104 = call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(308) %60, ptr noundef nonnull %1) #14
+  %104 = call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(308) %60, ptr noundef nonnull align 8 dereferenceable(1041) %1) #14
   %105 = load i16, ptr %104, align 2
   %.not45.i = icmp eq i16 %105, 0
   br i1 %.not45.i, label %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit, label %.lr.ph.i
@@ -755,7 +755,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread: ; preds = %1
   %260 = sub i64 %258, %259
   %261 = ashr exact i64 %260, 2
   call void @_ZN4llvm25PhysicalRegisterUsageInfo23storeUpdateRegUsageInfoERKNS_8FunctionENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(136) %32, ptr %256, i64 %261) #14
-  %262 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  %262 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %5) #14
   %263 = load ptr, ptr %5, align 8
   %264 = icmp eq ptr %263, %49
   br i1 %264, label %_ZN4llvm9BitVectorD2Ev.exit, label %265

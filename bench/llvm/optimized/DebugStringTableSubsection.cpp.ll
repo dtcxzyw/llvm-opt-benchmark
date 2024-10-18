@@ -75,7 +75,7 @@ define dso_local void @_ZN4llvm8codeview29DebugStringTableSubsectionRefC2Ev(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -341,7 +341,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15BinaryStr
 _ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %_ZN4llvm15BinaryStreamRefD2Ev.exit
   %64 = and i8 %62, -2
   store i8 %64, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %65
 
 65:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit4
@@ -516,7 +516,7 @@ define dso_local void @_ZN4llvm8codeview26DebugStringTableSubsectionC2Ev(ptr noc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 20, i1 false)
   store i32 16, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %6, align 8
@@ -602,7 +602,7 @@ define dso_local noundef i32 @_ZN4llvm8codeview26DebugStringTableSubsection6inse
 
 45:                                               ; preds = %34, %12
   %.sink.i.i.i.i = phi ptr [ %35, %34 ], [ null, %12 ]
-  %46 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %.sink.i.i.i.i), !noalias !7
+  %46 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %.sink.i.i.i.i), !noalias !7
   %47 = load i32, ptr %5, align 8, !noalias !7
   store i32 %47, ptr %46, align 4, !noalias !7
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -990,7 +990,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview26DebugStringTableSubsectionD2
 13:                                               ; preds = %.lr.ph.i
   %14 = load i64, ptr %12, align 8
   %15 = add i64 %14, 17
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %12, i64 noundef %15, i64 noundef 8) #17
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %15, i64 noundef 8) #17
   br label %16
 
 16:                                               ; preds = %13, %.lr.ph.i, %.lr.ph.i
@@ -1045,7 +1045,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview26DebugStringTableSubsectionD0
 13:                                               ; preds = %.lr.ph.i.i
   %14 = load i64, ptr %12, align 8
   %15 = add i64 %14, 17
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %12, i64 noundef %15, i64 noundef 8) #17
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %15, i64 noundef 8) #17
   br label %16
 
 16:                                               ; preds = %13, %.lr.ph.i.i, %.lr.ph.i.i
@@ -1063,7 +1063,7 @@ _ZN4llvm8codeview26DebugStringTableSubsectionD2Ev.exit: ; preds = %16, %1, %6
   %22 = zext i32 %21 to i64
   %23 = mul nuw nsw i64 %22, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %19, i64 noundef %23, i64 noundef 8) #17
-  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #17
+  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #20
   ret void
 }
@@ -1226,7 +1226,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #17
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #20
   ret void
 }

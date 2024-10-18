@@ -1064,7 +1064,7 @@ if.then.i:                                        ; preds = %_PyVectorcall_Funct
   br label %_PyObject_VectorcallTstate.exit
 
 if.end.i:                                         ; preds = %_PyVectorcall_FunctionInline.exit.i
-  %call3.i = tail call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %method.val26, ptr noundef nonnull %add.ptr, i64 noundef %add, ptr noundef %kwnames) #5
+  %call3.i = tail call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %method.val26, ptr noundef nonnull %add.ptr, i64 noundef range(i64 1, -9223372036854775807) %add, ptr noundef %kwnames) #5
   %call4.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %method.val26, ptr noundef %call3.i, ptr noundef null) #5
   br label %_PyObject_VectorcallTstate.exit
 
@@ -1157,7 +1157,7 @@ if.then.i54:                                      ; preds = %_PyVectorcall_Funct
   br label %_PyObject_VectorcallTstate.exit57
 
 if.end.i50:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i45
-  %call3.i51 = call ptr %ptr.0.copyload.i.i48(ptr noundef nonnull %method.val26, ptr noundef nonnull %newargs12.0, i64 noundef %add26, ptr noundef %kwnames) #5
+  %call3.i51 = call ptr %ptr.0.copyload.i.i48(ptr noundef nonnull %method.val26, ptr noundef nonnull %newargs12.0, i64 noundef range(i64 1, -9223372036854775807) %add26, ptr noundef %kwnames) #5
   %call4.i52 = call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %method.val26, ptr noundef %call3.i51, ptr noundef null) #5
   br label %_PyObject_VectorcallTstate.exit57
 

@@ -273,7 +273,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %38, label %39, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h6fc05c83b43c3c40E.exit"
 
 39:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit.i7"
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h5e430fd282e6d020E"(ptr noalias noundef align 8 dereferenceable(656) %0)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h5e430fd282e6d020E"(ptr noalias noundef nonnull align 8 dereferenceable(656) %0)
           to label %40 unwind label %35, !noalias !56
 
 40:                                               ; preds = %39
@@ -643,7 +643,7 @@ common.resume:                                    ; preds = %.body, %21
 
 "_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h8261e0053f58d356E.exit.thread": ; preds = %33, %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h8261e0053f58d356E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %47 = invoke { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h6643d921cf319946E(ptr noundef nonnull align 1 %10, i128 noundef 377731369611698580506231877142650986)
+  %47 = invoke { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h6643d921cf319946E(ptr noundef nonnull align 8 %10, i128 noundef 377731369611698580506231877142650986)
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h8261e0053f58d356E.exit.thread"
@@ -690,7 +690,7 @@ common.resume:                                    ; preds = %.body, %21
 
 63:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !137
-  invoke void @"_ZN108_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_subscriber..registry..LookupSpan$GT$9span_data17hb377d50ac441c556E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59)
+  invoke void @"_ZN108_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_subscriber..registry..LookupSpan$GT$9span_data17hb377d50ac441c556E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %59)
           to label %.noexc.i unwind label %91, !noalias !111
 
 .noexc.i:                                         ; preds = %63

@@ -1186,7 +1186,7 @@ if.end26:                                         ; preds = %delete.end, %if.end
   store i32 0, ptr %status, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %script, i8 0, i64 40, i1 false)
   store i32 -1, ptr %script, align 16
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp)
           to label %invoke.cont27 unwind label %lpad8
 
 invoke.cont27:                                    ; preds = %if.end26
@@ -1203,7 +1203,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad28
 
 invoke.cont33:                                    ; preds = %invoke.cont29
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp) #16
   %cmp35 = icmp sgt i32 %call34, 0
   %8 = load i32, ptr %script, align 16
   %cmp36 = icmp ne i32 %8, -1
@@ -1226,7 +1226,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
 lpad28:                                           ; preds = %invoke.cont29, %invoke.cont27
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp) #16
   br label %ehcleanup
 
 if.end45:                                         ; preds = %invoke.cont42, %invoke.cont33
@@ -1791,7 +1791,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call2.i.i = tail call ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i = tail call ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
   %cmp.i3.i.i = icmp sgt i32 %1, 0
   br i1 %cmp.i3.i.i, label %_ZN6icu_759HashtableC2EaR10UErrorCode.exit, label %if.then5.i.i
@@ -1810,7 +1810,7 @@ _ZN6icu_759HashtableC2EaR10UErrorCode.exit:       ; preds = %entry, %if.end.i.i,
 
 if.end.i.i11:                                     ; preds = %_ZN6icu_759HashtableC2EaR10UErrorCode.exit
   %hashObj.i.i12 = getelementptr inbounds i8, ptr %this, i64 104
-  %call2.i.i1317 = invoke ptr @uhash_initSize_75(ptr noundef nonnull %hashObj.i.i12, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, i32 noundef 149, ptr noundef nonnull %status)
+  %call2.i.i1317 = invoke ptr @uhash_initSize_75(ptr noundef nonnull %hashObj.i.i12, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, i32 noundef 149, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i13.noexc unwind label %lpad
 
 call2.i.i13.noexc:                                ; preds = %if.end.i.i11
@@ -1837,7 +1837,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 if.end.i.i20:                                     ; preds = %invoke.cont3
   %hashObj.i.i21 = getelementptr inbounds i8, ptr %this, i64 232
-  %call2.i.i2226 = invoke ptr @uhash_initSize_75(ptr noundef nonnull %hashObj.i.i21, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, i32 noundef 641, ptr noundef nonnull %status)
+  %call2.i.i2226 = invoke ptr @uhash_initSize_75(ptr noundef nonnull %hashObj.i.i21, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, i32 noundef 641, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i22.noexc unwind label %lpad4
 
 call2.i.i22.noexc:                                ; preds = %if.end.i.i20
@@ -2965,7 +2965,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont8:                                     ; preds = %invoke.cont6
   %registry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %registry, align 8
-  %call.i7 = invoke noundef ptr @uhash_remove_75(ptr noundef %0, ptr noundef nonnull %id)
+  %call.i7 = invoke noundef ptr @uhash_remove_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %id)
           to label %invoke.cont9 unwind label %lpad7
 
 invoke.cont9:                                     ; preds = %invoke.cont8
@@ -2975,7 +2975,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
 invoke.cont10:                                    ; preds = %invoke.cont9
   %availableIDs = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %availableIDs, align 8
-  %call.i8 = invoke noundef ptr @uhash_remove_75(ptr noundef %1, ptr noundef nonnull %id)
+  %call.i8 = invoke noundef ptr @uhash_remove_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %id)
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %invoke.cont10
@@ -3015,13 +3015,13 @@ entry:
   store i32 0, ptr %status, align 4
   %specDAG = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %source)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %source)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.end20, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %call.i, align 8
-  %call.i12 = tail call noundef i32 @uhash_geti_75(ptr noundef %1, ptr noundef nonnull %target)
+  %call.i12 = tail call noundef i32 @uhash_geti_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %target)
   %cmp3 = icmp eq i32 %call.i12, 0
   br i1 %cmp3, label %if.end20, label %if.end5
 
@@ -3055,11 +3055,11 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %3
 
 _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %if.then11, %new.notnull.i
-  %call2.i = call noundef i32 @uhash_puti_75(ptr noundef %2, ptr noundef %call.i13, i32 noundef %and, ptr noundef nonnull %status)
+  %call2.i = call noundef i32 @uhash_puti_75(ptr noundef %2, ptr noundef %call.i13, i32 noundef %and, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end20
 
 if.else:                                          ; preds = %if.end9
-  %call.i14 = tail call noundef ptr @uhash_remove_75(ptr noundef %2, ptr noundef nonnull %target)
+  %call.i14 = tail call noundef ptr @uhash_remove_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %target)
   %4 = load ptr, ptr %call.i, align 8
   %call.i15 = tail call noundef i32 @uhash_count_75(ptr noundef %4)
   %cmp15 = icmp eq i32 %call.i15, 0
@@ -3067,7 +3067,7 @@ if.else:                                          ; preds = %if.end9
 
 if.then16:                                        ; preds = %if.else
   %5 = load ptr, ptr %specDAG, align 8
-  %call.i16 = tail call noundef ptr @uhash_remove_75(ptr noundef %5, ptr noundef nonnull %source)
+  %call.i16 = tail call noundef ptr @uhash_remove_75(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %source)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then16, %if.end5, %if.end, %entry, %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit
@@ -3114,7 +3114,7 @@ while.cond:                                       ; preds = %while.body
 while.body:                                       ; preds = %if.end, %while.cond
   %index.addr.19 = phi i32 [ %index.addr.0, %if.end ], [ %dec, %while.cond ]
   %1 = load ptr, ptr %availableIDs4, align 8
-  %call.i5 = call noundef ptr @uhash_nextElement_75(ptr noundef %1, ptr noundef nonnull %pos)
+  %call.i5 = call noundef ptr @uhash_nextElement_75(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp6 = icmp eq ptr %call.i5, null
   br i1 %cmp6, label %if.end11, label %while.cond, !llvm.loop !11
 
@@ -3204,7 +3204,7 @@ while.cond:                                       ; preds = %while.body
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %index.addr.09 = phi i32 [ %index, %while.body.lr.ph ], [ %dec, %while.cond ]
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %if.then4, label %while.cond, !llvm.loop !13
 
@@ -3249,7 +3249,7 @@ define noundef i32 @_ZNK6icu_7522TransliteratorRegistry21countAvailableTargetsER
 entry:
   %specDAG = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %source)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %source)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %cond.end, label %cond.false
 
@@ -3269,7 +3269,7 @@ entry:
   %pos = alloca i32, align 4
   %specDAG = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %source)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %source)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3312,7 +3312,7 @@ while.cond:                                       ; preds = %while.body
 while.body:                                       ; preds = %if.end, %while.cond
   %index.addr.026 = phi i32 [ %dec, %while.cond ], [ %index, %if.end ]
   %5 = load ptr, ptr %call.i, align 8
-  %call.i8 = call noundef ptr @uhash_nextElement_75(ptr noundef %5, ptr noundef nonnull %pos)
+  %call.i8 = call noundef ptr @uhash_nextElement_75(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp5 = icmp eq ptr %call.i8, null
   br i1 %cmp5, label %if.then9, label %while.cond, !llvm.loop !14
 
@@ -3357,13 +3357,13 @@ define noundef i32 @_ZNK6icu_7522TransliteratorRegistry22countAvailableVariantsE
 entry:
   %specDAG = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %source)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %source)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %call.i, align 8
-  %call.i5 = tail call noundef i32 @uhash_geti_75(ptr noundef %1, ptr noundef nonnull %target)
+  %call.i5 = tail call noundef i32 @uhash_geti_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %target)
   %cmp3.not6 = icmp eq i32 %call.i5, 0
   br i1 %cmp3.not6, label %return, label %while.body
 
@@ -3386,7 +3386,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522Translitera
 entry:
   %specDAG = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %source)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %source)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3418,7 +3418,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %call.i, align 8
-  %call.i12 = tail call noundef i32 @uhash_geti_75(ptr noundef %5, ptr noundef nonnull %target)
+  %call.i12 = tail call noundef i32 @uhash_geti_75(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %target)
   %cmp4.not27 = icmp eq i32 %call.i12, 0
   br i1 %cmp4.not27, label %while.end, label %while.body
 
@@ -3566,7 +3566,7 @@ if.end4:                                          ; preds = %if.end
   %availableIDs6 = getelementptr inbounds i8, ptr %4, i64 224
   %pos = getelementptr inbounds i8, ptr %this, i64 116
   %5 = load ptr, ptr %availableIDs6, align 8
-  %call.i3 = tail call noundef ptr @uhash_nextElement_75(ptr noundef %5, ptr noundef nonnull %pos)
+  %call.i3 = tail call noundef ptr @uhash_nextElement_75(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp8 = icmp eq ptr %call.i3, null
   br i1 %cmp8, label %return, label %if.end10
 
@@ -3710,7 +3710,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   br label %common.resume
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %entry, %new.notnull.i
-  %call2.i = call noundef ptr @uhash_put_75(ptr noundef %0, ptr noundef %call.i, ptr noundef %adopted, ptr noundef nonnull %status)
+  %call2.i = call noundef ptr @uhash_put_75(ptr noundef %0, ptr noundef %call.i, ptr noundef %adopted, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not = icmp eq i8 %visible, 0
   %availableIDs7 = getelementptr inbounds i8, ptr %this, i64 224
   br i1 %tobool.not, label %if.else, label %if.then
@@ -3718,7 +3718,7 @@ _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %e
 if.then:                                          ; preds = %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   call void @_ZN6icu_7522TransliteratorRegistry11registerSTVERKNS_13UnicodeStringES3_S3_(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(64) %variant)
   %2 = load ptr, ptr %availableIDs7, align 8
-  %call.i7 = call noundef signext i8 @uhash_containsKey_75(ptr noundef %2, ptr noundef nonnull %ID)
+  %call.i7 = call noundef signext i8 @uhash_containsKey_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   %tobool3.not = icmp eq i8 %call.i7, 0
   br i1 %tobool3.not, label %if.then4, label %if.end9
 
@@ -3739,13 +3739,13 @@ lpad.i11:                                         ; preds = %new.notnull.i10
   br label %common.resume
 
 _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %if.then4, %new.notnull.i10
-  %call2.i12 = call noundef i32 @uhash_puti_75(ptr noundef %3, ptr noundef %call.i8, i32 noundef 1, ptr noundef nonnull %status)
+  %call2.i12 = call noundef i32 @uhash_puti_75(ptr noundef %3, ptr noundef %call.i8, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end9
 
 if.else:                                          ; preds = %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   call void @_ZN6icu_7522TransliteratorRegistry9removeSTVERKNS_13UnicodeStringES3_S3_(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(64) %variant)
   %5 = load ptr, ptr %availableIDs7, align 8
-  %call.i13 = call noundef ptr @uhash_remove_75(ptr noundef %5, ptr noundef nonnull %ID)
+  %call.i13 = call noundef ptr @uhash_remove_75(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit, %if.else
@@ -3759,7 +3759,7 @@ entry:
   store i32 0, ptr %status, align 4
   %specDAG = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %specDAG, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %source)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %source)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end22
 
@@ -3822,7 +3822,7 @@ new.notnull:                                      ; preds = %if.end12
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call13, i64 8
-  %call2.i.i24 = invoke ptr @uhash_initSize_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, i32 noundef %size.0, ptr noundef nonnull %status)
+  %call2.i.i24 = invoke ptr @uhash_initSize_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, i32 noundef %size.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad14
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -3867,7 +3867,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   br label %common.resume
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %if.end19, %new.notnull.i
-  %call2.i = call noundef ptr @uhash_put_75(ptr noundef %13, ptr noundef %call.i26, ptr noundef nonnull %call13, ptr noundef nonnull %status)
+  %call2.i = call noundef ptr @uhash_put_75(ptr noundef %13, ptr noundef %call.i26, ptr noundef nonnull %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end22
 
 if.end22:                                         ; preds = %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %entry
@@ -3914,7 +3914,7 @@ if.end55:                                         ; preds = %if.end51, %if.end22
   %variantListIndex.0 = phi i32 [ %sub, %if.end51 ], [ %call23, %if.end22 ]
   %shl = shl nuw i32 1, %variantListIndex.0
   %19 = load ptr, ptr %targets.0, align 8
-  %call.i30 = call noundef i32 @uhash_geti_75(ptr noundef %19, ptr noundef nonnull %target)
+  %call.i30 = call noundef i32 @uhash_geti_75(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(64) %target)
   %or = or i32 %call.i30, %shl
   %20 = load ptr, ptr %targets.0, align 8
   %call.i31 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
@@ -3932,7 +3932,7 @@ lpad.i34:                                         ; preds = %new.notnull.i33
   br label %common.resume
 
 _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %if.end55, %new.notnull.i33
-  %call2.i35 = call noundef i32 @uhash_puti_75(ptr noundef %20, ptr noundef %call.i31, i32 noundef %or, ptr noundef nonnull %status)
+  %call2.i35 = call noundef i32 @uhash_puti_75(ptr noundef %20, ptr noundef %call.i31, i32 noundef %or, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
 
 return:                                           ; preds = %new.notnull, %call2.i.i.noexc, %if.end30, %if.then43, %if.end12, %if.end51, %if.then25, %new.cont, %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit
@@ -3956,7 +3956,7 @@ entry:
 invoke.cont4:                                     ; preds = %entry
   %registry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %registry, align 8
-  %call.i2 = invoke noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %ID)
+  %call.i2 = invoke noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %ID)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -4137,7 +4137,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #16
   store i32 0, ptr %status, align 4
   %9 = load ptr, ptr %res.i, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp24)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24)
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont21
@@ -4153,7 +4153,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont31 unwind label %lpad26
 
 invoke.cont31:                                    ; preds = %invoke.cont27
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp24) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24) #16
   %12 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %12, 0
   %cmp35 = icmp eq i32 %12, -127
@@ -4174,7 +4174,7 @@ lpad18:                                           ; preds = %invoke.cont19, %inv
 lpad26:                                           ; preds = %invoke.cont27, %invoke.cont25
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp24) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24) #16
   br label %ehcleanup79
 
 lpad32:                                           ; preds = %if.then52, %land.rhs.i.i, %if.then.i38, %if.else68, %invoke.cont41, %invoke.cont38
@@ -4267,7 +4267,7 @@ invoke.cont49:                                    ; preds = %if.then.i.i, %invok
   br i1 %cmp51.not, label %if.else68, label %if.then52
 
 if.then52:                                        ; preds = %invoke.cont49
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp54)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp54)
           to label %invoke.cont55 unwind label %lpad32
 
 invoke.cont55:                                    ; preds = %if.then52
@@ -4285,7 +4285,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
 invoke.cont61:                                    ; preds = %invoke.cont57
   %call62 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %resStr, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp53) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp53) #16
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp54) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp54) #16
   %33 = load i32, ptr %status, align 4
   %cmp.i49 = icmp sgt i32 %33, 0
   br i1 %cmp.i49, label %for.inc.critedge, label %if.end82
@@ -4293,7 +4293,7 @@ invoke.cont61:                                    ; preds = %invoke.cont57
 lpad56:                                           ; preds = %invoke.cont57, %invoke.cont55
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp54) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp54) #16
   br label %ehcleanup
 
 if.else68:                                        ; preds = %invoke.cont49
@@ -4401,7 +4401,7 @@ invoke.cont4:                                     ; preds = %entry
 invoke.cont6:                                     ; preds = %invoke.cont4
   %registry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %registry, align 8
-  %call.i18 = invoke noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %ID)
+  %call.i18 = invoke noundef ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %ID)
           to label %invoke.cont7 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont7:                                     ; preds = %invoke.cont6
@@ -4452,7 +4452,7 @@ if.then11:                                        ; preds = %invoke.cont8
 
 invoke.cont4.i:                                   ; preds = %if.then11
   %5 = load ptr, ptr %registry, align 8
-  %call.i2.i = invoke noundef ptr @uhash_get_75(ptr noundef %5, ptr noundef nonnull %ID.i)
+  %call.i2.i = invoke noundef ptr @uhash_get_75(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %ID.i)
           to label %invoke.cont12 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont4.i, %if.then11
@@ -4584,7 +4584,7 @@ invoke.cont25:                                    ; preds = %invoke.cont25.prehe
 
 invoke.cont4.i31:                                 ; preds = %invoke.cont25
   %21 = load ptr, ptr %registry, align 8
-  %call.i2.i33 = invoke noundef ptr @uhash_get_75(ptr noundef %21, ptr noundef nonnull %ID.i26)
+  %call.i2.i33 = invoke noundef ptr @uhash_get_75(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(64) %ID.i26)
           to label %invoke.cont27 unwind label %lpad.i30
 
 lpad.i30:                                         ; preds = %invoke.cont4.i31, %invoke.cont25

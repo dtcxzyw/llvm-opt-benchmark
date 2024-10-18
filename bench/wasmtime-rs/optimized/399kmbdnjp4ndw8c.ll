@@ -2072,7 +2072,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 8, i64 16, i64 %34, i1 zeroext %3)
+  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 range(i64 8, 113) 8, i64 16, i64 %34, i1 zeroext %3)
   %35 = load ptr, ptr %10, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2202,7 +2202,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %72, ptr %76, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 77:                                               ; preds = %.thread9
@@ -2302,7 +2302,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 112, i64 16, i64 %34, i1 zeroext %3)
+  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 range(i64 8, 113) 112, i64 16, i64 %34, i1 zeroext %3)
   %35 = load ptr, ptr %10, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2432,7 +2432,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %72, ptr %76, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 77:                                               ; preds = %.thread9
@@ -2453,7 +2453,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %80, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 112
   %84 = getelementptr inbounds i8, ptr %83, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %84, ptr noundef nonnull align 1 dereferenceable(112) %82, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %84, ptr noundef nonnull align 1 dereferenceable(112) %82, i64 range(i64 8, 113) 112, i1 false)
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %85 = icmp eq i64 %.pr, 0
   br i1 %85, label %.thread9.loopexit, label %.lr.ph
@@ -2531,7 +2531,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 24, i64 16, i64 %34, i1 zeroext %3)
+  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 range(i64 8, 113) 24, i64 16, i64 %34, i1 zeroext %3)
   %35 = load ptr, ptr %10, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2661,7 +2661,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %72, ptr %76, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 77:                                               ; preds = %.thread9
@@ -2682,7 +2682,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %80, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 24
   %84 = getelementptr inbounds i8, ptr %83, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 1 dereferenceable(24) %82, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 1 dereferenceable(24) %82, i64 range(i64 8, 113) 24, i1 false)
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %85 = icmp eq i64 %.pr, 0
   br i1 %85, label %.thread9.loopexit, label %.lr.ph
@@ -2760,7 +2760,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 24, i64 16, i64 %34, i1 zeroext %3)
+  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 range(i64 8, 113) 24, i64 16, i64 %34, i1 zeroext %3)
   %35 = load ptr, ptr %10, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2890,7 +2890,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %72, ptr %76, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 77:                                               ; preds = %.thread9
@@ -2911,7 +2911,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %80, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 24
   %84 = getelementptr inbounds i8, ptr %83, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 1 dereferenceable(24) %82, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 1 dereferenceable(24) %82, i64 range(i64 8, 113) 24, i1 false)
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %85 = icmp eq i64 %.pr, 0
   br i1 %85, label %.thread9.loopexit, label %.lr.ph
@@ -2989,7 +2989,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 64, i64 16, i64 %34, i1 zeroext %3)
+  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 range(i64 8, 113) 64, i64 16, i64 %34, i1 zeroext %3)
   %35 = load ptr, ptr %10, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %10, i64 8
@@ -3119,7 +3119,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %72, ptr %76, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 77:                                               ; preds = %.thread9
@@ -3140,7 +3140,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %80, -1
   %.neg32.i.i = shl i64 %.neg31.i.i, 6
   %84 = getelementptr inbounds i8, ptr %83, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %84, ptr noundef nonnull align 1 dereferenceable(64) %82, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %84, ptr noundef nonnull align 1 dereferenceable(64) %82, i64 range(i64 8, 113) 64, i1 false)
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %85 = icmp eq i64 %.pr, 0
   br i1 %85, label %.thread9.loopexit, label %.lr.ph
@@ -3218,7 +3218,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 24, i64 16, i64 %34, i1 zeroext %3)
+  call void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h2803cadd2f05fbc6E(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %10, ptr nonnull align 8 %0, ptr nonnull align 1 %14, i64 range(i64 8, 113) 24, i64 16, i64 %34, i1 zeroext %3)
   %35 = load ptr, ptr %10, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %10, i64 8
@@ -3348,7 +3348,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   store i64 %75, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %72, ptr %76, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h13393c75779304a4E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 77:                                               ; preds = %.thread9
@@ -3369,7 +3369,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %80, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 24
   %84 = getelementptr inbounds i8, ptr %83, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 1 dereferenceable(24) %82, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 1 dereferenceable(24) %82, i64 range(i64 8, 113) 24, i1 false)
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %85 = icmp eq i64 %.pr, 0
   br i1 %85, label %.thread9.loopexit, label %.lr.ph

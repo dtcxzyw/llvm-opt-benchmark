@@ -2104,7 +2104,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %114
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %128
   %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i) #13
+  call void %130(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i) #13
   store ptr null, ptr %82, align 8
   %131 = load ptr, ptr %77, align 8
   %132 = icmp eq ptr %131, null
@@ -2611,7 +2611,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %99, %89
   %110 = load ptr, ptr %.0.i.i94, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 256
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i94, ptr noundef nonnull %1) #13
+  %113 = tail call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i94, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN7oopDesc4sizeEv.exit
 
 114:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -2644,7 +2644,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %99, %89
   %137 = load ptr, ptr %.0.i.i94, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 256
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i94, ptr noundef nonnull %1) #13
+  %140 = tail call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i94, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %106, %109, %116, %136
@@ -2707,7 +2707,7 @@ _ZNK7oopDesc5klassEv.exit.i96:                    ; preds = %164, %154
   %175 = load ptr, ptr %.0.i.i97, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 256
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call noundef i64 %177(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i97, ptr noundef nonnull %1) #13
+  %178 = tail call noundef i64 %177(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i97, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN7oopDesc4sizeEv.exit100
 
 179:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i96
@@ -2740,7 +2740,7 @@ _ZNK7oopDesc5klassEv.exit.i96:                    ; preds = %164, %154
   %202 = load ptr, ptr %.0.i.i97, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 256
   %204 = load ptr, ptr %203, align 8
-  %205 = tail call noundef i64 %204(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i97, ptr noundef nonnull %1) #13
+  %205 = tail call noundef i64 %204(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i97, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN7oopDesc4sizeEv.exit100
 
 _ZN7oopDesc4sizeEv.exit100:                       ; preds = %171, %174, %181, %201
@@ -2778,7 +2778,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %225 = load ptr, ptr %210, align 8
   %226 = load ptr, ptr %211, align 8
   %227 = load ptr, ptr %212, align 8
-  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 0, ptr noundef %1, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str, i32 noundef 92) #13
+  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 0, ptr noundef nonnull %1, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %224
@@ -2801,7 +2801,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %0, i64 16
   %235 = load ptr, ptr %234, align 8
-  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 1, ptr noundef %1, ptr noundef %231, ptr noundef %233, ptr noundef %235, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str, i32 noundef 92) #13
+  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 1, ptr noundef nonnull %1, ptr noundef %231, ptr noundef %233, ptr noundef %235, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit103
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit103: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95, %229
@@ -2859,7 +2859,7 @@ _ZNK7oopDesc5klassEv.exit.i104:                   ; preds = %256, %246
   %267 = load ptr, ptr %.0.i.i105, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 256
   %269 = load ptr, ptr %268, align 8
-  %270 = tail call noundef i64 %269(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i105, ptr noundef nonnull %1) #13
+  %270 = tail call noundef i64 %269(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN7oopDesc4sizeEv.exit108
 
 271:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i104
@@ -2892,7 +2892,7 @@ _ZNK7oopDesc5klassEv.exit.i104:                   ; preds = %256, %246
   %294 = load ptr, ptr %.0.i.i105, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 256
   %296 = load ptr, ptr %295, align 8
-  %297 = tail call noundef i64 %296(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i105, ptr noundef nonnull %1) #13
+  %297 = tail call noundef i64 %296(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN7oopDesc4sizeEv.exit108
 
 _ZN7oopDesc4sizeEv.exit108:                       ; preds = %263, %266, %273, %293
@@ -2914,7 +2914,7 @@ _ZN7oopDesc4sizeEv.exit108:                       ; preds = %263, %266, %273, %2
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds i8, ptr %0, i64 16
   %309 = load ptr, ptr %308, align 8
-  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 1, ptr noundef %1, ptr noundef %305, ptr noundef %307, ptr noundef %309, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str, i32 noundef 92) #13
+  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 1, ptr noundef nonnull %1, ptr noundef %305, ptr noundef %307, ptr noundef %309, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109: ; preds = %303, %300, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit103
@@ -3143,7 +3143,7 @@ _ZNK7oopDesc5klassEv.exit.i125:                   ; preds = %434, %424
   %445 = load ptr, ptr %.0.i.i126, align 8
   %446 = getelementptr inbounds i8, ptr %445, i64 256
   %447 = load ptr, ptr %446, align 8
-  %448 = tail call noundef i64 %447(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i126, ptr noundef nonnull %.0.i110) #13
+  %448 = tail call noundef i64 %447(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i126, ptr noundef nonnull align 8 dereferenceable(16) %.0.i110) #13
   br label %_ZN7oopDesc4sizeEv.exit129
 
 449:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i125
@@ -3176,7 +3176,7 @@ _ZNK7oopDesc5klassEv.exit.i125:                   ; preds = %434, %424
   %472 = load ptr, ptr %.0.i.i126, align 8
   %473 = getelementptr inbounds i8, ptr %472, i64 256
   %474 = load ptr, ptr %473, align 8
-  %475 = tail call noundef i64 %474(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i126, ptr noundef nonnull %.0.i110) #13
+  %475 = tail call noundef i64 %474(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i126, ptr noundef nonnull align 8 dereferenceable(16) %.0.i110) #13
   br label %_ZN7oopDesc4sizeEv.exit129
 
 _ZN7oopDesc4sizeEv.exit129:                       ; preds = %441, %444, %451, %471
@@ -3834,7 +3834,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask12work_r
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %4
-  %19 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %16, ptr noundef nonnull %14) #13
+  %19 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef %16, ptr noundef nonnull %14) #13
   %20 = icmp ult ptr %19, %14
   br i1 %20, label %.lr.ph, label %.loopexit
 
@@ -3846,7 +3846,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask12work_r
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph
-  %24 = call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %21, ptr noundef nonnull %14) #13
+  %24 = call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull %21, ptr noundef nonnull %14) #13
   br label %25
 
 25:                                               ; preds = %23, %.lr.ph
@@ -3905,7 +3905,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %43, %33
   %54 = load ptr, ptr %.0.i.i, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 256
   %56 = load ptr, ptr %55, align 8
-  %57 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.034) #13
+  %57 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.034) #13
   br label %_ZN7oopDesc4sizeEv.exit
 
 58:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -3938,7 +3938,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %43, %33
   %81 = load ptr, ptr %.0.i.i, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 256
   %83 = load ptr, ptr %82, align 8
-  %84 = call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.034) #13
+  %84 = call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.034) #13
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %50, %53, %60, %80
@@ -4059,7 +4059,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %55,
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef %.0.i.i.i) #13
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i) #13
   store ptr null, ptr %54, align 8
   %72 = load i64, ptr %4, align 8
   %73 = add i64 %72, 1
@@ -4160,7 +4160,7 @@ _ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit14: ; preds = %1
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8
-  tail call void %131(ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i13) #13
+  tail call void %131(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i13) #13
   store ptr null, ptr %84, align 8
   %132 = load i64, ptr %4, align 8
   %133 = add i64 %132, 1
@@ -5895,7 +5895,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #13, !srcloc !14
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !14
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
@@ -6451,7 +6451,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #13, !srcloc !14
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #13, !srcloc !14
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
@@ -8108,7 +8108,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %84, %74
   %95 = load ptr, ptr %.0.i.i.i, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 256
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #13
+  %98 = tail call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 99:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -8141,7 +8141,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %84, %74
   %122 = load ptr, ptr %.0.i.i.i, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 256
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #13
+  %125 = tail call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %91, %94, %101, %121
@@ -8306,7 +8306,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %84, %74
   %95 = load ptr, ptr %.0.i.i.i, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 256
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #13
+  %98 = tail call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 99:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -8339,7 +8339,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %84, %74
   %122 = load ptr, ptr %.0.i.i.i, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 256
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #13
+  %125 = tail call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %91, %94, %101, %121

@@ -3545,7 +3545,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit.thread:    ; preds = %_ZL15fstWriterFseek
 
 644:                                              ; preds = %638, %633
   %645 = load ptr, ptr %0, align 8
-  %646 = call noundef i64 @fwrite(ptr noundef %629, i64 noundef %618, i64 noundef 1, ptr noundef %645)
+  %646 = call noundef i64 @fwrite(ptr noundef nonnull %629, i64 noundef %618, i64 noundef 1, ptr noundef %645)
   store i64 %618, ptr %18, align 8
   br label %647
 
@@ -4148,7 +4148,7 @@ define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %
   br label %30, !llvm.loop !31
 
 _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %30
-  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 3, ptr noundef %29, i64 noundef %23)
+  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 3, ptr noundef %29, i64 noundef range(i64 -2147483648, 4294967296) %23)
   tail call void @free(ptr noundef %29) #37
   br i1 %.not33, label %36, label %35
 
@@ -4188,7 +4188,7 @@ _ZL22fstCopyVarint64ToRightPhm.exit.i:            ; preds = %.lr.ph.i.i, %36
   br label %_ZL32fstWriterSetAttrDoubleArgGenericPvimm.exit
 
 _ZL32fstWriterSetAttrDoubleArgGenericPvimm.exit:  ; preds = %_ZL22fstCopyVarint64ToRightPhm.exit.i, %43
-  call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %4, ptr noundef nonnull %6, i64 noundef %37)
+  call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef range(i32 4, 6) %4, ptr noundef nonnull %6, i64 noundef range(i64 0, 4294967296) %37)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %6)
   br label %45
 
@@ -4679,7 +4679,7 @@ define i32 @fstWriterCreateVar2(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %17, !llvm.loop !31
 
 22:                                               ; preds = %17
-  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef %16, i64 noundef %13)
+  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef %16, i64 noundef range(i64 -2147483648, 4294967296) %13)
   tail call void @free(ptr noundef %16) #37
   br label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 

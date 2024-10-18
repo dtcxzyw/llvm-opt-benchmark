@@ -224,7 +224,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController27Enc
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %29, ptr noundef nonnull %3, ptr noundef nonnull %11)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %29, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %11)
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %12, %23
@@ -699,7 +699,7 @@ define void @_ZN5draco37SequentialAttributeEncodersController23CreateSequentialE
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc10 unwind label %45
 
 .noexc10:                                         ; preds = %.noexc
@@ -709,7 +709,7 @@ define void @_ZN5draco37SequentialAttributeEncodersController23CreateSequentialE
 31:                                               ; preds = %.noexc10
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10
@@ -731,7 +731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 40:                                               ; preds = %36
   %41 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %41, i8 0, i64 96, i1 false)
-  invoke void @_ZN5draco33SequentialIntegerAttributeEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %41)
+  invoke void @_ZN5draco33SequentialIntegerAttributeEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %41)
           to label %42 unwind label %49
 
 42:                                               ; preds = %40

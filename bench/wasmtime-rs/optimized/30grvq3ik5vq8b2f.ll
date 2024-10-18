@@ -285,7 +285,7 @@ _ZN8smallvec10infallible17had635ac09e5b739cE.exit: ; preds = %2
   br i1 %81, label %82, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17hd1036e3eaba376d0E.exit"
 
 82:                                               ; preds = %65
-  %83 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef 1)
+  %83 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef 1)
   %84 = extractvalue { i64, i64 } %83, 0
   switch i64 %84, label %86 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17had635ac09e5b739cE.exit.i
@@ -390,7 +390,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !123
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7b42d927c47b89f0E.llvm.13942660722550990700"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7b42d927c47b89f0E.llvm.13942660722550990700"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !122, !noalias !123, !noundef !15
   %.not.i.i.i = icmp eq i64 %6, 0
@@ -691,12 +691,12 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 
 47:                                               ; preds = %41
   %48 = shl nuw nsw i64 %5, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 8 %0, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 8 dereferenceable(40) %0, i64 %48, i1 false)
   br label %46
 
 49:                                               ; preds = %29
   %50 = shl i64 %.val, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 4 %7, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(40) %0, ptr nonnull align 4 %7, i64 %50, i1 false)
   store i64 %.val, ptr %4, align 8, !alias.scope !148
   %51 = shl i64 %.sink.i, 3
   %52 = icmp ugt i64 %5, 2305843009213693951

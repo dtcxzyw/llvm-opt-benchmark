@@ -601,7 +601,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i: ; preds = %1
 
 _ZN5clang21WrapperFrontendActionD2Ev.exit:        ; preds = %1, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   ret void
 }
 
@@ -622,7 +622,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
 
 _ZN5clang5arcmt11CheckActionD2Ev.exit:            ; preds = %1, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #8
   ret void
 }
@@ -663,7 +663,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i: ; preds = %1
 
 _ZN5clang21WrapperFrontendActionD2Ev.exit:        ; preds = %1, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   ret void
 }
 
@@ -684,7 +684,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
 
 _ZN5clang5arcmt12ModifyActionD2Ev.exit:           ; preds = %1, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #8
   ret void
 }
@@ -711,7 +711,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i: ; preds = %1
 
 _ZN5clang21WrapperFrontendActionD2Ev.exit:        ; preds = %1, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i
   store ptr null, ptr %4, align 8
-  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   ret void
 }
 
@@ -737,7 +737,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
 
 _ZN5clang5arcmt13MigrateActionD2Ev.exit:          ; preds = %1, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i
   store ptr null, ptr %4, align 8
-  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %0) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #8
   ret void
 }

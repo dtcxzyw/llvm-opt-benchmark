@@ -2073,7 +2073,7 @@ _function_closure_string.exit:                    ; preds = %._crit_edge.i, %362
   %.06780.i = phi ptr [ %390, %.lr.ph.i603 ], [ %431, %424 ]
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, ptr noundef nonnull %388) #13
   %416 = icmp ult i32 %.06681.i, %392
-  call fastcc void @_parameter_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
+  call fastcc void @_parameter_string(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
   %417 = load ptr, ptr %0, align 8
   %.not78.i = icmp eq ptr %417, null
   br i1 %.not78.i, label %423, label %418
@@ -25940,7 +25940,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
   br i1 %.not541.i, label %._crit_edge25.i, label %.lr.ph24.i
 
 .thread78.i:                                      ; preds = %408, %407
-  call fastcc void @_function_string(ptr noundef %6, ptr noundef nonnull %400, ptr noundef null, ptr noundef nonnull @.str.200)
+  call fastcc void @_function_string(ptr noundef nonnull %6, ptr noundef nonnull %400, ptr noundef null, ptr noundef nonnull @.str.200)
   %411 = getelementptr inbounds i8, ptr %.046222.i, i64 32
   %.not54180.i = icmp eq ptr %411, %392
   br i1 %.not54180.i, label %._crit_edge25.thread82.i, label %.lr.ph24.outer.i
@@ -26023,7 +26023,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 
 454:                                              ; preds = %450
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.135) #13
-  call fastcc void @_class_string(ptr noundef %5, ptr noundef nonnull %431, ptr noundef null, ptr noundef nonnull %423)
+  call fastcc void @_class_string(ptr noundef nonnull %5, ptr noundef nonnull %431, ptr noundef null, ptr noundef nonnull %423)
   %455 = add nsw i32 %.0228.i, 1
   br label %_extension_class_string.exit.i
 

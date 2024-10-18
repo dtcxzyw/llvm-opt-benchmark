@@ -717,19 +717,19 @@ switch.lookup54:                                  ; preds = %switch.hole_check
   ]
 
 sw.bb.i.i:                                        ; preds = %switch.lookup54
-  %call.i.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call.i.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit.i
 
 sw.bb1.i.i48:                                     ; preds = %switch.lookup54
-  %call3.i.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call3.i.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit.i
 
 sw.bb4.i.i:                                       ; preds = %switch.lookup54
-  %call6.i.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call6.i.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit.i
 
 sw.bb7.i.i:                                       ; preds = %switch.lookup54
-  %call9.i.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call9.i.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit.i
 
 Hmac_HashUpdate.exit.i:                           ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb1.i.i48, %sw.bb.i.i
@@ -786,19 +786,19 @@ if.end39.i:                                       ; preds = %Hmac_HashUpdate.exi
   ]
 
 sw.bb.i122.i:                                     ; preds = %if.end39.i
-  %call.i123.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef %sub41.i) #16
+  %call.i123.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef range(i32 13, 2147483635) %sub41.i) #16
   br label %Hmac_HashUpdate.exit124.i
 
 sw.bb1.i120.i:                                    ; preds = %if.end39.i
-  %call3.i121.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef %sub41.i) #16
+  %call3.i121.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef range(i32 13, 2147483635) %sub41.i) #16
   br label %Hmac_HashUpdate.exit124.i
 
 sw.bb4.i118.i:                                    ; preds = %if.end39.i
-  %call6.i119.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef %sub41.i) #16
+  %call6.i119.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef range(i32 13, 2147483635) %sub41.i) #16
   br label %Hmac_HashUpdate.exit124.i
 
 sw.bb7.i115.i:                                    ; preds = %if.end39.i
-  %call9.i116.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef %sub41.i) #16
+  %call9.i116.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %in, i32 noundef range(i32 13, 2147483635) %sub41.i) #16
   br label %Hmac_HashUpdate.exit124.i
 
 Hmac_HashUpdate.exit124.i:                        ; preds = %sw.bb7.i115.i, %sw.bb4.i118.i, %sw.bb1.i120.i, %sw.bb.i122.i
@@ -912,19 +912,19 @@ for.end.i:                                        ; preds = %if.end106.i
   ]
 
 sw.bb.i150.i:                                     ; preds = %for.end.i
-  %call.i151.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call.i151.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit152.i
 
 sw.bb1.i148.i:                                    ; preds = %for.end.i
-  %call3.i149.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call3.i149.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit152.i
 
 sw.bb4.i146.i:                                    ; preds = %for.end.i
-  %call6.i147.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call6.i147.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit152.i
 
 sw.bb7.i143.i:                                    ; preds = %for.end.i
-  %call9.i144.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call9.i144.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef range(i32 13, 2147483635) %switch.load56) #16
   br label %Hmac_HashUpdate.exit152.i
 
 Hmac_HashUpdate.exit152.i:                        ; preds = %sw.bb7.i143.i, %sw.bb4.i146.i, %sw.bb1.i148.i, %sw.bb.i150.i
@@ -1920,7 +1920,7 @@ if.end173:                                        ; preds = %while.body161
 if.then178:                                       ; preds = %if.end173
   %add182 = add nuw nsw i32 %or.i127, 3
   %conv183 = zext i16 %listLen.0150 to i32
-  %cond.i = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 %add182, i32 %conv183)
+  %cond.i = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 range(i32 0, 65540) %add182, i32 %conv183)
   %23 = trunc nuw i32 %cond.i to i16
   %conv185 = sub i16 %listLen.0150, %23
   %cmp159 = icmp ugt i16 %conv185, 3
@@ -1928,7 +1928,7 @@ if.then178:                                       ; preds = %if.end173
 
 if.end186:                                        ; preds = %if.end173
   %24 = load i32, ptr %inOutSz, align 4
-  %cond.i128 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 %or.i127, i32 %24)
+  %cond.i128 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 range(i32 0, 65540) %or.i127, i32 %24)
   store i32 %cond.i128, ptr %inOutSz, align 4
   %idx.ext189 = zext i32 %add167 to i64
   %add.ptr190 = getelementptr inbounds i8, ptr %clientHello, i64 %idx.ext189
@@ -1940,7 +1940,7 @@ if.end192:                                        ; preds = %if.then178, %while.
   %offset.1 = phi i32 [ %add137, %if.end141 ], [ %add150, %while.cond157.preheader ], [ %add169, %if.then178 ]
   %add194 = add nuw nsw i32 %or.i119, 4
   %conv195 = zext i16 %len16.0153 to i32
-  %cond.i129 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 %add194, i32 %conv195)
+  %cond.i129 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 range(i32 0, 65540) %add194, i32 %conv195)
   %25 = trunc nuw i32 %cond.i129 to i16
   %conv199 = sub i16 %len16.0153, %25
   %cmp128 = icmp ugt i16 %conv199, 3

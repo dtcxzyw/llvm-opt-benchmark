@@ -1241,7 +1241,7 @@ for.body199:                                      ; preds = %for.body199.prehead
 invoke.cont214:                                   ; preds = %.noexc245, %for.cond.cleanup198
   %124 = phi ptr [ %118, %for.cond.cleanup198 ], [ %.pre.i244, %.noexc245 ]
   %add.ptr.i249 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %cond.i.i.i.i229, i64 %i190.0478
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %124, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i249, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %124, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i249, i1 noundef zeroext false)
           to label %.noexc250 unwind label %lpad213
 
 .noexc250:                                        ; preds = %invoke.cont214

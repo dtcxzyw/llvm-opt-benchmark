@@ -278,11 +278,11 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %pattern, ptr noundef readonly %string, i64 noundef %conv) #27
+  %call.i = tail call i32 @strncasecmp(ptr noundef readonly %pattern, ptr noundef readonly %string, i64 noundef range(i64 -2147483648, 2147483648) %conv) #27
   br label %ps_strncmp.exit
 
 if.else.i:                                        ; preds = %if.then
-  %call1.i = tail call i32 @strncmp(ptr noundef readonly %pattern, ptr noundef readonly %string, i64 noundef %conv) #27
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %pattern, ptr noundef readonly %string, i64 noundef range(i64 -2147483648, 2147483648) %conv) #27
   br label %ps_strncmp.exit
 
 ps_strncmp.exit:                                  ; preds = %if.then.i, %if.else.i
@@ -890,7 +890,7 @@ if.then.i:                                        ; preds = %if.end13
   %conv = sext i32 %40 to i64
   %entries = getelementptr inbounds i8, ptr %dir, i64 16
   %41 = load ptr, ptr %entries, align 8
-  call void @qsort(ptr noundef %41, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #26
+  call void @qsort(ptr noundef %41, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #26
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %if.end13, %if.then.i
@@ -903,7 +903,7 @@ if.then.i54:                                      ; preds = %sane_qsort.exit
   %conv15 = sext i32 %42 to i64
   %ignored = getelementptr inbounds i8, ptr %dir, i64 24
   %43 = load ptr, ptr %ignored, align 8
-  call void @qsort(ptr noundef %43, i64 noundef %conv15, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #26
+  call void @qsort(ptr noundef %43, i64 noundef range(i64 -2147483648, 2147483648) %conv15, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #26
   br label %sane_qsort.exit55
 
 sane_qsort.exit55:                                ; preds = %sane_qsort.exit, %if.then.i54
@@ -1083,7 +1083,7 @@ define dso_local range(i32 0, 5) i32 @match_pathspec(ptr noundef %istate, ptr no
 entry:
   %tobool.not = icmp eq i32 %is_dir, 0
   %cond = select i1 %tobool.not, i32 0, i32 2
-  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef readonly %ps, ptr noundef %name, i32 noundef %namelen, i32 noundef %prefix, ptr noundef %seen, i32 noundef %cond)
+  %call.i = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef readonly %ps, ptr noundef %name, i32 noundef %namelen, i32 noundef %prefix, ptr noundef %seen, i32 noundef range(i32 0, 7) %cond)
   %magic.i = getelementptr inbounds i8, ptr %ps, i64 8
   %0 = load i32, ptr %magic.i, align 8
   %and.i = and i32 %0, 32
@@ -2334,7 +2334,7 @@ if.end.i:                                         ; preds = %if.end13
 
 read_skip_worktree_file_from_index.exit:          ; preds = %if.end.i
   %oid.i = getelementptr inbounds i8, ptr %1, i64 72
-  %call8.i = call fastcc i32 @do_read_blob(ptr noundef nonnull %oid.i, ptr noundef %oid_stat, ptr noundef %size, ptr noundef %buf)
+  %call8.i = call fastcc i32 @do_read_blob(ptr noundef nonnull %oid.i, ptr noundef %oid_stat, ptr noundef nonnull %size, ptr noundef nonnull %buf)
   %cmp15.not = icmp eq i32 %call8.i, 1
   br i1 %cmp15.not, label %read_skip_worktree_file_from_index.exit.if.end77_crit_edge, label %return
 
@@ -5097,7 +5097,7 @@ land.lhs.true:                                    ; preds = %if.then19
   %59 = load ptr, ptr %buf, align 8
   %60 = load i64, ptr %len, align 8
   %conv35 = trunc i64 %60 to i32
-  %call.i.i46 = call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %59, i32 noundef %conv35, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %call.i.i46 = call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %59, i32 noundef %conv35, i32 noundef 0, ptr noundef null, i32 noundef range(i32 0, 7) 0)
   %61 = load i32, ptr %magic.i.i, align 8
   %and.i.i = and i32 %61, 32
   %tobool.i.i = icmp ne i32 %and.i.i, 0
@@ -8211,11 +8211,11 @@ land.lhs.true23.i:                                ; preds = %if.end21.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true23.i
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv24.i) #27
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv24.i) #27
   br label %ps_strncmp.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true23.i
-  %call1.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv24.i) #27
+  %call1.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv24.i) #27
   br label %ps_strncmp.exit.i
 
 ps_strncmp.exit.i:                                ; preds = %if.else.i.i, %if.then.i.i
@@ -8261,11 +8261,11 @@ land.lhs.true56.i:                                ; preds = %land.lhs.true45.i
   br i1 %tobool.not.i67.i, label %if.else.i71.i, label %if.then.i68.i
 
 if.then.i68.i:                                    ; preds = %land.lhs.true56.i
-  %call.i69.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv57.i) #27
+  %call.i69.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv57.i) #27
   br label %ps_strncmp.exit73.i
 
 if.else.i71.i:                                    ; preds = %land.lhs.true56.i
-  %call1.i72.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv57.i) #27
+  %call1.i72.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv57.i) #27
   br label %ps_strncmp.exit73.i
 
 ps_strncmp.exit73.i:                              ; preds = %if.else.i71.i, %if.then.i68.i
@@ -8313,11 +8313,11 @@ land.lhs.true94.i:                                ; preds = %land.lhs.true87.i
   br i1 %tobool.not.i75.i, label %if.else.i79.i, label %if.then.i76.i
 
 if.then.i76.i:                                    ; preds = %land.lhs.true94.i
-  %call.i77.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef nonnull readonly %add.ptr, i64 noundef %conv57.i) #27
+  %call.i77.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef nonnull readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv57.i) #27
   br label %ps_strncmp.exit81.i
 
 if.else.i79.i:                                    ; preds = %land.lhs.true94.i
-  %call1.i80.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef nonnull readonly %add.ptr, i64 noundef %conv57.i) #27
+  %call1.i80.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef nonnull readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv57.i) #27
   br label %ps_strncmp.exit81.i
 
 ps_strncmp.exit81.i:                              ; preds = %if.else.i79.i, %if.then.i76.i
@@ -8341,11 +8341,11 @@ land.lhs.true104.i:                               ; preds = %if.end99.i
   br i1 %tobool.not.i83.i, label %if.else.i87.i, label %if.then.i84.i
 
 if.then.i84.i:                                    ; preds = %land.lhs.true104.i
-  %call.i85.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv107.i) #27
+  %call.i85.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv107.i) #27
   br label %ps_strncmp.exit89.i
 
 if.else.i87.i:                                    ; preds = %land.lhs.true104.i
-  %call1.i88.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef %conv107.i) #27
+  %call1.i88.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i59, ptr noundef readonly %add.ptr, i64 noundef range(i64 -2147483648, 2147483648) %conv107.i) #27
   br label %ps_strncmp.exit89.i
 
 ps_strncmp.exit89.i:                              ; preds = %if.else.i87.i, %if.then.i84.i
@@ -9032,11 +9032,11 @@ lor.lhs.false:                                    ; preds = %land.rhs.i, %if.end
   br i1 %tobool.not.i44, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false
-  %call.i45 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly @.str.10) #27
+  %call.i45 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.10) #27
   br label %fspathcmp.exit
 
 cond.false.i:                                     ; preds = %lor.lhs.false
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.10) #27
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.10) #27
   br label %fspathcmp.exit
 
 fspathcmp.exit:                                   ; preds = %cond.true.i, %cond.false.i
@@ -9124,11 +9124,11 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %30, ptr noundef readonly %24, i64 noundef %conv.i56) #27
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %30, ptr noundef readonly %24, i64 noundef range(i64 -2147483648, 2147483648) %conv.i56) #27
   br label %ps_strncmp.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %30, ptr noundef readonly %24, i64 noundef %conv.i56) #27
+  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %30, ptr noundef readonly %24, i64 noundef range(i64 -2147483648, 2147483648) %conv.i56) #27
   br label %ps_strncmp.exit.i
 
 ps_strncmp.exit.i:                                ; preds = %if.else.i.i, %if.then.i.i
@@ -9255,7 +9255,7 @@ land.lhs.true59:                                  ; preds = %sw.bb57
   %52 = load ptr, ptr %buf.i48, align 8
   %53 = load i64, ptr %len2.i, align 8
   %conv62 = trunc i64 %53 to i32
-  %call.i.i96 = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %52, i32 noundef %conv62, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %call.i.i96 = tail call fastcc i32 @do_match_pathspec(ptr noundef %istate, ptr noundef nonnull readonly %pathspec, ptr noundef %52, i32 noundef %conv62, i32 noundef 0, ptr noundef null, i32 noundef range(i32 0, 7) 0)
   %magic.i.i = getelementptr inbounds i8, ptr %pathspec, i64 8
   %54 = load i32, ptr %magic.i.i, align 8
   %and.i.i97 = and i32 %54, 32
@@ -9376,11 +9376,11 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %9, ptr noundef readonly %3, i64 noundef %conv.i) #27
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef readonly %9, ptr noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #27
   br label %ps_strncmp.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %9, ptr noundef readonly %3, i64 noundef %conv.i) #27
+  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %9, ptr noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #27
   br label %ps_strncmp.exit.i
 
 ps_strncmp.exit.i:                                ; preds = %if.else.i.i, %if.then.i.i
@@ -9407,11 +9407,11 @@ land.lhs.true21.i:                                ; preds = %land.lhs.true14.i
   br i1 %tobool.not.i21.i, label %if.else.i25.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %land.lhs.true21.i
-  %call.i23.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %11, ptr noundef readonly %3, i64 noundef %conv.i) #27
+  %call.i23.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %11, ptr noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #27
   br label %ps_strncmp.exit27.i
 
 if.else.i25.i:                                    ; preds = %land.lhs.true21.i
-  %call1.i26.i = tail call i32 @strncmp(ptr noundef nonnull readonly %11, ptr noundef readonly %3, i64 noundef %conv.i) #27
+  %call1.i26.i = tail call i32 @strncmp(ptr noundef nonnull readonly %11, ptr noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #27
   br label %ps_strncmp.exit27.i
 
 ps_strncmp.exit27.i:                              ; preds = %if.else.i25.i, %if.then.i22.i

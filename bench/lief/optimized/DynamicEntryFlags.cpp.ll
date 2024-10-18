@@ -693,13 +693,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4LIEF6ObjectneERKS0_(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF3ELF17DynamicEntryFlagsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF3ELF17DynamicEntryFlagsD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -707,7 +707,7 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF17DynamicEntryFlagsD0Ev(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4LIEF3ELF17DynamicEntryFlags5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.52") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZNSt10unique_ptrIN4LIEF3ELF17DynamicEntryFlagsESt14default_deleteIS2_EED2Ev.exit unwind label %6
 
 _ZNSt10unique_ptrIN4LIEF3ELF17DynamicEntryFlagsESt14default_deleteIS2_EED2Ev.exit: ; preds = %2

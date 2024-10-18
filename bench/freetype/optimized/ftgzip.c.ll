@@ -52,7 +52,7 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %23 = getelementptr inbounds i8, ptr %14, i64 8344
   store ptr %21, ptr %23, align 8
   store i64 0, ptr %21, align 8
-  %24 = call fastcc i32 @ft_gzip_check_header(ptr noundef %1)
+  %24 = call fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %1)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %37
 

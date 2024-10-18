@@ -37,7 +37,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9hasProfMDERKNS_11InstructionE(ptr 
   br i1 %.not.i.i.i, label %_ZNK4llvm11Instruction11hasMetadataEj.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   %7 = icmp ne ptr %6, null
   br label %_ZNK4llvm11Instruction11hasMetadataEj.exit
 
@@ -146,7 +146,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17hasBranchWeightMDERKNS_11Instruct
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %1, %5
@@ -164,7 +164,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14hasCountTypeMDERKNS_11Instruction
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %1, %5
@@ -210,7 +210,7 @@ _ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit.thread: ; preds = %1
   br label %40
 
 _ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit: ; preds = %1
-  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 3)
   %.not8 = icmp ne ptr %6, null
   %.not.not = and i1 %.not8, %7
@@ -237,7 +237,7 @@ _ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit: ; preds = %1
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %16, %12
   %.0.i.i.i = phi i32 [ %19, %16 ], [ %15, %12 ]
-  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef 3)
+  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str, i32 noundef 3)
   br i1 %20, label %21, label %_ZN4llvm19getNumBranchWeightsERKNS_6MDNodeE.exit
 
 21:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
@@ -293,7 +293,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21hasBranchWeightOriginERKNS_11Inst
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %1, %5
@@ -481,7 +481,7 @@ define dso_local noundef ptr @_ZN4llvm21getBranchWeightMDNodeERKNS_11Instruction
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %6 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %1, %5
@@ -759,7 +759,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20extractBranchWeightsERKNS_11Instr
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %7 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %2, %6
@@ -779,7 +779,7 @@ _ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit: ; pr
 define dso_local noundef zeroext i1 @_ZN4llvm20extractBranchWeightsERKNS_11InstructionERmS3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 2) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %5, i64 noundef 2) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 536870912
@@ -787,7 +787,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20extractBranchWeightsERKNS_11Instr
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %10 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %3, %9
@@ -814,7 +814,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %3, %9
 
 _ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit, %12, %15
   %.0 = phi i1 [ true, %15 ], [ false, %12 ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ]
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
   %23 = load ptr, ptr %4, align 8
   %24 = icmp eq ptr %23, %5
   br i1 %24, label %_ZN4llvm11SmallVectorIjLj2EED2Ev.exit, label %25
@@ -1069,7 +1069,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightERKNS_11Ins
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %7 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %2, %6
@@ -1111,7 +1111,7 @@ define dso_local void @_ZN4llvm13scaleProfDataERNS_11InstructionEmm(ptr noundef 
   br i1 %.not.i.i, label %_ZN4llvm11SmallVectorIPNS_8MetadataELj3EED2Ev.exit, label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %3
-  %15 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %15 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4llvm11SmallVectorIPNS_8MetadataELj3EED2Ev.exit, label %17
 
@@ -1173,7 +1173,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread116:      ; preds = %_ZN4llvmneENS_9Stri
   br i1 %.not.i.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit.i, label %41
 
 41:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread116
-  %42 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2) #10
+  %42 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2) #10
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit.i
 
 _ZNK4llvm11Instruction11getMetadataEj.exit.i:     ; preds = %41, %_ZN4llvmneENS_9StringRefES0_.exit.thread116
@@ -1197,7 +1197,7 @@ _ZN4llvm14hasCountTypeMDERKNS_11InstructionE.exit.thread: ; preds = %_ZNK4llvm11
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
   store ptr %47, ptr %4, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %48, i64 noundef 3) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %48, i64 noundef 3) #10
   %49 = load i64, ptr %18, align 8
   %50 = and i64 %49, 2
   %.not.i.i49 = icmp eq i64 %50, 0
@@ -1702,7 +1702,7 @@ _ZN4llvm5APIntD2Ev.exit103:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit104
 
 _ZN4llvm5APIntD2Ev.exit104:                       ; preds = %_ZN4llvm5APIntD2Ev.exit103, %300, %303
-  %304 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
+  %304 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #10
   %305 = load ptr, ptr %5, align 8
   %306 = icmp eq ptr %305, %48
   br i1 %306, label %_ZN4llvm11SmallVectorIPNS_8MetadataELj3EED2Ev.exit, label %307

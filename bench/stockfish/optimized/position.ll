@@ -474,7 +474,7 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
 111:                                              ; preds = %107
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %112 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %112, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %112, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 3))
   br label %116
 
@@ -2347,7 +2347,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %3, i64 2048
-  %22 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %3) #18
+  %22 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %3) #18
   store ptr %22, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %3 to i64
@@ -2454,7 +2454,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29,
 
 65:                                               ; preds = %15
   %66 = getelementptr inbounds i8, ptr %4, i64 2048
-  %67 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4) #18
+  %67 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %4) #18
   store ptr %67, ptr %66, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = ptrtoint ptr %4 to i64
@@ -4684,7 +4684,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position7is_drawEi(ptr nound
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %3, i64 2048
-  %14 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %3) #18
+  %14 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %3) #18
   store ptr %14, ptr %13, align 8
   %.not5 = icmp eq ptr %14, %3
   br i1 %.not5, label %..critedge_crit_edge, label %.critedge2

@@ -176,7 +176,7 @@ _ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEEC2EN4llvh8ArrayRefIhEENS0_9cons
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEEC2EN4llvh8ArrayRefIhEENS0_9constants13MatchFlagTypeENS0_11SyntaxFlagsEPKDsSB_jj.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %capturedRanges_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i24, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %capturedRanges_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i24, i64 noundef 8) #9
   %.pre.i.i = load ptr, ptr %capturedRanges_.i, align 8
   store i32 %conv, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader.i
@@ -205,7 +205,7 @@ _ZN4llvh11SmallVectorIN6hermes5regex13CapturedRangeELj16EEC2EmRKS3_.exit.i: ; pr
   br i1 %cmp.i.i4.i, label %if.end.i.i5.thread.i, label %if.end.i.i5.i
 
 if.end.i.i5.thread.i:                             ; preds = %_ZN4llvh11SmallVectorIN6hermes5regex13CapturedRangeELj16EEC2EmRKS3_.exit.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i1.i, i64 noundef %conv2.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i1.i, i64 noundef %conv2.i, i64 noundef 8) #9
   %.pre.i14.i = load ptr, ptr %loopDatas_.i, align 8
   store i32 %conv12, ptr %Size.i.i.i.i.i2.i, align 8
   br label %for.body.i.i.i.i.i.i.i9.preheader.i
@@ -467,7 +467,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %if.end
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %capturedRanges_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i24, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %capturedRanges_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i24, i64 noundef 8) #9
   %.pre.i.i = load ptr, ptr %capturedRanges_.i, align 8
   store i32 %conv, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.preheader.i
@@ -496,7 +496,7 @@ _ZN4llvh11SmallVectorIN6hermes5regex13CapturedRangeELj16EEC2EmRKS3_.exit.i: ; pr
   br i1 %cmp.i.i4.i, label %if.end.i.i5.thread.i, label %if.end.i.i5.i
 
 if.end.i.i5.thread.i:                             ; preds = %_ZN4llvh11SmallVectorIN6hermes5regex13CapturedRangeELj16EEC2EmRKS3_.exit.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i1.i, i64 noundef %conv2.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i1.i, i64 noundef %conv2.i, i64 noundef 8) #9
   %.pre.i14.i = load ptr, ptr %loopDatas_.i, align 8
   store i32 %conv12, ptr %Size.i.i.i.i.i2.i, align 8
   br label %for.body.i.i.i.i.i.i.i9.preheader.i
@@ -1703,7 +1703,7 @@ if.then380:                                       ; preds = %_ZNK6hermes5regex6C
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, label %if.then.i.i558
 
 if.then.i.i558:                                   ; preds = %if.then380
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
@@ -1967,7 +1967,7 @@ sw.bb530:                                         ; preds = %for.cond5
   br i1 %cmp.not.i.i639, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i643, label %if.then.i.i640
 
 if.then.i.i640:                                   ; preds = %sw.bb530
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i642 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i643
 
@@ -2380,7 +2380,7 @@ _ZNK6hermes5regex6CursorINS0_16UTF16RegexTraitsEE20satisfiesConstraintsENS0_9con
   br i1 %281, label %if.then739, label %do.body742
 
 if.then691:                                       ; preds = %land.lhs.true6.i850, %if.end.i847
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %savedState, ptr noundef nonnull align 8 dereferenceable(44) %s, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %savedState, ptr noundef nonnull align 8 dereferenceable(336) %s, i64 44, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i, ptr %capturedRanges_.i855, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   store i32 16, ptr %Capacity2.i.i.i.i.i.i, align 4
@@ -2395,7 +2395,7 @@ if.end13.i.i.i:                                   ; preds = %if.then691
 
 if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   %conv.i.i.i.i = zext i32 %282 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %capturedRanges_.i855, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %capturedRanges_.i855, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #9
   %.pre.i.i857 = load i32, ptr %Size.i.i.i856, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i857, 0
   br i1 %cmp.not.i.i.i.i, label %return.sink.split.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
@@ -2432,7 +2432,7 @@ if.end13.i.i10.i:                                 ; preds = %_ZN4llvh11SmallVect
 
 if.end28.i.i16.i:                                 ; preds = %if.end13.i.i10.i
   %conv.i.i.i17.i = zext i32 %286 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i3.i, i64 noundef %conv.i.i.i17.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i3.i, i64 noundef %conv.i.i.i17.i, i64 noundef 8) #9
   %.pre.i18.i = load i32, ptr %Size.i.i6.i, align 8
   %cmp.not.i.i.i19.i = icmp eq i32 %.pre.i18.i, 0
   br i1 %cmp.not.i.i.i19.i, label %return.sink.split.i.i15.i, label %if.end28.i.i16.if.then.i.i.i12_crit_edge.i
@@ -2517,7 +2517,7 @@ for.body717:                                      ; preds = %for.body717.prehead
   br i1 %cmp.not.i.i885, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i889, label %if.then.i.i886
 
 if.then.i.i886:                                   ; preds = %for.body717
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i888 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i889
 
@@ -2568,7 +2568,7 @@ for.inc:                                          ; preds = %lor.lhs.false.i894
   br i1 %exitcond.not, label %cleanup, label %for.body717, !llvm.loop !10
 
 if.else728:                                       ; preds = %land.lhs.true709, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEEC2ERKS3_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %s, ptr noundef nonnull align 8 dereferenceable(44) %savedState, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %s, ptr noundef nonnull align 8 dereferenceable(336) %savedState, i64 44, i1 false)
   br i1 %cmp.i.i.i, label %cleanup, label %if.end.i1064
 
 if.end.i1064:                                     ; preds = %if.else728
@@ -2626,7 +2626,7 @@ if.end24.i1088:                                   ; preds = %if.end12.i1077
 
 if.then27.i1104:                                  ; preds = %if.end24.i1088
   store i32 0, ptr %Size.i.i.i856, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %capturedRanges_3.i, ptr noundef nonnull %add.ptr.i.i25.i1069, i64 noundef %conv.i30.i1079, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %capturedRanges_3.i, ptr noundef nonnull %add.ptr.i.i25.i1069, i64 noundef %conv.i30.i1079, i64 noundef 8) #9
   br label %if.end37.i1095
 
 if.else.i1091:                                    ; preds = %if.end24.i1088
@@ -2717,7 +2717,7 @@ if.end24.i:                                       ; preds = %if.end12.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   store i32 0, ptr %Size.i.i6.i, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %loopDatas_.i921, ptr noundef nonnull %add.ptr.i.i25.i, i64 noundef %conv.i30.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %loopDatas_.i921, ptr noundef nonnull %add.ptr.i.i25.i, i64 noundef %conv.i30.i, i64 noundef 8) #9
   br label %if.end37.i
 
 if.else.i1060:                                    ; preds = %if.end24.i
@@ -2945,7 +2945,7 @@ if.then839:                                       ; preds = %if.else837
   br i1 %cmp.not.i.i961, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i965, label %if.then.i.i962
 
 if.then.i.i962:                                   ; preds = %if.then839
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i964 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i965
 
@@ -2990,7 +2990,7 @@ if.else851:                                       ; preds = %if.else837
   br i1 %cmp.not.i.i983, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i987, label %if.then.i.i984
 
 if.then.i.i984:                                   ; preds = %if.else851
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i986 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i987
 
@@ -3075,7 +3075,7 @@ runSimpleLoop:                                    ; preds = %land.lhs.true6.i100
   br i1 %cmp.not.i.i1020, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i1024, label %if.then.i.i1021
 
 if.then.i.i1021:                                  ; preds = %runSimpleLoop
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i1023 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i1024
 
@@ -3534,7 +3534,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %bts, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
@@ -3602,7 +3602,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp.not.i.i23, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i27, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %for.body
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i25, i64 noundef 0, i64 noundef 24) #9
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i25, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i26 = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i27
 
@@ -3952,7 +3952,7 @@ if.then40:                                        ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then40
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %bts, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i148 = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
@@ -4909,7 +4909,7 @@ if.then389:                                       ; preds = %_ZNK6hermes5regex6C
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then389
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
@@ -5127,7 +5127,7 @@ sw.bb537:                                         ; preds = %for.cond5
   br i1 %cmp.not.i.i510, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i514, label %if.then.i.i511
 
 if.then.i.i511:                                   ; preds = %sw.bb537
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i513 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i514
 
@@ -5407,7 +5407,7 @@ _ZNK6hermes5regex6CursorINS0_16ASCIIRegexTraitsEE20satisfiesConstraintsENS0_9con
   br i1 %226, label %if.then750, label %do.body753
 
 if.then702:                                       ; preds = %land.lhs.true6.i640, %if.end.i637
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %savedState, ptr noundef nonnull align 8 dereferenceable(44) %s, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %savedState, ptr noundef nonnull align 8 dereferenceable(336) %s, i64 44, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i, ptr %capturedRanges_.i645, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   store i32 16, ptr %Capacity2.i.i.i.i.i.i, align 4
@@ -5422,7 +5422,7 @@ if.end13.i.i.i:                                   ; preds = %if.then702
 
 if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   %conv.i.i.i.i = zext i32 %227 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %capturedRanges_.i645, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %capturedRanges_.i645, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #9
   %.pre.i.i648 = load i32, ptr %Size.i.i.i646, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i648, 0
   br i1 %cmp.not.i.i.i.i, label %return.sink.split.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
@@ -5459,7 +5459,7 @@ if.end13.i.i10.i:                                 ; preds = %_ZN4llvh11SmallVect
 
 if.end28.i.i16.i:                                 ; preds = %if.end13.i.i10.i
   %conv.i.i.i17.i = zext i32 %231 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i3.i, i64 noundef %conv.i.i.i17.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %loopDatas_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i3.i, i64 noundef %conv.i.i.i17.i, i64 noundef 8) #9
   %.pre.i18.i = load i32, ptr %Size.i.i6.i, align 8
   %cmp.not.i.i.i19.i = icmp eq i32 %.pre.i18.i, 0
   br i1 %cmp.not.i.i.i19.i, label %return.sink.split.i.i15.i, label %if.end28.i.i16.if.then.i.i.i12_crit_edge.i
@@ -5544,7 +5544,7 @@ for.body728:                                      ; preds = %for.body728.prehead
   br i1 %cmp.not.i.i673, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i677, label %if.then.i.i674
 
 if.then.i.i674:                                   ; preds = %for.body728
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i676 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i677
 
@@ -5595,7 +5595,7 @@ for.inc:                                          ; preds = %lor.lhs.false.i682
   br i1 %exitcond.not, label %cleanup, label %for.body728, !llvm.loop !25
 
 if.else739:                                       ; preds = %land.lhs.true720, %_ZN6hermes5regex5StateINS0_16ASCIIRegexTraitsEEC2ERKS3_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %s, ptr noundef nonnull align 8 dereferenceable(44) %savedState, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %s, ptr noundef nonnull align 8 dereferenceable(336) %savedState, i64 44, i1 false)
   br i1 %cmp.i.i.i, label %cleanup, label %if.end.i840
 
 if.end.i840:                                      ; preds = %if.else739
@@ -5653,7 +5653,7 @@ if.end24.i864:                                    ; preds = %if.end12.i853
 
 if.then27.i880:                                   ; preds = %if.end24.i864
   store i32 0, ptr %Size.i.i.i646, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %capturedRanges_3.i, ptr noundef nonnull %add.ptr.i.i25.i845, i64 noundef %conv.i30.i855, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %capturedRanges_3.i, ptr noundef nonnull %add.ptr.i.i25.i845, i64 noundef %conv.i30.i855, i64 noundef 8) #9
   br label %if.end37.i871
 
 if.else.i867:                                     ; preds = %if.end24.i864
@@ -5744,7 +5744,7 @@ if.end24.i:                                       ; preds = %if.end12.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   store i32 0, ptr %Size.i.i6.i, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %loopDatas_.i708, ptr noundef nonnull %add.ptr.i.i25.i, i64 noundef %conv.i30.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %loopDatas_.i708, ptr noundef nonnull %add.ptr.i.i25.i, i64 noundef %conv.i30.i, i64 noundef 8) #9
   br label %if.end37.i
 
 if.else.i836:                                     ; preds = %if.end24.i
@@ -5970,7 +5970,7 @@ if.then850:                                       ; preds = %if.else848
   br i1 %cmp.not.i.i746, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i750, label %if.then.i.i747
 
 if.then.i.i747:                                   ; preds = %if.then850
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i749 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i750
 
@@ -6015,7 +6015,7 @@ if.else862:                                       ; preds = %if.else848
   br i1 %cmp.not.i.i768, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i772, label %if.then.i.i769
 
 if.then.i.i769:                                   ; preds = %if.else862
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i771 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i772
 
@@ -6100,7 +6100,7 @@ runSimpleLoop:                                    ; preds = %land.lhs.true6.i794
   br i1 %cmp.not.i.i805, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i809, label %if.then.i.i806
 
 if.then.i.i806:                                   ; preds = %runSimpleLoop
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i808 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i809
 
@@ -6571,7 +6571,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %bts, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
@@ -6638,7 +6638,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp.not.i.i23, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i27, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %for.body
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i25, i64 noundef 0, i64 noundef 24) #9
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i25, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i26 = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i27
 
@@ -6947,7 +6947,7 @@ if.then40:                                        ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then40
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %bts, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(1552) %bts, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 24) #9
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 

@@ -1108,7 +1108,7 @@ CopyMultiInsertInfoNextFreeSlot.exit356:          ; preds = %346, %355
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 160
   %455 = load ptr, ptr %454, align 8
-  call void %455(ptr noundef %451, ptr noundef nonnull %.1261, i32 noundef %8, i32 noundef %.1278, ptr noundef %.0276) #11
+  call void %455(ptr noundef %451, ptr noundef nonnull %.1261, i32 noundef %8, i32 noundef range(i32 0, 8) %.1278, ptr noundef %.0276) #11
   %456 = getelementptr inbounds i8, ptr %.1, i64 16
   %457 = load i32, ptr %456, align 8
   %458 = icmp sgt i32 %457, 0

@@ -312,7 +312,7 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   br i1 %tobool19.not.i, label %if.then.i, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false17.i
-  %call21.i = call fastcc i32 @is_unsigned_integer(ptr noundef %prime)
+  %call21.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %prime)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.then.i, label %lor.lhs.false23.i
 
@@ -347,7 +347,7 @@ lor.lhs.false38.i:                                ; preds = %lor.lhs.false35.i
   br i1 %tobool40.not.i, label %if.then.i, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %lor.lhs.false38.i
-  %call42.i = call fastcc i32 @is_unsigned_integer(ptr noundef %order)
+  %call42.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %order)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then.i, label %if.end.i
 

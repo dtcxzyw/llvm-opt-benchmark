@@ -1038,7 +1038,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.466185439
   br i1 %66, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4661854399685404667.exit.i.i.i, label %67
 
 67:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.4661854399685404667.exit.i.i.i.i
-  call void @_ZN4core4sync6atomic12atomic_store17h1574303c9bdc4bbcE.llvm.4661854399685404667(ptr noundef nonnull %20, i8 noundef 1, i8 noundef 0), !noalias !88
+  call void @_ZN4core4sync6atomic12atomic_store17h1574303c9bdc4bbcE.llvm.4661854399685404667(ptr noundef nonnull align 1 %20, i8 noundef 1, i8 noundef 0), !noalias !88
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4661854399685404667.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4661854399685404667.exit.i.i.i: ; preds = %67, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.4661854399685404667.exit.i.i.i.i, %62, %60
@@ -1150,14 +1150,14 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN10rayon_core5sleep5Sleep1
   br label %3
 
 3:                                                ; preds = %6, %1
-  %4 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h939a445d398624cfE.llvm.15964793097634730155(ptr noundef nonnull %2, i8 noundef 4)
+  %4 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h939a445d398624cfE.llvm.15964793097634730155(ptr noundef nonnull align 8 %2, i8 noundef 4)
   %5 = and i64 %4, 4294967296
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17hab242ae72386a929E.exit, label %6
 
 6:                                                ; preds = %3
   %7 = add i64 %4, 4294967296
-  %8 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h793bff0d2b7cc775E.llvm.15964793097634730155(ptr noundef nonnull %2, i64 noundef %4, i64 noundef %7, i8 noundef 4, i8 noundef 0)
+  %8 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h793bff0d2b7cc775E.llvm.15964793097634730155(ptr noundef nonnull align 8 %2, i64 noundef %4, i64 noundef %7, i8 noundef 4, i8 noundef 0)
   %.fca.0.extract.i = extractvalue { i64, i64 } %8, 0
   %9 = icmp eq i64 %.fca.0.extract.i, 0
   br i1 %9, label %_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17hab242ae72386a929E.exit, label %3

@@ -837,7 +837,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %add.ptr.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8QuantLib17GeneralStatistics5resetEv.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body

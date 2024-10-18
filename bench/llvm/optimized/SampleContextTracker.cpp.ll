@@ -447,7 +447,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   br i1 %.not5.i.i.i, label %57, label %47
 
 47:                                               ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE20_Reuse_or_alloc_nodeC2ERSA_.exit.i.i.i
-  %48 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %46, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %48 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull %46, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %49
 
 49:                                               ; preds = %49, %47
@@ -601,7 +601,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
 96:                                               ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %95, ptr %5, align 8
-  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(8) %5)
   store ptr %86, ptr %97, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 48
@@ -1655,7 +1655,7 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %50 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 56
   %51 = load ptr, ptr %50, align 8
-  call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %51)
+  call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %49, ptr noundef %51)
   %52 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 48
   store ptr null, ptr %50, align 8
   %53 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 64
@@ -1689,7 +1689,7 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; 
 _ZN4llvm15ContextTrieNodeaSEOS0_.exit:            ; preds = %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit, %57
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %35, i64 48, i1 false)
-  call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef null)
+  call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef null)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %64 = load ptr, ptr %17, align 8
@@ -1955,7 +1955,7 @@ _ZN4llvm20SampleContextTracker8IteratorD2Ev.exit13: ; preds = %.lr.ph.i.i.i.i.i9
   store i32 %31, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %27, ptr %6, align 8
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(8) %6)
   store ptr %25, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -1983,7 +1983,7 @@ _ZN4llvm20SampleContextTracker8IteratorD2Ev.exit13: ; preds = %.lr.ph.i.i.i.i.i9
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %34, %28
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %34 ], [ %.sroa.2.0.copyload.i, %28 ]
   store i64 %.0.i.i.i.i, ptr %4, align 8
-  %35 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %35 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %36 = load ptr, ptr %5, align 8
   %.not.i.i.i2.i = icmp eq ptr %36, null
@@ -2608,7 +2608,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForEPKNS
   %4 = alloca %"struct.std::pair.81", align 8
   %5 = alloca %"struct.std::pair.81", align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6, i64 noundef 10) #22
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef nonnull %6, i64 noundef 10) #22
   %7 = getelementptr inbounds i8, ptr %1, i64 -16
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2
@@ -3023,7 +3023,7 @@ _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit83: ; preds = %_ZNK4llv
 
 ._crit_edge122:                                   ; preds = %._crit_edge122.loopexit, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit83
   %.032.lcssa = phi ptr [ %204, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit83 ], [ %217, %._crit_edge122.loopexit ]
-  %218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  %218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(256) %3) #22
   %219 = load ptr, ptr %3, align 8
   %220 = icmp eq ptr %219, %6
   br i1 %220, label %_ZN4llvm11SmallVectorISt4pairINS_10sampleprof12LineLocationENS2_10FunctionIdEELj10EED2Ev.exit, label %221
@@ -3168,7 +3168,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm20Samp
   %9 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
-  %12 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #22
+  %12 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #22
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
   %15 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %13, i64 %14, ptr %10, i64 %11)
@@ -3212,7 +3212,7 @@ _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit: ; preds = %2, %19
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread, %23, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %23 ], [ %17, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit ], [ %22, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread ]
   store i64 %.0.i.i.i.i, ptr %5, align 8
-  %24 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %24 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %25 = load ptr, ptr %6, align 8
   %.not.i.i.i2.i = icmp eq ptr %25, null
@@ -3277,7 +3277,7 @@ _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit: ; preds = %3, %9
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread, %13, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %13 ], [ %2, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit ], [ %12, %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.thread ]
   store i64 %.0.i.i.i.i, ptr %6, align 8
-  %14 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %14 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %15 = load ptr, ptr %7, align 8
   %.not.i.i.i2.i = icmp eq ptr %15, null
@@ -3308,7 +3308,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker17getBaseSamplesForE
   %6 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #22
+  %9 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #22
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %10, i64 %11, ptr %7, i64 %8)
@@ -3372,7 +3372,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker17getBaseSamplesForE
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS0_15FunctionSamplesESaIS6_EEJEE11try_emplaceIJS8_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS8_ELb0ELb0EEEbERKS3_DpOT_.exit.i: ; preds = %14, %13
   %.0.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %14 ], [ %2, %13 ]
   store i64 %.0.i.i.i.i, ptr %7, align 8
-  %15 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %15 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseImSt4pairIKmSt6vectorIPN4llvm10sampleprof15FunctionSamplesESaIS7_EEESaISA_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEEE11try_emplaceIRS2_JS9_EEES1_INS_14_Node_iteratorISA_Lb0ELb0EEEbENS_20_Node_const_iteratorISA_Lb0ELb0EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %16 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i = icmp eq ptr %16, null
@@ -3681,7 +3681,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20Samp
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %23, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %18, ptr %46, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 48
@@ -3747,7 +3747,7 @@ _ZN4llvm15ContextTrieNode18removeChildContextERKNS_10sampleprof12LineLocationENS
   %64 = mul i64 %.sroa.0.0.copyload.i, 33
   %65 = add i64 %.0.i.i.i.i, %64
   store i64 %65, ptr %6, align 8
-  %66 = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %66 = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %67
 
@@ -3959,7 +3959,7 @@ define dso_local void @_ZN4llvm20SampleContextTracker16mergeContextNodeERNS_15Co
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4llvm10sampleprof15FunctionSamplesESt4pairIKS5_PNS1_15ContextTrieNodeEESaISA_ENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store ptr %2, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -4355,7 +4355,7 @@ _ZNKSt4lessIN4llvm10sampleprof10FunctionIdEEclERKS2_S5_.exit.i: ; preds = %_ZN4l
   %.08.lcssa.i.i.i11.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt3mapIN4llvm10sampleprof10FunctionIdENS1_15FunctionSamplesESt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_.exit.i ], [ %.08.lcssa.i.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof10FunctionIdEEclERKS2_S5_.exit.i ], [ %118, %120 ], [ %.08.lcssa.i.i.i.i, %152 ], [ %.08.lcssa.i.i.i.i, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i ]
   %157 = call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #23
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %158, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %160 = getelementptr inbounds i8, ptr %157, i64 128
   %161 = getelementptr inbounds i8, ptr %157, i64 144
@@ -4811,7 +4811,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
 _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE11try_emplaceIJS4_EEESt4pairINSt8__detail14_Node_iteratorIS7_IKNS_9hash_codeES4_ELb0ELb1EEEbERKS3_DpOT_.exit: ; preds = %18, %22, %23
   %.0.i.i.i = phi i64 [ %21, %18 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %23 ], [ %.sroa.2.0.copyload.i3.i.i.i, %22 ]
   store i64 %.0.i.i.i, ptr %5, align 8
-  %24 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4llvm9hash_codeESt4pairIKS2_NS1_10sampleprof15FunctionSamplesEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JS6_EEES3_INS_14_Node_iteratorIS7_Lb0ELb1EEEbENS_20_Node_const_iteratorIS7_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(176) %6)
+  %24 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4llvm9hash_codeESt4pairIKS2_NS1_10sampleprof15FunctionSamplesEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JS6_EEES3_INS_14_Node_iteratorIS7_Lb0ELb1EEEbENS_20_Node_const_iteratorIS7_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(176) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.fca.0.extract = extractvalue { ptr, i8 } %24, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %24, 1
@@ -4956,7 +4956,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %28 = getelementptr inbounds i8, ptr %6, i64 56
   %29 = load ptr, ptr %28, align 8
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %29)
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef %29)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %31 = load i64, ptr %1, align 8
   store i64 %31, ptr %30, align 8
@@ -4977,7 +4977,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
 38:                                               ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %27, ptr %4, align 8
-  %39 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %37, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %39 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull %37, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %40
 
 40:                                               ; preds = %40, %38
@@ -5031,7 +5031,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %59, ptr %3, align 8
-  %60 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull %57, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %60 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %59, ptr noundef nonnull %57, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %61
 
 61:                                               ; preds = %61, %58
@@ -5097,7 +5097,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNo
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %19, ptr %6, align 8
-  %20 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %20 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %21
 
 21:                                               ; preds = %21, %18
@@ -5181,7 +5181,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %52, ptr %5, align 8
-  %53 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull %50, ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %53 = call noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %52, ptr noundef nonnull %50, ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %54
 
 54:                                               ; preds = %54, %51
@@ -5268,7 +5268,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt1
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = getelementptr inbounds i8, ptr %.07, i64 56
   %9 = load ptr, ptr %8, align 8
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %9)
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef %9)
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 136) #24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
@@ -7133,7 +7133,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4llvm9hash
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store i64 %5, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %34, ptr noundef nonnull align 8 dereferenceable(176) %3, i64 72, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 96
   %36 = getelementptr inbounds i8, ptr %3, i64 88
   %37 = load ptr, ptr %36, align 8
@@ -8073,7 +8073,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %35 = load ptr, ptr %12, align 8
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef %35)
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef %35)
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 136) #24
   br label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE10_Auto_nodeD2Ev.exit
 
@@ -8397,7 +8397,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = getelementptr inbounds i8, ptr %34, i64 56
   %37 = load ptr, ptr %36, align 8
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %37)
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef %37)
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 136) #24
   %38 = load i64, ptr %25, align 8
   %39 = add i64 %38, -1

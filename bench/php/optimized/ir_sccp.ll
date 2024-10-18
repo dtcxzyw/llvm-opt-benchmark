@@ -711,7 +711,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
 
 366:                                              ; preds = %362, %357
   %367 = phi ptr [ %365, %362 ], [ %359, %357 ]
-  %368 = tail call i32 @ir_folding(ptr noundef %0, i32 noundef %.0130.i, i32 noundef %.0129.i, i32 noundef %.0128.i, i32 noundef %.0127.i, ptr noundef %343, ptr noundef %355, ptr noundef %367) #9
+  %368 = tail call i32 @ir_folding(ptr noundef nonnull %0, i32 noundef %.0130.i, i32 noundef %.0129.i, i32 noundef %.0128.i, i32 noundef %.0127.i, ptr noundef %343, ptr noundef %355, ptr noundef %367) #9
   switch i32 %368, label %.backedge.backedge [
     i32 0, label %369
     i32 2, label %374
@@ -2431,7 +2431,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
   br i1 %1242, label %1243, label %1278
 
 1243:                                             ; preds = %1240
-  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1241, i32 noundef %1217) #9
+  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1241, i32 noundef range(i32 0, -2147483648) %1217) #9
   %1244 = load ptr, ptr %0, align 8
   %1245 = zext nneg i32 %1241 to i64
   %1246 = getelementptr inbounds %struct._ir_insn, ptr %1244, i64 %1245
@@ -2655,7 +2655,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
   br i1 %.not146.i722, label %thread-pre-split.i, label %1369
 
 1369:                                             ; preds = %1367
-  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1343, i32 noundef %1217) #9
+  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1343, i32 noundef range(i32 0, -2147483648) %1217) #9
   %.pr.pre.i = load i32, ptr %28, align 4
   br label %thread-pre-split.i
 
@@ -2677,7 +2677,7 @@ thread-pre-split.i:                               ; preds = %1369, %1367, %1365,
   br i1 %.not148.i724, label %1380, label %1378
 
 1378:                                             ; preds = %1375
-  %1379 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %1370, i32 noundef %1217) #9
+  %1379 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %1370, i32 noundef range(i32 0, -2147483648) %1217) #9
   br label %1380
 
 1380:                                             ; preds = %1378, %1375, %1372, %thread-pre-split.i, %._crit_edge.i721
@@ -2702,7 +2702,7 @@ thread-pre-split.i:                               ; preds = %1369, %1367, %1365,
   br i1 %.not151.i727, label %thread-pre-split159.i, label %1390
 
 1390:                                             ; preds = %1388
-  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1382, i32 noundef %1217) #9
+  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1382, i32 noundef range(i32 0, -2147483648) %1217) #9
   %.pr160.pre.i = load i32, ptr %29, align 8
   br label %thread-pre-split159.i
 
@@ -2723,7 +2723,7 @@ thread-pre-split159.i:                            ; preds = %1390, %1388, %1386,
   br i1 %.not153.i, label %1400, label %1398
 
 1398:                                             ; preds = %1395
-  %1399 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %1391, i32 noundef %1217) #9
+  %1399 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %1391, i32 noundef range(i32 0, -2147483648) %1217) #9
   br label %1400
 
 1400:                                             ; preds = %1398, %1395, %1393, %thread-pre-split159.i, %1380
@@ -2748,7 +2748,7 @@ thread-pre-split159.i:                            ; preds = %1390, %1388, %1386,
   br i1 %.not156.i, label %thread-pre-split161.i, label %1410
 
 1410:                                             ; preds = %1408
-  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1402, i32 noundef %1217) #9
+  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1402, i32 noundef range(i32 0, -2147483648) %1217) #9
   %.pr162.pre.i = load i32, ptr %30, align 4
   br label %thread-pre-split161.i
 
@@ -2768,7 +2768,7 @@ thread-pre-split161.i:                            ; preds = %1410, %1408, %1406,
   br i1 %.not158.i, label %1419, label %1417
 
 1417:                                             ; preds = %1415
-  %1418 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %1411, i32 noundef %1217) #9
+  %1418 = call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %1411, i32 noundef range(i32 0, -2147483648) %1217) #9
   br label %1419
 
 1419:                                             ; preds = %1417, %1415, %1413, %thread-pre-split161.i, %1400
@@ -2832,7 +2832,7 @@ thread-pre-split161.i:                            ; preds = %1410, %1408, %1406,
 
 .loopexit.sink.split.i:                           ; preds = %1451, %1449
   %.sink.i = phi i32 [ %1454, %1451 ], [ %1450, %1449 ]
-  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1217, i32 noundef %.sink.i, ptr noundef %2)
+  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1217, i32 noundef %.sink.i, ptr noundef nonnull %2)
   br label %ir_sccp_remove_insn2.exit.backedge
 
 1455:                                             ; preds = %1221
@@ -2896,7 +2896,7 @@ ir_sccp_remove_insn2.exit.backedge:               ; preds = %1524, %1326, %1446,
   br i1 %1488, label %1489, label %1524
 
 1489:                                             ; preds = %1486
-  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1487, i32 noundef %1217) #9
+  call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1487, i32 noundef range(i32 0, -2147483648) %1217) #9
   %1490 = load ptr, ptr %0, align 8
   %1491 = zext nneg i32 %1487 to i64
   %1492 = getelementptr inbounds %struct._ir_insn, ptr %1490, i64 %1491

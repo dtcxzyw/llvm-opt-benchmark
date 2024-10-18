@@ -1225,7 +1225,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %arrayidx.i.i.i = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %call.i.i.i.i9, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %m_data.i.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %2, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx3.i.i.i, i64 16, i1 false)
   %m_max.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   %m_max3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_max.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_max3.i.i.i.i.i, i64 16, i1 false)

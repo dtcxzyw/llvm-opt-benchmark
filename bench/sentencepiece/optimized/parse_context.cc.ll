@@ -947,7 +947,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 88
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %storemerge.i.ph.i, ptr noundef nonnull %0)
+  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %storemerge.i.ph.i, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageINS0_11MessageLiteEEEPKcPT_S6_.exit, label %56
 
@@ -1055,7 +1055,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 88
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %storemerge.i.ph.i.i, ptr noundef nonnull %0)
+  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %storemerge.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc.exit, label %56
 
@@ -1907,7 +1907,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16WireFormatParserI
 
 .preheader.i.i.i:                                 ; preds = %24, %32
   %.0.i.i.i = phi i32 [ %43, %32 ], [ %16, %24 ]
-  %26 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %.0.i.i.i, i32 noundef %8)
+  %26 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(112) %2, i32 noundef %.0.i.i.i, i32 noundef %8)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %32
 

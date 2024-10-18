@@ -441,13 +441,13 @@ switch.lookup:                                    ; preds = %22, %38
   %63 = trunc i8 %62 to i1
   %64 = select i1 %63, ptr @.str.23, ptr @.str.24
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %64) #3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %5, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, i8 0, i64 60, i1 false)
   %65 = getelementptr inbounds i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %65, i8 0, i64 120, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %6, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, i8 0, i64 60, i1 false)
   %66 = getelementptr inbounds i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, i8 0, i64 120, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 60, i1 false)
   %67 = getelementptr inbounds i8, ptr %7, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %67, i8 0, i64 120, i1 false)
   %68 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3

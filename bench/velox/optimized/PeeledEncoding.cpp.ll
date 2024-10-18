@@ -1779,7 +1779,7 @@ lpad142:                                          ; preds = %if.end163, %if.else
 if.end163:                                        ; preds = %if.end9.i.i.i389, %invoke.cont159, %invoke.cont150, %land.lhs.true139, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit348
   %numLevels.2 = phi i32 [ %numLevels.1, %invoke.cont150 ], [ %numLevels.1, %land.lhs.true139 ], [ %numLevels.1, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit348 ], [ %inc154, %invoke.cont159 ], [ %inc154, %if.end9.i.i.i389 ]
   %225 = load ptr, ptr %firstWrapper, align 8
-  invoke void @_ZN8facebook5velox13DecodedVector11makeIndicesERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEi(ptr noundef nonnull align 8 dereferenceable(120) %decodedVector, ptr noundef nonnull align 8 dereferenceable(99) %225, ptr noundef nonnull %rows, i32 noundef %numLevels.2)
+  invoke void @_ZN8facebook5velox13DecodedVector11makeIndicesERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEi(ptr noundef nonnull align 8 dereferenceable(120) %decodedVector, ptr noundef nonnull align 8 dereferenceable(99) %225, ptr noundef nonnull align 8 dereferenceable(38) %rows, i32 noundef %numLevels.2)
           to label %invoke.cont165 unwind label %lpad142
 
 invoke.cont165:                                   ; preds = %if.end163
@@ -2788,7 +2788,7 @@ _ZN8facebook5velox4core7ExecCtx20getSelectivityVectorEv.exit.thread: ; preds = %
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17, !noalias !19
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 1, !noalias !19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %call.i.i, i8 0, i64 36, i1 false), !noalias !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %call.i.i, i8 0, i64 36, i1 false), !noalias !19
   store ptr %call.i.i, ptr %vector_, align 8
   br label %if.end
 
@@ -2855,7 +2855,7 @@ if.end:                                           ; preds = %_ZN8facebook5velox4
 
 if.then.i.i:                                      ; preds = %if.end
   %sub.i.i = sub nuw nsw i64 %conv.i.i, %sub.ptr.div.i.i.i
-  tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %sub.i.i)
+  tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(38) %9, i64 noundef %sub.i.i)
   %.pre.i3 = load ptr, ptr %9, align 8
   %.pre4.i4 = load ptr, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
@@ -3582,7 +3582,7 @@ if.end:                                           ; preds = %_ZN8facebook5velox1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i36)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %allRows, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %allRows, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %allRows, i8 0, i64 36, i1 false)
   store i64 -1, ptr %ref.tmp.i36, align 8
   %add.i.i.off.i = add i32 %29, 126
   %cmp.i.not.i = icmp ult i32 %add.i.i.off.i, 127
@@ -3592,7 +3592,7 @@ if.then.i.i:                                      ; preds = %if.end
   %add.i.i.i = add nuw i32 %29, 63
   %div.i.i = sdiv i32 %add.i.i.i, 64
   %conv.i.i = sext i32 %div.i.i to i64
-  invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %allRows, ptr null, i64 noundef %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i36)
+  invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(38) %allRows, ptr null, i64 noundef %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i36)
           to label %if.then.i.i._ZN8facebook5velox17SelectivityVectorC2Eib.exit_crit_edge unwind label %lpad.i
 
 if.then.i.i._ZN8facebook5velox17SelectivityVectorC2Eib.exit_crit_edge: ; preds = %if.then.i.i

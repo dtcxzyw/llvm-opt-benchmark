@@ -1904,7 +1904,7 @@ define void @_ZN2cv16findEssentialMatERKNS_11_InputArrayES2_dNS_6Point_IdEEiddiR
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %11
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %17)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %.noexc unwind label %118
 
 .noexc:                                           ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -2249,7 +2249,7 @@ define void @_ZN2cv16findEssentialMatERKNS_11_InputArrayES2_dNS_6Point_IdEEiddRK
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %10
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %16)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(96) %16)
           to label %.noexc unwind label %117
 
 .noexc:                                           ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -9462,7 +9462,7 @@ _ZN2cvmLERNS_3MatERKd.exit43:                     ; preds = %97
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %102
   call void @llvm.experimental.noalias.scope.decl(metadata !356)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %27)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %27)
           to label %.noexc45 unwind label %242
 
 .noexc45:                                         ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -10059,7 +10059,7 @@ define noundef i32 @_ZN2cv11recoverPoseERKNS_11_InputArrayES2_S2_RKNS_12_OutputA
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 3, i32 noundef 3, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !365)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %14)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %.noexc unwind label %108
 
 .noexc:                                           ; preds = %9
@@ -31380,7 +31380,7 @@ define linkonce_odr hidden void @_ZN2cv3SVD6solveZERKNS_11_InputArrayERKNS_12_Ou
   %25 = load i32, ptr %24, align 4
   %.not = icmp slt i32 %23, %25
   %26 = select i1 %.not, i32 4, i32 0
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #18
   %27 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #18
   %28 = getelementptr inbounds i8, ptr %6, i64 192
@@ -31393,7 +31393,7 @@ define linkonce_odr hidden void @_ZN2cv3SVD6solveZERKNS_11_InputArrayERKNS_12_Ou
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #18
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #18
   br label %.body
 
 _ZN2cv3SVDC2ERKNS_11_InputArrayEi.exit:           ; preds = %18
@@ -31457,7 +31457,7 @@ _ZNK2cv11_InputArray6getMatEi.exit16:             ; preds = %39, %42
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #18
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
   ret void
 

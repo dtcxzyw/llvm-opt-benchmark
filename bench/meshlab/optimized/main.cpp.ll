@@ -968,7 +968,7 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit: ; preds = %141
           to label %192 unwind label %.thread239
 
 192:                                              ; preds = %190
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef null)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(25) %191, ptr noundef null)
           to label %193 unwind label %270
 
 193:                                              ; preds = %192

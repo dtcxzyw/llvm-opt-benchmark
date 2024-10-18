@@ -3676,8 +3676,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %5 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 16
   %6 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #31
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #31
   %.not.i.i.i = icmp eq ptr %4, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
@@ -3724,8 +3724,8 @@ define linkonce_odr dso_local void @_ZNSt7__cxx114listISt4pairINS_12basic_string
   %4 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
   %5 = getelementptr inbounds i8, ptr %.09.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #31
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #31
   %.not.i.i = icmp eq ptr %3, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !16
 

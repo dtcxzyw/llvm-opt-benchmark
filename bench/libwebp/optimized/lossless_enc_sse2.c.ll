@@ -599,7 +599,7 @@ define internal float @CombinedShannonEntropy_SSE2(ptr nocapture noundef readonl
   %.18698 = phi i32 [ %55, %VP8LFastSLog2.exit92 ], [ %.085103, %.lr.ph.preheader ]
   %.08797 = phi i32 [ %67, %VP8LFastSLog2.exit92 ], [ %32, %.lr.ph.preheader ]
   %.18996 = phi i32 [ %.290, %VP8LFastSLog2.exit92 ], [ %.088102, %.lr.ph.preheader ]
-  %33 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.08797, i1 true)
+  %33 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.08797, i1 true)
   %34 = shl nuw nsw i32 1, %33
   %35 = and i32 %34, %28
   %.not91 = icmp eq i32 %35, 0

@@ -479,7 +479,7 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
 
 47:                                               ; preds = %.split.i
   %48 = getelementptr inbounds i8, ptr %41, i64 32
-  %49 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %48, ptr noundef %5, ptr noundef null, ptr noundef nonnull %3)
+  %49 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge.i, label %51
 
@@ -550,7 +550,7 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
 
 83:                                               ; preds = %.split.i3
   %84 = getelementptr inbounds i8, ptr %77, i64 32
-  %85 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %84, ptr noundef %5, ptr noundef null, ptr noundef nonnull %2)
+  %85 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %84, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %2)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.critedge.i5, label %87
 

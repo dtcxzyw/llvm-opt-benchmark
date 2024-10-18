@@ -1411,7 +1411,7 @@ define internal void @msg_validate_req(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i, label %44, label %42
 
 42:                                               ; preds = %41
-  %43 = call ptr @proto_tree_add_expert(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_data_length, ptr noundef %0, i32 noundef %32, i32 noundef %30) #3
+  %43 = call ptr @proto_tree_add_expert(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_data_length, ptr noundef %0, i32 noundef %32, i32 noundef range(i32 1, 256) %30) #3
   br label %for_param_block_val_spc.exit
 
 44:                                               ; preds = %41
@@ -1436,7 +1436,7 @@ define internal void @msg_validate_req(ptr noundef %0, ptr noundef %1, ptr nound
   br label %for_param_block_val_spc.exit
 
 56:                                               ; preds = %47
-  %57 = call ptr @proto_tree_add_expert(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_data_length, ptr noundef %0, i32 noundef %32, i32 noundef %30) #3
+  %57 = call ptr @proto_tree_add_expert(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_data_length, ptr noundef %0, i32 noundef %32, i32 noundef range(i32 1, 256) %30) #3
   br label %for_param_block_val_spc.exit
 
 58:                                               ; preds = %47

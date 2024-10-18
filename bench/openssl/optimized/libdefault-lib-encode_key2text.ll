@@ -349,7 +349,7 @@ if.end45.i:                                       ; preds = %if.end40.i
   br i1 %cmp46.not.i, label %if.end49.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end45.i
-  %call47.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef %call.i, ptr noundef nonnull @.str.36, ptr noundef nonnull %priv_key.0.i)
+  %call47.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.36, ptr noundef nonnull %priv_key.0.i)
   %tobool.not.i = icmp eq i32 %call47.i, 0
   br i1 %tobool.not.i, label %dsa_to_text.exit, label %if.end49.i
 
@@ -358,7 +358,7 @@ if.end49.i:                                       ; preds = %land.lhs.true.i, %i
   br i1 %cmp50.not.i, label %if.end55.i, label %land.lhs.true51.i
 
 land.lhs.true51.i:                                ; preds = %if.end49.i
-  %call52.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull %pub_key.0.i)
+  %call52.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull %pub_key.0.i)
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %dsa_to_text.exit, label %if.end55.i
 
@@ -367,7 +367,7 @@ if.end55.i:                                       ; preds = %land.lhs.true51.i, 
   br i1 %cmp56.not.i, label %if.end61.i, label %land.lhs.true57.i
 
 land.lhs.true57.i:                                ; preds = %if.end55.i
-  %call58.i = tail call fastcc i32 @ffc_params_to_text(ptr noundef %call.i, ptr noundef %params.0.i)
+  %call58.i = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %call.i, ptr noundef %params.0.i)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
   br i1 %tobool59.not.i, label %dsa_to_text.exit, label %if.end61.i
 
@@ -1428,17 +1428,17 @@ lor.lhs.false9.i.i.i:                             ; preds = %if.then6.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %lor.lhs.false9.i.i.i, %if.end.i.i.i
   %.str.47.sink.i.i.i = phi ptr [ @.str.47, %if.end.i.i.i ], [ @.str.49, %lor.lhs.false9.i.i.i ]
-  %call1615.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull %.str.47.sink.i.i.i, ptr noundef %call.i.i.i)
+  %call1615.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull %.str.47.sink.i.i.i, ptr noundef %call.i.i.i)
   %tobool17.not.i.i.i = icmp eq i32 %call1615.i.i.i, 0
   br i1 %tobool17.not.i.i.i, label %err.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end15.i.i.i
-  %call18.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.50, ptr noundef %call1.i.i.i)
+  %call18.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.50, ptr noundef %call1.i.i.i)
   %tobool19.not.i.i.i = icmp eq i32 %call18.i.i.i, 0
   br i1 %tobool19.not.i.i.i, label %err.i.i, label %ec_param_explicit_curve_to_text.exit.i.i
 
 ec_param_explicit_curve_to_text.exit.i.i:         ; preds = %land.lhs.true.i.i.i
-  %call20.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2.i.i.i)
+  %call20.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2.i.i.i)
   %tobool21.i.not.i.i = icmp eq i32 %call20.i.i.i, 0
   br i1 %tobool21.i.not.i.i, label %err.i.i, label %lor.lhs.false16.i.i
 
@@ -1475,7 +1475,7 @@ ec_param_explicit_gen_to_text.exit.thread.i.i:    ; preds = %sw.epilog.i.i.i, %i
 
 ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %sw.epilog.i.i.i
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %call8.i.i.i = call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull %glabel.0.i.i.i, ptr noundef %3, i64 noundef %call4.i25.i.i)
+  %call8.i.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull %glabel.0.i.i.i, ptr noundef %3, i64 noundef %call4.i25.i.i)
   %4 = load ptr, ptr %buf.i.i.i, align 8
   call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %call4.i25.i.i, ptr noundef nonnull @.str, i32 noundef 423) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i)
@@ -1483,7 +1483,7 @@ ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %sw.epilog.i.i.i
   br i1 %tobool18.not.i.i, label %err.i.i, label %lor.lhs.false19.i.i
 
 lor.lhs.false19.i.i:                              ; preds = %ec_param_explicit_gen_to_text.exit.i.i
-  %call20.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.44, ptr noundef nonnull %call2.i.i)
+  %call20.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.44, ptr noundef nonnull %call2.i.i)
   %tobool21.not.i.i = icmp eq i32 %call20.i.i, 0
   br i1 %tobool21.not.i.i, label %err.i.i, label %lor.lhs.false22.i.i
 
@@ -1492,7 +1492,7 @@ lor.lhs.false22.i.i:                              ; preds = %lor.lhs.false19.i.i
   br i1 %cmp23.not.i.i, label %lor.lhs.false26.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false22.i.i
-  %call24.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.45, ptr noundef nonnull %call11.i.i)
+  %call24.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.45, ptr noundef nonnull %call11.i.i)
   %tobool25.not.i.i = icmp eq i32 %call24.i.i, 0
   br i1 %tobool25.not.i.i, label %err.i.i, label %lor.lhs.false26.i.i
 
@@ -1500,7 +1500,7 @@ lor.lhs.false26.i.i:                              ; preds = %land.lhs.true.i.i, 
   br i1 %cmp7.not.i.i, label %if.end32.i.i, label %land.lhs.true28.i.i
 
 land.lhs.true28.i.i:                              ; preds = %lor.lhs.false26.i.i
-  %call29.i.i = call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.46, ptr noundef nonnull %call6.i.i, i64 noundef %seed_len.0.i.i)
+  %call29.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.46, ptr noundef nonnull %call6.i.i, i64 noundef %seed_len.0.i.i)
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %err.i.i, label %if.end32.i.i
 

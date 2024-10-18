@@ -266,20 +266,20 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
   br i1 %22, label %90, label %23
 
 23:                                               ; preds = %21, %18, %14, %4
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(3064) %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google12_GLOBAL__N_115StaticStringBufILm3000EEE, i64 16), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 64
   %25 = getelementptr inbounds i8, ptr %5, i64 3064
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(3064) %5, ptr noundef nonnull %24, ptr noundef nonnull %25)
           to label %26 unwind label %27
 
 26:                                               ; preds = %23
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %24, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(3064) %5, ptr noundef nonnull %24, ptr noundef nonnull %24, ptr noundef nonnull %25)
           to label %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EEC2Ev.exit unwind label %27
 
 common.resume:                                    ; preds = %73, %75, %27
   %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %76, %75 ], [ %74, %73 ]
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(3064) %5) #16
   resume { ptr, i32 } %common.resume.op
 
 27:                                               ; preds = %26, %23
@@ -316,11 +316,11 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; pr
 
 39:                                               ; preds = %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit
   %40 = load i8, ptr %38, align 1
-  %41 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %41 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(3064) %5)
           to label %42 unwind label %57
 
 42:                                               ; preds = %39
-  %43 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %43 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(3064) %5)
           to label %44 unwind label %57
 
 44:                                               ; preds = %42
@@ -328,11 +328,11 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; pr
   br i1 %.not.i, label %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %46 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(3064) %5)
           to label %47 unwind label %57
 
 47:                                               ; preds = %45
-  %48 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5epptrEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %48 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5epptrEv(ptr noundef nonnull align 8 dereferenceable(3064) %5)
           to label %49 unwind label %57
 
 49:                                               ; preds = %47
@@ -340,7 +340,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; pr
   br i1 %.not1.i, label %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit, label %50
 
 50:                                               ; preds = %49
-  %51 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %51 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(3064) %5)
           to label %52 unwind label %57
 
 52:                                               ; preds = %50
@@ -350,7 +350,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; pr
   br i1 %.not2.i, label %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit, label %55
 
 55:                                               ; preds = %52
-  %56 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext 0)
+  %56 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(3064) %5, i8 noundef signext 0)
           to label %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit unwind label %57
 
 57:                                               ; preds = %55, %50, %47, %45, %42, %39
@@ -428,7 +428,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %44, %
 
 89:                                               ; preds = %77
   call void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(3064) %5) #16
   br label %90
 
 90:                                               ; preds = %21, %89
@@ -546,7 +546,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #16
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #16
   ret void
 }
@@ -558,7 +558,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #16
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
@@ -575,7 +575,7 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #16
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #16
   ret void
 }
@@ -591,9 +591,9 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #16
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #16
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %5) #21
   ret void
 }
 
@@ -663,7 +663,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EED0Ev(ptr noundef nonnull align 8 dereferenceable(3064) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(3064) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

@@ -144,7 +144,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 while.body.i.i.i:                                 ; preds = %ehcleanup, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %8, %while.body.i.i.i ], [ %7, %ehcleanup ]
   %8 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #20
   %cmp.not.i.i.i = icmp eq ptr %8, %map_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN3p2t8TriangleESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !4
 
@@ -1007,7 +1007,7 @@ entry:
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %triangle, ptr %_M_storage.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %map_) #21
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %map_) #21
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
@@ -1046,7 +1046,7 @@ invoke.cont:                                      ; preds = %entry
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %map_) #21
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %map_) #21
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %4 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %4, 1
@@ -1245,7 +1245,7 @@ while.end.i:                                      ; preds = %if.end.i
 while.body.i.i.i.i:                               ; preds = %while.end.i, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i ], [ %.pre.i, %while.end.i ]
   %6 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #20
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #20
   %cmp.not.i.i.i.i = icmp eq ptr %6, %__to_destroy.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIPN3p2t8TriangleESaIS3_EE6removeERKS3_.exit, label %while.body.i.i.i.i, !llvm.loop !4
 
@@ -1645,7 +1645,7 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit:      ; preds = %for.end36, %if.then
 while.body.i.i.i:                                 ; preds = %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %18, %while.body.i.i.i ], [ %17, %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit ]
   %18 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #20
   %cmp.not.i.i.i = icmp eq ptr %18, %map_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN3p2t8TriangleESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !4
 
@@ -1710,7 +1710,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -149,7 +149,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(6) %ex, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex, i64 6, i1 false)
   %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
@@ -188,7 +188,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(6) %ex1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex1, i64 6, i1 false)
   %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex1, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
@@ -215,7 +215,7 @@ invoke.cont:                                      ; preds = %if.else.i.invoke.co
   br i1 %cmp.not.i4, label %if.else.i9, label %if.then.i5
 
 if.then.i5:                                       ; preds = %invoke.cont
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(6) %ex2, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ex2, i64 6, i1 false)
   %m_params.i.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 8
   %m_params3.i.i.i.i7 = getelementptr inbounds i8, ptr %ex2, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i7)
@@ -254,7 +254,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(6) %ex1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex1, i64 6, i1 false)
   %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex1, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
@@ -281,7 +281,7 @@ invoke.cont:                                      ; preds = %if.else.i.invoke.co
   br i1 %cmp.not.i4, label %if.else.i9, label %if.then.i5
 
 if.then.i5:                                       ; preds = %invoke.cont
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(6) %ex2, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ex2, i64 6, i1 false)
   %m_params.i.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 8
   %m_params3.i.i.i.i7 = getelementptr inbounds i8, ptr %ex2, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i7)
@@ -320,7 +320,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(6) %ex1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex1, i64 6, i1 false)
   %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex1, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
@@ -347,7 +347,7 @@ invoke.cont:                                      ; preds = %if.else.i.invoke.co
   br i1 %cmp.not.i4, label %if.else.i9, label %if.then.i5
 
 if.then.i5:                                       ; preds = %invoke.cont
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(6) %ex2, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ex2, i64 6, i1 false)
   %m_params.i.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 8
   %m_params3.i.i.i.i7 = getelementptr inbounds i8, ptr %ex2, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i7)
@@ -567,7 +567,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4YAM
 _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i19, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %add.ptr, ptr noundef nonnull align 8 dereferenceable(6) %__args, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 6, i1 false)
   %m_params.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %m_params3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i)
@@ -580,7 +580,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.inc.i.i.i.i.i
   %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
   %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(6) %__first.addr.09.i.i.i.i.i, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i.i.i, i64 6, i1 false)
   %m_params.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 8
   %m_params3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i.i.i.i)
@@ -638,7 +638,7 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
   %__cur.010.i.i.i.i.i22.idx = phi i64 [ %__cur.010.i.i.i.i.i22.add, %for.inc.i.i.i.i.i38 ], [ 32, %invoke.cont10 ]
   %__first.addr.09.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i39, %for.inc.i.i.i.i.i38 ], [ %__position.coerce, %invoke.cont10 ]
   %__cur.010.i.i.i.i.i22.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 %__cur.010.i.i.i.i.i22.idx
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.010.i.i.i.i.i22.ptr, ptr noundef nonnull align 8 dereferenceable(6) %__first.addr.09.i.i.i.i.i23, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i.i.i.i.i22.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i.i.i23, i64 6, i1 false)
   %m_params.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22.ptr, i64 8
   %m_params3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i.i.i.i25)
@@ -820,7 +820,7 @@ invoke.cont:                                      ; preds = %_ZNSt16allocator_tr
 for.body.i:                                       ; preds = %invoke.cont, %for.inc.i
   %__cur.010.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %cond.i.i.i, %invoke.cont ]
   %__first.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %2, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.010.i, ptr noundef nonnull align 8 dereferenceable(6) %__first.sroa.0.09.i, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.09.i, i64 6, i1 false)
   %m_params.i.i = getelementptr inbounds i8, ptr %__cur.010.i, i64 8
   %m_params3.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i)

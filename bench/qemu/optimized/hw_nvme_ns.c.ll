@@ -1873,11 +1873,11 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i32
   %18 = load i64, ptr %_now.i.i25, align 8
   %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %19 = load i64, ptr %tv_usec.i.i38, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i37, i64 noundef %18, i64 noundef %19, i32 noundef %shr.i, i64 noundef %0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i37, i64 noundef %18, i64 noundef %19, i32 noundef range(i32 0, 16) %shr.i, i64 noundef %0) #14
   br label %trace_pci_nvme_clear_ns_reset.exit
 
 if.else.i.i34:                                    ; preds = %if.then.i.i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %shr.i, i64 noundef %0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef range(i32 0, 16) %shr.i, i64 noundef %0) #14
   br label %trace_pci_nvme_clear_ns_reset.exit
 
 trace_pci_nvme_clear_ns_reset.exit:               ; preds = %if.else29, %land.lhs.true5.i.i29, %if.then8.i.i35, %if.else.i.i34

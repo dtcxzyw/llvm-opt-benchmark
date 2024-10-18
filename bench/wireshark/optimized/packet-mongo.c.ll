@@ -947,7 +947,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   ]
 
 277:                                              ; preds = %259
-  %278 = tail call fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef %273, ptr noundef %3, i32 noundef %275, ptr noundef %5)
+  %278 = tail call fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef %273, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
   br label %dissect_mongo_op_compressed.exit
 
 279:                                              ; preds = %259
@@ -978,7 +978,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %298 = trunc i64 %297 to i32
   %299 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %290, i32 noundef %298, i32 noundef %298) #4
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %299, ptr noundef nonnull @.str.307) #4
-  %300 = call fastcc i32 @dissect_opcode_types(ptr noundef %299, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef %5)
+  %300 = call fastcc i32 @dissect_opcode_types(ptr noundef %299, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
   br label %309
 
 301:                                              ; preds = %287
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
 
 316:                                              ; preds = %311
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %313, ptr noundef nonnull @.str.307) #4
-  %317 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %313, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef %5)
+  %317 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %313, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
   br label %318
 
 318:                                              ; preds = %316, %314
@@ -1028,7 +1028,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
 
 323:                                              ; preds = %320
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %322, ptr noundef nonnull @.str.307) #4
-  %324 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %322, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef %5)
+  %324 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %322, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
   br label %329
 
 325:                                              ; preds = %320

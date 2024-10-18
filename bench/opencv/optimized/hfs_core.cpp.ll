@@ -747,7 +747,7 @@ define hidden void @_ZN2cv3hfs7HfsCore13getSLICIdxCpuERKNS_3MatERi(ptr dead_on_u
   %11 = getelementptr inbounds i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = mul i32 %12, %10
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #22
   %14 = getelementptr inbounds i8, ptr %5, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #22
   %15 = getelementptr inbounds i8, ptr %5, i64 192
@@ -939,7 +939,7 @@ _ZNSt6vectorIN2cv3hfs4slic11cSpixelInfoESaIS3_EED2Ev.exit.i: ; preds = %76, %_ZN
 
 _ZN2cv3hfs4slic5cSLICD2Ev.exit:                   ; preds = %_ZNSt6vectorIN2cv3hfs4slic11cSpixelInfoESaIS3_EED2Ev.exit.i, %78
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #22
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #22
   ret void
 
 79:                                               ; preds = %._crit_edge

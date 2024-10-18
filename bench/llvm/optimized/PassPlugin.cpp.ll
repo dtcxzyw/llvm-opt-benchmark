@@ -92,7 +92,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   br label %106
 
 38:                                               ; preds = %2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %40 = load i64, ptr %4, align 8
   store i64 %40, ptr %39, align 8
@@ -231,13 +231,13 @@ _ZN4llvm5ErrorD2Ev.exit200:                       ; preds = %84
   %102 = load i8, ptr %101, align 8
   %103 = and i8 %102, -2
   store i8 %103, ptr %101, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(72) %8) #6
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
   br label %105
 
 105:                                              ; preds = %100, %_ZN4llvm5ErrorD2Ev.exit200, %_ZN4llvm5ErrorD2Ev.exit166, %_ZN4llvm5ErrorD2Ev.exit72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #6
   br label %106
 
 106:                                              ; preds = %105, %_ZN4llvm5ErrorD2Ev.exit

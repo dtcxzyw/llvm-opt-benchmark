@@ -595,7 +595,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 _ZN5arrow2io15SlowInputStreamD0Ev.exit:           ; preds = %entry
   tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io15SlowInputStreamE, i64 8)) #24
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %3) #25
   ret void
 }
 
@@ -1306,7 +1306,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %entry
   tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #24
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %3) #25
   ret void
 }
 
@@ -1331,7 +1331,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %entry
   tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5arrow2io20SlowRandomAccessFileE, i64 8)) #24
   tail call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i.i.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %0) #25
   ret void
 }
 
@@ -2061,7 +2061,7 @@ entry:
 define linkonce_odr noundef double @_ZN5arrow2io20LatencyGeneratorImpl11NextLatencyEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 48
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -2072,19 +2072,19 @@ if.then.i.i:                                      ; preds = %entry
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %latency_dist_ = getelementptr inbounds i8, ptr %this, i64 16
   %gen_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i1 = invoke noundef double @_ZNSt19normal_distributionIdEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %latency_dist_, ptr noundef nonnull align 8 dereferenceable(8) %gen_, ptr noundef nonnull align 8 dereferenceable(16) %latency_dist_)
+  %call.i1 = invoke noundef double @_ZNSt19normal_distributionIdEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %latency_dist_, ptr noundef nonnull align 8 dereferenceable(8) %gen_, ptr noundef nonnull align 8 dereferenceable(25) %latency_dist_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %cmp.i = fcmp ogt double %call.i1, 0.000000e+00
   %.sroa.speculated = select i1 %cmp.i, double %call.i1, double 0.000000e+00
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #24
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #24
   ret double %.sroa.speculated
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %0 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #24
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #24
   resume { ptr, i32 } %0
 }
 

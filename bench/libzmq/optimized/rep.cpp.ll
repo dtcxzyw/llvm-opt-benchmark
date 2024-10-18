@@ -87,7 +87,7 @@ define void @_ZThn1448_N3zmq5rep_tD0Ev(ptr noundef %this) unnamed_addr #4 align 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq5rep_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2184) %0) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2184) %0) #9
   ret void
 }
 
@@ -96,7 +96,7 @@ define void @_ZThn1464_N3zmq5rep_tD0Ev(ptr noundef %this) unnamed_addr #4 align 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq5rep_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2184) %0) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2184) %0) #9
   ret void
 }
 
@@ -105,7 +105,7 @@ define void @_ZThn1472_N3zmq5rep_tD0Ev(ptr noundef %this) unnamed_addr #4 align 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq5rep_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2184) %0) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2184) %0) #9
   ret void
 }
 

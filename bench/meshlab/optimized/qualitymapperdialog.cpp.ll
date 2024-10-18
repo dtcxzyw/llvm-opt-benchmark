@@ -841,7 +841,7 @@ define void @_ZN19QualityMapperDialogC2EP7QWidgetR9MeshModelP6GLAreaP26MLSceneGL
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %78, align 8
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef null)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(80) %81, ptr noundef null)
           to label %.noexc unwind label %129
 
 .noexc:                                           ; preds = %82
@@ -852,7 +852,7 @@ define void @_ZN19QualityMapperDialogC2EP7QWidgetR9MeshModelP6GLAreaP26MLSceneGL
 85:                                               ; preds = %.noexc
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %81) #24
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %81) #24
   br label %.body
 
 87:                                               ; preds = %.noexc
@@ -6275,22 +6275,22 @@ _ZN5QListIP8TFHandleE18detach_helper_growEii.exit.i: ; preds = %_ZN9QtPrivate8Re
   unreachable
 
 .noexc70:                                         ; preds = %230, %_ZN5QListIP8TFHandleE18detach_helper_growEii.exit.i
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %3, ptr noundef nonnull %170, ptr noundef nonnull @.str.138, ptr noundef nonnull %0, ptr noundef nonnull @.str.139, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %3, ptr noundef nonnull %170, ptr noundef nonnull @.str.138, ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull @.str.139, i32 noundef 0)
           to label %.noexc71 unwind label %.loopexit.split-lp.loopexit
 
 .noexc71:                                         ; preds = %.noexc70
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef nonnull %170, ptr noundef nonnull @.str.140, ptr noundef nonnull %0, ptr noundef nonnull @.str.141, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef nonnull %170, ptr noundef nonnull @.str.140, ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull @.str.141, i32 noundef 0)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit
 
 .noexc72:                                         ; preds = %.noexc71
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef nonnull %170, ptr noundef nonnull @.str.142, ptr noundef nonnull %0, ptr noundef nonnull @.str.143, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef nonnull %170, ptr noundef nonnull @.str.142, ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull @.str.143, i32 noundef 0)
           to label %.noexc73 unwind label %.loopexit.split-lp.loopexit
 
 .noexc73:                                         ; preds = %.noexc72
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %170, ptr noundef nonnull @.str.121, ptr noundef nonnull %0, ptr noundef nonnull @.str.122, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %170, ptr noundef nonnull @.str.121, ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull @.str.122, i32 noundef 0)
           to label %.noexc74 unwind label %.loopexit.split-lp.loopexit
 
 .noexc74:                                         ; preds = %.noexc73
@@ -8753,7 +8753,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %31
 37:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %38 = getelementptr inbounds i8, ptr %33, i64 4
   %39 = load i32, ptr %38, align 4, !noalias !18
-  %40 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %39)
+  %40 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %39)
   %41 = load ptr, ptr %7, align 8, !alias.scope !18
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = getelementptr inbounds i8, ptr %41, i64 8
@@ -8892,7 +8892,7 @@ _ZN5QListIP8TFHandleE5clearEv.exit:               ; preds = %_ZN5QListIP8TFHandl
   %88 = phi ptr [ %165, %164 ], [ %65, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8TFHandleEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
   %89 = load ptr, ptr %88, align 8, !nonnull !30, !noundef !30
   %90 = getelementptr inbounds i8, ptr %89, i64 16
-  %91 = invoke noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %89, ptr noundef null, ptr noundef null, ptr noundef null)
+  %91 = invoke noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %_ZNK7QObject10disconnectEPKcPKS_S1_.exit unwind label %155
 
 _ZNK7QObject10disconnectEPKcPKS_S1_.exit:         ; preds = %.lr.ph.preheader
@@ -9093,7 +9093,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i70: ; preds = %_ZN9QtPrivate8RefC
   br i1 %.not56, label %181, label %172
 
 172:                                              ; preds = %169
-  %173 = call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %171, ptr noundef null, ptr noundef null, ptr noundef null)
+  %173 = call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef null, ptr noundef null, ptr noundef null)
   %174 = load ptr, ptr %170, align 8
   %175 = icmp eq ptr %174, null
   %176 = getelementptr inbounds i8, ptr %174, i64 16
@@ -9164,7 +9164,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i77:        ; preds = %192
 198:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i77
   %199 = getelementptr inbounds i8, ptr %194, i64 4
   %200 = load i32, ptr %199, align 4, !noalias !34
-  %201 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %200)
+  %201 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %9, i32 noundef %200)
   %202 = load ptr, ptr %9, align 8, !alias.scope !34
   %203 = getelementptr inbounds i8, ptr %202, i64 16
   %204 = getelementptr inbounds i8, ptr %202, i64 8
@@ -9479,7 +9479,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i98:        ; preds = %324
 330:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i98
   %331 = getelementptr inbounds i8, ptr %326, i64 4
   %332 = load i32, ptr %331, align 4, !noalias !46
-  %333 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %332)
+  %333 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %10, i32 noundef %332)
   %334 = load ptr, ptr %10, align 8, !alias.scope !46
   %335 = getelementptr inbounds i8, ptr %334, i64 16
   %336 = getelementptr inbounds i8, ptr %334, i64 8
@@ -9794,7 +9794,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i121:       ; preds = %456
 462:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i121
   %463 = getelementptr inbounds i8, ptr %458, i64 4
   %464 = load i32, ptr %463, align 4, !noalias !58
-  %465 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %464)
+  %465 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %11, i32 noundef %464)
   %466 = load ptr, ptr %11, align 8, !alias.scope !58
   %467 = getelementptr inbounds i8, ptr %466, i64 16
   %468 = getelementptr inbounds i8, ptr %466, i64 8
@@ -10108,7 +10108,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i144:       ; preds = %588
 593:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i144
   %594 = getelementptr inbounds i8, ptr %589, i64 4
   %595 = load i32, ptr %594, align 4, !noalias !70
-  %596 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %595)
+  %596 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %12, i32 noundef %595)
   %597 = load ptr, ptr %12, align 8, !alias.scope !70
   %598 = getelementptr inbounds i8, ptr %597, i64 16
   %599 = getelementptr inbounds i8, ptr %597, i64 8
@@ -10303,7 +10303,7 @@ define void @_ZN19QualityMapperDialogD0Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZThn16_N19QualityMapperDialogD0Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19QualityMapperDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(824) %2) #23
   ret void
 }
 
@@ -10746,7 +10746,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %3
 13:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %14 = getelementptr inbounds i8, ptr %9, i64 4
   %15 = load i32, ptr %14, align 4, !noalias !86
-  %16 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %15)
+  %16 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %6, i32 noundef %15)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %13
@@ -11026,7 +11026,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i15:        ; preds = %130
 136:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i15
   %137 = getelementptr inbounds i8, ptr %132, i64 4
   %138 = load i32, ptr %137, align 4, !noalias !98
-  %139 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %138)
+  %139 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %138)
           to label %.noexc21 unwind label %58
 
 .noexc21:                                         ; preds = %136
@@ -14417,7 +14417,7 @@ _ZN7QStringC2ERKS_.exit19:                        ; preds = %_ZN7QStringC2ERKS_.
   store ptr @_ZN10QArrayData11shared_nullE, ptr %9, align 8
   %98 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %98, align 8
-  %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #24
+  %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 8 dereferenceable(8) %11) #24
   %101 = load ptr, ptr %11, align 8
   %102 = load atomic i32, ptr %101 monotonic, align 4
@@ -15491,7 +15491,7 @@ _ZN7QStringC2ERKS_.exit82:                        ; preds = %_ZN7QStringC2ERKS_.
   store ptr @_ZN10QArrayData11shared_nullE, ptr %14, align 8
   %138 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %138, align 8
-  %139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #24
+  %139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #24
   %140 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef nonnull align 8 dereferenceable(8) %16) #24
   %141 = load ptr, ptr %16, align 8
   %142 = load atomic i32, ptr %141 monotonic, align 4
@@ -15915,7 +15915,7 @@ define void @_ZN19QualityMapperDialog36on_presetComboBox_currentTextChangedERK7Q
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %29, align 8
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   %32 = load ptr, ptr %5, align 8
   %33 = load atomic i32, ptr %32 monotonic, align 4
@@ -15991,7 +15991,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %_ZN7QStringD2Ev.exi
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv39
   %62 = load ptr, ptr %61, align 8
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %62) #24
+  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %62) #24
   %64 = getelementptr inbounds i8, ptr %62, i64 8
   %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %64) #24
   %66 = call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %29) #24
@@ -16201,7 +16201,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %12
 18:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4, !noalias !139
-  %21 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %20)
+  %21 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %20)
   %22 = load ptr, ptr %3, align 8, !alias.scope !139
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = getelementptr inbounds i8, ptr %22, i64 8
@@ -17110,7 +17110,7 @@ _ZN5QListIP8TFHandleE8removeAtEi.exit:            ; preds = %90, %4, %_ZN5QListI
   %101 = getelementptr inbounds i8, ptr %1, i64 72
   %102 = load ptr, ptr %101, align 8
   tail call void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef %102)
-  %103 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null)
+  %103 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef null, ptr noundef null, ptr noundef null)
   %104 = load ptr, ptr %1, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 32
   %106 = load ptr, ptr %105, align 8
@@ -17157,7 +17157,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %6
 12:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %13 = getelementptr inbounds i8, ptr %8, i64 4
   %14 = load i32, ptr %13, align 4, !noalias !159
-  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %14)
+  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %14)
   %16 = load ptr, ptr %2, align 8, !alias.scope !159
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr inbounds i8, ptr %16, i64 8

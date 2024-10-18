@@ -1060,7 +1060,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i.i
 
@@ -2132,7 +2132,7 @@ _ZNSt12_Vector_baseISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31Default
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.thread, label %cond.true.i.i.i.i.i.i.i.i
 
@@ -2250,7 +2250,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !41, !alias.scope !81, !noalias !78
   store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !41, !alias.scope !78, !noalias !81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !81, !noalias !78
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !81, !noalias !78
   %obligationCurrency_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %obligationCurrency_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %18 = load ptr, ptr %obligationCurrency_3.i.i.i.i.i.i.i.i, align 8, !tbaa !49, !alias.scope !81, !noalias !78
@@ -2300,7 +2300,7 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorISt4pai
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i22, i64 16
   %25 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i26, align 8, !tbaa !41, !alias.scope !87, !noalias !84
   store ptr %25, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i25, align 8, !tbaa !41, !alias.scope !84, !noalias !87
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !87, !noalias !84
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !87, !noalias !84
   %obligationCurrency_.i.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i21, i64 24
   %obligationCurrency_3.i.i.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i22, i64 24
   %26 = load ptr, ptr %obligationCurrency_3.i.i.i.i.i.i.i.i28, align 8, !tbaa !49, !alias.scope !87, !noalias !84

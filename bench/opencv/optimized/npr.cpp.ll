@@ -4500,7 +4500,7 @@ define void @_ZN2cv20edgePreservingFilterERKNS_11_InputArrayERKNS_12_OutputArray
           to label %19 unwind label %41
 
 19:                                               ; preds = %18, %15
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(768) %8) #13
   %20 = getelementptr inbounds i8, ptr %8, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #13
   %21 = getelementptr inbounds i8, ptr %8, i64 192
@@ -4550,7 +4550,7 @@ define void @_ZN2cv20edgePreservingFilterERKNS_11_InputArrayERKNS_12_OutputArray
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %8) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #13
   %35 = getelementptr inbounds i8, ptr %6, i64 8
   %36 = load i32, ptr %35, align 8
@@ -4759,7 +4759,7 @@ define void @_ZN2cv13detailEnhanceERKNS_11_InputArrayERKNS_12_OutputArrayEff(ptr
           to label %56 unwind label %129
 
 56:                                               ; preds = %52
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(768) %17) #13
   %57 = getelementptr inbounds i8, ptr %17, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #13
   %58 = getelementptr inbounds i8, ptr %17, i64 192
@@ -4900,7 +4900,7 @@ define void @_ZN2cv13detailEnhanceERKNS_11_InputArrayERKNS_12_OutputArrayEff(ptr
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %59) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %17) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
   %109 = load ptr, ptr %10, align 8
   %110 = getelementptr inbounds i8, ptr %10, i64 8
@@ -5160,7 +5160,7 @@ define void @_ZN2cv12pencilSketchERKNS_11_InputArrayERKNS_12_OutputArrayES5_fff(
           to label %57 unwind label %96
 
 57:                                               ; preds = %54
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(768) %13) #13
   %58 = getelementptr inbounds i8, ptr %13, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #13
   %59 = getelementptr inbounds i8, ptr %13, i64 192
@@ -5230,7 +5230,7 @@ define void @_ZN2cv12pencilSketchERKNS_11_InputArrayERKNS_12_OutputArrayES5_fff(
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %60) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %59) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %13) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #13
@@ -5445,7 +5445,7 @@ define void @_ZN2cv11stylizationERKNS_11_InputArrayERKNS_12_OutputArrayEff(ptr n
           to label %57 unwind label %132
 
 57:                                               ; preds = %51
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(768) %12) #13
   %58 = getelementptr inbounds i8, ptr %12, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #13
   %59 = getelementptr inbounds i8, ptr %12, i64 192
@@ -5620,7 +5620,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %60) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %59) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %12) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #13

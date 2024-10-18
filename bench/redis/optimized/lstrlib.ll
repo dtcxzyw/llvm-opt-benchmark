@@ -2038,7 +2038,7 @@ sw.bb1.i:                                         ; preds = %land.rhs
   %add.ptr.i20 = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   %66 = load i8, ptr %add.ptr.i20, align 1, !tbaa !8
   %conv2.i = zext i8 %66 to i32
-  %call.i21 = tail call fastcc i32 @match_class(i32 noundef %conv78, i32 noundef %conv2.i), !range !42
+  %call.i21 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv78, i32 noundef %conv2.i), !range !42
   %67 = icmp ne i32 %call.i21, 0
   br label %land.end
 
@@ -2064,7 +2064,7 @@ while.body.i.i:                                   ; preds = %sw.bb3.i14, %if.end
 
 if.then8.i.i:                                     ; preds = %while.body.i.i
   %conv10.i.i = zext i8 %70 to i32
-  %call.i.i19 = tail call fastcc i32 @match_class(i32 noundef %conv78, i32 noundef %conv10.i.i), !range !42
+  %call.i.i19 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv78, i32 noundef %conv10.i.i), !range !42
   %tobool.not.i.i = icmp eq i32 %call.i.i19, 0
   br i1 %tobool.not.i.i, label %if.end39.i.i, label %land.end
 
@@ -2160,7 +2160,7 @@ land.rhs.i:                                       ; preds = %while.body.i321, %l
 sw.bb1.i62:                                       ; preds = %land.rhs.i
   %77 = load i8, ptr %add.ptr.i.i25, align 1, !tbaa !8
   %conv2.i64 = zext i8 %77 to i32
-  %call.i65 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv2.i64), !range !42
+  %call.i65 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i, i32 noundef %conv2.i64), !range !42
   br label %singlematch.exit70
 
 sw.bb3.i23:                                       ; preds = %land.rhs.i
@@ -2183,7 +2183,7 @@ while.body.i.i36:                                 ; preds = %sw.bb3.i23, %if.end
 
 if.then8.i.i58:                                   ; preds = %while.body.i.i36
   %conv10.i.i59 = zext i8 %80 to i32
-  %call.i.i60 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv10.i.i59), !range !42
+  %call.i.i60 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i, i32 noundef %conv10.i.i59), !range !42
   %tobool.not.i.i61 = icmp eq i32 %call.i.i60, 0
   br i1 %tobool.not.i.i61, label %if.end39.i.i46, label %matchbracketclass.exit.i31
 
@@ -2283,7 +2283,7 @@ land.rhs.i342:                                    ; preds = %while.body.i346, %l
 sw.bb1.i110:                                      ; preds = %land.rhs.i342
   %86 = load i8, ptr %add.ptr.i.i73, align 1, !tbaa !8
   %conv2.i112 = zext i8 %86 to i32
-  %call.i113 = tail call fastcc i32 @match_class(i32 noundef %conv.i343, i32 noundef %conv2.i112), !range !42
+  %call.i113 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i343, i32 noundef %conv2.i112), !range !42
   br label %singlematch.exit118
 
 sw.bb3.i71:                                       ; preds = %land.rhs.i342
@@ -2306,7 +2306,7 @@ while.body.i.i84:                                 ; preds = %sw.bb3.i71, %if.end
 
 if.then8.i.i106:                                  ; preds = %while.body.i.i84
   %conv10.i.i107 = zext i8 %89 to i32
-  %call.i.i108 = tail call fastcc i32 @match_class(i32 noundef %conv.i343, i32 noundef %conv10.i.i107), !range !42
+  %call.i.i108 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i343, i32 noundef %conv10.i.i107), !range !42
   %tobool.not.i.i109 = icmp eq i32 %call.i.i108, 0
   br i1 %tobool.not.i.i109, label %if.end39.i.i94, label %matchbracketclass.exit.i79
 
@@ -2400,7 +2400,7 @@ land.lhs.true.i356:                               ; preds = %if.else.i354
 sw.bb1.i158:                                      ; preds = %land.lhs.true.i356
   %94 = load i8, ptr %add.ptr.i.i121, align 1, !tbaa !8
   %conv2.i160 = zext i8 %94 to i32
-  %call.i161 = tail call fastcc i32 @match_class(i32 noundef %conv.i357, i32 noundef %conv2.i160), !range !42
+  %call.i161 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i357, i32 noundef %conv2.i160), !range !42
   br label %singlematch.exit166
 
 sw.bb3.i119:                                      ; preds = %land.lhs.true.i356
@@ -2423,7 +2423,7 @@ while.body.i.i132:                                ; preds = %sw.bb3.i119, %if.en
 
 if.then8.i.i154:                                  ; preds = %while.body.i.i132
   %conv10.i.i155 = zext i8 %97 to i32
-  %call.i.i156 = tail call fastcc i32 @match_class(i32 noundef %conv.i357, i32 noundef %conv10.i.i155), !range !42
+  %call.i.i156 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i357, i32 noundef %conv10.i.i155), !range !42
   %tobool.not.i.i157 = icmp eq i32 %call.i.i156, 0
   br i1 %tobool.not.i.i157, label %if.end39.i.i142, label %matchbracketclass.exit.i127
 

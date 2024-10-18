@@ -316,7 +316,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 59:                                               ; preds = %38
   %60 = ashr i32 %58, 7
-  %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 0)
+  %61 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %60, i32 0)
   %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 255)
   %63 = trunc nuw i32 %62 to i8
   %64 = getelementptr inbounds i8, ptr %.0102138.i, i64 1
@@ -369,7 +369,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 89:                                               ; preds = %73
   %90 = ashr i32 %88, 7
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = getelementptr inbounds i8, ptr %.1124.i, i64 1
@@ -424,7 +424,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 118:                                              ; preds = %105
   %119 = ashr i32 %117, 7
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = getelementptr inbounds i8, ptr %.2128.i, i64 1
@@ -470,7 +470,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 149:                                              ; preds = %131
   %150 = ashr i32 %148, 7
-  %151 = tail call i32 @llvm.smax.i32(i32 %150, i32 0)
+  %151 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %150, i32 0)
   %152 = tail call i32 @llvm.umin.i32(i32 %151, i32 255)
   %153 = trunc nuw i32 %152 to i8
   %154 = getelementptr inbounds i8, ptr %.3133.i, i64 1
@@ -529,7 +529,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 184:                                              ; preds = %164
   %185 = ashr i32 %183, 7
-  %186 = tail call i32 @llvm.smax.i32(i32 %185, i32 0)
+  %186 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %185, i32 0)
   %187 = tail call i32 @llvm.umin.i32(i32 %186, i32 255)
   %188 = trunc nuw i32 %187 to i8
   %189 = getelementptr inbounds i8, ptr %.090131.i, i64 1
@@ -579,7 +579,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 212:                                              ; preds = %195
   %213 = ashr i32 %211, 7
-  %214 = tail call i32 @llvm.smax.i32(i32 %213, i32 0)
+  %214 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %213, i32 0)
   %215 = tail call i32 @llvm.umin.i32(i32 %214, i32 255)
   %216 = trunc nuw i32 %215 to i8
   %217 = getelementptr inbounds i8, ptr %.1118.i, i64 1
@@ -630,7 +630,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 238:                                              ; preds = %224
   %239 = ashr i32 %237, 7
-  %240 = tail call i32 @llvm.smax.i32(i32 %239, i32 0)
+  %240 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %239, i32 0)
   %241 = tail call i32 @llvm.umin.i32(i32 %240, i32 255)
   %242 = trunc nuw i32 %241 to i8
   %243 = getelementptr inbounds i8, ptr %.2122.i, i64 1
@@ -671,7 +671,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 263:                                              ; preds = %246
   %264 = ashr i32 %262, 7
-  %265 = tail call i32 @llvm.smax.i32(i32 %264, i32 0)
+  %265 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %264, i32 0)
   %266 = tail call i32 @llvm.umin.i32(i32 %265, i32 255)
   %267 = trunc nuw i32 %266 to i8
   %268 = getelementptr inbounds i8, ptr %.3127.i, i64 1
@@ -1405,15 +1405,15 @@ get_down2_steps.exit:                             ; preds = %.preheader
   ]
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @llvm.umin.i32(i32 %61, i32 255)
+  %63 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %61, i32 255)
   br label %clip_pixel_highbd.exit.i
 
 64:                                               ; preds = %60
-  %65 = tail call i32 @llvm.umin.i32(i32 %61, i32 1023)
+  %65 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %61, i32 1023)
   br label %clip_pixel_highbd.exit.i
 
 66:                                               ; preds = %60
-  %67 = tail call i32 @llvm.umin.i32(i32 %61, i32 4095)
+  %67 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %61, i32 4095)
   br label %clip_pixel_highbd.exit.i
 
 clip_pixel_highbd.exit.i:                         ; preds = %66, %64, %62
@@ -1477,15 +1477,15 @@ clip_pixel_highbd.exit.i:                         ; preds = %66, %64, %62
   ]
 
 97:                                               ; preds = %95
-  %98 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
+  %98 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %96, i32 255)
   br label %clip_pixel_highbd.exit117.i
 
 99:                                               ; preds = %95
-  %100 = tail call i32 @llvm.umin.i32(i32 %96, i32 1023)
+  %100 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %96, i32 1023)
   br label %clip_pixel_highbd.exit117.i
 
 101:                                              ; preds = %95
-  %102 = tail call i32 @llvm.umin.i32(i32 %96, i32 4095)
+  %102 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %96, i32 4095)
   br label %clip_pixel_highbd.exit117.i
 
 clip_pixel_highbd.exit117.i:                      ; preds = %101, %99, %97
@@ -1550,15 +1550,15 @@ clip_pixel_highbd.exit117.i:                      ; preds = %101, %99, %97
   ]
 
 130:                                              ; preds = %128
-  %131 = tail call i32 @llvm.umin.i32(i32 %129, i32 255)
+  %131 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %129, i32 255)
   br label %clip_pixel_highbd.exit120.i
 
 132:                                              ; preds = %128
-  %133 = tail call i32 @llvm.umin.i32(i32 %129, i32 1023)
+  %133 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %129, i32 1023)
   br label %clip_pixel_highbd.exit120.i
 
 134:                                              ; preds = %128
-  %135 = tail call i32 @llvm.umin.i32(i32 %129, i32 4095)
+  %135 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %129, i32 4095)
   br label %clip_pixel_highbd.exit120.i
 
 clip_pixel_highbd.exit120.i:                      ; preds = %134, %132, %130
@@ -1614,15 +1614,15 @@ clip_pixel_highbd.exit120.i:                      ; preds = %134, %132, %130
   ]
 
 165:                                              ; preds = %163
-  %166 = tail call i32 @llvm.umin.i32(i32 %164, i32 255)
+  %166 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %164, i32 255)
   br label %clip_pixel_highbd.exit123.i
 
 167:                                              ; preds = %163
-  %168 = tail call i32 @llvm.umin.i32(i32 %164, i32 1023)
+  %168 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %164, i32 1023)
   br label %clip_pixel_highbd.exit123.i
 
 169:                                              ; preds = %163
-  %170 = tail call i32 @llvm.umin.i32(i32 %164, i32 4095)
+  %170 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %164, i32 4095)
   br label %clip_pixel_highbd.exit123.i
 
 clip_pixel_highbd.exit123.i:                      ; preds = %169, %167, %165
@@ -1692,15 +1692,15 @@ clip_pixel_highbd.exit123.i:                      ; preds = %169, %167, %165
   ]
 
 205:                                              ; preds = %203
-  %206 = tail call i32 @llvm.umin.i32(i32 %204, i32 255)
+  %206 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %204, i32 255)
   br label %clip_pixel_highbd.exit.i63
 
 207:                                              ; preds = %203
-  %208 = tail call i32 @llvm.umin.i32(i32 %204, i32 1023)
+  %208 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %204, i32 1023)
   br label %clip_pixel_highbd.exit.i63
 
 209:                                              ; preds = %203
-  %210 = tail call i32 @llvm.umin.i32(i32 %204, i32 4095)
+  %210 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %204, i32 4095)
   br label %clip_pixel_highbd.exit.i63
 
 clip_pixel_highbd.exit.i63:                       ; preds = %209, %207, %205
@@ -1761,15 +1761,15 @@ clip_pixel_highbd.exit.i63:                       ; preds = %209, %207, %205
   ]
 
 238:                                              ; preds = %236
-  %239 = tail call i32 @llvm.umin.i32(i32 %237, i32 255)
+  %239 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %237, i32 255)
   br label %clip_pixel_highbd.exit109.i
 
 240:                                              ; preds = %236
-  %241 = tail call i32 @llvm.umin.i32(i32 %237, i32 1023)
+  %241 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %237, i32 1023)
   br label %clip_pixel_highbd.exit109.i
 
 242:                                              ; preds = %236
-  %243 = tail call i32 @llvm.umin.i32(i32 %237, i32 4095)
+  %243 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %237, i32 4095)
   br label %clip_pixel_highbd.exit109.i
 
 clip_pixel_highbd.exit109.i:                      ; preds = %242, %240, %238
@@ -1831,15 +1831,15 @@ clip_pixel_highbd.exit109.i:                      ; preds = %242, %240, %238
   ]
 
 269:                                              ; preds = %267
-  %270 = tail call i32 @llvm.umin.i32(i32 %268, i32 255)
+  %270 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %268, i32 255)
   br label %clip_pixel_highbd.exit112.i
 
 271:                                              ; preds = %267
-  %272 = tail call i32 @llvm.umin.i32(i32 %268, i32 1023)
+  %272 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %268, i32 1023)
   br label %clip_pixel_highbd.exit112.i
 
 273:                                              ; preds = %267
-  %274 = tail call i32 @llvm.umin.i32(i32 %268, i32 4095)
+  %274 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %268, i32 4095)
   br label %clip_pixel_highbd.exit112.i
 
 clip_pixel_highbd.exit112.i:                      ; preds = %273, %271, %269
@@ -1891,15 +1891,15 @@ clip_pixel_highbd.exit112.i:                      ; preds = %273, %271, %269
   ]
 
 299:                                              ; preds = %297
-  %300 = tail call i32 @llvm.umin.i32(i32 %298, i32 255)
+  %300 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %298, i32 255)
   br label %clip_pixel_highbd.exit115.i
 
 301:                                              ; preds = %297
-  %302 = tail call i32 @llvm.umin.i32(i32 %298, i32 1023)
+  %302 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %298, i32 1023)
   br label %clip_pixel_highbd.exit115.i
 
 303:                                              ; preds = %297
-  %304 = tail call i32 @llvm.umin.i32(i32 %298, i32 4095)
+  %304 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %298, i32 4095)
   br label %clip_pixel_highbd.exit115.i
 
 clip_pixel_highbd.exit115.i:                      ; preds = %303, %301, %299
@@ -3105,7 +3105,7 @@ choose_interp_filter.exit:                        ; preds = %4, %6, %8, %10
 57:                                               ; preds = %45
   %58 = add nsw i32 %56, 64
   %59 = ashr i32 %58, 7
-  %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 0)
+  %60 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %59, i32 0)
   %61 = tail call i32 @llvm.umin.i32(i32 %60, i32 255)
   %62 = trunc nuw i32 %61 to i8
   %63 = getelementptr inbounds i8, ptr %.0213.i, i64 1
@@ -3155,7 +3155,7 @@ choose_interp_filter.exit:                        ; preds = %4, %6, %8, %10
 83:                                               ; preds = %72
   %84 = add nsw i32 %82, 64
   %85 = ashr i32 %84, 7
-  %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
+  %86 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %85, i32 0)
   %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 255)
   %88 = trunc nuw i32 %87 to i8
   %89 = getelementptr inbounds i8, ptr %.1188.i, i64 1
@@ -3205,7 +3205,7 @@ choose_interp_filter.exit:                        ; preds = %4, %6, %8, %10
 109:                                              ; preds = %101
   %110 = add nsw i32 %108, 64
   %111 = ashr i32 %110, 7
-  %112 = tail call i32 @llvm.smax.i32(i32 %111, i32 0)
+  %112 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %111, i32 0)
   %113 = tail call i32 @llvm.umin.i32(i32 %112, i32 255)
   %114 = trunc nuw i32 %113 to i8
   %115 = getelementptr inbounds i8, ptr %.2198.i, i64 1
@@ -3249,7 +3249,7 @@ choose_interp_filter.exit:                        ; preds = %4, %6, %8, %10
 137:                                              ; preds = %125
   %138 = add nsw i32 %136, 64
   %139 = ashr i32 %138, 7
-  %140 = tail call i32 @llvm.smax.i32(i32 %139, i32 0)
+  %140 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %139, i32 0)
   %141 = tail call i32 @llvm.umin.i32(i32 %140, i32 255)
   %142 = trunc nuw i32 %141 to i8
   %143 = getelementptr inbounds i8, ptr %.3207.i, i64 1
@@ -3391,15 +3391,15 @@ choose_interp_filter.exit:                        ; preds = %5, %7, %9, %11
   ]
 
 61:                                               ; preds = %58
-  %62 = tail call i32 @llvm.umin.i32(i32 %60, i32 255)
+  %62 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %60, i32 255)
   br label %clip_pixel_highbd.exit.i
 
 63:                                               ; preds = %58
-  %64 = tail call i32 @llvm.umin.i32(i32 %60, i32 1023)
+  %64 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %60, i32 1023)
   br label %clip_pixel_highbd.exit.i
 
 65:                                               ; preds = %58
-  %66 = tail call i32 @llvm.umin.i32(i32 %60, i32 4095)
+  %66 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %60, i32 4095)
   br label %clip_pixel_highbd.exit.i
 
 clip_pixel_highbd.exit.i:                         ; preds = %65, %63, %61
@@ -3460,15 +3460,15 @@ clip_pixel_highbd.exit.i:                         ; preds = %65, %63, %61
   ]
 
 92:                                               ; preds = %89
-  %93 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
+  %93 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %91, i32 255)
   br label %clip_pixel_highbd.exit176.i
 
 94:                                               ; preds = %89
-  %95 = tail call i32 @llvm.umin.i32(i32 %91, i32 1023)
+  %95 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %91, i32 1023)
   br label %clip_pixel_highbd.exit176.i
 
 96:                                               ; preds = %89
-  %97 = tail call i32 @llvm.umin.i32(i32 %91, i32 4095)
+  %97 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %91, i32 4095)
   br label %clip_pixel_highbd.exit176.i
 
 clip_pixel_highbd.exit176.i:                      ; preds = %96, %94, %92
@@ -3529,15 +3529,15 @@ clip_pixel_highbd.exit176.i:                      ; preds = %96, %94, %92
   ]
 
 123:                                              ; preds = %120
-  %124 = tail call i32 @llvm.umin.i32(i32 %122, i32 255)
+  %124 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %122, i32 255)
   br label %clip_pixel_highbd.exit179.i
 
 125:                                              ; preds = %120
-  %126 = tail call i32 @llvm.umin.i32(i32 %122, i32 1023)
+  %126 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %122, i32 1023)
   br label %clip_pixel_highbd.exit179.i
 
 127:                                              ; preds = %120
-  %128 = tail call i32 @llvm.umin.i32(i32 %122, i32 4095)
+  %128 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %122, i32 4095)
   br label %clip_pixel_highbd.exit179.i
 
 clip_pixel_highbd.exit179.i:                      ; preds = %127, %125, %123
@@ -3592,15 +3592,15 @@ clip_pixel_highbd.exit179.i:                      ; preds = %127, %125, %123
   ]
 
 156:                                              ; preds = %153
-  %157 = tail call i32 @llvm.umin.i32(i32 %155, i32 255)
+  %157 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %155, i32 255)
   br label %clip_pixel_highbd.exit182.i
 
 158:                                              ; preds = %153
-  %159 = tail call i32 @llvm.umin.i32(i32 %155, i32 1023)
+  %159 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %155, i32 1023)
   br label %clip_pixel_highbd.exit182.i
 
 160:                                              ; preds = %153
-  %161 = tail call i32 @llvm.umin.i32(i32 %155, i32 4095)
+  %161 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %155, i32 4095)
   br label %clip_pixel_highbd.exit182.i
 
 clip_pixel_highbd.exit182.i:                      ; preds = %160, %158, %156

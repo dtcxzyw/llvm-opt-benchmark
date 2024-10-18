@@ -1305,9 +1305,9 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %83 = and i32 %.033, 255
   %84 = sub nsw i32 %82, %83
   %85 = tail call i32 @llvm.abs.i32(i32 %84, i1 true)
-  %86 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %69, i32 %75)
-  %87 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %81, i32 %85)
-  %88 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %86, i32 %87)
+  %86 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %69, i32 range(i32 0, 256) %75)
+  %87 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %81, i32 range(i32 0, 256) %85)
+  %88 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %86, i32 range(i32 0, 256) %87)
   %89 = lshr i32 %.032, 24
   %90 = sub nsw i32 %66, %89
   %91 = tail call i32 @llvm.abs.i32(i32 %90, i1 true)
@@ -1322,9 +1322,9 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %100 = and i32 %.032, 255
   %101 = sub nsw i32 %82, %100
   %102 = tail call i32 @llvm.abs.i32(i32 %101, i1 true)
-  %103 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %91, i32 %95)
-  %104 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %99, i32 %102)
-  %105 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %103, i32 %104)
+  %103 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %91, i32 range(i32 0, 256) %95)
+  %104 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %99, i32 range(i32 0, 256) %102)
+  %105 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %103, i32 range(i32 0, 256) %104)
   %106 = lshr i32 %.13135, 24
   %107 = sub nsw i32 %66, %106
   %108 = tail call i32 @llvm.abs.i32(i32 %107, i1 true)
@@ -1339,9 +1339,9 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %117 = and i32 %.13135, 255
   %118 = sub nsw i32 %82, %117
   %119 = tail call i32 @llvm.abs.i32(i32 %118, i1 true)
-  %120 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %108, i32 %112)
-  %121 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %116, i32 %119)
-  %122 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %120, i32 %121)
+  %120 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %108, i32 range(i32 0, 256) %112)
+  %121 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %116, i32 range(i32 0, 256) %119)
+  %122 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %120, i32 range(i32 0, 256) %121)
   %123 = lshr i32 %.2, 24
   %124 = sub nsw i32 %66, %123
   %125 = tail call i32 @llvm.abs.i32(i32 %124, i1 true)
@@ -1356,12 +1356,12 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %134 = and i32 %.2, 255
   %135 = sub nsw i32 %82, %134
   %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
-  %137 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %125, i32 %129)
-  %138 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %133, i32 %136)
-  %139 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %137, i32 %138)
-  %140 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %88, i32 %105)
-  %141 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %122, i32 %139)
-  %142 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %140, i32 %141)
+  %137 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %125, i32 range(i32 0, 256) %129)
+  %138 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %133, i32 range(i32 0, 256) %136)
+  %139 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %137, i32 range(i32 0, 256) %138)
+  %140 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %88, i32 range(i32 0, 256) %105)
+  %141 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %122, i32 range(i32 0, 256) %139)
+  %142 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %140, i32 range(i32 0, 256) %141)
   %143 = trunc nuw i32 %142 to i8
   %144 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %143, ptr %144, align 1

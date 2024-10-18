@@ -940,7 +940,7 @@ if.then.i303:                                     ; preds = %if.end134
   br i1 %cmp.i.i.i29, label %if.then.i.i.i37, label %if.end.i.i.i30
 
 if.then.i.i.i37:                                  ; preds = %if.then.i303
-  %call2.i12.i.i38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
+  %call2.i12.i.i38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(67) %80, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
           to label %call2.i12.i.i.noexc unwind label %lpad136
 
 call2.i12.i.i.noexc:                              ; preds = %if.then.i.i.i37

@@ -2221,7 +2221,7 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit133:      ; preds = %354, %361, %367
   %409 = getelementptr inbounds i8, ptr %7, i64 80
   store ptr %409, ptr %408, align 8, !noalias !75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %409, i8 0, i64 16, i1 false), !noalias !75
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %14, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %14, i64 noundef 0)
           to label %.noexc134 unwind label %396
 
 .noexc134:                                        ; preds = %402
@@ -3649,7 +3649,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit207:              ; preds = %605
   %667 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %667, ptr %666, align 8, !noalias !113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %667, i8 0, i64 16, i1 false), !noalias !113
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %2, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 noundef 0)
           to label %.noexc unwind label %716
 
 .noexc:                                           ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit207
@@ -8276,7 +8276,7 @@ define hidden void @_ZN2cv4IPPE10PoseSolver22computeObjextSpaceRSvDERKNS_11_Inpu
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %23, %26
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #16
   %27 = getelementptr inbounds i8, ptr %5, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #16
   %28 = getelementptr inbounds i8, ptr %5, i64 192
@@ -8622,7 +8622,7 @@ _ZN2cv3Mat2atIdEERT_i.exit37:                     ; preds = %_ZN2cv3Mat2atIdEERT
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
   ret void
 

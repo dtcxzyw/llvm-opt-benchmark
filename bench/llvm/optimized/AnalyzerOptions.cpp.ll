@@ -64,7 +64,7 @@ define dso_local void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %13 = getelementptr inbounds i8, ptr %6, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %13, i64 noundef 4) #12
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull %13, i64 noundef 4) #12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i8 0, ptr %14, align 8
   call void @_ZN4llvm21formatted_raw_ostream9setStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(105) %6, ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -236,12 +236,12 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %_ZN4llvm11raw_ostre
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostream5flushEv.exit.i, label %98
 
 98:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25
-  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #12
+  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(105) %6) #12
   br label %_ZN4llvm11raw_ostream5flushEv.exit.i
 
 _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %98, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25
   call void @_ZN4llvm21formatted_raw_ostream13releaseStreamEv(ptr noundef nonnull align 8 dereferenceable(105) %6)
-  %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
+  %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(28) %12) #12
   %100 = load ptr, ptr %12, align 8
   %101 = icmp eq ptr %100, %13
   br i1 %101, label %_ZN4llvm21formatted_raw_ostreamD2Ev.exit, label %102
@@ -251,7 +251,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %98, %_ZN4llvm11raw_
   br label %_ZN4llvm21formatted_raw_ostreamD2Ev.exit
 
 _ZN4llvm21formatted_raw_ostreamD2Ev.exit:         ; preds = %_ZN4llvm11raw_ostream5flushEv.exit.i, %102
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #12
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %6) #12
   ret void
 }
 

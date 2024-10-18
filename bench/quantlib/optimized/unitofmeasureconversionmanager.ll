@@ -2260,7 +2260,7 @@ if.then.i.i.i.i.i.i.i.i2:                         ; preds = %cleanup
   br label %_ZNSt7__cxx114listIN8QuantLib23UnitOfMeasureConversionESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt7__cxx114listIN8QuantLib23UnitOfMeasureConversionESaIS2_EE9push_backERKS2_.exit: ; preds = %cleanup, %if.then.i.i.i.i.i.i.i.i2
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %this) #20
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this) #20
   %_M_size.i.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %76 = load i64, ptr %_M_size.i.i.i3, align 8, !tbaa !29
   %add.i.i.i = add i64 %76, 1
@@ -3368,7 +3368,7 @@ cond.false.i.i:                                   ; preds = %catch
 _ZNK8QuantLib13UnitOfMeasure4codeB5cxx11Ev.exit:  ; preds = %catch, %cond.false.i.i
   %6 = phi ptr [ %5, %catch ], [ %.pre.i.i, %cond.false.i.i ]
   %code.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRKS5_EEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %forbidden, ptr nonnull %forbidden, ptr noundef nonnull align 8 dereferenceable(32) %code.i)
+  tail call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRKS5_EEEvSt14_List_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %forbidden, ptr nonnull align 8 dereferenceable(24) %forbidden, ptr noundef nonnull align 8 dereferenceable(32) %code.i)
   %__begin1.sroa.0.0113 = load ptr, ptr %this, align 8, !tbaa !8
   %cmp.i.not114 = icmp eq ptr %__begin1.sroa.0.0113, %this
   br i1 %cmp.i.not114, label %do.body, label %for.body.lr.ph

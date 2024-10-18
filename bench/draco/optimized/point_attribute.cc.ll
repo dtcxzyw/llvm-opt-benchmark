@@ -467,7 +467,7 @@ _ZNSt10unique_ptrIN5draco10DataBufferESt14default_deleteIS1_EED2Ev.exit: ; preds
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i10 = icmp eq ptr %37, %38
   br i1 %.not.i.i.i.i.i.i10, label %.noexc11.thread, label %45
 
@@ -2592,7 +2592,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) %15, i64 8)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 8)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %13, !llvm.loop !31
 
@@ -2642,7 +2642,7 @@ _ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayIjLm2EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) %39, i64 8)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 8)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayIjLm2EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -2912,7 +2912,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
@@ -2937,7 +2937,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %4, ptr noundef nonnull dereferenceable(12) %14, i64 12)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 12)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %12, !llvm.loop !35
 
@@ -2988,7 +2988,7 @@ _ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayIjLm3EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %33
   %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %4, ptr noundef nonnull dereferenceable(12) %37, i64 12)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 12)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayIjLm3EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -3258,7 +3258,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 4
@@ -3283,7 +3283,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %14, i64 16)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 16)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %12, !llvm.loop !39
 
@@ -3334,7 +3334,7 @@ _ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayIjLm4EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %33
   %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %37, i64 16)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayIjLm4EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -4963,7 +4963,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull dereferenceable(2) %15, i64 2)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(2) %4, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 2)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %13, !llvm.loop !62
 
@@ -5013,7 +5013,7 @@ _ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayIhLm2EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull dereferenceable(2) %39, i64 2)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(2) %4, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 2)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayIhLm2EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -5283,7 +5283,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %4, ptr noundef nonnull align 4 dereferenceable(3) %1, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %1, i64 3, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -5308,7 +5308,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) %14, i64 3)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(3) %4, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 3)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %12, !llvm.loop !66
 
@@ -5359,7 +5359,7 @@ _ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayIhLm3EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %33
   %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) %37, i64 3)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(3) %4, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 3)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayIhLm3EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -5655,7 +5655,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %15, i64 4)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 4)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %13, !llvm.loop !70
 
@@ -5706,7 +5706,7 @@ _ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayIhLm4EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %34
   %38 = getelementptr inbounds i8, ptr %36, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %38, i64 4)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 4)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayIhLm4EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -8323,7 +8323,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %15, i64 4)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 2 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 4)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %13, !llvm.loop !105
 
@@ -8373,7 +8373,7 @@ _ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayItLm2EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %39, i64 4)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 2 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 4)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayItLm2EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -8643,7 +8643,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %4, ptr noundef nonnull align 4 dereferenceable(6) %1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 6, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
@@ -8668,7 +8668,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %4, ptr noundef nonnull dereferenceable(6) %14, i64 6)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 6)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %12, !llvm.loop !109
 
@@ -8719,7 +8719,7 @@ _ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayItLm3EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %33
   %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %4, ptr noundef nonnull dereferenceable(6) %37, i64 6)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 6)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayItLm3EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
@@ -9015,7 +9015,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) %15, i64 8)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 2 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 8)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %13, !llvm.loop !113
 
@@ -9066,7 +9066,7 @@ _ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNKSt8__detail15_Hashtable_baseISt5arrayItLm4EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i: ; preds = %34
   %38 = getelementptr inbounds i8, ptr %36, i64 8
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) %38, i64 8)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 2 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 8)
   %.not7.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseISt5arrayItLm4EESt4pairIKS2_N5draco9IndexTypeIjNS5_29AttributeValueIndex_tag_type_EEEENS_10_Select1stESt8equal_toIS2_ENS5_9HashArrayIS2_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 

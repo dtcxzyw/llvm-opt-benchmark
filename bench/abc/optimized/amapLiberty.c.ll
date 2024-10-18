@@ -429,12 +429,12 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %.sroa.3.0.extract.shift4.i = mul i64 %14, -4294967295
   %17 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.8, i64 noundef %17) #24
+  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.8, i64 noundef %17) #24
   %.not10 = icmp eq i32 %18, 0
   br i1 %.not10, label %._crit_edge, label %19
 
 19:                                               ; preds = %12
-  %20 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.9, i64 noundef %17) #24
+  %20 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.9, i64 noundef %17) #24
   %.not11 = icmp eq i32 %20, 0
   br i1 %.not11, label %._crit_edge, label %21
 
@@ -486,7 +486,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %.sroa.3.0.extract.shift4.i = mul i64 %14, -4294967295
   %17 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.10, i64 noundef %17) #24
+  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.10, i64 noundef %17) #24
   %.not8 = icmp eq i32 %18, 0
   br i1 %.not8, label %._crit_edge, label %19
 
@@ -538,7 +538,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %.sroa.3.0.extract.shift4.i = mul i64 %14, -4294967295
   %17 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.11, i64 noundef %17) #24
+  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.11, i64 noundef %17) #24
   %.not10 = icmp eq i32 %18, 0
   br i1 %.not10, label %._crit_edge, label %19
 
@@ -590,7 +590,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %.sroa.3.0.extract.shift4.i = mul i64 %14, -4294967295
   %17 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.12, i64 noundef %17) #24
+  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.12, i64 noundef %17) #24
   %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %19, label %Amap_LibertyPinFunction.exit.thread
 
@@ -616,7 +616,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %19
   %27 = getelementptr inbounds i8, ptr %.val, i64 %26
   %.sroa.3.0.extract.shift4.i.i = mul i64 %25, -4294967295
   %28 = ashr i64 %.sroa.3.0.extract.shift4.i.i, 32
-  %29 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull readonly @.str.11, i64 noundef %28) #24
+  %29 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull @.str.11, i64 noundef %28) #24
   %.not10.i = icmp eq i32 %29, 0
   br i1 %.not10.i, label %Amap_LibertyPinFunction.exit, label %30
 
@@ -681,7 +681,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %20 = getelementptr inbounds i8, ptr %.val, i64 %19
   %.sroa.3.0.extract.shift4.i = mul i64 %18, -4294967295
   %21 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %22 = tail call i32 @strncmp(ptr noundef readonly %20, ptr noundef nonnull readonly @.str.12, i64 noundef %21) #24
+  %22 = tail call i32 @strncmp(ptr noundef readonly %20, ptr noundef nonnull @.str.12, i64 noundef %21) #24
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %23, label %Amap_LibertyPinFunction.exit.thread
 
@@ -707,7 +707,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %23
   %31 = getelementptr inbounds i8, ptr %.val, i64 %30
   %.sroa.3.0.extract.shift4.i.i = mul i64 %29, -4294967295
   %32 = ashr i64 %.sroa.3.0.extract.shift4.i.i, 32
-  %33 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.11, i64 noundef %32) #24
+  %33 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull @.str.11, i64 noundef %32) #24
   %.not10.i = icmp eq i32 %33, 0
   br i1 %.not10.i, label %Amap_LibertyPinFunction.exit, label %34
 
@@ -828,7 +828,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %.sroa.3.0.extract.shift4.i = mul i64 %14, -4294967295
   %17 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.13, i64 noundef %17) #24
+  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.13, i64 noundef %17) #24
   %.not10 = icmp eq i32 %18, 0
   br i1 %.not10, label %._crit_edge, label %19
 
@@ -881,7 +881,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
   %16 = getelementptr inbounds i8, ptr %.val, i64 %15
   %.sroa.3.0.extract.shift4.i = mul i64 %14, -4294967295
   %17 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull readonly @.str.12, i64 noundef %17) #24
+  %18 = tail call i32 @strncmp(ptr noundef readonly %16, ptr noundef nonnull @.str.12, i64 noundef %17) #24
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %19, label %34
 
@@ -907,7 +907,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %19
   %27 = getelementptr inbounds i8, ptr %.val, i64 %26
   %.sroa.3.0.extract.shift4.i.i = mul i64 %25, -4294967295
   %28 = ashr i64 %.sroa.3.0.extract.shift4.i.i, 32
-  %29 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull readonly @.str.11, i64 noundef %28) #24
+  %29 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull @.str.11, i64 noundef %28) #24
   %.not10.i = icmp eq i32 %29, 0
   br i1 %.not10.i, label %Amap_LibertyPinFunction.exit, label %30
 
@@ -1059,7 +1059,7 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   %52 = getelementptr inbounds i8, ptr %.val118, i64 %51
   %.sroa.3.0.extract.shift4.i = mul i64 %50, -4294967295
   %53 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %54 = call i32 @strncmp(ptr noundef readonly %52, ptr noundef nonnull readonly @.str.28, i64 noundef %53) #24
+  %54 = call i32 @strncmp(ptr noundef readonly %52, ptr noundef nonnull @.str.28, i64 noundef %53) #24
   %.not101 = icmp eq i32 %54, 0
   br i1 %.not101, label %55, label %270
 
@@ -1085,12 +1085,12 @@ Amap_LibertyItem.exit.i:                          ; preds = %55
   %63 = getelementptr inbounds i8, ptr %.val118, i64 %62
   %.sroa.3.0.extract.shift4.i.i = mul i64 %61, -4294967295
   %64 = ashr i64 %.sroa.3.0.extract.shift4.i.i, 32
-  %65 = call i32 @strncmp(ptr noundef readonly %63, ptr noundef nonnull readonly @.str.8, i64 noundef %64) #24
+  %65 = call i32 @strncmp(ptr noundef readonly %63, ptr noundef nonnull @.str.8, i64 noundef %64) #24
   %.not10.i = icmp eq i32 %65, 0
   br i1 %.not10.i, label %Amap_LibertyCellIsFlop.exit, label %66
 
 66:                                               ; preds = %.lr.ph.i
-  %67 = call i32 @strncmp(ptr noundef readonly %63, ptr noundef nonnull readonly @.str.9, i64 noundef %64) #24
+  %67 = call i32 @strncmp(ptr noundef readonly %63, ptr noundef nonnull @.str.9, i64 noundef %64) #24
   %.not11.i = icmp eq i32 %67, 0
   br i1 %.not11.i, label %Amap_LibertyCellIsFlop.exit, label %68
 
@@ -1128,7 +1128,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %66, %.lr.ph.i
   %84 = getelementptr inbounds i8, ptr %.val118, i64 %83
   %.sroa.3.0.extract.shift4.i.i129 = mul i64 %82, -4294967295
   %85 = ashr i64 %.sroa.3.0.extract.shift4.i.i129, 32
-  %86 = call i32 @strncmp(ptr noundef readonly %84, ptr noundef nonnull readonly @.str.10, i64 noundef %85) #24
+  %86 = call i32 @strncmp(ptr noundef readonly %84, ptr noundef nonnull @.str.10, i64 noundef %85) #24
   %.not8.i = icmp eq i32 %86, 0
   br i1 %.not8.i, label %Amap_LibertyCellIsDontUse.exit, label %87
 
@@ -1167,7 +1167,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
   %103 = getelementptr inbounds i8, ptr %.val118, i64 %102
   %.sroa.3.0.extract.shift4.i.i137 = mul i64 %101, -4294967295
   %104 = ashr i64 %.sroa.3.0.extract.shift4.i.i137, 32
-  %105 = call i32 @strncmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.12, i64 noundef %104) #24
+  %105 = call i32 @strncmp(ptr noundef readonly %103, ptr noundef nonnull @.str.12, i64 noundef %104) #24
   %.not11.i138 = icmp eq i32 %105, 0
   br i1 %.not11.i138, label %106, label %120
 
@@ -1188,7 +1188,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
   %113 = getelementptr inbounds i8, ptr %.val118, i64 %112
   %.sroa.3.0.extract.shift4.i.i.i = mul i64 %111, -4294967295
   %114 = ashr i64 %.sroa.3.0.extract.shift4.i.i.i, 32
-  %115 = call i32 @strncmp(ptr noundef readonly %113, ptr noundef nonnull readonly @.str.11, i64 noundef %114) #24
+  %115 = call i32 @strncmp(ptr noundef readonly %113, ptr noundef nonnull @.str.11, i64 noundef %114) #24
   %.not10.i.i = icmp eq i32 %115, 0
   br i1 %.not10.i.i, label %Amap_LibertyPinFunction.exit.i, label %116
 
@@ -1242,7 +1242,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %137 = getelementptr inbounds i8, ptr %.val118, i64 %136
   %.sroa.3.0.extract.shift4.i.i146 = mul i64 %135, -4294967295
   %138 = ashr i64 %.sroa.3.0.extract.shift4.i.i146, 32
-  %139 = call i32 @strncmp(ptr noundef readonly %137, ptr noundef nonnull readonly @.str.13, i64 noundef %138) #24
+  %139 = call i32 @strncmp(ptr noundef readonly %137, ptr noundef nonnull @.str.13, i64 noundef %138) #24
   %.not10.i147 = icmp eq i32 %139, 0
   br i1 %.not10.i147, label %Amap_LibertyCellArea.exit, label %140
 
@@ -1302,7 +1302,7 @@ Amap_LibertyItem.exit.i152:                       ; preds = %Amap_LibertyItem.ex
   %168 = getelementptr inbounds i8, ptr %.val.i155, i64 %167
   %.sroa.3.0.extract.shift4.i.i158209 = mul i64 %166, -4294967295
   %169 = ashr i64 %.sroa.3.0.extract.shift4.i.i158209, 32
-  %170 = call i32 @strncmp(ptr noundef readonly %168, ptr noundef nonnull readonly @.str.11, i64 noundef %169) #24
+  %170 = call i32 @strncmp(ptr noundef readonly %168, ptr noundef nonnull @.str.11, i64 noundef %169) #24
   %.not10.i159210 = icmp eq i32 %170, 0
   br i1 %.not10.i159210, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i160
 
@@ -1320,7 +1320,7 @@ Amap_LibertyItem.exit11.i160:                     ; preds = %Amap_LibertyItem.ex
   %178 = getelementptr inbounds i8, ptr %.val.i155, i64 %177
   %.sroa.3.0.extract.shift4.i.i158 = mul i64 %176, -4294967295
   %179 = ashr i64 %.sroa.3.0.extract.shift4.i.i158, 32
-  %180 = call i32 @strncmp(ptr noundef readonly %178, ptr noundef nonnull readonly @.str.11, i64 noundef %179) #24
+  %180 = call i32 @strncmp(ptr noundef readonly %178, ptr noundef nonnull @.str.11, i64 noundef %179) #24
   %.not10.i159 = icmp eq i32 %180, 0
   br i1 %.not10.i159, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i160, !llvm.loop !9
 
@@ -1449,7 +1449,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %247
   %251 = getelementptr inbounds i8, ptr %.val117, i64 %250
   %.sroa.3.0.extract.shift4.i180 = mul i64 %249, -4294967295
   %252 = ashr i64 %.sroa.3.0.extract.shift4.i180, 32
-  %253 = call i32 @strncmp(ptr noundef readonly %251, ptr noundef nonnull readonly @.str.12, i64 noundef %252) #24
+  %253 = call i32 @strncmp(ptr noundef readonly %251, ptr noundef nonnull @.str.12, i64 noundef %252) #24
   %.not111 = icmp eq i32 %253, 0
   br i1 %.not111, label %254, label %Vec_PtrFind.exit
 
@@ -1566,7 +1566,7 @@ Amap_LibertyItem.exit:
   %18 = getelementptr inbounds i8, ptr %.val101, i64 %17
   %.sroa.3.0.extract.shift4.i = mul i64 %16, -4294967295
   %19 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
-  %20 = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef nonnull readonly @.str.28, i64 noundef %19) #24
+  %20 = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef nonnull @.str.28, i64 noundef %19) #24
   %.not85 = icmp eq i32 %20, 0
   br i1 %.not85, label %21, label %232
 
@@ -1592,12 +1592,12 @@ Amap_LibertyItem.exit.i:                          ; preds = %21
   %29 = getelementptr inbounds i8, ptr %.val101, i64 %28
   %.sroa.3.0.extract.shift4.i.i = mul i64 %27, -4294967295
   %30 = ashr i64 %.sroa.3.0.extract.shift4.i.i, 32
-  %31 = tail call i32 @strncmp(ptr noundef readonly %29, ptr noundef nonnull readonly @.str.8, i64 noundef %30) #24
+  %31 = tail call i32 @strncmp(ptr noundef readonly %29, ptr noundef nonnull @.str.8, i64 noundef %30) #24
   %.not10.i = icmp eq i32 %31, 0
   br i1 %.not10.i, label %Amap_LibertyCellIsFlop.exit, label %32
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = tail call i32 @strncmp(ptr noundef readonly %29, ptr noundef nonnull readonly @.str.9, i64 noundef %30) #24
+  %33 = tail call i32 @strncmp(ptr noundef readonly %29, ptr noundef nonnull @.str.9, i64 noundef %30) #24
   %.not11.i = icmp eq i32 %33, 0
   br i1 %.not11.i, label %Amap_LibertyCellIsFlop.exit, label %34
 
@@ -1635,7 +1635,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %32, %.lr.ph.i
   %50 = getelementptr inbounds i8, ptr %.val101, i64 %49
   %.sroa.3.0.extract.shift4.i.i110 = mul i64 %48, -4294967295
   %51 = ashr i64 %.sroa.3.0.extract.shift4.i.i110, 32
-  %52 = tail call i32 @strncmp(ptr noundef readonly %50, ptr noundef nonnull readonly @.str.10, i64 noundef %51) #24
+  %52 = tail call i32 @strncmp(ptr noundef readonly %50, ptr noundef nonnull @.str.10, i64 noundef %51) #24
   %.not8.i = icmp eq i32 %52, 0
   br i1 %.not8.i, label %Amap_LibertyCellIsDontUse.exit, label %53
 
@@ -1674,7 +1674,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i107
   %69 = getelementptr inbounds i8, ptr %.val101, i64 %68
   %.sroa.3.0.extract.shift4.i.i118 = mul i64 %67, -4294967295
   %70 = ashr i64 %.sroa.3.0.extract.shift4.i.i118, 32
-  %71 = tail call i32 @strncmp(ptr noundef readonly %69, ptr noundef nonnull readonly @.str.12, i64 noundef %70) #24
+  %71 = tail call i32 @strncmp(ptr noundef readonly %69, ptr noundef nonnull @.str.12, i64 noundef %70) #24
   %.not11.i119 = icmp eq i32 %71, 0
   br i1 %.not11.i119, label %72, label %86
 
@@ -1695,7 +1695,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i107
   %79 = getelementptr inbounds i8, ptr %.val101, i64 %78
   %.sroa.3.0.extract.shift4.i.i.i = mul i64 %77, -4294967295
   %80 = ashr i64 %.sroa.3.0.extract.shift4.i.i.i, 32
-  %81 = tail call i32 @strncmp(ptr noundef readonly %79, ptr noundef nonnull readonly @.str.11, i64 noundef %80) #24
+  %81 = tail call i32 @strncmp(ptr noundef readonly %79, ptr noundef nonnull @.str.11, i64 noundef %80) #24
   %.not10.i.i = icmp eq i32 %81, 0
   br i1 %.not10.i.i, label %Amap_LibertyPinFunction.exit.i, label %82
 
@@ -1749,7 +1749,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %103 = getelementptr inbounds i8, ptr %.val101, i64 %102
   %.sroa.3.0.extract.shift4.i.i127 = mul i64 %101, -4294967295
   %104 = ashr i64 %.sroa.3.0.extract.shift4.i.i127, 32
-  %105 = tail call i32 @strncmp(ptr noundef readonly %103, ptr noundef nonnull readonly @.str.13, i64 noundef %104) #24
+  %105 = tail call i32 @strncmp(ptr noundef readonly %103, ptr noundef nonnull @.str.13, i64 noundef %104) #24
   %.not10.i128 = icmp eq i32 %105, 0
   br i1 %.not10.i128, label %Amap_LibertyCellArea.exit, label %106
 
@@ -1809,7 +1809,7 @@ Amap_LibertyItem.exit.i133:                       ; preds = %Amap_LibertyItem.ex
   %134 = getelementptr inbounds i8, ptr %.val.i136, i64 %133
   %.sroa.3.0.extract.shift4.i.i139190 = mul i64 %132, -4294967295
   %135 = ashr i64 %.sroa.3.0.extract.shift4.i.i139190, 32
-  %136 = tail call i32 @strncmp(ptr noundef readonly %134, ptr noundef nonnull readonly @.str.11, i64 noundef %135) #24
+  %136 = tail call i32 @strncmp(ptr noundef readonly %134, ptr noundef nonnull @.str.11, i64 noundef %135) #24
   %.not10.i140191 = icmp eq i32 %136, 0
   br i1 %.not10.i140191, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i141
 
@@ -1827,7 +1827,7 @@ Amap_LibertyItem.exit11.i141:                     ; preds = %Amap_LibertyItem.ex
   %144 = getelementptr inbounds i8, ptr %.val.i136, i64 %143
   %.sroa.3.0.extract.shift4.i.i139 = mul i64 %142, -4294967295
   %145 = ashr i64 %.sroa.3.0.extract.shift4.i.i139, 32
-  %146 = tail call i32 @strncmp(ptr noundef readonly %144, ptr noundef nonnull readonly @.str.11, i64 noundef %145) #24
+  %146 = tail call i32 @strncmp(ptr noundef readonly %144, ptr noundef nonnull @.str.11, i64 noundef %145) #24
   %.not10.i140 = icmp eq i32 %146, 0
   br i1 %.not10.i140, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i141, !llvm.loop !9
 
@@ -1961,7 +1961,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %209
   %213 = getelementptr inbounds i8, ptr %.val100, i64 %212
   %.sroa.3.0.extract.shift4.i161 = mul i64 %211, -4294967295
   %214 = ashr i64 %.sroa.3.0.extract.shift4.i161, 32
-  %215 = tail call i32 @strncmp(ptr noundef readonly %213, ptr noundef nonnull readonly @.str.12, i64 noundef %214) #24
+  %215 = tail call i32 @strncmp(ptr noundef readonly %213, ptr noundef nonnull @.str.12, i64 noundef %214) #24
   %.not95 = icmp eq i32 %215, 0
   br i1 %.not95, label %216, label %Vec_PtrFind.exit
 

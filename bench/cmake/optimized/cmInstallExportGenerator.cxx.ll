@@ -760,7 +760,7 @@ define dso_local void @_ZN24cmInstallExportGenerator14GenerateScriptERSo(ptr nou
           to label %.noexc unwind label %82
 
 .noexc:                                           ; preds = %77
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %82
 
 .noexc13:                                         ; preds = %.noexc
@@ -770,7 +770,7 @@ define dso_local void @_ZN24cmInstallExportGenerator14GenerateScriptERSo(ptr nou
 79:                                               ; preds = %.noexc13
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc13

@@ -725,7 +725,7 @@ if.end41:                                         ; preds = %if.end21
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %.val, i32 1, ptr noundef %call42, i64 noundef %call3, i1 noundef zeroext true) #13
+  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %.val, i32 1, ptr noundef %call42, i64 noundef range(i64 0, 4294967296) %call3, i1 noundef zeroext true) #13
   tail call void @g_free(ptr noundef %call42) #13
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i)
   store i16 %spec.select, ptr %value.addr.i, align 2
@@ -3077,7 +3077,7 @@ sw.epilog.i.i:                                    ; preds = %for.body.i.i, %sw.b
   %bus_master_as.i.i.i21.i.i = getelementptr inbounds i8, ptr %call.i.i71.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i22.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i21.i.i, i64 noundef %34, i32 1, ptr noundef %call1.i.i, i64 noundef %conv20.i.i, i1 noundef zeroext true) #13
+  %call.i.i.i.i22.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i21.i.i, i64 noundef %34, i32 1, ptr noundef %call1.i.i, i64 noundef range(i64 0, 4294967296) %conv20.i.i, i1 noundef zeroext true) #13
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %35 = load i32, ptr %0, align 16
   %sub.i.i.i = shl i32 %35, 1

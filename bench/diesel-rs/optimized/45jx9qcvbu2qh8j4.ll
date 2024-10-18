@@ -1496,7 +1496,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$diesel..sqlite..connection..
   ]
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %10 unwind label %4
 
 4:                                                ; preds = %3
@@ -1708,7 +1708,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$diesel..sqlite..connection..
   ]
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %10 unwind label %4
 
 4:                                                ; preds = %3
@@ -1765,7 +1765,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$dies
   ret void
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %11 unwind label %5
 
 5:                                                ; preds = %4
@@ -1956,7 +1956,7 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
   br i1 %.not.i.i.i, label %20, label %8
 
 8:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %6)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %6)
           to label %15 unwind label %9
 
 9:                                                ; preds = %8

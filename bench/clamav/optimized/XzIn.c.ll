@@ -425,7 +425,7 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 87:                                               ; preds = %80
   %88 = add nsw i64 %83, 4
-  %89 = call fastcc i32 @Xz_ReadIndex(ptr noundef %11, ptr noundef nonnull %1, i64 noundef %88, ptr noundef %4)
+  %89 = call fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %88, ptr noundef %4)
   %.not109.i = icmp eq i32 %89, 0
   br i1 %.not109.i, label %90, label %Xz_ReadBackward.exit.thread
 

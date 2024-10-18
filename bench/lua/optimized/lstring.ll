@@ -408,7 +408,7 @@ for.body.i:                                       ; preds = %luaS_hash.exit.i, %
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %contents.i = getelementptr inbounds i8, ptr %ts.038.i, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %str, ptr nonnull %contents.i, i64 %l)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %str, ptr nonnull %contents.i, i64 range(i64 0, 41) %l)
   %cmp4.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp4.i, label %if.then.i, label %for.inc.i
 
@@ -491,7 +491,7 @@ if.end25.i:                                       ; preds = %growstrtab.exit.i, 
   %conv27.i = trunc nuw nsw i64 %l to i8
   %shrlen28.i = getelementptr inbounds i8, ptr %call.i.i, i64 11
   store i8 %conv27.i, ptr %shrlen28.i, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %contents.i.i, ptr readonly align 1 %str, i64 %l, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %contents.i.i, ptr readonly align 1 %str, i64 range(i64 0, 41) %l, i1 false)
   %15 = load ptr, ptr %list.0.i, align 8
   %u32.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %15, ptr %u32.i, align 8

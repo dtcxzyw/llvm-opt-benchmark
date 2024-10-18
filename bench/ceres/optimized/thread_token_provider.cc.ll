@@ -32,7 +32,7 @@ $_ZNSt5dequeIiSaIiEE17_M_reallocate_mapEmb = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal19ThreadTokenProviderC2Ei(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(169) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -63,7 +63,7 @@ _ZN5ceres8internal15ConcurrentQueueIiEC2Ev.exit:  ; preds = %2
   br label %12
 
 12:                                               ; preds = %.lr.ph, %26
-  %13 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #13
+  %13 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(169) %0) #13
   %.not.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %14
 
@@ -96,12 +96,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %12
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
+  %25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(169) %0) #13
   br label %.body
 
 26:                                               ; preds = %22, %18
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
-  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
+  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(169) %0) #13
   %28 = load i32, ptr %3, align 4
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %3, align 4
@@ -223,7 +223,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal15ConcurrentQue
 .critedge:                                        ; preds = %2
   store ptr %0, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #13
+  %13 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   %.not.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %14
 
@@ -306,7 +306,7 @@ _ZN5ceres8internal15ConcurrentQueueIiE11PopUnlockedEPi.exit: ; preds = %_ZNSt5qu
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %48) #13
+  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %48) #13
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN5ceres8internal15ConcurrentQueueIiE11PopUnlockedEPi.exit, %47, %49
@@ -325,7 +325,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN5ceres8internal1
   br i1 %.not.i.i9, label %_ZNSt11unique_lockISt5mutexED2Ev.exit10, label %57
 
 57:                                               ; preds = %55
-  %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #13
+  %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %56) #13
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit10
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %51, %55, %57
@@ -345,7 +345,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 define hidden void @_ZN5ceres8internal19ThreadTokenProvider7ReleaseEi(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #13
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(169) %0) #13
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %5
 
@@ -377,13 +377,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %2
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
+  %18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(169) %0) #13
   resume { ptr, i32 } %17
 
 _ZN5ceres8internal15ConcurrentQueueIiE4PushERKi.exit: ; preds = %11, %14
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %19) #13
-  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
+  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(169) %0) #13
   ret void
 }
 

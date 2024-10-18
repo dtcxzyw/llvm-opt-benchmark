@@ -84,7 +84,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
   %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_index, ptr noundef nonnull %index)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %index)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -162,7 +162,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define hidden void @_ZN4cvc58internal23CodatatypeBoundVariableD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_index)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_index)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %entry
@@ -249,7 +249,7 @@ invoke.cont3:                                     ; preds = %if.else.i.i, %if.th
   store ptr %call, ptr %this, align 8
   %d_index = getelementptr inbounds i8, ptr %this, i64 8
   %d_index.i = getelementptr inbounds i8, ptr %other, i64 8
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_index, ptr noundef nonnull %d_index.i)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index.i)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont3
@@ -504,7 +504,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %call.i.noexc unwind label %lpad3
 
 call.i.noexc:                                     ; preds = %invoke.cont2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %q, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc5 unwind label %lpad3
 
 .noexc5:                                          ; preds = %call.i.noexc
@@ -514,7 +514,7 @@ call.i.noexc:                                     ; preds = %invoke.cont2
 lpad.i:                                           ; preds = %.noexc5
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %q) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %q) #15
   br label %lpad3.body
 
 invoke.cont4:                                     ; preds = %.noexc5

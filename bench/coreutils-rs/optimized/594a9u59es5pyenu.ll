@@ -124,7 +124,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %55, label %56, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i.i"
 
 56:                                               ; preds = %.critedge.i.i.i.i.i.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %53), !noalias !38
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %53), !noalias !38
   %.pre.i.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !33, !noalias !38
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i.i"
 
@@ -242,7 +242,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %55, label %56, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i"
 
 56:                                               ; preds = %.critedge.i.i.i.i.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %53), !noalias !40
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %53), !noalias !40
   %.pre.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !62, !noalias !40
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i"
 
@@ -417,7 +417,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17ha3d91a0ba6
   br i1 %55, label %56, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i.i.i"
 
 56:                                               ; preds = %.critedge.i.i.i.i.i.i.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %53), !noalias !107
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %53), !noalias !107
   %.pre.i.i.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !102, !noalias !107
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i.i.i"
 
@@ -561,7 +561,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   br i1 %51, label %52, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i.i.i.i"
 
 52:                                               ; preds = %.critedge.i.i.i.i.i.i.i.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %49), !noalias !141
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h817d02e82dc7e095E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %49), !noalias !141
   %.pre.i.i.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8, !alias.scope !133, !noalias !141
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h505b6a8641032141E.exit.i.i.i.i"
 

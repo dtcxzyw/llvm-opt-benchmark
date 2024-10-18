@@ -823,7 +823,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_3v() #2 personality ptr @__gxx_pers
 
 532:                                              ; preds = %531
   %533 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %533) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %533) #13
   %534 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %534) #13
   %535 = getelementptr inbounds i8, ptr %3, i64 48
@@ -837,7 +837,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_3v() #2 personality ptr @__gxx_pers
 
 536:                                              ; preds = %532
   call void @_ZN4Luau7CodeGen15NativeModuleRefC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #13
-  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %11) #13
   %537 = load ptr, ptr %13, align 8
   %538 = getelementptr inbounds i8, ptr %13, i64 8
   %539 = load ptr, ptr %538, align 8
@@ -851,7 +851,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_3v() #2 personality ptr @__gxx_pers
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i, label %541
 
 541:                                              ; preds = %.lr.ph.i.i.i.i
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i, ptr noundef nonnull %540) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i, ptr noundef nonnull %540) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i: ; preds = %541, %.lr.ph.i.i.i.i
@@ -985,7 +985,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 583:                                              ; preds = %582
   %584 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %584) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %584) #13
   %585 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %585) #13
   %586 = getelementptr inbounds i8, ptr %14, i64 48
@@ -1099,7 +1099,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 620:                                              ; preds = %619
   %621 = getelementptr inbounds i8, ptr %19, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %621) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %621) #13
   %622 = getelementptr inbounds i8, ptr %19, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %622) #13
   %623 = getelementptr inbounds i8, ptr %19, i64 48
@@ -1142,7 +1142,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 633:                                              ; preds = %632
   %634 = getelementptr inbounds i8, ptr %29, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %634) #13
-  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #13
+  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %32) #13
   %635 = load ptr, ptr %34, align 8
   %636 = getelementptr inbounds i8, ptr %34, i64 8
   %637 = load ptr, ptr %636, align 8
@@ -1156,7 +1156,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i.i.i.i.i.i462, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i463, label %639
 
 639:                                              ; preds = %.lr.ph.i.i.i.i460
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i461, ptr noundef nonnull %638) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i461, ptr noundef nonnull %638) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i463
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i463: ; preds = %639, %.lr.ph.i.i.i.i460
@@ -1218,7 +1218,7 @@ _ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_
 
 660:                                              ; preds = %657, %655
   %.pn198 = phi { ptr, i32 } [ %658, %657 ], [ %656, %655 ]
-  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #13
+  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %32) #13
   br label %661
 
 661:                                              ; preds = %660, %653
@@ -1265,7 +1265,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 673:                                              ; preds = %672
   %674 = getelementptr inbounds i8, ptr %27, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %674) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %674) #13
   %675 = getelementptr inbounds i8, ptr %27, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %675) #13
   %676 = getelementptr inbounds i8, ptr %27, i64 48
@@ -1379,7 +1379,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 708:                                              ; preds = %707
   %709 = getelementptr inbounds i8, ptr %36, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %709) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %709) #13
   %710 = getelementptr inbounds i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %710) #13
   %711 = getelementptr inbounds i8, ptr %36, i64 48
@@ -1393,7 +1393,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 712:                                              ; preds = %708
   call void @_ZN4Luau7CodeGen15NativeModuleRefC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44) #13
-  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #13
+  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %44) #13
   %713 = load ptr, ptr %46, align 8
   %714 = getelementptr inbounds i8, ptr %46, i64 8
   %715 = load ptr, ptr %714, align 8
@@ -1407,7 +1407,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i.i.i.i.i.i477, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i478, label %717
 
 717:                                              ; preds = %.lr.ph.i.i.i.i475
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i476, ptr noundef nonnull %716) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i476, ptr noundef nonnull %716) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i478
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i478: ; preds = %717, %.lr.ph.i.i.i.i475
@@ -1541,7 +1541,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 759:                                              ; preds = %758
   %760 = getelementptr inbounds i8, ptr %47, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %760) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %760) #13
   %761 = getelementptr inbounds i8, ptr %47, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %761) #13
   %762 = getelementptr inbounds i8, ptr %47, i64 48
@@ -1640,7 +1640,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 793:                                              ; preds = %792
   %794 = getelementptr inbounds i8, ptr %52, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %794) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %794) #13
   %795 = getelementptr inbounds i8, ptr %52, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %795) #13
   %796 = getelementptr inbounds i8, ptr %52, i64 48
@@ -1739,7 +1739,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 827:                                              ; preds = %826
   %828 = getelementptr inbounds i8, ptr %58, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %828) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %828) #13
   %829 = getelementptr inbounds i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %829) #13
   %830 = getelementptr inbounds i8, ptr %58, i64 48
@@ -1838,7 +1838,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 861:                                              ; preds = %860
   %862 = getelementptr inbounds i8, ptr %64, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %862) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %862) #13
   %863 = getelementptr inbounds i8, ptr %64, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %863) #13
   %864 = getelementptr inbounds i8, ptr %64, i64 48
@@ -1943,7 +1943,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 897:                                              ; preds = %896
   %898 = getelementptr inbounds i8, ptr %71, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %898) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %898) #13
   %899 = getelementptr inbounds i8, ptr %71, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %899) #13
   %900 = getelementptr inbounds i8, ptr %71, i64 48
@@ -2042,7 +2042,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 931:                                              ; preds = %930
   %932 = getelementptr inbounds i8, ptr %77, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %932) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %932) #13
   %933 = getelementptr inbounds i8, ptr %77, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %933) #13
   %934 = getelementptr inbounds i8, ptr %77, i64 48
@@ -2147,7 +2147,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 966:                                              ; preds = %965
   %967 = getelementptr inbounds i8, ptr %83, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %967) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %967) #13
   %968 = getelementptr inbounds i8, ptr %83, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %968) #13
   %969 = getelementptr inbounds i8, ptr %83, i64 48
@@ -2246,7 +2246,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1000:                                             ; preds = %999
   %1001 = getelementptr inbounds i8, ptr %89, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1001) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1001) #13
   %1002 = getelementptr inbounds i8, ptr %89, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1002) #13
   %1003 = getelementptr inbounds i8, ptr %89, i64 48
@@ -2352,7 +2352,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1034:                                             ; preds = %1033
   %1035 = getelementptr inbounds i8, ptr %97, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1035) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1035) #13
   %1036 = getelementptr inbounds i8, ptr %97, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1036) #13
   %1037 = getelementptr inbounds i8, ptr %97, i64 48
@@ -2451,7 +2451,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1066:                                             ; preds = %1065
   %1067 = getelementptr inbounds i8, ptr %102, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1067) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1067) #13
   %1068 = getelementptr inbounds i8, ptr %102, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1068) #13
   %1069 = getelementptr inbounds i8, ptr %102, i64 48
@@ -2558,7 +2558,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1101:                                             ; preds = %1100
   %1102 = getelementptr inbounds i8, ptr %107, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1102) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1102) #13
   %1103 = getelementptr inbounds i8, ptr %107, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1103) #13
   %1104 = getelementptr inbounds i8, ptr %107, i64 48
@@ -2657,7 +2657,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1135:                                             ; preds = %1134
   %1136 = getelementptr inbounds i8, ptr %113, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1136) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1136) #13
   %1137 = getelementptr inbounds i8, ptr %113, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1137) #13
   %1138 = getelementptr inbounds i8, ptr %113, i64 48
@@ -2763,7 +2763,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1169:                                             ; preds = %1168
   %1170 = getelementptr inbounds i8, ptr %121, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1170) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1170) #13
   %1171 = getelementptr inbounds i8, ptr %121, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1171) #13
   %1172 = getelementptr inbounds i8, ptr %121, i64 48
@@ -2862,7 +2862,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1203:                                             ; preds = %1202
   %1204 = getelementptr inbounds i8, ptr %126, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1204) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1204) #13
   %1205 = getelementptr inbounds i8, ptr %126, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1205) #13
   %1206 = getelementptr inbounds i8, ptr %126, i64 48
@@ -2961,7 +2961,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1237:                                             ; preds = %1236
   %1238 = getelementptr inbounds i8, ptr %132, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1238) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1238) #13
   %1239 = getelementptr inbounds i8, ptr %132, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1239) #13
   %1240 = getelementptr inbounds i8, ptr %132, i64 48
@@ -3068,7 +3068,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1272:                                             ; preds = %1271
   %1273 = getelementptr inbounds i8, ptr %138, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1273) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1273) #13
   %1274 = getelementptr inbounds i8, ptr %138, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1274) #13
   %1275 = getelementptr inbounds i8, ptr %138, i64 48
@@ -3167,7 +3167,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1306:                                             ; preds = %1305
   %1307 = getelementptr inbounds i8, ptr %144, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1307) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1307) #13
   %1308 = getelementptr inbounds i8, ptr %144, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1308) #13
   %1309 = getelementptr inbounds i8, ptr %144, i64 48
@@ -3273,7 +3273,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1340:                                             ; preds = %1339
   %1341 = getelementptr inbounds i8, ptr %152, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1341) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1341) #13
   %1342 = getelementptr inbounds i8, ptr %152, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1342) #13
   %1343 = getelementptr inbounds i8, ptr %152, i64 48
@@ -3372,7 +3372,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1372:                                             ; preds = %1371
   %1373 = getelementptr inbounds i8, ptr %157, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1373) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1373) #13
   %1374 = getelementptr inbounds i8, ptr %157, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1374) #13
   %1375 = getelementptr inbounds i8, ptr %157, i64 48
@@ -3479,7 +3479,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1407:                                             ; preds = %1406
   %1408 = getelementptr inbounds i8, ptr %162, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1408) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1408) #13
   %1409 = getelementptr inbounds i8, ptr %162, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1409) #13
   %1410 = getelementptr inbounds i8, ptr %162, i64 48
@@ -3578,7 +3578,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1441:                                             ; preds = %1440
   %1442 = getelementptr inbounds i8, ptr %168, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1442) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1442) #13
   %1443 = getelementptr inbounds i8, ptr %168, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1443) #13
   %1444 = getelementptr inbounds i8, ptr %168, i64 48
@@ -3686,7 +3686,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1478:                                             ; preds = %1477
   %1479 = getelementptr inbounds i8, ptr %176, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1479) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1479) #13
   %1480 = getelementptr inbounds i8, ptr %176, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1480) #13
   %1481 = getelementptr inbounds i8, ptr %176, i64 48
@@ -3785,7 +3785,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1512:                                             ; preds = %1511
   %1513 = getelementptr inbounds i8, ptr %182, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1513) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1513) #13
   %1514 = getelementptr inbounds i8, ptr %182, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1514) #13
   %1515 = getelementptr inbounds i8, ptr %182, i64 48
@@ -3890,7 +3890,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1547:                                             ; preds = %1546
   %1548 = getelementptr inbounds i8, ptr %188, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1548) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1548) #13
   %1549 = getelementptr inbounds i8, ptr %188, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1549) #13
   %1550 = getelementptr inbounds i8, ptr %188, i64 48
@@ -3989,7 +3989,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1581:                                             ; preds = %1580
   %1582 = getelementptr inbounds i8, ptr %194, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1582) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1582) #13
   %1583 = getelementptr inbounds i8, ptr %194, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1583) #13
   %1584 = getelementptr inbounds i8, ptr %194, i64 48
@@ -4098,7 +4098,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1616:                                             ; preds = %1615
   %1617 = getelementptr inbounds i8, ptr %203, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1617) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1617) #13
   %1618 = getelementptr inbounds i8, ptr %203, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1618) #13
   %1619 = getelementptr inbounds i8, ptr %203, i64 48
@@ -4197,7 +4197,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1648:                                             ; preds = %1647
   %1649 = getelementptr inbounds i8, ptr %208, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1649) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1649) #13
   %1650 = getelementptr inbounds i8, ptr %208, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1650) #13
   %1651 = getelementptr inbounds i8, ptr %208, i64 48
@@ -4304,7 +4304,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1683:                                             ; preds = %1682
   %1684 = getelementptr inbounds i8, ptr %213, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1684) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1684) #13
   %1685 = getelementptr inbounds i8, ptr %213, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1685) #13
   %1686 = getelementptr inbounds i8, ptr %213, i64 48
@@ -4403,7 +4403,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1717:                                             ; preds = %1716
   %1718 = getelementptr inbounds i8, ptr %219, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1718) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1718) #13
   %1719 = getelementptr inbounds i8, ptr %219, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1719) #13
   %1720 = getelementptr inbounds i8, ptr %219, i64 48
@@ -4511,7 +4511,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1754:                                             ; preds = %1753
   %1755 = getelementptr inbounds i8, ptr %227, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1755) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1755) #13
   %1756 = getelementptr inbounds i8, ptr %227, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1756) #13
   %1757 = getelementptr inbounds i8, ptr %227, i64 48
@@ -4610,7 +4610,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1788:                                             ; preds = %1787
   %1789 = getelementptr inbounds i8, ptr %233, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1789) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1789) #13
   %1790 = getelementptr inbounds i8, ptr %233, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1790) #13
   %1791 = getelementptr inbounds i8, ptr %233, i64 48
@@ -4715,7 +4715,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1823:                                             ; preds = %1822
   %1824 = getelementptr inbounds i8, ptr %239, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1824) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1824) #13
   %1825 = getelementptr inbounds i8, ptr %239, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1825) #13
   %1826 = getelementptr inbounds i8, ptr %239, i64 48
@@ -4814,7 +4814,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1857:                                             ; preds = %1856
   %1858 = getelementptr inbounds i8, ptr %245, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1858) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1858) #13
   %1859 = getelementptr inbounds i8, ptr %245, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1859) #13
   %1860 = getelementptr inbounds i8, ptr %245, i64 48
@@ -4923,7 +4923,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1894:                                             ; preds = %1893
   %1895 = getelementptr inbounds i8, ptr %254, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1895) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1895) #13
   %1896 = getelementptr inbounds i8, ptr %254, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1896) #13
   %1897 = getelementptr inbounds i8, ptr %254, i64 48
@@ -5022,7 +5022,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1928:                                             ; preds = %1927
   %1929 = getelementptr inbounds i8, ptr %260, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1929) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1929) #13
   %1930 = getelementptr inbounds i8, ptr %260, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1930) #13
   %1931 = getelementptr inbounds i8, ptr %260, i64 48
@@ -5121,7 +5121,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1962:                                             ; preds = %1961
   %1963 = getelementptr inbounds i8, ptr %266, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1963) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1963) #13
   %1964 = getelementptr inbounds i8, ptr %266, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1964) #13
   %1965 = getelementptr inbounds i8, ptr %266, i64 48
@@ -5220,7 +5220,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 1996:                                             ; preds = %1995
   %1997 = getelementptr inbounds i8, ptr %272, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1997) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1997) #13
   %1998 = getelementptr inbounds i8, ptr %272, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1998) #13
   %1999 = getelementptr inbounds i8, ptr %272, i64 48
@@ -5327,7 +5327,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2031:                                             ; preds = %2030
   %2032 = getelementptr inbounds i8, ptr %278, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2032) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2032) #13
   %2033 = getelementptr inbounds i8, ptr %278, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2033) #13
   %2034 = getelementptr inbounds i8, ptr %278, i64 48
@@ -5426,7 +5426,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2065:                                             ; preds = %2064
   %2066 = getelementptr inbounds i8, ptr %284, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2066) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2066) #13
   %2067 = getelementptr inbounds i8, ptr %284, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2067) #13
   %2068 = getelementptr inbounds i8, ptr %284, i64 48
@@ -5535,7 +5535,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2100:                                             ; preds = %2099
   %2101 = getelementptr inbounds i8, ptr %293, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2101) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2101) #13
   %2102 = getelementptr inbounds i8, ptr %293, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2102) #13
   %2103 = getelementptr inbounds i8, ptr %293, i64 48
@@ -5634,7 +5634,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2134:                                             ; preds = %2133
   %2135 = getelementptr inbounds i8, ptr %298, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2135) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2135) #13
   %2136 = getelementptr inbounds i8, ptr %298, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2136) #13
   %2137 = getelementptr inbounds i8, ptr %298, i64 48
@@ -5733,7 +5733,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2168:                                             ; preds = %2167
   %2169 = getelementptr inbounds i8, ptr %304, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2169) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2169) #13
   %2170 = getelementptr inbounds i8, ptr %304, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2170) #13
   %2171 = getelementptr inbounds i8, ptr %304, i64 48
@@ -5840,7 +5840,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2203:                                             ; preds = %2202
   %2204 = getelementptr inbounds i8, ptr %310, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2204) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2204) #13
   %2205 = getelementptr inbounds i8, ptr %310, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2205) #13
   %2206 = getelementptr inbounds i8, ptr %310, i64 48
@@ -5939,7 +5939,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2237:                                             ; preds = %2236
   %2238 = getelementptr inbounds i8, ptr %316, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2238) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2238) #13
   %2239 = getelementptr inbounds i8, ptr %316, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2239) #13
   %2240 = getelementptr inbounds i8, ptr %316, i64 48
@@ -6048,7 +6048,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2272:                                             ; preds = %2271
   %2273 = getelementptr inbounds i8, ptr %325, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2273) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2273) #13
   %2274 = getelementptr inbounds i8, ptr %325, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2274) #13
   %2275 = getelementptr inbounds i8, ptr %325, i64 48
@@ -6147,7 +6147,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2304:                                             ; preds = %2303
   %2305 = getelementptr inbounds i8, ptr %330, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2305) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2305) #13
   %2306 = getelementptr inbounds i8, ptr %330, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2306) #13
   %2307 = getelementptr inbounds i8, ptr %330, i64 48
@@ -6254,7 +6254,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2339:                                             ; preds = %2338
   %2340 = getelementptr inbounds i8, ptr %335, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2340) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2340) #13
   %2341 = getelementptr inbounds i8, ptr %335, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2341) #13
   %2342 = getelementptr inbounds i8, ptr %335, i64 48
@@ -6353,7 +6353,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2373:                                             ; preds = %2372
   %2374 = getelementptr inbounds i8, ptr %341, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2374) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2374) #13
   %2375 = getelementptr inbounds i8, ptr %341, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2375) #13
   %2376 = getelementptr inbounds i8, ptr %341, i64 48
@@ -6461,7 +6461,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2410:                                             ; preds = %2409
   %2411 = getelementptr inbounds i8, ptr %349, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2411) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2411) #13
   %2412 = getelementptr inbounds i8, ptr %349, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2412) #13
   %2413 = getelementptr inbounds i8, ptr %349, i64 48
@@ -6560,7 +6560,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2444:                                             ; preds = %2443
   %2445 = getelementptr inbounds i8, ptr %355, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2445) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2445) #13
   %2446 = getelementptr inbounds i8, ptr %355, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2446) #13
   %2447 = getelementptr inbounds i8, ptr %355, i64 48
@@ -6665,7 +6665,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2479:                                             ; preds = %2478
   %2480 = getelementptr inbounds i8, ptr %361, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2480) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2480) #13
   %2481 = getelementptr inbounds i8, ptr %361, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2481) #13
   %2482 = getelementptr inbounds i8, ptr %361, i64 48
@@ -6764,7 +6764,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2513:                                             ; preds = %2512
   %2514 = getelementptr inbounds i8, ptr %367, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2514) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2514) #13
   %2515 = getelementptr inbounds i8, ptr %367, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2515) #13
   %2516 = getelementptr inbounds i8, ptr %367, i64 48
@@ -6873,7 +6873,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2548:                                             ; preds = %2547
   %2549 = getelementptr inbounds i8, ptr %376, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2549) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2549) #13
   %2550 = getelementptr inbounds i8, ptr %376, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2550) #13
   %2551 = getelementptr inbounds i8, ptr %376, i64 48
@@ -6972,7 +6972,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2582:                                             ; preds = %2581
   %2583 = getelementptr inbounds i8, ptr %381, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2583) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2583) #13
   %2584 = getelementptr inbounds i8, ptr %381, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2584) #13
   %2585 = getelementptr inbounds i8, ptr %381, i64 48
@@ -7071,7 +7071,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2616:                                             ; preds = %2615
   %2617 = getelementptr inbounds i8, ptr %387, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2617) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2617) #13
   %2618 = getelementptr inbounds i8, ptr %387, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2618) #13
   %2619 = getelementptr inbounds i8, ptr %387, i64 48
@@ -7170,7 +7170,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2650:                                             ; preds = %2649
   %2651 = getelementptr inbounds i8, ptr %393, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2651) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2651) #13
   %2652 = getelementptr inbounds i8, ptr %393, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2652) #13
   %2653 = getelementptr inbounds i8, ptr %393, i64 48
@@ -7277,7 +7277,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2685:                                             ; preds = %2684
   %2686 = getelementptr inbounds i8, ptr %399, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2686) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2686) #13
   %2687 = getelementptr inbounds i8, ptr %399, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2687) #13
   %2688 = getelementptr inbounds i8, ptr %399, i64 48
@@ -7376,7 +7376,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2719:                                             ; preds = %2718
   %2720 = getelementptr inbounds i8, ptr %405, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2720) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2720) #13
   %2721 = getelementptr inbounds i8, ptr %405, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2721) #13
   %2722 = getelementptr inbounds i8, ptr %405, i64 48
@@ -7482,7 +7482,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2753:                                             ; preds = %2752
   %2754 = getelementptr inbounds i8, ptr %412, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2754) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2754) #13
   %2755 = getelementptr inbounds i8, ptr %412, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2755) #13
   %2756 = getelementptr inbounds i8, ptr %412, i64 48
@@ -7587,7 +7587,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2788:                                             ; preds = %2787
   %2789 = getelementptr inbounds i8, ptr %417, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2789) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2789) #13
   %2790 = getelementptr inbounds i8, ptr %417, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2790) #13
   %2791 = getelementptr inbounds i8, ptr %417, i64 48
@@ -7686,7 +7686,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2822:                                             ; preds = %2821
   %2823 = getelementptr inbounds i8, ptr %423, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2823) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2823) #13
   %2824 = getelementptr inbounds i8, ptr %423, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2824) #13
   %2825 = getelementptr inbounds i8, ptr %423, i64 48
@@ -7792,7 +7792,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2856:                                             ; preds = %2855
   %2857 = getelementptr inbounds i8, ptr %430, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2857) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2857) #13
   %2858 = getelementptr inbounds i8, ptr %430, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2858) #13
   %2859 = getelementptr inbounds i8, ptr %430, i64 48
@@ -7891,7 +7891,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2890:                                             ; preds = %2889
   %2891 = getelementptr inbounds i8, ptr %435, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2891) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2891) #13
   %2892 = getelementptr inbounds i8, ptr %435, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2892) #13
   %2893 = getelementptr inbounds i8, ptr %435, i64 48
@@ -7996,7 +7996,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2925:                                             ; preds = %2924
   %2926 = getelementptr inbounds i8, ptr %441, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2926) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2926) #13
   %2927 = getelementptr inbounds i8, ptr %441, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2927) #13
   %2928 = getelementptr inbounds i8, ptr %441, i64 48
@@ -8095,7 +8095,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2959:                                             ; preds = %2958
   %2960 = getelementptr inbounds i8, ptr %447, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2960) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2960) #13
   %2961 = getelementptr inbounds i8, ptr %447, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2961) #13
   %2962 = getelementptr inbounds i8, ptr %447, i64 48
@@ -8202,7 +8202,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 2995:                                             ; preds = %2994
   %2996 = getelementptr inbounds i8, ptr %455, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2996) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2996) #13
   %2997 = getelementptr inbounds i8, ptr %455, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2997) #13
   %2998 = getelementptr inbounds i8, ptr %455, i64 48
@@ -8301,7 +8301,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 3029:                                             ; preds = %3028
   %3030 = getelementptr inbounds i8, ptr %461, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3030) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3030) #13
   %3031 = getelementptr inbounds i8, ptr %461, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3031) #13
   %3032 = getelementptr inbounds i8, ptr %461, i64 48
@@ -8400,7 +8400,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 3063:                                             ; preds = %3062
   %3064 = getelementptr inbounds i8, ptr %467, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3064) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3064) #13
   %3065 = getelementptr inbounds i8, ptr %467, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3065) #13
   %3066 = getelementptr inbounds i8, ptr %467, i64 48
@@ -8499,7 +8499,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 3097:                                             ; preds = %3096
   %3098 = getelementptr inbounds i8, ptr %473, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3098) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3098) #13
   %3099 = getelementptr inbounds i8, ptr %473, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3099) #13
   %3100 = getelementptr inbounds i8, ptr %473, i64 48
@@ -8606,7 +8606,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 3132:                                             ; preds = %3131
   %3133 = getelementptr inbounds i8, ptr %479, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3133) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3133) #13
   %3134 = getelementptr inbounds i8, ptr %479, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3134) #13
   %3135 = getelementptr inbounds i8, ptr %479, i64 48
@@ -8705,7 +8705,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 3166:                                             ; preds = %3165
   %3167 = getelementptr inbounds i8, ptr %485, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3167) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3167) #13
   %3168 = getelementptr inbounds i8, ptr %485, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3168) #13
   %3169 = getelementptr inbounds i8, ptr %485, i64 48
@@ -8820,7 +8820,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 3201:                                             ; preds = %3200
   %3202 = getelementptr inbounds i8, ptr %491, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3202) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3202) #13
   %3203 = getelementptr inbounds i8, ptr %491, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3203) #13
   %3204 = getelementptr inbounds i8, ptr %491, i64 48
@@ -8880,7 +8880,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef 
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #13
   ret void
 }
 
@@ -8997,7 +8997,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 77:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5_EE9push_backEOS5_.exit
   call void @_ZN4Luau7CodeGen15NativeModuleRefC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
   %78 = load ptr, ptr %8, align 8
   %79 = load ptr, ptr %75, align 8
   %.not4.i.i.i.i = icmp eq ptr %78, %79
@@ -9010,7 +9010,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i, label %81
 
 81:                                               ; preds = %.lr.ph.i.i.i.i65
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i, ptr noundef nonnull %80) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i, ptr noundef nonnull %80) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i: ; preds = %81, %.lr.ph.i.i.i.i65
@@ -9143,7 +9143,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 123:                                              ; preds = %122
   %124 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %124) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %124) #13
   %125 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %125) #13
   %126 = getelementptr inbounds i8, ptr %9, i64 48
@@ -9242,7 +9242,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 157:                                              ; preds = %156
   %158 = getelementptr inbounds i8, ptr %14, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %158) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %158) #13
   %159 = getelementptr inbounds i8, ptr %14, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #13
   %160 = getelementptr inbounds i8, ptr %14, i64 48
@@ -9343,7 +9343,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 193:                                              ; preds = %192
   %194 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %194) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %194) #13
   %195 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %195) #13
   %196 = getelementptr inbounds i8, ptr %20, i64 48
@@ -9444,7 +9444,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 229:                                              ; preds = %228
   %230 = getelementptr inbounds i8, ptr %26, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %230) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %230) #13
   %231 = getelementptr inbounds i8, ptr %26, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %231) #13
   %232 = getelementptr inbounds i8, ptr %26, i64 48
@@ -9545,7 +9545,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 265:                                              ; preds = %264
   %266 = getelementptr inbounds i8, ptr %32, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %266) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %266) #13
   %267 = getelementptr inbounds i8, ptr %32, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %267) #13
   %268 = getelementptr inbounds i8, ptr %32, i64 48
@@ -9646,7 +9646,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 301:                                              ; preds = %300
   %302 = getelementptr inbounds i8, ptr %38, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %302) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %302) #13
   %303 = getelementptr inbounds i8, ptr %38, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %303) #13
   %304 = getelementptr inbounds i8, ptr %38, i64 48
@@ -9753,7 +9753,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 335:                                              ; preds = %334
   %336 = getelementptr inbounds i8, ptr %46, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %336) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %336) #13
   %337 = getelementptr inbounds i8, ptr %46, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %337) #13
   %338 = getelementptr inbounds i8, ptr %46, i64 48
@@ -9852,7 +9852,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 369:                                              ; preds = %368
   %370 = getelementptr inbounds i8, ptr %51, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %370) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %370) #13
   %371 = getelementptr inbounds i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %371) #13
   %372 = getelementptr inbounds i8, ptr %51, i64 48
@@ -9969,7 +9969,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 406:                                              ; preds = %405
   %407 = getelementptr inbounds i8, ptr %57, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %407) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %407) #13
   %408 = getelementptr inbounds i8, ptr %57, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %408) #13
   %409 = getelementptr inbounds i8, ptr %57, i64 48
@@ -9980,7 +9980,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit, label %411
 
 411:                                              ; preds = %406
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %410) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %410) #13
   br label %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit
 
 _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit: ; preds = %406, %411
@@ -9997,7 +9997,7 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit: ; pr
   br i1 %.not.i.i.i.i.i.i88, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i89, label %415
 
 415:                                              ; preds = %.lr.ph.i.i.i.i86
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i87, ptr noundef nonnull %414) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i87, ptr noundef nonnull %414) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i89
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i89: ; preds = %415, %.lr.ph.i.i.i.i86
@@ -10043,7 +10043,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i96, label %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit97, label %427
 
 427:                                              ; preds = %425
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %426) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %426) #13
   br label %_ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit97
 
 _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit97: ; preds = %425, %427
@@ -10253,7 +10253,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 135:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5_EE9push_backEOS5_.exit89.thread
   call void @_ZN4Luau7CodeGen15NativeModuleRefC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN4Luau7CodeGen15NativeModuleRefD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %7) #13
   %136 = load ptr, ptr %9, align 8
   %137 = load ptr, ptr %133, align 8
   %.not4.i.i.i.i = icmp eq ptr %136, %137
@@ -10266,7 +10266,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i, label %139
 
 139:                                              ; preds = %.lr.ph.i.i.i.i92
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i, ptr noundef nonnull %138) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i, ptr noundef nonnull %138) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i: ; preds = %139, %.lr.ph.i.i.i.i92
@@ -10409,7 +10409,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds i8, ptr %10, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %186) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %186) #13
   %187 = getelementptr inbounds i8, ptr %10, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %187) #13
   %188 = getelementptr inbounds i8, ptr %10, i64 48
@@ -10508,7 +10508,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 219:                                              ; preds = %218
   %220 = getelementptr inbounds i8, ptr %15, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %220) #13
   %221 = getelementptr inbounds i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %221) #13
   %222 = getelementptr inbounds i8, ptr %15, i64 48
@@ -10608,7 +10608,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 253:                                              ; preds = %252
   %254 = getelementptr inbounds i8, ptr %22, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %254) #13
   %255 = getelementptr inbounds i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #13
   %256 = getelementptr inbounds i8, ptr %22, i64 48
@@ -10708,7 +10708,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 288:                                              ; preds = %287
   %289 = getelementptr inbounds i8, ptr %28, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %289) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %289) #13
   %290 = getelementptr inbounds i8, ptr %28, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %290) #13
   %291 = getelementptr inbounds i8, ptr %28, i64 48
@@ -10810,7 +10810,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 325:                                              ; preds = %324
   %326 = getelementptr inbounds i8, ptr %34, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %326) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %326) #13
   %327 = getelementptr inbounds i8, ptr %34, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %327) #13
   %328 = getelementptr inbounds i8, ptr %34, i64 48
@@ -10908,7 +10908,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 358:                                              ; preds = %357
   %359 = getelementptr inbounds i8, ptr %40, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %359) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %359) #13
   %360 = getelementptr inbounds i8, ptr %40, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %360) #13
   %361 = getelementptr inbounds i8, ptr %40, i64 48
@@ -11007,7 +11007,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 392:                                              ; preds = %391
   %393 = getelementptr inbounds i8, ptr %46, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %393) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %393) #13
   %394 = getelementptr inbounds i8, ptr %46, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %394) #13
   %395 = getelementptr inbounds i8, ptr %46, i64 48
@@ -11107,7 +11107,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 426:                                              ; preds = %425
   %427 = getelementptr inbounds i8, ptr %53, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %427) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %427) #13
   %428 = getelementptr inbounds i8, ptr %53, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %428) #13
   %429 = getelementptr inbounds i8, ptr %53, i64 48
@@ -11207,7 +11207,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 461:                                              ; preds = %460
   %462 = getelementptr inbounds i8, ptr %59, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %462) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %462) #13
   %463 = getelementptr inbounds i8, ptr %59, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %463) #13
   %464 = getelementptr inbounds i8, ptr %59, i64 48
@@ -11310,7 +11310,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 499:                                              ; preds = %498
   %500 = getelementptr inbounds i8, ptr %65, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %500) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %500) #13
   %501 = getelementptr inbounds i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %501) #13
   %502 = getelementptr inbounds i8, ptr %65, i64 48
@@ -11408,7 +11408,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 532:                                              ; preds = %531
   %533 = getelementptr inbounds i8, ptr %71, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %533) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %533) #13
   %534 = getelementptr inbounds i8, ptr %71, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %534) #13
   %535 = getelementptr inbounds i8, ptr %71, i64 48
@@ -11507,7 +11507,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 566:                                              ; preds = %565
   %567 = getelementptr inbounds i8, ptr %77, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %567) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %567) #13
   %568 = getelementptr inbounds i8, ptr %77, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %568) #13
   %569 = getelementptr inbounds i8, ptr %77, i64 48
@@ -11606,7 +11606,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 600:                                              ; preds = %599
   %601 = getelementptr inbounds i8, ptr %83, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %601) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %601) #13
   %602 = getelementptr inbounds i8, ptr %83, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %602) #13
   %603 = getelementptr inbounds i8, ptr %83, i64 48
@@ -11705,7 +11705,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 634:                                              ; preds = %633
   %635 = getelementptr inbounds i8, ptr %89, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %635) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %635) #13
   %636 = getelementptr inbounds i8, ptr %89, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %636) #13
   %637 = getelementptr inbounds i8, ptr %89, i64 48
@@ -11804,7 +11804,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 668:                                              ; preds = %667
   %669 = getelementptr inbounds i8, ptr %95, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %669) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %669) #13
   %670 = getelementptr inbounds i8, ptr %95, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %670) #13
   %671 = getelementptr inbounds i8, ptr %95, i64 48
@@ -11822,7 +11822,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i.i.i.i.i.i127, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i128, label %675
 
 675:                                              ; preds = %.lr.ph.i.i.i.i125
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i126, ptr noundef nonnull %674) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i126, ptr noundef nonnull %674) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i128
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i128: ; preds = %675, %.lr.ph.i.i.i.i125
@@ -12003,7 +12003,7 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit: ; pr
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i, label %69
 
 69:                                               ; preds = %.lr.ph.i.i.i.i43
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i, ptr noundef nonnull %68) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i, ptr noundef nonnull %68) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i: ; preds = %69, %.lr.ph.i.i.i.i43
@@ -12146,7 +12146,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %116) #13
   %117 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %117) #13
   %118 = getelementptr inbounds i8, ptr %7, i64 48
@@ -12245,7 +12245,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 149:                                              ; preds = %148
   %150 = getelementptr inbounds i8, ptr %12, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %150) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %150) #13
   %151 = getelementptr inbounds i8, ptr %12, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %151) #13
   %152 = getelementptr inbounds i8, ptr %12, i64 48
@@ -12344,7 +12344,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds i8, ptr %18, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %184) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %184) #13
   %185 = getelementptr inbounds i8, ptr %18, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #13
   %186 = getelementptr inbounds i8, ptr %18, i64 48
@@ -12443,7 +12443,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 217:                                              ; preds = %216
   %218 = getelementptr inbounds i8, ptr %24, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %218) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %218) #13
   %219 = getelementptr inbounds i8, ptr %24, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %219) #13
   %220 = getelementptr inbounds i8, ptr %24, i64 48
@@ -12544,7 +12544,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 253:                                              ; preds = %252
   %254 = getelementptr inbounds i8, ptr %30, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %254) #13
   %255 = getelementptr inbounds i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #13
   %256 = getelementptr inbounds i8, ptr %30, i64 48
@@ -12643,7 +12643,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
 
 286:                                              ; preds = %285
   %287 = getelementptr inbounds i8, ptr %36, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %287) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %287) #13
   %288 = getelementptr inbounds i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %288) #13
   %289 = getelementptr inbounds i8, ptr %36, i64 48
@@ -12662,7 +12662,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br i1 %.not.i.i.i.i.i.i58, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i59, label %294
 
 294:                                              ; preds = %.lr.ph.i.i.i.i56
-  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i57, ptr noundef nonnull %293) #13
+  call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i57, ptr noundef nonnull %293) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i59
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i.i59: ; preds = %294, %.lr.ph.i.i.i.i56
@@ -12831,7 +12831,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_11v() #2 personality ptr @__gxx_per
           to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %82
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %83, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %83, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc64 unwind label %110
 
 .noexc64:                                         ; preds = %.noexc
@@ -12841,7 +12841,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_11v() #2 personality ptr @__gxx_per
 84:                                               ; preds = %.noexc64
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc64
@@ -12988,7 +12988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 135:                                              ; preds = %134
   %136 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %136) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %136) #13
   %137 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #13
   %138 = getelementptr inbounds i8, ptr %7, i64 48
@@ -13085,7 +13085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 167:                                              ; preds = %166
   %168 = getelementptr inbounds i8, ptr %13, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %168) #13
   %169 = getelementptr inbounds i8, ptr %13, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %169) #13
   %170 = getelementptr inbounds i8, ptr %13, i64 48
@@ -13220,7 +13220,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 213:                                              ; preds = %212
   %214 = getelementptr inbounds i8, ptr %25, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %214) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %214) #13
   %215 = getelementptr inbounds i8, ptr %25, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #13
   %216 = getelementptr inbounds i8, ptr %25, i64 48
@@ -13317,7 +13317,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 245:                                              ; preds = %244
   %246 = getelementptr inbounds i8, ptr %31, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %246) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %246) #13
   %247 = getelementptr inbounds i8, ptr %31, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %247) #13
   %248 = getelementptr inbounds i8, ptr %31, i64 48
@@ -13414,7 +13414,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 277:                                              ; preds = %276
   %278 = getelementptr inbounds i8, ptr %37, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %278) #13
   %279 = getelementptr inbounds i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %279) #13
   %280 = getelementptr inbounds i8, ptr %37, i64 48
@@ -13511,7 +13511,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 309:                                              ; preds = %308
   %310 = getelementptr inbounds i8, ptr %43, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %310) #13
   %311 = getelementptr inbounds i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #13
   %312 = getelementptr inbounds i8, ptr %43, i64 48
@@ -13608,7 +13608,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 341:                                              ; preds = %340
   %342 = getelementptr inbounds i8, ptr %49, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %342) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %342) #13
   %343 = getelementptr inbounds i8, ptr %49, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %343) #13
   %344 = getelementptr inbounds i8, ptr %49, i64 48
@@ -13705,7 +13705,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 373:                                              ; preds = %372
   %374 = getelementptr inbounds i8, ptr %55, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %374) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %374) #13
   %375 = getelementptr inbounds i8, ptr %55, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %375) #13
   %376 = getelementptr inbounds i8, ptr %55, i64 48
@@ -13802,7 +13802,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 405:                                              ; preds = %404
   %406 = getelementptr inbounds i8, ptr %61, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %406) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %406) #13
   %407 = getelementptr inbounds i8, ptr %61, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %407) #13
   %408 = getelementptr inbounds i8, ptr %61, i64 48
@@ -13899,7 +13899,7 @@ _ZNSt10unique_ptrIA_cPFvPvEE5resetEDn.exit:       ; preds = %171, %167
 
 437:                                              ; preds = %436
   %438 = getelementptr inbounds i8, ptr %67, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %438) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %438) #13
   %439 = getelementptr inbounds i8, ptr %67, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %439) #13
   %440 = getelementptr inbounds i8, ptr %67, i64 48
@@ -14008,7 +14008,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit94: ; preds = %_ZNSt10unique_ptrI9
   br i1 %.not.i95, label %_ZNSt10unique_ptrIN4Luau7CodeGen20SharedCodeGenContextENS1_27SharedCodeGenContextDeleterEED2Ev.exit, label %476
 
 476:                                              ; preds = %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit94
-  call void @_ZNK4Luau7CodeGen27SharedCodeGenContextDeleterclEPKNS0_20SharedCodeGenContextE(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %475) #13
+  call void @_ZNK4Luau7CodeGen27SharedCodeGenContextDeleterclEPKNS0_20SharedCodeGenContextE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %475) #13
   br label %_ZNSt10unique_ptrIN4Luau7CodeGen20SharedCodeGenContextENS1_27SharedCodeGenContextDeleterEED2Ev.exit
 
 _ZNSt10unique_ptrIN4Luau7CodeGen20SharedCodeGenContextENS1_27SharedCodeGenContextDeleterEED2Ev.exit: ; preds = %476, %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit94, %0
@@ -14083,7 +14083,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit101: ; preds = %486, %_ZNSt10uniqu
   br i1 %.not.i102, label %_ZNSt10unique_ptrIN4Luau7CodeGen20SharedCodeGenContextENS1_27SharedCodeGenContextDeleterEED2Ev.exit103, label %491
 
 491:                                              ; preds = %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit101
-  call void @_ZNK4Luau7CodeGen27SharedCodeGenContextDeleterclEPKNS0_20SharedCodeGenContextE(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %490) #13
+  call void @_ZNK4Luau7CodeGen27SharedCodeGenContextDeleterclEPKNS0_20SharedCodeGenContextE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %490) #13
   br label %_ZNSt10unique_ptrIN4Luau7CodeGen20SharedCodeGenContextENS1_27SharedCodeGenContextDeleterEED2Ev.exit103
 
 _ZNSt10unique_ptrIN4Luau7CodeGen20SharedCodeGenContextENS1_27SharedCodeGenContextDeleterEED2Ev.exit103: ; preds = %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit101, %491
@@ -14217,7 +14217,7 @@ declare void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -14245,7 +14245,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGe
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
-  tail call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i, ptr noundef nonnull %5) #13
+  tail call void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i, ptr noundef nonnull %5) #13
   br label %_ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEEEvPT_.exit.i.i.i: ; preds = %6, %.lr.ph.i.i.i
@@ -16102,7 +16102,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %20
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
   %27 = getelementptr inbounds i8, ptr %9, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %9) #13
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -16137,7 +16137,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %31
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #13
   %38 = getelementptr inbounds i8, ptr %7, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #13
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #13
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -16172,7 +16172,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %42
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #13
   %49 = getelementptr inbounds i8, ptr %5, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #13
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #13
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -16207,7 +16207,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %53
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #13
   %60 = getelementptr inbounds i8, ptr %3, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #13
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #13
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -16242,7 +16242,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #13
   %71 = getelementptr inbounds i8, ptr %1, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #13
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %1) #13
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)

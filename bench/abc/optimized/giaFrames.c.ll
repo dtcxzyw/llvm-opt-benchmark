@@ -4165,7 +4165,7 @@ Abc_UtilStrsav.exit272:                           ; preds = %Abc_UtilStrsav.exit
   %indvars.iv503 = phi i64 [ 0, %.lr.ph505 ], [ %indvars.iv.next, %.lr.ph ]
   %.in = load i32, ptr %.in.in, align 4
   %75 = sext i32 %.in to i64
-  %76 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %29)
+  %76 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %29)
   %77 = load i64, ptr %76, align 4
   %78 = or i64 %77, 2684354559
   store i64 %78, ptr %76, align 4
@@ -4315,7 +4315,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %.not190, label %.critedge2, label %147
 
 147:                                              ; preds = %.lr.ph363
-  %148 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %29)
+  %148 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %29)
   %149 = load i64, ptr %148, align 4
   %150 = or i64 %149, 2684354559
   store i64 %150, ptr %148, align 4
@@ -4850,7 +4850,7 @@ Gia_ManAppendAnd2.exit292:                        ; preds = %391, %395, %397, %3
   %420 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %416, i64 %419, i32 1
   %421 = load i32, ptr %420, align 4
   %422 = trunc i64 %417 to i32
-  %423 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %29)
+  %423 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %29)
   %424 = load i64, ptr %423, align 4
   %425 = or i64 %424, 2147483648
   store i64 %425, ptr %423, align 4
@@ -5078,7 +5078,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %537 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %532, i64 %536, i32 1
   %538 = load i32, ptr %537, align 4
   %539 = trunc i64 %534 to i32
-  %540 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %29)
+  %540 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %29)
   %541 = load i64, ptr %540, align 4
   %542 = or i64 %541, 2147483648
   store i64 %542, ptr %540, align 4

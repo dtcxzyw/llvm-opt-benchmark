@@ -3936,7 +3936,7 @@ init.end90:                                       ; preds = %invoke.cont86, %ini
   br i1 %tobool91, label %if.then92, label %if.end126
 
 if.then92:                                        ; preds = %init.end90
-  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN19OpenColorIO_v2_4dev20ColorSpaceMenuHelper6CreateESt10shared_ptrIKNS_24ColorSpaceMenuParametersEEE7g_mutex) #25
+  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN19OpenColorIO_v2_4dev20ColorSpaceMenuHelper6CreateESt10shared_ptrIKNS_24ColorSpaceMenuParametersEEE7g_mutex) #25
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont93, label %if.then.i.i
 
@@ -4297,7 +4297,7 @@ if.else.i.i.i.i.i279:                             ; preds = %if.then.i.i.i274
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20ColorSpaceMenuHelperEEC2ERKS2_.exit: ; preds = %if.end123, %if.then.i.i.i.i.i277, %if.else.i.i.i.i.i279
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss94) #25
-  %call1.i.i.i280 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN19OpenColorIO_v2_4dev20ColorSpaceMenuHelper6CreateESt10shared_ptrIKNS_24ColorSpaceMenuParametersEEE7g_mutex) #25
+  %call1.i.i.i280 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN19OpenColorIO_v2_4dev20ColorSpaceMenuHelper6CreateESt10shared_ptrIKNS_24ColorSpaceMenuParametersEEE7g_mutex) #25
   br label %cleanup
 
 ehcleanup124:                                     ; preds = %lpad114.body, %cleanup.action121, %lpad98
@@ -4307,7 +4307,7 @@ ehcleanup124:                                     ; preds = %lpad114.body, %clea
 
 ehcleanup125:                                     ; preds = %ehcleanup124, %lpad95
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup124 ], [ %163, %lpad95 ]
-  %call1.i.i.i281 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN19OpenColorIO_v2_4dev20ColorSpaceMenuHelper6CreateESt10shared_ptrIKNS_24ColorSpaceMenuParametersEEE7g_mutex) #25
+  %call1.i.i.i281 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN19OpenColorIO_v2_4dev20ColorSpaceMenuHelper6CreateESt10shared_ptrIKNS_24ColorSpaceMenuParametersEEE7g_mutex) #25
   br label %ehcleanup139
 
 if.end126:                                        ; preds = %init.end90

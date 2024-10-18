@@ -111,7 +111,7 @@ AddLength.exit:                                   ; preds = %if.end10, %if.then.
 
 if.then13:                                        ; preds = %AddLength.exit
   %sub = sub nuw nsw i32 64, %0
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 %sub)
+  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 range(i32 65, 64) %sub)
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
   %conv = zext nneg i32 %cond.i to i64
@@ -783,7 +783,7 @@ entry:
 
 if.end.i5:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha224, i64 128, i1 false)
-  %call.i = call fastcc i32 @Sha256Final(ptr noundef %tmpSha224)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha224)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
@@ -847,7 +847,7 @@ entry:
 
 if.end.i5:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha256, i64 128, i1 false)
-  %call.i = call fastcc i32 @Sha256Final(ptr noundef %tmpSha256)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha256)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 

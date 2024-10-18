@@ -169,7 +169,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #12
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #12
   br label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %1, %4
@@ -178,7 +178,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #12
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -193,7 +193,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %15, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #12
+  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 80
   %20 = icmp eq ptr %18, %19
@@ -220,7 +220,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #12
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #12
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
@@ -238,7 +238,7 @@ _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKbEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #12
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -314,13 +314,13 @@ define dso_local void @_ZN4llvm15MetaRenamerPass3runERNS_6ModuleERNS_15AnalysisM
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %4
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %36, %._crit_edge.loopexit.i ]
   %37 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %37, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull %37, i64 noundef 8) #12
   %38 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %38, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull %38, i64 noundef 8) #12
   %39 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %39, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %15, ptr noundef nonnull %39, i64 noundef 8) #12
   %40 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %40, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull %40, i64 noundef 8) #12
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 128)) #12
   %42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 128)) #12
   call fastcc void @_ZN12_GLOBAL__N_121parseExcludedPrefixesEN4llvm9StringRefERNS0_15SmallVectorImplIS1_EE(ptr %41, i64 %42, ptr noundef nonnull align 8 dereferenceable(16) %13)
@@ -357,7 +357,7 @@ define dso_local void @_ZN4llvm15MetaRenamerPass3runERNS_6ModuleERNS_15AnalysisM
   %60 = select i1 %58, ptr null, ptr %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %61 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %60) #12
+  %61 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %60) #12
   %62 = extractvalue { ptr, i64 } %61, 0
   store ptr %62, ptr %12, align 8
   %63 = extractvalue { ptr, i64 } %61, 1
@@ -649,13 +649,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit46.thread.i: ; preds = %184, %182, %_ZN
   br i1 %.not124.i, label %._crit_edge144.i, label %171
 
 ._crit_edge144.i:                                 ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread.i, %._crit_edge138.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %21, i8 0, i64 20, i1 false)
   %186 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %186, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, i8 0, i64 20, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %187, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, i8 0, i64 20, i1 false)
   %188 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %188, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, i8 0, i64 20, i1 false)
   %189 = getelementptr inbounds nuw i8, ptr %21, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %189, i8 0, i64 25, i1 false)
   call void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(121) %21, ptr noundef nonnull align 8 dereferenceable(857) %2, i1 noundef zeroext true) #12
@@ -695,7 +695,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit46.thread.i: ; preds = %184, %182, %_ZN
   br i1 %209, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i, label %210
 
 210:                                              ; preds = %208
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull %194, i64 noundef 128) #12
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull %194, i64 noundef 128) #12
   %211 = mul i64 %.sroa.0109.0147.i, 1103515245
   %212 = add i64 %211, 12345
   %213 = lshr i64 %212, 16
@@ -722,7 +722,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %219, %210
   %221 = extractvalue { ptr, i64 } %220, 0
   %222 = extractvalue { ptr, i64 } %220, 1
   call void @_ZN4llvm10StructType7setNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr %221, i64 %222) #12
-  %223 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #12
+  %223 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %23) #12
   %224 = load ptr, ptr %23, align 8
   %225 = icmp eq ptr %224, %194
   br i1 %225, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i, label %226
@@ -765,7 +765,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i:         ; preds = %226, %_ZN4llvmplERK
   %242 = select i1 %240, ptr null, ptr %241
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %243 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %242) #12
+  %243 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %242) #12
   %244 = extractvalue { ptr, i64 } %243, 0
   store ptr %244, ptr %9, align 8
   %245 = extractvalue { ptr, i64 } %243, 1
@@ -1027,7 +1027,7 @@ _ZN4llvm10TypeFinderD2Ev.exit.i:                  ; preds = %321, %._crit_edge15
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %143, %_ZN4llvm10TypeFinderD2Ev.exit.i, %51
-  %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #12
+  %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
   %348 = load ptr, ptr %16, align 8
   %349 = icmp eq ptr %348, %40
   br i1 %349, label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit.i, label %350
@@ -1037,7 +1037,7 @@ _ZN4llvm10TypeFinderD2Ev.exit.i:                  ; preds = %321, %._crit_edge15
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit.i: ; preds = %350, %.loopexit.i
-  %351 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #12
+  %351 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %15) #12
   %352 = load ptr, ptr %15, align 8
   %353 = icmp eq ptr %352, %39
   br i1 %353, label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit69.i, label %354
@@ -1047,7 +1047,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit.i: ; preds = %350, %.loopexit
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit69.i
 
 _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit69.i: ; preds = %354, %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit.i
-  %355 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  %355 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %14) #12
   %356 = load ptr, ptr %14, align 8
   %357 = icmp eq ptr %356, %38
   br i1 %357, label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit70.i, label %358
@@ -1057,7 +1057,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit69.i: ; preds = %354, %_ZN4llv
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit70.i
 
 _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit70.i: ; preds = %358, %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit69.i
-  %359 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
+  %359 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %13) #12
   %360 = load ptr, ptr %13, align 8
   %361 = icmp eq ptr %360, %37
   br i1 %361, label %_ZN12_GLOBAL__N_110MetaRenameERN4llvm6ModuleENS0_12function_refIFRNS0_17TargetLibraryInfoERNS0_8FunctionEEEE.exit, label %362
@@ -1573,7 +1573,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
@@ -1712,7 +1712,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManage
 define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup" {
   %1 = alloca i8, align 1
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i32 noundef 0, i32 noundef 0)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 128)) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 128)) #12
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 160), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 168)) #12
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 200), align 8
@@ -1720,10 +1720,10 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, align 8
   tail call void @_ZN4llvm2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 208), ptr noundef nonnull align 8 dereferenceable(128) @_ZL29RenameExcludeFunctionPrefixesB5cxx11) #12
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 208), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE9_M_invokeERKSt9_Any_dataS7_, ptr getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 240), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 232), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL29RenameExcludeFunctionPrefixesB5cxx11, ptr nonnull @.str, i64 32) #12
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(248) @_ZL29RenameExcludeFunctionPrefixesB5cxx11, ptr nonnull align 1 dereferenceable(33) @.str, i64 32) #12
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 32), align 8
   store i64 74, ptr getelementptr inbounds (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 40), align 8
   %2 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL29RenameExcludeFunctionPrefixesB5cxx11, i64 10), align 2
@@ -1733,7 +1733,7 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   tail call void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZL29RenameExcludeFunctionPrefixesB5cxx11) #12
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL29RenameExcludeFunctionPrefixesB5cxx11, ptr nonnull @__dso_handle) #12
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL26RenameExcludeAliasPrefixesB5cxx11, i32 noundef 0, i32 noundef 0)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 128)) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 128)) #12
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 160), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 168)) #12
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 200), align 8
@@ -1741,10 +1741,10 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, align 8
   tail call void @_ZN4llvm2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 208), ptr noundef nonnull align 8 dereferenceable(128) @_ZL26RenameExcludeAliasPrefixesB5cxx11) #12
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 208), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE9_M_invokeERKSt9_Any_dataS7_, ptr getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 240), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 232), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL26RenameExcludeAliasPrefixesB5cxx11, ptr nonnull @.str.3, i64 29) #12
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(248) @_ZL26RenameExcludeAliasPrefixesB5cxx11, ptr nonnull align 1 dereferenceable(30) @.str.3, i64 29) #12
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 32), align 8
   store i64 72, ptr getelementptr inbounds (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 40), align 8
   %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL26RenameExcludeAliasPrefixesB5cxx11, i64 10), align 2
@@ -1754,7 +1754,7 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   tail call void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZL26RenameExcludeAliasPrefixesB5cxx11) #12
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL26RenameExcludeAliasPrefixesB5cxx11, ptr nonnull @__dso_handle) #12
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i32 noundef 0, i32 noundef 0)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 128)) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 128)) #12
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 160), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 168)) #12
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 200), align 8
@@ -1762,10 +1762,10 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, align 8
   tail call void @_ZN4llvm2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 208), ptr noundef nonnull align 8 dereferenceable(128) @_ZL27RenameExcludeGlobalPrefixesB5cxx11) #12
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 208), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE9_M_invokeERKSt9_Any_dataS7_, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 240), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 232), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL27RenameExcludeGlobalPrefixesB5cxx11, ptr nonnull @.str.6, i64 30) #12
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(248) @_ZL27RenameExcludeGlobalPrefixesB5cxx11, ptr nonnull align 1 dereferenceable(31) @.str.6, i64 30) #12
   store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 32), align 8
   store i64 78, ptr getelementptr inbounds (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 40), align 8
   %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeGlobalPrefixesB5cxx11, i64 10), align 2
@@ -1775,7 +1775,7 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   tail call void @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZL27RenameExcludeGlobalPrefixesB5cxx11) #12
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL27RenameExcludeGlobalPrefixesB5cxx11, ptr nonnull @__dso_handle) #12
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL27RenameExcludeStructPrefixesB5cxx11, i32 noundef 0, i32 noundef 0)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 128)) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 128)) #12
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 160), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 168)) #12
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 200), align 8
@@ -1783,10 +1783,10 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 16), ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, align 8
   tail call void @_ZN4llvm2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 208), ptr noundef nonnull align 8 dereferenceable(128) @_ZL27RenameExcludeStructPrefixesB5cxx11) #12
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 208), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 216), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE9_M_invokeERKSt9_Any_dataS7_, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 240), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIS5_Lb0ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 232), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL27RenameExcludeStructPrefixesB5cxx11, ptr nonnull @.str.9, i64 30) #12
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(248) @_ZL27RenameExcludeStructPrefixesB5cxx11, ptr nonnull align 1 dereferenceable(31) @.str.9, i64 30) #12
   store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 32), align 8
   store i64 72, ptr getelementptr inbounds (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 40), align 8
   %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL27RenameExcludeStructPrefixesB5cxx11, i64 10), align 2
@@ -1804,10 +1804,10 @@ define internal void @_GLOBAL__sub_I_MetaRenamer.cpp() #8 section ".text.startup
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14RenameOnlyInst, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14RenameOnlyInst) #12
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 160), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL14RenameOnlyInst, ptr nonnull @.str.12, i64 16) #12
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14RenameOnlyInst, ptr nonnull align 1 dereferenceable(17) @.str.12, i64 16) #12
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14RenameOnlyInst, ptr noundef nonnull align 1 dereferenceable(1) %1) #12
   store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL14RenameOnlyInst, i64 32), align 8
   store i64 44, ptr getelementptr inbounds (i8, ptr @_ZL14RenameOnlyInst, i64 40), align 8

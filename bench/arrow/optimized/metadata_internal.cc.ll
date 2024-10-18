@@ -5826,7 +5826,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -5836,7 +5836,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   br label %eh.resume
 
 cond.false:                                       ; preds = %entry
@@ -6575,7 +6575,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -7178,7 +7178,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -7188,7 +7188,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -8310,7 +8310,7 @@ while.body.i.i.i.i.i:                             ; preds = %cleanup20, %while.b
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i, i64 8
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i) #18
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i) #20
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !143
@@ -8421,7 +8421,7 @@ while.body.i.i.i.i.i58:                           ; preds = %cleanup42.critedge,
   %add.ptr.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i59, i64 8
   %second.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i59, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i61) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i60) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i60) #18
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i59) #20
   %tobool.not.i.i.i.i.i62 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i62, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i63, label %while.body.i.i.i.i.i58, !llvm.loop !143
@@ -10454,7 +10454,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -10464,7 +10464,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #18
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -10564,7 +10564,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -10657,7 +10657,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -10693,7 +10693,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -10735,7 +10735,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %mul)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %mul)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -10786,7 +10786,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i5 = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -10822,7 +10822,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -10883,7 +10883,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -10953,7 +10953,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -11023,7 +11023,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -11091,7 +11091,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i77, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i77:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -11114,7 +11114,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i76 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -13563,7 +13563,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -13631,7 +13631,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i7, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i7:                             ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -13654,7 +13654,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i6 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -14037,7 +14037,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -14107,7 +14107,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -14177,7 +14177,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -14247,7 +14247,7 @@ if.then.i.i.i.i.i.i81:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i88, label %if.then.i.i.i.i.i.i.i103, label %for.body.preheader.i.i.i.i.i89
 
 if.then.i.i.i.i.i.i.i103:                         ; preds = %if.then.i.i.i.i.i.i81
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i78)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i78)
   %.pre.i.i.i.i.i.i104 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i80, align 8
   %.pre.i.i.i.i105 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i89
@@ -15745,7 +15745,7 @@ if.then144:                                       ; preds = %if.end142
           to label %call.i.noexc unwind label %lpad148
 
 call.i.noexc:                                     ; preds = %if.then144
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146, ptr noundef %call.i459, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146, ptr noundef %call.i459, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147)
           to label %.noexc unwind label %lpad148
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -15757,7 +15757,7 @@ call.i.noexc:                                     ; preds = %if.then144
 lpad.i:                                           ; preds = %.noexc
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp146) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #18
   br label %ehcleanup154
 
 invoke.cont149:                                   ; preds = %.noexc
@@ -17371,7 +17371,7 @@ for.body37.lr.ph:                                 ; preds = %_ZNK22arrow_vendore
   br label %for.body37
 
 if.then32:                                        ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i143
-  call void @_ZN5arrow6Status8FromArgsIJRA59_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(59) @.str.26)
+  call void @_ZN5arrow6Status8FromArgsIJRA59_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(59) @.str.26)
   br label %return
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit200
@@ -18565,14 +18565,14 @@ sw.bb44:                                          ; preds = %_ZNK3org6apache5arr
   br label %if.end48.sink.split
 
 sw.default:                                       ; preds = %_ZNK3org6apache5arrow7flatbuf20SparseMatrixIndexCSX14compressedAxisEv.exit
-  call void @_ZN5arrow6Status8FromArgsIJRA44_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(44) @.str.28)
+  call void @_ZN5arrow6Status8FromArgsIJRA44_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(44) @.str.28)
   br label %return
 
 sw.bb45:                                          ; preds = %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit
   br label %if.end48.sink.split
 
 sw.default46:                                     ; preds = %if.then38, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i132, %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit
-  call void @_ZN5arrow6Status8FromArgsIJRA31_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(31) @.str.29)
+  call void @_ZN5arrow6Status8FromArgsIJRA31_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(31) @.str.29)
   br label %return
 
 if.end48.sink.split:                              ; preds = %_ZNK3org6apache5arrow7flatbuf20SparseMatrixIndexCSX14compressedAxisEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i164, %_ZNK3org6apache5arrow7flatbuf12SparseTensor35sparseIndex_as_SparseMatrixIndexCSXEv.exit, %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit, %sw.bb44, %sw.bb45
@@ -18785,7 +18785,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !417
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !417
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(48) %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !417
 
 invoke.cont1.i:                                   ; preds = %entry
@@ -18839,7 +18839,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !420
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !420
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(47) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !420
 
 invoke.cont.i:                                    ; preds = %entry
@@ -18882,7 +18882,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !423
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !423
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(44) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !423
 
 invoke.cont.i:                                    ; preds = %entry
@@ -19088,7 +19088,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !426
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !426
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(28) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !426
 
 invoke.cont.i:                                    ; preds = %entry
@@ -19143,7 +19143,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %0 = load ptr, ptr %field, align 8
   %type_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %type_.i, align 8
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %this)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(120) %this)
   call void @llvm.experimental.noalias.scope.decl(metadata !429)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !429
   store ptr %2, ptr %agg.result, align 8, !alias.scope !429
@@ -19802,7 +19802,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #20
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !143
@@ -19877,7 +19877,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -19947,7 +19947,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -20017,7 +20017,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -20372,7 +20372,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -20408,7 +20408,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -20465,7 +20465,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -20535,7 +20535,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -20605,7 +20605,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -20675,7 +20675,7 @@ if.then.i.i.i.i.i.i81:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i88, label %if.then.i.i.i.i.i.i.i103, label %for.body.preheader.i.i.i.i.i89
 
 if.then.i.i.i.i.i.i.i103:                         ; preds = %if.then.i.i.i.i.i.i81
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i78)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i78)
   %.pre.i.i.i.i.i.i104 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i80, align 8
   %.pre.i.i.i.i105 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i89
@@ -20745,7 +20745,7 @@ if.then.i.i.i.i.i.i116:                           ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i123, label %if.then.i.i.i.i.i.i.i138, label %for.body.preheader.i.i.i.i.i124
 
 if.then.i.i.i.i.i.i.i138:                         ; preds = %if.then.i.i.i.i.i.i116
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i113)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i113)
   %.pre.i.i.i.i.i.i139 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i115, align 8
   %.pre.i.i.i.i140 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i124
@@ -20813,7 +20813,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i147, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i147:                           ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -20836,7 +20836,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i146 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -20894,7 +20894,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i163, label %if.then.i.i.i.i.i.i184, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i164
 
 if.then.i.i.i.i.i.i184:                           ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i155
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i185 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i156, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i164
 
@@ -20917,7 +20917,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i172, label %if.then.i.i.i4.i.i182, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i173
 
 if.then.i.i.i4.i.i182:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i164
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i183 = load ptr, ptr %scratch_.i.i.i.i.i.i.i158, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i173
 
@@ -21638,7 +21638,7 @@ _ZN5arrow6StatusD2Ev.exit480:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i267)
   %fb_type_.i269 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 17, ptr %fb_type_.i269, align 8, !noalias !716
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i267, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !716
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i267, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(73) %type.tr), !noalias !716
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
   %81 = load ptr, ptr %ref.tmp.i267, align 8, !noalias !719
   store ptr %81, ptr %agg.result, align 8, !alias.scope !719
@@ -21665,7 +21665,7 @@ _ZN5arrow6StatusD2Ev.exit517:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i278)
   %fb_type_.i280 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 16, ptr %fb_type_.i280, align 8, !noalias !725
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i278, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !725
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i278, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(76) %type.tr), !noalias !725
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
   %84 = load ptr, ptr %ref.tmp.i278, align 8, !noalias !728
   store ptr %84, ptr %agg.result, align 8, !alias.scope !728
@@ -21691,7 +21691,7 @@ _ZN5arrow6StatusD2Ev.exit557:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i290)
   %fb_type_.i292 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 13, ptr %fb_type_.i292, align 8, !noalias !734
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i290, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !734
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i290, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(80) %type.tr), !noalias !734
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   %87 = load ptr, ptr %ref.tmp.i290, align 8, !noalias !737
   store ptr %87, ptr %agg.result, align 8, !alias.scope !737
@@ -21766,7 +21766,7 @@ _ZN5arrow6StatusD2Ev.exit637:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp24.i)
   %storage_type_.i = getelementptr inbounds i8, ptr %type.tr, i64 72
   %94 = load ptr, ptr %storage_type_.i, align 8, !noalias !755
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp.i314, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef %visitor), !noalias !755
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp.i314, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(120) %visitor), !noalias !755
   call void @llvm.experimental.noalias.scope.decl(metadata !758)
   %95 = load ptr, ptr %ref.tmp.i314, align 8, !noalias !758
   store ptr %95, ptr %agg.result, align 8, !alias.scope !758
@@ -21786,7 +21786,7 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
           to label %invoke.cont13.i unwind label %lpad12.i
 
 invoke.cont13.i:                                  ; preds = %do.end8.i
-  %call.i599 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %extra_type_metadata_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i)
+  %call.i599 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %extra_type_metadata_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i)
           to label %invoke.cont15.i unwind label %lpad14.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont13.i
@@ -21803,7 +21803,7 @@ invoke.cont15.i:                                  ; preds = %invoke.cont13.i
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont15.i
-  %call.i598 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %extra_type_metadata_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
+  %call.i598 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %extra_type_metadata_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont26.i
@@ -22072,7 +22072,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -22108,7 +22108,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %if.then.i.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %if.then.i.i
 
@@ -22429,7 +22429,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -22452,7 +22452,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -22526,7 +22526,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -22562,7 +22562,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIijEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIijEET0_T_.exit
 
@@ -22585,7 +22585,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2, label %if.then.i.i.i4, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i4:                                   ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIijEET0_T_.exit
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i5 = load ptr, ptr %scratch_.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
@@ -22659,7 +22659,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -22695,7 +22695,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIsjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 2)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 2)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIsjEET0_T_.exit
 
@@ -22718,7 +22718,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2, label %if.then.i.i.i4, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i4:                                   ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIsjEET0_T_.exit
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i5 = load ptr, ptr %scratch_.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
@@ -22792,7 +22792,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -22877,7 +22877,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -22913,7 +22913,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -22936,7 +22936,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2, label %if.then.i.i.i4, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i4:                                   ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i5 = load ptr, ptr %scratch_.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
@@ -23157,7 +23157,7 @@ while.body.i.i.i.i.i:                             ; preds = %cleanup14, %while.b
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i, i64 8
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i) #18
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i) #20
   %tobool.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !143
@@ -23235,7 +23235,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
@@ -23259,7 +23259,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -23328,7 +23328,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %mul)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %mul)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -23379,7 +23379,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i5 = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -23415,7 +23415,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -23472,7 +23472,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -23556,7 +23556,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -23616,7 +23616,7 @@ if.then.i.i.i5:                                   ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i8, label %for.body.preheader.i.i
 
 if.then.i.i.i.i8:                                 ; preds = %if.then.i.i.i5
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i
@@ -23683,7 +23683,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #18
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8
@@ -23818,7 +23818,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   br label %if.end
 
@@ -23860,13 +23860,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #18
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #18
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -24007,7 +24007,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !786
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !786
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !786
 
 invoke.cont.i:                                    ; preds = %entry
@@ -24083,7 +24083,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -24152,7 +24152,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i7, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i7:                             ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -24175,7 +24175,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i6 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -24249,7 +24249,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -24285,7 +24285,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIljEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIljEET0_T_.exit
 
@@ -24308,7 +24308,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2, label %if.then.i.i.i4, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i4:                                   ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIljEET0_T_.exit
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i5 = load ptr, ptr %scratch_.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
@@ -24385,7 +24385,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -24455,7 +24455,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -24545,7 +24545,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -24581,7 +24581,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -24632,7 +24632,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -24686,7 +24686,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i5)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i5)
   %.pre.i.i.i.i26 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i27 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i16
@@ -24722,7 +24722,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -24774,7 +24774,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -24828,7 +24828,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i5)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i5)
   %.pre.i.i.i.i26 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i27 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i16
@@ -24864,7 +24864,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -24924,7 +24924,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -24994,7 +24994,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -25063,7 +25063,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i42, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i42:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -25086,7 +25086,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i41 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -25159,7 +25159,7 @@ if.then.i.i.i:                                    ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %for.body.preheader.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   %.pre.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i
@@ -25198,7 +25198,7 @@ if.then:                                          ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i14, label %if.then.i.i.i.i18, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9PushBytesEPKhm.exit
 
 if.then.i.i.i.i18:                                ; preds = %if.then
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i19 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9PushBytesEPKhm.exit
 
@@ -25241,7 +25241,7 @@ if.then.i.i.i.i21:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i21
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -25296,7 +25296,7 @@ if.then.i.i.i.i32:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i39, label %if.then.i.i.i.i.i57, label %for.body.preheader.i.i.i40
 
 if.then.i.i.i.i.i57:                              ; preds = %if.then.i.i.i.i32
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i29)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i29)
   %.pre.i.i.i.i58 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   %.pre.i.i59 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i40
@@ -25335,7 +25335,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i54, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i56 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -25377,7 +25377,7 @@ if.then.i.i.i.i68:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i75, label %if.then.i.i.i.i.i97, label %for.body.preheader.i.i.i76
 
 if.then.i.i.i.i.i97:                              ; preds = %if.then.i.i.i.i68
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i65)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i65)
   %.pre.i.i.i.i98 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   %.pre.i.i99 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i76
@@ -25412,7 +25412,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i92, label %if.then.i.i.i4.i95, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit101
 
 if.then.i.i.i4.i95:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i85
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i96 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit101
 
@@ -25851,7 +25851,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -25921,7 +25921,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -25991,7 +25991,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -26061,7 +26061,7 @@ if.then.i.i.i.i.i.i81:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i88, label %if.then.i.i.i.i.i.i.i103, label %for.body.preheader.i.i.i.i.i89
 
 if.then.i.i.i.i.i.i.i103:                         ; preds = %if.then.i.i.i.i.i.i81
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i78)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i78)
   %.pre.i.i.i.i.i.i104 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i80, align 8
   %.pre.i.i.i.i105 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i89
@@ -26123,7 +26123,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %mul)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %mul)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -26174,7 +26174,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i5 = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -26210,7 +26210,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -26249,7 +26249,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %mul)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %mul)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -26300,7 +26300,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i5 = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -26336,7 +26336,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -26392,7 +26392,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit.i.i
@@ -26416,7 +26416,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -26474,7 +26474,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i35, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit.i.i15
 
 if.then.i.i.i.i.i.i35:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i6
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i36 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i7, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit.i.i15
 
@@ -26497,7 +26497,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i23, label %if.then.i.i.i4.i.i33, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i24
 
 if.then.i.i.i4.i.i33:                             ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit.i.i15
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i34 = load ptr, ptr %scratch_.i.i.i.i.i.i.i9, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i24
 
@@ -26536,7 +26536,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !790
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !790
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(36) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !790
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -26587,7 +26587,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !793
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !793
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(25) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !793
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -26663,7 +26663,7 @@ if.then.i.i.i:                                    ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %for.body.preheader.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   %.pre.i = load i32, ptr %size_.i.i, align 8
   br label %for.body.preheader.i.i
@@ -26722,7 +26722,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10push_smallIN3org6a
   br i1 %cmp.i.i.i11, label %if.then.i.i.i13, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i13:                                  ; preds = %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10push_smallIN3org6apache5arrow7flatbuf6BufferEEEvRKT_.exit
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i14 = load ptr, ptr %scratch_.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
@@ -26798,7 +26798,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -26868,7 +26868,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -26938,7 +26938,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -27006,7 +27006,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i77, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i77:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -27029,7 +27029,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i76 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -27087,7 +27087,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i91, label %if.then.i.i.i.i.i.i112, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i92
 
 if.then.i.i.i.i.i.i112:                           ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i83
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i113 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i84, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i92
 
@@ -27110,7 +27110,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i100, label %if.then.i.i.i4.i.i110, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i101
 
 if.then.i.i.i4.i.i110:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i92
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i111 = load ptr, ptr %scratch_.i.i.i.i.i.i.i86, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i101
 
@@ -27193,7 +27193,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -27263,7 +27263,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -27331,7 +27331,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i42, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
 if.then.i.i.i.i.i.i42:                            ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 1)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 1)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
 
@@ -27354,7 +27354,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushEleme
   br i1 %cmp.i.i.i2.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef 8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef 8)
   %.pre.i.i.i.i41 = load ptr, ptr %scratch_.i.i.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i.i.i
 
@@ -27426,7 +27426,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -27497,7 +27497,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -27578,7 +27578,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i)
   %.pre.i.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i
@@ -27648,7 +27648,7 @@ if.then.i.i.i.i.i.i11:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i.i33, label %for.body.preheader.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i.i.i11
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i8)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i8)
   %.pre.i.i.i.i.i.i34 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i10, align 8
   %.pre.i.i.i.i35 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i19
@@ -27718,7 +27718,7 @@ if.then.i.i.i.i.i.i46:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i53, label %if.then.i.i.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i68:                          ; preds = %if.then.i.i.i.i.i.i46
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i43)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i43)
   %.pre.i.i.i.i.i.i69 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i45, align 8
   %.pre.i.i.i.i70 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i54
@@ -27788,7 +27788,7 @@ if.then.i.i.i.i.i.i81:                            ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i88, label %if.then.i.i.i.i.i.i.i103, label %for.body.preheader.i.i.i.i.i89
 
 if.then.i.i.i.i.i.i.i103:                         ; preds = %if.then.i.i.i.i.i.i81
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i78)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i78)
   %.pre.i.i.i.i.i.i104 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i80, align 8
   %.pre.i.i.i.i105 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i89
@@ -27858,7 +27858,7 @@ if.then.i.i.i.i.i.i116:                           ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i.i123, label %if.then.i.i.i.i.i.i.i138, label %for.body.preheader.i.i.i.i.i124
 
 if.then.i.i.i.i.i.i.i138:                         ; preds = %if.then.i.i.i.i.i.i116
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %_fbb, i64 noundef %and.i.i.i.i.i113)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %_fbb, i64 noundef %and.i.i.i.i.i113)
   %.pre.i.i.i.i.i.i139 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i.i115, align 8
   %.pre.i.i.i.i140 = load i32, ptr %size_.i.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i.i124
@@ -27963,7 +27963,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %mul)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %mul)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -28014,7 +28014,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i5 = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -28050,7 +28050,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -28440,15 +28440,15 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !805
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !805
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(23) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !805
 
 call.i.i.noexc.i:                                 ; preds = %entry
-  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args1)
+  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(11) %args1)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !805
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !805
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -35715,7 +35715,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !811
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !811
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(29) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !811
 
 invoke.cont.i:                                    ; preds = %entry
@@ -35873,7 +35873,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !814
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !814
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(56) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !814
 
 invoke.cont.i:                                    ; preds = %entry
@@ -35916,7 +35916,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !817
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !817
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(38) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !817
 
 invoke.cont.i:                                    ; preds = %entry
@@ -35959,7 +35959,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !820
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !820
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(36) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !820
 
 invoke.cont.i:                                    ; preds = %entry
@@ -36002,7 +36002,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !823
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !823
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(37) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !823
 
 invoke.cont.i:                                    ; preds = %entry
@@ -36787,7 +36787,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !828
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !828
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(42) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !828
 
 invoke.cont.i:                                    ; preds = %entry
@@ -37112,7 +37112,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !831
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !831
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(41) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !831
 
 invoke.cont.i:                                    ; preds = %entry
@@ -37437,7 +37437,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !834
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !834
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(46) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !834
 
 invoke.cont.i:                                    ; preds = %entry
@@ -37762,7 +37762,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !837
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !837
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(50) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !837
 
 invoke.cont.i:                                    ; preds = %entry
@@ -37805,7 +37805,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !840
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !840
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !840
 
 invoke.cont.i:                                    ; preds = %entry
@@ -38538,7 +38538,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !843
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !843
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(70) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !843
 
 invoke.cont.i:                                    ; preds = %entry
@@ -39002,7 +39002,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -39067,7 +39067,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.preheader.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i11, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i11:                                ; preds = %if.then.i.i.i7
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %len)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -39112,7 +39112,7 @@ if.then.i.i.i.i19:                                ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i26, label %if.then.i.i.i.i.i44, label %for.body.preheader.i.i.i27
 
 if.then.i.i.i.i.i44:                              ; preds = %if.then.i.i.i.i19
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i16)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i16)
   %.pre.i.i.i.i45 = load ptr, ptr %cur_2.phi.trans.insert.i.i, align 8
   %.pre.i.i46 = load i32, ptr %size_.i.i, align 8
   br label %for.body.preheader.i.i.i27
@@ -39147,7 +39147,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i41, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i43 = load ptr, ptr %cur_2.phi.trans.insert.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -39172,15 +39172,15 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !846
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !846
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(23) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !846
 
 call.i.i.noexc.i:                                 ; preds = %entry
-  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args1)
+  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(29) %args1)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !846
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !846
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -39339,15 +39339,15 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !850
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !850
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(23) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !850
 
 call.i.i.noexc.i:                                 ; preds = %entry
-  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args1)
+  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(20) %args1)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !850
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !850
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -39390,15 +39390,15 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !853
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !853
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(23) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !853
 
 call.i.i.noexc.i:                                 ; preds = %entry
-  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args1)
+  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(22) %args1)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !853
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !853
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -39487,7 +39487,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -39541,7 +39541,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN22arrow_vendored
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i5)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i5)
   %.pre.i.i.i.i26 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i27 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i16
@@ -39577,7 +39577,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -39604,15 +39604,15 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !857
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !857
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(23) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !857
 
 call.i.i.noexc.i:                                 ; preds = %entry
-  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args1)
+  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(7) %args1)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !857
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !857
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -39655,15 +39655,15 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !860
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !860
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(23) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !860
 
 call.i.i.noexc.i:                                 ; preds = %entry
-  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args1)
+  %call.i.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(14) %args1)
           to label %call.i.i.i.noexc.i unwind label %lpad.i, !noalias !860
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i.noexc.i
-  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args3)
+  %call.i2.i.i3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(32) %args3)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !860
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
@@ -39706,7 +39706,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !863
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !863
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(57) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !863
 
 invoke.cont.i:                                    ; preds = %entry
@@ -39834,7 +39834,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !867
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !867
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(59) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !867
 
 invoke.cont.i:                                    ; preds = %entry
@@ -39877,7 +39877,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !870
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !870
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(63) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !870
 
 invoke.cont.i:                                    ; preds = %entry
@@ -39920,7 +39920,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !873
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !873
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(31) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !873
 
 invoke.cont.i:                                    ; preds = %entry

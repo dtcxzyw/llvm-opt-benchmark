@@ -178,7 +178,7 @@ define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr nocapture nou
   %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull %8, i64 noundef %25) #7
+  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %25) #7
   br label %_ZNK17stackChunkOopDesc4contEv.exit
 
 _ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %14, %23
@@ -213,7 +213,7 @@ _ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %14, %23
   %45 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
   %46 = sext i32 %45 to i64
   %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %48 = call noundef ptr %47(ptr noundef nonnull %29, i64 noundef %46) #7
+  %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %46) #7
   br label %_ZNK17stackChunkOopDesc4contEv.exit7
 
 _ZNK17stackChunkOopDesc4contEv.exit7:             ; preds = %35, %44
@@ -229,7 +229,7 @@ _ZNK17stackChunkOopDesc4contEv.exit7:             ; preds = %35, %44
   %52 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
   %53 = sext i32 %52 to i64
   %54 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %55 = call noundef ptr %54(ptr noundef nonnull %.0.i6, i64 noundef %53) #7
+  %55 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %.0.i6, i64 noundef %53) #7
   %56 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %55, ptr %56, align 8
   ret void
@@ -264,14 +264,14 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %6
   %19 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %20 = sext i32 %19 to i64
   %21 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull %5, i64 noundef %20) #7
+  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %20) #7
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread, label %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread4
 
 _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread: ; preds = %2, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i32 2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 24
@@ -553,7 +553,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deo
   br i1 %59, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i:     ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i, %60, %49, %43
-  %63 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %30, ptr noundef nonnull %0) #7
+  %63 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %30, ptr noundef nonnull align 8 dereferenceable(56) %0) #7
   %64 = load ptr, ptr %63, align 8
   %.not.i.i2 = icmp eq ptr %64, null
   br i1 %.not.i.i2, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i, label %65
@@ -612,7 +612,7 @@ define hidden noundef ptr @_ZNK19ContinuationWrapper21find_chunk_by_addressEPv(p
   %21 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull %.09, i64 noundef %22) #7
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(16) %.09, i64 noundef %22) #7
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 

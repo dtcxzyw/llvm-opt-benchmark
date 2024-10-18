@@ -243,7 +243,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %.noexc50
   %3 = load ptr, ptr %m_data.i.i.i.i, align 8
   %conv.i.i.i.i = sext i32 %2 to i64
   %4 = shl nuw nsw i64 %conv.i.i.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %3, i8 0, i64 %4, i1 false)
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %.noexc50, %_Z9btSetZeroIfEvPT_i.exit.i.i.i
@@ -261,7 +261,7 @@ invoke.cont24:                                    ; preds = %.noexc50, %_Z9btSet
   store i32 0, ptr %m_size.i.i3.i.i.i, align 4
   %m_body_Jac_R.i = getelementptr inbounds i8, ptr %ref.tmp, i64 696
   %m_ownsMemory.i.i.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 744
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_body_Jac_R.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.i, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i2.i, align 8
   %m_size.i.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 724
   store i32 0, ptr %m_size.i.i.i.i4.i, align 4
@@ -1665,7 +1665,7 @@ sw.bb:                                            ; preds = %for.body
 sw.bb14:                                          ; preds = %for.body
   %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
   %m_body_T_parent = getelementptr inbounds i8, ptr %arrayidx.i, i64 292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent, ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent_ref, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 456
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -1729,7 +1729,7 @@ sw.bb30:                                          ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_body32, ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref31, i64 16, i1 false)
   %m_body_T_parent_ref33 = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
   %m_body_T_parent34 = getelementptr inbounds i8, ptr %arrayidx.i, i64 292
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent34, ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent_ref33, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent34, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref33, i64 16, i1 false)
   %arrayidx5.i.i71 = getelementptr inbounds i8, ptr %arrayidx.i, i64 456
   %arrayidx7.i.i72 = getelementptr inbounds i8, ptr %arrayidx.i, i64 308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i72, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i71, i64 16, i1 false)
@@ -1808,7 +1808,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %sw.epilog
   %23 = load ptr, ptr %m_data.i.i.i.i, align 8
   %conv.i.i.i.i = sext i32 %22 to i64
   %24 = shl nuw nsw i64 %conv.i.i.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 0, i64 %24, i1 false)
   br label %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit
 
 _ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit: ; preds = %sw.epilog, %_Z9btSetZeroIfEvPT_i.exit.i.i.i
@@ -1829,7 +1829,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i102:               ; preds = %_ZN24btInverseDynam
   %27 = load ptr, ptr %m_data.i.i.i.i103, align 8
   %conv.i.i.i.i104 = sext i32 %26 to i64
   %28 = shl nuw nsw i64 %conv.i.i.i.i104, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %27, i8 0, i64 %28, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %27, i8 0, i64 %28, i1 false)
   br label %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit105
 
 _ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit105: ; preds = %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit, %_Z9btSetZeroIfEvPT_i.exit.i.i.i102
@@ -1846,7 +1846,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i:                    ; preds = %_ZN24btInverseDynam
   %30 = load ptr, ptr %m_data.i.i.i, align 8
   %conv.i.i.i = sext i32 %29 to i64
   %31 = shl nuw nsw i64 %conv.i.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 0, i64 %31, i1 false)
   br label %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit
 
 _ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit: ; preds = %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit105, %_Z9btSetZeroIfEvPT_i.exit.i.i
@@ -1863,7 +1863,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i109:                 ; preds = %_ZN24btInverseDynam
   %33 = load ptr, ptr %m_data.i.i.i110, align 8
   %conv.i.i.i111 = sext i32 %32 to i64
   %34 = shl nuw nsw i64 %conv.i.i.i111, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 %34, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %34, i1 false)
   br label %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit112
 
 _ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit112: ; preds = %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit, %_Z9btSetZeroIfEvPT_i.exit.i.i109
@@ -3522,7 +3522,7 @@ for.end320:                                       ; preds = %for.inc318, %for.co
   %ref.tmp324.sroa.2.0.m_body_pos.sroa_idx = getelementptr inbounds i8, ptr %368, i64 172
   store <2 x float> %retval.sroa.3.12.vec.insert.i816, ptr %ref.tmp324.sroa.2.0.m_body_pos.sroa_idx, align 4
   %m_body_T_world = getelementptr inbounds i8, ptr %368, i64 244
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_world, ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent325, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_world, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent325, i64 16, i1 false)
   %arrayidx7.i.i820 = getelementptr inbounds i8, ptr %368, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i820, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i806, i64 16, i1 false)
   %arrayidx11.i.i822 = getelementptr inbounds i8, ptr %368, i64 276
@@ -5408,7 +5408,7 @@ for.body161:                                      ; preds = %for.body161.lr.ph, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_body_subtree_mass_com, ptr noundef nonnull align 4 dereferenceable(16) %m_body_mass_com, i64 16, i1 false)
   %m_body_I_body = getelementptr inbounds i8, ptr %arrayidx.i442, i64 20
   %m_body_subtree_I_body = getelementptr inbounds i8, ptr %arrayidx.i442, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_subtree_I_body, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_subtree_I_body, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, i64 16, i1 false)
   %arrayidx5.i.i443 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 36
   %arrayidx7.i.i444 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 576
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i444, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i443, i64 16, i1 false)
@@ -7372,7 +7372,7 @@ do.end5:                                          ; preds = %entry
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
   %m_body_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %T, ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent_ref, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %T, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %m_body_T_parent_ref, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %T, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -7537,7 +7537,7 @@ do.end5:                                          ; preds = %entry
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
   %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(16) %second_mass_moment, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %second_mass_moment, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %second_mass_moment, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %m_body_I_body, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -7628,7 +7628,7 @@ do.end5:                                          ; preds = %entry
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
   %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %second_mass_moment, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %second_mass_moment, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %m_body_I_body, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %second_mass_moment, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -8505,7 +8505,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false)
   %m_body_I_body = getelementptr inbounds i8, ptr %this, i64 20
   %m_body_I_body3 = getelementptr inbounds i8, ptr %0, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body3, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 36
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -8517,7 +8517,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %m_eom_lhs_translational, ptr noundef nonnull align 4 dereferenceable(176) %m_eom_lhs_translational4, i64 176, i1 false)
   %m_body_T_world = getelementptr inbounds i8, ptr %this, i64 244
   %m_body_T_world5 = getelementptr inbounds i8, ptr %0, i64 244
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_world, ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_world5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_world, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_world5, i64 16, i1 false)
   %arrayidx6.i.i12 = getelementptr inbounds i8, ptr %0, i64 260
   %arrayidx8.i.i13 = getelementptr inbounds i8, ptr %this, i64 260
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i13, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i12, i64 16, i1 false)
@@ -8526,7 +8526,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i15, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i14, i64 16, i1 false)
   %m_body_T_parent = getelementptr inbounds i8, ptr %this, i64 292
   %m_body_T_parent6 = getelementptr inbounds i8, ptr %0, i64 292
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent, ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent6, i64 16, i1 false)
   %arrayidx6.i.i16 = getelementptr inbounds i8, ptr %0, i64 308
   %arrayidx8.i.i17 = getelementptr inbounds i8, ptr %this, i64 308
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i17, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i16, i64 16, i1 false)
@@ -8538,7 +8538,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %m_parent_pos_parent_body, ptr noundef nonnull align 4 dereferenceable(100) %m_parent_pos_parent_body7, i64 100, i1 false)
   %m_body_T_parent_ref = getelementptr inbounds i8, ptr %this, i64 440
   %m_body_T_parent_ref8 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_body_T_parent_ref, ptr noundef nonnull align 8 dereferenceable(16) %m_body_T_parent_ref8, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_body_T_parent_ref, ptr noundef nonnull align 8 dereferenceable(48) %m_body_T_parent_ref8, i64 16, i1 false)
   %arrayidx6.i.i20 = getelementptr inbounds i8, ptr %0, i64 456
   %arrayidx8.i.i21 = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i20, i64 16, i1 false)
@@ -8550,7 +8550,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_Jac_JR, ptr noundef nonnull align 8 dereferenceable(72) %m_Jac_JR9, i64 72, i1 false)
   %m_body_subtree_I_body = getelementptr inbounds i8, ptr %this, i64 560
   %m_body_subtree_I_body10 = getelementptr inbounds i8, ptr %0, i64 560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_body_subtree_I_body, ptr noundef nonnull align 8 dereferenceable(16) %m_body_subtree_I_body10, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_body_subtree_I_body, ptr noundef nonnull align 8 dereferenceable(48) %m_body_subtree_I_body10, i64 16, i1 false)
   %arrayidx6.i.i24 = getelementptr inbounds i8, ptr %0, i64 576
   %arrayidx8.i.i25 = getelementptr inbounds i8, ptr %this, i64 576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i25, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i24, i64 16, i1 false)
@@ -8560,7 +8560,7 @@ entry:
   %m_body_Jac_T = getelementptr inbounds i8, ptr %this, i64 608
   %m_body_Jac_T11 = getelementptr inbounds i8, ptr %0, i64 608
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_body_Jac_T, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
   store ptr null, ptr %m_data.i.i.i.i, align 8
@@ -8600,7 +8600,7 @@ _ZN24btInverseDynamicsBullet35mat3xC2ERKS0_.exit: ; preds = %invoke.cont.i
   %m_body_Jac_R = getelementptr inbounds i8, ptr %this, i64 696
   %m_body_Jac_R12 = getelementptr inbounds i8, ptr %0, i64 696
   %m_ownsMemory.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 744
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_body_Jac_R, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i28, align 8
   %m_data.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 736
   store ptr null, ptr %m_data.i.i.i.i29, align 8

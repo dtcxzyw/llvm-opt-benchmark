@@ -450,7 +450,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i ], [ %82, %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i ]
   %83 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %83, %23
   br i1 %.not.i.i.i.i.i, label %_ZN2cv6detail5GraphC2Ei.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
@@ -464,7 +464,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i4.i.i:                                ; preds = %84, %.lr.ph.i.i.i4.i.i
   %.09.i.i.i5.i.i = phi ptr [ %87, %.lr.ph.i.i.i4.i.i ], [ %86, %84 ]
   %87 = load ptr, ptr %.09.i.i.i5.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i5.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i5.i.i) #22
   %.not.i.i.i6.i.i = icmp eq ptr %87, %23
   br i1 %.not.i.i.i6.i.i, label %.body.i, label %.lr.ph.i.i.i4.i.i, !llvm.loop !7
 
@@ -1479,7 +1479,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit55:                  ; preds = %533, %535
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i56, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %539, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %538, %.lr.ph.i.i.i.i.i56 ]
   %539 = load ptr, ptr %.09.i.i.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %539, %.05.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -1545,7 +1545,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i ], [ %16, %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i ]
   %17 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %17, %8
   br i1 %.not.i.i.i.i.i, label %_ZN2cv6detail5GraphC2Ei.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
@@ -1559,7 +1559,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i4.i.i:                                ; preds = %18, %.lr.ph.i.i.i4.i.i
   %.09.i.i.i5.i.i = phi ptr [ %21, %.lr.ph.i.i.i4.i.i ], [ %20, %18 ]
   %21 = load ptr, ptr %.09.i.i.i5.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i5.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i5.i.i) #22
   %.not.i.i.i6.i.i = icmp eq ptr %21, %8
   br i1 %.not.i.i.i6.i.i, label %.body.i, label %.lr.ph.i.i.i4.i.i, !llvm.loop !7
 
@@ -1767,7 +1767,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i ], [ %73, %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i ]
   %74 = load ptr, ptr %.09.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #22
   %.not.i.i.i.i105 = icmp eq ptr %74, %7
   br i1 %.not.i.i.i.i105, label %.loopexit269, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
@@ -1781,7 +1781,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i4.i:                                  ; preds = %75, %.lr.ph.i.i.i4.i
   %.09.i.i.i5.i = phi ptr [ %78, %.lr.ph.i.i.i4.i ], [ %77, %75 ]
   %78 = load ptr, ptr %.09.i.i.i5.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i5.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i5.i) #22
   %.not.i.i.i6.i = icmp eq ptr %78, %7
   br i1 %.not.i.i.i6.i, label %.body106, label %.lr.ph.i.i.i4.i, !llvm.loop !7
 
@@ -2822,7 +2822,7 @@ _ZNSt6vectorIN2cv6detail9GraphEdgeESaIS2_EED2Ev.exit: ; preds = %_ZN2cv6detail12
 .lr.ph.i.i.i.i.i.i.i.i.i161:                      ; preds = %.lr.ph.i.i.i.i.i160, %.lr.ph.i.i.i.i.i.i.i.i.i161
   %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %485, %.lr.ph.i.i.i.i.i.i.i.i.i161 ], [ %484, %.lr.ph.i.i.i.i.i160 ]
   %485 = load ptr, ptr %.09.i.i.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i.i.i162 = icmp eq ptr %485, %.05.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i162, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i161, !llvm.loop !7
 
@@ -2917,7 +2917,7 @@ define linkonce_odr hidden void @_ZN2cv6detail5GraphD2Ev(ptr noundef nonnull ali
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i.i.i ], [ %5, %.lr.ph.i.i.i.i ]
   %6 = load ptr, ptr %.09.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, %.05.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -2993,7 +2993,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %30, %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i ]
   %31 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %31, %8
   br i1 %.not.i.i.i.i.i, label %_ZN2cv6detail5GraphC2Ei.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
@@ -3007,7 +3007,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i4.i.i:                                ; preds = %32, %.lr.ph.i.i.i4.i.i
   %.09.i.i.i5.i.i = phi ptr [ %35, %.lr.ph.i.i.i4.i.i ], [ %34, %32 ]
   %35 = load ptr, ptr %.09.i.i.i5.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i5.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i5.i.i) #22
   %.not.i.i.i6.i.i = icmp eq ptr %35, %8
   br i1 %.not.i.i.i6.i.i, label %.body.i, label %.lr.ph.i.i.i4.i.i, !llvm.loop !7
 
@@ -3534,7 +3534,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %271, %273
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i14, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %277, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %276, %.lr.ph.i.i.i.i.i14 ]
   %277 = load ptr, ptr %.09.i.i.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %277, %.05.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -4062,7 +4062,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %235, %.lr.ph.i.i.i.i.i ], [ %234, %_ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRKS6_.exit.i.i ]
   %235 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %235, %5
   br i1 %.not.i.i.i.i.i, label %.loopexit72, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
@@ -4076,7 +4076,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EE6assignEmRK
 .lr.ph.i.i.i4.i.i:                                ; preds = %236, %.lr.ph.i.i.i4.i.i
   %.09.i.i.i5.i.i = phi ptr [ %239, %.lr.ph.i.i.i4.i.i ], [ %238, %236 ]
   %239 = load ptr, ptr %.09.i.i.i5.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i5.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i5.i.i) #22
   %.not.i.i.i6.i.i = icmp eq ptr %239, %5
   br i1 %.not.i.i.i6.i.i, label %.body.i, label %.lr.ph.i.i.i4.i.i, !llvm.loop !7
 
@@ -4204,7 +4204,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge99
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i62, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %283, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %282, %.lr.ph.i.i.i.i.i62 ]
   %283 = load ptr, ptr %.09.i.i.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %283, %.05.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -4311,7 +4311,7 @@ define void @_ZN2cv6detail20BundleAdjusterReproj24setUpInitialCameraParamsERKSt6
   %16 = load i32, ptr %15, align 8
   %17 = mul nsw i32 %16, 7
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef %17, i32 noundef 1, i32 noundef 6)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %4) #21
   %18 = getelementptr inbounds i8, ptr %4, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #21
   %19 = getelementptr inbounds i8, ptr %4, i64 192
@@ -4575,7 +4575,7 @@ _ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %93
 ._crit_edge:                                      ; preds = %119, %2
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #21
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %4) #21
   ret void
 
 159:                                              ; preds = %158, %.body, %96, %94
@@ -5989,7 +5989,7 @@ define void @_ZN2cv6detail17BundleAdjusterRay24setUpInitialCameraParamsERKSt6vec
   %16 = load i32, ptr %15, align 8
   %17 = shl nsw i32 %16, 2
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef %17, i32 noundef 1, i32 noundef 6)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %4) #21
   %18 = getelementptr inbounds i8, ptr %4, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #21
   %19 = getelementptr inbounds i8, ptr %4, i64 192
@@ -6223,7 +6223,7 @@ _ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %66
 ._crit_edge:                                      ; preds = %92, %2
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #21
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %4) #21
   ret void
 
 132:                                              ; preds = %131, %.body, %69, %67
@@ -11432,7 +11432,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6detail13ImageFeaturesESaIS2_E
   br i1 %.not, label %37, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 12, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 24
@@ -11603,7 +11603,7 @@ _ZNSt12_Vector_baseIN2cv6detail13ImageFeaturesESaIS2_EE13_M_deallocateEPS2_m.exi
   %.012.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i ], [ %38, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0910.i.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.0910.i.i.i.i.i, i64 12, i1 false)
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %41 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv8KeyPointESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40)
@@ -11663,7 +11663,7 @@ _ZSt8_DestroyIN2cv6detail13ImageFeaturesEEvPT_.exit.i.i.i28: ; preds = %55, %.lr
   %.012.i.i.i.i.i33 = phi i64 [ %68, %.lr.ph.i.i.i.i.i32 ], [ %59, %.lr.ph.preheader.i.i.i.i.i31 ]
   %.0811.i.i.i.i.i34 = phi ptr [ %67, %.lr.ph.i.i.i.i.i32 ], [ %12, %.lr.ph.preheader.i.i.i.i.i31 ]
   %.0910.i.i.i.i.i35 = phi ptr [ %66, %.lr.ph.i.i.i.i.i32 ], [ %6, %.lr.ph.preheader.i.i.i.i.i31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.0811.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(12) %.0910.i.i.i.i.i35, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.0811.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(120) %.0910.i.i.i.i.i35, i64 12, i1 false)
   %60 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 16
   %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 16
   %62 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv8KeyPointESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %61)
@@ -12318,7 +12318,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx114listIN2cv6detail9Graph
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i.i ], [ %5, %.lr.ph.i.i.i ]
   %6 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, %.05.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -12370,7 +12370,7 @@ define linkonce_odr void @_ZSt8_DestroyIPNSt7__cxx114listIN2cv6detail9GraphEdgeE
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i.i.i ], [ %3, %.lr.ph.i ]
   %4 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %4, %.05.i
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
@@ -12468,7 +12468,7 @@ _ZNSt6vectorINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEESaIS6_EEC2EmRKS6_RK
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
   %24 = load ptr, ptr %.09.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %.05.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -12545,12 +12545,12 @@ _ZSt8_DestroyIPNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEES6_EvT_S8_RSaIT0_
   %50 = add i64 %49, -1
   store i64 %50, ptr %46, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.07.i.i.i.i.i.i.i) #21
-  tail call void @_ZdlPv(ptr noundef %.sroa.05.07.i.i.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.05.07.i.i.i.i.i.i.i) #22
   %.not.i.i.i.i.i.i.i = icmp eq ptr %48, %.06.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEaSERKS5_.exit.i.i.i.i, label %47, !llvm.loop !216
 
 51:                                               ; preds = %.critedge.i.i.i.i.i.i
-  %52 = tail call ptr @_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i, ptr nonnull %.06.i.i.i.i, ptr %.sroa.015.0.lcssa.i.i.i.i.i.i, ptr nonnull %2)
+  %52 = tail call ptr @_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i, ptr nonnull align 8 dereferenceable(24) %.06.i.i.i.i, ptr %.sroa.015.0.lcssa.i.i.i.i.i.i, ptr nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEaSERKS5_.exit.i.i.i.i
 
 _ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEaSERKS5_.exit.i.i.i.i: ; preds = %47, %51, %45, %.lr.ph.i.i.i.i14
@@ -12630,12 +12630,12 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx114listIN2cv6detail9GraphEdge
   %76 = add i64 %75, -1
   store i64 %76, ptr %72, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.07.i.i.i.i.i.i.i28) #21
-  tail call void @_ZdlPv(ptr noundef %.sroa.05.07.i.i.i.i.i.i.i28) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.05.07.i.i.i.i.i.i.i28) #22
   %.not.i.i.i.i.i.i.i29 = icmp eq ptr %74, %.06.i.i.i.i17
   br i1 %.not.i.i.i.i.i.i.i29, label %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEaSERKS5_.exit.i.i.i.i24, label %73, !llvm.loop !216
 
 77:                                               ; preds = %.critedge.i.i.i.i.i.i21
-  %78 = tail call ptr @_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i17, ptr nonnull %.06.i.i.i.i17, ptr %.sroa.015.0.lcssa.i.i.i.i.i.i22, ptr nonnull %2)
+  %78 = tail call ptr @_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i17, ptr nonnull align 8 dereferenceable(24) %.06.i.i.i.i17, ptr %.sroa.015.0.lcssa.i.i.i.i.i.i22, ptr nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEaSERKS5_.exit.i.i.i.i24
 
 _ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEaSERKS5_.exit.i.i.i.i24: ; preds = %73, %77, %71, %.lr.ph.i.i.i.i16
@@ -12662,7 +12662,7 @@ _ZSt6fill_nIPNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEmS6_ET_S8_T0_RKT1_.
 .lr.ph.i.i.i.i.i.i.i.i38:                         ; preds = %.lr.ph.i.i.i.i35, %.lr.ph.i.i.i.i.i.i.i.i38
   %.09.i.i.i.i.i.i.i.i39 = phi ptr [ %82, %.lr.ph.i.i.i.i.i.i.i.i38 ], [ %81, %.lr.ph.i.i.i.i35 ]
   %82 = load ptr, ptr %.09.i.i.i.i.i.i.i.i39, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i.i39) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i.i39) #22
   %.not.i.i.i.i.i.i.i.i40 = icmp eq ptr %82, %.05.i.i.i.i36
   br i1 %.not.i.i.i.i.i.i.i.i40, label %_ZSt8_DestroyINSt7__cxx114listIN2cv6detail9GraphEdgeESaIS4_EEEEvPT_.exit.i.i.i.i41, label %.lr.ph.i.i.i.i.i.i.i.i38, !llvm.loop !7
 
@@ -12711,7 +12711,7 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6inser
   %9 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i, i64 16
   %10 = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %5) #21
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   %11 = load i64, ptr %7, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %7, align 8
@@ -12729,7 +12729,7 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6inser
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %14 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %17, %5
   br i1 %.not.i.i.i, label %.body, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -12739,7 +12739,7 @@ _ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEC2ISt20_List_const_iteratorIS3_
   br i1 %18, label %23, label %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit
 
 _ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit: ; preds = %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EEC2ISt20_List_const_iteratorIS3_EvEET_S9_RKS4_.exit
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull %5) #21
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   %19 = load i64, ptr %7, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
@@ -12761,7 +12761,7 @@ _ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EE6spliceESt20_List_const_iterato
 .lr.ph.i.i.i8:                                    ; preds = %23, %.lr.ph.i.i.i8
   %.09.i.i.i9 = phi ptr [ %25, %.lr.ph.i.i.i8 ], [ %24, %23 ]
   %25 = load ptr, ptr %.09.i.i.i9, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i9) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i9) #22
   %.not.i.i.i10 = icmp eq ptr %25, %5
   br i1 %.not.i.i.i10, label %_ZNSt7__cxx114listIN2cv6detail9GraphEdgeESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i8, !llvm.loop !7
 
@@ -12805,7 +12805,7 @@ define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPNSt7__cxx114listIN2cv
   %8 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i, i64 16
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %.015) #21
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %.015) #21
   %10 = load i64, ptr %5, align 8
   %11 = add i64 %10, 1
   store i64 %11, ptr %5, align 8
@@ -12823,7 +12823,7 @@ define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPNSt7__cxx114listIN2cv
 .lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i ], [ %15, %13 ]
   %16 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #22
   %.not.i.i.i.i = icmp eq ptr %16, %.015
   br i1 %.not.i.i.i.i, label %.body, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
@@ -13763,7 +13763,7 @@ _ZNKSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
 _ZNSt12_Vector_baseIN2cv6detail13ImageFeaturesESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::detail::ImageFeatures", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %24, ptr noundef nonnull align 8 dereferenceable(120) %2, i64 12, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %2, i64 16
   %27 = getelementptr inbounds i8, ptr %2, i64 24
@@ -13966,7 +13966,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN2cv6detail13ImageFeat
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRKS2_EEvPT_DpOT0_.exit
   %.024 = phi ptr [ %31, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRKS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.01223 = phi ptr [ %30, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRKS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.024, ptr noundef nonnull align 8 dereferenceable(12) %.01223, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.024, ptr noundef nonnull align 8 dereferenceable(120) %.01223, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %.024, i64 16
   %5 = getelementptr inbounds i8, ptr %.01223, i64 16
   %6 = getelementptr inbounds i8, ptr %.01223, i64 24
@@ -14431,7 +14431,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRKS2_EEvPT_DpOT0_.exit
   %.022 = phi ptr [ %31, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRKS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.09.021 = phi ptr [ %30, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRKS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.022, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.09.021, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.022, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.09.021, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %.022, i64 16
   %5 = getelementptr inbounds i8, ptr %.sroa.09.021, i64 16
   %6 = getelementptr inbounds i8, ptr %.sroa.09.021, i64 24
@@ -14681,7 +14681,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPN2cv6detail13ImageFeatu
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRS2_EEvPT_DpOT0_.exit
   %.024 = phi ptr [ %31, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.01223 = phi ptr [ %30, %_ZSt10_ConstructIN2cv6detail13ImageFeaturesEJRS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.024, ptr noundef nonnull align 8 dereferenceable(12) %.01223, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.024, ptr noundef nonnull align 8 dereferenceable(120) %.01223, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %.024, i64 16
   %5 = getelementptr inbounds i8, ptr %.01223, i64 16
   %6 = getelementptr inbounds i8, ptr %.01223, i64 24

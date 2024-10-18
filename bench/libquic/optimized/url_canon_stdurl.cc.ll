@@ -398,7 +398,7 @@ if.end79:                                         ; preds = %do.body.i.i111, %re
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url23CanonicalizeStandardURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed)
   %username.i1 = getelementptr inbounds i8, ptr %parsed, i64 8
   %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
   %0 = load i32, ptr %len.i.i, align 4

@@ -94,7 +94,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane(ptr noundef %0, i32 noundef %1, i3
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 4
   %52 = shl i32 %.0122, 16
-  call void @ScaleSlope(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
+  call void @ScaleSlope(i32 noundef %2, i32 noundef range(i32 0, -2147483648) %.0122, i32 noundef %6, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %53 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %54 = shl nuw nsw i32 %53, 1
   %55 = add nuw nsw i32 %54, 63
@@ -735,7 +735,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 4
   %52 = shl i32 %.0122, 16
-  call void @ScaleSlope(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
+  call void @ScaleSlope(i32 noundef %2, i32 noundef range(i32 0, -2147483648) %.0122, i32 noundef %6, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %53 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %54 = shl nsw i32 %53, 2
   %55 = add nuw nsw i32 %54, 63

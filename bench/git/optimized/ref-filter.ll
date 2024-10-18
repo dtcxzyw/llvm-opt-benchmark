@@ -6169,7 +6169,7 @@ for.cond.i.i48:                                   ; preds = %for.body.i.i47
 for.body.i.i47:                                   ; preds = %for.cond.i.i48, %lor.end.i.i
   %18 = phi ptr [ %17, %for.cond.i.i48 ], [ %7, %lor.end.i.i ]
   %patterns.addr.048.i.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.i48 ], [ %6, %lor.end.i.i ]
-  %call6.i.i = tail call i32 @wildmatch(ptr noundef nonnull %18, ptr noundef %refname.addr.0.i.i, i32 noundef %bf.cast14.i) #22
+  %call6.i.i = tail call i32 @wildmatch(ptr noundef nonnull %18, ptr noundef %refname.addr.0.i.i, i32 noundef range(i32 0, 2) %bf.cast14.i) #22
   %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool7.not.i.i, label %if.end15, label %for.cond.i.i48
 
@@ -6287,7 +6287,7 @@ for.cond.i.i107:                                  ; preds = %for.body.i.i103
 for.body.i.i103:                                  ; preds = %lor.end.i.i101, %for.cond.i.i107
   %32 = phi ptr [ %31, %for.cond.i.i107 ], [ %30, %lor.end.i.i101 ]
   %patterns.addr.048.i.i104 = phi ptr [ %incdec.ptr.i.i108, %for.cond.i.i107 ], [ %21, %lor.end.i.i101 ]
-  %call6.i.i105 = tail call i32 @wildmatch(ptr noundef nonnull %32, ptr noundef %refname.addr.0.i.i102, i32 noundef %bf.cast15.i) #22
+  %call6.i.i105 = tail call i32 @wildmatch(ptr noundef nonnull %32, ptr noundef %refname.addr.0.i.i102, i32 noundef range(i32 0, 2) %bf.cast15.i) #22
   %tobool7.not.i.i106 = icmp eq i32 %call6.i.i105, 0
   br i1 %tobool7.not.i.i106, label %return, label %for.cond.i.i107
 
@@ -7362,9 +7362,9 @@ for.inc.i.i:                                      ; preds = %for.inc.sink.split.
   br i1 %cmp.i.i, label %for.body.i.i, label %grab_tag_values.exit.i, !llvm.loop !42
 
 grab_tag_values.exit.i:                           ; preds = %for.inc.i.i, %sw.bb.i
-  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef %deref, ptr noundef readonly %oi)
-  call fastcc void @grab_person(ptr noundef nonnull @.str.47, ptr noundef %13, i32 noundef %deref, ptr noundef %14)
-  call fastcc void @grab_describe_values(ptr noundef %13, i32 noundef %deref, ptr noundef %call22)
+  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef readonly %oi)
+  call fastcc void @grab_person(ptr noundef nonnull @.str.47, ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef %14)
+  call fastcc void @grab_describe_values(ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef nonnull %call22)
   br label %if.end36
 
 sw.bb1.i:                                         ; preds = %if.end35
@@ -7518,9 +7518,9 @@ for.inc52.i.i:                                    ; preds = %for.end.i.i, %if.th
 
 grab_commit_values.exit.i:                        ; preds = %for.inc52.i.i, %sw.bb1.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s34.i.i)
-  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef %deref, ptr noundef readonly %oi)
-  call fastcc void @grab_person(ptr noundef nonnull @.str.39, ptr noundef %13, i32 noundef %deref, ptr noundef %14)
-  call fastcc void @grab_person(ptr noundef nonnull @.str.43, ptr noundef %13, i32 noundef %deref, ptr noundef %14)
+  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef readonly %oi)
+  call fastcc void @grab_person(ptr noundef nonnull @.str.39, ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef %14)
+  call fastcc void @grab_person(ptr noundef nonnull @.str.43, ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef %14)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %sigc.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %sigc.i.i, i8 0, i64 96, i1 false)
   %50 = load i32, ptr @used_atom_cnt, align 4
@@ -7702,15 +7702,15 @@ if.then92.i.i:                                    ; preds = %for.end.i57.i
 
 grab_signature.exit.i:                            ; preds = %if.then92.i.i, %for.end.i57.i, %grab_commit_values.exit.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %sigc.i.i)
-  call fastcc void @grab_describe_values(ptr noundef %13, i32 noundef %deref, ptr noundef %call22)
+  call fastcc void @grab_describe_values(ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef nonnull %call22)
   br label %if.end36
 
 sw.bb2.i:                                         ; preds = %if.end35
-  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef %deref, ptr noundef nonnull readonly %oi)
+  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef nonnull readonly %oi)
   br label %if.end36
 
 sw.bb3.i:                                         ; preds = %if.end35
-  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef %deref, ptr noundef nonnull readonly %oi)
+  call fastcc void @grab_sub_body_contents(ptr noundef %13, i32 noundef range(i32 0, 2) %deref, ptr noundef nonnull readonly %oi)
   br label %if.end36
 
 sw.default.i:                                     ; preds = %if.end35

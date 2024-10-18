@@ -426,7 +426,7 @@ entry:
   %1 = load ptr, ptr %ack, align 8
   %end = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %end, align 8
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %0, i64 %2)
+  %cond.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, -1) %0, i64 %2)
   %storemerge = select i1 %cmp, i64 %2, i64 %cond.i
   store i64 %storemerge, ptr %arrayidx, align 8
   %peer_completed_addr_validation = getelementptr inbounds i8, ptr %ackm, i64 457
@@ -2204,7 +2204,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range.i.i, i64 16, i1 false)
   %cmp3.i.i = icmp eq i64 %highest.010.i.i, -1
   %13 = load i64, ptr %end4.i.i, align 8
-  %cond.i.i.i = call i64 @llvm.umax.i64(i64 %highest.010.i.i, i64 %13)
+  %cond.i.i.i = call i64 @llvm.umax.i64(i64 range(i64 0, -1) %highest.010.i.i, i64 %13)
   %cond.i.i = select i1 %cmp3.i.i, i64 %13, i64 %cond.i.i.i
   %call7.i.i = call i32 @ossl_uint_set_remove(ptr noundef nonnull %arrayidx.i, ptr noundef nonnull %r.i.i) #11
   %h.val.i.i = load i64, ptr %12, align 8
@@ -2326,7 +2326,7 @@ if.then13.i:                                      ; preds = %ackm_has_newly_miss
 if.then.i.i.i:                                    ; preds = %if.then13.i
   %ack_deadline_cb_arg.i.i.i = getelementptr inbounds i8, ptr %ackm, i64 2392
   %28 = load ptr, ptr %ack_deadline_cb_arg.i.i.i, align 8
-  call void %27(i64 0, i32 noundef %bf.cast47, ptr noundef %28) #11
+  call void %27(i64 0, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %28) #11
   br label %if.end48
 
 if.end14.i:                                       ; preds = %ackm_has_newly_missing.exit.i, %land.lhs.true.i.i, %if.end.i.i, %lor.lhs.false11.i
@@ -2351,7 +2351,7 @@ if.then28.i:                                      ; preds = %if.end14.i
 if.then.i.i42:                                    ; preds = %if.then28.i
   %ack_deadline_cb_arg.i.i = getelementptr inbounds i8, ptr %ackm, i64 2392
   %31 = load ptr, ptr %ack_deadline_cb_arg.i.i, align 8
-  call void %30(i64 %retval.sroa.0.0.i.i, i32 noundef %bf.cast47, ptr noundef %31) #11
+  call void %30(i64 %retval.sroa.0.0.i.i, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %31) #11
   br label %if.end48
 
 if.else.i:                                        ; preds = %if.end14.i
@@ -2365,7 +2365,7 @@ if.else.i:                                        ; preds = %if.end14.i
 if.then.i39.i:                                    ; preds = %if.else.i
   %ack_deadline_cb_arg.i44.i = getelementptr inbounds i8, ptr %ackm, i64 2392
   %33 = load ptr, ptr %ack_deadline_cb_arg.i44.i, align 8
-  call void %32(i64 %a.coerce.b.coerce.i.i, i32 noundef %bf.cast47, ptr noundef %33) #11
+  call void %32(i64 %a.coerce.b.coerce.i.i, i32 noundef range(i32 0, 4) %bf.cast47, ptr noundef %33) #11
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then.i39.i, %if.else.i, %if.then.i.i42, %if.then28.i, %if.then.i.i.i, %if.then13.i, %if.then42, %if.end38

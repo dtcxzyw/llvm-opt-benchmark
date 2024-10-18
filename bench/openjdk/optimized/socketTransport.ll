@@ -325,7 +325,7 @@ define internal i32 @socketTransport_attach(ptr nocapture readnone %0, ptr nound
   br i1 %.not21.i, label %setLastError.exit, label %22
 
 22:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %21, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.5, i64 19, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %21, ptr noundef nonnull align 1 dereferenceable(19) @.str.5, i64 19, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %18, %22
@@ -471,7 +471,7 @@ setOptionsCommon.exit.i:                          ; preds = %55
   br i1 %.not21.i.i, label %setLastError.exit.i, label %87
 
 87:                                               ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %86, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.14, i64 18, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %86, ptr noundef nonnull align 1 dereferenceable(18) @.str.14, i64 18, i1 false) #13
   br label %setLastError.exit.i
 
 setLastError.exit.i:                              ; preds = %87, %83
@@ -858,7 +858,7 @@ define internal range(i32 0, 203) i32 @socketTransport_stopListening(ptr nocaptu
   br i1 %.not21.i, label %setLastError.exit, label %15
 
 15:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %14, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.31, i64 20, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %14, ptr noundef nonnull align 1 dereferenceable(20) @.str.31, i64 20, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %11, %15
@@ -949,7 +949,7 @@ define internal range(i32 0, 204) i32 @socketTransport_accept(ptr nocapture read
   br i1 %.not21.i, label %setLastError.exit, label %39
 
 39:                                               ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %38, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.34, i64 33, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %38, ptr noundef nonnull align 1 dereferenceable(33) @.str.34, i64 33, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %35, %39
@@ -1191,7 +1191,7 @@ define internal range(i32 0, 203) i32 @socketTransport_readPacket(ptr nocapture 
   br i1 %.not21.i, label %setLastError.exit, label %16
 
 16:                                               ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %15, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.40, i64 15, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %15, ptr noundef nonnull align 1 dereferenceable(15) @.str.40, i64 15, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %12, %16
@@ -1519,7 +1519,7 @@ define internal range(i32 0, 203) i32 @socketTransport_writePacket(ptr nocapture
   br i1 %.not21.i, label %setLastError.exit, label %16
 
 16:                                               ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %15, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.44, i64 15, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %15, ptr noundef nonnull align 1 dereferenceable(15) @.str.44, i64 15, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %12, %16
@@ -1554,7 +1554,7 @@ setLastError.exit:                                ; preds = %12, %16
   br i1 %.not21.i29, label %setLastError.exit31, label %33
 
 33:                                               ; preds = %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %32, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.45, i64 15, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %32, ptr noundef nonnull align 1 dereferenceable(15) @.str.45, i64 15, i1 false) #13
   br label %setLastError.exit31
 
 setLastError.exit31:                              ; preds = %29, %33
@@ -1759,7 +1759,7 @@ define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr noca
   br i1 %.not21.i, label %setLastError.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %16, ptr noundef nonnull readonly align 1 dereferenceable(51) @.str.47, i64 51, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %16, ptr noundef nonnull align 1 dereferenceable(51) @.str.47, i64 51, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %13, %17
@@ -1801,7 +1801,7 @@ setLastError.exit:                                ; preds = %13, %17
   br i1 %.not21.i20, label %setLastError.exit22, label %37
 
 37:                                               ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %36, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.49, i64 33, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %36, ptr noundef nonnull align 1 dereferenceable(33) @.str.49, i64 33, i1 false) #13
   br label %setLastError.exit22
 
 setLastError.exit22:                              ; preds = %33, %37
@@ -1854,7 +1854,7 @@ setLastError.exit22:                              ; preds = %33, %37
   br i1 %.not21.i.i, label %parseAllowedPeers.exit.thread, label %64
 
 64:                                               ; preds = %60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %63, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.8, i64 14, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %63, ptr noundef nonnull align 1 dereferenceable(14) @.str.8, i64 14, i1 false) #13
   br label %parseAllowedPeers.exit.thread
 
 parseAllowedPeers.exit.thread:                    ; preds = %60, %64
@@ -1863,7 +1863,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br label %171
 
 66:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %20, i64 range(i64 1, 0) %22, i1 false)
   %67 = getelementptr inbounds i8, ptr %51, i64 %22
   store i8 0, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %4, i64 11
@@ -1950,7 +1950,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %.not21.i.i.i, label %parseAllowedPeers.exit, label %108
 
 108:                                              ; preds = %104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %107, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.52, i64 35, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %107, ptr noundef nonnull align 1 dereferenceable(35) @.str.52, i64 35, i1 false) #13
   br label %parseAllowedPeers.exit
 
 109:                                              ; preds = %93, %84
@@ -2058,7 +2058,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
   br i1 %.not21.i12.i, label %parseAllowedPeers.exit, label %154
 
 154:                                              ; preds = %150
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %153, ptr noundef nonnull readonly align 1 dereferenceable(32) @.str.53, i64 32, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %153, ptr noundef nonnull align 1 dereferenceable(32) @.str.53, i64 32, i1 false) #13
   br label %parseAllowedPeers.exit
 
 155:                                              ; preds = %155, %parseAllowedMask.exit.i.i
@@ -2249,7 +2249,7 @@ getPortNumber.exit:                               ; preds = %12
   br i1 %.not21.i, label %setLastError.exit, label %39
 
 39:                                               ; preds = %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %38, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.7, i64 30, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %38, ptr noundef nonnull align 1 dereferenceable(30) @.str.7, i64 30, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %35, %39
@@ -2321,7 +2321,7 @@ setLastError.exit:                                ; preds = %35, %39
   br i1 %.not21.i.i, label %setLastError.exit.i, label %77
 
 77:                                               ; preds = %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %76, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.8, i64 14, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %76, ptr noundef nonnull align 1 dereferenceable(14) @.str.8, i64 14, i1 false) #13
   br label %setLastError.exit.i
 
 setLastError.exit.i:                              ; preds = %77, %73
@@ -2374,7 +2374,7 @@ setLastError.exit.i:                              ; preds = %77, %73
   br i1 %.not21.i.i.i, label %117, label %102
 
 102:                                              ; preds = %98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %101, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.11, i64 22, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %101, ptr noundef nonnull align 1 dereferenceable(22) @.str.11, i64 22, i1 false) #13
   br label %117
 
 103:                                              ; preds = %87
@@ -2402,7 +2402,7 @@ setLastError.exit.i:                              ; preds = %77, %73
   br i1 %.not21.i8.i.i, label %117, label %116
 
 116:                                              ; preds = %112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %115, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.12, i64 22, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %115, ptr noundef nonnull align 1 dereferenceable(22) @.str.12, i64 22, i1 false) #13
   br label %117
 
 parseScopeId.exit.thread.i:                       ; preds = %103, %82
@@ -2473,7 +2473,7 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
   br i1 %.not21.i49.i, label %setLastError.exit51.i, label %146
 
 146:                                              ; preds = %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %145, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.10, i64 34, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %145, ptr noundef nonnull align 1 dereferenceable(34) @.str.10, i64 34, i1 false) #13
   br label %setLastError.exit51.i
 
 setLastError.exit51.i:                            ; preds = %146, %142
@@ -2581,7 +2581,7 @@ recv_fully.exit.thread.us:                        ; preds = %22, %recv_fully.exi
   br i1 %.not21.i, label %setLastError.exit, label %41
 
 41:                                               ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %40, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.18, i64 25, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %40, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false) #13
   br label %setLastError.exit
 
 setLastError.exit:                                ; preds = %37, %41
@@ -2633,7 +2633,7 @@ recv_fully.exit.thread48:                         ; preds = %recv_fully.exit, %r
   br i1 %.not21.i36, label %setLastError.exit38, label %65
 
 65:                                               ; preds = %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %64, ptr noundef nonnull readonly align 1 dereferenceable(50) @.str.19, i64 50, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %64, ptr noundef nonnull align 1 dereferenceable(50) @.str.19, i64 50, i1 false) #13
   br label %setLastError.exit38
 
 setLastError.exit38:                              ; preds = %61, %65

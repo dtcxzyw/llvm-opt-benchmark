@@ -258,7 +258,7 @@ define internal void @TransformDC_C(ptr nocapture noundef readonly %0, ptr nocap
   %9 = load i8, ptr %gep, align 1
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %6, %10
-  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
+  %12 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %11, i32 0)
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 255)
   %14 = trunc nuw i32 %13 to i8
   store i8 %14, ptr %gep, align 1
@@ -302,7 +302,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %25 = add nsw i32 %22, %21
   %26 = ashr i32 %25, 3
   %27 = add nsw i32 %26, %24
-  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
+  %28 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %27, i32 0)
   %29 = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
   %30 = trunc nuw i32 %29 to i8
   store i8 %30, ptr %1, align 1
@@ -312,7 +312,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %34 = add nsw i32 %22, %18
   %35 = ashr i32 %34, 3
   %36 = add nsw i32 %35, %33
-  %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
+  %37 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %36, i32 0)
   %38 = tail call i32 @llvm.umin.i32(i32 %37, i32 255)
   %39 = trunc nuw i32 %38 to i8
   store i8 %39, ptr %31, align 1
@@ -322,7 +322,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %43 = sub nsw i32 %22, %18
   %44 = ashr i32 %43, 3
   %45 = add nsw i32 %44, %42
-  %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
+  %46 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %45, i32 0)
   %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 255)
   %48 = trunc nuw i32 %47 to i8
   store i8 %48, ptr %40, align 1
@@ -332,7 +332,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %52 = sub nsw i32 %22, %21
   %53 = ashr i32 %52, 3
   %54 = add nsw i32 %53, %51
-  %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 0)
+  %55 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %54, i32 0)
   %56 = tail call i32 @llvm.umin.i32(i32 %55, i32 255)
   %57 = trunc nuw i32 %56 to i8
   store i8 %57, ptr %49, align 1
@@ -343,7 +343,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %62 = add nsw i32 %21, %58
   %63 = ashr i32 %62, 3
   %64 = add nsw i32 %63, %61
-  %65 = tail call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %65 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %64, i32 0)
   %66 = tail call i32 @llvm.umin.i32(i32 %65, i32 255)
   %67 = trunc nuw i32 %66 to i8
   store i8 %67, ptr %59, align 1
@@ -353,7 +353,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %71 = add nsw i32 %58, %18
   %72 = ashr i32 %71, 3
   %73 = add nsw i32 %72, %70
-  %74 = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
+  %74 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %73, i32 0)
   %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 255)
   %76 = trunc nuw i32 %75 to i8
   store i8 %76, ptr %68, align 1
@@ -363,7 +363,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %80 = sub nsw i32 %58, %18
   %81 = ashr i32 %80, 3
   %82 = add nsw i32 %81, %79
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %85, ptr %77, align 1
@@ -373,7 +373,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %89 = sub nsw i32 %58, %21
   %90 = ashr i32 %89, 3
   %91 = add nsw i32 %90, %88
-  %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
+  %92 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %91, i32 0)
   %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 255)
   %94 = trunc nuw i32 %93 to i8
   store i8 %94, ptr %86, align 1
@@ -384,7 +384,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %99 = add nsw i32 %21, %95
   %100 = ashr i32 %99, 3
   %101 = add nsw i32 %100, %98
-  %102 = tail call i32 @llvm.smax.i32(i32 %101, i32 0)
+  %102 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %101, i32 0)
   %103 = tail call i32 @llvm.umin.i32(i32 %102, i32 255)
   %104 = trunc nuw i32 %103 to i8
   store i8 %104, ptr %96, align 1
@@ -394,7 +394,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %108 = add nsw i32 %95, %18
   %109 = ashr i32 %108, 3
   %110 = add nsw i32 %109, %107
-  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
+  %111 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 255)
   %113 = trunc nuw i32 %112 to i8
   store i8 %113, ptr %105, align 1
@@ -404,7 +404,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %117 = sub nsw i32 %95, %18
   %118 = ashr i32 %117, 3
   %119 = add nsw i32 %118, %116
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   store i8 %122, ptr %114, align 1
@@ -414,7 +414,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %126 = sub nsw i32 %95, %21
   %127 = ashr i32 %126, 3
   %128 = add nsw i32 %127, %125
-  %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 0)
+  %129 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %128, i32 0)
   %130 = tail call i32 @llvm.umin.i32(i32 %129, i32 255)
   %131 = trunc nuw i32 %130 to i8
   store i8 %131, ptr %123, align 1
@@ -425,7 +425,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %136 = add nsw i32 %132, %21
   %137 = ashr i32 %136, 3
   %138 = add nsw i32 %137, %135
-  %139 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %139 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %138, i32 0)
   %140 = tail call i32 @llvm.umin.i32(i32 %139, i32 255)
   %141 = trunc nuw i32 %140 to i8
   store i8 %141, ptr %133, align 1
@@ -435,7 +435,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %145 = add nsw i32 %132, %18
   %146 = ashr i32 %145, 3
   %147 = add nsw i32 %146, %144
-  %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
+  %148 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %147, i32 0)
   %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 255)
   %150 = trunc nuw i32 %149 to i8
   store i8 %150, ptr %142, align 1
@@ -445,7 +445,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %154 = sub nsw i32 %132, %18
   %155 = ashr i32 %154, 3
   %156 = add nsw i32 %155, %153
-  %157 = tail call i32 @llvm.smax.i32(i32 %156, i32 0)
+  %157 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %156, i32 0)
   %158 = tail call i32 @llvm.umin.i32(i32 %157, i32 255)
   %159 = trunc nuw i32 %158 to i8
   store i8 %159, ptr %151, align 1
@@ -455,7 +455,7 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
   %163 = sub nsw i32 %132, %21
   %164 = ashr i32 %163, 3
   %165 = add nsw i32 %164, %162
-  %166 = tail call i32 @llvm.smax.i32(i32 %165, i32 0)
+  %166 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %165, i32 0)
   %167 = tail call i32 @llvm.umin.i32(i32 %166, i32 255)
   %168 = trunc nuw i32 %167 to i8
   store i8 %168, ptr %160, align 1
@@ -2196,7 +2196,7 @@ define internal void @DitherCombine8x8_C(ptr nocapture noundef readonly %0, ptr 
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %10, %13
-  %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
+  %15 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %14, i32 0)
   %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 255)
   %17 = trunc nuw i32 %16 to i8
   store i8 %17, ptr %11, align 1
@@ -2301,7 +2301,7 @@ define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, p
   %64 = add nsw i32 %61, %44
   %65 = ashr i32 %64, 3
   %66 = add nsw i32 %65, %63
-  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
+  %67 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %66, i32 0)
   %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 255)
   %69 = trunc nuw i32 %68 to i8
   store i8 %69, ptr %.05670, align 1
@@ -2311,7 +2311,7 @@ define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, p
   %73 = add nsw i32 %55, %45
   %74 = ashr i32 %73, 3
   %75 = add nsw i32 %74, %72
-  %76 = tail call i32 @llvm.smax.i32(i32 %75, i32 0)
+  %76 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %75, i32 0)
   %77 = tail call i32 @llvm.umin.i32(i32 %76, i32 255)
   %78 = trunc nuw i32 %77 to i8
   store i8 %78, ptr %70, align 1
@@ -2321,7 +2321,7 @@ define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, p
   %82 = sub nsw i32 %45, %55
   %83 = ashr i32 %82, 3
   %84 = add nsw i32 %83, %81
-  %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 0)
+  %85 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %84, i32 0)
   %86 = tail call i32 @llvm.umin.i32(i32 %85, i32 255)
   %87 = trunc nuw i32 %86 to i8
   store i8 %87, ptr %79, align 1
@@ -2331,7 +2331,7 @@ define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, p
   %91 = sub nsw i32 %44, %61
   %92 = ashr i32 %91, 3
   %93 = add nsw i32 %92, %90
-  %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
+  %94 = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435711) %93, i32 0)
   %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 255)
   %96 = trunc nuw i32 %95 to i8
   store i8 %96, ptr %88, align 1

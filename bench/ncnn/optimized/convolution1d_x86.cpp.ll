@@ -3388,7 +3388,7 @@ _ZN4ncnn17Convolution1D_x86D2Ev.exit:             ; preds = %1, %5, %12, %16, %1
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
-  tail call void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) #13
+  tail call void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 544) #15
   ret void
 }

@@ -787,7 +787,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   %140 = getelementptr inbounds ptr, ptr %9, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = sub nsw i32 %spec.select, %137
-  %143 = tail call i32 @llvm.smin.i32(i32 %126, i32 %142)
+  %143 = tail call i32 @llvm.smin.i32(i32 range(i32 -2, -2147483648) %126, i32 %142)
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
@@ -907,7 +907,7 @@ match_this_proc.exit.i:                           ; preds = %find_name.exit52.th
 
 184:                                              ; preds = %get_max_procs.exit
   %185 = sub nsw i32 %spec.select, %.06298
-  %186 = tail call i32 @llvm.smin.i32(i32 %.014.i, i32 %185)
+  %186 = tail call i32 @llvm.smin.i32(i32 range(i32 -1, -2147483648) %.014.i, i32 %185)
   %187 = icmp sgt i32 %186, 0
   br i1 %187, label %.lr.ph.preheader.i80.i, label %.preheader.i64.i
 

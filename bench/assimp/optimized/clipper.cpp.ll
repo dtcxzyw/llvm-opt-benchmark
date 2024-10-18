@@ -2288,7 +2288,7 @@ entry:
   %m_PolyOuts = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts, i8 0, i64 24, i1 false)
   %m_Scanbeam = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM, i8 0, i64 33, i1 false)
   ret void
 }
@@ -2493,7 +2493,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %m_descr, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %m_descr, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2510,7 +2510,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_descr) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_descr) #30
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -3209,7 +3209,7 @@ new.ctorloop:                                     ; preds = %while.end22
 
 invoke.cont34:                                    ; preds = %new.ctorloop, %invoke.cont34
   %arrayctor.cur = phi ptr [ %call32, %new.ctorloop ], [ %arrayctor.next, %invoke.cont34 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayctor.cur, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %arrayctor.cur, i8 0, i64 48, i1 false)
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 136
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont34
@@ -3690,7 +3690,7 @@ do.body:                                          ; preds = %do.cond, %if.end162
   br i1 %cmp.not.i, label %if.else.i216, label %if.then.i214
 
 if.then.i214:                                     ; preds = %do.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %E.2, ptr noundef nonnull align 8 dereferenceable(16) %Curr.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %E.2, ptr noundef nonnull align 8 dereferenceable(16) %Curr.i, i64 16, i1 false)
   %Curr5.i = getelementptr inbounds i8, ptr %92, i64 16
   %Top.i = getelementptr inbounds i8, ptr %E.2, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Top.i, ptr noundef nonnull align 8 dereferenceable(16) %Curr5.i, i64 16, i1 false)
@@ -3700,7 +3700,7 @@ if.else.i216:                                     ; preds = %do.body
   %Top7.i = getelementptr inbounds i8, ptr %E.2, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Top7.i, ptr noundef nonnull align 8 dereferenceable(16) %Curr.i, i64 16, i1 false)
   %Curr9.i = getelementptr inbounds i8, ptr %92, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %E.2, ptr noundef nonnull align 8 dereferenceable(16) %Curr9.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %E.2, ptr noundef nonnull align 8 dereferenceable(16) %Curr9.i, i64 16, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i216, %if.then.i214
@@ -5615,7 +5615,7 @@ entry:
   %m_PolyOuts.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i = getelementptr inbounds i8, ptr %this, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %0, align 8
@@ -7167,7 +7167,7 @@ _ZNSt7__cxx114listIxSaIxEE5clearEv.exit.i.i.thread: ; preds = %invoke.cont
 while.body.i.i.i.i:                               ; preds = %invoke.cont, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i ], [ %1, %invoke.cont ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #33
   %cmp.not.i.i.i.i = icmp eq ptr %2, %m_Maxima
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !79
 
@@ -8582,7 +8582,7 @@ if.then10:                                        ; preds = %if.then8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   %21 = load i64, ptr %Top1.i.i, align 8
   store i64 %21, ptr %_M_storage.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %m_Maxima) #30
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_Maxima) #30
   %22 = load i64, ptr %invariant.gep, align 8
   %add.i.i.i = add i64 %22, 1
   store i64 %add.i.i.i, ptr %invariant.gep, align 8
@@ -8799,7 +8799,7 @@ _ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit: ; preds = %while.body.i, %wh
 while.body.i.i:                                   ; preds = %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %50, %while.body.i.i ], [ %49, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
   %50 = load ptr, ptr %__cur.05.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #33
   %cmp.not.i.i = icmp eq ptr %50, %m_Maxima67
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIxSaIxEE5clearEv.exit, label %while.body.i.i, !llvm.loop !79
 
@@ -16333,7 +16333,7 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp3.i, label %if.then7.i, label %invoke.cont16
 
 if.then7.i:                                       ; preds = %while.end.i
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__counter.050, ptr noundef %__first2.1.i, ptr noundef nonnull %__carry) #30
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__counter.050, ptr noundef %__first2.1.i, ptr noundef nonnull align 8 dereferenceable(16) %__carry) #30
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %for.body, %if.then7.i, %while.end.i
@@ -16404,7 +16404,7 @@ while.end.i29:                                    ; preds = %if.end.i40, %for.bo
   br i1 %cmp3.lcssa.i31, label %if.then7.i32, label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS_15_List_node_baseET_.exit46
 
 if.then7.i32:                                     ; preds = %while.end.i29
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__counter.160, ptr noundef %__first2.0.lcssa.i30, ptr noundef nonnull %__tmp.pn59) #30
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__counter.160, ptr noundef %__first2.0.lcssa.i30, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.pn59) #30
   br label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS_15_List_node_baseET_.exit46
 
 _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS_15_List_node_baseET_.exit46: ; preds = %while.end.i29, %if.then7.i32
@@ -19168,7 +19168,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE5clearEv.exit: ; preds = 
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %clpr, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %clpr, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %clpr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %3, align 8
@@ -19456,7 +19456,7 @@ if.end52:                                         ; preds = %if.then, %_ZNSt6vec
 while.body.i.i.i.i.i:                             ; preds = %if.end52, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %51, %while.body.i.i.i.i.i ], [ %50, %if.end52 ]
   %51 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i30 = icmp eq ptr %51, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i30, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -21505,7 +21505,7 @@ entry:
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #33
   %cmp.not.i.i.i.i = icmp eq ptr %1, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !79
 
@@ -21617,7 +21617,7 @@ _ZN10ClipperLib8PolyTree5ClearEv.exit:            ; preds = %_ZNSt6vectorIPN10Cl
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %clpr, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %clpr, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %clpr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %10, align 8
@@ -22073,7 +22073,7 @@ if.end69:                                         ; preds = %if.then, %_ZNSt6vec
 while.body.i.i.i.i.i:                             ; preds = %if.end69, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %84, %while.body.i.i.i.i.i ], [ %83, %if.end69 ]
   %84 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i131 = icmp eq ptr %84, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i131, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -23423,7 +23423,7 @@ entry:
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %c, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %c, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %0, align 8
@@ -23464,7 +23464,7 @@ invoke.cont2:                                     ; preds = %invoke.cont1
 while.body.i.i.i.i.i:                             ; preds = %invoke.cont2, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i.i ], [ %1, %invoke.cont2 ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -23519,7 +23519,7 @@ entry:
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %c, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %c, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %0, align 8
@@ -23584,7 +23584,7 @@ invoke.cont2:                                     ; preds = %invoke.cont1
 while.body.i.i.i.i.i:                             ; preds = %invoke.cont2, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %8, %while.body.i.i.i.i.i ], [ %7, %invoke.cont2 ]
   %8 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %8, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -25283,7 +25283,7 @@ entry:
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %c, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %c, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %0, align 8
@@ -25348,7 +25348,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
 while.body.i.i.i.i.i:                             ; preds = %invoke.cont1, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %8, %while.body.i.i.i.i.i ], [ %7, %invoke.cont1 ]
   %8 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %8, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -25458,7 +25458,7 @@ entry:
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %c, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %c, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %0, align 8
@@ -25718,7 +25718,7 @@ invoke.cont16:                                    ; preds = %for.end
 while.body.i.i.i.i.i:                             ; preds = %invoke.cont16, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %29, %while.body.i.i.i.i.i ], [ %28, %invoke.cont16 ]
   %29 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %29, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -25778,7 +25778,7 @@ entry:
   %m_PolyOuts.i.i = getelementptr inbounds i8, ptr %c, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_PolyOuts.i.i, i8 0, i64 24, i1 false)
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 24), ptr %c, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib7ClipperE, i64 96), ptr %0, align 8
@@ -25843,7 +25843,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
 while.body.i.i.i.i.i:                             ; preds = %invoke.cont1, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %8, %while.body.i.i.i.i.i ], [ %7, %invoke.cont1 ]
   %8 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %8, %m_Maxima.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -26608,7 +26608,7 @@ entry:
 while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, %m_Maxima.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -26666,7 +26666,7 @@ entry:
 while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %5, %while.body.i.i.i.i.i ], [ %4, %entry ]
   %5 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #33
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, %m_Maxima.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !79
 
@@ -26759,7 +26759,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 16), ptr %this, align 8
   %m_descr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_descr.i) #30
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #30
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }

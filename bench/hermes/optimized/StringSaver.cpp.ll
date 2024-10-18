@@ -51,7 +51,7 @@ entry:
   store i64 %S.coerce1, ptr %0, align 8
   %Unique = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !4
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %Unique, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !4
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(24) %Unique, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !4
   %1 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !4
   br i1 %call.i.i.i, label %entry.if.end_crit_edge, label %if.then
@@ -63,7 +63,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %Unique, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef %1), !noalias !4
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E20InsertIntoBucketImplIS2_EEPS8_RKS2_RKT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %Unique, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef %1), !noalias !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %S, i64 16, i1 false), !noalias !4
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %S, align 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %0, align 8

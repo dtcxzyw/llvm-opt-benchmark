@@ -100,7 +100,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.174593532
   br i1 %27, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17459353245601373923.exit.i.i.i, label %28
 
 28:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17459353245601373923.exit.i.i.i.i
-  call void @_ZN4core4sync6atomic12atomic_store17hc33ffe51761ba9efE.llvm.17459353245601373923(ptr noundef nonnull %20, i8 noundef 1, i8 noundef 0), !noalias !24
+  call void @_ZN4core4sync6atomic12atomic_store17hc33ffe51761ba9efE.llvm.17459353245601373923(ptr noundef nonnull align 1 %20, i8 noundef 1, i8 noundef 0), !noalias !24
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17459353245601373923.exit.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17459353245601373923.exit.i.i.i: ; preds = %28, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17459353245601373923.exit.i.i.i.i, %23, %18

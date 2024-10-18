@@ -693,7 +693,7 @@ if.else.i19.i.i:                                  ; preds = %sw.default.i.i
 
 DiscreteLogWorkFactor.exit.i.i:                   ; preds = %if.else.i19.i.i, %sw.default.i.i
   %retval.0.i21.i.i = phi i32 [ %15, %if.else.i19.i.i ], [ 1, %sw.default.i.i ]
-  %cond.i.i.i = tail call range(i32 0, 536870913) i32 @llvm.umin.i32(i32 %call11.i.i, i32 %retval.0.i21.i.i)
+  %cond.i.i.i = tail call range(i32 0, 536870913) i32 @llvm.umin.i32(i32 %call11.i.i, i32 range(i32 1, 536870913) %retval.0.i21.i.i)
   br label %sw.epilog.i.i
 
 switch.lookup:                                    ; preds = %if.else9.i.i

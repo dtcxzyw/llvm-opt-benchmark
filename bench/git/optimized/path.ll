@@ -417,7 +417,7 @@ if.then6.i:                                       ; preds = %if.else.i14
   br label %if.end8
 
 if.else10.i:                                      ; preds = %if.else.i14
-  %call2.i20.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(8) @.str.50, i64 noundef 7) #28
+  %call2.i20.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(8) @.str.50, i64 noundef 7) #28
   %tobool.not.i21.i = icmp eq i32 %call2.i20.i, 0
   br i1 %tobool.not.i21.i, label %land.rhs.i.i, label %if.else14.i
 
@@ -476,7 +476,7 @@ if.else14.i:                                      ; preds = %land.rhs.i.i, %if.e
   br i1 %tobool15.not.i, label %if.else20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else14.i
-  %call2.i30.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(6) @.str.41, i64 noundef 5) #28
+  %call2.i30.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(6) @.str.41, i64 noundef 5) #28
   %tobool.not.i31.i = icmp eq i32 %call2.i30.i, 0
   br i1 %tobool.not.i31.i, label %land.rhs.i33.i, label %if.else20.i
 
@@ -1402,7 +1402,7 @@ if.else17:                                        ; preds = %if.then5
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.lhs.cast = ptrtoint ptr %call6 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call.i7 = tail call ptr @xmemdupz(ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub) #26
+  %call.i7 = tail call ptr @xmemdupz(ptr noundef nonnull %add.ptr, i64 noundef range(i64 1, 0) %sub.ptr.sub) #26
   %call1.i = tail call noundef ptr @getpwnam(ptr noundef %call.i7)
   tail call void @free(ptr noundef %call.i7) #26
   %tobool19.not = icmp eq ptr %call1.i, null

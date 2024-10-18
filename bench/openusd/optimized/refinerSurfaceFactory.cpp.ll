@@ -29,7 +29,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBaseD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
+  tail call void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #9
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #10
   ret void
 }

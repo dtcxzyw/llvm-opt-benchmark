@@ -876,11 +876,11 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %24 = ptrtoint ptr %.03139.i to i64
   %25 = sub i64 %22, %24
   %26 = sub i64 %23, %24
-  %27 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %26, ptr noundef %.03139.i, i64 noundef %25, ptr noundef %6, ptr noundef %7)
+  %27 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %26, ptr noundef %.03139.i, i64 noundef %25, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %27, label %28, label %.loopexit.i
 
 28:                                               ; preds = %21
-  %29 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 3, ptr noundef nonnull @.str.108, i64 noundef 0, ptr noundef %6, ptr noundef %7)
+  %29 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef 3, ptr noundef nonnull @.str.108, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %29, label %30, label %.loopexit.i
 
 30:                                               ; preds = %28
@@ -902,7 +902,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %35 = ptrtoint ptr %4 to i64
   %36 = ptrtoint ptr %.031.lcssa.i to i64
   %37 = sub i64 %35, %36
-  %38 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %37, ptr noundef %.031.lcssa.i, i64 noundef %37, ptr noundef %6, ptr noundef %7)
+  %38 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %37, ptr noundef %.031.lcssa.i, i64 noundef %37, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %38, label %dom_decode_encode_fast_path.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %28, %21, %34
@@ -948,7 +948,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %._crit_edge.i, %34,
   %60 = icmp ne i32 %59, 1
   call void @llvm.assume(i1 %60)
   %.val26.i = load i64, ptr %47, align 8
-  %61 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.val26.i, ptr noundef nonnull %48, i64 noundef %.val.i, ptr noundef %6, ptr noundef %7)
+  %61 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %.val26.i, ptr noundef nonnull %48, i64 noundef %.val.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %61, label %62, label %dom_decode_encode_slow_path.exit
 
 62:                                               ; preds = %55
@@ -1114,7 +1114,7 @@ define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(5) @.str.114) #12
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.114) #12
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %dom_search_child.exit, label %16
 

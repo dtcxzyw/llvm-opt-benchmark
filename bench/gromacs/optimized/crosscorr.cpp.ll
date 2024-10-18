@@ -36,8 +36,8 @@ declare noundef i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef, i32 noundef, i
 define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = shl nsw i32 %0, 1
   %7 = sext i32 %6 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 91, i64 noundef %7, i64 noundef 8)
-  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 92, i64 noundef %7, i64 noundef 8)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 91, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
+  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 92, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
   %10 = icmp sgt i32 %0, 0
   br i1 %10, label %.lr.ph.preheader, label %.preheader
 

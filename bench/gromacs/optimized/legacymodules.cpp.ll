@@ -306,7 +306,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112, label %35
 
 35:                                               ; preds = %33
-  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112 unwind label %37
 
 37:                                               ; preds = %35
@@ -334,7 +334,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i113, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114, label %45
 
 45:                                               ; preds = %43
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114 unwind label %47
 
 47:                                               ; preds = %45
@@ -407,7 +407,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i118, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121, label %69
 
 69:                                               ; preds = %67
-  %70 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %70 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121 unwind label %71
 
 71:                                               ; preds = %69
@@ -436,7 +436,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i122, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125, label %81
 
 81:                                               ; preds = %79
-  %82 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %82 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125 unwind label %83
 
 83:                                               ; preds = %81
@@ -463,7 +463,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i126, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129, label %91
 
 91:                                               ; preds = %89
-  %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129 unwind label %93
 
 93:                                               ; preds = %91
@@ -490,7 +490,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i130, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131, label %101
 
 101:                                              ; preds = %99
-  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131 unwind label %103
 
 103:                                              ; preds = %101
@@ -879,7 +879,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   br i1 %.not.i.i162, label %common.resume, label %181
 
 181:                                              ; preds = %178
-  %182 = invoke noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %182 = invoke noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %183
 
 183:                                              ; preds = %181
@@ -897,7 +897,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   br i1 %.not.i.i164, label %common.resume, label %189
 
 189:                                              ; preds = %186
-  %190 = invoke noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %190 = invoke noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %common.resume unwind label %191
 
 191:                                              ; preds = %189
@@ -915,7 +915,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   br i1 %.not.i.i166, label %common.resume, label %197
 
 197:                                              ; preds = %194
-  %198 = invoke noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %198 = invoke noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %common.resume unwind label %199
 
 199:                                              ; preds = %197
@@ -933,7 +933,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   br i1 %.not.i.i168, label %common.resume, label %205
 
 205:                                              ; preds = %202
-  %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %common.resume unwind label %207
 
 207:                                              ; preds = %205
@@ -951,7 +951,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   br i1 %.not.i.i170, label %common.resume, label %213
 
 213:                                              ; preds = %210
-  %214 = invoke noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %214 = invoke noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %common.resume unwind label %215
 
 215:                                              ; preds = %213
@@ -969,7 +969,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   br i1 %.not.i.i172, label %common.resume, label %221
 
 221:                                              ; preds = %218
-  %222 = invoke noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %222 = invoke noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %common.resume unwind label %223
 
 223:                                              ; preds = %221

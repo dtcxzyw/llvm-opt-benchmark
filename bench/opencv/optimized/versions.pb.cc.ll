@@ -442,7 +442,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow10VersionDef14_InternalParseEPK
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
-  %28 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %20, i32 noundef %12)
+  %28 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %20, i32 noundef %12)
   %29 = extractvalue { ptr, i8 } %28, 0
   %30 = extractvalue { ptr, i8 } %28, 1
   %31 = trunc i8 %30 to i1
@@ -1207,7 +1207,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 .body:                                            ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #15
   tail call void @_ZdlPv(ptr noundef nonnull %4) #16
   br label %common.resume
 
@@ -1228,7 +1228,7 @@ common.resume:                                    ; preds = %13, %.body
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #15
   br label %common.resume
 
 _ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5ArenaEb.exit: ; preds = %8, %3

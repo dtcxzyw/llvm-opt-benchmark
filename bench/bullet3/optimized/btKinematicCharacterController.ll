@@ -1142,7 +1142,7 @@ invoke.cont76:                                    ; preds = %if.then49, %if.else
   %inc.i = add nsw i32 %60, 1
   store i32 %inc.i, ptr %m_updateRevision.i, align 8
   %m_worldTransform.i103 = getelementptr inbounds i8, ptr %59, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i103, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i103, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx5.i.i.i104 = getelementptr inbounds i8, ptr %58, i64 24
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %59, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i104, i64 16, i1 false)
@@ -2703,7 +2703,7 @@ entry:
   %m_targetPosition = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_targetPosition, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -2769,7 +2769,7 @@ if.then8:                                         ; preds = %if.end
   %m_ghostObject = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %m_ghostObject, align 8
   %m_worldTransform.i = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %xform, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %xform, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx5.i.i19 = getelementptr inbounds i8, ptr %9, i64 24
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %xform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i19, i64 16, i1 false)
@@ -2810,7 +2810,7 @@ if.then8:                                         ; preds = %if.end
   %mul10.i.i = fmul float %mul7.i.i.i.i, %div.i.i
   %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %xform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %xform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -2895,7 +2895,7 @@ if.then8:                                         ; preds = %if.end
   %inc.i = add nsw i32 %35, 1
   store i32 %inc.i, ptr %m_updateRevision.i, align 8
   %m_worldTransform.i36 = getelementptr inbounds i8, ptr %34, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i36, ptr noundef nonnull align 4 dereferenceable(16) %xform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i36, ptr noundef nonnull align 4 dereferenceable(64) %xform, i64 16, i1 false)
   %arrayidx7.i.i.i38 = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i38, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, i64 16, i1 false)
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %34, i64 40
@@ -2910,7 +2910,7 @@ if.then8:                                         ; preds = %if.end
   %m_targetPosition = getelementptr inbounds i8, ptr %this, i64 168
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_targetPosition, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i40, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i42)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_worldTransform.i39, ptr noundef nonnull align 4 dereferenceable(16) %retval.i42)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i39, ptr noundef nonnull align 4 dereferenceable(16) %retval.i42)
   %.fca.0.load.i43 = load <2 x float>, ptr %retval.i42, align 8
   %.fca.1.gep.i45 = getelementptr inbounds i8, ptr %retval.i42, i64 8
   %.fca.1.load.i46 = load <2 x float>, ptr %.fca.1.gep.i45, align 8
@@ -3378,7 +3378,7 @@ _ZNK30btKinematicCharacterController11getRotationER9btVector3S1_.exit: ; preds =
   %retval.sroa.2.0.i = phi <2 x float> [ %27, %if.end.i ], [ undef, %lor.lhs.false.i ], [ undef, %if.end14 ]
   %retval.sroa.0.0.i = phi <2 x float> [ %26, %if.end.i ], [ undef, %lor.lhs.false.i ], [ undef, %if.end14 ]
   %m_worldTransform.i = getelementptr inbounds i8, ptr %28, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %xform, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %xform, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx5.i.i9 = getelementptr inbounds i8, ptr %28, i64 24
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %xform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i9, i64 16, i1 false)
@@ -3396,7 +3396,7 @@ _ZNK30btKinematicCharacterController11getRotationER9btVector3S1_.exit: ; preds =
   %fneg9.i = fneg float %rot.sroa.3.8.vec.extract
   %rot.sroa.3.12.vec.extract = extractelement <2 x float> %retval.sroa.2.0.i, i64 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %xform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %xform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -3478,7 +3478,7 @@ _ZNK30btKinematicCharacterController11getRotationER9btVector3S1_.exit: ; preds =
   %inc.i = add nsw i32 %46, 1
   store i32 %inc.i, ptr %m_updateRevision.i, align 8
   %m_worldTransform.i23 = getelementptr inbounds i8, ptr %45, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i23, ptr noundef nonnull align 4 dereferenceable(16) %xform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i23, ptr noundef nonnull align 4 dereferenceable(64) %xform, i64 16, i1 false)
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %45, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, i64 16, i1 false)
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %45, i64 40

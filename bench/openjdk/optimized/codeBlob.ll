@@ -211,7 +211,7 @@ define hidden noundef i32 @_ZN8CodeBlob15allocation_sizeEP10CodeBufferi(ptr noun
   br i1 %20, label %_ZNK10CodeBuffer19total_metadata_sizeEv.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit:          ; preds = %2
-  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %19) #10
+  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %19) #10
   %.pr = load ptr, ptr %18, align 8
   %22 = add i32 %21, 7
   %23 = and i32 %22, -8
@@ -1019,8 +1019,8 @@ define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindP10CodeBufferi(ptr nounde
   store i8 0, ptr %35, align 1
   store ptr null, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeBlob, i64 16), ptr %0, align 8
-  %36 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull %0) #10
-  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull %0) #10
+  %36 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(54) %0) #10
+  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(54) %0) #10
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10BufferBlob, i64 16), ptr %0, align 8
   ret void
 }
@@ -1101,7 +1101,7 @@ _ZN21ThreadInVMfromUnknownC2Ev.exit:              ; preds = %2, %9, %_ZN21Thread
   br i1 %42, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %_ZN21ThreadInVMfromUnknownC2Ev.exit
-  %43 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %41) #10
+  %43 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %41) #10
   %.pr.i = load ptr, ptr %40, align 8
   %44 = add i32 %43, 7
   %45 = and i32 %44, -8
@@ -1179,8 +1179,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN8CodeBlo
   store i8 0, ptr %90, align 1
   store ptr null, ptr %61, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeBlob, i64 16), ptr %58, align 8
-  %91 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %58) #10
-  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %58) #10
+  %91 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(54) %58) #10
+  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(54) %58) #10
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10BufferBlob, i64 16), ptr %58, align 8
   br label %92
 
@@ -1283,8 +1283,8 @@ define hidden void @_ZN11AdapterBlobC2EiP10CodeBuffer(ptr noundef nonnull align 
   store i8 0, ptr %33, align 1
   store ptr null, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeBlob, i64 16), ptr %0, align 8
-  %34 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull %0) #10
-  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull %0) #10
+  %34 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(54) %0) #10
+  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(54) %0) #10
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11AdapterBlob, i64 16), ptr %0, align 8
   tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull %0) #10
   ret void
@@ -1369,7 +1369,7 @@ _ZN21ThreadInVMfromUnknownC2Ev.exit:              ; preds = %1, %8, %_ZN21Thread
   br i1 %41, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %_ZN21ThreadInVMfromUnknownC2Ev.exit
-  %42 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %40) #10
+  %42 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %40) #10
   %.pr.i = load ptr, ptr %39, align 8
   %43 = add i32 %42, 7
   %44 = and i32 %43, -8
@@ -1447,10 +1447,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN8CodeBlo
   store i8 0, ptr %89, align 1
   store ptr null, ptr %60, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeBlob, i64 16), ptr %57, align 8
-  %90 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %57) #10
-  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %57) #10
+  %90 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(54) %57) #10
+  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(54) %57) #10
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11AdapterBlob, i64 16), ptr %57, align 8
-  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull %57) #10
+  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(54) %57) #10
   br label %91
 
 91:                                               ; preds = %59, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
@@ -1820,7 +1820,7 @@ define hidden noundef ptr @_ZN11RuntimeStub16new_runtime_stubEPKcP10CodeBuffersi
   br i1 %24, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %7
-  %25 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %23) #10
+  %25 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %23) #10
   %.pr.i = load ptr, ptr %22, align 8
   %26 = add i32 %25, 7
   %27 = and i32 %26, -8
@@ -1923,7 +1923,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN21Thread
   br label %_ZN11MutexLockerD2Ev.exit
 
 .critedge:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %63, ptr noundef %0, i8 noundef zeroext 6, ptr noundef %1, i32 noundef %37, i16 noundef zeroext 56, i16 noundef signext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
+  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %63, ptr noundef %0, i8 noundef zeroext 6, ptr noundef nonnull %1, i32 noundef %37, i16 noundef zeroext 56, i16 noundef signext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeStub, i64 16), ptr %63, align 8
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit19, label %70
 
@@ -2013,7 +2013,7 @@ define hidden noundef nonnull ptr @_ZN18DeoptimizationBlob6createEP10CodeBufferP
   br i1 %23, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %6
-  %24 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %22) #10
+  %24 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %22) #10
   %.pr.i = load ptr, ptr %21, align 8
   %25 = add i32 %24, 7
   %26 = and i32 %25, -8
@@ -2106,7 +2106,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN21Thread
   unreachable
 
 _ZN13SingletonBlobnwEmj.exit:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %62, ptr noundef nonnull @.str.13, i8 noundef zeroext 7, ptr noundef %0, i32 noundef %36, i16 noundef zeroext 80, i16 noundef signext -1, i32 noundef %5, ptr noundef %1, i1 noundef zeroext false)
+  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull @.str.13, i8 noundef zeroext 7, ptr noundef nonnull %0, i32 noundef %36, i16 noundef zeroext 80, i16 noundef signext -1, i32 noundef %5, ptr noundef %1, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18DeoptimizationBlob, i64 16), ptr %62, align 8
   %65 = getelementptr inbounds i8, ptr %62, i64 56
   store i32 %2, ptr %65, align 8
@@ -2168,7 +2168,7 @@ define hidden noundef nonnull ptr @_ZN16UncommonTrapBlob6createEP10CodeBufferP9O
   br i1 %20, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %3
-  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %19) #10
+  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %19) #10
   %.pr.i = load ptr, ptr %18, align 8
   %22 = add i32 %21, 7
   %23 = and i32 %22, -8
@@ -2261,7 +2261,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN21Thread
   unreachable
 
 _ZN13SingletonBlobnwEmj.exit:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %59, ptr noundef nonnull @.str.15, i8 noundef zeroext 10, ptr noundef %0, i32 noundef %33, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %2, ptr noundef %1, i1 noundef zeroext false)
+  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %59, ptr noundef nonnull @.str.15, i8 noundef zeroext 10, ptr noundef nonnull %0, i32 noundef %33, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %2, ptr noundef %1, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV16UncommonTrapBlob, i64 16), ptr %59, align 8
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %62
 
@@ -2315,7 +2315,7 @@ define hidden noundef nonnull ptr @_ZN13ExceptionBlob6createEP10CodeBufferP9OopM
   br i1 %20, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %3
-  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %19) #10
+  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %19) #10
   %.pr.i = load ptr, ptr %18, align 8
   %22 = add i32 %21, 7
   %23 = and i32 %22, -8
@@ -2408,7 +2408,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN21Thread
   unreachable
 
 _ZN13SingletonBlobnwEmj.exit:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %59, ptr noundef nonnull @.str.16, i8 noundef zeroext 8, ptr noundef %0, i32 noundef %33, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %2, ptr noundef %1, i1 noundef zeroext false)
+  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %59, ptr noundef nonnull @.str.16, i8 noundef zeroext 8, ptr noundef nonnull %0, i32 noundef %33, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %2, ptr noundef %1, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13ExceptionBlob, i64 16), ptr %59, align 8
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %62
 
@@ -2462,7 +2462,7 @@ define hidden noundef nonnull ptr @_ZN13SafepointBlob6createEP10CodeBufferP9OopM
   br i1 %20, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %3
-  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %19) #10
+  %21 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %19) #10
   %.pr.i = load ptr, ptr %18, align 8
   %22 = add i32 %21, 7
   %23 = and i32 %22, -8
@@ -2555,7 +2555,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN21Thread
   unreachable
 
 _ZN13SingletonBlobnwEmj.exit:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %59, ptr noundef nonnull @.str.17, i8 noundef zeroext 9, ptr noundef %0, i32 noundef %33, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %2, ptr noundef %1, i1 noundef zeroext false)
+  tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %59, ptr noundef nonnull @.str.17, i8 noundef zeroext 9, ptr noundef nonnull %0, i32 noundef %33, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %2, ptr noundef %1, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13SafepointBlob, i64 16), ptr %59, align 8
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %62
 
@@ -2627,8 +2627,8 @@ define hidden void @_ZN10UpcallStubC2EPKcP10CodeBufferiP8_jobject8ByteSize(ptr n
   store i8 0, ptr %36, align 1
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeBlob, i64 16), ptr %0, align 8
-  %37 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull %0) #10
-  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull %0) #10
+  %37 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(54) %0) #10
+  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(54) %0) #10
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10UpcallStub, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %4, ptr %38, align 8
@@ -2720,7 +2720,7 @@ _ZN21ThreadInVMfromUnknownC2Ev.exit:              ; preds = %4, %11, %_ZN21Threa
   br i1 %44, label %_ZN8CodeBlob15allocation_sizeEP10CodeBufferi.exit, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit.i
 
 _ZNK10CodeBuffer14total_oop_sizeEv.exit.i:        ; preds = %_ZN21ThreadInVMfromUnknownC2Ev.exit
-  %45 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %43) #10
+  %45 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %43) #10
   %.pr.i = load ptr, ptr %42, align 8
   %46 = add i32 %45, 7
   %47 = and i32 %46, -8
@@ -2798,14 +2798,14 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN8CodeBlo
   store i8 0, ptr %92, align 1
   store ptr null, ptr %63, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeBlob, i64 16), ptr %60, align 8
-  %93 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %60) #10
-  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %60) #10
+  %93 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(68) %60) #10
+  tail call void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(68) %60) #10
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10UpcallStub, i64 16), ptr %60, align 8
   %94 = getelementptr inbounds i8, ptr %60, i64 56
   store ptr %2, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %60, i64 64
   store i32 %3, ptr %95, align 8
-  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull %60) #10
+  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(68) %60) #10
   br label %96
 
 96:                                               ; preds = %62, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit

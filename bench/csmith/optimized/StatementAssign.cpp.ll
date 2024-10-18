@@ -1131,7 +1131,7 @@ _ZN24FunctionInvocationBinary12get_tmp_var2B5cxx11Ev.exit: ; preds = %_ZN24Funct
           to label %120 unwind label %134
 
 120:                                              ; preds = %118
-  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %117, i32 noundef 0, ptr noundef %119)
+  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(136) %117, i32 noundef 0, ptr noundef %119)
           to label %.noexc unwind label %134
 
 .noexc:                                           ; preds = %120
@@ -1168,7 +1168,7 @@ _ZN24FunctionInvocationBinary12get_tmp_var2B5cxx11Ev.exit: ; preds = %_ZN24Funct
 
 133:                                              ; preds = %131, %129
   %.pn.i = phi { ptr, i32 } [ %132, %131 ], [ %130, %129 ]
-  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #20
+  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %117) #20
   br label %.body
 
 134:                                              ; preds = %120, %118

@@ -5218,7 +5218,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %binary_iop1.exit
 
 binary_iop1.exit:                                 ; preds = %entry, %if.then.i, %if.end.i8, %if.end.i.i, %if.then1.i.i
-  %call7.i = tail call fastcc ptr @binary_op1(ptr noundef nonnull %v, ptr noundef %w, i32 noundef %op_slot)
+  %call7.i = tail call fastcc ptr @binary_op1(ptr noundef nonnull %v, ptr noundef %w, i32 noundef range(i32 0, 273) %op_slot)
   %cmp = icmp eq ptr %call7.i, @_Py_NotImplementedStruct
   br i1 %cmp, label %if.then, label %return
 

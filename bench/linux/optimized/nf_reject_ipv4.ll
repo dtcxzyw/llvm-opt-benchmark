@@ -614,7 +614,7 @@ nf_reject_iphdr_validate.exit.thread5:            ; preds = %nf_reject_iphdr_val
   br i1 %118, label %nf_reject_verify_csum.exit.thread8, label %119
 
 119:                                              ; preds = %117
-  %120 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %83, ptr noundef nonnull %6, i32 noundef 8) #6
+  %120 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef range(i32 0, 61) %83, ptr noundef nonnull %6, i32 noundef 8) #6
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %nf_reject_verify_csum.exit.thread8, label %nf_reject_verify_csum.exit, !prof !5
 

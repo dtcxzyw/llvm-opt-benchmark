@@ -4327,7 +4327,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %70, %68
   %73 = phi i64 [ %.pre.i68, %70 ], [ %61, %68 ]
   %74 = phi ptr [ %72, %70 ], [ %62, %68 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr readonly align 1 %6, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull readonly align 1 %6, i64 %8, i1 false)
   %76 = load i64, ptr %38, align 8
   %77 = add i64 %76, %8
   store i64 %77, ptr %38, align 8
@@ -6121,7 +6121,7 @@ define internal fastcc void @generate_json_fixnum(ptr nocapture noundef %0, i64 
   %3 = alloca [20 x i8], align 16
   %4 = ashr i64 %1, 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 %4, i1 true)
+  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %4, i1 true)
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -6504,7 +6504,7 @@ ruby_nonempty_memcpy.exit.i57:                    ; preds = %81, %79
   %84 = phi i64 [ %.pre.i58, %81 ], [ %74, %79 ]
   %85 = phi ptr [ %83, %81 ], [ %71, %79 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr readonly align 1 %11, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull readonly align 1 %11, i64 %13, i1 false)
   %87 = load i64, ptr %73, align 8
   %88 = add i64 %87, %13
   store i64 %88, ptr %73, align 8

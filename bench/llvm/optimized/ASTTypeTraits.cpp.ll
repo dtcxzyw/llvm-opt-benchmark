@@ -2058,7 +2058,7 @@ declare i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnu
 define linkonce_odr hidden i64 @_ZNK5clang16ConceptReference14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #10 comdat align 2 {
   %2 = alloca %"class.clang::NestedNameSpecifierLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 16, i1 false)
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %4

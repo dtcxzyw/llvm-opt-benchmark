@@ -401,7 +401,7 @@ opal_datatype_span.exit:                          ; preds = %25, %30
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %.079136.us, i64 noundef %26, ptr noundef %3, i32 noundef %63, i32 noundef -24, ptr noundef nonnull %.077137.us, i64 noundef %26, ptr noundef %3, i32 noundef %63, i32 noundef -24, ptr noundef %5, ptr noundef null) #5
+  %68 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %.079136.us, i64 noundef range(i64 -2147483648, 2147483648) %26, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %63, i32 noundef -24, ptr noundef nonnull %.077137.us, i64 noundef range(i64 -2147483648, 2147483648) %26, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %63, i32 noundef -24, ptr noundef %5, ptr noundef null) #5
   br label %ompi_coll_base_sendrecv.exit.us
 
 69:                                               ; preds = %65
@@ -448,7 +448,7 @@ ompi_coll_base_sendrecv.exit.us:                  ; preds = %69, %67
   br label %ompi_coll_base_sendrecv.exit
 
 84:                                               ; preds = %80
-  %85 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %50, i64 noundef %26, ptr noundef %3, i32 noundef %78, i32 noundef -24, ptr noundef nonnull %60, i64 noundef %26, ptr noundef %3, i32 noundef %78, i32 noundef -24, ptr noundef %5, ptr noundef null) #5
+  %85 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %50, i64 noundef range(i64 -2147483648, 2147483648) %26, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %78, i32 noundef -24, ptr noundef nonnull %60, i64 noundef range(i64 -2147483648, 2147483648) %26, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %78, i32 noundef -24, ptr noundef %5, ptr noundef null) #5
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %82, %84

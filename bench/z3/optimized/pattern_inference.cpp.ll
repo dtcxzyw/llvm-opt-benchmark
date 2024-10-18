@@ -713,7 +713,7 @@ lpad2.i:                                          ; preds = %invoke.cont
           cleanup
   %m_todo.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN7svectorISt4pairIP4exprS2_EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_todo.i) #21
-  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_le) #21
+  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_le) #21
   br label %ehcleanup39
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -1441,7 +1441,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   store ptr %3, ptr %ref.tmp.i.i.i, align 8
   store i32 %delta, ptr %e.sroa.3.0.ref.tmp.i.i.sroa_idx.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   %cmp.i.not.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit
@@ -1497,7 +1497,7 @@ sw.bb6:                                           ; preds = %entry
   store ptr %11, ptr %ref.tmp.i.i.i8, align 8
   %e.sroa.3.0.ref.tmp.i.i.sroa_idx.i10 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i8, i64 8
   store i32 %add, ptr %e.sroa.3.0.ref.tmp.i.i.sroa_idx.i10, align 8
-  %call.i.i.i11 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i9, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i8)
+  %call.i.i.i11 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i9, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i8)
   %cmp.i.not.i12 = icmp eq ptr %call.i.i.i11, null
   br i1 %cmp.i.not.i12, label %if.then.i13, label %sw.epilog
@@ -1702,7 +1702,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNK6vectorIjLb0EjE
 lpad.i:                                           ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call9) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %call9) #21
   br label %lpad.body
 
 if.else:                                          ; preds = %if.end
@@ -1775,7 +1775,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i72:                ; preds = %_ZNK6vectorIjLb0EjE
 lpad.i64:                                         ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i.i57
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call12) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %call12) #21
   br label %lpad.body
 
 if.end22:                                         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i72, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i69, %call3.i.i.i.i.noexc.i65, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i54, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i, %call3.i.i.i.i.noexc.i, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
@@ -1789,7 +1789,7 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i.i
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %call12.sink, ptr %m_value.i.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
           to label %if.then.i unwind label %lpad.loopexit.split-lp
 
 if.then.i:                                        ; preds = %if.end22
@@ -1852,7 +1852,7 @@ if.else24:                                        ; preds = %sw.bb
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i87, align 8
   %m_value.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp.i.i85, i64 16
   store ptr null, ptr %m_value.i.i.i88, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i86, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i85)
+  call void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i86, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i85)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i85)
   br label %return
 
@@ -1872,7 +1872,7 @@ if.then30:                                        ; preds = %sw.bb26
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i91, align 8
   %m_value.i.i.i92 = getelementptr inbounds i8, ptr %ref.tmp.i.i89, i64 16
   store ptr null, ptr %m_value.i.i.i92, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i90, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i89)
+  call void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i90, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i89)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i89)
   br label %return
 
@@ -1904,7 +1904,7 @@ invoke.cont38:                                    ; preds = %if.end31
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i122, align 8
   %m_value.i.i.i123 = getelementptr inbounds i8, ptr %ref.tmp.i.i120, i64 16
   store ptr %call35, ptr %m_value.i.i.i123, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i121, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i120)
+  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i121, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i120)
           to label %if.then.i125 unwind label %lpad37.body
 
 if.then.i125:                                     ; preds = %invoke.cont38
@@ -1974,7 +1974,7 @@ for.body:                                         ; preds = %if.end40, %invoke.c
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i150)
   store ptr %50, ptr %ref.tmp.i.i150, align 8
   store i32 %delta, ptr %ref.tmp51.sroa.2.0.ref.tmp.i.i150.sroa_idx, align 8
-  %call.i.i152 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i150)
+  %call.i.i152 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i150)
           to label %call.i.i.noexc unwind label %lpad44.loopexit.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %for.body
@@ -1995,7 +1995,7 @@ if.then56:                                        ; preds = %call.i.i.noexc, %in
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i155, align 8
   %m_value.i.i.i156 = getelementptr inbounds i8, ptr %ref.tmp.i.i153, i64 16
   store ptr null, ptr %m_value.i.i.i156, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i153)
+  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i153)
           to label %_ZN21pattern_inference_cfg7collect4saveEP4exprjPNS0_4infoE.exit158 unwind label %lpad44.loopexit.split-lp
 
 _ZN21pattern_inference_cfg7collect4saveEP4exprjPNS0_4infoE.exit158: ; preds = %if.then56
@@ -2274,7 +2274,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i217:               ; preds = %_ZNK6vectorIjLb0EjE
 lpad.i209:                                        ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i.i202
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call84) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %call84) #21
   br label %lpad44.body
 
 invoke.cont86:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i217, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i214, %call3.i.i.i.i.noexc.i210, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i199
@@ -2286,7 +2286,7 @@ invoke.cont86:                                    ; preds = %if.then.i.i.i.i.i.i
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i223, align 8
   %m_value.i.i.i224 = getelementptr inbounds i8, ptr %ref.tmp.i.i221, i64 16
   store ptr %call84, ptr %m_value.i.i.i224, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i221)
+  invoke void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i221)
           to label %if.then.i226 unwind label %lpad44.loopexit.split-lp
 
 if.then.i226:                                     ; preds = %invoke.cont86
@@ -2431,7 +2431,7 @@ sw.default:                                       ; preds = %entry
   store i32 %delta, ptr %ref.tmp.sroa.2.0.ref.tmp.i.sroa_idx.i266, align 8
   %m_value.i.i.i267 = getelementptr inbounds i8, ptr %ref.tmp.i.i264, i64 16
   store ptr null, ptr %m_value.i.i.i267, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i265, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i264)
+  call void @_ZN14core_hashtableI17default_map_entryIN21pattern_inference_cfg7collect5entryEPNS2_4infoEEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE6insertEO9_key_dataIS3_S5_E(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i265, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i264)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i264)
   br label %return
 
@@ -2973,7 +2973,7 @@ _ZN21pattern_inference_cfg4infoC2ERK8uint_setj.exit: ; preds = %if.then3, %_ZNK6
   store ptr null, ptr %ref.tmp, align 8
   %m_size.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i32 %size, ptr %m_size.i.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_inference_cfg4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_candidates_info, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_inference_cfg4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_candidates_info, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN21pattern_inference_cfg4infoC2ERK8uint_setj.exit
@@ -3696,7 +3696,7 @@ if.else:                                          ; preds = %_ZN15smaller_patter
   store ptr %3, ptr %ref.tmp.i.i, align 8
   store ptr null, ptr %m_value.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_inference_cfg4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_candidates_info, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_inference_cfg4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_candidates_info, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.else
@@ -6568,7 +6568,7 @@ _ZSt11stable_sortIPP3appN21pattern_inference_cfg17pattern_weight_ltEEvT_S5_T0_.e
 if.end23:                                         ; preds = %land.lhs.true, %entry, %_ZN6vectorIP3appLb0EjE5resetEv.exit, %_ZSt11stable_sortIPP3appN21pattern_inference_cfg17pattern_weight_ltEEvT_S5_T0_.exit, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit, %_ZN6vectorIP3appLb0EjE5resetEv.exit17, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   tail call void @_ZN21pattern_inference_cfg18reset_pre_patternsEv(ptr noundef nonnull align 8 dereferenceable(504) %this)
   %m_candidates_info = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_inference_cfg4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_candidates_info)
+  tail call void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_inference_cfg4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_candidates_info)
   %22 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i25 = icmp eq ptr %22, null
   br i1 %cmp.i.i25, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i
@@ -8202,7 +8202,7 @@ entry:
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_bindings, align 8
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
@@ -8214,7 +8214,7 @@ invoke.cont3:                                     ; preds = %entry
   %m_shift2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_shift2.i, align 8
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -8243,7 +8243,7 @@ lpad2:                                            ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont3
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #21
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #21
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad4, %lpad2
@@ -8269,7 +8269,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV20pattern_inference_rw, i64 16), ptr %this, align 8
   %m_cfg.i = getelementptr inbounds i8, ptr %this, i64 536
   tail call void @_ZN21pattern_inference_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %m_cfg.i) #21
-  tail call void @_ZN12rewriter_tplI21pattern_inference_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #21
+  tail call void @_ZN12rewriter_tplI21pattern_inference_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -8442,7 +8442,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -12223,9 +12223,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #21
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #21
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #21
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #21
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null

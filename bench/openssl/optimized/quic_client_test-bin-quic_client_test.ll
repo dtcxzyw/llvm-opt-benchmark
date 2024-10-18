@@ -201,7 +201,7 @@ lor.end:                                          ; preds = %if.then82
   br i1 %tobool91.not, label %err, label %if.then96
 
 lor.end.thread:                                   ; preds = %if.then82
-  %call.i = call i32 @SSL_get_error(ptr noundef %call37, i32 noundef %call83) #6
+  %call.i = call i32 @SSL_get_error(ptr noundef %call37, i32 noundef range(i32 2, 1) %call83) #6
   %1 = and i32 %call.i, -2
   %2 = icmp eq i32 %1, 2
   %lor.ext.i = zext i1 %2 to i32
@@ -258,7 +258,7 @@ if.end144.thread55:                               ; preds = %if.then125
   br label %if.then146
 
 if.else:                                          ; preds = %if.then125
-  %call.i40 = call i32 @SSL_get_error(ptr noundef %call37, i32 noundef %call122) #6
+  %call.i40 = call i32 @SSL_get_error(ptr noundef %call37, i32 noundef range(i32 2, 1) %call122) #6
   %3 = and i32 %call.i40, -2
   %4 = icmp eq i32 %3, 2
   %lor.ext.i41 = zext i1 %4 to i32

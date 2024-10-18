@@ -1094,13 +1094,13 @@ if.then.i:                                        ; preds = %sw.bb9
   %7 = load i32, ptr %6, align 8
   %data.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %data.i, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.44, i32 noundef %add, ptr noundef nonnull @.str.6, i32 noundef %7, ptr noundef %8) #4
+  %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.44, i32 noundef range(i32 -2147483644, -2147483648) %add, ptr noundef nonnull @.str.6, i32 noundef %7, ptr noundef %8) #4
   %noticenos.i = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr %noticenos.i, align 8
   %call4.i = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #4
   %cmp.i = icmp sgt i32 %call4.i, 1
   %cond.i = select i1 %cmp.i, ptr @.str.46, ptr @.str.6
-  %call5.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.45, i32 noundef %add, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond.i) #4
+  %call5.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.45, i32 noundef range(i32 -2147483644, -2147483648) %add, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond.i) #4
   %10 = load ptr, ptr %noticenos.i, align 8
   %call825.i = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #4
   %cmp926.i = icmp sgt i32 %call825.i, 0
@@ -1162,7 +1162,7 @@ if.then32.i:                                      ; preds = %if.end29.i
   %15 = load i32, ptr %14, align 8
   %data36.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %data36.i, align 8
-  %call37.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.49, i32 noundef %add, ptr noundef nonnull @.str.6, i32 noundef %15, ptr noundef %16) #4
+  %call37.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.49, i32 noundef range(i32 -2147483644, -2147483648) %add, ptr noundef nonnull @.str.6, i32 noundef %15, ptr noundef %16) #4
   br label %for.inc
 
 sw.default:                                       ; preds = %if.end

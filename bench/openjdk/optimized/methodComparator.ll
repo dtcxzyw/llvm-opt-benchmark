@@ -233,7 +233,7 @@ _ZN16MethodComparator27check_stack_and_locals_sizeEP6MethodS1_.exit28: ; preds =
   %105 = sext i32 %101 to i64
   %106 = getelementptr inbounds ptr, ptr %104, i64 %105
   store ptr %0, ptr %106, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #10
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #10
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
   store ptr %1, ptr %6, align 8
   %107 = getelementptr inbounds i8, ptr %6, i64 8
@@ -268,7 +268,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit35:      ; preds = %100, %113
   %125 = sext i32 %121 to i64
   %126 = getelementptr inbounds ptr, ptr %124, i64 %125
   store ptr %1, ptr %126, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #10
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #10
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
   br label %127
 

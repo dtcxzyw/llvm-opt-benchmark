@@ -1196,7 +1196,7 @@ if.then536:                                       ; preds = %if.end533
 
 if.then.i391:                                     ; preds = %if.then536
   %102 = load i32, ptr %arrayidx.i394, align 4
-  %call.i395 = tail call fastcc ptr @multadd(ptr noundef %rv.0.i, i32 noundef %102, i32 noundef 0)
+  %call.i395 = tail call fastcc ptr @multadd(ptr noundef nonnull %rv.0.i, i32 noundef %102, i32 noundef 0)
   %cmp.i396 = icmp eq ptr %call.i395, null
   br i1 %cmp.i396, label %failed_malloc, label %if.end2.i397
 

@@ -431,7 +431,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %151, %361
 
 175:                                              ; preds = %.lr.ph.i
   %176 = xor i64 %.031.val.i, %.032.val.i
-  %177 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %176, i1 true)
+  %177 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %176, i1 true)
   %178 = lshr i64 %177, 3
   %179 = getelementptr inbounds i8, ptr %.03141.i, i64 %178
   br label %_ZL9LZ4_countPKhS0_S0_.exit
@@ -518,7 +518,7 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %175, %195, %197
 
 214:                                              ; preds = %.lr.ph.i312
   %215 = xor i64 %.031.val.i316, %.032.val.i315
-  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %215, i1 true)
+  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %215, i1 true)
   %217 = lshr i64 %216, 3
   %218 = getelementptr inbounds i8, ptr %.03141.i313, i64 %217
   br label %_ZL9LZ4_countPKhS0_S0_.exit318
@@ -604,7 +604,7 @@ _ZL9LZ4_countPKhS0_S0_.exit318:                   ; preds = %214, %232, %234
 
 252:                                              ; preds = %.lr.ph.i334
   %253 = xor i64 %.031.val.i338, %.032.val.i337
-  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %253, i1 true)
+  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %253, i1 true)
   %255 = lshr i64 %254, 3
   %256 = getelementptr inbounds i8, ptr %.03141.i335, i64 %255
   br label %_ZL9LZ4_countPKhS0_S0_.exit340
@@ -973,11 +973,11 @@ LZ4_compressBound.exit.i:                         ; preds = %8, %4
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = call fastcc noundef i32 @_ZL29LZ4_compress_destSize_genericPvPKcPcPii11tableType_t(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 2)
+  %18 = call fastcc noundef i32 @_ZL29LZ4_compress_destSize_genericPvPKcPcPii11tableType_t(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 2)
   br label %_ZL30LZ4_compress_destSize_extStatePvPKcPcPii.exit
 
 19:                                               ; preds = %15
-  %20 = call fastcc noundef i32 @_ZL29LZ4_compress_destSize_genericPvPKcPcPii11tableType_t(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 1)
+  %20 = call fastcc noundef i32 @_ZL29LZ4_compress_destSize_genericPvPKcPcPii11tableType_t(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 1)
   br label %_ZL30LZ4_compress_destSize_extStatePvPKcPcPii.exit
 
 _ZL30LZ4_compress_destSize_extStatePvPKcPcPii.exit: ; preds = %13, %17, %19
@@ -2314,7 +2314,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %107, %223
 
 123:                                              ; preds = %.lr.ph.i
   %124 = xor i64 %.031.val.i, %.032.val.i
-  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %124, i1 true)
+  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %124, i1 true)
   %126 = lshr i64 %125, 3
   %127 = getelementptr inbounds i8, ptr %.03141.i, i64 %126
   br label %_ZL9LZ4_countPKhS0_S0_.exit

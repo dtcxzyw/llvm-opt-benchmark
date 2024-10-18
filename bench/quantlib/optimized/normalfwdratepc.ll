@@ -835,7 +835,7 @@ _ZNSt12_Vector_baseIN8QuantLib24LMMNormalDriftCalculatorESaIS1_EE11_M_allocateEm
           to label %call5.i.i.i.i.noexc unwind label %lpad75
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseIN8QuantLib24LMMNormalDriftCalculatorESaIS1_EE11_M_allocateEm.exit.i
-  %call9.i = call noundef ptr @_ZNSt6vectorIN8QuantLib24LMMNormalDriftCalculatorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %call5.i.i.i.i239, ptr noundef nonnull align 1 dereferenceable(1) %calculators_) #22
+  %call9.i = call noundef ptr @_ZNSt6vectorIN8QuantLib24LMMNormalDriftCalculatorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %call5.i.i.i.i239, ptr noundef nonnull align 8 dereferenceable(24) %calculators_) #22
   %73 = load ptr, ptr %calculators_, align 8, !tbaa !46
   %tobool.not.i.i = icmp eq ptr %73, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8QuantLib24LMMNormalDriftCalculatorESaIS1_EE7reserveEm.exit.thread, label %if.then.i.i237
@@ -2486,7 +2486,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   %__first.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %__first, %entry ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i, i64 40, i1 false), !alias.scope !75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %__cur.07.i.i, ptr noundef nonnull align 8 dereferenceable(208) %__first.addr.06.i.i, i64 40, i1 false), !alias.scope !75
   %oneOverTaus_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i, i64 40
   %oneOverTaus_3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i, i64 40
   %0 = load ptr, ptr %oneOverTaus_3.i.i.i.i.i.i, align 8, !tbaa !39, !alias.scope !73, !noalias !70

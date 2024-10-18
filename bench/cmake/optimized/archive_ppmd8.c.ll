@@ -1426,7 +1426,7 @@ AllocUnits.exit.thread:                           ; preds = %265
   br label %AllocUnits.exit
 
 292:                                              ; preds = %278
-  %293 = tail call fastcc ptr @AllocUnitsRare(ptr noundef nonnull %0, i32 noundef %267)
+  %293 = tail call fastcc ptr @AllocUnitsRare(ptr noundef nonnull %0, i32 noundef range(i32 0, 257) %267)
   br label %AllocUnits.exit
 
 AllocUnits.exit:                                  ; preds = %289, %292
@@ -3173,7 +3173,7 @@ SpecialFreeUnit.exit:                             ; preds = %38, %51
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
   %68 = add nuw nsw i32 %60, 2
   %69 = lshr i32 %68, 1
-  %70 = tail call fastcc ptr @ShrinkUnits(ptr noundef nonnull %0, ptr noundef %67, i32 noundef %62, i32 noundef %69)
+  %70 = tail call fastcc ptr @ShrinkUnits(ptr noundef nonnull %0, ptr noundef %67, i32 noundef range(i32 1, 130) %62, i32 noundef %69)
   %71 = load ptr, ptr %4, align 8
   %72 = ptrtoint ptr %70 to i64
   %73 = ptrtoint ptr %71 to i64
@@ -3264,7 +3264,7 @@ Refresh.exit:                                     ; preds = %89
   %128 = load i32, ptr %127, align 1
   %129 = zext i32 %128 to i64
   %130 = getelementptr inbounds i8, ptr %126, i64 %129
-  %131 = tail call fastcc ptr @ShrinkUnits(ptr noundef nonnull %0, ptr noundef %130, i32 noundef %125, i32 noundef %125)
+  %131 = tail call fastcc ptr @ShrinkUnits(ptr noundef nonnull %0, ptr noundef %130, i32 noundef range(i32 1, 130) %125, i32 noundef %125)
   %132 = load ptr, ptr %4, align 8
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
@@ -4363,7 +4363,7 @@ MoveUnitsUp.exit:                                 ; preds = %55, %66, %100, %114
   %261 = and i32 %.1, 255
   %262 = add nuw nsw i32 %261, 2
   %263 = lshr i32 %262, 1
-  %264 = tail call fastcc ptr @ShrinkUnits(ptr noundef nonnull %0, ptr noundef %171, i32 noundef %61, i32 noundef %263)
+  %264 = tail call fastcc ptr @ShrinkUnits(ptr noundef nonnull %0, ptr noundef %171, i32 noundef range(i32 1, 130) %61, i32 noundef %263)
   %265 = load ptr, ptr %6, align 8
   %266 = ptrtoint ptr %264 to i64
   %267 = ptrtoint ptr %265 to i64

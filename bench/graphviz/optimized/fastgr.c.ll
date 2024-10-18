@@ -303,13 +303,13 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
   br label %gv_realloc.exit
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef %10) #17
+  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef range(i64 0, -7) %10) #17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i64 noundef %10) #14
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -7) %10) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
@@ -575,7 +575,7 @@ safe_list_append.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef ptr @new_virtual_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #18
+  %4 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 473) 128) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %gv_alloc.exit
 
@@ -589,7 +589,7 @@ gv_alloc.exit:                                    ; preds = %3
   %9 = getelementptr inbounds i8, ptr %4, i64 64
   store i32 3, ptr %9, align 8
   store i32 2, ptr %4, align 8
-  %10 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #18
+  %10 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 473) 240) #18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %gv_alloc.exit71
 
@@ -791,7 +791,7 @@ define void @delete_fast_node(ptr nocapture noundef readonly %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @virtual_node(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #18
+  %2 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 473) 104) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
 
@@ -803,7 +803,7 @@ define noundef ptr @virtual_node(ptr noundef %0) local_unnamed_addr #1 {
 
 gv_alloc.exit:                                    ; preds = %1
   store i32 1, ptr %2, align 8
-  %7 = tail call noalias dereferenceable_or_null(472) ptr @calloc(i64 noundef 1, i64 noundef 472) #18
+  %7 = tail call noalias dereferenceable_or_null(472) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 473) 472) #18
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %gv_alloc.exit17
 

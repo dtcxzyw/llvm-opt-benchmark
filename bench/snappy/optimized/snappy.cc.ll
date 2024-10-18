@@ -1823,7 +1823,7 @@ _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %_ZN6snappy17SnappyI
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %compressed_length, align 8
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer) #19
-  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader) #19
+  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %reader) #19
   ret void
 }
 
@@ -1960,7 +1960,7 @@ _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit: ; preds = %cond.true3.i.i, 
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer.i) #19
-  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader.i) #19
+  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %reader.i) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %writer.i)
   %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %sub.ptr.sub.i, i64 noundef -1) #19
@@ -2358,7 +2358,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }

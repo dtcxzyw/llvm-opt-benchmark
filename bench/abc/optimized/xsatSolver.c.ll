@@ -694,7 +694,7 @@ xSAT_SolverReadClause.exit.i.i:                   ; preds = %131, %xSAT_SolverRe
 xSAT_SolverClaActRescale.exit.i:                  ; preds = %xSAT_SolverReadClause.exit.i.i, %131
   %154 = load i32, ptr %120, align 4
   %155 = ashr i32 %154, 14
-  %156 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 %155, i32 1024)
+  %156 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %155, i32 1024)
   store i32 %156, ptr %120, align 4
   br label %xSAT_SolverClaActBump.exit
 
@@ -3141,7 +3141,7 @@ xSAT_SolverReadClause.exit.i.i.i:                 ; preds = %187, %xSAT_SolverRe
 xSAT_SolverClaActRescale.exit.i.i:                ; preds = %xSAT_SolverReadClause.exit.i.i.i, %187
   %210 = load i32, ptr %16, align 4
   %211 = ashr i32 %210, 14
-  %212 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 %211, i32 1024)
+  %212 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %211, i32 1024)
   store i32 %212, ptr %16, align 4
   br label %xSAT_SolverClaActBump.exit.i
 
@@ -3307,7 +3307,7 @@ xSAT_SolverClaCalcLBD.exit.i:                     ; preds = %239, %216
 xSAT_SolverVarActRescale.exit.i.i:                ; preds = %.lr.ph.i.i.i, %286
   %298 = load i32, ptr %23, align 8
   %299 = ashr i32 %298, 19
-  %300 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 %299, i32 32)
+  %300 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %299, i32 32)
   store i32 %300, ptr %23, align 8
   br label %301
 
@@ -4538,7 +4538,7 @@ xSAT_SolverReadClause.exit223.i:                  ; preds = %xSAT_SolverClaCalcL
 xSAT_SolverVarActRescale.exit.i228.i:             ; preds = %.lr.ph.i.i258.i, %881
   %893 = load i32, ptr %23, align 8
   %894 = ashr i32 %893, 19
-  %895 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 %894, i32 32)
+  %895 = tail call range(i32 32, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %894, i32 32)
   store i32 %895, ptr %23, align 8
   br label %896
 

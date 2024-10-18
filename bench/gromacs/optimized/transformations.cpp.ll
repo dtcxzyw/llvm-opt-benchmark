@@ -5447,7 +5447,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i910.i.i = lshr i64 %.0919.in.i.i.i.i, 1
   %39 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.0919.i.i910.i.i
-  %40 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 4 dereferenceable(20) %5)
+  %40 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 8 dereferenceable(20) %5)
   br i1 %40, label %41, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i
 
 41:                                               ; preds = %.lr.ph.i.i.i.i
@@ -5539,7 +5539,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %.0919.in.i.i.i = add nsw i64 %.018.i.i.i, -1
   %.0919.i.i.i = sdiv i64 %.0919.in.i.i.i, 2
   %36 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.0919.i.i.i
-  %37 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %36, ptr noundef nonnull align 4 dereferenceable(20) %6)
+  %37 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(20) %6)
   br i1 %37, label %38, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i
 
 38:                                               ; preds = %.lr.ph.i.i.i
@@ -5624,7 +5624,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_Sa
   %.0919.in.i.i.i17 = add nsw i64 %.018.i.i.i16, -1
   %.0919.i.i910.i = lshr i64 %.0919.in.i.i.i17, 1
   %72 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.0919.i.i910.i
-  %73 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %72, ptr noundef nonnull align 4 dereferenceable(20) %5)
+  %73 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %72, ptr noundef nonnull align 8 dereferenceable(20) %5)
   br i1 %73, label %74, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit
 
 74:                                               ; preds = %.lr.ph.i.i.i15
@@ -5948,7 +5948,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i910.i.i = lshr i64 %.0919.in.i.i.i.i, 1
   %39 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.0919.i.i910.i.i
-  %40 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %39, ptr noundef nonnull align 4 dereferenceable(24) %5)
+  %40 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br i1 %40, label %41, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i
 
 41:                                               ; preds = %.lr.ph.i.i.i.i
@@ -6040,7 +6040,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %.0919.in.i.i.i = add nsw i64 %.018.i.i.i, -1
   %.0919.i.i.i = sdiv i64 %.0919.in.i.i.i, 2
   %36 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.0919.i.i.i
-  %37 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %36, ptr noundef nonnull align 4 dereferenceable(24) %6)
+  %37 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br i1 %37, label %38, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i
 
 38:                                               ; preds = %.lr.ph.i.i.i
@@ -6125,7 +6125,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_Sa
   %.0919.in.i.i.i17 = add nsw i64 %.018.i.i.i16, -1
   %.0919.i.i910.i = lshr i64 %.0919.in.i.i.i17, 1
   %72 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.0919.i.i910.i
-  %73 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %72, ptr noundef nonnull align 4 dereferenceable(24) %5)
+  %73 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br i1 %73, label %74, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit
 
 74:                                               ; preds = %.lr.ph.i.i.i15

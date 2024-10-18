@@ -38,13 +38,13 @@ define range(i32 0, 2) i32 @Ptriangulate(ptr nocapture noundef readonly %0, ptr 
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8) #9
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #9
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
 10:                                               ; preds = %3
   %11 = icmp ne i32 %5, 0
-  %12 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #11
+  %12 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #11
   %13 = icmp eq ptr %12, null
   %or.cond3.i = and i1 %11, %13
   br i1 %or.cond3.i, label %15, label %gv_calloc.exit.preheader

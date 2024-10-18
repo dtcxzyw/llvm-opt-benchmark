@@ -58,7 +58,7 @@ define dso_local void @_ZN5clang14NoSanitizeListD2Ev(ptr nocapture noundef nonnu
   br label %_ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit.i: ; preds = %6, %3
-  tail call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #6
+  tail call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #7
   br label %_ZNSt10unique_ptrIN5clang24SanitizerSpecialCaseListESt14default_deleteIS1_EED2Ev.exit
 

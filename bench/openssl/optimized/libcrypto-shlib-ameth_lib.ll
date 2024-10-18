@@ -57,7 +57,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %sub = add nsw i32 %idx, -16
   %1 = load ptr, ptr @app_methods, align 8
-  %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %sub) #10
+  %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %sub) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end3, %if.then2
@@ -89,7 +89,7 @@ if.then.i:                                        ; preds = %for.cond
 
 if.then1.i:                                       ; preds = %if.then.i
   %1 = load ptr, ptr @app_methods, align 8
-  %call.i5.i = call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %call.i.i) #10
+  %call.i5.i = call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %call.i.i) #10
   br label %pkey_asn1_find.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %for.cond
@@ -222,7 +222,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %6 = load ptr, ptr @app_methods, align 8
   %7 = trunc i64 %indvars.iv to i32
   %8 = add i32 %7, -17
-  %call.i.i14 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %8) #10
+  %call.i.i14 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef range(i32 0, -2147483648) %8) #10
   br label %EVP_PKEY_asn1_get0.exit
 
 EVP_PKEY_asn1_get0.exit:                          ; preds = %if.then2.i, %if.end3.i

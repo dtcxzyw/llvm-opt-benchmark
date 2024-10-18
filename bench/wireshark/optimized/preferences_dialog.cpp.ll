@@ -181,7 +181,7 @@ define void @_ZN17PreferencesDialogC2EP7QWidget(ptr noundef nonnull align 8 dere
   %23 = alloca %class.QString, align 8
   %24 = alloca %"class.QMetaObject::Connection", align 8
   %25 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
@@ -3052,7 +3052,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN16ModulePrefsModelD2Ev.exit
 
 _ZN16ModulePrefsModelD2Ev.exit:                   ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %27
-  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #19
+  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   %29 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
   %30 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3073,7 +3073,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i4:   ; preds = %_ZN16ModulePrefsMod
   br label %_ZN18AdvancedPrefsModelD2Ev.exit
 
 _ZN18AdvancedPrefsModelD2Ev.exit:                 ; preds = %_ZN16ModulePrefsModelD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i4, %34
-  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #19
+  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %30) #19
   %36 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN10PrefsModelD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3168,7 +3168,7 @@ define void @_ZN17PreferencesDialogD0Ev(ptr noundef nonnull align 8 dereferencea
 define void @_ZThn16_N17PreferencesDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN17PreferencesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(248) %2) #20
   ret void
 }
 
@@ -6161,7 +6161,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEEC2Em.exit, label %27
@@ -6356,7 +6356,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -6630,7 +6630,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit32, label %30
@@ -6789,7 +6789,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit: ; preds = %.
   store i8 %116, ptr %88, align 1
   %117 = getelementptr [128 x i8], ptr %87, i64 0, i64 %.pre-phi38
   store i8 %113, ptr %117, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 24, i1 false)
   %118 = load ptr, ptr %49, align 8
   store ptr %118, ptr %115, align 8
   store ptr null, ptr %49, align 8

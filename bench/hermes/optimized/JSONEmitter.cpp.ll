@@ -53,7 +53,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN4llvh11SmallVectorIN6hermes11JSONEmitter5StateELj8EEC2EOS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIN6hermes11JSONEmitter5StateEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIN6hermes11JSONEmitter5StateEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %0)
   br label %_ZN4llvh11SmallVectorIN6hermes11JSONEmitter5StateELj8EEC2EOS4_.exit
 
 _ZN4llvh11SmallVectorIN6hermes11JSONEmitter5StateELj8EEC2EOS4_.exit: ; preds = %entry, %if.then.i

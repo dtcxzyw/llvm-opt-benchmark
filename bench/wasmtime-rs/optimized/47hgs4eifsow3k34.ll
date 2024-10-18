@@ -3225,7 +3225,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 
 ._crit_edge:                                      ; preds = %148, %90, %58, %24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !420
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb6d076753058526E.llvm.14031171042790067460"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb6d076753058526E.llvm.14031171042790067460"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
   %101 = getelementptr inbounds i8, ptr %6, i64 8
   %102 = load i64, ptr %101, align 8, !range !429, !noalias !420, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %102, 0
@@ -3382,7 +3382,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 154:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !436
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb6d076753058526E.llvm.14031171042790067460"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdb6d076753058526E.llvm.14031171042790067460"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
   %155 = getelementptr inbounds i8, ptr %2, i64 8
   %156 = load i64, ptr %155, align 8, !range !429, !noalias !436, !noundef !4
   %.not.i.i.i.i16 = icmp eq i64 %156, 0
@@ -4844,7 +4844,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance15resource_tables17hcc0f621f12
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e69eb25d35231aE.llvm.12590180234123606466.exit"
 
 27:                                               ; preds = %_ZN16wasmtime_runtime9component17ComponentInstance15resource_tables17hcc0f621f12c9b1d3E.llvm.12590180234123606466.exit
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0b5d5b97d740b084E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %24)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0b5d5b97d740b084E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %24)
           to label %._crit_edge.i unwind label %28, !noalias !810
 
 ._crit_edge.i:                                    ; preds = %27
@@ -5109,7 +5109,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14f
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %88
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h479e8c472b68ee56E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %89)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h479e8c472b68ee56E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %89)
           to label %._crit_edge.i.i.i unwind label %94, !noalias !860
 
 ._crit_edge.i.i.i:                                ; preds = %93

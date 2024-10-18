@@ -539,13 +539,13 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_129NonnullGlobalConstantsCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_129NonnullGlobalConstantsCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #15
   ret void
 }
@@ -775,7 +775,7 @@ _ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker19isGlobalConstStringEN5clang4e
 
 107:                                              ; preds = %105
   store ptr %38, ptr %11, align 8, !alias.scope !21
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %38) #16, !noalias !21
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %38) #16, !noalias !21
   br label %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i
 
 108:                                              ; preds = %105
@@ -784,7 +784,7 @@ _ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker19isGlobalConstStringEN5clang4e
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 104
   %112 = load ptr, ptr %111, align 8, !noalias !21
   store ptr %38, ptr %9, align 8, !noalias !21
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %38) #16, !noalias !21
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %38) #16, !noalias !21
   call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull %9, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, i1 noundef zeroext true) #16
   %113 = load ptr, ptr %9, align 8, !noalias !21
   %.not.i.i.i17.i = icmp eq ptr %113, null

@@ -773,7 +773,7 @@ declare void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22FunctionInvocationUserD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
+  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -784,7 +784,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK22FunctionInvocationUser5cloneEv(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(65) %2, ptr noundef nonnull align 8 dereferenceable(65) %0)
           to label %3 unwind label %11
 
 3:                                                ; preds = %1
@@ -1005,7 +1005,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
           to label %84 unwind label %.loopexit.split-lp102
 
 84:                                               ; preds = %._crit_edge
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %83, i32 noundef 2, ptr noundef null)
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(65) %83, i32 noundef 2, ptr noundef null)
           to label %85 unwind label %223
 
 85:                                               ; preds = %84
@@ -1177,7 +1177,7 @@ _ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i..noexc76_crit_e
   %152 = load ptr, ptr %11, align 8
   %153 = getelementptr inbounds ptr, ptr %152, i64 %.07.i
   %154 = load ptr, ptr %153, align 8
-  invoke void @_Z30add_return_fact_for_invocationPK22FunctionInvocationUserPK4Fact(ptr noundef nonnull %83, ptr noundef %154)
+  invoke void @_Z30add_return_fact_for_invocationPK22FunctionInvocationUserPK4Fact(ptr noundef nonnull align 8 dereferenceable(65) %83, ptr noundef %154)
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit
 
 .noexc80:                                         ; preds = %151, %.noexc79
@@ -2572,7 +2572,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   %181 = load ptr, ptr %16, align 8
   %182 = getelementptr inbounds ptr, ptr %181, i64 %.07.i
   %183 = load ptr, ptr %182, align 8
-  invoke void @_Z30add_return_fact_for_invocationPK22FunctionInvocationUserPK4Fact(ptr noundef nonnull %0, ptr noundef %183)
+  invoke void @_Z30add_return_fact_for_invocationPK22FunctionInvocationUserPK4Fact(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %183)
           to label %.noexc75 unwind label %.loopexit
 
 .noexc75:                                         ; preds = %180, %.noexc74

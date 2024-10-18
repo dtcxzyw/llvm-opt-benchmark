@@ -951,7 +951,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   %allocated.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %conv, ptr %allocated.i, align 4
-  %call1.i = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 8) #17
+  %call1.i = tail call noalias ptr @g_malloc0_n(i64 noundef range(i64 0, 524289) %div, i64 noundef 8) #17
   %offset.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %offset.i, align 8
   %1 = load ptr, ptr @multifd_send_state, align 8
@@ -1000,7 +1000,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call.i35 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   %allocated.i37 = getelementptr inbounds i8, ptr %call.i35, i64 4
   store i32 %conv, ptr %allocated.i37, align 4
-  %call1.i38 = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 8) #17
+  %call1.i38 = tail call noalias ptr @g_malloc0_n(i64 noundef range(i64 0, 524289) %div, i64 noundef 8) #17
   %offset.i39 = getelementptr inbounds i8, ptr %call.i35, i64 16
   store ptr %call1.i38, ptr %offset.i39, align 8
   %pages18 = getelementptr inbounds i8, ptr %arrayidx15, i64 352

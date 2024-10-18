@@ -44,7 +44,7 @@ $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm27install_fatal_error_handlerEPFvPvPKcbES0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
 
@@ -55,13 +55,13 @@ define dso_local void @_ZN4llvm27install_fatal_error_handlerEPFvPvPKcbES0_(ptr n
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   store ptr %0, ptr @_ZL12ErrorHandler, align 8
   store ptr %1, ptr @_ZL20ErrorHandlerUserData, align 8
-  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm26remove_fatal_error_handlerEv() local_unnamed_addr #0 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %2
 
@@ -72,7 +72,7 @@ define dso_local void @_ZN4llvm26remove_fatal_error_handlerEv() local_unnamed_ad
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
   store ptr null, ptr @_ZL12ErrorHandler, align 8
   store ptr null, ptr @_ZL20ErrorHandlerUserData, align 8
-  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   ret void
 }
 
@@ -102,7 +102,7 @@ define dso_local void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef no
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = alloca %"class.llvm::raw_svector_ostream", align 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %7
 
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef no
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %8 = load ptr, ptr @_ZL12ErrorHandler, align 8
   %9 = load ptr, ptr @_ZL20ErrorHandlerUserData, align 8
-  %10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %11
 
@@ -126,7 +126,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %14, i64 noundef 64) #12
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %14, i64 noundef 64) #12
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -138,7 +138,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %19, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -186,8 +186,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %38, %40
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %43) #12
   %46 = call i64 @write(i32 noundef 2, ptr noundef %44, i64 noundef %45) #12
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #12
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
   %48 = load ptr, ptr %4, align 8
   %49 = icmp eq ptr %48, %14
   br i1 %49, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, label %50
@@ -281,7 +281,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm31install_bad_alloc_error_handlerEPFvPvPKcbES0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL25BadAllocErrorHandlerMutex) #12
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL25BadAllocErrorHandlerMutex) #12
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
 
@@ -292,13 +292,13 @@ define dso_local void @_ZN4llvm31install_bad_alloc_error_handlerEPFvPvPKcbES0_(p
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   store ptr %0, ptr @_ZL20BadAllocErrorHandler, align 8
   store ptr %1, ptr @_ZL28BadAllocErrorHandlerUserData, align 8
-  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL25BadAllocErrorHandlerMutex) #12
+  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL25BadAllocErrorHandlerMutex) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm30remove_bad_alloc_error_handlerEv() local_unnamed_addr #0 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL25BadAllocErrorHandlerMutex) #12
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL25BadAllocErrorHandlerMutex) #12
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %2
 
@@ -309,13 +309,13 @@ define dso_local void @_ZN4llvm30remove_bad_alloc_error_handlerEv() local_unname
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
   store ptr null, ptr @_ZL20BadAllocErrorHandler, align 8
   store ptr null, ptr @_ZL28BadAllocErrorHandlerUserData, align 8
-  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL25BadAllocErrorHandlerMutex) #12
+  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL25BadAllocErrorHandlerMutex) #12
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define dso_local void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL25BadAllocErrorHandlerMutex) #12
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL25BadAllocErrorHandlerMutex) #12
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
 
@@ -326,7 +326,7 @@ define dso_local void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef %0, i1 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %5 = load ptr, ptr @_ZL20BadAllocErrorHandler, align 8
   %6 = load ptr, ptr @_ZL28BadAllocErrorHandlerUserData, align 8
-  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL25BadAllocErrorHandlerMutex) #12
+  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL25BadAllocErrorHandlerMutex) #12
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %8
 
@@ -535,7 +535,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @LLVMInstallFatalErrorHandler(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   %.not.i.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i.i, label %_ZN4llvm27install_fatal_error_handlerEPFvPvPKcbES0_.exit, label %3
 
@@ -546,7 +546,7 @@ define dso_local void @LLVMInstallFatalErrorHandler(ptr noundef %0) local_unname
 _ZN4llvm27install_fatal_error_handlerEPFvPvPKcbES0_.exit: ; preds = %1
   store ptr @_ZL20bindingsErrorHandlerPvPKcb, ptr @_ZL12ErrorHandler, align 8
   store ptr %0, ptr @_ZL20ErrorHandlerUserData, align 8
-  %4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   ret void
 }
 
@@ -558,7 +558,7 @@ define internal void @_ZL20bindingsErrorHandlerPvPKcb(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @LLVMResetFatalErrorHandler() local_unnamed_addr #0 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   %.not.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i, label %_ZN4llvm26remove_fatal_error_handlerEv.exit, label %2
 
@@ -569,7 +569,7 @@ define dso_local void @LLVMResetFatalErrorHandler() local_unnamed_addr #0 {
 _ZN4llvm26remove_fatal_error_handlerEv.exit:      ; preds = %0
   store ptr null, ptr @_ZL12ErrorHandler, align 8
   store ptr null, ptr @_ZL20ErrorHandlerUserData, align 8
-  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL17ErrorHandlerMutex) #12
+  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17ErrorHandlerMutex) #12
   ret void
 }
 

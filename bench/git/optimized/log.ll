@@ -417,8 +417,8 @@ init_log_defaults.exit:                           ; preds = %entry, %lor.rhs.i.i
   store ptr @.str, ptr %opt, align 8
   %revarg_opt = getelementptr inbounds i8, ptr %opt, i64 20
   store i32 2, ptr %revarg_opt, align 4
-  call fastcc void @cmd_log_init_defaults(ptr noundef %rev)
-  call fastcc void @cmd_log_init_finish(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %rev, ptr noundef %opt)
+  call fastcc void @cmd_log_init_defaults(ptr noundef nonnull %rev)
+  call fastcc void @cmd_log_init_finish(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %rev, ptr noundef nonnull %opt)
   %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
   %3 = load i32, ptr %output_format, align 4
   %tobool.not = icmp eq i32 %3, 0
@@ -432,7 +432,7 @@ if.end:                                           ; preds = %if.then, %init_log_
   %diffopt.i = getelementptr inbounds i8, ptr %rev, i64 1472
   %no_free.i = getelementptr inbounds i8, ptr %rev, i64 2064
   store i32 1, ptr %no_free.i, align 8
-  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef %rev)
+  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef nonnull %rev)
   store i32 0, ptr %no_free.i, align 8
   call void @diff_free(ptr noundef nonnull %diffopt.i) #20
   call void @release_revisions(ptr noundef nonnull %rev) #20
@@ -667,8 +667,8 @@ if.end:                                           ; preds = %if.then, %init_log_
   store ptr @.str, ptr %opt, align 8
   %tweak = getelementptr inbounds i8, ptr %opt, i64 8
   store ptr @show_setup_revisions_tweak, ptr %tweak, align 8
-  call fastcc void @cmd_log_init_defaults(ptr noundef %rev)
-  call fastcc void @cmd_log_init_finish(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %rev, ptr noundef %opt)
+  call fastcc void @cmd_log_init_defaults(ptr noundef nonnull %rev)
+  call fastcc void @cmd_log_init_finish(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %rev, ptr noundef nonnull %opt)
   %bf.load8 = load i64, ptr %diff, align 8
   %6 = and i64 %bf.load8, 16
   %tobool10.not = icmp eq i64 %6, 0
@@ -677,7 +677,7 @@ if.end:                                           ; preds = %if.then, %init_log_
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end
-  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef %rev)
+  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef nonnull %rev)
   br label %return
 
 if.end13:                                         ; preds = %if.end
@@ -1392,7 +1392,7 @@ init_log_defaults.exit:                           ; preds = %entry, %lor.rhs.i.i
   %diffopt.i = getelementptr inbounds i8, ptr %rev, i64 1472
   %no_free.i = getelementptr inbounds i8, ptr %rev, i64 2064
   store i32 1, ptr %no_free.i, align 8
-  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef %rev)
+  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef nonnull %rev)
   store i32 0, ptr %no_free.i, align 8
   call void @diff_free(ptr noundef nonnull %diffopt.i) #20
   call void @release_revisions(ptr noundef nonnull %rev) #20
@@ -2010,12 +2010,12 @@ init_log_defaults.exit:                           ; preds = %entry, %lor.rhs.i.i
   store i32 2, ptr %revarg_opt, align 4
   %tweak = getelementptr inbounds i8, ptr %opt, i64 8
   store ptr @log_setup_revisions_tweak, ptr %tweak, align 8
-  call fastcc void @cmd_log_init_defaults(ptr noundef %rev)
-  call fastcc void @cmd_log_init_finish(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %rev, ptr noundef %opt)
+  call fastcc void @cmd_log_init_defaults(ptr noundef nonnull %rev)
+  call fastcc void @cmd_log_init_finish(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %rev, ptr noundef nonnull %opt)
   %diffopt.i = getelementptr inbounds i8, ptr %rev, i64 1472
   %no_free.i = getelementptr inbounds i8, ptr %rev, i64 2064
   store i32 1, ptr %no_free.i, align 8
-  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef %rev)
+  %call.i = call fastcc i32 @cmd_log_walk_no_free(ptr noundef nonnull %rev)
   store i32 0, ptr %no_free.i, align 8
   call void @diff_free(ptr noundef nonnull %diffopt.i) #20
   call void @release_revisions(ptr noundef nonnull %rev) #20
@@ -3376,7 +3376,7 @@ if.end701:                                        ; preds = %if.then699, %if.end
   %81 = load ptr, ptr @output_directory, align 8
   %tobool703 = icmp ne ptr %81, null
   %lnot.ext = zext i1 %tobool703 to i32
-  call void @die_for_incompatible_opt4(i32 noundef %79, ptr noundef nonnull @.str.110, i32 noundef %80, ptr noundef nonnull @.str.111, i32 noundef %lnot.ext, ptr noundef nonnull @.str.112, i32 noundef 0, ptr noundef nonnull @.str.116) #20
+  call void @die_for_incompatible_opt4(i32 noundef %79, ptr noundef nonnull @.str.110, i32 noundef %80, ptr noundef nonnull @.str.111, i32 noundef range(i32 0, 2) %lnot.ext, ptr noundef nonnull @.str.112, i32 noundef 0, ptr noundef nonnull @.str.116) #20
   %82 = load i32, ptr %use_stdout, align 4
   %tobool705 = icmp ne i32 %82, 0
   %83 = load i32, ptr @stdout_mboxrd, align 4
@@ -3677,7 +3677,7 @@ if.end837:                                        ; preds = %land.lhs.true833, %
   br i1 %mul.ov.i, label %if.then.i168, label %st_mult.exit
 
 if.then.i168:                                     ; preds = %if.end837
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.240, i64 noundef 8, i64 noundef %indvars.iv.next381) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.240, i64 noundef 8, i64 noundef range(i64 -2147483648, 4294967296) %indvars.iv.next381) #22
   unreachable
 
 st_mult.exit:                                     ; preds = %if.end837
@@ -3984,7 +3984,7 @@ if.then21.i:                                      ; preds = %if.then19.i
 if.end24.i:                                       ; preds = %if.then16.i
   %call25.i = call ptr @lookup_commit_or_die(ptr noundef nonnull %oid.i195, ptr noundef nonnull @.str.247) #20
   %147 = load ptr, ptr @the_repository, align 8
-  %call26.i = call ptr @repo_get_merge_bases_many(ptr noundef %147, ptr noundef %call25.i, i32 noundef %118, ptr noundef %list.0.ph329) #20
+  %call26.i = call ptr @repo_get_merge_bases_many(ptr noundef %147, ptr noundef %call25.i, i32 noundef range(i32 1, 0) %118, ptr noundef %list.0.ph329) #20
   %tobool27.not.i = icmp eq ptr %call26.i, null
   br i1 %tobool27.not.i, label %if.then29.i, label %lor.lhs.false.i201
 
@@ -4028,7 +4028,7 @@ if.end41.i:                                       ; preds = %if.end34.i, %if.the
 
 if.then.i.i:                                      ; preds = %if.end41.i
   %conv42.i = ashr exact i64 %sext, 32
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.240, i64 noundef 8, i64 noundef %conv42.i) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.240, i64 noundef 8, i64 noundef range(i64 -2147483648, 4294967296) %conv42.i) #22
   unreachable
 
 for.body.preheader.i:                             ; preds = %if.end41.i
@@ -4366,7 +4366,7 @@ if.then38.i:                                      ; preds = %do.body.i210
   br i1 %mul.ov.i.i213, label %if.then.i.i215, label %st_mult.exit.i
 
 if.then.i.i215:                                   ; preds = %if.then38.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.240, i64 noundef 36, i64 noundef %conv.i212) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.240, i64 noundef 36, i64 noundef range(i64 -2147483648, 4294967296) %conv.i212) #22
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then38.i
@@ -4584,7 +4584,7 @@ land.lhs.true.i242:                               ; preds = %if.end.i239
   %223 = load i32, ptr %numbered_files, align 8
   %tobool4.not.i = icmp eq i32 %223, 0
   %cond.i = select i1 %tobool4.not.i, ptr @.str.13, ptr null
-  %call5.i = call fastcc i32 @open_next_file(ptr noundef null, ptr noundef %cond.i, ptr noundef %rev, i32 noundef %219)
+  %call5.i = call fastcc i32 @open_next_file(ptr noundef null, ptr noundef %cond.i, ptr noundef nonnull %rev, i32 noundef %219)
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i243
 

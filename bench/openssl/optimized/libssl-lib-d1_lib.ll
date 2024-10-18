@@ -676,7 +676,7 @@ dtls1_start_timer.exit:                           ; preds = %if.end12, %if.end10
   %mul.i12 = mul nuw nsw i64 %conv.i, 1000
   %next_timeout16.i = getelementptr inbounds i8, ptr %13, i64 448
   %call18.i = tail call i64 @ossl_time_now() #9
-  %retval.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %call18.i, i64 %mul.i12)
+  %retval.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %call18.i, i64 range(i64 -1, 7200000000001) %mul.i12)
   store i64 %retval.sroa.0.0.i.i, ptr %next_timeout16.i, align 8
   %call24.i = tail call ptr @SSL_get_rbio(ptr noundef nonnull %s) #9
   %15 = load ptr, ptr %d1.i.i, align 8
@@ -741,7 +741,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
   %mul = mul nuw nsw i64 %conv, 1000
   %next_timeout16 = getelementptr inbounds i8, ptr %4, i64 448
   %call18 = tail call i64 @ossl_time_now() #9
-  %retval.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %call18, i64 %mul)
+  %retval.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %call18, i64 range(i64 -1, 7200000000001) %mul)
   store i64 %retval.sroa.0.0.i, ptr %next_timeout16, align 8
   %call24 = tail call ptr @SSL_get_rbio(ptr noundef nonnull %s) #9
   %6 = load ptr, ptr %d1, align 8

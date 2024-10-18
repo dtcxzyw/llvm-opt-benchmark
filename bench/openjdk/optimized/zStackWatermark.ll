@@ -584,7 +584,7 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
   br i1 %.not17.i, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = tail call noundef i64 @_ZN14StackWatermark18last_processed_rawEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #12
+  %19 = tail call noundef i64 @_ZN14StackWatermark18last_processed_rawEv(ptr noundef nonnull align 8 dereferenceable(296) %0) #12
   %.pre.i = load i32, ptr %10, align 8
   br label %20
 
@@ -805,7 +805,7 @@ define linkonce_odr hidden void @_ZN15ZStackWatermarkD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15ZStackWatermarkD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #12
+  tail call void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) #12
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #12
   ret void
 }

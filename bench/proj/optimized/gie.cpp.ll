@@ -2533,8 +2533,8 @@ _ZL20err_const_from_errnoi.exit.i.i.i:            ; preds = %687, %694
 
 _ZL20err_const_from_errnoi.exit13.i.i.i:          ; preds = %699, %706
   %.0.i12.i.i.i = phi ptr [ %707, %706 ], [ @.str.110, %699 ]
-  %708 = call ptr @proj_errno_string(i32 noundef %.0.i21.i)
-  %709 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %698, ptr noundef nonnull @.str.108, ptr noundef %.0.i12.i.i.i, i32 noundef %.0.i21.i, ptr noundef %708) #25
+  %708 = call ptr @proj_errno_string(i32 noundef range(i32 1, 0) %.0.i21.i)
+  %709 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %698, ptr noundef nonnull @.str.108, ptr noundef %.0.i12.i.i.i, i32 noundef range(i32 1, 0) %.0.i21.i, ptr noundef %708) #25
   %710 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %fputc.i.i.i = call i32 @fputc(i32 10, ptr %710)
   br label %_ZL6expectPKc.exit.i

@@ -90,7 +90,7 @@ block_graph.exit:                                 ; preds = %._crit_edge.i, %3
   br i1 %.not.i.i.i.i, label %38, label %37
 
 37:                                               ; preds = %block_graph.exit
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i.i.i = load i8, ptr %31, align 1
   br label %38
 
@@ -144,7 +144,7 @@ agxbuse.exit.i.i:                                 ; preds = %47, %agxbclear.exit
   br i1 %.not.i.i50.i.i, label %58, label %57
 
 57:                                               ; preds = %agxbuse.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i51.i.i = load i8, ptr %31, align 1
   br label %58
 
@@ -800,7 +800,7 @@ remove_pair_edges.exit:                           ; preds = %deglist_sort.exit.i
   br i1 %.not.i.i.i63, label %363, label %362
 
 362:                                              ; preds = %remove_pair_edges.exit
-  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %356, align 1
   br label %363
 
@@ -1807,7 +1807,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

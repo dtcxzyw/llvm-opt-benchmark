@@ -49,7 +49,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1336) ptr @_Znwm(i64 noundef 1336) #17
   %rep.i.i = getelementptr inbounds i8, ptr %cord, i64 8
   %0 = load ptr, ptr %rep.i.i, align 8
-  invoke void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonnull align 8 dereferenceable(32) %call, i1 noundef zeroext false)
+  invoke void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonnull align 8 dereferenceable(1332) %call, i1 noundef zeroext false)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
@@ -80,7 +80,7 @@ invoke.cont3.i:                                   ; preds = %.noexc
 lpad2.i:                                          ; preds = %invoke.cont3.i, %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #18
+  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %call) #18
   br label %lpad.body
 
 invoke.cont2:                                     ; preds = %invoke.cont3.i
@@ -733,7 +733,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN4absl13cord_internal9CordzInfoD2Ev.exit:       ; preds = %entry, %if.then.i, %if.then.i.i
-  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
+  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }

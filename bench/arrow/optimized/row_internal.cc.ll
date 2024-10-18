@@ -601,7 +601,7 @@ invoke.cont:
   %ref.tmp96 = alloca %"class.arrow::Result", align 8
   store ptr %pool, ptr %this, align 8
   %metadata_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %metadata_, ptr noundef nonnull align 8 dereferenceable(24) %metadata, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %metadata_, ptr noundef nonnull align 8 dereferenceable(120) %metadata, i64 24, i1 false)
   %column_metadatas.i = getelementptr inbounds i8, ptr %this, i64 32
   %column_metadatas3.i = getelementptr inbounds i8, ptr %metadata, i64 24
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %column_metadatas.i, ptr noundef nonnull align 8 dereferenceable(24) %column_metadatas3.i)

@@ -735,57 +735,57 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   ]
 
 slice_strcmp.exit.i:                              ; preds = %42
-  %49 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.12, i64 noundef 4) #18
+  %49 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #18
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %select.unfold, label %slice_strcmp.exit171.i
 
 slice_strcmp.exit171.i:                           ; preds = %slice_strcmp.exit.i
-  %51 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.59, i64 noundef 4) #18
+  %51 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.59, i64 noundef 4) #18
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %select.unfold, label %slice_strcmp.exit174.i
 
 slice_strcmp.exit174.i:                           ; preds = %slice_strcmp.exit171.i
-  %53 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.60, i64 noundef 4) #18
+  %53 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.60, i64 noundef 4) #18
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %select.unfold, label %slice_strcmp.exit177.i
 
 slice_strcmp.exit177.i:                           ; preds = %slice_strcmp.exit174.i
-  %55 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.61, i64 noundef 4) #18
+  %55 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.61, i64 noundef 4) #18
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %select.unfold, label %slice_strcmp.exit180.i
 
 slice_strcmp.exit180.i:                           ; preds = %slice_strcmp.exit177.i
-  %57 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.62, i64 noundef 4) #18
+  %57 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.62, i64 noundef 4) #18
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %select.unfold, label %slice_strcmp.exit183.i
 
 slice_strcmp.exit183.i:                           ; preds = %slice_strcmp.exit180.i
-  %59 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.63, i64 noundef 4) #18
+  %59 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.63, i64 noundef 4) #18
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %select.unfold, label %slice_strcmp.exit133
 
 slice_strcmp.exit133:                             ; preds = %slice_strcmp.exit183.i
-  %61 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.64, i64 noundef 4) #18
+  %61 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.64, i64 noundef 4) #18
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %select.unfold, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit130:                             ; preds = %42
-  %63 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.65, i64 noundef %48) #18
+  %63 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull @.str.65, i64 noundef %48) #18
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %arch_is_supported.exit.thread, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit127:                             ; preds = %42
-  %65 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.3, i64 noundef %48) #18
+  %65 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull @.str.3, i64 noundef %48) #18
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %arch_is_supported.exit.thread, label %slice_strcmp.exit.thread
 
 slice_strcmp.exit124:                             ; preds = %42
-  %67 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull readonly @.str.66, i64 noundef %48) #18
+  %67 = call i32 @strncmp(ptr noundef readonly %47, ptr noundef nonnull @.str.66, i64 noundef %48) #18
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %select.unfold, label %slice_strcmp.exit
 
 slice_strcmp.exit:                                ; preds = %slice_strcmp.exit124
-  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(11) @.str.67, i64 noundef 10) #18
+  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(11) @.str.67, i64 noundef 10) #18
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %select.unfold, label %slice_strcmp.exit.thread
 
@@ -1110,22 +1110,22 @@ select.unfold:                                    ; preds = %216, %slice_strcmp.
   ]
 
 slice_strcmp.exit.i67:                            ; preds = %218
-  %222 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(6) @.str.130, i64 noundef 5) #18
+  %222 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(6) @.str.130, i64 noundef 5) #18
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit33.i:                            ; preds = %218
-  %224 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(3) @.str.131, i64 noundef 2) #18
+  %224 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(3) @.str.131, i64 noundef 2) #18
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit36.i:                            ; preds = %218
-  %226 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(5) @.str.132, i64 noundef 4) #18
+  %226 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(5) @.str.132, i64 noundef 4) #18
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit39.i:                            ; preds = %218
-  %228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.133, i64 noundef 3) #18
+  %228 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.133, i64 noundef 3) #18
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %vendor_from_llvm_string.exit, label %sub_0
 
@@ -1161,27 +1161,27 @@ slice_strcmp.exit45.i.tail:                       ; preds = %sub_1252
   br i1 %240, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit148
 
 slice_strcmp.exit148:                             ; preds = %sub_0, %slice_strcmp.exit42.i.tail, %sub_1, %sub_1252, %slice_strcmp.exit45.i.tail
-  %241 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.136, i64 noundef 3) #18
+  %241 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.136, i64 noundef 3) #18
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit145
 
 slice_strcmp.exit145:                             ; preds = %slice_strcmp.exit148
-  %243 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.137, i64 noundef 3) #18
+  %243 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.137, i64 noundef 3) #18
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit142
 
 slice_strcmp.exit142:                             ; preds = %slice_strcmp.exit145
-  %245 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull readonly dereferenceable(4) @.str.138, i64 noundef 3) #18
+  %245 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %220, ptr noundef nonnull dereferenceable(4) @.str.138, i64 noundef 3) #18
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136
 
 slice_strcmp.exit139:                             ; preds = %218
-  %247 = call i32 @strncmp(ptr noundef readonly %220, ptr noundef nonnull readonly @.str.139, i64 noundef %221) #18
+  %247 = call i32 @strncmp(ptr noundef readonly %220, ptr noundef nonnull @.str.139, i64 noundef %221) #18
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
 slice_strcmp.exit136:                             ; preds = %slice_strcmp.exit142
-  %249 = call i32 @strncmp(ptr noundef nonnull readonly %220, ptr noundef nonnull readonly @.str.140, i64 noundef %221) #18
+  %249 = call i32 @strncmp(ptr noundef nonnull readonly %220, ptr noundef nonnull @.str.140, i64 noundef %221) #18
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit136.thread
 
@@ -1239,62 +1239,62 @@ vendor_from_llvm_string.exit:                     ; preds = %slice_strcmp.exit.i
   ]
 
 slice_strcmp.exit.i69:                            ; preds = %._crit_edge.i
-  %268 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(7) @.str.146, i64 noundef 6) #18
+  %268 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(7) @.str.146, i64 noundef 6) #18
   %269 = icmp eq i32 %268, 0
   br i1 %269, label %os_from_llvm_string.exit, label %slice_strcmp.exit84.i
 
 slice_strcmp.exit81.i:                            ; preds = %._crit_edge.i
-  %270 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(9) @.str.147, i64 noundef 8) #18
+  %270 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(9) @.str.147, i64 noundef 8) #18
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %os_from_llvm_string.exit, label %slice_strcmp.exit163
 
 slice_strcmp.exit84.i:                            ; preds = %slice_strcmp.exit.i69
-  %272 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(7) @.str.148, i64 noundef 6) #18
+  %272 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(7) @.str.148, i64 noundef 6) #18
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %os_from_llvm_string.exit, label %slice_strcmp.exit154
 
 slice_strcmp.exit87.i:                            ; preds = %._crit_edge.i
-  %274 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(10) @.str.149, i64 noundef 9) #18
+  %274 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(10) @.str.149, i64 noundef 9) #18
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit90.i:                            ; preds = %._crit_edge.i
-  %276 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #18
+  %276 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #18
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %os_from_llvm_string.exit, label %slice_strcmp.exit93.i
 
 slice_strcmp.exit93.i:                            ; preds = %slice_strcmp.exit90.i
-  %278 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(8) @.str.151, i64 noundef 7) #18
+  %278 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(8) @.str.151, i64 noundef 7) #18
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit166:                             ; preds = %._crit_edge.i
-  %280 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(4) @.str.152, i64 noundef 3) #18
+  %280 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(4) @.str.152, i64 noundef 3) #18
   %281 = icmp eq i32 %280, 0
   br i1 %281, label %os_from_llvm_string.exit, label %slice_strcmp.exit157
 
 slice_strcmp.exit163:                             ; preds = %slice_strcmp.exit81.i
-  %282 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(9) @.str.153, i64 noundef 8) #18
+  %282 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(9) @.str.153, i64 noundef 8) #18
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit160:                             ; preds = %._crit_edge.i
-  %284 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(6) @.str.154, i64 noundef 5) #18
+  %284 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(6) @.str.154, i64 noundef 5) #18
   %285 = icmp eq i32 %284, 0
   br i1 %285, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit157:                             ; preds = %slice_strcmp.exit166
-  %286 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(4) @.str.155, i64 noundef 3) #18
+  %286 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(4) @.str.155, i64 noundef 3) #18
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit154:                             ; preds = %slice_strcmp.exit84.i
-  %288 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(7) @.str.156, i64 noundef 6) #18
+  %288 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(7) @.str.156, i64 noundef 6) #18
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %os_from_llvm_string.exit, label %slice_strcmp.exit151
 
 slice_strcmp.exit151:                             ; preds = %slice_strcmp.exit154
-  %290 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(7) @.str.157, i64 noundef 6) #18
+  %290 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %261, ptr noundef nonnull dereferenceable(7) @.str.157, i64 noundef 6) #18
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
@@ -1446,57 +1446,57 @@ slice_strcmp.exit.i75.tail:                       ; preds = %sub_1256
   br i1 %351, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit51.i:                            ; preds = %._crit_edge.i73
-  %352 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(10) @.str.183, i64 noundef 9) #18
+  %352 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(10) @.str.183, i64 noundef 9) #18
   %353 = icmp eq i32 %352, 0
   br i1 %353, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit57.i
 
 slice_strcmp.exit54.i:                            ; preds = %._crit_edge.i73
-  %354 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(9) @.str.184, i64 noundef 8) #18
+  %354 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(9) @.str.184, i64 noundef 8) #18
   %355 = icmp eq i32 %354, 0
   br i1 %355, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit57.i:                            ; preds = %slice_strcmp.exit51.i
-  %356 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(10) @.str.185, i64 noundef 9) #18
+  %356 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(10) @.str.185, i64 noundef 9) #18
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit60.i:                            ; preds = %._crit_edge.i73
-  %358 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(8) @.str.186, i64 noundef 7) #18
+  %358 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(8) @.str.186, i64 noundef 7) #18
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169
 
 slice_strcmp.exit63.i:                            ; preds = %._crit_edge.i73
-  %360 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(7) @.str.187, i64 noundef 6) #18
+  %360 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #18
   %361 = icmp eq i32 %360, 0
   br i1 %361, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit184
 
 slice_strcmp.exit184:                             ; preds = %slice_strcmp.exit63.i
-  %362 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(7) @.str.188, i64 noundef 6) #18
+  %362 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(7) @.str.188, i64 noundef 6) #18
   %363 = icmp eq i32 %362, 0
   br i1 %363, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit178
 
 slice_strcmp.exit181:                             ; preds = %._crit_edge.i73
-  %364 = call i32 @strncmp(ptr noundef nonnull readonly %339, ptr noundef nonnull readonly @.str.189, i64 noundef %.sroa.23.0.i) #18
+  %364 = call i32 @strncmp(ptr noundef nonnull readonly %339, ptr noundef nonnull @.str.189, i64 noundef %.sroa.23.0.i) #18
   %365 = icmp eq i32 %364, 0
   br i1 %365, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit178:                             ; preds = %slice_strcmp.exit184
-  %366 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(7) @.str.190, i64 noundef 6) #18
+  %366 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(7) @.str.190, i64 noundef 6) #18
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit175:                             ; preds = %._crit_edge.i73
-  %368 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(6) @.str.191, i64 noundef 5) #18
+  %368 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(6) @.str.191, i64 noundef 5) #18
   %369 = icmp eq i32 %368, 0
   br i1 %369, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit172
 
 slice_strcmp.exit172:                             ; preds = %slice_strcmp.exit175
-  %370 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(6) @.str.192, i64 noundef 5) #18
+  %370 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(6) @.str.192, i64 noundef 5) #18
   %371 = icmp eq i32 %370, 0
   br i1 %371, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit169:                             ; preds = %slice_strcmp.exit60.i
-  %372 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(8) @.str.193, i64 noundef 7) #18
+  %372 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %339, ptr noundef nonnull dereferenceable(8) @.str.193, i64 noundef 7) #18
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
@@ -2601,15 +2601,15 @@ switch.lookup302:                                 ; preds = %563
 
 626:                                              ; preds = %620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 74)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 88)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 40)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 41)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 55)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 48)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 82)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 83)
-  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 38)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 74)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 88)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 40)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 41)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 55)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 48)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 82)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 83)
+  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 38)
   %.val12.i.i = load i64, ptr %3, align 8
   %.val13.i.i = load i64, ptr %607, align 8
   %.val14.i.i = load i64, ptr %4, align 8

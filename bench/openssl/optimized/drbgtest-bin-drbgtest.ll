@@ -1009,7 +1009,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %cmp3.not.i.i, label %rand_bytes.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  %call6.i.i = call i32 %6(ptr noundef nonnull %spec.select, i32 noundef 16) #14
+  %call6.i.i = call i32 %6(ptr noundef nonnull %spec.select, i32 noundef range(i32 16, 257) 16) #14
   br label %rand_bytes.exit
 
 if.end7.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end19
@@ -1044,7 +1044,7 @@ if.then.i.i47:                                    ; preds = %land.lhs.true.i.i44
   br i1 %cmp3.not.i.i49, label %rand_priv_bytes.exit, label %if.then4.i.i50
 
 if.then4.i.i50:                                   ; preds = %if.then.i.i47
-  %call6.i.i51 = call i32 %7(ptr noundef nonnull %private_random.addr.0, i32 noundef 16) #14
+  %call6.i.i51 = call i32 %7(ptr noundef nonnull %private_random.addr.0, i32 noundef range(i32 16, 257) 16) #14
   br label %rand_priv_bytes.exit
 
 if.end7.i.i53:                                    ; preds = %land.lhs.true.i.i44, %lor.lhs.false25
@@ -1503,7 +1503,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %cmp3.not.i.i, label %if.then19, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  %call6.i.i = call i32 %0(ptr noundef nonnull %buf, i32 noundef 256) #14
+  %call6.i.i = call i32 %0(ptr noundef nonnull %buf, i32 noundef range(i32 16, 257) 256) #14
   br label %rand_bytes.exit
 
 if.end7.i.i:                                      ; preds = %land.lhs.true.i.i, %do.body
@@ -1541,7 +1541,7 @@ if.then.i.i14:                                    ; preds = %land.lhs.true.i.i11
   br i1 %cmp3.not.i.i16, label %if.then25, label %if.then4.i.i17
 
 if.then4.i.i17:                                   ; preds = %if.then.i.i14
-  %call6.i.i18 = call i32 %1(ptr noundef nonnull %buf, i32 noundef 256) #14
+  %call6.i.i18 = call i32 %1(ptr noundef nonnull %buf, i32 noundef range(i32 16, 257) 256) #14
   br label %rand_priv_bytes.exit
 
 if.end7.i.i20:                                    ; preds = %land.lhs.true.i.i11, %if.end20

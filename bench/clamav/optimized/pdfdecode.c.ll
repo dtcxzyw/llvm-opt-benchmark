@@ -1589,7 +1589,7 @@ filter_ascii85decode.exit.i:                      ; preds = %filter_ascii85decod
   br i1 %590, label %591, label %594
 
 591:                                              ; preds = %584
-  %592 = call i64 @cli_writen(i32 noundef %6, ptr noundef nonnull %582, i64 noundef %588) #10
+  %592 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %6, ptr noundef nonnull %582, i64 noundef %588) #10
   %.not136.i = icmp eq i64 %592, %588
   br i1 %.not136.i, label %594, label %593
 

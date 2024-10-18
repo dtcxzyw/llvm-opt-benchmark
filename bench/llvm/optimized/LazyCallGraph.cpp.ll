@@ -539,7 +539,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm13Lazy
   %9 = alloca %class.anon, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %10, i64 noundef 4) #15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -550,7 +550,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm13Lazy
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %14, i64 noundef %18, i64 noundef 8) #15
-  %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
   %20 = load ptr, ptr %5, align 8
   %21 = icmp eq ptr %20, %10
   br i1 %21, label %_ZN4llvm13LazyCallGraph12EdgeSequenceD2Ev.exit, label %22
@@ -561,7 +561,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm13Lazy
 
 _ZN4llvm13LazyCallGraph12EdgeSequenceD2Ev.exit:   ; preds = %1, %22
   %23 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %23, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %23, i64 noundef 16) #15
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %24, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -814,7 +814,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_1
   br label %_ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE.exit.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %132
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %96)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(648) %96)
   %147 = load ptr, ptr %96, align 8
   %148 = ptrtoint ptr %147 to i64
   %149 = add i64 %148, 7
@@ -895,7 +895,7 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %_ZN4llvm12DenseMapB
 
 ._crit_edge.i:                                    ; preds = %174, %_ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit
   %.sink.i.i.i.i = phi ptr [ %175, %174 ], [ null, %_ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit ]
-  %185 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sink.i.i.i.i), !noalias !18
+  %185 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sink.i.i.i.i), !noalias !18
   %186 = load ptr, ptr %2, align 8, !noalias !18
   store ptr %186, ptr %185, align 8, !noalias !18
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -1137,7 +1137,7 @@ _ZN4llvm11SmallPtrSetIPNS_8ConstantELj16EED2Ev.exit: ; preds = %._crit_edge163, 
   br label %_ZN4llvm11SmallPtrSetIPNS_8FunctionELj4EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPNS_8FunctionELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallPtrSetIPNS_8ConstantELj16EED2Ev.exit, %284
-  %285 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  %285 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #15
   %286 = load ptr, ptr %6, align 8
   %287 = icmp eq ptr %286, %23
   br i1 %287, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit, label %288
@@ -1161,7 +1161,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZNS
   br i1 %5, label %6, label %27
 
 6:                                                ; preds = %2
-  %7 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %7 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %8, align 8
@@ -1195,12 +1195,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZNS
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %28, i64 noundef 4) #15
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull %28, i64 noundef 4) #15
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #15
   br i1 %29, label %_ZNSt19_Optional_base_implIN4llvm13LazyCallGraph12EdgeSequenceESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJS2_EEEvDpOT_.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %_ZNSt19_Optional_base_implIN4llvm13LazyCallGraph12EdgeSequenceESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJS2_EEEvDpOT_.exit
 
 _ZNSt19_Optional_base_implIN4llvm13LazyCallGraph12EdgeSequenceESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJS2_EEEvDpOT_.exit: ; preds = %27, %30
@@ -1402,7 +1402,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_1
   br label %_ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE.exit
 
 .critedge.i.i.i.i.i.i:                            ; preds = %39
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(648) %0)
   %54 = load ptr, ptr %0, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = add i64 %55, 7
@@ -1589,45 +1589,45 @@ define dso_local void @_ZN4llvm13LazyCallGraphC2ERNS_6ModuleENS_12function_refIF
   %9 = alloca %class.anon.180, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 4) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %11, i64 noundef 4) #15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %13, i64 noundef 0) #15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %15 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 36, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 4) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull %15, i64 noundef 4) #15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = getelementptr inbounds i8, ptr %0, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %19, i64 noundef 4) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, i8 0, i64 16, i1 false)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %19, i64 noundef 4) #15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %21, i64 noundef 0) #15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = getelementptr inbounds i8, ptr %0, i64 344
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 0, i64 36, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %24, i64 noundef 4) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %24, i64 noundef 4) #15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %26 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %26, i64 noundef 0) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %28 = getelementptr inbounds i8, ptr %0, i64 424
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %28, i64 noundef 16) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %27, ptr noundef nonnull %28, i64 noundef 16) #15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, i8 0, i64 20, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 20, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %32 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %32, i64 noundef 4) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %32, i64 noundef 4) #15
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.045.055 = load ptr, ptr %33, align 8
@@ -1654,7 +1654,7 @@ _ZL18isKnownLibFunctionRN4llvm8FunctionERNS_17TargetLibraryInfoE.exit.thread: ; 
   br label %48
 
 _ZL18isKnownLibFunctionRN4llvm8FunctionERNS_17TargetLibraryInfoE.exit: ; preds = %39
-  %43 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #15
+  %43 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %37) #15
   %44 = extractvalue { ptr, i64 } %43, 0
   %45 = extractvalue { ptr, i64 } %43, 1
   %46 = load ptr, ptr %40, align 8
@@ -1725,7 +1725,7 @@ _ZL18isKnownLibFunctionRN4llvm8FunctionERNS_17TargetLibraryInfoE.exit: ; preds =
 
 ._crit_edge63:                                    ; preds = %74, %._crit_edge
   %76 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %76, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %76, i64 noundef 16) #15
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %77, ptr %8, align 8
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1747,7 +1747,7 @@ _ZL18isKnownLibFunctionRN4llvm8FunctionERNS_17TargetLibraryInfoE.exit: ; preds =
   %84 = icmp eq ptr %.sroa.033.066, null
   %85 = getelementptr inbounds i8, ptr %.sroa.033.066, i64 -56
   %86 = select i1 %84, ptr null, ptr %85
-  %87 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %86) #15
+  %87 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %86) #15
   br i1 %87, label %.critedge71, label %88
 
 88:                                               ; preds = %.lr.ph68
@@ -1836,7 +1836,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   br label %_ZN4llvm11SmallPtrSetIPNS_8ConstantELj16EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPNS_8ConstantELj16EED2Ev.exit: ; preds = %._crit_edge69, %124
-  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #15
   %126 = load ptr, ptr %7, align 8
   %127 = icmp eq ptr %126, %76
   br i1 %127, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit, label %128
@@ -1950,7 +1950,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
 
 59:                                               ; preds = %48, %29
   %.sink.i.i.i.i.i = phi ptr [ %49, %48 ], [ null, %29 ]
-  %60 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %.011.i, ptr noundef nonnull align 8 dereferenceable(8) %.011.i, ptr noundef %.sink.i.i.i.i.i), !noalias !35
+  %60 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %.011.i, ptr noundef nonnull align 8 dereferenceable(8) %.011.i, ptr noundef %.sink.i.i.i.i.i), !noalias !35
   %61 = load ptr, ptr %.011.i, align 8, !noalias !35
   store ptr %61, ptr %60, align 8, !noalias !35
   br label %_ZN4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit.i
@@ -2012,7 +2012,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyE
 
 94:                                               ; preds = %83, %63
   %.sink.i.i.i.i = phi ptr [ %84, %83 ], [ null, %63 ]
-  %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !41
+  %95 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E20InsertIntoBucketImplIS3_EEPS9_RKS3_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink.i.i.i.i), !noalias !41
   %96 = load ptr, ptr %1, align 8
   store ptr %96, ptr %95, align 8, !noalias !41
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2073,12 +2073,12 @@ define dso_local void @_ZN4llvm13LazyCallGraphC2EOS0_(ptr noundef nonnull align 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %20 = getelementptr inbounds i8, ptr %0, i64 136
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %20, i64 noundef 4) #15
-  %21 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull %20, i64 noundef 4) #15
+  %21 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(72) %19) #15
   br i1 %21, label %_ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit, label %22
 
 22:                                               ; preds = %2
-  %23 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %23 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %19)
   br label %_ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit
 
 _ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit: ; preds = %2, %22
@@ -2136,20 +2136,20 @@ _ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit: ; preds = %2, %22
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %58 = getelementptr inbounds i8, ptr %0, i64 344
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %58, i64 noundef 4) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %56, i8 0, i64 16, i1 false)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull %58, i64 noundef 4) #15
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %60 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %60, i64 noundef 0) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %62 = getelementptr inbounds i8, ptr %0, i64 424
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull %62, i64 noundef 16) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %61, ptr noundef nonnull %62, i64 noundef 16) #15
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %64, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %64, i8 0, i64 20, i1 false)
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -2174,12 +2174,12 @@ _ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit: ; preds = %2, %22
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %81 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull %81, i64 noundef 4) #15
-  %82 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull %81, i64 noundef 4) #15
+  %82 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %80) #15
   br i1 %82, label %_ZN4llvm14SmallSetVectorIPNS_8FunctionELj4EEC2EOS3_.exit, label %83
 
 83:                                               ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit
-  %84 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8FunctionEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80)
+  %84 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8FunctionEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %80)
   br label %_ZN4llvm14SmallSetVectorIPNS_8FunctionELj4EEC2EOS3_.exit
 
 _ZN4llvm14SmallSetVectorIPNS_8FunctionELj4EEC2EOS3_.exit: ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequenceC2EOS1_.exit, %83
@@ -2765,7 +2765,7 @@ define dso_local noundef nonnull align 8 dereferenceable(648) ptr @_ZN4llvm13Laz
   store i32 %21, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13LazyCallGraph4EdgeEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(72) %23)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %28 = load ptr, ptr %26, align 8
@@ -2835,7 +2835,7 @@ define dso_local noundef nonnull align 8 dereferenceable(648) ptr @_ZN4llvm13Laz
   %72 = zext i32 %71 to i64
   %73 = shl nuw nsw i64 %72, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %69, i64 noundef %73, i64 noundef 8) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %68, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %68, i8 0, i64 20, i1 false)
   %74 = load ptr, ptr %67, align 8
   store ptr %74, ptr %68, align 8
   store ptr null, ptr %67, align 8
@@ -2858,7 +2858,7 @@ define dso_local noundef nonnull align 8 dereferenceable(648) ptr @_ZN4llvm13Laz
   store i32 %84, ptr %83, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %88 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8FunctionEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %87)
+  %88 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8FunctionEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %87)
   %89 = load i32, ptr %12, align 8
   %90 = icmp eq i32 %89, 0
   %91 = load ptr, ptr %5, align 8
@@ -2955,7 +2955,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LazyCallGraph3SCC10isParentOfERK
   %9 = load ptr, ptr %.sroa.026.035, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !50
-  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #15, !noalias !50
+  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %10) #15, !noalias !50
   %13 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %11, i64 %12
   %.not4.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not4.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit.i, label %.lr.ph.i.i.i.i
@@ -2984,10 +2984,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i
 _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit.i: ; preds = %.critedge2.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i, %.lr.ph37
   %.sroa.0.1.i.i = phi ptr [ %11, %.lr.ph37 ], [ %.sroa.0.0.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i ], [ %13, %.critedge2.i.i.i.i ]
   %20 = load ptr, ptr %10, align 8, !noalias !50
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #15, !noalias !50
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %10) #15, !noalias !50
   %22 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %20, i64 %21
   %23 = load ptr, ptr %10, align 8, !noalias !50
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #15, !noalias !50
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %10) #15, !noalias !50
   %25 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %23, i64 %24
   %.not4.i.i.i3.i = icmp eq ptr %22, %25
   br i1 %.not4.i.i.i3.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5callsEv.exit, label %.lr.ph.i.i.i4.i
@@ -3137,9 +3137,9 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %2
   store ptr %0, ptr %9, align 8, !noalias !55
   store ptr %0, ptr %5, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %14, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %14, i64 noundef 16) #15
   %15 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZN4llvm15SmallVectorImplIPKNS_13LazyCallGraph3SCCEE6appendIPKS4_vEEvT_S9_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, ptr noundef nonnull %15)
+  call void @_ZN4llvm15SmallVectorImplIPKNS_13LazyCallGraph3SCCEE6appendIPKS4_vEEvT_S9_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %5, ptr noundef nonnull %15)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 304
   br label %18
@@ -3165,7 +3165,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %2
   %30 = load ptr, ptr %.sroa.044.056, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !noalias !58
-  %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #15, !noalias !58
+  %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %31) #15, !noalias !58
   %34 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %32, i64 %33
   %.not4.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not4.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit.i, label %.lr.ph.i.i.i.i21
@@ -3194,10 +3194,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i21
 _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit.i: ; preds = %.critedge2.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i, %.lr.ph58
   %.sroa.0.1.i.i = phi ptr [ %32, %.lr.ph58 ], [ %.sroa.0.0.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i ], [ %34, %.critedge2.i.i.i.i ]
   %41 = load ptr, ptr %31, align 8, !noalias !58
-  %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #15, !noalias !58
+  %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %31) #15, !noalias !58
   %43 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %41, i64 %42
   %44 = load ptr, ptr %31, align 8, !noalias !58
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #15, !noalias !58
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %31) #15, !noalias !58
   %46 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %44, i64 %45
   %.not4.i.i.i3.i = icmp eq ptr %43, %46
   br i1 %.not4.i.i.i3.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5callsEv.exit, label %.lr.ph.i.i.i4.i
@@ -3384,7 +3384,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit: ; preds = %_ZNK4l
 
 .loopexit:                                        ; preds = %._crit_edge59, %80
   %119 = phi i1 [ true, %80 ], [ false, %._crit_edge59 ]
-  %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
+  %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #15
   %121 = load ptr, ptr %4, align 8
   %122 = icmp eq ptr %121, %14
   br i1 %122, label %_ZN4llvm11SmallVectorIPKNS_13LazyCallGraph3SCCELj16EED2Ev.exit, label %123
@@ -3415,7 +3415,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph6RefSCCC2ERS0_(ptr noundef nonnull
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef 4) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, i64 noundef 4) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -3462,7 +3462,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LazyCallGraph6RefSCC10isParentOf
   %14 = load ptr, ptr %.sroa.032.046, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #15
+  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #15
   %18 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %16, i64 %17
   %.not4.i.i = icmp eq i64 %17, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i
@@ -3488,10 +3488,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i: ; preds = %_ZNK4llvm13LazyCa
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i, %.lr.ph48
   %.sroa.0.1.i = phi ptr [ %16, %.lr.ph48 ], [ %18, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i ], [ %.sroa.0.0.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ]
   %23 = load ptr, ptr %15, align 8
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #15
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #15
   %25 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %23, i64 %24
   %26 = load ptr, ptr %15, align 8
-  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #15
+  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #15
   %28 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %26, i64 %27
   %.not4.i.i15 = icmp eq ptr %25, %28
   br i1 %.not4.i.i15, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i16
@@ -3629,7 +3629,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LazyCallGraph6RefSCC12isAncestor
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %7, i64 noundef 4) #15
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3731,7 +3731,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_13LazyCallGraph6RefSCCEE6insertES4_.exit: ; preds
   %56 = load ptr, ptr %.sroa.069.094, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
-  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #15
+  %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %57) #15
   %60 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %58, i64 %59
   %.not4.i.i = icmp eq i64 %59, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i21
@@ -3757,10 +3757,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i: ; preds = %_ZNK4llvm13LazyCa
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i, %.lr.ph96
   %.sroa.0.1.i = phi ptr [ %58, %.lr.ph96 ], [ %60, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i ], [ %.sroa.0.0.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ]
   %65 = load ptr, ptr %57, align 8
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #15
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %57) #15
   %67 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %65, i64 %66
   %68 = load ptr, ptr %57, align 8
-  %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #15
+  %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %57) #15
   %70 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %68, i64 %69
   %.not4.i.i24 = icmp eq ptr %67, %70
   br i1 %.not4.i.i24, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i25
@@ -3964,7 +3964,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit: ; preds = %138, %_ZNK4l
   br label %_ZN4llvm11SmallPtrSetIPKNS_13LazyCallGraph6RefSCCELj4EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPKNS_13LazyCallGraph6RefSCCELj4EED2Ev.exit: ; preds = %.loopexit, %149
-  %150 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  %150 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #15
   %151 = load ptr, ptr %3, align 8
   %152 = icmp eq ptr %151, %7
   br i1 %152, label %_ZN4llvm11SmallVectorIPKNS_13LazyCallGraph6RefSCCELj4EED2Ev.exit, label %153
@@ -3989,7 +3989,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LazyCallGraph6RefSCC24switchInter
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %14, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %14, i64 noundef 1) #15
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 288
   %17 = load ptr, ptr %16, align 8
@@ -4388,7 +4388,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.ex
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i: ; preds = %230, %207
   %.sink.i.i.i.i.i = phi ptr [ %231, %230 ], [ null, %207 ]
-  %241 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %101, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i.i)
+  %241 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(72) %101, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i.i)
   %242 = load ptr, ptr %7, align 8
   store ptr %242, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -4457,7 +4457,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i64.i: ; preds = %265, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit.i
   %.sink.i.i.i.i65.i = phi ptr [ %266, %265 ], [ null, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit.i ]
-  %276 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %101, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i65.i)
+  %276 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(72) %101, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i65.i)
   %277 = load ptr, ptr %8, align 8
   store ptr %277, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 8
@@ -4506,7 +4506,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %267, %_ZN4l
   %297 = load ptr, ptr %.sroa.08.019.i.i.i, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
   %299 = load ptr, ptr %298, align 8, !noalias !79
-  %300 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %298) #15, !noalias !79
+  %300 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %298) #15, !noalias !79
   %301 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %299, i64 %300
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %300, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -4535,10 +4535,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
 _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit.i.i.i.i: ; preds = %.critedge2.i.i.i.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i.i.i, %.lr.ph21.i.i.i
   %.sroa.0.1.i.i.i.i.i = phi ptr [ %299, %.lr.ph21.i.i.i ], [ %301, %.critedge2.i.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i.i.i ]
   %308 = load ptr, ptr %298, align 8, !noalias !79
-  %309 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %298) #15, !noalias !79
+  %309 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %298) #15, !noalias !79
   %310 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %308, i64 %309
   %311 = load ptr, ptr %298, align 8, !noalias !79
-  %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %298) #15, !noalias !79
+  %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %298) #15, !noalias !79
   %313 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %311, i64 %312
   %.not4.i.i.i3.i.i.i.i = icmp eq ptr %310, %313
   br i1 %.not4.i.i.i3.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5callsEv.exit.i.i.i, label %.lr.ph.i.i.i4.i.i.i.i
@@ -4749,7 +4749,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence13call_iteratorppEv.exit.i.i.i: ; preds = %
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE6insertES3_.exit36.i.i
 
 396:                                              ; preds = %._crit_edge.i.i35.i.i, %"_ZZZN4llvm13LazyCallGraph6RefSCC24switchInternalEdgeToCallERNS0_4NodeES3_NS_12function_refIFvNS_8ArrayRefIPNS0_3SCCEEEEEEENK3$_0clERNS_15SmallPtrSetImplIS7_EEENKUlRS6_E_clESF_.exit.i.i"
-  %397 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef %292) #15, !noalias !82
+  %397 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull %292) #15, !noalias !82
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE6insertES3_.exit36.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE6insertES3_.exit36.i.i: ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i32.i.i, %396, %394, %291
@@ -5395,7 +5395,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE5countEPKS2_.exit.i
 
 654:                                              ; preds = %._crit_edge.i
-  %655 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull %.0.i.i57) #15
+  %655 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i57) #15
   %.not.i.i79.i = icmp eq ptr %655, null
   %.pre.i.i = load ptr, ptr %282, align 8
   %.pre4.i.i = load ptr, ptr %9, align 8
@@ -5516,7 +5516,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %688, %684
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i83.i: ; preds = %.lr.ph.i.i.i92.i, %704, %702
   %706 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %706, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %706, i64 noundef 4) #15
   %707 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %708 = add i64 %707, 1
   %709 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
@@ -5559,7 +5559,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.ex
   %729 = load ptr, ptr %.sroa.068.084.i.i, align 8
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 24
   %731 = load ptr, ptr %730, align 8
-  %732 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %730) #15
+  %732 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %730) #15
   %733 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %731, i64 %732
   %.not4.i.i.i.i = icmp eq i64 %732, 0
   br i1 %.not4.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i.i, label %.lr.ph.i.i16.i.i
@@ -5585,10 +5585,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm13La
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i.i: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i, %.lr.ph86.i.i
   %.sroa.0.1.i.i.i = phi ptr [ %731, %.lr.ph86.i.i ], [ %733, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i ], [ %.sroa.0.0.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i ]
   %738 = load ptr, ptr %730, align 8
-  %739 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %730) #15
+  %739 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %730) #15
   %740 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %738, i64 %739
   %741 = load ptr, ptr %730, align 8
-  %742 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %730) #15
+  %742 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %730) #15
   %743 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %741, i64 %742
   %.not4.i.i19.i.i = icmp eq ptr %740, %743
   br i1 %.not4.i.i19.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit.i.i, label %.lr.ph.i.i20.i.i
@@ -5831,7 +5831,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i: ; preds = %_ZNK4llv
   br i1 %848, label %849, label %717, !llvm.loop !95
 
 849:                                              ; preds = %._crit_edge87.i.i
-  %850 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  %850 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #15
   %851 = load ptr, ptr %6, align 8
   %852 = icmp eq ptr %851, %706
   br i1 %852, label %"_ZZN4llvm13LazyCallGraph6RefSCC24switchInternalEdgeToCallERNS0_4NodeES3_NS_12function_refIFvNS_8ArrayRefIPNS0_3SCCEEEEEEENK3$_1clERNS_15SmallPtrSetImplIS7_EE.exit.i", label %853
@@ -7017,7 +7017,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.ex
 
 1411:                                             ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit137, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit104, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit83, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit
   %.0 = phi i1 [ false, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit ], [ false, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit83 ], [ false, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit104 ], [ true, %_ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.exit137 ]
-  %1412 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  %1412 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
   %1413 = load ptr, ptr %10, align 8
   %1414 = icmp eq ptr %1413, %14
   br i1 %1414, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj1EED2Ev.exit, label %1415
@@ -7245,13 +7245,13 @@ _ZN4llvm13LazyCallGraph12EdgeSequence11setEdgeKindERNS0_4NodeENS0_4Edge4KindE.ex
   %75 = and i64 %.0.copyload.i.i.i.i.i, -5
   store i64 %75, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %76, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) %5, ptr noundef nonnull %76, i64 noundef 16) #15
   %77 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %77, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %77, i64 noundef 16) #15
   %78 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %78, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %78, i64 noundef 4) #15
   %79 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %79, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %79, i64 noundef 16) #15
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %80)
   %81 = load ptr, ptr %8, align 8
@@ -7442,7 +7442,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
   store i32 1, ptr %177, align 8
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %182 = load ptr, ptr %181, align 8
-  %183 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %181) #15
+  %183 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %181) #15
   %184 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %182, i64 %183
   %.not4.i.i.i = icmp eq i64 %183, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit, label %.lr.ph.i.i.i99
@@ -7491,10 +7491,10 @@ _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit: ; preds = %_ZNK4llvm13
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %198) #15, !noalias !101
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.0391.0.copyload, i64 24
   %200 = load ptr, ptr %199, align 8
-  %201 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %199) #15
+  %201 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %199) #15
   %202 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %200, i64 %201
   %203 = load ptr, ptr %199, align 8
-  %204 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %199) #15
+  %204 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %199) #15
   %205 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %203, i64 %204
   %.not4.i.i.i102 = icmp eq ptr %202, %205
   br i1 %.not4.i.i.i102, label %_ZN4llvm13LazyCallGraph12EdgeSequence8call_endEv.exit, label %.lr.ph.i.i.i103
@@ -7622,7 +7622,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
   store i32 %.1.ph503, ptr %219, align 8
   %254 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %255 = load ptr, ptr %254, align 8
-  %256 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #15
+  %256 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %254) #15
   %257 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %255, i64 %256
   %.not4.i.i.i115 = icmp eq i64 %256, 0
   br i1 %.not4.i.i.i115, label %_ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit128, label %.lr.ph.i.i.i116
@@ -7651,10 +7651,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i120: ; preds = %.lr.ph.i.i.i116
 _ZN4llvm13LazyCallGraph12EdgeSequence10call_beginEv.exit128: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i120, %.critedge2.i.i.i123, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit
   %.sroa.0.1.i125 = phi ptr [ %255, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit ], [ %257, %.critedge2.i.i.i123 ], [ %.sroa.0.0.i117, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i120 ]
   %264 = load ptr, ptr %254, align 8
-  %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #15
+  %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %254) #15
   %266 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %264, i64 %265
   %267 = load ptr, ptr %254, align 8
-  %268 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #15
+  %268 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %254) #15
   %269 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %267, i64 %268
   %.not4.i.i.i129 = icmp eq ptr %266, %269
   br i1 %.not4.i.i.i129, label %_ZN4llvm13LazyCallGraph12EdgeSequence8call_endEv.exit142, label %.lr.ph.i.i.i130
@@ -8396,7 +8396,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %628 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15, !noalias !111
   %629 = getelementptr inbounds ptr, ptr %627, i64 %628
   %630 = load ptr, ptr %6, align 8, !noalias !114
-  %631 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15, !noalias !114
+  %631 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #15, !noalias !114
   %632 = getelementptr inbounds ptr, ptr %630, i64 %631
   %633 = load ptr, ptr %6, align 8, !noalias !125
   %634 = ptrtoint ptr %632 to i64
@@ -8547,24 +8547,24 @@ _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse
   store ptr %0, ptr %.0.i.i.i.i.i.i, align 8
   %700 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   %701 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %700, ptr noundef nonnull %701, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %700, ptr noundef nonnull %701, i64 noundef 1) #15
   %702 = ptrtoint ptr %629 to i64
   %703 = ptrtoint ptr %.sink.i.i.i.i185 to i64
   %704 = sub i64 %702, %703
   %705 = ashr exact i64 %704, 3
-  %706 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %700) #15
+  %706 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %700) #15
   %707 = add i64 %706, %705
-  %708 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %700) #15
+  %708 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %700) #15
   %709 = icmp ult i64 %708, %707
   br i1 %709, label %710, label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i
 
 710:                                              ; preds = %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %700, ptr noundef nonnull %701, i64 noundef %707, i64 noundef 8) #15
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %700, ptr noundef nonnull %701, i64 noundef %707, i64 noundef 8) #15
   br label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i
 
 _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i: ; preds = %710, %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit
   %711 = load ptr, ptr %700, align 8
-  %712 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %700) #15
+  %712 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %700) #15
   %713 = icmp sgt i64 %705, 0
   br i1 %713, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i, label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendISt16reverse_iteratorIPS3_EvEEvT_S9_.exit
 
@@ -8585,9 +8585,9 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i: ; preds =
   br i1 %719, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendISt16reverse_iteratorIPS3_EvEEvT_S9_.exit, !llvm.loop !144
 
 _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendISt16reverse_iteratorIPS3_EvEEvT_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i
-  %720 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %700) #15
+  %720 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %700) #15
   %721 = add i64 %720, %705
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %700, i64 noundef %721) #15
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %700, i64 noundef %721) #15
   %722 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %723 = add i64 %722, 1
   %724 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
@@ -9303,7 +9303,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
 ._crit_edge530:                                   ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixERKS4_.exit, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit
   %1101 = load ptr, ptr %1050, align 8
   %1102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
-  %1103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %1103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #15
   %1104 = load ptr, ptr %8, align 8
   %1105 = icmp eq ptr %1104, %79
   br i1 %1105, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit, label %1106
@@ -9313,7 +9313,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit: ; preds = %._crit_edge530, %1106
-  %1107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %1107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
   %1108 = load ptr, ptr %7, align 8
   %1109 = icmp eq ptr %1108, %78
   br i1 %1109, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj4EED2Ev.exit, label %1110
@@ -9323,7 +9323,7 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit: ; preds = %._cri
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit, %1110
-  %1111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  %1111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #15
   %1112 = load ptr, ptr %6, align 8
   %1113 = icmp eq ptr %1112, %77
   br i1 %1113, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit225, label %1114
@@ -9333,7 +9333,7 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj4EED2Ev.exit: ; preds = %_ZN4llv
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit225
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit225: ; preds = %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj4EED2Ev.exit, %1114
-  %1115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %1115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %5) #15
   %1116 = load ptr, ptr %5, align 8
   %1117 = icmp eq ptr %1116, %76
   br i1 %1117, label %_ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEELj16EED2Ev.exit, label %1118
@@ -9909,7 +9909,7 @@ _ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i: ; preds = %36, %23
 _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit: ; preds = %.lr.ph.i.i.i.i.i, %4, %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i, %46
   %.0.i = phi ptr [ %47, %46 ], [ null, %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit.i ], [ null, %4 ], [ null, %.lr.ph.i.i.i.i.i ]
   %48 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %48, i64 noundef 1) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %48, i64 noundef 1) #15
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 552
   store ptr %.0.i, ptr %11, align 8
@@ -10149,7 +10149,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %180 = phi i32 [ %147, %166 ], [ %138, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit68 ]
   %181 = phi i32 [ %150, %166 ], [ %133, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit68 ]
   %.sink.i.i.i.i.i = phi ptr [ %167, %166 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit68 ]
-  %182 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %178, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i)
+  %182 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(20) %178, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i)
   %183 = load ptr, ptr %8, align 8
   store ptr %183, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -10237,7 +10237,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %229 = phi i32 [ %199, %214 ], [ %189, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit.i ]
   %230 = phi i32 [ %200, %214 ], [ %190, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit.i ]
   %.sink.i.i.i.i65.i = phi ptr [ %215, %214 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_.exit.i ]
-  %231 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %226, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.sink.i.i.i.i65.i)
+  %231 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 8 dereferenceable(20) %226, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.sink.i.i.i.i65.i)
   %232 = load ptr, ptr %9, align 8
   store ptr %232, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -10304,7 +10304,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %216, %_ZN4l
   %265 = load ptr, ptr %.sroa.04.021.i.i.i, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %267 = load ptr, ptr %266, align 8
-  %268 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %266) #15
+  %268 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %266) #15
   %269 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %267, i64 %268
   %.not4.i.i.i.i.i = icmp eq i64 %268, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i.i.i, label %.lr.ph.i.i.i.i67.i
@@ -10330,10 +10330,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK4llvm13
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i.i.i: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i, %.lr.ph23.i.i.i
   %.sroa.0.1.i.i.i.i = phi ptr [ %267, %.lr.ph23.i.i.i ], [ %.sroa.0.0.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i ], [ %269, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i.i ]
   %274 = load ptr, ptr %266, align 8
-  %275 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %266) #15
+  %275 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %266) #15
   %276 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %274, i64 %275
   %277 = load ptr, ptr %266, align 8
-  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %266) #15
+  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %266) #15
   %279 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %277, i64 %278
   %.not4.i.i12.i.i.i = icmp eq ptr %276, %279
   br i1 %.not4.i.i12.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit.i.i.i, label %.lr.ph.i.i13.i.i.i
@@ -10548,7 +10548,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i.i: ; preds = %_ZNK4l
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit38.i.i
 
 362:                                              ; preds = %._crit_edge.i.i37.i.i, %"_ZZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_0clERNS_15SmallPtrSetImplIPS1_EEENKUlRS1_E_clES9_.exit.i.i"
-  %363 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef %255) #15, !noalias !153
+  %363 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %255) #15, !noalias !153
   br label %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit38.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit38.i.i: ; preds = %._crit_edge24.i.i.i, %.lr.ph.i.i34.i.i, %362, %360, %254
@@ -11185,7 +11185,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE5countEPKS2_.exit.i
 
 616:                                              ; preds = %._crit_edge.i
-  %617 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %1) #15
+  %617 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(128) %1) #15
   %.not.i.i76.i = icmp eq ptr %617, null
   %.pre.i.i = load ptr, ptr %243, align 8
   %.pre4.i.i = load ptr, ptr %10, align 8
@@ -11306,7 +11306,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %650, %646
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i81.i: ; preds = %.lr.ph.i.i.i93.i, %666, %664
   %668 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %668, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %668, i64 noundef 4) #15
   %669 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %670 = add i64 %669, 1
   %671 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
@@ -11359,7 +11359,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_
   %696 = load ptr, ptr %.sroa.06.026.i.i, align 8
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 24
   %698 = load ptr, ptr %697, align 8
-  %699 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %697) #15
+  %699 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %697) #15
   %700 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %698, i64 %699
   %.not4.i.i.i.i = icmp eq i64 %699, 0
   br i1 %.not4.i.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i.i, label %.lr.ph.i.i16.i.i
@@ -11385,10 +11385,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm13La
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i.i: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i, %.lr.ph28.i.i
   %.sroa.0.1.i.i.i = phi ptr [ %698, %.lr.ph28.i.i ], [ %700, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i ], [ %.sroa.0.0.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i ]
   %705 = load ptr, ptr %697, align 8
-  %706 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %697) #15
+  %706 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %697) #15
   %707 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %705, i64 %706
   %708 = load ptr, ptr %697, align 8
-  %709 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %697) #15
+  %709 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %697) #15
   %710 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %708, i64 %709
   %.not4.i.i19.i.i = icmp eq ptr %707, %710
   br i1 %.not4.i.i19.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit.i.i, label %.lr.ph.i.i20.i.i
@@ -11558,7 +11558,7 @@ _ZN4llvm13LazyCallGraph14getRefSCCIndexERNS0_6RefSCCE.exit.i.i: ; preds = %765, 
   br label %793
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit54.i.i: ; preds = %._crit_edge.i.i53.i.i, %776
-  %791 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef %.0.i.i87.i) #15, !noalias !163
+  %791 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %.0.i.i87.i) #15, !noalias !163
   %.fca.1.extract.i.i32.i.i = extractvalue { ptr, i8 } %791, 1
   %792 = trunc i8 %.fca.1.extract.i.i32.i.i to i1
   br i1 %792, label %793, label %.critedge39.i.i
@@ -11628,7 +11628,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit.i.i: ; preds = %_ZNK4llv
   br i1 %812, label %813, label %679, !llvm.loop !166
 
 813:                                              ; preds = %._crit_edge34.i.i
-  %814 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %814 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
   %815 = load ptr, ptr %7, align 8
   %816 = icmp eq ptr %815, %668
   br i1 %816, label %"_ZZN4llvm13LazyCallGraph6RefSCC21insertIncomingRefEdgeERNS0_4NodeES3_ENK3$_1clERNS_15SmallPtrSetImplIPS1_EE.exit.i", label %817
@@ -12327,7 +12327,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i75
 
 1095:                                             ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i.i74
-  %1096 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef %1080) #15, !noalias !170
+  %1096 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef %1080) #15, !noalias !170
   %.pre.i.i.i = load ptr, ptr %13, align 8, !noalias !169
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i75
 
@@ -12379,7 +12379,7 @@ _ZN4llvm11SmallPtrSetIPNS_13LazyCallGraph6RefSCCELj16EEC2IPS3_EET_S7_.exit: ; pr
 
 _ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit: ; preds = %.lr.ph.i.i80, %1111, %1113
   %1115 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %1115, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull %1115, i64 noundef 16) #15
   br i1 %.not6.i.i, label %._crit_edge488, label %.lr.ph487
 
 .lr.ph487:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_13LazyCallGraph6RefSCCEE6insertES3_.exit
@@ -13715,7 +13715,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
   br i1 %1781, label %1782, label %1784
 
 1782:                                             ; preds = %._crit_edge483
-  %1783 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %1122)
+  %1783 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull align 8 dereferenceable(16) %1122)
   br label %1788
 
 1784:                                             ; preds = %._crit_edge483
@@ -13847,7 +13847,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   %1850 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1802) #15
   %1851 = getelementptr inbounds ptr, ptr %1849, i64 %1850
   call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE6appendIPS3_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %1849, ptr noundef %1851)
-  %1852 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %1802, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %1852 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1802, ptr noundef nonnull align 8 dereferenceable(16) %14)
   br i1 %.not6.i.i, label %._crit_edge500, label %.lr.ph499
 
 .lr.ph499:                                        ; preds = %._crit_edge495, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5eraseERKS4_.exit
@@ -14023,7 +14023,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 ._crit_edge504:                                   ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixERKS4_.exit, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE5eraseEPKS3_S6_.exit
   %1951 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @_ZN4llvm13LazyCallGraph12EdgeSequence18insertEdgeInternalERNS0_4NodeENS0_4Edge4KindE(ptr noundef nonnull align 8 dereferenceable(72) %1951, ptr noundef nonnull align 8 dereferenceable(104) %3, i1 noundef zeroext false)
-  %1952 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
+  %1952 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %14) #15
   %1953 = load ptr, ptr %14, align 8
   %1954 = icmp eq ptr %1953, %1115
   br i1 %1954, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph3SCCELj16EED2Ev.exit, label %1955
@@ -14174,7 +14174,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph6RefSCC22removeInternalRefEdgesENS
   %10 = alloca %"class.llvm::LazyCallGraph::EdgeSequence::iterator", align 8
   %11 = alloca ptr, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %12, i64 noundef 1) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %12, i64 noundef 1) #15
   %13 = getelementptr inbounds %"struct.std::pair.266", ptr %2, i64 %3
   %.not271 = icmp eq i64 %3, 0
   br i1 %.not271, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj8EED2Ev.exit, label %.lr.ph
@@ -14976,7 +14976,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Den
 
 435:                                              ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefISt4pairIPNS_13LazyCallGraph4NodeES5_EEEZNS3_6RefSCC22removeInternalRefEdgesES7_E3$_1EEbOT_T0_.exit"
   %436 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %436, i64 noundef 8) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull %436, i64 noundef 8) #15
   %437 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %438 = load ptr, ptr %437, align 8
   %439 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %437) #15
@@ -15017,9 +15017,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Den
 ._crit_edge290:                                   ; preds = %._crit_edge285, %435
   %454 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %455 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %455, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull %455, i64 noundef 4) #15
   %456 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %456, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %456, i64 noundef 4) #15
   %457 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %458 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.20.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -15050,7 +15050,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Den
   store i32 1, ptr %469, align 8
   %473 = getelementptr inbounds nuw i8, ptr %466, i64 24
   %474 = load ptr, ptr %473, align 8
-  %475 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %473) #15
+  %475 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %473) #15
   %476 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %474, i64 %475
   %.not4.i.i = icmp eq i64 %475, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i
@@ -15097,10 +15097,10 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCa
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %488) #15, !noalias !181
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0210.0.copyload, i64 24
   %490 = load ptr, ptr %489, align 8
-  %491 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %489) #15
+  %491 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %489) #15
   %492 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %490, i64 %491
   %493 = load ptr, ptr %489, align 8
-  %494 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %489) #15
+  %494 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %489) #15
   %495 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %493, i64 %494
   %.not4.i.i108 = icmp eq ptr %492, %495
   br i1 %.not4.i.i108, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i109
@@ -15225,7 +15225,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
   store i32 %.192.ph304, ptr %541, align 4
   %542 = getelementptr inbounds nuw i8, ptr %503, i64 24
   %543 = load ptr, ptr %542, align 8
-  %544 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %542) #15
+  %544 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %542) #15
   %545 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %543, i64 %544
   %.not4.i.i120 = icmp eq i64 %544, 0
   br i1 %.not4.i.i120, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit132, label %.lr.ph.i.i121
@@ -15251,10 +15251,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i130: ; preds = %_ZNK4llvm13Laz
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit132: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i125, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i130, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit
   %.sroa.0.1.i127 = phi ptr [ %543, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit ], [ %545, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i130 ], [ %.sroa.0.0.i122, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i125 ]
   %550 = load ptr, ptr %542, align 8
-  %551 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %542) #15
+  %551 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %542) #15
   %552 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %550, i64 %551
   %553 = load ptr, ptr %542, align 8
-  %554 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %542) #15
+  %554 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %542) #15
   %555 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %553, i64 %554
   %.not4.i.i133 = icmp eq ptr %552, %555
   br i1 %.not4.i.i133, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit145, label %.lr.ph.i.i134
@@ -15379,7 +15379,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
 
 596:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.exit
   %597 = load ptr, ptr %8, align 8, !noalias !185
-  %598 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15, !noalias !185
+  %598 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #15, !noalias !185
   %599 = getelementptr inbounds ptr, ptr %597, i64 %598
   %600 = load ptr, ptr %8, align 8
   %601 = ptrtoint ptr %599 to i64
@@ -15997,7 +15997,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5clearEv.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5clearEv.exit: ; preds = %.lr.ph334, %.preheader, %._crit_edge331, %._crit_edge.i, %913
-  %921 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %921 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
   %922 = load ptr, ptr %8, align 8
   %923 = icmp eq ptr %922, %456
   br i1 %923, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj4EED2Ev.exit, label %924
@@ -16007,7 +16007,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj4EED2Ev.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5clearEv.exit, %924
-  %925 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %925 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #15
   %926 = load ptr, ptr %7, align 8
   %927 = icmp eq ptr %926, %455
   br i1 %927, label %_ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEELj4EED2Ev.exit, label %928
@@ -16017,7 +16017,7 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj4EED2Ev.exit: ; preds = %_ZN4ll
   br label %_ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj4EED2Ev.exit, %928
-  %929 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  %929 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %6) #15
   %930 = load ptr, ptr %6, align 8
   %931 = icmp eq ptr %930, %436
   br i1 %931, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj8EED2Ev.exit, label %932
@@ -16593,7 +16593,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm13LazyCallGraph13isLibFu
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
   %.idx4.i = shl nsw i64 %9, 3
   %10 = getelementptr inbounds i8, ptr %8, i64 %.idx4.i
   %11 = ashr i64 %9, 2
@@ -16692,7 +16692,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exi
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit: ; preds = %14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit18, %34, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %45
   %.028.i.i.i.i = phi ptr [ %10, %45 ], [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %46, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %47, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %48, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit18 ], [ %.02946.i.i.i.i, %14 ]
   %49 = load ptr, ptr %7, align 8
-  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
   %51 = getelementptr inbounds ptr, ptr %49, i64 %50
   %52 = icmp ne ptr %.028.i.i.i.i, %51
   br label %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE5countERKS2_.exit
@@ -16751,7 +16751,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_8FunctionE
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
   %.idx3.i = shl nsw i64 %9, 3
   %10 = getelementptr inbounds i8, ptr %8, i64 %.idx3.i
   %11 = ashr i64 %9, 2
@@ -16934,7 +16934,7 @@ _ZN4llvm4findIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEDaOT_RKT0_.exit: ; pred
   store i32 %98, ptr %96, align 4
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #15
+  %101 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %99) #15
   %.idx3.i9 = shl nsw i64 %101, 3
   %102 = getelementptr inbounds i8, ptr %100, i64 %.idx3.i9
   %103 = ashr i64 %101, 2
@@ -17203,7 +17203,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_1
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #15
+  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %32) #15
   %35 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %33, i64 %34
   %.not4.i.i = icmp eq i64 %34, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i6
@@ -17229,10 +17229,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i: ; preds = %_ZNK4llvm13LazyCa
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit
   %.sroa.0.1.i = phi ptr [ %33, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit ], [ %35, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i ], [ %.sroa.0.0.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ]
   %40 = load ptr, ptr %32, align 8
-  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #15
+  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %32) #15
   %42 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %40, i64 %41
   %43 = load ptr, ptr %32, align 8
-  %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #15
+  %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %32) #15
   %45 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %43, i64 %44
   %.not4.i.i7 = icmp eq ptr %42, %45
   br i1 %.not4.i.i7, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i8
@@ -17530,7 +17530,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   store ptr %101, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = getelementptr inbounds i8, ptr %100, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull %103, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull %103, i64 noundef 1) #15
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_EixERKS4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_EixERKS4_.exit: ; preds = %91, %75, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit.i.i
@@ -17624,16 +17624,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   %144 = load ptr, ptr %.sroa.0146.0187, align 8
   store ptr %144, ptr %6, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.0146.0187, i64 8
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull %125, i64 noundef 1) #15
-  %146 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull %125, i64 noundef 1) #15
+  %146 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %145) #15
   br i1 %146, label %_ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEC2ERKS9_.exit, label %147
 
 147:                                              ; preds = %143
-  %148 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %145)
+  %148 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %145)
   br label %_ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEC2ERKS9_.exit
 
 _ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEEC2ERKS9_.exit: ; preds = %143, %147
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %126, i64 noundef 3) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %126, i64 noundef 3) #15
   %149 = load ptr, ptr %124, align 8
   %150 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #15
   %151 = getelementptr inbounds ptr, ptr %149, i64 %150
@@ -17645,7 +17645,7 @@ _ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4
   %152 = load ptr, ptr %.047179, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load ptr, ptr %153, align 8
-  %155 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #15
+  %155 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %153) #15
   %156 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %154, i64 %155
   %.not4.i.i = icmp eq i64 %155, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i
@@ -17671,10 +17671,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i: ; preds = %_ZNK4llvm13LazyCa
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i, %.lr.ph180
   %.sroa.0.1.i = phi ptr [ %154, %.lr.ph180 ], [ %156, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i ], [ %.sroa.0.0.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ]
   %161 = load ptr, ptr %153, align 8
-  %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #15
+  %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %153) #15
   %163 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %161, i64 %162
   %164 = load ptr, ptr %153, align 8
-  %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #15
+  %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %153) #15
   %166 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %164, i64 %165
   %.not4.i.i57 = icmp eq ptr %163, %166
   br i1 %.not4.i.i57, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i58
@@ -17891,7 +17891,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit: ; preds = %256, %_ZNK4l
   %262 = load ptr, ptr %7, align 8
   %263 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   call void @_ZN4llvm13LazyCallGraph6RefSCC22removeInternalRefEdgesENS_8ArrayRefISt4pairIPNS0_4NodeES5_EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.251") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %261, ptr %262, i64 %263)
-  %264 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %264 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   %265 = load ptr, ptr %8, align 8
   %266 = icmp eq ptr %265, %129
   br i1 %266, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph6RefSCCELj1EED2Ev.exit, label %267
@@ -18118,7 +18118,7 @@ _ZN4llvm13LazyCallGraph6RefSCC5clearEv.exit:      ; preds = %.lr.ph.i.i.i130, %.
   br i1 %.not53, label %._crit_edge185, label %.lr.ph184
 
 ._crit_edge185:                                   ; preds = %_ZN4llvm13LazyCallGraph6RefSCC5clearEv.exit, %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph6RefSCCELj1EED2Ev.exit
-  %370 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %370 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
   %371 = load ptr, ptr %7, align 8
   %372 = icmp eq ptr %371, %126
   br i1 %372, label %_ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeES4_ELj3EED2Ev.exit, label %373
@@ -18128,7 +18128,7 @@ _ZN4llvm13LazyCallGraph6RefSCC5clearEv.exit:      ; preds = %.lr.ph.i.i.i130, %.
   br label %_ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeES4_ELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairIPNS_13LazyCallGraph4NodeES4_ELj3EED2Ev.exit: ; preds = %._crit_edge185, %373
-  %374 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #15
+  %374 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %124) #15
   %375 = load ptr, ptr %124, align 8
   %376 = icmp eq ptr %375, %125
   br i1 %376, label %_ZN4llvm6detail12DenseMapPairIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEEED2Ev.exit, label %377
@@ -18388,7 +18388,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_1
   %513 = zext i32 %512 to i64
   %514 = shl nuw nsw i64 %513, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %510, i64 noundef %514, i64 noundef 8) #15
-  %515 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %508) #15
+  %515 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %508) #15
   %516 = load ptr, ptr %508, align 8
   %517 = getelementptr inbounds i8, ptr %.0.i.i107, i64 40
   %518 = icmp eq ptr %516, %517
@@ -18426,7 +18426,7 @@ _ZN4llvm13LazyCallGraph4Node5clearEv.exit:        ; preds = %_ZN4llvm12DenseMapB
 
 526:                                              ; preds = %.lr.ph.i.i124
   %527 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
-  %528 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %527) #15
+  %528 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %527) #15
   %529 = load ptr, ptr %527, align 8
   %530 = getelementptr inbounds i8, ptr %.011.i.i, i64 24
   %531 = icmp eq ptr %529, %530
@@ -18678,7 +18678,7 @@ _ZL11getEdgeKindRN4llvm8FunctionES1_.exit:        ; preds = %_ZN4llvm16dyn_cast_
   store ptr null, ptr %7, align 8
   %119 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #15
+  %121 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %119) #15
   %122 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %120, i64 %121
   %.not4.i.i = icmp eq i64 %121, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i
@@ -18704,10 +18704,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i: ; preds = %_ZNK4llvm13LazyCa
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i, %_ZL11getEdgeKindRN4llvm8FunctionES1_.exit
   %.sroa.0.1.i = phi ptr [ %120, %_ZL11getEdgeKindRN4llvm8FunctionES1_.exit ], [ %122, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i ], [ %.sroa.0.0.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ]
   %127 = load ptr, ptr %119, align 8
-  %128 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #15
+  %128 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %119) #15
   %129 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %127, i64 %128
   %130 = load ptr, ptr %119, align 8
-  %131 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #15
+  %131 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %119) #15
   %132 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %130, i64 %131
   %.not4.i.i59 = icmp eq ptr %129, %132
   br i1 %.not4.i.i59, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i60
@@ -18852,7 +18852,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit: ; preds = %179, %_ZNK4l
 
 .loopexit214.thread:                              ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit, %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, %.loopexit214
   %190 = load ptr, ptr %119, align 8
-  %191 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #15
+  %191 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %119) #15
   %192 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %190, i64 %191
   %.not4.i.i84 = icmp eq i64 %191, 0
   br i1 %.not4.i.i84, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit96, label %.lr.ph.i.i85
@@ -18878,10 +18878,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i94: ; preds = %_ZNK4llvm13Lazy
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit96: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i89, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i94, %.loopexit214.thread
   %.sroa.0.1.i91 = phi ptr [ %190, %.loopexit214.thread ], [ %192, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i94 ], [ %.sroa.0.0.i86, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i89 ]
   %197 = load ptr, ptr %119, align 8
-  %198 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #15
+  %198 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %119) #15
   %199 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %197, i64 %198
   %200 = load ptr, ptr %119, align 8
-  %201 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #15
+  %201 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %119) #15
   %202 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %200, i64 %201
   %.not4.i.i97 = icmp eq ptr %199, %202
   br i1 %.not4.i.i97, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit109, label %.lr.ph.i.i98
@@ -18971,9 +18971,9 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit119: ; preds = %.lr.ph.i.
 238:                                              ; preds = %_ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit119
   store ptr %57, ptr %9, align 8
   %239 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %239, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %239, i64 noundef 1) #15
   %240 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, ptr noundef nonnull %240)
+  call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %9, ptr noundef nonnull %240)
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %243 = load i64, ptr %242, align 8
@@ -19014,17 +19014,17 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i: ;
   store ptr %.0.i, ptr %.0.i.i.i.i.i.i, align 8
   %262 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   %263 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef nonnull %263, i64 noundef 1) #15
-  %264 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %262, ptr noundef nonnull %263, i64 noundef 1) #15
+  %264 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   br i1 %264, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit, label %265
 
 265:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i
-  %266 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %266 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %262, ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit
 
 _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit: ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i, %265
   store ptr %.0.i.i.i.i.i.i, ptr %7, align 8
-  %267 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %267 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   %268 = load ptr, ptr %8, align 8
   %269 = icmp eq ptr %268, %239
   br i1 %269, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EED2Ev.exit, label %270
@@ -19284,9 +19284,9 @@ _ZN4llvm13LazyCallGraph12createRefSCCIJRS0_EEEPNS0_6RefSCCEDpOT_.exit: ; preds =
   call void @_ZN4llvm13LazyCallGraph6RefSCCC1ERS0_(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i.i.i151, ptr noundef nonnull align 8 dereferenceable(648) %0) #15
   store ptr %57, ptr %11, align 8
   %399 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %399, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %399, i64 noundef 1) #15
   %400 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, ptr noundef nonnull %400)
+  call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %11, ptr noundef nonnull %400)
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %403 = load i64, ptr %402, align 8
@@ -19327,17 +19327,17 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i156
   store ptr %.0.i.i.i.i.i.i151, ptr %.0.i.i.i.i.i.i158, align 8
   %422 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i158, i64 8
   %423 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i158, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %422, ptr noundef nonnull %423, i64 noundef 1) #15
-  %424 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %422, ptr noundef nonnull %423, i64 noundef 1) #15
+  %424 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
   br i1 %424, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit160, label %425
 
 425:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i156
-  %426 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %422, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %426 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %422, ptr noundef nonnull align 8 dereferenceable(24) %10)
   br label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit160
 
 _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit160: ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i156, %425
   store ptr %.0.i.i.i.i.i.i158, ptr %7, align 8
-  %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
   %428 = load ptr, ptr %10, align 8
   %429 = icmp eq ptr %428, %399
   br i1 %429, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EED2Ev.exit161, label %430
@@ -19800,7 +19800,7 @@ _ZNK4llvm13LazyCallGraph12lookupRefSCCERNS0_4NodeE.exit: ; preds = %.lr.ph.i.i.i
   tail call void @_ZN4llvm13LazyCallGraph12EdgeSequence18insertEdgeInternalERNS0_4NodeENS0_4Edge4KindE(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull align 8 dereferenceable(104) %45, i1 noundef zeroext false)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #15
+  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %46) #15
   %49 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %47, i64 %48
   %.not4.i.i = icmp eq i64 %48, 0
   br i1 %.not4.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit, label %.lr.ph.i.i
@@ -19826,10 +19826,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i: ; preds = %_ZNK4llvm13LazyCa
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i, %43
   %.sroa.0.1.i = phi ptr [ %47, %43 ], [ %49, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i ], [ %.sroa.0.0.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i ]
   %54 = load ptr, ptr %46, align 8
-  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #15
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %46) #15
   %56 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %54, i64 %55
   %57 = load ptr, ptr %46, align 8
-  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #15
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %46) #15
   %59 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %57, i64 %58
   %.not4.i.i40 = icmp eq ptr %56, %59
   br i1 %.not4.i.i40, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit, label %.lr.ph.i.i41
@@ -20149,8 +20149,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
   %209 = load ptr, ptr %.038131, align 8
   %210 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm13LazyCallGraph3getERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(136) %209)
   store ptr %210, ptr %8, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %198, i64 noundef 1) #15
-  call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, ptr noundef nonnull %199)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %198, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %8, ptr noundef nonnull %199)
   %211 = load i64, ptr %201, align 8
   %212 = add i64 %211, 32
   store i64 %212, ptr %201, align 8
@@ -20188,16 +20188,16 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i: ;
   store ptr %.0104, ptr %.0.i.i.i.i.i.i69, align 8
   %229 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i69, i64 8
   %230 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i69, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull %230, i64 noundef 1) #15
-  %231 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull %230, i64 noundef 1) #15
+  %231 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   br i1 %231, label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit, label %232
 
 232:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i
-  %233 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %233 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit
 
 _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCENS_11SmallVectorIPNS0_4NodeELj1EEEEEEPNS0_3SCCEDpOT_.exit: ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13LazyCallGraph3SCCEE8AllocateEm.exit.i, %232
-  %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
+  %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   %235 = load ptr, ptr %7, align 8
   %236 = icmp eq ptr %235, %198
   br i1 %236, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EED2Ev.exit, label %237
@@ -20445,9 +20445,9 @@ define dso_local void @_ZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14itera
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %16 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %16, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) %5, ptr noundef nonnull %16, i64 noundef 16) #15
   %17 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %17, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %17, i64 noundef 16) #15
   %18 = load ptr, ptr %2, align 8, !noalias !240
   %19 = load ptr, ptr %10, align 8, !noalias !243
   %.not3481.i = icmp eq ptr %18, %19
@@ -20487,7 +20487,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14itera
   store i32 1, ptr %37, align 8
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #15
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %41) #15
   %44 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %42, i64 %43
   %.not4.i.i.i.i.i = icmp eq i64 %43, 0
   br i1 %.not4.i.i.i.i.i, label %"_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_0clERS5_.exit.i", label %.lr.ph.i.i.i.i.i
@@ -20536,10 +20536,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %58) #15, !noalias !246
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.copyload.i, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #15
+  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %59) #15
   %62 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %60, i64 %61
   %63 = load ptr, ptr %59, align 8
-  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #15
+  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %59) #15
   %65 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %63, i64 %64
   %.not4.i.i.i.i44.i = icmp eq ptr %62, %65
   br i1 %.not4.i.i.i.i44.i, label %"_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_1clERS5_.exit.i", label %.lr.ph.i.i.i.i45.i
@@ -20667,7 +20667,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13c
   store i32 %.1.ph70.i, ptr %79, align 8
   %114 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %115 = load ptr, ptr %114, align 8
-  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %114) #15
+  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %114) #15
   %117 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %115, i64 %116
   %.not4.i.i.i.i57.i = icmp eq i64 %116, 0
   br i1 %.not4.i.i.i.i57.i, label %"_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_0clERS5_.exit70.i", label %.lr.ph.i.i.i.i58.i
@@ -20696,10 +20696,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i62.i: ; preds = %.lr.ph.i.i.i.i58
 "_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_0clERS5_.exit70.i": ; preds = %.critedge2.i.i.i.i65.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i62.i, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit.i
   %.sroa.0.1.i.i67.i = phi ptr [ %115, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence13call_iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit.i ], [ %117, %.critedge2.i.i.i.i65.i ], [ %.sroa.0.0.i.i59.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i.i62.i ]
   %124 = load ptr, ptr %114, align 8
-  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %114) #15
+  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %114) #15
   %126 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %124, i64 %125
   %127 = load ptr, ptr %114, align 8
-  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %114) #15
+  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %114) #15
   %129 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %127, i64 %128
   %.not4.i.i.i.i71.i = icmp eq ptr %126, %129
   br i1 %.not4.i.i.i.i71.i, label %"_ZZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEENK3$_1clERS5_.exit84.i", label %.lr.ph.i.i.i.i72.i
@@ -20832,7 +20832,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15, !noalias !250
   %175 = getelementptr inbounds ptr, ptr %173, i64 %174
   %176 = load ptr, ptr %6, align 8, !noalias !253
-  %177 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15, !noalias !253
+  %177 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #15, !noalias !253
   %178 = getelementptr inbounds ptr, ptr %176, i64 %177
   %179 = load ptr, ptr %6, align 8, !noalias !264
   %180 = ptrtoint ptr %178 to i64
@@ -21004,24 +21004,24 @@ _ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse
   store ptr %1, ptr %.0.i.i.i.i.i.i.i.i, align 8
   %257 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
   %258 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef nonnull %258, i64 noundef 1) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull %258, i64 noundef 1) #15
   %259 = ptrtoint ptr %175 to i64
   %260 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %261 = sub i64 %259, %260
   %262 = ashr exact i64 %261, 3
-  %263 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %257) #15
+  %263 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %257) #15
   %264 = add i64 %263, %262
-  %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %257) #15
+  %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %257) #15
   %266 = icmp ult i64 %265, %264
   br i1 %266, label %267, label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i
 
 267:                                              ; preds = %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit.i.i
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef nonnull %258, i64 noundef %264, i64 noundef 8) #15
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull %258, i64 noundef %264, i64 noundef 8) #15
   br label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i: ; preds = %267, %_ZN4llvm13LazyCallGraph9createSCCIJRNS0_6RefSCCERNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEEEEPNS0_3SCCEDpOT_.exit.i.i
   %268 = load ptr, ptr %257, align 8
-  %269 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %257) #15
+  %269 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %257) #15
   %270 = icmp sgt i64 %262, 0
   br i1 %270, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i, label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendISt16reverse_iteratorIPS3_EvEEvT_S9_.exit.i
 
@@ -21042,9 +21042,9 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i: ; preds
   br i1 %276, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendISt16reverse_iteratorIPS3_EvEEvT_S9_.exit.i, !llvm.loop !144
 
 _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE6appendISt16reverse_iteratorIPS3_EvEEvT_S9_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE7reserveEm.exit.i.i
-  %277 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %257) #15
+  %277 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %257) #15
   %278 = add i64 %277, %262
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %257, i64 noundef %278) #15
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %257, i64 noundef %278) #15
   %279 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #15
   %280 = add i64 %279, 1
   %281 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #15
@@ -21594,7 +21594,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
   br i1 %.not34.i, label %._crit_edge85.i, label %34
 
 ._crit_edge85.i:                                  ; preds = %.loopexit.i, %._crit_edge
-  %558 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  %558 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #15
   %559 = load ptr, ptr %6, align 8
   %560 = icmp eq ptr %559, %17
   br i1 %560, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i, label %561
@@ -21604,7 +21604,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i: ; preds = %561, %._crit_edge85.i
-  %562 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %562 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %5) #15
   %563 = load ptr, ptr %5, align 8
   %564 = icmp eq ptr %563, %16
   br i1 %564, label %"_ZN4llvm13LazyCallGraph16buildGenericSCCsIRNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEZNS0_9buildSCCsERNS0_6RefSCCES8_E3$_0ZNS0_9buildSCCsESB_S8_E3$_1ZNS0_9buildSCCsESB_S8_E3$_2ZNS0_9buildSCCsESB_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_.exit", label %565
@@ -21721,7 +21721,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph12buildRefSCCsEv(ptr noundef nonnu
   %8 = alloca %"class.llvm::SmallVector.244", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #15
   %12 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %10, i64 %11
   %.not10.i = icmp eq i64 %11, 0
   br i1 %.not10.i, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit, label %.lr.ph.i
@@ -21751,9 +21751,9 @@ _ZN4llvm13LazyCallGraph12EdgeSequence5emptyEv.exit: ; preds = %_ZNK4llvm13LazyCa
 
 19:                                               ; preds = %_ZN4llvm13LazyCallGraph12EdgeSequence5emptyEv.exit
   %20 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %20, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %20, i64 noundef 16) #15
   %21 = load ptr, ptr %9, align 8
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #15
   %23 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %21, i64 %22
   %.not4.i.i.i = icmp eq i64 %22, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm13LazyCallGraph5beginEv.exit, label %.lr.ph.i.i.i
@@ -21779,10 +21779,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm13Lazy
 _ZN4llvm13LazyCallGraph5beginEv.exit:             ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i, %19
   %.sroa.0.1.i.i = phi ptr [ %21, %19 ], [ %.sroa.0.0.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i ], [ %23, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i ]
   %28 = load ptr, ptr %9, align 8
-  %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #15
   %30 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %28, i64 %29
   %31 = load ptr, ptr %9, align 8
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #15
   %33 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %31, i64 %32
   %.not4.i.i.i4 = icmp eq ptr %30, %33
   br i1 %.not4.i.i.i4, label %_ZN4llvm13LazyCallGraph3endEv.exit, label %.lr.ph.i.i.i5
@@ -21865,11 +21865,11 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit: ; preds = %50, %_ZNK4ll
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %54 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %54, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull %54, i64 noundef 16) #15
   %55 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %55, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %55, i64 noundef 16) #15
   %56 = load ptr, ptr %8, align 8
-  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #15
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
   %.not60.i = icmp eq i64 %57, 0
   br i1 %.not60.i, label %._crit_edge64.i, label %.lr.ph63.i
@@ -21917,7 +21917,7 @@ _ZN4llvm13LazyCallGraph12EdgeSequence8iteratorppEv.exit: ; preds = %50, %_ZNK4ll
 
 _ZN4llvm13LazyCallGraph4Node8populateEv.exit.i.i: ; preds = %83, %77
   %85 = load ptr, ptr %79, align 8
-  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %79) #15
+  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %79) #15
   %87 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %85, i64 %86
   %.not4.i.i.i.i = icmp eq i64 %86, 0
   br i1 %.not4.i.i.i.i, label %"_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_0clERNS0_4NodeE.exit.i", label %.lr.ph.i.i.i.i
@@ -21963,10 +21963,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm13La
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %99) #15, !noalias !285
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.copyload.i, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %100) #15
+  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %100) #15
   %103 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %101, i64 %102
   %104 = load ptr, ptr %100, align 8
-  %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %100) #15
+  %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %100) #15
   %106 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %104, i64 %105
   %.not4.i.i.i51.i = icmp eq ptr %103, %106
   br i1 %.not4.i.i.i51.i, label %"_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_1clERNS0_4NodeE.exit.i", label %.lr.ph.i.i.i52.i
@@ -22101,7 +22101,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8it
 
 _ZN4llvm13LazyCallGraph4Node8populateEv.exit.i63.i: ; preds = %157, %_ZN4llvm15SmallVectorImplISt4pairIPNS_13LazyCallGraph4NodeENS2_12EdgeSequence8iteratorEEE12emplace_backIJRS4_RS6_EEERS7_DpOT_.exit.i
   %159 = load ptr, ptr %153, align 8
-  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #15
+  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %153) #15
   %161 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %159, i64 %160
   %.not4.i.i.i64.i = icmp eq i64 %160, 0
   br i1 %.not4.i.i.i64.i, label %"_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_0clERNS0_4NodeE.exit76.i", label %.lr.ph.i.i.i65.i
@@ -22127,10 +22127,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i74.i: ; preds = %_ZNK4llvm13
 "_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_0clERNS0_4NodeE.exit76.i": ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i74.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i69.i, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i63.i
   %.sroa.0.1.i.i71.i = phi ptr [ %159, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i63.i ], [ %161, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i74.i ], [ %.sroa.0.0.i.i66.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i69.i ]
   %166 = load ptr, ptr %153, align 8
-  %167 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #15
+  %167 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %153) #15
   %168 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %166, i64 %167
   %169 = load ptr, ptr %153, align 8
-  %170 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #15
+  %170 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %153) #15
   %171 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %169, i64 %170
   %.not4.i.i.i77.i = icmp eq ptr %168, %171
   br i1 %.not4.i.i.i77.i, label %"_ZZN4llvm13LazyCallGraph12buildRefSCCsEvENK3$_1clERNS0_4NodeE.exit89.i", label %.lr.ph.i.i.i78.i
@@ -22254,7 +22254,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %212 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15, !noalias !289
   %213 = getelementptr inbounds ptr, ptr %211, i64 %212
   %214 = load ptr, ptr %5, align 8, !noalias !292
-  %215 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15, !noalias !292
+  %215 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #15, !noalias !292
   %216 = getelementptr inbounds ptr, ptr %214, i64 %215
   %217 = load ptr, ptr %5, align 8, !noalias !303
   %218 = ptrtoint ptr %216 to i64
@@ -22673,7 +22673,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
   br i1 %.not.i22, label %._crit_edge64.i, label %73
 
 ._crit_edge64.i:                                  ; preds = %.loopexit.i, %._crit_edge
-  %432 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %432 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #15
   %433 = load ptr, ptr %5, align 8
   %434 = icmp eq ptr %433, %55
   br i1 %434, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i, label %435
@@ -22683,7 +22683,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i: ; preds = %435, %._crit_edge64.i
-  %436 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
+  %436 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %4) #15
   %437 = load ptr, ptr %4, align 8
   %438 = icmp eq ptr %437, %54
   br i1 %438, label %"_ZN4llvm13LazyCallGraph16buildGenericSCCsIRNS_11SmallVectorIPNS0_4NodeELj16EEEZNS0_12buildRefSCCsEvE3$_0ZNS0_12buildRefSCCsEvE3$_1ZNS0_12buildRefSCCsEvE3$_2ZNS0_12buildRefSCCsEvE3$_3EEvOT_OT0_OT1_OT2_OT3_.exit", label %439
@@ -22697,7 +22697,7 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i: ; preds = %435
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %440 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %440 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #15
   %441 = load ptr, ptr %8, align 8
   %442 = icmp eq ptr %441, %20
   br i1 %442, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit, label %443
@@ -22874,7 +22874,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13.i:             ; preds = %85, %83
 _ZN4llvm13LazyCallGraph4Node8populateEv.exit.i:   ; preds = %93, %_ZN4llvm11raw_ostreamlsEPKc.exit13.i
   %.0.i14.i = phi ptr [ %94, %93 ], [ %89, %_ZN4llvm11raw_ostreamlsEPKc.exit13.i ]
   %95 = load ptr, ptr %.0.i14.i, align 8
-  %96 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i14.i) #15
+  %96 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i14.i) #15
   %97 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %95, i64 %96
   %.not4.i.i.i = icmp eq i64 %96, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i, label %.lr.ph.i.i.i
@@ -22900,10 +22900,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm13Lazy
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i
   %.sroa.0.1.i.i = phi ptr [ %95, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i ], [ %97, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i ]
   %102 = load ptr, ptr %.0.i14.i, align 8
-  %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i14.i) #15
+  %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i14.i) #15
   %104 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %102, i64 %103
   %105 = load ptr, ptr %.0.i14.i, align 8
-  %106 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i14.i) #15
+  %106 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i14.i) #15
   %107 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %105, i64 %106
   %.not4.i.i15.i = icmp eq ptr %104, %107
   br i1 %.not4.i.i15.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit.i, label %.lr.ph.i.i16.i
@@ -23119,13 +23119,13 @@ _ZL9printNodeRN4llvm11raw_ostreamERNS_13LazyCallGraph4NodeE.exit: ; preds = %191
   tail call void @_ZN4llvm13LazyCallGraph12buildRefSCCsEv(ptr noundef nonnull align 8 dereferenceable(648) %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !344
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %198 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %197) #15, !noalias !344
+  %198 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %197) #15, !noalias !344
   call void @_ZN4llvm13LazyCallGraph26postorder_ref_scc_iteratorC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(648) %8), !noalias !344
   %.fca.0.load.i.i = load ptr, ptr %5, align 8, !noalias !344
   %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %.fca.1.load.i.i = load ptr, ptr %.fca.1.gep.i.i, align 8, !noalias !344
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !344
-  %199 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %197) #15, !noalias !344
+  %199 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %197) #15, !noalias !344
   store ptr %.fca.0.load.i.i, ptr %6, align 8
   %200 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.fca.1.load.i.i, ptr %200, align 8
@@ -23671,7 +23671,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %44, %46
 _ZN4llvm13LazyCallGraph4Node8populateEv.exit.i:   ; preds = %75, %53
   %.0.i.i12 = phi ptr [ %76, %75 ], [ %71, %53 ]
   %77 = load ptr, ptr %.0.i.i12, align 8
-  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i12) #15
+  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i12) #15
   %79 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %77, i64 %78
   %.not4.i.i.i = icmp eq i64 %78, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i, label %.lr.ph.i.i.i
@@ -23697,10 +23697,10 @@ _ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm13Lazy
 _ZN4llvm13LazyCallGraph12EdgeSequence5beginEv.exit.i: ; preds = %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i
   %.sroa.0.1.i.i = phi ptr [ %77, %_ZN4llvm13LazyCallGraph4Node8populateEv.exit.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.i.i.i ], [ %79, %_ZNK4llvm13LazyCallGraph4EdgecvbEv.exit.thread.i.i.i ]
   %84 = load ptr, ptr %.0.i.i12, align 8
-  %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i12) #15
+  %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i12) #15
   %86 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %84, i64 %85
   %87 = load ptr, ptr %.0.i.i12, align 8
-  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i12) #15
+  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i12) #15
   %89 = getelementptr inbounds %"class.llvm::LazyCallGraph::Edge", ptr %87, i64 %88
   %.not4.i.i10.i = icmp eq ptr %86, %89
   br i1 %.not4.i.i10.i, label %_ZN4llvm13LazyCallGraph12EdgeSequence3endEv.exit.i, label %.lr.ph.i.i11.i
@@ -25281,7 +25281,7 @@ define internal void @"_ZN4llvm12function_refIFvRNS_8FunctionEEE11callback_fnIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
   %.idx4 = shl nsw i64 %4, 3
   %5 = getelementptr inbounds i8, ptr %3, i64 %.idx4
   %6 = ashr i64 %4, 2
@@ -25392,7 +25392,7 @@ _ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit19: ;
 _ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit: ; preds = %10, %_ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit17, %_ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit19, %30, %36, %42, %46
   %.028.i.i.i = phi ptr [ %5, %46 ], [ %.029.lcssa.i.i.i, %30 ], [ %.1.i.i.i, %36 ], [ %.2.i.i.i, %42 ], [ %47, %_ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %48, %_ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit17 ], [ %49, %_ZSt4findIPPN4llvm8FunctionES2_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit19 ], [ %.02946.i.i.i, %10 ]
   %50 = load ptr, ptr %0, align 8
-  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
   %53 = icmp ne ptr %.028.i.i.i, %52
   ret i1 %53
@@ -25710,12 +25710,12 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %9, i64 noundef 4) #15
-  %10 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %9, i64 noundef 4) #15
+  %10 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
   br i1 %10, label %_ZN4llvm11SmallVectorIPvLj4EEC2EOS2_.exit, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPvEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPvEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
   br label %_ZN4llvm11SmallVectorIPvLj4EEC2EOS2_.exit
 
 _ZN4llvm11SmallVectorIPvLj4EEC2EOS2_.exit:        ; preds = %2, %11
@@ -26081,7 +26081,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %33, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPvEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %35)
+  %36 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPvEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %35)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = icmp eq ptr %0, %1
   br i1 %38, label %_ZN4llvm11SmallVectorISt4pairIPvmELj0EEaSEOS4_.exit, label %39
@@ -28903,7 +28903,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
 38:                                               ; preds = %12
   %39 = zext i32 %8 to i64
   %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.291", ptr %14, i64 %39
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %14, ptr noundef nonnull %40)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %14, ptr noundef nonnull %40)
   %41 = shl nuw nsw i64 %39, 5
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %14, i64 noundef %41, i64 noundef 8) #15
   %.pr.pre = load i32, ptr %7, align 8
@@ -29013,7 +29013,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
 99:                                               ; preds = %75
   %100 = zext i32 %8 to i64
   %101 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.291", ptr %76, i64 %100
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %76, ptr noundef nonnull %101)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %76, ptr noundef nonnull %101)
   %102 = shl nuw nsw i64 %100, 5
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %76, i64 noundef %102, i64 noundef 8) #15
   %.pr32.pre = load i32, ptr %7, align 8
@@ -29174,19 +29174,19 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorI
   %40 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %42 = getelementptr inbounds i8, ptr %.sink.i.i, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %42, i64 noundef 1) #15
-  %43 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull %42, i64 noundef 1) #15
+  %43 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #15
   br i1 %43, label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit, label %44
 
 44:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit
-  %45 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41)
+  %45 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %41)
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit
 
 _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj1EEC2EOS4_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCENS_11SmallVectorIPNS2_4NodeELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit, %44
   %46 = load i32, ptr %4, align 8
   %47 = add i32 %46, 1
   store i32 %47, ptr %4, align 8
-  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #15
+  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #15
   %49 = load ptr, ptr %41, align 8
   %50 = getelementptr inbounds i8, ptr %.020, i64 24
   %51 = icmp eq ptr %49, %50

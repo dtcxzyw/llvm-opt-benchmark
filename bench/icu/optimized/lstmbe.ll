@@ -3363,7 +3363,7 @@ lpad:                                             ; preds = %if.end7
   br label %ehcleanup33
 
 if.end7:                                          ; preds = %if.end
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %namebuf)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %namebuf)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end7
@@ -3432,12 +3432,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %new.notnull.i, %if.end26, %cleanup, %if.then.i
   %retval.218 = phi ptr [ null, %cleanup ], [ null, %if.then.i ], [ null, %if.end26 ], [ %call.i, %new.notnull.i ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %namebuf) #21
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %namebuf) #21
   br label %cleanup32
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad9
   %.pn = phi { ptr, i32 } [ %6, %lpad.i ], [ %5, %lpad9 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %namebuf) #21
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %namebuf) #21
   br label %ehcleanup33
 
 cleanup32:                                        ; preds = %if.end, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit

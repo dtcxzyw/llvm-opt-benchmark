@@ -101,18 +101,18 @@ gv_alloc.exit:                                    ; preds = %4
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %gv_alloc.exit
-  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %14)
+  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %13, i64 range(i64 -2147483648, 2147483648) %14)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %17, label %20
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef %13, i64 noundef %14) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef range(i64 -2147483648, 2147483648) %14) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
 20:                                               ; preds = %16, %gv_alloc.exit
-  %21 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef %14) #10
+  %21 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef range(i64 -2147483648, 2147483648) %14) #10
   %22 = icmp ne i32 %6, 0
   %23 = icmp eq ptr %21, null
   %24 = and i1 %22, %23

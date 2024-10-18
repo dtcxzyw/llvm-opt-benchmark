@@ -587,7 +587,7 @@ define internal fastcc void @fill_val(ptr nocapture noundef readonly %0, ptr nou
   %55 = sext i16 %46 to i32
   %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %55) #11
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %55) #11
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 202, ptr noundef nonnull @__func__.store_att_byval) #11
   unreachable
 
@@ -976,7 +976,7 @@ define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noun
   %57 = sext i16 %43 to i32
   %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %58)
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %57) #11
+  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %57) #11
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -1395,7 +1395,7 @@ define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noun
   %258 = sext i16 %244 to i32
   %259 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %259)
-  %260 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %258) #11
+  %260 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %258) #11
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -2475,7 +2475,7 @@ define dso_local void @heap_deform_tuple(ptr nocapture noundef readonly %0, ptr 
   %115 = sext i16 %102 to i32
   %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %116)
-  %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %115) #11
+  %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %115) #11
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 

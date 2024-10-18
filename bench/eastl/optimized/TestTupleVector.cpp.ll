@@ -13520,7 +13520,7 @@ if.then.i.i9295:                                  ; preds = %invoke.cont17.i.i92
   %inc3.i.i.i.i9280 = add nsw i64 %2229, 1
   store i64 %inc3.i.i.i.i9280, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %ctorWithAlloc, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ctorWithAlloc, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ctorWithAlloc, i8 0, i64 56, i1 false)
   %2230 = load i32, ptr %ma, align 8
   store i32 %2230, ptr %mSecond.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %ctorWithAlloc, i64 60
@@ -14050,7 +14050,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplI15MallocAllocatorNS_16integer_sequence
   %inc4.i9506 = add nsw i64 %2329, 1
   store i64 %inc4.i9506, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mSecond.i.i.i.i9508 = getelementptr inbounds i8, ptr %ctorFromFillArgs4067, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ctorFromFillArgs4067, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromFillArgs4067, i8 0, i64 56, i1 false)
   %2330 = load i32, ptr %ma, align 8
   store i32 %2330, ptr %mSecond.i.i.i.i9508, align 8
   %mFreeCount.i.i.i.i.i9509 = getelementptr inbounds i8, ptr %ctorFromFillArgs4067, i64 60

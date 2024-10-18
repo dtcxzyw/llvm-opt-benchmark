@@ -1009,7 +1009,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib21ProjectedCostFunctionD0Ev.exit:     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit.i.i.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i2.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 104) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef 104) #14
   ret void
 }
 

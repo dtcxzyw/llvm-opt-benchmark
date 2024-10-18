@@ -326,7 +326,7 @@ rb_long2int_inline.exit:                          ; preds = %1
   br i1 %6, label %7, label %rbimpl_size_mul_or_raise.exit
 
 7:                                                ; preds = %rb_long2int_inline.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef %2) #8
+  tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %2) #8
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_long2int_inline.exit

@@ -7168,7 +7168,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad2.i ], [ %2, %lpad.i ]
   call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %outgoing_reliables_sent.i) #31
-  call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %arrayctor.cur.ptr.ptr) #31
+  call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %arrayctor.cur.ptr.ptr) #31
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i
@@ -7303,7 +7303,7 @@ arraydestroy.body.preheader.body:                 ; preds = %lpad.i31, %lpad2.i3
   %arrayctor.cur.idx.lcssa.ph.lpad-body = phi i64 [ 664, %lpad2.i14 ], [ 664, %lpad.i9 ], [ 1176, %lpad2.i36 ], [ 1176, %lpad.i31 ]
   %eh.lpad-body21 = phi { ptr, i32 } [ %6, %lpad2.i14 ], [ %5, %lpad.i9 ], [ %9, %lpad2.i36 ], [ %8, %lpad.i31 ]
   call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %outgoing_reliables_sent.i26.sink) #31
-  call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %arrayctor.cur.ptr.ptr.2.sink) #31
+  call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %arrayctor.cur.ptr.ptr.2.sink) #31
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %arraydestroy.body.preheader.body

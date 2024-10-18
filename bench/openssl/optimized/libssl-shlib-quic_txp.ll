@@ -759,7 +759,7 @@ ossl_quic_enc_level_to_pn_space.exit.i:           ; preds = %cond.end, %cond.end
   %retval.0.i.i = phi i32 [ 0, %cond.end.thread ], [ %., %cond.end ]
   %10 = load ptr, ptr %qtx, align 8
   %11 = trunc nuw nsw i64 %indvars.iv690 to i32
-  %call1.i = call i32 @ossl_qtx_is_enc_level_provisioned(ptr noundef %10, i32 noundef %11) #10
+  %call1.i = call i32 @ossl_qtx_is_enc_level_provisioned(ptr noundef %10, i32 noundef range(i32 0, 4) %11) #10
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %txp_should_try_staging.exit, label %if.end5.i
 
@@ -1251,7 +1251,7 @@ if.end.i.i.i:                                     ; preds = %if.end35.i.i
   %sub.i.i.i = sub nuw i64 %cmpl.0.i.i, %conv31.i.i
   store i64 %sub.i.i.i, ptr %pl.addr.i.i.i, align 8
   %50 = load ptr, ptr %qtx, align 8
-  %call.i37.i.i = call i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %50, i32 noundef %11, i64 noundef %sub.i.i.i, ptr noundef nonnull %pl.addr.i.i.i) #10
+  %call.i37.i.i = call i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %50, i32 noundef range(i32 0, 4) %11, i64 noundef %sub.i.i.i, ptr noundef nonnull %pl.addr.i.i.i) #10
   %tobool.not.i.i.i = icmp eq i32 %call.i37.i.i, 0
   br i1 %tobool.not.i.i.i, label %txp_determine_ppl_from_pl.exit.thread.i.i, label %if.end.i
 
@@ -1391,7 +1391,7 @@ tx_helper_get_space_left.exit.i:                  ; preds = %cond.false.i.i, %la
   br i1 %cmp25.not.i, label %if.end43.i97, label %if.then27.i
 
 if.then27.i:                                      ; preds = %tx_helper_get_space_left.exit.i
-  %call28.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call28.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp29.i = icmp eq ptr %call28.i, null
   br i1 %cmp29.i, label %if.then337.i, label %if.end32.i
 
@@ -1405,7 +1405,7 @@ if.then35.i:                                      ; preds = %if.end32.i
   %bf.load36.i = load i8, ptr %had_handshake_done_frame.i, align 8
   %bf.set.i = or i8 %bf.load36.i, 1
   store i8 %bf.set.i, ptr %had_handshake_done_frame.i, align 8
-  %call38.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call38.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %if.then337.i, label %if.end41.i
 
@@ -1468,7 +1468,7 @@ tx_helper_get_space_left.exit121.i:               ; preds = %cond.false.i119.i, 
   br i1 %cmp59.i, label %if.then61.i, label %land.lhs.true88.i
 
 if.then61.i:                                      ; preds = %tx_helper_get_space_left.exit121.i
-  %call63.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call63.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %76 = load ptr, ptr %conn_rxfc.i, align 8
   %call66.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef %76) #10
   %cmp67.i = icmp eq ptr %call63.i, null
@@ -1484,7 +1484,7 @@ if.then73.i:                                      ; preds = %if.end70.i
   %bf.load74.i = load i8, ptr %had_max_data_frame.i, align 8
   %bf.set76.i = or i8 %bf.load74.i, 2
   store i8 %bf.set76.i, ptr %had_max_data_frame.i, align 8
-  %call77.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call77.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %if.then337.i, label %if.end80.i
 
@@ -1542,7 +1542,7 @@ tx_helper_get_space_left.exit145.i:               ; preds = %cond.false.i143.i, 
   br i1 %cmp100.i, label %if.then102.i, label %land.lhs.true129.i
 
 if.then102.i:                                     ; preds = %tx_helper_get_space_left.exit145.i
-  %call104.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call104.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %83 = load ptr, ptr %max_streams_bidi_rxfc.i, align 8
   %call107.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef %83) #10
   %cmp108.i = icmp eq ptr %call104.i, null
@@ -1558,7 +1558,7 @@ if.then114.i:                                     ; preds = %if.end111.i
   %bf.load115.i = load i8, ptr %had_max_streams_bidi_frame.i, align 8
   %bf.set117.i = or i8 %bf.load115.i, 4
   store i8 %bf.set117.i, ptr %had_max_streams_bidi_frame.i, align 8
-  %call118.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call118.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool119.not.i = icmp eq i32 %call118.i, 0
   br i1 %tobool119.not.i, label %if.then337.i, label %if.end121.i
 
@@ -1616,7 +1616,7 @@ tx_helper_get_space_left.exit169.i:               ; preds = %cond.false.i167.i, 
   br i1 %cmp141.i99, label %if.then143.i, label %if.end166.i
 
 if.then143.i:                                     ; preds = %tx_helper_get_space_left.exit169.i
-  %call145.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call145.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %90 = load ptr, ptr %max_streams_uni_rxfc.i, align 8
   %call149.i127 = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef %90) #10
   %cmp150.i = icmp eq ptr %call145.i, null
@@ -1632,7 +1632,7 @@ if.then156.i:                                     ; preds = %if.end153.i
   %bf.load157.i = load i8, ptr %had_max_streams_uni_frame.i, align 8
   %bf.set159.i = or i8 %bf.load157.i, 8
   store i8 %bf.set159.i, ptr %had_max_streams_uni_frame.i, align 8
-  %call160.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call160.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool161.not.i = icmp eq i32 %call160.i, 0
   br i1 %tobool161.not.i, label %if.then337.i, label %if.end163.i
 
@@ -1705,7 +1705,7 @@ if.end193.i:                                      ; preds = %sw.bb187.i
   br i1 %tobool194.not.i, label %if.then195.i, label %sw.epilog.i
 
 if.then195.i:                                     ; preds = %if.end193.i
-  %call196.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef %can_be_non_inflight.i)
+  %call196.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef nonnull %arrayidx11354, i32 noundef range(i32 0, 2) %conv, ptr noundef %can_be_non_inflight.i)
   br label %sw.epilog.i
 
 sw.bb201.i:                                       ; preds = %for.body.i106
@@ -1831,7 +1831,7 @@ for.end.i109:                                     ; preds = %for.inc.i, %tx_help
 
 if.then229.i:                                     ; preds = %if.end166.i, %for.end.i109
   %have_ack_eliciting.i.4 = phi i32 [ %.lcssa.ph.i, %for.end.i109 ], [ %have_ack_eliciting.promoted.i, %if.end166.i ]
-  %call230.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef %can_be_non_inflight.i)
+  %call230.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef nonnull %arrayidx11354, i32 noundef range(i32 0, 2) %conv, ptr noundef %can_be_non_inflight.i)
   br label %if.end234.i
 
 if.end234.i:                                      ; preds = %if.then229.i, %for.end.i109
@@ -1914,7 +1914,7 @@ if.end14.i.i:                                     ; preds = %if.end8.i.i
 
 determine_crypto_len.exit.i.i:                    ; preds = %if.end14.i.i
   %dec.i.i.i = add i64 %call.i.i214.i, -1
-  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %128, i64 noundef %dec.i.i.i, ptr noundef %hdr_bytes.i.i, ptr noundef %len10.i.i)
+  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef range(i64 4, 0) %sub1.i.i.i, i64 noundef %128, i64 noundef %dec.i.i.i, ptr noundef nonnull %hdr_bytes.i.i, ptr noundef nonnull %len10.i.i)
   %tobool17.not.i.i = icmp eq i32 %call8.i.i.i, 0
   br i1 %tobool17.not.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end19.i.i
 
@@ -1944,7 +1944,7 @@ if.end8.i.i227.i:                                 ; preds = %if.end.i.i221.i
   br label %if.end27.i.i115
 
 if.end27.i.i115:                                  ; preds = %if.end8.i.i227.i, %if.end19.i.i
-  %call28.i.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call28.i.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp29.i.i = icmp eq ptr %call28.i.i, null
   br i1 %cmp29.i.i, label %txp_generate_crypto_frames.exit.i, label %if.end31.i.i
 
@@ -1969,7 +1969,7 @@ if.end.i25.i.i:                                   ; preds = %if.then34.i.i
   br label %txp_generate_crypto_frames.exit.thread.i
 
 if.end35.i.i116:                                  ; preds = %if.end31.i.i
-  %call36.i.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call36.i.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool37.not.i.i = icmp eq i32 %call36.i.i, 0
   br i1 %tobool37.not.i.i, label %txp_generate_crypto_frames.exit.i, label %for.cond40.preheader.i.i
 
@@ -2133,7 +2133,7 @@ for.body.i234:                                    ; preds = %if.then255.i, %if.e
   br i1 %tobool.not.i238, label %if.end30.i245, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i234
-  %call.i239 = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call.i239 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp16.i = icmp eq ptr %call.i239, null
   br i1 %cmp16.i, label %txp_generate_stream_related.exit.thread, label %if.end.i240
 
@@ -2164,7 +2164,7 @@ if.end.i.i340:                                    ; preds = %if.then20.i
   br label %txp_generate_stream_related.exit.thread391
 
 if.end21.i:                                       ; preds = %if.end.i240
-  %call22.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call22.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %txp_generate_stream_related.exit.thread, label %if.end25.i243
 
@@ -2190,7 +2190,7 @@ if.then36.i:                                      ; preds = %if.end30.i245
   br i1 %cmp42.i, label %if.end49.i, label %txp_generate_stream_related.exit.thread
 
 if.end49.i:                                       ; preds = %if.then36.i
-  %call50.i248 = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call50.i248 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp51.i = icmp eq ptr %call50.i248, null
   br i1 %cmp51.i, label %txp_generate_stream_related.exit.thread, label %if.end54.i249
 
@@ -2246,7 +2246,7 @@ if.end.i76.i:                                     ; preds = %if.then64.i
   br label %txp_generate_stream_related.exit.thread391
 
 if.end65.i:                                       ; preds = %if.end61.i
-  %call66.i251 = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call66.i251 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool67.not.i = icmp eq i32 %call66.i251, 0
   br i1 %tobool67.not.i, label %txp_generate_stream_related.exit.thread, label %if.end69.i
 
@@ -2294,7 +2294,7 @@ lor.lhs.false.if.end127_crit_edge.i:              ; preds = %lor.lhs.false.i332
   br label %if.end127.i
 
 if.then106.i:                                     ; preds = %lor.lhs.false.i332, %land.lhs.true.i324
-  %call107.i325 = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call107.i325 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp108.i326 = icmp eq ptr %call107.i325, null
   br i1 %cmp108.i326, label %txp_generate_stream_related.exit.thread, label %if.end111.i327
 
@@ -2323,7 +2323,7 @@ if.end.i90.i:                                     ; preds = %if.then117.i
   br label %txp_generate_stream_related.exit.thread391
 
 if.end118.i330:                                   ; preds = %if.end111.i327
-  %call119.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call119.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool120.not.i = icmp eq i32 %call119.i, 0
   br i1 %tobool120.not.i, label %txp_generate_stream_related.exit.thread, label %if.end122.i
 
@@ -2594,7 +2594,7 @@ determine_stream_len.exit.i.i:                    ; preds = %if.end46.i.i
   %sext.i.i.i = sub nsw i8 0, %206
   %dec.i.i.i274 = sext i8 %sext.i.i.i to i64
   %spec.select.i118.i.i = add i64 %call.i116.i.i, %dec.i.i.i274
-  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %205, i64 noundef %spec.select.i118.i.i, ptr noundef %hdr_len_implicit.i.i, ptr noundef %payload_len_implicit.i.i)
+  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef range(i64 3, 0) %sub1.i.i.i271, i64 noundef %205, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull %hdr_len_implicit.i.i, ptr noundef nonnull %payload_len_implicit.i.i)
   %tobool50.not.i.i275 = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool50.not.i.i275, label %if.end158.thread.i, label %if.end52.i.i
 
@@ -2637,7 +2637,7 @@ determine_stream_len.exit131.i.i:                 ; preds = %if.then71.i.i
   %sext.i126.i.i = sub nsw i8 0, %212
   %dec.i127.i.i = sext i8 %sext.i126.i.i to i64
   %spec.select.i128.i.i = add i64 %call.i121.i.i, %dec.i127.i.i
-  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %205, i64 noundef %spec.select.i128.i.i, ptr noundef %hdr_len_explicit.i.i, ptr noundef %payload_len_explicit.i.i)
+  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef range(i64 3, 0) %sub1.i.i.i271, i64 noundef %205, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull %hdr_len_explicit.i.i, ptr noundef nonnull %payload_len_explicit.i.i)
   %tobool77.not.i.i = icmp eq i32 %call10.i129.i.i, 0
   br i1 %tobool77.not.i.i, label %if.end158.thread.i, label %if.end79.i.i
 
@@ -2701,7 +2701,7 @@ if.end8.i.i.i320:                                 ; preds = %if.end.i134.i.i
   br label %if.end116.i.i
 
 if.end116.i.i:                                    ; preds = %if.end8.i.i.i320, %if.end105.i.i
-  %call117.i.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call117.i.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp118.i.i = icmp eq ptr %call117.i.i, null
   br i1 %cmp118.i.i, label %txp_generate_stream_related.exit, label %if.end121.i.i
 
@@ -2727,7 +2727,7 @@ if.end.i140.i.i:                                  ; preds = %if.then131.i.i
   br label %if.end158.thread.i
 
 if.end132.i.i:                                    ; preds = %if.end121.i.i
-  %call133.i.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call133.i.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool134.not.i.i = icmp eq i32 %call133.i.i, 0
   br i1 %tobool134.not.i.i, label %txp_generate_stream_related.exit, label %for.cond137.preheader.i.i
 
@@ -2963,7 +2963,7 @@ land.lhs.true275.i:                               ; preds = %land.lhs.true273.i,
   br i1 %tobool279.not.i, label %if.end294.if.end297_crit_edge.i, label %if.then280.i
 
 if.then280.i:                                     ; preds = %land.lhs.true275.i
-  %call282.i = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx11354)
+  %call282.i = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx11354)
   %cmp283.i = icmp eq ptr %call282.i, null
   br i1 %cmp283.i, label %if.then337.i, label %if.end286.i
 
@@ -2973,7 +2973,7 @@ if.end286.i:                                      ; preds = %if.then280.i
   br i1 %tobool288.not.i, label %if.then337.i, label %lor.lhs.false289.i
 
 lor.lhs.false289.i:                               ; preds = %if.end286.i
-  %call290.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx11354)
+  %call290.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx11354)
   %tobool291.not.i = icmp eq i32 %call290.i, 0
   br i1 %tobool291.not.i, label %if.then337.i, label %if.then296.i
 
@@ -3168,12 +3168,12 @@ if.end4.i:                                        ; preds = %if.then114
   br i1 %cmp5.not.i, label %out, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end4.i
-  %call.i150 = call fastcc ptr @tx_helper_begin(ptr noundef %arrayidx117)
+  %call.i150 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %arrayidx117)
   %cmp17.i = icmp eq ptr %call.i150, null
   br i1 %cmp17.i, label %out, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %call21.i = call i32 @ossl_quic_wire_encode_padding(ptr noundef nonnull %call.i150, i64 noundef %sub115) #10
+  %call21.i = call i32 @ossl_quic_wire_encode_padding(ptr noundef nonnull %call.i150, i64 noundef range(i64 1, 1201) %sub115) #10
   %tobool22.not.i151 = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i151, label %if.then23.i, label %if.end25.i
 
@@ -3195,7 +3195,7 @@ if.end.i.i160:                                    ; preds = %if.then23.i
   br label %out
 
 if.end25.i:                                       ; preds = %if.end20.i
-  %call27.i = call fastcc i32 @tx_helper_commit(ptr noundef %arrayidx117)
+  %call27.i = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %arrayidx117)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %out, label %if.end127.thread
 
@@ -4481,7 +4481,7 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %orig_len, i64 63)
   %add6.i = add i64 %add.i, %spec.select.i
   %cmp7.i = icmp ugt i64 %add6.i, %space_left
-  %spec.select15.i = tail call i64 @llvm.usub.sat.i64(i64 %space_left, i64 %add.i)
+  %spec.select15.i = tail call i64 @llvm.usub.sat.i64(i64 range(i64 3, 0) %space_left, i64 %add.i)
   %n.1.i = select i1 %cmp7.i, i64 %spec.select15.i, i64 %spec.select.i
   %cmp15.i = icmp ne i64 %n.1.i, 0
   %conv.i = zext i1 %cmp15.i to i32
@@ -4504,7 +4504,7 @@ if.end.i22:                                       ; preds = %try_len.exit
   %spec.select.i23 = tail call i64 @llvm.umin.i64(i64 %orig_len, i64 16383)
   %add6.i24 = add i64 %add.i16, %spec.select.i23
   %cmp7.i25 = icmp ugt i64 %add6.i24, %space_left
-  %spec.select15.i26 = tail call i64 @llvm.usub.sat.i64(i64 %space_left, i64 %add.i16)
+  %spec.select15.i26 = tail call i64 @llvm.usub.sat.i64(i64 range(i64 3, 0) %space_left, i64 %add.i16)
   %n.1.i27 = select i1 %cmp7.i25, i64 %spec.select15.i26, i64 %spec.select.i23
   %cmp15.i28 = icmp ne i64 %n.1.i27, 0
   %conv.i29 = zext i1 %cmp15.i28 to i32
@@ -4528,7 +4528,7 @@ if.end.i37:                                       ; preds = %try_len.exit30
   %spec.select.i38 = tail call i64 @llvm.umin.i64(i64 %orig_len, i64 1073741823)
   %add6.i39 = add i64 %add.i31, %spec.select.i38
   %cmp7.i40 = icmp ugt i64 %add6.i39, %space_left
-  %spec.select15.i41 = tail call i64 @llvm.usub.sat.i64(i64 %space_left, i64 %add.i31)
+  %spec.select15.i41 = tail call i64 @llvm.usub.sat.i64(i64 range(i64 3, 0) %space_left, i64 %add.i31)
   %n.1.i42 = select i1 %cmp7.i40, i64 %spec.select15.i41, i64 %spec.select.i38
   %cmp15.i43 = icmp ne i64 %n.1.i42, 0
   %conv.i44 = zext i1 %cmp15.i43 to i32
@@ -4552,7 +4552,7 @@ if.end.i52:                                       ; preds = %try_len.exit45
   %spec.select.i53 = tail call i64 @llvm.umin.i64(i64 %orig_len, i64 4611686018427387903)
   %add6.i54 = add i64 %add.i46, %spec.select.i53
   %cmp7.i55 = icmp ugt i64 %add6.i54, %space_left
-  %spec.select15.i56 = tail call i64 @llvm.usub.sat.i64(i64 %space_left, i64 %add.i46)
+  %spec.select15.i56 = tail call i64 @llvm.usub.sat.i64(i64 range(i64 3, 0) %space_left, i64 %add.i46)
   %n.1.i57 = select i1 %cmp7.i55, i64 %spec.select15.i56, i64 %spec.select.i53
   %cmp15.i58 = icmp ne i64 %n.1.i57, 0
   %conv.i59 = zext i1 %cmp15.i58 to i32

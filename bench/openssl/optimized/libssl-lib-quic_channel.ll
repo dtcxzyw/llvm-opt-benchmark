@@ -561,7 +561,7 @@ ch_init.exit:                                     ; preds = %if.end216.i, %land.
   br label %return
 
 if.then9:                                         ; preds = %for.body.i, %for.body117.i, %for.body192.i, %if.end, %gen_rand_conn_id.exit.thread.i, %if.end12.i, %if.end22.i, %if.end28.i, %if.end34.i, %if.end38.i, %for.end.i, %if.end52.i, %if.end56.i, %if.end60.i, %if.end68.i, %if.end76.i, %for.end135.i, %if.end141.i, %if.end157.i, %if.end166.i, %if.end171.i, %land.lhs.true183.i, %for.end205.i, %land.lhs.true241.i
-  call fastcc void @ch_cleanup(ptr noundef %call)
+  call fastcc void @ch_cleanup(ptr noundef nonnull %call)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %txp_args.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %qtx_args.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %qrx_args.i)
@@ -5032,7 +5032,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   store i64 2, ptr %tcause.i.i.i, align 8
   store ptr @.str.76, ptr %reason.i.i.i, align 8
   store i64 27, ptr %reason_len.i.i.i, align 8
-  call fastcc void @ch_start_terminating(ptr noundef %arg, ptr noundef %tcause.i.i.i, i32 noundef 1)
+  call fastcc void @ch_start_terminating(ptr noundef nonnull %arg, ptr noundef %tcause.i.i.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tcause.i.i.i)
   br label %ch_rx_handle_packet.exit.i
 

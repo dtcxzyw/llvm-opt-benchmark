@@ -2852,7 +2852,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i20.i.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i14.i.i
   %74 = load ptr, ptr %agg.result, align 8, !alias.scope !67
-  %75 = tail call noundef ptr @__dynamic_cast(ptr nonnull %74, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorISt10shared_ptrIvEEE, i64 0) #36
+  %75 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %74, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorISt10shared_ptrIvEEE, i64 0) #36
   %cmp4.not.i.i.i = icmp eq i64 %call.val.i17.i.i, 0
   br i1 %cmp4.not.i.i.i, label %nrvo.skipdtor.i56.i.i, label %for.body.lr.ph.i21.i.i
 
@@ -3303,7 +3303,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i.i.i
   %132 = load ptr, ptr %agg.result, align 8, !alias.scope !83
-  %133 = tail call noundef ptr @__dynamic_cast(ptr nonnull %132, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIbEE, i64 0) #36
+  %133 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %132, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIbEE, i64 0) #36
   %cmp1.not.i.i.i.i = icmp eq i64 %call.val.i.i.i.i, 0
   br i1 %cmp1.not.i.i.i.i, label %nrvo.skipdtor.i.i.i.i, label %for.body.lr.ph.i.i.i.i
 
@@ -3513,7 +3513,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i39.i.i.i:                            ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i31.i.i.i
   %158 = load ptr, ptr %agg.result, align 8, !alias.scope !93
-  %159 = tail call noundef ptr @__dynamic_cast(ptr nonnull %158, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIiEE, i64 0) #36
+  %159 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %158, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIiEE, i64 0) #36
   %cmp1.not.i40.i.i.i = icmp eq i64 %call.val.i34.i.i.i, 0
   br i1 %cmp1.not.i40.i.i.i, label %nrvo.skipdtor.i76.i.i.i, label %for.body.lr.ph.i41.i.i.i
 
@@ -3638,7 +3638,7 @@ _ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i.i87.i.i:                           ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i
   %173 = load i32, ptr %length_.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %159, i32 noundef %173, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(200) %159, i32 noundef %173, i1 noundef zeroext true)
           to label %.noexc28.i.i.i.i unwind label %lpad3.loopexit.i48.i.i.i
 
 .noexc28.i.i.i.i:                                 ; preds = %if.end.i.i.i.i.i87.i.i
@@ -3770,7 +3770,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i132.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i124.i.i.i
   %193 = load ptr, ptr %agg.result, align 8, !alias.scope !103
-  %194 = tail call noundef ptr @__dynamic_cast(ptr nonnull %193, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIaEE, i64 0) #36
+  %194 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %193, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIaEE, i64 0) #36
   %cmp1.not.i133.i.i.i = icmp eq i64 %call.val.i127.i.i.i, 0
   br i1 %cmp1.not.i133.i.i.i, label %nrvo.skipdtor.i189.i.i.i, label %for.body.lr.ph.i134.i.i.i
 
@@ -3895,7 +3895,7 @@ _ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i172.i.i.i:                          ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i
   %208 = load i32, ptr %length_.i.i.i.i138.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %194, i32 noundef %208, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(184) %194, i32 noundef %208, i1 noundef zeroext true)
           to label %.noexc28.i173.i.i.i unwind label %lpad3.loopexit.i144.i.i.i
 
 .noexc28.i173.i.i.i:                              ; preds = %if.end.i.i.i.i172.i.i.i
@@ -4027,7 +4027,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i251.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i243.i.i.i
   %228 = load ptr, ptr %agg.result, align 8, !alias.scope !113
-  %229 = tail call noundef ptr @__dynamic_cast(ptr nonnull %228, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIsEE, i64 0) #36
+  %229 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %228, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIsEE, i64 0) #36
   %cmp1.not.i252.i.i.i = icmp eq i64 %call.val.i246.i.i.i, 0
   br i1 %cmp1.not.i252.i.i.i, label %nrvo.skipdtor.i308.i.i.i, label %for.body.lr.ph.i253.i.i.i
 
@@ -4152,7 +4152,7 @@ _ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i291.i.i.i:                          ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i
   %243 = load i32, ptr %length_.i.i.i.i257.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %229, i32 noundef %243, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(192) %229, i32 noundef %243, i1 noundef zeroext true)
           to label %.noexc28.i292.i.i.i unwind label %lpad3.loopexit.i263.i.i.i
 
 .noexc28.i292.i.i.i:                              ; preds = %if.end.i.i.i.i291.i.i.i
@@ -4284,7 +4284,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i370.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i362.i.i.i
   %263 = load ptr, ptr %agg.result, align 8, !alias.scope !123
-  %264 = tail call noundef ptr @__dynamic_cast(ptr nonnull %263, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIlEE, i64 0) #36
+  %264 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %263, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIlEE, i64 0) #36
   %cmp1.not.i371.i.i.i = icmp eq i64 %call.val.i365.i.i.i, 0
   br i1 %cmp1.not.i371.i.i.i, label %nrvo.skipdtor.i427.i.i.i, label %for.body.lr.ph.i372.i.i.i
 
@@ -4409,7 +4409,7 @@ _ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i410.i.i.i:                          ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i
   %278 = load i32, ptr %length_.i.i.i.i376.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %264, i32 noundef %278, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(216) %264, i32 noundef %278, i1 noundef zeroext true)
           to label %.noexc28.i411.i.i.i unwind label %lpad3.loopexit.i382.i.i.i
 
 .noexc28.i411.i.i.i:                              ; preds = %if.end.i.i.i.i410.i.i.i
@@ -4541,7 +4541,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i489.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i481.i.i.i
   %298 = load ptr, ptr %agg.result, align 8, !alias.scope !133
-  %299 = tail call noundef ptr @__dynamic_cast(ptr nonnull %298, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorInEE, i64 0) #36
+  %299 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %298, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorInEE, i64 0) #36
   %cmp1.not.i490.i.i.i = icmp eq i64 %call.val.i484.i.i.i, 0
   br i1 %cmp1.not.i490.i.i.i, label %nrvo.skipdtor.i545.i.i.i, label %for.body.lr.ph.i491.i.i.i
 
@@ -4680,7 +4680,7 @@ _ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i528.i.i.i:                          ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i
   %314 = load i32, ptr %length_.i.i.i.i495.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %299, i32 noundef %314, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 16 dereferenceable(256) %299, i32 noundef %314, i1 noundef zeroext true)
           to label %.noexc28.i529.i.i.i unwind label %lpad3.loopexit.i501.i.i.i
 
 .noexc28.i529.i.i.i:                              ; preds = %if.end.i.i.i.i528.i.i.i
@@ -4812,7 +4812,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i607.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i599.i.i.i
   %334 = load ptr, ptr %agg.result, align 8, !alias.scope !143
-  %335 = tail call noundef ptr @__dynamic_cast(ptr nonnull %334, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIfEE, i64 0) #36
+  %335 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %334, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIfEE, i64 0) #36
   %cmp1.not.i608.i.i.i = icmp eq i64 %call.val.i602.i.i.i, 0
   br i1 %cmp1.not.i608.i.i.i, label %nrvo.skipdtor.i664.i.i.i, label %for.body.lr.ph.i609.i.i.i
 
@@ -4937,7 +4937,7 @@ _ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i647.i.i.i:                          ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i
   %349 = load i32, ptr %length_.i.i.i.i613.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %335, i32 noundef %349, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(200) %335, i32 noundef %349, i1 noundef zeroext true)
           to label %.noexc28.i648.i.i.i unwind label %lpad3.loopexit.i619.i.i.i
 
 .noexc28.i648.i.i.i:                              ; preds = %if.end.i.i.i.i647.i.i.i
@@ -5069,7 +5069,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i726.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i718.i.i.i
   %369 = load ptr, ptr %agg.result, align 8, !alias.scope !153
-  %370 = tail call noundef ptr @__dynamic_cast(ptr nonnull %369, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIdEE, i64 0) #36
+  %370 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %369, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIdEE, i64 0) #36
   %cmp1.not.i727.i.i.i = icmp eq i64 %call.val.i721.i.i.i, 0
   br i1 %cmp1.not.i727.i.i.i, label %nrvo.skipdtor.i783.i.i.i, label %for.body.lr.ph.i728.i.i.i
 
@@ -5194,7 +5194,7 @@ _ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i: ; preds = %c
 
 if.end.i.i.i.i766.i.i.i:                          ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i
   %384 = load i32, ptr %length_.i.i.i.i732.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %370, i32 noundef %384, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(216) %370, i32 noundef %384, i1 noundef zeroext true)
           to label %.noexc28.i767.i.i.i unwind label %lpad3.loopexit.i738.i.i.i
 
 .noexc28.i767.i.i.i:                              ; preds = %if.end.i.i.i.i766.i.i.i
@@ -5326,7 +5326,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i845.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i837.i.i.i
   %404 = load ptr, ptr %agg.result, align 8, !alias.scope !163
-  %405 = tail call noundef ptr @__dynamic_cast(ptr nonnull %404, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #36
+  %405 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %404, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #36
   %cmp4.not.i.i.i.i = icmp eq i64 %call.val.i840.i.i.i, 0
   br i1 %cmp4.not.i.i.i.i, label %nrvo.skipdtor.i884.i.i.i, label %for.body.lr.ph.i846.i.i.i
 
@@ -5569,7 +5569,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i940.i.i.i:                           ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i932.i.i.i
   %430 = load ptr, ptr %agg.result, align 8, !alias.scope !173
-  %431 = tail call noundef ptr @__dynamic_cast(ptr nonnull %430, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #36
+  %431 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %430, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #36
   %cmp4.not.i941.i.i.i = icmp eq i64 %call.val.i935.i.i.i, 0
   br i1 %cmp4.not.i941.i.i.i, label %nrvo.skipdtor.i977.i.i.i, label %for.body.lr.ph.i942.i.i.i
 
@@ -5812,7 +5812,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
 
 invoke.cont.i1039.i.i.i:                          ; preds = %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i1031.i.i.i
   %456 = load ptr, ptr %agg.result, align 8, !alias.scope !183
-  %457 = tail call noundef ptr @__dynamic_cast(ptr nonnull %456, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_9TimestampEEE, i64 0) #36
+  %457 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %456, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_9TimestampEEE, i64 0) #36
   %cmp1.not.i1040.i.i.i = icmp eq i64 %call.val.i1034.i.i.i, 0
   br i1 %cmp1.not.i1040.i.i.i, label %nrvo.skipdtor.i1096.i.i.i, label %for.body.lr.ph.i1041.i.i.i
 
@@ -5959,7 +5959,7 @@ _ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i
 
 if.end.i.i.i.i1081.i.i.i:                         ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i
   %471 = load i32, ptr %length_.i.i.i.i1045.i.i.i, align 8
-  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %457, i32 noundef %471, i1 noundef zeroext true)
+  invoke void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(232) %457, i32 noundef %471, i1 noundef zeroext true)
           to label %.noexc29.i.i.i.i unwind label %lpad3.loopexit.i1051.i.i.i
 
 .noexc29.i.i.i.i:                                 ; preds = %if.end.i.i.i.i1081.i.i.i
@@ -6095,7 +6095,7 @@ if.then6.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %columnVectors.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp7.i)
   store ptr %pool, ptr %pool.addr.i67, align 8, !noalias !185
-  %489 = tail call ptr @__dynamic_cast(ptr nonnull %487, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #36, !noalias !185
+  %489 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(17) %487, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #36, !noalias !185
   %490 = icmp eq ptr %489, null
   br i1 %490, label %dynamic_cast.bad_cast.i.i.i, label %_ZNK8facebook5velox4Type5asRowEv.exit.i
 
@@ -8293,7 +8293,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorISt8opt
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i13.i.i.i.i.i.i.i.i, %lpad8.i.i.i.i.i.i.i.i
-  tail call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i16) #36, !noalias !232
+  tail call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i16) #36, !noalias !232
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i.i13) #38, !noalias !232
   br label %common.resume
 
@@ -8545,7 +8545,7 @@ ehcleanup.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i19.i.i
 
 ehcleanup25.i.i.i.i.i.i.i.i:                      ; preds = %ehcleanup.i.i.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i.i
   %.pn.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %62, %lpad.i.i.i.i.i.i.i.i ]
-  tail call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i71) #36, !noalias !240
+  tail call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i.i.i.i.i.i71) #36, !noalias !240
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i.i68) #38, !noalias !240
   br label %common.resume
 
@@ -9761,7 +9761,7 @@ _ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EED2Ev
   %242 = getelementptr inbounds i8, ptr %call5.i.i.i5.i, i64 64
   %keysIteratorWrapper_.val.i = load ptr, ptr %242, align 8
   call fastcc void @_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_118ArrayBatchIteratorEED2Ev(ptr %keysIteratorWrapper_.val.i) #36
-  call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i9.i) #36
+  call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i9.i) #36
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i) #38
   br label %common.resume
 
@@ -10782,7 +10782,7 @@ ehcleanup:                                        ; preds = %cond.end
   call void @_ZN5folly10F14FastSetIPKN8facebook5velox6BufferENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %stringBufferSet_) #36
   call void @_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stringBuffers_) #36
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %values_) #36
-  call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #36
+  call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #36
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
@@ -11035,7 +11035,7 @@ for.body.i.i.i:                                   ; preds = %if.then9.i.i.i, %fo
   %ci.018.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then9.i.i.i ]
   %18 = load ptr, ptr %stringBufferSet_, align 8
   %arrayidx18.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %18, i64 %ci.018.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx18.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %arrayidx18.i.i.i, i8 0, i64 16, i1 false)
   %inc.i.i.i = add i64 %ci.018.i.i.i, 1
   %19 = load i64, ptr %chunkMask_.i.i.i, align 8
   %cmp16.not.i.i.i = icmp ugt i64 %inc.i.i.i, %19
@@ -11251,7 +11251,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %if.then.
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev.exit, %if.then.i, %.noexc.i
-  tail call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #36
+  tail call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #36
   ret void
 }
 
@@ -11603,7 +11603,7 @@ if.end:                                           ; preds = %entry
   %vtable15.i = load ptr, ptr %this, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 32
   %8 = load ptr, ptr %vfn16.i, align 8
-  %call17.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %index)
+  %call17.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %index)
   %brmerge.i6 = or i1 %call14.i, %call17.i
   br i1 %brmerge.i6, label %if.then.i8, label %if.end.i
 
@@ -13047,7 +13047,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %rowsToCopy, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %rowsToCopy, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %rowsToCopy, i8 0, i64 36, i1 false)
   store i64 -1, ptr %ref.tmp.i, align 8
   %add.i.i.off.i = add i32 %20, 126
   %cmp.i.not.i = icmp ult i32 %add.i.i.off.i, 127
@@ -13057,7 +13057,7 @@ if.then.i.i15:                                    ; preds = %_ZN5boost13intrusiv
   %add.i.i.i = add nuw i32 %20, 63
   %div.i.i = sdiv i32 %add.i.i.i, 64
   %conv.i.i = sext i32 %div.i.i to i64
-  invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %rowsToCopy, ptr null, i64 noundef %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(38) %rowsToCopy, ptr null, i64 noundef %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont11 unwind label %lpad.i16
 
 lpad.i16:                                         ; preds = %if.then.i.i15
@@ -13590,7 +13590,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8facebook5velox10FlatVectorINS0_12UnknownValueEE8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(40) %options) unnamed_addr #1 comdat align 2 {
 if.end12:
-  tail call void @_ZNK8facebook5velox10BaseVector8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(99) %this, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  tail call void @_ZNK8facebook5velox10BaseVector8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(40) %options)
   ret void
 }
 
@@ -15333,7 +15333,7 @@ _ZN5folly3f146detail10BasePolicyIPKN8facebook5velox6BufferEvvvvS7_E12beforeRehas
 for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN5folly3f146detail10BasePolicyIPKN8facebook5velox6BufferEvvvvS7_E12beforeRehashEmmmmRPh.exit.i
   %i.06.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %_ZN5folly3f146detail10BasePolicyIPKN8facebook5velox6BufferEvvvvS7_E12beforeRehashEmmmmRPh.exit.i ]
   %arrayidx.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i.i, i64 %i.06.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %arrayidx.i.i, i8 0, i64 16, i1 false)
   %inc.i.i = add nuw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.pn.i17.i
   br i1 %exitcond.not.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16initializeChunksEPhmm.exit.i, label %for.body.i.i, !llvm.loop !296
@@ -15540,7 +15540,7 @@ _ZN5folly3f146detail10BasePolicyIPKN8facebook5velox6BufferEvvvvS7_E12beforeRehas
 for.body.i:                                       ; preds = %_ZN5folly3f146detail10BasePolicyIPKN8facebook5velox6BufferEvvvvS7_E12beforeRehashEmmmmRPh.exit, %for.body.i
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN5folly3f146detail10BasePolicyIPKN8facebook5velox6BufferEvvvvS7_E12beforeRehashEmmmmRPh.exit ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i, i64 %i.06.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %arrayidx.i, i8 0, i64 16, i1 false)
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %newChunkCount
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16initializeChunksEPhmm.exit.loopexit, label %for.body.i, !llvm.loop !296
@@ -19738,7 +19738,7 @@ ehcleanup:                                        ; preds = %lpad44, %lpad36
   call void @_ZN5folly10F14FastSetIPKN8facebook5velox6BufferENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %stringBufferSet_) #36
   call void @_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stringBuffers_) #36
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %values_) #36
-  call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #36
+  call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #36
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
@@ -19990,7 +19990,7 @@ for.body.i.i.i:                                   ; preds = %if.then9.i.i.i, %fo
   %ci.018.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then9.i.i.i ]
   %18 = load ptr, ptr %stringBufferSet_, align 8
   %arrayidx18.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %18, i64 %ci.018.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx18.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %arrayidx18.i.i.i, i8 0, i64 16, i1 false)
   %inc.i.i.i = add i64 %ci.018.i.i.i, 1
   %19 = load i64, ptr %chunkMask_.i.i.i, align 8
   %cmp16.not.i.i.i = icmp ugt i64 %inc.i.i.i, %19
@@ -20178,7 +20178,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %if.then.
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev.exit, %if.then.i, %.noexc.i
-  tail call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #36
+  tail call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #36
   ret void
 }
 
@@ -20320,7 +20320,7 @@ if.end:                                           ; preds = %entry
   %vtable14.i = load ptr, ptr %this, align 8
   %vfn15.i = getelementptr inbounds i8, ptr %vtable14.i, i64 32
   %12 = load ptr, ptr %vfn15.i, align 8
-  %call16.i = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %index)
+  %call16.i = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %index)
   %brmerge.i6 = or i1 %call13.i, %call16.i
   br i1 %brmerge.i6, label %if.then.i15, label %if.end.i7
 
@@ -21762,7 +21762,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %rowsToCopy, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %rowsToCopy, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %rowsToCopy, i8 0, i64 36, i1 false)
   store i64 -1, ptr %ref.tmp.i, align 8
   %add.i.i.off.i = add i32 %20, 126
   %cmp.i.not.i = icmp ult i32 %add.i.i.off.i, 127
@@ -21772,7 +21772,7 @@ if.then.i.i16:                                    ; preds = %_ZN5boost13intrusiv
   %add.i.i.i = add nuw i32 %20, 63
   %div.i.i = sdiv i32 %add.i.i.i, 64
   %conv.i.i = sext i32 %div.i.i to i64
-  invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %rowsToCopy, ptr null, i64 noundef %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(38) %rowsToCopy, ptr null, i64 noundef %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont11 unwind label %lpad.i17
 
 lpad.i17:                                         ; preds = %if.then.i.i16
@@ -22329,7 +22329,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8facebook5velox10FlatVectorImE8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(40) %options) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZNK8facebook5velox10BaseVector8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(99) %this, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  tail call void @_ZNK8facebook5velox10BaseVector8validateERKNS0_21VectorValidateOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(40) %options)
   %length_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %length_.i, align 8
   %conv.i = sext i32 %0 to i64

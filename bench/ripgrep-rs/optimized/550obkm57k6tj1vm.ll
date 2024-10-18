@@ -70,7 +70,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %21
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h063c7f4118f16ce0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %27)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h063c7f4118f16ce0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27)
           to label %.noexc.i unwind label %31, !noalias !6
 
 .noexc.i:                                         ; preds = %30
@@ -99,7 +99,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %33
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbc4f4616557c5921E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %42)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbc4f4616557c5921E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %42)
           to label %.noexc142.i unwind label %31, !noalias !6
 
 .noexc142.i:                                      ; preds = %45
@@ -125,7 +125,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %46
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h367abd1a98c7e78bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %54, i64 noundef %56)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h367abd1a98c7e78bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %56)
           to label %.noexc144.i unwind label %31, !noalias !6
 
 .noexc144.i:                                      ; preds = %59
@@ -255,7 +255,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !22
   %103 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %103)
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
           to label %105 unwind label %31, !noalias !6
 
 104:                                              ; preds = %99
@@ -364,7 +364,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
 
 131:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !22
-  invoke void @_ZN12aho_corasick4util9prefilter7Builder5build17h2962984db723084fE(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 16 dereferenceable(480) %16)
+  invoke void @_ZN12aho_corasick4util9prefilter7Builder5build17h2962984db723084fE(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 16 dereferenceable(960) %16)
           to label %132 unwind label %31, !noalias !6
 
 132:                                              ; preds = %131
@@ -407,7 +407,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
 143:                                              ; preds = %129, %124, %118, %109, %104, %98, %93, %85, %76, %71
   %.sroa.27.0 = phi i32 [ %.sroa.2126.i.sroa.0.0.copyload, %129 ], [ %.sroa.2121.i.sroa.0.0.copyload, %124 ], [ %.sroa.2116.i.sroa.0.0.copyload, %118 ], [ %.sroa.2111.i.sroa.0.0.copyload, %109 ], [ %.sroa.2106.i.sroa.0.0.copyload, %104 ], [ %.sroa.2101.i.sroa.0.0.copyload, %98 ], [ %90, %93 ], [ %81, %85 ], [ %.sroa.076.sroa.4.0.copyload.i, %76 ], [ %.sroa.071.sroa.4.0.copyload.i, %71 ]
   %.sroa.15.0 = phi i32 [ %126, %129 ], [ %121, %124 ], [ %115, %118 ], [ %106, %109 ], [ %100, %104 ], [ %95, %98 ], [ %87, %93 ], [ %78, %85 ], [ %73, %76 ], [ %68, %71 ]
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util..prefilter..Builder$GT$17h46385815486799d3E"(ptr noalias noundef nonnull align 16 dereferenceable(480) %16)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util..prefilter..Builder$GT$17h46385815486799d3E"(ptr noalias noundef nonnull align 16 dereferenceable(960) %16)
           to label %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit.thread unwind label %144, !noalias !6
 
 144:                                              ; preds = %143
@@ -450,7 +450,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit: 
   %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.37, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.37.0..sroa_idx, i64 16, i1 false), !alias.scope !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.41, ptr noundef nonnull align 16 dereferenceable(408) %35, i64 408, i1 false), !alias.scope !22
-  call void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util..prefilter..Builder$GT$17h46385815486799d3E"(ptr noalias noundef nonnull align 16 dereferenceable(480) %16), !noalias !6
+  call void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util..prefilter..Builder$GT$17h46385815486799d3E"(ptr noalias noundef nonnull align 16 dereferenceable(960) %16), !noalias !6
   %151 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
   br i1 %151, label %155, label %154
 
@@ -621,7 +621,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"
 
 49:                                               ; preds = %46
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb2fa401b5dc65e9fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %.sroa.8.0206403)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb2fa401b5dc65e9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %.sroa.8.0206403)
   %.pre.i = load i64, ptr %16, align 16, !alias.scope !24
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"
 
@@ -1089,7 +1089,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Optio
 
 7:                                                ; preds = %4
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.10559302552934589985(i8 noundef 2), !noalias !59
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7a7e14b26d27d53cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7a7e14b26d27d53cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %"_ZN4core3ptr61drop_in_place$LT$aho_corasick..util..prefilter..Prefilter$GT$17ha76639aef87e554bE.exit"
 }
 
@@ -1103,7 +1103,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !66, !nonnull !5, !noundef !5
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %8, i64 %1), !alias.scope !69
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %8, i64 %1), !alias.scope !69
   %9 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h5f3d082cec0a83e1E.exit"
 

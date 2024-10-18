@@ -604,7 +604,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull %0, i6
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef %18, i64 noundef %1, i64 noundef 8, i32 noundef 0) #10
+  %21 = tail call ptr %20(ptr noundef %18, i64 noundef range(i64 0, 4294967296) %1, i64 noundef 8, i32 noundef 0) #10
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %26
 
@@ -653,7 +653,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull %0, i6
   %46 = load ptr, ptr %17, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 104
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr %48(ptr noundef %46, i64 noundef %1, i64 noundef %37, i32 noundef 0) #10
+  %49 = tail call ptr %48(ptr noundef %46, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %37, i32 noundef 0) #10
   %.not72 = icmp eq ptr %49, null
   br i1 %.not72, label %54, label %.preheader
 
@@ -1293,7 +1293,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   %324 = getelementptr inbounds i8, ptr %49, i64 %300
   %325 = zext nneg i32 %.0259.i to i64
   %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly %324, i64 noundef %325) #10
-  %327 = call fastcc ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %322, i64 noundef %325, ptr noundef null)
+  %327 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %322, i64 noundef %325, ptr noundef null)
   %.not279.i = icmp eq ptr %327, null
   br i1 %.not279.i, label %328, label %337
 
@@ -1382,7 +1382,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   %369 = getelementptr inbounds i8, ptr %49, i64 %343
   %370 = zext nneg i32 %.0256.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %369, i64 %370, i1 false)
-  %371 = call fastcc ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %367, i64 noundef %370, ptr noundef nonnull @.str.88)
+  %371 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %367, i64 noundef %370, ptr noundef nonnull @.str.88)
   %.not275.i = icmp eq ptr %371, null
   br i1 %.not275.i, label %372, label %381
 

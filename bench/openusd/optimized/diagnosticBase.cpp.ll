@@ -127,7 +127,7 @@ _ZNSt3anyC2ERKS_.exit.thread:                     ; preds = %2
 
 _ZNSt3anyC2ERKS_.exit:                            ; preds = %2
   store ptr %5, ptr %4, align 8
-  call void %7(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  call void %7(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4)
   %.pr = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -140,7 +140,7 @@ _ZNSt3anyC2ERKS_.exit:                            ; preds = %2
   br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit, label %10
 
 10:                                               ; preds = %8
-  invoke void %9(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+  invoke void %9(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
@@ -164,7 +164,7 @@ _ZNSt3anyC2ERKS_.exit:                            ; preds = %2
   br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %18
 
 18:                                               ; preds = %16
-  invoke void %17(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+  invoke void %17(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
           to label %19 unwind label %20
 
 19:                                               ; preds = %18
@@ -182,7 +182,7 @@ _ZNSt3anyC2ERKS_.exit:                            ; preds = %2
 _ZNSt3any5resetEv.exit7.i:                        ; preds = %19, %16
   %23 = phi ptr [ %.pr, %16 ], [ %.pre.i, %19 ]
   store ptr %0, ptr %3, align 8
-  invoke void %23(i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  invoke void %23(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %3)
           to label %_ZNSt3anyaSEOS_.exit unwind label %24
 
 24:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
@@ -199,7 +199,7 @@ _ZNSt3anyaSEOS_.exit:                             ; preds = %8, %11, %15, %_ZNSt
   br i1 %.not.i.i3, label %_ZNSt3anyD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt3anyaSEOS_.exit
-  invoke void %27(i32 noundef 3, ptr noundef nonnull %5, ptr noundef null)
+  invoke void %27(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
           to label %_ZNSt3anyD2Ev.exit unwind label %29
 
 29:                                               ; preds = %28
@@ -228,13 +228,13 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12TfSafeStringB5c
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc6 unwind label %11
 
 6:                                                ; preds = %.noexc6
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 .noexc6:                                          ; preds = %.noexc
@@ -272,7 +272,7 @@ define linkonce_odr void @_ZNSt3anyD2Ev(ptr noundef nonnull align 8 dereferencea
   br i1 %.not.i, label %_ZNSt3any5resetEv.exit, label %3
 
 3:                                                ; preds = %1
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
           to label %4 unwind label %5
 
 4:                                                ; preds = %3

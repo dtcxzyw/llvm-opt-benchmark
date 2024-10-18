@@ -515,7 +515,7 @@ _addto_state_char_list.exit.thread.i:             ; preds = %220
 _addto_state_char_list.exit.i:                    ; preds = %220, %.thread247.i
   %226 = phi ptr [ %219, %.thread247.i ], [ %224, %220 ]
   %227 = phi ptr [ %216, %.thread247.i ], [ %221, %220 ]
-  %228 = call i32 @slurm_parse_char_list(ptr noundef nonnull %227, ptr noundef %226, ptr noundef null, ptr noundef nonnull @_addto_state_char_list_internal) #12
+  %228 = call i32 @slurm_parse_char_list(ptr noundef nonnull %227, ptr noundef nonnull %226, ptr noundef null, ptr noundef nonnull @_addto_state_char_list_internal) #12
   %229 = icmp sgt i32 %228, 0
   br i1 %229, label %230, label %251
 

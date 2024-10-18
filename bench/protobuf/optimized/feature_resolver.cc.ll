@@ -202,13 +202,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %return
 
 if.then.i.i.i:                                    ; preds = %if.then
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
   br label %common.resume
 
@@ -242,13 +242,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i40, label %if.then.i.i.i41, label %return
 
 if.then.i.i.i41:                                  ; preds = %if.then2
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %invoke.cont5 unwind label %lpad.i.i42
 
 lpad.i.i42:                                       ; preds = %if.then.i.i.i41
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3) #19
   br label %common.resume
 
@@ -290,13 +290,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then9
   br i1 %cmp.i.i.i1.i.i, label %if.then.i.i.i51, label %cleanup
 
 if.then.i.i.i51:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %cleanup unwind label %lpad.i.i52
 
 lpad.i.i52:                                       ; preds = %if.then.i.i.i51
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status) #19
   br label %common.resume
 
@@ -362,7 +362,7 @@ if.then.i:                                        ; preds = %for.body
   %23 = load ptr, ptr %all_names_.i17.i, align 8, !noalias !4
   %arrayidx.i.i = getelementptr inbounds i8, ptr %23, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i), !noalias !4
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias align 8 %_status16, ptr noundef nonnull @.str.18, ptr noundef %agg.tmp.i, ptr noundef nonnull @.str.10)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias nonnull align 8 %_status16, ptr noundef nonnull @.str.18, ptr noundef %agg.tmp.i, ptr noundef nonnull @.str.10)
           to label %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i
@@ -453,7 +453,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %37 = load ptr, ptr %all_names_.i19.i, align 8, !noalias !4
   %arrayidx.i20.i = getelementptr inbounds i8, ptr %37, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp16.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i20.i), !noalias !4
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias align 8 %_status16, ptr noundef nonnull @.str.21, ptr noundef %agg.tmp16.i, ptr noundef nonnull @.str.22)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias nonnull align 8 %_status16, ptr noundef nonnull @.str.21, ptr noundef %agg.tmp16.i, ptr noundef nonnull @.str.22)
           to label %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit unwind label %lpad18.i
 
 lpad18.i:                                         ; preds = %if.then15.i
@@ -530,7 +530,7 @@ if.then36.i:                                      ; preds = %lor.lhs.false.i, %i
   %49 = load ptr, ptr %all_names_.i29.i, align 8, !noalias !4
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %49, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i30.i), !noalias !4
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias align 8 %_status16, ptr noundef nonnull @.str.24, ptr noundef %agg.tmp37.i, ptr noundef nonnull @.str.25)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias nonnull align 8 %_status16, ptr noundef nonnull @.str.24, ptr noundef %agg.tmp37.i, ptr noundef nonnull @.str.25)
           to label %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit unwind label %lpad39.i
 
 lpad39.i:                                         ; preds = %if.then36.i
@@ -586,13 +586,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i67: ; preds = %if.then21
   br i1 %cmp.i.i.i1.i.i68, label %if.then.i.i.i69, label %cleanup24
 
 if.then.i.i.i69:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i67
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %cleanup24 unwind label %lpad.i.i70
 
 lpad.i.i70:                                       ; preds = %if.then.i.i.i69
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status16) #19
   br label %common.resume
 
@@ -639,13 +639,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i85: ; preds = %if.then35
   br i1 %cmp.i.i.i1.i.i86, label %if.then.i.i.i87, label %cleanup38
 
 if.then.i.i.i87:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i85
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %cleanup38 unwind label %lpad.i.i88
 
 lpad.i.i88:                                       ; preds = %if.then.i.i.i87
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status29) #19
   br label %common.resume
 
@@ -910,13 +910,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i123: ; preds = %if.then104
   br i1 %cmp.i.i.i1.i.i124, label %if.then.i.i.i125, label %cleanup107
 
 if.then.i.i.i125:                                 ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i123
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %cleanup107 unwind label %lpad.i.i126
 
 lpad.i.i126:                                      ; preds = %if.then.i.i.i125
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status96) #19
   br label %ehcleanup
 
@@ -1006,13 +1006,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i153: ; preds = %if.then130
   br i1 %cmp.i.i.i1.i.i154, label %if.then.i.i.i155, label %cleanup133
 
 if.then.i.i.i155:                                 ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i153
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %cleanup133 unwind label %lpad.i.i156
 
 lpad.i.i156:                                      ; preds = %if.then.i.i.i155
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status118) #19
   br label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i186
 
@@ -1282,7 +1282,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN4absl12lts_20230
   store ptr %ref.tmp1.i.i.i, ptr %ref.tmp.i.i.i.i, align 8
   %dispatcher_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i, align 8
-  %call6.i.i.i.i4 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp9, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i, i64 1)
+  %call6.i.i.i.i4 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp9, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i, i64 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call.i.i.i.noexc
@@ -1322,7 +1322,7 @@ call.i.i.i.noexc14:                               ; preds = %invoke.cont11
   store ptr %ref.tmp1.i.i.i11, ptr %ref.tmp.i.i.i.i10, align 8
   %dispatcher_.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i10, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i12, align 8
-  %call6.i.i.i.i16 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp13, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i10, i64 1)
+  %call6.i.i.i.i16 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp13, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i10, i64 1)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %call.i.i.i.noexc14
@@ -2154,7 +2154,7 @@ call.i.i.i.noexc.i:                               ; preds = %invoke.cont48
   store ptr %ref.tmp1.i.i.i.i, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !48
   %dispatcher_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i.i, align 8, !noalias !48
-  %call6.i.i.i.i3.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp8.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i, i64 1)
+  %call6.i.i.i.i3.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp8.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i, i64 1)
           to label %invoke.cont10.i unwind label %lpad.i45, !noalias !48
 
 invoke.cont10.i:                                  ; preds = %call.i.i.i.noexc.i
@@ -2245,7 +2245,7 @@ if.then.i.i.i49:                                  ; preds = %if.then.i.i
   br i1 %39, label %if.then.i.i.i.i52, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then.i.i.i49
-  %call1.i.i.i.i53 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %36, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i.i53 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
           to label %call1.i.i.i.i.noexc unwind label %lpad37.loopexit.split-lp.loopexit
 
 call1.i.i.i.i.noexc:                              ; preds = %lor.lhs.false.i.i.i.i
@@ -2253,7 +2253,7 @@ call1.i.i.i.i.noexc:                              ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i50, label %if.then.i.i.i.i52, label %invoke.cont51
 
 if.then.i.i.i.i52:                                ; preds = %call1.i.i.i.i.noexc, %if.then.i.i.i49
-  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i)
           to label %.noexc54 unwind label %lpad37.loopexit.split-lp.loopexit
 
 .noexc54:                                         ; preds = %if.then.i.i.i.i52
@@ -2262,7 +2262,7 @@ if.then.i.i.i.i52:                                ; preds = %call1.i.i.i.i.noexc
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %invoke.cont51
 
 if.then5.i.i.i.i:                                 ; preds = %.noexc54
-  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %36, i1 noundef zeroext true)
+  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %36, i1 noundef zeroext true)
           to label %invoke.cont51 unwind label %lpad37.loopexit.split-lp.loopexit
 
 invoke.cont51:                                    ; preds = %.noexc54, %call1.i.i.i.i.noexc, %if.then.i.i, %if.end, %if.then5.i.i.i.i
@@ -2546,7 +2546,7 @@ invoke.cont2.i.i.i.i.i:                           ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i.i, label %if.then5.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %invoke.cont2.i.i.i.i.i
-  invoke void @_ZN6google8protobuf18FeatureSetDefaults12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %u)
+  invoke void @_ZN6google8protobuf18FeatureSetDefaults12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %u)
           to label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf18FeatureSetDefaultsEEC2IJS4_EEESt10in_place_tDpOT_.exit unwind label %terminate.lpad.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %invoke.cont2.i.i.i.i.i
@@ -2622,13 +2622,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %return
 
 if.then.i.i.i:                                    ; preds = %if.then
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
   br label %common.resume
 
@@ -2664,13 +2664,13 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i26, label %return
 
 if.then.i.i.i26:                                  ; preds = %if.then4
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %invoke.cont8 unwind label %lpad.i.i27
 
 lpad.i.i27:                                       ; preds = %if.then.i.i.i26
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5) #19
   br label %common.resume
 
@@ -2742,7 +2742,7 @@ call.i.i.i.noexc.i:                               ; preds = %if.then18
   store ptr %ref.tmp1.i.i.i.i, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !57
   %dispatcher_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i.i, align 8, !noalias !57
-  %call6.i.i.i.i3.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp7.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i, i64 1)
+  %call6.i.i.i.i3.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp7.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i, i64 1)
           to label %invoke.cont9.i unwind label %lpad.i, !noalias !57
 
 invoke.cont9.i:                                   ; preds = %call.i.i.i.noexc.i
@@ -2802,13 +2802,13 @@ _ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_20230
   br i1 %cmp.i.i.i.i.i41, label %if.then.i.i.i42, label %return
 
 if.then.i.i.i42:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.exit
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %invoke.cont22 unwind label %lpad.i.i43
 
 lpad.i.i43:                                       ; preds = %if.then.i.i.i42
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #19
   br label %common.resume
 
@@ -2842,7 +2842,7 @@ if.then28:                                        ; preds = %if.end23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i, i8 0, i64 32, i1 false), !noalias !60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #19, !noalias !60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i.i.i.i54), !noalias !60
-  %call.i.i.i3.i = invoke { i64, ptr } @_ZN6google8protobuf8internal16ShortEditionNameENS0_7EditionE(i32 noundef %prev_edition.0142)
+  %call.i.i.i3.i = invoke { i64, ptr } @_ZN6google8protobuf8internal16ShortEditionNameENS0_7EditionE(i32 noundef range(i32 1, 0) %prev_edition.0142)
           to label %call.i.i.i.noexc.i57 unwind label %lpad.i56, !noalias !60
 
 call.i.i.i.noexc.i57:                             ; preds = %if.then28
@@ -2855,7 +2855,7 @@ call.i.i.i.noexc.i57:                             ; preds = %if.then28
   store ptr %ref.tmp1.i.i.i.i54, ptr %ref.tmp.i.i.i.i.i53, align 8, !noalias !60
   %dispatcher_.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i53, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i.i58, align 8, !noalias !60
-  %call6.i.i.i.i4.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp11.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i53, i64 1)
+  %call6.i.i.i.i4.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp11.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i53, i64 1)
           to label %invoke.cont13.i unwind label %lpad.i56, !noalias !60
 
 invoke.cont13.i:                                  ; preds = %call.i.i.i.noexc.i57
@@ -2880,7 +2880,7 @@ call.i.i.i.noexc10.i:                             ; preds = %invoke.cont13.i
   store ptr %ref.tmp1.i.i.i7.i, ptr %ref.tmp.i.i.i.i6.i, align 8, !noalias !60
   %dispatcher_.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i6.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i8.i, align 8, !noalias !60
-  %call6.i.i.i.i12.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp15.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i6.i, i64 1)
+  %call6.i.i.i.i12.i = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp15.i, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i6.i, i64 1)
           to label %invoke.cont19.i unwind label %lpad16.i, !noalias !60
 
 invoke.cont19.i:                                  ; preds = %call.i.i.i.noexc10.i
@@ -2960,13 +2960,13 @@ _ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts
   br i1 %cmp.i.i.i.i.i63, label %if.then.i.i.i64, label %return
 
 if.then.i.i.i64:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.exit
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %invoke.cont32 unwind label %lpad.i.i65
 
 lpad.i.i65:                                       ; preds = %if.then.i.i.i64
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29) #19
   br label %common.resume
 
@@ -3012,13 +3012,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then39
   br i1 %cmp.i.i.i1.i.i, label %if.then.i.i.i76, label %cleanup
 
 if.then.i.i.i76:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %cleanup unwind label %lpad.i.i77
 
 lpad.i.i77:                                       ; preds = %if.then.i.i.i76
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status) #19
   br label %common.resume
 
@@ -3117,7 +3117,7 @@ call.i.i.i.noexc.i104:                            ; preds = %if.then59
   store ptr %ref.tmp1.i.i.i.i97, ptr %ref.tmp.i.i.i.i.i96, align 8, !noalias !67
   %dispatcher_.i.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i96, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i.i105, align 8, !noalias !67
-  %call6.i.i.i.i3.i106 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull %ref.tmp5.i99, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i96, i64 1)
+  %call6.i.i.i.i3.i106 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatUntypedENS1_17FormatRawSinkImplENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(32) %ref.tmp5.i99, ptr nonnull @_ZN4absl12lts_2023080219str_format_internal17FormatRawSinkImpl5FlushINS0_16strings_internal13StringifySinkEEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.32, i64 2, ptr nonnull %ref.tmp.i.i.i.i.i96, i64 1)
           to label %invoke.cont.i unwind label %lpad.i101, !noalias !67
 
 invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i104
@@ -3169,13 +3169,13 @@ invoke.cont61:                                    ; preds = %invoke.cont6.i
   br i1 %cmp.i.i.i.i.i110, label %if.then.i.i.i111, label %cleanup81
 
 if.then.i.i.i111:                                 ; preds = %invoke.cont61
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %invoke.cont63 unwind label %lpad.i.i112
 
 lpad.i.i112:                                      ; preds = %if.then.i.i.i111
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60) #19
   br label %ehcleanup82
 
@@ -3256,7 +3256,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf10FeatureSet12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp65, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6google8protobuf10FeatureSet12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp)
           to label %_ZN6google8protobuf15FeatureResolverC2ENS0_10FeatureSetE.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -3326,7 +3326,7 @@ invoke.cont2.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i.i:                           ; preds = %invoke.cont2.i.i.i.i.i.i.i
-  invoke void @_ZN6google8protobuf10FeatureSet12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull %ref.tmp65)
+  invoke void @_ZN6google8protobuf10FeatureSet12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp65)
           to label %invoke.cont80 unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %invoke.cont2.i.i.i.i.i.i.i
@@ -3466,11 +3466,11 @@ entry:
   %merged = alloca %"class.google::protobuf::FeatureSet", align 8
   %_status = alloca %"class.absl::lts_20230802::Status", align 8
   call void @_ZN6google8protobuf10FeatureSetC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %merged, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(72) %this)
-  invoke void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %merged, ptr noundef nonnull align 8 dereferenceable(16) %merged_parent)
+  invoke void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %merged, ptr noundef nonnull align 8 dereferenceable(72) %merged_parent)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %merged, ptr noundef nonnull align 8 dereferenceable(16) %unmerged_child)
+  invoke void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %merged, ptr noundef nonnull align 8 dereferenceable(72) %unmerged_child)
           to label %do.body unwind label %lpad
 
 do.body:                                          ; preds = %invoke.cont
@@ -3497,13 +3497,13 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then
   br i1 %cmp.i.i.i1.i.i, label %if.then.i.i.i, label %cleanup
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(80) %agg.result)
           to label %cleanup unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_status) #19
   br label %ehcleanup
 
@@ -3579,7 +3579,7 @@ invoke.cont2.i.i.i.i.i.i:                         ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %invoke.cont2.i.i.i.i.i.i
-  invoke void @_ZN6google8protobuf10FeatureSet12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull %merged)
+  invoke void @_ZN6google8protobuf10FeatureSet12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %merged)
           to label %_ZN4absl12lts_202308028StatusOrIN6google8protobuf10FeatureSetEEC2IS4_TnNSt9enable_ifIXsr4absl11conjunctionINS0_11disjunctionIJSt7is_sameIS4_NS0_12remove_cvrefIOT_E4typeEENS0_8negationINS8_IJS9_IS5_SE_ES9_INS0_6StatusESE_ES9_ISt10in_place_tSE_ENS0_17internal_statusor31IsDirectInitializationAmbiguousIS4_SC_EEEEEEEEEESt16is_constructibleIS4_JSC_EESt14is_convertibleISC_S4_ENS8_IJS9_INSA_ISB_E4typeES4_ENS0_11conjunctionIJNSG_ISU_ISC_SI_EEENSG_INSM_31HasConversionOperatorToStatusOrIS4_SC_vEEEEEEEEEEEE5valueEiE4typeELi0EEESC_.exit unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont2.i.i.i.i.i.i
@@ -4672,7 +4672,7 @@ invoke.cont2.i.i.i.i.i.i:                         ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %invoke.cont2.i.i.i.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__value.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__value.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont2.i.i.i.i.i.i
@@ -4736,7 +4736,7 @@ invoke.cont2.i.i.i25.i.i.i:                       ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i27.i.i.i, label %if.then5.i.i.i30.i.i.i, label %if.else.i.i.i28.i.i.i
 
 if.then5.i.i.i30.i.i.i:                           ; preds = %invoke.cont2.i.i.i25.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp6.i.i.i, ptr noundef nonnull %__value.i.i.i)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp6.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__value.i.i.i)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit33.i.i.i unwind label %terminate.lpad.i.i.i29.i.i.i
 
 if.else.i.i.i28.i.i.i:                            ; preds = %invoke.cont2.i.i.i25.i.i.i
@@ -4824,7 +4824,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__value.i, ptr noundef nonnull %incdec.ptr.i.i1.i)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__value.i, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i1.i)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit.i unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -4889,7 +4889,7 @@ invoke.cont2.i.i:                                 ; preds = %if.else.i.i10.i.i, 
   br i1 %cmp4.i.i9, label %if.then5.i.i, label %if.else.i.i10
 
 if.then5.i.i:                                     ; preds = %invoke.cont2.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i1.i, ptr noundef nonnull %__first.coerce)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i1.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit.i unwind label %terminate.lpad.i.i
 
 if.else.i.i10:                                    ; preds = %invoke.cont2.i.i
@@ -4946,7 +4946,7 @@ invoke.cont2.i.i.i18.i:                           ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i20.i, label %if.then5.i.i.i23.i, label %if.else.i.i.i21.i
 
 if.then5.i.i.i23.i:                               ; preds = %invoke.cont2.i.i.i18.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp7.i, ptr noundef nonnull %__value.i)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp7.i, ptr noundef nonnull align 8 dereferenceable(40) %__value.i)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit" unwind label %terminate.lpad.i.i.i22.i
 
 if.else.i.i.i21.i:                                ; preds = %invoke.cont2.i.i.i18.i
@@ -5036,11 +5036,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i.i.i: ; preds = %if.els
   br i1 %cmp3.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i.i.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i.i.i.i:                                ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i.i.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.coerce, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -5091,11 +5091,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i21.i.i: ; preds = %if.e
   br i1 %cmp3.i.i.i23.i.i, label %if.then4.i.i.i25.i.i, label %if.else.i.i.i24.i.i
 
 if.then4.i.i.i25.i.i:                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i21.i.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %add.ptr.i3.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i3.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i.i24.i.i:                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i21.i.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.coerce, ptr noundef nonnull %add.ptr.i3.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i3.i)
   br label %while.body.i.i5.preheader
 
 if.end.i.i.i30.i.i:                               ; preds = %if.else.i.i
@@ -5137,11 +5137,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i43.i.i: ; preds = %if.e
   br i1 %cmp3.i.i.i45.i.i, label %if.then4.i.i.i47.i.i, label %if.else.i.i.i46.i.i
 
 if.then4.i.i.i47.i.i:                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i43.i.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %add.ptr.i2.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i2.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i.i46.i.i:                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i43.i.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.coerce, ptr noundef nonnull %add.ptr.i2.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i2.i)
   br label %while.body.i.i5.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
@@ -5187,11 +5187,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i68.i.i: ; preds = %if.e
   br i1 %cmp3.i.i.i70.i.i, label %if.then4.i.i.i72.i.i, label %if.else.i.i.i71.i.i
 
 if.then4.i.i.i72.i.i:                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i68.i.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %add.ptr.i2.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i2.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i.i71.i.i:                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i68.i.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.coerce, ptr noundef nonnull %add.ptr.i2.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i2.i)
   br label %while.body.i.i5.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
@@ -5242,11 +5242,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i93.i.i: ; preds = %if.e
   br i1 %cmp3.i.i.i95.i.i, label %if.then4.i.i.i97.i.i, label %if.else.i.i.i96.i.i
 
 if.then4.i.i.i97.i.i:                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i93.i.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %add.ptr.i3.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i3.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i.i96.i.i:                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i93.i.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.coerce, ptr noundef nonnull %add.ptr.i3.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i3.i)
   br label %while.body.i.i5.preheader
 
 if.end.i.i.i102.i.i:                              ; preds = %if.else44.i.i
@@ -5289,11 +5289,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i115.i.i: ; preds = %if.
   br i1 %cmp3.i.i.i117.i.i, label %if.then4.i.i.i119.i.i, label %if.else.i.i.i118.i.i
 
 if.then4.i.i.i119.i.i:                            ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i115.i.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i)
   br label %while.body.i.i5.preheader
 
 if.else.i.i.i118.i.i:                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i115.i.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.coerce, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i)
   br label %while.body.i.i5.preheader
 
 while.body.i.i5.preheader:                        ; preds = %if.else.i.i.i118.i.i, %if.then4.i.i.i119.i.i, %if.else.i.i.i96.i.i, %if.then4.i.i.i97.i.i, %if.then50.i.i, %if.else.i.i.i71.i.i, %if.then4.i.i.i72.i.i, %if.else.i.i.i46.i.i, %if.then4.i.i.i47.i.i, %if.else.i.i.i24.i.i, %if.then4.i.i.i25.i.i, %if.then22.i.i, %if.else.i.i.i.i.i, %if.then4.i.i.i.i.i
@@ -5366,11 +5366,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i.i22.i: ; preds = %if.e
   br i1 %cmp3.i.i.i.i24.i, label %if.then4.i.i.i.i26.i, label %if.else.i.i.i.i25.i
 
 if.then4.i.i.i.i26.i:                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i.i22.i
-  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.1.i.i, ptr noundef nonnull %__last.sroa.0.1.i.i)
+  tail call void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__last.sroa.0.1.i.i)
   br label %while.body.i.i5.backedge
 
 if.else.i.i.i.i25.i:                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i.i22.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %__first.sroa.0.1.i.i, ptr noundef nonnull %__last.sroa.0.1.i.i)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__last.sroa.0.1.i.i)
   br label %while.body.i.i5.backedge
 
 while.body.i.i5.backedge:                         ; preds = %if.else.i.i.i.i25.i, %if.then4.i.i.i.i26.i
@@ -5453,7 +5453,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i19, ptr noundef nonnull %add.ptr.i18)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i18)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i:                                        ; preds = %invoke.cont2.i
@@ -5532,7 +5532,7 @@ invoke.cont2.i36:                                 ; preds = %if.else.i.i10.i42, 
   br i1 %cmp4.i38, label %if.then5.i41, label %if.else.i39
 
 if.then5.i41:                                     ; preds = %invoke.cont2.i36
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i21, ptr noundef nonnull %add.ptr.i20)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i20)
           to label %if.end35 unwind label %terminate.lpad.i40
 
 if.else.i39:                                      ; preds = %invoke.cont2.i36
@@ -5596,7 +5596,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i45
 
 if.then5.i.i.i:                                   ; preds = %invoke.cont2.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp37, ptr noundef nonnull %__value)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(40) %__value)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit unwind label %terminate.lpad.i.i.i
 
 if.else.i.i.i45:                                  ; preds = %invoke.cont2.i.i.i
@@ -5682,7 +5682,7 @@ invoke.cont2.i.i:                                 ; preds = %if.else.i.i10.i.i, 
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %invoke.cont2.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i8.i, ptr noundef nonnull %add.ptr.i.i)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit.i unwind label %terminate.lpad.i.i49
 
 if.else.i.i:                                      ; preds = %invoke.cont2.i.i
@@ -5747,7 +5747,7 @@ invoke.cont2.i24.i:                               ; preds = %if.else.i.i10.i30.i
   br i1 %cmp4.i26.i, label %if.then5.i29.i, label %if.else.i27.i
 
 if.then5.i29.i:                                   ; preds = %invoke.cont2.i24.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i9.i, ptr noundef nonnull %agg.tmp37)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp37)
           to label %invoke.cont unwind label %terminate.lpad.i28.i
 
 if.else.i27.i:                                    ; preds = %invoke.cont2.i24.i
@@ -5852,7 +5852,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %invoke.cont2.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__val, ptr noundef nonnull %__i.sroa.0.014)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__val, ptr noundef nonnull align 8 dereferenceable(40) %__i.sroa.0.014)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit unwind label %terminate.lpad.i.i.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont2.i.i.i
@@ -5930,7 +5930,7 @@ invoke.cont2.i.i.i.i.i.i:                         ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %invoke.cont2.i.i.i.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull %incdec.ptr.i.i.i.i.i)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont2.i.i.i.i.i.i
@@ -5991,7 +5991,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull %__val)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__val)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i:                                        ; preds = %invoke.cont2.i
@@ -6074,7 +6074,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %invoke.cont2.i.i.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__val, ptr noundef nonnull %__last.coerce)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__val, ptr noundef nonnull align 8 dereferenceable(40) %__last.coerce)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit unwind label %terminate.lpad.i.i.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont2.i.i.i
@@ -6146,7 +6146,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__last.sroa.0.035, ptr noundef nonnull %__next.sroa.0.036)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__last.sroa.0.035, ptr noundef nonnull align 8 dereferenceable(40) %__next.sroa.0.036)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i:                                        ; preds = %invoke.cont2.i
@@ -6213,7 +6213,7 @@ invoke.cont2.i17:                                 ; preds = %if.else.i.i10.i23, 
   br i1 %cmp4.i19, label %if.then5.i22, label %if.else.i20
 
 if.then5.i22:                                     ; preds = %invoke.cont2.i17
-  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__last.sroa.0.0.lcssa, ptr noundef nonnull %__val)
+  invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %__last.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(40) %__val)
           to label %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit25 unwind label %terminate.lpad.i21
 
 if.else.i20:                                      ; preds = %invoke.cont2.i17

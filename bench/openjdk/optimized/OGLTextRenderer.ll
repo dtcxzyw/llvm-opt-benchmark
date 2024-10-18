@@ -691,7 +691,7 @@ OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %232, %230
   %281 = load i16, ptr %227, align 2
   %282 = zext i16 %281 to i32
   %283 = load ptr, ptr %83, align 8
-  tail call void %274(i32 noundef 3553, i32 noundef 0, i32 noundef %276, i32 noundef %278, i32 noundef %280, i32 noundef %282, i32 noundef %32, i32 noundef 5121, ptr noundef %283) #5
+  tail call void %274(i32 noundef 3553, i32 noundef 0, i32 noundef %276, i32 noundef %278, i32 noundef %280, i32 noundef %282, i32 noundef range(i32 6407, 32993) %32, i32 noundef 5121, ptr noundef %283) #5
   br label %OGLTR_AddToGlyphCache.exit.i132
 
 OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %273, %267, %260

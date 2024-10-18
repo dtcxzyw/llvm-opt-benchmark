@@ -334,7 +334,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   %.val16.i.i.i.i.i = load i64, ptr %77, align 8, !noalias !41, !noundef !4
   %78 = sub i64 %.val17.i.i, %.val16.i.i.i.i.i
   %..i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.val17.i.i, i64 %.val16.i.i.i.i.i)
-  %79 = call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val15.i.i.i.i.i, i64 %..i.i.i.i.i.i.i.i), !alias.scope !46, !noalias !41
+  %79 = call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val15.i.i.i.i.i, i64 %..i.i.i.i.i.i.i.i), !alias.scope !46, !noalias !41
   %80 = sext i32 %79 to i64
   %81 = icmp eq i32 %79, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %81, i64 %78, i64 %80
@@ -364,7 +364,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
 
 88:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !54
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
           to label %.noexc.i unwind label %387, !noalias !63
 
 .noexc.i:                                         ; preds = %88
@@ -428,7 +428,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   %103 = getelementptr inbounds i8, ptr %99, i64 538
   store i16 1, ptr %103, align 2, !noalias !71
   %104 = getelementptr inbounds i8, ptr %99, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 24, i1 false), !noalias !75
   %105 = getelementptr inbounds i8, ptr %99, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   store ptr %99, ptr %31, align 8, !alias.scope !23, !noalias !67
@@ -437,7 +437,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
 
 106:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 24, i1 false), !noalias !82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
@@ -460,7 +460,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   br i1 %.not.i.i.i.i.i, label %.thread.i.i.i.i.i, label %116
 
 .thread.i.i.i.i.i:                                ; preds = %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 24, i1 false), !noalias !75
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.07.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !90
   br label %176
@@ -470,7 +470,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   %118 = sub nsw i64 %112, %.sroa.17.0.i
   %119 = mul nsw i64 %118, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %117, ptr nonnull align 8 %115, i64 %119, i1 false), !alias.scope !91, !noalias !94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 24, i1 false), !noalias !75
   %120 = getelementptr inbounds i8, ptr %.sroa.13.0.i, i64 272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.07.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !90
@@ -581,7 +581,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %157, ptr nonnull readonly align 8 %156, i64 %155, i1 false), !alias.scope !123, !noalias !117
   %158 = trunc i64 %124 to i16
   store i16 %158, ptr %107, align 2, !noalias !115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !89
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !89
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !118
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !118
@@ -597,7 +597,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   br i1 %.not.i24.i.i.i.i, label %.thread.i25.i.i.i.i, label %165
 
 .thread.i25.i.i.i.i:                              ; preds = %152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 24, i1 false), !noalias !75
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.07.i23.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.i23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !90
   br label %180
@@ -607,7 +607,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   %167 = sub nsw i64 %161, %126
   %168 = mul nsw i64 %167, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %166, ptr nonnull align 8 %164, i64 %168, i1 false), !alias.scope !133, !noalias !136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 24, i1 false), !noalias !75
   %169 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.07.i23.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.i23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !90
@@ -978,7 +978,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %302, ptr nonnull readonly align 8 %301, i64 %300, i1 false), !alias.scope !222, !noalias !216
   %303 = trunc i64 %265 to i16
   store i16 %303, ptr %229, align 2, !noalias !214
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !226
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !226
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !217
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !217
@@ -993,7 +993,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   br i1 %311, label %312, label %313
 
 312:                                              ; preds = %297
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %310, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %310, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i.i.i unwind label %295, !noalias !206
 
 .noexc.i.i51.i.i.i:                               ; preds = %312
@@ -1199,7 +1199,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
           to label %386 unwind label %383, !noalias !275
 
 386:                                              ; preds = %385
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #49
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %24) #49
           to label %.body unwind label %383, !noalias !274
 
 .thread84:                                        ; preds = %102, %380
@@ -1256,7 +1256,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
 
 397:                                              ; preds = %392
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !284
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
           to label %.noexc47 unwind label %.loopexit
 
 .noexc47:                                         ; preds = %397
@@ -1536,7 +1536,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   %.val15.i.i.i.i.i = load i64, ptr %81, align 8, !noalias !328, !noundef !4
   %82 = sub i64 %.val17.i.i, %.val15.i.i.i.i.i
   %..i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.val17.i.i, i64 %.val15.i.i.i.i.i)
-  %83 = call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val14.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !333, !noalias !328
+  %83 = call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !333, !noalias !328
   %84 = sext i32 %83 to i64
   %85 = icmp eq i32 %83, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %85, i64 %82, i64 %84
@@ -1566,7 +1566,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
 
 92:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !341
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
           to label %.noexc.i unwind label %391, !noalias !348
 
 .noexc.i:                                         ; preds = %92
@@ -1630,7 +1630,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   %107 = getelementptr inbounds i8, ptr %103, i64 538
   store i16 1, ptr %107, align 2, !noalias !355
   %108 = getelementptr inbounds i8, ptr %103, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 24, i1 false), !noalias !359
   %109 = getelementptr inbounds i8, ptr %103, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   store ptr %103, ptr %35, align 8, !alias.scope !310, !noalias !351
@@ -1639,7 +1639,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
 
 110:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !360
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !366
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 24, i1 false), !noalias !366
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
@@ -1662,7 +1662,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   br i1 %.not.i.i.i.i3.i, label %.thread.i.i.i.i.i, label %120
 
 .thread.i.i.i.i.i:                                ; preds = %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 24, i1 false), !noalias !359
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !374
   br label %180
@@ -1672,7 +1672,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   %122 = sub nsw i64 %116, %.sroa.17.0.i
   %123 = mul nsw i64 %122, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %121, ptr nonnull align 8 %119, i64 %123, i1 false), !alias.scope !375, !noalias !378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 24, i1 false), !noalias !359
   %124 = getelementptr inbounds i8, ptr %.sroa.13.0.i, i64 272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !374
@@ -1783,7 +1783,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %161, ptr nonnull readonly align 8 %160, i64 %159, i1 false), !alias.scope !406, !noalias !400
   %162 = trunc i64 %128 to i16
   store i16 %162, ptr %111, align 2, !noalias !398
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !373
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !373
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !401
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !401
@@ -1799,7 +1799,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   br i1 %.not.i23.i.i.i.i, label %.thread.i24.i.i.i.i, label %169
 
 .thread.i24.i.i.i.i:                              ; preds = %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 24, i1 false), !noalias !359
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !374
   br label %184
@@ -1809,7 +1809,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   %171 = sub nsw i64 %165, %130
   %172 = mul nsw i64 %171, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %168, i64 %172, i1 false), !alias.scope !416, !noalias !419
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 24, i1 false), !noalias !359
   %173 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !374
@@ -2180,7 +2180,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %306, ptr nonnull readonly align 8 %305, i64 %304, i1 false), !alias.scope !505, !noalias !499
   %307 = trunc i64 %269 to i16
   store i16 %307, ptr %233, align 2, !noalias !497
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !509
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !509
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !500
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !500
@@ -2195,7 +2195,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   br i1 %315, label %316, label %317
 
 316:                                              ; preds = %301
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %314, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %314, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i.i.i unwind label %299, !noalias !489
 
 .noexc.i.i51.i.i.i:                               ; preds = %316
@@ -2401,7 +2401,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
           to label %390 unwind label %387, !noalias !558
 
 390:                                              ; preds = %389
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #49
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27) #49
           to label %.body unwind label %387, !noalias !557
 
 .thread79:                                        ; preds = %106, %384
@@ -2458,7 +2458,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
 
 401:                                              ; preds = %396
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !567
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
           to label %.noexc42 unwind label %.loopexit
 
 .noexc42:                                         ; preds = %401
@@ -5767,7 +5767,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(232) %0, i64 232, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %3, align 8, !noalias !1258
-  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.3.llvm.3189713146689755573, i64 noundef 9, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f5aa1baf96411d151817ad1d392605a.35.llvm.6545128362769768385)
+  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.3.llvm.3189713146689755573, i64 noundef 9, ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f5aa1baf96411d151817ad1d392605a.35.llvm.6545128362769768385)
           to label %"_ZN4core3ptr121drop_in_place$LT$tokio..sync..mpsc..error..SendError$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17heccaa85e4045f4e4E.exit.i" unwind label %9
 
 9:                                                ; preds = %8
@@ -5827,7 +5827,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %3, align 8, !noalias !1263
-  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.3.llvm.3189713146689755573, i64 noundef 9, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f5aa1baf96411d151817ad1d392605a.34.llvm.6545128362769768385)
+  invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.3.llvm.3189713146689755573, i64 noundef 9, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6f5aa1baf96411d151817ad1d392605a.34.llvm.6545128362769768385)
           to label %"_ZN4core3ptr97drop_in_place$LT$tokio..sync..mpsc..error..SendError$LT$ockam_node..messages..NodeMessage$GT$$GT$17h0601f14af82569f7E.exit.i" unwind label %9
 
 9:                                                ; preds = %8
@@ -5935,7 +5935,7 @@ define hidden void @"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$
   %10 = getelementptr inbounds i8, ptr %5, i64 360
   %11 = getelementptr inbounds { [3 x i64] }, ptr %10, i64 %.sroa.21.0.copyload
   %12 = getelementptr inbounds { [4 x i64] }, ptr %5, i64 %.sroa.21.0.copyload
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !1268
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !1268
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !1268
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
@@ -7455,9 +7455,9 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %30 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %30)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %20, i64 %21, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1434
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1434
   %31 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false), !alias.scope !1435, !noalias !1401
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull readonly align 8 dereferenceable(64) %3, i64 32, i1 false), !alias.scope !1435, !noalias !1401
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %28, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1398, !noalias !1434
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -7481,7 +7481,7 @@ define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..ro
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1436
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -7512,7 +7512,7 @@ define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..ro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1436
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1445
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !64, !noalias !1445, !noundef !4
   %.not.i.i.i.i1 = icmp eq i64 %18, 0
@@ -7548,7 +7548,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_core..ro
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1454
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -7579,7 +7579,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_core..ro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1454
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1463
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !64, !noalias !1463, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %18, 0
@@ -7614,7 +7614,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_core..ro
 define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_api..nodes..registry..HopServiceInfo$RP$$GT$17h5d205bbe03ae7b6cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1474
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !64, !noalias !1474, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -7640,7 +7640,7 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$$LP$ockam_core..ro
 define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_api..nodes..registry..KafkaServiceInfo$RP$$GT$17hf7eb1df27315b514E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1483
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !64, !noalias !1483, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -7666,7 +7666,7 @@ define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$$LP$ockam_core..ro
 define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h228fef5c2f128314E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1492
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !64, !noalias !1492, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -7692,7 +7692,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..ro
 define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_api..nodes..registry..EchoerServiceInfo$RP$$GT$17hd693406557400c3dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1501
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !64, !noalias !1501, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -7718,7 +7718,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..ro
 define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_api..nodes..registry..UppercaseServiceInfo$RP$$GT$17h97cd0fc6b8b1f2f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1510
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !64, !noalias !1510, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -7752,7 +7752,7 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$
 define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_api..nodes..registry..SecureChannelListenerInfo$RP$$GT$17h50d40e318a0382a8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1519
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -7808,7 +7808,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..ro
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1528
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -7839,7 +7839,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..ro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1528
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1537
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !64, !noalias !1537, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %18, 0
@@ -7874,7 +7874,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..ro
 define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$RP$$GT$17h436167d06b79632eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1548
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -8010,7 +8010,7 @@ define internal fastcc void @"_ZN4core3ptr158drop_in_place$LT$$LP$ockam_core..fl
   %2 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1557
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -8303,7 +8303,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$snap..error..Error$GT$17hdf9
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1587
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !64, !noalias !1587, !noundef !4
   %.not.i.i.i = icmp eq i64 %8, 0
@@ -8368,12 +8368,12 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17
 12:                                               ; preds = %7
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..expr..Expr$GT$$GT$17hea19daf028b9fe17E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #49
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..expr..Expr$GT$$GT$17hea19daf028b9fe17E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #49
           to label %common.resume unwind label %22
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e45e06d6d85e263E.llvm.1425447921696267910.exit.i": ; preds = %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1604
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16f880873e32c5baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16f880873e32c5baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = load i64, ptr %14, align 8, !range !64, !noalias !1604, !noundef !4
   %.not.i.i.i = icmp eq i64 %15, 0
@@ -8407,7 +8407,7 @@ common.resume:                                    ; preds = %50, %12
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1609
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   %27 = load i64, ptr %26, align 8, !range !64, !noalias !1609, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %27, 0
@@ -8434,7 +8434,7 @@ common.resume:                                    ; preds = %50, %12
 35:                                               ; preds = %1
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1618
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %36)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
   %37 = getelementptr inbounds i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !64, !noalias !1618, !noundef !4
   %.not.i.i.i.i1 = icmp eq i64 %38, 0
@@ -8467,12 +8467,12 @@ common.resume:                                    ; preds = %50, %12
 50:                                               ; preds = %45
   %51 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..expr..Expr$GT$$GT$17hea19daf028b9fe17E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(16) %46) #49
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..expr..Expr$GT$$GT$17hea19daf028b9fe17E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #49
           to label %common.resume unwind label %60
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e45e06d6d85e263E.llvm.1425447921696267910.exit.i3": ; preds = %45
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1633
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16f880873e32c5baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %46)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16f880873e32c5baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46)
   %52 = getelementptr inbounds i8, ptr %2, i64 8
   %53 = load i64, ptr %52, align 8, !range !64, !noalias !1633, !noundef !4
   %.not.i.i.i4 = icmp eq i64 %53, 0
@@ -8560,7 +8560,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1654
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8, !range !64, !noalias !1654, !noundef !4
   %.not.i.i.i.i1 = icmp eq i64 %14, 0
@@ -8629,7 +8629,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1670
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -8660,7 +8660,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1670
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1679
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !64, !noalias !1679, !noundef !4
   %.not.i.i.i.i1 = icmp eq i64 %18, 0
@@ -8695,7 +8695,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..
 define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$$LP$alloc..string..String$C$ockam_abac..expr..Expr$RP$$GT$17h3812d23af48c2547E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1688
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -8742,7 +8742,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$$LP$alloc..string..
 define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17h44d79c506d0a8487E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1697
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -8790,7 +8790,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$$LP$minicbor..bytes
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1706
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -8821,7 +8821,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$$LP$minicbor..bytes
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1706
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1715
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !64, !noalias !1715, !noundef !4
   %.not.i.i.i.i1 = icmp eq i64 %18, 0
@@ -8857,7 +8857,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$$LP$alloc..vec..Vec
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1724
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %1
@@ -8888,7 +8888,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$$LP$alloc..vec..Vec
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1724
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1731
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !64, !noalias !1731, !noundef !4
   %.not.i.i.i1 = icmp eq i64 %18, 0
@@ -8923,7 +8923,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$$LP$alloc..vec..Vec
 define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$$LP$alloc..string..String$C$ockam_api..nodes..registry..InletInfo$RP$$GT$17h91b9321b8a4376a9E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1738
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -8970,7 +8970,7 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$$LP$alloc..string..
 define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$$LP$alloc..string..String$C$ockam_api..nodes..registry..RegistryRelayInfo$RP$$GT$17h5bbe2de381314384E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1747
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -9019,7 +9019,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !1756
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !1756
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit"
 
@@ -9042,7 +9042,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17hbe78c30b24f5e2b
   %.sink.i.i = select i1 %.not.i.i, i64 %7, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1768)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1771)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false), !alias.scope !1773, !noalias !1771
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false), !alias.scope !1773, !noalias !1771
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %.sink22.i.i, ptr %8, align 8, !alias.scope !1775, !noalias !1768
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
@@ -9132,7 +9132,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %3
 
 3:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit", %1
-  %4 = tail call fastcc { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc668509d68142a3E"(ptr noalias noundef align 8 dereferenceable(72) %0), !noalias !1808
+  %4 = tail call fastcc { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc668509d68142a3E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %0), !noalias !1808
   %.fca.0.extract.i.i = extractvalue { ptr, ptr } %4, 0
   %.fca.1.extract.i.i = extractvalue { ptr, ptr } %4, 1
   %5 = icmp eq ptr %.fca.0.extract.i.i, null
@@ -9225,7 +9225,7 @@ define internal { ptr, i64 } @_ZN4core5error5Error11description17hfbae96fa05d79c
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17h004da060756fae37E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -9236,7 +9236,7 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h004da060756fae37E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17h47510dc5a22704f0E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -9247,7 +9247,7 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h47510dc5a22704f0E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17h512416772d747101E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -9258,7 +9258,7 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h512416772d747101E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17h7c9b14fee2887a90E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -9277,7 +9277,7 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h80af999bb972ab28E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17hb27c6d97fcea6c77E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -9306,7 +9306,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hd608938ec0f742f1E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17hfcec3425c0032850E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h5b89264fd9f84601E(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -9411,7 +9411,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !1825
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !1825
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit"
 
@@ -9542,7 +9542,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !alias.scope !1842, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %7, i64 %1), !alias.scope !1845
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %7, i64 %1), !alias.scope !1845
   %8 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hc36a0eec6da67f49E.llvm.3189713146689755573.exit"
 
@@ -10063,7 +10063,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !1876, !noalias !1879, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i.i, %.val7.i.i.i.i.i
   %..i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i.i, i64 %.val7.i.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1881, !noalias !1885
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1881, !noalias !1885
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -10153,7 +10153,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !1906, !noalias !1909, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i.i, %.val7.i.i.i.i.i
   %..i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i.i, i64 %.val7.i.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1911, !noalias !1915
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1911, !noalias !1915
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -10243,7 +10243,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !1936, !noalias !1939, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i.i, %.val7.i.i.i.i.i
   %..i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i.i, i64 %.val7.i.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1941, !noalias !1945
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1941, !noalias !1945
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -10334,7 +10334,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !1966, !noalias !1969, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i.i, %.val7.i.i.i.i.i
   %..i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i.i, i64 %.val7.i.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1971, !noalias !1975
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1971, !noalias !1975
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -10416,7 +10416,7 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %.val15.i.i.i.i = load i64, ptr %21, align 8, !noalias !1988, !noundef !4
   %22 = sub i64 %.val4.i.i, %.val15.i.i.i.i
   %..i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val4.i.i, i64 %.val15.i.i.i.i)
-  %23 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val14.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1991, !noalias !1988
+  %23 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !1991, !noalias !1988
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
@@ -10494,7 +10494,7 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %.val15.i.i.i.i = load i64, ptr %21, align 8, !noalias !2007, !noundef !4
   %22 = sub i64 %.val4.i.i, %.val15.i.i.i.i
   %..i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val4.i.i, i64 %.val15.i.i.i.i)
-  %23 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val14.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !2010, !noalias !2007
+  %23 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val14.i.i.i.i, i64 %..i.i.i.i.i.i.i), !alias.scope !2010, !noalias !2007
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
@@ -10569,7 +10569,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %32 = load i64, ptr %31, align 8, !alias.scope !2024, !noalias !2015, !noundef !4
   %33 = sub i64 %3, %32
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %32)
-  %34 = tail call i32 @memcmp(ptr nonnull readonly %2, ptr nonnull readonly %30, i64 %..i.i.i.i.i), !alias.scope !2027, !noalias !2034
+  %34 = tail call i32 @memcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %30, i64 %..i.i.i.i.i), !alias.scope !2027, !noalias !2034
   %35 = sext i32 %34 to i64
   %36 = icmp eq i32 %34, 0
   %spec.store.select.i.i.i.i.i = select i1 %36, i64 %33, i64 %35
@@ -10612,7 +10612,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   store i64 0, ptr %.sroa.7.8..sroa_idx2.i.i, align 8, !noalias !2039
   %.sroa.8.8..sroa_idx4.i.i = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %.sroa.8.0.i.i.i, ptr %.sroa.8.8..sroa_idx4.i.i, align 8, !noalias !2039
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hc865cd1faec8dd4eE"(ptr noalias nocapture noundef align 8 dereferenceable(160) %10, ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 1 dereferenceable(1) %12), !noalias !2044
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hc865cd1faec8dd4eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %10, ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 1 dereferenceable(1) %12), !noalias !2044
   br label %"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17hcb4b4929ea95c337E.exit.i"
 
 46:                                               ; preds = %44
@@ -10652,7 +10652,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %61, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !2058
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6), !noalias !2058
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hc865cd1faec8dd4eE"(ptr noalias nocapture noundef align 8 dereferenceable(160) %6, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef align 1 dereferenceable(1) %12), !noalias !2059
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hc865cd1faec8dd4eE"(ptr noalias nocapture noundef align 8 dereferenceable(160) %6, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 1 dereferenceable(1) %12), !noalias !2059
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %6, i64 136, i1 false), !noalias !2058
   %62 = getelementptr inbounds i8, ptr %6, i64 136
@@ -10693,7 +10693,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %78 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %78, ptr noundef nonnull align 8 dereferenceable(112) %77, i64 112, i1 false), !noalias !2058
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %77, ptr noundef nonnull align 8 dereferenceable(112) %74, i64 112, i1 false), !noalias !2058
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false), !noalias !2070
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false), !noalias !2070
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2039
@@ -10832,7 +10832,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %36, align 8, !alias.scope !2091, !noalias !2094, !noundef !4
   %37 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %38 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2096, !noalias !2100
+  %38 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2096, !noalias !2100
   %39 = sext i32 %38 to i64
   %40 = icmp eq i32 %38, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %40, i64 %37, i64 %39
@@ -10878,7 +10878,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store i64 0, ptr %.sroa.7.8..sroa_idx2.i.i, align 8, !noalias !2105
   %.sroa.8.8..sroa_idx4.i.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %.sroa.8.0.i.i.i, ptr %.sroa.8.8..sroa_idx4.i.i, align 8, !noalias !2105
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h46aabb0d1437f166E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef align 1 dereferenceable(1) %11), !noalias !2110
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h46aabb0d1437f166E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 1 dereferenceable(1) %11), !noalias !2110
   br label %"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17hd5370a336a785275E.exit.i"
 
 49:                                               ; preds = %47
@@ -10918,7 +10918,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !2124
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5), !noalias !2124
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h46aabb0d1437f166E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %5, ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef align 1 dereferenceable(1) %11), !noalias !2125
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h46aabb0d1437f166E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %5, ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 dereferenceable(1) %11), !noalias !2125
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false), !noalias !2124
   %65 = getelementptr inbounds i8, ptr %5, i64 88
@@ -10959,7 +10959,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %81 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %80, i64 56, i1 false), !noalias !2124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %77, i64 56, i1 false), !noalias !2124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false), !noalias !2136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false), !noalias !2136
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2105
@@ -11079,7 +11079,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %32 = load i64, ptr %31, align 8, !alias.scope !2151, !noalias !2142, !noundef !4
   %33 = sub i64 %3, %32
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %32)
-  %34 = tail call i32 @memcmp(ptr nonnull readonly %2, ptr nonnull readonly %30, i64 %..i.i.i.i.i), !alias.scope !2154, !noalias !2161
+  %34 = tail call i32 @memcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %30, i64 %..i.i.i.i.i), !alias.scope !2154, !noalias !2161
   %35 = sext i32 %34 to i64
   %36 = icmp eq i32 %34, 0
   %spec.store.select.i.i.i.i.i = select i1 %36, i64 %33, i64 %35
@@ -11122,7 +11122,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   store i64 0, ptr %.sroa.7.8..sroa_idx2.i.i, align 8, !noalias !2166
   %.sroa.8.8..sroa_idx4.i.i = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %.sroa.8.0.i.i.i, ptr %.sroa.8.8..sroa_idx4.i.i, align 8, !noalias !2166
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h710f56faa4b87826E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %10, ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 1 dereferenceable(1) %12), !noalias !2171
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h710f56faa4b87826E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %10, ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 1 dereferenceable(1) %12), !noalias !2171
   br label %"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17h76d5b9104557c41bE.exit.i"
 
 46:                                               ; preds = %44
@@ -11162,7 +11162,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %61, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !2185
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6), !noalias !2185
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h710f56faa4b87826E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %6, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef align 1 dereferenceable(1) %12), !noalias !2186
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h710f56faa4b87826E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %6, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 1 dereferenceable(1) %12), !noalias !2186
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false), !noalias !2185
   %62 = getelementptr inbounds i8, ptr %6, i64 128
@@ -11203,7 +11203,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %78 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %78, ptr noundef nonnull align 8 dereferenceable(104) %77, i64 104, i1 false), !noalias !2185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %77, ptr noundef nonnull align 8 dereferenceable(104) %73, i64 104, i1 false), !noalias !2185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false), !noalias !2197
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false), !noalias !2197
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2166
@@ -11342,7 +11342,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %38, align 8, !alias.scope !2217, !noalias !2220, !noundef !4
   %39 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %40 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2222, !noalias !2226
+  %40 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2222, !noalias !2226
   %41 = sext i32 %40 to i64
   %42 = icmp eq i32 %40, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %42, i64 %39, i64 %41
@@ -11389,7 +11389,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store i64 0, ptr %.sroa.7.8..sroa_idx2.i.i, align 8, !noalias !2231
   %.sroa.8.8..sroa_idx4.i.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %.sroa.8.0.i.i.i, ptr %.sroa.8.8..sroa_idx4.i.i, align 8, !noalias !2231
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hf1d3ffdfcd02cb47E"(ptr noalias nocapture noundef align 8 dereferenceable(120) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef align 1 dereferenceable(1) %11), !noalias !2236
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hf1d3ffdfcd02cb47E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 1 dereferenceable(1) %11), !noalias !2236
   br label %"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17h8bc79d27fbfe7f03E.exit.i"
 
 52:                                               ; preds = %50
@@ -11429,7 +11429,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %67, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !2250
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5), !noalias !2250
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hf1d3ffdfcd02cb47E"(ptr noalias nocapture noundef align 8 dereferenceable(120) %5, ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef align 1 dereferenceable(1) %11), !noalias !2251
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17hf1d3ffdfcd02cb47E"(ptr noalias nocapture noundef align 8 dereferenceable(120) %5, ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 dereferenceable(1) %11), !noalias !2251
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false), !noalias !2250
   %68 = getelementptr inbounds i8, ptr %5, i64 96
@@ -11470,7 +11470,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %84 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false), !noalias !2250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %80, i64 64, i1 false), !noalias !2250
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false), !noalias !2262
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false), !noalias !2262
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2231
@@ -11609,7 +11609,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %34, align 8, !alias.scope !2282, !noalias !2285, !noundef !4
   %35 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %36 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2287, !noalias !2291
+  %36 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2287, !noalias !2291
   %37 = sext i32 %36 to i64
   %38 = icmp eq i32 %36, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %38, i64 %35, i64 %37
@@ -11657,7 +11657,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store i64 0, ptr %.sroa.7.8..sroa_idx2.i.i, align 8, !noalias !2299
   %.sroa.8.8..sroa_idx4.i.i = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.8.0.i.i.i, ptr %.sroa.8.8..sroa_idx4.i.i, align 8, !noalias !2299
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h3ded64b5e5af25aeE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noalias nocapture noundef align 8 dereferenceable(24) %6, ptr noalias noundef align 1 dereferenceable(1) %9), !noalias !2302
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h3ded64b5e5af25aeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7, ptr noalias nocapture noundef align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 1 dereferenceable(1) %9), !noalias !2302
   br label %"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$18remove_kv_tracking17h79c6a7ecb91be7f1E.exit.i"
 
 48:                                               ; preds = %46
@@ -11699,7 +11699,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %63, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i, align 8, !noalias !2317
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !2317
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h3ded64b5e5af25aeE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5, ptr noalias noundef align 1 dereferenceable(1) %9), !noalias !2318
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h3ded64b5e5af25aeE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 1 dereferenceable(1) %9), !noalias !2318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !2317
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !2317
@@ -11739,7 +11739,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.i.i.i, i64 32, i1 false), !noalias !2317
   %79 = load i8, ptr %78, align 1, !range !12, !noalias !2329, !noundef !4
   store i8 %.sroa.4.0.copyload.i.i.i, ptr %78, align 1, !noalias !2329
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.062.i.i.i, i64 32, i1 false), !noalias !2333
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.062.i.i.i, i64 32, i1 false), !noalias !2333
   %.sroa.466.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   store i8 %79, ptr %.sroa.466.0..sroa_idx.i.i.i, align 8, !alias.scope !2334, !noalias !2333
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.062.i.i.i)
@@ -11899,7 +11899,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 26:                                               ; preds = %25
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17h98a51b384ed2b9ecE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(56) %12) #49
+  invoke void @"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17h98a51b384ed2b9ecE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(88) %12) #49
           to label %179 unwind label %33, !noalias !2340
 
 "_ZN4core3ptr121drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$17hc1ae9bbae507585aE.llvm.1425447921696267910.exit.i.i.i": ; preds = %25
@@ -12415,7 +12415,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !2450, !noalias !2453, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2455, !noalias !2459
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2455, !noalias !2459
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -12508,7 +12508,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !2474, !noalias !2477, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2479, !noalias !2483
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2479, !noalias !2483
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -12601,7 +12601,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !2498, !noalias !2501, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2503, !noalias !2507
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2503, !noalias !2507
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -12694,7 +12694,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !2522, !noalias !2525, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2527, !noalias !2531
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2527, !noalias !2531
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -12768,7 +12768,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %22 = load i64, ptr %21, align 8, !alias.scope !2541, !noalias !2532, !noundef !4
   %23 = sub i64 %2, %22
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %22)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %1, ptr nonnull readonly %20, i64 %..i.i.i.i.i), !alias.scope !2544, !noalias !2551
+  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %1, ptr nonnull readonly align 1 %20, i64 %..i.i.i.i.i), !alias.scope !2544, !noalias !2551
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -12839,7 +12839,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %22 = load i64, ptr %21, align 8, !alias.scope !2561, !noalias !2552, !noundef !4
   %23 = sub i64 %2, %22
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %22)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %1, ptr nonnull readonly %20, i64 %..i.i.i.i.i), !alias.scope !2564, !noalias !2571
+  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %1, ptr nonnull readonly align 1 %20, i64 %..i.i.i.i.i), !alias.scope !2564, !noalias !2571
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -12927,7 +12927,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !2586, !noalias !2589, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2591, !noalias !2595
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2591, !noalias !2595
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -13001,7 +13001,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %22 = load i64, ptr %21, align 8, !alias.scope !2605, !noalias !2596, !noundef !4
   %23 = sub i64 %2, %22
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %22)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %1, ptr nonnull readonly %20, i64 %..i.i.i.i.i), !alias.scope !2610, !noalias !2617
+  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %1, ptr nonnull readonly align 1 %20, i64 %..i.i.i.i.i), !alias.scope !2610, !noalias !2617
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -13078,7 +13078,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %.val15.i.i.i = load i64, ptr %21, align 8, !noalias !2623, !noundef !4
   %22 = sub i64 %.val4.i, %.val15.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val4.i, i64 %.val15.i.i.i)
-  %23 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2626, !noalias !2623
+  %23 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2626, !noalias !2623
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
@@ -13155,7 +13155,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %.val15.i.i.i = load i64, ptr %21, align 8, !noalias !2635, !noundef !4
   %22 = sub i64 %.val4.i, %.val15.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val4.i, i64 %.val15.i.i.i)
-  %23 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2638, !noalias !2635
+  %23 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2638, !noalias !2635
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
@@ -13225,7 +13225,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %22 = load i64, ptr %21, align 8, !alias.scope !2651, !noalias !2642, !noundef !4
   %23 = sub i64 %2, %22
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %22)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %1, ptr nonnull readonly %20, i64 %..i.i.i.i.i), !alias.scope !2654, !noalias !2661
+  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %1, ptr nonnull readonly align 1 %20, i64 %..i.i.i.i.i), !alias.scope !2654, !noalias !2661
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -13314,7 +13314,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !2676, !noalias !2679, !noundef !4
   %27 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %28 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2681, !noalias !2685
+  %28 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2681, !noalias !2685
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
@@ -13395,7 +13395,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %.val16.i.i.i = load i64, ptr %21, align 8, !noalias !2696, !noundef !4
   %22 = sub i64 %.val9.i.i, %.val16.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i.i, i64 %.val16.i.i.i)
-  %23 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2697, !noalias !2696
+  %23 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8.i.i, ptr nonnull readonly align 1 %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2697, !noalias !2696
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
@@ -14049,7 +14049,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !2730, !noalias !2733, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2735, !noalias !2739
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2735, !noalias !2739
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -14110,7 +14110,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2743
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !2743, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -14189,7 +14189,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !2766, !noalias !2769, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2771, !noalias !2775
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2771, !noalias !2775
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -14250,7 +14250,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2779
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !2779, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -14316,7 +14316,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   %.val15.i.i.i = load i64, ptr %23, align 8, !noalias !2788, !noundef !4
   %24 = sub i64 %.val17, %.val15.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val17, i64 %.val15.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2793, !noalias !2788
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2793, !noalias !2788
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -14373,7 +14373,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2800
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !64, !noalias !2800, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %39, 0
@@ -14541,7 +14541,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !2831, !noalias !2834, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2836, !noalias !2840
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2836, !noalias !2840
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -14602,7 +14602,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2844
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !2844, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -14681,7 +14681,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !2867, !noalias !2870, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2872, !noalias !2876
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2872, !noalias !2876
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -14742,7 +14742,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2880
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !2880, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -14821,7 +14821,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !2903, !noalias !2906, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2908, !noalias !2912
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2908, !noalias !2912
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -14882,7 +14882,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2916
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !2916, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -14948,7 +14948,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   %.val16.i.i.i = load i64, ptr %23, align 8, !noalias !2925, !noundef !4
   %24 = sub i64 %.val17, %.val16.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val17, i64 %.val16.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2930, !noalias !2925
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2930, !noalias !2925
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -15005,7 +15005,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2937
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !64, !noalias !2937, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %39, 0
@@ -15071,7 +15071,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   %.val15.i.i.i = load i64, ptr %23, align 8, !noalias !2946, !noundef !4
   %24 = sub i64 %.val17, %.val15.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val17, i64 %.val15.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2951, !noalias !2946
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2951, !noalias !2946
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -15128,7 +15128,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2958
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !64, !noalias !2958, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %39, 0
@@ -15208,7 +15208,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %30, align 8, !alias.scope !2981, !noalias !2984, !noundef !4
   %31 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %32 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2986, !noalias !2990
+  %32 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !2986, !noalias !2990
   %33 = sext i32 %32 to i64
   %34 = icmp eq i32 %32, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %34, i64 %31, i64 %33
@@ -15269,7 +15269,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2994
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %45 = getelementptr inbounds i8, ptr %4, i64 8
   %46 = load i64, ptr %45, align 8, !range !64, !noalias !2994, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %46, 0
@@ -15337,7 +15337,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   %.val16.i.i.i = load i64, ptr %23, align 8, !noalias !3013, !noundef !4
   %24 = sub i64 %.val9.i.i, %.val16.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i.i, i64 %.val16.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3014, !noalias !3013
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8.i.i, ptr nonnull readonly align 1 %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3014, !noalias !3013
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -15394,7 +15394,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3021
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !64, !noalias !3021, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %39, 0
@@ -15473,7 +15473,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !3046, !noalias !3049, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3051, !noalias !3055
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3051, !noalias !3055
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -15534,7 +15534,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3059
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !3059, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -15613,7 +15613,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !3082, !noalias !3085, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3087, !noalias !3091
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3087, !noalias !3091
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -15674,7 +15674,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3095
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !3095, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -15740,7 +15740,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   %.val15.i.i.i = load i64, ptr %23, align 8, !noalias !3104, !noundef !4
   %24 = sub i64 %.val17, %.val15.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val17, i64 %.val15.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3109, !noalias !3104
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3109, !noalias !3104
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -15797,7 +15797,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3116
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !64, !noalias !3116, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %39, 0
@@ -15876,7 +15876,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !3139, !noalias !3142, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3144, !noalias !3148
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3144, !noalias !3148
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -15937,7 +15937,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3152
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !3152, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -16016,7 +16016,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i.i = load i64, ptr %28, align 8, !alias.scope !3175, !noalias !3178, !noundef !4
   %29 = sub i64 %.val5.i.i.i.i, %.val7.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i.i, i64 %.val7.i.i.i.i)
-  %30 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i.i, ptr nonnull readonly %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3180, !noalias !3184
+  %30 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3180, !noalias !3184
   %31 = sext i32 %30 to i64
   %32 = icmp eq i32 %30, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %32, i64 %29, i64 %31
@@ -16077,7 +16077,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3188
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !64, !noalias !3188, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -16143,7 +16143,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   %.val15.i.i.i = load i64, ptr %23, align 8, !noalias !3197, !noundef !4
   %24 = sub i64 %.val17, %.val15.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val17, i64 %.val15.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3202, !noalias !3197
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val14.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3202, !noalias !3197
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -16200,7 +16200,7 @@ default.unreachable.i.i.i:                        ; preds = %20
   store ptr %1, ptr %.sroa.46.0..sroa_idx, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3209
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8, !range !64, !noalias !3209, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %39, 0
@@ -17105,7 +17105,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN5alloc11collections5btree3map25BTre
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load i8, ptr %10, align 8, !range !12, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3283
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8, !range !64, !noalias !3283, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -17153,7 +17153,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3292
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8, !range !64, !noalias !3292, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -17202,7 +17202,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3302
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8, !range !64, !noalias !3302, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %14, 0
@@ -17251,7 +17251,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 136, i1 false)
   %13 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3311
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = load i64, ptr %14, align 8, !range !64, !noalias !3311, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %15, 0
@@ -17300,7 +17300,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
   %13 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3320
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = load i64, ptr %14, align 8, !range !64, !noalias !3320, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %15, 0
@@ -17437,7 +17437,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %.val16.i.i.i = load i64, ptr %21, align 8, !noalias !3349, !noundef !4
   %22 = sub i64 %.val9.i.i, %.val16.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i.i, i64 %.val16.i.i.i)
-  %23 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3350, !noalias !3349
+  %23 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8.i.i, ptr nonnull readonly align 1 %.val15.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !3350, !noalias !3349
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
@@ -17527,7 +17527,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3375
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3375
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3368, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -17538,7 +17538,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3375
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3375
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h25835a25944fb7faE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h25835a25944fb7faE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h158903c38a6d1ffaE.llvm.3189713146689755573.exit.i"
@@ -17655,7 +17655,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3412
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3412
   %20 = load ptr, ptr %18, align 8, !noalias !3405, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h923b796896fa94e9E.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -17665,7 +17665,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3412
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3412
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb2f1ff4c064fdb62E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb2f1ff4c064fdb62E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h923b796896fa94e9E.llvm.3189713146689755573.exit.i"
@@ -17783,7 +17783,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3449
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3449
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3442, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -17794,7 +17794,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3449
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3449
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h0cc926809e6ac83bE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h0cc926809e6ac83bE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17heb15cf19ef117d09E.llvm.3189713146689755573.exit.i"
@@ -17912,7 +17912,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3486
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3486
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3479, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -17923,7 +17923,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3486
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3486
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h7495082e063fde99E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h7495082e063fde99E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h13bfd397ad7165b7E.llvm.3189713146689755573.exit.i"
@@ -18040,7 +18040,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3523
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3523
   %20 = load ptr, ptr %18, align 8, !noalias !3516, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hce73105dc1aad4b0E.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -18050,7 +18050,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3523
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3523
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hd7fb251716c9e8deE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hd7fb251716c9e8deE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hce73105dc1aad4b0E.llvm.3189713146689755573.exit.i"
@@ -18167,7 +18167,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3560
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3560
   %20 = load ptr, ptr %18, align 8, !noalias !3553, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h47308c0f9cb4f02eE.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -18177,7 +18177,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3560
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3560
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h31c1c799586bbc32E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h31c1c799586bbc32E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h47308c0f9cb4f02eE.llvm.3189713146689755573.exit.i"
@@ -18295,7 +18295,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3597
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3597
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3590, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -18306,7 +18306,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3597
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3597
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h18969b2f529d3789E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h18969b2f529d3789E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h2a8aaf7daec871b3E.llvm.3189713146689755573.exit.i"
@@ -18424,7 +18424,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3634
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3634
   %21 = getelementptr inbounds i8, ptr %19, i64 176
   %22 = load ptr, ptr %21, align 8, !noalias !3627, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -18435,7 +18435,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3634
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3634
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h7edd78a8ee635a7dE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h7edd78a8ee635a7dE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hab42dbb2fb244378E.llvm.3189713146689755573.exit.i"
@@ -18553,7 +18553,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3671
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3671
   %21 = getelementptr inbounds i8, ptr %19, i64 1232
   %22 = load ptr, ptr %21, align 8, !noalias !3664, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -18564,7 +18564,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3671
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3671
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h70a9c5e3161daffeE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h70a9c5e3161daffeE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h81398b73b36f5b9dE.llvm.3189713146689755573.exit.i"
@@ -18682,7 +18682,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3708
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3708
   %21 = getelementptr inbounds i8, ptr %19, i64 880
   %22 = load ptr, ptr %21, align 8, !noalias !3701, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -18693,7 +18693,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3708
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3708
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h89c8ae90ffbd3f21E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h89c8ae90ffbd3f21E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h771f3c19b448d295E.llvm.3189713146689755573.exit.i"
@@ -18811,7 +18811,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3745
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3745
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3738, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -18822,7 +18822,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3745
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3745
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h57e0e97317c7cacdE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h57e0e97317c7cacdE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h8376123c8f115897E.llvm.3189713146689755573.exit.i"
@@ -18940,7 +18940,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3782
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3782
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3775, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -18951,7 +18951,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3782
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3782
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h17c0c4404856491fE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h17c0c4404856491fE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7fbc02809f02cbdbE.llvm.3189713146689755573.exit.i"
@@ -19069,7 +19069,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3819
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3819
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3812, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -19080,7 +19080,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3819
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3819
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h88af8f4f996a157bE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h88af8f4f996a157bE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hfc0ed1a392801a25E.llvm.3189713146689755573.exit.i"
@@ -19198,7 +19198,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3856
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3856
   %21 = getelementptr inbounds i8, ptr %19, i64 528
   %22 = load ptr, ptr %21, align 8, !noalias !3849, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -19209,7 +19209,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3856
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3856
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h13efaca540011e82E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h13efaca540011e82E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17ha8cf5aade0ebf432E.llvm.3189713146689755573.exit.i"
@@ -19327,7 +19327,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3893
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3893
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3886, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -19338,7 +19338,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3893
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3893
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hf1f870c3f57268efE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hf1f870c3f57268efE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h63948429f3ff8485E.llvm.3189713146689755573.exit.i"
@@ -19455,7 +19455,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3930
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3930
   %20 = load ptr, ptr %18, align 8, !noalias !3923, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h376d42e8ba7f1713E.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -19465,7 +19465,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3930
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3930
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hf4c46a9f7b1df086E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hf4c46a9f7b1df086E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h376d42e8ba7f1713E.llvm.3189713146689755573.exit.i"
@@ -19583,7 +19583,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !3967
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !3967
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3960, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -19594,7 +19594,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !3967
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !3967
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h7b3733f8bad8f01bE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h7b3733f8bad8f01bE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h3f976e16d0e5ad55E.llvm.3189713146689755573.exit.i"
@@ -19712,7 +19712,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4004
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4004
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !3997, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -19723,7 +19723,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4004
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4004
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h137df9e76787f46aE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h137df9e76787f46aE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hc62d4b885e822f65E.llvm.3189713146689755573.exit.i"
@@ -19841,7 +19841,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4041
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4041
   %21 = getelementptr inbounds i8, ptr %19, i64 704
   %22 = load ptr, ptr %21, align 8, !noalias !4034, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -19852,7 +19852,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4041
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4041
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb6f001e5fc668c6cE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb6f001e5fc668c6cE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7e49ade55b277a44E.llvm.3189713146689755573.exit.i"
@@ -19969,7 +19969,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4078
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4078
   %20 = load ptr, ptr %18, align 8, !noalias !4071, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h6124acaa6a88de76E.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -19979,7 +19979,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4078
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4078
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h4a4790877b4e085aE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h4a4790877b4e085aE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h6124acaa6a88de76E.llvm.3189713146689755573.exit.i"
@@ -20097,7 +20097,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4115
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4115
   %21 = getelementptr inbounds i8, ptr %19, i64 1232
   %22 = load ptr, ptr %21, align 8, !noalias !4108, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -20108,7 +20108,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4115
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4115
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hbce0eb0b6afed2f2E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hbce0eb0b6afed2f2E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hfa7cfc141d8d0d43E.llvm.3189713146689755573.exit.i"
@@ -20226,7 +20226,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4152
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4152
   %21 = getelementptr inbounds i8, ptr %19, i64 1056
   %22 = load ptr, ptr %21, align 8, !noalias !4145, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -20237,7 +20237,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4152
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4152
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h027f100e352bf8f4E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h027f100e352bf8f4E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hdb9f499120a8c518E.llvm.3189713146689755573.exit.i"
@@ -20354,7 +20354,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4189
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4189
   %20 = load ptr, ptr %18, align 8, !noalias !4182, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hc88b7d6774723251E.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -20364,7 +20364,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4189
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4189
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h415ed2aafd2e57beE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h415ed2aafd2e57beE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hc88b7d6774723251E.llvm.3189713146689755573.exit.i"
@@ -20482,7 +20482,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4226
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4226
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !4219, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -20493,7 +20493,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4226
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4226
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hd6127d8d42cc0739E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hd6127d8d42cc0739E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h970d7916d6f0226aE.llvm.3189713146689755573.exit.i"
@@ -20610,7 +20610,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4263
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4263
   %20 = load ptr, ptr %18, align 8, !noalias !4256, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h23cb803ac8768f87E.llvm.3189713146689755573.exit.i", label %.lr.ph.i.i
@@ -20620,7 +20620,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4263
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4263
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h945b1897f556685cE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h945b1897f556685cE.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h23cb803ac8768f87E.llvm.3189713146689755573.exit.i"
@@ -20738,7 +20738,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %20 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !4300
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !4300
   %21 = getelementptr inbounds i8, ptr %19, i64 352
   %22 = load ptr, ptr %21, align 8, !noalias !4293, !noundef !4
   %23 = icmp eq ptr %22, null
@@ -20749,7 +20749,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %20, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #50, !noalias !4300
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 24, 3017) %..i7.i.i, i64 noundef 8) #50, !noalias !4300
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h43716d52f8e63453E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h43716d52f8e63453E.llvm.3189713146689755573.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h52c68d5903bd7496E.llvm.3189713146689755573.exit.i"
@@ -20982,7 +20982,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 71:                                               ; preds = %65
   %72 = getelementptr inbounds { [4 x i64] }, ptr %13, i64 %60
   %73 = shl nuw nsw i64 %57, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !4348, !noalias !4347
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !4348, !noalias !4347
   %74 = trunc i64 %44 to i16
   store i16 %74, ptr %29, align 2, !noalias !4345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !4324
@@ -21338,7 +21338,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 209:                                              ; preds = %201
   %210 = getelementptr inbounds { [4 x i64] }, ptr %137, i64 %196
   %211 = shl nuw nsw i64 %193, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !4418, !noalias !4417
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !4418, !noalias !4417
   %212 = trunc i64 %180 to i16
   store i16 %212, ptr %148, align 2, !noalias !4415
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !4422
@@ -21354,7 +21354,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %209
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i42.i unwind label %207, !noalias !4408
 
 .noexc.i.i42.i:                                   ; preds = %221
@@ -21755,7 +21755,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !4503, !noalias !4502
   %92 = getelementptr inbounds { [4 x i64] }, ptr %22, i64 %76
   %93 = shl nuw nsw i64 %71, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !4507, !noalias !4502
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(632) %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !4507, !noalias !4502
   %94 = trunc i64 %58 to i16
   store i16 %94, ptr %39, align 2, !noalias !4500
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.026.i, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !4471
@@ -21990,7 +21990,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 
 162:                                              ; preds = %140, %136
   %eh.lpad-body.ph.i.i = phi { ptr, i32 } [ %141, %140 ], [ %137, %136 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #49
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %16) #49
           to label %165 unwind label %163, !noalias !4465
 
 163:                                              ; preds = %165, %162
@@ -22203,10 +22203,10 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %248, ptr nonnull readonly align 8 %249, i64 %250, i1 false), !alias.scope !4597, !noalias !4596
   %251 = getelementptr inbounds { [4 x i64] }, ptr %167, i64 %233
   %252 = shl nuw nsw i64 %228, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !4601, !noalias !4596
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(632) %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !4601, !noalias !4596
   %253 = trunc i64 %215 to i16
   store i16 %253, ptr %178, align 2, !noalias !4594
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !4605
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !4605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !4605
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4594
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !4594
@@ -22221,7 +22221,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %247
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %245, !noalias !4587
 
 .noexc.i.i51.i:                                   ; preds = %262
@@ -22625,7 +22625,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 71:                                               ; preds = %65
   %72 = getelementptr inbounds { [4 x i64] }, ptr %13, i64 %60
   %73 = shl nuw nsw i64 %57, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !4686, !noalias !4685
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !4686, !noalias !4685
   %74 = trunc i64 %44 to i16
   store i16 %74, ptr %29, align 2, !noalias !4683
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !4662
@@ -22981,7 +22981,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 209:                                              ; preds = %201
   %210 = getelementptr inbounds { [4 x i64] }, ptr %137, i64 %196
   %211 = shl nuw nsw i64 %193, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !4756, !noalias !4755
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !4756, !noalias !4755
   %212 = trunc i64 %180 to i16
   store i16 %212, ptr %148, align 2, !noalias !4753
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !4760
@@ -22997,7 +22997,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %209
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i42.i unwind label %207, !noalias !4746
 
 .noexc.i.i42.i:                                   ; preds = %221
@@ -23362,10 +23362,10 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5alloc11collec
 80:                                               ; preds = %74
   %81 = getelementptr inbounds { [4 x i64] }, ptr %14, i64 %69
   %82 = shl nuw nsw i64 %63, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull readonly align 8 %81, i64 %82, i1 false), !alias.scope !4835, !noalias !4834
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(376) %55, ptr nonnull readonly align 8 %81, i64 %82, i1 false), !alias.scope !4835, !noalias !4834
   %83 = getelementptr inbounds i8, ptr %66, i64 %69
   %84 = getelementptr inbounds i8, ptr %55, i64 364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %84, ptr nonnull readonly align 1 %83, i64 %63, i1 false), !alias.scope !4839, !noalias !4834
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %84, ptr nonnull readonly align 1 %83, i64 range(i64 0, 65537) %63, i1 false), !alias.scope !4839, !noalias !4834
   %85 = trunc i64 %50 to i16
   store i16 %85, ptr %31, align 2, !noalias !4832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !4807
@@ -23749,13 +23749,13 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5alloc11collec
 237:                                              ; preds = %229
   %238 = getelementptr inbounds { [4 x i64] }, ptr %157, i64 %224
   %239 = shl nuw nsw i64 %218, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %210, ptr nonnull readonly align 8 %238, i64 %239, i1 false), !alias.scope !4915, !noalias !4914
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(376) %210, ptr nonnull readonly align 8 %238, i64 %239, i1 false), !alias.scope !4915, !noalias !4914
   %240 = getelementptr inbounds i8, ptr %221, i64 %224
   %241 = getelementptr inbounds i8, ptr %210, i64 364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %241, ptr nonnull readonly align 1 %240, i64 %218, i1 false), !alias.scope !4919, !noalias !4914
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %241, ptr nonnull readonly align 1 %240, i64 range(i64 0, 65537) %218, i1 false), !alias.scope !4919, !noalias !4914
   %242 = trunc i64 %205 to i16
   store i16 %242, ptr %168, align 2, !noalias !4913
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !4923
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !4923
   store i8 %223, ptr %115, align 8, !alias.scope !4908, !noalias !4923
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !4913
   %243 = load i16, ptr %214, align 2, !noalias !4904, !noundef !4
@@ -23769,7 +23769,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5alloc11collec
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %237
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %249, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %249, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i40.i unwind label %235, !noalias !4904
 
 .noexc.i.i40.i:                                   ; preds = %251
@@ -24186,7 +24186,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !5007, !noalias !5006
   %92 = getelementptr inbounds { [8 x i64] }, ptr %22, i64 %76
   %93 = shl nuw nsw i64 %71, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !5011, !noalias !5006
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(1072) %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !5011, !noalias !5006
   %94 = trunc i64 %58 to i16
   store i16 %94, ptr %39, align 2, !noalias !5004
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026.i, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !4975
@@ -24421,7 +24421,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11colle
 
 162:                                              ; preds = %140, %136
   %eh.lpad-body.ph.i.i = phi { ptr, i32 } [ %141, %140 ], [ %137, %136 ]
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h0c670364eaae6913E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #49
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h0c670364eaae6913E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %16) #49
           to label %165 unwind label %163, !noalias !4969
 
 163:                                              ; preds = %165, %162
@@ -24634,10 +24634,10 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %248, ptr nonnull readonly align 8 %249, i64 %250, i1 false), !alias.scope !5101, !noalias !5100
   %251 = getelementptr inbounds { [8 x i64] }, ptr %167, i64 %233
   %252 = shl nuw nsw i64 %228, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !5105, !noalias !5100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(1072) %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !5105, !noalias !5100
   %253 = trunc i64 %215 to i16
   store i16 %253, ptr %178, align 2, !noalias !5098
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !5109
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !5109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %125, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !5109
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !5098
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !5098
@@ -24652,7 +24652,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11colle
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %247
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %245, !noalias !5091
 
 .noexc.i.i51.i:                                   ; preds = %262
@@ -25056,7 +25056,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 71:                                               ; preds = %65
   %72 = getelementptr inbounds { [4 x i64] }, ptr %13, i64 %60
   %73 = shl nuw nsw i64 %57, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !5190, !noalias !5189
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !5190, !noalias !5189
   %74 = trunc i64 %44 to i16
   store i16 %74, ptr %29, align 2, !noalias !5187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !5166
@@ -25412,7 +25412,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 209:                                              ; preds = %201
   %210 = getelementptr inbounds { [4 x i64] }, ptr %137, i64 %196
   %211 = shl nuw nsw i64 %193, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !5260, !noalias !5259
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !5260, !noalias !5259
   %212 = trunc i64 %180 to i16
   store i16 %212, ptr %148, align 2, !noalias !5257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !5264
@@ -25428,7 +25428,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %209
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i42.i unwind label %207, !noalias !5250
 
 .noexc.i.i42.i:                                   ; preds = %221
@@ -26064,7 +26064,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
 
 164:                                              ; preds = %144, %140
   %eh.lpad-body.ph.i.i = phi { ptr, i32 } [ %145, %144 ], [ %141, %140 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #49
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %16) #49
           to label %167 unwind label %165, !noalias !5307
 
 165:                                              ; preds = %167, %164
@@ -26282,7 +26282,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %255, ptr nonnull readonly align 8 %254, i64 %256, i1 false), !alias.scope !5443, !noalias !5438
   %257 = trunc i64 %218 to i16
   store i16 %257, ptr %180, align 2, !noalias !5436
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !5447
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !5447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %129, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false), !noalias !5447
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5), !noalias !5436
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5436
@@ -26297,7 +26297,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   br i1 %265, label %266, label %267
 
 266:                                              ; preds = %250
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %264, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %264, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %248, !noalias !5429
 
 .noexc.i.i51.i:                                   ; preds = %266
@@ -26749,7 +26749,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !5538, !noalias !5537
   %92 = getelementptr inbounds { [4 x i64] }, ptr %22, i64 %76
   %93 = shl nuw nsw i64 %71, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !5542, !noalias !5537
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(632) %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !5542, !noalias !5537
   %94 = trunc i64 %58 to i16
   store i16 %94, ptr %39, align 2, !noalias !5535
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.026.i, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !5506
@@ -26984,7 +26984,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 
 162:                                              ; preds = %140, %136
   %eh.lpad-body.ph.i.i = phi { ptr, i32 } [ %141, %140 ], [ %137, %136 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #49
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %16) #49
           to label %165 unwind label %163, !noalias !5500
 
 163:                                              ; preds = %165, %162
@@ -27197,10 +27197,10 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %248, ptr nonnull readonly align 8 %249, i64 %250, i1 false), !alias.scope !5632, !noalias !5631
   %251 = getelementptr inbounds { [4 x i64] }, ptr %167, i64 %233
   %252 = shl nuw nsw i64 %228, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !5636, !noalias !5631
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(632) %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !5636, !noalias !5631
   %253 = trunc i64 %215 to i16
   store i16 %253, ptr %178, align 2, !noalias !5629
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !5640
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !5640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !5640
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5629
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5629
@@ -27215,7 +27215,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %247
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %245, !noalias !5622
 
 .noexc.i.i51.i:                                   ; preds = %262
@@ -27653,14 +27653,14 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN5alloc11colle
 89:                                               ; preds = %83
   %90 = getelementptr inbounds { [4 x i64] }, ptr %23, i64 %77
   %91 = shl nuw nsw i64 %72, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !5731, !noalias !5730
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(896) %64, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !5731, !noalias !5730
   %92 = getelementptr inbounds { [6 x i64] }, ptr %75, i64 %77
   %93 = getelementptr inbounds i8, ptr %64, i64 352
   %94 = mul nuw nsw i64 %72, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull readonly align 8 %92, i64 %94, i1 false), !alias.scope !5735, !noalias !5730
   %95 = trunc i64 %59 to i16
   store i16 %95, ptr %40, align 2, !noalias !5728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !5699
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !5699
   %96 = getelementptr inbounds i8, ptr %14, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !5699
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !5728
@@ -28074,14 +28074,14 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN5alloc11colle
 252:                                              ; preds = %244
   %253 = getelementptr inbounds { [4 x i64] }, ptr %171, i64 %238
   %254 = shl nuw nsw i64 %233, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %225, ptr nonnull readonly align 8 %253, i64 %254, i1 false), !alias.scope !5824, !noalias !5823
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(896) %225, ptr nonnull readonly align 8 %253, i64 %254, i1 false), !alias.scope !5824, !noalias !5823
   %255 = getelementptr inbounds { [6 x i64] }, ptr %236, i64 %238
   %256 = getelementptr inbounds i8, ptr %225, i64 352
   %257 = mul nuw nsw i64 %233, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %256, ptr nonnull readonly align 8 %255, i64 %257, i1 false), !alias.scope !5828, !noalias !5823
   %258 = trunc i64 %220 to i16
   store i16 %258, ptr %182, align 2, !noalias !5821
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !5832
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !5832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %127, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !5832
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !5821
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !5821
@@ -28096,7 +28096,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN5alloc11colle
   br i1 %266, label %267, label %268
 
 267:                                              ; preds = %252
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %265, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %265, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %250, !noalias !5814
 
 .noexc.i.i51.i:                                   ; preds = %267
@@ -28510,7 +28510,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %87, ptr nonnull readonly align 4 %88, i64 %89, i1 false), !alias.scope !5917, !noalias !5916
   %90 = getelementptr inbounds { [4 x i64] }, ptr %17, i64 %75
   %91 = shl nuw nsw i64 %69, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !5921, !noalias !5916
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(408) %61, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !5921, !noalias !5916
   %92 = trunc i64 %56 to i16
   store i16 %92, ptr %36, align 2, !noalias !5914
   %.sroa.4.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.4.i.i.i, i64 4
@@ -28909,7 +28909,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %245, ptr nonnull readonly align 4 %246, i64 %247, i1 false), !alias.scope !6000, !noalias !5999
   %248 = getelementptr inbounds { [4 x i64] }, ptr %164, i64 %231
   %249 = shl nuw nsw i64 %225, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %217, ptr nonnull readonly align 8 %248, i64 %249, i1 false), !alias.scope !6004, !noalias !5999
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(408) %217, ptr nonnull readonly align 8 %248, i64 %249, i1 false), !alias.scope !6004, !noalias !5999
   %250 = trunc i64 %212 to i16
   store i16 %250, ptr %175, align 2, !noalias !5998
   store i32 %229, ptr %6, align 8, !alias.scope !5993, !noalias !6008
@@ -28926,7 +28926,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   br i1 %258, label %259, label %260
 
 259:                                              ; preds = %244
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %257, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %257, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i39.i unwind label %242, !noalias !5989
 
 .noexc.i.i39.i:                                   ; preds = %259
@@ -29348,7 +29348,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5alloc11coll
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull readonly align 8 %90, i64 %91, i1 false), !alias.scope !6094, !noalias !6093
   %92 = getelementptr inbounds { [14 x i64] }, ptr %22, i64 %76
   %93 = mul nuw nsw i64 %71, 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !6098, !noalias !6093
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(1512) %63, ptr nonnull readonly align 8 %92, i64 %93, i1 false), !alias.scope !6098, !noalias !6093
   %94 = trunc i64 %58 to i16
   store i16 %94, ptr %39, align 2, !noalias !6091
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.026.i, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !6062
@@ -29583,7 +29583,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5alloc11coll
 
 162:                                              ; preds = %140, %136
   %eh.lpad-body.ph.i.i = phi { ptr, i32 } [ %141, %140 ], [ %137, %136 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #49
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %16) #49
           to label %165 unwind label %163, !noalias !6056
 
 163:                                              ; preds = %165, %162
@@ -29796,10 +29796,10 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5alloc11coll
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %248, ptr nonnull readonly align 8 %249, i64 %250, i1 false), !alias.scope !6188, !noalias !6187
   %251 = getelementptr inbounds { [14 x i64] }, ptr %167, i64 %233
   %252 = mul nuw nsw i64 %228, 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !6192, !noalias !6187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(1512) %220, ptr nonnull readonly align 8 %251, i64 %252, i1 false), !alias.scope !6192, !noalias !6187
   %253 = trunc i64 %215 to i16
   store i16 %253, ptr %178, align 2, !noalias !6185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !6196
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !6196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %125, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !noalias !6196
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5), !noalias !6185
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !6185
@@ -29814,7 +29814,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5alloc11coll
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %247
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %245, !noalias !6178
 
 .noexc.i.i51.i:                                   ; preds = %262
@@ -30218,7 +30218,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 71:                                               ; preds = %65
   %72 = getelementptr inbounds { [4 x i64] }, ptr %13, i64 %60
   %73 = shl nuw nsw i64 %57, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !6277, !noalias !6276
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %49, ptr nonnull readonly align 8 %72, i64 %73, i1 false), !alias.scope !6277, !noalias !6276
   %74 = trunc i64 %44 to i16
   store i16 %74, ptr %29, align 2, !noalias !6274
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !6253
@@ -30574,7 +30574,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 209:                                              ; preds = %201
   %210 = getelementptr inbounds { [4 x i64] }, ptr %137, i64 %196
   %211 = shl nuw nsw i64 %193, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !6347, !noalias !6346
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(368) %185, ptr nonnull readonly align 8 %210, i64 %211, i1 false), !alias.scope !6347, !noalias !6346
   %212 = trunc i64 %180 to i16
   store i16 %212, ptr %148, align 2, !noalias !6344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !6351
@@ -30590,7 +30590,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %209
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %219, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i42.i unwind label %207, !noalias !6337
 
 .noexc.i.i42.i:                                   ; preds = %221
@@ -30976,14 +30976,14 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 86:                                               ; preds = %80
   %87 = getelementptr inbounds { [4 x i64] }, ptr %20, i64 %74
   %88 = shl nuw nsw i64 %69, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull readonly align 8 %87, i64 %88, i1 false), !alias.scope !6432, !noalias !6431
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(632) %61, ptr nonnull readonly align 8 %87, i64 %88, i1 false), !alias.scope !6432, !noalias !6431
   %89 = getelementptr inbounds { [3 x i64] }, ptr %72, i64 %74
   %90 = getelementptr inbounds i8, ptr %61, i64 360
   %91 = mul nuw nsw i64 %69, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull readonly align 8 %89, i64 %91, i1 false), !alias.scope !6436, !noalias !6431
   %92 = trunc i64 %56 to i16
   store i16 %92, ptr %37, align 2, !noalias !6429
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !6400
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !6400
   %93 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !6400
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !6429
@@ -31397,14 +31397,14 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 249:                                              ; preds = %241
   %250 = getelementptr inbounds { [4 x i64] }, ptr %168, i64 %235
   %251 = shl nuw nsw i64 %230, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %222, ptr nonnull readonly align 8 %250, i64 %251, i1 false), !alias.scope !6525, !noalias !6524
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(632) %222, ptr nonnull readonly align 8 %250, i64 %251, i1 false), !alias.scope !6525, !noalias !6524
   %252 = getelementptr inbounds { [3 x i64] }, ptr %233, i64 %235
   %253 = getelementptr inbounds i8, ptr %222, i64 360
   %254 = mul nuw nsw i64 %230, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %253, ptr nonnull readonly align 8 %252, i64 %254, i1 false), !alias.scope !6529, !noalias !6524
   %255 = trunc i64 %217 to i16
   store i16 %255, ptr %179, align 2, !noalias !6522
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !6533
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !6533
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !6533
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !6522
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6522
@@ -31419,7 +31419,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %249
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %262, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %262, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i53.i unwind label %247, !noalias !6515
 
 .noexc.i.i53.i:                                   ; preds = %264
@@ -31838,13 +31838,13 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 88:                                               ; preds = %82
   %89 = getelementptr inbounds { [4 x i64] }, ptr %23, i64 %76
   %90 = shl nuw nsw i64 %71, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull readonly align 8 %89, i64 %90, i1 false), !alias.scope !6623, !noalias !6622
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(720) %63, ptr nonnull readonly align 8 %89, i64 %90, i1 false), !alias.scope !6623, !noalias !6622
   %91 = getelementptr inbounds { [4 x i64] }, ptr %74, i64 %76
   %92 = getelementptr inbounds i8, ptr %63, i64 352
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %92, ptr nonnull readonly align 8 %91, i64 %90, i1 false), !alias.scope !6627, !noalias !6622
   %93 = trunc i64 %58 to i16
   store i16 %93, ptr %40, align 2, !noalias !6620
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !6591
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !6591
   %94 = getelementptr inbounds i8, ptr %14, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !6591
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !6620
@@ -32256,13 +32256,13 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 248:                                              ; preds = %240
   %249 = getelementptr inbounds { [4 x i64] }, ptr %168, i64 %234
   %250 = shl nuw nsw i64 %229, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %221, ptr nonnull readonly align 8 %249, i64 %250, i1 false), !alias.scope !6716, !noalias !6715
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(720) %221, ptr nonnull readonly align 8 %249, i64 %250, i1 false), !alias.scope !6716, !noalias !6715
   %251 = getelementptr inbounds { [4 x i64] }, ptr %232, i64 %234
   %252 = getelementptr inbounds i8, ptr %221, i64 352
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %252, ptr nonnull readonly align 8 %251, i64 %250, i1 false), !alias.scope !6720, !noalias !6715
   %253 = trunc i64 %216 to i16
   store i16 %253, ptr %179, align 2, !noalias !6713
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !6724
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !6724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !6724
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6713
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !6713
@@ -32277,7 +32277,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %248
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %260, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %246, !noalias !6706
 
 .noexc.i.i51.i:                                   ; preds = %262
@@ -32703,7 +32703,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull readonly align 8 %90, i64 %89, i1 false), !alias.scope !6818, !noalias !6813
   %92 = trunc i64 %56 to i16
   store i16 %92, ptr %37, align 2, !noalias !6811
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !6782
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !6782
   %93 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !6782
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !6811
@@ -33120,7 +33120,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %250, ptr nonnull readonly align 8 %249, i64 %248, i1 false), !alias.scope !6911, !noalias !6906
   %251 = trunc i64 %213 to i16
   store i16 %251, ptr %176, align 2, !noalias !6904
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !6915
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !6915
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !6915
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !6904
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !6904
@@ -33135,7 +33135,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %245
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %258, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %258, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %243, !noalias !6897
 
 .noexc.i.i51.i:                                   ; preds = %260
@@ -33559,7 +33559,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull readonly align 8 %90, i64 %89, i1 false), !alias.scope !7009, !noalias !7004
   %92 = trunc i64 %56 to i16
   store i16 %92, ptr %37, align 2, !noalias !7002
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !6973
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !6973
   %93 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !6973
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !7002
@@ -33976,7 +33976,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %250, ptr nonnull readonly align 8 %249, i64 %248, i1 false), !alias.scope !7102, !noalias !7097
   %251 = trunc i64 %213 to i16
   store i16 %251, ptr %176, align 2, !noalias !7095
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !7106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !7106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !7106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7095
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !7095
@@ -33991,7 +33991,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %245
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %258, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %258, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i51.i unwind label %243, !noalias !7088
 
 .noexc.i.i51.i:                                   ; preds = %260
@@ -34408,14 +34408,14 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN5alloc11colle
 86:                                               ; preds = %80
   %87 = getelementptr inbounds { [4 x i64] }, ptr %20, i64 %74
   %88 = shl nuw nsw i64 %69, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull readonly align 8 %87, i64 %88, i1 false), !alias.scope !7196, !noalias !7195
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(984) %61, ptr nonnull readonly align 8 %87, i64 %88, i1 false), !alias.scope !7196, !noalias !7195
   %89 = getelementptr inbounds { [7 x i64] }, ptr %72, i64 %74
   %90 = getelementptr inbounds i8, ptr %61, i64 360
   %91 = mul nuw nsw i64 %69, 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull readonly align 8 %89, i64 %91, i1 false), !alias.scope !7200, !noalias !7195
   %92 = trunc i64 %56 to i16
   store i16 %92, ptr %37, align 2, !noalias !7193
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !7164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !7164
   %93 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !7164
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !7193
@@ -34829,14 +34829,14 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN5alloc11colle
 249:                                              ; preds = %241
   %250 = getelementptr inbounds { [4 x i64] }, ptr %168, i64 %235
   %251 = shl nuw nsw i64 %230, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %222, ptr nonnull readonly align 8 %250, i64 %251, i1 false), !alias.scope !7289, !noalias !7288
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(984) %222, ptr nonnull readonly align 8 %250, i64 %251, i1 false), !alias.scope !7289, !noalias !7288
   %252 = getelementptr inbounds { [7 x i64] }, ptr %233, i64 %235
   %253 = getelementptr inbounds i8, ptr %222, i64 360
   %254 = mul nuw nsw i64 %230, 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %253, ptr nonnull readonly align 8 %252, i64 %254, i1 false), !alias.scope !7293, !noalias !7288
   %255 = trunc i64 %217 to i16
   store i16 %255, ptr %179, align 2, !noalias !7286
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !7297
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !7297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !7297
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !7286
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !7286
@@ -34851,7 +34851,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN5alloc11colle
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %249
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %262, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 65537) %262, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.31) #51
           to label %.noexc.i.i53.i unwind label %247, !noalias !7279
 
 .noexc.i.i53.i:                                   ; preds = %264
@@ -35295,7 +35295,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h01757993f582e95fE
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7410
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7410
   %24 = getelementptr inbounds i8, ptr %19, i64 10
   %25 = load i16, ptr %24, align 2, !noalias !7384, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -35304,7 +35304,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h01757993f582e95fE
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7410
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7410
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -35400,7 +35400,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h069f51584ff739d5E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7437
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7437
   %25 = getelementptr inbounds i8, ptr %20, i64 538
   %26 = load i16, ptr %25, align 2, !noalias !7411, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -35409,7 +35409,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h069f51584ff739d5E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7437
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7437
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -35505,7 +35505,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h0b9a905c1bbbf1daE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7464
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7464
   %25 = getelementptr inbounds i8, ptr %20, i64 626
   %26 = load i16, ptr %25, align 2, !noalias !7438, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -35514,7 +35514,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h0b9a905c1bbbf1daE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7464
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7464
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -35905,7 +35905,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h245722b089c2c318E
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7563
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7563
   %24 = getelementptr inbounds i8, ptr %19, i64 1418
   %25 = load i16, ptr %24, align 2, !noalias !7537, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -35914,7 +35914,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h245722b089c2c318E
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7563
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7563
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -36010,7 +36010,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h29f742c53266e08dE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7590
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7590
   %25 = getelementptr inbounds i8, ptr %20, i64 626
   %26 = load i16, ptr %25, align 2, !noalias !7564, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -36019,7 +36019,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h29f742c53266e08dE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7590
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7590
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -36213,7 +36213,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h2d460701e63d5634E
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7641
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7641
   %24 = getelementptr inbounds i8, ptr %19, i64 538
   %25 = load i16, ptr %24, align 2, !noalias !7615, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -36222,7 +36222,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h2d460701e63d5634E
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7641
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7641
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -36417,7 +36417,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h3cc8f6fd5d97d6a0E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7692
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7692
   %25 = getelementptr inbounds i8, ptr %20, i64 362
   %26 = load i16, ptr %25, align 2, !noalias !7666, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -36426,7 +36426,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h3cc8f6fd5d97d6a0E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7692
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7692
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -36521,7 +36521,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h4c68826962d43f6bE
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7719
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7719
   %24 = getelementptr inbounds i8, ptr %19, i64 538
   %25 = load i16, ptr %24, align 2, !noalias !7693, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -36530,7 +36530,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h4c68826962d43f6bE
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7719
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7719
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -36626,7 +36626,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h57e277efb04cc89aE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7746
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7746
   %25 = getelementptr inbounds i8, ptr %20, i64 362
   %26 = load i16, ptr %25, align 2, !noalias !7720, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -36635,7 +36635,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h57e277efb04cc89aE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7746
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7746
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -36830,7 +36830,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7c0230719adead8dE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7797
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7797
   %25 = getelementptr inbounds i8, ptr %20, i64 362
   %26 = load i16, ptr %25, align 2, !noalias !7771, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -36839,7 +36839,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7c0230719adead8dE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7797
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7797
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -36935,7 +36935,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7c1dacce062b215fE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7824
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7824
   %25 = getelementptr inbounds i8, ptr %20, i64 362
   %26 = load i16, ptr %25, align 2, !noalias !7798, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -36944,7 +36944,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7c1dacce062b215fE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7824
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7824
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -37040,7 +37040,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h8da0367e5a8e2871E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7851
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7851
   %25 = getelementptr inbounds i8, ptr %20, i64 978
   %26 = load i16, ptr %25, align 2, !noalias !7825, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -37049,7 +37049,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h8da0367e5a8e2871E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7851
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7851
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -37242,7 +37242,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h9ab1ddc76aa26cf3E
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7902
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7902
   %24 = getelementptr inbounds i8, ptr %19, i64 538
   %25 = load i16, ptr %24, align 2, !noalias !7876, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -37251,7 +37251,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h9ab1ddc76aa26cf3E
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7902
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7902
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -37347,7 +37347,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h9acb041d587e07b2E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7929
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7929
   %25 = getelementptr inbounds i8, ptr %20, i64 890
   %26 = load i16, ptr %25, align 2, !noalias !7903, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -37356,7 +37356,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h9acb041d587e07b2E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7929
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7929
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -37551,7 +37551,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17ha9edbae9f5c3186dE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !7980
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !7980
   %25 = getelementptr inbounds i8, ptr %20, i64 1066
   %26 = load i16, ptr %25, align 2, !noalias !7954, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -37560,7 +37560,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17ha9edbae9f5c3186dE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !7980
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !7980
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -37854,7 +37854,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17had6ec5229e0f2a10E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8055
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8055
   %25 = getelementptr inbounds i8, ptr %20, i64 362
   %26 = load i16, ptr %25, align 2, !noalias !8029, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -37863,7 +37863,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17had6ec5229e0f2a10E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8055
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8055
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -37959,7 +37959,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17had89dbeab36686ceE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8082
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8082
   %25 = getelementptr inbounds i8, ptr %20, i64 230
   %26 = load i16, ptr %25, align 2, !noalias !8056, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -37968,7 +37968,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17had89dbeab36686ceE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8082
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8082
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -38063,7 +38063,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb1bb6a9189e9f40fE
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8109
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8109
   %24 = getelementptr inbounds i8, ptr %19, i64 538
   %25 = load i16, ptr %24, align 2, !noalias !8083, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -38072,7 +38072,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb1bb6a9189e9f40fE
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8109
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8109
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -38167,7 +38167,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb2bc05b8ac3f74f3E
   %23 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8136
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8136
   %24 = getelementptr inbounds i8, ptr %19, i64 538
   %25 = load i16, ptr %24, align 2, !noalias !8110, !noundef !4
   %26 = icmp ult i16 %.val7.val.i.i.i.i, %25
@@ -38176,7 +38176,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb2bc05b8ac3f74f3E
 27:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8136
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8136
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %28
 
@@ -38272,7 +38272,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb8eed4ff673b2104E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8163
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8163
   %25 = getelementptr inbounds i8, ptr %20, i64 406
   %26 = load i16, ptr %25, align 2, !noalias !8137, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -38281,7 +38281,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb8eed4ff673b2104E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8163
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8163
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -38476,7 +38476,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hc39295d3c5605db0E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8214
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8214
   %25 = getelementptr inbounds i8, ptr %20, i64 714
   %26 = load i16, ptr %25, align 2, !noalias !8188, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -38485,7 +38485,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hc39295d3c5605db0E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8214
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8214
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -38581,7 +38581,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hc6087a883027e2f5E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8241
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8241
   %25 = getelementptr inbounds i8, ptr %20, i64 1506
   %26 = load i16, ptr %25, align 2, !noalias !8215, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -38590,7 +38590,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hc6087a883027e2f5E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8241
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8241
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -38686,7 +38686,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hca833f111c359780E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8268
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8268
   %25 = getelementptr inbounds i8, ptr %20, i64 1242
   %26 = load i16, ptr %25, align 2, !noalias !8242, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -38695,7 +38695,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hca833f111c359780E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8268
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8268
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -38890,7 +38890,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdb8d852b2923920cE
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8319
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8319
   %25 = getelementptr inbounds i8, ptr %20, i64 362
   %26 = load i16, ptr %25, align 2, !noalias !8293, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -38899,7 +38899,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdb8d852b2923920cE
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8319
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8319
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -38995,7 +38995,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdfe9efaf91256bc9E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8346
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8346
   %25 = getelementptr inbounds i8, ptr %20, i64 626
   %26 = load i16, ptr %25, align 2, !noalias !8320, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -39004,7 +39004,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdfe9efaf91256bc9E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8346
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8346
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -39198,7 +39198,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hed99a78e18692154E
   %24 = add i64 %.sroa.5.055.i.i, 1
   %.not.i.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i.i.i, i64 noundef 8) #50, !noalias !8397
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i.i.i, i64 noundef 8) #50, !noalias !8397
   %25 = getelementptr inbounds i8, ptr %20, i64 2914
   %26 = load i16, ptr %25, align 2, !noalias !8371, !noundef !4
   %27 = icmp ult i16 %.val7.val.i.i.i.i, %26
@@ -39207,7 +39207,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hed99a78e18692154E
 28:                                               ; preds = %.lr.ph.i.i
   %.not.i50.i.i = icmp eq i64 %.sroa.5.055.i.i, 0
   %..i51.i.i = select i1 %.not.i50.i.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef %..i51.i.i, i64 noundef 8) #50, !noalias !8397
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i.i, i64 noundef range(i64 24, 3017) %..i51.i.i, i64 noundef 8) #50, !noalias !8397
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
           to label %.noexc unwind label %29
 
@@ -40169,7 +40169,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull readonly align 8 %32, i64 %33, i1 false), !alias.scope !8429
   %34 = getelementptr inbounds i8, ptr %4, i64 364
   %35 = getelementptr inbounds i8, ptr %34, i64 %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %35, i64 %27, i1 false), !alias.scope !8430
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %35, i64 range(i64 0, 65537) %27, i1 false), !alias.scope !8430
   %36 = getelementptr inbounds { [4 x i64] }, ptr %4, i64 %19
   %37 = getelementptr inbounds i8, ptr %34, i64 %19
   %38 = load i8, ptr %37, align 1, !range !12, !noundef !4
@@ -40714,7 +40714,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %37 = shl nuw nsw i64 %22, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull readonly align 8 %9, i64 %37, i1 false), !alias.scope !8530
   %38 = getelementptr inbounds i8, ptr %33, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %24, i64 %22, i1 false), !alias.scope !8534
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %24, i64 range(i64 0, 65537) %22, i1 false), !alias.scope !8534
   %39 = getelementptr inbounds { [4 x i64] }, ptr %9, i64 %1
   %40 = shl nuw nsw i64 %19, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %39, i64 %40, i1 false)
@@ -41581,7 +41581,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   store i8 %41, ptr %44, align 1, !noalias !8714
   %45 = getelementptr inbounds i8, ptr %.sroa.8.0.copyload, i64 364
   %46 = getelementptr inbounds i8, ptr %43, i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %45, i64 %24, i1 false), !alias.scope !8729, !noalias !8714
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %45, i64 range(i64 0, 65537) %24, i1 false), !alias.scope !8729, !noalias !8714
   %47 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 376
   %48 = add i64 %.sroa.5.0.copyload, 1
   %49 = getelementptr inbounds ptr, ptr %47, i64 %48
@@ -42559,7 +42559,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   store i8 %156, ptr %159, align 1, !noalias !8920
   %160 = getelementptr inbounds i8, ptr %140, i64 364
   %161 = getelementptr inbounds i8, ptr %158, i64 %.pre-phi171179
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull readonly align 1 %160, i64 %.pre-phi169180, i1 false), !alias.scope !8935, !noalias !8920
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull readonly align 1 %160, i64 range(i64 0, 65537) %.pre-phi169180, i1 false), !alias.scope !8935, !noalias !8920
   %162 = getelementptr inbounds i8, ptr %103, i64 376
   %163 = add nuw nsw i64 %141, 1
   %164 = getelementptr inbounds ptr, ptr %162, i64 %163
@@ -44800,7 +44800,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i = load i64, ptr %23, align 8, !alias.scope !9343, !noalias !9346, !noundef !4
   %24 = sub i64 %.val5.i.i.i, %.val7.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %.val7.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9348, !noalias !9352
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9348, !noalias !9352
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -44872,7 +44872,7 @@ default.unreachable.i.i:                          ; preds = %14
   %19 = load i64, ptr %18, align 8, !alias.scope !9362, !noalias !9356, !noundef !4
   %20 = sub i64 %4, %19
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %19)
-  %21 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %17, i64 %..i.i.i.i), !alias.scope !9365, !noalias !9372
+  %21 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %17, i64 %..i.i.i.i), !alias.scope !9365, !noalias !9372
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i = select i1 %23, i64 %20, i64 %22
@@ -44940,7 +44940,7 @@ default.unreachable.i.i:                          ; preds = %14
   %19 = load i64, ptr %18, align 8, !alias.scope !9382, !noalias !9376, !noundef !4
   %20 = sub i64 %4, %19
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %19)
-  %21 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %17, i64 %..i.i.i.i), !alias.scope !9387, !noalias !9394
+  %21 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %17, i64 %..i.i.i.i), !alias.scope !9387, !noalias !9394
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i = select i1 %23, i64 %20, i64 %22
@@ -45025,7 +45025,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i = load i64, ptr %23, align 8, !alias.scope !9408, !noalias !9411, !noundef !4
   %24 = sub i64 %.val5.i.i.i, %.val7.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %.val7.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9413, !noalias !9417
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9413, !noalias !9417
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -45097,7 +45097,7 @@ default.unreachable.i.i:                          ; preds = %14
   %19 = load i64, ptr %18, align 8, !alias.scope !9427, !noalias !9421, !noundef !4
   %20 = sub i64 %4, %19
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %19)
-  %21 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %17, i64 %..i.i.i.i), !alias.scope !9430, !noalias !9437
+  %21 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %17, i64 %..i.i.i.i), !alias.scope !9430, !noalias !9437
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i = select i1 %23, i64 %20, i64 %22
@@ -45171,7 +45171,7 @@ default.unreachable.i.i:                          ; preds = %15
   %.val16.i.i = load i64, ptr %18, align 8, !noalias !9446, !noundef !4
   %19 = sub i64 %.val9.i, %.val16.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i, i64 %.val16.i.i)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i, ptr nonnull readonly %.val15.i.i, i64 %..i.i.i.i.i), !alias.scope !9447, !noalias !9446
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %.val15.i.i, i64 %..i.i.i.i.i), !alias.scope !9447, !noalias !9446
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -45244,7 +45244,7 @@ default.unreachable.i.i:                          ; preds = %15
   %.val15.i.i = load i64, ptr %18, align 8, !noalias !9454, !noundef !4
   %19 = sub i64 %.val4, %.val15.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val4, i64 %.val15.i.i)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val14.i.i, i64 %..i.i.i.i.i), !alias.scope !9457, !noalias !9454
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val14.i.i, i64 %..i.i.i.i.i), !alias.scope !9457, !noalias !9454
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -45312,7 +45312,7 @@ default.unreachable.i.i:                          ; preds = %14
   %19 = load i64, ptr %18, align 8, !alias.scope !9470, !noalias !9464, !noundef !4
   %20 = sub i64 %4, %19
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %19)
-  %21 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %17, i64 %..i.i.i.i), !alias.scope !9473, !noalias !9480
+  %21 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %17, i64 %..i.i.i.i), !alias.scope !9473, !noalias !9480
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i = select i1 %23, i64 %20, i64 %22
@@ -45397,7 +45397,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i = load i64, ptr %23, align 8, !alias.scope !9494, !noalias !9497, !noundef !4
   %24 = sub i64 %.val5.i.i.i, %.val7.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %.val7.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9499, !noalias !9503
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9499, !noalias !9503
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -45474,7 +45474,7 @@ default.unreachable.i.i:                          ; preds = %15
   %.val15.i.i = load i64, ptr %18, align 8, !noalias !9507, !noundef !4
   %19 = sub i64 %.val4, %.val15.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val4, i64 %.val15.i.i)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val14.i.i, i64 %..i.i.i.i.i), !alias.scope !9510, !noalias !9507
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val14.i.i, i64 %..i.i.i.i.i), !alias.scope !9510, !noalias !9507
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -45559,7 +45559,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i = load i64, ptr %23, align 8, !alias.scope !9527, !noalias !9530, !noundef !4
   %24 = sub i64 %.val5.i.i.i, %.val7.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %.val7.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9532, !noalias !9536
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9532, !noalias !9536
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -45649,7 +45649,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i = load i64, ptr %25, align 8, !alias.scope !9550, !noalias !9553, !noundef !4
   %26 = sub i64 %.val5.i.i.i, %.val7.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %.val7.i.i.i)
-  %27 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9555, !noalias !9559
+  %27 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9555, !noalias !9559
   %28 = sext i32 %27 to i64
   %29 = icmp eq i32 %27, 0
   %spec.store.select.i.i.i.i.i = select i1 %29, i64 %26, i64 %28
@@ -45727,7 +45727,7 @@ default.unreachable.i.i:                          ; preds = %15
   %.val16.i.i = load i64, ptr %18, align 8, !noalias !9568, !noundef !4
   %19 = sub i64 %.val9.i, %.val16.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i, i64 %.val16.i.i)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i, ptr nonnull readonly %.val15.i.i, i64 %..i.i.i.i.i), !alias.scope !9569, !noalias !9568
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %.val15.i.i, i64 %..i.i.i.i.i), !alias.scope !9569, !noalias !9568
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -45812,7 +45812,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i.i = load i64, ptr %23, align 8, !alias.scope !9586, !noalias !9589, !noundef !4
   %24 = sub i64 %.val5.i.i.i, %.val7.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %.val7.i.i.i)
-  %25 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9591, !noalias !9595
+  %25 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %..i.i.i.i.i), !alias.scope !9591, !noalias !9595
   %26 = sext i32 %25 to i64
   %27 = icmp eq i32 %25, 0
   %spec.store.select.i.i.i.i.i = select i1 %27, i64 %24, i64 %26
@@ -45895,7 +45895,7 @@ default.unreachable.i:                            ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i = load i64, ptr %22, align 8, !alias.scope !9602, !noalias !9605, !noundef !4
   %23 = sub i64 %.val5.i.i, %.val7.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i, i64 %.val7.i.i)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val6.i.i, i64 %..i.i.i.i), !alias.scope !9607, !noalias !9611
+  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val6.i.i, i64 %..i.i.i.i), !alias.scope !9607, !noalias !9611
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -45952,7 +45952,7 @@ default.unreachable.i:                            ; preds = %13
   %18 = load i64, ptr %17, align 8, !alias.scope !9615, !noalias !9612, !noundef !4
   %19 = sub i64 %4, %18
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %18)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %16, i64 %..i.i.i), !alias.scope !9618
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %16, i64 %..i.i.i), !alias.scope !9618
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -46005,7 +46005,7 @@ default.unreachable.i:                            ; preds = %13
   %18 = load i64, ptr %17, align 8, !alias.scope !9628, !noalias !9625, !noundef !4
   %19 = sub i64 %4, %18
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %18)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %16, i64 %..i.i.i), !alias.scope !9631
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %16, i64 %..i.i.i), !alias.scope !9631
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -46075,7 +46075,7 @@ default.unreachable.i:                            ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i = load i64, ptr %24, align 8, !alias.scope !9641, !noalias !9644, !noundef !4
   %25 = sub i64 %.val5.i.i, %.val7.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i, i64 %.val7.i.i)
-  %26 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val6.i.i, i64 %..i.i.i.i), !alias.scope !9646, !noalias !9650
+  %26 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val6.i.i, i64 %..i.i.i.i), !alias.scope !9646, !noalias !9650
   %27 = sext i32 %26 to i64
   %28 = icmp eq i32 %26, 0
   %spec.store.select.i.i.i.i = select i1 %28, i64 %25, i64 %27
@@ -46132,7 +46132,7 @@ default.unreachable.i:                            ; preds = %13
   %18 = load i64, ptr %17, align 8, !alias.scope !9654, !noalias !9651, !noundef !4
   %19 = sub i64 %4, %18
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %18)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %16, i64 %..i.i.i), !alias.scope !9659
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %16, i64 %..i.i.i), !alias.scope !9659
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -46185,7 +46185,7 @@ default.unreachable.i:                            ; preds = %13
   %18 = load i64, ptr %17, align 8, !alias.scope !9669, !noalias !9666, !noundef !4
   %19 = sub i64 %4, %18
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %18)
-  %20 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %16, i64 %..i.i.i), !alias.scope !9672
+  %20 = tail call i32 @memcmp(ptr nonnull readonly align 1 %3, ptr nonnull readonly align 1 %16, i64 %..i.i.i), !alias.scope !9672
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i = select i1 %22, i64 %19, i64 %21
@@ -46243,7 +46243,7 @@ default.unreachable.i:                            ; preds = %14
   %.val16.i = load i64, ptr %17, align 8, !noundef !4
   %18 = sub i64 %.val9, %.val16.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9, i64 %.val16.i)
-  %19 = tail call i32 @memcmp(ptr nonnull readonly %.val8, ptr nonnull readonly %.val15.i, i64 %..i.i.i.i), !alias.scope !9679
+  %19 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8, ptr nonnull readonly align 1 %.val15.i, i64 %..i.i.i.i), !alias.scope !9679
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -46301,7 +46301,7 @@ default.unreachable.i:                            ; preds = %14
   %.val16.i = load i64, ptr %17, align 8, !noundef !4
   %18 = sub i64 %.val9, %.val16.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9, i64 %.val16.i)
-  %19 = tail call i32 @memcmp(ptr nonnull readonly %.val8, ptr nonnull readonly %.val15.i, i64 %..i.i.i.i), !alias.scope !9683
+  %19 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val8, ptr nonnull readonly align 1 %.val15.i, i64 %..i.i.i.i), !alias.scope !9683
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -46370,7 +46370,7 @@ default.unreachable.i:                            ; preds = %"_ZN72_$LT$ockam_co
   %.val7.i.i = load i64, ptr %22, align 8, !alias.scope !9690, !noalias !9693, !noundef !4
   %23 = sub i64 %.val5.i.i, %.val7.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val5.i.i, i64 %.val7.i.i)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val6.i.i, i64 %..i.i.i.i), !alias.scope !9695, !noalias !9699
+  %24 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val6.i.i, i64 %..i.i.i.i), !alias.scope !9695, !noalias !9699
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -47694,7 +47694,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9923
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9923
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9918, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -47705,7 +47705,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9923
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9923
   ret void
 }
 
@@ -47726,7 +47726,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9929
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9929
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9924, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -47737,7 +47737,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9929
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9929
   ret void
 }
 
@@ -47757,7 +47757,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9935
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9935
   %9 = load ptr, ptr %7, align 8, !noalias !9930, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -47767,7 +47767,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9935
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9935
   ret void
 }
 
@@ -47788,7 +47788,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9941
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9941
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9936, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -47799,7 +47799,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9941
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9941
   ret void
 }
 
@@ -47819,7 +47819,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9947
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9947
   %9 = load ptr, ptr %7, align 8, !noalias !9942, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -47829,7 +47829,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9947
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9947
   ret void
 }
 
@@ -47850,7 +47850,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9953
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9953
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9948, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -47861,7 +47861,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9953
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9953
   ret void
 }
 
@@ -47881,7 +47881,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9959
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9959
   %9 = load ptr, ptr %7, align 8, !noalias !9954, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -47891,7 +47891,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9959
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9959
   ret void
 }
 
@@ -47912,7 +47912,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9965
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9965
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9960, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -47923,7 +47923,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9965
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9965
   ret void
 }
 
@@ -47943,7 +47943,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9971
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9971
   %9 = load ptr, ptr %7, align 8, !noalias !9966, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -47953,7 +47953,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9971
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9971
   ret void
 }
 
@@ -47974,7 +47974,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9977
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9977
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9972, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -47985,7 +47985,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9977
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9977
   ret void
 }
 
@@ -48006,7 +48006,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9983
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9983
   %10 = getelementptr inbounds i8, ptr %8, i64 880
   %11 = load ptr, ptr %10, align 8, !noalias !9978, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48017,7 +48017,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9983
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9983
   ret void
 }
 
@@ -48038,7 +48038,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9989
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9989
   %10 = getelementptr inbounds i8, ptr %8, i64 704
   %11 = load ptr, ptr %10, align 8, !noalias !9984, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48049,7 +48049,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9989
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9989
   ret void
 }
 
@@ -48070,7 +48070,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !9995
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !9995
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !9990, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48081,7 +48081,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !9995
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !9995
   ret void
 }
 
@@ -48102,7 +48102,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10001
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10001
   %10 = getelementptr inbounds i8, ptr %8, i64 1232
   %11 = load ptr, ptr %10, align 8, !noalias !9996, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48113,7 +48113,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10001
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10001
   ret void
 }
 
@@ -48134,7 +48134,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10007
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10007
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !10002, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48145,7 +48145,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10007
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10007
   ret void
 }
 
@@ -48165,7 +48165,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10013
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10013
   %9 = load ptr, ptr %7, align 8, !noalias !10008, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -48175,7 +48175,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10013
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10013
   ret void
 }
 
@@ -48196,7 +48196,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10019
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10019
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !10014, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48207,7 +48207,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10019
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10019
   ret void
 }
 
@@ -48228,7 +48228,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10025
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10025
   %10 = getelementptr inbounds i8, ptr %8, i64 528
   %11 = load ptr, ptr %10, align 8, !noalias !10020, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48239,7 +48239,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10025
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10025
   ret void
 }
 
@@ -48260,7 +48260,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10031
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10031
   %10 = getelementptr inbounds i8, ptr %8, i64 176
   %11 = load ptr, ptr %10, align 8, !noalias !10026, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48271,7 +48271,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10031
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10031
   ret void
 }
 
@@ -48292,7 +48292,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10037
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10037
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !10032, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48303,7 +48303,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10037
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10037
   ret void
 }
 
@@ -48323,7 +48323,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10043
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10043
   %9 = load ptr, ptr %7, align 8, !noalias !10038, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -48333,7 +48333,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10043
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10043
   ret void
 }
 
@@ -48353,7 +48353,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10049
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10049
   %9 = load ptr, ptr %7, align 8, !noalias !10044, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -48363,7 +48363,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10049
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10049
   ret void
 }
 
@@ -48384,7 +48384,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10055
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10055
   %10 = getelementptr inbounds i8, ptr %8, i64 1056
   %11 = load ptr, ptr %10, align 8, !noalias !10050, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48395,7 +48395,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10055
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10055
   ret void
 }
 
@@ -48416,7 +48416,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10061
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10061
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !10056, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48427,7 +48427,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10061
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10061
   ret void
 }
 
@@ -48448,7 +48448,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10067
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10067
   %10 = getelementptr inbounds i8, ptr %8, i64 1232
   %11 = load ptr, ptr %10, align 8, !noalias !10062, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48459,7 +48459,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10067
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10067
   ret void
 }
 
@@ -48480,7 +48480,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %9 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #50, !noalias !10073
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10073
   %10 = getelementptr inbounds i8, ptr %8, i64 352
   %11 = load ptr, ptr %10, align 8, !noalias !10068, !noundef !4
   %12 = icmp eq ptr %11, null
@@ -48491,7 +48491,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %9, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #50, !noalias !10073
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 24, 3017) %..i7, i64 noundef 8) #50, !noalias !10073
   ret void
 }
 
@@ -48569,7 +48569,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10094
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10094
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -48579,7 +48579,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10094
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10094
   %30 = getelementptr inbounds i8, ptr %23, i64 1418
   %31 = load i16, ptr %30, align 2, !noalias !10074, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -48661,7 +48661,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10115
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10115
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -48671,7 +48671,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10115
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10115
   %31 = getelementptr inbounds i8, ptr %24, i64 362
   %32 = load i16, ptr %31, align 2, !noalias !10095, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -48752,7 +48752,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10136
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10136
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -48762,7 +48762,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10136
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10136
   %30 = getelementptr inbounds i8, ptr %23, i64 538
   %31 = load i16, ptr %30, align 2, !noalias !10116, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -48844,7 +48844,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10157
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10157
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -48854,7 +48854,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10157
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10157
   %31 = getelementptr inbounds i8, ptr %24, i64 626
   %32 = load i16, ptr %31, align 2, !noalias !10137, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -48936,7 +48936,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10178
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10178
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -48946,7 +48946,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10178
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10178
   %31 = getelementptr inbounds i8, ptr %24, i64 362
   %32 = load i16, ptr %31, align 2, !noalias !10158, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49028,7 +49028,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10199
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10199
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49038,7 +49038,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10199
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10199
   %31 = getelementptr inbounds i8, ptr %24, i64 362
   %32 = load i16, ptr %31, align 2, !noalias !10179, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49120,7 +49120,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10220
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10220
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49130,7 +49130,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10220
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10220
   %31 = getelementptr inbounds i8, ptr %24, i64 538
   %32 = load i16, ptr %31, align 2, !noalias !10200, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49211,7 +49211,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10241
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10241
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -49221,7 +49221,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10241
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10241
   %30 = getelementptr inbounds i8, ptr %23, i64 538
   %31 = load i16, ptr %30, align 2, !noalias !10221, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -49303,7 +49303,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10262
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10262
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49313,7 +49313,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10262
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10262
   %31 = getelementptr inbounds i8, ptr %24, i64 230
   %32 = load i16, ptr %31, align 2, !noalias !10242, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49395,7 +49395,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10283
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10283
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49405,7 +49405,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10283
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10283
   %31 = getelementptr inbounds i8, ptr %24, i64 362
   %32 = load i16, ptr %31, align 2, !noalias !10263, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49487,7 +49487,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10304
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10304
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49497,7 +49497,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10304
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10304
   %31 = getelementptr inbounds i8, ptr %24, i64 362
   %32 = load i16, ptr %31, align 2, !noalias !10284, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49578,7 +49578,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10325
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10325
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -49588,7 +49588,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10325
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10325
   %30 = getelementptr inbounds i8, ptr %23, i64 538
   %31 = load i16, ptr %30, align 2, !noalias !10305, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -49670,7 +49670,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10346
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10346
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49680,7 +49680,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10346
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10346
   %31 = getelementptr inbounds i8, ptr %24, i64 890
   %32 = load i16, ptr %31, align 2, !noalias !10326, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49762,7 +49762,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10367
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10367
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49772,7 +49772,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10367
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10367
   %31 = getelementptr inbounds i8, ptr %24, i64 714
   %32 = load i16, ptr %31, align 2, !noalias !10347, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49854,7 +49854,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10388
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10388
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49864,7 +49864,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10388
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10388
   %31 = getelementptr inbounds i8, ptr %24, i64 406
   %32 = load i16, ptr %31, align 2, !noalias !10368, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -49946,7 +49946,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10409
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10409
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -49956,7 +49956,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10409
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10409
   %31 = getelementptr inbounds i8, ptr %24, i64 1242
   %32 = load i16, ptr %31, align 2, !noalias !10389, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50038,7 +50038,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10430
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10430
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50048,7 +50048,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10430
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10430
   %31 = getelementptr inbounds i8, ptr %24, i64 1066
   %32 = load i16, ptr %31, align 2, !noalias !10410, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50129,7 +50129,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10451
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10451
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -50139,7 +50139,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10451
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10451
   %30 = getelementptr inbounds i8, ptr %23, i64 10
   %31 = load i16, ptr %30, align 2, !noalias !10431, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -50221,7 +50221,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10472
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10472
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50231,7 +50231,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10472
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10472
   %31 = getelementptr inbounds i8, ptr %24, i64 626
   %32 = load i16, ptr %31, align 2, !noalias !10452, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50312,7 +50312,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10493
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10493
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -50322,7 +50322,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10493
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10493
   %30 = getelementptr inbounds i8, ptr %23, i64 538
   %31 = load i16, ptr %30, align 2, !noalias !10473, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -50403,7 +50403,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 26:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10514
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10514
   store ptr null, ptr %0, align 8
   br label %25
 
@@ -50413,7 +50413,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10514
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10514
   %30 = getelementptr inbounds i8, ptr %23, i64 538
   %31 = load i16, ptr %30, align 2, !noalias !10494, !noundef !4
   %32 = icmp ult i16 %.val7.val.i.i, %31
@@ -50495,7 +50495,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10535
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10535
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50505,7 +50505,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10535
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10535
   %31 = getelementptr inbounds i8, ptr %24, i64 362
   %32 = load i16, ptr %31, align 2, !noalias !10515, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50587,7 +50587,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10556
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10556
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50597,7 +50597,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10556
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10556
   %31 = getelementptr inbounds i8, ptr %24, i64 1506
   %32 = load i16, ptr %31, align 2, !noalias !10536, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50679,7 +50679,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10577
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10577
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50689,7 +50689,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10577
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10577
   %31 = getelementptr inbounds i8, ptr %24, i64 2914
   %32 = load i16, ptr %31, align 2, !noalias !10557, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50771,7 +50771,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10598
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10598
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50781,7 +50781,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10598
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10598
   %31 = getelementptr inbounds i8, ptr %24, i64 978
   %32 = load i16, ptr %31, align 2, !noalias !10578, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50863,7 +50863,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 27:                                               ; preds = %.lr.ph
   %.not.i50 = icmp eq i64 %.sroa.5.055, 0
   %..i51 = select i1 %.not.i50, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i51, i64 noundef 8) #50, !noalias !10619
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i51, i64 noundef 8) #50, !noalias !10619
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -50873,7 +50873,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = add i64 %.sroa.5.055, 1
   %.not.i = icmp eq i64 %.sroa.5.055, 0
   %..i = select i1 %.not.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef %..i, i64 noundef 8) #50, !noalias !10619
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056, i64 noundef range(i64 24, 3017) %..i, i64 noundef 8) #50, !noalias !10619
   %31 = getelementptr inbounds i8, ptr %24, i64 626
   %32 = load i16, ptr %31, align 2, !noalias !10599, !noundef !4
   %33 = icmp ult i16 %.val7.val.i.i, %32
@@ -50940,7 +50940,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10645
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10645
   %29 = getelementptr inbounds i8, ptr %24, i64 362
   %30 = load i16, ptr %29, align 2, !noalias !10625, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -50949,7 +50949,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10645
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10645
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51030,7 +51030,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10671
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10671
   %29 = getelementptr inbounds i8, ptr %24, i64 714
   %30 = load i16, ptr %29, align 2, !noalias !10651, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51039,7 +51039,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10671
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10671
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51120,7 +51120,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10697
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10697
   %29 = getelementptr inbounds i8, ptr %24, i64 1066
   %30 = load i16, ptr %29, align 2, !noalias !10677, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51129,7 +51129,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10697
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10697
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51210,7 +51210,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10723
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10723
   %29 = getelementptr inbounds i8, ptr %24, i64 230
   %30 = load i16, ptr %29, align 2, !noalias !10703, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51219,7 +51219,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10723
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10723
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51300,7 +51300,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10749
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10749
   %29 = getelementptr inbounds i8, ptr %24, i64 890
   %30 = load i16, ptr %29, align 2, !noalias !10729, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51309,7 +51309,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10749
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10749
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51390,7 +51390,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10775
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10775
   %29 = getelementptr inbounds i8, ptr %24, i64 626
   %30 = load i16, ptr %29, align 2, !noalias !10755, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51399,7 +51399,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10775
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10775
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51479,7 +51479,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10801
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10801
   %28 = getelementptr inbounds i8, ptr %23, i64 10
   %29 = load i16, ptr %28, align 2, !noalias !10781, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -51488,7 +51488,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10801
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10801
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51568,7 +51568,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10827
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10827
   %28 = getelementptr inbounds i8, ptr %23, i64 538
   %29 = load i16, ptr %28, align 2, !noalias !10807, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -51577,7 +51577,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10827
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10827
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51658,7 +51658,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10853
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10853
   %29 = getelementptr inbounds i8, ptr %24, i64 2914
   %30 = load i16, ptr %29, align 2, !noalias !10833, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51667,7 +51667,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10853
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10853
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51747,7 +51747,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10879
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10879
   %28 = getelementptr inbounds i8, ptr %23, i64 538
   %29 = load i16, ptr %28, align 2, !noalias !10859, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -51756,7 +51756,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10879
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10879
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51837,7 +51837,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10905
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10905
   %29 = getelementptr inbounds i8, ptr %24, i64 978
   %30 = load i16, ptr %29, align 2, !noalias !10885, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51846,7 +51846,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10905
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10905
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -51927,7 +51927,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10931
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10931
   %29 = getelementptr inbounds i8, ptr %24, i64 362
   %30 = load i16, ptr %29, align 2, !noalias !10911, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -51936,7 +51936,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10931
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10931
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52016,7 +52016,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10957
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10957
   %28 = getelementptr inbounds i8, ptr %23, i64 538
   %29 = load i16, ptr %28, align 2, !noalias !10937, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -52025,7 +52025,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10957
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10957
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52105,7 +52105,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !10983
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !10983
   %28 = getelementptr inbounds i8, ptr %23, i64 538
   %29 = load i16, ptr %28, align 2, !noalias !10963, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -52114,7 +52114,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !10983
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !10983
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52195,7 +52195,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11009
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11009
   %29 = getelementptr inbounds i8, ptr %24, i64 1242
   %30 = load i16, ptr %29, align 2, !noalias !10989, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52204,7 +52204,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11009
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11009
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52284,7 +52284,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11035
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11035
   %28 = getelementptr inbounds i8, ptr %23, i64 1418
   %29 = load i16, ptr %28, align 2, !noalias !11015, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -52293,7 +52293,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11035
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11035
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52374,7 +52374,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11061
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11061
   %29 = getelementptr inbounds i8, ptr %24, i64 362
   %30 = load i16, ptr %29, align 2, !noalias !11041, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52383,7 +52383,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11061
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11061
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52464,7 +52464,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11087
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11087
   %29 = getelementptr inbounds i8, ptr %24, i64 1506
   %30 = load i16, ptr %29, align 2, !noalias !11067, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52473,7 +52473,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11087
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11087
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52554,7 +52554,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11113
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11113
   %29 = getelementptr inbounds i8, ptr %24, i64 626
   %30 = load i16, ptr %29, align 2, !noalias !11093, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52563,7 +52563,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11113
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11113
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52644,7 +52644,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11139
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11139
   %29 = getelementptr inbounds i8, ptr %24, i64 538
   %30 = load i16, ptr %29, align 2, !noalias !11119, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52653,7 +52653,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11139
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11139
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52734,7 +52734,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11165
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11165
   %29 = getelementptr inbounds i8, ptr %24, i64 362
   %30 = load i16, ptr %29, align 2, !noalias !11145, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52743,7 +52743,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11165
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11165
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52824,7 +52824,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11191
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11191
   %29 = getelementptr inbounds i8, ptr %24, i64 626
   %30 = load i16, ptr %29, align 2, !noalias !11171, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -52833,7 +52833,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11191
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11191
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -52913,7 +52913,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11217
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11217
   %28 = getelementptr inbounds i8, ptr %23, i64 538
   %29 = load i16, ptr %28, align 2, !noalias !11197, !noundef !4
   %30 = icmp ult i16 %.val7.val.i.i.i, %29
@@ -52922,7 +52922,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 31:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11217
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11217
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -53003,7 +53003,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11243
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11243
   %29 = getelementptr inbounds i8, ptr %24, i64 362
   %30 = load i16, ptr %29, align 2, !noalias !11223, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -53012,7 +53012,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11243
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11243
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -53093,7 +53093,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11269
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11269
   %29 = getelementptr inbounds i8, ptr %24, i64 362
   %30 = load i16, ptr %29, align 2, !noalias !11249, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -53102,7 +53102,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11269
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11269
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -53183,7 +53183,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %28 = add i64 %.sroa.5.055.i, 1
   %.not.i.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i.i = select i1 %.not.i.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11295
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11295
   %29 = getelementptr inbounds i8, ptr %24, i64 406
   %30 = load i16, ptr %29, align 2, !noalias !11275, !noundef !4
   %31 = icmp ult i16 %.val7.val.i.i.i, %30
@@ -53192,7 +53192,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 32:                                               ; preds = %.lr.ph.i
   %.not.i50.i = icmp eq i64 %.sroa.5.055.i, 0
   %..i51.i = select i1 %.not.i50.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef %..i51.i, i64 noundef 8) #50, !noalias !11295
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.056.i, i64 noundef range(i64 24, 3017) %..i51.i, i64 noundef 8) #50, !noalias !11295
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.70.llvm.3189713146689755573) #51
   unreachable
 
@@ -57531,7 +57531,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11969
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11969
   %15 = getelementptr inbounds i8, ptr %13, i64 1056
   %16 = load ptr, ptr %15, align 8, !noalias !11962, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57542,7 +57542,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 1072, i64 1168
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !11969
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !11969
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h235b7e90a51dfdbbE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h235b7e90a51dfdbbE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hdb9f499120a8c518E.llvm.3189713146689755573.exit"
@@ -57598,7 +57598,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !11987
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !11987
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !11980, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57609,7 +57609,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !11987
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !11987
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h58c19a5516ddeaddE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h58c19a5516ddeaddE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17heb15cf19ef117d09E.llvm.3189713146689755573.exit"
@@ -57665,7 +57665,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12005
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12005
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !11998, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57676,7 +57676,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12005
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12005
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h0715eb46c066558eE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h0715eb46c066558eE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hc62d4b885e822f65E.llvm.3189713146689755573.exit"
@@ -57732,7 +57732,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12023
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12023
   %15 = getelementptr inbounds i8, ptr %13, i64 528
   %16 = load ptr, ptr %15, align 8, !noalias !12016, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57743,7 +57743,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12023
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12023
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h94a7df000fda6607E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h94a7df000fda6607E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17ha8cf5aade0ebf432E.llvm.3189713146689755573.exit"
@@ -57799,7 +57799,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12041
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12041
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12034, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57810,7 +57810,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12041
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12041
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17heb46080c0f28b05cE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17heb46080c0f28b05cE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7fbc02809f02cbdbE.llvm.3189713146689755573.exit"
@@ -57866,7 +57866,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12059
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12059
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12052, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57877,7 +57877,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12059
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12059
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h45ae23da15223940E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h45ae23da15223940E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h2a8aaf7daec871b3E.llvm.3189713146689755573.exit"
@@ -57933,7 +57933,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12077
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12077
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12070, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -57944,7 +57944,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12077
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12077
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hd75f1a4160e43e7cE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hd75f1a4160e43e7cE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h158903c38a6d1ffaE.llvm.3189713146689755573.exit"
@@ -57999,7 +57999,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12095
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12095
   %14 = load ptr, ptr %12, align 8, !noalias !12088, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h47308c0f9cb4f02eE.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -58009,7 +58009,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12095
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12095
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h69f6adec560f2814E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h69f6adec560f2814E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h47308c0f9cb4f02eE.llvm.3189713146689755573.exit"
@@ -58064,7 +58064,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12113
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12113
   %14 = load ptr, ptr %12, align 8, !noalias !12106, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hc88b7d6774723251E.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -58074,7 +58074,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12113
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12113
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h62c3c9ca94874dbcE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h62c3c9ca94874dbcE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hc88b7d6774723251E.llvm.3189713146689755573.exit"
@@ -58130,7 +58130,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12131
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12131
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12124, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58141,7 +58141,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 984, i64 1080
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12131
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12131
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h780ba1bb776f87bfE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h780ba1bb776f87bfE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h52c68d5903bd7496E.llvm.3189713146689755573.exit"
@@ -58196,7 +58196,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12149
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12149
   %14 = load ptr, ptr %12, align 8, !noalias !12142, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h6124acaa6a88de76E.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -58206,7 +58206,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12149
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12149
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h718513757ea4393bE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h718513757ea4393bE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h6124acaa6a88de76E.llvm.3189713146689755573.exit"
@@ -58262,7 +58262,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12167
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12167
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12160, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58273,7 +58273,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 2920, i64 3016
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12167
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12167
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h7a4dcb16b870ea41E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h7a4dcb16b870ea41E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h8376123c8f115897E.llvm.3189713146689755573.exit"
@@ -58329,7 +58329,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12185
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12185
   %15 = getelementptr inbounds i8, ptr %13, i64 1232
   %16 = load ptr, ptr %15, align 8, !noalias !12178, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58340,7 +58340,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 1512, i64 1608
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12185
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12185
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h5efab250030049e6E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h5efab250030049e6E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h81398b73b36f5b9dE.llvm.3189713146689755573.exit"
@@ -58396,7 +58396,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12203
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12203
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12196, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58407,7 +58407,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 376, i64 472
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12203
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12203
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hde4113cb8d85e306E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hde4113cb8d85e306E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h13bfd397ad7165b7E.llvm.3189713146689755573.exit"
@@ -58463,7 +58463,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12221
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12221
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12214, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58474,7 +58474,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 408, i64 504
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12221
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12221
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hc6ec5b693b510117E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hc6ec5b693b510117E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h3f976e16d0e5ad55E.llvm.3189713146689755573.exit"
@@ -58530,7 +58530,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12239
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12239
   %15 = getelementptr inbounds i8, ptr %13, i64 176
   %16 = load ptr, ptr %15, align 8, !noalias !12232, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58541,7 +58541,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 232, i64 328
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12239
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12239
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h418d4b6a4c5ba1e2E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h418d4b6a4c5ba1e2E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hab42dbb2fb244378E.llvm.3189713146689755573.exit"
@@ -58597,7 +58597,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12257
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12257
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12250, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58608,7 +58608,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12257
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12257
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h24cee51f02dedb21E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h24cee51f02dedb21E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hfc0ed1a392801a25E.llvm.3189713146689755573.exit"
@@ -58664,7 +58664,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12275
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12275
   %15 = getelementptr inbounds i8, ptr %13, i64 880
   %16 = load ptr, ptr %15, align 8, !noalias !12268, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58675,7 +58675,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 896, i64 992
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12275
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12275
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17ha871832f4f9c62cdE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17ha871832f4f9c62cdE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h771f3c19b448d295E.llvm.3189713146689755573.exit"
@@ -58730,7 +58730,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12293
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12293
   %14 = load ptr, ptr %12, align 8, !noalias !12286, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h23cb803ac8768f87E.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -58740,7 +58740,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12293
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12293
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h4a06a705982e7971E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h4a06a705982e7971E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h23cb803ac8768f87E.llvm.3189713146689755573.exit"
@@ -58795,7 +58795,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12311
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12311
   %14 = load ptr, ptr %12, align 8, !noalias !12304, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h923b796896fa94e9E.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -58805,7 +58805,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 1424, i64 1520
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12311
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12311
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h15636daee56436afE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h15636daee56436afE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h923b796896fa94e9E.llvm.3189713146689755573.exit"
@@ -58861,7 +58861,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12329
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12329
   %15 = getelementptr inbounds i8, ptr %13, i64 704
   %16 = load ptr, ptr %15, align 8, !noalias !12322, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58872,7 +58872,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 720, i64 816
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12329
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12329
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17he1b68b2bbf609761E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17he1b68b2bbf609761E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7e49ade55b277a44E.llvm.3189713146689755573.exit"
@@ -58928,7 +58928,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12347
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12347
   %15 = getelementptr inbounds i8, ptr %13, i64 1232
   %16 = load ptr, ptr %15, align 8, !noalias !12340, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -58939,7 +58939,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 1248, i64 1344
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12347
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12347
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h793371361e71a37eE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h793371361e71a37eE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hfa7cfc141d8d0d43E.llvm.3189713146689755573.exit"
@@ -58995,7 +58995,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12365
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12365
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12358, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -59006,7 +59006,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 368, i64 464
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12365
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12365
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h3c3c2a4a12586547E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h3c3c2a4a12586547E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h970d7916d6f0226aE.llvm.3189713146689755573.exit"
@@ -59061,7 +59061,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12383
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12383
   %14 = load ptr, ptr %12, align 8, !noalias !12376, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hce73105dc1aad4b0E.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -59071,7 +59071,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 24, i64 120
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12383
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12383
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hb53034e20a0119d9E.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17hb53034e20a0119d9E.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hce73105dc1aad4b0E.llvm.3189713146689755573.exit"
@@ -59127,7 +59127,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %14 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12401
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12401
   %15 = getelementptr inbounds i8, ptr %13, i64 352
   %16 = load ptr, ptr %15, align 8, !noalias !12394, !noundef !4
   %17 = icmp eq ptr %16, null
@@ -59138,7 +59138,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %14, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 632, i64 728
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12401
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12401
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h162143f99979295eE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h162143f99979295eE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h63948429f3ff8485E.llvm.3189713146689755573.exit"
@@ -59193,7 +59193,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #50, !noalias !12419
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 24, 3017) %..i.i, i64 noundef 8) #50, !noalias !12419
   %14 = load ptr, ptr %12, align 8, !noalias !12412, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h376d42e8ba7f1713E.llvm.3189713146689755573.exit", label %.lr.ph.i
@@ -59203,7 +59203,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #50, !noalias !12419
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 24, 3017) %..i7.i, i64 noundef 8) #50, !noalias !12419
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h75864048b2f4887dE.llvm.3189713146689755573.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h75864048b2f4887dE.llvm.3189713146689755573.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h376d42e8ba7f1713E.llvm.3189713146689755573.exit"
@@ -60583,7 +60583,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h05c4848c317a304aE(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..str..error..Utf8Error$GT$$GT$$GT$17h237085dbd19ada33E.exit" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -60647,7 +60647,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h5890a239dd00d67aE(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$kafka_protocol..protocol..buf..NotEnoughBytesError$GT$$GT$$GT$17hc6d2e6c26b3dbcf1E.exit" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -60679,7 +60679,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h87e299b01cf98dcfE(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..wrapper..MessageError$LT$$RF$str$GT$$GT$$GT$$GT$17h78bb9512573a6b8fE.exit" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -60713,7 +60713,7 @@ define hidden void @_ZN6anyhow5error11object_drop17he1b06db6dec3b1f9E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h1db795585c99491cE.llvm.1425447921696267910.exit.i.i" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -60903,7 +60903,7 @@ define hidden void @_ZN6anyhow5error17context_drop_rest17h57a5f59d608f2639E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$$RF$str$C$core..mem..manually_drop..ManuallyDrop$LT$std..io..error..Error$GT$$GT$$GT$$GT$$GT$17h31cf5d4e2a448bfaE.exit" unwind label %12
 
 common.resume:                                    ; preds = %.body.i, %12
@@ -60938,7 +60938,7 @@ common.resume:                                    ; preds = %.body.i, %12
 
 .sink.split.i.i.i.i.i.i.i13:                      ; preds = %.noexc.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h1db795585c99491cE.llvm.1425447921696267910.exit.i.i" unwind label %21
 
 21:                                               ; preds = %.sink.split.i.i.i.i.i.i.i13, %17
@@ -61016,7 +61016,7 @@ define hidden void @_ZN6anyhow5error17context_drop_rest17h5fbd5a7ac284505cE(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
           to label %"_ZN4core3ptr187drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$$RF$str$C$core..mem..manually_drop..ManuallyDrop$LT$snap..error..Error$GT$$GT$$GT$$GT$$GT$17h41a0667eccef5f46E.exit" unwind label %11
 
 common.resume:                                    ; preds = %14, %11
@@ -61062,7 +61062,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h2a74d1c7c0f7388eE(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr131drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$$RF$str$GT$$GT$$GT$$GT$17h69252257cac6f212E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -61094,7 +61094,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h5ac08ae9d4b01260E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr151drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$core..str..error..Utf8Error$GT$$GT$$GT$$GT$17hada1f955b016050fE.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -61126,7 +61126,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h60f79aea6699b234E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$kafka_protocol..protocol..buf..NotEnoughBytesError$GT$$GT$$GT$$GT$17h8aa98db1c18da06eE.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -61158,7 +61158,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h90a51de6c8fc2a65E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h5dd34296bd27f67fE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr145drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$alloc..string..String$GT$$GT$$GT$$GT$17hd19f8420306c8384E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -65056,7 +65056,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 .noexc:                                           ; preds = %49
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !13898
-  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47)
+  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %47)
           to label %54 unwind label %52, !noalias !13893
 
 51:                                               ; preds = %60, %52
@@ -65073,7 +65073,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %55 = getelementptr inbounds i8, ptr %47, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13899)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !13902
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %55)
           to label %.noexc.i unwind label %60, !noalias !13893
 
 .noexc.i:                                         ; preds = %54
@@ -65108,7 +65108,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !13896
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !13902
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !13896
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !13896
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !13896
   store ptr %.val.i.i, ptr %.sroa.4.0..sroa_idx.i88, align 8, !alias.scope !13893, !noalias !13896
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !13898
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !13898
@@ -65275,7 +65275,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 
 .noexc103:                                        ; preds = %117
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !13932
-  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %115)
+  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %115)
           to label %122 unwind label %120, !noalias !13927
 
 119:                                              ; preds = %128, %120
@@ -65292,7 +65292,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %123 = getelementptr inbounds i8, ptr %115, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13933)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !13936
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %123)
           to label %.noexc.i100 unwind label %128, !noalias !13927
 
 .noexc.i100:                                      ; preds = %122
@@ -65327,7 +65327,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !13930
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13936
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !13930
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !13930
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !13930
   store ptr %.val.i.i101, ptr %.sroa.4.0..sroa_idx.i102, align 8, !alias.scope !13927, !noalias !13930
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !13932
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !13932
@@ -66446,7 +66446,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 75:                                               ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !14096
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !14086
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !14096
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !14096
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !14086
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !14080
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
@@ -66671,7 +66671,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 153:                                              ; preds = %.noexc104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !14144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !14134
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !14144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !14144
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !14134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !14128
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
@@ -69340,7 +69340,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   br label %17
 
 17:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i", %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573.exit"
-  %18 = call fastcc { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc668509d68142a3E"(ptr noalias noundef align 8 dereferenceable(72) %3), !noalias !14490
+  %18 = call fastcc { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc668509d68142a3E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %3), !noalias !14490
   %.fca.0.extract.i.i.i = extractvalue { ptr, ptr } %18, 0
   %.fca.1.extract.i.i.i = extractvalue { ptr, ptr } %18, 1
   %19 = icmp eq ptr %.fca.0.extract.i.i.i, null
@@ -69715,7 +69715,7 @@ define hidden void @"_ZN9ockam_api5nodes8registry23RegistryOf$LT$K$C$V$GT$7entri
 
 .noexc:                                           ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !14558
-  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %3)
           to label %13 unwind label %11, !noalias !14560
 
 10:                                               ; preds = %19, %11
@@ -69732,7 +69732,7 @@ define hidden void @"_ZN9ockam_api5nodes8registry23RegistryOf$LT$K$C$V$GT$7entri
   %14 = getelementptr inbounds i8, ptr %3, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14561)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !14564
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14)
           to label %.noexc.i unwind label %19, !noalias !14560
 
 .noexc.i:                                         ; preds = %13
@@ -69878,7 +69878,7 @@ define hidden void @"_ZN9ockam_api5nodes8registry23RegistryOf$LT$K$C$V$GT$7entri
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14593)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !14596
-  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  invoke void @"_ZN65_$LT$ockam_multiaddr..MultiAddr$u20$as$u20$core..clone..Clone$GT$5clone17h4126da1f1571161dE"(ptr noalias nocapture noundef nonnull sret({ { i16, [15 x i16] }, ptr, i64 }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %3)
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %4
@@ -69903,7 +69903,7 @@ define hidden void @"_ZN9ockam_api5nodes8registry23RegistryOf$LT$K$C$V$GT$7entri
   %16 = getelementptr inbounds i8, ptr %3, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14599)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !14602
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16)
           to label %.noexc.i unwind label %21, !noalias !14598
 
 .noexc.i:                                         ; preds = %13
@@ -70117,7 +70117,7 @@ define hidden void @"_ZN76_$LT$ockam_api..nodes..registry..InletInfo$u20$as$u20$
   %11 = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14606)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !14609
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %10
@@ -70219,7 +70219,7 @@ define hidden void @"_ZN84_$LT$ockam_api..nodes..registry..RegistryRelayInfo$u20
   %13 = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14621)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !14624
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13)
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %10

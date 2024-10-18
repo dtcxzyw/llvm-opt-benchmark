@@ -3320,7 +3320,7 @@ if.then.i:                                        ; preds = %if.end7
   br label %file_ram_alloc.exit.thread
 
 if.else.i:                                        ; preds = %if.end7
-  %6 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
+  %6 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %5)
   %tobool1.not.i.i = icmp samesign ult i64 %6, 2
   br i1 %tobool1.not.i.i, label %if.else14.i, label %if.then11.i
 
@@ -3604,11 +3604,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i70
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #28
   %24 = load i64, ptr %_now.i.i.i, align 8
   %25 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i.i, i64 noundef %24, i64 noundef %25, i64 noundef %12, i64 noundef %and.i67, i64 noundef %offset.1.i, i64 noundef %next.0.lcssa.i, i64 noundef %mingap.1.i) #28
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i.i, i64 noundef %24, i64 noundef %25, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 0, -262143) %and.i67, i64 noundef range(i64 -1, -262143) %offset.1.i, i64 noundef %next.0.lcssa.i, i64 noundef range(i64 1, 0) %mingap.1.i) #28
   br label %trace_find_ram_offset_loop.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i70
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, i64 noundef %12, i64 noundef %and.i67, i64 noundef %offset.1.i, i64 noundef %next.0.lcssa.i, i64 noundef %mingap.1.i) #28
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 0, -262143) %and.i67, i64 noundef range(i64 -1, -262143) %offset.1.i, i64 noundef %next.0.lcssa.i, i64 noundef range(i64 1, 0) %mingap.1.i) #28
   br label %trace_find_ram_offset_loop.exit.i
 
 trace_find_ram_offset_loop.exit.i:                ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %for.end.i
@@ -3655,11 +3655,11 @@ if.then8.i.i37.i:                                 ; preds = %if.then.i.i34.i
   %32 = load i64, ptr %_now.i.i27.i, align 8
   %tv_usec.i.i40.i = getelementptr inbounds i8, ptr %_now.i.i27.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i40.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i39.i, i64 noundef %32, i64 noundef %33, i64 noundef %12, i64 noundef %offset.1.i) #28
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i39.i, i64 noundef %32, i64 noundef %33, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 0, -262143) %offset.1.i) #28
   br label %trace_find_ram_offset.exit.i
 
 if.else.i.i36.i:                                  ; preds = %if.then.i.i34.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i64 noundef %12, i64 noundef %offset.1.i) #28
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 0, -262143) %offset.1.i) #28
   br label %trace_find_ram_offset.exit.i
 
 trace_find_ram_offset.exit.i:                     ; preds = %if.else.i.i36.i, %if.then8.i.i37.i, %land.lhs.true5.i.i31.i, %if.end54.i
@@ -5132,7 +5132,7 @@ if.end9:                                          ; preds = %if.then2, %entry
   %spec.select = tail call i32 @llvm.umin.i32(i32 %l, i32 %access_size_max.0)
   %conv14 = zext i32 %spec.select to i64
   %tobool.not.i = icmp eq i32 %spec.select, 0
-  %4 = tail call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14, i1 true)
+  %4 = tail call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 4294967296) %conv14, i1 true)
   %shr.i = lshr exact i64 -9223372036854775808, %4
   %5 = trunc nuw i64 %shr.i to i32
   %conv15 = select i1 %tobool.not.i, i32 0, i32 %5
@@ -5261,7 +5261,7 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv8, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %12 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %12 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 4294967296) %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %12
   %13 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %13
@@ -5723,11 +5723,11 @@ entry:
   br i1 %is_write, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @address_space_write(ptr noundef nonnull readonly @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
+  %call.i = tail call i32 @address_space_write(ptr noundef nonnull @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
   br label %address_space_rw.exit
 
 if.else.i:                                        ; preds = %entry
-  %call3.i = tail call i32 @address_space_read_full(ptr noundef nonnull readonly @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
+  %call3.i = tail call i32 @address_space_read_full(ptr noundef nonnull @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
   br label %address_space_rw.exit
 
 address_space_rw.exit:                            ; preds = %if.then.i, %if.else.i
@@ -5836,7 +5836,7 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %14 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %14 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 4294967296) %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %14
   %15 = shl nuw i64 %shr.i.i, 32
   %16 = ashr exact i64 %15, 32
@@ -6209,7 +6209,7 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %11 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %11 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 4294967296) %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %11
   %12 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %12
@@ -8488,7 +8488,7 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv8, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %12 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %12 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 4294967296) %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %12
   %13 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %13
@@ -9874,13 +9874,13 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %18 = load i64, ptr %tv_usec.i.i, align 8
   %conv13.i.i = zext i1 %cmp9 to i32
   %conv15.i.i = zext i1 %cmp10 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call11.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %idstr46, ptr noundef %add.ptr, i64 noundef %length, i32 noundef %conv13.i.i, i32 noundef %conv15.i.i, i32 noundef %ret.2) #28
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call11.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %idstr46, ptr noundef %add.ptr, i64 noundef %length, i32 noundef %conv13.i.i, i32 noundef %conv15.i.i, i32 noundef range(i32 -1, 1) %ret.2) #28
   br label %trace_ram_block_discard_range.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv17.i.i = zext i1 %cmp9 to i32
   %conv19.i.i = zext i1 %cmp10 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, ptr noundef nonnull %idstr46, ptr noundef %add.ptr, i64 noundef %length, i32 noundef %conv17.i.i, i32 noundef %conv19.i.i, i32 noundef %ret.2) #28
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, ptr noundef nonnull %idstr46, ptr noundef %add.ptr, i64 noundef %length, i32 noundef %conv17.i.i, i32 noundef %conv19.i.i, i32 noundef range(i32 -1, 1) %ret.2) #28
   br label %trace_ram_block_discard_range.exit
 
 trace_ram_block_discard_range.exit:               ; preds = %if.end45, %land.lhs.true6.i.i, %if.then9.i.i, %if.else.i.i
@@ -10059,7 +10059,7 @@ if.else.i52:                                      ; preds = %if.end87
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i52, %if.then.i
-  %call3.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef %bf.clear89) #28
+  %call3.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef range(i32 0, 64) %bf.clear89) #28
   %cmp4.i = icmp eq i32 %bf.lshr77, 67108863
   br i1 %cmp4.i, label %if.then5.i, label %if.else7.i
 
@@ -10072,11 +10072,11 @@ if.else7.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.then8.i, label %if.else10.i
 
 if.then8.i:                                       ; preds = %if.else7.i
-  %call9.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.134, i32 noundef %bf.lshr77) #28
+  %call9.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.134, i32 noundef range(i32 0, 67108864) %bf.lshr77) #28
   br label %mtree_print_phys_entries.exit
 
 if.else10.i:                                      ; preds = %if.else7.i
-  %call11.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.135, i32 noundef %bf.lshr77) #28
+  %call11.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.135, i32 noundef range(i32 0, 67108864) %bf.lshr77) #28
   br label %mtree_print_phys_entries.exit
 
 mtree_print_phys_entries.exit:                    ; preds = %if.then5.i, %if.then8.i, %if.else10.i
@@ -10111,7 +10111,7 @@ if.else.i55:                                      ; preds = %if.then98
   br label %if.end.i57
 
 if.end.i57:                                       ; preds = %if.else.i55, %if.then.i69
-  %call3.i58 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef %bf.clear100) #28
+  %call3.i58 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef range(i32 0, 64) %bf.clear100) #28
   %cmp4.i59 = icmp eq i32 %bf.lshr102, 67108863
   br i1 %cmp4.i59, label %if.then5.i67, label %if.else7.i60
 
@@ -10124,11 +10124,11 @@ if.else7.i60:                                     ; preds = %if.end.i57
   br i1 %tobool.not.i61, label %if.then8.i65, label %if.else10.i62
 
 if.then8.i65:                                     ; preds = %if.else7.i60
-  %call9.i66 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.134, i32 noundef %bf.lshr102) #28
+  %call9.i66 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.134, i32 noundef range(i32 0, 67108864) %bf.lshr102) #28
   br label %mtree_print_phys_entries.exit71
 
 if.else10.i62:                                    ; preds = %if.else7.i60
-  %call11.i63 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.135, i32 noundef %bf.lshr102) #28
+  %call11.i63 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.135, i32 noundef range(i32 0, 67108864) %bf.lshr102) #28
   br label %mtree_print_phys_entries.exit71
 
 mtree_print_phys_entries.exit71:                  ; preds = %if.then5.i67, %if.then8.i65, %if.else10.i62

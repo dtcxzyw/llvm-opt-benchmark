@@ -2162,7 +2162,7 @@ invoke.cont4:                                     ; preds = %entry
   store i32 0, ptr %m_size.i.i, align 4
   %m_num_deleted.i.i = getelementptr inbounds i8, ptr %symb, i64 16
   store i32 0, ptr %m_num_deleted.i.i, align 8
-  invoke void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %cap, ptr noundef nonnull align 8 dereferenceable(976) %1)
+  invoke void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(32) %cap, ptr noundef nonnull align 8 dereferenceable(976) %1)
           to label %invoke.cont6 unwind label %lpad5.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -3690,7 +3690,7 @@ if.then.i.i.i220:                                 ; preds = %if.then.i.i215
   %vtable.i.i.i.i = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %vtable.i.i.i.i, align 8
   call void %203(ptr noundef nonnull align 8 dereferenceable(72) %201) #20
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %201)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(72) %201)
           to label %_ZN3refI6solverED2Ev.exit unwind label %terminate.lpad.i221
 
 terminate.lpad.i221:                              ; preds = %if.then.i.i.i220
@@ -3938,7 +3938,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(72) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i
@@ -4521,7 +4521,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

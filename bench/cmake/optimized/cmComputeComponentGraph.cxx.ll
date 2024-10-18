@@ -668,7 +668,7 @@ _ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %70, 
   %.0911.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %59, %86 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(10) %.0911.i.i.i.i, i64 10, i1 false), !alias.scope !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i, i64 10, i1 false), !alias.scope !14
   %91 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %92 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %93 = load ptr, ptr %92, align 8, !alias.scope !12, !noalias !9

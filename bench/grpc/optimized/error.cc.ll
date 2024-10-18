@@ -669,7 +669,7 @@ lpad13:                                           ; preds = %sw.bb18.invoke, %if
 
 if.then.i.i.i.i:                                  ; preds = %lpad13
   store i8 0, ptr %_M_engaged.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value) #15
   br label %eh.resume
 
 sw.bb18:                                          ; preds = %invoke.cont14
@@ -688,7 +688,7 @@ cleanup:                                          ; preds = %sw.bb18.invoke, %if
 
 if.then.i.i.i.i9:                                 ; preds = %cleanup
   store i8 0, ptr %_M_engaged.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value) #15
   br label %return
 
 return:                                           ; preds = %cond.false.i, %if.then.i.i.i.i9, %cleanup, %_ZNK4absl12lts_202308026Status7messageEv.exit, %invoke.cont

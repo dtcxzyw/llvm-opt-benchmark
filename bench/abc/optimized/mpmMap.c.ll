@@ -1146,7 +1146,7 @@ define void @Mpm_ObjTranslateCutsFromStore(ptr nocapture noundef %0, ptr nocaptu
   %19 = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 27
-  %22 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %21, ptr noundef %4)
+  %22 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %21, ptr noundef nonnull %4)
   %23 = load i32, ptr %19, align 4
   %24 = and i32 %23, 33554431
   %25 = load ptr, ptr %4, align 8
@@ -1805,7 +1805,7 @@ Mig_ObjIsNode2.exit:                              ; preds = %Mpm_ObjPrepareFanin
   %285 = getelementptr inbounds i8, ptr %284, i64 32
   %286 = load i32, ptr %285, align 4
   %287 = lshr i32 %286, 27
-  %288 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %287, ptr noundef %3)
+  %288 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %287, ptr noundef nonnull %3)
   %289 = load i32, ptr %285, align 4
   %290 = and i32 %289, 33554431
   %291 = load ptr, ptr %3, align 8

@@ -31,7 +31,7 @@ define void @_ZN7rocksdb23CompressionContextCacheC2Ev(ptr nocapture noundef nonn
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %call)
+  invoke void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

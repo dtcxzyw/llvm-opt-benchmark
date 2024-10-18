@@ -782,7 +782,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeBuffer)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %localeBuffer)
   %len.i = getelementptr inbounds i8, ptr %localeBuffer, i64 56
   store i32 0, ptr %len.i, align 8
   %1 = load ptr, ptr %localeBuffer, align 8
@@ -851,12 +851,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.end16:                                         ; preds = %switch.lookup, %invoke.cont8, %sw.default, %invoke.cont2
   %result.1 = phi i32 [ 4, %invoke.cont2 ], [ 4, %sw.default ], [ 4, %invoke.cont8 ], [ %switch.load, %switch.lookup ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeBuffer) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %localeBuffer) #11
   br label %if.end17
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad1 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeBuffer) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %localeBuffer) #11
   resume { ptr, i32 } %.pn
 
 if.end17:                                         ; preds = %if.end16, %entry

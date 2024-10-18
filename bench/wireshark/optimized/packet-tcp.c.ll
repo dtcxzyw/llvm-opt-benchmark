@@ -14243,7 +14243,7 @@ define internal i32 @dissect_tcpopt_exp(ptr noundef %0, ptr noundef %1, ptr noun
 55:                                               ; preds = %51, %50
   %56 = getelementptr i8, ptr %1, i64 8
   %.val80 = load ptr, ptr %56, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val80, i32 noundef 25, ptr noundef nonnull @.str.1064, ptr noundef nonnull @.str.1058, i32 noundef %22) #20
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val80, i32 noundef 25, ptr noundef nonnull @.str.1064, ptr noundef nonnull @.str.1058, i32 noundef range(i32 0, 65536) %22) #20
   br label %dissect_tcpopt_tarr_data.exit
 
 57:                                               ; preds = %16

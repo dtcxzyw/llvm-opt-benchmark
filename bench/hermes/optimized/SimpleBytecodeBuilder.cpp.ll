@@ -113,7 +113,7 @@ for.end:                                          ; preds = %for.body, %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %bytecode, i64 8
   %add.ptr.i24 = getelementptr inbounds i8, ptr %header, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %options25.i, i8 0, i64 20, i1 false)
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr null, ptr noundef nonnull %header, ptr noundef nonnull %add.ptr.i24)
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr null, ptr noundef nonnull align 1 dereferenceable(128) %header, ptr noundef nonnull %add.ptr.i24)
   br i1 %cmp78.not, label %for.end75, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %for.end
@@ -170,7 +170,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   %sub.ptr.rhs.cast.i.i.i36 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i35, %sub.ptr.rhs.cast.i.i.i36
   %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i.i.i37
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i38, ptr noundef nonnull %small, ptr noundef nonnull %add.ptr.i34)
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i38, ptr noundef nonnull align 1 dereferenceable(16) %small, ptr noundef nonnull %add.ptr.i34)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
   br i1 %exitcond90.not, label %for.body49.preheader, label %for.body25, !llvm.loop !6
@@ -306,7 +306,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i15.i, %if.
   %sub.ptr.rhs.cast.i.i.i60 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i.i59, %sub.ptr.rhs.cast.i.i.i60
   %add.ptr.i.i.i62 = getelementptr inbounds i8, ptr %25, i64 %sub.ptr.sub.i.i.i61
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i62, ptr noundef nonnull %debugInfoHeader, ptr noundef nonnull %add.ptr.i58)
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i62, ptr noundef nonnull align 1 dereferenceable(28) %debugInfoHeader, ptr noundef nonnull %add.ptr.i58)
   %27 = load ptr, ptr %bytecode, align 8
   %28 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i64 = ptrtoint ptr %28 to i64
@@ -321,7 +321,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i15.i, %if.
   %sub.ptr.rhs.cast.i.i.i70 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i69, %sub.ptr.rhs.cast.i.i.i70
   %add.ptr.i.i.i72 = getelementptr inbounds i8, ptr %30, i64 %sub.ptr.sub.i.i.i71
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i72, ptr noundef nonnull %ref.tmp78, ptr noundef nonnull %add.ptr.i68)
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i72, ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp78, ptr noundef nonnull %add.ptr.i68)
   %call81 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %data_.i.i = getelementptr inbounds i8, ptr %call81, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12VectorBuffer, i64 16), ptr %call81, align 8
@@ -582,7 +582,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN12VectorBufferD2Ev.exit
 
 _ZN12VectorBufferD2Ev.exit:                       ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZN6hermes6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #13
+  tail call void @_ZN6hermes6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
 }

@@ -322,7 +322,7 @@ lpad12:                                           ; preds = %if.then3.i.i.i43, %
 if.end:                                           ; preds = %invoke.cont27, %invoke.cont7
   %callback8.sink = phi ptr [ %callback8, %invoke.cont27 ], [ %callback, %invoke.cont7 ]
   %numLeafNodes.0 = phi i32 [ %12, %invoke.cont27 ], [ %1, %invoke.cont7 ]
-  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback8.sink) #11
+  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %callback8.sink) #11
   %m_curNodeIndex = getelementptr inbounds i8, ptr %this, i64 60
   store i32 0, ptr %m_curNodeIndex, align 4
   call void @_ZN14btQuantizedBvh9buildTreeEii(ptr noundef nonnull align 8 dereferenceable(244) %this, i32 noundef 0, i32 noundef %numLeafNodes.0)
@@ -489,7 +489,7 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE5clearEv.exit: ; preds = %_ZN20bt
 eh.resume:                                        ; preds = %lpad12, %lpad
   %callback8.sink112 = phi ptr [ %callback8, %lpad12 ], [ %callback, %lpad ]
   %.pn = phi { ptr, i32 } [ %21, %lpad12 ], [ %10, %lpad ]
-  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback8.sink112) #11
+  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %callback8.sink112) #11
   resume { ptr, i32 } %.pn
 }
 
@@ -1135,7 +1135,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_EN29QuantizedNodeTriangleCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -1365,7 +1365,7 @@ declare void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_EN20NodeTriangleCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }

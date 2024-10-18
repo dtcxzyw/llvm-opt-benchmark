@@ -653,7 +653,7 @@ define void @_ZThn8_N6icu_7513StringMatcherD0Ev(ptr noundef %this) unnamed_addr 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7513StringMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(108) %0) #14
   ret void
 }
 
@@ -662,7 +662,7 @@ define void @_ZThn16_N6icu_7513StringMatcherD0Ev(ptr noundef %this) unnamed_addr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN6icu_7513StringMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(108) %0) #14
   ret void
 }
 

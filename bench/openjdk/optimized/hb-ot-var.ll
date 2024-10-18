@@ -3449,7 +3449,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 133:                                              ; preds = %114
   %134 = zext i32 %131 to i64
   %135 = getelementptr inbounds i8, ptr %2, i64 %134
-  %136 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %135, ptr noundef nonnull %1)
+  %136 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %135, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %136, label %.thread25, label %137
 
 137:                                              ; preds = %133

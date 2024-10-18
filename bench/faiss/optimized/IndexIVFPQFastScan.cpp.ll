@@ -485,7 +485,7 @@ define void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16IndexIVFFast
   br i1 %52, label %.preheader.i.i, label %.loopexit.i, !llvm.loop !5
 
 _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.i: ; preds = %43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   br label %60
 
@@ -755,7 +755,7 @@ define linkonce_odr void @_ZThn40_N5faiss18IndexIVFPQFastScanD1Ev(ptr noundef %0
 define linkonce_odr void @_ZThn40_N5faiss18IndexIVFPQFastScanD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss18IndexIVFPQFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %2) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(568) %2) #24
   ret void
 }
 

@@ -1353,7 +1353,7 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

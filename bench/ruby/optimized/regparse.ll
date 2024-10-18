@@ -1503,12 +1503,12 @@ names_clear.exit:                                 ; preds = %5, %9
   store ptr null, ptr %0, align 8
   store ptr %1, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %28 = call fastcc i32 @fetch_token(ptr noundef %6, ptr noundef %7, ptr noundef %2, ptr noundef nonnull %4)
+  %28 = call fastcc i32 @fetch_token(ptr noundef %6, ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %4)
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %parse_regexp.exit, label %30
 
 30:                                               ; preds = %names_clear.exit
-  %31 = call fastcc i32 @parse_subexp(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 0, ptr noundef %7, ptr noundef %2, ptr noundef nonnull %4)
+  %31 = call fastcc i32 @parse_subexp(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %4)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %parse_regexp.exit, label %33
 
@@ -6089,12 +6089,12 @@ node_new_empty.exit:                              ; preds = %26, %29
   ]
 
 86:                                               ; preds = %469, %82
-  %87 = call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %87 = call fastcc i32 @fetch_token(ptr noundef nonnull %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %parse_enclose.exit.thread, label %89
 
 89:                                               ; preds = %86
-  %90 = call fastcc i32 @parse_subexp(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 15, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %90 = call fastcc i32 @parse_subexp(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 15, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %parse_enclose.exit.thread, label %.thread396
 
@@ -6443,7 +6443,7 @@ onig_node_new_anchor.exit381:                     ; preds = %180, %183
   ]
 
 268:                                              ; preds = %267, %267
-  %269 = call fastcc i32 @fetch_named_backref_token(i32 noundef %233, ptr noundef %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %269 = call fastcc i32 @fetch_named_backref_token(i32 noundef %233, ptr noundef nonnull %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   %270 = icmp slt i32 %269, 0
   br i1 %270, label %parse_enclose.exit.thread, label %271
 
@@ -6774,7 +6774,7 @@ onig_node_new_anchor.exit381:                     ; preds = %180, %183
   store ptr %344, ptr %17, align 8
   %435 = load i32, ptr %5, align 8
   store i32 %.1316.i, ptr %5, align 8
-  %436 = call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %436 = call fastcc i32 @fetch_token(ptr noundef nonnull %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   %437 = icmp slt i32 %436, 0
   br i1 %437, label %438, label %439
 
@@ -6783,7 +6783,7 @@ onig_node_new_anchor.exit381:                     ; preds = %180, %183
   br label %parse_enclose.exit.thread
 
 439:                                              ; preds = %434
-  %440 = call fastcc i32 @parse_subexp(ptr noundef nonnull %16, ptr noundef %1, i32 noundef 15, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %440 = call fastcc i32 @parse_subexp(ptr noundef nonnull %16, ptr noundef nonnull %1, i32 noundef 15, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   store i32 %435, ptr %5, align 8
   %441 = icmp slt i32 %440, 0
   br i1 %441, label %parse_enclose.exit.thread, label %442
@@ -6873,12 +6873,12 @@ thread-pre-split:                                 ; preds = %210, %307, %310, %4
   br i1 %483, label %parse_enclose.exit.thread, label %484
 
 484:                                              ; preds = %481
-  %485 = call fastcc i32 @fetch_token(ptr noundef %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %485 = call fastcc i32 @fetch_token(ptr noundef nonnull %1, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   %486 = icmp slt i32 %485, 0
   br i1 %486, label %parse_enclose.exit.thread, label %487
 
 487:                                              ; preds = %484
-  %488 = call fastcc i32 @parse_subexp(ptr noundef nonnull %16, ptr noundef %1, i32 noundef 15, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
+  %488 = call fastcc i32 @parse_subexp(ptr noundef nonnull %16, ptr noundef nonnull %1, i32 noundef 15, ptr noundef %17, ptr noundef %4, ptr noundef nonnull %5)
   %489 = icmp slt i32 %488, 0
   br i1 %489, label %490, label %492
 
@@ -10658,7 +10658,7 @@ CC_DUP_WARN.exit.i:                               ; preds = %363, %360, %355, %3
 377:                                              ; preds = %337
   %378 = getelementptr inbounds i8, ptr %.0287.ph, i64 40
   %379 = load i32, ptr %7, align 4
-  %380 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %378, ptr noundef %5, i32 noundef %379, i32 noundef %379, i32 noundef 1)
+  %380 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %378, ptr noundef nonnull %5, i32 noundef %379, i32 noundef %379, i32 noundef 1)
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %parse_posix_bracket.exit.thread, label %382
 
@@ -10669,7 +10669,7 @@ CC_DUP_WARN.exit.i:                               ; preds = %363, %360, %355, %3
 383:                                              ; preds = %382
   %384 = getelementptr inbounds i8, ptr %.1279.ph, i64 40
   %385 = load i32, ptr %7, align 4
-  %386 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %384, ptr noundef %5, i32 noundef %385, i32 noundef %385, i32 noundef 0)
+  %386 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %384, ptr noundef nonnull %5, i32 noundef %385, i32 noundef %385, i32 noundef 0)
   %387 = icmp slt i32 %386, 0
   br i1 %387, label %parse_posix_bracket.exit.thread, label %next_state_class.exit
 

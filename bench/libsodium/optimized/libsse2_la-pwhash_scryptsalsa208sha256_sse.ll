@@ -172,12 +172,12 @@ for.body16.i:                                     ; preds = %for.cond14.preheade
   %mul17.i = mul i64 %i.166.i, %mul37
   %add18.i = add i64 %mul17.i, %3
   %7 = inttoptr i64 %add18.i to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %X.067.i, ptr noundef %7, i64 noundef %conv)
+  tail call fastcc void @blockmix_salsa8(ptr noundef %X.067.i, ptr noundef %7, i64 noundef range(i64 1, 4294967296) %conv)
   %add19.i = add nuw nsw i64 %i.166.i, 1
   %mul20.i = mul i64 %add19.i, %mul37
   %add21.i = add i64 %mul20.i, %3
   %8 = inttoptr i64 %add21.i to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %7, ptr noundef %8, i64 noundef %conv)
+  tail call fastcc void @blockmix_salsa8(ptr noundef %7, ptr noundef %8, i64 noundef range(i64 1, 4294967296) %conv)
   %add23.i = add nuw nsw i64 %i.166.i, 2
   %cmp15.i = icmp ult i64 %add23.i, %sub.i
   br i1 %cmp15.i, label %for.body16.i, label %for.end24.i, !llvm.loop !7
@@ -188,8 +188,8 @@ for.end24.i:                                      ; preds = %for.body16.i, %for.
   %mul25.i = mul i64 %i.1.lcssa.i, %mul37
   %add26.i = add i64 %mul25.i, %3
   %9 = inttoptr i64 %add26.i to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %X.0.lcssa.i, ptr noundef %9, i64 noundef %conv)
-  tail call fastcc void @blockmix_salsa8(ptr noundef %9, ptr noundef %add.ptr65, i64 noundef %conv)
+  tail call fastcc void @blockmix_salsa8(ptr noundef %X.0.lcssa.i, ptr noundef %9, i64 noundef range(i64 1, 4294967296) %conv)
+  tail call fastcc void @blockmix_salsa8(ptr noundef %9, ptr noundef %add.ptr65, i64 noundef range(i64 1, 4294967296) %conv)
   %vecext.i8.i.i = load i32, ptr %add.ptr.i.i, align 16
   %10 = load <4 x i32>, ptr %arrayidx2.i.i, align 16
   %vecext.i.i.i = extractelement <4 x i32> %10, i64 1
@@ -206,13 +206,13 @@ for.body32.i:                                     ; preds = %for.body32.i, %for.
   %mul33.i = mul i64 %j.0.i, %mul37
   %add34.i = add i64 %mul33.i, %3
   %11 = inttoptr i64 %add34.i to ptr
-  %call35.i = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %add.ptr65, ptr noundef %11, ptr noundef %5, i64 noundef %conv)
+  %call35.i = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %add.ptr65, ptr noundef %11, ptr noundef %5, i64 noundef range(i64 1, 4294967296) %conv)
   %conv.i = zext i32 %call35.i to i64
   %and37.i = and i64 %sub.i, %conv.i
   %mul38.i = mul i64 %and37.i, %mul37
   %add39.i = add i64 %mul38.i, %3
   %12 = inttoptr i64 %add39.i to ptr
-  %call40.i = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %5, ptr noundef %12, ptr noundef %add.ptr65, i64 noundef %conv)
+  %call40.i = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %5, ptr noundef %12, ptr noundef %add.ptr65, i64 noundef range(i64 1, 4294967296) %conv)
   %conv41.i = zext i32 %call40.i to i64
   %add45.i = add nuw nsw i64 %i.270.i, 2
   %cmp31.i = icmp samesign ult i64 %add45.i, %N

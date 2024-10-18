@@ -4474,7 +4474,7 @@ Check_Type.exit.thread:                           ; preds = %30
   unreachable
 
 .critedge.thread.i:                               ; preds = %46, %56
-  %68 = call fastcc i64 @zstream_shift_buffer(ptr noundef nonnull %6, i64 noundef %18)
+  %68 = call fastcc i64 @zstream_shift_buffer(ptr noundef nonnull %6, i64 noundef range(i64 0, -9223372036854775808) %18)
   %69 = inttoptr i64 %68 to ptr
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8

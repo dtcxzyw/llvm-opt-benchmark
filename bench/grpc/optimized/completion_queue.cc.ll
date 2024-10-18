@@ -2739,7 +2739,7 @@ do.end141:                                        ; preds = %do.body132
   %83 = load i64, ptr %flags_.i, align 8
   %or.i.i = or i64 %83, 1
   store i64 %or.i.i, ptr %flags_.i, align 8
-  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %exec_ctx)
+  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(96) %exec_ctx)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %do.end141
@@ -3741,7 +3741,7 @@ do.end132:                                        ; preds = %do.body123
   %74 = load i64, ptr %flags_.i, align 8
   %or.i.i = or i64 %74, 1
   store i64 %or.i.i, ptr %flags_.i, align 8
-  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %exec_ctx)
+  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(96) %exec_ctx)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %do.end132
@@ -4180,7 +4180,7 @@ entry:
   %0 = load i64, ptr %flags_.i.i, align 8
   %or.i.i = or i64 %0, 1
   store i64 %or.i.i, ptr %flags_.i.i, align 8
-  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
+  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
@@ -4443,7 +4443,7 @@ entry:
   %0 = load i64, ptr %flags_.i.i, align 8
   %or.i.i = or i64 %0, 1
   store i64 %or.i.i, ptr %flags_.i.i, align 8
-  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
+  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry

@@ -1430,7 +1430,7 @@ define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %
 6:                                                ; preds = %3
   %7 = add nsw i32 %1, 1
   %8 = shl nsw i32 %5, 1
-  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 %7)
+  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 range(i32 -2147483647, -2147483648) %7)
   %10 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %10, %9
   br i1 %.not.i, label %11, label %Vec_WecGrow.exit
@@ -2055,7 +2055,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_BitFree.exit, %
 
 220:                                              ; preds = %206
   %221 = shl nsw i32 %218, 1
-  %222 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %221, i32 %187)
+  %222 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %221, i32 range(i32 -2147483647, -2147483648) %187)
   %223 = load i32, ptr %207, align 8
   %.not.i.i251 = icmp slt i32 %223, %222
   br i1 %.not.i.i251, label %224, label %Vec_WecGrow.exit.i
@@ -2210,7 +2210,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 302:                                              ; preds = %286
   %303 = add nuw nsw i32 %290, 1
   %304 = shl nsw i32 %301, 1
-  %305 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %304, i32 %303)
+  %305 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %304, i32 range(i32 -2147483647, -2147483648) %303)
   %306 = load i32, ptr %287, align 8
   %.not.i.i253 = icmp slt i32 %306, %305
   br i1 %.not.i.i253, label %307, label %Vec_WecGrow.exit.i254
@@ -2352,7 +2352,7 @@ Vec_WecPush.exit264:                              ; preds = %.Vec_IntGrow.exit10
 
 374:                                              ; preds = %369
   %375 = shl nsw i32 %372, 1
-  %376 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %375, i32 %189)
+  %376 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %375, i32 range(i32 -2147483647, -2147483648) %189)
   %377 = load i32, ptr %370, align 8
   %.not.i.i266 = icmp slt i32 %377, %376
   br i1 %.not.i.i266, label %378, label %Vec_WecGrow.exit.i267

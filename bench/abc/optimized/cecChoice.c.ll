@@ -251,13 +251,13 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %114 = and i64 %113, 536870911
   %115 = sub nsw i64 0, %114
   %116 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %108, i64 %115
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %116)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %116)
   %117 = load i64, ptr %108, align 4
   %118 = lshr i64 %117, 32
   %119 = and i64 %118, 536870911
   %120 = sub nsw i64 0, %119
   %121 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %108, i64 %120
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %121)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %121)
   %122 = load i64, ptr %108, align 4
   %123 = and i64 %122, 536870911
   %124 = sub nsw i64 0, %123
@@ -276,7 +276,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %137 = trunc nuw nsw i64 %136 to i32
   %138 = and i32 %137, 1
   %139 = xor i32 %138, %135
-  %140 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %130, i32 noundef %139) #15
+  %140 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %130, i32 noundef %139) #15
   %.val200 = load i64, ptr %108, align 4
   %141 = lshr i64 %.val200, 63
   %142 = trunc nuw nsw i64 %141 to i32
@@ -495,13 +495,13 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %240 = and i64 %239, 536870911
   %241 = sub nsw i64 0, %240
   %242 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %238, i64 %241
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %242)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %242)
   %243 = load i64, ptr %238, align 4
   %244 = lshr i64 %243, 32
   %245 = and i64 %244, 536870911
   %246 = sub nsw i64 0, %245
   %247 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %238, i64 %246
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %247)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %247)
   %248 = load i64, ptr %238, align 4
   %249 = and i64 %248, 536870911
   %250 = sub nsw i64 0, %249
@@ -520,7 +520,7 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %263 = trunc nuw nsw i64 %262 to i32
   %264 = and i32 %263, 1
   %265 = xor i32 %264, %261
-  %266 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %256, i32 noundef %265) #15
+  %266 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %256, i32 noundef %265) #15
   %.val185 = load ptr, ptr %22, align 8
   %267 = zext nneg i32 %.0313 to i64
   %268 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val185, i64 %267
@@ -528,13 +528,13 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %270 = and i64 %269, 536870911
   %271 = sub nsw i64 0, %270
   %272 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %268, i64 %271
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %272)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %272)
   %273 = load i64, ptr %268, align 4
   %274 = lshr i64 %273, 32
   %275 = and i64 %274, 536870911
   %276 = sub nsw i64 0, %275
   %277 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %268, i64 %276
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %277)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %277)
   %278 = load i64, ptr %268, align 4
   %279 = and i64 %278, 536870911
   %280 = sub nsw i64 0, %279
@@ -553,7 +553,7 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %293 = trunc nuw nsw i64 %292 to i32
   %294 = and i32 %293, 1
   %295 = xor i32 %294, %291
-  %296 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %286, i32 noundef %295) #15
+  %296 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %286, i32 noundef %295) #15
   %.val201 = load i64, ptr %108, align 4
   %.val186 = load ptr, ptr %22, align 8
   %297 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val186, i64 %237
@@ -790,13 +790,13 @@ Vec_IntPush.exit250:                              ; preds = %.Vec_IntGrow.exit10
   %410 = and i64 %409, 536870911
   %411 = sub nsw i64 0, %410
   %412 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %408, i64 %411
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %412)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %412)
   %413 = load i64, ptr %408, align 4
   %414 = lshr i64 %413, 32
   %415 = and i64 %414, 536870911
   %416 = sub nsw i64 0, %415
   %417 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %408, i64 %416
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %417)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %417)
   %418 = load i64, ptr %408, align 4
   %419 = and i64 %418, 536870911
   %420 = sub nsw i64 0, %419
@@ -815,20 +815,20 @@ Vec_IntPush.exit250:                              ; preds = %.Vec_IntGrow.exit10
   %433 = trunc nuw nsw i64 %432 to i32
   %434 = and i32 %433, 1
   %435 = xor i32 %434, %431
-  %436 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %426, i32 noundef %435) #15
+  %436 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %426, i32 noundef %435) #15
   %.val189 = load ptr, ptr %22, align 8
   %437 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val189, i64 %indvars.iv324
   %438 = load i64, ptr %437, align 4
   %439 = and i64 %438, 536870911
   %440 = sub nsw i64 0, %439
   %441 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %437, i64 %440
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %441)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %441)
   %442 = load i64, ptr %437, align 4
   %443 = lshr i64 %442, 32
   %444 = and i64 %443, 536870911
   %445 = sub nsw i64 0, %444
   %446 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %437, i64 %445
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %446)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %446)
   %447 = load i64, ptr %437, align 4
   %448 = and i64 %447, 536870911
   %449 = sub nsw i64 0, %448
@@ -847,7 +847,7 @@ Vec_IntPush.exit250:                              ; preds = %.Vec_IntGrow.exit10
   %462 = trunc nuw nsw i64 %461 to i32
   %463 = and i32 %462, 1
   %464 = xor i32 %463, %460
-  %465 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %455, i32 noundef %464) #15
+  %465 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %455, i32 noundef %464) #15
   %.val205 = load i64, ptr %108, align 4
   %.val190 = load ptr, ptr %22, align 8
   %466 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val190, i64 %407
@@ -1105,13 +1105,13 @@ Gia_ObjReprObj.exit:                              ; preds = %575
   %589 = and i64 %588, 536870911
   %590 = sub nsw i64 0, %589
   %591 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %584, i64 %590
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %591)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %591)
   %592 = load i64, ptr %584, align 4
   %593 = lshr i64 %592, 32
   %594 = and i64 %593, 536870911
   %595 = sub nsw i64 0, %594
   %596 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %584, i64 %595
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %596)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %596)
   %597 = load i64, ptr %584, align 4
   %598 = and i64 %597, 536870911
   %599 = sub nsw i64 0, %598
@@ -1130,7 +1130,7 @@ Gia_ObjReprObj.exit:                              ; preds = %575
   %612 = trunc nuw nsw i64 %611 to i32
   %613 = and i32 %612, 1
   %614 = xor i32 %613, %610
-  %615 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %605, i32 noundef %614) #15
+  %615 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %605, i32 noundef %614) #15
   br label %616
 
 616:                                              ; preds = %586, %587
@@ -1139,13 +1139,13 @@ Gia_ObjReprObj.exit:                              ; preds = %575
   %619 = and i64 %618, 536870911
   %620 = sub nsw i64 0, %619
   %621 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %576, i64 %620
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %621)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %621)
   %622 = load i64, ptr %576, align 4
   %623 = lshr i64 %622, 32
   %624 = and i64 %623, 536870911
   %625 = sub nsw i64 0, %624
   %626 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %576, i64 %625
-  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %626)
+  tail call fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %626)
   %627 = load i64, ptr %576, align 4
   %628 = and i64 %627, 536870911
   %629 = sub nsw i64 0, %628
@@ -1164,7 +1164,7 @@ Gia_ObjReprObj.exit:                              ; preds = %575
   %642 = trunc nuw nsw i64 %641 to i32
   %643 = and i32 %642, 1
   %644 = xor i32 %643, %640
-  %645 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %635, i32 noundef %644) #15
+  %645 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %635, i32 noundef %644) #15
   %.val209 = load i64, ptr %584, align 4
   %.val210 = load i64, ptr %576, align 4
   %646 = xor i64 %.val210, %.val209
@@ -1407,7 +1407,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %575, %616, %Vec_Int
   %.val182 = load ptr, ptr %101, align 8
   %760 = getelementptr inbounds i32, ptr %.val182, i64 %indvars.iv330
   %761 = load i32, ptr %760, align 4
-  %762 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %5)
+  %762 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %5)
   %763 = load i64, ptr %762, align 4
   %764 = or i64 %763, 2147483648
   store i64 %764, ptr %762, align 4

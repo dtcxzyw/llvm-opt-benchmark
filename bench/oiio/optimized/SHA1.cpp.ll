@@ -118,7 +118,7 @@ if.then13.i:                                      ; preds = %if.then
   %arrayidx14.i = getelementptr inbounds [64 x i8], ptr %m_buffer.i, i64 0, i64 %idxprom.i
   %conv.i = zext nneg i32 %sub.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %data, i64 %conv.i, i1 false)
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull %m_buffer.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %m_buffer.i)
   %add1718.i = xor i32 %and.i, 127
   %cmp1819.i = icmp ult i32 %add1718.i, %conv
   br i1 %cmp1819.i, label %for.body.i, label %if.end24.i
@@ -127,7 +127,7 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %i.020.i = phi i32 [ %add23.i, %for.body.i ], [ %sub.i, %if.then13.i ]
   %idxprom21.i = zext i32 %i.020.i to i64
   %arrayidx22.i = getelementptr inbounds i8, ptr %data, i64 %idxprom21.i
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull readonly %arrayidx22.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull readonly %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
   %add17.i = add i32 %i.020.i, 127
   %cmp18.i = icmp ult i32 %add17.i, %conv
@@ -316,7 +316,7 @@ if.end24.i:                                       ; preds = %for.end
   %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 95
   store i8 -128, ptr %arrayidx14.i, align 1
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %m_buffer.i)
   %.pre = load i32, ptr %m_count, align 4
   br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit
 
@@ -353,7 +353,7 @@ if.end24.i21.thread:                              ; preds = %while.body
 
 if.end24.i21:                                     ; preds = %while.body
   store i8 0, ptr %arrayidx14.i36, align 1
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer28.i27)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %m_buffer28.i27)
   %.pre113 = load i32, ptr %m_count, align 4
   br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47
 
@@ -376,7 +376,7 @@ while.end:                                        ; preds = %_ZN18OpenImageIO_v2
   %arrayidx14.i74 = getelementptr inbounds i8, ptr %this, i64 88
   %14 = load i64, ptr %pbFinalCount, align 8
   store i64 %14, ptr %arrayidx14.i74, align 8
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer.i72)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %m_buffer.i72)
   %m_digest = getelementptr inbounds i8, ptr %this, i64 96
   br label %for.body12
 
@@ -2259,7 +2259,7 @@ if.then13.i:                                      ; preds = %if.then12
   %arrayidx14.i = getelementptr inbounds [64 x i8], ptr %m_buffer.i, i64 0, i64 %idxprom.i
   %conv.i = zext nneg i32 %sub.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %call5, i64 %conv.i, i1 false)
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %m_buffer.i)
   %add1718.i = xor i32 %and.i, 127
   %cmp1819.i = icmp ult i32 %add1718.i, %conv
   br i1 %cmp1819.i, label %for.body.i, label %if.end24.i
@@ -2268,7 +2268,7 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %i.020.i = phi i32 [ %add23.i, %for.body.i ], [ %sub.i, %if.then13.i ]
   %idxprom21.i = zext i32 %i.020.i to i64
   %arrayidx22.i = getelementptr inbounds i8, ptr %call5, i64 %idxprom21.i
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull readonly %arrayidx22.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
   %add17.i = add i32 %i.020.i, 127
   %cmp18.i = icmp ult i32 %add17.i, %conv

@@ -37,7 +37,7 @@ agxbsizeof.exit.i.i:
   br i1 %.not.i.i, label %15, label %14
 
 14:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %5, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %8, align 1
   br label %15
 
@@ -172,7 +172,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

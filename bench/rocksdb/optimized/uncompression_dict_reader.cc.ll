@@ -164,7 +164,7 @@ _ZNKSt14default_deleteIN7rocksdb23UncompressionDictReaderEEclEPS1_.exit.i.i: ; p
 _ZNSt10unique_ptrIN7rocksdb23UncompressionDictReaderESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %invoke.cont14, %_ZNKSt14default_deleteIN7rocksdb23UncompressionDictReaderEEclEPS1_.exit.i.i
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   br label %cleanup19
 
 cleanup19:                                        ; preds = %_ZNSt10unique_ptrIN7rocksdb23UncompressionDictReaderESt14default_deleteIS1_EE5resetEPS1_.exit, %invoke.cont6
@@ -320,12 +320,12 @@ if.end.i:                                         ; preds = %land.rhs.i, %if.the
 _ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15SetUnownedValueEPS1_.exit: ; preds = %land.rhs.i, %if.end.i
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !8
   br label %return
 
 if.end:                                           ; preds = %entry
   %rate_limiter_priority.i = getelementptr inbounds i8, ptr %read_options, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %read_options, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %read_options, i8 0, i64 44, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %value_size_soft_limit.i = getelementptr inbounds i8, ptr %read_options, i64 48
   store i64 -1, ptr %value_size_soft_limit.i, align 8
@@ -374,7 +374,7 @@ invoke.cont12:                                    ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %invoke.cont12
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
-  %call.i.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -394,7 +394,7 @@ lpad:                                             ; preds = %invoke.cont
 
 if.then.i.i.i13:                                  ; preds = %lpad
   %table_filter.i14 = getelementptr inbounds i8, ptr %read_options, i64 120
-  %call.i.i.i15 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i14, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i14, i32 noundef 3)
+  %call.i.i.i15 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i14, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i14, i32 noundef 3)
           to label %_ZN7rocksdb11ReadOptionsD2Ev.exit17 unwind label %terminate.lpad.i.i.i16
 
 terminate.lpad.i.i.i16:                           ; preds = %if.then.i.i.i13
@@ -434,7 +434,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %uncompression_dict_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %uncompression_dict_, align 8
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #13
   %add.i = add i64 %call.i, 64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
@@ -599,7 +599,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 _ZN7rocksdb17UncompressionDictD2Ev.exit:          ; preds = %delete.notnull, %if.then.i.i.i, %delete.notnull.i.i.i
   store ptr null, ptr %add.ptr.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   tail call void @_ZdlPv(ptr noundef nonnull %4) #12
   br label %if.end4
 

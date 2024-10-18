@@ -1488,7 +1488,7 @@ cond.end:                                         ; preds = %if.then.i, %_ZN8Qua
   store ptr %33, ptr %code, align 8, !tbaa !12, !alias.scope !50
   %_M_string_length.i.i.i45 = getelementptr inbounds nuw i8, ptr %code, i64 8
   store i64 0, ptr %_M_string_length.i.i.i45, align 8, !tbaa !8, !alias.scope !50
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN5boost9iterators18transform_iteratorINS6_9algorithm6detail9to_upperFIcEEN9__gnu_cxx17__normal_iteratorIPKcS4_EENS6_11use_defaultESI_EEEEvT_SK_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %code, ptr %31, ptr nonnull %ref.tmp32, ptr %add.ptr.i.i.i.i.i, ptr nonnull %ref.tmp32)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN5boost9iterators18transform_iteratorINS6_9algorithm6detail9to_upperFIcEEN9__gnu_cxx17__normal_iteratorIPKcS4_EENS6_11use_defaultESI_EEEEvT_SK_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %code, ptr %31, ptr nonnull align 8 dereferenceable(8) %ref.tmp32, ptr %add.ptr.i.i.i.i.i, ptr nonnull align 8 dereferenceable(8) %ref.tmp32)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %cond.end

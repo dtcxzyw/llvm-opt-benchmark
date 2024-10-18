@@ -185,7 +185,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull.i
   unreachable
 
 _ZN9grpc_core5Sleep13ActiveClosureD2Ev.exit.i:    ; preds = %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %0) #21
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9grpc_core5Sleep13ActiveClosureD2Ev.exit.i, %lor.lhs.false4.i, %entry

@@ -1514,7 +1514,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp.i30, label %if.then.i34, label %if.end.i31
 
 if.then.i34:                                      ; preds = %if.end11
-  %call1.i = tail call fastcc ptr @parsenumber_raw(ptr noundef %call1)
+  %call1.i = tail call fastcc ptr @parsenumber_raw(ptr noundef nonnull %call1)
   br label %parsenumber.exit
 
 if.end.i31:                                       ; preds = %if.end11

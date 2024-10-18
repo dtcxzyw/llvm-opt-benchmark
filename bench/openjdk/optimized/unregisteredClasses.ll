@@ -356,7 +356,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %30
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 49:                                               ; preds = %37
-  %50 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %39, i64 noundef 8, i32 noundef 0) #8
+  %50 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %39, i64 noundef 8, i32 noundef 0) #8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %49, %47
@@ -514,7 +514,7 @@ define hidden ptr @_ZN19UnregisteredClasses22create_url_classloaderEP6SymbolP10J
   %..i = select i1 %32, i64 20, i64 24
   %35 = select i1 %34, i64 16, i64 %..i
   %36 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %36(ptr noundef nonnull %30, i64 noundef %35, ptr noundef %25) #8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %35, ptr noundef %25) #8
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 664), align 8
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9328), align 8
   %39 = call ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbol6HandleS4_P10JavaThread(ptr noundef %37, ptr noundef %38, ptr nonnull %27, ptr null, ptr noundef nonnull %1) #8

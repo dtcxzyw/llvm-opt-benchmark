@@ -3218,7 +3218,7 @@ land.lhs.true.split.i:                            ; preds = %isSCint.exit.i, %is
 if.then3.i:                                       ; preds = %isSCint.exit.i
   %conv.i.i = trunc i64 %41 to i32
   %add.i.i123 = add nsw i32 %conv.i.i, 127
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull readonly %e2, i32 noundef 21, i32 noundef %add.i.i123, i32 noundef %flip.0.i, i32 noundef %line, i32 noundef 47, i32 noundef 6)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull readonly %e2, i32 noundef 21, i32 noundef %add.i.i123, i32 noundef range(i32 0, 2) %flip.0.i, i32 noundef %line, i32 noundef 47, i32 noundef 6)
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
@@ -3297,7 +3297,7 @@ if.then3.i140:                                    ; preds = %land.lhs.true.i139
   %u.i.i142 = getelementptr inbounds i8, ptr %e2, i64 8
   %58 = load i32, ptr %u.i.i142, align 8
   %add.i3.i.i = add nuw nsw i32 %opr, 22
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull readonly %e2, i32 noundef %add.i3.i.i, i32 noundef %58, i32 noundef %flip.0.i136, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i.i141)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef nonnull %e1, ptr noundef nonnull readonly %e2, i32 noundef %add.i3.i.i, i32 noundef %58, i32 noundef range(i32 0, 2) %flip.0.i136, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i.i141)
   br label %sw.epilog
 
 if.else.i137:                                     ; preds = %land.lhs.true.i139, %if.end.i135
@@ -3821,7 +3821,7 @@ if.then:                                          ; preds = %land.lhs.true
   %u.i = getelementptr inbounds i8, ptr %e2, i64 8
   %3 = load i32, ptr %u.i, align 8
   %add.i3.i = add nsw i32 %opr, 22
-  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull readonly %e2, i32 noundef %add.i3.i, i32 noundef %3, i32 noundef %flip, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i)
+  tail call fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef %e1, ptr noundef nonnull readonly %e2, i32 noundef %add.i3.i, i32 noundef %3, i32 noundef range(i32 0, 2) %flip, i32 noundef %line, i32 noundef 48, i32 noundef %add.i.i)
   br label %if.end
 
 if.else:                                          ; preds = %if.end.i, %entry, %land.lhs.true

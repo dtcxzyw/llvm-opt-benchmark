@@ -90,7 +90,7 @@ define hidden void @_ZN7nanogui11ColorPickerC2EPNS_6WidgetERKNS_5ColorE(ptr noun
           to label %.noexc unwind label %212
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %.noexc31 unwind label %212
 
 .noexc31:                                         ; preds = %.noexc
@@ -120,7 +120,7 @@ define hidden void @_ZN7nanogui11ColorPickerC2EPNS_6WidgetERKNS_5ColorE(ptr noun
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %30
@@ -193,8 +193,8 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   %55 = getelementptr inbounds i8, ptr %16, i64 16
   %56 = getelementptr inbounds i8, ptr %16, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %54, ptr %55, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %57, align 8
@@ -205,7 +205,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_0EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit", label %59
 
 59:                                               ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit
-  %60 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_0EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit" unwind label %61
 
 61:                                               ; preds = %59
@@ -220,8 +220,8 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   %64 = getelementptr inbounds i8, ptr %15, i64 16
   %65 = getelementptr inbounds i8, ptr %15, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 16, i1 false)
   %66 = getelementptr inbounds i8, ptr %0, i64 376
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %64, align 8
@@ -234,7 +234,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   br i1 %.not.i.i.i32, label %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_1EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit", label %70
 
 70:                                               ; preds = %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_0EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit"
-  %71 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %71 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3)
           to label %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_1EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit" unwind label %72
 
 72:                                               ; preds = %70
@@ -265,7 +265,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
           to label %.noexc33 unwind label %220
 
 .noexc33:                                         ; preds = %80
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %81, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %81, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %.noexc34 unwind label %220
 
 .noexc34:                                         ; preds = %.noexc33
@@ -295,7 +295,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   br label %.body35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; preds = %88
@@ -376,7 +376,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
           to label %.noexc38 unwind label %224
 
 .noexc38:                                         ; preds = %119
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %120, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %120, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %.noexc39 unwind label %224
 
 .noexc39:                                         ; preds = %.noexc38
@@ -406,7 +406,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   br label %.body40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; preds = %127
@@ -487,9 +487,9 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, i8 0, i64 24, i1 false)
   store i64 %156, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %157, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   %161 = getelementptr inbounds i8, ptr %0, i64 272
   %162 = load ptr, ptr %161, align 8
@@ -503,7 +503,7 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   br i1 %.not.i.i2.i.i, label %_ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i, label %165
 
 165:                                              ; preds = %_ZNSt8functionIFvbEEC2ERKS1_.exit.i.i
-  %166 = invoke noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %166 = invoke noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i unwind label %167
 
 167:                                              ; preds = %165
@@ -524,9 +524,9 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i: ; preds = %165, %_ZNSt8f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, i8 0, i64 24, i1 false)
   store i64 %156, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %171, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
   %175 = getelementptr inbounds i8, ptr %170, i64 176
   %176 = load ptr, ptr %175, align 8
@@ -540,7 +540,7 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i: ; preds = %165, %_ZNSt8f
   br i1 %.not.i.i2.i.i65, label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i, label %179
 
 179:                                              ; preds = %_ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i
-  %180 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %180 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i unwind label %181
 
 181:                                              ; preds = %179
@@ -561,9 +561,9 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %179, %_ZNSt8functio
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, i8 0, i64 24, i1 false)
   store i64 %156, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i69)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %185, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %185, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i69)
   %189 = getelementptr inbounds i8, ptr %184, i64 240
   %190 = load ptr, ptr %189, align 8
@@ -577,7 +577,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %179, %_ZNSt8functio
   br i1 %.not.i.i2.i.i73, label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81, label %193
 
 193:                                              ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i
-  %194 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %194 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81 unwind label %195
 
 195:                                              ; preds = %193
@@ -598,9 +598,9 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81:          ; preds = %193, %_ZNSt8functio
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %202, i8 0, i64 24, i1 false)
   store i64 %156, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i77)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %199, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i77)
   %203 = getelementptr inbounds i8, ptr %198, i64 240
   %204 = load ptr, ptr %203, align 8
@@ -614,7 +614,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81:          ; preds = %193, %_ZNSt8functio
   br i1 %.not.i.i2.i.i82, label %_ZNSt8functionIFvvEED2Ev.exit87, label %207
 
 207:                                              ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81
-  %208 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %208 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit87 unwind label %209
 
 209:                                              ; preds = %207
@@ -697,7 +697,7 @@ _ZNSt8functionIFvbEED2Ev.exit89:                  ; preds = %.body40, %.body35, 
   br i1 %.not.i.i96, label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit97, label %230
 
 230:                                              ; preds = %_ZNSt8functionIFvbEED2Ev.exit89
-  %231 = invoke noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
+  %231 = invoke noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit97 unwind label %232
 
 232:                                              ; preds = %230
@@ -714,7 +714,7 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit97: ; preds = %_ZNSt8functionIFvbE
   br i1 %.not.i.i98, label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit99, label %237
 
 237:                                              ; preds = %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit97
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit99 unwind label %239
 
 239:                                              ; preds = %237
@@ -776,7 +776,7 @@ _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i: ; preds = %4, %1
 
 7:                                                ; preds = %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i
   %8 = getelementptr inbounds i8, ptr %0, i64 256
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvbEED2Ev.exit.i unwind label %10
 
 10:                                               ; preds = %7
@@ -794,7 +794,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIPN
 
 15:                                               ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i
   %16 = getelementptr inbounds i8, ptr %0, i64 224
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZN7nanogui6ButtonD2Ev.exit unwind label %18
 
 18:                                               ; preds = %15
@@ -807,7 +807,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIPN
 _ZN7nanogui6ButtonD2Ev.exit:                      ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i, %15
   %21 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #18
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #18
   ret void
 }
 
@@ -928,7 +928,7 @@ define linkonce_odr hidden void @_ZN7nanogui11ColorPickerD2Ev(ptr noundef nonnul
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 360
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -946,7 +946,7 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit:   ; preds = %1, %4
 
 12:                                               ; preds = %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 328
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit2 unwind label %15
 
 15:                                               ; preds = %12
@@ -975,7 +975,7 @@ _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i.i: ; preds = %20, %_ZNSt8func
 
 23:                                               ; preds = %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i.i
   %24 = getelementptr inbounds i8, ptr %0, i64 256
-  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %_ZNSt8functionIFvbEED2Ev.exit.i.i unwind label %26
 
 26:                                               ; preds = %23
@@ -993,7 +993,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i.i:                ; preds = %23, %_ZNSt6vectorIP
 
 31:                                               ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i.i
   %32 = getelementptr inbounds i8, ptr %0, i64 224
-  %33 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %_ZN7nanogui11PopupButtonD2Ev.exit unwind label %34
 
 34:                                               ; preds = %31
@@ -1006,7 +1006,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i.i:                ; preds = %23, %_ZNSt6vectorIP
 _ZN7nanogui11PopupButtonD2Ev.exit:                ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i.i, %31
   %37 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #18
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(324) %0) #18
   ret void
 }
 
@@ -1262,7 +1262,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i: ; preds = %_ZN7nanogui1
   %50 = getelementptr inbounds i8, ptr %.val, i64 360
   %51 = getelementptr inbounds i8, ptr %.val, i64 384
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %11)
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 4 dereferenceable(16) %11)
   br label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_2JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 "_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_2JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i
@@ -1372,7 +1372,7 @@ _ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i: ; preds = %20
   %32 = getelementptr inbounds i8, ptr %.val, i64 328
   %33 = getelementptr inbounds i8, ptr %.val, i64 352
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %1)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 4 dereferenceable(16) %1)
   ret void
 }
 
@@ -1510,7 +1510,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i: ; preds = %_ZN7nanogui1
   %50 = getelementptr inbounds i8, ptr %.val, i64 360
   %51 = getelementptr inbounds i8, ptr %.val, i64 384
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %4)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 4 dereferenceable(16) %4)
   br label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 "_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %1, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i
@@ -1581,7 +1581,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i: ; preds = %1
   %17 = getelementptr inbounds i8, ptr %.val, i64 328
   %18 = getelementptr inbounds i8, ptr %.val, i64 352
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2)
+  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(16) %2)
   %20 = getelementptr inbounds i8, ptr %.val, i64 376
   %21 = load ptr, ptr %20, align 8
   %.not.i.i1.i.i.i = icmp eq ptr %21, null
@@ -1595,7 +1595,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i: ; preds = %1
   %23 = getelementptr inbounds i8, ptr %.val, i64 360
   %24 = getelementptr inbounds i8, ptr %.val, i64 384
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %2)
+  call void %25(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   ret void

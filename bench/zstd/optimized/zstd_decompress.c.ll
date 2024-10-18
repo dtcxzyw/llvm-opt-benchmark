@@ -2910,7 +2910,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dict, i64 4
   %add.ptr.val.i = load i32, ptr %add.ptr.i, align 1
   store i32 %add.ptr.val.i, ptr %dictID.i, align 8
-  %call7.i = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %entropy.i, ptr noundef nonnull %dict, i64 noundef %dictSize)
+  %call7.i = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %entropy.i, ptr noundef nonnull %dict, i64 noundef range(i64 1, 0) %dictSize)
   %cmp.i.i7 = icmp ult i64 %call7.i, -119
   br i1 %cmp.i.i7, label %do.end18.i, label %return
 
@@ -4834,7 +4834,7 @@ if.end411:                                        ; preds = %if.then397, %do.end
 cond.true426:                                     ; preds = %if.end411
   %53 = zext i32 %51 to i64
   %54 = load i64, ptr %fParams644, align 8
-  %cond.i316 = call i64 @llvm.umin.i64(i64 %spec.select, i64 %53)
+  %cond.i316 = call i64 @llvm.umin.i64(i64 %spec.select, i64 range(i64 0, 4294967296) %53)
   %cond.blockSizeMax.i = call i64 @llvm.umin.i64(i64 %cond.i316, i64 131072)
   %mul.i = shl nuw nsw i64 %cond.blockSizeMax.i, 1
   %add.i317 = add i64 %spec.select, 64

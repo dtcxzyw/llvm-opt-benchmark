@@ -1421,7 +1421,7 @@ BufferAlloc.exit:                                 ; preds = %77, %82, %95, %103,
   %171 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %170) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %168, ptr %9, align 8
-  call void @smgrreadv(ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, i32 noundef 1) #14
+  call void @smgrreadv(ptr noundef %0, i32 noundef %2, i32 noundef range(i32 0, -1) %3, ptr noundef nonnull %9, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @pgstat_count_io_op_time(i32 noundef %.0126, i32 noundef %.0125, i32 noundef 4, i64 %171, i32 noundef 1) #14
   %172 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %168, i32 noundef %3, i32 noundef 3) #14

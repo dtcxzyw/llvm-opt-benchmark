@@ -79,7 +79,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
   %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_ubound, ptr noundef nonnull %ub)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound, ptr noundef nonnull align 8 dereferenceable(16) %ub)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -161,7 +161,7 @@ lpad2:                                            ; preds = %invoke.cont
 lpad4:                                            ; preds = %cond.false, %invoke.cont3
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_ubound)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound)
           to label %ehcleanup28 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad4
@@ -291,7 +291,7 @@ invoke.cont3:                                     ; preds = %if.else.i.i, %if.th
   store ptr %call, ptr %this, align 8
   %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
   %d_ubound.i = getelementptr inbounds i8, ptr %other, i64 8
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_ubound, ptr noundef nonnull %d_ubound.i)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound, ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont3
@@ -332,7 +332,7 @@ entry:
 define hidden void @_ZN4cvc58internal21CardinalityConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_ubound)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %entry
@@ -505,14 +505,14 @@ declare noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal29CombinedCardinalityConstraintC2ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ub) unnamed_addr #3 align 2 {
 entry:
-  tail call void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %ub)
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ub)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal29CombinedCardinalityConstraintC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other) unnamed_addr #3 align 2 {
 entry:
-  tail call void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %other)
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other)
   ret void
 }
 
@@ -525,7 +525,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal29CombinedCardinalityConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  invoke void @__gmpz_clear(ptr noundef nonnull %this)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %entry

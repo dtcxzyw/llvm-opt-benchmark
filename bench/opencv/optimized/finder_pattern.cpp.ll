@@ -167,7 +167,7 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
   %.013 = phi float [ %37, %20 ], [ %16, %5 ]
   %.0 = phi float [ %29, %20 ], [ %12, %5 ]
   %44 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
-  invoke void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %44, float noundef %.0, float noundef %.013)
+  invoke void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(40) %44, float noundef %.0, float noundef %.013)
           to label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit unwind label %53
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit: ; preds = %43
@@ -244,7 +244,7 @@ define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #12
+  tail call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

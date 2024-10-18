@@ -407,7 +407,7 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i:      ; preds = %56, %_ZN3vcg10track
   store float %.sroa.1234.0.i, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %13, i64 20
   store float %.sroa.15.0.i, ptr %68, align 4
-  %69 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %13, ptr noundef nonnull readonly align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11)
+  %69 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %13, ptr noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11)
   %.not.i = icmp samesign ult i64 %69, 4294967296
   br i1 %.not.i, label %70, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
 
@@ -561,7 +561,7 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit.i45:    ; preds = %112, %_ZN3vcg10trac
   store float %.sroa.1234.0.i47, ptr %123, align 4
   %124 = getelementptr inbounds i8, ptr %8, i64 20
   store float %.sroa.15.0.i48, ptr %124, align 4
-  %125 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull readonly align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  %125 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
   %.not.i49 = icmp samesign ult i64 %125, 4294967296
   br i1 %.not.i49, label %126, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit66
 
@@ -4046,7 +4046,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Ray3") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %5 = load float, ptr %4, align 4
@@ -6009,7 +6009,7 @@ define void @_ZN3vcg10trackutils14DrawSphereIconEPNS_9TrackballEbb(ptr noundef %
   call void @glEnable(i32 noundef 16384)
   call void @glEnable(i32 noundef 3042)
   call void @glBlendFunc(i32 noundef 770, i32 noundef 771)
-  call void @glColor4ubv(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 6))
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 6))
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef nonnull %6)
   store float 0x3FD99999A0000000, ptr %7, align 16
   %77 = getelementptr inbounds i8, ptr %7, i64 4
@@ -6565,7 +6565,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %85
   %.fca.1.extract = extractvalue { <2 x float>, float } %116, 1
   store <2 x float> %.fca.0.extract, ptr %11, align 8
   store float %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %11)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %11)
   %117 = add i32 %.0180, 1
   %118 = zext i32 %117 to i64
   %119 = load ptr, ptr %92, align 8
@@ -7257,7 +7257,7 @@ define void @_ZN3vcg10trackutils14DrawSphereAxisEPNS_9TrackballE(ptr noundef %0)
   call void @glEnable(i32 noundef 16384)
   call void @glEnable(i32 noundef 3042)
   call void @glBlendFunc(i32 noundef 770, i32 noundef 771)
-  call void @glColor4ubv(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 6))
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN3vcg10trackutils2DHE, i64 6))
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef nonnull %4)
   store float 1.000000e+00, ptr %5, align 16
   %74 = getelementptr inbounds i8, ptr %5, i64 4
@@ -7395,7 +7395,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %25
   store <2 x float> %.sroa.0.4.vec.insert.i25, ptr %8, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store float %48, ptr %.sroa.28.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %8)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %8)
   %49 = fsub float %41, %34
   %50 = fsub float %44, %37
   %51 = fsub float %47, %40
@@ -7404,12 +7404,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %25
   store <2 x float> %.sroa.0.4.vec.insert.i33, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store float %51, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %9)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %9)
   call void @glEnd()
   call void @glPointSize(float noundef 8.000000e+00)
   call void @glColor3f(float noundef 0x3FC99999A0000000, float noundef 0x3FC99999A0000000, float noundef 0x3FECCCCCC0000000)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %1)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %1)
   call void @glEnd()
   call void @glPopAttrib()
   call void @glPopMatrix()
@@ -7601,7 +7601,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit108:         ; preds = %_ZNK3vcg6Point3IfE1
   call void @glLineWidth(float noundef 3.000000e+00)
   call void @glColor3f(float noundef 0x3FC99999A0000000, float noundef 0x3FC99999A0000000, float noundef 0x3FECCCCCC0000000)
   call void @glBegin(i32 noundef 1)
-  call void @glVertex3fv(ptr noundef nonnull %9)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %9)
   %88 = load float, ptr %9, align 8
   %89 = fadd float %.sroa.0199.4.vec.extract, %88
   %90 = load float, ptr %60, align 4
@@ -7613,7 +7613,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit108:         ; preds = %_ZNK3vcg6Point3IfE1
   store <2 x float> %.sroa.0.4.vec.insert.i110, ptr %10, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %93, ptr %.sroa.228.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %10)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %10)
   call void @glEnd()
   call void @glLineWidth(float noundef 1.000000e+00)
   %.sroa.0163.0.vec.extract165 = extractelement <2 x float> %.sroa.0.0.i102, i64 0
@@ -7654,7 +7654,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit108:         ; preds = %_ZNK3vcg6Point3IfE1
   %.sroa.0.4.vec.insert.i126 = insertelement <2 x float> %.sroa.0.0.vec.insert.i125, float %116, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i126, ptr %11, align 8
   store float %117, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %11)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %11)
   %118 = add nuw nsw i32 %.074218, 10
   %119 = icmp samesign ult i32 %.074218, 350
   br i1 %119, label %95, label %120, !llvm.loop !126
@@ -7669,7 +7669,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit108:         ; preds = %_ZNK3vcg6Point3IfE1
   call void @glColor3f(float noundef 0x3FECCCCCC0000000, float noundef 0x3FECCCCCC0000000, float noundef 0x3FC99999A0000000)
   call void @glPointSize(float noundef 8.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %9)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %9)
   call void @glEnd()
   call void @glColor3f(float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000, float noundef 0.000000e+00)
   call void @glPointSize(float noundef 6.000000e+00)
@@ -7685,7 +7685,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit108:         ; preds = %_ZNK3vcg6Point3IfE1
   store <2 x float> %.sroa.0.4.vec.insert.i130, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   store float %129, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %12)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %12)
   call void @glEnd()
   call void @glPopAttrib()
   call void @glPopMatrix()
@@ -7948,7 +7948,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit130:         ; preds = %_ZNK3vcg6Point3IfE1
   %.sroa.0.4.vec.insert.i156 = insertelement <2 x float> %.sroa.0.0.vec.insert.i155, float %134, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i156, ptr %8, align 8
   store float %135, ptr %.sroa.216.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %8)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %8)
   %136 = add nuw nsw i32 %.095267, 10
   %137 = icmp samesign ult i32 %.095267, 350
   br i1 %137, label %114, label %138, !llvm.loop !134
@@ -7963,7 +7963,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit130:         ; preds = %_ZNK3vcg6Point3IfE1
   call void @glLineWidth(float noundef 3.000000e+00)
   call void @glColor3f(float noundef 0x3FC99999A0000000, float noundef 0x3FC99999A0000000, float noundef 0x3FECCCCCC0000000)
   call void @glBegin(i32 noundef 1)
-  call void @glVertex3fv(ptr noundef nonnull %1)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %1)
   %141 = load float, ptr %33, align 4
   %142 = fmul float %141, 1.000000e+02
   %143 = load float, ptr %.sroa.9257.4..sroa_idx, align 8
@@ -7981,12 +7981,12 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit130:         ; preds = %_ZNK3vcg6Point3IfE1
   store <2 x float> %.sroa.0.4.vec.insert.i164, ptr %9, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store float %152, ptr %.sroa.28.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %9)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %9)
   call void @glEnd()
   call void @glLineWidth(float noundef 1.500000e+00)
   call void @glColor3f(float noundef 0x3FECCCCCC0000000, float noundef 0x3FC99999A0000000, float noundef 0x3FECCCCCC0000000)
   call void @glBegin(i32 noundef 1)
-  call void @glVertex3fv(ptr noundef nonnull %1)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %1)
   %153 = load float, ptr %33, align 4
   %154 = fmul float %153, 1.000000e+02
   %155 = load float, ptr %.sroa.9257.4..sroa_idx, align 8
@@ -8004,12 +8004,12 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit130:         ; preds = %_ZNK3vcg6Point3IfE1
   store <2 x float> %.sroa.0.4.vec.insert.i172, ptr %10, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store float %164, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %10)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %10)
   call void @glEnd()
   call void @glColor3f(float noundef 0x3FECCCCCC0000000, float noundef 0x3FECCCCCC0000000, float noundef 0x3FC99999A0000000)
   call void @glPointSize(float noundef 8.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %1)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %1)
   call void @glEnd()
   call void @glPopAttrib()
   call void @glPopMatrix()
@@ -8116,7 +8116,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %36
 
 .lr.ph:                                           ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %.lr.ph
   %.sroa.015.020 = phi ptr [ %46, %.lr.ph ], [ %43, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i ]
-  call void @glVertex3fv(ptr noundef nonnull %.sroa.015.020)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.015.020)
   %46 = getelementptr inbounds i8, ptr %.sroa.015.020, i64 12
   %47 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %46, %47
@@ -8127,18 +8127,18 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %36
   call void @glColor3f(float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   call void @glPointSize(float noundef 8.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %16)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %16)
   call void @glEnd()
   call void @glColor3f(float noundef 0x3FE3333340000000, float noundef 0.000000e+00, float noundef 0x3FE3333340000000)
   call void @glPointSize(float noundef 7.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %19)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %19)
   call void @glEnd()
   call void @glColor3f(float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000)
   call void @glPointSize(float noundef 6.500000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %17)
-  call void @glVertex3fv(ptr noundef nonnull %18)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %17)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %18)
   call void @glEnd()
   call void @glPopAttrib()
   call void @glPopMatrix()
@@ -8243,7 +8243,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %38
 
 .lr.ph:                                           ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %.lr.ph
   %.sroa.0200.0226 = phi ptr [ %48, %.lr.ph ], [ %45, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i ]
-  call void @glVertex3fv(ptr noundef nonnull %.sroa.0200.0226)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0200.0226)
   %48 = getelementptr inbounds i8, ptr %.sroa.0200.0226, i64 12
   %49 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %48, %49
@@ -8262,7 +8262,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %38
 
 .lr.ph230:                                        ; preds = %._crit_edge, %.lr.ph230
   %.sroa.0196.0228 = phi ptr [ %53, %.lr.ph230 ], [ %50, %._crit_edge ]
-  call void @glVertex3fv(ptr noundef nonnull %.sroa.0196.0228)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0196.0228)
   %53 = getelementptr inbounds i8, ptr %.sroa.0196.0228, i64 12
   %54 = load ptr, ptr %51, align 8
   %.not224 = icmp eq ptr %53, %54
@@ -8273,22 +8273,22 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %38
   call void @glColor3f(float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   call void @glPointSize(float noundef 8.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %16)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %16)
   call void @glEnd()
   call void @glColor3f(float noundef 0x3FE3333340000000, float noundef 0.000000e+00, float noundef 0x3FE3333340000000)
   call void @glPointSize(float noundef 7.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %17)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %17)
   call void @glEnd()
   call void @glColor3f(float noundef 0x3FE3333340000000, float noundef 0.000000e+00, float noundef 0.000000e+00)
   call void @glPointSize(float noundef 6.000000e+00)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %18)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %18)
   call void @glEnd()
   call void @glLineWidth(float noundef 1.000000e+00)
   call void @glBegin(i32 noundef 1)
-  call void @glVertex3fv(ptr noundef nonnull %18)
-  call void @glVertex3fv(ptr noundef nonnull %16)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %18)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %16)
   call void @glEnd()
   %.sroa.0205.4.vec.extract = extractelement <2 x float> %6, i64 1
   %.sroa.6212.8.vec.extract = extractelement <2 x float> %7, i64 0
@@ -8397,7 +8397,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit114:         ; preds = %_ZNK3vcg6Point3IfE1
   call void @glLineWidth(float noundef 3.000000e+00)
   call void @glColor3f(float noundef 0x3FC99999A0000000, float noundef 0x3FC99999A0000000, float noundef 0x3FECCCCCC0000000)
   call void @glBegin(i32 noundef 1)
-  call void @glVertex3fv(ptr noundef nonnull %20)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %20)
   %108 = load float, ptr %20, align 8
   %109 = fadd float %.sroa.0205.4.vec.extract, %108
   %110 = load float, ptr %80, align 4
@@ -8409,7 +8409,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit114:         ; preds = %_ZNK3vcg6Point3IfE1
   store <2 x float> %.sroa.0.4.vec.insert.i116, ptr %21, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store float %113, ptr %.sroa.224.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %21)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %21)
   call void @glEnd()
   call void @glLineWidth(float noundef 0x3FB99999A0000000)
   %.sroa.0162.0.vec.extract164 = extractelement <2 x float> %.sroa.0.0.i108, i64 0
@@ -8450,7 +8450,7 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit114:         ; preds = %_ZNK3vcg6Point3IfE1
   %.sroa.0.4.vec.insert.i132 = insertelement <2 x float> %.sroa.0.0.vec.insert.i131, float %136, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i132, ptr %22, align 8
   store float %137, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glVertex3fv(ptr noundef nonnull %22)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
   %138 = add nuw nsw i32 %.080232, 10
   %139 = icmp samesign ult i32 %.080232, 350
   br i1 %139, label %115, label %140, !llvm.loop !151
@@ -10434,7 +10434,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %76, %_ZNS
   %sext = shl i64 %.058226, 32
   %113 = ashr exact i64 %sext, 32
   %114 = getelementptr inbounds %"class.vcg::Point3", ptr %111, i64 %113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %112, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %112, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(12) %114, i64 12, i1 false)
   store float 0.000000e+00, ptr %12, align 4
   store i8 0, ptr %70, align 4

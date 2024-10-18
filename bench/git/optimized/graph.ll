@@ -202,7 +202,7 @@ if.end5:                                          ; preds = %entry.if.end5_crit_
   br i1 %mul.ov.i, label %if.then.i30, label %st_mult.exit
 
 if.then.i30:                                      ; preds = %if.end5
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef %conv14) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %conv14) #17
   unreachable
 
 st_mult.exit:                                     ; preds = %if.end5
@@ -217,7 +217,7 @@ st_mult.exit:                                     ; preds = %if.end5
   br i1 %mul.ov.i32, label %if.then.i35, label %st_mult.exit36
 
 if.then.i35:                                      ; preds = %st_mult.exit
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef %conv18) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv18) #17
   unreachable
 
 st_mult.exit36:                                   ; preds = %st_mult.exit
@@ -232,7 +232,7 @@ st_mult.exit36:                                   ; preds = %st_mult.exit
   br i1 %mul.ov.i38, label %if.then.i41, label %st_mult.exit42
 
 if.then.i41:                                      ; preds = %st_mult.exit36
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef %conv23) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv23) #17
   unreachable
 
 st_mult.exit42:                                   ; preds = %st_mult.exit36
@@ -452,7 +452,7 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   br i1 %mul.ov.i.i.i, label %if.then.i.i.i52, label %st_mult.exit.i.i
 
 if.then.i.i.i52:                                  ; preds = %do.end.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef %conv.i.i) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i) #17
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %do.end.i.i
@@ -465,7 +465,7 @@ st_mult.exit.i.i:                                 ; preds = %do.end.i.i
   br i1 %mul.ov.i17.i.i, label %if.then.i19.i.i, label %st_mult.exit20.i.i
 
 if.then.i19.i.i:                                  ; preds = %st_mult.exit.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef %conv8.i.i) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %conv8.i.i) #17
   unreachable
 
 st_mult.exit20.i.i:                               ; preds = %st_mult.exit.i.i
@@ -480,7 +480,7 @@ st_mult.exit20.i.i:                               ; preds = %st_mult.exit.i.i
   br i1 %mul.ov.i22.i.i, label %if.then.i24.i.i, label %st_mult.exit25.i.i
 
 if.then.i24.i.i:                                  ; preds = %st_mult.exit20.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv14.i.i) #17
   unreachable
 
 st_mult.exit25.i.i:                               ; preds = %st_mult.exit20.i.i
@@ -496,7 +496,7 @@ st_mult.exit25.i.i:                               ; preds = %st_mult.exit20.i.i
   br i1 %mul.ov.i27.i.i, label %if.then.i29.i.i, label %st_mult.exit30.i.i
 
 if.then.i29.i.i:                                  ; preds = %st_mult.exit25.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef %conv20.i.i) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv20.i.i) #17
   unreachable
 
 st_mult.exit30.i.i:                               ; preds = %st_mult.exit25.i.i
@@ -1098,7 +1098,7 @@ for.body.i:                                       ; preds = %graph_line_addch.ex
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %graph_line_addch.exit.i ]
   %3 = load ptr, ptr %new_columns.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.column, ptr %3, i64 %indvars.iv.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef %arrayidx.i, i8 noundef signext 124)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef %arrayidx.i, i8 noundef signext 124)
   %4 = load ptr, ptr %line, align 8
   %5 = load i64, ptr %4, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %5, 0
@@ -1195,7 +1195,7 @@ for.body.i24:                                     ; preds = %graph_line_addch.ex
   br i1 %cmp2.i, label %if.then.i, label %if.else.i27
 
 if.then.i:                                        ; preds = %for.body.i24
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 124)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 124)
   %23 = load i32, ptr %expansion_row3.i, align 8
   %conv.i = sext i32 %23 to i64
   %24 = load ptr, ptr %line, align 8
@@ -1226,11 +1226,11 @@ land.lhs.true9.i:                                 ; preds = %if.then6.i
   br i1 %cmp10.i, label %if.then12.i, label %if.else13.i
 
 if.then12.i:                                      ; preds = %land.lhs.true9.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 92)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 92)
   br label %if.end24.i
 
 if.else13.i:                                      ; preds = %land.lhs.true9.i, %if.then6.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 124)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 124)
   br label %if.end24.i
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
@@ -1238,11 +1238,11 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp18.i, label %if.then20.i, label %if.else21.i
 
 if.then20.i:                                      ; preds = %land.lhs.true16.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 92)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 92)
   br label %if.end24.i
 
 if.else21.i:                                      ; preds = %land.lhs.true16.i, %if.else.i27
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 124)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i26, i8 noundef signext 124)
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else21.i, %if.then20.i, %if.else13.i, %if.then12.i, %if.then.i
@@ -1633,7 +1633,7 @@ if.else46.i:                                      ; preds = %land.lhs.true40.i, 
 if.end50.sink.split.i:                            ; preds = %if.else46.i, %land.lhs.true40.i, %if.else31.i, %land.lhs.true28.i, %land.lhs.true.i58
   %.sink.i59 = phi i8 [ 124, %if.else46.i ], [ 124, %if.else31.i ], [ 92, %land.lhs.true.i58 ], [ 92, %land.lhs.true28.i ], [ 47, %land.lhs.true40.i ]
   %seen_this.1.ph.i = phi i32 [ %seen_this.0116.i, %if.else46.i ], [ 1, %if.else31.i ], [ 1, %land.lhs.true.i58 ], [ 1, %land.lhs.true28.i ], [ %seen_this.0116.i, %land.lhs.true40.i ]
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i55, i8 noundef signext %.sink.i59)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i55, i8 noundef signext %.sink.i59)
   %.pre = load ptr, ptr %line, align 8
   br label %if.end50.i
 
@@ -2093,7 +2093,7 @@ if.then34.i:                                      ; preds = %if.else32.i
   %189 = load i32, ptr %edges_added35.i, align 8
   %cmp36.i = icmp sgt i32 %189, 0
   %..i = select i1 %cmp36.i, i8 92, i8 124
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i98, i8 noundef signext %..i)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i98, i8 noundef signext %..i)
   %190 = load ptr, ptr %line, align 8
   %191 = load i64, ptr %190, align 8
   %tobool.not.i.i.i86.i = icmp eq i64 %191, 0
@@ -2132,7 +2132,7 @@ graph_line_addch.exit102.i:                       ; preds = %if.then.i.i98.i, %s
   br label %if.end53.i
 
 if.else40.i:                                      ; preds = %if.else32.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %arrayidx.i98, i8 noundef signext 124)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i98, i8 noundef signext 124)
   %198 = load i32, ptr %merge_layout41.i, align 4
   %cmp42.not.i = icmp eq i32 %198, 0
   br i1 %cmp42.not.i, label %lor.lhs.false43.i, label %if.then46.i
@@ -2149,7 +2149,7 @@ if.then46.i:                                      ; preds = %lor.lhs.false43.i, 
   br i1 %tobool47.not.i, label %if.else49.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.then46.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef nonnull %parent_col.0150.i, i8 noundef signext 95)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %parent_col.0150.i, i8 noundef signext 95)
   br label %if.end53.i
 
 if.else49.i:                                      ; preds = %if.then46.i
@@ -2367,7 +2367,7 @@ if.then.i.i172:                                   ; preds = %for.end73.i
   br i1 %mul.ov.i.i.i, label %if.then.i.i.i207, label %st_mult.exit.i.i
 
 if.then.i.i.i207:                                 ; preds = %if.then.i.i172
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef %conv.pre-phi.i) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv.pre-phi.i) #17
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i172
@@ -2462,7 +2462,7 @@ if.then103.i:                                     ; preds = %if.else99.i
   %258 = load ptr, ptr %new_columns122.i, align 8
   %idxprom104.i = zext nneg i32 %248 to i64
   %arrayidx105.i = getelementptr inbounds %struct.column, ptr %258, i64 %idxprom104.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef %arrayidx105.i, i8 noundef signext 124)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef %arrayidx105.i, i8 noundef signext 124)
   br label %for.inc141.i
 
 if.else106.i:                                     ; preds = %if.else99.i
@@ -2484,7 +2484,7 @@ if.then117.i:                                     ; preds = %if.then112.i
 if.end121.i:                                      ; preds = %if.then117.i, %if.then112.i
   %260 = load ptr, ptr %new_columns122.i, align 8
   %arrayidx124.i = getelementptr inbounds %struct.column, ptr %260, i64 %idxprom123.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef %arrayidx124.i, i8 noundef signext 95)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef %arrayidx124.i, i8 noundef signext 95)
   br label %for.inc141.i
 
 if.else125.i:                                     ; preds = %if.else106.i
@@ -2501,7 +2501,7 @@ if.end134.i:                                      ; preds = %if.then130.i, %if.e
   %261 = load ptr, ptr %new_columns122.i, align 8
   %idxprom136.i = zext nneg i32 %248 to i64
   %arrayidx137.i = getelementptr inbounds %struct.column, ptr %261, i64 %idxprom136.i
-  call fastcc void @graph_line_write_column(ptr noundef %line, ptr noundef %arrayidx137.i, i8 noundef signext 47)
+  call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef %arrayidx137.i, i8 noundef signext 47)
   br label %for.inc141.i
 
 for.inc141.i:                                     ; preds = %if.end134.i, %if.end121.i, %if.then103.i, %graph_line_addch.exit.i197
@@ -2632,7 +2632,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br label %if.end3.thread
 
 if.end3.thread:                                   ; preds = %if.then2, %lor.lhs.false.i.i, %if.end.i.i
-  call fastcc void @graph_padding_line(ptr noundef %graph, ptr noundef nonnull %msgbuf.i)
+  call fastcc void @graph_padding_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf.i)
   %buf.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 16
   %9 = load ptr, ptr %buf.i, align 8
   %len.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 8

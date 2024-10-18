@@ -58,7 +58,7 @@ define hidden noundef i32 @_hb_fallback_shape(ptr nocapture noundef readnone %0,
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %5, %17
   %20 = phi ptr [ %19, %17 ], [ null, %5 ]
-  %21 = call noundef i32 %12(ptr noundef nonnull %1, ptr noundef %14, i32 noundef 32, ptr noundef nonnull %8, ptr noundef %20)
+  %21 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %14, i32 noundef 32, ptr noundef nonnull %8, ptr noundef %20)
   %.not = icmp eq i32 %21, 0
   call void @_ZN11hb_buffer_t15clear_positionsEv(ptr noundef nonnull align 8 dereferenceable(220) %2)
   %22 = getelementptr inbounds i8, ptr %2, i64 48
@@ -118,7 +118,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %5, %17
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit44:     ; preds = %41, %50
   %53 = phi ptr [ %52, %50 ], [ null, %41 ]
-  %54 = call noundef i32 %46(ptr noundef nonnull %1, ptr noundef %47, i32 noundef %43, ptr noundef nonnull %42, ptr noundef %53)
+  %54 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %47, i32 noundef %43, ptr noundef nonnull %42, ptr noundef %53)
   %55 = load i32, ptr %42, align 4
   %56 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %29, i64 %indvars.iv
   %57 = getelementptr inbounds i8, ptr %56, i64 4
@@ -153,7 +153,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit44:     ; preds = %41, %50
 
 74:                                               ; preds = %62, %65
   %75 = phi ptr [ %67, %65 ], [ null, %62 ]
-  %76 = call noundef i32 %64(ptr noundef nonnull %1, ptr noundef %59, i32 noundef %55, ptr noundef %75)
+  %76 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %59, i32 noundef %55, ptr noundef %75)
   store i32 %76, ptr %56, align 4
   %77 = load i32, ptr %42, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -163,7 +163,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit44:     ; preds = %41, %50
 
 78:                                               ; preds = %71, %68
   %79 = phi ptr [ %73, %71 ], [ null, %68 ]
-  %80 = call noundef i32 %70(ptr noundef nonnull %1, ptr noundef %59, i32 noundef %55, ptr noundef %79)
+  %80 = call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %59, i32 noundef %55, ptr noundef %79)
   store i32 %80, ptr %57, align 4
   %81 = load i32, ptr %42, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -339,7 +339,7 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_h_origin_with_fallback
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
   %17 = phi ptr [ %16, %14 ], [ null, %4 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %64
 
@@ -362,7 +362,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
   %29 = phi ptr [ %28, %26 ], [ null, %19 ]
-  %30 = tail call noundef i32 %22(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
+  %30 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %64, label %31
 
@@ -384,7 +384,7 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %41 = phi ptr [ %40, %38 ], [ null, %31 ]
-  %42 = tail call noundef i32 %34(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
+  %42 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
   %.neg = sdiv i32 %42, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %43 = load ptr, ptr %6, align 8
@@ -402,7 +402,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %49, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %51 = phi ptr [ %50, %49 ], [ null, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %52 = call noundef i32 %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef nonnull %5, ptr noundef %51)
+  %52 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %46, ptr noundef nonnull %5, ptr noundef %51)
   %.not.i3.i = icmp eq i32 %52, 0
   br i1 %.not.i3.i, label %53, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge.i
 
@@ -456,7 +456,7 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_v_origin_with_fallback
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
   %17 = phi ptr [ %16, %14 ], [ null, %4 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %65
 
@@ -479,7 +479,7 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
   %29 = phi ptr [ %28, %26 ], [ null, %19 ]
-  %30 = tail call noundef i32 %22(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
+  %30 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %65, label %31
 
@@ -501,7 +501,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %41 = phi ptr [ %40, %38 ], [ null, %31 ]
-  %42 = tail call noundef i32 %34(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
+  %42 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
   %43 = sdiv i32 %42, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %44 = load ptr, ptr %6, align 8
@@ -519,7 +519,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %50, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %52 = phi ptr [ %51, %50 ], [ null, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %53 = call noundef i32 %46(ptr noundef nonnull %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef %52)
+  %53 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef %52)
   %.not.i3.i = icmp eq i32 %53, 0
   br i1 %.not.i3.i, label %54, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge.i
 

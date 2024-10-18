@@ -1370,7 +1370,7 @@ entry:
   %ref.tmp79 = alloca %"class.std::allocator", align 1
   %ref.tmp82 = alloca %"class.std::__cxx11::basic_string", align 8
   %rate_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 32, i1 false)
   store double 0x47EFFFFFE0000000, ptr %rate_.i, align 8, !tbaa !24
   %type_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   %rateChain_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48

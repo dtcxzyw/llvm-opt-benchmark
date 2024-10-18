@@ -67,7 +67,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -77,7 +77,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -367,7 +367,7 @@ _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11InstantiateEEclEPS4_
 
 _ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EED2Ev.exit.i, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11InstantiateEEclEPS4_.exit.i.i
   store ptr null, ptr %d_instantiate.i, align 8
-  tail call void @_ZN4cvc58internal6theory24InferenceManagerBufferedD2Ev(ptr noundef nonnull align 8 dereferenceable(353) %this) #11
+  tail call void @_ZN4cvc58internal6theory24InferenceManagerBufferedD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }

@@ -979,7 +979,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %89
 _ZN2cv24ParallelGetScaleFeaturesD2Ev.exit:        ; preds = %151, %156
   %157 = getelementptr inbounds i8, ptr %23, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %157) #17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %23) #17
   %.not4.i.i.i.i50 = icmp eq ptr %.pr.i55, %139
   br i1 %.not4.i.i.i.i50, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56.thread, label %.lr.ph.i.i.i.i51
 
@@ -2020,7 +2020,7 @@ define linkonce_odr hidden void @_ZN2cv24ParallelGetScaleFeaturesD0Ev(ptr nounde
 _ZN2cv24ParallelGetScaleFeaturesD2Ev.exit:        ; preds = %1, %6
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

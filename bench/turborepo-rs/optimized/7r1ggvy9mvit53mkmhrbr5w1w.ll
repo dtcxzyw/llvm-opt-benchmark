@@ -110,7 +110,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
   br label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatch.exit
 
 36:                                               ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit
-  call void @_RNCNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB4_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatchs_0B6_.llvm.17971349766402577642(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30), !noalias !16
+  call void @_RNCNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB4_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatchs_0B6_.llvm.17971349766402577642(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) dereferenceable_or_null(1) %30), !noalias !16
   br label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatch.exit
 
 _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatch.exit: ; preds = %35, %36
@@ -377,7 +377,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
   br label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit
 
 161:                                              ; preds = %159
-  call void @_RNCNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB4_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hooks_0B6_.llvm.17971349766402577642(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %39, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %149), !noalias !46
+  call void @_RNCNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB4_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hooks_0B6_.llvm.17971349766402577642(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %39, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) dereferenceable_or_null(1) %149), !noalias !46
   br label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit
 
 _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit: ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit34, %157, %160, %161
@@ -456,7 +456,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   unreachable
 
 190:                                              ; preds = %187
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h48e61fa034112f42E(i64 noundef %185, i64 noundef %.pre-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d9a669e0fefee8b60444f5b73d590d2.3) #11, !noalias !61
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h48e61fa034112f42E(i64 noundef %185, i64 noundef range(i64 0, 4294967296) %.pre-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d9a669e0fefee8b60444f5b73d590d2.3) #11, !noalias !61
   unreachable
 
 _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i: ; preds = %187
@@ -763,7 +763,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(p
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %38
-  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef align 8 dereferenceable(1432) %7, ptr noalias noundef align 8 dereferenceable(344) %0, i8 noundef %40, i8 noundef %21)
+  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef nonnull align 8 dereferenceable(1432) %7, ptr noalias noundef nonnull align 8 dereferenceable(344) %0, i8 noundef range(i8 0, 16) %40, i8 noundef %21)
   br label %_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser7advanceNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBL_.exit
 
 43:                                               ; preds = %38
@@ -775,7 +775,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(p
   br i1 %45, label %47, label %48
 
 46:                                               ; preds = %43
-  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef align 8 dereferenceable(1432) %7, ptr noalias noundef align 8 dereferenceable(344) %0, i8 noundef 8, i8 noundef %21)
+  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef nonnull align 8 dereferenceable(1432) %7, ptr noalias noundef nonnull align 8 dereferenceable(344) %0, i8 noundef 8, i8 noundef %21)
   br label %44
 
 47:                                               ; preds = %48, %44
@@ -788,7 +788,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(p
   ]
 
 48:                                               ; preds = %44
-  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef align 8 dereferenceable(1432) %7, ptr noalias noundef align 8 dereferenceable(344) %0, i8 noundef %40, i8 noundef %21)
+  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef nonnull align 8 dereferenceable(1432) %7, ptr noalias noundef nonnull align 8 dereferenceable(344) %0, i8 noundef range(i8 0, 16) %40, i8 noundef %21)
   br label %47
 
 49:                                               ; preds = %52, %51, %50, %47
@@ -804,7 +804,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(p
   br label %49
 
 51:                                               ; preds = %47
-  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef align 8 dereferenceable(1432) %7, ptr noalias noundef align 8 dereferenceable(344) %0, i8 noundef 6, i8 noundef %21)
+  call fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_actionNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBT_(ptr noalias noundef nonnull align 8 dereferenceable(1432) %7, ptr noalias noundef nonnull align 8 dereferenceable(344) %0, i8 noundef 6, i8 noundef %21)
   br label %49
 
 52:                                               ; preds = %47
@@ -892,7 +892,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCscmPyG4XWoQZ_3vte6ParserECs8mTrB
   resume { ptr, i32 } %5
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser3new.exit: ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull align 8 dereferenceable(344) %2, i64 344, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1776) %0, ptr noundef nonnull align 8 dereferenceable(344) %2, i64 344, i1 false)
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %2), !noalias !124
   %9 = getelementptr inbounds i8, ptr %0, i64 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1432) %9, ptr noundef nonnull align 8 dereferenceable(1432) %3, i64 1432, i1 false)

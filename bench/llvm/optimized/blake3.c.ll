@@ -874,7 +874,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %.11235 = phi ptr [ %.01083, %.lr.ph1238 ], [ %828, %825 ]
   %.110851234 = phi i64 [ %.01084, %.lr.ph1238 ], [ %829, %825 ]
   %355 = or i64 %.110851234, 1
-  %356 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %355, i1 true)
+  %356 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %355, i1 true)
   %357 = xor i64 %356, 63
   %358 = shl nuw i64 1, %357
   %359 = shl i64 %354, 10
@@ -2517,7 +2517,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %168 = add i64 %1, -1
   %169 = lshr i64 %168, 10
   %170 = or i64 %169, 1
-  %171 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %170, i1 true)
+  %171 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %170, i1 true)
   %172 = xor i64 %171, 63
   %173 = shl nuw i64 1024, %172
   %174 = sub i64 %1, %173

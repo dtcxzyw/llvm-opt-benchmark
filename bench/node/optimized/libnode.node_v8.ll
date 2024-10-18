@@ -1001,7 +1001,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %heap_statistics_buffer, ptr noundef nonnull @.str.6)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %heap_statistics_buffer, ptr noundef nonnull @.str.6)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %if.else.i.i
@@ -1105,7 +1105,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i35: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit53
 
 if.else.i.i21:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i17, %if.end3.i.i.i.i.i.i14, %for.cond.i.i.i.i46, %if.end15.i.i.i.i5
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %heap_space_statistics_buffer, ptr noundef nonnull @.str.7)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %heap_space_statistics_buffer, ptr noundef nonnull @.str.7)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit53
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit53: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i35, %if.else.i.i21
@@ -1209,7 +1209,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i86: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit104
 
 if.else.i.i72:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i68, %if.end3.i.i.i.i.i.i65, %for.cond.i.i.i.i97, %if.end15.i.i.i.i56
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %heap_code_statistics_buffer, ptr noundef nonnull @.str.8)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %heap_code_statistics_buffer, ptr noundef nonnull @.str.8)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit104
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit104: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i86, %if.else.i.i72
@@ -1372,7 +1372,7 @@ do.end30:                                         ; preds = %_ZNK2v820FunctionCa
   store i8 1, ptr %heapsnapshot_near_heap_limit_callback_added_.i, align 4
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %24 = load ptr, ptr %isolate_.i, align 8
-  tail call void @_ZN2v87Isolate24AddNearHeapLimitCallbackEPFmPvmmES1_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull @_ZN4node11Environment21NearHeapLimitCallbackEPvmm, ptr noundef nonnull %retval.0.i.i) #20
+  tail call void @_ZN2v87Isolate24AddNearHeapLimitCallbackEPFmPvmmES1_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull @_ZN4node11Environment21NearHeapLimitCallbackEPvmm, ptr noundef nonnull align 8 dereferenceable(2872) %retval.0.i.i) #20
   %heap_snapshot_near_heap_limit_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1816
   store i32 %call21, ptr %heap_snapshot_near_heap_limit_.i, align 8
   ret void
@@ -1862,7 +1862,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %20 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call6, ptr noundef %20, ptr nonnull %add.ptr.i) #20
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(448) %call6, ptr noundef %20, ptr nonnull %add.ptr.i) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8v8_utils10GCProfilerE, i64 16), ptr %call6, align 8
   %start_time.i = getelementptr inbounds i8, ptr %call6, i64 32
   store i64 0, ptr %start_time.i, align 8
@@ -1880,7 +1880,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   store i32 0, ptr %indent_.i.i, align 4
   %state_.i.i = getelementptr inbounds i8, ptr %call6, i64 440
   store i32 0, ptr %state_.i.i, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call6) #20
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(448) %call6) #20
   ret void
 }
 
@@ -4260,7 +4260,7 @@ if.end.i.i7:                                      ; preds = %_ZN4node17AliasedBu
   br label %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit8
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit8: ; preds = %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit4, %if.end.i.i7
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) #20
   ret void
 }
 
@@ -4307,7 +4307,7 @@ if.end.i.i7.i:                                    ; preds = %_ZN4node17AliasedBu
   br label %_ZN4node8v8_utils11BindingDataD2Ev.exit
 
 _ZN4node8v8_utils11BindingDataD2Ev.exit:          ; preds = %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit4.i, %if.end.i.i7.i
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -4449,19 +4449,19 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %env_.i.i.i, align 8
   %isolate_.i.i = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %isolate_.i.i, align 8
-  tail call void @_ZN2v87Isolate24RemoveGCPrologueCallbackEPFvPS0_NS_6GCTypeENS_15GCCallbackFlagsEPvES4_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @_ZN4node8v8_utilsL16BeforeGCCallbackEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPv, ptr noundef nonnull %this) #20
+  tail call void @_ZN2v87Isolate24RemoveGCPrologueCallbackEPFvPS0_NS_6GCTypeENS_15GCCallbackFlagsEPvES4_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @_ZN4node8v8_utilsL16BeforeGCCallbackEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPv, ptr noundef nonnull align 8 dereferenceable(448) %this) #20
   %4 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i2.i = getelementptr inbounds i8, ptr %4, i64 176
   %5 = load ptr, ptr %env_.i.i2.i, align 8
   %isolate_.i3.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load ptr, ptr %isolate_.i3.i, align 8
-  tail call void @_ZN2v87Isolate24RemoveGCEpilogueCallbackEPFvPS0_NS_6GCTypeENS_15GCCallbackFlagsEPvES4_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @_ZN4node8v8_utilsL15AfterGCCallbackEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPv, ptr noundef nonnull %this) #20
+  tail call void @_ZN2v87Isolate24RemoveGCEpilogueCallbackEPFvPS0_NS_6GCTypeENS_15GCCallbackFlagsEPvES4_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @_ZN4node8v8_utilsL15AfterGCCallbackEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPv, ptr noundef nonnull align 8 dereferenceable(448) %this) #20
   br label %_ZN4node8v8_utils10GCProfilerD2Ev.exit
 
 _ZN4node8v8_utils10GCProfilerD2Ev.exit:           ; preds = %entry, %if.then.i
   %out_stream_.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out_stream_.i) #20
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -4815,7 +4815,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

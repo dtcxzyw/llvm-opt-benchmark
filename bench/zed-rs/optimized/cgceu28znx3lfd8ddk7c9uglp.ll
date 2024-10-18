@@ -94,7 +94,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %8 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+  %8 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
           to label %.noexc.i unwind label %19, !noalias !17
 
 .noexc.i:                                         ; preds = %.lr.ph.split.preheader.i.i
@@ -111,7 +111,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.assume(i1 %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %12 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+  %12 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
           to label %.noexc3.i unwind label %19, !noalias !17
 
 .noexc3.i:                                        ; preds = %.lr.ph.split.us.i.i
@@ -227,7 +227,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !76, !noalias !78, !noundef !4
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16)
           to label %19 unwind label %24, !noalias !70
 
 19:                                               ; preds = %15
@@ -779,7 +779,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 34:                                               ; preds = %.loopexit
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %.body unwind label %35, !noalias !272
 
 35:                                               ; preds = %34
@@ -1085,7 +1085,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 34:                                               ; preds = %.loopexit
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %.body unwind label %35, !noalias !419
 
 35:                                               ; preds = %34
@@ -1299,7 +1299,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 34:                                               ; preds = %.loopexit
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %.body unwind label %35, !noalias !506
 
 35:                                               ; preds = %34
@@ -1459,7 +1459,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !594
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
-  %8 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0.copyload)
+  %8 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0.copyload)
           to label %.noexc.i.i unwind label %19, !noalias !608
 
 .noexc.i.i:                                       ; preds = %.lr.ph.split.preheader.i.i.i
@@ -1476,7 +1476,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.assume(i1 %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !594
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
-  %12 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0.copyload)
+  %12 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0.copyload)
           to label %.noexc3.i.i unwind label %19, !noalias !608
 
 .noexc3.i.i:                                      ; preds = %.lr.ph.split.us.i.i.i
@@ -2400,7 +2400,7 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   br i1 %11, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h0c1ee2e71498b3efE.exit", label %14
 
 "_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h0c1ee2e71498b3efE.exit": ; preds = %10
-  tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17h57cb638b734c6d95E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17h5d2fb0b72bc16ce0E)
+  tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17h57cb638b734c6d95E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17h5d2fb0b72bc16ce0E)
   %12 = load i64, ptr %0, align 8, !range !879, !noundef !4
   %13 = icmp eq i64 %12, 1
   tail call void @llvm.assume(i1 %13)
@@ -2725,7 +2725,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h5d413e8e1c37b50
   %2 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !909
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f5085a35d97da70442acfd9e2b30c9d2.95, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !910
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f5085a35d97da70442acfd9e2b30c9d2.95, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !910
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !905
   ret i1 %3
 }
@@ -2736,7 +2736,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17haaa3727278525
   %2 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !911
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !915
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f5085a35d97da70442acfd9e2b30c9d2.94, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !916
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f5085a35d97da70442acfd9e2b30c9d2.94, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !916
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !911
   ret i1 %3
 }
@@ -3256,7 +3256,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1595447337429131
   br i1 %.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_prefix_of17h0fcf20fe08d823d7E.llvm.1595447337429131476.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i": ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1595447337429131476.exit.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %0, i64 %52), !alias.scope !1228
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %52), !alias.scope !1228
   %53 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_prefix_of17h0fcf20fe08d823d7E.llvm.1595447337429131476.exit"
 
@@ -3932,12 +3932,12 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i
   %51 = sub nuw i64 %48, %15
   %52 = getelementptr inbounds i8, ptr %.val, i64 %51
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %52, ptr nonnull readonly %12, i64 %15), !alias.scope !1299, !noalias !1293
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %52, ptr nonnull readonly align 1 %12, i64 %15), !alias.scope !1299, !noalias !1293
   %53 = icmp eq i32 %bcmp.i.i, 0
   br i1 %53, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", label %49
 
 .split.us.i:                                      ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %15, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f5085a35d97da70442acfd9e2b30c9d2.102) #42, !noalias !1303
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef range(i64 0, 256) %15, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f5085a35d97da70442acfd9e2b30c9d2.102) #42, !noalias !1303
   unreachable
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18": ; preds = %.preheader.i.i, %42, %.preheader.i.us.i, %29
@@ -5552,7 +5552,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd85179d715
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1827)
-  %10 = call noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i), !noalias !1832
+  %10 = call noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i), !noalias !1832
   %11 = call noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i), !noalias !1832
   unreachable
 
@@ -5571,7 +5571,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd85179d715
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1827)
-  %18 = call noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i), !noalias !1832
+  %18 = call noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i), !noalias !1832
   %19 = call noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i), !noalias !1832
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1832
   call void @llvm.experimental.noalias.scope.decl(metadata !1843)
@@ -5712,7 +5712,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 34:                                               ; preds = %30
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit.i.i" unwind label %37, !noalias !1875
 
 35:                                               ; preds = %.noexc.i.i
@@ -5828,7 +5828,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 34:                                               ; preds = %30
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit.i.i" unwind label %37, !noalias !1914
 
 35:                                               ; preds = %.noexc.i.i
@@ -5990,7 +5990,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 34:                                               ; preds = %30
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit.i.i" unwind label %37, !noalias !1983
 
 35:                                               ; preds = %.noexc.i.i
@@ -6182,7 +6182,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h1ed54241
   br i1 %.not.i.i.i.i, label %.thread26.i, label %21
 
 21:                                               ; preds = %13
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %17, i64 %.val3.i.i), !alias.scope !2053
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %17, i64 %.val3.i.i), !alias.scope !2053
   %22 = icmp ne i32 %bcmp.i.i.i.i.i, 0
   %23 = zext i1 %22 to i8
   %24 = icmp ult i64 %.val13, %.val5.i.i
@@ -6233,7 +6233,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h1ed54241
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread": ; preds = %.thread84, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i"
   %.sroa.0.0.i.ph28.i8892 = phi i8 [ %.sroa.0.0.i.ph28.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ 1, %.thread84 ]
   %40 = phi ptr [ %30, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ %37, %.thread84 ]
-  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %40, i64 %.val3.i.i), !alias.scope !2060
+  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %40, i64 %.val3.i.i), !alias.scope !2060
   %41 = icmp ne i32 %bcmp.i.i.i.i18.i, 0
   %.neg.i = sext i1 %41 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i"
@@ -6297,7 +6297,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h1ed54241
   br i1 %.not.i.i.i.i41, label %.thread26.i44, label %62
 
 62:                                               ; preds = %54
-  %bcmp.i.i.i.i.i43 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i19, ptr nonnull readonly %58, i64 %.val3.i.i20), !alias.scope !2067
+  %bcmp.i.i.i.i.i43 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i19, ptr nonnull readonly align 1 %58, i64 %.val3.i.i20), !alias.scope !2067
   %63 = icmp ne i32 %bcmp.i.i.i.i.i43, 0
   %64 = zext i1 %63 to i8
   %65 = icmp ult i64 %.val16, %.val5.i.i21
@@ -6348,7 +6348,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h1ed54241
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i35.thread": ; preds = %.thread94, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i35"
   %.sroa.0.0.i.ph28.i3298102 = phi i8 [ %.sroa.0.0.i.ph28.i32, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i35" ], [ 1, %.thread94 ]
   %81 = phi ptr [ %71, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i35" ], [ %78, %.thread94 ]
-  %bcmp.i.i.i.i18.i36 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i19, ptr nonnull readonly %81, i64 %.val3.i.i20), !alias.scope !2074
+  %bcmp.i.i.i.i18.i36 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i19, ptr nonnull readonly align 1 %81, i64 %.val3.i.i20), !alias.scope !2074
   %82 = icmp ne i32 %bcmp.i.i.i.i18.i36, 0
   %.neg.i37 = sext i1 %82 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i29"
@@ -6518,7 +6518,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hf8b16c1e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2136)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2139)
-  %18 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6), !range !2141
+  %18 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !range !2141
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit"
 
@@ -6596,7 +6596,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hf8b16c1e
   call void @llvm.experimental.noalias.scope.decl(metadata !2183)
   call void @llvm.experimental.noalias.scope.decl(metadata !2185)
   call void @llvm.experimental.noalias.scope.decl(metadata !2188)
-  %43 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
+  %43 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc18 unwind label %52
 
 .noexc18:                                         ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17hb99776c0952d2aabE.exit3.i15"
@@ -6681,7 +6681,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2241)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2243)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2246)
-  %22 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11), !range !2141
+  %22 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !range !2141
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit"
 
@@ -6740,7 +6740,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   call void @llvm.experimental.noalias.scope.decl(metadata !2289)
   call void @llvm.experimental.noalias.scope.decl(metadata !2291)
   call void @llvm.experimental.noalias.scope.decl(metadata !2294)
-  %41 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9), !range !2141
+  %41 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9), !range !2141
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit26"
 
@@ -6806,7 +6806,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   call void @llvm.experimental.noalias.scope.decl(metadata !2337)
   call void @llvm.experimental.noalias.scope.decl(metadata !2339)
   call void @llvm.experimental.noalias.scope.decl(metadata !2342)
-  %67 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !range !2141
+  %67 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !range !2141
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %69, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit32"
 
@@ -6863,7 +6863,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   call void @llvm.experimental.noalias.scope.decl(metadata !2385)
   call void @llvm.experimental.noalias.scope.decl(metadata !2387)
   call void @llvm.experimental.noalias.scope.decl(metadata !2390)
-  %84 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5), !range !2141
+  %84 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5), !range !2141
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit38"
 
@@ -6924,7 +6924,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   call void @llvm.experimental.noalias.scope.decl(metadata !2433)
   call void @llvm.experimental.noalias.scope.decl(metadata !2435)
   call void @llvm.experimental.noalias.scope.decl(metadata !2438)
-  %101 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3), !range !2141
+  %101 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3), !range !2141
   %102 = icmp eq i8 %101, 0
   br i1 %102, label %103, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit44"
 
@@ -7001,7 +7001,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br i1 %.not.i.i.i.i, label %.thread26.i, label %24
 
 24:                                               ; preds = %16
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %20, i64 %.val3.i.i), !alias.scope !2444
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %20, i64 %.val3.i.i), !alias.scope !2444
   %25 = icmp ne i32 %bcmp.i.i.i.i.i, 0
   %26 = zext i1 %25 to i8
   %27 = icmp ult i64 %.val22, %.val5.i.i
@@ -7052,7 +7052,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread": ; preds = %.thread117, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i"
   %.sroa.0.0.i.ph28.i121125 = phi i8 [ %.sroa.0.0.i.ph28.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ 1, %.thread117 ]
   %43 = phi ptr [ %33, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ %40, %.thread117 ]
-  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %43, i64 %.val3.i.i), !alias.scope !2451
+  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %43, i64 %.val3.i.i), !alias.scope !2451
   %44 = icmp ne i32 %bcmp.i.i.i.i18.i, 0
   %.neg.i = sext i1 %44 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i"
@@ -7100,7 +7100,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br i1 %.not.i.i.i.i57, label %.thread26.i60, label %58
 
 58:                                               ; preds = %50
-  %bcmp.i.i.i.i.i59 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %54, i64 %.val3.i.i), !alias.scope !2458
+  %bcmp.i.i.i.i.i59 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %54, i64 %.val3.i.i), !alias.scope !2458
   %59 = icmp ne i32 %bcmp.i.i.i.i.i59, 0
   %60 = zext i1 %59 to i8
   %61 = icmp ult i64 %.val2521, %.val5.i.i
@@ -7151,7 +7151,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i51.thread": ; preds = %.thread127, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i51"
   %.sroa.0.0.i.ph28.i48131135 = phi i8 [ %.sroa.0.0.i.ph28.i48, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i51" ], [ 1, %.thread127 ]
   %77 = phi ptr [ %67, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i51" ], [ %74, %.thread127 ]
-  %bcmp.i.i.i.i18.i52 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %77, i64 %.val3.i.i), !alias.scope !2465
+  %bcmp.i.i.i.i18.i52 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %77, i64 %.val3.i.i), !alias.scope !2465
   %78 = icmp ne i32 %bcmp.i.i.i.i18.i52, 0
   %.neg.i53 = sext i1 %78 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i45"
@@ -7223,7 +7223,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br i1 %.not.i.i.i.i86, label %.thread26.i89, label %105
 
 105:                                              ; preds = %97
-  %bcmp.i.i.i.i.i88 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i64, ptr nonnull readonly %101, i64 %.val3.i.i65), !alias.scope !2472
+  %bcmp.i.i.i.i.i88 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i64, ptr nonnull readonly align 1 %101, i64 %.val3.i.i65), !alias.scope !2472
   %106 = icmp ne i32 %bcmp.i.i.i.i.i88, 0
   %107 = zext i1 %106 to i8
   %108 = icmp ult i64 %.val28, %.val5.i.i66
@@ -7274,7 +7274,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i80.thread": ; preds = %.thread137, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i80"
   %.sroa.0.0.i.ph28.i77141145 = phi i8 [ %.sroa.0.0.i.ph28.i77, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i80" ], [ 1, %.thread137 ]
   %124 = phi ptr [ %114, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i80" ], [ %121, %.thread137 ]
-  %bcmp.i.i.i.i18.i81 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i64, ptr nonnull readonly %124, i64 %.val3.i.i65), !alias.scope !2479
+  %bcmp.i.i.i.i18.i81 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i64, ptr nonnull readonly align 1 %124, i64 %.val3.i.i65), !alias.scope !2479
   %125 = icmp ne i32 %bcmp.i.i.i.i18.i81, 0
   %.neg.i82 = sext i1 %125 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i74"
@@ -7320,7 +7320,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br i1 %.not.i.i.i.i115, label %.thread26.i118, label %139
 
 139:                                              ; preds = %131
-  %bcmp.i.i.i.i.i117 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i64, ptr nonnull readonly %135, i64 %.val3.i.i65), !alias.scope !2486
+  %bcmp.i.i.i.i.i117 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i64, ptr nonnull readonly align 1 %135, i64 %.val3.i.i65), !alias.scope !2486
   %140 = icmp ne i32 %bcmp.i.i.i.i.i117, 0
   %141 = zext i1 %140 to i8
   %142 = icmp ult i64 %.val3170, %.val5.i.i66
@@ -7371,7 +7371,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i109.thread": ; preds = %.thread147, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i109"
   %.sroa.0.0.i.ph28.i106151155 = phi i8 [ %.sroa.0.0.i.ph28.i106, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i109" ], [ 1, %.thread147 ]
   %158 = phi ptr [ %148, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i109" ], [ %155, %.thread147 ]
-  %bcmp.i.i.i.i18.i110 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i64, ptr nonnull readonly %158, i64 %.val3.i.i65), !alias.scope !2493
+  %bcmp.i.i.i.i18.i110 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i64, ptr nonnull readonly align 1 %158, i64 %.val3.i.i65), !alias.scope !2493
   %159 = icmp ne i32 %bcmp.i.i.i.i18.i110, 0
   %.neg.i111 = sext i1 %159 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i103"
@@ -7439,7 +7439,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br i1 %.not.i.i.i.i144, label %.thread26.i147, label %176
 
 176:                                              ; preds = %168
-  %bcmp.i.i.i.i.i146 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i122, ptr nonnull readonly %172, i64 %.val3.i.i123), !alias.scope !2500
+  %bcmp.i.i.i.i.i146 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i122, ptr nonnull readonly align 1 %172, i64 %.val3.i.i123), !alias.scope !2500
   %177 = icmp ne i32 %bcmp.i.i.i.i.i146, 0
   %178 = zext i1 %177 to i8
   %179 = icmp ult i64 %.sroa.02.0.val179, %.val5.i.i124
@@ -7490,7 +7490,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i138.thread": ; preds = %.thread181, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i138"
   %.sroa.0.0.i.ph28.i135185189 = phi i8 [ %.sroa.0.0.i.ph28.i135, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i138" ], [ 1, %.thread181 ]
   %195 = phi ptr [ %185, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i138" ], [ %192, %.thread181 ]
-  %bcmp.i.i.i.i18.i139 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i122, ptr nonnull readonly %195, i64 %.val3.i.i123), !alias.scope !2507
+  %bcmp.i.i.i.i18.i139 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i122, ptr nonnull readonly align 1 %195, i64 %.val3.i.i123), !alias.scope !2507
   %196 = icmp ne i32 %bcmp.i.i.i.i18.i139, 0
   %.neg.i140 = sext i1 %196 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i132"
@@ -7780,7 +7780,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   br i1 %.not.i.i.i.i, label %.thread26.i, label %32
 
 32:                                               ; preds = %24
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %28, i64 %.val3.i.i), !alias.scope !2514
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %28, i64 %.val3.i.i), !alias.scope !2514
   %33 = icmp ne i32 %bcmp.i.i.i.i.i, 0
   %34 = zext i1 %33 to i8
   %35 = icmp ult i64 %.sroa.0.0.val, %.val5.i.i
@@ -7831,7 +7831,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread": ; preds = %.thread41, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i"
   %.sroa.0.0.i.ph28.i4650 = phi i8 [ %.sroa.0.0.i.ph28.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ 1, %.thread41 ]
   %51 = phi ptr [ %41, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ %48, %.thread41 ]
-  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %51, i64 %.val3.i.i), !alias.scope !2521
+  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %51, i64 %.val3.i.i), !alias.scope !2521
   %52 = icmp ne i32 %bcmp.i.i.i.i18.i, 0
   %.neg.i25 = sext i1 %52 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i"
@@ -7895,7 +7895,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   br i1 %.not.i.i.i.i50, label %.thread26.i53, label %77
 
 77:                                               ; preds = %69
-  %bcmp.i.i.i.i.i52 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i28, ptr nonnull readonly %73, i64 %.val3.i.i29), !alias.scope !2532
+  %bcmp.i.i.i.i.i52 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i28, ptr nonnull readonly align 1 %73, i64 %.val3.i.i29), !alias.scope !2532
   %78 = icmp ne i32 %bcmp.i.i.i.i.i52, 0
   %79 = zext i1 %78 to i8
   %80 = icmp ult i64 %.sroa.013.0.val, %.val5.i.i30
@@ -7946,7 +7946,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i44.thread": ; preds = %.thread52, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i44"
   %.sroa.0.0.i.ph28.i415660 = phi i8 [ %.sroa.0.0.i.ph28.i41, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i44" ], [ 1, %.thread52 ]
   %96 = phi ptr [ %86, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i44" ], [ %93, %.thread52 ]
-  %bcmp.i.i.i.i18.i45 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i28, ptr nonnull readonly %96, i64 %.val3.i.i29), !alias.scope !2539
+  %bcmp.i.i.i.i18.i45 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i28, ptr nonnull readonly align 1 %96, i64 %.val3.i.i29), !alias.scope !2539
   %97 = icmp ne i32 %bcmp.i.i.i.i18.i45, 0
   %.neg.i46 = sext i1 %97 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i38"
@@ -8679,7 +8679,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   call void @llvm.experimental.noalias.scope.decl(metadata !2629)
   call void @llvm.experimental.noalias.scope.decl(metadata !2631)
   call void @llvm.experimental.noalias.scope.decl(metadata !2634)
-  %59 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %13)
+  %59 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
           to label %.noexc25 unwind label %.loopexit
 
 .noexc25:                                         ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17hb99776c0952d2aabE.exit3.i.i"
@@ -8745,7 +8745,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   call void @llvm.experimental.noalias.scope.decl(metadata !2681)
   call void @llvm.experimental.noalias.scope.decl(metadata !2683)
   call void @llvm.experimental.noalias.scope.decl(metadata !2686)
-  %80 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11)
+  %80 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
           to label %.noexc28 unwind label %.loopexit
 
 .noexc28:                                         ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17hb99776c0952d2aabE.exit3.i27.i"
@@ -8884,7 +8884,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h791bcb5a5305a2c3E.ex
   call void @llvm.experimental.noalias.scope.decl(metadata !2738)
   call void @llvm.experimental.noalias.scope.decl(metadata !2740)
   call void @llvm.experimental.noalias.scope.decl(metadata !2743)
-  %127 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
+  %127 = call noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %129, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hc23b3a989ba460c3E.exit.i34"
 
@@ -8954,7 +8954,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h791bcb5a5305a2c3E.ex
   call void @llvm.experimental.noalias.scope.decl(metadata !2786)
   call void @llvm.experimental.noalias.scope.decl(metadata !2788)
   call void @llvm.experimental.noalias.scope.decl(metadata !2791)
-  %146 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6)
+  %146 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
           to label %.noexc18.i unwind label %155
 
 .noexc18.i:                                       ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17hb99776c0952d2aabE.exit3.i15.i"
@@ -9174,7 +9174,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h8eb28920a2313abaE.exit.i.thread:
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb09557197379b099E.exit34": ; preds = %42
   %.sroa.0.0.sroa.speculated.i35 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 32)
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %41, i64 noundef %.sroa.0.0.sroa.speculated.i35, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef 0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %41, i64 noundef %.sroa.0.0.sroa.speculated.i35, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef 0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   %71 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i35, 1
   %72 = or disjoint i64 %71, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17he4a16f31ec4d958fE.exit
@@ -9296,7 +9296,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he4a16f31ec4d958fE.exit: ; preds =
   %127 = trunc nuw nsw i64 %126 to i32
   %128 = shl nuw nsw i32 %127, 1
   %129 = xor i32 %128, 126
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %115, i64 noundef %111, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %129, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %115, i64 noundef %111, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %129, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %130
 
 130:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb09557197379b099E.exit", %121
@@ -9309,11 +9309,11 @@ _ZN4core5slice4sort6stable5drift10create_run17he4a16f31ec4d958fE.exit: ; preds =
   %134 = trunc nuw nsw i64 %133 to i32
   %135 = shl nuw nsw i32 %134, 1
   %136 = xor i32 %135, 126
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %131, i64 noundef %112, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %136, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %131, i64 noundef %112, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %136, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %137
 
 137:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e3a84a4cb8f267bE.exit32", %130
-  tail call void @_ZN4core5slice4sort6stable5merge5merge17h59397ac9ef91ff36E(ptr noalias noundef nonnull align 8 %115, i64 noundef %113, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %111, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  tail call void @_ZN4core5slice4sort6stable5merge5merge17h59397ac9ef91ff36E(ptr noalias noundef nonnull align 8 %115, i64 noundef range(i64 0, -1) %113, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %111, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   %138 = shl i64 %113, 1
   %139 = or disjoint i64 %138, 1
   br label %_ZN4core5slice4sort6stable5drift13logical_merge17hd616329bb6ff0ea5E.exit
@@ -9340,7 +9340,7 @@ _ZN4core5slice4sort6stable5drift13logical_merge17hd616329bb6ff0ea5E.exit: ; pred
   %150 = trunc nuw nsw i64 %149 to i32
   %151 = shl nuw nsw i32 %150, 1
   %152 = xor i32 %151, 126
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %152, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42696c6f61ab741bE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %152, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %153
 
 153:                                              ; preds = %145, %147
@@ -9439,7 +9439,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h95da6a8880697b1dE(pt
   br i1 %.not.i.i.i.i93, label %.thread26.i96, label %45
 
 45:                                               ; preds = %37
-  %bcmp.i.i.i.i.i95 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i71, ptr nonnull readonly %41, i64 %.val3.i.i72), !alias.scope !2832, !noalias !2831
+  %bcmp.i.i.i.i.i95 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i71, ptr nonnull readonly align 1 %41, i64 %.val3.i.i72), !alias.scope !2832, !noalias !2831
   %46 = icmp ne i32 %bcmp.i.i.i.i.i95, 0
   %47 = zext i1 %46 to i8
   %48 = icmp ult i64 %.val11.i, %.val5.i.i73
@@ -9490,7 +9490,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h95da6a8880697b1dE(pt
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i87.thread": ; preds = %.thread197, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i87"
   %.sroa.0.0.i.ph28.i84201205 = phi i8 [ %.sroa.0.0.i.ph28.i84, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i87" ], [ 1, %.thread197 ]
   %64 = phi ptr [ %54, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i87" ], [ %61, %.thread197 ]
-  %bcmp.i.i.i.i18.i88 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i71, ptr nonnull readonly %64, i64 %.val3.i.i72), !alias.scope !2839, !noalias !2831
+  %bcmp.i.i.i.i18.i88 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i71, ptr nonnull readonly align 1 %64, i64 %.val3.i.i72), !alias.scope !2839, !noalias !2831
   %65 = icmp ne i32 %bcmp.i.i.i.i18.i88, 0
   %.neg.i89 = sext i1 %65 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i81"
@@ -9603,7 +9603,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h95da6a8880697b1dE(pt
   br i1 %.not.i.i.i.i64, label %.thread26.i67, label %100
 
 100:                                              ; preds = %94
-  %bcmp.i.i.i.i.i66 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i42, ptr nonnull readonly %97, i64 %.val3.i.i43), !alias.scope !2846, !noalias !2831
+  %bcmp.i.i.i.i.i66 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i42, ptr nonnull readonly align 1 %97, i64 %.val3.i.i43), !alias.scope !2846, !noalias !2831
   %101 = icmp ne i32 %bcmp.i.i.i.i.i66, 0
   %102 = zext i1 %101 to i8
   %103 = icmp ult i64 %.val8.i, %.val5.i.i44
@@ -9652,7 +9652,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h95da6a8880697b1dE(pt
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i58.thread": ; preds = %.thread211, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i58"
   %.sroa.0.0.i.ph28.i55215219 = phi i8 [ %.sroa.0.0.i.ph28.i55, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i58" ], [ 1, %.thread211 ]
   %118 = phi ptr [ %109, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i58" ], [ %115, %.thread211 ]
-  %bcmp.i.i.i.i18.i59 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i42, ptr nonnull readonly %118, i64 %.val3.i.i43), !alias.scope !2853, !noalias !2831
+  %bcmp.i.i.i.i18.i59 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i42, ptr nonnull readonly align 1 %118, i64 %.val3.i.i43), !alias.scope !2853, !noalias !2831
   %119 = icmp ne i32 %bcmp.i.i.i.i18.i59, 0
   %.neg.i60 = sext i1 %119 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i52"
@@ -9698,7 +9698,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h95da6a8880697b1dE(pt
   br i1 %.not.i.i.i.i, label %.thread26.i, label %133
 
 133:                                              ; preds = %127
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %130, i64 %.val3.i.i), !alias.scope !2860, !noalias !2831
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %130, i64 %.val3.i.i), !alias.scope !2860, !noalias !2831
   %134 = icmp ne i32 %bcmp.i.i.i.i.i, 0
   %135 = zext i1 %134 to i8
   %136 = icmp ult i64 %.val5.i, %.val5.i.i
@@ -9747,7 +9747,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h95da6a8880697b1dE(pt
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread": ; preds = %.thread221, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i"
   %.sroa.0.0.i.ph28.i225229 = phi i8 [ %.sroa.0.0.i.ph28.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ 1, %.thread221 ]
   %151 = phi ptr [ %142, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ %148, %.thread221 ]
-  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %151, i64 %.val3.i.i), !alias.scope !2867, !noalias !2831
+  %bcmp.i.i.i.i18.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %151, i64 %.val3.i.i), !alias.scope !2867, !noalias !2831
   %152 = icmp ne i32 %bcmp.i.i.i.i18.i, 0
   %.neg.i = sext i1 %152 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i"
@@ -9788,7 +9788,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h318b2fe16b0d6565E.exit.i: ; pred
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1bbe4014c65a7a54E.exit34": ; preds = %24
   %.sroa.0.0.sroa.speculated.i35 = tail call noundef i64 @llvm.umin.i64(i64 %22, i64 32)
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %23, i64 noundef %.sroa.0.0.sroa.speculated.i35, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef 0, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %23, i64 noundef %.sroa.0.0.sroa.speculated.i35, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef 0, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   %159 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i35, 1
   %160 = or disjoint i64 %159, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h4ec1e388189930f2E.exit
@@ -9893,7 +9893,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h4ec1e388189930f2E.exit: ; preds =
   %209 = trunc nuw nsw i64 %208 to i32
   %210 = shl nuw nsw i32 %209, 1
   %211 = xor i32 %210, 126
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %197, i64 noundef %193, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %211, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %197, i64 noundef %193, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %211, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %212
 
 212:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1bbe4014c65a7a54E.exit", %203
@@ -9906,11 +9906,11 @@ _ZN4core5slice4sort6stable5drift10create_run17h4ec1e388189930f2E.exit: ; preds =
   %216 = trunc nuw nsw i64 %215 to i32
   %217 = shl nuw nsw i32 %216, 1
   %218 = xor i32 %217, 126
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %213, i64 noundef %194, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %218, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %213, i64 noundef %194, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %218, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %219
 
 219:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2c3cdaa6b27cc96dE.exit32", %212
-  tail call void @_ZN4core5slice4sort6stable5merge5merge17h6a295e939d466006E(ptr noalias noundef nonnull align 8 %197, i64 noundef %195, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %193, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  tail call void @_ZN4core5slice4sort6stable5merge5merge17h6a295e939d466006E(ptr noalias noundef nonnull align 8 %197, i64 noundef range(i64 0, -1) %195, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %193, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   %220 = shl i64 %195, 1
   %221 = or disjoint i64 %220, 1
   br label %_ZN4core5slice4sort6stable5drift13logical_merge17he00791bae7dae424E.exit
@@ -9937,7 +9937,7 @@ _ZN4core5slice4sort6stable5drift13logical_merge17he00791bae7dae424E.exit: ; pred
   %232 = trunc nuw nsw i64 %231 to i32
   %233 = shl nuw nsw i32 %232, 1
   %234 = xor i32 %233, 126
-  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %234, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef align 8 dereferenceable(8) %5)
+  tail call fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5acf50d3778f8c83E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %234, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %235
 
 235:                                              ; preds = %227, %229
@@ -10027,7 +10027,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42
   unreachable
 
 53:                                               ; preds = %47
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hdc998f54d4ce2cf8E(ptr noundef %.sroa.0.0.ph.lcssa85, ptr noundef %2)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hdc998f54d4ce2cf8E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa85, ptr noundef nonnull align 8 %2)
   call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hdc998f54d4ce2cf8E(ptr noundef %50, ptr noundef %51)
   br label %55
 
@@ -10621,15 +10621,15 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5a
 27:                                               ; preds = %19
   %28 = getelementptr inbounds i64, ptr %2, i64 %.sroa.12.0.lcssa
   %.val27.i = load ptr, ptr %6, align 8, !alias.scope !2952, !noalias !2954, !nonnull !4, !align !5, !noundef !4
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %.sroa.0.0.ph.lcssa169, ptr noundef %28, ptr nonnull %.val27.i), !noalias !2952
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull readonly align 8 %.sroa.0.0.ph.lcssa169, ptr noundef nonnull %28, ptr nonnull %.val27.i), !noalias !2952
   %29 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.lcssa169, i64 32
   %30 = getelementptr inbounds i8, ptr %28, i64 32
   call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %29, ptr noundef %30, ptr nonnull %.val27.i), !noalias !2952
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %28, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27.i), !noalias !2955
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %28, i64 noundef 8, ptr noundef nonnull align 8 %2, ptr nonnull %.val27.i), !noalias !2955
   %31 = getelementptr inbounds i64, ptr %.sroa.0.0.ph.lcssa169, i64 %20
   %32 = getelementptr inbounds i64, ptr %2, i64 %20
   %33 = getelementptr inbounds i8, ptr %28, i64 64
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %31, ptr noundef %33, ptr nonnull %.val27.i), !noalias !2952
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull readonly %31, ptr noundef nonnull %33, ptr nonnull %.val27.i), !noalias !2952
   %34 = getelementptr inbounds i8, ptr %31, i64 32
   %35 = getelementptr inbounds i8, ptr %28, i64 96
   call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %34, ptr noundef %35, ptr nonnull %.val27.i), !noalias !2952
@@ -10638,7 +10638,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5a
 
 36:                                               ; preds = %23
   %.val24.i = load ptr, ptr %6, align 8, !alias.scope !2952, !noalias !2954, !nonnull !4, !align !5, !noundef !4
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef %.sroa.0.0.ph.lcssa169, ptr noundef %2, ptr nonnull %.val24.i), !noalias !2952
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa169, ptr noundef nonnull align 8 %2, ptr nonnull %.val24.i), !noalias !2952
   call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef %25, ptr noundef %26, ptr nonnull %.val24.i), !noalias !2952
   br label %40
 
@@ -10665,7 +10665,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5a
 42:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !2957
   %.val25.i = load ptr, ptr %6, align 8, !alias.scope !2952, !noalias !2954
-  invoke fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %.sroa.12.0.lcssa, ptr noundef nonnull %.sroa.0.0.ph.lcssa169, ptr %.val25.i)
+  invoke fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef range(i64 0, 33) %.sroa.12.0.lcssa, ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa169, ptr %.val25.i)
           to label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f393e8c612E.exit unwind label %52, !noalias !2952
 
 43:                                               ; preds = %40, %.loopexit.i
@@ -10754,7 +10754,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i, label %.thread26.i, label %85
 
 85:                                               ; preds = %77
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %81, i64 %.val3.i.i), !alias.scope !2966
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %81, i64 %.val3.i.i), !alias.scope !2966
   %86 = icmp ne i32 %bcmp.i.i.i.i.i, 0
   %87 = zext i1 %86 to i8
   %88 = icmp ult i64 %65, %.val5.i.i
@@ -10805,7 +10805,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread": ; preds = %.thread260, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i"
   %.sroa.0.0.i.ph28.i264268 = phi i8 [ %.sroa.0.0.i.ph28.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ 1, %.thread260 ]
   %104 = phi ptr [ %94, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i" ], [ %101, %.thread260 ]
-  %bcmp.i.i.i.i18.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %104, i64 %.val3.i.i), !alias.scope !2973
+  %bcmp.i.i.i.i18.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i, ptr nonnull readonly align 1 %104, i64 %.val3.i.i), !alias.scope !2973
   %105 = icmp ne i32 %bcmp.i.i.i.i18.i, 0
   %.neg.i = sext i1 %105 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i"
@@ -10928,7 +10928,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i.i, label %.thread26.i.i, label %156
 
 156:                                              ; preds = %150
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %153, i64 %.val3.i.i.i), !alias.scope !2998, !noalias !2983
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %153, i64 %.val3.i.i.i), !alias.scope !2998, !noalias !2983
   %157 = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
   %158 = zext i1 %157 to i8
   br i1 %146, label %159, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf5586c3fe49574f3E.exit.i.thread"
@@ -10974,7 +10974,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i", %.thread113.i
   %.sroa.0.0.i.ph28.i117121.i = phi i8 [ %.sroa.0.0.i.ph28.i.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i" ], [ 1, %.thread113.i ]
   %171 = phi ptr [ %162, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i" ], [ %168, %.thread113.i ]
-  %bcmp.i.i.i.i18.i.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %171, i64 %.val3.i.i.i), !alias.scope !3005, !noalias !2983
+  %bcmp.i.i.i.i18.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %171, i64 %.val3.i.i.i), !alias.scope !3005, !noalias !2983
   %172 = icmp ne i32 %bcmp.i.i.i.i18.i.i, 0
   %.neg.i.i = sext i1 %172 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i.i"
@@ -11020,7 +11020,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i51.i, label %.thread26.i54.i, label %186
 
 186:                                              ; preds = %180
-  %bcmp.i.i.i.i.i53.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %183, i64 %.val3.i.i.i), !alias.scope !3012, !noalias !2983
+  %bcmp.i.i.i.i.i53.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %183, i64 %.val3.i.i.i), !alias.scope !3012, !noalias !2983
   %187 = icmp ne i32 %bcmp.i.i.i.i.i53.i, 0
   %188 = zext i1 %187 to i8
   br i1 %146, label %189, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf5586c3fe49574f3E.exit55.i.thread"
@@ -11066,7 +11066,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i45.thread.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i45.i", %.thread123.i
   %.sroa.0.0.i.ph28.i42127131.i = phi i8 [ %.sroa.0.0.i.ph28.i42.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i45.i" ], [ 1, %.thread123.i ]
   %201 = phi ptr [ %192, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i45.i" ], [ %198, %.thread123.i ]
-  %bcmp.i.i.i.i18.i46.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %201, i64 %.val3.i.i.i), !alias.scope !3019, !noalias !2983
+  %bcmp.i.i.i.i18.i46.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %201, i64 %.val3.i.i.i), !alias.scope !3019, !noalias !2983
   %202 = icmp ne i32 %bcmp.i.i.i.i18.i46.i, 0
   %.neg.i47.i = sext i1 %202 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i39.i"
@@ -11112,7 +11112,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i81.i, label %.thread26.i84.i, label %216
 
 216:                                              ; preds = %210
-  %bcmp.i.i.i.i.i83.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %213, i64 %.val3.i.i.i), !alias.scope !3026, !noalias !2983
+  %bcmp.i.i.i.i.i83.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %213, i64 %.val3.i.i.i), !alias.scope !3026, !noalias !2983
   %217 = icmp ne i32 %bcmp.i.i.i.i.i83.i, 0
   %218 = zext i1 %217 to i8
   br i1 %146, label %219, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf5586c3fe49574f3E.exit85.i.thread"
@@ -11158,7 +11158,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i75.thread.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i75.i", %.thread133.i
   %.sroa.0.0.i.ph28.i72137141.i = phi i8 [ %.sroa.0.0.i.ph28.i72.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i75.i" ], [ 1, %.thread133.i ]
   %231 = phi ptr [ %222, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i75.i" ], [ %228, %.thread133.i ]
-  %bcmp.i.i.i.i18.i76.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %231, i64 %.val3.i.i.i), !alias.scope !3033, !noalias !2983
+  %bcmp.i.i.i.i18.i76.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %231, i64 %.val3.i.i.i), !alias.scope !3033, !noalias !2983
   %232 = icmp ne i32 %bcmp.i.i.i.i18.i76.i, 0
   %.neg.i77.i = sext i1 %232 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i69.i"
@@ -11204,7 +11204,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i111.i, label %.thread26.i114.i, label %246
 
 246:                                              ; preds = %240
-  %bcmp.i.i.i.i.i113.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %243, i64 %.val3.i.i.i), !alias.scope !3040, !noalias !2983
+  %bcmp.i.i.i.i.i113.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %243, i64 %.val3.i.i.i), !alias.scope !3040, !noalias !2983
   %247 = icmp ne i32 %bcmp.i.i.i.i.i113.i, 0
   %248 = zext i1 %247 to i8
   br i1 %146, label %249, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.thread.i.i94.i"
@@ -11250,7 +11250,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i105.thread.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i105.i", %.thread143.i
   %.sroa.0.0.i.ph28.i102147151.i = phi i8 [ %.sroa.0.0.i.ph28.i102.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i105.i" ], [ 1, %.thread143.i ]
   %261 = phi ptr [ %252, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i105.i" ], [ %258, %.thread143.i ]
-  %bcmp.i.i.i.i18.i106.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i, ptr nonnull readonly %261, i64 %.val3.i.i.i), !alias.scope !3047, !noalias !2983
+  %bcmp.i.i.i.i18.i106.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i, ptr nonnull readonly align 1 %261, i64 %.val3.i.i.i), !alias.scope !3047, !noalias !2983
   %262 = icmp ne i32 %bcmp.i.i.i.i18.i106.i, 0
   %.neg.i107.i = sext i1 %262 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i99.i"
@@ -11354,7 +11354,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i141.i, label %.thread26.i144.i, label %296
 
 296:                                              ; preds = %290
-  %bcmp.i.i.i.i.i143.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i119.i, ptr nonnull readonly %293, i64 %.val3.i.i120.i), !alias.scope !3057, !noalias !2983
+  %bcmp.i.i.i.i.i143.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i119.i, ptr nonnull readonly align 1 %293, i64 %.val3.i.i120.i), !alias.scope !3057, !noalias !2983
   %297 = icmp ne i32 %bcmp.i.i.i.i.i143.i, 0
   %298 = zext i1 %297 to i8
   br i1 %285, label %299, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.thread.i.i124.i"
@@ -11400,7 +11400,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i135.thread.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i135.i", %.thread153.i
   %.sroa.0.0.i.ph28.i132157161.i = phi i8 [ %.sroa.0.0.i.ph28.i132.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i135.i" ], [ 1, %.thread153.i ]
   %311 = phi ptr [ %302, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i135.i" ], [ %308, %.thread153.i ]
-  %bcmp.i.i.i.i18.i136.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i119.i, ptr nonnull readonly %311, i64 %.val3.i.i120.i), !alias.scope !3064, !noalias !2983
+  %bcmp.i.i.i.i18.i136.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i119.i, ptr nonnull readonly align 1 %311, i64 %.val3.i.i120.i), !alias.scope !3064, !noalias !2983
   %312 = icmp ne i32 %bcmp.i.i.i.i18.i136.i, 0
   %.neg.i137.i = sext i1 %312 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i129.i"
@@ -11537,7 +11537,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i.i.i, label %.thread26.i.i.i, label %362
 
 362:                                              ; preds = %355
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i.i, ptr nonnull readonly %358, i64 %.val3.i.i.i.i), !alias.scope !3080, !noalias !3078
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i.i, ptr nonnull readonly align 1 %358, i64 %.val3.i.i.i.i), !alias.scope !3080, !noalias !3078
   %363 = icmp ne i32 %bcmp.i.i.i.i.i.i.i, 0
   %364 = zext i1 %363 to i8
   %365 = icmp ult i64 %.val13.i57, %.val5.i.i.i.i
@@ -11587,7 +11587,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread.i.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i.i", %.thread15.i.i
   %.sroa.0.0.i.ph28.i1923.i.i = phi i8 [ %.sroa.0.0.i.ph28.i.i.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i.i" ], [ 1, %.thread15.i.i ]
   %381 = phi ptr [ %371, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i.i" ], [ %378, %.thread15.i.i ]
-  %bcmp.i.i.i.i18.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i.i, ptr nonnull readonly %381, i64 %.val3.i.i.i.i), !alias.scope !3087, !noalias !3078
+  %bcmp.i.i.i.i18.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i.i, ptr nonnull readonly align 1 %381, i64 %.val3.i.i.i.i), !alias.scope !3087, !noalias !3078
   %382 = icmp ne i32 %bcmp.i.i.i.i18.i.i.i, 0
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i.i.i"
@@ -11647,7 +11647,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i.i56.i, label %.thread26.i.i58.i, label %399
 
 399:                                              ; preds = %392
-  %bcmp.i.i.i.i.i.i57.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i30.i, ptr nonnull readonly %395, i64 %.val3.i.i.i31.i), !alias.scope !3097, !noalias !3078
+  %bcmp.i.i.i.i.i.i57.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i30.i, ptr nonnull readonly align 1 %395, i64 %.val3.i.i.i31.i), !alias.scope !3097, !noalias !3078
   %400 = icmp ne i32 %bcmp.i.i.i.i.i.i57.i, 0
   %401 = zext i1 %400 to i8
   %402 = icmp ult i64 %.val16.i62115, %.val5.i.i.i32.i
@@ -11697,7 +11697,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread.i43.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i42.i", %.thread15.i59.i
   %.sroa.0.0.i.ph28.i1923.i44.i = phi i8 [ %.sroa.0.0.i.ph28.i.i40.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i42.i" ], [ 1, %.thread15.i59.i ]
   %418 = phi ptr [ %408, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i42.i" ], [ %415, %.thread15.i59.i ]
-  %bcmp.i.i.i.i18.i.i45.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i30.i, ptr nonnull readonly %418, i64 %.val3.i.i.i31.i), !alias.scope !3104, !noalias !3078
+  %bcmp.i.i.i.i18.i.i45.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i30.i, ptr nonnull readonly align 1 %418, i64 %.val3.i.i.i31.i), !alias.scope !3104, !noalias !3078
   %419 = icmp ne i32 %bcmp.i.i.i.i18.i.i45.i, 0
   %.neg.i.i46.i = sext i1 %419 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i.i47.i"
@@ -11757,7 +11757,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i.i92.i, label %.thread26.i.i94.i, label %436
 
 436:                                              ; preds = %429
-  %bcmp.i.i.i.i.i.i93.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i66.i, ptr nonnull readonly %432, i64 %.val3.i.i.i67.i), !alias.scope !3114, !noalias !3078
+  %bcmp.i.i.i.i.i.i93.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i66.i, ptr nonnull readonly align 1 %432, i64 %.val3.i.i.i67.i), !alias.scope !3114, !noalias !3078
   %437 = icmp ne i32 %bcmp.i.i.i.i.i.i93.i, 0
   %438 = zext i1 %437 to i8
   %439 = icmp ult i64 %.val19.i64125, %.val5.i.i.i68.i
@@ -11807,7 +11807,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread.i79.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i78.i", %.thread15.i95.i
   %.sroa.0.0.i.ph28.i1923.i80.i = phi i8 [ %.sroa.0.0.i.ph28.i.i76.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i78.i" ], [ 1, %.thread15.i95.i ]
   %455 = phi ptr [ %445, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i78.i" ], [ %452, %.thread15.i95.i ]
-  %bcmp.i.i.i.i18.i.i81.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i66.i, ptr nonnull readonly %455, i64 %.val3.i.i.i67.i), !alias.scope !3121, !noalias !3078
+  %bcmp.i.i.i.i18.i.i81.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i66.i, ptr nonnull readonly align 1 %455, i64 %.val3.i.i.i67.i), !alias.scope !3121, !noalias !3078
   %456 = icmp ne i32 %bcmp.i.i.i.i18.i.i81.i, 0
   %.neg.i.i82.i = sext i1 %456 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i.i83.i"
@@ -11897,7 +11897,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i.i128.i, label %.thread26.i.i130.i, label %491
 
 491:                                              ; preds = %484
-  %bcmp.i.i.i.i.i.i129.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i102.i, ptr nonnull readonly %487, i64 %.val3.i.i.i103.i), !alias.scope !3131, !noalias !3078
+  %bcmp.i.i.i.i.i.i129.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i102.i, ptr nonnull readonly align 1 %487, i64 %.val3.i.i.i103.i), !alias.scope !3131, !noalias !3078
   %492 = icmp ne i32 %bcmp.i.i.i.i.i.i129.i, 0
   %493 = zext i1 %492 to i8
   %494 = icmp ult i64 %.val22.i66135, %.val5.i.i.i104.i
@@ -11947,7 +11947,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread.i115.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i114.i", %.thread15.i131.i
   %.sroa.0.0.i.ph28.i1923.i116.i = phi i8 [ %.sroa.0.0.i.ph28.i.i112.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i114.i" ], [ 1, %.thread15.i131.i ]
   %510 = phi ptr [ %500, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i114.i" ], [ %507, %.thread15.i131.i ]
-  %bcmp.i.i.i.i18.i.i117.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i102.i, ptr nonnull readonly %510, i64 %.val3.i.i.i103.i), !alias.scope !3138, !noalias !3078
+  %bcmp.i.i.i.i18.i.i117.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i102.i, ptr nonnull readonly align 1 %510, i64 %.val3.i.i.i103.i), !alias.scope !3138, !noalias !3078
   %511 = icmp ne i32 %bcmp.i.i.i.i18.i.i117.i, 0
   %.neg.i.i118.i = sext i1 %511 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i.i119.i"
@@ -12055,7 +12055,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
   br i1 %.not.i.i.i.i.i164.i, label %.thread26.i.i166.i, label %546
 
 546:                                              ; preds = %540
-  %bcmp.i.i.i.i.i.i165.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i138.i, ptr nonnull readonly %543, i64 %.val3.i.i.i139.i), !alias.scope !3151, !noalias !3078
+  %bcmp.i.i.i.i.i.i165.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i138.i, ptr nonnull readonly align 1 %543, i64 %.val3.i.i.i139.i), !alias.scope !3151, !noalias !3078
   %547 = icmp ne i32 %bcmp.i.i.i.i.i.i165.i, 0
   %548 = zext i1 %547 to i8
   %549 = icmp ult i64 %.val25.i54, %.val5.i.i.i140.i
@@ -12104,7 +12104,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc3d3e0f3
 "_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.thread.i151.i": ; preds = %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i150.i", %.thread15.i167.i
   %.sroa.0.0.i.ph28.i1923.i152.i = phi i8 [ %.sroa.0.0.i.ph28.i.i148.i, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i150.i" ], [ 1, %.thread15.i167.i ]
   %564 = phi ptr [ %555, %"_ZN90_$LT$file_finder..open_path_prompt..OpenPathDelegate$u20$as$u20$picker..PickerDelegate$GT$14update_matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h26cd19258244ed43E.exit19.i.i150.i" ], [ %561, %.thread15.i167.i ]
-  %bcmp.i.i.i.i18.i.i153.i = call i32 @bcmp(ptr nonnull readonly %.val2.i.i.i138.i, ptr nonnull readonly %564, i64 %.val3.i.i.i139.i), !alias.scope !3158, !noalias !3078
+  %bcmp.i.i.i.i18.i.i153.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val2.i.i.i138.i, ptr nonnull readonly align 1 %564, i64 %.val3.i.i.i139.i), !alias.scope !3158, !noalias !3078
   %565 = icmp ne i32 %bcmp.i.i.i.i18.i.i153.i, 0
   %.neg.i.i154.i = sext i1 %565 to i8
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf02bcbea1181df79E.exit.i.i.i155.i"
@@ -12469,7 +12469,7 @@ define hidden void @_ZN4util13extend_sorted17h41998a964b1e1102E(ptr noalias noun
           to label %61 unwind label %.loopexit.split-lp46, !noalias !3188
 
 51:                                               ; preds = %47
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h92aff57459b1a09aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h92aff57459b1a09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %52 unwind label %.loopexit45, !noalias !3186
 
 52:                                               ; preds = %51, %47
@@ -12550,7 +12550,7 @@ define hidden void @_ZN4util13extend_sorted17h41998a964b1e1102E(ptr noalias noun
           to label %89 unwind label %.loopexit.split-lp42, !noalias !3197
 
 79:                                               ; preds = %75
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h92aff57459b1a09aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h92aff57459b1a09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %80 unwind label %.loopexit41, !noalias !3195
 
 80:                                               ; preds = %79, %75
@@ -12800,7 +12800,7 @@ define hidden void @_ZN4util13extend_sorted17h652f0f62d5788e7fE(ptr noalias noun
           to label %70 unwind label %.loopexit.split-lp47, !noalias !3215
 
 60:                                               ; preds = %56
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h724973faead50a48E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h724973faead50a48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %61 unwind label %.loopexit46, !noalias !3213
 
 61:                                               ; preds = %60, %56
@@ -12871,7 +12871,7 @@ define hidden void @_ZN4util13extend_sorted17h652f0f62d5788e7fE(ptr noalias noun
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hfb911e7f2540df98E.exit.i.i": ; preds = %83, %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3237
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdfd8e4650628be53E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdfd8e4650628be53E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit
 
 .noexc20:                                         ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hfb911e7f2540df98E.exit.i.i"
@@ -12913,7 +12913,7 @@ define hidden void @_ZN4util13extend_sorted17h652f0f62d5788e7fE(ptr noalias noun
           to label %109 unwind label %.loopexit.split-lp43, !noalias !3251
 
 99:                                               ; preds = %95
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h724973faead50a48E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h724973faead50a48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %100 unwind label %.loopexit42, !noalias !3249
 
 100:                                              ; preds = %99, %95
@@ -12995,7 +12995,7 @@ define hidden void @_ZN4util13extend_sorted17h652f0f62d5788e7fE(ptr noalias noun
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hfb911e7f2540df98E.exit.i": ; preds = %122, %.loopexit37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3272
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdfd8e4650628be53E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdfd8e4650628be53E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc25 unwind label %23
 
 .noexc25:                                         ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hfb911e7f2540df98E.exit.i"
@@ -13079,7 +13079,7 @@ define hidden void @_ZN4util21log_error_with_caller17hbabd900dbc4a7bfbE(ptr noal
   store i8 1, ptr %.sroa.616.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 65
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
-  %11 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h694cbe3b2dd87e60E"(ptr noalias noundef align 8 dereferenceable(72) %6)
+  %11 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h694cbe3b2dd87e60E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6)
           to label %14 unwind label %12
 
 12:                                               ; preds = %3, %31, %20, %18, %16
@@ -13304,7 +13304,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1595447337429131
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01f3a4768c9c570dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i": ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1595447337429131476.exit
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %1, i64 %52), !alias.scope !3294
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %52), !alias.scope !3294
   %53 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01f3a4768c9c570dE.exit"
 
@@ -13631,7 +13631,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$anyhow..context..Quoted$LT$C$GT$$u2
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !3313
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !3313
-  %7 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f5085a35d97da70442acfd9e2b30c9d2.94, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !3314
+  %7 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f5085a35d97da70442acfd9e2b30c9d2.94, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !3314
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3309
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -15198,7 +15198,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3482)
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !3485, !noalias !3487, !noundef !4
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %21)
           to label %24 unwind label %31
 
 24:                                               ; preds = %20
@@ -15483,7 +15483,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3579
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false), !noalias !3580
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3581)
-  %10 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i.i)
+  %10 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i.i)
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %.lr.ph.split.preheader.i
@@ -15508,7 +15508,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3579
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false), !noalias !3580
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3581)
-  %18 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i.i)
+  %18 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i.i.i)
           to label %.noexc3 unwind label %25
 
 .noexc3:                                          ; preds = %.lr.ph.split.us.i
@@ -15638,7 +15638,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %.val13 = phi i64 [ %.val13.pre, %.._crit_edge_crit_edge ], [ %208, %200 ]
   %.val12 = load ptr, ptr %1, align 8, !alias.scope !3633, !nonnull !4, !align !5, !noundef !4
   store i64 %.val13, ptr %.val12, align 8, !noalias !3638
-  call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4d88667515d5187E.llvm.67540068259918629"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4d88667515d5187E.llvm.67540068259918629"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
   ret void
 
 44:                                               ; preds = %.lr.ph, %200
@@ -16126,7 +16126,7 @@ _ZN8language6buffer14BufferSnapshot23language_indent_size_at17hd22639b39598ca11E
   %.val = load ptr, ptr %1, align 8, !alias.scope !3633, !nonnull !4, !align !5, !noundef !4
   %.val11 = load i64, ptr %41, align 8, !alias.scope !3633, !noundef !4
   store i64 %.val11, ptr %.val, align 8, !noalias !3752
-  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4d88667515d5187E.llvm.67540068259918629"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4d88667515d5187E.llvm.67540068259918629"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
           to label %"_ZN4core3ptr283drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..sync..Arc$LT$str$GT$$RP$$GT$$GT$$C$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17he996abcf5b9d3c88E.exit" unwind label %209
 
 "_ZN4core3ptr283drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..sync..Arc$LT$str$GT$$RP$$GT$$GT$$C$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17he996abcf5b9d3c88E.exit": ; preds = %.body
@@ -16263,7 +16263,7 @@ define hidden void @"_ZN11file_finder7Matches16push_new_matches28_$u7b$$u7b$clos
 
 35:                                               ; preds = %31
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit.i" unwind label %38, !noalias !3760
 
 36:                                               ; preds = %.noexc.i
@@ -16365,7 +16365,7 @@ define hidden void @"_ZN11file_finder7Matches16push_new_matches28_$u7b$$u7b$clos
 
 35:                                               ; preds = %31
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit.i" unwind label %38, !noalias !3784
 
 36:                                               ; preds = %.noexc.i
@@ -16467,7 +16467,7 @@ define hidden void @"_ZN11file_finder7Matches16push_new_matches28_$u7b$$u7b$clos
 
 35:                                               ; preds = %31
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit.i" unwind label %38, !noalias !3808
 
 36:                                               ; preds = %.noexc.i
@@ -16582,7 +16582,7 @@ define hidden void @"_ZN61_$LT$file_finder..FoundPath$u20$as$u20$core..clone..Cl
 
 36:                                               ; preds = %32
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1b6669cafd66d2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit" unwind label %39
 
 37:                                               ; preds = %.noexc

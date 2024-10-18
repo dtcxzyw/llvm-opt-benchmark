@@ -934,7 +934,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %61, %65, %69
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 84:                                               ; preds = %72
-  %85 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %74, i64 noundef 8, i32 noundef 0) #15
+  %85 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %84, %82
@@ -1161,7 +1161,7 @@ define linkonce_odr hidden void @_ZN6HandleC2EP6ThreadP7oopDesc(ptr noundef nonn
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #15
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %15, %17
@@ -1298,7 +1298,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZN25WeakPreserveEx
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 56:                                               ; preds = %44
-  %57 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %46, i64 noundef 8, i32 noundef 0) #15
+  %57 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %46, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %56, %54
@@ -1408,7 +1408,7 @@ _ZNK5Klass12class_loaderEv.exit38:                ; preds = %98
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i40
 
 118:                                              ; preds = %106
-  %119 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %108, i64 noundef 8, i32 noundef 0) #15
+  %119 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %108, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i40
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i40: ; preds = %118, %116
@@ -2769,7 +2769,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %_ZN10JNIHandles16re
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 66:                                               ; preds = %54
-  %67 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %56, i64 noundef 8, i32 noundef 0) #15
+  %67 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %56, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %66, %64
@@ -2805,7 +2805,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10JNIHandles16re
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i20
 
 85:                                               ; preds = %73
-  %86 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %75, i64 noundef 8, i32 noundef 0) #15
+  %86 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %75, i64 noundef 8, i32 noundef 0) #15
   %.pre = ptrtoint ptr %86 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i20
 
@@ -3069,7 +3069,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 38:                                               ; preds = %26
-  %39 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %28, i64 noundef 8, i32 noundef 0) #15
+  %39 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %28, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %36, %38
@@ -3693,7 +3693,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %32, %36, %40
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 55:                                               ; preds = %43
-  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 8, i32 noundef 0) #15
+  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %45, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %55, %53
@@ -3897,7 +3897,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %32, %36, %40
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 55:                                               ; preds = %43
-  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 8, i32 noundef 0) #15
+  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %45, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %55, %53
@@ -4790,7 +4790,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   %49 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %10, ptr noundef %46, i32 noundef 0) #15
   store i8 14, ptr %6, align 8
   %50 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %50)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %50)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %51, align 8
@@ -4910,7 +4910,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit.thread:   ; preds = %6, %_ZN10JNIHandles
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 37:                                               ; preds = %25
-  %38 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 noundef 8, i32 noundef 0) #15
+  %38 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %35, %37
@@ -5299,7 +5299,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   %49 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %10, ptr noundef %46, i32 noundef 0) #15
   store i8 14, ptr %6, align 8
   %50 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %50)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %50)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %51, ptr %3)
@@ -5469,7 +5469,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 14, ptr %6, align 8
   %50 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %50)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %50)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %51, ptr nonnull %5)
@@ -6490,7 +6490,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 4, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -6633,7 +6633,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 8, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -6776,7 +6776,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 5, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -6919,7 +6919,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 9, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -7062,7 +7062,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 12, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -7204,7 +7204,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 10, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -7346,7 +7346,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 11, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -7488,7 +7488,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 6, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -7630,7 +7630,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 7, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -7770,7 +7770,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !170
   store i8 4, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -7904,7 +7904,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !174
   store i8 8, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8038,7 +8038,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !178
   store i8 5, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8172,7 +8172,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !182
   store i8 9, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8306,7 +8306,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !186
   store i8 12, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8439,7 +8439,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !190
   store i8 10, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8572,7 +8572,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !194
   store i8 11, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8705,7 +8705,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !198
   store i8 6, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8838,7 +8838,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !202
   store i8 7, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -8971,7 +8971,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !206
   store i8 4, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9103,7 +9103,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !210
   store i8 8, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9235,7 +9235,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !214
   store i8 5, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9367,7 +9367,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !218
   store i8 9, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9499,7 +9499,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !222
   store i8 12, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9630,7 +9630,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !226
   store i8 10, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9761,7 +9761,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !230
   store i8 11, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -9892,7 +9892,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !234
   store i8 6, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -10023,7 +10023,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !238
   store i8 7, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -10156,7 +10156,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 14, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -10293,7 +10293,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !246
   store i8 14, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -10421,7 +10421,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !250
   store i8 14, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -10549,7 +10549,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 4, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -10693,7 +10693,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 8, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -10837,7 +10837,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 5, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -10981,7 +10981,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 9, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -11125,7 +11125,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 12, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -11268,7 +11268,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 10, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -11411,7 +11411,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 11, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -11554,7 +11554,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 6, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -11696,7 +11696,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 7, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -11836,7 +11836,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !290
   store i8 4, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -11971,7 +11971,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !294
   store i8 8, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12106,7 +12106,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !298
   store i8 5, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12241,7 +12241,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !302
   store i8 9, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12376,7 +12376,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !306
   store i8 12, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12510,7 +12510,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !310
   store i8 10, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12644,7 +12644,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !314
   store i8 11, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12778,7 +12778,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !318
   store i8 6, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -12911,7 +12911,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !322
   store i8 7, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -13044,7 +13044,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !326
   store i8 4, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13177,7 +13177,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !330
   store i8 8, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13310,7 +13310,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !334
   store i8 5, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13443,7 +13443,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !338
   store i8 9, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13576,7 +13576,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !342
   store i8 12, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13708,7 +13708,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !346
   store i8 10, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13840,7 +13840,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !350
   store i8 11, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -13972,7 +13972,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !354
   store i8 6, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -14103,7 +14103,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !358
   store i8 7, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -14236,7 +14236,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %6)
   store i8 14, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
@@ -14373,7 +14373,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !366
   store i8 14, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
@@ -14501,7 +14501,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !370
   store i8 14, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %35)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %35)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
@@ -14629,7 +14629,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 4, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -14919,7 +14919,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 8, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15063,7 +15063,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 5, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15207,7 +15207,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 9, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15351,7 +15351,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 12, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15494,7 +15494,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 10, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15637,7 +15637,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 11, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15780,7 +15780,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 6, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -15923,7 +15923,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 7, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -16064,7 +16064,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !410
   store i8 4, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -16242,7 +16242,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !414
   store i8 8, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -16420,7 +16420,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !418
   store i8 5, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -16598,7 +16598,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !422
   store i8 9, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -16776,7 +16776,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !426
   store i8 12, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -16953,7 +16953,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !430
   store i8 10, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -17130,7 +17130,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !434
   store i8 11, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -17307,7 +17307,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !438
   store i8 6, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -17484,7 +17484,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !442
   store i8 7, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -17661,7 +17661,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !446
   store i8 4, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -17794,7 +17794,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !450
   store i8 8, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -17927,7 +17927,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !454
   store i8 5, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18060,7 +18060,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !458
   store i8 9, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18193,7 +18193,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !462
   store i8 12, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18325,7 +18325,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !466
   store i8 10, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18457,7 +18457,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !470
   store i8 11, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18589,7 +18589,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !474
   store i8 6, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18721,7 +18721,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !478
   store i8 7, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -18855,7 +18855,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void @llvm.va_start.p0(ptr nonnull %5)
   store i8 14, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
@@ -18993,7 +18993,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !486
   store i8 14, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
@@ -19122,7 +19122,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !490
   store i8 14, ptr %6, align 8
   %34 = load ptr, ptr %2, align 8
-  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %34)
+  call void @_ZN18JNI_ArgumentPusherC2EP6Method(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
@@ -22995,7 +22995,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %33, %_ZN25WeakPrese
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
   %44 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %45 = call noundef ptr %44(ptr noundef nonnull %40, i64 noundef %43) #15
+  %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %43) #15
   %46 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %7, ptr noundef %45, i32 noundef 0) #15
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22GetStaticObjectField__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %46) #15, !srcloc !580
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !581
@@ -24348,7 +24348,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %_ZNK5Klass11java_mi
   %.0.i = phi ptr [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ %55, %52 ], [ %59, %56 ], [ %61, %60 ]
   %62 = sext i32 %48 to i64
   %63 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %63(ptr noundef nonnull %46, i64 noundef %62, ptr noundef %.0.i) #15
+  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef %62, ptr noundef %.0.i) #15
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22SetStaticObjectField__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !616
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !617
   %64 = load ptr, ptr %28, align 8
@@ -25801,7 +25801,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %26, %30, %34
   %36 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %37 = sext i32 %36 to i64
   %38 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %39 = tail call noundef ptr %38(ptr noundef nonnull %.0.i.i, i64 noundef %37) #15
+  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %37) #15
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN16java_lang_String6lengthEP7oopDesc.exit, label %41
 
@@ -25945,7 +25945,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %27, %31, %35
   %37 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %38 = sext i32 %37 to i64
   %39 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %40 = tail call noundef ptr %39(ptr noundef nonnull %.0.i.i, i64 noundef %38) #15
+  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %38) #15
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %82, label %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit
 
@@ -26536,7 +26536,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %32, %36, %40
   %42 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %43 = sext i32 %42 to i64
   %44 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %45 = call noundef ptr %44(ptr noundef nonnull %.0.i.i, i64 noundef %43) #15
+  %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %43) #15
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %55, label %46
 
@@ -26936,7 +26936,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %62, %66, %70
   %78 = shl nuw nsw i64 %indvars.iv, %.8.i
   %79 = add nuw nsw i64 %77, %78
   %80 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %80(ptr noundef nonnull %56, i64 noundef %79, ptr noundef nonnull %.0.i) #15
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %56, i64 noundef %79, ptr noundef nonnull %.0.i) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN10JNIHandles7resolveEP8_jobject.exit.thread, label %.lr.ph, !llvm.loop !689
@@ -27113,7 +27113,7 @@ _ZNK12arrayOopDesc16is_within_boundsEi.exit:      ; preds = %_ZN10JNIHandles16re
   %55 = shl nuw nsw i64 %53, %.7.i
   %56 = add nuw nsw i64 %54, %55
   %57 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %58 = call noundef ptr %57(ptr noundef nonnull %.0.i.i, i64 noundef %56) #15
+  %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %56) #15
   %59 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %8, ptr noundef %58, i32 noundef 0) #15
   br label %_ZN12ResourceMarkD2Ev.exit
 
@@ -27368,7 +27368,7 @@ _ZNK12arrayOopDesc16is_within_boundsEi.exit:      ; preds = %_ZN10JNIHandles7res
   %71 = shl nuw nsw i64 %69, %.8.i
   %72 = add nuw nsw i64 %70, %71
   %73 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %73(ptr noundef nonnull %.0.i.i, i64 noundef %72, ptr noundef null) #15
+  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %72, ptr noundef null) #15
   br label %_ZN12ResourceMarkD2Ev.exit
 
 74:                                               ; preds = %65
@@ -27437,7 +27437,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit..split33_crit_edge: ; preds = %_ZNK7oopDesc4is_aE
   %110 = shl nuw nsw i64 %108, %.8.i39
   %111 = add nuw nsw i64 %109, %110
   %112 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %112(ptr noundef nonnull %.0.i.i, i64 noundef %111, ptr noundef nonnull %.0.i) #15
+  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %111, ptr noundef nonnull %.0.i) #15
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread67:          ; preds = %104, %_ZNK7oopDesc4is_aEP5Klass.exit
@@ -34614,7 +34614,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %35, %39, %43
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 58:                                               ; preds = %46
-  %59 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %48, i64 noundef 8, i32 noundef 0) #15
+  %59 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %48, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %58, %56
@@ -34803,7 +34803,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %35, %39, %43
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 58:                                               ; preds = %46
-  %59 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %48, i64 noundef 8, i32 noundef 0) #15
+  %59 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %48, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %56, %58
@@ -34966,7 +34966,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %34, %38, %42
   %44 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %47 = call noundef ptr %46(ptr noundef nonnull %.0.i.i, i64 noundef %45) #15
+  %47 = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %45) #15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit, label %49
 
@@ -35196,7 +35196,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %34, %38, %42
   %44 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %47 = call noundef ptr %46(ptr noundef nonnull %.0.i.i, i64 noundef %45) #15
+  %47 = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %45) #15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit, label %49
 
@@ -35413,7 +35413,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %32, %36, %40
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 55:                                               ; preds = %43
-  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 8, i32 noundef 0) #15
+  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %45, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %53, %55
@@ -35788,7 +35788,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %32, %36, %40
   %49 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %50 = sext i32 %49 to i64
   %51 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %52 = call noundef ptr %51(ptr noundef nonnull %.0.i.i, i64 noundef %50) #15
+  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 noundef %50) #15
   %53 = icmp eq ptr %52, null
   br i1 %48, label %80, label %54
 
@@ -35814,7 +35814,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %32, %36, %40
   br label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
 
 67:                                               ; preds = %55
-  %68 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %57, i64 noundef 8, i32 noundef 0) #15
+  %68 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %57, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
 
 _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %65, %67
@@ -36244,7 +36244,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %32, %36, %40
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 55:                                               ; preds = %43
-  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 8, i32 noundef 0) #15
+  %56 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %45, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %55, %53
@@ -36843,19 +36843,19 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 168
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull %0, ptr noundef %11) #15
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %11) #15
   store ptr %15, ptr @_ZL11bufferClass, align 8
   %16 = load ptr, ptr @_ZL17directBufferClass, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull %0, ptr noundef %16) #15
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16) #15
   store ptr %20, ptr @_ZL17directBufferClass, align 8
   %21 = load ptr, ptr @_ZL21directByteBufferClass, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull %0, ptr noundef %21) #15
+  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21) #15
   store ptr %25, ptr @_ZL21directByteBufferClass, align 8
   %26 = load ptr, ptr @_ZL11bufferClass, align 8
   %27 = icmp eq ptr %26, null
@@ -36874,12 +36874,12 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 264
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #15
+  %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %25, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #15
   store ptr %36, ptr @_ZL27directByteBufferConstructor, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1824
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef zeroext i8 %39(ptr noundef nonnull %0) #15
+  %40 = tail call noundef zeroext i8 %39(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   %.not24 = icmp eq i8 %40, 0
   br i1 %.not24, label %45, label %41
 
@@ -36887,7 +36887,7 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 136
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull %0) #15
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   store volatile i32 1, ptr @_ZL35directBufferSupportInitializeFailed, align 4
   br label %86
 
@@ -36896,12 +36896,12 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 752
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef ptr %49(ptr noundef nonnull %0, ptr noundef %46, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40) #15
+  %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40) #15
   store ptr %50, ptr @_ZL24directBufferAddressField, align 8
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i8 %53(ptr noundef nonnull %0) #15
+  %54 = tail call noundef zeroext i8 %53(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   %.not25 = icmp eq i8 %54, 0
   br i1 %.not25, label %59, label %55
 
@@ -36909,7 +36909,7 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull %0) #15
+  tail call void %58(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   store volatile i32 1, ptr @_ZL35directBufferSupportInitializeFailed, align 4
   br label %86
 
@@ -36918,12 +36918,12 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 752
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef ptr %63(ptr noundef nonnull %0, ptr noundef %60, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #15
+  %64 = tail call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %60, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #15
   store ptr %64, ptr @_ZL19bufferCapacityField, align 8
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 1824
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef zeroext i8 %67(ptr noundef nonnull %0) #15
+  %68 = tail call noundef zeroext i8 %67(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   %.not26 = icmp eq i8 %68, 0
   br i1 %.not26, label %73, label %69
 
@@ -36931,7 +36931,7 @@ define internal fastcc noundef zeroext i1 @_ZL29initializeDirectBufferSupportP7J
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 136
   %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull %0) #15
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   store volatile i32 1, ptr @_ZL35directBufferSupportInitializeFailed, align 4
   br label %86
 
@@ -37023,14 +37023,14 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %2, %10
   %16 = load ptr, ptr @_ZL24directBufferAddressField, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 808
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i64 %18(ptr noundef nonnull %0, ptr noundef null, ptr noundef %16) #15
+  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef null, ptr noundef %16) #15
   br label %30
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr @_ZL17directBufferClass, align 8
   %22 = getelementptr inbounds i8, ptr %15, i64 256
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i8 %23(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %21) #15
+  %24 = tail call noundef zeroext i8 %23(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %21) #15
   %.not14 = icmp eq i8 %24, 0
   br i1 %.not14, label %32, label %.split11
 
@@ -37039,7 +37039,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %2, %10
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 808
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i64 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %25) #15
+  %29 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %25) #15
   br label %30
 
 30:                                               ; preds = %.split11, %.split
@@ -37090,7 +37090,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %2, %10
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 256
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 %20(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17) #15
+  %21 = tail call noundef zeroext i8 %20(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %17) #15
   %.not11 = icmp eq i8 %21, 0
   br i1 %.not11, label %29, label %22
 
@@ -37099,7 +37099,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %2, %10
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 800
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %23) #15
+  %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %23) #15
   %28 = sext i32 %27 to i64
   br label %29
 
@@ -37761,7 +37761,7 @@ define noundef i32 @JNI_CreateJavaVM(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 70:                                               ; preds = %58
-  %71 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %60, i64 noundef 8, i32 noundef 0) #15
+  %71 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %60, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %70, %68
@@ -37868,7 +37868,7 @@ define hidden noundef i32 @jni_DestroyJavaVM(ptr noundef %0) #0 {
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = call noundef i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
+  %12 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %_ZL23jni_DestroyJavaVM_innerP7JavaVM_.exit
 
@@ -38100,7 +38100,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerD2E
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 68:                                               ; preds = %56
-  %69 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef 8, i32 noundef 0) #15
+  %69 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %58, i64 noundef 8, i32 noundef 0) #15
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %68, %66
@@ -39136,7 +39136,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier43load_barrier_on_phantom_oo
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #15, !srcloc !987
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #15, !srcloc !987
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !988
 
@@ -39167,7 +39167,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr %0) #15, !srcloc !987
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr nonnull %0) #15, !srcloc !987
   %28 = icmp eq i64 %27, %phi.call9.i.i.i
   br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !988
 
@@ -40331,7 +40331,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #15, !srcloc !987
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #15, !srcloc !987
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !988
 
@@ -44840,7 +44840,7 @@ define linkonce_odr hidden noundef ptr @_ZN11XBarrierSet13AccessBarrierILm401510
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %phi.call9.i.i.i, ptr %2) #15, !srcloc !987
+  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %phi.call9.i.i.i, ptr nonnull %2) #15, !srcloc !987
   %19 = icmp eq i64 %18, %phi.call9.i.i.i
   br i1 %19, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !988
 
@@ -44899,7 +44899,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier40load_barrier_on_weak_oop_f
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #15, !srcloc !987
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #15, !srcloc !987
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !988
 
@@ -44930,7 +44930,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr %0) #15, !srcloc !987
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr nonnull %0) #15, !srcloc !987
   %28 = icmp eq i64 %27, %phi.call9.i.i.i
   br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !988
 
@@ -45321,7 +45321,7 @@ define linkonce_odr hidden noundef ptr @_ZN11XBarrierSet13AccessBarrierILm401478
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %phi.call9.i.i.i, ptr %2) #15, !srcloc !987
+  %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %phi.call9.i.i.i, ptr nonnull %2) #15, !srcloc !987
   %19 = icmp eq i64 %18, %phi.call9.i.i.i
   br i1 %19, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !988
 

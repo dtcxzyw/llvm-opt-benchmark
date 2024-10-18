@@ -214,7 +214,7 @@ lpad5:                                            ; preds = %if.then3.i.i.i47, %
   %m_localPositionArray = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_radiArray) #11
   tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_localPositionArray) #11
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) #11
   resume { ptr, i32 } %13
 
 for.end:                                          ; preds = %for.body, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.thread
@@ -695,7 +695,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #6
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK18btMultiSphereShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
+  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
   %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_implicitShapeDimensions2.i = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i.i
@@ -875,7 +875,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %m_size.i.i.i6, align 4
   %m_capacity.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %m_capacity.i.i.i8, align 8
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) #11
   ret void
 }
 
@@ -943,7 +943,7 @@ _ZN18btMultiSphereShapeD2Ev.exit:                 ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %m_size.i.i.i6.i, align 4
   %m_capacity.i.i.i8.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %m_capacity.i.i.i8.i, align 8
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #11
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN18btMultiSphereShapedlEPv.exit unwind label %terminate.lpad.i
 

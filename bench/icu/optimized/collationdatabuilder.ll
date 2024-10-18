@@ -124,7 +124,7 @@ entry:
   %nfcImpl = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load ptr, ptr %nfcImpl, align 8
   %nfcImpl.i = getelementptr inbounds i8, ptr %this, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %builderData, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %builderData, i8 0, i64 48, i1 false)
   store ptr %1, ptr %nfcImpl.i, align 8
   %numericPrimary.i = getelementptr inbounds i8, ptr %this, i64 456
   store i32 301989888, ptr %numericPrimary.i, align 8
@@ -5532,7 +5532,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %21 = load ptr, ptr %trie, align 8
   %22 = load i32, ptr %value.i, align 4
   %or.i = or i32 %22, 205
-  call void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %21, i32 noundef %indvars.iv.i, i32 noundef %or.i, ptr noundef nonnull %errorCode)
+  call void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %21, i32 noundef %indvars.iv.i, i32 noundef %or.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, 56320
   br i1 %exitcond.not.i, label %_ZN6icu_7520CollationDataBuilder17setLeadSurrogatesER10UErrorCode.exit, label %for.body.i, !llvm.loop !30

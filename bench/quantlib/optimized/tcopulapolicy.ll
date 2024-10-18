@@ -3540,7 +3540,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #33
   ret void
 }
 
@@ -3617,7 +3617,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.no
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #33
   ret void
 }
 
@@ -5711,7 +5711,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #33
   ret void
 }
 
@@ -5788,7 +5788,7 @@ _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noex
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #33
   ret void
 }
 
@@ -6404,7 +6404,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #33
   ret void
 }
 
@@ -6478,7 +6478,7 @@ _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #33
   ret void
 }
 
@@ -7725,7 +7725,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #33
   ret void
 }
 
@@ -7799,7 +7799,7 @@ _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %ca
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #33
   ret void
 }
 
@@ -9876,7 +9876,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !93, !alias.scope !117, !noalias !114
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !93, !alias.scope !114, !noalias !117
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !117, !noalias !114
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !117, !noalias !114
   %factors_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %factors_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %6 = load ptr, ptr %factors_3.i.i.i.i.i.i.i, align 8, !tbaa !25, !alias.scope !117, !noalias !114
@@ -9946,7 +9946,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8Quan
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 16
   %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !tbaa !93, !alias.scope !124, !noalias !121
   store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !tbaa !93, !alias.scope !121, !noalias !124
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !124, !noalias !121
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !124, !noalias !121
   %factors_.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 24
   %factors_3.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 24
   %18 = load ptr, ptr %factors_3.i.i.i.i.i.i.i27, align 8, !tbaa !25, !alias.scope !124, !noalias !121
@@ -10203,7 +10203,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !132
   %distrib_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %distrib_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %3 = load ptr, ptr %distrib_3.i.i.i.i.i.i.i, align 8, !tbaa !28, !alias.scope !130, !noalias !127
@@ -10216,7 +10216,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !93, !alias.scope !130, !noalias !127
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !93, !alias.scope !127, !noalias !130
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %distrib_3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !130, !noalias !127
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %distrib_3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !130, !noalias !127
   %factors_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %factors_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
   %6 = load ptr, ptr %factors_3.i.i.i.i.i.i.i.i, align 8, !tbaa !25, !alias.scope !130, !noalias !127
@@ -10259,7 +10259,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %a_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 112
   %a_6.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %a_6.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !132
-  tail call void @_ZNSt15__new_allocatorIN8QuantLib30InverseCumulativeBehrensFisherEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__first.addr.06.i.i.i) #31, !noalias !127
+  tail call void @_ZNSt15__new_allocatorIN8QuantLib30InverseCumulativeBehrensFisherEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %__first.addr.06.i.i.i) #31, !noalias !127
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 128
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 128
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -10276,7 +10276,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8Quan
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i48, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN8QuantLib30InverseCumulativeBehrensFisherESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !139
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(128) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !139
   %distrib_.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 16
   %distrib_3.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 16
   %15 = load ptr, ptr %distrib_3.i.i.i.i.i.i.i23, align 8, !tbaa !28, !alias.scope !137, !noalias !134
@@ -10289,7 +10289,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8Quan
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 32
   %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i27, align 8, !tbaa !93, !alias.scope !137, !noalias !134
   store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i26, align 8, !tbaa !93, !alias.scope !134, !noalias !137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %distrib_3.i.i.i.i.i.i.i23, i8 0, i64 24, i1 false), !alias.scope !137, !noalias !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %distrib_3.i.i.i.i.i.i.i23, i8 0, i64 24, i1 false), !alias.scope !137, !noalias !134
   %factors_.i.i.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 40
   %factors_3.i.i.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 40
   %18 = load ptr, ptr %factors_3.i.i.i.i.i.i.i.i29, align 8, !tbaa !25, !alias.scope !137, !noalias !134
@@ -10332,7 +10332,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8Quan
   %a_.i.i.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 112
   %a_6.i.i.i.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_.i.i.i.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(16) %a_6.i.i.i.i.i.i.i.i47, i64 16, i1 false), !alias.scope !139
-  tail call void @_ZNSt15__new_allocatorIN8QuantLib30InverseCumulativeBehrensFisherEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__first.addr.06.i.i.i21) #31, !noalias !134
+  tail call void @_ZNSt15__new_allocatorIN8QuantLib30InverseCumulativeBehrensFisherEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %__first.addr.06.i.i.i21) #31, !noalias !134
   %incdec.ptr.i.i.i48 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 128
   %incdec.ptr1.i.i.i49 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 128
   %cmp.not.i.i.i50 = icmp eq ptr %incdec.ptr.i.i.i48, %0

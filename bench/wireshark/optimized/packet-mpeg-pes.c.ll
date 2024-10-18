@@ -522,7 +522,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %67 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 10, i32 noundef 0) #3
   %68 = load i32, ptr @ett_mpeg_pes_pack_header, align 4
   %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #3
-  %70 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %62) #3
+  %70 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %62) #3
   %71 = lshr i64 %70, 13
   %72 = and i64 %71, 7516192768
   %73 = lshr i64 %70, 12
@@ -827,7 +827,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not122, label %50, label %31
 
 31:                                               ; preds = %29
-  %32 = call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %.0) #3
+  %32 = call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef range(i32 0, 6) %.0) #3
   %33 = lshr i64 %32, 3
   %34 = and i64 %33, 7516192768
   %35 = lshr i64 %32, 2
@@ -856,7 +856,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not123, label %75, label %52
 
 52:                                               ; preds = %50
-  %53 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %.1) #3
+  %53 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.1) #3
   %54 = lshr i64 %53, 13
   %55 = and i64 %54, 7516192768
   %56 = lshr i64 %53, 12

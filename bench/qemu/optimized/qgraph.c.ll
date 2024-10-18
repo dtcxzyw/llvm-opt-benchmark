@@ -838,7 +838,7 @@ if.end.else:                                      ; preds = %if.end
   %opts.sroa.gep26 = getelementptr inbounds i8, ptr %opts, i64 8
   %.else.val43 = load i32, ptr %opts.sroa.gep26, align 8
   %conv = zext i32 %.else.val43 to i64
-  %call.i = tail call ptr @g_memdup2(ptr noundef %.else.val46, i64 noundef %conv) #18
+  %call.i = tail call ptr @g_memdup2(ptr noundef %.else.val46, i64 noundef range(i64 0, 4294967296) %conv) #18
   %arg15 = getelementptr inbounds i8, ptr %call7, i64 16
   store ptr %call.i, ptr %arg15, align 8
   %opts.sroa.gep29 = getelementptr inbounds i8, ptr %opts, i64 24
@@ -867,7 +867,7 @@ cond.end29.cont.thread.critedge:                  ; preds = %if.end
   %call12.c = tail call noalias ptr @g_strdup(ptr noundef %dest) #14
   %edge_name13.c = getelementptr inbounds i8, ptr %call7, i64 48
   store ptr %call12.c, ptr %edge_name13.c, align 8
-  %call.i49 = tail call ptr @g_memdup2(ptr noundef null, i64 noundef 0) #18
+  %call.i49 = tail call ptr @g_memdup2(ptr noundef null, i64 noundef range(i64 0, 4294967296) 0) #18
   %arg1550 = getelementptr inbounds i8, ptr %call7, i64 16
   store ptr %call.i49, ptr %arg1550, align 8
   %extra_device_opts31 = getelementptr inbounds i8, ptr %call7, i64 24

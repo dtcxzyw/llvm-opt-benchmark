@@ -103,7 +103,7 @@ define hidden void @_ZN19StringArrayArgumentD2Ev(ptr nocapture noundef nonnull r
 
 17:                                               ; preds = %._crit_edge
   store i32 0, ptr %.lcssa, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa)
   br label %18
 
 18:                                               ; preds = %17, %._crit_edge
@@ -869,7 +869,7 @@ define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE13destroy_valueEv(p
 
 20:                                               ; preds = %._crit_edge.i
   store i32 0, ptr %.lcssa.i, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa.i)
   br label %_ZN19StringArrayArgumentD2Ev.exit
 
 _ZN19StringArrayArgumentD2Ev.exit:                ; preds = %._crit_edge.i, %20

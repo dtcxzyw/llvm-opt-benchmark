@@ -2124,7 +2124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit21: ; preds = %_ZN32px
   store i32 %205, ptr %32, align 4
   store ptr %4, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 16, i1 false)
   store ptr %179, ptr %36, align 8
   br i1 %.not.i.i.i18, label %"_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS_L33_FillAddedChildEntriesRecursivelyEPS0_PNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSC_2d123cache_aligned_allocatorISG_EEEEE3$_0EC2EOSM_PNSH_17concurrent_vectorINS_16TfErrorTransportENSI_ISQ_EEEE.exit.i", label %206
 
@@ -2180,7 +2180,7 @@ _ZN3tbb6detail2d112wait_context7reserveEj.exit.i.i.i: ; preds = %220, %"_ZN32pxr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %222, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEEE", i64 16), ptr %221, align 64
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %223, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(48) %223, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 16, i1 false)
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 80
   %225 = load ptr, ptr %36, align 8
   store ptr %225, ptr %224, align 8
@@ -2244,11 +2244,11 @@ _ZN3tbb6detail2d112wait_context7reserveEj.exit.i.i.i: ; preds = %220, %"_ZN32pxr
 253:                                              ; preds = %"_ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS4_L33_FillAddedChildEntriesRecursivelyEPS5_PNS4_19HdMergingSceneIndexERKNS4_8TfRefPtrINS4_16HdSceneIndexBaseEEENS4_7SdfPathEPNS0_2d216concurrent_queueINS4_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISJ_EEEEE3$_0EEEEPNS1_4taskEOT_.exit.i.i", %236, %_ZN3tbb6detail2d112wait_context7reserveEj.exit.i.i.i, %220
   %254 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %7) #8
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %7) #8
   br label %.body
 
 255:                                              ; preds = %"_ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS4_L33_FillAddedChildEntriesRecursivelyEPS5_PNS4_19HdMergingSceneIndexERKNS4_8TfRefPtrINS4_16HdSceneIndexBaseEEENS4_7SdfPathEPNS0_2d216concurrent_queueINS4_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISJ_EEEEE3$_0EEEEPNS1_4taskEOT_.exit.i.i"
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %7) #8
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %7) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %13) #8
   br i1 %.not.i.i3.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %256
@@ -6118,7 +6118,7 @@ _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEmESt4pairINSt25__st
   store i64 %15, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %3, align 8
-  %34 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS4_NS6_10_AllocNodeISaINS6_10_Hash_nodeIS4_Lb1EEEEEEEES2_INS6_14_Node_iteratorIS4_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %34 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS4_NS6_10_AllocNodeISaINS6_10_Hash_nodeIS4_Lb1EEEEEEEES2_INS6_14_Node_iteratorIS4_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %35 unwind label %78
 
 35:                                               ; preds = %_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit
@@ -8700,11 +8700,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observe
 define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observer12PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 1 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase11_IsObservedEv(ptr noundef nonnull align 8 dereferenceable(120) %5)
+  %6 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase11_IsObservedEv(ptr noundef nonnull align 8 dereferenceable(168) %5)
   br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE.exit
 
 7:                                                ; preds = %3
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsDirtiedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 1 %2)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsDirtiedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 1 %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE.exit: ; preds = %3, %7
@@ -8727,7 +8727,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #18
   ret void
 }
@@ -8769,7 +8769,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputE
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryES2_EvT_S4_RSaIT0_E.exit.i, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #8
   ret void
 }
@@ -8811,8 +8811,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputE
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndexD2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryES2_EvT_S4_RSaIT0_E.exit.i.i, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #8
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 168) #18
   ret void
 }
@@ -8964,7 +8964,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2d211micro_queueIN32pxrInternal_v
 _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS7_EEE12prepare_pageEmRNS3_20concurrent_queue_repIS7_SA_EENS9_INSB_11padded_pageEEERPSF_EUlvE_E12on_exceptionIZNSB_12prepare_pageEmSE_SG_SI_EUlvE0_EEvT_.exit: ; preds = %10
   store ptr %12, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %12, i8 0, i64 16, i1 false)
   %.pre = load i64, ptr %6, align 8
   br label %15
 
@@ -9202,7 +9202,7 @@ declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(p
 define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %2) #8
+  tail call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %2) #8
   ret void
 }
 
@@ -9210,7 +9210,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(40) %2) #8
+  tail call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEEEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(48) %2) #8
   tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #18
   ret void
 }
@@ -9350,7 +9350,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
 
 "_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %"_ZN3tbb6detail2d212_GLOBAL__N_119task_ptr_or_nullptrIRKN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS4_L33_FillAddedChildEntriesRecursivelyEPS5_PNS4_19HdMergingSceneIndexERKNS4_8TfRefPtrINS4_16HdSceneIndexBaseEEENS4_7SdfPathEPNS1_16concurrent_queueINS4_20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorISI_EEEEE3$_0EEEEPNSJ_4taskEOT_.exit", %69
   %71 = inttoptr i64 %64 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -9375,7 +9375,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0
 
 "_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZNS3_L33_FillAddedChildEntriesRecursivelyEPS4_PNS3_19HdMergingSceneIndexERKNS3_8TfRefPtrINS3_16HdSceneIndexBaseEEENS3_7SdfPathEPNS0_2d216concurrent_queueINS3_20HdSceneIndexObserver14AddedPrimEntryENS1_23cache_aligned_allocatorISI_EEEEE3$_0EEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %2, %11
   %13 = inttoptr i64 %6 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -9667,7 +9667,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.018, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.018, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i, label %.noexc8, label %11
 
@@ -10600,7 +10600,7 @@ _ZNK3tbb6detail2d216concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdScen
   %35 = mul i64 %.057.i.i, 3
   %36 = and i64 %35, 7
   %37 = getelementptr inbounds [8 x %"class.tbb::detail::d2::micro_queue"], ptr %34, i64 0, i64 %36
-  %38 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %37, ptr noundef nonnull %2, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %34, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %38 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %37, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %34, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %64
 
 .noexc:                                           ; preds = %33
@@ -12879,7 +12879,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_7SdfPathEmNS
   %.07 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_7SdfPathEmNS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_mEEEESt14default_deleteISA_EE5resetEPSA_.exit ]
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %29, i64 %.07
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_mESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(8) %31)
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_mESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 4 dereferenceable(8) %31)
   store i64 %.07, ptr %32, align 8
   %33 = add nuw i64 %.07, 1
   %34 = load ptr, ptr %26, align 8

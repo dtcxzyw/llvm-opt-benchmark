@@ -1541,12 +1541,12 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %30 = add i64 %29, 105
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.107) #19
-  %31 = tail call i32 @dup(i32 noundef %21) #19
+  %31 = tail call i32 @dup(i32 noundef range(i32 0, -1) %21) #19
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %28
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.108, i32 noundef %21) #19
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.108, i32 noundef range(i32 0, -1) %21) #19
   br label %cli_cvdunpack.exit.thread23
 
 34:                                               ; preds = %28

@@ -503,7 +503,7 @@ split.i:                                          ; preds = %208, %192
   %270 = getelementptr inbounds i32, ptr %11, i64 %269
   %271 = load i32, ptr %270, align 4
   %272 = add i32 %271, %247
-  %273 = call fastcc zeroext i8 @mainGtU(i32 noundef %272, i32 noundef %265, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef %9)
+  %273 = call fastcc zeroext i8 @mainGtU(i32 noundef %272, i32 noundef %265, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef range(i32 10000, -2147483648) %17, ptr noundef nonnull %9)
   %.not112.i.i.i = icmp eq i8 %273, 0
   %.pre.i.i.i = sext i32 %.0100.i.i.i to i64
   br i1 %.not112.i.i.i, label %split135.i.i.i, label %274
@@ -536,7 +536,7 @@ split135.i.i.i:                                   ; preds = %274, %267
   %286 = getelementptr inbounds i32, ptr %11, i64 %285
   %287 = load i32, ptr %286, align 4
   %288 = add i32 %287, %247
-  %289 = call fastcc zeroext i8 @mainGtU(i32 noundef %288, i32 noundef %281, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef %9)
+  %289 = call fastcc zeroext i8 @mainGtU(i32 noundef %288, i32 noundef %281, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef range(i32 10000, -2147483648) %17, ptr noundef nonnull %9)
   %.not115.i.i.i = icmp eq i8 %289, 0
   %.pre136.i.i.i = sext i32 %.2.i.i.i to i64
   br i1 %.not115.i.i.i, label %split133.i.i.i, label %290
@@ -569,7 +569,7 @@ split133.i.i.i:                                   ; preds = %290, %283
   %303 = getelementptr inbounds i32, ptr %11, i64 %302
   %304 = load i32, ptr %303, align 4
   %305 = add i32 %304, %247
-  %306 = call fastcc zeroext i8 @mainGtU(i32 noundef %305, i32 noundef %298, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef %9)
+  %306 = call fastcc zeroext i8 @mainGtU(i32 noundef %305, i32 noundef %298, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef range(i32 10000, -2147483648) %17, ptr noundef nonnull %9)
   %.not117.i.i.i = icmp eq i8 %306, 0
   %.pre138.i.i.i = sext i32 %.4.i.i.i to i64
   br i1 %.not117.i.i.i, label %split.i.i.i, label %307
@@ -1200,7 +1200,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
 mainSort.exit.thread:                             ; preds = %.thread.i
   %587 = load ptr, ptr @stderr, align 8
   %588 = sub nsw i32 %17, %.3294.i
-  %589 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %587, ptr noundef nonnull @.str.8, i32 noundef %17, i32 noundef %.3294.i, i32 noundef %588) #10
+  %589 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %587, ptr noundef nonnull @.str.8, i32 noundef range(i32 10000, -2147483648) %17, i32 noundef %.3294.i, i32 noundef %588) #10
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)

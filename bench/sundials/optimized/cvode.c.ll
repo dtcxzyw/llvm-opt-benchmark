@@ -201,7 +201,7 @@ define void @cvProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef
   br i1 %.not.i, label %28, label %29
 
 28:                                               ; preds = %26
-  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1) #13
+  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1) #13
   br label %29
 
 29:                                               ; preds = %28, %26
@@ -218,7 +218,7 @@ define void @cvProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.021.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1, ptr noundef %35, ptr noundef %27) #13
+  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1, ptr noundef %35, ptr noundef %27) #13
   %.0.i = load ptr, ptr %.021.i, align 8
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %SUNHandleErrWithMsg.exit, label %.lr.ph.i
@@ -2265,7 +2265,7 @@ thread-pre-split:                                 ; preds = %218, %209
 
 541:                                              ; preds = %538
   %542 = sub nsw i32 %539, %540
-  call fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %542)
+  call fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %542)
   %543 = load i32, ptr %359, align 4
   store i32 %543, ptr %346, align 8
   %544 = add nsw i32 %543, 1
@@ -3316,7 +3316,7 @@ cvRescale.exit.i92.i:                             ; preds = %.lr.ph.i.i90.i, %10
   br i1 %985, label %1031, label %1042
 
 1031:                                             ; preds = %1027
-  call fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef -1)
+  call fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef -1)
   %1032 = load i32, ptr %346, align 8
   store i32 %1032, ptr %360, align 8
   %1033 = add nsw i32 %1032, -1

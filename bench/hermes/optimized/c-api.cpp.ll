@@ -116,9 +116,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #9
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 28))
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(84) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   %sourceMap_.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %sourceMap_.i, align 8
   %pathBuf_.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -170,7 +170,7 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %2 = ptrtoint ptr %.in to i64
   %call11 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #8
   store ptr null, ptr %sourceMap, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call11) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(84) %call11) #9
   %sourceMap_.i5 = getelementptr inbounds i8, ptr %call11, i64 32
   store i64 %2, ptr %sourceMap_.i5, align 8
   %pathBuf_.i6 = getelementptr inbounds i8, ptr %call11, i64 40
@@ -180,7 +180,7 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit: ; preds 
 if.else:                                          ; preds = %if.end8
   %call13 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #8
   call void @_ZNK6hermes17SimpleDiagHandler14getErrorStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(360) %handler) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(84) %call13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #9
   %sourceMap_.i7 = getelementptr inbounds i8, ptr %call13, i64 32
   store ptr null, ptr %sourceMap_.i7, align 8
   %pathBuf_.i8 = getelementptr inbounds i8, ptr %call13, i64 40
@@ -398,7 +398,7 @@ _ZN4llvh14SmallBitVectorD2Ev.exit32:              ; preds = %_ZN4llvh14SmallBitV
   %stringsToIndex_.i = getelementptr inbounds i8, ptr %this, i64 272
   %18 = load ptr, ptr %stringsToIndex_.i, align 8
   tail call void @_ZdlPv(ptr noundef %18) #9
-  tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %virtualBufferNames_) #9
+  tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %virtualBufferNames_) #9
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %19 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
@@ -556,7 +556,7 @@ _ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i.i: ; preds = %delete.n
 
 _ZN15HermesSourceMapD2Ev.exit:                    ; preds = %delete.notnull, %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i.i
   store ptr null, ptr %sourceMap_.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %map) #9
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(84) %map) #9
   tail call void @_ZdlPv(ptr noundef nonnull %map) #10
   br label %delete.end
 
@@ -650,7 +650,7 @@ hermes_source_map_get_num_paths.exit:             ; preds = %lor.lhs.false.i
 if.end:                                           ; preds = %hermes_source_map_get_num_paths.exit
   %conv.i = zext i32 %index to i64
   %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 %conv.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %0) #9
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #9
   %pathBuf_ = getelementptr inbounds i8, ptr %map, i64 40
   %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %pathBuf_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9

@@ -401,7 +401,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNS
   %request_queue_ = getelementptr inbounds i8, ptr %call, i64 16
   %31 = load ptr, ptr %request_queue_, align 8
   %lock_.i = getelementptr inbounds i8, ptr %31, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %lock_.i) #18
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i) #18
   %32 = load ptr, ptr %31, align 8
   %cmp.i = icmp eq ptr %32, null
   tail call void @uv_mutex_unlock(ptr noundef nonnull %lock_.i) #18
@@ -492,7 +492,7 @@ _ZNSt10shared_ptrIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16Lib
   %thread_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %thread_, align 8
   %thread_start_lock_ = getelementptr inbounds i8, ptr %this, i64 64
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %thread_start_lock_) #18
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %thread_start_lock_) #18
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -503,7 +503,7 @@ do.body5.i:                                       ; preds = %_ZNSt10shared_ptrIN
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16LibuvMutexTraitsEEEEEEC2ERKS7_.exit
   %thread_start_condition_ = getelementptr inbounds i8, ptr %this, i64 104
-  %call.i.i10 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %thread_start_condition_) #18
+  %call.i.i10 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %thread_start_condition_) #18
   %cmp.not.i11 = icmp eq i32 %call.i.i10, 0
   br i1 %cmp.not.i11, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i12
 
@@ -559,7 +559,7 @@ _ZN4node9inspector12_GLOBAL__N_110GenerateIDB5cxx11Ev.exit: ; preds = %_ZN4node2
   %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %uuid.i, i64 noundef 256, ptr noundef nonnull @.str.13, i32 noundef %conv.i, i32 noundef %conv8.i, i32 noundef %conv10.i, i32 noundef %or.i, i32 noundef %or16.i, i32 noundef %conv18.i, i32 noundef %conv20.i, i32 noundef %conv22.i) #18, !noalias !5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #18, !noalias !5
   %call.i.i13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %id_) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %id_, ptr noundef %call.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id_, ptr noundef %call.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %uuid.i) #18, !noalias !5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %uuid.i, i64 %call.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %id_, ptr noundef nonnull %uuid.i, ptr noundef nonnull %add.ptr.i.i)
@@ -567,7 +567,7 @@ _ZN4node9inspector12_GLOBAL__N_110GenerateIDB5cxx11Ev.exit: ; preds = %_ZN4node2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %uuid.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp25.i)
-  call void @uv_mutex_lock(ptr noundef nonnull %thread_start_lock_) #18
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %thread_start_lock_) #18
   %call = call i32 @uv_thread_create(ptr noundef nonnull %thread_, ptr noundef nonnull @_ZN4node9inspector11InspectorIo10ThreadMainEPv, ptr noundef nonnull %this) #18
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end8, label %do.body6
@@ -578,7 +578,7 @@ do.body6:                                         ; preds = %_ZN4node9inspector1
   unreachable
 
 do.end8:                                          ; preds = %_ZN4node9inspector12_GLOBAL__N_110GenerateIDB5cxx11Ev.exit
-  call void @uv_cond_wait(ptr noundef nonnull %thread_start_condition_, ptr noundef nonnull %thread_start_lock_) #18
+  call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %thread_start_condition_, ptr noundef nonnull %thread_start_lock_) #18
   call void @uv_mutex_unlock(ptr noundef nonnull %thread_start_lock_) #18
   ret void
 }
@@ -639,9 +639,9 @@ do.end7:                                          ; preds = %_ZNSt10unique_ptrIN
   %script_name_ = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %script_name_) #18
   %thread_start_condition_ = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @uv_cond_destroy(ptr noundef nonnull %thread_start_condition_) #18
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %thread_start_condition_) #18
   %thread_start_lock_ = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %thread_start_lock_) #18
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %thread_start_lock_) #18
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -871,7 +871,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNS
 define internal fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %session_id, i32 noundef range(i32 0, 3) %action, ptr nocapture noundef nonnull %message) unnamed_addr #3 align 2 {
 entry:
   %lock_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %lock_) #18
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #18
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -880,7 +880,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %message, align 8
   store ptr null, ptr %message, align 8
   %state_lock_.i = getelementptr inbounds i8, ptr %0, i64 232
-  tail call void @uv_mutex_lock(ptr noundef nonnull %state_lock_.i) #18
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_lock_.i) #18
   %messages_.i = getelementptr inbounds i8, ptr %0, i64 152
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %messages_.val.i = load ptr, ptr %2, align 8
@@ -1082,7 +1082,7 @@ do.body8.i:                                       ; preds = %do.body.i
 
 do.end10.i:                                       ; preds = %do.body.i
   %incoming_message_cond_.i = getelementptr inbounds i8, ptr %0, i64 272
-  tail call void @uv_cond_broadcast(ptr noundef nonnull %incoming_message_cond_.i) #18
+  tail call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_.i) #18
   br label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %do.end10.i, %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE12emplace_backIJRNS2_15TransportActionERiSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteISC_EEEEERS3_DpOT_.exit.i
@@ -1155,7 +1155,7 @@ do.end5:                                          ; preds = %entry
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
   store ptr %call6, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !8
   %lock_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 24
-  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %lock_.i.i.i.i.i.i.i.i.i) #18, !noalias !8
+  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i.i.i.i.i.i.i) #18, !noalias !8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i, label %do.body5.i.i.i.i.i.i.i.i.i.i
 
@@ -1196,7 +1196,7 @@ _ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQu
   store ptr %call5.i.i.i.i.i.i.i1.i, ptr %_M_start.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   %state_lock_.i = getelementptr inbounds i8, ptr %call6, i64 232
-  %call.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %state_lock_.i) #18
+  %call.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %state_lock_.i) #18
   %cmp.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i, label %do.body5.i.i
 
@@ -1207,7 +1207,7 @@ do.body5.i.i:                                     ; preds = %_ZSt11make_sharedIN
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i: ; preds = %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i
   %incoming_message_cond_.i = getelementptr inbounds i8, ptr %call6, i64 272
-  %call.i.i2.i = call noundef i32 @uv_cond_init(ptr noundef nonnull %incoming_message_cond_.i) #18
+  %call.i.i2.i = call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_.i) #18
   %cmp.not.i3.i = icmp eq i32 %call.i.i2.i, 0
   br i1 %cmp.not.i3.i, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i, label %do.body5.i4.i
 
@@ -1267,7 +1267,7 @@ do.body9.i:                                       ; preds = %do.body.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %do.body.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #18
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #18
   %call.i.i.i6 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %call.i.i.i6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i.i)
@@ -1555,7 +1555,7 @@ if.else.i.i.i.i.i.i63:                            ; preds = %if.then.i.i.i.i58
 
 _ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit, %if.then.i.i.i.i.i.i61, %if.else.i.i.i.i.i.i63
   %38 = load ptr, ptr %host_port_, align 8
-  call void @uv_mutex_lock(ptr noundef nonnull %38) #18
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %38) #18
   %39 = load ptr, ptr %host_port_, align 8
   %item_.i = getelementptr inbounds i8, ptr %39, i64 40
   %call12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %item_.i) #18
@@ -1816,7 +1816,7 @@ if.end8.sink.split.i.i.i.i169:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt12__shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i156, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i166, %if.end8.sink.split.i.i.i.i169
   %thread_start_lock_ = getelementptr inbounds i8, ptr %this, i64 64
-  call void @uv_mutex_lock(ptr noundef nonnull %thread_start_lock_) #18
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %thread_start_lock_) #18
   %call18 = call noundef zeroext i1 @_ZN4node9inspector21InspectorSocketServer5StartEv(ptr noundef nonnull align 8 dereferenceable(148) %server) #18
   br i1 %call18, label %if.then19, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit259
 
@@ -1843,7 +1843,7 @@ if.else.i.i.i.i.i.i189:                           ; preds = %if.then.i.i.i.i181
 
 _ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit190: ; preds = %if.then.i.i.i.i.i.i184, %if.else.i.i.i.i.i.i189
   %82 = load ptr, ptr %host_port_, align 8
-  call void @uv_mutex_lock(ptr noundef nonnull %82) #18
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %82) #18
   %83 = load ptr, ptr %host_port_, align 8
   %call23 = call noundef i32 @_ZNK4node9inspector21InspectorSocketServer4PortEv(ptr noundef nonnull align 8 dereferenceable(148) %server) #18
   %conv24 = trunc i32 %call23 to i16
@@ -1918,7 +1918,7 @@ if.end8.sink.split.i.i.i.i.i216:                  ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit259.critedge: ; preds = %if.then19
   %94 = load ptr, ptr %host_port_, align 8
-  call void @uv_mutex_lock(ptr noundef nonnull %94) #18
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %94) #18
   %95 = load ptr, ptr %host_port_, align 8
   %call23.c = call noundef i32 @_ZNK4node9inspector21InspectorSocketServer4PortEv(ptr noundef nonnull align 8 dereferenceable(148) %server) #18
   %conv24.c = trunc i32 %call23.c to i16
@@ -1929,7 +1929,7 @@ _ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit259
 
 _ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit259: ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit259.critedge, %if.end8.sink.split.i.i.i.i.i216, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i213, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i203, %_ZNSt12__shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
   %thread_start_condition_ = getelementptr inbounds i8, ptr %this, i64 104
-  call void @uv_cond_broadcast(ptr noundef nonnull %thread_start_condition_) #18
+  call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %thread_start_condition_) #18
   call void @uv_mutex_unlock(ptr noundef nonnull %thread_start_lock_) #18
   %call26 = call i32 @uv_run(ptr noundef nonnull %loop, i32 noundef 0) #18
   call void @_ZN4node18CheckedUvLoopCloseEP9uv_loop_s(ptr noundef nonnull %loop) #18
@@ -1946,7 +1946,7 @@ define internal void @_ZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseA
 entry:
   %0 = load ptr, ptr %queue, align 8
   %lock_.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %lock_.i) #18
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i) #18
   store ptr null, ptr %0, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %lock_.i) #18
   store ptr null, ptr %queue, align 8
@@ -2075,7 +2075,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %4 = load ptr, ptr %host_port_, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %4) #18
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #18
   %5 = load ptr, ptr %host_port_, align 8
   %item_.i = getelementptr inbounds i8, ptr %5, i64 40
   %port_.i = getelementptr inbounds i8, ptr %5, i64 72
@@ -2152,7 +2152,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedD2Ev.exit.critedge: ; preds = %entry
   %17 = load ptr, ptr %host_port_, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %17) #18
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %17) #18
   %18 = load ptr, ptr %host_port_, align 8
   %item_.i.c = getelementptr inbounds i8, ptr %18, i64 40
   %port_.i.c = getelementptr inbounds i8, ptr %18, i64 72
@@ -2331,7 +2331,7 @@ _ZNSt10shared_ptrIN4node9inspector12RequestQueueEED2Ev.exit: ; preds = %_ZNSt10u
 
 if.then:                                          ; preds = %_ZNSt10shared_ptrIN4node9inspector12RequestQueueEED2Ev.exit
   %sessions_ = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %sessions_, ptr noundef nonnull align 4 dereferenceable(4) %session_id.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %sessions_, ptr noundef nonnull align 4 dereferenceable(4) %session_id.addr)
   %23 = load ptr, ptr %session, align 8
   store ptr null, ptr %session, align 8
   %24 = load ptr, ptr %call.i, align 8
@@ -2863,7 +2863,7 @@ entry:
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN4node9inspector12RequestQueueESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %lock_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %lock_.i.i.i) #18
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i) #18
   ret void
 }
 
@@ -2913,7 +2913,7 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %state_lock_.i.i.i = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @uv_mutex_lock(ptr noundef nonnull %state_lock_.i.i.i) #18, !noalias !33
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_lock_.i.i.i) #18, !noalias !33
   %_M_map_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 8, ptr %_M_map_size.i.i.i.i.i.i, align 8, !alias.scope !33
   %call5.i.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17, !noalias !33
@@ -2940,7 +2940,7 @@ if.end.i.i:                                       ; preds = %entry
   store ptr %call5.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !33
   %messages_.i.i.i = getelementptr inbounds i8, ptr %1, i64 152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %messages_.i.i.i, i64 16, i1 false), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %messages_.i.i.i, i64 16, i1 false), !noalias !33
   %_M_start3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 168
   %3 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8, !noalias !33
   %_M_first3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 176
@@ -2958,7 +2958,7 @@ if.end.i.i:                                       ; preds = %entry
   %_M_node5.i8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
   %10 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8, !noalias !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %messages_.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
   store ptr %3, ptr %_M_start.i.i.i.i.i.i, align 8, !alias.scope !33
   store ptr %4, ptr %_M_first.i.i.i.i.i.i.i, align 8, !alias.scope !33
   store ptr %5, ptr %_M_last.i.i.i.i.i.i.i, align 8, !alias.scope !33
@@ -3417,9 +3417,9 @@ entry:
 
 delete.notnull.i:                                 ; preds = %entry
   %incoming_message_cond_.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  tail call void @uv_cond_destroy(ptr noundef nonnull %incoming_message_cond_.i.i) #18
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_.i.i) #18
   %state_lock_.i.i = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %state_lock_.i.i) #18
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %state_lock_.i.i) #18
   %messages_.i.i = getelementptr inbounds i8, ptr %1, i64 152
   tail call fastcc void @_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %messages_.i.i) #18
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8

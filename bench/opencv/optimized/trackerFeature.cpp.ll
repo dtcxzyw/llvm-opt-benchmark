@@ -687,7 +687,7 @@ define void @_ZN2cv6detail8tracking23TrackerFeatureFeature2dC2ENSt7__cxx1112basi
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %8, %11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   resume { ptr, i32 } %9
 }
 
@@ -709,7 +709,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %1, %4
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   ret void
 }
 
@@ -747,7 +747,7 @@ define void @_ZN2cv6detail8tracking17TrackerFeatureHOGC2Ev(ptr noundef nonnull a
           cleanup
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   resume { ptr, i32 } %6
 }
 
@@ -756,7 +756,7 @@ define void @_ZN2cv6detail8tracking17TrackerFeatureHOGD2Ev(ptr noundef nonnull a
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   ret void
 }
 
@@ -1131,7 +1131,7 @@ _ZN2cv3PtrINS_6detail8tracking15contrib_feature18CvFeatureEvaluatorEED2Ev.exit: 
   call void @_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -1298,7 +1298,7 @@ _ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEED2Ev.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   ret void
 }
 
@@ -2008,7 +2008,7 @@ _ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEEC2ERKS5_.exit.
 53:                                               ; preds = %51, %49
   %.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
   call void @_ZN2cv3PtrINS_6detail8tracking15contrib_feature15CvHaarEvaluatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #18
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #18
   br label %.body
 
 _ZN2cv6detail8tracking16Parallel_computeC2ERNS_3PtrINS1_15contrib_feature15CvHaarEvaluatorEEERKSt6vectorINS_3MatESaIS9_EERS9_.exit: ; preds = %47
@@ -2413,7 +2413,7 @@ define void @_ZN2cv6detail8tracking17TrackerFeatureLBPC2Ev(ptr noundef nonnull a
           cleanup
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   resume { ptr, i32 } %6
 }
 
@@ -2422,7 +2422,7 @@ define void @_ZN2cv6detail8tracking17TrackerFeatureLBPD2Ev(ptr noundef nonnull a
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking21TrackerContribFeatureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv6detail8tracking14TrackerFeatureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   ret void
 }
 

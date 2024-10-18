@@ -564,7 +564,7 @@ define noundef i64 @_ZN7Archive12ReadHeader15Ev(ptr noundef nonnull align 8 dere
   br i1 %.not, label %45, label %30
 
 30:                                               ; preds = %29
-  %31 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(8256) %0)
+  %31 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %30
@@ -666,7 +666,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %.loopexit.split-lp,
   br i1 %58, label %59, label %71
 
 59:                                               ; preds = %55
-  %60 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(8256) %0)
+  %60 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
           to label %.noexc198 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc198:                                        ; preds = %59
@@ -1943,7 +1943,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
   br i1 %.not, label %67, label %55
 
 55:                                               ; preds = %54
-  %56 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(8256) %0)
+  %56 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
           to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %55
@@ -2188,7 +2188,7 @@ _ZN16RarCheckPasswordD2Ev.exit:                   ; preds = %146, %.critedge, %1
   br i1 %150, label %151, label %163
 
 151:                                              ; preds = %149
-  %152 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(8256) %0)
+  %152 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
           to label %.noexc168 unwind label %47
 
 .noexc168:                                        ; preds = %151
@@ -2336,7 +2336,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181: ; preds = %192
   br i1 %206, label %207, label %220
 
 207:                                              ; preds = %202
-  %208 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(8256) %0)
+  %208 = invoke noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
           to label %.noexc192 unwind label %47
 
 .noexc192:                                        ; preds = %207
@@ -3259,7 +3259,7 @@ define noundef i64 @_ZN7Archive8SearchRREv(ptr noundef nonnull align 8 dereferen
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @wcscmp(ptr noundef nonnull %35, ptr noundef nonnull readonly @.str) #21
+  %48 = tail call i32 @wcscmp(ptr noundef nonnull %35, ptr noundef nonnull @.str) #21
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %50
 
@@ -3971,7 +3971,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %_ZNSt6vectorIcSaIcE
   br label %177
 
 175:                                              ; preds = %168, %166
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   %.pr = load ptr, ptr %7, align 8
   %.not.i.i.i231 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i231, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %.thread
@@ -3982,7 +3982,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %175, %.thread
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
   br label %178
 
 177:                                              ; preds = %.loopexit259, %.loopexit.split-lp, %173, %171
@@ -4489,7 +4489,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull alig
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #20
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -4506,7 +4506,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 9:                                                ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -4554,7 +4554,7 @@ define linkonce_odr void @_ZNSt6vectorIwSaIwEEC2EmRKS0_(ptr noundef nonnull alig
 
 _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #20
+  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
@@ -4572,7 +4572,7 @@ _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 10:                                               ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
@@ -4615,7 +4615,7 @@ define linkonce_odr void @_ZNSt6vectorIwSaIwEED2Ev(ptr noundef nonnull align 8 d
   br label %_ZNSt12_Vector_baseIwSaIwEED2Ev.exit
 
 _ZNSt12_Vector_baseIwSaIwEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  tail call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 
@@ -4630,7 +4630,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 d
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 
@@ -5189,7 +5189,7 @@ define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 derefere
   unreachable
 
 _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #20
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr1) #20
   %11 = icmp eq i64 %.add, 328
   br i1 %11, label %12, label %2
 
@@ -5227,7 +5227,7 @@ _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
   unreachable
 
 _ZN9CryptData13KDF3CacheItemD2Ev.exit:            ; preds = %.noexc2.i5
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #20
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %16) #20
   %24 = icmp eq ptr %16, %0
   br i1 %24, label %25, label %14
 

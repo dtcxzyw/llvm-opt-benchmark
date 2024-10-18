@@ -548,7 +548,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixe
           to label %207 unwind label %216
 
 207:                                              ; preds = %204
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #22
   %208 = getelementptr inbounds i8, ptr %8, i64 8
   %209 = load i32, ptr %208, align 8
   %.not.i23.i = icmp eq i32 %209, 0
@@ -573,7 +573,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixe
 216:                                              ; preds = %204, %202, %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
   %217 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #22
   br label %218
 
 218:                                              ; preds = %216, %214, %27
@@ -1003,7 +1003,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixe
           to label %207 unwind label %216
 
 207:                                              ; preds = %204
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #22
   %208 = getelementptr inbounds i8, ptr %8, i64 8
   %209 = load i32, ptr %208, align 8
   %.not.i23.i = icmp eq i32 %209, 0
@@ -1028,7 +1028,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixe
 216:                                              ; preds = %204, %202, %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
   %217 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #22
   br label %218
 
 218:                                              ; preds = %216, %214, %27
@@ -4926,7 +4926,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth1NIhNS_12_G
   %13 = load i8, ptr %10, align 1
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %12
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %15, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %15, i32 65535)
   %16 = trunc nuw i32 %.sroa.speculated.i to i16
   %17 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
   store i16 %16, ptr %17, align 2
@@ -5184,7 +5184,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, %21
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %26, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
   %28 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv196
   store i16 %27, ptr %28, align 2
@@ -5239,7 +5239,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %53 = add nuw nsw i32 %52, %50
   %54 = mul nuw nsw i32 %53, %48
   %55 = add nuw nsw i32 %54, %46
-  %.sroa.speculated.i139 = tail call i32 @llvm.umin.i32(i32 %55, i32 65535)
+  %.sroa.speculated.i139 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %55, i32 65535)
   %56 = trunc nuw i32 %.sroa.speculated.i139 to i16
   %57 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
   store i16 %56, ptr %57, align 2
@@ -5255,7 +5255,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %62 = load i8, ptr %59, align 1
   %63 = zext i8 %62 to i32
   %64 = mul nuw nsw i32 %63, %61
-  %.sroa.speculated.i140 = tail call i32 @llvm.umin.i32(i32 %64, i32 65535)
+  %.sroa.speculated.i140 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %64, i32 65535)
   %65 = trunc nuw i32 %.sroa.speculated.i140 to i16
   %gep208 = getelementptr inbounds i8, ptr %invariant.gep207, i64 %indvars.iv180
   %66 = load i16, ptr %2, align 2
@@ -5263,7 +5263,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %68 = load i8, ptr %gep208, align 1
   %69 = zext i8 %68 to i32
   %70 = mul nuw nsw i32 %69, %67
-  %.sroa.speculated.i141 = tail call i32 @llvm.umin.i32(i32 %70, i32 65535)
+  %.sroa.speculated.i141 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %70, i32 65535)
   %71 = trunc nuw i32 %.sroa.speculated.i141 to i16
   %72 = tail call i16 @llvm.uadd.sat.i16(i16 %65, i16 %71)
   %73 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv180
@@ -5307,7 +5307,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %97 = add nuw nsw i32 %96, %93
   %98 = mul nuw nsw i32 %97, %90
   %99 = add nuw nsw i32 %98, %88
-  %.sroa.speculated.i142 = tail call i32 @llvm.umin.i32(i32 %99, i32 65535)
+  %.sroa.speculated.i142 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %99, i32 65535)
   %100 = trunc nuw i32 %.sroa.speculated.i142 to i16
   store i16 %100, ptr %.0129163, align 2
   %101 = add nsw i32 %.0130162, 1
@@ -5364,7 +5364,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %130 = add nuw nsw i32 %129, %125
   %131 = mul nuw nsw i32 %130, %121
   %132 = add nuw nsw i32 %131, %119
-  %.sroa.speculated.i143 = tail call i32 @llvm.umin.i32(i32 %132, i32 65535)
+  %.sroa.speculated.i143 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %132, i32 65535)
   %133 = trunc nuw i32 %.sroa.speculated.i143 to i16
   %134 = getelementptr inbounds i16, ptr %.0129.lcssa, i64 %indvars.iv186
   store i16 %133, ptr %134, align 2
@@ -5381,7 +5381,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %140 = load i8, ptr %137, align 1
   %141 = zext i8 %140 to i32
   %142 = mul nuw nsw i32 %141, %139
-  %.sroa.speculated.i144 = tail call i32 @llvm.umin.i32(i32 %142, i32 65535)
+  %.sroa.speculated.i144 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %142, i32 65535)
   %143 = trunc nuw i32 %.sroa.speculated.i144 to i16
   %144 = getelementptr inbounds i8, ptr %.0128.lcssa, i64 %indvars.iv191
   %145 = load i16, ptr %105, align 2
@@ -5389,7 +5389,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %147 = load i8, ptr %144, align 1
   %148 = zext i8 %147 to i32
   %149 = mul nuw nsw i32 %148, %146
-  %.sroa.speculated.i145 = tail call i32 @llvm.umin.i32(i32 %149, i32 65535)
+  %.sroa.speculated.i145 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %149, i32 65535)
   %150 = trunc nuw i32 %.sroa.speculated.i145 to i16
   %151 = tail call i16 @llvm.uadd.sat.i16(i16 %143, i16 %150)
   %152 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0129.lcssa, i64 %indvars.iv191
@@ -5452,7 +5452,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = mul nuw nsw i32 %30, %26
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %31, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %31, i32 65535)
   %32 = trunc nuw i32 %.sroa.speculated.i to i16
   %33 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv234
   store i16 %32, ptr %33, align 2
@@ -5468,7 +5468,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %38 = load i8, ptr %35, align 1
   %39 = zext i8 %38 to i32
   %40 = mul nuw nsw i32 %39, %37
-  %.sroa.speculated.i167 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
+  %.sroa.speculated.i167 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %40, i32 65535)
   %41 = trunc nuw i32 %.sroa.speculated.i167 to i16
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %42 = load i16, ptr %11, align 2
@@ -5476,7 +5476,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %44 = load i8, ptr %gep, align 1
   %45 = zext i8 %44 to i32
   %46 = mul nuw nsw i32 %45, %43
-  %.sroa.speculated.i168 = tail call i32 @llvm.umin.i32(i32 %46, i32 65535)
+  %.sroa.speculated.i168 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %46, i32 65535)
   %47 = trunc nuw i32 %.sroa.speculated.i168 to i16
   %48 = tail call i16 @llvm.uadd.sat.i16(i16 %41, i16 %47)
   %49 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
@@ -5514,7 +5514,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %58 = load i8, ptr %gep247, align 1
   %59 = zext i8 %58 to i32
   %60 = mul nuw nsw i32 %59, %57
-  %.sroa.speculated.i169 = tail call i32 @llvm.umin.i32(i32 %60, i32 65535)
+  %.sroa.speculated.i169 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %60, i32 65535)
   %61 = trunc nuw i32 %.sroa.speculated.i169 to i16
   %62 = load i16, ptr %55, align 2
   %63 = tail call i16 @llvm.uadd.sat.i16(i16 %62, i16 %61)
@@ -5560,14 +5560,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %79 = load i8, ptr %76, align 1
   %80 = zext i8 %79 to i32
   %81 = mul nuw nsw i32 %80, %78
-  %.sroa.speculated.i170 = tail call i32 @llvm.umin.i32(i32 %81, i32 65535)
+  %.sroa.speculated.i170 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %81, i32 65535)
   %82 = trunc nuw i32 %.sroa.speculated.i170 to i16
   %83 = load i16, ptr %72, align 2
   %84 = zext i16 %83 to i32
   %85 = load i8, ptr %.0155202, align 1
   %86 = zext i8 %85 to i32
   %87 = mul nuw nsw i32 %86, %84
-  %.sroa.speculated.i171 = tail call i32 @llvm.umin.i32(i32 %87, i32 65535)
+  %.sroa.speculated.i171 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %87, i32 65535)
   %88 = trunc nuw i32 %.sroa.speculated.i171 to i16
   %89 = tail call i16 @llvm.uadd.sat.i16(i16 %82, i16 %88)
   %90 = getelementptr inbounds i8, ptr %.0155202, i64 %64
@@ -5576,7 +5576,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %93 = load i8, ptr %90, align 1
   %94 = zext i8 %93 to i32
   %95 = mul nuw nsw i32 %94, %92
-  %.sroa.speculated.i172 = tail call i32 @llvm.umin.i32(i32 %95, i32 65535)
+  %.sroa.speculated.i172 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %95, i32 65535)
   %96 = trunc nuw i32 %.sroa.speculated.i172 to i16
   %97 = tail call i16 @llvm.uadd.sat.i16(i16 %89, i16 %96)
   store i16 %97, ptr %.0157201, align 2
@@ -5595,7 +5595,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %106 = load i8, ptr %103, align 1
   %107 = zext i8 %106 to i32
   %108 = mul nuw nsw i32 %107, %105
-  %.sroa.speculated.i173 = tail call i32 @llvm.umin.i32(i32 %108, i32 65535)
+  %.sroa.speculated.i173 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %108, i32 65535)
   %109 = trunc nuw i32 %.sroa.speculated.i173 to i16
   %110 = getelementptr inbounds i8, ptr %.0155.lcssa, i64 %indvars.iv224
   %111 = load i16, ptr %74, align 2
@@ -5603,7 +5603,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %113 = load i8, ptr %110, align 1
   %114 = zext i8 %113 to i32
   %115 = mul nuw nsw i32 %114, %112
-  %.sroa.speculated.i174 = tail call i32 @llvm.umin.i32(i32 %115, i32 65535)
+  %.sroa.speculated.i174 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %115, i32 65535)
   %116 = trunc nuw i32 %.sroa.speculated.i174 to i16
   %117 = tail call i16 @llvm.uadd.sat.i16(i16 %109, i16 %116)
   %118 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0157.lcssa, i64 %indvars.iv224
@@ -5641,7 +5641,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %131 = load i8, ptr %128, align 1
   %132 = zext i8 %131 to i32
   %133 = mul nuw nsw i32 %132, %130
-  %.sroa.speculated.i175 = tail call i32 @llvm.umin.i32(i32 %133, i32 65535)
+  %.sroa.speculated.i175 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %133, i32 65535)
   %134 = trunc nuw i32 %.sroa.speculated.i175 to i16
   %135 = load i16, ptr %126, align 2
   %136 = tail call i16 @llvm.uadd.sat.i16(i16 %135, i16 %134)
@@ -6282,7 +6282,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = mul nuw nsw i32 %27, %23
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %28, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %28, i32 65535)
   %29 = trunc nuw i32 %.sroa.speculated.i to i16
   %30 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv636
   store i16 %29, ptr %30, align 2
@@ -6311,7 +6311,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %40 = load i8, ptr %37, align 1
   %41 = zext i8 %40 to i32
   %42 = mul nuw nsw i32 %41, %39
-  %.sroa.speculated.i520 = tail call i32 @llvm.umin.i32(i32 %42, i32 65535)
+  %.sroa.speculated.i520 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %42, i32 65535)
   %43 = trunc nuw i32 %.sroa.speculated.i520 to i16
   %44 = add nuw nsw i64 %indvars.iv631, %35
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
@@ -6320,7 +6320,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %48 = load i8, ptr %45, align 1
   %49 = zext i8 %48 to i32
   %50 = mul nuw nsw i32 %49, %47
-  %.sroa.speculated.i521 = tail call i32 @llvm.umin.i32(i32 %50, i32 65535)
+  %.sroa.speculated.i521 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %50, i32 65535)
   %51 = trunc nuw i32 %.sroa.speculated.i521 to i16
   %52 = tail call i16 @llvm.uadd.sat.i16(i16 %43, i16 %51)
   %53 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv631
@@ -6330,14 +6330,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %56 = load i8, ptr %37, align 1
   %57 = zext i8 %56 to i32
   %58 = mul nuw nsw i32 %57, %55
-  %.sroa.speculated.i522 = tail call i32 @llvm.umin.i32(i32 %58, i32 65535)
+  %.sroa.speculated.i522 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %58, i32 65535)
   %59 = trunc nuw i32 %.sroa.speculated.i522 to i16
   %60 = load i16, ptr %33, align 2
   %61 = zext i16 %60 to i32
   %62 = load i8, ptr %45, align 1
   %63 = zext i8 %62 to i32
   %64 = mul nuw nsw i32 %63, %61
-  %.sroa.speculated.i523 = tail call i32 @llvm.umin.i32(i32 %64, i32 65535)
+  %.sroa.speculated.i523 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %64, i32 65535)
   %65 = trunc nuw i32 %.sroa.speculated.i523 to i16
   %66 = tail call i16 @llvm.uadd.sat.i16(i16 %59, i16 %65)
   %67 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %44
@@ -6404,7 +6404,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %109 = add nuw nsw i32 %108, %106
   %110 = mul nuw nsw i32 %109, %104
   %111 = add nuw nsw i32 %102, %110
-  %.sroa.speculated.i524 = tail call i32 @llvm.umin.i32(i32 %111, i32 65535)
+  %.sroa.speculated.i524 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %111, i32 65535)
   %112 = trunc nuw i32 %.sroa.speculated.i524 to i16
   %113 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv626
   store i16 %112, ptr %113, align 2
@@ -6432,7 +6432,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %134 = zext i8 %133 to i32
   %135 = mul nuw nsw i32 %134, %132
   %136 = add nuw nsw i32 %130, %135
-  %.sroa.speculated.i525 = tail call i32 @llvm.umin.i32(i32 %136, i32 65535)
+  %.sroa.speculated.i525 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %136, i32 65535)
   %137 = trunc nuw i32 %.sroa.speculated.i525 to i16
   %138 = getelementptr inbounds i16, ptr %4, i64 %90
   store i16 %137, ptr %138, align 2
@@ -6463,7 +6463,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %150 = load i8, ptr %147, align 1
   %151 = zext i8 %150 to i32
   %152 = mul nuw nsw i32 %151, %149
-  %.sroa.speculated.i526 = tail call i32 @llvm.umin.i32(i32 %152, i32 65535)
+  %.sroa.speculated.i526 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %152, i32 65535)
   %153 = trunc nuw i32 %.sroa.speculated.i526 to i16
   %154 = add nuw nsw i64 %indvars.iv621, %144
   %155 = getelementptr inbounds i8, ptr %0, i64 %154
@@ -6472,7 +6472,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %158 = load i8, ptr %155, align 1
   %159 = zext i8 %158 to i32
   %160 = mul nuw nsw i32 %159, %157
-  %.sroa.speculated.i527 = tail call i32 @llvm.umin.i32(i32 %160, i32 65535)
+  %.sroa.speculated.i527 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %160, i32 65535)
   %161 = trunc nuw i32 %.sroa.speculated.i527 to i16
   %162 = tail call i16 @llvm.uadd.sat.i16(i16 %153, i16 %161)
   %163 = add nuw nsw i64 %indvars.iv621, %145
@@ -6482,7 +6482,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %167 = load i8, ptr %164, align 1
   %168 = zext i8 %167 to i32
   %169 = mul nuw nsw i32 %168, %166
-  %.sroa.speculated.i528 = tail call i32 @llvm.umin.i32(i32 %169, i32 65535)
+  %.sroa.speculated.i528 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %169, i32 65535)
   %170 = trunc nuw i32 %.sroa.speculated.i528 to i16
   %171 = tail call i16 @llvm.uadd.sat.i16(i16 %162, i16 %170)
   %172 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv621
@@ -6501,7 +6501,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %184 = zext i8 %183 to i32
   %185 = mul nuw nsw i32 %184, %182
   %186 = add nuw nsw i32 %185, %180
-  %.sroa.speculated.i529 = tail call i32 @llvm.umin.i32(i32 %186, i32 65535)
+  %.sroa.speculated.i529 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %186, i32 65535)
   %187 = trunc nuw i32 %.sroa.speculated.i529 to i16
   %188 = getelementptr inbounds i16, ptr %4, i64 %154
   store i16 %187, ptr %188, align 2
@@ -6510,14 +6510,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %191 = load i8, ptr %147, align 1
   %192 = zext i8 %191 to i32
   %193 = mul nuw nsw i32 %192, %190
-  %.sroa.speculated.i530 = tail call i32 @llvm.umin.i32(i32 %193, i32 65535)
+  %.sroa.speculated.i530 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %193, i32 65535)
   %194 = trunc nuw i32 %.sroa.speculated.i530 to i16
   %195 = load i16, ptr %142, align 2
   %196 = zext i16 %195 to i32
   %197 = load i8, ptr %155, align 1
   %198 = zext i8 %197 to i32
   %199 = mul nuw nsw i32 %198, %196
-  %.sroa.speculated.i531 = tail call i32 @llvm.umin.i32(i32 %199, i32 65535)
+  %.sroa.speculated.i531 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %199, i32 65535)
   %200 = trunc nuw i32 %.sroa.speculated.i531 to i16
   %201 = tail call i16 @llvm.uadd.sat.i16(i16 %194, i16 %200)
   %202 = load i16, ptr %141, align 2
@@ -6525,7 +6525,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %204 = load i8, ptr %164, align 1
   %205 = zext i8 %204 to i32
   %206 = mul nuw nsw i32 %205, %203
-  %.sroa.speculated.i532 = tail call i32 @llvm.umin.i32(i32 %206, i32 65535)
+  %.sroa.speculated.i532 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %206, i32 65535)
   %207 = trunc nuw i32 %.sroa.speculated.i532 to i16
   %208 = tail call i16 @llvm.uadd.sat.i16(i16 %201, i16 %207)
   %209 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %163
@@ -6595,7 +6595,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %255 = add nuw nsw i32 %254, %252
   %256 = mul nuw nsw i32 %255, %248
   %257 = add nuw nsw i32 %246, %256
-  %.sroa.speculated.i533 = tail call i32 @llvm.umin.i32(i32 %257, i32 65535)
+  %.sroa.speculated.i533 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %257, i32 65535)
   %258 = trunc nuw i32 %.sroa.speculated.i533 to i16
   %259 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
   store i16 %258, ptr %259, align 2
@@ -6623,7 +6623,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %280 = add nuw nsw i32 %279, %277
   %281 = mul nuw nsw i32 %280, %275
   %282 = add nuw nsw i32 %273, %281
-  %.sroa.speculated.i534 = tail call i32 @llvm.umin.i32(i32 %282, i32 65535)
+  %.sroa.speculated.i534 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %282, i32 65535)
   %283 = trunc nuw i32 %.sroa.speculated.i534 to i16
   %284 = getelementptr inbounds i16, ptr %4, i64 %238
   store i16 %283, ptr %284, align 2
@@ -6651,7 +6651,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %305 = zext i8 %304 to i32
   %306 = mul nuw nsw i32 %305, %303
   %307 = add nuw nsw i32 %301, %306
-  %.sroa.speculated.i535 = tail call i32 @llvm.umin.i32(i32 %307, i32 65535)
+  %.sroa.speculated.i535 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %307, i32 65535)
   %308 = trunc nuw i32 %.sroa.speculated.i535 to i16
   %309 = getelementptr inbounds i16, ptr %4, i64 %249
   store i16 %308, ptr %309, align 2
@@ -6734,7 +6734,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %358 = add nuw nsw i32 %357, %355
   %359 = mul nuw nsw i32 %358, %353
   %360 = add nuw nsw i32 %351, %359
-  %.sroa.speculated.i536 = tail call i32 @llvm.umin.i32(i32 %360, i32 65535)
+  %.sroa.speculated.i536 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %360, i32 65535)
   %361 = trunc nuw i32 %.sroa.speculated.i536 to i16
   %362 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv641
   store i16 %361, ptr %362, align 2
@@ -6762,7 +6762,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %383 = add nuw nsw i32 %382, %380
   %384 = mul nuw nsw i32 %383, %378
   %385 = add nuw nsw i32 %376, %384
-  %.sroa.speculated.i537 = tail call i32 @llvm.umin.i32(i32 %385, i32 65535)
+  %.sroa.speculated.i537 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %385, i32 65535)
   %386 = trunc nuw i32 %.sroa.speculated.i537 to i16
   %387 = getelementptr inbounds i16, ptr %4, i64 %343
   store i16 %386, ptr %387, align 2
@@ -6778,7 +6778,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %392 = load i8, ptr %389, align 1
   %393 = zext i8 %392 to i32
   %394 = mul nuw nsw i32 %393, %391
-  %.sroa.speculated.i538 = tail call i32 @llvm.umin.i32(i32 %394, i32 65535)
+  %.sroa.speculated.i538 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %394, i32 65535)
   %395 = trunc nuw i32 %.sroa.speculated.i538 to i16
   %396 = add nuw nsw i64 %indvars.iv646, %316
   %397 = getelementptr inbounds i8, ptr %0, i64 %396
@@ -6787,7 +6787,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %400 = load i8, ptr %397, align 1
   %401 = zext i8 %400 to i32
   %402 = mul nuw nsw i32 %401, %399
-  %.sroa.speculated.i539 = tail call i32 @llvm.umin.i32(i32 %402, i32 65535)
+  %.sroa.speculated.i539 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %402, i32 65535)
   %403 = trunc nuw i32 %.sroa.speculated.i539 to i16
   %404 = tail call i16 @llvm.uadd.sat.i16(i16 %395, i16 %403)
   %gep693 = getelementptr inbounds i8, ptr %invariant.gep692, i64 %indvars.iv646
@@ -6796,7 +6796,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %407 = load i8, ptr %gep693, align 1
   %408 = zext i8 %407 to i32
   %409 = mul nuw nsw i32 %408, %406
-  %.sroa.speculated.i540 = tail call i32 @llvm.umin.i32(i32 %409, i32 65535)
+  %.sroa.speculated.i540 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %409, i32 65535)
   %410 = trunc nuw i32 %.sroa.speculated.i540 to i16
   %411 = tail call i16 @llvm.uadd.sat.i16(i16 %404, i16 %410)
   %412 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv646
@@ -6822,7 +6822,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %430 = zext i8 %429 to i32
   %431 = mul nuw nsw i32 %430, %428
   %432 = add nuw nsw i32 %426, %431
-  %.sroa.speculated.i541 = tail call i32 @llvm.umin.i32(i32 %432, i32 65535)
+  %.sroa.speculated.i541 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %432, i32 65535)
   %433 = trunc nuw i32 %.sroa.speculated.i541 to i16
   %434 = getelementptr inbounds i16, ptr %4, i64 %396
   store i16 %433, ptr %434, align 2
@@ -6881,7 +6881,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %474 = zext i8 %473 to i32
   %475 = mul nuw nsw i32 %474, %472
   %476 = add nuw nsw i32 %470, %475
-  %.sroa.speculated.i542 = tail call i32 @llvm.umin.i32(i32 %476, i32 65535)
+  %.sroa.speculated.i542 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %476, i32 65535)
   %477 = trunc nuw i32 %.sroa.speculated.i542 to i16
   store i16 %477, ptr %.0504603, align 2
   %478 = add nsw i32 %.0506602, 1
@@ -6960,7 +6960,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %529 = zext i8 %528 to i32
   %530 = mul nuw nsw i32 %529, %526
   %531 = add nuw nsw i32 %524, %530
-  %.sroa.speculated.i543 = tail call i32 @llvm.umin.i32(i32 %531, i32 65535)
+  %.sroa.speculated.i543 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %531, i32 65535)
   %532 = trunc nuw i32 %.sroa.speculated.i543 to i16
   %533 = getelementptr inbounds i16, ptr %.0504.lcssa, i64 %indvars.iv652
   store i16 %532, ptr %533, align 2
@@ -6989,7 +6989,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %556 = zext i8 %555 to i32
   %557 = mul nuw nsw i32 %556, %554
   %558 = add nuw nsw i32 %552, %557
-  %.sroa.speculated.i544 = tail call i32 @llvm.umin.i32(i32 %558, i32 65535)
+  %.sroa.speculated.i544 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %558, i32 65535)
   %559 = trunc nuw i32 %.sroa.speculated.i544 to i16
   %560 = getelementptr inbounds i16, ptr %.0504.lcssa, i64 %518
   store i16 %559, ptr %560, align 2
@@ -7026,7 +7026,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %586 = zext i8 %585 to i32
   %587 = mul nuw nsw i32 %586, %583
   %588 = add nuw nsw i32 %581, %587
-  %.sroa.speculated.i545 = tail call i32 @llvm.umin.i32(i32 %588, i32 65535)
+  %.sroa.speculated.i545 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %588, i32 65535)
   %589 = trunc nuw i32 %.sroa.speculated.i545 to i16
   %590 = getelementptr inbounds i16, ptr %.0504.lcssa, i64 %indvars.iv657
   store i16 %589, ptr %590, align 2
@@ -7035,14 +7035,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %593 = load i8, ptr %572, align 1
   %594 = zext i8 %593 to i32
   %595 = mul nuw nsw i32 %594, %592
-  %.sroa.speculated.i546 = tail call i32 @llvm.umin.i32(i32 %595, i32 65535)
+  %.sroa.speculated.i546 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %595, i32 65535)
   %596 = trunc nuw i32 %.sroa.speculated.i546 to i16
   %597 = load i16, ptr %482, align 2
   %598 = zext i16 %597 to i32
   %599 = load i8, ptr %584, align 1
   %600 = zext i8 %599 to i32
   %601 = mul nuw nsw i32 %600, %598
-  %.sroa.speculated.i547 = tail call i32 @llvm.umin.i32(i32 %601, i32 65535)
+  %.sroa.speculated.i547 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %601, i32 65535)
   %602 = trunc nuw i32 %.sroa.speculated.i547 to i16
   %603 = tail call i16 @llvm.uadd.sat.i16(i16 %596, i16 %602)
   %604 = load i16, ptr %483, align 2
@@ -7050,7 +7050,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %606 = load i8, ptr %576, align 1
   %607 = zext i8 %606 to i32
   %608 = mul nuw nsw i32 %607, %605
-  %.sroa.speculated.i548 = tail call i32 @llvm.umin.i32(i32 %608, i32 65535)
+  %.sroa.speculated.i548 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %608, i32 65535)
   %609 = trunc nuw i32 %.sroa.speculated.i548 to i16
   %610 = tail call i16 @llvm.uadd.sat.i16(i16 %603, i16 %609)
   %611 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0504.lcssa, i64 %575
@@ -7130,7 +7130,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = mul nuw nsw i32 %42, %38
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %43, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %43, i32 65535)
   %44 = trunc nuw i32 %.sroa.speculated.i to i16
   %45 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv1016
   store i16 %44, ptr %45, align 2
@@ -7161,7 +7161,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %57 = load i8, ptr %54, align 1
   %58 = zext i8 %57 to i32
   %59 = mul nuw nsw i32 %58, %56
-  %.sroa.speculated.i781 = tail call i32 @llvm.umin.i32(i32 %59, i32 65535)
+  %.sroa.speculated.i781 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %59, i32 65535)
   %60 = trunc nuw i32 %.sroa.speculated.i781 to i16
   %61 = add nuw nsw i64 %indvars.iv1011, %52
   %62 = getelementptr inbounds i8, ptr %0, i64 %61
@@ -7170,7 +7170,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %65 = load i8, ptr %62, align 1
   %66 = zext i8 %65 to i32
   %67 = mul nuw nsw i32 %66, %64
-  %.sroa.speculated.i782 = tail call i32 @llvm.umin.i32(i32 %67, i32 65535)
+  %.sroa.speculated.i782 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %67, i32 65535)
   %68 = trunc nuw i32 %.sroa.speculated.i782 to i16
   %69 = tail call i16 @llvm.uadd.sat.i16(i16 %60, i16 %68)
   %70 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv1011
@@ -7180,14 +7180,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %73 = load i8, ptr %54, align 1
   %74 = zext i8 %73 to i32
   %75 = mul nuw nsw i32 %74, %72
-  %.sroa.speculated.i783 = tail call i32 @llvm.umin.i32(i32 %75, i32 65535)
+  %.sroa.speculated.i783 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %75, i32 65535)
   %76 = trunc nuw i32 %.sroa.speculated.i783 to i16
   %77 = load i16, ptr %49, align 2
   %78 = zext i16 %77 to i32
   %79 = load i8, ptr %62, align 1
   %80 = zext i8 %79 to i32
   %81 = mul nuw nsw i32 %80, %78
-  %.sroa.speculated.i784 = tail call i32 @llvm.umin.i32(i32 %81, i32 65535)
+  %.sroa.speculated.i784 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %81, i32 65535)
   %82 = trunc nuw i32 %.sroa.speculated.i784 to i16
   %83 = tail call i16 @llvm.uadd.sat.i16(i16 %76, i16 %82)
   %84 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %61
@@ -7233,7 +7233,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %107 = load i8, ptr %gep1055, align 1
   %108 = zext i8 %107 to i32
   %109 = mul nuw nsw i32 %108, %106
-  %.sroa.speculated.i785 = tail call i32 @llvm.umin.i32(i32 %109, i32 65535)
+  %.sroa.speculated.i785 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %109, i32 65535)
   %110 = trunc nuw i32 %.sroa.speculated.i785 to i16
   %111 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv1006
   %112 = load i16, ptr %96, align 2
@@ -7241,7 +7241,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %114 = load i8, ptr %111, align 1
   %115 = zext i8 %114 to i32
   %116 = mul nuw nsw i32 %115, %113
-  %.sroa.speculated.i786 = tail call i32 @llvm.umin.i32(i32 %116, i32 65535)
+  %.sroa.speculated.i786 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %116, i32 65535)
   %117 = trunc nuw i32 %.sroa.speculated.i786 to i16
   %118 = tail call i16 @llvm.uadd.sat.i16(i16 %110, i16 %117)
   %119 = add nuw nsw i64 %indvars.iv1006, %100
@@ -7251,7 +7251,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %123 = load i8, ptr %120, align 1
   %124 = zext i8 %123 to i32
   %125 = mul nuw nsw i32 %124, %122
-  %.sroa.speculated.i787 = tail call i32 @llvm.umin.i32(i32 %125, i32 65535)
+  %.sroa.speculated.i787 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %125, i32 65535)
   %126 = trunc nuw i32 %.sroa.speculated.i787 to i16
   %127 = tail call i16 @llvm.uadd.sat.i16(i16 %118, i16 %126)
   %gep1057 = getelementptr i8, ptr %invariant.gep1056, i64 %indvars.iv1006
@@ -7260,7 +7260,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %130 = load i8, ptr %gep1057, align 1
   %131 = zext i8 %130 to i32
   %132 = mul nuw nsw i32 %131, %129
-  %.sroa.speculated.i788 = tail call i32 @llvm.umin.i32(i32 %132, i32 65535)
+  %.sroa.speculated.i788 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %132, i32 65535)
   %133 = trunc nuw i32 %.sroa.speculated.i788 to i16
   %134 = tail call i16 @llvm.uadd.sat.i16(i16 %127, i16 %133)
   %gep1059 = getelementptr i8, ptr %invariant.gep1058, i64 %indvars.iv1006
@@ -7269,7 +7269,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %137 = load i8, ptr %gep1059, align 1
   %138 = zext i8 %137 to i32
   %139 = mul nuw nsw i32 %138, %136
-  %.sroa.speculated.i789 = tail call i32 @llvm.umin.i32(i32 %139, i32 65535)
+  %.sroa.speculated.i789 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %139, i32 65535)
   %140 = trunc nuw i32 %.sroa.speculated.i789 to i16
   %141 = tail call i16 @llvm.uadd.sat.i16(i16 %134, i16 %140)
   %142 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv1006
@@ -7279,14 +7279,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %145 = load i8, ptr %gep1055, align 1
   %146 = zext i8 %145 to i32
   %147 = mul nuw nsw i32 %146, %144
-  %.sroa.speculated.i790 = tail call i32 @llvm.umin.i32(i32 %147, i32 65535)
+  %.sroa.speculated.i790 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %147, i32 65535)
   %148 = trunc nuw i32 %.sroa.speculated.i790 to i16
   %149 = load i16, ptr %95, align 2
   %150 = zext i16 %149 to i32
   %151 = load i8, ptr %111, align 1
   %152 = zext i8 %151 to i32
   %153 = mul nuw nsw i32 %152, %150
-  %.sroa.speculated.i791 = tail call i32 @llvm.umin.i32(i32 %153, i32 65535)
+  %.sroa.speculated.i791 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %153, i32 65535)
   %154 = trunc nuw i32 %.sroa.speculated.i791 to i16
   %155 = tail call i16 @llvm.uadd.sat.i16(i16 %148, i16 %154)
   %156 = load i16, ptr %96, align 2
@@ -7294,7 +7294,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %158 = load i8, ptr %120, align 1
   %159 = zext i8 %158 to i32
   %160 = mul nuw nsw i32 %159, %157
-  %.sroa.speculated.i792 = tail call i32 @llvm.umin.i32(i32 %160, i32 65535)
+  %.sroa.speculated.i792 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %160, i32 65535)
   %161 = trunc nuw i32 %.sroa.speculated.i792 to i16
   %162 = tail call i16 @llvm.uadd.sat.i16(i16 %155, i16 %161)
   %163 = load i16, ptr %97, align 2
@@ -7302,7 +7302,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %165 = load i8, ptr %gep1057, align 1
   %166 = zext i8 %165 to i32
   %167 = mul nuw nsw i32 %166, %164
-  %.sroa.speculated.i793 = tail call i32 @llvm.umin.i32(i32 %167, i32 65535)
+  %.sroa.speculated.i793 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %167, i32 65535)
   %168 = trunc nuw i32 %.sroa.speculated.i793 to i16
   %169 = tail call i16 @llvm.uadd.sat.i16(i16 %162, i16 %168)
   %gep1061 = getelementptr i8, ptr %invariant.gep1060, i64 %indvars.iv1006
@@ -7311,7 +7311,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %172 = load i8, ptr %gep1061, align 1
   %173 = zext i8 %172 to i32
   %174 = mul nuw nsw i32 %173, %171
-  %.sroa.speculated.i794 = tail call i32 @llvm.umin.i32(i32 %174, i32 65535)
+  %.sroa.speculated.i794 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %174, i32 65535)
   %175 = trunc nuw i32 %.sroa.speculated.i794 to i16
   %176 = tail call i16 @llvm.uadd.sat.i16(i16 %169, i16 %175)
   %177 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %119
@@ -7346,7 +7346,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %192 = load i8, ptr %189, align 1
   %193 = zext i8 %192 to i32
   %194 = mul nuw nsw i32 %193, %191
-  %.sroa.speculated.i795 = tail call i32 @llvm.umin.i32(i32 %194, i32 65535)
+  %.sroa.speculated.i795 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %194, i32 65535)
   %195 = trunc nuw i32 %.sroa.speculated.i795 to i16
   %196 = add nuw nsw i64 %indvars.iv1001, %186
   %197 = getelementptr inbounds i8, ptr %0, i64 %196
@@ -7355,7 +7355,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %200 = load i8, ptr %197, align 1
   %201 = zext i8 %200 to i32
   %202 = mul nuw nsw i32 %201, %199
-  %.sroa.speculated.i796 = tail call i32 @llvm.umin.i32(i32 %202, i32 65535)
+  %.sroa.speculated.i796 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %202, i32 65535)
   %203 = trunc nuw i32 %.sroa.speculated.i796 to i16
   %204 = tail call i16 @llvm.uadd.sat.i16(i16 %195, i16 %203)
   %205 = add nuw nsw i64 %indvars.iv1001, %187
@@ -7365,7 +7365,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %209 = load i8, ptr %206, align 1
   %210 = zext i8 %209 to i32
   %211 = mul nuw nsw i32 %210, %208
-  %.sroa.speculated.i797 = tail call i32 @llvm.umin.i32(i32 %211, i32 65535)
+  %.sroa.speculated.i797 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %211, i32 65535)
   %212 = trunc nuw i32 %.sroa.speculated.i797 to i16
   %213 = tail call i16 @llvm.uadd.sat.i16(i16 %204, i16 %212)
   %214 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv1001
@@ -7375,14 +7375,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %217 = load i8, ptr %189, align 1
   %218 = zext i8 %217 to i32
   %219 = mul nuw nsw i32 %218, %216
-  %.sroa.speculated.i798 = tail call i32 @llvm.umin.i32(i32 %219, i32 65535)
+  %.sroa.speculated.i798 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %219, i32 65535)
   %220 = trunc nuw i32 %.sroa.speculated.i798 to i16
   %221 = load i16, ptr %181, align 2
   %222 = zext i16 %221 to i32
   %223 = load i8, ptr %197, align 1
   %224 = zext i8 %223 to i32
   %225 = mul nuw nsw i32 %224, %222
-  %.sroa.speculated.i799 = tail call i32 @llvm.umin.i32(i32 %225, i32 65535)
+  %.sroa.speculated.i799 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %225, i32 65535)
   %226 = trunc nuw i32 %.sroa.speculated.i799 to i16
   %227 = tail call i16 @llvm.uadd.sat.i16(i16 %220, i16 %226)
   %228 = load i16, ptr %182, align 2
@@ -7390,7 +7390,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %230 = load i8, ptr %206, align 1
   %231 = zext i8 %230 to i32
   %232 = mul nuw nsw i32 %231, %229
-  %.sroa.speculated.i800 = tail call i32 @llvm.umin.i32(i32 %232, i32 65535)
+  %.sroa.speculated.i800 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %232, i32 65535)
   %233 = trunc nuw i32 %.sroa.speculated.i800 to i16
   %234 = tail call i16 @llvm.uadd.sat.i16(i16 %227, i16 %233)
   %235 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %196
@@ -7400,14 +7400,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %238 = load i8, ptr %189, align 1
   %239 = zext i8 %238 to i32
   %240 = mul nuw nsw i32 %239, %237
-  %.sroa.speculated.i801 = tail call i32 @llvm.umin.i32(i32 %240, i32 65535)
+  %.sroa.speculated.i801 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %240, i32 65535)
   %241 = trunc nuw i32 %.sroa.speculated.i801 to i16
   %242 = load i16, ptr %185, align 2
   %243 = zext i16 %242 to i32
   %244 = load i8, ptr %197, align 1
   %245 = zext i8 %244 to i32
   %246 = mul nuw nsw i32 %245, %243
-  %.sroa.speculated.i802 = tail call i32 @llvm.umin.i32(i32 %246, i32 65535)
+  %.sroa.speculated.i802 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %246, i32 65535)
   %247 = trunc nuw i32 %.sroa.speculated.i802 to i16
   %248 = tail call i16 @llvm.uadd.sat.i16(i16 %241, i16 %247)
   %249 = load i16, ptr %181, align 2
@@ -7415,7 +7415,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %251 = load i8, ptr %206, align 1
   %252 = zext i8 %251 to i32
   %253 = mul nuw nsw i32 %252, %250
-  %.sroa.speculated.i803 = tail call i32 @llvm.umin.i32(i32 %253, i32 65535)
+  %.sroa.speculated.i803 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %253, i32 65535)
   %254 = trunc nuw i32 %.sroa.speculated.i803 to i16
   %255 = tail call i16 @llvm.uadd.sat.i16(i16 %248, i16 %254)
   %256 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %205
@@ -7463,7 +7463,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %282 = load i8, ptr %279, align 1
   %283 = zext i8 %282 to i32
   %284 = mul nuw nsw i32 %283, %281
-  %.sroa.speculated.i804 = tail call i32 @llvm.umin.i32(i32 %284, i32 65535)
+  %.sroa.speculated.i804 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %284, i32 65535)
   %285 = trunc nuw i32 %.sroa.speculated.i804 to i16
   %286 = add nuw nsw i64 %indvars.iv, %272
   %287 = getelementptr inbounds i8, ptr %0, i64 %286
@@ -7472,7 +7472,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %290 = load i8, ptr %287, align 1
   %291 = zext i8 %290 to i32
   %292 = mul nuw nsw i32 %291, %289
-  %.sroa.speculated.i805 = tail call i32 @llvm.umin.i32(i32 %292, i32 65535)
+  %.sroa.speculated.i805 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %292, i32 65535)
   %293 = trunc nuw i32 %.sroa.speculated.i805 to i16
   %294 = tail call i16 @llvm.uadd.sat.i16(i16 %285, i16 %293)
   %295 = add nuw nsw i64 %indvars.iv, %273
@@ -7482,7 +7482,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %299 = load i8, ptr %296, align 1
   %300 = zext i8 %299 to i32
   %301 = mul nuw nsw i32 %300, %298
-  %.sroa.speculated.i806 = tail call i32 @llvm.umin.i32(i32 %301, i32 65535)
+  %.sroa.speculated.i806 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %301, i32 65535)
   %302 = trunc nuw i32 %.sroa.speculated.i806 to i16
   %303 = tail call i16 @llvm.uadd.sat.i16(i16 %294, i16 %302)
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
@@ -7491,7 +7491,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %306 = load i8, ptr %gep, align 1
   %307 = zext i8 %306 to i32
   %308 = mul nuw nsw i32 %307, %305
-  %.sroa.speculated.i807 = tail call i32 @llvm.umin.i32(i32 %308, i32 65535)
+  %.sroa.speculated.i807 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %308, i32 65535)
   %309 = trunc nuw i32 %.sroa.speculated.i807 to i16
   %310 = tail call i16 @llvm.uadd.sat.i16(i16 %303, i16 %309)
   %gep1049 = getelementptr i8, ptr %invariant.gep1048, i64 %indvars.iv
@@ -7500,7 +7500,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %313 = load i8, ptr %gep1049, align 1
   %314 = zext i8 %313 to i32
   %315 = mul nuw nsw i32 %314, %312
-  %.sroa.speculated.i808 = tail call i32 @llvm.umin.i32(i32 %315, i32 65535)
+  %.sroa.speculated.i808 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %315, i32 65535)
   %316 = trunc nuw i32 %.sroa.speculated.i808 to i16
   %317 = tail call i16 @llvm.uadd.sat.i16(i16 %310, i16 %316)
   %318 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
@@ -7510,14 +7510,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %321 = load i8, ptr %279, align 1
   %322 = zext i8 %321 to i32
   %323 = mul nuw nsw i32 %322, %320
-  %.sroa.speculated.i809 = tail call i32 @llvm.umin.i32(i32 %323, i32 65535)
+  %.sroa.speculated.i809 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %323, i32 65535)
   %324 = trunc nuw i32 %.sroa.speculated.i809 to i16
   %325 = load i16, ptr %267, align 2
   %326 = zext i16 %325 to i32
   %327 = load i8, ptr %287, align 1
   %328 = zext i8 %327 to i32
   %329 = mul nuw nsw i32 %328, %326
-  %.sroa.speculated.i810 = tail call i32 @llvm.umin.i32(i32 %329, i32 65535)
+  %.sroa.speculated.i810 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %329, i32 65535)
   %330 = trunc nuw i32 %.sroa.speculated.i810 to i16
   %331 = tail call i16 @llvm.uadd.sat.i16(i16 %324, i16 %330)
   %332 = load i16, ptr %268, align 2
@@ -7525,7 +7525,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %334 = load i8, ptr %296, align 1
   %335 = zext i8 %334 to i32
   %336 = mul nuw nsw i32 %335, %333
-  %.sroa.speculated.i811 = tail call i32 @llvm.umin.i32(i32 %336, i32 65535)
+  %.sroa.speculated.i811 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %336, i32 65535)
   %337 = trunc nuw i32 %.sroa.speculated.i811 to i16
   %338 = tail call i16 @llvm.uadd.sat.i16(i16 %331, i16 %337)
   %339 = load i16, ptr %2, align 2
@@ -7533,7 +7533,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %341 = load i8, ptr %gep1049, align 1
   %342 = zext i8 %341 to i32
   %343 = mul nuw nsw i32 %342, %340
-  %.sroa.speculated.i812 = tail call i32 @llvm.umin.i32(i32 %343, i32 65535)
+  %.sroa.speculated.i812 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %343, i32 65535)
   %344 = trunc nuw i32 %.sroa.speculated.i812 to i16
   %345 = tail call i16 @llvm.uadd.sat.i16(i16 %338, i16 %344)
   %gep1051 = getelementptr i8, ptr %invariant.gep1050, i64 %indvars.iv
@@ -7542,7 +7542,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %348 = load i8, ptr %gep1051, align 1
   %349 = zext i8 %348 to i32
   %350 = mul nuw nsw i32 %349, %347
-  %.sroa.speculated.i813 = tail call i32 @llvm.umin.i32(i32 %350, i32 65535)
+  %.sroa.speculated.i813 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %350, i32 65535)
   %351 = trunc nuw i32 %.sroa.speculated.i813 to i16
   %352 = tail call i16 @llvm.uadd.sat.i16(i16 %345, i16 %351)
   %353 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %286
@@ -7552,14 +7552,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %356 = load i8, ptr %279, align 1
   %357 = zext i8 %356 to i32
   %358 = mul nuw nsw i32 %357, %355
-  %.sroa.speculated.i814 = tail call i32 @llvm.umin.i32(i32 %358, i32 65535)
+  %.sroa.speculated.i814 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %358, i32 65535)
   %359 = trunc nuw i32 %.sroa.speculated.i814 to i16
   %360 = load i16, ptr %271, align 2
   %361 = zext i16 %360 to i32
   %362 = load i8, ptr %287, align 1
   %363 = zext i8 %362 to i32
   %364 = mul nuw nsw i32 %363, %361
-  %.sroa.speculated.i815 = tail call i32 @llvm.umin.i32(i32 %364, i32 65535)
+  %.sroa.speculated.i815 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %364, i32 65535)
   %365 = trunc nuw i32 %.sroa.speculated.i815 to i16
   %366 = tail call i16 @llvm.uadd.sat.i16(i16 %359, i16 %365)
   %367 = load i16, ptr %267, align 2
@@ -7567,7 +7567,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %369 = load i8, ptr %296, align 1
   %370 = zext i8 %369 to i32
   %371 = mul nuw nsw i32 %370, %368
-  %.sroa.speculated.i816 = tail call i32 @llvm.umin.i32(i32 %371, i32 65535)
+  %.sroa.speculated.i816 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %371, i32 65535)
   %372 = trunc nuw i32 %.sroa.speculated.i816 to i16
   %373 = tail call i16 @llvm.uadd.sat.i16(i16 %366, i16 %372)
   %374 = load i16, ptr %268, align 2
@@ -7575,7 +7575,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %376 = load i8, ptr %gep1051, align 1
   %377 = zext i8 %376 to i32
   %378 = mul nuw nsw i32 %377, %375
-  %.sroa.speculated.i817 = tail call i32 @llvm.umin.i32(i32 %378, i32 65535)
+  %.sroa.speculated.i817 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %378, i32 65535)
   %379 = trunc nuw i32 %.sroa.speculated.i817 to i16
   %380 = tail call i16 @llvm.uadd.sat.i16(i16 %373, i16 %379)
   %gep1053 = getelementptr i8, ptr %invariant.gep1052, i64 %indvars.iv
@@ -7584,7 +7584,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %383 = load i8, ptr %gep1053, align 1
   %384 = zext i8 %383 to i32
   %385 = mul nuw nsw i32 %384, %382
-  %.sroa.speculated.i818 = tail call i32 @llvm.umin.i32(i32 %385, i32 65535)
+  %.sroa.speculated.i818 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %385, i32 65535)
   %386 = trunc nuw i32 %.sroa.speculated.i818 to i16
   %387 = tail call i16 @llvm.uadd.sat.i16(i16 %380, i16 %386)
   %388 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %295
@@ -7601,7 +7601,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %393 = load i8, ptr %390, align 1
   %394 = zext i8 %393 to i32
   %395 = mul nuw nsw i32 %394, %392
-  %.sroa.speculated.i819 = tail call i32 @llvm.umin.i32(i32 %395, i32 65535)
+  %.sroa.speculated.i819 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %395, i32 65535)
   %396 = trunc nuw i32 %.sroa.speculated.i819 to i16
   %397 = add nuw nsw i64 %indvars.iv1021, %15
   %398 = getelementptr inbounds i8, ptr %0, i64 %397
@@ -7610,7 +7610,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %401 = load i8, ptr %398, align 1
   %402 = zext i8 %401 to i32
   %403 = mul nuw nsw i32 %402, %400
-  %.sroa.speculated.i820 = tail call i32 @llvm.umin.i32(i32 %403, i32 65535)
+  %.sroa.speculated.i820 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %403, i32 65535)
   %404 = trunc nuw i32 %.sroa.speculated.i820 to i16
   %405 = tail call i16 @llvm.uadd.sat.i16(i16 %396, i16 %404)
   %gep1063 = getelementptr inbounds i8, ptr %invariant.gep1062, i64 %indvars.iv1021
@@ -7619,7 +7619,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %408 = load i8, ptr %gep1063, align 1
   %409 = zext i8 %408 to i32
   %410 = mul nuw nsw i32 %409, %407
-  %.sroa.speculated.i821 = tail call i32 @llvm.umin.i32(i32 %410, i32 65535)
+  %.sroa.speculated.i821 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %410, i32 65535)
   %411 = trunc nuw i32 %.sroa.speculated.i821 to i16
   %412 = tail call i16 @llvm.uadd.sat.i16(i16 %405, i16 %411)
   %413 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv1021
@@ -7629,14 +7629,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %416 = load i8, ptr %390, align 1
   %417 = zext i8 %416 to i32
   %418 = mul nuw nsw i32 %417, %415
-  %.sroa.speculated.i822 = tail call i32 @llvm.umin.i32(i32 %418, i32 65535)
+  %.sroa.speculated.i822 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %418, i32 65535)
   %419 = trunc nuw i32 %.sroa.speculated.i822 to i16
   %420 = load i16, ptr %9, align 2
   %421 = zext i16 %420 to i32
   %422 = load i8, ptr %398, align 1
   %423 = zext i8 %422 to i32
   %424 = mul nuw nsw i32 %423, %421
-  %.sroa.speculated.i823 = tail call i32 @llvm.umin.i32(i32 %424, i32 65535)
+  %.sroa.speculated.i823 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %424, i32 65535)
   %425 = trunc nuw i32 %.sroa.speculated.i823 to i16
   %426 = tail call i16 @llvm.uadd.sat.i16(i16 %419, i16 %425)
   %427 = load i16, ptr %10, align 2
@@ -7644,7 +7644,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %429 = load i8, ptr %gep1063, align 1
   %430 = zext i8 %429 to i32
   %431 = mul nuw nsw i32 %430, %428
-  %.sroa.speculated.i824 = tail call i32 @llvm.umin.i32(i32 %431, i32 65535)
+  %.sroa.speculated.i824 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %431, i32 65535)
   %432 = trunc nuw i32 %.sroa.speculated.i824 to i16
   %433 = tail call i16 @llvm.uadd.sat.i16(i16 %426, i16 %432)
   %gep1065 = getelementptr inbounds i8, ptr %invariant.gep1064, i64 %indvars.iv1021
@@ -7653,7 +7653,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %436 = load i8, ptr %gep1065, align 1
   %437 = zext i8 %436 to i32
   %438 = mul nuw nsw i32 %437, %435
-  %.sroa.speculated.i825 = tail call i32 @llvm.umin.i32(i32 %438, i32 65535)
+  %.sroa.speculated.i825 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %438, i32 65535)
   %439 = trunc nuw i32 %.sroa.speculated.i825 to i16
   %440 = tail call i16 @llvm.uadd.sat.i16(i16 %433, i16 %439)
   %441 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %397
@@ -7693,7 +7693,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %455 = load i8, ptr %gep1067, align 1
   %456 = zext i8 %455 to i32
   %457 = mul nuw nsw i32 %456, %454
-  %.sroa.speculated.i826 = tail call i32 @llvm.umin.i32(i32 %457, i32 65535)
+  %.sroa.speculated.i826 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %457, i32 65535)
   %458 = trunc nuw i32 %.sroa.speculated.i826 to i16
   %459 = load i16, ptr %452, align 2
   %460 = tail call i16 @llvm.uadd.sat.i16(i16 %459, i16 %458)
@@ -7703,7 +7703,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %463 = load i8, ptr %gep1069, align 1
   %464 = zext i8 %463 to i32
   %465 = mul nuw nsw i32 %464, %462
-  %.sroa.speculated.i827 = tail call i32 @llvm.umin.i32(i32 %465, i32 65535)
+  %.sroa.speculated.i827 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %465, i32 65535)
   %466 = trunc nuw i32 %.sroa.speculated.i827 to i16
   %467 = tail call i16 @llvm.uadd.sat.i16(i16 %460, i16 %466)
   store i16 %467, ptr %452, align 2
@@ -7713,7 +7713,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %470 = load i8, ptr %gep1069, align 1
   %471 = zext i8 %470 to i32
   %472 = mul nuw nsw i32 %471, %469
-  %.sroa.speculated.i828 = tail call i32 @llvm.umin.i32(i32 %472, i32 65535)
+  %.sroa.speculated.i828 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %472, i32 65535)
   %473 = trunc nuw i32 %.sroa.speculated.i828 to i16
   %474 = load i16, ptr %gep1071, align 2
   %475 = tail call i16 @llvm.uadd.sat.i16(i16 %474, i16 %473)
@@ -7767,7 +7767,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %500 = load i8, ptr %497, align 1
   %501 = zext i8 %500 to i32
   %502 = mul nuw nsw i32 %501, %499
-  %.sroa.speculated.i829 = tail call i32 @llvm.umin.i32(i32 %502, i32 65535)
+  %.sroa.speculated.i829 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %502, i32 65535)
   %503 = trunc nuw i32 %.sroa.speculated.i829 to i16
   %504 = getelementptr inbounds i8, ptr %.0763984, i64 %487
   %505 = load i16, ptr %485, align 2
@@ -7775,7 +7775,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %507 = load i8, ptr %504, align 1
   %508 = zext i8 %507 to i32
   %509 = mul nuw nsw i32 %508, %506
-  %.sroa.speculated.i830 = tail call i32 @llvm.umin.i32(i32 %509, i32 65535)
+  %.sroa.speculated.i830 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %509, i32 65535)
   %510 = trunc nuw i32 %.sroa.speculated.i830 to i16
   %511 = tail call i16 @llvm.uadd.sat.i16(i16 %503, i16 %510)
   %512 = load i16, ptr %488, align 2
@@ -7783,7 +7783,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %514 = load i8, ptr %.0763984, align 1
   %515 = zext i8 %514 to i32
   %516 = mul nuw nsw i32 %515, %513
-  %.sroa.speculated.i831 = tail call i32 @llvm.umin.i32(i32 %516, i32 65535)
+  %.sroa.speculated.i831 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %516, i32 65535)
   %517 = trunc nuw i32 %.sroa.speculated.i831 to i16
   %518 = tail call i16 @llvm.uadd.sat.i16(i16 %511, i16 %517)
   %519 = getelementptr inbounds i8, ptr %.0763984, i64 %490
@@ -7792,7 +7792,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %522 = load i8, ptr %519, align 1
   %523 = zext i8 %522 to i32
   %524 = mul nuw nsw i32 %523, %521
-  %.sroa.speculated.i832 = tail call i32 @llvm.umin.i32(i32 %524, i32 65535)
+  %.sroa.speculated.i832 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %524, i32 65535)
   %525 = trunc nuw i32 %.sroa.speculated.i832 to i16
   %526 = tail call i16 @llvm.uadd.sat.i16(i16 %518, i16 %525)
   %527 = getelementptr inbounds i8, ptr %.0763984, i64 %477
@@ -7801,7 +7801,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %530 = load i8, ptr %527, align 1
   %531 = zext i8 %530 to i32
   %532 = mul nuw nsw i32 %531, %529
-  %.sroa.speculated.i833 = tail call i32 @llvm.umin.i32(i32 %532, i32 65535)
+  %.sroa.speculated.i833 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %532, i32 65535)
   %533 = trunc nuw i32 %.sroa.speculated.i833 to i16
   %534 = tail call i16 @llvm.uadd.sat.i16(i16 %526, i16 %533)
   store i16 %534, ptr %.0764983, align 2
@@ -7820,7 +7820,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %543 = load i8, ptr %540, align 1
   %544 = zext i8 %543 to i32
   %545 = mul nuw nsw i32 %544, %542
-  %.sroa.speculated.i834 = tail call i32 @llvm.umin.i32(i32 %545, i32 65535)
+  %.sroa.speculated.i834 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %545, i32 65535)
   %546 = trunc nuw i32 %.sroa.speculated.i834 to i16
   %547 = sub nsw i64 %indvars.iv1032, %495
   %548 = getelementptr inbounds i8, ptr %.0763.lcssa, i64 %547
@@ -7829,7 +7829,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %551 = load i8, ptr %548, align 1
   %552 = zext i8 %551 to i32
   %553 = mul nuw nsw i32 %552, %550
-  %.sroa.speculated.i835 = tail call i32 @llvm.umin.i32(i32 %553, i32 65535)
+  %.sroa.speculated.i835 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %553, i32 65535)
   %554 = trunc nuw i32 %.sroa.speculated.i835 to i16
   %555 = tail call i16 @llvm.uadd.sat.i16(i16 %546, i16 %554)
   %556 = getelementptr inbounds i8, ptr %.0763.lcssa, i64 %indvars.iv1032
@@ -7838,7 +7838,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %559 = load i8, ptr %556, align 1
   %560 = zext i8 %559 to i32
   %561 = mul nuw nsw i32 %560, %558
-  %.sroa.speculated.i836 = tail call i32 @llvm.umin.i32(i32 %561, i32 65535)
+  %.sroa.speculated.i836 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %561, i32 65535)
   %562 = trunc nuw i32 %.sroa.speculated.i836 to i16
   %563 = tail call i16 @llvm.uadd.sat.i16(i16 %555, i16 %562)
   %564 = add nuw nsw i64 %indvars.iv1032, %495
@@ -7848,7 +7848,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %568 = load i8, ptr %565, align 1
   %569 = zext i8 %568 to i32
   %570 = mul nuw nsw i32 %569, %567
-  %.sroa.speculated.i837 = tail call i32 @llvm.umin.i32(i32 %570, i32 65535)
+  %.sroa.speculated.i837 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %570, i32 65535)
   %571 = trunc nuw i32 %.sroa.speculated.i837 to i16
   %572 = tail call i16 @llvm.uadd.sat.i16(i16 %563, i16 %571)
   %573 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0764.lcssa, i64 %indvars.iv1032
@@ -7858,14 +7858,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %576 = load i8, ptr %548, align 1
   %577 = zext i8 %576 to i32
   %578 = mul nuw nsw i32 %577, %575
-  %.sroa.speculated.i838 = tail call i32 @llvm.umin.i32(i32 %578, i32 65535)
+  %.sroa.speculated.i838 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %578, i32 65535)
   %579 = trunc nuw i32 %.sroa.speculated.i838 to i16
   %580 = load i16, ptr %492, align 2
   %581 = zext i16 %580 to i32
   %582 = load i8, ptr %556, align 1
   %583 = zext i8 %582 to i32
   %584 = mul nuw nsw i32 %583, %581
-  %.sroa.speculated.i839 = tail call i32 @llvm.umin.i32(i32 %584, i32 65535)
+  %.sroa.speculated.i839 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %584, i32 65535)
   %585 = trunc nuw i32 %.sroa.speculated.i839 to i16
   %586 = tail call i16 @llvm.uadd.sat.i16(i16 %579, i16 %585)
   %587 = load i16, ptr %493, align 2
@@ -7873,7 +7873,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %589 = load i8, ptr %565, align 1
   %590 = zext i8 %589 to i32
   %591 = mul nuw nsw i32 %590, %588
-  %.sroa.speculated.i840 = tail call i32 @llvm.umin.i32(i32 %591, i32 65535)
+  %.sroa.speculated.i840 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %591, i32 65535)
   %592 = trunc nuw i32 %.sroa.speculated.i840 to i16
   %593 = tail call i16 @llvm.uadd.sat.i16(i16 %586, i16 %592)
   %594 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0764.lcssa, i64 %564
@@ -7914,7 +7914,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %614 = load i8, ptr %611, align 1
   %615 = zext i8 %614 to i32
   %616 = mul nuw nsw i32 %615, %613
-  %.sroa.speculated.i841 = tail call i32 @llvm.umin.i32(i32 %616, i32 65535)
+  %.sroa.speculated.i841 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %616, i32 65535)
   %617 = trunc nuw i32 %.sroa.speculated.i841 to i16
   %618 = load i16, ptr %609, align 2
   %619 = tail call i16 @llvm.uadd.sat.i16(i16 %618, i16 %617)
@@ -7926,7 +7926,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %624 = load i8, ptr %611, align 1
   %625 = zext i8 %624 to i32
   %626 = mul nuw nsw i32 %625, %623
-  %.sroa.speculated.i842 = tail call i32 @llvm.umin.i32(i32 %626, i32 65535)
+  %.sroa.speculated.i842 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %626, i32 65535)
   %627 = trunc nuw i32 %.sroa.speculated.i842 to i16
   %628 = load i16, ptr %621, align 2
   %629 = tail call i16 @llvm.uadd.sat.i16(i16 %628, i16 %627)
@@ -7937,7 +7937,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %634 = load i8, ptr %631, align 1
   %635 = zext i8 %634 to i32
   %636 = mul nuw nsw i32 %635, %633
-  %.sroa.speculated.i843 = tail call i32 @llvm.umin.i32(i32 %636, i32 65535)
+  %.sroa.speculated.i843 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %636, i32 65535)
   %637 = trunc nuw i32 %.sroa.speculated.i843 to i16
   %638 = tail call i16 @llvm.uadd.sat.i16(i16 %629, i16 %637)
   store i16 %638, ptr %621, align 2
@@ -7991,7 +7991,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %24 = load i8, ptr %21, align 1
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, %23
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %26, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
   %28 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0228337, i64 %indvars.iv
   store i16 %27, ptr %28, align 2
@@ -8038,7 +8038,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %42 = load i8, ptr %gep, align 1
   %43 = zext i8 %42 to i32
   %44 = mul nuw nsw i32 %43, %41
-  %.sroa.speculated.i246.us = tail call i32 @llvm.umin.i32(i32 %44, i32 65535)
+  %.sroa.speculated.i246.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %44, i32 65535)
   %45 = trunc nuw i32 %.sroa.speculated.i246.us to i16
   %46 = load i16, ptr %39, align 2
   %47 = tail call i16 @llvm.uadd.sat.i16(i16 %46, i16 %45)
@@ -8094,7 +8094,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %63 = load i8, ptr %gep487, align 1
   %64 = zext i8 %63 to i32
   %65 = mul nuw nsw i32 %64, %62
-  %.sroa.speculated.i248.us = tail call i32 @llvm.umin.i32(i32 %65, i32 65535)
+  %.sroa.speculated.i248.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %65, i32 65535)
   %66 = trunc nuw i32 %.sroa.speculated.i248.us to i16
   %67 = load i16, ptr %60, align 2
   %68 = tail call i16 @llvm.uadd.sat.i16(i16 %67, i16 %66)
@@ -8147,7 +8147,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %81 = load i8, ptr %gep489, align 1
   %82 = zext i8 %81 to i32
   %83 = mul nuw nsw i32 %82, %80
-  %.sroa.speculated.i249 = tail call i32 @llvm.umin.i32(i32 %83, i32 65535)
+  %.sroa.speculated.i249 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %83, i32 65535)
   %84 = trunc nuw i32 %.sroa.speculated.i249 to i16
   %85 = load i16, ptr %78, align 2
   %86 = tail call i16 @llvm.uadd.sat.i16(i16 %85, i16 %84)
@@ -8206,7 +8206,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %105 = load i8, ptr %102, align 1
   %106 = zext i8 %105 to i32
   %107 = mul nuw nsw i32 %106, %104
-  %.sroa.speculated.i250.us = tail call i32 @llvm.umin.i32(i32 %107, i32 65535)
+  %.sroa.speculated.i250.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %107, i32 65535)
   %108 = trunc nuw i32 %.sroa.speculated.i250.us to i16
   store i16 %108, ptr %.1229347.us, align 2
   br label %109
@@ -8222,7 +8222,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %116 = load i8, ptr %113, align 1
   %117 = zext i8 %116 to i32
   %118 = mul nuw nsw i32 %117, %115
-  %.sroa.speculated.i251.us = tail call i32 @llvm.umin.i32(i32 %118, i32 65535)
+  %.sroa.speculated.i251.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %118, i32 65535)
   %119 = trunc nuw i32 %.sroa.speculated.i251.us to i16
   %120 = tail call i16 @llvm.uadd.sat.i16(i16 %110, i16 %119)
   %121 = xor i64 %indvars.iv448, -1
@@ -8232,7 +8232,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = mul nuw nsw i32 %126, %115
-  %.sroa.speculated.i252.us = tail call i32 @llvm.umin.i32(i32 %127, i32 65535)
+  %.sroa.speculated.i252.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %127, i32 65535)
   %128 = trunc nuw i32 %.sroa.speculated.i252.us to i16
   %129 = tail call i16 @llvm.uadd.sat.i16(i16 %120, i16 %128)
   store i16 %129, ptr %.1229347.us, align 2
@@ -8257,7 +8257,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %137 = load i8, ptr %134, align 1
   %138 = zext i8 %137 to i32
   %139 = mul nuw nsw i32 %138, %136
-  %.sroa.speculated.i250 = tail call i32 @llvm.umin.i32(i32 %139, i32 65535)
+  %.sroa.speculated.i250 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %139, i32 65535)
   %140 = trunc nuw i32 %.sroa.speculated.i250 to i16
   store i16 %140, ptr %.1229347, align 2
   %141 = add nsw i32 %.1232346, 1
@@ -8323,7 +8323,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %168 = load i8, ptr %165, align 1
   %169 = zext i8 %168 to i32
   %170 = mul nuw nsw i32 %169, %167
-  %.sroa.speculated.i254.us = tail call i32 @llvm.umin.i32(i32 %170, i32 65535)
+  %.sroa.speculated.i254.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %170, i32 65535)
   %171 = trunc nuw i32 %.sroa.speculated.i254.us to i16
   %172 = load i16, ptr %163, align 2
   %173 = tail call i16 @llvm.uadd.sat.i16(i16 %172, i16 %171)
@@ -8345,7 +8345,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %178 = load i8, ptr %175, align 1
   %179 = zext i8 %178 to i32
   %180 = mul nuw nsw i32 %179, %177
-  %.sroa.speculated.i253 = tail call i32 @llvm.umin.i32(i32 %180, i32 65535)
+  %.sroa.speculated.i253 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %180, i32 65535)
   %181 = trunc nuw i32 %.sroa.speculated.i253 to i16
   %182 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2376, i64 %indvars.iv452
   store i16 %181, ptr %182, align 2
@@ -8396,7 +8396,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %201 = load i8, ptr %198, align 1
   %202 = zext i8 %201 to i32
   %203 = mul nuw nsw i32 %202, %200
-  %.sroa.speculated.i255.us = tail call i32 @llvm.umin.i32(i32 %203, i32 65535)
+  %.sroa.speculated.i255.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %203, i32 65535)
   %204 = trunc nuw i32 %.sroa.speculated.i255.us to i16
   %205 = load i16, ptr %196, align 2
   %206 = tail call i16 @llvm.uadd.sat.i16(i16 %205, i16 %204)
@@ -8473,7 +8473,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %24 = load i8, ptr %21, align 1
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, %23
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %26, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
   %28 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0216318, i64 %indvars.iv
   store i16 %27, ptr %28, align 2
@@ -8520,7 +8520,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %42 = load i8, ptr %gep, align 1
   %43 = zext i8 %42 to i32
   %44 = mul nuw nsw i32 %43, %41
-  %.sroa.speculated.i234.us = tail call i32 @llvm.umin.i32(i32 %44, i32 65535)
+  %.sroa.speculated.i234.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %44, i32 65535)
   %45 = trunc nuw i32 %.sroa.speculated.i234.us to i16
   %46 = load i16, ptr %39, align 2
   %47 = tail call i16 @llvm.uadd.sat.i16(i16 %46, i16 %45)
@@ -8576,7 +8576,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %63 = load i8, ptr %gep468, align 1
   %64 = zext i8 %63 to i32
   %65 = mul nuw nsw i32 %64, %62
-  %.sroa.speculated.i236.us = tail call i32 @llvm.umin.i32(i32 %65, i32 65535)
+  %.sroa.speculated.i236.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %65, i32 65535)
   %66 = trunc nuw i32 %.sroa.speculated.i236.us to i16
   %67 = load i16, ptr %60, align 2
   %68 = tail call i16 @llvm.uadd.sat.i16(i16 %67, i16 %66)
@@ -8629,7 +8629,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %81 = load i8, ptr %gep470, align 1
   %82 = zext i8 %81 to i32
   %83 = mul nuw nsw i32 %82, %80
-  %.sroa.speculated.i237 = tail call i32 @llvm.umin.i32(i32 %83, i32 65535)
+  %.sroa.speculated.i237 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %83, i32 65535)
   %84 = trunc nuw i32 %.sroa.speculated.i237 to i16
   %85 = load i16, ptr %78, align 2
   %86 = tail call i16 @llvm.uadd.sat.i16(i16 %85, i16 %84)
@@ -8682,7 +8682,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %99 = load i8, ptr %.0210329.us, align 1
   %100 = zext i8 %99 to i32
   %101 = mul nuw nsw i32 %100, %98
-  %.sroa.speculated.i238.us = tail call i32 @llvm.umin.i32(i32 %101, i32 65535)
+  %.sroa.speculated.i238.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %101, i32 65535)
   %102 = trunc nuw i32 %.sroa.speculated.i238.us to i16
   store i16 %102, ptr %.1217328.us, align 2
   br label %103
@@ -8698,7 +8698,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %110 = load i8, ptr %107, align 1
   %111 = zext i8 %110 to i32
   %112 = mul nuw nsw i32 %111, %109
-  %.sroa.speculated.i239.us = tail call i32 @llvm.umin.i32(i32 %112, i32 65535)
+  %.sroa.speculated.i239.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %112, i32 65535)
   %113 = trunc nuw i32 %.sroa.speculated.i239.us to i16
   %114 = tail call i16 @llvm.uadd.sat.i16(i16 %104, i16 %113)
   store i16 %114, ptr %.1217328.us, align 2
@@ -8722,7 +8722,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %121 = load i8, ptr %.0210329, align 1
   %122 = zext i8 %121 to i32
   %123 = mul nuw nsw i32 %122, %120
-  %.sroa.speculated.i238 = tail call i32 @llvm.umin.i32(i32 %123, i32 65535)
+  %.sroa.speculated.i238 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %123, i32 65535)
   %124 = trunc nuw i32 %.sroa.speculated.i238 to i16
   store i16 %124, ptr %.1217328, align 2
   %125 = add nsw i32 %.1220327, 1
@@ -8788,7 +8788,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %152 = load i8, ptr %149, align 1
   %153 = zext i8 %152 to i32
   %154 = mul nuw nsw i32 %153, %151
-  %.sroa.speculated.i241.us = tail call i32 @llvm.umin.i32(i32 %154, i32 65535)
+  %.sroa.speculated.i241.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %154, i32 65535)
   %155 = trunc nuw i32 %.sroa.speculated.i241.us to i16
   %156 = load i16, ptr %147, align 2
   %157 = tail call i16 @llvm.uadd.sat.i16(i16 %156, i16 %155)
@@ -8810,7 +8810,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %162 = load i8, ptr %159, align 1
   %163 = zext i8 %162 to i32
   %164 = mul nuw nsw i32 %163, %161
-  %.sroa.speculated.i240 = tail call i32 @llvm.umin.i32(i32 %164, i32 65535)
+  %.sroa.speculated.i240 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %164, i32 65535)
   %165 = trunc nuw i32 %.sroa.speculated.i240 to i16
   %166 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2357, i64 %indvars.iv433
   store i16 %165, ptr %166, align 2
@@ -8861,7 +8861,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %185 = load i8, ptr %182, align 1
   %186 = zext i8 %185 to i32
   %187 = mul nuw nsw i32 %186, %184
-  %.sroa.speculated.i242.us = tail call i32 @llvm.umin.i32(i32 %187, i32 65535)
+  %.sroa.speculated.i242.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %187, i32 65535)
   %188 = trunc nuw i32 %.sroa.speculated.i242.us to i16
   %189 = load i16, ptr %180, align 2
   %190 = tail call i16 @llvm.uadd.sat.i16(i16 %189, i16 %188)
@@ -8943,7 +8943,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_G
   %13 = mul nuw i32 %12, %10
   %14 = add nuw i32 %13, 32768
   %15 = lshr i32 %14, 16
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %15, i32 255)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %15, i32 255)
   %16 = trunc nuw i32 %.sroa.speculated.i to i8
   %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %16, ptr %17, align 1
@@ -9036,7 +9036,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_G
   %34 = tail call i32 @llvm.uadd.sat.i32(i32 %26, i32 %33)
   %35 = add i32 %34, 32768
   %36 = lshr i32 %35, 16
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %36, i32 255)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %36, i32 255)
   %37 = trunc nuw i32 %.sroa.speculated.i to i8
   %38 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %37, ptr %38, align 1
@@ -9162,7 +9162,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_G
   %54 = tail call i32 @llvm.uadd.sat.i32(i32 %46, i32 %53)
   %55 = add i32 %54, 32768
   %56 = lshr i32 %55, 16
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %56, i32 255)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %56, i32 255)
   %57 = trunc nuw i32 %.sroa.speculated.i to i8
   %58 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %57, ptr %58, align 1
@@ -9219,7 +9219,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIh
 ._crit_edge.us:                                   ; preds = %15
   %26 = add i32 %25, 32768
   %27 = lshr i32 %26, 16
-  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 %27, i32 255)
+  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %27, i32 255)
   %28 = trunc nuw i32 %.sroa.speculated.i.us to i8
   %29 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv45
   store i8 %28, ptr %29, align 1
@@ -9238,7 +9238,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIh
   %36 = mul nuw i32 %35, %33
   %37 = add nuw i32 %36, 32768
   %38 = lshr i32 %37, 16
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %38, i32 255)
   %39 = trunc nuw i32 %.sroa.speculated.i to i8
   %40 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %39, ptr %40, align 1
@@ -9295,7 +9295,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLO
 ._crit_edge.us:                                   ; preds = %15
   %26 = add i32 %25, 32768
   %27 = lshr i32 %26, 16
-  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 %27, i32 255)
+  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %27, i32 255)
   %28 = trunc nuw i32 %.sroa.speculated.i.us to i8
   %29 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv45
   store i8 %28, ptr %29, align 1
@@ -9314,7 +9314,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLO
   %36 = mul nuw i32 %35, %33
   %37 = add nuw i32 %36, 32768
   %38 = lshr i32 %37, 16
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %38, i32 255)
   %39 = trunc nuw i32 %.sroa.speculated.i to i8
   %40 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   store i8 %39, ptr %40, align 1
@@ -9331,7 +9331,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -10126,7 +10126,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %464 = mul nuw i32 %463, %461
   %465 = add nuw i32 %464, 32768
   %466 = lshr i32 %465, 16
-  %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %466, i32 255)
+  %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %466, i32 255)
   %467 = trunc nuw i32 %.sroa.speculated.i.i to i8
   %468 = getelementptr inbounds i8, ptr %453, i64 %indvars.iv.i
   store i8 %467, ptr %468, align 1
@@ -10189,7 +10189,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %513 = call i32 @llvm.uadd.sat.i32(i32 %505, i32 %512)
   %514 = add i32 %513, 32768
   %515 = lshr i32 %514, 16
-  %.sroa.speculated.i.i321 = call i32 @llvm.umin.i32(i32 %515, i32 255)
+  %.sroa.speculated.i.i321 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %515, i32 255)
   %516 = trunc nuw i32 %.sroa.speculated.i.i321 to i8
   %517 = getelementptr inbounds i8, ptr %481, i64 %indvars.iv.i320
   store i8 %516, ptr %517, align 1
@@ -10272,7 +10272,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %582 = call i32 @llvm.uadd.sat.i32(i32 %574, i32 %581)
   %583 = add i32 %582, 32768
   %584 = lshr i32 %583, 16
-  %.sroa.speculated.i.i328 = call i32 @llvm.umin.i32(i32 %584, i32 255)
+  %.sroa.speculated.i.i328 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %584, i32 255)
   %585 = trunc nuw i32 %.sroa.speculated.i.i328 to i8
   %586 = getelementptr inbounds i8, ptr %530, i64 %indvars.iv.i327
   store i8 %585, ptr %586, align 1
@@ -10342,7 +10342,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 ._crit_edge.us.i:                                 ; preds = %611
   %622 = add i32 %621, 32768
   %623 = lshr i32 %622, 16
-  %.sroa.speculated.i.us.i = call i32 @llvm.umin.i32(i32 %623, i32 255)
+  %.sroa.speculated.i.us.i = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %623, i32 255)
   %624 = trunc nuw i32 %.sroa.speculated.i.us.i to i8
   %625 = getelementptr inbounds i8, ptr %598, i64 %indvars.iv45.i
   store i8 %624, ptr %625, align 1
@@ -10361,7 +10361,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %632 = mul nuw i32 %631, %629
   %633 = add nuw i32 %632, 32768
   %634 = lshr i32 %633, 16
-  %.sroa.speculated.i.i333 = call i32 @llvm.umin.i32(i32 %634, i32 255)
+  %.sroa.speculated.i.i333 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %634, i32 255)
   %635 = trunc nuw i32 %.sroa.speculated.i.i333 to i8
   %636 = getelementptr inbounds i8, ptr %598, i64 %indvars.iv.i332
   store i8 %635, ptr %636, align 1
@@ -10486,7 +10486,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %720 = call i32 @llvm.uadd.sat.i32(i32 %712, i32 %719)
   %721 = add i32 %720, 32768
   %722 = lshr i32 %721, 16
-  %.sroa.speculated.i.i341 = call i32 @llvm.umin.i32(i32 %722, i32 255)
+  %.sroa.speculated.i.i341 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %722, i32 255)
   %723 = trunc nuw i32 %.sroa.speculated.i.i341 to i8
   %724 = getelementptr inbounds i8, ptr %690, i64 %indvars.iv.i340
   store i8 %723, ptr %724, align 1
@@ -10557,7 +10557,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %778 = call i32 @llvm.uadd.sat.i32(i32 %770, i32 %777)
   %779 = add i32 %778, 32768
   %780 = lshr i32 %779, 16
-  %.sroa.speculated.i.i348 = call i32 @llvm.umin.i32(i32 %780, i32 255)
+  %.sroa.speculated.i.i348 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %780, i32 255)
   %781 = trunc nuw i32 %.sroa.speculated.i.i348 to i8
   %782 = getelementptr inbounds i8, ptr %730, i64 %indvars.iv.i347
   store i8 %781, ptr %782, align 1
@@ -10615,7 +10615,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i367:                              ; preds = %801
   %812 = add i32 %811, 32768
   %813 = lshr i32 %812, 16
-  %.sroa.speculated.i.us.i368 = call i32 @llvm.umin.i32(i32 %813, i32 255)
+  %.sroa.speculated.i.us.i368 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %813, i32 255)
   %814 = trunc nuw i32 %.sroa.speculated.i.us.i368 to i8
   %815 = getelementptr inbounds i8, ptr %789, i64 %indvars.iv45.i362
   store i8 %814, ptr %815, align 1
@@ -10634,7 +10634,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %822 = mul nuw i32 %821, %819
   %823 = add nuw i32 %822, 32768
   %824 = lshr i32 %823, 16
-  %.sroa.speculated.i.i356 = call i32 @llvm.umin.i32(i32 %824, i32 255)
+  %.sroa.speculated.i.i356 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %824, i32 255)
   %825 = trunc nuw i32 %.sroa.speculated.i.i356 to i8
   %826 = getelementptr inbounds i8, ptr %789, i64 %indvars.iv.i355
   store i8 %825, ptr %826, align 1
@@ -10810,7 +10810,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %930 = call i32 @llvm.uadd.sat.i32(i32 %922, i32 %929)
   %931 = add i32 %930, 32768
   %932 = lshr i32 %931, 16
-  %.sroa.speculated.i.i376 = call i32 @llvm.umin.i32(i32 %932, i32 255)
+  %.sroa.speculated.i.i376 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %932, i32 255)
   %933 = trunc nuw i32 %.sroa.speculated.i.i376 to i8
   %934 = getelementptr inbounds i8, ptr %897, i64 %indvars.iv.i375
   store i8 %933, ptr %934, align 1
@@ -10876,7 +10876,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %983 = call i32 @llvm.uadd.sat.i32(i32 %975, i32 %982)
   %984 = add i32 %983, 32768
   %985 = lshr i32 %984, 16
-  %.sroa.speculated.i.i383 = call i32 @llvm.umin.i32(i32 %985, i32 255)
+  %.sroa.speculated.i.i383 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %985, i32 255)
   %986 = trunc nuw i32 %.sroa.speculated.i.i383 to i8
   %987 = getelementptr inbounds i8, ptr %897, i64 %indvars.iv.i382
   store i8 %986, ptr %987, align 1
@@ -10927,7 +10927,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i402:                              ; preds = %997
   %1008 = add i32 %1007, 32768
   %1009 = lshr i32 %1008, 16
-  %.sroa.speculated.i.us.i403 = call i32 @llvm.umin.i32(i32 %1009, i32 255)
+  %.sroa.speculated.i.us.i403 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1009, i32 255)
   %1010 = trunc nuw i32 %.sroa.speculated.i.us.i403 to i8
   %1011 = getelementptr inbounds i8, ptr %897, i64 %indvars.iv45.i397
   store i8 %1010, ptr %1011, align 1
@@ -10946,7 +10946,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1018 = mul nuw i32 %1017, %1015
   %1019 = add nuw i32 %1018, 32768
   %1020 = lshr i32 %1019, 16
-  %.sroa.speculated.i.i391 = call i32 @llvm.umin.i32(i32 %1020, i32 255)
+  %.sroa.speculated.i.i391 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1020, i32 255)
   %1021 = trunc nuw i32 %.sroa.speculated.i.i391 to i8
   %1022 = getelementptr inbounds i8, ptr %897, i64 %indvars.iv.i390
   store i8 %1021, ptr %1022, align 1
@@ -11062,7 +11062,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1090 = call i32 @llvm.uadd.sat.i32(i32 %1082, i32 %1089)
   %1091 = add i32 %1090, 32768
   %1092 = lshr i32 %1091, 16
-  %.sroa.speculated.i.i411 = call i32 @llvm.umin.i32(i32 %1092, i32 255)
+  %.sroa.speculated.i.i411 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1092, i32 255)
   %1093 = trunc nuw i32 %.sroa.speculated.i.i411 to i8
   %1094 = getelementptr inbounds i8, ptr %1059, i64 %indvars.iv.i410
   store i8 %1093, ptr %1094, align 1
@@ -11124,7 +11124,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1139 = call i32 @llvm.uadd.sat.i32(i32 %1131, i32 %1138)
   %1140 = add i32 %1139, 32768
   %1141 = lshr i32 %1140, 16
-  %.sroa.speculated.i.i418 = call i32 @llvm.umin.i32(i32 %1141, i32 255)
+  %.sroa.speculated.i.i418 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1141, i32 255)
   %1142 = trunc nuw i32 %.sroa.speculated.i.i418 to i8
   %1143 = getelementptr inbounds i8, ptr %1059, i64 %indvars.iv.i417
   store i8 %1142, ptr %1143, align 1
@@ -11175,7 +11175,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i437:                              ; preds = %1153
   %1164 = add i32 %1163, 32768
   %1165 = lshr i32 %1164, 16
-  %.sroa.speculated.i.us.i438 = call i32 @llvm.umin.i32(i32 %1165, i32 255)
+  %.sroa.speculated.i.us.i438 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1165, i32 255)
   %1166 = trunc nuw i32 %.sroa.speculated.i.us.i438 to i8
   %1167 = getelementptr inbounds i8, ptr %1059, i64 %indvars.iv45.i432
   store i8 %1166, ptr %1167, align 1
@@ -11194,7 +11194,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1174 = mul nuw i32 %1173, %1171
   %1175 = add nuw i32 %1174, 32768
   %1176 = lshr i32 %1175, 16
-  %.sroa.speculated.i.i426 = call i32 @llvm.umin.i32(i32 %1176, i32 255)
+  %.sroa.speculated.i.i426 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1176, i32 255)
   %1177 = trunc nuw i32 %.sroa.speculated.i.i426 to i8
   %1178 = getelementptr inbounds i8, ptr %1059, i64 %indvars.iv.i425
   store i8 %1177, ptr %1178, align 1
@@ -11271,7 +11271,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1224 = call i32 @llvm.uadd.sat.i32(i32 %1216, i32 %1223)
   %1225 = add i32 %1224, 32768
   %1226 = lshr i32 %1225, 16
-  %.sroa.speculated.i.i446 = call i32 @llvm.umin.i32(i32 %1226, i32 255)
+  %.sroa.speculated.i.i446 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1226, i32 255)
   %1227 = trunc nuw i32 %.sroa.speculated.i.i446 to i8
   %1228 = getelementptr inbounds i8, ptr %1191, i64 %indvars.iv.i445
   store i8 %1227, ptr %1228, align 1
@@ -11337,7 +11337,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1277 = call i32 @llvm.uadd.sat.i32(i32 %1269, i32 %1276)
   %1278 = add i32 %1277, 32768
   %1279 = lshr i32 %1278, 16
-  %.sroa.speculated.i.i454 = call i32 @llvm.umin.i32(i32 %1279, i32 255)
+  %.sroa.speculated.i.i454 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1279, i32 255)
   %1280 = trunc nuw i32 %.sroa.speculated.i.i454 to i8
   %1281 = getelementptr inbounds i8, ptr %1191, i64 %indvars.iv.i453
   store i8 %1280, ptr %1281, align 1
@@ -11388,7 +11388,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i474:                              ; preds = %1291
   %1302 = add i32 %1301, 32768
   %1303 = lshr i32 %1302, 16
-  %.sroa.speculated.i.us.i475 = call i32 @llvm.umin.i32(i32 %1303, i32 255)
+  %.sroa.speculated.i.us.i475 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1303, i32 255)
   %1304 = trunc nuw i32 %.sroa.speculated.i.us.i475 to i8
   %1305 = getelementptr inbounds i8, ptr %1191, i64 %indvars.iv45.i469
   store i8 %1304, ptr %1305, align 1
@@ -11407,7 +11407,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1312 = mul nuw i32 %1311, %1309
   %1313 = add nuw i32 %1312, 32768
   %1314 = lshr i32 %1313, 16
-  %.sroa.speculated.i.i463 = call i32 @llvm.umin.i32(i32 %1314, i32 255)
+  %.sroa.speculated.i.i463 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1314, i32 255)
   %1315 = trunc nuw i32 %.sroa.speculated.i.i463 to i8
   %1316 = getelementptr inbounds i8, ptr %1191, i64 %indvars.iv.i462
   store i8 %1315, ptr %1316, align 1
@@ -11519,7 +11519,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth1NItNS_12_G
   %12 = load i16, ptr %.01215, align 2
   %13 = zext i16 %12 to i64
   %14 = mul nuw nsw i64 %13, %11
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %14, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %14, i64 4294967295)
   %15 = trunc nuw i64 %.sroa.speculated.i to i32
   store i32 %15, ptr %.01314, align 4
   %16 = add nuw nsw i32 %.016, 1
@@ -11778,7 +11778,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %26 = mul nuw nsw i64 %25, %21
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
   %28 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv268
   store i32 %27, ptr %28, align 4
@@ -11822,7 +11822,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %44 = load i16, ptr %41, align 2
   %45 = zext i16 %44 to i64
   %46 = mul nuw nsw i64 %45, %43
-  %.sroa.speculated.i189 = tail call i64 @llvm.umin.i64(i64 %46, i64 4294967295)
+  %.sroa.speculated.i189 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %46, i64 4294967295)
   %47 = trunc nuw i64 %.sroa.speculated.i189 to i32
   %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
   %48 = load i32, ptr %2, align 4
@@ -11830,14 +11830,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %50 = load i16, ptr %gep, align 2
   %51 = zext i16 %50 to i64
   %52 = mul nuw nsw i64 %51, %49
-  %.sroa.speculated.i190 = tail call i64 @llvm.umin.i64(i64 %52, i64 4294967295)
+  %.sroa.speculated.i190 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %52, i64 4294967295)
   %53 = trunc nuw i64 %.sroa.speculated.i190 to i32
   %54 = tail call i32 @llvm.uadd.sat.i32(i32 %47, i32 %53)
   %gep278 = getelementptr i16, ptr %invariant.gep277, i64 %indvars.iv
   %55 = load i16, ptr %gep278, align 2
   %56 = zext i16 %55 to i64
   %57 = mul nuw nsw i64 %56, %49
-  %.sroa.speculated.i191 = tail call i64 @llvm.umin.i64(i64 %57, i64 4294967295)
+  %.sroa.speculated.i191 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %57, i64 4294967295)
   %58 = trunc nuw i64 %.sroa.speculated.i191 to i32
   %59 = tail call i32 @llvm.uadd.sat.i32(i32 %54, i32 %58)
   %60 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
@@ -11854,7 +11854,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %65 = load i16, ptr %62, align 2
   %66 = zext i16 %65 to i64
   %67 = mul nuw nsw i64 %66, %64
-  %.sroa.speculated.i192 = tail call i64 @llvm.umin.i64(i64 %67, i64 4294967295)
+  %.sroa.speculated.i192 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %67, i64 4294967295)
   %68 = trunc nuw i64 %.sroa.speculated.i192 to i32
   %gep280 = getelementptr inbounds i16, ptr %invariant.gep279, i64 %indvars.iv252
   %69 = load i32, ptr %2, align 4
@@ -11862,7 +11862,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %71 = load i16, ptr %gep280, align 2
   %72 = zext i16 %71 to i64
   %73 = mul nuw nsw i64 %72, %70
-  %.sroa.speculated.i193 = tail call i64 @llvm.umin.i64(i64 %73, i64 4294967295)
+  %.sroa.speculated.i193 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %73, i64 4294967295)
   %74 = trunc nuw i64 %.sroa.speculated.i193 to i32
   %75 = tail call i32 @llvm.uadd.sat.i32(i32 %68, i32 %74)
   %76 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv252
@@ -11895,7 +11895,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %89 = load i16, ptr %.0178235, align 2
   %90 = zext i16 %89 to i64
   %91 = mul nuw nsw i64 %90, %88
-  %.sroa.speculated.i194 = tail call i64 @llvm.umin.i64(i64 %91, i64 4294967295)
+  %.sroa.speculated.i194 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %91, i64 4294967295)
   %92 = trunc nuw i64 %.sroa.speculated.i194 to i32
   %93 = getelementptr inbounds i16, ptr %.0178235, i64 %85
   %94 = load i32, ptr %2, align 4
@@ -11903,14 +11903,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %96 = load i16, ptr %93, align 2
   %97 = zext i16 %96 to i64
   %98 = mul nuw nsw i64 %97, %95
-  %.sroa.speculated.i195 = tail call i64 @llvm.umin.i64(i64 %98, i64 4294967295)
+  %.sroa.speculated.i195 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %98, i64 4294967295)
   %99 = trunc nuw i64 %.sroa.speculated.i195 to i32
   %100 = tail call i32 @llvm.uadd.sat.i32(i32 %92, i32 %99)
   %101 = getelementptr inbounds i16, ptr %.0178235, i64 %77
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i64
   %104 = mul nuw nsw i64 %103, %95
-  %.sroa.speculated.i196 = tail call i64 @llvm.umin.i64(i64 %104, i64 4294967295)
+  %.sroa.speculated.i196 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %104, i64 4294967295)
   %105 = trunc nuw i64 %.sroa.speculated.i196 to i32
   %106 = tail call i32 @llvm.uadd.sat.i32(i32 %100, i32 %105)
   store i32 %106, ptr %.0182233, align 4
@@ -11955,7 +11955,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %123 = load i16, ptr %120, align 2
   %124 = zext i16 %123 to i64
   %125 = mul nuw nsw i64 %124, %122
-  %.sroa.speculated.i197 = tail call i64 @llvm.umin.i64(i64 %125, i64 4294967295)
+  %.sroa.speculated.i197 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %125, i64 4294967295)
   %126 = trunc nuw i64 %.sroa.speculated.i197 to i32
   %127 = sub nsw i64 %indvars.iv258, %77
   %128 = getelementptr inbounds i16, ptr %.0178.lcssa, i64 %127
@@ -11964,7 +11964,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %131 = load i16, ptr %128, align 2
   %132 = zext i16 %131 to i64
   %133 = mul nuw nsw i64 %132, %130
-  %.sroa.speculated.i198 = tail call i64 @llvm.umin.i64(i64 %133, i64 4294967295)
+  %.sroa.speculated.i198 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %133, i64 4294967295)
   %134 = trunc nuw i64 %.sroa.speculated.i198 to i32
   %135 = tail call i32 @llvm.uadd.sat.i32(i32 %126, i32 %134)
   %136 = add nsw i64 %indvars.iv258, %118
@@ -11972,7 +11972,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i64
   %140 = mul nuw nsw i64 %139, %130
-  %.sroa.speculated.i199 = tail call i64 @llvm.umin.i64(i64 %140, i64 4294967295)
+  %.sroa.speculated.i199 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %140, i64 4294967295)
   %141 = trunc nuw i64 %.sroa.speculated.i199 to i32
   %142 = tail call i32 @llvm.uadd.sat.i32(i32 %135, i32 %141)
   %143 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0182.lcssa, i64 %indvars.iv258
@@ -11990,7 +11990,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %149 = load i16, ptr %146, align 2
   %150 = zext i16 %149 to i64
   %151 = mul nuw nsw i64 %150, %148
-  %.sroa.speculated.i200 = tail call i64 @llvm.umin.i64(i64 %151, i64 4294967295)
+  %.sroa.speculated.i200 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %151, i64 4294967295)
   %152 = trunc nuw i64 %.sroa.speculated.i200 to i32
   %153 = getelementptr inbounds i16, ptr %.0178.lcssa, i64 %indvars.iv263
   %154 = load i32, ptr %111, align 4
@@ -11998,7 +11998,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %156 = load i16, ptr %153, align 2
   %157 = zext i16 %156 to i64
   %158 = mul nuw nsw i64 %157, %155
-  %.sroa.speculated.i201 = tail call i64 @llvm.umin.i64(i64 %158, i64 4294967295)
+  %.sroa.speculated.i201 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %158, i64 4294967295)
   %159 = trunc nuw i64 %.sroa.speculated.i201 to i32
   %160 = tail call i32 @llvm.uadd.sat.i32(i32 %152, i32 %159)
   %161 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0182.lcssa, i64 %indvars.iv263
@@ -12061,7 +12061,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i64
   %31 = mul nuw nsw i64 %30, %26
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %31, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %31, i64 4294967295)
   %32 = trunc nuw i64 %.sroa.speculated.i to i32
   %33 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv234
   store i32 %32, ptr %33, align 4
@@ -12077,7 +12077,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %38 = load i16, ptr %35, align 2
   %39 = zext i16 %38 to i64
   %40 = mul nuw nsw i64 %39, %37
-  %.sroa.speculated.i166 = tail call i64 @llvm.umin.i64(i64 %40, i64 4294967295)
+  %.sroa.speculated.i166 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %40, i64 4294967295)
   %41 = trunc nuw i64 %.sroa.speculated.i166 to i32
   %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
   %42 = load i32, ptr %11, align 4
@@ -12085,7 +12085,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %44 = load i16, ptr %gep, align 2
   %45 = zext i16 %44 to i64
   %46 = mul nuw nsw i64 %45, %43
-  %.sroa.speculated.i167 = tail call i64 @llvm.umin.i64(i64 %46, i64 4294967295)
+  %.sroa.speculated.i167 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %46, i64 4294967295)
   %47 = trunc nuw i64 %.sroa.speculated.i167 to i32
   %48 = tail call i32 @llvm.uadd.sat.i32(i32 %41, i32 %47)
   %49 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
@@ -12123,7 +12123,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %58 = load i16, ptr %gep247, align 2
   %59 = zext i16 %58 to i64
   %60 = mul nuw nsw i64 %59, %57
-  %.sroa.speculated.i168 = tail call i64 @llvm.umin.i64(i64 %60, i64 4294967295)
+  %.sroa.speculated.i168 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %60, i64 4294967295)
   %61 = trunc nuw i64 %.sroa.speculated.i168 to i32
   %62 = load i32, ptr %55, align 4
   %63 = tail call i32 @llvm.uadd.sat.i32(i32 %62, i32 %61)
@@ -12169,14 +12169,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %79 = load i16, ptr %76, align 2
   %80 = zext i16 %79 to i64
   %81 = mul nuw nsw i64 %80, %78
-  %.sroa.speculated.i169 = tail call i64 @llvm.umin.i64(i64 %81, i64 4294967295)
+  %.sroa.speculated.i169 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %81, i64 4294967295)
   %82 = trunc nuw i64 %.sroa.speculated.i169 to i32
   %83 = load i32, ptr %72, align 4
   %84 = zext i32 %83 to i64
   %85 = load i16, ptr %.0154201, align 2
   %86 = zext i16 %85 to i64
   %87 = mul nuw nsw i64 %86, %84
-  %.sroa.speculated.i170 = tail call i64 @llvm.umin.i64(i64 %87, i64 4294967295)
+  %.sroa.speculated.i170 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %87, i64 4294967295)
   %88 = trunc nuw i64 %.sroa.speculated.i170 to i32
   %89 = tail call i32 @llvm.uadd.sat.i32(i32 %82, i32 %88)
   %90 = getelementptr inbounds i16, ptr %.0154201, i64 %64
@@ -12185,7 +12185,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %93 = load i16, ptr %90, align 2
   %94 = zext i16 %93 to i64
   %95 = mul nuw nsw i64 %94, %92
-  %.sroa.speculated.i171 = tail call i64 @llvm.umin.i64(i64 %95, i64 4294967295)
+  %.sroa.speculated.i171 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %95, i64 4294967295)
   %96 = trunc nuw i64 %.sroa.speculated.i171 to i32
   %97 = tail call i32 @llvm.uadd.sat.i32(i32 %89, i32 %96)
   store i32 %97, ptr %.0158199, align 4
@@ -12204,7 +12204,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %106 = load i16, ptr %103, align 2
   %107 = zext i16 %106 to i64
   %108 = mul nuw nsw i64 %107, %105
-  %.sroa.speculated.i172 = tail call i64 @llvm.umin.i64(i64 %108, i64 4294967295)
+  %.sroa.speculated.i172 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %108, i64 4294967295)
   %109 = trunc nuw i64 %.sroa.speculated.i172 to i32
   %110 = getelementptr inbounds i16, ptr %.0154.lcssa, i64 %indvars.iv224
   %111 = load i32, ptr %74, align 4
@@ -12212,7 +12212,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %113 = load i16, ptr %110, align 2
   %114 = zext i16 %113 to i64
   %115 = mul nuw nsw i64 %114, %112
-  %.sroa.speculated.i173 = tail call i64 @llvm.umin.i64(i64 %115, i64 4294967295)
+  %.sroa.speculated.i173 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %115, i64 4294967295)
   %116 = trunc nuw i64 %.sroa.speculated.i173 to i32
   %117 = tail call i32 @llvm.uadd.sat.i32(i32 %109, i32 %116)
   %118 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0158.lcssa, i64 %indvars.iv224
@@ -12250,7 +12250,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %131 = load i16, ptr %128, align 2
   %132 = zext i16 %131 to i64
   %133 = mul nuw nsw i64 %132, %130
-  %.sroa.speculated.i174 = tail call i64 @llvm.umin.i64(i64 %133, i64 4294967295)
+  %.sroa.speculated.i174 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %133, i64 4294967295)
   %134 = trunc nuw i64 %.sroa.speculated.i174 to i32
   %135 = load i32, ptr %126, align 4
   %136 = tail call i32 @llvm.uadd.sat.i32(i32 %135, i32 %134)
@@ -12907,7 +12907,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
   %36 = mul nuw nsw i64 %35, %31
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %36, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %36, i64 4294967295)
   %37 = trunc nuw i64 %.sroa.speculated.i to i32
   %38 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1007
   store i32 %37, ptr %38, align 4
@@ -12937,7 +12937,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %49 = load i16, ptr %46, align 2
   %50 = zext i16 %49 to i64
   %51 = mul nuw nsw i64 %50, %48
-  %.sroa.speculated.i772 = tail call i64 @llvm.umin.i64(i64 %51, i64 4294967295)
+  %.sroa.speculated.i772 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %51, i64 4294967295)
   %52 = trunc nuw i64 %.sroa.speculated.i772 to i32
   %53 = add nuw nsw i64 %indvars.iv1002, %44
   %54 = getelementptr inbounds i16, ptr %0, i64 %53
@@ -12946,7 +12946,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %57 = load i16, ptr %54, align 2
   %58 = zext i16 %57 to i64
   %59 = mul nuw nsw i64 %58, %56
-  %.sroa.speculated.i773 = tail call i64 @llvm.umin.i64(i64 %59, i64 4294967295)
+  %.sroa.speculated.i773 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %59, i64 4294967295)
   %60 = trunc nuw i64 %.sroa.speculated.i773 to i32
   %61 = tail call i32 @llvm.uadd.sat.i32(i32 %52, i32 %60)
   %62 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1002
@@ -12956,14 +12956,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %65 = load i16, ptr %46, align 2
   %66 = zext i16 %65 to i64
   %67 = mul nuw nsw i64 %66, %64
-  %.sroa.speculated.i774 = tail call i64 @llvm.umin.i64(i64 %67, i64 4294967295)
+  %.sroa.speculated.i774 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %67, i64 4294967295)
   %68 = trunc nuw i64 %.sroa.speculated.i774 to i32
   %69 = load i32, ptr %42, align 4
   %70 = zext i32 %69 to i64
   %71 = load i16, ptr %54, align 2
   %72 = zext i16 %71 to i64
   %73 = mul nuw nsw i64 %72, %70
-  %.sroa.speculated.i775 = tail call i64 @llvm.umin.i64(i64 %73, i64 4294967295)
+  %.sroa.speculated.i775 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %73, i64 4294967295)
   %74 = trunc nuw i64 %.sroa.speculated.i775 to i32
   %75 = tail call i32 @llvm.uadd.sat.i32(i32 %68, i32 %74)
   %76 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %53
@@ -13007,7 +13007,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %97 = load i16, ptr %gep1046, align 2
   %98 = zext i16 %97 to i64
   %99 = mul nuw nsw i64 %98, %96
-  %.sroa.speculated.i776 = tail call i64 @llvm.umin.i64(i64 %99, i64 4294967295)
+  %.sroa.speculated.i776 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %99, i64 4294967295)
   %100 = trunc nuw i64 %.sroa.speculated.i776 to i32
   %101 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv997
   %102 = load i32, ptr %88, align 4
@@ -13015,7 +13015,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %104 = load i16, ptr %101, align 2
   %105 = zext i16 %104 to i64
   %106 = mul nuw nsw i64 %105, %103
-  %.sroa.speculated.i777 = tail call i64 @llvm.umin.i64(i64 %106, i64 4294967295)
+  %.sroa.speculated.i777 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %106, i64 4294967295)
   %107 = trunc nuw i64 %.sroa.speculated.i777 to i32
   %108 = tail call i32 @llvm.uadd.sat.i32(i32 %100, i32 %107)
   %109 = add nuw nsw i64 %indvars.iv997, %90
@@ -13023,7 +13023,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i64
   %113 = mul nuw nsw i64 %112, %96
-  %.sroa.speculated.i778 = tail call i64 @llvm.umin.i64(i64 %113, i64 4294967295)
+  %.sroa.speculated.i778 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %113, i64 4294967295)
   %114 = trunc nuw i64 %.sroa.speculated.i778 to i32
   %115 = tail call i32 @llvm.uadd.sat.i32(i32 %108, i32 %114)
   %gep1048 = getelementptr i16, ptr %invariant.gep1047, i64 %indvars.iv997
@@ -13032,14 +13032,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %118 = load i16, ptr %gep1048, align 2
   %119 = zext i16 %118 to i64
   %120 = mul nuw nsw i64 %119, %117
-  %.sroa.speculated.i779 = tail call i64 @llvm.umin.i64(i64 %120, i64 4294967295)
+  %.sroa.speculated.i779 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %120, i64 4294967295)
   %121 = trunc nuw i64 %.sroa.speculated.i779 to i32
   %122 = tail call i32 @llvm.uadd.sat.i32(i32 %115, i32 %121)
   %gep1050 = getelementptr i16, ptr %invariant.gep1049, i64 %indvars.iv997
   %123 = load i16, ptr %gep1050, align 2
   %124 = zext i16 %123 to i64
   %125 = mul nuw nsw i64 %124, %117
-  %.sroa.speculated.i780 = tail call i64 @llvm.umin.i64(i64 %125, i64 4294967295)
+  %.sroa.speculated.i780 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %125, i64 4294967295)
   %126 = trunc nuw i64 %.sroa.speculated.i780 to i32
   %127 = tail call i32 @llvm.uadd.sat.i32(i32 %122, i32 %126)
   %128 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv997
@@ -13049,14 +13049,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %131 = load i16, ptr %gep1046, align 2
   %132 = zext i16 %131 to i64
   %133 = mul nuw nsw i64 %132, %130
-  %.sroa.speculated.i781 = tail call i64 @llvm.umin.i64(i64 %133, i64 4294967295)
+  %.sroa.speculated.i781 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %133, i64 4294967295)
   %134 = trunc nuw i64 %.sroa.speculated.i781 to i32
   %135 = load i32, ptr %87, align 4
   %136 = zext i32 %135 to i64
   %137 = load i16, ptr %101, align 2
   %138 = zext i16 %137 to i64
   %139 = mul nuw nsw i64 %138, %136
-  %.sroa.speculated.i782 = tail call i64 @llvm.umin.i64(i64 %139, i64 4294967295)
+  %.sroa.speculated.i782 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %139, i64 4294967295)
   %140 = trunc nuw i64 %.sroa.speculated.i782 to i32
   %141 = tail call i32 @llvm.uadd.sat.i32(i32 %134, i32 %140)
   %142 = load i32, ptr %88, align 4
@@ -13064,20 +13064,20 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %144 = load i16, ptr %110, align 2
   %145 = zext i16 %144 to i64
   %146 = mul nuw nsw i64 %145, %143
-  %.sroa.speculated.i783 = tail call i64 @llvm.umin.i64(i64 %146, i64 4294967295)
+  %.sroa.speculated.i783 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %146, i64 4294967295)
   %147 = trunc nuw i64 %.sroa.speculated.i783 to i32
   %148 = tail call i32 @llvm.uadd.sat.i32(i32 %141, i32 %147)
   %149 = load i16, ptr %gep1048, align 2
   %150 = zext i16 %149 to i64
   %151 = mul nuw nsw i64 %150, %136
-  %.sroa.speculated.i784 = tail call i64 @llvm.umin.i64(i64 %151, i64 4294967295)
+  %.sroa.speculated.i784 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %151, i64 4294967295)
   %152 = trunc nuw i64 %.sroa.speculated.i784 to i32
   %153 = tail call i32 @llvm.uadd.sat.i32(i32 %148, i32 %152)
   %gep1052 = getelementptr i16, ptr %invariant.gep1051, i64 %indvars.iv997
   %154 = load i16, ptr %gep1052, align 2
   %155 = zext i16 %154 to i64
   %156 = mul nuw nsw i64 %155, %130
-  %.sroa.speculated.i785 = tail call i64 @llvm.umin.i64(i64 %156, i64 4294967295)
+  %.sroa.speculated.i785 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %156, i64 4294967295)
   %157 = trunc nuw i64 %.sroa.speculated.i785 to i32
   %158 = tail call i32 @llvm.uadd.sat.i32(i32 %153, i32 %157)
   %159 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %109
@@ -13110,7 +13110,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %172 = load i16, ptr %169, align 2
   %173 = zext i16 %172 to i64
   %174 = mul nuw nsw i64 %173, %171
-  %.sroa.speculated.i786 = tail call i64 @llvm.umin.i64(i64 %174, i64 4294967295)
+  %.sroa.speculated.i786 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %174, i64 4294967295)
   %175 = trunc nuw i64 %.sroa.speculated.i786 to i32
   %176 = add nuw nsw i64 %indvars.iv992, %166
   %177 = getelementptr inbounds i16, ptr %0, i64 %176
@@ -13119,7 +13119,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %180 = load i16, ptr %177, align 2
   %181 = zext i16 %180 to i64
   %182 = mul nuw nsw i64 %181, %179
-  %.sroa.speculated.i787 = tail call i64 @llvm.umin.i64(i64 %182, i64 4294967295)
+  %.sroa.speculated.i787 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %182, i64 4294967295)
   %183 = trunc nuw i64 %.sroa.speculated.i787 to i32
   %184 = tail call i32 @llvm.uadd.sat.i32(i32 %175, i32 %183)
   %185 = add nuw nsw i64 %indvars.iv992, %167
@@ -13129,7 +13129,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %189 = load i16, ptr %186, align 2
   %190 = zext i16 %189 to i64
   %191 = mul nuw nsw i64 %190, %188
-  %.sroa.speculated.i788 = tail call i64 @llvm.umin.i64(i64 %191, i64 4294967295)
+  %.sroa.speculated.i788 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %191, i64 4294967295)
   %192 = trunc nuw i64 %.sroa.speculated.i788 to i32
   %193 = tail call i32 @llvm.uadd.sat.i32(i32 %184, i32 %192)
   %194 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv992
@@ -13139,20 +13139,20 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %197 = load i16, ptr %169, align 2
   %198 = zext i16 %197 to i64
   %199 = mul nuw nsw i64 %198, %196
-  %.sroa.speculated.i789 = tail call i64 @llvm.umin.i64(i64 %199, i64 4294967295)
+  %.sroa.speculated.i789 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %199, i64 4294967295)
   %200 = trunc nuw i64 %.sroa.speculated.i789 to i32
   %201 = load i32, ptr %163, align 4
   %202 = zext i32 %201 to i64
   %203 = load i16, ptr %177, align 2
   %204 = zext i16 %203 to i64
   %205 = mul nuw nsw i64 %204, %202
-  %.sroa.speculated.i790 = tail call i64 @llvm.umin.i64(i64 %205, i64 4294967295)
+  %.sroa.speculated.i790 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %205, i64 4294967295)
   %206 = trunc nuw i64 %.sroa.speculated.i790 to i32
   %207 = tail call i32 @llvm.uadd.sat.i32(i32 %200, i32 %206)
   %208 = load i16, ptr %186, align 2
   %209 = zext i16 %208 to i64
   %210 = mul nuw nsw i64 %209, %196
-  %.sroa.speculated.i791 = tail call i64 @llvm.umin.i64(i64 %210, i64 4294967295)
+  %.sroa.speculated.i791 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %210, i64 4294967295)
   %211 = trunc nuw i64 %.sroa.speculated.i791 to i32
   %212 = tail call i32 @llvm.uadd.sat.i32(i32 %207, i32 %211)
   %213 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %176
@@ -13162,14 +13162,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %216 = load i16, ptr %169, align 2
   %217 = zext i16 %216 to i64
   %218 = mul nuw nsw i64 %217, %215
-  %.sroa.speculated.i792 = tail call i64 @llvm.umin.i64(i64 %218, i64 4294967295)
+  %.sroa.speculated.i792 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %218, i64 4294967295)
   %219 = trunc nuw i64 %.sroa.speculated.i792 to i32
   %220 = load i32, ptr %164, align 4
   %221 = zext i32 %220 to i64
   %222 = load i16, ptr %177, align 2
   %223 = zext i16 %222 to i64
   %224 = mul nuw nsw i64 %223, %221
-  %.sroa.speculated.i793 = tail call i64 @llvm.umin.i64(i64 %224, i64 4294967295)
+  %.sroa.speculated.i793 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %224, i64 4294967295)
   %225 = trunc nuw i64 %.sroa.speculated.i793 to i32
   %226 = tail call i32 @llvm.uadd.sat.i32(i32 %219, i32 %225)
   %227 = load i32, ptr %163, align 4
@@ -13177,7 +13177,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %229 = load i16, ptr %186, align 2
   %230 = zext i16 %229 to i64
   %231 = mul nuw nsw i64 %230, %228
-  %.sroa.speculated.i794 = tail call i64 @llvm.umin.i64(i64 %231, i64 4294967295)
+  %.sroa.speculated.i794 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %231, i64 4294967295)
   %232 = trunc nuw i64 %.sroa.speculated.i794 to i32
   %233 = tail call i32 @llvm.uadd.sat.i32(i32 %226, i32 %232)
   %234 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %185
@@ -13223,7 +13223,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %258 = load i16, ptr %255, align 2
   %259 = zext i16 %258 to i64
   %260 = mul nuw nsw i64 %259, %257
-  %.sroa.speculated.i795 = tail call i64 @llvm.umin.i64(i64 %260, i64 4294967295)
+  %.sroa.speculated.i795 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %260, i64 4294967295)
   %261 = trunc nuw i64 %.sroa.speculated.i795 to i32
   %262 = add nuw nsw i64 %indvars.iv, %248
   %263 = getelementptr inbounds i16, ptr %0, i64 %262
@@ -13232,7 +13232,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %266 = load i16, ptr %263, align 2
   %267 = zext i16 %266 to i64
   %268 = mul nuw nsw i64 %267, %265
-  %.sroa.speculated.i796 = tail call i64 @llvm.umin.i64(i64 %268, i64 4294967295)
+  %.sroa.speculated.i796 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %268, i64 4294967295)
   %269 = trunc nuw i64 %.sroa.speculated.i796 to i32
   %270 = tail call i32 @llvm.uadd.sat.i32(i32 %261, i32 %269)
   %271 = add nuw nsw i64 %indvars.iv, %249
@@ -13242,21 +13242,21 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %275 = load i16, ptr %272, align 2
   %276 = zext i16 %275 to i64
   %277 = mul nuw nsw i64 %276, %274
-  %.sroa.speculated.i797 = tail call i64 @llvm.umin.i64(i64 %277, i64 4294967295)
+  %.sroa.speculated.i797 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %277, i64 4294967295)
   %278 = trunc nuw i64 %.sroa.speculated.i797 to i32
   %279 = tail call i32 @llvm.uadd.sat.i32(i32 %270, i32 %278)
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %280 = load i16, ptr %gep, align 2
   %281 = zext i16 %280 to i64
   %282 = mul nuw nsw i64 %281, %274
-  %.sroa.speculated.i798 = tail call i64 @llvm.umin.i64(i64 %282, i64 4294967295)
+  %.sroa.speculated.i798 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %282, i64 4294967295)
   %283 = trunc nuw i64 %.sroa.speculated.i798 to i32
   %284 = tail call i32 @llvm.uadd.sat.i32(i32 %279, i32 %283)
   %gep1040 = getelementptr i16, ptr %invariant.gep1039, i64 %indvars.iv
   %285 = load i16, ptr %gep1040, align 2
   %286 = zext i16 %285 to i64
   %287 = mul nuw nsw i64 %286, %265
-  %.sroa.speculated.i799 = tail call i64 @llvm.umin.i64(i64 %287, i64 4294967295)
+  %.sroa.speculated.i799 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %287, i64 4294967295)
   %288 = trunc nuw i64 %.sroa.speculated.i799 to i32
   %289 = tail call i32 @llvm.uadd.sat.i32(i32 %284, i32 %288)
   %290 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
@@ -13266,20 +13266,20 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %293 = load i16, ptr %255, align 2
   %294 = zext i16 %293 to i64
   %295 = mul nuw nsw i64 %294, %292
-  %.sroa.speculated.i800 = tail call i64 @llvm.umin.i64(i64 %295, i64 4294967295)
+  %.sroa.speculated.i800 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %295, i64 4294967295)
   %296 = trunc nuw i64 %.sroa.speculated.i800 to i32
   %297 = load i32, ptr %245, align 4
   %298 = zext i32 %297 to i64
   %299 = load i16, ptr %263, align 2
   %300 = zext i16 %299 to i64
   %301 = mul nuw nsw i64 %300, %298
-  %.sroa.speculated.i801 = tail call i64 @llvm.umin.i64(i64 %301, i64 4294967295)
+  %.sroa.speculated.i801 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %301, i64 4294967295)
   %302 = trunc nuw i64 %.sroa.speculated.i801 to i32
   %303 = tail call i32 @llvm.uadd.sat.i32(i32 %296, i32 %302)
   %304 = load i16, ptr %272, align 2
   %305 = zext i16 %304 to i64
   %306 = mul nuw nsw i64 %305, %292
-  %.sroa.speculated.i802 = tail call i64 @llvm.umin.i64(i64 %306, i64 4294967295)
+  %.sroa.speculated.i802 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %306, i64 4294967295)
   %307 = trunc nuw i64 %.sroa.speculated.i802 to i32
   %308 = tail call i32 @llvm.uadd.sat.i32(i32 %303, i32 %307)
   %309 = load i32, ptr %2, align 4
@@ -13287,14 +13287,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %311 = load i16, ptr %gep1040, align 2
   %312 = zext i16 %311 to i64
   %313 = mul nuw nsw i64 %312, %310
-  %.sroa.speculated.i803 = tail call i64 @llvm.umin.i64(i64 %313, i64 4294967295)
+  %.sroa.speculated.i803 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %313, i64 4294967295)
   %314 = trunc nuw i64 %.sroa.speculated.i803 to i32
   %315 = tail call i32 @llvm.uadd.sat.i32(i32 %308, i32 %314)
   %gep1042 = getelementptr i16, ptr %invariant.gep1041, i64 %indvars.iv
   %316 = load i16, ptr %gep1042, align 2
   %317 = zext i16 %316 to i64
   %318 = mul nuw nsw i64 %317, %310
-  %.sroa.speculated.i804 = tail call i64 @llvm.umin.i64(i64 %318, i64 4294967295)
+  %.sroa.speculated.i804 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %318, i64 4294967295)
   %319 = trunc nuw i64 %.sroa.speculated.i804 to i32
   %320 = tail call i32 @llvm.uadd.sat.i32(i32 %315, i32 %319)
   %321 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %262
@@ -13304,14 +13304,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %324 = load i16, ptr %255, align 2
   %325 = zext i16 %324 to i64
   %326 = mul nuw nsw i64 %325, %323
-  %.sroa.speculated.i805 = tail call i64 @llvm.umin.i64(i64 %326, i64 4294967295)
+  %.sroa.speculated.i805 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %326, i64 4294967295)
   %327 = trunc nuw i64 %.sroa.speculated.i805 to i32
   %328 = load i32, ptr %246, align 4
   %329 = zext i32 %328 to i64
   %330 = load i16, ptr %263, align 2
   %331 = zext i16 %330 to i64
   %332 = mul nuw nsw i64 %331, %329
-  %.sroa.speculated.i806 = tail call i64 @llvm.umin.i64(i64 %332, i64 4294967295)
+  %.sroa.speculated.i806 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %332, i64 4294967295)
   %333 = trunc nuw i64 %.sroa.speculated.i806 to i32
   %334 = tail call i32 @llvm.uadd.sat.i32(i32 %327, i32 %333)
   %335 = load i32, ptr %245, align 4
@@ -13319,20 +13319,20 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %337 = load i16, ptr %272, align 2
   %338 = zext i16 %337 to i64
   %339 = mul nuw nsw i64 %338, %336
-  %.sroa.speculated.i807 = tail call i64 @llvm.umin.i64(i64 %339, i64 4294967295)
+  %.sroa.speculated.i807 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %339, i64 4294967295)
   %340 = trunc nuw i64 %.sroa.speculated.i807 to i32
   %341 = tail call i32 @llvm.uadd.sat.i32(i32 %334, i32 %340)
   %342 = load i16, ptr %gep1042, align 2
   %343 = zext i16 %342 to i64
   %344 = mul nuw nsw i64 %343, %329
-  %.sroa.speculated.i808 = tail call i64 @llvm.umin.i64(i64 %344, i64 4294967295)
+  %.sroa.speculated.i808 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %344, i64 4294967295)
   %345 = trunc nuw i64 %.sroa.speculated.i808 to i32
   %346 = tail call i32 @llvm.uadd.sat.i32(i32 %341, i32 %345)
   %gep1044 = getelementptr i16, ptr %invariant.gep1043, i64 %indvars.iv
   %347 = load i16, ptr %gep1044, align 2
   %348 = zext i16 %347 to i64
   %349 = mul nuw nsw i64 %348, %323
-  %.sroa.speculated.i809 = tail call i64 @llvm.umin.i64(i64 %349, i64 4294967295)
+  %.sroa.speculated.i809 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %349, i64 4294967295)
   %350 = trunc nuw i64 %.sroa.speculated.i809 to i32
   %351 = tail call i32 @llvm.uadd.sat.i32(i32 %346, i32 %350)
   %352 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %271
@@ -13349,7 +13349,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %357 = load i16, ptr %354, align 2
   %358 = zext i16 %357 to i64
   %359 = mul nuw nsw i64 %358, %356
-  %.sroa.speculated.i810 = tail call i64 @llvm.umin.i64(i64 %359, i64 4294967295)
+  %.sroa.speculated.i810 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %359, i64 4294967295)
   %360 = trunc nuw i64 %.sroa.speculated.i810 to i32
   %361 = add nuw nsw i64 %indvars.iv1012, %13
   %362 = getelementptr inbounds i16, ptr %0, i64 %361
@@ -13358,7 +13358,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %365 = load i16, ptr %362, align 2
   %366 = zext i16 %365 to i64
   %367 = mul nuw nsw i64 %366, %364
-  %.sroa.speculated.i811 = tail call i64 @llvm.umin.i64(i64 %367, i64 4294967295)
+  %.sroa.speculated.i811 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %367, i64 4294967295)
   %368 = trunc nuw i64 %.sroa.speculated.i811 to i32
   %369 = tail call i32 @llvm.uadd.sat.i32(i32 %360, i32 %368)
   %gep1054 = getelementptr inbounds i16, ptr %invariant.gep1053, i64 %indvars.iv1012
@@ -13367,7 +13367,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %372 = load i16, ptr %gep1054, align 2
   %373 = zext i16 %372 to i64
   %374 = mul nuw nsw i64 %373, %371
-  %.sroa.speculated.i812 = tail call i64 @llvm.umin.i64(i64 %374, i64 4294967295)
+  %.sroa.speculated.i812 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %374, i64 4294967295)
   %375 = trunc nuw i64 %.sroa.speculated.i812 to i32
   %376 = tail call i32 @llvm.uadd.sat.i32(i32 %369, i32 %375)
   %377 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1012
@@ -13377,20 +13377,20 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %380 = load i16, ptr %354, align 2
   %381 = zext i16 %380 to i64
   %382 = mul nuw nsw i64 %381, %379
-  %.sroa.speculated.i813 = tail call i64 @llvm.umin.i64(i64 %382, i64 4294967295)
+  %.sroa.speculated.i813 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %382, i64 4294967295)
   %383 = trunc nuw i64 %.sroa.speculated.i813 to i32
   %384 = load i32, ptr %9, align 4
   %385 = zext i32 %384 to i64
   %386 = load i16, ptr %362, align 2
   %387 = zext i16 %386 to i64
   %388 = mul nuw nsw i64 %387, %385
-  %.sroa.speculated.i814 = tail call i64 @llvm.umin.i64(i64 %388, i64 4294967295)
+  %.sroa.speculated.i814 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %388, i64 4294967295)
   %389 = trunc nuw i64 %.sroa.speculated.i814 to i32
   %390 = tail call i32 @llvm.uadd.sat.i32(i32 %383, i32 %389)
   %391 = load i16, ptr %gep1054, align 2
   %392 = zext i16 %391 to i64
   %393 = mul nuw nsw i64 %392, %379
-  %.sroa.speculated.i815 = tail call i64 @llvm.umin.i64(i64 %393, i64 4294967295)
+  %.sroa.speculated.i815 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %393, i64 4294967295)
   %394 = trunc nuw i64 %.sroa.speculated.i815 to i32
   %395 = tail call i32 @llvm.uadd.sat.i32(i32 %390, i32 %394)
   %gep1056 = getelementptr inbounds i16, ptr %invariant.gep1055, i64 %indvars.iv1012
@@ -13399,7 +13399,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %398 = load i16, ptr %gep1056, align 2
   %399 = zext i16 %398 to i64
   %400 = mul nuw nsw i64 %399, %397
-  %.sroa.speculated.i816 = tail call i64 @llvm.umin.i64(i64 %400, i64 4294967295)
+  %.sroa.speculated.i816 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %400, i64 4294967295)
   %401 = trunc nuw i64 %.sroa.speculated.i816 to i32
   %402 = tail call i32 @llvm.uadd.sat.i32(i32 %395, i32 %401)
   %403 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %361
@@ -13439,7 +13439,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %417 = load i16, ptr %gep1058, align 2
   %418 = zext i16 %417 to i64
   %419 = mul nuw nsw i64 %418, %416
-  %.sroa.speculated.i817 = tail call i64 @llvm.umin.i64(i64 %419, i64 4294967295)
+  %.sroa.speculated.i817 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %419, i64 4294967295)
   %420 = trunc nuw i64 %.sroa.speculated.i817 to i32
   %421 = load i32, ptr %414, align 4
   %422 = tail call i32 @llvm.uadd.sat.i32(i32 %421, i32 %420)
@@ -13449,7 +13449,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %425 = load i16, ptr %gep1060, align 2
   %426 = zext i16 %425 to i64
   %427 = mul nuw nsw i64 %426, %424
-  %.sroa.speculated.i818 = tail call i64 @llvm.umin.i64(i64 %427, i64 4294967295)
+  %.sroa.speculated.i818 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %427, i64 4294967295)
   %428 = trunc nuw i64 %.sroa.speculated.i818 to i32
   %429 = tail call i32 @llvm.uadd.sat.i32(i32 %422, i32 %428)
   store i32 %429, ptr %414, align 4
@@ -13459,7 +13459,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %432 = load i16, ptr %gep1060, align 2
   %433 = zext i16 %432 to i64
   %434 = mul nuw nsw i64 %433, %431
-  %.sroa.speculated.i819 = tail call i64 @llvm.umin.i64(i64 %434, i64 4294967295)
+  %.sroa.speculated.i819 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %434, i64 4294967295)
   %435 = trunc nuw i64 %.sroa.speculated.i819 to i32
   %436 = load i32, ptr %gep1062, align 4
   %437 = tail call i32 @llvm.uadd.sat.i32(i32 %436, i32 %435)
@@ -13513,7 +13513,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %462 = load i16, ptr %459, align 2
   %463 = zext i16 %462 to i64
   %464 = mul nuw nsw i64 %463, %461
-  %.sroa.speculated.i820 = tail call i64 @llvm.umin.i64(i64 %464, i64 4294967295)
+  %.sroa.speculated.i820 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %464, i64 4294967295)
   %465 = trunc nuw i64 %.sroa.speculated.i820 to i32
   %466 = getelementptr inbounds i16, ptr %.0754974, i64 %449
   %467 = load i32, ptr %447, align 4
@@ -13521,7 +13521,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %469 = load i16, ptr %466, align 2
   %470 = zext i16 %469 to i64
   %471 = mul nuw nsw i64 %470, %468
-  %.sroa.speculated.i821 = tail call i64 @llvm.umin.i64(i64 %471, i64 4294967295)
+  %.sroa.speculated.i821 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %471, i64 4294967295)
   %472 = trunc nuw i64 %.sroa.speculated.i821 to i32
   %473 = tail call i32 @llvm.uadd.sat.i32(i32 %465, i32 %472)
   %474 = load i32, ptr %450, align 4
@@ -13529,7 +13529,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %476 = load i16, ptr %.0754974, align 2
   %477 = zext i16 %476 to i64
   %478 = mul nuw nsw i64 %477, %475
-  %.sroa.speculated.i822 = tail call i64 @llvm.umin.i64(i64 %478, i64 4294967295)
+  %.sroa.speculated.i822 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %478, i64 4294967295)
   %479 = trunc nuw i64 %.sroa.speculated.i822 to i32
   %480 = tail call i32 @llvm.uadd.sat.i32(i32 %473, i32 %479)
   %481 = getelementptr inbounds i16, ptr %.0754974, i64 %452
@@ -13538,7 +13538,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %484 = load i16, ptr %481, align 2
   %485 = zext i16 %484 to i64
   %486 = mul nuw nsw i64 %485, %483
-  %.sroa.speculated.i823 = tail call i64 @llvm.umin.i64(i64 %486, i64 4294967295)
+  %.sroa.speculated.i823 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %486, i64 4294967295)
   %487 = trunc nuw i64 %.sroa.speculated.i823 to i32
   %488 = tail call i32 @llvm.uadd.sat.i32(i32 %480, i32 %487)
   %489 = getelementptr inbounds i16, ptr %.0754974, i64 %439
@@ -13547,7 +13547,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %492 = load i16, ptr %489, align 2
   %493 = zext i16 %492 to i64
   %494 = mul nuw nsw i64 %493, %491
-  %.sroa.speculated.i824 = tail call i64 @llvm.umin.i64(i64 %494, i64 4294967295)
+  %.sroa.speculated.i824 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %494, i64 4294967295)
   %495 = trunc nuw i64 %.sroa.speculated.i824 to i32
   %496 = tail call i32 @llvm.uadd.sat.i32(i32 %488, i32 %495)
   store i32 %496, ptr %.0755973, align 4
@@ -13566,7 +13566,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %505 = load i16, ptr %502, align 2
   %506 = zext i16 %505 to i64
   %507 = mul nuw nsw i64 %506, %504
-  %.sroa.speculated.i825 = tail call i64 @llvm.umin.i64(i64 %507, i64 4294967295)
+  %.sroa.speculated.i825 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %507, i64 4294967295)
   %508 = trunc nuw i64 %.sroa.speculated.i825 to i32
   %509 = sub nsw i64 %indvars.iv1023, %457
   %510 = getelementptr inbounds i16, ptr %.0754.lcssa, i64 %509
@@ -13575,7 +13575,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %513 = load i16, ptr %510, align 2
   %514 = zext i16 %513 to i64
   %515 = mul nuw nsw i64 %514, %512
-  %.sroa.speculated.i826 = tail call i64 @llvm.umin.i64(i64 %515, i64 4294967295)
+  %.sroa.speculated.i826 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %515, i64 4294967295)
   %516 = trunc nuw i64 %.sroa.speculated.i826 to i32
   %517 = tail call i32 @llvm.uadd.sat.i32(i32 %508, i32 %516)
   %518 = getelementptr inbounds i16, ptr %.0754.lcssa, i64 %indvars.iv1023
@@ -13584,7 +13584,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %521 = load i16, ptr %518, align 2
   %522 = zext i16 %521 to i64
   %523 = mul nuw nsw i64 %522, %520
-  %.sroa.speculated.i827 = tail call i64 @llvm.umin.i64(i64 %523, i64 4294967295)
+  %.sroa.speculated.i827 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %523, i64 4294967295)
   %524 = trunc nuw i64 %.sroa.speculated.i827 to i32
   %525 = tail call i32 @llvm.uadd.sat.i32(i32 %517, i32 %524)
   %526 = add nuw nsw i64 %indvars.iv1023, %457
@@ -13594,7 +13594,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %530 = load i16, ptr %527, align 2
   %531 = zext i16 %530 to i64
   %532 = mul nuw nsw i64 %531, %529
-  %.sroa.speculated.i828 = tail call i64 @llvm.umin.i64(i64 %532, i64 4294967295)
+  %.sroa.speculated.i828 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %532, i64 4294967295)
   %533 = trunc nuw i64 %.sroa.speculated.i828 to i32
   %534 = tail call i32 @llvm.uadd.sat.i32(i32 %525, i32 %533)
   %535 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0755.lcssa, i64 %indvars.iv1023
@@ -13604,14 +13604,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %538 = load i16, ptr %510, align 2
   %539 = zext i16 %538 to i64
   %540 = mul nuw nsw i64 %539, %537
-  %.sroa.speculated.i829 = tail call i64 @llvm.umin.i64(i64 %540, i64 4294967295)
+  %.sroa.speculated.i829 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %540, i64 4294967295)
   %541 = trunc nuw i64 %.sroa.speculated.i829 to i32
   %542 = load i32, ptr %454, align 4
   %543 = zext i32 %542 to i64
   %544 = load i16, ptr %518, align 2
   %545 = zext i16 %544 to i64
   %546 = mul nuw nsw i64 %545, %543
-  %.sroa.speculated.i830 = tail call i64 @llvm.umin.i64(i64 %546, i64 4294967295)
+  %.sroa.speculated.i830 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %546, i64 4294967295)
   %547 = trunc nuw i64 %.sroa.speculated.i830 to i32
   %548 = tail call i32 @llvm.uadd.sat.i32(i32 %541, i32 %547)
   %549 = load i32, ptr %455, align 4
@@ -13619,7 +13619,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %551 = load i16, ptr %527, align 2
   %552 = zext i16 %551 to i64
   %553 = mul nuw nsw i64 %552, %550
-  %.sroa.speculated.i831 = tail call i64 @llvm.umin.i64(i64 %553, i64 4294967295)
+  %.sroa.speculated.i831 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %553, i64 4294967295)
   %554 = trunc nuw i64 %.sroa.speculated.i831 to i32
   %555 = tail call i32 @llvm.uadd.sat.i32(i32 %548, i32 %554)
   %556 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0755.lcssa, i64 %526
@@ -13659,7 +13659,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %575 = load i16, ptr %572, align 2
   %576 = zext i16 %575 to i64
   %577 = mul nuw nsw i64 %576, %574
-  %.sroa.speculated.i832 = tail call i64 @llvm.umin.i64(i64 %577, i64 4294967295)
+  %.sroa.speculated.i832 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %577, i64 4294967295)
   %578 = trunc nuw i64 %.sroa.speculated.i832 to i32
   %579 = load i32, ptr %570, align 4
   %580 = tail call i32 @llvm.uadd.sat.i32(i32 %579, i32 %578)
@@ -13671,7 +13671,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %585 = load i16, ptr %572, align 2
   %586 = zext i16 %585 to i64
   %587 = mul nuw nsw i64 %586, %584
-  %.sroa.speculated.i833 = tail call i64 @llvm.umin.i64(i64 %587, i64 4294967295)
+  %.sroa.speculated.i833 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %587, i64 4294967295)
   %588 = trunc nuw i64 %.sroa.speculated.i833 to i32
   %589 = load i32, ptr %582, align 4
   %590 = tail call i32 @llvm.uadd.sat.i32(i32 %589, i32 %588)
@@ -13682,7 +13682,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %595 = load i16, ptr %592, align 2
   %596 = zext i16 %595 to i64
   %597 = mul nuw nsw i64 %596, %594
-  %.sroa.speculated.i834 = tail call i64 @llvm.umin.i64(i64 %597, i64 4294967295)
+  %.sroa.speculated.i834 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %597, i64 4294967295)
   %598 = trunc nuw i64 %.sroa.speculated.i834 to i32
   %599 = tail call i32 @llvm.uadd.sat.i32(i32 %590, i32 %598)
   store i32 %599, ptr %582, align 4
@@ -13761,7 +13761,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
   %43 = mul nuw nsw i64 %42, %38
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %43, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %43, i64 4294967295)
   %44 = trunc nuw i64 %.sroa.speculated.i to i32
   %45 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1016
   store i32 %44, ptr %45, align 4
@@ -13792,7 +13792,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %57 = load i16, ptr %54, align 2
   %58 = zext i16 %57 to i64
   %59 = mul nuw nsw i64 %58, %56
-  %.sroa.speculated.i780 = tail call i64 @llvm.umin.i64(i64 %59, i64 4294967295)
+  %.sroa.speculated.i780 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %59, i64 4294967295)
   %60 = trunc nuw i64 %.sroa.speculated.i780 to i32
   %61 = add nuw nsw i64 %indvars.iv1011, %52
   %62 = getelementptr inbounds i16, ptr %0, i64 %61
@@ -13801,7 +13801,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %65 = load i16, ptr %62, align 2
   %66 = zext i16 %65 to i64
   %67 = mul nuw nsw i64 %66, %64
-  %.sroa.speculated.i781 = tail call i64 @llvm.umin.i64(i64 %67, i64 4294967295)
+  %.sroa.speculated.i781 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %67, i64 4294967295)
   %68 = trunc nuw i64 %.sroa.speculated.i781 to i32
   %69 = tail call i32 @llvm.uadd.sat.i32(i32 %60, i32 %68)
   %70 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1011
@@ -13811,14 +13811,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %73 = load i16, ptr %54, align 2
   %74 = zext i16 %73 to i64
   %75 = mul nuw nsw i64 %74, %72
-  %.sroa.speculated.i782 = tail call i64 @llvm.umin.i64(i64 %75, i64 4294967295)
+  %.sroa.speculated.i782 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %75, i64 4294967295)
   %76 = trunc nuw i64 %.sroa.speculated.i782 to i32
   %77 = load i32, ptr %49, align 4
   %78 = zext i32 %77 to i64
   %79 = load i16, ptr %62, align 2
   %80 = zext i16 %79 to i64
   %81 = mul nuw nsw i64 %80, %78
-  %.sroa.speculated.i783 = tail call i64 @llvm.umin.i64(i64 %81, i64 4294967295)
+  %.sroa.speculated.i783 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %81, i64 4294967295)
   %82 = trunc nuw i64 %.sroa.speculated.i783 to i32
   %83 = tail call i32 @llvm.uadd.sat.i32(i32 %76, i32 %82)
   %84 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %61
@@ -13864,7 +13864,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %107 = load i16, ptr %gep1055, align 2
   %108 = zext i16 %107 to i64
   %109 = mul nuw nsw i64 %108, %106
-  %.sroa.speculated.i784 = tail call i64 @llvm.umin.i64(i64 %109, i64 4294967295)
+  %.sroa.speculated.i784 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %109, i64 4294967295)
   %110 = trunc nuw i64 %.sroa.speculated.i784 to i32
   %111 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv1006
   %112 = load i32, ptr %96, align 4
@@ -13872,7 +13872,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %114 = load i16, ptr %111, align 2
   %115 = zext i16 %114 to i64
   %116 = mul nuw nsw i64 %115, %113
-  %.sroa.speculated.i785 = tail call i64 @llvm.umin.i64(i64 %116, i64 4294967295)
+  %.sroa.speculated.i785 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %116, i64 4294967295)
   %117 = trunc nuw i64 %.sroa.speculated.i785 to i32
   %118 = tail call i32 @llvm.uadd.sat.i32(i32 %110, i32 %117)
   %119 = add nuw nsw i64 %indvars.iv1006, %100
@@ -13882,7 +13882,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %123 = load i16, ptr %120, align 2
   %124 = zext i16 %123 to i64
   %125 = mul nuw nsw i64 %124, %122
-  %.sroa.speculated.i786 = tail call i64 @llvm.umin.i64(i64 %125, i64 4294967295)
+  %.sroa.speculated.i786 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %125, i64 4294967295)
   %126 = trunc nuw i64 %.sroa.speculated.i786 to i32
   %127 = tail call i32 @llvm.uadd.sat.i32(i32 %118, i32 %126)
   %gep1057 = getelementptr i16, ptr %invariant.gep1056, i64 %indvars.iv1006
@@ -13891,7 +13891,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %130 = load i16, ptr %gep1057, align 2
   %131 = zext i16 %130 to i64
   %132 = mul nuw nsw i64 %131, %129
-  %.sroa.speculated.i787 = tail call i64 @llvm.umin.i64(i64 %132, i64 4294967295)
+  %.sroa.speculated.i787 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %132, i64 4294967295)
   %133 = trunc nuw i64 %.sroa.speculated.i787 to i32
   %134 = tail call i32 @llvm.uadd.sat.i32(i32 %127, i32 %133)
   %gep1059 = getelementptr i16, ptr %invariant.gep1058, i64 %indvars.iv1006
@@ -13900,7 +13900,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %137 = load i16, ptr %gep1059, align 2
   %138 = zext i16 %137 to i64
   %139 = mul nuw nsw i64 %138, %136
-  %.sroa.speculated.i788 = tail call i64 @llvm.umin.i64(i64 %139, i64 4294967295)
+  %.sroa.speculated.i788 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %139, i64 4294967295)
   %140 = trunc nuw i64 %.sroa.speculated.i788 to i32
   %141 = tail call i32 @llvm.uadd.sat.i32(i32 %134, i32 %140)
   %142 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1006
@@ -13910,14 +13910,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %145 = load i16, ptr %gep1055, align 2
   %146 = zext i16 %145 to i64
   %147 = mul nuw nsw i64 %146, %144
-  %.sroa.speculated.i789 = tail call i64 @llvm.umin.i64(i64 %147, i64 4294967295)
+  %.sroa.speculated.i789 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %147, i64 4294967295)
   %148 = trunc nuw i64 %.sroa.speculated.i789 to i32
   %149 = load i32, ptr %95, align 4
   %150 = zext i32 %149 to i64
   %151 = load i16, ptr %111, align 2
   %152 = zext i16 %151 to i64
   %153 = mul nuw nsw i64 %152, %150
-  %.sroa.speculated.i790 = tail call i64 @llvm.umin.i64(i64 %153, i64 4294967295)
+  %.sroa.speculated.i790 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %153, i64 4294967295)
   %154 = trunc nuw i64 %.sroa.speculated.i790 to i32
   %155 = tail call i32 @llvm.uadd.sat.i32(i32 %148, i32 %154)
   %156 = load i32, ptr %96, align 4
@@ -13925,7 +13925,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %158 = load i16, ptr %120, align 2
   %159 = zext i16 %158 to i64
   %160 = mul nuw nsw i64 %159, %157
-  %.sroa.speculated.i791 = tail call i64 @llvm.umin.i64(i64 %160, i64 4294967295)
+  %.sroa.speculated.i791 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %160, i64 4294967295)
   %161 = trunc nuw i64 %.sroa.speculated.i791 to i32
   %162 = tail call i32 @llvm.uadd.sat.i32(i32 %155, i32 %161)
   %163 = load i32, ptr %97, align 4
@@ -13933,7 +13933,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %165 = load i16, ptr %gep1057, align 2
   %166 = zext i16 %165 to i64
   %167 = mul nuw nsw i64 %166, %164
-  %.sroa.speculated.i792 = tail call i64 @llvm.umin.i64(i64 %167, i64 4294967295)
+  %.sroa.speculated.i792 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %167, i64 4294967295)
   %168 = trunc nuw i64 %.sroa.speculated.i792 to i32
   %169 = tail call i32 @llvm.uadd.sat.i32(i32 %162, i32 %168)
   %gep1061 = getelementptr i16, ptr %invariant.gep1060, i64 %indvars.iv1006
@@ -13942,7 +13942,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %172 = load i16, ptr %gep1061, align 2
   %173 = zext i16 %172 to i64
   %174 = mul nuw nsw i64 %173, %171
-  %.sroa.speculated.i793 = tail call i64 @llvm.umin.i64(i64 %174, i64 4294967295)
+  %.sroa.speculated.i793 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %174, i64 4294967295)
   %175 = trunc nuw i64 %.sroa.speculated.i793 to i32
   %176 = tail call i32 @llvm.uadd.sat.i32(i32 %169, i32 %175)
   %177 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %119
@@ -13977,7 +13977,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %192 = load i16, ptr %189, align 2
   %193 = zext i16 %192 to i64
   %194 = mul nuw nsw i64 %193, %191
-  %.sroa.speculated.i794 = tail call i64 @llvm.umin.i64(i64 %194, i64 4294967295)
+  %.sroa.speculated.i794 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %194, i64 4294967295)
   %195 = trunc nuw i64 %.sroa.speculated.i794 to i32
   %196 = add nuw nsw i64 %indvars.iv1001, %186
   %197 = getelementptr inbounds i16, ptr %0, i64 %196
@@ -13986,7 +13986,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %200 = load i16, ptr %197, align 2
   %201 = zext i16 %200 to i64
   %202 = mul nuw nsw i64 %201, %199
-  %.sroa.speculated.i795 = tail call i64 @llvm.umin.i64(i64 %202, i64 4294967295)
+  %.sroa.speculated.i795 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %202, i64 4294967295)
   %203 = trunc nuw i64 %.sroa.speculated.i795 to i32
   %204 = tail call i32 @llvm.uadd.sat.i32(i32 %195, i32 %203)
   %205 = add nuw nsw i64 %indvars.iv1001, %187
@@ -13996,7 +13996,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %209 = load i16, ptr %206, align 2
   %210 = zext i16 %209 to i64
   %211 = mul nuw nsw i64 %210, %208
-  %.sroa.speculated.i796 = tail call i64 @llvm.umin.i64(i64 %211, i64 4294967295)
+  %.sroa.speculated.i796 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %211, i64 4294967295)
   %212 = trunc nuw i64 %.sroa.speculated.i796 to i32
   %213 = tail call i32 @llvm.uadd.sat.i32(i32 %204, i32 %212)
   %214 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1001
@@ -14006,14 +14006,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %217 = load i16, ptr %189, align 2
   %218 = zext i16 %217 to i64
   %219 = mul nuw nsw i64 %218, %216
-  %.sroa.speculated.i797 = tail call i64 @llvm.umin.i64(i64 %219, i64 4294967295)
+  %.sroa.speculated.i797 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %219, i64 4294967295)
   %220 = trunc nuw i64 %.sroa.speculated.i797 to i32
   %221 = load i32, ptr %181, align 4
   %222 = zext i32 %221 to i64
   %223 = load i16, ptr %197, align 2
   %224 = zext i16 %223 to i64
   %225 = mul nuw nsw i64 %224, %222
-  %.sroa.speculated.i798 = tail call i64 @llvm.umin.i64(i64 %225, i64 4294967295)
+  %.sroa.speculated.i798 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %225, i64 4294967295)
   %226 = trunc nuw i64 %.sroa.speculated.i798 to i32
   %227 = tail call i32 @llvm.uadd.sat.i32(i32 %220, i32 %226)
   %228 = load i32, ptr %182, align 4
@@ -14021,7 +14021,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %230 = load i16, ptr %206, align 2
   %231 = zext i16 %230 to i64
   %232 = mul nuw nsw i64 %231, %229
-  %.sroa.speculated.i799 = tail call i64 @llvm.umin.i64(i64 %232, i64 4294967295)
+  %.sroa.speculated.i799 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %232, i64 4294967295)
   %233 = trunc nuw i64 %.sroa.speculated.i799 to i32
   %234 = tail call i32 @llvm.uadd.sat.i32(i32 %227, i32 %233)
   %235 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %196
@@ -14031,14 +14031,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %238 = load i16, ptr %189, align 2
   %239 = zext i16 %238 to i64
   %240 = mul nuw nsw i64 %239, %237
-  %.sroa.speculated.i800 = tail call i64 @llvm.umin.i64(i64 %240, i64 4294967295)
+  %.sroa.speculated.i800 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %240, i64 4294967295)
   %241 = trunc nuw i64 %.sroa.speculated.i800 to i32
   %242 = load i32, ptr %185, align 4
   %243 = zext i32 %242 to i64
   %244 = load i16, ptr %197, align 2
   %245 = zext i16 %244 to i64
   %246 = mul nuw nsw i64 %245, %243
-  %.sroa.speculated.i801 = tail call i64 @llvm.umin.i64(i64 %246, i64 4294967295)
+  %.sroa.speculated.i801 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %246, i64 4294967295)
   %247 = trunc nuw i64 %.sroa.speculated.i801 to i32
   %248 = tail call i32 @llvm.uadd.sat.i32(i32 %241, i32 %247)
   %249 = load i32, ptr %181, align 4
@@ -14046,7 +14046,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %251 = load i16, ptr %206, align 2
   %252 = zext i16 %251 to i64
   %253 = mul nuw nsw i64 %252, %250
-  %.sroa.speculated.i802 = tail call i64 @llvm.umin.i64(i64 %253, i64 4294967295)
+  %.sroa.speculated.i802 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %253, i64 4294967295)
   %254 = trunc nuw i64 %.sroa.speculated.i802 to i32
   %255 = tail call i32 @llvm.uadd.sat.i32(i32 %248, i32 %254)
   %256 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %205
@@ -14094,7 +14094,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %282 = load i16, ptr %279, align 2
   %283 = zext i16 %282 to i64
   %284 = mul nuw nsw i64 %283, %281
-  %.sroa.speculated.i803 = tail call i64 @llvm.umin.i64(i64 %284, i64 4294967295)
+  %.sroa.speculated.i803 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %284, i64 4294967295)
   %285 = trunc nuw i64 %.sroa.speculated.i803 to i32
   %286 = add nuw nsw i64 %indvars.iv, %272
   %287 = getelementptr inbounds i16, ptr %0, i64 %286
@@ -14103,7 +14103,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %290 = load i16, ptr %287, align 2
   %291 = zext i16 %290 to i64
   %292 = mul nuw nsw i64 %291, %289
-  %.sroa.speculated.i804 = tail call i64 @llvm.umin.i64(i64 %292, i64 4294967295)
+  %.sroa.speculated.i804 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %292, i64 4294967295)
   %293 = trunc nuw i64 %.sroa.speculated.i804 to i32
   %294 = tail call i32 @llvm.uadd.sat.i32(i32 %285, i32 %293)
   %295 = add nuw nsw i64 %indvars.iv, %273
@@ -14113,7 +14113,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %299 = load i16, ptr %296, align 2
   %300 = zext i16 %299 to i64
   %301 = mul nuw nsw i64 %300, %298
-  %.sroa.speculated.i805 = tail call i64 @llvm.umin.i64(i64 %301, i64 4294967295)
+  %.sroa.speculated.i805 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %301, i64 4294967295)
   %302 = trunc nuw i64 %.sroa.speculated.i805 to i32
   %303 = tail call i32 @llvm.uadd.sat.i32(i32 %294, i32 %302)
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
@@ -14122,7 +14122,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %306 = load i16, ptr %gep, align 2
   %307 = zext i16 %306 to i64
   %308 = mul nuw nsw i64 %307, %305
-  %.sroa.speculated.i806 = tail call i64 @llvm.umin.i64(i64 %308, i64 4294967295)
+  %.sroa.speculated.i806 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %308, i64 4294967295)
   %309 = trunc nuw i64 %.sroa.speculated.i806 to i32
   %310 = tail call i32 @llvm.uadd.sat.i32(i32 %303, i32 %309)
   %gep1049 = getelementptr i16, ptr %invariant.gep1048, i64 %indvars.iv
@@ -14131,7 +14131,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %313 = load i16, ptr %gep1049, align 2
   %314 = zext i16 %313 to i64
   %315 = mul nuw nsw i64 %314, %312
-  %.sroa.speculated.i807 = tail call i64 @llvm.umin.i64(i64 %315, i64 4294967295)
+  %.sroa.speculated.i807 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %315, i64 4294967295)
   %316 = trunc nuw i64 %.sroa.speculated.i807 to i32
   %317 = tail call i32 @llvm.uadd.sat.i32(i32 %310, i32 %316)
   %318 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
@@ -14141,14 +14141,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %321 = load i16, ptr %279, align 2
   %322 = zext i16 %321 to i64
   %323 = mul nuw nsw i64 %322, %320
-  %.sroa.speculated.i808 = tail call i64 @llvm.umin.i64(i64 %323, i64 4294967295)
+  %.sroa.speculated.i808 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %323, i64 4294967295)
   %324 = trunc nuw i64 %.sroa.speculated.i808 to i32
   %325 = load i32, ptr %267, align 4
   %326 = zext i32 %325 to i64
   %327 = load i16, ptr %287, align 2
   %328 = zext i16 %327 to i64
   %329 = mul nuw nsw i64 %328, %326
-  %.sroa.speculated.i809 = tail call i64 @llvm.umin.i64(i64 %329, i64 4294967295)
+  %.sroa.speculated.i809 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %329, i64 4294967295)
   %330 = trunc nuw i64 %.sroa.speculated.i809 to i32
   %331 = tail call i32 @llvm.uadd.sat.i32(i32 %324, i32 %330)
   %332 = load i32, ptr %268, align 4
@@ -14156,7 +14156,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %334 = load i16, ptr %296, align 2
   %335 = zext i16 %334 to i64
   %336 = mul nuw nsw i64 %335, %333
-  %.sroa.speculated.i810 = tail call i64 @llvm.umin.i64(i64 %336, i64 4294967295)
+  %.sroa.speculated.i810 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %336, i64 4294967295)
   %337 = trunc nuw i64 %.sroa.speculated.i810 to i32
   %338 = tail call i32 @llvm.uadd.sat.i32(i32 %331, i32 %337)
   %339 = load i32, ptr %2, align 4
@@ -14164,7 +14164,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %341 = load i16, ptr %gep1049, align 2
   %342 = zext i16 %341 to i64
   %343 = mul nuw nsw i64 %342, %340
-  %.sroa.speculated.i811 = tail call i64 @llvm.umin.i64(i64 %343, i64 4294967295)
+  %.sroa.speculated.i811 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %343, i64 4294967295)
   %344 = trunc nuw i64 %.sroa.speculated.i811 to i32
   %345 = tail call i32 @llvm.uadd.sat.i32(i32 %338, i32 %344)
   %gep1051 = getelementptr i16, ptr %invariant.gep1050, i64 %indvars.iv
@@ -14173,7 +14173,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %348 = load i16, ptr %gep1051, align 2
   %349 = zext i16 %348 to i64
   %350 = mul nuw nsw i64 %349, %347
-  %.sroa.speculated.i812 = tail call i64 @llvm.umin.i64(i64 %350, i64 4294967295)
+  %.sroa.speculated.i812 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %350, i64 4294967295)
   %351 = trunc nuw i64 %.sroa.speculated.i812 to i32
   %352 = tail call i32 @llvm.uadd.sat.i32(i32 %345, i32 %351)
   %353 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %286
@@ -14183,14 +14183,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %356 = load i16, ptr %279, align 2
   %357 = zext i16 %356 to i64
   %358 = mul nuw nsw i64 %357, %355
-  %.sroa.speculated.i813 = tail call i64 @llvm.umin.i64(i64 %358, i64 4294967295)
+  %.sroa.speculated.i813 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %358, i64 4294967295)
   %359 = trunc nuw i64 %.sroa.speculated.i813 to i32
   %360 = load i32, ptr %271, align 4
   %361 = zext i32 %360 to i64
   %362 = load i16, ptr %287, align 2
   %363 = zext i16 %362 to i64
   %364 = mul nuw nsw i64 %363, %361
-  %.sroa.speculated.i814 = tail call i64 @llvm.umin.i64(i64 %364, i64 4294967295)
+  %.sroa.speculated.i814 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %364, i64 4294967295)
   %365 = trunc nuw i64 %.sroa.speculated.i814 to i32
   %366 = tail call i32 @llvm.uadd.sat.i32(i32 %359, i32 %365)
   %367 = load i32, ptr %267, align 4
@@ -14198,7 +14198,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %369 = load i16, ptr %296, align 2
   %370 = zext i16 %369 to i64
   %371 = mul nuw nsw i64 %370, %368
-  %.sroa.speculated.i815 = tail call i64 @llvm.umin.i64(i64 %371, i64 4294967295)
+  %.sroa.speculated.i815 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %371, i64 4294967295)
   %372 = trunc nuw i64 %.sroa.speculated.i815 to i32
   %373 = tail call i32 @llvm.uadd.sat.i32(i32 %366, i32 %372)
   %374 = load i32, ptr %268, align 4
@@ -14206,7 +14206,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %376 = load i16, ptr %gep1051, align 2
   %377 = zext i16 %376 to i64
   %378 = mul nuw nsw i64 %377, %375
-  %.sroa.speculated.i816 = tail call i64 @llvm.umin.i64(i64 %378, i64 4294967295)
+  %.sroa.speculated.i816 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %378, i64 4294967295)
   %379 = trunc nuw i64 %.sroa.speculated.i816 to i32
   %380 = tail call i32 @llvm.uadd.sat.i32(i32 %373, i32 %379)
   %gep1053 = getelementptr i16, ptr %invariant.gep1052, i64 %indvars.iv
@@ -14215,7 +14215,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %383 = load i16, ptr %gep1053, align 2
   %384 = zext i16 %383 to i64
   %385 = mul nuw nsw i64 %384, %382
-  %.sroa.speculated.i817 = tail call i64 @llvm.umin.i64(i64 %385, i64 4294967295)
+  %.sroa.speculated.i817 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %385, i64 4294967295)
   %386 = trunc nuw i64 %.sroa.speculated.i817 to i32
   %387 = tail call i32 @llvm.uadd.sat.i32(i32 %380, i32 %386)
   %388 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %295
@@ -14232,7 +14232,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %393 = load i16, ptr %390, align 2
   %394 = zext i16 %393 to i64
   %395 = mul nuw nsw i64 %394, %392
-  %.sroa.speculated.i818 = tail call i64 @llvm.umin.i64(i64 %395, i64 4294967295)
+  %.sroa.speculated.i818 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %395, i64 4294967295)
   %396 = trunc nuw i64 %.sroa.speculated.i818 to i32
   %397 = add nuw nsw i64 %indvars.iv1021, %15
   %398 = getelementptr inbounds i16, ptr %0, i64 %397
@@ -14241,7 +14241,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %401 = load i16, ptr %398, align 2
   %402 = zext i16 %401 to i64
   %403 = mul nuw nsw i64 %402, %400
-  %.sroa.speculated.i819 = tail call i64 @llvm.umin.i64(i64 %403, i64 4294967295)
+  %.sroa.speculated.i819 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %403, i64 4294967295)
   %404 = trunc nuw i64 %.sroa.speculated.i819 to i32
   %405 = tail call i32 @llvm.uadd.sat.i32(i32 %396, i32 %404)
   %gep1063 = getelementptr inbounds i16, ptr %invariant.gep1062, i64 %indvars.iv1021
@@ -14250,7 +14250,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %408 = load i16, ptr %gep1063, align 2
   %409 = zext i16 %408 to i64
   %410 = mul nuw nsw i64 %409, %407
-  %.sroa.speculated.i820 = tail call i64 @llvm.umin.i64(i64 %410, i64 4294967295)
+  %.sroa.speculated.i820 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %410, i64 4294967295)
   %411 = trunc nuw i64 %.sroa.speculated.i820 to i32
   %412 = tail call i32 @llvm.uadd.sat.i32(i32 %405, i32 %411)
   %413 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv1021
@@ -14260,14 +14260,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %416 = load i16, ptr %390, align 2
   %417 = zext i16 %416 to i64
   %418 = mul nuw nsw i64 %417, %415
-  %.sroa.speculated.i821 = tail call i64 @llvm.umin.i64(i64 %418, i64 4294967295)
+  %.sroa.speculated.i821 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %418, i64 4294967295)
   %419 = trunc nuw i64 %.sroa.speculated.i821 to i32
   %420 = load i32, ptr %9, align 4
   %421 = zext i32 %420 to i64
   %422 = load i16, ptr %398, align 2
   %423 = zext i16 %422 to i64
   %424 = mul nuw nsw i64 %423, %421
-  %.sroa.speculated.i822 = tail call i64 @llvm.umin.i64(i64 %424, i64 4294967295)
+  %.sroa.speculated.i822 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %424, i64 4294967295)
   %425 = trunc nuw i64 %.sroa.speculated.i822 to i32
   %426 = tail call i32 @llvm.uadd.sat.i32(i32 %419, i32 %425)
   %427 = load i32, ptr %10, align 4
@@ -14275,7 +14275,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %429 = load i16, ptr %gep1063, align 2
   %430 = zext i16 %429 to i64
   %431 = mul nuw nsw i64 %430, %428
-  %.sroa.speculated.i823 = tail call i64 @llvm.umin.i64(i64 %431, i64 4294967295)
+  %.sroa.speculated.i823 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %431, i64 4294967295)
   %432 = trunc nuw i64 %.sroa.speculated.i823 to i32
   %433 = tail call i32 @llvm.uadd.sat.i32(i32 %426, i32 %432)
   %gep1065 = getelementptr inbounds i16, ptr %invariant.gep1064, i64 %indvars.iv1021
@@ -14284,7 +14284,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %436 = load i16, ptr %gep1065, align 2
   %437 = zext i16 %436 to i64
   %438 = mul nuw nsw i64 %437, %435
-  %.sroa.speculated.i824 = tail call i64 @llvm.umin.i64(i64 %438, i64 4294967295)
+  %.sroa.speculated.i824 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %438, i64 4294967295)
   %439 = trunc nuw i64 %.sroa.speculated.i824 to i32
   %440 = tail call i32 @llvm.uadd.sat.i32(i32 %433, i32 %439)
   %441 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %397
@@ -14324,7 +14324,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %455 = load i16, ptr %gep1067, align 2
   %456 = zext i16 %455 to i64
   %457 = mul nuw nsw i64 %456, %454
-  %.sroa.speculated.i825 = tail call i64 @llvm.umin.i64(i64 %457, i64 4294967295)
+  %.sroa.speculated.i825 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %457, i64 4294967295)
   %458 = trunc nuw i64 %.sroa.speculated.i825 to i32
   %459 = load i32, ptr %452, align 4
   %460 = tail call i32 @llvm.uadd.sat.i32(i32 %459, i32 %458)
@@ -14334,7 +14334,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %463 = load i16, ptr %gep1069, align 2
   %464 = zext i16 %463 to i64
   %465 = mul nuw nsw i64 %464, %462
-  %.sroa.speculated.i826 = tail call i64 @llvm.umin.i64(i64 %465, i64 4294967295)
+  %.sroa.speculated.i826 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %465, i64 4294967295)
   %466 = trunc nuw i64 %.sroa.speculated.i826 to i32
   %467 = tail call i32 @llvm.uadd.sat.i32(i32 %460, i32 %466)
   store i32 %467, ptr %452, align 4
@@ -14344,7 +14344,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %470 = load i16, ptr %gep1069, align 2
   %471 = zext i16 %470 to i64
   %472 = mul nuw nsw i64 %471, %469
-  %.sroa.speculated.i827 = tail call i64 @llvm.umin.i64(i64 %472, i64 4294967295)
+  %.sroa.speculated.i827 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %472, i64 4294967295)
   %473 = trunc nuw i64 %.sroa.speculated.i827 to i32
   %474 = load i32, ptr %gep1071, align 4
   %475 = tail call i32 @llvm.uadd.sat.i32(i32 %474, i32 %473)
@@ -14398,7 +14398,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %500 = load i16, ptr %497, align 2
   %501 = zext i16 %500 to i64
   %502 = mul nuw nsw i64 %501, %499
-  %.sroa.speculated.i828 = tail call i64 @llvm.umin.i64(i64 %502, i64 4294967295)
+  %.sroa.speculated.i828 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %502, i64 4294967295)
   %503 = trunc nuw i64 %.sroa.speculated.i828 to i32
   %504 = getelementptr inbounds i16, ptr %.0762983, i64 %487
   %505 = load i32, ptr %485, align 4
@@ -14406,7 +14406,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %507 = load i16, ptr %504, align 2
   %508 = zext i16 %507 to i64
   %509 = mul nuw nsw i64 %508, %506
-  %.sroa.speculated.i829 = tail call i64 @llvm.umin.i64(i64 %509, i64 4294967295)
+  %.sroa.speculated.i829 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %509, i64 4294967295)
   %510 = trunc nuw i64 %.sroa.speculated.i829 to i32
   %511 = tail call i32 @llvm.uadd.sat.i32(i32 %503, i32 %510)
   %512 = load i32, ptr %488, align 4
@@ -14414,7 +14414,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %514 = load i16, ptr %.0762983, align 2
   %515 = zext i16 %514 to i64
   %516 = mul nuw nsw i64 %515, %513
-  %.sroa.speculated.i830 = tail call i64 @llvm.umin.i64(i64 %516, i64 4294967295)
+  %.sroa.speculated.i830 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %516, i64 4294967295)
   %517 = trunc nuw i64 %.sroa.speculated.i830 to i32
   %518 = tail call i32 @llvm.uadd.sat.i32(i32 %511, i32 %517)
   %519 = getelementptr inbounds i16, ptr %.0762983, i64 %490
@@ -14423,7 +14423,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %522 = load i16, ptr %519, align 2
   %523 = zext i16 %522 to i64
   %524 = mul nuw nsw i64 %523, %521
-  %.sroa.speculated.i831 = tail call i64 @llvm.umin.i64(i64 %524, i64 4294967295)
+  %.sroa.speculated.i831 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %524, i64 4294967295)
   %525 = trunc nuw i64 %.sroa.speculated.i831 to i32
   %526 = tail call i32 @llvm.uadd.sat.i32(i32 %518, i32 %525)
   %527 = getelementptr inbounds i16, ptr %.0762983, i64 %477
@@ -14432,7 +14432,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %530 = load i16, ptr %527, align 2
   %531 = zext i16 %530 to i64
   %532 = mul nuw nsw i64 %531, %529
-  %.sroa.speculated.i832 = tail call i64 @llvm.umin.i64(i64 %532, i64 4294967295)
+  %.sroa.speculated.i832 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %532, i64 4294967295)
   %533 = trunc nuw i64 %.sroa.speculated.i832 to i32
   %534 = tail call i32 @llvm.uadd.sat.i32(i32 %526, i32 %533)
   store i32 %534, ptr %.0763982, align 4
@@ -14451,7 +14451,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %543 = load i16, ptr %540, align 2
   %544 = zext i16 %543 to i64
   %545 = mul nuw nsw i64 %544, %542
-  %.sroa.speculated.i833 = tail call i64 @llvm.umin.i64(i64 %545, i64 4294967295)
+  %.sroa.speculated.i833 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %545, i64 4294967295)
   %546 = trunc nuw i64 %.sroa.speculated.i833 to i32
   %547 = sub nsw i64 %indvars.iv1032, %495
   %548 = getelementptr inbounds i16, ptr %.0762.lcssa, i64 %547
@@ -14460,7 +14460,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %551 = load i16, ptr %548, align 2
   %552 = zext i16 %551 to i64
   %553 = mul nuw nsw i64 %552, %550
-  %.sroa.speculated.i834 = tail call i64 @llvm.umin.i64(i64 %553, i64 4294967295)
+  %.sroa.speculated.i834 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %553, i64 4294967295)
   %554 = trunc nuw i64 %.sroa.speculated.i834 to i32
   %555 = tail call i32 @llvm.uadd.sat.i32(i32 %546, i32 %554)
   %556 = getelementptr inbounds i16, ptr %.0762.lcssa, i64 %indvars.iv1032
@@ -14469,7 +14469,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %559 = load i16, ptr %556, align 2
   %560 = zext i16 %559 to i64
   %561 = mul nuw nsw i64 %560, %558
-  %.sroa.speculated.i835 = tail call i64 @llvm.umin.i64(i64 %561, i64 4294967295)
+  %.sroa.speculated.i835 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %561, i64 4294967295)
   %562 = trunc nuw i64 %.sroa.speculated.i835 to i32
   %563 = tail call i32 @llvm.uadd.sat.i32(i32 %555, i32 %562)
   %564 = add nuw nsw i64 %indvars.iv1032, %495
@@ -14479,7 +14479,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %568 = load i16, ptr %565, align 2
   %569 = zext i16 %568 to i64
   %570 = mul nuw nsw i64 %569, %567
-  %.sroa.speculated.i836 = tail call i64 @llvm.umin.i64(i64 %570, i64 4294967295)
+  %.sroa.speculated.i836 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %570, i64 4294967295)
   %571 = trunc nuw i64 %.sroa.speculated.i836 to i32
   %572 = tail call i32 @llvm.uadd.sat.i32(i32 %563, i32 %571)
   %573 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0763.lcssa, i64 %indvars.iv1032
@@ -14489,14 +14489,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %576 = load i16, ptr %548, align 2
   %577 = zext i16 %576 to i64
   %578 = mul nuw nsw i64 %577, %575
-  %.sroa.speculated.i837 = tail call i64 @llvm.umin.i64(i64 %578, i64 4294967295)
+  %.sroa.speculated.i837 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %578, i64 4294967295)
   %579 = trunc nuw i64 %.sroa.speculated.i837 to i32
   %580 = load i32, ptr %492, align 4
   %581 = zext i32 %580 to i64
   %582 = load i16, ptr %556, align 2
   %583 = zext i16 %582 to i64
   %584 = mul nuw nsw i64 %583, %581
-  %.sroa.speculated.i838 = tail call i64 @llvm.umin.i64(i64 %584, i64 4294967295)
+  %.sroa.speculated.i838 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %584, i64 4294967295)
   %585 = trunc nuw i64 %.sroa.speculated.i838 to i32
   %586 = tail call i32 @llvm.uadd.sat.i32(i32 %579, i32 %585)
   %587 = load i32, ptr %493, align 4
@@ -14504,7 +14504,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %589 = load i16, ptr %565, align 2
   %590 = zext i16 %589 to i64
   %591 = mul nuw nsw i64 %590, %588
-  %.sroa.speculated.i839 = tail call i64 @llvm.umin.i64(i64 %591, i64 4294967295)
+  %.sroa.speculated.i839 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %591, i64 4294967295)
   %592 = trunc nuw i64 %.sroa.speculated.i839 to i32
   %593 = tail call i32 @llvm.uadd.sat.i32(i32 %586, i32 %592)
   %594 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0763.lcssa, i64 %564
@@ -14545,7 +14545,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %614 = load i16, ptr %611, align 2
   %615 = zext i16 %614 to i64
   %616 = mul nuw nsw i64 %615, %613
-  %.sroa.speculated.i840 = tail call i64 @llvm.umin.i64(i64 %616, i64 4294967295)
+  %.sroa.speculated.i840 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %616, i64 4294967295)
   %617 = trunc nuw i64 %.sroa.speculated.i840 to i32
   %618 = load i32, ptr %609, align 4
   %619 = tail call i32 @llvm.uadd.sat.i32(i32 %618, i32 %617)
@@ -14557,7 +14557,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %624 = load i16, ptr %611, align 2
   %625 = zext i16 %624 to i64
   %626 = mul nuw nsw i64 %625, %623
-  %.sroa.speculated.i841 = tail call i64 @llvm.umin.i64(i64 %626, i64 4294967295)
+  %.sroa.speculated.i841 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %626, i64 4294967295)
   %627 = trunc nuw i64 %.sroa.speculated.i841 to i32
   %628 = load i32, ptr %621, align 4
   %629 = tail call i32 @llvm.uadd.sat.i32(i32 %628, i32 %627)
@@ -14568,7 +14568,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %634 = load i16, ptr %631, align 2
   %635 = zext i16 %634 to i64
   %636 = mul nuw nsw i64 %635, %633
-  %.sroa.speculated.i842 = tail call i64 @llvm.umin.i64(i64 %636, i64 4294967295)
+  %.sroa.speculated.i842 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %636, i64 4294967295)
   %637 = trunc nuw i64 %.sroa.speculated.i842 to i32
   %638 = tail call i32 @llvm.uadd.sat.i32(i32 %629, i32 %637)
   store i32 %638, ptr %621, align 4
@@ -14622,7 +14622,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %24 = load i16, ptr %21, align 2
   %25 = zext i16 %24 to i64
   %26 = mul nuw nsw i64 %25, %23
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
   %28 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0228337, i64 %indvars.iv
   store i32 %27, ptr %28, align 4
@@ -14669,7 +14669,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %42 = load i16, ptr %gep, align 2
   %43 = zext i16 %42 to i64
   %44 = mul nuw nsw i64 %43, %41
-  %.sroa.speculated.i246.us = tail call i64 @llvm.umin.i64(i64 %44, i64 4294967295)
+  %.sroa.speculated.i246.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %44, i64 4294967295)
   %45 = trunc nuw i64 %.sroa.speculated.i246.us to i32
   %46 = load i32, ptr %39, align 4
   %47 = tail call i32 @llvm.uadd.sat.i32(i32 %46, i32 %45)
@@ -14725,7 +14725,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %63 = load i16, ptr %gep488, align 2
   %64 = zext i16 %63 to i64
   %65 = mul nuw nsw i64 %64, %62
-  %.sroa.speculated.i248.us = tail call i64 @llvm.umin.i64(i64 %65, i64 4294967295)
+  %.sroa.speculated.i248.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %65, i64 4294967295)
   %66 = trunc nuw i64 %.sroa.speculated.i248.us to i32
   %67 = load i32, ptr %60, align 4
   %68 = tail call i32 @llvm.uadd.sat.i32(i32 %67, i32 %66)
@@ -14778,7 +14778,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %81 = load i16, ptr %gep490, align 2
   %82 = zext i16 %81 to i64
   %83 = mul nuw nsw i64 %82, %80
-  %.sroa.speculated.i249 = tail call i64 @llvm.umin.i64(i64 %83, i64 4294967295)
+  %.sroa.speculated.i249 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %83, i64 4294967295)
   %84 = trunc nuw i64 %.sroa.speculated.i249 to i32
   %85 = load i32, ptr %78, align 4
   %86 = tail call i32 @llvm.uadd.sat.i32(i32 %85, i32 %84)
@@ -14837,7 +14837,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %105 = load i16, ptr %102, align 2
   %106 = zext i16 %105 to i64
   %107 = mul nuw nsw i64 %106, %104
-  %.sroa.speculated.i250.us = tail call i64 @llvm.umin.i64(i64 %107, i64 4294967295)
+  %.sroa.speculated.i250.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %107, i64 4294967295)
   %108 = trunc nuw i64 %.sroa.speculated.i250.us to i32
   store i32 %108, ptr %.1229347.us, align 4
   br label %109
@@ -14853,7 +14853,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %116 = load i16, ptr %113, align 2
   %117 = zext i16 %116 to i64
   %118 = mul nuw nsw i64 %117, %115
-  %.sroa.speculated.i251.us = tail call i64 @llvm.umin.i64(i64 %118, i64 4294967295)
+  %.sroa.speculated.i251.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %118, i64 4294967295)
   %119 = trunc nuw i64 %.sroa.speculated.i251.us to i32
   %120 = tail call i32 @llvm.uadd.sat.i32(i32 %110, i32 %119)
   %121 = xor i64 %indvars.iv448, -1
@@ -14863,7 +14863,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i64
   %127 = mul nuw nsw i64 %126, %115
-  %.sroa.speculated.i252.us = tail call i64 @llvm.umin.i64(i64 %127, i64 4294967295)
+  %.sroa.speculated.i252.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %127, i64 4294967295)
   %128 = trunc nuw i64 %.sroa.speculated.i252.us to i32
   %129 = tail call i32 @llvm.uadd.sat.i32(i32 %120, i32 %128)
   store i32 %129, ptr %.1229347.us, align 4
@@ -14888,7 +14888,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %137 = load i16, ptr %134, align 2
   %138 = zext i16 %137 to i64
   %139 = mul nuw nsw i64 %138, %136
-  %.sroa.speculated.i250 = tail call i64 @llvm.umin.i64(i64 %139, i64 4294967295)
+  %.sroa.speculated.i250 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %139, i64 4294967295)
   %140 = trunc nuw i64 %.sroa.speculated.i250 to i32
   store i32 %140, ptr %.1229347, align 4
   %141 = add nsw i32 %.1232346, 1
@@ -14954,7 +14954,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %168 = load i16, ptr %165, align 2
   %169 = zext i16 %168 to i64
   %170 = mul nuw nsw i64 %169, %167
-  %.sroa.speculated.i254.us = tail call i64 @llvm.umin.i64(i64 %170, i64 4294967295)
+  %.sroa.speculated.i254.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %170, i64 4294967295)
   %171 = trunc nuw i64 %.sroa.speculated.i254.us to i32
   %172 = load i32, ptr %163, align 4
   %173 = tail call i32 @llvm.uadd.sat.i32(i32 %172, i32 %171)
@@ -14976,7 +14976,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %178 = load i16, ptr %175, align 2
   %179 = zext i16 %178 to i64
   %180 = mul nuw nsw i64 %179, %177
-  %.sroa.speculated.i253 = tail call i64 @llvm.umin.i64(i64 %180, i64 4294967295)
+  %.sroa.speculated.i253 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %180, i64 4294967295)
   %181 = trunc nuw i64 %.sroa.speculated.i253 to i32
   %182 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2376, i64 %indvars.iv453
   store i32 %181, ptr %182, align 4
@@ -15027,7 +15027,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %201 = load i16, ptr %198, align 2
   %202 = zext i16 %201 to i64
   %203 = mul nuw nsw i64 %202, %200
-  %.sroa.speculated.i255.us = tail call i64 @llvm.umin.i64(i64 %203, i64 4294967295)
+  %.sroa.speculated.i255.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %203, i64 4294967295)
   %204 = trunc nuw i64 %.sroa.speculated.i255.us to i32
   %205 = load i32, ptr %196, align 4
   %206 = tail call i32 @llvm.uadd.sat.i32(i32 %205, i32 %204)
@@ -15104,7 +15104,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %24 = load i16, ptr %21, align 2
   %25 = zext i16 %24 to i64
   %26 = mul nuw nsw i64 %25, %23
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
   %28 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0216317, i64 %indvars.iv
   store i32 %27, ptr %28, align 4
@@ -15151,7 +15151,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %42 = load i16, ptr %gep, align 2
   %43 = zext i16 %42 to i64
   %44 = mul nuw nsw i64 %43, %41
-  %.sroa.speculated.i233.us = tail call i64 @llvm.umin.i64(i64 %44, i64 4294967295)
+  %.sroa.speculated.i233.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %44, i64 4294967295)
   %45 = trunc nuw i64 %.sroa.speculated.i233.us to i32
   %46 = load i32, ptr %39, align 4
   %47 = tail call i32 @llvm.uadd.sat.i32(i32 %46, i32 %45)
@@ -15207,7 +15207,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %63 = load i16, ptr %gep468, align 2
   %64 = zext i16 %63 to i64
   %65 = mul nuw nsw i64 %64, %62
-  %.sroa.speculated.i235.us = tail call i64 @llvm.umin.i64(i64 %65, i64 4294967295)
+  %.sroa.speculated.i235.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %65, i64 4294967295)
   %66 = trunc nuw i64 %.sroa.speculated.i235.us to i32
   %67 = load i32, ptr %60, align 4
   %68 = tail call i32 @llvm.uadd.sat.i32(i32 %67, i32 %66)
@@ -15260,7 +15260,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %81 = load i16, ptr %gep470, align 2
   %82 = zext i16 %81 to i64
   %83 = mul nuw nsw i64 %82, %80
-  %.sroa.speculated.i236 = tail call i64 @llvm.umin.i64(i64 %83, i64 4294967295)
+  %.sroa.speculated.i236 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %83, i64 4294967295)
   %84 = trunc nuw i64 %.sroa.speculated.i236 to i32
   %85 = load i32, ptr %78, align 4
   %86 = tail call i32 @llvm.uadd.sat.i32(i32 %85, i32 %84)
@@ -15313,7 +15313,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %99 = load i16, ptr %.0209328.us, align 2
   %100 = zext i16 %99 to i64
   %101 = mul nuw nsw i64 %100, %98
-  %.sroa.speculated.i237.us = tail call i64 @llvm.umin.i64(i64 %101, i64 4294967295)
+  %.sroa.speculated.i237.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %101, i64 4294967295)
   %102 = trunc nuw i64 %.sroa.speculated.i237.us to i32
   store i32 %102, ptr %.1217327.us, align 4
   br label %103
@@ -15329,7 +15329,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %110 = load i16, ptr %107, align 2
   %111 = zext i16 %110 to i64
   %112 = mul nuw nsw i64 %111, %109
-  %.sroa.speculated.i238.us = tail call i64 @llvm.umin.i64(i64 %112, i64 4294967295)
+  %.sroa.speculated.i238.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %112, i64 4294967295)
   %113 = trunc nuw i64 %.sroa.speculated.i238.us to i32
   %114 = tail call i32 @llvm.uadd.sat.i32(i32 %104, i32 %113)
   store i32 %114, ptr %.1217327.us, align 4
@@ -15353,7 +15353,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %121 = load i16, ptr %.0209328, align 2
   %122 = zext i16 %121 to i64
   %123 = mul nuw nsw i64 %122, %120
-  %.sroa.speculated.i237 = tail call i64 @llvm.umin.i64(i64 %123, i64 4294967295)
+  %.sroa.speculated.i237 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %123, i64 4294967295)
   %124 = trunc nuw i64 %.sroa.speculated.i237 to i32
   store i32 %124, ptr %.1217327, align 4
   %125 = add nsw i32 %.1225326, 1
@@ -15419,7 +15419,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %152 = load i16, ptr %149, align 2
   %153 = zext i16 %152 to i64
   %154 = mul nuw nsw i64 %153, %151
-  %.sroa.speculated.i240.us = tail call i64 @llvm.umin.i64(i64 %154, i64 4294967295)
+  %.sroa.speculated.i240.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %154, i64 4294967295)
   %155 = trunc nuw i64 %.sroa.speculated.i240.us to i32
   %156 = load i32, ptr %147, align 4
   %157 = tail call i32 @llvm.uadd.sat.i32(i32 %156, i32 %155)
@@ -15441,7 +15441,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %162 = load i16, ptr %159, align 2
   %163 = zext i16 %162 to i64
   %164 = mul nuw nsw i64 %163, %161
-  %.sroa.speculated.i239 = tail call i64 @llvm.umin.i64(i64 %164, i64 4294967295)
+  %.sroa.speculated.i239 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %164, i64 4294967295)
   %165 = trunc nuw i64 %.sroa.speculated.i239 to i32
   %166 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2356, i64 %indvars.iv433
   store i32 %165, ptr %166, align 4
@@ -15492,7 +15492,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %185 = load i16, ptr %182, align 2
   %186 = zext i16 %185 to i64
   %187 = mul nuw nsw i64 %186, %184
-  %.sroa.speculated.i241.us = tail call i64 @llvm.umin.i64(i64 %187, i64 4294967295)
+  %.sroa.speculated.i241.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %187, i64 4294967295)
   %188 = trunc nuw i64 %.sroa.speculated.i241.us to i32
   %189 = load i32, ptr %180, align 4
   %190 = tail call i32 @llvm.uadd.sat.i32(i32 %189, i32 %188)
@@ -15574,7 +15574,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_G
   %13 = mul nuw i64 %12, %10
   %14 = add nuw i64 %13, 2147483648
   %15 = lshr i64 %14, 32
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %15, i64 65535)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %15, i64 65535)
   %16 = trunc nuw i64 %.sroa.speculated.i to i16
   %17 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
   store i16 %16, ptr %17, align 2
@@ -15667,7 +15667,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_G
   %34 = tail call i64 @llvm.uadd.sat.i64(i64 %26, i64 %33)
   %35 = add i64 %34, 2147483648
   %36 = lshr i64 %35, 32
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %36, i64 65535)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %36, i64 65535)
   %37 = trunc nuw i64 %.sroa.speculated.i to i16
   %38 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
   store i16 %37, ptr %38, align 2
@@ -15793,7 +15793,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_G
   %54 = tail call i64 @llvm.uadd.sat.i64(i64 %46, i64 %53)
   %55 = add i64 %54, 2147483648
   %56 = lshr i64 %55, 32
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %56, i64 65535)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %56, i64 65535)
   %57 = trunc nuw i64 %.sroa.speculated.i to i16
   %58 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
   store i16 %57, ptr %58, align 2
@@ -15850,7 +15850,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
 ._crit_edge.us:                                   ; preds = %15
   %26 = add i64 %25, 2147483648
   %27 = lshr i64 %26, 32
-  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 %27, i64 65535)
+  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %27, i64 65535)
   %28 = trunc nuw i64 %.sroa.speculated.i.us to i16
   %29 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv45
   store i16 %28, ptr %29, align 2
@@ -15869,7 +15869,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
   %36 = mul nuw i64 %35, %33
   %37 = add nuw i64 %36, 2147483648
   %38 = lshr i64 %37, 32
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %38, i64 65535)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %38, i64 65535)
   %39 = trunc nuw i64 %.sroa.speculated.i to i16
   %40 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
   store i16 %39, ptr %40, align 2
@@ -15926,7 +15926,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
 ._crit_edge.us:                                   ; preds = %15
   %26 = add i64 %25, 2147483648
   %27 = lshr i64 %26, 32
-  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 %27, i64 65535)
+  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %27, i64 65535)
   %28 = trunc nuw i64 %.sroa.speculated.i.us to i16
   %29 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv45
   store i16 %28, ptr %29, align 2
@@ -15945,7 +15945,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
   %36 = mul nuw i64 %35, %33
   %37 = add nuw i64 %36, 2147483648
   %38 = lshr i64 %37, 32
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %38, i64 65535)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %38, i64 65535)
   %39 = trunc nuw i64 %.sroa.speculated.i to i16
   %40 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
   store i16 %39, ptr %40, align 2
@@ -15959,7 +15959,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -16754,7 +16754,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %465 = mul nuw i64 %464, %462
   %466 = add nuw i64 %465, 2147483648
   %467 = lshr i64 %466, 32
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %467, i64 65535)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %467, i64 65535)
   %468 = trunc nuw i64 %.sroa.speculated.i.i to i16
   %469 = getelementptr inbounds i16, ptr %454, i64 %indvars.iv.i
   store i16 %468, ptr %469, align 2
@@ -16817,7 +16817,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %514 = call i64 @llvm.uadd.sat.i64(i64 %506, i64 %513)
   %515 = add i64 %514, 2147483648
   %516 = lshr i64 %515, 32
-  %.sroa.speculated.i.i321 = call i64 @llvm.umin.i64(i64 %516, i64 65535)
+  %.sroa.speculated.i.i321 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %516, i64 65535)
   %517 = trunc nuw i64 %.sroa.speculated.i.i321 to i16
   %518 = getelementptr inbounds i16, ptr %482, i64 %indvars.iv.i320
   store i16 %517, ptr %518, align 2
@@ -16900,7 +16900,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %583 = call i64 @llvm.uadd.sat.i64(i64 %575, i64 %582)
   %584 = add i64 %583, 2147483648
   %585 = lshr i64 %584, 32
-  %.sroa.speculated.i.i328 = call i64 @llvm.umin.i64(i64 %585, i64 65535)
+  %.sroa.speculated.i.i328 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %585, i64 65535)
   %586 = trunc nuw i64 %.sroa.speculated.i.i328 to i16
   %587 = getelementptr inbounds i16, ptr %531, i64 %indvars.iv.i327
   store i16 %586, ptr %587, align 2
@@ -16970,7 +16970,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 ._crit_edge.us.i:                                 ; preds = %612
   %623 = add i64 %622, 2147483648
   %624 = lshr i64 %623, 32
-  %.sroa.speculated.i.us.i = call i64 @llvm.umin.i64(i64 %624, i64 65535)
+  %.sroa.speculated.i.us.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %624, i64 65535)
   %625 = trunc nuw i64 %.sroa.speculated.i.us.i to i16
   %626 = getelementptr inbounds i16, ptr %599, i64 %indvars.iv45.i
   store i16 %625, ptr %626, align 2
@@ -16989,7 +16989,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %633 = mul nuw i64 %632, %630
   %634 = add nuw i64 %633, 2147483648
   %635 = lshr i64 %634, 32
-  %.sroa.speculated.i.i333 = call i64 @llvm.umin.i64(i64 %635, i64 65535)
+  %.sroa.speculated.i.i333 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %635, i64 65535)
   %636 = trunc nuw i64 %.sroa.speculated.i.i333 to i16
   %637 = getelementptr inbounds i16, ptr %599, i64 %indvars.iv.i332
   store i16 %636, ptr %637, align 2
@@ -17114,7 +17114,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %721 = call i64 @llvm.uadd.sat.i64(i64 %713, i64 %720)
   %722 = add i64 %721, 2147483648
   %723 = lshr i64 %722, 32
-  %.sroa.speculated.i.i341 = call i64 @llvm.umin.i64(i64 %723, i64 65535)
+  %.sroa.speculated.i.i341 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %723, i64 65535)
   %724 = trunc nuw i64 %.sroa.speculated.i.i341 to i16
   %725 = getelementptr inbounds i16, ptr %691, i64 %indvars.iv.i340
   store i16 %724, ptr %725, align 2
@@ -17185,7 +17185,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %779 = call i64 @llvm.uadd.sat.i64(i64 %771, i64 %778)
   %780 = add i64 %779, 2147483648
   %781 = lshr i64 %780, 32
-  %.sroa.speculated.i.i348 = call i64 @llvm.umin.i64(i64 %781, i64 65535)
+  %.sroa.speculated.i.i348 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %781, i64 65535)
   %782 = trunc nuw i64 %.sroa.speculated.i.i348 to i16
   %783 = getelementptr inbounds i16, ptr %731, i64 %indvars.iv.i347
   store i16 %782, ptr %783, align 2
@@ -17243,7 +17243,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i367:                              ; preds = %802
   %813 = add i64 %812, 2147483648
   %814 = lshr i64 %813, 32
-  %.sroa.speculated.i.us.i368 = call i64 @llvm.umin.i64(i64 %814, i64 65535)
+  %.sroa.speculated.i.us.i368 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %814, i64 65535)
   %815 = trunc nuw i64 %.sroa.speculated.i.us.i368 to i16
   %816 = getelementptr inbounds i16, ptr %790, i64 %indvars.iv45.i362
   store i16 %815, ptr %816, align 2
@@ -17262,7 +17262,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %823 = mul nuw i64 %822, %820
   %824 = add nuw i64 %823, 2147483648
   %825 = lshr i64 %824, 32
-  %.sroa.speculated.i.i356 = call i64 @llvm.umin.i64(i64 %825, i64 65535)
+  %.sroa.speculated.i.i356 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %825, i64 65535)
   %826 = trunc nuw i64 %.sroa.speculated.i.i356 to i16
   %827 = getelementptr inbounds i16, ptr %790, i64 %indvars.iv.i355
   store i16 %826, ptr %827, align 2
@@ -17438,7 +17438,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %931 = call i64 @llvm.uadd.sat.i64(i64 %923, i64 %930)
   %932 = add i64 %931, 2147483648
   %933 = lshr i64 %932, 32
-  %.sroa.speculated.i.i376 = call i64 @llvm.umin.i64(i64 %933, i64 65535)
+  %.sroa.speculated.i.i376 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %933, i64 65535)
   %934 = trunc nuw i64 %.sroa.speculated.i.i376 to i16
   %935 = getelementptr inbounds i16, ptr %898, i64 %indvars.iv.i375
   store i16 %934, ptr %935, align 2
@@ -17504,7 +17504,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %984 = call i64 @llvm.uadd.sat.i64(i64 %976, i64 %983)
   %985 = add i64 %984, 2147483648
   %986 = lshr i64 %985, 32
-  %.sroa.speculated.i.i383 = call i64 @llvm.umin.i64(i64 %986, i64 65535)
+  %.sroa.speculated.i.i383 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %986, i64 65535)
   %987 = trunc nuw i64 %.sroa.speculated.i.i383 to i16
   %988 = getelementptr inbounds i16, ptr %898, i64 %indvars.iv.i382
   store i16 %987, ptr %988, align 2
@@ -17555,7 +17555,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i402:                              ; preds = %998
   %1009 = add i64 %1008, 2147483648
   %1010 = lshr i64 %1009, 32
-  %.sroa.speculated.i.us.i403 = call i64 @llvm.umin.i64(i64 %1010, i64 65535)
+  %.sroa.speculated.i.us.i403 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1010, i64 65535)
   %1011 = trunc nuw i64 %.sroa.speculated.i.us.i403 to i16
   %1012 = getelementptr inbounds i16, ptr %898, i64 %indvars.iv45.i397
   store i16 %1011, ptr %1012, align 2
@@ -17574,7 +17574,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1019 = mul nuw i64 %1018, %1016
   %1020 = add nuw i64 %1019, 2147483648
   %1021 = lshr i64 %1020, 32
-  %.sroa.speculated.i.i391 = call i64 @llvm.umin.i64(i64 %1021, i64 65535)
+  %.sroa.speculated.i.i391 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1021, i64 65535)
   %1022 = trunc nuw i64 %.sroa.speculated.i.i391 to i16
   %1023 = getelementptr inbounds i16, ptr %898, i64 %indvars.iv.i390
   store i16 %1022, ptr %1023, align 2
@@ -17690,7 +17690,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1091 = call i64 @llvm.uadd.sat.i64(i64 %1083, i64 %1090)
   %1092 = add i64 %1091, 2147483648
   %1093 = lshr i64 %1092, 32
-  %.sroa.speculated.i.i411 = call i64 @llvm.umin.i64(i64 %1093, i64 65535)
+  %.sroa.speculated.i.i411 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1093, i64 65535)
   %1094 = trunc nuw i64 %.sroa.speculated.i.i411 to i16
   %1095 = getelementptr inbounds i16, ptr %1060, i64 %indvars.iv.i410
   store i16 %1094, ptr %1095, align 2
@@ -17752,7 +17752,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1140 = call i64 @llvm.uadd.sat.i64(i64 %1132, i64 %1139)
   %1141 = add i64 %1140, 2147483648
   %1142 = lshr i64 %1141, 32
-  %.sroa.speculated.i.i418 = call i64 @llvm.umin.i64(i64 %1142, i64 65535)
+  %.sroa.speculated.i.i418 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1142, i64 65535)
   %1143 = trunc nuw i64 %.sroa.speculated.i.i418 to i16
   %1144 = getelementptr inbounds i16, ptr %1060, i64 %indvars.iv.i417
   store i16 %1143, ptr %1144, align 2
@@ -17803,7 +17803,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i437:                              ; preds = %1154
   %1165 = add i64 %1164, 2147483648
   %1166 = lshr i64 %1165, 32
-  %.sroa.speculated.i.us.i438 = call i64 @llvm.umin.i64(i64 %1166, i64 65535)
+  %.sroa.speculated.i.us.i438 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1166, i64 65535)
   %1167 = trunc nuw i64 %.sroa.speculated.i.us.i438 to i16
   %1168 = getelementptr inbounds i16, ptr %1060, i64 %indvars.iv45.i432
   store i16 %1167, ptr %1168, align 2
@@ -17822,7 +17822,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1175 = mul nuw i64 %1174, %1172
   %1176 = add nuw i64 %1175, 2147483648
   %1177 = lshr i64 %1176, 32
-  %.sroa.speculated.i.i426 = call i64 @llvm.umin.i64(i64 %1177, i64 65535)
+  %.sroa.speculated.i.i426 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1177, i64 65535)
   %1178 = trunc nuw i64 %.sroa.speculated.i.i426 to i16
   %1179 = getelementptr inbounds i16, ptr %1060, i64 %indvars.iv.i425
   store i16 %1178, ptr %1179, align 2
@@ -17899,7 +17899,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1225 = call i64 @llvm.uadd.sat.i64(i64 %1217, i64 %1224)
   %1226 = add i64 %1225, 2147483648
   %1227 = lshr i64 %1226, 32
-  %.sroa.speculated.i.i446 = call i64 @llvm.umin.i64(i64 %1227, i64 65535)
+  %.sroa.speculated.i.i446 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1227, i64 65535)
   %1228 = trunc nuw i64 %.sroa.speculated.i.i446 to i16
   %1229 = getelementptr inbounds i16, ptr %1192, i64 %indvars.iv.i445
   store i16 %1228, ptr %1229, align 2
@@ -17965,7 +17965,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1278 = call i64 @llvm.uadd.sat.i64(i64 %1270, i64 %1277)
   %1279 = add i64 %1278, 2147483648
   %1280 = lshr i64 %1279, 32
-  %.sroa.speculated.i.i454 = call i64 @llvm.umin.i64(i64 %1280, i64 65535)
+  %.sroa.speculated.i.i454 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1280, i64 65535)
   %1281 = trunc nuw i64 %.sroa.speculated.i.i454 to i16
   %1282 = getelementptr inbounds i16, ptr %1192, i64 %indvars.iv.i453
   store i16 %1281, ptr %1282, align 2
@@ -18016,7 +18016,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 ._crit_edge.us.i474:                              ; preds = %1292
   %1303 = add i64 %1302, 2147483648
   %1304 = lshr i64 %1303, 32
-  %.sroa.speculated.i.us.i475 = call i64 @llvm.umin.i64(i64 %1304, i64 65535)
+  %.sroa.speculated.i.us.i475 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1304, i64 65535)
   %1305 = trunc nuw i64 %.sroa.speculated.i.us.i475 to i16
   %1306 = getelementptr inbounds i16, ptr %1192, i64 %indvars.iv45.i469
   store i16 %1305, ptr %1306, align 2
@@ -18035,7 +18035,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1313 = mul nuw i64 %1312, %1310
   %1314 = add nuw i64 %1313, 2147483648
   %1315 = lshr i64 %1314, 32
-  %.sroa.speculated.i.i463 = call i64 @llvm.umin.i64(i64 %1315, i64 65535)
+  %.sroa.speculated.i.i463 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1315, i64 65535)
   %1316 = trunc nuw i64 %.sroa.speculated.i.i463 to i16
   %1317 = getelementptr inbounds i16, ptr %1192, i64 %indvars.iv.i462
   store i16 %1316, ptr %1317, align 2
@@ -18238,7 +18238,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12_GLOBAL__N_113ufixedpoint16EmS2_ET_S4_T
   unreachable
 
 _ZNKSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %50
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %37, i64 %40)
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %37, i64 range(i64 -4611686020574871551, 4611686020574871552) %40)
   %53 = add nuw nsw i64 %.sroa.speculated.i.i.i, %37
   %54 = call i64 @llvm.umin.i64(i64 %53, i64 4611686018427387903)
   %55 = shl nuw nsw i64 %54, 1
@@ -18761,7 +18761,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12_GLOBAL__N_113ufixedpoint32EmS2_ET_S4_T
   unreachable
 
 _ZNKSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %50
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %37, i64 %40)
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %37, i64 range(i64 -2305843011361177599, 2305843011361177600) %40)
   %53 = add nuw nsw i64 %.sroa.speculated.i.i.i, %37
   %54 = call i64 @llvm.umin.i64(i64 %53, i64 2305843009213693951)
   %55 = shl nuw nsw i64 %54, 2

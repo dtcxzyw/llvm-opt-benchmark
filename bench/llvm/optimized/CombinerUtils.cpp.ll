@@ -33,7 +33,7 @@ define dso_local { ptr, i64 } @_ZN4llvm12insertStrRefENS_9StringRefE(ptr %0, i64
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN4llvm12insertStrRefENS_9StringRefEE4Pool, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm12insertStrRefENS_9StringRefEE4Pool, i8 0, i64 20, i1 false)
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12insertStrRefENS_9StringRefEE4Pool, i64 20), align 4
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev, ptr nonnull @_ZZN4llvm12insertStrRefENS_9StringRefEE4Pool, ptr nonnull @__dso_handle) #6
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12insertStrRefENS_9StringRefEE4Pool) #6
@@ -93,7 +93,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev(p
 12:                                               ; preds = %.lr.ph.i
   %13 = load i64, ptr %11, align 8
   %14 = add i64 %13, 9
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %11, i64 noundef %14, i64 noundef 8) #6
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %14, i64 noundef 8) #6
   br label %15
 
 15:                                               ; preds = %12, %.lr.ph.i, %.lr.ph.i

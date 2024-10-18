@@ -240,7 +240,7 @@ _ZN8uint_set6insertEj.exit40:                     ; preds = %_ZNK6vectorIjLb0EjE
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr null, ptr %m_value.i.i, align 8
   store ptr null, ptr %ref.tmp, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_targets, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_targets, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN8uint_set6insertEj.exit40
@@ -273,7 +273,7 @@ _ZN8uint_setD2Ev.exit:                            ; preds = %invoke.cont.i, %if.
   %m_value.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i41, i64 8
   store ptr null, ptr %m_value.i.i42, align 8
   store ptr null, ptr %ref.tmp4, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_sources, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i41)
+  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_sources, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i41)
           to label %invoke.cont.i44 unwind label %lpad.i43
 
 invoke.cont.i44:                                  ; preds = %_ZN8uint_setD2Ev.exit
@@ -306,7 +306,7 @@ _ZN8uint_setD2Ev.exit55:                          ; preds = %invoke.cont.i44, %i
   %m_value.i.i57 = getelementptr inbounds i8, ptr %ref.tmp.i56, i64 8
   store ptr null, ptr %m_value.i.i57, align 8
   store ptr null, ptr %ref.tmp7, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_sources_maybecycle, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i56)
+  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_sources_maybecycle, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i56)
           to label %invoke.cont.i59 unwind label %lpad.i58
 
 invoke.cont.i59:                                  ; preds = %_ZN8uint_setD2Ev.exit55
@@ -483,7 +483,7 @@ entry:
   store i32 %s, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr null, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6removeERK9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_targets, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6removeERK9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_targets, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -521,7 +521,7 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqE6removeERKj.exit: ; pr
   store i32 %s, ptr %ref.tmp.i1, align 8
   %m_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 8
   store ptr null, ptr %m_value.i.i2, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6removeERK9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_sources, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1)
+  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6removeERK9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_sources, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1)
           to label %invoke.cont.i4 unwind label %lpad.i3
 
 invoke.cont.i4:                                   ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqE6removeERKj.exit
@@ -553,7 +553,7 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqE6removeERKj.exit9: ; p
   store i32 %s, ptr %ref.tmp.i10, align 8
   %m_value.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 8
   store ptr null, ptr %m_value.i.i11, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6removeERK9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_sources_maybecycle, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10)
+  invoke void @_ZN14core_hashtableI17default_map_entryIj8uint_setEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE6removeERK9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_sources_maybecycle, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10)
           to label %invoke.cont.i13 unwind label %lpad.i12
 
 invoke.cont.i13:                                  ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqE6removeERKj.exit9
@@ -6750,7 +6750,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

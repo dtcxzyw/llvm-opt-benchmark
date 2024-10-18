@@ -735,7 +735,7 @@ _ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaT
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i.i
 
 255:                                              ; preds = %243
-  %256 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %245, i64 noundef 8, i32 noundef 0) #18
+  %256 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %245, i64 noundef 8, i32 noundef 0) #18
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i.i: ; preds = %255, %253

@@ -159,8 +159,8 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   store i32 3, ptr %mValue.i.i, align 8
   %ref.tmp11.sroa.2699.0.mValue.i.i.sroa_idx = getelementptr inbounds i8, ptr %tempValue.i, i64 24
   store i64 1003, ptr %ref.tmp11.sroa.2699.0.mValue.i.i.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont9
@@ -199,8 +199,8 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   store i32 4, ptr %mValue.i.i12, align 8
   %ref.tmp23.sroa.2698.0.mValue.i.i12.sroa_idx = getelementptr inbounds i8, ptr %tempValue.i10, i64 24
   store i64 1004, ptr %ref.tmp23.sroa.2698.0.mValue.i.i12.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i10, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i11, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i10)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i10, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i11, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i10)
           to label %.noexc19 unwind label %lpad
 
 .noexc19:                                         ; preds = %invoke.cont21
@@ -238,8 +238,8 @@ invoke.cont33:                                    ; preds = %invoke.cont31
   store i32 2, ptr %mValue.i.i26, align 8
   %ref.tmp35.sroa.2697.0.mValue.i.i26.sroa_idx = getelementptr inbounds i8, ptr %tempValue.i24, i64 24
   store i64 1002, ptr %ref.tmp35.sroa.2697.0.mValue.i.i26.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i24, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i25, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i24)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i24, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i25, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i24)
           to label %.noexc34 unwind label %lpad
 
 .noexc34:                                         ; preds = %invoke.cont33
@@ -277,8 +277,8 @@ invoke.cont45:                                    ; preds = %invoke.cont43
   store i32 6, ptr %mValue.i.i42, align 8
   %ref.tmp47.sroa.2696.0.mValue.i.i42.sroa_idx = getelementptr inbounds i8, ptr %tempValue.i40, i64 24
   store i64 1006, ptr %ref.tmp47.sroa.2696.0.mValue.i.i42.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i40, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i41, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i40)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i40, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i41, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i40)
           to label %.noexc50 unwind label %lpad
 
 .noexc50:                                         ; preds = %invoke.cont45
@@ -583,7 +583,7 @@ invoke.cont138:                                   ; preds = %invoke.cont132
 
 invoke.cont144:                                   ; preds = %invoke.cont138
   %58 = load ptr, ptr %mpNodeParent.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef %58)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef %58)
           to label %invoke.cont146 unwind label %lpad
 
 invoke.cont146:                                   ; preds = %invoke.cont144
@@ -618,8 +618,8 @@ invoke.cont158:                                   ; preds = %invoke.cont152
   store i32 10, ptr %mValue.i.i150, align 8
   %ref.tmp160.sroa.2695.0.mValue.i.i150.sroa_idx = getelementptr inbounds i8, ptr %tempValue.i148, i64 24
   store i64 1010, ptr %ref.tmp160.sroa.2695.0.mValue.i.i150.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i148, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i149, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i148)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i148, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i149, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i148)
           to label %.noexc158 unwind label %lpad
 
 .noexc158:                                        ; preds = %invoke.cont158
@@ -657,8 +657,8 @@ invoke.cont170:                                   ; preds = %invoke.cont168
   store i32 8, ptr %mValue.i.i166, align 8
   %ref.tmp172.sroa.2694.0.mValue.i.i166.sroa_idx = getelementptr inbounds i8, ptr %tempValue.i164, i64 24
   store i64 1008, ptr %ref.tmp172.sroa.2694.0.mValue.i.i166.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i164, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i165, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i164)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i164, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i165, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i164)
           to label %.noexc174 unwind label %lpad
 
 .noexc174:                                        ; preds = %invoke.cont170
@@ -697,8 +697,8 @@ invoke.cont182:                                   ; preds = %invoke.cont180
   store i32 7, ptr %mValue.i.i.i176, align 8
   %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %tempValue.i.i, i64 24
   store i64 1007, ptr %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i.i, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i.i, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i.i, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i)
           to label %.noexc179 unwind label %lpad
 
 .noexc179:                                        ; preds = %invoke.cont182
@@ -736,8 +736,8 @@ invoke.cont190:                                   ; preds = %invoke.cont188
   store i32 9, ptr %mValue.i.i.i182, align 8
   %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i183 = getelementptr inbounds i8, ptr %tempValue.i.i180, i64 24
   store i64 1009, ptr %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i183, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i.i180, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i.i181, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i180)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i180, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i.i181, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i180)
           to label %.noexc190 unwind label %lpad
 
 .noexc190:                                        ; preds = %invoke.cont190
@@ -776,8 +776,8 @@ invoke.cont198:                                   ; preds = %invoke.cont196
   store i32 11, ptr %mValue.i.i.i193, align 8
   %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i194 = getelementptr inbounds i8, ptr %tempValue.i.i191, i64 24
   store i64 1011, ptr %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i194, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue.i.i191, i8 0, i64 16, i1 false)
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i.i192, ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i191)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i191, i8 0, i64 16, i1 false)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoInsertValueIJRS5_EEENS2_INS_15rbtree_iteratorIS5_PS5_SD_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.15") align 8 %baseReturn.i.i192, ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef nonnull align 8 dereferenceable(32) %tempValue.i.i191)
           to label %.noexc202 unwind label %lpad
 
 .noexc202:                                        ; preds = %invoke.cont198
@@ -869,7 +869,7 @@ _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorEN
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS5_PKS5_RSD_EE.exit.i.i
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i, ptr noundef nonnull %testMap)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %.noexc211 unwind label %lpad
 
 .noexc211:                                        ; preds = %call.i.i.i.i.noexc
@@ -1040,7 +1040,7 @@ _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorEN
           to label %call.i.i.i.i.noexc287 unwind label %lpad
 
 call.i.i.i.i.noexc287:                            ; preds = %_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS5_PKS5_RSD_EE.exit.i.i281
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i273, ptr noundef nonnull %testMap)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i273, ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %.noexc289 unwind label %lpad
 
 .noexc289:                                        ; preds = %call.i.i.i.i.noexc287
@@ -1224,7 +1224,7 @@ _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorEN
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS5_PKS5_RSD_EE.exit.i
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i364, ptr noundef nonnull %testMap)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i364, ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %.noexc377 unwind label %lpad
 
 .noexc377:                                        ; preds = %call.i.i.i.noexc
@@ -1457,7 +1457,7 @@ _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorEN
           to label %call.i.i.i.noexc499 unwind label %lpad
 
 call.i.i.i.noexc499:                              ; preds = %_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS5_PKS5_RSD_EE.exit.i492
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i484, ptr noundef nonnull %testMap)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i484, ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %.noexc501 unwind label %lpad
 
 .noexc501:                                        ; preds = %call.i.i.i.noexc499
@@ -1679,7 +1679,7 @@ _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorEN
           to label %call.i.i.i.i.noexc618 unwind label %lpad
 
 call.i.i.i.i.noexc618:                            ; preds = %_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS5_PKS5_RSD_EE.exit.i.i612
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i604, ptr noundef nonnull %testMap)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i604, ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %.noexc620 unwind label %lpad
 
 .noexc620:                                        ; preds = %call.i.i.i.i.noexc618
@@ -1774,7 +1774,7 @@ _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorEN
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS5_PKS5_RSD_EE.exit.i.i.i
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i.i, ptr noundef nonnull %testMap)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %.noexc637 unwind label %lpad
 
 .noexc637:                                        ; preds = %call.i.i.i.i.i.noexc
@@ -1797,7 +1797,7 @@ invoke.cont382:                                   ; preds = %invoke.cont380
 
 invoke.cont384:                                   ; preds = %invoke.cont382
   %197 = load ptr, ptr %mpNodeParent.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %testMap, ptr noundef %197)
+  invoke void @_ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(64) %testMap, ptr noundef %197)
           to label %invoke.cont392 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont384
@@ -1852,7 +1852,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %invoke.cont395, %i
 
 invoke.cont399:                                   ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %baseIter.i)
-  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE7find_asIA6_cNS9_IvEEEENS_15rbtree_iteratorIS8_PS8_RS8_EERKT_T0_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %baseIter.i, ptr noundef nonnull align 8 dereferenceable(41) %testStringMap, ptr noundef nonnull align 1 dereferenceable(6) @.str.28)
+  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE7find_asIA6_cNS9_IvEEEENS_15rbtree_iteratorIS8_PS8_RS8_EERKT_T0_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %baseIter.i, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 1 dereferenceable(6) @.str.28)
           to label %invoke.cont403 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont403:                                   ; preds = %invoke.cont399
@@ -1907,7 +1907,7 @@ invoke.cont414:                                   ; preds = %_ZN5eastleqIcNS_9al
 
 invoke.cont419:                                   ; preds = %invoke.cont414
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %baseIter.i666)
-  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE7find_asIA12_cNS9_IvEEEENS_15rbtree_iteratorIS8_PS8_RS8_EERKT_T0_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %baseIter.i666, ptr noundef nonnull align 8 dereferenceable(41) %testStringMap, ptr noundef nonnull align 1 dereferenceable(12) @.str.34)
+  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE7find_asIA12_cNS9_IvEEEENS_15rbtree_iteratorIS8_PS8_RS8_EERKT_T0_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %baseIter.i666, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 1 dereferenceable(12) @.str.34)
           to label %invoke.cont423 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont423:                                   ; preds = %invoke.cont419
@@ -1921,7 +1921,7 @@ invoke.cont423:                                   ; preds = %invoke.cont419
           to label %invoke.cont427 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont427:                                   ; preds = %invoke.cont423
-  %call.i680 = invoke noundef zeroext i1 @_ZNK5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE8validateEv(ptr noundef nonnull align 8 dereferenceable(41) %testStringMap)
+  %call.i680 = invoke noundef zeroext i1 @_ZNK5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testStringMap)
           to label %call.i.noexc unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %invoke.cont427
@@ -1937,7 +1937,7 @@ while.body.i:                                     ; preds = %if.end.i, %if.end9.
   %nodeCount.017.i = phi i64 [ %inc.i, %if.end9.i ], [ 0, %if.end.i ]
   %mValue.i676 = getelementptr inbounds i8, ptr %node.018.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE4findERS6_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(41) %testStringMap, ptr noundef nonnull align 8 dereferenceable(24) %mValue.i676)
+  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE4findERS6_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 8 dereferenceable(24) %mValue.i676)
           to label %.noexc681 unwind label %lpad387.loopexit.split-lp.loopexit
 
 .noexc681:                                        ; preds = %while.body.i
@@ -1968,7 +1968,7 @@ while.body19.i:                                   ; preds = %if.end14.i, %if.end
   %nodeCount.121.i = phi i64 [ %inc33.i, %if.end31.i ], [ 0, %if.end14.i ]
   %mValue22.i = getelementptr inbounds i8, ptr %node.122.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i9.i)
-  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE4findERS6_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(41) %testStringMap, ptr noundef nonnull align 8 dereferenceable(24) %mValue22.i)
+  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE4findERS6_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 8 dereferenceable(24) %mValue22.i)
           to label %.noexc682 unwind label %lpad387.loopexit
 
 .noexc682:                                        ; preds = %while.body19.i
@@ -2001,7 +2001,7 @@ invoke.cont429:                                   ; preds = %.noexc681, %.noexc6
 
 invoke.cont431:                                   ; preds = %invoke.cont429
   %215 = load ptr, ptr %mpNodeParent.i.i.i643, align 8
-  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %testStringMap, ptr noundef %215)
+  invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef %215)
           to label %_ZN5eastl8list_mapINS_12basic_stringIcNS_9allocatorEEEjNS_4lessIS3_EES2_ED2Ev.exit unwind label %terminate.lpad.i.i684
 
 terminate.lpad.i.i684:                            ; preds = %invoke.cont431
@@ -2427,7 +2427,7 @@ _ZN5eastl9make_pairIRKNS_12basic_stringIcNS_9allocatorEEERKjEENS_4pairINS_24remo
   store i8 0, ptr %ref.tmp, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp2, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %7, ptr %second.i, align 8
   %call = invoke noundef zeroext i1 @_ZN5eastl8list_mapINS_12basic_stringIcNS_9allocatorEEEjNS_4lessIS3_EES2_E9push_backERKNS_4pairIKS3_jEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp)
@@ -2795,7 +2795,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS5_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !144
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(41) %this, i32 noundef %side.0.i), !noalias !144
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i64, ptr %mnSize.i, align 8, !noalias !144
   %inc.i = add i64 %7, 1
@@ -2889,7 +2889,7 @@ _ZN5eastl13list_map_dataINS_4pairIKNS_12basic_stringIcNS_9allocatorEEEjEEEC2ERKS
   %second3.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %7 = load i32, ptr %second3.i.i, align 8
   store i32 %7, ptr %second.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempValue, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tempValue, i8 0, i64 16, i1 false)
   invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE13DoInsertValueIJRS8_EEENS5_INS_15rbtree_iteratorIS8_PS8_SF_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.19") align 8 %baseReturn, ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(48) %tempValue)
           to label %invoke.cont unwind label %lpad
 
@@ -2956,7 +2956,7 @@ entry:
   %canInsert = alloca i8, align 1
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 80, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mValue.i, ptr noundef nonnull align 8 dereferenceable(16) %args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mValue.i, ptr noundef nonnull align 8 dereferenceable(48) %args, i64 16, i1 false)
   %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   %mValue2.i.i = getelementptr inbounds i8, ptr %args, i64 16
   store i8 0, ptr %mValue.i.i, align 1
@@ -3079,7 +3079,7 @@ _ZN5eastl19rb_base_compare_eboINS_4lessINS_12basic_stringIcNS_9allocatorEEEEELb1
 
 _ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS6_PNS_11rbtree_nodeIS8_EE.exit: ; preds = %if.then, %_ZN5eastl19rb_base_compare_eboINS_4lessINS_12basic_stringIcNS_9allocatorEEEEELb1EE7compareIS4_EEbRKT_SA_.exit.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %_ZN5eastl19rb_base_compare_eboINS_4lessINS_12basic_stringIcNS_9allocatorEEEEELb1EE7compareIS4_EEbRKT_SA_.exit.i ]
-  call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %call.i.i.i.i, ptr noundef %call4, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !147
+  call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %call.i.i.i.i, ptr noundef %call4, ptr noundef nonnull align 8 dereferenceable(41) %this, i32 noundef %side.0.i), !noalias !147
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %mnSize.i, align 8, !noalias !147
   %inc.i = add i64 %19, 1
@@ -3312,7 +3312,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i:      ; preds = %_ZN5eastl10CharStrl
   br label %_ZNK5eastl4lessIvEclIRKNS_12basic_stringIcNS_9allocatorEEERA6_KcEEDTltclsr5eastlE7forwardIT_Efp_Eclsr5eastlE7forwardIT0_Efp0_EEOSB_OSC_.exit
 
 _ZN5eastl7CompareEPKcS1_m.exit.i.i.i:             ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i
-  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i, ptr noundef nonnull %u, i64 noundef %cond.i.i9.i.i) #16
+  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(6) %u, i64 noundef %cond.i.i9.i.i) #16
   %call.i.fr.i.i.i = freeze i32 %call.i.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call.i.fr.i.i.i, 0
   %5 = icmp slt i64 %sub.ptr.sub.i8.i.i, %sub.ptr.sub.i.i.i
@@ -3369,7 +3369,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i33:    ; preds = %_ZN5eastl10CharStrl
   br i1 %12, label %if.end16, label %return
 
 _ZNK5eastl4lessIvEclIRA6_KcRKNS_12basic_stringIcNS_9allocatorEEEEEDTltclsr5eastlE7forwardIT_Efp_Eclsr5eastlE7forwardIT0_Efp0_EEOSB_OSC_.exit: ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i13
-  %call.i.i.i.i29 = tail call i32 @memcmp(ptr noundef nonnull %u, ptr noundef %spec.select.i.i.i.i19, i64 noundef %cond.i.i9.i.i26) #16
+  %call.i.i.i.i29 = tail call i32 @memcmp(ptr noundef nonnull align 1 dereferenceable(6) %u, ptr noundef %spec.select.i.i.i.i19, i64 noundef %cond.i.i9.i.i26) #16
   %call.i.fr.i.i.i30 = freeze i32 %call.i.i.i.i29
   %cmp5.not.i.i.i31 = icmp eq i32 %call.i.fr.i.i.i30, 0
   %13 = icmp slt i64 %sub.ptr.sub.i.i.i16, %sub.ptr.sub3.i.i.i
@@ -3438,7 +3438,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i:      ; preds = %_ZN5eastl10CharStrl
   br label %_ZNK5eastl4lessIvEclIRKNS_12basic_stringIcNS_9allocatorEEERA12_KcEEDTltclsr5eastlE7forwardIT_Efp_Eclsr5eastlE7forwardIT0_Efp0_EEOSB_OSC_.exit
 
 _ZN5eastl7CompareEPKcS1_m.exit.i.i.i:             ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i
-  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i, ptr noundef nonnull %u, i64 noundef %cond.i.i9.i.i) #16
+  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(12) %u, i64 noundef %cond.i.i9.i.i) #16
   %call.i.fr.i.i.i = freeze i32 %call.i.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call.i.fr.i.i.i, 0
   %5 = icmp slt i64 %sub.ptr.sub.i8.i.i, %sub.ptr.sub.i.i.i
@@ -3495,7 +3495,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i33:    ; preds = %_ZN5eastl10CharStrl
   br i1 %12, label %if.end16, label %return
 
 _ZNK5eastl4lessIvEclIRA12_KcRKNS_12basic_stringIcNS_9allocatorEEEEEDTltclsr5eastlE7forwardIT_Efp_Eclsr5eastlE7forwardIT0_Efp0_EEOSB_OSC_.exit: ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i13
-  %call.i.i.i.i29 = tail call i32 @memcmp(ptr noundef nonnull %u, ptr noundef %spec.select.i.i.i.i19, i64 noundef %cond.i.i9.i.i26) #16
+  %call.i.i.i.i29 = tail call i32 @memcmp(ptr noundef nonnull align 1 dereferenceable(12) %u, ptr noundef %spec.select.i.i.i.i19, i64 noundef %cond.i.i9.i.i26) #16
   %call.i.fr.i.i.i30 = freeze i32 %call.i.i.i.i29
   %cmp5.not.i.i.i31 = icmp eq i32 %call.i.fr.i.i.i30, 0
   %13 = icmp slt i64 %sub.ptr.sub.i.i.i16, %sub.ptr.sub3.i.i.i

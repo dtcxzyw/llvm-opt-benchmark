@@ -357,7 +357,7 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvEN8_Delete
   br i1 %.not.i, label %_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit, label %38
 
 38:                                               ; preds = %_ZZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvEN8_DeleterD2Ev.exit
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.pr.pre)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %.pr.pre)
           to label %_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit unwind label %39
 
 39:                                               ; preds = %38
@@ -622,7 +622,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPSt10unique_ptrIKcN32pxrInterna
   br i1 %.not.i, label %_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit, label %8
 
 8:                                                ; preds = %5
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %7)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7)
           to label %_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit unwind label %9
 
 9:                                                ; preds = %8

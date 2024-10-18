@@ -200,7 +200,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27.i:             ; preds = %32, %30
   %47 = load ptr, ptr %.sroa.0.07.i.i.i.i.i.i.i, align 8
   %.sroa.0.06.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i.i.i, i64 -8
   %48 = load ptr, ptr %.sroa.0.06.i.i.i.i.i.i.i.i, align 8
-  %49 = call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef %47, ptr noundef %48)
+  %49 = call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %47, ptr noundef %48)
   br i1 %49, label %.lr.ph.i.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i"
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.backedge
@@ -1963,7 +1963,7 @@ _ZL14emitRISCVProcsRN4llvm12RecordKeeperERNS_11raw_ostreamE.exit: ; preds = %722
   %821 = load ptr, ptr %.sroa.0.07.i.i.i.i.i.i.i62, align 8
   %.sroa.0.06.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i.i.i62, i64 -8
   %822 = load ptr, ptr %.sroa.0.06.i.i.i.i.i.i.i.i63, align 8
-  %823 = call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef %821, ptr noundef %822)
+  %823 = call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %821, ptr noundef %822)
   br i1 %823, label %.lr.ph.i.i.i.i.i.i.i.i66, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i"
 
 .lr.ph.i.i.i.i.i.i.i.i66:                         ; preds = %.lr.ph.i.i.i.i.i.i.i61, %.lr.ph.i.i.i.i.i.i.i.i66.backedge
@@ -3454,7 +3454,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %.pn18, align 8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef %9, ptr noundef %16)
+  %17 = tail call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %9, ptr noundef %16)
   br i1 %17, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i.backedge
@@ -4049,7 +4049,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %3, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %10, align 8
   %11 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -4080,7 +4080,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE10_Auto_nodeD2Ev.exit
 
 24:                                               ; preds = %5
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #15
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE10_Auto_nodeD2Ev.exit
 
@@ -4330,7 +4330,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
@@ -5072,7 +5072,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %.pn18, align 8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef %9, ptr noundef %16)
+  %17 = tail call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %9, ptr noundef %16)
   br i1 %17, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i.backedge

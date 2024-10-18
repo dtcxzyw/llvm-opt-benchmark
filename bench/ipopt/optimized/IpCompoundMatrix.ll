@@ -172,7 +172,7 @@ define void @_ZN5Ipopt14CompoundMatrixC2EPKNS_19CompoundMatrixSpaceE(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12TaggedObjectE, i64 48), ptr %6, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(69) %0)
           to label %_ZN5Ipopt12TaggedObjectC2Ev.exit.i unwind label %8
 
 common.resume:                                    ; preds = %104, %8
@@ -1168,7 +1168,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define void @_ZThn16_N5Ipopt14CompoundMatrixD0Ev(ptr noundef %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt14CompoundMatrixD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(129) %2) #21
   ret void
 }
 
@@ -1406,7 +1406,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEEaSEPS2_.exit.i:   ; preds = %37, %29, %22
 
 _ZN5Ipopt8SmartPtrINS_6MatrixEEaSEPS1_.exit.i:    ; preds = %58, %50, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEEaSEPS2_.exit.i
   store ptr %21, ptr %45, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(129) %0)
           to label %_ZN5Ipopt14CompoundMatrix15SetCompNonConstEiiRNS_6MatrixE.exit unwind label %70
 
 _ZN5Ipopt14CompoundMatrix15SetCompNonConstEiiRNS_6MatrixE.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_6MatrixEEaSEPS1_.exit.i
@@ -1512,7 +1512,7 @@ define void @_ZNK5Ipopt14CompoundMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr 
   %39 = getelementptr inbounds i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
   br label %41
 
 41:                                               ; preds = %37, %36
@@ -1540,7 +1540,7 @@ define void @_ZNK5Ipopt14CompoundMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr 
   br i1 %.not45, label %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit, label %.noexc
 
 .noexc:                                           ; preds = %54
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %.035)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %.035)
   %55 = load ptr, ptr %47, align 8, !noalias !15
   %56 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %55, i64 %indvars.iv130
   %57 = load ptr, ptr %56, align 8, !noalias !15
@@ -2152,7 +2152,7 @@ define void @_ZNK5Ipopt14CompoundMatrix19TransMultVectorImplEdRKNS_6VectorEdRS1_
   %39 = getelementptr inbounds i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
   br label %41
 
 41:                                               ; preds = %37, %36
@@ -2180,7 +2180,7 @@ define void @_ZNK5Ipopt14CompoundMatrix19TransMultVectorImplEdRKNS_6VectorEdRS1_
   br i1 %.not45, label %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit, label %.noexc
 
 .noexc:                                           ; preds = %54
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %.035)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %.035)
   %55 = load ptr, ptr %47, align 8, !noalias !38
   %56 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %55, i64 %indvars.iv130
   %57 = load ptr, ptr %56, align 8, !noalias !38
@@ -2499,7 +2499,7 @@ define void @_ZNK5Ipopt14CompoundMatrix13AddMSinvZImplEdRKNS_6VectorES3_RS1_(ptr
   br i1 %.not53, label %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit, label %.noexc
 
 .noexc:                                           ; preds = %46
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %.039)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %.039)
   %47 = load ptr, ptr %36, align 8, !noalias !46
   %48 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %47, i64 %indvars.iv182
   %49 = load ptr, ptr %48, align 8, !noalias !46
@@ -3205,7 +3205,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit175:     ; preds = %_ZNK5Ipopt14Compoun
   br i1 %.not111, label %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit, label %186
 
 186:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit175
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %.072)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %.072)
           to label %.noexc unwind label %.thread358
 
 .thread358:                                       ; preds = %186
@@ -3736,7 +3736,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph.split
   br i1 %.not23, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit36, label %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %.lr.ph.split, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %.020)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %.020)
   %84 = load ptr, ptr %26, align 8, !noalias !79
   %85 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %84, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !noalias !79
@@ -4008,7 +4008,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph.split
   br i1 %.not23, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit36, label %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %.lr.ph.split, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %.020)
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %.020)
   %84 = load ptr, ptr %26, align 8, !noalias !84
   %85 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %84, i64 %indvars.iv64
   %86 = load ptr, ptr %85, align 8, !noalias !84
@@ -4206,7 +4206,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %42, %_ZNK5Ipopt1
           to label %.noexc unwind label %93
 
 .noexc:                                           ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc45 unwind label %93
 
 .noexc45:                                         ; preds = %.noexc
@@ -4218,7 +4218,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %42, %_ZNK5Ipopt1
 63:                                               ; preds = %.noexc45
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc45
@@ -5490,7 +5490,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEEaSEPS2_.exit.i:   ; preds = %77, %69, %63
 
 _ZN5Ipopt8SmartPtrINS_6MatrixEEaSEPS1_.exit.i:    ; preds = %97, %89, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEEaSEPS2_.exit.i
   store ptr %62, ptr %84, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %26)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(129) %26)
           to label %_ZN5Ipopt14CompoundMatrix15SetCompNonConstEiiRNS_6MatrixE.exit unwind label %111
 
 _ZN5Ipopt14CompoundMatrix15SetCompNonConstEiiRNS_6MatrixE.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_6MatrixEEaSEPS1_.exit.i
@@ -5761,7 +5761,7 @@ define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD1Ev(ptr noundef %0) unna
 define linkonce_odr void @_ZThn16_N5Ipopt12TaggedObjectD0Ev(ptr noundef %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt7SubjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   ret void
 }
 

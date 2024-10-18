@@ -1246,7 +1246,7 @@ if.then27.i:                                      ; preds = %while.body.i6.i.i15
   br i1 %cmp.i.i.i33.i, label %if.then.i.i.i40.i, label %if.end.i.i.i.i24
 
 if.then.i.i.i40.i:                                ; preds = %if.then27.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %users.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i13, i64 noundef %sub.ptr.div.i.i.i.i.i.i, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %users.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i13, i64 noundef %sub.ptr.div.i.i.i.i.i.i, i64 noundef 8) #9
   %.pre13.pre.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i14, align 8
   %.pre15.pre.i.i = load ptr, ptr %users.i.i, align 8
   br label %if.end.i.i.i.i24

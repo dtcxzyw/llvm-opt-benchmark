@@ -179,7 +179,7 @@ _ZN8QuantLib20FdmIndicesOnBoundaryD2Ev.exit:      ; preds = %invoke.cont8, %if.t
   %valueOnBoundary_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %valueOnBoundary, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %valueOnBoundary_, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !17
   store ptr %8, ptr %_M_invoker.i, align 8, !tbaa !17
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %valueOnBoundary, i64 16
@@ -189,7 +189,7 @@ _ZN8QuantLib20FdmIndicesOnBoundaryD2Ev.exit:      ; preds = %invoke.cont8, %if.t
 
 if.then.i:                                        ; preds = %_ZN8QuantLib20FdmIndicesOnBoundaryD2Ev.exit
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary, i64 16, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary, i64 16, i1 false), !tbaa.struct !21
   %10 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !20
   store ptr %10, ptr %_M_manager.i.i, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -256,7 +256,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %cond.true.i
   br i1 %tobool.not.i18, label %_ZNSt14_Function_baseD2Ev.exit22, label %if.then.i19
 
 if.then.i19:                                      ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i20 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, i32 noundef 3)
+  %call.i20 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, i32 noundef 3)
           to label %if.then.i19._ZNSt14_Function_baseD2Ev.exit22_crit_edge unwind label %terminate.lpad.i21
 
 if.then.i19._ZNSt14_Function_baseD2Ev.exit22_crit_edge: ; preds = %if.then.i19
@@ -408,7 +408,7 @@ _ZN8QuantLib20FdmIndicesOnBoundaryD2Ev.exit:      ; preds = %invoke.cont8, %if.t
 
 if.then.i:                                        ; preds = %_ZN8QuantLib20FdmIndicesOnBoundaryD2Ev.exit
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary, i64 16, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary, i64 16, i1 false), !tbaa.struct !21
   %10 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !20
   store ptr %10, ptr %_M_manager.i.i, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -473,7 +473,7 @@ lpad11:                                           ; preds = %cond.true.i
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %lpad11
-  %call.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i16
@@ -490,7 +490,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %lpad11, %if.then.i1
   br i1 %tobool.not.i18, label %_ZNSt14_Function_baseD2Ev.exit22, label %if.then.i19
 
 if.then.i19:                                      ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i20 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, i32 noundef 3)
+  %call.i20 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit22 unwind label %terminate.lpad.i21
 
 terminate.lpad.i21:                               ; preds = %if.then.i19
@@ -546,7 +546,7 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %entry
   store double %t, ptr %__args.addr.i, align 8, !tbaa !34
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !17
-  %call2.i = call noundef double %3(ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %3(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %cmp.not3.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not3.i.i.i, label %if.end39, label %for.body.i.i.i
@@ -571,7 +571,7 @@ _ZNKSt8functionIFN8QuantLib5ArrayEdEEclEd.exit:   ; preds = %if.else
   store double %t, ptr %__args.addr.i10, align 8, !tbaa !34, !noalias !38
   %_M_invoker.i13 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %5 = load ptr, ptr %_M_invoker.i13, align 8, !tbaa !32, !noalias !38
-  call void %5(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i10)
+  call void %5(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i10)
   %values_11 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %6 = load ptr, ptr %values_11, align 8, !tbaa !16
@@ -1140,7 +1140,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
 
 if.then.i:                                        ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
   %valuesOnBoundary_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %call.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -1158,7 +1158,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN8QuantLib5ArrayD
 
 if.then.i3:                                       ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %valueOnBoundary_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %call.i4 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_, i32 noundef 3)
+  %call.i4 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6 unwind label %terminate.lpad.i5
 
 terminate.lpad.i5:                                ; preds = %if.then.i3
@@ -1209,7 +1209,7 @@ _ZN8QuantLib5ArrayD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
 
 if.then.i.i:                                      ; preds = %_ZN8QuantLib5ArrayD2Ev.exit.i
   %valuesOnBoundary_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_.i, ptr noundef nonnull align 8 dereferenceable(16) %valuesOnBoundary_.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_.i, ptr noundef nonnull align 8 dereferenceable(32) %valuesOnBoundary_.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1227,7 +1227,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %if.then.i.i, %_ZN8Q
 
 if.then.i3.i:                                     ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
   %valueOnBoundary_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %call.i4.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_.i, ptr noundef nonnull align 8 dereferenceable(16) %valueOnBoundary_.i, i32 noundef 3)
+  %call.i4.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_.i, ptr noundef nonnull align 8 dereferenceable(32) %valueOnBoundary_.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i unwind label %terminate.lpad.i5.i
 
 terminate.lpad.i5.i:                              ; preds = %if.then.i3.i

@@ -128,8 +128,8 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp1.not.i, label %if.end19.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %cond.i.i = tail call range(i32 1, 0) i32 @llvm.umin.i32(i32 %msglen, i32 %0)
-  call fastcc void @wc_Chacha_wordtobyte(ptr noundef %tmp.i, ptr noundef %ctx)
+  %cond.i.i = tail call range(i32 1, 0) i32 @llvm.umin.i32(i32 range(i32 1, 0) %msglen, i32 range(i32 1, 0) %0)
+  call fastcc void @wc_Chacha_wordtobyte(ptr noundef %tmp.i, ptr noundef nonnull %ctx)
   %add.ptr.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
   %idx.ext.i = zext i32 %0 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
@@ -266,7 +266,7 @@ while.body.i:                                     ; preds = %xorbufout.exit91.i,
   %m.addr.1157.i = phi ptr [ %m.addr.0.i, %while.body.lr.ph.i ], [ %add.ptr33.i, %xorbufout.exit91.i ]
   %bytes.addr.1156.i = phi i32 [ %bytes.addr.0.i, %while.body.lr.ph.i ], [ %sub31.i, %xorbufout.exit91.i ]
   %c.addr.1153.i = phi ptr [ %c.addr.0.i, %while.body.lr.ph.i ], [ %add.ptr32.i, %xorbufout.exit91.i ]
-  call fastcc void @wc_Chacha_wordtobyte(ptr noundef %tmp.i, ptr noundef %ctx)
+  call fastcc void @wc_Chacha_wordtobyte(ptr noundef %tmp.i, ptr noundef nonnull %ctx)
   %17 = load i32, ptr %arrayidx25.i, align 4
   %add26.i = add i32 %17, 1
   store i32 %add26.i, ptr %arrayidx25.i, align 4
@@ -370,7 +370,7 @@ while.end.i:                                      ; preds = %xorbufout.exit91.i,
   br i1 %tobool.not.i, label %wc_Chacha_encrypt_bytes.exit, label %if.then34.i
 
 if.then34.i:                                      ; preds = %while.end.i
-  call fastcc void @wc_Chacha_wordtobyte(ptr noundef %tmp.i, ptr noundef %ctx)
+  call fastcc void @wc_Chacha_wordtobyte(ptr noundef %tmp.i, ptr noundef nonnull %ctx)
   %28 = ptrtoint ptr %c.addr.1.lcssa.i to i64
   %29 = ptrtoint ptr %m.addr.1.lcssa.i to i64
   %30 = or i64 %29, %28

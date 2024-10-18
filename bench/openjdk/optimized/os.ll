@@ -1163,7 +1163,7 @@ define internal void @_ZL19signal_thread_entryP10JavaThreadS0_(ptr noundef %0, p
   store i8 1, ptr %48, align 8
   store i32 1, ptr %49, align 4
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %5) #28
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #28
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   br label %72
 
 72:                                               ; preds = %70, %62
@@ -2313,7 +2313,7 @@ define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr nound
   %62 = icmp sgt i8 %59, -1
   %or.cond.i.i = and i1 %62, %.not.i.i
   %63 = select i1 %or.cond.i.i, i8 %59, i8 46
-  call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 noundef signext %63) #28
+  call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(129) %9, i8 noundef signext %63) #28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZL16print_ascii_formR12stringStreammi.exit.i, label %.lr.ph.i.i, !llvm.loop !18

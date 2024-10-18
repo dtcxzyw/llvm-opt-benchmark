@@ -939,7 +939,7 @@ _ZN2cvmIERNS_3MatERKNS_7MatExprE.exit:            ; preds = %194
   br i1 %exitcond.not.i.i, label %378, label %375, !llvm.loop !19
 
 378:                                              ; preds = %375
-  %379 = invoke noundef zeroext i1 @_ZN2cv8CholeskyEPdmiS0_mi(ptr noundef nonnull %7, i64 noundef 32, i32 noundef 4, ptr noundef nonnull %8, i64 noundef 32, i32 noundef 4)
+  %379 = invoke noundef zeroext i1 @_ZN2cv8CholeskyEPdmiS0_mi(ptr noundef nonnull %7, i64 noundef 32, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef 32, i32 noundef 4)
           to label %.noexc155 unwind label %438
 
 .noexc155:                                        ; preds = %378

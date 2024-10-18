@@ -1245,7 +1245,7 @@ invoke.cont:                                      ; preds = %_ZN6icu_7517StringT
 lpad:                                             ; preds = %_ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   resume { ptr, i32 } %2
 }
 
@@ -1879,14 +1879,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517UCharsTrieBuilder18UCTLinearMatchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517UCharsTrieBuilder18UCTLinearMatchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #12
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #12
   ret void
 }

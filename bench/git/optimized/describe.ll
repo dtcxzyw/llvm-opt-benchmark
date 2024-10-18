@@ -1819,7 +1819,7 @@ if.else203:                                       ; preds = %if.then190.thread, 
 
 if.then.i:                                        ; preds = %while.end188
   %conv207 = zext i32 %match_cnt.1 to i64
-  call void @qsort(ptr noundef nonnull %all_matches, i64 noundef %conv207, i64 noundef 24, ptr noundef nonnull @compare_pt) #15
+  call void @qsort(ptr noundef nonnull %all_matches, i64 noundef range(i64 1, 4294967296) %conv207, i64 noundef 24, ptr noundef nonnull @compare_pt) #15
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %while.end188, %if.then.i

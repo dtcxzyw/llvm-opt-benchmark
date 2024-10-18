@@ -294,7 +294,7 @@ if.then.i.i:                                      ; preds = %for.body.i58
 _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %for.body.i58
   %arrayidx.i59 = getelementptr inbounds %"class.sat::cut", ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i59)
+  call void %30(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i59)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = load i32, ptr %m_size, align 8
@@ -338,7 +338,7 @@ new.ctorloop:                                     ; preds = %if.then
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %call.i, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %m_table.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %arrayctor.cur, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayctor.cur, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_table.i, i8 0, i64 16, i1 false)
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 48
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
@@ -375,7 +375,7 @@ new.ctorloop11:                                   ; preds = %if.then4
 arrayctor.loop13:                                 ; preds = %arrayctor.loop13, %new.ctorloop11
   %arrayctor.cur14 = phi ptr [ %call.i4, %new.ctorloop11 ], [ %arrayctor.next17, %arrayctor.loop13 ]
   %m_table.i5 = getelementptr inbounds i8, ptr %arrayctor.cur14, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %arrayctor.cur14, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayctor.cur14, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_table.i5, i8 0, i64 16, i1 false)
   %arrayctor.next17 = getelementptr inbounds i8, ptr %arrayctor.cur14, i64 48
   %arrayctor.done18 = icmp eq ptr %arrayctor.next17, %arrayctor.end12
@@ -417,7 +417,7 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %if.end25
   store i32 %12, ptr %__args.addr.i, align 4
   %_M_invoker.i = getelementptr inbounds i8, ptr %on_add, i64 24
   %14 = load ptr, ptr %_M_invoker.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %on_add, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %c)
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %on_add, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %c)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   %.pre = load ptr, ptr %m_cuts, align 8
   br label %if.end30
@@ -476,7 +476,7 @@ if.then.i:                                        ; preds = %for.body
 _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %for.body
   %arrayidx = getelementptr inbounds %"class.sat::cut", ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %_M_invoker.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %m_size, align 8
@@ -1056,7 +1056,7 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %if.then
   store i32 %10, ptr %__args.addr.i.i, align 4
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %on_del, i64 24
   %12 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i)
   %.pre = load ptr, ptr %m_cuts, align 8
   %.pre26 = load i32, ptr %m_size, align 8
@@ -1165,7 +1165,7 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %entry
   store i32 %0, ptr %__args.addr.i, align 4
   %_M_invoker.i = getelementptr inbounds i8, ptr %on_del, i64 24
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(16) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
+  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   br label %if.end
 

@@ -331,7 +331,7 @@ if.then6:                                         ; preds = %if.end4, %lor.lhs.f
 
 if.then.i:                                        ; preds = %required_blocks.exit
   %and.i = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i)
   %and2.i = and i64 %ad_len_, 15
   %cmp3.not.i = icmp eq i64 %and2.i, 0
   br i1 %cmp3.not.i, label %if.end8.i, label %if.then4.i
@@ -344,7 +344,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %1 = getelementptr i8, ptr %pad.i, i64 %and2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr6.i, i64 %and2.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %pad.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i, i64 noundef 16)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
@@ -1417,7 +1417,7 @@ if.else.i:                                        ; preds = %encrypt.exit.i
 
 aes_gcm_encrypt_generic.exit:                     ; preds = %for.end286.i, %if.else.i
   %.sink.i = phi i64 [ 16, %if.else.i ], [ 32, %for.end286.i ]
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef %.sink.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef %.sink.i)
   %244 = load <2 x i64>, ptr %mac, align 1
   %245 = load <16 x i8>, ptr %sth, align 16
   %246 = shufflevector <16 x i8> %245, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1450,8 +1450,8 @@ entry:
   tail call void @llvm.prefetch.p0(ptr nonnull %c, i32 0, i32 2, i32 1)
   tail call void @llvm.prefetch.p0(ptr readonly %m, i32 0, i32 2, i32 1)
   tail call void @llvm.prefetch.p0(ptr %ad, i32 0, i32 2, i32 1)
-  %call.i = call i32 @crypto_aead_aes256gcm_beforenm(ptr noundef %st.i, ptr noundef readonly %k)
-  %call1.i = call i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef %c, ptr noundef %add.ptr, ptr noundef null, ptr noundef readonly %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr readnone poison, ptr noundef readonly %npub, ptr noundef %st.i)
+  %call.i = call i32 @crypto_aead_aes256gcm_beforenm(ptr noundef %st.i, ptr noundef nonnull readonly %k)
+  %call1.i = call i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef nonnull %c, ptr noundef nonnull %add.ptr, ptr noundef null, ptr noundef readonly %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr readnone poison, ptr noundef nonnull readonly %npub, ptr noundef %st.i)
   call void @sodium_memzero(ptr noundef nonnull %st.i, i64 noundef 512) #12
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %st.i)
   %cmp.not = icmp eq ptr %clen_p, null
@@ -1551,7 +1551,7 @@ required_blocks.exit.i:                           ; preds = %lor.lhs.false6.i.i
   %j.sroa.0.0.copyload.i = load <12 x i8>, ptr %npub, align 1
   %j.sroa.0.0.vec.expand.i = shufflevector <12 x i8> %j.sroa.0.0.copyload.i, <12 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
   %and.i = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef readonly %ad, i64 noundef %and.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef %sth.i, ptr noundef readonly %ad, i64 noundef %and.i)
   %and6.i = and i64 %ad_len_, 15
   %cmp7.not.i = icmp eq i64 %and6.i, 0
   br i1 %cmp7.not.i, label %if.end14.i, label %if.then8.i
@@ -1564,12 +1564,12 @@ if.then8.i:                                       ; preds = %required_blocks.exi
   %1 = getelementptr i8, ptr %pad.i, i64 %and6.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr12.i, i64 %and6.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %pad.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %pad.i, i64 noundef 16)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then8.i, %required_blocks.exit.i
   %and15.i = and i64 %c_len_, 68719476720
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull readonly %c, i64 noundef %and15.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef %sth.i, ptr noundef nonnull readonly %c, i64 noundef %and15.i)
   %and16.i = and i64 %c_len_, 15
   %cmp17.not.i = icmp eq i64 %and16.i, 0
   br i1 %cmp17.not.i, label %if.end26.i, label %if.then18.i
@@ -1582,7 +1582,7 @@ if.then18.i:                                      ; preds = %if.end14.i
   %3 = getelementptr i8, ptr %pad19.i, i64 %and16.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad19.i, ptr readonly align 1 %add.ptr24.i, i64 %and16.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %pad19.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %pad19.i, i64 noundef 16)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then18.i, %if.end14.i
@@ -1613,7 +1613,7 @@ encrypt.exit.i:                                   ; preds = %for.body.i.i
   %10 = load <2 x i64>, ptr %arrayidx6.i.i, align 16
   %11 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %7, <2 x i64> %10)
   store <16 x i8> %9, ptr %last_block.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %last_block.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %last_block.i, i64 noundef 16)
   %12 = load <16 x i8>, ptr %sth.i, align 16
   %13 = shufflevector <16 x i8> %12, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %14 = bitcast <16 x i8> %13 to <2 x i64>
@@ -1665,7 +1665,7 @@ required_blocks.exit:                             ; preds = %lor.lhs.false6.i
 
 if.then.i:                                        ; preds = %required_blocks.exit
   %and.i34 = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i34)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i34)
   %and2.i = and i64 %ad_len_, 15
   %cmp3.not.i = icmp eq i64 %and2.i, 0
   br i1 %cmp3.not.i, label %if.end8.i, label %if.then4.i
@@ -1678,7 +1678,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %16 = getelementptr i8, ptr %pad.i16, i64 %and2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, i8 0, i64 %15, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i16, ptr readonly align 1 %add.ptr6.i, i64 %and2.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %pad.i16, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i16, i64 noundef 16)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
@@ -2442,7 +2442,7 @@ for.body192.preheader.i:                          ; preds = %for.cond190.prehead
 for.end196.i:                                     ; preds = %for.body192.preheader.i, %for.cond190.preheader.i
   %add.ptr198.i = getelementptr inbounds i8, ptr %last_blocks.i, i64 16
   store <16 x i8> %180, ptr %add.ptr198.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 32)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 32)
   %185 = bitcast <2 x i64> %counter.4.lcssa.i to <16 x i8>
   %186 = shufflevector <16 x i8> %185, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %187 = bitcast <16 x i8> %186 to <2 x i64>
@@ -2470,7 +2470,7 @@ for.body206.lr.ph.i:                              ; preds = %for.body.i391.i
 
 if.else.i:                                        ; preds = %encrypt.exit.i30
   store <16 x i8> %180, ptr %last_blocks.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
   br label %aes_gcm_decrypt_generic.exit
 
 aes_gcm_decrypt_generic.exit:                     ; preds = %for.body206.lr.ph.i, %if.else.i
@@ -2554,7 +2554,7 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add i64 %clen, -16
   %add.ptr.i = getelementptr i8, ptr %c, i64 %clen
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 -16
-  %call.i = call i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef %m, ptr readnone poison, ptr noundef %c, i64 noundef %sub.i, ptr noundef %add.ptr1.i, ptr noundef %ad, i64 noundef %adlen, ptr noundef readonly %npub, ptr noundef readonly %st)
+  %call.i = call i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef %m, ptr readnone poison, ptr noundef nonnull %c, i64 noundef %sub.i, ptr noundef %add.ptr1.i, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly %npub, ptr noundef nonnull readonly %st)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry

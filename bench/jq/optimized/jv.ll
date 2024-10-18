@@ -915,10 +915,10 @@ define { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 %3, ptr %4
 ._crit_edge65.i:                                  ; preds = %._crit_edge65.loopexit.i, %.._crit_edge65_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre74.i, %.._crit_edge65_crit_edge.i ], [ %27, %._crit_edge65.loopexit.i ]
   %30 = phi i32 [ %24, %.._crit_edge65_crit_edge.i ], [ %.pre.i, %._crit_edge65.loopexit.i ]
-  %..i.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.pre-phi.i, i32 %30)
+  %..i.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 range(i32 1, -2147483648) %.pre-phi.i, i32 %30)
   store i32 %..i.i, ptr %23, align 4
   %31 = add nuw nsw i32 %.0104, 1
-  %..i51.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %31, i32 %.sroa.10.0.extract.trunc)
+  %..i51.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 range(i32 1, -2147483648) %31, i32 %.sroa.10.0.extract.trunc)
   %32 = and i64 %0, 4294901760
   %33 = and i64 %0, 65280
   %34 = and i64 %0, 255
@@ -926,7 +926,7 @@ define { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 %3, ptr %4
 
 35:                                               ; preds = %21, %.thread
   %36 = add nuw nsw i32 %.0104, 1
-  %..i52.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 %.sroa.10.0.extract.trunc)
+  %..i52.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 range(i32 1, -2147483648) %36, i32 %.sroa.10.0.extract.trunc)
   %37 = lshr i32 %..i52.i, 1
   %38 = add nuw nsw i32 %37, %..i52.i
   %39 = zext nneg i32 %38 to i64

@@ -124,7 +124,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %cmp16.i, label %if.end6, label %if.else19.i
 
 if.else19.i:                                      ; preds = %land.lhs.true.i, %if.else.i
-  %call.i = tail call fastcc i32 @gz_fetch(ptr noundef %state)
+  %call.i = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %state)
   %cmp20.i = icmp eq i32 %call.i, -1
   br i1 %cmp20.i, label %return, label %if.end24.i
 
@@ -520,7 +520,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %cmp16.i, label %gz_skip.exit, label %if.else19.i
 
 if.else19.i:                                      ; preds = %land.lhs.true.i, %if.else.i
-  %call.i = tail call fastcc i32 @gz_fetch(ptr noundef %file)
+  %call.i = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %file)
   %cmp20.i = icmp eq i32 %call.i, -1
   br i1 %cmp20.i, label %return, label %if.end24.i
 
@@ -832,7 +832,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %cmp16.i, label %if.end16, label %if.else19.i
 
 if.else19.i:                                      ; preds = %land.lhs.true.i, %if.else.i
-  %call.i = tail call fastcc i32 @gz_fetch(ptr noundef %file)
+  %call.i = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %file)
   %cmp20.i = icmp eq i32 %call.i, -1
   br i1 %cmp20.i, label %return, label %if.end24.i
 

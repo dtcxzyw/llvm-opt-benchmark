@@ -441,7 +441,7 @@ define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %Block.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -586,7 +586,7 @@ define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPN
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %Block.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -674,7 +674,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -755,7 +755,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -835,7 +835,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %thrownValue) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -916,7 +916,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createCheckHasInstanceInstEPNS_14AllocStackInstEPNS_5ValueES4_PNS_10BasicBlockES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %result, ptr noundef %left, ptr noundef %right, ptr noundef %onTrue, ptr noundef %onFalse) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1010,7 +1010,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %tryBodyBlock, ptr noundef %catchTargetBlock) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1098,7 +1098,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -1183,7 +1183,7 @@ entry:
   %stringTable_.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr %varName.coerce0, i64 %varName.coerce1)
   %call.i = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %call.i, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %call.i, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1223,7 +1223,7 @@ entry:
   store i8 122, ptr %variableName.i.i, align 8
   %text.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr %call.i.i.i, ptr %text.i.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call.i, ptr noundef nonnull %variableName.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %call.i, ptr noundef nonnull %variableName.i.i) #15
   %Block.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %Block.i.i.i, align 8
   %Parent.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
@@ -1279,7 +1279,7 @@ _ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE.exit: ; preds = %ent
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %varName.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -1319,7 +1319,7 @@ entry:
   store i8 122, ptr %variableName.i, align 8
   %text.i.i = getelementptr inbounds i8, ptr %call, i64 176
   store ptr %varName.coerce, ptr %text.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef nonnull %variableName.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %call, ptr noundef nonnull %variableName.i) #15
   %Block.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %Block.i.i, align 8
   %Parent.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
@@ -1375,7 +1375,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createAsNumberInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1457,7 +1457,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createAsNumericInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1539,7 +1539,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder17createAsInt32InstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1621,7 +1621,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1710,7 +1710,7 @@ entry:
   %call.i.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i.i, ptr %property.coerce0, i64 %property.coerce1)
   %2 = load ptr, ptr %this, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %2, ptr %call.i.i.i.i) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -1789,7 +1789,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -1870,7 +1870,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createCreateInnerScopeInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %parentScope, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i.i, align 2
@@ -1958,7 +1958,7 @@ entry:
   %0 = icmp eq ptr %environment, null
   %add.ptr.i = getelementptr inbounds i8, ptr %environment, i64 16
   %spec.select.i = select i1 %0, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -2041,7 +2041,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createLoadFrameInstEPNS_8VariableEPNS_17ScopeCreationInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %ptr, ptr noundef %scope) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -2129,7 +2129,7 @@ entry:
   %0 = icmp eq ptr %ptr, null
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 16
   %spec.select.i = select i1 %0, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -2210,7 +2210,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %ptr, ptr noundef %scope) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -2296,7 +2296,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %ptr) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -2381,7 +2381,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds i8, ptr %0, i64 448
   %call2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call2, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call2, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -2408,9 +2408,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %call2, i64 136
   store ptr %textifiedCallee, ptr %textifiedCallee2.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %callee) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %thisValue) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %callee) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %thisValue) #15
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %args.coerce0, i64 %args.coerce1
   %cmp.not4.i.i = icmp eq i64 %args.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit, label %for.body.i.i
@@ -2418,7 +2418,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %args.coerce0, %entry ]
   %2 = load ptr, ptr %__begin2.05.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %2) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %2) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit, label %for.body.i.i
@@ -2481,7 +2481,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds i8, ptr %0, i64 448
   %call2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call2, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call2, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -2508,9 +2508,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %call2, i64 136
   store ptr %textifiedCallee, ptr %textifiedCallee2.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %callee) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %thisValue) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %callee) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %thisValue) #15
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %args.coerce0, i64 %args.coerce1
   %cmp.not4.i.i = icmp eq i64 %args.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit, label %for.body.i.i
@@ -2518,7 +2518,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %args.coerce0, %entry ]
   %2 = load ptr, ptr %__begin2.05.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %2) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %2) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit, label %for.body.i.i
@@ -2581,7 +2581,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds i8, ptr %0, i64 448
   %call2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call2, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call2, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -2608,9 +2608,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %call2, i64 136
   store ptr null, ptr %textifiedCallee2.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %constructor) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %newTarget) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %constructor) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %newTarget) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %args.coerce0, i64 %args.coerce1
   %cmp.not4.i.i = icmp eq i64 %args.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit, label %for.body.i.i
@@ -2618,7 +2618,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %args.coerce0, %entry ]
   %2 = load ptr, ptr %__begin2.05.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %2) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %2) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit, label %for.body.i.i
@@ -2680,7 +2680,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes13Cons
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -2764,7 +2764,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
   %globalObject_.i.i = getelementptr inbounds i8, ptr %0, i64 368
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -2855,7 +2855,7 @@ entry:
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -2937,7 +2937,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3020,7 +3020,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
   %globalObject_.i.i = getelementptr inbounds i8, ptr %0, i64 368
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3113,7 +3113,7 @@ entry:
   %cmp = icmp eq i32 %isEnumerable, 1
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(1033) %0, i1 noundef zeroext %cmp) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3198,7 +3198,7 @@ entry:
   %cmp = icmp eq i32 %isEnumerable, 1
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(1033) %0, i1 noundef zeroext %cmp) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3283,7 +3283,7 @@ entry:
   %cmp = icmp eq i32 %isEnumerable, 1
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(1033) %0, i1 noundef zeroext %cmp) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3380,7 +3380,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
   %call.i1 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call.i1, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call.i1, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -3476,7 +3476,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
   %call.i1 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call.i1, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call.i1, i64 16
   %valueType.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 18
   store i16 1023, ptr %valueType.i.i.i.i.i, align 2
@@ -3573,7 +3573,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %globalObject_.i.i = getelementptr inbounds i8, ptr %0, i64 368
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -3681,7 +3681,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %globalObject_.i.i = getelementptr inbounds i8, ptr %0, i64 368
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3769,7 +3769,7 @@ entry:
   %1 = load ptr, ptr %this, align 8
   %emptySentinel_.i.i = getelementptr inbounds i8, ptr %1, i64 624
   %cond = select i1 %tobool.not, ptr %emptySentinel_.i.i, ptr %parent
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3849,7 +3849,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocArrayInstEPNS_13LiteralNumberEN4llvh11SmallVectorIPNS_5ValueELj4EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %sizeHint, ptr nocapture noundef readonly %val_list) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3967,7 +3967,7 @@ if.end13.i.i:                                     ; preds = %entry
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %1 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 8) #15
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 8) #15
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %return.sink.split.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -4007,7 +4007,7 @@ _ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit: ; preds = %_ZN4llvh11Small
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createCreateArgumentsInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -4085,7 +4085,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createGetNewTargetInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -4165,7 +4165,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createThrowIfEmptyInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %checkedValue) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -4246,7 +4246,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createHBCGetGlobalObjectInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -4328,7 +4328,7 @@ entry:
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %pattern.coerce) #15
   %1 = load ptr, ptr %this, align 8
   %call.i2 = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %1, ptr %flags.coerce) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -4408,7 +4408,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createUnaryOperatorInstEPNS_5ValueENS_17UnaryOperatorInst6OpKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value, i32 noundef %opKind) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -4433,7 +4433,7 @@ entry:
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   %SourceLevelScope.i.i.i = getelementptr inbounds i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %value) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %value) #15
   %op_.i = getelementptr inbounds i8, ptr %call, i64 132
   store i32 %opKind, ptr %op_.i, align 4
   %Block.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -4491,7 +4491,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %left, ptr noundef %right, i32 noundef %opKind) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -4518,8 +4518,8 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i, i8 0, i64 20, i1 false)
   %op_.i = getelementptr inbounds i8, ptr %call, i64 132
   store i32 %opKind, ptr %op_.i, align 4
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %left) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %right) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %left) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %right) #15
   %Block.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %Block.i.i, align 8
   %Parent.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
@@ -4907,7 +4907,7 @@ declare void @_ZN6hermes16GetNextPNameInstC1EPNS_10BasicBlockEPNS_5ValueES4_S4_S
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createMovInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -4991,7 +4991,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createImplicitMovInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -5075,7 +5075,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createCoerceThisNSInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -5159,7 +5159,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createDebuggerInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -5237,7 +5237,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createSaveAndYieldInstEPNS_5ValueEPNS_10BasicBlockE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %result, ptr noundef %nextBlock) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -5325,7 +5325,7 @@ entry:
   %0 = icmp eq ptr %environment, null
   %add.ptr.i = getelementptr inbounds i8, ptr %environment, i64 16
   %spec.select.i = select i1 %0, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -5409,7 +5409,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createStartGeneratorInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -5489,7 +5489,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createResumeGeneratorInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %isReturn) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -5570,7 +5570,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCResolveEnvironmentEPNS_9ScopeDescES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %originScopeDesc, ptr noundef %targetScopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -5652,7 +5652,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createHBCStoreToEnvironmentInstEPNS_5ValueES2_PNS_8VariableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %env, ptr noundef %toPut, ptr noundef %var) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -5735,7 +5735,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createHBCLoadFromEnvironmentInstEPNS_5ValueEPNS_8VariableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %env, ptr noundef %var) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -5877,7 +5877,7 @@ declare void @_ZN6hermes13SwitchImmInstC1EPNS_5ValueEPNS_10BasicBlockEPNS_13Lite
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createDirectEvalInstEPNS_5ValueEPNS_11LiteralBoolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %operand, ptr noundef %isStrict) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -5957,7 +5957,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCLoadConstInstEPNS_7LiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -6041,7 +6041,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCLoadParamInstEPNS_13LiteralNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -6122,7 +6122,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder30createHBCCreateEnvironmentInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -6203,7 +6203,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder35createHBCCreateInnerEnvironmentInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %parentScope, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i.i, align 2
@@ -6288,7 +6288,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCGetThisNSInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -6368,7 +6368,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder34createHBCGetArgumentsPropByValInstEPNS_5ValueEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %index, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -6456,7 +6456,7 @@ entry:
   %0 = icmp eq ptr %lazyReg, null
   %add.ptr.i = getelementptr inbounds i8, ptr %lazyReg, i64 16
   %spec.select.i = select i1 %0, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -6540,7 +6540,7 @@ entry:
   %0 = icmp eq ptr %lazyReg, null
   %add.ptr.i = getelementptr inbounds i8, ptr %lazyReg, i64 16
   %spec.select.i = select i1 %0, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -6622,7 +6622,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createHBCCreateThisInstEPNS_5ValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %prototype, ptr noundef %closure) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -6704,7 +6704,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCConstructInstEPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %closure, ptr noundef %newTarget, ptr noundef %thisValue, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -6731,9 +6731,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %call, i64 136
   store ptr null, ptr %textifiedCallee2.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %closure) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %newTarget) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %thisValue) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %closure) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %newTarget) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %thisValue) #15
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %arguments.coerce0, i64 %arguments.coerce1
   %cmp.not4.i.i = icmp eq i64 %arguments.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit, label %for.body.i.i
@@ -6741,7 +6741,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %arguments.coerce0, %entry ]
   %1 = load ptr, ptr %__begin2.05.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %1) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %1) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit, label %for.body.i.i
@@ -6802,7 +6802,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes16HBCC
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder33createHBCGetConstructedObjectInstEPNS_17HBCCreateThisInstEPNS_16HBCConstructInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %thisValue, ptr noundef %constructorReturnValue) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -6890,7 +6890,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createHBCProfilePointInstEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i16 noundef zeroext %pointIndex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(134) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -6976,7 +6976,7 @@ entry:
   %call2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
   %conv = uitofp i8 %builtinIndex to double
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef %conv) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call2, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call2, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -7003,9 +7003,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %call2, i64 136
   store ptr null, ptr %textifiedCallee2.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %call.i) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %call.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %arguments.coerce0, i64 %arguments.coerce1
   %cmp.not4.i.i = icmp eq i64 %arguments.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit, label %for.body.i.i
@@ -7013,7 +7013,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %arguments.coerce0, %entry ]
   %2 = load ptr, ptr %__begin2.05.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %2) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %2) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit, label %for.body.i.i
@@ -7077,7 +7077,7 @@ entry:
   %conv = uitofp i8 %builtinIndex to double
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef %conv) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -7164,7 +7164,7 @@ entry:
   %1 = icmp eq ptr %callee, null
   %add.ptr.i = getelementptr inbounds i8, ptr %callee, i64 16
   %spec.select.i = select i1 %1, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call2, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %call2, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -7191,9 +7191,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %call2, i64 136
   store ptr %textifiedCallee, ptr %textifiedCallee2.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %spec.select.i) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %thisValue) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %spec.select.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %thisValue) #15
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %arguments.coerce0, i64 %arguments.coerce1
   %cmp.not4.i.i = icmp eq i64 %arguments.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit, label %for.body.i.i
@@ -7201,7 +7201,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %arguments.coerce0, %entry ]
   %3 = load ptr, ptr %__begin2.05.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call2, ptr noundef %3) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %3) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit, label %for.body.i.i
@@ -7262,7 +7262,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes17HBCC
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCCreateFunctionInstEPNS_8FunctionEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %function, ptr noundef %env) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -7348,7 +7348,7 @@ entry:
   %0 = icmp eq ptr %value, null
   %add.ptr.i = getelementptr inbounds i8, ptr %value, i64 16
   %spec.select.i = select i1 %0, ptr null, ptr %add.ptr.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -7429,7 +7429,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createHBCCreateGeneratorInstEPNS_8FunctionEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %function, ptr noundef %env) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -7516,7 +7516,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %conv = uitofp i32 %size to double
   %call2 = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef %conv) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   %Users.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -7617,7 +7617,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes28HBCA
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createCompareBranchInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindEPNS_10BasicBlockES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %left, ptr noundef %right, i32 noundef %opKind, ptr noundef %trueBlock, ptr noundef %falseBlock) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i.i, align 2
@@ -7644,16 +7644,16 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i.i, i8 0, i64 20, i1 false)
   %op_.i = getelementptr inbounds i8, ptr %call, i64 132
   store i32 %opKind, ptr %op_.i, align 4
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %left) #15
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %right) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %left) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %right) #15
   %1 = icmp eq ptr %trueBlock, null
   %add.ptr.i = getelementptr inbounds i8, ptr %trueBlock, i64 16
   %spec.select.i = select i1 %1, ptr null, ptr %add.ptr.i
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %spec.select.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %spec.select.i) #15
   %2 = icmp eq ptr %falseBlock, null
   %add.ptr3.i = getelementptr inbounds i8, ptr %falseBlock, i64 16
   %cast.result5.i = select i1 %2, ptr null, ptr %add.ptr3.i
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %cast.result5.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(136) %call, ptr noundef %cast.result5.i) #15
   %Block.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %Block.i.i, align 8
   %Parent.i.i.i2 = getelementptr inbounds i8, ptr %3, i64 72
@@ -7709,7 +7709,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createIteratorBeginInstEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %sourceOrNext) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -7793,7 +7793,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createIteratorNextInstEPNS_14AllocStackInstES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %iterator, ptr noundef %sourceOrNext) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -7883,7 +7883,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(1033) %0, i1 noundef zeroext %ignoreInnerException) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -7968,7 +7968,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createUnreachableInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -8380,7 +8380,7 @@ sw.bb64:                                          ; preds = %entry
 
 sw.bb68:                                          ; preds = %entry
   %call69 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call69, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(136) %call69, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %op_.i = getelementptr inbounds i8, ptr %call69, i64 132
   %op_2.i = getelementptr inbounds i8, ptr %source, i64 132
   %1 = load i32, ptr %op_2.i, align 4
@@ -8419,7 +8419,7 @@ sw.bb92:                                          ; preds = %entry
 
 sw.bb96:                                          ; preds = %entry
   %call97 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call97, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(136) %call97, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %op_.i174 = getelementptr inbounds i8, ptr %call97, i64 132
   %op_2.i175 = getelementptr inbounds i8, ptr %source, i64 132
   %2 = load i32, ptr %op_2.i175, align 4
@@ -8638,7 +8638,7 @@ sw.bb264:                                         ; preds = %entry
 
 sw.bb268:                                         ; preds = %entry
   %call269 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call269, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(136) %call269, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %op_.i176 = getelementptr inbounds i8, ptr %call269, i64 132
   %op_2.i177 = getelementptr inbounds i8, ptr %source, i64 132
   %3 = load i32, ptr %op_2.i177, align 4
@@ -8657,7 +8657,7 @@ sw.bb276:                                         ; preds = %entry
 
 sw.bb280:                                         ; preds = %entry
   %call281 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call281, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %call281, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %textifiedCallee.i = getelementptr inbounds i8, ptr %call281, i64 136
   %textifiedCallee2.i = getelementptr inbounds i8, ptr %source, i64 136
   %4 = load ptr, ptr %textifiedCallee2.i, align 8
@@ -8666,7 +8666,7 @@ sw.bb280:                                         ; preds = %entry
 
 sw.bb284:                                         ; preds = %entry
   %call285 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call285, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %call285, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %textifiedCallee.i.i = getelementptr inbounds i8, ptr %call285, i64 136
   %textifiedCallee2.i.i = getelementptr inbounds i8, ptr %source, i64 136
   %5 = load ptr, ptr %textifiedCallee2.i.i, align 8
@@ -8675,7 +8675,7 @@ sw.bb284:                                         ; preds = %entry
 
 sw.bb288:                                         ; preds = %entry
   %call289 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call289, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %call289, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %textifiedCallee.i.i178 = getelementptr inbounds i8, ptr %call289, i64 136
   %textifiedCallee2.i.i179 = getelementptr inbounds i8, ptr %source, i64 136
   %6 = load ptr, ptr %textifiedCallee2.i.i179, align 8
@@ -8684,7 +8684,7 @@ sw.bb288:                                         ; preds = %entry
 
 sw.bb292:                                         ; preds = %entry
   %call293 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call293, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %call293, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %textifiedCallee.i.i180 = getelementptr inbounds i8, ptr %call293, i64 136
   %textifiedCallee2.i.i181 = getelementptr inbounds i8, ptr %source, i64 136
   %7 = load ptr, ptr %textifiedCallee2.i.i181, align 8
@@ -8693,7 +8693,7 @@ sw.bb292:                                         ; preds = %entry
 
 sw.bb296:                                         ; preds = %entry
   %call297 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call297, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %call297, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %textifiedCallee.i.i182 = getelementptr inbounds i8, ptr %call297, i64 136
   %textifiedCallee2.i.i183 = getelementptr inbounds i8, ptr %source, i64 136
   %8 = load ptr, ptr %textifiedCallee2.i.i183, align 8
@@ -8702,7 +8702,7 @@ sw.bb296:                                         ; preds = %entry
 
 sw.bb300:                                         ; preds = %entry
   %call301 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call301, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %call301, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %textifiedCallee.i.i184 = getelementptr inbounds i8, ptr %call301, i64 136
   %textifiedCallee2.i.i185 = getelementptr inbounds i8, ptr %source, i64 136
   %9 = load ptr, ptr %textifiedCallee2.i.i185, align 8
@@ -8756,7 +8756,7 @@ sw.bb336:                                         ; preds = %entry
 
 sw.bb340:                                         ; preds = %entry
   %call341 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
-  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %call341, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
+  tail call void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(134) %call341, ptr noundef nonnull %source, ptr %operands.coerce0, i64 %operands.coerce1) #15
   %pointIndex_.i = getelementptr inbounds i8, ptr %call341, i64 132
   %pointIndex_2.i = getelementptr inbounds i8, ptr %source, i64 132
   %10 = load i16, ptr %pointIndex_2.i, align 4
@@ -8794,7 +8794,7 @@ entry:
   %0 = load ptr, ptr %operands.coerce0, align 8
   %text.i = getelementptr inbounds i8, ptr %0, i64 40
   %retval.sroa.0.0.copyload.i = load ptr, ptr %text.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %this, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -8834,7 +8834,7 @@ entry:
   store i8 122, ptr %variableName.i, align 8
   %text.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %retval.sroa.0.0.copyload.i, ptr %text.i.i, align 8
-  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull %variableName.i) #15
+  tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %variableName.i) #15
   ret void
 }
 
@@ -8961,18 +8961,18 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
   store ptr %retval.0.i.i.i, ptr %retval.0.i.i, align 8
   %str.sroa.2.0.str_.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 %agg.tmp8.sroa.2.0.copyload, ptr %str.sroa.2.0.str_.sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   store ptr %retval.0.i.i, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !7
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !7
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !7
   %26 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !7
   br i1 %call.i.i.i, label %return, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefERT_S3_.exit
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef %26), !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i64 16, i1 false), !noalias !7
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef %26), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, i64 16, i1 false), !noalias !7
   %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %27 = load ptr, ptr %second.i, align 8, !noalias !7
   store ptr %27, ptr %second.i.i3.i.i, align 8, !noalias !7

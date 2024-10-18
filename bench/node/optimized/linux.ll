@@ -3882,7 +3882,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %uv__read_proc_meminfo.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull readonly dereferenceable(1) @.str.18) #19
+  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull dereferenceable(1) @.str.18) #19
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
@@ -3937,7 +3937,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %uv__read_proc_meminfo.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull readonly dereferenceable(1) @.str.19) #19
+  %call2.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull dereferenceable(1) @.str.19) #19
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
@@ -4016,7 +4016,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i)
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %buf, i32 noundef 58) #19
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly align 1 dereferenceable(1024) %buf, i32 noundef 58) #19
   %cmp.not10.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not10.i.i, label %if.end11.i, label %land.rhs.i.i
 
@@ -4273,7 +4273,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %if.end.i.i, label %uv__read_proc_meminfo.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.then3
-  %call2.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.18) #19
+  %call2.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i, ptr noundef nonnull dereferenceable(1) @.str.18) #19
   %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %uv__read_proc_meminfo.exit.thread.i, label %uv__read_proc_meminfo.exit.i
 
@@ -4321,7 +4321,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not.i.i10, label %if.end.i.i20, label %uv__read_proc_meminfo.exit.thread.i11
 
 if.end.i.i20:                                     ; preds = %if.end5
-  %call2.i.i21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i7, ptr noundef nonnull readonly dereferenceable(1) @.str.19) #19
+  %call2.i.i21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i7, ptr noundef nonnull dereferenceable(1) @.str.19) #19
   %cmp.i.i22 = icmp eq ptr %call2.i.i21, null
   br i1 %cmp.i.i22, label %uv__read_proc_meminfo.exit.thread.i11, label %uv__read_proc_meminfo.exit.i23
 
@@ -4374,7 +4374,7 @@ if.then8:                                         ; preds = %uv_get_total_memory
   br i1 %tobool.not.i.i32, label %if.end.i.i43, label %uv__read_proc_meminfo.exit.thread.i33
 
 if.end.i.i43:                                     ; preds = %if.then8
-  %call2.i.i44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i29, ptr noundef nonnull readonly dereferenceable(1) @.str.18) #19
+  %call2.i.i44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf.i.i29, ptr noundef nonnull dereferenceable(1) @.str.18) #19
   %cmp.i.i45 = icmp eq ptr %call2.i.i44, null
   br i1 %cmp.i.i45, label %uv__read_proc_meminfo.exit.thread.i33, label %uv__read_proc_meminfo.exit.i46
 
@@ -4420,7 +4420,7 @@ if.end10:                                         ; preds = %uv_get_total_memory
 
 if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i)
-  %call.i.i54 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %buf, i32 noundef 58) #19
+  %call.i.i54 = call ptr @strchr(ptr noundef nonnull readonly align 1 dereferenceable(1024) %buf, i32 noundef 58) #19
   %cmp.not10.i.i = icmp eq ptr %call.i.i54, null
   br i1 %cmp.not10.i.i, label %if.end6.i, label %land.rhs.i.i
 

@@ -1899,7 +1899,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ValueVisitor
 31:                                               ; preds = %24
   %32 = load ptr, ptr %14, align 8
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull %0)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 8 dereferenceable(24) %0)
   br label %_ZN4Luau7Compile12ValueVisitor6assignEPNS_7AstExprE.exit
 
 _ZN4Luau7Compile12ValueVisitor6assignEPNS_7AstExprE.exit: ; preds = %19, %27, %31
@@ -1963,7 +1963,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ValueVisitor
 23:                                               ; preds = %15
   %24 = load ptr, ptr %4, align 8
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %0)
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(24) %0)
   br label %_ZN4Luau7Compile12ValueVisitor6assignEPNS_7AstExprE.exit
 
 _ZN4Luau7Compile12ValueVisitor6assignEPNS_7AstExprE.exit: ; preds = %9, %18, %23
@@ -2013,7 +2013,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ValueVisitor
 23:                                               ; preds = %15
   %24 = load ptr, ptr %4, align 8
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %0)
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(24) %0)
   br label %_ZN4Luau7Compile12ValueVisitor6assignEPNS_7AstExprE.exit
 
 _ZN4Luau7Compile12ValueVisitor6assignEPNS_7AstExprE.exit: ; preds = %9, %18, %23

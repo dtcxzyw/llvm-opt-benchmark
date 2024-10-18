@@ -1118,7 +1118,7 @@ pmix_obj_new_tma.exit341.thread383:               ; preds = %.lr.ph.i.i338, %164
 .lr.ph.i351:                                      ; preds = %495, %.lr.ph.i351
   %501 = phi ptr [ %503, %.lr.ph.i351 ], [ %500, %495 ]
   %.07.i352 = phi ptr [ %502, %.lr.ph.i351 ], [ %499, %495 ]
-  call void %501(ptr noundef %.0256407425) #16
+  call void %501(ptr noundef nonnull %.0256407425) #16
   %502 = getelementptr inbounds i8, ptr %.07.i352, i64 8
   %503 = load ptr, ptr %502, align 8
   %.not.i353 = icmp eq ptr %503, null
@@ -9404,7 +9404,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %114
 .lr.ph.i484:                                      ; preds = %184, %.lr.ph.i484
   %190 = phi ptr [ %192, %.lr.ph.i484 ], [ %189, %184 ]
   %.07.i485 = phi ptr [ %191, %.lr.ph.i484 ], [ %188, %184 ]
-  call void %190(ptr noundef %162) #16
+  call void %190(ptr noundef nonnull %162) #16
   %191 = getelementptr inbounds i8, ptr %.07.i485, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not.i486 = icmp eq ptr %192, null
@@ -9691,7 +9691,7 @@ pmix_obj_run_constructors.exit497:                ; preds = %.lr.ph.i494, %213
 .lr.ph.i501:                                      ; preds = %329, %.lr.ph.i501
   %335 = phi ptr [ %337, %.lr.ph.i501 ], [ %334, %329 ]
   %.07.i502 = phi ptr [ %336, %.lr.ph.i501 ], [ %333, %329 ]
-  call void %335(ptr noundef %251) #16
+  call void %335(ptr noundef nonnull %251) #16
   %336 = getelementptr inbounds i8, ptr %.07.i502, i64 8
   %337 = load ptr, ptr %336, align 8
   %.not.i503 = icmp eq ptr %337, null
@@ -11073,7 +11073,7 @@ define void @pmix_iof_static_dump_output(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
   %50 = phi ptr [ %52, %.lr.ph.i ], [ %49, %44 ]
   %.07.i = phi ptr [ %51, %.lr.ph.i ], [ %48, %44 ]
-  tail call void %50(ptr noundef %13) #16
+  tail call void %50(ptr noundef nonnull %13) #16
   %51 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
@@ -11909,7 +11909,7 @@ define internal void @iof_write_event_destruct(ptr noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
   %59 = phi ptr [ %61, %.lr.ph.i ], [ %58, %53 ]
   %.07.i = phi ptr [ %60, %.lr.ph.i ], [ %57, %53 ]
-  tail call void %59(ptr noundef %36) #16
+  tail call void %59(ptr noundef nonnull %36) #16
   %60 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not.i = icmp eq ptr %61, null

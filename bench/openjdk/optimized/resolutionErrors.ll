@@ -209,7 +209,7 @@ define hidden void @_ZN20ResolutionErrorTable9add_entryERK18constantPoolHandleiP
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 1, i32 noundef 0) #7
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr @_ZL23_resolution_error_table, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 24

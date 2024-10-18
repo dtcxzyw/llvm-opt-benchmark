@@ -921,7 +921,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %301 = load ptr, ptr %300, align 8, !noalias !12
-  invoke void %301(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.1") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  invoke void %301(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.1") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %299, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EEclES5_.exit unwind label %347
 
 _ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EEclES5_.exit: ; preds = %298
@@ -2039,7 +2039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %775, %781
   br i1 %791, label %"_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EEaSIZNS0_28UsdImagingCreateSceneIndicesERKNS0_32UsdImagingCreateSceneIndicesInfoEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS7_E4typeEOSE_.exit", label %833
 
 "_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EEaSIZNS0_28UsdImagingCreateSceneIndicesERKNS0_32UsdImagingCreateSceneIndicesInfoEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS7_E4typeEOSE_.exit": ; preds = %788
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 16, i1 false)
   %792 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr @"_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EZNS0_28UsdImagingCreateSceneIndicesERKNS0_32UsdImagingCreateSceneIndicesInfoEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %792, align 8
   %793 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -2258,7 +2258,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_42UsdImagingNiPrototypePropaga
   br i1 %.not.i.i165, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EED2Ev.exit, label %882
 
 882:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_42UsdImagingNiPrototypePropagatingSceneIndexEED2Ev.exit
-  %883 = invoke noundef zeroext i1 %881(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
+  %883 = invoke noundef zeroext i1 %881(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EED2Ev.exit unwind label %884
 
 884:                                              ; preds = %882
@@ -3109,7 +3109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %.not.i.i236, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EED2Ev.exit237, label %1234
 
 1234:                                             ; preds = %1231
-  %1235 = invoke noundef zeroext i1 %1233(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
+  %1235 = invoke noundef zeroext i1 %1233(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EED2Ev.exit237 unwind label %1236
 
 1236:                                             ; preds = %1234
@@ -5026,7 +5026,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   br label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEED2Ev.exit: ; preds = %1, %6
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #18
   ret void
 }

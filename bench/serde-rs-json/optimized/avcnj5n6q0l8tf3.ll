@@ -379,7 +379,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls73_$LT$impl$u20$serde..se
   br i1 %9, label %10, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
 10:                                               ; preds = %2
-  %11 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
+  %11 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
@@ -542,7 +542,7 @@ define hidden noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F
   br i1 %31, label %32, label %.sink.split
 
 32:                                               ; preds = %24
-  %33 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28), !noalias !274
+  %33 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28), !noalias !274
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i, label %.sink.split
 
@@ -1521,7 +1521,7 @@ select.unfold.i.i:                                ; preds = %128
   br i1 %150, label %151, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 
 151:                                              ; preds = %143
-  %152 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %145, i64 noundef %147)
+  %152 = tail call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias nonnull readnone align 8 poison, ptr noalias noundef nonnull readonly align 1 %145, i64 noundef %147)
   %153 = icmp eq ptr %152, null
   br i1 %153, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i
 

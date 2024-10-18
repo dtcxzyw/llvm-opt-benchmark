@@ -1225,7 +1225,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
   %308 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   %309 = getelementptr inbounds i8, ptr %.014341545, i64 -8
   %310 = load ptr, ptr %309, align 8
-  %311 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %308, ptr noundef %310)
+  %311 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(248) %308, ptr noundef %310)
   %312 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %312, ptr noundef nonnull %309)
   %313 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
@@ -4666,7 +4666,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

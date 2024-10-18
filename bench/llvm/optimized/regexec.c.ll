@@ -155,7 +155,7 @@ define dso_local range(i32 0, 17) i32 @llvm_regexec(ptr nocapture noundef readon
 83:                                               ; preds = %79, %76
   %84 = phi i32 [ %82, %79 ], [ 128, %76 ]
   %85 = load ptr, ptr %7, align 8
-  %86 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef %27, i64 noundef %28, i64 noundef %69, i32 noundef 132, i64 noundef %69)
+  %86 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %27, i64 noundef %28, i64 noundef %69, i32 noundef 132, i64 noundef %69)
   %87 = load ptr, ptr %67, align 8
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 76
@@ -234,7 +234,7 @@ define dso_local range(i32 0, 17) i32 @llvm_regexec(ptr nocapture noundef readon
 .preheader.i.i:                                   ; preds = %117, %.preheader.i.i
   %.2113.i.i = phi i64 [ %119, %.preheader.i.i ], [ %.0111.i.i, %117 ]
   %.2.i.i = phi i32 [ %120, %.preheader.i.i ], [ %.1104.i.i, %117 ]
-  %119 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef %27, i64 noundef %28, i64 noundef %.2113.i.i, i32 noundef %.1106.i.i, i64 noundef %.2113.i.i)
+  %119 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %27, i64 noundef %28, i64 noundef %.2113.i.i, i32 noundef %.1106.i.i, i64 noundef %.2113.i.i)
   %120 = add nsw i32 %.2.i.i, -1
   %.old17.i.i = icmp ugt i32 %.2.i.i, 1
   br i1 %.old17.i.i, label %.preheader.i.i, label %.loopexit.i.i
@@ -336,7 +336,7 @@ define dso_local range(i32 0, 17) i32 @llvm_regexec(ptr nocapture noundef readon
 
 .thread134.i.i:                                   ; preds = %.thread.i.i, %151, %148
   %.3137.i.i = phi i32 [ %.3.i.i, %.thread.i.i ], [ 134, %148 ], [ 134, %151 ]
-  %160 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef %27, i64 noundef %28, i64 noundef %.1112.i.i, i32 noundef %.3137.i.i, i64 noundef %.1112.i.i)
+  %160 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %27, i64 noundef %28, i64 noundef %.1112.i.i, i32 noundef %.3137.i.i, i64 noundef %.1112.i.i)
   br label %161
 
 161:                                              ; preds = %.thread134.i.i, %.thread.i.i
@@ -348,7 +348,7 @@ define dso_local range(i32 0, 17) i32 @llvm_regexec(ptr nocapture noundef readon
   br i1 %or.cond.i.i, label %sfast.exit.i, label %164
 
 164:                                              ; preds = %161
-  %165 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef %27, i64 noundef %28, i64 noundef %.3114.i.i, i32 noundef %100, i64 noundef %86)
+  %165 = call fastcc i64 @sstep(ptr noundef %85, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %27, i64 noundef %28, i64 noundef %.3114.i.i, i32 noundef %100, i64 noundef %86)
   %166 = getelementptr inbounds i8, ptr %.0110.i.i, i64 1
   br label %94
 
@@ -725,7 +725,7 @@ smatcher.exit:                                    ; preds = %193, %38, %._crit_e
   %341 = getelementptr inbounds i8, ptr %327, i64 %265
   store i8 1, ptr %341, align 1
   %342 = load ptr, ptr %6, align 8
-  %343 = call fastcc ptr @lstep(ptr noundef %342, i64 noundef %265, i64 noundef %266, ptr noundef %327, i32 noundef 132, ptr noundef %327)
+  %343 = call fastcc ptr @lstep(ptr noundef %342, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %265, i64 noundef %266, ptr noundef %327, i32 noundef 132, ptr noundef %327)
   %344 = load ptr, ptr %6, align 8
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 48
   %346 = load i64, ptr %345, align 8
@@ -814,7 +814,7 @@ smatcher.exit:                                    ; preds = %193, %38, %._crit_e
 .preheader.i.i51:                                 ; preds = %383, %.preheader.i.i51
   %.2.i.i52 = phi i32 [ %387, %.preheader.i.i51 ], [ %.1113.i.i, %383 ]
   %385 = load ptr, ptr %6, align 8
-  %386 = call fastcc ptr @lstep(ptr noundef %385, i64 noundef %265, i64 noundef %266, ptr noundef %327, i32 noundef %.1115.i.i, ptr noundef %327)
+  %386 = call fastcc ptr @lstep(ptr noundef %385, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %265, i64 noundef %266, ptr noundef %327, i32 noundef %.1115.i.i, ptr noundef %327)
   %387 = add nsw i32 %.2.i.i52, -1
   %.old17.i.i53 = icmp ugt i32 %.2.i.i52, 1
   br i1 %.old17.i.i53, label %.preheader.i.i51, label %.loopexit.i.i28
@@ -916,7 +916,7 @@ smatcher.exit:                                    ; preds = %193, %38, %._crit_e
 .thread144.i.i:                                   ; preds = %.thread.i.i32, %418, %415
   %.3147.i.i = phi i32 [ %.3.i.i33, %.thread.i.i32 ], [ 134, %415 ], [ 134, %418 ]
   %427 = load ptr, ptr %6, align 8
-  %428 = call fastcc ptr @lstep(ptr noundef %427, i64 noundef %265, i64 noundef %266, ptr noundef %327, i32 noundef %.3147.i.i, ptr noundef %327)
+  %428 = call fastcc ptr @lstep(ptr noundef %427, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %265, i64 noundef %266, ptr noundef %327, i32 noundef %.3147.i.i, ptr noundef %327)
   br label %429
 
 429:                                              ; preds = %.thread144.i.i, %.thread.i.i32
@@ -936,7 +936,7 @@ smatcher.exit:                                    ; preds = %193, %38, %._crit_e
   %438 = load i64, ptr %437, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %327, ptr align 1 %328, i64 %438, i1 false)
   %439 = load ptr, ptr %6, align 8
-  %440 = call fastcc ptr @lstep(ptr noundef %439, i64 noundef %265, i64 noundef %266, ptr noundef %329, i32 noundef %355, ptr noundef nonnull %327)
+  %440 = call fastcc ptr @lstep(ptr noundef %439, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %265, i64 noundef %266, ptr noundef %329, i32 noundef %355, ptr noundef nonnull %327)
   %441 = getelementptr inbounds i8, ptr %.0119.i.i, i64 1
   br label %348
 

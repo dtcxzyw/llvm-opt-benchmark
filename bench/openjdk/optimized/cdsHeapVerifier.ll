@@ -662,7 +662,7 @@ define hidden void @_ZN15CDSHeapVerifierD2Ev(ptr noundef nonnull align 8 derefer
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 127136
   store i32 0, ptr %15, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIPPKc13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPPKc13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
   br label %_ZN13GrowableArrayIPPKcED2Ev.exit
 
 _ZN13GrowableArrayIPPKcED2Ev.exit:                ; preds = %10, %14
@@ -1079,7 +1079,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %58, %68
   %104 = shl nuw nsw i64 %indvars.iv, %.7.i
   %105 = add nuw nsw i64 %103, %104
   %106 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %107 = call noundef ptr %106(ptr noundef nonnull %1, i64 noundef %105) #13
+  %107 = call noundef ptr %106(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %105) #13
   %108 = icmp eq ptr %107, %2
   br i1 %108, label %109, label %111
 
@@ -1541,7 +1541,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %21 = sext i32 %.sroa.1.0.copyload.i to i64
   %22 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull %20, i64 noundef %21) #13
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef %21) #13
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %.loopexit45, label %24
 
@@ -2618,7 +2618,7 @@ define linkonce_odr hidden void @_ZN15CDSHeapVerifier11TraceFields8do_fieldEP15f
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %30 = sext i32 %.sroa.1.0.copyload.i to i64
   %31 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %32 = tail call noundef ptr %31(ptr noundef nonnull %29, i64 noundef %30) #13
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %30) #13
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %32, %34
@@ -3152,7 +3152,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread: ; preds = %_ZN16java_l
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %51, i64 8
   %59 = load i64, ptr %58, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %60 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %60) #13

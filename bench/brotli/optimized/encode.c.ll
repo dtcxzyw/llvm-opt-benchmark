@@ -1404,7 +1404,7 @@ if.end65.i:                                       ; preds = %if.then.i93.i, %if.
   %113 = load i32, ptr %quality, align 4
   %cmp.i.i94.i = icmp eq i32 %113, 0
   %cond.i.i95.i = select i1 %cmp.i.i94.i, i64 32768, i64 131072
-  %invariant.umin.i.i.i = call i64 @llvm.umin.i64(i64 %cond.i.i95.i, i64 %cond.i.i126)
+  %invariant.umin.i.i.i = call i64 @llvm.umin.i64(i64 range(i64 32768, 131073) %cond.i.i95.i, i64 %cond.i.i126)
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %if.end65.i
@@ -1620,7 +1620,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 RingBufferInitBuffer.exit.i:                      ; preds = %for.body.i.i
   %146 = load ptr, ptr %buffer_.i34.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %146, ptr noundef nonnull readonly align 1 dereferenceable(1) %136, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %146, ptr noundef nonnull readonly align 1 dereferenceable(1) %136, i64 range(i64 1, 0) %cond.i, i1 false)
   %.pre113.i = load i32, ptr %pos_.i.i, align 4
   br label %RingBufferWrite.exit.i
 
@@ -1711,7 +1711,7 @@ if.then.i71.i:                                    ; preds = %if.end20.i.i
   %arrayidx.i75.i = getelementptr inbounds i8, ptr %166, i64 %conv22.i.i
   %narrow.i = sub nuw i32 %164, %and.i.i181
   %sub.i76.i = zext i32 %narrow.i to i64
-  %cond.i.i80.i = tail call i64 @llvm.umin.i64(i64 %cond.i, i64 %sub.i76.i)
+  %cond.i.i80.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %cond.i, i64 %sub.i76.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i75.i, ptr readonly align 1 %136, i64 %cond.i.i80.i, i1 false)
   %.pre = load i32, ptr %ringbuffer_1.i, align 8
   br label %RingBufferWriteTail.exit.i
@@ -1726,14 +1726,14 @@ RingBufferWriteTail.exit.i:                       ; preds = %if.then.i71.i, %if.
   br i1 %cmp25.i.not.i, label %if.else.i.i189, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %RingBufferWriteTail.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx33.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %136, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx33.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %136, i64 range(i64 1, 0) %cond.i, i1 false)
   br label %if.end46.i.i
 
 if.else.i.i189:                                   ; preds = %RingBufferWriteTail.exit.i
   %169 = load i32, ptr %total_size_.i.i178, align 4
   %conv35.i.i = zext i32 %169 to i64
   %sub36.i.i = sub nsw i64 %conv35.i.i, %conv22.i.i
-  %cond.i.i.i190 = tail call i64 @llvm.umin.i64(i64 %cond.i, i64 %sub36.i.i)
+  %cond.i.i.i190 = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %cond.i, i64 %sub36.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr readonly align 1 %136, i64 %cond.i.i.i190, i1 false)
   %170 = load ptr, ptr %buffer_.i34.i, align 8
   %171 = load i32, ptr %ringbuffer_1.i, align 8
@@ -2197,7 +2197,7 @@ GetBrotliStorage.exit:                            ; preds = %if.then73, %if.then
   %conv89 = and i64 %sub.i, 4294967295
   %cmp.i.i = icmp eq i32 %24, 0
   %cond.i.i1140 = select i1 %cmp.i.i, i64 32768, i64 131072
-  %invariant.umin.i.i = tail call i64 @llvm.umin.i64(i64 %cond.i.i1140, i64 %conv89)
+  %invariant.umin.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 32768, 131073) %cond.i.i1140, i64 %conv89)
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %GetBrotliStorage.exit
@@ -4263,7 +4263,7 @@ land.lhs.true.i:                                  ; preds = %WrapPosition.exit13
   %255 = load i64, ptr %0, align 8
   %sub = sub i64 %255, %251
   %conv148 = zext i32 %result.0.i1339 to i64
-  %call.i1347 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %6, i64 noundef %conv148, i64 noundef %conv142, i64 noundef %sub, double noundef 7.500000e-01) #18
+  %call.i1347 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv148, i64 noundef range(i64 0, 4294967296) %conv142, i64 noundef %sub, double noundef 7.500000e-01) #18
   %tobool.not.i = icmp eq i32 %call.i1347, 0
   br i1 %tobool.not.i, label %ChooseContextMode.exit, label %if.end.i1346
 
@@ -4690,7 +4690,7 @@ if.then2.i:                                       ; preds = %ShannonEntropy.exit
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %literal_histo.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull readonly align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
   %conv.i1380 = zext i32 %result.0.i.i1363 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv.i1380, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %is_last, ptr noundef %6, i64 noundef %conv.i1380, i64 noundef range(i64 0, 4294967296) %conv142, i64 noundef range(i64 0, 4294967296) %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
   br label %WriteMetaBlockInternal.exit
 
 if.end3.i:                                        ; preds = %ShannonEntropy.exit.i.i.if.end3.i_crit_edge, %if.then2.i.i, %if.end.i.i
@@ -4704,7 +4704,7 @@ if.end3.i:                                        ; preds = %ShannonEntropy.exit
 
 if.then13.i:                                      ; preds = %if.end3.i
   %conv14.i = zext i32 %result.0.i.i1363 to i64
-  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv14.i, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %is_last, ptr noundef nonnull %s, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
+  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv14.i, i64 noundef range(i64 0, 4294967296) %conv303, i64 noundef range(i64 0, 4294967296) %conv142, i32 noundef range(i32 0, 2) %is_last, ptr noundef nonnull %s, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
   br label %if.end42.i
 
 if.else.i1371:                                    ; preds = %if.end3.i
@@ -4713,7 +4713,7 @@ if.else.i1371:                                    ; preds = %if.end3.i
 
 if.then18.i:                                      ; preds = %if.else.i1371
   %conv19.i = zext i32 %result.0.i.i1363 to i64
-  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv19.i, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %is_last, ptr noundef nonnull %s, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
+  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv19.i, i64 noundef range(i64 0, 4294967296) %conv303, i64 noundef range(i64 0, 4294967296) %conv142, i32 noundef range(i32 0, 2) %is_last, ptr noundef nonnull %s, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
   br label %if.end42.i
 
 if.else20.i:                                      ; preds = %if.else.i1371
@@ -4750,7 +4750,7 @@ if.then26.i:                                      ; preds = %if.then24.i
   %321 = load i32, ptr %quality, align 4
   %size_hint.i = getelementptr inbounds i8, ptr %s, i64 24
   %322 = load i64, ptr %size_hint.i, align 8
-  call fastcc void @DecideOverLiteralContextModeling(ptr noundef %6, i64 noundef %conv28.i1374, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %321, i64 noundef %322, ptr noundef %num_literal_contexts.i, ptr noundef %literal_context_map.i, ptr noundef %call27.i)
+  call fastcc void @DecideOverLiteralContextModeling(ptr noundef %6, i64 noundef %conv28.i1374, i64 noundef range(i64 0, 4294967296) %conv303, i64 noundef range(i64 0, 4294967296) %conv142, i32 noundef %321, i64 noundef %322, ptr noundef %num_literal_contexts.i, ptr noundef %literal_context_map.i, ptr noundef %call27.i)
   call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %call27.i) #18
   %.pre.i1375 = load i64, ptr %num_literal_contexts.i, align 8
   %.pre137.i = load ptr, ptr %literal_context_map.i, align 8
@@ -4760,12 +4760,12 @@ if.end30.i:                                       ; preds = %if.then26.i, %if.th
   %conv31.pre-phi.i = phi i64 [ %.pre138.i, %if.then24.if.end30_crit_edge.i ], [ %conv28.i1374, %if.then26.i ]
   %323 = phi ptr [ null, %if.then24.if.end30_crit_edge.i ], [ %.pre137.i, %if.then26.i ]
   %324 = phi i64 [ 1, %if.then24.if.end30_crit_edge.i ], [ %.pre.i1375, %if.then26.i ]
-  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv31.pre-phi.i, i64 noundef %conv142, i8 noundef zeroext %294, i8 noundef zeroext %295, ptr noundef nonnull %arrayidx154, i64 noundef %324, ptr noundef %323, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %mb.i) #18
+  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv31.pre-phi.i, i64 noundef range(i64 0, 4294967296) %conv142, i8 noundef zeroext %294, i8 noundef zeroext %295, ptr noundef nonnull %arrayidx154, i64 noundef %324, ptr noundef %323, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %mb.i) #18
   br label %if.end34.i
 
 if.else32.i:                                      ; preds = %if.else20.i
   %conv33.i = zext i32 %result.0.i.i1363 to i64
-  call void @BrotliBuildMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv33.i, i64 noundef %conv142, ptr noundef nonnull %block_params.i, i8 noundef zeroext %294, i8 noundef zeroext %295, ptr noundef %298, i64 noundef %297, i32 noundef %retval.0.i, ptr noundef nonnull %mb.i) #18
+  call void @BrotliBuildMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv33.i, i64 noundef range(i64 0, 4294967296) %conv142, ptr noundef nonnull %block_params.i, i8 noundef zeroext %294, i8 noundef zeroext %295, ptr noundef %298, i64 noundef %297, i32 noundef range(i32 2, 4) %retval.0.i, ptr noundef nonnull %mb.i) #18
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.else32.i, %if.end30.i
@@ -4781,7 +4781,7 @@ if.then38.i:                                      ; preds = %if.end34.i
 
 if.end39.i:                                       ; preds = %if.then38.i, %if.end34.i
   %conv40.i = zext i32 %result.0.i.i1363 to i64
-  call void @BrotliStoreMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv40.i, i64 noundef %conv303, i64 noundef %conv142, i8 noundef zeroext %294, i8 noundef zeroext %295, i32 noundef %is_last, ptr noundef nonnull %block_params.i, i32 noundef %retval.0.i, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %mb.i, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
+  call void @BrotliStoreMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv40.i, i64 noundef range(i64 0, 4294967296) %conv303, i64 noundef range(i64 0, 4294967296) %conv142, i8 noundef zeroext %294, i8 noundef zeroext %295, i32 noundef range(i32 0, 2) %is_last, ptr noundef nonnull %block_params.i, i32 noundef range(i32 2, 4) %retval.0.i, ptr noundef %298, i64 noundef %297, ptr noundef nonnull %mb.i, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
   call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %mb.i) #18
   call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %command_split.i.i) #18
   call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %distance_split.i.i) #18
@@ -4816,7 +4816,7 @@ if.then46.i:                                      ; preds = %if.end42.i
   %conv53.i = and i64 %317, 255
   store i64 %conv53.i, ptr %storage_ix290, align 8
   %conv54.i = zext i32 %result.0.i.i1363 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv54.i, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %is_last, ptr noundef %6, i64 noundef %conv54.i, i64 noundef range(i64 0, 4294967296) %conv142, i64 noundef range(i64 0, 4294967296) %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %288) #18
   br label %WriteMetaBlockInternal.exit
 
 WriteMetaBlockInternal.exit:                      ; preds = %if.then.i1381, %if.then2.i, %if.end42.i, %if.then46.i
@@ -5354,7 +5354,7 @@ if.then:                                          ; preds = %ChooseHasher.exit
   %shl = shl nuw nsw i64 1, %sh_prom
   %cond.i146 = call i64 @llvm.umin.i64(i64 %input_size, i64 %shl)
   %cond.i184 = select i1 %cmp4.not, i64 131072, i64 32768
-  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %cond.i184, i64 %cond.i146)
+  %invariant.umin.i = call i64 @llvm.umin.i64(i64 range(i64 32768, 131073) %cond.i184, i64 %cond.i146)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then

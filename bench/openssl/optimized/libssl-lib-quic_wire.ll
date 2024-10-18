@@ -1427,7 +1427,7 @@ if.then18:                                        ; preds = %if.end16
 
 safe_mul_uint64_t.exit.thread:                    ; preds = %if.then18
   %24 = extractvalue { i64, i1 } %22, 0
-  %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %24, i64 1000)
+  %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -1, 1001) %24, i64 1000)
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
   %retval.sroa.0.0.i130 = select i1 %26, i64 -1, i64 %27
@@ -2688,7 +2688,7 @@ if.end:                                           ; preds = %PACKET_get_1.exit
 
 if.end21:                                         ; preds = %if.end
   %19 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %19, i64 %conv17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %19, i64 range(i64 0, 4294967296) %conv17, i1 false)
   %20 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i35 = getelementptr inbounds i8, ptr %20, i64 %conv17
   store ptr %add.ptr.i.i35, ptr %pkt, align 8
@@ -2714,7 +2714,7 @@ if.end29:                                         ; preds = %if.then24, %if.end2
 PACKET_copy_bytes.exit44:                         ; preds = %if.end29
   %stateless_reset = getelementptr inbounds i8, ptr %f, i64 37
   %22 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 range(i64 0, 4294967296) 16, i1 false)
   %23 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i41 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %add.ptr.i.i41, ptr %pkt, align 8
@@ -3561,7 +3561,7 @@ lor.lhs.false11:                                  ; preds = %ossl_quic_wire_deco
   %or.i.i = or disjoint i16 %shl.i.i, %conv2.i.i
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 6
   %ipv6 = getelementptr inbounds i8, ptr %p, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ipv6, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i2.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ipv6, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i2.i, i64 range(i64 0, 4294967296) 16, i1 false)
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 22
   %15 = load i8, ptr %add.ptr.i.i24, align 1
   %conv.i.i31 = zext i8 %15 to i16
@@ -3585,7 +3585,7 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false11
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false26
   %id27 = getelementptr inbounds i8, ptr %p, i64 41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id27, ptr nonnull align 1 %add.ptr.i.i43, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id27, ptr nonnull align 1 %add.ptr.i.i43, i64 range(i64 0, 4294967296) %conv, i1 false)
   %sub.i.i50 = sub nuw nsw i64 %sub.i.i44, %conv
   %cmp.i.i54 = icmp ult i64 %sub.i.i50, 16
   br i1 %cmp.i.i54, label %return, label %if.end36
@@ -3593,7 +3593,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false26
 if.end36:                                         ; preds = %lor.lhs.false31
   %stateless_reset = getelementptr inbounds i8, ptr %p, i64 24
   %add.ptr.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i49, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i49, i64 range(i64 0, 4294967296) 16, i1 false)
   store i16 %or.i.i, ptr %p, align 2
   %ipv6_port40 = getelementptr inbounds i8, ptr %p, i64 2
   store i16 %or.i.i35, ptr %ipv6_port40, align 2

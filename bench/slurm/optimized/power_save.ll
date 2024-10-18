@@ -1839,11 +1839,11 @@ _rl_spend_token.exit234.i:                        ; preds = %349, %347, %344, %3
   %374 = load ptr, ptr %373, align 8
   %375 = getelementptr inbounds i8, ptr %300, i64 384
   %376 = load i32, ptr %375, align 8
-  %377 = call i32 @clusteracct_storage_g_node_down(ptr noundef %371, ptr noundef nonnull %300, i64 noundef %65, ptr noundef %374, i32 noundef %376) #12
+  %377 = call i32 @clusteracct_storage_g_node_down(ptr noundef %371, ptr noundef nonnull %300, i64 noundef range(i64 0, -9223372036854775808) %65, ptr noundef %374, i32 noundef %376) #12
   br label %380
 
 378:                                              ; preds = %_rl_spend_token.exit234.i
-  %379 = call i32 @clusteracct_storage_g_node_up(ptr noundef %371, ptr noundef nonnull %300, i64 noundef %65) #12
+  %379 = call i32 @clusteracct_storage_g_node_up(ptr noundef %371, ptr noundef nonnull %300, i64 noundef range(i64 0, -9223372036854775808) %65) #12
   br label %380
 
 380:                                              ; preds = %378, %372, %330, %_rl_get_tokens.exit232.i, %309
@@ -2092,7 +2092,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   %502 = load ptr, ptr @acct_db_conn, align 8
   %503 = getelementptr inbounds i8, ptr %300, i64 384
   %504 = load i32, ptr %503, align 8
-  %505 = call i32 @clusteracct_storage_g_node_down(ptr noundef %502, ptr noundef nonnull %300, i64 noundef %65, ptr noundef nonnull @.str.61, i32 noundef %504) #12
+  %505 = call i32 @clusteracct_storage_g_node_down(ptr noundef %502, ptr noundef nonnull %300, i64 noundef range(i64 0, -9223372036854775808) %65, ptr noundef nonnull @.str.61, i32 noundef %504) #12
   br label %506
 
 506:                                              ; preds = %500, %479, %_node_state_should_suspend.exit.thread.i

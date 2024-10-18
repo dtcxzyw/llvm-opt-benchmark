@@ -463,7 +463,7 @@ define dso_local void @_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev(ptr dead_on
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 24))
   call fastcc void @_ZL21updateTripleOSVersionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
@@ -519,7 +519,7 @@ define internal fastcc void @_ZL21updateTripleOSVersionNSt7__cxx1112basic_string
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #13
   br i1 %27, label %28, label %58
 
 28:                                               ; preds = %22
@@ -547,7 +547,7 @@ define internal fastcc void @_ZL21updateTripleOSVersionNSt7__cxx1112basic_string
   br i1 %.not9, label %.thread, label %40
 
 .thread:                                          ; preds = %38, %34, %28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #13
   br label %58
 
 40:                                               ; preds = %38
@@ -577,7 +577,7 @@ define internal fastcc void @_ZL21updateTripleOSVersionNSt7__cxx1112basic_string
   call void @_ZN4llvm6Triple9setOSNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr %56, i64 %57) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #13
   br label %59
 
 58:                                               ; preds = %.thread, %22
@@ -871,7 +871,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail20getHostCPUNameForARMENS_9Str
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %13, i64 noundef 32) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %6, ptr noundef nonnull %13, i64 noundef 32) #13
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull @.str.34, i64 1, i32 noundef -1, i1 noundef zeroext true) #13
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %15 = and i64 %14, 4294967295
@@ -1718,7 +1718,7 @@ _ZN4llvm9StringRefC2EPKc.exit883:                 ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %._crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit855, %._crit_edge2037, %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit91, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i804, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i586, %_ZN4llvm9StringRefC2EPKc.exit883, %_ZN4llvm9StringRefC2EPKc.exit851, %_ZN4llvm9StringRefC2EPKc.exit696, %_ZN4llvm9StringRefC2EPKc.exit680, %_ZN4llvm9StringRefC2EPKc.exit664, %_ZN4llvm9StringRefC2EPKc.exit648.thread2082
   %.sroa.01324.0 = phi ptr [ %141, %_ZN4llvm9StringRefC2EPKc.exit648.thread2082 ], [ %.sroa.6996.0, %_ZN4llvm9StringRefC2EPKc.exit664 ], [ %.sroa.6987.0, %_ZN4llvm9StringRefC2EPKc.exit680 ], [ %.sroa.6978.0, %_ZN4llvm9StringRefC2EPKc.exit696 ], [ %.sroa.6.0, %_ZN4llvm9StringRefC2EPKc.exit851 ], [ %.sroa.12.2, %_ZN4llvm9StringRefC2EPKc.exit883 ], [ %.sroa.192.62, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i586 ], [ %.sroa.42.12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i804 ], [ @.str.42, %_ZNK4llvm9StringRef9ends_withES0_.exit91 ], [ @.str.42, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ %.str.208..str.207, %._crit_edge2037 ], [ @.str.1, %._crit_edge ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit855 ], [ @.str.1, %2 ]
   %.sroa.13.0 = phi i64 [ %142, %_ZN4llvm9StringRefC2EPKc.exit648.thread2082 ], [ %146, %_ZN4llvm9StringRefC2EPKc.exit664 ], [ %150, %_ZN4llvm9StringRefC2EPKc.exit680 ], [ %154, %_ZN4llvm9StringRefC2EPKc.exit696 ], [ %213, %_ZN4llvm9StringRefC2EPKc.exit851 ], [ %219, %_ZN4llvm9StringRefC2EPKc.exit883 ], [ %132, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i586 ], [ %170, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i804 ], [ 10, %_ZNK4llvm9StringRef9ends_withES0_.exit91 ], [ 10, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ 9, %._crit_edge2037 ], [ 7, %._crit_edge ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit855 ], [ 7, %2 ]
-  %220 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  %220 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %6) #13
   %221 = load ptr, ptr %6, align 8
   %222 = icmp eq ptr %221, %13
   br i1 %222, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %223
@@ -1751,10 +1751,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail22getHostCPUNameForS390xENS_9S
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %9, i64 noundef 32) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %5, ptr noundef nonnull %9, i64 noundef 32) #13
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.34, i64 1, i32 noundef -1, i1 noundef zeroext true) #13
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %10, i64 noundef 32) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %6, ptr noundef nonnull %10, i64 noundef 32) #13
   %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   %12 = and i64 %11, 4294967295
   %.not69 = icmp eq i64 %12, 0
@@ -1954,7 +1954,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit35.thread62: ; preds = %42, %_ZNK4llvm9
 _ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread62, %._crit_edge, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread, %75, %72, %69, %66, %65, %64, %63, %61, %61, %61, %61, %61, %61
   %.sroa.052.0 = phi ptr [ %76, %75 ], [ %73, %72 ], [ %70, %69 ], [ %67, %66 ], [ @.str.350, %65 ], [ @.str.349, %64 ], [ @.str.348, %63 ], [ @.str.1, %61 ], [ @.str.1, %61 ], [ @.str.1, %61 ], [ @.str.1, %61 ], [ @.str.1, %61 ], [ @.str.1, %61 ], [ @.str.1, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ @.str.1, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread ], [ @.str.1, %._crit_edge ], [ @.str.1, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread62 ]
   %.sroa.3.0 = phi i64 [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ 5, %65 ], [ 4, %64 ], [ 3, %63 ], [ 7, %61 ], [ 7, %61 ], [ 7, %61 ], [ 7, %61 ], [ 7, %61 ], [ 7, %61 ], [ 7, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread ], [ 7, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread ], [ 7, %._crit_edge ], [ 7, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread62 ]
-  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %6) #13
   %79 = load ptr, ptr %6, align 8
   %80 = icmp eq ptr %79, %10
   br i1 %80, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %81
@@ -1964,7 +1964,7 @@ _ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit: ; preds = %_ZNK4llvm9StringR
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit, %81
-  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %5) #13
   %83 = load ptr, ptr %5, align 8
   %84 = icmp eq ptr %83, %9
   br i1 %84, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit41, label %85
@@ -1992,7 +1992,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail22getHostCPUNameForRISCVENS_9S
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %7, i64 noundef 3) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %7, i64 noundef 3) #13
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str.34, i64 1, i32 noundef -1, i1 noundef zeroext true) #13
   %8 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %9 = and i64 %8, 4294967295
@@ -2057,7 +2057,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i11:            ; preds = %_ZNK4llvm9StringRef
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i11, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %.thread44, %_ZN4llvmeqENS_9StringRefES0_.exit.i
   %.sroa.9.1 = phi ptr [ @.str.223, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ @.str.225, %.thread44 ], [ @.str.225, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.i11 ]
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.9.1) #13
-  %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   %31 = load ptr, ptr %4, align 8
   %32 = icmp eq ptr %31, %7
   br i1 %32, label %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit, label %33
@@ -2140,7 +2140,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3sys6detail3x8618getVendor
 
 5:                                                ; preds = %1, %4
   %.0 = phi ptr [ %0, %4 ], [ %2, %1 ]
-  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #14, !srcloc !15
+  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 0) #14, !srcloc !15
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread, label %9
@@ -2198,7 +2198,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys14getHostCPUNameEv() local_unnamed_ad
   br i1 %or.cond7.i, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %11, %4
-  %15 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #14, !srcloc !16
+  %15 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #14, !srcloc !16
   %16 = extractvalue { i32, i32, i32, i32 } %15, 0
   %17 = extractvalue { i32, i32, i32, i32 } %15, 2
   %18 = extractvalue { i32, i32, i32, i32 } %15, 3
@@ -2285,7 +2285,7 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   br i1 %63, label %.critedge.i, label %.critedge142.i
 
 .critedge.i:                                      ; preds = %.thread.i
-  %64 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #14, !srcloc !18
+  %64 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 21) 7, i32 range(i32 0, 2) 0) #14, !srcloc !18
   %65 = extractvalue { i32, i32, i32, i32 } %64, 0
   %66 = extractvalue { i32, i32, i32, i32 } %64, 1
   %67 = extractvalue { i32, i32, i32, i32 } %64, 2
@@ -2377,7 +2377,7 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   br i1 %.not288.i, label %.critedge142.i, label %107
 
 107:                                              ; preds = %.critedge.i
-  %108 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #14, !srcloc !18
+  %108 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 21) 7, i32 range(i32 0, 2) 1) #14, !srcloc !18
   %109 = extractvalue { i32, i32, i32, i32 } %108, 0
   %110 = and i32 %109, 32
   %.not83.i = icmp eq i32 %110, 0
@@ -2390,13 +2390,13 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   %.sroa.021.13 = phi i32 [ %.sroa.021.30, %.critedge.i ], [ %.sroa.021.12, %.thread.i ], [ %.sroa.021.30, %107 ]
   %.sroa.65.2 = phi i32 [ %.sroa.65.9, %.critedge.i ], [ %.sroa.65.1, %.thread.i ], [ %spec.select142, %107 ]
   %.sroa.90.0 = phi i32 [ %88, %.critedge.i ], [ 0, %.thread.i ], [ %88, %107 ]
-  %112 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #14, !srcloc !15
+  %112 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #14, !srcloc !15
   %113 = extractvalue { i32, i32, i32, i32 } %112, 0
   %114 = icmp ugt i32 %113, -2147483648
   br i1 %114, label %.critedge146.i, label %_ZL20getAvailableFeaturesjjjPj.exit
 
 .critedge146.i:                                   ; preds = %.critedge142.i
-  %115 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #14, !srcloc !16
+  %115 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #14, !srcloc !16
   %116 = extractvalue { i32, i32, i32, i32 } %115, 2
   %117 = extractvalue { i32, i32, i32, i32 } %115, 3
   %118 = shl i32 %116, 5
@@ -2861,7 +2861,7 @@ _ZN4llvm9StringRefC2EPKc.exit.thread150:          ; preds = %128, %144, %142, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3sys18getHostCPUFeaturesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 16, ptr %2, align 4
   %3 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #14, !srcloc !15
   %4 = extractvalue { i32, i32, i32, i32 } %3, 0
@@ -2869,7 +2869,7 @@ define dso_local void @_ZN4llvm3sys18getHostCPUFeaturesEv(ptr dead_on_unwind noa
   br i1 %5, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %1
-  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #14, !srcloc !16
+  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #14, !srcloc !16
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = extractvalue { i32, i32, i32, i32 } %6, 2
   %9 = extractvalue { i32, i32, i32, i32 } %6, 3
@@ -3092,7 +3092,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %1
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = zext i1 %169 to i8
   store i8 %174, ptr %173, align 1
-  %175 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #14, !srcloc !15
+  %175 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #14, !srcloc !15
   %176 = extractvalue { i32, i32, i32, i32 } %175, 0
   %177 = icmp sgt i32 %176, -1
   br i1 %177, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270.thread, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270
@@ -3104,7 +3104,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit270:         ; preds = %.critedge
   br i1 %.not784, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270.thread, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit271
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit271:         ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270
-  %180 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #14, !srcloc !16
+  %180 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #14, !srcloc !16
   %181 = extractvalue { i32, i32, i32, i32 } %180, 0
   %182 = extractvalue { i32, i32, i32, i32 } %180, 2
   %183 = extractvalue { i32, i32, i32, i32 } %180, 3
@@ -3223,7 +3223,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit270.thread:  ; preds = %.critedge, %_ZL18ge
   br i1 %or.cond, label %262, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit282
 
 262:                                              ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270.thread
-  %263 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483640) #14, !srcloc !16
+  %263 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483640) #14, !srcloc !16
   %264 = extractvalue { i32, i32, i32, i32 } %263, 0
   %265 = extractvalue { i32, i32, i32, i32 } %263, 2
   %266 = extractvalue { i32, i32, i32, i32 } %263, 3
@@ -3269,7 +3269,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit282:         ; preds = %262, %_ZL18getX86Cp
   br i1 %291, label %_ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit, label %297
 
 _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit282
-  %292 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #14, !srcloc !18
+  %292 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 21) 7, i32 range(i32 0, 2) 0) #14, !srcloc !18
   %293 = extractvalue { i32, i32, i32, i32 } %292, 0
   %294 = extractvalue { i32, i32, i32, i32 } %292, 1
   %295 = extractvalue { i32, i32, i32, i32 } %292, 2
@@ -3828,7 +3828,7 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   br i1 %or.cond3, label %_ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit337, label %663
 
 _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit337:      ; preds = %652
-  %659 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #14, !srcloc !18
+  %659 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 21) 7, i32 range(i32 0, 2) 1) #14, !srcloc !18
   %660 = extractvalue { i32, i32, i32, i32 } %659, 0
   %661 = extractvalue { i32, i32, i32, i32 } %659, 1
   %662 = extractvalue { i32, i32, i32, i32 } %659, 3
@@ -4102,7 +4102,7 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit337:      ; preds = %652
   br i1 %831, label %832, label %.critedge240
 
 832:                                              ; preds = %764
-  %833 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #14, !srcloc !18
+  %833 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 21) 13, i32 range(i32 0, 2) 1) #14, !srcloc !18
   %834 = extractvalue { i32, i32, i32, i32 } %833, 0
   %835 = extractvalue { i32, i32, i32, i32 } %833, 1
   %836 = and i32 %834, 1
@@ -4152,7 +4152,7 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit337:      ; preds = %652
   br i1 %857, label %_ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit370, label %860
 
 _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit370:      ; preds = %846
-  %858 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 20, i32 0) #14, !srcloc !18
+  %858 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 21) 20, i32 range(i32 0, 2) 0) #14, !srcloc !18
   %859 = extractvalue { i32, i32, i32, i32 } %858, 1
   br label %860
 
@@ -4172,7 +4172,7 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit370:      ; preds = %846
   br i1 %869, label %872, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit372
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit372:         ; preds = %860
-  %870 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 25) #14, !srcloc !16
+  %870 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 25) #14, !srcloc !16
   %871 = extractvalue { i32, i32, i32, i32 } %870, 1
   br label %872
 
@@ -4192,7 +4192,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit372:         ; preds = %860
   br i1 %881, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit374, label %884
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit374:         ; preds = %872
-  %882 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 36) #14, !srcloc !16
+  %882 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 36) #14, !srcloc !16
   %883 = extractvalue { i32, i32, i32, i32 } %882, 1
   br label %884
 
@@ -4248,7 +4248,7 @@ define dso_local void @_ZN4llvm3sys16getProcessTripleB5cxx11Ev(ptr dead_on_unwin
   %8 = alloca %"class.llvm::Triple", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 24))
   call fastcc void @_ZL21updateTripleOSVersionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
@@ -4268,16 +4268,16 @@ define dso_local void @_ZN4llvm3sys16getProcessTripleB5cxx11Ev(ptr dead_on_unwin
 
 15:                                               ; preds = %1
   call void @_ZNK4llvm6Triple19get64BitArchVariantEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Triple") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %5) #13
-  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %8) #13
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #13
   br label %19
 
 19:                                               ; preds = %15, %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   ret void
 }
@@ -4352,7 +4352,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13, !noalias !19
   %36 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13, !noalias !19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %4) #13, !noalias !19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %4) #13, !noalias !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 24, ptr %2, align 8, !noalias !19
   %37 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0) #13, !noalias !19
@@ -4459,7 +4459,7 @@ define internal fastcc void @_ZL12getOSVersionB5cxx11v(ptr dead_on_unwind noalia
 6:                                                ; preds = %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.225)
   br label %13
 
@@ -4467,7 +4467,7 @@ define internal fastcc void @_ZL12getOSVersionB5cxx11v(ptr dead_on_unwind noalia
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 130
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9, ptr noundef nonnull %12)

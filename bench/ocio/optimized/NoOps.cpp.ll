@@ -541,7 +541,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %ehcleanup.i.i.i.i.i
 
 ehcleanup9.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i
   %.pn.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  tail call void @_ZN19OpenColorIO_v2_4dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i) #21
+  tail call void @_ZN19OpenColorIO_v2_4dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i) #24
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i.i.i
 
@@ -2413,7 +2413,7 @@ entry:
           to label %invoke.cont.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %entry
-  invoke void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %call2.i.i.i.i.i.i.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(201) %call2.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i unwind label %lpad3.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i.i.i.i
@@ -2454,7 +2454,7 @@ lpad3.body.i.i.i.i.i.i.i:                         ; preds = %lpad3.i.i.i.i.i.i.i
 ehcleanup.i.i.i.i.i.i.i:                          ; preds = %lpad3.body.i.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i
   %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %lpad3.body.i.i.i.i.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_fileReference.i.i.i.i.i.i.i) #21
-  tail call void @_ZN19OpenColorIO_v2_4dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i) #21
+  tail call void @_ZN19OpenColorIO_v2_4dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i
 
@@ -2771,7 +2771,7 @@ ehcleanup.i.i.i.i.i.i.i:                          ; preds = %lpad5.i.i.i.i.i.i.i
 
 ehcleanup8.i.i.i.i.i.i.i:                         ; preds = %ehcleanup.i.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i
   %.pn.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %0, %lpad.i.i.i.i.i.i.i ]
-  tail call void @_ZN19OpenColorIO_v2_4dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i) #21
+  tail call void @_ZN19OpenColorIO_v2_4dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i) #24
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i.i.i
 

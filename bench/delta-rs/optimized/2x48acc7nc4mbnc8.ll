@@ -250,7 +250,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   tail call void @llvm.assume(i1 %40)
   %41 = sub i64 %.sroa.9.sroa.9.2, %.val47
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.9.sroa.9.2, i64 %.val47)
-  %42 = tail call i32 @memcmp(ptr nonnull readonly %.sroa.9.sroa.0.2, ptr nonnull readonly %.val46, i64 %..i.i.i.i), !alias.scope !49
+  %42 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.9.sroa.0.2, ptr nonnull readonly align 1 %.val46, i64 %..i.i.i.i), !alias.scope !49
   %43 = sext i32 %42 to i64
   %44 = icmp eq i32 %42, 0
   %spec.store.select.i.i.i.i = select i1 %44, i64 %41, i64 %43
@@ -1181,7 +1181,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h27ea35c04e989b01E.llvm.9530391023209721886.exit"
 
 7:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha781881a604d012dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha781881a604d012dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4)
           to label %._crit_edge.i unwind label %8, !noalias !108
 
 ._crit_edge.i:                                    ; preds = %7
@@ -1262,7 +1262,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha88f7d2374693796E.llvm.9530391023209721886.exit"
 
 7:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd69f2fee42308fe6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd69f2fee42308fe6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4)
           to label %._crit_edge.i unwind label %8, !noalias !116
 
 ._crit_edge.i:                                    ; preds = %7

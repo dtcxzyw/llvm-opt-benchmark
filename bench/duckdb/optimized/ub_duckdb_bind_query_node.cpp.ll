@@ -13054,7 +13054,7 @@ if.end.i.i.i.i.i.i245:                            ; preds = %_ZNSt10_HashtableIN
   br label %_ZN6duckdb12SelectBinderD2Ev.exit249
 
 _ZN6duckdb12SelectBinderD2Ev.exit249:             ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stEN6duckdb29CaseInsensitiveStringEqualityENSC_33CaseInsensitiveStringHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i240, %if.end.i.i.i.i.i.i245
-  call void @_ZN6duckdb16ExpressionBinderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %select_binder) #23
+  call void @_ZN6duckdb16ExpressionBinderD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %select_binder) #23
   br label %ehcleanup938
 
 ehcleanup938:                                     ; preds = %_ZN6duckdb12SelectBinderD2Ev.exit249, %lpad420, %lpad415

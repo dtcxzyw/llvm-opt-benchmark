@@ -310,7 +310,7 @@ invoke.cont:                                      ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %builder, i64 528
   %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %builder, i64 544
   %1 = load ptr, ptr %manager_.i.i.i.i.i, align 16
-  tail call void %1(i1 noundef zeroext true, ptr noundef nonnull %arrayidx3.i, ptr noundef nonnull %arrayidx3.i) #16
+  tail call void %1(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx3.i, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx3.i) #16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i, align 16
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i, align 8
   ret void

@@ -61,7 +61,7 @@ if.else:                                          ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
   %call.i = tail call ptr @blk_bs(ptr noundef %blk) #6
-  %cond12.i = tail call i64 @llvm.umin.i64(i64 %size, i64 4194303)
+  %cond12.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 2147483137) %size, i64 4194303)
   store i64 %cond12.i, ptr %bytes.i, align 8
   %cmp113.i = icmp eq i64 %size, 0
   br i1 %cmp113.i, label %blk_pread_nonzeroes.exit, label %if.end.i

@@ -906,7 +906,7 @@ dissect_frame_padding.exit.i:                     ; preds = %114, %111, %106
   %119 = zext nneg i16 %.028.i to i32
   %120 = sub i32 %118, %119
   %121 = load i32, ptr @hf_http2_data_data, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %121, ptr noundef %0, i32 noundef %.017.i.i, i32 noundef %120, i32 noundef 0) #6
+  %122 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %121, ptr noundef %0, i32 noundef range(i32 9, 11) %.017.i.i, i32 noundef %120, i32 noundef 0) #6
   %.not.i = icmp eq i16 %.028.i, 0
   br i1 %.not.i, label %dissect_http2_data.exit, label %123
 

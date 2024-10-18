@@ -433,7 +433,7 @@ if.then18.i:                                      ; preds = %if.end12.i
   br i1 %cmp.i19.i, label %if.then.i20.i, label %st_mult.exit.i
 
 if.then.i20.i:                                    ; preds = %if.then18.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.30, i64 noundef 8, i64 noundef %conv30.i) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.30, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv30.i) #17
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then18.i
@@ -730,7 +730,7 @@ for.end.i12.i.i:                                  ; preds = %for.body.i6.i.i
   store i32 %bf.cast.i.i.i, ptr %get_progress.i.i.i, align 4
   %get_recover.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 48
   store i32 0, ptr %get_recover.i.i.i, align 8
-  %call12.i.i.i = call i32 @walker_fetch(ptr noundef %call9.i.i.i, i32 noundef %31, ptr noundef nonnull %call1.i.i.i, ptr noundef null, ptr noundef null) #16
+  %call12.i.i.i = call i32 @walker_fetch(ptr noundef %call9.i.i.i, i32 noundef range(i32 -2147483647, -2147483648) %31, ptr noundef nonnull %call1.i.i.i, ptr noundef null, ptr noundef null) #16
   call void @walker_free(ptr noundef %call9.i.i.i) #16
   br label %for.body16.i.i.i
 
@@ -2576,7 +2576,7 @@ if.then71:                                        ; preds = %if.end67
 
 sw.bb2.i:                                         ; preds = %if.then71, %if.then71
   %shallow.i64 = getelementptr inbounds i8, ptr %call59, i64 40
-  %call3.i65 = call ptr @get_remote_heads(ptr noundef nonnull %reader.i60, ptr noundef nonnull %list.i, i32 noundef %for_push, ptr noundef null, ptr noundef nonnull %shallow.i64) #16
+  %call3.i65 = call ptr @get_remote_heads(ptr noundef nonnull %reader.i60, ptr noundef nonnull %list.i, i32 noundef range(i32 0, 2) %for_push, ptr noundef null, ptr noundef nonnull %shallow.i64) #16
   %hash_algo.i = getelementptr inbounds i8, ptr %reader.i60, i64 72
   %56 = load ptr, ptr %hash_algo.i, align 8
   store ptr %56, ptr getelementptr inbounds (i8, ptr @options, i64 120), align 8

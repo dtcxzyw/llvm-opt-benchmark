@@ -3248,7 +3248,7 @@ _add_hdlr.exit:                                   ; preds = %1272, %1270, %1253,
 .lr.ph.i702:                                      ; preds = %1297, %.lr.ph.i702
   %1303 = phi ptr [ %1305, %.lr.ph.i702 ], [ %1302, %1297 ]
   %.07.i703 = phi ptr [ %1304, %.lr.ph.i702 ], [ %1301, %1297 ]
-  call void %1303(ptr noundef %1280) #13
+  call void %1303(ptr noundef nonnull %1280) #13
   %1304 = getelementptr inbounds i8, ptr %.07.i703, i64 8
   %1305 = load ptr, ptr %1304, align 8
   %.not.i704 = icmp eq ptr %1305, null
@@ -5206,7 +5206,7 @@ pmix_obj_new_tma.exit100:                         ; preds = %.lr.ph.i.i97, %104,
 .lr.ph.i102:                                      ; preds = %142, %.lr.ph.i102
   %148 = phi ptr [ %150, %.lr.ph.i102 ], [ %147, %142 ]
   %.07.i103 = phi ptr [ %149, %.lr.ph.i102 ], [ %146, %142 ]
-  call void %148(ptr noundef %14) #13
+  call void %148(ptr noundef nonnull %14) #13
   %149 = getelementptr inbounds i8, ptr %.07.i103, i64 8
   %150 = load ptr, ptr %149, align 8
   %.not.i104 = icmp eq ptr %150, null

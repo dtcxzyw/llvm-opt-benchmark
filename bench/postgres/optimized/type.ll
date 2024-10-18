@@ -155,7 +155,7 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnam
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %12 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %mm_strdup.exit27
 
@@ -211,7 +211,7 @@ mm_strdup.exit:                                   ; preds = %ECPGmake_simple_typ
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %28, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %38 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %mm_strdup.exit31
 
@@ -381,7 +381,7 @@ ECPGmake_struct_member.exit:                      ; preds = %96, %.critedge.i
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias nonnull ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %5 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %mm_strdup.exit
 
@@ -753,7 +753,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %102
-  %106 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.9) #11
+  %106 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %mm_strdup.exit240
 
@@ -780,7 +780,7 @@ mm_strdup.exit240:                                ; preds = %105
   br label %204
 
 119:                                              ; preds = %68
-  %120 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %120 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %mm_strdup.exit241
 
@@ -813,7 +813,7 @@ mm_strdup.exit241:                                ; preds = %119
   br label %204
 
 128:                                              ; preds = %68
-  %129 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %129 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %130 = icmp eq ptr %129, null
   br i1 %130, label %131, label %mm_strdup.exit242
 
@@ -822,7 +822,7 @@ mm_strdup.exit241:                                ; preds = %119
   unreachable
 
 mm_strdup.exit242:                                ; preds = %128
-  %132 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.1) #11
+  %132 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %mm_strdup.exit243
 
@@ -831,7 +831,7 @@ mm_strdup.exit242:                                ; preds = %128
   unreachable
 
 mm_strdup.exit243:                                ; preds = %mm_strdup.exit242
-  %135 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.9) #11
+  %135 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %mm_strdup.exit244
 
@@ -915,7 +915,7 @@ sub_1263:                                         ; preds = %sub_0262
   br label %204
 
 157:                                              ; preds = %68
-  %158 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.9) #11
+  %158 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %mm_strdup.exit245
 
@@ -924,7 +924,7 @@ sub_1263:                                         ; preds = %sub_0262
   unreachable
 
 mm_strdup.exit245:                                ; preds = %157
-  %161 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.9) #11
+  %161 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
   %162 = icmp eq ptr %161, null
   br i1 %162, label %163, label %mm_strdup.exit246
 
@@ -964,7 +964,7 @@ mm_strdup.exit246:                                ; preds = %mm_strdup.exit245
   br label %204
 
 172:                                              ; preds = %68
-  %173 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.9) #11
+  %173 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
   %174 = icmp eq ptr %173, null
   br i1 %174, label %175, label %mm_strdup.exit247
 
@@ -973,7 +973,7 @@ mm_strdup.exit246:                                ; preds = %mm_strdup.exit245
   unreachable
 
 mm_strdup.exit247:                                ; preds = %172
-  %176 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.9) #11
+  %176 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
   %177 = icmp eq ptr %176, null
   br i1 %177, label %178, label %mm_strdup.exit248
 
@@ -1521,7 +1521,7 @@ sub_1164:                                         ; preds = %sub_0163
   br i1 %138, label %switch.hole_check, label %139
 
 139:                                              ; preds = %switch.hole_check, %137
-  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef %2) #11
+  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef range(i32 30, 29) %2) #11
   br label %get_type.exit
 
 switch.hole_check:                                ; preds = %137
@@ -1546,7 +1546,7 @@ get_type.exit:                                    ; preds = %switch.lookup, %139
   br i1 %143, label %switch.hole_check183, label %144
 
 144:                                              ; preds = %switch.hole_check183, %142
-  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef %2) #11
+  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef range(i32 30, 29) %2) #11
   br label %get_type.exit145
 
 switch.hole_check183:                             ; preds = %142

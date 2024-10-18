@@ -133,7 +133,7 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThreadC2Ev(ptr noundef no
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 21, ptr noundef nonnull @.str.7, i1 noundef zeroext true) #7
+  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef 21, ptr noundef nonnull @.str.7, i1 noundef zeroext true) #7
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -403,7 +403,7 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThreadD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #7
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #7
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #7
   ret void
 }

@@ -71,18 +71,18 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %35, i64 noundef 16) #5
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %35, i64 noundef 16) #5
   %36 = load ptr, ptr %10, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 384
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(308) %10, i32 %1, ptr %31, i64 %34, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(1041) %8, ptr noundef nonnull %2, ptr noundef %4) #5
   %40 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %40, i64 noundef 16) #5
-  %41 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #5
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %40, i64 noundef 16) #5
+  %41 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #5
   br i1 %41, label %_ZN4llvm15AllocationOrderC2EONS_11SmallVectorItLj16EEENS_8ArrayRefItEEb.exit, label %42
 
 42:                                               ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit
-  %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplItEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplItEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(56) %6)
   br label %_ZN4llvm15AllocationOrderC2EONS_11SmallVectorItLj16EEENS_8ArrayRefItEEb.exit
 
 _ZN4llvm15AllocationOrderC2EONS_11SmallVectorItLj16EEENS_8ArrayRefItEEb.exit: ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit, %42
@@ -93,7 +93,7 @@ _ZN4llvm15AllocationOrderC2EONS_11SmallVectorItLj16EEENS_8ArrayRefItEEb.exit: ; 
   %spec.select.i = select i1 %39, i32 0, i32 %33
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %spec.select.i, ptr %45, align 8
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #5
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #5
   %47 = load ptr, ptr %6, align 8
   %48 = icmp eq ptr %47, %35
   br i1 %48, label %_ZN4llvm11SmallVectorItLj16EED2Ev.exit, label %49

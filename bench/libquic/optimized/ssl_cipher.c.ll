@@ -3419,7 +3419,7 @@ for.body:                                         ; preds = %if.end143, %for.inc
   %j.095 = phi i64 [ %inc160, %for.inc ], [ 0, %if.end143 ]
   %arrayidx = getelementptr inbounds [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %j.095
   %24 = load ptr, ptr %arrayidx, align 16
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef %buf_len.0) #16
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef range(i64 1, 0) %buf_len.0) #16
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %rule_equals.exit, label %for.inc
 
@@ -3448,7 +3448,7 @@ for.body168:                                      ; preds = %if.end161, %for.inc
   %j.196 = phi i64 [ %inc198, %for.inc197 ], [ 0, %if.end161 ]
   %arrayidx169 = getelementptr inbounds [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %j.196
   %27 = load ptr, ptr %arrayidx169, align 16
-  %call.i105 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef %buf_len.0) #16
+  %call.i105 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef range(i64 1, 0) %buf_len.0) #16
   %cmp.i106 = icmp eq i32 %call.i105, 0
   br i1 %cmp.i106, label %rule_equals.exit111, label %for.inc197
 
@@ -3727,7 +3727,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then29.i:                                      ; preds = %for.body.i
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 4, i32 noundef %43, i32 noundef 0, ptr noundef %head_p, ptr noundef %tail_p)
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 4, i32 noundef %43, i32 noundef 0, ptr noundef nonnull %head_p, ptr noundef nonnull %tail_p)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then29.i, %for.body.i

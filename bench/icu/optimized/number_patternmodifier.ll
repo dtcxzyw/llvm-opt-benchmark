@@ -605,7 +605,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 112
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -653,7 +653,7 @@ entry:
   %fCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol) #22
   %fLocaleName = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #22
   %fCurrency = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency) #22
   ret void
@@ -724,7 +724,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   %call8.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fIntlCurrencySymbol.i, ptr noundef nonnull align 8 dereferenceable(64) %fIntlCurrencySymbol7.i) #22
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fIntlCurrencySymbol7.i) #22
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol5.i) #22
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName3.i) #22
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName3.i) #22
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency2.i) #22
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp2) #22
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp) #22
@@ -1014,7 +1014,7 @@ ehcleanup.i:                                      ; preds = %lpad8.i, %lpad3.i
 
 ehcleanup10.i:                                    ; preds = %ehcleanup.i, %lpad.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %24, %lpad.i ]
-  call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call16) #22
+  call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %call16) #22
   br label %lpad24.body
 
 lpad24:                                           ; preds = %new.notnull18
@@ -2094,7 +2094,7 @@ entry:
   %fCurrencySymbol.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i) #22
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #22
   %fCurrency.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i) #22
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2) #22
@@ -2117,7 +2117,7 @@ entry:
   %fCurrencySymbol.i.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i.i) #22
   %fLocaleName.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i.i) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i.i) #22
   %fCurrency.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i.i) #22
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i) #22
@@ -2141,7 +2141,7 @@ entry:
   %fCurrencySymbol.i.i = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i.i) #22
   %fLocaleName.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i.i) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i.i) #22
   %fCurrency.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i.i) #22
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i) #22
@@ -2164,12 +2164,12 @@ entry:
   %fCurrencySymbol.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i.i.i) #22
   %fLocaleName.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i.i.i) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i.i.i) #22
   %fCurrency.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i.i.i) #22
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i.i) #22
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(392) %0) #22
   ret void
 }
 
@@ -2188,7 +2188,7 @@ entry:
   %fCurrencySymbol.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i.i) #22
   %fLocaleName.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i.i) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i.i) #22
   %fCurrency.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i.i) #22
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
@@ -2211,12 +2211,12 @@ entry:
   %fCurrencySymbol.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i.i.i) #22
   %fLocaleName.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i.i.i) #22
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i.i.i) #22
   %fCurrency.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i.i.i) #22
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i) #22
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(392) %0) #22
   ret void
 }
 
@@ -2307,7 +2307,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   br i1 %arraydestroy.done.i, label %_ZN6icu_756number4impl21AdoptingModifierStoreD2Ev.exit, label %arraydestroy.body.i
 
 _ZN6icu_756number4impl21AdoptingModifierStoreD2Ev.exit: ; preds = %arraydestroy.body.i
-  tail call void @_ZN6icu_756number4impl13ModifierStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN6icu_756number4impl13ModifierStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) #22
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #22
   ret void
 }

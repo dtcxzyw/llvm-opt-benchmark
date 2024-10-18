@@ -1598,7 +1598,7 @@ define void @_ZN5dtm_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(928) %
 .noexc:                                           ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 728
   store ptr %9, ptr %10, align 8
-  invoke void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @_Z16host_thread_mainPv, ptr noundef nonnull %0)
+  invoke void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @_Z16host_thread_mainPv, ptr noundef nonnull align 8 dereferenceable(928) %0)
           to label %.noexc6 unwind label %13
 
 .noexc6:                                          ; preds = %.noexc

@@ -463,7 +463,7 @@ for.body:                                         ; preds = %_ZN4node21FIXED_ONE
   %call57 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %22) #22
   %23 = load ptr, ptr %add.ptr.i, align 8
   store ptr %23, ptr %ref.tmp61, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61)
   store ptr %call57, ptr %call.i, align 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.080, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
@@ -482,7 +482,7 @@ for.body76:                                       ; preds = %for.end, %for.inc28
   %add.ptr.i50 = getelementptr inbounds i8, ptr %__begin3.sroa.0.084, i64 8
   %25 = load ptr, ptr %add.ptr.i50, align 8
   store ptr %25, ptr %ref.tmp79, align 8
-  %call.i51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79)
+  %call.i51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79)
   %obj.sroa.0.0.copyload = load ptr, ptr %call.i51, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_str) #22
   %26 = load ptr, ptr %add.ptr.i50, align 8
@@ -617,9 +617,9 @@ for.body300:                                      ; preds = %cleanup.cont287, %f
 if.end309:                                        ; preds = %for.body300
   %47 = load ptr, ptr %add.ptr.i54, align 8
   store ptr %47, ptr %ref.tmp310, align 8
-  %call.i55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp310)
+  %call.i55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp310)
   %from.sroa.0.0.copyload = load ptr, ptr %call.i55, align 8
-  %call.i56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %wraps)
+  %call.i56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %wraps)
   %to.sroa.0.0.copyload = load ptr, ptr %call.i56, align 8
   %call336 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %from.sroa.0.0.copyload, ptr %call, ptr %call.i.i41, ptr %to.sroa.0.0.copyload) #22
   %tobool.i667 = trunc i16 %call336 to i1
@@ -646,7 +646,7 @@ for.body354:                                      ; preds = %for.end342, %for.co
   %add.ptr.i59 = getelementptr inbounds i8, ptr %__begin2344.sroa.0.094, i64 8
   %48 = load ptr, ptr %add.ptr.i59, align 8
   store ptr %48, ptr %source, align 8
-  %call.i60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %source)
+  %call.i60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %source)
   %49 = load ptr, ptr %call.i60, align 8
   %call371 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr %call, ptr %call.i.i) #22
   %cmp.i.i920.not = icmp eq ptr %call371, null
@@ -669,7 +669,7 @@ for.body393:                                      ; preds = %if.end382, %for.inc
   %__begin3385.sroa.0.089 = phi ptr [ %call.i63, %for.inc502 ], [ %50, %if.end382 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3385.sroa.0.089, i64 32
   %second395 = getelementptr inbounds i8, ptr %__begin3385.sroa.0.089, i64 40
-  %call.i62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %second395)
+  %call.i62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_NS1_5LocalINS1_6ObjectEEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %info_objects, ptr noundef nonnull align 8 dereferenceable(8) %second395)
   %to_object.sroa.0.0.copyload = load ptr, ptr %call.i62, align 8
   %51 = load ptr, ptr %isolate_, align 8
   %call398 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %51) #22
@@ -1011,7 +1011,7 @@ if.then71:                                        ; preds = %if.end
 
 if.end72:                                         ; preds = %if.end
   %call.i = call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25, !noalias !10
-  call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %call.i, ptr noundef nonnull %env, ptr nonnull %call65, i32 noundef 12, double noundef -1.000000e+00) #22, !noalias !10
+  call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(136) %call.i, ptr noundef nonnull %env, ptr nonnull %call65, i32 noundef 12, double noundef -1.000000e+00) #22, !noalias !10
   %11 = getelementptr inbounds i8, ptr %call.i, i64 56
   %listener_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %12 = getelementptr inbounds i8, ptr %call.i, i64 72
@@ -1033,12 +1033,12 @@ if.end72:                                         ; preds = %if.end
   %14 = load i64, ptr %snapshot, align 8, !noalias !10
   store i64 %14, ptr %snapshot_.i.i, align 8, !noalias !10
   store ptr null, ptr %snapshot, align 8, !noalias !10
-  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #22, !noalias !10
+  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(136) %call.i) #22, !noalias !10
   %vtable.i.i = load ptr, ptr %11, align 8, !noalias !10
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 136
   %15 = load ptr, ptr %vfn.i.i, align 8, !noalias !10
   %call.i.i11 = call ptr %15(ptr noundef nonnull align 8 dereferenceable(64) %11) #22, !noalias !10
-  call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %call.i.i11, i32 noundef 2, ptr noundef nonnull %11) #22, !noalias !10
+  call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %call.i.i11, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(64) %11) #22, !noalias !10
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #22, !noalias !10
   %cmp2.not.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp2.not.i.i, label %do.body6.i.i, label %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i.i
@@ -1108,7 +1108,7 @@ do.end7:                                          ; preds = %entry
   %call18 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call13) #22
   %call20 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %options_value.coerce) #22
   %add.ptr = getelementptr inbounds i8, ptr %call18, i64 %call20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 28, i1 false)
   %0 = load i8, ptr %add.ptr, align 1
   %tobool.not = icmp ne i8 %0, 0
   %cond = zext i1 %tobool.not to i32
@@ -1203,7 +1203,7 @@ _ZN4node4heap22GetHeapSnapshotOptionsEN2v85LocalINS1_5ValueEEE.exit: ; preds = %
   %call18.i = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call13.i) #22, !noalias !13
   %call20.i = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #22, !noalias !13
   %add.ptr.i = getelementptr inbounds i8, ptr %call18.i, i64 %call20.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %options, i8 0, i64 28, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %options, i8 0, i64 28, i1 false), !alias.scope !13
   %14 = load i8, ptr %add.ptr.i, align 1, !noalias !13
   %tobool.not.i = icmp ne i8 %14, 0
   %cond.i = zext i1 %tobool.not.i to i32
@@ -1406,7 +1406,7 @@ if.end5.i:                                        ; preds = %if.end.i218
 if.then19:                                        ; preds = %if.end5.i
   %thread_id_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2072
   %25 = load i64, ptr %thread_id_.i.i, align 8
-  call void @_ZN4node18DiagnosticFilename12MakeFilenameB5cxx11EmPKcS2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name, i64 noundef %25, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #22
+  call void @_ZN4node18DiagnosticFilename12MakeFilenameB5cxx11EmPKcS2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 dereferenceable(32) %name, i64 noundef %25, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #22
   %exec_path_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1776
   call void @_ZN4node11Environment6GetCwdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %exec_path_.i) #22
   %call24 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #22
@@ -2102,7 +2102,7 @@ entry:
   %ref.tmp = alloca %"struct.std::pair.396", align 8
   store ptr %from, ptr %from.addr, align 8
   %edges_ = getelementptr inbounds i8, ptr %this, i64 128
-  %call.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_St3setIS5_IPKcS4_ESt4lessISA_ESaISA_EEESaISF_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %edges_, ptr noundef nonnull align 8 dereferenceable(8) %from.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIPN2v813EmbedderGraph4NodeESt4pairIKS4_St3setIS5_IPKcS4_ESt4lessISA_ESaISA_EEESaISF_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %edges_, ptr noundef nonnull align 8 dereferenceable(8) %from.addr)
   store ptr %name, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %to, ptr %0, align 8
@@ -3871,7 +3871,7 @@ _ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr, align 8
   %default_listener_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i) #22
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #22
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #22
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #22
   ret void
 }
@@ -3898,8 +3898,8 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #22
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #22
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #22
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #22
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -4281,8 +4281,8 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #22
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #22
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
   ret void
 }
 
@@ -4308,9 +4308,9 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev.exit: ; preds = %entry, %if.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #22
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #22
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(136) %0) #24
   ret void
 }
 
@@ -4424,8 +4424,8 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #22
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #22
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #22
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
   ret void
 }
 
@@ -4451,9 +4451,9 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev.exit: ; preds = %entry, %if.
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i.i, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #22
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #22
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #22
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(136) %0) #24
   ret void
 }
 

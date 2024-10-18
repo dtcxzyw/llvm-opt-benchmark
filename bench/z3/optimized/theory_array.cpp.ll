@@ -245,7 +245,7 @@ lpad2.i:                                          ; preds = %invoke.cont5
           cleanup
   %m_scopes.i = getelementptr inbounds i8, ptr %this, i64 392
   tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes.i) #16
-  tail call void @_ZN10ptr_vectorI5trailED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack.i.i) #16
+  tail call void @_ZN10ptr_vectorI5trailED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack.i.i) #16
   br label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -1130,7 +1130,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIPN3smt5e
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack)
   %.pre.i.i = load ptr, ptr %m_trail_stack, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -1167,7 +1167,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN3smt5e
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN3smt12theory_array19instantiate_axiom2aEPNS_5enodeES2_.exit
   %__begin1.025 = phi ptr [ %25, %for.body.lr.ph ], [ %incdec.ptr, %_ZN3smt12theory_array19instantiate_axiom2aEPNS_5enodeES2_.exit ]
   %28 = load ptr, ptr %__begin1.025, align 8
-  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %s, ptr noundef %28)
+  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %s, ptr noundef %28)
   br i1 %call.i, label %if.then.i20, label %_ZN3smt12theory_array19instantiate_axiom2aEPNS_5enodeES2_.exit
 
 if.then.i20:                                      ; preds = %for.body
@@ -1284,7 +1284,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIPN3smt5e
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack)
   %.pre.i.i = load ptr, ptr %m_trail_stack, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -1347,7 +1347,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %cmp.i17, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %lor.lhs.false, %for.body
-  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %s, ptr noundef %27)
+  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %s, ptr noundef %27)
   br i1 %call.i, label %if.then.i18, label %for.inc
 
 if.then.i18:                                      ; preds = %if.then17
@@ -1752,7 +1752,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN11trail_stack8push_ptrEP5trail.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE9push_backERKj.exit32
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
   %.pre.i.i = load ptr, ptr %21, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -1911,7 +1911,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIPN3smt5e
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack)
   %.pre.i.i = load ptr, ptr %m_trail_stack, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -1947,7 +1947,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN3smt5e
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN3smt12theory_array19instantiate_axiom2aEPNS_5enodeES2_.exit
   %__begin1.036 = phi ptr [ %21, %for.body.lr.ph ], [ %incdec.ptr, %_ZN3smt12theory_array19instantiate_axiom2aEPNS_5enodeES2_.exit ]
   %24 = load ptr, ptr %__begin1.036, align 8
-  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %24, ptr noundef %s)
+  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %24, ptr noundef %s)
   br i1 %call.i, label %if.then.i20, label %_ZN3smt12theory_array19instantiate_axiom2aEPNS_5enodeES2_.exit
 
 if.then.i20:                                      ; preds = %for.body
@@ -2008,7 +2008,7 @@ lor.lhs.false:                                    ; preds = %for.body17
   br i1 %cmp.i29, label %if.then22, label %for.inc25
 
 if.then22:                                        ; preds = %lor.lhs.false, %for.body17
-  %call.i30 = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %32, ptr noundef %s)
+  %call.i30 = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %32, ptr noundef %s)
   br i1 %call.i30, label %if.then.i31, label %for.inc25
 
 if.then.i31:                                      ; preds = %if.then22
@@ -2112,7 +2112,7 @@ for.body8:                                        ; preds = %_ZN6vectorIPN3smt5e
   %result.116 = phi i1 [ %spec.select, %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit ], [ %result.019, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13 ]
   %__begin2.015 = phi ptr [ %incdec.ptr, %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit ], [ %6, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13 ]
   %9 = load ptr, ptr %__begin2.015, align 8
-  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %5, ptr noundef %9)
+  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %5, ptr noundef %9)
   br i1 %call.i, label %if.then.i, label %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit
 
 if.then.i:                                        ; preds = %for.body8
@@ -2195,7 +2195,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.end
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack)
   %.pre.i.i = load ptr, ptr %m_trail_stack, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -2265,7 +2265,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13.i:    ; preds = %for.body.i
 for.body8.i:                                      ; preds = %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13.i, %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit.i
   %__begin2.015.i = phi ptr [ %incdec.ptr.i, %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit.i ], [ %23, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13.i ]
   %27 = load ptr, ptr %__begin2.015.i, align 8
-  %call.i.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %24, ptr noundef %27)
+  %call.i.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %24, ptr noundef %27)
   br i1 %call.i.i, label %if.then.i.i15, label %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit.i
 
 if.then.i.i15:                                    ; preds = %for.body8.i
@@ -2884,7 +2884,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end8
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.end8
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %15)
   %.pre.i.i = load ptr, ptr %15, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -2957,7 +2957,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   %9 = load ptr, ptr %arrayidx.i.i13, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom.i.i.i
   %10 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base21assert_extensionalityEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %10, ptr noundef %9)
+  %call.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base21assert_extensionalityEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %10, ptr noundef %9)
   br i1 %call.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -3369,7 +3369,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end35
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(249) %this)
+  %call.i = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(444) %this)
   %m_num_eq_splits.i = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load i32, ptr %m_num_eq_splits.i, align 8
   %add.i = add i32 %5, %call.i
@@ -3398,7 +3398,7 @@ if.then17:                                        ; preds = %if.else13
   br i1 %cmp21, label %if.then22, label %if.end35
 
 if.then22:                                        ; preds = %if.then17
-  %call.i3 = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(249) %this)
+  %call.i3 = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(444) %this)
   %m_num_eq_splits.i4 = getelementptr inbounds i8, ptr %this, i64 288
   %9 = load i32, ptr %m_num_eq_splits.i4, align 8
   %add.i5 = add i32 %9, %call.i3
@@ -3408,7 +3408,7 @@ if.then22:                                        ; preds = %if.then17
   br label %if.end35
 
 if.else25:                                        ; preds = %if.else13
-  %call.i8 = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(249) %this)
+  %call.i8 = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(444) %this)
   %m_num_eq_splits.i9 = getelementptr inbounds i8, ptr %this, i64 288
   %10 = load i32, ptr %m_num_eq_splits.i9, align 8
   %add.i10 = add i32 %10, %call.i8
@@ -3566,7 +3566,7 @@ for.body8.i:                                      ; preds = %_ZN6vectorIPN3smt5e
   %result.116.i = phi i1 [ %18, %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit.i ], [ %result.019.i, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13.i ]
   %__begin2.015.i = phi ptr [ %incdec.ptr.i, %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit.i ], [ %12, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit13.i ]
   %16 = load ptr, ptr %__begin2.015.i, align 8
-  %call.i.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %13, ptr noundef %16)
+  %call.i.i = tail call noundef zeroext i1 @_ZN3smt17theory_array_base19assert_store_axiom2EPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(444) %this, ptr noundef %13, ptr noundef %16)
   br i1 %call.i.i, label %if.then.i.i, label %_ZN3smt12theory_array19instantiate_axiom2bEPNS_5enodeES2_.exit.i
 
 if.then.i.i:                                      ; preds = %for.body8.i
@@ -4465,7 +4465,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -314,7 +314,7 @@ Map_LibraryReadGate.exit.i:                       ; preds = %107, %98
   br i1 %137, label %Extra_ProgressBarUpdate.exit.i, label %138
 
 138:                                              ; preds = %135, %._crit_edge84.i
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %49, i32 noundef %134, ptr noundef null) #12
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %49, i32 noundef range(i32 -2147483647, -2147483648) %134, ptr noundef null) #12
   br label %Extra_ProgressBarUpdate.exit.i
 
 Extra_ProgressBarUpdate.exit.i:                   ; preds = %138, %135

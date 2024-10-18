@@ -335,13 +335,13 @@ do.end17:                                         ; preds = %entry
           to label %call.i.noexc unwind label %lpad20
 
 call.i.noexc:                                     ; preds = %do.end17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef %call.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call18, ptr noundef %call.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
           to label %if.end.i unwind label %lpad20
 
 lpad.i:                                           ; preds = %if.end.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %call18) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call18) #13
   br label %lpad20.body
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -458,7 +458,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

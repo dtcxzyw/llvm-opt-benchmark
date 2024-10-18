@@ -302,14 +302,14 @@ if.end6:
   %1 = load atomic volatile i64, ptr %sum.i monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i)
   store i64 %1, ptr %value.addr.i, align 8
-  call void @_ZN4base6Pickle16WriteBytesStaticILm8EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i)
+  call void @_ZN4base6Pickle16WriteBytesStaticILm8EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 8 dereferenceable(8) %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
   %2 = load ptr, ptr %meta_.i, align 8
   %redundant_count.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load atomic volatile i32, ptr %redundant_count.i monotonic, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i6)
   store i32 %3, ptr %value.addr.i6, align 4
-  call void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i6)
+  call void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 4 dereferenceable(4) %value.addr.i6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i6)
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
@@ -357,7 +357,7 @@ invoke.cont14:                                    ; preds = %for.body
   %12 = load i32, ptr %min, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i7)
   store i32 %12, ptr %value.addr.i7, align 4
-  invoke void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i7)
+  invoke void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 4 dereferenceable(4) %value.addr.i7)
           to label %lor.lhs.false unwind label %lpad
 
 lor.lhs.false:                                    ; preds = %invoke.cont14
@@ -365,7 +365,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont14
   %13 = load i32, ptr %max, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i8)
   store i32 %13, ptr %value.addr.i8, align 4
-  invoke void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i8)
+  invoke void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 4 dereferenceable(4) %value.addr.i8)
           to label %lor.lhs.false19 unwind label %lpad
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false
@@ -373,7 +373,7 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false
   %14 = load i32, ptr %count, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i10)
   store i32 %14, ptr %value.addr.i10, align 4
-  invoke void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i10)
+  invoke void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 4 dereferenceable(4) %value.addr.i10)
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %lor.lhs.false19

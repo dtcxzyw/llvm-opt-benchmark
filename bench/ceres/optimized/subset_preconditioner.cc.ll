@@ -87,7 +87,7 @@ define hidden void @_ZN5ceres8internal20SubsetPreconditionerC2ENS0_14Preconditio
   %8 = alloca %"class.std::unique_ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal20SubsetPreconditionerE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 24, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
@@ -483,7 +483,7 @@ _ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.
   br label %_ZN5ceres8internal20SubsetPreconditionerD2Ev.exit
 
 _ZN5ceres8internal20SubsetPreconditionerD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit.i, %20
-  tail call void @_ZN5ceres8internal14PreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  tail call void @_ZN5ceres8internal14PreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

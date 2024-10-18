@@ -197,7 +197,7 @@ if.end.i7.i.i:                                    ; preds = %ZSTD_estimateSubBlo
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i.i.i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ofCodePtr.0.ph.i, i64 %seqCount.1216.i
   store i32 31, ptr %max.i.i.i.i, align 4
-  %call.i.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i.i.i.i, ptr noundef %ofCodePtr.0.ph.i, i64 noundef %seqCount.1216.i, ptr noundef %6, i64 noundef 8920) #4
+  %call.i.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i.i.i.i, ptr noundef %ofCodePtr.0.ph.i, i64 noundef range(i64 1, 0) %seqCount.1216.i, ptr noundef %6, i64 noundef 8920) #4
   switch i32 %25, label %if.else5.i.i.i.i [
     i32 0, label %if.then.i.i.i.i
     i32 1, label %while.cond.preheader.i.i.i.i
@@ -258,7 +258,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i:  ; preds = %while.end.i.i.i.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i17.i.i.i)
   %add.ptr.i18.i.i.i = getelementptr inbounds i8, ptr %llCodePtr.0.ph.i, i64 %seqCount.1216.i
   store i32 35, ptr %max.i17.i.i.i, align 4
-  %call.i19.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i17.i.i.i, ptr noundef %llCodePtr.0.ph.i, i64 noundef %seqCount.1216.i, ptr noundef %6, i64 noundef 8920) #4
+  %call.i19.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i17.i.i.i, ptr noundef %llCodePtr.0.ph.i, i64 noundef range(i64 1, 0) %seqCount.1216.i, ptr noundef %6, i64 noundef 8920) #4
   switch i32 %29, label %if.else5.i37.i.i.i [
     i32 0, label %if.then.i28.i.i.i
     i32 1, label %while.cond.preheader.i20.i.i.i
@@ -322,7 +322,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit41.i.i.i: ; preds = %while.end.i23.i.i.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i42.i.i.i)
   %add.ptr.i43.i.i.i = getelementptr inbounds i8, ptr %mlCodePtr.0.ph.i, i64 %seqCount.1216.i
   store i32 52, ptr %max.i42.i.i.i, align 4
-  %call.i44.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i42.i.i.i, ptr noundef %mlCodePtr.0.ph.i, i64 noundef %seqCount.1216.i, ptr noundef %6, i64 noundef 8920) #4
+  %call.i44.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i42.i.i.i, ptr noundef %mlCodePtr.0.ph.i, i64 noundef range(i64 1, 0) %seqCount.1216.i, ptr noundef %6, i64 noundef 8920) #4
   switch i32 %34, label %if.else5.i72.i.i.i [
     i32 0, label %if.then.i63.i.i.i
     i32 1, label %while.cond.preheader.i45.i.i.i

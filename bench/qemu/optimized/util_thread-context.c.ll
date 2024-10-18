@@ -283,7 +283,7 @@ for.body.i:                                       ; preds = %if.end4, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %4 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
+  %4 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %3, i1 true)
   %add.i = or disjoint i64 %4, %result.012.i
   %cond.i = call i64 @llvm.umin.i64(i64 %add.i, i64 %2)
   br label %find_first_bit.exit
@@ -561,7 +561,7 @@ if.then.i29:                                      ; preds = %for.end26
   br label %bitmap_empty.exit
 
 if.else.i:                                        ; preds = %for.end26
-  %call.i28 = call i32 @slow_bitmap_empty(ptr noundef nonnull %call.i.i, i64 noundef %conv) #8
+  %call.i28 = call i32 @slow_bitmap_empty(ptr noundef nonnull %call.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv) #8
   br label %bitmap_empty.exit
 
 bitmap_empty.exit:                                ; preds = %if.then.i29, %if.else.i

@@ -1160,7 +1160,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not35.i, label %111, label %113
 
 111:                                              ; preds = %107
-  %112 = tail call i32 @scontrol_create_node(i32 noundef %94, ptr noundef nonnull %95) #17
+  %112 = tail call i32 @scontrol_create_node(i32 noundef range(i32 1, 2147483647) %94, ptr noundef nonnull %95) #17
   br label %124
 
 113:                                              ; preds = %107
@@ -1169,7 +1169,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not36.i, label %115, label %117
 
 115:                                              ; preds = %113
-  %116 = tail call i32 @scontrol_create_part(i32 noundef %94, ptr noundef nonnull %95) #17
+  %116 = tail call i32 @scontrol_create_part(i32 noundef range(i32 1, 2147483647) %94, ptr noundef nonnull %95) #17
   br label %124
 
 117:                                              ; preds = %113
@@ -1178,7 +1178,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not37.i, label %119, label %96
 
 119:                                              ; preds = %117
-  %120 = tail call i32 @scontrol_create_res(i32 noundef %94, ptr noundef nonnull %95) #17
+  %120 = tail call i32 @scontrol_create_res(i32 noundef range(i32 1, 2147483647) %94, ptr noundef nonnull %95) #17
   br label %124
 
 121:                                              ; preds = %96

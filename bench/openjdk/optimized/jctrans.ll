@@ -95,15 +95,15 @@ define hidden void @jWrtCoefs(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %exitcond.not.i.i, label %transencode_master_selection.exit, label %47, !llvm.loop !6
 
 transencode_master_selection.exit:                ; preds = %47
-  tail call void @jIMWriter(ptr noundef %0) #3
+  tail call void @jIMWriter(ptr noundef nonnull %0) #3
   %50 = load ptr, ptr %35, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef %0) #3
+  tail call void %52(ptr noundef nonnull %0) #3
   %53 = getelementptr inbounds i8, ptr %0, i64 464
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef %0) #3
+  tail call void %55(ptr noundef nonnull %0) #3
   %56 = getelementptr inbounds i8, ptr %0, i64 304
   store i32 0, ptr %56, align 8
   store i32 103, ptr %3, align 4

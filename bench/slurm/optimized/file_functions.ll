@@ -1599,7 +1599,7 @@ _set_assoc_up.exit:                               ; preds = %312, %314
   unreachable
 
 _mod_cluster.exit:                                ; preds = %369
-  %376 = call fastcc i32 @_mod_assoc(ptr noundef %232, ptr noundef %368, i32 noundef 0, ptr noundef %343)
+  %376 = call fastcc i32 @_mod_assoc(ptr noundef nonnull %232, ptr noundef %368, i32 noundef 0, ptr noundef %343)
   %377 = add nuw nsw i32 %376, %.1.i507
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %6)

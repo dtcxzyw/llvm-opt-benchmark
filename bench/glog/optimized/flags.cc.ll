@@ -239,7 +239,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx1
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %13
 
 .noexc3:                                          ; preds = %.noexc
@@ -256,7 +256,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx1
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -432,7 +432,7 @@ define internal void @_GLOBAL__sub_I_flags.cc() #11 section ".text.startup" {
   br i1 %.not.i, label %2, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #12
+  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #12
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
@@ -455,7 +455,7 @@ __cxx_global_var_init.exit:                       ; preds = %2, %_ZN12_GLOBAL__N
   br i1 %.not.i1, label %11, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
 11:                                               ; preds = %__cxx_global_var_init.exit
-  %12 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.10) #12
+  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #12
   %.not.i.i4 = icmp eq ptr %12, null
   br i1 %.not.i.i4, label %__cxx_global_var_init.8.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
@@ -478,7 +478,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %11, %_ZN12_GLOBAL__
   br i1 %.not.i5, label %20, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
 20:                                               ; preds = %__cxx_global_var_init.8.exit
-  %21 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.17) #12
+  %21 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #12
   %.not.i.i8 = icmp eq ptr %21, null
   br i1 %.not.i.i8, label %__cxx_global_var_init.15.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
@@ -535,7 +535,7 @@ __cxx_global_var_init.28.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i11, label %45, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 
 45:                                               ; preds = %__cxx_global_var_init.28.exit
-  %46 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.36) #12
+  %46 = tail call ptr @getenv(ptr noundef nonnull @.str.36) #12
   %.not.i.i14 = icmp eq ptr %46, null
   br i1 %.not.i.i14, label %__cxx_global_var_init.34.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 

@@ -92,14 +92,14 @@ $_ZNSt6vectorItSaItEE17_M_default_appendEm = comdat any
 define void @_ZN3gmx7MDAtomsC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 0)
+  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0)
           to label %3 unwind label %8
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 0)
           to label %6 unwind label %10
 
 6:                                                ; preds = %3
@@ -120,7 +120,7 @@ define void @_ZN3gmx7MDAtomsC2Ev(ptr noundef nonnull align 8 dereferenceable(88)
   br i1 %.not.i.i.i.i, label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull %12) #14
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %12) #14
   br label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %13, %10, %8
@@ -432,7 +432,7 @@ define void @_ZN3gmx7MDAtoms13resizeChargeAEi(ptr noundef nonnull align 8 derefe
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %7, %2
   %.0.i.i = phi i64 [ %.sroa.speculated.i.i, %7 ], [ 0, %2 ]
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.0.i.i)
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %.0.i.i)
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -446,7 +446,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %7, %2
 
 21:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i
   %22 = sub nuw nsw i64 %5, %19
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %22)
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %22)
   %.pre.i = load ptr, ptr %13, align 8
   %.pre5.i = load ptr, ptr %12, align 8
   %.pre6.i = ptrtoint ptr %.pre5.i to i64
@@ -476,7 +476,7 @@ _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithP
   %33 = sub nsw i64 %.0.i.i, %32
   store float 0.000000e+00, ptr %3, align 4
   %34 = getelementptr inbounds i8, ptr %28, i64 %31
-  call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %34, i64 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr %34, i64 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds float, ptr %35, i64 %5
@@ -520,7 +520,7 @@ define linkonce_odr void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPol
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %18, %11
   %20 = shl nuw nsw i64 %1, 2
-  %21 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %20) #14
+  %21 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_M_allocateEm.exit
 
@@ -558,7 +558,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_S_relocateEPfS5_
   br i1 %.not.i8, label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit, label %31
 
 31:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_S_relocateEPfS5_S5_RS3_.exit
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %30) #14
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %30) #14
   br label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit
 
 _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_S_relocateEPfS5_S5_RS3_.exit, %31
@@ -634,7 +634,7 @@ _ZNKSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE12_M_check_lenEmPK
   %24 = add nuw nsw i64 %.sroa.speculated.i, %11
   %25 = tail call i64 @llvm.umin.i64(i64 %24, i64 2305843009213693951)
   %26 = shl nuw nsw i64 %25, 2
-  %27 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %26) #14
+  %27 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26) #14
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit28
 
@@ -668,7 +668,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_S_relocateEPfS5_
   br i1 %.not.i29, label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_S_relocateEPfS5_S5_RS3_.exit
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %7) #14
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7) #14
   br label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit
 
 _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE11_S_relocateEPfS5_S5_RS3_.exit, %36
@@ -825,7 +825,7 @@ _ZNKSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE12_M_check_lenEmPK
 
 62:                                               ; preds = %_ZNKSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE12_M_check_lenEmPKc.exit
   %63 = shl nuw nsw i64 %59, 2
-  %64 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %63) #14
+  %64 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %63) #14
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %.lr.ph.preheader.i82
 
@@ -886,7 +886,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocat
   br i1 %.not.i103, label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit, label %79
 
 79:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit102
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %49) #14
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %49) #14
   br label %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit
 
 _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit102, %79
@@ -921,7 +921,7 @@ define void @_ZN3gmx7MDAtoms13resizeChargeBEi(ptr noundef nonnull align 8 derefe
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %7, %2
   %.0.i.i = phi i64 [ %.sroa.speculated.i.i, %7 ], [ 0, %2 ]
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.0.i.i)
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %.0.i.i)
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
@@ -935,7 +935,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %7, %2
 
 21:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i
   %22 = sub nuw nsw i64 %5, %19
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %22)
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %22)
   %.pre.i = load ptr, ptr %13, align 8
   %.pre5.i = load ptr, ptr %12, align 8
   %.pre6.i = ptrtoint ptr %.pre5.i to i64
@@ -965,7 +965,7 @@ _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithP
   %33 = sub nsw i64 %.0.i.i, %32
   store float 0.000000e+00, ptr %3, align 4
   %34 = getelementptr inbounds i8, ptr %28, i64 %31
-  call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %34, i64 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr %34, i64 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds float, ptr %35, i64 %5
@@ -1342,7 +1342,7 @@ define linkonce_odr void @_ZN3gmx19changePinningPolicyINS_12PaddedVectorIfNS_9Al
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.i, label %30
 
 30:                                               ; preds = %8
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %18) #14
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %18) #14
   %.pre = load ptr, ptr %17, align 8
   %.pre2 = load ptr, ptr %11, align 8
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.i
@@ -1363,7 +1363,7 @@ _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEEaSEOS4_.exit:
   br i1 %.not.i.i.i.i, label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit, label %36
 
 36:                                               ; preds = %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEEaSEOS4_.exit
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %35) #14
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %35) #14
   br label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEEaSEOS4_.exit, %36
@@ -1397,7 +1397,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx7MDAtomsESt14default_deleteIS1_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %5) #14
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %5) #14
   br label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit.i.i
 
 _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit.i.i: ; preds = %6, %3
@@ -1408,7 +1408,7 @@ _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit.i.i
 
 10:                                               ; preds = %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit.i.i
   %11 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull %9) #14
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %9) #14
   br label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit2.i.i
 
 _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit2.i.i: ; preds = %10, %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEED2Ev.exit.i.i
@@ -1491,7 +1491,7 @@ define linkonce_odr void @_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocat
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
   %.0.i.i = phi i64 [ %.sroa.speculated.i.i, %32 ], [ 0, %22 ]
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.i.i)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i.i)
           to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i
@@ -1507,7 +1507,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
 
 45:                                               ; preds = %.noexc
   %46 = sub nuw nsw i64 %30, %43
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %46)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %46)
           to label %.noexc14 unwind label %71
 
 .noexc14:                                         ; preds = %45
@@ -1540,7 +1540,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i: ;
   %57 = sub nsw i64 %.0.i.i, %56
   store float 0.000000e+00, ptr %4, align 4
   %58 = getelementptr inbounds i8, ptr %52, i64 %55
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %58, i64 noundef %57, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %58, i64 noundef %57, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %59 unwind label %71
 
 59:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
@@ -1729,7 +1729,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit29:             ; preds = %74, %76, %78, %80
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %84, %_ZNSt6vectorIfSaIfEE6resizeEm.exit29
   %.0.i.i = phi i64 [ %.sroa.speculated.i.i, %84 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit29 ]
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %.0.i.i)
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %82, i64 noundef %.0.i.i)
   %89 = getelementptr inbounds i8, ptr %20, i64 128
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %82, align 8
@@ -1742,7 +1742,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %84, %_ZNSt6vectorIf
 
 97:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i
   %98 = sub nuw nsw i64 %.pre-phi, %95
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %98)
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %82, i64 noundef %98)
   %.pre.i = load ptr, ptr %89, align 8
   %.pre5.i = load ptr, ptr %82, align 8
   %.pre6.i = ptrtoint ptr %.pre5.i to i64
@@ -1772,7 +1772,7 @@ _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_23AlignedAllocationPolicyEEEE17resizeWi
   %109 = sub nsw i64 %.0.i.i, %108
   store float 0.000000e+00, ptr %8, align 4
   %110 = getelementptr inbounds i8, ptr %104, i64 %107
-  call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr %110, i64 noundef %109, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr %110, i64 noundef %109, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %111 = load ptr, ptr %82, align 8
   %112 = getelementptr inbounds float, ptr %111, i64 %.pre-phi

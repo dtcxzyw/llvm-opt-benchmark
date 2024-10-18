@@ -366,7 +366,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %arraydestroy.body.i
   br label %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i
 
 _ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %arraydestroy.body.i
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.i) #17
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %arraydestroy.element.i) #17
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %0
   br i1 %arraydestroy.done.i, label %_ZNKSt14default_deleteIA_N17grpc_event_engine12experimental9TimerList5ShardEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit, label %arraydestroy.body.i
 

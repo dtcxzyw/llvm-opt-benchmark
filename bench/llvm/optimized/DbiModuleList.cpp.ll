@@ -906,7 +906,7 @@ _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZNK4llvm16FixedStr
 _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIiLNS_10endiannessE1ELm1ELm1EEEEixEj.exit
   %116 = and i8 %114, -2
   store i8 %116, ptr %113, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   br label %117
 
 117:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit7, %_ZN4llvm5ErrorD2Ev.exit8, %_ZN4llvm5ErrorD2Ev.exit
@@ -1882,7 +1882,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15BinaryStr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %140 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i8 0, ptr %140, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 32, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %139, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %139, align 1
   %141 = zext i16 %.0.copyload.i.i.i to i32
@@ -2183,7 +2183,7 @@ _ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail
   %276 = shl i32 %193, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %277 = zext i32 %276 to i64
-  call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %277, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %12) #15
+  call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(52) %18, i64 noundef %277, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %12) #15
   %278 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %278, null
   br i1 %.not.i.i, label %_ZN4llvm24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEdeEv.exit, label %279
@@ -2508,7 +2508,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReader9readArrayINS_3pdb1
   %.sroa.5 = alloca { ptr, i64, %"class.std::optional" }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %3) #15
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
@@ -3019,7 +3019,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 1
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #15
   %52 = load ptr, ptr %0, align 8
@@ -3527,7 +3527,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 2
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #15
   %52 = load ptr, ptr %0, align 8
@@ -4727,12 +4727,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #15
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #15
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   ret void
 }
 

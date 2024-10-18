@@ -624,7 +624,7 @@ if.end:                                           ; preds = %_ZN4node11Environme
   %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 -8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %22 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %22, ptr nonnull %add.ptr.i) #15
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2, ptr noundef %22, ptr nonnull %add.ptr.i) #15
   %23 = getelementptr inbounds i8, ptr %call2, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes17SerializerContextE, i64 16), ptr %call2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes17SerializerContextE, i64 192), ptr %23, align 8
@@ -632,7 +632,7 @@ if.end:                                           ; preds = %_ZN4node11Environme
   %isolate_.i.i6 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %24 = load ptr, ptr %isolate_.i.i6, align 8
   tail call void @_ZN2v815ValueSerializerC1EPNS_7IsolateEPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8) %serializer_.i, ptr noundef %24, ptr noundef nonnull %23) #15
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call2) #15
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call2) #15
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -4138,7 +4138,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes17SerializerContextE, i64 192), ptr %add.ptr.i, align 8
   %serializer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN2v815ValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %serializer_.i) #15
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -4246,7 +4246,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes17SerializerContextE, i64 192), ptr %this, align 8
   %serializer_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN2v815ValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %serializer_.i) #15
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
   ret void
 }
 
@@ -4258,8 +4258,8 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes17SerializerContextE, i64 192), ptr %this, align 8
   %serializer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN2v815ValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %serializer_.i.i) #15
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %0) #18
   ret void
 }
 
@@ -4295,7 +4295,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes19DeserializerContextE, i64 176), ptr %add.ptr.i, align 8
   %deserializer_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN2v817ValueDeserializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %deserializer_.i) #15
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -4326,7 +4326,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes19DeserializerContextE, i64 176), ptr %this, align 8
   %deserializer_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN2v817ValueDeserializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %deserializer_.i) #15
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
   ret void
 }
 
@@ -4338,8 +4338,8 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6serdes19DeserializerContextE, i64 176), ptr %this, align 8
   %deserializer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN2v817ValueDeserializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %deserializer_.i.i) #15
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   ret void
 }
 
@@ -4482,7 +4482,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -4510,7 +4510,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
@@ -4706,7 +4706,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call18.i = tail call noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr noundef nonnull %this, i64 noundef 64) #15
+  %call18.i = tail call noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef 64) #15
   br label %_ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit
 
 _ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit: ; preds = %if.then.i, %if.else.i

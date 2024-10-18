@@ -107,7 +107,7 @@ define i32 @ompi_coll_base_barrier_intra_recursivedoubling(ptr noundef %0, ptr n
   %11 = getelementptr i8, ptr %0, i64 220
   %.val64 = load i32, ptr %11, align 4
   %12 = icmp eq i32 %.val.val, 0
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val.val, i1 true)
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, 1) %.val.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %13
   %14 = shl nuw i32 1, %narrow.i
   %15 = ashr i32 %14, 1

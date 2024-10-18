@@ -1243,7 +1243,7 @@ if.end10.i:                                       ; preds = %if.end5.i
   br i1 %tobool.not.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end10.i
-  call fastcc void @pyinit_config(ptr noalias align 8 %tmp12.i, ptr noundef %tstate, ptr noundef %config.i), !noalias !18
+  call fastcc void @pyinit_config(ptr noalias align 8 %tmp12.i, ptr noundef nonnull %tstate, ptr noundef %config.i), !noalias !18
   %tmp5.sroa.0.0.copyload17 = load i32, ptr %tmp12.i, align 8
   %tmp5.sroa.9.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 4
   %tmp5.sroa.9.0.copyload20 = load i32, ptr %tmp5.sroa.9.0.tmp12.i.sroa_idx, align 4

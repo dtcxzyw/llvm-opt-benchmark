@@ -432,7 +432,7 @@ switch.early.test.i.i.i173:                       ; preds = %land.lhs.true.i.i.i
 
 match_func_rec.exit.i:                            ; preds = %for.body.i155
   %50 = load ptr, ptr %find_func_priv.i.i, align 8
-  %call3.i.i160 = call i64 %46(ptr noundef %44, i64 noundef %45, ptr noundef nonnull %dummy.i149, i64 noundef 1, ptr noundef %50) #7
+  %call3.i.i160 = call i64 %46(ptr noundef %44, i64 noundef %45, ptr noundef nonnull %dummy.i149, i64 noundef range(i64 1, 81) 1, ptr noundef %50) #7
   %cmp13.i = icmp sgt i64 %call3.i.i160, -1
   br i1 %cmp13.i, label %get_func_line.exit, label %for.inc.i161
 
@@ -673,7 +673,7 @@ switch.early.test.i.i.i248:                       ; preds = %land.lhs.true.i.i.i
 
 match_func_rec.exit.i217:                         ; preds = %for.body.i211
   %89 = load ptr, ptr %find_func_priv.i.i, align 8
-  %call3.i.i218 = call i64 %85(ptr noundef %83, i64 noundef %84, ptr noundef nonnull %dummy.i198, i64 noundef 1, ptr noundef %89) #7
+  %call3.i.i218 = call i64 %85(ptr noundef %83, i64 noundef %84, ptr noundef nonnull %dummy.i198, i64 noundef range(i64 1, 81) 1, ptr noundef %89) #7
   %cmp13.i219 = icmp sgt i64 %call3.i.i218, -1
   br i1 %cmp13.i219, label %get_func_line.exit249, label %for.inc.i220
 
@@ -825,7 +825,7 @@ switch.early.test.i.i.i320:                       ; preds = %land.lhs.true.i.i.i
 
 match_func_rec.exit.i289:                         ; preds = %for.body.i283
   %110 = load ptr, ptr %find_func_priv.i.i, align 8
-  %call3.i.i290 = call i64 %106(ptr noundef %104, i64 noundef %105, ptr noundef nonnull %dummy.i269, i64 noundef 1, ptr noundef %110) #7
+  %call3.i.i290 = call i64 %106(ptr noundef %104, i64 noundef %105, ptr noundef nonnull %dummy.i269, i64 noundef range(i64 1, 81) 1, ptr noundef %110) #7
   %cmp13.i291 = icmp sgt i64 %call3.i.i290, -1
   br i1 %cmp13.i291, label %if.end190.sink.split, label %for.inc.i292
 
@@ -906,7 +906,7 @@ switch.early.test.i.i.i374:                       ; preds = %land.lhs.true.i.i.i
   ]
 
 if.then.i.i.i360:                                 ; preds = %switch.early.test.i.i.i374, %switch.early.test.i.i.i374, %land.lhs.true.i.i.i355
-  %spec.select.i.i.i361 = call i64 @llvm.umin.i64(i64 %116, i64 80)
+  %spec.select.i.i.i361 = call i64 @llvm.umin.i64(i64 %116, i64 range(i64 1, 81) 80)
   %invariant.gep.i.i.i362 = getelementptr i8, ptr %115, i64 -1
   br label %land.rhs.i.i.i363
 
@@ -933,7 +933,7 @@ match_func_rec.exit.thread16.i372:                ; preds = %while.body.i.i.i369
 
 match_func_rec.exit.i343:                         ; preds = %for.body.i337
   %124 = load ptr, ptr %find_func_priv.i.i, align 8
-  %call3.i.i344 = call i64 %117(ptr noundef %115, i64 noundef %116, ptr noundef nonnull %buf1.i, i64 noundef 80, ptr noundef %124) #7
+  %call3.i.i344 = call i64 %117(ptr noundef %115, i64 noundef %116, ptr noundef nonnull %buf1.i, i64 noundef range(i64 1, 81) 80, ptr noundef %124) #7
   %cmp13.i345 = icmp sgt i64 %call3.i.i344, -1
   br i1 %cmp13.i345, label %if.then.i351, label %for.inc.i346
 

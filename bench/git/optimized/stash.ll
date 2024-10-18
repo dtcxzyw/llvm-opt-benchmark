@@ -600,7 +600,7 @@ entry:
   %flags = getelementptr inbounds i8, ptr %options, i64 40
   store i32 2, ptr %flags, align 8
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_drop_usage, i32 noundef 0) #14
-  %call.i = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %call, ptr noundef readonly %argv)
+  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef readonly %argv)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end.i
 
@@ -684,7 +684,7 @@ entry:
   %ll_callback10 = getelementptr inbounds i8, ptr %options, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback10, i8 0, i64 112, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_pop_usage, i32 noundef 0) #14
-  %call.i = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %call, ptr noundef readonly %argv)
+  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef readonly %argv)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end.i
 

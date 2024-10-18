@@ -1130,7 +1130,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
 
 18:                                               ; preds = %16, %14
   %19 = phi i32 [ %.zext, %14 ], [ %17, %16 ]
-  %20 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 %19)
+  %20 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 range(i32 1, 536870912) %19)
   %21 = icmp samesign ult i32 %20, 2
   %22 = icmp samesign ult i32 %19, 9
   %or.cond.i = select i1 %21, i1 %22, i1 false
@@ -1140,7 +1140,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
   br i1 %or.cond, label %25, label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
 25:                                               ; preds = %18
-  %26 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %26 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 536870912) %19, i1 true)
   %27 = xor i32 %26, 31
   %28 = sub nuw nsw i32 8, %27
   %29 = select i1 %13, i32 %27, i32 %28
@@ -1794,7 +1794,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59

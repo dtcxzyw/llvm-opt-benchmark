@@ -1530,7 +1530,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %23, %_ZN26GrowableA
 
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %53 = load i32, ptr %13, align 4
   %54 = load i32, ptr %14, align 8
   %.not1.i = icmp slt i32 %53, %54
@@ -2672,7 +2672,7 @@ define hidden void @_ZN15MetaspaceShared21preload_and_dump_implER20StaticArchive
   store ptr null, ptr %41, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV26VM_PopulateDumpSharedSpace, i64 16), ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %42, i8 0, i64 16, i1 false)
   %43 = getelementptr inbounds i8, ptr %3, i64 32
   call void @_ZN11CHeapBitMapC1Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %43, i64 noundef 128, i8 noundef zeroext 13, i1 noundef zeroext true) #15
   %44 = getelementptr inbounds i8, ptr %3, i64 56

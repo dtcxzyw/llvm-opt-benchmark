@@ -225,7 +225,7 @@ _ZN13GrowableArrayI21StackSlotAnalysisDataEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   %27 = sub nuw nsw i32 32, %26
   %28 = shl nuw i32 1, %27
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %22, i32 %28
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i
 
@@ -335,7 +335,7 @@ define hidden void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr 
   %23 = sub nuw nsw i32 32, %22
   %24 = shl nuw i32 1, %23
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %18, i32 %24
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %0, align 8
   br label %25
 
@@ -363,7 +363,7 @@ define hidden void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr 
   %41 = sub nuw nsw i32 32, %40
   %42 = shl nuw i32 1, %41
   %.0.i.i.i.i.i.i5 = select i1 %or.cond.i.i.i.i.i.i4, i32 %36, i32 %42
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i.i5)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i.i5)
   %.pre.i.i.i6 = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3
 
@@ -393,7 +393,7 @@ _ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pus
   %57 = sub nuw nsw i32 32, %56
   %58 = shl nuw i32 1, %57
   %.0.i.i.i.i.i.i10 = select i1 %or.cond.i.i.i.i.i.i9, i32 %52, i32 %58
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i.i10)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i.i10)
   %.pre.i.i.i11 = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8
 
@@ -2117,7 +2117,7 @@ _ZN21SimulatedOperandStack3popEi.exit454:         ; preds = %614, %.lr.ph.prehea
 
 631:                                              ; preds = %627
   store i32 0, ptr %37, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
   br label %_ZN21SimulatedOperandStackD2Ev.exit
 
 _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %627, %631
@@ -2224,7 +2224,7 @@ _ZN21SimulatedOperandStack3popEi.exit.thread544:  ; preds = %654, %_ZN21Simulate
 
 675:                                              ; preds = %671
   store i32 0, ptr %37, align 4
-  call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
+  call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
   br label %_ZN21SimulatedOperandStackD2Ev.exit458
 
 _ZN21SimulatedOperandStackD2Ev.exit458:           ; preds = %671, %675
@@ -2266,7 +2266,7 @@ define hidden void @_ZN23ExceptionMessageBuilderD2Ev(ptr nocapture noundef nonnu
 
 16:                                               ; preds = %12
   store i32 0, ptr %10, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
   br label %_ZN21SimulatedOperandStackD2Ev.exit
 
 _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %12, %16
@@ -2396,7 +2396,7 @@ _ZN21SimulatedOperandStack5mergeERKS_.exit:       ; preds = %_ZN21StackSlotAnaly
 
 64:                                               ; preds = %60
   store i32 0, ptr %58, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %58)
+  tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %58)
   br label %_ZN21SimulatedOperandStackD2Ev.exit
 
 _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %60, %64
@@ -3459,7 +3459,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit55:   ; preds = %21, %25
   %.val = load ptr, ptr %76, align 8
   %77 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %77, align 8
-  %78 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %.val.val, i32 noundef %74, i32 noundef 181) #12
+  %78 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %.val.val, i32 noundef range(i32 0, 65536) %74, i32 noundef 181) #12
   %79 = zext i16 %78 to i32
   %80 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %.val.val, i32 noundef %79) #12
   %81 = getelementptr inbounds i8, ptr %.val.val, i64 72
@@ -3561,7 +3561,7 @@ _ZN23ExceptionMessageBuilder15print_NPE_causeEP12outputStreamii.exit: ; preds = 
 
 44:                                               ; preds = %40
   store i32 0, ptr %38, align 4
-  call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %38)
+  call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %38)
   br label %_ZN21SimulatedOperandStackD2Ev.exit.i
 
 _ZN21SimulatedOperandStackD2Ev.exit.i:            ; preds = %44, %40

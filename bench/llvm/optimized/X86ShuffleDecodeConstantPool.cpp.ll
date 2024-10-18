@@ -31,7 +31,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
   store i32 1, ptr %6, align 8
   store i64 0, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %7, i64 noundef 64) #5
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %5, ptr noundef nonnull %7, i64 noundef 64) #5
   %8 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef %0, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %.not20 = icmp ugt i32 %1, 7
   %or.cond.not = and i1 %.not20, %8
@@ -113,7 +113,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   br i1 %.not, label %.loopexit, label %15, !llvm.loop !4
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %3
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %5) #5
   %51 = load ptr, ptr %5, align 8
   %52 = icmp eq ptr %51, %7
   br i1 %52, label %_ZN4llvm11SmallVectorImLj64EED2Ev.exit, label %53
@@ -564,7 +564,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   store i32 1, ptr %7, align 8
   store i64 0, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %8, i64 noundef 16) #5
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %8, i64 noundef 16) #5
   %9 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br i1 %9, label %10, label %.loopexit
 
@@ -642,7 +642,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   br i1 %.not, label %.loopexit, label %19, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %10, %4
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #5
   %50 = load ptr, ptr %6, align 8
   %51 = icmp eq ptr %50, %8
   br i1 %51, label %_ZN4llvm11SmallVectorImLj16EED2Ev.exit, label %52
@@ -687,7 +687,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
   store i32 1, ptr %13, align 8
   store i64 0, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %14, i64 noundef 8) #5
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %14, i64 noundef 8) #5
   %15 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br i1 %15, label %16, label %.loopexit
 
@@ -788,7 +788,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   br i1 %.not, label %.loopexit, label %26, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %16, %5
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #5
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #5
   %67 = load ptr, ptr %8, align 8
   %68 = icmp eq ptr %67, %14
   br i1 %68, label %_ZN4llvm11SmallVectorImLj8EED2Ev.exit, label %69
@@ -838,7 +838,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   store i32 1, ptr %11, align 8
   store i64 0, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %12, i64 noundef 16) #5
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %12, i64 noundef 16) #5
   %13 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %.not24 = icmp ugt i32 %1, 7
   %or.cond.not = and i1 %.not24, %13
@@ -926,7 +926,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %3, %42
-  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #5
   %57 = load ptr, ptr %6, align 8
   %58 = icmp eq ptr %57, %12
   br i1 %58, label %_ZN4llvm11SmallVectorImLj16EED2Ev.exit, label %59

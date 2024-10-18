@@ -404,7 +404,7 @@ dissect_msgpack_float.exit:                       ; preds = %112, %120
   br i1 %148, label %164, label %169
 
 164:                                              ; preds = %.thread3.i
-  %165 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef %8, ptr noundef nonnull @.str.52) #3
+  %165 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef range(i32 128, 224) %8, ptr noundef nonnull @.str.52) #3
   %166 = load i32, ptr @hf_msgpack_string_len, align 4
   %167 = load i32, ptr %4, align 4
   %168 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.53) #3

@@ -687,7 +687,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
   %280 = load ptr, ptr %151, align 8
   %281 = call ptr @io_time_set(ptr noundef %280, i32 noundef 12, i32 noundef 0) #18
   %282 = add nsw i32 %32, -1
-  %283 = call fastcc i32 @dset_write(i32 noundef %282, ptr noundef readonly %17, ptr noundef nonnull readonly %0, ptr noundef %62)
+  %283 = call fastcc i32 @dset_write(i32 noundef %282, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
   %284 = icmp slt i32 %283, 0
   br i1 %284, label %285, label %288
 
@@ -1047,7 +1047,7 @@ do_write.exit:                                    ; preds = %318, %327
   %445 = load ptr, ptr %151, align 8
   %446 = call ptr @io_time_set(ptr noundef %445, i32 noundef 13, i32 noundef 0) #18
   %447 = add nsw i32 %32, -1
-  %448 = call fastcc i32 @dset_read(i32 noundef %447, ptr noundef readonly %17, ptr noundef nonnull readonly %0, ptr noundef %62)
+  %448 = call fastcc i32 @dset_read(i32 noundef %447, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
   %449 = icmp slt i32 %448, 0
   br i1 %449, label %450, label %453
 

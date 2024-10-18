@@ -297,7 +297,7 @@ if.then.i46:                                      ; preds = %if.then3
   br label %Q_.exit
 
 if.end.i:                                         ; preds = %if.then3
-  %call.i44 = tail call ptr @ngettext(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %sub) #19
+  %call.i44 = tail call ptr @ngettext(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, 584942417356) %sub) #19
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i46, %if.end.i
@@ -317,7 +317,7 @@ if.then7:                                         ; preds = %if.end5
   br i1 %tobool.not.i47, label %Q_.exit54, label %if.end.i48
 
 if.end.i48:                                       ; preds = %if.then7
-  %call.i49 = tail call ptr @ngettext(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef %div) #19
+  %call.i49 = tail call ptr @ngettext(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef range(i64 0, 584942417356) %div) #19
   br label %Q_.exit54
 
 Q_.exit54:                                        ; preds = %if.then7, %if.end.i48
@@ -343,7 +343,7 @@ if.then.i59:                                      ; preds = %if.then13
   br label %Q_.exit62
 
 if.end.i56:                                       ; preds = %if.then13
-  %call.i57 = tail call ptr @ngettext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %div11) #19
+  %call.i57 = tail call ptr @ngettext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef range(i64 0, 584942417356) %div11) #19
   br label %Q_.exit62
 
 Q_.exit62:                                        ; preds = %if.then.i59, %if.end.i56
@@ -369,7 +369,7 @@ if.then.i67:                                      ; preds = %if.then19
   br label %Q_.exit70
 
 if.end.i64:                                       ; preds = %if.then19
-  %call.i65 = tail call ptr @ngettext(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i64 noundef %div17) #19
+  %call.i65 = tail call ptr @ngettext(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i64 noundef range(i64 0, 584942417356) %div17) #19
   br label %Q_.exit70
 
 Q_.exit70:                                        ; preds = %if.then.i67, %if.end.i64
@@ -395,7 +395,7 @@ if.then.i75:                                      ; preds = %if.then23
   br label %Q_.exit78
 
 if.end.i72:                                       ; preds = %if.then23
-  %call.i73 = tail call ptr @ngettext(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i64 noundef %div25) #19
+  %call.i73 = tail call ptr @ngettext(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i64 noundef range(i64 0, 584942417356) %div25) #19
   br label %Q_.exit78
 
 Q_.exit78:                                        ; preds = %if.then.i75, %if.end.i72
@@ -421,7 +421,7 @@ if.then.i83:                                      ; preds = %if.then31
   br label %Q_.exit86
 
 if.end.i80:                                       ; preds = %if.then31
-  %call.i81 = tail call ptr @ngettext(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %div33) #19
+  %call.i81 = tail call ptr @ngettext(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef range(i64 0, 584942417356) %div33) #19
   br label %Q_.exit86
 
 Q_.exit86:                                        ; preds = %if.then.i83, %if.end.i80
@@ -455,7 +455,7 @@ if.then.i91:                                      ; preds = %if.then44
   br label %Q_.exit94
 
 if.end.i88:                                       ; preds = %if.then44
-  %call.i89 = tail call ptr @ngettext(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef %div43) #19
+  %call.i89 = tail call ptr @ngettext(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef range(i64 0, 584942417356) %div43) #19
   br label %Q_.exit94
 
 Q_.exit94:                                        ; preds = %if.then.i91, %if.end.i88
@@ -471,7 +471,7 @@ if.then.i99:                                      ; preds = %Q_.exit94
   br label %Q_.exit102
 
 if.end.i96:                                       ; preds = %Q_.exit94
-  %call.i97 = call ptr @ngettext(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %rem) #19
+  %call.i97 = call ptr @ngettext(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef range(i64 0, 584942417356) %rem) #19
   br label %Q_.exit102
 
 Q_.exit102:                                       ; preds = %if.then.i99, %if.end.i96
@@ -494,7 +494,7 @@ if.then.i107:                                     ; preds = %if.else
   br label %Q_.exit110
 
 if.end.i104:                                      ; preds = %if.else
-  %call.i105 = tail call ptr @ngettext(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %div43) #19
+  %call.i105 = tail call ptr @ngettext(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef range(i64 0, 584942417356) %div43) #19
   br label %Q_.exit110
 
 Q_.exit110:                                       ; preds = %if.then.i107, %if.end.i104
@@ -516,7 +516,7 @@ if.then.i115:                                     ; preds = %if.end49
   br label %Q_.exit118
 
 if.end.i112:                                      ; preds = %if.end49
-  %call.i113 = tail call ptr @ngettext(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %div51) #19
+  %call.i113 = tail call ptr @ngettext(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef range(i64 0, 584942417356) %div51) #19
   br label %Q_.exit118
 
 Q_.exit118:                                       ; preds = %if.then.i115, %if.end.i112
@@ -1661,7 +1661,7 @@ sw.bb.i:                                          ; preds = %if.end5.i, %if.end5
   br i1 %cmp9.not.i, label %do.body.i.preheader, label %if.then11.i
 
 if.then11.i:                                      ; preds = %sw.bb.i
-  %call12.i = call fastcc i32 @match_multi_number(i64 noundef %call.i43, i8 noundef signext %79, ptr noundef nonnull %date.addr.0, ptr noundef nonnull %78, ptr noundef %tm, i64 noundef 0)
+  %call12.i = call fastcc i32 @match_multi_number(i64 noundef %call.i43, i8 noundef signext %79, ptr noundef nonnull %date.addr.0, ptr noundef nonnull %78, ptr noundef nonnull %tm, i64 noundef 0)
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %do.body.i.preheader, label %match_digit.exit
 
@@ -2406,7 +2406,7 @@ sw.bb.i.i:                                        ; preds = %pending_number.exit
   br i1 %cmp.not.i.i, label %sw.epilog.i.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %sw.bb.i.i
-  %call4.i.i = call fastcc i32 @match_multi_number(i64 noundef %call.i.i, i8 noundef signext %12, ptr noundef nonnull %date.addr.025.i, ptr noundef nonnull %11, ptr noundef %tm.i, i64 noundef %10)
+  %call4.i.i = call fastcc i32 @match_multi_number(i64 noundef %call.i.i, i8 noundef signext %12, ptr noundef nonnull %date.addr.025.i, ptr noundef nonnull %11, ptr noundef nonnull %tm.i, i64 noundef %10)
   %tobool.not.i7.i = icmp eq i32 %call4.i.i, 0
   br i1 %tobool.not.i7.i, label %if.then.sw.epilog_crit_edge.i.i, label %if.then5.i.i
 

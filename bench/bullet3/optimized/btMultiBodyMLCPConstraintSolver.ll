@@ -289,7 +289,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %invoke.cont2
   %18 = load ptr, ptr %m_data.i.i, align 8
   %conv.i.i = sext i32 %17 to i64
   %19 = shl nuw nsw i64 %conv.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %19, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %19, i1 false)
   %.pr1274 = load i32, ptr %m_size.i.i.i222, align 4
   br label %invoke.cont4
 
@@ -303,7 +303,7 @@ _Z9btSetZeroIfEvPT_i.exit.i268:                   ; preds = %invoke.cont4
   %21 = load ptr, ptr %m_data.i.i269, align 8
   %conv.i.i270 = sext i32 %20 to i64
   %22 = shl nuw nsw i64 %conv.i.i270, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %22, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %21, i8 0, i64 %22, i1 false)
   br label %_ZN9btVectorXIfE7setZeroEv.exit271
 
 _ZN9btVectorXIfE7setZeroEv.exit271:               ; preds = %invoke.cont4, %_Z9btSetZeroIfEvPT_i.exit.i268
@@ -611,7 +611,7 @@ _Z9btSetZeroIfEvPT_i.exit.i409:                   ; preds = %.noexc413
   %60 = load ptr, ptr %m_data.i.i410, align 8
   %conv.i.i411 = sext i32 %59 to i64
   %61 = shl nuw nsw i64 %conv.i.i411, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %60, i8 0, i64 %61, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %60, i8 0, i64 %61, i1 false)
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %_Z9btSetZeroIfEvPT_i.exit.i409, %.noexc413
@@ -632,7 +632,7 @@ _Z9btSetZeroIfEvPT_i.exit.i417:                   ; preds = %.noexc421
   %63 = load ptr, ptr %m_data.i.i418, align 8
   %conv.i.i419 = sext i32 %62 to i64
   %64 = shl nuw nsw i64 %conv.i.i419, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %63, i8 0, i64 %64, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %63, i8 0, i64 %64, i1 false)
   br label %invoke.cont77
 
 invoke.cont77:                                    ; preds = %_Z9btSetZeroIfEvPT_i.exit.i417, %.noexc421
@@ -1430,7 +1430,7 @@ _Z9btSetZeroIfEvPT_i.exit.i835:                   ; preds = %.noexc839
   %246 = load ptr, ptr %m_data.i.i836, align 8
   %conv.i.i837 = sext i32 %245 to i64
   %247 = shl nuw nsw i64 %conv.i.i837, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %246, i8 0, i64 %247, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %246, i8 0, i64 %247, i1 false)
   br label %invoke.cont327
 
 invoke.cont327:                                   ; preds = %_Z9btSetZeroIfEvPT_i.exit.i835, %.noexc839
@@ -2302,7 +2302,7 @@ _Z9btSetZeroIfEvPT_i.exit.i1170:                  ; preds = %if.else578
   %419 = load ptr, ptr %m_data.i.i1171, align 8
   %conv.i.i1172 = sext i32 %418 to i64
   %420 = shl nuw nsw i64 %conv.i.i1172, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %419, i8 0, i64 %420, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %419, i8 0, i64 %420, i1 false)
   %.pre = load i32, ptr %m_size.i.i.i1114, align 4
   br label %invoke.cont580
 
@@ -2316,7 +2316,7 @@ _Z9btSetZeroIfEvPT_i.exit.i1177:                  ; preds = %invoke.cont580
   %422 = load ptr, ptr %m_data.i.i1178, align 8
   %conv.i.i1179 = sext i32 %421 to i64
   %423 = shl nuw nsw i64 %conv.i.i1179, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %422, i8 0, i64 %423, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %422, i8 0, i64 %423, i1 false)
   br label %if.end583
 
 if.end583:                                        ; preds = %for.body564, %for.cond559.preheader, %_Z9btSetZeroIfEvPT_i.exit.i1177, %invoke.cont580
@@ -2497,7 +2497,7 @@ _ZN9btVectorXIfE7setZeroEv.exit:                  ; preds = %for.body8.i.i, %if.
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 1176
   %9 = load ptr, ptr %m_data.i.i, align 8
   %10 = shl nsw i64 %conv.i.i.pre-phi, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %10, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %10, i1 false)
   %cmp4299 = icmp sgt i32 %0, 0
   br i1 %cmp4299, label %invoke.cont8.lr.ph, label %for.end
 
@@ -3484,7 +3484,7 @@ lpad89:                                           ; preds = %if.then3.i.i.i.i265
 _ZN9btVectorXIfE7setZeroEv.exit291:               ; preds = %invoke.cont90
   %m_data.i.i288 = getelementptr inbounds i8, ptr %this, i64 1208
   %227 = load ptr, ptr %m_data.i.i288, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %227, i8 0, i64 %10, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %227, i8 0, i64 %10, i1 false)
   br label %if.end108
 
 if.end108:                                        ; preds = %for.body95, %for.cond93.preheader, %_ZN9btVectorXIfE7setZeroEv.exit291
@@ -6217,7 +6217,7 @@ declare void @_ZN27btMultiBodyConstraintSolver13applyDeltaVeeEPffii(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN31btMultiBodyMLCPConstraintSolverC2EP21btMLCPSolverInterface(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %solver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont37:
-  tail call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this)
+  tail call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(788) %this)
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 432
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
@@ -6309,7 +6309,7 @@ invoke.cont37:
   store ptr getelementptr inbounds (i8, ptr @_ZTV31btMultiBodyMLCPConstraintSolver, i64 16), ptr %this, align 8
   %m_A = getelementptr inbounds i8, ptr %this, i64 792
   %m_ownsMemory.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 840
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_A, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_A, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i19, align 8
   %m_data.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 832
   store ptr null, ptr %m_data.i.i.i20, align 8
@@ -6375,7 +6375,7 @@ invoke.cont37:
   store i32 0, ptr %m_capacity.i.i.i46, align 8
   %m_multiBodyA = getelementptr inbounds i8, ptr %this, i64 1072
   %m_ownsMemory.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 1120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_multiBodyA, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_multiBodyA, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i47, align 8
   %m_data.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 1112
   store ptr null, ptr %m_data.i.i.i48, align 8
@@ -6461,7 +6461,7 @@ invoke.cont37:
   store i32 0, ptr %m_fallback, align 8
   %m_scratchJ3 = getelementptr inbounds i8, ptr %this, i64 1432
   %m_ownsMemory.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 1480
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchJ3, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchJ3, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i83, align 8
   %m_data.i.i.i84 = getelementptr inbounds i8, ptr %this, i64 1472
   store ptr null, ptr %m_data.i.i.i84, align 8
@@ -6479,7 +6479,7 @@ invoke.cont37:
   store i32 0, ptr %m_capacity.i.i4.i90, align 8
   %m_scratchJInvM3 = getelementptr inbounds i8, ptr %this, i64 1520
   %m_ownsMemory.i.i.i91 = getelementptr inbounds i8, ptr %this, i64 1568
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchJInvM3, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchJInvM3, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i91, align 8
   %m_data.i.i.i92 = getelementptr inbounds i8, ptr %this, i64 1560
   store ptr null, ptr %m_data.i.i.i92, align 8

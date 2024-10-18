@@ -300,7 +300,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %host.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i.i.i) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i.i) #15
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !5
@@ -1162,7 +1162,7 @@ while.end208:                                     ; preds = %_ZN3net20SpdyAltSvc
   br i1 %cmp.not.i139, label %if.else.i142, label %if.then.i140
 
 if.then.i140:                                     ; preds = %while.end208
-  invoke void @_ZNSt15__new_allocatorIN3net20SpdyAltSvcWireFormat18AlternativeServiceEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RtRjRSt6vectorItSaItEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %altsvc_vector, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(32) %protocol_id, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 2 dereferenceable(2) %port, ptr noundef nonnull align 4 dereferenceable(4) %max_age, ptr noundef nonnull align 8 dereferenceable(24) %version)
+  invoke void @_ZNSt15__new_allocatorIN3net20SpdyAltSvcWireFormat18AlternativeServiceEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RtRjRSt6vectorItSaItEEEEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %altsvc_vector, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(32) %protocol_id, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 2 dereferenceable(2) %port, ptr noundef nonnull align 4 dereferenceable(4) %max_age, ptr noundef nonnull align 8 dereferenceable(24) %version)
           to label %.noexc144 unwind label %lpad81.loopexit.split-lp
 
 .noexc144:                                        ; preds = %if.then.i140
@@ -1657,7 +1657,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1667,7 +1667,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1968,7 +1968,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i
   %host.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 96
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit, label %for.body.i.i, !llvm.loop !5
@@ -1997,7 +1997,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i
   %host.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i) #15
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 96
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEEvT_S6_.exit, label %for.body.i, !llvm.loop !5
@@ -2168,7 +2168,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i
   %host.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i) #15
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !5
@@ -2329,7 +2329,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 _ZNSt15__new_allocatorIN3net20SpdyAltSvcWireFormat18AlternativeServiceEE7destroyIS2_EEvPT_.exit: ; preds = %entry, %if.then.i.i.i.i.i
   %host.i.i = getelementptr inbounds i8, ptr %__p, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__p) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__p) #15
   ret void
 }
 

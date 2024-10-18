@@ -188,7 +188,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
   br i1 %exitcond.not, label %75, label %66, !llvm.loop !4
 
 75:                                               ; preds = %66
-  %76 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %.04056, ptr noundef nonnull %7, i64 noundef 10, i1 noundef zeroext true)
+  %76 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %.04056, ptr noundef nonnull align 4 dereferenceable(40) %7, i64 noundef 10, i1 noundef zeroext true)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %.loopexit
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit: ; preds = %75

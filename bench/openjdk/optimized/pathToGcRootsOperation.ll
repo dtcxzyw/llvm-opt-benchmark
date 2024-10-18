@@ -301,7 +301,7 @@ _ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %83, %21,
   %.06.i = phi ptr [ %97, %.lr.ph.i3 ], [ %95, %_ZN18ObjectSampleMarkerD2Ev.exit ]
   %96 = getelementptr inbounds i8, ptr %.06.i, i64 24
   %97 = load ptr, ptr %96, align 8
-  call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %.06.i) #8
+  call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i) #8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #8
   %.not.i4 = icmp eq ptr %97, null
   br i1 %.not.i4, label %._crit_edge.i, label %.lr.ph.i3, !llvm.loop !8

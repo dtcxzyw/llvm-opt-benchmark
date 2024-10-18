@@ -193,7 +193,7 @@ define hidden noundef ptr @_Z38pj_projection_specific_setup_gridshiftP8PJconsts(
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #19
   %9 = getelementptr inbounds i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %8, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %10 = getelementptr inbounds i8, ptr %8, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
@@ -1278,7 +1278,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z35pj_clear_gridshift_knowngrids_cachev() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL6gMutex) #20
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL6gMutex) #20
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %2
 
@@ -1303,7 +1303,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt
   store ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 32), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL11gKnownGridsB5cxx11, i64 40), align 8
-  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL6gMutex) #20
+  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL6gMutex) #20
   ret void
 }
 
@@ -1332,7 +1332,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %7) #20
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1764,7 +1764,7 @@ _ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112bas
 
 _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i: ; preds = %94, %110, %105, %89
   %.sroa.0.0.i.i = phi double [ %66, %110 ], [ %.val42.fr, %105 ], [ %.val42.fr, %89 ], [ %67, %94 ]
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(32) %62, double %.sroa.0.0.i.i, double %.val43.pre, ptr noundef %80, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !13
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(32) %62, double %.sroa.0.0.i.i, double %.val43.pre, ptr noundef nonnull %80, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !13
   %111 = load ptr, ptr %80, align 8, !noalias !13
   %112 = getelementptr inbounds i8, ptr %111, i64 32
   %113 = load ptr, ptr %112, align 8, !noalias !13
@@ -2691,7 +2691,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIfSaIf
   %230 = getelementptr inbounds i8, ptr %229, i64 32
   store ptr %6, ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %229, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %231, ptr noundef nonnull align 8 dereferenceable(14) %18, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %231, ptr noundef nonnull align 8 dereferenceable(80) %18, i64 14, i1 false)
   %232 = getelementptr inbounds i8, ptr %229, i64 56
   store ptr %217, ptr %232, align 8
   %233 = getelementptr inbounds i8, ptr %229, i64 64
@@ -3558,7 +3558,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   %12 = getelementptr inbounds i8, ptr %8, i64 64
   store i8 0, ptr %12, align 8
   store ptr %8, ptr %7, align 8
@@ -3610,7 +3610,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   resume { ptr, i32 } %32
 
 33:                                               ; preds = %14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %9) #20
   tail call void @_ZdlPv(ptr noundef nonnull %8) #22
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -3945,7 +3945,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #20
   tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %6
 

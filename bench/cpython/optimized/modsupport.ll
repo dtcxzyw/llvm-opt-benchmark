@@ -292,7 +292,7 @@ if.end11:                                         ; preds = %if.end3, %if.else
 
 for.body.i:                                       ; preds = %if.end5.i, %if.end11
   %i.024.i = phi i64 [ 0, %if.end11 ], [ %inc.i, %if.end5.i ]
-  %call.i = call fastcc ptr @do_mkvalue(ptr noundef %f, ptr noundef %lva)
+  %call.i = call fastcc ptr @do_mkvalue(ptr noundef nonnull %f, ptr noundef nonnull %lva)
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %error.i, label %if.end5.i
 
@@ -333,7 +333,7 @@ if.end.i19.i:                                     ; preds = %while.body.i.i, %wh
 error.i:                                          ; preds = %for.body.i
   %5 = xor i64 %i.024.i, -1
   %sub4.i = add nsw i64 %call, %5
-  call fastcc void @do_ignore(ptr noundef %f, ptr noundef %lva, i8 noundef signext 0, i64 noundef %sub4.i)
+  call fastcc void @do_ignore(ptr noundef nonnull %f, ptr noundef nonnull %lva, i8 noundef signext 0, i64 noundef %sub4.i)
   %cmp1025.not.i = icmp eq i64 %i.024.i, 0
   br i1 %cmp1025.not.i, label %if.then15, label %for.body11.preheader.i
 
@@ -754,19 +754,19 @@ for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheade
   br label %for.body.i
 
 if.then2.i:                                       ; preds = %if.end.i57
-  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 93, i64 noundef %call3)
+  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext 93, i64 noundef %call3)
   br label %return
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end9.i
   %i.0.i130 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.end9.i ]
-  %call5.i = tail call fastcc ptr @do_mkvalue(ptr noundef %p_format, ptr noundef %p_va)
+  %call5.i = tail call fastcc ptr @do_mkvalue(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %for.body.i
   %2 = xor i64 %i.0.i130, -1
   %sub8.i = add nsw i64 %call3, %2
-  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 93, i64 noundef %sub8.i)
+  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext 93, i64 noundef %sub8.i)
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i23.not.i = icmp eq i64 %4, 0
@@ -791,7 +791,7 @@ if.end9.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end9.i, %for.cond.i.preheader
-  %call10.i = tail call fastcc i32 @check_end(ptr noundef %p_format, i8 noundef signext 93)
+  %call10.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 93)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.then11.i, label %return
 
@@ -824,7 +824,7 @@ if.end.i59:                                       ; preds = %sw.bb5
 if.then1.i:                                       ; preds = %if.end.i59
   %7 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.9) #5
-  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %call6)
+  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext 125, i64 noundef %call6)
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i59
@@ -837,19 +837,19 @@ for.cond.i63.preheader:                           ; preds = %if.end2.i
   br i1 %cmp6.i65127.not, label %for.end.i66, label %for.body.i71
 
 if.then4.i:                                       ; preds = %if.end2.i
-  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %call6)
+  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext 125, i64 noundef %call6)
   br label %return
 
 for.body.i71:                                     ; preds = %for.cond.i63.preheader, %for.inc.i
   %i.0.i64128 = phi i64 [ %add.i72, %for.inc.i ], [ 0, %for.cond.i63.preheader ]
-  %call7.i = tail call fastcc ptr @do_mkvalue(ptr noundef %p_format, ptr noundef %p_va)
+  %call7.i = tail call fastcc ptr @do_mkvalue(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va)
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %for.body.i71
   %8 = xor i64 %i.0.i64128, -1
   %sub10.i = add i64 %call6, %8
-  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %sub10.i)
+  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext 125, i64 noundef %sub10.i)
   %9 = load i64, ptr %call.i62, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i70.not.i = icmp eq i64 %10, 0
@@ -866,7 +866,7 @@ if.then1.i66.i:                                   ; preds = %if.end.i63.i
   br label %return
 
 if.end11.i:                                       ; preds = %for.body.i71
-  %call12.i = tail call fastcc ptr @do_mkvalue(ptr noundef %p_format, ptr noundef %p_va)
+  %call12.i = tail call fastcc ptr @do_mkvalue(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va)
   %cmp13.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.i, label %if.then16.i, label %lor.lhs.false.i
 
@@ -878,7 +878,7 @@ lor.lhs.false.i:                                  ; preds = %if.end11.i
 if.then16.i:                                      ; preds = %lor.lhs.false.i, %if.end11.i
   %sub17.i = add nsw i64 %call6, -2
   %sub18.i = sub i64 %sub17.i, %i.0.i64128
-  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %sub18.i)
+  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext 125, i64 noundef %sub18.i)
   %11 = load i64, ptr %call7.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i73.not.i = icmp eq i64 %12, 0
@@ -949,7 +949,7 @@ for.inc.i:                                        ; preds = %if.then1.i30.i, %if
   br i1 %cmp6.i65, label %for.body.i71, label %for.end.i66, !llvm.loop !11
 
 for.end.i66:                                      ; preds = %for.inc.i, %for.cond.i63.preheader
-  %call20.i = tail call fastcc i32 @check_end(ptr noundef %p_format, i8 noundef signext 125)
+  %call20.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 125)
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %if.then22.i, label %return
 

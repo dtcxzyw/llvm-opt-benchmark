@@ -239,7 +239,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire4trie9LoudsTrieC2Ev(ptr noundef nonnull align 8 dereferenceable(1136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 41, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %3, i8 0, i64 41, i1 false)
@@ -247,7 +247,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrieC2Ev(ptr noundef nonnull align 8 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %4, i8 0, i64 41, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %2, i8 0, i64 57, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %5, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, i8 0, i64 41, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %7, i8 0, i64 41, i1 false)
@@ -255,7 +255,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrieC2Ev(ptr noundef nonnull align 8 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %8, i8 0, i64 41, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %6, i8 0, i64 57, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 416
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %9, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, i8 0, i64 41, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 464
   %11 = getelementptr inbounds i8, ptr %0, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 41, i1 false)
@@ -265,7 +265,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrieC2Ev(ptr noundef nonnull align 8 
   %13 = getelementptr inbounds i8, ptr %0, i64 624
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %13, i8 0, i64 41, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 672
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %14, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 41, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 720
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 728
@@ -1421,7 +1421,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie4map_ERNS0_2io6MapperE(ptr nounde
   tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %12)
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 640
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %7, i8 0, i64 16, i1 false)
   store ptr %10, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 648
   store i64 %9, ptr %15, align 8
@@ -1978,17 +1978,17 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie6write_ERNS0_2io6WriterE(ptr nou
   %13 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  tail call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(25) %1)
+  tail call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   store i32 %16, ptr %10, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %10, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %10, i64 noundef 4)
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr %11, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %11, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %11, i64 noundef 4)
   %20 = getelementptr inbounds i8, ptr %0, i64 64
   call void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %20, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %21 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2000,17 +2000,17 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie6write_ERNS0_2io6WriterE(ptr nou
   %23 = getelementptr inbounds i8, ptr %0, i64 208
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %23, ptr noundef nonnull align 8 dereferenceable(25) %1)
+  call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %24 = getelementptr inbounds i8, ptr %0, i64 256
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   store i32 %26, ptr %8, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %8, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %8, i64 noundef 4)
   %27 = getelementptr inbounds i8, ptr %0, i64 264
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i32
   store i32 %29, ptr %9, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %9, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %9, i64 noundef 4)
   %30 = getelementptr inbounds i8, ptr %0, i64 272
   call void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %30, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %31 = getelementptr inbounds i8, ptr %0, i64 320
@@ -2022,17 +2022,17 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie6write_ERNS0_2io6WriterE(ptr nou
   %33 = getelementptr inbounds i8, ptr %0, i64 416
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %33, ptr noundef nonnull align 8 dereferenceable(25) %1)
+  call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(208) %33, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %34 = getelementptr inbounds i8, ptr %0, i64 464
   %35 = load i64, ptr %34, align 8
   %36 = trunc i64 %35 to i32
   store i32 %36, ptr %6, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %6, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i64 noundef 4)
   %37 = getelementptr inbounds i8, ptr %0, i64 472
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %38 to i32
   store i32 %39, ptr %7, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %7, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 noundef 4)
   %40 = getelementptr inbounds i8, ptr %0, i64 480
   call void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %40, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %41 = getelementptr inbounds i8, ptr %0, i64 528
@@ -2047,20 +2047,20 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie6write_ERNS0_2io6WriterE(ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(41) %44, ptr noundef nonnull align 8 dereferenceable(25) %1)
+  call void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6WriterE(ptr noundef nonnull align 8 dereferenceable(72) %44, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %45 = getelementptr inbounds i8, ptr %0, i64 720
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i32
   store i32 %47, ptr %3, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, i64 noundef 4)
   %48 = getelementptr inbounds i8, ptr %0, i64 728
   %49 = load i32, ptr %48, align 8
   store i32 %49, ptr %4, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %4, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, i64 noundef 4)
   %50 = getelementptr inbounds i8, ptr %0, i64 736
   %51 = load i64, ptr %50, align 8
   store i64 %51, ptr %5, align 8
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %5, i64 noundef 8)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -2082,7 +2082,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie6write_ERNS0_2io6WriterE(ptr nou
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
   store i32 %60, ptr %12, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %12, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %12, i64 noundef 4)
   %61 = getelementptr inbounds i8, ptr %0, i64 1072
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
@@ -2093,7 +2093,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie6write_ERNS0_2io6WriterE(ptr nou
   %68 = load i32, ptr %67, align 8
   %69 = or i32 %66, %68
   store i32 %69, ptr %13, align 4
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %13, i64 noundef 4)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %13, i64 noundef 4)
   ret void
 }
 
@@ -4421,7 +4421,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit: ; preds = %43, %_ZN6maris
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector5buildEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.marisa::grimoire::vector::BitVector", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %4, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, i8 0, i64 41, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %6, i8 0, i64 41, i1 false)
@@ -5502,7 +5502,7 @@ _ZNK6marisa8grimoire6vector10FlatVectorixEm.exit: ; preds = %45, %47
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector3mapERNS0_2io6MapperE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::vector::BitVector", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %3, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 41, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = getelementptr inbounds i8, ptr %3, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %5, i8 0, i64 41, i1 false)
@@ -5720,7 +5720,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector3mapERNS0_2io6MapperE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::vector::FlatVector", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %3, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 41, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 56
@@ -5812,7 +5812,7 @@ declare void @_ZN6marisa8grimoire4trie4Tail3mapERNS0_2io6MapperE(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector4readERNS0_2io6ReaderE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::vector::BitVector", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %3, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 41, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = getelementptr inbounds i8, ptr %3, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %5, i8 0, i64 41, i1 false)
@@ -6030,7 +6030,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector4readERNS0_2io6ReaderE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::vector::FlatVector", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %3, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 41, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 56
@@ -7014,7 +7014,7 @@ declare void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -8405,7 +8405,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 3
   store i64 %6, ptr %3, align 8
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
@@ -8462,7 +8462,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, 12
   store i64 %6, ptr %3, align 8
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
@@ -8520,7 +8520,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 2
   store i64 %6, ptr %3, align 8
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
@@ -10081,7 +10081,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204: ; preds = %639, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector5buildERKNS1_6VectorIjEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::vector::FlatVector", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %3, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 41, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 56
@@ -15992,7 +15992,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIhE6write_ERNS0_2io6
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %3, align 8
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
@@ -16031,7 +16031,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, 12
   store i64 %6, ptr %3, align 8
-  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
+  call void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8

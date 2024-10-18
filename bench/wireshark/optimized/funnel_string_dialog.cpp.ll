@@ -395,7 +395,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40:    ; preds = %_ZN7QStringD2Ev.exi
 112:                                              ; preds = %.lr.ph, %134
   %113 = phi ptr [ %58, %.lr.ph ], [ %137, %134 ]
   %.02050 = phi i32 [ 0, %.lr.ph ], [ %135, %134 ]
-  %114 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %113) #18
+  %114 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %113) #18
   %115 = getelementptr inbounds i8, ptr %113, i64 24
   %116 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %115) #18
   %117 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
@@ -1187,14 +1187,14 @@ define void @_ZN18FunnelStringDialogD0Ev(ptr noundef nonnull align 8 dereference
 define void @_ZThn16_N18FunnelStringDialogD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN18FunnelStringDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18FunnelStringDialog6acceptEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN7QDialog6acceptEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %2 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %2 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null, ptr noundef null, ptr noundef null)
   tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }
@@ -1206,7 +1206,7 @@ declare void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18FunnelStringDialog6rejectEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN7QDialog6rejectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %2 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %2 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null, ptr noundef null, ptr noundef null)
   tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }

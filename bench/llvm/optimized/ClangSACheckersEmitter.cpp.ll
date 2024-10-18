@@ -158,7 +158,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %37, %39
 
 _ZN4llvm11raw_ostreamlsEPKc.exit79:               ; preds = %48, %50
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 20, i1 false)
   store i32 16, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -184,7 +184,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit79:               ; preds = %48, %50
   %64 = load ptr, ptr %15, align 8
   %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %66, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %66, ptr nonnull @.str.4, i64 1)
   %67 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
   br i1 %67, label %_ZL18getPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit, label %68
 
@@ -299,7 +299,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit82:               ; preds = %98, %100
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit85
 
 _ZN4llvm11raw_ostreamlsEPKc.exit85:               ; preds = %107, %109
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %91, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %91, ptr nonnull @.str.4, i64 1)
   %113 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #9
   br i1 %113, label %_ZL18getPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit86, label %114
 
@@ -398,7 +398,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPKNS_6RecordEEENS_14StringMap
 152:                                              ; preds = %.lr.ph.i
   %153 = load i64, ptr %151, align 8
   %154 = add i64 %153, 17
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %151, i64 noundef %154, i64 noundef 8) #9
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %151, i64 noundef %154, i64 noundef 8) #9
   br label %155
 
 155:                                              ; preds = %152, %.lr.ph.i, %.lr.ph.i
@@ -499,7 +499,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit96:               ; preds = %174, %176
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit99
 
 _ZN4llvm11raw_ostreamlsEPKc.exit99:               ; preds = %199, %201
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull %184, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull %184, ptr nonnull @.str.4, i64 1)
   %204 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
   br i1 %204, label %_ZL18getPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit100, label %205
 
@@ -665,7 +665,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %271, %269
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit18.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit18.i:             ; preds = %280, %278
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %262, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %262, ptr nonnull @.str.4, i64 1)
   %284 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
   br i1 %284, label %_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit.i, label %285
 
@@ -835,7 +835,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33.i:             ; preds = %363, %361
   %368 = call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %262), !noalias !9
   %369 = extractvalue { ptr, i64 } %368, 0
   %370 = extractvalue { ptr, i64 } %368, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %262, ptr nonnull @.str.4, i64 1), !noalias !9
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %262, ptr nonnull @.str.4, i64 1), !noalias !9
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %5), !noalias !9
   %371 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 4, ptr %371, align 8, !noalias !9
@@ -853,7 +853,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33.i:             ; preds = %363, %361
 376:                                              ; preds = %373
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9, !noalias !9
   %377 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %377, ptr noundef nonnull align 1 dereferenceable(1) %6) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %377, ptr noundef nonnull align 1 dereferenceable(1) %6) #9
   %378 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
   %379 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %379, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.52) #9
@@ -862,7 +862,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33.i:             ; preds = %363, %361
   br label %_ZL14getCheckerDocsB5cxx11RKN4llvm6RecordE.exit.i
 
 380:                                              ; preds = %373
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %262, ptr nonnull @.str.53, i64 1), !noalias !9
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %262, ptr nonnull @.str.53, i64 1), !noalias !9
   %381 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #9, !noalias !9
   br i1 %381, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i, label %382
 
@@ -1134,7 +1134,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit124:              ; preds = %494, %496
   br label %_ZN4llvm11raw_ostreamlsEc.exit127
 
 _ZN4llvm11raw_ostreamlsEc.exit127:                ; preds = %501, %503
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull %473, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %473, ptr nonnull @.str.4, i64 1)
   %505 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #9
   br i1 %505, label %_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit, label %506
 
@@ -1189,7 +1189,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit131:              ; preds = %523, %525
   br label %_ZN4llvm11raw_ostreamlsEc.exit134
 
 _ZN4llvm11raw_ostreamlsEc.exit134:                ; preds = %530, %532
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %487, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef %487, ptr nonnull @.str.4, i64 1)
   %534 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #9
   br i1 %534, label %_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit135, label %535
 
@@ -1378,7 +1378,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit156:              ; preds = %613, %615
   br label %_ZN4llvm11raw_ostreamlsEc.exit159
 
 _ZN4llvm11raw_ostreamlsEc.exit159:                ; preds = %620, %622
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull %592, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull %592, ptr nonnull @.str.4, i64 1)
   %624 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #9
   br i1 %624, label %_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit160, label %625
 
@@ -1433,7 +1433,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit164:              ; preds = %642, %644
   br label %_ZN4llvm11raw_ostreamlsEc.exit167
 
 _ZN4llvm11raw_ostreamlsEc.exit167:                ; preds = %649, %651
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %606, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef %606, ptr nonnull @.str.4, i64 1)
   %653 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #9
   br i1 %653, label %_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit168, label %654
 
@@ -1588,7 +1588,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit183:              ; preds = %701, %703
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit187
 
 _ZN4llvm11raw_ostreamlsEPKc.exit187:              ; preds = %726, %728
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull %711, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull %711, ptr nonnull @.str.4, i64 1)
   %731 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #9
   br i1 %731, label %_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit188, label %732
 
@@ -1770,7 +1770,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
 34:                                               ; preds = %32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #9, !noalias !17
   %35 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %10) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %10) #9
   %36 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %37, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 3)) #9
@@ -1779,7 +1779,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
 38:                                               ; preds = %32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9, !noalias !17
   %39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %11) #9
   %40 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %41, ptr noundef nonnull @.str.39, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.39, i64 6)) #9
@@ -1788,7 +1788,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
 42:                                               ; preds = %32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #9, !noalias !17
   %43 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %12) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %12) #9
   %44 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %45, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.40, i64 4)) #9
@@ -1798,7 +1798,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
   %47 = tail call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !17
   %48 = extractvalue { ptr, i64 } %47, 0
   %49 = extractvalue { ptr, i64 } %47, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %3, ptr nonnull @.str.4, i64 1), !noalias !17
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.4, i64 1), !noalias !17
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %15), !noalias !17
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 4, ptr %50, align 8, !noalias !17
@@ -2033,7 +2033,7 @@ _ZN4llvm11raw_ostreamlsEc.exit44:                 ; preds = %150, %152
 157:                                              ; preds = %155
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9, !noalias !20
   %158 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %158, ptr noundef nonnull align 1 dereferenceable(1) %5) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %158, ptr noundef nonnull align 1 dereferenceable(1) %5) #9
   %159 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
   %160 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %160, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 5)) #9
@@ -2042,7 +2042,7 @@ _ZN4llvm11raw_ostreamlsEc.exit44:                 ; preds = %150, %152
 161:                                              ; preds = %155
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9, !noalias !20
   %162 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %162, ptr noundef nonnull align 1 dereferenceable(1) %6) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %162, ptr noundef nonnull align 1 dereferenceable(1) %6) #9
   %163 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
   %164 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %164, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.46, i64 8)) #9
@@ -2052,7 +2052,7 @@ _ZN4llvm11raw_ostreamlsEc.exit44:                 ; preds = %150, %152
   %166 = call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !20
   %167 = extractvalue { ptr, i64 } %166, 0
   %168 = extractvalue { ptr, i64 } %166, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %3, ptr nonnull @.str.4, i64 1), !noalias !20
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.4, i64 1), !noalias !20
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %9), !noalias !20
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 4, ptr %169, align 8, !noalias !20
@@ -2178,7 +2178,7 @@ define internal fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6Record
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
-  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %12, ptr %2, i64 %3)
+  call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %12, ptr %2, i64 %3)
   %13 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   br i1 %13, label %_ZL18getPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE.exit, label %14
 

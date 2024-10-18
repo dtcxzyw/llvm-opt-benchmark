@@ -2360,7 +2360,7 @@ define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr n
 269:                                              ; preds = %194
   %270 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %271 = load i32, ptr %270, align 8
-  %272 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %82, ptr noundef %11, i32 noundef %271, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %272 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %82, ptr noundef nonnull %11, i32 noundef %271, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %273 = icmp slt i32 %272, 0
   br i1 %273, label %DCH_from_char.exit, label %274
 
@@ -2398,7 +2398,7 @@ define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr n
 292:                                              ; preds = %194
   %293 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %294 = load i32, ptr %293, align 8
-  %295 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %81, ptr noundef %11, i32 noundef %294, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %295 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %81, ptr noundef nonnull %11, i32 noundef %294, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %296 = icmp slt i32 %295, 0
   br i1 %296, label %DCH_from_char.exit, label %297
 
@@ -2548,7 +2548,7 @@ switch.lookup:                                    ; preds = %348
 377:                                              ; preds = %194
   %378 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %379 = load i32, ptr %378, align 8
-  %380 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %77, ptr noundef %11, i32 noundef %379, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %380 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %77, ptr noundef nonnull %11, i32 noundef %379, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %DCH_from_char.exit, label %382
 
@@ -2878,7 +2878,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 543:                                              ; preds = %194
   %544 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %545 = load i32, ptr %544, align 8
-  %546 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %61, ptr noundef %11, i32 noundef %545, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %546 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %61, ptr noundef nonnull %11, i32 noundef %545, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %547 = icmp slt i32 %546, 0
   br i1 %547, label %DCH_from_char.exit, label %548
 
@@ -2986,7 +2986,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 604:                                              ; preds = %194
   %605 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %606 = load i32, ptr %605, align 8
-  %607 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %68, ptr noundef %11, i32 noundef %606, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %607 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %68, ptr noundef nonnull %11, i32 noundef %606, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %608 = icmp slt i32 %607, 0
   br i1 %608, label %DCH_from_char.exit, label %609
 
@@ -3060,7 +3060,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 648:                                              ; preds = %194
   %649 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %650 = load i32, ptr %649, align 8
-  %651 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %67, ptr noundef %11, i32 noundef %650, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %651 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %67, ptr noundef nonnull %11, i32 noundef %650, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %652 = icmp slt i32 %651, 0
   br i1 %652, label %DCH_from_char.exit, label %653
 
@@ -3098,7 +3098,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 671:                                              ; preds = %194
   %672 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %673 = load i32, ptr %672, align 8
-  %674 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %66, ptr noundef %11, i32 noundef %673, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %674 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %66, ptr noundef nonnull %11, i32 noundef %673, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %675 = icmp slt i32 %674, 0
   br i1 %675, label %DCH_from_char.exit, label %676
 
@@ -3177,7 +3177,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 718:                                              ; preds = %194, %194
   %719 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %720 = load i32, ptr %719, align 8
-  %721 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %65, ptr noundef %11, i32 noundef %720, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %721 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %65, ptr noundef nonnull %11, i32 noundef %720, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %722 = icmp slt i32 %721, 0
   br i1 %722, label %DCH_from_char.exit, label %723
 
@@ -3215,7 +3215,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 741:                                              ; preds = %194
   %742 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %743 = load i32, ptr %742, align 8
-  %744 = call fastcc i32 @from_char_parse_int_len(ptr noundef null, ptr noundef %11, i32 noundef %743, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %744 = call fastcc i32 @from_char_parse_int_len(ptr noundef null, ptr noundef nonnull %11, i32 noundef %743, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %745 = icmp slt i32 %744, 0
   br i1 %745, label %DCH_from_char.exit, label %746
 
@@ -3253,7 +3253,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 764:                                              ; preds = %194
   %765 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %766 = load i32, ptr %765, align 8
-  %767 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %64, ptr noundef %11, i32 noundef %766, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %767 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %64, ptr noundef nonnull %11, i32 noundef %766, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %768 = icmp slt i32 %767, 0
   br i1 %768, label %DCH_from_char.exit, label %769
 
@@ -3368,7 +3368,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 830:                                              ; preds = %194, %194
   %831 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %832 = load i32, ptr %831, align 8
-  %833 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef %11, i32 noundef %832, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %833 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %832, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %834 = icmp slt i32 %833, 0
   br i1 %834, label %DCH_from_char.exit, label %835
 
@@ -3407,7 +3407,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
 853:                                              ; preds = %194, %194
   %854 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %855 = load i32, ptr %854, align 8
-  %856 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef %11, i32 noundef %855, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %856 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %855, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %857 = icmp slt i32 %856, 0
   br i1 %857, label %DCH_from_char.exit, label %858
 
@@ -3486,7 +3486,7 @@ adjust_partial_year_to_2020.exit.i:               ; preds = %873, %871, %867, %8
 894:                                              ; preds = %194, %194
   %895 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %896 = load i32, ptr %895, align 8
-  %897 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef %11, i32 noundef %896, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %897 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %896, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %898 = icmp slt i32 %897, 0
   br i1 %898, label %DCH_from_char.exit, label %899
 
@@ -3565,7 +3565,7 @@ adjust_partial_year_to_2020.exit489.i:            ; preds = %914, %912, %908, %9
 935:                                              ; preds = %194, %194
   %936 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %937 = load i32, ptr %936, align 8
-  %938 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef %11, i32 noundef %937, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %938 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %62, ptr noundef nonnull %11, i32 noundef %937, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %939 = icmp slt i32 %938, 0
   br i1 %939, label %DCH_from_char.exit, label %940
 
@@ -3674,7 +3674,7 @@ from_char_set_int.exit496.i:                      ; preds = %978
 990:                                              ; preds = %194
   %991 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %992 = load i32, ptr %991, align 8
-  %993 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %60, ptr noundef %11, i32 noundef %992, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %993 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %60, ptr noundef nonnull %11, i32 noundef %992, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %994 = icmp slt i32 %993, 0
   br i1 %994, label %DCH_from_char.exit, label %995
 
@@ -3712,7 +3712,7 @@ from_char_set_int.exit496.i:                      ; preds = %978
 1013:                                             ; preds = %194
   %1014 = getelementptr inbounds i8, ptr %.pre575.i, i64 8
   %1015 = load i32, ptr %1014, align 8
-  %1016 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %59, ptr noundef %11, i32 noundef %1015, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
+  %1016 = call fastcc i32 @from_char_parse_int_len(ptr noundef nonnull %59, ptr noundef nonnull %11, i32 noundef %1015, ptr noundef nonnull readonly %.0537.i, ptr noundef %9)
   %1017 = icmp slt i32 %1016, 0
   br i1 %1017, label %DCH_from_char.exit, label %1018
 
@@ -9085,7 +9085,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %59 = and i8 %56, 2
   %.not815 = icmp eq i8 %59, 0
   %60 = select i1 %.not815, i32 2, i32 1
-  %61 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %60)
+  %61 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %60)
   %62 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %61) #18
   br label %.sink.split
 
@@ -9108,7 +9108,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %74 = and i8 %71, 2
   %.not811 = icmp eq i8 %74, 0
   %75 = select i1 %.not811, i32 2, i32 1
-  %76 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %75)
+  %76 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %75)
   %77 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %76) #18
   br label %.sink.split
 
@@ -9131,7 +9131,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %89 = and i8 %86, 2
   %.not807 = icmp eq i8 %89, 0
   %90 = select i1 %.not807, i32 2, i32 1
-  %91 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %90)
+  %91 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %90)
   %92 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %91) #18
   br label %.sink.split
 
@@ -9154,7 +9154,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %104 = and i8 %101, 2
   %.not803 = icmp eq i8 %104, 0
   %105 = select i1 %.not803, i32 2, i32 1
-  %106 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %105)
+  %106 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %105)
   %107 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %106) #18
   br label %.sink.split
 
@@ -9172,7 +9172,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %116 = and i8 %113, 2
   %.not799 = icmp eq i8 %116, 0
   %117 = select i1 %.not799, i32 2, i32 1
-  %118 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %117)
+  %118 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %117)
   %119 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %118) #18
   br label %.sink.split
 
@@ -9190,7 +9190,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %128 = and i8 %125, 2
   %.not796 = icmp eq i8 %128, 0
   %129 = select i1 %.not796, i32 2, i32 1
-  %130 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %129)
+  %130 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %129)
   %131 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %130) #18
   br label %.sink.split
 
@@ -9208,7 +9208,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %140 = and i8 %137, 2
   %.not793 = icmp eq i8 %140, 0
   %141 = select i1 %.not793, i32 2, i32 1
-  %142 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %141)
+  %142 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %141)
   %143 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %142) #18
   br label %.sink.split
 
@@ -9226,7 +9226,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %152 = and i8 %149, 2
   %.not790 = icmp eq i8 %152, 0
   %153 = select i1 %.not790, i32 2, i32 1
-  %154 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %153)
+  %154 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %153)
   %155 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %154) #18
   br label %.sink.split
 
@@ -9244,7 +9244,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %164 = and i8 %161, 2
   %.not787 = icmp eq i8 %164, 0
   %165 = select i1 %.not787, i32 2, i32 1
-  %166 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %165)
+  %166 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %165)
   %167 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %166) #18
   br label %.sink.split
 
@@ -9261,7 +9261,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %175 = and i8 %172, 2
   %.not784 = icmp eq i8 %175, 0
   %176 = select i1 %.not784, i32 2, i32 1
-  %177 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %176)
+  %177 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %176)
   %178 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %177) #18
   br label %.sink.split
 
@@ -9286,7 +9286,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %194 = and i8 %191, 2
   %.not781 = icmp eq i8 %194, 0
   %195 = select i1 %.not781, i32 2, i32 1
-  %196 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %195)
+  %196 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %195)
   %197 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %196) #18
   br label %.sink.split
 
@@ -9985,7 +9985,7 @@ asc_tolower_z.exit879:                            ; preds = %.lr.ph.i.i875, %568
   %594 = and i8 %591, 2
   %.not753 = icmp eq i8 %594, 0
   %595 = select i1 %.not753, i32 2, i32 1
-  %596 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %595)
+  %596 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %595)
   %597 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %596) #18
   br label %.sink.split
 
@@ -10441,7 +10441,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %863 = and i8 %860, 2
   %.not734 = icmp eq i8 %863, 0
   %864 = select i1 %.not734, i32 2, i32 1
-  %865 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %864)
+  %865 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %864)
   %866 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %865) #18
   br label %.sink.split
 
@@ -10463,7 +10463,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %879 = and i8 %876, 2
   %.not730 = icmp eq i8 %879, 0
   %880 = select i1 %.not730, i32 2, i32 1
-  %881 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %880)
+  %881 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %880)
   %882 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %881) #18
   br label %.sink.split
 
@@ -10493,7 +10493,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %897 = and i8 %894, 2
   %.not726 = icmp eq i8 %897, 0
   %898 = select i1 %.not726, i32 2, i32 1
-  %899 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %898)
+  %899 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %898)
   %900 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %899) #18
   br label %.sink.split
 
@@ -10524,7 +10524,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %915 = and i8 %912, 2
   %.not723 = icmp eq i8 %915, 0
   %916 = select i1 %.not723, i32 2, i32 1
-  %917 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %916)
+  %917 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %916)
   %918 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %917) #18
   br label %.sink.split
 
@@ -10549,7 +10549,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %934 = and i8 %931, 2
   %.not720 = icmp eq i8 %934, 0
   %935 = select i1 %.not720, i32 2, i32 1
-  %936 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %935)
+  %936 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %935)
   %937 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %936) #18
   br label %.sink.split
 
@@ -10574,7 +10574,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %953 = and i8 %950, 2
   %.not716 = icmp eq i8 %953, 0
   %954 = select i1 %.not716, i32 2, i32 1
-  %955 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %954)
+  %955 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %954)
   %956 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %955) #18
   br label %.sink.split
 
@@ -10598,7 +10598,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %968 = and i8 %965, 2
   %.not712 = icmp eq i8 %968, 0
   %969 = select i1 %.not712, i32 2, i32 1
-  %970 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %969)
+  %970 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %969)
   %971 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %970) #18
   br label %.sink.split
 
@@ -10658,7 +10658,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1002 = and i8 %999, 2
   %.not708 = icmp eq i8 %1002, 0
   %1003 = select i1 %.not708, i32 2, i32 1
-  %1004 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1003)
+  %1004 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1003)
   %1005 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1004) #18
   br label %.sink.split
 
@@ -10682,7 +10682,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1017 = and i8 %1014, 2
   %.not704 = icmp eq i8 %1017, 0
   %1018 = select i1 %.not704, i32 2, i32 1
-  %1019 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1018)
+  %1019 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1018)
   %1020 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1019) #18
   br label %.sink.split
 
@@ -10746,7 +10746,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1057 = and i8 %1054, 2
   %.not701 = icmp eq i8 %1057, 0
   %1058 = select i1 %.not701, i32 2, i32 1
-  %1059 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1058)
+  %1059 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1058)
   %1060 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1059) #18
   br label %.sink.split
 
@@ -10811,7 +10811,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1098 = and i8 %1095, 2
   %.not697 = icmp eq i8 %1098, 0
   %1099 = select i1 %.not697, i32 2, i32 1
-  %1100 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1099)
+  %1100 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1099)
   %1101 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1100) #18
   br label %.sink.split
 
@@ -10876,7 +10876,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1139 = and i8 %1136, 2
   %.not693 = icmp eq i8 %1139, 0
   %1140 = select i1 %.not693, i32 2, i32 1
-  %1141 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1140)
+  %1141 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1140)
   %1142 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1141) #18
   br label %.sink.split
 
@@ -10924,7 +10924,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1169 = and i8 %1166, 2
   %.not689 = icmp eq i8 %1169, 0
   %1170 = select i1 %.not689, i32 2, i32 1
-  %1171 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1170)
+  %1171 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1170)
   %1172 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1171) #18
   br label %.sink.split
 
@@ -10989,7 +10989,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1206 = and i8 %1203, 2
   %.not683 = icmp eq i8 %1206, 0
   %1207 = select i1 %.not683, i32 2, i32 1
-  %1208 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1207)
+  %1208 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1207)
   %1209 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1208) #18
   br label %.sink.split
 
@@ -11009,7 +11009,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1220 = and i8 %1217, 2
   %.not680 = icmp eq i8 %1220, 0
   %1221 = select i1 %.not680, i32 2, i32 1
-  %1222 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1221)
+  %1222 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef range(i32 1, 3) %1221)
   %1223 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1222) #18
   br label %.sink.split
 

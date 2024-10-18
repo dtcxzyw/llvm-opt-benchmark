@@ -2089,7 +2089,7 @@ dropOperators.exit.i.thread:                      ; preds = %49
   tail call void @llvm.assume(i1 %66)
   %67 = tail call i32 @errcode(i32 noundef 117833860) #6
   %68 = load i32, ptr %61, align 8
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %68, i32 noundef %spec.store.select) #6
+  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %68, i32 noundef range(i32 0, 65536) %spec.store.select) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1058, ptr noundef nonnull @__func__.AlterOpFamilyDrop) #6
   unreachable
 
@@ -2149,7 +2149,7 @@ processTypesSpec.exit.i:                          ; preds = %list_length.exit12.
   tail call void @llvm.assume(i1 %98)
   %99 = tail call i32 @errcode(i32 noundef 117833860) #6
   %100 = load i32, ptr %93, align 8
-  %101 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %100, i32 noundef %31) #6
+  %101 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %100, i32 noundef range(i32 0, 65536) %31) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1074, ptr noundef nonnull @__func__.AlterOpFamilyDrop) #6
   unreachable
 
@@ -2399,7 +2399,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %204, %dropOperators
   tail call void @llvm.assume(i1 %227)
   %228 = tail call i32 @errcode(i32 noundef 117833860) #6
   %229 = load i32, ptr %222, align 8
-  %230 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %229, i32 noundef %spec.store.select) #6
+  %230 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %229, i32 noundef range(i32 0, 65536) %spec.store.select) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.AlterOpFamilyAdd) #6
   unreachable
 
@@ -2464,7 +2464,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %204, %dropOperators
   tail call void @llvm.assume(i1 %261)
   %262 = tail call i32 @errcode(i32 noundef 117833860) #6
   %263 = load i32, ptr %256, align 8
-  %264 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %263, i32 noundef %31) #6
+  %264 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %263, i32 noundef range(i32 0, 65536) %31) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 962, ptr noundef nonnull @__func__.AlterOpFamilyAdd) #6
   unreachable
 
@@ -2497,7 +2497,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %204, %dropOperators
   br label %281
 
 281:                                              ; preds = %278, %265
-  tail call fastcc void @assignProcTypes(ptr noundef nonnull %269, i32 noundef %24, i32 noundef 0, i32 noundef %34)
+  tail call fastcc void @assignProcTypes(ptr noundef nonnull %269, i32 noundef %24, i32 noundef 0, i32 noundef range(i32 0, 65536) %34)
   call fastcc void @addFamilyMember(ptr noundef %3, ptr noundef nonnull %269)
   br label %291
 

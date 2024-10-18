@@ -587,7 +587,7 @@ RSTRING_LENINT.exit132:                           ; preds = %RSTRING_PTR.exit130
   br label %rb_ll2num_inline.exit
 
 211:                                              ; preds = %202
-  %212 = call i64 @rb_ll2inum(i64 noundef %203) #11
+  %212 = call i64 @rb_ll2inum(i64 noundef range(i64 0, -1) %203) #11
   br label %rb_ll2num_inline.exit
 
 rb_ll2num_inline.exit:                            ; preds = %211, %208, %198

@@ -3453,7 +3453,7 @@ _free_resv_select_members.exit134:                ; preds = %131, %133
   call void @bit_and(ptr noundef %201, ptr noundef %186) #21
   %202 = load ptr, ptr %2, align 8
   store ptr %202, ptr %4, align 8
-  call fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %4, ptr noundef %2)
+  call fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %2)
   %203 = load ptr, ptr %180, align 8
   %.not81.i = icmp eq ptr %203, null
   br i1 %.not81.i, label %205, label %204
@@ -3499,7 +3499,7 @@ _free_resv_select_members.exit134:                ; preds = %131, %133
   store ptr %216, ptr %180, align 8
   %217 = load ptr, ptr %2, align 8
   store ptr %217, ptr %4, align 8
-  call fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %4, ptr noundef %2)
+  call fastcc void @_pick_nodes(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %2)
   %218 = load ptr, ptr %180, align 8
   %.not85.i = icmp eq ptr %218, null
   br i1 %.not85.i, label %_pick_nodes_by_feature_node_cnt.exit, label %219
@@ -17703,7 +17703,7 @@ define internal fastcc range(i32 0, 2017) i32 @_pick_nodes_ordered(ptr noundef %
   br label %167
 
 167:                                              ; preds = %165, %162, %159
-  %168 = call fastcc ptr @_resv_select(ptr noundef nonnull readonly %0, ptr noundef %111)
+  %168 = call fastcc ptr @_resv_select(ptr noundef nonnull readonly %0, ptr noundef nonnull %111)
   br label %.thread138.i
 
 169:                                              ; preds = %.thread.i, %155
@@ -18077,7 +18077,7 @@ _check_job_compatibility.exit.i:                  ; preds = %338, %._crit_edge.i
   %343 = load ptr, ptr %112, align 8
   %344 = call ptr @bit_copy(ptr noundef %343) #21
   store ptr %344, ptr %10, align 8
-  %345 = call fastcc ptr @_resv_select(ptr noundef readonly %0, ptr noundef %111)
+  %345 = call fastcc ptr @_resv_select(ptr noundef readonly %0, ptr noundef nonnull %111)
   %.not92.i = icmp eq ptr %345, null
   br i1 %.not92.i, label %346, label %396
 
@@ -18158,7 +18158,7 @@ _check_job_compatibility.exit.i:                  ; preds = %338, %._crit_edge.i
   %383 = load ptr, ptr %112, align 8
   %384 = call ptr @bit_copy(ptr noundef %383) #21
   store ptr %384, ptr %10, align 8
-  %385 = call fastcc ptr @_resv_select(ptr noundef nonnull readonly %0, ptr noundef %111)
+  %385 = call fastcc ptr @_resv_select(ptr noundef nonnull readonly %0, ptr noundef nonnull %111)
   %.not97.i = icmp eq ptr %385, null
   br i1 %.not97.i, label %386, label %392
 

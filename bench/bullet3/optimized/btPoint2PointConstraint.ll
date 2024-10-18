@@ -281,7 +281,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sub14.i64 = fsub float %add14.i.i.i51, %43
   %44 = load float, ptr %m_inverseMass.i, align 4
   %45 = load float, ptr %m_inverseMass.i71, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, ptr noundef nonnull align 4 dereferenceable(16) %normal, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %arrayidx5, ptr noundef nonnull align 4 dereferenceable(16) %normal, i64 16, i1 false)
   %m_aJ.i = getelementptr inbounds i8, ptr %arrayidx5, i64 16
   %m_bJ.i = getelementptr inbounds i8, ptr %arrayidx5, i64 32
   %m_0MinvJt.i = getelementptr inbounds i8, ptr %arrayidx5, i64 48

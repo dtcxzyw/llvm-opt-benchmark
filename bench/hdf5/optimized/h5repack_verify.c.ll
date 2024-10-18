@@ -275,7 +275,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 
 135:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  %136 = call i32 @H5Pget_nfilters(i64 noundef %91) #6
+  %136 = call i32 @H5Pget_nfilters(i64 noundef range(i64 0, -9223372036854775808) %91) #6
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %.sink.split, label %138
 
@@ -289,7 +289,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br i1 %.not20.i, label %141, label %.sink.split
 
 141:                                              ; preds = %139, %138
-  %142 = call i32 @H5Pget_layout(i64 noundef %91) #6
+  %142 = call i32 @H5Pget_layout(i64 noundef range(i64 0, -9223372036854775808) %91) #6
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %.sink.split, label %144
 
@@ -303,7 +303,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br i1 %147, label %148, label %.sink.split
 
 148:                                              ; preds = %146
-  %149 = call i32 @H5Pget_chunk(i64 noundef %91, i32 noundef 64, ptr noundef nonnull %5) #6
+  %149 = call i32 @H5Pget_chunk(i64 noundef range(i64 0, -9223372036854775808) %91, i32 noundef 64, ptr noundef nonnull %5) #6
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %.sink.split, label %151
 
@@ -704,7 +704,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   store i32 %373, ptr %256, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %257, ptr noundef nonnull align 8 dereferenceable(264) %258, i64 264, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  %374 = call i32 @H5Pget_nfilters(i64 noundef %326) #6
+  %374 = call i32 @H5Pget_nfilters(i64 noundef range(i64 0, -9223372036854775808) %326) #6
   %375 = icmp slt i32 %374, 0
   br i1 %375, label %.sink.split781, label %376
 
@@ -716,7 +716,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br i1 %or.cond342, label %378, label %.sink.split781
 
 378:                                              ; preds = %376
-  %379 = call i32 @H5Pget_layout(i64 noundef %326) #6
+  %379 = call i32 @H5Pget_layout(i64 noundef range(i64 0, -9223372036854775808) %326) #6
   %380 = icmp slt i32 %379, 0
   br i1 %380, label %.sink.split781, label %381
 
@@ -730,7 +730,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br i1 %384, label %385, label %.sink.split781
 
 385:                                              ; preds = %383
-  %386 = call i32 @H5Pget_chunk(i64 noundef %326, i32 noundef 64, ptr noundef nonnull %4) #6
+  %386 = call i32 @H5Pget_chunk(i64 noundef range(i64 0, -9223372036854775808) %326, i32 noundef 64, ptr noundef nonnull %4) #6
   %387 = icmp slt i32 %386, 0
   br i1 %387, label %.sink.split781, label %388
 

@@ -436,7 +436,7 @@ define void @Bac_NtkUpdateFanout(ptr nocapture noundef %0, i32 noundef %1, i32 n
 
 8:                                                ; preds = %.lr.ph, %8
   %.019 = phi i32 [ %.017, %.lr.ph ], [ %.0, %8 ]
-  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %.019, i32 noundef -1)
+  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef range(i32 1, 0) %.019, i32 noundef -1)
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %.019, i32 noundef %2)
   %.val16 = load ptr, ptr %4, align 8
   %9 = sext i32 %.019 to i64

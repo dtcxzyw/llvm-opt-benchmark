@@ -634,10 +634,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btWheelInfo, ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(96) %arrayidx3.i.i, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(296) %arrayidx3.i.i, i64 96, i1 false)
   %m_worldTransform.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 96
   %m_worldTransform3.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform3.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform3.i.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 112
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
@@ -684,10 +684,10 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
   %7 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds %struct.btWheelInfo, ptr %7, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayidx, ptr noundef nonnull align 8 dereferenceable(96) %_Val, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %arrayidx, ptr noundef nonnull align 8 dereferenceable(296) %_Val, i64 96, i1 false)
   %m_worldTransform.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %m_worldTransform3.i = getelementptr inbounds i8, ptr %_Val, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i, ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform3.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform3.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %_Val, i64 112
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
@@ -715,7 +715,7 @@ entry:
   %m_chassisBody.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_chassisBody.i.i, align 8
   %m_worldTransform.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %chassisTrans, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %chassisTrans, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i.i, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %chassisTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -2505,7 +2505,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 
 if.then27:                                        ; preds = %for.body19
   %m_worldTransform.i = getelementptr inbounds %struct.btWheelInfo, ptr %36, i64 %indvars.iv482, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %wheelBasis0, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %wheelBasis0, ptr noundef nonnull align 4 dereferenceable(48) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx6.i = getelementptr inbounds i8, ptr %m_worldTransform.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i, i64 16, i1 false)
   %arrayidx10.i = getelementptr inbounds i8, ptr %m_worldTransform.i, i64 32

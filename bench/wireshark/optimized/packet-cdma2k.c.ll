@@ -1986,7 +1986,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   br label %185
 
 129:                                              ; preds = %90
-  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef %5)
+  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
   br label %185
 
 130:                                              ; preds = %90
@@ -1995,7 +1995,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %133 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef 32, i32 noundef 0) #4
   %134 = add i16 %54, 51
   store i16 %134, ptr %5, align 2
-  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef %5)
+  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
   br label %185
 
 135:                                              ; preds = %70
@@ -2029,7 +2029,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %153 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 56, i32 noundef 0) #4
   %154 = add i16 %54, 78
   store i16 %154, ptr %5, align 2
-  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef %5)
+  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
   br label %185
 
 155:                                              ; preds = %135
@@ -2042,7 +2042,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %162 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %160, ptr noundef %0, i32 noundef %161, i32 noundef 56, i32 noundef 0) #4
   %163 = add i16 %54, 110
   store i16 %163, ptr %5, align 2
-  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef %5)
+  call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
   br label %185
 
 .thread53:                                        ; preds = %135

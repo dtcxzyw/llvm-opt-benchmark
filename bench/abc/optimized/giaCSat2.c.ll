@@ -1079,7 +1079,7 @@ Cbs2_ManPropagateTwo.exit:                        ; preds = %89
   %189 = trunc nuw i64 %188 to i32
   %190 = and i32 %189, 536870911
   %191 = sub nsw i32 %42, %190
-  %192 = tail call fastcc i32 @Cbs2_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %42, i32 noundef %187, i32 noundef %191)
+  %192 = tail call fastcc i32 @Cbs2_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 0) %42, i32 noundef %187, i32 noundef %191)
   %.not45 = icmp eq i32 %192, 0
   br i1 %.not45, label %Cbs2_ManPropagateTwo.exit.thread, label %.loopexit
 

@@ -815,7 +815,7 @@ _setHeaderInfo.exit:                              ; preds = %42, %44
   br i1 %104, label %108, label %105
 
 105:                                              ; preds = %76
-  %106 = call i32 @cmsWriteRawTag(ptr noundef nonnull %74, i32 noundef %3, ptr noundef nonnull %37, i32 noundef %33) #8
+  %106 = call i32 @cmsWriteRawTag(ptr noundef nonnull %74, i32 noundef range(i32 1751474533, 1751474532) %3, ptr noundef nonnull %37, i32 noundef %33) #8
   %.not.i33 = icmp eq i32 %106, 0
   br i1 %.not.i33, label %108, label %.preheader.i
 
@@ -903,7 +903,7 @@ _setHeaderInfo.exit:                              ; preds = %42, %44
   br label %_writeCookedTag.exit
 
 140:                                              ; preds = %134
-  %141 = call ptr @cmsReadTag(ptr noundef nonnull %136, i32 noundef %3) #8
+  %141 = call ptr @cmsReadTag(ptr noundef nonnull %136, i32 noundef range(i32 1751474533, 1751474532) %3) #8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %145
 

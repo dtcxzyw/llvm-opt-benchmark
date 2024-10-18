@@ -886,11 +886,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef range(i64 -4294967294, 4294967296) %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #19
   br label %trace_pci_nvme_map_prp.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef range(i64 -4294967294, 4294967296) %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #19
   br label %trace_pci_nvme_map_prp.exit.i
 
 trace_pci_nvme_map_prp.exit.i:                    ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.bb
@@ -1748,7 +1748,7 @@ if.end18.i:                                       ; preds = %nvme_addr_is_pmr.ex
   %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i73.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %addr.0, i32 1, ptr noundef %ptr.addr.0.ph89, i64 noundef %conv.i, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %addr.0, i32 1, ptr noundef %ptr.addr.0.ph89, i64 noundef range(i64 -2147483648, 2147483648) %conv.i, i1 noundef zeroext true) #19
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end18.i, %if.then44
@@ -2335,11 +2335,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %27 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %22, i32 noundef %mul.i.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %22, i32 noundef range(i32 0, -131070) %mul.i.i) #19
   br label %trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i64 noundef %22, i32 noundef %mul.i.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i64 noundef %22, i32 noundef range(i32 0, -131070) %mul.i.i) #19
   br label %trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i
 
 trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then14.i
@@ -2740,11 +2740,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) #19
   br label %trace_pci_nvme_map_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i64 noundef %addr, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) #19
   br label %trace_pci_nvme_map_addr.exit
 
 trace_pci_nvme_map_addr.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3029,7 +3029,7 @@ if.end18:                                         ; preds = %if.end9, %nvme_addr
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i73, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %conv, i1 noundef zeroext false) #19
+  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %conv, i1 noundef zeroext false) #19
   br label %return
 
 return:                                           ; preds = %entry, %if.end18, %if.then15, %if.then6
@@ -3161,11 +3161,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) #19
   br label %trace_pci_nvme_map_addr_cmb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i64 noundef %addr, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) #19
   br label %trace_pci_nvme_map_addr_cmb.exit
 
 trace_pci_nvme_map_addr_cmb.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3349,11 +3349,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %2) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef range(i32 1, 0) %2) #19
   br label %trace_pci_nvme_err_invalid_sgl_excess_length.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %2) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef range(i32 1, 0) %2) #19
   br label %trace_pci_nvme_err_invalid_sgl_excess_length.exit
 
 trace_pci_nvme_err_invalid_sgl_excess_length.exit: ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4683,7 +4683,7 @@ if.end10.i:                                       ; preds = %if.then9.i, %nvme_a
   %conv21.i.i = zext nneg i32 %div2014.i.i to i64
   %add22.i.i = add nsw i64 %conv21.i.i, -1
   %sub.i.i.i = add nsw i64 %add22.i.i, %div1012.i.i
-  %65 = call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 true)
+  %65 = call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 range(i64 4095, 4296028160) %sub.i.i.i, i1 true)
   %sub2.i.i.i = add nuw nsw i64 %65, 4294967295
   %sh_prom.i.i.i = and i64 %sub2.i.i.i, 4294967295
   %shr.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i
@@ -4848,7 +4848,7 @@ if.then51.i63:                                    ; preds = %land.lhs.true.i61
   %conv21.i.i.i = zext nneg i32 %div2014.i.i.i to i64
   %add22.i.i.i = add nsw i64 %conv21.i.i.i, -1
   %sub.i.i.i.i = add nsw i64 %add22.i.i.i, %div1012.i.i.i
-  %88 = call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i.i, i1 true)
+  %88 = call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 range(i64 4095, 4296028160) %sub.i.i.i.i, i1 true)
   %sub2.i.i.i.i = add nuw nsw i64 %88, 4294967295
   %sh_prom.i.i.i.i = and i64 %sub2.i.i.i.i, 4294967295
   %shr.i.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i.i
@@ -5496,11 +5496,11 @@ if.then8.i.i62:                                   ; preds = %if.then.i.i59
   %24 = load i64, ptr %_now.i.i52, align 8
   %tv_usec.i.i65 = getelementptr inbounds i8, ptr %_now.i.i52, i64 8
   %25 = load i64, ptr %tv_usec.i.i65, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i64, i64 noundef %24, i64 noundef %25, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i64, i64 noundef %24, i64 noundef %25, i64 noundef range(i64 1, 0) %addr) #19
   br label %trace_pci_nvme_ub_mmiord_invalid_ofs.exit
 
 if.else.i.i61:                                    ; preds = %if.then.i.i59
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i64 noundef range(i64 1, 0) %addr) #19
   br label %trace_pci_nvme_ub_mmiord_invalid_ofs.exit
 
 trace_pci_nvme_ub_mmiord_invalid_ofs.exit:        ; preds = %do.body40, %land.lhs.true5.i.i56, %if.then8.i.i62, %if.else.i.i61
@@ -5565,11 +5565,11 @@ if.then8.i.i80:                                   ; preds = %if.then.i.i77
   %35 = load i64, ptr %_now.i.i70, align 8
   %tv_usec.i.i83 = getelementptr inbounds i8, ptr %_now.i.i70, i64 8
   %36 = load i64, ptr %tv_usec.i.i83, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i82, i64 noundef %35, i64 noundef %36, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i82, i64 noundef %35, i64 noundef %36, i64 noundef range(i64 29, 28) %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 if.else.i.i79:                                    ; preds = %if.then.i.i77
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef range(i64 29, 28) %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 trace_pci_nvme_err_ignored_mmio_vf_offline.exit:  ; preds = %if.then62, %land.lhs.true5.i.i74, %if.then8.i.i80, %if.else.i.i79
@@ -5758,11 +5758,11 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i21
   %14 = load i64, ptr %_now.i.i14, align 8
   %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %15 = load i64, ptr %tv_usec.i.i27, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i26, i64 noundef %14, i64 noundef %15, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i26, i64 noundef %14, i64 noundef %15, i64 noundef range(i64 29, 28) %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i21
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef range(i64 29, 28) %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 trace_pci_nvme_err_ignored_mmio_vf_offline.exit:  ; preds = %if.then, %land.lhs.true5.i.i18, %if.then8.i.i24, %if.else.i.i23
@@ -5815,11 +5815,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %20 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i.i, i64 noundef %20, i64 noundef %21, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i.i, i64 noundef %20, i64 noundef %21, i64 noundef range(i64 0, 4096) %addr) #19
   br label %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i64 noundef range(i64 0, 4096) %addr) #19
   br label %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i
 
 trace_pci_nvme_ub_mmiowr_misaligned32.exit.i:     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %do.body.i
@@ -5830,7 +5830,7 @@ trace_pci_nvme_ub_mmiowr_misaligned32.exit.i:     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.not.i28, label %if.end27.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef range(i64 0, 4096) %addr) #19
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then25.i, %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i, %if.then6
@@ -5863,11 +5863,11 @@ if.then8.i.i135.i:                                ; preds = %if.then.i.i132.i
   %27 = load i64, ptr %_now.i.i125.i, align 8
   %tv_usec.i.i138.i = getelementptr inbounds i8, ptr %_now.i.i125.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i138.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i137.i, i64 noundef %27, i64 noundef %28, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i137.i, i64 noundef %27, i64 noundef %28, i64 noundef range(i64 0, 4096) %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_ub_mmiowr_toosmall.exit.i
 
 if.else.i.i134.i:                                 ; preds = %if.then.i.i132.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i64 noundef range(i64 0, 4096) %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_ub_mmiowr_toosmall.exit.i
 
 trace_pci_nvme_ub_mmiowr_toosmall.exit.i:         ; preds = %if.else.i.i134.i, %if.then8.i.i135.i, %land.lhs.true5.i.i129.i, %do.body37.i
@@ -5878,7 +5878,7 @@ trace_pci_nvme_ub_mmiowr_toosmall.exit.i:         ; preds = %if.else.i.i134.i, %
   br i1 %cmp.i140.not.i, label %if.end50.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %trace_pci_nvme_ub_mmiowr_toosmall.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i32 noundef %size) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef range(i64 0, 4096) %addr, i32 noundef %size) #19
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then46.i, %trace_pci_nvme_ub_mmiowr_toosmall.exit.i, %if.end27.i
@@ -5988,11 +5988,11 @@ if.then8.i.i167.i:                                ; preds = %if.then.i.i164.i
   %42 = load i64, ptr %_now.i.i157.i, align 8
   %tv_usec.i.i170.i = getelementptr inbounds i8, ptr %_now.i.i157.i, i64 8
   %43 = load i64, ptr %tv_usec.i.i170.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.126, i32 noundef %call10.i.i169.i, i64 noundef %42, i64 noundef %43, i64 noundef %and81.i, i64 noundef %conv82.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.126, i32 noundef %call10.i.i169.i, i64 noundef %42, i64 noundef %43, i64 noundef range(i64 0, 4294967296) %and81.i, i64 noundef range(i64 0, 4294967296) %conv82.i) #19
   br label %trace_pci_nvme_mmio_intm_set.exit.i
 
 if.else.i.i166.i:                                 ; preds = %if.then.i.i164.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i64 noundef %and81.i, i64 noundef %conv82.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i64 noundef range(i64 0, 4294967296) %and81.i, i64 noundef range(i64 0, 4294967296) %conv82.i) #19
   br label %trace_pci_nvme_mmio_intm_set.exit.i
 
 trace_pci_nvme_mmio_intm_set.exit.i:              ; preds = %if.else.i.i166.i, %if.then8.i.i167.i, %land.lhs.true5.i.i161.i, %if.end73.i
@@ -6096,11 +6096,11 @@ if.then8.i.i199.i:                                ; preds = %if.then.i.i196.i
   %58 = load i64, ptr %_now.i.i189.i, align 8
   %tv_usec.i.i202.i = getelementptr inbounds i8, ptr %_now.i.i189.i, i64 8
   %59 = load i64, ptr %tv_usec.i.i202.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call10.i.i201.i, i64 noundef %58, i64 noundef %59, i64 noundef %and116.i, i64 noundef %conv117.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call10.i.i201.i, i64 noundef %58, i64 noundef %59, i64 noundef range(i64 0, 4294967296) %and116.i, i64 noundef range(i64 0, 4294967296) %conv117.i) #19
   br label %trace_pci_nvme_mmio_intm_clr.exit.i
 
 if.else.i.i198.i:                                 ; preds = %if.then.i.i196.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i64 noundef %and116.i, i64 noundef %conv117.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i64 noundef range(i64 0, 4294967296) %and116.i, i64 noundef range(i64 0, 4294967296) %conv117.i) #19
   br label %trace_pci_nvme_mmio_intm_clr.exit.i
 
 trace_pci_nvme_mmio_intm_clr.exit.i:              ; preds = %if.else.i.i198.i, %if.then8.i.i199.i, %land.lhs.true5.i.i193.i, %if.end106.i
@@ -6150,11 +6150,11 @@ if.then8.i.i225.i:                                ; preds = %if.then.i.i222.i
   %65 = load i64, ptr %_now.i.i215.i, align 8
   %tv_usec.i.i228.i = getelementptr inbounds i8, ptr %_now.i.i215.i, i64 8
   %66 = load i64, ptr %tv_usec.i.i228.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, i32 noundef %call10.i.i227.i, i64 noundef %65, i64 noundef %66, i64 noundef %and122.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, i32 noundef %call10.i.i227.i, i64 noundef %65, i64 noundef %66, i64 noundef range(i64 0, 4294967296) %and122.i) #19
   br label %trace_pci_nvme_mmio_cfg.exit.i
 
 if.else.i.i224.i:                                 ; preds = %if.then.i.i222.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i64 noundef %and122.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i64 noundef range(i64 0, 4294967296) %and122.i) #19
   br label %trace_pci_nvme_mmio_cfg.exit.i
 
 trace_pci_nvme_mmio_cfg.exit.i:                   ; preds = %if.else.i.i224.i, %if.then8.i.i225.i, %land.lhs.true5.i.i219.i, %sw.bb118.i
@@ -6751,11 +6751,11 @@ if.then8.i.i295.i:                                ; preds = %if.then.i.i292.i
   %139 = load i64, ptr %_now.i.i285.i, align 8
   %tv_usec.i.i298.i = getelementptr inbounds i8, ptr %_now.i.i285.i, i64 8
   %140 = load i64, ptr %tv_usec.i.i298.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.436, i32 noundef %call10.i.i297.i, i64 noundef %139, i64 noundef %140, i64 noundef %and219.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.436, i32 noundef %call10.i.i297.i, i64 noundef %139, i64 noundef %140, i64 noundef range(i64 0, 4294967296) %and219.i) #19
   br label %trace_pci_nvme_mmio_aqattr.exit.i
 
 if.else.i.i294.i:                                 ; preds = %if.then.i.i292.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.437, i64 noundef %and219.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.437, i64 noundef range(i64 0, 4294967296) %and219.i) #19
   br label %trace_pci_nvme_mmio_aqattr.exit.i
 
 trace_pci_nvme_mmio_aqattr.exit.i:                ; preds = %if.else.i.i294.i, %if.then8.i.i295.i, %land.lhs.true5.i.i289.i, %sw.bb216.i
@@ -7469,11 +7469,11 @@ if.then8.i.i485.i:                                ; preds = %if.then.i.i482.i
   %230 = load i64, ptr %_now.i.i475.i, align 8
   %tv_usec.i.i488.i = getelementptr inbounds i8, ptr %_now.i.i475.i, i64 8
   %231 = load i64, ptr %tv_usec.i.i488.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.458, i32 noundef %call10.i.i487.i, i64 noundef %230, i64 noundef %231, i64 noundef %addr, i64 noundef %data) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.458, i32 noundef %call10.i.i487.i, i64 noundef %230, i64 noundef %231, i64 noundef range(i64 0, 4096) %addr, i64 noundef %data) #19
   br label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
 if.else.i.i484.i:                                 ; preds = %if.then.i.i482.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.459, i64 noundef %addr, i64 noundef %data) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.459, i64 noundef range(i64 0, 4096) %addr, i64 noundef %data) #19
   br label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
 trace_pci_nvme_ub_mmiowr_invalid.exit.i:          ; preds = %if.else.i.i484.i, %if.then8.i.i485.i, %land.lhs.true5.i.i479.i, %do.body451.i
@@ -7484,7 +7484,7 @@ trace_pci_nvme_ub_mmiowr_invalid.exit.i:          ; preds = %if.else.i.i484.i, %
   br i1 %cmp.i490.not.i, label %if.end7, label %if.then460.i
 
 if.then460.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_invalid.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i64 noundef %data) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef range(i64 0, 4096) %addr, i64 noundef %data) #19
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
@@ -7520,11 +7520,11 @@ if.then8.i.i.i49:                                 ; preds = %if.then.i.i.i46
   %237 = load i64, ptr %_now.i.i.i33, align 8
   %tv_usec.i.i.i52 = getelementptr inbounds i8, ptr %_now.i.i.i33, i64 8
   %238 = load i64, ptr %tv_usec.i.i.i52, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.465, i32 noundef %call10.i.i.i51, i64 noundef %237, i64 noundef %238, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.465, i32 noundef %call10.i.i.i51, i64 noundef %237, i64 noundef %238, i64 noundef range(i64 4096, 0) %addr) #19
   br label %trace_pci_nvme_ub_db_wr_misaligned.exit.i
 
 if.else.i.i.i48:                                  ; preds = %if.then.i.i.i46
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.466, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.466, i64 noundef range(i64 4096, 0) %addr) #19
   br label %trace_pci_nvme_ub_db_wr_misaligned.exit.i
 
 trace_pci_nvme_ub_db_wr_misaligned.exit.i:        ; preds = %if.else.i.i.i48, %if.then8.i.i.i49, %land.lhs.true5.i.i.i43, %do.body.i37
@@ -7535,7 +7535,7 @@ trace_pci_nvme_ub_db_wr_misaligned.exit.i:        ; preds = %if.else.i.i.i48, %i
   br i1 %cmp.i.not.i42, label %if.end7, label %if.then11.i
 
 if.then11.i:                                      ; preds = %trace_pci_nvme_ub_db_wr_misaligned.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.460, ptr noundef nonnull @__func__.nvme_process_db, i64 noundef %addr) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.460, ptr noundef nonnull @__func__.nvme_process_db, i64 noundef range(i64 4096, 0) %addr) #19
   br label %if.end7
 
 if.end13.i:                                       ; preds = %if.else
@@ -7746,7 +7746,7 @@ if.then85.i:                                      ; preds = %land.lhs.true.i
   store i32 %conv50.i, ptr %val.addr.i.i.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %273, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %273, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   br label %if.end115.i
 
@@ -7991,7 +7991,7 @@ if.then204.i62:                                   ; preds = %land.lhs.true200.i
   store i32 %conv167.i, ptr %val.addr.i.i195.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i197.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i196.i, i64 noundef %308, i32 1, ptr noundef nonnull %val.addr.i.i195.i, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i197.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i196.i, i64 noundef %308, i32 1, ptr noundef nonnull %val.addr.i.i195.i, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i195.i)
   br label %if.end240.i
 
@@ -9192,7 +9192,7 @@ nvme_update_cq_eventidx.exit:                     ; preds = %if.then, %land.lhs.
   store i32 %15, ptr %val.addr.i.i.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %14, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %14, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   call fastcc void @nvme_update_cq_head(ptr noundef nonnull %opaque)
   %.pre = load i32, ptr %head, align 8
@@ -9236,7 +9236,7 @@ if.end5:                                          ; preds = %if.end
   %bus_master_as.i.i.i47 = getelementptr inbounds i8, ptr %call.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i47, i64 noundef %add, i32 1, ptr noundef nonnull %cqe, i64 noundef 16, i1 noundef zeroext true) #19
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i47, i64 noundef %add, i32 1, ptr noundef nonnull %cqe, i64 noundef range(i64 -2147483648, 2147483648) 16, i1 noundef zeroext true) #19
   %tobool23.not = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool23.not, label %do.body, label %if.then24
 
@@ -9628,7 +9628,7 @@ entry:
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %head, i64 noundef 4, i1 noundef zeroext false) #19
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %head, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext false) #19
   %cqid = getelementptr inbounds i8, ptr %cq, i64 10
   %2 = load i16, ptr %cqid, align 2
   %3 = load i32, ptr %head, align 8
@@ -10990,14 +10990,14 @@ if.then8.i.i.i578:                                ; preds = %if.then.i.i.i572
   %conv11.i.i.i582 = zext i16 %152 to i32
   %conv12.i.i.i583 = and i32 %146, 255
   %conv14.i.i.i584 = and i32 %shr7.i, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.330, i32 noundef %call10.i.i.i580, i64 noundef %157, i64 noundef %158, i32 noundef %conv11.i.i.i582, i32 noundef %conv12.i.i.i583, i32 noundef %conv6.i, i32 noundef %conv14.i.i.i584, i32 noundef %shl18.i, i64 noundef %or21.i) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.330, i32 noundef %call10.i.i.i580, i64 noundef %157, i64 noundef %158, i32 noundef %conv11.i.i.i582, i32 noundef %conv12.i.i.i583, i32 noundef %conv6.i, i32 noundef %conv14.i.i.i584, i32 noundef range(i32 0, -3) %shl18.i, i64 noundef %or21.i) #19
   br label %trace_pci_nvme_get_log.exit.i
 
 if.else.i.i.i574:                                 ; preds = %if.then.i.i.i572
   %conv15.i.i.i575 = zext i16 %152 to i32
   %conv16.i.i.i576 = and i32 %146, 255
   %conv18.i.i.i577 = and i32 %shr7.i, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.331, i32 noundef %conv15.i.i.i575, i32 noundef %conv16.i.i.i576, i32 noundef %conv6.i, i32 noundef %conv18.i.i.i577, i32 noundef %shl18.i, i64 noundef %or21.i) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.331, i32 noundef %conv15.i.i.i575, i32 noundef %conv16.i.i.i576, i32 noundef %conv6.i, i32 noundef %conv18.i.i.i577, i32 noundef range(i32 0, -3) %shl18.i, i64 noundef %or21.i) #19
   br label %trace_pci_nvme_get_log.exit.i
 
 trace_pci_nvme_get_log.exit.i:                    ; preds = %if.else.i.i.i574, %if.then8.i.i.i578, %land.lhs.true5.i.i.i569, %nvme_cid.exit.i532
@@ -11038,11 +11038,11 @@ if.then8.i.i.i.i565:                              ; preds = %if.then.i.i.i.i562
   %call10.i.i.i.i567 = call i32 @qemu_get_thread_id() #19
   %165 = load i64, ptr %_now.i.i.i.i522, align 8
   %166 = load i64, ptr %tv_usec.i.i.i.i568, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i.i567, i64 noundef %165, i64 noundef %166, i64 noundef %conv19.i) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i.i567, i64 noundef %165, i64 noundef %166, i64 noundef range(i64 1, 0) %conv19.i) #19
   br label %nvme_check_mdts.exit.i
 
 if.else.i.i.i.i564:                               ; preds = %if.then.i.i.i.i562
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %conv19.i) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef range(i64 1, 0) %conv19.i) #19
   br label %nvme_check_mdts.exit.i
 
 nvme_check_mdts.exit.i:                           ; preds = %if.else.i.i.i.i564, %if.then8.i.i.i.i565, %land.lhs.true5.i.i.i.i559, %if.then.i.i555
@@ -11317,14 +11317,14 @@ if.then8.i.i.i480:                                ; preds = %if.then.i.i.i474
   %conv11.i.i.i484 = zext i16 %196 to i32
   %conv12.i.i.i485 = zext i16 %197 to i32
   %conv13.i.i.i486 = zext i16 %198 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.347, i32 noundef %call10.i.i.i482, i64 noundef %207, i64 noundef %208, i64 noundef %200, i32 noundef %conv11.i.i.i484, i32 noundef %conv12.i.i.i485, i32 noundef %conv13.i.i.i486, i32 noundef %conv14.i, i32 noundef %and16.i) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.347, i32 noundef %call10.i.i.i482, i64 noundef %207, i64 noundef %208, i64 noundef %200, i32 noundef %conv11.i.i.i484, i32 noundef %conv12.i.i.i485, i32 noundef %conv13.i.i.i486, i32 noundef %conv14.i, i32 noundef range(i32 0, 2) %and16.i) #19
   br label %trace_pci_nvme_create_cq.exit.i
 
 if.else.i.i.i476:                                 ; preds = %if.then.i.i.i474
   %conv15.i.i.i477 = zext i16 %196 to i32
   %conv16.i.i.i478 = zext i16 %197 to i32
   %conv17.i.i.i479 = zext i16 %198 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.348, i64 noundef %200, i32 noundef %conv15.i.i.i477, i32 noundef %conv16.i.i.i478, i32 noundef %conv17.i.i.i479, i32 noundef %conv14.i, i32 noundef %and16.i) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.348, i64 noundef %200, i32 noundef %conv15.i.i.i477, i32 noundef %conv16.i.i.i478, i32 noundef %conv17.i.i.i479, i32 noundef %conv14.i, i32 noundef range(i32 0, 2) %and16.i) #19
   br label %trace_pci_nvme_create_cq.exit.i
 
 trace_pci_nvme_create_cq.exit.i:                  ; preds = %if.else.i.i.i476, %if.then8.i.i.i480, %land.lhs.true5.i.i.i471, %sw.bb31.i
@@ -11962,7 +11962,7 @@ if.end18.i.i:                                     ; preds = %if.then12.i.i413, %
   br i1 %tobool21.not.i.i, label %if.end32.i.i, label %if.then22.i.i
 
 if.then22.i.i:                                    ; preds = %if.end18.i.i
-  %292 = call noundef i64 @llvm.bswap.i64(i64 %291)
+  %292 = call noundef i64 @llvm.bswap.i64(i64 range(i64 1, 0) %291)
   store i8 1, ptr %pos.0.i.i, align 1
   %eui64.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pos.0.i.i, i64 1
   store i8 8, ptr %eui64.sroa.3.0..sroa_idx.i.i, align 1
@@ -13390,7 +13390,7 @@ if.then16.i:                                      ; preds = %for.body.i
   store i32 %487, ptr %val.addr.i.i.i149, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i163 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i157, i64 noundef %add18.i, i32 %bf.clear24.i, ptr noundef nonnull %val.addr.i.i.i149, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i.i163 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i157, i64 noundef %add18.i, i32 %bf.clear24.i, ptr noundef nonnull %val.addr.i.i.i149, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i149)
   %488 = load i8, ptr %ioeventfd.i, align 2
   %tobool52.i = trunc i8 %488 to i1
@@ -13442,7 +13442,7 @@ if.then65.i:                                      ; preds = %if.end63.i
   store i32 %491, ptr %val.addr.i.i64.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i157, i64 noundef %add69.i, i32 %bf.clear82.i, ptr noundef nonnull %val.addr.i.i64.i, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i157, i64 noundef %add69.i, i32 %bf.clear82.i, ptr noundef nonnull %val.addr.i.i64.i, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
   %492 = load i8, ptr %ioeventfd.i, align 2
   %tobool112.i = trunc i8 %492 to i1
@@ -13721,7 +13721,7 @@ nvme_update_sq_eventidx.exit:                     ; preds = %if.then60, %land.lh
   store i32 %536, ptr %val.addr.i.i.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %535, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %535, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   call fastcc void @nvme_update_sq_tail(ptr noundef nonnull %opaque)
   br label %if.end61
@@ -13748,7 +13748,7 @@ entry:
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %tail, i64 noundef 4, i1 noundef zeroext false) #19
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %tail, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext false) #19
   %sqid = getelementptr inbounds i8, ptr %sq, i64 8
   %2 = load i16, ptr %sqid, align 8
   %3 = load i32, ptr %tail, align 8
@@ -13880,12 +13880,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %conv11.i.i, i32 noundef %14, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %conv11.i.i, i32 noundef %14, i32 noundef range(i32 1, 65537) %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %conv12.i.i, i32 noundef %14, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %conv12.i.i, i32 noundef %14, i32 noundef range(i32 1, 65537) %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_read.exit
 
 trace_pci_nvme_read.exit:                         ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -13930,11 +13930,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %27 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %mapped_size.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef range(i64 1, 0) %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %mapped_size.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef range(i64 1, 0) %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i61, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -13977,11 +13977,11 @@ if.then8.i.i.i76:                                 ; preds = %if.then.i.i.i73
   %35 = load i64, ptr %_now.i.i.i62, align 8
   %tv_usec.i.i.i79 = getelementptr inbounds i8, ptr %_now.i.i.i62, i64 8
   %36 = load i64, ptr %tv_usec.i.i.i79, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i78, i64 noundef %35, i64 noundef %36, i64 noundef %1, i64 noundef %conv8, i64 noundef %.val53) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i78, i64 noundef %35, i64 noundef %36, i64 noundef %1, i64 noundef range(i64 0, 4294967296) %conv8, i64 noundef %.val53) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i75:                                  ; preds = %if.then.i.i.i73
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef %conv8, i64 noundef %.val53) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef range(i64 0, 4294967296) %conv8, i64 noundef %.val53) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i66, %land.lhs.true5.i.i.i70, %if.then8.i.i.i76, %if.else.i.i.i75
@@ -14094,12 +14094,12 @@ if.then8.i.i96:                                   ; preds = %if.then.i.i92
   %tv_usec.i.i99 = getelementptr inbounds i8, ptr %_now.i.i85, i64 8
   %51 = load i64, ptr %tv_usec.i.i99, align 8
   %conv11.i.i100 = zext nneg i16 %status.0.i.ph to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.233, i32 noundef %call10.i.i98, i64 noundef %50, i64 noundef %51, i64 noundef %1, i32 noundef %add, i32 noundef %conv11.i.i100) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.233, i32 noundef %call10.i.i98, i64 noundef %50, i64 noundef %51, i64 noundef %1, i32 noundef range(i32 1, 65537) %add, i32 noundef %conv11.i.i100) #19
   br label %trace_pci_nvme_err_zone_read_not_ok.exit
 
 if.else.i.i94:                                    ; preds = %if.then.i.i92
   %conv12.i.i95 = zext nneg i16 %status.0.i.ph to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i64 noundef %1, i32 noundef %add, i32 noundef %conv12.i.i95) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i64 noundef %1, i32 noundef range(i32 1, 65537) %add, i32 noundef %conv12.i.i95) #19
   br label %trace_pci_nvme_err_zone_read_not_ok.exit
 
 trace_pci_nvme_err_zone_read_not_ok.exit:         ; preds = %if.then43, %land.lhs.true5.i.i89, %if.then8.i.i96, %if.else.i.i94
@@ -14234,12 +14234,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, i32 noundef %7, i64 noundef %2, i32 noundef %add) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, i32 noundef %7, i64 noundef %2, i32 noundef range(i32 1, 65537) %add) #19
   br label %trace_pci_nvme_compare.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %conv12.i.i, i32 noundef %7, i64 noundef %2, i32 noundef %add) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %conv12.i.i, i32 noundef %7, i64 noundef %2, i32 noundef range(i32 1, 65537) %add) #19
   br label %trace_pci_nvme_compare.exit
 
 trace_pci_nvme_compare.exit:                      ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14310,11 +14310,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %26 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %27 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %26, i64 noundef %27, i64 noundef %len.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %26, i64 noundef %27, i64 noundef range(i64 1, 0) %len.0) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %len.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef range(i64 1, 0) %len.0) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i58, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -14357,11 +14357,11 @@ if.then8.i.i.i73:                                 ; preds = %if.then.i.i.i70
   %34 = load i64, ptr %_now.i.i.i59, align 8
   %tv_usec.i.i.i76 = getelementptr inbounds i8, ptr %_now.i.i.i59, i64 8
   %35 = load i64, ptr %tv_usec.i.i.i76, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i75, i64 noundef %34, i64 noundef %35, i64 noundef %2, i64 noundef %conv9, i64 noundef %.val49) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i75, i64 noundef %34, i64 noundef %35, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %conv9, i64 noundef %.val49) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i72:                                  ; preds = %if.then.i.i.i70
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef %conv9, i64 noundef %.val49) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %conv9, i64 noundef %.val49) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i63, %land.lhs.true5.i.i.i67, %if.then8.i.i.i73, %if.else.i.i.i72
@@ -14468,11 +14468,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %add, i32 noundef %1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 1, 257) %add, i32 noundef %1) #19
   br label %trace_pci_nvme_dsm.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.245, i32 noundef %add, i32 noundef %1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.245, i32 noundef range(i32 1, 257) %add, i32 noundef %1) #19
   br label %trace_pci_nvme_dsm.exit
 
 trace_pci_nvme_dsm.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14584,12 +14584,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %7 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i, i32 noundef %8, i64 noundef %2, i32 noundef %add) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i, i32 noundef %8, i64 noundef %2, i32 noundef range(i32 1, 65537) %add) #19
   br label %trace_pci_nvme_verify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %7 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %conv12.i.i, i32 noundef %8, i64 noundef %2, i32 noundef %add) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %conv12.i.i, i32 noundef %8, i64 noundef %2, i32 noundef range(i32 1, 65537) %add) #19
   br label %trace_pci_nvme_verify.exit
 
 trace_pci_nvme_verify.exit:                       ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14661,11 +14661,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %28 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %2, i64 noundef %conv6, i64 noundef %.val42) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %conv6, i64 noundef %.val42) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef %conv6, i64 noundef %.val42) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %conv6, i64 noundef %.val42) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i48, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -15152,11 +15152,11 @@ if.then8.i.i82:                                   ; preds = %if.then.i.i79
   %19 = load i64, ptr %_now.i.i72, align 8
   %tv_usec.i.i85 = getelementptr inbounds i8, ptr %_now.i.i72, i64 8
   %20 = load i64, ptr %tv_usec.i.i85, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.268, i32 noundef %call10.i.i84, i64 noundef %19, i64 noundef %20, i64 noundef %4, i32 noundef %5, i32 noundef %conv22) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.268, i32 noundef %call10.i.i84, i64 noundef %19, i64 noundef %20, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv22) #19
   br label %trace_pci_nvme_open_zone.exit
 
 if.else.i.i81:                                    ; preds = %if.then.i.i79
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.269, i64 noundef %4, i32 noundef %5, i32 noundef %conv22) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.269, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv22) #19
   br label %trace_pci_nvme_open_zone.exit
 
 trace_pci_nvme_open_zone.exit:                    ; preds = %sw.bb, %land.lhs.true5.i.i76, %if.then8.i.i82, %if.else.i.i81
@@ -15191,11 +15191,11 @@ if.then8.i.i96:                                   ; preds = %if.then.i.i93
   %25 = load i64, ptr %_now.i.i86, align 8
   %tv_usec.i.i99 = getelementptr inbounds i8, ptr %_now.i.i86, i64 8
   %26 = load i64, ptr %tv_usec.i.i99, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.270, i32 noundef %call10.i.i98, i64 noundef %25, i64 noundef %26, i64 noundef %4, i32 noundef %5, i32 noundef %conv29) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.270, i32 noundef %call10.i.i98, i64 noundef %25, i64 noundef %26, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv29) #19
   br label %trace_pci_nvme_close_zone.exit
 
 if.else.i.i95:                                    ; preds = %if.then.i.i93
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.271, i64 noundef %4, i32 noundef %5, i32 noundef %conv29) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.271, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv29) #19
   br label %trace_pci_nvme_close_zone.exit
 
 trace_pci_nvme_close_zone.exit:                   ; preds = %sw.bb24, %land.lhs.true5.i.i90, %if.then8.i.i96, %if.else.i.i95
@@ -15286,11 +15286,11 @@ if.then8.i.i111:                                  ; preds = %if.then.i.i108
   %41 = load i64, ptr %_now.i.i101, align 8
   %tv_usec.i.i114 = getelementptr inbounds i8, ptr %_now.i.i101, i64 8
   %42 = load i64, ptr %tv_usec.i.i114, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.272, i32 noundef %call10.i.i113, i64 noundef %41, i64 noundef %42, i64 noundef %4, i32 noundef %5, i32 noundef %conv36) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.272, i32 noundef %call10.i.i113, i64 noundef %41, i64 noundef %42, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv36) #19
   br label %trace_pci_nvme_finish_zone.exit
 
 if.else.i.i110:                                   ; preds = %if.then.i.i108
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.273, i64 noundef %4, i32 noundef %5, i32 noundef %conv36) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.273, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv36) #19
   br label %trace_pci_nvme_finish_zone.exit
 
 trace_pci_nvme_finish_zone.exit:                  ; preds = %sw.bb31, %land.lhs.true5.i.i105, %if.then8.i.i111, %if.else.i.i110
@@ -15444,11 +15444,11 @@ if.then8.i.i177:                                  ; preds = %if.then.i.i174
   %66 = load i64, ptr %_now.i.i167, align 8
   %tv_usec.i.i180 = getelementptr inbounds i8, ptr %_now.i.i167, i64 8
   %67 = load i64, ptr %tv_usec.i.i180, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.274, i32 noundef %call10.i.i179, i64 noundef %66, i64 noundef %67, i64 noundef %4, i32 noundef %5, i32 noundef %conv40) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.274, i32 noundef %call10.i.i179, i64 noundef %66, i64 noundef %67, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv40) #19
   br label %trace_pci_nvme_reset_zone.exit
 
 if.else.i.i176:                                   ; preds = %if.then.i.i174
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.275, i64 noundef %4, i32 noundef %5, i32 noundef %conv40) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.275, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv40) #19
   br label %trace_pci_nvme_reset_zone.exit
 
 trace_pci_nvme_reset_zone.exit:                   ; preds = %sw.bb38, %land.lhs.true5.i.i171, %if.then8.i.i177, %if.else.i.i176
@@ -15500,11 +15500,11 @@ if.then8.i.i191:                                  ; preds = %if.then.i.i188
   %74 = load i64, ptr %_now.i.i181, align 8
   %tv_usec.i.i194 = getelementptr inbounds i8, ptr %_now.i.i181, i64 8
   %75 = load i64, ptr %tv_usec.i.i194, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.278, i32 noundef %call10.i.i193, i64 noundef %74, i64 noundef %75, i64 noundef %4, i32 noundef %5, i32 noundef %conv52) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.278, i32 noundef %call10.i.i193, i64 noundef %74, i64 noundef %75, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv52) #19
   br label %trace_pci_nvme_offline_zone.exit
 
 if.else.i.i190:                                   ; preds = %if.then.i.i188
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.279, i64 noundef %4, i32 noundef %5, i32 noundef %conv52) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.279, i64 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %conv52) #19
   br label %trace_pci_nvme_offline_zone.exit
 
 trace_pci_nvme_offline_zone.exit:                 ; preds = %sw.bb47, %land.lhs.true5.i.i185, %if.then8.i.i191, %if.else.i.i190
@@ -15835,11 +15835,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %conv) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef range(i64 1, 0) %conv) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %conv) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef range(i64 1, 0) %conv) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -16209,7 +16209,7 @@ if.end11.i:                                       ; preds = %if.end6.i
   %mul17.i = shl nuw nsw i64 %conv16.i, 5
   %add.i = or disjoint i64 %mul17.i, 16
   %call.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #22
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %conv4)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 range(i64 0, 4294967293) %conv4)
   %conv20.i = trunc i32 %mul.i to i16
   %nruhsd22.i = getelementptr inbounds i8, ptr %call.i, i64 14
   store i16 %conv20.i, ptr %nruhsd22.i, align 1
@@ -16823,12 +16823,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv11.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv11.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef range(i32 1, 65537) %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %conv12.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %conv12.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef range(i32 1, 65537) %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_write.exit
 
 trace_pci_nvme_write.exit:                        ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -16876,11 +16876,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %28 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %mapped_size.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef range(i64 1, 0) %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %mapped_size.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef range(i64 1, 0) %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i106, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -16923,11 +16923,11 @@ if.then8.i.i.i121:                                ; preds = %if.then.i.i.i118
   %36 = load i64, ptr %_now.i.i.i107, align 8
   %tv_usec.i.i.i124 = getelementptr inbounds i8, ptr %_now.i.i.i107, i64 8
   %37 = load i64, ptr %tv_usec.i.i.i124, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i123, i64 noundef %36, i64 noundef %37, i64 noundef %1, i64 noundef %conv9, i64 noundef %.val95) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i123, i64 noundef %36, i64 noundef %37, i64 noundef %1, i64 noundef range(i64 0, 4294967296) %conv9, i64 noundef %.val95) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i120:                                 ; preds = %if.then.i.i.i118
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef %conv9, i64 noundef %.val95) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef range(i64 0, 4294967296) %conv9, i64 noundef %.val95) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i111, %land.lhs.true5.i.i.i115, %if.then8.i.i.i121, %if.else.i.i.i120
@@ -18368,11 +18368,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef range(i32 1, 0) %0) #19
   br label %trace_pci_nvme_err_insuff_active_res.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef range(i32 1, 0) %0) #19
   br label %trace_pci_nvme_err_insuff_active_res.exit
 
 trace_pci_nvme_err_insuff_active_res.exit:        ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -18418,11 +18418,11 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i17
   %14 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %15 = load i64, ptr %tv_usec.i.i23, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %call10.i.i22, i64 noundef %14, i64 noundef %15, i32 noundef %8) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %call10.i.i22, i64 noundef %14, i64 noundef %15, i32 noundef range(i32 1, 0) %8) #19
   br label %trace_pci_nvme_err_insuff_open_res.exit
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef %8) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef range(i32 1, 0) %8) #19
   br label %trace_pci_nvme_err_insuff_open_res.exit
 
 trace_pci_nvme_err_insuff_open_res.exit:          ; preds = %if.then13, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
@@ -18768,11 +18768,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %bf.set5) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef range(i64 0, 1125899906842624) %bf.set5) #19
   br label %trace_pci_nvme_getfeat_timestamp.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i64 noundef %bf.set5) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i64 noundef range(i64 0, 1125899906842624) %bf.set5) #19
   br label %trace_pci_nvme_getfeat_timestamp.exit
 
 trace_pci_nvme_getfeat_timestamp.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -19102,12 +19102,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit15 = lshr exact i32 %and, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef %call3, i32 noundef %and.lobit15) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef range(i32 0, -2147483648) %call3, i32 noundef %and.lobit15) #19
   br label %trace_pci_nvme_block_status.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %and.lobit = lshr exact i32 %and, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.237, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef %call3, i32 noundef %and.lobit) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.237, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef range(i32 0, -2147483648) %call3, i32 noundef %and.lobit) #19
   br label %trace_pci_nvme_block_status.exit
 
 trace_pci_nvme_block_status.exit:                 ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -19735,11 +19735,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %30 = load i64, ptr %_now.i.i.i, align 8
   %31 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %8, i64 noundef %conv.i, i64 noundef %.val33) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %8, i64 noundef range(i64 0, 4294967296) %conv.i, i64 noundef %.val33) #19
   br label %if.then22
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef %conv.i, i64 noundef %.val33) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef range(i64 0, 4294967296) %conv.i, i64 noundef %.val33) #19
   br label %if.then22
 
 if.then22:                                        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i
@@ -19769,11 +19769,11 @@ if.then8.i.i58:                                   ; preds = %if.then.i.i55
   %call10.i.i60 = tail call i32 @qemu_get_thread_id() #19
   %37 = load i64, ptr %_now.i.i48, align 8
   %38 = load i64, ptr %tv_usec.i.i61, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i60, i64 noundef %37, i64 noundef %38, i64 noundef %8, i64 noundef %conv.i, i64 noundef %32) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i60, i64 noundef %37, i64 noundef %38, i64 noundef %8, i64 noundef range(i64 0, 4294967296) %conv.i, i64 noundef %32) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 if.else.i.i57:                                    ; preds = %if.then.i.i55
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef %conv.i, i64 noundef %32) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef range(i64 0, 4294967296) %conv.i, i64 noundef %32) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 trace_pci_nvme_err_invalid_lba_range.exit:        ; preds = %if.then22, %land.lhs.true5.i.i52, %if.then8.i.i58, %if.else.i.i57
@@ -20334,11 +20334,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %21 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, i64 noundef %slba.0, i64 noundef %conv7, i64 noundef %.val28) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, i64 noundef %slba.0, i64 noundef range(i64 0, 4294967296) %conv7, i64 noundef %.val28) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %slba.0, i64 noundef %conv7, i64 noundef %.val28) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %slba.0, i64 noundef range(i64 0, 4294967296) %conv7, i64 noundef %.val28) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -20890,11 +20890,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %46 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %47 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %46, i64 noundef %47, i64 noundef %39, i64 noundef %conv8, i64 noundef %.val69) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %46, i64 noundef %47, i64 noundef %39, i64 noundef range(i64 0, 4294967296) %conv8, i64 noundef %.val69) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %39, i64 noundef %conv8, i64 noundef %.val69) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %39, i64 noundef range(i64 0, 4294967296) %conv8, i64 noundef %.val69) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -21244,11 +21244,11 @@ if.then8.i.i22:                                   ; preds = %if.then.i.i19
   %15 = load i64, ptr %_now.i.i12, align 8
   %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
   %16 = load i64, ptr %tv_usec.i.i25, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i24, i64 noundef %15, i64 noundef %16, i64 noundef %or, i64 noundef 0, i64 noundef %10) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i24, i64 noundef %15, i64 noundef %16, i64 noundef %or, i64 noundef range(i64 0, 4294967296) 0, i64 noundef %10) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %or, i64 noundef 0, i64 noundef %10) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %or, i64 noundef range(i64 0, 4294967296) 0, i64 noundef %10) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 trace_pci_nvme_err_invalid_lba_range.exit:        ; preds = %if.then7, %land.lhs.true5.i.i16, %if.then8.i.i22, %if.else.i.i21
@@ -22807,11 +22807,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %off, i64 noundef 4096) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef range(i64 4096, 0) %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef %off, i64 noundef 4096) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef range(i64 4096, 0) %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 trace_pci_nvme_err_invalid_log_page_offset.exit:  ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -22845,7 +22845,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !58
 
 find_first_bit.exit:                              ; preds = %for.body.i
-  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %6, i1 true)
   %add.i = or disjoint i64 %7, %result.011.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 257)
   %conv5 = trunc nuw nsw i64 %cond.i to i32
@@ -22954,11 +22954,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %off, i64 noundef 4096) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef range(i64 4096, 0) %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef %off, i64 noundef 4096) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef range(i64 4096, 0) %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 trace_pci_nvme_err_invalid_log_page_offset.exit:  ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -24507,11 +24507,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.392, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %reqcq, i32 noundef %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.392, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 65536) %reqcq, i32 noundef range(i32 1, 65536) %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #19
   br label %_nocheck__trace_pci_nvme_setfeat_numq.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.393, i32 noundef %reqcq, i32 noundef %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.393, i32 noundef range(i32 1, 65536) %reqcq, i32 noundef range(i32 1, 65536) %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #19
   br label %_nocheck__trace_pci_nvme_setfeat_numq.exit
 
 _nocheck__trace_pci_nvme_setfeat_numq.exit:       ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -24573,11 +24573,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.394, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %idx) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.394, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 512) %idx) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_iocsci.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.395, i32 noundef %idx) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.395, i32 noundef range(i32 1, 512) %idx) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_iocsci.exit
 
 _nocheck__trace_pci_nvme_err_invalid_iocsci.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i

@@ -582,7 +582,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
           to label %209 unwind label %222
 
 209:                                              ; preds = %206
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #16
   %210 = sext i32 %155 to i64
   %211 = getelementptr inbounds float, ptr %170, i64 %210
   store float 0.000000e+00, ptr %211, align 4
@@ -631,7 +631,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
           to label %228 unwind label %232
 
 228:                                              ; preds = %._crit_edge108.i
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #16
   %229 = load ptr, ptr %13, align 8
   %.not.i.i87.i = icmp eq ptr %229, %166
   %230 = icmp eq ptr %229, null
@@ -650,7 +650,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
 234:                                              ; preds = %232, %222
   %.sink.i = phi ptr [ %17, %232 ], [ %15, %222 ]
   %.pn77.i = phi { ptr, i32 } [ %233, %232 ], [ %223, %222 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink.i) #16
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #16
   %235 = load ptr, ptr %13, align 8
   %.not.i.i88.i = icmp eq ptr %235, %166
   %236 = icmp eq ptr %235, null
@@ -2738,7 +2738,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15DTColumnInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -2889,7 +2889,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12DTRowInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

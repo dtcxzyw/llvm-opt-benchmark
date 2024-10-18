@@ -2270,7 +2270,7 @@ find_dependent_phvs.exit.thread196:               ; preds = %181
   br label %195
 
 187:                                              ; preds = %181
-  %188 = tail call ptr @bms_make_singleton(i32 noundef %166) #7
+  %188 = tail call ptr @bms_make_singleton(i32 noundef range(i32 1, 0) %166) #7
   store ptr %188, ptr %5, align 8
   %189 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %189, align 8

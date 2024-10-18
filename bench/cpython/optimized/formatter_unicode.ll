@@ -1308,7 +1308,7 @@ cond.end82.i:                                     ; preds = %cond.false80.i, %if
 
 if.end88.i:                                       ; preds = %cond.end82.i
   %add89.i = add i64 %inumeric_chars.0.i39, %n_digits.0.i43
-  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef %spec.i, i64 noundef %n_prefix.0.i47, i32 noundef %sign_char.0.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef %locale.i, ptr noundef readonly %format, ptr noundef %maxchar.i)
+  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef %spec.i, i64 noundef %n_prefix.0.i47, i32 noundef %sign_char.0.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef %locale.i, ptr noundef nonnull readonly %format, ptr noundef %maxchar.i)
   %cmp91.i = icmp eq i64 %call90.i, -1
   br i1 %cmp91.i, label %done.i, label %if.end94.i
 

@@ -3880,7 +3880,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1313:                                             ; preds = %126
   %1314 = add nsw i32 %119, -2
   %1315 = load i32, ptr @hf_generic_data, align 4
-  %1316 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1315, ptr noundef %1, i32 noundef %130, i32 noundef %1314, i32 noundef 0) #4
+  %1316 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1315, ptr noundef %1, i32 noundef %130, i32 noundef range(i32 1, 254) %1314, i32 noundef 0) #4
   %1317 = add i32 %.173, %119
   br label %dissect_unistim_message.exit
 

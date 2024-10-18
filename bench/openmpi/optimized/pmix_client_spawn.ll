@@ -592,7 +592,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %65
 .lr.ph.i592:                                      ; preds = %95, %.lr.ph.i592
   %101 = phi ptr [ %103, %.lr.ph.i592 ], [ %100, %95 ]
   %.07.i593 = phi ptr [ %102, %.lr.ph.i592 ], [ %99, %95 ]
-  call void %101(ptr noundef %78) #12
+  call void %101(ptr noundef nonnull %78) #12
   %102 = getelementptr inbounds i8, ptr %.07.i593, i64 8
   %103 = load ptr, ptr %102, align 8
   %.not.i594 = icmp eq ptr %103, null
@@ -729,7 +729,7 @@ pmix_obj_run_destructors.exit600:                 ; preds = %.lr.ph.i597, %._cri
 .lr.ph.i604:                                      ; preds = %160, %.lr.ph.i604
   %166 = phi ptr [ %168, %.lr.ph.i604 ], [ %165, %160 ]
   %.07.i605 = phi ptr [ %167, %.lr.ph.i604 ], [ %164, %160 ]
-  call void %166(ptr noundef %143) #12
+  call void %166(ptr noundef nonnull %143) #12
   %167 = getelementptr inbounds i8, ptr %.07.i605, i64 8
   %168 = load ptr, ptr %167, align 8
   %.not.i606 = icmp eq ptr %168, null
@@ -1095,7 +1095,7 @@ pmix_obj_run_constructors.exit618:                ; preds = %.lr.ph.i615, %305
 .lr.ph.i622:                                      ; preds = %336, %.lr.ph.i622
   %342 = phi ptr [ %344, %.lr.ph.i622 ], [ %341, %336 ]
   %.07.i623 = phi ptr [ %343, %.lr.ph.i622 ], [ %340, %336 ]
-  call void %342(ptr noundef %319) #12
+  call void %342(ptr noundef nonnull %319) #12
   %343 = getelementptr inbounds i8, ptr %.07.i623, i64 8
   %344 = load ptr, ptr %343, align 8
   %.not.i624 = icmp eq ptr %344, null
@@ -1218,7 +1218,7 @@ pmix_obj_run_destructors.exit631:                 ; preds = %.lr.ph.i628, %._cri
 .lr.ph.i635:                                      ; preds = %395, %.lr.ph.i635
   %401 = phi ptr [ %403, %.lr.ph.i635 ], [ %400, %395 ]
   %.07.i636 = phi ptr [ %402, %.lr.ph.i635 ], [ %399, %395 ]
-  call void %401(ptr noundef %378) #12
+  call void %401(ptr noundef nonnull %378) #12
   %402 = getelementptr inbounds i8, ptr %.07.i636, i64 8
   %403 = load ptr, ptr %402, align 8
   %.not.i637 = icmp eq ptr %403, null

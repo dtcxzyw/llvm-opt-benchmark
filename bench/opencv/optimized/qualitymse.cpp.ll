@@ -131,7 +131,7 @@ define void @_ZN2cv7quality10QualityMSE6createERKNS_11_InputArrayE(ptr dead_on_u
 
 12:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5)
           to label %.noexc6 unwind label %38
 
 .noexc6:                                          ; preds = %12
@@ -148,7 +148,7 @@ define void @_ZN2cv7quality10QualityMSE6createERKNS_11_InputArrayE(ptr dead_on_u
           cleanup
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %5, align 8
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #15
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #15
   br label %.body.thread17
 
 _ZN2cv7quality10QualityMSEC1ENS_4UMatE.exit:      ; preds = %.noexc6
@@ -356,7 +356,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_
   %9 = alloca %"class.cv::_OutputArray", align 8
   %10 = alloca %"class.cv::Scalar_", align 8
   %11 = alloca %"class.cv::_InputArray", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %12, i32 noundef 0) #15
   %13 = getelementptr inbounds i8, ptr %4, i64 16
@@ -624,7 +624,7 @@ define linkonce_odr hidden void @_ZN2cv7quality10QualityMSED0Ev(ptr noundef nonn
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #15
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

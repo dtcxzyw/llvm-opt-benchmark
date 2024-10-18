@@ -66,7 +66,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122AArch64ELFObjectWriterESt14default_deleteIS1_
   %3 = zext i1 %2 to i8
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9, !noalias !4
   %5 = xor i1 %2, true
-  tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13) %4, i1 noundef zeroext %5, i8 noundef zeroext %1, i16 noundef zeroext 183, i1 noundef zeroext true, i8 noundef zeroext 0) #10, !noalias !4
+  tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(14) %4, i1 noundef zeroext %5, i8 noundef zeroext %1, i16 noundef zeroext 183, i1 noundef zeroext true, i8 noundef zeroext 0) #10, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_122AArch64ELFObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 %3, ptr %6, align 1, !noalias !4

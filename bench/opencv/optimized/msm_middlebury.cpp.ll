@@ -615,7 +615,7 @@ _ZN2cv3PtrINS_8datasets17MSM_middleburyObjEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_
           to label %200 unwind label %.loopexit123
 
 200:                                              ; preds = %198
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %199) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %199) #13
   %201 = getelementptr inbounds i8, ptr %199, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %201, i8 0, i64 144, i1 false)
   %202 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
@@ -626,7 +626,7 @@ _ZN2cv3PtrINS_8datasets17MSM_middleburyObjEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_
           catch ptr null
   %205 = extractvalue { ptr, i32 } %204, 0
   %206 = call ptr @__cxa_begin_catch(ptr %205) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %199) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(200) %199) #13
   call void @_ZdlPv(ptr noundef nonnull %199) #14
   invoke void @__cxa_rethrow() #16
           to label %212 unwind label %207
@@ -1799,7 +1799,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8datasets17MSM_midd
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #13
   tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   br label %6
 

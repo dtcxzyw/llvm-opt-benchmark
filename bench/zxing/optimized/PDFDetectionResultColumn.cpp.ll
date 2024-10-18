@@ -187,7 +187,7 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
   store i8 0, ptr %0, align 4
   %40 = getelementptr inbounds i8, ptr %0, i64 4
   %41 = getelementptr inbounds i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 16, i1 false)
   store i32 -1, ptr %41, align 4
   br label %42
 

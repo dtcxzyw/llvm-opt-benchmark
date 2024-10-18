@@ -87,7 +87,7 @@ define dso_local void @create_index_paths(ptr noundef %0, ptr noundef %1) local_
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv.i.i
   %41 = load ptr, ptr %40, align 8
-  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %41, ptr noundef %25, ptr noundef %7)
+  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %41, ptr noundef %25, ptr noundef nonnull %7)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %42 = load i32, ptr %35, align 4
   %43 = sext i32 %42 to i64
@@ -126,7 +126,7 @@ match_restriction_clauses_to_index.exit:          ; preds = %.lr.ph17.i.i, %32, 
   br label %59
 
 58:                                               ; preds = %54
-  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %52, ptr noundef %25, ptr noundef %8)
+  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %52, ptr noundef %25, ptr noundef nonnull %8)
   br label %59
 
 59:                                               ; preds = %58, %56, %.lr.ph23.i
@@ -177,7 +177,7 @@ match_join_clauses_to_index.exit:                 ; preds = %59, %match_restrict
   %79 = load ptr, ptr %76, align 8
   %80 = getelementptr %union.ListCell, ptr %79, i64 %indvars.iv.i.i170
   %81 = load ptr, ptr %80, align 8
-  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %81, ptr noundef %25, ptr noundef %9)
+  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %81, ptr noundef %25, ptr noundef nonnull %9)
   %indvars.iv.next.i.i171 = add nuw nsw i64 %indvars.iv.i.i170, 1
   %82 = load i32, ptr %75, align 4
   %83 = sext i32 %82 to i64
@@ -225,7 +225,7 @@ match_eclass_clauses_to_index.exit:               ; preds = %match_clauses_to_in
 list_length.exit.i:                               ; preds = %99, %.lr.ph.i172
   %102 = phi i32 [ %101, %99 ], [ 0, %.lr.ph.i172 ]
   %103 = add i32 %102, %.02831.i
-  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %6, ptr noundef %98, i32 noundef %103, ptr noundef %3)
+  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %6, ptr noundef %98, i32 noundef %103, ptr noundef %3)
   %104 = getelementptr [32 x ptr], ptr %21, i64 0, i64 %indvars.iv.i173
   %105 = load ptr, ptr %104, align 8
   %.not.i29.i = icmp eq ptr %105, null
@@ -239,7 +239,7 @@ list_length.exit.i:                               ; preds = %99, %.lr.ph.i172
 list_length.exit30.i:                             ; preds = %106, %list_length.exit.i
   %109 = phi i32 [ %108, %106 ], [ 0, %list_length.exit.i ]
   %110 = add i32 %109, %103
-  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %6, ptr noundef %105, i32 noundef %110, ptr noundef %3)
+  call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %6, ptr noundef %105, i32 noundef %110, ptr noundef %3)
   %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i173, 1
   %111 = load i32, ptr %94, align 8
   %112 = sext i32 %111 to i64
@@ -1259,7 +1259,7 @@ define internal fastcc double @get_loop_count(ptr noundef %0, i32 noundef %1, pt
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %34, i64 32
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call zeroext i1 @bms_is_member(i32 noundef %12, ptr noundef %44) #7
+  %45 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %44) #7
   br i1 %45, label %46, label %74
 
 46:                                               ; preds = %42
@@ -3421,7 +3421,7 @@ define internal fastcc ptr @build_paths_for_OR(ptr noundef %0, ptr noundef %1, p
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr %union.ListCell, ptr %42, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
-  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %44, ptr noundef %18, ptr noundef %5)
+  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %44, ptr noundef %18, ptr noundef nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr %10, align 4
   %46 = sext i32 %45 to i64
@@ -3451,7 +3451,7 @@ match_clauses_to_index.exit:                      ; preds = %match_clauses_to_in
   %53 = load ptr, ptr %13, align 8
   %54 = getelementptr %union.ListCell, ptr %53, i64 %indvars.iv.i56
   %55 = load ptr, ptr %54, align 8
-  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %55, ptr noundef %18, ptr noundef %5)
+  call fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %55, ptr noundef %18, ptr noundef nonnull %5)
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %56 = load i32, ptr %12, align 4
   %57 = sext i32 %56 to i64

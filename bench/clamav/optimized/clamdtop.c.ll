@@ -1631,7 +1631,7 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   br label %731
 
 731:                                              ; preds = %727, %713, %711
-  %732 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
+  %732 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef nonnull %9)
   %.not12.i.i = icmp ne i32 %732, 0
   %733 = load i8, ptr %9, align 16
   %734 = icmp eq i8 %733, 9

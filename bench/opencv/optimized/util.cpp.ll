@@ -209,7 +209,7 @@ define void @_ZN2cv6detail5Graph7addEdgeEiif(ptr nocapture noundef nonnull reado
   store i32 %2, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
   store float %3, ptr %.sroa.3.0..sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %7) #18
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1

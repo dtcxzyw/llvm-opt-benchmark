@@ -3486,7 +3486,7 @@ define void @_ZN15TLSKeylogDialogD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15TLSKeylogDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15TLSKeylogDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %2) #17
   ret void
 }
 

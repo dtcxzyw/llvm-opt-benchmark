@@ -2052,14 +2052,14 @@ print_version_field.exit:                         ; preds = %14, %17
 
 40:                                               ; preds = %36
   %41 = and i32 %37, 15
-  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.419, i32 noundef %41) #5
+  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef range(i64 -243, 13) %35, ptr noundef nonnull @.str.419, i32 noundef %41) #5
   br label %print_version_field.exit64
 
 43:                                               ; preds = %36
   %44 = lshr i32 %37, 4
   %45 = mul nsw i32 %44, -6
   %46 = add nsw i32 %45, %37
-  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.420, i32 noundef %46) #5
+  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef range(i64 -243, 13) %35, ptr noundef nonnull @.str.420, i32 noundef %46) #5
   br label %print_version_field.exit64
 
 48:                                               ; preds = %31
@@ -2092,14 +2092,14 @@ print_version_field.exit64:                       ; preds = %43, %40, %48
 
 66:                                               ; preds = %55
   %67 = and i32 %63, 15
-  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef nonnull @.str.419, i32 noundef %67) #5
+  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef range(i64 -243, 13) %62, ptr noundef nonnull @.str.419, i32 noundef %67) #5
   br label %print_version_field.exit66
 
 69:                                               ; preds = %55
   %70 = lshr i32 %63, 4
   %71 = mul nsw i32 %70, -6
   %72 = add nsw i32 %71, %63
-  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef nonnull @.str.420, i32 noundef %72) #5
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef range(i64 -243, 13) %62, ptr noundef nonnull @.str.420, i32 noundef %72) #5
   br label %print_version_field.exit66
 
 print_version_field.exit66:                       ; preds = %66, %69

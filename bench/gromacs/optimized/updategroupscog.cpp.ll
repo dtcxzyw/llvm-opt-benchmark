@@ -59,7 +59,7 @@ define void @_ZN3gmx15UpdateGroupsCogC2ERK10gmx_mtop_tNS_8ArrayRefIKNS_17RangePa
 .critedge.i.i:                                    ; preds = %16, %13
   %.0.lcssa.i.i = phi i32 [ %17, %16 ], [ %.07.i.i, %13 ]
   %19 = zext nneg i32 %.0.lcssa.i.i to i64
-  invoke void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %19)
+  invoke void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %10, i64 noundef %19)
           to label %24 unwind label %20
 
 20:                                               ; preds = %.critedge.i.i
@@ -1032,7 +1032,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorI
   br i1 %.not.i.i, label %205, label %204
 
 204:                                              ; preds = %.critedge.thread.i.i
-  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef 1)
+  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %44, i64 noundef 1)
   %.pre.i.i = load ptr, ptr %44, align 8
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
@@ -1428,7 +1428,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %_ZNSt6
 
 51:                                               ; preds = %.critedge.i.i
   %52 = sub nuw nsw i64 %43, %49
-  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %52)
+  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %16, i64 noundef %52)
   br label %_ZN3gmx9HashedMapIiE6resizeEi.exit.i
 
 53:                                               ; preds = %.critedge.i.i

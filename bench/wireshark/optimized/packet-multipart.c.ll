@@ -412,7 +412,7 @@ process_preamble.exit.thread:                     ; preds = %.thread.i, %101, %p
   %123 = load ptr, ptr %37, align 8
   %124 = load i32, ptr %40, align 8
   %125 = load i32, ptr @hf_multipart_part, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %125, ptr noundef %0, i32 noundef %.045, i32 noundef 0, i32 noundef 0) #7
+  %126 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %125, ptr noundef %0, i32 noundef range(i32 0, -1) %.045, i32 noundef 0, i32 noundef 0) #7
   %127 = load i32, ptr @ett_multipart_body, align 4
   %128 = call ptr @proto_item_add_subtree(ptr noundef %126, i32 noundef %127) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)

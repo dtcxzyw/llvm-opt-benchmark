@@ -11468,7 +11468,7 @@ entry:
   store <2 x ptr> %5, ptr %this, align 8, !tbaa !37
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i5.i, align 8, !tbaa !57
   store ptr %6, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !tbaa !57
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   %packed3.i = getelementptr inbounds i8, ptr %other, i64 24
   %7 = load ptr, ptr %packed3.i.i, align 8, !tbaa !58
   %_M_finish.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %this, i64 32

@@ -737,7 +737,7 @@ logcat_log.exit.thread:                           ; preds = %75
 
 86:                                               ; preds = %84
   %87 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %85) #11
-  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, i32 noundef %41, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
+  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
   br label %logcat_log.exit
 
 89:                                               ; preds = %84
@@ -751,7 +751,7 @@ logcat_log.exit.thread:                           ; preds = %75
 
 93:                                               ; preds = %91
   %94 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %92) #11
-  %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i32 noundef %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
   br label %logcat_log.exit
 
 96:                                               ; preds = %91
@@ -766,7 +766,7 @@ logcat_log.exit.thread:                           ; preds = %75
 
 100:                                              ; preds = %98
   %101 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %99) #11
-  %102 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, i32 noundef %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %102 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
   br label %logcat_log.exit
 
 103:                                              ; preds = %98

@@ -2334,7 +2334,7 @@ define hidden i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noun
   %174 = zext i8 %123 to i32
   %175 = zext i8 %126 to i32
   %176 = zext i8 %129 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef nonnull @.str.438, i32 noundef %113, ptr noundef nonnull %168, ptr noundef nonnull %146, ptr noundef nonnull %170, ptr noundef nonnull %172, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef nonnull @.str.438, i32 noundef range(i32 -2147483647, 256) %113, ptr noundef nonnull %168, ptr noundef nonnull %146, ptr noundef nonnull %170, ptr noundef nonnull %172, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176) #3
   %177 = load i16, ptr %9, align 2
   %178 = zext i16 %177 to i32
   %179 = add nuw nsw i32 %178, 8

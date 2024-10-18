@@ -3801,7 +3801,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.us: ; preds = %140, %._crit_edge.u
 .loopexit358.us:                                  ; preds = %262, %264, %.thread333.us.thread
   %.sroa.06.1.i.i.i111.us = phi ptr [ %252, %.thread333.us.thread ], [ %.sroa.06.0.i.i.i113.us, %264 ], [ %256, %262 ]
   %268 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i111.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %268, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %268, i64 44, i1 false)
   %269 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i111.us, i64 64
   %.not.i190.us = icmp eq ptr %269, %45
   br i1 %.not.i190.us, label %.noexc116.us, label %270
@@ -3855,7 +3855,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 286:                                              ; preds = %.loopexit361.us
   store i32 %201, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %54, ptr noundef nonnull align 8 dereferenceable(44) %12, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %54, ptr noundef nonnull align 8 dereferenceable(96) %12, i64 44, i1 false)
   %287 = load ptr, ptr %52, align 8
   %288 = load ptr, ptr %45, align 8
   %289 = ptrtoint ptr %287 to i64
@@ -4303,7 +4303,7 @@ _ZNSt4pairIjN2cv8ximgproc11EllipseDataEED2Ev.exit.us: ; preds = %414, %_ZNSt6vec
 .loopexit.us:                                     ; preds = %455, %457, %444
   %.sroa.06.1.i.i.i146.us = phi ptr [ %445, %444 ], [ %.sroa.06.0.i.i.i148.us, %457 ], [ %449, %455 ]
   %461 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i146.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %13, ptr noundef nonnull align 8 dereferenceable(44) %461, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %461, i64 44, i1 false)
   %462 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i146.us, i64 64
   %.not.i240.us = icmp eq ptr %462, %47
   br i1 %.not.i240.us, label %.noexc152.us, label %463
@@ -4416,7 +4416,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 502:                                              ; preds = %.loopexit353.us
   store i32 %225, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %69, ptr noundef nonnull align 8 dereferenceable(44) %13, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 44, i1 false)
   %503 = load ptr, ptr %67, align 8
   %504 = load ptr, ptr %47, align 8
   %505 = ptrtoint ptr %503 to i64
@@ -7970,7 +7970,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 .loopexit415.us:                                  ; preds = %274, %276, %.thread390.us.thread
   %.sroa.06.1.i.i.i143.us = phi ptr [ %264, %.thread390.us.thread ], [ %.sroa.06.0.i.i.i145.us, %276 ], [ %268, %274 ]
   %280 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i143.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %13, ptr noundef nonnull align 8 dereferenceable(44) %280, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %280, i64 44, i1 false)
   %281 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i143.us, i64 64
   %.not.i247.us = icmp eq ptr %281, %49
   br i1 %.not.i247.us, label %.noexc148.us, label %282
@@ -8024,7 +8024,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 298:                                              ; preds = %.loopexit418.us
   store i32 %219, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %58, ptr noundef nonnull align 8 dereferenceable(44) %13, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %58, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 44, i1 false)
   %299 = load ptr, ptr %56, align 8
   %300 = load ptr, ptr %49, align 8
   %301 = ptrtoint ptr %299 to i64
@@ -8472,7 +8472,7 @@ _ZNSt4pairIjN2cv8ximgproc11EllipseDataEED2Ev.exit.us: ; preds = %426, %_ZNSt6vec
 .loopexit.us:                                     ; preds = %467, %469, %456
   %.sroa.06.1.i.i.i198.us = phi ptr [ %457, %456 ], [ %.sroa.06.0.i.i.i200.us, %469 ], [ %461, %467 ]
   %473 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i198.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %14, ptr noundef nonnull align 8 dereferenceable(44) %473, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %473, i64 44, i1 false)
   %474 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i198.us, i64 64
   %.not.i297.us = icmp eq ptr %474, %51
   br i1 %.not.i297.us, label %.noexc204.us, label %475
@@ -8629,7 +8629,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 
 528:                                              ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit179.us
   store i32 %237, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %75, ptr noundef nonnull align 8 dereferenceable(44) %14, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %75, ptr noundef nonnull align 8 dereferenceable(96) %14, i64 44, i1 false)
   %529 = load ptr, ptr %71, align 8
   %530 = load ptr, ptr %51, align 8
   %531 = ptrtoint ptr %529 to i64
@@ -10557,7 +10557,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 .loopexit415.us:                                  ; preds = %276, %278, %.thread390.us.thread
   %.sroa.06.1.i.i.i143.us = phi ptr [ %266, %.thread390.us.thread ], [ %.sroa.06.0.i.i.i145.us, %278 ], [ %270, %276 ]
   %282 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i143.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %13, ptr noundef nonnull align 8 dereferenceable(44) %282, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %282, i64 44, i1 false)
   %283 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i143.us, i64 64
   %.not.i247.us = icmp eq ptr %283, %49
   br i1 %.not.i247.us, label %.noexc148.us, label %284
@@ -10611,7 +10611,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 300:                                              ; preds = %.loopexit418.us
   store i32 %220, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %58, ptr noundef nonnull align 8 dereferenceable(44) %13, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %58, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 44, i1 false)
   %301 = load ptr, ptr %56, align 8
   %302 = load ptr, ptr %49, align 8
   %303 = ptrtoint ptr %301 to i64
@@ -11059,7 +11059,7 @@ _ZNSt4pairIjN2cv8ximgproc11EllipseDataEED2Ev.exit.us: ; preds = %428, %_ZNSt6vec
 .loopexit.us:                                     ; preds = %469, %471, %458
   %.sroa.06.1.i.i.i198.us = phi ptr [ %459, %458 ], [ %.sroa.06.0.i.i.i200.us, %471 ], [ %463, %469 ]
   %475 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i198.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %14, ptr noundef nonnull align 8 dereferenceable(44) %475, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %475, i64 44, i1 false)
   %476 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i198.us, i64 64
   %.not.i297.us = icmp eq ptr %476, %51
   br i1 %.not.i297.us, label %.noexc204.us, label %477
@@ -11216,7 +11216,7 @@ _ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_S
 
 530:                                              ; preds = %_ZSt12reverse_copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit179.us
   store i32 %239, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %75, ptr noundef nonnull align 8 dereferenceable(44) %14, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %75, ptr noundef nonnull align 8 dereferenceable(96) %14, i64 44, i1 false)
   %531 = load ptr, ptr %71, align 8
   %532 = load ptr, ptr %51, align 8
   %533 = ptrtoint ptr %531 to i64
@@ -13095,7 +13095,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.us: ; preds = %140, %._crit_edge.u
 .loopexit358.us:                                  ; preds = %264, %266, %.thread333.us.thread
   %.sroa.06.1.i.i.i111.us = phi ptr [ %254, %.thread333.us.thread ], [ %.sroa.06.0.i.i.i113.us, %266 ], [ %258, %264 ]
   %270 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i111.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %270, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %270, i64 44, i1 false)
   %271 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i111.us, i64 64
   %.not.i190.us = icmp eq ptr %271, %45
   br i1 %.not.i190.us, label %.noexc116.us, label %272
@@ -13149,7 +13149,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 288:                                              ; preds = %.loopexit361.us
   store i32 %202, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %54, ptr noundef nonnull align 8 dereferenceable(44) %12, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %54, ptr noundef nonnull align 8 dereferenceable(96) %12, i64 44, i1 false)
   %289 = load ptr, ptr %52, align 8
   %290 = load ptr, ptr %45, align 8
   %291 = ptrtoint ptr %289 to i64
@@ -13597,7 +13597,7 @@ _ZNSt4pairIjN2cv8ximgproc11EllipseDataEED2Ev.exit.us: ; preds = %416, %_ZNSt6vec
 .loopexit.us:                                     ; preds = %457, %459, %446
   %.sroa.06.1.i.i.i146.us = phi ptr [ %447, %446 ], [ %.sroa.06.0.i.i.i148.us, %459 ], [ %451, %457 ]
   %463 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i146.us, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %13, ptr noundef nonnull align 8 dereferenceable(44) %463, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %463, i64 44, i1 false)
   %464 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i146.us, i64 64
   %.not.i240.us = icmp eq ptr %464, %47
   br i1 %.not.i240.us, label %.noexc152.us, label %465
@@ -13710,7 +13710,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 504:                                              ; preds = %.loopexit353.us
   store i32 %227, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %69, ptr noundef nonnull align 8 dereferenceable(44) %13, i64 44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 44, i1 false)
   %505 = load ptr, ptr %67, align 8
   %506 = load ptr, ptr %47, align 8
   %507 = ptrtoint ptr %505 to i64

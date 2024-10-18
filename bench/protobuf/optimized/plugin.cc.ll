@@ -271,7 +271,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %invoke.cont2.i.i.i
-  invoke void @_ZN6google8protobuf18FeatureSetDefaults12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp13, ptr noundef nonnull %8)
+  invoke void @_ZN6google8protobuf18FeatureSetDefaults12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(56) %8)
           to label %_ZN6google8protobuf18FeatureSetDefaultsC2EOS1_.exit unwind label %terminate.lpad.i.i.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont2.i.i.i
@@ -561,7 +561,7 @@ invoke.cont77:                                    ; preds = %invoke.cont49, %for
 lpad.i64:                                         ; preds = %invoke.cont77
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %context) #17
+  call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %context) #17
   br label %ehcleanup
 
 invoke.cont81:                                    ; preds = %invoke.cont77
@@ -635,7 +635,7 @@ lpad80:                                           ; preds = %call2.i.noexc, %if.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i64 16), ptr %context, align 8
   call void @_ZN6google8protobuf8compiler7VersionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %compiler_version_.i) #17
-  call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %context) #17
+  call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %context) #17
   br label %ehcleanup
 
 if.end104:                                        ; preds = %if.then101, %land.lhs.true, %invoke.cont99
@@ -672,7 +672,7 @@ if.end108:                                        ; preds = %call2.i.noexc, %if.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i64 16), ptr %context, align 8
   call void @_ZN6google8protobuf8compiler7VersionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %compiler_version_.i) #17
-  call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %context) #17
+  call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %context) #17
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end108, %invoke.cont71
@@ -1047,7 +1047,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i64 16), ptr %this, align 8
   %compiler_version_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf8compiler7VersionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %compiler_version_.i) #17
-  tail call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }

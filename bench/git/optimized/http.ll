@@ -553,7 +553,7 @@ if.then.i.i:                                      ; preds = %do.body.i.i.i.i, %d
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %sensitive_header.0.ph.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i = call fastcc i32 @redact_sensitive_header(ptr noundef %buf.i, i64 noundef %sub.ptr.sub.i.i)
+  %call3.i.i = call fastcc i32 @redact_sensitive_header(ptr noundef nonnull %buf.i, i64 noundef %sub.ptr.sub.i.i)
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %redact_sensitive_info_header.exit.i, label %if.then5.i.i
 
@@ -852,7 +852,7 @@ if.then40:                                        ; preds = %if.end37
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %if.end37
-  %call.i27 = call ptr @getenv(ptr noundef nonnull readonly @.str.16) #21
+  %call.i27 = call ptr @getenv(ptr noundef nonnull @.str.16) #21
   %tobool.not.i28 = icmp eq ptr %call.i27, null
   br i1 %tobool.not.i28, label %set_from_env.exit, label %if.then.i29
 
@@ -861,7 +861,7 @@ if.then.i29:                                      ; preds = %if.end41
   br label %set_from_env.exit
 
 set_from_env.exit:                                ; preds = %if.end41, %if.then.i29
-  %call.i30 = call ptr @getenv(ptr noundef nonnull readonly @.str.17) #21
+  %call.i30 = call ptr @getenv(ptr noundef nonnull @.str.17) #21
   %tobool.not.i31 = icmp eq ptr %call.i30, null
   br i1 %tobool.not.i31, label %set_from_env.exit33, label %if.then.i32
 
@@ -870,7 +870,7 @@ if.then.i32:                                      ; preds = %set_from_env.exit
   br label %set_from_env.exit33
 
 set_from_env.exit33:                              ; preds = %set_from_env.exit, %if.then.i32
-  %call.i34 = call ptr @getenv(ptr noundef nonnull readonly @.str.18) #21
+  %call.i34 = call ptr @getenv(ptr noundef nonnull @.str.18) #21
   %tobool.not.i35 = icmp eq ptr %call.i34, null
   br i1 %tobool.not.i35, label %set_from_env.exit37, label %if.then.i36
 
@@ -879,7 +879,7 @@ if.then.i36:                                      ; preds = %set_from_env.exit33
   br label %set_from_env.exit37
 
 set_from_env.exit37:                              ; preds = %set_from_env.exit33, %if.then.i36
-  %call.i38 = call ptr @getenv(ptr noundef nonnull readonly @.str.19) #21
+  %call.i38 = call ptr @getenv(ptr noundef nonnull @.str.19) #21
   %tobool.not.i39 = icmp eq ptr %call.i38, null
   br i1 %tobool.not.i39, label %set_from_env.exit41, label %if.then.i40
 
@@ -888,7 +888,7 @@ if.then.i40:                                      ; preds = %set_from_env.exit37
   br label %set_from_env.exit41
 
 set_from_env.exit41:                              ; preds = %set_from_env.exit37, %if.then.i40
-  %call.i42 = call ptr @getenv(ptr noundef nonnull readonly @.str.20) #21
+  %call.i42 = call ptr @getenv(ptr noundef nonnull @.str.20) #21
   %tobool.not.i43 = icmp eq ptr %call.i42, null
   br i1 %tobool.not.i43, label %set_from_env.exit45, label %if.then.i44
 
@@ -897,7 +897,7 @@ if.then.i44:                                      ; preds = %set_from_env.exit41
   br label %set_from_env.exit45
 
 set_from_env.exit45:                              ; preds = %set_from_env.exit41, %if.then.i44
-  %call.i46 = call ptr @getenv(ptr noundef nonnull readonly @.str.21) #21
+  %call.i46 = call ptr @getenv(ptr noundef nonnull @.str.21) #21
   %tobool.not.i47 = icmp eq ptr %call.i46, null
   br i1 %tobool.not.i47, label %set_from_env.exit49, label %if.then.i48
 
@@ -906,7 +906,7 @@ if.then.i48:                                      ; preds = %set_from_env.exit45
   br label %set_from_env.exit49
 
 set_from_env.exit49:                              ; preds = %set_from_env.exit45, %if.then.i48
-  %call.i50 = call ptr @getenv(ptr noundef nonnull readonly @.str.22) #21
+  %call.i50 = call ptr @getenv(ptr noundef nonnull @.str.22) #21
   %tobool.not.i51 = icmp eq ptr %call.i50, null
   br i1 %tobool.not.i51, label %set_from_env.exit53, label %if.then.i52
 
@@ -954,7 +954,7 @@ if.then56:                                        ; preds = %if.end54
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then56, %if.end54
-  %call.i54 = call ptr @getenv(ptr noundef nonnull readonly @.str.25) #21
+  %call.i54 = call ptr @getenv(ptr noundef nonnull @.str.25) #21
   %tobool.not.i55 = icmp eq ptr %call.i54, null
   br i1 %tobool.not.i55, label %set_from_env.exit57, label %if.then.i56
 
@@ -963,7 +963,7 @@ if.then.i56:                                      ; preds = %if.end57
   br label %set_from_env.exit57
 
 set_from_env.exit57:                              ; preds = %if.end57, %if.then.i56
-  %call.i58 = call ptr @getenv(ptr noundef nonnull readonly @.str.26) #21
+  %call.i58 = call ptr @getenv(ptr noundef nonnull @.str.26) #21
   %tobool.not.i59 = icmp eq ptr %call.i58, null
   br i1 %tobool.not.i59, label %set_from_env.exit61, label %if.then.i60
 
@@ -972,7 +972,7 @@ if.then.i60:                                      ; preds = %set_from_env.exit57
   br label %set_from_env.exit61
 
 set_from_env.exit61:                              ; preds = %set_from_env.exit57, %if.then.i60
-  %call.i62 = call ptr @getenv(ptr noundef nonnull readonly @.str.27) #21
+  %call.i62 = call ptr @getenv(ptr noundef nonnull @.str.27) #21
   %tobool.not.i63 = icmp eq ptr %call.i62, null
   br i1 %tobool.not.i63, label %set_from_env.exit65, label %if.then.i64
 
@@ -3439,7 +3439,7 @@ if.then20.i:                                      ; preds = %while.end.i
   br i1 %cmp.i.i, label %if.then.i46.i, label %st_mult.exit.i
 
 if.then.i46.i:                                    ; preds = %if.then20.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.169, i64 noundef 8, i64 noundef %conv21.i) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.169, i64 noundef 8, i64 noundef range(i64 -2147483647, 2147483648) %conv21.i) #20
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then20.i
@@ -3484,7 +3484,7 @@ if.then35.i.st_mult.exit50.i_crit_edge:           ; preds = %if.then35.i
   br label %st_mult.exit50.i
 
 if.then.i49.i:                                    ; preds = %if.then35.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.169, i64 noundef 8, i64 noundef %conv36.i) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.169, i64 noundef 8, i64 noundef range(i64 -2147483647, 2147483648) %conv36.i) #20
   unreachable
 
 st_mult.exit50.i:                                 ; preds = %if.then35.i.st_mult.exit50.i_crit_edge, %if.then35.thread.i
@@ -4304,7 +4304,7 @@ if.end32:                                         ; preds = %if.then29, %if.then
   %16 = load ptr, ptr %slot, align 8
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.190, i64 noundef %call26) #21
+  %call.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.190, i64 noundef range(i64 1, -9223372036854775808) %call26) #21
   %call2.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %17, i32 noundef 10007, ptr noundef nonnull %buf.i) #21
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %return
@@ -4523,7 +4523,7 @@ if.end115:                                        ; preds = %if.then113, %if.the
   %41 = load ptr, ptr %slot, align 8
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i58)
-  %call.i59 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i58, i64 noundef 128, ptr noundef nonnull @.str.190, i64 noundef %prev_posn.3) #21
+  %call.i59 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i58, i64 noundef 128, ptr noundef nonnull @.str.190, i64 noundef range(i64 1, -9223372036854775808) %prev_posn.3) #21
   %call2.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %42, i32 noundef 10007, ptr noundef nonnull %buf.i58) #21
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i58)
   br label %return
@@ -5646,7 +5646,7 @@ if.then9:                                         ; preds = %if.else
 if.then14:                                        ; preds = %if.then9
   %9 = load ptr, ptr %call1, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
-  %call.i43 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.190, i64 noundef %call10) #21
+  %call.i43 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.190, i64 noundef range(i64 1, -9223372036854775808) %call10) #21
   %call2.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %9, i32 noundef 10007, ptr noundef nonnull %buf.i) #21
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %if.end20

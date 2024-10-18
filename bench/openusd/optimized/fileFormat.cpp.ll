@@ -1005,7 +1005,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev(
   br i1 %7, label %8, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
 8:                                                ; preds = %3
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %3, %8
@@ -1130,7 +1130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit4: ; preds = %_ZN32pxrInte
   br i1 %45, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
 46:                                               ; preds = %41
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull %.0.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i unwind label %54
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %46, %41
@@ -1962,7 +1962,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfFileFormat
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %20, align 8
-  invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %28)
+  invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef %28)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.exit.i.i.i unwind label %29
 
 29:                                               ; preds = %27
@@ -1981,7 +1981,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.ex
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit: ; preds = %14, %17, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.exit.i.i.i
   %34 = phi ptr [ %16, %14 ], [ %33, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTrackerD2Ev.exit.i.i.i ], [ %18, %17 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %35) #24
+  %36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %35) #24
   %.not.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %37
 
@@ -1992,7 +1992,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedF
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_120_WarnedFormatTrackerENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %39 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  %39 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %.noexc.i unwind label %44
 
 .noexc.i:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -2003,7 +2003,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZNK32pxrInternal_v
 41:                                               ; preds = %.noexc.i
   %42 = extractvalue { ptr, ptr } %39, 0
   store ptr %34, ptr %5, align 8
-  %43 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef %42, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %43 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef %42, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %48 unwind label %44
 
 common.resume:                                    ; preds = %89, %88, %87, %44
@@ -2013,17 +2013,17 @@ common.resume:                                    ; preds = %89, %88, %87, %44
 44:                                               ; preds = %41, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  %46 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #24
+  %46 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %35) #24
   br label %common.resume
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_WarnedFormatTracker10NeedToWarnERKNS_13SdfFileFormatE.exit: ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #24
+  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %35) #24
   br label %90
 
 48:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %49 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #24
+  %49 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %35) #24
   store ptr @.str.4, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__13SdfFileFormat13_ReadDetachedEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, ptr %50, align 8
@@ -4302,7 +4302,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEELb1EEEEE18_M_deallocate_nodeEPSG_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %36, %23, %.lr.ph.i
   %41 = getelementptr inbounds i8, ptr %.06.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i, i64 noundef 64) #22
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEELb1EEEEE19_M_deallocate_nodesEPSG_.exit, label %.lr.ph.i, !llvm.loop !45

@@ -1105,7 +1105,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %d_id.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %d_id.i.i, align 8
   %7 = load i32, ptr %p.i, align 4
-  %call3.i = invoke noundef zeroext i1 @_ZN4cvc58internal6theory22TheoryInferenceManager12trustedLemmaERKNS0_9TrustNodeENS1_11InferenceIdENS1_13LemmaPropertyE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(24) %tlem.i, i32 noundef %6, i32 noundef %7)
+  %call3.i = invoke noundef zeroext i1 @_ZN4cvc58internal6theory22TheoryInferenceManager12trustedLemmaERKNS0_9TrustNodeENS1_11InferenceIdENS1_13LemmaPropertyE(ptr noundef nonnull align 8 dereferenceable(353) %this, ptr noundef nonnull align 8 dereferenceable(24) %tlem.i, i32 noundef %6, i32 noundef %7)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %while.body

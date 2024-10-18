@@ -1536,13 +1536,13 @@ define hidden void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_Em(ptr nocapture 
   br i1 %.not, label %42, label %8
 
 8:                                                ; preds = %3
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #21
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #21
   %9 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 80
   store i8 0, ptr %10, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %4, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #21
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #21
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #21
@@ -1605,13 +1605,13 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %8
 
 40:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   %41 = load ptr, ptr %9, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %41, ptr noundef nonnull align 8 dereferenceable(72) %4) #21
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %41, ptr noundef nonnull align 8 dereferenceable(81) %4) #21
   store i8 0, ptr %10, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #21
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %4) #21
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %_ZN12ResourceMarkD2Ev.exit, %40
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #21
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #21
   br label %42
 
 42:                                               ; preds = %_ZN18LogMessageTemplateILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit, %3
@@ -1839,7 +1839,7 @@ define hidden noundef i64 @_ZN5Klass21hash_secondary_supersEP5ArrayIPS_Eb(ptr no
   br i1 %or.cond.not.i, label %21, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
 
 21:                                               ; preds = %14
-  call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #21
+  call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
 
 _ZN13PerfTraceTimeC2EP15PerfLongCounter.exit:     ; preds = %14, %21
@@ -2031,7 +2031,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %101, %103
   br i1 %108, label %109, label %_ZN13PerfTraceTimeD2Ev.exit
 
 109:                                              ; preds = %106
-  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #21
+  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %110 = load ptr, ptr %17, align 8
   %111 = load i64, ptr %3, align 8
   %112 = getelementptr inbounds i8, ptr %110, i64 40
@@ -3490,7 +3490,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit34:     ; preds = %56
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 75:                                               ; preds = %63
-  %76 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %65, i64 noundef 8, i32 noundef 0) #21
+  %76 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %65, i64 noundef 8, i32 noundef 0) #21
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %75, %73
@@ -3558,7 +3558,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %56, %_ZNK15ClassLoa
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i37
 
 109:                                              ; preds = %97
-  %110 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %99, i64 noundef 8, i32 noundef 0) #21
+  %110 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %99, i64 noundef 8, i32 noundef 0) #21
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i37
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i37: ; preds = %109, %107

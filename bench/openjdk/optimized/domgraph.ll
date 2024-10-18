@@ -1074,11 +1074,11 @@ define hidden void @_Z26remove_single_entry_regionP7NTarjanRS0_RP4NodeR12PhaseIt
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %3, ptr noundef %35) #9
+  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %3, ptr noundef nonnull %35) #9
   %40 = getelementptr inbounds i8, ptr %3, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef %35) #9
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %3, ptr noundef %35, ptr noundef %39) #9
+  %42 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull %35) #9
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %3, ptr noundef nonnull %35, ptr noundef %39) #9
   %43 = load ptr, ptr %1, align 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %2, align 8
@@ -1482,7 +1482,7 @@ _ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread: ; preds = %219, %_ZNK14PhaseI
   %228 = load ptr, ptr %50, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 32
   %230 = load ptr, ptr %229, align 8
-  %231 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %230, ptr noundef %54) #9
+  %231 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %230, ptr noundef nonnull %54) #9
   %232 = getelementptr inbounds i8, ptr %228, i64 2408
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 32
@@ -1521,7 +1521,7 @@ _ZN9VectorSet8test_setEj.exit.i.i.i:              ; preds = %238, %_ZNK14PhaseId
   br i1 %.not.i.i.i.i.i, label %_ZN9Node_List4pushEP4Node.exit.i.i.i, label %254
 
 254:                                              ; preds = %248
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %233, i32 noundef %250) #9
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %233, i32 noundef %250) #9
   br label %_ZN9Node_List4pushEP4Node.exit.i.i.i
 
 _ZN9Node_List4pushEP4Node.exit.i.i.i:             ; preds = %254, %248
@@ -1594,7 +1594,7 @@ _ZN9VectorSet8test_setEj.exit.i.i.i120:           ; preds = %280, %268
   br i1 %.not.i.i.i.i.i122, label %_ZN9Node_List4pushEP4Node.exit.i.i.i123, label %296
 
 296:                                              ; preds = %290
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %274, i32 noundef %292) #9
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %274, i32 noundef %292) #9
   br label %_ZN9Node_List4pushEP4Node.exit.i.i.i123
 
 _ZN9Node_List4pushEP4Node.exit.i.i.i123:          ; preds = %296, %290

@@ -1376,7 +1376,7 @@ entry:
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %entry
   %arrayinit.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 %arrayinit.cur.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %arrayinit.cur.ptr.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %arrayinit.cur.ptr.i, i8 0, i64 17, i1 false)
   %names.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %names.i.i, i8 0, i64 72, i1 false)
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 96

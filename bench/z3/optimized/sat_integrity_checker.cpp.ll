@@ -344,7 +344,7 @@ if.end74:                                         ; preds = %for.body32, %lor.lh
   %27 = and i8 %26, 1
   %idxprom.i.i64 = zext nneg i8 %27 to i64
   %arrayidx.i.i65 = getelementptr inbounds [2 x %"class.sat::clause_allocator"], ptr %m_cls_allocator.i.i, i64 0, i64 %idxprom.i.i64
-  %call2.i = tail call noundef i64 @_ZNK3sat16clause_allocator10get_offsetEPKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568) %arrayidx.i.i65, ptr noundef nonnull %c)
+  %call2.i = tail call noundef i64 @_ZNK3sat16clause_allocator10get_offsetEPKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568) %arrayidx.i.i65, ptr noundef nonnull align 4 dereferenceable(20) %c)
   %28 = load ptr, ptr %arrayidx.i.i63, align 8
   %cmp.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.i.i.i, label %for.end.i, label %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i
@@ -405,7 +405,7 @@ _ZNK3sat17integrity_checker16contains_watchedERK6vectorINS_7watchedELb1EjERKNS_6
   %36 = and i8 %35, 1
   %idxprom.i.i76 = zext nneg i8 %36 to i64
   %arrayidx.i.i77 = getelementptr inbounds [2 x %"class.sat::clause_allocator"], ptr %m_cls_allocator.i.i74, i64 0, i64 %idxprom.i.i76
-  %call2.i78 = tail call noundef i64 @_ZNK3sat16clause_allocator10get_offsetEPKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568) %arrayidx.i.i77, ptr noundef nonnull %c)
+  %call2.i78 = tail call noundef i64 @_ZNK3sat16clause_allocator10get_offsetEPKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568) %arrayidx.i.i77, ptr noundef nonnull align 4 dereferenceable(20) %c)
   %37 = load ptr, ptr %arrayidx.i.i73, align 8
   %cmp.i.i.i79 = icmp eq ptr %37, null
   br i1 %cmp.i.i.i79, label %for.end.i92, label %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i80
@@ -1707,7 +1707,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -303,7 +303,7 @@ readFully.exit.thread:                            ; preds = %34, %32, %readFully
   br label %59
 
 59:                                               ; preds = %57, %.sink.split
-  %60 = tail call i32 @close(i32 noundef %1) #21
+  %60 = tail call i32 @close(i32 noundef range(i32 0, -1) %1) #21
   tail call fastcc void @freeZip(ptr noundef nonnull %7)
   br label %allocZip.exit.thread
 
@@ -462,7 +462,7 @@ freeCEN.exit:                                     ; preds = %16, %._crit_edge.i.
   br i1 %.not21, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call i32 @close(i32 noundef %52) #21
+  %54 = tail call i32 @close(i32 noundef range(i32 0, -1) %52) #21
   br label %55
 
 55:                                               ; preds = %53, %50

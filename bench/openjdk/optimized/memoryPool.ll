@@ -407,7 +407,7 @@ define hidden noundef ptr @_ZN10MemoryPool24get_memory_pool_instanceEP10JavaThre
   br label %_ZNK14instanceHandleclEv.exit
 
 73:                                               ; preds = %61
-  %74 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %63, i64 noundef 8, i32 noundef 0) #10
+  %74 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %63, i64 noundef 8, i32 noundef 0) #10
   br label %_ZNK14instanceHandleclEv.exit
 
 _ZNK14instanceHandleclEv.exit:                    ; preds = %71, %73

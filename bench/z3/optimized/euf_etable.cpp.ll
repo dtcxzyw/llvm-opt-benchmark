@@ -1017,7 +1017,7 @@ _ZNK6vectorIPvLb0EjE4sizeEv.exit:                 ; preds = %if.then, %if.end.i
   store i32 %2, ptr %d.sroa.3.0.ref.tmp.i.sroa_idx, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i32 %retval.0.i, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljEjEN9table2mapIS5_N3euf6etable9decl_hashENS8_7decl_eqEE15entry_hash_procENSB_13entry_eq_procEE6insertEO9_key_dataIS4_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_func_decl2id, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljEjEN9table2mapIS5_N3euf6etable9decl_hashENS8_7decl_eqEE15entry_hash_procENSB_13entry_eq_procEE6insertEO9_key_dataIS4_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_func_decl2id, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN11ast_manager7inc_refEP3ast.exit, label %if.then.i4
@@ -2273,7 +2273,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
-  %call.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 1 poison, ptr noundef %5)
+  %call.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 8 poison, ptr noundef %5)
   %and = and i32 %call.i, %sub
   %idx.ext = zext i32 %and to i64
   %add.ptr = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %3, i64 %idx.ext
@@ -2851,7 +2851,7 @@ entry:
   %0 = load i32, ptr %m_slots, align 4
   %sub = add i32 %0, -1
   %1 = load ptr, ptr %d, align 8
-  %call.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 1 poison, ptr noundef %1)
+  %call.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 8 poison, ptr noundef %1)
   %and = and i32 %call.i, %sub
   %2 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %and to i64
@@ -3118,7 +3118,7 @@ sw.default:                                       ; preds = %_ZN3euf6etable9get_
   %m_slots.i26 = getelementptr inbounds i8, ptr %5, i64 20
   %44 = load i32, ptr %m_slots.i26, align 4
   %sub.i27 = add i32 %44, -1
-  %call.i.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 1 poison, ptr noundef nonnull %n)
+  %call.i.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 8 poison, ptr noundef nonnull %n)
   %and.i28 = and i32 %call.i.i, %sub.i27
   %45 = load ptr, ptr %5, align 8
   %idx.ext.i29 = zext i32 %and.i28 to i64
@@ -3486,7 +3486,7 @@ sw.default:                                       ; preds = %_ZN3euf6etable9get_
   %m_slots.i27 = getelementptr inbounds i8, ptr %5, i64 20
   %45 = load i32, ptr %m_slots.i27, align 4
   %sub.i28 = add i32 %45, -1
-  %call.i.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 1 poison, ptr noundef nonnull %n)
+  %call.i.i = tail call noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull align 8 poison, ptr noundef nonnull %n)
   %and.i29 = and i32 %call.i.i, %sub.i28
   %46 = load ptr, ptr %5, align 8
   %idx.ext.i30 = zext i32 %and.i29 to i64
@@ -4160,7 +4160,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

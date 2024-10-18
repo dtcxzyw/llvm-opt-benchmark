@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext11shouldInd
 6:                                                ; preds = %2
   %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #9
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #9
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = icmp sgt i64 %9, 0
   br i1 %11, label %.lr.ph.i.i.i.i.i.i, label %18
@@ -466,7 +466,7 @@ _ZL16getCanonicalDeclPKN5clang4DeclE.exit:        ; preds = %.thread, %96
 _ZL16getCanonicalDeclPKN5clang4DeclE.exit61:      ; preds = %110, %100, %_ZL16getCanonicalDeclPKN5clang4DeclE.exit
   %.039 = phi ptr [ null, %_ZL16getCanonicalDeclPKN5clang4DeclE.exit ], [ %104, %100 ], [ %spec.select92, %110 ]
   %113 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %113, i64 noundef 6) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull %113, i64 noundef 6) #9
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %115, 1
@@ -1205,7 +1205,7 @@ define internal fastcc noundef zeroext i1 @_ZL17isDeclADefinitionPKN5clang4DeclE
   br i1 %or.cond7.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %29
 
 29:                                               ; preds = %22
-  %30 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #9
+  %30 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #9
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
 31:                                               ; preds = %12
@@ -1365,7 +1365,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIN5clang5index14Symbol
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZZN5clang5index15IndexingContext20handleDeclOccurrenceEPKNS_4DeclENS_14SourceLocationEbS4_jN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_4ExprES4_PKNS_11DeclContextEENK3$_0clES8_"(ptr nonnull %.0.val, ptr nocapture %.8.val, i32 %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %.0.val, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #9
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %.0.val) #9
   %.idx1.i = shl nsw i64 %4, 4
   %5 = getelementptr inbounds i8, ptr %3, i64 %.idx1.i
   %6 = ashr i64 %4, 2

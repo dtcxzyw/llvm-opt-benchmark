@@ -163,7 +163,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -173,7 +173,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %.noexc
@@ -190,7 +190,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %call.i.noexc13 unwind label %lpad7
 
 call.i.noexc13:                                   ; preds = %invoke.cont4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
           to label %.noexc15 unwind label %lpad7
 
 .noexc15:                                         ; preds = %call.i.noexc13
@@ -200,7 +200,7 @@ call.i.noexc13:                                   ; preds = %invoke.cont4
 lpad.i12:                                         ; preds = %.noexc15
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #17
   br label %eh.resume
 
 invoke.cont8:                                     ; preds = %.noexc15
@@ -216,7 +216,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %call.i.noexc21 unwind label %lpad17
 
 call.i.noexc21:                                   ; preds = %invoke.cont10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef %call.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef %call.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc23 unwind label %lpad17
 
 .noexc23:                                         ; preds = %call.i.noexc21
@@ -226,7 +226,7 @@ call.i.noexc21:                                   ; preds = %invoke.cont10
 lpad.i20:                                         ; preds = %.noexc23
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #17
   br label %eh.resume
 
 invoke.cont18:                                    ; preds = %.noexc23
@@ -305,12 +305,12 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getAssignmentEj(ptr noundef nonnull align 8 dereferenceable(568) %1, i32 noundef %v)
   %k.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   %k2.i = getelementptr inbounds i8, ptr %call2, i64 32
-  %call.i.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %k.i, ptr noundef nonnull %k2.i) #18
+  %call.i.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %k.i, ptr noundef nonnull align 8 dereferenceable(32) %k2.i) #18
   %cmp.i.i.i.not.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %call.i.i.i2.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %call2) #18
+  %call.i.i.i2.i = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(64) %call2) #18
   %cmp.i.i.i3.i = icmp ne i32 %call.i.i.i2.i, 0
   br label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit
 
@@ -451,12 +451,12 @@ if.then26:                                        ; preds = %for.body21, %invoke
 call2.i.noexc:                                    ; preds = %if.then26
   %k.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i31, i64 32
   %k2.i.i = getelementptr inbounds i8, ptr %call2.i32, i64 32
-  %call.i.i.i.i.i = call i32 @__gmpq_equal(ptr noundef nonnull %k.i.i, ptr noundef nonnull %k2.i.i) #18
+  %call.i.i.i.i.i = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %k.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k2.i.i) #18
   %cmp.i.i.i.not.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.not.i.i, label %cond.true, label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %call2.i.noexc
-  %call.i.i.i2.i.i = call i32 @__gmpq_equal(ptr noundef nonnull %add.ptr.i.i.i31, ptr noundef nonnull %call2.i32) #18
+  %call.i.i.i2.i.i = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i31, ptr noundef nonnull align 8 dereferenceable(64) %call2.i32) #18
   %cmp.i.i.i3.i.i.not = icmp eq i32 %call.i.i.i2.i.i, 0
   br i1 %cmp.i.i.i3.i.i.not, label %cond.true, label %for.inc56
 
@@ -496,7 +496,7 @@ invoke.cont59:                                    ; preds = %for.end58
 invoke.cont61:                                    ; preds = %invoke.cont59
   %d_queueTime.i = getelementptr inbounds i8, ptr %this, i64 312
   %d_conflicts.i = getelementptr inbounds i8, ptr %this, i64 320
-  %call.i214 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure22standardProcessSignalsERNS0_9TimerStatERNS0_7IntStatE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(8) %d_queueTime.i, ptr noundef nonnull align 8 dereferenceable(8) %d_conflicts.i)
+  %call.i214 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure22standardProcessSignalsERNS0_9TimerStatERNS0_7IntStatE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull align 8 dereferenceable(8) %d_queueTime.i, ptr noundef nonnull align 8 dereferenceable(8) %d_conflicts.i)
           to label %invoke.cont62 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont62:                                    ; preds = %invoke.cont61
@@ -641,12 +641,12 @@ lor.lhs.false:                                    ; preds = %if.then140
 call2.i.noexc347:                                 ; preds = %lor.lhs.false
   %k.i.i340 = getelementptr inbounds i8, ptr %add.ptr.i.i.i338, i64 32
   %k2.i.i341 = getelementptr inbounds i8, ptr %call2.i348, i64 32
-  %call.i.i.i.i.i342 = call i32 @__gmpq_equal(ptr noundef nonnull %k.i.i340, ptr noundef nonnull %k2.i.i341) #18
+  %call.i.i.i.i.i342 = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %k.i.i340, ptr noundef nonnull align 8 dereferenceable(32) %k2.i.i341) #18
   %cmp.i.i.i.not.i.i343 = icmp eq i32 %call.i.i.i.i.i342, 0
   br i1 %cmp.i.i.i.not.i.i343, label %invoke.cont150, label %invoke.cont142
 
 invoke.cont142:                                   ; preds = %call2.i.noexc347
-  %call.i.i.i2.i.i345 = call i32 @__gmpq_equal(ptr noundef nonnull %add.ptr.i.i.i338, ptr noundef nonnull %call2.i348) #18
+  %call.i.i.i2.i.i345 = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i338, ptr noundef nonnull align 8 dereferenceable(64) %call2.i348) #18
   %cmp.i.i.i3.i.i346.not = icmp eq i32 %call.i.i.i2.i.i345, 0
   br i1 %cmp.i.i.i3.i.i346.not, label %invoke.cont150, label %land.lhs.true
 
@@ -660,12 +660,12 @@ land.lhs.true:                                    ; preds = %invoke.cont142
 call2.i.noexc361:                                 ; preds = %land.lhs.true
   %k.i.i354 = getelementptr inbounds i8, ptr %add.ptr.i.i.i352, i64 32
   %k2.i.i355 = getelementptr inbounds i8, ptr %call2.i362, i64 32
-  %call.i.i.i.i.i356 = call i32 @__gmpq_equal(ptr noundef nonnull %k.i.i354, ptr noundef nonnull %k2.i.i355) #18
+  %call.i.i.i.i.i356 = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %k.i.i354, ptr noundef nonnull align 8 dereferenceable(32) %k2.i.i355) #18
   %cmp.i.i.i.not.i.i357 = icmp eq i32 %call.i.i.i.i.i356, 0
   br i1 %cmp.i.i.i.not.i.i357, label %if.then153, label %invoke.cont144
 
 invoke.cont144:                                   ; preds = %call2.i.noexc361
-  %call.i.i.i2.i.i359 = call i32 @__gmpq_equal(ptr noundef nonnull %add.ptr.i.i.i352, ptr noundef nonnull %call2.i362) #18
+  %call.i.i.i2.i.i359 = call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i352, ptr noundef nonnull align 8 dereferenceable(64) %call2.i362) #18
   %cmp.i.i.i3.i.i360.not = icmp eq i32 %call.i.i.i2.i.i359, 0
   br i1 %cmp.i.i.i3.i.i360.not, label %if.then153, label %invoke.cont150
 
@@ -766,7 +766,7 @@ cond.true189:                                     ; preds = %cond.true166
   %77 = load ptr, ptr %_M_finish.i.i.i.i309, align 8
   %incdec.ptr.i.i.i.i585 = getelementptr inbounds i8, ptr %77, i64 -4
   store ptr %incdec.ptr.i.i.i.i585, ptr %_M_finish.i.i.i.i309, align 8
-  %call.i589 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure22standardProcessSignalsERNS0_9TimerStatERNS0_7IntStatE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(8) %d_queueTime.i, ptr noundef nonnull align 8 dereferenceable(8) %d_conflicts.i)
+  %call.i589 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure22standardProcessSignalsERNS0_9TimerStatERNS0_7IntStatE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull align 8 dereferenceable(8) %d_queueTime.i, ptr noundef nonnull align 8 dereferenceable(8) %d_conflicts.i)
           to label %invoke.cont207 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont207:                                   ; preds = %cond.true189
@@ -1093,7 +1093,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear18AttemptSolutionSDPD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedureD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) #17
+  tail call void @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedureD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }

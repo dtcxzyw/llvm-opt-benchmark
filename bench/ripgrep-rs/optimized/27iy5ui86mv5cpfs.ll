@@ -486,7 +486,7 @@ _ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i: ; preds = %80
   br label %_ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i
-  %.0.sroa.speculated.i.i.i.i = call noundef range(i64 1, -1) i64 @llvm.umax.i64(i64 %.016.i.i.i, i64 1)
+  %.0.sroa.speculated.i.i.i.i = call noundef range(i64 1, -1) i64 @llvm.umax.i64(i64 range(i64 0, -1) %.016.i.i.i, i64 1)
   br label %93
 
 _ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.i.i: ; preds = %.preheader.i.i.i, %89
@@ -652,23 +652,23 @@ _ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.i.i: ; preds = %.preheader.i.i.i, 
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17he2370480601e89eaE.exit2"
 
 130:                                              ; preds = %122
-  %131 = call noundef zeroext i1 @_ZN4core7unicode12unicode_data15grapheme_extend6lookup17h714c62c409f1cad9E(i32 noundef %94), !noalias !70
+  %131 = call noundef zeroext i1 @_ZN4core7unicode12unicode_data15grapheme_extend6lookup17h714c62c409f1cad9E(i32 noundef range(i32 0, 1114112) %94), !noalias !70
   br i1 %131, label %134, label %132
 
 132:                                              ; preds = %130
-  %133 = call noundef zeroext i1 @_ZN4core7unicode9printable12is_printable17he6bfe72a2f038be4E(i32 noundef %94), !noalias !70
+  %133 = call noundef zeroext i1 @_ZN4core7unicode9printable12is_printable17he6bfe72a2f038be4E(i32 noundef range(i32 0, 1114112) %94), !noalias !70
   br i1 %133, label %136, label %135
 
 134:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !70
-  call void @_ZN4core4char13EscapeUnicode3new17h48f2c0a6adc51840E(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %4, i32 noundef %94), !noalias !70
+  call void @_ZN4core4char13EscapeUnicode3new17h48f2c0a6adc51840E(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %4, i32 noundef range(i32 0, 1114112) %94), !noalias !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !70
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17he2370480601e89eaE.exit2"
 
 135:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3), !noalias !70
-  call void @_ZN4core4char13EscapeUnicode3new17h48f2c0a6adc51840E(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %3, i32 noundef %94), !noalias !70
+  call void @_ZN4core4char13EscapeUnicode3new17h48f2c0a6adc51840E(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %3, i32 noundef range(i32 0, 1114112) %94), !noalias !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !70
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17he2370480601e89eaE.exit2"

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN87_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$core..default..Default$GT$7default17h7ee994612540c909E"(ptr dead_on_unwind noalias nocapture noundef writable sret([824 x i8]) align 8 dereferenceable(824) %0) unnamed_addr #0 {
-  tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias nocapture noundef nonnull sret([720 x i8]) align 8 dereferenceable(720) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
+  tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias nocapture noundef nonnull sret([720 x i8]) align 8 dereferenceable(824) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   store i32 0, ptr %2, align 8, !alias.scope !4
   %3 = getelementptr inbounds i8, ptr %0, i64 812
@@ -765,7 +765,7 @@ define void @"_ZN91_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_017h6866b966b2dda20bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -830,7 +830,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_017h7a8fb80aab73e43bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -899,7 +899,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_0p517h67d201f44dee1fecE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -964,7 +964,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_0p517ha25a681bf4092322E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1033,7 +1033,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_117h30b65c919ff72b4cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1098,7 +1098,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_117h1b4f1cfba637215aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1167,7 +1167,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_1p517h394e9fbfb5ff168aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1232,7 +1232,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1p517h5bf852b48a409e52E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1301,7 +1301,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_217he9a052cd72bb3898E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1366,7 +1366,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_217h483bf4c40ef5ff87E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1435,7 +1435,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_2p517h62ce13e0f0b8914eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1500,7 +1500,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2p517ha8c8e0d480d49107E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1569,7 +1569,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_317h8f76d7e7a74f5a52E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1634,7 +1634,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_317h0fc43193e2824509E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1703,7 +1703,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_3p517ha1718699a5a970e1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1768,7 +1768,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_3p517h676f8f020aa8c65eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1837,7 +1837,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_417h35c545e3bbe86bafE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1902,7 +1902,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_417h1cc2a8d61962b079E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -1971,7 +1971,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_517hc22faf7baa0142c5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2036,7 +2036,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_517hdea5a93862297b10E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2105,7 +2105,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_617h72e5fda56eb53524E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2170,7 +2170,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_617hade97f3d2f78124eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2239,7 +2239,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_717h17fe014e1b2fef6dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2304,7 +2304,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_717h9f8cd2159e87f8c7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2373,7 +2373,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_817h2b0707f1b04328a4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2438,7 +2438,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_817hbb8616e5d894a05bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2507,7 +2507,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3m_917h6cfc7bf3f1661082E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2572,7 +2572,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_917h53601920142c45d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2641,7 +2641,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_1017h821f5c66b2546955E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2706,7 +2706,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1017h83cfa3a87199ceeaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2775,7 +2775,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_1117hf7e1a12012276d6dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2840,7 +2840,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1117hb3d12ab070a098bfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2909,7 +2909,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_1217h79cadaab04b7276aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -2974,7 +2974,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1217h8fb0fb6e636c447cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3043,7 +3043,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_1617hf1ce2ad496536b54E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3108,7 +3108,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1617hc7abdde06f5b4032E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3177,7 +3177,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_2017hdbbb914521213defE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3242,7 +3242,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_2017h308956c20714d4a2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3311,7 +3311,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_2417hd44ba6e421c5f87fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3376,7 +3376,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_2417he2c3c51e49bc1af5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3445,7 +3445,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_3217he8bf0323519dce6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3510,7 +3510,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_3217h4160dd4feecc59e1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3579,7 +3579,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_4017h83bef5163d8960b1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3644,7 +3644,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_4017h9d5027ce8c132d31E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3713,7 +3713,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_4817hac0f608d7127d43eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3778,7 +3778,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_4817he346b2382dab31abE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3847,7 +3847,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_5617h228eaafc703484e5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3912,7 +3912,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_5617h356b406ec0c62a6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -3981,7 +3981,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_6417he3d689dbcf361690E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4046,7 +4046,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_6417h4e6ebc784a626ff0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4115,7 +4115,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_7217hcd557ad5f95a23ebE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4180,7 +4180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_7217h456f07051d591f49E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4249,7 +4249,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_8017h2b9c07fef8775f02E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4314,7 +4314,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_8017hb7644de34312b2c6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4383,7 +4383,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_9617h122e436ddb136551E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4448,7 +4448,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_9617hfbcb54247e5b6d77E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4517,7 +4517,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_11217haa6afc5e4dc900c3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4582,7 +4582,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_11217h8f5aa8efe5351d73E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4651,7 +4651,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_12817h482d690b1c5fd459E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4716,7 +4716,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_12817h732bc96fc0c83627E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4785,7 +4785,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6m_auto17h384da04d8e0eadb5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4834,7 +4834,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4m_px17he0d868c583cd9037E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4899,7 +4899,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_px17he92aba77885a99c7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -4968,7 +4968,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6m_full17h37a2ab271ac777b4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5033,7 +5033,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10m_neg_full17hbfa8751c63c93474E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5134,7 +5134,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_1_217h5d8236e427b24badE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5199,7 +5199,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_217hd975375e6943ae60E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5300,7 +5300,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_1_317h5eea0d9fbbc810baE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5365,7 +5365,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_317hee156e0f0641a9e9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5466,7 +5466,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_2_317h7e6a77224016b117E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5531,7 +5531,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2_317haf73aa45616509a6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5632,7 +5632,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_1_417hcf06f563ef2f2234E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5697,7 +5697,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_417h608dc14282c81407E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5798,7 +5798,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_2_417h9b39a21e50392190E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5863,7 +5863,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2_417h039011fc99e2f46fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -5964,7 +5964,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_3_417hf3fc39abed313decE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6029,7 +6029,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_3_417hf40745fef7063fb1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6130,7 +6130,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_1_517ha4a5f587a8ee1167E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6195,7 +6195,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_517h0eef3a1713f3d820E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6296,7 +6296,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_2_517h0fea05e4e956d98aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6361,7 +6361,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2_517h5b1adfbda59d5584E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6462,7 +6462,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_3_517hd6579ed0b07e755fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6527,7 +6527,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_3_517h55f8069588ad63b1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6628,7 +6628,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_4_517h5c278b67c4262aa1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6693,7 +6693,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_4_517hfc71ba8737e5b0cdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6794,7 +6794,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_1_617h10a77765bead142cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6859,7 +6859,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_617h89845b2a0d8d1cc9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -6960,7 +6960,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5m_5_617hcb13b59c273630f3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7025,7 +7025,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_5_617hb8ceab9ed73a843cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7126,7 +7126,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6m_1_1217h8346d88f214119adE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7191,7 +7191,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10m_neg_1_1217hf869ea59bee397ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7292,7 +7292,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_017h63571b3eeeeb4e5fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7327,7 +7327,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_017hcd621b54698d1b63E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7363,7 +7363,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_0p517hf9b3015608da0f41E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7398,7 +7398,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_0p517hed0ef293c5a6f255E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7434,7 +7434,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_117h703a1fe0eda67897E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7469,7 +7469,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_117h7039660363c8ef2aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7505,7 +7505,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_1p517h08c59be495a8a39cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7540,7 +7540,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1p517h49de087236b7029bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7576,7 +7576,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_217h44400e9c280c478aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7611,7 +7611,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_217hfaa26ffbb14ceebdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7647,7 +7647,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_2p517h8f572266a3f8692cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7682,7 +7682,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2p517h7329000e077ba10dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7718,7 +7718,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_317h9a4b4f09f0a10a85E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7753,7 +7753,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_317hf89973268ff52417E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7789,7 +7789,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_3p517h5c4bf36a4122b95cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7824,7 +7824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_3p517hd58171f10df7708fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7860,7 +7860,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_417ha8804d42d31f3d6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7895,7 +7895,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_417h57f6c2186234bc80E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7931,7 +7931,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_517h677474167d1d1281E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -7966,7 +7966,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_517h9c67b2c1d23a2f3aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8002,7 +8002,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_617he2095b03fa55e8c5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8037,7 +8037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_617h4cc0f31467be662fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8073,7 +8073,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_717h8315f3f4cc3a1f0aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8108,7 +8108,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_717hc908e204fbfe0838E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8144,7 +8144,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_817h0d9e7f9d52c4998fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8179,7 +8179,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_817h8c381ae2c625784aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8215,7 +8215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mt_917h66eb6890f93ec867E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8250,7 +8250,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_917hc2f0f02a87c3c9ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8286,7 +8286,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_1017ha2da605078ed56ecE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8321,7 +8321,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1017hedd566cfc29e9a65E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8357,7 +8357,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_1117hcd687f858befaa31E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8392,7 +8392,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1117h9c37dcf0b6910539E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8428,7 +8428,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_1217hd4217724bdd31d8eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8463,7 +8463,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1217h02195e31564af3e0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8499,7 +8499,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_1617h2c66a4d01f1297b3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8534,7 +8534,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1617hcc3e1f3bd1eb9146E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8570,7 +8570,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_2017h903f18a26de0f0eaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8605,7 +8605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_2017h3ca177f2ee2627edE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8641,7 +8641,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_2417h6fabcd21dd44b82fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8676,7 +8676,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_2417hf6997a91607ece62E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8712,7 +8712,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_3217h8aa65056adf0205bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8747,7 +8747,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_3217h0f73980f921798a7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8783,7 +8783,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_4017h1eee41ff1191d62cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8818,7 +8818,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_4017h58804374c5a78c37E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8854,7 +8854,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_4817hcd22995b1702ec93E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8889,7 +8889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_4817h62b400c5f64d93b7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8925,7 +8925,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_5617h729e487ca935efa3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8960,7 +8960,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_5617h423a3846c512a3bdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -8996,7 +8996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_6417hf24408f38003236bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9031,7 +9031,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_6417hbb7af54bcc1c848aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9067,7 +9067,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_7217h655474607fa10ba4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9102,7 +9102,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_7217h0e16f0325820624dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9138,7 +9138,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_8017h52acbdecc608c113E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9173,7 +9173,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_8017h0e0e8b435c0dbc05E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9209,7 +9209,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_9617h0c4813d2669aa1feE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9244,7 +9244,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_9617hf2ab2162137852ffE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9280,7 +9280,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_11217h5013051b0cb3a9a7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9315,7 +9315,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_11217h272ca533e97e448dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9351,7 +9351,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_12817h7662ad73c3e5175bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9386,7 +9386,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_12817h3cd759981adedea2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9422,7 +9422,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mt_auto17h7d19f5b39e2541bcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9453,7 +9453,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mt_px17h55431aefc7dffd69E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9488,7 +9488,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_px17h2e379ca96df6c5f4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9524,7 +9524,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mt_full17h0f3f0a90d0906405E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9559,7 +9559,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mt_neg_full17hc29c0474506bf2edE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9603,7 +9603,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_217h31d101215962d943E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9638,7 +9638,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_217hf030fa9743a81d12E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9682,7 +9682,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_317hdfa3863c360b6099E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9717,7 +9717,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_317h42542c8fe0bfa715E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9761,7 +9761,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_2_317he4dd7b4edea7defeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9796,7 +9796,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2_317hcb535cdc80e8e666E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9840,7 +9840,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_417hcf0ab4f5fb71e4a6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9875,7 +9875,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_417h88248c5a63f71ebfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9919,7 +9919,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_2_417he810c571c71877abE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9954,7 +9954,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2_417h65071d479e6c6b66E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -9998,7 +9998,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_3_417h0f0442c17b273d26E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10033,7 +10033,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_3_417h3a880b27da36e9b4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10077,7 +10077,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_517hc5d5852095ae4c6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10112,7 +10112,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_517ha4b83617b8915444E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10156,7 +10156,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_2_517h9f1cc7eac29e1ddfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10191,7 +10191,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2_517hae03ac70a91b18f3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10235,7 +10235,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_3_517h909b38b8feb6f4acE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10270,7 +10270,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_3_517h01eba681d74b0925E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10314,7 +10314,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_4_517h1e436420ff98b0b7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10349,7 +10349,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_4_517h68065db3770b4f5fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10393,7 +10393,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_617h39820fd69cee2b2fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10428,7 +10428,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_617hcacea937db293b62E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10472,7 +10472,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mt_5_617h836f247a4e1a0ef6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10507,7 +10507,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_5_617hc95d90fff33dd5d4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10551,7 +10551,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mt_1_1217h68d7fcac735ce52cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10586,7 +10586,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mt_neg_1_1217h104dc1c6bdabb821E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10630,7 +10630,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_017h961d6c2443374293E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10665,7 +10665,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_017hba55611724e99483E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10701,7 +10701,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_0p517h260364245e44debeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10736,7 +10736,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_0p517h9dac7a30d5f41bebE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10772,7 +10772,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_117hd5b667d93d243a7eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10807,7 +10807,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_117h1aeef188bd8a0f60E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10843,7 +10843,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_1p517hb060a063a97c0921E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10878,7 +10878,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1p517h71c6f191a853dbacE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10914,7 +10914,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_217h9161e11c5d2cbdf1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10949,7 +10949,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_217h86503d8c81b21b82E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -10985,7 +10985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_2p517h2fdf964d4a4e7671E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11020,7 +11020,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2p517h8ccf1f37a504aa17E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11056,7 +11056,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_317h22b4b3d17f8f9956E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11091,7 +11091,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_317hfca650f1fb4d93b0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11127,7 +11127,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_3p517h8f5e5418afc42ddeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11162,7 +11162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_3p517h74baf29cc16de58aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11198,7 +11198,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_417hc4b8e09202a53508E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11233,7 +11233,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_417h7a030bfc693e729eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11269,7 +11269,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_517h8ad53697590a4582E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11304,7 +11304,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_517h0166c2cb11fb786dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11340,7 +11340,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_617ha0c2db555f17a1d8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11375,7 +11375,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_617h6090296f93e21e90E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11411,7 +11411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_717h94b6425ff2ea3cd8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11446,7 +11446,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_717h2f9489f60d36e512E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11482,7 +11482,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_817h27f1741a439602cdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11517,7 +11517,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_817h3efffd9832326bb1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11553,7 +11553,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mb_917hb782ff08226d96cbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11588,7 +11588,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_917h737cab58541f18c3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11624,7 +11624,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_1017h63b2e64e87237db6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11659,7 +11659,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1017h0b30a1a0a1d77878E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11695,7 +11695,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_1117hb24637649e8104a5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11730,7 +11730,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1117hd0ff057939a479d3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11766,7 +11766,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_1217h597372837bac1f23E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11801,7 +11801,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1217he29ca9e49686b0e5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11837,7 +11837,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_1617h14fbfaf45cfb1723E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11872,7 +11872,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1617h9cc724ea90a9568dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11908,7 +11908,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_2017h76fdacbf33597f50E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11943,7 +11943,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_2017h7ec12ef8a49e47e3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -11979,7 +11979,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_2417ha0a35a23d50b7f54E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12014,7 +12014,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_2417h9d5aaf4619ebdd42E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12050,7 +12050,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_3217ha0c3e6f8540f11ccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12085,7 +12085,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_3217hc381695bf28797d5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12121,7 +12121,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_4017hfa83f2d79bba2dbcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12156,7 +12156,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_4017h4e9581f8060f8af5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12192,7 +12192,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_4817hf7bba4bba4763c25E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12227,7 +12227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_4817h17cb78f99be377e2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12263,7 +12263,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_5617h38fa6cff9e911690E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12298,7 +12298,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_5617h09f9596328e18d75E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12334,7 +12334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_6417h7e28c0eb0c42578cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12369,7 +12369,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_6417hc07a8ce458fd9084E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12405,7 +12405,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_7217h4b59e270a86b28c9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12440,7 +12440,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_7217hd2ec902ab6902718E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12476,7 +12476,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_8017hccf15707026f0761E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12511,7 +12511,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_8017h83b191721d528638E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12547,7 +12547,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_9617h9ddb6c684ba43572E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12582,7 +12582,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_9617h6db023746f6a3c10E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12618,7 +12618,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_11217h722bd4718ac72007E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12653,7 +12653,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_11217hc71d4cfad8b6a255E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12689,7 +12689,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_12817hddb4ee81e4ae133cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12724,7 +12724,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_12817h5f2071cce2e3eb6fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12760,7 +12760,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mb_auto17hedb7f295e03bcc01E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12791,7 +12791,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mb_px17haf04226a08535813E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12826,7 +12826,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_px17hf28776f3f375b828E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12862,7 +12862,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mb_full17hc8743e12ab198b24E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12897,7 +12897,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mb_neg_full17h180891e6fc9301fbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12941,7 +12941,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_217he01fc930c992d731E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -12976,7 +12976,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_217ha58f0d5bd5fe175cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13020,7 +13020,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_317hff247315ef9e5226E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13055,7 +13055,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_317h198b6f62f2fcc0faE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13099,7 +13099,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_2_317h6011af5335908c2eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13134,7 +13134,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2_317h3f2b4bff05f9bbf7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13178,7 +13178,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_417h46c660df3ad63916E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13213,7 +13213,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_417hdb0849657bdcbd80E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13257,7 +13257,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_2_417h36892f11f106c22aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13292,7 +13292,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2_417hed374c2a95fb2108E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13336,7 +13336,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_3_417hef55e422a7529295E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13371,7 +13371,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_3_417h3d20130a39b61928E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13415,7 +13415,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_517h11885088482c69b1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13450,7 +13450,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_517hb5dbb4282da022a3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13494,7 +13494,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_2_517heea03325d71accfeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13529,7 +13529,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2_517hb8cab712b5978864E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13573,7 +13573,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_3_517hdbcc20379e877fa3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13608,7 +13608,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_3_517hb7db2c8121de0e24E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13652,7 +13652,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_4_517h1e0f73519d3b9c8bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13687,7 +13687,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_4_517hea1f9b6d0fb4f803E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13731,7 +13731,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_617h99b0c73a4966c385E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13766,7 +13766,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_617h5a8ea4bb75bbcbedE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13810,7 +13810,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mb_5_617ha343713b21adf766E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13845,7 +13845,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_5_617hd8d692bdc0354ca1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13889,7 +13889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mb_1_1217h208156df0ee4b836E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13924,7 +13924,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mb_neg_1_1217hfd9f9795cc58e30bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -13968,7 +13968,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_017h0a0147f2e8fcbef8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14013,7 +14013,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_017h825154870ee79bdbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14060,7 +14060,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_0p517h0879405dc5e8b484E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14105,7 +14105,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_0p517h0c05861f38973661E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14152,7 +14152,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_117ha3f2bd0d6d9f3d3eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14197,7 +14197,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_117h2a47f5bd8f354602E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14244,7 +14244,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_1p517hdd720bdef1257690E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14289,7 +14289,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1p517h301eb87103afd97cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14336,7 +14336,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_217h67cbbcb1b996ba95E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14381,7 +14381,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_217hc61a0059efe9ff8fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14428,7 +14428,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_2p517hba40960b2b3c9bc4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14473,7 +14473,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2p517hb930d6e9162c1879E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14520,7 +14520,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_317h15f457ba77a3a2f2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14565,7 +14565,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_317h7b4a8a7c333dde82E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14612,7 +14612,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_3p517h32ece2e556320bdaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14657,7 +14657,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_3p517h2c020d4e564ea31cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14704,7 +14704,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_417h067be7670728840eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14749,7 +14749,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_417h81b70fa163078e85E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14796,7 +14796,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_517hdfb19ced1d92742aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14841,7 +14841,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_517h25503e45c90c4bc7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14888,7 +14888,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_617h5a89be24747f04a5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14933,7 +14933,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_617h0d2eca65f5df277fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -14980,7 +14980,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_717h00cb8cc9845f7d3aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15025,7 +15025,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_717h17427e3ce02f7777E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15072,7 +15072,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_817hd2655d8cedc3b73aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15117,7 +15117,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_817h897103ec0046dfbcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15164,7 +15164,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4my_917h156ec6cb7d5c46e6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15209,7 +15209,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_917h4c9ad7a815c246cfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15256,7 +15256,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_1017h3b8b4b7680b04b81E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15301,7 +15301,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1017h29f85fdbb27b3c5dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15348,7 +15348,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_1117h0e7bced27be171bfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15393,7 +15393,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1117h4f6e458ba4434638E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15440,7 +15440,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_1217h52602b9a2d27d6caE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15485,7 +15485,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1217h8aec5c83643e780fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15532,7 +15532,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_1617h49826a14b399b9c5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15577,7 +15577,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1617h5364fba3f8074324E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15624,7 +15624,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_2017h793ec1c627061bf5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15669,7 +15669,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_2017h441dbe0e847b7d15E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15716,7 +15716,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_2417h6895ceda7f637670E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15761,7 +15761,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_2417h08b2afca36ca1b7fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15808,7 +15808,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_3217h34d82c25d440f690E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15853,7 +15853,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_3217h1a263a2ff6e70f92E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15900,7 +15900,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_4017he49195ca6d5bfe45E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15945,7 +15945,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_4017h381ad675421e35fbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -15992,7 +15992,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_4817h0b46ff3b1f2b6300E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16037,7 +16037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_4817h06c7334ce833f5e0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16084,7 +16084,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_5617hdc5f740db4aaf1abE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16129,7 +16129,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_5617h317a055b423e361bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16176,7 +16176,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_6417hf13d38293ab48854E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16221,7 +16221,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_6417hed2bdfeddbb192c0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16268,7 +16268,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_7217h62e7d30ab18a1e1cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16313,7 +16313,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_7217h9ffb103bc8149a05E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16360,7 +16360,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_8017hcc310a16f3433ec0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16405,7 +16405,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_8017hac34a9f5fc2190eaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16452,7 +16452,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_9617h6db7d1b6a392379aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16497,7 +16497,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_9617h7846f397c17454dbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16544,7 +16544,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_11217hb890810706a33bd0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16589,7 +16589,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_11217h94b3f01c1bdb0374E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16636,7 +16636,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_12817h2ee4d9de28ab215bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16681,7 +16681,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_12817h452f6a2b91f49cbeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16728,7 +16728,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7my_auto17h6a7947fdc797d68dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16765,7 +16765,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5my_px17h725b8ea337a38f6aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16810,7 +16810,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_px17h1feb2c676691d8beE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16857,7 +16857,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7my_full17ha8b9d93c82be2b15E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16902,7 +16902,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11my_neg_full17h3011eb3cb8e9fe96E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -16965,7 +16965,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_1_217h01d07ef3dabccb91E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17010,7 +17010,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_217hd3cb0898c56d5ab3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17073,7 +17073,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_1_317h6b7feb4c591c32bfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17118,7 +17118,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_317h66ecfaaeaf43d436E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17181,7 +17181,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_2_317h3d7afa792fd4e65dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17226,7 +17226,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2_317h667c14d9db798c67E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17289,7 +17289,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_1_417ha8ed44b270854a25E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17334,7 +17334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_417haf8c814b6dd65835E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17397,7 +17397,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_2_417h58145ce42c59e446E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17442,7 +17442,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2_417h0945d3988d3e71cfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17505,7 +17505,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_3_417h4a1a11fd16a0df59E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17550,7 +17550,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_3_417h4bda187dfb01d8aeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17613,7 +17613,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_1_517ha6283a308ca86933E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17658,7 +17658,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_517h5dc52de4e5ef2b65E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17721,7 +17721,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_2_517h8de82c9f5989893dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17766,7 +17766,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2_517h6b5e733f39cba894E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17829,7 +17829,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_3_517h0392ac4fdabcdf12E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17874,7 +17874,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_3_517hacf3dd14aabf792cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17937,7 +17937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_4_517he039b2173fa6b1c4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -17982,7 +17982,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_4_517h016a2437cbaca20aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18045,7 +18045,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_1_617h322045bbd922cf67E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18090,7 +18090,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_617h6f4b75ed289aa992E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18153,7 +18153,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6my_5_617he2663c9bcc6f1b95E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18198,7 +18198,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_5_617h62752d65d5195af5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18261,7 +18261,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7my_1_1217h9514b90b1170978fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18306,7 +18306,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11my_neg_1_1217h5d5b6d80e73713c8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18369,7 +18369,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_017h6b701d7d21004102E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18414,7 +18414,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_017hc0b3bf43b1aca077E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18461,7 +18461,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_0p517h4ac6b441b4dcdabaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18506,7 +18506,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_0p517heaa73ab7e6619d13E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18553,7 +18553,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_117h95adb49e8ea47517E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18598,7 +18598,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_117h29eb086a958ed30dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18645,7 +18645,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_1p517h4efdf329b6cb3b6fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18690,7 +18690,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1p517h28c2549198426e5eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18737,7 +18737,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_217h3e2b203d45ca39ebE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18782,7 +18782,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_217h94ff948047645134E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18829,7 +18829,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_2p517ha1ad09beb45119ffE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18874,7 +18874,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2p517h1f6e66819e81b1d6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18921,7 +18921,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_317h90f995c4053ef23aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -18966,7 +18966,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_317hc660f5fa25b704e7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19013,7 +19013,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_3p517hf36271fe6ab1e1a7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19058,7 +19058,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_3p517hf727a9781667a122E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19105,7 +19105,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_417h4026254e6c171dbfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19150,7 +19150,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_417hc0b7db56ca33bcccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19197,7 +19197,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_517h5a1a96eddaf8929dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19242,7 +19242,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_517h6f6c4b16c7797d79E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19289,7 +19289,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_617h03b275df1f45cdeeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19334,7 +19334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_617h6e473dd9843e95feE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19381,7 +19381,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_717h53209404cdc46336E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19426,7 +19426,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_717h63b04d8912598085E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19473,7 +19473,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_817h85623830ce91d2cbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19518,7 +19518,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_817hd999299d57dd282dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19565,7 +19565,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mx_917h33101e5fc73a8231E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19610,7 +19610,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_917h1da66e8276fb4f5bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19657,7 +19657,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_1017h9fe0bb4f9540cd9dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19702,7 +19702,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1017h1ab22bc7ae7166caE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19749,7 +19749,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_1117h0c379f3ac93211f2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19794,7 +19794,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1117h7f2d31275fd61bd2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19841,7 +19841,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_1217heaa13689e167a408E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19886,7 +19886,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1217hceb7a10b342516b4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19933,7 +19933,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_1617h2673793f83b4eaa2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -19978,7 +19978,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1617h2e44c54c0ccdab1fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20025,7 +20025,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_2017h91e8ca02b6d03832E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20070,7 +20070,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_2017h35ee460b4913a6d0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20117,7 +20117,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_2417h1797d1a2bce8bdcfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20162,7 +20162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_2417h0e36841e06202c0eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20209,7 +20209,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_3217h5546e30b4954f7ccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20254,7 +20254,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_3217h55dbed1dc7ad5b31E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20301,7 +20301,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_4017hfb4634e0f3d9db2dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20346,7 +20346,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_4017h0c7ee9a64171af8fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20393,7 +20393,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_4817hdc61bc5da00fb340E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20438,7 +20438,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_4817ha6a1a52ecc2a0e38E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20485,7 +20485,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_5617h3d6699e5b8a7b7ccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20530,7 +20530,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_5617h31878e7f69f59bd2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20577,7 +20577,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_6417h2de494f218fe79d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20622,7 +20622,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_6417h7852cb5f662a11e9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20669,7 +20669,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_7217h8648e22e7672049cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20714,7 +20714,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_7217h2a28d9795dd58799E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20761,7 +20761,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_8017h2890bb5bb0c77c12E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20806,7 +20806,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_8017h6b82080c731af928E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20853,7 +20853,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_9617h080ac67b6a3d68f2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20898,7 +20898,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_9617hb856fefcd5505d7cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20945,7 +20945,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_11217h16ab6719300b55d5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -20990,7 +20990,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_11217hd9afddeed3d2e4ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21037,7 +21037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_12817h56ec907094b1be0fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21082,7 +21082,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_12817hb07b0ae49f3754cbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21129,7 +21129,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mx_auto17hc6763fd5a0048fbfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21166,7 +21166,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mx_px17h6beec072f5e1bdf0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21211,7 +21211,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_px17hd6a8d80a4e4781b2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21258,7 +21258,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mx_full17hc48de46461f31517E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21303,7 +21303,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mx_neg_full17hf1fb70c02f80ad58E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21366,7 +21366,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_217h174fc5e88f3540e1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21411,7 +21411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_217he56f4e6aeaef91afE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21474,7 +21474,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_317h49e8314c25871ac5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21519,7 +21519,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_317h710e1e2d00ed8793E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21582,7 +21582,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_2_317h24ccbef0588a0500E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21627,7 +21627,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2_317h72b52c858221ce7eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21690,7 +21690,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_417hd93d91020319bfdfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21735,7 +21735,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_417h430aaaab1512146eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21798,7 +21798,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_2_417h4c8f442911776b52E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21843,7 +21843,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2_417hd6a71489eec99fccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21906,7 +21906,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_3_417h2ae1ff91095fb6daE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -21951,7 +21951,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_3_417h7045929ad760da64E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22014,7 +22014,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_517h336454f91f7be40fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22059,7 +22059,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_517h29c5ec3272be43c7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22122,7 +22122,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_2_517h434acd11ddf7aad9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22167,7 +22167,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2_517h91721515f718b655E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22230,7 +22230,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_3_517he0224be5d34a0573E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22275,7 +22275,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_3_517h79d4de328305338bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22338,7 +22338,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_4_517ha46529cf015ce76eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22383,7 +22383,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_4_517h50f71af29ee2afc3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22446,7 +22446,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_617h9dda29d7ec34582aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22491,7 +22491,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_617h18e666f5510c8ebbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22554,7 +22554,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mx_5_617heb5e0a6ecd229022E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22599,7 +22599,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_5_617ha8369bf77e93ae42E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22662,7 +22662,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mx_1_1217h97dd39f79a7ecaffE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22707,7 +22707,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mx_neg_1_1217h0f687895d48c4d5bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22770,7 +22770,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_017hae2f90f1809e265dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22805,7 +22805,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_017h3c63d290b29c2194E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22841,7 +22841,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_0p517h24b7f628685bc68aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22876,7 +22876,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_0p517hff719fb322f1d856E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22912,7 +22912,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_117hf353593909855febE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22947,7 +22947,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_117h2fb28d40e3effbe3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -22983,7 +22983,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_1p517haee034eb0be8849fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23018,7 +23018,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1p517h2ecdc7b79be366b0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23054,7 +23054,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_217h98813f13e41d578cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23089,7 +23089,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_217h64e457cf05d1d89bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23125,7 +23125,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_2p517h3ffe8ef388358899E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23160,7 +23160,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2p517h63d9e79e88fb534dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23196,7 +23196,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_317hba683b0256f2e62eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23231,7 +23231,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_317h32aac669c3d52d2eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23267,7 +23267,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_3p517h1f04d5be05c62e05E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23302,7 +23302,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_3p517h6ce009306f3da8e2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23338,7 +23338,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_417h8dc6632106fc546bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23373,7 +23373,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_417h7a7102e7ba5d73eeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23409,7 +23409,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_517hbd76b17d6b5179d1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23444,7 +23444,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_517hb96bab41c44fed13E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23480,7 +23480,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_617h76701fe3eb9edf2bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23515,7 +23515,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_617h1f734f472d52c4abE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23551,7 +23551,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_717ha3b2f790baaa68f9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23586,7 +23586,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_717hd28997a9996ec222E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23622,7 +23622,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_817h68346bef401bd8d0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23657,7 +23657,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_817hc8b8282d824102d0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23693,7 +23693,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4ml_917h28d632ade5174a0cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23728,7 +23728,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_917hf0616a22659d2a56E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23764,7 +23764,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_1017h65ebebb5226e178dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23799,7 +23799,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1017hfc0e0b128cd30855E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23835,7 +23835,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_1117hb60cc7d40587d3e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23870,7 +23870,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1117hf1c2651257dc4209E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23906,7 +23906,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_1217h713b9f8686464134E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23941,7 +23941,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1217h6d37b7e14b9a4ddeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -23977,7 +23977,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_1617h6b66cc3d0de1ce07E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24012,7 +24012,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1617hbff053e7a9a16ddfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24048,7 +24048,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_2017h40553c240f23b2b0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24083,7 +24083,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_2017h771cc39e973dae74E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24119,7 +24119,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_2417h97adfe9d27dfad3aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24154,7 +24154,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_2417h25e390aa334561d7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24190,7 +24190,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_3217h854737922212aa73E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24225,7 +24225,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_3217h4ac111dbb328d0ffE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24261,7 +24261,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_4017hb14be651e0683e7aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24296,7 +24296,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_4017h6cd06dcfc358dfb0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24332,7 +24332,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_4817h51891a35cba4835dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24367,7 +24367,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_4817ha9955525b109358cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24403,7 +24403,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_5617hf32d90676ec0fcf2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24438,7 +24438,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_5617h43e5e328e0c7b901E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24474,7 +24474,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_6417h406a23c850937d3dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24509,7 +24509,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_6417hc5217200afd81762E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24545,7 +24545,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_7217hcbf928a2eca054abE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24580,7 +24580,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_7217he8de741febaf2d3bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24616,7 +24616,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_8017h69013428b1b35219E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24651,7 +24651,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_8017hb93a335a72c1ef50E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24687,7 +24687,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_9617h65f4a91025b32729E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24722,7 +24722,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_9617h9bd85ca6167ae0b1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24758,7 +24758,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_11217h65e0e7db3b27c2a9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24793,7 +24793,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_11217h2fcb3cc9b7b2cf40E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24829,7 +24829,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_12817h001655cebe65f276E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24864,7 +24864,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_12817hf10be91d2dd319a8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24900,7 +24900,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7ml_auto17h2e7ed2f5a2a7de50E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24931,7 +24931,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5ml_px17h15e5a3ee4995a589E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -24966,7 +24966,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_px17h9392fb31cc0c46f9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25002,7 +25002,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7ml_full17h77bef60598b84e8aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25037,7 +25037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11ml_neg_full17hbbf312c1a830056eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25081,7 +25081,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_217h9ed323a16472f275E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25116,7 +25116,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_217h03bfba0eae2c99eaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25160,7 +25160,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_317hae8e7fb35ac2582fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25195,7 +25195,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_317hdd2c8e266bc6f995E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25239,7 +25239,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_2_317h8baf6a9cab8debddE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25274,7 +25274,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2_317haf45fdef702c43c0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25318,7 +25318,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_417h01c972b31b74055aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25353,7 +25353,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_417h6e5df54694c0562cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25397,7 +25397,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_2_417h7f520c6d07dfa0a6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25432,7 +25432,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2_417h7d6c9c2cd9baaaf0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25476,7 +25476,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_3_417h893e690ab66884d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25511,7 +25511,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_3_417h955e4ea66705ac29E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25555,7 +25555,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_517hbe2d4d58c73ad691E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25590,7 +25590,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_517h88d1452b771aa79dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25634,7 +25634,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_2_517h42b20d757c54aafeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25669,7 +25669,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2_517h86c84baddc4a24baE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25713,7 +25713,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_3_517h63d36223ee3cca0bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25748,7 +25748,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_3_517hb815dc552c37d549E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25792,7 +25792,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_4_517he1c8ebe5c6e15d69E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25827,7 +25827,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_4_517h8066411c14574151E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25871,7 +25871,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_617he36e163105ee3ab0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25906,7 +25906,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_617hb986ed518400db70E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25950,7 +25950,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6ml_5_617h3a7f9c9a9bf347ddE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -25985,7 +25985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_5_617hb2f3f390278c8800E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26029,7 +26029,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7ml_1_1217h276596b67be46b8aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26064,7 +26064,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11ml_neg_1_1217h351ae906a949ff9dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26108,7 +26108,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_017h954a276cc2fb1eeeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26143,7 +26143,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_017hd541990487c879f6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26179,7 +26179,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_0p517h47b29b1a276c15f9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26214,7 +26214,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_0p517h6634091ceaa00da5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26250,7 +26250,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_117h832f420366cee567E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26285,7 +26285,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_117hd803f23d488b049fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26321,7 +26321,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_1p517h30e2f8fb0136e19eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26356,7 +26356,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1p517h1051cccc7a3ff8c8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26392,7 +26392,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_217hab482756819c6b07E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26427,7 +26427,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_217h59bd5a8629f7b510E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26463,7 +26463,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_2p517hc840bbf61dbd94daE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26498,7 +26498,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2p517hfc18baeb40f41df0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26534,7 +26534,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_317h0f74570fb5289b9eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26569,7 +26569,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_317h7dd8442ba11f836eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26605,7 +26605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_3p517h4380f4dfe7d79487E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26640,7 +26640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_3p517h51f5292cb8529828E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26676,7 +26676,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_417hc653d3243ef0b740E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26711,7 +26711,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_417hf3284f512a11b73aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26747,7 +26747,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_517hd0e8f7a0641fba65E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26782,7 +26782,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_517h9fd60e0d1d82b18cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26818,7 +26818,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_617hca29d60a909191d6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26853,7 +26853,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_617h40f2f2ea3366ccf3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26889,7 +26889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_717hfdf32a56a9cabf0dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26924,7 +26924,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_717h6833d30e68674b81E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26960,7 +26960,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_817h1abde97ba931e8cbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -26995,7 +26995,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_817ha7e651c003b51a0cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27031,7 +27031,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike4mr_917h4452716d2f4fa309E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27066,7 +27066,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_917h782215ba832328e3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27102,7 +27102,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_1017hc145530ed468eda3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27137,7 +27137,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1017h0e470a2492b88741E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27173,7 +27173,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_1117h1891278a6ed75734E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27208,7 +27208,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1117h05e16692a1a29b0dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27244,7 +27244,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_1217had5759d494800b91E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27279,7 +27279,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1217hc88799d5102abf34E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27315,7 +27315,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_1617h753601f1f8ae4f5aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27350,7 +27350,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1617h023bd55a3fecf690E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27386,7 +27386,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_2017hd5e7624ab6e05110E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27421,7 +27421,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_2017hae74f199b9585ae8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27457,7 +27457,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_2417hbfda1dde57a62111E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27492,7 +27492,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_2417h221ff496f081ae80E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27528,7 +27528,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_3217h5d0967ed3d6336d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27563,7 +27563,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_3217hc79a735cd1bad66cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27599,7 +27599,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_4017he53ff3e3a503cb56E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27634,7 +27634,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_4017h084238afd017ebf5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27670,7 +27670,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_4817h7d61baad8ef401dfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27705,7 +27705,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_4817h8ec8af1aff4b65e4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27741,7 +27741,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_5617h6db36b040fd88467E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27776,7 +27776,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_5617hfaa99add417cd1d4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27812,7 +27812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_6417h9546a4897be5605cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27847,7 +27847,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_6417h5e798d817ca72b5bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27883,7 +27883,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_7217hc77f78a13a3ec789E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27918,7 +27918,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_7217hd83351ed66016bd4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27954,7 +27954,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_8017h43ac9e3fd437240fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -27989,7 +27989,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_8017h0965d0b7fdbde509E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28025,7 +28025,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_9617h4a0c204797705044E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28060,7 +28060,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_9617h2fb4dec76c2f0493E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28096,7 +28096,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_11217h5d57d1a484faa3beE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28131,7 +28131,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_11217hf2d1e66a60fed9d1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28167,7 +28167,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_12817h770d21149f6ee930E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28202,7 +28202,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_12817h378eb87e60023f62E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28238,7 +28238,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mr_auto17hd13494891f9edbc5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28269,7 +28269,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike5mr_px17hc14b4f028d14639fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28304,7 +28304,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_px17hc53a79dccc0b12c3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28340,7 +28340,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mr_full17hd1e8a468033f0449E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28375,7 +28375,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mr_neg_full17h567478788377438bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28419,7 +28419,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_217hd512c8d1a40624efE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28454,7 +28454,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_217h01c39317bb6f93e1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28498,7 +28498,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_317h0c7e6941cd7a6c53E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28533,7 +28533,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_317hd713637fcb5296a8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28577,7 +28577,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_2_317h525def07783f0feaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28612,7 +28612,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2_317he43966c02e129a47E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28656,7 +28656,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_417h6c913d97d78559e4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28691,7 +28691,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_417h0495e9d289c58b07E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28735,7 +28735,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_2_417ha72b38fe4c8be293E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28770,7 +28770,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2_417h21b07be378759571E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28814,7 +28814,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_3_417hbd8ae273549cecabE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28849,7 +28849,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_3_417h1a6b6ac16e480017E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28893,7 +28893,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_517hd4254c776de9776cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28928,7 +28928,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_517hcedd2b6591542237E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -28972,7 +28972,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_2_517hc8b4021dd5b1b97eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29007,7 +29007,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2_517h922d959b7e6a05b6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29051,7 +29051,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_3_517he6ab510b67155383E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29086,7 +29086,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_3_517h4fc8a8a80036e09aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29130,7 +29130,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_4_517h10f4e903666babfdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29165,7 +29165,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_4_517hdeffd0249200309dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29209,7 +29209,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_617hfd504328f1a3652aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29244,7 +29244,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_617h47a52e03d65e3852E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29288,7 +29288,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike6mr_5_617h99fa6427c260dfd4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29323,7 +29323,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_5_617h54f9ab954a197ad8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29367,7 +29367,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike7mr_1_1217h524c7c394485c0f3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
@@ -29402,7 +29402,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike11mr_neg_1_1217h28bdd3729c13517dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
+  %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1)
           to label %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit unwind label %4
 
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit

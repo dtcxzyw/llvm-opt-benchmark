@@ -42,7 +42,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull @.str, i64 noundef 10)
+  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull @.str, i64 noundef 10)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -50,7 +50,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
-  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull @.str.1, i64 noundef 11)
+  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull @.str.1, i64 noundef 11)
   br label %return
 
 if.else6:                                         ; preds = %if.else
@@ -58,7 +58,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %0, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.else6
-  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull @.str.2, i64 noundef 5)
+  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull @.str.2, i64 noundef 5)
   br label %return
 
 return:                                           ; preds = %if.then, %if.then8, %if.then4, %if.else6
@@ -71,7 +71,7 @@ define hidden void @_ZN6google8protobuf13json_internal10JsonWriter11WriteBase64E
 entry:
   %buf = alloca [4 x i8], align 1
   %add.ptr = getelementptr inbounds i8, ptr %str.coerce1, i64 %str.coerce0
-  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull @.str.4, i64 noundef 1)
+  tail call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull @.str.4, i64 noundef 1)
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %cmp67 = icmp sgt i64 %str.coerce0, 2
   br i1 %cmp67, label %while.body.lr.ph, label %while.end
@@ -114,7 +114,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.ptr.i29 = getelementptr inbounds i8, ptr @.str.3, i64 %and19
   %6 = load i8, ptr %add.ptr.i29, align 1
   store i8 %6, ptr %arrayidx21, align 1
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %buf, i64 noundef 4)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %buf, i64 noundef 4)
   %add.ptr23 = getelementptr inbounds i8, ptr %ptr.068, i64 3
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -174,11 +174,11 @@ sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb46
   store i8 %.sink, ptr %arrayidx56, align 1
   %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 3
   store i8 61, ptr %arrayidx57, align 1
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %buf, i64 noundef 4)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %buf, i64 noundef 4)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %while.end
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull @.str.4, i64 noundef 1)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull @.str.4, i64 noundef 1)
   ret void
 }
 
@@ -381,7 +381,7 @@ _ZN6google8protobuf13json_internalL10MustEscapeEjRSt17basic_string_viewIcSt11cha
   br i1 %cmp.i.i.i.i1.not, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %for.end.loopexit.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internalL10MustEscapeEjRSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %str.sroa.5.095, i64 noundef %len.136.i)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %str.sroa.5.095, i64 noundef %len.136.i)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %if.then4, %if.then8, %if.end10
@@ -395,7 +395,7 @@ if.then4:                                         ; preds = %for.body.i, %_ZNKSt
   %str.sroa.0.341.ph.ph = phi i64 [ %str.sroa.0.3, %sw.bb11.i ], [ %str.sroa.0.3, %sw.bb9.i ], [ %str.sroa.0.3, %sw.bb7.i ], [ %str.sroa.0.3, %sw.bb5.i ], [ %str.sroa.0.3, %sw.bb3.i ], [ %str.sroa.0.3, %sw.bb1.i ], [ %str.sroa.0.3, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %4, %for.end.i ], [ %str.sroa.0.3, %sw.bb13.i ], [ 0, %for.body.i ], [ %sub.i24.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ]
   %custom_escape.sroa.0.1.ph.ph = phi i64 [ 2, %sw.bb11.i ], [ 2, %sw.bb9.i ], [ 2, %sw.bb7.i ], [ 2, %sw.bb5.i ], [ 2, %sw.bb3.i ], [ 2, %sw.bb1.i ], [ 2, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ 1, %for.end.i ], [ 1, %sw.bb13.i ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ], [ 1, %for.body.i ]
   %custom_escape.sroa.11.1.ph.ph = phi ptr [ @.str.14, %sw.bb11.i ], [ @.str.13, %sw.bb9.i ], [ @.str.12, %sw.bb7.i ], [ @.str.11, %sw.bb5.i ], [ @.str.10, %sw.bb3.i ], [ @.str.9, %sw.bb1.i ], [ @.str.8, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ @.str.15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ @.str.15, %for.end.i ], [ @.str.15, %sw.bb13.i ], [ @.str.15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit30.i ], [ @.str.15, %for.body.i ]
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %custom_escape.sroa.11.1.ph.ph, i64 noundef %custom_escape.sroa.0.1.ph.ph)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %custom_escape.sroa.11.1.ph.ph, i64 noundef %custom_escape.sroa.0.1.ph.ph)
   br label %while.cond.backedge
 
 if.end6:                                          ; preds = %if.end8.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i, %_ZN6google8protobuf13json_internalL10MustEscapeEjRSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -412,7 +412,7 @@ if.then8:                                         ; preds = %if.end6
   %call3.i.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex.i, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %conv.i3 = sext i32 %call3.i.i to i64
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %hex.i, i64 noundef %conv.i3)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex.i, i64 noundef %conv.i3)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hex.i)
   br label %while.cond.backedge
 
@@ -432,7 +432,7 @@ if.end10:                                         ; preds = %for.end.loopexit.i.
   %call3.i.i8 = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex.i5, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i.i4, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i4)
   %conv.i9 = sext i32 %call3.i.i8 to i64
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %hex.i5, i64 noundef %conv.i9)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex.i5, i64 noundef %conv.i9)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hex.i5)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hex.i11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i10)
@@ -442,7 +442,7 @@ if.end10:                                         ; preds = %for.end.loopexit.i.
   %call3.i.i14 = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex.i11, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i.i10, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i10)
   %conv.i15 = sext i32 %call3.i.i14 to i64
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %hex.i11, i64 noundef %conv.i15)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex.i11, i64 noundef %conv.i15)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hex.i11)
   br label %while.cond.backedge
 
@@ -464,7 +464,7 @@ entry:
   %call3.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %hex, i64 noundef 7, ptr nonnull @.str.5, i64 6, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %conv = sext i32 %call3.i to i64
-  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %hex, i64 noundef %conv)
+  call void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %hex, i64 noundef %conv)
   ret void
 }
 

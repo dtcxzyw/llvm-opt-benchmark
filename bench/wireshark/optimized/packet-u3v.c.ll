@@ -1125,7 +1125,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 146:                                              ; preds = %144, %143
   %147 = load i32, ptr @hf_u3v_scd_readmem_cmd, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %147, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %147, ptr noundef %0, i32 noundef 12, i32 noundef range(i32 0, 65536) %94, i32 noundef 0) #5
   %149 = load i32, ptr @ett_u3v_payload_cmd, align 4
   %150 = tail call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #5
   %151 = icmp ult i64 %136, 65536
@@ -1214,7 +1214,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   %195 = load ptr, ptr %44, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %195, i32 noundef 25, ptr noundef nonnull @.str.675, ptr noundef %192, i32 noundef %191) #5
   %196 = load i32, ptr @hf_u3v_scd_writemem_cmd, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %196, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %196, ptr noundef %0, i32 noundef 12, i32 noundef range(i32 0, 65536) %94, i32 noundef 0) #5
   %198 = load i32, ptr @ett_u3v_payload_cmd, align 4
   %199 = tail call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198) #5
   %200 = icmp ult i64 %190, 65536
@@ -1296,7 +1296,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   %239 = load ptr, ptr %44, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %239, i32 noundef 25, ptr noundef nonnull @.str.676, i32 noundef %238) #5
   %240 = load i32, ptr @hf_u3v_scd_event_cmd, align 4
-  %241 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %240, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %240, ptr noundef %0, i32 noundef 12, i32 noundef range(i32 0, 65536) %94, i32 noundef 0) #5
   %242 = load i32, ptr @ett_u3v_payload_cmd, align 4
   %243 = tail call ptr @proto_item_add_subtree(ptr noundef %241, i32 noundef %242) #5
   %244 = icmp ult i16 %237, -32767
@@ -1344,7 +1344,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
 
 263:                                              ; preds = %260, %258
   %264 = load i32, ptr @hf_u3v_scd_writemem_ack, align 4
-  %265 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %264, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %265 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %264, ptr noundef %0, i32 noundef 12, i32 noundef range(i32 0, 65536) %94, i32 noundef 0) #5
   %266 = load i32, ptr @ett_u3v_payload_cmd, align 4
   %267 = tail call ptr @proto_item_add_subtree(ptr noundef %265, i32 noundef %266) #5
   br i1 %.not.i229, label %proto_item_set_generated.exit.i, label %268
@@ -1389,7 +1389,7 @@ dissect_u3v_write_mem_ack.exit:                   ; preds = %proto_item_set_gene
   %286 = zext i16 %285 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.677, i32 noundef %286) #5
   %287 = load i32, ptr @hf_u3v_ccd_pending_ack, align 4
-  %288 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %287, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %287, ptr noundef %0, i32 noundef 12, i32 noundef range(i32 0, 65536) %94, i32 noundef 0) #5
   %289 = load i32, ptr @ett_u3v_payload_cmd, align 4
   %290 = tail call ptr @proto_item_add_subtree(ptr noundef %288, i32 noundef %289) #5
   %291 = load i32, ptr @hf_u3v_reserved, align 4

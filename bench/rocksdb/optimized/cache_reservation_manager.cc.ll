@@ -983,7 +983,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1009,14 +1009,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !16
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !13
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -1075,7 +1075,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !21
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -1308,7 +1308,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
@@ -2182,7 +2182,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !42
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !42
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -2208,14 +2208,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !45
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !45
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !51
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !51
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !51
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !48
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -2274,7 +2274,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !55
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !55
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !55
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -2507,7 +2507,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !62
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !62
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
@@ -3376,7 +3376,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !74
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !74
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -3402,14 +3402,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !77
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !77
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !83
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !80
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -3468,7 +3468,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !87
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !87
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !87
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -3701,7 +3701,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !94
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !94
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !94
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
@@ -4570,7 +4570,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !106
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !106
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !106
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -4596,14 +4596,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !109
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !109
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !109
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !115
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !115
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !115
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !112
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -4662,7 +4662,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !119
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !119
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !119
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -4895,7 +4895,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !126
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !126
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !126
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
@@ -5764,7 +5764,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !138
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !138
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !138
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -5790,14 +5790,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !141
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !141
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !141
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !147
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !147
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !144
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -5856,7 +5856,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !151
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !151
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !151
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -6089,7 +6089,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !158
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !158
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !158
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
@@ -6958,7 +6958,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !170
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !170
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -6984,14 +6984,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !173
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !173
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !173
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !179
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !179
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !179
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !176
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -7050,7 +7050,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !183
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !183
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !183
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -7283,7 +7283,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !190
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !190
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !190
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
@@ -8152,7 +8152,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !202
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !202
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !202
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -8178,14 +8178,14 @@ land.lhs.true:                                    ; preds = %if.else4
 if.then6:                                         ; preds = %land.lhs.true
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !205
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !205
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !205
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %if.else4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !211
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !211
   %add.i = add i64 %new_mem_used, 262144
   %2 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8, !noalias !208
   %cmp.not3.i = icmp ugt i64 %add.i, %2
@@ -8244,7 +8244,7 @@ entry:
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !215
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !215
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !215
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
   %cmp25 = icmp ugt i64 %new_mem_used, %0
@@ -8477,7 +8477,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !222
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !222
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !222
   %add = add i64 %new_mem_used, 262144
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8

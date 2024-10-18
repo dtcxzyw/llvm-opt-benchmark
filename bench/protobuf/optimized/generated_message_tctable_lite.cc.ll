@@ -545,7 +545,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN6google8protobuf8internal8TcParser16ParseLoopInlinedEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
   %5 = extractvalue { ptr, i8 } %call9.i.i, 0
   %6 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %6 to i1
@@ -1800,7 +1800,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i54
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 if.end8.i.i:                                      ; preds = %if.end.i.i54
-  %call9.i.i55 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %22)
+  %call9.i.i55 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %22)
   %27 = extractvalue { ptr, i8 } %call9.i.i55, 0
   %28 = extractvalue { ptr, i8 } %call9.i.i55, 1
   %tobool.i.i = trunc i8 %28 to i1
@@ -2018,7 +2018,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i54
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 if.end8.i.i:                                      ; preds = %if.end.i.i54
-  %call9.i.i55 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %22)
+  %call9.i.i55 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %22)
   %27 = extractvalue { ptr, i8 } %call9.i.i55, 0
   %28 = extractvalue { ptr, i8 } %call9.i.i55, 1
   %tobool.i.i = trunc i8 %28 to i1
@@ -2209,7 +2209,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i43
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i43
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %19)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %19)
   %24 = extractvalue { ptr, i8 } %call9.i.i, 0
   %25 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %25 to i1
@@ -2398,7 +2398,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i45
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i45
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %18)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %18)
   %23 = extractvalue { ptr, i8 } %call9.i.i, 0
   %24 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %24 to i1
@@ -3034,7 +3034,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i82
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 if.end8.i.i:                                      ; preds = %if.end.i.i82
-  %call9.i.i83 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %13)
+  %call9.i.i83 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %13)
   %18 = extractvalue { ptr, i8 } %call9.i.i83, 0
   %19 = extractvalue { ptr, i8 } %call9.i.i83, 1
   %tobool.i.i = trunc i8 %19 to i1
@@ -3261,7 +3261,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i82
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 if.end8.i.i:                                      ; preds = %if.end.i.i82
-  %call9.i.i83 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %12)
+  %call9.i.i83 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %12)
   %17 = extractvalue { ptr, i8 } %call9.i.i83, 0
   %18 = extractvalue { ptr, i8 } %call9.i.i83, 1
   %tobool.i.i = trunc i8 %18 to i1
@@ -3459,7 +3459,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i72
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i72
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %9)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %9)
   %14 = extractvalue { ptr, i8 } %call9.i.i, 0
   %15 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %15 to i1
@@ -3657,7 +3657,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i74
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i74
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %8)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %8)
   %13 = extractvalue { ptr, i8 } %call9.i.i, 0
   %14 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %14 to i1
@@ -7774,7 +7774,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIbhLb0EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIbhLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIbhLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -7807,7 +7807,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIbtLb0EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 2
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIbtLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIbtLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -7840,7 +7840,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIjhLb0EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIjhLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIjhLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -7873,7 +7873,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIjtLb0EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 2
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIjtLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIjtLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -7906,7 +7906,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintImhLb0EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintImhLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintImhLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -7939,7 +7939,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintImtLb0EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 2
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintImtLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintImtLb0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -7972,7 +7972,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIihLb1EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIihLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIihLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -8005,7 +8005,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIitLb1EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 2
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIitLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIitLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -8038,7 +8038,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIlhLb1EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIlhLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIlhLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -8071,7 +8071,7 @@ _ZN6google8protobuf8internal8TcParser12PackedVarintIltLb1EEEPKcPNS0_11MessageLit
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 2
   %shr.i = lshr i64 %data.coerce, 48
   %add.ptr.i11 = getelementptr inbounds i8, ptr %msg, i64 %shr.i
-  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIltLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr %add.ptr.i11)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser12PackedVarintIltLb1EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i, ptr nonnull %add.ptr.i11)
   ret ptr %call.i
 }
 
@@ -15094,7 +15094,7 @@ sw.bb2.i:                                         ; preds = %sw.bb.i
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %node, i64 8
   %out.0.copyload.i.i.i = load i8, ptr %add.ptr.i.i.i8, align 1
   %tobool.i.i.i = trunc i8 %out.0.copyload.i.i.i to i1
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite9WriteBoolEibPNS0_2io17CodedOutputStreamE(i32 noundef 1, i1 noundef zeroext %tobool.i.i.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite9WriteBoolEibPNS0_2io17CodedOutputStreamE(i32 noundef 1, i1 noundef zeroext %tobool.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 sw.bb4.i:                                         ; preds = %sw.bb.i
@@ -15105,7 +15105,7 @@ sw.bb4.i:                                         ; preds = %sw.bb.i
 if.then.i:                                        ; preds = %sw.bb4.i
   %add.ptr.i.i21.i = getelementptr inbounds i8, ptr %node, i64 8
   %out.0.copyload.i.i22.i = load i32, ptr %add.ptr.i.i21.i, align 1
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i22.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i22.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 if.else.i:                                        ; preds = %sw.bb4.i
@@ -15115,11 +15115,11 @@ if.else.i:                                        ; preds = %sw.bb4.i
   br i1 %tobool.i.i, label %if.then8.i, label %if.else10.i
 
 if.then8.i:                                       ; preds = %if.else.i
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i24.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i24.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 if.else10.i:                                      ; preds = %if.else.i
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt32EijPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i24.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt32EijPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i24.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 sw.bb13.i:                                        ; preds = %sw.bb.i
@@ -15130,7 +15130,7 @@ sw.bb13.i:                                        ; preds = %sw.bb.i
 if.then15.i:                                      ; preds = %sw.bb13.i
   %add.ptr.i.i28.i = getelementptr inbounds i8, ptr %node, i64 8
   %out.0.copyload.i.i29.i = load i64, ptr %add.ptr.i.i28.i, align 1
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i29.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i29.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 if.else17.i:                                      ; preds = %sw.bb13.i
@@ -15140,11 +15140,11 @@ if.else17.i:                                      ; preds = %sw.bb13.i
   br i1 %tobool.i30.i, label %if.then19.i, label %if.else21.i
 
 if.then19.i:                                      ; preds = %if.else17.i
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i32.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i32.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 if.else21.i:                                      ; preds = %if.else17.i
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt64EimPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i32.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt64EimPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i32.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 sw.default.i:                                     ; preds = %sw.bb.i
@@ -15153,18 +15153,18 @@ sw.default.i:                                     ; preds = %sw.bb.i
 sw.bb25.i:                                        ; preds = %invoke.cont2
   %add.ptr.i.i35.i = getelementptr inbounds i8, ptr %node, i64 8
   %out.0.copyload.i.i36.i = load i32, ptr %add.ptr.i.i35.i, align 1
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed32EijPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i36.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed32EijPNS0_2io17CodedOutputStreamE(i32 noundef 1, i32 noundef %out.0.copyload.i.i36.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 sw.bb27.i:                                        ; preds = %invoke.cont2
   %add.ptr.i.i37.i = getelementptr inbounds i8, ptr %node, i64 8
   %out.0.copyload.i.i38.i = load i64, ptr %add.ptr.i.i37.i, align 1
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed64EimPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i38.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed64EimPNS0_2io17CodedOutputStreamE(i32 noundef 1, i64 noundef %out.0.copyload.i.i38.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 while.end.i:                                      ; preds = %invoke.cont2
   %add.ptr.i.i39.i = getelementptr inbounds i8, ptr %node, i64 8
-  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io17CodedOutputStreamE(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i39.i, ptr noundef nonnull %coded_output)
+  invoke void @_ZN6google8protobuf8internal14WireFormatLite11WriteStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io17CodedOutputStreamE(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i39.i, ptr noundef nonnull align 8 dereferenceable(80) %coded_output)
           to label %invoke.cont5 unwind label %lpad3
 
 sw.default32.i:                                   ; preds = %invoke.cont2
@@ -15340,7 +15340,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i70, i32 noundef %6)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i70, i32 noundef %6)
   %11 = extractvalue { ptr, i8 } %call9.i.i, 0
   %12 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %12 to i1
@@ -16741,11 +16741,11 @@ common.ret:                                       ; preds = %sw.bb51, %sw.bb46, 
   ret ptr %common.ret.op
 
 if.then18:                                        ; preds = %sw.bb
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EmLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %add.ptr.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EmLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %add.ptr.i.i.i.i)
   br label %common.ret
 
 while.end:                                        ; preds = %sw.bb
-  %call.i.i49 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EmLt512EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %add.ptr.i.i.i.i)
+  %call.i.i49 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EmLt512EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %add.ptr.i.i.i.i)
   br label %common.ret
 
 sw.bb28:                                          ; preds = %_ZN6google8protobuf8internal8TcParser11SyncHasbitsEPNS0_11MessageLiteEmPKNS1_16TcParseTableBaseE.exit
@@ -16761,11 +16761,11 @@ sw.bb28:                                          ; preds = %_ZN6google8protobuf
   ]
 
 sw.bb31:                                          ; preds = %sw.bb28
-  %call.i.i54 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EjLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %add.ptr.i.i.i.i53)
+  %call.i.i54 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EjLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %add.ptr.i.i.i.i53)
   br label %common.ret
 
 sw.bb36:                                          ; preds = %sw.bb28
-  %call.i.i59 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EjLt512EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %add.ptr.i.i.i.i53)
+  %call.i.i59 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EjLt512EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %add.ptr.i.i.i.i53)
   br label %common.ret
 
 sw.bb41:                                          ; preds = %sw.bb28
@@ -16827,7 +16827,7 @@ sw.bb51:                                          ; preds = %_ZN6google8protobuf
   %16 = load i32, ptr %add.ptr.i, align 4
   %conv5.i84 = zext i32 %16 to i64
   %add.ptr.i.i.i.i85 = getelementptr inbounds i8, ptr %msg, i64 %conv5.i84
-  %call.i.i86 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EbLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %add.ptr.i.i.i.i85)
+  %call.i.i86 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb0EbLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %add.ptr.i.i.i.i85)
   br label %common.ret
 
 sw.default56:                                     ; preds = %_ZN6google8protobuf8internal8TcParser11SyncHasbitsEPNS0_11MessageLiteEmPKNS1_16TcParseTableBaseE.exit
@@ -17575,7 +17575,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i, i32 noundef %23)
+  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i, i32 noundef %23)
   %28 = extractvalue { ptr, i8 } %call9.i.i.i, 0
   %29 = extractvalue { ptr, i8 } %call9.i.i.i, 1
   %tobool.i.i.i = trunc i8 %29 to i1
@@ -17707,7 +17707,7 @@ if.then3.i.i.i135:                                ; preds = %if.end.i.i.i106
   br label %invoke.cont2.i
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i112: ; preds = %if.end.i.i.i106
-  %call9.i.i.i113141 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i110, i32 noundef %46)
+  %call9.i.i.i113141 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i110, i32 noundef %46)
   %51 = extractvalue { ptr, i8 } %call9.i.i.i113141, 0
   %52 = extractvalue { ptr, i8 } %call9.i.i.i113141, 1
   %tobool.i.i.i114 = trunc i8 %52 to i1
@@ -19874,7 +19874,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i93, i32 noundef %34)
+  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i93, i32 noundef %34)
   %39 = extractvalue { ptr, i8 } %call9.i.i.i, 0
   %40 = extractvalue { ptr, i8 } %call9.i.i.i, 1
   %tobool.i.i.i = trunc i8 %40 to i1
@@ -20006,7 +20006,7 @@ if.then3.i.i.i143:                                ; preds = %if.end.i.i.i114
   br label %invoke.cont2.i
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i120: ; preds = %if.end.i.i.i114
-  %call9.i.i.i121149 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i118, i32 noundef %57)
+  %call9.i.i.i121149 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i118, i32 noundef %57)
   %62 = extractvalue { ptr, i8 } %call9.i.i.i121149, 0
   %63 = extractvalue { ptr, i8 } %call9.i.i.i121149, 1
   %tobool.i.i.i122 = trunc i8 %63 to i1
@@ -26515,7 +26515,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %invoke.cont2.i
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i.i.i
-  %call9.i.i.i83 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i, i32 noundef %17)
+  %call9.i.i.i83 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i, i32 noundef %17)
   %22 = extractvalue { ptr, i8 } %call9.i.i.i83, 0
   %23 = extractvalue { ptr, i8 } %call9.i.i.i83, 1
   %tobool.i.i.i = trunc i8 %23 to i1
@@ -26821,7 +26821,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i, i32 noundef %13)
+  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i, i32 noundef %13)
   %18 = extractvalue { ptr, i8 } %call9.i.i.i, 0
   %19 = extractvalue { ptr, i8 } %call9.i.i.i, 1
   %tobool.i.i.i = trunc i8 %19 to i1
@@ -27259,7 +27259,7 @@ if.then6.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseIbE12InsertUniqueEjPNS1_7KeyNodeIbEE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i48
-  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseIbE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef %node)
+  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseIbE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef nonnull %node)
   br label %_ZN6google8protobuf8internal10KeyMapBaseIbE12InsertUniqueEjPNS1_7KeyNodeIbEE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseIbE12InsertUniqueEjPNS1_7KeyNodeIbEE.exit: ; preds = %if.then.i51, %if.then6.i, %if.else7.i
@@ -27467,7 +27467,7 @@ if.then6.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseIjE12InsertUniqueEjPNS1_7KeyNodeIjEE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i47
-  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseIjE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef %node)
+  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseIjE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef nonnull %node)
   br label %_ZN6google8protobuf8internal10KeyMapBaseIjE12InsertUniqueEjPNS1_7KeyNodeIjEE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseIjE12InsertUniqueEjPNS1_7KeyNodeIjEE.exit: ; preds = %if.then.i50, %if.then6.i, %if.else7.i
@@ -27673,7 +27673,7 @@ if.then6.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseImE12InsertUniqueEjPNS1_7KeyNodeImEE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i46
-  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseImE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef %node)
+  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseImE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef nonnull %node)
   br label %_ZN6google8protobuf8internal10KeyMapBaseImE12InsertUniqueEjPNS1_7KeyNodeImEE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseImE12InsertUniqueEjPNS1_7KeyNodeImEE.exit: ; preds = %if.then.i49, %if.then6.i, %if.else7.i
@@ -27812,7 +27812,7 @@ if.then6.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i7
-  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef %node)
+  tail call void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p.sroa.5.0, ptr noundef nonnull @_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16NodeToVariantKeyEPNS1_8NodeBaseE, ptr noundef nonnull %node)
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit: ; preds = %if.then.i8, %if.then6.i, %if.else7.i
@@ -31184,7 +31184,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 if.else:                                          ; preds = %_ZN6google8protobuf8internal8TcParser29MaybeCreateRepeatedFieldRefAtImLb1EEERNS0_13RepeatedFieldIT_EEPvmPNS0_11MessageLiteE.exit
   %cmp = icmp eq i16 %1, 512
   %frombool = zext i1 %cmp to i8
-  %call.i23 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb1EmLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %21, i8 %frombool)
+  %call.i23 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb1EmLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %21, i8 %frombool)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -31346,7 +31346,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 if.else:                                          ; preds = %_ZN6google8protobuf8internal8TcParser29MaybeCreateRepeatedFieldRefAtIjLb1EEERNS0_13RepeatedFieldIT_EEPvmPNS0_11MessageLiteE.exit
   %cmp = icmp eq i16 %1, 512
   %frombool = zext i1 %cmp to i8
-  %call.i23 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb1EjLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %21, i8 %frombool)
+  %call.i23 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb1EjLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %21, i8 %frombool)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -31508,7 +31508,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 if.else:                                          ; preds = %_ZN6google8protobuf8internal8TcParser29MaybeCreateRepeatedFieldRefAtIbLb1EEERNS0_13RepeatedFieldIT_EEPvmPNS0_11MessageLiteE.exit
   %cmp = icmp eq i16 %1, 512
   %frombool = zext i1 %cmp to i8
-  %call.i23 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb1EbLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr %21, i8 %frombool)
+  %call.i23 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_8TcParser15MpPackedVarintTILb1EbLt0EEEPKcPNS0_11MessageLiteES7_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlmE_ZNS2_16ReadPackedVarintISG_EES7_S7_T_EUliE_EES7_S7_SI_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr nonnull %21, i8 %frombool)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -34082,7 +34082,7 @@ if.then.i.i.i97:                                  ; preds = %_ZNK6google8protobu
 if.else.i.i.i95:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i
   %call2.i5.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %retval.i.0.i.i.i, i64 noundef 24)
   %arena_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i5.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i5.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call2.i5.i.i, i8 0, i64 16, i1 false)
   store ptr %retval.i.0.i.i.i, ptr %arena_.i.i.i.i.i, align 8
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i.i
 
@@ -34655,7 +34655,7 @@ if.then.i.i87:                                    ; preds = %_ZNK6google8protobu
 if.else.i.i:                                      ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i84
   %call2.i5.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %retval.i.0.i.i85, i64 noundef 24)
   %arena_.i.i.i = getelementptr inbounds i8, ptr %call2.i5.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i5.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call2.i5.i, i8 0, i64 16, i1 false)
   store ptr %retval.i.0.i.i85, ptr %arena_.i.i.i, align 8
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal20RepeatedPtrFieldBaseEEEPT_PS1_.exit.i
 
@@ -34765,7 +34765,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %invoke.cont2.i
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i.i.i
-  %call9.i.i.i105 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i101, i32 noundef %34)
+  %call9.i.i.i105 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i101, i32 noundef %34)
   %39 = extractvalue { ptr, i8 } %call9.i.i.i105, 0
   %40 = extractvalue { ptr, i8 } %call9.i.i.i105, 1
   %tobool.i.i.i = trunc i8 %40 to i1
@@ -35095,7 +35095,7 @@ if.then.i.i85:                                    ; preds = %_ZNK6google8protobu
 if.else.i.i:                                      ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i83
   %call2.i5.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %retval.i.0.i.i84, i64 noundef 24)
   %arena_.i.i.i = getelementptr inbounds i8, ptr %call2.i5.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i5.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call2.i5.i, i8 0, i64 16, i1 false)
   store ptr %retval.i.0.i.i84, ptr %arena_.i.i.i, align 8
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal20RepeatedPtrFieldBaseEEEPT_PS1_.exit.i
 
@@ -35176,7 +35176,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i.i90, i32 noundef %30)
+  %call9.i.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i.i90, i32 noundef %30)
   %35 = extractvalue { ptr, i8 } %call9.i.i.i, 0
   %36 = extractvalue { ptr, i8 } %call9.i.i.i, 1
   %tobool.i.i.i = trunc i8 %36 to i1

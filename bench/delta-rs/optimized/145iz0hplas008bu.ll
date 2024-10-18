@@ -490,12 +490,12 @@ common.ret:                                       ; preds = %"_ZN4core3ptr45drop
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$object_store..tags..TagSet$GT$17h9771ea3b1a8cd942E.llvm.16543861533300112609"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #16
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$object_store..tags..TagSet$GT$17h9771ea3b1a8cd942E.llvm.16543861533300112609"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #16
           to label %common.resume unwind label %40
 
 "_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h52da671f33101c5cE.llvm.16543861533300112609.exit.i": ; preds = %30, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h155650efdead4ae9E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !77
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !range !88, !noalias !77, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %34, 0
@@ -796,7 +796,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr42
 "_ZN4core3ptr87drop_in_place$LT$deltalake_mount..file..regular_rename..$u7b$$u7b$closure$u7d$$u7d$$GT$17head06075f505df86E.exit": ; preds = %.noexc, %6, %13
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !129
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
           to label %.noexc5 unwind label %27
 
 .noexc5:                                          ; preds = %"_ZN4core3ptr87drop_in_place$LT$deltalake_mount..file..regular_rename..$u7b$$u7b$closure$u7d$$u7d$$GT$17head06075f505df86E.exit"
@@ -828,7 +828,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !129
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !138
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8, !range !88, !noalias !138, !noundef !4
   %.not.i.i.i.i7 = icmp eq i64 %32, 0
@@ -1397,7 +1397,7 @@ define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend1
   %21 = getelementptr inbounds i8, ptr %.8.val, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !4
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %21), !noalias !4
   %22 = getelementptr inbounds i8, ptr %.8.val, i64 60
   %23 = load i32, ptr %22, align 4, !alias.scope !190, !noalias !187, !noundef !4
   %24 = getelementptr inbounds i8, ptr %.8.val, i64 64
@@ -1560,12 +1560,12 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
 92:                                               ; preds = %91
   %93 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #16
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18) #16
           to label %.body unwind label %102
 
 94:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !210
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %18)
           to label %.noexc20 unwind label %57
 
 .noexc20:                                         ; preds = %94
@@ -1631,7 +1631,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i": ; preds = %110
   %113 = getelementptr inbounds i8, ptr %6, i64 8
   %114 = load ptr, ptr %113, align 8, !noalias !221, !nonnull !4, !align !226, !noundef !4
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %114, ptr noundef nonnull readonly dereferenceable(9) @anon.9b59801bc093cbb0cd5c40a0cece3ede.0, i64 9), !alias.scope !227, !noalias !231
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(9) %114, ptr noundef nonnull dereferenceable(9) @anon.9b59801bc093cbb0cd5c40a0cece3ede.0, i64 9), !alias.scope !227, !noalias !231
   %115 = icmp eq i32 %bcmp.i.i, 0
   br i1 %115, label %109, label %.thread1
 
@@ -1705,7 +1705,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %130, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !239
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %19)
           to label %.noexc26 unwind label %147
 
 .noexc26:                                         ; preds = %135
@@ -1736,7 +1736,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !239
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !250
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   %150 = getelementptr inbounds i8, ptr %4, i64 8
   %151 = load i64, ptr %150, align 8, !range !88, !noalias !250, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %151, 0
@@ -2101,7 +2101,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr146drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..put..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9d840231faea680E"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr146drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..put..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9d840231faea680E"(ptr noundef nonnull align 8 dereferenceable(72) %4) #16
           to label %16 unwind label %14
 
 14:                                               ; preds = %12
@@ -2196,7 +2196,7 @@ common.ret:                                       ; preds = %60, %"_ZN4core3ptr2
 26:                                               ; preds = %25, %11
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr136drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..put..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc30f3894f5c39dd6E.llvm.1413925132987444071"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr136drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..put..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc30f3894f5c39dd6E.llvm.1413925132987444071"(ptr noundef nonnull align 8 dereferenceable(72) %4) #16
           to label %.body7 unwind label %28, !noalias !316
 
 28:                                               ; preds = %26
@@ -2369,7 +2369,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr151drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..put_opts..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8da5d613d8adbe57E"(ptr noundef nonnull align 8 %5) #16
+  invoke void @"_ZN4core3ptr151drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..put_opts..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8da5d613d8adbe57E"(ptr noundef nonnull align 8 dereferenceable(144) %5) #16
           to label %18 unwind label %16
 
 16:                                               ; preds = %14
@@ -2652,7 +2652,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr146drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get..$u7b$$u7b$closure$u7d$$u7d$$GT$17he5139cec73c2871cE"(ptr noundef nonnull align 8 %3) #16
+  invoke void @"_ZN4core3ptr146drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get..$u7b$$u7b$closure$u7d$$u7d$$GT$17he5139cec73c2871cE"(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
           to label %14 unwind label %12
 
 12:                                               ; preds = %10
@@ -2735,7 +2735,7 @@ common.ret:                                       ; preds = %49, %9
 21:                                               ; preds = %20, %10
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr136drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..get..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfd4cfb89aaf3025aE.llvm.1413925132987444071"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr136drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..get..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfd4cfb89aaf3025aE.llvm.1413925132987444071"(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
           to label %.body5 unwind label %23
 
 23:                                               ; preds = %21
@@ -2860,7 +2860,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr151drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get_opts..$u7b$$u7b$closure$u7d$$u7d$$GT$17h783ccd6b7d87ed21E"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr151drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get_opts..$u7b$$u7b$closure$u7d$$u7d$$GT$17h783ccd6b7d87ed21E"(ptr noundef nonnull align 8 dereferenceable(168) %4) #16
           to label %16 unwind label %14
 
 14:                                               ; preds = %12
@@ -3085,7 +3085,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr152drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get_range..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99f28b426926fd6bE.llvm.4766490671745005879"(ptr noundef nonnull align 8 %5) #16
+  invoke void @"_ZN4core3ptr152drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get_range..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99f28b426926fd6bE.llvm.4766490671745005879"(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
           to label %18 unwind label %16
 
 16:                                               ; preds = %14
@@ -3269,7 +3269,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr147drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..head..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7642519780ba0cf6E"(ptr noundef nonnull align 8 %3) #16
+  invoke void @"_ZN4core3ptr147drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..head..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7642519780ba0cf6E"(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
           to label %14 unwind label %12
 
 12:                                               ; preds = %10
@@ -3352,7 +3352,7 @@ common.ret:                                       ; preds = %49, %9
 21:                                               ; preds = %20, %10
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr137drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..head..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1eb968086359c83eE.llvm.1413925132987444071"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr137drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..head..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1eb968086359c83eE.llvm.1413925132987444071"(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
           to label %.body unwind label %23
 
 23:                                               ; preds = %21
@@ -3475,7 +3475,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr149drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10f0c5ff14647626E.llvm.4766490671745005879"(ptr noundef nonnull align 8 %3) #16
+  invoke void @"_ZN4core3ptr149drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10f0c5ff14647626E.llvm.4766490671745005879"(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
           to label %14 unwind label %12
 
 12:                                               ; preds = %10
@@ -3671,7 +3671,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr162drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..list_with_delimiter..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha65d778f9d600e8dE"(ptr noundef nonnull align 8 %3) #16
+  invoke void @"_ZN4core3ptr162drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..list_with_delimiter..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha65d778f9d600e8dE"(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
           to label %14 unwind label %12
 
 12:                                               ; preds = %10
@@ -3853,7 +3853,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr147drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..copy..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2740dcd9d44860ecE.llvm.4766490671745005879"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr147drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..copy..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2740dcd9d44860ecE.llvm.4766490671745005879"(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
           to label %16 unwind label %14
 
 14:                                               ; preds = %12
@@ -4037,7 +4037,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr161drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..copy_if_not_exists..$u7b$$u7b$closure$u7d$$u7d$$GT$17h77d4df6471596275E"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr161drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..copy_if_not_exists..$u7b$$u7b$closure$u7d$$u7d$$GT$17h77d4df6471596275E"(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
           to label %16 unwind label %14
 
 14:                                               ; preds = %12
@@ -4221,7 +4221,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr163drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..rename_if_not_exists..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd838a671695ecc5E"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr163drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..rename_if_not_exists..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd838a671695ecc5E"(ptr noundef nonnull align 8 dereferenceable(176) %4) #16
           to label %16 unwind label %14
 
 14:                                               ; preds = %12
@@ -4611,7 +4611,7 @@ common.ret:                                       ; preds = %121, %17
 126:                                              ; preds = %124
   %127 = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !581
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %127)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127)
           to label %.noexc20 unwind label %138
 
 .noexc20:                                         ; preds = %126
@@ -4652,7 +4652,7 @@ common.ret:                                       ; preds = %121, %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !581
   %141 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !595
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %141)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %141)
           to label %.noexc24 unwind label %149
 
 .noexc24:                                         ; preds = %140
@@ -4693,7 +4693,7 @@ common.ret:                                       ; preds = %121, %17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %156 = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !605
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %156)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %156)
           to label %.noexc28 unwind label %138
 
 .noexc28:                                         ; preds = %155
@@ -4714,7 +4714,7 @@ common.ret:                                       ; preds = %121, %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !605
   %165 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !614
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %165)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %165)
           to label %.noexc32 unwind label %149
 
 .noexc32:                                         ; preds = %164
@@ -4773,7 +4773,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr156drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..put_multipart..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a4444a9c3c91d14E"(ptr noundef nonnull align 8 %3) #16
+  invoke void @"_ZN4core3ptr156drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..put_multipart..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a4444a9c3c91d14E"(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
           to label %14 unwind label %12
 
 12:                                               ; preds = %10
@@ -4955,7 +4955,7 @@ define { ptr, ptr } @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$u
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr158drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..abort_multipart..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0f713d7dc1f368a2E"(ptr noundef nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr158drop_in_place$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..abort_multipart..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0f713d7dc1f368a2E"(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
           to label %16 unwind label %14
 
 14:                                               ; preds = %12

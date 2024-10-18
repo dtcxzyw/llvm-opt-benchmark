@@ -209,7 +209,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   br i1 %59, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %54
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef %57) #5
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef range(i32 -32767, 32768) %57) #5
   br label %ExecGetJunkAttribute.exit
 
 ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeattrs.exit.i.i
@@ -260,7 +260,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   br i1 %87, label %slot_getsomeattrs.exit.i.i83, label %ExecGetJunkAttribute.exit84
 
 slot_getsomeattrs.exit.i.i83:                     ; preds = %81
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef %85) #5
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef range(i32 -32767, 32768) %85) #5
   br label %ExecGetJunkAttribute.exit84
 
 ExecGetJunkAttribute.exit84:                      ; preds = %81, %slot_getsomeattrs.exit.i.i83
@@ -353,7 +353,7 @@ switch.lookup:                                    ; preds = %127
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 208
   %144 = load ptr, ptr %143, align 8
-  %145 = call i32 %144(ptr noundef nonnull %101, ptr noundef nonnull %2, ptr noundef %137, ptr noundef nonnull %46, i32 noundef %138, i32 noundef %switch.offset, i32 noundef %140, i8 noundef zeroext %spec.select81, ptr noundef nonnull %3) #5
+  %145 = call i32 %144(ptr noundef nonnull %101, ptr noundef nonnull %2, ptr noundef %137, ptr noundef nonnull %46, i32 noundef %138, i32 noundef range(i32 0, 4) %switch.offset, i32 noundef %140, i8 noundef zeroext range(i8 1, 4) %spec.select81, ptr noundef nonnull %3) #5
   switch i32 %145, label %169 [
     i32 6, label %.backedge.backedge
     i32 2, label %.backedge.backedge

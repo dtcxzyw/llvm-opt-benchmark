@@ -53,7 +53,7 @@ define dso_local void @_ZN4llvm12PluginLoaderaSERKNSt7__cxx1112basic_stringIcSt1
   br label %_ZN12_GLOBAL__N_110getPluginsEv.exit
 
 _ZN12_GLOBAL__N_110getPluginsEv.exit:             ; preds = %2, %6, %8
-  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
   %.not.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %11
 
@@ -162,7 +162,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %40, %42
 
 _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %67, %64, %58, %56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %68 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
+  %68 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
   ret void
 }
 
@@ -198,7 +198,7 @@ define dso_local noundef i32 @_ZN4llvm12PluginLoader13getNumPluginsEv() local_un
   br label %_ZN12_GLOBAL__N_110getPluginsEv.exit
 
 _ZN12_GLOBAL__N_110getPluginsEv.exit:             ; preds = %0, %3, %5
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %8
 
@@ -214,7 +214,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 5
   %15 = trunc i64 %14 to i32
-  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
+  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
   ret i32 %15
 }
 
@@ -239,7 +239,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm12Plug
   br label %_ZN12_GLOBAL__N_110getPluginsEv.exit
 
 _ZN12_GLOBAL__N_110getPluginsEv.exit:             ; preds = %1, %4, %6
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %9
 
@@ -251,7 +251,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   %10 = zext i32 %0 to i64
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getPluginsEvE1P, i64 48), align 8
   %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 %10
-  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
+  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZN12_GLOBAL__N_110getPluginsEvE1P) #10
   ret ptr %12
 }
 

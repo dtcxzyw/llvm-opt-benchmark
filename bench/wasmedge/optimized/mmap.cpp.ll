@@ -25,7 +25,7 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture n
   store i32 -1, ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8, !noalias !4
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13, !noalias !4
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #13, !noalias !4
   %8 = invoke i32 (ptr, i32, ...) @open(ptr noundef %7, i32 noundef 0)
           to label %9 unwind label %14, !noalias !4
 

@@ -986,7 +986,7 @@ _ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConf
 
 if.end3:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(384) %this) #21
   br i1 %call.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread, label %if.end.i
 
 _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread: ; preds = %if.end3
@@ -1004,7 +1004,7 @@ _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread29: 
   br label %if.end7
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this)
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(384) %this)
   %10 = load ptr, ptr %agg.tmp.i, align 8
   %11 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %12 = load i64, ptr %11, align 8
@@ -1294,7 +1294,7 @@ lpad:                                             ; preds = %.noexc, %if.then3.i
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(384) %this) #21
   br i1 %call.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
@@ -1304,7 +1304,7 @@ if.end.i:                                         ; preds = %if.else
   br i1 %tobool.not.i, label %if.then3.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this)
+  invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(384) %this)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i
@@ -1482,7 +1482,7 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEP
   call void @_ZNSt11_Deque_baseImSaImEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, i64 noundef 0)
   %server_designated_connection_ids_ = getelementptr inbounds i8, ptr %this, i64 224
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %server_designated_connection_ids_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -1500,7 +1500,7 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEP
   %_M_node5.i8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   %9 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_, ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_queue, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 16
   store ptr %2, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 24
@@ -1928,7 +1928,7 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEP
   call void @_ZNSt11_Deque_baseImSaImEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, i64 noundef 0)
   %server_designated_connection_ids_ = getelementptr inbounds i8, ptr %this, i64 224
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %server_designated_connection_ids_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %6 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -1946,7 +1946,7 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEP
   %_M_node5.i8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   %13 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_, ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_queue, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 16
   store ptr %6, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 24
@@ -2101,7 +2101,7 @@ if.end.i:                                         ; preds = %call2.i7.noexc, %in
   %vtable.i4 = load ptr, ptr %histogram_pointer.0.i3, align 8
   %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 40
   %9 = load ptr, ptr %vfn.i5, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i3, i32 noundef %call7)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i3, i32 noundef range(i32 0, 6) %call7)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end.i
@@ -2440,7 +2440,7 @@ cleanup.done:                                     ; preds = %if.then, %cleanup.a
           to label %call.i.noexc unwind label %lpad12
 
 call.i.noexc:                                     ; preds = %cleanup.done
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %.noexc unwind label %lpad12
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2450,7 +2450,7 @@ call.i.noexc:                                     ; preds = %cleanup.done
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad12.body
 
 invoke.cont13:                                    ; preds = %.noexc
@@ -2567,7 +2567,7 @@ if.end:                                           ; preds = %entry, %_ZNSt8_Rb_t
 
 invoke.cont:                                      ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %server_id)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(44) %server_id)
   %port_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 32
   %port_3.i.i.i.i = getelementptr inbounds i8, ptr %server_id, i64 32
   %1 = load i16, ptr %port_3.i.i.i.i, align 8, !noalias !15
@@ -2586,7 +2586,7 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont, %call.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %3, %invoke.cont ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %add.ptr.i.i.i, %invoke.cont ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call.i.i.i.i.i6 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp11)
+  %call.i.i.i.i.i6 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11)
           to label %call.i.i.i.i.i.noexc unwind label %lpad12.loopexit
 
 call.i.i.i.i.i.noexc:                             ; preds = %while.body.i.i.i.i
@@ -2603,7 +2603,7 @@ _ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4less
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call.i.i7 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i)
+  %call.i.i7 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i)
           to label %call.i.i.noexc unwind label %lpad12.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %lor.rhs.i
@@ -2615,7 +2615,7 @@ if.then.i:                                        ; preds = %call.i.i.noexc, %_Z
           to label %invoke.cont13 unwind label %lpad12.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %call.i.i.noexc, %if.then.i
-  call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp11) #21
+  call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11) #21
   %call15 = call noundef zeroext i1 @_ZN3net22QuicCryptoClientConfig27PopulateFromCanonicalConfigERKNS_12QuicServerIdEPNS0_11CachedStateE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(44) %server_id, ptr noundef nonnull %call9)
   %4 = load atomic volatile i64, ptr @_ZZN3net22QuicCryptoClientConfig14LookupOrCreateERKNS_12QuicServerIdEE24atomic_histogram_pointer acquire, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -2646,7 +2646,7 @@ lpad12.loopexit.split-lp:                         ; preds = %lor.rhs.i, %if.then
 
 lpad12:                                           ; preds = %lpad12.loopexit.split-lp, %lpad12.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit.split-lp, %lpad12.loopexit.split-lp ]
-  call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp11) #21
+  call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11) #21
   br label %eh.resume
 
 if.end20:                                         ; preds = %if.then18, %invoke.cont13
@@ -2821,7 +2821,7 @@ invoke.cont19:                                    ; preds = %call.i.i.noexc, %if
   %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %call.i.i37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(32) %server_id)
+  %call.i.i37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %second.i, ptr noundef nonnull align 8 dereferenceable(44) %server_id)
           to label %_ZN3net12QuicServerIdaSERKS0_.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3net12QuicServerIdaSERKS0_.exit:               ; preds = %invoke.cont19
@@ -3011,7 +3011,7 @@ invoke.cont33:                                    ; preds = %call.i.i.noexc118, 
   %second.i113 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i112, i64 80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i94)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i95)
-  %call.i.i128 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i113, ptr noundef nonnull align 8 dereferenceable(32) %server_id)
+  %call.i.i128 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %second.i113, ptr noundef nonnull align 8 dereferenceable(44) %server_id)
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -3120,7 +3120,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then7, %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cached) #21
+  %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(384) %cached) #21
   br i1 %call.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread, label %if.end.i
 
 _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread: ; preds = %if.end10
@@ -3138,7 +3138,7 @@ _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread55: 
   br label %if.then12
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cached)
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(384) %cached)
   %10 = load ptr, ptr %agg.tmp.i, align 8
   %11 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %12 = load i64, ptr %11, align 8
@@ -3953,7 +3953,7 @@ entry:
   store i64 %connection_id, ptr %connection_id.addr, align 8
   tail call void @_ZNK3net22QuicCryptoClientConfig23FillInchoateClientHelloERKNS_12QuicServerIdENS_11QuicVersionEPKNS0_11CachedStateEPNS_10QuicRandomEbPNS_30QuicCryptoNegotiatedParametersEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(44) %server_id, i32 noundef %preferred_version, ptr noundef %cached, ptr noundef %rand, i1 noundef zeroext true, ptr noundef %out_params, ptr noundef %out)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cached) #21
+  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(384) %cached) #21
   br i1 %call.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread, label %if.end.i
 
 _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread: ; preds = %entry
@@ -3971,7 +3971,7 @@ _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread137:
   br label %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cached)
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(384) %cached)
   %1 = load ptr, ptr %agg.tmp.i, align 8
   %2 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %3 = load i64, ptr %2, align 8
@@ -5681,7 +5681,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 80
   tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %second.i.i.i.i.i) #21
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
@@ -5704,7 +5704,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !26
@@ -10190,7 +10190,7 @@ cleanup:                                          ; preds = %invoke.cont3
   br i1 %tobool.not.i, label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #23
   br label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit
 
@@ -10406,7 +10406,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   br label %if.end
 
@@ -10419,7 +10419,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt
 entry:
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   %_M_storage.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__args)
           to label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE17_M_construct_nodeIJS2_IS1_S6_EEEEvPSt13_Rb_tree_nodeIS7_EDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -10953,7 +10953,7 @@ lpad:                                             ; preds = %lor.rhs.i.i, %invok
 if.then.i:                                        ; preds = %invoke.cont7
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 80
   tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %second.i.i.i.i.i.i) #21
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #23
   br label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit
 
@@ -11171,7 +11171,7 @@ if.then:                                          ; preds = %entry
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %second.i.i.i.i.i) #21
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   br label %if.end
 
@@ -11185,7 +11185,7 @@ entry:
   %_M_storage.i = getelementptr inbounds i8, ptr %__node, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(44) %1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -11204,7 +11204,7 @@ entry:
 lpad.i.i.i.i:                                     ; preds = %.noexc
   %4 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i) #21
   br label %lpad.body
 
 lpad:                                             ; preds = %entry
@@ -11216,7 +11216,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad.i.i.i.i ]
   %6 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
-  tail call void @_ZdlPv(ptr noundef %__node) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__node) #23
   invoke void @__cxa_rethrow() #26
           to label %unreachable unwind label %lpad7
 
@@ -11254,7 +11254,7 @@ entry:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -11336,7 +11336,7 @@ lpad:                                             ; preds = %lor.rhs.i.i, %invok
   br label %common.resume
 
 if.then.i:                                        ; preds = %invoke.cont7
-  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i.i) #21
+  tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #23
   br label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit
 

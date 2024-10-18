@@ -167,7 +167,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4perf8TestBase21PerfSkipTestExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN6cvtest7details21SkipTestExceptionBaseC2Eb(ptr noundef nonnull align 8 dereferenceable(148) %0, i1 noundef zeroext false)
+  tail call void @_ZN6cvtest7details21SkipTestExceptionBaseC2Eb(ptr noundef nonnull align 8 dereferenceable(152) %0, i1 noundef zeroext false)
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 0, ptr %2, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4perf8TestBase21PerfSkipTestExceptionE, i64 16), ptr %0, align 8
@@ -180,7 +180,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4perf8TestBase21PerfSkipTestExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) #9
+  tail call void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #9
   ret void
 }
 
@@ -368,7 +368,7 @@ declare void @_ZN2cv5randuERKNS_17_InputOutputArrayERKNS_11_InputArrayES5_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4perf8TestBase21PerfSkipTestExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) #9
+  tail call void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

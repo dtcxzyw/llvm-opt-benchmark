@@ -2671,7 +2671,7 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %17
   call void @_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLocsERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_23TemplateArgumentLocInfoENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nonnull readonly %20, i64 %23, ptr noundef nonnull %25, i32 %2)
   %27 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %27, i64 noundef 8) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %27, i64 noundef 8) #15
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store i32 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 276
@@ -2687,9 +2687,9 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   %32 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %20, i64 %indvars.iv.i
   %33 = getelementptr inbounds %"struct.clang::TemplateArgumentLocInfo", ptr %25, i64 %indvars.iv.i
   %.sroa.01.0.copyload.i = load i64, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %32, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %32, i64 24, i1 false)
   store i64 %.sroa.01.0.copyload.i, ptr %30, align 8
-  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang19TemplateArgumentLocELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang19TemplateArgumentLocELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %23
   br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !10
@@ -2704,7 +2704,7 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   %35 = call noundef ptr @_ZN5clang27ASTTemplateArgumentListInfo6CreateERKNS_10ASTContextERKNS_24TemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(280) %5) #15
   %36 = call noundef ptr @_ZN5clang16ConceptReference6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationENS_19DeclarationNameInfoEPNS_9NamedDeclEPNS_11ConceptDeclEPKNS_27ASTTemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr null, ptr null, i32 %2, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %7, ptr noundef null, ptr noundef %34, ptr noundef %35) #15
   call void @_ZdaPv(ptr noundef nonnull %25) #17
-  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %5) #15
   %38 = load ptr, ptr %5, align 8
   %39 = icmp eq ptr %38, %27
   br i1 %39, label %_ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_8AutoTypeE.exit, label %40

@@ -1257,7 +1257,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true4
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %4 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
+  %call.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %2)
   %cmp.not.i = icmp slt i32 %3, %call.i
   br i1 %cmp.not.i, label %return, label %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit
 
@@ -1265,7 +1265,7 @@ _ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %vtable2.i = load ptr, ptr %this, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 128
   %5 = load ptr, ptr %vfn3.i, align 8
-  %call4.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
+  %call4.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %2)
   %cmp5.i.not = icmp sgt i32 %3, %call4.i
   br i1 %cmp5.i.not, label %return, label %for.inc
 

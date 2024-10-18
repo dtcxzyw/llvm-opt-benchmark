@@ -411,7 +411,7 @@ _ZN8CallRegsC2Eii.exit:                           ; preds = %.lr.ph.i.i4.i, %_ZN
   %46 = shl nuw nsw i64 %indvars.iv, %.7.i
   %47 = add nuw nsw i64 %45, %46
   %48 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %49 = tail call noundef ptr %48(ptr noundef nonnull %15, i64 noundef %47) #12
+  %49 = tail call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %47) #12
   %50 = tail call noundef signext i8 @_ZN34jdk_internal_foreign_abi_VMStorage4typeEP7oopDesc(ptr noundef %49) #12
   %51 = tail call noundef signext i16 @_ZN34jdk_internal_foreign_abi_VMStorage20segment_mask_or_sizeEP7oopDesc(ptr noundef %49) #12
   %52 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %49) #12
@@ -465,7 +465,7 @@ _ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit:
   %75 = shl nuw nsw i64 %indvars.iv36, %.7.i19
   %76 = add nuw nsw i64 %74, %75
   %77 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %78 = tail call noundef ptr %77(ptr noundef nonnull %16, i64 noundef %76) #12
+  %78 = tail call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %76) #12
   %79 = tail call noundef signext i8 @_ZN34jdk_internal_foreign_abi_VMStorage4typeEP7oopDesc(ptr noundef %78) #12
   %80 = tail call noundef signext i16 @_ZN34jdk_internal_foreign_abi_VMStorage20segment_mask_or_sizeEP7oopDesc(ptr noundef %78) #12
   %81 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %78) #12

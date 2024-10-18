@@ -3472,7 +3472,7 @@ if.else.i76:                                      ; preds = %if.then86
   unreachable
 
 bdrv_unref_child.exit:                            ; preds = %if.then86
-  call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef %25, ptr noundef null)
+  call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef nonnull %25, ptr noundef null)
   call void @bdrv_root_unref_child(ptr noundef nonnull %25)
   %26 = load ptr, ptr %file, align 8
   %tobool89.not = icmp eq ptr %26, null
@@ -3680,7 +3680,7 @@ if.else.i.i.i:                                    ; preds = %land.rhs.i.i
   unreachable
 
 bdrv_unref_child.exit.i.i:                        ; preds = %land.rhs.i.i
-  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef %child.070.i.i, ptr noundef null)
+  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef nonnull %child.070.i.i, ptr noundef null)
   tail call void @bdrv_root_unref_child(ptr noundef nonnull %child.070.i.i)
   %tobool15.not.i.i = icmp eq ptr %14, null
   br i1 %tobool15.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !18
@@ -8906,14 +8906,14 @@ if.then76.i:                                      ; preds = %lor.lhs.false.i, %l
 
 if.end79.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.end68.i
   call void @bdrv_graph_rdunlock_main_loop() #31
-  %call80.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef %state22, i1 noundef zeroext true, ptr noundef %call, ptr noundef %errp)
+  %call80.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef nonnull %state22, i1 noundef zeroext true, ptr noundef %call, ptr noundef %errp)
   %cmp81.i = icmp slt i32 %call80.i, 0
   br i1 %cmp81.i, label %if.then157.i, label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.end79.i
   %59 = load ptr, ptr %options.i, align 8
   call void @qdict_del(ptr noundef %59, ptr noundef nonnull @.str.89) #31
-  %call86.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef %state22, i1 noundef zeroext false, ptr noundef %call, ptr noundef %errp)
+  %call86.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef nonnull %state22, i1 noundef zeroext false, ptr noundef %call, ptr noundef %errp)
   %cmp87.i = icmp slt i32 %call86.i, 0
   br i1 %cmp87.i, label %if.then157.i, label %if.end90.i
 

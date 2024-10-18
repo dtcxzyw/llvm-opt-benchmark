@@ -1492,7 +1492,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashinet(ptr nocapture noundef re
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 2
   %11 = select i1 %10, i32 6, i32 18
-  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %8, i32 noundef %11) #13
+  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %8, i32 noundef range(i32 6, 19) %11) #13
   %13 = zext i32 %12 to i64
   ret i64 %13
 }
@@ -1513,7 +1513,7 @@ define dso_local i64 @hashinetextended(ptr nocapture noundef readonly %0) local_
   %11 = select i1 %10, i32 6, i32 18
   %12 = getelementptr i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
-  %14 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %8, i32 noundef %11, i64 noundef %13) #13
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %8, i32 noundef range(i32 6, 19) %11, i64 noundef %13) #13
   ret i64 %14
 }
 

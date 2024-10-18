@@ -1629,7 +1629,7 @@ if.then4.i.i:                                     ; preds = %if.end.i83.i
 sendline.exit.i:                                  ; preds = %if.end.i83.i
   call void @strbuf_release(ptr noundef nonnull %buf.i) #18
   call void @string_list_clear(ptr noundef nonnull %cas_options.i, i32 noundef 0) #18
-  %call63.i = call fastcc i32 @push_update_refs_status(ptr noundef nonnull %9, ptr noundef %remote_refs, i32 noundef %flags)
+  %call63.i = call fastcc i32 @push_update_refs_status(ptr noundef nonnull %9, ptr noundef nonnull %remote_refs, i32 noundef %flags)
   br label %push_refs_with_push.exit
 
 push_refs_with_push.exit:                         ; preds = %if.then9, %reject_atomic_push.exit.i, %if.then52.i, %sendline.exit.i
@@ -1893,7 +1893,7 @@ if.then76.i:                                      ; preds = %if.end73.i
   unreachable
 
 if.end78.i:                                       ; preds = %if.end73.i
-  %call79.i = call fastcc i32 @push_update_refs_status(ptr noundef nonnull %61, ptr noundef %remote_refs, i32 noundef %flags)
+  %call79.i = call fastcc i32 @push_update_refs_status(ptr noundef nonnull %61, ptr noundef nonnull %remote_refs, i32 noundef %flags)
   %tobool80.not.i = icmp eq i32 %call79.i, 0
   br i1 %tobool80.not.i, label %if.end82.i, label %push_refs_with_export.exit
 
